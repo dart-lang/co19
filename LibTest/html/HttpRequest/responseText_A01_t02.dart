@@ -14,17 +14,14 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  var request = new HttpRequest();
   var port = crossOriginPort;
   var host = '${window.location.protocol}//${window.location.hostname}:$port';
   var url = '$host/root_dart/tests/co19/src/LibTest/html/IntentionallyMissingFile';
-  request.open('GET', url);
+  Future<HttpRequest> f = HttpRequest.request(url);
   asyncStart();
-  request.onError.listen((event) {
-    Expect.equals(0, request.status);
-    Expect.isNull(request.response);
-    Expect.equals(0, request.responseText?.length);
+  f.then((HttpRequest r) {
+    Expect.fail("request.then() called");
+  }, onError: (Object error) {
     asyncEnd();
   });
-  request.send();
 }
