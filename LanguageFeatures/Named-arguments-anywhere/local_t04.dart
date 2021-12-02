@@ -16,12 +16,12 @@ import "../../Utils/expect.dart";
 
 main() {
   Expect.equals("x=1, y=2, z=3", <T>(T x, T y, {T? z}) {
-    "x=$x, y=$y, z=$z";}<int>(1, 2, z: 3)
+    return "x=$x, y=$y, z=$z";}<int>(1, 2, z: 3)
   );
   Expect.equals("x=1, y=2, z=3", <T>(T x, T y, {T? z}) {
-    "x=$x, y=$y, z=$z";}<int>(z: 3, 1, 2)
+    return "x=$x, y=$y, z=$z";}<int>(z: 3, 1, 2)
   );
   Expect.equals("x=1, y=2, z=3", <T>(T x, T y, {T? z}) {
-    "x=$x, y=$y, z=$z";}<int>(1, z: 3, 2)
+    return "x=$x, y=$y, z=$z";}<int>(1, z: 3, 2)
   );
 }
