@@ -16,6 +16,7 @@
 ///
 /// @author a.semenov@unipro.ru
 
+import "dart:io";
 import "dart:isolate";
 import "dart:math";
 import "../../../Utils/expect.dart";
@@ -28,6 +29,10 @@ entryPoint(List<SendPort> sendPorts) {
   while (true) {
     s = -s + random.nextInt(100);
     sendPorts[1].send(s);
+
+    // Synchronous sleep does not yield to the message loop, so the pause
+    // doesn't take effect.
+    sleep(const Duration(milliseconds: 1));
   }
 }
 
@@ -46,7 +51,7 @@ test() async {
   // check that messages are received from paused isolate
   int count = 0;
   await for (var _ in receivePort2) {
-    if (count++ == 1000000) {
+    if (count++ == 100) {
       break;
     }
   }
