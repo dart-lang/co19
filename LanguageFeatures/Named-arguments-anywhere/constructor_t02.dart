@@ -30,7 +30,7 @@ main() {
   Expect.equals("x=1, y=2, z=3", C<int>(1, 2, z: 3).log);
   Expect.equals("x=1, y=2, z=3", C<int>(z: 3, 1, 2).log);
   Expect.equals("x=1, y=2, z=3", C<int>(1, z: 3, 2).log);
-  Expect.equals("x=1, y=2, z=3", C.named<int>(1, 2, z: 3).log);
-  Expect.equals("x=1, y=2, z=3", C.named<int>(z: 3, 1, 2).log);
-  Expect.equals("x=1, y=2, z=3", C.named<int>(1, z: 3, 2).log);
+  Expect.equals("x=1, y=2, z=3", C<int>.named(1, 2, z: 3).log);
+  Expect.equals("x=1, y=2, z=3", C<int>.named(z: 3, 1, 2).log);
+  Expect.equals("x=1, y=2, z=3", C<int>.named(1, z: 3, 2).log);
 }

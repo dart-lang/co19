@@ -25,7 +25,7 @@ class C<T> {
     return new C(x, y, z);
   }
 
-  factory C.f2(Tx, T y, {T? z}) = D;
+  factory C.f2(T x, T y, {T? z}) = D;
 }
 
 class D<T> extends C<T> {

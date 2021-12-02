@@ -17,7 +17,7 @@ import "../../Utils/expect.dart";
 class A<T> {
   String log = "";
 
-  C(T x, T y, {T? z}) {
+  A(T x, T y, {T? z}) {
     log = "x=$x, y=$y, z=$z";
   }
 }
