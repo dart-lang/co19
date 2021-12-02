@@ -42,7 +42,7 @@ bool isDartkp() {
   String basename =  parts[parts.length - 1];
   var pos = basename.lastIndexOf('.');
   String result = (pos != -1) ? basename.substring(0, pos) : basename;
-  return basename == "dart_precompiled_runtime";
+  return result == "dart_precompiled_runtime";
 }
 
 main() {
