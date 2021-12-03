@@ -37,7 +37,7 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-bool isDartkp() {
+bool get isDartkp {
   var parts = Uri.file(Platform.resolvedExecutable).pathSegments;
   String basename =  parts[parts.length - 1];
   var pos = basename.lastIndexOf('.');
@@ -51,7 +51,7 @@ main() {
   asyncStart();
   Process.run(executable, [file.path]).then((ProcessResult results) {
     Expect.notEquals(0, results.exitCode);
-    if(!isDartkp()) {
+    if(!isDartkp) {
       Expect.notEquals(255, results.exitCode);
     } else {
       Expect.equals(255, results.exitCode);
