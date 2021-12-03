@@ -32,7 +32,9 @@ class C {}
 
 main() {
   Expect.isTrue(new C1026() is C);
-  Expect.isTrue(new C1026() is Object);
+  Expect.equals("C1026", (C c) {
+    return c.runtimeType.toString();}(C1026())
+  );
 }
 
 class C1 extends C {}
