@@ -36,14 +36,7 @@
 
 import "dart:io";
 import "../../../Utils/expect.dart";
-
-bool get isDartkp {
-  var parts = Uri.file(Platform.resolvedExecutable).pathSegments;
-  String basename =  parts[parts.length - 1];
-  var pos = basename.lastIndexOf('.');
-  String result = (pos != -1) ? basename.substring(0, pos) : basename;
-  return result == "dart_precompiled_runtime";
-}
+import "../../../Utils/test_mode_check.dart";
 
 main() {
   String executable = Platform.resolvedExecutable;
