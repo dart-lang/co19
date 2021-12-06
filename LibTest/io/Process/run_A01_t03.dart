@@ -29,11 +29,16 @@
 /// zero (not success)and not 255 (not a runtime error) if invalid file path is
 /// used - which is all we really know about the `dart` executable. Any other
 /// error should be fine.
+/// For dartkp configuration, exit code should be 255: VM initialization failed
+/// because cannot load non-existing snapshot and runtime exception is thrown
+/// here, so exit code should be 255 here.
+///
 /// @author sgrekhov@unipro.ru
 /// @issue 31611
 
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../../../Utils/test_mode_check.dart";
 
 main() {
   String executable = Platform.resolvedExecutable;
@@ -41,7 +46,11 @@ main() {
   asyncStart();
   Process.run(executable, [file.path]).then((ProcessResult results) {
     Expect.notEquals(0, results.exitCode);
-    Expect.notEquals(255, results.exitCode);
+    if(!isDartkp) {
+      Expect.notEquals(255, results.exitCode);
+    } else {
+      Expect.equals(255, results.exitCode);
+    }
     Expect.notEquals("", results.stderr);
     asyncEnd();
   });

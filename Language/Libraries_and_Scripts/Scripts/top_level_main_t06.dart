@@ -5,19 +5,20 @@
 // @dart = 2.9
 
 /// @assertion A Dart program will typically be executed by executing a script.
-/// @description Checks that dart returns correct exit code if main function
-/// presents in the executed dart script.
+/// @description Checks that dart returns correct (non-zero) exit code if [main]
+/// function is absent in the executed dart script.
 /// @author iarkh
 /// @issue 42487
 
 // OtherResources=top_level_main_t06_lib.dart
 import "../../../Utils/expect.dart";
+import "../../../Utils/test_mode_check.dart";
 import "dart:io";
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString().replaceAll(".dart", "_lib.dart");
-  if (!executable.endsWith(Platform.pathSeparator + "dart")) {
+  if (isAOT) {
     // This is the case of AOT configuration
     executable = executable.replaceRange(
         executable.lastIndexOf(Platform.pathSeparator) + 1, null, "dart");
@@ -28,7 +29,8 @@ run_main() async {
   }
   int called = 0;
 
-  await Process.run(executable, [...Platform.executableArguments, eScript])
+  await Process.run(
+      executable, [...Platform.executableArguments, eScript])
       .then((ProcessResult results) {
     Expect.notEquals(0, results.exitCode);
     called++;
