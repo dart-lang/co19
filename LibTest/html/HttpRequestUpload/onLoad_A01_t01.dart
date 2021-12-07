@@ -5,6 +5,7 @@
 /// @assertion final Stream<ProgressEvent> onLoad
 /// Stream of load events handled by this HttpRequestEventTarget.
 /// @description Checks the state of request at various moments of time.
+/// @author sgrekhov@unipro.ru
 /// @Issue https://github.com/dart-lang/co19/issues/932
 
 import "dart:html";
@@ -12,7 +13,6 @@ import "../../../Utils/expect.dart";
 
 int get crossOriginPort {
   var searchUrl = window.location.search!;
-  print("SearchURL=" + searchUrl);
   var crossOriginStr = 'crossOriginPort=';
   var index = searchUrl.indexOf(crossOriginStr);
   var nextArg = searchUrl.indexOf('&', index);
@@ -24,34 +24,20 @@ var port = crossOriginPort;
 var host = '${window.location.protocol}//${window.location.hostname}:$port';
 
 main() {
-  HttpRequest request = new HttpRequest();
-  var url = '$host/root_dart/tests/co19/src/LibTest/html/xhr_cross_origin_data.txt';
-  request.open('GET', url);
-  Expect.equals(HttpRequest.OPENED, request.readyState, "after open");
-  print("Log 1");
-  HttpRequestUpload upload = request.upload;
+  FormData data = FormData();
+  List<String> file_contents = ["Lily was here"];
+  Blob blob = new Blob(file_contents, 'text/plain', 'native');
+  data.appendBlob("uploadData", blob);
+
+  var url = '$host/upload';
+  final r = new HttpRequest();
+  r.open("POST", url);
+  HttpRequestUpload upload = r.upload;
   asyncStart();
-  print("Log 2");
-  upload.onLoad.listen((event) {
-    print("Log 5");
-    switch (request.readyState) {
-      case HttpRequest.DONE:
-        asyncEnd();
-        break;
-      case HttpRequest.HEADERS_RECEIVED:
-        break;
-      case HttpRequest.LOADING:
-        break;
-      default:
-        Expect.fail(
-            "request.onLoad.listen: unexpected readyState:${request.readyState}");
-    }
-  }, onError: (Object error) {
-    print("Log 6");
-    Expect.fail("request.onLoad.listen:onError($error)");
+  upload.onLoad.listen((ProgressEvent event) {
+    Expect.isNotNull(event.loaded);
+    Expect.isTrue(event.loaded! > 0);
+    asyncEnd();
   });
-  print("Log 3");
-  request.send();
-  print("Log 4");
-  Expect.equals(HttpRequest.OPENED, request.readyState, "after send");
+  r.send(data);
 }

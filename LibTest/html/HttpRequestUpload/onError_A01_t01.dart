@@ -2,10 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Stream<ProgressEvent> get onLoadEnd
-/// Stream of loadend events handled by this HttpRequestEventTarget.
-/// @description Checks that only single event is fired.
-/// @author sgrekhov@unipro.ru
+/// @assertion Stream<ProgressEvent> get onError
+/// Stream of error events handled by this HttpRequestEventTarget.
+/// @description Checks that an error events issued when attemt to FET unexistent
+/// resourse is made and error 404 returned.
+/// @Issue #16757
 /// @Issue https://github.com/dart-lang/co19/issues/932
 
 import "dart:html";
@@ -29,14 +30,14 @@ main() {
   Blob blob = new Blob(file_contents, 'text/plain', 'native');
   data.appendBlob("uploadData", blob);
 
-  var url = '$host/upload';
+  var url = '$host/IntentionallyMissingFile';
   final r = new HttpRequest();
   r.open("POST", url);
   HttpRequestUpload upload = r.upload;
   asyncStart();
-  upload.onLoadEnd.listen((ProgressEvent event) {
+  upload.onError.listen((ProgressEvent event) {
     Expect.isNotNull(event.loaded);
-    Expect.isTrue(event.loaded! > 0);
+    Expect.isTrue(event.loaded! == 0);
     asyncEnd();
   });
   r.send(data);
