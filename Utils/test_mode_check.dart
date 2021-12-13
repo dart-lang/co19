@@ -7,9 +7,9 @@
 library test_mode_check;
 import "dart:io";
 
-typedef check = bool Function(String);
+typedef CheckExecutable = bool Function(String s);
 
-bool checkMode(check ret) {
+bool checkMode(CheckExecutable ret) {
   var parts = Uri.file(Platform.resolvedExecutable).pathSegments;
   String basename =  parts[parts.length - 1];
   var pos = basename.lastIndexOf('.');
