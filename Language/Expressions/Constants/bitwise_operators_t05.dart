@@ -14,7 +14,6 @@
 /// used to initialize a constant variable.
 /// @author kaigorodov
 
-
 final constList = const [
   1 << "one and a half"
 //     ^
@@ -23,7 +22,5 @@ final constList = const [
 ];
 
 main() {
-  try {
-    constList is List;
-  } catch (x) {}
+  print(constList);
 }

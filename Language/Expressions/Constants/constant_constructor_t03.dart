@@ -12,8 +12,6 @@
 /// a deferred prefix is not a constant expression.
 /// @author ngl@unipro.ru
 
-
-import '../../../Utils/expect.dart';
 import 'constants_lib.dart' deferred as clib;
 
 class A {
@@ -32,5 +30,5 @@ final constList = const [
 ];
 
 main() {
-  Expect.isTrue(constList is List);
+  print(constList);
 }

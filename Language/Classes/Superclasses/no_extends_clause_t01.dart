@@ -15,5 +15,5 @@ class A {}
 
 main() {
   A a = new A();
-  Expect.isTrue(a is Object);
+  checkType(checkIs<Object>, true, a);
 }

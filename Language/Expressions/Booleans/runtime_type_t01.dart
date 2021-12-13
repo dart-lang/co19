@@ -8,12 +8,11 @@
 /// literal returns the Type object that is the value of the expression bool.
 /// @author ngl@unipro.ru
 
-
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.isTrue(true.runtimeType is Type);
+  checkType(checkIs<Type>, true, true.runtimeType);
   Expect.isTrue(true.runtimeType == bool);
-  Expect.isTrue(false.runtimeType is Type);
+  checkType(checkIs<Type>, true, false.runtimeType);
   Expect.isTrue(false.runtimeType == bool);
 }

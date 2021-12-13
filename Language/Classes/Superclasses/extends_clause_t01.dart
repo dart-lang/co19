@@ -18,5 +18,5 @@ class A {}
 class B extends A {}
 
 main() {
-  Expect.isTrue(new B() is A);
+  checkType(checkIs<A>, true, B());
 }

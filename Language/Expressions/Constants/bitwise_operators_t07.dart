@@ -16,7 +16,6 @@
 /// value, is used to initialize a constant variable.
 /// @author iarkh@unipro.ru
 
-
 final constList = const [
   1 >>> "one and a half"
 //      ^
@@ -25,4 +24,5 @@ final constList = const [
 ];
 
 main() {
+  print(constList);
 }

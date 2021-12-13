@@ -16,6 +16,5 @@ class C {
 }
 
 main() {
-  C c = new C();
-  c is C;
+  C();
 }

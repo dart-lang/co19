@@ -21,7 +21,7 @@ class D extends CAlias {}
 
 main() {
   D d = new D();
-  Expect.isTrue(d is C);
-  Expect.isTrue(d is B);
-  Expect.isTrue(d is A);
+  checkType(checkIs<C>, true, d);
+  checkType(checkIs<B>, true, d);
+  checkType(checkIs<A>, true, d);
 }

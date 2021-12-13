@@ -11,6 +11,6 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.isTrue(false is bool);
-  Expect.isTrue(true is bool);
+  checkType(checkIs<bool>, true, false);
+  checkType(checkIs<bool>, true, true);
 }

@@ -13,7 +13,6 @@
 /// expression.
 /// @author iefremov
 
-
 import '../../../Utils/expect.dart';
 
 class A {
@@ -26,5 +25,5 @@ final constList = const [
 ];
 
 main() {
-  Expect.isTrue(constList is List);
+  checkType(checkIs<List>, true, constList);
 }
