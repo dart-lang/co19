@@ -22,8 +22,8 @@ class C {
 }
 
 main() {
-  Expect.isTrue(new A() is A);
-  Expect.isTrue(new A.b() is A);
-  Expect.isTrue(const C() is C);
-  Expect.isTrue(const C.c() is C);
+  checkType(checkIs<A>, true, new A());
+  checkType(checkIs<A>, true, new A.b());
+  checkType(checkIs<C>, true, new C());
+  checkType(checkIs<C>, true, new C.c());
 }

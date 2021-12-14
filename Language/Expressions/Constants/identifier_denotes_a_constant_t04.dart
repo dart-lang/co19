@@ -13,7 +13,6 @@
 /// can be assigned to a constant variable.
 /// @author ilya
 
-
 import '../../../Utils/expect.dart';
 
 typedef int F(int);
@@ -23,6 +22,6 @@ const a = F;
 const b = FF;
 
 main() {
-  Expect.isTrue(a is Type);
-  Expect.isTrue(b is Type);
+  checkType(checkIs<Type>, true, a);
+  checkType(checkIs<Type>, true, b);
 }

@@ -31,7 +31,7 @@ class A<T, U, V> {
 
   T x;
   U y;
-  V z;
+  V? z;
 }
 
 class B <T extends A> {
@@ -39,10 +39,10 @@ class B <T extends A> {
 
   B.redirected(): t = new A() {
     Expect.isNotNull(t);
-    Expect.isTrue(t is A);
+    checkType(checkIs<A>, true, t);
   }
 
-  A t;
+  A? t;
 }
 
 class C<T, U> {
@@ -56,7 +56,7 @@ class C<T, U> {
   }
 
   T a;
-  U b;
+  U? b;
 }
 
 main() {

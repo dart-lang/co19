@@ -15,23 +15,23 @@ import '../../../Utils/expect.dart';
 class A{
   int x = 5;
 
-  A getSelf() {
+  A get self {
     return this;
   }
 }
 
 main() {
   A a = new A();
-  Expect.isTrue(a.getSelf() is A);
-  Expect.equals(a, a.getSelf());
+  checkType(checkIs<A>, true, a.self);
+  Expect.equals(a, a.self);
   Expect.equals(5, a.x);
-  Expect.equals(5, a.getSelf().x);
+  Expect.equals(5, a.self.x);
 
   a.x = 1;
   Expect.equals(1, a.x);
-  Expect.equals(1, a.getSelf().x);
+  Expect.equals(1, a.self.x);
 
-  a.getSelf().x = 2;
+  a.self.x = 2;
   Expect.equals(2, a.x);
-  Expect.equals(2, a.getSelf().x);
+  Expect.equals(2, a.self.x);
 }

@@ -7,13 +7,12 @@
 /// @description Checks that a function literal implements interface Function.
 /// @author msyabro
 
-
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.isTrue(() {} is Function);
-  Expect.isTrue((() => 1) is Function);
-  Expect.isTrue(((p1, p2) {}) is Function);
-  Expect.isTrue(((p1, [int? p2]) {}) is Function);
-  Expect.isTrue(((p1, {int p2: 1}) {}) is Function);
+  checkType(checkIs<Function>, true, () {});
+  checkType(checkIs<Function>, true, (() => 1));
+  checkType(checkIs<Function>, true, ((p1, p2) {}));
+  checkType(checkIs<Function>, true, ((p1, [int? p2]) {}));
+  checkType(checkIs<Function>, true, ((p1, {int p2: 1}) {}));
 }

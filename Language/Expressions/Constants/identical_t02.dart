@@ -13,9 +13,6 @@
 /// a constant expressions.
 /// @author kaigorodov
 
-
-import '../../../Utils/expect.dart';
-
 bool identical(var a, var b) {
   return a.equals(b);
 }
@@ -28,5 +25,5 @@ final constList = const [
 ];
 
 main() {
-  Expect.isTrue(constList is List);
+  print(constList);
 }

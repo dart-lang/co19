@@ -13,7 +13,6 @@
 /// literal in the right part of the expression.
 /// @author msyabro
 
-
 main () {
   1 is 1;
 //     ^

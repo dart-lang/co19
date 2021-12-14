@@ -12,9 +12,9 @@ class A {}
 
 main() {
   var n = null;
-  Expect.isTrue(Null is Type);
-  Expect.isTrue(null is Null);
-  Expect.isTrue(n is Null);
-  Expect.isFalse(null is A);
-  Expect.isFalse(n is A);
+  checkType(checkIs<Type>, true, Null);
+  checkType(checkIs<Null>, true, null);
+  checkType(checkIs<Null>, true, n);
+  checkType(checkIs<A>, false, null);
+  checkType(checkIs<A>, false, n);
 }

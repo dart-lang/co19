@@ -18,7 +18,6 @@
 /// is moved to the math_operator_t08 test.
 /// @author iefremov
 
-
 import '../../../Utils/expect.dart';
 
 final constList = const [
@@ -29,5 +28,5 @@ final constList = const [
 ];
 
 main() {
-  Expect.isTrue(constList is List);
+  checkType(checkIs<List>, true, constList);
 }

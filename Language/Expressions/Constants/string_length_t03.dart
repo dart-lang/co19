@@ -13,9 +13,6 @@
 /// @Issue #24940
 /// @author ngl@unipro.ru
 
-
-import '../../../Utils/expect.dart';
-
 const Object o = "ab" + "cd";
 const l = o.toString().length;
 //        ^
@@ -23,5 +20,5 @@ const l = o.toString().length;
 // [cfe] unspecified
 
 main() {
-  Expect.isTrue(l is int);
+  print(l);
 }

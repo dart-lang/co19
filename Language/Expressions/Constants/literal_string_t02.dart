@@ -13,14 +13,11 @@
 /// value, cannot be assigned to a constant variable.
 /// @author iefremov
 
-
 const l = "${const {'k1': 1, 'k2': 2}}";
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  try {
-    print(l);
-  } catch (x) {}
+  print(l);
 }

@@ -11,7 +11,6 @@
 /// constant list literal and are, therefore, constant expressions.
 /// @author iefremov
 
-
 import '../../../Utils/expect.dart';
 
 final constList = const [
@@ -20,5 +19,5 @@ final constList = const [
 ];
 
 main() {
-  Expect.isTrue(constList is List);
+  checkType(checkIs<List>, true, constList);
 }

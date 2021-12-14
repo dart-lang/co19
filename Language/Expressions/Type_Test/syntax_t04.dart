@@ -13,7 +13,6 @@
 /// operand of a type test expression is a type alias name.
 /// @author kaigorodov
 
-
 typedef f();
 
 main() {

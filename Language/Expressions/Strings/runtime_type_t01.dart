@@ -11,12 +11,12 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.isTrue("abc".runtimeType is Type);
+  checkType(checkIs<Type>, true, "abc".runtimeType);
   Expect.isTrue("abc".runtimeType == String);
-  Expect.isTrue('abc'.runtimeType is Type);
+  checkType(checkIs<Type>, true, 'abc'.runtimeType);
   Expect.isTrue('abc'.runtimeType == String);
-  Expect.isTrue(r"abc".runtimeType is Type);
+  checkType(checkIs<Type>, true, r"abc".runtimeType);
   Expect.isTrue(r"abc".runtimeType == String);
-  Expect.isTrue(r'abc'.runtimeType is Type);
+  checkType(checkIs<Type>, true, r'abc'.runtimeType);
   Expect.isTrue(r'abc'.runtimeType == String);
 }

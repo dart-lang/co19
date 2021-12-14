@@ -15,11 +15,10 @@
 /// initialize a constant variable if e1 and e2 are strings.
 /// @author ngl@unipro.ru
 
-
 import '../../../Utils/expect.dart';
 
 const m = "ab" + "cd";
 
 main() {
-  Expect.isTrue(m is String);
+  checkType(checkIs<String>, true, m);
 }

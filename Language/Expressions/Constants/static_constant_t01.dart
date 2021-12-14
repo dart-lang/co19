@@ -12,7 +12,6 @@
 /// elementof a constant list literal and is, therefore, a constant expression.
 /// @author iefremov
 
-
 import '../../../Utils/expect.dart';
 
 const x = '';
@@ -27,5 +26,5 @@ const constList = const [
 ];
 
 main() {
-  Expect.isTrue(constList is List);
+  checkType(checkIs<List>, true, constList);
 }

@@ -11,11 +11,10 @@
 /// and is, therefore, a constant expression.
 /// @author iefremov
 
-
 import '../../../Utils/expect.dart';
 
 final constList = const [null];
 
 main() {
-  Expect.isTrue(constList is List);
+  checkType(checkIs<List>, true, constList);
 }

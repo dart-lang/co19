@@ -16,7 +16,6 @@
 /// errors.
 /// @author msyabro
 
-
 topFunc() {}
 
 class S {

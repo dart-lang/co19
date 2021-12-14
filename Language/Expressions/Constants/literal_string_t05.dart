@@ -13,14 +13,11 @@
 /// assigned to a constant variable.
 /// @author msyabro
 
-
 const i1 = "${1.toString()}";
 //            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  try {
-    print(i1);
-  } catch (x) {}
+  print(i1);
 }

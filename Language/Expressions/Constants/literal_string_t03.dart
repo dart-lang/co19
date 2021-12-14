@@ -13,7 +13,6 @@
 /// cannot be assigned to a constant variable.
 /// @author msyabro
 
-
 foo() => 1;
 
 const i1 = "${foo()}";
@@ -22,7 +21,5 @@ const i1 = "${foo()}";
 // [cfe] unspecified
 
 main() {
-  try {
-    print(i1);
-  } catch (x) {}
+  print(i1);
 }

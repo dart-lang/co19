@@ -13,7 +13,6 @@
 /// expression is a statement.
 /// @author msyabro
 
-
 main () {
   if (1 < 2) {} is bool;
 //              ^

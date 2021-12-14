@@ -13,7 +13,6 @@
 /// operand of a type test expression is a type name.
 /// @author kaigorodov
 
-
 main() {
   int is Type;
 }

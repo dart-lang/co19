@@ -12,7 +12,6 @@
 /// @description Checks basic grammar.
 /// @author msyabro
 
-
 main() {
   1 is int;
   2 is! int;

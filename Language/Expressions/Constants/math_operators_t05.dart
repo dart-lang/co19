@@ -15,7 +15,6 @@
 /// the form e1 + e2 where e1 or e2 does not evaluate to a numeric value, is
 /// used to initialize a constant variable.
 
-
 final constList = const [
   true + 1,
 //     ^
@@ -24,7 +23,5 @@ final constList = const [
 ];
 
 main() {
-  try {
-    constList is List;
-  } catch (x) {}
+  print(constList);
 }

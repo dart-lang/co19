@@ -42,8 +42,8 @@ class D {
 }
 
 main() {
-  Expect.isTrue(const A() is A);
-  Expect.isTrue(const B(0) is B);
-  Expect.isTrue(const C(p2: true, p1: "") is C);
-  Expect.isTrue(const D(0, 0) is D);
+  checkType(checkIs<A>, true, const A());
+  checkType(checkIs<B>, true, const B(0));
+  checkType(checkIs<C>, true, const C(p2: true, p1: ""));
+  checkType(checkIs<D>, true, const D(0, 0));
 }

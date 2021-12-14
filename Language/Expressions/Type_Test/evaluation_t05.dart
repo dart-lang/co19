@@ -12,7 +12,6 @@
 /// less then n type parameters, then it is a compile error
 /// @author msyabro
 
-
 class G<T> {}
 
 main() {

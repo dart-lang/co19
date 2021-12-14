@@ -9,7 +9,6 @@
 /// constant variable.
 /// @author iefremov
 
-
 import "../../../Utils/expect.dart";
 
 const m1 = null is Object;

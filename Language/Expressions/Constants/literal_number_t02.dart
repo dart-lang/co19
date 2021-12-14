@@ -12,7 +12,6 @@
 /// @note Should be OK both with dart and dart2js runs.
 /// @author iarkh@unipro.ru
 
-
 import '../../../Utils/expect.dart';
 
 final constList = const [
@@ -32,5 +31,5 @@ final constList = const [
 ];
 
 main() {
-  Expect.isTrue(constList is List);
+  checkType(checkIs<List>, true, constList);
 }

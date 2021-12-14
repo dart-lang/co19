@@ -12,7 +12,6 @@
 /// operands are constant expressions.
 /// @author ilya
 
-
 import '../../../Utils/expect.dart';
 
 const x = false;
@@ -28,5 +27,5 @@ const list = const [
 ];
 
 main() {
-  Expect.isTrue(list is List);
+  checkType(checkIs<List>, true, list);
 }

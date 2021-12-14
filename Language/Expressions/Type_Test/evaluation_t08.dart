@@ -12,7 +12,6 @@
 /// type, then it is a compile error
 /// @author ilya
 
-
 class G {}
 
 main() {

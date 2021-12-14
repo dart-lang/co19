@@ -9,7 +9,6 @@
 /// does not show that v has type T.
 /// @author ilya
 
-
 class C {}
 class D extends C { f() {} }
 

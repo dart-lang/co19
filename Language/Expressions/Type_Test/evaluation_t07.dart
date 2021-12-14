@@ -12,7 +12,6 @@
 /// argument and G is generic type, then it is a compile error
 /// @author ilya
 
-
 class G<T> {}
 
 main() {

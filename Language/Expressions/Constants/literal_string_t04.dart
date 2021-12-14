@@ -13,7 +13,6 @@
 /// to a constant variable.
 /// @author msyabro
 
-
 import "../../../Utils/expect.dart";
 
 const i1 = "${1 is int}";

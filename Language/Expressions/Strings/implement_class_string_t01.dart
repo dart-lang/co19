@@ -9,19 +9,19 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.isTrue("" is String);
-  Expect.isTrue('' is String);
-  Expect.isTrue(r"" is String);
-  Expect.isTrue(r'' is String);
-  Expect.isTrue("""""" is String);
-  Expect.isTrue('''''' is String);
-  Expect.isTrue(r"""""" is String);
-  Expect.isTrue(r'''''' is String);
+  checkType(checkIs<String>, true, "");
+  checkType(checkIs<String>, true, '');
+  checkType(checkIs<String>, true, r"");
+  checkType(checkIs<String>, true, r'');
+  checkType(checkIs<String>, true, """""");
+  checkType(checkIs<String>, true, '''''');
+  checkType(checkIs<String>, true, r"""""");
+  checkType(checkIs<String>, true, r'''''');
 
-  Expect.isTrue("String" is String);
-  Expect.isTrue('\x00\x01\x02' is String);
-  Expect.isTrue(r"\\\\\\\\" is String);
-  Expect.isTrue(r'$$$$$' is String);
-  Expect.isTrue("""
-                new line """ is String);
+  checkType(checkIs<String>, true, "String");
+  checkType(checkIs<String>, true, '\x00\x01\x02');
+  checkType(checkIs<String>, true, r"\\\\\\\\");
+  checkType(checkIs<String>, true, r'$$$$$');
+  checkType(checkIs<String>, true, """
+                new line """);
 }

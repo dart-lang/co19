@@ -6,9 +6,8 @@
 /// @description Checks that null is an instance of the Null class.
 /// @author ilya
 
-
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.isTrue(null is Null);
+  checkType(checkIs<Null>, true, null);
 }

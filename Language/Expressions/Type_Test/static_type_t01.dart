@@ -6,8 +6,6 @@
 /// @description Checks that the static checker does not raise warnings when
 /// assigning the result of the is-expression to bool variables.
 /// @author msyabro
-/// @reviewer kaigorodov
-
 
 main() {
   bool e = 1 is int;

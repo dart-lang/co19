@@ -24,15 +24,15 @@ typedef int F3(int i1, int p2, int p3, {int p4, int p5});
 
 main() {
   int f1(int p1) {return p1;};
-  Expect.isTrue(f1 is F1);
+  checkType(checkIs<F1>, true, f1);
   Function f = f1;
 
   int f2(int p1, int p2, [int p3 = 0, int p4 = 0]) {return p1 + p2 + p3 + p4;};
-  Expect.isTrue(f2 is F2);
+  checkType(checkIs<F2>, true, f2);
   f = f2;
 
   int f3(int p1, int p2, int p3, {p4, p5}) {return p1 + p2 + p3;};
-  Expect.isTrue(f3 is F3);
+  checkType(checkIs<F3>, true, f3);
   f = f3;
 
   Expect.isFalse(f1 is F2);
@@ -41,5 +41,4 @@ main() {
   Expect.isFalse(f2 is F3);
   Expect.isFalse(f3 is F1);
   Expect.isFalse(f3 is F2);
-
 }

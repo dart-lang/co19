@@ -14,7 +14,6 @@
 /// value, is used to initialize a constant variable.
 /// @author kaigorodov
 
-
 class A {
   const A() : a = "hello";
   final a;
@@ -29,7 +28,5 @@ final constList = const [
 ];
 
 main() {
-  try {
-    constList is List;
-  } catch (x) {}
+  print(constList);
 }

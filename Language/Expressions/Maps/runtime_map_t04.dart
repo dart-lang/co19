@@ -22,8 +22,8 @@ import '../../../Utils/expect.dart';
 class C {}
 
 main() {
-  Expect.isTrue(<String, int>{"": 1} is Map<String, int>);
-  Expect.isTrue(<String, String>{"": "string"} is Map<String, String>);
-  Expect.isTrue(<String, bool>{"": true} is Map<String, bool>);
-  Expect.isTrue(<String, C>{"": new C()} is Map<String, C>);
+  checkType(checkIs<Map<String, int>>, true, <String, int>{"": 1});
+  checkType(checkIs<Map<String, String>>, true, <String, String>{"": "string"});
+  checkType(checkIs<Map<String, bool>>, true, <String, bool>{"": true});
+  checkType(checkIs<Map<String, C>>, true, <String, C>{"": new C()});
 }

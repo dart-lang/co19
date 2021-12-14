@@ -11,7 +11,6 @@
 /// variable.
 /// @author ilya
 
-
 const i1 = #foo;
 
 main() {

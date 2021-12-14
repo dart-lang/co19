@@ -12,8 +12,6 @@
 /// static constant variable cannot be used as a constant expression.
 /// @author ngl@unipro.ru
 
-
-import '../../../Utils/expect.dart';
 import 'constants_lib.dart' deferred as clib;
 
 const x = '';
@@ -30,5 +28,5 @@ const constList = const [
 ];
 
 main() {
-  Expect.isTrue(constList is List);
+  print(constList);
 }
