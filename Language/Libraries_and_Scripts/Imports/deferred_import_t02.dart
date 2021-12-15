@@ -66,6 +66,7 @@ test_loaded() {
     p.someSetter = 1;
     p.Func;
     Expect.isTrue(p.loadLibrary() is Future);
+    checkType(checkIs<Future>, true, p.loadLibrary());
 }
 
 main()  {

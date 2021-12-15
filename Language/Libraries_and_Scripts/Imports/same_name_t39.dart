@@ -17,10 +17,9 @@
 /// expression.
 /// @author rodionov
 
-
 import "same_name_t30_lib.dart";
 import "same_name_t30_lib.dart";
 
 main() {
-  id is Object;
+  print(id);
 }

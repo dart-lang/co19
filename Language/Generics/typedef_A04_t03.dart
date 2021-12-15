@@ -29,11 +29,19 @@ main() {
   Expect.isTrue(checkme2 is Func1);
   Expect.isTrue(checkme3 is Func1);
   Expect.isTrue(checkme4 is Func1);
+  checkType(checkIs<Func1>, true, checkme1);
+  checkType(checkIs<Func1>, true, checkme2);
+  checkType(checkIs<Func1>, true, checkme3);
+  checkType(checkIs<Func1>, true, checkme4);
 
   Expect.isFalse(checkme1 is Func2);
   Expect.isFalse(checkme2 is Func2);
+  checkType(checkIs<Func2>, false, checkme1);
+  checkType(checkIs<Func2>, false, checkme2);
   if (hasSoundNullSafety) {
     Expect.isFalse(checkme3 is Func2);
     Expect.isFalse(checkme4 is Func2);
+    checkType(checkIs<Func2>, false, checkme3);
+    checkType(checkIs<Func2>, false, checkme4);
   }
 }

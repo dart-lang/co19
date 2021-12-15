@@ -30,10 +30,13 @@ class D<T1 extends num, T2 extends String> {}
 main() {
   CAlias ca1 = new CAlias();
   Expect.isTrue(ca1 is C<num>);
+  checkType(checkIs<C<num>>, true, ca1);
 
   CAlias<int> ca2 = new CAlias<int>();
   Expect.isTrue(ca2 is C<int>);
+  checkType(checkIs<C<int>>, true, ca2);
 
   DAlias da = new DAlias();
   Expect.isTrue(da is D<num, String>);
+  checkType(checkIs<D<num, String>>, true, da);
 }

@@ -10,7 +10,6 @@
 /// the same library.
 /// @author vasya
 
-
 import "private_access_t02_lib.dart" as lib;
 
 main() {

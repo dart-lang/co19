@@ -11,7 +11,6 @@
 /// @Issue 29388
 /// @author iefremov
 
-
 import "../../Utils/expect.dart";
 
 class A<N, S, U> {
@@ -20,13 +19,16 @@ class A<N, S, U> {
 
   A(N n, S s) : field = <U>[] {
     Expect.isTrue(n is N);
+    checkType(checkIs<N>, true, n);
     Expect.isTrue(s is S);
+    checkType(checkIs<S>, true, s);
   }
 
   A.empty() : field = null{}
 
   factory A.f(S s) {
     Expect.isTrue(s is S);
+    checkType(checkIs<S>, true, s);
     return new A.empty();
   }
 
@@ -42,7 +44,6 @@ class A<N, S, U> {
 abstract class J<Aa, B> {}
 
 abstract class I<H, C, K> extends J<C, K> {}
-
 
 main() {
   new A<num, double, List>(1, 2.0);

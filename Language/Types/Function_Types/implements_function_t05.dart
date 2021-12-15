@@ -30,23 +30,38 @@ main() {
   Object lf3(var x, int z, {o, v: 1}) => new Object();
 
   Expect.isTrue(() {} is Object);
+  checkType(checkIs<Object>, true, () {});
   Expect.isTrue((var x) {} is Object);
+  checkType(checkIs<Object>, true, (var x) {});
   Expect.isTrue(
       ((var x, int z, [Object? o, var v = 1]) => x + z + o + v) is Object);
+  checkType(checkIs<Object>, true, ((var x, int z, [Object? o, var v = 1]) => x + z + o + v));
 
   Expect.isTrue(lf1 is Object);
   Expect.isTrue(lf2 is Object);
   Expect.isTrue(lf3 is Object);
+  checkType(checkIs<Object>, true, lf1);
+  checkType(checkIs<Object>, true, lf2);
+  checkType(checkIs<Object>, true, lf3);
 
   Expect.isTrue(tlf1 is Object);
   Expect.isTrue(tlf2 is Object);
   Expect.isTrue(tlf3 is Object);
+  checkType(checkIs<Object>, true, tlf1);
+  checkType(checkIs<Object>, true, tlf2);
+  checkType(checkIs<Object>, true, tlf3);
 
   Expect.isTrue(new C().if1 is Object);
   Expect.isTrue(new C().if2 is Object);
   Expect.isTrue(new C().if3 is Object);
+  checkType(checkIs<Object>, true, C().if1);
+  checkType(checkIs<Object>, true, C().if2);
+  checkType(checkIs<Object>, true, C().if3);
 
   Expect.isTrue(C.sf1 is Object);
   Expect.isTrue(C.sf2 is Object);
   Expect.isTrue(C.sf3 is Object);
+  checkType(checkIs<Object>, true, C.sf1);
+  checkType(checkIs<Object>, true, C.sf2);
+  checkType(checkIs<Object>, true, C.sf3);
 }

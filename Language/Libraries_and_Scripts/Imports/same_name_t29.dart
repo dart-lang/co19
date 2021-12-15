@@ -17,10 +17,9 @@
 /// type test expression.
 /// @author rodionov
 
-
 import "same_name_t20_p1_lib.dart";
 import "same_name_t20_p2_lib.dart";
 
 main() {
-  id is Object;
+  print(id);
 }

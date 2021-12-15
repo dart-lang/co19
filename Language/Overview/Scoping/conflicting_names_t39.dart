@@ -12,12 +12,11 @@
 /// declares two identically named optional parameters.
 /// @author iefremov
 
-
 typedef f([x, x]);
 //            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  (([x, xx]) {}) is f;
+  print(f);
 }

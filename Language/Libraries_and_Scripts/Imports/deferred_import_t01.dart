@@ -70,4 +70,5 @@ main() {
   Expect.throws(() { p.Func; }, (e) => e is NoSuchMethodError);
 
   Expect.isTrue(p.loadLibrary() is Future);
+  checkType(checkIs<Future>, true, p.loadLibrary());
 }

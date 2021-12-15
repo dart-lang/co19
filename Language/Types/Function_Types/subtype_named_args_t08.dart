@@ -26,4 +26,9 @@ main() {
   Expect.isTrue(({double? d, String? s, int? x}) {} is t1);
   Expect.isTrue(({String? s, double? d, int? x}) {} is t1);
   Expect.isTrue(({String? s, int? x, double? d}) {} is t1);
+  checkType(checkIs<t1>, true, ({int? x, String? s, double? d}) {});
+  checkType(checkIs<t1>, true, ({double? d, int? x, String? s}) {});
+  checkType(checkIs<t1>, true, ({double? d, String? s, int? x}) {});
+  checkType(checkIs<t1>, true, ({String? s, double? d, int? x}) {});
+  checkType(checkIs<t1>, true, ({String? s, int? x, double? d}) {});
 }

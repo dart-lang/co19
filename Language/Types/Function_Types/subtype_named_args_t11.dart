@@ -20,10 +20,15 @@
 import "../../../Utils/expect.dart";
 
 class A {}
+
 class A1 {}
+
 class A2 {}
+
 class B implements A, A1, A2 {}
+
 class C implements B {}
+
 class D implements C {}
 
 class G<T, S, U, W> {}
@@ -35,18 +40,52 @@ typedef funcFunc({classesFunc? f1, genericsFunc? f2, dynamicFunc? f3});
 typedef mixFunc({var x, B? b, G<A, B, C, D>? g, funcFunc? f});
 
 typedef okWithClassesFunc(A aa, {D? a, D? b, D? c, D? d});
-typedef okWithGenericsFunc({Map<int, int>? m, List<List<D>>? l, G<D, D, D, D>? g});
+typedef okWithGenericsFunc(
+    {Map<int, int>? m, List<List<D>>? l, G<D, D, D, D>? g});
 typedef okWithDynamicFunc({int? x, bool? y, List<Map>? z, classesFunc? v});
 
-
 main() {
-  Expect.isTrue((var vv, {A? a, B? b, C? c, D? d, Map? xxx, Object? xxxx}) {} is classesFunc);
+  Expect.isTrue((var vv, {A? a, B? b, C? c, D? d, Map? xxx, Object? xxxx}) {}
+      is classesFunc);
+  checkType(checkIs<classesFunc>, true,
+      (var vv, {A? a, B? b, C? c, D? d, Map? xxx, Object? xxxx}) {});
 
-  Expect.isTrue(({Map<num, int>? m, List<List<B>>? l, G<A, B, C, D>? g}) {} is genericsFunc);
+  Expect.isTrue(({Map<num, int>? m, List<List<B>>? l, G<A, B, C, D>? g}) {}
+      is genericsFunc);
+  checkType(checkIs<genericsFunc>, true,
+      ({Map<num, int>? m, List<List<B>>? l, G<A, B, C, D>? g}) {});
 
-  Expect.isFalse(({A? x, G? y, mixFunc? z, var v, Object? xx, List<Map<int, mixFunc>>? xxx,
-                  mixFunc? xxxx}) {} is dynamicFunc);
+  Expect.isFalse((
+      {A? x,
+      G? y,
+      mixFunc? z,
+      var v,
+      Object? xx,
+      List<Map<int, mixFunc>>? xxx,
+      mixFunc? xxxx}) {} is dynamicFunc);
+  checkType(
+      checkIs<dynamicFunc>,
+      false,
+      (
+          {A? x,
+          G? y,
+          mixFunc? z,
+          var v,
+          Object? xx,
+          List<Map<int, mixFunc>>? xxx,
+          mixFunc? xxxx}) {});
 
-  Expect.isTrue(({okWithClassesFunc? f1, okWithGenericsFunc? f2, okWithDynamicFunc? f3, mixFunc? xx}) {} is funcFunc);
-
+  Expect.isTrue((
+      {okWithClassesFunc? f1,
+      okWithGenericsFunc? f2,
+      okWithDynamicFunc? f3,
+      mixFunc? xx}) {} is funcFunc);
+  checkType(
+      checkIs<funcFunc>,
+      true,
+      (
+          {okWithClassesFunc? f1,
+          okWithGenericsFunc? f2,
+          okWithDynamicFunc? f3,
+          mixFunc? xx}) {});
 }

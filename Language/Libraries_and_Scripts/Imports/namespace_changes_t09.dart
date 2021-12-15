@@ -61,17 +61,17 @@
 /// @author vasya
 
 import "../../../Utils/expect.dart";
-
 import "namespace_changes_t09_lib.dart";
 
 var foo = 1;
 bar() {}
 
-class Fwah {}
-class Duh extends Fwah {}
+class A {}
+class C extends A {}
 
 main() {
   Expect.equals(1, foo);
   Expect.isTrue(bar is Function);
-  new Fwah();
+  checkType(checkIs<Function>, true, bar);
+  new C();
 }

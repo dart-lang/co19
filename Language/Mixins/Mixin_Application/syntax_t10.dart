@@ -29,4 +29,5 @@ class C extends S with M1, M2 {
 main() {
   C c = new C();
   Expect.isTrue(c is S);
+  checkType(checkIs<S>, true, c);
 }

@@ -20,5 +20,6 @@ foo() {
   Expect.equals('foo', _foo);
   Expect.equals(1, _func());
   Expect.equals(1, new _C()._x);
-  Expect.isTrue((p1,p2) {} is _td);
+  Expect.isTrue((p1, p2) {} is _td);
+  checkType(checkIs<_td>, true, (p1, p2) {});
 }

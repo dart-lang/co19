@@ -27,8 +27,10 @@ class Bar {
 
 main() {
   Expect.isTrue(new Foo() is Foo);
+  checkType(checkIs<Foo>, true, new Foo());
   Expect.isNotNull(new Foo());
   Expect.isTrue(new Bar() is Bar);
+  checkType(checkIs<Bar>, true, new Bar());
   Expect.isNotNull(new Bar());
 }
 

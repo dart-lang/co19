@@ -31,4 +31,13 @@ main() {
   Expect.isTrue(f7 is Function);
   Expect.isTrue(f8 is Function);
   Expect.isTrue(f9 is Function);
+  checkType(checkIs<Function>, true, f1);
+  checkType(checkIs<Function>, true, f2);
+  checkType(checkIs<Function>, true, f3);
+  checkType(checkIs<Function>, true, f4);
+  checkType(checkIs<Function>, true, f5);
+  checkType(checkIs<Function>, true, f6);
+  checkType(checkIs<Function>, true, f7);
+  checkType(checkIs<Function>, true, f8);
+  checkType(checkIs<Function>, true, f9);
 }

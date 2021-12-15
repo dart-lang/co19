@@ -44,6 +44,15 @@ main() {
   Expect.isTrue(c.f7 is Function);
   Expect.isTrue(c.f8 is Function);
   Expect.isTrue(c.f9 is Function);
+  checkType(checkIs<Function>, true, c.f1);
+  checkType(checkIs<Function>, true, c.f2);
+  checkType(checkIs<Function>, true, c.f3);
+  checkType(checkIs<Function>, true, c.f4);
+  checkType(checkIs<Function>, true, c.f5);
+  checkType(checkIs<Function>, true, c.f6);
+  checkType(checkIs<Function>, true, c.f7);
+  checkType(checkIs<Function>, true, c.f8);
+  checkType(checkIs<Function>, true, c.f9);
 
   Expect.isTrue(C.f1s is Function);
   Expect.isTrue(C.f2s is Function);
@@ -54,4 +63,13 @@ main() {
   Expect.isTrue(C.f7s is Function);
   Expect.isTrue(C.f8s is Function);
   Expect.isTrue(C.f9s is Function);
+  checkType(checkIs<Function>, true, C.f1s);
+  checkType(checkIs<Function>, true, C.f2s);
+  checkType(checkIs<Function>, true, C.f3s);
+  checkType(checkIs<Function>, true, C.f4s);
+  checkType(checkIs<Function>, true, C.f5s);
+  checkType(checkIs<Function>, true, C.f6s);
+  checkType(checkIs<Function>, true, C.f7s);
+  checkType(checkIs<Function>, true, C.f8s);
+  checkType(checkIs<Function>, true, C.f9s);
 }

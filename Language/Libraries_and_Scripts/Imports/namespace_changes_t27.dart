@@ -57,13 +57,13 @@
 /// @description Checks that it is not an error when the prefix value duplicates
 /// an imported name rather than local declaration (prefix being defined last).
 /// @author rodionov
-/// @reviewer kaigorodov
-/// @needsreview issue 5716
+/// @issue 5716
 
-
+import "../../../Utils/expect.dart";
 import "namespace_changes_t27_lib1.dart";
 import "namespace_changes_t27_lib2.dart" as foo;
 
 main() {
-  (int, double) {} is foo.bar;
+  Expect.isTrue((int, double) {} is foo.bar);
+  checkType(checkIs<foo.bar>, true, (int, double) {});
 }

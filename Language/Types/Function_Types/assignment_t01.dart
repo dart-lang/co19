@@ -24,7 +24,11 @@ main() {
   t1 x1c = (C x) => new C();
 
   Expect.isTrue((A x) {return new C();} is t1);
+  checkType(checkIs<t1>, true, (A x) {return new C();});
   Expect.isTrue((B x) {return new C();} is t1);
+  checkType(checkIs<t1>, true, (B x) {return new C();});
   Expect.isTrue((C x) {return new C();} is t1);
+  checkType(checkIs<t1>, true, (C x) {return new C();});
   Expect.isFalse((X x) {return new C();} is t1);
+  checkType(checkIs<t1>, false, (X x) {return new C();});
 }

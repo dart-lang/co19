@@ -11,11 +11,11 @@
 /// declarations prevent second copies of them from being added to the export
 /// namespace via an explicit export declaration so there's no ambiguity.
 /// @author rodionov
-/// @reviewer kaigorodov
 
-
+import "../../../Utils/expect.dart";
 import "reexport__itself_t02_lib.dart";
 
 main() {
-  () {} is foo;
+  Expect.isTrue(() {} is foo);
+  checkType(checkIs<foo>, true, () {});
 }

@@ -11,7 +11,6 @@
 /// @description Checks that [D] maps argument list to types
 /// @author iarkh@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 class X {}

@@ -22,10 +22,15 @@ main() {
   Expect.isTrue(b1 is B<dynamic, dynamic>);
   Expect.isTrue(b1 is BAlias);
   Expect.isTrue(b1 is BAlias<dynamic, dynamic>);
+  checkType(checkIs<B<dynamic, dynamic>>, true, b1);
+  checkType(checkIs<BAlias>, true, b1);
+  checkType(checkIs<BAlias<dynamic, dynamic>>, true, b1);
 
   BAlias<num, int> b2 = new B<num, int>(0, 149);
   Expect.isTrue(b2 is B<num, int>);
   Expect.isTrue(b2 is BAlias<num, int>);
+  checkType(checkIs<B<num, int>>, true, b2);
+  checkType(checkIs<BAlias<num, int>>, true, b2);
   Expect.equals(0, b2.x);
   Expect.equals(149, b2.y);
 

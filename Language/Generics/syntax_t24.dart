@@ -21,6 +21,8 @@ main() {
   BAlias b1 = new B(1, "2");
   Expect.isTrue(b1 is B);
   Expect.isTrue(b1 is BAlias);
+  checkType(checkIs<B>, true, b1);
+  checkType(checkIs<BAlias>, true, b1);
   Expect.isTrue(b1 is BAlias<num, String>);
   Expect.equals(1, b1.x);
   Expect.equals("2", b1.y);
@@ -28,6 +30,8 @@ main() {
   BAlias<int, String> b2 = new B<int, String>(0, "testme");
   Expect.isTrue(b2 is B<int, String>);
   Expect.isTrue(b2 is BAlias<int, String>);
+  checkType(checkIs<B<int, String>>, true, b2);
+  checkType(checkIs<BAlias<int, String>>, true, b2);
   Expect.equals(0, b2.x);
   Expect.equals("testme", b2.y);
 }

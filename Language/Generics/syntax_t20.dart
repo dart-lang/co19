@@ -20,16 +20,21 @@ main() {
   AAlias a1 = new A(12345);
   Expect.isTrue(a1 is A);
   Expect.isTrue(a1 is AAlias);
+  checkType(checkIs<A>, true, a1);
+  checkType(checkIs<AAlias>, true, a1);
   Expect.equals(12345, a1.val);
 
   AAlias<int> a2 = new A<int>(14);
   Expect.isTrue(a2 is A<int>);
   Expect.isTrue(a2 is AAlias<int>);
+  checkType(checkIs<A<int>>, true, a2);
+  checkType(checkIs<AAlias<int>>, true, a2);
   Expect.equals(14, a2.val);
 
   AAlias<List<num>> a3 = new A<List<num>>([]);
   Expect.isTrue(a3 is A<List<num>>);
   Expect.isTrue(a3 is AAlias<List<num>>);
+  checkType(checkIs<A<List<num>>>, true, a3);
+  checkType(checkIs<AAlias<List<num>>>, true, a3);
   Expect.listEquals([], a3.val);
-
 }
