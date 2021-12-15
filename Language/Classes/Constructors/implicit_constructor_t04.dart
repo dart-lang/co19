@@ -17,10 +17,12 @@ typedef CAlias = C;
 
 main() {
   CAlias c = new CAlias();
+  Expect.isTrue(c is C);
   checkType(checkIs<C>, true, c);
   Expect.equals(null, c.x);
 
   CAlias c2 = new C();
+  Expect.isTrue(c2 is C);
   checkType(checkIs<C>, true, c2);
   Expect.equals(null, c2.x);
 }

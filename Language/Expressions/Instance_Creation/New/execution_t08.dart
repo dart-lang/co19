@@ -27,6 +27,10 @@ class D {
 }
 
 main() {
+  Expect.isTrue(new A() is A);
+  Expect.isTrue(new B(1, 2) is B);
+  Expect.isTrue(new C(null, null) is C);
+  Expect.isTrue(new D.name() is D);
   checkType(checkIs<A>, true, new A());
   checkType(checkIs<B>, true, new B(1, 2));
   checkType(checkIs<C>, true, new C(null, null));

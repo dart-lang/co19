@@ -28,6 +28,10 @@ const c = clib.F;
 const d = clib.B.M;
 
 main() {
+  Expect.isTrue(a is Function);
+  Expect.isTrue(b is Function);
+  Expect.isTrue(c is Function);
+  Expect.isTrue(d is Function);
   checkType(checkIs<Function>, true, a);
   checkType(checkIs<Function>, true, b);
   checkType(checkIs<Function>, true, c);

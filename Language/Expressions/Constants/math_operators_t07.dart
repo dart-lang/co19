@@ -20,5 +20,6 @@ import '../../../Utils/expect.dart';
 const m = "ab" + "cd";
 
 main() {
+  Expect.isTrue(m is String);
   checkType(checkIs<String>, true, m);
 }

@@ -22,6 +22,7 @@ class A{
 
 main() {
   A a = new A();
+  Expect.equals(a, a.self);
   checkType(checkIs<A>, true, a.self);
   Expect.equals(a, a.self);
   Expect.equals(5, a.x);

@@ -22,6 +22,8 @@ const a = F;
 const b = FF;
 
 main() {
+  Expect.isTrue(a is Type);
+  Expect.isTrue(b is Type);
   checkType(checkIs<Type>, true, a);
   checkType(checkIs<Type>, true, b);
 }

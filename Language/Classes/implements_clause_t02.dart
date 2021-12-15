@@ -23,6 +23,12 @@ main() {
   B b = new B();
   C c = new C();
   D d = new D();
+  Expect.isTrue(b is I1);
+  Expect.isTrue(c is I1);
+  Expect.isTrue(c is I2);
+  Expect.isTrue(d is I1);
+  Expect.isTrue(d is I2);
+  Expect.isTrue(d is I3);
   checkType(checkIs<I1>, true, b);
   checkType(checkIs<I1>, true, c);
   checkType(checkIs<I2>, true, c);

@@ -21,6 +21,10 @@ class S {
 }
 
 main() {
+  Expect.isTrue(const <String, int>{"": 1} is Map<String, int>);
+  Expect.isTrue(const <String, String>{"": "string"} is Map<String, String>);
+  Expect.isTrue(const <String, bool>{"": true} is Map<String, bool>);
+  Expect.isTrue(const <String, S>{"": const S()} is Map<String, S>);
   checkType(checkIs<Map<String, int>>, true, const <String, int>{"": 1});
   checkType(checkIs<Map<String, String>>, true, const <String, String>{"": "string"});
   checkType(checkIs<Map<String, bool>>, true, const <String, bool>{"": true});

@@ -16,5 +16,6 @@ import '../../../Utils/expect.dart';
 final constMap = const {"a" : 1, "b" : 2};
 
 main() {
+  Expect.isTrue(constMap is Map);
   checkType(checkIs<Map>, true, constMap);
 }

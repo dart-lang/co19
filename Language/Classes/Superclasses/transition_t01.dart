@@ -17,6 +17,9 @@ class D extends C {}
 
 main() {
   D d = new D();
+  Expect.isTrue(d is B);
+  Expect.isTrue(d is A);
+  Expect.isTrue(d is Object);
   checkType(checkIs<B>, true, d);
   checkType(checkIs<A>, true, d);
   checkType(checkIs<Object>, true, d);

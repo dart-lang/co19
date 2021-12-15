@@ -9,5 +9,6 @@
 import '../../../Utils/expect.dart';
 
 main() {
+  Expect.isTrue(null is Null);
   checkType(checkIs<Null>, true, null);
 }

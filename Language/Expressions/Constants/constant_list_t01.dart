@@ -16,5 +16,6 @@ import '../../../Utils/expect.dart';
 final constList = const [const ["hello", "world"]];
 
 main() {
+  Expect.isTrue(constList is List);
   checkType(checkIs<List>, true, constList);
 }

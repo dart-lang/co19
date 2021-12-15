@@ -24,6 +24,11 @@ const c2 = Map;
 const d = C;
 
 main() {
+  Expect.isTrue(a is Type);
+  Expect.isTrue(b is Type);
+  Expect.isTrue(c is Type);
+  Expect.isTrue(c2 is Type);
+  Expect.isTrue(d is Type);
   checkType(checkIs<Type>, true, a);
   checkType(checkIs<Type>, true, b);
   checkType(checkIs<Type>, true, c);

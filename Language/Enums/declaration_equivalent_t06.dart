@@ -17,11 +17,11 @@
 /// @description Checks enum values type
 /// @author sgrekhov@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 enum E {a, b, c}
 
 main() {
+  Expect.isTrue(E.values is List<E>);
   checkType(checkIs<List<E>>, true, E.values);
 }

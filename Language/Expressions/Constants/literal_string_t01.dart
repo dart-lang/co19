@@ -56,6 +56,9 @@ final constListConcatenation = const [
 ];
 
 main() {
+  Expect.isTrue(constList is List);
+  Expect.isTrue(constListInterpolation is List);
+  Expect.isTrue(constListConcatenation is List);
   checkType(checkIs<List>, true, constList);
   checkType(checkIs<List>, true, constListInterpolation);
   checkType(checkIs<List>, true, constListConcatenation);

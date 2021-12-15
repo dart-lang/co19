@@ -27,31 +27,43 @@ typedef CAlias = C;
 
 main() {
   CAlias c1 = new CAlias();
+  Expect.isTrue(c1 is C);
+  Expect.isTrue(c1 is CAlias);
   checkType(checkIs<C>, true, c1);
   checkType(checkIs<CAlias>, true, c1);
   Expect.equals("default", c1.log);
 
   CAlias c2 = new CAlias.named();
+  Expect.isTrue(c2 is C);
+  Expect.isTrue(c2 is CAlias);
   checkType(checkIs<C>, true, c2);
   checkType(checkIs<CAlias>, true, c2);
   Expect.equals("named", c2.log);
 
   CAlias c3 = new C();
+  Expect.isTrue(c3 is C);
+  Expect.isTrue(c3 is CAlias);
   checkType(checkIs<C>, true, c3);
   checkType(checkIs<CAlias>, true, c3);
   Expect.equals("default", c3.log);
 
   CAlias c4 = new C.named();
+  Expect.isTrue(c4 is C);
+  Expect.isTrue(c4 is CAlias);
   checkType(checkIs<C>, true, c4);
   checkType(checkIs<CAlias>, true, c4);
   Expect.equals("named", c4.log);
 
   C c5 = new CAlias();
+  Expect.isTrue(c5 is C);
+  Expect.isTrue(c5 is CAlias);
   checkType(checkIs<C>, true, c5);
   checkType(checkIs<CAlias>, true, c5);
   Expect.equals("default", c5.log);
 
   C c6 = new CAlias.named();
+  Expect.isTrue(c6 is C);
+  Expect.isTrue(c6 is CAlias);
   checkType(checkIs<C>, true, c6);
   checkType(checkIs<CAlias>, true, c6);
   Expect.equals("named", c6.log);

@@ -62,13 +62,16 @@ main() {
   Expect.isTrue(false == (false));
   Expect.isTrue(null == (null));
   Expect.isTrue(-1.1 == (-1.1));
+  Expect.isTrue(([]) is List);
   checkType(checkIs<List>, true, ([]));
   Expect.listEquals([], ([]));
   Expect.listEquals([1, 2, "three"], ([1, 2, "three"]));
+  Expect.isTrue(({}) is Map);
   checkType(checkIs<Map>, true, ({}));
   Expect.mapEquals({}, ({}));
   Expect.mapEquals({"foo": "f00", "bar": 214}, ({"foo": "f00", "bar": 214}));
   Expect.isTrue(() {return 3;}() == (() {return 3;}()));
+  Expect.isTrue((new A()) is A);
   checkType(checkIs<A>, true, (new A()));
   Expect.isTrue((new A()) != null);
   A a = new A();

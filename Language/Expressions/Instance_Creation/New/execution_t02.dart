@@ -35,6 +35,7 @@ class B <T extends A> {
   A? t;
   B(): t = new A() {
     Expect.isNotNull(t);
+    Expect.isTrue(t is A);
     checkType(checkIs<A>, true, t);
   }
 }

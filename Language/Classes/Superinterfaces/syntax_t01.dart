@@ -26,6 +26,10 @@ class C extends B implements IC, ID {}
 
 main() {
   C c = new C();
+  Expect.isTrue(c is IA);
+  Expect.isTrue(c is IB);
+  Expect.isTrue(c is IC);
+  Expect.isTrue(c is ID);
   checkType(checkIs<IA>, true, c);
   checkType(checkIs<IB>, true, c);
   checkType(checkIs<IC>, true, c);

@@ -19,8 +19,10 @@ class D implements C {}
 
 main() {
   var b = new B();
+  Expect.isTrue(b is A);
   checkType(checkIs<A>, true, b);
 
   var d = new D();
+  Expect.isTrue(d is C);
   checkType(checkIs<C>, true, d);
 }

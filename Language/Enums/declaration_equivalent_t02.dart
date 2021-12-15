@@ -17,12 +17,14 @@
 /// @description Checks that type of each member of an enum is this enum type
 /// @author sgrekhov@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 enum E {a, b, c}
 
 main() {
+  Expect.isTrue(E.a is E);
+  Expect.isTrue(E.b is E);
+  Expect.isTrue(E.c is E);
   checkType(checkIs<E>, true, E.a);
   checkType(checkIs<E>, true, E.b);
   checkType(checkIs<E>, true, E.c);

@@ -19,6 +19,7 @@ import '../../../Utils/expect.dart';
 main() {
   var d = 1.0 as double?;
   var x1 = d ?? 2.0;
+  Expect.isTrue(x1 is double);
   checkType(checkIs<double>, true, x1);
 
   var x2 = null ?? 2.0;

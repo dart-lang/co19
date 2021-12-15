@@ -20,5 +20,6 @@ typedef AAlias = A;
 class B extends AAlias {}
 
 main() {
+  Expect.isTrue(new B() is A);
   checkType(checkIs<A>, true, B());
 }

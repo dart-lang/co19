@@ -19,6 +19,11 @@ import '../../../Utils/expect.dart';
 class C {}
 
 main() {
+  Expect.isTrue(<int>[] is List<int>);
+  Expect.isTrue(<int>[1, 2, 3 + 4] is List<int>);
+  Expect.isTrue(<bool>[false, 1 < 2] is List<bool>);
+  Expect.isTrue(<String>["a", "b", "c"] is List<String>);
+  Expect.isTrue(<C>[new C(), new C()] is List<C>);
   checkType(checkIs<List<int>>, true, <int>[]);
   checkType(checkIs<List<int>>, true, <int>[1, 2, 3 + 4]);
   checkType(checkIs<List<bool>>, true, <bool>[false, 1 < 2]);

@@ -24,5 +24,6 @@ final constList = const [
 ];
 
 main() {
+  Expect.isTrue(constList is List);
   checkType(checkIs<List>, true, constList);
 }
