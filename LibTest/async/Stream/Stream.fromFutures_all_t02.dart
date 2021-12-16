@@ -16,7 +16,7 @@
 import "dart:async";
 import "allTests_A02.lib.dart";
 
-Stream<T> create<T>(Iterable<T> data, {bool isError(T x)?, T? defVal}) {
+Stream<T> create<T>(Iterable<T> data, {bool isError(T x)?, T? defaultValue}) {
   return new Stream.fromFutures(data.map((T x) {
     return new Future.value(x).catchError((_) {}).then((_) {
       if (isError != null && isError(x)) {

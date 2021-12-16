@@ -26,7 +26,10 @@ import "../../../Utils/expect.dart";
 void check<T>(Stream<T> s, bool test(T element), T expected) {
   bool orElseCalled = false;
   asyncStart();
-  s.lastWhere(test, orElse:() {orElseCalled = true;})
+  s.lastWhere(test, orElse:() {
+    orElseCalled = true;
+    return null as T;
+  })
    .then((T actual){
      Expect.equals(expected, actual);
      Expect.isFalse(orElseCalled);
@@ -36,8 +39,8 @@ void check<T>(Stream<T> s, bool test(T element), T expected) {
 
 void test(CreateStreamFunction create) {
   check(create<int>([1, 2, 3]), (int element) => true, 3);
-  check(create<int>([1, 2, 3]), (int element) => element != null, 3);
-  check(create<int>([1, 2, 3, null]), (int element) => element == null, null);
+  check(create<int?>([1, 2, 3]), (int? element) => element != null, 3);
+  check(create<int?>([1, 2, 3, null]), (int? element) => element == null, null);
   check(create<int>([1, 2, 3]), (int element) => element > 0, 3);
   check(create<int>(new Iterable<int>.generate(10, (int index) => index * 5)),
       (int element) => element != 30, 45);

@@ -71,5 +71,5 @@ main() {
     }
   }
 
-  timer = new Timer.periodic(durationMs(10), addSubscribersIfNeeded);
+  timer = new Timer.periodic(durationInMilliseconds(10), addSubscribersIfNeeded);
 }

@@ -19,8 +19,8 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-class B extends CHECK_TOP_MERGE<FutureOr<FutureOr>> {}
-class C extends CHECK_TOP_MERGE<FutureOr<FutureOr>> {}
+class B extends CheckTopMerge<FutureOr<FutureOr>> {}
+class C extends CheckTopMerge<FutureOr<FutureOr>> {}
 
 class D extends B implements C {}
 

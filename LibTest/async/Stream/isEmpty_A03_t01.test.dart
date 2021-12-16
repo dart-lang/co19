@@ -7,14 +7,16 @@
 /// error.
 /// @description Checks that returned future is completed with the first error,
 /// that appears in the stream
-/// @issue #29730
+/// @issue 29730
 /// @author a.semenov@unipro.ru
 
 library isEmpty_A03_t01;
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  AsyncExpect.value(true, create([], defVal: 42).isEmpty);
-  AsyncExpect.error(1, create([1, 2, 3, null], isError:(x) => x==1, defVal: 42).isEmpty);
-  AsyncExpect.value(false, create([1, 2, 3, null], isError:(x) => x==3, defVal: 42).isEmpty);
+  AsyncExpect.value(true, create([], defaultValue: 42).isEmpty);
+  AsyncExpect.error(1,
+      create([1, 2, 3, null], isError:(x) => x==1, defaultValue: 42).isEmpty);
+  AsyncExpect.value(false,
+      create([1, 2, 3, null], isError:(x) => x==3, defaultValue: 42).isEmpty);
 }

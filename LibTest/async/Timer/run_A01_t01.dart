@@ -19,7 +19,7 @@ main() {
     count++;
   });
 
-  new Timer(durationMs(100), () {
+  new Timer(durationInMilliseconds(100), () {
     Expect.equals(1, count);
     asyncEnd();
   });

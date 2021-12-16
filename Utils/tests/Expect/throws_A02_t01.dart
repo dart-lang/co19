@@ -2,11 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void throws(void f(), [_CheckExceptionFn check = null, String reason = null])
+/// @assertion static void throws(
+/// void f(), [_CheckExceptionFn check = null, String reason = ''])
 /// Descriptive error message is provided in case of failure.
-/// @description Checks that message of thrown ExpectException includes the
+///
+/// @description Checks that message of thrown [ExpectException] includes the
 /// specified reason argument if any, both when the tested method doesn't throw
 /// any exceptions and when the check function returns false.
+///
 /// @author varlax
 
 import "../../../Utils/expect.dart";
@@ -23,12 +26,13 @@ main() {
 }
 
 
-void check(test tFun, [checkFn? checkFun = null, String? reason = null]) {
+void check(test tFun, [checkFn? checkFun = null, String reason = '']) {
   try {
     Expect.throws(tFun, checkFun, reason);
     Expect.fail("ExpectException expected");
   } on ExpectException catch(e) {
     if (!(e.message as String).contains(reason as String, 0))
-      throw "reason ($reason) not mentioned in ExpectException message (${e.message})";
+      throw "reason ($reason) not mentioned in ExpectException message "
+          "(${e.message})";
   }
 }

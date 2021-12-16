@@ -2,7 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void setEquals(Iterable expected, Iterable actual, [String reason = null])
+/// @assertion static void setEquals(
+///   Iterable expected, Iterable actual, [String reason = ''])
 /// Descriptive error message is provided in case of failure.
 /// @description Checks that message of thrown ExpectException includes 
 /// representation of extra and missing elements, as well as the reason.
@@ -17,20 +18,29 @@ main() {
       [1, 2]
       );
   
-  check([1,2,3],[2,3],[1], "blah sdsder rt3 4");
-  check([234,456,777],[92374,3425,"assa"], [234,456,777,92374,3425,"assa"], "4 4 44  45  45 2__");
-  
+  check(
+      [1,2,3],
+      [2,3],
+      [1],
+      "blah sdsder rt3 4");
+
+  check(
+      [234,456,777],
+      [92374,3425,"assa"],
+      [234,456,777,92374,3425,"assa"],
+      "4 4 44  45  45 2__");
 }
 
-void check(Iterable arg1, Iterable arg2, Iterable arg3, [String? reason = null]) {
+void check(Iterable arg1, Iterable arg2, Iterable arg3, [String reason = '']) {
   try {
     Expect.setEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
   } on ExpectException catch(e) {
     String msg = e.message as String;
     for (var el in arg3) {
-      if (!msg.contains(el != null ? el.toString() : "null", 0)) throw "no element $el";
+      if (!msg.contains(el != null ? el.toString() : "null", 0))
+        throw "no element $el";
     }
-    if (reason != null && !reason.isEmpty && !msg.contains(reason, 0)) throw "no reason";
+    if (!reason.isEmpty && !msg.contains(reason, 0)) throw "no reason";
   }
 }

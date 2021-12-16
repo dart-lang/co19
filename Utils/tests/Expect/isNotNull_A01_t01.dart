@@ -2,10 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void isNotNull(var actual, [String reason = null])
+/// @assertion static void isNotNull(var actual, [String reason = ''])
 /// Checks whether [actual] is not null.
-/// @description Checks that no exception is thrown when the argument is not null,
-/// regardless of reason (the last argument). Boolean, numeric and Object
+/// @description Checks that no exception is thrown when the argument is not
+/// null, regardless of reason (the last argument). Boolean, numeric and Object
 /// arguments are used.
 /// @author rodionov
 

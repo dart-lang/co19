@@ -13,7 +13,7 @@ import "../../../Utils/expect.dart";
 
 void check(int periodMs) {
   Stream s = new Stream<int>.periodic(
-      durationMs(periodMs), (computationCount) => computationCount * periodMs);
+      durationInMilliseconds(periodMs), (computationCount) => computationCount * periodMs);
   int count = 0;
   asyncStart();
   StreamSubscription<int>? subs;

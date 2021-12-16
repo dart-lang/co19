@@ -14,7 +14,7 @@ check(int delayms) {
   bool seen = false;
 
   asyncStart();
-  new Timer(durationMs(delayms), () {
+  new Timer(durationInMilliseconds(delayms), () {
     Expect.isFalse(seen);
     seen = true;
     asyncEnd();

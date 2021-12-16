@@ -2,7 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void approxEquals(num expected, num actual, [num tolerance = null, String reason = null])
+/// @assertion static void approxEquals(num expected, num actual,
+///   [num tolerance = null, String reason = ''])
 /// Failure if the difference between expected and actual is greater than the
 /// given tolerance.
 /// @description Checks that no exception is thrown when the difference between
@@ -17,7 +18,8 @@ import "dart:math" as Math;
 main() {
   final double MIN_DOUBLE = Math.pow(2.0, -1074) as double;
   final double NEG_MIN_DOUBLE = -1 * MIN_DOUBLE; 
-  final double MAX_DOUBLE = (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023) as double;
+  final double MAX_DOUBLE =
+      (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023) as double;
   final double NEG_MAX_DOUBLE = -1 * MAX_DOUBLE; 
 
   Expect.approxEquals(100.0, 101, 1);

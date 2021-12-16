@@ -2,7 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void identical(var expected, var actual, [String reason = null]) 
+/// @assertion static void identical(
+///     var expected, var actual, [String reason = ''])
 /// Checks whether the expected and actual values are identical.
 /// @description Checks that equality operator is not used.
 /// @author varlax
@@ -15,10 +16,9 @@ class A {
   }
 }
 
-
 main() {
   try {
-    Expect.identical(new A(), new A());
+    Expect.identical(A(), A());
     throw "ExpectException expected";
   } on ExpectException catch(ok) {
   }

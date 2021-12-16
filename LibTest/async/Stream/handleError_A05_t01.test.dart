@@ -21,7 +21,7 @@ void test(CreateStreamWithErrorsFunction create) {
   List errors = [];
   List traces = [];
   asyncStart();
-  Stream s = create([1, 2, 3, 4, 5], isError: (x) => true, defVal: 42);
+  Stream s = create([1, 2, 3, 4, 5], isError: (x) => true, defaultValue: 42);
   s.handleError((error, stackTrace) {
     errors.add(error);
     traces.add(stackTrace);

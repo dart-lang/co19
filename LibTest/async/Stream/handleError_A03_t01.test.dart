@@ -14,7 +14,8 @@ library handleError_A03_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check(Stream s, void onError(error), List data, List intercepted, List expected) {
+void check(
+    Stream s, void onError(error), List data, List intercepted, List expected) {
   List actualIntercepted = [];
   List actualErrors = [];
   List actualData = [];
@@ -41,28 +42,23 @@ void check(Stream s, void onError(error), List data, List intercepted, List expe
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([], defVal: 42), (e) => throw e, [], [], []);
-  check(create([], isError:(x) => true, defVal: 42), (e) => throw e, [], [], []);
+  check(create([], defaultValue: 42), (e) => throw e, [], [], []);
+  check(create([], isError:(x) => true, defaultValue: 42),
+          (e) => throw e, [], [], []);
 
-  check(create([1, 2, 3, 4, 5], isError: (x) => true, defVal: 42),
+  check(create([1, 2, 3, 4, 5], isError: (x) => true, defaultValue: 42),
       (x) => throw x, [], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]);
 
-  check(
-      create(
-          ["a", 1, "b", 2, "c", 3, "d", 4, "e", 5, "f"],
-          isError: (x) => x is num, defVal: 42
-      ),
+  check(create(["a", 1, "b", 2, "c", 3, "d", 4, "e", 5, "f"],
+      isError: (x) => x is num, defaultValue: 42),
       (x) { if (x.isEven) { throw x; }}, // onError function
       ["a", "b", "c", "d", "e", "f"], // expected data
       [1, 2, 3, 4, 5],  // intercepted errors
       [2,4] // rethrown errors
   );
 
-  check(
-      create(
-          ["a", 1, "b", 2, "c", 3, "d", 4, "e", 5, "f"],
-          isError: (x) => x is num, defVal: 42
-      ),
+  check(create(["a", 1, "b", 2, "c", 3, "d", 4, "e", 5, "f"],
+          isError: (x) => x is num, defaultValue: 42),
       (x) { if (x.isEven) { throw x + 10; }}, // onError function
       ["a", "b", "c", "d", "e", "f"], // expected data
       [1, 2, 3, 4, 5],  // intercepted errors

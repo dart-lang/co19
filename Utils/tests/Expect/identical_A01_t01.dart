@@ -2,7 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void identical(var expected, var actual, [String reason = null]) 
+/// @assertion static void identical(
+///    var expected, var actual, [String reason = ''])
 /// Checks whether the expected and actual values are identical.
 /// @description Checks that no exception is thrown when the arguments are
 /// identical, regardless of reason (the last argument). Null, numeric, String

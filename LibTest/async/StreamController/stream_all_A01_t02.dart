@@ -10,7 +10,8 @@
 import "dart:async";
 import "../Stream/allTests_A02.lib.dart";
 
-Stream<T> create<T>(Iterable<T> data, {bool isError(T element)?, T? defVal}) {
+Stream<T> create<T>(
+    Iterable<T> data, {bool isError(T element)?, T? defaultValue}) {
   StreamController<T> sc = new StreamController<T>();
   for (T e in data) {
     if (isError != null && isError(e)) {

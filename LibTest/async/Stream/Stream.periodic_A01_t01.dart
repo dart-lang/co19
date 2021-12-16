@@ -14,7 +14,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(int periodMs) {
-  Duration period = durationMs(periodMs);
+  Duration period = durationInMilliseconds(periodMs);
   const int maxCount = 5;
   int count = 0;
 

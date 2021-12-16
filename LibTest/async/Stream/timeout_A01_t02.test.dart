@@ -22,10 +22,10 @@ void check<T>(Stream<T> s, List<T> expectedData, List expectedErrors) {
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => true, defVal: 42), [],
-      [1, 2, 3, 4, 5]);
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42),
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => true, defaultValue: 42),
+      [], [1, 2, 3, 4, 5]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defaultValue: 42),
       [1, 3, 5], [2, 4]);
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defVal: 42),
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defaultValue: 42),
       [2, 4], [1, 3, 5]);
 }

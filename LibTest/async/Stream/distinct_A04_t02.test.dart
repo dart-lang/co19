@@ -22,12 +22,16 @@ void check<T>(Stream<T> s, List<T> expectedData, List expectedErrors) {
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([], defVal: 0), [], []);
-  check<int>(create([1, 2, 2, 3], isError: (e) => e.isEven, defVal: 42), [1, 3], [2, 2]);
+  check(create([], defaultValue: 0), [], []);
+  check<int>(create([1, 2, 2, 3], isError: (e) => e.isEven, defaultValue: 42),
+      [1, 3], [2, 2]);
   check<int>(
-      create([1, 1, 2, 2, 3, 3], isError: (e) => e.isEven, defVal: 42), [1, 3], [2, 2]);
+      create([1, 1, 2, 2, 3, 3], isError: (e) => e.isEven, defaultValue: 42),
+      [1, 3], [2, 2]);
   check<int>(
-      create([1, 1, 2, 2, 3, 3], isError: (e) => e.isOdd, defVal: 42), [2], [1, 1, 3, 3]);
+      create([1, 1, 2, 2, 3, 3], isError: (e) => e.isOdd, defaultValue: 42),
+      [2], [1, 1, 3, 3]);
   check<int?>(
-      create([1, 2, null, null], isError: (e) => e is num, defVal: 42), [null], [1, 2]);
+      create([1, 2, null, null], isError: (e) => e is num, defaultValue: 42),
+      [null], [1, 2]);
 }

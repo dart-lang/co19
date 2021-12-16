@@ -15,8 +15,12 @@ library single_A03_t01;
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  AsyncExpect.error(1, create([1, 2, 3], isError: (_) => true, defVal: 42).single);
-  AsyncExpect.error(1, create([1, 2, 3], isError: (x) => x == 1, defVal: 42).single);
-  AsyncExpect.error(2, create([1, 2], isError: (x) => x == 2, defVal: 42).single);
-  AsyncExpect.error(2, create([1, 2, 3], isError: (x) => x == 2, defVal: 42).single);
+  AsyncExpect.error(
+      1, create([1, 2, 3], isError: (_) => true, defaultValue: 42).single);
+  AsyncExpect.error(
+      1, create([1, 2, 3], isError: (x) => x == 1, defaultValue: 42).single);
+  AsyncExpect.error(
+      2, create([1, 2], isError: (x) => x == 2, defaultValue: 42).single);
+  AsyncExpect.error(
+      2, create([1, 2, 3], isError: (x) => x == 2, defaultValue: 42).single);
 }

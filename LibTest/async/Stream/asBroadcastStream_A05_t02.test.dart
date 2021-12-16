@@ -16,11 +16,13 @@ import "../../../Utils/expect.dart";
 import "allTests_A02.lib.dart" as StreamTests;
 
 void test(CreateStreamWithErrorsFunction create) {
-  Stream s = create([], isError:(_) => false, defVal: new Object());
+  Stream s = create([], isError:(_) => false, defaultValue: Object());
   if (!s.isBroadcast) {
     StreamTests.test(
-        <T>(Iterable<T> data, {bool isError(T x)?, required T defVal}) {
-          return create<T>(data, isError: isError, defVal: defVal).asBroadcastStream();
+        <T>(Iterable<T> data, { bool isError(T x)?, required T defaultValue }) {
+          return create<T>(data,
+              isError: isError,
+              defaultValue: defaultValue).asBroadcastStream();
         }
     );
   }

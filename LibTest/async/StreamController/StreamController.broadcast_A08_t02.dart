@@ -21,7 +21,7 @@ List<StreamSubscription> subscribe(StreamController controller, int count) {
 
 Future unsubscribe(List<StreamSubscription> subscriptions, int count) {
   count--;
-  return new Future.delayed(durationMs(50), () => subscriptions[count].cancel())
+  return new Future.delayed(durationInMilliseconds(50), () => subscriptions[count].cancel())
       .then((_) {
     if (count > 0) {
       return unsubscribe(subscriptions, count);

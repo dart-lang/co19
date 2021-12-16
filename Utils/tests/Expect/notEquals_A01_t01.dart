@@ -2,7 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void notEquals(var unexpected, var actual, [String reason = null])
+/// @assertion static void notEquals(
+///   var unexpected, var actual, [String reason = ''])
 /// Checks whether the unexpected and actual values are not equal (using [:!=:]).
 /// @description Checks that no exception is thrown when the arguments are not
 /// equal, regardless of reason (the last argument). Null, numeric and Object

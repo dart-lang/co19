@@ -2,11 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void notEquals(var unexpected, var actual, [String reason = null])
+/// @assertion static void notEquals(
+///   var unexpected, var actual, [String reason = ''])
 /// Checks whether the unexpected and actual values are not equal (using [:!=:]).
 /// @description Checks that using equal arguments results in ExpectException
 /// being thrown. Arguments being tested include boolean, numeric and Object,
-/// along with null, empty and non-empty reason arguments.
+/// along with empty and non-empty reason arguments.
 /// @author rodionov
 
 import "../../../Utils/expect.dart";
@@ -32,7 +33,7 @@ main() {
   check("", "", "bla");
 }
 
-void check(var arg1, var arg2, [String? reason = null]) {
+void check(var arg1, var arg2, [String reason = '']) {
   try {
     Expect.notEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");

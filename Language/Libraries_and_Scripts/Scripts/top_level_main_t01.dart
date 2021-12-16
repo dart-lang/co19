@@ -16,7 +16,7 @@ import "dart:io";
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString().replaceAll(".dart", "_lib.dart");
-  if (isAOT) {
+  if (isAot) {
     // This is the case of AOT configuration
     executable = executable.replaceRange(
         executable.lastIndexOf(Platform.pathSeparator) + 1, null, "dart");

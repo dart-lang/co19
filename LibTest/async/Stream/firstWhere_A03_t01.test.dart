@@ -7,15 +7,15 @@
 ///
 /// Finds the first element of this stream matching test.
 ///
-/// Returns a future that is completed with the first element of this stream that
-/// test returns true for.
+/// Returns a future that is completed with the first element of this stream
+/// that test returns true for.
 ///
-/// If no such element is found before this stream is done, and a orElse function
-/// is provided, the result of calling orElse becomes the value of the future. If
-/// orElse throws, the returned future is completed with that error.
+/// If no such element is found before this stream is done, and a orElse
+/// function is provided, the result of calling orElse becomes the value of the
+/// future. If orElse throws, the returned future is completed with that error.
 ///
-/// If this stream emits an error before the first matching element, the returned
-/// future is completed with that error, and processing stops.
+/// If this stream emits an error before the first matching element, the
+/// returned future is completed with that error, and processing stops.
 ///
 /// Stops listening to the stream after the first matching element or error has
 /// been received.
@@ -38,6 +38,6 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  Stream s = create([1, 2, 3, 4, 5], isError: (x) => x == 4, defVal: 42);
+  Stream s = create([1, 2, 3, 4, 5], isError: (x) => x == 4, defaultValue: 42);
   AsyncExpect.error(4, s.firstWhere((v) => v == 5));
 }

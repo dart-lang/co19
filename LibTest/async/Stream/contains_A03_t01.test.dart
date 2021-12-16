@@ -14,6 +14,6 @@ import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
   Error error = new Error();
-  Stream s = create([error], isError: (e) => true, defVal: new Object());
+  Stream s = create([error], isError: (e) => true, defaultValue: new Object());
   AsyncExpect.error(error, s.contains(1));
 }

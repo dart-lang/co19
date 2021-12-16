@@ -2,11 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void setEquals(Iterable expected, Iterable actual, [String reason = null])
+/// @assertion static void setEquals(
+///   Iterable expected, Iterable actual, [String reason = ''])
 /// Checks that every element of [expected] is also in [actual], and that every
 /// element of [actual] is also in [expected].
 /// @description Checks that using Iterables with non-equal contents results in
-/// ExpectException being thrown.
+/// [ExpectException] being thrown.
 /// @author rodionov
 
 import "../../../Utils/expect.dart";
@@ -33,7 +34,7 @@ main() {
   }
 }
 
-void check(Iterable arg1, Iterable arg2, [String? reason = null]) {
+void check(Iterable arg1, Iterable arg2, [String reason = '']) {
   try {
     Expect.setEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");

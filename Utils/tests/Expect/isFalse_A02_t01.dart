@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void isFalse(var actual, [String reason = null]) 
+/// @assertion static void isFalse(var actual, [String reason = ''])
 /// Descriptive error message is provided in case of failure.
 /// @description Checks that message of thrown ExpectException includes 
 /// representation of the actual value, as well as the reason.
@@ -28,7 +28,7 @@ main() {
   check(new Object(), "not empty");
 }
 
-void check(var arg, [String? reason = null]) {
+void check(var arg, [String reason = '']) {
   try {
     Expect.isFalse(arg, reason);
     throw new Exception("ExpectException expected");

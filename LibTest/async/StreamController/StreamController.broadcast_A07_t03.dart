@@ -32,7 +32,7 @@ main() {
   );
 
   int i = 0, k = 0;
-  new Timer.periodic(durationMs(100), (Timer timer) {
+  new Timer.periodic(durationInMilliseconds(100), (Timer timer) {
     new Future.value(subscriptions[i].cancel()).then(
       (_) {
         Expect.equals((++k < 5) ? 0 : 1, onCancelCallCount);

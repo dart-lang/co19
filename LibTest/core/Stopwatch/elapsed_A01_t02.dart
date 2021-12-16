@@ -11,7 +11,7 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-Duration delay = durationMs(50);
+Duration delay = durationInMilliseconds(50);
 Stopwatch sw = new Stopwatch();
 Duration e0 = new Duration();
 

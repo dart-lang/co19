@@ -19,7 +19,7 @@ check(int delay) {
   int count = 0;
 
   asyncStart();
-  Timer t = new Timer.periodic(durationMs(delay), (Timer timer) {
+  Timer t = new Timer.periodic(durationInMilliseconds(delay), (Timer timer) {
     count++;
     Expect.isTrue(timer.isActive);
     if (count == times) {

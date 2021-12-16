@@ -18,7 +18,7 @@ void check(List input) {
 
   dynamic f(element) {
     log.add(element);
-    return new Future.delayed(durationMs(100));
+    return new Future.delayed(durationInMilliseconds(100));
   }
 
   asyncStart();

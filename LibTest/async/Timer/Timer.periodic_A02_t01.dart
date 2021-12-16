@@ -14,7 +14,7 @@ check(int delay) {
   int times = 5;
   int count = 0;
   asyncStart();
-  new Timer.periodic(durationMs(delay), (Timer timer) {
+  new Timer.periodic(durationInMilliseconds(delay), (Timer timer) {
     count++;
     if (count == times) {
       timer.cancel();

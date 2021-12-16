@@ -3,20 +3,21 @@
 // BSD-style license that can be found in the LICENSE file.
 
 library test_mode_check;
-import "dart:io";
+import 'dart:io';
 
-typedef CheckExecutable = bool Function(String s);
+typedef CheckFunction = bool Function(String str);
 
-bool checkMode(CheckExecutable ret) {
-  var parts = Uri.file(Platform.resolvedExecutable).pathSegments;
-  String basename =  parts[parts.length - 1];
-  var pos = basename.lastIndexOf('.');
-  String result = (pos != -1) ? basename.substring(0, pos) : basename;
-  return ret(result);
+bool checkResolvedExecutable(CheckFunction function) {
+  var uriParts = Uri.file(Platform.resolvedExecutable).pathSegments;
+  String baseName =  uriParts[uriParts.length - 1];
+  var pos = baseName.lastIndexOf('.');
+  String result = (pos != -1) ? baseName.substring(0, pos) : baseName;
+  return function(result);
 }
 
-// Checks that application runs in dart precompiled runtime mode.
-bool get isDartkp => checkMode(((String s) => s == "dart_precompiled_runtime"));
+/// Checks that application runs in dart precompiled runtime mode.
+bool get isDartkp =>
+    checkResolvedExecutable(((String s) => s == "dart_precompiled_runtime"));
 
-// Checks that application runs in AOT mode.
-bool get isAOT => checkMode(((String s) => s != "dart"));
+/// Checks that application runs in AOT mode.
+bool get isAot => checkResolvedExecutable(((String str) => str != "dart"));

@@ -6,7 +6,8 @@
 /// Creates a wrapper Stream that intercepts some errors from this stream.
 /// If this stream sends an error that matches test, then it is intercepted by
 /// the onError function.
-/// An asynchronous error e is matched by a test function if test(e) returns true.
+/// An asynchronous error e is matched by a test function if test(e) returns
+/// true.
 /// @description Checks that an error e intercepted by [onError] function
 /// if test(e) returns true.
 /// @author a.semenov@unipro.ru
@@ -36,14 +37,15 @@ void check(
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([], defVal: 42), (x) => true, [], [], []);
-  check(create([], isError: (x) => true, defVal: 42), (x) => true, [], [], []);
-  check(create([1, 2, 3, 4, 5], isError: (x) => true, defVal: 42),
+  check(create([], defaultValue: 42), (x) => true, [], [], []);
+  check(create([], isError: (x) => true, defaultValue: 42),
+          (x) => true, [], [], []);
+  check(create([1, 2, 3, 4, 5], isError: (x) => true, defaultValue: 42),
       (x) => x.isEven, [], [2, 4], [1, 3, 5]);
 
   check(
       create(["a", 1, "b", 2, "c", 3, "d", 4, "e", 5, "f"],
-          isError: (x) => x is int, defVal: 42),
+          isError: (x) => x is int, defaultValue: 42),
       (x) => (x is int && x.isEven), // test function
       ["a", "b", "c", "d", "e", "f"], // expected data
       [2, 4], // intercepted errors

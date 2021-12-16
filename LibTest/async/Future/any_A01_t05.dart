@@ -30,5 +30,5 @@ main() {
     asyncEnd();
   });
   asyncStart();
-  new Timer(durationMs(200), () => completers[3].complete("value"));
+  new Timer(durationInMilliseconds(200), () => completers[3].complete("value"));
 }

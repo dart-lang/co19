@@ -2,9 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void isTrue(var actual, [String reason = null])
+/// @assertion static void isTrue(var actual, [String reason = ''])
 /// Descriptive error message is provided in case of failure.
-/// @description Checks that message of thrown ExpectException includes 
+/// @description Checks that message of thrown [ExpectException] includes
 /// representation of the actual value, as well as the reason.
 /// @author varlax
 
@@ -28,13 +28,15 @@ main() {
   check(new Object(), "not empty");
 }
 
-void check(var arg, [String? reason = null]) {
+void check(var arg, [String reason = '']) {
   try {
     Expect.isTrue(arg, reason);
     throw new Exception("ExpectException expected");
   } on ExpectException catch(e) {
     String msg = e.message as String;
-    if (!msg.contains(arg != null ? arg.toString() : "null", 0)) throw "no actual value";
-    if (reason != null && !reason.isEmpty && !msg.contains(reason, 0)) throw "no reason";
+    if (!msg.contains(arg != null ? arg.toString() : "null", 0))
+      throw "no actual value";
+    if (reason != null && !reason.isEmpty && !msg.contains(reason, 0))
+      throw "no reason";
   }
 }

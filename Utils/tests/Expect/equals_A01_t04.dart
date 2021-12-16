@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void equals(var expected, var actual, [String reason = null])
+/// @assertion static void equals(var expected, var actual, [String reason = ''])
 /// Checks whether the expected and actual values are equal (using [:==:]).
 /// @description NaNs considered equals
 /// @author varlax

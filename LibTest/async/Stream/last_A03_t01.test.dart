@@ -5,8 +5,8 @@
 /// @assertion Future<T> last
 /// If an error event occurs before the first data event, the resulting future
 /// is completed with that error.
-/// @description Checks that if error event occurs before the first data
-/// event, the future completes with that error.
+/// @description Checks that if error event occurs before the first data event,
+/// the future completes with that error.
 /// @author ilya
 /// @author a.semenov@unipro.ru
 
@@ -17,14 +17,12 @@ void test(CreateStreamWithErrorsFunction create) {
   Error error = new Error();
   AsyncExpect.error(
     error,
-    create([1, 2, error, 4, 5], isError: (e) => e is Error, defVal: 42).last
-  );
+    create(
+        [1, 2, error, 4, 5], isError: (e) => e is Error, defaultValue: 42).last);
   AsyncExpect.error(
       error,
-      create([error, 4, 5], isError: (e) => e is Error, defVal: 42).last
-  );
+      create([error, 4, 5], isError: (e) => e is Error, defaultValue: 42).last);
   AsyncExpect.error(
       error,
-      create([1, 2, error], isError: (e) => e is Error, defVal: 42).last
-  );
+      create([1, 2, error], isError: (e) => e is Error, defaultValue: 42).last);
 }

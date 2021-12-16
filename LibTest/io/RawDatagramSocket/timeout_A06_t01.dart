@@ -51,7 +51,7 @@ check(dataExpected, errorCountExpected, [bool no_write_events = false]) {
       });
 
       Stream bcs = receiver.asBroadcastStream();
-      Stream s = bcs.timeout(durationMs(1));
+      Stream s = bcs.timeout(durationInMilliseconds(1));
       s.listen((event) {
         list1.add(event);
         receiver.receive();

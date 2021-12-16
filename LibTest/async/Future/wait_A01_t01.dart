@@ -31,7 +31,7 @@ main() {
 
   int i = 0;
   new Timer.periodic(
-      durationMs(50),
+      durationInMilliseconds(50),
       (Timer t){
         Expect.isFalse(futureCompleted);
         completers[i].complete(i);

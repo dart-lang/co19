@@ -33,7 +33,7 @@ main() {
   }, onError: (error) {
     events.add(error);
     // wait some time for additional (wrong) events
-    new Future.delayed(durationMs(500), () {
+    new Future.delayed(durationInMilliseconds(500), () {
       Expect.listEquals([0, 1, 2, 3, 4, 5, "done"], events);
       asyncEnd();
     });

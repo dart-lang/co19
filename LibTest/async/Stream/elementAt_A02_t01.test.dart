@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 void test(CreateStreamWithErrorsFunction create) {
   for (int k = 0; k < 10; k++) {
     Iterable<int> i = new Iterable<int>.generate(10, (int x) => x);
-    Stream<int> s = create(i, isError: (e) => e == k, defVal: 42);
+    Stream<int> s = create(i, isError: (e) => e == k, defaultValue: 42);
     AsyncExpect.error(k, s.elementAt(k));
   }
 }

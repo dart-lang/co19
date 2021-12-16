@@ -22,14 +22,15 @@ void check<T>(Stream<T> s, bool test(T element), List<T> expectedData,
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([1, 2, 3], isError: (_) => true, defVal: 42), (_) => false, [],
-      [1, 2, 3]);
-  check<int>(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defVal: 42),
-      (x) => x < 4, [4], [1, 3, 5]);
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defVal: 42),
+  check(create([1, 2, 3], isError: (_) => true, defaultValue: 42), (_) => false,
+      [], [1, 2, 3]);
+  check<int>(
+      create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defaultValue: 42),
+          (x) => x < 4, [4], [1, 3, 5]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defaultValue: 42),
       (x) => x == 1, [2, 4], [1, 3, 5]);
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42),
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defaultValue: 42),
       (x) => x == 1, [3, 5], [2, 4]);
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x < 5, defVal: 42),
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x < 5, defaultValue: 42),
       (x) => x == 5, [], [1, 2, 3, 4]);
 }

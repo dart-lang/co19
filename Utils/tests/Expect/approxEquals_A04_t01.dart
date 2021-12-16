@@ -2,9 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void approxEquals(num expected, num actual, [num tolerance = null, String reason = null])
+/// @assertion static void approxEquals(num expected, num actual, [
+///   num tolerance = null, String reason = null])
 /// Descriptive error message is provided in case of failure.
-/// @description Checks that message of thrown ExpectException includes 
+///
+/// @description Checks that message of thrown [ExpectException] includes
 /// representation of the expected, actual and tolerance values, as well as the
 /// reason.
 /// @author varlax
@@ -16,7 +18,8 @@ import "dart:math" as Math;
 main() {
   final double MIN_DOUBLE = Math.pow(2.0, -1074) as double;
   final double NEG_MIN_DOUBLE = -1 * MIN_DOUBLE; 
-  final double MAX_DOUBLE = (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023) as double;
+  final double MAX_DOUBLE =
+      (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023) as double;
   final double NEG_MAX_DOUBLE = -1 * MAX_DOUBLE; 
 
   // min double > 0 / 10000
@@ -36,7 +39,7 @@ main() {
   check(0, -0.0, double.nan, "");
 }
 
-void check(num arg1, num arg2, [num? tol = null, String? reason = null]) {
+void check(num arg1, num arg2, [num? tol = null, String reason = '']) {
   try {
     Expect.approxEquals(arg1, arg2, tol, reason);
     throw new Exception("ExpectException expected");
@@ -45,10 +48,8 @@ void check(num arg1, num arg2, [num? tol = null, String? reason = null]) {
     String msg = e.message as String;
     if (!msg.contains(arg1.toString(), 0)) throw "no expected value";
     if (!msg.contains(arg2.toString(), 0)) throw "no actual value";
-    if (reason != null && !reason.isEmpty && !msg.contains(reason, 0)) throw "no reason";
-    if (tol == null) {
-      tol = (arg1 / Math.pow(10.0, 4.0)).abs();
-    }
+    if (!reason.isEmpty && !msg.contains(reason, 0)) throw "no reason";
+    tol ??= (arg1 / Math.pow(10.0, 4.0)).abs();
     if (!msg.contains(tol.toString(), 0)) throw "no tolerance";
   }
 }

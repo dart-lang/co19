@@ -3,12 +3,12 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Stream<T> distinct([bool equals(T previous, T next)])
-///    Skips data events if they are equal to the previous data event.
-///    The returned stream provides the same events as this stream, except that it
+/// Skips data events if they are equal to the previous data event.
+/// The returned stream provides the same events as this stream, except that it
 /// never provides two consecutive data events that are equal.
-/// @description Checks that errors in original stream are copied to the returned
-/// stream. [equals] is omitted.
-/// @issue #29627
+/// @description Checks that errors in original stream are copied to the
+/// returned stream. [equals] is omitted.
+/// @issue 29627
 /// @author a.semenov@unipro.ru
 
 library distinct_A04_t01;
@@ -21,12 +21,16 @@ void check<T>(Stream<T> s, List<T> expectedData, List expectedErrors) {
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([], defVal: 0), [], []);
-  check<int>(create([1, 2, 2, 3], isError: (e) => e.isEven, defVal: 42), [1, 3], [2, 2]);
+  check(create([], defaultValue: 0), [], []);
+  check<int>(create([1, 2, 2, 3], isError: (e) => e.isEven, defaultValue: 42),
+      [1, 3], [2, 2]);
   check<int>(
-      create([1, 1, 2, 2, 3, 3], isError: (e) => e.isEven, defVal: 42), [1, 3], [2, 2]);
+      create([1, 1, 2, 2, 3, 3], isError: (e) => e.isEven, defaultValue: 42),
+      [1, 3], [2, 2]);
   check<int>(
-      create([1, 1, 2, 2, 3, 3], isError: (e) => e.isOdd, defVal: 42), [2], [1, 1, 3, 3]);
+      create([1, 1, 2, 2, 3, 3], isError: (e) => e.isOdd, defaultValue: 42),
+      [2], [1, 1, 3, 3]);
   check<int?>(
-      create([1, 2, null, null], isError: (e) => e is num, defVal: 42), [null], [1, 2]);
+      create([1, 2, null, null], isError: (e) => e is num, defaultValue: 42),
+      [null], [1, 2]);
 }

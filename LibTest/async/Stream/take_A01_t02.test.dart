@@ -4,10 +4,10 @@
 
 /// @assertion Stream<T> take(int count)
 /// Provides at most the first n values of this stream.
-/// Forwards the first n data events of this stream, and all error events,
-/// to the returned stream, and ends with a done event.
-/// If this stream produces fewer than count values before it's done,
-/// so will the returned stream.
+/// Forwards the first n data events of this stream, and all error events, to
+/// the returned stream, and ends with a done event.
+/// If this stream produces fewer than count values before it's done, so will
+/// the returned stream.
 /// @description Checks that all error events (which are before first n data
 /// events) are submitted to the returned stream. Checks that the resulting
 /// stream ends with a done event.
@@ -18,23 +18,29 @@ library take_A01_t02;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(
+void  check<T>(
     Stream<T> s, int count, List<T> expectedData, List expectedErrors) {
   AsyncExpect.events(expectedData, expectedErrors, s.take(count));
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([1, 2, 3], isError: (_) => true, defVal: 42), 0, [], []);
-  check(create([1, 2, 3], isError: (_) => true, defVal: 42), 1, [], [1, 2, 3]);
-  check(create([1, 2, 3], isError: (_) => true, defVal: 42), 10, [], [1, 2, 3]);
+  check(create([1, 2, 3], isError: (_) => true, defaultValue: 42), 0, [], []);
+  check(create([1, 2, 3], isError: (_) => true, defaultValue: 42),
+      1, [], [1, 2, 3]);
+  check(create([1, 2, 3], isError: (_) => true, defaultValue: 42),
+      10, [], [1, 2, 3]);
 
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defVal: 42), 10, [2, 4],
-      [1, 3, 5]);
-  check(
-      create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defVal: 42), 2, [2, 4], [1, 3]);
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42), 1, [1], []);
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42), 2, [1, 3], [2]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defaultValue: 42),
+      10, [2, 4], [1, 3, 5]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defaultValue: 42),
+      2, [2, 4], [1, 3]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defaultValue: 42),
+      1, [1], []);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defaultValue: 42),
+      2, [1, 3], [2]);
 
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x < 4, defVal: 42), 1, [4], [1, 2, 3]);
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x > 2, defVal: 42), 2, [1, 2], []);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x < 4, defaultValue: 42),
+      1, [4], [1, 2, 3]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x > 2, defaultValue: 42),
+      2, [1, 2], []);
 }

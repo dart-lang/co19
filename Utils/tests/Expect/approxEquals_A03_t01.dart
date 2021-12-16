@@ -2,9 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void approxEquals(num expected, num actual, [num tolerance = null, String reason = null])
+/// @assertion static void approxEquals(num expected, num actual,
+///     [num tolerance = null, String reason = null])
 /// Passing null as either expected or actual results in Error. 
-/// @description Checks that Error is thrown if any of the required arguments are null.
+/// @description Checks that Error is thrown if any of the required arguments
+/// are null.
 /// @author rodionov
 
 import "../../../Utils/expect.dart";
@@ -35,7 +37,7 @@ main() {
   check(null, null, 0, "not empty");
 }
 
-void check(num? arg1, num? arg2, [num? tolerance = null, String? reason = null]) {
+void check(num? arg1, num? arg2, [num? tolerance = null, String reason = '']) {
   try {
     Expect.approxEquals(arg1 as num, arg2 as num, tolerance, reason);
     Expect.fail("Error expected");

@@ -22,7 +22,7 @@ void check<T>(Stream<T> s, List expectedEvents) {
   // delay for 100 ms and throw error if element starts with '!'
   Stream s2 = s.asyncMap(
                           (x) => new Future.delayed(
-                              durationMs(100),
+                              durationInMilliseconds(100),
                               () {
                                 if (x is String && x.startsWith("!")){
                                   throw x;
@@ -32,7 +32,7 @@ void check<T>(Stream<T> s, List expectedEvents) {
                           )
   );
   Stream s3 = s2.timeout(
-      durationMs(10),
+      durationInMilliseconds(10),
       onTimeout: (EventSink sink) => sink.add(count++)
   );
   List actualEvents = [];

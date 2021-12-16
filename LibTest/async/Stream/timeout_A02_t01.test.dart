@@ -21,9 +21,9 @@ import "../../../Utils/expect.dart";
 void test(CreateStreamFunction create) {
   int count = 0;
   Stream s1 = create(["a", "b", "c"]);
-  Stream s2 = s1.asyncMap((x) => new Future.delayed(durationMs(100), () => x));
+  Stream s2 = s1.asyncMap((x) => new Future.delayed(durationInMilliseconds(100), () => x));
   Stream s3 = s2.timeout(
-      durationMs(10),
+      durationInMilliseconds(10),
       onTimeout: (EventSink sink) => sink.add(count++)
   );
   AsyncExpect.data([0, "a", 1, "b", 2, "c"], s3);

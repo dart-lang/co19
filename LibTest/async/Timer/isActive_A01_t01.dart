@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 check(int delayms) {
   asyncStart();
   Timer? t;
-  t = new Timer(durationMs(delayms), () {
+  t = new Timer(durationInMilliseconds(delayms), () {
     Expect.isFalse(t!.isActive);
     asyncEnd();
   });

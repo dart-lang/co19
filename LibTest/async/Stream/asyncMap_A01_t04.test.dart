@@ -21,7 +21,8 @@ import "../../../Utils/expect.dart";
 void check<T>(Stream<T> stream, List<T> expected) {
   AsyncExpect.data(
       expected,
-      stream.asyncMap((e) => new Future.delayed(durationMs(50), () => e))
+      stream.asyncMap((e) =>
+          new Future.delayed(durationInMilliseconds(50), () => e))
   );
 }
 

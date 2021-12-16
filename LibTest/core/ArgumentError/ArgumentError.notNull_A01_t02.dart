@@ -12,6 +12,6 @@ import "../../../Utils/expect.dart";
  
 main() {
   ArgumentError err = new ArgumentError.notNull();
-  Expect.isNull(null, err.name);
+  Expect.isNull(null, err.name ?? 'unnamed error');
   Expect.equals("Must not be null", err.message);
 }

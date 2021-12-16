@@ -21,7 +21,7 @@ main() {
 
   FutureOr<bool> f() {
     num++;
-    return new Future.delayed(durationMs(100), () => (num < N));
+    return new Future.delayed(durationInMilliseconds(100), () => (num < N));
   }
 
   asyncStart();

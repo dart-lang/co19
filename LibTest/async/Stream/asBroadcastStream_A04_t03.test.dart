@@ -79,5 +79,5 @@ void test(CreateStreamFunction create) {
     }
   }
 
-  timer = new Timer.periodic(durationMs(10), addSubscribersIfNeeded);
+  timer = Timer.periodic(durationInMilliseconds(10), addSubscribersIfNeeded);
 }

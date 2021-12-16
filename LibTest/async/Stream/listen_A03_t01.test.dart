@@ -6,8 +6,8 @@
 ///   {Function onError, void onDone(), bool cancelOnError})
 /// On errors from this stream, the onError handler is given a object describing
 /// the error.
-/// @description Checks that the onError handler is given an object describing the
-/// error.
+/// @description Checks that the onError handler is given an object describing
+/// the error.
 /// @author kaigorodov
 
 library listen_A03_t01;
@@ -31,13 +31,14 @@ void check<T>(Stream<T> s, List<T> data, List errors) {
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([], defVal: 42), [], []);
-  check(create([1, 2, 3, 4], isError: (x) => false, defVal: 42), [1, 2, 3, 4],
-      []);
-  check(
-      create([1, 2, 3, 4], isError: (x) => true, defVal: 42), [], [1, 2, 3, 4]);
-  check<int>(create([1, 2, 3, 4], isError: (x) => x.isOdd, defVal: 42), [2, 4],
-      [1, 3]);
-  check(create([null, "2", -3, 4.0, []], isError: (x) => x is num, defVal: 42),
+  check(create([], defaultValue: 42), [], []);
+  check(create([1, 2, 3, 4], isError: (x) => false, defaultValue: 42),
+      [1, 2, 3, 4], []);
+  check(create([1, 2, 3, 4], isError: (x) => true, defaultValue: 42),
+      [], [1, 2, 3, 4]);
+  check<int>(create([1, 2, 3, 4], isError: (x) => x.isOdd, defaultValue: 42),
+      [2, 4], [1, 3]);
+  check(create(
+        [null, "2", -3, 4.0, []], isError: (x) => x is num, defaultValue: 42),
       [null, "2", []], [-3, 4.0]);
 }

@@ -14,14 +14,14 @@ main() {
   int delay = 20;
   int count = 0;
 
-  Timer timer = new Timer.periodic(durationMs(delay), (Timer t) {
+  Timer timer = new Timer.periodic(durationInMilliseconds(delay), (Timer t) {
       count++;
     }
   );
   timer.cancel();
   
   asyncStart();
-  new Timer(durationMs(delay * 3), () {
+  new Timer(durationInMilliseconds(delay * 3), () {
     Expect.equals(count, 0);
     asyncEnd();
   });

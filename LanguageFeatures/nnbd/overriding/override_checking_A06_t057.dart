@@ -18,8 +18,8 @@
 
 import "../../../Utils/expect.dart";
 
-class B extends CHECK_TOP_MERGE<Null> {}
-class C extends CHECK_TOP_MERGE<Null> {}
+class B extends CheckTopMerge<Null> {}
+class C extends CheckTopMerge<Null> {}
 
 class D extends B implements C {}
 

@@ -19,15 +19,11 @@ void check(Stream s, Object expectedError) {
 
 void test(CreateStreamWithErrorsFunction create) {
   Object error = new ArgumentError(1);
-  check(create([error], isError: (e) => true, defVal: new Object()), error);
-  check(
-      create([1, 2, error, 3, 4],
-          isError: (e) => e is ArgumentError, defVal: new Object()),
-      error);
+  check(create([error], isError: (e) => true, defaultValue: Object()), error);
+  check(create([1, 2, error, 3, 4], isError: (e) => e is ArgumentError,
+      defaultValue: Object()), error);
   error = new StateError("");
-  check(create([error], isError: (e) => true, defVal: new Object()), error);
-  check(
-      create([1, 2, error, 3, 4],
-          isError: (e) => e is StateError, defVal: new Object()),
-      error);
+  check(create([error], isError: (e) => true, defaultValue: Object()), error);
+  check(create([1, 2, error, 3, 4], isError: (e) => e is StateError,
+      defaultValue: Object()), error);
 }

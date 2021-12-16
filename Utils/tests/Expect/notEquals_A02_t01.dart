@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static void notEquals(var unexpected, var actual, [String reason = null])
+/// @assertion static void notEquals(var unexpected, var actual, [String reason = ''])
 /// Descriptive error message is provided in case of failure.
 /// @description Checks that message of thrown ExpectException includes 
 /// representation of the unexpected and actual values, as well as the reason.
@@ -31,14 +31,16 @@ main() {
   check("", "", "bla");
 }
 
-void check(var arg1, var arg2, [String? reason = null]) {
+void check(var arg1, var arg2, [String reason = '']) {
   try {
     Expect.notEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
   } on ExpectException catch(e) {
     String msg = e.message as String;
-    if (!msg.contains(arg1 != null ? arg1.toString() : "null", 0)) throw "no unexpected value";
-    if (!msg.contains(arg2 != null ? arg2.toString() : "null", 0)) throw "no actual value";
-    if (reason != null && !reason.isEmpty && !msg.contains(reason, 0)) throw "no reason";
+    if (!msg.contains(arg1 != null ? arg1.toString() : "null", 0))
+      throw "no unexpected value";
+    if (!msg.contains(arg2 != null ? arg2.toString() : "null", 0))
+      throw "no actual value";
+    if (!reason.isEmpty && !msg.contains(reason, 0)) throw "no reason";
   }
 }

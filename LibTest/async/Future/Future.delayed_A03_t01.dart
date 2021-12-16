@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 
 check(delay, value) {
   asyncStart();
-  new Future.delayed(durationMs(delay), () {throw value;})
+  new Future.delayed(durationInMilliseconds(delay), () {throw value;})
     .then(
       (v) {
         Expect.fail("Created future should complete with error");

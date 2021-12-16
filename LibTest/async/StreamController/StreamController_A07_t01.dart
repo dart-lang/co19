@@ -19,7 +19,7 @@ main() {
   bool onCancelFutureComplete = false;
   StreamController controller = new StreamController(
     onCancel: () => new Future.delayed(
-      durationMs(100),
+      durationInMilliseconds(100),
       () {
         onCancelFutureComplete = true;
       }
