@@ -33,16 +33,21 @@ main() {
   Aint ai = 1;
   Expect.isTrue(ai is int);
   Expect.isTrue(1 is Aint);
+  checkType(checkIs<int>, true, ai);
+  checkType(checkIs<Aint>, true, 1);
 
   Anum an = 3;
   an = 3.14;
   Expect.isTrue(an is num);
+  checkType(checkIs<num>, true, an);
 
   Adouble ad = 3.1415926;
   Expect.isTrue(ad is double);
+  checkType(checkIs<double>, true, ad);
 
   AString as = "Lily was here";
   Expect.isTrue(as is String);
+  checkType(checkIs<String>, true, as);
 
   AObject ao = new AObject();
   ao = new Object();
@@ -51,10 +56,13 @@ main() {
 
   ANull anull = null;
   Expect.isTrue(anull is Null);
+  checkType(checkIs<Null>, true, anull);
 
   Adynamic adyn = getDynamic();
   Expect.isTrue(adyn is dynamic);
+  checkType(checkIs<dynamic>, true, adyn);
 
   AFunction af = getVoid;
   Expect.isTrue(af is Function);
+  checkType(checkIs<Function>, true, af);
 }

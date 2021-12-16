@@ -34,6 +34,7 @@ main() {
   //trivial check
   A a = new A();
   Expect.isTrue(a is A);
+  checkType(checkIs<A>, true, a);
   A b = a;
   a = new A();
   Expect.isFalse(identical(a, b));
@@ -41,7 +42,9 @@ main() {
   //check with type parameters
   A<int, double, A> n = new A<int, double, A>();
   Expect.isTrue(n is A<int, double, A>);
+  checkType(checkIs<A<int, double, A>>, true, n);
   Expect.isTrue(a is A);
+  checkType(checkIs<A>, true, a);
 
   a = n;
   n = new A();
@@ -50,18 +53,22 @@ main() {
   a = new A();
   A<A<A, int, double>, List<String>, A> n2 = new A<A<A, int, double>, List<String>, A>();
   Expect.isTrue(n2 is A<A<A, int, double>, List<String>, A>);
+  checkType(checkIs<A<A<A, int, double>, List<String>, A>>, true, n2);
   Expect.isTrue(a is A);
+  checkType(checkIs<A>, true, a);
 
   a = n2;
   n2 = new A();
 
   Map m = new Map();
   Expect.isTrue(m is Map);
+  checkType(checkIs<Map>, true, m);
   Map m2 = m;
   m = new Map();
 
   Map<int, Object> mio = new Map<int, Object>();
   Expect.isTrue(mio is Map<int, Object>);
+  checkType(checkIs<Map<int, Object>>, true, mio);
   Map<int, Object> mio2 = mio;
   mio = new Map<int, Object>();
 }

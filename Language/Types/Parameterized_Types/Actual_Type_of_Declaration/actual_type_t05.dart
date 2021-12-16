@@ -20,4 +20,5 @@ class C<T> {
 main() {
   C c = new C();
   Expect.isTrue(c.f() is List<dynamic>);
+  checkType(checkIs<List<dynamic>>, true, c.f());
 }

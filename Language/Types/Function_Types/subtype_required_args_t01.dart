@@ -106,6 +106,12 @@ main() {
   Expect.isFalse(f4 is t1);
   Expect.isTrue(f5 is t1);
   Expect.isTrue(f6 is t1);
+  checkType(checkIs<t1>, true, f1);
+  checkType(checkIs<t1>, true, f2);
+  checkType(checkIs<t1>, false, f3);
+  checkType(checkIs<t1>, false, f4);
+  checkType(checkIs<t1>, true, f5);
+  checkType(checkIs<t1>, true, f6);
 
   Expect.isTrue(f10 is t2);
   Expect.isTrue(f11 is t2);
@@ -113,11 +119,21 @@ main() {
   Expect.isFalse(f13 is t2);
   Expect.isTrue(f14 is t2);
   Expect.isTrue(f15 is t2);
+  checkType(checkIs<t2>, true, f10);
+  checkType(checkIs<t2>, true, f11);
+  checkType(checkIs<t2>, true, f12);
+  checkType(checkIs<t2>, false, f13);
+  checkType(checkIs<t2>, true, f14);
+  checkType(checkIs<t2>, true, f15);
 
   Expect.isTrue(f20 is t3);
   Expect.isTrue(f21 is t3);
   Expect.isTrue(f22 is t3);
   Expect.isTrue(f23 is t3);
+  checkType(checkIs<t3>, true, f20);
+  checkType(checkIs<t3>, true, f21);
+  checkType(checkIs<t3>, true, f22);
+  checkType(checkIs<t3>, true, f23);
 
   Expect.isFalse(f30 is t4);
   Expect.isFalse(f31 is t4);
@@ -132,6 +148,19 @@ main() {
   Expect.isFalse(f40 is t4);
   Expect.isFalse(f41 is t4);
   Expect.isFalse(f42 is t4);
+  checkType(checkIs<t4>, false, f30);
+  checkType(checkIs<t4>, false, f31);
+  checkType(checkIs<t4>, false, f32);
+  checkType(checkIs<t4>, false, f33);
+  checkType(checkIs<t4>, false, f34);
+  checkType(checkIs<t4>, true, f35);
+  checkType(checkIs<t4>, false, f36);
+  checkType(checkIs<t4>, false, f37);
+  checkType(checkIs<t4>, false, f38);
+  checkType(checkIs<t4>, false, f39);
+  checkType(checkIs<t4>, false, f40);
+  checkType(checkIs<t4>, false, f41);
+  checkType(checkIs<t4>, false, f42);
 
   Expect.isTrue(f50 is t5);
   Expect.isFalse(f51 is t5);
@@ -139,17 +168,32 @@ main() {
   Expect.isTrue(f53 is t5);
   Expect.isFalse(f54 is t5);
   Expect.isFalse(f55 is t5);
+  checkType(checkIs<t5>, true, f50);
+  checkType(checkIs<t5>, false, f51);
+  checkType(checkIs<t5>, true, f52);
+  checkType(checkIs<t5>, true, f53);
+  checkType(checkIs<t5>, false, f54);
+  checkType(checkIs<t5>, false, f55);
 
   Expect.isTrue(f61 is t6);
   Expect.isFalse(f62 is t6);
   Expect.isTrue(f63 is t6);
   Expect.isTrue(f64 is t6);
   Expect.isTrue(f65 is t6);
+  checkType(checkIs<t6>, true, f61);
+  checkType(checkIs<t6>, false, f62);
+  checkType(checkIs<t6>, true, f63);
+  checkType(checkIs<t6>, true, f64);
+  checkType(checkIs<t6>, true, f65);
 
   Expect.isFalse(f71 is t7);
   Expect.isTrue(f72 is t7);
   Expect.isTrue(f73 is t7);
   Expect.isTrue(f74 is t7);
+  checkType(checkIs<t7>, false, f71);
+  checkType(checkIs<t7>, true, f72);
+  checkType(checkIs<t7>, true, f73);
+  checkType(checkIs<t7>, true, f74);
 
   Expect.isFalse(f81 is t8);
   Expect.isFalse(f82 is t8);
@@ -162,4 +206,15 @@ main() {
   Expect.isFalse(f89 is t8);
   Expect.isFalse(f90 is t8);
   Expect.isFalse(f91 is t8);
+  checkType(checkIs<t8>, false, f81);
+  checkType(checkIs<t8>, false, f82);
+  checkType(checkIs<t8>, false, f83);
+  checkType(checkIs<t8>, false, f84);
+  checkType(checkIs<t8>, true, f85);
+  checkType(checkIs<t8>, true, f86);
+  checkType(checkIs<t8>, false, f87);
+  checkType(checkIs<t8>, false, f88);
+  checkType(checkIs<t8>, false, f89);
+  checkType(checkIs<t8>, false, f90);
+  checkType(checkIs<t8>, false, f91);
 }

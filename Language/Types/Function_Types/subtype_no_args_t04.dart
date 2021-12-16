@@ -93,11 +93,23 @@ main() {
   Expect.isTrue(f7 is t8);
   Expect.isTrue(f8 is t8);
   Expect.isTrue(f9 is t8);
+  checkType(checkIs<t8>, true, f1);
+  checkType(checkIs<t8>, true, f2);
+  checkType(checkIs<t8>, true, f3);
+  checkType(checkIs<t8>, true, f4);
+  checkType(checkIs<t8>, true, f5);
+  checkType(checkIs<t8>, true, f6);
+  checkType(checkIs<t8>, true, f7);
+  checkType(checkIs<t8>, true, f8);
+  checkType(checkIs<t8>, true, f9);
 
   //() -> T is () -> List<int>
   Expect.isFalse(f10 is t9);
   Expect.isTrue(f11 is t9);
   Expect.isFalse(f12 is t9);
+  checkType(checkIs<t9>, false, f10);
+  checkType(checkIs<t9>, true, f11);
+  checkType(checkIs<t9>, false, f12);
 
   //() -> T is () -> List<B>
   Expect.isFalse(f13 is t14);
@@ -106,6 +118,12 @@ main() {
   Expect.isTrue(f16 is t14);
   Expect.isTrue(f17 is t14);
   Expect.isTrue(f18 is t14);
+  checkType(checkIs<t14>, false, f13);
+  checkType(checkIs<t14>, false, f14);
+  checkType(checkIs<t14>, false, f15);
+  checkType(checkIs<t14>, true, f16);
+  checkType(checkIs<t14>, true, f17);
+  checkType(checkIs<t14>, true, f18);
 
   //() -> T is () -> Map
   Expect.isTrue(f19 is t15);
@@ -118,6 +136,16 @@ main() {
   Expect.isTrue(f26 is t15);
   Expect.isTrue(f27 is t15);
   Expect.isTrue(f28 is t15);
+  checkType(checkIs<t15>, true, f19);
+  checkType(checkIs<t15>, true, f20);
+  checkType(checkIs<t15>, true, f21);
+  checkType(checkIs<t15>, true, f22);
+  checkType(checkIs<t15>, true, f23);
+  checkType(checkIs<t15>, true, f24);
+  checkType(checkIs<t15>, true, f25);
+  checkType(checkIs<t15>, true, f26);
+  checkType(checkIs<t15>, true, f27);
+  checkType(checkIs<t15>, true, f28);
 
   //() -> T is () -> Map<num, Object>
   Expect.isTrue(f29 is t16);
@@ -131,4 +159,15 @@ main() {
   Expect.isTrue(f37 is t16);
   Expect.isTrue(f38 is t16);
   Expect.isTrue(f39 is t16);
+  checkType(checkIs<t16>, true, f29);
+  checkType(checkIs<t16>, true, f30);
+  checkType(checkIs<t16>, true, f31);
+  checkType(checkIs<t16>, true, f32);
+  checkType(checkIs<t16>, true, f33);
+  checkType(checkIs<t16>, true, f34);
+  checkType(checkIs<t16>, true, f35);
+  checkType(checkIs<t16>, true, f36);
+  checkType(checkIs<t16>, true, f37);
+  checkType(checkIs<t16>, true, f38);
+  checkType(checkIs<t16>, true, f39);
 }

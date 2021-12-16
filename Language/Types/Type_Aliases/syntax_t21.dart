@@ -26,19 +26,25 @@ const int meta = 1;
 main() {
   AFuture1 af1 = new Future.value("Lily was here");
   Expect.isTrue(af1 is Future<dynamic>);
+  checkType(checkIs<Future<dynamic>>, true, af1);
 
   AFuture2<String> af2 = new Future<String>.value("Lily was here");
   Expect.isTrue(af2 is Future<String>);
+  checkType(checkIs<Future<String>>, true, af2);
 
   AFutureOr1 afr1 = new Future.value("Lily was here");
   Expect.isTrue(afr1 is Future<dynamic>);
+  checkType(checkIs<Future<dynamic>>, true, afr1);
 
   AFutureOr1 afr11 = "Lily was here";
   Expect.isTrue(afr11 is dynamic);
+  checkType(checkIs<dynamic>, true, afr11);
 
   AFutureOr2<String> afr2 = new Future<String>.value("Lily was here");
   Expect.isTrue(afr2 is Future<String>);
+  checkType(checkIs<Future<String>>, true, afr2);
 
   AFutureOr2<String> afr22 = "Lily was here";
   Expect.isTrue(afr22 is String);
+  checkType(checkIs<String>, true, afr22);
 }

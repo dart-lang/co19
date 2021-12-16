@@ -25,6 +25,12 @@ main() {
   Expect.isTrue(([Object? x]) {} is F1);
   Expect.isFalse(([Func? x]) {} is F1);
   Expect.isFalse(([Func2? x]) {} is F1);
+  checkType(checkIs<F1>, true, ([x]) {});
+  checkType(checkIs<F1>, true, ([dynamic x]) {});
+  checkType(checkIs<F1>, false, ([int x = 0]) {});
+  checkType(checkIs<F1>, true, ([Object? x]) {});
+  checkType(checkIs<F1>, false, ([Func? x]) {});
+  checkType(checkIs<F1>, false, ([Func2? x]) {});
 
   Expect.isTrue(({x}) {} is F2);
   Expect.isTrue(({dynamic x}) {} is F2);
@@ -32,4 +38,10 @@ main() {
   Expect.isTrue(({Object? x}) {} is F2);
   Expect.isFalse(({Func? x}) {} is F2);
   Expect.isFalse(({Func2? x}) {} is F2);
+  checkType(checkIs<F2>, true, ({x}) {});
+  checkType(checkIs<F2>, true, ({dynamic x}) {});
+  checkType(checkIs<F2>, false, ({int x = 0}) {});
+  checkType(checkIs<F2>, true, ({Object? x}) {});
+  checkType(checkIs<F2>, false, ({Func? x}) {});
+  checkType(checkIs<F2>, false, ({Func2? x}) {});
 }

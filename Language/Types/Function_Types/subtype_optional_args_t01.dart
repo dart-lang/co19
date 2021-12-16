@@ -12,7 +12,6 @@
 /// @description Checks that this statement is true for functions with a single
 /// positional optional parameter (class, generic, function, Dynamic).
 /// @author iefremov
-/// @reviewer rodionov
 
 import "../../../Utils/expect.dart";
 
@@ -42,6 +41,12 @@ main() {
   Expect.isFalse(([D? a]) {} is t1);
   Expect.isTrue(([Object? a]) {} is t1);
   Expect.isTrue(([var a]) {} is t1);
+  checkType(checkIs<t1>, true, ([A? a]) {});
+  checkType(checkIs<t1>, true, ([B? a]) {});
+  checkType(checkIs<t1>, false, ([C? a]) {});
+  checkType(checkIs<t1>, false, ([D? a]) {});
+  checkType(checkIs<t1>, true, ([Object? a]) {});
+  checkType(checkIs<t1>, true, ([var a]) {});
 
   Expect.isTrue(([A? c]) {} is t2);
   Expect.isTrue(([B? c]) {} is t2);
@@ -49,11 +54,21 @@ main() {
   Expect.isFalse(([D? c]) {} is t2);
   Expect.isTrue(([Object? c]) {} is t2);
   Expect.isTrue(([var c]) {} is t2);
+  checkType(checkIs<t2>, true, ([A? a]) {});
+  checkType(checkIs<t2>, true, ([B? a]) {});
+  checkType(checkIs<t2>, true, ([C? a]) {});
+  checkType(checkIs<t2>, false, ([D? a]) {});
+  checkType(checkIs<t2>, true, ([Object? a]) {});
+  checkType(checkIs<t2>, true, ([var a]) {});
 
   Expect.isTrue(([num? i]) {} is t3);
   Expect.isTrue(([int? i]) {} is t3);
   Expect.isTrue(([Object? i]) {} is t3);
   Expect.isTrue(([var i]) {} is t3);
+  checkType(checkIs<t3>, true, ([num? a]) {});
+  checkType(checkIs<t3>, true, ([int? a]) {});
+  checkType(checkIs<t3>, true, ([Object? a]) {});
+  checkType(checkIs<t3>, true, ([var a]) {});
 
   Expect.isFalse(([A? v]) {} is t4);
   Expect.isFalse(([B? v]) {} is t4);
@@ -68,6 +83,19 @@ main() {
   Expect.isFalse(([List? v]) {} is t4);
   Expect.isFalse(([t8? v]) {} is t4);
   Expect.isFalse(([t7? v]) {} is t4);
+  checkType(checkIs<t4>, false, ([A? a]) {});
+  checkType(checkIs<t4>, false, ([B? a]) {});
+  checkType(checkIs<t4>, false, ([C? a]) {});
+  checkType(checkIs<t4>, false, ([D? a]) {});
+  checkType(checkIs<t4>, true, ([Object? a]) {});
+  checkType(checkIs<t4>, true, ([var a]) {});
+  checkType(checkIs<t4>, false, ([num? a]) {});
+  checkType(checkIs<t4>, false, ([int? a]) {});
+  checkType(checkIs<t4>, false, ([Map? a]) {});
+  checkType(checkIs<t4>, false, ([Map<List<Map<List, List<int>>>, List>? v]) {});
+  checkType(checkIs<t4>, false, ([List? a]) {});
+  checkType(checkIs<t4>, false, ([t8? a]) {});
+  checkType(checkIs<t4>, false, ([t7? a]) {});
 
   Expect.isTrue(([Map? m]) {} is t5);
   Expect.isFalse(([Map<List, t8>? m]) {} is t5);
@@ -75,6 +103,12 @@ main() {
   Expect.isTrue(([var m]) {} is t5);
   Expect.isFalse(([Map<List, List>? m]) {} is t5);
   Expect.isFalse(([Map<int, t8>? m]) {} is t5);
+  checkType(checkIs<t5>, true, ([Map? a]) {});
+  checkType(checkIs<t5>, false, ([Map<List, t8>? a]) {});
+  checkType(checkIs<t5>, true, ([Object? a]) {});
+  checkType(checkIs<t5>, true, ([var a]) {});
+  checkType(checkIs<t5>, false, ([Map<List, List>? a]) {});
+  checkType(checkIs<t5>, false, ([Map<int, t8>? a]) {});
 
   Expect.isTrue(([Map<num, num>? m]) {} is t6);
   Expect.isFalse(([Map<int, int>? m]) {} is t6);
@@ -98,4 +132,15 @@ main() {
   Expect.isFalse(([Map? a]) {} is t8);
   Expect.isFalse(([Map<List<Map<List, List<int>>>, List>? a]) {} is t8);
   Expect.isFalse(([List? a]) {} is t8);
+  checkType(checkIs<t8>, false, ([A? a]) {});
+  checkType(checkIs<t8>, false, ([B? a]) {});
+  checkType(checkIs<t8>, false, ([C? a]) {});
+  checkType(checkIs<t8>, false, ([D? a]) {});
+  checkType(checkIs<t8>, true, ([Object? a]) {});
+  checkType(checkIs<t8>, true, ([var a]) {});
+  checkType(checkIs<t8>, false, ([num? a]) {});
+  checkType(checkIs<t8>, false, ([int? a]) {});
+  checkType(checkIs<t8>, false, ([Map? a]) {});
+  checkType(checkIs<t8>, false, ([Map<List<Map<List, List<int>>>, List>? v]) {});
+  checkType(checkIs<t8>, false, ([List? a]) {});
 }

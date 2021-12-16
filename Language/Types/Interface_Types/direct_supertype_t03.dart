@@ -21,4 +21,5 @@ class J implements I {}
 
 main() {
   Expect.isTrue(new J() is I);
+  checkType(checkIs<I>, true, new J());
 }

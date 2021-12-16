@@ -31,6 +31,7 @@ import "dart:collection";
 class G {}
 
 class IManyArgs<A, B, C, D, E> {}
+
 class CManyArgs<A, B, C> extends IManyArgs<int, A, B, C, double> {}
 
 // these produce the required static type for static checker
@@ -40,11 +41,15 @@ void make2(IManyArgs<int, List, Map, Queue, double> v) {}
 
 main() {
   Expect.isTrue(new CManyArgs<G, G, G>() is IManyArgs<int, G, G, G, double>);
+  checkType(
+      checkIs<IManyArgs<int, G, G, G, double>>, true, new CManyArgs<G, G, G>());
   make1(new CManyArgs<G, G, G>());
   IManyArgs<int, G, G, G, double> g6_ = new CManyArgs<G, G, G>();
 
   Expect.isTrue(new CManyArgs<List, Map, Queue>()
       is IManyArgs<int, List, Map, Queue, double>);
+  checkType(checkIs<IManyArgs<int, List, Map, Queue, double>>, true,
+      new CManyArgs<List, Map, Queue>());
   make2(new CManyArgs<List, Map, Queue>());
   IManyArgs<int, List, Map, Queue, double> g7_ =
       new CManyArgs<List, Map, Queue>();

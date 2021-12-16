@@ -63,6 +63,7 @@ class Checker<T> {
 
   check(T x) {
     Expect.isTrue(x is T);
+    checkType(checkIs<T>, true, x);
     T t = x;
     check2(x);
   }

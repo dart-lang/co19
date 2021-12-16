@@ -18,10 +18,15 @@
 import "../../../Utils/expect.dart";
 
 class A {}
+
 class A1 {}
+
 class A2 {}
+
 class B implements A, A1, A2 {}
+
 class C implements B {}
+
 class D implements C {}
 
 class G<T, S, U, W> {}
@@ -43,15 +48,53 @@ typedef okWithGenericsFunc_2(
 typedef okWithDynamicFunc_1([A? x, G? y, mixFunc z, var v]);
 typedef okWithDynamicFunc_2([int? x, bool? y, List<Map>? z, classesFunc? v]);
 
-
 main() {
-  Expect.isFalse((var vv, [D? a, B? b, C? c, A? d, var xx, Map? xxx, Object? xxxx]) {} is classesFunc);
-
-  Expect.isTrue(([var m, var l, var g, var xx, var xxx, var xxxx]) {} is genericsFunc);
-
-  Expect.isFalse(
-          ([A? x, G? y, mixFunc? z, var v, Object? xx, List<Map<int, mixFunc>>? xxx, mixFunc? xxxx]) {} is dynamicFunc);
-
+  Expect.isFalse((var vv,
+      [D? a,
+      B? b,
+      C? c,
+      A? d,
+      var xx,
+      Map? xxx,
+      Object? xxxx]) {} is classesFunc);
+  checkType(checkIs<classesFunc>, false,
+      (var vv, [A? a, C? c, B? b, D? d, Map? xxx, Object? xxxx]) {});
   Expect.isTrue(
-          ([okWithClassesFunc_2? f1, okWithGenericsFunc_2? f2, okWithDynamicFunc_2? f3, mixFunc? xx, funcFunc? xxx]) {} is funcFunc);
+      ([var m, var l, var g, var xx, var xxx, var xxxx]) {} is genericsFunc);
+  checkType(checkIs<genericsFunc>, true,
+      ([var m, var l, var g, var xx, var xxx, var xxxx]) {});
+  Expect.isFalse((
+      [A? x,
+      G? y,
+      mixFunc? z,
+      var v,
+      Object? xx,
+      List<Map<int, mixFunc>>? xxx,
+      mixFunc? xxxx]) {} is dynamicFunc);
+  checkType(
+      checkIs<dynamicFunc>,
+      false,
+      (
+          [A? x,
+          G? y,
+          mixFunc? z,
+          var v,
+          Object? xx,
+          List<Map<int, mixFunc>>? xxx,
+          mixFunc? xxxx]) {});
+  Expect.isTrue((
+      [okWithClassesFunc_2? f1,
+      okWithGenericsFunc_2? f2,
+      okWithDynamicFunc_2? f3,
+      mixFunc? xx,
+      funcFunc? xxx]) {} is funcFunc);
+  checkType(
+      checkIs<funcFunc>,
+      true,
+      (
+          [okWithClassesFunc_2? f1,
+          okWithGenericsFunc_2? f2,
+          okWithDynamicFunc_2? f3,
+          mixFunc? xx,
+          funcFunc? xxx]) {});
 }

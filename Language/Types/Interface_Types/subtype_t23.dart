@@ -51,16 +51,27 @@ typedef t1_2 t3_2(t1_2 f1, [t1_2 f2]);
 
 main() {
   Expect.isTrue(new List<t1>.empty() is List<t1>);
+  checkType(checkIs<List<t1>>, true, new List<t1>.empty());
   Expect.isTrue(new List<t1_1>.empty() is List<t1>);
+  checkType(checkIs<List<t1>>, true, new List<t1_1>.empty());
   Expect.isTrue(new List<t1_2>.empty() is List<t1>);
+  checkType(checkIs<List<t1>>, true, new List<t1_2>.empty());
 
   Expect.isTrue(new List<t2>.empty() is List<t2>);
   Expect.isFalse(new List<t2_1>.empty() is List<t2>);
   Expect.isFalse(new List<t2_2>.empty() is List<t2>);
   Expect.isFalse(new List<t2_3>.empty() is List<t2>);
   Expect.isFalse(new List<t2_4>.empty() is List<t2>);
+  checkType(checkIs<List<t2>>, true, new List<t2>.empty());
+  checkType(checkIs<List<t2>>, false, new List<t2_1>.empty());
+  checkType(checkIs<List<t2>>, false, new List<t2_2>.empty());
+  checkType(checkIs<List<t2>>, false, new List<t2_3>.empty());
+  checkType(checkIs<List<t2>>, false, new List<t2_4>.empty());
 
   Expect.isTrue(new List<t3>.empty() is List<t3>);
   Expect.isTrue(new List<t3_1>.empty() is List<t3>);
   Expect.isFalse(new List<t3_2>.empty() is List<t3>);
+  checkType(checkIs<List<t3>>, true, new List<t3>.empty());
+  checkType(checkIs<List<t3>>, true, new List<t3_1>.empty());
+  checkType(checkIs<List<t3>>, false, new List<t3_2>.empty());
 }

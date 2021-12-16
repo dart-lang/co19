@@ -66,15 +66,30 @@ main() {
   Expect.isFalse(f5 is classesFunc);
   Expect.isTrue(f6 is classesFunc);
   Expect.isTrue(f7 is classesFunc);
+  checkType(checkIs<classesFunc>, false, f1);
+  checkType(checkIs<classesFunc>, true, f2);
+  checkType(checkIs<classesFunc>, false, f3);
+  checkType(checkIs<classesFunc>, false, f4);
+  checkType(checkIs<classesFunc>, false, f5);
+  checkType(checkIs<classesFunc>, true, f6);
+  checkType(checkIs<classesFunc>, true, f7);
 
   Expect.isTrue(f11 is genericsFunc);
   Expect.isFalse(f12 is genericsFunc);
   Expect.isTrue(f13 is genericsFunc);
   Expect.isTrue(f14 is genericsFunc);
+  checkType(checkIs<genericsFunc>, true, f11);
+  checkType(checkIs<genericsFunc>, false, f12);
+  checkType(checkIs<genericsFunc>, true, f13);
+  checkType(checkIs<genericsFunc>, true, f14);
 
   Expect.isFalse(f21 is dynamicFunc);
   Expect.isFalse(f22 is dynamicFunc);
+  checkType(checkIs<dynamicFunc>, false, f21);
+  checkType(checkIs<dynamicFunc>, false, f22);
 
   Expect.isFalse(f31 is funcFunc);
   Expect.isTrue(f32 is funcFunc);
+  checkType(checkIs<funcFunc>, false, f31);
+  checkType(checkIs<funcFunc>, true, f32);
 }

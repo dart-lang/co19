@@ -28,12 +28,12 @@
 
 import "../../../Utils/expect.dart";
 
-
 class C {}
 class G<T, S, U>{}
 
 main() {
   Expect.isTrue(new G<C1026, C1026, C1026>() is G<C, C, C>);
+  checkType(checkIs<G<C, C, C>>, true, new G<C1026, C1026, C1026>());
 }
 
 class C1 extends C {}

@@ -33,7 +33,11 @@ void g(int i, String s, C c, {int? opti, String? opts, C? optc}) {}
 main() {
   Expect.isTrue(f is F);
   Expect.isTrue(g is G);
+  checkType(checkIs<F>, true, f);
+  checkType(checkIs<G>, true, g);
 
   Expect.isFalse(g is F);
   Expect.isFalse(f is G);
+  checkType(checkIs<F>, false, g);
+  checkType(checkIs<G>, false, f);
 }

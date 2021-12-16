@@ -39,4 +39,9 @@ main() {
   Expect.isTrue(new T() is S<num>);
   Expect.isTrue(new T() is S<Object>);
   Expect.isTrue(new T() is S);
+  checkType(checkIs<S<int>>, true, new T());
+  checkType(checkIs<S<double>>, false, new T());
+  checkType(checkIs<S<num>>, true, new T());
+  checkType(checkIs<S<Object>>, true, new T());
+  checkType(checkIs<S>, true, new T());
 }

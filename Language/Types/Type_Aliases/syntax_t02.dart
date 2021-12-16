@@ -30,24 +30,32 @@ main() {
   CAlias1 ca1 = new CAlias1(42);
   Expect.isTrue(ca1 is C<dynamic>);
   Expect.isTrue(ca1.t is dynamic);
+  checkType(checkIs<C<dynamic>>, true, ca1);
+  checkType(checkIs<dynamic>, true, ca1.t);
   ca1.t = "-1";
   Expect.equals("-1", ca1.t);
 
   CAlias2<int> ca2 = new CAlias2<int>(1);
   Expect.isTrue(ca2 is C<int>);
   Expect.isTrue(ca2.t is int);
+  checkType(checkIs<C<int>>, true, ca2);
+  checkType(checkIs<int>, true, ca2.t);
   ca2.t = -1;
   Expect.equals(-1, ca2.t);
 
   CAlias3 ca3 = new CAlias3("");
   Expect.isTrue(ca3 is C<String>);
   Expect.isTrue(ca3.t is String);
+  checkType(checkIs<C<String>>, true, ca3);
+  checkType(checkIs<String>, true, ca3.t);
   ca3.t = "Lily was here";
   Expect.equals("Lily was here", ca3.t);
 
   CAlias4<String> ca4 = new CAlias4<String>(1);
   Expect.isTrue(ca4 is C<int>);
   Expect.isTrue(ca4.t is int);
+  checkType(checkIs<C<int>>, true, ca4);
+  checkType(checkIs<int>, true, ca4.t);
   ca4.t = 42;
   Expect.equals(42, ca4.t);
 }

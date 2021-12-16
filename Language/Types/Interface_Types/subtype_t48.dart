@@ -35,27 +35,33 @@ class Whatever {}
 main() {
   void f11(int i, String s, [int p = 0]) {}
   Expect.isTrue(f11 is F1);
+  checkType(checkIs<F1>, true, f11);
 
   int f12 (int i, String s, [int p = 0]) => 42;
   Expect.isTrue(f12 is F1);
+  checkType(checkIs<F1>, true, f12);
 
   int f13 (int i, [String s = "", int p = 0]) => 42;
   Expect.isTrue(f13 is F1);
+  checkType(checkIs<F1>, true, f13);
 
   int f14 (int i, [String s = "", int p = 0, Whatever? w]) => 42;
   Expect.isTrue(f14 is F1);
-
-  //---
+  checkType(checkIs<F1>, true, f14);
 
   void f21(int i, String s, {int n = 42}) {}
   Expect.isTrue(f21 is F2);
+  checkType(checkIs<F2>, true, f21);
 
   void f22(int i, String s, {int n = 42}) {}
   Expect.isTrue(f22 is F2);
+  checkType(checkIs<F2>, true, f22);
 
   int f23 (int i, String s, {int n = 4, int n2 = 2}) => 42;
   Expect.isTrue(f23 is F2);
+  checkType(checkIs<F2>, true, f23);
 
   int f24 (int i, String s, {int n = 42, Whatever? w}) => 42;
   Expect.isTrue(f24 is F2);
+  checkType(checkIs<F2>, true, f24);
 }

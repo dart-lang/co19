@@ -18,4 +18,5 @@ class C<T1, T2> {}
 main() {
   C<int, String> c = new C<int, String>();
   Expect.isTrue(c is C<int, String>);
+  checkType(checkIs<C<int, String>>, true, c);
 }

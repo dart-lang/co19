@@ -39,15 +39,25 @@ typedef K f_2(List<int> l, [L i]);
 
 main() {
   Expect.isTrue(new List<List>.empty() is List);
+  checkType(checkIs<List>, true, new List<List>.empty());
   Expect.isFalse(new List<List>.empty() is List<List<List>>);
+  checkType(checkIs<List<List<List>>>, false, new List<List>.empty());
   Expect.isFalse(new List<List>.empty() is List<List<List<List>>>);
+  checkType(checkIs<List<List<List<List>>>>, false, new List<List>.empty());
   Expect.isTrue(new List<List<List<List>>>.empty() is List<List<List>>);
+  checkType(checkIs<List<List<List>>>, true, new List<List<List<List>>>.empty());
   Expect.isTrue(new List<List<List<List>>>.empty() is List);
+  checkType(checkIs<List>, true, new List<List<List<List>>>.empty());
 
   Expect.isTrue(new List<Map<int, double>>.empty() is List<Map>);
+  checkType(checkIs<List<Map>>, true, new List<Map<int, double>>.empty());
   Expect.isTrue(new List<Map<int, double>>.empty() is List<Map<num, num>>);
+  checkType(checkIs<List<Map<num, num>>>, true, new List<Map<int, double>>.empty());
 
   Expect.isTrue(new List<f>.empty() is List<f>);
+  checkType(checkIs<List<f>>, true, new List<f>.empty());
   Expect.isFalse(new List<f_1>.empty() is List<f>);
+  checkType(checkIs<List<f>>, false, new List<f_1>.empty());
   Expect.isFalse(new List<f_2>.empty() is List<f>);
+  checkType(checkIs<List<f>>, false, new List<f_2>.empty());
 }

@@ -35,4 +35,7 @@ main() {
   Expect.isTrue(new C() is I);
   Expect.isTrue(new C() is I<num>);
   Expect.isTrue(new C() is I<Object>);
+  checkType(checkIs<I>, true, new C());
+  checkType(checkIs<I<num>>, true, new C());
+  checkType(checkIs<I<Object>>, true, new C());
 }

@@ -19,4 +19,5 @@ class J {}
 
 main() {
   Expect.isTrue(new J() is Object);
+  checkType(checkIs<Object>, true, new J());
 }

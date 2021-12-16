@@ -11,4 +11,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(dynamic is Type);
+  checkType(checkIs<Type>, true, dynamic);
 }

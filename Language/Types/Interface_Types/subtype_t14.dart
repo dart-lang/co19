@@ -37,10 +37,12 @@ G<int>? makeGint() {}
 
 main() {
   Expect.isTrue(new NonGeneric() is G);
+  checkType(checkIs<G>, true, new NonGeneric());
   G? g4 = makeG();
   G g4_ = new NonGeneric();
 
   Expect.isTrue(new NonGeneric() is G<int>);
+  checkType(checkIs<G<int>>, true, new NonGeneric());
   G<int>? g5 = makeGint();
   G<int> g5_ = new NonGeneric();
 }

@@ -38,4 +38,9 @@ main() {
   Expect.isTrue(f3 is t1);
   Expect.isTrue(f4 is t1);
   Expect.isFalse(f5 is t1);
+  checkType(checkIs<t1>, false, f1);
+  checkType(checkIs<t1>, false, f2);
+  checkType(checkIs<t1>, true, f3);
+  checkType(checkIs<t1>, true, f4);
+  checkType(checkIs<t1>, false, f5);
 }

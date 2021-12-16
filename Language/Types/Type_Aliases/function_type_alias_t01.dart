@@ -24,4 +24,6 @@ f() {}
 main() {
   Expect.isTrue(f is F);
   Expect.isTrue(f is G);
+  checkType(checkIs<F>, true, f);
+  checkType(checkIs<G>, true, f);
 }

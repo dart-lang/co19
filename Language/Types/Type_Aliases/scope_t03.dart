@@ -17,20 +17,28 @@ class X {
     AAlias aa = new A();
     Expect.isTrue(aa is A);
     Expect.isTrue(aa is AAlias);
+    checkType(checkIs<A>, true, aa);
+    checkType(checkIs<AAlias>, true, aa);
 
     CAlias<String> ca = new C<String>();
     Expect.isTrue(ca is C<String>);
     Expect.isTrue(ca is CAlias<String>);
+    checkType(checkIs<C<String>>, true, ca);
+    checkType(checkIs<CAlias<String>>, true, ca);
   }
 
   void m() {
     AAlias aa = new A();
     Expect.isTrue(aa is A);
     Expect.isTrue(aa is AAlias);
+    checkType(checkIs<A>, true, aa);
+    checkType(checkIs<AAlias>, true, aa);
 
     CAlias<String> ca = new C<String>();
     Expect.isTrue(ca is C<String>);
     Expect.isTrue(ca is CAlias<String>);
+    checkType(checkIs<C<String>>, true, ca);
+    checkType(checkIs<CAlias<String>>, true, ca);
   }
 }
 
@@ -38,20 +46,28 @@ test() {
   AAlias aa = new A();
   Expect.isTrue(aa is A);
   Expect.isTrue(aa is AAlias);
+  checkType(checkIs<A>, true, aa);
+  checkType(checkIs<AAlias>, true, aa);
 
   CAlias<String> ca = new C<String>();
   Expect.isTrue(ca is C<String>);
   Expect.isTrue(ca is CAlias<String>);
+  checkType(checkIs<C<String>>, true, ca);
+  checkType(checkIs<CAlias<String>>, true, ca);
 }
 
 main() {
   AAlias aa = new A();
   Expect.isTrue(aa is A);
   Expect.isTrue(aa is AAlias);
+  checkType(checkIs<A>, true, aa);
+  checkType(checkIs<AAlias>, true, aa);
 
   CAlias<String> ca = new C<String>();
   Expect.isTrue(ca is C<String>);
   Expect.isTrue(ca is CAlias<String>);
+  checkType(checkIs<C<String>>, true, ca);
+  checkType(checkIs<CAlias<String>>, true, ca);
 
   test();
   X.s();

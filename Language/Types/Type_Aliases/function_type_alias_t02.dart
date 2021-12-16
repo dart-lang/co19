@@ -25,7 +25,11 @@ int g() => 0;
 main() {
   Expect.isTrue(f is F);
   Expect.isTrue(f is G);
+  checkType(checkIs<F>, true, f);
+  checkType(checkIs<G>, true, f);
 
   Expect.isFalse(g is F);
   Expect.isFalse(g is G);
+  checkType(checkIs<F>, false, g);
+  checkType(checkIs<G>, false, g);
 }

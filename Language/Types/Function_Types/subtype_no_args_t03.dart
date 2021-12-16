@@ -55,6 +55,15 @@ main() {
   Expect.isTrue(f7 is returnsDynamic);
   Expect.isTrue(f8 is returnsDynamic);
   Expect.isTrue(f9 is returnsDynamic);
+  checkType(checkIs<returnsDynamic>, true, f1);
+  checkType(checkIs<returnsDynamic>, true, f2);
+  checkType(checkIs<returnsDynamic>, true, f3);
+  checkType(checkIs<returnsDynamic>, true, f4);
+  checkType(checkIs<returnsDynamic>, true, f5);
+  checkType(checkIs<returnsDynamic>, true, f6);
+  checkType(checkIs<returnsDynamic>, true, f7);
+  checkType(checkIs<returnsDynamic>, true, f8);
+  checkType(checkIs<returnsDynamic>, true, f9);
 
   //() -> T is () -> Object
   Expect.isTrue(f10 is returnsObject);
@@ -64,9 +73,19 @@ main() {
   Expect.isTrue(f14 is returnsObject);
   Expect.isTrue(f15 is returnsObject);
   Expect.isFalse(f16 is returnsObject);
+  checkType(checkIs<returnsObject>, true, f10);
+  checkType(checkIs<returnsObject>, true, f11);
+  checkType(checkIs<returnsObject>, true, f12);
+  checkType(checkIs<returnsObject>, true, f13);
+  checkType(checkIs<returnsObject>, true, f14);
+  checkType(checkIs<returnsObject>, true, f15);
+  checkType(checkIs<returnsObject>, false, f16);
 
   //() -> T is () -> num
   Expect.isTrue(f17 is returnsNum);
   Expect.isTrue(f18 is returnsNum);
   Expect.isTrue(f19 is returnsNum);
+  checkType(checkIs<returnsNum>, true, f17);
+  checkType(checkIs<returnsNum>, true, f18);
+  checkType(checkIs<returnsNum>, true, f19);
 }

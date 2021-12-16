@@ -32,6 +32,7 @@ class C {}
 
 main() {
   Expect.isTrue(new C1026() is C);
+  checkType(checkIs<C>, true, new C1026());
   Expect.equals("C1026", (C c) {
     return c.runtimeType.toString();}(C1026())
   );

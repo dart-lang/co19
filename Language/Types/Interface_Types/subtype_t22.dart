@@ -29,8 +29,11 @@
 import "../../../Utils/expect.dart";
 
 class I<A, B, C> {}
+
 class J<A, B, C> extends I<A, B, C> {}
+
 class K extends J {}
+
 class C extends K {}
 
 typedef J f(I<K, List<Map<int, double>>, int> i, [List<Map> j]);
@@ -38,18 +41,36 @@ typedef K f_1(I<J, List<Map<int, num>>, num> i, [List<Map> j]);
 typedef C f_2(I<J, List<Map<int, num>>, num> i, [List<Map> j]);
 
 main() {
-  Expect.isTrue(new I<f_1, int, List<Map<int, Map<int, int>>>>() is I<f, num, List<Map<num, Map>>>);
-  Expect.isTrue(new I<f_2, int, List<Map<int, Map<int, int>>>>() is I<f, num, List<Map<num, Map>>>); // fails
-  Expect.isTrue(new J<f_1, int, List<Map<int, Map<int, int>>>>() is I<f, num, List<Map<num, Map>>>);
-  Expect.isTrue(new J<f_2, int, List<Map<int, Map<int, int>>>>() is I<f, num, List<Map<num, Map>>>); // fails
+  Expect.isTrue(new I<f_1, int, List<Map<int, Map<int, int>>>>()
+      is I<f, num, List<Map<num, Map>>>);
+  checkType(checkIs<I<f, num, List<Map<num, Map>>>>, true,
+      new I<f_1, int, List<Map<int, Map<int, int>>>>());
+  Expect.isTrue(new I<f_2, int, List<Map<int, Map<int, int>>>>()
+      is I<f, num, List<Map<num, Map>>>);
+  checkType(checkIs<I<f, num, List<Map<num, Map>>>>, true,
+      new I<f_2, int, List<Map<int, Map<int, int>>>>());
+  Expect.isTrue(new J<f_1, int, List<Map<int, Map<int, int>>>>()
+      is I<f, num, List<Map<num, Map>>>);
+  checkType(checkIs<I<f, num, List<Map<num, Map>>>>, true,
+      new J<f_1, int, List<Map<int, Map<int, int>>>>());
+  Expect.isTrue(new J<f_2, int, List<Map<int, Map<int, int>>>>()
+      is I<f, num, List<Map<num, Map>>>);
+  checkType(checkIs<I<f, num, List<Map<num, Map>>>>, true,
+      new J<f_2, int, List<Map<int, Map<int, int>>>>());
   Expect.isFalse(new K() is I<f, num, List<Map<num, Map>>>);
+  checkType(checkIs<I<f, num, List<Map<num, Map>>>>, false, new K());
   Expect.isFalse(new C() is I<f, num, List<Map<num, Map>>>);
+  checkType(checkIs<I<f, num, List<Map<num, Map>>>>, false, new C());
 
-  I<f, num, List<Map<num, Map>>> v1_ = new I<f_1, int, List<Map<int, Map<int, int>>>>();
+  I<f, num, List<Map<num, Map>>> v1_ =
+      new I<f_1, int, List<Map<int, Map<int, int>>>>();
 
-  I<f, num, List<Map<num, Map>>> v2_ = new I<f_2, int, List<Map<int, Map<int, int>>>>();
+  I<f, num, List<Map<num, Map>>> v2_ =
+      new I<f_2, int, List<Map<int, Map<int, int>>>>();
 
-  I<f, num, List<Map<num, Map>>> v3_ = new J<f_1, int, List<Map<int, Map<int, int>>>>();
+  I<f, num, List<Map<num, Map>>> v3_ =
+      new J<f_1, int, List<Map<int, Map<int, int>>>>();
 
-  I<f, num, List<Map<num, Map>>> v4_ = new J<f_2, int, List<Map<int, Map<int, int>>>>();
+  I<f, num, List<Map<num, Map>>> v4_ =
+      new J<f_2, int, List<Map<int, Map<int, int>>>>();
 }

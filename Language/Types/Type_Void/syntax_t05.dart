@@ -9,7 +9,6 @@
 /// expression causes a compile-time error.
 /// @author iefremov
 
-
 main() {
   bool b = null is void;
 //                 ^

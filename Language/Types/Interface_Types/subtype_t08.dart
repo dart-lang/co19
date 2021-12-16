@@ -28,4 +28,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(null is dynamic);
+  checkType(checkIs<dynamic>, true, null);
 }

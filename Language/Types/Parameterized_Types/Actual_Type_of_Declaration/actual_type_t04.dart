@@ -20,4 +20,5 @@ class C<T> {
 main() {
   C<int> c = new C<int>();
   Expect.isTrue(c.f() is List<int>);
+  checkType(checkIs<List<int>>, true, c.f());
 }

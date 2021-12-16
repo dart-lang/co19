@@ -31,14 +31,25 @@ List<Map<List, Map>> f1(num n, Object o, [var x, List? y]) => [];
 
 main() {
   Expect.isTrue(new Object() is dynamic);
+  checkType(checkIs<dynamic>, true, new Object());
   Expect.isTrue(1 is dynamic);
-  Expect.isTrue(0.0 is dynamic);
+  checkType(checkIs<dynamic>, true, 1);
+  Expect.isTrue(0.1 is dynamic);
+  checkType(checkIs<dynamic>, true, 0.1);
   Expect.isTrue("" is dynamic);
+  checkType(checkIs<dynamic>, true, "");
   Expect.isTrue(true is dynamic);
+  checkType(checkIs<dynamic>, true, true);
   Expect.isTrue(false is dynamic);
+  checkType(checkIs<dynamic>, true, false);
   Expect.isTrue(new List.empty() is dynamic);
+  checkType(checkIs<dynamic>, true, new List.empty());
   Expect.isTrue(new List<Map<List, List<int>>>.empty() is dynamic);
+  checkType(checkIs<dynamic>, true, new List<Map<List, List<int>>>.empty());
   Expect.isTrue(() {} is dynamic);
+  checkType(checkIs<dynamic>, true, () {});
   Expect.isTrue((num n, Object o, [var x, List? y]) {} is dynamic);
+  checkType(checkIs<dynamic>, true, (num n, Object o, [var x, List? y]) {});
   Expect.isTrue(f1 is dynamic);
+  checkType(checkIs<dynamic>, true,f1);
 }

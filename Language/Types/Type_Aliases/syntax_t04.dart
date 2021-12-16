@@ -29,4 +29,6 @@ main() {
   CAlias<D> ca = new CAlias<D>(new D());
   Expect.isTrue(ca is C<D>);
   Expect.isTrue(ca.t is D);
+  checkType(checkIs<C<D>>, true, ca);
+  checkType(checkIs<D>, true, ca.t);
 }

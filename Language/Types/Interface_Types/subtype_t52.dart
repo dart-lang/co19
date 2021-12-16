@@ -31,9 +31,7 @@ class C {}
 
 main() {
   Expect.isTrue(C500() is C);
-  Expect.equals("C500", (C c) {
-    return c.runtimeType.toString();}(C500())
-  );
+  checkType(checkIs<C>, true, C500());
 }
 
 class C1 extends C {}

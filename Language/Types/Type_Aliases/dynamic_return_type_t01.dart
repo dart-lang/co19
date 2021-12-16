@@ -28,5 +28,10 @@ main() {
   Expect.isTrue(sfunc is F1);
   Expect.isTrue(ffunc is F1);
   Expect.isTrue(f2func is F1);
+  checkType(checkIs<F1>, true, ifunc);
+  checkType(checkIs<F1>, true, bfunc);
+  checkType(checkIs<F1>, true, sfunc);
+  checkType(checkIs<F1>, true, ffunc);
+  checkType(checkIs<F1>, true, f2func);
 }
 
