@@ -35,16 +35,22 @@ mixin M<T> {
 main() {
   var c1 = C<int>;
   Expect.isTrue(c1 is Type);
+  checkType(checkIs<Type>, true, c1);
   Expect.isFalse(c1 is C);
+  checkType(checkIs<C>, false, c1);
   Expect.equals("C<int>", c1.toString());
 
   var c2 = CAlias<int>;
   Expect.isTrue(c2 is Type);
+  checkType(checkIs<Type>, true, c2);
   Expect.isFalse(c2 is C);
+  checkType(checkIs<C>, false, c2);
   Expect.equals("C<int>", c2.toString());
 
   var c3 = M<String>;
   Expect.isTrue(c3 is Type);
+  checkType(checkIs<Type>, true, c3);
   Expect.isFalse(c3 is C);
+  checkType(checkIs<C>, false, c3);
   Expect.equals("M<String>", c3.toString());
 }

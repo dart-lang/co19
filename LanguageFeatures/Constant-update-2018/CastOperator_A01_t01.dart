@@ -29,7 +29,9 @@ class MyClass {
 main() {
   const MyClass c1 = MyClass(A());
   Expect.isTrue(c1.a is A);
+  checkType(checkIs<A>, true, c1.a);
 
   const MyClass c2 = MyClass(B());
   Expect.isTrue(c2.a is B);
+  checkType(checkIs<B>, true, c2.a);
 }

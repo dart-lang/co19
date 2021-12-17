@@ -66,4 +66,5 @@ typedef c = String;
 main() {
   var x = a<b, c>;
   Expect.isTrue(x is Type);
+  checkType(checkIs<Type>, true, x);
 }

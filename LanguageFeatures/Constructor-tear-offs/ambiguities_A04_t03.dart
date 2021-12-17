@@ -68,5 +68,6 @@ typedef c = String;
 main() {
   var x = {a<b, c>};
   Expect.isTrue(x is Set);
+  checkType(checkIs<Set>, true, x);
   Expect.equals(1, x.length);
 }

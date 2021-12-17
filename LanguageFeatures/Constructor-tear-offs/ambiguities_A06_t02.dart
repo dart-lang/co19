@@ -62,5 +62,6 @@ typedef c = String;
 main() {
   var x = a<b, c>;
   Expect.isTrue(x is Function);
+  checkType(checkIs<Function>, true, x);
   Expect.equals("a<int, String>(42)", x(42));
 }

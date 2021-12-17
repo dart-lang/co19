@@ -30,4 +30,6 @@ main() {
   var i = idInt(v);
   Expect.isTrue(i is int);
   Expect.isFalse(i is String); // to check that i is not dynamic
+  checkType(checkIs<int>, true, i);
+  checkType(checkIs<String>, false, i);
 }

@@ -27,11 +27,15 @@ main() {
   var c1 = C.foo<int>;
   Expect.isFalse(c1 is Type);
   Expect.isTrue(c1 is int Function(int));
+  checkType(checkIs<Type>, false, c1);
+  checkType(checkIs<void Function(int)>, true, c1);
   Expect.equals(c1.toString(), C.foo.call<int>.toString());
 
   C c = new C();
   var c2 = c.bar<int>;
   Expect.isFalse(c2 is Type);
   Expect.isTrue(c2 is int Function(int));
+  checkType(checkIs<Type>, false, c2);
+  checkType(checkIs<void Function(int)>, true, c2);
   Expect.equals(c2.toString(), c.bar.call<int>.toString());
 }

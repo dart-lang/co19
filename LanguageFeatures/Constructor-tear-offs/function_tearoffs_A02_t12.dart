@@ -31,6 +31,8 @@ main() {
   dynamic d1 = -42;
   Expect.isTrue(x(d1) is int);
   Expect.isFalse(x(d1) is String); // to check that returned type is not dynamic
+  checkType(checkIs<int>, true,x(d1));
+  checkType(checkIs<String>, false, x(d1));
   dynamic d2 = 3.14;
   Expect.throws(() {x(d2);});
 }
