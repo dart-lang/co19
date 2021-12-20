@@ -31,10 +31,13 @@ typedef List<List<int>> Func4(int i1, List<int> i2);
 main() {
   const filledList = List.filled;  // List<T> Function<T>(int, T)
   Expect.isTrue(filledList is Func1);
+  checkType(checkIs<Func1>, true, filledList);
   const filledIntList = List<int>.filled;  // List<int> Function(int, int)
   Expect.isTrue(filledIntList is Func2);
+  checkType(checkIs<Func2>, true, filledIntList);
   const filledListList = ListList.filled;  // List<List<T>> Function<T>(int, T)
   Expect.isTrue(filledListList is Func3);
+  checkType(checkIs<Func3>, true, filledListList);
   const filledIntListList = ListList<int>.filled;  // List<List<int>> Function(int, int)
   Expect.isTrue(filledIntListList is Func4);
 }

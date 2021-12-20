@@ -20,4 +20,5 @@ class C {
 
 main() {
   Expect.isTrue(C.new is C Function());
+  checkType(checkIs<C Function()>, true, C.new);
 }

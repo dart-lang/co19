@@ -24,13 +24,17 @@ class C<T1, T2 extends num, T3 extends String> {
 main() {
   var v1 = C<dynamic, num, String>.constr;
   Expect.isTrue(v1 is C Function());
+  checkType(checkIs<C Function()>, true, v1);
 
   var v2 = C<dynamic, num, String>.constr1;
   Expect.isTrue(v2 is C Function(dynamic, num));
+  checkType(checkIs<C Function(dynamic, num)>, true, v2);
 
   var v3 = C<List<int>, int, String>.constr;
   Expect.isTrue(v3 is C Function());
+  checkType(checkIs<C Function()>, true, v3);
 
   var v4 = C<List<int>, int, String>.constr1;
   Expect.isTrue(v4 is C Function(List<int>, int));
+  checkType(checkIs<C Function(List<int>, int)>, true, v4);
 }

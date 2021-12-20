@@ -59,11 +59,13 @@ main() {
   }
   list1exp.add(2);
   Expect.isTrue(list1exp is List<int>);
+  checkType(checkIs<List<int>>, true, list1exp);
 
   var list1 = <int>[if (t) x else x + 10, if (!t) x else x + 10, 2];
   // list1exp [11, 1, 2]
   Expect.listEquals(list1exp, list1);
   Expect.isTrue(list1 is List<int>);
+  checkType(checkIs<List<int>>, true, list1);
 
   var list2exp = <int>[];
   if (t) {
@@ -82,6 +84,7 @@ main() {
   }
   list2exp.add(2);
   Expect.isTrue(list2exp is List<int>);
+  checkType(checkIs<List<int>>, true, list2exp);
 
   var list2 = <int>[
     if (t) x else if (!t) x else x + 10,
@@ -90,6 +93,7 @@ main() {
   // list2exp [1, 1, 2]
   Expect.listEquals(list2exp, list2);
   Expect.isTrue(list2 is List<int>);
+  checkType(checkIs<List<int>>, true, list2);
 
   var list3exp = <int>[];
   if (t) {
@@ -116,4 +120,5 @@ main() {
   // list3exp [11, 11, 2]
   Expect.listEquals(list3exp, list3);
   Expect.isTrue(list3 is List<int>);
+  checkType(checkIs<List<int>>, true, list3);
 }

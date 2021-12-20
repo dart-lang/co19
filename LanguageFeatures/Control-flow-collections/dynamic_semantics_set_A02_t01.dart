@@ -60,9 +60,11 @@ main() {
     }
   }
   Expect.isTrue(set1exp is Set<int>);
+  checkType(checkIs<Set<int>>, true, set1exp);
 
   var set1 = <int>{for (var v in l1) v, for (var v in l2) if (v.isOdd) (v + 1)};
   // set1exp {1, 2, 4, 6}
   Expect.setEquals(set1exp, set1);
   Expect.isTrue(set1 is Set<int>);
+  checkType(checkIs<Set<int>>, true, set1);
 }

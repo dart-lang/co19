@@ -45,9 +45,11 @@ main() {
     set1exp.add(i);
   }
   Expect.isTrue(set1exp is Set<int>);
+  checkType(checkIs<Set<int>>, true, set1exp);
 
   var set1 = <int>{for (var i = 1; i < 10; i += 3) i};
   Expect.isTrue(set1 is Set<int>);
+  checkType(checkIs<Set<int>>, true, set1);
   Expect.setEquals(set1exp, set1);
 
   var set2exp = new Set<double>();
@@ -55,9 +57,11 @@ main() {
     set2exp.add(i + 2);
   }
   Expect.isTrue(set2exp is Set<double>);
+  checkType(checkIs<Set<double>>, true, set2exp);
 
   var set2 = <double>{for (var i = 1.1; i < 10; i += 5) i + 2};
   Expect.isTrue(set2 is Set<double>);
+  checkType(checkIs<Set<double>>, true, set2);
   Expect.setEquals(set2exp, set2);
 
   var set3exp = new Set<num>();
@@ -68,10 +72,12 @@ main() {
     set3exp.add(i + 3);
   }
   Expect.isTrue(set3exp is Set<num>);
+  checkType(checkIs<Set<num>>, true, set3exp);
 
   var set3 = <num>{for (var i = 1.1; i < 10; i += 5) i + 2,
       for (var i = 2; i < 6; i++) i + 3};
   Expect.isTrue(set3 is Set<num>);
+  checkType(checkIs<Set<num>>, true, set3);
   Expect.setEquals(set3exp, set3);
 
   var set4exp = new Set<Function>();
@@ -83,5 +89,6 @@ main() {
 
   var set4 = <Function>{for (var i = 1; i < 4; i++) fs[i - 1]};
   Expect.isTrue(set4 is Set<Function>);
+  checkType(checkIs<Set<Function>>, true, set4);
   Expect.setEquals(set4exp, set4);
 }

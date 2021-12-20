@@ -47,9 +47,11 @@ main() {
     map1exp[i] = i + 1;
   }
   Expect.isTrue(map1exp is Map<int, int>);
+  checkType(checkIs<Map<int, int>>, true, map1exp);
 
   var map1 = <int, int>{for (var i = 1; i < 10; i += 3) i: i + 1};
   Expect.isTrue(map1 is Map<int, int>);
+  checkType(checkIs<Map<int, int>>, true, map1);
   Expect.mapEquals(map1exp, map1);
 
   var map2exp = <int, double>{};
@@ -57,9 +59,11 @@ main() {
     map2exp[i] = i + .5;
   }
   Expect.isTrue(map2exp is Map<int, double>);
+  checkType(checkIs<Map<int, double>>, true, map2exp);
 
   var map2 = <int, double>{for (var i = 1; i < 10; i += 5) i: i + .5};
   Expect.isTrue(map2 is Map<int, double>);
+  checkType(checkIs<Map<int, double>>, true, map2);
   Expect.mapEquals(map2exp, map2);
 
   var map3exp = <double, int>{};
@@ -67,9 +71,11 @@ main() {
     map3exp[i + 1.5] = i;
   }
   Expect.isTrue(map3exp is Map<double, int>);
+  checkType(checkIs<Map<double, int>>, true, map3exp);
 
   var map3 = <double,int>{for (var i = 1; i < 10; i += 5) i + 1.5: i};
   Expect.isTrue(map3 is Map<double, int>);
+  checkType(checkIs<Map<double, int>>, true, map3);
   Expect.mapEquals(map3exp, map3);
 
   var map4exp = <num, num>{};
@@ -80,10 +86,12 @@ main() {
     map4exp[i] = i + 3;
   }
   Expect.isTrue(map4exp is Map<num, num>);
+  checkType(checkIs<Map<num, num>>, true, map4exp);
 
   var map4 = <num, num>{for (var i = 1.1; i < 10; i += 5) i: i + 2,
       for (var i = 2; i < 6; i++) i: i + 3};
   Expect.isTrue(map4 is Map<num, num>);
+  checkType(checkIs<Map<num, num>>, true, map4);
   Expect.mapEquals(map4exp, map4);
 
   var map5exp = <int, Function>{};
@@ -94,5 +102,6 @@ main() {
   }
   var map5 = <int, Function>{for (var i = 1; i < 4; i++) i: fs[i - 1]};
   Expect.isTrue(map5 is Map<int, Function>);
+  checkType(checkIs<Map<int, Function>>, true, map5);
   Expect.mapEquals(map5exp, map5);
 }

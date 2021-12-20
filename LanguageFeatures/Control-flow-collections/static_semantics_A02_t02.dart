@@ -16,7 +16,7 @@ main() {
   bool b = true;
   var collection = [3, 1, 4, 1, 5];
 
-  Map<String, int> map1 = {if (b) "1": 1.0};
+  Map<String, int> map1 = {if (b) "1": 1.1};
   //                                   ^^^
   // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
@@ -24,7 +24,7 @@ main() {
   //                              ^
   // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'int' can't be assigned to a variable of type 'String'.
-  Map<String, int> map3 = {if (!b) "1": 1.0,};
+  Map<String, int> map3 = {if (!b) "1": 1.1,};
   //                                    ^^^
   // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
@@ -51,7 +51,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'int' can't be assigned to a variable of type 'String'.
 
-  Map map9  = <String, int>{if (b) "1": 1.0};
+  Map map9  = <String, int>{if (b) "1": 1.1};
   //                                    ^^^
   // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
@@ -59,7 +59,7 @@ main() {
   //                               ^
   // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'int' can't be assigned to a variable of type 'String'.
-  Map map11 = <String, int>{if (!b) "1": 1.0,};
+  Map map11 = <String, int>{if (!b) "1": 1.1,};
   //                                     ^^^
   // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
@@ -86,11 +86,11 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'int' can't be assigned to a variable of type 'String'.
 
-  const map17 = <String, int>{if (1 > 2) "1": 1.0};
+  const map17 = <String, int>{if (1 > 2) "1": 1.1};
   //                                          ^^^
   // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
-  const map18 = <String, int>{if (2 > 1) "1": 1.0,};
+  const map18 = <String, int>{if (2 > 1) "1": 1.1,};
   //                                          ^^^
   // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
@@ -103,11 +103,11 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'int' can't be assigned to a variable of type 'String'.
 
-  var map21 = const <String, int>{if (1 > 2) "1": 1.0};
+  var map21 = const <String, int>{if (1 > 2) "1": 1.1};
   //                                              ^^^
   // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
-  var map22 = const <String, int>{if (2 > 1) "1": 1.0,};
+  var map22 = const <String, int>{if (2 > 1) "1": 1.1,};
   //                                              ^^^
   // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.

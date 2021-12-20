@@ -54,6 +54,7 @@ main() {
   }
   map1exp[i] = i;
   Expect.isTrue(map1exp is Map<int, num>);
+  checkType(checkIs<Map<int, num>>, true, map1exp);
 
   i = 0;
   var map1 = <int, num>{
@@ -62,5 +63,6 @@ main() {
   // map1exp {0: 1, 3: 4.5, 6: 7, 9: 10.5, 12: 12}
   map1[i] = i;
   Expect.isTrue(map1 is Map<int, num>);
+  checkType(checkIs<Map<int, num>>, true, map1);
   Expect.mapEquals(map1exp, map1);
 }

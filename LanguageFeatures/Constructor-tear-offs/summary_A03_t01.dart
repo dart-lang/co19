@@ -86,6 +86,7 @@ class C {
     var f1 = stat<int>;
     Expect.equals(42, f1(42));
     Expect.isTrue(f1 is Func);
+    checkType(checkIs<Func>, true, f1);
 
     var f1TypeName = stat<int>.runtimeType.toString();
     Expect.equals(Func.toString(), f1TypeName);
@@ -93,6 +94,7 @@ class C {
     var f2 = inst<int>;
     Expect.equals(42, f2(42));
     Expect.isTrue(f2 is Func);
+    checkType(checkIs<Func>, true, f2);
 
     var f2TypeName = inst<int>.runtimeType.toString();
     Expect.equals(Func.toString(), f2TypeName);
@@ -100,6 +102,7 @@ class C {
     var f3 = this.inst<int>;
     Expect.equals(42, f3(42));
     Expect.isTrue(f3 is Func);
+    checkType(checkIs<Func>, true, f3);
     var f3TypeName = this.inst<int>.runtimeType.toString();
     Expect.equals(Func.toString(), f3TypeName);
   }

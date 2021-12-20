@@ -28,6 +28,7 @@ dynamic d = 1.1;
 main() {
   var v = C.constr;
   Expect.isTrue(v is C Function({ required int i }));
+  checkType(checkIs<C Function({ required int i })>, true, v);
 
   C c1 = v(i: 1);
   Expect.equals(1, c1.i);

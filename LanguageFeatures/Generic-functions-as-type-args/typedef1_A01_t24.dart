@@ -31,7 +31,6 @@
 /// bound.
 /// @author iarkh@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 typedef T1<TT extends void Function<T>()> = TT Function();
@@ -52,4 +51,10 @@ main() {
   Expect.isFalse(testme is T4);
   Expect.isFalse(testme is T5);
   Expect.isTrue(testme is T6);
+  checkType(checkIs<T1>, false, testme);
+  checkType(checkIs<T2>, false, testme);
+  checkType(checkIs<T3>, false, testme);
+  checkType(checkIs<T4>, false, testme);
+  checkType(checkIs<T5>, false, testme);
+  checkType(checkIs<T6>, true, testme);
 }

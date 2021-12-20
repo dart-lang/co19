@@ -54,6 +54,7 @@ main() {
   var list1 = <int>[for (var i = 1; i < 10; i += 3) i];
   // list1exp [1, 4, 7]
   Expect.isTrue(list1 is List<int>);
+  checkType(checkIs<List<int>>, true, list1);
   Expect.listEquals(list1exp, list1);
 
   var list2exp = <double>[];
@@ -61,10 +62,12 @@ main() {
     list2exp.add(i + 2);
   }
   Expect.isTrue(list2exp is List<double>);
+  checkType(checkIs<List<double>>, true, list2exp);
 
   var list2 = <double>[for (var i = 1.1; i < 10; i += 5) i + 2];
   // list2exp [3.1, 8.1]
   Expect.isTrue(list2 is List<double>);
+  checkType(checkIs<List<double>>, true, list2);
   Expect.listEquals(list2exp, list2);
 
   var list3exp = <num>[];
@@ -75,11 +78,13 @@ main() {
     list3exp.add(i + 3);
   }
   Expect.isTrue(list3exp is List<num>);
+  checkType(checkIs<List<num>>, true, list3exp);
 
   var list3 = <num>[for (var i = 1.1; i < 10; i += 5) i + 2,
       for (var i = 2; i < 6; i++) i + 3];
   // list2exp [3.1, 8.1, 5, 6, 7, 8]
   Expect.isTrue(list3 is List<num>);
+  checkType(checkIs<List<num>>, true, list3);
   Expect.listEquals(list3exp, list3);
 
   var list4exp = <Function>[];
@@ -87,6 +92,7 @@ main() {
     list4exp.add(() => i);
   }
   Expect.isTrue(list4exp is List<Function>);
+  checkType(checkIs<List<Function>>, true, list4exp);
   var list4expRes = <int>[];
   for (var v in list4exp) {
     list4expRes.add(v());
@@ -95,6 +101,7 @@ main() {
   var list4 = <Function>[for (var i = 1; i < 4; i++) () => i];
   // list4exp [Closure: () => int, Closure: () => int, Closure: () => int]
   Expect.isTrue(list4 is List<Function>);
+  checkType(checkIs<List<Function>>, true, list4);
   var list4res = <int>[];
   for (var v in list4) {
     list4res.add(v());

@@ -26,8 +26,12 @@ main() {
   var v1 = C<int>;
   Expect.isTrue(v1.toString() is String);
   Expect.isTrue(v1.toString is Function);
+  checkType(checkIs<String>, true, v1.toString());
+  checkType(checkIs<Function>, true, v1.toString);
 
   var v2 = C;
   Expect.isTrue(v2.toString() is String);
   Expect.isTrue(v2.toString is Function);
+  checkType(checkIs<String>, true, v2.toString());
+  checkType(checkIs<Function>, true, v2.toString);
 }

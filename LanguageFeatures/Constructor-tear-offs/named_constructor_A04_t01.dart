@@ -28,22 +28,27 @@ class C {
 main() {
   C Function() v1 = C.constr1;
   Expect.isTrue(v1 is C Function());
+  checkType(checkIs<C Function()>, true, v1);
   v1();
 
   var v2 = C.constr2;
   Expect.isTrue(v2 is C Function(int));
+  checkType(checkIs<C Function(int)>, true, v2);
   v2(14);
 
   var v3 = C.constr3;
   Expect.isTrue(v3 is C Function(dynamic));
+  checkType(checkIs<C Function(dynamic)>, true, v3);
   v3(0);
   v3(null);
 
   var v4 = C.constr4;
   Expect.isTrue(v4 is C Function(int, String, List<int>));
+  checkType(checkIs<C Function(int, String, List<int>)>, true, v4);
   v4(1, "123", [1, 2, 3]);
 
   var v5 = C.constr5;
   Expect.isTrue(v5 is C Function(dynamic, dynamic, dynamic));
+  checkType(checkIs<C Function(dynamic, dynamic, dynamic)>, true, v5);
   v5(1, "123", [1, 2, 3]);
 }

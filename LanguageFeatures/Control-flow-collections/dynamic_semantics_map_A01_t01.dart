@@ -54,6 +54,7 @@ main() {
     map1exp[x + 10] = "11";
   }
   Expect.isTrue(map1exp is Map<int, String>);
+  checkType(checkIs<Map<int, String>>, true, map1exp);
 
   var map1 = <int, String>{
     if (t) x - 1: "0" else x + 10: "11",
@@ -62,6 +63,7 @@ main() {
   // map1exp {11: 11, 0: 0}
   Expect.mapEquals(map1exp, map1);
   Expect.isTrue(map1 is Map<int, String>);
+  checkType(checkIs<Map<int, String>>, true, map1);
 
   var map2exp = <int, String>{};
   if (t) {
@@ -79,6 +81,7 @@ main() {
     map2exp[x + 10] = "11";
   }
   Expect.isTrue(map2exp is Map<int, String>);
+  checkType(checkIs<Map<int, String>>, true, map2exp);
 
   var map2 = <int, String>{
     if (t) x - 1: "0" else x + 10: "11",
@@ -87,6 +90,7 @@ main() {
   // map2exp {11: 11, 12: 12}
   Expect.mapEquals(map2exp, map2);
   Expect.isTrue(map2 is Map<int, String>);
+  checkType(checkIs<Map<int, String>>, true, map2);
 
   var map3exp = <int, String>{};
   if (t) {
@@ -104,6 +108,7 @@ main() {
     map3exp[x + 10] = "11";
   }
   Expect.isTrue(map3exp is Map<int, String>);
+  checkType(checkIs<Map<int, String>>, true, map3exp);
 
   var map3 = <int, String>{
     if (t) x - 1: "0" else if (!t) x + 1: "2" else x + 10: "11",
@@ -112,4 +117,5 @@ main() {
   // map3exp {2: 2, 0: 0}
   Expect.mapEquals(map3exp, map3);
   Expect.isTrue(map3 is Map<int, String>);
+  checkType(checkIs<Map<int, String>>, true, map3);
 }

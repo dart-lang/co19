@@ -64,9 +64,11 @@ main() {
     list1exp.add(id + 1);
   }
   Expect.isTrue(list1exp is List<int>);
+  checkType(checkIs<List<int>>, true, list1exp);
 
   var list1 = <int>[for (var v in l1) v, for (var v in l2) v + 1];
   // list1exp [1, 2, 4, 5, 6]
   Expect.isTrue(list1 is List<int>);
+  checkType(checkIs<List<int>>, true, list1);
   Expect.listEquals(list1exp, list1);
 }

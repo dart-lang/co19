@@ -24,6 +24,7 @@ main() {
     for (int i = 5; i < 10; i++) "$i": i
   };
   Expect.isTrue(map1 is Map<String, int>);
+  checkType(checkIs<Map<String, int>>, true, map1);
 
   var map2 = <String, int>{
     if (b) "1": 1,
@@ -32,15 +33,18 @@ main() {
     for (int i = 5; i < 10; i++) "$i": i
   };
   Expect.isTrue(map2 is Map<String, int>);
+  checkType(checkIs<Map<String, int>>, true, map2);
 
   var map3 = {
-    if (b) "1": 1.0,
+    if (b) "1": 1.1,
     if (!b) "": 2,
     if (b) for (var v in collection) if (v.isOdd) "$v": v,
     for (int i = 5; i < 10; i++) "$i": i
   };
   Expect.isTrue(map3 is Map<String, num>);
   Expect.isFalse(map3 is Map<String, int>);
+  checkType(checkIs<Map<String, num>>, true, map3);
+  checkType(checkIs<Map<String, int>>, false, map3);
 
   const map4 = {
     if (2 > 1) "1": 1.0,
@@ -49,6 +53,8 @@ main() {
   };
   Expect.isTrue(map4 is Map<String, num>);
   Expect.isFalse(map4 is Map<String, int>);
+  checkType(checkIs<Map<String, num>>, true, map4);
+  checkType(checkIs<Map<String, int>>, false, map4);
 
   var map5 = const {
     if (2 > 1) 1: "1",
@@ -56,4 +62,5 @@ main() {
     3: "3"
   };
   Expect.isTrue(map5 is Map<int, String>);
+  checkType(checkIs<Map<int, String>>, true, map5);
 }

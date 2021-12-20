@@ -23,16 +23,19 @@ main() {
       new B()
   ];
   Expect.isTrue(list1 is List<B>);
+  checkType(checkIs<List<B>>, true, list1);
 
   var list2 = [
     "",
     for (int i = 0; i < 2; i++)  1,
   ];
   Expect.isTrue(list2 is List<Object>);
+  checkType(checkIs<List<Object>>, true, list2);
 
   var list3 = [
     1,
     for (var i in []) 3.14
   ];
   Expect.isTrue(list3 is List<num>);
+  checkType(checkIs<List<num>>, true, list3);
 }

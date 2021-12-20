@@ -60,6 +60,7 @@ main() {
     map1exp[id] = id + 20;
   }
   Expect.isTrue(map1exp is Map<int, int>);
+  checkType(checkIs<Map<int, int>>, true, map1exp);
 
   var map1 = <int, int>{
     for (var v in list2) v: v + 10,
@@ -67,5 +68,6 @@ main() {
   };
   // map1exp {3: 13, 4: 14, 5: 15, 1: 21, 2: 22}
   Expect.isTrue(map1 is Map<int, int>);
+  checkType(checkIs<Map<int, int>>, true, map1);
   Expect.mapEquals(map1exp, map1);
 }

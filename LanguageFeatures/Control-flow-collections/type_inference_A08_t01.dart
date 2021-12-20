@@ -23,16 +23,19 @@ main() {
       new B(): A()
   };
   Expect.isTrue(map1 is Map<B, A>);
+  checkType(checkIs<Map<B, A>>, true, map1);
 
   var map2 = {
     "": "",
     for (int i = 0; i < 2; i++)  "": 1,
   };
   Expect.isTrue(map2 is Map<String, Object>);
+  checkType(checkIs<Map<String, Object>>, true, map2);
 
   var map3 = {
     1: 1,
     for (var i in []) 3.14: 1
   };
   Expect.isTrue(map3 is Map<num, int>);
+  checkType(checkIs<Map<num, int>>, true, map3);
 }

@@ -51,10 +51,12 @@ main() {
     }
   }
   Expect.isTrue(set1exp is Set<num>);
+  checkType(checkIs<Set<num>>, true, set1exp);
 
   i = 0;
   var set1 = <num>{for (; i < 10; i += 3) if (i.isOdd) i + 0.5 else i};
   // set1exp {0, 3.5, 6, 9.5, 12}
   Expect.isTrue(set1 is Set<num>);
+  checkType(checkIs<Set<num>>, true, set1);
   Expect.setEquals(set1exp, set1);
 }

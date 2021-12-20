@@ -31,7 +31,6 @@
 /// @author iarkh@unipro.ru
 /// @Issue 45317
 
-
 typedef T1<TT extends void Function<T extends TT>()> = TT Function();
 
 typedef T2<TT extends T Function<T extends TT>()> = TT Function();

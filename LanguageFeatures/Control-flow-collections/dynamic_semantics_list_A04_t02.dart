@@ -57,11 +57,13 @@ main() {
   }
   list1exp.add(i);
   Expect.isTrue(list1exp is List<num>);
+  checkType(checkIs<List<num>>, true, list1exp);
 
   i = 2;
   var list1 = <num>[for (; i < 10; i += 3) if (i.isOdd) i + 0.5 else i];
   list1.add(i);
   // list1exp [2, 5.5, 8, 11]
   Expect.isTrue(list1 is List<num>);
+  checkType(checkIs<List<num>>, true, list1);
   Expect.listEquals(list1exp, list1);
 }

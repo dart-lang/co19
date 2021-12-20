@@ -31,6 +31,11 @@ main() {
   Expect.isFalse(map1 is Map<double, num>);
   Expect.isFalse(map1 is Map<num, int>);
   Expect.isFalse(map1 is Map<num, double>);
+  checkType(checkIs<Map<num, num>>, true, map1);
+  checkType(checkIs<Map<int, num>>, false, map1);
+  checkType(checkIs<Map<double, num>>, false, map1);
+  checkType(checkIs<Map<num, int>>, false, map1);
+  checkType(checkIs<Map<num, double>>, false, map1);
 
   var map2 = {
     "": "",
@@ -42,6 +47,11 @@ main() {
   Expect.isFalse(map2 is Map<Object, String>);
   Expect.isFalse(map2 is Map<String, Object>);
   Expect.isFalse(map2 is Map<num, Object>);
+  checkType(checkIs<Map<Object, Object>>, true, map2);
+  checkType(checkIs<Map<Object, num>>, false, map2);
+  checkType(checkIs<Map<Object, String>>, false, map2);
+  checkType(checkIs<Map<String, Object>>, false, map2);
+  checkType(checkIs<Map<num, Object>>, false, map2);
 
   var map3 = {
     new C(): new B(),
@@ -50,4 +60,7 @@ main() {
   Expect.isTrue(map3 is Map<B, A>);
   Expect.isFalse(map3 is Map<B, B>);
   Expect.isFalse(map3 is Map<A, C>);
+  checkType(checkIs<Map<B, A>>, true, map3);
+  checkType(checkIs<Map<B, B>>, false, map3);
+  checkType(checkIs<Map<A, C>>, false, map3);
 }

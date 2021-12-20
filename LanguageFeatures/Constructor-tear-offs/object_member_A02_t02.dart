@@ -28,4 +28,8 @@ main() {
   Expect.isTrue(C.toString() is C);
   Expect.isTrue(C<int>.toString is Function);
   Expect.isTrue(C.toString is Function);
+  checkType(checkIs<C>, true, C<int>.toString());
+  checkType(checkIs<C>, true, C.toString());
+  checkType(checkIs<Function>, true, C<int>.toString);
+  checkType(checkIs<Function>, true, C.toString);
 }

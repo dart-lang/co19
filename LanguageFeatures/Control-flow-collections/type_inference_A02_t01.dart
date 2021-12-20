@@ -21,12 +21,14 @@ main() {
     if (i > 0) "",
   ];
   Expect.isTrue(list1 is List<String>);
+  checkType(checkIs<List<String>>, true, list1);
 
   var list2 = [
     "",
     if (i < 0) 1,
   ];
   Expect.isTrue(list2 is List<Object>);
+  checkType(checkIs<List<Object>>, true, list2);
 
   var list3 = [
     new C(),
@@ -34,4 +36,5 @@ main() {
     if (i < 0) new A()
   ];
   Expect.isTrue(list3 is List<A>);
+  checkType(checkIs<List<A>>, true, list3);
 }

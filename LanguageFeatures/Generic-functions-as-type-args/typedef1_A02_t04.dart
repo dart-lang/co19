@@ -31,7 +31,6 @@
 /// argument and bound.
 /// @author iarkh@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 typedef T1<TT extends void Function<T>()> = TT Function();

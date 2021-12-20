@@ -91,6 +91,7 @@ extension Ext on C {
     var f1 = estat<int>;
     Expect.equals(42, f1(42));
     Expect.isTrue(f1 is Func);
+    checkType(checkIs<Func>, true, f1);
 
     var f1TypeName = estat<int>.runtimeType.toString();
     Expect.equals(Func.toString(), f1TypeName);
@@ -98,6 +99,7 @@ extension Ext on C {
     var f2 = einst<int>;
     Expect.equals(42, f2(42));
     Expect.isTrue(f2 is Func);
+    checkType(checkIs<Func>, true, f2);
 
     var f2TypeName = einst<int>.runtimeType.toString();
     Expect.equals(Func.toString(), f2TypeName);
@@ -105,6 +107,7 @@ extension Ext on C {
     var f3 = this.einst<int>;
     Expect.equals(42, f3(42));
     Expect.isTrue(f3 is Func);
+    checkType(checkIs<Func>, true, f3);
     var f3TypeName = this.einst<int>.runtimeType.toString();
     Expect.equals(Func.toString(), f3TypeName);
   }
@@ -116,4 +119,5 @@ void main() {
   var f6 = c.einst<int>; // int Function(int), works like (int $) => Ext(c).einst<int>($);
   Expect.equals(42, f6(42));
   Expect.isTrue(f6 is Func);
+  checkType(checkIs<Func>, true, f6);
 }
