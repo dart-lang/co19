@@ -35,15 +35,24 @@ enum E<T extends A> {
 }
 
 main() {
-  Expect.isTrue(E.values[0] is A);
-  Expect.isFalse(E.values[0] is B);
-  Expect.isFalse(E.values[0] is C);
+  Expect.isTrue(E.values[0] is E<A>);
+  Expect.isFalse(E.values[0] is E<B>);
+  Expect.isFalse(E.values[0] is E<C>);
+  checkType(checkIs<E<A>>, true, E.values[0]);
+  checkType(checkIs<E<B>>, false, E.values[0]);
+  checkType(checkIs<E<C>>, false, E.values[0]);
 
-  Expect.isTrue(E.values[1] is A);
-  Expect.isFalse(E.values[1] is B);
-  Expect.isFalse(E.values[1] is C);
+  Expect.isTrue(E.values[1] is E<A>);
+  Expect.isFalse(E.values[1] is E<B>);
+  Expect.isFalse(E.values[1] is E<C>);
+  checkType(checkIs<E<A>>, true, E.values[1]);
+  checkType(checkIs<E<B>>, false, E.values[1]);
+  checkType(checkIs<E<C>>, false, E.values[1]);
 
-  Expect.isTrue(E.values[2] is A);
-  Expect.isFalse(E.values[2] is B);
-  Expect.isFalse(E.values[2] is C);
+  Expect.isTrue(E.values[2] is E<A>);
+  Expect.isFalse(E.values[2] is E<B>);
+  Expect.isFalse(E.values[2] is E<C>);
+  checkType(checkIs<E<A>>, true, E.values[2]);
+  checkType(checkIs<E<B>>, false, E.values[2]);
+  checkType(checkIs<E<C>>, false, E.values[2]);
 }
