@@ -29,4 +29,6 @@ class C2 extends B implements out_void {}
 main() {
   Expect.isTrue(C1().f is FutureOr<FutureOr> Function(FutureOr<FutureOr>));
   Expect.isTrue(C2().f is FutureOr<FutureOr> Function(FutureOr<FutureOr>));
+  checkType(checkIs<FutureOr<FutureOr> Function(FutureOr<FutureOr>)>, true, C1().f);
+  checkType(checkIs<FutureOr<FutureOr> Function(FutureOr<FutureOr>)>, true, C2().f);
 }

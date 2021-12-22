@@ -31,7 +31,11 @@ class in_void2 extends B implements out_void {}
 main() {
   Expect.isTrue(in_dynamic1().f is Object? Function(Object?));
   Expect.isTrue(in_dynamic2().f is Object? Function(Object?));
+  checkType(checkIs<Object? Function(Object?)>, true, in_dynamic1().f);
+  checkType(checkIs<Object? Function(Object?)>, true, in_dynamic2().f);
 
   Expect.isTrue(in_void1().f is Object? Function(Object?));
   Expect.isTrue(in_void2().f is Object? Function(Object?));
+  checkType(checkIs<Object? Function(Object?)>, true, in_void1().f);
+  checkType(checkIs<Object? Function(Object?)>, true, in_void2().f);
 }

@@ -31,7 +31,11 @@ class in_FutureOr_FutureOr1 extends B implements out_FutureOr_FutureOr {}
 main() {
   Expect.isTrue(in_FutureOr().f is dynamic Function(dynamic));
   Expect.isTrue(in_FutureOr1().f is dynamic Function(dynamic));
+  checkType(checkIs<dynamic Function(dynamic)>, true, in_FutureOr().f);
+  checkType(checkIs<dynamic Function(dynamic)>, true, in_FutureOr1().f);
 
   Expect.isTrue(in_FutureOr_FutureOr().f is dynamic Function(dynamic));
   Expect.isTrue(in_FutureOr_FutureOr1().f is dynamic Function(dynamic));
+  checkType(checkIs<dynamic Function(dynamic)>, true, in_FutureOr_FutureOr().f);
+  checkType(checkIs<dynamic Function(dynamic)>, true, in_FutureOr_FutureOr1().f);
 }

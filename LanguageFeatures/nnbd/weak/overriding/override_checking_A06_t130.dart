@@ -26,4 +26,6 @@ class C2 extends out_void implements out_dynamic {}
 main() {
   Expect.isTrue(C1().f is dynamic Function(dynamic));
   Expect.isTrue(C2().f is dynamic Function(dynamic));
+  checkType(checkIs<dynamic Function(dynamic)>, true, C1().f);
+  checkType(checkIs<dynamic Function(dynamic)>, true, C2().f);
 }

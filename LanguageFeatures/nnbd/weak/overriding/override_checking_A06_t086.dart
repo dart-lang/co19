@@ -28,4 +28,6 @@ class D2 extends B implements out_FutureOr_FutureOr {}
 main() {
   Expect.isTrue(D1().f is FutureOr<FutureOr> Function(FutureOr<FutureOr>));
   Expect.isTrue(D2().f is FutureOr<FutureOr> Function(FutureOr<FutureOr>));
+  checkType(checkIs<FutureOr<FutureOr> Function(FutureOr<FutureOr>)>, true, D1().f);
+  checkType(checkIs<FutureOr<FutureOr> Function(FutureOr<FutureOr>)>, true, D2().f);
 }

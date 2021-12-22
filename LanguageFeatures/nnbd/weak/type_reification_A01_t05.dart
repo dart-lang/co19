@@ -21,4 +21,10 @@ main() {
   Expect.isTrue(a is A?);
   Expect.isFalse(a is A1);
   Expect.isFalse(a is A1?);
+  checkType(checkIs<AliasA>, true, a);
+  checkType(checkIs<AliasA?>, true, a);
+  checkType(checkIs<A>, true, a);
+  checkType(checkIs<A?>, true, a);
+  checkType(checkIs<A1>, false, a);
+  checkType(checkIs<A1?>, false, a);
 }

@@ -27,4 +27,6 @@ class D2 extends B implements out_void {}
 main() {
   Expect.isTrue(D1().f is dynamic Function(dynamic));
   Expect.isTrue(D2().f is dynamic Function(dynamic));
+  checkType(checkIs<dynamic Function(dynamic)>, true, D1().f);
+  checkType(checkIs<dynamic Function(dynamic)>, true, D2().f);
 }

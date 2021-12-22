@@ -29,4 +29,7 @@ main() {
   Expect.isTrue(in_dynamic().f is dynamic Function(dynamic));
   Expect.isTrue(in_void().f is void Function(void));
   Expect.isTrue(in_Null().f is Null Function(Null));
+  checkType(checkIs<dynamic Function(dynamic)>, true, in_dynamic().f);
+  checkType(checkIs<void Function(void)>, true, in_void().f);
+  checkType(checkIs<Null Function(Null)>, true, in_Null().f);
 }

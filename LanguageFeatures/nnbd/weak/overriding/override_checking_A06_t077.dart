@@ -26,4 +26,5 @@ class D extends B implements C {}
 
 void main() {
   Expect.isTrue(D().f is FutureOr<FutureOr> Function(FutureOr<FutureOr>));
+  checkType(checkIs<FutureOr<FutureOr> Function(FutureOr<FutureOr>)>, true, D().f);
 }

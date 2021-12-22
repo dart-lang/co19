@@ -28,4 +28,6 @@ class D2 extends B implements out_Object {}
 main() {
   Expect.isTrue(D1().f is Object Function(Object));
   Expect.isTrue(D2().f is Object Function(Object));
+  checkType(checkIs<Object Function(Object)>, true, D1().f);
+  checkType(checkIs<Object Function(Object)>, true, D2().f);
 }

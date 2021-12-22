@@ -30,7 +30,10 @@ class C4 extends out_FutureOr_FutureOr implements out_dynamic {}
 main() {
   Expect.isTrue(C1().f is dynamic Function(dynamic));
   Expect.isTrue(C2().f is dynamic Function(dynamic));
-
   Expect.isTrue(C3().f is dynamic Function(dynamic));
   Expect.isTrue(C4().f is dynamic Function(dynamic));
+  checkType(checkIs<dynamic Function(dynamic)>, true, C1().f);
+  checkType(checkIs<dynamic Function(dynamic)>, true, C2().f);
+  checkType(checkIs<dynamic Function(dynamic)>, true, C3().f);
+  checkType(checkIs<dynamic Function(dynamic)>, true, C4().f);
 }

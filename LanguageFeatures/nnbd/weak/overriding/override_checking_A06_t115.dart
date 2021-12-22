@@ -30,4 +30,7 @@ main() {
   Expect.isTrue(in_int().f is int? Function(int?));
   Expect.isTrue(in_Function().f is Function? Function(Function?));
   Expect.isTrue(in_Object().f is Object? Function(Object?));
+  checkType(checkIs<int? Function(int?)>, true, in_int().f);
+  checkType(checkIs<Function? Function(Function?)>, true, in_Function().f);
+  checkType(checkIs<Object? Function(Object?)>, true, in_Object().f);
 }

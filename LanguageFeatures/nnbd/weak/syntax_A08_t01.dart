@@ -13,7 +13,7 @@
 /// The same is true for { int ? - 3 : 3 } if we allow this.
 ///
 /// @description Check that { a as bool ? - 3 : 3 } is parsed as
-/// { (a as bool) ? - 3 : 3 }
+/// { (a as bool) ? - 3 : 3 } and the same is true for { a is int ? - 3 : 3 }.
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-weak

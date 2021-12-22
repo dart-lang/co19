@@ -29,5 +29,7 @@ class D extends B implements C {}
 
 void main() {
   Expect.isTrue(D().f is Object Function(Object));
-  Expect.isTrue(D().f is Object? Function(Object?));
+  Expect.isFalse(D().f is Object? Function(Object?));
+  checkType(checkIs<Object Function(Object)>, true, D().f);
+  checkType(checkIs<Object? Function(Object?)>, false, D().f);
 }

@@ -34,5 +34,8 @@ main() {
   Expect.isTrue(C2().f is Object? Function(Object?));
   Expect.isTrue(C3().f is Object? Function(Object?));
   Expect.isTrue(C4().f is Object? Function(Object?));
-
+  checkType(checkIs<Object? Function(Object?)>, true, C1().f);
+  checkType(checkIs<Object? Function(Object?)>, true, C2().f);
+  checkType(checkIs<Object? Function(Object?)>, true, C3().f);
+  checkType(checkIs<Object? Function(Object?)>, true, C4().f);
 }
