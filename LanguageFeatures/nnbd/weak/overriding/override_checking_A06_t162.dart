@@ -20,7 +20,7 @@ import "dart:async";
 import "override_checking_A06_opted_out_lib.dart";
 import "../../../../Utils/expect.dart";
 
-class B extends CHECK_TOP_MERGE<FutureOr<FutureOr>> {}
+class B extends CheckTopMerge<FutureOr<FutureOr>> {}
 
 class C1 extends out_FutureOr implements B {}
 class C2 extends B implements out_FutureOr {}
