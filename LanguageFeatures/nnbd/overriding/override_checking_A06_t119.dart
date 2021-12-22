@@ -26,4 +26,5 @@ class D extends B implements C {}
 
 void main() {
   Expect.isTrue(D().f is Never Function(Never));
+  checkType(checkIs<Never Function(Never)>, true, D().f);
 }

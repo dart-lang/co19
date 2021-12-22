@@ -10,6 +10,7 @@
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-strong
+
 import "../../Utils/expect.dart";
 
 typedef String Func();
@@ -22,9 +23,8 @@ main() {
   Expect.equals("Lily was here", foo());
   Expect.equals("Lily was here", f1());
   Expect.isTrue(C() is C);
+  checkType(checkIs<C>, true, C());
 
   Func? f2 = foo;
-  if (f2 != null) {
-    Expect.equals("Lily was here", f1());
-  }
+  Expect.equals("Lily was here", f2());
 }

@@ -17,5 +17,6 @@ import "exports_A01_opted_out_lib.dart";
 
 main() {
   Expect.isTrue(testme is void Function());
+  checkType(checkIs<void Function()>, true, testme);
   testme();
 }

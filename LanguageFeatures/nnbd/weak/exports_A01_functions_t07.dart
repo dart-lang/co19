@@ -17,5 +17,6 @@ import "exports_A01_opted_out_lib.dart";
 
 main() {
   Expect.isTrue(test_required_arg is void Function({required int i}));
+  checkType(checkIs<void Function({required int i})>, true, test_required_arg);
   test_required_arg(i: 1);
 }

@@ -27,25 +27,37 @@ typedef BAlias2 = B<int>?;
 typedef IntAlias = int?;
 
 main() {
-  AAlias a = new A();
+  AAlias a;
+  if (2 > 1) {
+    a = new A();
+  }
   if (a is A) {
     a.foo();
     A a1 = a;
   }
 
-  BAlias1 b1 = new B();
+  BAlias1 b1;
+  if (2 > 1) {
+    b1 = new B();
+  }
   if (b1 is B) {
     b1.bar();
     B b11 = b1;
   }
 
-  BAlias2 b2 = new B<int>();
+  BAlias2 b2;
+  if (2 > 1) {
+    b2 = new B<int>();
+  }
   if (b2 is B<int>) {
     b2.bar();
     B b22 = b2;
   }
 
-  IntAlias i = 42;
+  IntAlias i;
+  if (2 > 1) {
+    i = 42;
+  }
   if (i is int) {
     i.isOdd;
     int j = i + 10;

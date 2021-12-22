@@ -14,7 +14,6 @@
 ///
 /// @author iarkh@unipro.ru
 
-
 class A<T> {}
 class B implements A<int?> {}
 class C implements A<int > {}

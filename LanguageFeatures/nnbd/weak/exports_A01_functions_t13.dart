@@ -19,4 +19,7 @@ main() {
   Expect.isTrue(testGenericInt is void Function<T extends int>());
   Expect.isTrue(testGenericFunction is void Function<T extends Function>());
   Expect.isTrue(testGenericObject is void Function<T extends Object>());
+  checkType(checkIs<void Function<T extends int>()>, true, testGenericInt);
+  checkType(checkIs<void Function<T extends Function>()>, true, testGenericFunction);
+  checkType(checkIs<void Function<T extends Object>()>, true, testGenericObject);
 }

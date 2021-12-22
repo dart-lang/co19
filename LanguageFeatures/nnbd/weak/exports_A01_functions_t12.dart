@@ -19,21 +19,27 @@ import "exports_A01_opted_out_lib.dart";
 
 main() {
   Expect.isTrue(testGenericDynamic is void Function<T extends dynamic>());
+  checkType(checkIs<void Function<T extends dynamic>()>, true, testGenericDynamic);
   testGenericDynamic<Null>();
 
   Expect.isTrue(testGenericNullableInt is void Function<T extends int?>());
+  checkType(checkIs<void Function<T extends int?>()>, true, testGenericNullableInt);
   testGenericNullableInt<Null>();
 
   Expect.isTrue(testGenericNullableFunction is void Function<T extends Function?>());
+  checkType(checkIs<void Function<T extends Function?>()>, true, testGenericNullableFunction);
   testGenericNullableFunction<Null>();
 
   Expect.isTrue(testGenericNullableObject is void Function<T extends Object?>());
+  checkType(checkIs<void Function<T extends Object?>()>, true, testGenericNullableObject);
   testGenericNullableObject<Null>();
 
   Expect.isTrue(testGenericNull is void Function<T extends Null>());
+  checkType(checkIs<void Function<T extends Null>()>, true, testGenericNull);
   testGenericNull<Null>();
   testGenericNull();
 
   Expect.isTrue(testGenericFutureOr is void Function<T extends FutureOr>());
+  checkType(checkIs<void Function<T extends FutureOr>()>, true, testGenericFutureOr);
   testGenericFutureOr<Null>();
 }

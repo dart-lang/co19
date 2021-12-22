@@ -22,25 +22,37 @@ class B<T> {
 }
 
 main() {
-  A? a = new A();
+  A? a;
+  if (2 > 1) {
+    a = new A();
+  }
   if (a is A) {
     a.foo();
     A a1 = a;
   }
 
-  B? b1 = new B();
+  B? b1;
+  if (2 > 1) {
+    b1 = new B();
+  }
   if (b1 is B) {
     b1.bar();
     B bb = b1;
   }
 
-  B<int>? b2 = new B<int>();
+  B<int>? b2;
+  if (2 > 1) {
+    b2 = new B<int>();
+  }
   if (b2 is B<int>) {
     b2.bar();
     B b22 = b2;
   }
 
-  int? i = 42;
+  int? i;
+  if (2 > 1) {
+    i = 42;
+  }
   if (i is int) {
     i.isOdd;
     int i1 = i + 12;
