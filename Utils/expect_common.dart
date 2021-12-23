@@ -292,6 +292,43 @@ class Expect {
     }
     Expect.isFalse(actIterator.moveNext());
   }
+
+  /// Checks that [obj] object is of the type [T] or not.
+  static void _checkIs<T>(bool expected, Object? obj) {
+    Expect.equals(expected, obj is T);
+  }
+
+  /// Call this function with `checkIs` as the first parameter to check the type
+  /// to prevent the compiler reducing the code to the answer. Otherwise, dart2js
+  /// compiler may optimize `Expect.isTrue(c is C)` to `Expect_isTrue(true)`
+  @pragma('dart2js:noInline')
+  static void _checkType(void Function(bool, Object?) checker, bool expected, Object? o) {
+    checker(expected, o);
+  }
+
+  /// Call this function to perform runtime type check. Sometimes compiler (for
+  /// example dart2js or AOT) optimizes
+  /// `Expect.isTrue(c is C)` to `Expect_isTrue(true)`
+  /// If you want to test not only compiler optimization but runtime as well the
+  /// use
+  /// ```dart
+  /// Expect.isTrue(c is C);
+  /// Expect.runtimeIsType<C>(c);
+  static void runtimeIsType<T>(Object? o) {
+    _checkType(_checkIs<T>, true, o);
+  }
+
+  /// Call this function to perform runtime type check. Sometimes compiler (for
+  /// example dart2js or AOT) optimizes
+  /// `Expect.isFalse(c is C)` to `Expect_isFalse(false)`
+  /// If you want to test not only compiler optimization but runtime as well the
+  /// use
+  /// ```dart
+  /// Expect.isFalse(c is C);
+  /// Expect.runtimeIsNotType<C>(c);
+  static void runtimeIsNotType<T>(Object? o) {
+    _checkType(_checkIs<T>, false, o);
+  }
 }
 
 bool _identical(a, b) => identical(a, b);
@@ -330,7 +367,8 @@ void checkIs<T>(bool expected, Object? obj) {
 }
 
 /// Call this function with `checkIs` as the first parameter to check the type
-/// to prevent the compiler reducing the code to the answer
+/// to prevent the compiler reducing the code to the answer. Otherwise, dart2js
+/// compiler may optimize `Expect.isTrue(c is C)` to `Expect_isTrue(true)`
 @pragma('dart2js:noInline')
 void checkType(void Function(bool, Object?) checker, bool expected, Object? o) {
   checker(expected, o);
