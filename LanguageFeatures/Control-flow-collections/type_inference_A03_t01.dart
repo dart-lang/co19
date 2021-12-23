@@ -23,14 +23,14 @@ main() {
     if (i > 0) new B() else new A()
   ];
   Expect.isTrue(list1 is List<A>);
-  checkType(checkIs<List<A>>, true, list1);
+  Expect.runtimeIsType<List<A>>(list1);
 
   var list2 = [
     "",
     if (i < 0) "" else 1,
   ];
   Expect.isTrue(list2 is List<Object>);
-  checkType(checkIs<List<Object>>, true, list2);
+  Expect.runtimeIsType<List<Object>>(list2);
 
   var list3 = [
     1,
@@ -38,5 +38,5 @@ main() {
     if (i < 0) 2
   ];
   Expect.isTrue(list3 is List<num>);
-  checkType(checkIs<List<num>>, true, list3);
+  Expect.runtimeIsType<List<num>>(list3);
 }

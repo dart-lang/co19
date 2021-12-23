@@ -24,5 +24,5 @@ class C {
 main() {
   CAlias ca = new CAlias();
   Expect.isTrue(ca is C);
-  checkType(checkIs<C>, true, ca);
+  Expect.runtimeIsType<C>(ca);
 }

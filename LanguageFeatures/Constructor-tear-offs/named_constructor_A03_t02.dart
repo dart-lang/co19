@@ -47,5 +47,5 @@ main() {
 
   var v3 = C<dynamic>;
   Expect.isTrue(v3 is Type);
-  checkType(checkIs<Type>, true, v3);
+  Expect.runtimeIsType<Type>(v3);
 }

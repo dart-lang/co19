@@ -33,7 +33,7 @@ class A {
 main() {
   A a = new A();
   Expect.isTrue(a is A);
-  checkType(checkIs<A>, true, a);
+  Expect.runtimeIsType<A>(a);
   A b = a;
   a = new A();
 }

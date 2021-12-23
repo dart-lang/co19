@@ -14,5 +14,5 @@ import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(null.runtimeType is Type);
-  checkType(checkIs<Type>, true, null.runtimeType);
+  Expect.runtimeIsType<Type>(null.runtimeType);
 }

@@ -49,61 +49,61 @@ void main() {
   const c1 = const C.new(42); // Same as: `const C(42);`. (Inferred `T` = `int`.)
   Expect.equals(42, c1.x);
   Expect.isFalse(c1.x is String); // to check that x is not dynamic
-  checkType(checkIs<String>, false, c1.x);
+  Expect.runtimeIsNotType<String>(c1.x);
 
   const c2 = const C<num>(0); // Same as: `const C<num>(0);`.
   Expect.equals(0, c2.x);
   Expect.isTrue(c2.x is num);
   Expect.isFalse(c2.x is String); // to check that x is not dynamic
-  checkType(checkIs<num>, true, c2.x);
-  checkType(checkIs<String>, false, c2.x);
+  Expect.runtimeIsType<num>(c2.x);
+  Expect.runtimeIsNotType<String>(c2.x);
 
   var c3 = new C.new(0); // Same as `new C(0);`.
   Expect.equals(0, c3.x);
   Expect.isFalse(c3.x is String); // to check that x is not dynamic
-  checkType(checkIs<String>, false, c3.x);
+  Expect.runtimeIsNotType<String>(c3.x);
 
   var c4 = new C<num>.new(0); // Same as `new C<num>(0);`.
   Expect.equals(0, c4.x);
   Expect.isFalse(c4.x is String); // to check that x is not dynamic
-  checkType(checkIs<String>, false, c4.x);
+  Expect.runtimeIsNotType<String>(c4.x);
 
   var c5 = C.new(0); // Same as `C(0);`.
   Expect.equals(0, c5.x);
   Expect.isFalse(c5.x is String); // to check that x is not dynamic
-  checkType(checkIs<String>, false, c5.x);
+  Expect.runtimeIsNotType<String>(c5.x);
 
   var c6 = C<num>.new(0); // Same as `C<num>(0);`.
   Expect.equals(0, c6.x);
   Expect.isFalse(c6.x is String); // to check that x is not dynamic
-  checkType(checkIs<String>, false, c6.x);
+  Expect.runtimeIsNotType<String>(c6.x);
 
   var f1 = C.new; // New tear-off, not expressible without `.new`.
   var c7 = f1(42);
   Expect.equals(42, c7.x);
   Expect.isFalse(c7.x is String); // to check that x is not dynamic
-  checkType(checkIs<String>, false, c7.x);
+  Expect.runtimeIsNotType<String>(c7.x);
 
   var c8 = f1<num>(3.14);
   Expect.equals(3.14, c8.x);
   Expect.isFalse(c8.x is String); // to check that x is not dynamic
-  checkType(checkIs<String>, false, c8.x);
+  Expect.runtimeIsNotType<String>(c8.x);
 
   var f2 = C<num>.new; // New tear-off, not expressible without `.new`.
   var c9 = f2(3.14);
   Expect.equals(3.14, c9.x);
   Expect.isFalse(c9.x is String); // to check that x is not dynamic
-  checkType(checkIs<String>, false, c9.x);
+  Expect.runtimeIsNotType<String>(c9.x);
 
   var c10 = C.other(42);
   Expect.equals(42, c10.x);
   Expect.isFalse(c10.x is String); // to check that x is not dynamic
-  checkType(checkIs<String>, false, c10.x);
+  Expect.runtimeIsNotType<String>(c10.x);
 
   var c11 = C.d(42);
   Expect.equals(42, c11.x);
   Expect.isFalse(c11.x is String); // to check that x is not dynamic
   Expect.isTrue(c11 is D);
-  checkType(checkIs<String>, false, c11.x);
-  checkType(checkIs<D>, true, c11);
+  Expect.runtimeIsNotType<String>(c11.x);
+  Expect.runtimeIsType<D>(c11);
 }

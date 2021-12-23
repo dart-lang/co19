@@ -19,16 +19,16 @@ class A<N, S, U> {
 
   A(N n, S s) : field = <U>[] {
     Expect.isTrue(n is N);
-    checkType(checkIs<N>, true, n);
+    Expect.runtimeIsType<N>(n);
     Expect.isTrue(s is S);
-    checkType(checkIs<S>, true, s);
+    Expect.runtimeIsType<S>(s);
   }
 
   A.empty() : field = null{}
 
   factory A.f(S s) {
     Expect.isTrue(s is S);
-    checkType(checkIs<S>, true, s);
+    Expect.runtimeIsType<S>(s);
     return new A.empty();
   }
 

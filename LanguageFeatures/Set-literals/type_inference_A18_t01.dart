@@ -23,5 +23,5 @@ main() {
   Null x = null;
   var m = foo({...?x});
   Expect.isTrue(m is Map<Null, Null>);
-  checkType(checkIs<Map<Null, Null>>, true, m);
+  Expect.runtimeIsType<Map<Null, Null>>(m);
 }

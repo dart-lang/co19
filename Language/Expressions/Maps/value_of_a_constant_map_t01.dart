@@ -25,8 +25,8 @@ main() {
   Expect.isTrue(const <String, String>{"": "string"} is Map<String, String>);
   Expect.isTrue(const <String, bool>{"": true} is Map<String, bool>);
   Expect.isTrue(const <String, S>{"": const S()} is Map<String, S>);
-  checkType(checkIs<Map<String, int>>, true, const <String, int>{"": 1});
-  checkType(checkIs<Map<String, String>>, true, const <String, String>{"": "string"});
-  checkType(checkIs<Map<String, bool>>, true, const <String, bool>{"": true});
-  checkType(checkIs<Map<String, S>>, true, const <String, S>{"": const S()});
+  Expect.runtimeIsType<Map<String, int>>(const <String, int>{"": 1});
+  Expect.runtimeIsType<Map<String, String>>(const <String, String>{"": "string"});
+  Expect.runtimeIsType<Map<String, bool>>(const <String, bool>{"": true});
+  Expect.runtimeIsType<Map<String, S>>(const <String, S>{"": const S()});
 }

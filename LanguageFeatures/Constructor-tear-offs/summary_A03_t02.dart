@@ -91,7 +91,7 @@ mixin M on C {
     var f1 = mstat<int>;
     Expect.equals(42, f1(42));
     Expect.isTrue(f1 is Func);
-    checkType(checkIs<Func>, true, f1);
+    Expect.runtimeIsType<Func>(f1);
 
     var f1TypeName = mstat<int>.runtimeType.toString();
     Expect.equals(Func.toString(), f1TypeName);
@@ -99,7 +99,7 @@ mixin M on C {
     var f2 = minst<int>;
     Expect.equals(42, f2(42));
     Expect.isTrue(f2 is Func);
-    checkType(checkIs<Func>, true, f2);
+    Expect.runtimeIsType<Func>(f2);
 
     var f2TypeName = minst<int>.runtimeType.toString();
     Expect.equals(Func.toString(), f2TypeName);
@@ -107,7 +107,7 @@ mixin M on C {
     var f3 = this.minst<int>;
     Expect.equals(42, f3(42));
     Expect.isTrue(f3 is Func);
-    checkType(checkIs<Func>, true, f3);
+    Expect.runtimeIsType<Func>(f3);
     var f3TypeName = this.minst<int>.runtimeType.toString();
     Expect.equals(Func.toString(), f3TypeName);
   }
@@ -118,7 +118,7 @@ class D extends C with M {
     var f4 = super.inst<int>; // works like (int $) => super.inst<int>($)
     Expect.equals(42, f4(42));
     Expect.isTrue(f4 is Func);
-    checkType(checkIs<Func>, true, f4);
+    Expect.runtimeIsType<Func>(f4);
 
     var f4TypeName = super.inst<int>.runtimeType.toString();
     Expect.equals(Func.toString(), f4TypeName);

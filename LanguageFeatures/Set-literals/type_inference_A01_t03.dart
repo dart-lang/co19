@@ -21,8 +21,8 @@ void test1<X extends num>(X x, X y) {
   var s2 = <X> {};
   Expect.isTrue(s1 is Set<int>);
   Expect.isTrue(s2 is Set<num>);
-  checkType(checkIs<Set<int>>, true, s1);
-  checkType(checkIs<Set<num>>, true, s2);
+  Expect.runtimeIsType<Set<int>>(s1);
+  Expect.runtimeIsType<Set<num>>(s2);
 }
 
 void test2<X extends num>(X x, X y) {
@@ -30,8 +30,8 @@ void test2<X extends num>(X x, X y) {
   var s2 = <X> {};
   Expect.isTrue(s1 is Set<double>);
   Expect.isTrue(s2 is Set<num>);
-  checkType(checkIs<Set<double>>, true, s1);
-  checkType(checkIs<Set<num>>, true, s2);
+  Expect.runtimeIsType<Set<double>>(s1);
+  Expect.runtimeIsType<Set<num>>(s2);
 }
 
 void test3<X extends num>(X x, X y) {
@@ -39,8 +39,8 @@ void test3<X extends num>(X x, X y) {
   var s2 = <X> {};
   Expect.isTrue(s1 is Set<num>);
   Expect.isTrue(s2 is Set<num>);
-  checkType(checkIs<Set<num>>, true, s1);
-  checkType(checkIs<Set<num>>, true, s2);
+  Expect.runtimeIsType<Set<num>>(s1);
+  Expect.runtimeIsType<Set<num>>(s2);
 }
 
 main() {

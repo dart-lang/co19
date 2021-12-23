@@ -65,5 +65,5 @@ import "namespace_changes_t27_lib2.dart" as foo;
 
 main() {
   Expect.isTrue((int, double) {} is foo.bar);
-  checkType(checkIs<foo.bar>, true, (int, double) {});
+  Expect.runtimeIsType<foo.bar>((int, double) {});
 }

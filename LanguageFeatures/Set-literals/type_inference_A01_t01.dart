@@ -23,8 +23,8 @@ main() {
   Expect.isTrue({new C()} is Set<C>);
   Expect.isTrue({1, 2, 3.14} is Set<num>);
   Expect.isTrue({1, 2, "3.14"} is Set<Object>);
-  checkType(checkIs<Set<int>>, true, {1, 2, 3});
-  checkType(checkIs<Set<C>>, true, {new C()});
-  checkType(checkIs<Set<num>>, true, {1, 2, 3.14});
-  checkType(checkIs<Set<Object>>, true, {1, 2, "3.14"});
+  Expect.runtimeIsType<Set<int>>({1, 2, 3});
+  Expect.runtimeIsType<Set<C>>({new C()});
+  Expect.runtimeIsType<Set<num>>({1, 2, 3.14});
+  Expect.runtimeIsType<Set<Object>>({1, 2, "3.14"});
 }

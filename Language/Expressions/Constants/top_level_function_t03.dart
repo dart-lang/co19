@@ -32,8 +32,8 @@ main() {
   Expect.isTrue(b is Function);
   Expect.isTrue(c is Function);
   Expect.isTrue(d is Function);
-  checkType(checkIs<Function>, true, a);
-  checkType(checkIs<Function>, true, b);
-  checkType(checkIs<Function>, true, c);
-  checkType(checkIs<Function>, true, d);
+  Expect.runtimeIsType<Function>(a);
+  Expect.runtimeIsType<Function>(b);
+  Expect.runtimeIsType<Function>(c);
+  Expect.runtimeIsType<Function>(d);
 }

@@ -18,6 +18,6 @@ import "exports_A01_opted_out_lib.dart";
 main() {
   late Never n;
   Expect.isTrue(getNever is Never Function());
-  checkType(checkIs<Never Function()>, true, getNever);
+  Expect.runtimeIsType<Never Function()>(getNever);
   Expect.throws(() { n = getNever(); } );
 }

@@ -21,5 +21,5 @@ class C extends out_Never implements out_Never1 {}
 
 main() {
   Expect.isTrue(C().f is Never Function(Never));
-  checkType(checkIs<Never Function(Never)>, true, C().f);
+  Expect.runtimeIsType<Never Function(Never)>(C().f);
 }

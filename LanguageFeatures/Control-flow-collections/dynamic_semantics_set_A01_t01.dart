@@ -53,13 +53,13 @@ main() {
   }
   set1exp.add(-1);
   Expect.isTrue(set1exp is Set<int>);
-  checkType(checkIs<Set<int>>, true, set1exp);
+  Expect.runtimeIsType<Set<int>>(set1exp);
 
   var set1 = <int>{if (t) x else x + 10, if (!t) x + 1 else x + 11, -1};
   // set1exp {11, 2, -1}
   Expect.setEquals(set1exp, set1);
   Expect.isTrue(set1 is Set<int>);
-  checkType(checkIs<Set<int>>, true, set1);
+  Expect.runtimeIsType<Set<int>>(set1);
 
   var set2exp = new Set<int>();
   if (t) {
@@ -78,7 +78,7 @@ main() {
   }
   set2exp.add(-1);
   Expect.isTrue(set2exp is Set<int>);
-  checkType(checkIs<Set<int>>, true, set2exp);
+  Expect.runtimeIsType<Set<int>>(set2exp);
 
   var set2 = <int>{
     if (t) x else if (!t) x else x + 10,
@@ -87,7 +87,7 @@ main() {
   // set2exp {1, 2, -1}
   Expect.setEquals(set2exp, set2);
   Expect.isTrue(set2 is Set<int>);
-  checkType(checkIs<Set<int>>, true, set2);
+  Expect.runtimeIsType<Set<int>>(set2);
 
   var set3exp = new Set<int>();
   if (t) {
@@ -106,7 +106,7 @@ main() {
   }
   set3exp.add(-1);
   Expect.isTrue(set3exp is Set<int>);
-  checkType(checkIs<Set<int>>, true, set3exp);
+  Expect.runtimeIsType<Set<int>>(set3exp);
 
   var set3 = {
     if (t) x else x + 10,
@@ -115,5 +115,5 @@ main() {
   // set3exp {11, 12, -1}
   Expect.setEquals(set3exp, set3);
   Expect.isTrue(set3 is Set<int>);
-  checkType(checkIs<Set<int>>, true, set3);
+  Expect.runtimeIsType<Set<int>>(set3);
 }

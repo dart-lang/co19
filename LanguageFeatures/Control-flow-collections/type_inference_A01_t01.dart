@@ -21,7 +21,7 @@ main() {
     for (var i = 0; i < 1; i++) []
   ];
   Expect.isTrue(list1 is List<List<String>>);
-  checkType(checkIs<List<List<String>>>, true, list1);
+  Expect.runtimeIsType<List<List<String>>>(list1);
   Expect.listEquals([[], [], []], list1);
 
   var list2 = <List<int>> [
@@ -30,7 +30,7 @@ main() {
     for (var i = 0; i < 1; i++) []
   ];
   Expect.isTrue(list2 is List<List<int>>);
-  checkType(checkIs<List<List<int>>>, true, list2);
+  Expect.runtimeIsType<List<List<int>>>(list2);
   Expect.listEquals([[], [], []], list2);
 
   var list3 = const <List<String>> [
@@ -38,7 +38,7 @@ main() {
     if (false) [] else [],
   ];
   Expect.isTrue(list3 is List<List<String>>);
-  checkType(checkIs<List<List<String>>>, true, list3);
+  Expect.runtimeIsType<List<List<String>>>(list3);
   Expect.listEquals([[], []], list3);
 
   const list4 = <List<C>> [
@@ -46,6 +46,6 @@ main() {
     if (false) [] else []
   ];
   Expect.isTrue(list4 is List<List<C>>);
-  checkType(checkIs<List<List<C>>>, true, list4);
+  Expect.runtimeIsType<List<List<C>>>(list4);
   Expect.listEquals([[], []], list4);
 }

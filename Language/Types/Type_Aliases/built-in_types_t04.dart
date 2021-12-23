@@ -39,10 +39,10 @@ main() {
   Expect.isTrue(dd is double);
   Expect.isTrue(bb is bool);
   Expect.isTrue(ss is String);
-  checkType(checkIs<int>, true, ii);
-  checkType(checkIs<num>, true, nn);
-  checkType(checkIs<int>, false, nn);
-  checkType(checkIs<double>, true, dd);
-  checkType(checkIs<bool>, true, bb);
-  checkType(checkIs<String>, true, ss);
+  Expect.runtimeIsType<int>(ii);
+  Expect.runtimeIsType<num>(nn);
+  Expect.runtimeIsNotType<int>(nn);
+  Expect.runtimeIsType<double>(dd);
+  Expect.runtimeIsType<bool>(bb);
+  Expect.runtimeIsType<String>(ss);
 }

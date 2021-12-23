@@ -30,11 +30,10 @@ main() {
   Expect.isTrue((int x, [int y = 0, Whatever? w]) {} is t2);
   Expect.isTrue((int x, [int y = 0, Whatever? w, Whatever? w2]) {} is t2);
   Expect.isTrue(([int x = 42, int y = 0, Whatever? w, Whatever? w2]) {} is t2);
-  checkType(checkIs<t1>, true, ([int x = 0, Whatever? w]) {});
-  checkType(checkIs<t1>, true, ([var x, Whatever? w, Whatever? w2]) {});
-  checkType(checkIs<t1>, true, (int x, [int y = 0, Whatever? w]) {});
-  checkType(
-      checkIs<t1>, true, (int x, [int y = 0, Whatever? w, Whatever? w2]) {});
-  checkType(checkIs<t1>, true,
+  Expect.runtimeIsType<t1>(([int x = 0, Whatever? w]) {});
+  Expect.runtimeIsType<t1>(([var x, Whatever? w, Whatever? w2]) {});
+  Expect.runtimeIsType<t1>((int x, [int y = 0, Whatever? w]) {});
+  Expect.runtimeIsType<t1>((int x, [int y = 0, Whatever? w, Whatever? w2]) {});
+  Expect.runtimeIsType<t1>(
       ([int x = 42, int y = 0, Whatever? w, Whatever? w2]) {});
 }

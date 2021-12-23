@@ -20,13 +20,13 @@ import "../../Utils/expect.dart";
 main() {
   Expect.isTrue(<int> {} is Set);
   Expect.isTrue( const <int> {} is Set);
-  checkType(checkIs<Set>, true, <int>{});
-  checkType(checkIs<Set>, true, const <int>{});
+  Expect.runtimeIsType<Set>(<int>{});
+  Expect.runtimeIsType<Set>(const <int>{});
 
   var x1 = const <int> {};
   Expect.isTrue(x1 is Set);
-  checkType(checkIs<Set>, true, x1);
+  Expect.runtimeIsType<Set>(x1);
   var x2 = <int> {};
   Expect.isTrue(x2 is Set);
-  checkType(checkIs<Set>, true, x2);
+  Expect.runtimeIsType<Set>(x2);
 }

@@ -32,8 +32,8 @@ main() {
   Expect.isTrue(C2().f is dynamic Function(dynamic));
   Expect.isTrue(C3().f is dynamic Function(dynamic));
   Expect.isTrue(C4().f is dynamic Function(dynamic));
-  checkType(checkIs<dynamic Function(dynamic)>, true, C1().f);
-  checkType(checkIs<dynamic Function(dynamic)>, true, C2().f);
-  checkType(checkIs<dynamic Function(dynamic)>, true, C3().f);
-  checkType(checkIs<dynamic Function(dynamic)>, true, C4().f);
+  Expect.runtimeIsType<dynamic Function(dynamic)>(C1().f);
+  Expect.runtimeIsType<dynamic Function(dynamic)>(C2().f);
+  Expect.runtimeIsType<dynamic Function(dynamic)>(C3().f);
+  Expect.runtimeIsType<dynamic Function(dynamic)>(C4().f);
 }

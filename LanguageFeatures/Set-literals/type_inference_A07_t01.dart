@@ -31,10 +31,10 @@ void test1<T extends Iterable<num>>(T t) {
   Expect.isFalse(s1 is Set<int>);
   Expect.isTrue(s2 is Set<num>);
   Expect.isFalse(s2 is Set<int>);
-  checkType(checkIs<Set<num>>, true, s1);
-  checkType(checkIs<Set<int>>, false, s1);
-  checkType(checkIs<Set<num>>, true, s2);
-  checkType(checkIs<Set<int>>, false, s2);
+  Expect.runtimeIsType<Set<num>>(s1);
+  Expect.runtimeIsNotType<Set<int>>(s1);
+  Expect.runtimeIsType<Set<num>>(s2);
+  Expect.runtimeIsNotType<Set<int>>(s2);
 }
 
 void test2<T extends Iterable<Object>>(T t) {
@@ -48,10 +48,10 @@ void test2<T extends Iterable<Object>>(T t) {
   Expect.isFalse(s1 is Set<num>);
   Expect.isTrue(s2 is Set<Object>);
   Expect.isFalse(s2 is Set<num>);
-  checkType(checkIs<Set<Object>>, true, s1);
-  checkType(checkIs<Set<num>>, false, s1);
-  checkType(checkIs<Set<Object>>, true, s2);
-  checkType(checkIs<Set<num>>, false, s2);
+  Expect.runtimeIsType<Set<Object>>(s1);
+  Expect.runtimeIsNotType<Set<num>>(s1);
+  Expect.runtimeIsType<Set<Object>>(s2);
+  Expect.runtimeIsNotType<Set<num>>(s2);
 }
 
 main() {

@@ -23,5 +23,5 @@ class C {
 
 main() {
   Expect.isTrue(C.constr is C Function());
-  checkType(checkIs<C Function()>, true, C.constr);
+  Expect.runtimeIsType<C Function()>(C.constr);
 }

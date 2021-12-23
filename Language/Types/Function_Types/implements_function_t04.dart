@@ -12,20 +12,20 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(() {} is Function);
-  checkType(checkIs<Function>, true, () {});
+  Expect.runtimeIsType<Function>(() {});
   Expect.isTrue((var x) {} is Function);
-  checkType(checkIs<Function>, true, (var x) {});
+  Expect.runtimeIsType<Function>((var x) {});
 
   Expect.isTrue(((var x) => null) is Function);
-  checkType(checkIs<Function>, true, (var x) => null);
+  Expect.runtimeIsType<Function>((var x) => null);
   Expect.isTrue(((int x) => x) is Function);
-  checkType(checkIs<Function>, true, ((int x) => x));
+  Expect.runtimeIsType<Function>(((int x) => x));
   Expect.isTrue((([var x]) => "aa") is Function);
-  checkType(checkIs<Function>, true, ([var x]) => "aa");
+  Expect.runtimeIsType<Function>(([var x]) => "aa");
   Expect.isTrue(
       ((var x, int z, [Object? o, var v = 1]) => x + z + o + v) is Function);
-  checkType(checkIs<Function>, true,
+  Expect.runtimeIsType<Function>(
       ((var x, int z, [Object? o, var v = 1]) => x + z + o + v));
   Expect.isTrue(((x, z, {o, v: 1}) => x + z + o + v) is Function);
-  checkType(checkIs<Function>, true, ((x, z, {o, v: 1}) => x + z + o + v));
+  Expect.runtimeIsType<Function>(((x, z, {o, v: 1}) => x + z + o + v));
 }

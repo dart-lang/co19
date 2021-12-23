@@ -64,6 +64,6 @@ main() async {
 
   var list1 = <int>[await for (var v in s1) v, await for (var v in s2) v + 1];
   Expect.isTrue(list1 is List<int>);
-  checkType(checkIs<List<int>>, true, list1);
+  Expect.runtimeIsType<List<int>>(list1);
   Expect.listEquals(list1exp, list1);
 }

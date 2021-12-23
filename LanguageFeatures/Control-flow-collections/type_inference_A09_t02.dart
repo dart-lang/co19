@@ -23,7 +23,7 @@ main() {
     if (i > 0) ...?x,
   };
   Expect.isTrue(set1 is Set<int>);
-  checkType(checkIs<Set<int>>, true, set1);
+  Expect.runtimeIsType<Set<int>>(set1);
 
   var set2 = {
     "",
@@ -32,7 +32,7 @@ main() {
   Expect.isTrue(set2 is Set<Object>);
   Expect.isFalse(set2 is Set<String>);
   Expect.isFalse(set2 is Set<num>);
-  checkType(checkIs<Set<Object>>, true, set2);
-  checkType(checkIs<Set<String>>, false, set2);
-  checkType(checkIs<Set<num>>, false, set2);
+  Expect.runtimeIsType<Set<Object>>(set2);
+  Expect.runtimeIsNotType<Set<String>>(set2);
+  Expect.runtimeIsNotType<Set<num>>(set2);
 }

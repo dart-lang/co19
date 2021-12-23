@@ -29,7 +29,7 @@ main() {
   final dynamic d = 0.5;
   var v = C.name;
   Expect.isTrue(v is C Function(int x, dynamic y));
-  checkType(checkIs<C Function(int x, dynamic y)>, true, v);
+  Expect.runtimeIsType<C Function(int x, dynamic y)>(v);
   var x = v(42, "Lily was here");
   Expect.equals(42, x.x);
   Expect.equals("Lily was here", x.y);

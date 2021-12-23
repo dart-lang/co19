@@ -64,6 +64,6 @@ main() async {
 
   var list1 = [await for (var v in s1) v, await for (var v in s2) v];
   Expect.isTrue(list1 is List<Object?>);
-  checkType(checkIs<List<Object?>>, true, list1);
+  Expect.runtimeIsType<List<Object?>>(list1);
   Expect.listEquals(list1exp, list1);
 }

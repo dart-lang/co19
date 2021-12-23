@@ -17,5 +17,5 @@ import "reexport__itself_t02_lib.dart";
 
 main() {
   Expect.isTrue(() {} is foo);
-  checkType(checkIs<foo>, true, () {});
+  Expect.runtimeIsType<foo>(() {});
 }

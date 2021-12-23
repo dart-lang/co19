@@ -31,7 +31,7 @@ main() {
   var c1 = c<int>;
   Expect.isFalse(c1 is Type);
   Expect.isTrue(c1 is int Function(int));
-  checkType(checkIs<Type>, false, c1);
-  checkType(checkIs<void Function(int)>, true, c1);
+  Expect.runtimeIsNotType<Type>(c1);
+  Expect.runtimeIsType<void Function(int)>(c1);
   Expect.equals(c1, c.call<int>);
 }

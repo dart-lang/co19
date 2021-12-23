@@ -22,7 +22,7 @@ main() {
   Expect.equals("Lily was here", foo());
   Expect.equals("Lily was here", f1());
   Expect.isTrue(C() is C);
-  checkType(checkIs<C>, true, C());
+  Expect.runtimeIsType<C>(C());
 
   Func? f2 = foo;
   if (f2 != null) {

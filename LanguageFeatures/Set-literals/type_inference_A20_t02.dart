@@ -22,8 +22,8 @@ class C<X extends num> {
     var v = {x, 1, 2};
     Expect.isTrue(v is Set<num>);
     Expect.isFalse(v is Set<int>);
-    checkType(checkIs<Set<num>>, true, v);
-    checkType(checkIs<Set<num>>, false, v);
+    Expect.runtimeIsType<Set<num>>(v);
+    Expect.runtimeIsNotType<Set<int>>(v);
   }
 }
 

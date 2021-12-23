@@ -20,14 +20,14 @@ main() {
 
   var v1 = {!b ? 1 : 11};
   Expect.isTrue(v1 is Set);
-  checkType(checkIs<Set<int>>, true, v1);
+  Expect.runtimeIsType<Set<int>>(v1);
 
   var v2 = {b ? 1 : 11, b ? 2 : 12, b ? 3 : 13};
   Expect.isTrue(v2 is Set);
-  checkType(checkIs<Set>, true, v2);
+  Expect.runtimeIsType<Set>(v2);
 
   const v3 = const <num>{b1 ? 1 : 1.0, !b1 ? 2 : 12, 13};
   Expect.isTrue(v3 is Set);
-  checkType(checkIs<Set>, true, v3);
+  Expect.runtimeIsType<Set>(v3);
   Expect.isTrue(identical(v3, const <num>{1, 12, 13}));
 }

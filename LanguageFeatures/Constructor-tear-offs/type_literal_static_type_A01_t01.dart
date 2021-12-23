@@ -16,5 +16,5 @@ main() {
   var intList = List<int>;
   Expect.isTrue(intList is Type);
   Expect.isFalse(intList is List<String>); // to check that intList is not dynamic
-  checkType(checkIs<List<String>>, false, intList);
+  Expect.runtimeIsNotType<List<String>>(intList);
 }

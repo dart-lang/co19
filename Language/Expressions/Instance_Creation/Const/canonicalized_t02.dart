@@ -46,8 +46,8 @@ main() {
   Expect.isTrue(const B(0) is B);
   Expect.isTrue(const C(p2: true, p1: "") is C);
   Expect.isTrue(const D(0, 0) is D);
-  checkType(checkIs<A>, true, const A());
-  checkType(checkIs<B>, true, const B(0));
-  checkType(checkIs<C>, true, const C(p2: true, p1: ""));
-  checkType(checkIs<D>, true, const D(0, 0));
+  Expect.runtimeIsType<A>(const A());
+  Expect.runtimeIsType<B>(const B(0));
+  Expect.runtimeIsType<C>(const C(p2: true, p1: ""));
+  Expect.runtimeIsType<D>(const D(0, 0));
 }

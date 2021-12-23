@@ -18,26 +18,26 @@ import "exports_A01_opted_out_lib.dart";
 
 main() {
   Expect.isTrue(getNullableInt is int? Function());
-  checkType(checkIs<int? Function()>, true, getNullableInt);
+  Expect.runtimeIsType<int? Function()>(getNullableInt);
   Expect.isNull(getNullableInt());
 
   Expect.isTrue(getNullableObject is Object? Function());
-  checkType(checkIs<Object? Function()>, true, getNullableObject);
+  Expect.runtimeIsType<Object? Function()>(getNullableObject);
   Expect.isNull(getNullableObject());
 
   Expect.isTrue(getDynamic is dynamic Function());
-  checkType(checkIs<dynamic Function()>, true, getDynamic);
+  Expect.runtimeIsType<dynamic Function()>(getDynamic);
   Expect.isNull(getDynamic());
 
   Expect.isTrue(getNullableFunction is Function? Function());
-  checkType(checkIs<Function? Function()>, true, getNullableFunction);
+  Expect.runtimeIsType<Function? Function()>(getNullableFunction);
   Expect.isNull(getNullableFunction());
 
   Expect.isTrue(getNull is Null Function());
-  checkType(checkIs<Null Function()>, true, getNull);
+  Expect.runtimeIsType<Null Function()>(getNull);
   Expect.isNull(getNull());
 
   Expect.isTrue(getFutureOr is FutureOr Function());
-  checkType(checkIs<FutureOr Function()>, true, getFutureOr);
+  Expect.runtimeIsType<FutureOr Function()>(getFutureOr);
   Expect.isNull(getFutureOr());
 }

@@ -20,10 +20,10 @@ main() {
   Expect.isTrue(main.runtimeType is Type);
   Expect.isTrue((const [1, 2, 3]).runtimeType is Type);
 
-  checkType(checkIs<Type>, true, 1.runtimeType);
-  checkType(checkIs<Type>, true, (1.1).runtimeType);
-  checkType(checkIs<Type>, true, "foo".runtimeType);
-  checkType(checkIs<Type>, true, true.runtimeType);
-  checkType(checkIs<Type>, true, main.runtimeType);
-  checkType(checkIs<Type>, true, const [1, 2, 3].runtimeType);
+  Expect.runtimeIsType<Type>(1.runtimeType);
+  Expect.runtimeIsType<Type>((1.1).runtimeType);
+  Expect.runtimeIsType<Type>("foo".runtimeType);
+  Expect.runtimeIsType<Type>(true.runtimeType);
+  Expect.runtimeIsType<Type>(main.runtimeType);
+  Expect.runtimeIsType<Type>(const [1, 2, 3].runtimeType);
 }

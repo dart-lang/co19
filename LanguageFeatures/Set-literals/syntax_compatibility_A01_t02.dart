@@ -27,7 +27,7 @@ main() {
 //                       ^
 // [cfe] The class 'C' cannot be null.
   Expect.isTrue(v1 is Set);
-  checkType(checkIs<Set>, true, v1);
+  Expect.runtimeIsType<Set>(v1);
   Expect.iterableEquals({3, 2, null}, v1);
 
   var c = C() as C?;
@@ -38,7 +38,7 @@ main() {
 //                       ^
 // [cfe] The class 'C' cannot be null.
   Expect.isTrue(v2 is Set);
-  checkType(checkIs<Set>, true, v2);
+  Expect.runtimeIsType<Set>(v2);
   Expect.iterableEquals({3, 2, 1}, v2);
 
   var v3 = <int?>{c?.x ?? 3, C?.n2, c?.n1};
@@ -47,7 +47,7 @@ main() {
 //                            ^
 // [cfe] The class 'C' cannot be null.
   Expect.isTrue(v3 is Set);
-  checkType(checkIs<Set>, true, v3);
+  Expect.runtimeIsType<Set>(v3);
   Expect.iterableEquals({3, 2, 1}, v3);
 
   var v4 = <int?>{c?.n1 ??= (c as C).x, c?.x ??= 4, C?.n2, c?.x ?? 3};
@@ -56,6 +56,6 @@ main() {
 //                                                   ^
 // [cfe] The class 'C' cannot be null.
   Expect.isTrue(v4 is Set);
-  checkType(checkIs<Set>, true, v4);
+  Expect.runtimeIsType<Set>(v4);
   Expect.iterableEquals({1, 4, 2}, v4);
 }

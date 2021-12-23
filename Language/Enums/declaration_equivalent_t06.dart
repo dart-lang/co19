@@ -23,5 +23,5 @@ enum E {a, b, c}
 
 main() {
   Expect.isTrue(E.values is List<E>);
-  checkType(checkIs<List<E>>, true, E.values);
+  Expect.runtimeIsType<List<E>>(E.values);
 }

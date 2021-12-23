@@ -28,23 +28,23 @@ main() {
   Expect.isTrue(checkme1 is Func1);
   Expect.isFalse(checkme1 is Func2);
   Expect.isFalse(checkme1 is Func3);
-  checkType(checkIs<Func1>, true, checkme1);
-  checkType(checkIs<Func2>, false, checkme1);
-  checkType(checkIs<Func3>, false, checkme1);
+  Expect.runtimeIsType<Func1>(checkme1);
+  Expect.runtimeIsNotType<Func2>(checkme1);
+  Expect.runtimeIsNotType<Func3>(checkme1);
 
   Expect.isFalse(checkme2 is Func1);
   Expect.isTrue(checkme2 is Func2);
   Expect.isFalse(checkme2 is Func3);
-  checkType(checkIs<Func1>, false, checkme2);
-  checkType(checkIs<Func2>, true, checkme2);
-  checkType(checkIs<Func3>, false, checkme2);
+  Expect.runtimeIsNotType<Func1>(checkme2);
+  Expect.runtimeIsType<Func2>(checkme2);
+  Expect.runtimeIsNotType<Func3>(checkme2);
 
   Expect.isFalse(checkme3 is Func1);
   Expect.isFalse(checkme3 is Func2);
   Expect.isTrue(checkme3 is Func3);
   Expect.isTrue(checkme3 is Func2<Y>);
-  checkType(checkIs<Func1>, false, checkme3);
-  checkType(checkIs<Func2>, false, checkme3);
-  checkType(checkIs<Func3>, true, checkme3);
-  checkType(checkIs<Func2<Y>>, true, checkme3);
+  Expect.runtimeIsNotType<Func1>(checkme3);
+  Expect.runtimeIsNotType<Func2>(checkme3);
+  Expect.runtimeIsType<Func3>(checkme3);
+  Expect.runtimeIsType<Func2<Y>>(checkme3);
 }

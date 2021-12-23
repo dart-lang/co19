@@ -19,7 +19,7 @@ main() {
     if (i > 0) ...?x,
   };
   Expect.isTrue(map1 is Map<int, String>);
-  checkType(checkIs<Map<int, String>>, true, map1);
+  Expect.runtimeIsType<Map<int, String>>(map1);
 
   var map2 = {
     "": "",
@@ -28,7 +28,7 @@ main() {
   Expect.isTrue(map2 is Map<Object, String>);
   Expect.isFalse(map2 is Map<String, String>);
   Expect.isFalse(map2 is Map<num, String>);
-  checkType(checkIs<Map<Object, String>>, true, map2);
-  checkType(checkIs<Map<String, String>>, false, map2);
-  checkType(checkIs<Map<num, String>>, false, map2);
+  Expect.runtimeIsType<Map<Object, String>>(map2);
+  Expect.runtimeIsNotType<Map<String, String>>(map2);
+  Expect.runtimeIsNotType<Map<num, String>>(map2);
 }

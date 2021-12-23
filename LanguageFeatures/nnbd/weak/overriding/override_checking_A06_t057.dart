@@ -25,5 +25,5 @@ class D extends B implements C {}
 
 void main() {
   Expect.isTrue(D().f is Null Function(Null));
-  checkType(checkIs<Null Function(Null)>, true, D().f);
+  Expect.runtimeIsType<Null Function(Null)>(D().f);
 }

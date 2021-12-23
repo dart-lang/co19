@@ -47,11 +47,11 @@ main() {
   // See https://github.com/dart-lang/sdk/issues/45718 evaluation for more details
   Expect.isFalse(testme is TEST);
   Expect.isTrue(testme1 is TEST);
-  checkType(checkIs<TEST>, false, testme);
-  checkType(checkIs<TEST>, true, testme1);
+  Expect.runtimeIsNotType<TEST>(testme);
+  Expect.runtimeIsType<TEST>(testme1);
 
   Expect.isTrue(t is TEST);
   Expect.isTrue(t1 is TEST);
-  checkType(checkIs<TEST>, true, t);
-  checkType(checkIs<TEST>, true, t1);
+  Expect.runtimeIsType<TEST>(t);
+  Expect.runtimeIsType<TEST>(t1);
 }

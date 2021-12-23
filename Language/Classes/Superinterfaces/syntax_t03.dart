@@ -34,8 +34,8 @@ main() {
   Expect.isTrue(c is IB);
   Expect.isTrue(c is IC);
   Expect.isTrue(c is ID);
-  checkType(checkIs<IA>, true, c);
-  checkType(checkIs<IB>, true, c);
-  checkType(checkIs<IC>, true, c);
-  checkType(checkIs<ID>, true, c);
+  Expect.runtimeIsType<IA>(c);
+  Expect.runtimeIsType<IB>(c);
+  Expect.runtimeIsType<IC>(c);
+  Expect.runtimeIsType<ID>(c);
 }

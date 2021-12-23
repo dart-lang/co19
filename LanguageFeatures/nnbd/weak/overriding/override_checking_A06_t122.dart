@@ -26,6 +26,6 @@ class C2 extends out_dynamic implements out_Object  {}
 main() {
   Expect.isTrue(C1().f is Object? Function(Object?));
   Expect.isTrue(C2().f is Object? Function(Object?));
-  checkType(checkIs<Object? Function(Object?)>, true, C1().f);
-  checkType(checkIs<Object? Function(Object?)>, true, C2().f);
+  Expect.runtimeIsType<Object? Function(Object?)>(C1().f);
+  Expect.runtimeIsType<Object? Function(Object?)>(C2().f);
 }

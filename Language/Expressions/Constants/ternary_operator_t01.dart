@@ -28,5 +28,5 @@ const list = const [
 
 main() {
   Expect.isTrue(list is List);
-  checkType(checkIs<List>, true, list);
+  Expect.runtimeIsType<List>(list);
 }

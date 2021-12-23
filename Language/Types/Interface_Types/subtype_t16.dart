@@ -37,7 +37,7 @@ class Sub extends Mid {}
 class Checker<T extends Super> {
   Checker(T t) {
     Expect.isTrue(t is Super);
-    checkType(checkIs<Super>, true, t);
+    Expect.runtimeIsType<Super>(t);
     Super ss = t;
   }
 }

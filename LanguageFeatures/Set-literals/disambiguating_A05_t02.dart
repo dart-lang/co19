@@ -22,31 +22,31 @@ main() {
 
   var c1 = {if (2 > 1) ...x};
   Expect.isTrue(c1 is Map);
-  checkType(checkIs<Map>, true, c1);
+  Expect.runtimeIsType<Map>(c1);
 
   var c2 = {if (2 > 1) ...x else ...y};
   Expect.isTrue(c2 is Map);
-  checkType(checkIs<Map>, true, c2);
+  Expect.runtimeIsType<Map>(c2);
 
   var c3 = {if (2 > 1) ...y else ...x, if (2 > 1) ...x};
   Expect.isTrue(c3 is Map);
-  checkType(checkIs<Map>, true, c3);
+  Expect.runtimeIsType<Map>(c3);
 
   var c4 = {for (var i = 0; i < 3; i++) if (2 > 1) ...y else if (2 > 1) ...x};
   Expect.isTrue(c4 is Map);
-  checkType(checkIs<Map>, true, c4);
+  Expect.runtimeIsType<Map>(c4);
 
   var c5 = {for (var i in [1, 2, 3]) if (1 > 2) ...x else if (2 > 1) ...y};
   Expect.isTrue(c5 is Map);
-  checkType(checkIs<Map>, true, c5);
+  Expect.runtimeIsType<Map>(c5);
 
   var c6 = {if (1 > 2) for (var i in [1, 2, 3]) ...y
             else if (2 > 1) for (var i = 0; i < 3; i++) ...x};
   Expect.isTrue(c6 is Map);
-  checkType(checkIs<Map>, true, c6);
+  Expect.runtimeIsType<Map>(c6);
 
   var c7 = {if (2 > 1) for (var i in [1, 2, 3]) ...x
             else if (2 > 1) for (var i = 0; i < 3; i++) ...y};
   Expect.isTrue(c7 is Map);
-  checkType(checkIs<Map>, true, c7);
+  Expect.runtimeIsType<Map>(c7);
 }

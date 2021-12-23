@@ -20,6 +20,6 @@ class A implements I2 {}
 main() {
   Expect.isTrue(new A() is I1);
   Expect.isTrue(new A() is I0);
-  checkType(checkIs<I1>, true, new A());
-  checkType(checkIs<I0>, true, new A());
+  Expect.runtimeIsType<I1>(new A());
+  Expect.runtimeIsType<I0>(new A());
 }

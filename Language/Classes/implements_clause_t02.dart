@@ -29,10 +29,10 @@ main() {
   Expect.isTrue(d is I1);
   Expect.isTrue(d is I2);
   Expect.isTrue(d is I3);
-  checkType(checkIs<I1>, true, b);
-  checkType(checkIs<I1>, true, c);
-  checkType(checkIs<I2>, true, c);
-  checkType(checkIs<I1>, true, d);
-  checkType(checkIs<I2>, true, d);
-  checkType(checkIs<I3>, true, d);
+  Expect.runtimeIsType<I1>(b);
+  Expect.runtimeIsType<I1>(c);
+  Expect.runtimeIsType<I2>(c);
+  Expect.runtimeIsType<I1>(d);
+  Expect.runtimeIsType<I2>(d);
+  Expect.runtimeIsType<I3>(d);
 }

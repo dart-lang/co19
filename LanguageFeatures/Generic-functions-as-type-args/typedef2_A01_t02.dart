@@ -43,6 +43,6 @@ main() {
   TEST t = testme;
   Expect.isFalse(testme is TEST);
   Expect.isTrue(testme1 is TEST);
-  checkType(checkIs<TEST>, false, testme);
-  checkType(checkIs<TEST>, true, testme1);
+  Expect.runtimeIsNotType<TEST>(testme);
+  Expect.runtimeIsType<TEST>(testme1);
 }

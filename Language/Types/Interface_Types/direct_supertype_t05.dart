@@ -21,5 +21,5 @@ class J = I with M;
 
 main() {
   Expect.isTrue(new J() is I);
-  checkType(checkIs<I>, true, new J());
+  Expect.runtimeIsType<I>(new J());
 }

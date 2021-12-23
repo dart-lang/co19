@@ -25,7 +25,7 @@ main() {
   Expect.isTrue(C.new is C Function<X>(int i, X d));
   Expect.isTrue(C<int>.new is C<int> Function(int i, int d));
   Expect.isTrue(((C.new)<int>) is C<int> Function(int i, int d));
-  checkType(checkIs<C Function<X>(int i, X d)>, true, C.new);
-  checkType(checkIs<C<int> Function(int i, int d)>, true, C<int>.new);
-  checkType(checkIs<C<int> Function(int i, int d)>, true, ((C.new)<int>));
+  Expect.runtimeIsType<C Function<X>(int i, X d)>(C.new);
+  Expect.runtimeIsType<C<int> Function(int i, int d)>(C<int>.new);
+  Expect.runtimeIsType<C<int> Function(int i, int d)>(((C.new)<int>));
 }

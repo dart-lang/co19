@@ -29,42 +29,42 @@ main() {
   CAlias c1 = new CAlias();
   Expect.isTrue(c1 is C<dynamic, String>);
   Expect.isTrue(c1 is CAlias<dynamic>);
-  checkType(checkIs<C<dynamic, String>>, true, c1);
-  checkType(checkIs<CAlias<dynamic>>, true, c1);
+  Expect.runtimeIsType<C<dynamic, String>>(c1);
+  Expect.runtimeIsType<CAlias<dynamic>>(c1);
   Expect.equals("default", c1.log);
 
   CAlias<int> c2 = new CAlias<int>.named();
   Expect.isTrue(c2 is C<int, String>);
   Expect.isTrue(c2 is CAlias<int>);
-  checkType(checkIs<C<int, String>>, true, c2);
-  checkType(checkIs<CAlias<int>>, true, c2);
+  Expect.runtimeIsType<C<int, String>>(c2);
+  Expect.runtimeIsType<CAlias<int>>(c2);
   Expect.equals("named", c2.log);
 
   CAlias<int> c3 = new C<int, String>();
   Expect.isTrue(c3 is C<int, String>);
   Expect.isTrue(c3 is CAlias<int>);
-  checkType(checkIs<C<int, String>>, true, c3);
-  checkType(checkIs<CAlias<int>>, true, c3);
+  Expect.runtimeIsType<C<int, String>>(c3);
+  Expect.runtimeIsType<CAlias<int>>(c3);
   Expect.equals("default", c3.log);
 
   CAlias<int> c4 = new C<int, String>.named();
   Expect.isTrue(c4 is C<int, String>);
   Expect.isTrue(c4 is CAlias<int>);
-  checkType(checkIs<C<int, String>>, true, c4);
-  checkType(checkIs<CAlias<int>>, true, c4);
+  Expect.runtimeIsType<C<int, String>>(c4);
+  Expect.runtimeIsType<CAlias<int>>(c4);
   Expect.equals("named", c4.log);
 
   C<int, String> c5 = new CAlias<int>();
   Expect.isTrue(c5 is C<int, String>);
   Expect.isTrue(c5 is CAlias<int>);
-  checkType(checkIs<C<int, String>>, true, c5);
-  checkType(checkIs<CAlias<int>>, true, c5);
+  Expect.runtimeIsType<C<int, String>>(c5);
+  Expect.runtimeIsType<CAlias<int>>(c5);
   Expect.equals("default", c5.log);
 
   C<int, String> c6 = new CAlias<int>.named();
   Expect.isTrue(c6 is C<int, String>);
   Expect.isTrue(c6 is CAlias<int>);
-  checkType(checkIs<C<int, String>>, true, c6);
-  checkType(checkIs<CAlias<int>>, true, c6);
+  Expect.runtimeIsType<C<int, String>>(c6);
+  Expect.runtimeIsType<CAlias<int>>(c6);
   Expect.equals("named", c6.log);
 }

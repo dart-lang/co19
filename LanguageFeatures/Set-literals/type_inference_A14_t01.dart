@@ -23,5 +23,5 @@ main() {
   Null x = null;
   var s = foo({...?x});
   Expect.isTrue(s is Set<Null>);
-  checkType(checkIs<Set<Null>>, true, s);
+  Expect.runtimeIsType<Set<Null>>(s);
 }

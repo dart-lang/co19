@@ -25,5 +25,5 @@ class D extends B implements C {}
 
 main() {
   Expect.isTrue(D().f is Function Function(Function));
-  checkType(checkIs<Function Function(Function)>, true, D().f);
+  Expect.runtimeIsType<Function Function(Function)>(D().f);
 }

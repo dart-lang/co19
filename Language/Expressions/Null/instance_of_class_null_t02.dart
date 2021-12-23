@@ -17,9 +17,9 @@ main() {
   Expect.isTrue(n is Null);
   Expect.isFalse(null is A);
   Expect.isFalse(n is A);
-  checkType(checkIs<Type>, true, Null);
-  checkType(checkIs<Null>, true, null);
-  checkType(checkIs<Null>, true, n);
-  checkType(checkIs<A>, false, null);
-  checkType(checkIs<A>, false, n);
+  Expect.runtimeIsType<Type>(Null);
+  Expect.runtimeIsType<Null>(null);
+  Expect.runtimeIsType<Null>(n);
+  Expect.runtimeIsNotType<A>(null);
+  Expect.runtimeIsNotType<A>(n);
 }

@@ -17,5 +17,5 @@ import "exports_A01_opted_out_lib.dart";
 
 main() {
   Expect.isTrue(test_never_arg is void Function(Never));
-  checkType(checkIs<void Function(Never)>, true, test_never_arg);
+  Expect.runtimeIsType<void Function(Never)>(test_never_arg);
 }

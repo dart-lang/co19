@@ -63,7 +63,7 @@ main() {
   var x = a<b, c>;
   var m = {a<b, c>: 42};
   Expect.isTrue(m is Map);
-  checkType(checkIs<Map>, true, m);
+  Expect.runtimeIsType<Map>(m);
   Expect.equals(1, m.length);
   Expect.equals(42, m[x]);
 

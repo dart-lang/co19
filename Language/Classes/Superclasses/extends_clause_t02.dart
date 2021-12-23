@@ -21,5 +21,5 @@ class B extends AAlias {}
 
 main() {
   Expect.isTrue(new B() is A);
-  checkType(checkIs<A>, true, B());
+  Expect.runtimeIsType<A>(B());
 }

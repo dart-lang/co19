@@ -25,5 +25,5 @@ class D extends B implements C {}
 
 main() {
   Expect.isTrue(D().f is dynamic Function(dynamic));
-  checkType(checkIs<dynamic Function(dynamic)>, true, D().f);
+  Expect.runtimeIsType<dynamic Function(dynamic)>(D().f);
 }

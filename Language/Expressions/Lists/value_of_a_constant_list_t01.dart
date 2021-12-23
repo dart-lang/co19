@@ -21,9 +21,9 @@ main() {
   Expect.isTrue(const <bool>[false, 1 < 2] is List<bool>);
   Expect.isTrue(const <String>["a", "b", "c"] is List<String>);
   Expect.isTrue(const <C>[const C(), const C()] is List<C>);
-  checkType(checkIs<List<int>>, true, const <int>[]);
-  checkType(checkIs<List<int>>, true, const <int>[1, 2, 3 + 4]);
-  checkType(checkIs<List<bool>>, true, const <bool>[false, 1 < 2]);
-  checkType(checkIs<List<String>>, true, <String>["a", "b", "c"]);
-  checkType(checkIs<List<C>>, true, const <C>[const C(), const C()]);
+  Expect.runtimeIsType<List<int>>(const <int>[]);
+  Expect.runtimeIsType<List<int>>(const <int>[1, 2, 3 + 4]);
+  Expect.runtimeIsType<List<bool>>(const <bool>[false, 1 < 2]);
+  Expect.runtimeIsType<List<String>>(<String>["a", "b", "c"]);
+  Expect.runtimeIsType<List<C>>(const <C>[const C(), const C()]);
 }

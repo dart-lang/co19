@@ -18,6 +18,6 @@ class A implements I2 {}
 main() {
   Expect.isTrue(new A() is Object);
   Expect.isTrue(new I2() is Object);
-  checkType(checkIs<Object>, true, new A());
-  checkType(checkIs<Object>, true, new I2());
+  Expect.runtimeIsType<Object>(new A());
+  Expect.runtimeIsType<Object>(new I2());
 }

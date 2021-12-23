@@ -21,6 +21,6 @@ typedef f(int someComplexName);
 main() {
   Expect.isTrue((int someOtherComplexName6031769) {} is f);
   Expect.isFalse((double someComplexName) {} is f);
-  checkType(checkIs<f>, true, (int someOtherComplexName6031769) {});
-  checkType(checkIs<f>, false, (double someComplexName) {});
+  Expect.runtimeIsType<f>((int someOtherComplexName6031769) {});
+  Expect.runtimeIsNotType<f>((double someComplexName) {});
 }

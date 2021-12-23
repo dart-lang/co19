@@ -17,14 +17,14 @@ main() {
   Expect.isTrue('''''' is String);
   Expect.isTrue(r"""""" is String);
   Expect.isTrue(r'''''' is String);
-  checkType(checkIs<String>, true, "");
-  checkType(checkIs<String>, true, '');
-  checkType(checkIs<String>, true, r"");
-  checkType(checkIs<String>, true, r'');
-  checkType(checkIs<String>, true, """""");
-  checkType(checkIs<String>, true, '''''');
-  checkType(checkIs<String>, true, r"""""");
-  checkType(checkIs<String>, true, r'''''');
+  Expect.runtimeIsType<String>("");
+  Expect.runtimeIsType<String>('');
+  Expect.runtimeIsType<String>(r"");
+  Expect.runtimeIsType<String>(r'');
+  Expect.runtimeIsType<String>("""""");
+  Expect.runtimeIsType<String>('''''');
+  Expect.runtimeIsType<String>(r"""""");
+  Expect.runtimeIsType<String>(r'''''');
 
   Expect.isTrue("String" is String);
   Expect.isTrue('\x00\x01\x02' is String);
@@ -32,10 +32,10 @@ main() {
   Expect.isTrue(r'$$$$$' is String);
   Expect.isTrue("""
                 new line """ is String);
-  checkType(checkIs<String>, true, "String");
-  checkType(checkIs<String>, true, '\x00\x01\x02');
-  checkType(checkIs<String>, true, r"\\\\\\\\");
-  checkType(checkIs<String>, true, r'$$$$$');
-  checkType(checkIs<String>, true, """
+  Expect.runtimeIsType<String>("String");
+  Expect.runtimeIsType<String>('\x00\x01\x02');
+  Expect.runtimeIsType<String>(r"\\\\\\\\");
+  Expect.runtimeIsType<String>(r'$$$$$');
+  Expect.runtimeIsType<String>("""
                 new line """);
 }

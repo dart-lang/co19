@@ -24,23 +24,23 @@ class D<X extends A> implements C<X> {}
 
 main() {
   Expect.isTrue(D() is C);
-  checkType(checkIs<C>, true, D());
+  Expect.runtimeIsType<C>(D());
   Expect.isTrue(D() is C<A>);
-  checkType(checkIs<C<A>>, true, D());
+  Expect.runtimeIsType<C<A>>(D());
   Expect.isFalse(D() is C<B>);
-  checkType(checkIs<C<B>>, false, D());
+  Expect.runtimeIsNotType<C<B>>(D());
 
   Expect.isTrue(D<A>() is C);
-  checkType(checkIs<C>, true, D<A>());
+  Expect.runtimeIsType<C>(D<A>());
   Expect.isTrue(D<A>() is C<A>);
-  checkType(checkIs<C<A>>, true, D<A>());
+  Expect.runtimeIsType<C<A>>(D<A>());
   Expect.isFalse(D<A>() is C<B>);
-  checkType(checkIs<C<B>>, false, D<A>());
+  Expect.runtimeIsNotType<C<B>>(D<A>());
 
   Expect.isTrue(D<B>() is C);
-  checkType(checkIs<C>, true, D<B>());
+  Expect.runtimeIsType<C>(D<B>());
   Expect.isTrue(D<B>() is C<A>);
-  checkType(checkIs<C<A>>, true, D<B>());
+  Expect.runtimeIsType<C<A>>(D<B>());
   Expect.isTrue(D<B>() is C<B>);
-  checkType(checkIs<C<B>>, true, D<B>());
+  Expect.runtimeIsType<C<B>>(D<B>());
 }

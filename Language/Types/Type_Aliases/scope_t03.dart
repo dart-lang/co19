@@ -17,28 +17,28 @@ class X {
     AAlias aa = new A();
     Expect.isTrue(aa is A);
     Expect.isTrue(aa is AAlias);
-    checkType(checkIs<A>, true, aa);
-    checkType(checkIs<AAlias>, true, aa);
+    Expect.runtimeIsType<A>(aa);
+    Expect.runtimeIsType<AAlias>(aa);
 
     CAlias<String> ca = new C<String>();
     Expect.isTrue(ca is C<String>);
     Expect.isTrue(ca is CAlias<String>);
-    checkType(checkIs<C<String>>, true, ca);
-    checkType(checkIs<CAlias<String>>, true, ca);
+    Expect.runtimeIsType<C<String>>(ca);
+    Expect.runtimeIsType<CAlias<String>>(ca);
   }
 
   void m() {
     AAlias aa = new A();
     Expect.isTrue(aa is A);
     Expect.isTrue(aa is AAlias);
-    checkType(checkIs<A>, true, aa);
-    checkType(checkIs<AAlias>, true, aa);
+    Expect.runtimeIsType<A>(aa);
+    Expect.runtimeIsType<AAlias>(aa);
 
     CAlias<String> ca = new C<String>();
     Expect.isTrue(ca is C<String>);
     Expect.isTrue(ca is CAlias<String>);
-    checkType(checkIs<C<String>>, true, ca);
-    checkType(checkIs<CAlias<String>>, true, ca);
+    Expect.runtimeIsType<C<String>>(ca);
+    Expect.runtimeIsType<CAlias<String>>(ca);
   }
 }
 
@@ -46,28 +46,28 @@ test() {
   AAlias aa = new A();
   Expect.isTrue(aa is A);
   Expect.isTrue(aa is AAlias);
-  checkType(checkIs<A>, true, aa);
-  checkType(checkIs<AAlias>, true, aa);
+  Expect.runtimeIsType<A>(aa);
+  Expect.runtimeIsType<AAlias>(aa);
 
   CAlias<String> ca = new C<String>();
   Expect.isTrue(ca is C<String>);
   Expect.isTrue(ca is CAlias<String>);
-  checkType(checkIs<C<String>>, true, ca);
-  checkType(checkIs<CAlias<String>>, true, ca);
+  Expect.runtimeIsType<C<String>>(ca);
+  Expect.runtimeIsType<CAlias<String>>(ca);
 }
 
 main() {
   AAlias aa = new A();
   Expect.isTrue(aa is A);
   Expect.isTrue(aa is AAlias);
-  checkType(checkIs<A>, true, aa);
-  checkType(checkIs<AAlias>, true, aa);
+  Expect.runtimeIsType<A>(aa);
+  Expect.runtimeIsType<AAlias>(aa);
 
   CAlias<String> ca = new C<String>();
   Expect.isTrue(ca is C<String>);
   Expect.isTrue(ca is CAlias<String>);
-  checkType(checkIs<C<String>>, true, ca);
-  checkType(checkIs<CAlias<String>>, true, ca);
+  Expect.runtimeIsType<C<String>>(ca);
+  Expect.runtimeIsType<CAlias<String>>(ca);
 
   test();
   X.s();

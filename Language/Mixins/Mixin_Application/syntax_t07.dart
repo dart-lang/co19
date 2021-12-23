@@ -28,9 +28,9 @@ class C2 extends S with M {
 main() {
   C1 c1 = new C1();
   Expect.isTrue(c1 is S);
-  checkType(checkIs<S>, true, c1);
+  Expect.runtimeIsType<S>(c1);
 
   C2 c2 = new C2();
   Expect.isTrue(c2 is S);
-  checkType(checkIs<S>, true, c2);
+  Expect.runtimeIsType<S>(c2);
 }

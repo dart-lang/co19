@@ -31,12 +31,12 @@ main() {
   Expect.isTrue(test2() is Set);
   Expect.isTrue(test3() is Set);
   Expect.isTrue(test4() is Set);
-  checkType(checkIs<Set>, true, test());
-  checkType(checkIs<Set>, true, test2());
-  checkType(checkIs<Set>, true, test3());
-  checkType(checkIs<Set>, true, test4());
+  Expect.runtimeIsType<Set>(test());
+  Expect.runtimeIsType<Set>(test2());
+  Expect.runtimeIsType<Set>(test3());
+  Expect.runtimeIsType<Set>(test4());
 
   Iterable<Object> o = {...set};
   Expect.isTrue(o is Set);
-  checkType(checkIs<Set>, true, o);
+  Expect.runtimeIsType<Set>(o);
 }

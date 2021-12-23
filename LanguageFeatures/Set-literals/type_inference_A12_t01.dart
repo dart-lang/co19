@@ -24,23 +24,23 @@ main() {
   var s1 = [1, 2, 3, 4];
   var x1 = {...s1};
   Expect.isTrue(x1 is Set<int>);
-  checkType(checkIs<Set<int>>, true, x1);
+  Expect.runtimeIsType<Set<int>>(x1);
 
   var s2 = [1.0, 2.0, 3, 4];
   var x2 = {...s2};
   Expect.isTrue(x2 is Set<num>);
   Expect.isFalse(x2 is Set<int>);
   Expect.isFalse(x2 is Set<double>);
-  checkType(checkIs<Set<num>>, true, x2);
-  checkType(checkIs<Set<int>>, false, x2);
-  checkType(checkIs<Set<double>>, false, x2);
+  Expect.runtimeIsType<Set<num>>(x2);
+  Expect.runtimeIsNotType<Set<int>>(x2);
+  Expect.runtimeIsNotType<Set<double>>(x2);
 
   var s3 = [1.0, 2, "3", 4];
   var x3 = {...s3};
   Expect.isTrue(x3 is Set<Object>);
   Expect.isFalse(x3 is Set<num>);
   Expect.isFalse(x3 is Set<String>);
-  checkType(checkIs<Set<Object>>, true, x3);
-  checkType(checkIs<Set<num>>, false, x3);
-  checkType(checkIs<Set<String>>, false, x3);
+  Expect.runtimeIsType<Set<Object>>(x3);
+  Expect.runtimeIsNotType<Set<num>>(x3);
+  Expect.runtimeIsNotType<Set<String>>(x3);
 }

@@ -52,10 +52,10 @@ main() {
   Expect.isTrue(testme is T4);
   Expect.isFalse(testme is T5);
   Expect.isFalse(testme is T6);
-  checkType(checkIs<T1>, false, testme);
-  checkType(checkIs<T2>, false, testme);
-  checkType(checkIs<T3>, false, testme);
-  checkType(checkIs<T4>, true, testme);
-  checkType(checkIs<T5>, false, testme);
-  checkType(checkIs<T6>, false, testme);
+  Expect.runtimeIsNotType<T1>(testme);
+  Expect.runtimeIsNotType<T2>(testme);
+  Expect.runtimeIsNotType<T3>(testme);
+  Expect.runtimeIsType<T4>(testme);
+  Expect.runtimeIsNotType<T5>(testme);
+  Expect.runtimeIsNotType<T6>(testme);
 }

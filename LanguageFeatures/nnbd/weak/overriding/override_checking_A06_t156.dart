@@ -25,6 +25,6 @@ class C2 extends out_Never implements out_Null {}
 main() {
   Expect.isTrue(C1().f is Null Function(Null));
   Expect.isTrue(C2().f is Null Function(Null));
-  checkType(checkIs<Null Function(Null)>, true, C1().f);
-  checkType(checkIs<Null Function(Null)>, true, C2().f);
+  Expect.runtimeIsType<Null Function(Null)>(C1().f);
+  Expect.runtimeIsType<Null Function(Null)>(C2().f);
 }

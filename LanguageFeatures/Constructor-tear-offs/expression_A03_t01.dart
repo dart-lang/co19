@@ -30,12 +30,12 @@ main() {
   var c1 = C().foo1<int>;
   Expect.isFalse(c1 is Type);
   Expect.isTrue(c1 is void Function(int));
-  checkType(checkIs<Type>, false, c1);
-  checkType(checkIs<void Function(int)>, true, c1);
+  Expect.runtimeIsNotType<Type>(c1);
+  Expect.runtimeIsType<void Function(int)>(c1);
 
   var c2 = CAlias().foo1<String>;
   Expect.isFalse(c2 is Type);
   Expect.isTrue(c2 is void Function(String));
-  checkType(checkIs<Type>, false, c2);
-  checkType(checkIs<void Function(String)>, true, c2);
+  Expect.runtimeIsNotType<Type>(c2);
+  Expect.runtimeIsType<void Function(String)>(c2);
 }

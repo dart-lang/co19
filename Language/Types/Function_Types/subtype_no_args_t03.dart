@@ -55,15 +55,15 @@ main() {
   Expect.isTrue(f7 is returnsDynamic);
   Expect.isTrue(f8 is returnsDynamic);
   Expect.isTrue(f9 is returnsDynamic);
-  checkType(checkIs<returnsDynamic>, true, f1);
-  checkType(checkIs<returnsDynamic>, true, f2);
-  checkType(checkIs<returnsDynamic>, true, f3);
-  checkType(checkIs<returnsDynamic>, true, f4);
-  checkType(checkIs<returnsDynamic>, true, f5);
-  checkType(checkIs<returnsDynamic>, true, f6);
-  checkType(checkIs<returnsDynamic>, true, f7);
-  checkType(checkIs<returnsDynamic>, true, f8);
-  checkType(checkIs<returnsDynamic>, true, f9);
+  Expect.runtimeIsType<returnsDynamic>(f1);
+  Expect.runtimeIsType<returnsDynamic>(f2);
+  Expect.runtimeIsType<returnsDynamic>(f3);
+  Expect.runtimeIsType<returnsDynamic>(f4);
+  Expect.runtimeIsType<returnsDynamic>(f5);
+  Expect.runtimeIsType<returnsDynamic>(f6);
+  Expect.runtimeIsType<returnsDynamic>(f7);
+  Expect.runtimeIsType<returnsDynamic>(f8);
+  Expect.runtimeIsType<returnsDynamic>(f9);
 
   //() -> T is () -> Object
   Expect.isTrue(f10 is returnsObject);
@@ -73,19 +73,19 @@ main() {
   Expect.isTrue(f14 is returnsObject);
   Expect.isTrue(f15 is returnsObject);
   Expect.isFalse(f16 is returnsObject);
-  checkType(checkIs<returnsObject>, true, f10);
-  checkType(checkIs<returnsObject>, true, f11);
-  checkType(checkIs<returnsObject>, true, f12);
-  checkType(checkIs<returnsObject>, true, f13);
-  checkType(checkIs<returnsObject>, true, f14);
-  checkType(checkIs<returnsObject>, true, f15);
-  checkType(checkIs<returnsObject>, false, f16);
+  Expect.runtimeIsType<returnsObject>(f10);
+  Expect.runtimeIsType<returnsObject>(f11);
+  Expect.runtimeIsType<returnsObject>(f12);
+  Expect.runtimeIsType<returnsObject>(f13);
+  Expect.runtimeIsType<returnsObject>(f14);
+  Expect.runtimeIsType<returnsObject>(f15);
+  Expect.runtimeIsNotType<returnsObject>(f16);
 
   //() -> T is () -> num
   Expect.isTrue(f17 is returnsNum);
   Expect.isTrue(f18 is returnsNum);
   Expect.isTrue(f19 is returnsNum);
-  checkType(checkIs<returnsNum>, true, f17);
-  checkType(checkIs<returnsNum>, true, f18);
-  checkType(checkIs<returnsNum>, true, f19);
+  Expect.runtimeIsType<returnsNum>(f17);
+  Expect.runtimeIsType<returnsNum>(f18);
+  Expect.runtimeIsType<returnsNum>(f19);
 }

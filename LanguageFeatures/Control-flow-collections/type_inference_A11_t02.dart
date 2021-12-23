@@ -31,11 +31,11 @@ main() {
   Expect.isFalse(map1 is Map<double, num>);
   Expect.isFalse(map1 is Map<num, int>);
   Expect.isFalse(map1 is Map<num, double>);
-  checkType(checkIs<Map<num, num>>, true, map1);
-  checkType(checkIs<Map<int, num>>, false, map1);
-  checkType(checkIs<Map<double, num>>, false, map1);
-  checkType(checkIs<Map<num, int>>, false, map1);
-  checkType(checkIs<Map<num, double>>, false, map1);
+  Expect.runtimeIsType<Map<num, num>>(map1);
+  Expect.runtimeIsNotType<Map<int, num>>(map1);
+  Expect.runtimeIsNotType<Map<double, num>>(map1);
+  Expect.runtimeIsNotType<Map<num, int>>(map1);
+  Expect.runtimeIsNotType<Map<num, double>>(map1);
 
   var map2 = {
     "": 1,
@@ -46,9 +46,9 @@ main() {
   Expect.isFalse(map2 is Map<Object, double>);
   Expect.isFalse(map2 is Map<String, Object>);
   Expect.isFalse(map2 is Map<num, Object>);
-  checkType(checkIs<Map<Object, num>>, true, map2);
-  checkType(checkIs<Map<Object, int>>, false, map2);
-  checkType(checkIs<Map<Object, double>>, false, map2);
-  checkType(checkIs<Map<String, Object>>, false, map2);
-  checkType(checkIs<Map<num, Object>>, false, map2);
+  Expect.runtimeIsType<Map<Object, num>>(map2);
+  Expect.runtimeIsNotType<Map<Object, int>>(map2);
+  Expect.runtimeIsNotType<Map<Object, double>>(map2);
+  Expect.runtimeIsNotType<Map<String, Object>>(map2);
+  Expect.runtimeIsNotType<Map<num, Object>>(map2);
 }

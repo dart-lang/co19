@@ -20,7 +20,7 @@ main() {
     for (var i = 0; i < 1; i++) i: []
   };
   Expect.isTrue(map1 is Map<num, List<int>>);
-  checkType(checkIs<Map<num, List<int>>>, true, map1);
+  Expect.runtimeIsType<Map<num, List<int>>>(map1);
   Expect.isFalse(map1 is Map<int, List<int>>);
   Expect.mapEquals({11: [], 22: [], 0: []}, map1);
 
@@ -30,7 +30,7 @@ main() {
     for (var i = 0; i < 1; i++) i: []
   };
   Expect.isTrue(map2 is Map<num, List<int>>);
-  checkType(checkIs<Map<num, List<int>>>, true, map2);
+  Expect.runtimeIsType<Map<num, List<int>>>(map2);
   Expect.isFalse(map2 is Map<int, List<int>>);
   Expect.mapEquals({11: [], 22: [], 0: []}, map2);
 
@@ -39,7 +39,7 @@ main() {
     if (false) 2: [] else 3: [],
   };
   Expect.isTrue(map3 is Map<num, List<int>>);
-  checkType(checkIs<Map<num, List<int>>>, true, map3);
+  Expect.runtimeIsType<Map<num, List<int>>>(map3);
   Expect.isFalse(map2 is Map<int, List<int>>);
   Expect.mapEquals({1: [], 3: []}, map3);
 
@@ -48,7 +48,7 @@ main() {
     if (false) 2: [] else 3: [],
   };
   Expect.isTrue(map4 is Map<num, List<int>>);
-  checkType(checkIs<Map<num, List<int>>>, true, map4);
+  Expect.runtimeIsType<Map<num, List<int>>>(map4);
   Expect.isFalse(map4 is Map<int, List<int>>);
   Expect.mapEquals({1: [], 3: []}, map4);
 }

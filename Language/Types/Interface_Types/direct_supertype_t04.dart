@@ -21,5 +21,5 @@ class J extends I with M {}
 
 main() {
   Expect.isTrue(new J() is M);
-  checkType(checkIs<M>, true, new J());
+  Expect.runtimeIsType<M>(new J());
 }

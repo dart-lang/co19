@@ -32,6 +32,6 @@ int f(String s) => 1;
 main() {
   Expect.isTrue(f is Function);
   Expect.isTrue((int x, String s) {} is Function);
-  checkType(checkIs<Function>, true, f);
-  checkType(checkIs<Function>, true, (int x, String s) {} );
+  Expect.runtimeIsType<Function>(f);
+  Expect.runtimeIsType<Function>((int x, String s) {} );
 }

@@ -18,10 +18,10 @@ main() {
   Expect.isTrue(a is A?);
   Expect.isFalse(a is A1);
   Expect.isFalse(a is A1?);
-  checkType(checkIs<A>, true, a);
-  checkType(checkIs<A?>, true, a);
-  checkType(checkIs<A1>, false, a);
-  checkType(checkIs<A1?>, false, a);
+  Expect.runtimeIsType<A>(a);
+  Expect.runtimeIsType<A?>(a);
+  Expect.runtimeIsNotType<A1>(a);
+  Expect.runtimeIsNotType<A1?>(a);
 
   var b1 = B();
   Expect.equals(typeOf<B<dynamic>>(), b1.runtimeType);
@@ -29,10 +29,10 @@ main() {
   Expect.isTrue(b1 is B?);
   Expect.isTrue(b1 is B<Object?>);
   Expect.isFalse(b1 is B<A>);
-  checkType(checkIs<B>, true, b1);
-  checkType(checkIs<B?>, true, b1);
-  checkType(checkIs<B<Object?>>, true, b1);
-  checkType(checkIs<B<A>>, false, b1);
+  Expect.runtimeIsType<B>(b1);
+  Expect.runtimeIsType<B?>(b1);
+  Expect.runtimeIsType<B<Object?>>(b1);
+  Expect.runtimeIsNotType<B<A>>(b1);
 
   var b2 = B<A>();
   Expect.equals(typeOf<B<A>>(), b2.runtimeType);
@@ -42,10 +42,10 @@ main() {
   Expect.isTrue(b2 is B?);
   Expect.isTrue(b2 is B<A?>);
   Expect.isFalse(b2 is B<A1>);
-  checkType(checkIs<B<A>>, true, b2);
-  checkType(checkIs<B<A>?>, true, b2);
-  checkType(checkIs<B>, true, b2);
-  checkType(checkIs<B?>, true, b2);
-  checkType(checkIs<B<A?>>, true, b2);
-  checkType(checkIs<B<A1>>, false, b2);
+  Expect.runtimeIsType<B<A>>(b2);
+  Expect.runtimeIsType<B<A>?>(b2);
+  Expect.runtimeIsType<B>(b2);
+  Expect.runtimeIsType<B?>(b2);
+  Expect.runtimeIsType<B<A?>>(b2);
+  Expect.runtimeIsNotType<B<A1>>(b2);
 }

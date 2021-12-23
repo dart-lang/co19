@@ -24,7 +24,7 @@ main() {
     for (int i = 5; i < 10; i++) i
   ];
   Expect.isTrue(list1 is List<int>);
-  checkType(checkIs<List<int>>, true, list1);
+  Expect.runtimeIsType<List<int>>(list1);
 
   var list2 = <int>[
     if (b) 1,
@@ -33,7 +33,7 @@ main() {
     for (int i = 5; i < 10; i++) i
   ];
   Expect.isTrue(list2 is List<int>);
-  checkType(checkIs<List<int>>, true, list2);
+  Expect.runtimeIsType<List<int>>(list2);
 
   var list3 = [
     if (b) 1.1,
@@ -43,8 +43,8 @@ main() {
   ];
   Expect.isTrue(list3 is List<num>);
   Expect.isFalse(list3 is List<int>);
-  checkType(checkIs<List<num>>, true, list3);
-  checkType(checkIs<List<int>>, false, list3);
+  Expect.runtimeIsType<List<num>>(list3);
+  Expect.runtimeIsNotType<List<int>>(list3);
 
   const list4 = [
     if (2 > 1) 1.1,
@@ -53,8 +53,8 @@ main() {
   ];
   Expect.isTrue(list4 is List<num>);
   Expect.isFalse(list4 is List<int>);
-  checkType(checkIs<List<num>>, true, list4);
-  checkType(checkIs<List<int>>, false, list4);
+  Expect.runtimeIsType<List<num>>(list4);
+  Expect.runtimeIsNotType<List<int>>(list4);
 
   var list5 = const [
     if (2 > 1) 1.1,
@@ -63,6 +63,6 @@ main() {
   ];
   Expect.isTrue(list5 is List<Object>);
   Expect.isFalse(list5 is List<num>);
-  checkType(checkIs<List<Object>>, true, list5);
-  checkType(checkIs<List<num>>, false, list5);
+  Expect.runtimeIsType<List<Object>>(list5);
+  Expect.runtimeIsNotType<List<num>>(list5);
 }

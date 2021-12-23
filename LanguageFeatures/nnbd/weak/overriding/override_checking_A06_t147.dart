@@ -33,8 +33,8 @@ main() {
   Expect.isTrue(C2().f is FutureOr Function(FutureOr));
   Expect.isTrue(C3().f is FutureOr<FutureOr> Function(FutureOr<FutureOr>));
   Expect.isTrue(C4().f is FutureOr<FutureOr> Function(FutureOr<FutureOr>));
-  checkType(checkIs<FutureOr Function(FutureOr)>, true, C1().f);
-  checkType(checkIs<FutureOr Function(FutureOr)>, true, C2().f);
-  checkType(checkIs<FutureOr Function(FutureOr)>, true, C3().f);
-  checkType(checkIs<FutureOr Function(FutureOr)>, true, C4().f);
+  Expect.runtimeIsType<FutureOr Function(FutureOr)>(C1().f);
+  Expect.runtimeIsType<FutureOr Function(FutureOr)>(C2().f);
+  Expect.runtimeIsType<FutureOr Function(FutureOr)>(C3().f);
+  Expect.runtimeIsType<FutureOr Function(FutureOr)>(C4().f);
 }

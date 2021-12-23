@@ -38,17 +38,17 @@ G<Object>? makeGObject() {}
 
 main() {
   Expect.isTrue(new Generic() is G);
-  checkType(checkIs<G>, true, new Generic());
+  Expect.runtimeIsType<G>(new Generic());
   G g = new Generic();
   G? g_ = makeG();
 
   Expect.isTrue(new Generic<int>() is G<int>);
-  checkType(checkIs<G<int>>, true, new Generic<int>());
+  Expect.runtimeIsType<G<int>>(new Generic<int>());
   G<int> g2 = new Generic<int>();
   G<int>? g2_ = makeGint();
 
   Expect.isTrue(new Generic<Object>() is G<Object>);
-  checkType(checkIs<G<Object>>, true, new Generic<Object>());
+  Expect.runtimeIsType<G<Object>>(new Generic<Object>());
   G<Object> g3 = new Generic<Object>();
   G<Object>? g3_ = makeGObject();
 }

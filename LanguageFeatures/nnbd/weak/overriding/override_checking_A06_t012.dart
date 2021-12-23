@@ -28,6 +28,6 @@ class D2 extends B implements out_int {}
 main() {
   Expect.isTrue(D1().f is int? Function(int?));
   Expect.isTrue(D2().f is int? Function(int?));
-  checkType(checkIs<int? Function(int?)>, true, D1().f);
-  checkType(checkIs<int? Function(int?)>, true, D2().f);
+  Expect.runtimeIsType<int? Function(int?)>(D1().f);
+  Expect.runtimeIsType<int? Function(int?)>(D2().f);
 }

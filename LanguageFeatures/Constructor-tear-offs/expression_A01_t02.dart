@@ -31,10 +31,10 @@ main() {
   var c1 = C<int>.id;
   Expect.isFalse(c1 is Type);
   Expect.isTrue(c1 is C<int> Function());
-  checkType(checkIs<C<int> Function()>, true, c1);
+  Expect.runtimeIsType<C<int> Function()>(c1);
 
   var c2 = CAlias<int>.id;
   Expect.isFalse(c2 is Type);
   Expect.isTrue(c2 is C<int> Function());
-  checkType(checkIs<C<int> Function()>, true, c2);
+  Expect.runtimeIsType<C<int> Function()>(c2);
 }

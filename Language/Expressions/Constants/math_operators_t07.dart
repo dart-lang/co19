@@ -21,5 +21,5 @@ const m = "ab" + "cd";
 
 main() {
   Expect.isTrue(m is String);
-  checkType(checkIs<String>, true, m);
+  Expect.runtimeIsType<String>(m);
 }

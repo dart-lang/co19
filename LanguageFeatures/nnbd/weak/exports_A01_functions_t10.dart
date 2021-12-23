@@ -18,18 +18,18 @@ import "exports_A01_opted_out_lib.dart";
 
 main() {
   Expect.isTrue(getInt is int Function());
-  checkType(checkIs<int Function()>, true, getInt);
+  Expect.runtimeIsType<int Function()>(getInt);
   Expect.equals(1, getInt());
 
   Expect.isTrue(getObject is Object Function());
-  checkType(checkIs<Object Function()>, true, getObject);
+  Expect.runtimeIsType<Object Function()>(getObject);
   Expect.equals(1, getObject());
 
   Expect.isTrue(getFunction is Function Function());
-  checkType(checkIs<Function Function()>, true, getFunction);
+  Expect.runtimeIsType<Function Function()>(getFunction);
   Expect.equals(testme, getFunction());
 
   Expect.isTrue(getFutureOrInt is FutureOr<int> Function());
-  checkType(checkIs<FutureOr<int> Function()>, true, getFutureOrInt);
+  Expect.runtimeIsType<FutureOr<int> Function()>(getFutureOrInt);
   Expect.equals(1, getFutureOrInt());
 }

@@ -92,15 +92,15 @@ void main() {
   var t1 = List<int>; // Type object for `List<int>`.
   Expect.isTrue(t1 is Type);
   Expect.isFalse(t1 is Function);
-  checkType(checkIs<Type>, true, t1);
-  checkType(checkIs<Function>, false, t1);
+  Expect.runtimeIsType<Type>(t1);
+  Expect.runtimeIsNotType<Function>(t1);
   Expect.isTrue(typeOf<List<int>>() == t1);
 
   var t2 = ListList<int>; // Type object for `List<List<int>>`.
   Expect.isTrue(t2 is Type);
   Expect.isFalse(t2 is Function);
-  checkType(checkIs<Type>, true, t2);
-  checkType(checkIs<Function>, false, t2);
+  Expect.runtimeIsType<Type>(t2);
+  Expect.runtimeIsNotType<Function>(t2);
   Expect.isTrue(typeOf<List<List<int>>>() == t2);
 
   // Instantiated function tear-offs.
@@ -108,15 +108,15 @@ void main() {
 
   const f1 = top<int>; // int Function(int), works like (int $) => top<int>($);
   Expect.isTrue(f1 is Func);
-  checkType(checkIs<Func>, true, f1);
+  Expect.runtimeIsType<Func>(f1);
 
   const f2 = C.stat<int>; // int Function(int), works like (int $) => C.stat<int>($);
   Expect.isTrue(f2 is Func);
-  checkType(checkIs<Func>, true, f2);
+  Expect.runtimeIsType<Func>(f2);
 
   var f3 = local<int>; // int Function(int), works like (int $) => local<int>($);
   Expect.isTrue(f3 is Func);
-  checkType(checkIs<Func>, true, f3);
+  Expect.runtimeIsType<Func>(f3);
 
   var typeName = (List<int>).toString();
   Expect.equals("List<int>", typeName);

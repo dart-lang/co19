@@ -31,9 +31,9 @@ main() {
   Expect.isTrue(ca1 is C<num, dynamic>);
   Expect.isTrue(ca1.t1 is num);
   Expect.isTrue(ca1.t2 is dynamic);
-  checkType(checkIs<C<num, dynamic>>, true, ca1);
-  checkType(checkIs<num>, true, ca1.t1);
-  checkType(checkIs<dynamic>, true, ca1.t2);
+  Expect.runtimeIsType<C<num, dynamic>>(ca1);
+  Expect.runtimeIsType<num>(ca1.t1);
+  Expect.runtimeIsType<dynamic>(ca1.t2);
   ca1.t1 = 42;
   Expect.equals(42, ca1.t1);
 
@@ -41,9 +41,9 @@ main() {
   Expect.isTrue(ca2 is C<int, String>);
   Expect.isTrue(ca2.t1 is int);
   Expect.isTrue(ca2.t2 is String);
-  checkType(checkIs<C<int, String>>, true, ca2);
-  checkType(checkIs<int>, true, ca2.t1);
-  checkType(checkIs<String>, true, ca2.t2);
+  Expect.runtimeIsType<C<int, String>>(ca2);
+  Expect.runtimeIsType<int>(ca2.t1);
+  Expect.runtimeIsType<String>(ca2.t2);
   ca2.t1 = -1;
   Expect.equals(-1, ca2.t1);
   ca2.t2 = "Lily was here";
@@ -53,9 +53,9 @@ main() {
   Expect.isTrue(ca3 is C<int, String>);
   Expect.isTrue(ca3.t1 is int);
   Expect.isTrue(ca3.t2 is String);
-  checkType(checkIs<C<int, String>>, true, ca3);
-  checkType(checkIs<int>, true, ca3.t1);
-  checkType(checkIs<String>, true, ca3.t2);
+  Expect.runtimeIsType<C<int, String>>(ca3);
+  Expect.runtimeIsType<int>(ca3.t1);
+  Expect.runtimeIsType<String>(ca3.t2);
   ca3.t1 = -1;
   Expect.equals(-1, ca3.t1);
   ca3.t2 = "Lily was here";

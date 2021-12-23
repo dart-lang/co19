@@ -43,24 +43,24 @@ typedef C f_2(I<J, List<Map<int, num>>, num> i, [List<Map> j]);
 main() {
   Expect.isTrue(new I<f_1, int, List<Map<int, Map<int, int>>>>()
       is I<f, num, List<Map<num, Map>>>);
-  checkType(checkIs<I<f, num, List<Map<num, Map>>>>, true,
+  Expect.runtimeIsType<I<f, num, List<Map<num, Map>>>>(
       new I<f_1, int, List<Map<int, Map<int, int>>>>());
   Expect.isTrue(new I<f_2, int, List<Map<int, Map<int, int>>>>()
       is I<f, num, List<Map<num, Map>>>);
-  checkType(checkIs<I<f, num, List<Map<num, Map>>>>, true,
+  Expect.runtimeIsType<I<f, num, List<Map<num, Map>>>>(
       new I<f_2, int, List<Map<int, Map<int, int>>>>());
   Expect.isTrue(new J<f_1, int, List<Map<int, Map<int, int>>>>()
       is I<f, num, List<Map<num, Map>>>);
-  checkType(checkIs<I<f, num, List<Map<num, Map>>>>, true,
+  Expect.runtimeIsType<I<f, num, List<Map<num, Map>>>>(
       new J<f_1, int, List<Map<int, Map<int, int>>>>());
   Expect.isTrue(new J<f_2, int, List<Map<int, Map<int, int>>>>()
       is I<f, num, List<Map<num, Map>>>);
-  checkType(checkIs<I<f, num, List<Map<num, Map>>>>, true,
+  Expect.runtimeIsType<I<f, num, List<Map<num, Map>>>>(
       new J<f_2, int, List<Map<int, Map<int, int>>>>());
   Expect.isFalse(new K() is I<f, num, List<Map<num, Map>>>);
-  checkType(checkIs<I<f, num, List<Map<num, Map>>>>, false, new K());
+  Expect.runtimeIsNotType<I<f, num, List<Map<num, Map>>>>(new K());
   Expect.isFalse(new C() is I<f, num, List<Map<num, Map>>>);
-  checkType(checkIs<I<f, num, List<Map<num, Map>>>>, false, new C());
+  Expect.runtimeIsNotType<I<f, num, List<Map<num, Map>>>>(new C());
 
   I<f, num, List<Map<num, Map>>> v1_ =
       new I<f_1, int, List<Map<int, Map<int, int>>>>();

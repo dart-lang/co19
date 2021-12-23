@@ -33,41 +33,41 @@ class A<T> {
 main() {
   A a = new A();
   Expect.isTrue(a is A);
-  checkType(checkIs<A>, true, a);
+  Expect.runtimeIsType<A>(a);
   A b = a;
   a = new A();
   Expect.isFalse(identical(a, b));
 
   A<int> n = new A<int>();
   Expect.isTrue(n is A<int>);
-  checkType(checkIs<A<int>>, true, n);
+  Expect.runtimeIsType<A<int>>(n);
   Expect.isTrue(a is A);
-  checkType(checkIs<A>, true, a);
+  Expect.runtimeIsType<A>(a);
 
   a = n;
   n = new A();
 
   List l1 = new List.empty();
   Expect.isTrue(l1 is List);
-  checkType(checkIs<List>, true, l1);
+  Expect.runtimeIsType<List>(l1);
   List l2 = l1;
   l1 = new List.empty();
 
   List<int> li1 = new List<int>.empty();
   Expect.isTrue(li1 is List<int>);
-  checkType(checkIs<List<int>>, true, li1);
+  Expect.runtimeIsType<List<int>>(li1);
   List li2 = li1;
   li1 = new List<int>.empty();
 
   List<List<List>> ll1 = new List<List<List>>.empty();
   Expect.isTrue(ll1 is List<List<List>>);
-  checkType(checkIs<List<List<List>>>, true, ll1);
+  Expect.runtimeIsType<List<List<List>>>(ll1);
   List ll2 = ll1;
   ll1 = new List<List<List>>.empty();
 
   A<Map<List, List<Map<Object, Map>>>> z = new A<Map<List, List<Map<Object, Map>>>>();
   Expect.isTrue(z is A<Map<List, List<Map<Object, Map>>>>);
-  checkType(checkIs<A<Map<List, List<Map<Object, Map>>>>>, true, z);
+  Expect.runtimeIsType<A<Map<List, List<Map<Object, Map>>>>>(z);
   A<Map<List, List<Map<Object, Map>>>> z2 = z;
   z = new A<Map<List, List<Map<Object, Map>>>>();
 }

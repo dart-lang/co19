@@ -21,8 +21,8 @@ main() {
   Expect.isTrue((Object) {} is F1);
   Expect.isTrue((Func) {} is F1);
   Expect.isTrue((Func2) {} is F1);
-  checkType(checkIs<F1>, true, (int) {});
-  checkType(checkIs<F1>, true, (Object) {});
-  checkType(checkIs<F1>, true, (Func) {});
-  checkType(checkIs<F1>, true, (Func2) {});
+  Expect.runtimeIsType<F1>((int) {});
+  Expect.runtimeIsType<F1>((Object) {});
+  Expect.runtimeIsType<F1>((Func) {});
+  Expect.runtimeIsType<F1>((Func2) {});
 }

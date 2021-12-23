@@ -360,16 +360,3 @@ class CheckIdentical {
 class CheckNotIdentical {
   const CheckNotIdentical(Object? o1, Object? o2) : assert(!identical(o1, o2));
 }
-
-/// Checks that [obj] object is of the type [T] or not.
-void checkIs<T>(bool expected, Object? obj) {
-  Expect.equals(expected, obj is T);
-}
-
-/// Call this function with `checkIs` as the first parameter to check the type
-/// to prevent the compiler reducing the code to the answer. Otherwise, dart2js
-/// compiler may optimize `Expect.isTrue(c is C)` to `Expect_isTrue(true)`
-@pragma('dart2js:noInline')
-void checkType(void Function(bool, Object?) checker, bool expected, Object? o) {
-  checker(expected, o);
-}

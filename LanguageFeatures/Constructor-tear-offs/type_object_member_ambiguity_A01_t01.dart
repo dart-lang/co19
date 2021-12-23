@@ -36,6 +36,6 @@ class C {
 main() {
   Expect.isTrue(C.toString() is C);
   Expect.isTrue((C).toString() is String);
-    checkType(checkIs<C>, true, C.toString());
-    checkType(checkIs<String>, true, (C).toString());
+    Expect.runtimeIsType<C>(C.toString());
+    Expect.runtimeIsType<String>((C).toString());
 }

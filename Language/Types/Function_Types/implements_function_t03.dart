@@ -31,13 +31,13 @@ main() {
   Expect.isTrue(f7 is Function);
   Expect.isTrue(f8 is Function);
   Expect.isTrue(f9 is Function);
-  checkType(checkIs<Function>, true, f1);
-  checkType(checkIs<Function>, true, f2);
-  checkType(checkIs<Function>, true, f3);
-  checkType(checkIs<Function>, true, f4);
-  checkType(checkIs<Function>, true, f5);
-  checkType(checkIs<Function>, true, f6);
-  checkType(checkIs<Function>, true, f7);
-  checkType(checkIs<Function>, true, f8);
-  checkType(checkIs<Function>, true, f9);
+  Expect.runtimeIsType<Function>(f1);
+  Expect.runtimeIsType<Function>(f2);
+  Expect.runtimeIsType<Function>(f3);
+  Expect.runtimeIsType<Function>(f4);
+  Expect.runtimeIsType<Function>(f5);
+  Expect.runtimeIsType<Function>(f6);
+  Expect.runtimeIsType<Function>(f7);
+  Expect.runtimeIsType<Function>(f8);
+  Expect.runtimeIsType<Function>(f9);
 }

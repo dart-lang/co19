@@ -72,6 +72,6 @@ class C extends A {}
 main() {
   Expect.equals(1, foo);
   Expect.isTrue(bar is Function);
-  checkType(checkIs<Function>, true, bar);
+  Expect.runtimeIsType<Function>(bar);
   new C();
 }

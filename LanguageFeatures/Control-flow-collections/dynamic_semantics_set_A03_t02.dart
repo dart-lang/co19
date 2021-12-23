@@ -59,6 +59,6 @@ main() async {
   var set1 = <int>{await for (var v in s1) v,
       await for (var v in s2) if (v.isOdd) (v + 1)};
   Expect.isTrue(set1 is Set<int>);
-  checkType(checkIs<Set<int>>, true, set1);
+  Expect.runtimeIsType<Set<int>>(set1);
   Expect.setEquals(set1exp, set1);
 }

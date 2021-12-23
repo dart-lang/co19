@@ -22,8 +22,8 @@ void test<X extends num, Y extends Object>(X x, Y y) {
   var m2 = <X, Y>{};
   Expect.isTrue(m1 is Map<int, double>);
   Expect.isTrue(m2 is Map<num, Object>);
-  checkType(checkIs<Map<int, double>>, true, m1);
-  checkType(checkIs<Map<num, Object>>, true, m2);
+  Expect.runtimeIsType<Map<int, double>>(m1);
+  Expect.runtimeIsType<Map<num, Object>>(m2);
 }
 
 main() {

@@ -29,9 +29,9 @@ main() {
   Expect.isTrue(c is Type);
   Expect.isTrue(c2 is Type);
   Expect.isTrue(d is Type);
-  checkType(checkIs<Type>, true, a);
-  checkType(checkIs<Type>, true, b);
-  checkType(checkIs<Type>, true, c);
-  checkType(checkIs<Type>, true, c2);
-  checkType(checkIs<Type>, true, d);
+  Expect.runtimeIsType<Type>(a);
+  Expect.runtimeIsType<Type>(b);
+  Expect.runtimeIsType<Type>(c);
+  Expect.runtimeIsType<Type>(c2);
+  Expect.runtimeIsType<Type>(d);
 }

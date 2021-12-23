@@ -18,18 +18,18 @@ import "exports_A01_opted_out_lib.dart";
 
 main() {
   Expect.isTrue(test_int_arg is void Function(int));
-  checkType(checkIs<void Function(int)>, true, test_int_arg);
+  Expect.runtimeIsType<void Function(int)>(test_int_arg);
   test_int_arg(1);
 
   Expect.isTrue(test_object_arg is void Function(Object));
-  checkType(checkIs<void Function(Object)>, true, test_object_arg);
+  Expect.runtimeIsType<void Function(Object)>(test_object_arg);
   test_object_arg(1);
 
   Expect.isTrue(test_function_arg is void Function(Function));
-  checkType(checkIs<void Function(Function)>, true, test_function_arg);
+  Expect.runtimeIsType<void Function(Function)>(test_function_arg);
   test_function_arg(testme);
 
   Expect.isTrue(test_futureOrInt_arg is void Function(FutureOr<int>));
-  checkType(checkIs<void Function(FutureOr<int>)>, true, test_futureOrInt_arg);
+  Expect.runtimeIsType<void Function(FutureOr<int>)>(test_futureOrInt_arg);
   test_futureOrInt_arg(1);
 }

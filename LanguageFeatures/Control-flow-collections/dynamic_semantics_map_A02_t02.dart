@@ -55,11 +55,11 @@ main() {
     map1exp[id.key] = id.value;
   }
   Expect.isTrue(map1exp is Map<int, String>);
-  checkType(checkIs<Map<int, String>>, true, map1exp);
+  Expect.runtimeIsType<Map<int, String>>(map1exp);
 
   var map1 = <int, String>{for (var v in m2) v.key: v.value};
   // map1exp {1: a, 2: b, 3: c, 4: d, 5: e}
   Expect.isTrue(map1 is Map<int, String>);
-  checkType(checkIs<Map<int, String>>, true, map1);
+  Expect.runtimeIsType<Map<int, String>>(map1);
   Expect.mapEquals(map1exp, map1);
 }

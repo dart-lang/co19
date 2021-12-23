@@ -17,7 +17,7 @@ class C {}
 main() {
   var id;
   Expect.isTrue(id is dynamic);
-  checkType(checkIs<dynamic>, true, id);
+  Expect.runtimeIsType<dynamic>(id);
   id = false;
   id = "";
   id = 2;

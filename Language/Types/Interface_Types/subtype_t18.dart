@@ -49,7 +49,7 @@ class Checker_Object<T extends Object> {
 
   check() {
     Expect.isTrue(new Checker_Object<T>() is Checker_Object<Object>);
-    checkType(checkIs<Checker_Object<Object>>, true, new Checker_Object<T>());
+    Expect.runtimeIsType<Checker_Object<Object>>(new Checker_Object<T>());
     Checker_Object<Object> c1 = new Checker_Object<T>();
     Checker_Object<Object>? c2 = f2();
   }

@@ -20,7 +20,7 @@ main() {
   var d = 1.0 as double?;
   var x1 = d ?? 2.0;
   Expect.isTrue(x1 is double);
-  checkType(checkIs<double>, true, x1);
+  Expect.runtimeIsType<double>(x1);
 
   var x2 = null ?? 2.0;
   Expect.isTrue(x2 is double);

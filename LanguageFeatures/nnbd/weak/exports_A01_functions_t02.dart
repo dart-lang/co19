@@ -18,18 +18,18 @@ import "exports_A01_opted_out_lib.dart";
 
 main() {
   Expect.isTrue(test_nullable_int_arg is void Function(int?));
-  checkType(checkIs<void Function(int?)>, true, test_nullable_int_arg);
+  Expect.runtimeIsType<void Function(int?)>(test_nullable_int_arg);
   test_nullable_int_arg(null);
 
   Expect.isTrue(test_nullable_object_arg is void Function(Object?));
-  checkType(checkIs<void Function(Object?)>, true, test_nullable_object_arg);
+  Expect.runtimeIsType<void Function(Object?)>(test_nullable_object_arg);
   test_nullable_object_arg(null);
 
   Expect.isTrue(test_null_arg is void Function(Null));
-  checkType(checkIs<void Function(Null)>, true, test_null_arg);
+  Expect.runtimeIsType<void Function(Null)>(test_null_arg);
   test_null_arg(null);
 
   Expect.isTrue(test_futureOr_arg is void Function(FutureOr));
-  checkType(checkIs<void Function(FutureOr)>, true, test_futureOr_arg);
+  Expect.runtimeIsType<void Function(FutureOr)>(test_futureOr_arg);
   test_futureOr_arg(null);
 }

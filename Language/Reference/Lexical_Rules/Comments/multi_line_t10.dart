@@ -45,5 +45,5 @@ main() {
 
   C c/*create instance of C*/ = new C();
   Expect.isTrue(c is C );
-  checkType(checkIs<C>, true, c);
+  Expect.runtimeIsType<C>(c);
 }
