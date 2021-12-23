@@ -10,7 +10,6 @@
 /// @description Checks that instance of [List<E>] is created for a list literal
 /// @author iarkh@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 main() {
@@ -30,4 +29,8 @@ main() {
   Expect.isTrue(<String>[...?list3] is List<String>);
   Expect.isTrue(<int>[...?list3] is List<int>);
   Expect.isTrue([...list4] is List<Object?>);
+  Expect.runtimeIsType<List<String>>(<String>[...list2, "123"]);
+  Expect.runtimeIsType<List<String>>(<String>[...?list3]);
+  Expect.runtimeIsType<List<int>>(<int>[...?list3] );
+  Expect.runtimeIsType<List<Object?>>([...list4]);
 }

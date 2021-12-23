@@ -12,7 +12,6 @@
 /// potentially constant map or [null].
 /// @author iarkh@unipro.ru
 
-
 class A {
   const A();
 }

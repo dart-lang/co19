@@ -11,7 +11,6 @@
 /// constant list or set.
 /// @author iarkh@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 Set emptyset = {};
@@ -28,7 +27,6 @@ class MyClass {
   final String a;
   const MyClass(Object o) : a = o as String;
 }
-
 
 main() {
   const Set s1 = {...(A() is B ? [12345] : [])};

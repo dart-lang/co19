@@ -11,7 +11,6 @@
 /// constant map.
 /// @author iarkh@unipro.ru
 
-
 class MyClass {
   const MyClass();
 }

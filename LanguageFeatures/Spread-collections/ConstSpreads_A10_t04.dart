@@ -12,7 +12,6 @@
 /// potentially constant list or set or [null].
 /// @author iarkh@unipro.ru
 
-
 class A {
   const A();
 }

@@ -24,7 +24,6 @@ class MyClass {
   const MyClass(Object o) : a = o as String;
 }
 
-
 main() {
   const Set l4 = {...(MyClass(12345) is MyClass ? [12] : [])};
 //                    ^^^^^^^^^^^^^

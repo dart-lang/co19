@@ -9,12 +9,13 @@
 /// @description Checks that empty collection is a map.
 /// @author iarkh@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue({} is Map);
+  Expect.runtimeIsType<Map>({});
 
   dynamic map = {};
   Expect.isTrue(map is Map);
+  Expect.runtimeIsType<Map>(map);
 }

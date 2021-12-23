@@ -30,5 +30,7 @@ main() {
   Expect.throws(() =>  res = {...set, ...m});
 
   Expect.isTrue({...map, ...m} is Map);
+  Expect.runtimeIsType<Map>({...map, ...m});
   Expect.isTrue({...m, ...map} is Map);
+  Expect.runtimeIsType<Map>({...m, ...map});
 }

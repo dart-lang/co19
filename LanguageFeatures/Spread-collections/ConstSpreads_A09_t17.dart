@@ -11,7 +11,6 @@
 /// constant map.
 /// @author iarkh@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 class A {

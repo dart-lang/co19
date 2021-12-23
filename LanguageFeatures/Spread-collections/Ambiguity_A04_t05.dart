@@ -25,6 +25,7 @@ main() {
 
   var res1 = <int, int>{...?aMap};
   Expect.isTrue(res1 is Map);
+  Expect.runtimeIsType<Map>(res1);
 
   var res2;
   Expect.throws(() => res2 = <int, int>{...aList});

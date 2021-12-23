@@ -23,4 +23,5 @@ main() {
 
   var res = <int, int>{...?aMap};
   Expect.isTrue(res is Map);
+  Expect.runtimeIsType<Map>(res);
 }

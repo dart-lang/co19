@@ -11,7 +11,6 @@
 /// element is not potentially constant list or set.
 /// @author iarkh@unipro.ru
 
-
 class MyClass {
   final String a;
   const MyClass(Object o) : a = o as String;

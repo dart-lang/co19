@@ -16,7 +16,6 @@
 /// @description Checks that [setOrMapLiteral] has one type argument, it's a set.
 /// @author iarkh@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 main() {
@@ -25,7 +24,9 @@ main() {
 
   var res1 = <int>{...?aSet};
   Expect.isTrue(res1 is Set);
+  Expect.runtimeIsType<Set>(res1);
 
   var res2 = <Object>{...?aList};
   Expect.isTrue(res2 is Set);
+  Expect.runtimeIsType<Set>(res2);
 }

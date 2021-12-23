@@ -13,11 +13,12 @@
 /// three or more type arguments.
 /// @author iarkh@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 main() {
   var a;
   Expect.isTrue(<int>{} is Set);
   Expect.isTrue(<int, int>{} is Map);
+  Expect.runtimeIsType<Set>(<int>{});
+  Expect.runtimeIsType<Map>(<int, int>{});
 }

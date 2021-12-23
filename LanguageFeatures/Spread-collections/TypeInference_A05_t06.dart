@@ -47,22 +47,39 @@ main() {
 // [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.isTrue({...?map, ...m} is Map);
+  Expect.runtimeIsType<Map>({...?map, ...m});
   Expect.isTrue({...m, ...?map} is Map);
+  Expect.runtimeIsType<Map>({...m, ...?map});
 
   Expect.isTrue({...map, ...?m} is Map);
 //                       ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //                           ^
 // [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
+  Expect.runtimeIsType<Map>({...map, ...?m});
+//                                   ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                       ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.isTrue({...?m, ...map} is Map);
 //               ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //                   ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
+  Expect.runtimeIsType<Map>({...?m, ...map});
+//                           ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                               ^
 // [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.isTrue({...?map, ...?m} is Map);
 //                        ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //                            ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
+  Expect.runtimeIsType<Map>({...?map, ...?m});
+//                                    ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                        ^
 // [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 }

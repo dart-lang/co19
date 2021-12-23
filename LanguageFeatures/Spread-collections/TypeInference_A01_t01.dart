@@ -9,7 +9,6 @@
 /// the list literal
 /// @author iarkh@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 class A {}

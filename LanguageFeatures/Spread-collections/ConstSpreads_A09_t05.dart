@@ -11,7 +11,6 @@
 /// element is not potentially constant list or set.
 /// @author iarkh@unipro.ru
 
-
 class A {
   const A();
 }

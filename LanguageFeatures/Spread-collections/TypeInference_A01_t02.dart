@@ -9,7 +9,6 @@
 /// the set literal
 /// @author iarkh@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 class A {}
@@ -30,25 +29,32 @@ main() {
 
   Set set1 = <int>{2, 7, ...int_list, 4};
   Expect.isTrue(set1 is Set<int>);
+  Expect.runtimeIsType<Set<int>>(set1);
 
   Set set2 = <A>{a, ...a_list};
   Expect.isTrue(set2 is Set<A>);
+  Expect.runtimeIsType<Set<A>>(set2);
 
   Set set3 = <A>{a, ...b_list};
   Expect.isTrue(set3 is Set<A>);
+  Expect.runtimeIsType<Set<A>>(set3);
 
   Set set4 = <A>{a, c, ...c_list, b};
   Expect.isTrue(set4 is Set<A>);
+  Expect.runtimeIsType<Set<A>>(set4);
 
   Set set5 = <A>{a, b, c, ...c_list, new B(), ...a_list, ...b_list, new A()};
   Expect.isTrue(set5 is Set<A>);
+  Expect.runtimeIsType<Set<A>>(set5);
 
   Set set6 = <B>{b, ...b_list, c, ...c_list};
   Expect.isTrue(set6 is Set<B>);
+  Expect.runtimeIsType<Set<B>>(set6);
 
   Set set7 = {123, "123", null, a, ...a_list, ...?b_list, c, b, ...?c_list,
       ...str_list, ...int_list, null, 1499, []};
   Expect.isTrue(set7 is Set<Object?>);
+  Expect.runtimeIsType<Set<Object?>>(set7);
 
   Set set8;
   Expect.throws(() => set8 = <int>{...str_list});

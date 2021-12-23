@@ -12,7 +12,6 @@
 /// potentially constant list or set or [null].
 /// @author iarkh@unipro.ru
 
-
 class MyClass {
   final String a;
   const MyClass(Object o) : a = o as String;
