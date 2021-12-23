@@ -25,6 +25,8 @@ void listTest<T>(T t) {
   Set s2 = {...?(t as dynamic)};
   Expect.isTrue(s1 is Set<dynamic>);
   Expect.isTrue(s2 is Set<dynamic>);
+  checkType(checkIs<Set<dynamic>>, true, s1);
+  checkType(checkIs<Set<dynamic>>, true, s2);
 }
 
 void mapTest<T>(T t) {
@@ -32,6 +34,8 @@ void mapTest<T>(T t) {
   Map m2 = {...?(t as dynamic)};
   Expect.isTrue(m1 is Map<dynamic, dynamic>);
   Expect.isTrue(m2 is Map<dynamic, dynamic>);
+  checkType(checkIs<Map<dynamic, dynamic>>, true, m1);
+  checkType(checkIs<Map<dynamic, dynamic>>, true, m2);
 }
 
 main() {

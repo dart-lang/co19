@@ -19,6 +19,7 @@ import "../../Utils/expect.dart";
 test(x) {
   Map<int, String> m = {...x};
   Expect.isTrue(m is Map<int, String>);
+  checkType(checkIs<Map<int, String>>, true, x);
 }
 
 main() {

@@ -19,6 +19,7 @@ import "../../Utils/expect.dart";
 test(x) {
   Set<int> s = {...x};
   Expect.isTrue(s is Set<int>);
+  checkType(checkIs<Set<int>>, true, s);
 }
 
 main() {

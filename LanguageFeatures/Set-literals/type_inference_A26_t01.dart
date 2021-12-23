@@ -27,4 +27,6 @@ main() {
   var s = {d1, d2, 3};
   Expect.isTrue(s is Set<dynamic>);
   Expect.isFalse(s is Set<int>);
+  Expect.runtimeIsType<Set<dynamic>>(s);
+  Expect.runtimeIsNotType<Set<int>>(s);
 }

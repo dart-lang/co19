@@ -15,7 +15,6 @@
 /// compile-time error
 /// @author sgrekhov@unipro.ru
 
-
 class C<T> {
   test(T t) {
     var v = {...t};

@@ -28,4 +28,8 @@ main() {
   Expect.isTrue(test2() is Map);
   Expect.isTrue(test3() is Map);
   Expect.isTrue(test4() is Map);
+  checkType(checkIs<Map>, true, test());
+  checkType(checkIs<Map>, true, test2());
+  checkType(checkIs<Map>, true, test3());
+  checkType(checkIs<Map>, true, test4());
 }

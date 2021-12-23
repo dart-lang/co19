@@ -15,8 +15,12 @@
 
 import "../../Utils/expect.dart";
 
+class C {
+}
 main() {
   Set v = {1, 2, 3};
   Expect.isTrue(v is Set<dynamic>);
   Expect.isFalse(v is Set<int>);
+  Expect.runtimeIsType<Set<dynamic>>(v);
+  Expect.runtimeIsNotType<Set<int>>(v);
 }

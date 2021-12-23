@@ -23,6 +23,8 @@ class C<X> {
     var v = {x, 1, 2};
     Expect.isTrue(v is Set<Object?>);
     Expect.isFalse(v is Set<int?>);
+    checkType(checkIs<Set<Object?>>, true, v);
+    checkType(checkIs<Set<int?>>, false, v);
   }
 }
 

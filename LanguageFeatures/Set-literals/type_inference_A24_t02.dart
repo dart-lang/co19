@@ -24,6 +24,9 @@ class C<K, V extends num> {
     Expect.isTrue(m is Map<Object?, num>);
     Expect.isFalse(m is Map<Object?, int>);
     Expect.isFalse(m is Map<int?, num>);
+    Expect.runtimeIsType<Map<Object?, num>>(m);
+    Expect.runtimeIsNotType<Map<Object?, int>>(m);
+    Expect.runtimeIsNotType<Map<int?, num>>(m);
   }
 }
 

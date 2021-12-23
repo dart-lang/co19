@@ -24,12 +24,16 @@ main() {
   var m1 = {};
   var x1 = {...m1};
   Expect.isTrue(x1 is Map<dynamic, dynamic>);
+  checkType(checkIs<Map<dynamic, dynamic>>, true, x1);
 
   var m2 = {1.0: "1", 2.0: "2", 3: "3", 4: "4"};
   var x2 = {...m2};
   Expect.isTrue(x2 is Map<num, String>);
   Expect.isFalse(x2 is Map<int, String>);
   Expect.isFalse(x2 is Map<double, String>);
+  checkType(checkIs<Map<num, String>>, true, x2);
+  checkType(checkIs<Map<int, String>>, false, x2);
+  checkType(checkIs<Map<double, String>>, false, x2);
 
   var m3 = {1.0: 1.0, 2: 2, "3": "3", 4: 4};
   var x3 = {...m3};
@@ -38,4 +42,9 @@ main() {
   Expect.isFalse(x3 is Map<String, Object>);
   Expect.isFalse(x3 is Map<Object, num>);
   Expect.isFalse(x3 is Map<Object, String>);
+  checkType(checkIs<Map<Object, Object>>, true, x3);
+  checkType(checkIs<Map<num, Object>>, false, x3);
+  checkType(checkIs<Map<String, Object>>, false, x3);
+  checkType(checkIs<Map<Object, num>>, false, x3);
+  checkType(checkIs<Map<Object, String>>, false, x3);
 }

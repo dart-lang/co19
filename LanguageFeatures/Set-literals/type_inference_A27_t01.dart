@@ -28,4 +28,6 @@ main() {
   var m = {d1: d2, 3: 4};
   Expect.isTrue(m is Map<dynamic, dynamic>);
   Expect.isFalse(m is Map<int, int>);
+  Expect.runtimeIsType<Map<dynamic, dynamic>>(m);
+  Expect.runtimeIsNotType<Map<int, int>>(m);
 }

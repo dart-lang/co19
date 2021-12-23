@@ -20,24 +20,31 @@ main() {
   int x = 1;
   var c1 = {if (2 > 1) x: x + 1};
   Expect.isTrue(c1 is Map);
+  checkType(checkIs<Map>, true, c1);
 
   var c2 = {if (2 > 1) "s": "s" else "$x": ""};
   Expect.isTrue(c2 is Map);
+  checkType(checkIs<Map>, true, c2);
 
   var c3 = {if (2 > 1) "s": "s" else "$x": "x", if (2 > 1) x: x};
   Expect.isTrue(c3 is Map);
+  checkType(checkIs<Map>, true, c3);
 
   var c4 = {for (var i = 0; i < 3; i++) if (2 > 1) "s": "s" else if (2 > 1) x: x};
   Expect.isTrue(c4 is Map);
+  checkType(checkIs<Map>, true, c4);
 
   var c5 = {for (var i in [1, 2, 3]) if (1 > 2) x: x else if (2 > 1) i: i};
   Expect.isTrue(c5 is Map);
+  checkType(checkIs<Map>, true, c5);
 
   var c6 = {if (1 > 2) for (var i in [1, 2, 3]) i: i
             else if (2 > 1) for (var i = 0; i < 3; i++) i: i};
   Expect.isTrue(c6 is Map);
+  checkType(checkIs<Map>, true, c6);
 
   var c7 = {if (2 > 1) for (var i in [1, 2, 3]) i: i
             else if (2 > 1) for (var i = 0; i < 3; i++) i: i};
   Expect.isTrue(c7 is Map);
+  checkType(checkIs<Map>, true, c7);
 }

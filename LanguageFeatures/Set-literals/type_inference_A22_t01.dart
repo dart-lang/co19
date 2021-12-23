@@ -24,6 +24,9 @@ class C<K, V> {
     Expect.isTrue(m is Map<Object?, Object?>);
     Expect.isFalse(m is Map<int?, Object?>);
     Expect.isFalse(m is Map<Object?, int?>);
+    Expect.runtimeIsType<Map<Object?, Object?>>(m);
+    Expect.runtimeIsNotType<Map<int?, Object?>>(m);
+    Expect.runtimeIsNotType<Map<Object?, int?>>(m);
   }
 }
 

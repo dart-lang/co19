@@ -32,6 +32,10 @@ void test1<T extends Map<num, String>>(T t) {
   Expect.isTrue(m2 is Map<num, String>);
   Expect.isFalse(m1 is Map<int, String>);
   Expect.isFalse(m2 is Map<int, String>);
+  checkType(checkIs<Map<num, String>>, true, m1);
+  checkType(checkIs<Map<num, String>>, true, m2);
+  checkType(checkIs<Map<int, String>>, false, m1);
+  checkType(checkIs<Map<int, String>>, false, m2);
 }
 
 void test2<T extends Map<Object, Object>>(T t) {

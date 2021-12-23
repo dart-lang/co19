@@ -20,4 +20,5 @@ import "../../Utils/expect.dart";
 main() {
   var m = {1: 1, 2: 2, 3: 3};
   Expect.isTrue(m is Map<int, int>);
+  Expect.runtimeIsType<Map<int, int>>(m);
 }

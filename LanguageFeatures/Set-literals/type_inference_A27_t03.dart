@@ -28,9 +28,15 @@ main() {
   Expect.isTrue(m1 is Map<Object?, Object?>);
   Expect.isFalse(m1 is Map<int, int>);
   Expect.isFalse(m1 is Map<Null, Null>);
+  Expect.runtimeIsType<Map<Object?, Object?>>(m1);
+  Expect.runtimeIsNotType<Map<int, int>>(m1);
+  Expect.runtimeIsNotType<Map<Null, Null>>(m1);
 
   var m2 = {1: 2, ...?n};
   Expect.isTrue(m2 is Map<Object?, Object?>);
   Expect.isFalse(m2 is Map<int, int>);
   Expect.isFalse(m2 is Map<Null, Null>);
+  Expect.runtimeIsType<Map<Object?, Object?>>(m2);
+  Expect.runtimeIsNotType<Map<int, int>>(m2);
+  Expect.runtimeIsNotType<Map<Null, Null>>(m2);
 }

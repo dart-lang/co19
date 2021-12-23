@@ -18,4 +18,5 @@ import "../../Utils/expect.dart";
 main() {
   var v = {1, 2, 3};
   Expect.isTrue(v is Set<int>);
+  Expect.runtimeIsType<Set<int>>(v);
 }

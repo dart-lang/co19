@@ -24,4 +24,8 @@ main() {
   Expect.isTrue({new C(): new C()} is Map<C, C>);
   Expect.isTrue({1: 1, 2: 2, 3.14: "3.14"} is Map<num, Object>);
   Expect.isTrue({1: 1, 2: 2, "3.14": 3.14} is Map<Object, num>);
+  checkType(checkIs<Map<int, num>>, true, {1: 1, 2: 2, 3: 3.14});
+  checkType(checkIs<Map<C, C>>, true, {new C(): new C()});
+  checkType(checkIs<Map<num, Object>>, true, {1: 1, 2: 2, 3.14: "3.14"});
+  checkType(checkIs<Map<Object, num>>, true, {1: 1, 2: 2, "3.14": 3.14});
 }

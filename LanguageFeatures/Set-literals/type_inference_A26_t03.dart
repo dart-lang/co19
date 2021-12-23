@@ -27,9 +27,15 @@ main() {
   Expect.isTrue(s1 is Set<Object?>);
   Expect.isFalse(s1 is Set<int>);
   Expect.isFalse(s1 is Set<Null>);
+  Expect.runtimeIsType<Set<Object?>>(s1);
+  Expect.runtimeIsNotType<Set<int>>(s1);
+  Expect.runtimeIsNotType<Set<Null>>(s1);
 
   var s2 = {1, ...?n};
   Expect.isTrue(s2 is Set<Object?>);
   Expect.isFalse(s2 is Set<int>);
   Expect.isFalse(s2 is Set<Null>);
+  Expect.runtimeIsType<Set<Object?>>(s2);
+  Expect.runtimeIsNotType<Set<int>>(s2);
+  Expect.runtimeIsNotType<Set<Null>>(s2);
 }

@@ -21,4 +21,6 @@ main() {
   var x = {};
   Expect.isTrue(x is Map);
   Expect.isTrue({} is Map<dynamic, dynamic>);
+  checkType(checkIs<Map>, true, x);
+  checkType(checkIs<Map<dynamic, dynamic>>, true, {});
 }
