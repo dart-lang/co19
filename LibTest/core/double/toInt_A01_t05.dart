@@ -15,6 +15,7 @@ import "dart:math" as Math;
 check(double arg) {
   var v = arg.toInt();
   Expect.isTrue(v is int);
+  Expect.runtimeIsType<int>(v);
   Expect.equals(v, arg);
 }
 

@@ -19,6 +19,7 @@ main() {
       Expect.fail("AssertionError expected");
     } on AssertionError catch (e) {
       Expect.isTrue(e is Error);
+      Expect.runtimeIsType<Error>(e);
     }
   }
 }

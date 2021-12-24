@@ -6,7 +6,6 @@
 /// @description Checks that this constructor executes without error.
 /// @author rodionov
 
- 
 main() {
   new IntegerDivisionByZeroException();
 }

@@ -21,4 +21,8 @@ main() {
   Expect.isTrue(foo1 is Function);
   Expect.isTrue((int, double) { return 1; } is Function);
   Expect.isTrue((()  => 1) is Function);
+  Expect.runtimeIsType<Function>(foo);
+  Expect.runtimeIsType<Function>(foo1);
+  Expect.runtimeIsType<Function>((int, double) { return 1; });
+  Expect.runtimeIsType<Function>((()  => 1));
 }

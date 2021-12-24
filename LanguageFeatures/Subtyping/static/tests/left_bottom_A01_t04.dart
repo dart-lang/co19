@@ -18,5 +18,6 @@ typedef Neverland = Never;
 
 main() {
   Expect.isTrue(C<Neverland>() is C<Never>);
+  Expect.runtimeIsType<C<Never>>(C<Neverland>());
   void x2 = foo<Neverland>();
 }

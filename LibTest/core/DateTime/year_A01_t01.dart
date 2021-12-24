@@ -22,5 +22,6 @@ main() {
 void check(int y) {
   DateTime date = new DateTime.utc(y, 8, 18, 0, 0, 0, 0);
   Expect.isTrue(date.year is int);
+  Expect.runtimeIsType<int>(date.year);
   Expect.equals(y, date.year);
 }

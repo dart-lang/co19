@@ -15,5 +15,6 @@ main() {
   var ob = "object";
   var error = new ConcurrentModificationError(ob);
   Expect.isTrue(error is ConcurrentModificationError);
+  Expect.runtimeIsType<ConcurrentModificationError>(error);
   Expect.equals(ob, error.modifiedObject);
 }

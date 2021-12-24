@@ -14,7 +14,8 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
-  HashSet s = new HashSet();
+  var s = new HashSet();
   Expect.isTrue(s is HashSet);
+  Expect.runtimeIsType<HashSet>(s);
   Expect.isTrue(s.isEmpty);
 }

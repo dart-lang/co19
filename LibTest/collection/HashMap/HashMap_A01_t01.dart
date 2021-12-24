@@ -12,7 +12,8 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
-  HashMap map = new HashMap();
+  var map = new HashMap();
   Expect.isTrue(map is HashMap);
+  Expect.runtimeIsType<HashMap>(map);
   Expect.isTrue(map.isEmpty);
 }

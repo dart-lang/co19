@@ -12,8 +12,8 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 test(StreamConsumer create()) {
-  StreamConsumer sc = create();
-
+  var sc = create();
   Expect.isTrue(sc is StreamConsumer);
+  Expect.runtimeIsType<StreamConsumer>(sc);
 }
 

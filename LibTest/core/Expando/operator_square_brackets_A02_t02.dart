@@ -15,10 +15,14 @@ main() {
   var exp2 = new Expando("2");
   Expect.isTrue(exp.toString() is String);
   Expect.isTrue(exp2.toString() is String);
+  Expect.runtimeIsType<String>(exp.toString());
+  Expect.runtimeIsType<String>(exp2.toString());
   
   var o1 = new Object();
   exp[o1] = "1";
   exp2[o1] = "2";
   Expect.isTrue(exp.toString() is String);
   Expect.isTrue(exp2.toString() is String);
+  Expect.runtimeIsType<String>(exp.toString());
+  Expect.runtimeIsType<String>(exp2.toString());
 }

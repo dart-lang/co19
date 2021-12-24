@@ -12,6 +12,7 @@ import "../../../Utils/expect.dart";
  
 main() {
   RangeError e = new RangeError(-1);
-  Expect.isTrue(e.toString() != null);
+  Expect.isTrue(e.toString().isNotEmpty);
   Expect.isTrue(e.toString() is String);
+  Expect.runtimeIsType<String>(e.toString());
 }

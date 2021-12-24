@@ -10,7 +10,8 @@ import "../../../Utils/expect.dart";
 
 main() {
   String s = new String.fromCharCodes([0x61, 0x62, 0x63]);
-  
   Expect.isTrue(s is Comparable);
   Expect.isTrue(s is Pattern);
+  Expect.runtimeIsType<Comparable>(s);
+  Expect.runtimeIsType<Pattern>(s);
 }

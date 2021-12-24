@@ -15,4 +15,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(new StreamController().close() is Future);
+  Expect.runtimeIsType<Future>(new StreamController().close());
 }

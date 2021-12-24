@@ -57,5 +57,6 @@ main() {
 
 void check(num ex, int a, double b) {
   Expect.equals(ex, a.remainder(b));
-  Expect.isTrue((a.remainder(b)) is double);
+  Expect.isTrue(a.remainder(b) is double);
+  Expect.runtimeIsType<double>(a.remainder(b));
 }

@@ -14,5 +14,6 @@ import "dart:collection";
 main() {
   DoubleLinkedQueueEntry entry = new DoubleLinkedQueueEntry(null);
   Expect.isTrue(entry is DoubleLinkedQueueEntry);
+  Expect.runtimeIsType<DoubleLinkedQueueEntry>(entry);
   Expect.isNull(entry.element);
 }

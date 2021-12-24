@@ -312,8 +312,8 @@ class Expect {
   /// If you want to test not only compiler optimization but runtime as well the
   /// use
   /// ```dart
-  /// Expect.isTrue(c is C);
-  /// Expect.runtimeIsType<C>(c);
+  /// Expect.isTrue(c is C);  // to test optimization
+  /// Expect.runtimeIsType<C>(c); // to test runtime
   static void runtimeIsType<T>(Object? o) {
     _checkType(_checkIs<T>, true, o);
   }
@@ -324,8 +324,8 @@ class Expect {
   /// If you want to test not only compiler optimization but runtime as well the
   /// use
   /// ```dart
-  /// Expect.isFalse(c is C);
-  /// Expect.runtimeIsNotType<C>(c);
+  /// Expect.isFalse(c is C); // to test optimization
+  /// Expect.runtimeIsNotType<C>(c); // to test runtime
   static void runtimeIsNotType<T>(Object? o) {
     _checkType(_checkIs<T>, false, o);
   }

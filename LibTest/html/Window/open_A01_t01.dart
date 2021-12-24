@@ -10,7 +10,8 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  WindowBase nw = window.open("about:blank", "_blank");
+  var nw = window.open("about:blank", "_blank");
   Expect.isTrue(nw is WindowBase);
+  Expect.runtimeIsType<WindowBase>(nw);
   nw.close();
 }

@@ -16,10 +16,10 @@
 /// @description Checks that returned value is a Future.
 /// @author ilya
 
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(new StreamController().done is Future);
+  Expect.runtimeIsType<Future>(new StreamController().done);
 }

@@ -11,7 +11,13 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(new DateTime.now().timeZoneName is String);
-  Expect.isTrue(new DateTime.fromMillisecondsSinceEpoch(0, isUtc: true).timeZoneName is String);
-  Expect.isTrue(new DateTime.fromMillisecondsSinceEpoch(0, isUtc: false).timeZoneName is String);
+  Expect.isTrue(new DateTime.fromMillisecondsSinceEpoch(0, isUtc: true)
+      .timeZoneName is String);
+  Expect.isTrue(new DateTime.fromMillisecondsSinceEpoch(0, isUtc: false)
+      .timeZoneName is String);
+  Expect.runtimeIsType<String>(new DateTime.now().timeZoneName);
+  Expect.runtimeIsType<String>(
+      new DateTime.fromMillisecondsSinceEpoch(0, isUtc: true).timeZoneName);
+  Expect.runtimeIsType<String>(
+      new DateTime.fromMillisecondsSinceEpoch(0, isUtc: false).timeZoneName);
 }
-

@@ -66,6 +66,22 @@ main() {
   Expect.isFalse(c1.i2 is String);
   Expect.isTrue(c1.t2 is int);
   Expect.isFalse(c1.t2 is String);
+  Expect.runtimeIsType<int>(c1.f1);
+  Expect.runtimeIsNotType<String>(c1.f1);
+  Expect.runtimeIsType<int>(c1.v1);
+  Expect.runtimeIsNotType<String>(c1.v1);
+  Expect.runtimeIsType<int>(c1.i1);
+  Expect.runtimeIsNotType<String>(c1.i1);
+  Expect.runtimeIsType<int>(c1.t1);
+  Expect.runtimeIsNotType<String>(c1.t1);
+  Expect.runtimeIsType<int>(c1.f2);
+  Expect.runtimeIsNotType<String>(c1.f2);
+  Expect.runtimeIsType<int>(c1.v2);
+  Expect.runtimeIsNotType<String>(c1.v2);
+  Expect.runtimeIsType<int>(c1.i2);
+  Expect.runtimeIsNotType<String>(c1.i2);
+  Expect.runtimeIsType<int>(c1.t2);
+  Expect.runtimeIsNotType<String>(c1.t2);
 
   C<int> c2 = C<int>(1, 2, 3, 4, 5, 6, 7, 8, 9);
   test<int>(c2.f1);
@@ -93,4 +109,20 @@ main() {
   Expect.isFalse(c2.i2 is String);
   Expect.isTrue(c2.t2 is int);
   Expect.isFalse(c2.t2 is String);
+  Expect.runtimeIsType<int>(c2.f1);
+  Expect.runtimeIsNotType<String>(c2.f1);
+  Expect.runtimeIsType<int>(c2.v1);
+  Expect.runtimeIsNotType<String>(c2.v1);
+  Expect.runtimeIsType<int>(c2.i1);
+  Expect.runtimeIsNotType<String>(c2.i1);
+  Expect.runtimeIsType<int>(c2.t1);
+  Expect.runtimeIsNotType<String>(c2.t1);
+  Expect.runtimeIsType<int>(c2.f2);
+  Expect.runtimeIsNotType<String>(c2.f2);
+  Expect.runtimeIsType<int>(c2.v2);
+  Expect.runtimeIsNotType<String>(c2.v2);
+  Expect.runtimeIsType<int>(c2.i2);
+  Expect.runtimeIsNotType<String>(c2.i2);
+  Expect.runtimeIsType<int>(c2.t2);
+  Expect.runtimeIsNotType<String>(c2.t2);
 }

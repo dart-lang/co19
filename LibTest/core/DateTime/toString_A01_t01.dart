@@ -12,4 +12,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(new DateTime.now().toString() is String);
+  Expect.runtimeIsType<String>(new DateTime.now().toString());
 }

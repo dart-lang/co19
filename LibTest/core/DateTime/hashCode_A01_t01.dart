@@ -20,6 +20,8 @@ check(t1, t2) {
   var h2 = date2.hashCode;
   Expect.isTrue(h1 is int);
   Expect.isTrue(h2 is int);
+  Expect.runtimeIsType<int>(h1);
+  Expect.runtimeIsType<int>(h2);
   if (date1 == date2) {
     Expect.equals(h1, h2);
   }

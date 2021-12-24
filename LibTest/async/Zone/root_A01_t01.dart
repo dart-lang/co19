@@ -12,4 +12,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(Zone.root is Zone);
+  Expect.runtimeIsType<Zone>(Zone.root);
 }

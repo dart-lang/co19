@@ -28,6 +28,7 @@ main() {
     z.registerBinaryCallback<int, int, int>(f);
 
   Expect.isTrue(callback is ZoneBinaryCallback<int, int, int>);
+  Expect.runtimeIsType<ZoneBinaryCallback<int, int, int>>(callback);
   Expect.equals(3, callback(1, 2));
 
   ZoneBinaryCallback<R, T1, T2> registerFunction<R, T1, T2>(
@@ -41,6 +42,7 @@ main() {
         ZoneBinaryCallback<int, int, int> callback =
           Zone.current.registerBinaryCallback<int, int, int>(f);
         Expect.isTrue(callback is ZoneBinaryCallback<int, int, int>);
+        Expect.runtimeIsType<ZoneBinaryCallback<int, int, int>>(callback);
         Expect.equals(42, callback(1, 2));
       });
 }

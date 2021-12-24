@@ -31,5 +31,6 @@ main() {
 void check(int m) {
   DateTime date = new DateTime(2011, m, 18, 0, 0, 0, 0);
   Expect.isTrue(date.month is int);
+  Expect.runtimeIsType<int>(date.month);
   Expect.equals(m, date.month);
 }

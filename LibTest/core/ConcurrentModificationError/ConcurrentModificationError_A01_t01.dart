@@ -12,4 +12,5 @@ import "../../../Utils/expect.dart";
 main() {
   var error = new ConcurrentModificationError();
   Expect.isTrue(error is ConcurrentModificationError);
+  Expect.runtimeIsType<ConcurrentModificationError>(error);
 }

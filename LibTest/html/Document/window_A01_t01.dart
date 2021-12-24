@@ -11,4 +11,5 @@ import "../../../Utils/expect.dart";
 main() {
   WindowBase? window = document.window;
   Expect.isTrue(window is WindowBase?);
+  Expect.runtimeIsType<WindowBase?>(window);
 }

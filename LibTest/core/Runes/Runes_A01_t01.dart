@@ -11,6 +11,7 @@ import "../../../Utils/expect.dart";
 check(string) {
   var runes = new Runes(string);
   Expect.isTrue(runes is Runes);
+  Expect.runtimeIsType<Runes>(runes);
 }
 
 main() {

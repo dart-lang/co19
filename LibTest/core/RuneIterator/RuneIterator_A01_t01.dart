@@ -13,6 +13,7 @@ import "../../../Utils/expect.dart";
 check(string, firstCodePoint) {
   var it = new RuneIterator(string);
   Expect.isTrue(it is RuneIterator);
+  Expect.runtimeIsType<RuneIterator>(it);
   it.moveNext();
   Expect.equals(firstCodePoint, it.current);
 }

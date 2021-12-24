@@ -11,5 +11,6 @@ import "../../../Utils/expect.dart";
 main() {
   Set s = new Set();
   Expect.isTrue(s is Set);
+  Expect.runtimeIsType<Set>(s);
   Expect.isTrue(s.isEmpty);
 }

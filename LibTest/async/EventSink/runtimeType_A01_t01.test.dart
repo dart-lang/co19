@@ -19,6 +19,8 @@ test(EventSink create()) {
 
   Expect.isTrue(es1.runtimeType is Type);
   Expect.isTrue(es2.runtimeType is Type);
+  Expect.runtimeIsType<Type>(es1.runtimeType);
+  Expect.runtimeIsType<Type>(es2.runtimeType);
   Expect.equals(es1.runtimeType, es2.runtimeType);
   Expect.notEquals(es1.runtimeType, o.runtimeType);
 }

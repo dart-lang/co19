@@ -19,6 +19,7 @@ test(List<E> create<E>([int length, E fill])) {
   
     bool r = a.remove(value);
     Expect.isTrue(r is bool, "remove returned: ${r.runtimeType} ${r}, not bool");
+    Expect.runtimeIsType<bool>(r);
     if (r) {
       Expect.isTrue(expected);
       Expect.equals(a0.length-1, a.length);

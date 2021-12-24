@@ -11,6 +11,7 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 
 main() {
-  Completer completer = new Completer();
+  var completer = new Completer();
   Expect.isTrue(completer is Completer);
+  Expect.runtimeIsType<Completer>(completer);
 }

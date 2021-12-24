@@ -33,6 +33,14 @@ class C<T> {
     Expect.isFalse(i is String);
     Expect.isTrue(t is int);
     Expect.isFalse(t is String);
+    Expect.runtimeIsType<int>(f);
+    Expect.runtimeIsNotType<String>(f);
+    Expect.runtimeIsType<int>(v);
+    Expect.runtimeIsNotType<String>(v);
+    Expect.runtimeIsType<int>(i);
+    Expect.runtimeIsNotType<String>(i);
+    Expect.runtimeIsType<int>(t);
+    Expect.runtimeIsNotType<String>(t);
   }
 }
 

@@ -16,5 +16,6 @@ void foo<X extends T1>() {}
 
 main() {
   Expect.isTrue(C<Never>() is C<Never>);
+  Expect.runtimeIsType<C<Never>>(C<Never>());
   void x2 = foo<Never>();
 }

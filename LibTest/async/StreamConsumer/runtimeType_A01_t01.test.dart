@@ -19,6 +19,8 @@ test(StreamConsumer create()) {
 
   Expect.isTrue(sc1.runtimeType is Type);
   Expect.isTrue(sc2.runtimeType is Type);
+  Expect.runtimeIsType<Type>(sc1.runtimeType);
+  Expect.runtimeIsType<Type>(sc2.runtimeType);
   Expect.equals(sc1.runtimeType, sc2.runtimeType);
   Expect.notEquals(sc1.runtimeType, o.runtimeType);
 }

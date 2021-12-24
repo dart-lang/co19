@@ -12,4 +12,5 @@ import "../../../Utils/expect.dart";
 main() {
   var error = new CastError();
   Expect.isTrue(error is CastError);
+  Expect.runtimeIsType<CastError>(error);
 }

@@ -51,4 +51,5 @@ main() {
 void check(num ex, int a, double b) {
   Expect.equals(ex, a % b);
   Expect.isTrue((a % b) is double);
+  Expect.runtimeIsType<double>((a % b));
 }

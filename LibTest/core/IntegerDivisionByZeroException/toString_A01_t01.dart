@@ -11,6 +11,7 @@ import "../../../Utils/expect.dart";
  
 main() {
   IntegerDivisionByZeroException e = new IntegerDivisionByZeroException();
-  Expect.isTrue(e.toString() != null);
+  Expect.isTrue(e.toString().isNotEmpty);
   Expect.isTrue(e.toString() is String);
+  Expect.runtimeIsType<String>(e.toString());
 }

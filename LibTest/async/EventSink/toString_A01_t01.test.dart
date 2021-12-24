@@ -19,6 +19,8 @@ test(EventSink create()) {
 
   Expect.isTrue(es1.toString() is String);
   Expect.isTrue(es2.toString() is String);
+  Expect.runtimeIsType<String>(es1.toString());
+  Expect.runtimeIsType<String>(es2.toString());
   Expect.notEquals(es1, es2);
   Expect.equals(es1.toString(), es2.toString());
 }

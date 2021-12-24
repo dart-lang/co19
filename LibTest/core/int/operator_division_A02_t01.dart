@@ -18,5 +18,13 @@ main() {
   Expect.isTrue(1/0 is double);
   Expect.isTrue(-1/0 is double);
   Expect.isTrue(0/0 is double);
+  Expect.runtimeIsType<double>(1/2);
+  Expect.runtimeIsType<double>(2/1);
+  Expect.runtimeIsType<double>(-2/1);
+  Expect.runtimeIsType<double>(1/1);
+  Expect.runtimeIsType<double>(20/10);
+  Expect.runtimeIsType<double>(1/0);
+  Expect.runtimeIsType<double>(-1/0);
+  Expect.runtimeIsType<double>(0/0);
 }
 

@@ -20,5 +20,6 @@ main() {
 void check(int m) {
   DateTime date = new DateTime(2011, 1, 1, 0, m, 0, 0);
   Expect.isTrue(date.minute is int);
+  Expect.runtimeIsType<int>(date.minute);
   Expect.equals(m, date.minute);
 }

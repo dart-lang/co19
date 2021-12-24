@@ -26,7 +26,8 @@ main() {
 
   ZoneUnaryCallback<int,int> callback = z.registerUnaryCallback<int,int>(f);
 
-  Expect.isTrue(callback is ZoneUnaryCallback<int,int>);
+  Expect.isTrue(callback is ZoneUnaryCallback<int, int>);
+  Expect.runtimeIsType<ZoneUnaryCallback<int, int>>(callback);
   Expect.equals(1, callback(1));
 
   ZoneUnaryCallback<R, T> registerFunction<R, T>(
@@ -37,7 +38,8 @@ main() {
   z.fork(specification: new ZoneSpecification(registerUnaryCallback:registerFunction))
       .run(() {
         ZoneUnaryCallback<int,int> callback = Zone.current.registerUnaryCallback<int,int>(f);
-        Expect.isTrue(callback is ZoneUnaryCallback<int,int>);
+        Expect.isTrue(callback is ZoneUnaryCallback<int, int>);
+        Expect.runtimeIsType<ZoneUnaryCallback<int, int>>(callback);
         Expect.equals(42, callback(1));
       });
 }

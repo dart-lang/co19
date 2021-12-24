@@ -11,7 +11,8 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
-  LinkedHashSet set = new LinkedHashSet();
+  var set = new LinkedHashSet();
   Expect.isTrue(set is LinkedHashSet);
+  Expect.runtimeIsType<LinkedHashSet>(set);
   Expect.isTrue(set.isEmpty);
 }

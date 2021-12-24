@@ -11,9 +11,11 @@ import "dart:collection";
 
 main() {
   List list = [1, 2, 3, 4, 5];
-  HasNextIterator hnit = new HasNextIterator(list.iterator);
+  var hnit = new HasNextIterator(list.iterator);
   Expect.isTrue(hnit is HasNextIterator);
+  Expect.runtimeIsType<HasNextIterator>(hnit);
 
   hnit = new HasNextIterator([].iterator);
   Expect.isTrue(hnit is HasNextIterator);
+  Expect.runtimeIsType<HasNextIterator>(hnit);
 }

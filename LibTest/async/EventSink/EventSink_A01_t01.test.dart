@@ -12,8 +12,8 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 test(EventSink create()) {
-  EventSink es = create();
-
+  var es = create();
   Expect.isTrue(es is EventSink);
+  Expect.runtimeIsType<EventSink>(es);
 }
 

@@ -12,10 +12,12 @@ import "dart:ffi";
 import "../../../Utils/expect.dart";
 
 void main() {
-  DartRepresentationOf o1 = new DartRepresentationOf("");
+  var o1 = new DartRepresentationOf("");
   Expect.isTrue(o1 is DartRepresentationOf);
+  Expect.runtimeIsType<DartRepresentationOf>(o1);
 
   DartRepresentationOf o2 = new DartRepresentationOf("Double");
   Expect.isTrue(o2 is DartRepresentationOf);
+  Expect.runtimeIsType<DartRepresentationOf>(o2);
   Expect.equals("DartRepresentationOf", o2.runtimeType.toString());
 }

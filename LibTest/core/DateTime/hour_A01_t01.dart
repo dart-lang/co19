@@ -19,5 +19,6 @@ main() {
 void check(int h) {
   DateTime date = new DateTime(2011, 1, 1, h, 0, 0, 0);
   Expect.isTrue(date.hour is int);
+  Expect.runtimeIsType<int>(date.hour);
   Expect.equals(h, date.hour);
 }

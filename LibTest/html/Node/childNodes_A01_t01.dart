@@ -12,6 +12,7 @@ import "../../../Utils/expect.dart";
 void check(Node x) {
   var z = x.childNodes;
   Expect.isTrue(z is List);
+  Expect.runtimeIsType<List>(z);
 }
 
 main() {

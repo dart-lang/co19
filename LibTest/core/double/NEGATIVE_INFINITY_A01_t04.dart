@@ -10,5 +10,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(double.negativeInfinity is double);
-  Expect.isTrue(double.negativeInfinity is num);
+  Expect.runtimeIsType<double>(double.negativeInfinity);
 }

@@ -10,7 +10,8 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
-  LinkedHashMap m = new LinkedHashMap();
+  var m = new LinkedHashMap();
   Expect.isTrue(m is LinkedHashMap);
+  Expect.runtimeIsType<LinkedHashMap>(m);
   Expect.isTrue(m.isEmpty);
 }

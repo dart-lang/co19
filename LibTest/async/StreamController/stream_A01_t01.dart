@@ -12,6 +12,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   StreamController controller = new StreamController();
-  Stream stream = controller.stream;
+  var stream = controller.stream;
   Expect.isTrue(stream is Stream);
+  Expect.runtimeIsType<Stream>(stream);
 }

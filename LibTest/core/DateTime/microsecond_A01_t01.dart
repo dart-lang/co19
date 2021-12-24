@@ -19,5 +19,6 @@ main() {
 void check(int us) {
   DateTime date = new DateTime(2011, 1, 1, 0, 0, 0, 0, us);
   Expect.isTrue(date.microsecond is int);
+  Expect.runtimeIsType<int>(date.microsecond);
   Expect.equals(us, date.microsecond);
 }

@@ -15,10 +15,12 @@ main() {
     int x = i;
     Expect.fail("TypeError expected");
   } on TypeError catch(e) {
-    Expect.isTrue(e.toString() != null);
+    Expect.isTrue(e.toString().isNotEmpty);
     Expect.isTrue(e.toString() is String);
+    Expect.runtimeIsType<String>(e.toString());
   } on CastError catch(e) {
-    Expect.isTrue(e.toString() != null);
+    Expect.isTrue(e.toString().isNotEmpty);
     Expect.isTrue(e.toString() is String);
+    Expect.runtimeIsType<String>(e.toString());
   }
 }

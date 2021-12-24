@@ -13,4 +13,5 @@ import "dart:async";
 main() {
   Completer completer = new Completer();
   Expect.isTrue(completer.future is Future);
+  Expect.runtimeIsType<Future>(completer.future);
 }

@@ -16,8 +16,9 @@ main() {
       assert(1 == 2);
       Expect.fail("AssertionError expected");
     } on AssertionError catch (e) {
-      Expect.isTrue(e.toString() != null);
+      Expect.isTrue(e.toString().isNotEmpty);
       Expect.isTrue(e.toString() is String);
+      Expect.runtimeIsType<String>(e.toString());
     }
   }
 }

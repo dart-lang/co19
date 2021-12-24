@@ -13,7 +13,8 @@ main() {
   try {
     throw new FallThroughError();
   } on FallThroughError catch(e) {
-    Expect.isTrue(e.toString() != null);
+    Expect.isTrue(e.toString().isNotEmpty);
     Expect.isTrue(e.toString() is String);
+    Expect.runtimeIsType<String>(e.toString());
   }
 }

@@ -11,7 +11,8 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  StreamController controller = new StreamController();
-  StreamIterator streamIterator = new StreamIterator(controller.stream);
+  var controller = new StreamController();
+  var streamIterator = new StreamIterator(controller.stream);
   Expect.isTrue(streamIterator is StreamIterator);
+  Expect.runtimeIsType<StreamIterator>(streamIterator);
 }

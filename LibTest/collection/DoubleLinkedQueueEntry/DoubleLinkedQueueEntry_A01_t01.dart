@@ -13,7 +13,8 @@ import "dart:collection";
 
 main() {
   double d = 3.14;
-  DoubleLinkedQueueEntry entry = new DoubleLinkedQueueEntry(d);
+  var entry = new DoubleLinkedQueueEntry(d);
   Expect.isTrue(entry is DoubleLinkedQueueEntry);
+  Expect.runtimeIsType<DoubleLinkedQueueEntry>(entry);
   Expect.equals(d, entry.element);
 }

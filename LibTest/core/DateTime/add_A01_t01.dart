@@ -10,12 +10,40 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue(new DateTime(2001, 8, 18, 0, 0, 0, 0).add(
-      new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)) is DateTime);
-  Expect.isTrue(new DateTime(2001, 8, 18, 0, 0, 0, 0).add(
-      new Duration(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)) is DateTime);
-  Expect.isTrue(new DateTime(2001, 8, 18, 0, 0, 0, 0).add(
-      new Duration(days: -100000, hours: -100000, minutes: -100000, seconds: -100000, milliseconds: -100000)) is DateTime);
-  Expect.isTrue(new DateTime(2001, 8, 18, 0, 0, 0, 0).add(
-      new Duration(days: 100000, hours: 100000, minutes: 100000, seconds: 100000, milliseconds: 100000)) is DateTime);
+  Expect.isTrue(new DateTime(2001, 8, 18, 0, 0, 0, 0).add(new Duration(
+      days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)) is DateTime);
+  Expect.isTrue(new DateTime(2001, 8, 18, 0, 0, 0, 0).add(new Duration(
+      days: 1, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)) is DateTime);
+  Expect.isTrue(new DateTime(2001, 8, 18, 0, 0, 0, 0).add(new Duration(
+      days: -100000,
+      hours: -100000,
+      minutes: -100000,
+      seconds: -100000,
+      milliseconds: -100000)) is DateTime);
+  Expect.isTrue(new DateTime(2001, 8, 18, 0, 0, 0, 0).add(new Duration(
+      days: 100000,
+      hours: 100000,
+      minutes: 100000,
+      seconds: 100000,
+      milliseconds: 100000)) is DateTime);
+  Expect.runtimeIsType<DateTime>(new DateTime(2001, 8, 18, 0, 0, 0, 0).add(
+      new Duration(
+          days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)));
+  Expect.runtimeIsType<DateTime>(new DateTime(2001, 8, 18, 0, 0, 0, 0).add(
+      new Duration(
+          days: 1, hours: 0, minutes: 0, seconds: 0, milliseconds: 0)));
+  Expect.runtimeIsType<DateTime>(new DateTime(2001, 8, 18, 0, 0, 0, 0).add(
+      new Duration(
+          days: -100000,
+          hours: -100000,
+          minutes: -100000,
+          seconds: -100000,
+          milliseconds: -100000)));
+  Expect.runtimeIsType<DateTime>(new DateTime(2001, 8, 18, 0, 0, 0, 0).add(
+      new Duration(
+          days: 100000,
+          hours: 100000,
+          minutes: 100000,
+          seconds: 100000,
+          milliseconds: 100000)));
 }

@@ -8,11 +8,9 @@
 /// null and is indeed a String.
 /// @author rodionov
 
- 
 import "../../../Utils/expect.dart";
  
 main() {
   AbstractClassInstantiationError e = AbstractClassInstantiationError("testme");
   Expect.isNotNull(e.toString());
-  Expect.isTrue(e.toString() is String);
 }

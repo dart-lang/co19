@@ -25,6 +25,7 @@ main() {
   ZoneCallback<int> callback = z.registerCallback<int>(f);
 
   Expect.isTrue(callback is ZoneCallback<int>);
+  Expect.runtimeIsType<ZoneCallback<int>>(callback);
   Expect.equals(0, callback());
 
   ZoneCallback<R> registerFunction<R>(Zone self, ZoneDelegate parent, Zone zone, R f()) {
@@ -35,6 +36,7 @@ main() {
       .run(() {
         ZoneCallback<int> callback = Zone.current.registerCallback<int>(f);
         Expect.isTrue(callback is ZoneCallback<int>);
+        Expect.runtimeIsType<ZoneCallback<int>>(callback);
         Expect.equals(42, callback());
       });
 }

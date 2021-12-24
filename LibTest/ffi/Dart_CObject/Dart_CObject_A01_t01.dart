@@ -11,7 +11,9 @@ import "dart:ffi";
 import "../../../Utils/expect.dart";
 
 void main() {
-  Dart_CObject o = new Dart_CObject();
+  var o = new Dart_CObject();
   Expect.isTrue(o is Dart_CObject);
   Expect.isTrue(o is Opaque);
+  Expect.runtimeIsType<Dart_CObject>(o);
+  Expect.runtimeIsType<Opaque>(o);
 }
