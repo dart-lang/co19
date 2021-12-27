@@ -11,5 +11,6 @@ import "dart:io";
 
 main() {
   Expect.isTrue(zlib is ZLibCodec);
+  Expect.runtimeIsType<ZLibCodec>(zlib);
 }
 

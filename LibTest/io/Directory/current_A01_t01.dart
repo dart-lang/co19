@@ -14,4 +14,5 @@ import "../../../Utils/expect.dart";
 main() {
   Expect.isNotNull(Directory.current);
   Expect.isTrue(Directory.current is Directory);
+  Expect.runtimeIsType<Directory>(Directory.current);
 }

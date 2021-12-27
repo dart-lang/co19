@@ -32,6 +32,7 @@ main() {
   asyncStart();
   fList.then((fValue) {
     Expect.isTrue(fValue is List<NetworkInterface>);
+    Expect.runtimeIsType<List<NetworkInterface>>(fValue);
     asyncEnd();
   });
 }

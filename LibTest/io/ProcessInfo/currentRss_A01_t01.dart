@@ -18,4 +18,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(ProcessInfo.currentRss is int);
+  Expect.runtimeIsType<int>(ProcessInfo.currentRss);
 }

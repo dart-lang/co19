@@ -15,5 +15,6 @@ import "../../../Utils/expect.dart";
 main() {
   var str = new MutableRectangle(0, 1, 1, 1).toString();
   Expect.isTrue(str is String);
+  Expect.runtimeIsType<String>(str);
   Expect.equals("Rectangle (0, 1) 1 x 1", str);
 }

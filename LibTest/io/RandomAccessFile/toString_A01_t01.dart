@@ -23,8 +23,9 @@ main() {
     for (int i = 0; i < 10; i++) {
       rf.writeByteSync((i + 1) & 0xff);
     }
-    String s = rf.toString();
+    var s = rf.toString();
     Expect.isTrue(s is String);
+    Expect.runtimeIsType<String>(s);
     asyncEnd();
     rf.closeSync();
   }).whenComplete(() {

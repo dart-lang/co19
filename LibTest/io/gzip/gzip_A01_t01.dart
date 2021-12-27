@@ -11,5 +11,6 @@ import "dart:io";
 
 main() {
   Expect.isTrue(gzip is GZipCodec);
+  Expect.runtimeIsType<GZipCodec>(gzip);
 }
 

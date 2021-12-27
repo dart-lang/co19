@@ -22,6 +22,7 @@ main() {
     Expect.isNotNull(rf);
     var clf = rf.close();
     Expect.isTrue(clf is Future);
+    Expect.runtimeIsType<Future>(clf);
     clf.then((f) {
       try {
         rf.readIntoSync([0, 0]);

@@ -29,7 +29,7 @@ main() {
     var f1 = rf.truncate(4);
     f1.then((RandomAccessFile f) {
       var len2 = f.lengthSync();
-      Expect.isTrue(len2 == 4);
+      Expect.equals(4, len2);
       Expect.isTrue(len2 < len1);
       asyncEnd();
     }).whenComplete(() {

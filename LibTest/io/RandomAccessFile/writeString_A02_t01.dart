@@ -28,9 +28,9 @@ check(String s) {
   raFile.then((RandomAccessFile rf) {
     var f = rf.writeString(s);
     Expect.isTrue(f is Future<RandomAccessFile>);
+    Expect.runtimeIsType<Future<RandomAccessFile>>(f);
 
     f.then((RandomAccessFile file) {
-      Expect.isTrue(file is RandomAccessFile);
       Expect.equals(rf, file);
       asyncEnd();
     }).whenComplete(() {

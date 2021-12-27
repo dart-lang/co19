@@ -31,7 +31,7 @@ main() {
               new Rectangle(values[i], values[j], values[k], values[l]);
           var res = (r1 == r2);
           Expect.isTrue(res is bool);
-          Expect.isNotNull(res);
+          Expect.runtimeIsType<bool>(res);
         }
       }
     }

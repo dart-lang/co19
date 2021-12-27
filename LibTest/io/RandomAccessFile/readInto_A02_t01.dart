@@ -28,8 +28,8 @@ check(int number) {
     rf.setPositionSync(0);
     var num = rf.readInto(list, 0, number);
     Expect.isTrue(num is Future<int>);
+    Expect.runtimeIsType<Future<int>>(num);
     num.then((int n) {
-      Expect.isTrue(n is int);
       Expect.equals(number, n);
       asyncEnd();
     }).whenComplete(() {

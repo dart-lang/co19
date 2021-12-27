@@ -24,6 +24,7 @@ void check(int num, List<int> list) {
     Expect.equals(0, file.lengthSync());
     var f = rf.writeByte(num);
     Expect.isTrue(f is Future<RandomAccessFile>);
+    Expect.runtimeIsType<Future<RandomAccessFile>>(f);
 
     f.then((RandomAccessFile file) {
       Expect.equals(rf, file);

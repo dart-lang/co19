@@ -19,5 +19,6 @@ import "dart:io";
 
 main() {
   Expect.isTrue(systemEncoding is SystemEncoding);
+  Expect.runtimeIsType<SystemEncoding>(systemEncoding);
 }
 

@@ -17,7 +17,9 @@ main() {
       WebSocketTransformer
           .upgrade(request)
           .then((websocket) {
-        Expect.isTrue(websocket.length is Future<int>);
+        var v = websocket.length;
+        Expect.isTrue(v is Future<int>);
+        Expect.runtimeIsType<Future<int>>(v);
         websocket.close();
       });
     });

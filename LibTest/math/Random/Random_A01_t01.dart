@@ -13,10 +13,13 @@ import "../../../Utils/expect.dart";
 main() {
   var rand = new Random(519);
   Expect.isTrue(rand is Random);
+  Expect.runtimeIsType<Random>(rand);
 
   rand = new Random(100);
   Expect.isTrue(rand is Random);
+  Expect.runtimeIsType<Random>(rand);
 
   rand = new Random();
   Expect.isTrue(rand is Random);
+  Expect.runtimeIsType<Random>(rand);
 }

@@ -28,6 +28,7 @@ main() {
     rf.setPositionSync(0);
     var num = rf.readIntoSync(list, 0);
     Expect.isTrue(num is int);
+    Expect.runtimeIsType<int>(num);
     Expect.equals(10, num);
     rf.closeSync();
     try {

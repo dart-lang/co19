@@ -19,4 +19,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(ProcessInfo.maxRss is int);
+  Expect.runtimeIsType<int>(ProcessInfo.maxRss);
 }

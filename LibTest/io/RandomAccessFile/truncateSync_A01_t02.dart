@@ -26,7 +26,7 @@ main() {
     var len1 = rf.lengthSync();
     rf.truncateSync(12);
     var len2 = rf.lengthSync();
-    Expect.isTrue(len2 == 12);
+    Expect.equals(12, len2);
     Expect.isTrue(len2 > len1);
     asyncEnd();
     rf.closeSync();

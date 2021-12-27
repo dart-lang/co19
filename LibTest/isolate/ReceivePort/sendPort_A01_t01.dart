@@ -14,6 +14,7 @@ void main() {
   ReceivePort rPort = new ReceivePort();
   var sPort = rPort.sendPort;
   Expect.isTrue(sPort is SendPort);
+  Expect.runtimeIsType<SendPort>(sPort);
 
   asyncStart();
   rPort.listen((var message) {

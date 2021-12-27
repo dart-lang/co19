@@ -28,9 +28,9 @@ main() {
     }
     var f1 = rf.truncate(10);
     Expect.isTrue(f1 is Future<RandomAccessFile>);
+    Expect.runtimeIsType<Future<RandomAccessFile>>(f1);
     f1.then((RandomAccessFile f) {
-      Expect.isTrue(f is RandomAccessFile);
-      Expect.isTrue(f == rf);
+      Expect.equals(f, rf);
       asyncEnd();
     }).whenComplete(() {
       rf.closeSync();

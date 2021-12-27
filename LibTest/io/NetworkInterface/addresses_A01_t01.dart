@@ -23,6 +23,8 @@ main() {
       NetworkInterface nwInterface = fValue[i];
       Expect.isTrue(nwInterface.addresses is List);
       Expect.isTrue(nwInterface.addresses[0] is InternetAddress);
+      Expect.runtimeIsType<List>(nwInterface.addresses);
+      Expect.runtimeIsType<InternetAddress>(nwInterface.addresses[0]);
     }
     asyncEnd();
   });

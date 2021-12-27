@@ -26,6 +26,7 @@ main() {
     }
     var rfPos = rf.positionSync();
     Expect.isTrue(rfPos is int);
+    Expect.runtimeIsType<int>(rfPos);
     Expect.isTrue(rfPos == 10);
     rf.setPositionSync(3);
     rf.closeSync();

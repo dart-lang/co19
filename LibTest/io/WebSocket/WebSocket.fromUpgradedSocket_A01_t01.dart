@@ -41,6 +41,7 @@ main() {
       var websocket = new WebSocket.fromUpgradedSocket(socket,
           protocol: "p1.com", serverSide: true);
       Expect.isTrue(websocket is WebSocket);
+      Expect.runtimeIsType<WebSocket>(websocket);
       websocket.close();
       socket.done.then((_) {
         socket.destroy();

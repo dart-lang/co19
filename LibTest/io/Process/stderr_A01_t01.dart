@@ -10,7 +10,6 @@
 /// standard error stream of the process as a Stream.
 /// @author sgrekhov@unipro.ru
 
-
 import 'dart:convert';
 import "dart:io";
 import "dart:async";
@@ -27,6 +26,7 @@ runMain() async {
   asyncStart();
   Process.start(command, args).then((Process process) {
     Expect.isTrue(process.stderr is Stream<List<int>>);
+    Expect.runtimeIsType<List<int>>(process.stderr);
     process.stderr.transform(utf8.decoder)
       .transform(const LineSplitter()).toList().then((List errList) {
       Expect.isTrue(errList[0].contains("stderr"), "Actual value: errList[0]");

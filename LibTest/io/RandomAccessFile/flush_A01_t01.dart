@@ -24,10 +24,12 @@ main() {
     rf.writeByteSync(9);
     var rfFlush = rf.flush();
     Expect.isTrue(rfFlush is Future<RandomAccessFile>);
+    Expect.runtimeIsType<Future<RandomAccessFile>>(rfFlush);
     var list;
 
     rfFlush.then((RandomAccessFile f) {
       Expect.isTrue(f is RandomAccessFile);
+      Expect.runtimeIsType<RandomAccessFile>(f);
       Expect.isTrue(f == rf);
       f.setPositionSync(0);
       list = f.readSync(1);

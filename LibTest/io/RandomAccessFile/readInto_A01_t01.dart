@@ -31,9 +31,9 @@ main() {
     rf.setPositionSync(0);
     var num = rf.readInto(list);
     Expect.isTrue(num is Future<int>);
+    Expect.runtimeIsType<Future<int>>(num);
 
     num.then((int n) {
-      Expect.isTrue(n is int);
       for (int i = 0; i < n; i++) {
         Expect.equals((i + 1) & 0xff, list[i]);
       }

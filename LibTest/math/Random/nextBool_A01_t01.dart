@@ -15,5 +15,6 @@ main() {
   for (int i = 0; i < 1000; i++) {
     var x = rand.nextBool();
     Expect.isTrue(x is bool);
+    Expect.runtimeIsType<bool>(x);
   }
 }

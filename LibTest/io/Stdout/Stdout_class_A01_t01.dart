@@ -14,4 +14,6 @@ import "../../../Utils/expect.dart";
 main() async {
   Expect.isTrue(stdout is IOSink);
   Expect.isTrue(stderr is IOSink);
+  Expect.runtimeIsType<IOSink>(stdout);
+  Expect.runtimeIsType<IOSink>(stderr);
 }

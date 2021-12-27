@@ -32,6 +32,7 @@ main() {
           Point point2 = new Point(values[k], values[l]);
           var res = (point1 == point2);
           Expect.isTrue(res is bool);
+          Expect.runtimeIsType<bool>(res);
           Expect.isNotNull(res);
         }
       }

@@ -24,7 +24,9 @@ main() {
       WebSocketTransformer
           .upgrade(request)
           .then((websocket) {
-        Expect.isTrue(websocket.isEmpty is Future<bool>);
+        var v = websocket.isEmpty;
+        Expect.isTrue(v is Future<bool>);
+        Expect.runtimeIsType<Future<bool>>(v);
         websocket.close();
       });
     });

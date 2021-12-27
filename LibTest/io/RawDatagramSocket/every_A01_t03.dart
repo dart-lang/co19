@@ -77,7 +77,6 @@ main() async {
   check(int nCall) async {
     for (int i = 0; i < attempts; i++) {
       bool value = await checkEvery(nCall);
-      Expect.isTrue(value is bool);
       if (value == true && nCall == 5) {
         break;
       }

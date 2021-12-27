@@ -45,6 +45,7 @@ main() {
   asyncStart();
   Process.start(command, args).then((Process process) {
     Expect.isTrue(process.exitCode is Future<int>);
+    Expect.runtimeIsType<Future<int>>(process.exitCode);
     process.exitCode.then((int value) {
       Expect.isTrue(value >= 0 && value < 256);
       asyncEnd();

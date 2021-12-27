@@ -12,6 +12,8 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue(new ProcessInfo() is ProcessInfo);
-  Expect.isFalse(new ProcessInfo() == new ProcessInfo());
+  var pi = new ProcessInfo();
+  Expect.isTrue(pi is ProcessInfo);
+  Expect.runtimeIsType<ProcessInfo>(pi);
+  Expect.isFalse(pi == new ProcessInfo());
 }

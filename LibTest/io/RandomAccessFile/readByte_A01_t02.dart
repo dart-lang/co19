@@ -26,8 +26,8 @@ main(m) {
     }
     var byte = rf.readByte();
     Expect.isTrue(byte is Future<int>);
+    Expect.runtimeIsType<Future<int>>(byte);
     byte.then((int b) {
-      Expect.isTrue(b is int);
       Expect.equals(-1, b);
       asyncEnd();
     }).whenComplete(() {

@@ -26,9 +26,9 @@ void check(int num) {
     rf.setPositionSync(0);
     var list1 = rf.read(num);
     Expect.isTrue(list1 is Future<List<int>>);
+    Expect.runtimeIsType<Future<List<int>>>(list1);
 
     list1.then((List<int> list) {
-      Expect.isTrue(list is List<int>);
       int len = list.length;
       Expect.equals(num, len);
       for (int i = 0; i < len; i++) {
@@ -37,8 +37,8 @@ void check(int num) {
     }).whenComplete(() {
       var list2 = rf.read(11 - num);
       Expect.isTrue(list2 is Future<List<int>>);
+      Expect.runtimeIsType<Future<List<int>>>(list2);
       list2.then((List<int> list) {
-        Expect.isTrue(list is List<int>);
         int len = list.length;
         Expect.equals(10 - num, len);
         for (int i = 0; i < len; i++) {

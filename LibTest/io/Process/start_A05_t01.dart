@@ -47,6 +47,7 @@ main() {
       .start(command, args, mode: ProcessStartMode.detached)
       .then((Process process) {
     Expect.isTrue(process.pid is int);
+    Expect.runtimeIsType<int>(process.pid);
     Expect.throws(() {process.stdout;}, (e) => e is StateError);
     Expect.throws(() {process.stderr;}, (e) => e is StateError);
     Expect.throws(() {process.stdin;}, (e) => e is StateError);

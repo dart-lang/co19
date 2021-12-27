@@ -26,9 +26,9 @@ void check(int num) {
     }
     var raf = rf.setPosition(num);
     Expect.isTrue(raf is Future<RandomAccessFile>);
+    Expect.runtimeIsType<Future<RandomAccessFile>>(raf);
     raf.then((RandomAccessFile f) {
-      Expect.isTrue(f is RandomAccessFile);
-      Expect.isTrue(f == rf);
+      Expect.equals(f, rf);
       int byte = f.readByteSync();
       Expect.equals((num + 1) & 0xff, byte);
       asyncEnd();

@@ -15,5 +15,6 @@ import "../../../Utils/expect.dart";
 main() {
   var str = new Point(0, 1).toString();
   Expect.isTrue(str is String);
+  Expect.runtimeIsType<String>(str);
   Expect.equals("Point(0, 1)", str);
 }

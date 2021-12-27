@@ -30,6 +30,7 @@ main() {
               new MutableRectangle(values[i], values[j], values[k], values[l]);
           var res = (r1 == r2);
           Expect.isTrue(res is bool);
+          Expect.runtimeIsType<bool>(res);
           Expect.isNotNull(res);
         }
       }

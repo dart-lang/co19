@@ -26,6 +26,7 @@ main() {
     List<int> list = new List<int>.filled(10, 0);
     var n = rf.writeByteSync(0);
     Expect.isTrue(n is int);
+    Expect.runtimeIsType<int>(n);
     Expect.equals(1, n);
     Expect.equals(1, rf.lengthSync());
     for (int i = 1; i < 10; i++) {

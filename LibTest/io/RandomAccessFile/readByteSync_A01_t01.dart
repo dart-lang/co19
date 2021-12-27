@@ -36,6 +36,7 @@ main() {
     }
     byte = rf.readByteSync();
     Expect.isTrue(byte is int);
+    Expect.runtimeIsType<int>(byte);
     Expect.equals(-1, byte);
     asyncEnd();
     rf.closeSync();

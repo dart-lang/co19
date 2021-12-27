@@ -30,8 +30,8 @@ check(int start) {
     rf.setPositionSync(0);
     var num = rf.readInto(list, start, start);
     Expect.isTrue(num is Future<int>);
+    Expect.runtimeIsType<Future<int>>(num);
     num.then((int n) {
-      Expect.isTrue(n is int);
       Expect.equals(0, n);
       for (int i = 0; i < n; i++) {
         Expect.equals(null, list[i]);

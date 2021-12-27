@@ -22,6 +22,7 @@ main() {
     for (int i = 0; i < fValue.length; i++) {
       NetworkInterface nwInterface = fValue[i];
       Expect.isTrue(nwInterface.name is String);
+      Expect.runtimeIsType<String>(nwInterface.name);
     }
     asyncEnd();
   });

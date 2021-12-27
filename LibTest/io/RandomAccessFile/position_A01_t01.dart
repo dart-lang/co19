@@ -15,7 +15,6 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-
 main() {
   File file = getTempFileSync();
   asyncStart();
@@ -27,15 +26,14 @@ main() {
     }
     var rfPos = rf.position();
     Expect.isTrue(rfPos is Future<int>);
+    Expect.runtimeIsType<Future<int>>(rfPos);
     rfPos.then((int pos) {
-      Expect.isTrue(pos is int);
       Expect.isTrue(pos == 10);
     }).whenComplete(() {
       rf.setPositionSync(5);
       rfPos = rf.position();
       Expect.isTrue(rfPos is Future<int>);
       rfPos.then((int pos) {
-        Expect.isTrue(pos is int);
         Expect.isTrue(pos == 5);
         asyncEnd();
       }).whenComplete(() {

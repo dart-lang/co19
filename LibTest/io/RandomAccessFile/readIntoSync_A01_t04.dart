@@ -31,6 +31,7 @@ check(int start) {
     rf.setPositionSync(0);
     var num = rf.readIntoSync(list, start);
     Expect.isTrue(num is int);
+    Expect.runtimeIsType<int>(num);
     Expect.equals(list.length - start, num);
     for (int i = 0; i < num; i++) {
       Expect.equals((i + 1) & 0xff, list[start + i]);

@@ -27,9 +27,9 @@ check(FileLock lock) {
   rf.lockSync(lock);
   var rfUnlock = rf.unlock();
   Expect.isTrue(rfUnlock is Future<RandomAccessFile>);
+  Expect.runtimeIsType<Future<RandomAccessFile>>(rfUnlock);
   rfUnlock.then((RandomAccessFile f) {
-      Expect.isTrue(rf is RandomAccessFile);
-      Expect.isTrue(rf == f);
+      Expect.equals(rf, f);
     }).whenComplete(() {
     asyncEnd();
     rf.closeSync();

@@ -27,6 +27,7 @@ runMain() {
   asyncStart();
   Process.start(command, args).then((Process process) {
     Expect.isTrue(process.stderr is Stream<List<int>>);
+    Expect.runtimeIsType<Stream<List<int>>>(process.stderr);
     process.stdout.transform(utf8.decoder).transform(const LineSplitter()).
       toList().then((List outList) async {
       if (outList.isEmpty) {
