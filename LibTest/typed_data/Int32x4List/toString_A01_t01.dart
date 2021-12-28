@@ -7,7 +7,6 @@
 /// @description Checks that the String is returned.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -19,6 +18,7 @@ check(List<Int32x4> list) {
   var l = new Int32x4List.fromList(list);
   var res = l.toString();
   Expect.isTrue(res is String);
+  Expect.runtimeIsType<String>(res);
 }
 
 main() {

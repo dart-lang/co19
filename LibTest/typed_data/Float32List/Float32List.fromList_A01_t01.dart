@@ -8,13 +8,13 @@
 /// @description Checks that an instance of Float32List is created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(List<double> array) {
-  Float32List l = new Float32List.fromList(array);
+  var l = new Float32List.fromList(array);
   Expect.isTrue(l is Float32List);
+  Expect.runtimeIsType<Float32List>(l);
 }
 
 main() {

@@ -15,7 +15,6 @@
 /// specified, it defaults to zero (the first byte in the byte buffer).
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -28,6 +27,7 @@ void check(list) {
   var buffer = l.buffer;
   var view = new Int32x4List.view(buffer);
   Expect.isTrue(view is Int32x4List);
+  Expect.runtimeIsType<Int32x4List>(view);
   Expect.equals(view.length, l.length);
   Expect.isTrue(equal(l[0], view[0]));
   Expect.isTrue(equal(l[l.length - 1], view[view.length - 1]));

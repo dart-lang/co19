@@ -8,7 +8,6 @@
 /// in reverse order.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -20,6 +19,7 @@ void check(list) {
   var l = new Int32x4List.fromList(list);
   var reversed = l.reversed;
   Expect.isTrue(reversed is Iterable);
+  Expect.runtimeIsType<Iterable>(reversed);
   for (int i = 0; i < l.length; ++i) {
     Expect.isTrue(equal(l[l.length -1 - i], reversed.elementAt(i)));
   }

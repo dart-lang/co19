@@ -7,7 +7,6 @@
 /// @description Checks that a [String] is returned.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -15,6 +14,7 @@ void check(List<int> list) {
   var l = new Int8List.fromList(list);
   var res = l.toString();
   Expect.isTrue(res is String);
+  Expect.runtimeIsType<String>(res);
 }
 
 main() {

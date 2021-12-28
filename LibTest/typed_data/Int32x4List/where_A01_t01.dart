@@ -12,7 +12,6 @@
 /// Int32x4List that satisfy test.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -26,6 +25,7 @@ check(list, bool test(Int32x4 e)) {
   var count = 0;
 
   Expect.isTrue(res is Iterable);
+  Expect.runtimeIsType<Iterable>(res);
   for (int i = 0; i < l.length; ++i) {
     if (test(l[i])) {
       Expect.isTrue(equal(l[i], res.elementAt(count++)));

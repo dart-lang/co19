@@ -9,13 +9,13 @@
 /// created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(int length) {
   Uint8List l = new Uint8List(length);
   Expect.isTrue(l is Uint8List);
+  Expect.runtimeIsType<Uint8List>(l);
   Expect.equals(l.length, length);
 }
 

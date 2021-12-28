@@ -7,7 +7,6 @@
 /// @description Checks that the returned String is correct.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -17,6 +16,7 @@ check(List<Float64x2> list, String expected) {
   var l = new Float64x2List.fromList(list);
   var res = l.toString();
   Expect.isTrue(res is String);
+  Expect.runtimeIsType<String>(res);
   Expect.equals(expected, res);
 }
 

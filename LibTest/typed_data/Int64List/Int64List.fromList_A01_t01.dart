@@ -8,13 +8,13 @@
 /// @description Checks that an instance of Int64List is created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(List<int> array) {
-  Int64List l = new Int64List.fromList(array);
+  var l = new Int64List.fromList(array);
   Expect.isTrue(l is Int64List);
+  Expect.runtimeIsType<Int64List>(l);
 }
 
 main() {

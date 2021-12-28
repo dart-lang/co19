@@ -9,13 +9,13 @@
 /// is created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(int length) {
   var l = new ByteData(length);
   Expect.isTrue(l is ByteData);
+  Expect.runtimeIsType<ByteData>(l);
   Expect.equals(l.lengthInBytes, length);
 }
 

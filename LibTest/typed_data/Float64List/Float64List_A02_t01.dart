@@ -8,7 +8,6 @@
 /// integer.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

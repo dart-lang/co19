@@ -8,7 +8,6 @@
 /// @description Checks that an instance of Float32x4List is created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -18,6 +17,7 @@ Float32x4 packV(v) => new Float32x4.splat(v);
 void check(List<Float32x4> list) {
   Float32x4List l = new Float32x4List.fromList(list);
   Expect.isTrue(l is Float32x4List);
+  Expect.runtimeIsType<Float32x4List>(l);
 }
 
 main() {

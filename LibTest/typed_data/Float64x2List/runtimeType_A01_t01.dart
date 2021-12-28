@@ -7,7 +7,6 @@
 /// @description Checks that the correct [Type] is returned.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -15,5 +14,6 @@ main() {
   var obj = new Float64x2List(2);
   var type = obj.runtimeType;
   Expect.isTrue(type is Type);
+  Expect.runtimeIsType<Type>(type);
   Expect.stringEquals("Float64x2List", obj.runtimeType.toString());
 }

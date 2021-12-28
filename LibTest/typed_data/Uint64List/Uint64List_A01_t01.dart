@@ -9,13 +9,13 @@
 /// is created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(int length) {
   Uint64List l = new Uint64List(length);
   Expect.isTrue(l is Uint64List);
+  Expect.runtimeIsType<Uint64List>(l);
   Expect.equals(l.length, length);
 }
 

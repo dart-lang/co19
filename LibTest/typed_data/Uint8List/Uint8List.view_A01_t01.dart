@@ -12,7 +12,6 @@
 /// @description Checks that an instance of Uint8List is created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -21,6 +20,7 @@ void check(List<int> array, int offset, int length) {
   var byteBuffer = tmp.buffer;
   var l = new Uint8List.view(byteBuffer, offset, length);
   Expect.isTrue(l is Uint8List);
+  Expect.runtimeIsType<Uint8List>(l);
 }
 
 main() {

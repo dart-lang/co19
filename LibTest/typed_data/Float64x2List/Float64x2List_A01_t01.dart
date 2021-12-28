@@ -9,13 +9,13 @@
 /// is created.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(int length) {
   Float64x2List l = new Float64x2List(length);
   Expect.isTrue(l is Float64x2List);
+  Expect.runtimeIsType<Float64x2List>(l);
   Expect.equals(length, l.length);
 }
 

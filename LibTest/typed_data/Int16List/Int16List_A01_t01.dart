@@ -9,13 +9,13 @@
 /// created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(int length) {
   Int16List l = new Int16List(length);
   Expect.isTrue(l is Int16List);
+  Expect.runtimeIsType<Int16List>(l);
   Expect.equals(l.length, length);
 }
 

@@ -8,7 +8,6 @@
 /// Int32x4List skipping leading elements while test is satisfied.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -24,6 +23,7 @@ check(list, bool test(Int32x4 e)) {
   var count = 0;
 
   Expect.isTrue(res is Iterable);
+  Expect.runtimeIsType<Iterable>(res);
 
   while (it1.moveNext()) {
     if (test(it1.current)) {

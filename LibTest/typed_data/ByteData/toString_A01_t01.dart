@@ -7,7 +7,6 @@
 /// @description Checks that a [String] is returned.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -15,6 +14,7 @@ void check(count) {
   var l = new ByteData(count);
   var res = l.toString();
   Expect.isTrue(res is String);
+  Expect.runtimeIsType<String>(res);
 }
 
 main() {

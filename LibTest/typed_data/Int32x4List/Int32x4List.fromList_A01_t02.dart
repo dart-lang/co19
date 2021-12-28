@@ -9,7 +9,6 @@
 /// elements as elements list.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -20,6 +19,7 @@ equal(o1, o2) => o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
 void check(List<Int32x4> list) {
   var l = new Int32x4List.fromList(list);
   Expect.isTrue(l is Int32x4List);
+  Expect.runtimeIsType<Int32x4List>(l);
   Expect.equals(l.length, list.length);
   for (int i = 0; i < l.length; ++i) {
     Expect.isTrue(equal(list[i], l[i]));

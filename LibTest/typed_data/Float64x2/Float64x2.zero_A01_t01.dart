@@ -8,13 +8,13 @@
 /// are set correctly.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
   var obj = new Float64x2.zero();
   Expect.isTrue(obj is Float64x2);
+  Expect.runtimeIsType<Float64x2>(obj);
   Expect.equals(0.0, obj.x);
   Expect.equals(0.0, obj.y);
 }

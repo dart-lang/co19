@@ -33,15 +33,17 @@ void check(ByteBuffer buffer) {
   int offset2 = 8;
 
   // Int16List view of a byte buffer with offset1 and length1
-  Int16List res1 = buffer.asInt16List(offset1, length1);
+  var res1 = buffer.asInt16List(offset1, length1);
   int view1Length = res1.length;
 
   // Int16List view of a byte buffer with offset2
-  Int16List res2 = buffer.asInt16List(offset2);
+  var res2 = buffer.asInt16List(offset2);
   int view2Length = res2.length;
 
   Expect.isTrue(res1 is Int16List);
   Expect.isTrue(res2 is Int16List);
+  Expect.runtimeIsType<Int16List>(res1);
+  Expect.runtimeIsType<Int16List>(res2);
   Expect.equals(length1, view1Length);
   Expect.equals((viewSizeInBytes - offset2) >> shift, view2Length);
 

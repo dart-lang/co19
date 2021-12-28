@@ -11,7 +11,6 @@
 /// @description Checks that an instance of [ByteData] is created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -21,6 +20,7 @@ void check(List<int> array, int offset, int length) {
 
   var l = new ByteData.view(byteBuffer, offset, length);
   Expect.isTrue(l is ByteData);
+  Expect.runtimeIsType<ByteData>(l);
 }
 
 main() {

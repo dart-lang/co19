@@ -15,7 +15,6 @@
 /// which indicates that the view extends to the end of the byte buffer.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -28,6 +27,7 @@ void check(list, offset) {
   var buffer = l.buffer;
   var view = new Int32x4List.view(buffer, offset);
   Expect.isTrue(view is Int32x4List);
+  Expect.runtimeIsType<Int32x4List>(view);
   Expect.equals(view.length, l.length - (offset >> 4));
   Expect.isTrue(equal(l[l.length - 1], view[view.length - 1]));
 }

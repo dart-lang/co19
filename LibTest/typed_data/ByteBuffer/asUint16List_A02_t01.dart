@@ -16,7 +16,6 @@
 /// view.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -32,15 +31,17 @@ void check(ByteBuffer buffer) {
   int offset2 = 8;
 
   // Uint16List view of a byte buffer with offset1 and length1
-  Uint16List res1 = buffer.asUint16List(offset1, length1);
+  var res1 = buffer.asUint16List(offset1, length1);
   int view1Length = res1.length;
 
   // Uint16List view of a byte buffer with offset2
-  Uint16List res2 = buffer.asUint16List(offset2);
+  var res2 = buffer.asUint16List(offset2);
   int view2Length = res2.length;
 
   Expect.isTrue(res1 is Uint16List);
   Expect.isTrue(res2 is Uint16List);
+  Expect.runtimeIsType<Uint16List>(res1);
+  Expect.runtimeIsType<Uint16List>(res2);
   Expect.equals(length1, view1Length);
   Expect.equals((viewSizeInBytes - offset2) >> shift, view2Length);
 

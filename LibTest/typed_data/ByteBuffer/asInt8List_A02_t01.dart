@@ -12,24 +12,26 @@
 /// the end of the buffer.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
-  Int8List res = buffer.asInt8List(0);
+  var res = buffer.asInt8List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int offset1 = 1;
   int length1 = viewSizeInBytes - offset1 - 1;
   int offset2 = 3;
-  Int8List res1 = buffer.asInt8List(offset1, length1);
-  Int8List res2 = buffer.asInt8List(offset2);
+  var res1 = buffer.asInt8List(offset1, length1);
+  var res2 = buffer.asInt8List(offset2);
   int view1SizeInBytes = res1.lengthInBytes;
   int view2SizeInBytes = res2.lengthInBytes;
 
   Expect.isTrue(res is Int8List);
   Expect.isTrue(res1 is Int8List);
   Expect.isTrue(res2 is Int8List);
+  Expect.runtimeIsType<Int8List>(res);
+  Expect.runtimeIsType<Int8List>(res1);
+  Expect.runtimeIsType<Int8List>(res2);
   Expect.equals(length1, view1SizeInBytes);
   Expect.equals(viewSizeInBytes - offset2, view2SizeInBytes);
 

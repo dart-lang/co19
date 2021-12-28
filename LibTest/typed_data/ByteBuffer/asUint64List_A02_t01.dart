@@ -16,7 +16,6 @@
 /// view.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -41,6 +40,8 @@ void check(ByteBuffer buffer) {
 
   Expect.isTrue(res1 is Uint64List);
   Expect.isTrue(res2 is Uint64List);
+  Expect.runtimeIsType<Uint64List>(res1);
+  Expect.runtimeIsType<Uint64List>(res2);
   Expect.equals(length1, view1Length);
   Expect.equals((viewSizeInBytes - offset2) >> shift, view2Length);
 

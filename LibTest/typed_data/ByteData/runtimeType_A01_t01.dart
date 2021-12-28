@@ -7,7 +7,6 @@
 /// @description Checks that an instance of [Type] is returned.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -15,5 +14,6 @@ main() {
   var obj = new ByteData(0);
   var type = obj.runtimeType;
   Expect.isTrue(type is Type);
+  Expect.runtimeIsType<Type>(type);
 }
 

@@ -8,13 +8,13 @@
 /// @description Checks that an instance of Float64List is created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(List<double> array) {
-  Float64List l = new Float64List.fromList(array);
+  var l = new Float64List.fromList(array);
   Expect.isTrue(l is Float64List);
+  Expect.runtimeIsType<Float64List>(l);
 }
 
 main() {

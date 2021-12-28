@@ -14,6 +14,7 @@ import "../../../Utils/expect.dart";
 check(x, y, z, w) {
   var obj = new Int32x4(x, y, z, w);
   Expect.isTrue(obj is Int32x4);
+  Expect.runtimeIsType<Int32x4>(obj);
   Expect.equals(x.toUnsigned(32), obj.x.toUnsigned(32));
   Expect.equals(x.toUnsigned(32), obj.x.toUnsigned(32));
   Expect.equals(y.toUnsigned(32), obj.y.toUnsigned(32));

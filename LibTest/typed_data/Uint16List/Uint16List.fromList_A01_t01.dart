@@ -8,13 +8,13 @@
 /// @description Checks that an instance of Uint16List is created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(List<int> array) {
   Uint16List l = new Uint16List.fromList(array);
   Expect.isTrue(l is Uint16List);
+  Expect.runtimeIsType<Uint16List>(l);
 }
 
 main() {

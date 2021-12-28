@@ -33,15 +33,17 @@ void check(ByteBuffer buffer) {
   int offset2 = 32;
 
   // Float64x2List view of a byte buffer with offset1 and length1
-  Float64x2List res1 = buffer.asFloat64x2List(offset1, length1);
+  var res1 = buffer.asFloat64x2List(offset1, length1);
   int view1Length = res1.length;
 
   // Float64x2List view of a byte buffer with offset2
-  Float64x2List res2 = buffer.asFloat64x2List(offset2);
+  var res2 = buffer.asFloat64x2List(offset2);
   int view2Length = res2.length;
 
   Expect.isTrue(res1 is Float64x2List);
   Expect.isTrue(res2 is Float64x2List);
+  Expect.runtimeIsType<Float64x2List>(res1);
+  Expect.runtimeIsType<Float64x2List>(res2);
   Expect.equals(length1, view1Length);
   Expect.equals((viewSizeInBytes - offset2) >> shift, view2Length);
 

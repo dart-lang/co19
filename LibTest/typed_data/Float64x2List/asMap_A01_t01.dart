@@ -10,7 +10,6 @@
 /// used as keys of returned map.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -20,6 +19,7 @@ void check(List<Float64x2> list) {
   var l = new Float64x2List.fromList(list);
   var m = l.asMap();
   Expect.isTrue(m is Map);
+  Expect.runtimeIsType<Map>(m);
   for (int i = 0; i < list.length; ++i) {
     Expect.equals(l[i].x, m[i]?.x);
     Expect.equals(l[i].y, m[i]?.y);

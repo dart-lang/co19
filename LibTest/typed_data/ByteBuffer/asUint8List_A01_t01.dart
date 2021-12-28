@@ -11,17 +11,17 @@
 /// change the buffer, and vice versa.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   int bufSizeInBytes = buffer.lengthInBytes;
-  Uint8List res = buffer.asUint8List(0);
+  var res = buffer.asUint8List(0);
   Uint8List res1 = buffer.asUint8List(0);
   int viewSizeInBytes = res.lengthInBytes;
 
   Expect.isTrue(res is Uint8List);
+  Expect.runtimeIsType<Uint8List>(res);
   Expect.equals(bufSizeInBytes, viewSizeInBytes);
 
   if (viewSizeInBytes != 0) {

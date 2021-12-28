@@ -12,7 +12,6 @@
 /// @description Checks that an instance of Float32x4List is created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -23,6 +22,7 @@ void check(List<Float32x4> array, int offset, int length) {
   var byteBuffer = tmp.buffer;
   var l = new Float32x4List.view(byteBuffer, offset, length);
   Expect.isTrue(l is Float32x4List);
+  Expect.runtimeIsType<Float32x4List>(l);
 }
 
 main() {

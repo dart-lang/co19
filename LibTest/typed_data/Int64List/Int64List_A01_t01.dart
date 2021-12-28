@@ -14,8 +14,9 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(int length) {
-  Int64List l = new Int64List(length);
+  var l = new Int64List(length);
   Expect.isTrue(l is Int64List);
+  Expect.runtimeIsType<Int64List>(l);
   Expect.equals(l.length, length);
 }
 

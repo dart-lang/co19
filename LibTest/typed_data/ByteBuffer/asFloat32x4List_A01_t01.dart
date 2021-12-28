@@ -17,13 +17,14 @@ import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer){
   int bufSizeInBytes = buffer.lengthInBytes;
-  Float32x4List res = buffer.asFloat32x4List(0);
+  var res = buffer.asFloat32x4List(0);
   Float32x4List res1 = buffer.asFloat32x4List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int viewLength = res.length;
   int shift = (Float32x4List.bytesPerElement == 16) ? 4 : 0;
 
   Expect.isTrue(res is Float32x4List);
+  Expect.runtimeIsType<Float32x4List>(res);
   Expect.equals(bufSizeInBytes >> shift, viewLength);
 
   if (viewSizeInBytes != 0) {

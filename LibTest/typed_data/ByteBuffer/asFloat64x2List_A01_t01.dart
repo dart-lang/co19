@@ -12,7 +12,6 @@
 /// @author ngl@unipro.ru
 /// @issue 43204
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -25,6 +24,7 @@ void check(ByteBuffer buffer){
   int shift = (Float64x2List.bytesPerElement == 16) ? 4 : 0;
 
   Expect.isTrue(res is Float64x2List);
+  Expect.runtimeIsType<Float64x2List>(res);
   Expect.equals(bufSizeInBytes >> shift, viewLength);
 
   if (viewSizeInBytes != 0) {

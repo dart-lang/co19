@@ -8,13 +8,13 @@
 /// @note undocumented
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(v) {
   var obj = new Float32x4.splat(v);
   Expect.isTrue(obj is Float32x4);
+  Expect.runtimeIsType<Float32x4>(obj);
   Expect.approxEquals(v, obj.x, (v / 1e7).abs());
   Expect.approxEquals(v, obj.y, (v / 1e7).abs());
   Expect.approxEquals(v, obj.z, (v / 1e7).abs());

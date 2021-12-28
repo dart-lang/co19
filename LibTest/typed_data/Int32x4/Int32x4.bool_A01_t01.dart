@@ -8,13 +8,13 @@
 /// are set correctly.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(x, y, z, w) {
   var obj = new Int32x4.bool(x, y, z, w);
   Expect.isTrue(obj is Int32x4);
+  Expect.runtimeIsType<Int32x4>(obj);
   Expect.equals(x, obj.flagX);
   Expect.equals(y, obj.flagY);
   Expect.equals(z, obj.flagZ);

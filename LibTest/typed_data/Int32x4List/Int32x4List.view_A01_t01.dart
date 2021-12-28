@@ -13,7 +13,6 @@
 /// correct elements is created.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -26,6 +25,7 @@ void check(List<Int32x4> list, offset, length) {
   var buffer = l.buffer;
   var view = new Int32x4List.view(buffer, offset, length);
   Expect.isTrue(view is Int32x4List);
+  Expect.runtimeIsType<Int32x4List>(view);
   Expect.equals(view.length, length);
   for (int i = 0; i < view.length; ++i) {
     Expect.isTrue(equal(l[i + (offset >> 4) as int], view[i]));

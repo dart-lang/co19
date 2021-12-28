@@ -8,13 +8,13 @@
 /// @description Checks that an instance of Int8List is created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(List<int> array) {
   Int8List l = new Int8List.fromList(array);
   Expect.isTrue(l is Int8List);
+  Expect.runtimeIsType<Int8List>(l);
 }
 
 main() {

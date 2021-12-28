@@ -9,7 +9,6 @@
 /// is created.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -17,6 +16,7 @@ void check(length) {
   var l = new Int32x4List(length);
   Expect.isTrue(l is Int32x4List);
   Expect.equals(l.length, length);
+  Expect.runtimeIsType<Int32x4List>(l);
 }
 
 main() {

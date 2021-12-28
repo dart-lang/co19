@@ -12,7 +12,6 @@
 /// the end of the buffer.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -22,14 +21,15 @@ void check(ByteBuffer buffer) {
   int offset1 = 1;
   int length1 = viewSizeInBytes - offset1 - 1;
   int offset2 = 3;
-  ByteData res1 = buffer.asByteData(offset1, length1);
-  ByteData res2 = buffer.asByteData(offset2);
+  var res1 = buffer.asByteData(offset1, length1);
+  var res2 = buffer.asByteData(offset2);
   int view1SizeInBytes = res1.lengthInBytes;
   int view2SizeInBytes = res2.lengthInBytes;
 
   Expect.isTrue(res is ByteData);
   Expect.isTrue(res1 is ByteData);
-  Expect.isTrue(res2 is ByteData);
+  Expect.runtimeIsType<ByteData>(res);
+  Expect.runtimeIsType<ByteData>(res1);
   Expect.equals(length1, view1SizeInBytes);
   Expect.equals(viewSizeInBytes - offset2, view2SizeInBytes);
 

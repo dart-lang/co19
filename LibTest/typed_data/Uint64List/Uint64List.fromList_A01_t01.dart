@@ -8,13 +8,13 @@
 /// @description Checks that an instance of Uint64List is created.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(List<int> array) {
   Uint64List l = new Uint64List.fromList(array);
   Expect.isTrue(l is Uint64List);
+  Expect.runtimeIsType<Uint64List>(l);
 }
 
 main() {

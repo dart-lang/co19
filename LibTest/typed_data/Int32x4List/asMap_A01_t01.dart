@@ -10,7 +10,6 @@
 /// corresponding objects as values.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -22,6 +21,7 @@ void check(list) {
   var l = new Int32x4List.fromList(list);
   var m = l.asMap();
   Expect.isTrue(m is Map);
+  Expect.runtimeIsType<Map>(m);
   for (int i = 0; i < l.length; ++i) {
     Expect.isTrue(m.containsKey(i));
     Expect.isTrue(equal(l[i], m[i]));

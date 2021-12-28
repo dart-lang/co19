@@ -12,17 +12,17 @@
 /// different elements size.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   int bufSizeInBytes = buffer.lengthInBytes;
-  Int8List res = buffer.asInt8List(0);
+  var res = buffer.asInt8List(0);
   Int8List res1 = buffer.asInt8List(0);
   int viewSizeInBytes = res.lengthInBytes;
 
   Expect.isTrue(res is Int8List);
+  Expect.runtimeIsType<Int8List>(res);
   Expect.equals(bufSizeInBytes, viewSizeInBytes);
 
   if (viewSizeInBytes != 0) {

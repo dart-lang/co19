@@ -8,7 +8,6 @@
 /// @description Checks that an instance of Float64x2List is created.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -18,6 +17,7 @@ Float64x2 f64x2V(v) => new Float64x2.splat(v);
 void check(List<Float64x2> list) {
   Float64x2List l = new Float64x2List.fromList(list);
   Expect.isTrue(l is Float64x2List);
+  Expect.runtimeIsType<Float64x2List>(l);
 }
 
 main() {

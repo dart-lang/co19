@@ -8,13 +8,13 @@
 /// are set correctly.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(x, y, z, w) {
   var obj = new Float32x4(x, y, z, w);
   Expect.isTrue(obj is Float32x4);
+  Expect.runtimeIsType<Float32x4>(obj);
   Expect.approxEquals(x, obj.x, (x / 1e7).abs());
   Expect.approxEquals(y, obj.y, (y / 1e7).abs());
   Expect.approxEquals(z, obj.z, (z / 1e7).abs());

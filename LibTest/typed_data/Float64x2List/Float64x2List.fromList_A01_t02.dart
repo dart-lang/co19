@@ -9,7 +9,6 @@
 /// and element values as [elements] list.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -24,6 +23,7 @@ void check(List<Float64x2> list) {
     Expect.equals(list[i].y, l[i].y);
   }
   Expect.isTrue(l is Float64x2List);
+  Expect.runtimeIsType<Float64x2List>(l);
 }
 
 main() {

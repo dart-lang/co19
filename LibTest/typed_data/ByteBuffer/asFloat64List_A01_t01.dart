@@ -12,19 +12,19 @@
 /// @author ngl@unipro.ru
 /// @issue 43204
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   int bufSizeInBytes = buffer.lengthInBytes;
-  Float64List res = buffer.asFloat64List(0);
+  var res = buffer.asFloat64List(0);
   Float64List res1 = buffer.asFloat64List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int viewLength = res.length;
   int shift = (Float64List.bytesPerElement == 8) ? 3 : 0;
 
   Expect.isTrue(res is Float64List);
+  Expect.runtimeIsType<Float64List>(res);
   Expect.equals(bufSizeInBytes >> shift, viewLength);
 
   if (viewSizeInBytes != 0) {

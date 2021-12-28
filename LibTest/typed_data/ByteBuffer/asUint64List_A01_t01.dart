@@ -11,7 +11,6 @@
 /// change the buffer, and vice versa.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -24,6 +23,7 @@ void check(ByteBuffer buffer) {
   int shift = (Uint64List.bytesPerElement == 8) ? 3 : 0;
 
   Expect.isTrue(res is Uint64List);
+  Expect.runtimeIsType<Uint64List>(res);
   Expect.equals(bufSizeInBytes >> shift, viewLength);
 
   if (viewSizeInBytes != 0) {

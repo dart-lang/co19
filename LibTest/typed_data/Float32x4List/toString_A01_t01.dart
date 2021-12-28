@@ -7,7 +7,6 @@
 /// @description Checks that a [String] is returned.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -17,6 +16,7 @@ void check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   var res = l.toString();
   Expect.isTrue(res is String);
+  Expect.runtimeIsType<String>(res);
 }
 
 main() {
