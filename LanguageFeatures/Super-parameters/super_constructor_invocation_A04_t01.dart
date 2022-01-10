@@ -32,7 +32,7 @@ class S<T> {
 }
 
 class C<T> extends S<T> {
-  C.constr1(String s, {super.t);
+  C.constr1(String s, {super.t});
   C.constr2(int i, String s, {super.n}) : super();
   C.constr3(int i, String s, {super.n, super.t}) : super.named();
 }
