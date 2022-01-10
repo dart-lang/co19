@@ -10,6 +10,7 @@
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=super-parameters
+
 class S {
   int s1, s2;
   S(this.s1, {this.s2 = 0});
@@ -23,5 +24,5 @@ class C extends S {
 // [cfe] unspecified
 }
 main() {
-  C(1, 2, 3);
+  C(1, 2, s2: 3);
 }

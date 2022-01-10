@@ -34,5 +34,5 @@ class C extends S {
 }
 
 main() {
-  Expect.equals("S", C(1, 2, 3, 4).log);
+  Expect.equals("S", C(1, 2, 3, s2: 4).log);
 }
