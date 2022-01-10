@@ -19,19 +19,20 @@
 // SharedOptions=--enable-experiment=super-parameters
 
 class S {
-  int s1 = 0;
+  int s1;
+  S(this.s1);
 }
 
 class C extends S {
   int i;
   C(this.i, super.s1);
 
-  factory C.f(int i, super.s1) => new C(i, 42);
+  factory C.f(int i, super.s1) => C(i, 42);
 //                   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  C(42);
+  C(1, 2);
 }
