@@ -21,8 +21,8 @@ class S {
 
 class C extends S {
   num c1;
-  C(this.c1, int super.s1, num x);
-//           ^^^^^^^^^^^^
+  C(this.c1, [int super.s1, num x]);
+//            ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
