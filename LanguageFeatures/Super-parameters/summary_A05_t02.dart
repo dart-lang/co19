@@ -15,12 +15,12 @@
 
 class S {
   num s1, s2, s3;
-  S(this.s1, int x, {this.s3 = 3.14});
+  S(this.s1, this.s2 , {this.s3 = 3.14});
 }
 
 class C extends S {
   int c;
-  C(this.c, super.s2) : super. super(42, s3: 0);
+  C(this.c, super.s2) : super(42, s3: 0);
 //          ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
