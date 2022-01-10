@@ -10,15 +10,10 @@
 /// d is a subtype of the (declared or inferred above) type of p, then p gets
 /// the default value d.
 ///
-/// @description Check that if p is optional, does not declare a default value,
-/// the associated super-constructor parameter is also optional and has a
-/// default value d, and d is a subtype of the (declared or inferred above) type
-/// of p, then p gets the default value d
+/// @description Check that id `d` is not subtype of the declared type of p
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=super-parameters
-
-import "../../Utils/expect.dart";
 
 class S {
   int s1;
@@ -28,19 +23,12 @@ class S {
 
 class C extends S {
   int c1;
-  C(this.c1, [int super.s1, int x, int super.s2]);
+  C(this.c1, [num super.s1, int x, num super.s2]);
+//            ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  C c1 = C(42);
-  Expect.equals(1, c1.s1);
-  Expect.equals(2, c1.s2);
-
-  C c2 = C(0, 42);
-  Expect.equals(42, c2.s1);
-  Expect.equals(2, c2.s2);
-
-  C c3 = C(0, 42, 43, 44);
-  Expect.equals(42, c3.s1);
-  Expect.equals(44, c3.s2);
+  C(42);
 }
