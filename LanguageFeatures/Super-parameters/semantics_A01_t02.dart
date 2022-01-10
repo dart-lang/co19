@@ -23,12 +23,15 @@ class S {
 }
 
 class C extends S {
-  int i;
+  int? i;
   C(this.i) : C.named(super.s1);
 //                    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C.named(super.s1);
+//        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
