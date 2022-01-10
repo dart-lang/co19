@@ -14,36 +14,16 @@
 
 // SharedOptions=--enable-experiment=super-parameters
 
-import "../../Utils/expect.dart";
-
-test<T>(T t) {}
-
 class S<T extends num> {
-  final f;
-  var v;
-  num n;
-  T t;
-  S(this.f, this.v, this.n, this.t, var i) {
-    test<int>(f);
-    test<int>(v);
-    test<num>(n);
-    test<T>(t);
-    test<int>(i);
-  }
+  S(T t);
 }
 
 class C<T extends num> extends S<T> {
-  C(int x, int super.f, int super.v, int super.n, T super.t, int y,
-      int super.i) {
-    Expect.isTrue(f is int);
-    Expect.isFalse(f is String);
-    Expect.isTrue(v is int);
-    Expect.isFalse(v is String);
-    Expect.isTrue(n is int);
-    Expect.isFalse(n is String);
-  }
+  C(int super.t);
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
-
 main() {
-  C(1, 2, 3, 4, 5, 6, 7);
+  C(42);
 }
