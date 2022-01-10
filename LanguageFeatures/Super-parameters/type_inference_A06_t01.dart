@@ -24,7 +24,7 @@ abstract class S {
 
 class C extends S {
   num c1;
-  C(this.c1, [super.s1, num x]);
+  C(this.c1, [super.s1, num x = 42]);
 }
 
 main() {
