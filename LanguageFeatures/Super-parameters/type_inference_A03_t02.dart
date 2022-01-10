@@ -18,7 +18,7 @@
 
 import "../../Utils/expect.dart";
 
-test<T>(T t) {}
+test<T>(T? t) {}
 
 class S<T> {
   final f1;
