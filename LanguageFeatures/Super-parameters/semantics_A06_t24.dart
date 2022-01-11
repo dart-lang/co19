@@ -21,12 +21,13 @@
 /// constructor has a super-parameter with no associated super-constructor
 /// parameter.
 ///
-/// @description Check that it is a compile-time error if a non-redirecting
-/// generative constructor has a super-parameter with no associated
-/// super-constructor parameter.
+/// @description Check that for positional super parameters parameter associated
+/// super constructor parameter is chosen by order not by name
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=super-parameters
+
+import "../../Utils/expect.dart";
 
 class S {
   int s1, s2;
@@ -37,11 +38,9 @@ class C extends S {
   int i1;
   int i2;
   C(this.i1, super.x2, int x, super.x1) : this.i2 = x;
-//           ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
-  C(1, 2, 3, 4);
+  Expect.equals(2, C(1, 2, 3, 4).s1);
+  Expect.equals(4, C(1, 2, 3, 4).s2);
 }
