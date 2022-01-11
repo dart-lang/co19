@@ -43,7 +43,7 @@ main() {
   Expect.isFalse (checkme3 is Func2);
   Expect.isTrue (checkme4 is Func2);
   Expect.isFalse (checkme5 is Func2);
-  Expect.runtimeIsType<Func2>(checkme1);
+  Expect.runtimeIsNotType<Func2>(checkme1);
   Expect.runtimeIsNotType<Func2>(checkme2);
   Expect.runtimeIsNotType<Func2>(checkme3);
   Expect.runtimeIsType<Func2>(checkme4);

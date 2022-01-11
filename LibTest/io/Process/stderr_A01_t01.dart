@@ -26,7 +26,7 @@ runMain() async {
   asyncStart();
   Process.start(command, args).then((Process process) {
     Expect.isTrue(process.stderr is Stream<List<int>>);
-    Expect.runtimeIsType<List<int>>(process.stderr);
+    Expect.runtimeIsType<Stream<List<int>>>(process.stderr);
     process.stderr.transform(utf8.decoder)
       .transform(const LineSplitter()).toList().then((List errList) {
       Expect.isTrue(errList[0].contains("stderr"), "Actual value: errList[0]");

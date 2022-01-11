@@ -123,9 +123,9 @@ main() {
 //                           ^
 // [cfe] Operand of null-aware operation '...?' has type 'Map<B1, B2>' which excludes null.
   Expect.runtimeIsType<Map<B1, B2>>({b1: b2, ...?b_map});
-//                                              ^^^^
+//                                           ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                  ^
+//                                               ^
 // [cfe] Operand of null-aware operation '...?' has type 'Map<B1, B2>' which excludes null.
   Expect.isTrue({...c_map} is Map<B1, B2>);
   Expect.runtimeIsType<Map<B1, B2>>({...c_map});

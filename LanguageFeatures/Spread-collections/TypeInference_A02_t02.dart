@@ -35,7 +35,7 @@ main() {
   Expect.runtimeIsType<Set<String>>({"test", "a", ...?str_list, "ooooo"});
 //                                                ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                     ^
+//                                                    ^
 // [cfe] Operand of null-aware operation '...?' has type 'List<String>' which excludes null.
 
   Expect.isTrue({...a_list} is Set<A>);
@@ -194,9 +194,9 @@ main() {
 //                                             ^
 // [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.runtimeIsNotType<Set<C>>({c, ...a_list, ...b_list, ...?c_list});
-//                                                       ^^^^
+//                                                          ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                           ^
+//                                                              ^
 // [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isFalse({a, ...c_list, ...b_list, b} is Set<C>);
   Expect.runtimeIsNotType<Set<C>>({a, ...c_list, ...b_list, b});
