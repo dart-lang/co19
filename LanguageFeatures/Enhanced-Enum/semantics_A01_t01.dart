@@ -2,14 +2,24 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Declare a class with the same name and type parameters as the
-/// enum declaration.
+/// @assertion The Enum class behaves as if it was declared as:
 ///
-/// Add extends Enum.
+/// class Enum {
+///   // No default constructor.
+///   external int get index;
+///   external String toString();
+/// }
+/// We intend to (at least pretend to) let enum classes extend Enum, and let
+/// mixins and members access the default index and toString() through super..
+/// (In practice, we may use a different class implementing Enum as the
+/// superclass, but for checking the validity of super.index/super.toString(),
+/// we analyze against Enum itself, so it must have non-abstract
+/// implementations.)
 ///
-/// Further add the mixins and interfaces of the enum declaration.
+/// This all makes it look as if Enum would be a valid superclass for the mixin
+/// applications and methods of the enhanced enum class.
 ///
-/// @description Check that Enum and other interfaces are implemented
+/// @description Check that `Enum` and other interfaces are implemented
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums

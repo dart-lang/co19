@@ -21,7 +21,8 @@
 /// applications having const forwarding constructors, those should also apply
 /// here.
 ///
-/// @description Check that enum implements its mixins
+/// @description Check that superclass of `C` is the mixin application
+/// `EnumImpl` with `Mixin1`, `Mixin2`.
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
@@ -29,24 +30,32 @@
 import "../../Utils/expect.dart";
 
 mixin M1 on Object {
-  int mixedInMethod1() => 1;
+  int mixedInMethod1(int v) => v;
 }
 
 mixin M2 on Enum {
-  int mixedInMethod2() => index + 1;
+  int mixedInMethod2(int i) => index + i;
 }
 
 enum E with M1, M2 {
-  e1,
-  e2,
-  e3;
+  e1(1, 1),
+  e2(2, 2),
+  e3(3, 3);
+
+  final int val1;
+  final int val2;
+
+  E(int v1, int v2) {
+    val1 = super.mixedInMethod1(v1);
+    val2 = super.mixedInMethod2(v2);
+  }
 }
 
 main() {
-  Expect.equals(1, E.e1.mixedInMethod1());
-  Expect.equals(2, E.e1.mixedInMethod2());
-  Expect.equals(1, E.e2.mixedInMethod1());
-  Expect.equals(3, E.e2.mixedInMethod2());
-  Expect.equals(1, E.e3.mixedInMethod1());
-  Expect.equals(4, E.e3.mixedInMethod2());
+  Expect.equals(1, E.e1.val1);
+  Expect.equals(2, E.e1.val2);
+  Expect.equals(2, E.e2.val1);
+  Expect.equals(4, E.e2.val2);
+  Expect.equals(3, E.e3.val1);
+  Expect.equals(6, E.e3.val2);
 }

@@ -1,43 +1,51 @@
-// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Add final int index; and final String _$name; instance variable
-/// declarations to the class. (We’ll represent fresh names by prefixing with _$
-/// here and below).
+/// @assertion The semantics of such an enum declaration, E, is defined as
+/// introducing a (semantic) class, C, just like a similar class declaration.
 ///
-/// For each member declaration:
+/// Name: The name of the class C and its implicit interface is the name of the
+/// enum declaration.
 ///
-/// If the member declaration is a (necessarily const) generative constructor,
-/// introduce a similar named constructor on the class with a fresh name, which
-/// takes two extra leading positional arguments
-/// (Name.foo(...) ↦ Name._$foo(int .., String .., ...),
-/// Name(...) ↦ Name._$(int .., String .., ...)). If the constructor is
-/// non-redirecting, make the two arguments this.index and this._$name. If the
-/// constructor is redirecting, make them int _$index and String _$name, then
-/// change the target of the redirection to the corresponding freshly-renamed
-/// constructor and pass _$index and _$name as two extra initial positional
-/// arguments.
-/// Otherwise include the member as written.
-///
-/// @description Check that index and _name variables
+/// @description Check the name of the enum instance
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
 import "../../Utils/expect.dart";
 
-enum E1 {
+class I1 {
+  int interfaceMethod1() => 0;
+  int get interfaceGetter1 => 0;
+  void set interfaceSetter1(int value) {}
+}
+
+abstract class I2 {
+  int interfaceMethod2();
+  int get interfaceGetter2;
+  void set interfaceSetter2(int value);
+}
+
+mixin M on Object {
+  int mixedInMethod() => 42;
+}
+
+enum E with M implements I1, I2 {
   e1,
   e2,
-  e3
+  e3;
+
+  int interfaceMethod1() => 42;
+  int get interfaceGetter1 => 42;
+  void set interfaceSetter1(int value) {}
+  int interfaceMethod2() => 42;
+  int get interfaceGetter2 => 42;
+  void set interfaceSetter2(int value) {}
 }
 
 main() {
-  Expect.equals(0, E1.e1.index);
-  Expect.equals(1, E1.e2.index);
-  Expect.equals(2, E1.e3.index);
-  Expect.equals("E1.e1", E1.e1.toString());
-  Expect.equals("E1.e2", E1.e2.toString());
-  Expect.equals("E1.e3", E1.e3.toString());
+  Expect.isTrue(E.e1 is E);
+  Expect.isTrue(E.e2 is E);
+  Expect.isTrue(E.e3 is E);
 }

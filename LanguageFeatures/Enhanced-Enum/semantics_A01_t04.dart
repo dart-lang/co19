@@ -1,4 +1,4 @@
-// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -19,45 +19,26 @@
 /// This all makes it look as if Enum would be a valid superclass for the mixin
 /// applications and methods of the enhanced enum class.
 ///
-/// @description Check that `Enum` and other interfaces are implemented
+/// @description Check `index` and `toString()` members
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
 import "../../Utils/expect.dart";
 
-class I1 {
-}
-
-abstract class I2 {
-}
-
-mixin M on Object {
-  int mixedInMethod() => 42;
-}
-
-enum E<T> with M implements I1, I2 {
+enum E1<T> {
   e1<int>(42),
   e2<String>("42"),
   e3<bool>(true);
 
-  const E(T t);
+  const E1(T t);
 }
 
 main() {
-  Expect.isTrue(E.e1 is Enum);
-  Expect.isTrue(E.e2 is Enum);
-  Expect.isTrue(E.e3 is Enum);
-  Expect.isTrue(E.e1 is I1);
-  Expect.isTrue(E.e2 is I1);
-  Expect.isTrue(E.e3 is I1);
-  Expect.isTrue(E.e1 is I2);
-  Expect.isTrue(E.e2 is I2);
-  Expect.isTrue(E.e3 is I2);
-  Expect.isTrue(E.e1 is M);
-  Expect.isTrue(E.e2 is M);
-  Expect.isTrue(E.e3 is M);
-  Expect.isTrue(E.e1 is E<int>);
-  Expect.isTrue(E.e2 is E<String>);
-  Expect.isTrue(E.e3 is E<bool>);
+  Expect.equals(0, E1.e1.index);
+  Expect.equals(1, E1.e2.index);
+  Expect.equals(2, E1.e3.index);
+  Expect.equals("E1.e1", E1.e1.toString());
+  Expect.equals("E1.e2", E1.e2.toString());
+  Expect.equals("E1.e3", E1.e3.toString());
 }
