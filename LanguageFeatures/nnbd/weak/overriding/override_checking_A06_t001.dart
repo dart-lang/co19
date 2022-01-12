@@ -29,7 +29,7 @@ class D extends B implements C {}
 
 void main() {
   Expect.isTrue(D().f is Object Function(Object));
-  Expect.isFalse(D().f is Object? Function(Object?));
+  Expect.isTrue(D().f is Object? Function(Object?));
   Expect.runtimeIsType<Object Function(Object)>(D().f);
-  Expect.runtimeIsNotType<Object? Function(Object?)>(D().f);
+  Expect.runtimeIsType<Object? Function(Object?)>(D().f);
 }
