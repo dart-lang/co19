@@ -56,7 +56,7 @@ enum E<T> implements I1, I2<T> {
 
 main() {
   Expect.equals(11, E.e1.interfaceMethod1());
-  Expect.equals(11, E.e2.interfaceGetter1);
+  Expect.equals(22, E.e2.interfaceGetter1);
   E.e3.interfaceSetter1 = 42;
   Expect.equals(false, E.e3.interfaceMethod2());
   Expect.equals("2", E.e2.interfaceGetter2);
