@@ -1,30 +1,44 @@
-// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion If no toString member was declared, add
-/// String toString() => “Name.${_$name}”;.
+/// @assertion The semantics of such an enum declaration, E, is defined as
+/// introducing a (semantic) class, C, just like a similar class declaration.
+/// ...
+/// Declared members: For each member declaration of the enum declaration E, the
+/// same member is added to the class C. This includes constructors (which must
+/// be const generative or non-const factory constructors.)
 ///
-/// @description Check that if no toString member was declared, then
-/// String toString() => “Name.${_$name}”; is added.
+/// @description Check that all members of the `enum` declaration are added to
+/// class `C`
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
 import "../../Utils/expect.dart";
 
-enum E<T> {
-  e1<int>(42),
-  e2<String>("42"),
-  e3<bool>(false);
+enum E {
+  e1,
+  e2,
+  e3;
 
-  final T _t;
-
-  const E(this._t);
+  final int i = 42;
+  String get getter => "getter";
+  void set setter(int i) {}
+  int method() => 314;
 }
 
 main() {
-  Expect.equals("E.e1", E.e1.toString());
-  Expect.equals("E.e2", E.e2.toString());
-  Expect.equals("E.e3", E.e3.toString());
+  Expect.equals(42, E.e1.i);
+  Expect.equals("getter", E.e1.getter);
+  E.e1.setter = 42;
+  Expect.equals(314, E.e1.method());
+  Expect.equals(42, E.e2.i);
+  Expect.equals("getter", E.e2.getter);
+  E.e2.setter = 42;
+  Expect.equals(314, E.e2.method());
+  Expect.equals(42, E.e3.i);
+  Expect.equals("getter", E.e3.getter);
+  E.e3.setter = 42;
+  Expect.equals(314, E.e3.method());
 }
