@@ -31,11 +31,11 @@ class C extends S {
 main() {
   var c1 = C(1, 2, 3);
   Expect.equals("S", c1.log);
-  Expect.equals(1, c1.s1);
+  Expect.equals(2, c1.s1);
   Expect.equals(0, c1.s2);
 
   var c2 = C.n(1, 2, 3, 4);
   Expect.equals("S.n", c2.log);
-  Expect.equals(1, c2.s1);
+  Expect.equals(2, c2.s1);
   Expect.equals(4, c2.s2);
 }
