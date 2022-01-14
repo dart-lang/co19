@@ -28,12 +28,12 @@ class S<T> {
   final f1;
   var v1;
   num i1;
-  T t1;
+  T? t1;
   S(this.f1, this.v1, this.i1, this.t1);
 }
 
 class C<T> extends S<T> {
-  C(super.f1, super.t1, [super.i1 = 0, super.v1 = 42]);
+  C(super.f1, super.t1, [super.i1 = 0, super.v1]);
 }
 
 main() {
