@@ -27,6 +27,7 @@ enum E<T> {
   e2(),
   e3<int>.named(42);
 
+  const E();
   const E.named(int x);
   int foo(covariant int x) => x;
 }
