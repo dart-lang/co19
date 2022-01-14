@@ -28,7 +28,7 @@ class S {
 
 class C extends S {
   int c1;
-  C(this.c1, [int super.s1, int x, int super.s2]);
+  C(this.c1, [int super.s1, int x = 0, int super.s2]);
 }
 
 main() {
