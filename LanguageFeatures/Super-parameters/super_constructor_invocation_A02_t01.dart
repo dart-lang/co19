@@ -46,7 +46,7 @@ main() {
   Expect.isFalse(c.f1 is String);
   Expect.isTrue(c.v1 is int);
   Expect.isFalse(c.v1 is String);
-  Expect.isTrue(c.i1.runtimeType is int);
+  Expect.equals("int", c.i1.runtimeType.toString());
   Expect.isTrue(c.t1 is int);
   Expect.isFalse(c.t1 is String);
 }
