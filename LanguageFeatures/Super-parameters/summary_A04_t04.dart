@@ -23,9 +23,9 @@ class S {
 
 class C extends S {
   int c;
-  C(this.c, {super.s, int x = 42});
+  C(this.c, {super.n, int x = 42});
 }
 
 main() {
-  Expect.equals(4.14, C(1).s);
+  Expect.approxEquals(4.14, C(1).s);
 }
