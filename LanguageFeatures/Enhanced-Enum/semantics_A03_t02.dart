@@ -53,9 +53,9 @@ enum E with M1, M2 {
 
 main() {
   Expect.equals(1, E.e1.val1);
-  Expect.equals(2, E.e1.val2);
+  Expect.equals(1, E.e1.val2);
   Expect.equals(2, E.e2.val1);
-  Expect.equals(4, E.e2.val2);
+  Expect.equals(3, E.e2.val2);
   Expect.equals(3, E.e3.val1);
-  Expect.equals(6, E.e3.val2);
+  Expect.equals(5, E.e3.val2);
 }
