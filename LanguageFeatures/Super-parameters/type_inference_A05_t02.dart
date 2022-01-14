@@ -45,6 +45,6 @@ main() {
   Expect.equals(42, c3.s2);
 
   C c4 = C(0, s1: 42, s2: 0);
-  Expect.equals(42, c3.s1);
-  Expect.equals(0, c3.s2);
+  Expect.equals(42, c4.s1);
+  Expect.equals(0, c4.s2);
 }
