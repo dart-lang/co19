@@ -33,7 +33,7 @@ test(var v) {
     testType(c.x);
   });
   Expect.throws(() {
-    testType(c.t);
+    testType(c.t as dynamic);
   });
 }
 
