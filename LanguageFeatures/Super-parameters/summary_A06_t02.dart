@@ -28,5 +28,5 @@ main() {
   Expect.equals(42, c.s1);
   Expect.equals(-1, c.s2);
   Expect.equals(-3, c.s3);
-  Expect.equals(4, c.s3);
+  Expect.equals(4, c.s4);
 }
