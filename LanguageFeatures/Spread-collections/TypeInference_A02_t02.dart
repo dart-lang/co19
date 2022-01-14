@@ -136,7 +136,7 @@ main() {
 //                                                             ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //                                                                 ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null
+// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isTrue({b, ...c_list, ...b_list, b} is Set<B>);
   Expect.runtimeIsType<Set<B>>({b, ...c_list, ...b_list, b});
 
