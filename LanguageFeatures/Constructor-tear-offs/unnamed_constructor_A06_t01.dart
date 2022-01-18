@@ -34,10 +34,12 @@ class C {
 }
 
 void main() {
-  C(1).checkName();
+  if(!isJS) {
+    C(1).checkName();
 
-  C.new(1).checkName();
+    C.new(1).checkName();
 
-  var v = C.new;
-  v(1).checkName();
+    var v = C.new;
+    v(1).checkName();
+  }
 }
