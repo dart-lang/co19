@@ -43,16 +43,16 @@ main() {
   Expect.runtimeIsNotType<E<C>>(E.values[0]);
 
   Expect.isTrue(E.values[1] is E<A>);
-  Expect.isFalse(E.values[1] is E<B>);
+  Expect.isTrue(E.values[1] is E<B>);
   Expect.isFalse(E.values[1] is E<C>);
   Expect.runtimeIsType<E<A>>(E.values[1]);
-  Expect.runtimeIsNotType<E<B>>(E.values[1]);
+  Expect.runtimeIsType<E<B>>(E.values[1]);
   Expect.runtimeIsNotType<E<C>>(E.values[1]);
 
   Expect.isTrue(E.values[2] is E<A>);
   Expect.isFalse(E.values[2] is E<B>);
-  Expect.isFalse(E.values[2] is E<C>);
+  Expect.isTrue(E.values[2] is E<C>);
   Expect.runtimeIsType<E<A>>(E.values[2]);
   Expect.runtimeIsNotType<E<B>>(E.values[2]);
-  Expect.runtimeIsNotType<E<C>>(E.values[2]);
+  Expect.runtimeIsType<E<C>>(E.values[2]);
 }
