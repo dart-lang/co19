@@ -28,6 +28,7 @@ class C extends S {
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified}
+}
 
 main() {
   C(42);
