@@ -14,6 +14,7 @@
 /// the associated super-constructor parameter is also optional and has a
 /// default value d, and d is a subtype of the (declared or inferred above) type
 /// of p, then p gets the default value d
+/// @Issue 48178
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=super-parameters

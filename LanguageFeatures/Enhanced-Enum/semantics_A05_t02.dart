@@ -15,6 +15,7 @@
 ///
 /// @description Check that if a generative constructors was declared then a
 /// default generative constructor is not added
+/// @Issue 48179, 48181
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
@@ -29,7 +30,7 @@ enum E1 {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  E1.n(int i) {}
+  const E1.n(int i) {}
 }
 
 enum E2 {

@@ -28,6 +28,7 @@
 /// @description Check that if no generative constructors were declared, and no
 /// unnamed factory constructor was added, a default generative constructor is
 /// added
+/// @Issue 48179, 48181
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
@@ -48,7 +49,7 @@ enum E2 {
   e3();
 
   final String s = "Lily was here";
-  final int? val;
+  final int? val = null;
 
   factory E2.f(int i) => E2.values[i];
 }
@@ -73,6 +74,6 @@ main() {
   Expect.isNull(E2.e2.val);
   Expect.isNull(E2.e3.val);
 
-  const E1 = E1.e1;
-  const E2 = E2.e1;
+  const EE1 = E1.e1;
+  const EE2 = E2.e1;
 }

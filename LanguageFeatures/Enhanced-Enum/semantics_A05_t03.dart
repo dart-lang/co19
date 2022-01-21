@@ -15,6 +15,7 @@
 ///
 /// @description Check that if unnamed factory constructor was declared then a
 /// default generative constructor is not added
+/// @Issue 48179, 48181
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
