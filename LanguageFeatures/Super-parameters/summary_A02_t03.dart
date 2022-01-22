@@ -46,6 +46,6 @@ main() {
 
   var c4 = C.n(1, 2, 3, 4);
   Expect.equals("S.n", c4.log);
-  Expect.equals(2, c3.s1);
-  Expect.equals(4, c3.s2);
+  Expect.equals(2, c4.s1);
+  Expect.equals(4, c4.s2);
 }
