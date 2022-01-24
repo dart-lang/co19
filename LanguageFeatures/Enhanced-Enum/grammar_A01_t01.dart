@@ -39,7 +39,7 @@ enum Time2<T> {
 
 main() {
   Time1 t1 = Time1.week;
-  Expect.equals(t1.week, Time1.week);
+  Expect.equals(t1, Time1.week);
   Time2 t2 = Time2.week;
-  Expect.equals(t2.week, Time2.week);
+  Expect.equals(t2, Time2.week);
 }

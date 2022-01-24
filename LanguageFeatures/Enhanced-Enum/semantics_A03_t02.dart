@@ -45,17 +45,18 @@ enum E with M1, M2 {
   final int val1;
   final int val2;
 
-  E(int v1, int v2) {
-    val1 = super.mixedInMethod1(v1);
-    val2 = super.mixedInMethod2(v2);
+  const E(this.val1, this.val2);
+
+  int get test1 => super.mixedInMethod1(val1);
+  int get test2 => super.mixedInMethod2(val2);
   }
 }
 
 main() {
-  Expect.equals(1, E.e1.val1);
-  Expect.equals(1, E.e1.val2);
-  Expect.equals(2, E.e2.val1);
-  Expect.equals(3, E.e2.val2);
-  Expect.equals(3, E.e3.val1);
-  Expect.equals(5, E.e3.val2);
+  Expect.equals(1, E.e1.test1);
+  Expect.equals(1, E.e1.test2);
+  Expect.equals(2, E.e2.test1);
+  Expect.equals(3, E.e2.test2);
+  Expect.equals(3, E.e3.test1);
+  Expect.equals(5, E.e3.test2);
 }

@@ -29,11 +29,12 @@ enum E1<T> {
 
 enum E2<T> {
   e1<int>(1),
-  e2<String>(2),
-  e3<bool>(3);
+  e2<String>("2"),
+  e3<bool>(true);
 
-  const E3(int i);
-  int call(T t) => i;
+  final T _t;
+  const E2(T t) : this.t = _t;
+  int call(T t) => _t;
 }
 
 main() {
@@ -41,6 +42,6 @@ main() {
   Expect.equals("", E1.e2(""));
   Expect.equals(false, E1.e3(false));
   Expect.equals(1, E2.e1(42));
-  Expect.equals(2, E2.e2("Lily was here"));
-  Expect.equals(3, E2.e3(true));
+  Expect.equals("2", E2.e2("42"));
+  Expect.equals(true, E2.e3(false));
 }

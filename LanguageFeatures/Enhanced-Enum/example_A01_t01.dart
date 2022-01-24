@@ -71,7 +71,7 @@ mixin EnumComparable<T extends Enum> on Enum implements Comparable<T> {
 // With type argument, mixin and interface.
 enum Complex<T extends Pattern> with EnumComparable<Complex> implements Pattern {
   whitespace<RegExp>(r"\s+", RegExp.new),
-  alphanum<RegExp>.captured(r"\w+", RegExp.new),
+  alphanum<RegExp>.captured(r"\w+"),
   anychar<RegExp>(".", RegExp.new),
   ;
 
@@ -98,7 +98,7 @@ enum Complex<T extends Pattern> with EnumComparable<Complex> implements Pattern 
 
   // Named constructor. Redirecting.
   const Complex.captured(String regexpPattern)
-    : this("($regexpPattern)", RegExp);
+    : this("($regexpPattern)", RegExp.new);
 
   // Can expose the implicit name.
   String get name => EnumName(this).name;

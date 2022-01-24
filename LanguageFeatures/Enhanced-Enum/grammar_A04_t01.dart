@@ -29,6 +29,7 @@ enum E<T extends num> {
   @A() e2(),
   @A() e3<int>.named(42);
 
+  const E();
   const E.named(int x);
 }
 

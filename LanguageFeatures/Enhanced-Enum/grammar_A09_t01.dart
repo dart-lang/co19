@@ -40,7 +40,9 @@ enum E3 {
   e2(2),
   e3(3);
 
-  const E3(int i);
+  final int i;
+
+  const E3(this.i);
   int call() => i;
 }
 
