@@ -27,7 +27,7 @@ class C extends S {
   C(this.c1, [super.s1, num x = 42]);
 //                  ^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }
 
 main() {
