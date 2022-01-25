@@ -1,40 +1,36 @@
-// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion If the resulting class would have any naming conflicts, or other
-/// compile-time errors, the enum declaration is invalid and a compile-time
-/// error occurs.
+/// @assertion Type inference is applied to the resulting constructor
+/// invocations, with no context type, where necessary, so omitted type
+/// arguments to a generic enum class are filled in by type inference, using the
+/// type of arguments, if any, and then the type of the constant variable is the
+/// static type of the constant object creation expression.
 ///
-/// @description Check that if the resulting class would have any naming
-/// conflicts then compile-time error occurs.
+/// @description Check that omitted type arguments to a generic enum class are
+/// filled in by type inference, using the type of arguments
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
-enum E1 {
-  e1,
-  e2,
-  e3;
+import "../../Utils/expect.dart";
 
-  final int values = 42;
-//          ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
+enum E<T> {
+  e1(1),
+  e2("1"),
+  e3(true);
 
-enum E2<T> {
-  e1<int>(42),
-  e2<String>("42"),
-  e3<bool>(false);
-
-  final List<E2> values = [e1, e2, e3];
-//               ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  final T t;
+  const E(this.t);
 }
 
 main() {
-  E1.e1;
-  E2.e1;
+  Expect.equals(1, E.e1.t);
+  Expect.equals("1", E.e2.t);
+  Expect.equals(true, E.e3.t);
+
+  Expect.equals("int", E.e1.t.runtimeType.toString());
+  Expect.equals("String", E.e2.t.runtimeType.toString());
+  Expect.equals("bool", E.e3.t.runtimeType.toString());
 }
