@@ -118,24 +118,26 @@ enum Complex<T extends Pattern> with EnumComparable<Complex> implements Pattern 
 }
 
 main() {
-  Expect.equals("Complex<RegExp>(\\s+)", Complex.whitespace);
-  Expect.equals("Complex<RegExp>(\\w+)", Complex.alphanum);
-  Expect.equals("Complex<Glob>(.)", Complex.anychar);
+  Expect.equals("Complex<RegExp>(\\s+)", Complex.whitespace.toString());
+  Expect.equals("Complex<RegExp>((\\w+))", Complex.alphanum.toString());
+  Expect.equals("Complex<RegExp>(.)", Complex.anychar.toString());
   Expect.isNull(Complex.whitespace.matchAsPrefix("something"));
   Expect.isNotNull(Complex.alphanum.matchAsPrefix("something"));
   Expect.isNotNull(Complex.anychar.matchAsPrefix("Lily was here"));
-  Expect.listEquals([], Complex.whitespace.allMatches("something"));
+  Expect.iterableEquals([], Complex.whitespace.allMatches("something"));
   Expect.isTrue(Complex.alphanum.allMatches("something").length > 0);
   Expect.isTrue(Complex.anychar.allMatches("something").length > 0);
-  Expect.equals("\\s+", Complex.whitespace.pattern);
-  Expect.equals("\\w+", Complex.alphanum.pattern);
-  Expect.equals("?", Complex.anychar.pattern);
+  Expect.equals("\\s+", Complex.whitespace._patternSource);
+  Expect.equals("(\\w+)", Complex.alphanum._patternSource);
+  Expect.equals(".", Complex.anychar._patternSource);
+  Expect.equals(Complex._patterns[0], Complex.whitespace.pattern);
+  Expect.equals(Complex._patterns[1], Complex.alphanum.pattern);
+  Expect.equals(Complex._patterns[2], Complex.anychar.pattern);
   Expect.equals("whitespace", Complex.whitespace.name);
   Expect.equals("alphanum", Complex.alphanum.name);
   Expect.equals("anychar", Complex.anychar.name);
-  Expect.throws(() {
-    Complex c = Complex.matching("123");
-  });
+  Complex c = Complex.matching("123");
+  Expect.equals(Complex.alphanum, c);
   Expect.equals(0, Complex.alphanum.compareTo(Complex.alphanum));
   Expect.equals(1, Complex.alphanum.compareTo(Complex.whitespace));
   Expect.equals(-1, Complex.alphanum.compareTo(Complex.anychar));
