@@ -41,7 +41,7 @@ enum E2 {
   e2.n(1),
   e3.n(1);
 
-  E2.n(int i) {}
+  const E2.n(int i) {}
 }
 
 main() {

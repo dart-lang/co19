@@ -68,4 +68,17 @@ main() {
   Expect.isTrue(E.e1 is M);
   Expect.isTrue(E.e2 is M);
   Expect.isTrue(E.e3 is M);
+
+  Expect.runtimeIsType<Enum>(E.e1);
+  Expect.runtimeIsType<Enum>(E.e2);
+  Expect.runtimeIsType<Enum>(E.e3);
+  Expect.runtimeIsType<I1>(E.e1);
+  Expect.runtimeIsType<I1>(E.e2);
+  Expect.runtimeIsType<I1>(E.e3);
+  Expect.runtimeIsType<I2>(E.e1);
+  Expect.runtimeIsType<I2>(E.e2);
+  Expect.runtimeIsType<I2>(E.e3);
+  Expect.runtimeIsType<M>(E.e1);
+  Expect.runtimeIsType<M>(E.e2);
+  Expect.runtimeIsType<M>(E.e3);
 }

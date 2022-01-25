@@ -48,4 +48,7 @@ main() {
   Expect.isTrue(E.e1 is E);
   Expect.isTrue(E.e2 is E);
   Expect.isTrue(E.e3 is E);
+  Expect.runtimeIsType<E>(E.e1);
+  Expect.runtimeIsType<E>(E.e2);
+  Expect.runtimeIsType<E>(E.e3);
 }
