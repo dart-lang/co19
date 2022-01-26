@@ -42,7 +42,6 @@ enum E1<T1 extends num, T2> {
   final T2 t2;
 }
 
-
 main() {
   Expect.equals(1, E1.e1.t1);
   Expect.equals("1", E1.e1.t2);
