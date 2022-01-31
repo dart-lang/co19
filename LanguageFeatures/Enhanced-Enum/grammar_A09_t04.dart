@@ -33,8 +33,8 @@ enum E2<T> {
   e3<bool>(true);
 
   final T _t;
-  const E2(T t) : this.t = _t;
-  int call(T t) => _t;
+  const E2(T t) : this._t = t;
+  T call(T t) => _t;
 }
 
 main() {
