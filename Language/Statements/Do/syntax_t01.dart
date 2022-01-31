@@ -12,17 +12,14 @@
 /// @description Checks that it is a compile-time error if the loop statement is
 /// empty.
 /// @author vasya
-/// @reviewer rodionov
-/// @reviewer iefremov
-
 
 main() {
-  try {
     do
     while (true);
-  } catch (x) {}
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
-
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
