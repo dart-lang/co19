@@ -11,12 +11,13 @@
 /// empty.
 /// @author vasya
 
-
 main() {
   do
   while (true);
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
-
