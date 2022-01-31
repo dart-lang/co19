@@ -49,7 +49,6 @@ enum E with M1, M2 {
 
   int get test1 => super.mixedInMethod1(val1);
   int get test2 => super.mixedInMethod2(val2);
-  }
 }
 
 main() {
