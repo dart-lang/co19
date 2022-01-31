@@ -17,7 +17,7 @@
 /// identifier list may have a trailing comma (like now).
 ///
 /// @description Check that if there is a ; after the identifier list and there
-/// is no any class member then it is a compile time error
+/// is no any class member then it is not an error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
@@ -27,18 +27,12 @@ enum Time1<T> {
   day<String>(),
   week<bool>();
 }
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 enum Time2<T> {
   hour<int>(),
   day<String>(),
   week<bool>(),;
 }
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 main() {
   Time1.week;
