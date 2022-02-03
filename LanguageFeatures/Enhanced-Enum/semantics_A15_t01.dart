@@ -12,6 +12,7 @@
 /// @description Check that it is a compile-time error to declare a static
 /// member and inheriting an instance member with the same base-name.
 /// @author sgrekhov@unipro.ru
+/// @issue 48290
 
 // SharedOptions=--enable-experiment=enhanced-enums
 

@@ -13,6 +13,7 @@
 /// @description Check that it is a compile-time error to inherit a member
 /// signature with no corresponding implementation
 /// @author sgrekhov@unipro.ru
+/// @issue 48291
 
 // SharedOptions=--enable-experiment=enhanced-enums
 

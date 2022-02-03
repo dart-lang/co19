@@ -13,15 +13,12 @@
 /// @description Check that it is a compile-time error to inherit any member
 /// with the same basename as enum value
 /// @author sgrekhov@unipro.ru
+/// @issue 48295
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
 mixin M1 on Enum {
   int e1() => 42;
-}
-
-mixin M2 on Enum {
-  final int e1 = 42;
 }
 
 mixin M3 on Enum {
@@ -33,15 +30,6 @@ mixin M4 on Enum {
 }
 
 enum E1 with M1 {
-  e1,
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  e2,
-  e3;
-}
-
-enum E2 with M2 {
   e1,
 //^^
 // [analyzer] unspecified
@@ -70,7 +58,6 @@ enum E4 with M4 {
 
 main() {
   E1.e1;
-  E2.e1;
   E3.e1;
   E4.e1;
 }

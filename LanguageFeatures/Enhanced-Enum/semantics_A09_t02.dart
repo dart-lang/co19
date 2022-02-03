@@ -13,6 +13,8 @@
 /// @description Check that it is a compile-time error to declare any member
 /// with the same basename as enum value which is not a static setter
 /// @author sgrekhov@unipro.ru
+/// @issue 48290
+/// @issue 48293
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
@@ -33,7 +35,7 @@ enum E2<T> {
   e3<bool>(false);
 
   const E2(T t);
-  final List<E2> e2 = [];
+  final List<E2> e2 = const [];
 //               ^^
 // [analyzer] unspecified
 // [cfe] unspecified

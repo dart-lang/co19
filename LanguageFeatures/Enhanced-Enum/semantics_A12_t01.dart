@@ -13,20 +13,19 @@
 /// instantiate-to-bounds result which is at least super-bounded, and a value
 /// declaration may require a well-bounded instantiation).
 ///
-/// @description Check that it is a compile-time error to declare a type
-/// parameter on the enum which does not have a valid well-bounded result
+/// @description Check that it is not a compile-time error to declare a type
+/// parameter on the enum which does have a valid well-bounded result
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
 enum E<T extends List> {
-  e1<List<int>>([42]),
-  e2<List<Null>>([null]);
+  e1<List<int>>(const [42]),
+  e2<List<Null>>(const [null]);
 
-  const E2(T t);
+  const E(T t);
 }
 
 main() {
-  E1.e1;
-  E2.e1;
+  E.e1;
 }

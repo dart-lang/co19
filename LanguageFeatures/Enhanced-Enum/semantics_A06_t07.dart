@@ -28,6 +28,8 @@
 /// @description Check that it is a compile-time error if args are not
 /// compile-time constants
 /// @author sgrekhov@unipro.ru
+/// @issue 48292
+/// @issue 48293
 
 // SharedOptions=--enable-experiment=enhanced-enums
 

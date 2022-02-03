@@ -9,6 +9,7 @@
 /// @description Check that if the resulting class would have any naming
 /// conflicts then compile-time error occurs.
 /// @author sgrekhov@unipro.ru
+/// @issue 48289
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
@@ -30,7 +31,7 @@ enum E2<T> {
 
   const E2(T t);
 
-  final List<E2> values = [e1, e2, e3];
+  final List<E2> values = const [e1, e2, e3];
 //               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

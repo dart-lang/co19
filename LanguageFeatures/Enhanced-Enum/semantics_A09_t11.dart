@@ -13,6 +13,8 @@
 /// @description Check that it is a compile-time error to declare static
 /// setter with the same basename as enum value but wrong type
 /// @author sgrekhov@unipro.ru
+/// @issue 48293
+/// @issue 48296
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
@@ -51,5 +53,5 @@ main() {
   E1.e1;
   E2.e1;
   E2.e2;
-  E3.e3;
+  E2.e3;
 }

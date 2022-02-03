@@ -13,6 +13,7 @@
 /// @description Check that it is not a compile-time error to declare static
 /// setter with the same basename as enum value
 /// @author sgrekhov@unipro.ru
+/// @issue 48297
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
@@ -49,5 +50,5 @@ main() {
   E1.e1 = E1.e2;
   E2.e1 = E2.e1;
   E2.e2 = E2.e2;
-  E3.e3 = E2.e3;
+  E2.e3 = E2.e3;
 }

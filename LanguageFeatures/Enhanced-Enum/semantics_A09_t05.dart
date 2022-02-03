@@ -11,8 +11,11 @@
 /// setter. (The introduced static declarations would have a conflict.)
 ///
 /// @description Check that it is a compile-time error to declare any member
-/// with the same basename as enum value which is not a static setter
+/// with the same basename as enum value which is not a static setter (or static
+/// setter has a wrong type)
 /// @author sgrekhov@unipro.ru
+/// @issue 48293
+/// @issue 48295
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
@@ -21,7 +24,7 @@ enum E1 {
   e2,
   e3;
 
-  void set e1(int v) {};
+  void set e1(int v) {}
 //         ^^
 // [analyzer] unspecified
 // [cfe] unspecified

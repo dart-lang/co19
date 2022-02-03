@@ -13,6 +13,7 @@
 /// @description Check that it is a compile-time error to inherit any member
 /// with the same basename as enum value
 /// @author sgrekhov@unipro.ru
+/// @issue 48295
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
@@ -68,6 +69,9 @@ enum E3 implements I3 {
 }
 
 enum E4 implements I4 {
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   e1,
 //^^
 // [analyzer] unspecified

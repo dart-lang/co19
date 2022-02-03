@@ -36,7 +36,7 @@ enum E1<T1 extends num, T2> {
   e1<int, String>(1, "1"),
   e2<int, int>(2, 3);
 
-  const E1(this.i, this.s);
+  const E1(this.t1, this.t2);
 
   final T1 t1;
   final T2 t2;
@@ -52,8 +52,4 @@ main() {
   Expect.equals(1, E1.e2.index);
   Expect.equals("e1", EnumName(E1.e1).name);
   Expect.equals("e2", EnumName(E1.e2).name);
-  Expect.equals(0, E2.e1.index);
-  Expect.equals(1, E2.e2.index);
-  Expect.equals("e1", EnumName(E2.e1).name);
-  Expect.equals("e2", EnumName(E2.e2).name);
 }

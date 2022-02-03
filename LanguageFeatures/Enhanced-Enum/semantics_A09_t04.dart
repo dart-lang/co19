@@ -13,6 +13,8 @@
 /// @description Check that it is a compile-time error to declare any member
 /// with the same basename as enum value which is not a static setter
 /// @author sgrekhov@unipro.ru
+/// @issue 48290
+/// @issue 48294
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
@@ -45,7 +47,7 @@ enum E3 {
   e3;
 
   static int get e1 => 42;
-//                     ^^
+//               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

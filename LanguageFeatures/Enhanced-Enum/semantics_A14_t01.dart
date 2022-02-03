@@ -11,6 +11,8 @@
 /// @description Check that it is a compile-time error if non-constant value is
 /// used as argument of an enum value
 /// @author sgrekhov@unipro.ru
+/// @issue 48292
+/// @issue 48293
 
 // SharedOptions=--enable-experiment=enhanced-enums
 

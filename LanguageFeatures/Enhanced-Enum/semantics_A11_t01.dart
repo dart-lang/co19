@@ -13,6 +13,7 @@
 /// @description Check that it is a compile-time error to declare a member
 /// signature with no corresponding implementation
 /// @author sgrekhov@unipro.ru
+/// @issue 48291
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
@@ -38,7 +39,7 @@ enum E2<T> {
 
   const E2(T t);
 
-  String toString();
+  String toString([int index]);
 //       ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

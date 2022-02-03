@@ -13,6 +13,7 @@
 /// @description Check that it is a compile-time error to mixin a member which
 /// is not a valid override of a super-interface member declaration
 /// @author sgrekhov@unipro.ru
+/// @issue 48298
 
 // SharedOptions=--enable-experiment=enhanced-enums
 

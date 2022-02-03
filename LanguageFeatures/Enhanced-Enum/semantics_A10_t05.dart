@@ -13,6 +13,7 @@
 /// @description Check that it is no compile-time error to declare a member
 /// which is a valid override of a super-interface member declaration
 /// @author sgrekhov@unipro.ru
+/// @issue 48299
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
