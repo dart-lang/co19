@@ -23,7 +23,7 @@ enum E1 {
   e2,
   e3;
 
-  final E1? e1;
+  final E1? e1 = null;
 //          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -35,7 +35,7 @@ enum E2<T> {
   e3<bool>(false);
 
   const E2(T t);
-  final E2<String>? e2;
+  final E2<String>? e2 = null;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
