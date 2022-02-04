@@ -21,13 +21,12 @@
 /// applications having const forwarding constructors, those should also apply
 /// here.
 ///
-/// @description Check that it’s no compile-time error if such a mixin
+/// @description Check that it’s a compile-time error if such a mixin
 /// application introduces final variables.
 /// @author sgrekhov@unipro.ru
+/// @issue 48303
 
 // SharedOptions=--enable-experiment=enhanced-enums
-
-import "../../Utils/expect.dart";
 
 mixin M1 on Object {
   final int i1 = 1;
@@ -39,17 +38,25 @@ mixin M2 on Enum {
   int mixedInMethod2(int i) => index + i;
 }
 
-enum E with M1, M2 {
+enum E1 with M1 {
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  e1,
+  e2,
+  e3;
+}
+
+enum E2 with M2 {
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   e1,
   e2,
   e3;
 }
 
 main() {
-  Expect.equals(1, E.e1.i1);
-  Expect.equals(2, E.e1.i2);
-  Expect.equals(1, E.e2.i1);
-  Expect.equals(2, E.e2.i2);
-  Expect.equals(1, E.e3.i1);
-  Expect.equals(2, E.e3.i2);
+  E1.e1;
+  E2.e2;
 }
