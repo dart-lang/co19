@@ -13,7 +13,7 @@
 
 import "dart:ffi";
 import "package:ffi/ffi.dart";
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 class S extends Struct {
   @Int32()

@@ -7,20 +7,15 @@
 /// Expando key.
 ///
 /// @description Check that WeakReference constructor rejects any object that is
-/// not supported as an Expando key. Test Strings.
+/// not supported as an Expando key. Test null.
 /// @author sgrekhov@unipro.ru
-/// @issue 48264
 
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.throws(() {
-    WeakReference wr = WeakReference<String>("Lily was here");
-    print(wr.target);
-  });
-  Expect.throws(() {
-    String s = "Lily was here";
-    WeakReference wr = WeakReference(s);
+    dynamic d = null;
+    WeakReference wr = WeakReference(d);
     print(wr.target);
   });
 }

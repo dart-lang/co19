@@ -14,18 +14,17 @@
 /// cleared
 /// @author sgrekhov@unipro.ru
 
-import "gc_utils_lib.dart";
-import "../../Utils/expect.dart";
+import "../gc_utils_lib.dart";
+import "../../../Utils/expect.dart";
 
 class C {
   int id;
   C(this.id);
 }
 
-C? c = C(42);
-
 main() async {
-  WeakReference<C> wr = WeakReference(c!);
+  C? c = C(42);
+  WeakReference<C> wr = WeakReference(c);
   Expect.equals(c, wr.target);
   triggerGc();
   await Future.delayed(Duration(milliseconds: 1));

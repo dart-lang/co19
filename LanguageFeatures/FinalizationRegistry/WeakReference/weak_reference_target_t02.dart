@@ -14,8 +14,8 @@
 /// cleared
 /// @author sgrekhov@unipro.ru
 
-import "gc_utils_lib.dart";
-import "../../Utils/expect.dart";
+import "../gc_utils_lib.dart";
+import "../../../Utils/expect.dart";
 
 class C {
   int id;

@@ -14,8 +14,8 @@
 /// cleared
 /// @author sgrekhov@unipro.ru
 
-import "gc_utils_lib.dart";
-import "../../Utils/expect.dart";
+import "../gc_utils_lib.dart";
+import "../../../Utils/expect.dart";
 
 class C {
   int id;
@@ -24,17 +24,16 @@ class C {
 
 main() async {
   C? c = C(42);
-  WeakReference<C> wr1 = WeakReference(c);
-  WeakReference<C> wr2 = WeakReference(c);
-  Expect.equals(c, wr1.target);
-  Expect.equals(c, wr2.target);
-  triggerGc();
-  await Future.delayed(Duration(milliseconds: 1));
-  Expect.equals(c, wr1.target);
-  Expect.equals(c, wr2.target);
+  dynamic d = c;
+  WeakReference<C> wr = WeakReference(c);
+  Expect.equals(c, wr.target);
   c = null;
   triggerGc();
   await Future.delayed(Duration(milliseconds: 1));
-  Expect.isNull(wr1.target);
-  Expect.isNull(wr2.target);
+  Expect.isNotNull(wr.target);
+  Expect.equals(d, wr.target);
+  d = 42;
+  triggerGc();
+  await Future.delayed(Duration(milliseconds: 1));
+  Expect.isNull(wr.target);
 }

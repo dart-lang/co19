@@ -14,35 +14,24 @@
 /// cleared
 /// @author sgrekhov@unipro.ru
 
-import "dart:async";
-import "gc_utils_lib.dart";
-import "../../Utils/expect.dart";
+import "../gc_utils_lib.dart";
+import "../../../Utils/expect.dart";
 
 class C {
   int id;
   C(this.id);
 }
 
+C? c = C(42);
+
 main() async {
-  C? c1 = C(42);
-  WeakReference<C> wr = WeakReference(c1);
-  asyncStart();
-  Future<C?>.delayed(Duration(milliseconds: 1), () => c1).then((C? c2) async {
-    Expect.isNotNull(wr.target);
-    Expect.equals(c1, wr.target);
-    triggerGc();
-    await Future.delayed(Duration(milliseconds: 5));
-    Expect.isNotNull(wr.target);
-    c2 = null;
-    triggerGc();
-    Expect.isNull(wr.target);
-    asyncEnd();
-  });
-  Expect.isNotNull(wr.target);
-  Expect.equals(c1, wr.target);
-  await Future.delayed(Duration(milliseconds: 2));
-  c1 = null;
+  WeakReference<C> wr = WeakReference(c!);
+  Expect.equals(c, wr.target);
   triggerGc();
   await Future.delayed(Duration(milliseconds: 1));
-  Expect.isNotNull(wr.target);
+  Expect.equals(c, wr.target);
+  c = null;
+  triggerGc();
+  await Future.delayed(Duration(milliseconds: 1));
+  Expect.isNull(wr.target);
 }

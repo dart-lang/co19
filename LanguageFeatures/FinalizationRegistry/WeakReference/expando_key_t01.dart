@@ -7,31 +7,20 @@
 /// Expando key.
 ///
 /// @description Check that WeakReference constructor rejects any object that is
-/// not supported as an Expando key. Test dart:ffi pointers.
+/// not supported as an Expando key. Test Strings.
 /// @author sgrekhov@unipro.ru
 /// @issue 48264
 
-import "dart:ffi";
-import "package:ffi/ffi.dart";
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
-  Pointer<Int8> p1 = calloc<Int8>();
-  try {
-    Expect.throws(() {
-      WeakReference wr = WeakReference<Pointer<Int8>>(p1);
-      print(wr.target);
-    });
-  } finally {
-    calloc.free(p1);
-  }
-  Pointer<Int16> p2 = calloc<Int16>();
-  try {
-    Expect.throws(() {
-      WeakReference wr = WeakReference(p2);
-      print(wr.target);
-    });
-  } finally {
-    calloc.free(p2);
-  }
+  Expect.throws(() {
+    WeakReference wr = WeakReference<String>("Lily was here");
+    print(wr.target);
+  });
+  Expect.throws(() {
+    String s = "Lily was here";
+    WeakReference wr = WeakReference(s);
+    print(wr.target);
+  });
 }

@@ -13,7 +13,7 @@
 
 import "dart:ffi";
 import "package:ffi/ffi.dart";
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 class U extends Union {
   @Int32()
