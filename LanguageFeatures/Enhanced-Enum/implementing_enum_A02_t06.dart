@@ -56,6 +56,6 @@ class C2 extends Object with E {
 }
 
 main() {
-  E1? e1;
-  E2? e2;
+  C1? c1;
+  C2? c2;
 }
