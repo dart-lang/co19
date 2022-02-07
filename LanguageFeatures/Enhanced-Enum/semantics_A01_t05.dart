@@ -35,17 +35,6 @@ enum E1 {
 // [cfe] unspecified
 }
 
-enum E2 {
-  e1(11),
-  e2(22),
-  e3(33);
-
-  final int index;
-  const E2(this.index);
-//         ^^^^^^^^^^
-// [analyzer] unspecified
-}
-
 main() {
   E1.e1;
 }
