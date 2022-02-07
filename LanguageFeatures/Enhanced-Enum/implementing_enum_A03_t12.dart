@@ -1,4 +1,4 @@
-// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -46,32 +46,54 @@
 /// `int get index;` from Enum, the resulting class does not implement its
 /// interface and is a compile-time error.
 ///
-/// @description Check that it is a compile-time error if a class extends
-/// a class declared by an enum declaration.
+/// @description Check that it's a compile-time error if a class has Enum as a
+/// superinterface and the interface of the declarations contains an instance
+/// member with the name values
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
-enum E {
+abstract class I1 {
+  void set values(int val);
+}
+
+class I2 {
+  void set values(List val) {}
+}
+
+enum E1 implements I1 {
+//                 ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  e1,
+  e2;
+}
+
+enum E2 implements I2 {
+//                 ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  e1,
+  e2;
+}
+
+enum E3 implements I1 {
   e1(42),
   e2(0);
 
-  const E(int i);
+  const E3(int i);
 }
 
-abstract class E1 extends E {
-//                        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
+enum E4 implements I2 {
+  e1(42),
+  e2(0);
 
-class E2 extends E {
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  const E4(int i);
 }
 
 main() {
-  E1? e1;
-  E2? e2;
+  print(E1);
+  print(E2);
+  print(E3);
+  print(E4);
 }

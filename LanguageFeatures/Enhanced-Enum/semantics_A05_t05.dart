@@ -17,40 +17,26 @@
 /// compile successfully, since the declaration must contain at least one enum
 /// value, and that enum value must refer to a generative constructor.)
 ///
-/// @description Check that if unnamed factory constructor was declared then a
-/// default generative constructor is not added
-/// @Issue 48179, 48181
+/// @description Check that enum declaration must contain at least one enum
+/// value
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
 enum E1 {
-  e1,
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  e2;
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  factory E1(int i) => E1.values[i];
 }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 enum E2 {
-  e1(),
-//^^
+  const E2();
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e2(0);
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  factory E2(int i) => E2.values[i];
 }
 
 main() {
-  print(E1.e1);
-  print(E2.e1);
+  print(E1);
+  print(E2);
 }

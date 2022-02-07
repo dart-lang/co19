@@ -1,4 +1,4 @@
-// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -46,32 +46,28 @@
 /// `int get index;` from Enum, the resulting class does not implement its
 /// interface and is a compile-time error.
 ///
-/// @description Check that it is a compile-time error if a class extends
-/// a class declared by an enum declaration.
+/// @description Check that it's a compile-time error if a mixin has Enum as a
+/// superinterface and the interface of the declarations contains an instance
+/// member with the name `values`
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
-enum E {
-  e1(42),
-  e2(0);
-
-  const E(int i);
-}
-
-abstract class E1 extends E {
-//                        ^
+mixin M1 on Enum {
+  final int values = 42;
+//          ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class E2 extends E {
-//               ^
+mixin M2 on Enum {
+  final List values = [];
+//           ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  E1? e1;
-  E2? e2;
+  print(M1);
+  print(M2);
 }

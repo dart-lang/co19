@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Type inference is applied to the resulting constructor
-/// invocations, with no context type, where necessary, so omitted type
-/// arguments to a generic enum class are filled in by type inference, using the
-/// type of arguments, if any, and then the type of the constant variable is the
-/// static type of the constant object creation expression.
+/// @assertion The resulting constructor invocations are subject to type
+/// inference, using the empty context type. This implies that inferred type
+/// arguments to the constructor invocation itself may depend on the types of
+/// the argument expressions of args. The type of the constant variable is the
+/// static type of the resulting constant object creation expression.
 ///
 /// @description Check that omitted type arguments to a generic enum class are
 /// filled in by type inference, using the type of arguments

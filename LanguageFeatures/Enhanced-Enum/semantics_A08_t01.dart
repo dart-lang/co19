@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Static `values` list: If the class does not declare or inherit a
-/// member with base-name `values`, a static constant variable named `values` is
-/// added as by the declaration `static const List<Name> values = [id1, …, idn];`
-/// where `id1…idn` are the names of the enum entries of the enum declaration in
-/// source/index order. If `Name` is generic, the `List<Name>` instantiates
-/// `Name` to its bounds.
+/// @assertion Static values list: A static constant variable named values is
+/// added as by the declaration static const List<Name> values = [id1, …, idn];
+/// where id1…idn are the names of the enum entries of the enum declaration in
+/// source/index order. If Name is generic, the List<Name> instantiates Name to
+/// its bounds.
 ///
 /// @description Check that static constant named `values` is added
 /// @author sgrekhov@unipro.ru

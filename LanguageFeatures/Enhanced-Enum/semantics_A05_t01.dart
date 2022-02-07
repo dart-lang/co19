@@ -11,7 +11,11 @@
 ///
 /// const Name();
 /// (This differs from the default constructor of a normal class declaration by
-/// being constant.)
+/// being constant, and by being added even if a factory constructor is present.
+/// If no generative constructor is declared, and the unnamed constructor is
+/// taken by a factory constructor, there is no way for the enum declaration to
+/// compile successfully, since the declaration must contain at least one enum
+/// value, and that enum value must refer to a generative constructor.)
 ///
 /// @description Check that if no generative constructors were declared, and no
 /// unnamed factory constructor was added, a default generative constructor is
