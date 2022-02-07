@@ -24,11 +24,6 @@ final Finalizer finalizer = Finalizer((_) {
 
 main() {
   finalizer.attach(Object(), null);
-  Expect.equals(0, called);
-  triggerGc();
-  Expect.equals(1, called);
-  triggerGc();
-  Expect.equals(1, called);
-  triggerGc();
+  triggerGcWithDelay();
   Expect.equals(1, called);
 }

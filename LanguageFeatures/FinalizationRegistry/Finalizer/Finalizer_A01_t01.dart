@@ -10,31 +10,23 @@
 /// and will run in that zone when called.
 ///
 /// @description Checks that finalizer object can be created and its callback
-/// will run when attached object becomes inaccessible.
+/// will not run if attached object is still accessible.
 /// @author iarkh@unipro.ru
 
 import "../gc_utils_lib.dart";
 import "../../../Utils/expect.dart";
 
+class A {}
 int called = 0;
 
 final Finalizer finalizer = Finalizer((_) {
   called++;
 });
 
-class A {}
-
-void test() {
+main() {
+  A a = A();
   finalizer.attach(A(), null);
   Expect.equals(0, called);
-}
-
-main() {
-  test();
-  triggerGc();
-  Expect.equals(1, called);
-  triggerGc();
-  Expect.equals(1, called);
-  triggerGc();
-  Expect.equals(1, called);
+  triggerGcWithDelay();
+  Expect.equals(0, called);
 }

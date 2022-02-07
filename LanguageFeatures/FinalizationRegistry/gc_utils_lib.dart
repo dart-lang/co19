@@ -32,3 +32,13 @@ void triggerGc() {
   _triggerGC();
 }
 
+void triggerGcWithDelay() async {
+  triggerGc();
+  await Future.delayed(Duration(milliseconds: 1));
+  triggerGc();
+  await Future.delayed(Duration(milliseconds: 1));
+  triggerGc();
+  await Future.delayed(Duration(milliseconds: 1));
+  triggerGc();
+}
+

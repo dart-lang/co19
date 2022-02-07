@@ -22,21 +22,15 @@ final Finalizer finalizer = Finalizer((_) {
   called++;
 });
 
-test(obj) {
+test() {
+  Object obj = Object();
   finalizer.attach(obj, null);
+  triggerGcWithDelay();
   Expect.equals(0, called);
-  triggerGc();
-  Expect.equals(0, called);
-  print(obj);
 }
 
 main() {
-  test(Object());
-  Expect.isTrue(called == 0 || called == 1);
-  triggerGc();
-  Expect.equals(1, called);
-  triggerGc();
-  Expect.equals(1, called);
-  triggerGc();
+  test();
+  triggerGcWithDelay();
   Expect.equals(1, called);
 }
