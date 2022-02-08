@@ -2,16 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion void attach(
-///    Object value,
-///    T finalizationToken,
-///    {Object? detach}
-/// )
-/// Attaches this finalizer to [value].
-///
-/// When [value] is longer accessible to the program, while still having an
-/// attachement to this finalizer, the [callback] of this finalizer may be
-/// called with [finalizationToken] as argument.
+/// @assertion When [value] is longer accessible to the program, while still
+/// having an attachement to this finalizer, the [callback] of this finalizer
+/// may be called with [finalizationToken] as argument.
 ///
 /// @description Checks that callback function cannot be called while
 /// finalization token is still accessible.
@@ -19,8 +12,6 @@
 
 import "../gc_utils_lib.dart";
 import "../../../Utils/expect.dart";
-
-class A{}
 
 bool called = false;
 final Finalizer finalizer = Finalizer((_) {

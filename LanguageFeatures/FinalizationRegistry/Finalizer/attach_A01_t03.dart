@@ -21,7 +21,7 @@
 import "../gc_utils_lib.dart";
 import "../../../Utils/expect.dart";
 
-class A{}
+class A {}
 Object? returnedToken;
 int cnt = 0;
 

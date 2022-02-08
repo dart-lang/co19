@@ -20,7 +20,7 @@
 import "../gc_utils_lib.dart";
 import "../../../Utils/expect.dart";
 
-class A{}
+class A {}
 
 int cnt = 0;
 final Finalizer<Object> finalizer = Finalizer((token) {

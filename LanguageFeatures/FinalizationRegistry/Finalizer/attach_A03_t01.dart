@@ -2,16 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion When [value] is longer accessible to the program, while still
-/// having an attachement to this finalizer, the [callback] of this finalizer
-/// may be called with [finalizationToken] as argument.
+/// @assertion If a non-null detach value is provided, that object can be passed
+/// to Finalizer.detach to remove the attachment again.
 ///
-/// @description Checks that callback function can be called only once when
-/// given object is inaccessible.
+/// @description Checks that if detach token was passed to [attach], given
+/// object can be detached from the finalizer using [detach].
 /// @author iarkh@unipro.ru
 
 import "../gc_utils_lib.dart";
 import "../../../Utils/expect.dart";
+
+class A {}
 
 int called = 0;
 final Finalizer finalizer = Finalizer((_) {
@@ -26,13 +27,16 @@ Object test1(Object obj) => obj;
 
 main() {
   Object value = Object();
-  finalizer.attach(value, "Finalization token");
+  Object detachToken = A();
+  finalizer.attach(value, "Finalization token", detach: detachToken);
+  print(value);
+  finalizer.detach(detachToken);
 
   value = 12345;
 
   // Initial object is not accessible anymore.
   // Do something, call triggerGC several times and check that callback was
-  // called only once during the execution.
+  // not called during the execution.
   test(value);
   triggerGcWithDelay();
 
@@ -41,5 +45,5 @@ main() {
   triggerGcWithDelay();
   triggerGcWithDelay();
 
-  Expect.equals(1, called);
+  Expect.equals(0, called);
 }
