@@ -34,7 +34,7 @@ enum E1 {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const E1.n(int i) {}
+  const E1.n(int i);
 }
 
 enum E2 {
@@ -45,7 +45,7 @@ enum E2 {
   e2.n(1),
   e3.n(1);
 
-  const E2.n(int i) {}
+  const E2.n(int i);
 }
 
 main() {
