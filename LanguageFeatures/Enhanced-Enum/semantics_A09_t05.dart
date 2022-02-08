@@ -44,13 +44,14 @@ enum E2<T> {
 
 enum E3 {
   e1,
+//^^
+// [cfe] unspecified
   e2,
   e3;
 
-  static void set e1(E3 v) {}
+  static void set e1(int v) {}
 //                ^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {

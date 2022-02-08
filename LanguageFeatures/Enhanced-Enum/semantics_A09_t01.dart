@@ -14,20 +14,17 @@
 // SharedOptions=--enable-experiment=enhanced-enums
 
 enum E1 {
-//   ^^
-// [analyzer] unspecified
   e1,
   e2,
   e3;
 
   final int values = 42;
 //          ^^^^^^
+// [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E2<T> {
-//   ^^^^^
-// [analyzer] unspecified
   e1<int>(42),
   e2<String>("42"),
   e3<bool>(false);
@@ -36,6 +33,7 @@ enum E2<T> {
 
   final List<E2> values = const [];
 //               ^^^^^^
+// [analyzer] unspecified
 // [cfe] unspecified
 }
 

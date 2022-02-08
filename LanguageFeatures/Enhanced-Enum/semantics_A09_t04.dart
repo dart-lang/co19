@@ -22,12 +22,11 @@ enum E1 {
   e1,
 //^^
 // [analyzer] unspecified
+// [cfe] unspecified
   e2,
   e3;
 
   int get e1 => 42;
-//        ^^
-// [cfe] unspecified
 }
 
 enum E2<T> {
@@ -35,12 +34,11 @@ enum E2<T> {
   e2<String>("42"),
 //^^
 // [analyzer] unspecified
+// [cfe] unspecified
   e3<bool>(false);
 
   const E2(T t);
   int get e2 => 42;
-//        ^^
-// [cfe] unspecified
 }
 
 enum E3 {

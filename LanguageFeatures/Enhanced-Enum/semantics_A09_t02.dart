@@ -49,7 +49,7 @@ enum E2<T> {
 
 enum E3 {
 //   ^^
-// [analyzer] unspecified
+// [cfe] unspecified
   e1,
   e2,
   e3;
@@ -57,7 +57,6 @@ enum E3 {
   static final int e1 = 42;
 //                 ^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
