@@ -19,7 +19,8 @@ import "../../../Utils/expect.dart";
 class A {}
 int called = 0;
 
-final Finalizer finalizer = Finalizer((_) {
+final Finalizer finalizer = Finalizer((token) {
+  Expect.isNull(token);
   called++;
 });
 

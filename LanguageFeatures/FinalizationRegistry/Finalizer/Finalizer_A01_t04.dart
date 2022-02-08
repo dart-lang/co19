@@ -18,19 +18,20 @@ import "../../../Utils/expect.dart";
 
 int called = 0;
 
-final Finalizer finalizer = Finalizer((_) {
+final Finalizer finalizer = Finalizer((token) {
+  Expect.equals(123, token);
   called++;
 });
 
 test() {
   Object obj = Object();
-  finalizer.attach(obj, null);
+  finalizer.attach(obj, 123);
   triggerGcWithDelay();
   Expect.equals(0, called);
 }
 
 main() {
   test();
-  triggerGcWithDelay();
-  Expect.equals(1, called);
+  triggerGcWithDelay();     // Call FullGC 3 times
+  Expect.equals(1, called); // Finalizer should be called only once
 }
