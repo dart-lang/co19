@@ -42,6 +42,8 @@ class I6 {
 }
 
 enum E1 implements I1 {
+//   ^^
+// [analyzer] unspecified
   e1,
 //^^
 // [analyzer] unspecified
@@ -51,6 +53,8 @@ enum E1 implements I1 {
 }
 
 enum E2 implements I2 {
+//   ^^
+// [analyzer] unspecified
   e1,
 //^^
 // [analyzer] unspecified
@@ -60,6 +64,8 @@ enum E2 implements I2 {
 }
 
 enum E3 implements I3 {
+//   ^^
+// [analyzer] unspecified
   e1,
 //^^
 // [analyzer] unspecified
@@ -81,6 +87,8 @@ enum E4 implements I4 {
 }
 
 enum E5 implements I5 {
+//   ^^
+// [analyzer] unspecified
   e1,
 //^^
 // [analyzer] unspecified
@@ -90,6 +98,8 @@ enum E5 implements I5 {
 }
 
 enum E6 implements I6 {
+//   ^^
+// [analyzer] unspecified
   e1,
 //^^
 // [analyzer] unspecified

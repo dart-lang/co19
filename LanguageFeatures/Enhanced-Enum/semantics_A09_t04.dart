@@ -20,24 +20,26 @@
 
 enum E1 {
   e1,
+//^^
+// [analyzer] unspecified
   e2,
   e3;
 
   int get e1 => 42;
 //        ^^
-// [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E2<T> {
   e1<int>(42),
   e2<String>("42"),
+//^^
+// [analyzer] unspecified
   e3<bool>(false);
 
   const E2(T t);
   int get e2 => 42;
 //        ^^
-// [analyzer] unspecified
 // [cfe] unspecified
 }
 
@@ -53,7 +55,7 @@ enum E3 {
 }
 
 main() {
-  E1.e1;
-  E2.e1;
-  E3.e1;
+  print(E1);
+  print(E2);
+  print(E3);
 }

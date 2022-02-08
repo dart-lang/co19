@@ -29,6 +29,9 @@ mixin M1 on Enum {
 // [cfe] unspecified
 }
 enum E1 with M1 {
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   e1,
   e2,
   e3;
@@ -47,6 +50,9 @@ mixin M2 on Enum {
 }
 
 enum E2<T> with M2 {
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   e1<int>(42),
   e2<String>("42"),
   e3<bool>(false);

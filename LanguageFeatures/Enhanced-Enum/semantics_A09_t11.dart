@@ -20,38 +20,36 @@
 
 enum E1 {
   e1,
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
   e2,
   e3;
 
   static void set e1(int val) {}
-//                   ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 }
 
 enum E2<T> {
   e1<int>(42),
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
   e2<String>("42"),
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
   e3<bool>(false);
-
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
   const E2(T t);
   static void set e1(E2<String> val) {}
-//                      ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   static void set e2(E2<bool> val) {}
-//                      ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   static void set e3(E2<int> val) {}
-//                      ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
-  E1.e1;
-  E2.e1;
-  E2.e2;
-  E2.e3;
+  print(E1);
+  print(E2);
 }

@@ -31,7 +31,7 @@ main() async {
     Expect.isNotNull(wr.target);
     Expect.equals(c1, wr.target);
     triggerGc();
-    await Future.delayed(Duration(milliseconds: 5));
+    await Future.delayed(Duration(seconds: 1));
     Expect.isNotNull(wr.target);
     c2 = null;
     triggerGc();

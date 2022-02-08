@@ -18,14 +18,14 @@
 // SharedOptions=--enable-experiment=enhanced-enums
 
 enum E1 {
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   e1,
   e2,
   e3;
 
   String toString([int index]);
-//       ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   void foo();
 //     ^^^
 // [analyzer] unspecified
@@ -33,6 +33,9 @@ enum E1 {
 }
 
 enum E2<T> {
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   e1<int>(42),
   e2<String>("42"),
   e3<bool>(false);
@@ -40,10 +43,6 @@ enum E2<T> {
   const E2(T t);
 
   String toString([int index]);
-//       ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   void foo();
 //     ^^^
 // [analyzer] unspecified
