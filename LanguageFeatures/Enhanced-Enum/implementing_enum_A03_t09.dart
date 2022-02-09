@@ -58,7 +58,7 @@ abstract class I1 {
 }
 
 class I2 {
-  final List values = [];
+  final List values = const [];
 }
 
 enum E1 implements I1 {
@@ -78,6 +78,9 @@ enum E2 implements I2 {
 }
 
 enum E3 implements I1 {
+//                 ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   e1(42),
   e2(0);
 
@@ -85,6 +88,9 @@ enum E3 implements I1 {
 }
 
 enum E4 implements I2 {
+//                 ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   e1(42),
   e2(0);
 

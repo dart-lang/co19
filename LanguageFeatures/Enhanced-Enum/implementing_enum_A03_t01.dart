@@ -68,7 +68,7 @@ enum E2 {
   e2(0);
 
   const E2(int i);
-  final List<E2> values = [];
+  final List<E2> values = const [];
 //               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -50,6 +50,7 @@
 /// Enum as a superinterface, and it declares a non-abstract instance member
 /// named `index`.
 /// @author sgrekhov@unipro.ru
+/// @issue 48353
 
 // SharedOptions=--enable-experiment=enhanced-enums
 

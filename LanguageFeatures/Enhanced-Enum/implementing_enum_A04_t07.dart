@@ -50,6 +50,7 @@
 /// Enum as a superinterface, and it declares a non-abstract instance member
 /// named `index`.
 /// @author sgrekhov@unipro.ru
+/// @issue 48353
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
@@ -68,7 +69,7 @@ enum E2 {
   e2(0);
 
   const E2(int i);
-  List<E2> get index => [];
+  List<E2> get index => const [];
 //             ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
