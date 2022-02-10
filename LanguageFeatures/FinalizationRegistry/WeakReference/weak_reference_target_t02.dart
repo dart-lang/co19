@@ -22,16 +22,14 @@ class C {
   C(this.id);
 }
 
-main() async {
+main() {
   List<C> refs = List.filled(5, C(42), growable: true);
 
   WeakReference<C> wr = WeakReference(refs[0]);
   Expect.equals(refs[0], wr.target);
   triggerGc();
-  await Future.delayed(Duration(milliseconds: 1));
   Expect.equals(refs[1], wr.target);
   refs.clear();
   triggerGc();
-  await Future.delayed(Duration(milliseconds: 1));
   Expect.isNull(wr.target);
 }

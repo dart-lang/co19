@@ -22,21 +22,18 @@ class C {
   C(this.id);
 }
 
-main() async {
+main() {
   C? c1 = C(42);
   C? c2 = c1;
   WeakReference<C> wr = WeakReference(c1);
   Expect.equals(c1, wr.target);
   triggerGc();
-  await Future.delayed(Duration(milliseconds: 1));
   Expect.equals(c1, wr.target);
   c1 = null;
   triggerGc();
-  await Future.delayed(Duration(milliseconds: 1));
   Expect.isNotNull(wr.target);
   Expect.equals(c2, wr.target);
   c2 = null;
   triggerGc();
-  await Future.delayed(Duration(milliseconds: 1));
   Expect.isNull(wr.target);
 }

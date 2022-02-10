@@ -24,14 +24,12 @@ class C {
 
 C? c = C(42);
 
-main() async {
+main() {
   WeakReference<C> wr = WeakReference(c!);
   Expect.equals(c, wr.target);
   triggerGc();
-  await Future.delayed(Duration(milliseconds: 1));
   Expect.equals(c, wr.target);
   c = null;
   triggerGc();
-  await Future.delayed(Duration(milliseconds: 1));
   Expect.isNull(wr.target);
 }
