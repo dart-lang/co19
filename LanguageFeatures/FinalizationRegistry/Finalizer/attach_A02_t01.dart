@@ -18,29 +18,29 @@ final Finalizer finalizer = Finalizer((_) {
   called = true;
 });
 
-void test(Object o) {
-  triggerGcWithDelay();
+void test(Object o) async {
+  await triggerGcWithDelay();
   Expect.isFalse(called);
 }
 
 Object test1(Object obj) => obj;
 
-main() {
+main() async {
   Object value = Object();
   finalizer.attach(value, "Finalization token");
-  triggerGcWithDelay();
+  await triggerGcWithDelay();
   Expect.isFalse(called);
-  triggerGcWithDelay();
+  await triggerGcWithDelay();
   Expect.isFalse(called);
   test(value);
 
   Object value1 = value;
   value = 12345;
-  triggerGcWithDelay();
+  await triggerGcWithDelay();
   Expect.isFalse(called);
 
   var value2 = test1(value1);
   value1 = value;
-  triggerGcWithDelay();
+  await triggerGcWithDelay();
   Expect.isFalse(called);
 }

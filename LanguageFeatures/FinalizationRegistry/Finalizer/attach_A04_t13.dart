@@ -6,7 +6,7 @@
 /// as an [Expando] key.
 ///
 /// @description Checks that [value] must be supported as an [Expando] key.
-/// Test Test dart:ffi pointers.
+/// Test Test dart:ffi struct.
 /// @author iarkh@unipro.ru
 
 import "dart:ffi";
@@ -14,25 +14,21 @@ import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 final Finalizer finalizer = Finalizer((_) { throw "Should not reach here"; });
-Object detachToken = Object;
+Object object = Object();
+
+class S extends Struct {
+  @Int32()
+  external int x;
+}
 
 main() {
-  Pointer<Int8> p1 = calloc<Int8>();
+  Pointer<S> p = calloc<S>();
   try {
+    S s = p.ref;
     Expect.throws(() {
-      finalizer.attach(p1, "Finalization token");
+      finalizer.attach(object, "Finalization token", detach: p);
     });
   } finally {
-    calloc.free(p1);
+    calloc.free(p);
   }
-
-  Pointer<Int16> p2 = calloc<Int16>();
-  try {
-    Expect.throws(() {
-      finalizer.attach(p2, "Finalization token");
-    });
-  } finally {
-    calloc.free(p2);
-  }
-
 }

@@ -25,7 +25,7 @@ void test(Object o) {
 
 Object test1(Object obj) => obj;
 
-main() {
+main() async {
   Object value = Object();
   Object detachToken = A();
   finalizer.attach(value, "Finalization token", detach: detachToken);
@@ -38,10 +38,11 @@ main() {
   // Do something, call triggerGC several times and check that callback was
   // not called during the execution.
   test(value);
-  triggerGcWithDelay();
+  await triggerGcWithDelay();
 
   var value1 = test1(value);
-  triggerGcWithDelay();
+  triggerGc();
+  await triggerGcWithDelay();
   triggerGcWithDelay();
   triggerGcWithDelay();
 

@@ -5,7 +5,7 @@
 /// @assertion The value and detach arguments ... Both must be objects supported
 /// as an [Expando] key.
 ///
-/// @description Checks that [value] must be supported as an [Expando] keys.
+/// @description Checks that [value] must be supported as an [Expando] key.
 /// Test Test dart:ffi struct.
 /// @author iarkh@unipro.ru
 
@@ -22,8 +22,8 @@ class S extends Struct {
 
 main() {
   Pointer<S> p = calloc<S>();
+  S s = p.ref;
   try {
-    S s = p.ref;
     Expect.throws(() {
       finalizer.attach(p, "Finalization token");
     });

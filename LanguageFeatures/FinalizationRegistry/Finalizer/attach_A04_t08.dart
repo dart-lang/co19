@@ -5,27 +5,27 @@
 /// @assertion The value and detach arguments ... Both must be objects supported
 /// as an [Expando] key.
 ///
-/// @description Checks that [value] must be supported as an [Expando] key.
+/// @description Checks that detach token must be supported as an [Expando] key.
 /// Test String.
 /// @author iarkh@unipro.ru
 
 import "../../../Utils/expect.dart";
 
 final Finalizer finalizer = Finalizer((_) { throw "Should not reach here"; });
-Object detachToken = Object;
+Object object = Object();
 
 main() {
   Expect.throws(() {
-    finalizer.attach("Shouldn't work", "Finalization token", detach: detachToken);
+    finalizer.attach(object, "Finalization token", detach: "detachMe");
   });
 
   String s = "Just a string";
   Expect.throws(() {
-    finalizer.attach("Shouldn't work", "Finalization token");
+    finalizer.attach(object, "Finalization token", detach: s);
   });
 
   dynamic d = s;
   Expect.throws(() {
-    finalizer.attach("Shouldn't work", "Finalization token");
+    finalizer.attach(object, "Finalization token", detach: d);
   });
 }

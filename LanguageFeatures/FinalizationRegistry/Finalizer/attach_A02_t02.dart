@@ -19,12 +19,12 @@ final Finalizer finalizer = Finalizer((_) {
 });
 
 void test(Object o) {
-  triggerGcWithDelay();
+  triggerGc();
 }
 
 Object test1(Object obj) => obj;
 
-main() {
+main() async {
   Object value = Object();
   finalizer.attach(value, "Finalization token");
 
@@ -34,12 +34,15 @@ main() {
   // Do something, call triggerGC several times and check that callback was
   // called only once during the execution.
   test(value);
-  triggerGcWithDelay();
+  await triggerGcWithDelay();
 
   var value1 = test1(value);
-  triggerGcWithDelay();
-  triggerGcWithDelay();
-  triggerGcWithDelay();
+  await triggerGcWithDelay();
+  triggerGc();
+  await triggerGcWithDelay();
+  triggerGc();
+  triggerGc();
+  await triggerGcWithDelay();
 
   Expect.equals(1, called);
 }

@@ -6,7 +6,7 @@
 /// as an [Expando] key.
 ///
 /// @description Checks that [value] must be supported as an [Expando] key.
-/// Test Test dart:ffi pointers.
+/// Test Test dart:ffi union.
 /// @author iarkh@unipro.ru
 
 import "dart:ffi";
@@ -14,25 +14,22 @@ import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 final Finalizer finalizer = Finalizer((_) { throw "Should not reach here"; });
-Object detachToken = Object;
+
+class U extends Union {
+  @Int32()
+  external int x;
+  @Int16()
+  external int y;
+}
 
 main() {
-  Pointer<Int8> p1 = calloc<Int8>();
+  Pointer<U> p = calloc<U>();
+  U u = p.ref;
   try {
     Expect.throws(() {
-      finalizer.attach(p1, "Finalization token");
+      finalizer.attach(u, "Finalization token");
     });
   } finally {
-    calloc.free(p1);
+    calloc.free(p);
   }
-
-  Pointer<Int16> p2 = calloc<Int16>();
-  try {
-    Expect.throws(() {
-      finalizer.attach(p2, "Finalization token");
-    });
-  } finally {
-    calloc.free(p2);
-  }
-
 }

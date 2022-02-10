@@ -5,7 +5,7 @@
 /// @assertion The value and detach arguments ... Both must be objects supported
 /// as an [Expando] key.
 ///
-/// @description Checks that [value] must be supported as an [Expando] keys.
+/// @description Checks that [value] must be supported as an [Expando] key.
 /// Test Test dart:ffi union.
 /// @author iarkh@unipro.ru
 
@@ -14,6 +14,7 @@ import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 final Finalizer finalizer = Finalizer((_) { throw "Should not reach here"; });
+Object object = Object();
 
 class U extends Union {
   @Int32()
@@ -24,10 +25,10 @@ class U extends Union {
 
 main() {
   Pointer<U> p = calloc<U>();
+  U u = p.ref;
   try {
-    U u = p.ref;
     Expect.throws(() {
-      finalizer.attach(u, "Finalization token");
+      finalizer.attach(object, "Finalization token", detach: u);
     });
   } finally {
     calloc.free(p);

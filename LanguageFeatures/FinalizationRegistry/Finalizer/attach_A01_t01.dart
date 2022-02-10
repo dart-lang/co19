@@ -30,13 +30,13 @@ final Finalizer finalizer = Finalizer((token) {
   cnt++;
 });
 
-main() {
+main() async {
   {
     Object ? obj = Object();
     finalizer.attach(obj, "Just a string");
     print(obj);
   }
-  triggerGcWithDelay();
+  await triggerGcWithDelay();
   Expect.equals("Just a string", returnedToken);
 
   {
@@ -44,7 +44,7 @@ main() {
     finalizer.attach(obj, 15);
     print(obj);
     obj = null;
-    triggerGcWithDelay();
+    await triggerGcWithDelay();
     Expect.equals(15, returnedToken);
   }
 
@@ -53,7 +53,7 @@ main() {
     finalizer.attach(obj, []);
     print(obj);
     obj = A();
-    triggerGcWithDelay();
+    await triggerGcWithDelay();
     Expect.equals([], returnedToken);
   }
 

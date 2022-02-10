@@ -27,13 +27,13 @@ final Finalizer<Object> finalizer = Finalizer((token) {
   cnt++;
 });
 
-main() {
+main() async {
   A detachToken = A();
   {
     Object value = Object();
     finalizer.attach(value, "Finalization token", detach: detachToken);
     finalizer.detach(detachToken);
   }
-  triggerGcWithDelay();
+  await triggerGcWithDelay();
   Expect.equals(0, cnt);
 }

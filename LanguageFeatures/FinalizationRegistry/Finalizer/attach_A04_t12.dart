@@ -14,13 +14,13 @@ import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 final Finalizer finalizer = Finalizer((_) { throw "Should not reach here"; });
-Object detachToken = Object;
+Object object = Object();
 
 main() {
   Pointer<Int8> p1 = calloc<Int8>();
   try {
     Expect.throws(() {
-      finalizer.attach(p1, "Finalization token");
+      finalizer.attach(object, "Finalization token", detach: p1);
     });
   } finally {
     calloc.free(p1);
@@ -29,7 +29,7 @@ main() {
   Pointer<Int16> p2 = calloc<Int16>();
   try {
     Expect.throws(() {
-      finalizer.attach(p2, "Finalization token");
+      finalizer.attach(object, "Finalization token", detach: p2);
     });
   } finally {
     calloc.free(p2);

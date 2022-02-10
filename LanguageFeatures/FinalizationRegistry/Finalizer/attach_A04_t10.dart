@@ -6,33 +6,31 @@
 /// as an [Expando] key.
 ///
 /// @description Checks that [value] must be supported as an [Expando] key.
-/// Test Test dart:ffi pointers.
+/// Test booleans.
 /// @author iarkh@unipro.ru
 
-import "dart:ffi";
-import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 final Finalizer finalizer = Finalizer((_) { throw "Should not reach here"; });
-Object detachToken = Object;
+Object object = Object();
 
 main() {
-  Pointer<Int8> p1 = calloc<Int8>();
-  try {
-    Expect.throws(() {
-      finalizer.attach(p1, "Finalization token");
-    });
-  } finally {
-    calloc.free(p1);
-  }
+  Expect.throws(() {
+    finalizer.attach(object, "Finalization token", detach: true);
+  });
 
-  Pointer<Int16> p2 = calloc<Int16>();
-  try {
-    Expect.throws(() {
-      finalizer.attach(p2, "Finalization token");
-    });
-  } finally {
-    calloc.free(p2);
-  }
+  var b1 = false;
+  Expect.throws(() {
+    finalizer.attach(object, "Finalization token", detach: b1);
+  });
 
+  bool? b2 = true;
+  Expect.throws(() {
+    finalizer.attach(object, "Finalization token", detach: b2);
+  });
+
+  dynamic b3 = true;
+  Expect.throws(() {
+    finalizer.attach(object, "Finalization token", detach: b3);
+  });
 }
