@@ -21,6 +21,7 @@
 ///
 /// @description Check that `index` cannot be overwritten
 /// @author sgrekhov@unipro.ru
+/// @issue 48353
 
 // SharedOptions=--enable-experiment=enhanced-enums
 

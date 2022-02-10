@@ -22,7 +22,7 @@ enum E1 {
   e2,
   e3;
 
-  static int get index => "Lily was here";
+  static int get index => 42;
 //               ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
