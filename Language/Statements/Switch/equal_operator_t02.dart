@@ -12,9 +12,7 @@
 /// is a compile-time constant of type double, since double is neither String
 /// nor int and implements ==.
 /// @author msyabro
-/// @reviewer rodionov
 /// @note renamed from 09_Switch_A02_t04
-
 
 main() {
   try {
@@ -22,6 +20,8 @@ main() {
 //  ^
 // [analyzer] unspecified
       case 0.5:
+//         ^
+// [cfe] unspecified
     }
   } catch (e) {}
 }

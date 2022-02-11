@@ -11,8 +11,6 @@
 /// @description Checks that it is a compile-time error if class C implements
 /// operator ==.
 /// @author kaigorodov
-/// @reviewer rodionov
-
 
 class C {
   final int x;
@@ -34,9 +32,13 @@ main() {
 //^
 // [analyzer] unspecified
     case c1:
+//       ^
+// [cfe] unspecified
       y = 1;
       break;
     case c2:
+//       ^
+// [cfe] unspecified
       y = 2;
       break;
   }
