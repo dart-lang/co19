@@ -62,8 +62,6 @@ enum E1 {
 }
 
 enum E2 {
-//   ^^
-// [analyzer] unspecified
   e1(42),
   e2(0);
 
