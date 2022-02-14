@@ -12,10 +12,14 @@
 /// @description Check that it's a compile-time error if the enum declaration
 /// contains a static member declaration with the name `values`
 /// @author sgrekhov@unipro.ru
+/// @issue 48387
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
-enum E1<T> {
+enum E1 {
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   e1,
   e2,
   e3;

@@ -50,6 +50,7 @@
 /// superinterface and the interface of the declarations contains an instance
 /// member with the name values
 /// @author sgrekhov@unipro.ru
+/// @issue 48389
 
 // SharedOptions=--enable-experiment=enhanced-enums
 

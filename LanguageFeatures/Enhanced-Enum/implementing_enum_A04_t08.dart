@@ -59,12 +59,11 @@ enum E1 {
   e2;
 
   void set index(int val) {}
-//         ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 enum E2 {
+//   ^^
+// [analyzer] unspecified
   e1(42),
   e2(0);
 

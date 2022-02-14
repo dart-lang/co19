@@ -8,6 +8,7 @@
 /// @description Checks that [value] must be supported as an [Expando] key.
 /// Test [Null].
 /// @author iarkh@unipro.ru
+/// @issue 48390
 
 import '../../../../Utils/expect.dart';
 

@@ -12,6 +12,7 @@
 /// @description Check that it's a compile-time error if the enum declaration
 /// contains a static member declaration with the name `values`
 /// @author sgrekhov@unipro.ru
+/// @issue 48389
 
 // SharedOptions=--enable-experiment=enhanced-enums
 

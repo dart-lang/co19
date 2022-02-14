@@ -56,9 +56,6 @@
 
 mixin M1 on Enum {
   void set index(int v) {}
-//         ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 mixin M2 on Enum {

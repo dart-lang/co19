@@ -13,6 +13,7 @@
 /// object supplied in the constructor, or null if the weak reference has been
 /// cleared
 /// @author sgrekhov@unipro.ru
+/// @issue 48391
 
 import "../../gc_utils_lib.dart";
 import "../../../../Utils/expect.dart";

@@ -56,9 +56,6 @@
 
 abstract class E1 extends Enum {
   void set index(int val) {}
-//         ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 abstract class E2 extends Enum {

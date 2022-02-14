@@ -50,10 +50,14 @@
 /// superinterface and the interface of the declarations contains an instance
 /// member with the name values
 /// @author sgrekhov@unipro.ru
+/// @issue 48387
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
 enum E1 {
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   e1,
   e2;
 
@@ -64,6 +68,8 @@ enum E1 {
 }
 
 enum E2 {
+//   ^^
+// [cfe] unspecified
   e1(42),
   e2(0);
 
