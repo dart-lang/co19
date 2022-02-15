@@ -21,17 +21,29 @@ import "../../../../Utils/expect.dart";
 class C {
   int id;
   C(this.id);
+
+  String toString() => "C($id)";
 }
 
-main() {
+dynamic d;
+
+@pragma('vm:never-inline')
+WeakReference<C> createWeakReference() {
   C? c = C(42);
-  dynamic d = c;
+  d = c;
   WeakReference<C> wr = WeakReference(c);
   Expect.equals(c, wr.target);
   c = null;
   triggerGc();
   Expect.isNotNull(wr.target);
   Expect.equals(d, wr.target);
+  return wr;
+}
+
+main() {
+  WeakReference<C> wr = createWeakReference();
+  triggerGc();
+  Expect.isNotNull(wr.target);
   d = 42;
   triggerGc();
   Expect.isNull(wr.target);

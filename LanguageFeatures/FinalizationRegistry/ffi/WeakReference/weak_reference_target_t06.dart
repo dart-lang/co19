@@ -21,6 +21,8 @@ import "../../../../Utils/expect.dart";
 class C {
   int id;
   C(this.id);
+
+  String toString() => "C($id)";
 }
 
 main() async {
