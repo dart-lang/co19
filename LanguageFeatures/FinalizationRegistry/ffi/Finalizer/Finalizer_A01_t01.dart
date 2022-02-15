@@ -19,15 +19,20 @@ import '../../../../Utils/expect.dart';
 class A {}
 int called = 0;
 
-final Finalizer finalizer = Finalizer((token) {
-  Expect.isNull(token);
+final Finalizer finalizer = Finalizer((_) {
   called++;
 });
 
-main() {
+main() async {
   A a = A();
   finalizer.attach(A(), null);
   Expect.equals(0, called);
-  triggerGcWithDelay();
+  await triggerGcWithDelay();
+  Expect.equals(0, called);
+  await triggerGcWithDelay();
+  Expect.equals(0, called);
+  await triggerGcWithDelay();
+  Expect.equals(0, called);
+  await triggerGcWithDelay();
   Expect.equals(0, called);
 }

@@ -27,13 +27,20 @@ final Finalizer finalizer = Finalizer((token) {
   cnt++;
 });
 
+@pragma('vm:never-inline')
+void test(token) {
+  Object value = Object();
+  finalizer.attach(value, "Finalization token", detach: token);
+}
+
 main() async {
   A detachToken = A();
-  {
-    Object value = Object();
-    finalizer.attach(value, "Finalization token", detach: detachToken);
-    finalizer.detach(detachToken);
-  }
+  test(detachToken);
+  finalizer.detach(detachToken);
+  await triggerGcWithDelay();
+  Expect.equals(0, cnt);
+  await triggerGcWithDelay();
+  Expect.equals(0, cnt);
   await triggerGcWithDelay();
   Expect.equals(0, cnt);
 }

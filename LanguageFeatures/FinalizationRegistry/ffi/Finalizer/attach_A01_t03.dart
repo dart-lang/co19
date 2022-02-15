@@ -25,37 +25,40 @@ class A {}
 Object? returnedToken;
 int cnt = 0;
 
+
 final Finalizer<int> finalizer = Finalizer((token) {
   returnedToken = token;
   cnt++;
 });
 
+@pragma('vm:never-inline')
+void test(int token) {
+  Object value = Object();
+  finalizer.attach(value, token);
+}
+
 main() async {
-  {
-    Object? obj = Object();
-    finalizer.attach(obj, 1);
-    print(obj);
-  }
+  test(1);
   await triggerGcWithDelay();
   Expect.equals(1, returnedToken);
 
-  {
-    Object? obj = A();
-    finalizer.attach(obj, 15);
-    print(obj);
-    obj = null;
-    await triggerGcWithDelay();
-    Expect.equals(15, returnedToken);
-  }
+  Object? obj = A();
+  finalizer.attach(obj, 15);
+  print(obj);
+  obj = List.filled(100, 1);
 
-  {
-    Object obj = List.filled(100, 1);
-    finalizer.attach(obj, 14);
-    print(obj);
-    obj = A();
-    await triggerGcWithDelay();
-    Expect.equals([], returnedToken);
-  }
+  await triggerGcWithDelay();
+  Expect.equals(15, returnedToken);
 
+  finalizer.attach(obj, 14);
+  print(obj);
+  obj = A();
+  await triggerGcWithDelay();
+  Expect.equals([], returnedToken);
+  Expect.equals(3, cnt);
+
+  await triggerGcWithDelay();
+  await triggerGcWithDelay();
+  await triggerGcWithDelay();
   Expect.equals(3, cnt);
 }

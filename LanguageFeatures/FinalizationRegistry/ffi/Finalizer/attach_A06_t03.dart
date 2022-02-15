@@ -18,28 +18,38 @@ class Nonce {
 }
 
 final finalizerTokens = <Nonce>{};
-
+int cnt = 0;
 final Finalizer finalizer = Finalizer((token) {
   finalizerTokens.add(token);
+  cnt++;
 });
+
+@pragma('vm:never-inline')
+void test(Nonce token1, token2, token3) {
+  Object value = Object();
+  finalizer.attach(value, "Finalization token", detach: token1);
+  finalizer.attach(value, "Finalization token", detach: token2);
+  finalizer.attach(value, "Finalization token", detach: token3);
+  finalizer.attach(value, "Finalization token", detach: token1);
+  finalizer.attach(value, "Finalization token", detach: token2);
+  finalizer.attach(value, "Finalization token", detach: token3);
+  finalizer.attach(value, "Finalization token", detach: token1);
+  finalizer.attach(value, "Finalization token", detach: token2);
+  finalizer.attach(value, "Finalization token", detach: token3);
+}
 
 main() async {
   Nonce token1 = Nonce(1);
   Nonce token2 = Nonce(2);
   Nonce token3 = Nonce(3);
-  {
-    Object value = Object();
-    finalizer.attach(value, "Finalization token", detach: token1);
-    finalizer.attach(value, "Finalization token", detach: token2);
-    finalizer.attach(value, "Finalization token", detach: token3);
-    finalizer.attach(value, "Finalization token", detach: token1);
-    finalizer.attach(value, "Finalization token", detach: token2);
-    finalizer.attach(value, "Finalization token", detach: token3);
-    finalizer.attach(value, "Finalization token", detach: token1);
-    finalizer.attach(value, "Finalization token", detach: token2);
-    finalizer.attach(value, "Finalization token", detach: token3);
-  }
+
+  test(token1, token2, token3);
 
   await triggerGcWithDelay();
   Expect.setEquals({token1, token2, token3}, finalizerTokens);
+  await triggerGcWithDelay();
+  Expect.setEquals({token1, token2, token3}, finalizerTokens);
+  await triggerGcWithDelay();
+  Expect.setEquals({token1, token2, token3}, finalizerTokens);
+  Expect.equals(3, cnt);
 }

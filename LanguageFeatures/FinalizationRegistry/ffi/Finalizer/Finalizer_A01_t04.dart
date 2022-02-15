@@ -17,21 +17,27 @@ import '../../gc_utils_lib.dart';
 import '../../../../Utils/expect.dart';
 
 int called = 0;
+Object? liveObject;
 
 final Finalizer finalizer = Finalizer((token) {
   Expect.equals(123, token);
   called++;
 });
 
-test() {
-  Object obj = Object();
-  finalizer.attach(obj, 123);
-  triggerGcWithDelay();
+@pragma('vm:never-inline')
+test() async {
+  Object object = Object();
+  finalizer.attach(object, 123);
+  await triggerGcWithDelay();
   Expect.equals(0, called);
+  liveObject = object;
 }
 
-main() {
+main() async {
   test();
-  triggerGcWithDelay();     // Call FullGC 3 times
-  Expect.equals(1, called); // Finalizer should be called only once
+  await triggerGcWithDelay();
+  Expect.equals(0, called);
+  liveObject = null;
+  await triggerGcWithDelay();
+  Expect.equals(1, called);
 }

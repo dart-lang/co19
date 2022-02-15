@@ -23,8 +23,8 @@ final Finalizer finalizer = Finalizer((token) {
   called++;
 });
 
-main() {
+main() async {
   finalizer.attach(Object(), "abc");
-  triggerGcWithDelay();       // Call FullGC 3 times
+  await triggerGcWithDelay(); // Call FullGC
   Expect.equals(1, called);   // Callback function should be called only once
 }

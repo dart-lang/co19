@@ -19,10 +19,6 @@ final Finalizer finalizer = Finalizer((_) {
   called++;
 });
 
-void test(Object o) {
-  triggerGcWithDelay();
-}
-
 Object test1(Object obj) => obj;
 
 main() async {
@@ -37,7 +33,6 @@ main() async {
   // Initial object is not accessible anymore.
   // Do something, call triggerGC several times and check that callback was
   // not called during the execution.
-  test(value);
   await triggerGcWithDelay();
 
   var value1 = test1(value);

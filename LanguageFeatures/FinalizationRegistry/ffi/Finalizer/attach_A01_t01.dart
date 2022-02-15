@@ -30,32 +30,31 @@ final Finalizer finalizer = Finalizer((token) {
   cnt++;
 });
 
+@pragma('vm:never-inline')
+void test() {
+  Object? obj = Object();
+  finalizer.attach(obj, "Just a string");
+  print(obj);
+}
+
 main() async {
-  {
-    Object ? obj = Object();
-    finalizer.attach(obj, "Just a string");
-    print(obj);
-  }
+  test();
   await triggerGcWithDelay();
   Expect.equals("Just a string", returnedToken);
 
-  {
-    Object? obj = A();
-    finalizer.attach(obj, 15);
-    print(obj);
-    obj = null;
-    await triggerGcWithDelay();
-    Expect.equals(15, returnedToken);
-  }
+  Object? obj = A();
+  finalizer.attach(obj, 15);
+  print(obj);
+  obj = List.filled(100, 1);
+  await triggerGcWithDelay();
+  Expect.equals(15, returnedToken);
 
-  {
-    Object obj = List.filled(100, 1);
-    finalizer.attach(obj, []);
-    print(obj);
-    obj = A();
-    await triggerGcWithDelay();
-    Expect.equals([], returnedToken);
-  }
+  finalizer.attach(obj, []);
+  print(obj);
+  obj = A();
+  await triggerGcWithDelay();
+  Expect.equals([], returnedToken);
 
+  await triggerGcWithDelay();
   Expect.equals(3, cnt);
 }

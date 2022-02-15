@@ -34,13 +34,8 @@ main() async {
   Expect.isFalse(called);
   test(value);
 
-  Object value1 = value;
-  value = 12345;
-  await triggerGcWithDelay();
-  Expect.isFalse(called);
-
-  var value2 = test1(value1);
-  value1 = value;
+  var value2 = test1(value);
+  var value1 = value;
   await triggerGcWithDelay();
   Expect.isFalse(called);
 }

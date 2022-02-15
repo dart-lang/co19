@@ -28,6 +28,6 @@ main() {
   finalizer.attach(obj, "Testme");
   print(obj);
   obj = null;
-  triggerGcWithDelay();       // Call FullGC 3 times
-  Expect.equals(1, called);   // Finalizer should be called only once
+  triggerGcWithDelay();
+  Expect.equals(1, called);
 }

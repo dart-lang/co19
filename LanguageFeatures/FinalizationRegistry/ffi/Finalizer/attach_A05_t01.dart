@@ -5,7 +5,8 @@
 /// @assertion The [value] and [detach] arguments ... may be the same object.
 ///
 /// @description Checks that [value] and [detach] arguments can be the same
-/// object.
+/// object. If [value] is not a live object anymore and it was not detached,
+/// finalyzer can run.
 /// @author iarkh@unipro.ru
 
 import '../../gc_utils_lib.dart';
@@ -16,12 +17,20 @@ final Finalizer finalizer = Finalizer((_) {
   called++;
 });
 
+
+@pragma('vm:never-inline')
+void test() {
+  Object obj = Object();
+  finalizer.attach(obj, "Just a string", detach: obj);
+  print(obj);
+}
+
 main() async {
-  {
-    Object value = Object();
-    finalizer.attach(value, "Finalization token", detach: value);
-    finalizer.detach(value);
-  }
+  test();
   await triggerGcWithDelay();
-  Expect.equals(0, called);
+  Expect.equals(1, called);
+  await triggerGcWithDelay();
+  Expect.equals(1, called);
+  await triggerGcWithDelay();
+  Expect.equals(1, called);
 }

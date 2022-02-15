@@ -32,8 +32,9 @@ main() async {
   {
     Object value = Object();
     finalizer.attach(value, "Finalization token", detach: detachToken);
-    finalizer.detach(detachToken);
+    value = Object();
   }
+  finalizer.detach(detachToken);
   await triggerGcWithDelay();
   Expect.equals(0, cnt);
 }
