@@ -7,7 +7,7 @@
 //        Invocation invocation
 //     )
 /// Invoked when a non-existent method or property is accessed.
-/// @description Checks that [noSuchMethodError] is thrown if non-existing
+/// @description Checks that [NoSuchMethodError] is thrown if non-existing
 /// method or property is accessed.
 /// @author iarkh@unipro.ru
 
