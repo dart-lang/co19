@@ -10,7 +10,7 @@
 /// Attaches this finalizer to [value].
 ///
 /// When [value] is longer accessible to the program, while still having an
-/// attachement to this finalizer, the [callback] of this finalizer may be
+/// attachment to this finalizer, the [callback] of this finalizer may be
 /// called with [finalizationToken] as argument.
 ///
 /// @description Checks that finalizer with the given [detach] token can be
@@ -28,14 +28,14 @@ final Finalizer finalizer = Finalizer((token) {
 });
 
 @pragma('vm:never-inline')
-void test(token) {
+void createAndAttach(token) {
   Object value = Object();
   finalizer.attach(value, "Finalization token", detach: token);
 }
 
 main() async {
   A detachToken = A();
-  test(detachToken);
+  createAndAttach(detachToken);
   finalizer.detach(detachToken);
   await triggerGcWithDelay();
   Expect.equals(0, cnt);

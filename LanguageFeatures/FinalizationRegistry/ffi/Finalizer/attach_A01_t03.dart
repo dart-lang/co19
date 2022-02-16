@@ -10,7 +10,7 @@
 /// Attaches this finalizer to [value].
 ///
 /// When [value] is longer accessible to the program, while still having an
-/// attachement to this finalizer, the [callback] of this finalizer may be
+/// attachment to this finalizer, the [callback] of this finalizer may be
 /// called with [finalizationToken] as argument.
 ///
 /// @description Checks that generic finalizer can be attached to the different
@@ -25,36 +25,31 @@ class A {}
 Object? returnedToken;
 int cnt = 0;
 
-
 final Finalizer<int> finalizer = Finalizer((token) {
   returnedToken = token;
   cnt++;
 });
 
 @pragma('vm:never-inline')
-void test(int token) {
-  Object value = Object();
-  finalizer.attach(value, token);
+void attachToFinalizer(Object value, int finalizationToken) {
+  finalizer.attach(value, finalizationToken);
 }
 
 main() async {
-  test(1);
+  attachToFinalizer(Object(), 1);
   await triggerGcWithDelay();
   Expect.equals(1, returnedToken);
 
-  Object? obj = A();
-  finalizer.attach(obj, 15);
-  print(obj);
-  obj = List.filled(100, 1);
+  attachToFinalizer(A(), 15);
+  await triggerGcWithDelay();
+  Expect.equals(15, returnedToken);
 
   await triggerGcWithDelay();
   Expect.equals(15, returnedToken);
 
-  finalizer.attach(obj, 14);
-  print(obj);
-  obj = A();
+  attachToFinalizer(A(), 14);
   await triggerGcWithDelay();
-  Expect.equals([], returnedToken);
+  Expect.equals(14, returnedToken);
   Expect.equals(3, cnt);
 
   await triggerGcWithDelay();

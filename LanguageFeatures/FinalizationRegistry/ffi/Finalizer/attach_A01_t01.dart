@@ -10,7 +10,7 @@
 /// Attaches this finalizer to [value].
 ///
 /// When [value] is longer accessible to the program, while still having an
-/// attachement to this finalizer, the [callback] of this finalizer may be
+/// attachment to this finalizer, the [callback] of this finalizer may be
 /// called with [finalizationToken] as argument.
 ///
 /// @description Checks that finalizer can be attached to the different objects
@@ -30,30 +30,31 @@ final Finalizer finalizer = Finalizer((token) {
   cnt++;
 });
 
+void clean() {
+  returnedToken = null;
+}
+
 @pragma('vm:never-inline')
-void test() {
-  Object? obj = Object();
-  finalizer.attach(obj, "Just a string");
-  print(obj);
+void attachToFinalizer(Object value, dynamic finalizationToken) {
+  finalizer.attach(value, finalizationToken);
+  Expect.isNull(returnedToken);
 }
 
 main() async {
-  test();
+  attachToFinalizer(Object(), "Just a string");
   await triggerGcWithDelay();
   Expect.equals("Just a string", returnedToken);
+  clean();
 
-  Object? obj = A();
-  finalizer.attach(obj, 15);
-  print(obj);
-  obj = List.filled(100, 1);
+  attachToFinalizer(A(), 15);
   await triggerGcWithDelay();
   Expect.equals(15, returnedToken);
+  clean();
 
-  finalizer.attach(obj, []);
-  print(obj);
-  obj = A();
+  attachToFinalizer(A(), []);
   await triggerGcWithDelay();
   Expect.equals([], returnedToken);
+  clean();
 
   await triggerGcWithDelay();
   Expect.equals(3, cnt);
