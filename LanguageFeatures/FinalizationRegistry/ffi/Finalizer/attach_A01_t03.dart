@@ -31,23 +31,33 @@ final Finalizer<int> finalizer = Finalizer((token) {
 });
 
 @pragma('vm:never-inline')
-void attachToFinalizer(Object value, int finalizationToken) {
-  finalizer.attach(value, finalizationToken);
+void attachToFinalizer1() {
+  finalizer.attach(Object(), 1);
+}
+
+@pragma('vm:never-inline')
+void attachToFinalizer2() {
+  finalizer.attach(A(), 15);
+}
+
+@pragma('vm:never-inline')
+void attachToFinalizer3() {
+  finalizer.attach(A(), 14);
 }
 
 main() async {
-  attachToFinalizer(Object(), 1);
+  attachToFinalizer1();
   await triggerGcWithDelay();
   Expect.equals(1, returnedToken);
 
-  attachToFinalizer(A(), 15);
+  attachToFinalizer2();
   await triggerGcWithDelay();
   Expect.equals(15, returnedToken);
 
   await triggerGcWithDelay();
   Expect.equals(15, returnedToken);
 
-  attachToFinalizer(A(), 14);
+  attachToFinalizer3();
   await triggerGcWithDelay();
   Expect.equals(14, returnedToken);
   Expect.equals(3, cnt);

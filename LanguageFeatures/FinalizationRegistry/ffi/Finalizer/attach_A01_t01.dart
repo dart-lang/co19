@@ -35,23 +35,35 @@ void clean() {
 }
 
 @pragma('vm:never-inline')
-void attachToFinalizer(Object value, dynamic finalizationToken) {
-  finalizer.attach(value, finalizationToken);
+void attachToFinalizer1() {
+  finalizer.attach(Object(), "Just a string");
+  Expect.isNull(returnedToken);
+}
+
+@pragma('vm:never-inline')
+void attachToFinalizer2() {
+  finalizer.attach(A(), 15);
+  Expect.isNull(returnedToken);
+}
+
+@pragma('vm:never-inline')
+void attachToFinalizer3() {
+  finalizer.attach(A(), []);
   Expect.isNull(returnedToken);
 }
 
 main() async {
-  attachToFinalizer(Object(), "Just a string");
+  attachToFinalizer1();
   await triggerGcWithDelay();
   Expect.equals("Just a string", returnedToken);
   clean();
 
-  attachToFinalizer(A(), 15);
+  attachToFinalizer2();
   await triggerGcWithDelay();
   Expect.equals(15, returnedToken);
   clean();
 
-  attachToFinalizer(A(), []);
+  attachToFinalizer3();
   await triggerGcWithDelay();
   Expect.equals([], returnedToken);
   clean();
