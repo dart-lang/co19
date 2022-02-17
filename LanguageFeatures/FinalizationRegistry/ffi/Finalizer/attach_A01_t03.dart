@@ -62,8 +62,6 @@ main() async {
   Expect.equals(14, returnedToken);
   Expect.equals(3, cnt);
 
-  await triggerGcWithDelay();
-  await triggerGcWithDelay();
-  await triggerGcWithDelay();
+  await triggerGcWithDelay(repeat: 3);
   Expect.equals(3, cnt);
 }
