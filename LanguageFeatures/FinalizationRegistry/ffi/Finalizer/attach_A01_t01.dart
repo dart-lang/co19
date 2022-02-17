@@ -30,43 +30,46 @@ final Finalizer finalizer = Finalizer((token) {
   cnt++;
 });
 
-void clean() {
-  returnedToken = null;
-}
-
 @pragma('vm:never-inline')
 void attachToFinalizer1() {
-  finalizer.attach(Object(), "Just a string");
-  Expect.isNull(returnedToken);
+  var o = Object();
+  finalizer.attach(o, "Just a string");
 }
 
 @pragma('vm:never-inline')
 void attachToFinalizer2() {
-  finalizer.attach(A(), 15);
-  Expect.isNull(returnedToken);
+  var o = A();
+  finalizer.attach(o, 15);
 }
 
 @pragma('vm:never-inline')
 void attachToFinalizer3() {
-  finalizer.attach(A(), []);
-  Expect.isNull(returnedToken);
+  var o = A();
+  finalizer.attach(o, []);
+}
+
+@pragma('vm:never-inline')
+void attachToFinalizer4() {
+  var o = List.filled(100, "Lily was here");
+  finalizer.attach(o, 42);
 }
 
 main() async {
   attachToFinalizer1();
   await triggerGcWithDelay();
   Expect.equals("Just a string", returnedToken);
-  clean();
 
   attachToFinalizer2();
   await triggerGcWithDelay();
   Expect.equals(15, returnedToken);
-  clean();
 
   attachToFinalizer3();
   await triggerGcWithDelay();
   Expect.equals([], returnedToken);
-  clean();
+
+  attachToFinalizer4();
+  await triggerGcWithDelay();
+  Expect.equals(42, returnedToken);
 
   await triggerGcWithDelay();
   Expect.equals(3, cnt);
