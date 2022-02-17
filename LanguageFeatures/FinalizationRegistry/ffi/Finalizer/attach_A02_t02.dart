@@ -18,25 +18,14 @@ final Finalizer finalizer = Finalizer((_) {
   called++;
 });
 
-void test(Object o) {
-  triggerGc();
+@pragma('vm:never-inline')
+void attachToFinalizer() {
+  var o = Object();
+  finalizer.attach(o, "Finalization token");
 }
 
-Object test1(Object obj) => obj;
-
 main() async {
-  Object value = Object();
-  finalizer.attach(value, "Finalization token");
-
-  value = 12345;
-
-  // Initial object is not accessible anymore.
-  // Do something, call triggerGC several times and check that callback was
-  // called only once during the execution.
-  test(value);
   await triggerGcWithDelay();
-
-  var value1 = test1(value);
   await triggerGcWithDelay();
   triggerGc();
   await triggerGcWithDelay();

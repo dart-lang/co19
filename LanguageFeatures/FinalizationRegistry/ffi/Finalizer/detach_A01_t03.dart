@@ -23,38 +23,33 @@ class Nonce {
   Nonce(this.value);
 }
 
-final finalizerTokens = <Nonce>{};
+final finalizerTokens = <String>{};
 
 final Finalizer finalizer = Finalizer((token) {
   finalizerTokens.add(token);
 });
 
 @pragma('vm:never-inline')
-void test() {
+void attachAndDetach() {
   Object    object1 = Object();
   Object    object2 = Object();
   List<int> object3 = List.filled(100, 1);
   List      object4 = List.filled(200, "abc");
   Nonce     object5 = Nonce(14);
 
-  Object finalizationToken1 = Nonce(1);
-  Object finalizationToken2 = Nonce(2);
+  Object detachToken = Nonce(2);
 
   finalizer.attach(object1, "object1");
-  finalizer.attach(object2, "object2", detach: finalizationToken2);
+  finalizer.attach(object2, "object2", detach: detachToken);
   finalizer.attach(object3, "object3");
   finalizer.attach(object4, "object4");
-  finalizer.attach(object5, "object5", detach: finalizationToken2);
-  finalizer.detach(finalizationToken2);
+  finalizer.attach(object5, "object5", detach: detachToken);
+  finalizer.detach(detachToken);
 }
 
 main() async {
-  test();
-  await triggerGcWithDelay();
-  Expect.setEquals({"Object1", "Object3", "Object4"}, finalizerTokens);
-  await triggerGcWithDelay();
-  Expect.setEquals({"Object1", "Object3", "Object4"}, finalizerTokens);
-  await triggerGcWithDelay();
-  Expect.setEquals({"Object1", "Object3", "Object4"}, finalizerTokens);
+  attachAndDetach();
+  await triggerGcWithDelay(repeat: 3);
+  Expect.setEquals({"object1", "object3", "object4"}, finalizerTokens);
 }
 

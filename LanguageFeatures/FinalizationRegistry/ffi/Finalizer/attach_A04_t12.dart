@@ -34,5 +34,4 @@ main() {
   } finally {
     calloc.free(p2);
   }
-
 }

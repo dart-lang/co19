@@ -23,8 +23,13 @@ final Finalizer finalizer = Finalizer((token) {
   called++;
 });
 
-main() async {
+@pragma('vm:never-inline')
+void attachToFinalizer() {
   finalizer.attach(Object(), "abc");
+}
+
+main() async {
+  attachToFinalizer();
   await triggerGcWithDelay(); // Call FullGC
   Expect.equals(1, called);   // Callback function should be called only once
 }

@@ -12,9 +12,9 @@
 import '../../../../Utils/expect.dart';
 
 final Finalizer finalizer = Finalizer((_) { throw "Should not reach here"; });
-Object detachToken = Object;
 
 main() {
+  Object detachToken = Object();
   Expect.throws(() {
     finalizer.attach(12345, "Finalization token", detach: detachToken);
   });

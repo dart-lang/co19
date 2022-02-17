@@ -15,7 +15,6 @@
 import '../../../../Utils/expect.dart';
 import '../../gc_utils_lib.dart';
 
-
 final finalizerTokens = <Object>{};
 int cnt = 0;
 
@@ -24,27 +23,20 @@ final Finalizer finalizer = Finalizer((token) {
   cnt++;
 });
 
-Object object1 = Object();
-Object object2 = Object();
-
-main() async {
+@pragma('vm:never-inline')
+void attachToFinalizer1() {
+  Object object1 = Object();
+  Object object2 = Object();
   finalizer.attach(object1, "Object1", detach: null);
-
   dynamic d = null;
   finalizer.attach(object2, "Object2", detach: d);
+}
 
-  object1 = "Object is free";
-  object2 = "Finalizer can be called";
 
-  await triggerGcWithDelay();
-  Expect.setEquals({"Object1", "Object2"}, finalizerTokens);
-  Expect.equals(2, cnt);
-
-  await triggerGcWithDelay();
-  Expect.setEquals({"Object1", "Object2"}, finalizerTokens);
-  Expect.equals(2, cnt);
-
-  await triggerGcWithDelay();
-  Expect.setEquals({"Object1", "Object2"}, finalizerTokens);
-  Expect.equals(2, cnt);
+main() async {
+  for (int i = 0; i < 10; i++) {
+    await triggerGcWithDelay();
+    Expect.setEquals({"Object1", "Object2"}, finalizerTokens);
+    Expect.equals(2, cnt);
+  }
 }

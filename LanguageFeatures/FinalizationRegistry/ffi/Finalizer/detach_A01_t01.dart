@@ -11,7 +11,7 @@
 /// calling [attach] with the [detachToken] object as [detach] argument, is
 /// removed.
 ///
-/// @description Checks that all attacments for the given token get removed
+/// @description Checks that all attachments for the given token get removed
 /// after the [detach] call.
 /// @author iarkh@unipro.ru
 
@@ -23,14 +23,14 @@ class Nonce {
   Nonce(this.value);
 }
 
-final finalizerTokens = <Nonce>{};
+final finalizerTokens = <String>{};
 
 final Finalizer finalizer = Finalizer((token) {
   finalizerTokens.add(token);
 });
 
 @pragma('vm:never-inline')
-void test() {
+void attachAndDetach() {
   Object    object1 = Object();
   Object    object2 = Object();
   List<int> object3 = List.filled(100, 1);
@@ -48,7 +48,7 @@ void test() {
 }
 
 main() async {
-  test();
+  attachAndDetach();
   await triggerGcWithDelay();
   Expect.setEquals({}, finalizerTokens);
   await triggerGcWithDelay();

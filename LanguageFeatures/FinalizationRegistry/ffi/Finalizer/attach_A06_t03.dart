@@ -17,7 +17,7 @@ class Nonce {
   Nonce(this.value);
 }
 
-final finalizerTokens = <Nonce>{};
+final finalizerTokens = <String>{};
 int cnt = 0;
 final Finalizer finalizer = Finalizer((token) {
   finalizerTokens.add(token);
@@ -25,17 +25,17 @@ final Finalizer finalizer = Finalizer((token) {
 });
 
 @pragma('vm:never-inline')
-void test(Nonce token1, token2, token3) {
+void attachToFinalizer(Nonce token1, token2, token3) {
   Object value = Object();
-  finalizer.attach(value, "Finalization token", detach: token1);
-  finalizer.attach(value, "Finalization token", detach: token2);
-  finalizer.attach(value, "Finalization token", detach: token3);
-  finalizer.attach(value, "Finalization token", detach: token1);
-  finalizer.attach(value, "Finalization token", detach: token2);
-  finalizer.attach(value, "Finalization token", detach: token3);
-  finalizer.attach(value, "Finalization token", detach: token1);
-  finalizer.attach(value, "Finalization token", detach: token2);
-  finalizer.attach(value, "Finalization token", detach: token3);
+  finalizer.attach(value, "Token 1", detach: token1);
+  finalizer.attach(value, "Token 2", detach: token2);
+  finalizer.attach(value, "Token 3", detach: token3);
+  finalizer.attach(value, "Token 1", detach: token1);
+  finalizer.attach(value, "Token 2", detach: token2);
+  finalizer.attach(value, "Token 3", detach: token3);
+  finalizer.attach(value, "Token 1", detach: token1);
+  finalizer.attach(value, "Token 2", detach: token2);
+  finalizer.attach(value, "Token 3", detach: token3);
 }
 
 main() async {
@@ -43,13 +43,9 @@ main() async {
   Nonce token2 = Nonce(2);
   Nonce token3 = Nonce(3);
 
-  test(token1, token2, token3);
+  attachToFinalizer(token1, token2, token3);
 
-  await triggerGcWithDelay();
-  Expect.setEquals({token1, token2, token3}, finalizerTokens);
-  await triggerGcWithDelay();
-  Expect.setEquals({token1, token2, token3}, finalizerTokens);
-  await triggerGcWithDelay();
-  Expect.setEquals({token1, token2, token3}, finalizerTokens);
+  await triggerGcWithDelay(repeat: 3);
+  Expect.setEquals({"Token 1", "Token 2", "Token 3"}, finalizerTokens);
   Expect.equals(3, cnt);
 }

@@ -27,14 +27,16 @@ final Finalizer<Object> finalizer = Finalizer((token) {
   cnt++;
 });
 
-main() async {
+@pragma('vm:never-inline')
+void attachAndDetach() {
   A detachToken = A();
-  {
-    Object value = Object();
-    finalizer.attach(value, "Finalization token", detach: detachToken);
-    value = Object();
-  }
+  Object value = Object();
+  finalizer.attach(value, "Finalization token", detach: detachToken);
   finalizer.detach(detachToken);
+}
+
+main() async {
+  attachAndDetach();
   await triggerGcWithDelay();
   Expect.equals(0, cnt);
 }

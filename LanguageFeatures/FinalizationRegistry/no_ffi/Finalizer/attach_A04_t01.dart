@@ -21,11 +21,11 @@ main() {
 
   String s = "Just a string";
   Expect.throws(() {
-    finalizer.attach("Shouldn't work", "Finalization token");
+    finalizer.attach(s, "Finalization token");
   });
 
   dynamic d = s;
   Expect.throws(() {
-    finalizer.attach("Shouldn't work", "Finalization token");
+    finalizer.attach(d, "Finalization token");
   });
 }

@@ -23,11 +23,14 @@ final Finalizer finalizer = Finalizer((token) {
   called++;
 });
 
-main() {
+@pragma('vm:never-inline')
+void attachToFinalizer() {
   Object? obj = Object();
   finalizer.attach(obj, "Testme");
-  print(obj);
-  obj = null;
+}
+
+main() {
+  attachToFinalizer();
   triggerGcWithDelay();
   Expect.equals(1, called);
 }

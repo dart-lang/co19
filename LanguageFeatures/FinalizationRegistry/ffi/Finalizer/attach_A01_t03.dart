@@ -53,7 +53,6 @@ main() async {
   attachToFinalizer2();
   await triggerGcWithDelay();
   Expect.equals(15, returnedToken);
-
   await triggerGcWithDelay();
   Expect.equals(15, returnedToken);
 

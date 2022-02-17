@@ -26,7 +26,7 @@ main() {
   try {
     S s = p.ref;
     Expect.throws(() {
-      finalizer.attach(object, "Finalization token", detach: p);
+      finalizer.attach(object, "Finalization token", detach: s);
     });
   } finally {
     calloc.free(p);

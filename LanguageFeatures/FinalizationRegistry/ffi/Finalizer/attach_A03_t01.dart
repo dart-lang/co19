@@ -19,27 +19,23 @@ final Finalizer finalizer = Finalizer((_) {
   called++;
 });
 
-Object test1(Object obj) => obj;
+@pragma('vm:never-inline')
+void attachAndDetach() {
+  A detachToken = A();
+  Object value = Object();
+  finalizer.attach(value, "Finalization token", detach: detachToken);
+  finalizer.detach(detachToken);
+}
 
 main() async {
-  Object value = Object();
-  Object detachToken = A();
-  finalizer.attach(value, "Finalization token", detach: detachToken);
-  print(value);
-  finalizer.detach(detachToken);
+  attachAndDetach();
 
-  value = 12345;
-
-  // Initial object is not accessible anymore.
-  // Do something, call triggerGC several times and check that callback was
-  // not called during the execution.
   await triggerGcWithDelay();
-
-  var value1 = test1(value);
   triggerGc();
   await triggerGcWithDelay();
   triggerGcWithDelay();
   triggerGcWithDelay();
+  await Future.delayed(Duration(milliseconds: 10));
 
   Expect.equals(0, called);
 }

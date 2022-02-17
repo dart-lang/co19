@@ -17,19 +17,14 @@ final Finalizer finalizer = Finalizer((_) {
 });
 
 @pragma('vm:never-inline')
-void test() {
+void attachAndDetach() {
   Object obj = Object();
   finalizer.attach(obj, "Just a string", detach: obj);
-  print(obj);
   finalizer.detach(obj);
 }
 
 main() async {
-  test();
-  await triggerGcWithDelay();
-  Expect.equals(0, called);
-  await triggerGcWithDelay();
-  Expect.equals(0, called);
-  await triggerGcWithDelay();
+  attachAndDetach();
+  await triggerGcWithDelay(repeat: 3);
   Expect.equals(0, called);
 }

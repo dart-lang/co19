@@ -17,7 +17,7 @@ class Nonce {
   Nonce(this.value);
 }
 
-final finalizerTokens = <Nonce>{};
+final finalizerTokens = <String>{};
 int cnt = 0;
 
 final Finalizer finalizer = Finalizer((token) {
@@ -26,21 +26,23 @@ final Finalizer finalizer = Finalizer((token) {
 });
 
 @pragma('vm:never-inline')
-void test(Nonce token) {
+void attachToFinalizer(Nonce token) {
   Object value = Object();
-  finalizer.attach(value, "Finalization token", detach: token);
-  finalizer.attach(value, "Finalization token", detach: token);
-  finalizer.attach(value, "Finalization token", detach: token);
+  finalizer.attach(value, "Finalization token 1", detach: token);
+  finalizer.attach(value, "Finalization token 2", detach: token);
+  finalizer.attach(value, "Finalization token 3", detach: token);
 }
 
 main() async {
   Nonce token = Nonce(1);
-  test(token);
-  await triggerGcWithDelay();
-  Expect.setEquals({token}, finalizerTokens);
-  await triggerGcWithDelay();
-  Expect.setEquals({token}, finalizerTokens);
-  await triggerGcWithDelay();
-  Expect.setEquals({token}, finalizerTokens);
+  attachToFinalizer(token);
+  for (int i = 0; i < 5; i++) {
+    await triggerGcWithDelay();
+    Expect.setEquals({
+      "Finalization token 1",
+      "Finalization token 2",
+      "Finalization token 3"
+    }, finalizerTokens);
+  }
   Expect.equals(1, cnt);
 }

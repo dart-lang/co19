@@ -25,14 +25,8 @@ final Finalizer finalizer = Finalizer((_) {
 
 main() async {
   A a = A();
-  finalizer.attach(A(), null);
+  finalizer.attach(a, null);
   Expect.equals(0, called);
-  await triggerGcWithDelay();
-  Expect.equals(0, called);
-  await triggerGcWithDelay();
-  Expect.equals(0, called);
-  await triggerGcWithDelay();
-  Expect.equals(0, called);
-  await triggerGcWithDelay();
+  await triggerGcWithDelay(repeat: 5);
   Expect.equals(0, called);
 }
