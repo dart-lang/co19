@@ -18,31 +18,23 @@
 /// "primitive equality", and we want to ensure that enums can be used in
 /// switches.
 ///
-/// @description Check that it's a compile-time error if an enum declaration has
+/// @description Check that it's a compile-time error if a class declaration has
 /// Enum as a superinterface, and it declares a non-abstract instance member
-/// named `index`.
+/// named `hashCode`.
 /// @author sgrekhov@unipro.ru
-/// @issue 48353
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
-enum E1 {
-  e1,
-  e2;
-
-  final int index = 42;
-//          ^^^^^
+abstract class E1 extends Enum {
+  int get hashCode => 42;
+//        ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E2 {
-  e1(42),
-  e2(0);
-
-  const E2(int i);
-  final List<E2> index = const [];
-//               ^^^^^
+abstract class E2 extends Enum {
+  int String hashCode => "42";
+//           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

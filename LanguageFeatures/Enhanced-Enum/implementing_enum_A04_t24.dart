@@ -18,36 +18,28 @@
 /// "primitive equality", and we want to ensure that enums can be used in
 /// switches.
 ///
-/// @description Check that it's a compile-time error if an enum declaration has
+/// @description Check that it's a compile-time error if a mixin declaration has
 /// Enum as a superinterface, and it declares a non-abstract instance member
-/// named `index`.
+/// named `hashCode`.
 /// @author sgrekhov@unipro.ru
-/// @issue 48353
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
-enum E1 {
-  e1,
-  e2;
-
-  final int index = 42;
-//          ^^^^^
+mixin M1 on Enum {
+  void set hashCode(int v) {}
+//         ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E2 {
-  e1(42),
-  e2(0);
-
-  const E2(int i);
-  final List<E2> index = const [];
-//               ^^^^^
+mixin M2 on Enum {
+  void set hashCode(String val) {}
+//         ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(E1);
-  print(E2);
+  print(M1);
+  print(M2);
 }

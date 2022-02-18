@@ -20,9 +20,8 @@
 ///
 /// @description Check that it's a compile-time error if an enum declaration has
 /// Enum as a superinterface, and it declares a non-abstract instance member
-/// named `index`.
+/// named `hashCode`.
 /// @author sgrekhov@unipro.ru
-/// @issue 48353
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
@@ -30,8 +29,8 @@ enum E1 {
   e1,
   e2;
 
-  final int index = 42;
-//          ^^^^^
+  void set hashCode(int val) {}
+//         ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -41,8 +40,8 @@ enum E2 {
   e2(0);
 
   const E2(int i);
-  final List<E2> index = const [];
-//               ^^^^^
+  void set hashCode(String val) {}
+//         ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

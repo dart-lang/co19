@@ -1,4 +1,4 @@
-// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -16,26 +16,34 @@
 /// used to create an instance which implements Enum, but which is not an enum
 /// value.)
 ///
-/// @description Check that implicit class of enum declaration implements Enum
+/// @description Check that it’s a compile-time error if a non-abstract class
+/// implements Enum transitively and it is not the implicit class of an enum
+/// declaration.
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
-import "../../Utils/expect.dart";
-
-enum E1 {
-  e1,
-  e2
+abstract class A implements Enum {
+  int foo();
 }
 
-enum E2 {
-  e1(42),
-  e2(0);
+class C1 implements A {
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  int get index => 42;
+  int foo() => 42;
+}
 
-  const E2(int i);
+class C2 extends A {
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  int get index => 42;
+  int foo() => 42;
 }
 
 main() {
-  Expect.isTrue(E1.e1 is Enum);
-  Expect.isTrue(E2.e1 is Enum);
+  print(C1);
+  print(C2);
 }
