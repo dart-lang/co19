@@ -28,7 +28,6 @@ main() {
     Expect.throws(() {
       U u = p1.ref;
       WeakReference wr = WeakReference<U>(u);
-      print(wr.target);
     });
   } finally {
     calloc.free(p1);
@@ -38,7 +37,6 @@ main() {
     Expect.throws(() {
       U u = p2.ref;
       WeakReference wr = WeakReference(u);
-      print(wr.target);
     });
   } finally {
     calloc.free(p2);

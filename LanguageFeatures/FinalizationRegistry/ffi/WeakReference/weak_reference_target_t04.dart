@@ -28,14 +28,17 @@ class C {
 dynamic d;
 
 @pragma('vm:never-inline')
+C? getNullObject() => null;
+
+@pragma('vm:never-inline')
 WeakReference<C> createWeakReference() {
   C? c = C(42);
   d = c;
   WeakReference<C> wr = WeakReference(c);
   Expect.equals(c, wr.target);
-  c = null;
+  c = getNullObject();
+  Expect.isNull(c);
   triggerGc();
-  Expect.isNotNull(wr.target);
   Expect.equals(d, wr.target);
   return wr;
 }
@@ -43,8 +46,9 @@ WeakReference<C> createWeakReference() {
 main() {
   WeakReference<C> wr = createWeakReference();
   triggerGc();
-  Expect.isNotNull(wr.target);
-  d = 42;
+  Expect.equals("C(42)", wr.target.toString());
+  d = getNullObject();
+  Expect.isNull(d);
   triggerGc();
   Expect.isNull(wr.target);
 }

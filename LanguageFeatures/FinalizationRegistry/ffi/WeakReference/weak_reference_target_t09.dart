@@ -30,13 +30,19 @@ WeakReference<C> createWeakReference() {
   C c = C(42);
   WeakReference<C> wr = WeakReference(c);
   Future<C>.delayed(Duration(milliseconds: 10), () => c);
-  c = C(-1);
   return wr;
 }
 
-main() {
+@pragma('vm:never-inline')
+void checkReference(WeakReference<C> ref) {
+  C? c = ref.target;
+  Expect.isTrue(c == null || c.toString() == "C(42)");
+}
+
+main() async {
   WeakReference<C> wr = createWeakReference();
-  Expect.isNotNull(wr.target);
+  checkReference(wr);
+  await Future.delayed(Duration(seconds: 1));
   triggerGc();
   Expect.isNull(wr.target);
 }

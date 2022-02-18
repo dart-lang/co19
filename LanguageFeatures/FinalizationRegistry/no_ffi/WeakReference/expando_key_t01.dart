@@ -16,11 +16,9 @@ import '../../../../Utils/expect.dart';
 main() {
   Expect.throws(() {
     WeakReference wr = WeakReference<String>("Lily was here");
-    print(wr.target);
   });
   Expect.throws(() {
     String s = "Lily was here";
     WeakReference wr = WeakReference(s);
-    print(wr.target);
   });
 }

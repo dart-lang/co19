@@ -25,24 +25,32 @@ class C {
   String toString() => "C($id)";
 }
 
-main() async {
+@pragma('vm:never-inline')
+C? getNullObject() => null;
+
+@pragma('vm:never-inline')
+Future<WeakReference> createWeakReference() async {
   C? c1 = C(42);
   WeakReference<C> wr = WeakReference(c1);
   asyncStart();
   Future<C?>.delayed(Duration(milliseconds: 1), () => c1).then((C? c2) async {
-    Expect.isNotNull(wr.target);
     Expect.equals(c1, wr.target);
     triggerGc();
-    Expect.isNotNull(wr.target);
-    c2 = null;
+    Expect.equals(c1, wr.target);
+    // Need to be sure that indeed c2 is null and the code is not optimized
+    c2 = getNullObject();
+    Expect.isNull(c2);
     triggerGc();
-    Expect.isNotNull(wr.target);
+    Expect.equals(c1, wr.target);
     asyncEnd();
   });
-  Expect.isNotNull(wr.target);
   Expect.equals(c1, wr.target);
+  return wr;
+}
+
+main() async {
+  WeakReference wr = await createWeakReference();
   await Future.delayed(Duration(seconds: 1));
-  c1 = null;
   triggerGc();
   Expect.isNull(wr.target);
 }
