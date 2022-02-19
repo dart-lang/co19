@@ -30,11 +30,11 @@ void attachToFinalizer(Nonce token1, token2, token3) {
   finalizer.attach(value, "Token 1", detach: token1);
   finalizer.attach(value, "Token 2", detach: token2);
   finalizer.attach(value, "Token 3", detach: token3);
-  finalizer.attach(value, "Token 1", detach: token1);
+  finalizer.attach(value, "Token 1", detach: token3);
   finalizer.attach(value, "Token 2", detach: token2);
-  finalizer.attach(value, "Token 3", detach: token3);
-  finalizer.attach(value, "Token 1", detach: token1);
-  finalizer.attach(value, "Token 2", detach: token2);
+  finalizer.attach(value, "Token 3", detach: token1);
+  finalizer.attach(value, "Token 1", detach: token2);
+  finalizer.attach(value, "Token 2", detach: token1);
   finalizer.attach(value, "Token 3", detach: token3);
 }
 
