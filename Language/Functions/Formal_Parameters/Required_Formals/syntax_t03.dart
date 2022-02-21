@@ -27,14 +27,11 @@
 /// declared as const
 /// @author msyabro
 
-
 func(const x) {
 //   ^
 // [analyzer] unspecified
 // [cfe] unspecified
   x = 1;
-//^
-// [cfe] unspecified
 }
 
 main() {
