@@ -21,7 +21,7 @@ class C {
 }
 
 main() {
-  C? c = C(42);
+  C c = C(42);
   WeakReference<C> wr = WeakReference(c);
   Expect.equals(c, wr.target);
 }

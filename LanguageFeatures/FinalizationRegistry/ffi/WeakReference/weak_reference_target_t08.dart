@@ -38,10 +38,17 @@ List<WeakReference<C>> createWeakReference() {
   return [wr1, wr2];
 }
 
+@pragma('vm:never-inline')
+void checkReferences(List<WeakReference<C>> refs) {
+  C? c1 = refs[0].target;
+  C? c2 = refs[1].target;
+  Expect.isTrue(c1 == null || c1.toString() == "C(42)");
+  Expect.isTrue(c2 == null || c2.toString() == "C(42)");
+}
+
 main() {
   List<WeakReference<C>> refs = createWeakReference();
-  Expect.isNotNull(refs[0].target);
-  Expect.isNotNull(refs[1].target);
+  checkReferences(refs);
   triggerGc();
   Expect.isNull(refs[0].target);
   Expect.isNull(refs[1].target);

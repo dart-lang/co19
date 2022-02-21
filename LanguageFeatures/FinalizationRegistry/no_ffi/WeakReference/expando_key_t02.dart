@@ -16,26 +16,20 @@ import '../../../../Utils/expect.dart';
 main() {
   Expect.throws(() {
     WeakReference wr = WeakReference<int>(42);
-    print(wr.target);
   });
   Expect.throws(() {
     WeakReference wr = WeakReference(42);
-    print(wr.target);
   });
   Expect.throws(() {
     WeakReference wr = WeakReference<double>(3.14);
-    print(wr.target);
   });
   Expect.throws(() {
     WeakReference wr = WeakReference(3.14);
-    print(wr.target);
   });
   Expect.throws(() {
     WeakReference wr = WeakReference<num>(42);
-    print(wr.target);
   });
   Expect.throws(() {
     WeakReference wr = WeakReference<num>(3.14);
-    print(wr.target);
   });
 }

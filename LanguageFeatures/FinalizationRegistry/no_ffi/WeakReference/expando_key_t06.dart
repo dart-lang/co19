@@ -16,6 +16,5 @@ main() {
   Expect.throws(() {
     dynamic d = null;
     WeakReference wr = WeakReference(d);
-    print(wr.target);
   });
 }
