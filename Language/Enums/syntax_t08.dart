@@ -20,4 +20,6 @@ enum E {a,, b}
 
 main() {
   E e = E.b;
+//        ^
+// [cfe] unspecified
 }

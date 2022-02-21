@@ -25,6 +25,9 @@ enum E1 {
   e3;
 
   String toString([int index = 0]) => "E1";
+  bool operator ==(covariant E1 other) {
+    return true;
+  }
 }
 
 enum E2<T> {
@@ -35,13 +38,25 @@ enum E2<T> {
   const E2(T t);
 
   String toString([int index = 0]) => "E2";
+  bool operator ==(covariant E2 other) {
+    return false;
+  }
 }
 
 main() {
   Expect.equals("E1", E1.e1.toString());
   Expect.equals("E1", E1.e2.toString(1));
   Expect.equals("E1", E1.e3.toString());
+  Expect.isTrue(E1.e1 == E1.e2);
+  Expect.isTrue(E1.e1 == E1.e3);
+  Expect.isTrue(E1.e3 == E1.e2);
   Expect.equals("E2", E2.e1.toString());
   Expect.equals("E2", E2.e2.toString(1));
   Expect.equals("E2", E2.e3.toString());
+  Expect.isFalse(E2.e1 == E2.e2);
+  Expect.isFalse(E2.e1 == E2.e3);
+  Expect.isFalse(E2.e3 == E2.e2);
+  Expect.isFalse(E2.e1 == E2.e1);
+  Expect.isFalse(E2.e2 == E2.e2);
+  Expect.isFalse(E2.e3 == E2.e3);
 }

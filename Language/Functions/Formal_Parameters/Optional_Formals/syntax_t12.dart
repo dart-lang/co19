@@ -14,11 +14,14 @@
 /// brackets are mixed in an optional parameters declaration.
 /// @author rodionov
 
+
 foo({const p: 1]) {
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
   p = 1;
+//^
+// [cfe] unspecified
 }
 
 main() {
