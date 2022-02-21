@@ -14,7 +14,6 @@
 /// brackets are mixed in an optional parameters declaration.
 /// @author rodionov
 
-
 foo([int p = 1}) {
 //             ^
 // [analyzer] unspecified
