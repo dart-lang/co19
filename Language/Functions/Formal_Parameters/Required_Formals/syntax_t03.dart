@@ -29,20 +29,14 @@
 /// declared as const
 /// @author msyabro
 /// @reviewer iefremov
-/// @reviewer rodionov
-
 
 func(const x) {
 //   ^
 // [analyzer] unspecified
 // [cfe] unspecified
   x = 1;
-//^
-// [cfe] unspecified
 }
 
 main() {
-  try {
-    func(1);
-  } catch (e) {}
+  func(1);
 }
