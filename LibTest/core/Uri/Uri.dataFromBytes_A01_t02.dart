@@ -33,7 +33,7 @@ check(List<int> data, String mType) {
   Uri uri = new Uri.dataFromBytes(data, mimeType: mType);
 
   Expect.equals(base64.encode(data), uri.data?.contentText);
-  Expect.equals(mType, uri.data?.mimeType);
+  Expect.equals(mType.toLowerCase(), uri.data?.mimeType);
 
   Expect.equals("data", uri.scheme);
   Expect.equals("", uri.userInfo);

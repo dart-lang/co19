@@ -23,7 +23,7 @@ check(List<int> bytes, String mType) {
   UriData uriData = new UriData.fromBytes(bytes, mimeType: mType);
 
   Expect.equals(base64.encode(bytes), uriData.contentText);
-  Expect.equals(mType, uriData.mimeType);
+  Expect.equals(mType.toLowerCase(), uriData.mimeType);
 }
 
 main() {
