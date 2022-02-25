@@ -14,21 +14,16 @@
 /// where the constructor invocation requires a regular-bounded
 /// instantiate-to-bounds result).
 ///
-/// @description Check that it is a compile-time error to declare a generic enum
-/// which does not have a regular-bounded instantiate-to-bounds result
+/// @description Check that it is no compile-time error to declare a generic
+/// enum which does have a regular-bounded instantiate-to-bounds result
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
-typedef A<X> = X Function(X);
-
-enum E<Y extends A<Y>> {
-//   ^
-// [analyzer] unspecified
-// [cfe] unspecified
+enum E<Y extends Y Function(Y)> {
   e1<Never>();
 }
 
 main() {
-  E.e1;
+  print(E.e1);
 }
