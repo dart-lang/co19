@@ -10,7 +10,8 @@
 /// declaration.
 ///
 /// @description Check that it's a compile-time error if the enum declaration
-/// contains a static member declaration with the name `values`
+/// contains a static setter with the name `values`, and its argument is not a
+/// supertype of the generated member `values`.
 /// @author sgrekhov@unipro.ru
 /// @issue 48387
 
@@ -25,9 +26,6 @@ enum E1 {
   e3;
 
   static void set values(int value) {}
-//                ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 enum E2<T> {
@@ -37,9 +35,6 @@ enum E2<T> {
 
   const E2(Object val);
   static void set values(List<E2> value) {}
-//                ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
