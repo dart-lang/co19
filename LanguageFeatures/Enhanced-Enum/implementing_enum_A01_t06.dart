@@ -38,7 +38,7 @@ class C1 implements M1 {
 class C2 implements M2 {
 //    ^^
 // [analyzer] unspecified
-// [cfe] unspecified;
+// [cfe] unspecified
   int get index => 2;
 }
 
