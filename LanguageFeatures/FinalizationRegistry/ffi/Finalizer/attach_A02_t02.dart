@@ -25,6 +25,7 @@ void attachToFinalizer() {
 }
 
 main() async {
+  attachToFinalizer();
   await triggerGcWithDelay();
   await triggerGcWithDelay();
   triggerGc();

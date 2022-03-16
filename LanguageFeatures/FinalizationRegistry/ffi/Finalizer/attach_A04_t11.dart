@@ -32,8 +32,8 @@ void attachToFinalizer1() {
   finalizer.attach(object2, "Object2", detach: d);
 }
 
-
 main() async {
+  attachToFinalizer1();
   for (int i = 0; i < 10; i++) {
     await triggerGcWithDelay();
     Expect.setEquals({"Object1", "Object2"}, finalizerTokens);
