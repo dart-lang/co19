@@ -32,7 +32,7 @@ class C1 implements Enum {
 class C2 extends Enum {
 //               ^^^^
 // [analyzer] unspecified
-// [cfe] unspecified;
+// [cfe] unspecified
 }
 
 class C3 with Enum {

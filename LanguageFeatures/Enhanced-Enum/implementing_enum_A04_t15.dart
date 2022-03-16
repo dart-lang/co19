@@ -33,7 +33,7 @@ abstract class E1 extends Enum {
 }
 
 abstract class E2 extends Enum {
-  int String hashCode => "42";
+  String get hashCode => "42";
 //           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

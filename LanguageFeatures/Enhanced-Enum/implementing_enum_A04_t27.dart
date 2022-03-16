@@ -35,8 +35,8 @@ mixin M1 on Enum {
 }
 
 mixin M2 on Enum {
-  bool operator ==(covariant E2 other) {
-//    ^^^^^^^^^^^
+  bool operator ==(covariant M2 other) {
+//     ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return false;
