@@ -3,12 +3,12 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Future<List<InternetAddress>> lookup(String host,
-///   { InternetAddressType type: InternetAddressType.ANY })
-/// If [type] is [InternetAddressType.ANY], it will lookup both IP version 4
+///   { InternetAddressType type: InternetAddressType.any })
+/// If [type] is [InternetAddressType.any], it will lookup both IP version 4
 /// (IPv4) and IP version 6 (IPv6) addresses.
 /// @description Checks that created [Future] contains IPv4 and IPv6 addresses
 /// and each address string corresponds type of [InternetAddress] object.
-/// [InternetAddressType.ANY].
+/// [InternetAddressType.any].
 /// @author iarkh@unipro.ru
 
 
@@ -21,7 +21,7 @@ RegExp ipv6 = new RegExp(r'^::|^::1|^([a-fA-F0-9]{1,4}::?){1,7}([a-fA-F0-9]{1,4}
 
 check(String name) {
   Future<List<InternetAddress>> list =
-    InternetAddress.lookup(name, type: InternetAddressType.ANY);
+    InternetAddress.lookup(name, type: InternetAddressType.any);
 
   list.then((addresses) {
     addresses.forEach((InternetAddress addr) {
