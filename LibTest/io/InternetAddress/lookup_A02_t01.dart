@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Future<List<InternetAddress>> lookup(String host,
-///   { InternetAddressType type: InternetAddressType.ANY })
-/// If [type] is [InternetAddressType.ANY], it will lookup both IP version 4
+///   { InternetAddressType type: InternetAddressType.any })
+/// If [type] is [InternetAddressType.any], it will lookup both IP version 4
 /// (IPv4) and IP version 6 (IPv6) addresses.
 /// @description Checks that created [Future] can contain both IPv4 and IPv6
 /// @author iarkh@unipro.ru
