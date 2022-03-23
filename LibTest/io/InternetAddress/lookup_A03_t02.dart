@@ -5,7 +5,7 @@
 // @dart = 2.9
 
 /// @assertion Future<List<InternetAddress>> lookup(String host,
-///   { InternetAddressType type: InternetAddressType.ANY })
+///   { InternetAddressType type: InternetAddressType.any })
 /// If type is either [InternetAddressType.IPv4] or [InternetAddressType.IPv6]
 /// it will only lookup addresses of the specified type.
 /// @description Checks that if type is set to [InternetAddressType.IPv6] result
