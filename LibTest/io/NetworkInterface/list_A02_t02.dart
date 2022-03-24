@@ -8,13 +8,13 @@
 /// Future<List<NetworkInterface>> list({
 ///     bool includeLoopback: false,
 ///     bool includeLinkLocal: false,
-///     InternetAddressType type: InternetAddressType.ANY
+///     InternetAddressType type: InternetAddressType.any
 /// })
 /// Query the system for NetworkInterfaces.
 /// ...
 /// If type is either InternetAddressType.IPv4 or InternetAddressType.IPv6 it
 /// will only lookup addresses of the specified type. Default is
-/// InternetAddressType.ANY.
+/// InternetAddressType.any.
 ///
 /// @description Checks that if parameter 'type' of static method [list] is
 /// InternetAddressType.IPv4, only addresses of InternetAddressType.IPv4 type

@@ -5,7 +5,7 @@
 // @dart = 2.9
 
 /// @assertion Future<List<InternetAddress>> lookup(String host,
-///   { InternetAddressType type: InternetAddressType.ANY })
+///   { InternetAddressType type: InternetAddressType.any })
 /// Lookup a host, returning a [Future] of a list of [InternetAddresss].
 /// @description Checks that exception is thrown if such a host does not exist.
 /// @author iarkh@unipro.ru

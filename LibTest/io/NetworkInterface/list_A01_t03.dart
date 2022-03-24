@@ -8,7 +8,7 @@
 /// Future<List<NetworkInterface>> list({
 ///     bool includeLoopback: false,
 ///     bool includeLinkLocal: false,
-///     InternetAddressType type: InternetAddressType.ANY
+///     InternetAddressType type: InternetAddressType.any
 /// })
 /// Query the system for NetworkInterfaces.
 ///
