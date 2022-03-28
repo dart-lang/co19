@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 main() {
   var body = document.body;
   var x = new ButtonElement();
-  body?.append(x);
+  body.append(x);
 
   x.focus();
   x.blur();
