@@ -14,13 +14,9 @@ import "../../../Utils/expect.dart";
 main() {
   var body = document.body;
   var x = new ButtonElement();
-  body.append(x);
-
-  asyncStart();
-  x.onBlur.listen((e) {
-    asyncEnd();
-  });
+  body?.append(x);
 
   x.focus();
   x.blur();
+  Expect.notEquals(x, document.activeElement);
 }
