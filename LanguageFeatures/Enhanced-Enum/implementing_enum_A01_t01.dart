@@ -27,6 +27,8 @@ class C implements Enum {
 // [analyzer] unspecified
 // [cfe] unspecified
   int get index => 42;
+//        ^^^^^
+// [cfe] unspecified
 }
 
 main() {
