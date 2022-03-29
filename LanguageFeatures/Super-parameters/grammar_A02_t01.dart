@@ -29,7 +29,6 @@ class S {
 }
 
 class C extends S {
-  int i;
   C(super.s1) : super(super.s1);
 //                    ^^^^^^^^
 // [analyzer] unspecified
