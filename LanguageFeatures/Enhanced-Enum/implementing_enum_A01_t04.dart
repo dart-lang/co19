@@ -32,6 +32,8 @@ class C1 implements A {
 // [analyzer] unspecified
 // [cfe] unspecified
   int get index => 42;
+//        ^^^^^
+// [cfe] unspecified
   int foo() => 42;
 }
 
@@ -40,6 +42,8 @@ class C2 extends A {
 // [analyzer] unspecified
 // [cfe] unspecified
   int get index => 42;
+//        ^^^^^
+// [cfe] unspecified
   int foo() => 42;
 }
 

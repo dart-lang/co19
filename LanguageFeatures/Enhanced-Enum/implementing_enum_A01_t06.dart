@@ -33,6 +33,8 @@ class C1 implements M1 {
 // [analyzer] unspecified
 // [cfe] unspecified
   int get index => 1;
+//        ^^^^^
+// [cfe] unspecified
 }
 
 class C2 implements M2 {
@@ -40,6 +42,8 @@ class C2 implements M2 {
 // [analyzer] unspecified
 // [cfe] unspecified
   int get index => 2;
+//        ^^^^^
+// [cfe] unspecified
 }
 
 class C3 with M3 {
@@ -47,6 +51,8 @@ class C3 with M3 {
 // [analyzer] unspecified
 // [cfe] unspecified
   int get index => 3;
+//        ^^^^^
+// [cfe] unspecified
 }
 
 main() {
