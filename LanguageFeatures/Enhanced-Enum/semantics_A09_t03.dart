@@ -19,8 +19,6 @@
 // SharedOptions=--enable-experiment=enhanced-enums
 
 enum E1 {
-//   ^^
-// [cfe] unspecified
   e1,
 //^^
 // [analyzer] unspecified
@@ -33,8 +31,6 @@ enum E1 {
 }
 
 enum E2<T> {
-//   ^^
-// [cfe] unspecified
   e1<int>(42),
   e2<String>("42"),
 //^^
