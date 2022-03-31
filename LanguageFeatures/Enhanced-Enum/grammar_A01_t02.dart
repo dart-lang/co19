@@ -46,8 +46,14 @@ enum Time2 {
 
 enum Time3 {
   hour,
+//    ^
+// [cfe] unspecified
   day,
+//   ^
+// [cfe] unspecified
   week,
+//    ^
+// [cfe] unspecified
 
   factory Time3.f() => values[0];
 //^

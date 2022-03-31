@@ -29,7 +29,6 @@ enum E1 {
   void foo();
 //     ^^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 enum E2<T> {
@@ -46,7 +45,6 @@ enum E2<T> {
   void foo();
 //     ^^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
