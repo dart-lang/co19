@@ -29,7 +29,6 @@
 enum E1 {
 //   ^^
 // [analyzer] unspecified
-// [cfe] unspecified
   e1,
   e2;
 
@@ -40,8 +39,6 @@ enum E1 {
 }
 
 enum E2 {
-//   ^^
-// [cfe] unspecified
   e1(42),
   e2(0);
 
