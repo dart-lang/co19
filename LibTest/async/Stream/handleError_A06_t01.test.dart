@@ -12,7 +12,7 @@ library handleError_A06_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> stream, Function? onError(T event), bool test(error)) {
+void check<T>(Stream<T> stream, Function? onError(dynamic event), bool test(error)) {
   Expect.equals(stream.isBroadcast, stream.handleError(onError).isBroadcast);
   Expect.equals(stream.isBroadcast, stream.handleError(onError, test:test).isBroadcast);
 }
