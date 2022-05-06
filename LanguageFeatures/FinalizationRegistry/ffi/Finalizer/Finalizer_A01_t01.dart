@@ -30,8 +30,5 @@ main() async {
   Expect.equals(0, called);
   await triggerGcWithDelay(repeat: 5);
   Expect.equals(0, called);
-  reachabilityFence(a);
+  print(a);
 }
-
-@pragma('vm:never-inline')
-void reachabilityFence(Object o) {}
