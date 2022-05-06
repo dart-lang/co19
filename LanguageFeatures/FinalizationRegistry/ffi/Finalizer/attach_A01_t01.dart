@@ -42,10 +42,12 @@ void attachToFinalizer2() {
   finalizer.attach(o, 15);
 }
 
+List l = [];
+
 @pragma('vm:never-inline')
 void attachToFinalizer3() {
   var o = A();
-  finalizer.attach(o, []);
+  finalizer.attach(o, l);
 }
 
 @pragma('vm:never-inline')
@@ -65,12 +67,12 @@ main() async {
 
   attachToFinalizer3();
   await triggerGcWithDelay();
-  Expect.equals([], returnedToken);
+  Expect.equals(l, returnedToken);
 
   attachToFinalizer4();
   await triggerGcWithDelay();
   Expect.equals(42, returnedToken);
 
   await triggerGcWithDelay();
-  Expect.equals(3, cnt);
+  Expect.equals(4, cnt);
 }

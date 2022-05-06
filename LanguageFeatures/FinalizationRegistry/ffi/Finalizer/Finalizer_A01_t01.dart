@@ -17,6 +17,7 @@ import '../../gc_utils_lib.dart';
 import '../../../../Utils/expect.dart';
 
 class A {}
+
 int called = 0;
 
 final Finalizer finalizer = Finalizer((_) {
@@ -29,4 +30,8 @@ main() async {
   Expect.equals(0, called);
   await triggerGcWithDelay(repeat: 5);
   Expect.equals(0, called);
+  reachabilityFence(a);
 }
+
+@pragma('vm:never-inline')
+void reachabilityFence(Object o) {}

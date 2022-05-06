@@ -25,7 +25,8 @@ final Finalizer finalizer = Finalizer((token) {
 @pragma('vm:never-inline')
 void attachToFinalizer() {
   var o = Object();
-  finalizer.attach(o, "throw");
+  // This would cause the program to exit with `Unhandled exception`.
+  // finalizer.attach(o, "throw");
   finalizer.attach(o, "Don't throw");
 }
 
@@ -33,5 +34,5 @@ main() async {
   attachToFinalizer();
   await triggerGcWithDelay();
   Expect.equals("Don't throw", returnedToken);
-  Expect.equals(2, count);
+  Expect.equals(1, count);
 }
