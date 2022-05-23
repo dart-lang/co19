@@ -6,7 +6,7 @@
 /// Checks whether test accepts any element provided by this stream.
 /// Completes the Future when the answer is known.
 /// @description Checks that Future completes when the first matching element
-/// is encounterd.
+/// is encountered.
 /// @author ilya
 
 import "dart:async";
