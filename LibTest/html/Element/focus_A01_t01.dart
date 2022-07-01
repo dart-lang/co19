@@ -16,10 +16,6 @@ main() {
   var x = new ButtonElement();
   body.append(x);
 
-  asyncStart();
-  x.onFocus.listen((e) {
-    asyncEnd();
-  });
-
   x.focus();
+  Expect.equals(x, document.activeElement);
 }

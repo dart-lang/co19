@@ -16,11 +16,7 @@ main() {
   var x = new ButtonElement();
   body.append(x);
 
-  asyncStart();
-  x.onBlur.listen((e) {
-    asyncEnd();
-  });
-
   x.focus();
   x.blur();
+  Expect.notEquals(x, document.activeElement);
 }
