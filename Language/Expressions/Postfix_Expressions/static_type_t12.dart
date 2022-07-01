@@ -8,7 +8,6 @@
 /// The static type of such an expression is the static type of e1.v.
 /// @description Checks that static type of e1?.v-- is static type of e1.v. e1
 /// is a type literal
-/// static-clean
 /// @author sgrekhov@unipro.ru
 
 class C {
@@ -18,5 +17,11 @@ class C {
 
 main() {
   int? a1 = C?.v--;
-  try { int? a2 = C?.v2--; } catch (e) {}
+//           ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+  try {
+    int? a2 = C?.v2--;
+//             ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+  } catch (e) {}
 }

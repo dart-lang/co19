@@ -7,8 +7,6 @@
 /// is [double]. Test class member assignment and hexadecimal values
 /// @author sgrekhov@unipro.ru
 
-
-
 class C {
   double m1 = 0x42;
   double m2 = (1 > 0 ? 0x42 : 3.14);
@@ -30,6 +28,8 @@ class C {
 main() {
   C.s = 0x42;
   C?.s = -0x42;
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //^
 // [cfe] The class 'C' cannot be null.
   C.s ??= 0x42;
@@ -38,6 +38,8 @@ main() {
 //  ^
 // [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   C?.s ??= -0x42;
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //         ^^^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
 //^
@@ -46,6 +48,8 @@ main() {
 // [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   C.staticSetter = -0x42;
   C?.staticSetter = 0x42;
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //^
 // [cfe] The class 'C' cannot be null.
 

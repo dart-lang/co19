@@ -7,7 +7,6 @@
 /// is [double]. Test class member assignment
 /// @author sgrekhov@unipro.ru
 
-
 class C {
   double m1 = 42;
   double m2 = (1 > 0 ? 42 : 3.14);
@@ -29,6 +28,8 @@ class C {
 main() {
   C.s = 42;
   C?.s = -42;
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //^
 // [cfe] The class 'C' cannot be null.
   C.s ??= 42;
@@ -37,6 +38,8 @@ main() {
 //  ^
 // [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   C?.s ??= -42;
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //         ^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
 //^
@@ -47,6 +50,8 @@ main() {
   C?.staticSetter = 42;
 //^
 // [cfe] The class 'C' cannot be null.
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 
   C? c = null;
   c?.m1 = 42;

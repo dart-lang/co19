@@ -8,7 +8,6 @@
 /// equivalent to the expression C.v *= e2.
 /// @author sgrekhov@unipro.ru
 
-
 import '../../../../Utils/expect.dart';
 
 class C {
@@ -40,11 +39,15 @@ main() {
 
   C.init(null);
   Expect.throws(() {C?.v *= 2;});
+//                   ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   Expect.equals(1, C.getterInvocation);
   Expect.equals(0, C.setterInvocation);
 
   C.init(2);
   var res3 = (C?.v *= 2);
+//             ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   Expect.equals(1, C.getterInvocation);
   Expect.equals(1, C.setterInvocation);
   Expect.equals(4, res3);
