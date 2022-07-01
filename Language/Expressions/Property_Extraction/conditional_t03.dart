@@ -17,4 +17,6 @@ class C {
 
 main() {
   Expect.equals(C?.id, C.id);
+//               ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 }

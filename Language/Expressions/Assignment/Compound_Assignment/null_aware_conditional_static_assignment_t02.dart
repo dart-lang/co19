@@ -8,15 +8,18 @@
 /// only if C.v == null. Test the case when C.v is prefixed
 /// @author sgrekhov@unipro.ru
 
-
 import '../../../../Utils/expect.dart';
 import 'null_aware_assignment_lib.dart' as lib;
 
 main() {
   lib.C.v = null;
   lib.C?.v ??= 1;
+//     ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   Expect.equals(1, lib.C.v);
 
   lib.C?.v ??= 2;
+//     ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   Expect.equals(1, lib.C.v);
 }

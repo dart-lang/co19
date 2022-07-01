@@ -40,11 +40,15 @@ main() {
 
   C.init(null);
   Expect.throws(() {C?.v ~/= 2;});
+//                   ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   Expect.equals(1, C.getterInvocation);
   Expect.equals(0, C.setterInvocation);
 
   C.init(5);
   var res3 = (C?.v ~/= 2);
+//             ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   Expect.equals(1, C.getterInvocation);
   Expect.equals(1, C.setterInvocation);
   Expect.equals(2, res3);

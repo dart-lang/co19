@@ -9,7 +9,6 @@
 /// to the evaluation of the to e1.v = e2 if e1 is a type literal
 /// @author sgrekhov@unipro.ru
 
-
 import '../../../Utils/expect.dart';
 
 class C {
@@ -25,7 +24,11 @@ int e() {
 
 main() {
   var x = C?.v = e() + 1;
+//         ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   Expect.equals(1, C?.v);
+//                  ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   Expect.equals(1, x);
   Expect.equals(1, count);
 }

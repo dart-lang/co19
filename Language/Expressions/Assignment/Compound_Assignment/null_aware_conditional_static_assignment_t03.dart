@@ -10,7 +10,6 @@
 /// used in e)
 /// @author sgrekhov@unipro.ru
 
-
 import '../../../../Utils/expect.dart';
 
 class C {
@@ -38,6 +37,8 @@ class C {
 main() {
   C.init(null);
   var res = (C?.v ??= 1);
+//            ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   Expect.equals(1, C.getterInvocation);
   Expect.equals(1, C.setterInvocation);
   Expect.equals(1, C.v);
@@ -45,6 +46,8 @@ main() {
 
   C.init(1);
   res = (C?.v ??= 2);
+//        ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   Expect.equals(1, C.getterInvocation);
   Expect.equals(0, C.setterInvocation);
   Expect.equals(1, C.v);
