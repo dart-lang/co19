@@ -29,7 +29,8 @@ import "dart:isolate";
 import "dart:math";
 import "../../../Utils/expect.dart";
 
-entryPoint(message) {
+entryPoint(SendPort message) {
+  message.send("Started");
   Random random = new Random();
   int s = 0;
   while (true) {
@@ -38,9 +39,11 @@ entryPoint(message) {
 }
 
 test() async {
+  ReceivePort port = new ReceivePort();
   ReceivePort onExit = new ReceivePort();
-  Isolate isolate = await Isolate.spawn(entryPoint, null,
+  Isolate isolate = await Isolate.spawn(entryPoint, port.sendPort,
       onExit: onExit.sendPort, errorsAreFatal: true);
+  await port.first;
   isolate.kill(priority: Isolate.beforeNextEvent);
   onExit.first.timeout(Duration(seconds: 3), onTimeout: () {
     // This is expected. Isolate shouldn't get killed
