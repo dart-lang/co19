@@ -48,7 +48,7 @@ Future test(List<Object?> values) async {
   Isolate isolate = await Isolate.spawn(entryPoint, port.sendPort,
       onExit: onExit.sendPort,
       errorsAreFatal: true);
-  var v = await port.first;
+  await port.first;
   List<Future> pingResponses = [];
   for (Object? value in values) {
     ReceivePort pingPort = new ReceivePort();
