@@ -4,7 +4,7 @@
 
 /// @assertion String replaceFirstMapped(Pattern from,
 /// String replace(Match match), [int startIndex = 0])
-/// Replace the first occurence of from in this string.
+/// Replace the first occurrence of from in this string.
 ///
 /// Returns a new string, which is this string except that the first match of
 /// pattern, starting from startIndex, is replaced by the result of calling
