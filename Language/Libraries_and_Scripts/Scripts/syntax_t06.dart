@@ -13,11 +13,8 @@
 /// comes before the library name.
 /// @author vasya
 
-
-part "../Parts/part_0.dart";
-//   ^
-// [analyzer] unspecified
-library Parts_test_lib;
+part "syntax_t06_lib.dart";
+library syntax_t06_lib;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
