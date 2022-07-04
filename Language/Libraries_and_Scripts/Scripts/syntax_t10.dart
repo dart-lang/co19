@@ -14,20 +14,15 @@
 /// @description Checks that is is a compile-time error when a variable
 /// declaration comes before a part directive.
 /// @author vasya
-/// @reviewer msyabro
 
-library Script_A01_t14;
-import "../../../Utils/expect.dart";
-import "library1.dart";
+library syntax_t10_lib;
 
-final int script = 1; // error
-part "../Parts/part_0.dart";
-//   ^
+final int script = 1;
+part "syntax_t10_lib.dart";
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  try {
-    Expect.equals(1, script);
-  } catch (e) {}
+  print(script);
 }
