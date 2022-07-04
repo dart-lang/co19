@@ -16,46 +16,45 @@
 /// used in a subtype test.
 /// @author kaigorodov
 
-
 class C<T, U, V> {}
 class Bounded<T extends num> {}
 class BoundedInt<T extends int> {}
 
 main() {
   null is UnknownType;
-  //      ^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_TEST_WITH_UNDEFINED_NAME
-  // [cfe] 'UnknownType' isn't a type.
+//        ^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_TEST_WITH_UNDEFINED_NAME
+// [cfe] 'UnknownType' isn't a type.
 
-  // C<int, double, UnknownType> is not malformed, see
-  // (Types/Parameterized Types)
-  // UnknownType is treated as dynamic and parameterized type is
-  // C<int,double,dynamic>
+// C<int, double, UnknownType> is not malformed, see
+// (Types/Parameterized Types)
+// UnknownType is treated as dynamic and parameterized type is
+// C<int,double,dynamic>
 
   C<int, double, UnknownType> x = new C();
 //               ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   null is C<int, double, UnknownType>;
-  //                     ^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NON_TYPE_AS_TYPE_ARGUMENT
-  // [cfe] 'UnknownType' isn't a type.
+//                       ^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NON_TYPE_AS_TYPE_ARGUMENT
+// [cfe] 'UnknownType' isn't a type.
   Bounded<String> x2 = new Bounded();
-  //      ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-  //              ^
-  // [cfe] Type argument 'String' doesn't conform to the bound 'num' of the type variable 'T' on 'Bounded'.
+//        ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//^
+// [cfe] Type argument 'String' doesn't conform to the bound 'num' of the type variable 'T' on 'Bounded'.
   BoundedInt<num> x3 = new BoundedInt();
-  //         ^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-  //              ^
-  // [cfe] Type argument 'num' doesn't conform to the bound 'int' of the type variable 'T' on 'BoundedInt'.
+//           ^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//^
+// [cfe] Type argument 'num' doesn't conform to the bound 'int' of the type variable 'T' on 'BoundedInt'.
   C<Bounded<String>, C, C> x4 = new C();
 //          ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C<C<UnknownType, int, int>, C, C> x5 = new C();
-  //  ^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NON_TYPE_AS_TYPE_ARGUMENT
-  // [cfe] 'UnknownType' isn't a type.
+//    ^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NON_TYPE_AS_TYPE_ARGUMENT
+// [cfe] 'UnknownType' isn't a type.
 }

@@ -16,10 +16,10 @@ class A<T extends A<T>> {}
 
 main() {
   bool b1 = 1 is A<int>;
-  //          ^
-  // [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-  //               ^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//               ^
+// [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+//                 ^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   bool b2 = 1 is A<A<int>>;
 //                 ^^^^^^
 // [analyzer] unspecified

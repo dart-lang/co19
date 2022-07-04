@@ -14,7 +14,6 @@
 /// argument
 /// @author iarkh@unipro.ru
 
-
 class A<T> {}
 class C<T extends C<T>> {}
 
@@ -26,10 +25,10 @@ main() {
   A<C<dynamic>>? a4;
 
   A<C<int>>? a5;
-  //  ^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-  //         ^
-  // [cfe] Type argument 'int' doesn't conform to the bound 'C<T>' of the type variable 'T' on 'C'.
+//    ^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//  ^
+// [cfe] Type argument 'int' doesn't conform to the bound 'C<T>' of the type variable 'T' on 'C'.
   A<C<C<int>>>? a6;
 //    ^^^^^^
 // [analyzer] unspecified

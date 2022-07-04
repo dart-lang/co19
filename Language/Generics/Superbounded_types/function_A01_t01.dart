@@ -8,7 +8,6 @@
 /// bounded type parameter is declared
 /// @author iarkh@unipro.ru
 
-
 class A<T extends A<T>> {}
 
 void testme1<X extends A>() {}
@@ -22,7 +21,7 @@ void testme2<X extends A<A>>() {}
 //                       ^
 // [analyzer] COMPILE_TIME_ERROR.NOT_INSTANTIATED_BOUND
 void testme3<X extends A<int>>() {}
-//           ^
+//                     ^
 // [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
 //                       ^^^
 // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS

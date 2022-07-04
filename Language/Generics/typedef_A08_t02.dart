@@ -38,10 +38,10 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   AAlias<int>        a7;
-  //     ^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-  //                 ^
-  // [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'AAlias'.
+//       ^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//^
+// [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'AAlias'.
   AAlias<A<Null>>    a8;
 //       ^^^^^^^
 // [analyzer] unspecified
