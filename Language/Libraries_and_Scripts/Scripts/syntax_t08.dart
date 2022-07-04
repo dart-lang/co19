@@ -13,15 +13,12 @@
 /// comes before an import directive.
 /// @author vasya
 
-
-part "../Parts/part_0.dart";
-//   ^
-// [analyzer] unspecified
-// [cfe] unspecified
+part "syntax_t08_lib.dart";
 import "library1.dart";
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
+  print(Class);
 }
