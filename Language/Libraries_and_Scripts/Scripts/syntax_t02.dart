@@ -1,11 +1,7 @@
-
 // @dart = 2.9
-part "../Parts/part_0.dart";
-//   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-#! scripts tag    // error
-//         ^
+part "syntax_t02_lib.dart";
+#! scripts tag
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -22,8 +18,6 @@ part "../Parts/part_0.dart";
 /// @description Checks that it is a compile-time error when a part directive
 /// comes before the script tag.
 /// @author msyabro
-/// @reviewer rodionov
-
 
 main() {
 }
