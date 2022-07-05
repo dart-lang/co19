@@ -13,16 +13,9 @@
 /// @author ngl@unipro.ru
 
 import "lib.dart" show enum;
-//                         ^
+//                     ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
 }
