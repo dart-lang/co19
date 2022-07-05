@@ -11,12 +11,9 @@
 /// @author rodionov
 
 import "lib.dart" as class;
-//                        ^
+//                   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

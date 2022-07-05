@@ -11,12 +11,9 @@
 /// @author ngl@unipro.ru
 
 import "lib.dart" as enum;
-//                       ^
+//                   ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

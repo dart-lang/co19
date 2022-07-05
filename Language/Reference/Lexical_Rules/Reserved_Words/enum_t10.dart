@@ -10,12 +10,9 @@
 /// @author ngl@unipro.ru
 
 library enum;
-//          ^
+//      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
