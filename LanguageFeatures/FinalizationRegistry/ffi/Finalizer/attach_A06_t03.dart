@@ -47,5 +47,5 @@ main() async {
 
   await triggerGcWithDelay(repeat: 3);
   Expect.setEquals({"Token 1", "Token 2", "Token 3"}, finalizerTokens);
-  Expect.equals(3, cnt);
+  Expect.equals(9, cnt);
 }

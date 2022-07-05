@@ -29,8 +29,8 @@ void attachToFinalizer() {
   finalizer.attach(obj, "Testme");
 }
 
-main() {
+main() async {
   attachToFinalizer();
-  triggerGcWithDelay();
+  await triggerGcWithDelay();
   Expect.equals(1, called);
 }

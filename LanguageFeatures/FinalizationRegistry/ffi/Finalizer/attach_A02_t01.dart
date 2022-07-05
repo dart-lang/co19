@@ -40,4 +40,5 @@ main() async {
   print(value2);
   await triggerGcWithDelay();
   Expect.isFalse(called);
+  print(value);
 }

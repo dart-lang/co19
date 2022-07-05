@@ -40,8 +40,10 @@ attachToFinalizer() async {
 }
 
 main() async {
-  attachToFinalizer();
-  await triggerGcWithDelay();
+  await attachToFinalizer();
+  // Previous triggerGc move some objects to old space. Do multiple GCs to
+  // force all objects to old space.
+  await triggerGcWithDelay(repeat: 3);
   Expect.equals(1, called);
   await triggerGcWithDelay();
   Expect.equals(1, called);

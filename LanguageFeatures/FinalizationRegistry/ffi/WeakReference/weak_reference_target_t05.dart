@@ -29,31 +29,28 @@ class C {
 C? getNullObject() => null;
 
 @pragma('vm:never-inline')
-Future<WeakReference> createWeakReference() async {
-  C? c1 = C(42);
+WeakReference createWeakReference() {
+  final C c1 = C(42);
   WeakReference<C> wr = WeakReference(c1);
   asyncStart();
   Future<C?>.delayed(Duration(milliseconds: 1), () => c1).then((C? c2) async {
-    Expect.equals(c1, wr.target);
+    Expect.equals(c2, wr.target);
     triggerGc();
-    await Future.delayed(Duration(seconds: 1));
     Expect.isNotNull(wr.target);
-    // Need to be sure that indeed c2 is null and the code is not optimized
-    c2 = getNullObject();
-    Expect.isNull(c2);
+    return null;
+  }).then((value) {
     triggerGc();
-    Expect.isNull(wr.target);
+    // We cannot be sure that that the weakref gets cleared, because the closure
+    // capturing c1 can still be alive.
     asyncEnd();
   });
-  await Future.delayed(Duration(milliseconds: 10));
   Expect.equals(c1, wr.target);
-  c1 = getNullObject();
-  Expect.isNull(c1);
   return wr;
 }
 
 main() async {
-  WeakReference wr = await createWeakReference();
+  WeakReference wr = createWeakReference();
   triggerGc();
+  // Run first to completion, the delayed function still hold on to the object.
   Expect.equals("C(42)", wr.target.toString());
 }
