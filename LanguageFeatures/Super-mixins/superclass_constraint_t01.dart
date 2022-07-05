@@ -43,6 +43,8 @@ mixin M6 on bool implements I {}
 //          ^^^^
 // [analyzer] COMPILE_TIME_ERROR.SUBTYPE_OF_DISALLOWED_TYPE
 mixin M7 on Null implements I {}
+//    ^
+// [cfe] 'Null' is restricted and can't be extended or implemented.
 //          ^^^^
 // [cfe] 'Null' is restricted and can't be extended or implemented.
 // [analyzer] COMPILE_TIME_ERROR.SUBTYPE_OF_DISALLOWED_TYPE

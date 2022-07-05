@@ -48,9 +48,11 @@ mixin M6 on B, C implements bool {}
 //                          ^^^^
 // [analyzer] COMPILE_TIME_ERROR.SUBTYPE_OF_DISALLOWED_TYPE
 mixin M7 on B, C implements Null {}
-//                          ^^^^
+//    ^
 // [cfe] 'Null' is restricted and can't be extended or implemented.
+//                          ^^^^
 // [analyzer] COMPILE_TIME_ERROR.SUBTYPE_OF_DISALLOWED_TYPE
+// [cfe] 'Null' is restricted and can't be extended or implemented.
 
 main() {
 }
