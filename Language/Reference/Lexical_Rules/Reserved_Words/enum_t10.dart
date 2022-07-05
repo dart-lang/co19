@@ -12,16 +12,9 @@
 /// @author ngl@unipro.ru
 
 library enum;
-//          ^
+//      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
 }
