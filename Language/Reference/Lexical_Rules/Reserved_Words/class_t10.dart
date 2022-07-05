@@ -10,12 +10,9 @@
 /// @author rodionov
 
 library class;
-//           ^
+//      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
