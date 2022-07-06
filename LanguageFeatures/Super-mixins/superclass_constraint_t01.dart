@@ -21,18 +21,16 @@ mixin M1 on void implements I {}
 // [analyzer] unspecified
 // [cfe] unspecified
 mixin M2 on dynamic implements I {}
-//    ^
-// [cfe] The type 'dynamic' can't be used as supertype.
 //          ^^^^^^^
+// [cfe] The type 'dynamic' can't be used as supertype.
 // [analyzer] COMPILE_TIME_ERROR.MIXIN_SUPER_CLASS_CONSTRAINT_NON_INTERFACE
 mixin M3 on FutureOr<num> implements I {}
 //          ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 mixin M4 on F implements I {}
-//    ^
-// [cfe] The type 'F' which is an alias of 'void Function(int)' can't be used as supertype.
 //          ^
+// [cfe] The type 'F' which is an alias of 'void Function(int)' can't be used as supertype.
 // [analyzer] COMPILE_TIME_ERROR.MIXIN_SUPER_CLASS_CONSTRAINT_NON_INTERFACE
 mixin M5 on int implements I {}
 //    ^
@@ -48,6 +46,7 @@ mixin M7 on Null implements I {}
 //    ^
 // [cfe] 'Null' is restricted and can't be extended or implemented.
 //          ^^^^
+// [cfe] 'Null' is restricted and can't be extended or implemented.
 // [analyzer] COMPILE_TIME_ERROR.SUBTYPE_OF_DISALLOWED_TYPE
 
 main() {

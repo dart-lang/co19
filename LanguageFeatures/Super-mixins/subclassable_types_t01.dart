@@ -26,18 +26,16 @@ mixin M1 on B, C implements void {}
 // [analyzer] unspecified
 // [cfe] unspecified
 mixin M2 on B, C implements dynamic {}
-//    ^
-// [cfe] The type 'dynamic' can't be used as supertype.
 //                          ^^^^^^^
+// [cfe] The type 'dynamic' can't be used as supertype.
 // [analyzer] COMPILE_TIME_ERROR.IMPLEMENTS_NON_CLASS
 mixin M3 on B, C implements FutureOr<List> {}
 //                          ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 mixin M4 on B, C implements F {}
-//    ^
-// [cfe] The type 'F' which is an alias of 'void Function(num)' can't be used as supertype.
 //                          ^
+// [cfe] The type 'F' which is an alias of 'void Function(num)' can't be used as supertype.
 // [analyzer] COMPILE_TIME_ERROR.IMPLEMENTS_NON_CLASS
 mixin M5 on B, C implements int {}
 //    ^
@@ -54,6 +52,7 @@ mixin M7 on B, C implements Null {}
 // [cfe] 'Null' is restricted and can't be extended or implemented.
 //                          ^^^^
 // [analyzer] COMPILE_TIME_ERROR.SUBTYPE_OF_DISALLOWED_TYPE
+// [cfe] 'Null' is restricted and can't be extended or implemented.
 
 main() {
 }
