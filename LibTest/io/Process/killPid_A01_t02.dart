@@ -46,8 +46,11 @@ main() {
     int pid = process.pid;
     bool res = Process.killPid(pid);
     if (Platform.isWindows) {
-      Expect.isFalse(res);
-      asyncEnd();
+      if (res) {
+        bool res2 = Process.killPid(pid);
+        Expect.isFalse(res2);
+        asyncEnd();
+      }
     } else {
       Expect.isTrue(res);
       process.exitCode.then((value) {
