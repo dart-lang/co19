@@ -40,11 +40,7 @@ main() {
   Process.start(command, args).then((Process process) {
     int pid = process.pid;
     bool res = Process.killPid(pid);
-    if (!Platform.isWindows) {
-      Expect.isTrue(res);
-    } else {
-      Expect.isFalse(res);
-    }
+    Expect.isTrue(res);
     asyncEnd();
   });
 }
