@@ -12,8 +12,6 @@
 /// @description Checks that it is a compile-time error when the included
 /// compilation unit contains a library definition instead of a part declaration.
 /// @author rodionov
-/// @reviewer kaigorodov
-
 
 library Parts_test_lib;
 part "part_9_lib.dart";
@@ -22,10 +20,8 @@ part "part_9_lib.dart";
 // [cfe] unspecified
 
 main() {
-  try {
-    var x = foo;
-//          ^
+  var x = foo;
+//        ^
+// [analyzer] unspecified
 // [cfe] unspecified
-  } catch (anything) {
-  }
 }

@@ -9,10 +9,8 @@
 /// @description Checks that it is a compile error if the referenced part names
 /// another library.
 /// @author rodionov
-/// @reviewer kaigorodov
 
 library Parts_test_lib_not;
-import "../../../Utils/expect.dart";
 part "part_3.dart";
 //   ^
 // [analyzer] unspecified
@@ -21,11 +19,10 @@ part "part_3.dart";
 main() {
   new A();
 //    ^
+// [analyzer] unspecified
 // [cfe] unspecified
   value = 3;
 //^
-// [cfe] unspecified
-  Expect.equals(3, value);
-//                 ^
+// [analyzer] unspecified
 // [cfe] unspecified
 }
