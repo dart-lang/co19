@@ -1,0 +1,33 @@
+# This workflow will run the Dart language specparser on the modified files in a PR
+
+name: Spec Parser
+
+on:
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
+    - uses: actions/checkout@v3
+      with:
+        repository: dart-lang/sdk
+        path: sdk
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: temurin
+    - name: Build specparser
+      run: make
+      working-directory: sdk/tools/spec_parser
+    - name: Check modified files
+      run: tools/spec_parse.py `gh pr view ${{ github.event.number }} --json files -q '.files[].path'`
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      working-directory: sdk
