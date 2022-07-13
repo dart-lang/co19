@@ -23,6 +23,8 @@ jobs:
       with:
         java-version: '11'
         distribution: temurin
+    - name: Set up Antlr4
+      run: sudo apt-get install -y antlr4
     - name: Build specparser
       run: make
       working-directory: sdk/tools/spec_parser
