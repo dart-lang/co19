@@ -31,6 +31,6 @@ jobs:
       run: make
       working-directory: sdk/tools/spec_parser
     - name: Check modified files
-      run: sdk/tools/spec_parse.py `gh pr view ${{ github.event.number }} --json files -q '.files[].path' | grep '.dart$'` | xargs ls -d 2>/dev/null
+      run: sdk/tools/spec_parse.py `gh pr view ${{ github.event.number }} --json files -q '.files[].path' | grep '.dart$' | xargs ls -d 2>/dev/null`
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
