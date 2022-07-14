@@ -28,9 +28,15 @@ main() {
 
   x = new Element.html('<div contenteditable="true"></div>',
       treeSanitizer: new NullTreeSanitizer());
+  // Enable user-select CSS for Safari
+  x.style.setProperty("-webkit-user-select", "text");
+  x.style.setProperty("user-select", "text");
   Expect.isTrue(x.isContentEditable, 'explicit true');
 
   x = new Element.html('<div contenteditable=""></div>',
       treeSanitizer: new NullTreeSanitizer());
+  // Enable user-select CSS for Safari
+  x.style.setProperty("-webkit-user-select", "text");
+  x.style.setProperty("user-select", "text");
   Expect.isTrue(x.isContentEditable, 'empty string is true');
 }
