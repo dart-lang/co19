@@ -11,7 +11,6 @@
 /// compilation unit contains a library definition instead of a part declaration.
 /// @author rodionov
 
-
 library Parts_test_lib;
 part "part_9_lib.dart";
 //   ^
@@ -21,5 +20,6 @@ part "part_9_lib.dart";
 main() {
   var x = foo;
 //        ^
+// [analyzer] unspecified
 // [cfe] unspecified
 }

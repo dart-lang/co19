@@ -17,5 +17,6 @@ part "part_3.dart";
 main() {
   A();
 //^
+// [analyzer] unspecified
 // [cfe] unspecified
 }
