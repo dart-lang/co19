@@ -47,6 +47,8 @@ main() {
     received.add(i);
     if (i == 1) {
       ss.pause();
+      Expect.listEquals([], sent);
+      Expect.listEquals([1], readyToSent);
       await Future.delayed(Duration(milliseconds: 100));
       Expect.listEquals([], sent);
       Expect.listEquals([1], readyToSent);

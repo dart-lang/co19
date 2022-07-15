@@ -19,7 +19,8 @@
 ///
 /// @description Check that if the enclosing function `m` is marked `async*` and
 /// the stream `u` associated with `m` has been paused, then execution of `m` is
-/// suspended until `u` is resumed.
+/// suspended until `u` is canceled. Test the case when `u` is paused during the
+/// delivery, then resumed, paused again and then cancelled
 ///
 /// @author sgrekhov22@gmail.com
 
@@ -30,34 +31,40 @@ List<int> readyToSent = [];
 List<int> sent = [];
 
 Stream<int> generator() async* {
-  for (int i = 1; i <= 3; i++) {
+  for (int i = 1; i <= 5; i++) {
     readyToSent.add(i);
     yield i;
     sent.add(i);
   }
 }
 
-main() {
+main() async {
   asyncStart();
   List received = [];
   Stream<int> s = generator();
   late StreamSubscription<int> ss;
   ss = s.listen((int i) async {
     received.add(i);
-    if (i == 1) {
+    if (i == 2) {
+      Expect.listEquals([1], sent);
+      Expect.listEquals([1, 2], readyToSent);
       ss.pause();
       await Future.delayed(Duration(milliseconds: 100));
-      Expect.listEquals([], sent);
-      Expect.listEquals([1], readyToSent);
+      Expect.listEquals([1], sent);
+      Expect.listEquals([1, 2], readyToSent);
       ss.resume();
+      Expect.listEquals([1], sent);
+      Expect.listEquals([1, 2], readyToSent);
+      ss.pause();
       await Future.delayed(Duration(milliseconds: 100));
-      Expect.listEquals([1, 2, 3], sent);
-      Expect.listEquals([1, 2, 3], readyToSent);
+      Expect.listEquals([1], sent);
+      Expect.listEquals([1, 2], readyToSent);
+      await ss.cancel();
     }
-  }, onDone: () {
-    Expect.listEquals([1, 2, 3], received);
-    Expect.listEquals(sent, received);
-    Expect.listEquals(readyToSent, received);
-    asyncEnd();
   });
+  await Future.delayed(Duration(seconds: 1));
+  Expect.listEquals([1, 2], received);
+  Expect.listEquals([1], sent);
+  Expect.listEquals([1, 2], readyToSent);
+  asyncEnd();
 }

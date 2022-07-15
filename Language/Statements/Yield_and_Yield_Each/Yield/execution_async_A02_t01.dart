@@ -31,20 +31,13 @@ Stream<int> generator(Iterable<int> iterable) async* {
   }
 }
 
-test() async {
+main() async {
+  asyncStart();
   List<int> data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   List<int> log = [];
   Stream<int> s = generator(data);
-  s.listen(
-      (int x) =>  log.add(x),
-      onDone:() {
-        Expect.listEquals(data, log);
-        asyncEnd();
-      }
-  );
-}
-
-main() {
-  asyncStart();
-  test();
+  s.listen((int x) => log.add(x), onDone: () {
+    Expect.listEquals(data, log);
+    asyncEnd();
+  });
 }

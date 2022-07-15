@@ -19,20 +19,25 @@
 ///
 /// @description Check that if the enclosing function `m` is marked `async*` and
 /// the stream `u`associated with `m` has been canceled, then the `yield`
-/// statement returns without an object, otherwise it completes normally.
+/// statement returns without an object
 ///
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
 import '../../../../Utils/expect.dart';
 
+List<int> readyToSent = [];
+List<int> sent = [];
+
 Stream<int> generator() async* {
   for (int i = 1; i <= 3; i++) {
+    readyToSent.add(i);
     yield i;
+    sent.add(i);
   }
 }
 
-test() async {
+main() async {
   List log = [];
   Stream<int> s = generator();
   late StreamSubscription<int> ss;
@@ -42,10 +47,6 @@ test() async {
   });
   await Future.delayed(Duration(seconds: 1));
   Expect.listEquals([1], log);
-  asyncEnd();
-}
-
-main() {
-  asyncStart();
-  test();
+  Expect.listEquals([1], readyToSent);
+  Expect.listEquals([], sent);
 }

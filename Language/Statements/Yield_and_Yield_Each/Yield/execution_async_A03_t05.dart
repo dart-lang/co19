@@ -4,23 +4,18 @@
 
 /// @assertion Execution of a statement s of the form yield e; proceeds as
 /// follows:
-///    First, the expression e is evaluated to an object o. If the enclosing
-///  function m is marked async* and the stream u associated with m has been
-///  paused, then execution of m is suspended until u is resumed or canceled.
-///    Next, o is added to the iterable or stream associated with the immediately
-///  enclosing function.
-///    If the enclosing function m is marked async* and the stream u associated
-///  with m has been canceled, then let c be the finally clause (17.11) of the
-///  innermost enclosing try-finally statement, if any. If c is defined, let h be
-///  the handler induced by c. If h is defined, control is transferred to h. If
-///  h is undefined, the immediately enclosing function terminates.
-///    The stream associated with an asynchronous generator could be canceled by
-///  any code with a reference to that stream at any point where the generator
-///  was passivated. Such a cancellation constitutes an irretrievable error for
-///  the generator. At this point, the only plausible action for the generator
-///  is to clean up after itself via its finally clauses.
-///    Otherwise, if the enclosing function m is marked async* (9) then the
-///  enclosing function may suspend.
+///   First, the expression `e` is evaluated to an object `o`. If the enclosing
+/// function `m` is marked `async*` and the stream `u` associated with `m` has
+/// been paused, then the nearest enclosing asynchronous `for` loop if any, is
+/// paused and execution of `m` is suspended until `u` is resumed or canceled.
+///   Next, `o` is added to the iterable or stream associated with the
+/// immediately enclosing function.
+///   If the enclosing function `m` is marked `async*` and the stream `u`
+/// associated with `m` has been canceled, then the `yield` statement returns
+/// without an object, otherwise it completes normally.
+///   Otherwise, if the enclosing function `m` is marked `async*` then the
+/// enclosing function may suspend, in which case the nearest enclosing
+/// asynchronous `for` loop, if any, is paused first.
 ///
 /// @description Check that the immediately enclosing function terminates and
 /// enclosing 'finally' handlers are executed in innermost-first order, if the

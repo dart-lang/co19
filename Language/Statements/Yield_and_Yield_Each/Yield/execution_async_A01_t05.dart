@@ -18,10 +18,12 @@
 /// asynchronous `for` loop, if any, is paused first.
 ///
 /// @description Check that if the enclosing function `m` is marked `async*` and
-/// the stream `u` associated with `m` has been paused, then execution of `m` is
-/// suspended until `u` is resumed.
+/// the stream `u` associated with `m` has been paused, then the nearest
+/// enclosing asynchronous `for` loop is paused and execution of `m` is
+/// suspended until `u` is canceled
 ///
 /// @author sgrekhov22@gmail.com
+/// @issue 49451
 
 import 'dart:async';
 import '../../../../Utils/expect.dart';
@@ -30,34 +32,32 @@ List<int> readyToSent = [];
 List<int> sent = [];
 
 Stream<int> generator() async* {
-  for (int i = 1; i <= 3; i++) {
+  for (int i = 1; i <= 5; i++) {
     readyToSent.add(i);
     yield i;
     sent.add(i);
   }
 }
 
-main() {
-  asyncStart();
-  List received = [];
-  Stream<int> s = generator();
-  late StreamSubscription<int> ss;
-  ss = s.listen((int i) async {
+main() async {
+  List<int> received = [];
+  Stream<int> stream = generator();
+  await for (int i in stream) {
     received.add(i);
-    if (i == 1) {
-      ss.pause();
-      await Future.delayed(Duration(milliseconds: 100));
-      Expect.listEquals([], sent);
-      Expect.listEquals([1], readyToSent);
-      ss.resume();
-      await Future.delayed(Duration(milliseconds: 100));
-      Expect.listEquals([1, 2, 3], sent);
+    if (i == 3) {
+      Expect.listEquals([1, 2, 3], received);
+      Expect.listEquals([1, 2], sent);
       Expect.listEquals([1, 2, 3], readyToSent);
+      await Future.delayed(Duration(milliseconds: 100));
+      Expect.listEquals([1, 2, 3], received);
+      Expect.listEquals([1, 2], sent);
+      Expect.listEquals([1, 2, 3], readyToSent);
+      // Let's cancel the stream
+      break;
     }
-  }, onDone: () {
-    Expect.listEquals([1, 2, 3], received);
-    Expect.listEquals(sent, received);
-    Expect.listEquals(readyToSent, received);
-    asyncEnd();
-  });
+  }
+  await Future.delayed(Duration(seconds: 1));
+  Expect.listEquals([1, 2, 3], received);
+  Expect.listEquals([1, 2], sent);
+  Expect.listEquals([1, 2, 3], readyToSent);
 }

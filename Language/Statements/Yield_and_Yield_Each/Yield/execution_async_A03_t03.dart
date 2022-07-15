@@ -1,4 +1,4 @@
-// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -18,46 +18,49 @@
 /// asynchronous `for` loop, if any, is paused first.
 ///
 /// @description Check that if the enclosing function `m` is marked `async*` and
-/// the stream `u` associated with `m` has been paused, then execution of `m` is
-/// suspended until `u` is resumed.
+/// the stream `u` associated with `m` has been canceled, then the `yield`
+/// statement returns without an object. Test the case when there is no
+/// `finally` handler defined.
 ///
-/// @author sgrekhov22@gmail.com
+/// @author a.semenov@unipro.ru
 
 import 'dart:async';
 import '../../../../Utils/expect.dart';
 
-List<int> readyToSent = [];
-List<int> sent = [];
+bool generatorAlive = false;
 
 Stream<int> generator() async* {
-  for (int i = 1; i <= 3; i++) {
-    readyToSent.add(i);
-    yield i;
-    sent.add(i);
+  int i = 0;
+  while (true) {
+    generatorAlive = true;
+    yield i++;
   }
+}
+
+test() async {
+  generatorAlive = false;
+  Stream<int> s = generator();
+  late StreamSubscription<int> ss;
+  ss = s.listen((int x) async {
+    if (!generatorAlive) {
+      Expect.fail("Generator function must be terminated");
+    }
+    if (x == 5) {
+      // let generator to work some time
+      Expect.equals(true, generatorAlive);
+      await ss.cancel();
+      generatorAlive = false;
+      // verify that generator is not active
+      for (int i = 0; i < 10; i++) {
+        Expect.equals(false, generatorAlive);
+        await new Future.delayed(new Duration(milliseconds: 10));
+      }
+      asyncEnd();
+    }
+  });
 }
 
 main() {
   asyncStart();
-  List received = [];
-  Stream<int> s = generator();
-  late StreamSubscription<int> ss;
-  ss = s.listen((int i) async {
-    received.add(i);
-    if (i == 1) {
-      ss.pause();
-      await Future.delayed(Duration(milliseconds: 100));
-      Expect.listEquals([], sent);
-      Expect.listEquals([1], readyToSent);
-      ss.resume();
-      await Future.delayed(Duration(milliseconds: 100));
-      Expect.listEquals([1, 2, 3], sent);
-      Expect.listEquals([1, 2, 3], readyToSent);
-    }
-  }, onDone: () {
-    Expect.listEquals([1, 2, 3], received);
-    Expect.listEquals(sent, received);
-    Expect.listEquals(readyToSent, received);
-    asyncEnd();
-  });
+  test();
 }

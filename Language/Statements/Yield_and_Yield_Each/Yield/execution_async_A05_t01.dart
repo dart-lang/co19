@@ -17,9 +17,8 @@
 /// enclosing function may suspend, in which case the nearest enclosing
 /// asynchronous `for` loop, if any, is paused first.
 ///
-/// @description Check that if the enclosing function `m` is marked `async*` and
-/// the stream `u` associated with `m` has been paused, then execution of `m` is
-/// suspended until `u` is resumed.
+/// @description Check that if listening function is async then the first
+/// `await` returns control back to the events loop
 ///
 /// @author sgrekhov22@gmail.com
 
@@ -37,27 +36,20 @@ Stream<int> generator() async* {
   }
 }
 
-main() {
-  asyncStart();
-  List received = [];
+main() async {
+  List log = [];
   Stream<int> s = generator();
   late StreamSubscription<int> ss;
   ss = s.listen((int i) async {
-    received.add(i);
-    if (i == 1) {
-      ss.pause();
-      await Future.delayed(Duration(milliseconds: 100));
-      Expect.listEquals([], sent);
-      Expect.listEquals([1], readyToSent);
-      ss.resume();
-      await Future.delayed(Duration(milliseconds: 100));
-      Expect.listEquals([1, 2, 3], sent);
-      Expect.listEquals([1, 2, 3], readyToSent);
-    }
-  }, onDone: () {
-    Expect.listEquals([1, 2, 3], received);
-    Expect.listEquals(sent, received);
-    Expect.listEquals(readyToSent, received);
-    asyncEnd();
+    // This 'await' returns control back to event loop and generator goes on
+    await Future.delayed(Duration(milliseconds: 100));
+    log.add(i);
+    // By this time generator should complete it's work, so this call does
+    // nothing
+    ss.cancel();
   });
+  await Future.delayed(Duration(seconds: 1));
+  Expect.listEquals([1, 2, 3], log);
+  Expect.listEquals([1, 2, 3], readyToSent);
+  Expect.listEquals([1, 2, 3], sent);
 }

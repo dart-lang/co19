@@ -1,4 +1,4 @@
-// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -18,11 +18,13 @@
 /// asynchronous `for` loop, if any, is paused first.
 ///
 /// @description Check that if the enclosing function `m` is marked `async*` and
-/// the stream `u` associated with `m` has been paused, then the nearest
-/// enclosing asynchronous `for` loop is paused and execution of `m` is
-/// suspended until `u` is resumed
+/// the stream `u` associated with `m` has been paused, then execution of `m` is
+/// suspended until `u` is canceled. Test the case when `u` is paused during the
+/// delivery, then wait and then cancel `u`
 ///
+/// @author a.semenov@unipro.ru
 /// @author sgrekhov22@gmail.com
+/// @issue 49451
 
 import 'dart:async';
 import '../../../../Utils/expect.dart';
@@ -39,19 +41,25 @@ Stream<int> generator() async* {
 }
 
 main() async {
-  List<int> received = [];
-  Stream<int> stream = generator();
-  await for (int i in stream) {
+  asyncStart();
+  List received = [];
+  Stream<int> s = generator();
+  late StreamSubscription<int> ss;
+  ss = s.listen((int i) async {
     received.add(i);
-    // We have no access to StreamSubscription here to pause the stream and then
-    // to check that this loop is also pause. So, let's check that the stream is
-    // paused now
-    await Future.delayed(Duration(milliseconds: 100));
-    Expect.listEquals([for (var j = 1; j <= i; j++) j], received);
-    Expect.listEquals([for (var j = 1; j <= i - 1; j++) j], sent);
-    Expect.listEquals([for (var j = 1; j <= i; j++) j], readyToSent);
-  }
-  Expect.listEquals([1, 2, 3, 4, 5], received);
-  Expect.listEquals([1, 2, 3, 4, 5], sent);
-  Expect.listEquals([1, 2, 3, 4, 5], readyToSent);
+    if (i == 2) {
+      Expect.listEquals([1], sent);
+      Expect.listEquals([1, 2], readyToSent);
+      ss.pause();
+      await Future.delayed(Duration(milliseconds: 100));
+      Expect.listEquals([1], sent);
+      Expect.listEquals([1, 2], readyToSent);
+      await ss.cancel();
+    }
+  });
+  await Future.delayed(Duration(seconds: 1));
+  Expect.listEquals([1, 2], received);
+  Expect.listEquals([1], sent);
+  Expect.listEquals([1, 2], readyToSent);
+  asyncEnd();
 }
