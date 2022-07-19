@@ -26,9 +26,13 @@ main() {
   var x = C?.v = e() + 1;
 //         ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//        ^
+// [cfe] The class 'C' cannot be null.
   Expect.equals(1, C?.v);
 //                  ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                 ^
+// [cfe] The class 'C' cannot be null.
   Expect.equals(1, x);
   Expect.equals(1, count);
 }

@@ -19,9 +19,13 @@ main() {
   int? a1 = C?.v--;
 //           ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//          ^
+// [cfe] The class 'C' cannot be null.
   try {
     int? a2 = C?.v2--;
 //             ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//            ^
+// [cfe] The class 'C' cannot be null.
   } catch (e) {}
 }
