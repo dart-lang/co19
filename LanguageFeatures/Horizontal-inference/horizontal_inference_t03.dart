@@ -12,14 +12,14 @@
 
 import "../../Utils/expect.dart";
 
-typedef expectedD = List<String> Function(int i);
+typedef ExpectedD = List<String> Function(int i);
 
-void f<T, U, V>(void Function(T, U, V) a, Map<T, U> b, Map<U, V> c,
-    V Function(U) d) {
+void f<T, U, V>(
+    void Function(T, U, V) a, Map<T, U> b, Map<U, V> c, V Function(U) d) {
   Expect.equals(String, T);
   Expect.equals(int, U);
   Expect.equals(List<String>, V);
-  Expect.equals(expectedD, d.runtimeType);
+  Expect.equals(ExpectedD, d.runtimeType);
 }
 
 main() {
@@ -28,5 +28,9 @@ main() {
     t.substring(0);
     u.isOdd;
     String s = v.first;
-  }, {"x": 42}, {42: ["x", "y"]}, (u) => ["Lily", "was", "here"]);
+  }, {
+    "x": 42
+  }, {
+    42: ["x", "y"]
+  }, (u) => ["Lily", "was", "here"]);
 }

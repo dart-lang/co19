@@ -12,20 +12,20 @@
 
 import "../../Utils/expect.dart";
 
-typedef expectedC = List<int> Function(Object? o);
-typedef expectedD = List<bool> Function(Object? o);
+typedef ExpectedC = List<int> Function(Object? o);
+typedef ExpectedD = List<bool> Function(Object? o);
 
 void f<T, U, V>(void Function(T, U) a, List<T> b, List<U> Function(V) c,
     List<V> Function(U) d) {
   Expect.equals(String, T);
   Expect.equals(int, U);
-  Expect.equals(expectedC, c.runtimeType);
-  Expect.equals(expectedD, d.runtimeType);
+  Expect.equals(ExpectedC, c.runtimeType);
+  Expect.equals(ExpectedD, d.runtimeType);
 }
 
 main() {
   f((t, u) {
     t.substring(0); // T == String
-    u.isOdd;        // U == int
+    u.isOdd; // U == int
   }, ["x"], (v) => [42], (u) => [true]);
 }
