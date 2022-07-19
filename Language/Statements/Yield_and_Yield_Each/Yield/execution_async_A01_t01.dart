@@ -27,12 +27,12 @@
 import 'dart:async';
 import '../../../../Utils/expect.dart';
 
-List<int> readyToSent = [];
+List<int> readyToSend = [];
 List<int> sent = [];
 
 Stream<int> generator() async* {
   for (int i = 1; i <= 3; i++) {
-    readyToSent.add(i);
+    readyToSend.add(i);
     yield i;
     sent.add(i);
   }
@@ -48,16 +48,16 @@ main() {
     if (i == 1) {
       ss.pause();
       Expect.listEquals([], sent);
-      Expect.listEquals([1], readyToSent);
+      Expect.listEquals([1], readyToSend);
       await Future.delayed(Duration(milliseconds: 100));
       Expect.listEquals([], sent);
-      Expect.listEquals([1], readyToSent);
+      Expect.listEquals([1], readyToSend);
       ss.resume();
     }
   }, onDone: () {
     Expect.listEquals([1, 2, 3], received);
     Expect.listEquals(sent, received);
-    Expect.listEquals(readyToSent, received);
+    Expect.listEquals(readyToSend, received);
     asyncEnd();
   });
 }

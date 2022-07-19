@@ -25,12 +25,12 @@
 import 'dart:async';
 import '../../../../Utils/expect.dart';
 
-List<int> readyToSent = [];
+List<int> readyToSend = [];
 List<int> sent = [];
 
 Stream<int> generator() async* {
   for (int i = 1; i <= 3; i++) {
-    readyToSent.add(i);
+    readyToSend.add(i);
     yield i;
     sent.add(i);
   }
@@ -48,8 +48,9 @@ main() async {
     // nothing
     ss.cancel();
   });
-  await Future.delayed(Duration(seconds: 1));
+  // Let's wait to be sure that there are no more events
+  await Future.delayed(Duration(seconds: 2));
   Expect.listEquals([1, 2, 3], log);
-  Expect.listEquals([1, 2, 3], readyToSent);
+  Expect.listEquals([1, 2, 3], readyToSend);
   Expect.listEquals([1, 2, 3], sent);
 }

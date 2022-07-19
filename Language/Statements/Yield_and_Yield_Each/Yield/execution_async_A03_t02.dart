@@ -26,27 +26,35 @@
 import 'dart:async';
 import '../../../../Utils/expect.dart';
 
-List<int> readyToSent = [];
+List<int> readyToSend = [];
 List<int> sent = [];
 
 Stream<int> generator() async* {
   for (int i = 1; i <= 3; i++) {
-    readyToSent.add(i);
+    readyToSend.add(i);
     yield i;
     sent.add(i);
   }
 }
 
 main() async {
+  asyncStart();
+  Completer c = Completer();
   List log = [];
   Stream<int> s = generator();
   late StreamSubscription<int> ss;
   ss = s.listen((int i) async {
     log.add(i);
     await ss.cancel();
+    if (!c.isCompleted) {
+      c.complete();
+    }
   });
-  await Future.delayed(Duration(seconds: 1));
+  await c.future;
+  // Let's wait to be sure that there are no more events
+  await Future.delayed(Duration(milliseconds: 100));
   Expect.listEquals([1], log);
-  Expect.listEquals([1], readyToSent);
+  Expect.listEquals([1], readyToSend);
   Expect.listEquals([], sent);
+  asyncEnd();
 }
