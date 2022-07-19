@@ -6,19 +6,37 @@
 /// (specifically function literals) to be type inferred in a context derived
 /// from the type of other arguments.
 ///
-/// @description Checks horizontal inference from empty lists and maps but with
-/// type specified
+/// @description Checks the case when type is inferred from return type of a
+/// function and this function may return different types
 /// @author sgrekhov22@gmail.com
 
-void f1<T>(void Function(T) a, List<T> b) {}
-void f2<T, U>(void Function(T, U) a, Map<T, U> b) {}
+import "../../Utils/expect.dart";
+
+class C1 {
+  void c1() {}
+}
+class C2 extends C1 {
+  void c2() {}
+}
+
+void f1<T, U, V>(void Function(T, U) a, T Function(U) b, U Function(V) c) {
+  Expect.equals(C1, T);
+  Expect.equals(Object, U);
+  Expect.equals(typeOf<Object?>(), V);
+  Expect.equals(typeOf<void Function(C1, Object)>(), a.runtimeType);
+  Expect.equals(typeOf<C1 Function(Object)>(), b.runtimeType);
+  Expect.equals(typeOf<Object Function(Object?)>(), c.runtimeType);
+}
 
 main() {
-  f1((t) {
-    t.substring(0); // T == String
-  }, <String>[]);
-  f2((t, u) {
-    t.isOdd;          // T== int
-    u.substring(0);   // U == String
-  }, <int, String>{});
+  f1((t, u) {
+    t.c1();
+  }, (u) {
+    return 1 > 2 ? C2() : C1();
+  }, (v) {
+    if (2 < 1) {
+      return C2();
+    }
+    return 42;
+  });
 }

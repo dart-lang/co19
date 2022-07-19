@@ -18,10 +18,15 @@ class C3 extends C2 {
 }
 
 void f1<T extends C1>(void Function(T) a, T b) {
+  Expect.isTrue(a is void Function(C3));
+  Expect.isFalse(a is void Function(C1));
   Expect.equals(T, C3);
 }
 
 void f2<T extends C2>(T Function() a, void Function(T) b) {
+  Expect.isTrue(a is C3 Function());
+  Expect.isTrue(b is void Function(C3));
+  Expect.isFalse(b is void Function(C2));
   Expect.equals(T, C3);
 }
 

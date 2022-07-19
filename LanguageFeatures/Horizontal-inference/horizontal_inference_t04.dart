@@ -6,36 +6,28 @@
 /// (specifically function literals) to be type inferred in a context derived
 /// from the type of other arguments.
 ///
-/// @description Checks that horizontal inference doesn't work in case of
-/// the circular dependency
+/// @description Checks horizontal inference from empty lists and maps
 /// @author sgrekhov22@gmail.com
 
-void f<X, Y>(X Function(Y) a, Y Function(X) b) {}
+import "../../Utils/expect.dart";
+
+void f1<T>(void Function(T) a, List<T> b) {
+  Expect.equals(dynamic, T);
+}
+void f2<T, U>(void Function(T, U) a, Map<T, U> b) {
+  Expect.equals(dynamic, T);
+  Expect.equals(dynamic, U);
+}
 
 main() {
-  f((v) => 42, (u) {
-    u.isOdd; // u is `Object?` here
-//    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    u?.isOdd;
-//     ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    return "Lily was here";
-  });
-
-  f((v) {
-    v.substring(0); // v is `Object?` here
-//    ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    v?.substring(0);
-//     ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    return 42;
-  }, (u) {
-    return "Lily was here";
-  });
+  f1((t) {
+    t.anyMethod(); // t is `dynamic here`
+    t.anyPropertyWithAnyName;
+  }, []);
+  f2((t, u) {
+    t.anyMethod(); // t is `dynamic here`
+    t.anyPropertyWithAnyName;
+    u.anyMethod2(); // u is `dynamic here`
+    u.anyPropertyWithAnyName2;
+  }, {});
 }

@@ -10,8 +10,6 @@
 /// function and this function may return different types
 /// @author sgrekhov22@gmail.com
 
-import "../../Utils/expect.dart";
-
 class C1 {
   void c1() {}
 }
@@ -19,23 +17,15 @@ class C2 extends C1 {
   void c2() {}
 }
 
-typedef NullableObject = Object?;
-
-void f1<T, U, V>(void Function(T, U) a, T Function(U) b, U Function(V) c) {
-  Expect.equals(C1, T);
-  Expect.equals(Object, U);
-  Expect.equals(NullableObject, V);
-}
+void f1<T, U>(void Function(T, U) a, T Function(U) b) {}
 
 main() {
   f1((t, u) {
-    t.c1();
+    t.c2();
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_METHOD
+// [cfe] The method 'c2' isn't defined for the class 'C1'
   }, (u) {
     return 1 > 2 ? C2() : C1();
-  }, (v) {
-    if (2 < 1) {
-      return C2();
-    }
-    return 42;
   });
 }

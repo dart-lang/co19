@@ -12,15 +12,13 @@
 
 import "../../Utils/expect.dart";
 
-typedef ExpectedC = List<int> Function(Object? o);
-typedef ExpectedD = List<bool> Function(Object? o);
-
 void f<T, U, V>(void Function(T, U) a, List<T> b, List<U> Function(V) c,
     List<V> Function(U) d) {
   Expect.equals(String, T);
   Expect.equals(int, U);
-  Expect.equals(ExpectedC, c.runtimeType);
-  Expect.equals(ExpectedD, d.runtimeType);
+  Expect.equals(typeOf<void Function(String, int)>(), a.runtimeType);
+  Expect.equals(typeOf<List<int> Function(Object?)>(), c.runtimeType);
+  Expect.equals(typeOf<List<bool> Function(Object?)>(), d.runtimeType);
 }
 
 main() {

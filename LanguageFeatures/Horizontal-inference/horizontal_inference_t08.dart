@@ -7,25 +7,28 @@
 /// from the type of other arguments.
 ///
 /// @description Checks the case when type is inferred from return type of a
-/// function and this function may return different types
+/// functions and these functions  return different types
 /// @author sgrekhov22@gmail.com
+
+import "../../Utils/expect.dart";
 
 class C1 {
   void c1() {}
 }
-class C2 extends C1 {
-  void c2() {}
+class C2 extends C1 {}
+class C3 extends C1 {}
+typedef C1Nullable = C1?;
+
+void f1<T>(void Function(T) a, T Function() b, T Function() c, Type t) {
+  Expect.equals(t, T);
+  Expect.equals(typeOf<void Function(T)>(), a.runtimeType);
 }
 
-void f1<T, U>(void Function(T, U) a, T Function(U) b) {}
-
 main() {
-  f1((t, u) {
-    t.c2();
-//    ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_METHOD
-// [cfe] The method 'c2' isn't defined for the class 'C1'
-  }, (u) {
-    return 1 > 2 ? C2() : C1();
-  });
+  f1((t) { // T == C1
+    t.c1();
+  }, () => C3(), () => C2(), C1);
+  f1((t) { // T == C1?
+    t?.c1();
+  }, () => null, () => C1(), C1Nullable);
 }

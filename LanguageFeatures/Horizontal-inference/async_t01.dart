@@ -12,14 +12,14 @@
 
 import "../../Utils/expect.dart";
 
-typedef ExpectedB = Future<String> Function(Object? o);
-typedef ExpectedC = Future<int> Function(Object? o);
+int callCounter = 0;
 
 void f<T, U, V>(void Function(T, U) a, T Function(V) b, U Function(V) c) {
   Expect.equals(Future<String>, T);
   Expect.equals(Future<int>, U);
-  Expect.equals(ExpectedB, b.runtimeType);
-  Expect.equals(ExpectedC, c.runtimeType);
+  Expect.equals(typeOf<Future<String> Function(Object? o)>(), b.runtimeType);
+  Expect.equals(typeOf<Future<int> Function(Object? o)>(), c.runtimeType);
+  callCounter++;
 }
 
 main() {
@@ -31,4 +31,5 @@ main() {
   }, (v) async {
     return 42;
   });
+  Expect.equals(1, callCounter);
 }

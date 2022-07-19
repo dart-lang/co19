@@ -18,10 +18,14 @@ class C3 extends C2 {}
 class D1 {}
 class D2 extends D1 {}
 
+typedef ExpectedA = void Function(C1, C2);
+typedef ExpectedC = C3 Function(D1);
+typedef ExpectedD = D2 Function(C2);
+
 void f<T, U, V>(void Function(T, U) a, T b, U Function(V) c, V Function(U) d) {
-  Expect.equals(C1, T); // Without implicit specification it'd be C3
-  Expect.equals(C2, U); // Without implicit specification it'd be C3
-  Expect.equals(D1, V); // Without implicit specification it'd be D2
+  Expect.equals(typeOf<void Function(C1, C2)>(), a.runtimeType);
+  Expect.equals(typeOf<C3 Function(D1)>(), c.runtimeType);
+  Expect.equals(typeOf<D2 Function(C2)>(), d.runtimeType);
 }
 
 main() {

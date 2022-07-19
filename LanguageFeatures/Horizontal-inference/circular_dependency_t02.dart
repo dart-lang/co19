@@ -6,28 +6,22 @@
 /// (specifically function literals) to be type inferred in a context derived
 /// from the type of other arguments.
 ///
-/// @description Checks the case when type is inferred from return type of a
-/// functions and these functions  return different types
+/// @description Checks that in case of a circular dependency an actual argument
+/// which is not a function literal will break the cycle and there will be the
+/// inference
 /// @author sgrekhov22@gmail.com
 
 import "../../Utils/expect.dart";
 
-class C1 {
-  void c1() {}
+void f<X, Y>(X Function(Y) a, Y Function(X) b) {
+  Expect.equals(num, X);
+  Expect.equals(String, Y);
+  Expect.equals(typeOf<int Function(String)>(), a.runtimeType);
+  Expect.equals(typeOf<String Function(num)>(), b.runtimeType);
 }
-class C2 extends C1 {}
-class C3 extends C1 {}
-typedef C1Nullable = C1?;
 
-void f1<T>(void Function(T) a, T Function() b, T Function() c, Type t) {
-  Expect.equals(t, T);
-}
+String g(num n) => 'Hello, $n!';
 
 main() {
-  f1((t) { // T == C1
-    t.c1();
-  }, () => C3(), () => C2(), C1);
-  f1((t) { // T == C1?
-    t?.c1();
-  }, () => null, () => C1(), C1Nullable);
+  f((v) => v.substring(0).length, g);
 }

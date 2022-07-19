@@ -13,12 +13,11 @@
 
 import "../../Utils/expect.dart";
 
-typedef ExpectedB = String Function();
-
 void f<T, U>(void Function(T, U) a, {required T Function() b, required U c}) {
   Expect.equals(String, T);
   Expect.equals(int, U);
-  Expect.equals(ExpectedB, b.runtimeType);
+  Expect.equals(typeOf<void Function(String t, int u)>(), a.runtimeType);
+  Expect.equals(typeOf<String Function()>(), b.runtimeType);
 }
 
 main() {

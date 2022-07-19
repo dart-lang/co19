@@ -12,9 +12,6 @@
 
 import "../../Utils/expect.dart";
 
-typedef ExpectedC = int Function(Object? o);
-typedef ExpectedD = bool Function(Object? o);
-
 typedef Str = String;
 typedef Int = int;
 typedef Boolean = bool;
@@ -22,8 +19,9 @@ typedef Boolean = bool;
 void f<T, U, V>(void Function(T, U) a, T b, U Function(V) c, V Function(U) d) {
   Expect.equals(String, T);
   Expect.equals(int, U);
-  Expect.equals(ExpectedC, c.runtimeType);
-  Expect.equals(ExpectedD, d.runtimeType);
+  Expect.equals(typeOf<void Function(String, int)>(), a.runtimeType);
+  Expect.equals(typeOf<int Function(Object? o)>(), c.runtimeType);
+  Expect.equals(typeOf<bool Function(Object? o)>(), d.runtimeType);
 }
 
 main() {

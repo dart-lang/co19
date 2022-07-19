@@ -12,16 +12,15 @@
 
 import "../../Utils/expect.dart";
 
-typedef ExpectedB = Future<String> Function(Object? o);
-typedef ExpectedC = Future<int> Function(Object? o);
+int callCounter = 0;
 
 Stream<int> f<T, U, V>(
     void Function(T, U) a, T Function(V) b, U Function(V) c) async* {
-  Expect.equals(Future<String>, T);
-  Expect.equals(Future<int>, U);
-  Expect.equals(ExpectedB, b.runtimeType);
-  Expect.equals(ExpectedC, c.runtimeType);
-  yield 0;
+  Expect.equals(Stream<String>, T);
+  Expect.equals(Stream<int>, U);
+  Expect.equals(typeOf<Stream<String> Function(Object? o)>(), b.runtimeType);
+  Expect.equals(typeOf<Stream<int> Function(Object? o)>(), c.runtimeType);
+  yield callCounter++;
 }
 
 main() async {
@@ -33,5 +32,6 @@ main() async {
     yield "Lily was here";
   }, (v) async* {
     yield 42;
-  });
+  }).first;
+  Expect.equals(1, callCounter);
 }
