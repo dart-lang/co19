@@ -41,6 +41,8 @@ main() {
   Expect.throws(() {C?.v *= 2;});
 //                   ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                  ^
+// [cfe] The class 'C' cannot be null.
   Expect.equals(1, C.getterInvocation);
   Expect.equals(0, C.setterInvocation);
 
@@ -48,6 +50,8 @@ main() {
   var res3 = (C?.v *= 2);
 //             ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//            ^
+// [cfe] The class 'C' cannot be null.
   Expect.equals(1, C.getterInvocation);
   Expect.equals(1, C.setterInvocation);
   Expect.equals(4, res3);

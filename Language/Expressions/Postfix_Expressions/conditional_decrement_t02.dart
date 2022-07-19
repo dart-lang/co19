@@ -19,7 +19,11 @@ main() {
   Expect.equals(C?.v--, 0);
 //               ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//              ^
+// [cfe] The class 'C' cannot be null.
   Expect.equals(C?.v, -1);
 //               ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//              ^
+// [cfe] The class 'C' cannot be null.
 }
