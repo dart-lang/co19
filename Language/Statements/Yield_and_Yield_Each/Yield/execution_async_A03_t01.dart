@@ -38,6 +38,7 @@ Stream<int> generator() async* {
 }
 
 main() async {
+  asyncStart();
   Completer c = Completer();
   List log = [];
   Stream<int> s = generator();
@@ -55,4 +56,5 @@ main() async {
   Expect.listEquals([1], log);
   Expect.listEquals([1], readyToSend);
   Expect.listEquals([], sent);
+  asyncEnd();
 }
