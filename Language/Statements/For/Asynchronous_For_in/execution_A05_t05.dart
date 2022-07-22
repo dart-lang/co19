@@ -44,22 +44,31 @@
 ///
 /// When `u` is done, execution of `f` completes normally.
 ///
-/// @description Check that if execution of `s` continues to a label that
-/// prefixes the asynchronous for statement then the execution of `s` is treated
-/// as if it had completed normally
+/// @description Check that the execution of `f` is suspended again, waiting for
+/// the next stream subscription event, and `u` is resumed if it has been paused
 ///
-/// @author sgrekhov22@gmail.com
+/// @author a.semenov@unipro.ru
 
 import 'dart:async';
 import '../../../../Utils/expect.dart';
 
 main() async {
+  asyncStart();
   List<int> log = [];
-  Label1: await for(var i in Stream<int>.fromIterable([1, 2, 3, 4, 5])) {
-    if (i.isEven) {
-      continue Label1;
-    }
+  bool visited = false;
+  StreamController sc = StreamController();
+  sc.addStream(Stream.fromIterable([1, 2, 3])).then((_) async {
+    Expect.listEquals([1, 2, 3], log);
+    await Future.delayed(Duration(milliseconds: 100));
+    sc.add(42); // await for is suspended now
+    await Future.delayed(Duration(milliseconds: 100));
+    Expect.listEquals([1, 2, 3, 42], log);
+    visited = true;
+    sc.close();
+  });
+  await for (var i in sc.stream) {
     log.add(i);
   }
-  Expect.listEquals([1, 3, 5], log);
+  Expect.isTrue(visited);
+  asyncEnd();
 }

@@ -8,7 +8,7 @@
 ///
 /// The expression `e` is evaluated to an object `o`. It is a dynamic type error
 /// if `o` is not an instance of a class that implements [Stream]. It is a
-/// compile-time error if `D` is empty and id is a final variable.
+/// compile-time error if `D` is empty and `id` is a final variable.
 ///
 /// The stream associated with the innermost enclosing asynchronous for loop,
 /// if any, is paused. The stream `o` is listened to, producing a stream

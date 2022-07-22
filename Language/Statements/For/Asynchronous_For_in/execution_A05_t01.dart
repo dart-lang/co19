@@ -44,9 +44,10 @@
 ///
 /// When `u` is done, execution of `f` completes normally.
 ///
-/// @description Check that if execution of `s` continues to a label that
-/// prefixes the asynchronous for statement then the execution of `s` is treated
-/// as if it had completed normally
+/// @description Check that if execution of `s` does not complete normally, the
+/// subscription `u` is canceled by evaluating `await v.cancel()` where `v` is a
+/// fresh variable referencing the stream subscription `u`. Test the case when
+/// execution of `await for-in` was interrupted by `break`
 ///
 /// @author sgrekhov22@gmail.com
 
@@ -54,12 +55,17 @@ import 'dart:async';
 import '../../../../Utils/expect.dart';
 
 main() async {
+  asyncStart();
   List<int> log = [];
-  Label1: await for(var i in Stream<int>.fromIterable([1, 2, 3, 4, 5])) {
-    if (i.isEven) {
-      continue Label1;
-    }
+  StreamController sc = StreamController(onCancel: () {
+    Expect.listEquals([1, 2, 3], log);
+    asyncEnd();
+  });
+  sc.addStream(Stream<int>.fromIterable([1, 2, 3, 4, 5]));
+  await for(var i in sc.stream) {
     log.add(i);
+    if (i == 3) {
+      break;
+    }
   }
-  Expect.listEquals([1, 3, 5], log);
 }

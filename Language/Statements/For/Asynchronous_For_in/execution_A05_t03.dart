@@ -1,4 +1,4 @@
-// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -44,22 +44,44 @@
 ///
 /// When `u` is done, execution of `f` completes normally.
 ///
-/// @description Check that if execution of `s` continues to a label that
-/// prefixes the asynchronous for statement then the execution of `s` is treated
-/// as if it had completed normally
-///
-/// @author sgrekhov22@gmail.com
+/// @description Check that if s raises an exception, then asynchronous for-in
+/// statement is completed with that exception.
+/// @author a.semenov@unipro.ru
 
 import 'dart:async';
 import '../../../../Utils/expect.dart';
 
-main() async {
-  List<int> log = [];
-  Label1: await for(var i in Stream<int>.fromIterable([1, 2, 3, 4, 5])) {
-    if (i.isEven) {
-      continue Label1;
+final ERROR = new Exception();
+
+Future test1() async {
+  var processedValues = [];
+  try {
+    await for (var i in new Stream.fromIterable([1, 2])) {
+      processedValues.add(i);
+      throw ERROR;
     }
-    log.add(i);
+    Expect.fail("Asynchronous for-in statement should throw $ERROR");
+  } catch (e) {
+    Expect.identical(ERROR, e);
   }
-  Expect.listEquals([1, 3, 5], log);
+  Expect.listEquals([1], processedValues);
+}
+
+Future test2() async {
+  var processedValues = [];
+  try {
+    await for (int i in new Stream.empty()) {
+      processedValues.add(i);
+      throw ERROR;
+    }
+    Expect.listEquals([], processedValues);
+  } catch (e) {
+    Expect.fail("Asynchronous for-in statement should not throw $e " +
+      "for empty stream");
+  }
+}
+
+main() {
+  asyncStart();
+  Future.wait([test1(), test2()]).then((v) => asyncEnd());
 }
