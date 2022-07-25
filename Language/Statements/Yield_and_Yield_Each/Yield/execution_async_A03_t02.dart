@@ -46,9 +46,7 @@ main() async {
   ss = s.listen((int i) async {
     log.add(i);
     await ss.cancel();
-    if (!c.isCompleted) {
-      c.complete();
-    }
+    c.complete();
   });
   await c.future;
   // Let's wait to be sure that there are no more events

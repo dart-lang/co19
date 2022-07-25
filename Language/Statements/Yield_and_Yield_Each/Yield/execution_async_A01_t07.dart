@@ -59,8 +59,9 @@ main() async {
       Expect.listEquals([1, 2], readyToSend);
       ss.pause();
       await Future.delayed(Duration(milliseconds: 100));
-      Expect.listEquals([1], sent);
-      Expect.listEquals([1, 2], readyToSend);
+      // It's ok if generator function performed one iteration
+      // See https://github.com/dart-lang/sdk/issues/49465
+      Expect.isTrue(sent.length == 1 || sent.length == 2 && sent.contains(2));
       await ss.cancel();
       c.complete();
     }
@@ -69,7 +70,7 @@ main() async {
   // Let's wait to be sure that there are no more events
   await Future.delayed(Duration(milliseconds: 100));
   Expect.listEquals([1, 2], received);
-  Expect.listEquals([1], sent);
-  Expect.listEquals([1, 2], readyToSend);
+  Expect.listEquals([1, 2], sent);
+  Expect.listEquals([1, 2, 3], readyToSend);
   asyncEnd();
 }

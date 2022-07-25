@@ -62,7 +62,7 @@ test() async {
   late StreamSubscription<int> ss;
   ss = s.listen(
       (int x) async {
-        if (x == 5) { // let generator to work some time
+        if (x == 5) { //  Allow the generator to work for some time.
           await ss.cancel();
           Expect.listEquals([0, 1, 2], log);
           asyncEnd();

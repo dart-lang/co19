@@ -54,8 +54,10 @@ main() {
       Expect.isTrue(sc.isPaused);
       ss.resume();
       await Future.delayed(Duration(milliseconds: 100));
-      Expect.listEquals([1, 2, 3], sent);
-      Expect.listEquals([1, 2, 3], readyToSend);
+      // `sent` may contain not all elements of the stream
+      sent.forEach((element) {
+        Expect.isTrue([1, 2, 3].contains(element));
+      });
     }
     if (i == 3) {
       sc.close();

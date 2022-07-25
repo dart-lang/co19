@@ -39,7 +39,7 @@ test() async {
   finish = false;
   Stream<int> s = generator();
   s.listen((int x) {
-    finish = (x > 10); // let generator to work some time
+    finish = (x > 10); //  Allow the generator to work for some time.
   }, onDone: () {
     asyncEnd();
   });

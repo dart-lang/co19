@@ -43,16 +43,16 @@ test() async {
   late StreamSubscription<int> ss;
   ss = s.listen((int x) async {
     if (!generatorAlive) {
-      Expect.fail("Generator function must be terminated");
+      Expect.fail("The generator function is unexpectedly not alive");
     }
     if (x == 5) {
-      // let generator to work some time
-      Expect.equals(true, generatorAlive);
+      //  Allow the generator to work for some time.
+      Expect.isTrue(generatorAlive);
       await ss.cancel();
       generatorAlive = false;
       // verify that generator is not active
       for (int i = 0; i < 10; i++) {
-        Expect.equals(false, generatorAlive);
+        Expect.isFalse(generatorAlive);
         await new Future.delayed(new Duration(milliseconds: 10));
       }
       asyncEnd();
