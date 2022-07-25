@@ -24,7 +24,7 @@ main() {
     t.c2();
 //    ^^
 // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_METHOD
-// [cfe] The method 'c2' isn't defined for the class 'C1'
+// [cfe] The method 'c2' isn't defined for the class 'C1'.
   }, (u) {
     return 1 > 2 ? C2() : C1();
   });
