@@ -44,23 +44,36 @@
 ///
 /// When `u` is done, execution of `f` completes normally.
 ///
-/// @description Check that it is a dynamic type error if `o` is not an instance
-/// of a class that implements [Stream]
+/// @description Check that on an error event from `u`, with error object `e`
+/// subscription `u` is canceled
 ///
 /// @author sgrekhov22@gmail.com
 
+import 'dart:async';
 import '../../../../Utils/expect.dart';
 
 main() async {
-  bool wasException = false;
-  dynamic collection = [1, 2, 3];
+  asyncStart();
+  List<int> log = [];
+  bool visited = false;
+  StreamController sc = StreamController(onCancel: () {
+    Expect.listEquals([1, 2], log);
+    visited = true;
+  });
+  sc.add(1);
+  sc.add(2);
+  sc.addError("Error!");
+  sc.add(3);
+  await null;
+
   try {
-    await for (var i in collection) {
-      Expect.fail("Dynamic error expected");
-      print(i);
+    await for (var i in sc.stream) {
+      log.add(i);
     }
-  } catch (_) {
-    wasException = true;
+  } catch (e) {
+    Expect.equals("Error!", e);
+    Expect.isTrue(visited);
+    asyncEnd();
   }
-  Expect.isTrue(wasException);
 }
+

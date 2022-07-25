@@ -44,23 +44,31 @@
 ///
 /// When `u` is done, execution of `f` completes normally.
 ///
-/// @description Check that it is a dynamic type error if `o` is not an instance
-/// of a class that implements [Stream]
+/// @description Check that when `u` is done, execution of `f` completes
+/// normally.
 ///
 /// @author sgrekhov22@gmail.com
 
+import 'dart:async';
 import '../../../../Utils/expect.dart';
 
-main() async {
-  bool wasException = false;
-  dynamic collection = [1, 2, 3];
-  try {
-    await for (var i in collection) {
-      Expect.fail("Dynamic error expected");
-      print(i);
-    }
-  } catch (_) {
-    wasException = true;
+Stream<int> generator() async* {
+  for (int i = 0; i < 5; i++) {
+    yield i;
   }
-  Expect.isTrue(wasException);
+}
+
+main() async {
+  asyncStart();
+  List<int> log = [];
+  await for(var i in generator()) {
+    log.add(i);
+  }
+  Expect.listEquals([0, 1, 2, 3, 4], log);
+  log.clear();
+  await for(var i in Stream<int>.fromIterable([3, 1, 4, 1, 5])) {
+    log.add(i);
+  }
+  Expect.listEquals([3, 1, 4, 1, 5], log);
+  asyncEnd();
 }

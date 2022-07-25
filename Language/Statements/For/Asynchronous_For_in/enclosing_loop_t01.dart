@@ -32,7 +32,6 @@ Future test1() async {
   Expect.listEquals(['a', 'a1', 'a2', '1', '11', '12', '2', '21', '22'], log);
 }
 
-
 Future test2() async {
   List log = [];
   StreamController<String> streamController = new StreamController<String>();
