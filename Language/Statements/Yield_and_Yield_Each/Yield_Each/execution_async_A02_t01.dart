@@ -52,11 +52,11 @@ Future test() async {
     asyncEnd();
   });
   sc.add(1);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await null;
   sc.add(2);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await null;
   sc.add(3);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await null;
   ss.resume();
   sc.close();
 }

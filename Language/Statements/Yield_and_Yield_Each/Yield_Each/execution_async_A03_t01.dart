@@ -46,13 +46,13 @@ Future test() async {
   });
   ss.pause();
   sc.add(1);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await null;
   log.add('a');
   sc.add(2);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await null;
   log.add('b');
   sc.add(3);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await null;
   log.add('c');
   ss.resume();
   sc.close();

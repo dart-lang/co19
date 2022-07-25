@@ -47,9 +47,9 @@ Future test() async {
   log.add('a');
   ss.cancel();
   c.complete(); // pass control to yield*
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await null;
   log.add('b');
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await null;
   log.add('c');
   Expect.listEquals(['a', 'b', 'c'], log);
 }

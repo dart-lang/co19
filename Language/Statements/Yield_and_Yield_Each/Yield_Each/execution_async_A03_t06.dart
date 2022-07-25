@@ -44,9 +44,9 @@ Future test() async {
       ss.cancel();
 
       Expect.listEquals([1, 2, 3, 4, 5], log);
-      await new Future.delayed(new Duration(milliseconds: 100));
+      await null;
       Expect.listEquals([1, 2, 3, 4, 5], log);
-      await new Future.delayed(new Duration(milliseconds: 100));
+      await null;
       Expect.listEquals([1, 2, 3, 4, 5], log);
       asyncEnd();
     }
