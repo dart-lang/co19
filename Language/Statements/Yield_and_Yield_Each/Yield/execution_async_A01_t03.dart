@@ -51,7 +51,7 @@ main() async {
       Expect.listEquals([1], sent);
       Expect.listEquals([1, 2], readyToSend);
       ss.pause();
-      await Future.delayed(Duration(milliseconds: 100));
+      await null;
       Expect.listEquals([1], sent);
       Expect.listEquals([1, 2], readyToSend);
       await ss.cancel();

@@ -49,7 +49,7 @@ main() {
       ss.pause();
       Expect.listEquals([], sent);
       Expect.listEquals([1], readyToSend);
-      await Future.delayed(Duration(milliseconds: 100));
+      await null;
       Expect.listEquals([], sent);
       Expect.listEquals([1], readyToSend);
       ss.resume();

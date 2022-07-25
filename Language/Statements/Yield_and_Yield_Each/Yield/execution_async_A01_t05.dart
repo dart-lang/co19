@@ -49,6 +49,7 @@ main() async {
       Expect.listEquals([1, 2], sent);
       Expect.listEquals([1, 2, 3], readyToSend);
       await Future.delayed(Duration(milliseconds: 100));
+      // Now let's check that nothing was changed after the delay
       Expect.listEquals([1, 2, 3], received);
       Expect.listEquals([1, 2], sent);
       Expect.listEquals([1, 2, 3], readyToSend);
