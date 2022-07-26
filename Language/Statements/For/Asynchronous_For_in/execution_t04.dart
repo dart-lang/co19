@@ -68,9 +68,11 @@ Future test2() async {
 
 // try an already closed single subscription stream
 Future test3() async {
-  // make a stream that is closed
-  Stream stream = new Stream.fromIterable([1, 2]);
-  await for (var x in stream) {
+  Stream<int> generator() async* {
+    yield 42;
+  }
+  Stream stream = generator();
+  await for (var i in stream) {
   }
   var processedValues = [];
   try {
@@ -86,7 +88,6 @@ Future test3() async {
   }
   Expect.isTrue(processedValues.isEmpty);
 }
-
 
 main() {
   asyncStart();
