@@ -43,32 +43,35 @@ Future test() async {
   Stream<int> s = generator(sc.stream);
   late StreamSubscription<int> ss;
   ss = s.listen((int i) {
-    if (!c.isCompleted) {
-      c.complete();
-    }
     log.add(i);
     if (i == 2) {
       ss.pause();
       ss.resume();
       ss.pause();
     }
+    if (!c.isCompleted) {
+      c.complete();
+    }
   }, onDone: () {
     Expect.listEquals([-1, 1, 'one', 2, 'two', 'three', 3, 10, 11], log);
     asyncEnd();
   });
   await c.future;
+  c = Completer();
   sc.add(1);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await c.future;
   log.add('one');
+  c = Completer();
   sc.add(2);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await c.future;
   log.add('two');
+  c = Completer();
   sc.add(3);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await null;
   log.add('three');
   ss.resume();
-  await new Future.delayed(new Duration(milliseconds: 100));
-  sc.close();
+  await c.future;
+  await sc.close();
 }
 
 main() {

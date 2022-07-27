@@ -37,37 +37,42 @@ Stream<int> generator(Stream<int> input) async* {
 Future test() async {
   Completer c = Completer();
   List log = [];
+  bool errorProcessed = false;
   StreamController<int> sc = new StreamController<int>();
   Stream<int> s = generator(sc.stream);
   late StreamSubscription<int> ss;
   ss = s.listen((int i) {
-    if (!c.isCompleted) {
-      c.complete();
-    }
     log.add(i);
     if (i == 1) {
       ss.pause();
     }
+    if (!c.isCompleted) {
+      c.complete();
+    }
   }, onDone: () {
     Expect.listEquals([-1, 1, 'one', 'two',  2, 10], log);
+    Expect.isTrue(errorProcessed);
     asyncEnd();
   }, onError: (e) {
     Expect.equals("Error!!", e);
     Expect.listEquals([-1, 1, 'one', 'two'], log);
-
+    errorProcessed = true;
   });
   await c.future;
+  c = Completer();
   sc.add(1);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await c.future;
   log.add('one');
+  c = Completer();
   sc.addError("Error!!");
+  await null;
   sc.add(2);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await null;
   log.add('two');
   ss.resume();
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await c.future;
   Expect.listEquals([-1, 1, 'one', 'two',  2], log);
-  sc.close();
+  await sc.close();
 }
 
 main() {

@@ -38,19 +38,24 @@ Stream<int> generator(Stream<int> input) async* {
 }
 
 Future test() async {
+  Completer c = Completer();
   List<int> log = [];
   StreamController<int> sc = new StreamController<int>();
   Stream<int> s = generator(sc.stream);
   StreamSubscription<int> ss = s.listen((int i) {
     log.add(i);
+    if (i == 3) {
+      c.complete();
+    }
   });
   sc.add(1);
   sc.add(2);
   sc.add(3);
-  await new Future.delayed(new Duration(milliseconds: 100));
-  ss.cancel();
+  await c.future;
+  await ss.cancel();
   sc.add(4);
   sc.add(5);
+  // Give events that should not be delivered chance to be erroneously delivered
   await new Future.delayed(new Duration(milliseconds: 100));
   Expect.listEquals([1, 2, 3], log);
   Expect.isFalse(afterYield);

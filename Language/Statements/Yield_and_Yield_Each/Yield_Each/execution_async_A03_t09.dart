@@ -56,19 +56,24 @@ Stream<String> generator(Stream<String> input, List log) async* {
 }
 
 Future test() async {
+  Completer c = Completer();
   List log = [];
   StreamController<String> sc = new StreamController<String>();
   Stream<String> s = generator(sc.stream, log);
   StreamSubscription<String> ss = s.listen((String v) {
     log.add(v);
+    if (v == 'c') {
+      c.complete();
+    }
   });
   sc.add('a');
   sc.add('b');
   sc.add('c');
-  await new Future.delayed(new Duration(milliseconds: 100));
-  ss.cancel();
+  await c.future;
+  await ss.cancel();
   sc.add('d');
   sc.add('e');
+  // Give events that should not be delivered chance to be erroneously delivered
   await new Future.delayed(new Duration(milliseconds: 100));
   Expect.listEquals(['a', 'b', 'c', 0, 1, 2], log);
   await sc.close();

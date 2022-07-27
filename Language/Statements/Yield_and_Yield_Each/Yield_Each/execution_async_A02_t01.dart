@@ -58,7 +58,7 @@ Future test() async {
   sc.add(3);
   await null;
   ss.resume();
-  sc.close();
+  await sc.close();
 }
 
 main() {

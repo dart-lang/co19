@@ -42,27 +42,29 @@ Future test() async {
   Stream<int> s = generator(sc.stream);
   late StreamSubscription<int> ss;
   ss = s.listen((int i) {
-    if (!c.isCompleted) {
-      c.complete();
-    }
     log.add(i);
     if (i == 2) {
       ss.pause();
     }
+    if (!c.isCompleted) {
+      c.complete();
+    }
   });
   await c.future;
+  c = Completer();
   sc.add(1);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await c.future;
   log.add('one');
+  c = Completer();
   sc.add(2);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await c.future;
   log.add('two');
   sc.add(3);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await null;
   log.add('three');
   ss.cancel();
-  await new Future.delayed(new Duration(milliseconds: 100));
-  sc.close();
+  await sc.close();
+  // Give events that should not be delivered chance to be erroneously delivered
   await new Future.delayed(new Duration(milliseconds: 100));
   Expect.listEquals([-1, 1, 'one', 2, 'two', 'three'], log);
   asyncEnd();

@@ -37,30 +37,38 @@ Stream<int> generator(Stream<int> input) async* {
 Future test() async {
   Completer c = Completer();
   List log = [];
+  bool errorProcessed = false;
   StreamController<int> sc = new StreamController<int>();
   Stream<int> s = generator(sc.stream);
-  late StreamSubscription<int> ss;
-  ss = s.listen((int i) {
+  s.listen((int i) {
+    log.add(i);
     if (!c.isCompleted) {
       c.complete();
     }
-    log.add(i);
   }, onDone: () {
     Expect.fail("Listening was not completed normally");
   }, onError: (e) {
     Expect.equals("Error!!", e);
     Expect.listEquals([-1, 1, 'one'], log);
+    errorProcessed = true;
+    c.complete();
   });
   await c.future;
+  c = Completer();
   sc.add(1);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await c.future;
   log.add('one');
+  c = Completer();
   sc.addError("Error!!");
+  await c.future;
+  c = Completer();
   sc.add(2);
-  await new Future.delayed(new Duration(milliseconds: 100));
+  await c.future;
   log.add('two');
+  // Give events that should not be delivered chance to be erroneously delivered
   await new Future.delayed(new Duration(milliseconds: 100));
   Expect.listEquals([-1, 1, 'one', 2, 'two'], log);
+  Expect.isTrue(errorProcessed);
   asyncEnd();
 }
 
