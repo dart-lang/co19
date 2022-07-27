@@ -59,8 +59,9 @@ main() async {
   StreamController sc = StreamController();
   sc.addStream(Stream.fromIterable([1, 2, 3])).then((_) async {
     Expect.listEquals([1, 2, 3], log);
-    await Future.delayed(Duration(milliseconds: 100));
+    await null;
     sc.add(42); // await for is suspended now
+    Expect.listEquals([1, 2, 3], log);
     await Future.delayed(Duration(milliseconds: 100));
     Expect.listEquals([1, 2, 3, 42], log);
     visited = true;
