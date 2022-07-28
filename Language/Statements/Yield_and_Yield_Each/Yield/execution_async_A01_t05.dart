@@ -40,6 +40,7 @@ Stream<int> generator() async* {
 }
 
 main() async {
+  asyncStart();
   List<int> received = [];
   Stream<int> stream = generator();
   await for (int i in stream) {
@@ -57,8 +58,10 @@ main() async {
       break;
     }
   }
-  await Future.delayed(Duration(seconds: 1));
+  // Give a chance to events to be erroneously delivered
+  await Future.delayed(Duration(milliseconds: 100));
   Expect.listEquals([1, 2, 3], received);
   Expect.listEquals([1, 2], sent);
   Expect.listEquals([1, 2, 3], readyToSend);
+  asyncEnd();
 }

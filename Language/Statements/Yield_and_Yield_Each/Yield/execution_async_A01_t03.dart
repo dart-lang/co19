@@ -43,6 +43,7 @@ Stream<int> generator() async* {
 main() async {
   asyncStart();
   List received = [];
+  Completer c = Completer();
   Stream<int> s = generator();
   late StreamSubscription<int> ss;
   ss = s.listen((int i) async {
@@ -55,9 +56,12 @@ main() async {
       Expect.listEquals([1], sent);
       Expect.listEquals([1, 2], readyToSend);
       await ss.cancel();
+      c.complete();
     }
   });
-  await Future.delayed(Duration(seconds: 1));
+  await c.future;
+  // Give a chance to events to be erroneously delivered
+  await Future.delayed(Duration(milliseconds: 100));
   Expect.listEquals([1, 2], received);
   Expect.listEquals([1], sent);
   Expect.listEquals([1, 2], readyToSend);

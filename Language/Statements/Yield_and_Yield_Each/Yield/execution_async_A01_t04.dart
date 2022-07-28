@@ -58,8 +58,8 @@ main() async {
     }
   });
   await c.future;
-  // Let's wait to be sure that there are no more events
-  await Future.delayed(Duration(seconds: 1));
+  // Give a chance to events to be erroneously delivered
+  await Future.delayed(Duration(milliseconds: 100));
   Expect.listEquals([1, 2], received);
   Expect.listEquals([1], sent);
   Expect.listEquals([1, 2], readyToSend);
