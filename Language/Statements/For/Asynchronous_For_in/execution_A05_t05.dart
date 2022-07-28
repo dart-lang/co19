@@ -47,7 +47,7 @@
 /// @description Check that the execution of `f` is suspended again, waiting for
 /// the next stream subscription event, and `u` is resumed if it has been paused
 ///
-/// @author a.semenov@unipro.ru
+/// @author sgrekhov22@gmail.com
 
 import 'dart:async';
 import '../../../../Utils/expect.dart';
@@ -62,10 +62,10 @@ main() async {
     await null;
     sc.add(42); // await for is suspended now
     Expect.listEquals([1, 2, 3], log);
-    await Future.delayed(Duration(milliseconds: 100));
+    await null;
     Expect.listEquals([1, 2, 3, 42], log);
     visited = true;
-    sc.close();
+    await sc.close();
   });
   await for (var i in sc.stream) {
     log.add(i);
