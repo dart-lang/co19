@@ -28,7 +28,8 @@
 /// implement proxy server resolving based on environment variables.
 /// @description Checks that this setter sets the function used to resolve the
 /// proxy server to be used for opening a HTTP connection to the specified url.
-/// Test "DIRECT" connection and Digest authentication
+/// Test "DIRECT" connection and Digest authentication (no proxy routine is
+/// called in this case)
 /// @author sgrekhov@unipro.ru
 /// @issue 42870
 
@@ -47,16 +48,21 @@ test() async {
     Expect.isNull(request.headers[HttpHeaders.proxyAuthorizationHeader]);
     if (requestCounter++ == 0) {
       request.response.statusCode = HttpStatus.unauthorized;
-      request.response.headers
-          .set(HttpHeaders.proxyAuthenticateHeader, 'Digest, realm=realm, nonce=12');
+      request.response.headers.set(
+          HttpHeaders.proxyAuthenticateHeader, 'Digest, realm=realm, nonce=12');
       request.response.statusCode = HttpStatus.proxyAuthenticationRequired;
       request.response.close();
-    } else  {
-      Expect.isTrue(authenticateProxyCalled);
-      Expect.isTrue(findProxyCalled);
-      request.response.close();
-      server.close();
-      asyncEnd();
+      // Shutdown server. We are not expecting any additional requests in case
+      // of DIRECT connection
+      Future.delayed(Duration(milliseconds: 100)).then((_) {
+        Expect.isTrue(findProxyCalled);
+        Expect.isFalse(authenticateProxyCalled);
+        request.response.close();
+        server.close();
+        asyncEnd();
+      });
+    } else {
+      Expect.fail("Unexpected request");
     }
   });
   HttpClient client = new HttpClient();
@@ -67,10 +73,10 @@ test() async {
 
   client.authenticateProxy =
       (String host, int port, String scheme, String? realm) {
-        authenticateProxyCalled = true;
-        Completer<bool> completer = new Completer<bool>();
-        completer.complete(true);
-        return completer.future;
+    authenticateProxyCalled = true;
+    Completer<bool> completer = new Completer<bool>();
+    completer.complete(true);
+    return completer.future;
   };
 
   client

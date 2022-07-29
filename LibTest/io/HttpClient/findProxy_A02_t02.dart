@@ -27,7 +27,8 @@
 /// The static function findProxyFromEnvironment on this class can be used to
 /// implement proxy server resolving based on environment variables.
 /// @description Checks that if this function is not set, direct connections are
-/// used. Test Digest authentication response
+/// used (no proxy routine is called in this case). Test Digest authentication
+/// response
 /// @author sgrekhov@unipro.ru
 /// @issue 42870
 
@@ -37,6 +38,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 test() async {
+  bool authenticateProxyCalled = false;
   int requestCounter = 0;
 
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
@@ -44,20 +46,27 @@ test() async {
     Expect.isNull(request.headers[HttpHeaders.proxyAuthorizationHeader]);
     if (requestCounter++ == 0) {
       request.response.statusCode = HttpStatus.unauthorized;
-      request.response.headers
-          .set(HttpHeaders.proxyAuthenticateHeader, 'Digest, realm=realm, nonce=2');
+      request.response.headers.set(
+          HttpHeaders.proxyAuthenticateHeader, 'Digest, realm=realm, nonce=2');
       request.response.statusCode = HttpStatus.proxyAuthenticationRequired;
       request.response.close();
-    } else  {
-      request.response.close();
-      server.close();
-      asyncEnd();
+      // Shutdown server. We are not expecting any additional requests in case
+      // of DIRECT connection
+      Future.delayed(Duration(milliseconds: 100)).then((_) {
+        Expect.isFalse(authenticateProxyCalled);
+        request.response.close();
+        server.close();
+        asyncEnd();
+      });
+    } else {
+      Expect.fail("Unexpected request");
     }
   });
   HttpClient client = new HttpClient();
 
   client.authenticateProxy =
       (String host, int port, String scheme, String? realm) {
+    authenticateProxyCalled = true;
     Completer<bool> completer = new Completer<bool>();
     completer.complete(true);
     return completer.future;
