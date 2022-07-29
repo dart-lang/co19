@@ -37,6 +37,7 @@ Stream<int> generator() async* {
 }
 
 main() async {
+  asyncStart();
   List<int> received = [];
   Stream<int> stream = generator();
   await for (int i in stream) {
@@ -44,7 +45,7 @@ main() async {
     Expect.listEquals([for (var j = 1; j <= i; j++) j], received);
     Expect.listEquals([for (var j = 1; j <= i - 1; j++) j], sent);
     Expect.listEquals([for (var j = 1; j <= i; j++) j], readyToSend);
-    await Future.delayed(Duration(milliseconds: 100));
+    await null;
     Expect.listEquals([for (var j = 1; j <= i; j++) j], received);
     Expect.listEquals([for (var j = 1; j <= i - 1; j++) j], sent);
     Expect.listEquals([for (var j = 1; j <= i; j++) j], readyToSend);
@@ -52,4 +53,5 @@ main() async {
   Expect.listEquals([1, 2, 3, 4, 5], received);
   Expect.listEquals([1, 2, 3, 4, 5], sent);
   Expect.listEquals([1, 2, 3, 4, 5], readyToSend);
+  asyncEnd();
 }

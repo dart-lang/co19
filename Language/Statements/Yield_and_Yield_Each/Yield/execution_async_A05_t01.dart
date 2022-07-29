@@ -37,6 +37,8 @@ Stream<int> generator() async* {
 }
 
 main() async {
+  asyncStart();
+  Completer c = Completer();
   List log = [];
   Stream<int> s = generator();
   late StreamSubscription<int> ss;
@@ -47,10 +49,15 @@ main() async {
     // By this time generator should complete it's work, so this call does
     // nothing
     ss.cancel();
+    if (i == 3) {
+      c.complete();
+    }
   });
+  await c.future;
   // Let's wait to be sure that there are no more events
-  await Future.delayed(Duration(seconds: 2));
+  await Future.delayed(Duration(milliseconds: 500));
   Expect.listEquals([1, 2, 3], log);
   Expect.listEquals([1, 2, 3], readyToSend);
   Expect.listEquals([1, 2, 3], sent);
+  asyncEnd();
 }

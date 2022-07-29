@@ -58,7 +58,7 @@ main() async {
       Expect.listEquals([1], sent);
       Expect.listEquals([1, 2], readyToSend);
       ss.pause();
-      await Future.delayed(Duration(milliseconds: 100));
+      await null;
       // It's ok if generator function performed one iteration
       // See https://github.com/dart-lang/sdk/issues/49465
       Expect.isTrue(sent.length == 1 || sent.length == 2 && sent.contains(2));
