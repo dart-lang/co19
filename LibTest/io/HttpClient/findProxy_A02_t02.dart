@@ -39,6 +39,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 test() async {
+  bool authenticateProxyCalled = false;
   int requestCounter = 0;
 
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
@@ -50,19 +51,20 @@ test() async {
           .set(HttpHeaders.proxyAuthenticateHeader, 'Digest, realm=realm, nonce=2');
       request.response.statusCode = HttpStatus.proxyAuthenticationRequired;
       request.response.close();
+      // Shutdown server. We are not expecting any additional requests in case
+      // of DIRECT connection
+      Future.delayed(Duration(milliseconds: 100)).then((_) {
+      });
     } else  {
-      request.response.close();
-      server.close();
-      asyncEnd();
+      Expect.fail("Unexpected request");
     }
   });
   HttpClient client = new HttpClient();
 
   client.authenticateProxy =
       (String host, int port, String scheme, String realm) {
-    Completer<bool> completer = new Completer<bool>();
-    completer.complete(true);
-    return completer.future;
+    authenticateProxyCalled = true;
+    return Future<bool>.value(true);
   };
 
   client
@@ -70,7 +72,10 @@ test() async {
           "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
+    Expect.isFalse(authenticateProxyCalled);
+    server.close();
     response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
+    asyncEnd();
   });
 }
 
