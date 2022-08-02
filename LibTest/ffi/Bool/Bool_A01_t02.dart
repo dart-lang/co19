@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 void main() {
   Pointer<Bool> p1 = calloc<Bool>();
-  Pointer<Int16> p2 = new Pointer<Int16>.fromAddress(p1.address);
+  Pointer<Uint8> p2 = new Pointer<Uint8>.fromAddress(p1.address);
   try {
     p2.value = 0;
     Expect.isFalse(p1.value);

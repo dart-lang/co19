@@ -23,7 +23,7 @@ void main() {
   Pointer<LongLong> p1 = calloc<LongLong>(3);
   try {
     Expect.equals(8, p1.elementAt(1).address - p1.address);
-    Expect.equals(8, p1.elementAt(2).address - p1.elementAt(1).address);
+    Expect.equals(8, sizeOf<LongLong>);
   } finally {
     calloc.free(p1);
   }

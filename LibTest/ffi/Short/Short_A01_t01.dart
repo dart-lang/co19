@@ -21,7 +21,6 @@ import "../../../Utils/expect.dart";
 void main() {
   Pointer<Short> p1 = calloc<Short>();
   try {
-    Expect.equals(0, p1.value);
     p1.value = 42;
     Expect.equals(42, p1.value);
     p1.value = -42;

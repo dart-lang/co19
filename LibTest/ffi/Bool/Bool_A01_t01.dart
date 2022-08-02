@@ -17,7 +17,6 @@ import "../../../Utils/expect.dart";
 void main() {
   Pointer<Bool> p1 = calloc<Bool>();
   try {
-    Expect.isFalse(p1.value);
     p1.value = true;
     Expect.isTrue(p1.value);
     p1.value = false;

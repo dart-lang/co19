@@ -22,13 +22,12 @@ import "../../../Utils/expect.dart";
 void main() {
   Pointer<Long> p1 = calloc<Long>();
   try {
-    Expect.equals(0, p1.value);
     p1.value = 42;
     Expect.equals(42, p1.value);
     p1.value = 32768;
     Expect.equals(32768, p1.value);
-    p1.value = 2147483647; // 0x7FFFFFFF
-    Expect.equals(2147483647, p1.value);
+    p1.value = 0x7FFFFFFF;
+    Expect.equals(0x7FFFFFFF, p1.value);
   } finally {
     calloc.free(p1);
   }

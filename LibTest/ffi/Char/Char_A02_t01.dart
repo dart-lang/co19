@@ -25,7 +25,7 @@ void main() {
   Pointer<Char> p1 = calloc<Char>(3);
   try {
     Expect.equals(1, p1.elementAt(1).address - p1.address);
-    Expect.equals(1, p1.elementAt(2).address - p1.elementAt(1).address);
+    Expect.equals(1, sizeOf<Char>());
   } finally {
     calloc.free(p1);
   }
