@@ -20,7 +20,7 @@ import "../../../Utils/expect.dart";
 
 void main() {
   Pointer<SignedChar> p1 = calloc<SignedChar>();
-  Pointer<Int16> p2 = new Pointer<Int16>.fromAddress(p1.address);
+  Pointer<Uint8> p2 = new Pointer<Uint8>.fromAddress(p1.address);
   try {
     p2.value = 0;
     Expect.equals(0, p1.value);
