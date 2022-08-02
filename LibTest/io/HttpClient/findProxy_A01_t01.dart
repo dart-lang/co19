@@ -52,15 +52,6 @@ test() async {
           .set(HttpHeaders.proxyAuthenticateHeader, 'Basic, realm=realm');
       request.response.statusCode = HttpStatus.proxyAuthenticationRequired;
       request.response.close();
-      // Shutdown server. We are not expecting any additional requests in case
-      // of DIRECT connection
-      Future.delayed(Duration(milliseconds: 100)).then((_) {
-        Expect.isTrue(findProxyCalled);
-        Expect.isFalse(authenticateProxyCalled);
-        request.response.close();
-        server.close();
-        asyncEnd();
-      });
     } else {
       Expect.fail("Unexpected request");
     }
@@ -79,12 +70,15 @@ test() async {
     return completer.future;
   };
 
-  client
-      .getUrl(Uri.parse(
+  client.getUrl(Uri.parse(
           "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
+    Expect.isTrue(findProxyCalled);
+    Expect.isFalse(authenticateProxyCalled);
+    server.close();
     response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
+    asyncEnd();
   });
 }
 
