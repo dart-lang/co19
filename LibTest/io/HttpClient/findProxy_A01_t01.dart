@@ -65,9 +65,7 @@ test() async {
   client.authenticateProxy =
       (String host, int port, String scheme, String? realm) {
     authenticateProxyCalled = true;
-    Completer<bool> completer = new Completer<bool>();
-    completer.complete(true);
-    return completer.future;
+    return Future<bool>.value(true);
   };
 
   client.getUrl(Uri.parse(
