@@ -51,10 +51,6 @@ test() async {
           .set(HttpHeaders.proxyAuthenticateHeader, 'Digest, realm=realm, nonce=2');
       request.response.statusCode = HttpStatus.proxyAuthenticationRequired;
       request.response.close();
-      // Shutdown server. We are not expecting any additional requests in case
-      // of DIRECT connection
-      Future.delayed(Duration(milliseconds: 100)).then((_) {
-      });
     } else  {
       Expect.fail("Unexpected request");
     }
