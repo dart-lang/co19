@@ -27,7 +27,7 @@
 /// The static function findProxyFromEnvironment on this class can be used to
 /// implement proxy server resolving based on environment variables.
 /// @description Checks that if this function is not set, direct connections are
-/// used.
+/// used (no proxy routine is called in this case).
 /// @author sgrekhov@unipro.ru
 /// @issue 42870
 
@@ -37,6 +37,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 test() async {
+  bool authenticateProxyCalled = false;
   int requestCounter = 0;
 
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
@@ -48,27 +49,26 @@ test() async {
           .set(HttpHeaders.proxyAuthenticateHeader, 'Basic, realm=realm');
       request.response.statusCode = HttpStatus.proxyAuthenticationRequired;
       request.response.close();
-    } else  {
-      request.response.close();
-      server.close();
-      asyncEnd();
+    } else {
+      Expect.fail("Unexpected request");
     }
   });
   HttpClient client = new HttpClient();
 
   client.authenticateProxy =
       (String host, int port, String scheme, String? realm) {
-    Completer<bool> completer = new Completer<bool>();
-    completer.complete(true);
-    return completer.future;
+    authenticateProxyCalled = true;
+    return Future<bool>.value(true);
   };
 
-  client
-      .getUrl(Uri.parse(
+  client.getUrl(Uri.parse(
           "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
+    Expect.isFalse(authenticateProxyCalled);
+    server.close();
     response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
+    asyncEnd();
   });
 }
 
