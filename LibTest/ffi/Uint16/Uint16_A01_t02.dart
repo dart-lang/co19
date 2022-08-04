@@ -16,16 +16,20 @@ void main() {
   Pointer<Uint16> p1 = calloc<Uint16>();
   Pointer<Uint32> p2 = new Pointer<Uint32>.fromAddress(p1.address);
   try {
-    p2.value = 256;
-    Expect.equals(256, p1.value);
-    p2.value = 32768;
-    Expect.equals(32768, p1.value);
-    p2.value = 65535;
-    Expect.equals(65535, p1.value);
-    p2.value = 65536;
-    Expect.equals(0, p1.value);
-    p2.value = -1;
-    Expect.equals(65535, p1.value);
+    p2.value = 1;
+    // Test works for little endian encoding of the number only
+    if (p1.value != 0) {
+      p2.value = 256;
+      Expect.equals(256, p1.value);
+      p2.value = 32768;
+      Expect.equals(32768, p1.value);
+      p2.value = 65535;
+      Expect.equals(65535, p1.value);
+      p2.value = 65536;
+      Expect.equals(0, p1.value);
+      p2.value = -1;
+      Expect.equals(65535, p1.value);
+    }
   } finally {
     calloc.free(p1);
   }

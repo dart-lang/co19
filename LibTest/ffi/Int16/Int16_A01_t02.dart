@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 
 void main() {
   Pointer<Int16> p1 = calloc<Int16>();
-  Pointer<Int32> p2 = new Pointer<Int32>.fromAddress(p1.address);
+  Pointer<Uint16> p2 = new Pointer<Uint16>.fromAddress(p1.address);
   try {
     p2.value = 42;
     Expect.equals(42, p1.value);

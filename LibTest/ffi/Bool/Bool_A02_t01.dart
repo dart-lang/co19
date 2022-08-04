@@ -4,7 +4,7 @@
 
 /// @assertion Represents a native bool in C.
 ///
-/// Bool is not constructible in the Dart code and serves purely as marker in
+/// [Bool] is not constructible in the Dart code and serves purely as marker in
 /// type signatures.
 ///
 /// @description Checks that this type represents a native bool in C.
@@ -15,7 +15,7 @@ import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 void main() {
-  Pointer<Bool> p1 = calloc<Bool>(3);
+  Pointer<Bool> p1 = calloc<Bool>(2);
   try {
     Expect.equals(1, p1.elementAt(1).address - p1.address);
     Expect.equals(1, sizeOf<Bool>());

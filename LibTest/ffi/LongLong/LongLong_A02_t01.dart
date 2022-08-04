@@ -1,4 +1,4 @@
-// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -13,17 +13,17 @@
 /// and [Union] fields.
 ///
 /// @description Checks that this type is a signed 64-bit integer
-/// @author sgrekhov@unipro.ru
+/// @author sgrekhov22@gmail.com
 
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 void main() {
-  Pointer<LongLong> p1 = calloc<LongLong>(3);
+  Pointer<LongLong> p1 = calloc<LongLong>(2);
   try {
     Expect.equals(8, p1.elementAt(1).address - p1.address);
-    Expect.equals(8, sizeOf<LongLong>);
+    Expect.equals(8, sizeOf<LongLong>());
   } finally {
     calloc.free(p1);
   }

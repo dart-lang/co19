@@ -19,7 +19,7 @@ void main() {
       Expect.equals(4, p1.elementAt(2).address - p1.elementAt(1).address);
     } else {
       Expect.equals(8, p1.elementAt(1).address - p1.address);
-      Expect.equals(8, p1.elementAt(2).address - p1.elementAt(1).address);
+      Expect.equals(8, sizeOf<IntPtr>());
     }
   } finally {
     calloc.free(p1);
