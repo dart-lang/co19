@@ -6,13 +6,12 @@
 ///
 /// Typically a signed or unsigned 8-bit integer. For a guaranteed 8-bit
 /// integer, use [Int8] with the C int8_t type or [Uint8] with the C uint8_t
-/// type.
-/// For a specifically signed or unsigned char, use [SignedChar] or
+/// type. For a specifically signed or unsigned char, use [SignedChar] or
 /// [UnsignedChar].
 ///
-/// The Char type is a native type, and should not be constructed in Dart code.
-/// It occurs only in native type signatures and as annotation on [Struct] and
-/// [Union] fields.
+/// The [Char] type is a native type, and should not be constructed in Dart
+/// code. It occurs only in native type signatures and as annotation on [Struct]
+/// and [Union] fields.
 ///
 /// @description Checks that this type represents a native char in C.
 /// @author sgrekhov22@gmail.com
@@ -22,7 +21,7 @@ import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 void main() {
-  Pointer<Char> p1 = calloc<Char>(3);
+  Pointer<Char> p1 = calloc<Char>(2);
   try {
     Expect.equals(1, p1.elementAt(1).address - p1.address);
     Expect.equals(1, sizeOf<Char>());

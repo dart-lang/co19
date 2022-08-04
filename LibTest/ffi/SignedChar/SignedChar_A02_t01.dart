@@ -19,7 +19,7 @@ import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 void main() {
-  Pointer<SignedChar> p1 = calloc<SignedChar>(3);
+  Pointer<SignedChar> p1 = calloc<SignedChar>(2);
   try {
     Expect.equals(1, p1.elementAt(1).address - p1.address);
     Expect.equals(1, sizeOf<SignedChar>());

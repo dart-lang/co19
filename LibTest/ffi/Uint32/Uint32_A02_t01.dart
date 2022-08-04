@@ -13,10 +13,10 @@ import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 void main() {
-  Pointer<Uint32> p1 = calloc<Uint32>(3);
+  Pointer<Uint32> p1 = calloc<Uint32>(2);
   try {
     Expect.equals(4, p1.elementAt(1).address - p1.address);
-    Expect.equals(4, p1.elementAt(2).address - p1.elementAt(1).address);
+    Expect.equals(4, sizeOf<Uint32>());
   } finally {
     calloc.free(p1);
   }
