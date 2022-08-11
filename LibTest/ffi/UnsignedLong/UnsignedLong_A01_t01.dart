@@ -33,7 +33,8 @@ void main() {
     p1.value = 0x80000000;
     Expect.equals(2147483648, p1.value);
     p1.value = -42;
-    Expect.equals(4294967254, p1.value);
+    Expect.isTrue(4294967254 == p1.value || // 32-bit representation
+        -42 == p1.value); // 64-bit representation
   } finally {
     calloc.free(p1);
   }
