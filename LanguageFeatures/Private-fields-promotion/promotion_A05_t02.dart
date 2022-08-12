@@ -8,52 +8,43 @@
 /// (c) all other concrete instance getters with the same name in the same
 /// library are also final fields
 ///
-/// @description Checks that an instance field is promotable if all of the
-/// conditions above are met. Test the case when there are other concrete
-/// instance getters with the same name in the same library and they are also
-/// final fields
+/// @description Checks that if there are other concrete instance getters with
+/// the same name in the same library and they are not a final fields then the
+/// field is not promotable. Test type variable and the case when the variable
+/// with the same name is not final in some class in the same library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
 
-class A {
-  final int? _x;
+class A<T> {
+  final T _x;
   A(this._x);
 
   void testA() {
-    if (_x != null) {
+    if (_x is int) {
       _x.isOdd;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     }
   }
 }
 
-class B {
-  final String? _x;
-  B(this._x);
-
-  void testB() {
-    if (_x != null) {
-      _x.substring(0);
-    }
-  }
-}
-
-class C extends A {
-  final int? _x;
-  C(this._x) : super(_x);
+class C<T> {
+  T _x;
+  C(this._x);
 
   void testC() {
-    if (_x != null) {
+    if (_x is int) {
       _x.isOdd;
-    }
-    if (super._x != null) {
-      super._x.isOdd;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     }
   }
 }
 
 main() {
   A(42).testA();
-  B("X").testB();
-  C(1).testC();
+  C(43).testC();
 }

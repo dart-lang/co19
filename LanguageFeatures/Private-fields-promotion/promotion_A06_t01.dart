@@ -9,51 +9,26 @@
 /// library are also final fields
 ///
 /// @description Checks that an instance field is promotable if all of the
-/// conditions above are met. Test the case when there are other concrete
-/// instance getters with the same name in the same library and they are also
-/// final fields
+/// conditions above are met. Test the case when library contains not a final
+/// global variable with the same name
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
 
-class A {
-  final int? _x;
-  A(this._x);
+int _x = 42;
 
-  void testA() {
-    if (_x != null) {
+class C<T> {
+  final T _x;
+  C(this._x);
+
+  void test() {
+    if (_x is int) {
       _x.isOdd;
-    }
-  }
-}
-
-class B {
-  final String? _x;
-  B(this._x);
-
-  void testB() {
-    if (_x != null) {
-      _x.substring(0);
-    }
-  }
-}
-
-class C extends A {
-  final int? _x;
-  C(this._x) : super(_x);
-
-  void testC() {
-    if (_x != null) {
-      _x.isOdd;
-    }
-    if (super._x != null) {
-      super._x.isOdd;
     }
   }
 }
 
 main() {
-  A(42).testA();
-  B("X").testB();
-  C(1).testC();
+  _x;
+  C(42).test();
 }

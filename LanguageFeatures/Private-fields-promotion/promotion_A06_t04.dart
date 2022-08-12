@@ -9,16 +9,18 @@
 /// library are also final fields
 ///
 /// @description Checks that an instance field is promotable if all of the
-/// conditions above are met. Test the case when there are other concrete
-/// instance getters with the same name in the same library and they are also
-/// final fields
+/// conditions above are met. Test the case when library imports another library
+/// which contains a class with variable with the same name but not final
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
 
+library promotion_A06_t04;
+
+import "promotion_A06_t04.lib.dart";
+
 class A {
-  final int? _x;
-  A(this._x);
+  final int? _x = 42;
 
   void testA() {
     if (_x != null) {
@@ -27,33 +29,7 @@ class A {
   }
 }
 
-class B {
-  final String? _x;
-  B(this._x);
-
-  void testB() {
-    if (_x != null) {
-      _x.substring(0);
-    }
-  }
-}
-
-class C extends A {
-  final int? _x;
-  C(this._x) : super(_x);
-
-  void testC() {
-    if (_x != null) {
-      _x.isOdd;
-    }
-    if (super._x != null) {
-      super._x.isOdd;
-    }
-  }
-}
-
 main() {
-  A(42).testA();
-  B("X").testB();
-  C(1).testC();
+  A().testA();
+  C().testC();
 }

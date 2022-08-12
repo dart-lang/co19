@@ -9,9 +9,7 @@
 /// library are also final fields
 ///
 /// @description Checks that an instance field is promotable if all of the
-/// conditions above are met. Test the case when there are other concrete
-/// instance getters with the same name in the same library and they are also
-/// final fields
+/// conditions above are met. Test that the right variable is promoted
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
@@ -19,23 +17,6 @@
 class A {
   final int? _x;
   A(this._x);
-
-  void testA() {
-    if (_x != null) {
-      _x.isOdd;
-    }
-  }
-}
-
-class B {
-  final String? _x;
-  B(this._x);
-
-  void testB() {
-    if (_x != null) {
-      _x.substring(0);
-    }
-  }
 }
 
 class C extends A {
@@ -44,16 +25,39 @@ class C extends A {
 
   void testC() {
     if (_x != null) {
-      _x.isOdd;
+      super._x.isOdd;
+//             ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     }
     if (super._x != null) {
+      _x.isOdd;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+}
+
+mixin M on A {
+  final int? _x = 0;
+
+  void testM() {
+    if (_x != null) {
       super._x.isOdd;
+//             ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+    if (super._x != null) {
+      _x.isOdd;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     }
   }
 }
 
 main() {
-  A(42).testA();
-  B("X").testB();
-  C(1).testC();
+  C(42).testC();
 }
