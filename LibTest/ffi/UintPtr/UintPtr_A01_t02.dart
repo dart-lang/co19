@@ -23,17 +23,17 @@ void main() {
       p2.value = 42;
       Expect.equals(42, p1.value);
       p2.value = -42;
-      Expect.equals(-42, p1.value);
+      Expect.equals((-42).toUnsigned(32), p1.value);
       p2.value = 32768;
       Expect.equals(32768, p1.value);
       p2.value = -32768;
-      Expect.equals(-32768, p1.value);
+      Expect.equals((-32768).toUnsigned(32), p1.value);
       p2.value = 0x7FFFFFFF;
       Expect.equals(2147483647, p1.value);
       p2.value = 2147483648;
       Expect.equals(-2147483648, p1.value);
       p2.value = -2147483649;
-      Expect.equals(2147483647, p1.value);
+      Expect.equals((-2147483649).toUnsigned(32), p1.value);
     } else {
       Pointer<Int64> p2 = new Pointer<Int64>.fromAddress(p1.address);
       Expect.equals(0, p1.value);

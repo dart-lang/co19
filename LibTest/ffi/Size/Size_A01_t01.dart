@@ -21,13 +21,16 @@ void main() {
   try {
     p1.value = 42;
     Expect.equals(42, p1.value);
-    p1.value = -42;
-    Expect.equals(-42, p1.value);
     p1.value = 0xFFFFFFFF; // max 32-bit
     Expect.equals(0xFFFFFFFF, p1.value);
     if (sizeOf<IntPtr>() == 8) {  // 64-bit system
+      p1.value = -42;
+      Expect.equals(-42, p1.value);
       p1.value = 0xFFFFFFFFFFFFFFFF;
       Expect.equals(0xFFFFFFFFFFFFFFFF, p1.value);
+    } else { // 32-bit system
+      p1.value = -42;
+      Expect.equals((-42).toUnsigned(32), p1.value);
     }
   } finally {
     calloc.free(p1);

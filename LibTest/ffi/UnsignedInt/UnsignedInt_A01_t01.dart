@@ -24,7 +24,7 @@ void main() {
     p1.value = 42;
     Expect.equals(42, p1.value);
     p1.value = -42;
-    Expect.equals(4294967254, p1.value);
+    Expect.equals((-42).toUnsigned(32), p1.value);
     p1.value = 32768;
     Expect.equals(32768, p1.value);
     p1.value = 0xFFFF8000; // -32768
