@@ -24,7 +24,7 @@ void main() {
     p1.value = 42;
     Expect.equals(42, p1.value);
     p1.value = -42;
-    Expect.equals(214, p1.value);
+    Expect.equals((-42).toUnsigned(8), p1.value);
   } finally {
     calloc.free(p1);
   }
