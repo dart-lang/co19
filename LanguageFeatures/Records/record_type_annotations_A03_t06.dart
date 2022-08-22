@@ -16,56 +16,56 @@
 /// A field name that starts with an underscore.
 ///
 /// @description Checks that it is a compile-time error if a record type has a
-/// field named `toString`
+/// field named `noSuchMethod`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef R1 = (int i, {String toString});
-//                           ^^^^^^^^
+typedef R1 = (int i, {String noSuchMethod});
+//                           ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int, {int toString}) R2();
-//                 ^^^^^^^^
+typedef (int, {Function noSuchMethod}) R2();
+//                      ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s, {String toString}));
-//                                 ^^^^^^^^
+typedef void R3((String s, {String noSuchMethod}));
+//                                 ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (int, {int toString}) foo() => (42);
-//           ^^^^^^^^
+  (int, {Function noSuchMethod}) foo() => (42, noSuchMethod: () {});
+//                ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar((int i, {bool toString})) {}
-//                     ^^^^^^^^
+void bar((int i, {Function noSuchMethod})) {}
+//                         ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  (int, {String toString}) r1 = (42);
-//              ^^^^^^^^
+  (int, {String noSuchMethod}) r1 = (42, noSuchMethod: "");
+//              ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (double d, {int toString}) r2 = (3.14);
-//                ^^^^^^^^
+  (double d, {Function noSuchMethod}) r2 = (3.14, noSuchMethod: () {});
+//                     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   dynamic d = (1, 3.14);
-  if (d is (int i, {String toString})) {
-//                         ^^^^^^^^
+  if (d is (int i, {String noSuchMethod})) {
+//                         ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  d as (int, {int toString});
-//                ^^^^^^^^
+  d as (int, {Function noSuchMethod});
+//                     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

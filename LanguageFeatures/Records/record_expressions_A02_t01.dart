@@ -29,8 +29,13 @@
 // SharedOptions=--enable-experiment=records
 
 main() {
-  var record1 = (42);
-//               ^^
+  var r1 = (42);
+//          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var r2 = ((42));
+//          ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -28,8 +28,13 @@
 
 // SharedOptions=--enable-experiment=records
 
-Record foo() => (42);
-//               ^^
+Record foo1() => (42);
+//               ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+Record foo2() => ((42));
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -38,6 +43,11 @@ void bar(Record r) {}
 main() {
   bar(("Hello"));
 //    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  bar((("Hello")));
+//    ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

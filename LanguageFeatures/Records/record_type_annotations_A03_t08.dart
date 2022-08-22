@@ -16,56 +16,56 @@
 /// A field name that starts with an underscore.
 ///
 /// @description Checks that it is a compile-time error if a record type has a
-/// field named `runtimeType`
+/// field name that starts with an underscore
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef R1 = (int i, {String runtimeType});
-//                           ^^^^^^^^^^^
+typedef R1 = (int i, {String _s});
+//                           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int, {Type runtimeType}) R2();
-//                  ^^^^^^^^^^^
+typedef (int, {int _n}) R2();
+//                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s, {String runtimeType}));
-//                                 ^^^^^^^^^^^
+typedef void R3((String s, {String _s}));
+//                                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (int, {Type runtimeType}) foo() => (42, runtimeType: Record);
-//            ^^^^^^^^^^^
+  (int, {int _n}) foo() => (42, _n: 0);
+//           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar((int i, {Type runtimeType})) {}
-//                     ^^^^^^^^^^^
+void bar((int i, {bool _b})) {}
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  (int, {String runtimeType}) r1 = (42, runtimeType: String);
-//              ^^^^^^^^^^^
+  (int, {String _s}) r1 = (42, _s: "");
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (double d, {Type runtimeType}) r2 = (3.14, runtimeType: String);
-//                 ^^^^^^^^^^^
+  (double d, {int _}) r2 = (3.14, _: 0);
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   dynamic d = (1, 3.14);
-  if (d is (int i, {String runtimeType})) {
-//                         ^^^^^^^^^^^
+  if (d is (int i, {String _s})) {
+//                         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  d as (int, {Type runtimeType});
-//                 ^^^^^^^^^^^
+  d as (int, {int _n});
+//                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

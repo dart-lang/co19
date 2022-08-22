@@ -16,56 +16,56 @@
 /// A field name that starts with an underscore.
 ///
 /// @description Checks that it is a compile-time error if a record type has a
-/// field name that starts with an underscore`
+/// field named `toString`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef R1 = (int i, {String _s});
-//                           ^^
+typedef R1 = (int i, {String toString});
+//                           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int, {int _n}) R2();
-//                 ^^
+typedef (int, {int toString}) R2();
+//                 ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s, {String _s}));
-//                                 ^^
+typedef void R3((String s, {String toString}));
+//                                 ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (int, {int _n}) foo() => (42);
-//           ^^
+  (int, {int toString}) foo() => (42, toString: 0);
+//           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar((int i, {bool _b})) {}
-//                     ^^
+void bar((int i, {bool toString})) {}
+//                     ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  (int, {String _s}) r1 = (42);
-//              ^^
+  (int, {String toString}) r1 = (42, toString: "");
+//              ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (double d, {int _}) r2 = (3.14);
-//                ^
+  (double d, {int toString}) r2 = (3.14, toString: 0);
+//                ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   dynamic d = (1, 3.14);
-  if (d is (int i, {String _s})) {
-//                         ^^
+  if (d is (int i, {String toString})) {
+//                         ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  d as (int, {int _n});
-//                ^^
+  d as (int, {int toString});
+//                ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

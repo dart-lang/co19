@@ -16,56 +16,56 @@
 /// A field name that starts with an underscore.
 ///
 /// @description Checks that it is a compile-time error if a record type has a
-/// field named `runtimeType`
+/// field named `hashCode`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef R1 = (int i, {String runtimeType});
-//                           ^^^^^^^^^^^
+typedef R1 = (int i, {String hashCode});
+//                           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int, {Type runtimeType}) R2();
-//                  ^^^^^^^^^^^
+typedef (int, {int hashCode}) R2();
+//                 ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s, {String runtimeType}));
-//                                 ^^^^^^^^^^^
+typedef void R3((String s, {String hashCode}));
+//                                 ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (int, {Type runtimeType}) foo() => (42);
-//            ^^^^^^^^^^^
+  (int, {int hashCode}) foo() => (42, hashCode: 0);
+//           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar((int i, {Type runtimeType})) {}
-//                     ^^^^^^^^^^^
+void bar((int i, {bool hashCode})) {}
+//                     ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  (int, {String runtimeType}) r1 = (42);
-//              ^^^^^^^^^^^
+  (int, {String hashCode}) r1 = (42, hashCode: "");
+//              ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (double d, {Type runtimeType}) r2 = (3.14);
-//                 ^^^^^^^^^^^
+  (double d, {int hashCode}) r2 = (3.14, hashCode: 42);
+//                ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   dynamic d = (1, 3.14);
-  if (d is (int i, {String runtimeType})) {
-//                         ^^^^^^^^^^^
+  if (d is (int i, {String hashCode})) {
+//                         ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  d as (int, {Type runtimeType});
-//                 ^^^^^^^^^^^
+  d as (int, {int hashCode});
+//                ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -15,57 +15,62 @@
 ///
 /// A field name that starts with an underscore.
 ///
-/// @description Checks that it is a compile-time error if a record type has a
-/// field named `hashCode`
+/// @description Checks that it is a compile-time error if a record type has no
+/// named fields and only one positional field
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef R1 = (int i, {String hashCode});
-//                           ^^^^^^^^
+typedef R1 = (int i);
+//           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int, {int hashCode}) R2();
-//                 ^^^^^^^^
+typedef (int) R2();
+//      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s, {String hashCode}));
-//                                 ^^^^^^^^
+typedef void R3((String s));
+//              ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (int, {int hashCode}) foo() => (42);
-//           ^^^^^^^^
+  (int) foo() => (42);
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar((int i, {bool hashCode})) {}
-//                     ^^^^^^^^
+void bar((int i)) {}
+//       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  (int, {String hashCode}) r1 = (42);
-//              ^^^^^^^^
+  (int) r1 = (42);
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (double d, {int hashCode}) r2 = (3.14);
-//                ^^^^^^^^
+  (double d) r2 = (3.14);
+//^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  ((int)) r3 = ((42));
+//^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   dynamic d = (1, 3.14);
-  if (d is (int i, {String hashCode})) {
-//                         ^^^^^^^^
+  if (d is (int i)) {
+//         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  d as (int, {int hashCode});
-//                ^^^^^^^^
+  d as (int);
+//     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

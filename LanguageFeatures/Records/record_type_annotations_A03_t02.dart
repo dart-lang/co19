@@ -15,57 +15,92 @@
 ///
 /// A field name that starts with an underscore.
 ///
-/// @description Checks that it is a compile-time error if a record type has no
-/// named fields and only one positional field
+/// @description Checks that it is a compile-time error if a record type has the
+/// same field name more than once. Test positional fields
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef R1 = (int i);
-//           ^^^^^^^
+typedef R1 = (int i, {String s, int i});
+//                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int) R2();
-//      ^^^^^
+typedef R2 = (int i, int i, {String s});
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s));
-//              ^^^^^^^^^^
+typedef (int i, {String s, int i}) R3();
+//                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (int) foo() => (42);
-//^^^^^
+typedef (int i, int i, {String s}) R4();
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar((int i)) {}
-//       ^^^^^^^
+typedef void R5((int i, {String s, int i}));
+//                                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef void R6((int i, int i, {String s}));
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+(int i, String s, {String s}) foo1() => (42, "", s: "");
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+(int i, String i, {String s}) foo2() => (42, "", s: "");
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void bar1((int i, {String s, String i})) {}
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void bar2((int i, String i, {String s})) {}
+//                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  (int) r1 = (42);
-//^^^^^
+  (int i, {String s, int i}) r1 = (42, s: "", i: 0);
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (double d) r2 = (3.14);
-//^^^^^^^^^^
+  (bool d, double d, {int i, String s}) r2 = (true, 1.1, i: 42, s: "");
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  dynamic d = (1, 3.14);
-  if (d is (int i)) {
-//         ^^^^^^^
+  dynamic d = ({i: 1, s: "Lily was here"});
+  if (d is (int i, {int i, String s})) {
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  d as (int);
-//     ^^^^^
+  if (d is (int i, int i, {String s})) {
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  d as (int i, {String s, int i});
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  d as (int i, int i, {String s});
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
