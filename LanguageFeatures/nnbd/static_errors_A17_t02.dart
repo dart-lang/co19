@@ -7,12 +7,13 @@
 /// Implementations that provide feedback about dead or unreachable code are
 /// encouraged to indicate that any arguments to the invocation are unreachable.
 ///
-/// @description Check that it is an error to call a method, setter, or getter on
-/// a receiver of static type Never. Test type aliases
+/// @description Check that it is not an error to call a method, setter, or
+/// getter on a receiver of static type Never. Test type aliases
 /// @author sgrekhov@unipro.ru
 /// @issue 39866
 
 // Requirements=nnbd-strong
+
 typedef Neverland = Never;
 
 void test(var x) {

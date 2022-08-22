@@ -13,6 +13,7 @@
 /// @issue 39866
 
 // Requirements=nnbd-strong
+
 void test(var x) {
   if (x is Never) {
     x.toString();
