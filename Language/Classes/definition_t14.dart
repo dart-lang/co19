@@ -12,12 +12,14 @@
 /// not empty.
 /// @author msyabro
 
-
 class A (
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
   var someMember;
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 )
 //^
 // [analyzer] unspecified
