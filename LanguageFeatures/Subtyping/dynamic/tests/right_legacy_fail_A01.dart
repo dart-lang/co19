@@ -28,5 +28,5 @@ const t1Default = const Y();
 main() {
   Expect.throws(() {
     t1Instance = forgetType(t0Instance);
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 }

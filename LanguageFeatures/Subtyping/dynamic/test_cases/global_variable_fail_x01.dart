@@ -6,7 +6,6 @@
 /// instance of T0 cannot be assigned to the to global variable of type T1
 /// @author sgrekhov@unipro.ru
 
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = forgetType(t0Instance);
@@ -30,21 +29,21 @@ main() {
 
   Expect.throws(() {
     t1Instance = forgetType(t0Instance);
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     bar();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new GlobalVariableTest();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new GlobalVariableTest.valid().foo();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     GlobalVariableTest.test();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 }

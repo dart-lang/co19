@@ -33,7 +33,6 @@ const t1Default = "Lily was here";
 
 
 
-
 class ClassMemberSuper1_t02 {
   String m = t1Default;
 
@@ -103,49 +102,49 @@ class ClassMember2_t02<X> extends ClassMemberSuper2_t02<X> {
 main() {
   Expect.throws(() {
     new ClassMember1_t02();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ClassMember1_t02.short();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ClassMember1_t02.named();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ClassMember1_t02().m = forgetType(t0Instance);
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ClassMember1_t02().superSetter = forgetType(t0Instance);
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ClassMember1_t02().test1();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ClassMember1_t02().test2();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   // Test type parameters
 
   //# <-- NotGenericFunctionType
   Expect.throws(() {
     new ClassMember2_t02<String>();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ClassMember2_t02<String>.short();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ClassMember2_t02<String>.named();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ClassMember2_t02<String>().m = forgetType(t0Instance);
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ClassMember2_t02<String>().superSetter = forgetType(t0Instance);
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ClassMember2_t02<String>().test1();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ClassMember2_t02<String>().test2();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   //# -->
 }

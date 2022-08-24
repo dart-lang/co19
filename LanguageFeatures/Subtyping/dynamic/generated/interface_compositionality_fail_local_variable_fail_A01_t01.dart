@@ -44,7 +44,6 @@ const t1Default = const C0<U0, U1, U2>();
 
 
 
-
 class LocalVariableTest {
 
   LocalVariableTest() {
@@ -69,21 +68,21 @@ main() {
 
   Expect.throws(() {
     C0<U0, U1, U2> t1 = forgetType(t0Instance);
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     bar();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new LocalVariableTest();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new LocalVariableTest.valid().test();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     LocalVariableTest.staticTest();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 }

@@ -37,7 +37,6 @@ const t1Default = const A();
 
 
 
-
 namedArgumentsFunc1(A t1, {A t2 = t1Default}) {}
 positionalArgumentsFunc1(A t1, [A t2 = t1Default]) {}
 
@@ -90,93 +89,93 @@ main() {
   // Test functions
   Expect.throws(() {
     namedArgumentsFunc1(forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     namedArgumentsFunc1(t1Instance, t2: forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     positionalArgumentsFunc1(forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     positionalArgumentsFunc1(t1Instance, forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   // Test constructors
   Expect.throws(() {
     new ArgumentsBindingClass(forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClass.named(forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClass.named(t1Instance, t2: forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClass.fNamed(forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClass.fNamed(t1Instance, t2: forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClass.fPositional(forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClass.fPositional(t1Instance, forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   // Test instance methods and setters
   Expect.throws(() {
     new ArgumentsBindingClass(t1Instance).namedArgumentsMethod(
         forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClass(t1Instance).namedArgumentsMethod(t1Instance,
         t2: forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClass(t1Instance).positionalArgumentsMethod(
         forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClass(t1Instance).positionalArgumentsMethod(t1Instance,
         forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClass(t1Instance).testSetter = forgetType(t0Instance);
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   // Test static methods
   Expect.throws(() {
     ArgumentsBindingClass.namedArgumentsStaticMethod(forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     ArgumentsBindingClass.namedArgumentsStaticMethod(t1Instance,
         t2: forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     ArgumentsBindingClass.positionalArgumentsStaticMethod(
         forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     ArgumentsBindingClass.positionalArgumentsStaticMethod(t1Instance,
         forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   // Test type parameters
 
@@ -184,35 +183,35 @@ main() {
   // Test generic functions
   Expect.throws(() {
     namedArgumentsFunc2<A>(t1Instance, t2: forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   // Test constructors
   Expect.throws(() {
     new ArgumentsBindingClassGen<A>(forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClassGen<A>.named(t1Instance, t2: forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClassGen<A>.fNamed(t1Instance, t2: forgetType(t0Instance));
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
 
   // Test instance methods and setters
   Expect.throws(() {
     new ArgumentsBindingClassGen<A>(t1Instance).namedArgumentsMethod(t1Instance,
     t2: forgetType(t0Instance));
-    }, (e) => e is TypeError || e is CastError);
+    }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClassGen<A>(t1Instance).testSetter = forgetType(t0Instance);
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   //# -->
 
   // Test superclass constructor call
   Expect.throws(() {
     new ArgumentsBindingDesc(t0Instance);
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 }

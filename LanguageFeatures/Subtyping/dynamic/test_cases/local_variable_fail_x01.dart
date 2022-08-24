@@ -6,7 +6,6 @@
 /// instance of T0 cannot be assigned to the to local variable of type T1
 /// @author sgrekhov@unipro.ru
 
-
 class LocalVariableTest {
 
   LocalVariableTest() {
@@ -31,21 +30,21 @@ main() {
 
   Expect.throws(() {
     @T1 t1 = forgetType(t0Instance);
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     bar();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new LocalVariableTest();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new LocalVariableTest.valid().test();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     LocalVariableTest.staticTest();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 }
