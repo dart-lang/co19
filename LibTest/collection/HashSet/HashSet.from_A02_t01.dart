@@ -20,6 +20,5 @@ main() {
   Expect.throws(() {
     new HashSet<int>.from(["testme", 1, 2, 3, null, "", [], [1, 2, 3], {},
       new Error(), -1, -2, "string1", "string2", "string3", 'a', 'b', 'c']);
-  }, (e) => e is TypeError || e is CastError
-  );
+  }, (e) => e is TypeError);
 }

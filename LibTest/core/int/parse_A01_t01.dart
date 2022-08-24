@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion int parse(String source, {int radix, int onError(String source)})
+/// @assertion int parse(String source, {int radix})
 /// Parse source as a, possibly signed, integer literal and return its value.
 ///
 /// The source must be a non-empty sequence of base-radix digits, optionally

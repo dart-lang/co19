@@ -13,16 +13,13 @@ import "dart:collection";
 main() {
   Expect.throws(() {
       ListQueue list = new ListQueue<int>.from([1, 2, 3, "4", 5]);
-    }, (e) => e is TypeError || e is CastError
-  );
+    }, (e) => e is TypeError);
 
   Expect.throws(() {
       ListQueue list = new ListQueue<int>.from([1, 2, 1.14, 4, 5]);
-    }, (e) => e is TypeError || e is CastError
-  );
+    }, (e) => e is TypeError);
 
   Expect.throws(() {
     ListQueue list = new ListQueue<int>.from([1, 2, new Object(), 4, 5]);
-  }, (e) => e is TypeError || e is CastError
-  );
+  }, (e) => e is TypeError);
 }

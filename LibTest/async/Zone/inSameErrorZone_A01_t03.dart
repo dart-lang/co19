@@ -30,7 +30,7 @@ diff() {
 }
 
 main() {
-  runZoned(() {
+  runZonedGuarded(() {
     asyncStart();
     // new error zone
     diff();
@@ -50,8 +50,7 @@ main() {
         asyncEnd();
       });
     });
-  }, onError: (e) {
+  }, (e, st) {
     Expect.fail('should not happen');
   });
 }
-

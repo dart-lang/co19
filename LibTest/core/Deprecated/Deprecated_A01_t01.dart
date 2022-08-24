@@ -13,5 +13,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   var obj = new Deprecated("Expires string");
-  Expect.equals("Expires string", obj.expires);
+  Expect.equals("Expires string", obj.message);
 }

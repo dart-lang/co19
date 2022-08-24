@@ -29,24 +29,23 @@ diff() {
   }
 }
 main() {
-  runZoned(() {
+  runZonedGuarded(() {
     asyncStart();
     var f = new Future.error(1);
 
-    runZoned(() {
+    runZonedGuarded(() {
       // new error zone
       diff();
       // catchError is registered in different error zone
       // error is not caught by catchError, neither by this error zone handler
       f.catchError((_) {
-         Expect.fail('should not happen');
+         Expect.fail('Future completed with unexpected error');
       });
-    }, onError: (_) {
-      Expect.fail('should not happen');
+    }, (_, __) {
+      Expect.fail('Unexpected error in runZonedGuarded call');
     });
-  }, onError: (e) {
+  }, (e, st) {
     Expect.equals(1, e);
     asyncEnd();
   });
 }
-

@@ -11,7 +11,6 @@
 
 import "../../../Utils/expect.dart";
 
-@proxy
 class D {
   get getOnly {}
   set setOnly (x) {}

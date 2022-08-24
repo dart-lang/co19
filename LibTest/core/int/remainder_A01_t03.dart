@@ -5,10 +5,11 @@
 /// @assertion num remainder(num other)
 /// Returns the remainder of the truncating division of this by other.
 ///
-/// The result r of this operation satisfies: this == (this ~/ other) * other + r.
+/// The result r of this operation satisfies:
+/// this == (this ~/ other) * other + r.
 /// As a consequence the remainder r has the same sign as the divider this.
-/// @description Checks that passing a zero (both integer and double) as argument
-/// results in IntegerDivisionByZeroException
+/// @description Checks that passing a zero (both integer and double) as
+/// argument results in [UnsupportedError]
 /// @author vasya
 
 import "../../../Utils/expect.dart";
@@ -22,5 +23,5 @@ main() {
 void check(int x, num z) {
   Expect.throws(() {
     x.remainder(z);
-  }, (e) => e is IntegerDivisionByZeroException);
+  }, (e) => e is UnsupportedError);
 }
