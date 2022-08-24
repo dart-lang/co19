@@ -34,7 +34,6 @@ const t1Default = null;
 
 
 
-
 class LocalVariableTest {
 
   LocalVariableTest() {
@@ -59,21 +58,21 @@ main() {
 
   Expect.throws(() {
     Future? t1 = forgetType(t0Instance);
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     bar();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new LocalVariableTest();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new LocalVariableTest.valid().test();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     LocalVariableTest.staticTest();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 }

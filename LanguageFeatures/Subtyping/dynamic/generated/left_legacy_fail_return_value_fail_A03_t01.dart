@@ -33,7 +33,6 @@ const t1Default = null;
 
 
 
-
 Null returnValueFunc() => forgetType(t0Instance);
 
 class ReturnValueTest {
@@ -54,29 +53,29 @@ main() {
 
   Expect.throws(() {
     returnValueFunc();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     returnValueLocalFunc();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     ReturnValueTest.staticTestMethod();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ReturnValueTest().testMethod();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ReturnValueTest().testGetter;
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   // Test type parameters
 
   //# <-- NotGenericFunctionType
   Expect.throws(() {
     new ReturnValueGen<Null>().testMethod();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ReturnValueGen<Null>().testGetter;
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   //# -->
 }
