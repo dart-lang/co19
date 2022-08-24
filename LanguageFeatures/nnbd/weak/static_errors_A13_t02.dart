@@ -4,21 +4,22 @@
 
 /// @assertion It is an error to call the default List constructor
 ///
-/// @description Check that it is no error to call the default List constructor.
-/// Test function types
+/// @description Check that it is an error to call the default List constructor.
+/// Test legacy pre-NNBD types
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-weak
+
 import "legacy_lib.dart";
 
 main() {
   new List<A>(42);
-//    ^^^^^^^^^^^
+//    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   new List<A>();
-//    ^^^^^^^^^^^^^^^^^
+//    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -18,5 +18,5 @@ main() {
 }
   
 void check(int x, num z) {
-  Expect.throws(() {x % z;}, (e) => e is IntegerDivisionByZeroException);
+  Expect.throws(() {x % z;}, (e) => e is UnsupportedError);
 }

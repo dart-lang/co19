@@ -14,15 +14,14 @@
 /// static const List<E> values = const <E>[id 0 . . . id n−1 ];
 /// String toString() => { 0: ‘E.id 0 ’, . . ., n-1: ‘E.id n−1 ’}[index]
 /// }
-/// @description Checks enum values list is constant
+/// @description Checks that enum values list is a constant
 /// @author sgrekhov@unipro.ru
-
 
 enum E {a, b, c}
 
 main() {
-  E.values = new List<E>();
-//               ^
+  E.values = <E>[];
+//  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

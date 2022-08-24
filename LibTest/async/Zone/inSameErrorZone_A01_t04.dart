@@ -30,7 +30,7 @@ diff() {
 }
 
 main() {
-  runZoned(() {
+  runZonedGuarded(() {
     asyncStart();
     var f = new Future.error(1);
 
@@ -43,8 +43,7 @@ main() {
         asyncEnd();
       });
     });
-  }, onError: (e) {
+  }, (e, st) {
     Expect.fail('should not happen');
   });
 }
-

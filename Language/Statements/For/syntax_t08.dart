@@ -19,10 +19,9 @@
 /// in a 'id in expression' loop variety ends with a semicolon.
 /// @author vasya
 
-
 main() {
-  for ( var l in new List(100); ) break;
-//                            ^
+  for ( var l in [1, 2, 3]; ) break;
+//                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

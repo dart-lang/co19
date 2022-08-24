@@ -9,12 +9,10 @@
 /// a raises x.
 ///
 /// @description Check that if e is a call to synchronous function, which
-/// throws IntegerDivisionByZeroException, then await expression throws the same
-/// exception.
+/// throws [UnsupportedError], then await expression throws the same exception.
 ///
 /// @author a.semenov@unipro.ru
 /// @issue 42221
-
 
 import '../../../Utils/expect.dart';
 
@@ -25,9 +23,9 @@ f() {
 test() async {
   try {
     await f();
-    Expect.fail('await expression should throw IntegerDivisionByZeroException');
+    Expect.fail('await expression should throw UnsupportedError');
   } catch (x) {
-    Expect.isTrue(x is IntegerDivisionByZeroException);
+    Expect.isTrue(x is UnsupportedError);
   }
 }
 

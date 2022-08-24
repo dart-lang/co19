@@ -23,8 +23,10 @@ void test() {
 }
 
 main() {
-  runZoned(test, onError: (e,st) {
+  asyncStart();
+  runZonedGuarded(test, (e, st) {
     Expect.identical(error, e);
     Expect.identical(stackTrace, st);
+    asyncEnd();
   });
 }

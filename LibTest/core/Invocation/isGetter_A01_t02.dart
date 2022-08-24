@@ -11,7 +11,6 @@
 
 import "../../../Utils/expect.dart";
 
-@proxy
 class D {
   method(x, y, z) {}
   get getOnly {}
@@ -21,7 +20,6 @@ class D {
   }
 }
 
-@proxy
 class C extends D {
   noSuchMethod(Invocation i) {
     Expect.isFalse(i.isGetter);

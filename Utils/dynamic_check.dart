@@ -6,8 +6,7 @@ library dynamic_check;
 import 'expect.dart';
 
 checkTypeError(f()) {
-  Expect.throws(f, (e) => e is TypeError || e is CastError,
-      "Type error should be thrown");
+  Expect.throws(f, (e) => e is TypeError, "Type error should be thrown");
 }
 
 /// Check that dynamic error occurs. Dart specification (3rd Edition/June 12015)

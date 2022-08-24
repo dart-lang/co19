@@ -8,10 +8,11 @@
 /// @author rodionov
 
 import "../../../Utils/expect.dart";
- 
+
 main() {
   var symb = new Symbol('');
-  NoSuchMethodError e = new NoSuchMethodError(null, symb, [], {});
+  NoSuchMethodError e = new NoSuchMethodError.withInvocation(
+      null, Invocation.method(symb, [], {}));
   Expect.isTrue(e.toString().isNotEmpty);
   Expect.isTrue(e.toString() is String);
   Expect.runtimeIsType<String>(e.toString());
