@@ -28,6 +28,13 @@
 
 // SharedOptions=--enable-experiment=records
 
+Record foo() => (42, _name: "Lily was here");
+//                   ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void bar(Record r) {}
+
 main() {
   var record1 = (42, _name: "Lily was here");
 //                   ^^^^^
@@ -36,6 +43,11 @@ main() {
 
   var record2 = (x: 42, _y: 42);
 //                      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  bar((x: 42, _y: 42));
+//            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
