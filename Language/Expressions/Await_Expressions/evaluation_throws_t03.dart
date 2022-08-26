@@ -24,7 +24,7 @@ test() async {
     await (1 ~/ 0);
     Expect.fail('await expression should throw IntegerDivisionByZeroException');
   } catch (x) {
-    Expect.isTrue(x is IntegerDivisionByZeroException);
+    Expect.isTrue(x is UnsupportedError);
   }
 }
 

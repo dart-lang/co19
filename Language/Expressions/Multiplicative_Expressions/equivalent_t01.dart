@@ -18,11 +18,7 @@ class A {
 
   List<int> trace;
 
-  A(this.val) : trace = new List<int>(4) {
-     for (var k = 0; k < 4; k++) {
-        trace[k] = 0;
-     }
-  }
+  A(this.val) : trace = List<int>.filled(4, 0);
 
   operator *(var v) {
     trace[0] += 1;

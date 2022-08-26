@@ -17,7 +17,7 @@ test(Set create([Set content])) {
   Set s = create();
   s.addAll([1, 2, 3, 4, 5]);
 
-  List<int> a = new List(s.length);
+  List<int> a = new List.filled(s.length, null);
   int i = 0;
 
   s.forEach((var x) {

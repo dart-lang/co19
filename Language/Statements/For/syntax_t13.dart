@@ -30,7 +30,7 @@ class C {
 main() {
   try {
     C c = new C();
-    for (c.i in new List(100)) break;
+    for (c.i in []) break;
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified

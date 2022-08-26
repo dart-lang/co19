@@ -15,7 +15,7 @@ library where_A01_t07;
 import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content]), {bool isSet:false}) {
-  List list = new List();
+  List list = [];
   
   for(int i = 0; i < 101; i++) {
     list.add(i - 50);

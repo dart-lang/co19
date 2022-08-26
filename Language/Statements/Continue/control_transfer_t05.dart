@@ -19,7 +19,7 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  List order = new List();
+  List order = [];
   bool flag = false;
   while (!flag) {
     switch (1) {

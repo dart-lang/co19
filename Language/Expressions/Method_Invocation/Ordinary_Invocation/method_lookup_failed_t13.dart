@@ -26,19 +26,16 @@
 /// error
 /// @author rodionov
 
-import "../../../../Utils/expect.dart";
-
 class S {
   m() {}
 }
 
-@proxy
 class C extends S {
 }
 
 main() {
-  Expect.throws(() {C.m();}, (e) => e is NoSuchMethodError);
-//                    ^
+  C.m();
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -19,11 +19,10 @@
 /// @description Checks enum values list is constant
 /// @author sgrekhov@unipro.ru
 
-
 enum E {a, b, c}
 
 main() {
-  E.values = new List<E>();
+  E.values = <E>[];
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -35,7 +35,7 @@ import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
   Iterable it = create([1, 2, 3, null, 10, 5]);
-  List l = new List();
+  List l = [];
   Iterator i = it.iterator;
   while(i.moveNext()) {
     l.add(i.current);

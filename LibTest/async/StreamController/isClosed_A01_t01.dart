@@ -21,7 +21,7 @@ main() {
   StreamController controller = new StreamController();
   Expect.isFalse(controller.isClosed);
 
-  List events1 = new List();
+  List events1 = [];
   StreamSubscription ss = controller.stream.listen(
       (event) {events1.add(event);});
   Expect.isFalse(controller.isClosed);

@@ -40,7 +40,7 @@ main() {
   }
   check(new List.from(q));
 
-  List l = new List();
+  List l = [];
   l.addAll(["1", "2", "3", "4", "5"]);
   List a = new List.from(l, growable:true);
   check(a);
@@ -49,7 +49,7 @@ main() {
   a = new List.from(src);
   check(a);
 
-  src = new List(34567);
+  src = new List.filled(34567, null);
   src[34566] = -111111111;
   a = new List.from(src, growable:true);
   check(a);

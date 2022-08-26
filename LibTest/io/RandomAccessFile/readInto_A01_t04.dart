@@ -29,7 +29,7 @@ check(int start) {
     for (int i = 0; i < 20; i++) {
       rf.writeByteSync((i + 1) & 0xff);
     }
-    List<int> list = new List<int>(20);
+    List<int> list = new List<int>.filled(20, null);
     rf.setPositionSync(0);
     var num = rf.readInto(list, start);
     Expect.isTrue(num is Future<int>);

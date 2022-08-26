@@ -12,7 +12,6 @@
 /// element.
 /// @author iarkh@unipro.ru
 
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
@@ -25,7 +24,7 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-List<int> visited = new List<int>(200);
+List<int> visited = new List<int>.filled(200, null);
 
 int f(var element) {
   visited[element]++;
@@ -45,7 +44,7 @@ void check(IterableMixin queue, int expected) {
 }
 
 main() {
-  List list = new List<int>();
+  List list = <int>[];
   for (int k = 0; k < 200; k++) {
     list.add(k);
     visited[k] = 0;

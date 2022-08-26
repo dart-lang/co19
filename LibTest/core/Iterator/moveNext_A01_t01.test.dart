@@ -22,12 +22,12 @@ test(Iterator create([Iterable content]), {bool isSet: false}) {
 
   check(create([]), false);
 
-  List a = new List();
+  List a = [];
   check(create(a), false);
   a.add(0);
   check(create(a), true);
 
-  a = new List();
+  a = [];
   a.length = 2547;
   check(create(a), true);
 

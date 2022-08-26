@@ -24,6 +24,6 @@ test(List create([int length])) {
   check(const [null], 0.0);
   check(['sd', 'sd'], 'sd');
   check(new List.from(<int>[null, 1, 0]), true);
-  check(new List(100), {"a": 0});
-  check(new List(100), []);
+  check(new List.filled(100, null), {"a": 0});
+  check(new List.filled(100, null), []);
 }

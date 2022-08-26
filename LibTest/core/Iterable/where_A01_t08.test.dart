@@ -17,10 +17,10 @@ import "../../../Utils/expect.dart";
 test(Iterable create([Iterable content])) {
   Iterable l = create([1, -3, 10, 17]);
 
-  List l1 = new List();
+  List l1 = [];
   Iterable outer = l.where((var x) {
     l1.add(x);
-    List l2 = new List();
+    List l2 = [];
     Iterable inner = l.where((var y) {
       l2.add(y);
       return true;

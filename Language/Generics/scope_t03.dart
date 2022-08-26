@@ -18,7 +18,7 @@ import "../../Utils/expect.dart";
 class A<N, S, U> {
   final List<U> field;
 
-  A(N n, S s) : field = new List<U>() {
+  A(N n, S s) : field = <U>[] {
     Expect.isTrue(n is N);
     Expect.isTrue(s is S);
   }

@@ -26,9 +26,9 @@ main() {
   Expect.equals(13, bar(7,6));
   Expect.equals(33, bar(11,22));
 
-  Expect.listEquals([], list(0));
-  Expect.listEquals(new List(101), list(101));
-  Expect.listEquals(new List(1000), list(1000));
+  Expect.listEquals([], list(0, null));
+  Expect.listEquals(new List.filled(101, null), list(101));
+  Expect.listEquals(new List.filled(1000, null), list(1000));
 
   Expect.equals(0, _privateFunc());
 

@@ -26,7 +26,7 @@ test(List create([int length])) {
     }
   }
 
-  List l = new List(100);
+  List l = new List.filled(100, null);
   for (var i = 0; i < l.length; i++){
     l[i] = i;
   }

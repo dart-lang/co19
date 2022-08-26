@@ -39,53 +39,53 @@ class Z<T> {
 }
 
 main() {
-  List<String> l1 = new List();
-  List l2 = new List<String>();
+  List<String> l1 = [];
+  List l2 = <String>[];
 
   List<Object> l3_super;
   List<String> l3 = l3_super;
-  List<Object> l3_ = new List<String>();
+  List<Object> l3_ = <String>[];
 
   List<num> l4_super;
   List<int> l4 = l4_super;
-  List<num> l4_ = new List<int>();
+  List<num> l4_ = <int>[];
 
   List<Object> l5_super;
   List<int> l5 = l5_super;
-  List<Object> l5_ = new List<int>();
+  List<Object> l5_ = <int>[];
 
   List<Object> l6_super;
   List<double> l6 = l6_super;
-  List<Object> l6_ = new List<double>();
+  List<Object> l6_ = <double>[];
 
   List<num> l7_super;
   List<double> l7 = l7_super;
-  List<num> l7_ = new List<double>();
+  List<num> l7_ = <double>[];
 
   List<Object> l8_super;
   List<J> l8 = l8_super;
-  List<Object> l8_ = new List<J>();
+  List<Object> l8_ = <J>[];
 
   List<I> l9_super;
   List<J> l9 = l9_super;
-  List<I> l9_ = new List<I>();
+  List<I> l9_ = <I>[];
 
   List<I> l10_super;
   List<K> l10 = l10_super;
-  List<I> l10_ = new List<K>();
+  List<I> l10_ = <K>[];
 
   List<J> l11_super;
   List<K> l11 = l11_super;
-  List<J> l11_ = new List<K>();
+  List<J> l11_ = <K>[];
 
-  List<int> l12 = new List();
+  List<int> l12 = [];
 
-  List<double> l13 = new List();
+  List<double> l13 = [];
 
-  List<J> l14 = new List();
+  List<J> l14 = [];
 
-  List<String> z1 = new List();
-  List z2 = new List<String>();
+  List<String> z1 = [];
+  List z2 = <String>[];
 
   Z<Object> z3_super;
   Z<String> z3 = z3_super;

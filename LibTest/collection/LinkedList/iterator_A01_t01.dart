@@ -27,15 +27,15 @@ void checkIterator(List a0) {
 main() {
   checkIterator([]);
   checkIterator(const [null,0, "1", false, const []]);
-  checkIterator(new List(300));
+  checkIterator(new List.filled(300, null));
 
-  List a = new List(365);
+  List a = new List.filled(365, null);
   for (var i=0; i < a.length; i++) {
     a[i] = i;
   }
   checkIterator(a);
 
-  List l = new List();
+  List l = [];
   l.addAll(["0", "1", "2", "3", "4", "5"]);
   a = new List.from(l);
   checkIterator(a);

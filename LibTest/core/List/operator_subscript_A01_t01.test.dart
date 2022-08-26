@@ -32,7 +32,7 @@ test(List create([int length])) {
   Expect.identical(from([1, 2, null])[2], null);
   
   a = const [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
-  List ls = new List<int>(a.length);
+  List ls = new List<int>.filled(a.length, null);
   for (int i in a) {
     Expect.identical(a[i], i);
     ls[i] = a[i];

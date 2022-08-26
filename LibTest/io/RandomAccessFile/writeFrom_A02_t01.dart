@@ -52,7 +52,7 @@ void check(List<int> list) {
 }
 
 main() {
-  List<int> list = new List<int>(10);
+  List<int> list = new List<int>.filled(10, null);
   check([]);
   for (int i = 0; i < 10; i++) {
     list[i] = i;

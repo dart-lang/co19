@@ -4,7 +4,7 @@
 
 // @dart = 2.9
 
-/// @assertion ListMixin<E> abstract class 
+/// @assertion ListMixin<E> abstract class
 /// Implements List<E>
 /// Base implementation of a List class.
 /// ListMixin can be used as a mixin to make a class implement the List interface.
@@ -15,13 +15,15 @@
 /// @author sgrekhov@unipro.ru
 
 library list_mixin_lib;
+
 import "dart:collection";
 
 class MyList<E> extends Object with ListMixin<E> {
   List<E> _list;
-  
-  MyList([int length]): _list = (length == null ? new List() : new List(length));
-  
+
+  MyList([int length])
+      : _list = (length == null ? [] : new List.filled(length, null));
+
   E operator [](int index) => _list[index];
 
   void operator []=(int index, E value) {
@@ -34,7 +36,7 @@ class MyList<E> extends Object with ListMixin<E> {
     _list.length = newLength;
   }
 }
- 
+
 List create([int length]) {
   return new MyList(length);
-}  
+}

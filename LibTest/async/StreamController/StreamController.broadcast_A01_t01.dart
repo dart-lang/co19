@@ -25,7 +25,7 @@ check(List events0) {
   StreamController controller = new StreamController.broadcast();
   Stream s = controller.stream;
 
-  List events1 = new List();
+  List events1 = [];
   StreamSubscription ss1 = s.listen((event) {events1.add(event);});
   asyncStart();
   ss1.onDone(() {
@@ -33,7 +33,7 @@ check(List events0) {
     asyncEnd();
   });
 
-  List events2 = new List();
+  List events2 = [];
   StreamSubscription ss2 = s.listen((event) {events2.add(event);});
   asyncStart();
   ss2.onDone(() {

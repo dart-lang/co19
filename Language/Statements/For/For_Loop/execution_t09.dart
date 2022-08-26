@@ -27,7 +27,7 @@ import '../../../../Utils/expect.dart';
 typedef int foo();
 
 main() {
-  List<foo> closures = new List<foo>();
+  List<foo> closures = [];
   for (int i = 0; i < 10; i++) {
     closures.add(() => i);
   }

@@ -14,7 +14,6 @@
 /// stream and it produces the same events as this.
 /// @author kaigorodov
 
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
@@ -23,7 +22,7 @@ check(List events0) {
   Stream s0=IsolateStream.fromIterable(events0);
   Stream s1=s0.asBroadcastStream();
   
-  List events1=new List();
+  List events1 = [];
   StreamSubscription ss1=s1.listen((event){events1.add(event);});
   asyncStart();
   ss1.onDone((){
@@ -31,7 +30,7 @@ check(List events0) {
     asyncEnd();
   });
   
-  List events2=new List();
+  List events2 = [];
   StreamSubscription ss2=s1.listen((event){events2.add(event);});
   asyncStart();
   ss2.onDone((){

@@ -23,7 +23,7 @@ import "../../../../Utils/expect.dart";
 
 class C {
   var foo;
-  static var _x = new List<int>();
+  static var _x = <int>[];
 
   C() : this.foo = _x
     ..add(1)

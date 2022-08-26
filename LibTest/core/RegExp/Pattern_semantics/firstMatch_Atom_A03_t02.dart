@@ -15,7 +15,6 @@
 /// @author rodionov
 
 import "../../../../Utils/expect.dart";
- 
 
 main() {
   int parens = 200;
@@ -27,7 +26,7 @@ main() {
   for(int i = 0; i < parens; i++) {
     ptrn.write(")");
   }
-  List<String> exp = new List<String>(parens + 1);
+  List<String> exp = new List<String>.filled(parens + 1, null);
   for(int i = 0; i < exp.length; i++) {
     exp[i] = "hello";
   }

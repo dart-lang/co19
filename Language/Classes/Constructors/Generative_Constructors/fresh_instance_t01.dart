@@ -16,7 +16,7 @@ import "../../../../Utils/expect.dart";
 class C {}
 
 main() {
-  List instances = new List();
+  List instances = [];
   final int total = 100;
   for (var i = 0; i < total; ++i) {
     instances.add(new C());

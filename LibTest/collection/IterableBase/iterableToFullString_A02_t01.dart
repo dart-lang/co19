@@ -17,7 +17,7 @@ import "dart:collection";
 
 main() {
   String expected = "";
-  List l = new List<int>();
+  List l = <int>[];
   for (int i = -300; i <= 300; i++) {
     l.add(i);
     expected += i.toString();

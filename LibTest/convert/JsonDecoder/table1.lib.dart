@@ -13,7 +13,6 @@ List<List<Object>> table = [
   [true, "true"],
   [false, "false"],
   [null, "null"],
-  [new List(), "[]"],
   [[], "[]"],
   [[1], "[1]"],
   [

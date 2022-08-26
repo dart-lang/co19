@@ -37,7 +37,7 @@ void checkEquals(List expected, List actual) {
 }
 
 main() {
-  List<int> s = new List<int>();
+  List<int> s = [];
   List a = new List.generate(0, gengen(s));
   Expect.equals(0, a.length);
   Expect.equals(0, s.length);
@@ -48,7 +48,7 @@ main() {
   a = new List.generate(s.length, gengen(s));
   checkEquals(s, a);
 
-  List l = new List();
+  List l = [];
   a = new List.generate(0, gengen(l));
   Expect.equals(0, a.length);
   Expect.equals(0, l.length);
@@ -61,7 +61,7 @@ main() {
   a = new List.generate(src.length, gengen(src));
   checkEquals(src, a);
 
-  src = new List(34567);
+  src = new List.filled(34567, null);
   src[34566] = -111111111;
   a = new List.generate(src.length, gengen(src));
   checkEquals(src, a);

@@ -10,7 +10,6 @@
 /// returned when none matches.
 /// @author kaigorodov
 
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
@@ -28,7 +27,6 @@ check(List list) {
 }
 
 main() {
-  check(new List());
   check([]);
   check(const[]);
   check(new List.from([]));

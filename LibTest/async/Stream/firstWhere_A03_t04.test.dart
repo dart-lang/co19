@@ -39,7 +39,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(Stream<int> s, bool test(int element)) {
-  Error expected = new CastError();
+  Error expected = new TypeError();
   AsyncExpect.error(expected, s.firstWhere(test, orElse:() => throw expected));
 }
 

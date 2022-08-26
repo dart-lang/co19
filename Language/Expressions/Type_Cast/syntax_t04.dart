@@ -19,9 +19,7 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  try {
+  Expect.throws(() {
     int as num;
-    Expect.fail("CastError expected");
-  } on CastError catch (e) {
-  }
+  }, (e) => e is TypeError);
 }

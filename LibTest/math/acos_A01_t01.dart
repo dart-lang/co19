@@ -12,13 +12,12 @@
 /// @issue 26261
 /// @author msyabro
 
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;
-  var x = new List(64);
+  var x = new List<double>.filled(64, null);
   x[0] = -1.00000000000000000000;
   x[1] = -0.96825396825396826000;
   x[2] = -0.93650793650793651000;
@@ -84,7 +83,7 @@ main() {
   x[62] = 0.96825396825396814000;
   x[63] = 1.00000000000000000000;
 
-  var y = new List(64);
+  var y = new List<double>.filled(64, null);
   y[0] = 3.14159265358979310000;
   y[1] = 2.88894492730522990000;
   y[2] = 2.78333143507717650000;

@@ -34,7 +34,7 @@ test(Iterator create([Iterable content]), {bool isSet: false}) {
   checkNext(create([null, 0, 1]), [null, 0, 1]);
   checkNext(create(const [null, 0, 1]), const [null, 0, 1]);
 
-  List lst = new List(17495);
+  List lst = new List.filled(17495, null);
   for (var i = 0; i < lst.length; i++) {
     lst[i] = lst.length - i;
   }

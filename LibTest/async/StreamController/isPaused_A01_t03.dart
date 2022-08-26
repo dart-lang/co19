@@ -22,7 +22,7 @@ main() {
   StreamController controller = new StreamController.broadcast();
   Expect.isFalse(controller.isPaused);
 
-  List events1 = new List();
+  List events1 = [];
   StreamSubscription ss = controller.stream.listen(
       (event) {events1.add(event);}
   );

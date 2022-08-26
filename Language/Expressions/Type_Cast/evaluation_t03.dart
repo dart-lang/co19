@@ -19,41 +19,33 @@
 import '../../../Utils/expect.dart';
 
 abstract class I {}
+
 class C implements I {
   C(this.x);
   int x;
 }
+
 abstract class G<S, T> {}
+
 typedef bool func(int i);
 
 main() {
-  try {
+  Expect.throws(() {
     1 as func;
-    Expect.fail("CastError expected");
-  } on CastError catch (ok) {}
-
-  try {
+  }, (e) => e is TypeError);
+  Expect.throws(() {
     1 as G<int, int>;
-    Expect.fail("CastError expected");
-  } on CastError catch (ok) {}
-
-  try {
+  }, (e) => e is TypeError);
+  Expect.throws(() {
     true as I;
-    Expect.fail("CastError expected");
-  } on CastError catch (ok) {}
-
-  try {
+  }, (e) => e is TypeError);
+  Expect.throws(() {
     new C(1) as G<int, bool>;
-    Expect.fail("CastError expected");
-  } on CastError catch (ok) {}
-
-  try {
+  }, (e) => e is TypeError);
+  Expect.throws(() {
     (() => true) as func;
-    Expect.fail("CastError expected");
-  } on CastError catch (ok) {}
-
-  try {
+  }, (e) => e is TypeError);
+  Expect.throws(() {
     (() => true) as int;
-    Expect.fail("CastError expected");
-  } on CastError catch (ok) {}
+  }, (e) => e is TypeError);
 }

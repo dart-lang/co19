@@ -11,7 +11,6 @@
 /// order.
 /// @author iarkh@unipro.ru
 
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
@@ -31,8 +30,8 @@ check(List list, num init, combine, num expected) {
 }	
 
 main() {
-  List list = new List();
-  List result = new List(100);
+  List list = [];
+  List result = new List.filled(100, null);
   for(int i = 0; i < 100; i++) {
     list.add(i);
   }

@@ -24,5 +24,5 @@ main() {
 void check(int x, num z) {
   Expect.throws(() {
     x.remainder(z);
-  }, (e) => e is IntegerDivisionByZeroException);
+  }, (e) => e is UnsupportedError);
 }

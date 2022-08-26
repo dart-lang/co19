@@ -24,7 +24,7 @@ class G<S, T> {}
 
 main() {
   // G is G<dynamic,dynamic>, not malformed
-  Expect.throws(() => [] as G, (e) => e is CastError);
+  Expect.throws(() => [] as G, (e) => e is TypeError);
 
   new G() as G;
 }

@@ -38,21 +38,21 @@ class Z<T> {
 }
 
 main() {
-  Expect.isTrue(new List<String>() is List);
-  Expect.isFalse(new List() is List<String>);
-  Expect.isTrue(new List<String>() is List<Object>);
-  Expect.isTrue(new List<String>() is List<Object>);
-  Expect.isTrue(new List<int>() is List<num>);
-  Expect.isTrue(new List<int>() is List);
-  Expect.isTrue(new List<int>() is List<Object>);
-  Expect.isTrue(new List<double>() is List<Object>);
-  Expect.isTrue(new List<double>() is List);
-  Expect.isTrue(new List<double>() is List<num>);
-  Expect.isTrue(new List<J>() is List);
-  Expect.isTrue(new List<J>() is List<Object>);
-  Expect.isTrue(new List<J>() is List<I>);
-  Expect.isTrue(new List<K>() is List<I>);
-  Expect.isTrue(new List<K>() is List<J>);
+  Expect.isTrue(<String>[] is List);
+  Expect.isFalse([] is List<String>);
+  Expect.isTrue(<String>[] is List<Object>);
+  Expect.isTrue(<String>[] is List<Object>);
+  Expect.isTrue(<int>[] is List<num>);
+  Expect.isTrue(<int>[] is List);
+  Expect.isTrue(<int>[] is List<Object>);
+  Expect.isTrue(<double>[] is List<Object>);
+  Expect.isTrue(<double>[] is List);
+  Expect.isTrue(<double>[] is List<num>);
+  Expect.isTrue(<J>[] is List);
+  Expect.isTrue(<J>[] is List<Object>);
+  Expect.isTrue(<J>[] is List<I>);
+  Expect.isTrue(<K>[] is List<I>);
+  Expect.isTrue(<K>[] is List<J>);
 
   Expect.isTrue(new Z<String>() is Z);
   Expect.isFalse(new Z() is Z<String>);

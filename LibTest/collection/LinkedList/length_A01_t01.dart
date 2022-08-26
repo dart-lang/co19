@@ -16,8 +16,8 @@ import "LinkedList.lib.dart";
 main() {
   Expect.isTrue(toLinkedList([]).length == 0);
   Expect.isTrue(new LinkedList<MyLinkedListEntry>().length == 0);
-  Expect.isTrue(toLinkedList(new List(0)).length == 0);
-  Expect.isTrue(toLinkedList(new List(100)).length == 100);
+  Expect.isTrue(toLinkedList([]).length == 0);
+  Expect.isTrue(toLinkedList(new List.filled(100, null)).length == 100);
   Expect.isTrue(toLinkedList([null]).length == 1);
   Expect.isTrue(toLinkedList([null, null]).length == 2);
   Expect.isTrue(toLinkedList(new List.from([0, 1, 2, 3])).length == 4);

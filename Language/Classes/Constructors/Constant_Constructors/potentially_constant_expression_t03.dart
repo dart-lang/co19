@@ -17,10 +17,9 @@
 /// constructor's initializer list contains an instance creation expression.
 /// @author iefremov
 
-
 class A {
   final x;
-  const A() : x = new List();
+  const A() : x = [];
 //                ^
 // [analyzer] unspecified
 // [cfe] unspecified

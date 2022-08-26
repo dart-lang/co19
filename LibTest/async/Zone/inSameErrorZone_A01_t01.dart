@@ -12,7 +12,6 @@
 /// same handleUncaughtError callback and false otherwise.
 /// @author ilya
 
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -41,7 +40,7 @@ main() {
     z.fork().run(same); //
   });
   
-  runZoned(diff, onError: (_,__) {}); // child is new error zone
+  runZonedGuarded(diff, (_,__) {}); // child is new error zone
   newErrorZone(z).run(diff);          // child is new error zone
 
 

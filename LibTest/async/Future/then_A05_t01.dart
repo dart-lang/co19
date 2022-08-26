@@ -28,7 +28,7 @@ f() {
 
 main() {
   asyncStart();
-  runZoned(f, onError: (e) {
+  runZonedGuarded(f, (e, st) {
     asyncEnd();
   });
 }

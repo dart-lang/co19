@@ -13,13 +13,12 @@
 /// @needsreview Returned value precision is not specified.
 /// Checks exact match with values calculated with LibC.
 
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;
-  var x = new List(64);
+  var x = new List<double>.filled(64, 0);
   x[0] = 0.00000000000000000000;
   x[1] = 0.25396825396825395000;
   x[2] = 0.50793650793650791000;
@@ -86,7 +85,7 @@ main() {
   x[63] = 16.00000000000000000000;
 
 
-  var y = new List(64);
+  var y = new List<double>.filled(64, 0);
   y[0] = 0.00000000000000000000;
   y[1] = 0.50395263067896967000;
   y[2] = 0.71269664509979835000;

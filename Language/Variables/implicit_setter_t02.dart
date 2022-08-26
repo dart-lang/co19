@@ -33,7 +33,7 @@ main() {
   Expect.equals(1, A.a);
   A.c = "foo";
   Expect.equals("foo", A.c);
-  List foo = new List<Map<String, int>>();
+  List foo = <Map<String, int>>[];
   A.d = foo;
   Expect.equals(foo, A.d);
 

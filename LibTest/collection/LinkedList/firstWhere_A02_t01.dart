@@ -28,7 +28,6 @@ check(List list0) {
 }
 
 main() {
-  check(new List());
   check([]);
   check(const[]);
   check(new List.from([]));
