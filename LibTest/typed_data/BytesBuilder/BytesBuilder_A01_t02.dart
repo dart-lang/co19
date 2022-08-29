@@ -10,20 +10,20 @@
 /// changed after added to the BytesBuilder, it may effect the output. Default is
 /// true.
 /// @description Checks that this constructor creates a new empty BytesBuilder.
-/// Test default value
+/// Test copy == false
 /// @author sgrekhov@unipro.ru
 
-import "dart:io";
+import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  BytesBuilder builder = new BytesBuilder();
+  BytesBuilder builder = new BytesBuilder(copy: false);
   Expect.isTrue(builder.isEmpty);
 
-  var data = [1, 2, 3];
+  Uint8List data = new Uint8List.fromList([1, 2, 3]);
   builder.add(data);
 
   data[0] = 0;
 
-  Expect.listEquals([1, 2, 3], builder.toBytes());
+  Expect.listEquals(data, builder.toBytes());
 }

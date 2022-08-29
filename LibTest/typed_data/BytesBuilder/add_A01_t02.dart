@@ -10,7 +10,7 @@
 /// to range 0 .. 255
 /// @author a.semenov@unipro.ru
 
-import "dart:io";
+import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {

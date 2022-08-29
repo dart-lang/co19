@@ -7,7 +7,7 @@
 /// @description Checks that this property returns true if the buffer is empty
 /// @author sgrekhov@unipro.ru
 
-import "dart:io";
+import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
