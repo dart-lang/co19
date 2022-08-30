@@ -4,7 +4,9 @@
 
 /// @assertion A record type declares all of the members defined on [Object]. It
 /// also exposes getters for each named field where the name of the getter is
-/// the field's name and the getter's type is the field's type.
+/// the field's name and the getter's type is the field's type. For each
+/// positional field, it exposes a getter whose name is $ followed by the number
+/// of preceding positional fields and whose type is the type of the field.
 ///
 /// @description Checks that a getters are exposed for named fields only.
 /// @author sgrekhov22@gmail.com

@@ -4,10 +4,13 @@
 
 /// @assertion A record type declares all of the members defined on [Object]. It
 /// also exposes getters for each named field where the name of the getter is
-/// the field's name and the getter's type is the field's type.
+/// the field's name and the getter's type is the field's type. For each
+/// positional field, it exposes a getter whose name is $ followed by the number
+/// of preceding positional fields and whose type is the type of the field.
 ///
-/// @description Checks that positional fields can be accessed using `.$i`,
-/// where `i` is a zero-based index of the field
+/// @description Checks that for positional fields a getter is exposed with the
+/// name `$` followed by number of preceding positional fields and whose type is
+/// the type of the field
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
