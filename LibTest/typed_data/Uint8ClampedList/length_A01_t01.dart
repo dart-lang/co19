@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion int get length
-/// Returns the number of objectss in the list.
+/// Returns the number of objects in the list.
 /// @description Checks that the number of elements is returned.
 /// @author msyabro
 
