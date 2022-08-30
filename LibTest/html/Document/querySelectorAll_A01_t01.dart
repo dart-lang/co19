@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion ElementList querySelectorAll(String selectors)
-/// Finds all descendent elements of this element that match the specified
+/// Finds all descendant elements of this element that match the specified
 /// group of selectors.
 ///
 /// selectors should be a string using CSS selector syntax.
