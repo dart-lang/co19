@@ -8,7 +8,7 @@
 ///   metadata abstract? class mixinApplicationClass
 /// ;
 /// mixinClassApplication:
-///   identifer typeParameters? `=' mixinApplication `;'
+///   identifier typeParameters? `=' mixinApplication `;'
 ///
 /// mixinApplication:
 ///   type mixins interfaces?
