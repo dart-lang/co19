@@ -4,7 +4,7 @@
 
 /// @assertion void abort()
 /// Stop the current request.
-/// The request can only be stopped if readyState is HEADERS_RECIEVED or LOADING.
+/// The request can only be stopped if readyState is HEADERS_RECEIVED or LOADING.
 /// If this method is not in the process of being sent, the method has no effect.
 /// @description Checks the state of request at various moments of time.
 
