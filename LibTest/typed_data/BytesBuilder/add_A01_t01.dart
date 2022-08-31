@@ -8,22 +8,20 @@
 /// Appends bytes to the current contents of the builder.
 /// Each value of bytes will be bit-representation truncated to the range
 /// 0 .. 255.
-/// @description Checks that each int value in the [bytes] list is truncated
-/// to range 0 .. 255
-/// @author a.semenov@unipro.ru
+/// @description Checks that this method appends bytes to the current contents of
+/// the builder
+/// @author sgrekhov@unipro.ru
 
-import "dart:io";
+import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
   BytesBuilder builder = new BytesBuilder();
 
-  builder.add([1000, 2000, 3000]);
-  builder.add([-400000, -5500000, -99900000]);
-  List<int> expected = [1000, 2000, 3000, -400000, -5500000, -99900000]
-      .map((int e) => e & 255).toList();
-  Expect.listEquals(expected, builder.toBytes());
+  builder.add([1, 2, 3]);
+  builder.add([4, 5, 9]);
+  Expect.listEquals([1, 2, 3, 4, 5, 9], builder.toBytes());
 
-  builder.add([0,1,-2,-3]);
-  Expect.listEquals(expected..addAll([0,1,254,253]), builder.toBytes());
+  builder.add([0]);
+  Expect.listEquals([1, 2, 3, 4, 5, 9, 0], builder.toBytes());
 }

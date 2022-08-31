@@ -4,19 +4,23 @@
 
 // @dart = 2.9
 
-/// @assertion bool isNotEmpty
-/// Returns true if the buffer is not empty.
-/// @description Checks that this property returns true if the buffer is not empty
+/// @assertion int length
+/// The number of bytes in the builder.
+/// @description Checks that this property returns the number of bytes in the
+/// builder
 /// @author sgrekhov@unipro.ru
 
-import "dart:io";
+import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
   BytesBuilder builder = new BytesBuilder();
-  Expect.isFalse(builder.isNotEmpty);
+  Expect.equals(0, builder.length);
 
   var data = [1, 2, 3];
   builder.add(data);
-  Expect.isTrue(builder.isNotEmpty);
+  Expect.equals(3, builder.length);
+
+  builder.addByte(0);
+  Expect.equals(4, builder.length);
 }

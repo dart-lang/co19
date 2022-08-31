@@ -4,19 +4,19 @@
 
 // @dart = 2.9
 
-/// @assertion bool isEmpty
-/// Returns true if the buffer is empty.
-/// @description Checks that this property returns true if the buffer is empty
+/// @assertion bool isNotEmpty
+/// Returns true if the buffer is not empty.
+/// @description Checks that this property returns true if the buffer is not empty
 /// @author sgrekhov@unipro.ru
 
-import "dart:io";
+import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
   BytesBuilder builder = new BytesBuilder();
-  Expect.isTrue(builder.isEmpty);
+  Expect.isFalse(builder.isNotEmpty);
 
   var data = [1, 2, 3];
   builder.add(data);
-  Expect.isFalse(builder.isEmpty);
+  Expect.isTrue(builder.isNotEmpty);
 }
