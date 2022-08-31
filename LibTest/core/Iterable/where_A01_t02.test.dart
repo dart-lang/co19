@@ -15,7 +15,7 @@ library where_A01_t02;
 import "../../../Utils/expect.dart";
 
 check(Iterable a, bool f(var e)) {
-  List copy = new List();
+  List copy = [];
   bool tst(var e) {
     copy.add(e);
     return f(e);

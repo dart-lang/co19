@@ -28,7 +28,7 @@ main() {
   check([1, 2, 3, 4, 5]);
   check(["0", "1", "2", "3", "4", "5"]);
   check(const [null, 0, "1", false, const []]);
-  List a = new List(365);
+  List a = new List.filled(365, null);
   for (var i = 0; i < a.length; i++) {
     a[i] = i;
   }

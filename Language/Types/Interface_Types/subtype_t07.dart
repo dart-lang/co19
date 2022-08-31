@@ -39,8 +39,8 @@ main() {
   Expect.isTrue("" is dynamic);
   Expect.isTrue(true is dynamic);
   Expect.isTrue(false is dynamic);
-  Expect.isTrue(new List() is dynamic);
-  Expect.isTrue(new List<Map<List, List<int>>>() is dynamic);
+  Expect.isTrue([] is dynamic);
+  Expect.isTrue(<Map<List, List<int>>>[] is dynamic);
   Expect.isTrue(() {} is dynamic);
   Expect.isTrue((num n, Object o, [var x, List y]) {} is dynamic);
   Expect.isTrue(f1 is dynamic);

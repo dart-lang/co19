@@ -9,7 +9,6 @@
 /// @description Checks that [reversed] is read-only and can't be set.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -25,7 +24,7 @@ check(List<Float32x4> list) {
 
 main() {
   check([]);
-  var list = new List<Float32x4>(255);
+  var list = new List<Float32x4>.filled(255, null);
   for (int i = 0; i < 255; ++i) {
     list[i] = pack(i * 1.0);
   }

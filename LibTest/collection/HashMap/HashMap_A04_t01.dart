@@ -31,7 +31,7 @@ check(HashMap map, Map expected, List unexistent) {
 main() {
   HashMap map = new HashMap();
   Map aMap = new Map();
-  List unexist = new List();
+  List unexist = [];
 
   for (int i = 0; i <= 40; i+=2) {
     aMap.putIfAbsent (i, () => i);

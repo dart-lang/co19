@@ -38,7 +38,7 @@ main() {
   a = new List.from(s);
   checkEquals(s, a);
 
-  List l = new List();
+  List l = [];
   a = new List.from(l);
   Expect.equals(0, a.length);
   Expect.equals(0, l.length);
@@ -51,7 +51,7 @@ main() {
   a = new List.from(src);
   checkEquals(src, a);
 
-  src = new List(34567);
+  src = new List.filled(34567, null);
   src[34566] = -111111111;
   a = new List.from(src);
   checkEquals(src, a);

@@ -28,27 +28,27 @@ test(List create([int length])) {
     Expect.equals(b[i], a[i]);
   }
   
-  a = new List();
+  a = [];
   Set set = new Set.from([1, 2, 3, 4, 5]);
   a.addAll(set);
   Expect.listEquals([1, 2, 3, 4, 5], a);
   
-  a = new List();
+  a = [];
   Queue list = new Queue();
   list.addLast(1);
   list.addLast(2);
   a.addAll(list);
   Expect.listEquals([1, 2],a);
   
-  a = new List();
+  a = [];
   a.addAll([]);
   Expect.listEquals([], a);
   
-  a = new List();
+  a = [];
   a.addAll(new Queue());
   Expect.listEquals([], a);
   
-  a = new List();
+  a = [];
   a.addAll(new Set());
   Expect.listEquals([], a);
 

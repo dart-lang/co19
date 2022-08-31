@@ -19,7 +19,7 @@ import "../../../../Utils/expect.dart";
 
 main() {
   RegExp re = new RegExp("\\s");
-  List<String> errors = new List<String>();
+  List<String> errors = [];
   for (int alpha = 0x0000; alpha <= 0xFFFF; alpha++) {
     switch(alpha) {
       // white space as per chapter 7.2

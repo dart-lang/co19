@@ -31,7 +31,7 @@ void check(LinkedList<MyLinkedListEntry<int>> list, List expected) {
   Expect.isFalse(it.moveNext());
 }
 
-List res = new List();
+List res = [];
 
 bool test0(int element) {
   res.add(element);

@@ -22,8 +22,8 @@ main() {
   Expect.isFalse(toLinkedList(new List.from([])).isNotEmpty);
   Expect.isTrue(toLinkedList(new List.from([[]])).isNotEmpty);
 
-  List a = new List(0);
+  List a = [];
   Expect.isFalse(toLinkedList(a).isNotEmpty);
-  a = new List(469);
+  a = new List.filled(469, null);
   Expect.isTrue(toLinkedList(a).isNotEmpty);
 }

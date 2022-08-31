@@ -37,7 +37,7 @@ test(List create([int length])) {
     }
 
     void check() {
-      var a_copy = new List(length);
+      var a_copy = new List<dynamic>.filled(length, null);
       a_copy.setRange(0, length, a);
       a_copy.sort(c);
       Expect.listEquals(expected, a_copy);

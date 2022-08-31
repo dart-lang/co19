@@ -16,10 +16,7 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 
 Iterable f(int element) {
-   List<int> res = new List<int>(element);
-   for (int k = 0; k < element; k++) {
-     res[k] = element;
-   }
+   List<int> res = new List<int>.filled(element, element);
    return res;   
 }
 

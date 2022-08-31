@@ -28,13 +28,13 @@ main() {
   checkNext([null, 0, "1", false]);
   checkNext(const [null, 0, "1", false]);
 
-  List a = new List(17495);
+  List a = new List.filled(17495, null);
   for (var i = 0; i < a.length; i++) {
     a[i] = a.length - i;
   }
   checkNext(a);
 
-  List l = new List();
+  List l = [];
   l.addAll(["0", "1", "2", "3", "4", "5", 6, 7, 8, 9, null]);
   a = new List.from(l);
   checkNext(a);

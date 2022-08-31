@@ -31,7 +31,7 @@ test(Iterable create([Iterable content])) {
   a.map(f);
   a = create([22, 11, 11]);
   a.map(f);
-  List l = new List();
+  List l = [];
   for (int k = 1; k < 200; k++) {
     l.add(k);
   }

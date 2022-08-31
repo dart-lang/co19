@@ -25,7 +25,7 @@ main() {
   checkIterator(new DoubleLinkedQueue());
   checkIterator(new DoubleLinkedQueue.from([null, 0, "1", false, []]));
 
-  List a = new List(36547);
+  List a = new List.filled(36547, null);
   for (var i = 0; i < a.length; i++) {
     a[i] = i;
   }

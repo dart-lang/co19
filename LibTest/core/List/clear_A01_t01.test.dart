@@ -24,7 +24,7 @@ test(List create([int length])) {
     Expect.equals(0, a.length);
   }
   
-  List a = new List();
+  List a = [];
   check(a);
   a.add(null);
   check(a);

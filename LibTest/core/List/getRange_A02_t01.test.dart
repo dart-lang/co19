@@ -22,12 +22,12 @@ test(List create([int length])) {
     Expect.throws(() {list.getRange(0, arg);}, (e) => e is ArgumentError);
   }
 
-  check(new List(1), -1);
-  check(new List(1), -(1 << 63));
+  check([null], -1);
+  check([null], -(1 << 63));
   check([1], -1);
   check([1], -(1 << 63));
   check(const [1], -1);
   check(const [1], -(1 << 63));
-  check(new List(), -1);
-  check(new List(), -(1 << 63));
+  check([], -1);
+  check([], -(1 << 63));
 }

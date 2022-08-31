@@ -13,7 +13,6 @@
 /// change the buffer, and vice versa.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -46,7 +45,7 @@ void check(ByteBuffer buffer) {
 }
 
 main() {
-  var list0 = new List<int>(0);
+  var list0 = <int>[];
   var list1 = new List.filled(5, 0);
   var list2 = new List.filled(8, 0);
   var list3 = new Int32x4List(1);

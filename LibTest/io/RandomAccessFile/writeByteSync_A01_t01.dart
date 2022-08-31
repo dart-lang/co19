@@ -25,7 +25,7 @@ main() {
   Future<RandomAccessFile> raFile = file.open(mode: FileMode.write);
   raFile.then((RandomAccessFile rf) {
     Expect.equals(0, file.lengthSync());
-    List<int> list = new List<int>(10);
+    List<int> list = new List<int>.filled(10, null);
     var n = rf.writeByteSync(0);
     Expect.isTrue(n is int);
     Expect.equals(1, n);

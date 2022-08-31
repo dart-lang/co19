@@ -15,8 +15,8 @@
 
 import "../../Utils/expect.dart";
 
-var foo = throw new IntegerDivisionByZeroException();
+var foo = throw new UnsupportedError("");
 
 main() {
-  Expect.throws(() => foo, (e) => e is IntegerDivisionByZeroException);
+  Expect.throws(() => foo, (e) => e is UnsupportedError);
 }

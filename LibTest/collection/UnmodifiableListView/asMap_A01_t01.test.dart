@@ -36,7 +36,7 @@ void check(List a0) {
 }
 
 main() {
-  List a = new List();
+  List a = [];
   check(a);
 
   a.add(2);

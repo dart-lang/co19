@@ -29,7 +29,7 @@ main() {
   checkIterator([]);
   checkIterator([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
-  var a = new List<int>(255);
+  var a = new List<int>.filled(255, 0);
   for (var i = 0; i < a.length; i++) {
     a[i] = i;
   }

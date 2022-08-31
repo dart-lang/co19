@@ -46,7 +46,7 @@ test(Iterable create([Iterable content])) {
   check([1, 2, 3, 4, 5], lessThan3, 3);
   check(const [1, 2, 3, 4, 5], lessThan3, 3);
   check(new List.from([1, 2, 3, 4, 5]), lessThan3, 3);
-  List l = new List();
+  List l = [];
   l.addAll([1, 2, 3, 4, 5]);
   check(l, lessThan3, 3);
 }

@@ -12,13 +12,12 @@
 /// @3rdparty sputnik-v1: S15.8.2.13_A24.js
 /// @needsreview Returned value precision is not specified.
 
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;
-  var x1 = new List(64);
+  var x1 = new List<double>.filled(64, 0);
   x1[0] = 0.25396825396825395000;
   x1[1] = 0.25396825396825395000;
   x1[2] = 0.50793650793650791000;
@@ -84,7 +83,7 @@ main() {
   x1[62] = 15.74603174603174500000;
   x1[63] = 16.00000000000000000000;
 
-  var x2 = new List(64);
+  var x2 = new List<double>.filled(64, 0);
   x2[0] = -16.00000000000000000000;
   x2[1] = -15.49206349206349200000;
   x2[2] = -14.98412698412698400000;
@@ -151,7 +150,7 @@ main() {
   x2[63] = 16.00000000000000000000;
 
 
-  var y = new List(64);
+  var y = new List<double>.filled(64, 0);
   y[0] = 3338328489.5218105;
   y[1] = 1664158979.11096290000000000000;
   y[2] = 25596.98862206424700000000;

@@ -32,7 +32,7 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 List<String> setUp(Directory parent, List<String> directories) {
-  List<String> created = new List<String>();
+  List<String> created = [];
   directories.forEach((item) {
     Directory dir = new Directory(parent.path + Platform.pathSeparator + item);
     dir.createSync();
@@ -51,7 +51,7 @@ _main(Directory sandbox) async {
   expected = setUp(dir, expected);
 
   asyncStart();
-  List<String> found = new List<String>();
+  List<String> found = [];
   await dir.list().forEach((entity) {
     found.add(entity.path);
   }).then((_) {

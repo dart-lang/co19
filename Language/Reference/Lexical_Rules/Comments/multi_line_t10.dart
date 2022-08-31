@@ -32,7 +32,7 @@ main() {
   var bar /* set value to -100*/=-100;
   Expect.equals(-100, bar);
 
-  List l = new List(/* set length to 5*/5);
+  List l = new List.filled(/* set length to 5*/5, null);
   Expect.equals(5, l.length);
 
   l[0/* init this value to 'String' */] = "String";

@@ -11,27 +11,24 @@
 /// the subscriber's onData handler is called.
 /// @author kaigorodov
 
-
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 void check(List data) {
-  ReceivePort s1=IsolateStream.fromIterable(data);
-  List sink=new List();
+  ReceivePort s1 = IsolateStream.fromIterable(data);
+  List sink = [];
   asyncStart();
-  s1.listen((var event){
-      sink.add(event);
-    },
-    onDone:(){
-      Expect.listEquals(data, sink);
-      asyncEnd();
-    }
-  ); 
+  s1.listen((var event) {
+    sink.add(event);
+  }, onDone: () {
+    Expect.listEquals(data, sink);
+    asyncEnd();
+  });
 }
 
 main() {
   check([]);
-  check([1,2,3,4]);
-  check([null,"2",-3,4.0, []]);
+  check([1, 2, 3, 4]);
+  check([null, "2", -3, 4.0, []]);
 }

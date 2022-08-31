@@ -19,7 +19,7 @@ class ListBaseImpl<E> extends ListBase<E> {
   List<E> _list;
   
   ListBaseImpl([int length]):
-        _list = (length == null ? new List() : new List(length));
+        _list = (length == null ? [] : new List.filled(length, null));
   
   E operator [](int index) => _list[index];
 

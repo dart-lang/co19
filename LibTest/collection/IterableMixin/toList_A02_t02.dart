@@ -10,7 +10,6 @@
 /// change its size.
 /// @author iarkh@unipro.ru
 
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
@@ -23,7 +22,7 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-List<String> failures=new List<String>();
+List<String> failures = <String>[];
  
 check(List l) {
   Expect.throws (() {

@@ -11,7 +11,6 @@
 /// of this [Iterable] object.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -29,7 +28,7 @@ main() {
   checkIterator([]);
   checkIterator([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]);
 
-  var a = new List<double>(255);
+  var a = new List<double>.filled(255, null);
   for (var i = 0; i < a.length; i++) {
     a[i] = i * 1.0;
   }

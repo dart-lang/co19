@@ -27,7 +27,7 @@ import "../../../Utils/expect.dart";
 
 var localhost = InternetAddress.loopbackIPv4.address;
 
-List<int> list = new List(1000);
+List<int> list = new List.filled(1000, null);
 
 test(String method) async {
   asyncStart();

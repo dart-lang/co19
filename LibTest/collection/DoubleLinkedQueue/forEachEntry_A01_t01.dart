@@ -9,7 +9,6 @@
 /// queue.
 /// @author kaigorodov
 
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
@@ -20,7 +19,7 @@ main() {
     queue.addLast(i);
   }
   
-  List a = new List(100);
+  List a = new List.filled(100, null);
   
   queue.forEachEntry((var entry) {
     var element = entry.element;

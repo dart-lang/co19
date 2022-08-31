@@ -10,7 +10,6 @@
 /// @description Checks that an exception is thrown as expected.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -37,7 +36,7 @@ check(List<int> list) {
 main() {
   check([]);
   check([1]);
-  var list = new List<int>(255);
+  var list = new List<int>.filled(255, null);
   for (int i = 0; i < 255; ++i) {
     list[i] = i;
   }

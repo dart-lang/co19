@@ -28,7 +28,7 @@ void checkCount(List a0) {
 }
 
 main() {
-  List a = new List();
+  List a = [];
   checkCount(a);
   a.add(22);
   checkCount(a);

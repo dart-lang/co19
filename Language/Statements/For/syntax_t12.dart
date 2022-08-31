@@ -25,7 +25,7 @@
 
 main() {
   try {
-    for (var l = 1 in new List(100)) break;
+    for (var l = 1 in []) break;
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified

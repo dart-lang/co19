@@ -18,7 +18,6 @@
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
-import '../../../../Utils/expect.dart';
 
 Stream<String> generator() async* {
   yield* 1;
@@ -28,15 +27,5 @@ Stream<String> generator() async* {
 }
 
 main() {
-  asyncStart();
-  // we have to use runZoned() because specification does not state
-  // how the error should be handled by generator function.
-  // see issue #25634
-  runZoned(
-      () => generator().first,
-      onError: (e) {
-        Expect.isTrue(e is Error);
-        asyncEnd();
-      }
-  );
+  generator();
 }

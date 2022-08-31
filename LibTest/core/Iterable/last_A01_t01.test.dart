@@ -28,7 +28,7 @@ test(Iterable create([Iterable content]), {bool isSet:false}) {
     }
   }
 
-  List a = new List();
+  List a = [];
   a.add(0);
   check(a);
 
@@ -38,7 +38,7 @@ test(Iterable create([Iterable content]), {bool isSet:false}) {
   a.add(1);
   check(a);
 
-  List b = new List(1000);
+  List b = new List.filled(1000, null);
   b[999] = 999;
   a.addAll(b);
   check(b);
@@ -47,7 +47,7 @@ test(Iterable create([Iterable content]), {bool isSet:false}) {
   a[2000] = 2001;
   check(a);
 
-  a = new List(10);
+  a = new List.filled(10, null);
   a[9] = 9;
   check(a);
 

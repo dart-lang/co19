@@ -30,7 +30,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(List source, List expected) {
-  List actual = new List();
+  List actual = [];
   Stream stream = new Stream.fromIterable(source);
   StreamIterator streamIterator = new StreamIterator(stream);
   asyncStart();

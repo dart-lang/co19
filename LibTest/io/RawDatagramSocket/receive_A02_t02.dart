@@ -23,7 +23,7 @@ int datagramLength = 65504;
 main() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
   RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
-  List<int> sList = new List<int>(datagramLength);
+  List<int> sList = new List<int>.filled(datagramLength, null);
   for (int i = 0; i < datagramLength; i++) {
     sList[i] = i & 0xff;
   }

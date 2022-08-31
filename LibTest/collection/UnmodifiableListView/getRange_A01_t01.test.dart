@@ -30,7 +30,7 @@ main() {
   check(l, 1, 3);
   check(l, 3, 1);
 
-  l = new List(100);
+  l = new List.filled(100, null);
   for (var i = 0; i < l.length; i++){
     l[i] = i;
   }

@@ -23,7 +23,6 @@ test(List create([int length])) {
 
   check(const<String>[null]);
   check([]);
-  check(new List());
-  check(new List(0));
+  check(new List.filled(0, null));
   check(new List.from([]));
 }

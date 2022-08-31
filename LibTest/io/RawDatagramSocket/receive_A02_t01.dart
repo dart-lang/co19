@@ -23,7 +23,7 @@ int sentLength = 65503;
 main() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
   RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
-  List<int> sList = new List<int>(sentLength);
+  List<int> sList = new List<int>.filled(sentLength, null);
   for (int i = 0; i < sentLength; i++) {
     sList[i] = i & 0xff;
   }

@@ -15,7 +15,7 @@
 
 import "../../../Utils/expect.dart";
 
-List<String> failures = new List<String>();
+List<String> failures = [];
  
 check(List l) {
   try {
