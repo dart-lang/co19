@@ -8,8 +8,8 @@
 /// the types of all fields of A are subtypes of the corresponding field types
 /// of B
 ///
-/// @description Check that if type T0 is a record with the other shape than T1
-/// then T0 is not subtype of T1
+/// @description Check that if type T0 is a record with another shape than T1
+/// then T0 is not a subtype of T1
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is not a subtype of a type T1, then

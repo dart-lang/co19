@@ -9,7 +9,7 @@
 /// of B
 /// 
 /// @description Check that if type T0 is a record with the same shape as T1
-/// and the types of each field of T0 is a subtype of of the corresponding field
+/// and the type of each field of T0 is a subtype of the corresponding field
 /// types of T1 then T0 is a subtype of T1. Check positional and named fields
 /// @author sgrekhov22@gmail.com
 
