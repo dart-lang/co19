@@ -8,9 +8,9 @@
 /// the types of all fields of A are subtypes of the corresponding field types
 /// of B
 /// 
-/// @description Check that if type T0 is a record with the same shape that T1
-/// and the types of all fields of T0 is subtype of of the corresponding field
-/// types of T1 then T0 is subtype of T1. Check positional and named fields
+/// @description Check that if type T0 is a record with the same shape as T1
+/// and the types of each field of T0 is a subtype of of the corresponding field
+/// types of T1 then T0 is a subtype of T1. Check positional and named fields
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
