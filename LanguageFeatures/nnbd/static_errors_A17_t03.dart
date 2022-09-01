@@ -13,41 +13,41 @@
 /// @issue 39866
 
 // Requirements=nnbd-strong
-void test(var x) {
-  if (x is Never) {
-    x?.toString();
-//   ^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
-    x?.runtimeType;
-//   ^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
-    x?.s = 1;
-//   ^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
-    x?..toString();
-//   ^^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
-    x?..runtimeType;
-//   ^^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
-    x?..s = 1;
-//   ^^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
-  }
-}
+
+Never foo() => throw Exception();
 
 main() {
-  test(null);
+  try {
+    foo()?.toString();
+//       ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
+    foo()?.runtimeType;
+//       ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
+    foo()?.s = 1;
+//       ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
+    foo()?..toString();
+//       ^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
+    foo()?..runtimeType;
+//       ^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
+    foo()?..s = 1;
+//       ^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
+
+  } catch (_) {}
 }
