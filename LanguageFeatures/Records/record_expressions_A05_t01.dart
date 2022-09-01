@@ -26,51 +26,31 @@
 /// with the getter for the first positional field.
 ///
 /// @description Checks that it is a compile-time error if a record has a field
-/// named `hashCode`, `runtimeType`, `noSuchMethod`, or `toString`
+/// name that collides with the synthesized getter name of a positional field
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-Record foo1() => (42, name: "Lily was here", hashCode: "Hello");
-//                                           ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-Record foo2() => (42, name: "Lily was here", runtimeType: String);
-//                                           ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-Record foo3() => (42, name: "Hello", noSuchMethod: (Invocationi) => null);
-//                                   ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-Record foo4() => (42, name: "Lily was here", toString: "String");
-//                                           ^^^^^^^^
+Record foo() => (42, $0: "Lily was here");
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 void bar(Record r) {}
 
 main() {
-  bar((x: 42, hashCode: 42));
-//            ^^^^^^^^
+  var record1 = (42, $0: "Lily was here");
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  bar((x: 42, runtimeType: 42));
-//            ^^^^^^^^^^^
+  var record2 = (1, 2, 3, $2: 42);
+//                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  bar((x: 42, noSuchMethod: 42));
-//            ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  bar((x: 42, toString: 42));
-//            ^^^^^^^^
+  bar((42, $0: 42));
+//         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -34,25 +34,23 @@
 ///
 /// The type () is the type of an empty record with no fields
 ///
-/// @description Checks that it is a compile-time error if record type
-/// appear in an `extends` clause
+/// @description Checks that the type () is the type of an empty record with no
+/// fields
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef Rec = (int i, String s);
+import "../../Utils/expect.dart";
 
-class A extends (int i, String s) {}
-//              ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+typedef Rec = ();
 
-class C extends Rec {}
-//              ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+() foo() => Record.empty;
+
+Record bar(() r) => r;
 
 main() {
-  A();
-  C();
+  Rec r1 = Record.empty;
+  () r2 = Record.empty;
+  Expect.equals(Record.empty, foo());
+  Expect.equals(Record.empty, bar(Record.empty));
 }

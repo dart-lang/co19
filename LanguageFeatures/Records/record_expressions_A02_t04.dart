@@ -25,52 +25,72 @@
 /// field. For example: ('pos', $0: 'named') since the named field '$0' collides
 /// with the getter for the first positional field.
 ///
-/// @description Checks that it is a compile-time error if a record has a field
-/// named `hashCode`, `runtimeType`, `noSuchMethod`, or `toString`
+/// @description Checks that it is a compile-time error if a record has more
+/// than one trailing comma
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-Record foo1() => (42, name: "Lily was here", hashCode: "Hello");
-//                                           ^^^^^^^^
+Record foo1() => (1,,);
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-Record foo2() => (42, name: "Lily was here", runtimeType: String);
-//                                           ^^^^^^^^^^^
+Record foo2() => ((2),,);
+//                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-Record foo3() => (42, name: "Hello", noSuchMethod: (Invocationi) => null);
-//                                   ^^^^^^^^^^^^
+Record foo3() => ((3,,),);
+//                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-Record foo4() => (42, name: "Lily was here", toString: "String");
-//                                           ^^^^^^^^
+Record foo4() => ((3,),,);
+//                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar(Record r) {}
+Record foo5() => (n1: 1,,);
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+Record foo6() => ((2), n: 3,,);
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+Record foo7() => (1, 2, n: 3, 4,,);
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+dynamic bar(Record r) => r
 
 main() {
-  bar((x: 42, hashCode: 42));
-//            ^^^^^^^^
+  var r1 = (1,,);
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  bar((x: 42, runtimeType: 42));
-//            ^^^^^^^^^^^
+  var r2 = ((2),,);
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  bar((x: 42, noSuchMethod: 42));
-//            ^^^^^^^^^^^^
+  var r3 = ((3,),,);
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  bar((x: 42, toString: 42));
-//            ^^^^^^^^
+  var r4 = (n1: 1,,);
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var r5 = (1, 2, n: "n", 3,,);
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

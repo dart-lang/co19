@@ -34,25 +34,44 @@
 ///
 /// The type () is the type of an empty record with no fields
 ///
-/// @description Checks that it is a compile-time error if record type
-/// appear in an `extends` clause
+/// @description Checks that the type () is the type of an empty record with no
+/// fields
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef Rec = (int i, String s);
+typedef Rec = ();
 
-class A extends (int i, String s) {}
-//              ^^^^^^^^^^^^^^^^^
+() foo() => ("",);
+//          ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class C extends Rec {}
-//              ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+Record bar(() r) => r;
 
 main() {
-  A();
-  C();
+  Rec r1 = ();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Rec r2 = (1,);
+//         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  () r3 = (n: "x");
+//        ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  bar(());
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  bar((3.14,));
+//    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
