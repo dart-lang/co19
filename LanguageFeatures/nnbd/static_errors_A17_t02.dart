@@ -16,14 +16,13 @@
 
 typedef Neverland = Never;
 
-void test(var x) {
-  if (x is Neverland) {
-    x.toString();
-    x.runtimeType;
-    x.s = 1;
-  }
-}
+Neverland foo() => throw Exception();
 
 main() {
-  test(null);
+  try {
+    foo().toString();
+    foo().runtimeType;
+    foo().x;
+    foo().s = 1;
+  } catch (_) {}
 }

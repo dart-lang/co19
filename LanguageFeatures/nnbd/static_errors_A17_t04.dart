@@ -17,17 +17,43 @@
 
 typedef Neverland = Never;
 
-void test(var x) {
-  if (x is Neverland) {
-    x?.toString();
-    x?.runtimeType;
-    x?.s = 1;
-    x?..toString();
-    x?..runtimeType;
-    x?..s = 1;
-  }
-}
+Neverland foo() => throw Exception();
 
 main() {
-  test(null);
+  try {
+    foo()?.toString();
+//       ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
+    foo()?.runtimeType;
+//       ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
+    foo()?.s = 1;
+//       ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
+    foo()
+      ?..toString();
+//       ^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
+    foo()
+      ?..runtimeType;
+//       ^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
+    foo()
+      ?..s = 1;
+//       ^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
+
+  } catch (_) {}
 }

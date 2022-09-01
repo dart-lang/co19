@@ -14,14 +14,13 @@
 
 // Requirements=nnbd-strong
 
-void test(var x) {
-  if (x is Never) {
-    x.toString();
-    x.runtimeType;
-    x.s = 1;
-  }
-}
+Never foo() => throw Exception();
 
 main() {
-  test(null);
+  try {
+    foo().toString();
+    foo().runtimeType;
+    foo().x;
+    foo().s = 1;
+  } catch (_) {}
 }
