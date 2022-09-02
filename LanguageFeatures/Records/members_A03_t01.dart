@@ -9,7 +9,7 @@
 /// of preceding positional fields and whose type is the type of the field.
 ///
 /// @description Checks that for positional fields a getter is exposed with the
-/// name `$` followed by number of preceding positional fields and whose type is
+/// name `$` followed by the number of preceding positional fields whose type is
 /// the type of the field
 /// @author sgrekhov22@gmail.com
 

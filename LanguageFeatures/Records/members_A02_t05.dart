@@ -8,7 +8,7 @@
 /// positional field, it exposes a getter whose name is $ followed by the number
 /// of preceding positional fields and whose type is the type of the field.
 ///
-/// @description Checks that a getters exposed have a correct type
+/// @description Checks that each exposed getter has the correct type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records

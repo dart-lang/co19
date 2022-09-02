@@ -8,7 +8,8 @@
 /// positional field, it exposes a getter whose name is $ followed by the number
 /// of preceding positional fields and whose type is the type of the field.
 ///
-/// @description Checks that if there is an extension with the same getters then
+/// @description Checks that if there is an extension method with the same name
+/// as a getter exposed by a record, then the record getter has a higher priority.
 /// ones exposed for named fields have a higher priority
 /// @author sgrekhov22@gmail.com
 

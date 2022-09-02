@@ -8,7 +8,7 @@
 /// positional field, it exposes a getter whose name is $ followed by the number
 /// of preceding positional fields and whose type is the type of the field.
 ///
-/// @description Checks access to a getters exposed via cascade operator
+/// @description Checks access to a getter exposed via a cascade operator
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
