@@ -6,7 +6,7 @@
 ///
 /// literal      ::= record
 ///                | // Existing literal productions...
-/// record       ::= '(' recordField ( ',' recordField )* ','? ')'
+/// record       ::= 'const'? '(' recordField ( ',' recordField )* ','? ')'
 /// recordField  ::= (identifier ':' )? expression
 ///
 /// This is identical to the grammar for a function call argument list. There
