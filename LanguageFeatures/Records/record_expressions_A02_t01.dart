@@ -6,7 +6,7 @@
 ///
 /// literal      ::= record
 ///                | // Existing literal productions...
-/// record       ::= '(' recordField ( ',' recordField )* ','? ')'
+/// record       ::= 'const'? '(' recordField ( ',' recordField )* ','? ')'
 /// recordField  ::= (identifier ':' )? expression
 ///
 /// This is identical to the grammar for a function call argument list. There
@@ -15,18 +15,33 @@
 ///
 /// The same field name more than once.
 ///
-/// No named fields and only one positional field. This avoids ambiguity with
-/// parenthesized expressions.
+/// Only one positional field and no trailing comma.
 ///
 /// A field named hashCode, runtimeType, noSuchMethod, or toString.
 ///
 /// A field name that starts with an underscore.
 ///
+/// A field name that collides with the synthesized getter name of a positional
+/// field. For example: ('pos', $0: 'named') since the named field '$0' collides
+/// with the getter for the first positional field.
+///
 /// @description Checks that it is a compile-time error if a record has no named
-/// fields and only one positional field
+/// fields and only one positional field with no trailing comma
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
+
+Record foo1() => (42);
+//               ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+Record foo2() => ((42));
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void bar(Record r) {}
 
 main() {
   Record r1 = (42);
@@ -36,6 +51,16 @@ main() {
 
   Record r2 = ((42));
 //             ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  bar(("Hello"));
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  bar((("Hello")));
+//    ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

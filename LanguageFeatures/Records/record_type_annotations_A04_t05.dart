@@ -22,92 +22,77 @@
 /// field. For example: (int, $0: int) since the named field '$0' collides with
 /// the getter for the first positional field.
 ///
-/// @description Checks that it is a compile-time error if a record type has the
-/// same field name more than once. Test positional fields
+/// @description Checks that it is a compile-time error if a record type has
+/// a trailing comma after `recordTypeNamedFields`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef R1 = (int i, {String s, int i});
-//                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-typedef R2 = (int i, int i, {String s});
-//                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-typedef (int i, {String s, int i}) R3();
+typedef R1 = (int i, {String s},);
 //                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int i, int i, {String s}) R4();
-//                  ^
+typedef (int, {String s},) R2();
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R5((int i, {String s, int i}));
-//                                     ^
+typedef void R3(({String s, int i},));
+//                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R6((int i, int i, {String s}));
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-(int i, String s, {String s}) foo1() => (42, "", s: "");
-//                        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-(int i, String i, {String s}) foo2() => (42, "", s: "");
+(int, {bool b,},) foo1() => (42, b: true);
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar1((int i, {String s, String i})) {}
-//                                  ^
+({int i, bool b},) foo2() => (i: 42, b: true);
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar2((int i, String i, {String s})) {}
-//                                  ^
+Record bar1((int i, {int j,},) r) => r;
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+Record bar2(({int i, int j},) r) => r;
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  (int i, {String s, int i}) r1 = (42, s: "", i: 0);
-//                       ^
+  (int, {String s,},) r1 = (42, s: "");
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (bool d, double d, {int i, String s}) r2 = (true, 1.1, i: 42, s: "");
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  dynamic d = ({i: 1, s: "Lily was here"});
-  if (d is (int i, {int i, String s})) {
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-
-  if (d is (int i, int i, {String s})) {
+  ({double d, String s},) r2 = (d: 3.14, s: "");
 //                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  dynamic d = (1, 2,);
+  if (d is (int i, {int j,},)) {
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
-  d as (int i, {String s, int i});
-//                            ^
+  if (d is ({int i, int j},)) {
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  d as (int, {int j,},);
+//                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  d as (int i, int i, {String s});
-//                 ^
+  d as ({int, int j},);
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

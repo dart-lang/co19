@@ -4,16 +4,23 @@
 
 /// @assertion It is a compile-time error if a record type has any of:
 ///
-/// The same field name more than once.
+/// The same field name more than once. This is true even if one or both of the
+/// colliding fields is positional. We could permit collisions with positional
+/// field names since they are only used for documentation, but we disallow it
+/// because it's confusing and not useful.
 ///
-/// No named fields and only one positional field. This isn't ambiguous, since
-/// there are no parenthesized type expressions in Dart. But there is no reason
-/// to allow single positional element record types when the corresponding
-/// record values are prohibited.
+/// Only one positional field and no trailing comma. This isn't ambiguous, since
+/// there are no parenthesized type expressions in Dart. But prohibiting this is
+/// symmetric with record expressions and leaves the potential for later support
+/// for parentheses for grouping in type expressions.
 ///
 /// A field named hashCode, runtimeType, noSuchMethod, or toString.
 ///
 /// A field name that starts with an underscore.
+///
+/// A field name that collides with the synthesized getter name of a positional
+/// field. For example: (int, $0: int) since the named field '$0' collides with
+/// the getter for the first positional field.
 ///
 /// @description Checks that it is a compile-time error if a record type has a
 /// field named `hashCode`

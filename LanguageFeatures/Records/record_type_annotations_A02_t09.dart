@@ -32,27 +32,29 @@
 /// implements, with, or mixin on clause, which is enforced by being a
 /// production in `type` and not `typeNotVoid`.
 ///
-/// The type () is the type of an empty record with no fields
-///
-/// @description Checks that it is a compile-time error if record type
-/// appear in an `extends` clause
+/// @description Checks that records may have metadata
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef Rec = (int i, String s);
+class Meta {
+  const Meta();
+}
 
-class A extends (int i, String s) {}
-//              ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+typedef R1 = (@Meta() int i, @Meta() String s);
+typedef R2 = (@Meta() int i,{@Meta()String s});
+typedef R3 = ({@Meta() int i, @Meta()String s});
 
-class C extends Rec {}
-//              ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+typedef (@Meta() int i, {@Meta() String s}) R4();
+
+typedef void R5((@Meta() int i, {@Meta() String s}));
+
+(@Meta() int i, {@Meta() String s}) foo() => (42, s: "");
+
+void bar((@Meta() int i, {@Meta() String s})) {}
 
 main() {
-  A();
-  C();
+  (@Meta() int i, @Meta() String s) r1 = (42, "");
+  (@Meta() int i, {@Meta() String s}) r2 = (42, s: "");
+  ({@Meta() int i, @Meta() String s}) r3 = (i: 42, s: "");
 }

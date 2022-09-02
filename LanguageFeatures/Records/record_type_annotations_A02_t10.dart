@@ -32,27 +32,50 @@
 /// implements, with, or mixin on clause, which is enforced by being a
 /// production in `type` and not `typeNotVoid`.
 ///
-/// The type () is the type of an empty record with no fields
-///
-/// @description Checks that it is a compile-time error if record type
-/// appear in an `extends` clause
+/// @description Checks that it is a compile-time error if recordTypeNamedFields
+/// is before recordTypeFields
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef Rec = (int i, String s);
-
-class A extends (int i, String s) {}
-//              ^^^^^^^^^^^^^^^^^
+typedef R1 = ({int i, String s}, int);
+//                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class C extends Rec {}
-//              ^^^
+typedef R2 = ({int i, String s}, int j,);
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef ({int i, String s}, int j) R3();
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef void R4(({int i, String s}, int));
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  ({int i, String s}, int) foo() => (i: 42, s: "", 0);
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void bar(({int i, String s}, int j,)) {}
+//                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  A();
-  C();
+  ({int i, String s}, int,) r1 = (i: 42, s: "", 0);
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  ({int i, String s}, int j) r2 = (i: 42, s: "", 0);
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

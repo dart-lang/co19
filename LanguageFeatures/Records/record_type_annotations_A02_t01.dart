@@ -32,6 +32,8 @@
 /// implements, with, or mixin on clause, which is enforced by being a
 /// production in `type` and not `typeNotVoid`.
 ///
+/// The type () is the type of an empty record with no fields
+///
 /// @description Checks that it is a compile-time error if record type
 /// annotation has `required` keyword
 /// @author sgrekhov22@gmail.com

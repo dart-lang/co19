@@ -6,7 +6,7 @@
 ///
 /// literal      ::= record
 ///                | // Existing literal productions...
-/// record       ::= 'const'? '(' recordField ( ',' recordField )* ','? ')'
+/// record       ::= 'const'? (' recordField ( ',' recordField )* ','? ')'
 /// recordField  ::= (identifier ':' )? expression
 ///
 /// This is identical to the grammar for a function call argument list. There
@@ -25,22 +25,18 @@
 /// field. For example: ('pos', $0: 'named') since the named field '$0' collides
 /// with the getter for the first positional field.
 ///
-/// @description Checks that it is a compile-time error if a record has the same
-/// field name more than once
+/// @description Checks that record expression may be constant
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-Record foo() => (42, name: "Lily was here", name: "Hello");
-//                                          ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+const r1 = const (3.14, name: "pi");
 
-void bar(Record r) {}
+class C {
+  static const c1 = r1;
+  static const c2 = const (2.718, name: "e");
+}
 
 main() {
-  bar((x: 42, x: 42));
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  var record1 = const (1, 2, 3,);
 }
