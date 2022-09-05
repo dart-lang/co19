@@ -15,17 +15,15 @@
 
 // SharedOptions=--enable-experiment=records
 
+import "../../Utils/static_type_helper.dart";
+
 typedef R = (int a, String, {int x, int y});
 
 main() {
   R r1 = (1, "", x: 3, y: 42);
-  String s1 = r1.$0;
-//               ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  r1.$0.expectStaticType<Exactly<int>>();
+  r1.$1.expectStaticType<Exactly<String>>();
 
-  String s2 = (name: "pi", value: 3.14).$1;
-//                                      ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  var r2 = (value: 3.14, "pi",);
+  r2.$0.expectStaticType<Exactly<String>>();
 }

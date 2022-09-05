@@ -27,4 +27,9 @@ main() {
 //          ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  var t3 = (int i, String s);
+//         ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

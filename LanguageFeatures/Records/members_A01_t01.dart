@@ -18,7 +18,8 @@ import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue((42, "Answer").runtimeType is Type);
-  Expect.isTrue((null, name: "Null").hashCode > 0);
+  Expect.isTrue((null, name: "Null").hashCode is int);
   Expect.isTrue((3, 1, 4, "Pi").toString() is String);
   Expect.isTrue((2.71, "e").noSuchMethod is Function);
+  Expect.isTrue((3.14, name: "pi") == (name: "pi", 3.14));
 }

@@ -19,7 +19,5 @@ import "../../Utils/expect.dart";
 
 main() {
   var t1 = (int, String);
-  var t2 = (int i, String s);
   Expect.isTrue(t1 is (Type, Type));
-  Expect.isTrue(t2 is (Type, Type));
 }
