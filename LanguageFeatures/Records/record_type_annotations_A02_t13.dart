@@ -32,28 +32,49 @@
 /// implements, with, or mixin on clause, which is enforced by being a
 /// production in `type` and not `typeNotVoid`.
 ///
-/// @description Checks that records may have metadata
+/// @description Checks that it is a compile-time error if `var` keyword is used
+/// instead of type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-class Meta {
-  const Meta();
-}
+typedef R1 = (var i,);
+//            ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef R1 = (@Meta() int i, @Meta() String s);
-typedef R2 = (@Meta() int i,{@Meta() String s});
-typedef R3 = ({@Meta() int i, @Meta() String s});
+typedef R2 = ({var s});
+//             ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef (@Meta() int i, {@Meta() String s}) R4();
-typedef void R5((@Meta() int i, {@Meta() String s}));
+typedef (var i,) R3();
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-(@Meta() int i, {@Meta() String s}) foo() => (42, s: "");
+typedef void R5(({var s}));
+//                ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-void bar((@Meta() int i, {@Meta() String s})) {}
+  (var i,) foo() => (null, );
+// ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void bar(({var s})) {}
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  (@Meta() int i, @Meta() String s) r1 = (42, "");
-  (@Meta() int i, {@Meta() String s}) r2 = (42, s: "");
-  ({@Meta() int i, @Meta() String s}) r3 = (i: 42, s: "");
+  (var i,) r1 = (null, );
+// ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ({var s}) r3 = (s: null);
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

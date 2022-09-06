@@ -66,7 +66,7 @@ Record foo7() => (1, 2, n: 3, 4,,);
 // [analyzer] unspecified
 // [cfe] unspecified
 
-dynamic bar(Record r) => r
+dynamic bar(Record r) => r;
 
 main() {
   var r1 = (1,,);
