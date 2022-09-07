@@ -32,28 +32,24 @@
 /// implements, with, or mixin on clause, which is enforced by being a
 /// production in `type` and not `typeNotVoid`.
 ///
-/// @description Checks that records may have metadata
+/// @description Checks that records itself may be nullable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-class Meta {
-  const Meta();
-}
+typedef R1 = (int? i, String? s)?;
+typedef R2 = (int? i,{String? s})?;
+typedef R3 = ({int? i, String? s})?;
 
-typedef R1 = (@Meta() int i, @Meta() String s);
-typedef R2 = (@Meta() int i,{@Meta() String s});
-typedef R3 = ({@Meta() int i, @Meta() String s});
+typedef (int? i, {String? s})? R4();
+typedef void R5((int? i, {String? s})?);
 
-typedef (@Meta() int i, {@Meta() String s}) R4();
-typedef void R5((@Meta() int i, {@Meta() String s}));
+(int? i, {String? s})? foo() => null;
 
-(@Meta() int i, {@Meta() String s}) foo() => (42, s: "");
-
-void bar((@Meta() int i, {@Meta() String s})) {}
+void bar((int? i, {String? s})?) {}
 
 main() {
-  (@Meta() int i, @Meta() String s) r1 = (42, "");
-  (@Meta() int i, {@Meta() String s}) r2 = (42, s: "");
-  ({@Meta() int i, @Meta() String s}) r3 = (i: 42, s: "");
+  (int? i, String? s)? r1 = null;
+  (int? i, {String? s})? r2 = null;
+  ({int? i, String? s})? r3 = null;
 }

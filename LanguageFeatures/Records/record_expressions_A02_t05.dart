@@ -25,37 +25,17 @@
 /// field. For example: ('pos', $0: 'named') since the named field '$0' collides
 /// with the getter for the first positional field.
 ///
-/// @description Checks that it is no error if a record has trailing commas
+/// @description Checks that it is no error if a record has one named field with
+/// no trailing comma
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-import "../../Utils/expect.dart";
+Record foo1() => (one: 1);
 
-Record foo1() => (1, 2,);
-
-Record foo2() => ((2), (3),);
-
-Record foo3() => ((3, n: 4,), n2: "", true,);
-
-dynamic bar(Record r) => r;
+void bar(Record r) {}
 
 main() {
-  var r1 = (1, n: "n",);
-  var r2 = ((2), 3,);
-  var r3 = ((3,), n: Record.empty, (4),);
-
-  Expect.equals(1, r1.$0);
-  Expect.equals("n", r1.n);
-  Expect.equals(2, r2.$0);
-  Expect.equals(3, r2.$1);
-  Expect.equals(3, r3.$0.$0);
-  Expect.equals(4, r3.$1);
-  Expect.equals(Record.empty, r3.n);
-
-  Expect.equals((1, 2), foo1());
-  Expect.equals((2, 3), foo2());
-  Expect.equals(((3, n: 4), n2: "", true), foo3());
-  Expect.equals(("Hello", 1), bar(("Hello", 1,)));
-  Expect.equals((n1: "n1", n2: "n2"), bar((n1: "n1", n2: "n2",));
+  var r1 = (name: "n");
+  bar((x: 0));
 }

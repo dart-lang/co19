@@ -39,7 +39,7 @@ Record foo2() => ((2),);
 
 Record foo3() => ((3,),);
 
-dynamic bar(Record r) => r
+dynamic bar(Record r) => r;
 
 main() {
   var r1 = (1,);
