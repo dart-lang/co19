@@ -6,8 +6,7 @@
 /// same way it does for instances of generic classes (which are covariant in 
 /// Dart just like record fields are) and collection literals.
 ///
-/// @description Checks type inference for records. Test records with positional
-/// fields only
+/// @description Checks type inference for records.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
@@ -20,4 +19,16 @@ main() {
 
   final r2 = (null, 3.14);
   r2.expectStaticType<Exactly<(Null, double)>>();
+
+  var r3 = (42, s: "");
+  r3.expectStaticType<Exactly<(int, {String s})>>();
+
+  final r4 = (null, d: 3.14);
+  r4.expectStaticType<Exactly<(Null, {double d})>>();
+
+  var r5 = (i: 42, s: "");
+  r5.expectStaticType<Exactly<({int i, String s})>>();
+
+  final r6 = (n: null, d: 3.14);
+  r6.expectStaticType<Exactly<({Null n, double d})>>();
 }
