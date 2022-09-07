@@ -38,10 +38,10 @@ main() {
   (double, {String x}) a2 = (3.14, x: "s");
   (int, {List<int> x}) b2 = (42, x: []);
   var c2 = 1 > 2 ? a2 : b2;
-  c2.expectStaticType<Exactly<(num, Object)>>();
+  c2.expectStaticType<Exactly<(num, {Object x})>>();
 
   ({String s, Null n}) a3 = (n: null, s: "s");
   ({List<int> s, String n}) b3 = (n: "n", s: []);
   var c3 = 1 > 2 ? a3 : b3;
-  c3.expectStaticType<Exactly<(Object, String?)>>();
+  c3.expectStaticType<Exactly<({Object s, String? n})>>();
 }
