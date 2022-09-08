@@ -43,15 +43,20 @@ Record foo() {
   return (x++, 1.1 + x, s);
 }
 
-class C {
+class A {
+  Record ar;
+  A(this.ar);
+}
+
+class C extends A {
   static int ci = 42;
   static final sr = (ci, C.ci, i);
 
   int cx = 1;
   Record cr;
 
-  C(this.cr);
-  C.c1(): cr = (s: s);
+  C(this.cr): super((i, name: "answer"));
+  C.c1(): cr = (s: s), super((pi, name: "pi"));
 
   Record m() {
     int _x0 = 1;
@@ -75,6 +80,8 @@ main() {
   Expect.equals(s, c1.cr.s);
   Expect.equals(i, c.cr.$0);
   Expect.equals(s, c.cr.s);
+  Expect.equals("answer", c.ar.name);
+  Expect.equals(i, c.ar.$0);
   Expect.equals(C.ci, C.sr.$0);
   Expect.equals(C.ci, C.sr.$1);
   Expect.equals(i, C.sr.$2);
@@ -83,5 +90,7 @@ main() {
   Expect.equals(2, c1.m().$1);
   Expect.equals(c1.cx, c1.g.$0);
   Expect.equals(c1.cr, c1.g.x);
+  Expect.equals("pi", c1.ar.name);
+  Expect.equals(pi, c1.ar.$0);
   Expect.equals(Expect.equals, r.$0);
 }
