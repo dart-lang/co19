@@ -18,4 +18,8 @@ main() {
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  var x = (int, {String s})();
+//        ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
