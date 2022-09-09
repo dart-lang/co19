@@ -49,4 +49,8 @@ main() {
   var r7 = ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
   var r8 = ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3, 4});
   Expect.isFalse(identical(r7, r8));
+
+  var r9 = ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
+  var r10 = ("a", 1, l: [42], m: {"x": 1}, set: {1, 2, 3});
+  Expect.isFalse(identical(r9, r10));
 }
