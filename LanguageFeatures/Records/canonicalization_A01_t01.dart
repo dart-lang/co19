@@ -23,8 +23,8 @@
 /// key/value values are identical() between the instances, to them being
 /// structurally equivalent.
 ///
-/// @description Checks that `identical()` is true for records if they are
-/// structurally equivalent
+/// @description Checks that if records are structurally equivalent then
+/// `identical()` may be both true and false
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
@@ -34,13 +34,13 @@ import "../../Utils/expect.dart";
 main() {
   var r1 = ("a", 1, [42], {"x": 0}, {1, 2, 3});
   var r2 = ("a", 1, [42], {"x": 0}, {1, 2, 3},);
-  Expect.identical(r1, r2);
+  Expect.isTrue(identical(r1, r2) || !identical(r1, r2));
 
   var r3 = (s: "a", n: 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
   var r4 = (set: {1, 2, 3}, n: 1, l: [42], s: "a", m: {"x": 0}, );
-  Expect.identical(r3, r4);
+  Expect.isTrue(identical(r3, r4) || !identical(r3, r4));
 
   var r5 = ("a", 1, [42], m: {"x": 0}, s: {1, 2, 3}, n: 3.14, st: "Hi");
   var r6 = (m: {"x": 0}, "a", s: {1, 2, 3}, n: 3.14, st: "Hi", 1, [42]);
-  Expect.identical(r5, r6);
+  Expect.isTrue(identical(r5, r6) || !identical(r5, r6));
 }

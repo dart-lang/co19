@@ -23,38 +23,47 @@
 /// key/value values are identical() between the instances, to them being
 /// structurally equivalent.
 ///
-/// @description Checks that `identical()` is false for records if they are not
-/// structurally equivalent
+/// This change allows a class like:
+///
+/// class C {
+///   final (int, int) pair;
+///   const C(int x, int y) : pair = (x, y);
+/// }
+/// to be properly canonicalized for objects with the same effective state,
+/// independently of whether identical() returns true or false on the pair value.
+///
+/// @description Checks canonicalization of the object containing records
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
 import "../../Utils/expect.dart";
 
+class C1 {
+  final (int, int) pair;
+  const C1(int x, int y) : pair = (x, y);
+}
+
+class C2 {
+  final (int, {int second}) pair;
+  const C2(int x, int y) : pair = (x, second: y);
+}
+
+class C2 {
+  final ({int first, int second}) pair;
+  const C2(int x, int y) : pair = (first: x, second: y);
+}
+
 main() {
-  if (!isJS) {
-    var r1 = ("a", 1, [42], {"x": 0}, {1, 2, 3});
-    var r2 = ("a", 1.0, [42], {"x": 0}, {1, 2, 3},);
-    Expect.isFalse(identical(r1, r2));
-  }
+  const c1 = C1(1, 2);
+  const c2 = C1(1, 2);
+  Expect.identical(c1, c2);
 
-  var r3 = (s: "a", n: 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
-  var r4 = (notS: "a", n: 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
-  Expect.isFalse(identical(r3, r4));
+  const c3 = C2(1, 2);
+  const c4 = C2(1, 2);
+  Expect.identical(c3, c4);
 
-  var r5 = ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
-  var r6 = (1, l: [42], m: {"x": 0}, set: {1, 2, 3});
-  Expect.isFalse(identical(r5, r6));
-
-  var r7 = ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
-  var r8 = ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3, 4});
-  Expect.isFalse(identical(r7, r8));
-
-  var r9 = ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
-  var r10 = ("a", 1, l: [42], m: {"x": 1}, set: {1, 2, 3});
-  Expect.isFalse(identical(r9, r10));
-
-  int i = 1;
-  int j = 2;
-  Expect.isFalse(identical([1, 2, 3],), ([i, j, i + j],));
+  const c5 = C3(1, 2);
+  const c6 = C3(1, 2);
+  Expect.identical(c5, c6);
 }
