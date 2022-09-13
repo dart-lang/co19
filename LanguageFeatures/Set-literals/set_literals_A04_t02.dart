@@ -67,7 +67,7 @@ main() {
 //                             ^^^^^^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.RETURN_OF_INVALID_TYPE
 // [cfe] A value of type 'Set<C>' can't be returned from a function with return type 'LinkedHashSet<C>'.
-  LinkedHashSet<C> test13() => <C>{new C()}
+  LinkedHashSet<C> test13() => <C>{new C()};
 //                             ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
