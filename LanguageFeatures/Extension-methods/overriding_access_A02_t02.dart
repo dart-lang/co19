@@ -18,15 +18,15 @@ main() {
   testlib.MySimpleExt("testme").test();
 
   bool res1 = testlib.MySimpleExt("testme").isInt;
-  //                                        ^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_GETTER
-  // [cfe] Member not found: 'isInt'.
+//                                          ^^^^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_GETTER
+// [cfe] Member not found: 'isInt'.
   var res2 = testlib.MySimpleExt("testme").getTest();
-  //                                       ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_METHOD
-  // [cfe] Method not found: 'getTest'.
+//                                         ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_METHOD
+// [cfe] Method not found: 'getTest'.
   testlib.MySimpleExt("testme").put(11);
-  //                            ^^^
-  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_METHOD
-  // [cfe] Method not found: 'put'.
+//                              ^^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_METHOD
+// [cfe] Method not found: 'put'.
 }

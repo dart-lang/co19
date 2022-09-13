@@ -15,7 +15,6 @@
 /// emptySetOrMapLiteral has a typeArguments with more than two type arguments.
 /// @author sgrekhov@unipro.ru
 
-
 var v1 = <int, String, Object> {};
 //       ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
@@ -27,11 +26,11 @@ var v2 = const <int, String, Object> {};
 
 main() {
   var x1 = <int, String, Object> {};
-  //       ^^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+//         ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
   var x2 = const <int, String, Object> {};
-  //             ^^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+//               ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
 }

@@ -17,7 +17,7 @@ double? d2 = null;
 
 main() {
   d2 ??= foo();
-  //     ^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
+//       ^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
 }

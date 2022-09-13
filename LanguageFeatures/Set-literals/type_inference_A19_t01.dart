@@ -13,7 +13,6 @@
 /// @description Checks that otherwise it is an error
 /// @author sgrekhov@unipro.ru
 
-
 main() {
   String? s = "Let it be";
   var x1 = <int, String>{...s};

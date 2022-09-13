@@ -23,21 +23,21 @@ main() {
   FutureOr x9 = 4;
 
   Map m1 = {...x1};
-  //           ^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
-  // [cfe] Unexpected type 'Object' of a map spread entry.  Expected 'dynamic' or a Map.
+//             ^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
+// [cfe] Unexpected type 'Object' of a map spread entry.  Expected 'dynamic' or a Map.
   Map m2 = {...x2};
-  //       ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+//         ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   Map m3 = {...x3};
-  //       ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+//         ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   Map m4 = {...x4};
-  //           ^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
-  // [cfe] Unexpected type 'int' of a map spread entry.  Expected 'dynamic' or a Map.
+//             ^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
+// [cfe] Unexpected type 'int' of a map spread entry.  Expected 'dynamic' or a Map.
   Map m5 = {...x5};
 //         ^^^^^^^
 // [analyzer] unspecified

@@ -19,9 +19,9 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   var v3  = {,};
-  //         ^
-  // [analyzer] SYNTACTIC_ERROR.MISSING_IDENTIFIER
-  // [cfe] Expected an identifier, but got ','.
+//           ^
+// [analyzer] SYNTACTIC_ERROR.MISSING_IDENTIFIER
+// [cfe] Expected an identifier, but got ','.
   var v4  = const <int?> {,,};
 //                        ^^
 // [analyzer] unspecified

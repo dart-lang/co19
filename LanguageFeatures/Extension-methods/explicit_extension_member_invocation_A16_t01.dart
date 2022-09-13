@@ -67,7 +67,7 @@ main() {
   Expect.equals(126, c.value);
 
   c.init();
-  Extension2(c)[13] += 42;  // [] and []= from extension, + from C
+  Extension2(c)[13] += 42;// [] and []= from extension, + from C
   Expect.equals(129, c.value);
 
   c.init();

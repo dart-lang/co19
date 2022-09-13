@@ -19,16 +19,16 @@ main() {
 // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
 // [cfe] Expected 0 type arguments.
   A a2 = A<int>();
-  //     ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
-  // [cfe] Expected 0 type arguments.
+//       ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 0 type arguments.
 
   A<dynamic> a3;
 //^^^^^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
 // [cfe] Expected 0 type arguments.
   A a4 = new A<dynamic>();
-  //         ^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
-  // [cfe] Expected 0 type arguments.
+//           ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 0 type arguments.
 }

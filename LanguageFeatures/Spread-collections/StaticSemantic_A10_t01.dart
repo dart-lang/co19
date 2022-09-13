@@ -22,17 +22,17 @@ main() {
   Future x7;
 
   List l1 = [...x1];
-  //            ^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'Object' of a spread.  Expected 'dynamic' or an Iterable.
+//              ^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'Object' of a spread.  Expected 'dynamic' or an Iterable.
   List l2 = [...x2];
-  //            ^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'Map<dynamic, dynamic>' of a spread.  Expected 'dynamic' or an Iterable.
+//              ^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'Map<dynamic, dynamic>' of a spread.  Expected 'dynamic' or an Iterable.
   List l3 = [...x3];
-  //            ^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
+//              ^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
   List l4 = [...x4];
 //              ^^
 // [analyzer] unspecified

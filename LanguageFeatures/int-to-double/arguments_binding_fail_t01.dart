@@ -14,41 +14,41 @@ class C<X extends num, Y extends double> {
 
   test() {
     methodX(42);
-    //      ^^
-    // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
-    // [cfe] The argument type 'int' can't be assigned to the parameter type 'X'.
+//          ^^
+// [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] The argument type 'int' can't be assigned to the parameter type 'X'.
     methodX(0x42);
-    //      ^^^^
-    // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
-    // [cfe] The argument type 'int' can't be assigned to the parameter type 'X'.
+//          ^^^^
+// [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] The argument type 'int' can't be assigned to the parameter type 'X'.
     methodY(42);
-    //      ^^
-    // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
-    // [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
+//          ^^
+// [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
     methodY(0x42);
-    //      ^^^^
-    // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
-    // [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
+//          ^^^^
+// [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
   }
 }
 
 void foo<X extends num, Y extends double>() {
   bar1<X>(42);
-  //      ^^
-  // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] The argument type 'int' can't be assigned to the parameter type 'X'.
+//        ^^
+// [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] The argument type 'int' can't be assigned to the parameter type 'X'.
   bar1<X>(0x42);
-  //      ^^^^
-  // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] The argument type 'int' can't be assigned to the parameter type 'X'.
+//        ^^^^
+// [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] The argument type 'int' can't be assigned to the parameter type 'X'.
   bar1<Y>(42);
-  //      ^^
-  // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
+//        ^^
+// [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
   bar1<Y>(0x42);
-  //      ^^^^
-  // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
+//        ^^^^
+// [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
 
   bar2<X>(42);
 //     ^
@@ -59,13 +59,13 @@ void foo<X extends num, Y extends double>() {
 // [analyzer] unspecified
 // [cfe] unspecified
   bar2<Y>(42);
-  //      ^^
-  // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
+//        ^^
+// [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
   bar2<Y>(0x42);
-  //      ^^^^
-  // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
+//        ^^^^
+// [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
 }
 
 void bar1<X extends num>(X x) {}

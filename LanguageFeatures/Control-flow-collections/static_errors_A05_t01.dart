@@ -13,11 +13,11 @@
 
 main() {
   [for (var i in "not iterable") i];
-  //             ^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.FOR_IN_OF_INVALID_TYPE
-  // [cfe] The type 'String' used in the 'for' loop must implement 'Iterable<dynamic>'.
+//               ^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.FOR_IN_OF_INVALID_TYPE
+// [cfe] The type 'String' used in the 'for' loop must implement 'Iterable<dynamic>'.
   [for (var i in 3.14) i];
-  //             ^^^^
-  // [analyzer] COMPILE_TIME_ERROR.FOR_IN_OF_INVALID_TYPE
-  // [cfe] The type 'double' used in the 'for' loop must implement 'Iterable<dynamic>'.
+//               ^^^^
+// [analyzer] COMPILE_TIME_ERROR.FOR_IN_OF_INVALID_TYPE
+// [cfe] The type 'double' used in the 'for' loop must implement 'Iterable<dynamic>'.
 }

@@ -13,23 +13,23 @@
 
 main() {
   <int, int>{if (true) 1: "not int"};
-  //                      ^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+//                        ^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
   Map<int, int> m1 = {if (true) 1: "not int"};
-  //                               ^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+//                                 ^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
   const <int, int>{if (true) 1: "not int"};
-  //                            ^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+//                              ^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
   <int, int>{for (var i in []) 1: "not int"};
-  //                              ^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+//                                ^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
   Map<int, int> m2 = {for (var i in []) 1: "not int"};
-  //                                       ^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+//                                         ^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
 }

@@ -28,13 +28,13 @@ main() {
   var iterable = [1, 2];
   var map = {1: 2};
   var ambiguous1 = {...iterable, ...map};
-  //               ^^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
-  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+//                 ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
+// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
 
   dynamic dyn;
   var ambiguous2 = {...dyn};
-  //               ^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-  // [cfe] Not enough type information to disambiguate between literal set and literal map.
+//                 ^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+// [cfe] Not enough type information to disambiguate between literal set and literal map.
 }

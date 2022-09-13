@@ -26,9 +26,9 @@ int? i2 = 25;
 
 main() {
   const Map res1= const {...?l1};
-  //              ^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+//                ^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   const Map res2 = const {...?l2};
 //                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified

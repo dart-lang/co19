@@ -23,13 +23,13 @@ class C extends B {
 main() {
   var x;
   var v1 = const {1, 2, '3', new A()};
-  //                         ^^^^^^^
+//                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var v2 = const [const B(), const C(), const A(), x];
-  //                                               ^
-  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-  // [cfe] Not a constant expression.
+//                                                 ^
+// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+// [cfe] Not a constant expression.
   const v3 = {1, 2, '3', new A()};
 //                       ^^^^^^^
 // [analyzer] unspecified

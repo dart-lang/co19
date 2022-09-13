@@ -27,22 +27,22 @@ main() {
   C c = new C();
 
   List list1 = <int>[...str_list];
-  //                    ^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] Can't assign spread elements of type 'String' to collection elements of type 'int'.
+//                      ^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] Can't assign spread elements of type 'String' to collection elements of type 'int'.
   List list2 = <int>[1, 2, ...a_list, 14];
-  //                          ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] Can't assign spread elements of type 'A' to collection elements of type 'int'.
+//                            ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] Can't assign spread elements of type 'A' to collection elements of type 'int'.
   List list3 = <int>[1, 14, 0, ...c_list];
-  //                              ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] Can't assign spread elements of type 'C' to collection elements of type 'int'.
+//                                ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] Can't assign spread elements of type 'C' to collection elements of type 'int'.
 
   List list4 = <A>[...int_list];
-  //                  ^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] Can't assign spread elements of type 'int' to collection elements of type 'A'.
+//                    ^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] Can't assign spread elements of type 'int' to collection elements of type 'A'.
   List list5 = <A>[...?str_list];
 //                     ^^^^^^^^
 // [analyzer] unspecified

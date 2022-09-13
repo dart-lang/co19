@@ -29,8 +29,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   const List l4 = [...x4];
-  //              ^
-  // [cfe] Constant evaluation error:
-  //                  ^^
-  // [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_LIST_OR_SET
+//                ^
+// [cfe] Constant evaluation error:
+//                    ^^
+// [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_LIST_OR_SET
 }

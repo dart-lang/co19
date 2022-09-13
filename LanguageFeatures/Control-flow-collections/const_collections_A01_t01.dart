@@ -15,42 +15,42 @@
 main() {
   var x = 1;
   List<int> list1 = const [if (1 > 0) x, 1 ];
-  //                                  ^
-  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-  // [cfe] Not a constant expression.
+//                                    ^
+// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+// [cfe] Not a constant expression.
   const List<int> list2 = [if (1 > 0) x, 1 ];
 //                                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
   var list3 = const [if (1 > 0) x, 1, ];
-  //                            ^
-  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-  // [cfe] Not a constant expression.
+//                              ^
+// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+// [cfe] Not a constant expression.
   var list4 = const <int>[if (1 > 0) x, 1, ];
-  //                                 ^
-  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-  // [cfe] Not a constant expression.
+//                                   ^
+// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+// [cfe] Not a constant expression.
   const list5 = [if (1 > 0) x, 1 ];
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   Set<int> set1 = const {if (1 > 0) x, -1 };
-  //                                ^
-  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
-  // [cfe] Not a constant expression.
+//                                  ^
+// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
+// [cfe] Not a constant expression.
   const Set<int> set2 = {if (1 > 0) x, -1 };
 //                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
   var set3 = const {if (1 > 0) x, -1, };
-  //                           ^
-  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
-  // [cfe] Not a constant expression.
+//                             ^
+// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
+// [cfe] Not a constant expression.
   var set4 = const <int>{if (1 > 0) x, -1, };
-  //                                ^
-  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
-  // [cfe] Not a constant expression.
+//                                  ^
+// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
+// [cfe] Not a constant expression.
   const set5 = {if (1 > 0) x, -1 };
 //                         ^
 // [analyzer] unspecified

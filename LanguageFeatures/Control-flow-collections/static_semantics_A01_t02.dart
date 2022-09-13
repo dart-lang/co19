@@ -17,54 +17,54 @@ main() {
   var collection = <double>[3, 1.1, 4, 1, 5];
 
   List<int> list1 = [if (b) 1.1];
-  //                        ^^^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
+//                          ^^^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
   List<int> list2 = [if (!b) 1.1,];
-  //                         ^^^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
+//                           ^^^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
   List<int> list3 = [if (b) for (var v in collection) if (v > 3) v,];
-  //                                                             ^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
+//                                                               ^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
   List<int> list4 = [if (!b) for (var v in collection) if (v > 3) v];
-  //                                                              ^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
+//                                                                ^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
 
   List lis5t = <int>[if (b) 1.1];
-  //                        ^^^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
+//                          ^^^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
   List list6 = <int>[if (!b) 1.1,];
-  //                         ^^^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
+//                           ^^^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
   List list7 = <int>[if (b) for (var v in collection) if (v > 3) v,];
-  //                                                             ^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
+//                                                               ^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
   List list8 = <int>[if (!b) for (var v in collection) if (v > 3) v];
-  //                                                              ^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
+//                                                                ^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
 
   const list9 = <int>[if (1 > 2) 1.1];
-  //                             ^^^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
+//                               ^^^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
   const list10 = <int>[if (2 > 1) 1.1,];
-  //                              ^^^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
+//                                ^^^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
 
   var list11 = const <int>[if (1 > 2) 1.1];
-  //                                  ^^^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
+//                                    ^^^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
   var list12 = const <int>[if (2 > 1) 1.1,];
-  //                                  ^^^
-  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
+//                                    ^^^
+// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'double' can't be assigned to a variable of type 'int'.
 }

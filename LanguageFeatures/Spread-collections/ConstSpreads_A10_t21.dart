@@ -36,18 +36,18 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   const res3  = {...?l1, 123: 2};
-  //            ^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
-  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+//              ^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
+// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   const res4  = {14: 3, ...?s1};
-  //            ^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
-  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+//              ^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
+// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   const res5  = {...?m1, 13};
-  //            ^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
-  //                 ^
-  // [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
+//              ^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
+//                   ^
+// [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
   const res6  = {...?m2};
 //                   ^^
 // [analyzer] unspecified
@@ -61,11 +61,11 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   const res9  = {...?n};
-  //            ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-  // [cfe] Not enough type information to disambiguate between literal set and literal map.
+//              ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+// [cfe] Not enough type information to disambiguate between literal set and literal map.
   const res10 = {...?null};
-  //            ^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-  // [cfe] Not enough type information to disambiguate between literal set and literal map.
+//              ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+// [cfe] Not enough type information to disambiguate between literal set and literal map.
 }

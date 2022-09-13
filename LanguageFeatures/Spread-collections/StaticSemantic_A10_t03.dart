@@ -21,27 +21,27 @@ main() {
   FutureOr x6;
 
   List l1 = [...?x1];
-  //             ^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'Object?' of a spread.  Expected 'dynamic' or an Iterable.
+//               ^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'Object?' of a spread.  Expected 'dynamic' or an Iterable.
   List l2 = [...?x2];
-  //             ^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
+//               ^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
   List l3 = [...?x3];
-  //             ^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'int?' of a spread.  Expected 'dynamic' or an Iterable.
+//               ^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'int?' of a spread.  Expected 'dynamic' or an Iterable.
   List l4 = [...?x4];
-  //             ^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'void' of a spread.  Expected 'dynamic' or an Iterable.
+//               ^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'void' of a spread.  Expected 'dynamic' or an Iterable.
   List l5 = [...?x5];
-  //             ^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'Future<dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
+//               ^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'Future<dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
   List l6 = [...?x6];
-  //             ^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'FutureOr<dynamic>' of a spread.  Expected 'dynamic' or an Iterable.
+//               ^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'FutureOr<dynamic>' of a spread.  Expected 'dynamic' or an Iterable.
 }

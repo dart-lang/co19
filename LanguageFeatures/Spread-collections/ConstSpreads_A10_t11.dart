@@ -20,20 +20,20 @@ class MyClass {
 
 main() {
   const Set s1 = {...?(MyClass(12345) is MyClass ? [12] as List? : [])};
-  //             ^
-  // [cfe] Constant evaluation error:
-  //                   ^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
+//               ^
+// [cfe] Constant evaluation error:
+//                     ^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
   const Set s2 = {...?(MyClass(12345) is MyClass ? {12} as Set? : <int>{})};
-  //             ^
-  // [cfe] Constant evaluation error:
-  //                   ^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
+//               ^
+// [cfe] Constant evaluation error:
+//                     ^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
   const Set s3 = {...?(MyClass(12345) is MyClass ? {12} : null)};
-  //             ^
-  // [cfe] Constant evaluation error:
-  //                   ^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
+//               ^
+// [cfe] Constant evaluation error:
+//                     ^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
   const Set s4 = {...?(MyClass(12345) is MyClass ? {null} : 1)};
 //                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

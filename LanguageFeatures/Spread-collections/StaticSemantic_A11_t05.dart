@@ -18,9 +18,9 @@ main() {
   const x5 = null;
 
   const Map m1 = {...x1};
-  //             ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+//               ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   const Map m2 = {...x2};
 //               ^^^^^^^
 // [analyzer] unspecified
@@ -34,8 +34,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map m5 = {...x5};
-  //        ^
-  // [cfe] Constant evaluation error:
-  //                 ^^
-  // [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_MAP
+//          ^
+// [cfe] Constant evaluation error:
+//                   ^^
+// [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_MAP
 }

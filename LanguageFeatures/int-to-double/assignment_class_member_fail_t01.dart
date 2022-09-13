@@ -24,9 +24,9 @@ class C {
 
 main() {
   C.s = foo();
-  //    ^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+//      ^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
   C?.s = foo();
 //       ^^^^^
 // [analyzer] unspecified
@@ -40,9 +40,9 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   C.staticSetter = foo();
-  //               ^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+//                 ^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
   C?.staticSetter = foo();
 //                  ^^^^^
 // [analyzer] unspecified
@@ -50,22 +50,22 @@ main() {
 
   C? c = null;
   c?.m1 = foo();
-  // ^^
-  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_SETTER
-  // [cfe] The setter 'm1' isn't defined for the class 'C'.
+//   ^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_SETTER
+// [cfe] The setter 'm1' isn't defined for the class 'C'.
   c?.instanceSetter = foo();
-  //                  ^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+//                    ^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
   c = new C();
   c.m1 = foo();
-  //^^
-  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_SETTER
-  // [cfe] The setter 'm1' isn't defined for the class 'C'.
+//  ^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_SETTER
+// [cfe] The setter 'm1' isn't defined for the class 'C'.
   c.instanceSetter = foo();
-  //                 ^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+//                   ^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
   c?.m1 = foo();
 //   ^^
 // [analyzer] unspecified

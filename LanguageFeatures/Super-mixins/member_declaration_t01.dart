@@ -25,23 +25,23 @@ class C {}
 
 mixin M1 on B, C implements I, J {
   int M1 = 1;
-  //  ^^
-  // [analyzer] SYNTACTIC_ERROR.MEMBER_WITH_CLASS_NAME
-  // [cfe] A class member can't have the same name as the enclosing class.
+//    ^^
+// [analyzer] SYNTACTIC_ERROR.MEMBER_WITH_CLASS_NAME
+// [cfe] A class member can't have the same name as the enclosing class.
 }
 
 mixin M2 on B, C implements I, J {
   int get M2;
-  //      ^^
-  // [analyzer] SYNTACTIC_ERROR.MEMBER_WITH_CLASS_NAME
-  // [cfe] A class member can't have the same name as the enclosing class.
+//        ^^
+// [analyzer] SYNTACTIC_ERROR.MEMBER_WITH_CLASS_NAME
+// [cfe] A class member can't have the same name as the enclosing class.
 }
 
 mixin M3 on B, C implements I, J {
   void set M3(p);
-  //       ^^
-  // [analyzer] SYNTACTIC_ERROR.MEMBER_WITH_CLASS_NAME
-  // [cfe] A class member can't have the same name as the enclosing class.
+//         ^^
+// [analyzer] SYNTACTIC_ERROR.MEMBER_WITH_CLASS_NAME
+// [cfe] A class member can't have the same name as the enclosing class.
 }
 
 mixin M4 on B, C implements I, J {

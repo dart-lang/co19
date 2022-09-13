@@ -38,10 +38,10 @@ test<T extends Object>(FutureOr<T> t) {
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   List<FutureOr<T>> clist = [t, t];
   List<FutureOr<T>> alist = [t, t, ...? clist];
-  //                               ^^^^
-  // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-  //                                    ^
-  // [cfe] Operand of null-aware operation '...?' has type 'List<FutureOr<T>>' which excludes null.
+//                                 ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                      ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<FutureOr<T>>' which excludes null.
 }
 
 main() {

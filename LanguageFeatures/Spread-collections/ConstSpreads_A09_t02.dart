@@ -50,8 +50,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   const List res7  = const [...n];
-  //                 ^
-  // [cfe] Constant evaluation error:
-  //                           ^
-  // [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_LIST_OR_SET
+//                   ^
+// [cfe] Constant evaluation error:
+//                             ^
+// [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_LIST_OR_SET
 }

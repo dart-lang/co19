@@ -10,7 +10,6 @@
 /// collections
 /// @author sgrekhov@unipro.ru
 
-
 main() {
   List<int> list1 = const [for (var i = 1; i < 4; i++) i];
 //                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -33,21 +32,21 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   List<int> list6 = const [for (var i in [1, 2, 3]) i];
-  //                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-  // [cfe] 'for' is not supported in constant expressions.
+//                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+// [cfe] 'for' is not supported in constant expressions.
   const List<int> list7 = [for (var i in [1, 2, 3]) i];
 //                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var list8 = const [for (var i in [1, 2, 3]) i];
-  //                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-  // [cfe] 'for' is not supported in constant expressions.
+//                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+// [cfe] 'for' is not supported in constant expressions.
   var list9 = const <int>[for (var i in [1, 2, 3]) i];
-  //                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-  // [cfe] 'for' is not supported in constant expressions.
+//                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+// [cfe] 'for' is not supported in constant expressions.
   const list10 = [for (var i in [1, 2, 3]) i];
 //                ^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -74,9 +73,9 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   Set<int> set6 = const {for (var i in [1, 2, 3]) i};
-  //                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
-  // [cfe] 'for' is not supported in constant expressions.
+//                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
+// [cfe] 'for' is not supported in constant expressions.
   const Set<int> set7 = {for (for (var i in [1, 2, 3]) i};
 //                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -134,5 +133,4 @@ main() {
 //               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 }

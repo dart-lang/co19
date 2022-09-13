@@ -20,17 +20,17 @@ class A {
 class C extends A {
   test() {
     super.m1 = foo();
-    //         ^^^^^
-    // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-    // [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
+//             ^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
     super.m1 ??= foo();
-    //           ^^^^^
-    // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-    // [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
+//               ^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
     super.instanceSetter = foo();
-    //                     ^^^^^
-    // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-    // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+//                         ^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
   }
 }
 

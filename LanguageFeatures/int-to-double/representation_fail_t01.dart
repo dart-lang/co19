@@ -22,21 +22,21 @@ double d1 = 18446744073709551615;
 
 class C {
   static double d2 = 18446744073709551615;
-  //                 ^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INTEGER_LITERAL_IMPRECISE_AS_DOUBLE
-  // [cfe] The integer literal 18446744073709551615 can't be represented in 64 bits.
+//                   ^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INTEGER_LITERAL_IMPRECISE_AS_DOUBLE
+// [cfe] The integer literal 18446744073709551615 can't be represented in 64 bits.
 
   double d3 = 18446744073709551615;
-  //          ^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INTEGER_LITERAL_IMPRECISE_AS_DOUBLE
-  // [cfe] The integer literal 18446744073709551615 can't be represented in 64 bits.
+//            ^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INTEGER_LITERAL_IMPRECISE_AS_DOUBLE
+// [cfe] The integer literal 18446744073709551615 can't be represented in 64 bits.
 }
 
 main() {
   double d4 = 18446744073709551615;
-  //          ^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INTEGER_LITERAL_IMPRECISE_AS_DOUBLE
-  // [cfe] The integer literal 18446744073709551615 can't be represented in 64 bits.
+//            ^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INTEGER_LITERAL_IMPRECISE_AS_DOUBLE
+// [cfe] The integer literal 18446744073709551615 can't be represented in 64 bits.
 
   new C();
 }

@@ -17,20 +17,20 @@ class A<T extends A<T>> {
 
 main() {
   const a1 = A<dynamic>();
-  //         ^
-  // [cfe] Type argument 'dynamic' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-  //           ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//           ^
+// [cfe] Type argument 'dynamic' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+//             ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   const a2 = A<Object?>();
-  //         ^
-  // [cfe] Type argument 'Object?' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-  //           ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//           ^
+// [cfe] Type argument 'Object?' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+//             ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   const a3 = A<void>();
-  //         ^
-  // [cfe] Type argument 'void' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-  //           ^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//           ^
+// [cfe] Type argument 'void' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+//             ^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   const a4 = A<Null>();
 //             ^^^^
 // [analyzer] unspecified
@@ -38,20 +38,20 @@ main() {
   const a5 = A<Never>();
 
   const a6 = A<A<dynamic>>();
-  //         ^
-  // [cfe] Type argument 'A<dynamic>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-  //           ^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//           ^
+// [cfe] Type argument 'A<dynamic>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+//             ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   const a7 = A<A<Object?>>();
-  //         ^
-  // [cfe] Type argument 'A<Object?>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-  //           ^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//           ^
+// [cfe] Type argument 'A<Object?>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+//             ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   const a8 = A<A<void>>();
-  //         ^
-  // [cfe] Type argument 'A<void>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-  //           ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//           ^
+// [cfe] Type argument 'A<void>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+//             ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   const a9 = A<A<Null>>();
 //             ^^^^^^^
 // [analyzer] unspecified

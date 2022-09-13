@@ -19,16 +19,16 @@ import "dart:collection";
 
 main() {
   SplayTreeSet s1 = {};
-  //                ^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'Set<dynamic>' can't be assigned to a variable of type 'SplayTreeSet<dynamic>'.
+//                  ^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'Set<dynamic>' can't be assigned to a variable of type 'SplayTreeSet<dynamic>'.
   SplayTreeSet<int> s2 = {};
-  //                     ^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'Set<dynamic>' can't be assigned to a variable of type 'SplayTreeSet<int>'.
+//                       ^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'Set<dynamic>' can't be assigned to a variable of type 'SplayTreeSet<int>'.
   SplayTreeSet<int> s3 = <int>{};
-  //                     ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  //                          ^
-  // [cfe] A value of type 'Set<int>' can't be assigned to a variable of type 'SplayTreeSet<int>'.
+//                       ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+//                          ^
+// [cfe] A value of type 'Set<int>' can't be assigned to a variable of type 'SplayTreeSet<int>'.
 }

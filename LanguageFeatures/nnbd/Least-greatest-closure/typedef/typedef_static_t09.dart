@@ -31,24 +31,24 @@ void main() {
  // Verify that a couple of wrong argument lists are rejected.
 
   f(() => captureTypeArgument()..call('Hello'));
-  //                                  ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call(x: false));
-  //                                  ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call(null));
-  //                                  ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   // Verify that the return type is `void`: Returned value not usable,
   // not even to access a member of `Object`.
   f(() => captureTypeArgument()..call(true).toString());
-  //                             ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

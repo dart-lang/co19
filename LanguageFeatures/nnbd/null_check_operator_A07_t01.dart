@@ -27,8 +27,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   true.toString()!;
-  //   ^
-  // [cfe] Operand of null-aware operation '!' has type 'String' which excludes null.
-  //             ^
-  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//     ^
+// [cfe] Operand of null-aware operation '!' has type 'String' which excludes null.
+//               ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }

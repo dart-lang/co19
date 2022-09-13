@@ -11,10 +11,9 @@
 /// If none of these cases match, it is an error.
 ///
 /// @description Checks that it is a compile error if none of the cases
-/// (`Iterable<Object>` nor of `Map<Object, Object>`, and it's also not `dynamic`
-/// nor `Null`) match
+/// (`Iterable<Object>` nor of `Map<Object, Object>`, and it's also not
+/// `dynamic` nor `Null`) match
 /// @author sgrekhov@unipro.ru
-
 
 void test<T>(T t) {
   var s1 = {...t };
@@ -27,13 +26,13 @@ void test<T>(T t) {
 // [cfe] unspecified
 
   var s3 = {...(t as dynamic) };
-  //       ^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-  // [cfe] Not enough type information to disambiguate between literal set and literal map.
+//         ^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+// [cfe] Not enough type information to disambiguate between literal set and literal map.
   var s4 = {...?(t as dynamic)};
-  //       ^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-  // [cfe] Not enough type information to disambiguate between literal set and literal map.
+//         ^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+// [cfe] Not enough type information to disambiguate between literal set and literal map.
 }
 
 main() {

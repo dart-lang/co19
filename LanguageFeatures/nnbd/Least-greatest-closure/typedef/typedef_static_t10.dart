@@ -24,7 +24,7 @@ void main() {
   f(() => captureTypeArgument()..call().toString());
 
   f(() => captureTypeArgument()..call('Hello'));
-  //                                 ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

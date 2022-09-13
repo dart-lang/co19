@@ -37,10 +37,10 @@ test(FutureOr<Never> t) {
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   List<FutureOr<Never>> clist = [t, t];
   List<FutureOr<Never>> alist = [t, t, ...? clist];
-  //                                   ^^^^
-  // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-  //                                        ^
-  // [cfe] Operand of null-aware operation '...?' has type 'List<FutureOr<Never>>' which excludes null.
+//                                     ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                          ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<FutureOr<Never>>' which excludes null.
 }
 
 main() {

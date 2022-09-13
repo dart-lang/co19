@@ -40,17 +40,17 @@
 
 main() {
   int? aç;
-  //    ^
-  // [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
-  // [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
+//      ^
+// [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
+// [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
   String çb = "It's wrong!";
-  //     ^
-  // [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
-  // [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
+//       ^
+// [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
+// [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
   var wrong_ç;
-  //        ^
-  // [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
-  // [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
+//          ^
+// [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
+// [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
   ç;
 //^
 // [analyzer] unspecified
