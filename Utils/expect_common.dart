@@ -314,6 +314,7 @@ class Expect {
   /// ```dart
   /// Expect.isTrue(c is C);  // to test optimization
   /// Expect.runtimeIsType<C>(c); // to test runtime
+  /// ```
   static void runtimeIsType<T>(Object? o) {
     _checkType(_checkIs<T>, true, o);
   }
@@ -326,6 +327,7 @@ class Expect {
   /// ```dart
   /// Expect.isFalse(c is C); // to test optimization
   /// Expect.runtimeIsNotType<C>(c); // to test runtime
+  /// ```
   static void runtimeIsNotType<T>(Object? o) {
     _checkType(_checkIs<T>, false, o);
   }
