@@ -32,8 +32,8 @@
 import "../../Utils/expect.dart";
 
 main() {
-  var r1 = ("a", 1, [42], {"x": 0}, {1, 2, 3});
-  var r2 = ("a", 1, [42], {"x": 0}, {1, 2, 3},);
+  var r1 = ("a", 1, const [42], const {"x": 0}, const {1, 2, 3});
+  var r2 = const ("a", 1, [42], {"x": 0}, {1, 2, 3},);
   Expect.isTrue(identical(r1, r2) || !identical(r1, r2));
 
   var r3 = (s: "a", n: 1, l: [42], m: {"x": 0}, set: {1, 2, 3});

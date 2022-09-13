@@ -19,7 +19,7 @@
 ///  - If rf == of is false then false.
 /// 3. Else, true.
 ///
-/// @description Checks that records equality
+/// @description Checks record equality
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records

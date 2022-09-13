@@ -10,7 +10,7 @@
 ///
 /// @description Checks that a record expression is not a potentially constant
 /// expression if any of its field expressions is not a potentially constant
-/// or constant expressions
+/// expression (which also implies that it is not a constant expression).
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records

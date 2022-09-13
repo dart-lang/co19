@@ -15,8 +15,8 @@
 /// ```
 ///
 /// @description Checks that a record expression is not a compile-time constant
-/// expression if any ot the field expressions is not a compile-time
-/// constant expressions.
+/// expression if any of the field expressions is not a compile-time
+/// constant expression.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records

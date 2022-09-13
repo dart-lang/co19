@@ -25,7 +25,7 @@
 /// field. For example: ('pos', $0: 'named') since the named field '$0' collides
 /// with the getter for the first positional field.
 ///
-/// @description Checks that record fields may contain constructor tears-off
+/// @description Checks that record fields may contain constructor tear-offs
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records

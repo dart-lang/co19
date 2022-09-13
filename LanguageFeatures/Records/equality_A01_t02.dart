@@ -20,7 +20,7 @@
 /// 3. Else, true.
 ///
 /// @description Checks that if two records `r` and `o` have a field for which
-/// `rf == of` is `false` then these records are not equals
+/// `rf == of` is `false` then these records are not equal.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records

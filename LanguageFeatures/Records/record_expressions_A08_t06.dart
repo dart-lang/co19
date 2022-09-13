@@ -25,7 +25,7 @@
 /// field. For example: ('pos', $0: 'named') since the named field '$0' collides
 /// with the getter for the first positional field.
 ///
-/// @description Checks that record expressions may contain collections with a
+/// @description Checks that record expressions may contain collections with
 /// control-flow operators
 /// @author sgrekhov22@gmail.com
 

@@ -26,7 +26,7 @@
 /// with the getter for the first positional field.
 ///
 /// @description Checks that record fields may contain generic constructor
-/// tears-off
+/// tear-offs
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records

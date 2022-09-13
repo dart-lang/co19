@@ -56,5 +56,5 @@ main() {
 
   int i = 1;
   int j = 2;
-  Expect.isFalse(identical([1, 2, 3],), ([i, j, i + j],));
+  Expect.isFalse(identical(([1, 2, 3],), ([1, 2, 3],)));
 }
