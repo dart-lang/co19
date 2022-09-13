@@ -12,8 +12,20 @@
 
 // SharedOptions=--enable-experiment=records
 
-mixin R on Record {
-//         ^^^^^^
+mixin M1 on Record {
+//          ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+mixin M2 on (int, {String s}) {
+//          ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+mixin M3 on () {
+//          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

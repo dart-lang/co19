@@ -12,12 +12,26 @@
 
 // SharedOptions=--enable-experiment=records
 
-class R implements Record {
-//                 ^^^^^^
+class R1 implements Record {
+//                  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class R2 implements (int, {String s}) {
+//                  ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class R3 implements () {
+//                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  R();
+  R1();
+  R2();
+  R3();
 }

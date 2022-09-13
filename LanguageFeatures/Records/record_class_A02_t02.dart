@@ -12,12 +12,26 @@
 
 // SharedOptions=--enable-experiment=records
 
-class R extends Record {
-//              ^^^^^^
+class R1 extends Record {
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class R2 extends (int, {String s}) {
+//               ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class R3 extends () {
+//               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  R();
+  R1();
+  R2();
+  R3();
 }

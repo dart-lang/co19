@@ -18,7 +18,20 @@ extension on Record {
   int foo() => 42;
 }
 
+extension on (int, {String s}) {
+  String bar() => "It's me";
+}
+
 main() {
-  var r = (3, 1, 4, name: "Pi");
-  Expect.equals(42, r.foo());
+  var r1 = (3, 1, 4, name: "Pi");
+  Expect.equals(42, r1.foo());
+
+  var r2 = (42, s: "");
+  Expect.equals("It's me", r2.bar());
+
+  dynamic x1 = (1, 2);
+  Expect.throws(() {x1.bar();});
+
+  dynamic x2 = (1, wrongName: "");
+  Expect.throws(() {x2.bar();});
 }
