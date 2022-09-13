@@ -27,9 +27,9 @@ const n = null;
 
 main() {
   const Map res1  = const {...l1};
-  //                ^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+//                  ^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   const Map res2  = const {...l2};
 //                  ^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -55,8 +55,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res8  = const {...n};
-  //        ^
-  // [cfe] Constant evaluation error:
-  //                          ^
-  // [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_MAP
+//          ^
+// [cfe] Constant evaluation error:
+//                            ^
+// [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_MAP
 }

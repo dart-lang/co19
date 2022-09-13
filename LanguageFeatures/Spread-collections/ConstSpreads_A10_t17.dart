@@ -23,10 +23,10 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map m2 = {...?(MyClass(12345) is MyClass ? {11: 124} : null)};
-  //        ^
-  // [cfe] Constant evaluation error:
-  //                   ^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
+//          ^
+// [cfe] Constant evaluation error:
+//                     ^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
   const Map m3 = {...?(MyClass(12345) is MyClass ? {null} : {9: -13})};
 //                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

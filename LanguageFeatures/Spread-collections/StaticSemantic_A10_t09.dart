@@ -25,9 +25,9 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   Set s2 = {...?x2};
-  //       ^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+//         ^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   Set s3 = {...?x3};
 //              ^^
 // [analyzer] unspecified

@@ -12,19 +12,19 @@
 
 main() {
   [if ("not bool") 1];
-  //   ^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+//     ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
   <int>[if ("not bool") 1];
-  //        ^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+//          ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
   const [if ("not bool") 1];
-  //         ^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+//           ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
   const <int>[if ("not bool") 1];
-  //              ^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+//                ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
 }

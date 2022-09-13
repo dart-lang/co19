@@ -14,10 +14,10 @@
 main() {
   var i = 1;
   var v1 = {if (i > 0) "" else "": "",};
-  //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-  //                   ^
-  // [cfe] Expected ':' after this.
+//         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+//                     ^
+// [cfe] Expected ':' after this.
 
   List? x = [1, 2, 3];
   Map? y = {1: "1", 2: "2", 3: "3"};

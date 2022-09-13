@@ -38,22 +38,22 @@ void test1() {
   var itr = new MyIterator();
 
   var m1  = <dynamic, dynamic>{...number};
-  //                              ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
-  // [cfe] Unexpected type 'int' of a map spread entry.  Expected 'dynamic' or a Map.
+//                                ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
+// [cfe] Unexpected type 'int' of a map spread entry.  Expected 'dynamic' or a Map.
   var m2  = <dynamic, dynamic>{...str};
-  //                              ^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
-  // [cfe] Unexpected type 'String' of a map spread entry.  Expected 'dynamic' or a Map.
+//                                ^^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
+// [cfe] Unexpected type 'String' of a map spread entry.  Expected 'dynamic' or a Map.
   var m3  = <dynamic, dynamic>{...list[0]};
-  //                              ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
-  //                                  ^
-  // [cfe] Unexpected type 'int' of a map spread entry.  Expected 'dynamic' or a Map.
+//                                ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
+//                                    ^
+// [cfe] Unexpected type 'int' of a map spread entry.  Expected 'dynamic' or a Map.
   var m4  = <dynamic, dynamic>{...itr[0]};
-  //                                 ^^^
-  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_OPERATOR
-  // [cfe] The operator '[]' isn't defined for the class 'MyIterator<dynamic>'.
+//                                   ^^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_OPERATOR
+// [cfe] The operator '[]' isn't defined for the class 'MyIterator<dynamic>'.
 }
 
 void test2() {
@@ -63,19 +63,19 @@ void test2() {
   var itr = new MyIterator() as Iterator?;
 
   var m5  = <dynamic, dynamic>{...?number};
-  //                               ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
-  // [cfe] Unexpected type 'int?' of a map spread entry.  Expected 'dynamic' or a Map.
+//                                 ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
+// [cfe] Unexpected type 'int?' of a map spread entry.  Expected 'dynamic' or a Map.
   var m6  = <dynamic, dynamic>{...?str};
-  //                               ^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
-  // [cfe] Unexpected type 'String?' of a map spread entry.  Expected 'dynamic' or a Map.
+//                                 ^^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
+// [cfe] Unexpected type 'String?' of a map spread entry.  Expected 'dynamic' or a Map.
   var m7  = <dynamic, dynamic>{...?list[0]};
-  //                                   ^
-  // [analyzer] COMPILE_TIME_ERROR.UNCHECKED_USE_OF_NULLABLE_VALUE
-  // [cfe] Operator '[]' cannot be called on 'List<dynamic>?' because it is potentially null.
+//                                     ^
+// [analyzer] COMPILE_TIME_ERROR.UNCHECKED_USE_OF_NULLABLE_VALUE
+// [cfe] Operator '[]' cannot be called on 'List<dynamic>?' because it is potentially null.
   var m8 = <dynamic, dynamic>{...?itr[0]};
-  //                                 ^
-  // [analyzer] COMPILE_TIME_ERROR.UNCHECKED_USE_OF_NULLABLE_VALUE
-  // [cfe] The operator '[]' isn't defined for the class 'Iterator<dynamic>?'.
+//                                   ^
+// [analyzer] COMPILE_TIME_ERROR.UNCHECKED_USE_OF_NULLABLE_VALUE
+// [cfe] The operator '[]' isn't defined for the class 'Iterator<dynamic>?'.
 }

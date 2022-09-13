@@ -24,42 +24,42 @@ void main() {
   void f<X>(check<X> Function() g) => g();
 
   f(() => captureTypeArgument());
-  //^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call(true));
-  //^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call(null));
-  //^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call(throw 1));
-  //^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call('Hello'));
-  //^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call());
-  //                                 ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call(x: 'Hello'));
-  //                                 ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call(false).toString());
-  //^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

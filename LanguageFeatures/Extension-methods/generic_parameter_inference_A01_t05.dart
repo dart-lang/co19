@@ -22,12 +22,12 @@ main() {
   list.checkme1(42);
   list.checkme1<int>(42);
   list.checkme2(42);
-  //   ^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.COULD_NOT_INFER
-  // [cfe] Inferred type argument 'int' doesn't conform to the bound 'T' of the type variable 'R' on 'SuperList|checkme2'.
+//     ^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.COULD_NOT_INFER
+// [cfe] Inferred type argument 'int' doesn't conform to the bound 'T' of the type variable 'R' on 'SuperList|checkme2'.
   list.checkme2<int>(42);
-  //   ^
-  // [cfe] Type argument 'int' doesn't conform to the bound 'T' of the type variable 'R' on 'SuperList|checkme2'.
-  //            ^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//     ^
+// [cfe] Type argument 'int' doesn't conform to the bound 'T' of the type variable 'R' on 'SuperList|checkme2'.
+//              ^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
 }

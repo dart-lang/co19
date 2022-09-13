@@ -40,8 +40,8 @@ main() {
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   List<Foo> clist = [foo, bar];
   List<Foo> alist = [foo, bar, ...? clist];
-  //                           ^^^^
-  // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-  //                                ^
-  // [cfe] Operand of null-aware operation '...?' has type 'List<void Function()>' which excludes null.
+//                             ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                  ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<void Function()>' which excludes null.
 }

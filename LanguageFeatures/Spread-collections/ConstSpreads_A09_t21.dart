@@ -18,9 +18,9 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res2 = const {...[]};
-  //               ^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+//                 ^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   const Map res3 = const {...44};
 //                           ^^
 // [analyzer] unspecified

@@ -13,63 +13,63 @@ class C {
 
   static void staticMethod() {
     double s1 = init();
-    //          ^^^^^^
-    // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-    // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+//              ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
     double? s2 = null;
     s2 ??= init();
-    //     ^^^^^^
-    // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-    // [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
+//         ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
   }
 
   void instanceMethod() {
     double m1 = init();
-    //          ^^^^^^
-    // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-    // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+//              ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
     double? m2 = null;
     m2 ??= init();
-    //     ^^^^^^
-    // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-    // [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
+//         ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
   }
 }
 
 void foo() {
   double l1 = init();
-  //          ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+//            ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
   double? l2 = null;
   l2 ??= init();
-  //     ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
+//       ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
 }
 
 main() {
   double d1 = init();
-  //          ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+//            ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
   double? d2 = null;
   d2 ??= init();
-  //     ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
+//       ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
 
 
   void bar() {
     double b1 = init();
-    //          ^^^^^^
-    // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-    // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+//              ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
     double? b2 = null;
     b2 ??= init();
-    //     ^^^^^^
-    // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-    // [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
+//         ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
   }
 
   foo();

@@ -13,23 +13,23 @@
 
 main() {
   <int, int>{if (true) "not int": 1};
-  //                   ^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+//                     ^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
   Map<int, int> m1 = {if (true) "not int": 1};
-  //                            ^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+//                              ^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
   const <int, int>{if (true) "not int": 1};
-  //                         ^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+//                           ^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
   <int, int>{for (var i in []) "not int": 1};
-  //                           ^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+//                             ^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
   Map<int, int> m2 = {for (var i in []) "not int": 1};
-  //                                    ^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+//                                      ^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
 }

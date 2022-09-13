@@ -14,7 +14,7 @@ main() {
   List aList = [8, 9, 10];
   Map aMap = {1: 2};
   var res = {...aList, ...aMap};
-  //          ^^^^^^^^^^^^^^^^^^^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//            ^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

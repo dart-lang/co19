@@ -37,9 +37,9 @@ void main() {
   // Verify that `x` does not have type `dynamic` (but, expecting the type
   // to be `Object?` we need the null aware access `?.`).
   f(() => captureTypeArgument()..x?.unknownMember);
-  //                               ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   // Verify that `x` has `Object` members (so it can have type `Object?`,
   // but it cannot have type `void`).

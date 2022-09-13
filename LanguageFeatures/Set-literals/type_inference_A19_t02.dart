@@ -13,7 +13,6 @@
 /// @description Checks that otherwise it is an error
 /// @author sgrekhov@unipro.ru
 
-
 main() {
   List? s = [1, 2, 3];
   Map? m = {1:1, 2: 2};

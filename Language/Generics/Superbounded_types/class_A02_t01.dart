@@ -33,20 +33,20 @@ main() {
   A a5 = new A<Never>();
 
   A a6  = new A<A<dynamic>>();
-  //          ^
-  // [cfe] Type argument 'A<dynamic>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-  //            ^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//            ^
+// [cfe] Type argument 'A<dynamic>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+//              ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   A a7  = new A<A<Object?>>();
-  //          ^
-  // [cfe] Type argument 'A<Object?>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-  //            ^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//            ^
+// [cfe] Type argument 'A<Object?>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+//              ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   A a8  = new A<A<void>>();
-  //          ^
-  // [cfe] Type argument 'A<void>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-  //            ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//            ^
+// [cfe] Type argument 'A<void>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+//              ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   A a9  = new A<A<Null>>();
 //              ^^^^^^^
 // [analyzer] unspecified

@@ -16,7 +16,7 @@
 
 class C {
   C() :  x = -1, this.init();
-  //     ^
+//       ^
 // [analyzer] unspecified
 // [cfe] unspecified
   C.init();

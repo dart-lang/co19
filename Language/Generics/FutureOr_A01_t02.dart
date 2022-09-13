@@ -8,20 +8,19 @@
 /// assigned to [FutureOr] variable.
 /// @author iarkh@unipro.ru
 
-
 import "dart:async";
 
 main() {
   FutureOr<int> x1 = "12345";
-  //                 ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'String' can't be assigned to a variable of type 'FutureOr<int>'.
+//                   ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'String' can't be assigned to a variable of type 'FutureOr<int>'.
   FutureOr<String> x2 = 11;
-  //                    ^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'int' can't be assigned to a variable of type 'FutureOr<String>'.
+//                      ^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'FutureOr<String>'.
   FutureOr<String> x3 = [1, 2, 3, 4, 5];
-  //                    ^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'List<int>' can't be assigned to a variable of type 'FutureOr<String>'.
+//                      ^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'List<int>' can't be assigned to a variable of type 'FutureOr<String>'.
 }

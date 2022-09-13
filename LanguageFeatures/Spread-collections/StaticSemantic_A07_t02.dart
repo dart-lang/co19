@@ -31,13 +31,13 @@ void test1() {
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map2  = <int, String>{...m2};
-  //                           ^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-  // [cfe] Can't assign spread entry values of type 'int' to map entry values of type 'String'.
+//                             ^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
+// [cfe] Can't assign spread entry values of type 'int' to map entry values of type 'String'.
   Map map3  = <int, String>{...m3};
-  //                           ^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
-  // [cfe] Can't assign spread entry keys of type 'String' to map entry keys of type 'int'.
+//                             ^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
+// [cfe] Can't assign spread entry keys of type 'String' to map entry keys of type 'int'.
   Map map4  = <int, String>{...m4};
 //                             ^^
 // [analyzer] unspecified
@@ -51,13 +51,13 @@ void test1() {
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map7  = <int, String>{...m7};
-  //                           ^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-  // [cfe] Can't assign spread entry values of type 'int' to map entry values of type 'String'.
+//                             ^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
+// [cfe] Can't assign spread entry values of type 'int' to map entry values of type 'String'.
   Map map8  = <int, String>{...m8};
-  //                           ^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
-  // [cfe] Can't assign spread entry keys of type 'String' to map entry keys of type 'int'.
+//                             ^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
+// [cfe] Can't assign spread entry keys of type 'String' to map entry keys of type 'int'.
 }
 
 void test2() {

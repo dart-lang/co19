@@ -16,17 +16,17 @@ class A<X> {
   A() {}
   factory A.foo1() = C<Never>;
   factory A.foo2() = C<A<Never>>;
-  //                 ^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.REDIRECT_TO_INVALID_RETURN_TYPE
-  // [cfe] The constructor function type 'C<A<Never>> Function()' isn't a subtype of 'A<X> Function()'.
+//                   ^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.REDIRECT_TO_INVALID_RETURN_TYPE
+// [cfe] The constructor function type 'C<A<Never>> Function()' isn't a subtype of 'A<X> Function()'.
   factory A.foo3() = C<A<A<Never>>>;
-  //                 ^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.REDIRECT_TO_INVALID_RETURN_TYPE
-  // [cfe] The constructor function type 'C<A<A<Never>>> Function()' isn't a subtype of 'A<X> Function()'.
+//                   ^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.REDIRECT_TO_INVALID_RETURN_TYPE
+// [cfe] The constructor function type 'C<A<A<Never>>> Function()' isn't a subtype of 'A<X> Function()'.
   factory A.foo4() = C<A<A<A<Never>>>>;
-  //                 ^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.REDIRECT_TO_INVALID_RETURN_TYPE
-  // [cfe] The constructor function type 'C<A<A<A<Never>>>> Function()' isn't a subtype of 'A<X> Function()'.
+//                   ^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.REDIRECT_TO_INVALID_RETURN_TYPE
+// [cfe] The constructor function type 'C<A<A<A<Never>>>> Function()' isn't a subtype of 'A<X> Function()'.
 
 }
 

@@ -25,14 +25,14 @@ void main() {
   f(() => captureTypeArgument()..[0] = [null, "12345"]);
 
   f(() => captureTypeArgument()..x = 42);
-  //                             ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..["abc"] = []);
-  //                              ^^^^^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..length);
 }

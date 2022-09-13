@@ -64,46 +64,46 @@ var v10 = <String, int, int> {...map2};
 
 main() {
   Map x1 = <int> {};
-  //       ^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  //             ^
-  // [cfe] A value of type 'Set<int>' can't be assigned to a variable of type 'Map<dynamic, dynamic>'.
+//         ^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+//               ^
+// [cfe] A value of type 'Set<int>' can't be assigned to a variable of type 'Map<dynamic, dynamic>'.
   Map x2 = const <String> {};
-  //       ^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'Set<String>' can't be assigned to a variable of type 'Map<dynamic, dynamic>'.
+//         ^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'Set<String>' can't be assigned to a variable of type 'Map<dynamic, dynamic>'.
   var x3 = <int> {1: 2};
-  //              ^^^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_ENTRY_NOT_IN_MAP
-  //               ^
-  // [cfe] Expected ',' before this.
+//                ^^^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_ENTRY_NOT_IN_MAP
+//                 ^
+// [cfe] Expected ',' before this.
   var x4 = const <String?> {'s': null};
-  //                        ^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_ENTRY_NOT_IN_MAP
-  //                           ^
-  // [cfe] Expected ',' before this.
+//                          ^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.MAP_ENTRY_NOT_IN_MAP
+//                             ^
+// [cfe] Expected ',' before this.
   var x5 = const <String, int?, int?> {'s': null};
-  //             ^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+//               ^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
   var x6 = <String, int?, int?> {'s': null};
-  //       ^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+//         ^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
   var x7 = <String, int, int> {};
-  //       ^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+//         ^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
   var x8 = <String, int, int> {};
-  //       ^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+//         ^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
   var x9 = <String, int, int> {...map};
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var x10 = <String, int, int> {...map2};
-  //        ^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+//          ^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
 }

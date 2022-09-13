@@ -13,13 +13,13 @@ class C {
   void _s() {}
 
   set s(var value) {}
-  //  ^
-  // [analyzer] COMPILE_TIME_ERROR.DUPLICATE_DEFINITION
-  // [cfe] 's' is already declared in this scope.
+//    ^
+// [analyzer] COMPILE_TIME_ERROR.DUPLICATE_DEFINITION
+// [cfe] 's' is already declared in this scope.
   set _s(var value) {}
-  //  ^^
-  // [analyzer] COMPILE_TIME_ERROR.DUPLICATE_DEFINITION
-  // [cfe] '_s' is already declared in this scope.
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.DUPLICATE_DEFINITION
+// [cfe] '_s' is already declared in this scope.
 }
 
 main() {

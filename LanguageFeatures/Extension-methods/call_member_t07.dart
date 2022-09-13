@@ -22,7 +22,7 @@ String Function(int) from1 = 1;
 
 main() {
   String Function(int) from2 = 2;
-  //                           ^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'int' can't be assigned to a variable of type 'String Function(int)'.
+//                             ^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'String Function(int)'.
 }

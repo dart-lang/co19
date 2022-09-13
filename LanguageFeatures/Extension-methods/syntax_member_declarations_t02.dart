@@ -38,9 +38,9 @@ extension ExtendedList<T> on List<T> {
 // [analyzer] SYNTACTIC_ERROR.EXTENSION_DECLARES_CONSTRUCTOR
 // [cfe] Extensions can't declare constructors.
   void abstractMethod(String v);
-  //   ^^^^^^^^^^^^^^
-  // [analyzer] SYNTACTIC_ERROR.EXTENSION_DECLARES_ABSTRACT_MEMBER
-  // [cfe] Extensions can't declare abstract members.
+//     ^^^^^^^^^^^^^^
+// [analyzer] SYNTACTIC_ERROR.EXTENSION_DECLARES_ABSTRACT_MEMBER
+// [cfe] Extensions can't declare abstract members.
 }
 
 main() {

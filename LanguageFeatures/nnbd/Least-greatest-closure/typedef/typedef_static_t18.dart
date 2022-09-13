@@ -23,39 +23,39 @@ void main() {
   void f<X>(check<X> Function() g) => g();
 
   f(() => captureTypeArgument()..call(x: true));
-  //                                     ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call(x: null));
-  //                                     ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call(x: 'Hello'));
-  //                                     ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call());
-  //                                 ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call(throw 1));
-  //                                 ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f(() => captureTypeArgument()..call(true));
-  //                                 ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   // Verify that the return type is `void`: Returned value not usable,
   // not even to access a member of `Object`.
   f(() => captureTypeArgument()..call(x: true).toString());
-  //                             ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
+//                               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -21,7 +21,7 @@ typedef Future futureFuncParam(int p1, [int? p2]);
 main() {
   futureFuncParam ffp1 = (int p1, [int? p2]) async { return 5; };
   ffp1 = (bool p1, [int? p2]) async { return 1; };
-  //     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'Future<int> Function(bool, [int?])' can't be assigned to a variable of type 'Future<dynamic> Function(int, [int?])'.
+//       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'Future<int> Function(bool, [int?])' can't be assigned to a variable of type 'Future<dynamic> Function(int, [int?])'.
 }

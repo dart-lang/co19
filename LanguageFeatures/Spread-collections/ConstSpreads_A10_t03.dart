@@ -27,10 +27,10 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   const List l3 = [...?(MyClass(12345) is MyClass ? {12} : null)];
-  //              ^
-  // [cfe] Constant evaluation error:
-  //                    ^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
+//                ^
+// [cfe] Constant evaluation error:
+//                      ^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
   const List l4 = [...?(MyClass(12345) is MyClass ? {null} : 1)];
 //                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

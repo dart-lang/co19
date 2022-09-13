@@ -37,10 +37,10 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   const c5 = d4 >>> 2;
-  //         ^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
-  //            ^
-  // [cfe] Constant evaluation error:
+//           ^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
+//              ^
+// [cfe] Constant evaluation error:
   const c6 = 24 >>> d4;
 //           ^^^^^^^^^
 // [analyzer] unspecified

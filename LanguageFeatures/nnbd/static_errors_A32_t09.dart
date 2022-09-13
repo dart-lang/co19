@@ -40,8 +40,8 @@ main() {
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   List<FutureOr<Function>> clist = [f, f];
   List<FutureOr<Function>> alist = [f, f, ...? clist];
-  //                                      ^^^^
-  // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-  //                                           ^
-  // [cfe] Operand of null-aware operation '...?' has type 'List<FutureOr<Function>>' which excludes null.
+//                                        ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                             ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<FutureOr<Function>>' which excludes null.
 }

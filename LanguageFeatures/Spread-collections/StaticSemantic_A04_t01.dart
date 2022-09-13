@@ -17,38 +17,38 @@ main() {
   var list = [1, 2, 3, 4, 5];
 
   List l1 = [...number];
-  //            ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
+//              ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
   List l2 = [...str];
-  //            ^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'String' of a spread.  Expected 'dynamic' or an Iterable.
+//              ^^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'String' of a spread.  Expected 'dynamic' or an Iterable.
   List l3 = [...map];
-  //            ^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'Map<int, int>' of a spread.  Expected 'dynamic' or an Iterable.
+//              ^^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'Map<int, int>' of a spread.  Expected 'dynamic' or an Iterable.
   List l4 = [...list[0]];
-  //            ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  //                ^
-  // [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
+//              ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+//                  ^
+// [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
 
   List l5 = [...?(number as int?)];
-  //             ^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  //                     ^
-  // [cfe] Unexpected type 'int?' of a spread.  Expected 'dynamic' or an Iterable.
+//               ^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+//                       ^
+// [cfe] Unexpected type 'int?' of a spread.  Expected 'dynamic' or an Iterable.
   List l6 = [...?(str as String?)];
-  //             ^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  //                  ^
-  // [cfe] Unexpected type 'String?' of a spread.  Expected 'dynamic' or an Iterable.
+//               ^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+//                    ^
+// [cfe] Unexpected type 'String?' of a spread.  Expected 'dynamic' or an Iterable.
   List l7 = [...?(map as Map?)];
-  //             ^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  //                  ^
-  // [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
+//               ^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+//                    ^
+// [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
   List l8 = [...?list[0]];
 //               ^^^^^^^
 // [analyzer] unspecified
