@@ -31,7 +31,7 @@ main() {
   Expect.notEquals((1, 2, 3), (1, 2, three: 3));
   Expect.notEquals((1, 2, 3), (1, 2, 3, x: 0));
   Expect.notEquals((1, 2, s: "s"), (1, 2, notS: "s"));
-  Expect.notEquals(("one": 1, "two": 2), ("one": 1, "two": 2, "": []));
-  Expect.notEquals(("one": 1, "two": 2), ("one": 1, "2": 2));
-  Expect.notEquals([1, 2, 3],), ([1, 2, 3], Record.empty));
+  Expect.notEquals((one: 1, two: 2), (one: 1, two: 2, l: []));
+  Expect.notEquals((one: 1, two: 2), (one: 1, TWO: 2));
+  Expect.notEquals(([1, 2, 3],), ([1, 2, 3], Record.empty));
 }

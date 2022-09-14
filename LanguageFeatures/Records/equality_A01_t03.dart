@@ -35,6 +35,6 @@ main() {
   Expect.equals((1, 2, 3), (i, j, i + j));
   Expect.equals((1, 2, three: 3), (i, j, three: foo()));
   Expect.equals((1, 2, s: "s"), (i, j, s: s));
-  Expect.equals(("one": 1, "two": 2, "three": 3),
-      ( "two": j, "three": foo(), "one": i));
+  Expect.equals((one: 1, two: 2, three: 3),
+      (two: j, three: foo(), one: i));
 }

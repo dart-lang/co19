@@ -41,7 +41,11 @@ class C<T extends Record> {
 }
 
 main() {
-  var r = (C<(num, {String name})>.new, c1: C<(num, {String name})>.constr1);
-  Expect.equals(3.14, r.$0((3.14, name: "pi")).i.$0);
-  Expect.equals("pi", r.c1((3.14, name: "pi")).i.name);
+  var r1 = (C<(num, {String name})>.new, c1: C<(num, {String name})>.constr1);
+  Expect.equals(3.14, r1.$0((3.14, name: "pi")).i.$0);
+  Expect.equals("pi", r1.c1((3.14, name: "pi")).i.name);
+
+  var r2 = (C.new, c1: C.constr1);
+  Expect.equals(3.14, r2.$0<(num, {String name})>((3.14, name: "pi")).i.$0);
+  Expect.equals("pi", r2.c1<(num, {String name})>((3.14, name: "pi")).i.name);
 }

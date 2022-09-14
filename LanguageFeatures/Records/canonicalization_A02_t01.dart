@@ -49,21 +49,21 @@ class C2 {
   const C2(int x, int y) : pair = (x, second: y);
 }
 
-class C2 {
+class C3 {
   final ({int first, int second}) pair;
-  const C2(int x, int y) : pair = (first: x, second: y);
+  const C3(int x, int y) : pair = (first: x, second: y);
 }
 
 main() {
-  const c1 = C1(1, 2);
-  const c2 = C1(1, 2);
-  Expect.identical(c1, c2);
+  const c1a = C1(1, 2);
+  const c1b = C1(1, 2);
+  Expect.identical(c1a, c1b);
 
-  const c3 = C2(1, 2);
-  const c4 = C2(1, 2);
-  Expect.identical(c3, c4);
+  const c2a = C2(1, 2);
+  const c2b = C2(1, 2);
+  Expect.identical(c2a, c2b);
 
-  const c5 = C3(1, 2);
-  const c6 = C3(1, 2);
-  Expect.identical(c5, c6);
+  const c3a = C3(1, 2);
+  const c3b = C3(1, 2);
+  Expect.identical(c3a, c3b);
 }

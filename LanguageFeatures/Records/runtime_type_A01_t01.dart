@@ -21,19 +21,26 @@
 
 import "../../Utils/expect.dart";
 
+Type typeOf<X>() => X;
+
 main() {
   (num, Object) r1 = (1, 2.3);
   Expect.runtimeIsType<(int, double)>(r1);
+  Expect.equals(typeOf<(int, double)>(), r1.runtimeType);
 
   (num, {Object name}) r2 = (3.14, name: "pi");
   Expect.runtimeIsType<(double, {String name})>(r2);
+  Expect.equals(typeOf<(double, {String name})>(), r2.runtimeType);
 
   (num, {Object name}) r3 = (name: "pi", 3.14);
   Expect.runtimeIsType<(double, {String name})>(r3);
+  Expect.equals(typeOf<(double, {String name})>(), r3.runtimeType);
 
   ({num value, Object name}) r4 = (name: "pi", value: 3.14);
   Expect.runtimeIsType<({String name, double value})>(r4);
+  Expect.equals(typeOf<({String name, double value})>(), r4.runtimeType);
 
   ({num value, Object name}) r5 = (value: 3.14, name: "pi",);
   Expect.runtimeIsType<({String name, double value})>(r5);
+  Expect.equals(typeOf<({String name, double value})>(), r5.runtimeType);
 }

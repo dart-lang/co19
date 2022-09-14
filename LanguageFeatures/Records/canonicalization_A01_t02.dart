@@ -33,28 +33,28 @@ import "../../Utils/expect.dart";
 
 main() {
   if (!isJS) {
-    var r1 = ("a", 1, [42], {"x": 0}, {1, 2, 3});
-    var r2 = ("a", 1.0, [42], {"x": 0}, {1, 2, 3},);
+    var r1 = ("a", 1, const [42], const {"x": 0}, const {1, 2, 3});
+    var r2 = const ("a", 1.0, [42], {"x": 0}, {1, 2, 3},);
     Expect.isFalse(identical(r1, r2));
   }
 
-  var r3 = (s: "a", n: 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
-  var r4 = (notS: "a", n: 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
+  var r3 = (s: "a", n: 1, l: const [42], m: const {"x": 0}, set: const {1, 2, 3});
+  var r4 = const (notS: "a", n: 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
   Expect.isFalse(identical(r3, r4));
 
-  var r5 = ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
-  var r6 = (1, l: [42], m: {"x": 0}, set: {1, 2, 3});
+  var r5 = ("a", 1, l: const [42], m: const {"x": 0}, set: const {1, 2, 3});
+  var r6 = const (1, l: [42], m: {"x": 0}, set: {1, 2, 3});
   Expect.isFalse(identical(r5, r6));
 
-  var r7 = ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
-  var r8 = ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3, 4});
+  var r7 = ("a", 1, l: const [42], m: const {"x": 0}, set: const {1, 2, 3});
+  var r8 = const ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3, 4});
   Expect.isFalse(identical(r7, r8));
 
-  var r9 = ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
-  var r10 = ("a", 1, l: [42], m: {"x": 1}, set: {1, 2, 3});
+  var r9 = ("a", 1, l: const [42], m: const {"x": 0}, set: const {1, 2, 3});
+  var r10 = const ("a", 1, l: [42], m: {"x": 1}, set: {1, 2, 3});
   Expect.isFalse(identical(r9, r10));
 
-  int i = 1;
-  int j = 2;
   Expect.isFalse(identical(([1, 2, 3],), ([1, 2, 3],)));
+  Expect.isFalse(identical(([1, 2, 3],), (const [1, 2, 3],)));
+  Expect.isFalse(identical(([1, 2, 3],), const ([1, 2, 3],)));
 }

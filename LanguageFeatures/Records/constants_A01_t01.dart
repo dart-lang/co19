@@ -33,12 +33,12 @@ const r4 = (const [Pi], m: const {"pi": 3.14});
 void f1([(int, List<int>, Set<int>, Map<String, int>, {String n}) v =
     const (n: "", 1, [1], {2}, {"a": 0},)]) {}
 void f2({(int, List<int>, Set<int>, Map<String, int>, {String n}) v =
-    (n: "", 1, [1], {2}, {"a": 0},)}) {}
+    (n: "", 1, const [1], const {2}, const {"a": 0},)}) {}
 
 main() {
-  Expect.equals((1, [1], {2}, {"a": 0}, Pi), r1);
-  Expect.equals((d: Pi, l: [0], s: {1}, m: {"x": Pi}), r2);
-  Expect.equals((name: Pi, 3.14, [1], {2}, {"a": 0}), r3);
+  Expect.equals(const (1, [1], {2}, {"a": 0}, Pi), r1);
+  Expect.equals((d: Pi, l: const [0], s: const {1}, m: const {"x": Pi}), r2);
+  Expect.equals(const (name: Pi, 3.14, [1], {2}, {"a": 0}), r3);
   Expect.equals((const [Pi], m: const {"pi": 3.14}), r4);
   f1();
   f2();

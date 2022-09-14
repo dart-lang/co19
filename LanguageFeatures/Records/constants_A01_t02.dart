@@ -43,13 +43,42 @@ void f1([(int, List<int>, Set<int>, Map<String, int>, {String n}) v =
 //                         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
 void f2({(int, List<int>, Set<int>, Map<String, int>, {String n}) v =
     (n: "", 1, [Pi], {2}, {"a": 0},)}) {}
 //              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+void f3([(int, List<int>, Set<int>, Map<String, int>, {String n}) v =
+    (n: "", 1, [1], const {Pi}, const {"a": 0},)]) {}
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void f4({(int, List<int>, Set<int>, Map<String, int>, {String n}) v =
+    (n: "", 1, const [42], {2}, const {"a": 0},)}) {}
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void f5([(int, List<int>, Set<int>, Map<String, int>, {String n}) v =
+    (n: "", 1, const [1], const {Pi}, {"a": 0},)]) {}
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void f6({(num, List<int>, Set<int>, Map<String, int>, {String n}) v =
+    (n: "", Pi, const [42], const {2}, const {"a": 0},)}) {}
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   f1();
   f2();
+  f3();
+  f4();
+  f5();
+  f6();
 }

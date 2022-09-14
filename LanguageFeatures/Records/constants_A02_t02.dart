@@ -18,9 +18,9 @@
 final Pi = 3.14;
 
 class C {
-  final (num, List<int>?) r;
-  const C.c1(int i): r = (i + 1, const [42]);
-//                       ^^^^^^^^^^^^^^^^^^^
+  final (num, num?) r;
+  const C.c1(int i): r = (i + 1, Pi);
+//                       ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const C.c2(): r = (Pi, null);

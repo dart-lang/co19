@@ -36,11 +36,13 @@ main() {
   var r2 = const ("a", 1, [42], {"x": 0}, {1, 2, 3},);
   Expect.isTrue(identical(r1, r2) || !identical(r1, r2));
 
-  var r3 = (s: "a", n: 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
-  var r4 = (set: {1, 2, 3}, n: 1, l: [42], s: "a", m: {"x": 0}, );
+  var r3 =
+    (s: "a", n: 1, l: const [42], m: const {"x": 0}, set: const {1, 2, 3});
+  var r4 = const (set: {1, 2, 3}, n: 1, l: [42], s: "a", m: {"x": 0}, );
   Expect.isTrue(identical(r3, r4) || !identical(r3, r4));
 
-  var r5 = ("a", 1, [42], m: {"x": 0}, s: {1, 2, 3}, n: 3.14, st: "Hi");
-  var r6 = (m: {"x": 0}, "a", s: {1, 2, 3}, n: 3.14, st: "Hi", 1, [42]);
+  var r5 = ("a", 1, const [42], m: const {"x": 0}, s: const {1, 2, 3},
+      n: 3.14, st: "Hi");
+  var r6 = const (m: {"x": 0}, "a", s: {1, 2, 3}, n: 3.14, st: "Hi", 1, [42]);
   Expect.isTrue(identical(r5, r6) || !identical(r5, r6));
 }

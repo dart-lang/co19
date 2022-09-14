@@ -23,6 +23,6 @@ main() {
   Expect.equals((1, 2, 3).hashCode, (i, j, i + j).hashCode);
   Expect.equals((1, 2, three: 3).hashCode, (i, j, three: foo()).hashCode);
   Expect.equals((1, 2, s: "s").hashCode, (i, j, s: s).hashCode);
-  Expect.equals(("one": 1, "two": 2, "three": 3).hashCode,
-      ("one": i, "two": j, "three": foo()).hashCode);
+  Expect.equals((one: 1, two: 2, three: 3).hashCode,
+      (one: i, two: j, three: foo()).hashCode);
 }

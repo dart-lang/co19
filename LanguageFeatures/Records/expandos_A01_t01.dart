@@ -30,4 +30,10 @@ main() {
   Expect.throws(() {exp[(1,)] = 42;});
   Expect.throws(() {exp[(s: "s")] = 42;});
   Expect.throws(() {exp[(42, s: "s")] = 42;});
+
+  Object r4 = (1, x: 2);
+  Expect.throws(() {exp[r4] = 42;});
+
+  dynamic r5 = (x: 2, 1);
+  Expect.throws(() {exp[r5] = 42;});
 }

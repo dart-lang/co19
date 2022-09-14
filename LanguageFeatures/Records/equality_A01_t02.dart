@@ -31,8 +31,8 @@ main() {
   Expect.notEquals((1, 2, 3), (1, 2, 1));
   Expect.notEquals((1, 1, three: 3), (1, 2, three: 3));
   Expect.notEquals((1, 2, s: "s"), (1, 2, s: "s1"));
-  Expect.notEquals(("one": 1, "two": 2), ("one": 1, "two": 22));
+  Expect.notEquals((one: 1, two: 2), (one: 1, two: 22));
   int i = 1;
   int j = 2;
-  Expect.notEquals([1, 2, 3],), ([i, j, i + j],));
+  Expect.notEquals(([1, 2, 3],), ([i, j, i + j],));
 }
