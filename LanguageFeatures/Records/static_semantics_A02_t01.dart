@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=records
 
-import "static_semantics_A02_01.lib.dart" as lib;
+import "static_semantics_A02_t01.lib.dart" as lib;
 import "../../Utils/expect.dart";
 
 typedef R1 = (int, String);
