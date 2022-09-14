@@ -24,7 +24,7 @@
 /// structurally equivalent.
 ///
 /// @description Checks that if records are structurally equivalent then
-/// `identical()` may be both true and false
+/// `identical()` can be computed (but the returned value is not known).
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
