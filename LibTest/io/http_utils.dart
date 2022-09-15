@@ -69,187 +69,38 @@ List<int> getList(int size) {
   return l;
 }
 
-Future<List<int>> sendDatagramOnce(RawDatagramSocket producer,
-    List<List<int>> data, InternetAddress address, int port,
-    {Duration period = const Duration(milliseconds: 1)}) {
-  List<int> sent = [];
-  Completer<List<int>> completer = new Completer<List<int>>();
-  Future<List<int>> f = completer.future;
-  int i = 0;
-  new Timer.periodic(period, (timer) {
-    if (i < data.length) {
-      sent.add(producer.send(data[i++], address, port));
+Future<int> sendDatagram(RawDatagramSocket producer, List<int> data,
+    InternetAddress address, int port, {int attempts = 5}) async {
+  int counter = 0;
+  int sent = 0;
+  while(counter++ < attempts) {
+    sent = producer.send(data, address, port);
+    if (sent > 0) {
+      break;
     } else {
-      timer.cancel();
-      completer.complete(sent);
+      await Future.delayed(Duration(milliseconds: 1));
     }
-  });
-  return f;
-}
-
-Future<bool> sendDatagram(RawDatagramSocket producer, List<List<int>> data,
-    InternetAddress address, int port,
-    {Duration period = const Duration(milliseconds: 1), int attempts = 5,
-      bool closeProducer = true}) async {
-  for (int attempt = 0; attempt < attempts; attempt++) {
-    List<int> bytesWritten = await sendDatagramOnce(producer, data, address, port,
-        period: period);
-    if (wasSent(bytesWritten)) {
-      compareSentData(data, bytesWritten);
-      if (closeProducer) {
-        producer.close();
-      }
-      return true;
-    }
-  }
-  producer.close();
-  return false;
-}
-
-/***
- * Check that there is any buffer size > 0
- */
-bool wasSent(List<int> bytesWritten) {
-  for (int i = 0; i < bytesWritten.length; i++) {
-    if (bytesWritten[i] > 0) {
-      return true;
-    }
-  }
-  return false;
-}
-
-compareSentData(List<List<int>> data, List<int> sentStatus) {
-  Expect.equals(sentStatus.length, data.length, "Wrong sizes of sent and sentResult");
-  for (int i = 0; i < data.length; i++) {
-    if (sentStatus[i] == 0) {
-      continue;
-    }
-    Expect.equals(data[i].length, sentStatus[i]);
-  }
-}
-
-Future<List<List<int>>> receiveDatagram(RawDatagramSocket receiver,
-    {Duration delay = const Duration(seconds: 2), RawSocketEvent? event}) {
-  List<List<int>> received = [];
-  Completer<List<List<int>>> completer = new Completer<List<List<int>>>();
-  Future<List<List<int>>> f = completer.future;
-  receiver.listen((_event) {
-    var datagram = receiver.receive();
-    if (event == null || _event == event) {
-      var d = datagram?.data.toList();
-      if (d != null) {
-        received.add(d);
-      }
-    }
-    if (_event == RawSocketEvent.closed) {
-      if(!completer.isCompleted) {
-        completer.complete(received);
-      }
-    }
-  });
-  new Future.delayed(delay, () {
-    if(!completer.isCompleted) {
-      receiver.close();
-      completer.complete(received);
-    }
-  });
-  return f;
+  };
+  return Future.value(sent);
 }
 
 /**
- * If we receive datagram we check if received data can be found among sent ones
+ * Returns true if received datagram can be found among sent data
  */
-compareReceivedData(List<List<int>> sent, List<List<int>> received) {
-  Expect.isTrue(received.length <= sent.length, "${received.length} <= ${sent.length}");
-  for (int i = 0; i < received.length; i++) {
-    bool found = false;
-    for (int j = 0; j < sent.length; j++) {
-      if (_listEquals(received[i], sent[j])) {
-        found = true;
-        break;
+bool containsReceived(List<List<int>> sent, Datagram d) {
+  List<int> received = d.data.toList();
+  if (received.length > 0) {
+    Outer:
+    for (int i = 0; i < sent.length; i++) {
+      if (sent[i].length == received.length) {
+        for (int j = 0; j < received.length; j++) {
+          if (sent[i][j] != received[j]) {
+            continue Outer;
+          }
+        }
+        return true;
       }
     }
-    Expect.isTrue(found, "${received[i]} not found among $sent");
-  }
-}
-
-bool _listEquals(List<int> list1, List<int> list2) {
-  if (list1.length == list2.length) {
-    for (int i = 0; i < list1.length; i++) {
-      if (list1[i] != list2[i]) {
-        return false;
-      }
-    }
-    return true;
   }
   return false;
-}
-
-Future<List<RawSocketEvent>> anyElement(RawDatagramSocket receiver,
-    RawSocketEvent expectedEvent, bool shouldFind,
-    {Duration delay = const Duration(seconds: 2)}) {
-  List<RawSocketEvent> tested = [];
-  Completer<List<RawSocketEvent>> completer =
-      new Completer<List<RawSocketEvent>>();
-  Future<List<RawSocketEvent>> f = completer.future;
-
-  bool test(x) {
-    tested.add(x);
-    receiver.receive();
-    if (x == RawSocketEvent.closed) {
-      if (!completer.isCompleted) {
-        completer.complete(tested);
-      }
-    }
-    return x == expectedEvent;
-  }
-
-  receiver.any((event) => test(event)).then((value) {
-    if (shouldFind) {
-      Expect.equals(true, value);
-    } else {
-      Expect.equals(false, value);
-    }
-    if (!completer.isCompleted) {
-      receiver.close();
-      completer.complete(tested);
-    }
-  });
-
-  new Future.delayed(delay, () {
-    if (!completer.isCompleted) {
-      receiver.close();
-    }
-  });
-  return f;
-}
-
-checkTested<T>(List<T> tested, T expected) {
-  for (int i = tested.length - 2; i >= 0; i--) {
-    Expect.notEquals(expected, tested[i]);
-  }
-}
-
-checkReceived(check, List<RawSocketEvent> expectedValues, int expectedLen,
-    {int attempts = 5}) async {
-  for (int i = 0; i < attempts; i++) {
-    List list = await check();
-    int listLen = list.length;
-    if (listLen == 0) {
-      continue;
-    }
-    if (listLen > 0 && listLen <= expectedLen) {
-      for (int i = 0; i < list.length; i++) {
-        Expect.isTrue(
-            expectedValues.contains(list[i]), "Unexpected value ${list[i]}");
-      }
-      break;
-    }
-    if (listLen > expectedLen) {
-      Expect.fail("$listLen elements found instead of $expectedLen.");
-    }
-    if (i == attempts - 1) {
-      print('$listLen elements found. Look like test failed.');
-    }
-  }
 }
