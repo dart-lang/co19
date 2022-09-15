@@ -33,28 +33,47 @@ import "../../Utils/expect.dart";
 
 main() {
   if (!isJS) {
-    var r1 = ("a", 1, const [42], const {"x": 0}, const {1, 2, 3});
+    var r1 = const ("a", 1, [42], {"x": 0}, {1, 2, 3});
     var r2 = const ("a", 1.0, [42], {"x": 0}, {1, 2, 3},);
+    var r3 = ("a", 1.0, const [42], const {"x": 0}, const {1, 2, 3},);
     Expect.isFalse(identical(r1, r2));
+    Expect.isFalse(identical(r1, r3));
   }
 
-  var r3 = (s: "a", n: 1, l: const [42], m: const {"x": 0}, set: const {1, 2, 3});
-  var r4 = const (notS: "a", n: 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
-  Expect.isFalse(identical(r3, r4));
+  var r4 = const (s: "a", n: 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
+  var r5 = const (notS: "a", n: 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
+  var r6 =
+    (notS: "a", n: 1, l: const [42], m: const {"x": 0}, set: const {1, 2, 3});
+  Expect.isFalse(identical(r4, r5));
+  Expect.isFalse(identical(r4, r6));
 
-  var r5 = ("a", 1, l: const [42], m: const {"x": 0}, set: const {1, 2, 3});
-  var r6 = const (1, l: [42], m: {"x": 0}, set: {1, 2, 3});
-  Expect.isFalse(identical(r5, r6));
-
-  var r7 = ("a", 1, l: const [42], m: const {"x": 0}, set: const {1, 2, 3});
-  var r8 = const ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3, 4});
+  var r7 = const ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
+  var r8 = const (1, l: [42], m: {"x": 0}, set: {1, 2, 3});
+  var r9 = const (1, l: const [42], m: const {"x": 0}, set: const {1, 2, 3});
   Expect.isFalse(identical(r7, r8));
+  Expect.isFalse(identical(r7, r9));
 
-  var r9 = ("a", 1, l: const [42], m: const {"x": 0}, set: const {1, 2, 3});
-  var r10 = const ("a", 1, l: [42], m: {"x": 1}, set: {1, 2, 3});
-  Expect.isFalse(identical(r9, r10));
+  var r10 = const ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
+  var r11 = const ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3, 4});
+  var r12 = ("a", 1, l: const [42], m: const {"x": 0}, set: const {1, 2, 3, 4});
+  Expect.isFalse(identical(r10, r11));
+  Expect.isFalse(identical(r10, r12));
+
+  var r13 = const ("a", 1, l: [42], m: {"x": 0}, set: {1, 2, 3});
+  var r14 = const ("a", 1, l: [42], m: {"x": 1}, set: {1, 2, 3});
+  var r15 = ("a", 1, l: const [42], m: const {"x": 1}, set: const {1, 2, 3});
+  Expect.isFalse(identical(r13, r14));
+  Expect.isFalse(identical(r13, r15));
 
   Expect.isFalse(identical(([1, 2, 3],), ([1, 2, 3],)));
   Expect.isFalse(identical(([1, 2, 3],), (const [1, 2, 3],)));
   Expect.isFalse(identical(([1, 2, 3],), const ([1, 2, 3],)));
+
+  Expect.isFalse(identical(({"x": 0},), ({"x": 0},)));
+  Expect.isFalse(identical(({"x": 0},), (const {"x": 0},)));
+  Expect.isFalse(identical(({"x": 0},), const ({"x": 0},)));
+
+  Expect.isFalse(identical((x: {1, 2, 3}), (x: {1, 2, 3})));
+  Expect.isFalse(identical((x: {1, 2, 3}), (x: const {1, 2, 3})));
+  Expect.isFalse(identical((x: {1, 2, 3},), const (x: {1, 2, 3})));
 }
