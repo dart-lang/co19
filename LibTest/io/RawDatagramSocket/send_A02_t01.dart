@@ -14,7 +14,6 @@
 /// @author ngl@unipro.ru
 /// @issue 31873
 
-
 import "dart:io";
 import "../http_utils.dart";
 import "../../../Utils/expect.dart";
@@ -25,12 +24,10 @@ main() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
   RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
   int listSize = 100000;
-  List<List<int>> toSent = [getList(listSize)];
-  List<int> bytesWritten = await sendDatagramOnce(producer, toSent, localhost,
-      receiver.port);
+  List<int> toSend = getList(listSize);
+  int sent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(0 == sent || listSize == sent,
+      "Wrong number of sent bytes $sent");
   producer.close();
-  if (wasSent(bytesWritten)) {
-    Expect.equals(listSize, bytesWritten[0]);
-  }
   receiver.close();
 }

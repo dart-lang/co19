@@ -20,8 +20,7 @@ import "../../../Utils/expect.dart";
 check(InternetAddress address) {
   asyncStart();
   RawDatagramSocket.bind(address, 0).then((socket) {
-    var v1 = socket.multicastHops;
-    Expect.equals(1, v1);
+    Expect.equals(1, socket.multicastHops);
     socket.close();
     asyncEnd();
   });
