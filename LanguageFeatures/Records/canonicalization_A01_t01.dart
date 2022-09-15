@@ -29,20 +29,24 @@
 
 // SharedOptions=--enable-experiment=records
 
-import "../../Utils/expect.dart";
-
 main() {
   var r1 = ("a", 1, const [42], const {"x": 0}, const {1, 2, 3});
   var r2 = const ("a", 1, [42], {"x": 0}, {1, 2, 3},);
-  Expect.isTrue(identical(r1, r2) || !identical(r1, r2));
+  var r3 = const ("a", 1, [42], {"x": 0}, {1, 2, 3},);
+  identical(r1, r2);
+  identical(r2, r3);
 
-  var r3 =
+  var r4 =
     (s: "a", n: 1, l: const [42], m: const {"x": 0}, set: const {1, 2, 3});
-  var r4 = const (set: {1, 2, 3}, n: 1, l: [42], s: "a", m: {"x": 0}, );
-  Expect.isTrue(identical(r3, r4) || !identical(r3, r4));
+  var r5 = const (set: {1, 2, 3}, n: 1, l: [42], s: "a", m: {"x": 0}, );
+  var r6 = const (set: {1, 2, 3}, n: 1, l: [42], s: "a", m: {"x": 0});
+  identical(r4, r5);
+  identical(r5, r6);
 
-  var r5 = ("a", 1, const [42], m: const {"x": 0}, s: const {1, 2, 3},
+  var r7 = ("a", 1, const [42], m: const {"x": 0}, s: const {1, 2, 3},
       n: 3.14, st: "Hi");
-  var r6 = const (m: {"x": 0}, "a", s: {1, 2, 3}, n: 3.14, st: "Hi", 1, [42]);
-  Expect.isTrue(identical(r5, r6) || !identical(r5, r6));
+  var r8 = const (m: {"x": 0}, "a", s: {1, 2, 3}, n: 3.14, st: "Hi", 1, [42]);
+  var r9 = const (m: {"x": 0}, "a", s: {1, 2, 3}, n: 3.14, st: "Hi", 1, [42]);
+  identical(r7, r8);
+  identical(r8, r9);
 }
