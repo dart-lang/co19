@@ -25,8 +25,6 @@
 /// application introduces any instance variables.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 mixin M1 on Object {
   int i1 = 42;
   int mixedInMethod1(int v) => v;

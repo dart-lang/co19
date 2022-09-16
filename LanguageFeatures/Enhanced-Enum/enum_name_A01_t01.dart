@@ -23,8 +23,6 @@
 /// @description Check grammar of the enum declaration. Test covariant members
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 enum E<T extends num> {

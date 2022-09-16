@@ -23,8 +23,6 @@
 /// named `hashCode`.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 abstract class E1 extends Enum {
   int hashCode() => 42;
 //    ^^^^^^^^

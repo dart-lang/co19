@@ -25,8 +25,6 @@
 /// application introduces late final variables.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 mixin M1 on Object {
   int mixedInMethod1(int v) => v;
 }

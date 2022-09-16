@@ -23,8 +23,6 @@
 /// named `hashCode=`, but the setter/getter signature constraint does apply.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 abstract class E1 extends Enum {
   void set hashCode(int val) {}
 }

@@ -20,8 +20,6 @@
 /// used by enum declarations
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 abstract class M1 with Enum {}
 
 abstract class M2 = Object with Enum;

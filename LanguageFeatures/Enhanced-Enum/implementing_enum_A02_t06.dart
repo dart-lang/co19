@@ -18,8 +18,6 @@
 /// a class declared by an enum declaration.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E {
   e1(42),
   e2(0);

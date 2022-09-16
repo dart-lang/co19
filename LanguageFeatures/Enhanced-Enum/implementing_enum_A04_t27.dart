@@ -23,8 +23,6 @@
 /// named `operator ==`.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 mixin M1 on Enum {
   bool operator ==(Object other) {
 //     ^^^^^^^^^^^

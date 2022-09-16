@@ -26,8 +26,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48303
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 mixin M1 on Object {
   final int i1 = 1;
   int mixedInMethod1(int v) => v;

@@ -19,8 +19,6 @@
 /// @description Check that enum can implement interfaces
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 class I1 {

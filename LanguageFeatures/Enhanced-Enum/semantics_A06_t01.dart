@@ -29,8 +29,6 @@
 /// @Issue 48179, 48181
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 enum E1 {

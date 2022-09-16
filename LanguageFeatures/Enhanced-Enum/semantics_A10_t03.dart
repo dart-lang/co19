@@ -15,8 +15,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48298
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 mixin M1 on Enum {
   String get index => "Lily was here";
 //           ^^^^^

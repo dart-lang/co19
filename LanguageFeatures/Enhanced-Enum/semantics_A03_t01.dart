@@ -24,8 +24,6 @@
 /// @description Check that enum implements its mixins
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 mixin M1 on Object {

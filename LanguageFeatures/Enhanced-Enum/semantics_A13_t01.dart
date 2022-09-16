@@ -18,8 +18,6 @@
 /// which does not have a regular-bounded instantiate-to-bounds result
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 typedef A<X> = X Function(X);
 
 enum E<Y extends A<Y>> {

@@ -15,8 +15,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48295
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 abstract class I1 {
   final E1 e1 = E1.e2;
 }

@@ -18,8 +18,6 @@
 /// enum which does have a regular-bounded instantiate-to-bounds result
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E<Y extends Y Function(Y)> {
   e1<Never>();
 }

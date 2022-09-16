@@ -23,8 +23,6 @@
 /// named `hashCode`.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 mixin M1 on Enum {
   final int hashCode = 42;
 //          ^^^^^^^

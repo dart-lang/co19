@@ -19,8 +19,6 @@
 /// @description Check that abstract classes may implement enum
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 abstract class C implements Enum {

@@ -29,8 +29,6 @@
 /// a wrong type
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E<T> {
   e1<int>(),
   e2<String>(),

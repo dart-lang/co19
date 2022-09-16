@@ -22,8 +22,6 @@
 /// @description Check that `index` is read-only
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E1 {
   e1(11),
   e2(22),

@@ -19,8 +19,6 @@
 /// @description Check that implicit class of enum declaration implements Enum
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 enum E1 {

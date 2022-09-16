@@ -21,8 +21,6 @@
 /// declaration.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 abstract class A implements Enum {
   int foo();
 }

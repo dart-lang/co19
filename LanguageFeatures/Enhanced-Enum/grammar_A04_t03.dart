@@ -18,8 +18,6 @@
 /// @description Check that old syntax can be used together with the new one
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E {
   e1,
   e2(),

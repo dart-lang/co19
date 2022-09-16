@@ -14,8 +14,6 @@
 /// with the same basename as enum value
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E1 {
   e1,
   e2,

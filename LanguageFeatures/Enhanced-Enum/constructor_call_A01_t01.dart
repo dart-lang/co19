@@ -8,8 +8,6 @@
 /// constructors
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E {
   e1,
   e2;

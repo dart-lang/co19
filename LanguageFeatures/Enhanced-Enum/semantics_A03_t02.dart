@@ -25,8 +25,6 @@
 /// `EnumImpl` with `Mixin1`, `Mixin2`.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 mixin M1 on Object {

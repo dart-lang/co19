@@ -24,8 +24,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48388
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 mixin M1 on Enum {
   void set values(int val) {}
 //         ^^^^^^

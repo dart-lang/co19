@@ -20,8 +20,6 @@
 /// extend or mix-in the Enum class.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 
 class C1 implements Enum {
 //                  ^^^^

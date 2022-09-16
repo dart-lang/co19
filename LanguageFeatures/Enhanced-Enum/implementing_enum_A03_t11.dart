@@ -23,8 +23,6 @@
 /// member with the name values
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 abstract class I1 {
   int get values;
 }

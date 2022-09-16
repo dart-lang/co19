@@ -15,8 +15,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48387
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E1 {
 //   ^^
 // [analyzer] unspecified

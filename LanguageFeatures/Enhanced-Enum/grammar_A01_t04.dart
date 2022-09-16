@@ -20,8 +20,6 @@
 /// is no any class member then it is not an error
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum Time1<T> {
   hour<int>(),
   day<String>(),

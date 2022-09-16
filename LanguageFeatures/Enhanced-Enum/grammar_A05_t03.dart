@@ -12,8 +12,6 @@
 /// @description Check that non constant factory constructor is allowed
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 enum E {

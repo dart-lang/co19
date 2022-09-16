@@ -24,8 +24,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48353
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 mixin M1 on Enum {
   final int index = 42;
 //          ^^^^^

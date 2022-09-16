@@ -23,8 +23,6 @@
 /// named `hashCode=`, but the setter/getter signature constraint does apply.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E1 {
   e1,
   e2;
