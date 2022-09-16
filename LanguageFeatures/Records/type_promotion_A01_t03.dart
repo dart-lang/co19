@@ -30,7 +30,7 @@ main() {
 
   R2 r2 = (42, o: "answer");
   if (r2 is (int? n, {String o})) {
-    r2.n?.isOdd;
+    r2.$0?.isOdd;
     r2.o.substring(0);
   }
 
