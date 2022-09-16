@@ -14,8 +14,6 @@
 /// incorrect additional arguments dynamically.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 class C {

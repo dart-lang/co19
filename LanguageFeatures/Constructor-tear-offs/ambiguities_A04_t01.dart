@@ -48,8 +48,6 @@
 /// parsed as {(a<b, c>)}
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 main() {
   int a = 1;
   int b = 2;

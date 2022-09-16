@@ -18,8 +18,6 @@
 /// @description Checks example from the Spec - tests negative cases.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 T id<T>(T value) => value;
 var idInt = id<int>;
 

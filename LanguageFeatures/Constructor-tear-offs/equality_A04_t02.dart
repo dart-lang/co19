@@ -8,8 +8,6 @@
 /// @description Checks equality of instantiated generic static methods tearoffs
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 class C {

@@ -43,8 +43,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 46902
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 typedef int Foo(int i);

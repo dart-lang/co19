@@ -17,8 +17,6 @@
 /// @description Checks tear-off of inherited generic instance method
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class A {
   T instanceMethod<T>(T t) => t;
 }

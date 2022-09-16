@@ -12,8 +12,6 @@
 /// negative dynamic case for [List<int>].
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 typedef MyList = List<int>;

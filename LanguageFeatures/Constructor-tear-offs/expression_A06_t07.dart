@@ -19,8 +19,6 @@
 /// forwarding constructor introduced by mixin application
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class A {
   A();
   A.id();

@@ -11,8 +11,6 @@
 ///
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C1 {
   C1();
   factory C1.new() = D1;

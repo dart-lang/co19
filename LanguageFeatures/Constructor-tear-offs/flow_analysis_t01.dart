@@ -16,8 +16,6 @@
 /// implicit type
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 test1(Object o) {
   var isInt = o is int;
   if (isInt) {

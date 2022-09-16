@@ -48,8 +48,6 @@
 /// parsed as (a<b), (c>++). Test constructor tear-off
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class a<T1, T2> {
   int x;
   a(this.x);

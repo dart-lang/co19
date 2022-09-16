@@ -22,8 +22,6 @@
 /// correctly for the generic class.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C<T extends int> {
   C.constr(int i) {}
 }

@@ -18,8 +18,6 @@
 /// @description Checks that it is a compile-time error if e has a type dynamic
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 T foo<T>(T t) => t;
 
 main() {

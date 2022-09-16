@@ -16,7 +16,6 @@
 /// @description Checks callable object invocation with '!'
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
 import "../../Utils/expect.dart";
 
 T foo1<T>(T value) => value;

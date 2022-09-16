@@ -43,8 +43,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 main() {

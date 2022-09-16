@@ -15,8 +15,6 @@
 /// compile-time error, even in the case where Type has a member named m
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C<T> {
 }
 

@@ -42,8 +42,6 @@
 /// generics only
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 T foo<T>(T value) => value;
 
 main() {

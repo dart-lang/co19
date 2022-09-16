@@ -25,8 +25,6 @@
 /// @description Check example from the Spec.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 class A<X> {

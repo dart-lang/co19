@@ -14,8 +14,6 @@
 /// parameters with the same name and type - test required named parameter.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 class C {

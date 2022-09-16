@@ -25,8 +25,6 @@
 /// invocation, not as a call ot Type.toString()
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 class C<T> {

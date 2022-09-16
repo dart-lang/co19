@@ -14,8 +14,6 @@
 /// @author iarkh@unipro.ru
 /// @issue 46888
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 class C<T> {

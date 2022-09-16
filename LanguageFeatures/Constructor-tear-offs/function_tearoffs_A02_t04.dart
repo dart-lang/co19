@@ -17,8 +17,6 @@
 /// @description Checks tear-off of generic instance method including 'this'
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C {
   C() {
     var x = this.instanceMethod<String>;

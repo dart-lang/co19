@@ -19,8 +19,6 @@
 /// constructor
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C {
   C();
   C.id();

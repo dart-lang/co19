@@ -43,8 +43,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 46902
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 T foo1<T>(T value) => value;

@@ -8,8 +8,6 @@
 /// @description Checks equality of non-instantiated top level generic functions
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 X topLevelFunction1<X>(X x) => x;

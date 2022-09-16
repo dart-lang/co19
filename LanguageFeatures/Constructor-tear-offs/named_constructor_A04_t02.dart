@@ -14,8 +14,6 @@
 /// list test constructor without arguments.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C {
   C.constr() {}
 }

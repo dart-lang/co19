@@ -12,8 +12,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 47213
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 void f<X>(X x) {}
 
 void main() {

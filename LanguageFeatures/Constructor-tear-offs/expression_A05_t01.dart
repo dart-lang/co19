@@ -15,8 +15,6 @@
 /// e.call<typeArgs>
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 T foo<T>(T t) => t;

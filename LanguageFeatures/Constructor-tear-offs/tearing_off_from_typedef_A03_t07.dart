@@ -14,8 +14,6 @@
 /// @issue 47267
 /// @issue 47462
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 typedef MyList<T extends num> = List<T>;

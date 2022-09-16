@@ -19,8 +19,6 @@
 /// factory constructor
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C {
   factory C() = D;
   factory C.id() = D;

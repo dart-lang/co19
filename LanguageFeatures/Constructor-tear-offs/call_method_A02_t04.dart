@@ -43,8 +43,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 47211
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 T foo1<T>(T value) => value;
 
 typedef T Foo<T>(T value);

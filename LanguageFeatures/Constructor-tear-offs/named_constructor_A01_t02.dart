@@ -17,8 +17,6 @@
 /// arguments is allowed for a generic class.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 class C<T> {

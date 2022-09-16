@@ -11,8 +11,6 @@
 /// argument is constant
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 void main() {
   var f = <X>(X x) {};
 

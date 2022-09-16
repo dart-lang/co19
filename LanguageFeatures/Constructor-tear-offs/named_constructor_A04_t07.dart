@@ -13,8 +13,6 @@
 /// @description Checks statically that initializing formals are represented by
 /// normal parameters with the same name and type.
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C {
   int x;
   dynamic y;
