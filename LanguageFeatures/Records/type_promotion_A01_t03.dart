@@ -41,12 +41,15 @@ main() {
   }
 
   (int, {String s})? r4 = null;
+  if (2 > 1) {
+    r4 = (0, s: "s");
+  }
   if (r4 != null) {
     r4.$0.isOdd;
     r4.s.substring(0);
   }
 
-  Record r5 = Record.empty;
+  Record r5 = (3.13, i: 0);
   if (r5 is (num, {int i})) {
     r5.$0.sign;
     r5.i.isOdd;

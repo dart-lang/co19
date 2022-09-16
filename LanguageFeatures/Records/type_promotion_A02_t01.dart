@@ -46,5 +46,9 @@ class C {
 }
 
 main() {
-  C((42, "answer"), (3.14, o: "pi"), null).test();
+  String? s;
+  if (1 > 2) {
+    s = "Lily was here";
+  }
+  C((42, "answer"), (3.14, o: "pi"), (n: 3.14, o: s)).test();
 }

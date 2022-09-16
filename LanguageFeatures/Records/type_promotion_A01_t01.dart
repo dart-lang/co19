@@ -40,11 +40,14 @@ main() {
   }
 
   (String,)? r4 = null;
+  if (2 > 1) {
+    r4 = ("Lily was here",);
+  }
   if (r4 != null) {
     r4.$0.substring(0);
   }
 
-  Record r5 = Record.empty;
+  Record r5 = (1, 2);
   if (r5 is (int, int)) {
     r5.$0.isOdd;
     r5.$1.isOdd;
