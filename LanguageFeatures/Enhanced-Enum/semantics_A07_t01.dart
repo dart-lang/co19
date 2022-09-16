@@ -12,8 +12,6 @@
 /// filled in by type inference, using the type of arguments
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 enum E<T> {

@@ -23,8 +23,6 @@
 /// named `operator ==`.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 abstract class E1 extends Enum {
   bool operator ==(Object other) {
 //     ^^^^^^^^^^^

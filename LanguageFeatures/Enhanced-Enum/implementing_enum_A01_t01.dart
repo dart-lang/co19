@@ -20,8 +20,6 @@
 /// implements Enum and it is not the implicit class of an enum declaration.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 class C implements Enum {
 //                 ^^^^
 // [analyzer] unspecified

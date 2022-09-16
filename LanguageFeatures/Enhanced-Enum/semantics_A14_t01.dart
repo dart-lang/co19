@@ -14,8 +14,6 @@
 /// @issue 48292
 /// @issue 48293
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 int i = 42;
 String s = "Lily was here";
 

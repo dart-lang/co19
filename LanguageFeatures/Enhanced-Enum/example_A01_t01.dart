@@ -60,8 +60,6 @@
 /// @description Check the example from the specification
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 mixin EnumComparable<T extends Enum> on Enum implements Comparable<T> {

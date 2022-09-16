@@ -15,8 +15,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48295
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 mixin M1 on Enum {
   int e1() => 42;
 }

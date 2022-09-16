@@ -24,8 +24,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48388
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 abstract class E1 extends Enum {
   final int values = 42;
 //          ^^^^^^

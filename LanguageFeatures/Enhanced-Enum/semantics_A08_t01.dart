@@ -11,8 +11,6 @@
 /// @description Check that static constant named `values` is added
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 enum E1 {

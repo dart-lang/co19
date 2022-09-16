@@ -12,8 +12,6 @@
 /// it to its bounds.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 class A {

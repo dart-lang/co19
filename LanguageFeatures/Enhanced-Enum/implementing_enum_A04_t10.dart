@@ -23,8 +23,6 @@
 /// named `index`.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 mixin M1 on Enum {
   int index() => 42;
 //    ^^^^^

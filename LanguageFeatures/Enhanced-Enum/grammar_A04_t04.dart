@@ -15,8 +15,6 @@
 /// @description Check that type argument without arguments is not allowed
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E1<T> {
   e1<int>,
 //       ^

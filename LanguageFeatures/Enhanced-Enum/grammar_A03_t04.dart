@@ -20,8 +20,6 @@
 /// implementation of any of its interfaces methods
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 class I {
   int interfaceMethod() => 0;
   int get interfaceGetter => 0;

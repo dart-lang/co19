@@ -28,8 +28,6 @@
 /// @description Check enum's values name and index. Test `id(args)` case
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 enum E1 {

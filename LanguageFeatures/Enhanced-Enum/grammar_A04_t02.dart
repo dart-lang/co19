@@ -18,8 +18,6 @@
 /// @description Check grammar of the enum declaration
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 class A {
   const A();
 }

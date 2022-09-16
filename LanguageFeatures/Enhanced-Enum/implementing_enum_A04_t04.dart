@@ -24,8 +24,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48353
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 abstract class E1 extends Enum {
   void set index(int val) {}
 }

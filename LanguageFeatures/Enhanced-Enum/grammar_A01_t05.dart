@@ -19,8 +19,6 @@
 /// @description Check that the ; can appear after the trailing comma
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum Time1 {
   hour,
   day,

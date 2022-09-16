@@ -17,8 +17,6 @@
 /// parameter on the enum which does have a valid well-bounded result
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E<T extends List> {
   e1<List<int>>(const [42]),
   e2<List<Null>>(const [null]);

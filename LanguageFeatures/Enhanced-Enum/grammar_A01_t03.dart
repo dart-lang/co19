@@ -20,8 +20,6 @@
 /// is any member declaration after it
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum Time1 {
   hour(),
   day(),

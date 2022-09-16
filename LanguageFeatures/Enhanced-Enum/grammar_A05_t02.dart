@@ -13,8 +13,6 @@
 /// contains any generative constructor which is not const
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E {
   e1,
   e2,

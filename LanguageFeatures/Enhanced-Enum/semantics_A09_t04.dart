@@ -16,8 +16,6 @@
 /// @issue 48290
 /// @issue 48294
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E1 {
   e1,
 //^^

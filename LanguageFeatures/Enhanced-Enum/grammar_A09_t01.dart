@@ -15,8 +15,6 @@
 /// @description Check that enum declaration may contain 'call' method
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 enum E1 {

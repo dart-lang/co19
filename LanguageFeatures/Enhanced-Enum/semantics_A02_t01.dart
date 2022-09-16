@@ -11,8 +11,6 @@
 /// @description Check the name of the enum instance
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 import "../../Utils/expect.dart";
 
 class I1 {

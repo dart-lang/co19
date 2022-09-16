@@ -23,8 +23,6 @@
 /// named `index`.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 abstract class E1 extends Enum {
   int index() => 42;
 //    ^^^^^

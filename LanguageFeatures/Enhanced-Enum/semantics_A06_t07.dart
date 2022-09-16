@@ -31,8 +31,6 @@
 /// @issue 48292
 /// @issue 48293
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 int x = 1;
 String y = "s";
 double z = 3.14;

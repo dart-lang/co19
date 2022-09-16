@@ -11,8 +11,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48289
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E1 {
   e1,
   e2,

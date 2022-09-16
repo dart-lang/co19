@@ -22,8 +22,6 @@
 /// @Issue 48179, 48181
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 enum E1 {
   e1,
 //^^

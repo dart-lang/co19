@@ -24,8 +24,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48388
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 mixin M1 on Enum {
   int values() => 42;
 //    ^^^^^^

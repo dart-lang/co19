@@ -15,8 +15,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48291
 
-// SharedOptions=--enable-experiment=enhanced-enums
-
 abstract class I {
   void foo();
 }
