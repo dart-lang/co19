@@ -19,8 +19,6 @@
 /// function tear-off
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 class C {

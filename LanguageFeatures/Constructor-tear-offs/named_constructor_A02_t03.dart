@@ -14,8 +14,6 @@
 /// @author iarkh@unipro.ru
 /// @issue 46888
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C<T> {
   C.constr(T t) {}
 }

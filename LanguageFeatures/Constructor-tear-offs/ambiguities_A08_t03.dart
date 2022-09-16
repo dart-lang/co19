@@ -49,8 +49,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 46887
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 String f(a, [b]) => "$a, $b";

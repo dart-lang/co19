@@ -11,8 +11,6 @@
 /// argument is constant
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 X f<X>(X x) => x;

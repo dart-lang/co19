@@ -17,8 +17,6 @@
 /// of an instantiated generic class
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C<T> {
   static void foo1<X>(X x) {}
 }

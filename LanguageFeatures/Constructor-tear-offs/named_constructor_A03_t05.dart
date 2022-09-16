@@ -13,8 +13,6 @@
 /// arguments to [C] - test incorrect type parameters.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C<T1 extends int> {
   C.constr(exp1, exp2, exp3) {}
 }

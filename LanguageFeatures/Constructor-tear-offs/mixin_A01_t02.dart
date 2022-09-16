@@ -26,8 +26,6 @@
 /// application forwarding constructor has correct type
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class A<X> {
   X x;
   A.named(this.x);

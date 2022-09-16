@@ -27,8 +27,6 @@
 /// tear-offs
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class A<X> {
   final X x;
   const A.named(this.x);

@@ -49,8 +49,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 47060
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 void f(x, [y]) {}
 
 main() {

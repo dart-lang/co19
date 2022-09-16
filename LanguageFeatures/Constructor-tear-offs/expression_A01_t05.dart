@@ -18,8 +18,6 @@
 /// Test the case when class denoted by e gas a 'call' method
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 class C<T> {

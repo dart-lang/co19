@@ -8,8 +8,6 @@
 /// @description Checks equality of instantiated top level generic functions
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 typedef X Foo<X>(X x);

@@ -8,8 +8,6 @@
 /// @description Checks equality of generic mixin methods tearoffs
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 typedef IntAlias = int;

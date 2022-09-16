@@ -11,8 +11,6 @@
 ///
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class A1 {
   A1() {}
   const A1.new();

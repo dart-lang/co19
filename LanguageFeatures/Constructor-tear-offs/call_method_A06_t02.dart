@@ -42,8 +42,6 @@
 /// application
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class A {
 }
 

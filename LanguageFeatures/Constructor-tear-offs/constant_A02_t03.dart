@@ -11,8 +11,6 @@
 /// argument is constant
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C {
   const C();
   void foo<X>(X x) {}

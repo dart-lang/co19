@@ -50,8 +50,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 47060
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 String f(a, [b]) => "$a, $b";
 
 class a<T1, T2> {

@@ -7,8 +7,6 @@
 /// @description Checks equality of top level non-generic functions
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 int topLevelFunction1() => 42;

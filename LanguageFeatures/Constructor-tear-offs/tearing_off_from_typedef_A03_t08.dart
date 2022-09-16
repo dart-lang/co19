@@ -12,8 +12,6 @@
 ///
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 typedef MyList<T extends num> = List<T>;
 
 String s = "";

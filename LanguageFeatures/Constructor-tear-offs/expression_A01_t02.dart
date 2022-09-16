@@ -17,8 +17,6 @@
 /// denotes a class and followed by .id then it denotes a constructor
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 class C<T> {

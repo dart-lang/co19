@@ -13,8 +13,6 @@
 /// arguments to [C] - test case with the different type parameter numbers.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C<T1, T2 extends num, T3 extends String> {
   C.constr(exp1, exp2, exp3) {}
 }

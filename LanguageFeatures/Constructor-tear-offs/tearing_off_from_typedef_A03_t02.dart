@@ -12,8 +12,6 @@
 ///
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 typedef MyList<T> = List<T>;
 
 main() {

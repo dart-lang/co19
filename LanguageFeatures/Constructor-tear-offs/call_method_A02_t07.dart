@@ -42,8 +42,6 @@
 /// function
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 X foo<X, Y>(X x, Y y) => x;

@@ -9,8 +9,6 @@
 /// tests default constructor call
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C {
   C() {}
 }

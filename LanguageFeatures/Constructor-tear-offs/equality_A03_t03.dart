@@ -8,8 +8,6 @@
 /// @description Checks equality of instantiated local generic functions
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 Function foo(String message) {

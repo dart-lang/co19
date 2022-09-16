@@ -48,8 +48,6 @@
 /// parsed as (a<b), (c>++). Test generic function tear-off
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 String a<T1, T2>(int x) {
   return "a<$T1, $T2>($x)";
 }

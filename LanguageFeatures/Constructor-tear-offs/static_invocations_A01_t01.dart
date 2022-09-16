@@ -22,8 +22,6 @@
 /// @description Checks that List<int>.copyRange is a compile time error
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 main() {
   var f1 = List.copyRange;
   var f2 = List<int>.copyRange;

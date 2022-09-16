@@ -18,8 +18,6 @@
 /// @description Checks that it is a compile-time error if e has a type Function
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C {
   static T foo<T>(T t) => t;
   T bar<T>(T t) => t;

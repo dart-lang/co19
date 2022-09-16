@@ -9,8 +9,6 @@
 /// constructor declared in an abstract class
 /// @author sgrekhov@unipro.ru
 
-/// SharedOptions=--enable-experiment=constructor-tearoffs
-//
 import "../../Utils/expect.dart";
 
 abstract class A<T> {

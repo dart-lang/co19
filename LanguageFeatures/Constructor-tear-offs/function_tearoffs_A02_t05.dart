@@ -17,8 +17,6 @@
 /// @description Checks tear-off of inherited generic instance method
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 class A {

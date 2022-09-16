@@ -10,8 +10,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 47317
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 import "../../Utils/expect.dart";
 
 typedef IntAlias = int;

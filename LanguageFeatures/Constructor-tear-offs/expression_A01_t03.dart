@@ -17,8 +17,6 @@
 /// denotes a class and followed by .id then it must be a constructor
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
-
 class C<T> {
   void id() {}
 }
