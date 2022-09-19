@@ -10,8 +10,6 @@
 /// argument list. Test global functions
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=named-arguments-anywhere
-
 import "../../Utils/expect.dart";
 
 String foo<T>(T x, T y, {T? z}) => "x=$x, y=$y, z=$z";

@@ -10,8 +10,6 @@
 /// argument list. Test local functions
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=named-arguments-anywhere
-
 import "../../Utils/expect.dart";
 
 main() {
