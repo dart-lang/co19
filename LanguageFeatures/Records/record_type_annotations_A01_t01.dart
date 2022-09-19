@@ -25,7 +25,7 @@
 import "../../Utils/expect.dart";
 
 (int, String name, bool) r1 = (42, "Name", true);
-({int n, String s}) r2 = (n: 0, s: "Lily was here"});
+({int n, String s}) r2 = (n: 0, s: "Lily was here");
 (bool, num, {int n, String s}) r3 = (s: "Hi", true, n: 0, 42);
 
 (int, String name, bool) foo1() => r1;

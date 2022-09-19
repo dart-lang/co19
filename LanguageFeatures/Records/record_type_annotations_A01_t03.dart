@@ -35,7 +35,7 @@ R1 r1 = (42, "Name", true);
 R2 r2 = (42, "Name", true);
 R3 r3 = (42, "Name", true);
 
-R4 r4 = (n: 0, s: "Lily was here"});
+R4 r4 = (n: 0, s: "Lily was here");
 R5 r5 = (s: "Hi", true, n: 0, 42);
 
 main() {

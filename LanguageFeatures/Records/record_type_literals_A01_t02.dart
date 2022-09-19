@@ -15,8 +15,6 @@
 
 // SharedOptions=--enable-experiment=records
 
-import "../../Utils/expect.dart";
-
 main() {
   var t1 = (int, {String s});
 //               ^^^^^^^^^^
