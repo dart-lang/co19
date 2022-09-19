@@ -89,7 +89,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  dynamic d = ({i: 1, s: "Lily was here"});
+  dynamic d = (i: 1, s: "Lily was here");
   if (d is (int i, {int i, String s})) {
 //              ^
 // [analyzer] unspecified
