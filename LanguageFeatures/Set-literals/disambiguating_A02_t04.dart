@@ -29,6 +29,6 @@ main() {
   SplayTreeSet<int> s3 = <int>{};
 //                       ^^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-//                          ^
+//                            ^
 // [cfe] A value of type 'Set<int>' can't be assigned to a variable of type 'SplayTreeSet<int>'.
 }
