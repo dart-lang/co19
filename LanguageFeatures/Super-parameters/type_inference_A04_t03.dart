@@ -11,8 +11,6 @@
 /// there is no information about the parameter type
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 import "../../Utils/expect.dart";
 
 class S<T> {

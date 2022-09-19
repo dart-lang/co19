@@ -14,8 +14,6 @@
 /// (this.name) then it must exists in the surrounding class
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 test<T>(T t) {}
 
 class S {

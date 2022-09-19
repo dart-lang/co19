@@ -11,8 +11,6 @@
 /// super-constructor invocation already has positional arguments.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 class S {
   num s1, s2;
   S(this.s1, this.s2);

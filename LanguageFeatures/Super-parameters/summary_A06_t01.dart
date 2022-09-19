@@ -9,8 +9,6 @@
 /// @description Check that super parameter always can be named
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 import "../../Utils/expect.dart";
 
 class S {

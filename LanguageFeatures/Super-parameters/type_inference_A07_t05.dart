@@ -10,8 +10,6 @@
 /// parameter.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 class S<T> {
   int s1;
   T s2;

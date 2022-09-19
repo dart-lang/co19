@@ -9,7 +9,6 @@
 /// two parameter declarations with the same name.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
 class S {
   int s1;
   S(this.s1);

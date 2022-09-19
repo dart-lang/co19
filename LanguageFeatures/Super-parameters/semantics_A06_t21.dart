@@ -26,8 +26,6 @@
 /// super-constructor parameter.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 class S {
   int s1;
   S({int x1 = 0}) : s1 = x1;

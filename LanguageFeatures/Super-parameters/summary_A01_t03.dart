@@ -10,8 +10,6 @@
 /// @description Check that the super parameter introduces a final variable
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 class S {
   int s;
   S({int x = 0}) : s = ++x;

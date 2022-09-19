@@ -11,8 +11,6 @@
 /// the parameter's name
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 class S {
   int s;
   S(int x) : s = ++x;

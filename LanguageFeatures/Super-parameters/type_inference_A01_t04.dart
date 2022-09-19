@@ -12,8 +12,6 @@
 /// that remains the type of the parameter.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 class S<T extends num> {
   S(T t);
 }

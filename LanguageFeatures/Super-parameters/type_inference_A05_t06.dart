@@ -13,8 +13,6 @@
 /// @description Check that id `d` is not subtype of the declared type of p
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 class S {
   int s1;
   int s2;
