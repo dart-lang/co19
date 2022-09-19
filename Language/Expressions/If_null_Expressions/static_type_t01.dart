@@ -24,7 +24,7 @@ main() {
   x = null ?? 1;
   x = null ?? null;
   x = x ?? 'aaa';
-//   ^^^^^^^^^^
+//    ^^^^^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
 //      ^
 // [cfe] A value of type 'Object' can't be assigned to a variable of type 'int?'.
