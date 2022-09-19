@@ -25,7 +25,7 @@
 /// @description Checks that it is no error if a record type has a field name
 /// that doesn't collide with the synthesized getter name of a positional field
 /// @author sgrekhov22@gmail.com
-/// @issue 498838
+/// @issue 49883
 
 // SharedOptions=--enable-experiment=records
 
@@ -43,9 +43,9 @@ typedef void R5((String s, {String $1}));
 
 (int $2, {int x})? foo2() => null;
 
-void bar1((int i, {bool $1})) {}
+void bar1((int i, {bool $1}) r) {}
 
-void bar1((int $3, {bool b})) {}
+void bar2((int $3, {bool b}) r) {}
 
 main() {
   (int $0, {String s})? r1 = null;
