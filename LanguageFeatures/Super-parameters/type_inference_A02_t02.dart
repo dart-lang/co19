@@ -15,8 +15,6 @@
 /// of the instance variable named name of the surrounding class
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 test<T>(T t) {}
 
 class C<T> {

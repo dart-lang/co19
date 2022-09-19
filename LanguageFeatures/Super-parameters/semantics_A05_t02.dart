@@ -11,8 +11,6 @@
 /// named argument with name n.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 import "../../Utils/expect.dart";
 
 class S {

@@ -18,8 +18,6 @@
 /// of the targeted super-constructor, then s’ has positional arguments m1..mk.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 import "../../Utils/expect.dart";
 
 test<T>(T t) {}

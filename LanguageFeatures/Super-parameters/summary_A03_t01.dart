@@ -12,8 +12,6 @@
 /// associated super-constructor parameter that they are forwarded to.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 class S {
   Object s;
   S([String this.s = ""]);

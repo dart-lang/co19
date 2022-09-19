@@ -12,8 +12,6 @@
 /// type is potentially non-nullable and it still does not have a default value.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 class S {
   var s1;
   S({this.s1});

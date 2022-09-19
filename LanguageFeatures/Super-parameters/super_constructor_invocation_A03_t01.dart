@@ -22,8 +22,6 @@
 /// @description Check that super-constructor invocation has correct parameters
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 import "../../Utils/expect.dart";
 
 class S<T> {

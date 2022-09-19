@@ -14,8 +14,6 @@
 /// parameter
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 class S {
   var s1;
   S(int x) : s1 = x;

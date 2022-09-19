@@ -14,8 +14,6 @@
 /// @description Check that the inference on the implicit arguments is not used
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 class S {
   int x;
   S(this.x);

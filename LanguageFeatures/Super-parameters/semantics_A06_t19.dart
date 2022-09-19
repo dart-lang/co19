@@ -25,8 +25,6 @@
 /// super constructor parameter is chosen by order not by name
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=super-parameters
-
 import "../../Utils/expect.dart";
 
 class S {
