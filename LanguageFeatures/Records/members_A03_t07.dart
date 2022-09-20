@@ -21,8 +21,6 @@ typedef R = (int a, String, {int x, int y});
 extension ER on R {
   int get $0 => 42;
   String get $1 => "ER";
-  void set $0(int val) {}
-  void set $1(String val) {}
 }
 
 main() {
@@ -31,21 +29,15 @@ main() {
   Expect.equals("r1", r1.$1);
   Expect.equals(42, ER(r1).$0);
   Expect.equals("ER", ER(r1).$1);
-  r1.$0 = 0;
-  r1.$1 = "";
 
   var r2 = (x: 5, y: 6, 0, "r2");
   Expect.equals(0, r2.$0);
   Expect.equals("r2", r2.$1);
   Expect.equals(42, ER(r2).$0);
   Expect.equals("ER", ER(r2).$1);
-  r2.$0 = 0;
-  r2.$1 = "";
 
   Expect.equals(1, (1, "r3", x: 7, y: 8).$0);
   Expect.equals("r3", (1, "r3", x: 7, y: 8).$1);
   Expect.equals(42, ER((1, "r3", x: 7, y: 8)).$0);
   Expect.equals("ER", ER((1, "r3", x: 7, y: 8)).$1);
-  (1, "r3", x: 7, y: 8).$0 = 0;
-  (1, "r3", x: 7, y: 8).$1 = "";
 }
