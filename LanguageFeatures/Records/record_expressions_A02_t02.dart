@@ -33,22 +33,22 @@
 
 import "../../Utils/expect.dart";
 
-Record foo1() => (1,);
+(int,) foo1() => (1,);
 
-Record foo2() => ((2),);
+(int,) foo2() => ((2),);
 
-Record foo3() => ((3,),);
+((int,),) foo3() => ((3,),);
 
 dynamic bar(Record r) => r;
 
 main() {
   var r1 = (1,);
-  var r2 = ((2),);
+  var r2 = ((2),); // The same as (2,)
   var r3 = ((3,),);
 
   Expect.equals(1, r1.$0);
   Expect.equals(2, r2.$0);
-  Expect.equals(3, r2.$0.$0);
+  Expect.equals(3, r3.$0.$0);
 
   Expect.equals(1, foo1().$0);
   Expect.equals(2, foo2().$0);
