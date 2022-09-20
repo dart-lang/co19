@@ -27,6 +27,8 @@
 /// is the least upper bound of the corresponding field in the original types
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=records
+
 import "../../Utils/static_type_helper.dart";
 
 main() {

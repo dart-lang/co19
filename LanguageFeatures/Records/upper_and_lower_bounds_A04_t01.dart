@@ -26,6 +26,8 @@
 /// shapes is Never
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=records
+
 import "../../Utils/static_type_helper.dart";
 
 (num, String) a1((num, String) r) => r;
