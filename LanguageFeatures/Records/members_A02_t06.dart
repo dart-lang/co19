@@ -16,6 +16,13 @@
 
 typedef R = (int a, String, {int x, int y});
 
+extension ER on R {
+  int get x => 42;
+  int get y => 21;
+  void set x(int val) {}
+  void set y(int val) {}
+}
+
 main() {
   R r1 = (1, "", x: 3, y: 4);
   r1.x = 0;
