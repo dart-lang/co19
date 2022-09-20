@@ -21,7 +21,7 @@ main() {
   Expando<int> exp = Expando("C");
   Expect.throws(() {exp[r1] = 42;});
 
-  R2 r2 = (3.14, name "pi");
+  R2 r2 = (3.14, name: "pi");
   Expect.throws(() {exp[r2] = 42;});
 
   R3 r3 = (x: 1.2, y: 3.4);
