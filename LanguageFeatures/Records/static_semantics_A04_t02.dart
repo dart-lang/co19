@@ -32,11 +32,18 @@ typedef T2 = ({dynamic s, FutureOr<Object?> i,});
 typedef T3 = (Object?, FutureOr<Object?>);
 typedef T4 = (FutureOr<Object?> f, Object? o,);
 
+typedef T5 = (void, dynamic);
+typedef T6 = (dynamic, void);
+typedef T7 = (Object?,);
+typedef T8 = (dynamic,);
+typedef T9 = (void,);
+
 main() {
   Expect.isTrue(T1 == T2);
   Expect.isTrue(T3 == T4);
-  Expect.isFalse((void, dynamic) == (dynamic, void));
+  Expect.isFalse(T5 == T6);
+  Expect.isFalse(T7 == T8);
+  Expect.isFalse(T7 == T9);
   Expect.isFalse((Object?,) == (dynamic,));
-  Expect.isFalse((Object?,) == (void,));
   testNever();
 }
