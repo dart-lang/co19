@@ -17,7 +17,7 @@
 (int, String, {bool b}) t0Instance = (1, "2", b: true);
 (int, String, {List<num> b}) t1Instance = (3, "4", b: []);
 
-const t1Default = const (5, "6", b: []);
+const t1Default = const (5, "6", b: <num>[]);
 
 //# @T0 = (int i, String, {bool b})
 //# @T1 = (int i, String, {List<num> b})
