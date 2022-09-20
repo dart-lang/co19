@@ -8,7 +8,7 @@
 /// and writeEventsEnabled must be set to true again to receive another write
 /// event.
 ///
-/// @description Checks that if writeEventsEnabled is false, then this even is
+/// @description Checks that if writeEventsEnabled is false, then this event is
 /// not listened.
 /// @author sgrekhov22@gmail.com
 
