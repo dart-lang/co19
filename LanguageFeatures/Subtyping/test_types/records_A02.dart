@@ -20,7 +20,7 @@
 (num, num z, String?, {num n1, String? n2}) t1Instance =
   (0, n1: 0, 0, n2: null, null);
 
-const t1Default = (0, 0, null, {n1: 0.1, n2: ""});
+const t1Default = (0, 0, null, n1: 0.1, n2: "");
 
 //# @T0 = (int, double, String, {int n1, String n2})
 //# @T1 = (num, num, String?, {num n1, String? n2})
