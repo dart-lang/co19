@@ -2,16 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// @dart = 2.9
-
 /// @assertion int send(List<int> buffer, InternetAddress address, int port)
 /// Send a datagram.
 ///
 /// Returns the number of bytes written. This will always be either the size of
 /// buffer or 0.
 ///
-/// @description Checks that method send returns the number of bytes that were
-/// sent.
+/// @description Checks that method send returns 0 if buffer length is 0.
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";
@@ -23,10 +20,10 @@ var localhost = InternetAddress.loopbackIPv4;
 main() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
   RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
-  List<List<int>> toSent = [[1, 1], bigData, [2]];
-  bool sent = await sendDatagram(producer, toSent, localhost, receiver.port);
-  Expect.isTrue(sent);
-
-  List<List<int>> received = await receiveDatagram(receiver);
-  Expect.isTrue(received.length > 0);
+  for (int i = 0; i < 5; i++) {
+    int sent = await sendDatagram(producer, [], localhost, receiver.port);
+    Expect.equals(0, sent);
+  }
+  producer.close();
+  receiver.close();
 }

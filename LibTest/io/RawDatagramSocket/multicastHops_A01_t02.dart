@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// @dart = 2.9
-
 /// @assertion int multicastHops
 /// Set or get, the maximum network hops for multicast packages originating from
 /// this socket.
@@ -22,8 +20,7 @@ import "../../../Utils/expect.dart";
 check(InternetAddress address) {
   asyncStart();
   RawDatagramSocket.bind(address, 0).then((socket) {
-    var v1 = socket.multicastHops;
-    Expect.equals(1, v1);
+    Expect.equals(1, socket.multicastHops);
     socket.close();
     asyncEnd();
   });
