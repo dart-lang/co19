@@ -38,13 +38,13 @@ String s = "Lily was here";
 
 var r1 = (i, name: pi, s);
 
-Record foo() {
+(int, double, String) foo() {
   int x = 0;
   return (x++, 1.1 + x, s);
 }
 
 class A {
-  Record ar;
+  (num, {String name}) ar;
   A(this.ar);
 }
 
@@ -53,17 +53,17 @@ class C extends A {
   static final sr = (ci, C.ci, i);
 
   int cx = 1;
-  Record cr;
+  (int, {String s}) cr;
 
   C(this.cr): super((i, name: "answer"));
-  C.c1(): cr = (s: s), super((pi, name: "pi"));
+  C.c1(): cr = (-1, s: s), super((pi, name: "pi"));
 
-  Record m() {
+  (Record, int, {int s}) m() {
     int _x0 = 1;
     return (s: cx, sr, ++_x0);
   }
 
-  Record get g => (cx, x: cr);
+  (int, {Record x}) get g => (cx, x: cr);
 }
 
 main() {
@@ -77,6 +77,7 @@ main() {
   Expect.equals(0, foo().$0);
   Expect.equals(2.1, foo().$1);
   Expect.equals(s, foo().$2);
+  Expect.equals(-1, c1.cr.$0);
   Expect.equals(s, c1.cr.s);
   Expect.equals(i, c.cr.$0);
   Expect.equals(s, c.cr.s);
