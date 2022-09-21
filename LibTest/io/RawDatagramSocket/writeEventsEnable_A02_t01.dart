@@ -1,15 +1,16 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion bool readEventsEnabled
-/// Set or get, if the RawDatagramSocket should listen for RawSocketEvent.read
-/// events. Default is true.
+/// @assertion bool writeEventsEnabled
+/// Set or get, if the [RawDatagramSocket] should listen for
+/// [RawSocketEvent.write] events. Default is true. This is a one-shot listener,
+/// and writeEventsEnabled must be set to true again to receive another write
+/// event.
 ///
-/// @description Checks that the [RawDatagramSocket] should not listen for
-/// [RawSocketEvent.read] events, if [readEventsEnabled] is false.
-/// @author ngl@unipro.ru
-/// @author shrekhov22@gmail.com
+/// @description Checks that [writeEventsEnabled] is a one-shot listener, and
+/// [writeEventsEnabled] is false after getting of the write event
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../http_utils.dart";
@@ -24,10 +25,15 @@ main() async {
   for (int i = 0; i < data.length; i++) {
     await sendDatagram(producer, data[i], localhost, receiver.port);
   }
-  receiver.readEventsEnabled = false;
-  receiver.listen((_event) {
+  receiver.listen((_event) async {
+    if (_event == RawSocketEvent.write) {
+      Expect.isFalse(receiver.writeEventsEnabled);
+    }
     if (_event == RawSocketEvent.read) {
-      Expect.fail("Read events should not be listened");
+      Datagram? d = receiver.receive();
+      if (d != null) {
+        Expect.isTrue(containsReceived(data, d));
+      }
     }
   });
   Future.delayed(Duration(milliseconds: 100)).then((_) {
