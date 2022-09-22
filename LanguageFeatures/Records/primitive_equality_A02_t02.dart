@@ -23,7 +23,7 @@ class C {
   const C();
 
   bool operator ==(Object other) {
-    return false;
+    return other.hashCode.isOdd;
   }
 }
 
