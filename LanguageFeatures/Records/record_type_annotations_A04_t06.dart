@@ -32,11 +32,11 @@ typedef R1 = ({int i});
 
 typedef ({int j}) R2();
 
-typedef void R3(({String s}));
+typedef void R3(({String s}) r);
 
 ({int i}) foo() => (i: 42);
 
-void bar(({int i})) {}
+void bar(({int i}) r) {}
 
 main() {
   ({int j}) r1 = (j: 42);

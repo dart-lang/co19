@@ -37,7 +37,7 @@ typedef (int $0, {int i}) R3();
 
 typedef (int, {int $1}) R4();
 
-typedef void R5((String s, {String $1}));
+typedef void R5((String s, {String $1}) r);
 
 (int, {int $1})? foo1() => null;
 

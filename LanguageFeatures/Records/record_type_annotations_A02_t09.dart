@@ -46,11 +46,11 @@ typedef R2 = (@Meta() int i,{@Meta() String s});
 typedef R3 = ({@Meta() int i, @Meta() String s});
 
 typedef (@Meta() int i, {@Meta() String s}) R4();
-typedef void R5((@Meta() int i, {@Meta() String s}));
+typedef void R5((@Meta() int i, {@Meta() String s}) r);
 
 (@Meta() int i, {@Meta() String s}) foo() => (42, s: "");
 
-void bar((@Meta() int i, {@Meta() String s})) {}
+void bar((@Meta() int i, {@Meta() String s}) r) {}
 
 main() {
   (@Meta() int i, @Meta() String s) r1 = (42, "");
