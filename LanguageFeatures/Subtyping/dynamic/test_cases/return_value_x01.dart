@@ -6,7 +6,6 @@
 /// of T0 can be used as a return value of type T1
 /// @author sgrekhov@unipro.ru
 
-
 @T1 returnValueFunc() => forgetType(t0Instance);
 
 class ReturnValueTest {
@@ -36,8 +35,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   new ReturnValueGen<@T1>().testMethod();
   new ReturnValueGen<@T1>().testGetter;
-  //# -->
 }

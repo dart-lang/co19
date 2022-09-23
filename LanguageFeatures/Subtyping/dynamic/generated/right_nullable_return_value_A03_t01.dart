@@ -64,10 +64,8 @@ test<T extends S1>(T t0Instance) {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   new ReturnValueGen<S1?>().testMethod();
   new ReturnValueGen<S1?>().testGetter;
-  //# -->
 }
 
 main() {

@@ -30,6 +30,7 @@ import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
 
 // Requirements=nnbd-strong
+
 import "dart:async";
 
 FutureOr<Null> t0Instance = null;
@@ -179,7 +180,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   // Test generic functions
   Expect.throws(() {
     namedArgumentsFunc2<Object>(t1Instance, t2: forgetType(t0Instance));
@@ -207,7 +207,6 @@ main() {
   Expect.throws(() {
     new ArgumentsBindingClassGen<Object>(t1Instance).testSetter = forgetType(t0Instance);
   }, (e) => e is TypeError);
-  //# -->
 
   // Test superclass constructor call
   Expect.throws(() {

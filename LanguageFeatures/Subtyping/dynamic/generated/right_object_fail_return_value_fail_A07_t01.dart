@@ -30,6 +30,7 @@ import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
 
 // Requirements=nnbd-strong
+
 import "dart:async";
 
 class S {}
@@ -76,12 +77,10 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   Expect.throws(() {
     new ReturnValueGen<Object>().testMethod();
   }, (e) => e is TypeError);
   Expect.throws(() {
     new ReturnValueGen<Object>().testGetter;
   }, (e) => e is TypeError);
-  //# -->
 }

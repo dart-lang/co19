@@ -59,8 +59,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   new ReturnValueGen<FutureOr<Object?>>().testMethod();
   new ReturnValueGen<FutureOr<Object?>>().testGetter;
-  //# -->
 }

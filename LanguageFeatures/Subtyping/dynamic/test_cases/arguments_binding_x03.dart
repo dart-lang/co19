@@ -6,7 +6,6 @@
 /// of T0 can be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 
-
 class ArgumentsBindingMixin1_t03 {
   @T1 m = t1Default;
 
@@ -59,12 +58,9 @@ main() {
   c1.superGetter;
 
   // Test type parameters
-
-  //# <-- NotGenericFunctionType
   ArgumentsBinding2_t03<@T1> c2 = new ArgumentsBinding2_t03<@T1>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
   c2.superSetter = forgetType(t0Instance);
-  //# -->
 }

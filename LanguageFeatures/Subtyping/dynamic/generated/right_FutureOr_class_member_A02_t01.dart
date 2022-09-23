@@ -119,7 +119,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   ClassMember2_t01<FutureOr<S1>> c2 = new ClassMember2_t01<FutureOr<S1>>();
   c2 = new ClassMember2_t01<FutureOr<S1>>.short(forgetType(t0Instance),
   forgetType(t0Instance));
@@ -127,5 +126,4 @@ main() {
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;
-  //# -->
 }

@@ -68,12 +68,10 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   Expect.throws(() {
     new ReturnValueGen<(int, String, bool)>().testMethod();
   }, (e) => e is TypeError);
   Expect.throws(() {
     new ReturnValueGen<(int, String, bool)>().testGetter;
   }, (e) => e is TypeError);
-  //# -->
 }

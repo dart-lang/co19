@@ -132,7 +132,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   Expect.throws(() {
     new ClassMember2_t02<C0<U0, U1, U2>>();
   }, (e) => e is TypeError);
@@ -154,5 +153,4 @@ main() {
   Expect.throws(() {
     new ClassMember2_t02<C0<U0, U1, U2>>().test2();
   }, (e) => e is TypeError);
-  //# -->
 }

@@ -30,6 +30,7 @@ import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
 
 // Requirements=nnbd-strong
+
 import "dart:async";
 
 class S {}
@@ -273,7 +274,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   // test generic class constructors
   Expect.throws(() {
     new ArgumentsBinding2_t02<Object>(forgetType(t0Instance));
@@ -305,5 +305,4 @@ main() {
   }, (e) => e is TypeError);
 
   new ArgumentsBinding2_t02<Object>(t1Instance).test();
-  //# -->
 }

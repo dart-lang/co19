@@ -70,12 +70,10 @@ test<T extends B>(T t0Instance) {
 
     // Test type parameters
 
-    //# <-- NotGenericFunctionType
     ClassMember2_t03<Object> c2 = new ClassMember2_t03<Object>(t1Instance);
     c2.m = forgetType(t0Instance);
     c2.test();
     c2.superSetter = forgetType(t0Instance);
-    //# -->
 }
 
 main() {

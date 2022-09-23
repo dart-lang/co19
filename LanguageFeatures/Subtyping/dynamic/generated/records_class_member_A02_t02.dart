@@ -99,12 +99,10 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   ClassMember2_t02<(num, num, String?, {num n1, String? n2})> c2 = new ClassMember2_t02<(num, num, String?, {num n1, String? n2})>();
   c2 = new ClassMember2_t02<(num, num, String?, {num n1, String? n2})>.short();
   c2 = new ClassMember2_t02<(num, num, String?, {num n1, String? n2})>.named();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
-  //# -->
 }

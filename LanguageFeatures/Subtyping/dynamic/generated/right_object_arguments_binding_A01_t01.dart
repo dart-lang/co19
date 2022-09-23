@@ -107,7 +107,6 @@ test<T extends B>(T t0Instance) {
 
     // Test type parameters
 
-    //# <-- NotGenericFunctionType
     // test generic functions
     namedArgumentsFunc2<Object>(forgetType(t0Instance), t2: forgetType(t0Instance));
 
@@ -123,7 +122,6 @@ test<T extends B>(T t0Instance) {
     instance2.namedArgumentsMethod(forgetType(t0Instance),
         t2: forgetType(t0Instance));
     instance2.testSetter = forgetType(t0Instance);
-    //# -->
 }
 
 main() {

@@ -59,8 +59,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   new ReturnValueGen<(num, num, String?)>().testMethod();
   new ReturnValueGen<(num, num, String?)>().testGetter;
-  //# -->
 }
