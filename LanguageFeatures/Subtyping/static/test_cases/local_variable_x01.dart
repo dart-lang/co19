@@ -6,7 +6,6 @@
 /// of T0 can be assigned to the to local variable of type T1
 /// @author sgrekhov@unipro.ru
 
-
 class LocalVariableTest {
 
   LocalVariableTest() {

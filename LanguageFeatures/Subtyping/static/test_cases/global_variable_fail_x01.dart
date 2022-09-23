@@ -8,7 +8,6 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

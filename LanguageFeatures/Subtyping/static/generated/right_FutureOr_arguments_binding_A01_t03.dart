@@ -17,12 +17,10 @@
 /// of T0 can be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_FutureOr_A01.dart and 
-/// arguments_binding_x03.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/right_FutureOr_A01.dart and 
+/// test_cases/arguments_binding_x03.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import "dart:async";
 
@@ -36,9 +34,12 @@ FutureOr<S1> onTimeoutDef() => new S1();
 
 class T0 implements Future<S1> {
   asStream() => getStream<S1>();
-  catchError(Function onError, {bool test(Object error)? = testDef}) => new Future.value();
-  then<T0>(FutureOr<T0> onValue(S1 value), {Function? onError = onErrorDef}) => new Future<T0>.value();
-  timeout(Duration timeLimit, {FutureOr<S1> onTimeout()? = onTimeoutDef}) => new Future.value();
+  catchError(Function onError, {bool test(Object error)? = testDef}) =>
+      new Future.value();
+  then<T0>(FutureOr<T0> onValue(S1 value), {Function? onError = onErrorDef}) =>
+      new Future<T0>.value();
+  timeout(Duration timeLimit, {FutureOr<S1> onTimeout()? = onTimeoutDef}) =>
+      new Future.value();
   whenComplete(FutureOr action()) => new Future.value();
 }
 
@@ -52,10 +53,7 @@ FutureOr<S1> t1Instance = new Future.value(new S1());
 
 const t1Default = const S1();
 
-
-
-
-class ArgumentsBindingMixin1_t03 {
+mixin ArgumentsBindingMixin1_t03 {
   FutureOr<S1> m = t1Default;
 
   void superTest(FutureOr<S1> val) {}
@@ -79,7 +77,7 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
   }
 }
 
-class ArgumentsBindingMixin2_t03<X> {
+mixin ArgumentsBindingMixin2_t03<X> {
   void superTest(X val) {}
   void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}
@@ -107,12 +105,9 @@ main() {
   c1.superGetter;
 
   // Test type parameters
-
-  //# <-- NotGenericFunctionType
   ArgumentsBinding2_t03<FutureOr<S1>> c2 = new ArgumentsBinding2_t03<FutureOr<S1>>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
-  //# -->
 }

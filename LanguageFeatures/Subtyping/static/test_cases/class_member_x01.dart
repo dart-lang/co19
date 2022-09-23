@@ -6,7 +6,6 @@
 /// of T0 can be assigned to the class member of type T1
 /// @author sgrekhov@unipro.ru
 
-
 class ClassMember1_t01 {
   static @T1 s = t0Instance;
   @T1 m = t0Instance;

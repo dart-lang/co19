@@ -10,7 +10,6 @@
 /// subtype T1 then T0 is not subtype of T1.
 /// @author sgrekhov@unipro.ru
 
-
 class T1 {
   const T1();
 }

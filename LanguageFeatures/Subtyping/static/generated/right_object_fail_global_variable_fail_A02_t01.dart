@@ -24,12 +24,10 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
-/// This test is generated from right_object_fail_A02.dart and 
-/// global_variable_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/right_object_fail_A02.dart and 
+/// test_cases/global_variable_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class X {}
 class S extends X {}
@@ -38,10 +36,6 @@ S? t0Instance = new S();
 Object t1Instance = new Object();
 
 const t1Default = const Object();
-
-
-
-
 
 class GlobalVariableTest {
   GlobalVariableTest() {
@@ -65,23 +59,19 @@ class GlobalVariableTest {
   }
 }
 
-
-
 test<T>(T? t0Instance) {
   if (t0Instance is S?) {
-    
-  t1Instance = t0Instance;
-//             ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  bar () {
     t1Instance = t0Instance;
 //               ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
 
+    bar () {
+      t1Instance = t0Instance;
+//                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
   }
 }
 

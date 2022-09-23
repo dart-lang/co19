@@ -18,7 +18,6 @@
 /// subtype of T1
 /// @author sgrekhov@unipro.ru
 
-
 class U0 extends U1 {}
 class U1 {}
 class V0 {}

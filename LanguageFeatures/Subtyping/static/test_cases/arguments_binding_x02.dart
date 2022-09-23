@@ -6,7 +6,6 @@
 /// of T0 can be used as an argument of type T1. Test superclass members
 /// @author sgrekhov@unipro.ru
 
-
 class ArgumentsBindingSuper1_t02 {
   @T1 m = t1Default;
 
@@ -87,8 +86,6 @@ main() {
   c1.superGetter;
 
   // Test type parameters
-
-  //# <-- NotGenericFunctionType
   ArgumentsBinding2_t02<@T1> c2 =
     new ArgumentsBinding2_t02<@T1>(t0Instance);
   c2 = new ArgumentsBinding2_t02<@T1>.c2(t1Instance, t0Instance);
@@ -99,5 +96,4 @@ main() {
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
   c2.superGetter;
-  //# -->
 }

@@ -15,11 +15,10 @@
 /// of T0 can be used as a return value of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from interface_compositionality_A01.dart and 
-/// return_value_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/interface_compositionality_A01.dart and 
+/// test_cases/return_value_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -40,9 +39,6 @@ C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 
 const t1Default = const C0<U0, U1, U2>();
 
-
-
-
 C0<U0, U1, U2> returnValueFunc() => forgetType(t0Instance);
 
 class ReturnValueTest {
@@ -57,7 +53,6 @@ class ReturnValueGen<X> {
   X testMethod() => forgetType(t0Instance);
   X get testGetter => forgetType(t0Instance);
 }
-
 
 main() {
   C0<U0, U1, U2> returnValueLocalFunc() => forgetType(t0Instance);

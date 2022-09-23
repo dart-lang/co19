@@ -26,12 +26,10 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
-/// This test is generated from positional_function_types_fail_A08.dart and 
-/// arguments_binding_mixin_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/positional_function_types_fail_A08.dart and 
+/// test_cases/arguments_binding_mixin_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class A {}
 
@@ -79,9 +77,7 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 const t1Default = t1Func;
 
-
-
-class ArgumentsBindingSuper1_t03 {
+mixin ArgumentsBindingSuper1_t03 {
   void superTest(T1 val) {}
   void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
   void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
@@ -214,4 +210,3 @@ main() {
 // [cfe] unspecified
   new ArgumentsBinding1_t03().test();
 }
-

@@ -1,4 +1,4 @@
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -14,12 +14,10 @@
 /// of T0 can be assigned to the to local variable of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from left_nullable_A01.dart and 
-/// local_variable_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/left_nullable_A01.dart and 
+/// test_cases/local_variable_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class T1 {
   const T1();
@@ -32,9 +30,6 @@ S0? t0Instance = new S0();
 T1? t1Instance = new T1();
 
 const t1Default = const T1();
-
-
-
 
 class LocalVariableTest {
 

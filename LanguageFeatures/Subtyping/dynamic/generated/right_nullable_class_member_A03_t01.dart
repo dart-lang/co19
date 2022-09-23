@@ -1,4 +1,4 @@
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -18,14 +18,12 @@
 /// of T0 can be assigned to the class member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_nullable_A03.dart and 
-/// class_member_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/right_nullable_A03.dart and 
+/// test_cases/class_member_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
-
 
 class S1 {
   const S1();
@@ -37,10 +35,6 @@ S0 t0Instance = new S0();
 S1? t1Instance = new S1();
 
 const t1Default = const S1();
-
-
-
-
 
 class ClassMember1_t01 {
   static S1? s = forgetType(t0Instance);
@@ -108,10 +102,7 @@ class ClassMember2_t01<X> {
   S1? get getter => forgetType(_p);
 }
 
-
-
 test<T extends S1>(T t0Instance) {
-
   ClassMember1_t01 c1 = new ClassMember1_t01();
   c1 = new ClassMember1_t01.short(forgetType(t0Instance),
       forgetType(t0Instance));
@@ -137,7 +128,6 @@ test<T extends S1>(T t0Instance) {
   c2.test(forgetType(t0Instance));
   c2.getter;
   //# -->
-
 }
 
 main() {

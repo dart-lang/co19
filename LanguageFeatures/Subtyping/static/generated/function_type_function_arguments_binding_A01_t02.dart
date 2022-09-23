@@ -13,12 +13,10 @@
 /// of T0 can be used as an argument of type T1. Test superclass members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from function_type_function_A01.dart and 
-/// arguments_binding_x02.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/function_type_function_A01.dart and 
+/// test_cases/arguments_binding_x02.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 typedef void T0();
 
@@ -27,9 +25,6 @@ Function t1Instance = () {};
 
 void foo() {}
 const t1Default = foo;
-
-
-
 
 class ArgumentsBindingSuper1_t02 {
   Function m = t1Default;
@@ -111,8 +106,6 @@ main() {
   c1.superGetter;
 
   // Test type parameters
-
-  //# <-- NotGenericFunctionType
   ArgumentsBinding2_t02<Function> c2 =
     new ArgumentsBinding2_t02<Function>(t0Instance);
   c2 = new ArgumentsBinding2_t02<Function>.c2(t1Instance, t0Instance);
@@ -123,5 +116,4 @@ main() {
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
   c2.superGetter;
-  //# -->
 }

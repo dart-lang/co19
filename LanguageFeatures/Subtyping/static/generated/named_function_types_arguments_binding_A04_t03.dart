@@ -22,12 +22,10 @@
 /// of T0 can be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from named_function_types_A04.dart and 
-/// arguments_binding_x03.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/named_function_types_A04.dart and 
+/// test_cases/arguments_binding_x03.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class A {}
 
@@ -69,14 +67,18 @@ class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
 typedef T0 = U0<Null, Null, Null> Function<X extends B0, Y extends B1>(
     V0<A?, List?, num?> x0, V1<A?, List?, num?> x1,
-    {V2<A?, List?, num?>? x2, V3<A?, List?, num?>? x3, V4<A?, List?, num?>? x4});
+    {V2<A?, List?, num?>? x2,
+    V3<A?, List?, num?>? x3,
+    V4<A?, List?, num?>? x4});
 typedef T1 = U1<A?, List?, num?> Function<X extends B0, Y extends B1>(
     S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
     {S2<Null, Null, Null>? x2, S3<Null, Null, Null>? x3});
 
 U0<Null, Null, Null> t0Func<X extends B0, Y extends B1>(
         V0<A?, List?, num?> x0, V1<A?, List?, num?> x1,
-        {V2<A?, List?, num?>? x2, V3<A?, List?, num?>? x3, V4<A?, List?, num?>? x4}) =>
+        {V2<A?, List?, num?>? x2,
+        V3<A?, List?, num?>? x3,
+        V4<A?, List?, num?>? x4}) =>
     new U0<Null, Null, Null>();
 U1<A?, List?, num?> t1Func<X extends B0, Y extends B1>(
         S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
@@ -88,10 +90,7 @@ T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
 
-
-
-
-class ArgumentsBindingMixin1_t03 {
+mixin ArgumentsBindingMixin1_t03 {
   T1 m = t1Default;
 
   void superTest(T1 val) {}
@@ -115,7 +114,7 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
   }
 }
 
-class ArgumentsBindingMixin2_t03<X> {
+mixin ArgumentsBindingMixin2_t03<X> {
   void superTest(X val) {}
   void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}
@@ -143,6 +142,9 @@ main() {
   c1.superGetter;
 
   // Test type parameters
-
+  ArgumentsBinding2_t03<T1> c2 = new ArgumentsBinding2_t03<T1>();
+  c2.test(t0Instance, t1Instance);
+  c2.superTest(t0Instance);
+  c2.superTestNamed(t1Instance, val2: t0Instance);
+  c2.superSetter = t0Instance;
 }
-

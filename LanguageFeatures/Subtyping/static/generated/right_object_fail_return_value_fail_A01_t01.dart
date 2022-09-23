@@ -22,12 +22,10 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
-/// This test is generated from right_object_fail_A01.dart and 
-/// return_value_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/right_object_fail_A01.dart and 
+/// test_cases/return_value_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class B {}
 class T0 extends B {}
@@ -36,10 +34,6 @@ T0? t0Instance = new T0();
 Object t1Instance = new Object();
 
 const t1Default = const Object();
-
-
-
-
 
 Object returnValueFunc() => t0Instance;
 //                       ^^^^^^^^^^
@@ -62,15 +56,11 @@ class ReturnValueTest {
 // [cfe] unspecified
 }
 
-
-
 test<T extends B?>(T t0Instance) {
-  
   Object returnValueLocalFunc() => t0Instance;
 //                              ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 }
 
 main() {

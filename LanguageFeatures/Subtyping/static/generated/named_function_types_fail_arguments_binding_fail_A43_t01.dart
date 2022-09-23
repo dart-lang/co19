@@ -23,12 +23,10 @@
 /// tested.
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from named_function_types_fail_A43.dart and 
-/// arguments_binding_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/named_function_types_fail_A43.dart and 
+/// test_cases/arguments_binding_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class A {}
 
@@ -70,9 +68,6 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
-
-
-
 
 namedArgumentsFunc1(T1 t1, {T1 t2 = t1Default}) {}
 positionalArgumentsFunc1(T1 t1, [T1 t2 = t1Default]) {}
@@ -200,4 +195,3 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
-

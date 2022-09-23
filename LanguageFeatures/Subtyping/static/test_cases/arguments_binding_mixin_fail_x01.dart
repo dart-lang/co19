@@ -8,8 +8,7 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 
-
-class ArgumentsBindingSuper1_t03 {
+mixin ArgumentsBindingSuper1_t03 {
   void superTest(@T1 val) {}
   void superTestPositioned(@T1 val, [@T1 val2 = t1Default]) {}
   void superTestNamed(@T1 val, {@T1 val2 = t1Default}) {}

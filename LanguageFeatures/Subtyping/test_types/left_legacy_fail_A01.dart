@@ -6,8 +6,8 @@
 /// when:
 /// Left Legacy if T0 is S0* then:
 /// - T0 <: T1 iff S0 <: T1.
-/// @description Check that if type T0 is S0* and S0 is not subtype of T1 then T0
-/// is not subtype of T1.
+/// @description Check that if type T0 is S0* and S0 is not subtype of T1 then
+/// T0 is not subtype of T1.
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-weak

@@ -13,11 +13,10 @@
 /// of T0 can be assigned to the class member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from reflexivity_A03.dart and 
-/// class_member_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/reflexivity_A03.dart and 
+/// test_cases/class_member_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -25,9 +24,6 @@ Object t0Instance = new Object();
 Object t1Instance = new Object();
 
 const t1Default = const Object();
-
-
-
 
 class ClassMember1_t01 {
   static Object s = forgetType(t0Instance);

@@ -8,7 +8,6 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 
-
 class ClassMemberSuper1_t03 {
   @T1 m = t1Default;
   void set superSetter(@T1 val) {}

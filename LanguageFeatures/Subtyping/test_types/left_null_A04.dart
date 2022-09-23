@@ -13,7 +13,6 @@
 /// subtype of T1
 /// @author sgrekhov@unipro.ru
 
-
 Null t0Instance = null;
 Null? t1Instance = null;
 

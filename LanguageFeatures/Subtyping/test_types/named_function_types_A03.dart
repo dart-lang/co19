@@ -58,15 +58,19 @@ class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
 typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<dynamic, void, Object> x0, V1<dynamic, void, Object> x1,
-    {V2<dynamic, void, Object>? x2, V3<dynamic, void, Object>? x3, V4<dynamic, void, Object>? x4});
+    {V2<dynamic, void, Object>? x2,
+    V3<dynamic, void, Object>? x3,
+    V4<dynamic, void, Object>? x4});
 typedef T1 = U1<dynamic, void, Object> Function<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
     {S2<C, List<String>, int>? x2, S3<C, List<String>, int>? x3});
 
 U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<dynamic, void, Object> x0, V1<dynamic, void, Object> x1,
-        {V2<dynamic, void, Object>? x2, V3<dynamic, void, Object>? x3,
-        V4<dynamic, void, Object>? x4}) => new U0<C, List<String>, int>();
+        {V2<dynamic, void, Object>? x2,
+        V3<dynamic, void, Object>? x3,
+        V4<dynamic, void, Object>? x4}) =>
+    new U0<C, List<String>, int>();
 U1<dynamic, void, Object> t1Func<X extends B0, Y extends B1>(
         S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
         {S2<C, List<String>, int>? x2, S3<C, List<String>, int>? x3}) =>
@@ -79,4 +83,3 @@ const t1Default = t1Func;
 
 //# @T0 = T0
 //# @T1 = T1
-//# @GenericFunctionType

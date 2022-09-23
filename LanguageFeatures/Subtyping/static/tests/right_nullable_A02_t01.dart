@@ -15,7 +15,6 @@
 /// of T0 can be used as an argument of type T1
 /// @author sgrekhov@unipro.ru
 
-
 class S1 {
   const S1();
 }

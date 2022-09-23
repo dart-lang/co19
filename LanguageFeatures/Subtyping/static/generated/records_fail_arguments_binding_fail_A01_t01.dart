@@ -1,4 +1,4 @@
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -17,12 +17,10 @@
 /// tested.
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from records_fail_A01.dart and 
-/// arguments_binding_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/records_fail_A01.dart and 
+/// test_cases/arguments_binding_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 // SharedOptions=--enable-experiment=records
 
@@ -30,9 +28,6 @@
 (int, String) t1Instance = (3, "4");
 
 const t1Default = const (5, "6");
-
-
-
 
 namedArgumentsFunc1((int, String) t1, {(int, String) t2 = t1Default}) {}
 positionalArgumentsFunc1((int, String) t1, [(int, String) t2 = t1Default]) {}

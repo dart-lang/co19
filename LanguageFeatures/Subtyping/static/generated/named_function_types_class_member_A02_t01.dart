@@ -22,12 +22,10 @@
 /// of T0 can be assigned to the class member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from named_function_types_A02.dart and 
-/// class_member_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/named_function_types_A02.dart and 
+/// test_cases/class_member_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class A {}
 
@@ -88,9 +86,6 @@ T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
 
-
-
-
 class ClassMember1_t01 {
   static T1 s = t0Instance;
   T1 m = t0Instance;
@@ -148,4 +143,3 @@ main() {
   ClassMember1_t01.staticSetter = t0Instance;
   ClassMember1_t01.staticGetter;
 }
-

@@ -9,7 +9,6 @@
 /// subtype of a type T1.
 /// @author sgrekhov@unipro.ru
 
-
 dynamic t0Instance = "Show must go on";
 Object? t1Instance = new Object();
 

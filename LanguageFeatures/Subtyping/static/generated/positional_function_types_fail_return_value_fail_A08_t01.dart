@@ -25,12 +25,10 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
-/// This test is generated from positional_function_types_fail_A08.dart and 
-/// return_value_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/positional_function_types_fail_A08.dart and 
+/// test_cases/return_value_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class A {}
 
@@ -78,8 +76,6 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 const t1Default = t1Func;
 
-
-
 T1 returnValueFunc() => t0Instance;
 //                       ^^^^^^^^^^
 // [analyzer] unspecified
@@ -107,4 +103,3 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
-

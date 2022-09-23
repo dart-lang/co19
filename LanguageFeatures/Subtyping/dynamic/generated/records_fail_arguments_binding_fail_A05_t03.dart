@@ -1,4 +1,4 @@
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -16,11 +16,10 @@
 /// be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from records_fail_A05.dart and 
-/// arguments_binding_fail_x03.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/records_fail_A05.dart and 
+/// test_cases/arguments_binding_fail_x03.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -31,8 +30,6 @@ import '../../../../Utils/expect.dart';
 (int, String, {bool b1}) t1Instance = (3, "4", b1: false);
 
 const t1Default = const (5, "6", b1: false);
-
-
 
 class ArgumentsBindingSuper1_t03 {
   void superTest((int i, String s, {bool b1}) val) {}

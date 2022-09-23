@@ -58,23 +58,27 @@ class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
 typedef T0 = U0<Null, Null, Null> Function<X extends B0, Y extends B1>(
     V0<A?, List?, num?> x0, V1<A?, List?, num?> x1,
-    [V2<A?, List?, num?>? x2, V3<A?, List?, num?>? x3, V4<A?, List?, num?>? x4]);
+    [V2<A?, List?, num?>? x2,
+    V3<A?, List?, num?>? x3,
+    V4<A?, List?, num?>? x4]);
 typedef T1 = U1<A?, List?, num?> Function<X extends B0, Y extends B1>(
     S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
     [S2<Null, Null, Null>? x2, S3<Null, Null, Null>? x3]);
 
 U0<Null, Null, Null> t0Func<X extends B0, Y extends B1>(
-    V0<A?, List?, num?> x0, V1<A?, List?, num?> x1,
-    [V2<A?, List?, num?>? x2, V3<A?, List?, num?>? x3, V4<A?, List?, num?>? x4]) =>
+        V0<A?, List?, num?> x0, V1<A?, List?, num?> x1,
+        [V2<A?, List?, num?>? x2,
+        V3<A?, List?, num?>? x3,
+        V4<A?, List?, num?>? x4]) =>
     new U0<Null, Null, Null>();
 U1<A?, List?, num?> t1Func<X extends B0, Y extends B1>(
-    S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
-    [S2<Null, Null, Null>? x2, S3<Null, Null, Null>? x3]) =>
+        S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
+        [S2<Null, Null, Null>? x2, S3<Null, Null, Null>? x3]) =>
     new U1<A?, List?, num?>();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 const t1Default = t1Func;
+
 //# @T0 = T0
 //# @T1 = T1
-//# @GenericFunctionType

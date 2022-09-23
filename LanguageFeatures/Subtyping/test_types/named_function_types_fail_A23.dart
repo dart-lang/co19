@@ -15,8 +15,8 @@
 /// and B0i[Z0/X0, ..., Zk/Xk] === B1i[Z0/Y0, ..., Zk/Yk] for i in 0...k
 /// where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
 /// @description Check that if there is i in 0...n such that
-/// Si[Z0/Y0, ..., Zk/Yk] is not subtype of Vi[Z0/X0, ..., Zk/Xk], then T0 is not
-/// a subtype of T1. Test generic types
+/// Si[Z0/Y0, ..., Zk/Yk] is not subtype of Vi[Z0/X0, ..., Zk/Xk], then T0 is
+/// not a subtype of T1. Test generic types
 /// @author sgrekhov@unipro.ru
 
 class A {}
@@ -62,4 +62,3 @@ const t1Default = t1Func;
 
 //# @T0 = T0
 //# @T1 = T1
-//# @GenericFunctionType

@@ -23,11 +23,10 @@
 /// of T0 can be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from positional_function_types_A21.dart and 
-/// arguments_binding_x03.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/positional_function_types_A21.dart and 
+/// test_cases/arguments_binding_x03.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -91,8 +90,6 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 const t1Default = t1Func;
 
-
-
 class ArgumentsBindingMixin1_t03 {
   T1 m = t1Default;
 
@@ -146,5 +143,11 @@ main() {
 
   // Test type parameters
 
+  //# <-- NotGenericFunctionType
+  ArgumentsBinding2_t03<T1> c2 = new ArgumentsBinding2_t03<T1>();
+  c2.test(forgetType(t0Instance), t1Instance);
+  c2.superTest(forgetType(t0Instance));
+  c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
+  c2.superSetter = forgetType(t0Instance);
+  //# -->
 }
-

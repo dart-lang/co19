@@ -22,11 +22,10 @@
 /// of T0 can be assigned to the to local variable of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from named_function_types_A03.dart and 
-/// local_variable_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/named_function_types_A03.dart and 
+/// test_cases/local_variable_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -70,15 +69,19 @@ class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
 typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<dynamic, void, Object> x0, V1<dynamic, void, Object> x1,
-    {V2<dynamic, void, Object>? x2, V3<dynamic, void, Object>? x3, V4<dynamic, void, Object>? x4});
+    {V2<dynamic, void, Object>? x2,
+    V3<dynamic, void, Object>? x3,
+    V4<dynamic, void, Object>? x4});
 typedef T1 = U1<dynamic, void, Object> Function<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
     {S2<C, List<String>, int>? x2, S3<C, List<String>, int>? x3});
 
 U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<dynamic, void, Object> x0, V1<dynamic, void, Object> x1,
-        {V2<dynamic, void, Object>? x2, V3<dynamic, void, Object>? x3,
-        V4<dynamic, void, Object>? x4}) => new U0<C, List<String>, int>();
+        {V2<dynamic, void, Object>? x2,
+        V3<dynamic, void, Object>? x3,
+        V4<dynamic, void, Object>? x4}) =>
+    new U0<C, List<String>, int>();
 U1<dynamic, void, Object> t1Func<X extends B0, Y extends B1>(
         S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
         {S2<C, List<String>, int>? x2, S3<C, List<String>, int>? x3}) =>
@@ -88,9 +91,6 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
-
-
-
 
 class LocalVariableTest {
 
@@ -123,4 +123,3 @@ main() {
   x.test();
   LocalVariableTest.staticTest();
 }
-

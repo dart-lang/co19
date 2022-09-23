@@ -1,4 +1,4 @@
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -10,8 +10,8 @@
 ///  - if T0 is a promoted type variable X & S then T0 <: T1 iff S <: Object
 ///  - if T0 is FutureOr<S> for some S, then T0 <: T1 iff S <: Object.
 ///  - if T0 is S* for any S, then T0 <: T1 iff S <: T1
-///  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does not
-///      hold (per above, the result of the subtyping query is false).
+///  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does
+///      not hold (per above, the result of the subtyping query is false).
 ///  - Otherwise T0 <: T1 is true.
 /// @description Check that if T0 is an unpromoted type variable with bound B
 /// and B <: Object then T0 is subtype of T1
@@ -21,11 +21,10 @@
 /// of T0 can be used as a return value of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_object_A01.dart and 
-/// return_value_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/right_object_A01.dart and 
+/// test_cases/return_value_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -36,10 +35,6 @@ T0 t0Instance = new T0();
 Object t1Instance = new Object();
 
 const t1Default = const Object();
-
-
-
-
 
 Object returnValueFunc() => forgetType(t0Instance);
 
@@ -56,28 +51,23 @@ class ReturnValueGen<X> {
   X get testGetter => forgetType(t0Instance);
 }
 
-
-
-
 test<T extends B>(T t0Instance) {
-    
-  Object returnValueLocalFunc() => forgetType(t0Instance);
+    Object returnValueLocalFunc() => forgetType(t0Instance);
 
-  returnValueFunc();
-  returnValueLocalFunc();
+    returnValueFunc();
+    returnValueLocalFunc();
 
-  ReturnValueTest.staticTestMethod();
+    ReturnValueTest.staticTestMethod();
 
-  new ReturnValueTest().testMethod();
-  new ReturnValueTest().testGetter;
+    new ReturnValueTest().testMethod();
+    new ReturnValueTest().testGetter;
 
-  // Test type parameters
+    // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  new ReturnValueGen<Object>().testMethod();
-  new ReturnValueGen<Object>().testGetter;
-  //# -->
-
+    //# <-- NotGenericFunctionType
+    new ReturnValueGen<Object>().testMethod();
+    new ReturnValueGen<Object>().testGetter;
+    //# -->
 }
 
 main() {

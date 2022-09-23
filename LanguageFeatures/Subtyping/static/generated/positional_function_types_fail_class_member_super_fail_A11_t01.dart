@@ -26,12 +26,10 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
-/// This test is generated from positional_function_types_fail_A11.dart and 
-/// class_member_super_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/positional_function_types_fail_A11.dart and 
+/// test_cases/class_member_super_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class U0 extends U1 {}
 class U1 {}
@@ -53,8 +51,6 @@ U1 t1Func(S0 y0, S1 y1, [S2? y2, S3? y3]) => new U1();
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 const t1Default = t1Func;
-
-
 
 class ClassMemberSuper1_t02 {
   T1 m = t1Default;

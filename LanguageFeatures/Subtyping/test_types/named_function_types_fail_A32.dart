@@ -15,8 +15,8 @@
 /// and B0i[Z0/X0, ..., Zk/Xk] === B1i[Z0/Y0, ..., Zk/Yk] for i in 0...k
 /// where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
 /// @description Check that if there is i in n+1...q such that
-/// Si[Z0/Y0, ..., Zk/Yk] is not subtype of Tj[Z0/X0, ..., Zk/Xk], then T0 is not
-/// a subtype of T1. Test generic types
+/// Si[Z0/Y0, ..., Zk/Yk] is not subtype of Tj[Z0/X0, ..., Zk/Xk], then T0 is
+/// not a subtype of T1. Test generic types
 /// @author sgrekhov@unipro.ru
 
 class A {}
@@ -59,14 +59,19 @@ class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
 typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    {V2<A, List, double>? x2, V3<A, List, num>? x3, V4<A, List, num>? x4}); // S2<C, List<String>, int> is not a subtype of V2<A, List, double>
+    {V2<A, List, double>? x2,
+    V3<A, List, num>? x3,
+    V4<A, List, num>?
+        x4}); // S2<C, List<String>, int> is not a subtype of V2<A, List, double>
 typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
     {S2<C, List<String>, int>? x2, S3<C, List<String>, int>? x3});
 
 U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
-        {V2<A, List, double>? x2, V3<A, List, num>? x3, V4<A, List, num>? x4}) =>
+        {V2<A, List, double>? x2,
+        V3<A, List, num>? x3,
+        V4<A, List, num>? x4}) =>
     new U0<C, List<String>, int>();
 U1<A, List, num> t1Func<X extends B0, Y extends B1>(
         S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
@@ -80,4 +85,3 @@ const t1Default = t1Func;
 
 //# @T0 = T0
 //# @T1 = T1
-//# @GenericFunctionType

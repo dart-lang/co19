@@ -8,7 +8,6 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 
-
 class ClassMemberTestStatic {
   static @T1 s = t1Default;
 

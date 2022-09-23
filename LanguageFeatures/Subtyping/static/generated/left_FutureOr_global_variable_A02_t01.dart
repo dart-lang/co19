@@ -16,12 +16,10 @@
 /// of T0 can be assigned to the to global variable of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from left_FutureOr_A02.dart and 
-/// global_variable_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/left_FutureOr_A02.dart and 
+/// test_cases/global_variable_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import "dart:async";
 
@@ -34,9 +32,6 @@ FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 FutureOr<C> t1Instance = new Future<C>.value(new C());
 
 const t1Default = const C();
-
-
-
 
 class GlobalVariableTest {
   GlobalVariableTest() {

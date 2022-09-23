@@ -13,11 +13,10 @@
 /// of T0 can be used as an argument of type T1. Test superclass members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_top_A02.dart and 
-/// arguments_binding_x02.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/right_top_A02.dart and 
+/// test_cases/arguments_binding_x02.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -27,9 +26,6 @@ T0 t0Instance = new T0();
 dynamic t1Instance = 3.14;
 
 const t1Default = null;
-
-
-
 
 class ArgumentsBindingSuper1_t02 {
   dynamic m;

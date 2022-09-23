@@ -13,7 +13,6 @@
 /// is not subtype of a type T1.
 /// @author sgrekhov@unipro.ru
 
-
 class T1 {}
 
 T test<T>(T t, Null n) {

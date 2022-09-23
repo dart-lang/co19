@@ -23,51 +23,15 @@
 /// //# @T1 = dynamic
 ///
 /// - If test case or test type is negative, then its name must contain "_fail_"
-/// - If test type contains generic function types it must contain
-///   "//# @GenericFunctionType" string at the end. For example
-///   ...
-///  typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
-///  V0<dynamic, void, Object> x0, V1<dynamic, void, Object> x1,
-///  {V2<dynamic, void, Object> x2, V3<dynamic, void, Object> x3, V4<dynamic, void, Object> x4});
-///  typedef T1 = U1<dynamic, void, Object> Function<X extends B0, Y extends B1>(
-///  S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-///  {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3});
-///
-///  U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
-///  V0<dynamic, void, Object> x0, V1<dynamic, void, Object> x1,
-///  {V2<dynamic, void, Object> x2, V3<dynamic, void, Object> x3,
-///  V4<dynamic, void, Object> x4}) => null;
-///  U1<dynamic, void, Object> t1Func<X extends B0, Y extends B1>(
-///  S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-///  {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3}) => null;
-///
-///  T0 t0Instance = t0Func;
-///  T1 t1Instance = t1Func;
-///  //# @T0 = T0
-///  //# @T1 = T1
-///  //# @GenericFunctionType
-///
-/// - If test case has tests for the types wich are not generic function types,
-/// this block must be marked by
-///   //# <-- NotGenericFunctionType
-///   ...
-///   //# -->
-/// TODO complete the description
 
 import "dart:io";
 
-const GENERIC_FUNCTION_TYPE_FLAG = "@GenericFunctionType";
 const DYNAMIC_TESTS_DIR = "dynamic";
 const STATIC_TESTS_DIR = "static";
 const TEST_CASES_DIR = "test_cases";
 const TEST_TYPES_DIR = "test_types";
 const OUTPUT_DIR = "generated";
 
-const COPYRIGHT = '''// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
-
-''';
 const IMPORT_COMMON = "import '../../utils/common.dart';";
 const IMPORT_EXPECT = "import '../../../../Utils/expect.dart';";
 
@@ -75,43 +39,57 @@ const String META_PREFIX = "//#";
 
 main() {
   // Generate dynamic tests
-
   // First generate tests for common test types
-
-  Directory testCasesDir = new Directory(".." + Platform.pathSeparator +
-      DYNAMIC_TESTS_DIR + Platform.pathSeparator + TEST_CASES_DIR);
-  Directory testTypesDir = new Directory(".." + Platform.pathSeparator +
-      TEST_TYPES_DIR);
-  Directory outputDir = new Directory(".." + Platform.pathSeparator +
-      DYNAMIC_TESTS_DIR + Platform.pathSeparator + OUTPUT_DIR);
+  Directory testCasesDir = new Directory(".." +
+      Platform.pathSeparator +
+      DYNAMIC_TESTS_DIR +
+      Platform.pathSeparator +
+      TEST_CASES_DIR);
+  Directory testTypesDir =
+      new Directory(".." + Platform.pathSeparator + TEST_TYPES_DIR);
+  Directory outputDir = new Directory(".." +
+      Platform.pathSeparator +
+      DYNAMIC_TESTS_DIR +
+      Platform.pathSeparator +
+      OUTPUT_DIR);
   generateTests(testCasesDir, testTypesDir, outputDir, "dynamic");
 
   // Now generate tests for dynamic only test types
-  testTypesDir = new Directory(".." + Platform.pathSeparator +
-      DYNAMIC_TESTS_DIR + Platform.pathSeparator + TEST_TYPES_DIR);
+  testTypesDir = new Directory(".." +
+      Platform.pathSeparator +
+      DYNAMIC_TESTS_DIR +
+      Platform.pathSeparator +
+      TEST_TYPES_DIR);
   generateTests(testCasesDir, testTypesDir, outputDir, "dynamic", clear: false);
 
   // Generate static tests
-
   // First generate tests for common test types
-  testCasesDir = new Directory(".." + Platform.pathSeparator +
-      STATIC_TESTS_DIR + Platform.pathSeparator + TEST_CASES_DIR);
-  testTypesDir = new Directory(".." + Platform.pathSeparator +
-      TEST_TYPES_DIR);
-  outputDir = new Directory(".." + Platform.pathSeparator +
-      STATIC_TESTS_DIR + Platform.pathSeparator + OUTPUT_DIR);
+  testCasesDir = new Directory(".." +
+      Platform.pathSeparator +
+      STATIC_TESTS_DIR +
+      Platform.pathSeparator +
+      TEST_CASES_DIR);
+  testTypesDir = new Directory(".." + Platform.pathSeparator + TEST_TYPES_DIR);
+  outputDir = new Directory(".." +
+      Platform.pathSeparator +
+      STATIC_TESTS_DIR +
+      Platform.pathSeparator +
+      OUTPUT_DIR);
   generateTests(testCasesDir, testTypesDir, outputDir, "static");
 
   // Now generate tests for static only test types
 
-  testTypesDir = new Directory(".." + Platform.pathSeparator +
-      STATIC_TESTS_DIR + Platform.pathSeparator + TEST_TYPES_DIR);
+  testTypesDir = new Directory(".." +
+      Platform.pathSeparator +
+      STATIC_TESTS_DIR +
+      Platform.pathSeparator +
+      TEST_TYPES_DIR);
   generateTests(testCasesDir, testTypesDir, outputDir, "static", clear: false);
-
 }
 
 void generateTests(Directory testCasesDir, Directory testTypesDir,
-    Directory outputDir, String testsType, {bool clear = true}) {
+    Directory outputDir, String testsType,
+    {bool clear = true}) {
   // First, clear output directory
   if (clear) {
     List<FileSystemEntity> existing = outputDir.listSync();
@@ -129,266 +107,296 @@ void generateTests(Directory testCasesDir, Directory testTypesDir,
   int generatedCount = 0;
   for (int i = 0; i < testTypes.length; i++) {
     File testType = testTypes[i] as File;
-    bool isFailTest = isFail(testType);
-    String testTypeText = testType.readAsStringSync();
-    List<String> testTypeTextStrings = testTypeText.split("\n");
-    bool hasMainFunc = hasMain(testTypeTextStrings);
-    bool isGenericFunctionType = findIsGenericFunctionType(testTypeTextStrings);
-    Map<String, String> replacement = findReplacements(testTypeTextStrings);
-    if (replacement.length == 0) {
-      continue;
-    }
-    if (testsType != "static") {
-      testTypeTextStrings = addImport(testTypeTextStrings, isFailTest);
-    }
     for (int j = 0; j < testCases.length; j++) {
       File testCase = testCases[j] as File;
-      if (isFailTest) {
-        if (!isFail(testCase)) {
+      Test test = Test(testType, testCase, outputDir, testsType == "dynamic");
+      if (test.isTestTypeFailing) {
+        if (!test.isTestCaseFailing) {
           continue;
         }
       } else {
-        if (isFail(testCase)) {
+        if (test.isTestCaseFailing) {
           continue;
         }
       }
-      String testCaseText = testCase.readAsStringSync();
-      testCaseText = removeNotGenericFunctionTypePart(isGenericFunctionType,
-          testCaseText);
-      testCaseText = replace(testCaseText, replacement);
-      String testTypeText = removeReplacements(testTypeTextStrings);
-
-      String header = getGeneratedTestHeader(testTypeText, testCaseText,
-          getGeneratedFileComment(testType, testCase));
-      testCaseText = removeHeader(testCaseText);
-      testTypeText = removeHeader(testTypeText);
-      String generatedTestText = "";
-      if (hasMainFunc) {
-        String beforeMain = getBeforeMain(testCaseText);
-        String mainContent = getMainContent(testCaseText);
-        generatedTestText = header + testTypeText.replaceFirst(
-            new RegExp(r"\/\/#\s*<!--\s*Global\s*variables\s*&\s*classes\s*definition\s*-->"),
-            beforeMain).replaceFirst(new RegExp(r"\/\/#\s*<!--\s*Test\s*body\s*-->"), mainContent);
-      } else {
-        generatedTestText = header + removeHeader(testTypeText) + testCaseText;
-      }
-      File generatedTest = getGeneratedTestFile(testType, testCase, outputDir);
-      generatedTest.writeAsStringSync(generatedTestText);
+      test.generate();
       generatedCount++;
     }
   }
   print("$generatedCount $testsType tests generated successfully");
 }
 
-String getGeneratedFileComment(File testType, File testCase) {
-  String testTypeFileName = getFileName(testType);
-  String testCaseFileName = getFileName(testCase);
-  return '''
-///
-/// This test is generated from $testTypeFileName and 
-/// $testCaseFileName.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-''';
-}
+class Test {
+  final File _testType;
+  final File _testCase;
+  final Directory _outputDir;
+  late final String _testTypeFileName;
+  late final String _testCaseFileName;
+  List<String> _testTypeLines = [];
+  List<String> _testCaseLines = [];
+  bool _isDynamic = false;
 
-bool findIsGenericFunctionType(List<String> strings) {
-  for (int i = 0; i < strings.length; i++) {
-    if (strings[i].startsWith(META_PREFIX)) {
-      String s = strings[i].substring(META_PREFIX.length).trim();
-      if (s == GENERIC_FUNCTION_TYPE_FLAG) {
+  Test(this._testType, this._testCase, this._outputDir, this._isDynamic) {
+    _testTypeFileName = _getFileName(_testType);
+    _testCaseFileName = _getFileName(_testCase);
+  }
+
+  void generate() {
+    _testTypeLines = _testType.readAsStringSync().split("\n");
+    _testCaseLines = _testCase.readAsStringSync().split("\n");
+
+    if (_isDynamic) {
+      _addImport(_testTypeLines, isTestTypeFailing);
+    }
+
+    // Find //# T0 = ActualType
+    Map<String, String> replacement = _findReplacements(_testTypeLines);
+    // Replace T0 by ActualType
+    _replace(_testCaseLines, replacement);
+    List<String> testCaseHeader = _removeHeader(_testCaseLines,
+        returnCopyright: false);
+    List<String> testTypeHeader = _removeHeader(_testTypeLines);
+
+    List<String> test = [];
+    if (_hasMain(_testTypeLines)) {
+      test = [
+        ...testTypeHeader,
+        "///",
+        ...testCaseHeader,
+        _getGeneratedFileHeader,
+        ..._replaceMain(_testTypeLines, _getBeforeMain(_testCaseLines),
+            _getMainContent(_testCaseLines))
+      ];
+    } else {
+      test = [
+        ...testTypeHeader,
+        "///",
+        ...testCaseHeader,
+        _getGeneratedFileHeader,
+        ..._testTypeLines,
+        ..._testCaseLines
+      ];
+    }
+    File generatedTest = _createGeneratedTestFile();
+    generatedTest.writeAsStringSync(_toNormalizedString(test));
+  }
+
+  bool get isTestTypeFailing => _testTypeFileName.contains("_fail_");
+  bool get isTestCaseFailing => _testCaseFileName.contains("_fail_");
+
+  String _getFileName(File file) =>
+      file.path.substring(file.path.lastIndexOf(Platform.pathSeparator) + 1);
+
+  bool _hasMain(List<String> lines) {
+    for (int i = 0; i < lines.length; i++) {
+      if (lines[i].contains(new RegExp(r"[\s]*main[\s]*\("))) {
         return true;
       }
     }
+    return false;
   }
-  return false;
-}
 
-bool hasMain(List<String> strings) {
-  for (int i = 0; i < strings.length; i++) {
-    if (strings[i].contains(new RegExp(r"[\s]*main[\s]*\("))) {
-      return true;
+  void _addImport(List<String> lines, bool addExpect) {
+    int ind = 0;
+    for (int i = 0; i < lines.length; i++) {
+      if (lines[i].startsWith("///")) {
+        ind = i;
+      }
     }
+    if (addExpect) {
+      lines.insert(ind + 1, IMPORT_EXPECT);
+    }
+    lines.insert(ind + 1, IMPORT_COMMON);
   }
-  return false;
-}
 
-Map<String, String> findReplacements(List<String> strings) {
-  Map<String, String> found = new Map<String, String>();
-  for (int i = 0; i < strings.length; i++) {
-    if (strings[i].startsWith(META_PREFIX)) {
-      String s = strings[i].substring(META_PREFIX.length).trim();
-      List<String> l = s.split("=");
-      if (l.length != 2) {
+  Map<String, String> _findReplacements(List<String> lines) {
+    Map<String, String> found = new Map<String, String>();
+    for (int i = 0; i < lines.length; i++) {
+      if (lines[i].startsWith(META_PREFIX)) {
+        String s = lines[i].substring(META_PREFIX.length).trim();
+        List<String> l = s.split("=");
+        if (l.length != 2) {
+          continue;
+        }
+        String key = l[0].trim();
+        String value = l[1].trim();
+        found[key] = value;
+        lines[i] = "";
+      }
+    }
+    return found;
+  }
+
+  void _replace(List<String> lines, Map<String, String> replacement) {
+    replacement.keys.toList().forEach((String Ti) {
+      String? actualType = replacement[Ti];
+      if (actualType != null) {
+        for (int i = 0; i < lines.length; i++) {
+          lines[i] = lines[i].replaceAll(Ti, actualType);
+        }
+      }
+    });
+  }
+
+  List<String> _removeHeader(List<String> lines,
+      {bool returnCopyright = true}) {
+    bool copyrightPart = false;
+    bool assertionPart = false;
+    List<String> header = [];
+    for (int i = lines.length - 1; i >= 0; i--) {
+      if (lines[i].trim().length == 0) {
         continue;
       }
-      String key = l[0].trim();
-      String value = l[1].trim();
-      found[key] = value;
-    }
-  }
-  return found;
-}
-
-String removeHeader(String text) {
-  List<String> strings = text.split("\n");
-  strings.removeWhere((s) => s.startsWith("///") || s.startsWith("// Copyright")
-      || s.startsWith("// for details") || s.startsWith("// BSD-style"));
-  return strings.join("\n");
-}
-
-String getHeaderComment(String text) {
-  List<String> strings = text.split("\n");
-  // find last bunch of strings starting with ///
-  int start = -1, end = -1;
-  bool wasComment = false;
-  for (int i = 0; i < strings.length; i++) {
-    if (strings[i].startsWith('///')) {
-      if (!wasComment) {
-        start = i;
-        end = i;
-        wasComment = true;
-      }
-    } else {
-      if (wasComment) {
-        end = i;
-        wasComment = false;
-      }
-    }
-  }
-  if (start > -1 && end > -1) {
-    return strings.getRange(start, end).join("\n");
-  }
-  return "";
-}
-
-String getGeneratedTestHeader(String testTypeText, String testCaseText, String text) {
-  String testTypeHeader = getHeaderComment(testTypeText);
-  String testCaseHeader = getHeaderComment(testCaseText);
-  return COPYRIGHT
-      + testTypeHeader + "\n"
-      + "///\n"
-      + testCaseHeader + "\n"
-      + text + "\n";
-}
-
-String removeReplacements(List<String> strings) {
-  List<String> found = [];
-  for (int i = 0; i < strings.length; i++) {
-    if (strings[i].startsWith(new RegExp("$META_PREFIX\\s+@"))) {
-      found.add(strings[i]);
-    }
-  }
-  found.forEach((String el) {
-    strings.remove(el);
-  });
-  StringBuffer sb = new StringBuffer();
-  sb.writeAll(strings, "\n");
-  return sb.toString();
-}
-
-String removeNotGenericFunctionTypePart(bool isGenericFunctionType, String text) {
-  if (isGenericFunctionType) {
-    List<String> strings = text.split("\n");
-    bool skip = false;
-    StringBuffer sb = new StringBuffer();
-    for (int i = 0; i < strings.length; i++) {
-      if (strings[i].trim().startsWith(META_PREFIX)) {
-        if (skip) {
-          if (strings[i].contains("-->")) {
-            skip = false;
-            continue;
-          } else {
-            throw new Exception("Unexpected '${strings[i]}'");
+      if (lines[i].startsWith("///")) {
+        if (!assertionPart) {
+          assertionPart = true;
+        }
+        header.insert(0, lines[i]);
+        lines.removeAt(i);
+      } else if (lines[i].startsWith("//")) {
+        if (!assertionPart && !copyrightPart) {
+          continue;
+        }
+        if (assertionPart) {
+          assertionPart = false;
+          copyrightPart = true;
+          if (returnCopyright) {
+            header.insert(0, "");
           }
+        }
+        if (returnCopyright) {
+          header.insert(0, lines[i]);
+        }
+        lines.removeAt(i);
+      }
+    }
+    return header;
+  }
+
+  String get _getGeneratedFileHeader => '''
+///
+/// This test is generated from test_types/$_testTypeFileName and 
+/// test_cases/$_testCaseFileName. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
+''';
+
+  List<String> _getBeforeMain(List<String> lines) {
+    List<String> found = [];
+    for (int i = 0; i < lines.length; i++) {
+      if (!lines[i].contains(new RegExp(r"main[\s]*\("))) {
+        found.add(lines[i]);
+      } else {
+        break;
+      }
+    }
+    return found;
+  }
+
+  List<String> _getMainContent(List<String> lines) {
+    List<String> found = [];
+    bool go = false;
+    for (int i = lines.length - 1; i >= 0; i--) {
+      if (go) {
+        if (lines[i].contains(new RegExp(r"main[\s]*\("))) {
+          break;
         } else {
-          if (strings[i].contains("NotGenericFunctionType")) {
-            skip = true;
-            continue;
-          }
+          found.insert(0, lines[i]);
         }
       } else {
-        if (skip) {
-          continue;
-        } else {
-          sb.write(strings[i] + "\n");
+        if (lines[i].contains("}")) {
+          go = true;
         }
       }
     }
-    return sb.toString();
-  } else {
-    // remove "//# <-- NotGenericFunctionType" and "//# -->"
-    return text.replaceFirst("$META_PREFIX <-- NotGenericFunctionType\n", "").replaceFirst("$META_PREFIX -->\n", "");
+    return found;
   }
-}
 
-String replace(String text, Map<String, String> replacement) {
-  replacement.keys.toList().forEach((String Ti) {
-    String? repl = replacement[Ti];
-    if (repl != null) {
-      text = text.replaceAll(Ti, repl);
+  List<String> _replaceMain(
+      List<String> lines, List<String> beforeMain, List<String> mainContent) {
+    List<String> result = [];
+    for (int i = 0; i < lines.length; i++) {
+      if (lines[i].contains(new RegExp(
+          r"//#\s*<!--\s*Global\s*variables\s*&\s*classes\s*definition\s*-->"))) {
+        result.addAll(beforeMain);
+      } else if (lines[i]
+          .contains(new RegExp(r"//#\s*<!--\s*Test\s*body\s*-->"))) {
+        int numOfSpaces = lines[i].indexOf(META_PREFIX);
+        result.addAll(_makeIndent(numOfSpaces, mainContent));
+      } else {
+        result.add(lines[i]);
+      }
     }
-  });
-  return text;
-}
+    return result;
+  }
 
-File getGeneratedTestFile(File testType, File testCase, Directory outputDir) {
-  String testTypeName = getFileName(testType);
-  String testCaseName = getFileName(testCase);
-  // testTypeName file name looks like interface_compositionality_A01.dart
-  // prefix = interface_compositionality, suffix = _A01
-  int index = testTypeName.lastIndexOf("_");
-  String testNamePrefix = testTypeName.substring(0, index);
-  String testNameSuffix = testTypeName.substring(index, index + 4);
-
-  // testCaseName file name looks like arguments_binding_x01.dart
-  // prefix = arguments_binding, suffix = _x01.dart
-  index = testCaseName.lastIndexOf("_");
-  String testCasePrefix = testCaseName.substring(0, index);
-  String testCaseSuffix = testCaseName.substring(index).replaceFirst("x", "t");
-
-  String generatedTestName = "";
-  File? generatedFile = null;
-  String testNameSuffix2 = "";
-  for (int i = 1;;i++) {
-    generatedTestName = testNamePrefix + "_" + testCasePrefix +
-        testNameSuffix + testNameSuffix2 + testCaseSuffix;
-    generatedFile = new File(outputDir.path + Platform.pathSeparator + generatedTestName);
-    if (generatedFile.existsSync()) {
-      testNameSuffix2 = "_$i";
-    } else {
-      break;
+  List<String> _makeIndent(int newIndent, List<String> lines) {
+    int currentIndent = lines[0].indexOf(RegExp(r"\S"));
+    if (currentIndent > 0 && newIndent > currentIndent) {
+      String _old = List.filled(currentIndent, " ").join();
+      String _new = List.filled(newIndent, " ").join();
+      for (int i = 0; i < lines.length; i++) {
+        lines[i] = lines[i].replaceFirst(_old, _new);
+      }
     }
+    return lines;
   }
-  generatedFile.createSync();
-  return generatedFile;
-}
 
-String getFileName(File file) =>
-    file.path.substring(file.path.lastIndexOf(Platform.pathSeparator) + 1);
+  File _createGeneratedTestFile() {
+    // _testTypeFileName looks like interface_compositionality_A01.dart
+    // prefix = interface_compositionality, suffix = _A01
+    int index = _testTypeFileName.lastIndexOf("_");
+    String testNamePrefix = _testTypeFileName.substring(0, index);
+    String testNameSuffix = _testTypeFileName.substring(index, index + 4);
 
-bool isFail(File file) => getFileName(file).contains("_fail_");
+    // testCaseName file name looks like arguments_binding_x01.dart
+    // prefix = arguments_binding, suffix = _x01.dart
+    index = _testCaseFileName.lastIndexOf("_");
+    String testCasePrefix = _testCaseFileName.substring(0, index);
+    String testCaseSuffix =
+        _testCaseFileName.substring(index).replaceFirst("x", "t");
 
-List<String> addImport(List<String> testTypeTextStrings, bool addExpect) {
-  int ind = 0;
-  for (int i = 0; i < testTypeTextStrings.length; i++) {
-    if (testTypeTextStrings[i].startsWith("///")) {
-      ind = i;
+    String generatedTestName = "";
+    File? generatedFile = null;
+    String testNameSuffix2 = "";
+    for (int i = 1;; i++) {
+      generatedTestName = testNamePrefix +
+          "_" +
+          testCasePrefix +
+          testNameSuffix +
+          testNameSuffix2 +
+          testCaseSuffix;
+      generatedFile = new File(
+          _outputDir.path + Platform.pathSeparator + generatedTestName);
+      if (generatedFile.existsSync()) {
+        testNameSuffix2 = "_$i";
+      } else {
+        break;
+      }
     }
+    generatedFile.createSync();
+    return generatedFile;
   }
-  if (addExpect) {
-    testTypeTextStrings.insert(ind + 1, IMPORT_EXPECT);
+
+  // Remove excessive empty lines
+  String _toNormalizedString(List<String> lines) {
+    int counter = 0;
+    for (int i = lines.length - 1; i >= 0; i--) {
+      lines[i] = lines[i].trimRight();
+      if (lines[i].length == 0) {
+        counter++;
+      } else {
+        if (counter > 1) {
+          for (int j = counter; j > 1; j--) {
+            lines.removeAt(i + j);
+          }
+        }
+        counter = 0;
+      }
+    }
+    StringBuffer sb = new StringBuffer();
+    sb.writeAll(lines, "\n");
+    String rez = sb.toString();
+    return rez;
   }
-  testTypeTextStrings.insert(ind + 1, IMPORT_COMMON);
-  return testTypeTextStrings;
-}
-
-String getBeforeMain(String text) {
-  return text.substring(0, text.indexOf(new RegExp(r"main[\s]*\(")));
-}
-
-String getMainContent(String text) {
-  int start = text.indexOf("{", text.indexOf(new RegExp(r"main\s*\(.*\)\s*\{")));
-  int end = text.lastIndexOf("}");
-  return text.substring(start + 1, end);
 }

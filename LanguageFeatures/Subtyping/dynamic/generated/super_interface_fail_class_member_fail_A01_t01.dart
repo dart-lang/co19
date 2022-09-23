@@ -14,11 +14,10 @@
 /// be used as a class member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from super_interface_fail_A01.dart and 
-/// class_member_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/super_interface_fail_A01.dart and 
+/// test_cases/class_member_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -40,8 +39,6 @@ T0 t0Instance = new T();
 T1 t1Instance = new T1();
 
 const t1Default = const T1();
-
-
 
 class ClassMemberTestStatic {
   static T1 s = t1Default;
@@ -193,7 +190,6 @@ main() {
   Expect.throws(() {
     new ClassMemberTestPublic(t1Instance).getter;
   }, (e) => e is TypeError);
-
 
   // Test static stuff
   Expect.throws(() {

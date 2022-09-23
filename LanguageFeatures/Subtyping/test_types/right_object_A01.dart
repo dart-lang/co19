@@ -10,8 +10,8 @@
 ///  - if T0 is a promoted type variable X & S then T0 <: T1 iff S <: Object
 ///  - if T0 is FutureOr<S> for some S, then T0 <: T1 iff S <: Object.
 ///  - if T0 is S* for any S, then T0 <: T1 iff S <: T1
-///  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does not
-///      hold (per above, the result of the subtyping query is false).
+///  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does
+///      not hold (per above, the result of the subtyping query is false).
 ///  - Otherwise T0 <: T1 is true.
 /// @description Check that if T0 is an unpromoted type variable with bound B
 /// and B <: Object then T0 is subtype of T1

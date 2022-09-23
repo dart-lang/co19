@@ -15,19 +15,18 @@
 /// and B0i[Z0/X0, ..., Zk/Xk] === B1i[Z0/Y0, ..., Zk/Yk] for i in 0...k
 /// where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
 /// @description Check that if there is i in 0...n such that
-/// Si[Z0/Y0, ..., Zk/Yk] is not subtype of Vi[Z0/X0, ..., Zk/Xk], then T0 is not
-/// a subtype of T1. Test generic types
+/// Si[Z0/Y0, ..., Zk/Yk] is not subtype of Vi[Z0/X0, ..., Zk/Xk], then T0 is
+/// not a subtype of T1. Test generic types
 /// @author sgrekhov@unipro.ru
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then it cannot
 /// be used as a class member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from named_function_types_fail_A23.dart and 
-/// class_member_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/named_function_types_fail_A23.dart and 
+/// test_cases/class_member_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -72,8 +71,6 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
-
-
 
 class ClassMemberTestStatic {
   static T1 s = t1Default;
@@ -226,7 +223,6 @@ main() {
     new ClassMemberTestPublic(t1Instance).getter;
   }, (e) => e is TypeError);
 
-
   // Test static stuff
   Expect.throws(() {
     new ClassMemberTestStatic(t0Instance);
@@ -246,5 +242,50 @@ main() {
 
   // Test type parameters
 
-}
+  //# <-- NotGenericFunctionType
+  // Test getters
+  Expect.throws(() {
+    new ClassMemberTestGenericPublic<T1>(t1Instance).getter;
+  }, (e) => e is TypeError);
 
+  // Test methods
+  Expect.throws(() {
+    new ClassMemberTestGenericPublic<T1>(t1Instance).test(t0Instance);
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ClassMemberTestGenericPrivate<T1>(t1Instance).test(t0Instance);
+  }, (e) => e is TypeError);
+
+  // Test setters
+  Expect.throws(() {
+    new ClassMemberTestGenericPublic<T1>(t1Instance).setter = t0Instance;
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ClassMemberTestGenericPrivate<T1>(t1Instance).setter = t0Instance;
+  }, (e) => e is TypeError);
+
+  // Test class variables
+  Expect.throws(() {
+    new ClassMemberTestGenericPublic<T1>(t1Instance).m = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+
+  // Test constructors
+  Expect.throws(() {
+    new ClassMemberTestGenericPublic<T1>(t0Instance);
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ClassMemberTestGenericPublic<T1>.short(forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ClassMemberTestGenericPrivate<T1>(t0Instance);
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ClassMemberTestGenericPrivate<T1>.short(forgetType(t0Instance));
+  }, (e) => e is TypeError);
+  //# -->
+}
