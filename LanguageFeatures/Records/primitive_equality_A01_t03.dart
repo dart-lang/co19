@@ -13,7 +13,7 @@
 /// constant map key, but only when its field values could be as well.
 ///
 /// @description Checks that if all of the record fields have a primitive ==
-/// operator then this record can be used in a constant set
+/// operator then this record can be used in a constant map literal as a key
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
@@ -34,14 +34,14 @@ main() {
   };
   const m4 = {
     (one: 1, two: "2", three: String, four: const C(), five: const Object(),
-      six: const Symbol('foo'): 2)
+      six: const Symbol('foo')): 2
   };
   const m5 = {
     const (1, two: "2", String, four: C(), five: Object(), Symbol('foo')): 3
   };
   const m6 = {
     (1, two: "2", String, four: const C(), five: const Object(),
-      const Symbol('foo'): 3)
+      const Symbol('foo')): 3
   };
 
   Expect.equals(m1, m2);
