@@ -31,7 +31,7 @@ typedef R1 = (int i, String s,);
 
 typedef (int, String s,) R2();
 
-typedef void R3((String s, int,));
+typedef void R3((String s, int,) r);
 
 typedef R4 = (int i, {String s,});
 
@@ -72,5 +72,5 @@ main() {
 
   d as (int, int j,);
   d as (int, {int j,});
-  d as ({int, int j,});
+  d as ({int i, int j,});
 }

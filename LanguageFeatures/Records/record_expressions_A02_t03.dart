@@ -57,5 +57,5 @@ main() {
   Expect.equals((2, 3), foo2());
   Expect.equals(((3, n: 4), n2: "", true), foo3());
   Expect.equals(("Hello", 1), bar(("Hello", 1,)));
-  Expect.equals((n1: "n1", n2: "n2"), bar((n1: "n1", n2: "n2",));
+  Expect.equals((n1: "n1", n2: "n2"), bar((n1: "n1", n2: "n2",)));
 }

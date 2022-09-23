@@ -32,7 +32,7 @@ typedef R1 = (int i,);
 
 typedef (int,) R2();
 
-typedef void R3((String s,));
+typedef void R3((String s,) r);
 
 (int,) foo() => (42,);
 

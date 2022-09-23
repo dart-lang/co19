@@ -35,13 +35,13 @@ typedef (int hashCode, Type runtimeType, Function noSuchMethod,
     String toString) R2();
 
 typedef void R3((int hashCode, Type runtimeType, Function noSuchMethod,
-    String toString));
+    String toString) r);
 
 (int? hashCode, Type? runtimeType, Function? noSuchMethod, String? toString)
     foo() => (null, null, null, null);
 
 void bar((int hashCode, Type runtimeType, Function noSuchMethod,
-    String toString)) {}
+    String toString) r) {}
 
 main() {
   (int? hashCode, Type? runtimeType, Function? noSuchMethod, String? toString)

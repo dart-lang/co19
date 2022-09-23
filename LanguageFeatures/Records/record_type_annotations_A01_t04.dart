@@ -25,10 +25,10 @@
 import "../../Utils/expect.dart";
 
 typedef (int, String name, bool) R1((int, String name, bool) r);
-typedef (int i, String s, bool b) R2((int i, String s, bool b));
+typedef (int i, String s, bool b) R2((int i, String s, bool b) r);
 typedef (int, String, bool) R3({required (int, String, bool) r});
-typedef ({int n, String s}) R4(({int n, String s}));
-typedef (bool, num, {int n, String s}) R5((bool, num, {int n, String s}));
+typedef ({int n, String s}) R4(({int n, String s}) r);
+typedef (bool, num, {int n, String s}) R5((bool, num, {int n, String s}) r);
 
 R1 r1 = ((int, String name, bool) r) => r;
 R2 r2 = ((int i, String s, bool b) r) => r;
