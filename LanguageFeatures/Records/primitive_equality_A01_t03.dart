@@ -30,7 +30,7 @@ main() {
     (1, "2", String, const C(), const Object(), const Symbol('foo')): 1};
   const m3 = {
     const (one: 1, two: "2", three: String, four: C(), five: Object(),
-      six: Symbol('foo'): 2)
+      six: Symbol('foo')): 2
   };
   const m4 = {
     (one: 1, two: "2", three: String, four: const C(), five: const Object(),
