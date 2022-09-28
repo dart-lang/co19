@@ -5,11 +5,9 @@
 // @dart = 2.9
 
 /// @assertion Datagram receive()
-/// Receive a datagram.
-/// . . .
-/// The maximum length of the datagram that can be received is 65503 bytes.
+/// Receive a datagram. If there are no datagrams available null is returned.
 ///
-/// @description Checks that the 65503 bytes datagram can be received.
+/// @description Checks that method [receive()] receives datagrams.
 /// @author ngl@unipro.ru
 /// @author shrekhov22@gmail.com
 
@@ -17,27 +15,23 @@ import "dart:io";
 import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.loopbackIPv4;
-int sentLength = 65503;
+final localhost = InternetAddress.loopbackIPv4;
 
 main() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
   RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
-  List<int> sList = new List<int>.filled(sentLength, 0);
-  for (int i = 0; i < sentLength; i++) {
-    sList[i] = i & 0xff;
+  List<List<int>> data = [[0, 1, 2, 3, 4], [5, 6, 7], [8, 9], [10]];
+  for (int i = 0; i < data.length; i++) {
+    await sendDatagram(producer, data[i], localhost, receiver.port);
   }
-  int sent = await sendDatagram(producer, sList, localhost, receiver.port);
-  if (sent > 0) {
-    receiver.listen((_event) {
-      if (_event == RawSocketEvent.read) {
-        Datagram? d = receiver.receive();
-        if (d != null) {
-          Expect.isTrue(containsReceived([sList], d));
-        }
+  receiver.listen((_event) {
+    if (_event == RawSocketEvent.read) {
+      Datagram? d = receiver.receive();
+      if (d != null) {
+        Expect.isTrue(containsReceived(data, d));
       }
-    });
-  }
+    }
+  });
   Future.delayed(Duration(milliseconds: 100)).then((_) {
     producer.close();
     receiver.close();

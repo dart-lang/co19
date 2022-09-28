@@ -11,6 +11,7 @@
 ///
 /// @description Checks that the 65504 bytes datagram can not be received.
 /// @author ngl@unipro.ru
+/// @author shrekhov22@gmail.com
 /// @issue 31733
 
 import "dart:io";
@@ -23,23 +24,26 @@ int datagramLength = 65504;
 main() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
   RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
-  List<int> sList = new List<int>.filled(datagramLength, null);
+  List<int> sList = new List<int>.filled(datagramLength, 0);
   for (int i = 0; i < datagramLength; i++) {
     sList[i] = i & 0xff;
   }
-  List<List<int>> toSend = [sList];
-  bool wasSent =
-      await sendDatagram(producer, toSend, localhost, receiver.port);
-  Expect.isTrue(wasSent, "No datagram was sent");
-
-  List<List<int>> received = await receiveDatagram(receiver);
-  if (received.length > 0){
-    for (int i = 0; i < received.length; i++) {
-      if (received[i] == null) {
-        continue;
+  int sent = await sendDatagram(producer, sList, localhost, receiver.port);
+  if (sent > 0) {
+    receiver.listen((_event) {
+      if (_event == RawSocketEvent.read) {
+        Datagram? d = receiver.receive();
+        if (d != null) {
+          var len = d.data.toList().length;
+          if(len >= 65504) {
+            Expect.fail("Received datagram is too long ($len))");
+          }
+        }
       }
-      Expect.notEquals(datagramLength, received[i].length,
-          "Wrong length of the datagram received");
-    }
+    });
   }
+  Future.delayed(Duration(milliseconds: 100)).then((_) {
+    producer.close();
+    receiver.close();
+  });
 }

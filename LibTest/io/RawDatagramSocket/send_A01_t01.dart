@@ -23,8 +23,16 @@ var localhost = InternetAddress.loopbackIPv4;
 main() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
   RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
-  List<List<int>> toSent = [[1, 1], bigData, [2]];
-  bool sent = await sendDatagram(producer, toSent, localhost, receiver.port);
-  Expect.isTrue(sent);
+  List<List<int>> toSend = [
+    [1, 1],
+    bigData,
+    [2]
+  ];
+  for (int i = 0; i < toSend.length; i++) {
+    int sent =
+        await sendDatagram(producer, toSend[i], localhost, receiver.port);
+    Expect.isTrue(sent == 0 || sent == toSend[i].length);
+  }
+  producer.close();
   receiver.close();
 }
