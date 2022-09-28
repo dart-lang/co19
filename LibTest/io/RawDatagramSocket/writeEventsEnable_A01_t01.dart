@@ -10,7 +10,7 @@
 /// must be set to true again to receive another write event.
 ///
 /// @description Checks that [writeEventsEnabled] property may be get and set
-/// for the [RawDatagramSocket] instance and that default value is true.
+/// for the [RawDatagramSocket] instance and that the default value is true.
 /// @author ngl@unipro.ru
 
 import "dart:io";
