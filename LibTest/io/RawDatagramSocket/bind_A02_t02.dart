@@ -17,8 +17,9 @@
 /// The `reuseAddress` should be set for all listeners that bind to the same
 /// address. Otherwise, it will fail with a [SocketException].
 ///
-/// @description Checks that if `reuseAddress` is `false` for just one of the sockets then an attempt to bind
-/// this address twice will fail with a [SocketException]
+/// @description Checks that if `reuseAddress` is `false` for just one of the
+/// sockets then an attempt to bind this address twice will fail with a
+/// [SocketException]
 /// @author sgrekhov22@gmail.com
 /// @issue 49600
 
