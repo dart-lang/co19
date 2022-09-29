@@ -21,7 +21,7 @@ main() {
     queue.addLast(i);
   }
   
-  List a = new List(100);
+  List a = new List.filled(100, null);
   
   queue.forEach((var element) {
     a[element] = element;

@@ -30,7 +30,8 @@
 /// implement proxy server resolving based on environment variables.
 /// @description Checks that this setter sets the function used to resolve the
 /// proxy server to be used for opening a HTTP connection to the specified url.
-/// Test "DIRECT" connection and Basic authentication
+/// Test "DIRECT" connection and Basic authentication (no proxy is used in this
+/// case)
 /// @author sgrekhov@unipro.ru
 /// @issue 42870
 
@@ -54,11 +55,7 @@ test() async {
       request.response.statusCode = HttpStatus.proxyAuthenticationRequired;
       request.response.close();
     } else {
-      Expect.isTrue(findProxyCalled);
-      Expect.isTrue(authenticateProxyCalled);
-      request.response.close();
-      server.close();
-      asyncEnd();
+      Expect.fail("Unexpected request");
     }
   });
   HttpClient client = new HttpClient();
@@ -69,10 +66,8 @@ test() async {
 
   client.authenticateProxy =
       (String host, int port, String scheme, String realm) {
-        authenticateProxyCalled = true;
-        Completer<bool> completer = new Completer<bool>();
-        completer.complete(true);
-        return completer.future;
+    authenticateProxyCalled = true;
+    return Future<bool>.value(true);
   };
 
   client
@@ -80,7 +75,11 @@ test() async {
           "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
+    Expect.isTrue(findProxyCalled);
+    Expect.isFalse(authenticateProxyCalled);
+    server.close();
     response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
+    asyncEnd();
   });
 }
 

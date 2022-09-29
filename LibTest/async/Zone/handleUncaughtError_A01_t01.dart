@@ -26,7 +26,7 @@ void test() {
 }
 
 main() {
-  runZoned(test, onError: (e,st) {
+  runZonedGuarded(test, (e,st) {
     Expect.identical(error, e);
     Expect.identical(stackTrace, st);
   });

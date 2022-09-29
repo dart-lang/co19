@@ -35,7 +35,7 @@ test(List create([int length])) {
     }
   }
 
-  List a = new List();
+  List a = [];
   check(a);
   a.add(2);
   check(a);

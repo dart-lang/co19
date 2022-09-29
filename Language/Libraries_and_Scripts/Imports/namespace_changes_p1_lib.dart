@@ -6,7 +6,7 @@
 
 library Imports_A02_p1_lib;
 
-List bList(int i) { return new List(i); }
+List bList(int i) { return new List.filled(i, 0); }
 typedef String bFunc<B extends bool, S extends String>(B t, [S s]);
 final bFoo = "B_FOO";
 

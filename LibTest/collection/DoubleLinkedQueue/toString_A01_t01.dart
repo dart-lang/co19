@@ -12,7 +12,6 @@
 /// representation of its first three elements.
 /// @author kaigorodov
 
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
@@ -31,7 +30,7 @@ main() {
   check([1, "2", "345", "rfq"]);
   check([1, new Error(), 25, 4, null, "adc", null, 28, new Error(), 17, 8, 5]);
 
-  List aList = new List();
+  List aList = [];
   for(int i = 0; i < 99; i++) aList.add(i);
   check(aList);
 

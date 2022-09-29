@@ -12,7 +12,7 @@
 
 import "LinkedList.lib.dart";
 
-List<String> failures = new List<String>();
+List<String> failures = [];
  
 void check(List a0) {
   List<MyLinkedListEntry> l = toLinkedList(a0).toList(growable:false);

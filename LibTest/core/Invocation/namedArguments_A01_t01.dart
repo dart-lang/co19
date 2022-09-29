@@ -26,7 +26,6 @@ class D {
   }
 }
 
-@proxy
 class C extends D {
   noSuchMethod(Invocation i) {
     Expect.throws(() => i.namedArguments.clear());

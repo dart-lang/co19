@@ -29,9 +29,9 @@ test(List create([int length])) {
   
   checkReversedIterator([]);
   checkReversedIterator(const [null, 0, "1", false, const []]);
-  checkReversedIterator(new List(300));
+  checkReversedIterator(new List.filled(300, null));
 
-  List a = new List(365);
+  List a = new List.filled(365, null);
   for (var i = 0; i < a.length; i++) {
     a[i] = i;
   }

@@ -32,6 +32,6 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isFalse(new List<int>() is List<String>);
-  Expect.isFalse(new List<String>() is List<int>);
+  Expect.isFalse(<int>[] is List<String>);
+  Expect.isFalse(<String>[] is List<int>);
 }

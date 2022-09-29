@@ -46,20 +46,20 @@ main() {
   a = n;
   n = new A();
 
-  List l1 = new List();
+  List l1 = [];
   Expect.isTrue(l1 is List);
   List l2 = l1;
-  l1 = new List();
+  l1 = [];
 
-  List<int> li1 = new List<int>();
+  List<int> li1 = [];
   Expect.isTrue(li1 is List<int>);
   List li2 = li1;
-  li1 = new List<int>();
+  li1 = [];
 
-  List<List<List>> ll1 = new List<List<List>>();
+  List<List<List>> ll1 = [[[]]];
   Expect.isTrue(ll1 is List<List<List>>);
   List ll2 = ll1;
-  ll1 = new List<List<List>>();
+  ll1 = [[[]]];
 
   A<Map<List, List<Map<Object, Map>>>> z = new A<Map<List, List<Map<Object, Map>>>>();
   Expect.isTrue(z is A<Map<List, List<Map<Object, Map>>>>);

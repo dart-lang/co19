@@ -37,7 +37,7 @@ test(Iterable create([Iterable content])) {
   checkResult(a);
   a = create([22, 11, 11]);
   checkResult(a);
-  List l = new List();
+  List l = [];
   for (int k = -100; k < 200; k++) {
     l.add(k);
   }

@@ -30,7 +30,7 @@ main() {
   Codec fused = codec.fuse(codec.inverted);
 
   int max = 1000;
-  List<int> data = new List<int>(max);
+  List<int> data = new List<int>.filled(max, null);
   for (int i = 0; i < max; i++) {
     data[i] = i % 256;
   }

@@ -10,8 +10,8 @@
 /// The maximum length of the datagram that can be received is 65503 bytes.
 ///
 /// @description Checks that the 65503 bytes datagram can be received.
-/// @issue 31733
 /// @author ngl@unipro.ru
+/// @author shrekhov22@gmail.com
 
 import "dart:io";
 import "../http_utils.dart";
@@ -23,16 +23,23 @@ int sentLength = 65503;
 main() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
   RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
-  List<int> sList = new List<int>(sentLength);
+  List<int> sList = new List<int>.filled(sentLength, 0);
   for (int i = 0; i < sentLength; i++) {
     sList[i] = i & 0xff;
   }
-  List<List<int>> toSend = [sList];
-  bool sent = await sendDatagram(producer, toSend, localhost, receiver.port);
-  Expect.isTrue(sent);
-
-  List<List<int>> received = await receiveDatagram(receiver);
-  if (received.length > 0) {
-    Expect.listEquals(toSend, received);
+  int sent = await sendDatagram(producer, sList, localhost, receiver.port);
+  if (sent > 0) {
+    receiver.listen((_event) {
+      if (_event == RawSocketEvent.read) {
+        Datagram? d = receiver.receive();
+        if (d != null) {
+          Expect.isTrue(containsReceived([sList], d));
+        }
+      }
+    });
   }
+  Future.delayed(Duration(milliseconds: 100)).then((_) {
+    producer.close();
+    receiver.close();
+  });
 }

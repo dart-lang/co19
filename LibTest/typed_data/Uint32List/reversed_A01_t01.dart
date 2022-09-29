@@ -27,7 +27,7 @@ main() {
   check([1]);
   check([1, 2]);
   check([1, 2, 3]);
-  var list = new List<int>(255);
+  var list = new List<int>.filled(255, 0);
   for (int i = 0; i < 255; ++i) {
     list[i] = i;
   }

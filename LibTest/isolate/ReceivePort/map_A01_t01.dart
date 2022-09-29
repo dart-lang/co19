@@ -10,28 +10,25 @@
 /// @description Checks that each element of this stream is processed.
 /// @author kaigorodov
 
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 void check(List data) {
-  Stream s1=IsolateStream.fromIterable(data);
-  List sink=new List();
+  Stream s1 = IsolateStream.fromIterable(data);
+  List sink = [];
   asyncStart();
-  Stream s2=s1.map((var event)=>event);
-  s2.listen((var event){
-      sink.add(event);
-    },
-    onDone:(){
-      Expect.listEquals(data, sink);
-      asyncEnd();
-    }
-  ); 
+  Stream s2 = s1.map((var event) => event);
+  s2.listen((var event) {
+    sink.add(event);
+  }, onDone: () {
+    Expect.listEquals(data, sink);
+    asyncEnd();
+  });
 }
 
 main() {
   check([]);
-  check([1,2,3,4]);
-  check([null,"2",-3,4.0, []]);
+  check([1, 2, 3, 4]);
+  check([null, "2", -3, 4.0, []]);
 }

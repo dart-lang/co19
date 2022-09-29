@@ -8,64 +8,32 @@
 /// Set or get, if the RawDatagramSocket should listen for RawSocketEvent.read
 /// events. Default is true.
 ///
-/// @description Checks that the RawDatagramSocket should not listen for
-/// RawSocketEvent.read events, if readEventsEnabled is false.
+/// @description Checks that the [RawDatagramSocket] should not listen for
+/// [RawSocketEvent.read] events, if [readEventsEnabled] is false.
 /// @author ngl@unipro.ru
+/// @author shrekhov22@gmail.com
 
-import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(int expReceive, [bool no_read_events = false]) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_read_events) {
-        receiver.readEventsEnabled = false;
-      }
-      Timer timer2;
-      int received = 0;
-      int sent = 0;
-      var read = 0;
+final localhost = InternetAddress.loopbackIPv4;
 
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.close();
-
-      void action() {
-        if (no_read_events) {
-          Expect.equals(2, received);
-          Expect.equals(0, read);
-        } else {
-          Expect.equals(5, received);
-          Expect.notEquals(0, read);
-        }
-        asyncEnd();
-      }
-
-      int s = 0;
-      receiver.listen((event) {
-        received++;
-        if (event == RawSocketEvent.read) {
-          read++;
-        }
-        var datagram = receiver.receive();
-        if (datagram != null) {
-          Expect.listEquals([s++], datagram.data);
-        }
-        if (timer2 != null) timer2.cancel();
-        timer2 = new Timer(const Duration(milliseconds: 400), () {
-          receiver.close();
-        });
-      }).onDone(action);
-    });
+main() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> data = [[0, 1, 2, 3, 4], [5, 6, 7], [8, 9], [10]];
+  for (int i = 0; i < data.length; i++) {
+    await sendDatagram(producer, data[i], localhost, receiver.port);
+  }
+  receiver.readEventsEnabled = false;
+  receiver.listen((_event) {
+    if (_event == RawSocketEvent.read) {
+      Expect.fail("Read events should not be listened");
+    }
   });
-}
-
-main() {
-  check(5);
-  check(2, true);
+  Future.delayed(Duration(milliseconds: 100)).then((_) {
+    producer.close();
+    receiver.close();
+  });
 }

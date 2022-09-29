@@ -30,7 +30,6 @@ void check(var e) {
 }
 
 main() {
-  check(new List());
   check([]);
   check(new Set());
 }

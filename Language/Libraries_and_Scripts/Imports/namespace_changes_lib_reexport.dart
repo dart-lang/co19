@@ -32,7 +32,7 @@ abstract class J extends P.I {
 
 class SubList<T> {
   List<T> list;
-  SubList():list = new List<T>() {}
+  SubList():list = <T>[] {}
 
   void add(T v) {
     list.add(v);

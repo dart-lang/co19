@@ -26,7 +26,7 @@
 
 
 main() {
-  for (l in new List(5)) {
+  for (l in []) {
 //     ^
 // [analyzer] unspecified
 // [cfe] unspecified

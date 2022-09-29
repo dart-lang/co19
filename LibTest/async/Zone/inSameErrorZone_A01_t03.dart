@@ -11,7 +11,6 @@
 /// @description Checks that errors are handled by the error zone callbacks.
 /// @author ilya
 
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -19,7 +18,7 @@ same () => Expect.isTrue(Zone.current.inSameErrorZone(Zone.current.parent));
 diff () => Expect.isFalse(Zone.current.inSameErrorZone(Zone.current.parent));
 
 main() {
-  runZoned(() {
+  runZonedGuarded(() {
     asyncStart();
     // new error zone
     diff();
@@ -39,7 +38,7 @@ main() {
         asyncEnd();
       });
     });
-  }, onError: (e) {
+  }, (e, st) {
     Expect.fail('should not happen');
   });
 }

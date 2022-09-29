@@ -12,8 +12,8 @@
 
 import "../../../Utils/expect.dart";
 
-List o1 = new List(10);
-List o2 = new List(10);
+List o1 = new List.filled(10, Object());
+List o2 = new List.filled(10, Object());
 
 main() {
   Expect.isTrue(identical(o1, o1));

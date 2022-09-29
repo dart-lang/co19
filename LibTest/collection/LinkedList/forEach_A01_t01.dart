@@ -20,7 +20,7 @@ class A {
 }
 
 main() {
-  List<A> a = new List(100);
+  List<A> a = new List.filled(100, null);
   for (int i = 0; i < a.length; i++) {
     a[i] = new A(false);
   }

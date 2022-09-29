@@ -13,11 +13,10 @@
 /// element.
 /// @author kaigorodov
 
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-List<int> visited=new List<int>(200);
+List<int> visited = new List<int>.filled(200, null);
 
 int f(int element) {
   visited[element]++;

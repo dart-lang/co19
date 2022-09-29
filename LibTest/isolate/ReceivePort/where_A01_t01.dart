@@ -18,7 +18,7 @@ import "IsolateStream.dart" as IsolateStream;
 
 void check(Iterable data, bool test(int element)) {
   Stream s = IsolateStream.fromIterable(data);
-  List collected = new List();
+  List collected = [];
   bool _test(element){
     if (test(element)) {
       return true;
@@ -43,5 +43,6 @@ void check(Iterable data, bool test(int element)) {
 main() {
   check([1,2,3,null], (int element) => element == null);
   check([1,2,3], (int element) => element > 2);
-  check(new Iterable.generate(10, (int index) => index * 5), (int element) => element == 30);
+  check(new Iterable.generate(10, (int index) => index * 5),
+          (int element) => element == 30);
 }

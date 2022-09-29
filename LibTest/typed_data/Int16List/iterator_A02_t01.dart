@@ -14,7 +14,6 @@
 /// the same element in the same order.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -34,7 +33,7 @@ main() {
   checkIterator([]);
   checkIterator([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
-  var a = new List<int>(255);
+  var a = new List<int>.filled(255, null);
   for (var i = 0; i < a.length; i++) {
     a[i] = i;
   }

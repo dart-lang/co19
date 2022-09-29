@@ -25,7 +25,7 @@ main() {
   check([null, null, null, null], 5);
   check([null, null, null, null], -1);
 
-  List l = new List(123);
+  List l = new List.filled(123, null);
   check(l, 124);
   check(l, -1);
 }

@@ -32,12 +32,12 @@ test(List create([int length])) {
     check1(list, start, end);    
   }
 
-  check(new List(0), 0, 1);
-  check(new List(10), 1, 10);
-  check(new List(1099), 0, 1100);
-  check(new List(10789), 10000, 10000);
+  check([], 0, 1);
+  check(new List.filled(10, null), 1, 10);
+  check(new List.filled(1099, null), 0, 1100);
+  check(new List.filled(10789, null), 10000, 10000);
 
-  List l = new List();
+  List l = [];
   check(l, 0, 1);
   l.length = 10;
   check(l, 1, 10);

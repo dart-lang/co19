@@ -38,7 +38,7 @@ void check(List l) {
 main() {
   check(new List.generate(0, gengen([])));
 
-  List<int> s = new List<int>();
+  List<int> s = [];
   for (var i = 0; i < 10; i++){
     s.add(i);
   }
@@ -50,7 +50,7 @@ main() {
   }
   check(new List.generate(q.length, gengen(q.toList())));
 
-  List l = new List();
+  List l = [];
   l.addAll(["1", "2", "3", "4", "5"]);
   List a = new List.generate(l.length, gengen(l), growable:true);
   check(a);
@@ -59,7 +59,7 @@ main() {
   a = new List.generate(src.length, gengen(src));
   check(a);
 
-  src = new List(34567);
+  src = new List.filled(34567, null);
   src[34566] = -111111111;
   a = new List.generate(src.length, gengen(src), growable:true);
   check(a);

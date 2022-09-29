@@ -10,7 +10,6 @@
 /// [this] in reverse order.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -27,7 +26,7 @@ main() {
   check([1]);
   check([1, 2]);
   check([1, 2, 3]);
-  var list = new List<int>(255);
+  var list = new List<int>.filled(255, null);
   for (int i = 0; i < 255; ++i) {
     list[i] = i;
   }

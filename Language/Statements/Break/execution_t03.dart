@@ -17,7 +17,7 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  List order = new List();
+  List order = [];
 
   try {
     try {

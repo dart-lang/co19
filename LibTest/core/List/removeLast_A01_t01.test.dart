@@ -35,7 +35,7 @@ check(a) {
   o = a.removeLast();
   Expect.isTrue(a.length == 0 && o == false);
 
-  List b = new List(100);
+  List b = new List.filled(100, null);
   b[99] = "removeLast";
   a.addAll(b);
   Expect.isTrue(a.length == 100);

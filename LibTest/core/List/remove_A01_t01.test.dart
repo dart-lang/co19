@@ -33,7 +33,7 @@ test(List create([int length])) {
   check([], 1, false);
   check([1], 1, true);
   check(new List.from([]), true, false);
-  List a = new List();
+  List a = [];
   check(a, 2, false);
   a.add(2);
   check(a, 2, true);

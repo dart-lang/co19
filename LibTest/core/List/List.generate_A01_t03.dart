@@ -25,7 +25,7 @@ Generator gengen(List<Object> source) {
    };
 }
 
-List<String> failures=new List<String>();
+List<String> failures = [];
  
 check(List l) {
   try {

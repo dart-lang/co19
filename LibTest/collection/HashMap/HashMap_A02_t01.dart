@@ -25,7 +25,7 @@ main() {
     map.putIfAbsent(num, () => num);
   }
 
-  List result = new List();
+  List result = [];
 
   map.forEach((key, value) {
     result.add(value);

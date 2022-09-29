@@ -9,13 +9,12 @@
 /// @description Checks values from [0, 2pi].
 /// @author msyabro
 
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;
-  var x = new List(64);
+  var x = new List<double>.filled(64, 0);
   x[0] = 0.00000000000000000000;
   x[1] = 0.09973310011396169200;
   x[2] = 0.19946620022792338000;
@@ -80,9 +79,8 @@ main() {
   x[61] = 6.08371910695166300000;
   x[62] = 6.18345220706562420000;
   x[63] = 6.28318530717958620000;
-  
-  
-  var y = new List(64);
+
+  var y = new List<double>.filled(64, 0);
   y[0] = 0.00000000000000000000;
   y[1] = 0.09956784659581666100;
   y[2] = 0.19814614319939758000;

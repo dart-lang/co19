@@ -14,7 +14,6 @@ import "../../../Utils/expect.dart";
 
 Symbol expect;
 
-@proxy
 class D {
   method(x, y, z) {}
   get getOnly {}

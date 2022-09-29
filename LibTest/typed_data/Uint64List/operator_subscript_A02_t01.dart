@@ -37,7 +37,7 @@ check(List<int> list) {
 main() {
   check([]);
   check([1]);
-  var list = new List<int>(255);
+  var list = new List<int>.filled(255, 0);
   for (int i = 0; i < 255; ++i) {
     list[i] = i;
   }

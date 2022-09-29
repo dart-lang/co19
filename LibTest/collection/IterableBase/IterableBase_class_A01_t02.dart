@@ -17,7 +17,7 @@ import "inherited_tests.lib.dart" as allTests;
 class MyIterable extends IterableBase {
   List _content;
 
-  MyIterable(): _content = new List();
+  MyIterable(): _content = [];
 
   MyIterable.from(Iterable content): _content = new List.from(content);
 

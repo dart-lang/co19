@@ -12,9 +12,9 @@ import "allListTests.lib.dart";
 
 List create([int length = null]) {
   if (length == null) {
-    return new List();
+    return [];
   } else {
-    return new List(length);
+    return new List.filled(length, null);
   }
 }  
 

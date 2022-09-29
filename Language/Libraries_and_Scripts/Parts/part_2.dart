@@ -8,7 +8,7 @@ part of Parts_test_lib;
 
 foo() => null;
 int bar(int x, int y) => x + y ;
-List list(int iParam) => List(iParam);
+List list(int iParam, [fill = null]) => List.filled(iParam, fill);
 _privateFunc() => 0;
 
 typedef String func<B extends bool, S extends String>(B t, [S sParam]);

@@ -30,5 +30,4 @@ main() {
   const MyClass c1 = MyClass("12345"); //# 01: compile-time error
   const MyClass c2 = MyClass(12345);   //# 02: compile-time error
   const MyClass c3 = MyClass(B());     //# 03: compile-time error
-  const c4 = new List();               //# 04: compile-time error
 }

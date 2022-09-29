@@ -43,7 +43,7 @@ void check(ByteBuffer buffer) {
 }
 
 main() {
-  var list0 = new List<int>(0);
+  var list0 = <int>[];
   var list1 = new List.filled(1, 0);
   var list2 = new List.filled(5, 0);
   var list3 = new Int32x4List(1);

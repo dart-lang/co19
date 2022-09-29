@@ -26,8 +26,8 @@ test(List create([int length])) {
   check([], 0);
   check([], 1);
   check([], -1);
-  check(new List(), 6031769);
-  check(new List(123), 6031769);
+  check([], 6031769);
+  check(new List.filled(123, null), 6031769);
   check([1], 2);
   check([null, null, null, null], 5);
   check([null, null, null, null], -1);
