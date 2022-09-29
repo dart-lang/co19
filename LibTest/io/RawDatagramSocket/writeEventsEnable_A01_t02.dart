@@ -9,7 +9,7 @@
 /// event.
 ///
 /// @description Checks that if writeEventsEnabled is false, then this event is
-/// not listened.
+/// ignored.
 /// @author sgrekhov22@gmail.com
 
 import "dart:io";
