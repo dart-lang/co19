@@ -21,5 +21,5 @@ Set create([Iterable content]) {
 }
 
 main() {
-  libSet.test(create, ordered: false);
+  libSet.test(create);
 }
