@@ -97,12 +97,12 @@ import "where_A02_t01.test.dart" as where_A02_t01;
 import "where_A03_t01.test.dart" as where_A03_t01;
 import "where_A04_t01.test.dart" as where_A04_t01;
 
-test(Iterable create([Iterable content]), {bool isSet:false}) {
+test(Iterable create([Iterable content]), {bool isSet = false,
+    bool ordered = true}) {
   any_A01_t01.test(create);
   any_A01_t02.test(create);
   any_A01_t03.test(create);
   any_A01_t04.test(create);
-  any_A01_t05.test(create);
   any_A02_t01.test(create);
   contains_A01_t01.test(create);
   elementAt_A01_t01.test(create, isSet: isSet);
@@ -178,10 +178,13 @@ test(Iterable create([Iterable content]), {bool isSet:false}) {
   where_A01_t02.test(create);
   where_A01_t03.test(create);
   where_A01_t05.test(create);
-  where_A01_t06.test(create);
-  where_A01_t07.test(create, isSet:isSet);
   where_A01_t08.test(create);
   where_A02_t01.test(create);
   where_A03_t01.test(create);
   where_A04_t01.test(create);
+  if (ordered) {
+    any_A01_t05.test(create);
+    where_A01_t06.test(create);
+    where_A01_t07.test(create, isSet: isSet);
+  }
 }
