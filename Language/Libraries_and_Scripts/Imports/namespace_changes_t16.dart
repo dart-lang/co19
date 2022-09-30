@@ -65,7 +65,6 @@
 /// @reviewer kaigorodov
 
 import "../../../Utils/expect.dart";
-
 import "namespace_changes_lib_reexport.dart";
 
 class JJ extends J {
@@ -86,7 +85,7 @@ main() {
   Expect.equals('J.FOO', J.FOO);
 
   // from namespace_changes_p1_lib.dart
-  Expect.listEquals([null], bList(1));
+  Expect.listEquals([0], bList(1));
   bFunc bf = null;
   Expect.equals("B_FOO", bFoo);
   Expect.equals("1_Imports_A02_p1_lib.foo()", new B.spec().foo());

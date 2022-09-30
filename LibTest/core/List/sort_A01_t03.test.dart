@@ -32,7 +32,7 @@ void check(Iterable a, List create([int length])) {
 test(List create([int length])) {
 
   int maxlen = 5;
-  var a = new List.filled(maxlen, null);
+  var a = new List.filled(maxlen, 0);
   int maxdigit = 3;
   int mindigit = -2;
 
