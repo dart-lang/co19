@@ -11,7 +11,7 @@
 ///
 /// @description Checks that the 65504 bytes datagram can not be received.
 /// @author ngl@unipro.ru
-/// @author shrekhov22@gmail.com
+/// @author sgrekhov22@gmail.com
 /// @issue 31733
 
 import "dart:io";
@@ -32,7 +32,7 @@ main() async {
   if (sent > 0) {
     receiver.listen((_event) {
       if (_event == RawSocketEvent.read) {
-        Datagram? d = receiver.receive();
+        Datagram d = receiver.receive();
         if (d != null) {
           var len = d.data.toList().length;
           if(len >= 65504) {

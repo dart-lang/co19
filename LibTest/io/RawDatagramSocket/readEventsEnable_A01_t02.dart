@@ -11,7 +11,7 @@
 /// @description Checks that the [RawDatagramSocket] should not listen for
 /// [RawSocketEvent.read] events, if [readEventsEnabled] is false.
 /// @author ngl@unipro.ru
-/// @author shrekhov22@gmail.com
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../http_utils.dart";

@@ -33,7 +33,7 @@ main() async {
       Expect.fail("Write events must be disabled");
     }
     if (_event == RawSocketEvent.read) {
-      Datagram? d = receiver.receive();
+      Datagram d = receiver.receive();
       if (d != null) {
         Expect.isTrue(containsReceived(data, d));
       }

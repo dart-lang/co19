@@ -11,7 +11,7 @@
 ///
 /// @description Checks that the 65503 bytes datagram can be received.
 /// @author ngl@unipro.ru
-/// @author shrekhov22@gmail.com
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../http_utils.dart";
@@ -31,7 +31,7 @@ main() async {
   if (sent > 0) {
     receiver.listen((_event) {
       if (_event == RawSocketEvent.read) {
-        Datagram? d = receiver.receive();
+        Datagram d = receiver.receive();
         if (d != null) {
           Expect.isTrue(containsReceived([sList], d));
         }
