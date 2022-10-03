@@ -34,7 +34,7 @@ main() async {
         Expect.fail("Closed socket should no receive anything");
       } else {
         first = true;
-        Datagram? d = receiver.receive();
+        Datagram d = receiver.receive();
         if (d != null) {
           Expect.isTrue(containsReceived(toSend, d));
           receiver.close();

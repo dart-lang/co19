@@ -33,7 +33,7 @@ main() async {
   }
   receiver.listen((_event) {
     if (_event == RawSocketEvent.read) {
-      Datagram? d = receiver.receive();
+      Datagram d = receiver.receive();
       if (d != null) {
         Expect.isTrue(containsReceived(data, d));
       }
