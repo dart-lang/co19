@@ -11,7 +11,7 @@
 ///
 /// @description Checks that the 65504 bytes datagram can not be received.
 /// @author ngl@unipro.ru
-/// @author shrekhov22@gmail.com
+/// @author sgrekhov22@gmail.com
 /// @issue 31733
 
 import "dart:io";
