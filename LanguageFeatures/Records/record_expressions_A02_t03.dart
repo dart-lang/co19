@@ -17,6 +17,8 @@
 ///
 /// Only one positional field and no trailing comma.
 ///
+/// No fields and a trailing comma. The expression (,) isn't allowed.
+///
 /// A field named hashCode, runtimeType, noSuchMethod, or toString.
 ///
 /// A field name that starts with an underscore.
@@ -43,7 +45,7 @@ dynamic bar(Record r) => r;
 main() {
   var r1 = (1, n: "n",);
   var r2 = ((2), 3,);
-  var r3 = ((3,), n: Record.empty, (4),);
+  var r3 = ((3,), n: (), (4),);
 
   Expect.equals(1, r1.$0);
   Expect.equals("n", r1.n);
@@ -51,7 +53,7 @@ main() {
   Expect.equals(3, r2.$1);
   Expect.equals(3, r3.$0.$0);
   Expect.equals(4, r3.$1);
-  Expect.equals(Record.empty, r3.n);
+  Expect.equals((), r3.n);
 
   Expect.equals((1, 2), foo1());
   Expect.equals((2, 3), foo2());

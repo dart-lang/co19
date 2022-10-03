@@ -2,30 +2,26 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion There is no syntax for a zero-field record expression. Instead,
-/// there is a static constant empty on [Record] that returns the empty record.
+/// @assertion The expression () refers to the constant empty record with no
+/// fields.
 ///
-/// @description Checks that there is no syntax for a zero-field record
-/// expression.
+/// @description Checks that the expression () refers to the constant empty
+/// record with no positional fields.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-Record foo() => ();
-//              ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-void bar(Record r) {}
+() foo() => ();
 
 main() {
   var record1 = ();
-//              ^^
+  record1.$0;
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  bar(());
-//    ^^
+  foo().$0;
+//      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

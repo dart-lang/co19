@@ -27,32 +27,27 @@
 /// field. For example: ('pos', $0: 'named') since the named field '$0' collides
 /// with the getter for the first positional field.
 ///
-/// @description Checks that it is a compile-time error if a record has a field
-/// name that collides with the synthesized getter name of a positional field
+/// @description Checks that it is a compile-time error if record expression
+/// contains no fields and a trailing comma.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-Record foo() => (42, $0: "Lily was here");
-//                   ^^
+() foo() => (,);
+//          ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 void bar(Record r) {}
 
 main() {
-  var record1 = (42, $0: "Lily was here");
-//                   ^^
+  var record1 = (,);
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var record2 = (1, 2, 3, $2: 42);
-//                        ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  bar((42, $0: 42));
-//         ^^
+  bar((,));
+//    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

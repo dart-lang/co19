@@ -56,7 +56,7 @@ main() {
 
   (double d, String s,) r2 = (3.14, "");
 
-  ((int,), Record r,) r3 = ((42,), Record.empty);
+  ((int,), Record r,) r3 = ((42,), ());
 
   (int, {String s,}) r4 = (42, s: "");
 

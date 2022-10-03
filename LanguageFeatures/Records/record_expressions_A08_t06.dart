@@ -17,6 +17,8 @@
 ///
 /// Only one positional field and no trailing comma.
 ///
+/// No fields and a trailing comma. The expression (,) isn't allowed.
+///
 /// A field named hashCode, runtimeType, noSuchMethod, or toString.
 ///
 /// A field name that starts with an underscore.
