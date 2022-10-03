@@ -38,17 +38,18 @@ class C2<T extends (num, {Object o})> {
 }
 
 main() {
+  List<int> list = [1, 2];
   Expect.equals((1, 2), foo<(int i, int)>((1, 2)));
   Expect.equals((1, n: "x"), foo<(int i, {String n})>((1, n: "x")));
   Expect.equals((d: 1.1, n: ""), foo<({double d, String n})>((d: 1.1, n: "")));
   Expect.equals((1, o: ""), bar<(int i, {String o})>((1, o: "")));
-  Expect.equals((3.14, o: [1, 2]),
-      bar<(double, {List<int> o})>((3.14, o: [1, 2])));
+  Expect.equals((3.14, o: list),
+      bar<(double, {List<int> o})>((3.14, o: list)));
 
   Expect.equals((1, 2), C1<(int i, int)>((1, 2)).t);
   Expect.equals((1, n: "x"), C1<(int i, {String n})>((1, n: "x")).t);
   Expect.equals((d: 1.1, n: ""), C1<({double d, String n})>((d: 1.1, n: "")).t);
   Expect.equals((1, o: ""), C2<(int i, {String o})>((1, o: "")).t);
-  Expect.equals((3.14, o: [1, 2]),
-      C2<(double, {List<int> o})>((3.14, o: [1, 2])).t);
+  Expect.equals((3.14, o: list),
+      C2<(double, {List<int> o})>((3.14, o: list)).t);
 }
