@@ -46,7 +46,7 @@ main() {
   var c3 = 1 > 2 ? a3 : b3;
   c3.expectStaticType<Exactly<Record>>();
 
-  () a4 = Record.empty;
+  () a4 = ();
   (int,) b4 = (42,);
   var c4 = 1 > 2 ? a4 : b4;
   c4.expectStaticType<Exactly<Record>>();

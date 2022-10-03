@@ -26,7 +26,7 @@ main() {
 
   R3 r3 = (x: 1.2, y: 3.4);
   Expect.throws(() {exp[r3] = 42;});
-  Expect.throws(() {exp[Record.empty] = 42;});
+  Expect.throws(() {exp[()] = 42;});
   Expect.throws(() {exp[(1,)] = 42;});
   Expect.throws(() {exp[(s: "s")] = 42;});
   Expect.throws(() {exp[(42, s: "s")] = 42;});

@@ -44,13 +44,13 @@ import "../../Utils/expect.dart";
 
 typedef Rec = ();
 
-() foo() => Record.empty;
+() foo() => ();
 
 Record bar(() r) => r;
 
 main() {
-  Rec r1 = Record.empty;
-  () r2 = Record.empty;
-  Expect.equals(Record.empty, foo());
-  Expect.equals(Record.empty, bar(Record.empty));
+  Rec r1 = ();
+  () r2 = ();
+  Expect.equals((), foo());
+  Expect.equals((), bar(()));
 }
