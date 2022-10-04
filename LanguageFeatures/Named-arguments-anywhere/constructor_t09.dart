@@ -10,8 +10,6 @@
 /// argument list. Test constructors
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=named-arguments-anywhere
-
 import "../../Utils/expect.dart";
 
 class C {

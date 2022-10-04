@@ -10,8 +10,6 @@
 /// argument list. Test instance method
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=named-arguments-anywhere
-
 import "../../Utils/expect.dart";
 
 class C<T> {
