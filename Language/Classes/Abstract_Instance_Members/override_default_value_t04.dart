@@ -4,21 +4,13 @@
 
 // @dart = 2.9
 
-/// @assertion Unless explicitly stated otherwise, all ordinary rules that apply
-/// to methods apply to abstract methods.
-/// It is a static warning if an instance method m1 overrides an instance member
-/// m2, the signature of m2 explicitly specifies a default value for a formal
-/// parameter p and the signature of m1 specifies a different default value for
-/// p.
-/// @description Checks that it is a static warning if an instance method
-/// overrides an abstract method and does not explicitly specify a default value
-/// for its optional parameter while the abstract method does.
+/// @assertion It's not an error to override default value
+/// See https://github.com/dart-lang/sdk/issues/49112
 ///
-/// See https://github.com/dart-lang/sdk/issues/34437#issuecomment-432093691
+/// @description Checks that it is not an error if default value is overridden
 ///
 /// @issue 27476
 /// @author msyabro
-
 
 abstract class A {
   foo([x = 1]);
@@ -26,8 +18,6 @@ abstract class A {
 
 class C extends A {
   foo([x]) {
-//     ^
-// [analyzer] STATIC_WARNING.INVALID_OVERRIDE_DIFFERENT_DEFAULT_VALUES_POSITIONAL
   }
 }
 
