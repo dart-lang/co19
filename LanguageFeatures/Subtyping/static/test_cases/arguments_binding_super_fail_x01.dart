@@ -8,7 +8,6 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 
-
 class ArgumentsBindingSuper1_t02 {
   @T1 m = t1Default;
 

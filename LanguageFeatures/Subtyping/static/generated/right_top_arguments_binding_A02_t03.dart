@@ -13,12 +13,10 @@
 /// of T0 can be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_top_A02.dart and 
-/// arguments_binding_x03.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/right_top_A02.dart and 
+/// test_cases/arguments_binding_x03.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class T0 {}
 
@@ -27,10 +25,7 @@ dynamic t1Instance = 3.14;
 
 const t1Default = null;
 
-
-
-
-class ArgumentsBindingMixin1_t03 {
+mixin ArgumentsBindingMixin1_t03 {
   dynamic m = t1Default;
 
   void superTest(dynamic val) {}
@@ -54,7 +49,7 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
   }
 }
 
-class ArgumentsBindingMixin2_t03<X> {
+mixin ArgumentsBindingMixin2_t03<X> {
   void superTest(X val) {}
   void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}
@@ -82,12 +77,9 @@ main() {
   c1.superGetter;
 
   // Test type parameters
-
-  //# <-- NotGenericFunctionType
   ArgumentsBinding2_t03<dynamic> c2 = new ArgumentsBinding2_t03<dynamic>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
-  //# -->
 }

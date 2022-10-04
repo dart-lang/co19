@@ -24,12 +24,10 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
-/// This test is generated from right_object_fail_A02.dart and 
-/// arguments_binding_super_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/right_object_fail_A02.dart and 
+/// test_cases/arguments_binding_super_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class X {}
 class S extends X {}
@@ -38,10 +36,6 @@ S? t0Instance = new S();
 Object t1Instance = new Object();
 
 const t1Default = const Object();
-
-
-
-
 
 class ArgumentsBindingSuper1_t02 {
   Object m = t1Default;
@@ -182,37 +176,33 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
   }
 }
 
-
-
 test<T>(T? t0Instance) {
   if (t0Instance is S?) {
-    
-  new ArgumentsBinding1_t02.valid().superTest(t0Instance);
-//                                            ^^^^^^^^^^
+    new ArgumentsBinding1_t02.valid().superTest(t0Instance);
+//                                              ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  new ArgumentsBinding1_t02.valid().superTestPositioned(t0Instance);
-//                                                      ^^^^^^^^^^
+    new ArgumentsBinding1_t02.valid().superTestPositioned(t0Instance);
+//                                                        ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  new ArgumentsBinding1_t02.valid().superTestPositioned(t1Instance, t0Instance);
-//                                                                  ^^^^^^^^^^
+    new ArgumentsBinding1_t02.valid().superTestPositioned(t1Instance, t0Instance);
+//                                                                    ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  new ArgumentsBinding1_t02.valid().superTestNamed(t0Instance);
-//                                                 ^^^^^^^^^^
+    new ArgumentsBinding1_t02.valid().superTestNamed(t0Instance);
+//                                                   ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  new ArgumentsBinding1_t02.valid().superTestNamed(t1Instance, val2: t0Instance);
-//                                                                   ^^^^^^^^^^
+    new ArgumentsBinding1_t02.valid().superTestNamed(t1Instance, val2: t0Instance);
+//                                                                     ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  new ArgumentsBinding1_t02.valid().superSetter = t0Instance;
-//                                                ^^^^^^^^^^
+    new ArgumentsBinding1_t02.valid().superSetter = t0Instance;
+//                                                  ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  new ArgumentsBinding1_t02.valid().test();
-
+    new ArgumentsBinding1_t02.valid().test();
   }
 }
 

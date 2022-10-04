@@ -5,20 +5,18 @@
 /// @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
 /// when:
 /// Function Type/Function: T0 is a function type and T1 is Function
-/// @description Check that if type T0 is a function type and T1 is Function then
-/// T0 is a subtype of T1. Test void function with positional arguments
+/// @description Check that if type T0 is a function type and T1 is Function
+/// then T0 is a subtype of T1. Test void function with positional arguments
 /// @author sgrekhov@unipro.ru
 ///
 /// @description Check that if type T0 is a subtype of a type T1, then instance
 /// of T0 can be used as an argument of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from function_type_function_A06.dart and 
-/// arguments_binding_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/function_type_function_A06.dart and 
+/// test_cases/arguments_binding_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class C {}
 
@@ -29,9 +27,6 @@ Function t1Instance = () {};
 
 void foo() {}
 const t1Default = foo;
-
-
-
 
 namedArgumentsFunc1(Function t1, {Function t2 = t1Default}) {}
 positionalArgumentsFunc1(Function t1, [Function t2 = t1Default]) {}
@@ -97,7 +92,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   // test generic functions
   namedArgumentsFunc2<Function>(t0Instance, t2: t0Instance);
 
@@ -109,5 +103,4 @@ main() {
   // test generic class methods and setters
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
   instance2.testSetter = t0Instance;
-  //# -->
 }

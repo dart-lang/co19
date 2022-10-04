@@ -8,7 +8,6 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 
-
 class LocalVariableTest {
   LocalVariableTest() {
     @T1 t1 = t0Instance;

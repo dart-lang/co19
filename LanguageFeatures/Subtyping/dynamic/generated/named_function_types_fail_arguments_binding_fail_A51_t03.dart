@@ -22,46 +22,60 @@
 /// be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from named_function_types_fail_A51.dart and 
-/// arguments_binding_fail_x03.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/named_function_types_fail_A51.dart and 
+/// test_cases/arguments_binding_fail_x03.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
 
 class U0 extends U1 {}
+
 class U1 {}
+
 class B0 {}
+
 class B1 {}
+
 class V0 {}
+
 class V1 {}
+
 class V2 {}
+
 class V3 {}
+
 class V4 {}
+
 class S0 extends V0 {}
+
 class S1 extends V1 {}
+
 class S2 extends V2 {}
+
 class S3 extends V3 {}
 
 class X0 extends B0 {}
+
 class X1 extends B1 {}
 
 class Y0 extends B0 {}
 
-typedef T0 = U0 Function<X extends B0, Y extends B1>(V0 x0, V1 x1, {V2? x2, V3? x3, V4? x4});
-typedef T1 = U1 Function<X extends B0, Y extends B0>(S0 y0, S1 y1, {S2? x2, S3? x3}); //  Y extends B0, not B1
+typedef T0 = U0 Function<X extends B0, Y extends B1>(V0 x0, V1 x1,
+    {V2? x2, V3? x3, V4? x4});
+typedef T1 = U1 Function<X extends B0, Y extends B0>(S0 y0, S1 y1,
+    {S2? x2, S3? x3}); //  Y extends B0, not B1
 
-U0 t0Func<X extends B0, Y extends B1>(V0 x0, V1 x1, {V2? x2, V3? x3, V4? x4}) => new U0();
-U1 t1Func<X extends B0, Y extends B0>(S0 y0, S1 y1, {S2? x2, S3? x3}) => new U1();
+U0 t0Func<X extends B0, Y extends B1>(V0 x0, V1 x1, {V2? x2, V3? x3, V4? x4}) =>
+    new U0();
+U1 t1Func<X extends B0, Y extends B0>(S0 y0, S1 y1, {S2? x2, S3? x3}) =>
+    new U1();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
-
-
 
 class ArgumentsBindingSuper1_t03 {
   void superTest(T1 val) {}
@@ -266,5 +280,30 @@ main() {
 
   // Test type parameters
 
-}
+  // test generic class members
+  Expect.throws(() {
+    new ArgumentsBinding2_t03<T1>().superTest(forgetType(t0Instance));
+  }, (e) => e is TypeError);
 
+  Expect.throws(() {
+    new ArgumentsBinding2_t03<T1>().superTest(forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBinding2_t03<T1>().superTestNamed(forgetType(t0Instance), val2: forgetType(t1Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBinding2_t03<T1>().superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBinding2_t03<T1>().superSetter = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBinding2_t03<T1>().superGetter;
+  }, (e) => e is TypeError);
+
+  new ArgumentsBinding2_t03<T1>().test();
+}

@@ -18,11 +18,10 @@
 /// be used as a class member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_FutureOr_fail_A02.dart and 
-/// class_member_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/right_FutureOr_fail_A02.dart and 
+/// test_cases/class_member_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -40,8 +39,6 @@ X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
 const t1Default = const S1();
-
-
 
 class ClassMemberTestStatic {
   static FutureOr<S1> s = t1Default;
@@ -194,7 +191,6 @@ main() {
     new ClassMemberTestPublic(t1Instance).getter;
   }, (e) => e is TypeError);
 
-
   // Test static stuff
   Expect.throws(() {
     new ClassMemberTestStatic(t0Instance);
@@ -214,7 +210,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   // Test getters
   Expect.throws(() {
     new ClassMemberTestGenericPublic<FutureOr<S1>>(t1Instance).getter;
@@ -259,5 +254,4 @@ main() {
   Expect.throws(() {
     new ClassMemberTestGenericPrivate<FutureOr<S1>>.short(forgetType(t0Instance));
   }, (e) => e is TypeError);
-  //# -->
 }

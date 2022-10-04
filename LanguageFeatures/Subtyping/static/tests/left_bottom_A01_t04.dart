@@ -9,6 +9,7 @@
 /// @author sgrekhov@unipro.ru
 
 import "../../../../Utils/expect.dart";
+
 class T1 {}
 
 class C<X extends T1> {}

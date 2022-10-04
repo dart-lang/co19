@@ -13,22 +13,17 @@
 /// of T0 can be assigned to the mixin member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from left_top_A01.dart and 
-/// class_member_x03.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/left_top_A01.dart and 
+/// test_cases/class_member_x03.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
-
 
 dynamic t0Instance = "Show must go on";
 Object? t1Instance = new Object();
 
 const t1Default = const Object();
-
-
-
 
 class ClassMemberMixin1_t03 {
   Object? m = t1Default;
@@ -64,10 +59,8 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   ClassMember2_t03<Object?> c2 = new ClassMember2_t03<Object?>(t1Instance);
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
-  //# -->
 }

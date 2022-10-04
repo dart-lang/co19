@@ -7,7 +7,6 @@
 /// tested.
 /// @author sgrekhov@unipro.ru
 
-
 namedArgumentsFunc1(@T1 t1, {@T1 t2 = t1Default}) {}
 positionalArgumentsFunc1(@T1 t1, [@T1 t2 = t1Default]) {}
 

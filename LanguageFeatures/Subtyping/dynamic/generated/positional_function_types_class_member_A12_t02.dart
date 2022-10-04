@@ -22,11 +22,10 @@
 /// of T0 can be assigned to the superclass member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from positional_function_types_A12.dart and 
-/// class_member_x02.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/positional_function_types_A12.dart and 
+/// test_cases/class_member_x02.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -87,8 +86,6 @@ U1<A, List, num> t1Func<X extends B0, Y extends B1>(
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 const t1Default = t1Func;
-
-
 
 class ClassMemberSuper1_t02 {
   T1 m;
@@ -156,5 +153,10 @@ main() {
 
   // Test type parameters
 
+  ClassMember2_t02<T1> c2 = new ClassMember2_t02<T1>();
+  c2 = new ClassMember2_t02<T1>.short();
+  c2 = new ClassMember2_t02<T1>.named();
+  c2.m = forgetType(t0Instance);
+  c2.test();
+  c2.superSetter = forgetType(t0Instance);
 }
-

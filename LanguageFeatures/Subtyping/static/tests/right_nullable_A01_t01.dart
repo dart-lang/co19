@@ -14,7 +14,6 @@
 /// T0 is subtype of T1.
 /// @author sgrekhov@unipro.ru
 
-
 class S1 {
   const S1();
 }

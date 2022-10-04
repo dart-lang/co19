@@ -1,4 +1,4 @@
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -17,11 +17,10 @@
 /// of T0 can be assigned to the mixin member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from left_null_A06.dart and 
-/// class_member_x03.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/left_null_A06.dart and 
+/// test_cases/class_member_x03.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -32,9 +31,6 @@ Null t0Instance = null;
 X? t1Instance = new X();
 
 const t1Default = const X();
-
-
-
 
 class ClassMemberMixin1_t03 {
   X? m = t1Default;
@@ -70,10 +66,8 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   ClassMember2_t03<X?> c2 = new ClassMember2_t03<X?>(t1Instance);
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
-  //# -->
 }

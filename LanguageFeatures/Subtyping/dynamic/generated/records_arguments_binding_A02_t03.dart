@@ -1,4 +1,4 @@
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -7,7 +7,7 @@
 /// A record type A is a subtype of record type B iff they have same shape and
 /// the types of all fields of A are subtypes of the corresponding field types
 /// of B
-/// 
+///
 /// @description Check that if type T0 is a record with the same shape as T1
 /// and the type of each field of T0 is a subtype of the corresponding field
 /// types of T1 then T0 is a subtype of T1. Check positional and named fields
@@ -17,11 +17,10 @@
 /// of T0 can be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from records_A02.dart and 
-/// arguments_binding_x03.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/records_A02.dart and 
+/// test_cases/arguments_binding_x03.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -33,9 +32,6 @@ import '../../utils/common.dart';
   (0, n1: 0, 0, n2: null, null);
 
 const t1Default = (0, 0, null, n1: 0.1, n2: "");
-
-
-
 
 class ArgumentsBindingMixin1_t03 {
   (num, num, String?, {num n1, String? n2}) m = t1Default;
@@ -89,12 +85,9 @@ main() {
   c1.superGetter;
 
   // Test type parameters
-
-  //# <-- NotGenericFunctionType
   ArgumentsBinding2_t03<(num, num, String?, {num n1, String? n2})> c2 = new ArgumentsBinding2_t03<(num, num, String?, {num n1, String? n2})>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
   c2.superSetter = forgetType(t0Instance);
-  //# -->
 }

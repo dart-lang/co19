@@ -13,7 +13,6 @@
 /// subtype of T1
 /// @author sgrekhov@unipro.ru
 
-
 class S {
   const S();
 }

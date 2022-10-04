@@ -7,7 +7,6 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 
-
 @T1 returnValueFunc() => t0Instance;
 //                       ^^^^^^^^^^
 // [analyzer] unspecified

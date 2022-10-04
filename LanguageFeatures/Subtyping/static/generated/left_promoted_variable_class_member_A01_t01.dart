@@ -14,12 +14,10 @@
 /// of T0 can be assigned to the class member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from left_promoted_variable_A01.dart and 
-/// class_member_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/left_promoted_variable_A01.dart and 
+/// test_cases/class_member_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class T1 {
   const T1();
@@ -27,14 +25,10 @@ class T1 {
 class X0 {}
 class S0 extends X0 implements T1 {}
 
-
 S0 t0Instance = new S0();
 T1 t1Instance = new T1();
 
 const t1Default = const T1();
-
-
-
 
 class ClassMember1_t01 {
   static T1 s = t0Instance;
@@ -78,26 +72,22 @@ class ClassMember1_t01 {
   static T1 get staticGetter => t0Instance;
 }
 
-
-
 main() {
   X0 t0Instance = new S0();
 
   if (t0Instance is S0) {
-    
-  ClassMember1_t01 c1 = new ClassMember1_t01();
-  c1 = new ClassMember1_t01.short(t0Instance,
-      t0Instance);
-  c1 = new ClassMember1_t01.named(t0Instance);
-  c1.m = t0Instance;
-  c1.test();
-  c1.setter = t0Instance;
-  c1.getter;
+    ClassMember1_t01 c1 = new ClassMember1_t01();
+    c1 = new ClassMember1_t01.short(t0Instance,
+        t0Instance);
+    c1 = new ClassMember1_t01.named(t0Instance);
+    c1.m = t0Instance;
+    c1.test();
+    c1.setter = t0Instance;
+    c1.getter;
 
-  ClassMember1_t01.s = t0Instance;
-  ClassMember1_t01.staticTest();
-  ClassMember1_t01.staticSetter = t0Instance;
-  ClassMember1_t01.staticGetter;
-
+    ClassMember1_t01.s = t0Instance;
+    ClassMember1_t01.staticTest();
+    ClassMember1_t01.staticSetter = t0Instance;
+    ClassMember1_t01.staticGetter;
   }
 }

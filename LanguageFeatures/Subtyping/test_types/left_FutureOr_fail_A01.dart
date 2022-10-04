@@ -8,8 +8,8 @@
 ///   and Future<S0> <: T1
 ///   and S0 <: T1
 /// @description Check that if a type T0 is FutureOr<S0> and S0 is a subtype of
-/// T1 but Future<S0> is not a subtype of T1 , then a type T0 is not a subtype of
-/// a type T1.
+/// T1 but Future<S0> is not a subtype of T1 , then a type T0 is not a subtype
+/// of a type T1.
 /// @author sgrekhov@unipro.ru
 
 import "dart:async";

@@ -14,12 +14,10 @@
 /// of T0 can be assigned to the to global variable of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from type_variable_reflexivity_1_A02.dart and 
-/// global_variable_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/type_variable_reflexivity_1_A02.dart and 
+/// test_cases/global_variable_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class X0 {
   const X0();
@@ -27,14 +25,10 @@ class X0 {
 class S0 extends X0 {
 }
 
-
 S0 t0Instance = new S0();
 X0 t1Instance = new X0();
 
 const t1Default = const X0();
-
-
-
 
 class GlobalVariableTest {
   GlobalVariableTest() {
@@ -50,21 +44,17 @@ class GlobalVariableTest {
   }
 }
 
-
-
 test<T>(T t0Instance) {
   if (t0Instance is S0) {
-  
-  bar () {
+    bar () {
+      t1Instance = t0Instance;
+    }
+
     t1Instance = t0Instance;
-  }
-
-  t1Instance = t0Instance;
-  bar();
-  GlobalVariableTest t = new GlobalVariableTest();
-  t.foo();
-  GlobalVariableTest.test();
-
+    bar();
+    GlobalVariableTest t = new GlobalVariableTest();
+    t.foo();
+    GlobalVariableTest.test();
   }
 }
 

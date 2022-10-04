@@ -1,4 +1,4 @@
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -21,12 +21,10 @@
 /// of T0 can be assigned to the to global variable of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_object_A03.dart and 
-/// global_variable_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/right_object_A03.dart and 
+/// test_cases/global_variable_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
@@ -36,10 +34,6 @@ S t0Instance = new S();
 Object t1Instance = new Object();
 
 const t1Default = const Object();
-
-
-
-
 
 class GlobalVariableTest {
   GlobalVariableTest() {
@@ -55,21 +49,17 @@ class GlobalVariableTest {
   }
 }
 
-
-
 test<T>(T t0Instance) {
   if (t0Instance is S) {
-    
-  bar () {
+    bar () {
+      t1Instance = t0Instance;
+    }
+
     t1Instance = t0Instance;
-  }
-
-  t1Instance = t0Instance;
-  bar();
-  GlobalVariableTest t = new GlobalVariableTest();
-  t.foo();
-  GlobalVariableTest.test();
-
+    bar();
+    GlobalVariableTest t = new GlobalVariableTest();
+    t.foo();
+    GlobalVariableTest.test();
   }
 }
 

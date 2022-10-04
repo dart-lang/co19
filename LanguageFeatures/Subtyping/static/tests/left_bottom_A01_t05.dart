@@ -8,7 +8,6 @@
 /// @description Check that Never is a valid super-bounded type argument
 /// @author sgrekhov@unipro.ru
 
-
 class C<X extends C<X>> {}
 
 main() {

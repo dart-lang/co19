@@ -14,11 +14,10 @@
 /// of T0 can be used as an argument of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from left_type_variable_bound_A01.dart and 
-/// arguments_binding_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/left_type_variable_bound_A01.dart and 
+/// test_cases/arguments_binding_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -32,8 +31,6 @@ X0 t0Instance = new X0();
 T1 t1Instance = new T1();
 
 const t1Default = const T1();
-
-
 
 namedArgumentsFunc1(T1 t1, {T1 t2 = t1Default}) {}
 positionalArgumentsFunc1(T1 t1, [T1 t2 = t1Default]) {}
@@ -106,7 +103,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   // test generic functions
   namedArgumentsFunc2<T1>(forgetType(t0Instance), t2: forgetType(t0Instance));
 
@@ -122,5 +118,4 @@ main() {
   instance2.namedArgumentsMethod(forgetType(t0Instance),
       t2: forgetType(t0Instance));
   instance2.testSetter = forgetType(t0Instance);
-  //# -->
 }

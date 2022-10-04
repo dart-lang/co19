@@ -1,4 +1,4 @@
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -21,16 +21,16 @@
 /// be used as a class member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_object_fail_A07.dart and 
-/// class_member_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/right_object_fail_A07.dart and 
+/// test_cases/class_member_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
 
 // Requirements=nnbd-strong
+
 import "dart:async";
 
 class S {}
@@ -39,8 +39,6 @@ FutureOr<S?> t0Instance = null;
 Object t1Instance = new Object();
 
 const t1Default = const Object();
-
-
 
 class ClassMemberTestStatic {
   static Object s = t1Default;
@@ -193,7 +191,6 @@ main() {
     new ClassMemberTestPublic(t1Instance).getter;
   }, (e) => e is TypeError);
 
-
   // Test static stuff
   Expect.throws(() {
     new ClassMemberTestStatic(t0Instance);
@@ -213,7 +210,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   // Test getters
   Expect.throws(() {
     new ClassMemberTestGenericPublic<Object>(t1Instance).getter;
@@ -258,5 +254,4 @@ main() {
   Expect.throws(() {
     new ClassMemberTestGenericPrivate<Object>.short(forgetType(t0Instance));
   }, (e) => e is TypeError);
-  //# -->
 }

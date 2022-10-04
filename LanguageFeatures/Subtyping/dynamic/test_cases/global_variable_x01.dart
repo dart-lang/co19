@@ -6,7 +6,6 @@
 /// of T0 can be assigned to the to global variable of type T1
 /// @author sgrekhov@unipro.ru
 
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = forgetType(t0Instance);

@@ -22,12 +22,10 @@
 /// tested.
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_object_fail_A01.dart and 
-/// arguments_binding_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/right_object_fail_A01.dart and 
+/// test_cases/arguments_binding_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class B {}
 class T0 extends B {}
@@ -36,10 +34,6 @@ T0? t0Instance = new T0();
 Object t1Instance = new Object();
 
 const t1Default = const Object();
-
-
-
-
 
 namedArgumentsFunc1(Object t1, {Object t2 = t1Default}) {}
 positionalArgumentsFunc1(Object t1, [Object t2 = t1Default]) {}
@@ -77,10 +71,7 @@ class ArgumentsBindingDesc extends ArgumentsBindingClassSuper {
 // [cfe] unspecified
 }
 
-
-
 test<T extends B?>(T t0Instance) {
-  
   namedArgumentsFunc1(t0Instance);
 //                    ^^^^^^^^^^
 // [analyzer] unspecified
@@ -169,7 +160,6 @@ test<T extends B?>(T t0Instance) {
 //                                                  ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 }
 
 main() {

@@ -11,6 +11,7 @@
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-weak
+
 import "../../utils/legacy_lib.dart";
 
 class S1 {

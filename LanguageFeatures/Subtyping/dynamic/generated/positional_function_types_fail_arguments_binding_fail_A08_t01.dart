@@ -24,11 +24,10 @@
 /// be used as an argument of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from positional_function_types_fail_A08.dart and 
-/// arguments_binding_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/positional_function_types_fail_A08.dart and 
+/// test_cases/arguments_binding_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -78,7 +77,6 @@ U1<A, List, num> t1Func<X extends B0, Y extends B1>(
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 const t1Default = t1Func;
-
 
 namedArgumentsFunc1(T1 t1, {T1 t2 = t1Default}) {}
 positionalArgumentsFunc1(T1 t1, [T1 t2 = t1Default]) {}
@@ -222,10 +220,36 @@ main() {
 
   // Test type parameters
 
+  // Test generic functions
+  Expect.throws(() {
+    namedArgumentsFunc2<T1>(t1Instance, t2: forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  // Test constructors
+  Expect.throws(() {
+    new ArgumentsBindingClassGen<T1>(forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClassGen<T1>.named(t1Instance, t2: forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClassGen<T1>.fNamed(t1Instance, t2: forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  // Test instance methods and setters
+  Expect.throws(() {
+    new ArgumentsBindingClassGen<T1>(t1Instance).namedArgumentsMethod(t1Instance,
+    t2: forgetType(t0Instance));
+    }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClassGen<T1>(t1Instance).testSetter = forgetType(t0Instance);
+  }, (e) => e is TypeError);
 
   // Test superclass constructor call
   Expect.throws(() {
     new ArgumentsBindingDesc(t0Instance);
   }, (e) => e is TypeError);
 }
-

@@ -6,7 +6,6 @@
 /// of T0 can be assigned to the mixin member of type T1
 /// @author sgrekhov@unipro.ru
 
-
 class ClassMemberMixin1_t03 {
   @T1 m = t1Default;
 
@@ -41,10 +40,8 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   ClassMember2_t03<@T1> c2 = new ClassMember2_t03<@T1>(t1Instance);
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
-  //# -->
 }

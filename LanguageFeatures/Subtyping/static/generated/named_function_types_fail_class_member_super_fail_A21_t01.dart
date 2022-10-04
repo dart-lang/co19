@@ -15,8 +15,8 @@
 /// and B0i[Z0/X0, ..., Zk/Xk] === B1i[Z0/Y0, ..., Zk/Yk] for i in 0...k
 /// where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
 /// @description Check that if there is i in 0...n such that
-/// Si[Z0/Y0, ..., Zk/Yk] is not subtype of Vi[Z0/X0, ..., Zk/Xk], then T0 is not
-/// a subtype of T1
+/// Si[Z0/Y0, ..., Zk/Yk] is not subtype of Vi[Z0/X0, ..., Zk/Xk], then T0 is
+/// not a subtype of T1
 /// @author sgrekhov@unipro.ru
 ///
 /// @description Check that if type T0 is not a subtype of a type T1, then
@@ -25,12 +25,10 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
-/// This test is generated from named_function_types_fail_A21.dart and 
-/// class_member_super_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/named_function_types_fail_A21.dart and 
+/// test_cases/class_member_super_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class U0 extends U1 {}
 class U1 {}
@@ -54,9 +52,6 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
-
-
-
 
 class ClassMemberSuper1_t02 {
   T1 m = t1Default;
@@ -107,4 +102,3 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
-

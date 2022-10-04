@@ -17,11 +17,10 @@
 /// of T0 can be assigned to the mixin member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from left_FutureOr_A04.dart and 
-/// class_member_x03.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/left_FutureOr_A04.dart and 
+/// test_cases/class_member_x03.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -38,9 +37,6 @@ FutureOr<S0<B>> t0Instance = new Future<S0<B>>.value(new S0<B>());
 FutureOr<C<A>> t1Instance = new Future<C<A>>.value(new C<A>());
 
 const t1Default = const C<A>();
-
-
-
 
 class ClassMemberMixin1_t03 {
   FutureOr<C<A>> m = t1Default;
@@ -76,10 +72,8 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   ClassMember2_t03<FutureOr<C<A>>> c2 = new ClassMember2_t03<FutureOr<C<A>>>(t1Instance);
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
-  //# -->
 }

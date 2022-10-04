@@ -1,4 +1,4 @@
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -22,12 +22,10 @@
 /// tested.
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_object_fail_A03.dart and 
-/// arguments_binding_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/right_object_fail_A03.dart and 
+/// test_cases/arguments_binding_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import "dart:async";
 
@@ -37,9 +35,6 @@ FutureOr<S?> t0Instance = new Future.value(new S());
 Object t1Instance = new Object();
 
 const t1Default = const Object();
-
-
-
 
 namedArgumentsFunc1(Object t1, {Object t2 = t1Default}) {}
 positionalArgumentsFunc1(Object t1, [Object t2 = t1Default]) {}

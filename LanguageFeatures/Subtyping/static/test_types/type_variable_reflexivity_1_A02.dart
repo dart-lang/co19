@@ -28,7 +28,7 @@ const t1Default = const X0();
 
 test<T>(T t0Instance) {
   if (t0Instance is S0) {
-  //# <!-- Test body -->
+    //# <!-- Test body -->
   }
 }
 

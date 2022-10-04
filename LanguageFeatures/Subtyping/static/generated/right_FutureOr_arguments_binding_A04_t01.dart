@@ -17,12 +17,10 @@
 /// of T0 can be used as an argument of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_FutureOr_A04.dart and 
-/// arguments_binding_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/right_FutureOr_A04.dart and 
+/// test_cases/arguments_binding_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import "dart:async";
 
@@ -38,9 +36,6 @@ X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new S1();
 
 const t1Default = const S1();
-
-
-
 
 namedArgumentsFunc1(FutureOr<S1> t1, {FutureOr<S1> t2 = t1Default}) {}
 positionalArgumentsFunc1(FutureOr<S1> t1, [FutureOr<S1> t2 = t1Default]) {}
@@ -106,7 +101,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   // test generic functions
   namedArgumentsFunc2<FutureOr<S1>>(t0Instance, t2: t0Instance);
 
@@ -118,5 +112,4 @@ main() {
   // test generic class methods and setters
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
   instance2.testSetter = t0Instance;
-  //# -->
 }

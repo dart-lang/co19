@@ -10,11 +10,10 @@
 ///  or T0 <: Null
 ///  or T0 is X0 and X0 has bound S0 and S0 <: T1
 ///  or T0 is X0 & S0 and S0 <: T1
-/// @description Check that if type T1 is S1? and T0 is X0 & S0 and S0 <: T1 then
-/// T0 is subtype of T1. Test that if type T0 is a subtype of a type T1, then instance
-/// of T0 can be used as an argument of type T1
+/// @description Check that if type T1 is S1? and T0 is X0 & S0 and S0 <: T1
+/// then T0 is subtype of T1. Test that if type T0 is a subtype of a type T1,
+/// then instance of T0 can be used as an argument of type T1
 /// @author sgrekhov@unipro.ru
-
 
 class S1 {
   const S1();
@@ -114,7 +113,6 @@ test<T>(T t0Instance) {
     c1.superGetter;
 
     // Test type parameters
-
     ArgumentsBinding2_t02<S1?> c2 = new ArgumentsBinding2_t02<S1?>(t0Instance);
     c2 = new ArgumentsBinding2_t02<S1?>.c2(t1Instance, t0Instance);
     c2 = new ArgumentsBinding2_t02<S1?>.c5(t0Instance);

@@ -15,11 +15,10 @@
 /// of T0 cannot be used as a return value of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from interface_compositionality_fail_A01.dart and 
-/// return_value_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/interface_compositionality_fail_A01.dart and 
+/// test_cases/return_value_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -41,8 +40,6 @@ C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 
 const t1Default = const C0<U0, U1, U2>();
-
-
 
 C0<U0, U1, U2> returnValueFunc() => forgetType(t0Instance);
 
@@ -81,12 +78,10 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   Expect.throws(() {
     new ReturnValueGen<C0<U0, U1, U2>>().testMethod();
   }, (e) => e is TypeError);
   Expect.throws(() {
     new ReturnValueGen<C0<U0, U1, U2>>().testGetter;
   }, (e) => e is TypeError);
-  //# -->
 }

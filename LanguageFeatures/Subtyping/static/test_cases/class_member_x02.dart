@@ -6,7 +6,6 @@
 /// of T0 can be assigned to the superclass member of type T1
 /// @author sgrekhov@unipro.ru
 
-
 class ClassMemberSuper1_t02 {
   @T1 m = t1Default;
 

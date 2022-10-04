@@ -21,11 +21,10 @@
 /// instance of T0 cannot be assigned to the to local variable of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from positional_function_types_fail_A04.dart and 
-/// local_variable_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/positional_function_types_fail_A04.dart and 
+/// test_cases/local_variable_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -50,7 +49,6 @@ U1 t1Func(S0 y0, S1 y1, S2 y2, [S3? y3]) => new U1();
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 const t1Default = t1Func;
-
 
 class LocalVariableTest {
 

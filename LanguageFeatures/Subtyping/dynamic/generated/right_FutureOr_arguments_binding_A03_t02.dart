@@ -17,11 +17,10 @@
 /// of T0 can be used as an argument of type T1. Test superclass members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_FutureOr_A03.dart and 
-/// arguments_binding_x02.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/right_FutureOr_A03.dart and 
+/// test_cases/arguments_binding_x02.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -30,15 +29,19 @@ import "dart:async";
 class S1 {
   const S1();
 }
+
 bool testDef(Object error) => true;
 void onErrorDef() {}
 FutureOr<S1> onTimeoutDef() => new S1();
 
 class S0 implements Future<S1> {
   asStream() => getStream<S1>();
-  catchError(Function onError, {bool test(Object error)? = testDef}) => new Future.value();
-  then<T0>(FutureOr<T0> onValue(S1 value), {Function? onError = onErrorDef}) => new Future<T0>.value();
-  timeout(Duration timeLimit, {FutureOr<S1> onTimeout()? = onTimeoutDef}) => new Future.value();
+  catchError(Function onError, {bool test(Object error)? = testDef}) =>
+      new Future.value();
+  then<T0>(FutureOr<T0> onValue(S1 value), {Function? onError = onErrorDef}) =>
+      new Future<T0>.value();
+  timeout(Duration timeLimit, {FutureOr<S1> onTimeout()? = onTimeoutDef}) =>
+      new Future.value();
   whenComplete(FutureOr action()) => new Future.value();
 }
 
@@ -47,16 +50,12 @@ Stream<T> getStream<T>() {
   return d as Stream<T>;
 }
 
-class X0 extends S0 {
-}
+class X0 extends S0 {}
 
 X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
 const t1Default = const S1();
-
-
-
 
 class ArgumentsBindingSuper1_t02 {
   FutureOr<S1> m;
@@ -137,7 +136,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   ArgumentsBinding2_t02<FutureOr<S1>> c2 =
     new ArgumentsBinding2_t02<FutureOr<S1>>(forgetType(t0Instance));
   c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c2(t1Instance, forgetType(t0Instance));
@@ -148,5 +146,4 @@ main() {
   c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
   c2.superSetter = forgetType(t0Instance);
   c2.superGetter;
-  //# -->
 }

@@ -1,4 +1,4 @@
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -16,11 +16,10 @@
 /// of T0 cannot be used as a return value of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from records_fail_A07.dart and 
-/// return_value_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/records_fail_A07.dart and 
+/// test_cases/return_value_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -28,11 +27,9 @@ import '../../../../Utils/expect.dart';
 // SharedOptions=--enable-experiment=records
 
 (int, String, {bool b}) t0Instance = (1, "2", b: true);
-(int, String, {List<num> b}) t1Instance = (3, "4", b: []);
+(int, String, {List<num> b}) t1Instance = (3, "4", b: <num>[]);
 
 const t1Default = const (5, "6", b: <num>[]);
-
-
 
 (int i, String, {List<num> b}) returnValueFunc() => forgetType(t0Instance);
 
@@ -71,12 +68,10 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   Expect.throws(() {
     new ReturnValueGen<(int i, String, {List<num> b})>().testMethod();
   }, (e) => e is TypeError);
   Expect.throws(() {
     new ReturnValueGen<(int i, String, {List<num> b})>().testGetter;
   }, (e) => e is TypeError);
-  //# -->
 }

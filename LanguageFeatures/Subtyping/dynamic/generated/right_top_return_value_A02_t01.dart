@@ -13,11 +13,10 @@
 /// of T0 can be used as a return value of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_top_A02.dart and 
-/// return_value_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/right_top_A02.dart and 
+/// test_cases/return_value_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -27,9 +26,6 @@ T0 t0Instance = new T0();
 dynamic t1Instance = 3.14;
 
 const t1Default = null;
-
-
-
 
 dynamic returnValueFunc() => forgetType(t0Instance);
 
@@ -46,7 +42,6 @@ class ReturnValueGen<X> {
   X get testGetter => forgetType(t0Instance);
 }
 
-
 main() {
   dynamic returnValueLocalFunc() => forgetType(t0Instance);
 
@@ -60,8 +55,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   new ReturnValueGen<dynamic>().testMethod();
   new ReturnValueGen<dynamic>().testGetter;
-  //# -->
 }

@@ -18,11 +18,10 @@
 /// be used as an argument of type T1. Test superclass members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_FutureOr_fail_A02.dart and 
-/// arguments_binding_fail_x02.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/right_FutureOr_fail_A02.dart and 
+/// test_cases/arguments_binding_fail_x02.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -40,8 +39,6 @@ X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
 const t1Default = const S1();
-
-
 
 class ArgumentsBindingSuper1_t02 {
   FutureOr<S1> m;
@@ -277,7 +274,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   // test generic class constructors
   Expect.throws(() {
     new ArgumentsBinding2_t02<FutureOr<S1>>(forgetType(t0Instance));
@@ -309,5 +305,4 @@ main() {
   }, (e) => e is TypeError);
 
   new ArgumentsBinding2_t02<FutureOr<S1>>(t1Instance).test();
-  //# -->
 }

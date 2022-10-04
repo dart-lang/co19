@@ -15,8 +15,8 @@
 /// and B0i[Z0/X0, ..., Zk/Xk] === B1i[Z0/Y0, ..., Zk/Yk] for i in 0...k
 /// where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
 /// @description Check that if there is i in n+1...q such that
-/// Si[Z0/Y0, ..., Zk/Yk] is not subtype of Tj[Z0/X0, ..., Zk/Xk], then T0 is not
-/// a subtype of T1. Test generic types
+/// Si[Z0/Y0, ..., Zk/Yk] is not subtype of Tj[Z0/X0, ..., Zk/Xk], then T0 is
+/// not a subtype of T1. Test generic types
 /// @author sgrekhov@unipro.ru
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then it cannot
@@ -25,12 +25,10 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
-/// This test is generated from named_function_types_fail_A33.dart and 
-/// class_member_fail_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/named_function_types_fail_A33.dart and 
+/// test_cases/class_member_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class A {}
 
@@ -54,14 +52,19 @@ class V4<X, Y, Z> {}
 
 typedef T0 = U<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    {V2<A, List, double>? x2, V3<A, List, num>? x3, V4<A, List, num>? x4}); // V2<C, List<String>, int> is not a subtype of V2<A, List, double>
+    {V2<A, List, double>? x2,
+    V3<A, List, num>? x3,
+    V4<A, List, num>?
+        x4}); // V2<C, List<String>, int> is not a subtype of V2<A, List, double>
 typedef T1 = U<A, List, num> Function<X extends B0, Y extends B1>(
     V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
     {V2<C, List<String>, int>? x2, V3<C, List<String>, int>? x3});
 
 U<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
-        {V2<A, List, double>? x2, V3<A, List, num>? x3, V4<A, List, num>? x4}) =>
+        {V2<A, List, double>? x2,
+        V3<A, List, num>? x3,
+        V4<A, List, num>? x4}) =>
     new U<C, List<String>, int>();
 U<A, List, num> t1Func<X extends B0, Y extends B1>(
         V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
@@ -72,9 +75,6 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
-
-
-
 
 class ClassMemberTestStatic {
   static T1 s = t1Default;
@@ -186,4 +186,3 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
-

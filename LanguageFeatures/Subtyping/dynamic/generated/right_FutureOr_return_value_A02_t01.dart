@@ -17,11 +17,10 @@
 /// of T0 can be used as a return value of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_FutureOr_A02.dart and 
-/// return_value_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/right_FutureOr_A02.dart and 
+/// test_cases/return_value_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 
@@ -36,9 +35,6 @@ T0 t0Instance = new T0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
 const t1Default = const S1();
-
-
-
 
 FutureOr<S1> returnValueFunc() => forgetType(t0Instance);
 
@@ -55,7 +51,6 @@ class ReturnValueGen<X> {
   X get testGetter => forgetType(t0Instance);
 }
 
-
 main() {
   FutureOr<S1> returnValueLocalFunc() => forgetType(t0Instance);
 
@@ -69,8 +64,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   new ReturnValueGen<FutureOr<S1>>().testMethod();
   new ReturnValueGen<FutureOr<S1>>().testGetter;
-  //# -->
 }

@@ -6,7 +6,6 @@
 /// of T0 can be used as a return value of type T1
 /// @author sgrekhov@unipro.ru
 
-
 @T1 returnValueFunc() => t0Instance;
 
 class ReturnValueTest {
@@ -27,5 +26,4 @@ main() {
 
   new ReturnValueTest().testMethod();
   new ReturnValueTest().testGetter;
-
 }

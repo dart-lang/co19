@@ -18,11 +18,10 @@
 /// instance of T0 cannot be assigned to the superclass member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from right_FutureOr_fail_A02.dart and 
-/// class_member_fail_x02.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/right_FutureOr_fail_A02.dart and 
+/// test_cases/class_member_fail_x02.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -40,8 +39,6 @@ X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
 const t1Default = const S1();
-
-
 
 class ClassMemberSuper1_t02 {
   FutureOr<S1> m = t1Default;
@@ -134,7 +131,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   Expect.throws(() {
     new ClassMember2_t02<FutureOr<S1>>();
   }, (e) => e is TypeError);
@@ -156,5 +152,4 @@ main() {
   Expect.throws(() {
     new ClassMember2_t02<FutureOr<S1>>().test2();
   }, (e) => e is TypeError);
-  //# -->
 }

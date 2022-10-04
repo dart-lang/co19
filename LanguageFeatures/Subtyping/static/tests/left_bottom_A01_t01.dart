@@ -8,7 +8,6 @@
 /// @description Check that if type T0 is Never then T0 is a subtype of T1
 /// @author sgrekhov@unipro.ru
 
-
 class T1 {}
 
 test(Never n) {

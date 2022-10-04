@@ -22,11 +22,10 @@
 /// instance of T0 cannot be assigned to the superclass member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from named_function_types_fail_A43.dart and 
-/// class_member_fail_x02.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/named_function_types_fail_A43.dart and 
+/// test_cases/class_member_fail_x02.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -71,8 +70,6 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
-
-
 
 class ClassMemberSuper1_t02 {
   T1 m = t1Default;
@@ -165,5 +162,25 @@ main() {
 
   // Test type parameters
 
+  Expect.throws(() {
+    new ClassMember2_t02<T1>();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<T1>.short();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<T1>.named();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<T1>().m = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<T1>().superSetter = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<T1>().test1();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<T1>().test2();
+  }, (e) => e is TypeError);
 }
-

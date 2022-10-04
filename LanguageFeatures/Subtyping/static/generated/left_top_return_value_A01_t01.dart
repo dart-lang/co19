@@ -13,21 +13,15 @@
 /// of T0 can be used as a return value of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from left_top_A01.dart and 
-/// return_value_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
-
+/// This test is generated from test_types/left_top_A01.dart and 
+/// test_cases/return_value_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 dynamic t0Instance = "Show must go on";
 Object? t1Instance = new Object();
 
 const t1Default = const Object();
-
-
-
 
 Object? returnValueFunc() => t0Instance;
 
@@ -49,5 +43,4 @@ main() {
 
   new ReturnValueTest().testMethod();
   new ReturnValueTest().testGetter;
-
 }

@@ -75,4 +75,3 @@ T1 t1Instance = t1Func;
 const t1Default = t1Func;
 //# @T0 = T0
 //# @T1 = T1
-//# @GenericFunctionType

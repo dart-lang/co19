@@ -22,12 +22,10 @@
 /// of T0 can be assigned to the class member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from positional_function_types_A11.dart and 
-/// class_member_x01.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
-
+/// This test is generated from test_types/positional_function_types_A11.dart and 
+/// test_cases/class_member_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 class A {}
 
@@ -84,8 +82,6 @@ U1<A, List, num> t1Func<X extends B0, Y extends B1>(
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 const t1Default = t1Func;
-
-
 
 class ClassMember1_t01 {
   static T1 s = t0Instance;
@@ -144,4 +140,3 @@ main() {
   ClassMember1_t01.staticSetter = t0Instance;
   ClassMember1_t01.staticGetter;
 }
-

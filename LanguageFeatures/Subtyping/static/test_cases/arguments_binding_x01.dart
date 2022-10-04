@@ -6,7 +6,6 @@
 /// of T0 can be used as an argument of type T1
 /// @author sgrekhov@unipro.ru
 
-
 namedArgumentsFunc1(@T1 t1, {@T1 t2 = t1Default}) {}
 positionalArgumentsFunc1(@T1 t1, [@T1 t2 = t1Default]) {}
 
@@ -71,7 +70,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   // test generic functions
   namedArgumentsFunc2<@T1>(t0Instance, t2: t0Instance);
 
@@ -83,5 +81,4 @@ main() {
   // test generic class methods and setters
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
   instance2.testSetter = t0Instance;
-  //# -->
 }

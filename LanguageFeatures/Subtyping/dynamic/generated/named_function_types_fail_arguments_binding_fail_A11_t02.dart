@@ -22,11 +22,10 @@
 /// be used as an argument of type T1. Test superclass members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from named_function_types_fail_A11.dart and 
-/// arguments_binding_fail_x02.dart.
-/// Don't modify it. If you want to change this test, change one of the files 
-/// above and then run generator.dart to regenerate the tests.
-
+/// This test is generated from test_types/named_function_types_fail_A11.dart and 
+/// test_cases/arguments_binding_fail_x02.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -53,8 +52,6 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
-
-
 
 class ArgumentsBindingSuper1_t02 {
   T1 m;
@@ -290,7 +287,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   // test generic class constructors
   Expect.throws(() {
     new ArgumentsBinding2_t02<T1>(forgetType(t0Instance));
@@ -322,5 +318,4 @@ main() {
   }, (e) => e is TypeError);
 
   new ArgumentsBinding2_t02<T1>(t1Instance).test();
-  //# -->
 }

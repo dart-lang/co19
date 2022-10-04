@@ -12,7 +12,6 @@
 /// @description Check that otherwise, the query is false. Test some class S
 /// @author sgrekhov@unipro.ru
 
-
 Null t0Instance = null;
 Object t1Instance = new Object();
 
