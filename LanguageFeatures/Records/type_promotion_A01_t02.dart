@@ -29,7 +29,7 @@ main() {
   }
 
   R2 r2 = (n: 42, o: "answer");
-  if (r2 is (int? n, String o)) {
+  if (r2 is ({int? n, String o})) {
     r2.n?.isOdd;
     r2.o.substring(0);
   }
@@ -41,7 +41,7 @@ main() {
 
   ({String s})? r4 = null;
   if (2 > 1) {
-    r4 = ("Lily was here",);
+    r4 = (s: "Lily was here",);
   }
   if (r4 != null) {
     r4.s.substring(0);
