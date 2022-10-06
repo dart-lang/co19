@@ -23,45 +23,30 @@
 /// is a compile-time error if the declaration includes a constructor
 /// declaration named View. (But it can still contain other constructors.)
 ///
-/// @description Checks that it is a compile-time error if a view declaration
-/// named `View` includes a <viewPrimaryConstructor> and includes a constructor
-/// named `View`
+/// @description Checks that it if a view declaration named `View` includes a
+/// <viewPrimaryConstructor> then it can contain other (than named `View`)
+/// redirecting constructors
+///
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=extension-types
 
-view class View1(int id) {
-  View1(this.id);
-//^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
+import "../../Utils/expect.dart";
 
-view class View2(int id) {
-  View2(int id, int x) {}
-//^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-view class View3(int id) {
-  View3();
-//^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-view class View4(int id) {
-  factory View4(int id) => View4.named(id);
-//        ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  View4.named(int x) : id = x;
+view class View(int id) {
+  View.c1(int x, {int y = 0}) : this(x + y);
+  View.c2(int x, [int y = 0]) : this(x + y);
+  View.c3([int x = 0]) : this(x);
+  View.c4({int x = 1}) : this(x);
 }
 
 main() {
-  print(View1);
-  print(View2);
-  print(View3);
-  print(View4);
+  Expect.equals(1, View.c1(1).id);
+  Expect.equals(3, View.c1(1, y: 2).id);
+  Expect.equals(4, View.c2(4).id);
+  Expect.equals(9, View.c2(4, 5).id);
+  Expect.equals(6, View.c3(6).id);
+  Expect.equals(0, View.c3().id);
+  Expect.equals(7, View.c4(x: 7).id);
+  Expect.equals(1, View.c4().id);
 }

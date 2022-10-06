@@ -19,44 +19,56 @@
 /// <viewMemberDeclaration> ::=
 ///   <classMemberDefinition>
 /// ...
-/// If a view declaration named View includes a <viewPrimaryConstructor> then it
-/// is a compile-time error if the declaration includes a constructor
-/// declaration named View. (But it can still contain other constructors.)
+/// That is, every view declares exactly one instance variable, and it is final.
+/// A primary constructor (as defined in this document) is just an abbreviated
+/// syntax whose desugaring includes a declaration of exactly one final instance
+/// variable.
+/// ```dart
+/// // Using a primary constructor.
+/// view class V1(R it) {}
+///
+/// // Same thing, using a normal constructor.
+/// view class V2 {
+///   final R it;
+///   V2(this.it);
+/// }
+/// ```
+/// There are no special rules for static members in views. They can be declared
+/// and called or torn off as usual, e.g., View.myStaticMethod(42).
 ///
 /// @description Checks that it is a compile-time error if a view declaration
-/// named `View` includes a <viewPrimaryConstructor> and includes a constructor
-/// named `View`
+/// has <viewPrimaryConstructor> and declares a static member with the name
+/// equal to the representation name
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=extension-types
 
 view class View1(int id) {
-  View1(this.id);
-//^^^^^
+  static int get id => 42;
+//^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 view class View2(int id) {
-  View2(int id, int x) {}
-//^^^^^
+  static void set id(int val) {}
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 view class View3(int id) {
-  View3();
-//^^^^^
+  static void id(int val) {}
+//^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 view class View4(int id) {
-  factory View4(int id) => View4.named(id);
-//        ^^^^^
+  static final int id = 0;
+//^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  View4.named(int x) : id = x;
 }
 
 main() {

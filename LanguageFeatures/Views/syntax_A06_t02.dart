@@ -19,44 +19,53 @@
 /// <viewMemberDeclaration> ::=
 ///   <classMemberDefinition>
 /// ...
-/// If a view declaration named View includes a <viewPrimaryConstructor> then it
-/// is a compile-time error if the declaration includes a constructor
-/// declaration named View. (But it can still contain other constructors.)
+/// A compile-time error occurs if a view declaration declares an abstract
+/// member. A compile-time error occurs if a view declaration has a
+/// <viewPrimaryConstructor> and declares an instance variable. Finally, a
+/// compile-time error occurs if a view does not have a
+/// <viewPrimaryConstructor>, and it does not declare an instance variable, or
+/// it declares more than one instance variable.
 ///
 /// @description Checks that it is a compile-time error if a view declaration
-/// named `View` includes a <viewPrimaryConstructor> and includes a constructor
-/// named `View`
+/// has a <viewPrimaryConstructor> and declares an instance variable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=extension-types
 
 view class View1(int id) {
-  View1(this.id);
-//^^^^^
+  final int id;
+//^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 view class View2(int id) {
-  View2(int id, int x) {}
-//^^^^^
+  int _x;
+//^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 view class View3(int id) {
-  View3();
-//^^^^^
+  late int _y;
+//^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 view class View4(int id) {
-  factory View4(int id) => View4.named(id);
-//        ^^^^^
+  final int _y = 0;
+//^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  View4.named(int x) : id = x;
+}
+
+view class View5(int id) {
+  final int _z;
+//^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  View5.init(this.id, this._z);
 }
 
 main() {
@@ -64,4 +73,5 @@ main() {
   print(View2);
   print(View3);
   print(View4);
+  print(View5);
 }

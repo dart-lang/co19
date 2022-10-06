@@ -19,49 +19,35 @@
 /// <viewMemberDeclaration> ::=
 ///   <classMemberDefinition>
 /// ...
-/// If a view declaration named View includes a <viewPrimaryConstructor> then it
-/// is a compile-time error if the declaration includes a constructor
-/// declaration named View. (But it can still contain other constructors.)
+/// If a view declaration named View does not include a <viewPrimaryConstructor>
+/// then an error occurs unless the view declares exactly one instance variable
+/// v. An error occurs unless the declaration of v is final. An error occurs if
+/// the declaration of v is late.
 ///
 /// @description Checks that it is a compile-time error if a view declaration
-/// named `View` includes a <viewPrimaryConstructor> and includes a constructor
-/// named `View`
+/// does not include a <viewPrimaryConstructor> and declares a late instance
+/// variable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=extension-types
 
-view class View1(int id) {
+view class View1 {
+  late final int id;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   View1(this.id);
-//^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
-view class View2(int id) {
-  View2(int id, int x) {}
-//^^^^^
+view class View2 {
+  late final int id = 0;
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-view class View3(int id) {
-  View3();
-//^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-view class View4(int id) {
-  factory View4(int id) => View4.named(id);
-//        ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  View4.named(int x) : id = x;
+  View2();
 }
 
 main() {
   print(View1);
   print(View2);
-  print(View3);
-  print(View4);
 }
