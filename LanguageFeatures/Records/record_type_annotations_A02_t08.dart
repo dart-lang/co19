@@ -50,7 +50,7 @@ typedef Rec = ();
 Record bar(() r) => r;
 
 main() {
-  Rec r1 = ();
+  Rec r1 = (n: "");
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -65,7 +65,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  bar(());
+  bar((val: 1));
 //     ^
 // [analyzer] unspecified
 // [cfe] unspecified
