@@ -25,6 +25,7 @@ import "../../Utils/expect.dart";
 void testNever<X extends Never>() {
   Expect.isTrue((FutureOr<Object>, X) == (Object, Never));
 }
+typedef NObject = Object?;
 
 typedef T1 = ({dynamic s, Object? i});
 typedef T2 = ({dynamic s, FutureOr<Object?> i,});
@@ -44,6 +45,6 @@ main() {
   Expect.isFalse(T5 == T6);
   Expect.isFalse(T7 == T8);
   Expect.isFalse(T7 == T9);
-  Expect.isFalse((Object?,) == (dynamic,));
+  Expect.isFalse((NObject,) == (dynamic,));
   testNever();
 }
