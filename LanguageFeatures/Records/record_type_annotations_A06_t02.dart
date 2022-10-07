@@ -43,11 +43,11 @@ main() {
 
   (double _d, {int i}) r2 = (3.14, i: 0);
 
-  dynamic d = (1, 3.14);
-  if (d is (int _i, {String s})) {
+  dynamic d = (3.14, s: "pi");
+  if (d is (num _i, {String s})) {
   }
 
-  d as (int _i, {int n});
+  d as (double _i, {String s});
 
   print(R1);
   print(R2);

@@ -52,7 +52,7 @@ main() {
 
   (double d, {int $0})? r2 = null;
 
-  dynamic d = (1, 3.14);
+  dynamic d = (1, $1: 0);
   if (d is (int i, {String $1})) {
   }
 
@@ -60,6 +60,6 @@ main() {
   }
 
   d as (int, {int $1});
-
+  d = (1, i: 42);
   d as (int $0, {int i});
 }
