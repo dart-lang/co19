@@ -23,7 +23,7 @@
 /// is a compile-time error if the declaration includes a constructor
 /// declaration named View. (But it can still contain other constructors.)
 ///
-/// @description Checks that it if a view declaration named `View` includes a
+/// @description Checks that if a view declaration named `View` includes a
 /// <viewPrimaryConstructor> then it can contain other (than named `View`)
 /// constructors with optional parameters
 ///

@@ -43,7 +43,7 @@
 
 // SharedOptions=--enable-experiment=extension-types
 
-view class View1(intid) {
+view class View1(int id) {
   int get id => 42;
 //^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

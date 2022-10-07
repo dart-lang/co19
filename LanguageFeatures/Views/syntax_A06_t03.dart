@@ -28,7 +28,7 @@
 ///
 /// @description Checks that it is no compile-time error if a view declaration
 /// has no <viewPrimaryConstructor> and declares a final instance variable and
-/// no constructor or constructor with initialises that variable
+/// no constructor or a constructor, as long as the variable is initialised
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=extension-types
