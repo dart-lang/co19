@@ -42,11 +42,11 @@ typedef R2 = (int? i,{String? s});
 typedef R3 = ({int? i, String? s});
 
 typedef (int? i, {String? s}) R4();
-typedef void R5((int? i, {String? s}));
+typedef void R5((int? i, {String? s}) r);
 
 (int? i, {String? s}) foo() => (null, s: null);
 
-void bar((int? i, {String? s})) {}
+void bar((int? i, {String? s}) r) {}
 
 main() {
   (int? i, String? s) r1 = (null, null);
