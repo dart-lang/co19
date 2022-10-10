@@ -41,6 +41,7 @@ view class View(int id) {
 }
 
 main() {
+  Expect.equals(42, View(42).id);
   Expect.equals(1, View.c1(1).id);
   Expect.equals(3, View.c1(1, y: 2).id);
   Expect.equals(4, View.c2(4).id);

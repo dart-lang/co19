@@ -18,19 +18,27 @@
 ///
 /// <viewMemberDeclaration> ::=
 ///   <classMemberDefinition>
-/// The token `view` is made a built-in identifier.
+/// ...
+/// In a view declaration named View that does not include a
+/// <viewPrimaryConstructor>, the name of the representation is the name id of
+/// the unique final instance variable that it declares, and the type of the
+/// representation is the declared type of id.
 ///
-/// @description Checks that it is a compile-time error to declare a type alias
-/// named `view`
+/// @description Checks that there is no setter named `id=`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=extension-types
 
-typedef view = String;
-//      ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+view class View1 {
+  final num id0;
+  View1(int x) : id0 = x;
+}
 
 main() {
-  view s = "";
+  View1 v1 = View1(1);
+  v1.id0.isOdd;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
+

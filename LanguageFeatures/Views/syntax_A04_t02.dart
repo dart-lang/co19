@@ -18,19 +18,32 @@
 ///
 /// <viewMemberDeclaration> ::=
 ///   <classMemberDefinition>
-/// The token `view` is made a built-in identifier.
+/// ...
+/// The name of the representation in a view declaration that includes a
+/// <viewPrimaryConstructor> is the identifier id specified in there, and the
+/// type of the representation is the declared type of id.
 ///
-/// @description Checks that it is a compile-time error import a library with
-/// import prefix `view`
+/// @description Checks that there is no setter named `id=`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=extension-types
 
-import "views_lib.dart" as view;
-//                         ^^^^
+view class View1(num id0) {
+}
+
+view class View2(int _x) {
+}
+
+main() {
+  View1 v1 = View1(3.14);
+  v1.id0 = 1.1;
+//   ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-main() {
-  view.x;
+  View2 v2 = View2(42);
+  v2._x = 1;
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

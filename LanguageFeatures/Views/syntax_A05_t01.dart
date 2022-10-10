@@ -24,15 +24,11 @@
 /// the unique final instance variable that it declares, and the type of the
 /// representation is the declared type of id.
 ///
-/// @description Checks that if a view declaration named View that does not
-/// include a <viewPrimaryConstructor>, the name of the representation is the
-/// name id of the unique final instance variable that it declares, and the type
-/// of the representation is the declared type of id
+/// @description Checks that static type of id is its declared type and there is
+/// a getter named id
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=extension-types
-
-import "../../Utils/expect.dart";
 
 view class View1 {
   final num id0;
@@ -46,7 +42,7 @@ view class View2 {
 
 main() {
   View1 v1 = View1(42);
+  v1.id0.isOdd;
   View2 v2 = View2(3.14);
-  Expect.equals(42, v1.id0);
-  Expect.equals(3.14, v2._x);
+  v2._x.isFinite;
 }

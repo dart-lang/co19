@@ -20,20 +20,17 @@
 ///   <classMemberDefinition>
 /// The token `view` is made a built-in identifier.
 ///
-/// @description Checks that it is a compile-time error to declare a mixin
-/// named `view`
+/// @description Checks that it is a compile-time error import a library with
+/// import prefix `view`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=extension-types
 
-mixin view on Object {
-//    ^^^^
+import "views_lib.dart" as view;
+//                         ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-class VA = Object with view;
 
 main() {
-  VA();
+  view.x;
 }

@@ -20,16 +20,17 @@
 ///   <classMemberDefinition>
 /// The token `view` is made a built-in identifier.
 ///
-/// @description Checks that it is a compile-time error to declare a function
+/// @description Checks that it is a compile-time error to declare a class
 /// named `view`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=extension-types
 
-void view() {}
-//   ^^^^
+class view {
+//    ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
 main() {
   view();

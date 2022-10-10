@@ -25,7 +25,7 @@
 ///
 /// @description Checks that if a view declaration named `View` includes a
 /// <viewPrimaryConstructor> then it can contain other (than named `View`)
-/// redirecting constructors
+/// constant constructors
 ///
 /// @author sgrekhov22@gmail.com
 
@@ -34,13 +34,14 @@
 import "../../Utils/expect.dart";
 
 view class View(int id) {
-  View.c1(int x, {int y = 0}) : this(x + y);
-  View.c2(int x, [int y = 0]) : this(x + y);
-  View.c3([int x = 0]) : this(x);
-  View.c4({int x = 1}) : this(x);
+  const View.c1(int x, {int y = 0}) : id = x + y;
+  const View.c2(int x, [int y = 0]) : id = x + y;
+  const View.c3([int x = 0]) : id = x;
+  const View.c4({int x = 1}) : id = x;
 }
 
 main() {
+  Expect.equals(42, View(42).id);
   Expect.equals(1, View.c1(1).id);
   Expect.equals(3, View.c1(1, y: 2).id);
   Expect.equals(4, View.c2(4).id);

@@ -20,18 +20,20 @@
 ///   <classMemberDefinition>
 /// The token `view` is made a built-in identifier.
 ///
-/// @description Checks that it is a compile-time error to declare a class
+/// @description Checks that it is a compile-time error to declare a mixin
 /// named `view`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=extension-types
 
-class view {
+mixin view on Object {
 //    ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
+class VA = Object with view;
+
 main() {
-  view();
+  VA();
 }

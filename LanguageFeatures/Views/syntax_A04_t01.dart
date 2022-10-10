@@ -23,25 +23,21 @@
 /// <viewPrimaryConstructor> is the identifier id specified in there, and the
 /// type of the representation is the declared type of id.
 ///
-/// @description Checks that the name of the representation in a view
-/// declaration that includes a <viewPrimaryConstructor> is the identifier id
-/// specified in there, and the type of the representation is the declared type
-/// of id
+/// @description Checks that static type of id is its declared type and there is
+/// a getter named id
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=extension-types
 
-import "../../Utils/expect.dart";
-
 view class View1(num id0) {
 }
 
-view class View2(num _x) {
+view class View2(int _x) {
 }
 
 main() {
-  View1 v1 = View1(42);
-  View2 v2 = View2(3.14);
-  Expect.equals(42, v1.id0);
-  Expect.equals(3.14, v2._x)
+  View1 v1 = View1(3.14);
+  v1.id0.isFinite;
+  View2 v2 = View2(42);
+  v2._x.isOdd;
 }

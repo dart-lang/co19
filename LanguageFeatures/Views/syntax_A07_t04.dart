@@ -36,28 +36,18 @@
 /// There are no special rules for static members in views. They can be declared
 /// and called or torn off as usual, e.g., View.myStaticMethod(42).
 ///
-/// @description Checks that it is a compile-time error if a view declaration
-/// has <viewPrimaryConstructor> and declares a member with the name equal to
-/// the representation name
+/// @description Checks that if a view declaration has <viewPrimaryConstructor>
+/// then this constructor is not a constant one
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=extension-types
 
-view class View1(int id) {
-  int get id => 42;
-//^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-view class View2(int id) {
-  void id(int val) {}
-//^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+view class View(int id) {
 }
 
 main() {
-  print(View1);
-  print(View2);
+  const v = const View(42);
+//          ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
