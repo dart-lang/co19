@@ -25,29 +25,19 @@
 /// - Each ei is inferred with context type schema _ to have type Ti
 /// - The type of E is (T1, ..., Tn, {d1 : T{n+1}, ...., dm : T{n+m}})
 ///
-/// @description Checks horizontal inference for records.
+/// @description Checks type inference for records.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-import "../../Utils/expect.dart";
-
-typedef R1 = (int, {String s});
-typedef R2 = (List<int>, {double n});
-
-void f<T, U, V>(void Function(T, U) a, T b, U Function(V) c, V Function(U) d) {
-  Expect.equals(R1, T);
-  Expect.equals(R2, U);
-  Expect.equals(typeOf<void Function(R1, R2)>(), a.runtimeType);
-  Expect.equals(typeOf<R2 Function(Object? o)>(), c.runtimeType);
-  Expect.equals(typeOf<bool Function(Object? o)>(), d.runtimeType);
-}
-
 main() {
-  f((t, u) {
-    t.$0.isOdd; // T == (int, {String s})
-    t.s.substring(0);
-    u.$0[0].isOdd; // U == (List<int>, {double n})
-    u.n.isNaN;
-  }, (42, s: "x"), (v) => (n: 3.14, [1, 2, 3]), (u) => true);
+  (num,) r1 = (42,);
+  r1.$0.isOdd;
+
+  ({num n}) r2 = (n: 42);
+  r2.n.isOdd;
+
+  (num, {Object s}) r3 = (42, s: "");
+  r3.$0.isOdd;
+  r3.s.substring(0);
 }
