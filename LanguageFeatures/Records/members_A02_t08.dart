@@ -8,35 +8,17 @@
 /// positional field, it exposes a getter whose name is $ followed by the number
 /// of preceding positional fields and whose type is the type of the field.
 ///
-/// @description Checks that for positional fields a getter is exposed with the
-/// name `$` followed by number of preceding positional fields and whose type is
-/// the type of the field. Test that value of `i` is
-/// limited by the number of positional fields
+/// @description Check that '$' can be used as a member name
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef R = (int a, String, {int x, int y});
+import "../../Utils/expect.dart";
 
 main() {
-  R r1 = (1, "", x: 3, y: 4);
-  r1.$2;
-//   ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  ({String $}) r1 = ($: "x");
+  Expect.equals("x", r1.$);
 
-  r1.$42;
-//   ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  r1.$10000000000000000000000000;
-//   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  (3, 1, 4, name: "pi").$3;
-//                      ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  (int $,) r2 = (1,);
+  Expect.equals(1, r2.$0);
 }
