@@ -107,8 +107,8 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
 class ArgumentsBindingSuper2_t02<X> {
   X m;
 
-  ArgumentsBindingSuper2_t02(X value): m = value {}
-  ArgumentsBindingSuper2_t02.named(X value, {required X val2}):m = value {}
+  ArgumentsBindingSuper2_t02(X value) : m = value {}
+  ArgumentsBindingSuper2_t02.named(X value, {required X val2}) : m = value {}
   ArgumentsBindingSuper2_t02.short(this.m);
 
   void superTest(X val) {}
@@ -119,8 +119,8 @@ class ArgumentsBindingSuper2_t02<X> {
 
 class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
   ArgumentsBinding2_t02(X t1) : super(t1) {}
-  ArgumentsBinding2_t02.c2(dynamic t1, dynamic t2) : super.named(t1, val2: t2) {}
-  ArgumentsBinding2_t02.c5(dynamic t1) : super.short(t1) {}
+  ArgumentsBinding2_t02.c2(X t1, X t2) : super.named(t1, val2: t2) {}
+  ArgumentsBinding2_t02.c5(X t1) : super.short(t1) {}
 
   test(X t1, X t2) {
     superTest(t1);
@@ -132,13 +132,13 @@ class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
 }
 
 main() {
-  ArgumentsBinding1_t02 c1 = new ArgumentsBinding1_t02(forgetType(t0Instance));
-  c1 = new ArgumentsBinding1_t02.c2(t1Instance, forgetType(t0Instance));
-  c1 = new ArgumentsBinding1_t02.c3(forgetType(t0Instance));
-  c1 = new ArgumentsBinding1_t02.c4(t1Instance, forgetType(t0Instance));
-  c1 = new ArgumentsBinding1_t02.c5(forgetType(t0Instance));
+  ArgumentsBinding1_t02 c1 = new ArgumentsBinding1_t02(t0Instance);
+  c1 = new ArgumentsBinding1_t02.c2(t1Instance, t0Instance);
+  c1 = new ArgumentsBinding1_t02.c3(t0Instance);
+  c1 = new ArgumentsBinding1_t02.c4(t1Instance, t0Instance);
+  c1 = new ArgumentsBinding1_t02.c5(t0Instance);
 
-  c1.test(forgetType(t0Instance), t1Instance);
+  c1.test(t0Instance, t1Instance);
   c1.superTest(forgetType(t0Instance));
   c1.superTestPositioned(forgetType(t0Instance));
   c1.superTestPositioned(t1Instance, forgetType(t0Instance));

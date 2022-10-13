@@ -103,8 +103,8 @@ class ArgumentsBindingSuper2_t02<X> {
 
 class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
   ArgumentsBinding2_t02(X t1) : super(t1) {}
-  ArgumentsBinding2_t02.c2(dynamic t1, dynamic t2) : super.named(t1, val2: t2) {}
-  ArgumentsBinding2_t02.c5(dynamic t1) : super.short(t1) {}
+  ArgumentsBinding2_t02.c2(X t1, X t2) : super.named(t1, val2: t2) {}
+  ArgumentsBinding2_t02.c5(X t1) : super.short(t1) {}
 
   test(X t1, X t2) {
     superTest(t1);
