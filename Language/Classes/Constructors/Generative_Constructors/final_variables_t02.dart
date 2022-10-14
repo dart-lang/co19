@@ -11,7 +11,7 @@
 /// or a static warning occurs.
 /// @description Checks that no static warning occurs when all final variables
 /// are initialized either at the declaration, via constructor's initializing
-/// formal, or via an intializer in constructor's intializer list.
+/// formal, or via an initializer in constructor's initializer list.
 /// @author vasya
 
 

@@ -24,7 +24,7 @@
 /// parameters of the immediately enclosing class bound to a set of actual type
 /// arguments V1, ... , Vm and the formal parameter bindings determined by the
 /// argument list of the superinitializer of k.
-/// @description Checks that superconstructor intializers and superconstructor
+/// @description Checks that superconstructor initializers and superconstructor
 /// body are executed in the correct order and before the body of this class's
 /// constructor.
 /// @author iefremov
