@@ -7,7 +7,7 @@
 ///
 /// @description Checks that method [receive()] receives datagrams.
 /// @author ngl@unipro.ru
-/// @author shrekhov22@gmail.com
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../http_utils.dart";

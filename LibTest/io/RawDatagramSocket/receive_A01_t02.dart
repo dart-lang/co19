@@ -8,7 +8,7 @@
 /// @description Checks that if there are no datagrams available [null] is
 /// returned.
 /// @author ngl@unipro.ru
-/// @author shrekhov22@gmail.com
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../http_utils.dart";
