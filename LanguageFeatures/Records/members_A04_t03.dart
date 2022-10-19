@@ -51,7 +51,7 @@ main() {
   Expect.equals("Lily was here", r4.$0("Lily was here"));
   Expect.throws(() {r4.$0(42);});
   Expect.equals(1, r4.newC(1).x);
-  Expect.throws(() {r4.newC(42);});
+  Expect.throws(() {r4.newC("");});
   Expect.isTrue(r4.cBar(true));
   Expect.throws(() {r4.cBar(42);});
   Expect.throws(() {r4.$1;}, (e) => e is NoSuchMethodError);
