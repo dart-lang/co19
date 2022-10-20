@@ -23,7 +23,11 @@ Future<String> readOutput(Stream<List<int>> output) async {
 
 run_process() async {
   await stdin.first.then((_) async {
-    try { await stdin.first; } catch (e) { exit(0); }
+    try {
+      await stdin.first;
+    } catch (e) {
+      exit(0);
+    }
   });
 }
 
@@ -31,8 +35,9 @@ run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
 
-  Process process = await
-      Process.start(executable, [eScript, "test"], runInShell: true);
+  Process process = await Process.start(
+      executable, [...Platform.executableArguments, eScript, "test"],
+      runInShell: true);
 
   process.stdin.writeln("1");
   await process.stdin.flush();
@@ -50,4 +55,6 @@ run_main() async {
   }
 }
 
-main(List<String> args) { args.length > 0 ? run_process() : run_main(); }
+main(List<String> args) {
+  args.length > 0 ? run_process() : run_main();
+}

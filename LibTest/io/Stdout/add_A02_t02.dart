@@ -18,16 +18,19 @@ import "dart:io";
 
 List<int> aList = [84, 69, 83, 84];
 
-run_process(IOSink sink) { sink.add(aList); }
+run_process(IOSink sink) {
+  sink.add(aList);
+}
 
 run_main(String mode, Encoding enc) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
 
-  await Process.run(executable, [eScript, mode],
-      stdoutEncoding: enc, stderrEncoding: enc).
-        then((ProcessResult results) {
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, mode],
+          stdoutEncoding: enc, stderrEncoding: enc)
+      .then((ProcessResult results) {
     Expect.listEquals(aList, mode == "err" ? results.stderr : results.stdout);
     called++;
   });
@@ -35,7 +38,7 @@ run_main(String mode, Encoding enc) async {
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     run_process(args[0] == "err" ? stderr : stdout);
   else {
     run_main("out", null);

@@ -18,7 +18,13 @@ import "dart:io";
 
 run_process() async {
   await stdin.first.then((_) async {
-    try { stdin.listen((_) { exit(99); }); } catch (e) { exit(0); }
+    try {
+      stdin.listen((_) {
+        exit(99);
+      });
+    } catch (e) {
+      exit(0);
+    }
   });
 }
 
@@ -27,8 +33,10 @@ run_main() async {
   String eScript = Platform.script.toString();
   int called = 0;
 
-  await Process.start(executable, [eScript, "test"], runInShell: true).then(
-      (Process process) async {
+  await Process.start(
+          executable, [...Platform.executableArguments, eScript, "test"],
+          runInShell: true)
+      .then((Process process) async {
     process.stdin.writeln("Testme");
     await process.exitCode.then((int code) async {
       Expect.equals(0, code);
@@ -38,4 +46,6 @@ run_main() async {
   Expect.equals(1, called);
 }
 
-main(List<String> args) { args.length > 0 ? run_process() : run_main(); }
+main(List<String> args) {
+  args.length > 0 ? run_process() : run_main();
+}

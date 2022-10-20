@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 run_process(String arg) {
-  if(arg == "first") {
+  if (arg == "first") {
     stdin.first.then((List<int> l) {
       print(SystemEncoding().decode(l));
     });
@@ -35,20 +35,25 @@ run_main() async {
   String eScript = Platform.script.toString();
   String res_first, res_elementAt;
 
-  await Process.start(executable, [eScript, "first"], runInShell: true).then(
-      (Process process) async {
-        process.stdin.writeln("12345");
-        res_first = await process.stdout.transform(systemEncoding.decoder).join();
-      });
-
-  await Process.start(executable, [eScript, "elementAt"], runInShell: true).then(
-      (Process process) async {
+  await Process.start(
+          executable, [...Platform.executableArguments, eScript, "first"],
+          runInShell: true)
+      .then((Process process) async {
     process.stdin.writeln("12345");
-    res_elementAt = await process.stdout.transform(systemEncoding.decoder).join();
+    res_first = await process.stdout.transform(systemEncoding.decoder).join();
+  });
+
+  await Process.start(executable, [eScript, "elementAt"], runInShell: true)
+      .then((Process process) async {
+    process.stdin.writeln("12345");
+    res_elementAt =
+        await process.stdout.transform(systemEncoding.decoder).join();
   });
 
   Expect.isTrue("12345\n\n".startsWith(res_first.replaceAll("\r\n", "\n")));
   Expect.isTrue("12345\n\n".startsWith(res_elementAt.replaceAll("\r\n", "\n")));
 }
 
-main(List<String> args) { args.length > 0 ? run_process(args[0]) : run_main(); }
+main(List<String> args) {
+  args.length > 0 ? run_process(args[0]) : run_main();
+}

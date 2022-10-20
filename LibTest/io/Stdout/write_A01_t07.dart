@@ -16,6 +16,7 @@ import "dart:io";
 
 bool called = false;
 String str = "I am here";
+
 class ObjectToPass {
   ObjectToPass() {}
   String toString() {
@@ -24,12 +25,16 @@ class ObjectToPass {
   }
 }
 
-run_process(IOSink sink) { sink.write(new ObjectToPass()); }
+run_process(IOSink sink) {
+  sink.write(new ObjectToPass());
+}
 
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
-  await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, mode])
+      .then((ProcessResult results) {
     Expect.equals(str, mode == "err" ? results.stderr : results.stdout);
     called = true;
   });
@@ -37,7 +42,7 @@ run_main(String mode) async {
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     run_process(args[0] == "err" ? stderr : stdout);
   else {
     run_main("out");

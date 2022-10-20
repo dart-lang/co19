@@ -14,15 +14,18 @@
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process(Stdout sink) { sink.writeln(); }
+run_process(Stdout sink) {
+  sink.writeln();
+}
 
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  await Process.run(executable, [eScript, mode]).then((
-      ProcessResult results) {
-    print(results.stderr );
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, mode])
+      .then((ProcessResult results) {
+    print(results.stderr);
     Expect.equals("\n", mode == "err" ? results.stderr : results.stdout);
     called++;
   });
@@ -30,7 +33,7 @@ run_main(String mode) async {
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     run_process(args[0] == "err" ? stderr : stdout);
   else {
     run_main("out");

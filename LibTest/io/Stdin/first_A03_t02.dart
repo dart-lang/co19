@@ -27,8 +27,10 @@ run_main() async {
   String eScript = Platform.script.toString();
   int called = 0;
 
-  await Process.start(executable, [eScript, "test"], runInShell: true).then(
-      (Process process) async {
+  await Process.start(
+          executable, [...Platform.executableArguments, eScript, "test"],
+          runInShell: true)
+      .then((Process process) async {
     process.stdin.close();
     await process.exitCode.then((int code) async {
       Expect.equals(0, code);
@@ -41,4 +43,3 @@ run_main() async {
 main(List<String> args) {
   args.length > 0 ? run_process() : run_main();
 }
-

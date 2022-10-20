@@ -15,7 +15,9 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 class ObjectToPass {
-  String toString() { return "I am here"; }
+  String toString() {
+    return "I am here";
+  }
 }
 
 List objects = [
@@ -24,17 +26,23 @@ List objects = [
   new ObjectToPass(),
   new StackTrace.fromString("Stack trace"),
   [1, 2, 3],
-  null];
+  null
+];
 
-String expected = "Testme | long | 123 | long | I am here | long | Stack trace | long | [1, 2, 3] | long | null";
+String expected =
+    "Testme | long | 123 | long | I am here | long | Stack trace | long | [1, 2, 3] | long | null";
 
-run_process(IOSink sink) { sink.writeAll(objects, " | long | "); }
+run_process(IOSink sink) {
+  sink.writeAll(objects, " | long | ");
+}
 
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, mode])
+      .then((ProcessResult results) {
     Expect.equals(expected, mode == "err" ? results.stderr : results.stdout);
     called++;
   });
@@ -42,7 +50,7 @@ run_main(String mode) async {
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     run_process(args[0] == "err" ? stderr : stdout);
   else {
     run_main("out");

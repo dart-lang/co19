@@ -13,7 +13,9 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 run_process() async {
-  await stdin.any((x) => false).then((x) { exit(x ? 99 : 0); });
+  await stdin.any((x) => false).then((x) {
+    exit(x ? 99 : 0);
+  });
 }
 
 run_main() async {
@@ -21,8 +23,10 @@ run_main() async {
   String eScript = Platform.script.toString();
   int called = 0;
 
-  await Process.start(executable, [eScript, "test"], runInShell: true).then(
-      (Process process) async {
+  await Process.start(
+          executable, [...Platform.executableArguments, eScript, "test"],
+          runInShell: true)
+      .then((Process process) async {
     process.stdin.writeln("Testme");
     process.stdin.close();
     await process.exitCode.then((int code) async {
@@ -33,4 +37,6 @@ run_main() async {
   Expect.equals(1, called);
 }
 
-main(List<String> args) { args.length > 0 ? run_process() : run_main(); }
+main(List<String> args) {
+  args.length > 0 ? run_process() : run_main();
+}
