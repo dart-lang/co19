@@ -30,12 +30,16 @@
 
 // SharedOptions=--enable-experiment=records
 
+import "../../Utils/expect.dart";
+
+class C<X> {
+  Type get typeArgument => X;
+}
+
+class D<X extends Y, Y> extends C<Y> {}
+
 main() {
-  (num,) r1 = (42,) ..$0.isOdd;
-
-  ({num n}) r2 = (n: 42) ..n.isOdd;
-
-  (num, {Object s}) r3 = (42, s: "")
-    ..$0.isOdd
-    ..s.substring(0);
+  (C<int>, {C<double> x}) r = (D(), x: D());
+  Expect.equals(int, r.$0.typeArgument);
+  Expect.equals(int, r.x.typeArgument);
 }

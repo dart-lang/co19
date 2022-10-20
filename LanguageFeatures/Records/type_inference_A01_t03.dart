@@ -30,6 +30,7 @@
 
 // SharedOptions=--enable-experiment=records
 
+import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
 class Callable {
@@ -41,7 +42,21 @@ T id<T>(T x) => x;
 main() {
   var c = Callable();
   dynamic d = 3;
-  (num, double, int Function(int), void Function(num)) r = (d, 3, id, c);
-  r.expectStaticType<
-    Exactly<((num, double, int Function(int), void Function(num)))>>();
+  (num, double, int Function(int), void Function(num)) r1 = (d, 3, id, c)
+    ..expectStaticType<
+        Exactly<(num, double, int Function(int), void Function(num))>>();
+
+  Expect.throws(() {
+    dynamic d2 = 3.14;
+    (int, double, int Function(int), void Function(num)) r2 = (d2, 3, id, c);
+  });
+  Expect.throws(() {
+    (r1.$1 as dynamic).isEven;
+  });
+  Expect.throws(() {
+    (r1.$2 as dynamic)("42");
+  });
+  Expect.throws(() {
+    (r1.$3 as dynamic)("42");
+  });
 }

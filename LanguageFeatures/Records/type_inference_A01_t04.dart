@@ -30,15 +30,34 @@
 
 // SharedOptions=--enable-experiment=records
 
+import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
-(List<int>, Map<String, int>, Set<String>) foo() => ([], {}, {});
+({List<int> list, Map<String, int> map, Set<String> set}) foo() =>
+    (list: [], map: {}, set: {}) ..expectStaticType<Exactly<
+        ({List<int> list, Map<String, int> map, Set<String> set})>>();
 
-void bar((List<int>, Map<String, int>, Set<String>) r) {}
+void bar((List<int>, Map<String, int>, Set<String>) r) {
+  Expect.throws(() {(r.$0 as dynamic).add("");});
+  Expect.throws(() {(r.$1 as dynamic)[""] = "";});
+  Expect.throws(() {(r.$1 as dynamic)[42] = 42;});
+  Expect.throws(() {(r.$2 as dynamic).add(42);});
+}
 
 main() {
-  (List<int>, Map<String, int>, Set<String>) r = ([], {}, {});
-  r.expectStaticType<
-      Exactly<((List<int>, Map<String, int>, Set<String>))>>();
-  bar(([], {}, {}));
+  (List<int>, Map<String, int>, {Set<String> set}) r = ([], {}, set: {})
+      ..expectStaticType<Exactly<
+          (List<int>, Map<String, int>, {Set<String> set})>>();
+  Expect.throws(() {(r.$0 as dynamic).add("");});
+  Expect.throws(() {(r.$1 as dynamic)[""] = "";});
+  Expect.throws(() {(r.$1 as dynamic)[42] = 42;});
+  Expect.throws(() {(r.set as dynamic).add(42);});
+
+  Expect.throws(() {(foo().list as dynamic).add("");});
+  Expect.throws(() {(foo().map as dynamic)[""] = "";});
+  Expect.throws(() {(foo().map as dynamic)[42] = 42;});
+  Expect.throws(() {(foo().set as dynamic).add(42);});
+
+  bar(([], {}, {})
+     ..expectStaticType<Exactly<(List<int>, Map<String, int>, Set<String>)>>());
 }
