@@ -26,7 +26,7 @@ run_main(String mode) {
   encodings.forEach((enc) async {
     int called = 0;
     await Process.run(executable,
-        [eScript, mode],
+        [...Platform.executableArguments, eScript, mode],
         stdoutEncoding: enc,
         stderrEncoding: enc).then((ProcessResult results) {
       Expect.equals(

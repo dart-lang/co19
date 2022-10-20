@@ -18,7 +18,9 @@
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process() { stdout.write(stdin.readLineSync()); }
+run_process() {
+  stdout.write(stdin.readLineSync());
+}
 
 run_main() async {
   const CR = 13;
@@ -28,8 +30,10 @@ run_main() async {
   String eScript = Platform.script.toString();
   int called = 0;
 
-  await Process.start(executable, [eScript, "test"], runInShell: true).then(
-      (Process process) async {
+  await Process.start(
+          executable, [...Platform.executableArguments, eScript, "test"],
+          runInShell: true)
+      .then((Process process) async {
     process.stdin.writeln("Hello");
     await process.stdout.toList().then((out) {
       Expect.isTrue((out[0][out[0].length - 1] != CR) &&

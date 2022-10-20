@@ -13,7 +13,9 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 class ObjectToPass {
-  String toString() { return "I am here"; }
+  String toString() {
+    return "I am here";
+  }
 }
 
 List objects = [
@@ -22,17 +24,22 @@ List objects = [
   new ObjectToPass(),
   new StackTrace.fromString("Stack trace"),
   [1, 2, 3],
-  null];
+  null
+];
 
 String expected = "Testme123I am hereStack trace[1, 2, 3]null";
 
-run_process(IOSink sink) { sink.writeAll(objects); }
+run_process(IOSink sink) {
+  sink.writeAll(objects);
+}
 
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, mode])
+      .then((ProcessResult results) {
     Expect.equals(expected, mode == "err" ? results.stderr : results.stdout);
     called++;
   });
@@ -40,7 +47,7 @@ run_main(String mode) async {
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     run_process(args[0] == "err" ? stderr : stdout);
   else {
     run_main("out");

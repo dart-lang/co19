@@ -15,15 +15,17 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 run_process(IOSink sink) {
-  sink.addError("my test error",
-      new StackTrace.fromString("my test stack trace"));
- }
+  sink.addError(
+      "my test error", new StackTrace.fromString("my test stack trace"));
+}
 
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, mode])
+      .then((ProcessResult results) {
     Expect.isTrue(results.stderr.contains("my test error"));
     Expect.isTrue(results.stderr.contains("my test stack trace"));
     Expect.equals(0, results.stdout.length);
@@ -33,7 +35,7 @@ run_main(String mode) async {
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     run_process(args[0] == "err" ? stderr : stdout);
   else {
     run_main("out");

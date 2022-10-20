@@ -19,30 +19,33 @@ import "dart:io";
 
 String getExpected() {
   String res = "";
-  for(int i = 0; i < 128; i++) res += new String.fromCharCode(i);
+  for (int i = 0; i < 128; i++) res += new String.fromCharCode(i);
   return res;
 }
 
 run_process(IOSink sink) {
-  for(int i = 0; i < 128; i++) {
+  for (int i = 0; i < 128; i++) {
     sink.writeCharCode(i);
-  };
+  }
+  ;
 }
 
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
-    Expect.equals(getExpected(),
-        mode == "err" ? results.stderr : results.stdout);
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, mode])
+      .then((ProcessResult results) {
+    Expect.equals(
+        getExpected(), mode == "err" ? results.stderr : results.stdout);
     called++;
   });
   Expect.equals(1, called);
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     run_process(args[0] == "err" ? stderr : stdout);
   else {
     run_main("out");

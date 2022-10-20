@@ -19,19 +19,24 @@ List objects = [
   123,
   new StackTrace.fromString("Stack trace"),
   [1, 2, 3],
-  null];
+  null
+];
 
 String expected = "Testme123Stack trace[1, 2, 3]null";
 
 run_process(IOSink sink) {
-  objects.forEach((x) { sink.write(x); });
+  objects.forEach((x) {
+    sink.write(x);
+  });
 }
 
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, mode])
+      .then((ProcessResult results) {
     Expect.equals(expected, mode == "err" ? results.stderr : results.stdout);
     called++;
   });
@@ -39,7 +44,7 @@ run_main(String mode) async {
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     run_process(args[0] == "err" ? stderr : stdout);
   else {
     run_main("out");

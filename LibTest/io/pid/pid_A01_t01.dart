@@ -9,17 +9,20 @@
 /// @description Checks that [pid] is [PID} of the current Dart process.
 /// @author iarkh@unipro.ru
 
-
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process() { print(pid); }
+run_process() {
+  print(pid);
+}
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   bool called = false;
-  await Process.run(executable, [eScript, "run"]).then((ProcessResult results) {
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, "run"])
+      .then((ProcessResult results) {
     Expect.equals(results.pid, int.parse(results.stdout));
     called = true;
   });
@@ -27,7 +30,7 @@ run_main() async {
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     run_process();
   else {
     run_main();

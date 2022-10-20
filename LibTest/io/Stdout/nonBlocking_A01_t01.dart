@@ -14,7 +14,9 @@ import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-Stream<List<int>> aStream = new Stream<List<int>>.fromIterable([[1, 2, 3]]);
+Stream<List<int>> aStream = new Stream<List<int>>.fromIterable([
+  [1, 2, 3]
+]);
 List<int> expected = [84, 101, 115, 116, 1, 2, 3];
 
 run_process(Stdout sink) {
@@ -28,7 +30,9 @@ run_main(String mode) async {
   int called = 0;
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
-  await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, mode])
+      .then((ProcessResult results) {
     List<int> result =
         (mode == "err" ? results.stderr : results.stdout).codeUnits;
     Expect.equals(expected.length, result.length);

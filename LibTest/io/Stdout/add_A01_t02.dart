@@ -10,7 +10,6 @@
 /// consumer
 /// @author iarkh@unipro.ru
 
-
 import "../../../Utils/expect.dart";
 import "dart:io";
 
@@ -28,16 +27,18 @@ run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
-    Expect.equals("TESTSTARTHEY",
-        mode == "err" ? results.stderr : results.stdout);
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, mode])
+      .then((ProcessResult results) {
+    Expect.equals(
+        "TESTSTARTHEY", mode == "err" ? results.stderr : results.stdout);
     called++;
   });
   Expect.equals(1, called);
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     run_process(args[0] == "err" ? stderr : stdout);
   else {
     run_main("out");

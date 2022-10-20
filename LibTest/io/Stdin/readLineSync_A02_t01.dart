@@ -29,8 +29,10 @@ run_main() async {
   String eScript = Platform.script.toString();
   int called = 0;
 
-  await Process.start(executable, [eScript, "test"], runInShell: true).then(
-      (Process process) async {
+  await Process.start(
+          executable, [...Platform.executableArguments, eScript, "test"],
+          runInShell: true)
+      .then((Process process) async {
     process.stdin.write("1");
     await new Future.delayed(new Duration(seconds: 2)).then((_) async {
       // Wait some time: call should be blocked until no new line in stdin

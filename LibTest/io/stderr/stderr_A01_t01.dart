@@ -11,18 +11,21 @@
 /// the current process.
 /// @author iarkh@unipro.ru
 
-
 import "dart:io";
 import "../../../Utils/expect.dart";
 
 bool called = false;
 
-run_process() { stderr.write('Test'); }
+run_process() {
+  stderr.write('Test');
+}
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
-  await Process.run(executable, [eScript, 'run']).then((ProcessResult results) {
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, 'run'])
+      .then((ProcessResult results) {
     Expect.equals("Test", results.stderr);
     called = true;
   });
@@ -30,7 +33,7 @@ run_main() async {
 }
 
 main(List<String> args) async {
-  if(args.length > 0 && args[0] == 'run')
+  if (args.length > 0 && args[0] == 'run')
     run_process();
   else
     run_main();

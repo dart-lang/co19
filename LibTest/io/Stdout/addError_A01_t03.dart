@@ -17,13 +17,15 @@ import "dart:io";
 run_process(IOSink sink) {
   sink.addError("added error");
   sink.write("Should not be added");
- }
+}
 
 run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, mode])
+      .then((ProcessResult results) {
     Expect.isTrue(results.stderr.contains("added error"));
     Expect.isFalse(results.stderr.contains("Should not be added"));
     Expect.equals(0, results.stdout.length);
@@ -33,7 +35,7 @@ run_main(String mode) async {
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     run_process(args[0] == "err" ? stderr : stdout);
   else {
     run_main("out");

@@ -12,13 +12,17 @@
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process() { exit(123); }
+run_process() {
+  exit(123);
+}
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  await Process.run(executable, [eScript, "run"]).then((ProcessResult results) {
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, "run"])
+      .then((ProcessResult results) {
     Expect.equals(123, results.exitCode);
     called++;
   });
@@ -26,7 +30,7 @@ run_main() async {
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     run_process();
   else {
     run_main();
