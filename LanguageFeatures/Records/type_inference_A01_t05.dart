@@ -25,29 +25,21 @@
 /// - Each ei is inferred with context type schema _ to have type Ti
 /// - The type of E is (T1, ..., Tn, {d1 : T{n+1}, ...., dm : T{n+m}})
 ///
-/// @description Checks horizontal inference for records.
+/// @description Checks type inference for records.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
 import "../../Utils/expect.dart";
 
-typedef R1 = (int, {String s});
-typedef R2 = (List<int>, {double n});
-
-void f<T, U, V>(void Function(T, U) a, T b, U Function(V) c, V Function(U) d) {
-  Expect.equals(R1, T);
-  Expect.equals(R2, U);
-  Expect.equals(typeOf<void Function(R1, R2)>(), a.runtimeType);
-  Expect.equals(typeOf<R2 Function(Object? o)>(), c.runtimeType);
-  Expect.equals(typeOf<bool Function(Object? o)>(), d.runtimeType);
+class C<X> {
+  Type get typeArgument => X;
 }
 
+class D<X extends Y, Y> extends C<Y> {}
+
 main() {
-  f((t, u) {
-    t.$0.isOdd; // T == (int, {String s})
-    t.s.substring(0);
-    u.$0[0].isOdd; // U == (List<int>, {double n})
-    u.n.isNaN;
-  }, (42, s: "x"), (v) => (n: 3.14, [1, 2, 3]), (u) => true);
+  (C<int>, {C<double> x}) r = (D(), x: D());
+  Expect.equals(int, r.$0.typeArgument);
+  Expect.equals(double, r.x.typeArgument);
 }

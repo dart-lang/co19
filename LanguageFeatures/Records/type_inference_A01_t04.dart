@@ -25,29 +25,39 @@
 /// - Each ei is inferred with context type schema _ to have type Ti
 /// - The type of E is (T1, ..., Tn, {d1 : T{n+1}, ...., dm : T{n+m}})
 ///
-/// @description Checks horizontal inference for records.
+/// @description Checks an implicit downcast for records
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
 import "../../Utils/expect.dart";
+import "../../Utils/static_type_helper.dart";
 
-typedef R1 = (int, {String s});
-typedef R2 = (List<int>, {double n});
+({List<int> list, Map<String, int> map, Set<String> set}) foo() =>
+    (list: [], map: {}, set: {}) ..expectStaticType<Exactly<
+        ({List<int> list, Map<String, int> map, Set<String> set})>>();
 
-void f<T, U, V>(void Function(T, U) a, T b, U Function(V) c, V Function(U) d) {
-  Expect.equals(R1, T);
-  Expect.equals(R2, U);
-  Expect.equals(typeOf<void Function(R1, R2)>(), a.runtimeType);
-  Expect.equals(typeOf<R2 Function(Object? o)>(), c.runtimeType);
-  Expect.equals(typeOf<bool Function(Object? o)>(), d.runtimeType);
+void bar((List<int>, Map<String, int>, Set<String>) r) {
+  Expect.throws(() {(r.$0 as dynamic).add("");});
+  Expect.throws(() {(r.$1 as dynamic)[""] = "";});
+  Expect.throws(() {(r.$1 as dynamic)[42] = 42;});
+  Expect.throws(() {(r.$2 as dynamic).add(42);});
 }
 
 main() {
-  f((t, u) {
-    t.$0.isOdd; // T == (int, {String s})
-    t.s.substring(0);
-    u.$0[0].isOdd; // U == (List<int>, {double n})
-    u.n.isNaN;
-  }, (42, s: "x"), (v) => (n: 3.14, [1, 2, 3]), (u) => true);
+  (List<int>, Map<String, int>, {Set<String> set}) r = ([], {}, set: {})
+      ..expectStaticType<Exactly<
+          (List<int>, Map<String, int>, {Set<String> set})>>();
+  Expect.throws(() {(r.$0 as dynamic).add("");});
+  Expect.throws(() {(r.$1 as dynamic)[""] = "";});
+  Expect.throws(() {(r.$1 as dynamic)[42] = 42;});
+  Expect.throws(() {(r.set as dynamic).add(42);});
+
+  Expect.throws(() {(foo().list as dynamic).add("");});
+  Expect.throws(() {(foo().map as dynamic)[""] = "";});
+  Expect.throws(() {(foo().map as dynamic)[42] = 42;});
+  Expect.throws(() {(foo().set as dynamic).add(42);});
+
+  bar(([], {}, {})
+     ..expectStaticType<Exactly<(List<int>, Map<String, int>, Set<String>)>>());
 }

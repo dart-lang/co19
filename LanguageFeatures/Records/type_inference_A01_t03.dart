@@ -25,29 +25,38 @@
 /// - Each ei is inferred with context type schema _ to have type Ti
 /// - The type of E is (T1, ..., Tn, {d1 : T{n+1}, ...., dm : T{n+m}})
 ///
-/// @description Checks horizontal inference for records.
+/// @description Checks an implicit downcast for records
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
 import "../../Utils/expect.dart";
+import "../../Utils/static_type_helper.dart";
 
-typedef R1 = (int, {String s});
-typedef R2 = (List<int>, {double n});
-
-void f<T, U, V>(void Function(T, U) a, T b, U Function(V) c, V Function(U) d) {
-  Expect.equals(R1, T);
-  Expect.equals(R2, U);
-  Expect.equals(typeOf<void Function(R1, R2)>(), a.runtimeType);
-  Expect.equals(typeOf<R2 Function(Object? o)>(), c.runtimeType);
-  Expect.equals(typeOf<bool Function(Object? o)>(), d.runtimeType);
+class Callable {
+  void call(num x) {}
 }
 
+T id<T>(T x) => x;
+
 main() {
-  f((t, u) {
-    t.$0.isOdd; // T == (int, {String s})
-    t.s.substring(0);
-    u.$0[0].isOdd; // U == (List<int>, {double n})
-    u.n.isNaN;
-  }, (42, s: "x"), (v) => (n: 3.14, [1, 2, 3]), (u) => true);
+  var c = Callable();
+  dynamic d = 3;
+  (num, double, int Function(int), void Function(num)) r1 = (d, 3, id, c)
+    ..expectStaticType<
+        Exactly<(num, double, int Function(int), void Function(num))>>();
+
+  Expect.throws(() {
+    dynamic d2 = 3.14;
+    (int, double, int Function(int), void Function(num)) r2 = (d2, 3, id, c);
+  });
+  Expect.throws(() {
+    (r1.$1 as dynamic).isEven;
+  });
+  Expect.throws(() {
+    (r1.$2 as dynamic)("42");
+  });
+  Expect.throws(() {
+    (r1.$3 as dynamic)("42");
+  });
 }
