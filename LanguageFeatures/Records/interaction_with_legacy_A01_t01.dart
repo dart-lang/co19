@@ -15,8 +15,6 @@
 
 // @dart = 2.18
 
-// SharedOptions=--enable-experiment=records
-
 typedef T1 = Record;
 //           ^^^^^^
 // [analyzer] unspecified

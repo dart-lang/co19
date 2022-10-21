@@ -32,8 +32,6 @@
 
 // @dart = 2.18
 
-// SharedOptions=--enable-experiment=records
-
 import "interaction_with_legacy_lib.dart";
 
 Record foo<T extends Record>(T t) => t;
