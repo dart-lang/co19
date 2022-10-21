@@ -14,8 +14,6 @@
 
 // @dart = 2.18
 
-// SharedOptions=--enable-experiment=records
-
 void foo(dynamic x) {}
 
 main() {
