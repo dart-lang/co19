@@ -27,7 +27,6 @@ class S {
 }
 
 Null t0Instance = null;
-S? t1Instance = new S();
 
 const t1Default = const S();
 

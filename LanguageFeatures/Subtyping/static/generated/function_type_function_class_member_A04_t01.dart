@@ -23,10 +23,8 @@ class C {}
 typedef void T0(C c);
 
 void t0Instance(C c) {}
-Function t1Instance = () {};
 
 void foo() {}
-const t1Default = foo;
 
 class ClassMember1_t01 {
   static Function s = t0Instance;

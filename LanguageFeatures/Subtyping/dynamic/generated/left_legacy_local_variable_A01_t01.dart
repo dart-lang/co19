@@ -26,9 +26,6 @@ import "../../utils/legacy_lib.dart";
 class S0 {}
 
 var t0Instance = getLegacyType<S0>(new S0());
-Object t1Instance = new Object();
-
-const t1Default = const Object();
 
 class LocalVariableTest {
 

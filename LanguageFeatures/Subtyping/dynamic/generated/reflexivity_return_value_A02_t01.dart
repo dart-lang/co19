@@ -21,9 +21,6 @@
 import '../../utils/common.dart';
 
 dynamic t0Instance = 3.14;
-dynamic t1Instance = "";
-
-const t1Default = "";
 
 dynamic returnValueFunc() => forgetType(t0Instance);
 

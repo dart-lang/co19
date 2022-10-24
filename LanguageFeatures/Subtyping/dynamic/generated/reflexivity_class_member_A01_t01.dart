@@ -25,9 +25,6 @@ class T {
 }
 
 T t0Instance = new T();
-T t1Instance = new T();
-
-const t1Default = const T();
 
 class ClassMember1_t01 {
   static T s = forgetType(t0Instance);

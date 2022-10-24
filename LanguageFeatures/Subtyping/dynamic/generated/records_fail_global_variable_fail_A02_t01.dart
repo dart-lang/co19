@@ -29,8 +29,6 @@ import '../../../../Utils/expect.dart';
 (int, String) t0Instance = (1, "2");
 (int, String, bool) t1Instance = (3, "4", false);
 
-const t1Default = const (5, "6", false);
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = forgetType(t0Instance);

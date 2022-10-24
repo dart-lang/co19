@@ -32,8 +32,6 @@ class S0 extends T1 {}
 var t0Instance = getLegacyType<S0>(new S0());
 T1 t1Instance = new T1();
 
-const t1Default = const T1();
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = forgetType(t0Instance);

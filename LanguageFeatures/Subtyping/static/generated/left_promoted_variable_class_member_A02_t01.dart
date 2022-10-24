@@ -26,9 +26,6 @@ class X0 {}
 class S0 extends X0 implements T1 {}
 
 S0 t0Instance = new S0();
-T1 t1Instance = new T1();
-
-const t1Default = const T1();
 
 class ClassMember1_t01 {
   static T1 s = t0Instance;

@@ -26,8 +26,6 @@
 Null t0Instance = null;
 Object t1Instance = new Object();
 
-const t1Default = const Object();
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

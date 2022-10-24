@@ -25,9 +25,6 @@
 import "dart:async";
 
 Null t0Instance = null;
-FutureOr<Object?> t1Instance = null;
-
-const t1Default = const Object();
 
 class ClassMember1_t01 {
   static FutureOr<Object?> s = t0Instance;

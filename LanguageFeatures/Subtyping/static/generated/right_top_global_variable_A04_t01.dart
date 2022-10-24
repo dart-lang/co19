@@ -21,8 +21,6 @@
 Object t0Instance = new Object();
 dynamic t1Instance = 2018;
 
-const t1Default = null;
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

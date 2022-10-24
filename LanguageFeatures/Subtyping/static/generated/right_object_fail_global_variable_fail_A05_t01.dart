@@ -35,8 +35,6 @@ import "../../utils/legacy_lib.dart";
 FutureOr<X?> t0Instance = new X();
 Object t1Instance = new Object();
 
-const t1Default = const Object();
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

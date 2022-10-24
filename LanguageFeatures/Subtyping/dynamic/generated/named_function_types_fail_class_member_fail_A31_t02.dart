@@ -50,7 +50,6 @@ U0 t0Func(V0 x0, V1 x1, {V2? x2, V3? x3, V4? x4}) => new U0();
 U1 t1Func(S0 y0, S1 y1, {S2? x2, S3? x3}) => new U1();
 
 T0 t0Instance = t0Func;
-T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
 

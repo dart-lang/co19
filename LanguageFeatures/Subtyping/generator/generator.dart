@@ -178,6 +178,8 @@ class Test {
       ];
     }
     File generatedTest = _createGeneratedTestFile();
+    test = _removeUnusedVariable(test, "t1Instance");
+    test = _removeUnusedVariable(test, "t1Default");
     generatedTest.writeAsStringSync(_toNormalizedString(test));
   }
 
@@ -398,5 +400,32 @@ class Test {
     sb.writeAll(lines, "\n");
     String rez = sb.toString();
     return rez;
+  }
+
+  List<String> _removeUnusedVariable(List<String> lines, String varName) {
+    int lineNumber = -1;
+    int endLineNumber = -1;
+    RegExp pattern = RegExp(varName + r"[^0-9a-zA-Z]");
+    for (int i = 0; i < lines.length; i++) {
+      if (lines[i].contains(pattern)) {
+        if (lineNumber == -1) {
+          lineNumber = i;
+          for (int j = i;;j++) {
+            if (lines[j].contains(";")) {
+              endLineNumber = j;
+              break;
+            }
+          }
+        } else {
+          return lines;
+        }
+      }
+    }
+    if (lineNumber != -1) {
+      for (int i = endLineNumber; i >= lineNumber; i--) {
+        lines.removeAt(i);
+      }
+    }
+    return lines;
   }
 }

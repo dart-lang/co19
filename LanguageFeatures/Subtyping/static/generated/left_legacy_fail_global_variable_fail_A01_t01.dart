@@ -27,8 +27,6 @@ import "../../utils/legacy_lib.dart";
 X t0Instance = new X();
 String t1Instance = "Show must go on";
 
-const t1Default = "Lily was here";
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

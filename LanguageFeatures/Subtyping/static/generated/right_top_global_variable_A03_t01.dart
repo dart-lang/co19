@@ -21,8 +21,6 @@
 dynamic t0Instance = "";
 Object? t1Instance = new Object();
 
-const t1Default = null;
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

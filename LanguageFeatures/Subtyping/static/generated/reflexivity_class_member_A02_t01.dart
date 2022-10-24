@@ -19,9 +19,6 @@
 /// run generator/generator.dart to regenerate the tests.
 
 dynamic t0Instance = 3.14;
-dynamic t1Instance = "";
-
-const t1Default = "";
 
 class ClassMember1_t01 {
   static dynamic s = t0Instance;

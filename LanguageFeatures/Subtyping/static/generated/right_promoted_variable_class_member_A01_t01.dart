@@ -31,8 +31,6 @@ class T0 extends S1 {}
 T0 t0Instance = new T0();
 X1 t1Instance = new S1();
 
-const t1Default = const S1();
-
 class ClassMember1_t01 {
   static S1 s = t0Instance;
   S1 m = t0Instance;

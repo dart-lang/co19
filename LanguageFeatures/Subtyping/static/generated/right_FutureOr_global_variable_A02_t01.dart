@@ -32,8 +32,6 @@ class T0 extends S1 {}
 T0 t0Instance = new T0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
-const t1Default = const S1();
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

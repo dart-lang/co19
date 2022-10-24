@@ -29,8 +29,6 @@
 (num, num z, String?, {num n1, String? n2}) t1Instance =
   (0, n1: 0, 0, n2: null, null);
 
-const t1Default = (0, 0, null, n1: 0.1, n2: "");
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

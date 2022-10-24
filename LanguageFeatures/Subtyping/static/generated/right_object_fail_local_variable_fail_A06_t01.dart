@@ -33,9 +33,6 @@ import "dart:async";
 import "../../utils/legacy_lib.dart";
 
 FutureOr<X?> t0Instance = new Future.value(new X());
-Object t1Instance = new Object();
-
-const t1Default = const Object();
 
 class LocalVariableTest {
   LocalVariableTest() {

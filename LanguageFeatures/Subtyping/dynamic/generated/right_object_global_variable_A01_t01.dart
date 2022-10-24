@@ -34,8 +34,6 @@ class T0 extends B {}
 T0 t0Instance = new T0();
 Object t1Instance = new Object();
 
-const t1Default = const Object();
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = forgetType(t0Instance);

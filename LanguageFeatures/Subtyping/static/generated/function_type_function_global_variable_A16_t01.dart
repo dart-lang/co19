@@ -28,7 +28,6 @@ T0<C> t0Instance = t0Func;
 Function t1Instance = () {};
 
 void foo() {}
-const t1Default = foo;
 
 class GlobalVariableTest {
   GlobalVariableTest() {

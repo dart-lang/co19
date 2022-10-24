@@ -25,7 +25,6 @@
 import "dart:async";
 
 Null t0Instance = null;
-FutureOr<Object?> t1Instance = null;
 
 const t1Default = const Object();
 

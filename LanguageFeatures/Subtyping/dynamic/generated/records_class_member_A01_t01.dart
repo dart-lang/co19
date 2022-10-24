@@ -27,9 +27,6 @@ import '../../utils/common.dart';
 // SharedOptions=--enable-experiment=records
 
 (int x, double y, String) t0Instance = (42, 3.14, "");
-(num, num z, String?) t1Instance = (0, 0, null);
-
-const t1Default = (0, 0, null);
 
 class ClassMember1_t01 {
   static (num, num, String?) s = forgetType(t0Instance);

@@ -77,9 +77,6 @@ U1 t1Func<X extends B0, Y extends B1>(S0 y0, S1 y1,
     new U1();
 
 T0 t0Instance = t0Func;
-T1 t1Instance = t1Func;
-
-const t1Default = t1Func;
 
 class LocalVariableTest {
   LocalVariableTest() {

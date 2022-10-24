@@ -32,9 +32,6 @@ import "dart:async";
 import "../../utils/legacy_lib.dart";
 
 FutureOr<X?> t0Instance = new X();
-Object t1Instance = new Object();
-
-const t1Default = const Object();
 
 Object returnValueFunc() => t0Instance;
 //                       ^^^^^^^^^^

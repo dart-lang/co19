@@ -21,9 +21,6 @@
 import '../../utils/common.dart';
 
 dynamic t0Instance = 3.14;
-dynamic t1Instance = "";
-
-const t1Default = "";
 
 class ClassMember1_t01 {
   static dynamic s = forgetType(t0Instance);

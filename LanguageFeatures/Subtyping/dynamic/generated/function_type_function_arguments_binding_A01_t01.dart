@@ -23,7 +23,6 @@ import '../../utils/common.dart';
 typedef void T0();
 
 void t0Instance() {}
-Function t1Instance = () {};
 
 void foo() {}
 const t1Default = foo;

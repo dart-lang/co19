@@ -19,9 +19,6 @@
 /// run generator/generator.dart to regenerate the tests.
 
 Null t0Instance = null;
-Null t1Instance = null;
-
-const t1Default = null;
 
 class LocalVariableTest {
 

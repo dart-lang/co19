@@ -27,7 +27,6 @@ typedef C T0<X>(C c, {required X x});
 C t0Func<X>(C c, {required X x}) => c;
 
 T0<C> t0Instance = t0Func;
-Function t1Instance = () {};
 
 void foo() {}
 const t1Default = foo;

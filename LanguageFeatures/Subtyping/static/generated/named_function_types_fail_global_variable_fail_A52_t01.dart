@@ -84,8 +84,6 @@ U<A, List, int> t1Func<X extends B0, Y extends B0>(
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
-const t1Default = t1Func;
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

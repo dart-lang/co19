@@ -23,8 +23,6 @@ class T0 {}
 T0 t0Instance = new T0();
 dynamic t1Instance = 3.14;
 
-const t1Default = null;
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

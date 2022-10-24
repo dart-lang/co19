@@ -29,8 +29,6 @@ import "dart:async";
 Null t0Instance = null;
 FutureOr<Object> t1Instance = new Object();
 
-const t1Default = const Object();
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

@@ -34,9 +34,6 @@ import '../../../../Utils/expect.dart';
 import "dart:async";
 
 FutureOr<Null> t0Instance = null;
-Object t1Instance = new Object();
-
-const t1Default = const Object();
 
 class LocalVariableTest {
 

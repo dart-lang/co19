@@ -24,10 +24,8 @@ class C {}
 typedef void T0();
 
 void t0Instance() => new C();
-Function t1Instance = () {};
 
 void foo() {}
-const t1Default = foo;
 
 class ClassMember1_t01 {
   static Function s = t0Instance;

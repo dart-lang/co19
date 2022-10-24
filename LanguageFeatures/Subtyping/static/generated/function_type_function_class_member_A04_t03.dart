@@ -23,7 +23,6 @@ class C {}
 typedef void T0(C c);
 
 void t0Instance(C c) {}
-Function t1Instance = () {};
 
 void foo() {}
 const t1Default = foo;

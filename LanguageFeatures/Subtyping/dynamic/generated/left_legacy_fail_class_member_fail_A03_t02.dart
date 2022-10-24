@@ -26,7 +26,6 @@ import '../../../../Utils/expect.dart';
 import "../../utils/legacy_lib.dart";
 
 X t0Instance = new X();
-Null t1Instance = null;
 
 const t1Default = null;
 

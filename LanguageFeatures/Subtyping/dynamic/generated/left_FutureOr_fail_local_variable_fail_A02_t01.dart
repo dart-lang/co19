@@ -32,9 +32,6 @@ class T1 {
 class S0 extends T1 {}
 
 FutureOr<S0> t0Instance = Future<S0>.value(new S0()); // Future<S0> is not a subtype of T1
-T1 t1Instance = new T1();
-
-const t1Default = const T1();
 
 class LocalVariableTest {
 

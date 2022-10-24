@@ -29,9 +29,6 @@ class B0 {}
 class X0 extends B0 {}
 
 X0 t0Instance = new X0();
-T1 t1Instance = new T1();
-
-const t1Default = const T1();
 
 class LocalVariableTest {
 

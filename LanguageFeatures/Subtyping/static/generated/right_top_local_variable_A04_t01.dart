@@ -19,9 +19,6 @@
 /// run generator/generator.dart to regenerate the tests.
 
 Object t0Instance = new Object();
-dynamic t1Instance = 2018;
-
-const t1Default = null;
 
 class LocalVariableTest {
 

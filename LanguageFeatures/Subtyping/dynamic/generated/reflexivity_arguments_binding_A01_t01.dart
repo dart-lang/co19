@@ -25,7 +25,6 @@ class T {
 }
 
 T t0Instance = new T();
-T t1Instance = new T();
 
 const t1Default = const T();
 
