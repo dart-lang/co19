@@ -53,7 +53,7 @@ typedef (var i,) R3();
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R5(({var s}));
+typedef void R5(({var s}) r);
 //                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -63,7 +63,7 @@ typedef void R5(({var s}));
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar(({var s})) {}
+void bar(({var s}) r) {}
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -38,7 +38,7 @@ typedef (int) R2();
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s));
+typedef void R3((String s) r);
 //              ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

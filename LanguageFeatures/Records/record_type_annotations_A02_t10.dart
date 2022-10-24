@@ -53,7 +53,7 @@ typedef ({int i, String s}, int j) R3();
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R4(({int i, String s}, int));
+typedef void R4(({int i, String s}, int) r);
 //                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -63,7 +63,7 @@ typedef void R4(({int i, String s}, int));
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void bar(({int i, String s}, int j,)) {}
+  void bar(({int i, String s}, int j,) r) {}
 //                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
