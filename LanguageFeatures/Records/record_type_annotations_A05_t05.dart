@@ -14,7 +14,7 @@
 /// symmetric with record expressions and leaves the potential for later support
 /// for parentheses for grouping in type expressions.
 ///
-/// A named field named hashCode, runtimeType, noSuchMethod, or toString.
+/// A field named hashCode, runtimeType, noSuchMethod, or toString.
 ///
 /// A field name that starts with an underscore.
 ///
@@ -22,42 +22,57 @@
 /// field. For example: (int, $0: int) since the named field '$0' collides with
 /// the getter for the first positional field.
 ///
-/// @description Checks that optional name of a positional field may include
-/// `hashCode`, `runtimeType`, `noSuchMethod`, and `toString`
+/// @description Checks that it is a compile-time error if record contains a
+/// positional field named `hashCode`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef R1 = (String hashCode, int runtimeType, Function noSuchMethod,
-    String toString);
+typedef R1 = (int hashCode, {String s});
+//                ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef (int hashCode, Type runtimeType, Function noSuchMethod,
-    String toString) R2();
+typedef (int hashCode, {int i}) R2();
+//           ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef void R3((int hashCode, Type runtimeType, Function noSuchMethod,
-    String toString) r);
+typedef void R3((String hashCode, {String s}) r);
+//                      ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-(int? hashCode, Type? runtimeType, Function? noSuchMethod, String? toString)
-    foo() => (null, null, null, null);
+(int hashCode, {int x}) foo() => (42, x: 0);
+//   ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-void bar((int hashCode, Type runtimeType, Function noSuchMethod,
-    String toString) r) {}
+void bar((int hashCode, {bool b}) r) {}
+//            ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  (int? hashCode, Type? runtimeType, Function? noSuchMethod, String? toString)
-      r1 = (null, null, null, null);
+  (int hashCode, {String s}) r1 = (42, s: "");
+//     ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  dynamic d = (null, null, null, null);
-  if (d is (int? hashCode, Type? runtimeType, Function? noSuchMethod,
-      String? toString)) {
+  (double hashCode, {int i}) r2 = (3.14, i: 42);
+//        ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  dynamic d = (1, 3.14);
+  if (d is (int hashCode, {String s})) {
+//              ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
-  d as (int? hashCode, Type? runtimeType, Function? noSuchMethod,
-      String? toString);
-
-  print(R1);
-  print(R2);
-  print(R3);
-  print(foo);
-  print(bar);
+  d as (int hashCode, {double i});
+//          ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

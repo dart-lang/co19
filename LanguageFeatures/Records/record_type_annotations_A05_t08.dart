@@ -22,28 +22,57 @@
 /// field. For example: (int, $0: int) since the named field '$0' collides with
 /// the getter for the first positional field.
 ///
-/// @description Checks that it is no error if a record type has only one
-/// named field with no trailing comma
+/// @description Checks that it is a compile-time error if record contains a
+/// positional field named `toString`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
-typedef R1 = ({int i});
+typedef R1 = (String toString, {String s});
+//                   ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef ({int j}) R2();
+typedef (String toString, {int i}) R2();
+//              ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef void R3(({String s}) r);
+typedef void R3((String toString, {String s}) r);
+//                      ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-({int i}) foo() => (i: 42);
+(int toString, {int x}) foo() => (42, x: 0);
+//   ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-void bar(({int i}) r) {}
+void bar((String toString, {bool b}) r) {}
+//               ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  ({int j}) r1 = (j: 42);
+  (int toString, {String s}) r1 = (42, s: "");
+//     ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  dynamic d = (x: 42);
-  if (d is ({int i})) {
+  (double toString, {int i}) r2 = (3.14, i: 42);
+//        ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  dynamic d = ("1", 3.14);
+  if (d is (String toString, {String s})) {
+//                 ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
-  d as ({int x});
+  d as (String toString, {double i});
+//             ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
