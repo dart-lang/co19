@@ -10,8 +10,8 @@
 ///
 /// @description Checks that for positional fields a getter is exposed with the
 /// name `$` followed by number of preceding positional fields and whose type is
-/// the type of the field. Test that value of `i` is
-/// limited by the number of positional fields
+/// the type of the field. Test that value of `i` is limited by the number of
+/// positional fields
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
@@ -32,6 +32,21 @@ main() {
 
   r1.$10000000000000000000000000;
 //   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  r1.$00;
+//   ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  r1.$01;
+//   ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  r1.$0x0;
+//   ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
