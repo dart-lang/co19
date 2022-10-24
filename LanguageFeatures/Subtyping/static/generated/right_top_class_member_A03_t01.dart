@@ -19,9 +19,6 @@
 /// run generator/generator.dart to regenerate the tests.
 
 dynamic t0Instance = "";
-Object? t1Instance = new Object();
-
-const t1Default = null;
 
 class ClassMember1_t01 {
   static Object? s = t0Instance;

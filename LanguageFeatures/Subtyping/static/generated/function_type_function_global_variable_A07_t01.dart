@@ -26,7 +26,6 @@ C t0Instance(C c, [dynamic d]) => c;
 Function t1Instance = () {};
 
 void foo() {}
-const t1Default = foo;
 
 class GlobalVariableTest {
   GlobalVariableTest() {

@@ -39,8 +39,6 @@ class C0<X, Y, Z> {
 C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 
-const t1Default = const C0<U0, U1, U2>();
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = forgetType(t0Instance);

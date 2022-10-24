@@ -29,9 +29,6 @@ class S0 extends T1 {
 }
 
 S0? t0Instance = new S0();
-T1? t1Instance = new T1();
-
-const t1Default = const T1();
 
 class ClassMemberSuper1_t02 {
   T1? m;

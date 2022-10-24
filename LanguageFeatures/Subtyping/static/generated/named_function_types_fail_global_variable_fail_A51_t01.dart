@@ -74,8 +74,6 @@ U1 t1Func<X extends B0, Y extends B0>(S0 y0, S1 y1, {S2? x2, S3? x3}) =>
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
-const t1Default = t1Func;
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

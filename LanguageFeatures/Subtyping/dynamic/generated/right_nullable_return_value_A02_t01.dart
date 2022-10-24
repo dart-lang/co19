@@ -30,9 +30,6 @@ class S1 {
 }
 
 Null t0Instance = null;
-S1? t1Instance = new S1();
-
-const t1Default = const S1();
 
 S1? returnValueFunc() => forgetType(t0Instance);
 

@@ -21,9 +21,6 @@
 import '../../utils/common.dart';
 
 Object t0Instance = new Object();
-Object t1Instance = new Object();
-
-const t1Default = const Object();
 
 class ClassMemberSuper1_t02 {
   Object m;

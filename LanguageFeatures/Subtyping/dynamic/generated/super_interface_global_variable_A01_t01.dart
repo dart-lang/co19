@@ -36,8 +36,6 @@ class T implements T0 {}
 T0 t0Instance = new T();
 T1 t1Instance = new T1();
 
-const t1Default = const T1();
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = forgetType(t0Instance);

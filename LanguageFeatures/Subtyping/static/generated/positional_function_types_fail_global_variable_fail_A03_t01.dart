@@ -47,7 +47,6 @@ U1 t1Func(S0 y0, S1 y1, [S2? y2, S3? y3]) => new U1();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-const t1Default = t1Func;
 
 class GlobalVariableTest {
   GlobalVariableTest() {

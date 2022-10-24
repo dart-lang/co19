@@ -29,9 +29,6 @@ class S {
 }
 
 Null t0Instance = null;
-S? t1Instance = new S();
-
-const t1Default = const S();
 
 class ClassMemberSuper1_t02 {
   S? m;

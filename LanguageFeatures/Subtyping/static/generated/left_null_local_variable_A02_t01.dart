@@ -25,9 +25,6 @@
 import "dart:async";
 
 Null t0Instance = null;
-FutureOr<Null> t1Instance = null;
-
-const t1Default = null;
 
 class LocalVariableTest {
 

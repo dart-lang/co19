@@ -25,9 +25,6 @@
 import "dart:async";
 
 FutureOr t0Instance = Future.value(42);
-Future t1Instance = Future.value(42);
-
-const t1Default = null;
 
 Future? returnValueFunc() => t0Instance;
 //                       ^^^^^^^^^^

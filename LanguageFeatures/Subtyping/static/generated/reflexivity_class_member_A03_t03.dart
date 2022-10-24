@@ -19,7 +19,6 @@
 /// run generator/generator.dart to regenerate the tests.
 
 Object t0Instance = new Object();
-Object t1Instance = new Object();
 
 const t1Default = const Object();
 

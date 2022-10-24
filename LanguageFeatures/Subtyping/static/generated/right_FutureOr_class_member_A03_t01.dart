@@ -51,9 +51,6 @@ Stream<T> getStream<T>() {
 class X0 extends S0 {}
 
 X0 t0Instance = new X0();
-FutureOr<S1> t1Instance = new Future.value(new S1());
-
-const t1Default = const S1();
 
 class ClassMember1_t01 {
   static FutureOr<S1> s = t0Instance;

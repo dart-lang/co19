@@ -25,10 +25,8 @@ typedef X T0<X>(X x);
 X t0Func<X>(X x) => x;
 
 T0<C> t0Instance = t0Func;
-Function t1Instance = () {};
 
 void foo() {}
-const t1Default = foo;
 
 class ClassMember1_t01 {
   static Function s = t0Instance;

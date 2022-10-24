@@ -34,9 +34,6 @@ abstract class T0 implements S0, S1, S2  {}
 class T implements T0 {}
 
 T0 t0Instance = new T();
-T1 t1Instance = new T1();
-
-const t1Default = const T1();
 
 T1 returnValueFunc() => t0Instance;
 //                       ^^^^^^^^^^

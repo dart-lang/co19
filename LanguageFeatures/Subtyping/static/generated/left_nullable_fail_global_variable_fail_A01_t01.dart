@@ -31,8 +31,6 @@ class S0 extends T1 {
 S0? t0Instance = null;
 T1 t1Instance = new T1();
 
-const t1Default = const T1();
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

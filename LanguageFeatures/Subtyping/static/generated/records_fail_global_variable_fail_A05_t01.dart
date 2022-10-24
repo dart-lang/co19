@@ -28,8 +28,6 @@
 (int, String, {bool b0}) t0Instance = (1, "2", b0: true);
 (int, String, {bool b1}) t1Instance = (3, "4", b1: false);
 
-const t1Default = const (5, "6", b1: false);
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

@@ -30,9 +30,6 @@ class X {}
 class S extends X {}
 
 S t0Instance = new S();
-Object t1Instance = new Object();
-
-const t1Default = const Object();
 
 class LocalVariableTest {
 

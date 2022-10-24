@@ -27,7 +27,6 @@
 import "../../utils/legacy_lib.dart";
 
 Null t0Instance = null;
-X t1Instance = new X();
 
 const t1Default = const X();
 

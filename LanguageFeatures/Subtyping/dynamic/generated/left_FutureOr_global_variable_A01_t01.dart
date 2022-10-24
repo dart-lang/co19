@@ -33,8 +33,6 @@ class S0 extends C {}
 FutureOr<S0> t0Instance = new S0();
 FutureOr<C> t1Instance = new Future<C>.value(new C());
 
-const t1Default = const C();
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = forgetType(t0Instance);

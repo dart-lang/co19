@@ -31,9 +31,6 @@ class C {
 class S0 extends C {}
 
 FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
-FutureOr<C> t1Instance = new Future<C>.value(new C());
-
-const t1Default = const C();
 
 class ClassMember1_t01 {
   static FutureOr<C> s = forgetType(t0Instance);

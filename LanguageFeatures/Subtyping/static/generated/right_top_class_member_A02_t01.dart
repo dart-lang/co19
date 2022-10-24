@@ -21,9 +21,6 @@
 class T0 {}
 
 T0 t0Instance = new T0();
-dynamic t1Instance = 3.14;
-
-const t1Default = null;
 
 class ClassMember1_t01 {
   static dynamic s = t0Instance;

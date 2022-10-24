@@ -36,7 +36,6 @@ import "dart:async";
 class S {}
 
 FutureOr<S?> t0Instance = null;
-Object t1Instance = new Object();
 
 const t1Default = const Object();
 

@@ -32,9 +32,6 @@ class B {}
 class T0 extends B {}
 
 T0 t0Instance = new T0();
-Object t1Instance = new Object();
-
-const t1Default = const Object();
 
 class ClassMember1_t01 {
   static Object s = forgetType(t0Instance);

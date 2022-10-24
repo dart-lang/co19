@@ -23,9 +23,6 @@ import '../../utils/common.dart';
 class T0 {}
 
 T0 t0Instance = new T0();
-Object? t1Instance = new Object();
-
-const t1Default = null;
 
 class ClassMember1_t01 {
   static Object? s = forgetType(t0Instance);

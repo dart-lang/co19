@@ -26,7 +26,6 @@
 import "dart:async";
 
 FutureOr t0Instance = 42;
-Future t1Instance = Future.value(42);
 
 const t1Default = null;
 

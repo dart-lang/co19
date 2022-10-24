@@ -27,9 +27,6 @@ import '../../utils/common.dart';
 import "dart:async";
 
 Null t0Instance = null;
-FutureOr<Null> t1Instance = null;
-
-const t1Default = null;
 
 FutureOr<Null> returnValueFunc() => forgetType(t0Instance);
 

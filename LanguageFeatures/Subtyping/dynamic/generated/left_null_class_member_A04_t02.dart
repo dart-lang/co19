@@ -25,9 +25,6 @@
 import '../../utils/common.dart';
 
 Null t0Instance = null;
-Null? t1Instance = null;
-
-const t1Default = null;
 
 class ClassMemberSuper1_t02 {
   Null? m;

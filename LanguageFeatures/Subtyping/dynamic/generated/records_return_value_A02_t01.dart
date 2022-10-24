@@ -28,10 +28,6 @@ import '../../utils/common.dart';
 
 (int x, double y, String, {int n1, String n2}) t0Instance =
   (n1: 1, n2: "n2", 42, 3.14, "");
-(num, num z, String?, {num n1, String? n2}) t1Instance =
-  (0, n1: 0, 0, n2: null, null);
-
-const t1Default = (0, 0, null, n1: 0.1, n2: "");
 
 (num, num, String?, {num n1, String? n2}) returnValueFunc() => forgetType(t0Instance);
 

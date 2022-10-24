@@ -25,10 +25,8 @@ typedef void T0<X>(C c, [X? d]);
 void t0Func<X>(C c, [X? d]) {}
 
 T0<C> t0Instance = t0Func;
-Function t1Instance = () {};
 
 void foo() {}
-const t1Default = foo;
 
 class LocalVariableTest {
 

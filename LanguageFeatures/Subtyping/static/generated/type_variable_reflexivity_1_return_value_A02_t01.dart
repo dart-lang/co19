@@ -26,9 +26,6 @@ class S0 extends X0 {
 }
 
 S0 t0Instance = new S0();
-X0 t1Instance = new X0();
-
-const t1Default = const X0();
 
 X0 returnValueFunc() => t0Instance;
 

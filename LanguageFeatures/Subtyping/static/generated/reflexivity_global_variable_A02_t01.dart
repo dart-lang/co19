@@ -21,8 +21,6 @@
 dynamic t0Instance = 3.14;
 dynamic t1Instance = "";
 
-const t1Default = "";
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;

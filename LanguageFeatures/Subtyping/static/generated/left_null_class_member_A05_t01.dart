@@ -27,9 +27,6 @@ class S {
 }
 
 Null t0Instance = null;
-S? t1Instance = new S();
-
-const t1Default = const S();
 
 class ClassMember1_t01 {
   static S? s = t0Instance;

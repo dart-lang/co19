@@ -32,8 +32,6 @@ class A extends X {
 X t0Instance = new X();
 A t1Instance = new A();
 
-const t1Default = const A();
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = forgetType(t0Instance);

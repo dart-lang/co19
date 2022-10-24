@@ -32,9 +32,6 @@ class S1 {
 class S0 extends S1 {}
 
 S0 t0Instance = new S0();
-S1? t1Instance = new S1();
-
-const t1Default = const S1();
 
 S1? returnValueFunc() => forgetType(t0Instance);
 

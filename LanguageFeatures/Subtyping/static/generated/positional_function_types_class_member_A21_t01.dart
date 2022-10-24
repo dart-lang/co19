@@ -85,8 +85,6 @@ U1<dynamic, void, Object> t1Func<X extends B0, Y extends B1>(
     new U1<dynamic, void, Object>();
 
 T0 t0Instance = t0Func;
-T1 t1Instance = t1Func;
-const t1Default = t1Func;
 
 class ClassMember1_t01 {
   static T1 s = t0Instance;

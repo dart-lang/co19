@@ -31,9 +31,6 @@ class C<X> {
 class S0<X> extends C<X> {}
 
 FutureOr<S0<B>> t0Instance = new S0<B>();
-FutureOr<C<A>> t1Instance = new Future<C<A>>.value(new C());
-
-const t1Default = const C<A>();
 
 class LocalVariableTest {
 

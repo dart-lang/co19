@@ -27,9 +27,6 @@ import '../../../../Utils/expect.dart';
 // SharedOptions=--enable-experiment=records
 
 (int, String, {bool b}) t0Instance = (1, "2", b: true);
-(int, String) t1Instance = (3, "4");
-
-const t1Default = const (5, "6");
 
 class LocalVariableTest {
 

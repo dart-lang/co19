@@ -25,9 +25,6 @@
 // SharedOptions=--enable-experiment=records
 
 (int, int, {bool b}) t0Instance = (1, 2, b: true);
-(int, String, {bool b}) t1Instance = (3, "4", b: false);
-
-const t1Default = const (5, "6", b: false);
 
 (int i, String, {bool b}) returnValueFunc() => t0Instance;
 //                       ^^^^^^^^^^

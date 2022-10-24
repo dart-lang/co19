@@ -31,8 +31,6 @@ class S {
 Null t0Instance = null;
 S? t1Instance = new S();
 
-const t1Default = const S();
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = forgetType(t0Instance);
