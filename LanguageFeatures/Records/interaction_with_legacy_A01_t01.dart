@@ -13,6 +13,8 @@
 /// dart:core is used in a library whose language version is less than v.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=records
+
 // @dart = 2.18
 
 typedef T1 = Record;
