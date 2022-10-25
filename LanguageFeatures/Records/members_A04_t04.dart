@@ -8,7 +8,7 @@
 /// positional field, it exposes a getter whose name is $ followed by the number
 /// of preceding positional fields and whose type is the type of the field.
 ///
-/// @description Checks record with the big number of positional fields
+/// @description Checks record with a large number of positional fields
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
