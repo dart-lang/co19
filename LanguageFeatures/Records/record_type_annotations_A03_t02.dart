@@ -48,12 +48,12 @@ typedef (int i, int i, {String s}) R4();
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R5((int i, {String s, int i}));
+typedef void R5((int i, {String s, int i}) r);
 //                                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R6((int i, int i, {String s}));
+typedef void R6((int i, int i, {String s}) r);
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -68,12 +68,12 @@ typedef void R6((int i, int i, {String s}));
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar1((int i, {String s, String i})) {}
+void bar1((int i, {String s, String i}) r) {}
 //                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar2((int i, String i, {String s})) {}
+void bar2((int i, String i, {String s}) r) {}
 //                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -14,7 +14,7 @@
 /// symmetric with record expressions and leaves the potential for later support
 /// for parentheses for grouping in type expressions.
 ///
-/// A named field named hashCode, runtimeType, noSuchMethod, or toString.
+/// A field named hashCode, runtimeType, noSuchMethod, or toString.
 ///
 /// A field name that starts with an underscore.
 ///
@@ -37,7 +37,7 @@ typedef R4 = (int i, {String s,});
 
 typedef (int, {String s,}) R5();
 
-typedef void R6(({String s, int i,}));
+typedef void R6(({String s, int i,}) r);
 
 (int, bool,) foo1() => (42, true);
 
@@ -71,6 +71,8 @@ main() {
   }
 
   d as (int, int j,);
+  d = (1, j: 2);
   d as (int, {int j,});
+  d = (i: 1, j: 2);
   d as ({int i, int j,});
 }

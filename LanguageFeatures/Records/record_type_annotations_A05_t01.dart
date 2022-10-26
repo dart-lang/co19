@@ -14,7 +14,7 @@
 /// symmetric with record expressions and leaves the potential for later support
 /// for parentheses for grouping in type expressions.
 ///
-/// A named field named hashCode, runtimeType, noSuchMethod, or toString.
+/// A field named hashCode, runtimeType, noSuchMethod, or toString.
 ///
 /// A field name that starts with an underscore.
 ///
@@ -23,7 +23,7 @@
 /// the getter for the first positional field.
 ///
 /// @description Checks that it is a compile-time error if a record type has a
-/// field named `hashCode`
+/// named field named `hashCode`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
@@ -38,7 +38,7 @@ typedef (int, {int hashCode}) R2();
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s, {String hashCode}));
+typedef void R3((String s, {String hashCode}) r);
 //                                 ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -48,7 +48,7 @@ typedef void R3((String s, {String hashCode}));
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar((int i, {bool hashCode})) {}
+void bar((int i, {bool hashCode}) r) {}
 //                     ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

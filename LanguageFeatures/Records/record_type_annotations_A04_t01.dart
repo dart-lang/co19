@@ -14,7 +14,7 @@
 /// symmetric with record expressions and leaves the potential for later support
 /// for parentheses for grouping in type expressions.
 ///
-/// A named field named hashCode, runtimeType, noSuchMethod, or toString.
+/// A field named hashCode, runtimeType, noSuchMethod, or toString.
 ///
 /// A field name that starts with an underscore.
 ///
@@ -38,7 +38,7 @@ typedef (int) R2();
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s));
+typedef void R3((String s) r);
 //              ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

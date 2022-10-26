@@ -39,7 +39,7 @@ typedef (int, {int $0}) R2();
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s, {String $0}));
+typedef void R3((String s, {String $0}) r);
 //                                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -49,7 +49,7 @@ typedef void R3((String s, {String $0}));
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar((int i, {bool $0})) {}
+void bar((int i, {bool $0}) r) {}
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
