@@ -38,7 +38,7 @@ typedef (int, {int _n}) R2();
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s, {String _s}));
+typedef void R3((String s, {String _s}) r);
 //                                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -48,7 +48,7 @@ typedef void R3((String s, {String _s}));
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar((int i, {bool _b})) {}
+void bar((int i, {bool _b}) r) {}
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
