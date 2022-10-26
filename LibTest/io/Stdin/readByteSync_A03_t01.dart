@@ -20,7 +20,8 @@ run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  await Process.run(executable, [eScript, "test"],
+  await Process.run(executable,
+      [...Platform.executableArguments, eScript, "test"],
       runInShell: true).then((ProcessResult results) {
     called++;
     Expect.equals("-1", results.stdout);

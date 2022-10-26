@@ -13,29 +13,44 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-Future<ProcessResult> run_Windows(String executable, String script) {
+Future<ProcessResult> run_Windows(
+    String executable, String executableArgs, String script) {
   return Process.run(
-      "echo", ["a", "|", executable, script, "test"], runInShell: true);
-}
-
-Future<ProcessResult> run_Linux(
-    String executable, String script) {
-  return Process.run(
-      "bash", ["-c", "echo a | " + executable + " " + script + " test"],
+      "echo", ["a", "|", executable, executableArgs, script, "test"],
       runInShell: true);
 }
 
-run_process() { exit (stdin.readByteSync()); }
+Future<ProcessResult> run_Linux(
+    String executable, String executableArgs, String script) {
+  return Process.run(
+      "bash",
+      [
+        "-c",
+        "echo a | " + executable + " " + executableArgs + " " + script + " test"
+      ],
+      runInShell: true);
+}
+
+run_process() {
+  exit(stdin.readByteSync());
+}
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
+  String executableArgs = Platform.executableArguments.join(" ");
   int called = -1;
-  await (Platform.isWindows ? run_Windows(executable, eScript) :
-      run_Linux(executable, eScript)).then((ProcessResult results) {
+  await (Platform.isWindows
+      ? run_Windows(executable, executableArgs, eScript)
+      : run_Linux(executable, executableArgs, eScript))
+      .then((ProcessResult results) {
     called = results.exitCode;
   });
-  Expect.equals(97, called);
+  if (Platform.isWindows) {
+    Expect.isTrue(called == 254 || called == 255);
+  } else {
+    Expect.equals(97, called);
+  }
 }
 
 main(List<String> args) {
