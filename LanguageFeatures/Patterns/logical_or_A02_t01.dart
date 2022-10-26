@@ -17,7 +17,7 @@
 /// determines which value the variable gets if both branches would have
 /// matched. In that case, it will always be the value from the left branch.
 ///
-/// @description Checks logical-or pattern in a switch statements
+/// @description Checks logical-or pattern in a switch statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -28,12 +28,12 @@ import "../../Utils/expect.dart";
 void test(Shape shape, double expectedArea, Type expectedType, bool match) {
   switch (shape) {
     case Square(area: var s) | Circle(area: var s):
-      Expect.equals(expectedArea, s);
+      Expect.approxEquals(expectedArea, s);
       Expect.equals(expectedType, shape.runtimeType);
       Expect.isTrue(match);
       break;
     default:
-      Expect.equals(expectedArea, s);
+      Expect.approxEquals(expectedArea, s);
       Expect.equals(expectedType, shape.runtimeType);
       Expect.isFalse(match);
   }

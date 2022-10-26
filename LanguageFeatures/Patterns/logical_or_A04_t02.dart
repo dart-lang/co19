@@ -17,26 +17,43 @@
 /// determines which value the variable gets if both branches would have
 /// matched. In that case, it will always be the value from the left branch.
 ///
-/// @description Checks that if both branches matches then value from the left
-/// branch is taken
+/// @description Checks that if the left branch doesn't match, then the right
+/// branch is evaluated
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
-class Shape {
-  int counter = 0;
-  double get area => counter++;
-}
-
 main() {
-  Shape shape = Shape();
-  switch (shape) {
-    case Shape(area: var s) | Shape(area: var s) | Shape(area: var s):
-      Expect.equals(0, s);
+  Shape shape1 = Square.withLog(1);
+  switch (shape1) {
+    case Circle(area: var s) | Square(area: var s):
+      Expect.equals("Square.area", shapesLog);
       break;
     default:
       print("Other");
   }
+
+  Shape shape2 = Shape.withLog();
+  clearLog();
+  switch (shape2) {
+    case Square(area: var s) | Rectangle(area: var s) | Shape(area: var s):
+      Expect.equals("Shape.area", shapesLog);
+      break;
+    default:
+      print("Other");
+  }
+
+  Expect.throws(() {
+    Shape shape3 = Point();
+    switch (shape3) {
+      case Square(area: var s) | Point(area: var s):
+        print("Square or Point");
+        break;
+      default:
+        print("Other");
+    }
+  });
 }

@@ -9,32 +9,64 @@
 
 library patterns_lib;
 
-abstract class Shape {
-  double get area;
+String shapesLog = "";
+
+void logger(String log) {
+  shapesLog = shapesLog.isEmpty ? log : "$shapesLog, log";
 }
 
-class Square implements Shape {
+void clearLog() {
+  shapesLog = "";
+}
+
+class Shape {
+  void Function(String s) _logger = (String s) {};
+  double get area {
+    _logger("Shape.area");
+    return 0;
+  }
+
+  Shape();
+  Shape.withLog() : this._withLog(logger);
+  Shape._withLog(this._logger);
+}
+
+class Square extends Shape {
   final double length;
-  Square(this.length);
 
-  double get area => length * length;
+  Square(this.length);
+  Square.withLog(this.length) : super._withLog(logger);
+
+  double get area {
+    _logger("Square.area");
+    return length * length;
+  }
 }
 
-class Circle implements Shape {
+class Circle extends Shape {
   final double radius;
   Circle(this.radius);
+  Circle.withLog(this.radius) : super._withLog(logger);
 
-  double get area => 3.14 * radius * radius;
+  double get area {
+    _logger("Circle.area");
+    return 3.14 * radius * radius;
+  }
 }
 
-class Rectangle implements Shape {
+class Rectangle extends Shape {
   final double x, y;
   Rectangle(this.x, this.y);
+  Rectangle.withLog(this.x, this.y) : super._withLog(logger);
 
   double get area => x * y;
 }
 
-class Point implements Shape {
+class Point extends Shape {
   Point();
-  Never get area => throw Exception("Point has no area");
+  Point.withLog() : super._withLog(logger);
+  Never get area {
+    _logger("Point.area");
+    throw Exception("Point has no area");
+  }
 }

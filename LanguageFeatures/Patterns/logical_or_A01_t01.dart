@@ -40,9 +40,9 @@ bool isPrimary(Color color) {
 }
 
 main() {
-  Expect.isFalse(Color.black);
-  Expect.isFalse(Color.white);
-  Expect.isTrue(Color.red);
-  Expect.isTrue(Color.yellow);
-  Expect.isTrue(Color.blue);
+  Expect.isFalse(isPrimary(Color.black));
+  Expect.isFalse(isPrimary(Color.white));
+  Expect.isTrue(isPrimary(Color.red));
+  Expect.isTrue(isPrimary(Color.yellow));
+  Expect.isTrue(isPrimary(Color.blue));
 }

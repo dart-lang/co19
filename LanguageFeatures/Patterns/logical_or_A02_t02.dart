@@ -35,11 +35,11 @@ bool matches(List list) {
 }
 
 main() {
-  Expect.isFalse([0, 3]);
-  Expect.isFalse([2, 2]);
-  Expect.isFalse([2, 3, 4]);
-  Expect.isFalse([2, "3"]);
-  Expect.isFalse(["1", 3]);
-  Expect.isTrue([1, 3]);
-  Expect.isTrue([2, 3]);
+  Expect.isFalse(matches([0, 3]));
+  Expect.isFalse(matches([2, 2]));
+  Expect.isFalse(matches([2, 3, 4]));
+  Expect.isFalse(matches([2, "3"]));
+  Expect.isFalse(matches(["1", 3]));
+  Expect.isTrue(matches([1, 3]));
+  Expect.isTrue(matches([2, 3]));
 }
