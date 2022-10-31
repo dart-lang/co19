@@ -59,7 +59,10 @@ class Rectangle extends Shape {
   Rectangle(this.x, this.y);
   Rectangle.withLog(this.x, this.y) : super._withLog(logger);
 
-  double get area => x * y;
+  double get area {
+    _logger("Rectangle.area");
+    return x * y;
+  }
 }
 
 class Point extends Shape {
