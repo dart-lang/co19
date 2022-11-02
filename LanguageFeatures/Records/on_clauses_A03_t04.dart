@@ -23,24 +23,22 @@
 /// can't have a local function named `on` with no return type immediately
 /// following a try block.
 ///
-/// @description Checks that in the case above `on` is treated as a clause for
-/// `try`, not as a local function. Test the case when `on` clause looks like a
-/// function with optional positional parameters and default values specified
+/// @description Checks that it is possible to have a function named `on` with
+/// no return type after finally block
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
+import "../../Utils/expect.dart";
+
 main() {
   try {
-    print(0);
-  } on String {
-  } on ([int i = 0, String n = ""]) {
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
+    print("Nothing");
+  } finally {
+  } on () {
+    asyncStart();
+    return 42;
   }
-  on();
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals(42, on());
+  asyncEnd();
 }
