@@ -23,24 +23,26 @@
 /// can't have a local function named `on` with no return type immediately
 /// following a try block.
 ///
-/// @description Checks that in the case above `on` is treated as a clause for
-/// `try`, not as a local function. Test the case when `on` clause looks like a
-/// function with optional positional parameters and default values specified
+/// @description Checks that it is possible to have a function named `on` after
+/// try block if this function has a return type specified
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
+import "../../Utils/expect.dart";
+
 main() {
+  bool caught = false;
   try {
-    print(0);
+    throw (42, "Lily was here");
   } on String {
-  } on ([int i = 0, String n = ""]) {
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
+    Expect.fail("Unexpected String exception");
+  } on (int i, String n) {
+    caught = true;
   }
-  on();
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  int on(int i, String n) {
+    return 42;
+  }
+  Expect.isTrue(caught);
+  Expect.equals(42, on(1, ""));
 }

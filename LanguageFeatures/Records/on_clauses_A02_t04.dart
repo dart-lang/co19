@@ -14,10 +14,14 @@
 /// }
 /// Before, the marked line could only be declaring a local function named `on`.
 /// With record types, it could be a second `on` clause for the `try` statement
-/// whose matched type is the record type `(a, b)`. When presented with this
-/// ambiguity, we disambiguate by treating `on` as a clause for `try` and not a
-/// local function. This is technically a breaking change, but is unlikely to
-/// affect any code in the wild.
+/// whose matched type is the record type `(a, b)`.
+/// ...
+/// Whenever on appears after a try block or after a preceding `on` clause on a
+/// try block, we unconditionally parse it as an `on` clause and not a local
+/// function. This may yield a syntax error if the code after on is not a `on`
+/// clause (but would be a valid function declaration). In other words, you
+/// can't have a local function named `on` with no return type immediately
+/// following a try block.
 ///
 /// @description Checks that in the case above `on` is treated as a clause for
 /// `try`, not as a local function. Test the case when `on` clause looks like a
