@@ -61,12 +61,12 @@ main() {
   bool other = false;
   switch (shape4) {
     case Rectangle(area: 3) | Rectangle(area: 1) | Rectangle(area: 42):
-      Expect.equals("Rectangle.area=3;Rectangle.area=1;Rectangle.area=42;",
-          shape4.log);
       Expect.fail("No branches should match");
       break;
     default:
       other = true;
+      Expect.equals("Rectangle.area=3;Rectangle.area=1;Rectangle.area=42;",
+          shape4.log);
   }
   Expect.isTrue(other);
 }
