@@ -39,7 +39,7 @@ main() {
   Shape shape2 = Shape();
   switch (shape2) {
     case Square(area: 2) | Rectangle(area: 1) | Shape(area: 0):
-      Expect.equals("Shape.area=2;Shape.area=1;Shape.area=0;", shape2.log);
+      Expect.equals("Shape.area=0;", shape2.log);
       break;
     default:
       print("Other");
