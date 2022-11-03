@@ -27,33 +27,46 @@ import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
 main() {
-  Shape shape1 = Square.withLog(1);
+  Shape shape1 = Square(1);
   switch (shape1) {
-    case Circle(area: var s) | Square(area: var s):
-      Expect.equals("Square.area", shapesLog);
+    case Square(area: 2) | Square(area: 1):
+      Expect.equals("Square.area=2;Square.area=1;", shape1.log);
       break;
     default:
       print("Other");
   }
 
-  Shape shape2 = Shape.withLog();
-  clearLog();
+  Shape shape2 = Shape();
   switch (shape2) {
-    case Square(area: var s) | Rectangle(area: var s) | Shape(area: var s):
-      Expect.equals("Shape.area", shapesLog);
+    case Square(area: 2) | Rectangle(area: 1) | Shape(area: 0):
+      Expect.equals("Shape.area=2;Shape.area=1;Shape.area=0;", shape2.log);
       break;
     default:
       print("Other");
   }
 
-  Expect.throws(() {
-    Shape shape3 = Point();
-    switch (shape3) {
-      case Square(area: var s) | Point(area: var s):
-        print("Square or Point");
-        break;
-      default:
-        print("Other");
-    }
-  });
+  Shape shape3 = Circle(1);
+  switch (shape2) {
+    case Circle(area: 2) | Circle(area: 1) | Circle(area: 0)
+      | Circle(area: 3.14):
+      Expect.equals(
+          "Circle.area=2;Circle.area=1;Circle.area=0;Circle.area=3.14;",
+          shape3.log);
+      break;
+    default:
+      print("Other");
+  }
+
+  Shape shape4 = Rectangle(1, 2);
+  bool other = false;
+  switch (shape4) {
+    case Rectangle(area: 3) | Rectangle(area: 1) | Rectangle(area: 42):
+      Expect.equals("Rectangle.area=3;Rectangle.area=1;Rectangle.area=42;",
+          shape4.log);
+      Expect.fail("No branches should match");
+      break;
+    default:
+      other = true;
+  }
+  Expect.isTrue(other);
 }

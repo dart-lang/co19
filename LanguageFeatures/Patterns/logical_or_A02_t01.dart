@@ -28,12 +28,12 @@ import "../../Utils/expect.dart";
 void test(Shape shape, double expectedArea, Type expectedType, bool match) {
   switch (shape) {
     case Square(area: var s) | Circle(area: var s):
-      Expect.approxEquals(expectedArea, s);
+      Expect.equals(s, expectedArea);
       Expect.equals(expectedType, shape.runtimeType);
       Expect.isTrue(match);
       break;
     default:
-      Expect.approxEquals(expectedArea, s);
+      Expect.equals(s, expectedArea);
       Expect.equals(expectedType, shape.runtimeType);
       Expect.isFalse(match);
   }

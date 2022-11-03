@@ -9,67 +9,86 @@
 
 library patterns_lib;
 
-String shapesLog = "";
+class Area {
+  final double value;
+  final void Function(String s)? _logger;
+  const Area(this.value) : _logger = null;
+  const Area.withLogger(this.value, this._logger);
 
-void logger(String log) {
-  shapesLog = shapesLog.isEmpty ? log : "$shapesLog, log";
-}
+  @override
+  bool operator ==(Object other) {
+    final _log = _logger;
+    final tolerance = 0.001;
+    if (other is Area) {
+      if (_log != null) {
+        _log("=$other;");
+      }
+      return (this.value - other.value).abs() <= tolerance;
+    }
+    if (other is int) {
+      if (_log != null) {
+        _log("=$other;");
+      }
+      return (this.value - other).abs() <= tolerance;
+    }
+    if (other is double) {
+      if (_log != null) {
+        _log("=${other.toStringAsFixed(2)};");
+      }
+      return (this.value - other).abs() <= tolerance;
+    }
+    return false;
+  }
 
-void clearLog() {
-  shapesLog = "";
+  @override
+  String toString() => "Area($value)";
 }
 
 class Shape {
-  void Function(String s) _logger = (String s) {};
-  double get area {
-    _logger("Shape.area");
-    return 0;
+  String _log = "";
+  Shape();
+
+  void logger(String toAppend) {
+    _log = _log.isEmpty ? toAppend : "$_log$toAppend";
   }
 
-  Shape();
-  Shape.withLog() : this._withLog(logger);
-  Shape._withLog(this._logger);
+  Area get area {
+    logger("Shape.area");
+    return Area.withLogger(0, logger);
+  }
+
+  String get log => _log;
 }
 
 class Square extends Shape {
   final double length;
 
   Square(this.length);
-  Square.withLog(this.length) : super._withLog(logger);
 
-  double get area {
-    _logger("Square.area");
-    return length * length;
+  Area get area {
+    logger("Square.area");
+    return Area.withLogger(length * length, logger);
   }
 }
 
 class Circle extends Shape {
   final double radius;
-  Circle(this.radius);
-  Circle.withLog(this.radius) : super._withLog(logger);
 
-  double get area {
-    _logger("Circle.area");
-    return 3.14 * radius * radius;
+  Circle(this.radius);
+
+  Area get area {
+    logger("Circle.area");
+    return Area.withLogger(3.14 * radius * radius, logger);
   }
 }
 
 class Rectangle extends Shape {
   final double x, y;
+
   Rectangle(this.x, this.y);
-  Rectangle.withLog(this.x, this.y) : super._withLog(logger);
 
-  double get area {
-    _logger("Rectangle.area");
-    return x * y;
-  }
-}
-
-class Point extends Shape {
-  Point();
-  Point.withLog() : super._withLog(logger);
-  Never get area {
-    _logger("Point.area");
-    throw Exception("Point has no area");
+  Area get area {
+    logger("Rectangle.area");
+    return Area.withLogger(x * y, logger);
   }
 }

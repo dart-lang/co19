@@ -27,30 +27,28 @@ import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
 main() {
-  Shape shape1 = Square.withLog(1);
+  Shape shape1 = Square(1);
   switch (shape1) {
     case Square(area: var s) | Shape(area: var s):
-      Expect.equals("Square.area", shapesLog);
+      Expect.equals("Square.area", shape1.log);
       break;
     default:
       print("Other");
   }
 
-  Shape shape2 = Circle.withLog(1);
-  clearLog();
+  Shape shape2 = Square(2);
   switch (shape2) {
-    case Square(area: var s) | Circle(area: var s) | Shape(area: var s):
-      Expect.equals("Circle.area", shapesLog);
+    case Square(area: 2) | Square(area: 4) | Square(area: 4):
+      Expect.equals("Circle.area=2;Circle.area=4;", shape2.log);
       break;
     default:
       print("Other");
   }
 
-  Shape shape3 = Shape.withLog();
-  clearLog();
+  Shape shape3 = Shape();
   switch (shape3) {
-    case Circle(area: var s) | Point(area: var s) | Shape(area: var s):
-      Expect.equals("Circle.area", shapesLog);
+    case Circle(area: 0) | Square(area: 1) | Shape(area: 0):
+      Expect.equals("Shape.area=0;", shape3.log);
       break;
     default:
       print("Other");
