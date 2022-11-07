@@ -42,13 +42,13 @@ main() {
   }
   Expect.equals("Square.area=1;Square.area=2;", shape2.log);
 
-  Shape shape3 = Shape();
+  Shape shape3 = Square(1);
   switch (shape3) {
-    case Shape(area: 0) & Shape(size: 0) & Shape(area: 1)
-          & Shape(size: 1):
+    case Shape(area: 1) & Shape(size: 1) & Square(area: 2)
+          & Square(size: 2):
       Expect.fail("Pattern should not match");
       break;
     default:
   }
-  Expect.equals("Shape.area=0;Shape.size=0;Shape.area=1;", shape3.log);
+  Expect.equals("Square.area=1;Square.size=1;Square.area=2;", shape3.log);
 }
