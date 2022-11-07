@@ -40,9 +40,9 @@ import "../../Utils/expect.dart";
 
 const Meta = "meta";
 
-@Meta /* comment */ (int, String) foo1() => (1, "2");
+@Meta/* comment */(int, String) foo1() => (1, "2");
 
-@Meta // comment
+@Meta// comment
 (int, String) foo2() => (3, "4");
 
 @Meta /* comment */() foo3() => ();
@@ -50,7 +50,9 @@ const Meta = "meta";
 @Meta// comment
 () foo4() => ();
 
-@Meta /* comment */ (int, {String name}) foo5() => (5, name: "name");
+@Meta/* comment */ (int, {String name}) foo5() => (5, name: "name");
+
+@Meta /* comment */ (int, {String name}) foo6() => (6, name: "name");
 
 main() {
   Expect.equals(1, foo1().$0);
@@ -61,4 +63,6 @@ main() {
   Expect.equals((), foo4());
   Expect.equals(5, foo5().$0);
   Expect.equals("name", foo5().name);
+  Expect.equals(6, foo6().$0);
+  Expect.equals("name", foo6().name);
 }

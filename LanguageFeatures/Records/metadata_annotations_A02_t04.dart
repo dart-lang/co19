@@ -45,13 +45,13 @@ class M<T> {
 }
 
 main() {
-  @Meta<int>(int, String) r1 = (1, "2");
-//                        ^^
+/**/@Meta<int>(int, String) r1 = (1, "2");
+//                          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  @M<String>() r2 = ();
-//             ^^
+/**/@M<String>() r2 = ();
+//               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

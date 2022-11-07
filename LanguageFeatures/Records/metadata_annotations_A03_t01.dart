@@ -44,13 +44,13 @@ class M {
   const M();
 }
 
-  @Meta (int, String)
+/**/@Meta (int, String)
 //^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 class C1 {}
 
-  @M ()
+/**/@M ()
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified

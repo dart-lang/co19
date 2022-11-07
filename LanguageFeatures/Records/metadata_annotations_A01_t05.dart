@@ -43,45 +43,45 @@ class M {
   const M();
 }
 
-  @Meta (int, String) foo1() => (1, "2");
-//^^^^^
+/**/@Meta (int, String) foo1() => (1, "2");
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  @Meta
-//^^^^^
+/**/@Meta
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   (int, String) foo2() => (3, "4");
 
-  @M () foo3() => ();
-//^^
+/**/@M () foo3() => ();
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  @M
-//^^
+/**/@M
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 () foo4() => ();
 
-  @Meta/* comment */(int, String) foo5() => (5, "6");
-//^^^^^
+/**/@Meta/* comment */(int, String) foo5() => (5, "6");
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  @Meta // comment
-//^^^^^
+/**/@Meta // comment
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   (int, String) foo6() => (7, "8");
 
-  @M/* comment */ () foo7() => ();
-//^^
+/**/@M/* comment */ () foo7() => ();
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  @M // comment
-//^^
+/**/@M // comment
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   () foo8() => ();

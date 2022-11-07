@@ -44,13 +44,13 @@ class M {
 }
 
 main() {
-  @Meta(int, String) r1 = (1, "2");
-//                   ^^
+/**/@Meta(int, String) r1 = (1, "2");
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  @M() r2 = ();
-//     ^^
+/**/@M() r2 = ();
+//       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

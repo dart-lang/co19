@@ -45,13 +45,13 @@ class M {
 }
 
 main() {
-  @Meta (int, String) int i = 42;
-//^^^^^
+/**/@Meta (int, String) int i = 42;
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  @M () var x = "";
-//^^
+/**/@M () var x = "";
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

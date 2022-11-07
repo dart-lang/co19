@@ -45,13 +45,13 @@ class M<T> {
 }
 
 main() {
-  @Meta<String> (int, String) int i = 42;
-//^^^^^^^^^^^^^
+/**/@Meta<String> (int, String) int i = 42;
+//  ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  @M<int> () var x = "";
-//^^^^^^^
+/**/@M<int> () var x = "";
+//  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

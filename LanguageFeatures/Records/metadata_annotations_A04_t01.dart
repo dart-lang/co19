@@ -44,14 +44,14 @@ class M<T> {
   const M();
 }
 
-  @Meta<int> (int, String)
-//^^^^^^^^^^
+/**/@Meta<int> (int, String)
+//  ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 class C1 {}
 
-  @M<String> ()
-//^^^^^^^^^^
+/**/@M<String> ()
+//  ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 class C2 {}
