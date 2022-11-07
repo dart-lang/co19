@@ -47,9 +47,9 @@ main() {
   Record _rec = rec;
 
   foo(_rec);
-  foo<R0>(_r0);
-  foo<R1>(_r1);
-  foo<R2>(_r2);
-  foo<R3>(_r3);
-  foo<R4>(_r4);
+  foo<R0>(r0);
+  foo<R1>(r1);
+  foo<R2>(r2);
+  foo<R3>(r3);
+  foo<R4>(r4);
 }
