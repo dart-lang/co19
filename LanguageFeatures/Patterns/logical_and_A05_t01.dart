@@ -44,8 +44,8 @@ main() {
 
   Shape shape3 = Shape();
   switch (shape3) {
-    case Rectangle(area: 0) & Circle(size: 0) & Square(area: 1)
-          & Shape(size: 0):
+    case Shape(area: 0) & Shape(size: 0) & Shape(area: 1)
+          & Shape(size: 1):
       Expect.fail("Pattern should not match");
       break;
     default:
