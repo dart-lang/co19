@@ -26,7 +26,7 @@ import "../../Utils/expect.dart";
 main() {
   Shape shape1 = Circle(1);
   switch (shape1) {
-    case Circle(area: 2) & Circle(area: 3.14):
+    case Circle(area: 2) & Circle(size: 1):
       Expect.fail("Pattern should not match");
       break;
     default:
@@ -35,7 +35,7 @@ main() {
 
   Shape shape2 = Square(1);
   switch (shape2) {
-    case Square(area: 1) & Square(area: 2) & Square(area: 1):
+    case Square(area: 1) & Square(area: 2) & Square(size: 1):
       Expect.fail("Pattern should not match");
       break;
     default:
@@ -44,10 +44,11 @@ main() {
 
   Shape shape3 = Shape();
   switch (shape3) {
-    case Rectangle(area: 0) & Circle(area: 0) & Square(area: 1) & Shape(area: 0):
+    case Rectangle(area: 0) & Circle(size: 0) & Square(area: 1)
+          & Shape(size: 0):
       Expect.fail("Pattern should not match");
       break;
     default:
   }
-  Expect.equals("Shape.area=0;Shape.area=0;Shape.area=1;", shape3.log);
+  Expect.equals("Shape.area=0;Shape.size=0;Shape.area=1;", shape3.log);
 }

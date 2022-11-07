@@ -9,17 +9,17 @@
 
 library patterns_lib;
 
-class Area {
+class Loggable {
   final double value;
   final void Function(String s)? _logger;
-  const Area(this.value) : _logger = null;
-  const Area.withLogger(this.value, this._logger);
+  const Loggable(this.value) : _logger = null;
+  const Loggable.withLogger(this.value, this._logger);
 
   @override
   bool operator ==(Object other) {
     final _log = _logger;
     final tolerance = 0.001;
-    if (other is Area) {
+    if (other is Loggable) {
       if (_log != null) {
         _log("=$other;");
       }
@@ -52,9 +52,14 @@ class Shape {
     _log = _log.isEmpty ? toAppend : "$_log$toAppend";
   }
 
-  Area get area {
+  Loggable get area {
     logger("Shape.area");
-    return Area.withLogger(0, logger);
+    return Loggable.withLogger(0, logger);
+  }
+
+  Loggable get size {
+    logger("Shape.size");
+    return Loggable.withLogger(0, logger);
   }
 
   String get log => _log;
@@ -65,9 +70,16 @@ class Square extends Shape {
 
   Square(this.length);
 
-  Area get area {
+  @override
+  Loggable get area {
     logger("Square.area");
-    return Area.withLogger(length * length, logger);
+    return Loggable.withLogger(length * length, logger);
+  }
+
+  @override
+  Loggable get size {
+    logger("Square.size");
+    return Loggable.withLogger(length, logger);
   }
 }
 
@@ -76,9 +88,16 @@ class Circle extends Shape {
 
   Circle(this.radius);
 
-  Area get area {
+  @override
+  Loggable get area {
     logger("Circle.area");
-    return Area.withLogger(3.14 * radius * radius, logger);
+    return Loggable.withLogger(3.14 * radius * radius, logger);
+  }
+
+  @override
+  Loggable get size {
+    logger("Circle.size");
+    return Loggable.withLogger(radius, logger);
   }
 }
 
@@ -87,8 +106,15 @@ class Rectangle extends Shape {
 
   Rectangle(this.x, this.y);
 
-  Area get area {
+  @override
+  Loggable get area {
     logger("Rectangle.area");
-    return Area.withLogger(x * y, logger);
+    return Loggable.withLogger(x * y, logger);
+  }
+
+  @override
+  Loggable get size {
+    logger("Rectangle.size");
+    return Loggable.withLogger(x, logger);
   }
 }

@@ -30,7 +30,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
       break;
-    case Rectangle(x: var x, y: var width) | Rectangle(:var x, :var y):
+    case Rectangle(x: var x, y: var width) & Rectangle(:var x, :var y):
 //                                                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
