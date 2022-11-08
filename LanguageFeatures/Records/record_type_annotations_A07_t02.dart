@@ -50,7 +50,7 @@ void bar2((int $3, {bool b}) r) {}
 main() {
   (int $0, {String s})? r1 = null;
 
-  (double d, {int $0})? r2 = null;
+  (double d, {int $1})? r2 = null;
 
   dynamic d = (1, $1: 0);
   if (d is (int i, {String $1})) {
