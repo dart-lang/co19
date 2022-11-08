@@ -24,7 +24,7 @@
 import "../../Utils/expect.dart";
 
 String test(List<String?> list) {
-  switch (list) {
+  return switch (list) {
     case [var a?, var b] => "case 1";
     case [var a, var b?] => "case 2";
     default => "default";
