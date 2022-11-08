@@ -28,7 +28,7 @@ String test(List<String?> list) {
     case [var a?, var b] => "case 1";
     case [var a, var b?] => "case 2";
     default => "default";
-  }
+  };
 }
 
 main() {
