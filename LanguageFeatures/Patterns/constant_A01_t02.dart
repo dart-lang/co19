@@ -22,39 +22,28 @@
 /// Simple "primitive" literals like Booleans and numbers are valid patterns
 /// since they aren't ambiguous.
 ///
-/// @description Check [Symbol] in a constant patterns
+/// @description Check that it is a compile-time error if [Symbol] is used in a
+/// constant patterns
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
-
 void test(Symbol value) {
   switch (value) {
     case #+:
-      Expect.equals(Symbol("+"), value);
-      break;
-    case #[]=:
-      Expect.equals(Symbol("[]="), value);
-      break;
-    case Symbol.empty:
-      Expect.equals(Symbol(""), value);
-      break;
-    case Symbol.unaryMinus:
-      Expect.equals(Symbol("unary-"), value);
+//       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
       break;
     case #foo:
-      Expect.equals(Symbol("foo"), value);
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
       break;
     default:
-      Expect.fail("No symbols matched");
   }
 }
 
 main() {
   test(Symbol("+"));
-  test(Symbol("[]="));
-  test(Symbol(""));
-  test(Symbol("unary-"));
-  test(Symbol("foo"));
 }
