@@ -62,6 +62,18 @@ main() {
 //       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    case 1 + 2:
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 & 2:
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 | 2:
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     default:
   }
 }
