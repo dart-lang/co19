@@ -34,27 +34,81 @@ import "../../Utils/expect.dart";
 String test(Object value) {
   switch (value) {
     case const (1 + 2):
-      return "case 1";
-    case const ("Lily" + " " "was" " " + "here"):
-      return "case 2";
+      return "case =3";
+    case const (2 - 1):
+      return "case =1";
     case const (2 * 2):
-      return "case 3";
+      return "case =4";
+    case const (30 ^ 2):
+      return "case =28";
     case const (1 | 4):
-      return "case 4";
+      return "case =5";
     case const (1 & 4):
-      return "case 5";
+      return "case =0";
+    case const (15 % 8):
+      return "case =7";
+    case const (19 ~/ 8):
+      return "case =2";
+    case const (19 >> 1):
+      return "case =9";
+    case const (87 >>> 1):
+      return "case =43";
+    case const (19 << 1):
+      return "case =38";
+    case const (1 > 2):
+      return "case =false";
+    case const (1 < 2):
+      return "case =true";
+    case const ("Lily" + " " "was" " " + "here"):
+      return "case String";
+    default:
+      return "default";
+  }
+}
+
+String test2(Object value) {
+  switch (value) {
+    case const (1 >= 2):
+      return "case =false";
+    case const (1 <= 2):
+      return "case =true";
+    default:
+      return "default";
+  }
+}
+
+String test3(Object value) {
+  switch (value) {
+    case const (1 == 2):
+      return "case =false";
+    case const (1 != 2):
+      return "case =true";
     default:
       return "default";
   }
 }
 
 main() {
-  Expect.equals("case 1", test(3));
-  Expect.equals("case 2", test("Lily was here"));
-  Expect.equals("case 3", test(4));
-  Expect.equals("case 4", test(5));
-  Expect.equals("case 5", test(0));
+  Expect.equals("case =3", test(3));
+  Expect.equals("case =1", test(1));
+  Expect.equals("case =4", test(4));
+  Expect.equals("case =28", test(28));
+  Expect.equals("case =5", test(5));
+  Expect.equals("case =0", test(0));
+  Expect.equals("case =7", test(7));
+  Expect.equals("case =2", test(2));
+  Expect.equals("case =9", test(9));
+  Expect.equals("case =43", test(43));
+  Expect.equals("case =38", test(38));
+  Expect.equals("case =false", test(false));
+  Expect.equals("case =true", test(true));
+  Expect.equals("case String", test("Lily was here"));
   Expect.equals("default", test(""));
   Expect.equals("default", test(42));
-  Expect.equals("default", test(true));
+
+  Expect.equals("case =false", test2(false));
+  Expect.equals("case =true", test2(true));
+
+  Expect.equals("case =false", test3(false));
+  Expect.equals("case =true", test3(true));
 }
