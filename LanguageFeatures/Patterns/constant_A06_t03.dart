@@ -28,38 +28,25 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-class C {
-  final v = 42;
-  static final s = "s";
-}
+const l = [1, 2, 3];
 
 main() {
   Object value = Object();
-  int x = 1;
-  final s = "";
-  C c = C();
   switch (value) {
-    case x:
-//       ^
+    case 2 / 1:
+//       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break;
-    case s:
-//       ^
+    case 1 && 2:
+//       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break;
-    case C.s:
-//       ^^^
+    case 1 || 2:
+//       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break;
-    case c:
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case C():
-//       ^^^
+    case l[0]:
+//       ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     default:

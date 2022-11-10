@@ -23,43 +23,65 @@
 /// constant expression.
 ///
 /// @description Check that it is a compile-time error if a constant pattern's
-/// value is not a valid constant expression.
+/// value is not a valid constant expression. Test expressions which are valid
+/// in Dart 2.19
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-class C {
-  final v = 42;
-  static final s = "s";
-}
-
 main() {
   Object value = Object();
-  int x = 1;
-  final s = "";
-  C c = C();
   switch (value) {
-    case x:
-//       ^
+    case 1 + 2:
+//       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break;
-    case s:
-//       ^
+    case 1 - 2:
+//       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break;
-    case C.s:
-//       ^^^
+    case 1 * 2:
+//       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break;
-    case c:
-//       ^
+    case 1 ^ 2:
+//       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case C():
-//       ^^^
+    case 1 % 2:
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 ~/ 2:
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 << 2:
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 >> 2:
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 >>> 2:
+//       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 > 2:
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 >= 2:
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 < 2:
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 <= 2:
+//       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     default:
