@@ -41,7 +41,7 @@ class Loggable {
   }
 
   @override
-  String toString() => "Area($value)";
+  String toString() => value.toStringAsFixed(2);
 }
 
 class Shape {

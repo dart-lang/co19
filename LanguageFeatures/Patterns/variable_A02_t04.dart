@@ -23,54 +23,30 @@
 ///     print('First field is int $x and second is String $s.');
 /// }
 /// ```
-/// @description Check that if a variable pattern in a as a subpattern of a
-/// final destructuring pattern then declared variable is final
+/// @description Check that if the type annotation is specified then the
+/// the pattern matches values of the appropriate type only. Test map pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
-import "patterns_lib.dart";
+import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
+
+String test(Map m) {
+  switch (m) {
+    case ({1: String b}):
+      a.expectStaticType<Exactly<String>>();
+      return "{1: <String>$a}";
+    case ({1: final int b}):
+      b.expectStaticType<Exactly<int>>();
+      return "{1: <int>$b}";
+    default:
+      return "default";
+  }
+}
 
 main() {
-  final (a, String b) = (1, "2");
-  a = 2;
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-  b = "";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final [c, String d] = [1, "2"];
-  c = 2;
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-  d = "";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final {1: e} = {1: "2", 3: "4"};
-  e = "3";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  final {1: String f} = {1: "2", 3: "4"};
-  f = "3";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  final Square(area: g) = Square(1);
-  g = Loggable(42);
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  final Square(area: Loggable h) = Square(1);
-  h = Loggable(42);
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals("{1: <String>x}", test({1: "x"}));
+  Expect.equals("{1: <int>2]", test({1: 2}));
+  Expect.equals("default", test({1: true}));
 }

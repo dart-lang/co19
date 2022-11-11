@@ -31,6 +31,7 @@
 
 import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
+import "patterns_lib.dart";
 
 String testRecord(Record r, [bool doTypeTest = false]) {
   switch (r) {
@@ -58,54 +59,54 @@ String testList(List l, [bool doTypeTest = false]) {
   }
 }
 
-String testMap(Map m, [bool doTypeTest = false]) {
+String testMap(Map m) {
   switch (m) {
-    case {var a: final b}:
-      if (doTypeTest) {
-        a.expectStaticType<Exactly<int>>();
-        b.expectStaticType<Exactly<String>>();
-      }
-      return "{$a: $b}";
+    case {1: var a}:
+      a.expectStaticType<Exactly<int>>();
+      return "{1: $a}";
+    case {2: final b}:
+      b.expectStaticType<Exactly<String>>();
+      return "{2: $b}";
     default:
       return "default";
   }
 }
 
-String testSet(Set s, [bool doTypeTest = false]) {
-  switch (s) {
-    case {var a, final b}:
-      if (doTypeTest) {
-        a.expectStaticType<Exactly<int>>();
-        b.expectStaticType<Exactly<String>>();
-      }
-      return "{$a, $b}";
+String testObject(Shape shape) {
+  switch (shape) {
+    case Square(area: var a):
+      return "a=$a";
+    case Rectangle(area: final b):
+      return "b=$b";
     default:
       return "default";
   }
 }
 
 main() {
-  Expect.equals("[1, x]", testRecord((1, "x"), true));
-  Expect.equals("[1, 2]", testRecord((1, 2)));
-  Expect.equals("[true, false]", testRecord((true, false)));
+  Expect.equals("(1, x)", testRecord((1, "x"), true));
+  Expect.equals("(1, 2)", testRecord((1, 2)));
+  Expect.equals("(true, false)", testRecord((true, false)));
   Expect.equals("default", testRecord((1, 2, 3)));
   Expect.equals("default", testRecord(("x",)));
 
-  Expect.equals("(1, x)", testList([1, "x"], true));
-  Expect.equals("(1, 2)", testList([1, 2]));
+  Expect.equals("[1, x]", testList([1, "x"], true));
+  Expect.equals("[1, 2]", testList([1, 2]));
   Expect.equals("[true, false]", testList([true, false]));
   Expect.equals("default", testList([1, 2, 3]));
   Expect.equals("default", testList(["x"]));
 
-  Expect.equals("{1: x}", testMap({1: "x"}, true));
   Expect.equals("{1: 2}", testMap({1: 2}));
-  Expect.equals("{true: false}", testMap({true: false}));
-  Expect.equals("default", testMap({1: 2, 3: 4}));
+  Expect.equals("{1: 3}", testMap({1: 3, 3: 4}));
+  Expect.equals("{2: x}", testMap({2: "x"}));
+  Expect.equals("{2: true}", testMap({2: true}));
+  Expect.equals("default", testMap({3: 3}));
   Expect.equals("default", testMap({}));
 
-  Expect.equals("{1, x}", testSet({1, "x"}, true));
-  Expect.equals("{1, 2}", testSet({1, 2}));
-  Expect.equals("{true, false}", testSet({true, false}));
-  Expect.equals("default", testSet({1, 2, 3}));
-  Expect.equals("default", testSet({"x"}));
+  Expect.equals("a=1.00", testObject(Square(1)));
+  Expect.equals("a=4.00", testObject(Square(2)));
+  Expect.equals("b=2.00", testObject(Rectangle(1, 2)));
+  Expect.equals("b=4.00", testObject(Rectangle(2, 2)));
+  Expect.equals("default", testObject(Circle(1)));
+  Expect.equals("default", testObject(Shape()));
 }

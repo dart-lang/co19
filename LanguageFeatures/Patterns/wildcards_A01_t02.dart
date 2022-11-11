@@ -29,10 +29,8 @@ String test(Map map) {
   switch (map) {
     case {1: _}:
       return "{1: _}";
-    case {String _: 42}:
-      return "{String _: 42}";
-    case {_: int _}:
-      return "{_: int _}";
+    case {42: String _}:
+      return "{42: String _}";
     default:
       return "default";
   }
@@ -40,27 +38,23 @@ String test(Map map) {
 
 main() {
   var map1 = {1: 2, 3: 4};
-  var {_: _two, _: __} = map1;
-  Expect.equals(2, _two);
+  var {1: _, 2: __} = map1;
   Expect.equals(4, __);
 
   var map2 = {"1": 2, "3": 4};
-  var {String _: two, _: num ___} = map2;
-  Expect.equals(2, two);
+  var {"1": _, _: num ___} = map2;
   Expect.equals(4, ___);
 
   Expect.throws(() {
-    var {int _: _, _: num _} = map2;
+    var {"1": String _, "3": num _} = map2;
   });
   Expect.throws(() {
-    var {_: String _, _: num _} = map2;
+    var {"1": _, "3": String _} = map2;
   });
-  Expect.equals("{1, _}", {1: 2});
-  Expect.equals("{1, _}", {1: 42});
-  Expect.equals("{String _: 42}", {"", 42});
-  Expect.equals("{_: int _}", {true, 42});
-  Expect.equals("{_: int _}", {"x", 41});
+  Expect.equals("{1, _}", {1: 2, 2: 1});
+  Expect.equals("{1, _}", {1: 3, 42: ""});
+  Expect.equals("{42: String _}", {42: "", 2, "2"});
   Expect.equals("default", {2: 1});
-  Expect.equals("default", {1: 2, 2: 1});
+  Expect.equals("default", {3: 2, 2: 1});
   Expect.equals("default", {});
 }

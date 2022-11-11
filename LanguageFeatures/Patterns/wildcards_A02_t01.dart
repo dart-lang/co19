@@ -49,9 +49,7 @@ main() {
   var list = [1, 2];
   var [_, _a] = list;
   var map = {1: 2};
-  var {_: _b} = map;
-  var set = {1, 2};
-  var {_, _c} = set;
+  var {1: _} = map;
 
   if (_ == 1) {}
 //    ^
