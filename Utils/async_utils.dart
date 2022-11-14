@@ -159,8 +159,8 @@ class AsyncExpect {
         return future;
       },
        onError: (e) {
-        if (error is Function) {
-          Expect.isTrue(Function.apply(error, [e]), msg);
+        if (error is Function(Object)) {
+          Expect.isTrue(error(e), msg);
         } else {
           Expect.equals(error, e, msg);
         }
