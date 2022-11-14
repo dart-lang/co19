@@ -10,8 +10,10 @@
 /// an abstract function and getter of the same name.
 /// @author rodionov
 
-
 class C {
+//    ^
+// [cfe] unspecified
+
   String f(int f); // abstract
   int get f {return 0;}
 //        ^
@@ -20,7 +22,5 @@ class C {
 }
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C();
 }

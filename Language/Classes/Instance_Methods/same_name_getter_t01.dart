@@ -15,7 +15,6 @@
 /// instance method named n and an instance getter named n.
 /// @author ngl@unipro.ru
 
-
 class C {
   foo() {}
   get foo {}
@@ -25,10 +24,6 @@ class C {
 }
 
 main() {
-  try {
-    C c = new C();
-    c.foo;
-//    ^
-// [cfe] unspecified
-  } catch (anything) {}
+  C c = new C();
+  c.foo;
 }

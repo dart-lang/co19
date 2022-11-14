@@ -13,8 +13,6 @@
 /// @description Checks that it is a compile-time error if a class contains
 /// two instance variables with the same name.
 /// @author msyabro
-/// @reviewer iefremov
-
 
 class C {
   var conflictingName;
@@ -25,10 +23,6 @@ class C {
 }
 
 main() {
-  try {
-    var c = new C();
-    c.conflictingName;
-//    ^
-// [cfe] unspecified
-  } catch (e) {}
+  var c = new C();
+  c.conflictingName;
 }

@@ -13,12 +13,8 @@
 /// @description Checks that it is a compile-time error if a class declares an 
 /// instance method and an abstract method with the same name.
 /// @author iefremov
-/// @reviewer rodionov
-
 
 class A {
-//    ^
-// [cfe] unspecified
   f() {}
   f();
 //^
@@ -27,9 +23,5 @@ class A {
 }
 
 main() {
-  try {
-    new A().f();
-//          ^
-// [cfe] unspecified
-  } catch (x) {}
+  new A().f();
 }

@@ -12,7 +12,6 @@
 /// an explicitly declared getter and a method with the same name.
 /// @author vasya
 
-
 class C {
   get foo { return "foo"; }
   foo() { return "foo()"; }
@@ -22,9 +21,5 @@ class C {
 }
 
 main() {
-  try {
-    new C().foo();
-//          ^
-// [cfe] unspecified
-  } catch (e) {}
+  new C().foo();
 }

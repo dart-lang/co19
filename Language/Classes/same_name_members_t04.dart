@@ -10,11 +10,10 @@
 /// a function and an abstract function of the same name.
 /// @author rodionov
 
-
 class C {
 //    ^
 // [analyzer] unspecified
-// [cfe] unspecified
+
   void f() {}
   String f(int f); // abstract
 //       ^
@@ -23,7 +22,5 @@ class C {
 }
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C();
 }

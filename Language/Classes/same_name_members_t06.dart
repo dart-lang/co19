@@ -10,10 +10,7 @@
 /// an instance method and an abstract getter of the same name.
 /// @author kaigorodov
 
-
 class C {
-//    ^
-// [cfe] unspecified
   String f(int f) {}
   int get f;
 //        ^
@@ -22,7 +19,5 @@ class C {
 }
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C();
 }
