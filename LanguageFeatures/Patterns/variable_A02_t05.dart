@@ -24,14 +24,13 @@
 /// }
 /// ```
 /// @description Check that if the type annotation is specified then the
-/// the pattern matches values of the appropriate type only. Test Object pattern
+/// the pattern matches values of the appropriate type only. Test map pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
-import "patterns_lib.dart";
 
 String test(Map m) {
   switch (m) {

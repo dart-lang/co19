@@ -23,47 +23,54 @@
 ///     print('First field is int $x and second is String $s.');
 /// }
 /// ```
-/// @description Check that if variable in a variable pattern is declared final
-/// then it is a compile-time error to assign a value to it
+/// @description Check that if a variable pattern in a as a subpattern of a
+/// final destructuring pattern then declared variable is final
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
-void test(Record r) {
-  switch (r) {
-    case (final a, {final b}):
-      a = 1;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      b = 1;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case (final int c, final String d):
-      c = 1;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      d = "";
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    break;
-    case (final int? e, {final String? f}):
-      e = 1;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      f = "";
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-  }
-}
+import "patterns_lib.dart";
 
 main() {
-  test(());
+  final (a, String b) = (1, "2");
+  a = 2;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+  b = "";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final [c, String d] = [1, "2"];
+  c = 2;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+  d = "";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final {1: e} = {1: "2", 3: "4"};
+  e = "3";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final {1: String f} = {1: "2", 3: "4"};
+  f = "3";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final Square(area: g) = Square(1);
+  g = Unit(42);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final Square(area: Unit h) = Square(1);
+  h = Unit(42);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

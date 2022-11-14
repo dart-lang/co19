@@ -34,7 +34,7 @@ import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
 main() {
-  var (a1, b1) = (1, 3.14);
+  var (a1, double b1) = (1, 3.14);
   Expect.equals(1, a1);
   Expect.equals(3.14, b1);
   a1.expectStaticType<Exactly<int>>();
@@ -49,7 +49,7 @@ main() {
   Expect.equals(5, c1);
   Expect.equals("6", d1);
 
-  var [a2, b2] = [1, 3.14];
+  var [int a2, b2] = [1, 3.14];
   Expect.equals(1, a2);
   Expect.equals(3.14, b2);
   a2.expectStaticType<Exactly<int>>();
@@ -58,13 +58,13 @@ main() {
   Expect.equals(3, a2);
   Expect.equals(4, b2);
 
-  final (c2, d2) = (5, "6");
+  final (c2, String d2) = (5, "6");
   c2.expectStaticType<Exactly<int>>();
   d2.expectStaticType<Exactly<String>>();
   Expect.equals(5, c2);
   Expect.equals("6", d2);
 
-  var {1: a3} = {1: "3.14"};
+  var {1: String a3} = {1: "3.14"};
   Expect.equals("3.14", a3);
   a3.expectStaticType<Exactly<String>>();
   {1: a3} = {1: "42"};
@@ -74,12 +74,12 @@ main() {
   d3.expectStaticType<Exactly<String>>();
   Expect.equals("6", d3);
 
-  var Square(area: var a4) = Square(1);
+  var Square(area: a4) = Square(1);
   Expect.equals(a4, 1);
-  a4 = Loggable(42);
-  a4.expectStaticType<Exactly<Loggable>>();
+  a4 = Unit(42);
+  a4.expectStaticType<Exactly<Unit>>();
 
-  var Square(area: final d4) = Square(1);
-  d4.expectStaticType<Exactly<Loggable>>();
+  final Square(area: Unit d4) = Square(1);
+  d4.expectStaticType<Exactly<Unit>>();
   Expect.equals(d4, 1);
 }

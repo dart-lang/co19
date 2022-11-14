@@ -23,55 +23,91 @@
 ///     print('First field is int $x and second is String $s.');
 /// }
 /// ```
-/// @description Check that if the type annotation is specified then the
-/// the pattern matches values of the appropriate type only. Test record
+/// @description Check that if the type annotation is omitted then the
+/// variable's type is inferred and the pattern matches all values. Test the
+/// case when type, `var` and `final` are omitted
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
+import "patterns_lib.dart";
 
-class C {
-  @override
-  String toString() => "C";
+String testRecord(Record r, [bool doTypeTest = false]) {
+  switch (r) {
+    case (a, b):
+      if (doTypeTest) {
+        a.expectStaticType<Exactly<int>>();
+        b.expectStaticType<Exactly<String>>();
+      }
+      return "($a, $b)";
+    default:
+      return "default";
+  }
 }
 
-String test(Record r) {
-  switch (r) {
-    case (int a, String b):
+String testList(List l, [bool doTypeTest = false]) {
+  switch (l) {
+    case [a, b]:
+      if (doTypeTest) {
+        a.expectStaticType<Exactly<int>>();
+        b.expectStaticType<Exactly<String>>();
+      }
+      return "[$a, $b]";
+    default:
+      return "default";
+  }
+}
+
+String testMap(Map m) {
+  switch (m) {
+    case {1: a}:
       a.expectStaticType<Exactly<int>>();
+      return "{1: $a}";
+    case {2: b}:
       b.expectStaticType<Exactly<String>>();
-      return "(<int>$a, <String>$b)";
-    case (int c, final int d):
-      c.expectStaticType<Exactly<int>>();
-      d.expectStaticType<Exactly<int>>();
-      return "(<int>$c, <int>$d)";
-    case (String e, bool f):
-      e.expectStaticType<Exactly<String>>();
-      f.expectStaticType<Exactly<bool>>();
-      return "(<String>$e, <bool>$f)";
-    case (int g, final h):
-      g.expectStaticType<Exactly<int>>();
-      return "(<int>$g,  final $h)";
+      return "{2: $b}";
+    default:
+      return "default";
+  }
+}
+
+String testObject(Shape shape) {
+  switch (shape) {
+    case Square(area: a):
+      return "a=$a";
+    case Rectangle(area: b):
+      return "b=$b";
     default:
       return "default";
   }
 }
 
 main() {
-  Expect.equals("(<int>1, <String>x)", test((1, "x")));
-  Expect.equals("(<int>42, <String>answer)", test((42, "answer")));
-  Expect.equals("(<int>1, <int>2)", test((1, 2)));
-  Expect.equals("(<int>3, <int>4)", test((3, 4)));
-  Expect.equals("(<String>x, <bool>true)", test(("x", true)));
-  Expect.equals("(<String>y, <bool>false)", test(("y", false)));
-  Expect.equals("(<int>0, final false)", test((0, false)));
-  Expect.equals("(<int>1, final C)", test((1, C())));
-  Expect.equals("default", test((true, false)));
-  Expect.equals("default", test((C(), C())));
-  Expect.equals("default", test((1, 2, 3)));
-  Expect.equals("default", test((1,)));
-  Expect.equals("default", test((1, "2", 3)));
-  Expect.equals("default", test(("x",)));
+  Expect.equals("(1, x)", testRecord((1, "x"), true));
+  Expect.equals("(1, 2)", testRecord((1, 2)));
+  Expect.equals("(true, false)", testRecord((true, false)));
+  Expect.equals("default", testRecord((1, 2, 3)));
+  Expect.equals("default", testRecord(("x",)));
+
+  Expect.equals("[1, x]", testList([1, "x"], true));
+  Expect.equals("[1, 2]", testList([1, 2]));
+  Expect.equals("[true, false]", testList([true, false]));
+  Expect.equals("default", testList([1, 2, 3]));
+  Expect.equals("default", testList(["x"]));
+
+  Expect.equals("{1: 2}", testMap({1: 2}));
+  Expect.equals("{1: 3}", testMap({1: 3, 3: 4}));
+  Expect.equals("{2: x}", testMap({2: "x"}));
+  Expect.equals("{2: true}", testMap({2: true}));
+  Expect.equals("default", testMap({3: 3}));
+  Expect.equals("default", testMap({}));
+
+  Expect.equals("a=1.00", testObject(Square(1)));
+  Expect.equals("a=4.00", testObject(Square(2)));
+  Expect.equals("b=2.00", testObject(Rectangle(1, 2)));
+  Expect.equals("b=4.00", testObject(Rectangle(2, 2)));
+  Expect.equals("default", testObject(Circle(1)));
+  Expect.equals("default", testObject(Shape()));
 }

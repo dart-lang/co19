@@ -24,46 +24,35 @@
 /// }
 /// ```
 /// @description Check that if variable in a variable pattern is declared final
-/// then it is a compile-time error to assign a value to it. Test records
+/// then it is a compile-time error to assign a value to it
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
-void test(Record r) {
-  switch (r) {
-    case (final a, {final b}):
-      a = 1;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      b = 1;
+import "patterns_lib.dart";
+
+void test(Shape shape) {
+  switch (shape) {
+    case Square(area: final s):
+      s = Unit(1);
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified
       break;
-    case (final int c, final String d):
-      c = 1;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      d = "";
+    case Circle(area: final Unit s):
+      s = Unit(1);
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified
     break;
-    case (final int? e, {final String? f}):
-      e = 1;
+    case Circle(area: final Unit? s):
+      s = Unit(1);
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      f = "";
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
   }
 }
 
 main() {
-  test(());
+  test(Square(1));
 }

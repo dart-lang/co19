@@ -23,54 +23,37 @@
 ///     print('First field is int $x and second is String $s.');
 /// }
 /// ```
-/// @description Check that if a variable pattern in a as a subpattern of a
-/// final destructuring pattern then declared variable is final
+/// @description Check that if the type annotation is specified then the
+/// the pattern matches values of the appropriate type only. Test Object pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
+import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
+String test(Shape shape) {
+  switch (shape) {
+    case Square(area: double d1):
+      return "Square(area: double $d1)";
+    case Square(area: Unit a):
+      a.expectStaticType<Exactly<Unit>>();
+      return "Square(area: $a)";
+    case Circle(size: double d2):
+      b.expectStaticType<Exactly<Unit>>();
+      return "Circle(size: double $d2)";
+    case Circle(size: Unit b):
+      b.expectStaticType<Exactly<Unit>>();
+      return "Circle(size: $b)";
+    default:
+      return "default";
+  }
+}
+
 main() {
-  final (a, String b) = (1, "2");
-  a = 2;
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-  b = "";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final [c, String d] = [1, "2"];
-  c = 2;
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-  d = "";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final {1: e} = {1: "2", 3: "4"};
-  e = "3";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  final {1: String f} = {1: "2", 3: "4"};
-  f = "3";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  final Square(area: g) = Square(1);
-  g = Loggable(42);
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  final Square(area: Loggable h) = Square(1);
-  h = Loggable(42);
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals("Square(area: 1.00)", test(Square(1)));
+  Expect.equals("Square(area: 4.00)", test(Square(2)));
+  Expect.equals("Circle(size: 1.00)", test(Circle(1)));
+  Expect.equals("default", test(Shape()));
 }

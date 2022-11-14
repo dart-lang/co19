@@ -24,7 +24,8 @@
 /// }
 /// ```
 /// @description Check that if the type annotation is omitted then the
-/// variable's type is inferred and the pattern matches all values
+/// variable's type is inferred and the pattern matches all values. Test `var`
+/// and `final`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

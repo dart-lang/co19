@@ -24,14 +24,14 @@
 /// }
 /// ```
 /// @description Check that if variable in a variable pattern is declared final
-/// then it is a compile-time error to assign a value to it. Test records
+/// then it is a compile-time error to assign a value to it. Test lists
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
-void test(Record r) {
-  switch (r) {
-    case (final a, {final b}):
+void test(List l) {
+  switch (l) {
+    case [final a, final b]:
       a = 1;
 //    ^
 // [analyzer] unspecified
@@ -41,7 +41,7 @@ void test(Record r) {
 // [analyzer] unspecified
 // [cfe] unspecified
       break;
-    case (final int c, final String d):
+    case [final int c, final String d]:
       c = 1;
 //    ^
 // [analyzer] unspecified
@@ -51,7 +51,7 @@ void test(Record r) {
 // [analyzer] unspecified
 // [cfe] unspecified
     break;
-    case (final int? e, {final String? f}):
+    case [final int? e, final String? f]:
       e = 1;
 //    ^
 // [analyzer] unspecified
@@ -65,5 +65,5 @@ void test(Record r) {
 }
 
 main() {
-  test(());
+  test([]);
 }
