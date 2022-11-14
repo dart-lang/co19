@@ -8,7 +8,6 @@
 /// an instance method and an abstract getter of the same name.
 /// @author kaigorodov
 
-
 abstract class A {
   String f(int f) => "";
   int get f;
@@ -19,6 +18,8 @@ abstract class A {
 
 class C extends A {
   int get f => 42;
+//        ^
+// [cfe] unspecified
 }
 
 main() {

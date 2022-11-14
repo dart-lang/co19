@@ -20,6 +20,4 @@ class C {
 
 main() {
   C().foo();
-//    ^
-// [cfe] unspecified
 }

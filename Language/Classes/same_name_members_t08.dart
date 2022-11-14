@@ -8,7 +8,6 @@
 /// a variable and an abstract function of the same name.
 /// @author rodionov
 
-
 abstract class A {
   var f;
   String f(int f);
@@ -21,6 +20,7 @@ class C extends A {
   String f(int f) => "Lily was here";
 //       ^
 // [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
