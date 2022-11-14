@@ -16,13 +16,6 @@ abstract class A {
 // [cfe] unspecified
 }
 
-class C extends A {
-  String f(int f) => "Lily was here";
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
-  new C();
+  print(A);
 }

@@ -16,12 +16,6 @@ abstract class A {
 // [cfe] unspecified
 }
 
-class C extends A {
-  int get f => 42;
-//        ^
-// [cfe] unspecified
-}
-
 main() {
-  new C();
+  print(A);
 }

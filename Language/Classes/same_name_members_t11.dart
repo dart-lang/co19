@@ -8,7 +8,6 @@
 /// a variable, function, and an abstract getter of the same name.
 /// @author kaigorodov
 
-
 abstract class A {
   var f = 0;
   String get f;
@@ -21,14 +20,6 @@ abstract class A {
 // [cfe] unspecified
 }
 
-class C extends A {
-  String get f => "Lily";
-  String f(int f) => "was here";
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
-  new C();
+  print(A);
 }

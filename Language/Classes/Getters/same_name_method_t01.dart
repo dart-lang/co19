@@ -12,7 +12,7 @@
 
 class C {
   get foo => "foo";
-  foo() => return "foo()";
+  foo() => "foo()";
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
