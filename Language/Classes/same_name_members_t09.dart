@@ -10,11 +10,10 @@
 /// a variable and an abstract getter of the same name.
 /// @author rodionov
 
-
 class C {
 //    ^
 // [analyzer] unspecified
-// [cfe] unspecified
+
   var f = 0;
   String get f;
 //           ^
@@ -23,7 +22,5 @@ class C {
 }
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C();
 }

@@ -12,7 +12,6 @@
 /// an implicit getter and a method with the same name.
 /// @author iefremov
 
-
 class C {
   var foo;
   foo() { return "foo()"; }
@@ -22,9 +21,5 @@ class C {
 }
 
 main() {
-  try {
-    new C().foo();
-//          ^
-// [cfe] unspecified
-  } catch (e) {}
+  new C().foo();
 }

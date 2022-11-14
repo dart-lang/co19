@@ -22,6 +22,7 @@ class C {
   static set foo(String s) {
 //           ^
 // [analyzer] unspecified
+    // [cfe] unspecified
     foo2 = s;
   }
   static String get foo {

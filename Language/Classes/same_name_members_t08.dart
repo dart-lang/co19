@@ -10,10 +10,7 @@
 /// a variable and an abstract function of the same name.
 /// @author rodionov
 
-
 class C {
-//    ^
-// [cfe] unspecified
   var f;
   String f(int f);
 //       ^
@@ -22,7 +19,5 @@ class C {
 }
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C();
 }
