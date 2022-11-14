@@ -23,8 +23,6 @@ abstract class A {
 
 class C extends A {
   String get f => "Lily";
-//           ^
-// [analyzer] unspecified
   String f(int f) => "was here";
 //       ^
 // [analyzer] unspecified
