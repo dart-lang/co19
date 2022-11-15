@@ -31,7 +31,7 @@
 
 void test(Record r) {
   switch (r) {
-    case (final a, {final b}):
+    case (final a, name: final b):
       a = 1;
 //    ^
 // [analyzer] unspecified
@@ -51,7 +51,7 @@ void test(Record r) {
 // [analyzer] unspecified
 // [cfe] unspecified
     break;
-    case (final int? e, {final String? f}):
+    case (final int? e, name: final String? f):
       e = 1;
 //    ^
 // [analyzer] unspecified
