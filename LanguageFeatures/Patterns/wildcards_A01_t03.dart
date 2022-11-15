@@ -18,43 +18,43 @@
 ///     print('First field is int and second is String.');
 /// }
 /// ```
-/// @description Check that wildcard `_` can be used in map patterns
+/// @description Check that wildcard `_` can be used in record patterns
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/expect.dart";
 
-String test(Map map) {
-  switch (map) {
-    case {1: _}:
-      return "{1: _}";
-    case {42: String _}:
-      return "{42: String _}";
+String test(Record r) {
+  switch (r) {
+    case (_, 2, var x):
+      return "[_, 2, var x]";
+    case (String _, _, _):
+      return "(String _, _, _)";
     default:
       return "default";
   }
 }
 
 main() {
-  var map1 = {1: 2, 3: 4};
-  var {1: _, 2: __} = map1;
+  var r1 = (1, 2, 3, 4);
+  var (_, _two, _, __) = r1;
+  Expect.equals(2, _two);
   Expect.equals(4, __);
 
-  var map2 = {"1": 2, "3": 4};
-  var {"1": _, _: num ___} = map2;
+  var r2 = ("1", 2, "3", 4);
+  var (String _, two, _, num ___) = r2;
+  Expect.equals(2, two);
   Expect.equals(4, ___);
 
   Expect.throws(() {
-    var {"1": String _, "3": num _} = map2;
+    var (int _, _, _, num _) = r2;
   });
   Expect.throws(() {
-    var {"1": _, "3": String _} = map2;
+    var (_, String _, _, num _) = r2;
   });
-  Expect.equals("{1, _}", {1: 2, 2: 1});
-  Expect.equals("{1, _}", {1: 3, 42: ""});
-  Expect.equals("{42: String _}", {42: "", 2, "2"});
-  Expect.equals("default", {2: 1});
-  Expect.equals("default", {3: 2, 2: 1});
-  Expect.equals("default", {});
+  Expect.equals("(_, 2, var x)", (1, 2, "3"));
+  Expect.equals("(String _, _, _)", ("0", 1, 2));
+  Expect.equals("default", (1, 1, 3));
+  Expect.equals("default", ((1, 2), 3, 4));
 }

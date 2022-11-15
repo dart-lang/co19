@@ -27,7 +27,7 @@
 /// then it is a compile-time error to assign a value to it. Test lists
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
+// SharedOptions=--enable-experiment=patterns
 
 void test(List l) {
   switch (l) {

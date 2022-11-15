@@ -24,10 +24,11 @@
 /// }
 /// ```
 /// @description Check that if variable in a variable pattern is declared final
-/// then it is a compile-time error to assign a value to it
+/// then it is a compile-time error to assign a value to ity. Test Object
+/// pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
+// SharedOptions=--enable-experiment=patterns
 
 import "patterns_lib.dart";
 

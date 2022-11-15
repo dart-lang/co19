@@ -21,7 +21,7 @@
 /// @description Check that wildcard `_` can be used in list patterns
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
+// SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
 

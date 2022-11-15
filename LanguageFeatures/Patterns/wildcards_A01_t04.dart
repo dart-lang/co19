@@ -18,65 +18,29 @@
 ///     print('First field is int and second is String.');
 /// }
 /// ```
-/// @description Check that if variable name is _, it doesn't bind any variable
+/// @description Check that wildcard `_` can be used in Object patterns
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
+// SharedOptions=--enable-experiment=patterns
 
 import "patterns_lib.dart";
+import "../../Utils/expect.dart";
 
-testRecord(Record r) {
-  switch (r) {
-    case (_, String s):
-      if (_ is int) {}
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-}
-
-testList(List list) {
-  switch (list) {
-    case [_, String s]:
-      if (_ is int) {}
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-}
-
-testMap(Map map) {
-  switch (map) {
-    case {1: _}:
-      if (_ is int) {}
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-}
-
-testObject(Shape shape) {
+String test(Shape shape) {
   switch (shape) {
     case Rectangle(size: 1, area: _):
-      if (_ == 1) {}
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+      return "Rectangle(size: 1, area: _)";
+    case Rectangle(size: 2, area: _):
+      return "Rectangle(size: 1, area: _)";
+    default:
+      return "default";
   }
 }
 
 main() {
-  var list = [1, 2];
-  var [_, _a] = list;
-  var map = {1: 2};
-  var {1: _} = map;
-
-  if (_ == 1) {}
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  testRecord(());
-  testList([]);
-  testMap({});
-  testObject(Rectangle(1, 2));
+  Expect.equals("Rectangle(size: 1, area: _)", Rectangle(1, 2));
+  Expect.equals("Rectangle(size: 1, area: _)", Rectangle(1, 3));
+  Expect.equals("Rectangle(size: 2, area: _)", Rectangle(2, 2));
+  Expect.equals("Rectangle(size: 2, area: _)", Rectangle(2, 1));
+  Expect.equals("default", Rectangle(3, 2));
 }
