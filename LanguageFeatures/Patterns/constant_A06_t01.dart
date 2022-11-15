@@ -62,6 +62,10 @@ main() {
 //       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    case const(C().v):
+//       ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     default:
   }
 }

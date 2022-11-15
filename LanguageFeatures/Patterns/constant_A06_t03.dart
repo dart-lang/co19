@@ -37,11 +37,11 @@ main() {
 //       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 && 2:
+    case true && true:
 //       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 || 2:
+    case false || true:
 //       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

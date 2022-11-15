@@ -24,7 +24,7 @@
 ///
 /// @description Check that it is a compile-time error if a constant pattern's
 /// value is not a valid constant expression. Test expressions which are valid
-/// in Dart 2.19
+/// in Dart 2.19 but not valid in Dart-with-patterns
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
