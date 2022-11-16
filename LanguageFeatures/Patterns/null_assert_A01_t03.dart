@@ -9,7 +9,7 @@
 /// value is null. It lets you forcibly assert that you know a value shouldn't
 /// be null, much like the corresponding ! null-assert expression.
 ///
-/// @description Check null-assert pattern in a switch statement
+/// @description Check null-assert pattern in a if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -18,13 +18,11 @@ import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 
 test(List<String?> list) {
-  switch (list) {
-    case ['name', var name!]:
-      name.expectStaticType<Exactly<int>>();
-      name.substring(0);
-      break;
-    default:
-      Expect.fail("Wrong branch of code");
+  if (list case ['name', var name!]) {
+    name.expectStaticType<Exactly<int>>();
+    name.substring(0);
+  } else {
+    Expect.fail("Wrong branch of code");
   }
 }
 
