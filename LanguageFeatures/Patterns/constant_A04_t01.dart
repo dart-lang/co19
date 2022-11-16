@@ -34,7 +34,7 @@ class C {
   const C(this.v);
 }
 
-String test(C value) {
+String test1(C value) {
   switch (value) {
     case const C(0):
       return "0";
@@ -47,13 +47,34 @@ String test(C value) {
   }
 }
 
+String test2(C value) {
+  if (value case const C(0)) {
+    return "0";
+  } else if (value case const C(1)) {
+    return "1";
+  } else if (value case const C("x")) {
+    return "x";
+  } else {
+    return "default";
+  }
+}
+
 main() {
-  Expect.equals("0", test(const C(0)));
-  Expect.equals("default", test(C(0)));
-  Expect.equals("1", test(const C(1)));
-  Expect.equals("default", test(C(1)));
-  Expect.equals("x", test(const C("x")));
-  Expect.equals("default", test(C("x")));
-  Expect.equals("default", test(const C(2)));
-  Expect.equals("default", test(const C("y")));
+  Expect.equals("0", test1(const C(0)));
+  Expect.equals("default", test1(C(0)));
+  Expect.equals("1", test1(const C(1)));
+  Expect.equals("default", test1(C(1)));
+  Expect.equals("x", test1(const C("x")));
+  Expect.equals("default", test1(C("x")));
+  Expect.equals("default", test1(const C(2)));
+  Expect.equals("default", test1(const C("y")));
+
+  Expect.equals("0", test2(const C(0)));
+  Expect.equals("default", test2(C(0)));
+  Expect.equals("1", test2(const C(1)));
+  Expect.equals("default", test2(C(1)));
+  Expect.equals("x", test2(const C("x")));
+  Expect.equals("default", test2(C("x")));
+  Expect.equals("default", test2(const C(2)));
+  Expect.equals("default", test2(const C("y")));
 }

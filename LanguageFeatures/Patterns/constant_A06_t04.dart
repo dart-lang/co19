@@ -22,54 +22,77 @@
 /// It is a compile-time error if a constant pattern's value is not a valid
 /// constant expression.
 ///
-/// @description Check that it is a compile-time error if a constant pattern's
-/// value is not a valid constant expression. Test if-case statement
+/// @description Check that a syntax error is emitted for a term which could be
+/// derived from <caseHead> in Dart 2.19, but cannot be derived from <caseHead>
+/// when patterns are added to Dart. Test if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-class C {
-  final v = 42;
-  static final s = "s";
-}
-
 main() {
   Object value = Object();
-  int x = 1;
-  final s = "";
-  C c = C();
-  if (value case x) {
-//               ^
+  if (value case 1 + 2) {
+//               ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  if (value case s) {
-//               ^
+  if (value case 1 - 2) {
+//       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  if (value case C.s) {
-//               ^^^
+  if (value case 1 * 2) {
+//               ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  if (value case c) {
-//               ^
+  if (value case 1 ^ 2) {
+//               ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  if (value case const C()) {
-//               ^^^^^^^^^
+  if (value case 1 % 2) {
+//               ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  if (value case const (C().v)) {
-//               ^^^^^^^^^^^^^
+  if (value case 1 ~/ 2) {
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  if (value case "x is $x") {
-//               ^^^^^^^^^
+  if (value case 1 << 2) {
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (value case 1 >> 2) {
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (value case 1 >>> 2) {
+//               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (value case 1 > 2) {
+//               ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (value case 1 >= 2) {
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (value case 1 < 2) {
+//               ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (value case 1 <= 2) {
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

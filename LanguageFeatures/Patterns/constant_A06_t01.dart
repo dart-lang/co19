@@ -58,12 +58,16 @@ main() {
 //       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case C():
-//       ^^^
+    case const C():
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case const(C().v):
-//       ^^^^^^^^^^^^
+    case const (C().v):
+//       ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case "x is $x":
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     default:

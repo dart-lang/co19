@@ -22,28 +22,66 @@
 /// Simple "primitive" literals like Booleans and numbers are valid patterns
 /// since they aren't ambiguous.
 ///
-/// @description Check that it is a compile-time error if [Symbol] is used in a
-/// constant patterns
+/// @description Check booleans, numbers and strings in a constant patterns.
+/// Test if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-void test(Symbol value) {
-  switch (value) {
-    case #+:
-//       ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case #foo:
-//       ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    default:
+import "../../Utils/expect.dart";
+
+String testBool(bool value) {
+  if (value case true) {
+    return "true";
+  } else if (value case false) {
+    return "false";
+  } else {
+    return "default";
+  }
+}
+
+String testNum(num value) {
+  if (value case 0) {
+    return "zero";
+  } else if (value case 3.14) {
+    return "pi";
+  } else if (value case 42) {
+    return "answer";
+  } else if (value case 0x7FFFFFFFFFFFFFFF) {
+    return "max_int";
+  } else {
+    return "default";
+  }
+}
+
+String testString(String value) {
+  if (value case "0") {
+    return "zero";
+  } else if (value case "3.14") {
+    return "pi";
+  } else if (value case "42") {
+    return "answer";
+  } else if (value case "") {
+    return "empty";
+  } else {
+    return "default";
   }
 }
 
 main() {
-  test(Symbol("+"));
+  Expect.equals("true", testBool(true));
+  Expect.equals("false", testBool(false));
+
+  Expect.equals("zero", testNum(0));
+  Expect.equals("zero", testNum(0.0));
+  Expect.equals("pi", testNum(3.14));
+  Expect.equals("answer", testNum(42));
+  Expect.equals("max_int", testNum(9223372036854775807));
+  Expect.equals("default", testNum(1));
+
+  Expect.equals("zero", testString("0"));
+  Expect.equals("pi", testString("3.14"));
+  Expect.equals("answer", testString("42"));
+  Expect.equals("empty", testString(""));
+  Expect.equals("default", testString("Lily was here"));
 }

@@ -28,8 +28,8 @@
 /// unmarked variable patterns are only allowed in irrefutable contexts where
 /// constant patterns are prohibited.
 ///
-/// @description Check named constants with a library prefix in a constant
-/// patterns
+/// @description Check static constants on classes with a library prefix in a
+/// constant patterns. test if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -38,37 +38,34 @@ import "patterns_lib.dart" as p;
 import "../../Utils/expect.dart";
 
 String testBool(bool value) {
-  switch (value) {
-    case p.True:
-      return "true";
-    case p.False:
-      return "false";
-    default:
-      return "default";
+  if (value case p.C0.True) {
+    return "true";
+  } else if (value case p.C0.False) {
+    return "false";
+  } else {
+    return "default";
   }
 }
 
 String testNum(num value) {
-  switch (value) {
-    case p.Zero:
-      return "zero";
-    case p.Pi:
-      return "pi";
-    case p.Answer:
-      return "answer";
-    case p.MaxInt:
-      return "max_int";
-    default:
-      return "default";
+  if (value case p.C0.Zero) {
+    return "zero";
+  } else if (value case p.C0.Pi) {
+    return "pi";
+  } else if (value case p.C0.Answer) {
+    return "answer";
+  } else if (value case p.C0.MaxInt) {
+    return "max_int";
+  } else {
+    return "default";
   }
 }
 
 String testString(String value) {
-  switch (value) {
-    case p.Melody:
-      return "Melody";
-    default:
-      return "default";
+  if (value case p.C0.Melody) {
+    return "Melody";
+  } else {
+    return "default";
   }
 }
 

@@ -18,59 +18,28 @@
 /// expression forms syntactically overlap other kinds of patterns. We avoid
 /// ambiguity while supporting terse forms of the most common constant
 /// expressions like so:
-/// ...
-/// It is a compile-time error if a constant pattern's value is not a valid
-/// constant expression.
 ///
-/// @description Check that it is a compile-time error if a constant pattern's
-/// value is not a valid constant expression. Test if-case statement
+/// Simple "primitive" literals like Booleans and numbers are valid patterns
+/// since they aren't ambiguous.
+///
+/// @description Check that it is a compile-time error if [Symbol] is used in a
+/// constant patterns. Test if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-class C {
-  final v = 42;
-  static final s = "s";
+void test(Symbol value) {
+  if (value case #+) {
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  } else if (value case #foo) {
+//                      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
 main() {
-  Object value = Object();
-  int x = 1;
-  final s = "";
-  C c = C();
-  if (value case x) {
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case s) {
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case C.s) {
-//               ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case c) {
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case const C()) {
-//               ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case const (C().v)) {
-//               ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case "x is $x") {
-//               ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  test(Symbol("foo"));
 }

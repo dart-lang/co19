@@ -22,31 +22,66 @@
 /// It is a compile-time error if a constant pattern's value is not a valid
 /// constant expression.
 ///
-/// @description Check that it is a compile-time error if a constant pattern's
-/// value is not a valid constant expression.
+/// @description Check that a syntax error is emitted for a term which could be
+/// derived from <caseHead> in Dart 2.19, but cannot be derived from <caseHead>
+/// when patterns are added to Dart.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-const l = [1, 2, 3];
-
 main() {
   Object value = Object();
   switch (value) {
-    case 2 / 1:
+    case 1 + 2:
 //       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case true && true:
+    case 1 - 2:
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 * 2:
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 ^ 2:
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 % 2:
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 ~/ 2:
 //       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case false || true:
+    case 1 << 2:
 //       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case l[0]:
-//       ^^^^
+    case 1 >> 2:
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 >>> 2:
+//       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 > 2:
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 >= 2:
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 < 2:
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 <= 2:
+//       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     default:

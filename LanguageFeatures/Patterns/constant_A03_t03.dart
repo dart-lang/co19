@@ -23,16 +23,49 @@
 /// literals explicitly marked const. Likewise with set and map literals versus
 /// map patterns.
 ///
-/// @description Check empty map and set literals in a constant patterns
+/// @description Check list, map and set literals with type argument specified
+/// in a constant patterns
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
 
-String test(Object value) {
+String testList(List value) {
   switch (value) {
-    case const {}:
+    case const <int>[1, 2]:
+      return "[1, 2]";
+    case const <String>["3", "4"]:
+      return "['3', '4']";
+    case const <double>[]:
+      return "[]";
+    default:
+      return "default";
+  }
+}
+
+String testMap(Map value) {
+  switch (value) {
+    case const <int, int>{1: 2}:
+      return "{1: 2}";
+    case const <String, num>{'answer': 42}:
+      return "{'answer': 42}";
+    case const <String, Object>{'true': true}:
+      return "{'true': true}";
+    case const <String, int>{}:
+      return "{}";
+    default:
+      return "default";
+  }
+}
+
+String testSet(Set value) {
+  switch (value) {
+    case const <num>{1, 2, 3}:
+      return "{1, 2, 3}";
+    case const <String>{'1', '2', '3'}:
+      return "{'1', '2', '3'}";
+    case const <double>{}:
       return "{}";
     default:
       return "default";
@@ -40,9 +73,37 @@ String test(Object value) {
 }
 
 main() {
-  const Map m = {};
-  Expect.equals("{}", test(m));
+  Expect.equals("[1, 2]", testList(const [1, 2]));
+  Expect.equals("default", testList([1, 2]));
+  Expect.equals("default", testList(const <num>[1, 2]));
+  Expect.equals("['3', '4']", testList(const ["3", "4"]));
+  Expect.equals("default", testList(["3", "4"]));
+  Expect.equals("default", testList(const <Object>["3", "4"]));
+  Expect.equals("[]", testList(const <double>[]));
+  Expect.equals("default", testList(const []));
+  Expect.equals("default", testList(const <num>[]));
 
-  const Set s = {};
-  Expect.equals("default", test(s));
+  Expect.equals("{1: 2}", testMap(const {1: 2}));
+  Expect.equals("default", testMap({1: 2}));
+  Expect.equals("default", testMap(const <num, num>{1: 2}));
+  Expect.equals("{'answer': 42}", testMap(const <String, num>{'answer': 42}));
+  Expect.equals("default", testMap(const {'answer': 42}));
+  Expect.equals("default", testMap(const <Object, int>{'answer': 42}));
+  Expect.equals("{'true': true}",
+      testMap(const <String, Object>{'true': true}));
+  Expect.equals("default", testMap(const {'true': true}));
+  Expect.equals("{}", testMap(const <String, int>{}));
+  Expect.equals("default", testMap(const {}));
+  Expect.equals("default", testMap(const {'x': 'y'}));
+
+  Expect.equals("{1, 2, 3}", testSet(const <num>{1, 2, 3}));
+  Expect.equals("default", testSet(<num>{1, 2, 3}));
+  Expect.equals("default", testSet(const {1, 2, 3}));
+  Expect.equals("{'1', '2', '3'}", testSet(const {'1', '2', '3'}));
+  Expect.equals("default", testSet(const <Object>{'1', '2', '3'}));
+  Expect.equals("default", testSet(<Object>{'1', '2', '3'}));
+  Expect.equals("{}", testSet(const <double>{}));
+  Expect.equals("default", testSet(const {}));
+  Expect.equals("default", testSet(<double>{}));
+  Expect.equals("default", testSet(const {1}));
 }

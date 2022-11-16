@@ -28,20 +28,28 @@
 /// unmarked variable patterns are only allowed in irrefutable contexts where
 /// constant patterns are prohibited.
 ///
-/// @description Check named constants with a library prefix in a constant
-/// patterns
+/// @description Check static constants on classes in a constant patterns
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "patterns_lib.dart" as p;
 import "../../Utils/expect.dart";
+
+class C {
+  static const Zero = 0;
+  static const Pi = 3.14;
+  static const Answer = 42;
+  static const MaxInt = 0x7FFFFFFFFFFFFFFF;
+  static const Melody = "Lily was here";
+  static const True = true;
+  static const False = false;
+}
 
 String testBool(bool value) {
   switch (value) {
-    case p.True:
+    case C.True:
       return "true";
-    case p.False:
+    case C.False:
       return "false";
     default:
       return "default";
@@ -50,13 +58,13 @@ String testBool(bool value) {
 
 String testNum(num value) {
   switch (value) {
-    case p.Zero:
+    case C.Zero:
       return "zero";
-    case p.Pi:
+    case C.Pi:
       return "pi";
-    case p.Answer:
+    case C.Answer:
       return "answer";
-    case p.MaxInt:
+    case C.MaxInt:
       return "max_int";
     default:
       return "default";
@@ -65,7 +73,7 @@ String testNum(num value) {
 
 String testString(String value) {
   switch (value) {
-    case p.Melody:
+    case C.Melody:
       return "Melody";
     default:
       return "default";

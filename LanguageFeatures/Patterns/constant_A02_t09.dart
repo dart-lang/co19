@@ -28,61 +28,47 @@
 /// unmarked variable patterns are only allowed in irrefutable contexts where
 /// constant patterns are prohibited.
 ///
-/// @description Check named constants with a library prefix in a constant
-/// patterns
+/// @description Check enums in a constant patterns
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "patterns_lib.dart" as p;
 import "../../Utils/expect.dart";
 
-String testBool(bool value) {
-  switch (value) {
-    case p.True:
-      return "true";
-    case p.False:
-      return "false";
-    default:
-      return "default";
-  }
+enum Color {
+  white,
+  red,
+  yellow,
+  blue,
+  black;
 }
 
-String testNum(num value) {
+void test(Color value) {
   switch (value) {
-    case p.Zero:
-      return "zero";
-    case p.Pi:
-      return "pi";
-    case p.Answer:
-      return "answer";
-    case p.MaxInt:
-      return "max_int";
+    case Color.white:
+      Expect.equals(Color.white, value);
+      break;
+    case Color.red:
+      Expect.equals(Color.red, value);
+      break;
+    case Color.yellow:
+      Expect.equals(Color.yellow, value);
+      break;
+    case Color.blue:
+      Expect.equals(Color.blue, value);
+      break;
+    case Color.black:
+      Expect.equals(Color.black, value);
+      break;
     default:
-      return "default";
-  }
-}
-
-String testString(String value) {
-  switch (value) {
-    case p.Melody:
-      return "Melody";
-    default:
-      return "default";
+      Expect.fail("No such color found");
   }
 }
 
 main() {
-  Expect.equals("true", testBool(true));
-  Expect.equals("false", testBool(false));
-
-  Expect.equals("zero", testNum(0));
-  Expect.equals("zero", testNum(0.0));
-  Expect.equals("pi", testNum(3.14));
-  Expect.equals("answer", testNum(42));
-  Expect.equals("max_int", testNum(9223372036854775807));
-  Expect.equals("default", testNum(1));
-
-  Expect.equals("Melody", testString("Lily was here"));
-  Expect.equals("default", testString(""));
+  test(Color.white);
+  test(Color.red);
+  test(Color.yellow);
+  test(Color.blue);
+  test(Color.black);
 }

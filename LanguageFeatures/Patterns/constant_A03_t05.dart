@@ -19,58 +19,40 @@
 /// ambiguity while supporting terse forms of the most common constant
 /// expressions like so:
 /// ...
-/// It is a compile-time error if a constant pattern's value is not a valid
-/// constant expression.
+/// List literals are ambiguous with list patterns, so we only allow list
+/// literals explicitly marked const. Likewise with set and map literals versus
+/// map patterns.
 ///
-/// @description Check that it is a compile-time error if a constant pattern's
-/// value is not a valid constant expression. Test if-case statement
+/// @description Check empty map and set literals in a constant patterns
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-class C {
-  final v = 42;
-  static final s = "s";
+import "../../Utils/expect.dart";
+
+String test1(Object value) {
+  switch (value) {
+    case const {}:
+      return "{}";
+    default:
+      return "default";
+  }
+}
+
+String test2(Object value) {
+  if (value case const {}) {
+    return "{}";
+  } else {
+    return "default";
+  }
 }
 
 main() {
-  Object value = Object();
-  int x = 1;
-  final s = "";
-  C c = C();
-  if (value case x) {
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case s) {
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case C.s) {
-//               ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case c) {
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case const C()) {
-//               ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case const (C().v)) {
-//               ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case "x is $x") {
-//               ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  const Map m = {};
+  Expect.equals("{}", test1(m));
+  Expect.equals("{}", test2(m));
+
+  const Set s = {};
+  Expect.equals("default", test1(s));
+  Expect.equals("default", test2(s));
 }

@@ -28,55 +28,51 @@
 /// unmarked variable patterns are only allowed in irrefutable contexts where
 /// constant patterns are prohibited.
 ///
-/// @description Check static constants on classes in a constant patterns
+/// @description Check named constants in a constant patterns. Test if-case
+/// statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
 
-class C {
-  static const Zero = 0;
-  static const Pi = 3.14;
-  static const Answer = 42;
-  static const MaxInt = 0x7FFFFFFFFFFFFFFF;
-  static const Melody = "Lily was here";
-  static const True = true;
-  static const False = false;
-}
+const Zero = 0;
+const Pi = 3.14;
+const Answer = 42;
+const MaxInt = 0x7FFFFFFFFFFFFFFF;
+const Melody = "Lily was here";
+const True = true;
+const False = false;
 
 String testBool(bool value) {
-  switch (value) {
-    case C.True:
-      return "true";
-    case C.False:
-      return "false";
-    default:
-      return "default";
+  if (value case True) {
+    return "true";
+  } else if (value case False) {
+    return "false";
+  } else {
+    return "default";
   }
 }
 
 String testNum(num value) {
-  switch (value) {
-    case C.Zero:
-      return "zero";
-    case C.Pi:
-      return "pi";
-    case C.Answer:
-      return "answer";
-    case C.MaxInt:
-      return "max_int";
-    default:
-      return "default";
+  if (value case Zero) {
+    return "zero";
+  } else if (value case Pi) {
+    return "pi";
+  } else if (value case Answer) {
+    return "answer";
+  } else if (value case MaxInt) {
+    return "max_int";
+  } else {
+    return "default";
   }
 }
 
 String testString(String value) {
-  switch (value) {
-    case C.Melody:
-      return "Melody";
-    default:
-      return "default";
+  if (value case Melody) {
+    return "Melody";
+  } else {
+    return "default";
   }
 }
 
