@@ -11,47 +11,53 @@
 /// value with the constant as an argument returns true. It is a compile-time
 /// error if relationalExpression is not a valid constant expression.
 ///
-/// @description Check that it is a compile-time error if relationalExpression
-/// is not a valid constant expression. Test switch statement
+/// @description Checks a relational pattern in a if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "../../Utils/expect.dart";
+
+void test1(double value, String expected) {
+  if (value case < 0) {
+    Expect.equals("negative", expected);
+  } else if (value case == 0) {
+    Expect.equals("zero", expected);
+  } else if (value case > 0) {
+    Expect.equals("positive", expected);
+  } else {
+    Expect.fail("One of the cases above should match");
+  }
+}
+
+void test2(num value, String expected) {
+  if (value case != 0) {
+    Expect.equals("non-zero", expected);
+  } else if (value case == 0) {
+    Expect.equals("zero", expected);
+  } else {
+    Expect.fail("One of the cases above should match");
+  }
+}
+
+void test3(int value, String expected) {
+  if (value case >= 1) {
+    Expect.equals("positive", expected);
+  } else if (value case <= 0) {
+    Expect.equals("zero or negative", expected);
+  } else {
+    Expect.fail("One of the cases above should match");
+  }
+}
+
 main() {
-  int i = 0;
-  int value = 42;
-
-  switch (value) {
-    case < i:
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case == 0 + i:
-//          ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case > i++:
-//         ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    default:
-  }
-
-  final j = 0;
-  switch (value) {
-    case != j:
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case == j:
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    default:
-  }
+  test1(-1.1, "negative");
+  test1(42.42, "positive");
+  test1(0, "zero");
+  test2(3.14, "non-zero");
+  test2(0, "zero");
+  test3(0, "zero or negative");
+  test3(-100, "zero or negative");
+  test3(1, "positive");
+  test3(42, "positive");
 }

@@ -17,30 +17,28 @@
 /// determines which value the variable gets if both branches would have
 /// matched. In that case, it will always be the value from the left branch.
 ///
-/// @description Checks that it is a compile-time error if two branches of
-/// logical-or pattern define different sets of variables
+/// @description Checks logical-or pattern in a if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "patterns_lib.dart";
+import "../../Utils/expect.dart";
+
+void test(Shape shape, double expectedArea, Type expectedType, bool match) {
+  if (shape case Square(area: var s) | Circle(area: var s)) {
+    Expect.equals(s, expectedArea);
+    Expect.equals(expectedType, shape.runtimeType);
+    Expect.isTrue(match);
+  } else {
+    Expect.equals(s, expectedArea);
+    Expect.equals(expectedType, shape.runtimeType);
+    Expect.isFalse(match);
+  }
+}
 
 main() {
-  Shape shape = Circle(1);
-  switch (shape) {
-    case Square(area: var s1) | Circle(area: var s2):
-//                                               ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      print("Square or Circle");
-      break;
-    case Rectangle(x: var x, y: var width) | Rectangle(:var x, :var y):
-//                                                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      print("Rectangle");
-      break;
-    default:
-      print("Other");
-  }
+  test(Circle(1), 3.14, Circle, true);
+  test(Square(2), 4, Square, true);
+  test(Rectangle(2, 1), 2, Rectangle, false);
 }

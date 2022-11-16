@@ -11,33 +11,47 @@
 /// value with the constant as an argument returns true. It is a compile-time
 /// error if relationalExpression is not a valid constant expression.
 ///
-/// @description Checks a relational subpattern in a if-case statement
+/// @description Check that it is a compile-time error if relationalExpression
+/// is not a valid constant expression. Test switch expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
+String test1(int num) {
+  int i = 0;
+  return switch (num) {
+    case < i => "negative";
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case == i => "zero";
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case > i => "positive";
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    default => "Impossible!";
+  };
+}
 
-void test(List<num> list, String expected) {
-  if (list case [> 0 & <= 2]) {
-    Expect.equals("case 1", expected);
-  } else if (list case [== 42]) {
-    Expect.equals("case 2", expected);
-  } else if (list case [>= 10 & < 20]) {
-    Expect.equals("case 3", expected);
-  } else if (list case [!= 100]) {
-    Expect.equals("case 4", expected);
-  } else {
-    Expect.equals("default", expected);
-  }
+String test2(int num) {
+  final j = 0;
+  return switch (num) {
+    case != j => "non-zero";
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case == j => "zero";
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    default => "Impossible!";
+  };
 }
 
 main() {
-  test([1], "case 1");
-  test([2], "case 1");
-  test([2.1], "case 2");
-  test([10], "case 3");
-  test([10.1], "case 3");
-  test([20], "case 4");
-  test([100], "default");
+  test1(1);
+  test2(2);
 }

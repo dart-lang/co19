@@ -14,32 +14,26 @@
 /// only matters because patterns may invoke user-defined methods with visible
 /// side effects.
 ///
-/// @description Checks that it is a compile-time error if two branches of
-/// logical-and pattern define overlapping sets of variables
+/// @description Checks a logical-and pattern in a if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "patterns_lib.dart";
+import "../../Utils/expect.dart";
+
+void test(int value, bool match) {
+  if (value case > 0 & <= 3) {
+    Expect.isTrue(match);
+  } else {
+    Expect.isFalse(match);
+  }
+}
 
 main() {
-  Shape shape = Circle(1);
-  switch (shape) {
-    case Circle(area: var s) & Circle(area: var s):
-//                                              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case Rectangle(x: var x, y: var width) & Rectangle(:var x, :var y):
-//                                                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case Circle(area: var s1) & Circle(area: var s2) & Circle(area: var s1):
-//                                                                      ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    default:
-      print("Other");
-  }
+  test(1, true);
+  test(2, true);
+  test(3, true);
+  test(0, false);
+  test(4, false);
 }

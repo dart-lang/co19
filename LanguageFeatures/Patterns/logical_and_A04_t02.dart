@@ -14,15 +14,26 @@
 /// only matters because patterns may invoke user-defined methods with visible
 /// side effects.
 ///
-/// @description Checks that it is a compile-time error if two branches of
-/// logical-and pattern define overlapping sets of variables
+/// @description Checks a logical-and subpattern in a if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "../../Utils/expect.dart";
+
+bool matches(List list) {
+  if (list case [> 0 & <= 2, 3]) {
+    return true;
+  };
+  return false;
+}
+
 main() {
-  var ((a, name: b) & (a, name: n)) = (3.14, name: "pi");
-//                     ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.isFalse(matches([0, 3]));
+  Expect.isFalse(matches([2, 2]));
+  Expect.isFalse(matches([2, 3, 4]));
+  Expect.isFalse(matches([2, "3"]));
+  Expect.isFalse(matches(["1", 3]));
+  Expect.isTrue(matches([1, 3]));
+  Expect.isTrue(matches([2, 3]));
 }

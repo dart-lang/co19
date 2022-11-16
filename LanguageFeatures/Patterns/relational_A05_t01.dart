@@ -11,57 +11,92 @@
 /// value with the constant as an argument returns true. It is a compile-time
 /// error if relationalExpression is not a valid constant expression.
 ///
-/// @description Checks the case when user-defined class with custom relational
-/// operators is used in a relational pattern. Test switch expression
+/// @description Check that it is a compile-time error if relational operator is
+/// used with a wrong type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
+const o = const Object();
 
-class C {
-  final int value;
-  const C(this.value);
-
-  bool operator <(C other) => this.value < other.value;
-  bool operator >(C other) => this.value > other.value;
-  bool operator <=(C other) => this.value <= other.value;
-  bool operator >=(C other) => this.value >= other.value;
-  @override
-  bool operator ==(Object other) => this.value == (other as C).value;
-}
-
-String test1(C c) {
-  return switch (c) {
-    case < C(0) => "negative";
-    case >= C(0) => "positive";
-    default => "Impossible!";
-  };
-}
-
-String test2(C c) {
-  return switch (c) {
-    case >= C(0) => "positive";
-    case < C(0) => "negative";
-    default => "Impossible!";
-  };
-}
-
-String test3(C c) {
-  return switch (c) {
-    case == C(0) => "zero";
-    case != C(0) => "non-zero";
-    default => "Impossible!";
+String test(List<num> list) {
+  return switch (list) {
+    case [> "1" & <= 2] => "case 1";
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case [== "42"] => "case 2";
+//           ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case [>= "10" & < 20] => "case 3";
+//           ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case [!= "100"] => "case 4";
+//           ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case [> 1 & <= true] => "case 5";
+//                 ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case [>= 10 & < o] => "case 6";
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    default => "default";
   };
 }
 
 main() {
-  Expect.equals("negative", test1(C(-1)));
-  Expect.equals("positive", test1(C(0)));
-  Expect.equals("positive", test1(C(1)));
-  Expect.equals("negative", test2(C(-1)));
-  Expect.equals("positive", test2(C(0)));
-  Expect.equals("positive", test2(C(1)));
-  Expect.equals("zero", test3(C(0)));
-  Expect.equals("non-zero", test3(C(42)));
+  test([]);
+
+  int value = 42;
+  switch (value) {
+    case < "i":
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      break;
+    case == true:
+//          ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      break;
+    case > o:
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      break;
+    default:
+  }
+
+  switch (value) {
+    case != "":
+//          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      break;
+    case == true:
+//          ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      break;
+    default:
+  }
+
+  switch (value) {
+    case >= "1":
+//          ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      break;
+    case <= "2":
+//          ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      break;
+    default:
+  }
 }

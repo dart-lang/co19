@@ -17,28 +17,38 @@
 /// determines which value the variable gets if both branches would have
 /// matched. In that case, it will always be the value from the left branch.
 ///
-/// @description Checks that it is a compile-time error if two branches of
-/// logical-or pattern define different sets of variables
+/// @description Checks that if the left branch matches, the right branch is not
+/// evaluated
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "patterns_lib.dart";
+import "../../Utils/expect.dart";
 
 main() {
-  Shape shape = Circle(1);
-  switch (shape) {
-    case Square(area: var s1) | Circle(area: var s2):
-//                                               ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      print("Square or Circle");
+  Shape shape1 = Square(1);
+  switch (shape1) {
+    case Square(area: var s) | Shape(area: var s):
+      Expect.equals("Square.area", shape1.log);
       break;
-    case Rectangle(x: var x, y: var width) | Rectangle(:var x, :var y):
-//                                                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      print("Rectangle");
+    default:
+      print("Other");
+  }
+
+  Shape shape2 = Square(2);
+  switch (shape2) {
+    case Square(area: 2) | Square(area: 4) | Square(area: 4):
+      Expect.equals("Circle.area=2;Circle.area=4;", shape2.log);
+      break;
+    default:
+      print("Other");
+  }
+
+  Shape shape3 = Shape();
+  switch (shape3) {
+    case Circle(area: 0) | Square(area: 1) | Shape(area: 0):
+      Expect.equals("Shape.area=0;", shape3.log);
       break;
     default:
       print("Other");

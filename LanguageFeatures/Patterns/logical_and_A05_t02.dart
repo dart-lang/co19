@@ -20,26 +20,9 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-import "patterns_lib.dart";
-
 main() {
-  Shape shape = Circle(1);
-  switch (shape) {
-    case Circle(area: var s) & Circle(area: var s):
-//                                              ^
+  var ((a, name: b) & (a, name: n)) = (3.14, name: "pi");
+//                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break;
-    case Rectangle(x: var x, y: var width) & Rectangle(:var x, :var y):
-//                                                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case Circle(area: var s1) & Circle(area: var s2) & Circle(area: var s1):
-//                                                                      ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    default:
-      print("Other");
-  }
 }
