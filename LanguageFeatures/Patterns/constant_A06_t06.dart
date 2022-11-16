@@ -23,7 +23,7 @@
 /// constant expression.
 ///
 /// @description Check that it is a compile-time error if a constant pattern's
-/// value is not a valid constant expression.
+/// value is not a valid constant expression. Test if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -32,23 +32,24 @@ const l = [1, 2, 3];
 
 main() {
   Object value = Object();
-  switch (value) {
-    case 2 / 1:
-//       ^^^^^
+  if (value case 2 / 1) {
+//               ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case true && true:
-//       ^^^^^^^^^^^^
+  }
+  if (value case true && true) {
+//               ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case false || true:
-//       ^^^^^^^^^^^^^
+  }
+  if (value case false || true) {
+//               ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case l[0]:
-//       ^^^^
+  }
+  if (value case l[0]) {
+//               ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default:
   }
 }
