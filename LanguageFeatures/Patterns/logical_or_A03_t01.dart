@@ -34,6 +34,12 @@ main() {
 // [cfe] unspecified
       print("Square or Circle");
       break;
+    case Square(area: var s1) | Circle(area: _):
+//                                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      print("Square or Circle");
+      break;
     case Rectangle(x: var x, y: var width) | Rectangle(:var x, :var y):
 //                                                                  ^
 // [analyzer] unspecified
