@@ -56,7 +56,7 @@ String testNum(num value) {
       return "pi";
     case p.Answer:
       return "answer";
-    case p.MaxInt:
+    case p.MaxJSInt:
       return "max_int";
     default:
       return "default";
@@ -80,7 +80,7 @@ main() {
   Expect.equals("zero", testNum(0.0));
   Expect.equals("pi", testNum(3.14));
   Expect.equals("answer", testNum(42));
-  Expect.equals("max_int", testNum(9223372036854775807));
+  Expect.equals("max_int", testNum(9007199254740991));
   Expect.equals("default", testNum(1));
 
   Expect.equals("Melody", testString("Lily was here"));

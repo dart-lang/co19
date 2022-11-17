@@ -22,7 +22,7 @@
 /// Constructor calls are ambiguous with object patterns, so we require const
 /// constructor calls to be explicitly marked const.
 ///
-/// @description Check const constructors calls in a constant patterns
+/// @description Check const constructors calls in constant patterns
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

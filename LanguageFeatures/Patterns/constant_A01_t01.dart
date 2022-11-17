@@ -22,7 +22,7 @@
 /// Simple "primitive" literals like Booleans and numbers are valid patterns
 /// since they aren't ambiguous.
 ///
-/// @description Check booleans, numbers and strings in a constant patterns
+/// @description Check booleans, numbers and strings in constant patterns
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -48,7 +48,7 @@ String testNum(num value) {
       return "pi";
     case 42:
       return "answer";
-    case 0x7FFFFFFFFFFFFFFF:
+    case 0x1FFFFFFFFFFFFF:
       return "max_int";
     default:
       return "default";
@@ -78,7 +78,7 @@ main() {
   Expect.equals("zero", testNum(0.0));
   Expect.equals("pi", testNum(3.14));
   Expect.equals("answer", testNum(42));
-  Expect.equals("max_int", testNum(9223372036854775807));
+  Expect.equals("max_int", testNum(9007199254740991));
   Expect.equals("default", testNum(1));
 
   Expect.equals("zero", testString("0"));

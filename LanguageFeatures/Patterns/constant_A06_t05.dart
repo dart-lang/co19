@@ -22,8 +22,9 @@
 /// It is a compile-time error if a constant pattern's value is not a valid
 /// constant expression.
 ///
-/// @description Check that it is a compile-time error if a constant pattern's
-/// value is not a valid constant expression.
+/// @description Check that a syntax error is emitted for a term which could be
+/// derived from <caseHead> in Dart 2.19, but cannot be derived from <caseHead>
+/// when patterns are added to Dart.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

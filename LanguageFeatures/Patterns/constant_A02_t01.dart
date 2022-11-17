@@ -28,7 +28,7 @@
 /// unmarked variable patterns are only allowed in irrefutable contexts where
 /// constant patterns are prohibited.
 ///
-/// @description Check named constants in a constant patterns
+/// @description Check named constants in constant patterns
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -38,7 +38,7 @@ import "../../Utils/expect.dart";
 const Zero = 0;
 const Pi = 3.14;
 const Answer = 42;
-const MaxInt = 0x7FFFFFFFFFFFFFFF;
+const MaxJSInt = 0x1FFFFFFFFFFFFF;
 const Melody = "Lily was here";
 const True = true;
 const False = false;
@@ -62,7 +62,7 @@ String testNum(num value) {
       return "pi";
     case Answer:
       return "answer";
-    case MaxInt:
+    case MaxJSInt:
       return "max_int";
     default:
       return "default";
@@ -86,7 +86,7 @@ main() {
   Expect.equals("zero", testNum(0.0));
   Expect.equals("pi", testNum(3.14));
   Expect.equals("answer", testNum(42));
-  Expect.equals("max_int", testNum(9223372036854775807));
+  Expect.equals("max_int", testNum(9007199254740991));
   Expect.equals("default", testNum(1));
 
   Expect.equals("Melody", testString("Lily was here"));

@@ -40,7 +40,7 @@ class C {
   static const Zero = 0;
   static const Pi = 3.14;
   static const Answer = 42;
-  static const MaxInt = 0x7FFFFFFFFFFFFFFF;
+  static const MaxJSInt = 0x1FFFFFFFFFFFFF;
   static const Melody = "Lily was here";
   static const True = true;
   static const False = false;
@@ -63,7 +63,7 @@ String testNum(num value) {
     return "pi";
   } else if (value case C.Answer) {
     return "answer";
-  } else if (value case C.MaxInt) {
+  } else if (value case C.MaxJSInt) {
     return "max_int";
   } else {
     return "default";
@@ -86,7 +86,7 @@ main() {
   Expect.equals("zero", testNum(0.0));
   Expect.equals("pi", testNum(3.14));
   Expect.equals("answer", testNum(42));
-  Expect.equals("max_int", testNum(9223372036854775807));
+  Expect.equals("max_int", testNum(9007199254740991));
   Expect.equals("default", testNum(1));
 
   Expect.equals("Melody", testString("Lily was here"));
