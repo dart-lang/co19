@@ -28,7 +28,7 @@
 /// unmarked variable patterns are only allowed in irrefutable contexts where
 /// constant patterns are prohibited.
 ///
-/// @description Check named constants in a constant patterns. Test if-case
+/// @description Check named constants in constant patterns. Test if-case
 /// statement
 /// @author sgrekhov22@gmail.com
 

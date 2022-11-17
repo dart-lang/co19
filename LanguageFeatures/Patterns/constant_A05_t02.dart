@@ -24,7 +24,7 @@
 /// logical-and patterns. It also makes future extensions to patterns and
 /// expressions less likely to collide.
 ///
-/// @description Check const constructors calls in a constant patterns. Test
+/// @description Check const constructors calls in constant patterns. Test
 /// if-case pattern
 /// @author sgrekhov22@gmail.com
 

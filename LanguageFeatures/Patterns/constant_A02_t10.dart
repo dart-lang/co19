@@ -28,7 +28,7 @@
 /// unmarked variable patterns are only allowed in irrefutable contexts where
 /// constant patterns are prohibited.
 ///
-/// @description Check enums in a constant patterns. Test if-case statement
+/// @description Check enums in constant patterns. Test if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

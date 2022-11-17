@@ -22,7 +22,7 @@
 /// Simple "primitive" literals like Booleans and numbers are valid patterns
 /// since they aren't ambiguous.
 ///
-/// @description Check booleans, numbers and strings in a constant patterns.
+/// @description Check booleans, numbers and strings in constant patterns.
 /// Test if-case statement
 /// @author sgrekhov22@gmail.com
 

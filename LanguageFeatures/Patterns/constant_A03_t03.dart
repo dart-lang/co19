@@ -24,7 +24,7 @@
 /// map patterns.
 ///
 /// @description Check list, map and set literals with type argument specified
-/// in a constant patterns
+/// in constant patterns
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

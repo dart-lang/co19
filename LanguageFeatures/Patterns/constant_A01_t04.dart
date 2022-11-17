@@ -22,7 +22,7 @@
 /// Simple "primitive" literals like Booleans and numbers are valid patterns
 /// since they aren't ambiguous.
 ///
-/// @description Check that it is a compile-time error if [Symbol] is used in a
+/// @description Check that it is a compile-time error if [Symbol] is used in
 /// constant patterns. Test if-case statement
 /// @author sgrekhov22@gmail.com
 

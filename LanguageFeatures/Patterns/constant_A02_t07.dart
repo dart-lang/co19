@@ -28,7 +28,7 @@
 /// unmarked variable patterns are only allowed in irrefutable contexts where
 /// constant patterns are prohibited.
 ///
-/// @description Check static constants on classes with a library prefix in a
+/// @description Check static constants on classes with a library prefix in
 /// constant patterns
 /// @author sgrekhov22@gmail.com
 

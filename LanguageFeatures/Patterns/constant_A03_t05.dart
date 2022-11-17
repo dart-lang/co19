@@ -23,7 +23,7 @@
 /// literals explicitly marked const. Likewise with set and map literals versus
 /// map patterns.
 ///
-/// @description Check empty map and set literals in a constant patterns
+/// @description Check empty map and set literals in constant patterns
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
