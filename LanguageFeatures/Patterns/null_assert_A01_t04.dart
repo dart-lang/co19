@@ -21,7 +21,7 @@ String test(List<String?> list) {
     case ['name', var name!] => name.substring(0);
     case ['answer', _!] => "answer";
     default => "default";
-  }
+  };
 }
 
 main() {
