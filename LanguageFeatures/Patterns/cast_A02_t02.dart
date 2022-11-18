@@ -10,52 +10,53 @@
 /// null-assert pattern, this lets you forcibly assert the expected type of some
 /// destructured value.
 ///
-/// @description Check some valid cast patterns in a switch
+/// @description Check that cast pattern throws if the value doesn't have an
+/// expected type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
 
-const Object zero = 0;
-
-bool isPositive(int i) {
-  return switch (i) {
-      case >= zero as int => true;
-      default => false;
-  };
-}
-
-bool isInt(Object o) =>
+bool isOdd1(Object o) =>
   switch (o) {
-    case  _ as int => true;
+    case  var v as int => v.isOdd;
     default => false;
   };
 
+bool isOdd2(Object o) {
+  switch (o) {
+    case var v as int:
+      retrun v.isOdd;
+      break;
+    default:
+      retrun false;
+  };
+}
+
+bool isOdd3(Object o) {
+  if (o case var v as int) {
+    retrun v.isOdd;
+  }
+  retrun false;
+}
 
 main() {
-  Expect.isTrue(isPositive(0));
-  Expect.isTrue(isPositive(1));
-  Expect.isFalse(isPositive(-1));
-  Expect.isTrue(isInt(42));
+  Expect.isTrue(isOdd1(1));
+  Expect.isFalse(isOdd1(2));
   Expect.throws(() {
-    isInt("42");
+    isOdd1("1");
   });
 
-  int i = 1;
-  switch (i) {
-    case > zero as int:
-      Expect.equals(1, i);
-      break;
-    default:
-      Expect.fail("Shouldn't be here");
-  }
-  Object j = 2;
-  switch (j) {
-    case var v as int:
-      Expect.equals(2, v);
-      break;
-    default:
-      Expect.fail("Shouldn't be here");
-  }
+  Expect.isTrue(isOdd2(1));
+  Expect.isFalse(isOdd2(2));
+  Expect.throws(() {
+    isOdd2("1");
+  });
+
+  Expect.isTrue(isOdd3(1));
+  Expect.isFalse(isOdd3(2));
+  Expect.throws(() {
+    isOdd3("1");
+  });
 }

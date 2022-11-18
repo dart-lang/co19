@@ -20,11 +20,17 @@ test1((int?, int?) position) {
   Expect.throws(() {
     var (x!, y!) = position;
   });
+  Expect.throws(() {
+    var (_!, _!) = position;
+  });
 }
 
 test2(({int? x, int? y}) position) {
   Expect.throws(() {
     var (x: x!, y: y!) = position;
+  });
+  Expect.throws(() {
+    var (x: _!, y: _!) = position;
   });
 }
 

@@ -16,16 +16,40 @@
 
 import "../../Utils/expect.dart";
 
-test(List<String?> list) {
+test1(List<String?> list) {
   Expect.throws(() {
     switch (list) {
       case ['name', var name!]:
-      break;
+        break;
+      case ['value', _!]:
+        break;
       default:
     }
   });
 }
 
+test2(List<String?> list) {
+  Expect.throws(() {
+    if (list case ['name', var name!]) {}
+    if (list case ['value', _!]) {}
+  });
+}
+
+test3(List<String?> list) {
+  Expect.throws(() {
+    switch (list) {
+      case ['name', var name!] => 1;
+      case ['value', _!] => 2;
+      default => 3;
+  }
+  });
+}
+
 main() {
-  test(['name', null]);
+  test1(['name', null]);
+  test1(['value', null]);
+  test2(['name', null]);
+  test2(['value', null]);
+  test3(['name', null]);
+  test3(['value', null]);
 }

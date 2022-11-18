@@ -17,17 +17,25 @@
 import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 
-test(List<String?> list) {
+test(List<String?> list, [bool testVisited = false]) {
+  bool visited = false;
   switch (list) {
     case ['name', var name!]:
-      name.expectStaticType<Exactly<int>>();
+      name.expectStaticType<Exactly<String>>();
       name.substring(0);
+      break;
+    case ['answer', _!]:
+      visited = true;
       break;
     default:
       Expect.fail("Wrong branch of code");
+  }
+  if (testVisited) {
+    Expect.isTrue(visited);
   }
 }
 
 main() {
   test(['name', 'Lily']);
+  test(['answer', '42'], true);
 }

@@ -23,7 +23,7 @@
 
 import "../../Utils/expect.dart";
 
-String test(List<String?> list) {
+String test1(List<String?> list) {
   return switch (list) {
     case [var a?, var b] => "case 1";
     case [var a, var b?] => "case 2";
@@ -31,9 +31,22 @@ String test(List<String?> list) {
   };
 }
 
+String test2(List<String?> list) {
+  return switch (list) {
+    case [_?, var b] => "case 1";
+    case [var a, _?] => "case 2";
+    default => "default";
+  };
+}
+
 main() {
-  Expect.equals("case 1", test(["a", "b"]));
-  Expect.equals("case 1", test(["a", null]));
-  Expect.equals("case 2", test([null, "b"]));
-  Expect.equals("default", test([null, null]));
+  Expect.equals("case 1", test1(["a", "b"]));
+  Expect.equals("case 1", test1(["a", null]));
+  Expect.equals("case 2", test1([null, "b"]));
+  Expect.equals("default", test1([null, null]));
+
+  Expect.equals("case 1", test2(["a", "b"]));
+  Expect.equals("case 1", test2(["a", null]));
+  Expect.equals("case 2", test2([null, "b"]));
+  Expect.equals("default", test2([null, null]));
 }

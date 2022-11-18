@@ -26,4 +26,11 @@ main() {
   } else {
     Expect.fail("Shouldn't be here");
   }
+  bool visited = false;
+  if (i case _ as int) {
+    visited = true;
+  } else {
+    Expect.fail("Shouldn't be here");
+  }
+  Expect.isTrue(visited);
 }

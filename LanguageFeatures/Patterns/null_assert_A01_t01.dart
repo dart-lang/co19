@@ -18,23 +18,17 @@ import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 
 test1((int?, int?) position) {
-  var (x!, y!) = position;
+  var (x!, _!) = position;
   x.expectStaticType<Exactly<int>>();
-  y.expectStaticType<Exactly<int>>();
   x.isOdd;
-  y.isOdd;
   Expect.equals(1, x);
-  Expect.equals(1, y);
 }
 
 test2(({int? x, int? y}) position) {
-  var (x: x!, y: y!) = position;
+  var (x: x!, y: _!) = position;
   x.expectStaticType<Exactly<int>>();
-  y.expectStaticType<Exactly<int>>();
   x.isOdd;
-  y.isOdd;
   Expect.equals(1, x);
-  Expect.equals(1, y);
 }
 
 main() {
