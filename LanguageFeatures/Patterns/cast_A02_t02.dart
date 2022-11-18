@@ -27,18 +27,17 @@ bool isOdd1(Object o) =>
 bool isOdd2(Object o) {
   switch (o) {
     case var v as int:
-      retrun v.isOdd;
-      break;
+      return v.isOdd;
     default:
-      retrun false;
+      return false;
   };
 }
 
 bool isOdd3(Object o) {
   if (o case var v as int) {
-    retrun v.isOdd;
+    return v.isOdd;
   }
-  retrun false;
+  return false;
 }
 
 main() {
