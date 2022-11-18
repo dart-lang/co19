@@ -26,5 +26,5 @@ String test(List<String?> list) {
 
 main() {
   Expect.equals("Lily", test(['name', 'Lily']));
-  Expect.equals("answer", test(['answer', '42']););
+  Expect.equals("answer", test(['answer', '42']));
 }
