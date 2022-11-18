@@ -30,7 +30,7 @@
 
 import "../../Utils/expect.dart";
 
-String test1(Object value) {
+String testObject1(Object value) {
   switch (value) {
     case const {}:
       return "{}";
@@ -39,7 +39,41 @@ String test1(Object value) {
   }
 }
 
-String test2(Object value) {
+String testObject2(Object value) {
+  if (value case const {}) {
+    return "{}";
+  } else {
+    return "default";
+  }
+}
+
+String testMap1(Map value) {
+  switch (value) {
+    case const {}:
+      return "{}";
+    default:
+      return "default";
+  }
+}
+
+String testMap2(Map value) {
+  if (value case const {}) {
+    return "{}";
+  } else {
+    return "default";
+  }
+}
+
+String testSet1(Set value) {
+  switch (value) {
+    case const {}:
+      return "{}";
+    default:
+      return "default";
+  }
+}
+
+String testSet2(Set value) {
   if (value case const {}) {
     return "{}";
   } else {
@@ -49,10 +83,14 @@ String test2(Object value) {
 
 main() {
   const Map m = {};
-  Expect.equals("{}", test1(m));
-  Expect.equals("{}", test2(m));
+  Expect.equals("{}", testObject1(m));
+  Expect.equals("{}", testObject2(m));
+  Expect.equals("{}", testMap1(m));
+  Expect.equals("{}", testMap2(m));
 
   const Set s = {};
-  Expect.equals("default", test1(s));
-  Expect.equals("default", test2(s));
+  Expect.equals("default", testObject1(s));
+  Expect.equals("default", testObject2(s));
+  Expect.equals("{}", testSet1(s));
+  Expect.equals("{}", testSet2(s));
 }

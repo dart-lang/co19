@@ -33,11 +33,22 @@ import "../../Utils/expect.dart";
 
 String testList(List value) {
   if (value case const <int>[1, 2]) {
-    return "[1, 2]";
-  } else if (value case const <String>["3", "4"]) {
-    return "['3', '4']";
-  } else if (value case const <double>[]) {
-    return "[]";
+    return "<int>[1, 2]";
+  }
+  if (value case const <dynamic>[1, 2]) {
+    return "<dynamic>[1, 2]";
+  }
+  if (value case const <String>["3", "4"]) {
+    return "<String>['3', '4']";
+  }
+  if (value case const <dynamic>["3", "4"]) {
+    return "<dynamic>['3', '4']";
+  }
+  if (value case const <double>[]) {
+    return "<double>[]";
+  }
+  if (value case const <dynamic>[]) {
+    return "<dynamic>[]";
   } else {
     return "default";
   }
@@ -45,13 +56,28 @@ String testList(List value) {
 
 String testMap(Map value) {
   if (value case const <int, int>{1: 2}) {
-    return "{1: 2}";
-  } else if (value case const <String, num>{'answer': 42}) {
-    return "{'answer': 42}";
-  } else if (value case const <String, Object>{'true': true}) {
-    return "{'true': true}";
-  } else if (value case const <String, int>{}) {
-    return "{}";
+    return "<int, int>{1: 2}";
+  }
+  if (value case const <dynamic, dynamic>{1: 2}) {
+    return "<dynamic, dynamic>{1: 2}";
+  }
+  if (value case const <String, num>{'answer': 42}) {
+    return "<String, num>{'answer': 42}";
+  }
+  if (value case const <dynamic, dynamic>{'answer': 42}) {
+    return "<dynamic, dynamic>{'answer': 42}";
+  }
+  if (value case const <String, Object>{'true': true}) {
+    return "<String, Object>{'true': true}";
+  }
+  if (value case const <dynamic, dynamic>{'true': true}) {
+    return "<dynamic, dynamic>{'true': true}";
+  }
+  if (value case const <String, int>{}) {
+    return "<String, int>{}";
+  }
+  if (value case const <dynamic, dynamic>{}) {
+    return "<dynamic, dynamic>{}";
   } else {
     return "default";
   }
@@ -59,48 +85,69 @@ String testMap(Map value) {
 
 String testSet(Set value) {
   if (value case const <num>{1, 2, 3}) {
-    return "{1, 2, 3}";
-  } else if (value case const <String>{'1', '2', '3'}) {
-    return "{'1', '2', '3'}";
-  } else if (value case const <double>{}) {
-    return "{}";
+    return "<num>{1, 2, 3}";
+  }
+  if (value case const <dynamic>{1, 2, 3}) {
+    return "<dynamic>{1, 2, 3}";
+  }
+  if (value case const <String>{'1', '2', '3'}) {
+    return "<String>{'1', '2', '3'}";
+  }
+  if (value case const <dynamic>{'1', '2', '3'}) {
+    return "<dynamic>{'1', '2', '3'}";
+  }
+  if (value case const <double>{}) {
+    return "<double>{}";
+  }
+  if (value case const <dynamic>{}) {
+    return "<dynamic>{}";
   } else {
     return "default";
   }
 }
 
 main() {
-  Expect.equals("[1, 2]", testList(const [1, 2]));
+  Expect.equals("<dynamic>[1, 2]", testList(const [1, 2]));
+  Expect.equals("<int>[1, 2]", testList(const <int>[1, 2]));
   Expect.equals("default", testList([1, 2]));
   Expect.equals("default", testList(const <num>[1, 2]));
-  Expect.equals("['3', '4']", testList(const ["3", "4"]));
+  Expect.equals("default", testList(const <Object>[1, 2]));
+  Expect.equals("<dynamic>['3', '4']", testList(const ["3", "4"]));
+  Expect.equals("<String>['3', '4']", testList(const <String>["3", "4"]));
   Expect.equals("default", testList(["3", "4"]));
   Expect.equals("default", testList(const <Object>["3", "4"]));
-  Expect.equals("[]", testList(const <double>[]));
-  Expect.equals("default", testList(const []));
+  Expect.equals("<double>[]", testList(const <double>[]));
+  Expect.equals("<dynamic>[]", testList(const []));
   Expect.equals("default", testList(const <num>[]));
+  Expect.equals("default", testList(const <Object>[]));
 
-  Expect.equals("{1: 2}", testMap(const {1: 2}));
+  Expect.equals("<dynamic, dynamic>{1: 2}", testMap(const {1: 2}));
+  Expect.equals("<int, int>{1: 2}", testMap(const <int, int>{1: 2}));
   Expect.equals("default", testMap({1: 2}));
   Expect.equals("default", testMap(const <num, num>{1: 2}));
-  Expect.equals("{'answer': 42}", testMap(const <String, num>{'answer': 42}));
-  Expect.equals("default", testMap(const {'answer': 42}));
+  Expect.equals("<dynamic, dynamic>{'answer': 42}",
+      testMap(const {'answer': 42}));
+  Expect.equals("<String, num>{'answer': 42}",
+      testMap(const <String, num>{'answer': 42}));
   Expect.equals("default", testMap(const <Object, int>{'answer': 42}));
-  Expect.equals("{'true': true}",
+  Expect.equals("<dynamic, dynamic>{'true': true}",
+      testMap(const {'true': true}));
+  Expect.equals("<String, Object>{'true': true}",
       testMap(const <String, Object>{'true': true}));
-  Expect.equals("default", testMap(const {'true': true}));
-  Expect.equals("{}", testMap(const <String, int>{}));
-  Expect.equals("default", testMap(const {}));
+  Expect.equals("<String, int>{}", testMap(const <String, int>{}));
+  Expect.equals("<dynamic, dynamic>{}", testMap(const {}));
   Expect.equals("default", testMap(const {'x': 'y'}));
 
-  Expect.equals("{1, 2, 3}", testSet(const <num>{1, 2, 3}));
+  Expect.equals("<num>{1, 2, 3}", testSet(const <num>{1, 2, 3}));
   Expect.equals("default", testSet(<num>{1, 2, 3}));
-  Expect.equals("default", testSet(const {1, 2, 3}));
-  Expect.equals("{'1', '2', '3'}", testSet(const {'1', '2', '3'}));
+  Expect.equals("<dynamic>{1, 2, 3}", testSet(const {1, 2, 3}));
+  Expect.equals("<dynamic>{'1', '2', '3'}", testSet(const {'1', '2', '3'}));
+  Expect.equals("<String>{'1', '2', '3'}",
+      testSet(const <String>{'1', '2', '3'}));
   Expect.equals("default", testSet(const <Object>{'1', '2', '3'}));
   Expect.equals("default", testSet(<Object>{'1', '2', '3'}));
-  Expect.equals("{}", testSet(const <double>{}));
-  Expect.equals("default", testSet(const {}));
+  Expect.equals("<double>{}", testSet(const <double>{}));
+  Expect.equals("<dynamic>{}", testSet(const {}));
   Expect.equals("default", testSet(<double>{}));
   Expect.equals("default", testSet(const {1}));
 }
