@@ -35,17 +35,17 @@ enum Color {
   black;
 }
 
-class Loggable {
+class Unit {
   final double value;
   final void Function(String s)? _logger;
-  const Loggable(this.value) : _logger = null;
-  const Loggable.withLogger(this.value, this._logger);
+  const Unit(this.value) : _logger = null;
+  const Unit.withLogger(this.value, this._logger);
 
   @override
   bool operator ==(Object other) {
     final _log = _logger;
     final tolerance = 0.001;
-    if (other is Loggable) {
+    if (other is Unit) {
       if (_log != null) {
         _log("=$other;");
       }
@@ -67,7 +67,7 @@ class Loggable {
   }
 
   @override
-  String toString() => "Area($value)";
+  String toString() => value.toStringAsFixed(2);
 }
 
 class Shape {
@@ -78,14 +78,14 @@ class Shape {
     _log = _log.isEmpty ? toAppend : "$_log$toAppend";
   }
 
-  Loggable get area {
+  Unit get area {
     logger("Shape.area");
-    return Loggable.withLogger(0, logger);
+    return Unit.withLogger(0, logger);
   }
 
-  Loggable get size {
+  Unit get size {
     logger("Shape.size");
-    return Loggable.withLogger(0, logger);
+    return Unit.withLogger(0, logger);
   }
 
   String get log => _log;
@@ -97,15 +97,15 @@ class Square extends Shape {
   Square(this.length);
 
   @override
-  Loggable get area {
+  Unit get area {
     logger("Square.area");
-    return Loggable.withLogger(length * length, logger);
+    return Unit.withLogger(length * length, logger);
   }
 
   @override
-  Loggable get size {
+  Unit get size {
     logger("Square.size");
-    return Loggable.withLogger(length, logger);
+    return Unit.withLogger(length, logger);
   }
 }
 
@@ -115,15 +115,15 @@ class Circle extends Shape {
   Circle(this.radius);
 
   @override
-  Loggable get area {
+  Unit get area {
     logger("Circle.area");
-    return Loggable.withLogger(3.14 * radius * radius, logger);
+    return Unit.withLogger(3.14 * radius * radius, logger);
   }
 
   @override
-  Loggable get size {
+  Unit get size {
     logger("Circle.size");
-    return Loggable.withLogger(radius, logger);
+    return Unit.withLogger(radius, logger);
   }
 }
 
@@ -133,14 +133,14 @@ class Rectangle extends Shape {
   Rectangle(this.x, this.y);
 
   @override
-  Loggable get area {
+  Unit get area {
     logger("Rectangle.area");
-    return Loggable.withLogger(x * y, logger);
+    return Unit.withLogger(x * y, logger);
   }
 
   @override
-  Loggable get size {
+  Unit get size {
     logger("Rectangle.size");
-    return Loggable.withLogger(x, logger);
+    return Unit.withLogger(x, logger);
   }
 }

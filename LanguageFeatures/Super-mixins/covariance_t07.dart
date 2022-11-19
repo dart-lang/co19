@@ -19,8 +19,8 @@
 import "../../Utils/expect.dart";
 
 class S {}
-class X extends S {}
-class Y extends X {}
+class C extends S {}
+class D extends C {}
 
 class A<T extends S> {
   bar(T n) {}
@@ -36,10 +36,10 @@ mixin M<T extends S> on A<S> {
   }
 }
 
-class MA extends B<Y> with M<X> {}
+class MA extends B<D> with M<C> {}
 
 main() {
   Expect.throws(() {
-    new MA().test(new Y());
+    new MA().test(new C());
   });
 }
