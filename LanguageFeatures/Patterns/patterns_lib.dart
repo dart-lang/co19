@@ -9,6 +9,32 @@
 
 library patterns_lib;
 
+const Zero = 0;
+const Pi = 3.14;
+const Answer = 42;
+const MaxJSInt = 0x1FFFFFFFFFFFFF;
+const Melody = "Lily was here";
+const True = true;
+const False = false;
+
+class C0 {
+  static const Zero = 0;
+  static const Pi = 3.14;
+  static const Answer = 42;
+  static const MaxJSInt = 0x1FFFFFFFFFFFFF;
+  static const Melody = "Lily was here";
+  static const True = true;
+  static const False = false;
+}
+
+enum Color {
+  white,
+  red,
+  yellow,
+  blue,
+  black;
+}
+
 class Unit {
   final double value;
   final void Function(String s)? _logger;
