@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion  The value of a constant list literal  const <E>[e1... en] is an
+/// @assertion  The value of a constant list literal const <E>[e1... en] is an
 /// object a that implements the built-in class List<E>. The ith element of a is
 /// vi+1, where vi is the value of the compile time expression ei.
 /// @description Checks that the value of a constant list literal is an object

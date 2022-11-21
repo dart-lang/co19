@@ -23,7 +23,7 @@
 ///
 /// Here is a situation where sound and non-sound null checking produce different
 /// results. The `null` value is tested using `null as A`, and such a cast
-/// succeeds. So `test()` does not throw error  and returns `Future<A>` that will
+/// succeeds. So `test()` does not throw error and returns `Future<A>` that will
 /// be completed with `null`. No dynamic error here.
 ///
 /// @author iarkh@unipro.ru

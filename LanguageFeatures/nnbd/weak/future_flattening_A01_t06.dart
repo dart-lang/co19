@@ -20,7 +20,7 @@
 ///
 /// Here is a situation where sound and non-sound null checking produce different
 /// results. The `null` value is a result of `getNull()`, it's tested using `null
-/// as bool`, and such a cast succeeds. So `test()` does not throw error  and
+/// as bool`, and such a cast succeeds. So `test()` does not throw error and
 /// returns `Future<bool>` that will be completed with `null`. No dynamic error
 /// here.
 ///

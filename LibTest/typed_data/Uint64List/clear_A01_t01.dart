@@ -6,7 +6,7 @@
 /// Removes all objects in the list; the length of the list becomes zero.
 /// Throws an [UnsupportedError], and retains all elements, if the length of the
 /// list is a fixed-length list.
-/// @description Checks that an [UnsupportedError] is thrown  since [Uint64List]
+/// @description Checks that an [UnsupportedError] is thrown since [Uint64List]
 /// is a fixed-length list.
 /// @author msyabro
 

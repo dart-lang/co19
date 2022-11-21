@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion UnmodifiableMapView(Map<K, V> map)
-/// @description Checks that default constructor  creates a [UnmodifiableMapView].
+/// @description Checks that default constructor creates an [UnmodifiableMapView].
 /// @author iarkh@unipro.ru
 
 import "dart:collection";

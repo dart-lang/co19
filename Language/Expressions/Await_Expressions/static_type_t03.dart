@@ -34,7 +34,7 @@ Future<bool> test() async {
   int i = await integer(1);
   String s = await string('hello');
   Exception? z = await exception(null);
-  // use variables, so  dart analyzer is happy
+  // use variables, so dart analyzer is happy
   return b && i == 1 && s == 'hello' &&  z == null;
 }
 

@@ -8,7 +8,7 @@
 ///
 /// @description Check that it is no compile-time error to call a method, setter,
 /// getter or operator on an expression whose type is potentially nullable if
-/// they are  methods, setters, getters, and operators on Object. Test type
+/// they are methods, setters, getters, and operators on Object. Test type
 /// aliases
 /// @author sgrekhov@unipro.ru
 

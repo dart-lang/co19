@@ -5,7 +5,7 @@
 /// @assertion Dart source text is represented as a sequence of Unicode code
 /// points.
 /// @description Checks that the Latin capital letters are represented as a
-/// sequence of Unicode  code points.
+/// sequence of Unicode code points.
 /// @author vasya
 
 import "../../../Utils/expect.dart";

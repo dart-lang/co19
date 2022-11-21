@@ -8,7 +8,7 @@
 /// is id or id=. If no such declaration exists in the lexical scope, let d be
 /// the declaration of the inherited member named id if it exists.
 /// ...
-/// • If d is a constant variable of one of the forms const v = e; or  const
+/// • If d is a constant variable of one of the forms const v = e; or const
 /// T v = e; then the value id is the value of the compile-time constant e.
 /// @description Checks that reference to a compile-time constant is evaluated
 /// correctly.

@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion const MapView(Map<K, V> map)
-/// @description Checks that default constructor  creates a [MapView].
+/// @description Checks that default constructor creates a [MapView].
 /// @author sgrekhov@unipro.ru
 
 import "dart:collection";

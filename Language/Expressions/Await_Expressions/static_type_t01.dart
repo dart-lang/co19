@@ -29,7 +29,7 @@ Future<bool> test() async {
   String s = await 'hello';
   Object o = await new Object();
   Exception? z = await null;
-  // use variables, so  dart analyzer is happy
+  // use variables, so dart analyzer is happy
   return b && i == 1 && s == 'hello' && o != null && z == null;
 }
 

@@ -20,7 +20,7 @@
 /// Here is a situation where sound and non-sound null checking produce different
 /// results. The `null` value is a result of `getNull()`, it's tested using `null
 /// as FutureOr<Object>`, and such a cast succeeds. So `test()` does not throw
-/// error  and returns `Future<FutureOr<Object>>` that will be completed with
+/// error and returns `Future<FutureOr<Object>>` that will be completed with
 /// `null`. No dynamic error here.
 ///
 /// @Issue 41272,41437

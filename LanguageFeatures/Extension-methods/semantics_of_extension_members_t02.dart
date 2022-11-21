@@ -7,7 +7,7 @@
 /// and the static type of this is the declared on type of the surrounding
 /// extension (which may contain unbound type variables).
 ///
-/// @description Check that inside an extension method body 'this' refers  to the
+/// @description Check that inside an extension method body 'this' refers to the
 /// original receiver
 /// @author sgrekhov@unipro.ru
 

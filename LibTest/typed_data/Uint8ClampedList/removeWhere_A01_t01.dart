@@ -4,7 +4,7 @@
 
 /// @assertion void removeWhere(bool test(E element))
 /// Removes all elements of this list that satisfy test.
-/// Throws an UnsupportedError  if this is a fixed-length list.
+/// Throws an UnsupportedError if this is a fixed-length list.
 /// @description Checks that [UnsupportedError] is thrown since
 /// [Uint8ClampedList] is a fixed-length list.
 /// @author msyabro

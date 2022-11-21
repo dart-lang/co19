@@ -15,7 +15,7 @@
 /// runtimeType or noSuchMethod)
 ///
 /// @description Check that it is a compile error if extension declares members
-/// with the same name as a member declared by  Object (==, hashCode , toString,
+/// with the same name as a member declared by Object (==, hashCode , toString,
 /// runtimeType or noSuchMethod)
 /// @author sgrekhov@unipro.ru
 

@@ -7,7 +7,7 @@
 /// ...
 /// If length is provided, it is used as the length of the indexable object,
 /// otherwise the length is found as indexable.length.
-/// @description Checks that if length is not provided, then  the length is found
+/// @description Checks that if length is not provided, then the length is found
 /// as indexable.length
 /// @author sgrekhov@unipro.ru
 

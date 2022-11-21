@@ -7,7 +7,7 @@
 /// with the `late` modifier.
 ///
 /// @description Check that it is not an error if a top level or static
-/// variable  with potentially non-nullable type has no initializer expression
+/// variable with potentially non-nullable type has no initializer expression
 /// but marked with a 'late' modifier. Test FutureOr<Never>
 /// @author sgrekhov@unipro.ru
 

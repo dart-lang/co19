@@ -15,7 +15,7 @@
 /// namedArgument:
 ///   label expression
 /// ;
-/// @description Checks that there is no  compile-time error when the argument
+/// @description Checks that there is no compile-time error when the argument
 /// list in a function invocation expression ends with a comma.
 /// @author msyabro
 

@@ -11,7 +11,7 @@
 ///   forms var v = e; , T v = e; , final v = e; , final T v = e; , static 
 ///   v = e; , static T v = e; , static final v = e;  or static final T v = e; 
 ///   and no value has yet been stored into v then the initializer expression 
-///   e is evaluated. If, during the evaluation of e, the getter  for v is 
+///   e is evaluated. If, during the evaluation of e, the getter for v is
 ///   invoked, a CyclicInitializationError is thrown. If the evaluation 
 ///   succeeded yielding an object o, let r = o, otherwise let r = null. In 
 ///   any case, r is stored into v. The result of executing the getter is r.
@@ -23,7 +23,7 @@
 /// - Variable declaration without initializer. The result of executing the
 ///   getter method is the value stored in v.
 /// @description Checks the result of the getter and that the initializer
-/// expression  is evaluated only once.
+/// expression is evaluated only once.
 /// @author msyabro
 
 import "../../../Utils/expect.dart";

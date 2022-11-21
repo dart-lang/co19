@@ -63,7 +63,7 @@
 /// to show that the declared bounds suffice to show that the type is
 /// well-bounded. For instance, in `C` we need to show that the bound in `C`
 /// suffices to show the bound in `C`; but in `B` we need to show that the bound
-/// in `B` suffices to show the bound in `A` (and it  doesn't, so `B` is an
+/// in `B` suffices to show the bound in `A` (and it doesn't, so `B` is an
 /// error).
 ///
 /// @author iarkh@unipro.ru

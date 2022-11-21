@@ -9,7 +9,7 @@
 ///
 /// @description Check that if opted-in class implements two classes with some
 /// method and the first class is legacy, child opted in method in the second
-/// class  can have argument of nullable type.
+/// class can have argument of nullable type.
 ///
 /// @author iarkh@unipro.ru
 

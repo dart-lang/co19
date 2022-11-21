@@ -10,7 +10,7 @@
 ///   label(n+1)1 ..label(n+1)jn default: sn+1
 /// }
 /// proceeds as follows:
-/// The expression ek == id  is evaluated to an object o which is then subjected
+/// The expression ek == id is evaluated to an object o which is then subjected
 /// to boolean conversion yielding a value v. If v is not true, the following
 /// case, case ek+1: sk+1 is executed if it exists. If case ek+1: sk+1 does not
 /// exist, then the default clause is executed by executing sn+1. If v is true,

@@ -21,7 +21,7 @@
 /// @description Checks that method [kill] kills the process and [exitCode]
 /// returns a Future which completes with the exit code of the process when the
 /// process completes. On Linux and OS X if the process was terminated due to a
-/// signal  the exit code will be a negative value in the range -255..-1, where
+/// signal the exit code will be a negative value in the range -255..-1, where
 /// the absolute value of the exit code is the signal number. If the process is
 /// killed with ProcessSignal.sigterm the exit code is -15, as the signal SIGTERM
 /// has number 15.

@@ -6,7 +6,7 @@
 /// Writes the charCode to this.
 ///
 /// This method is equivalent to write(new String.fromCharCode(charCode)).
-/// @description Checks that this method  writes the charCode to this.
+/// @description Checks that this method writes the charCode to this.
 /// @author sgrekhov@unipro.ru
 
 import "dart:convert";

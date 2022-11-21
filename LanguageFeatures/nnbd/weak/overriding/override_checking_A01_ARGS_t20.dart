@@ -8,7 +8,7 @@
 /// interface computation, all nullability and requiredness annotations are
 /// ignored, and the [Never] type is treated as [Null].
 ///
-/// @description Check that if legacy class  extends legacy class and implements
+/// @description Check that if legacy class extends legacy class and implements
 /// opted-in class, legacy method can accept [null] arguments if corresponding
 /// parent method argument is of non-nullable type.
 ///

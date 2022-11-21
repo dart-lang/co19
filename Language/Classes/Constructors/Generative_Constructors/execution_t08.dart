@@ -14,7 +14,7 @@
 /// respect to the bindings resulting from the evaluation of (a1, ..., an, xn+1:
 /// an+1, ..., xn+k: an+k) and with this bound to i and the type parameters of
 /// the immediately enclosing class bound to V1, ... , Vm.
-/// Otherwise, execution  proceeds as follows:
+/// Otherwise, execution proceeds as follows:
 /// Any initializing formals declared in k's parameter list are executed in the
 /// order they appear in the program text. Then, k's initializers are executed
 /// in the order they appear in the program.

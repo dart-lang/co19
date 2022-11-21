@@ -10,7 +10,7 @@
 ///   label(n+1)1 ..label(n+1)jn default: sn+1
 /// }
 /// proceeds as follows:
-/// The expression ek == id  is evaluated to an object o which is then subjected
+/// The expression ek == id is evaluated to an object o which is then subjected
 /// to boolean conversion yielding a value v. If v is not true, the following
 /// case, case ek+1: sk+1 is executed if it exists. If case ek+1: sk+1 does not
 /// exist, then the default clause is executed by executing sn+1. If v is true,
@@ -18,7 +18,7 @@
 /// such h exists, let h = n + 1. The sequence of statements sh is then executed.
 /// If execution reaches the point after sh then a runtime error occurs, unless
 /// h = n + 1.
-/// @description Checks that falling through produces no errors, if  the current
+/// @description Checks that falling through produces no errors, if the current
 /// clause is an empty case clause or the default clause.
 /// @author msyabro
 /// @reviewer rodionov
