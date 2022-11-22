@@ -74,7 +74,6 @@ Object? test2(Record r) {
 //                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break;
     case (final int c,) => c = 1;
 //                         ^
 // [analyzer] unspecified
@@ -92,7 +91,7 @@ Object? test2(Record r) {
 // [analyzer] unspecified
 // [cfe] unspecified
     default => "";
-  }
+  };
 }
 
 void test3(Record r) {
