@@ -37,7 +37,7 @@ class C {
   String toString() => "C";
 }
 
-String test(List l) {
+String test1(List l) {
   switch (l) {
     case ([int a, String b]):
       a.expectStaticType<Exactly<int>>();
@@ -59,19 +59,83 @@ String test(List l) {
   }
 }
 
+String test2(List l) {
+  return switch (l) {
+    case ([int a, String b]) => "[<int>$a, <String>$b]";
+    case ([int c, final int d]) => "[<int>$c, <int>$d]";
+    case ([String e, bool f]) => "[<String>$e, <bool>$f]";
+    case ([int g, final h]) => "[<int>$g,  final $h]";
+    default => "default";
+  };
+}
+
+String test3(List l) {
+  if (l case ([int a, String b])) {
+    a.expectStaticType<Exactly<int>>();
+    b.expectStaticType<Exactly<String>>();
+    return "[<int>$a, <String>$b]";
+  }
+  if (l case ([int c, final int d])) {
+    c.expectStaticType<Exactly<int>>();
+    d.expectStaticType<Exactly<int>>();
+    return "[<int>$c, <int>$d]";
+  }
+  if (l case ([String e, bool f])) {
+    e.expectStaticType<Exactly<String>>();
+    f.expectStaticType<Exactly<bool>>();
+    return "[<String>$e, <bool>$f]";
+  }
+  if (l case ([int g, final h])) {
+    g.expectStaticType<Exactly<int>>();
+    return "[<int>$g,  final $h]";
+  } else {
+    return "default";
+  }
+}
+
 main() {
-  Expect.equals("[<int>1, <String>x]", test([ 1, "x"]));
-  Expect.equals("[<int>42, <String>answer]", test([42, "answer"]));
-  Expect.equals("[<int>1, <int>2]", test([1, 2]));
-  Expect.equals("[<int>3, <int>4]", test([3, 4]));
-  Expect.equals("[<String>x, <bool>true]", test(["x", true]));
-  Expect.equals("(<String>y, <bool>false)", test(["y", false]));
-  Expect.equals("[<int>0, final false]", test([0, false]));
-  Expect.equals("[<int>1, final C]", test([1, C()]));
-  Expect.equals("default", test([true, false]));
-  Expect.equals("default", test([C(), C()]));
-  Expect.equals("default", test([1, 2, 3]));
-  Expect.equals("default", test([1]));
-  Expect.equals("default", test([1, "2", 3]));
-  Expect.equals("default", test(["x"]));
+  Expect.equals("[<int>1, <String>x]", test1([ 1, "x"]));
+  Expect.equals("[<int>42, <String>answer]", test1([42, "answer"]));
+  Expect.equals("[<int>1, <int>2]", test1([1, 2]));
+  Expect.equals("[<int>3, <int>4]", test1([3, 4]));
+  Expect.equals("[<String>x, <bool>true]", test1(["x", true]));
+  Expect.equals("(<String>y, <bool>false)", test1(["y", false]));
+  Expect.equals("[<int>0, final false]", test1([0, false]));
+  Expect.equals("[<int>1, final C]", test1([1, C()]));
+  Expect.equals("default", test1([true, false]));
+  Expect.equals("default", test1([C(), C()]));
+  Expect.equals("default", test1([1, 2, 3]));
+  Expect.equals("default", test1([1]));
+  Expect.equals("default", test1([1, "2", 3]));
+  Expect.equals("default", test1(["x"]));
+
+  Expect.equals("[<int>1, <String>x]", test2([ 1, "x"]));
+  Expect.equals("[<int>42, <String>answer]", test2([42, "answer"]));
+  Expect.equals("[<int>1, <int>2]", test2([1, 2]));
+  Expect.equals("[<int>3, <int>4]", test2([3, 4]));
+  Expect.equals("[<String>x, <bool>true]", test2(["x", true]));
+  Expect.equals("(<String>y, <bool>false)", test2(["y", false]));
+  Expect.equals("[<int>0, final false]", test2([0, false]));
+  Expect.equals("[<int>1, final C]", test2([1, C()]));
+  Expect.equals("default", test2([true, false]));
+  Expect.equals("default", test2([C(), C()]));
+  Expect.equals("default", test2([1, 2, 3]));
+  Expect.equals("default", test2([1]));
+  Expect.equals("default", test2([1, "2", 3]));
+  Expect.equals("default", test2(["x"]));
+
+  Expect.equals("[<int>1, <String>x]", test3([ 1, "x"]));
+  Expect.equals("[<int>42, <String>answer]", test3([42, "answer"]));
+  Expect.equals("[<int>1, <int>2]", test3([1, 2]));
+  Expect.equals("[<int>3, <int>4]", test3([3, 4]));
+  Expect.equals("[<String>x, <bool>true]", test3(["x", true]));
+  Expect.equals("(<String>y, <bool>false)", test3(["y", false]));
+  Expect.equals("[<int>0, final false]", test3([0, false]));
+  Expect.equals("[<int>1, final C]", test3([1, C()]));
+  Expect.equals("default", test3([true, false]));
+  Expect.equals("default", test3([C(), C()]));
+  Expect.equals("default", test3([1, 2, 3]));
+  Expect.equals("default", test3([1]));
+  Expect.equals("default", test3([1, "2", 3]));
+  Expect.equals("default", test3(["x"]));
 }

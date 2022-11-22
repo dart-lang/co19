@@ -25,7 +25,7 @@
 
 import "../../Utils/expect.dart";
 
-String test(Map map) {
+String test1(Map map) {
   switch (map) {
     case {1: _}:
       return "{1: _}";
@@ -33,6 +33,25 @@ String test(Map map) {
       return "{42: String _}";
     default:
       return "default";
+  }
+}
+
+String test2(Map map) {
+  return switch (map) {
+    case {1: _} => "{1: _}";
+    case {42: String _} => "{42: String _}";
+    default => "default";
+  };
+}
+
+String test3(Map map) {
+  if (map case {1: _}) {
+    return "{1: _}";
+  }
+  if (map case {42: String _}) {
+    return "{42: String _}";
+  }
+    return "default";
   }
 }
 
@@ -51,10 +70,24 @@ main() {
   Expect.throws(() {
     var {"1": _, "3": String _} = map2;
   });
-  Expect.equals("{1, _}", {1: 2, 2: 1});
-  Expect.equals("{1, _}", {1: 3, 42: ""});
-  Expect.equals("{42: String _}", {42: "", 2, "2"});
-  Expect.equals("default", {2: 1});
-  Expect.equals("default", {3: 2, 2: 1});
-  Expect.equals("default", {});
+  Expect.equals("{1, _}", test1({1: 2, 2: 1}));
+  Expect.equals("{1, _}", test1({1: 3, 42: ""}));
+  Expect.equals("{42: String _}", test1({42: "", 2: "2"}));
+  Expect.equals("default", test1({2: 1}));
+  Expect.equals("default", test1({3: 2, 2: 1}));
+  Expect.equals("default", test1({}));
+
+  Expect.equals("{1, _}", test2({1: 2, 2: 1}));
+  Expect.equals("{1, _}", test2({1: 3, 42: ""}));
+  Expect.equals("{42: String _}", test2({42: "", 2: "2"}));
+  Expect.equals("default", test2({2: 1}));
+  Expect.equals("default", test2({3: 2, 2: 1}));
+  Expect.equals("default", test2({}));
+
+  Expect.equals("{1, _}", test3({1: 2, 2: 1}));
+  Expect.equals("{1, _}", test3({1: 3, 42: ""}));
+  Expect.equals("{42: String _}", test3({42: "", 2: "2"}));
+  Expect.equals("default", test3({2: 1}));
+  Expect.equals("default", test3({3: 2, 2: 1}));
+  Expect.equals("default", test3({}));
 }

@@ -33,7 +33,7 @@ import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
-String test(Shape shape) {
+String test1(Shape shape) {
   switch (shape) {
     case Square(area: double d1):
       return "Square(area: double $d1)";
@@ -51,9 +51,46 @@ String test(Shape shape) {
   }
 }
 
+String test2(Shape shape) {
+  return switch (shape) {
+    case Square(area: double d1) => "Square(area: double $d1)";
+    case Square(area: Unit a) => "Square(area: $a)";
+    case Circle(size: double d2) => "Circle(size: double $d2)";
+    case Circle(size: Unit b) => "Circle(size: $b)";
+    default => "default";
+  };
+}
+
+String test3(Shape shape) {
+  if (shape case Square(area: double d1)) {
+    return "Square(area: double $d1)";
+  }
+  if (shape case Square(area: Unit a)) {
+    return "Square(area: $a)";
+  }
+  if (shape case Circle(size: double d2)) {
+    return "Circle(size: double $d2)";
+  }
+  if (shape case Circle(size: Unit b)) {
+    return "Circle(size: $b)";
+  } else {
+    return "default";
+  }
+}
+
 main() {
-  Expect.equals("Square(area: 1.00)", test(Square(1)));
-  Expect.equals("Square(area: 4.00)", test(Square(2)));
-  Expect.equals("Circle(size: 1.00)", test(Circle(1)));
-  Expect.equals("default", test(Shape()));
+  Expect.equals("Square(area: 1.00)", test1(Square(1)));
+  Expect.equals("Square(area: 4.00)", test1(Square(2)));
+  Expect.equals("Circle(size: 1.00)", test1(Circle(1)));
+  Expect.equals("default", test1(Shape()));
+
+  Expect.equals("Square(area: 1.00)", test2(Square(1)));
+  Expect.equals("Square(area: 4.00)", test2(Square(2)));
+  Expect.equals("Circle(size: 1.00)", test2(Circle(1)));
+  Expect.equals("default", test2(Shape()));
+
+  Expect.equals("Square(area: 1.00)", test3(Square(1)));
+  Expect.equals("Square(area: 4.00)", test3(Square(2)));
+  Expect.equals("Circle(size: 1.00)", test3(Circle(1)));
+  Expect.equals("default", test3(Shape()));
 }

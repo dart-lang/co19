@@ -32,7 +32,7 @@
 import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 
-String test(Map m) {
+String test1(Map m) {
   switch (m) {
     case ({1: String b}):
       a.expectStaticType<Exactly<String>>();
@@ -45,8 +45,37 @@ String test(Map m) {
   }
 }
 
+String test2(Map m) {
+  return switch (m) {
+    case ({1: String b}) => "{1: <String>$a}";
+    case ({1: final int b}) => "{1: <int>$b}";
+    default => "default";
+  };
+}
+
+String test3(Map m) {
+  if (m case ({1: String b})) {
+    a.expectStaticType<Exactly<String>>();
+    return "{1: <String>$a}";
+  }
+  if (m case ({1: final int b})) {
+    b.expectStaticType<Exactly<int>>();
+    return "{1: <int>$b}";
+  } else {
+    return "default";
+  }
+}
+
 main() {
-  Expect.equals("{1: <String>x}", test({1: "x"}));
-  Expect.equals("{1: <int>2]", test({1: 2}));
-  Expect.equals("default", test({1: true}));
+  Expect.equals("{1: <String>x}", test1({1: "x"}));
+  Expect.equals("{1: <int>2]", test1({1: 2}));
+  Expect.equals("default", test1({1: true}));
+
+  Expect.equals("{1: <String>x}", test2({1: "x"}));
+  Expect.equals("{1: <int>2]", test2({1: 2}));
+  Expect.equals("default", test2({1: true}));
+
+  Expect.equals("{1: <String>x}", test3({1: "x"}));
+  Expect.equals("{1: <int>2]", test3({1: 2}));
+  Expect.equals("default", test3({1: true}));
 }

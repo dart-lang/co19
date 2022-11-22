@@ -32,7 +32,7 @@
 
 import "patterns_lib.dart";
 
-void test(Shape shape) {
+void test1(Shape shape) {
   switch (shape) {
     case Square(area: final s):
       s = Unit(1);
@@ -54,6 +54,47 @@ void test(Shape shape) {
   }
 }
 
+Unit? test2(Shape shape) {
+  return switch (shape) {
+    case Square(area: final s) => s = Unit(1);
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case Circle(area: final Unit s) => s = Unit(1);
+//                                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case Circle(area: final Unit? s) => s = Unit(1);
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    default => Unit(42);
+  };
+}
+
+void test3(Shape shape) {
+  if (shape case Square(area: final s)) {
+    s = Unit(1);
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (shape case Circle(area: final Unit s)) {
+    s = Unit(1);
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (shape case Circle(area: final Unit? s)) {
+    s = Unit(1);
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
 main() {
-  test(Square(1));
+  test1(Square(1));
+  test2(Square(1));
+  test3(Square(1));
 }

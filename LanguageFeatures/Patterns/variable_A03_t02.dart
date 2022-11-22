@@ -29,7 +29,7 @@
 
 // SharedOptions=--enable-experiment=patterns,records
 
-void test(Record r) {
+void test1(Record r) {
   switch (r) {
     case (final a, name: final b):
       a = 1;
@@ -64,6 +64,73 @@ void test(Record r) {
   }
 }
 
+Object? test2(Record r) {
+  return switch (r) {
+    case (final a,) => a = 1;
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case (final a, name: final b) => b = 1;
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      break;
+    case (final int c,) => c = 1;
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case (final int c, final String d) =>  d = "";
+//                                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case (final int? e,) => e = 1;
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case (final int? e, name: final String? f) => f = "";
+//                                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    default => "";
+  }
+}
+
+void test3(Record r) {
+  if (r case (final a, name: final b)) {
+    a = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    b = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (r case (final int c, final String d)) {
+    c = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    d = "";
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (r case (final int? e, name: final String? f)) {
+    e = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    f = "";
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+
 main() {
-  test(());
+  test1(());
+  test2(());
+  test3(());
 }

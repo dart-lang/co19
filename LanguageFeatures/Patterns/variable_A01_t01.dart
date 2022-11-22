@@ -24,7 +24,7 @@
 /// }
 /// ```
 /// @description Checks a variable pattern in a as a subpattern of a
-/// destructuting pattern
+/// destructuring pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
