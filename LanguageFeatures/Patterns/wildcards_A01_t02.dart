@@ -50,7 +50,7 @@ String test3(Map map) {
   }
   if (map case {42: String _}) {
     return "{42: String _}";
-  }
+  } else {
     return "default";
   }
 }
