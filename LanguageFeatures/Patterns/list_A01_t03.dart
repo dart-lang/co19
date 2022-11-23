@@ -75,7 +75,7 @@ String test(List list) {
     return "list-1";
   }
   if (list case [10, <Object>["42", _]]) {
-    greturn "list-2";
+    return "list-2";
   }
   if (list case [11, {1: _}]) {
     return "map-1";
