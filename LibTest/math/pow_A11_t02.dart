@@ -6,9 +6,9 @@
 /// For doubles, pow(x, y) handles edge cases as follows:
 /// ...
 ///  - if [x] is -Infinity or -0.0 and [y] is an odd integer, then the result
-///    is -pow(-[x] ,[y]).
+///    is -pow(-[x], [y]).
 /// @description Checks the result when [x] is -Infinity or -0.0 and [y] is an
-/// odd integer, the result is -pow(-[x] ,[y])..
+/// odd integer, the result is -pow(-[x], [y])..
 /// @author ngl@unipro.ru
 
 import "dart:math" as Math;

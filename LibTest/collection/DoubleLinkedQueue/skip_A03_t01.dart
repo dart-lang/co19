@@ -18,5 +18,5 @@ check(List a, int n) {
 main() {
   check([1, 2, -3, 4], -1);
   check(const[1, 2, -5,-6, 100], -1);
-  check(const[null , 2, -5, -6, 100], -1000);
+  check(const[null, 2, -5, -6, 100], -1000);
 }

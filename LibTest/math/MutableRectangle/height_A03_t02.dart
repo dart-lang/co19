@@ -5,7 +5,7 @@
 /// @assertion void height=(T height)
 /// The height must be non-negative. If a negative height is supplied, it is
 /// clamped to zero.
-/// @description Checks that if the height is double.negativeInfinity , it is
+/// @description Checks that if the height is double.negativeInfinity, it is
 /// clamped to zero.
 /// @issue 30186
 /// @author ngl@unipro.ru

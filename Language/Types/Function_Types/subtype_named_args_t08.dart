@@ -9,8 +9,8 @@
 ///    • S is void, Or
 ///    • T ⇐⇒ S.
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si .
-/// 3. k ≥ m and yi ∈ {x1 , ..., xk }, i ∈ 1..m.
-/// 4. For all yi ∈ {y1 , ..., ym }, yi = xj ⇒ Tj ⇐⇒ Si.
+/// 3. k ≥ m and yi ∈ {x1, ..., xk }, i ∈ 1..m.
+/// 4. For all yi ∈ {y1, ..., ym }, yi = xj ⇒ Tj ⇐⇒ Si.
 /// @description Checks that function type t1 is still a subtype of function type
 /// t2 if their named optional parameters have identical names and mutually
 /// assignale types, regardless of the order they're declared in.

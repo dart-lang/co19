@@ -9,8 +9,8 @@
 ///    • S is void, Or
 ///    • T ⇐⇒ S.
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si .
-/// 3. k ≥ m and yi ∈ {x1 , ..., xk }, i ∈ 1..m.
-/// 4. For all yi ∈ {y1 , ..., ym }, yi = xj ⇒ Tj ⇐⇒ Si.
+/// 3. k ≥ m and yi ∈ {x1, ..., xk }, i ∈ 1..m.
+/// 4. For all yi ∈ {y1, ..., ym }, yi = xj ⇒ Tj ⇐⇒ Si.
 /// @description Checks that function type t1 is not a subtype of function type
 /// t2 even if just one of its required parameters has a type that is not
 /// mutually assignable with the type of the corresponding required parameter of

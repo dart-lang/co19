@@ -28,7 +28,7 @@ void check(List<Float64x2> list) {
   for (int i = 0; i < list.length; ++i) {
     expected += i + 1;
     var el = res.elementAt(i);
-    Expect.equals(expected , count);
+    Expect.equals(expected, count);
     Expect.equals(l[i].x + l[i].x, el.x);
     Expect.equals(l[i].y + l[i].y, el.y);
   }

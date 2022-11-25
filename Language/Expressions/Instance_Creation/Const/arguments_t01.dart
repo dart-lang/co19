@@ -12,7 +12,7 @@
 
 
 class  T {
-  const T(p1, p2 , p3);
+  const T(p1, p2, p3);
 }
 
 main() {

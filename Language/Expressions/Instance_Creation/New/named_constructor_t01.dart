@@ -4,7 +4,7 @@
 
 /// @assertion If T is a class or parameterized type accessible in the current
 /// scope then:
-/// • If e of the form new T.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k)
+/// • If e of the form new T.id(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k)
 ///   it is a static warning if T.id is not the name of a constructor declared
 ///   by the type T.
 /// @description Checks that it is a compile error if the type being

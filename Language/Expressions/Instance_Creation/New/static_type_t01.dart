@@ -5,7 +5,7 @@
 /// @assertion The static type of an instance creation expression of either the
 /// form new T.id(a1, ..., an, xn+1: an+1, ..., xn+k: an+k) or the form
 /// new T(a1, ..., an, xn+1: an+1, ..., xn+k: an+k) is T.
-/// It is a static warning if the static type of ai , 1 <= i <= n + k may not
+/// It is a static warning if the static type of ai, 1 <= i <= n + k may not
 /// be assigned to the type of the corresponding formal parameter of the
 /// constructor T.id (respectively T).
 /// @description Checks that the static type of an instance creation expression

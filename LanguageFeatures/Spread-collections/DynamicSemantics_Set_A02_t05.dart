@@ -17,7 +17,7 @@ import "../../Utils/expect.dart";
 
 main() {
   List list1 = [1, 2, 3, 4, 5];
-  List list2 = [1 ,2, 3, "checkme"];
+  List list2 = [1, 2, 3, "checkme"];
   List aList = [];
   Map aMap = {};
 

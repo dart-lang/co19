@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion  Furthermore, let ak be the set of asynchronous for loops and
-/// yield-each statements enclosing sb that are enclosed in sE , 1 ≤ k ≤ m,
+/// yield-each statements enclosing sb that are enclosed in sE, 1 ≤ k ≤ m,
 /// where ak is enclosed in ak+1 . The stream subscriptions associated with aj
 /// are canceled, 1 ≤ j ≤ m, innermost first, so that aj is canceled before
 /// aj+1.

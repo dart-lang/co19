@@ -4,7 +4,7 @@
 
 /// @assertion  If sE is an asynchronous for loop, let ak be the set of
 /// asynchronous for loops and yield-each statements enclosing sc that are
-/// enclosed in sE , 1 ≤ k ≤ m, where ak is enclosed in ak+1 . The stream
+/// enclosed in sE, 1 ≤ k ≤ m, where ak is enclosed in ak+1 . The stream
 /// subscriptions associated with aj are canceled, 1 ≤ j ≤ m, innermost first,
 /// so that aj is canceled before aj+1 .
 ///

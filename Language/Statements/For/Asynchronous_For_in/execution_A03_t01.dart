@@ -62,7 +62,7 @@ Future test1() async {
 
 Future test2() async {
   var processedValues = [];
-  await for (var i in new Stream.fromIterable(['a', 'b' ,'c'])) {
+  await for (var i in new Stream.fromIterable(['a', 'b', 'c'])) {
     processedValues.add(i);
   }
   Expect.listEquals(['a', 'b', 'c'], processedValues);

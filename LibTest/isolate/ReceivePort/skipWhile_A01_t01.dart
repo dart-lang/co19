@@ -36,7 +36,7 @@ void check(List data, bool test(var element), int index) {
 }
 
 main() {
-  check([], (element) => false , 0);
+  check([], (element) => false, 0);
   check([1, 2, 3], (element) => false, 0);
   check([-1, -2, -3, 1, 2, 3], (element) => element < 0, 3);
   check([1, 2, 3], (element) => element == 1, 1);

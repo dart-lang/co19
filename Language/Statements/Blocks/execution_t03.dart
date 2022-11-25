@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion A block statement supports sequencing of code.
-/// Execution of a block statement { s1, ... , sn } proceeds as follows:
+/// Execution of a block statement { s1, ..., sn } proceeds as follows:
 /// For i in 1..n; si is executed.
 /// @description Checks that nested block statements are executed as expected.
 /// @author iefremov

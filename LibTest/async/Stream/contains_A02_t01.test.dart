@@ -33,8 +33,8 @@ void check<T>(Stream<T> s, Object? match, bool expected) {
 
 void test(CreateStreamFunction create) {
   check(create([]), null, false);
-  check(create([1, 2 ,[]]), null, false);
-  check(create([1, 2 ,null, []]), null, true);
+  check(create([1, 2, []]), null, false);
+  check(create([1, 2, null, []]), null, true);
   check(create([1, 2, []]), 4, false);
   check(create([1, 2, null, []]), 2, true);
   check(create([1, 2, 1, 2, 3]), 2, true);
