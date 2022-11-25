@@ -4,7 +4,7 @@
 
 /// @assertion Let S be a class, M be a mixin with required superinterfaces
 /// T1, . . . , Tn, combined superinterface MS, implemented interfaces
-/// I1, . . . , Ik and members as mixin member declarations, and let N be a name.
+/// I1, . . . , Ik and members as mixin member declarations, and let N be a name.
 /// ...
 /// The mixin application of M to S with name N introduces a new class, C,
 /// with name N, superclass S, implemented interface I1, . . . , Ik and members
