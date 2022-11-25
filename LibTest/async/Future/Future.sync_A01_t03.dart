@@ -26,8 +26,8 @@ check(value) {
       Expect.fail("Created future should complete with error");
     },
     onError: (e) {
-      if (value==null){
-        Expect.isTrue(e is NullThrownError);
+      if (value == null){
+        Expect.isTrue(e is TypeError);
       } else {
         Expect.identical(value, e);
       }
