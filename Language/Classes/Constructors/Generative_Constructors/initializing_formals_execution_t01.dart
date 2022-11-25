@@ -21,7 +21,7 @@ class A {
 }
 
 class B {
-  B([this.x = 1 , this.y = 2]);
+  B([this.x = 1, this.y = 2]);
   var x;
   var y;
 }

@@ -9,7 +9,7 @@
 /// until after f completes. The stream associated with the innermost enclosing
 /// asynchronous for loop, if any, is paused. At some time after f is completed,
 /// control returns to the current invocation. The stream associated with the
-/// innermost enclosing asynchronous for loop , if any, is resumed. If f has
+/// innermost enclosing asynchronous for loop, if any, is resumed. If f has
 /// completed with an exception x, a raises x. If f completes with a value v,
 /// a evaluates to v.
 ///

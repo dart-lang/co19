@@ -8,7 +8,7 @@
 ///
 /// @description Check that it is no compile-time error to call a method, setter,
 /// getter or operator on an expression whose type is potentially nullable if
-/// they are  methods, setters, getters, and operators on Object. Test
+/// they are methods, setters, getters, and operators on Object. Test
 /// that methods of Object are allowed for the class Null
 /// @author sgrekhov@unipro.ru
 

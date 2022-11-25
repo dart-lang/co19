@@ -9,7 +9,7 @@
 /// HtmlEscapeMode.element, only the corresponding subset of HTML characters are
 /// escaped. The default is to escape all HTML characters.
 /// @description Checks that this constructor creates converter that escapes
-/// HTML characters. Test HtmlEscapeMode.sqAttribute  mode
+/// HTML characters. Test HtmlEscapeMode.sqAttribute mode
 /// @author sgrekhov@unipro.ru
 
 import "dart:convert";

@@ -13,7 +13,7 @@
 
 class S {
   num s1, s2, s3;
-  S(this.s1, this.s2 , {this.s3 = 3.14});
+  S(this.s1, this.s2, {this.s3 = 3.14});
 }
 
 class C extends S {

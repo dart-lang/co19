@@ -7,7 +7,7 @@
 /// from the type of other arguments.
 ///
 /// @description Checks the case when type is inferred from return type of a
-/// functions and these functions  return different types
+/// functions and these functions return different types
 /// @author sgrekhov22@gmail.com
 
 import "../../Utils/expect.dart";

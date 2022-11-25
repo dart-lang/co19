@@ -11,7 +11,7 @@
 /// ...
 /// The member declarations can be any non-abstract static or instance member
 /// declaration except for instance variables and constructors, and they cannot
-/// have the same name as a member declared by Object (==, hashCode , toString,
+/// have the same name as a member declared by Object (==, hashCode, toString,
 /// runtimeType or noSuchMethod)
 ///
 /// @description Check that the member declarations can be any non-abstract

@@ -16,7 +16,7 @@
 ///  argument im. However, if the implementation found cannot be invoked with
 ///  a single positional argument, the implementation of noSuchMethod() in class
 ///  Object is invoked on o1
-/// @description Checks that if class has no noSuchMethod then  the
+/// @description Checks that if class has no noSuchMethod then the
 /// implementation of noSuchMethod() in class Object is invoked and this produces
 /// NoSuchMethodError
 /// @author sgrekhov@unipro.ru

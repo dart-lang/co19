@@ -8,7 +8,7 @@
 ///
 /// @description Check that it is no compile-time error to read a field or tear
 /// off a method from an expression whose type is potentially nullable if they
-/// are  methods, setters, getters, and operators on Object. Test that methods
+/// are methods, setters, getters, and operators on Object. Test that methods
 /// of Object are allowed for the classes Null*`, `dynamic*`, `S?*`,
 /// `FutureOr<Null*>`, `FutureOr<dynamic*>`, `FutureOr<FutureOr<S*>>`
 /// @author sgrekhov@unipro.ru

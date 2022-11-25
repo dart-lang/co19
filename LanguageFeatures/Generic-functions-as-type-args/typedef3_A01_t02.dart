@@ -28,7 +28,7 @@
 /// type occurring covariantly in a type argument, like List<T Function<T>(T)
 /// Function()>.
 /// @description Checks that generic function can be a non-function typedef type
-/// argument and  bound: test extends clause in the typedef declaration
+/// argument and bound: test extends clause in the typedef declaration
 /// dynamically.
 /// @author iarkh@unipro.ru
 

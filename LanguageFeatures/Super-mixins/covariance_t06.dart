@@ -10,7 +10,7 @@
 /// allowed by a class implementing both B and C. The mixin introduced by A can
 /// then only be applied to classes that implement both B and C.
 ///
-/// @description Checks that it is a runtime  error if mixin is applied to the
+/// @description Checks that it is a runtime error if mixin is applied to the
 /// class which doesn't implement required interface by covariant. See
 /// https://github.com/dart-lang/sdk/issues/35111#issuecomment-437291038
 /// @issue 35111

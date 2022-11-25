@@ -5,7 +5,7 @@
 /// @assertion It is not an error to apply an expression of type Never in the
 /// function position of a function call
 ///
-/// @description Check that it is not  an error to apply an expression of type
+/// @description Check that it is not an error to apply an expression of type
 /// Never in the function position of a function call.
 /// @author sgrekhov@unipro.ru
 /// @issue 39866

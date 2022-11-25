@@ -25,7 +25,7 @@
 ///
 /// @description Checks that [exitCode] returns a Future which completes with the
 /// exit code of the process when the process completes. On Linux and OS X a
-/// normal exit code will be a positive value in the range  0..255.
+/// normal exit code will be a positive value in the range 0..255.
 /// @author ngl@unipro.ru
 
 import "dart:async";

@@ -7,7 +7,7 @@
 /// after v has been initialized. The declaration of a final variable must
 /// include the modifier final.
 /// It is a static warning if a final instance variable that has been
-/// initialized at its point of declaration  is  also initialized in a
+/// initialized at its point of declaration is also initialized in a
 /// constructor.
 /// It is a compile-time error if a local variable v is final and v is not
 /// initialized at its point of declaration.

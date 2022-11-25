@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertionA type T0 is a subtype of a type T1 (written T0 <: T1) when:
-/// Positional Function Types: T0 is U0 Function<X0 extends B00, ... ,
+/// Positional Function Types: T0 is U0 Function<X0 extends B00, ...,
 /// Xk extends B0k>(V0 x0, ..., Vn xn, [Vn+1 xn+1, ..., Vm xm])
 ///
 ///  and T1 is U1 Function<Y0 extends B10, ..., Yk extends B1k>(S0 y0, ...,

@@ -19,7 +19,7 @@ test(Set create([Iterable content])) {
     Expect.fail("[:intersection():] has returned [:this:]");
   }
 
-  s = create([1, 2 , 3]);
+  s = create([1, 2, 3]);
   newSet = s.intersection([1, 2, 3].toSet());
   Expect.setEquals(s, [1, 2, 3].toSet());
   if(identical(newSet, s)) {

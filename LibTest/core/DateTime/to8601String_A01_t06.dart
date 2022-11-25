@@ -20,7 +20,7 @@
 /// uuu are microseconds in the range 001 to 999. If microsecond equals 0,
 /// then this part is omitted.
 /// The resulting string can be parsed back using parse.
-/// @description Check that if year is less than -9999 then  a signed six digit
+/// @description Check that if year is less than -9999 then a signed six digit
 /// representation of the year returned
 /// @author sgrekhov@unipro.ru
 

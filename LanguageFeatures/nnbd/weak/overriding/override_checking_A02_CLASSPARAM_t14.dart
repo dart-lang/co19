@@ -7,7 +7,7 @@
 /// libraries in the super-interface chain, since a legacy library is permitted
 /// to override otherwise incompatible signatures for a method.
 ///
-/// @description Check that if generic opted-in class is a mixin  generic legacy
+/// @description Check that if generic opted-in class is a mixin generic legacy
 /// class with [FutureOr<nullable_type>] type parameter, child opted-in class
 /// type parameter can extend nullable type.
 ///

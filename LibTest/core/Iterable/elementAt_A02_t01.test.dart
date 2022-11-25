@@ -9,7 +9,7 @@
 /// May iterate through the elements in iteration order, skipping the first index
 /// elements and returning the next. Some iterable may have more efficient ways
 /// to find the element.
-/// @description Checks that a RangeError is thrown if this list  has fewer than
+/// @description Checks that a RangeError is thrown if this list has fewer than
 /// index elements.
 /// @author kaigorodov
 

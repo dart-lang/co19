@@ -5,7 +5,7 @@
 /// @assertion Execution of a generative constructor k is always done with
 /// respect to a set of bindings for its formal parameters and with this bound
 /// to a fresh instance i and the type parameters of the immediately enclosing
-/// class bound to a set of actual type arguments V1, ... , Vm.
+/// class bound to a set of actual type arguments V1, ..., Vm.
 /// If k is redirecting then its redirect clause has the form
 ///   this.g(a1, ..., an, xn+1: an+1, ..., xn+k: an+k)
 /// where g identifies another generative constructor of the immediately
@@ -13,8 +13,8 @@
 /// list (a1, ..., an, xn+1: an+1, ..., xn+k: an+k) and then executing g with
 /// respect to the bindings resulting from the evaluation of (a1, ..., an, xn+1:
 /// an+1, ..., xn+k: an+k) and with this bound to i and the type parameters of
-/// the immediately enclosing class bound to V1, ... , Vm.
-/// Otherwise, execution  proceeds as follows:
+/// the immediately enclosing class bound to V1, ..., Vm.
+/// Otherwise, execution proceeds as follows:
 /// Any initializing formals declared in k's parameter list are executed in the
 /// order they appear in the program text. Then, k's initializers are executed
 /// in the order they appear in the program.
@@ -22,7 +22,7 @@
 /// scope where this is bound to i. Execution of the body begins with execution
 /// of the body of the superconstructor with this bound to i, the type
 /// parameters of the immediately enclosing class bound to a set of actual type
-/// arguments V1, ... , Vm and the formal parameter bindings determined by the
+/// arguments V1, ..., Vm and the formal parameter bindings determined by the
 /// argument list of the superinitializer of k.
 /// @description Checks that the order in which the initializers in a
 /// constructor's initializer list are executed is correct.

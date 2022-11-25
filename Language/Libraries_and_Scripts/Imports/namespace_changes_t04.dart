@@ -37,7 +37,7 @@
 ///
 /// Next, if I includes a prefix clause of the form as p, let NS = NSn ∪
 /// {p : pref ixObject(NSn)} where pref ixObject(NSn) is a prefix object for the
-/// namespace NSn , which is an object that has the following members:
+/// namespace NSn, which is an object that has the following members:
 /// • For every top level function f named id in NSn, a corresponding method with
 ///   the same name and signature as f that forwards to f.
 /// • For every top level getter with the same name and signature as g named id

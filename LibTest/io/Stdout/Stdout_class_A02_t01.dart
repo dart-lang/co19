@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion CLASS  Stdout
+/// @assertion CLASS Stdout
 /// It provides a blocking [IOSink], so using this to write will block until the
 /// output is written.
 /// @description Checks that [stdout] is blocked during writing by default.

@@ -10,7 +10,7 @@
 /// ])
 /// ...
 /// Throws [RangeError] if [offsetInBytes] or [length] are negative, or if
-/// [offsetInBytes] + ([length] * elementSizeInBytes) is greater than  the
+/// [offsetInBytes] + ([length] * elementSizeInBytes) is greater than the
 /// length of [buffer].
 /// @description Checks that an error is thrown if [length] is negative.
 /// @author msyabro

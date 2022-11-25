@@ -14,7 +14,7 @@
 func(p1, p2, [p3]) {}
 
 main() {
-  func(1, 2 ,3, 4);
+  func(1, 2, 3, 4);
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified

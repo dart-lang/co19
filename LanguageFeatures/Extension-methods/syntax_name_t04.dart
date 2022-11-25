@@ -13,7 +13,7 @@
 /// extension itself in various places. The name can be hidden or shown in import
 /// or export declarations.
 ///
-/// @description Check that the name  can be hidden or shown in import or export
+/// @description Check that the name can be hidden or shown in import or export
 /// declarations.
 /// @author sgrekhov@unipro.ru
 

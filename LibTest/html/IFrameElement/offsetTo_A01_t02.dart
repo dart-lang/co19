@@ -20,9 +20,9 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  IFrameElement x = new Element.html('''<iframe  class="x">
+  IFrameElement x = new Element.html('''<iframe class="x">
          </iframe>''', treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
-  IFrameElement y = new Element.html('''<iframe  class="y">
+  IFrameElement y = new Element.html('''<iframe class="y">
          </iframe>''', treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
   document.body?.append(x);
   document.body?.append(y);

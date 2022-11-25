@@ -16,7 +16,7 @@ class C {
 }
 
 main() {
-  new C().func(1, 2 ,3, 4);
+  new C().func(1, 2, 3, 4);
 //                      ^
 // [analyzer] unspecified
 // [cfe] unspecified

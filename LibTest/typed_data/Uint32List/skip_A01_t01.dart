@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Iterable<E> skip(int count)
-/// Returns an [Iterable] that  provides all but the first [count] elements.
+/// Returns an [Iterable] that provides all but the first [count] elements.
 /// @description Checks that the correct [Iterable] is returned.
 /// @author msyabro
 

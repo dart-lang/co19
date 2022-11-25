@@ -5,7 +5,7 @@
 /// @assertion int indexOf(E element, [int start = 0])
 /// Returns the first index of element in the list.
 /// Searches the list from index [start] to the end of the list. The first time
-/// an object o is encountered so that o == [element], the index  of o is
+/// an object o is encountered so that o == [element], the index of o is
 /// returned.
 /// @description Checks that if not specified, [startIndex] is 0.
 /// @author msyabro

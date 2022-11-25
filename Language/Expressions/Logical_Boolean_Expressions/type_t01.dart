@@ -9,7 +9,7 @@
 /// • The variable v is not mutated in e2 or within a closure.
 /// Furthermore, if all of the following hold:
 /// • e1 shows that v has type T.
-/// • v is not mutated in either e1 , e2 or within a closure.
+/// • v is not mutated in either e1, e2 or within a closure.
 /// • If the variable v is accessed by a closure in e2 then the variable v is not
 ///   potentially mutated anywhere in the scope of v.
 /// then the type of v is known to be T in e2.

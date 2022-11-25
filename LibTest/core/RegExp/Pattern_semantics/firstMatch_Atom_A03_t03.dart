@@ -24,7 +24,7 @@ main() {
 <p>All for Kibology</p>
 </body>""";
   String html = "<html>\n$body\n</html>";
-  check(r"<body.*>((.*\n?)*?)</body>", html, ignoreCase:true , matchPos: 7,
+  check(r"<body.*>((.*\n?)*?)</body>", html, ignoreCase:true, matchPos: 7,
       expectedGroups: [body,
       "\n<p>Kibology for all</p>\n<p>All for Kibology</p>\n",
       "<p>All for Kibology</p>\n"]);

@@ -11,7 +11,7 @@
 /// invoked with its formal parameter bound to o. The value of the assignment
 /// expression is o.
 /// @description Checks that if d is the declaration of a library variable, then
-/// the setter v = is invoked with its formal parameter bound to o and  the value
+/// the setter v = is invoked with its formal parameter bound to o and the value
 /// of the assignment expression is o.
 /// @author sgrekhov@unipro.ru
 

@@ -8,7 +8,7 @@
 /// element of this, in iteration order.
 /// The returned Iterable is lazy, and calls f for each element of this every
 /// time it's iterated.
-/// @description Checks that the length of resulting Iterable equals  the total
+/// @description Checks that the length of resulting Iterable equals the total
 /// number of inserted values
 /// @author kaigorodov
 

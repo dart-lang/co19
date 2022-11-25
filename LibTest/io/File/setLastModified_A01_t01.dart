@@ -6,7 +6,7 @@
 /// Modifies the time the file was last accessed.
 ///
 /// Throws a FileSystemException if the time cannot be set.
-/// @description Checks that this method modifies the time the file was  last
+/// @description Checks that this method modifies the time the file was last
 /// modified
 /// @author sgrekhov@unipro.ru
 

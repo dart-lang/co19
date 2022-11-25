@@ -5,7 +5,7 @@
 /// @assertion Execution of a postfix expression of the form e1?.v-- is
 /// equivalent to executing ((x) => x == null? null: x.v--)(e1) unless e1 is
 /// a type literal, in which case it is equivalent to e1.v--
-/// @description Checks that evaluation of an expression of the form  e1?.v-- is
+/// @description Checks that evaluation of an expression of the form e1?.v-- is
 /// equivalent to executing ((x) => x == null? null: x.v--)(e1)
 /// @author sgrekhov@unipro.ru
 

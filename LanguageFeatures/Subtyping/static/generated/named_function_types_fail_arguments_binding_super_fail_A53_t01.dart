@@ -8,13 +8,13 @@
 ///
 /// and T1 is U1 Function<Y0 extends B10, ..., Yk extends B1k>(S0 y0, ..., Sn yn,
 /// {Sn+1 yn+1, ..., Sq yq})
-/// and {yn+1, ... , yq} subsetof {xn+1, ... , xm}
+/// and {yn+1, ..., yq} subsetof {xn+1, ..., xm}
 /// and Si[Z0/Y0, ..., Zk/Yk] <: Vi[Z0/X0, ..., Zk/Xk] for i in 0...n
 /// and Si[Z0/Y0, ..., Zk/Yk] <: Tj[Z0/X0, ..., Zk/Xk] for i in n+1...q, yj = xi
 /// and U0[Z0/X0, ..., Zk/Xk] <: U1[Z0/Y0, ..., Zk/Yk]
 /// and B0i[Z0/X0, ..., Zk/Xk] === B1i[Z0/Y0, ..., Zk/Yk] for i in 0...k
 /// where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
-/// @description Check that if  B0i[Z0/X0, ..., Zk/Xk] !== B1i[Z0/Y0, ..., Zk/Yk]
+/// @description Check that if B0i[Z0/X0, ..., Zk/Xk] !== B1i[Z0/Y0, ..., Zk/Yk]
 /// for any i in 0...k, then T0 is not a subtype of T1. Test generic types
 /// @author sgrekhov@unipro.ru
 ///

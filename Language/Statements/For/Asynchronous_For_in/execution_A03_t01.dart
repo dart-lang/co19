@@ -21,7 +21,7 @@
 /// calls to pause.
 ///
 /// For each data event from `u`, the statement `s` is executed with `id` bound
-/// to  the value of the current data event.
+/// to the value of the current data event.
 ///
 /// If execution of `s` continues without a label, or to a label that prefixes
 /// the asynchronous for statement, then the execution of `s` is treated as if
@@ -45,7 +45,7 @@
 /// When `u` is done, execution of `f` completes normally.
 ///
 /// @description Check that for each data event from `u`, the statement `s` is
-/// executed with `id` bound to  the value of the current data event.
+/// executed with `id` bound to the value of the current data event.
 ///
 /// @author a.semenov@unipro.ru
 
@@ -62,7 +62,7 @@ Future test1() async {
 
 Future test2() async {
   var processedValues = [];
-  await for (var i in new Stream.fromIterable(['a', 'b' ,'c'])) {
+  await for (var i in new Stream.fromIterable(['a', 'b', 'c'])) {
     processedValues.add(i);
   }
   Expect.listEquals(['a', 'b', 'c'], processedValues);

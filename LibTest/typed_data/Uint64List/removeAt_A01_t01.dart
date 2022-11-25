@@ -5,7 +5,7 @@
 /// @assertion E removeAt(int index)
 /// Removes the object at position index from the list.
 /// ...
-/// Throws an UnsupportedError  if this is a fixed-length list. In that case the
+/// Throws an UnsupportedError if this is a fixed-length list. In that case the
 /// list is not modified.
 /// @description Checks that [UnsupportedError] is thrown since [Uint64List] is
 /// a fixed-length list.

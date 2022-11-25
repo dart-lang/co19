@@ -18,7 +18,7 @@ import "../../Utils/expect.dart";
 List list1 = [1, 2, 3, 4, 5];
 List list2 = [];
 List? list3 = null;
-List list4 = [1 ,2, 3, "checkme"];
+List list4 = [1, 2, 3, "checkme"];
 
 main() {
   Expect.isTrue(<int>{...list1} is LinkedHashSet<int>);

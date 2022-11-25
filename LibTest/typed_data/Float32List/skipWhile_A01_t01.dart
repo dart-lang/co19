@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Iterable<E> skipWhile(bool test(E value))
-/// Returns an [Iterable] that skips  leading elements while [test] is satisfied.
+/// Returns an [Iterable] that skips leading elements while [test] is satisfied.
 /// @description Checks that all first elements that satisfy test are skipped,
 /// and elements after that are retained.
 /// @author msyabro

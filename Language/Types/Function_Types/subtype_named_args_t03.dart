@@ -9,8 +9,8 @@
 ///    • S is void, Or
 ///    • T ⇐⇒ S.
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si .
-/// 3. k ≥ m and yi ∈ {x1 , ..., xk }, i ∈ 1..m.
-/// 4. For all yi ∈ {y1 , ..., ym }, yi = xj ⇒ Tj ⇐⇒ Si.
+/// 3. k ≥ m and yi ∈ {x1, ..., xk }, i ∈ 1..m.
+/// 4. For all yi ∈ {y1, ..., ym }, yi = xj ⇒ Tj ⇐⇒ Si.
 /// @description Checks that this statement is true even if the subtype function
 /// type has more named optional parameters than the supertype as long it's a
 /// superset of the supertype's named optional parameters.

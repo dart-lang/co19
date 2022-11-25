@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion If more than one super-constraint interface declares a member
-/// with  the same name, at least one of those members is more specific than the
+/// with the same name, at least one of those members is more specific than the
 /// rest,  and this is the unique signature that super-invocations are allowed
 /// to invoke.
 ///

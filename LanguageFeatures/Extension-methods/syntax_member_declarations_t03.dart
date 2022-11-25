@@ -11,11 +11,11 @@
 /// ...
 /// The member declarations can be any non-abstract static or instance member
 /// declaration except for instance variables and constructors, and they cannot
-/// have the same name as a member declared by Object (==, hashCode , toString,
+/// have the same name as a member declared by Object (==, hashCode, toString,
 /// runtimeType or noSuchMethod)
 ///
 /// @description Check that it is a compile error if extension declares members
-/// with the same name as a member declared by  Object (==, hashCode , toString,
+/// with the same name as a member declared by Object (==, hashCode, toString,
 /// runtimeType or noSuchMethod)
 /// @author sgrekhov@unipro.ru
 

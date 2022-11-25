@@ -6,7 +6,7 @@
 /// a top-level function or variable initializer, in an instance variable
 /// initializer or initializer list, in class Object, in a factory constructor
 /// or in a static method or variable initializer.
-/// @description Checks that it is a compile-time error if  a super method
+/// @description Checks that it is a compile-time error if a super method
 /// invocation occurs in a static method.
 /// @author msyabro
 

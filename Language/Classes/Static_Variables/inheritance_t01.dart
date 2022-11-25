@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Static variables are variables whose declarations are
-/// immediately contained  within a class declaration and that are declared
+/// immediately contained within a class declaration and that are declared
 /// static. The static variables of a class C are those static variables
 /// declared by C.
 /// @description Checks that superclass's static variables are unaccessible

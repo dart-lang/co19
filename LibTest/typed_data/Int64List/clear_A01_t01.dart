@@ -4,7 +4,7 @@
 
 /// @assertion void clear()
 /// Removes all objects from this list; the length of the list becomes zero.
-/// Throws an [UnsupportedError], and retains all elements, if  this is a
+/// Throws an [UnsupportedError], and retains all elements, if this is a
 /// fixed-length list.
 /// @description Checks that an [UnsupportedError] is thrown, since [Int64List]
 /// is a fixed-length list.

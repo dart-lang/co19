@@ -21,7 +21,7 @@
 /// calls to pause.
 ///
 /// For each data event from `u`, the statement `s` is executed with `id` bound
-/// to  the value of the current data event.
+/// to the value of the current data event.
 ///
 /// If execution of `s` continues without a label, or to a label that prefixes
 /// the asynchronous for statement, then the execution of `s` is treated as if

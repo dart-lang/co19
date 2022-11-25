@@ -13,7 +13,7 @@
 /// The iterable must have enough objects to fill the range from start to end
 /// after skipping skipCount objects.
 /// @description Checks that it is an error if the [iterable] does not have
-/// enough  elements after skipping [skipCount] elements.
+/// enough elements after skipping [skipCount] elements.
 /// @author msyabro
 
 

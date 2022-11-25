@@ -5,7 +5,7 @@
 /// @assertion int modPow(int exponent, int modulus)
 /// Returns this integer to the power of exponent modulo modulus.
 /// The exponent must be non-negative and modulus must be positive.
-/// @description Checks that this method returns  this integer to the power of
+/// @description Checks that this method returns this integer to the power of
 /// exponent modulo modulus.
 /// @author sgrekhov@unipro.ru
 

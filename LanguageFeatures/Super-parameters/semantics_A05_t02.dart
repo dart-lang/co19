@@ -24,6 +24,6 @@ class C extends S {
 }
 main() {
   C c = C(1, n: 2);
-  Expect.equals(1 ,c.i1);
-  Expect.equals(2 ,c.n);
+  Expect.equals(1, c.i1);
+  Expect.equals(2, c.n);
 }
