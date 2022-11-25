@@ -12,7 +12,7 @@ library moveNext_A01_t01;
  
 import "../../../Utils/expect.dart";
 
-test(Iterator create([Iterable content]), {bool isSet: false}) {
+test(Iterator create([Iterable content]), {bool isSet = false}) {
 
   void check(Iterator it, bool expected) {
     Expect.equals(expected, it.moveNext());

@@ -6,7 +6,7 @@
 
 import 'dart:async';
 
-Stream makeStream(Iterable iterable, {Function? beforeCancel()?: null}) {
+Stream makeStream(Iterable iterable, {Function? beforeCancel()? = null}) {
   Stream s = new Stream.fromIterable(iterable);
   return new _StreamWrapper(s, beforeCancel);
 }
@@ -71,4 +71,3 @@ class _StreamSubscriptionWrapper implements StreamSubscription {
     _streamSubscription.resume();
   }
 }
-

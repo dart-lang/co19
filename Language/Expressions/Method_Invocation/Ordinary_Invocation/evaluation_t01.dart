@@ -58,7 +58,7 @@ class O {
     buffer.write(1);
     return new O();
   }
-  method(var a, var b, {var c: null, var d: null}) {}
+  method(var a, var b, {var c = null, var d = null}) {}
 }
 
 main() {
@@ -66,6 +66,3 @@ main() {
   (o + 1).method(new A() + 1, new A() - 2, d: new C(), c: new B());
   Expect.equals("12345", buffer.toString());
 }
-
-
-

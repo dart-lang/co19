@@ -12,7 +12,7 @@ library where_A01_t07;
  
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content]), {bool isSet:false}) {
+test(Iterable create([Iterable content]), {bool isSet = false}) {
   List list = new List.empty(growable: true);
   
   for(int i = 0; i < 101; i++) {

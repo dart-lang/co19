@@ -45,9 +45,9 @@ main() {
 }
 
 void check(String pattern, String str,
-    {bool multiLine: false,
-    bool ignoreCase: false,
-    List<String?>? expectedGroups: null}) {
+    {bool multiLine = false,
+    bool ignoreCase = false,
+    List<String?>? expectedGroups = null}) {
   RegExp re =
       new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
   Expect.isNotNull(re.firstMatch(str));

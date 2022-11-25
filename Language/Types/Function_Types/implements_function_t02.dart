@@ -20,7 +20,7 @@ class C {
   void f6(var x) {}
   String f7([var x]) => "Lily was here";
   Object f8(var x, int z, [Object? o, var v = 1]) => new Object();
-  Object f9(var x, int z, {o, v: 1}) => new Object();
+  Object f9(var x, int z, {o, v = 1}) => new Object();
 
   static f1s() {}
   static void f2s() {}
@@ -30,7 +30,7 @@ class C {
   static void f6s(var x) {}
   static String f7s([var x]) => "Show must go on";
   static Object f8s(var x, int z, [Object? o, var v = 1]) => new Object();
-  static Object f9s(var x, int z, {o, v: 1}) => new Object();
+  static Object f9s(var x, int z, {o, v = 1}) => new Object();
 }
 
 main() {

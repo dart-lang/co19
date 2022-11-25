@@ -22,7 +22,7 @@ typedef dynamic dynFuncListParam(List p1, {List? p2});
 
 main() {
   dynFuncBoolParam dfbp = (bool p1, {bool? p2}) { return 1; };
-  dfbp = (bool p1, {bool? p2: true}) { var x = p1; };
+  dfbp = (bool p1, {bool? p2 = true}) { var x = p1; };
   dfbp = (a, {p2}) {};
 
   dynFuncIntParam dfip = (int p1, {int? p2}) {[1][0];};

@@ -28,8 +28,8 @@ main() {
   check(r"\$+$", "\$\$\$\$\$\$");
 }
 
-void check(String pattern, String str, {bool multiLine: false,
-    bool ignoreCase: false}) {
+void check(String pattern, String str, {bool multiLine = false,
+    bool ignoreCase = false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Expect.isNotNull(re.firstMatch(str), "\"$pattern\" !~ \"$str\"");

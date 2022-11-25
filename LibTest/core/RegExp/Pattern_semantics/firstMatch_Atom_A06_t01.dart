@@ -28,9 +28,9 @@ main() {
   checkNeg(r"[A-Z]+", "\u017F", ignoreCase: true);
 }
 
-void check(String pattern, String str, {bool multiLine: false,
-    bool ignoreCase: false, int matchPos: -1,
-    List<String>? expectedGroups: null}) {
+void check(String pattern, String str, {bool multiLine = false,
+    bool ignoreCase = false, int matchPos = -1,
+    List<String>? expectedGroups = null}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Expect.isNotNull(re.firstMatch(str), "\"$pattern\" !~ \"$str\"");
@@ -50,8 +50,8 @@ void check(String pattern, String str, {bool multiLine: false,
   }
 }
 
-void checkNeg(String pattern, String str, {bool multiLine: false,
-    bool ignoreCase: false}) {
+void checkNeg(String pattern, String str, {bool multiLine = false,
+    bool ignoreCase = false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Expect.isNull(re.firstMatch(str), "\"$pattern\" ~ \"$str\"");

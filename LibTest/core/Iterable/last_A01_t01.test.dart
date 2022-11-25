@@ -15,7 +15,7 @@ library last_A01_t01;
  
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content]), {bool isSet:false}) {
+test(Iterable create([Iterable content]), {bool isSet = false}) {
 
   check(Iterable source) {
     if (isSet) {

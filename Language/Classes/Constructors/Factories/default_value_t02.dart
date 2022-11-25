@@ -17,7 +17,7 @@ class F {
 }
 
 class C implements F {
-  C(int x, {int y: 0});
+  C(int x, {int y = 0});
 }
 
 main() {

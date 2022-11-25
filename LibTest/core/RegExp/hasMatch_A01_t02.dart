@@ -317,15 +317,15 @@ main() {
 //  check(r"[\d][\0012-\0014]{1,}[^\d]", "line1\n\n\n\n\nline2"); // issue 1297
 }
 
-void check(String pattern, String str, {bool multiLine: false,
-    bool ignoreCase: false}) {
+void check(String pattern, String str, {bool multiLine = false,
+    bool ignoreCase = false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Expect.isTrue(re.hasMatch(str), "'/$pattern/' !~ '$str'");
 }
 
-void checkNeg(String pattern, String str, {bool multiLine: false,
-  bool ignoreCase: false}) {
+void checkNeg(String pattern, String str, {bool multiLine = false,
+  bool ignoreCase = false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Expect.isFalse(re.hasMatch(str), "'/$pattern/' ~ '$str'");

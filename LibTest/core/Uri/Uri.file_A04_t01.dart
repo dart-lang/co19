@@ -11,7 +11,7 @@
 
 import "../../../Utils/expect.dart";
 
-check(path, {windows: true}) {
+check(path, {windows = true}) {
   Expect.throws(() {
     new Uri.file(path, windows: windows);
   }, (e) => e is ArgumentError);
