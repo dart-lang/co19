@@ -19,7 +19,7 @@ check(Iterable a, bool test(value), var expected) {
   Expect.equals(expected, actual);
 }
 
-test(Iterable create([Iterable content]), {bool isSet: false}) {
+test(Iterable create([Iterable content]), {bool isSet = false}) {
   if (isSet) {
     // Set may be unordered so the first element that satisfies the test is
     // unpredictable. Test the case where the only element satisfies

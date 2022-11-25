@@ -43,8 +43,8 @@ main() {
   checkNeg(r"\be", "pilot\nsoviet robot\topenoffic\u0065");
 }
 
-void check(String pattern, String str, {bool multiLine: false,
-    bool caseSensitive: true, int matchPos: -1}) {
+void check(String pattern, String str, {bool multiLine = false,
+    bool caseSensitive = true, int matchPos: -1}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: caseSensitive);
   Match? fm = re.firstMatch(str);
@@ -55,7 +55,7 @@ void check(String pattern, String str, {bool multiLine: false,
 }
 
 void checkNeg(String pattern, String str,
-    {bool multiLine: false, bool caseSensitive: true}) {
+    {bool multiLine = false, bool caseSensitive = true}) {
   RegExp re = new RegExp(
       pattern, multiLine: multiLine, caseSensitive: caseSensitive);
   Expect.isNull(re.firstMatch(str), "\"$pattern\" ~ \"$str\"");

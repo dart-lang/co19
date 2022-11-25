@@ -12,7 +12,7 @@
 
 import "../../../Utils/expect.dart";
 
-check(path, {windows: true}) {
+check(path, {windows = true}) {
   Expect.throws(() {
     new Uri.directory(path, windows: windows);
   }, (e) => e is ArgumentError);

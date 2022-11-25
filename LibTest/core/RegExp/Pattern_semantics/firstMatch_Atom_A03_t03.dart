@@ -30,9 +30,9 @@ main() {
       "<p>All for Kibology</p>\n"]);
 }
 
-void check(String pattern, String str, {bool multiLine: false,
-    bool ignoreCase: false, int matchPos: -1,
-    List<String>? expectedGroups: null}) {
+void check(String pattern, String str, {bool multiLine = false,
+    bool ignoreCase = false, int matchPos = -1,
+    List<String>? expectedGroups = null}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Expect.isNotNull(re.firstMatch(str), "\"$pattern\" !~ \"$str\"");

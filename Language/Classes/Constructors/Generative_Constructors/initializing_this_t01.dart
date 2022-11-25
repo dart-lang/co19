@@ -15,7 +15,7 @@ import "../../../../Utils/expect.dart";
 
 class C {
   int id;
-  C({this.id:1}) {}
+  C({this.id = 1}) {}
 }
 
 main() {
@@ -25,4 +25,3 @@ main() {
   o = new C(id: 3);
   Expect.equals(3, o.id);
 }
-

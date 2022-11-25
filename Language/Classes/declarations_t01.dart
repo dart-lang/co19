@@ -88,7 +88,7 @@ abstract class Abstract {
   func();
   funcWithParams(p1, p2);
   funcWithOptionalParams([p1 = 1, p2 = 2]);
-  funcWithOptionalParams2({p1: 1, p2: 2});
+  funcWithOptionalParams2({p1 = 1, p2 = 2});
   get val;
   set val(var v);
   operator ==(dynamic other);
@@ -100,7 +100,7 @@ class Concrete extends Abstract {
   func() {}
   funcWithParams(p1, p2) {}
   funcWithOptionalParams([p1 = 1, p2 = 2]) {}
-  funcWithOptionalParams2({p1: 1, p2: 2}) {}
+  funcWithOptionalParams2({p1 = 1, p2 = 2}) {}
   get val => _val;
   set val(var v) {_val = v;}
   operator ==(dynamic other) {return identical(this, other);}

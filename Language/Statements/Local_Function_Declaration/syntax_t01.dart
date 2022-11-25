@@ -34,7 +34,7 @@ main() {
   int f2(int x) { throw ''; }
   func1(var x) {}
   int func2(var x, [var y = 0]) { return x + y; }
-  int func3(var x, {var y: 1}) { return x * y; }
+  int func3(var x, {var y = 1}) { return x * y; }
   Object? obj() => null;
 
   fgh(g(h())) {}
@@ -43,4 +43,3 @@ main() {
   }
   int foo(Object x, var y) => func4(1, 2, 3);
 }
-

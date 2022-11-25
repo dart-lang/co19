@@ -11,7 +11,7 @@ library current_A01_t01;
  
 import "../../../Utils/expect.dart";
 
-test(Iterator create([Iterable content]), {bool isSet: false}) {
+test(Iterator create([Iterable content]), {bool isSet = false}) {
 
   void checkNext(Iterator it, Iterable a) {
     if (isSet) {

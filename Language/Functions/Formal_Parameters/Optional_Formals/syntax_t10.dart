@@ -15,7 +15,7 @@
 /// @author rodionov
 
 
-foo({final p: 1}) {
+foo({final p = 1}) {
   p = 1;
 //^
 // [analyzer] unspecified

@@ -86,7 +86,7 @@ abstract class Abstract {
   @B(1) func();
   @A() funcWithParams(p1, p2);
   @B(1) funcWithOptionalParams([p1 = 1, p2 = 2]);
-  @B(1) funcWithNamedParams({p1: 1, p2: 2});
+  @B(1) funcWithNamedParams({p1 = 1, p2 = 2});
   @A() get val;
   @B(1) set val(var v);
   @A() operator ==(dynamic other);

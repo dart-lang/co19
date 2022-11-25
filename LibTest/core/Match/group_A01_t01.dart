@@ -10,7 +10,7 @@
 import "../../../Utils/expect.dart";
 
 void check(String str, String pattern, List<String?> expected,
-    {bool multiLine: false, bool caseSensitive: true}) {
+    {bool multiLine = false, bool caseSensitive = true}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: caseSensitive);
   Match? m = re.firstMatch(str);

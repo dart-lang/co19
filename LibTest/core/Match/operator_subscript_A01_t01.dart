@@ -26,7 +26,7 @@ main() {
 }
 
 void check(String pattern, String str, List<String?> groupData,
-    {bool multiLine: false, bool caseSensitive: true}) {
+    {bool multiLine = false, bool caseSensitive = true}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: caseSensitive);
   Match fm = re.firstMatch(str) as Match;

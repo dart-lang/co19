@@ -26,6 +26,6 @@ main() {
       ((var x, int z, [Object? o, var v = 1]) => x + z + o + v) is Function);
   Expect.runtimeIsType<Function>(
       ((var x, int z, [Object? o, var v = 1]) => x + z + o + v));
-  Expect.isTrue(((x, z, {o, v: 1}) => x + z + o + v) is Function);
-  Expect.runtimeIsType<Function>(((x, z, {o, v: 1}) => x + z + o + v));
+  Expect.isTrue(((x, z, {o, v = 1}) => x + z + o + v) is Function);
+  Expect.runtimeIsType<Function>(((x, z, {o, v = 1}) => x + z + o + v));
 }

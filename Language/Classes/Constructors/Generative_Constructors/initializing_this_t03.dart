@@ -14,7 +14,7 @@
 
 class C<T> {
   int id;
-  C({this.id: 1}) {}
+  C({this.id = 1}) {}
 }
 
 main() {

@@ -68,8 +68,8 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase,
   });
 }
 
-void checkNeg(String pattern, String str, {bool multiLine: false,
-    bool ignoreCase: false}) {
+void checkNeg(String pattern, String str, {bool multiLine = false,
+    bool ignoreCase = false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Iterable<Match> matches = re.allMatches(str);

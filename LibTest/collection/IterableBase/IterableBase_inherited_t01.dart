@@ -12,7 +12,7 @@
 import "dart:collection";
 import "../../core/Iterable/allTests.lib.dart" as iterator_tests;
 
-test(Iterable create([Iterable? content]), {bool isSet:false}) {
+test(Iterable create([Iterable? content]), {bool isSet = false}) {
   iterator_tests.test(create, isSet:isSet);
 }
 

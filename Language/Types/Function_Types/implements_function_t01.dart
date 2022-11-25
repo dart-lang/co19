@@ -19,7 +19,7 @@ f5(var x) {}
 void f6(var x) {}
 String f7([var x]) => "Lily was here";
 Object f8(var x, int z, [Object? o, var v = 1]) => new Object();
-Object f9(var xx, int zz, {o, v: 1}) => new Object();
+Object f9(var xx, int zz, {o, v = 1}) => new Object();
 
 main() {
   Expect.isTrue(f1 is Function);

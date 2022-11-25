@@ -21,7 +21,7 @@
 
 
 class C {
-   C({var y: 1}) {}
+   C({var y = 1}) {}
 }
 
 main() {

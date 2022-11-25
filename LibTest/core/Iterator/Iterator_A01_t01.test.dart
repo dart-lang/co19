@@ -13,7 +13,7 @@ library iterator_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(Iterator create([Iterable? content]), {bool isSet: false}) {
+test(Iterator create([Iterable? content]), {bool isSet = false}) {
   void checkIterator(Iterator it, Iterable a) {
     List l = new List.from(a);
     while (it.moveNext()) {

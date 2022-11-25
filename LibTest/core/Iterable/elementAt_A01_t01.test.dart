@@ -16,7 +16,7 @@ library elementAt_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content]), {bool isSet: false}) {
+test(Iterable create([Iterable content]), {bool isSet = false}) {
   List b = [5, 4, 3, 2, 1, 0, 6];
   Iterable a = create(b);
   if (isSet) {

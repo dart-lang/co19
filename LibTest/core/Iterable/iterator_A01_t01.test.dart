@@ -37,7 +37,7 @@ Iterator createIterator([Iterable? content]) {
   return createFunc(content).iterator;
 }
 
-test(Iterable create([Iterable? content]), {bool isSet: false}) {
+test(Iterable create([Iterable? content]), {bool isSet = false}) {
   createFunc = create;
   libIterator.test(createIterator, isSet: isSet);
 }

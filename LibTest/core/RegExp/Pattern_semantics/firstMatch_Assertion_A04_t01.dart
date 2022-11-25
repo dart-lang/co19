@@ -35,8 +35,8 @@ main() {
   check(r"\B\w{4}\B", "devil arise\tforzzx\nevils", matchPos: 13);
 }
 
-void check(String pattern, String str, {bool multiLine: false,
-    bool ignoreCase: false, int matchPos: -1}) {
+void check(String pattern, String str, {bool multiLine = false,
+    bool ignoreCase = false, int matchPos: -1}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Match? fm = re.firstMatch(str);
@@ -46,8 +46,8 @@ void check(String pattern, String str, {bool multiLine: false,
   }
 }
 
-void checkNeg(String pattern, String str, {bool multiLine: false,
-    bool ignoreCase: false}) {
+void checkNeg(String pattern, String str, {bool multiLine = false,
+    bool ignoreCase = false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Expect.isNull(re.firstMatch(str), "\"$pattern\" ~ \"$str\"");

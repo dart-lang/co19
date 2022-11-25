@@ -17,7 +17,7 @@
 
 import "../../../../Utils/expect.dart";
 
-foo({var a: 1, var b = 2}) {
+foo({var a = 1, var b = 2}) {
   return b;
 }
 

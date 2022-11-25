@@ -13,7 +13,7 @@
 library first_A01_t02;
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content]), {bool isSet: false}) {
+test(Iterable create([Iterable content]), {bool isSet = false}) {
   const head = -1;
   Iterable a = create();
   Expect.equals(0, a.length);

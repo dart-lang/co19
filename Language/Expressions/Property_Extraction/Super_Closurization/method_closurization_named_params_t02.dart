@@ -23,13 +23,13 @@
 import '../../../../Utils/expect.dart';
 
 class A {
-  double n(int r1, int r2, double r3, {p1: 2, p2: -3, p3: -7}) {
+  double n(int r1, int r2, double r3, {p1 = 2, p2 = -3, p3 = -7}) {
     return r1 * r2 * r3 * p1 * p2 * p3;
   }
 
   sum(a, b) => a + b;
 
-  double m(int r1, int r2, double r3, {p1: 2, p2: -3, p3: -7}) {
+  double m(int r1, int r2, double r3, {p1 = 2, p2 = -3, p3 = -7}) {
     return sum(r3, p2) + n(r1, r2, r3, p1: p1, p2: p2, p3: p3);
   }
 }
@@ -37,7 +37,7 @@ class A {
 class C extends A {
   void test() {
     var f1 = super.m;
-    var f2 = (int r1, int r2, double r3, {p1: 2, p2: -3, p3: -7}) {
+    var f2 = (int r1, int r2, double r3, {p1 = 2, p2 = -3, p3 = -7}) {
       return super.m(r1, r2, r3, p1: p1, p2: p2, p3: p3);
     };
 
