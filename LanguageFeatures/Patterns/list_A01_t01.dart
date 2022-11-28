@@ -33,8 +33,8 @@ class C {
 
 String test(List list) {
   return switch (list) {
-    case [1, > 0 | 42] => "logical-or";
-    case [2, > 0 & < 10] => "logical-and";
+    case [1, > 0 || 42] => "logical-or";
+    case [2, > 0 && < 10] => "logical-and";
     case [3, > 0] => "relational";
     case [4 as num, 42 as num] => "cast";
     case [5, var a?] => "null-check";

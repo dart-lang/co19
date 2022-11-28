@@ -26,7 +26,7 @@
 
 String test1(List list) {
   return switch (list) {
-    case <int, String>[1, > 0 | 42] => "";
+    case <int, String>[1, > 0 || 42] => "";
 //             ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -36,7 +36,7 @@ String test1(List list) {
 
 String test2(List list) {
   switch (list) {
-    case <int, String>[1, > 0 | 42]:
+    case <int, String>[1, > 0 || 42]:
 //             ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -47,7 +47,7 @@ String test2(List list) {
 }
 
 String test3(List list) {
-  if (list case <int, String>[1, > 0 | 42]) {
+  if (list case <int, String>[1, > 0 || 42]) {
 //                    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
