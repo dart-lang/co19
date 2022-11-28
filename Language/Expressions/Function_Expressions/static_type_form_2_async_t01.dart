@@ -25,6 +25,6 @@ main() {
   boolFuncParam bfp = (bool p1, {bool? p2}) async => false;
   objBoolFuncParam ofp = (bool p1, {bool? p2 = false}) async => true;
 
-  listFuncParam lfp = ({Map? m: const {}}) async => [m];
+  listFuncParam lfp = ({Map? m = const {}}) async => [m];
   objListFuncParam olfp = ({Map? m}) async => [[m]];
 }

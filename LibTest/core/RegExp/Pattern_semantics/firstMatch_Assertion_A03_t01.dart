@@ -44,7 +44,7 @@ main() {
 }
 
 void check(String pattern, String str, {bool multiLine = false,
-    bool caseSensitive = true, int matchPos: -1}) {
+    bool caseSensitive = true, int matchPos = -1}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: caseSensitive);
   Match? fm = re.firstMatch(str);
