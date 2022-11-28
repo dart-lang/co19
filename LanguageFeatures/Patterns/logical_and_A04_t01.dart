@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion
-/// logicalAndPattern ::= ( logicalAndPattern '&' )? relationalPattern
+/// logicalAndPattern ::= ( logicalAndPattern '&&' )? relationalPattern
 ///
 /// A pair of patterns separated by & matches only if both subpatterns match.
 /// Unlike logical-or patterns, the variables defined in each branch must not
@@ -25,18 +25,18 @@ import "patterns_lib.dart";
 main() {
   Shape shape = Circle(1);
   switch (shape) {
-    case Circle(area: var s) & Circle(area: var s):
-//                                              ^
+    case Circle(area: var s) && Circle(area: var s):
+//                                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
       break;
-    case Rectangle(x: var x, y: var width) & Rectangle(:var x, :var y):
-//                                                          ^
+    case Rectangle(x: var x, y: var width) && Rectangle(:var x, :var y):
+//                                                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
       break;
-    case Circle(area: var s1) & Circle(area: var s2) & Circle(area: var s1):
-//                                                                      ^^
+    case Circle(area: var s1) && Circle(area: var s2) && Circle(area: var s1):
+//                                                                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
     default:

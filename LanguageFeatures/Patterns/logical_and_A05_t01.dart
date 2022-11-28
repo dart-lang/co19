@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion
-/// logicalAndPattern ::= ( logicalAndPattern '&' )? relationalPattern
+/// logicalAndPattern ::= ( logicalAndPattern '&&' )? relationalPattern
 ///
 /// A pair of patterns separated by & matches only if both subpatterns match.
 /// Unlike logical-or patterns, the variables defined in each branch must not
@@ -26,7 +26,7 @@ import "../../Utils/expect.dart";
 main() {
   Shape shape1 = Circle(1);
   switch (shape1) {
-    case Circle(area: 2) & Circle(size: 1):
+    case Circle(area: 2) && Circle(size: 1):
       Expect.fail("Pattern should not match");
       break;
     default:
@@ -35,7 +35,7 @@ main() {
 
   Shape shape2 = Square(1);
   switch (shape2) {
-    case Square(area: 1) & Square(area: 2) & Square(size: 1):
+    case Square(area: 1) && Square(area: 2) && Square(size: 1):
       Expect.fail("Pattern should not match");
       break;
     default:
@@ -44,8 +44,8 @@ main() {
 
   Shape shape3 = Square(1);
   switch (shape3) {
-    case Shape(area: 1) & Shape(size: 1) & Square(area: 2)
-          & Square(size: 2):
+    case Shape(area: 1) && Shape(size: 1) && Square(area: 2)
+          && Square(size: 2):
       Expect.fail("Pattern should not match");
       break;
     default:

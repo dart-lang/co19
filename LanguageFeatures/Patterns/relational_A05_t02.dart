@@ -33,9 +33,9 @@ class C {
 }
 
 String test(List<C> list) => switch (list) {
-  case [> C(0) & <= C(2)] => "case 1";
+  case [> C(0) && <= C(2)] => "case 1";
   case [== C(42)] => "case 2";
-  case [>= C(10) & < C(20)] => "case 3";
+  case [>= C(10) && < C(20)] => "case 3";
   case [!= C(100)] => "case 4";
   default => "default";
 };

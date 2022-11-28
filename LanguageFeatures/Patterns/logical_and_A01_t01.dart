@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion
-/// logicalAndPattern ::= ( logicalAndPattern '&' )? relationalPattern
+/// logicalAndPattern ::= ( logicalAndPattern '&&' )? relationalPattern
 ///
 /// A pair of patterns separated by & matches only if both subpatterns match.
 /// Unlike logical-or patterns, the variables defined in each branch must not
@@ -31,7 +31,7 @@ enum Color {
 
 bool isPrimary(Color color) {
   return switch (color) {
-    case != Color.black & != Color.white => true;
+    case != Color.black && != Color.white => true;
     default => false;
   };
 }

@@ -21,7 +21,7 @@ String test(List<num> list) {
   int i = 0;
   final j = 10;
   return switch (list) {
-    case [> i & <= 2] => "case 1";
+    case [> i && <= 2] => "case 1";
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -29,12 +29,12 @@ String test(List<num> list) {
 //           ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case [>= j & < 20] => "case 3";
+    case [>= j && < 20] => "case 3";
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
     case [!= i--] => "case 4";
-//           ^^^^^
+//           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     default => "default";

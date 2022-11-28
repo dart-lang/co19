@@ -21,7 +21,7 @@ const o = const Object();
 
 String test(List<num> list) {
   return switch (list) {
-    case [> "1" & <= 2] => "case 1";
+    case [> "1" && <= 2] => "case 1";
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -29,7 +29,7 @@ String test(List<num> list) {
 //           ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case [>= "10" & < 20] => "case 3";
+    case [>= "10" && < 20] => "case 3";
 //           ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -37,12 +37,12 @@ String test(List<num> list) {
 //           ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case [> 1 & <= true] => "case 5";
-//                 ^^^^
+    case [> 1 && <= true] => "case 5";
+//                  ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case [>= 10 & < o] => "case 6";
-//                  ^
+    case [>= 10 && < o] => "case 6";
+//                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
     default => "default";

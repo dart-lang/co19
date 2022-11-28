@@ -34,13 +34,13 @@ class C {
 
 void test(List<C> list, String expected) {
   switch (list) {
-    case [> C(0) & <= C(2)]:
+    case [> C(0) && <= C(2)]:
       Expect.equals("case 1", expected);
       break;
     case [== C(42)]:
       Expect.equals("case 2", expected);
       break;
-    case [>= C(10) & < C(20)]:
+    case [>= C(10) && < C(20)]:
       Expect.equals("case 3", expected);
       break;
     case [!= C(100)]:
