@@ -36,7 +36,7 @@ main() {
 }
 
 void check(String pattern, String str, {bool multiLine = false,
-    bool ignoreCase = false, int matchPos: -1}) {
+    bool ignoreCase = false, int matchPos = -1}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Match? fm = re.firstMatch(str);

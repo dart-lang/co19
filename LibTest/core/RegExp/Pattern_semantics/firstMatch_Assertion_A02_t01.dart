@@ -35,8 +35,8 @@ void check(String pattern, String str, {bool multiLine = false,
   Expect.isNotNull(re.firstMatch(str), "\"$pattern\" !~ \"$str\"");
 }
 
-void checkNeg(String pattern, String str, {bool multiLine: false,
-    bool ignoreCase: false}) {
+void checkNeg(String pattern, String str, {bool multiLine = false,
+    bool ignoreCase = false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Expect.isNull(re.firstMatch(str), "\"$pattern\" ~ \"$str\"");
