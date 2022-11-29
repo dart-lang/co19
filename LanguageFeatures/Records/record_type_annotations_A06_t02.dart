@@ -22,32 +22,59 @@
 /// field. For example: (int, $0: int) since the named field '$0' collides with
 /// the getter for the first positional field.
 ///
-/// @description Checks that optional name of a positional field may start with
-/// an underscore
+/// @description Checks that it is a compile-time error if a record type has a
+/// positional field with optional name that starts with an underscore
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records
 
 typedef R1 = (int _i, {String s});
+//                ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 typedef (int _, {int n}) R2();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 typedef void R3((String _s, {String s}) r);
+//                      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 (int _, {int n}) foo() => (42, n: 0);
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 void bar((int _i, {bool b}) r) {}
+//            ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   (int _, {String s}) r1 = (42, s: "");
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   (double _d, {int i}) r2 = (3.14, i: 0);
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   dynamic d = (3.14, s: "pi");
   if (d is (num _i, {String s})) {
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   d as (double _i, {String s});
+//             ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   print(R1);
   print(R2);
