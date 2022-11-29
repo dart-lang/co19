@@ -34,10 +34,10 @@ main() {
   var <Object>[a1, _, int c1] = [1, 2, 3];
   Expect.equals(1, a1);
   Expect.equals(3, c1);
-  a1 = 4;
-  c1 = "6";
-  Expect.equals(1, a1);
-  Expect.equals(3, c1);
+  a1 = "4";
+  c1 = 5;
+  Expect.equals("4", a1);
+  Expect.equals(5, c1);
 
   final [a2, int _, int c2] = [4, 5, 6];
   Expect.equals(4, a2);
@@ -59,7 +59,7 @@ main() {
     var [a, b, 42] = [1, 2, 3];
   });
   Expect.throws(() {
-    var [a, b, String c] = [1, 2, 3];
+    var [a, b, c as String] = [1, 2, 3];
   });
   Expect.throws(() {
     var [a, b, c] = [1, 2, 3, 4];

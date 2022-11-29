@@ -32,7 +32,7 @@ class C {
 }
 
 String test(List list) {
-  if (list case [1, > 0 || 42]) {
+  if (list case [1, > 0 || -42]) {
     return "logical-or";
   }
   if (list case [2, > 0 && < 10]) {
@@ -41,7 +41,7 @@ String test(List list) {
   if (list case [3, > 0]) {
     return "relational";
   }
-  if (list case [4 as num, 42 as num]) {
+  if (list case [4, var c as num]) {
     return "cast";
   }
   if (list case [5, var a?]) {
@@ -97,37 +97,39 @@ String test(List list) {
 }
 
 main() {
-  Expect.equals("logical-or", [1, 1]);
-  Expect.equals("logical-or", [1, 42]);
-  Expect.equals("default", [1, 100]);
-  Expect.equals("logical-and", [2, 1]);
-  Expect.equals("default", [2, 10]);
-  Expect.equals("relational", [3, 1]);
-  Expect.equals("default", [3, 0]);
-  Expect.equals("cast", <num>[4, 42]);
-  Expect.equals("default", <int>[4, 42]);
-  Expect.equals("null-check", <int?>[5, 42]);
-  Expect.equals("default", <int?>[5, null]);
-  Expect.equals("null-assert", <int?>[6, 42]);
-  Expect.equals("constant-1", [7, 42]);
-  Expect.equals("constant-2", [7, const C()]);
-  Expect.equals("default", [7, "42"]);
-  Expect.equals("variable-1", [8, "42"]);
-  Expect.equals("variable-2", [8, 42]);
-  Expect.equals("variable-3", [80, "42"]);
-  Expect.equals("variable-4", [80, 42]);
-  Expect.equals("parenthesized", [9, 42]);
-  Expect.equals("default", [9, "42"]);
-  Expect.equals("list-1", [10, [42, 42]]);
-  Expect.equals("list-2", [10, ["42", 42]]);
-  Expect.equals("default", [10, [Object(), 42]]);
-  Expect.equals("map-1", [11, {1: 42}]);
-  Expect.equals("map-2", [11, {"1": 42}]);
-  Expect.equals("default", [11, {Object(): 42}]);
-  Expect.equals("record-1", [12, (42,)]);
-  Expect.equals("record-2", [12, (42, x: 0)]);
-  Expect.equals("default", [12, (42, 0)]);
-  Expect.equals("default", [12, (42, a: 0)]);
-  Expect.equals("object", [13, Square(1)]);
-  Expect.equals("default", [13, Square(2)]);
+  Expect.equals("logical-or", test([1, 1]));
+  Expect.equals("logical-or", test([1, -42]));
+  Expect.equals("default", test([1, 100]));
+  Expect.equals("logical-and", test([2, 1]));
+  Expect.equals("default", test([2, 10]));
+  Expect.equals("relational", test([3, 1]));
+  Expect.equals("default", test([3, 0]));
+  Expect.equals("cast", test([4, 42]));
+  Expect.equals("cast", test([4, 3.14]));
+  Expect.throws(() {test([4, "42"]);});
+  Expect.equals("null-check", test([5, 42]));
+  Expect.equals("default", test([5, null]));
+  Expect.equals("null-assert", test([6, 42]));
+  Expect.throws(() {test([6, null]);});
+  Expect.equals("constant-1", test([7, 42]));
+  Expect.equals("constant-2", test([7, const C()]));
+  Expect.equals("default", test([7, "42"]));
+  Expect.equals("variable-1", test([8, "42"]));
+  Expect.equals("variable-2", test([8, 42]));
+  Expect.equals("variable-3", test([80, "42"]));
+  Expect.equals("variable-4", test([80, 42]));
+  Expect.equals("parenthesized", test([9, 42]));
+  Expect.equals("default", test([9, "42"]));
+  Expect.equals("list-1", test([10, [42, 42]]));
+  Expect.equals("list-2", test([10, ["42", 42]]));
+  Expect.equals("default", test([10, [Object(), 42]]));
+  Expect.equals("map-1", test([11, {1: 42}]));
+  Expect.equals("map-2", test([11, {"1": 42}]));
+  Expect.equals("default", test([11, {Object(): 42}]));
+  Expect.equals("record-1", test([12, (42,)]));
+  Expect.equals("record-2", test([12, (42, x: 0)]));
+  Expect.equals("default", test([12, (42, 0)]));
+  Expect.equals("default", test([12, (42, a: 0)]));
+  Expect.equals("object", test([13, Square(1)]));
+  Expect.equals("default", test([13, Square(2)]));
 }
