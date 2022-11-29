@@ -19,6 +19,6 @@ n() => null;
 n2() {}
 
 main() {
-  Expect.throws(() { throw n() ; }, (e) => e is NullThrownError);
-  Expect.throws(() { throw n2(); }, (e) => e is NullThrownError);
+  Expect.throws(() { throw n() ; }, (e) => e is TypeError);
+  Expect.throws(() { throw n2(); }, (e) => e is TypeError);
 }
