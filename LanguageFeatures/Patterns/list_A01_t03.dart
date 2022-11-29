@@ -32,7 +32,7 @@ class C {
 }
 
 String test(List list) {
-  if (list case [1, > 0 || -42]) {
+  if (list case [1, > 0 || const(-42)]) {
     return "logical-or";
   }
   if (list case [2, > 0 && < 10]) {

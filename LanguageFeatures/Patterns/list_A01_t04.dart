@@ -56,7 +56,7 @@ main() {
     var [a, b, c] = [1, 2];
   });
   Expect.throws(() {
-    var [a, b, 42] = [1, 2, 3];
+    var [a, b, c!] = [1, 2, null];
   });
   Expect.throws(() {
     var [a, b, c as String] = [1, 2, 3];
