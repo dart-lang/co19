@@ -46,7 +46,7 @@ main() {
   final j = 10;
 
   switch (list) {
-    case [> i & <= 2]:
+    case [> i && <= 2]:
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -56,7 +56,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
     break;
-    case [>= j & < 20]:
+    case [>= j && < 20]:
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
