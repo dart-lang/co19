@@ -21,20 +21,20 @@ String test(List<num> list) {
   int i = 0;
   final j = 10;
   return switch (list) {
-    case [> i & <= 2] => "case 1";
+    case [> i && <= 2] => "case 1";
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
     case [== i++] => "case 2";
-//           ^^^^
+//           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case [>= j & < 20] => "case 3";
+    case [>= j && < 20] => "case 3";
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
     case [!= i--] => "case 4";
-//           ^^^^^
+//           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     default => "default";
@@ -46,7 +46,7 @@ main() {
   final j = 10;
 
   switch (list) {
-    case [> i & <= 2]:
+    case [> i && <= 2]:
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -56,7 +56,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
     break;
-    case [>= j & < 20]:
+    case [>= j && < 20]:
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified

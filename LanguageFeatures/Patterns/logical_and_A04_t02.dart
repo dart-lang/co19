@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion
-/// logicalAndPattern ::= ( logicalAndPattern '&' )? relationalPattern
+/// logicalAndPattern ::= ( logicalAndPattern '&&' )? relationalPattern
 ///
 /// A pair of patterns separated by & matches only if both subpatterns match.
 /// Unlike logical-or patterns, the variables defined in each branch must not
@@ -21,7 +21,7 @@
 // SharedOptions=--enable-experiment=patterns
 
 main() {
-  var ((a, name: b) & (a, name: n)) = (3.14, name: "pi");
+  var ((a, name: b) && (a, name: n)) = (3.14, name: "pi");
 //                     ^
 // [analyzer] unspecified
 // [cfe] unspecified

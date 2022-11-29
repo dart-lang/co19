@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion
-/// logicalAndPattern ::= ( logicalAndPattern '&' )? relationalPattern
+/// logicalAndPattern ::= ( logicalAndPattern '&&' )? relationalPattern
 ///
 /// A pair of patterns separated by & matches only if both subpatterns match.
 /// Unlike logical-or patterns, the variables defined in each branch must not
@@ -23,12 +23,12 @@ import "../../Utils/expect.dart";
 
 main() {
   var r = (3.14, name: "pi");
-  var ((a, name: b) & record) = r;
+  var ((a, name: b) && record) = r;
   Expect.equals(3.14, a);
   Expect.equals("pi", b);
   Expect.equals(r, record);
 
-  var (x & y) = 42;
+  var (x && y) = 42;
   Expect.equals(42, x);
   Expect.equals(42, y);
 }

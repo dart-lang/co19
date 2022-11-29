@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion
-/// logicalAndPattern ::= ( logicalAndPattern '&' )? relationalPattern
+/// logicalAndPattern ::= ( logicalAndPattern '&&' )? relationalPattern
 ///
 /// A pair of patterns separated by & matches only if both subpatterns match.
 /// Unlike logical-or patterns, the variables defined in each branch must not
@@ -24,7 +24,7 @@ import "../../Utils/expect.dart";
 
 void test(int value, bool match) {
   switch (value) {
-    case > 0 & <= 3:
+    case > 0 && <= 3:
       Expect.isTrue(match);
       break;
     default:

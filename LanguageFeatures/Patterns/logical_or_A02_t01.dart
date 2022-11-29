@@ -2,9 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion logicalOrPattern ::= ( logicalOrPattern '|' )? logicalAndPattern
+/// @assertion logicalOrPattern ::= ( logicalOrPattern '||' )? logicalAndPattern
 ///
-/// A pair of patterns separated by | matches if either of the branches match
+/// A pair of patterns separated by || matches if either of the branches match
 ///
 /// A logical-or pattern may match even if one of its branches does not. That
 /// means that any variables in the non-matching branch would not be
@@ -27,7 +27,7 @@ import "../../Utils/expect.dart";
 
 void test(Shape shape, double expectedArea, Type expectedType, bool match) {
   switch (shape) {
-    case Square(area: var s) | Circle(area: var s):
+    case Square(area: var s) || Circle(area: var s):
       Expect.equals(s, expectedArea);
       Expect.equals(expectedType, shape.runtimeType);
       Expect.isTrue(match);
