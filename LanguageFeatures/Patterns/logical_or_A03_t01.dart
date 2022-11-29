@@ -29,19 +29,19 @@ main() {
   Shape shape = Circle(1);
   switch (shape) {
     case Square(area: var s1) || Circle(area: var s2):
-//                                               ^^
+//                                                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
       print("Square or Circle");
       break;
     case Square(area: var s1) || Circle(area: _):
-//                                           ^
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
       print("Square or Circle");
       break;
     case Rectangle(x: var x, y: var width) || Rectangle(:var x, :var y):
-//                                                                  ^
+//                                                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
       print("Rectangle");

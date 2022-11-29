@@ -22,7 +22,7 @@ const o = const Object();
 String test(List<num> list) {
   return switch (list) {
     case [> "1" && <= 2] => "case 1";
-//          ^
+//          ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     case [== "42"] => "case 2";

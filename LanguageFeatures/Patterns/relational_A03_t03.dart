@@ -26,7 +26,7 @@ String test(List<num> list) {
 // [analyzer] unspecified
 // [cfe] unspecified
     case [== i++] => "case 2";
-//           ^^^^
+//           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     case [>= j && < 20] => "case 3";
