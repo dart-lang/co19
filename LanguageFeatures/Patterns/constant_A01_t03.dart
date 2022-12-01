@@ -43,7 +43,7 @@ String testBool(bool value) {
 
 String testNum(num value) {
   return switch (value) {
-    case 0: => "zero";
+    case 0 => "zero";
     case 3.14 => "pi";
     case 42 => "answer";
     case -1 => "negative";

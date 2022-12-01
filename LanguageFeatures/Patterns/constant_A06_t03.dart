@@ -39,7 +39,7 @@ int test() {
   int x = 1;
   final s = "";
   C c = C();
-  switch (value) {
+  return switch (value) {
     case x => 1;
 //       ^
 // [analyzer] unspecified
@@ -69,7 +69,7 @@ int test() {
 // [analyzer] unspecified
 // [cfe] unspecified
     default  => -1;
-  }
+  };
 }
 
 main() {
