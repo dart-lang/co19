@@ -4,8 +4,9 @@
 
 /// @assertion constantPattern ::= booleanLiteral
 ///                   | nullLiteral
-///                   | numericLiteral
+///                   | '-'? numericLiteral
 ///                   | stringLiteral
+///                   | symbolLiteral
 ///                   | identifier
 ///                   | qualifiedName
 ///                   | constObjectExpression
@@ -34,6 +35,8 @@ import "../../Utils/expect.dart";
 String testList(List value) {
   if (value case const [1, 2]) {
     return "[1, 2]";
+  } else if (value case const [1, -2]) {
+    return "[1, -2]";
   } else if (value case const ["3", "4"]) {
     return "['3', '4']";
   } else if (value case const [true, true]) {
@@ -48,8 +51,8 @@ String testList(List value) {
 String testMap(Map value) {
   if (value case const {1: 2}) {
     return "{1: 2}";
-  } else if (value case const {'answer': 42}) {
-    return "{'answer': 42}";
+  } else if (value case const {'answer': -42}) {
+    return "{'answer': -42}";
   } else if (value case const {'true': true}) {
     return "{'true': true}";
   } else if (value case const {}) {
@@ -60,7 +63,7 @@ String testMap(Map value) {
 }
 
 String testSet(Set value) {
-  if (value case const {1, 2, 3}) {
+  if (value case const {1, 2, -3}) {
     return "{1, 2, 3}";
   } else if (value case const {'1', '2', '3'}) {
     return "{'1', '2', '3'}";
@@ -73,6 +76,7 @@ String testSet(Set value) {
 
 main() {
   Expect.equals("[1, 2]", testList(const [1, 2]));
+  Expect.equals("[1, -2]", testList(const [1, -2]));
   Expect.equals("['3', '4']", testList(const ["3", "4"]));
   Expect.equals("[true, true]", testList(const [true, true]));
   Expect.equals("[]", testList(const []));
@@ -83,20 +87,20 @@ main() {
   Expect.equals("default", testList([]));
 
   Expect.equals("{1: 2}", testMap(const {1: 2}));
-  Expect.equals("{'answer': 42}", testMap(const {'answer': 42}));
+  Expect.equals("{'answer': -42}", testMap(const {'answer': -42}));
   Expect.equals("{'true': true}", testMap(const {'true': true}));
   Expect.equals("{}", testMap(const {}));
   Expect.equals("default", testMap({'x': 'y'}));
   Expect.equals("default", testMap({1: 2}));
-  Expect.equals("default", testMap({'answer': 42}));
+  Expect.equals("default", testMap({'answer': -42}));
   Expect.equals("default", testMap({'true': true}));
   Expect.equals("default", testMap({}));
 
-  Expect.equals("{1, 2, 3}", testSet(const {1, 2, 3}));
+  Expect.equals("{1, 2, -3}", testSet(const {1, 2, -3}));
   Expect.equals("{'1', '2', '3'}", testSet(const {'1', '2', '3'}));
   Expect.equals("{}", testSet(const {}));
   Expect.equals("default", testSet({1}));
-  Expect.equals("default", testSet({1, 2, 3}));
+  Expect.equals("default", testSet({1, 2, -3}));
   Expect.equals("default", testSet({'1', '2', '3'}));
   Expect.equals("default", testSet({}));
 }

@@ -4,8 +4,9 @@
 
 /// @assertion constantPattern ::= booleanLiteral
 ///                   | nullLiteral
-///                   | numericLiteral
+///                   | '-'? numericLiteral
 ///                   | stringLiteral
+///                   | symbolLiteral
 ///                   | identifier
 ///                   | qualifiedName
 ///                   | constObjectExpression
@@ -59,6 +60,15 @@ String test2(C value) {
   }
 }
 
+String test3(C value) {
+  return switch (value) {
+    case const C<String>(0) => "0";
+    case const C<num>(1) => "1";
+    case const C<bool>("x") => "x";
+    default => "default";
+  };
+}
+
 main() {
   Expect.equals("0", test1(const C<String>(0)));
   Expect.equals("default", test1(C<String>(0)));
@@ -81,4 +91,15 @@ main() {
   Expect.equals("default", test2(C("x")));
   Expect.equals("default", test2(const C("x")));
   Expect.equals("default", test2(const C("y")));
+
+  Expect.equals("0", test3(const C<String>(0)));
+  Expect.equals("default", test3(C<String>(0)));
+  Expect.equals("default", test3(const C<int>(0)));
+  Expect.equals("1", test3(const C<num>(1)));
+  Expect.equals("default", test3(C<num>(1)));
+  Expect.equals("default", test3(const C<String>(1)));
+  Expect.equals("x", test3(const C<bool>("x")));
+  Expect.equals("default", test3(C("x")));
+  Expect.equals("default", test3(const C("x")));
+  Expect.equals("default", test3(const C("y")));
 }

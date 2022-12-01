@@ -4,8 +4,9 @@
 
 /// @assertion constantPattern ::= booleanLiteral
 ///                   | nullLiteral
-///                   | numericLiteral
+///                   | '-'? numericLiteral
 ///                   | stringLiteral
+///                   | symbolLiteral
 ///                   | identifier
 ///                   | qualifiedName
 ///                   | constObjectExpression
@@ -24,33 +25,70 @@
 ///
 /// @description Check that a syntax error is emitted for a term which could be
 /// derived from <caseHead> in Dart 2.19, but cannot be derived from <caseHead>
-/// when patterns are added to Dart. Test if-case statement
+/// when patterns are added to Dart. Test switch expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-const l = [1, 2, 3];
+int test() {
+  Object value = Object();
+  return switch (value) {
+    case 1 + 2 => 1;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 - 2 => 2;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 * 2 => 3;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 ^ 2 => 4;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 % 2 => 5;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 ~/ 2 => 6;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 << 2 => 7;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 >> 2 => 8;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 >>> 2 => 9;
+//       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 > 2 => 10;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 >= 2:  => 11;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 < 2: => 12;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 1 <= 2 => 13;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    default => -1;
+  };
+}
 
 main() {
-  Object value = Object();
-  if (value case 2 / 1) {
-//               ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case true && true) {
-//               ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case false || true) {
-//               ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (value case l[0]) {
-//               ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  test();
 }

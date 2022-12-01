@@ -25,66 +25,36 @@
 ///
 /// @description Check that a syntax error is emitted for a term which could be
 /// derived from <caseHead> in Dart 2.19, but cannot be derived from <caseHead>
-/// when patterns are added to Dart. Test switch statement
+/// when patterns are added to Dart. Test switch expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-main() {
+const l = [1, 2, 3];
+
+int test() {
   Object value = Object();
-  switch (value) {
-    case 1 + 2:
+  return switch (value) {
+    case 2 / 1 => 1;
 //       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 - 2:
-//       ^^^^^
+    case true && true => 2;
+//       ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 * 2:
-//       ^^^^^
+    case false || true => 3;
+//       ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 ^ 2:
-//       ^^^^^
+    case l[0] => 4;
+//       ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 % 2:
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 ~/ 2:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 << 2:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 >> 2:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 >>> 2:
-//       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 > 2:
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 >= 2:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 < 2:
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 <= 2:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    default:
-  }
+    default => -1;
+  };
+}
+
+main() {
+  test();
 }

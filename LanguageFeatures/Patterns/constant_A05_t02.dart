@@ -4,8 +4,9 @@
 
 /// @assertion constantPattern ::= booleanLiteral
 ///                   | nullLiteral
-///                   | numericLiteral
+///                   | '-'? numericLiteral
 ///                   | stringLiteral
+///                   | symbolLiteral
 ///                   | identifier
 ///                   | qualifiedName
 ///                   | constObjectExpression
@@ -66,10 +67,10 @@ String test(Object value) {
   if (value case const (19 << 1)) {
     return "case =38";
   }
-  if (value case const (1 > 2)) {
+  if (value case const (-1 > 2)) {
     return "case =false";
   }
-  if (value case const (1 < 2)) {
+  if (value case const (-1 < 2)) {
     return "case =true";
   }
   if (value case const ("Lily" + " " "was" " " + "here")) {
@@ -80,7 +81,7 @@ String test(Object value) {
 }
 
 String test2(Object value) {
-  if (value case const (1 >= 2)) {
+  if (value case const (-1 >= 2)) {
     return "case =false";
   }
   if (value case const (1 <= 2)) {
@@ -91,7 +92,7 @@ String test2(Object value) {
 }
 
 String test3(Object value) {
-  if (value case const (1 == 2)) {
+  if (value case const (1 == -2)) {
     return "case =false";
   }
   if (value case const (1 != 2)) {

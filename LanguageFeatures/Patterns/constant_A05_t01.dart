@@ -4,8 +4,9 @@
 
 /// @assertion constantPattern ::= booleanLiteral
 ///                   | nullLiteral
-///                   | numericLiteral
+///                   | '-'? numericLiteral
 ///                   | stringLiteral
+///                   | symbolLiteral
 ///                   | identifier
 ///                   | qualifiedName
 ///                   | constObjectExpression
@@ -19,12 +20,13 @@
 /// ambiguity while supporting terse forms of the most common constant
 /// expressions like so:
 /// ...
-/// Other constant expressions must be marked const and surrounded by
+/// Other  must be marked const and surrounded by
 /// parentheses. This avoids ambiguity with null-assert, logical-or, and
 /// logical-and patterns. It also makes future extensions to patterns and
 /// expressions less likely to collide.
 ///
-/// @description Check const constructors calls in constant patterns
+/// @description Check constant expressions in constant patterns. Test switch
+/// statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -55,9 +57,9 @@ String test(Object value) {
       return "case =43";
     case const (19 << 1):
       return "case =38";
-    case const (1 > 2):
+    case const (-1 > 2):
       return "case =false";
-    case const (1 < 2):
+    case const (-1 < 2):
       return "case =true";
     case const ("Lily" + " " "was" " " + "here"):
       return "case String";
@@ -70,7 +72,7 @@ String test2(Object value) {
   switch (value) {
     case const (1 >= 2):
       return "case =false";
-    case const (1 <= 2):
+    case const (-1 <= 2):
       return "case =true";
     default:
       return "default";
@@ -79,7 +81,7 @@ String test2(Object value) {
 
 String test3(Object value) {
   switch (value) {
-    case const (1 == 2):
+    case const (1 == -2):
       return "case =false";
     case const (1 != 2):
       return "case =true";

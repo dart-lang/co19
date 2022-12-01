@@ -4,8 +4,9 @@
 
 /// @assertion constantPattern ::= booleanLiteral
 ///                   | nullLiteral
-///                   | numericLiteral
+///                   | '-'? numericLiteral
 ///                   | stringLiteral
+///                   | symbolLiteral
 ///                   | identifier
 ///                   | qualifiedName
 ///                   | constObjectExpression
@@ -39,6 +40,8 @@ import "../../Utils/expect.dart";
 const Zero = 0;
 const Pi = 3.14;
 const Answer = 42;
+const Negative = -1;
+const NegativePi = -3.14;
 const MaxJSInt = 0x1FFFFFFFFFFFFF;
 const Melody = "Lily was here";
 const True = true;
@@ -61,6 +64,10 @@ String testNum(num value) {
     return "pi";
   } else if (value case Answer) {
     return "answer";
+  } else if (value case Negative) {
+    return "negative";
+  } else if (value case NegativePi) {
+    return "negative-pi";
   } else if (value case MaxJSInt) {
     return "max_int";
   } else {
@@ -84,6 +91,8 @@ main() {
   Expect.equals("zero", testNum(0.0));
   Expect.equals("pi", testNum(3.14));
   Expect.equals("answer", testNum(42));
+  Expect.equals("negative", testNum(-1));
+  Expect.equals("negative-pi", testNum(-3.14));
   Expect.equals("max_int", testNum(9007199254740991));
   Expect.equals("default", testNum(1));
 

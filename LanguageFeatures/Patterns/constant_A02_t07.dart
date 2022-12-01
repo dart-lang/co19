@@ -4,8 +4,9 @@
 
 /// @assertion constantPattern ::= booleanLiteral
 ///                   | nullLiteral
-///                   | numericLiteral
+///                   | '-'? numericLiteral
 ///                   | stringLiteral
+///                   | symbolLiteral
 ///                   | identifier
 ///                   | qualifiedName
 ///                   | constObjectExpression
@@ -28,8 +29,8 @@
 /// unmarked variable patterns are only allowed in irrefutable contexts where
 /// constant patterns are prohibited.
 ///
-/// @description Check static constants on classes with a library prefix in
-/// constant patterns
+/// @description Check named constants with a library prefix in constant
+/// patterns. Test switch statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -39,9 +40,9 @@ import "../../Utils/expect.dart";
 
 String testBool(bool value) {
   switch (value) {
-    case p.C0.True:
+    case p.True:
       return "true";
-    case p.C0.False:
+    case p.False:
       return "false";
     default:
       return "default";
@@ -50,13 +51,17 @@ String testBool(bool value) {
 
 String testNum(num value) {
   switch (value) {
-    case p.C0.Zero:
+    case p.Zero:
       return "zero";
-    case p.C0.Pi:
+    case p.Pi:
       return "pi";
-    case p.C0.Answer:
+    case p.Answer:
       return "answer";
-    case p.C0.MaxJSInt:
+    case p.Negative:
+      return "negative";
+    case p.NegativePi:
+      return "negative-pi";
+    case p.MaxJSInt:
       return "max_int";
     default:
       return "default";
@@ -65,7 +70,7 @@ String testNum(num value) {
 
 String testString(String value) {
   switch (value) {
-    case p.C0.Melody:
+    case p.Melody:
       return "Melody";
     default:
       return "default";
@@ -80,6 +85,8 @@ main() {
   Expect.equals("zero", testNum(0.0));
   Expect.equals("pi", testNum(3.14));
   Expect.equals("answer", testNum(42));
+  Expect.equals("negative", testNum(-1));
+  Expect.equals("negative-pi", testNum(-3.14));
   Expect.equals("max_int", testNum(9007199254740991));
   Expect.equals("default", testNum(1));
 
