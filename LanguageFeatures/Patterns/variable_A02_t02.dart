@@ -38,11 +38,8 @@ String testRecord1(Record r, [bool doTypeTest = false]) {
   switch (r) {
     case (a, b):
       if (doTypeTest) {
-        // Expecting a and b to be dynamic
-        a.isOdd;
-        b.substring(0);
-        Expect.throws(() {a.whatever;});
-        Expect.throws(() {b.whatever;});
+        a.expectStaticType<Exactly<Object?>>();
+        b.expectStaticType<Exactly<Object?>>();
       }
       return "($a, $b)";
     default:
@@ -60,10 +57,8 @@ String testRecord2(Record r) {
 String testRecord3(Record r, [bool doTypeTest = false]) {
   if (r case (a, b)) {
     if (doTypeTest) {
-      a.isOdd;
-      b.substring(0);
-      Expect.throws(() {a.whatever;});
-      Expect.throws(() {b.whatever;});
+      a.expectStaticType<Exactly<Object?>>();
+      b.expectStaticType<Exactly<Object?>>();
     }
     return "($a, $b)";
   } else {
