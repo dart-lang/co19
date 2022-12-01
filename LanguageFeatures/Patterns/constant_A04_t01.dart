@@ -4,8 +4,9 @@
 
 /// @assertion constantPattern ::= booleanLiteral
 ///                   | nullLiteral
-///                   | numericLiteral
+///                   | '-'? numericLiteral
 ///                   | stringLiteral
+///                   | symbolLiteral
 ///                   | identifier
 ///                   | qualifiedName
 ///                   | constObjectExpression
@@ -22,7 +23,7 @@
 /// Constructor calls are ambiguous with object patterns, so we require const
 /// constructor calls to be explicitly marked const.
 ///
-/// @description Check const constructors calls in constant patterns
+/// @description Check const constructors calls in constant patterns.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -59,6 +60,15 @@ String test2(C value) {
   }
 }
 
+String test3(C value) {
+  return switch (value) {
+    case const C(0) => "0";
+    case const C(1) => "1";
+    case const C("x") => "x";
+    default => "default";
+  };
+}
+
 main() {
   Expect.equals("0", test1(const C(0)));
   Expect.equals("default", test1(C(0)));
@@ -77,4 +87,13 @@ main() {
   Expect.equals("default", test2(C("x")));
   Expect.equals("default", test2(const C(2)));
   Expect.equals("default", test2(const C("y")));
+
+  Expect.equals("0", test3(const C(0)));
+  Expect.equals("default", test3(C(0)));
+  Expect.equals("1", test3(const C(1)));
+  Expect.equals("default", test3(C(1)));
+  Expect.equals("x", test3(const C("x")));
+  Expect.equals("default", test3(C("x")));
+  Expect.equals("default", test3(const C(2)));
+  Expect.equals("default", test3(const C("y")));
 }

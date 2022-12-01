@@ -25,7 +25,7 @@
 /// map patterns.
 ///
 /// @description Check list, map and set literals with type argument specified
-/// in constant patterns. Test switch statement
+/// in constant patterns. Test switch expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -33,64 +33,44 @@
 import "../../Utils/expect.dart";
 
 String testList(List value) {
-  switch (value) {
-    case const <int>[1, -2]:
-      return "<int>[1, -2]";
-    case const <dynamic>[1, -2]:
-      return "<dynamic>[1, -2]";
-    case const <String>["3", "4"]:
-      return "<String>['3', '4']";
-    case const <dynamic>["3", "4"]:
-      return "<dynamic>['3', '4']";
-    case const <double>[]:
-      return "<double>[]";
-    case const <dynamic>[]:
-      return "<dynamic>[]";
-    default:
-      return "default";
-  }
+  return switch (value) {
+    case const <int>[1, -2] => "<int>[1, -2]";
+    case const <dynamic>[1, -2] => "<dynamic>[1, -2]";
+    case const <String>["3", "4"] => "<String>['3', '4']";
+    case const <dynamic>["3", "4"] => "<dynamic>['3', '4']";
+    case const <double>[] => "<double>[]";
+    case const <dynamic>[] => "<dynamic>[]";
+    default => "default";
+  };
 }
 
 String testMap(Map value) {
-  switch (value) {
-    case const <int, int>{1: -2}:
-      return "<int, int>{1: -2}";
-    case const <dynamic, dynamic>{1: -2}:
-      return "<dynamic, dynamic>{1: -2}";
-    case const <String, num>{'answer': 42}:
-      return "<String, num>{'answer': 42}";
-    case const <dynamic, dynamic>{'answer': 42}:
-      return "<dynamic, dynamic>{'answer': 42}";
-    case const <String, Object>{'true': true}:
-      return "<String, Object>{'true': true}";
-    case const <dynamic, dynamic>{'true': true}:
-      return "<dynamic, dynamic>{'true': true}";
-    case const <String, int>{}:
-      return "<String, int>{}";
-    case const <dynamic, dynamic>{}:
-      return "<dynamic, dynamic>{}";
-    default:
-      return "default";
-  }
+  return switch (value) {
+    case const <int, int>{1: -2} => "<int, int>{1: -2}";
+    case const <dynamic, dynamic>{1: -2} => "<dynamic, dynamic>{1: -2}";
+    case const <String, num>{'answer': 42} => "<String, num>{'answer': 42}";
+    case const <dynamic, dynamic>{'answer': 42} =>
+        "<dynamic, dynamic>{'answer': 42}";
+    case const <String, Object>{'true': true} =>
+        "<String, Object>{'true': true}";
+    case const <dynamic, dynamic>{'true': true} =>
+        "<dynamic, dynamic>{'true': true}";
+    case const <String, int>{} => "<String, int>{}";
+    case const <dynamic, dynamic>{} => "<dynamic, dynamic>{}";
+    default => "default";
+  };
 }
 
 String testSet(Set value) {
-  switch (value) {
-    case const (<num>{1, 2, -3}):
-      return "<num>{1, 2, -3}";
-    case const (<dynamic>{1, 2, -3}):
-      return "<dynamic>{1, 2, -3}";
-    case const (<String>{'1', '2', '3'}):
-      return "<String>{'1', '2', '3'}";
-    case const (<dynamic>{'1', '2', '3'}):
-      return "<dynamic>{'1', '2', '3'}";
-    case const (<double>{}):
-      return "<double>{}";
-    case const (<dynamic>{}):
-      return "<dynamic>{}";
-    default:
-      return "default";
-  }
+  return switch (value) {
+    case const (<num>{1, 2, -3}) => "<num>{1, 2, -3}";
+    case const (<dynamic>{1, 2, -3}) => "<dynamic>{1, 2, -3}";
+    case const (<String>{'1', '2', '3'}) => "<String>{'1', '2', '3'}";
+    case const (<dynamic>{'1', '2', '3'}) => "<dynamic>{'1', '2', '3'}";
+    case const (<double>{}) => "<double>{}";
+    case const (<dynamic>{}) => "<dynamic>{}";
+    default => "default";
+  };
 }
 
 main() {

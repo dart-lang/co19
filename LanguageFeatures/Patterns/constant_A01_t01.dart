@@ -4,8 +4,9 @@
 
 /// @assertion constantPattern ::= booleanLiteral
 ///                   | nullLiteral
-///                   | numericLiteral
+///                   | '-'? numericLiteral
 ///                   | stringLiteral
+///                   | symbolLiteral
 ///                   | identifier
 ///                   | qualifiedName
 ///                   | constObjectExpression
@@ -20,9 +21,12 @@
 /// expressions like so:
 ///
 /// Simple "primitive" literals like Booleans and numbers are valid patterns
-/// since they aren't ambiguous.
+/// since they aren't ambiguous. We also allow unary - expressions on numeric
+/// literals since users think of -2 as a single literal and not the literal 2
+/// with a unary - applied to it (which is how the language views it).
 ///
-/// @description Check booleans, numbers and strings in constant patterns
+/// @description Check booleans, numbers and strings in constant patterns. Test
+/// switch statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -48,6 +52,10 @@ String testNum(num value) {
       return "pi";
     case 42:
       return "answer";
+    case -1:
+      return "negative";
+    case -3.14:
+      return "negative-pi";
     case 0x1FFFFFFFFFFFFF:
       return "max_int";
     default:
@@ -78,6 +86,8 @@ main() {
   Expect.equals("zero", testNum(0.0));
   Expect.equals("pi", testNum(3.14));
   Expect.equals("answer", testNum(42));
+  Expect.equals("negative", testNum(-1));
+  Expect.equals("negative-pi", testNum(-3.14));
   Expect.equals("max_int", testNum(9007199254740991));
   Expect.equals("default", testNum(1));
 

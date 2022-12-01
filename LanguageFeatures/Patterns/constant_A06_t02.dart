@@ -4,8 +4,9 @@
 
 /// @assertion constantPattern ::= booleanLiteral
 ///                   | nullLiteral
-///                   | numericLiteral
+///                   | '-'? numericLiteral
 ///                   | stringLiteral
+///                   | symbolLiteral
 ///                   | identifier
 ///                   | qualifiedName
 ///                   | constObjectExpression

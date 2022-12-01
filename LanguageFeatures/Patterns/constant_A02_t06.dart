@@ -4,8 +4,9 @@
 
 /// @assertion constantPattern ::= booleanLiteral
 ///                   | nullLiteral
-///                   | numericLiteral
+///                   | '-'? numericLiteral
 ///                   | stringLiteral
+///                   | symbolLiteral
 ///                   | identifier
 ///                   | qualifiedName
 ///                   | constObjectExpression
@@ -28,45 +29,51 @@
 /// unmarked variable patterns are only allowed in irrefutable contexts where
 /// constant patterns are prohibited.
 ///
-/// @description Check named constants with a library prefix in constant
-/// patterns. Test if-case statement
+/// @description Check static constants on classes in constant patterns. Test
+/// switch expressions
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "patterns_lib.dart" as p;
 import "../../Utils/expect.dart";
 
+class C {
+  static const Zero = 0;
+  static const Pi = 3.14;
+  static const Answer = 42;
+  static const Negative = -1;
+  static const NegativePi = -3.14;
+  static const MaxJSInt = 0x1FFFFFFFFFFFFF;
+  static const Melody = "Lily was here";
+  static const True = true;
+  static const False = false;
+}
+
 String testBool(bool value) {
-  if (value case p.True) {
-    return "true";
-  } else if (value case p.False) {
-    return "false";
-  } else {
-    return "default";
-  }
+  return switch (value) {
+    case C.True => "true";
+    case C.False => "false";
+    default => "default";
+  };
 }
 
 String testNum(num value) {
-  if (value case p.Zero) {
-    return "zero";
-  } else if (value case p.Pi) {
-    return "pi";
-  } else if (value case p.Answer) {
-    return "answer";
-  } else if (value case p.MaxJSInt) {
-    return "max_int";
-  } else {
-    return "default";
-  }
+  return switch (value) {
+    case C.Zero => "zero";
+    case C.Pi => "pi";
+    case C.Answer => "answer";
+    case C.Negative => "negative";
+    case C.NegativePi => "negative-pi";
+    case C.MaxJSInt => "max_int";
+    default => "default";
+  };
 }
 
 String testString(String value) {
-  if (value case p.Melody) {
-    return "Melody";
-  } else {
-    return "default";
-  }
+  return switch (value) {
+    case C.Melody => "Melody";
+    default => "default";
+  };
 }
 
 main() {
@@ -77,6 +84,8 @@ main() {
   Expect.equals("zero", testNum(0.0));
   Expect.equals("pi", testNum(3.14));
   Expect.equals("answer", testNum(42));
+  Expect.equals("negative", testNum(-1));
+  Expect.equals("negative-pi", testNum(-3.14));
   Expect.equals("max_int", testNum(9007199254740991));
   Expect.equals("default", testNum(1));
 

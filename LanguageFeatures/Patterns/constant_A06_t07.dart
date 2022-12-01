@@ -30,59 +30,25 @@
 
 // SharedOptions=--enable-experiment=patterns
 
+const l = [1, 2, 3];
+
 main() {
   Object value = Object();
   switch (value) {
-    case 1 + 2:
+    case 2 / 1:
 //       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 - 2:
-//       ^^^^^
+    case true && true:
+//       ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 * 2:
-//       ^^^^^
+    case false || true:
+//       ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 ^ 2:
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 % 2:
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 ~/ 2:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 << 2:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 >> 2:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 >>> 2:
-//       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 > 2:
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 >= 2:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 < 2:
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 <= 2:
-//       ^^^^^^
+    case l[0]:
+//       ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     default:

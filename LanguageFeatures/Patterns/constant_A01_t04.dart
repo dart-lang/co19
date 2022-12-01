@@ -22,24 +22,66 @@
 /// Simple "primitive" literals like Booleans and numbers are valid patterns
 /// since they aren't ambiguous.
 ///
-/// @description Check that it is a compile-time error if [Symbol] is used in
-/// constant patterns. Test if-case statement
+/// @description Check that [Symbol] can be used in constant patterns.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-void test(Symbol value) {
-  if (value case #+) {
-//               ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  } else if (value case #foo) {
-//                      ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+import "../../Utils/expect.dart";
+
+String test1(Symbol value) {
+  switch (value) {
+    case #+:
+      return "+";
+    case #foo:
+      return "foo";
+    case Symbol.unaryMinus:
+      return "-";
+    case const Symbol("bar"):
+      return "bar";
+    default:
+      return "default";
   }
 }
 
+String test2(Symbol value) {
+  return switch (value) {
+    case #+ => "+";
+    case #foo => "foo";
+    case Symbol.unaryMinus => "-";
+    case const Symbol("bar") => "bar";
+    default => "default";
+  };
+}
+
+String test3(Symbol value) {
+  if (value case #+) {
+    return "+";
+  }
+  if (value case #foo) {
+    return "foo";
+  }
+  if (value case Symbol.unaryMinus) {
+    return "-";
+  }
+  if (value case const Symbol("bar")) {
+    return "bar";
+  }
+  return "default";
+}
+
+
 main() {
-  test(Symbol("foo"));
+  Expect.equals("+", test1(Symbol("+")));
+  Expect.equals("foo", test1(Symbol("foo")));
+  Expect.equals("-", test1(Symbol("unary-")));
+  Expect.equals("bar", test1(Symbol("bar")));
+  Expect.equals("+", test2(Symbol("+")));
+  Expect.equals("foo", test2(Symbol("foo")));
+  Expect.equals("-", test2(Symbol("unary-")));
+  Expect.equals("bar", test2(Symbol("bar")));
+  Expect.equals("+", test3(Symbol("+")));
+  Expect.equals("foo", test3(Symbol("foo")));
+  Expect.equals("-", test3(Symbol("unary-")));
+  Expect.equals("bar", test3(Symbol("bar")));
 }

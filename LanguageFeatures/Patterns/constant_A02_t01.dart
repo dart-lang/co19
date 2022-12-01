@@ -4,8 +4,9 @@
 
 /// @assertion constantPattern ::= booleanLiteral
 ///                   | nullLiteral
-///                   | numericLiteral
+///                   | '-'? numericLiteral
 ///                   | stringLiteral
+///                   | symbolLiteral
 ///                   | identifier
 ///                   | qualifiedName
 ///                   | constObjectExpression
@@ -28,7 +29,8 @@
 /// unmarked variable patterns are only allowed in irrefutable contexts where
 /// constant patterns are prohibited.
 ///
-/// @description Check named constants in constant patterns
+/// @description Check named constants in constant patterns. Test switch
+/// statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -38,6 +40,8 @@ import "../../Utils/expect.dart";
 const Zero = 0;
 const Pi = 3.14;
 const Answer = 42;
+const Negative = -1;
+const NegativePi = -3.14;
 const MaxJSInt = 0x1FFFFFFFFFFFFF;
 const Melody = "Lily was here";
 const True = true;
@@ -62,6 +66,10 @@ String testNum(num value) {
       return "pi";
     case Answer:
       return "answer";
+    case Negative:
+      return "nagative";
+    case NegativePi:
+      return "nagative-pi";
     case MaxJSInt:
       return "max_int";
     default:
@@ -86,6 +94,8 @@ main() {
   Expect.equals("zero", testNum(0.0));
   Expect.equals("pi", testNum(3.14));
   Expect.equals("answer", testNum(42));
+  Expect.equals("negative", testNum(-1));
+  Expect.equals("negative-pi", testNum(-3.14));
   Expect.equals("max_int", testNum(9007199254740991));
   Expect.equals("default", testNum(1));
 

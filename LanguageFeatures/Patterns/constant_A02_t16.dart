@@ -29,64 +29,41 @@
 /// unmarked variable patterns are only allowed in irrefutable contexts where
 /// constant patterns are prohibited.
 ///
-/// @description Check named constants in constant patterns. Test switch
-/// expression
+/// @description Check enums with a library prefix in constant patterns. Test
+/// switch statements
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "patterns_lib.dart" as p;
 import "../../Utils/expect.dart";
 
-const Zero = 0;
-const Pi = 3.14;
-const Answer = 42;
-const Negative = -1;
-const NegativePi = -3.14;
-const MaxJSInt = 0x1FFFFFFFFFFFFF;
-const Melody = "Lily was here";
-const True = true;
-const False = false;
-
-String testBool(bool value) {
-  return switch (value) {
-    case True => "true";
-    case False => "false";
-    default => "default";
-  };
-}
-
-String testNum(num value) {
-  return switch (value) {
-    case Zero => "zero";
-    case Pi =>"pi";
-    case Answer => "answer";
-    case Negative => "nagative";
-    case NegativePi => "nagative-pi";
-    case MaxJSInt => "max_int";
-    default => "default";
-  };
-}
-
-String testString(String value) {
-  return switch (value) {
-    case Melody => "Melody";
-    default => "default";
-  };
+void test(p.Color value) {
+  switch (value) {
+    case p.Color.white:
+      Expect.equals(p.Color.white, value);
+      break;
+    case p.Color.red:
+      Expect.equals(p.Color.red, value);
+      break;
+    case p.Color.yellow:
+      Expect.equals(p.Color.yellow, value);
+      break;
+    case p.Color.blue:
+      Expect.equals(p.Color.blue, value);
+      break;
+    case p.Color.black:
+      Expect.equals(p.Color.black, value);
+      break;
+    default:
+      Expect.fail("No such color found");
+  }
 }
 
 main() {
-  Expect.equals("true", testBool(true));
-  Expect.equals("false", testBool(false));
-
-  Expect.equals("zero", testNum(0));
-  Expect.equals("zero", testNum(0.0));
-  Expect.equals("pi", testNum(3.14));
-  Expect.equals("answer", testNum(42));
-  Expect.equals("negative", testNum(-1));
-  Expect.equals("negative-pi", testNum(-3.14));
-  Expect.equals("max_int", testNum(9007199254740991));
-  Expect.equals("default", testNum(1));
-
-  Expect.equals("Melody", testString("Lily was here"));
-  Expect.equals("default", testString(""));
+  test(p.Color.white);
+  test(p.Color.red);
+  test(p.Color.yellow);
+  test(p.Color.blue);
+  test(p.Color.black);
 }

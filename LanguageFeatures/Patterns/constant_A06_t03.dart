@@ -4,8 +4,9 @@
 
 /// @assertion constantPattern ::= booleanLiteral
 ///                   | nullLiteral
-///                   | numericLiteral
+///                   | '-'? numericLiteral
 ///                   | stringLiteral
+///                   | symbolLiteral
 ///                   | identifier
 ///                   | qualifiedName
 ///                   | constObjectExpression
@@ -22,68 +23,55 @@
 /// It is a compile-time error if a constant pattern's value is not a valid
 /// constant expression.
 ///
-/// @description Check that a syntax error is emitted for a term which could be
-/// derived from <caseHead> in Dart 2.19, but cannot be derived from <caseHead>
-/// when patterns are added to Dart.
+/// @description Check that it is a compile-time error if a constant pattern's
+/// value is not a valid constant expression. Test switch expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-main() {
+class C {
+  final v = 42;
+  static final s = "s";
+}
+
+int test() {
   Object value = Object();
-  switch (value) {
-    case 1 + 2:
-//       ^^^^^
+  int x = 1;
+  final s = "";
+  C c = C();
+  return switch (value) {
+    case x => 1;
+//       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 - 2:
-//       ^^^^^
+    case s => 2;
+//       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 * 2:
-//       ^^^^^
+    case C.s => 3;
+//       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 ^ 2:
-//       ^^^^^
+    case c => 4;
+//       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 % 2:
-//       ^^^^^
+    case const C() => 5;
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 ~/ 2:
-//       ^^^^^^
+    case const (C().v) => 6;
+//       ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 << 2:
-//       ^^^^^^
+    case "x is $x" => 7;
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 >> 2:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 >>> 2:
-//       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 > 2:
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 >= 2:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 < 2:
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1 <= 2:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    default:
-  }
+    default  => -1;
+  };
+}
+
+main() {
+  test();
 }

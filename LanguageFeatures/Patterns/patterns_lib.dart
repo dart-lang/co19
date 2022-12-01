@@ -12,6 +12,8 @@ library patterns_lib;
 const Zero = 0;
 const Pi = 3.14;
 const Answer = 42;
+const Negative = -1;
+const NegativePi = -3.14;
 const MaxJSInt = 0x1FFFFFFFFFFFFF;
 const Melody = "Lily was here";
 const True = true;
@@ -21,6 +23,8 @@ class C0 {
   static const Zero = 0;
   static const Pi = 3.14;
   static const Answer = 42;
+  static const Negative = -1;
+  static const NegativePi = -3.14;
   static const MaxJSInt = 0x1FFFFFFFFFFFFF;
   static const Melody = "Lily was here";
   static const True = true;
