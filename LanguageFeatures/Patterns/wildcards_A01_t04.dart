@@ -26,7 +26,7 @@
 import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
-String test(Shape shape) {
+String test1(Shape shape) {
   switch (shape) {
     case Rectangle(size: 1, area: _):
       return "Rectangle(size: 1, area: _)";
@@ -37,10 +37,41 @@ String test(Shape shape) {
   }
 }
 
+String test2(Shape shape) {
+  return switch (shape) {
+    case Rectangle(size: 1, area: _) => "Rectangle(size: 1, area: _)";
+    case Rectangle(size: 2, area: _) =>  "Rectangle(size: 1, area: _)";
+    default => "default";
+  };
+}
+
+String test3(Shape shape) {
+  if (shape case Rectangle(size: 1, area: _)) {
+    return "Rectangle(size: 1, area: _)";
+  }
+  if (shape case Rectangle(size: 2, area: _)) {
+    return "Rectangle(size: 1, area: _)";
+  } else {
+    return "default";
+  }
+}
+
 main() {
-  Expect.equals("Rectangle(size: 1, area: _)", Rectangle(1, 2));
-  Expect.equals("Rectangle(size: 1, area: _)", Rectangle(1, 3));
-  Expect.equals("Rectangle(size: 2, area: _)", Rectangle(2, 2));
-  Expect.equals("Rectangle(size: 2, area: _)", Rectangle(2, 1));
-  Expect.equals("default", Rectangle(3, 2));
+  Expect.equals("Rectangle(size: 1, area: _)", test1(Rectangle(1, 2)));
+  Expect.equals("Rectangle(size: 1, area: _)", test1(Rectangle(1, 3)));
+  Expect.equals("Rectangle(size: 2, area: _)", test1(Rectangle(2, 2)));
+  Expect.equals("Rectangle(size: 2, area: _)", test1(Rectangle(2, 1)));
+  Expect.equals("default", test1(Rectangle(3, 2)));
+
+  Expect.equals("Rectangle(size: 1, area: _)", test2(Rectangle(1, 2)));
+  Expect.equals("Rectangle(size: 1, area: _)", test2(Rectangle(1, 3)));
+  Expect.equals("Rectangle(size: 2, area: _)", test2(Rectangle(2, 2)));
+  Expect.equals("Rectangle(size: 2, area: _)", test2(Rectangle(2, 1)));
+  Expect.equals("default", test2(Rectangle(3, 2)));
+
+  Expect.equals("Rectangle(size: 1, area: _)", test3(Rectangle(1, 2)));
+  Expect.equals("Rectangle(size: 1, area: _)", test3(Rectangle(1, 3)));
+  Expect.equals("Rectangle(size: 2, area: _)", test3(Rectangle(2, 2)));
+  Expect.equals("Rectangle(size: 2, area: _)", test3(Rectangle(2, 1)));
+  Expect.equals("default", test3(Rectangle(3, 2)));
 }

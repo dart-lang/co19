@@ -29,7 +29,7 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-void test(List l) {
+void test1(List l) {
   switch (l) {
     case [final a, final b]:
       a = 1;
@@ -64,6 +64,59 @@ void test(List l) {
   }
 }
 
+Object? test2(List l) {
+  return switch (l) {
+    case [final a] => a = 1;
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case [final int c] => c = 1;
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case [final int? e] => e = 1;
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    default => "";
+  };
+}
+
+void test3(List l) {
+  if (l case [final a, final b]) {
+    a = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    b = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (l case [final int c, final String d]) {
+    c = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    d = "";
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (l case [final int? e, final String? f]) {
+    e = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    f = "";
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
 main() {
-  test([]);
+  test1([]);
+  test2([]);
+  test3([]);
 }

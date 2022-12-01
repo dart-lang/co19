@@ -23,8 +23,8 @@
 ///     print('First field is int $x and second is String $s.');
 /// }
 /// ```
-/// @description Checks a variable pattern in a as a subpattern of a
-/// destructuting pattern
+/// @description Checks a variable pattern as a subpattern of a
+/// destructuring pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

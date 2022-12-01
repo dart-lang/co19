@@ -25,7 +25,7 @@
 
 import "../../Utils/expect.dart";
 
-String test(Record r) {
+String test1(Record r) {
   switch (r) {
     case (_, 2, var x):
       return "[_, 2, var x]";
@@ -33,6 +33,25 @@ String test(Record r) {
       return "(String _, _, _)";
     default:
       return "default";
+  }
+}
+
+String test2(Record r) {
+  return switch (r) {
+    case (_, 2, var x) => "[_, 2, var x]";
+    case (String _, _, _) => "(String _, _, _)";
+    default => "default";
+  };
+}
+
+String test3(Record r) {
+  if (r case (_, 2, var x)) {
+    return "[_, 2, var x]";
+  }
+  if (r case (String _, _, _)) {
+    return "(String _, _, _)";
+  } else {
+    return "default";
   }
 }
 
@@ -53,8 +72,18 @@ main() {
   Expect.throws(() {
     var (_, String _, _, num _) = r2;
   });
-  Expect.equals("(_, 2, var x)", (1, 2, "3"));
-  Expect.equals("(String _, _, _)", ("0", 1, 2));
-  Expect.equals("default", (1, 1, 3));
-  Expect.equals("default", ((1, 2), 3, 4));
+  Expect.equals("(_, 2, var x)", test1((1, 2, "3")));
+  Expect.equals("(String _, _, _)", test1(("0", 1, 2)));
+  Expect.equals("default", test1((1, 1, 3)));
+  Expect.equals("default", test1(((1, 2), 3, 4)));
+
+  Expect.equals("(_, 2, var x)", test2((1, 2, "3")));
+  Expect.equals("(String _, _, _)", test2(("0", 1, 2)));
+  Expect.equals("default", test2((1, 1, 3)));
+  Expect.equals("default", test2(((1, 2), 3, 4)));
+
+  Expect.equals("(_, 2, var x)", test3((1, 2, "3")));
+  Expect.equals("(String _, _, _)", test3(("0", 1, 2)));
+  Expect.equals("default", test3((1, 1, 3)));
+  Expect.equals("default", test3(((1, 2), 3, 4)));
 }

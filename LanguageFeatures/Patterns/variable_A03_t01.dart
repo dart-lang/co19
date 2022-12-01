@@ -23,7 +23,7 @@
 ///     print('First field is int $x and second is String $s.');
 /// }
 /// ```
-/// @description Check that if a variable pattern in a as a subpattern of a
+/// @description Check that if a variable pattern is a subpattern of a
 /// final destructuring pattern then declared variable is final
 /// @author sgrekhov22@gmail.com
 

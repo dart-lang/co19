@@ -29,7 +29,7 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-void test(Map m) {
+void test1(Map m) {
   switch (m) {
     case {1: final a}:
       a = 1;
@@ -37,13 +37,13 @@ void test(Map m) {
 // [analyzer] unspecified
 // [cfe] unspecified
       break;
-    case {1: final String b}:
+    case {2: final String b}:
       b = "";
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified
     break;
-    case {1: final String? f}:
+    case {3: final String? f}:
       c = "";
 //    ^
 // [analyzer] unspecified
@@ -52,6 +52,47 @@ void test(Map m) {
   }
 }
 
+Object? test2(Map m) {
+  return switch (m) {
+    case {1: final a} => a = 1;
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case {2: final String b} => b = "";
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case {3: final String? f} => c = "";
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    default => "";
+  };
+}
+
+void test3(Map m) {
+  if (m case {1: final a}) {
+    a = 1;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (m case {2: final String b}) {
+    b = "";
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (m case {3: final String? f}) {
+    c = "";
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
 main() {
-  test({});
+  test1({});
+  test2({});
+  test3({});
 }
