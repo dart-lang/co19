@@ -38,8 +38,11 @@ String testRecord1(Record r, [bool doTypeTest = false]) {
   switch (r) {
     case (var a, final b):
       if (doTypeTest) {
-        a.expectStaticType<Exactly<int>>();
-        b.expectStaticType<Exactly<String>>();
+        // Expecting a and b to be dynamic
+        a.isOdd;
+        b.substring(0);
+        Expect.throws(() {a.whatever});
+        Expect.throws(() {b.whatever});
       }
       return "($a, $b)";
     default:
@@ -57,8 +60,10 @@ String testRecord2(Record r) {
 String testRecord3(Record r, [bool doTypeTest = false]) {
   if (r case (var a, final b)) {
     if (doTypeTest) {
-      a.expectStaticType<Exactly<int>>();
-      b.expectStaticType<Exactly<String>>();
+      a.isOdd;
+      b.substring(0);
+      Expect.throws(() {a.whatever});
+      Expect.throws(() {b.whatever});
     }
     return "($a, $b)";
   } else {
@@ -70,8 +75,10 @@ String testList1(List l, [bool doTypeTest = false]) {
   switch (l) {
     case [var a, final b]:
       if (doTypeTest) {
-        a.expectStaticType<Exactly<int>>();
-        b.expectStaticType<Exactly<String>>();
+        a.isOdd;
+        b.substring(0);
+        Expect.throws(() {a.whatever});
+        Expect.throws(() {b.whatever});
       }
       return "[$a, $b]";
     default:
@@ -89,8 +96,10 @@ String testList2(List l) {
 String testList3(List l, [bool doTypeTest = false]) {
   if (l case [var a, final b]) {
     if (doTypeTest) {
-      a.expectStaticType<Exactly<int>>();
-      b.expectStaticType<Exactly<String>>();
+      a.isOdd;
+      b.substring(0);
+      Expect.throws(() {a.whatever});
+      Expect.throws(() {b.whatever});
     }
     return "[$a, $b]";
   } else {
@@ -101,10 +110,12 @@ String testList3(List l, [bool doTypeTest = false]) {
 String testMap1(Map m) {
   switch (m) {
     case {1: var a}:
-      a.expectStaticType<Exactly<int>>();
+      a.isOdd;
+      Expect.throws(() {a.whatever});
       return "{1: $a}";
     case {2: final b}:
-      b.expectStaticType<Exactly<String>>();
+      b.substring(0);
+      Expect.throws(() {b.whatever});
       return "{2: $b}";
     default:
       return "default";
@@ -121,11 +132,13 @@ String testMap2(Map m) {
 
 String testMap3(Map m) {
   if (m case {1: var a}) {
-    a.expectStaticType<Exactly<int>>();
+    a.isOdd;
+    Expect.throws(() {a.whatever});
     return "{1: $a}";
   }
   if (m case {2: final b}) {
-    b.expectStaticType<Exactly<String>>();
+    b.substring(0);
+    Expect.throws(() {b.whatever});
     return "{2: $b}";
   } else {
     return "default";
