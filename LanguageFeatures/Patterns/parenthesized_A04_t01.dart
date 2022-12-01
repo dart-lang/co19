@@ -16,9 +16,9 @@
 import "../../Utils/expect.dart";
 
 String test(int value) {
-    if (value case ((> 0 | == 0)  & < 42))
+    if (value case ((> 0 || == 0)  && < 42))
       return "[0, 42)";
-    if (value case > 42 & (== 100 | < 100)) {
+    if (value case > 42 && (== 100 || < 100)) {
       return "(42, 100]";
     } else {
       return "else";
