@@ -62,8 +62,8 @@ String testRecord3(Record r, [bool doTypeTest = false]) {
     if (doTypeTest) {
       a.isOdd;
       b.substring(0);
-      Expect.throws(() {a.whatever;}.);
-      Expect.throws(() {b.whatever;}.);
+      Expect.throws(() {a.whatever;});
+      Expect.throws(() {b.whatever;});
     }
     return "($a, $b)";
   } else {
@@ -77,8 +77,8 @@ String testList1(List l, [bool doTypeTest = false]) {
       if (doTypeTest) {
         a.isOdd;
         b.substring(0);
-        Expect.throws(() {a.whatever;}.);
-        Expect.throws(() {b.whatever;}.);
+        Expect.throws(() {a.whatever;});
+        Expect.throws(() {b.whatever;});
       }
       return "[$a, $b]";
     default:
@@ -98,8 +98,8 @@ String testList3(List l, [bool doTypeTest = false]) {
     if (doTypeTest) {
       a.isOdd;
       b.substring(0);
-      Expect.throws(() {a.whatever;}.);
-      Expect.throws(() {b.whatever;}.);
+      Expect.throws(() {a.whatever;});
+      Expect.throws(() {b.whatever;});
     }
     return "[$a, $b]";
   } else {
@@ -111,11 +111,11 @@ String testMap1(Map m) {
   switch (m) {
     case {1: var a}:
       a.isOdd;
-      Expect.throws(() {a.whatever;}.);
+      Expect.throws(() {a.whatever;});
       return "{1: $a}";
     case {2: final b}:
       b.substring(0);
-      Expect.throws(() {b.whatever;}.);
+      Expect.throws(() {b.whatever;});
       return "{2: $b}";
     default:
       return "default";
@@ -133,12 +133,12 @@ String testMap2(Map m) {
 String testMap3(Map m) {
   if (m case {1: var a}) {
     a.isOdd;
-    Expect.throws(() {a.whatever;}.);
+    Expect.throws(() {a.whatever;});
     return "{1: $a}";
   }
   if (m case {2: final b}) {
     b.substring(0);
-    Expect.throws(() {b.whatever;}.);
+    Expect.throws(() {b.whatever;});
     return "{2: $b}";
   } else {
     return "default";
