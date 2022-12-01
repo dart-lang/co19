@@ -81,7 +81,7 @@ String testMap3(Map value) {
 
 String testSet1(Set value) {
   switch (value) {
-    case const {}:
+    case const (<dynamic>{}):
       return "{}";
     default:
       return "default";
@@ -89,7 +89,7 @@ String testSet1(Set value) {
 }
 
 String testSet2(Set value) {
-  if (value case const {}) {
+  if (value case const (<dynamic>{})) {
     return "{}";
   } else {
     return "default";
@@ -98,7 +98,7 @@ String testSet2(Set value) {
 
 String testSet3(Set value) {
   return switch (value) {
-    case const {} => "{}";
+    case const (<dynamic>{}) => "{}";
     default => "default";
   }
 }

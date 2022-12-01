@@ -85,22 +85,22 @@ String testMap(Map value) {
 }
 
 String testSet(Set value) {
-  if (value case const <num>{1, 2, -3}) {
+  if (value case const (<num>{1, 2, -3})) {
     return "<num>{1, 2, -3}";
   }
-  if (value case const <dynamic>{1, 2, -3}) {
+  if (value case const (<dynamic>{1, 2, -3})) {
     return "<dynamic>{1, 2, -3}";
   }
-  if (value case const <String>{'1', '2', '3'}) {
+  if (value case const (<String>{'1', '2', '3'})) {
     return "<String>{'1', '2', '3'}";
   }
-  if (value case const <dynamic>{'1', '2', '3'}) {
+  if (value case const (<dynamic>{'1', '2', '3'})) {
     return "<dynamic>{'1', '2', '3'}";
   }
-  if (value case const <double>{}) {
+  if (value case const (<double>{})) {
     return "<double>{}";
   }
-  if (value case const <dynamic>{}) {
+  if (value case const (<dynamic>{})) {
     return "<dynamic>{}";
   } else {
     return "default";

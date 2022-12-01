@@ -76,17 +76,17 @@ String testMap(Map value) {
 
 String testSet(Set value) {
   switch (value) {
-    case const <num>{1, 2, -3}:
+    case const (<num>{1, 2, -3}):
       return "<num>{1, 2, -3}";
-    case const <dynamic>{1, 2, -3}:
+    case const (<dynamic>{1, 2, -3}):
       return "<dynamic>{1, 2, -3}";
-    case const <String>{'1', '2', '3'}:
+    case const (<String>{'1', '2', '3'}):
       return "<String>{'1', '2', '3'}";
-    case const <dynamic>{'1', '2', '3'}:
+    case const (<dynamic>{'1', '2', '3'}):
       return "<dynamic>{'1', '2', '3'}";
-    case const <double>{}:
+    case const (<double>{}):
       return "<double>{}";
-    case const <dynamic>{}:
+    case const (<dynamic>{}):
       return "<dynamic>{}";
     default:
       return "default";

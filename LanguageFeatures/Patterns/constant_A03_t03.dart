@@ -55,9 +55,9 @@ String testMap(Map value) {
 
 String testSet(Set value) {
   return switch (value) {
-    case const {1, 2, -3} => "{1, 2, -3}";
-    case const {'1', '2', '3'} => "{'1', '2', '3'}";
-    case const {} => "{}";
+    case const ({1, 2, -3}) => "{1, 2, -3}";
+    case const ({'1', '2', '3'}) => "{'1', '2', '3'}";
+    case const (<dynamic>{}) => "{}";
     default => "default";
   };
 }
