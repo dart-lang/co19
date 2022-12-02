@@ -10,7 +10,7 @@
 /// the current exception set to v and the current return value becomes
 /// undefined.
 /// @description Checks that attempting to throw null in any manner results in
-/// NullThrownError being thrown instead.
+/// TypeError being thrown instead.
 /// @author rodionov
 
 import '../../../Utils/expect.dart';
