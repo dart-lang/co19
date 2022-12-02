@@ -50,9 +50,11 @@ main() {
     dynamic d2 = 3.14;
     (int, double, int Function(int), void Function(num)) r2 = (d2, 3, id, c);
   });
-  Expect.throws(() {
-    (r1.$1 as dynamic).isEven;
-  });
+  if (!isJS) {
+    Expect.throws(() {
+      (r1.$1 as dynamic).isEven;
+    });
+  }
   Expect.throws(() {
     (r1.$2 as dynamic)("42");
   });
