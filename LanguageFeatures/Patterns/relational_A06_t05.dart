@@ -11,39 +11,52 @@
 /// value with the constant as an argument returns true. It is a compile-time
 /// error if relationalExpression is not a valid constant expression.
 ///
-/// @description Checks a relational pattern in an if-case statement
+/// @description Checks the case when user-defined class with custom relational
+/// operators is used in a relational pattern. Test if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
 
-void test1(double value, String expected) {
-  if (value case < 0) {
+class C {
+  final int value;
+  const C(this.value);
+
+  bool operator <(C other) => this.value < other.value;
+  bool operator >(C other) => this.value > other.value;
+  bool operator <=(C other) => this.value <= other.value;
+  bool operator >=(C other) => this.value >= other.value;
+  @override
+  bool operator ==(Object other) => this.value == (other as C).value;
+}
+
+void test1(C c, String expected) {
+  if (c case < C(0)) {
     Expect.equals("negative", expected);
-  } else if (value case == 0) {
+  } else if (c case == C(0)) {
     Expect.equals("zero", expected);
-  } else if (value case > 0) {
+  } else if (c case > C(0)) {
     Expect.equals("positive", expected);
   } else {
     Expect.fail("One of the cases above should match");
   }
 }
 
-void test2(num value, String expected) {
-  if (value case != 0) {
+void test2(C c, String expected) {
+  if (c case != C(0)) {
     Expect.equals("non-zero", expected);
-  } else if (value case == 0) {
+  } else if (c case == C(0)) {
     Expect.equals("zero", expected);
   } else {
     Expect.fail("One of the cases above should match");
   }
 }
 
-void test3(int value, String expected) {
-  if (value case >= 0) {
+void test3(C c, String expected) {
+  if (c case >= C(0)) {
     Expect.equals("zero or positive", expected);
-  } else if (calue case <= -1) {
+  } else if (c case <= C(-1)) {
     Expect.equals("negative", expected);
   } else {
     Expect.fail("One of the cases above should match");
@@ -51,14 +64,14 @@ void test3(int value, String expected) {
 }
 
 main() {
-  test1(-1.1, "negative");
-  test1(42.42, "positive");
-  test1(0, "zero");
-  test2(3.14, "non-zero");
-  test2(0, "zero");
-  test3(0, "zero or positive");
-  test3(-, "negative");
-  test3(-100, "negative");
-  test3(1, "zero or positive");
-  test3(42, "zero or positive");
+  test1(C(-1), "negative");
+  test1(C(42), "positive");
+  test1(C(0), "zero");
+  test2(C(3), "non-zero");
+  test2(C(0), "zero");
+  test3(C(0), "zero or positive");
+  test3(C(-1), "negative");
+  test3(C(-100), "negative");
+  test3(C(1), "zero or positive");
+  test3(C(42), "zero or positive");
 }

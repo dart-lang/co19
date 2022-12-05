@@ -14,21 +14,41 @@
 /// only matters because patterns may invoke user-defined methods with visible
 /// side effects.
 ///
-/// @description Checks a logical-and in a variable declaration pattern
+/// @description Checks that if the left branch does not match, the right branch
+/// is not evaluated
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
 main() {
-  var r = (3.14, name: "pi");
-  var ((a, name: b) && record) = r;
-  Expect.equals(3.14, a);
-  Expect.equals("pi", b);
-  Expect.equals(r, record);
+  Shape shape1 = Circle(1);
+  switch (shape1) {
+    case Circle(area: 2) && Circle(size: 1):
+      Expect.fail("Pattern should not match");
+      break;
+    default:
+  }
+  Expect.equals("Circle.area=2;", shape1.log);
 
-  var (x && y) = 42;
-  Expect.equals(42, x);
-  Expect.equals(42, y);
+  Shape shape2 = Square(1);
+  switch (shape2) {
+    case Square(area: 1) && Square(area: 2) && Square(size: 1):
+      Expect.fail("Pattern should not match");
+      break;
+    default:
+  }
+  Expect.equals("Square.area=1;Square.area=2;", shape2.log);
+
+  Shape shape3 = Square(1);
+  switch (shape3) {
+    case Shape(area: 1) && Shape(size: 1) && Square(area: 2)
+          && Square(size: 2):
+      Expect.fail("Pattern should not match");
+      break;
+    default:
+  }
+  Expect.equals("Square.area=1;Square.size=1;Square.area=2;", shape3.log);
 }

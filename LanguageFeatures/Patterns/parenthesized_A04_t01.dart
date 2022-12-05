@@ -8,7 +8,7 @@
 /// pattern precedence and insert a lower precedence pattern where a higher
 /// precedence one is expected.
 ///
-/// @description Checks parentheses in a if-case statement
+/// @description Checks parentheses in an if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

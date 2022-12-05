@@ -11,22 +11,35 @@
 /// value with the constant as an argument returns true. It is a compile-time
 /// error if relationalExpression is not a valid constant expression.
 ///
-/// @description Checks a relational pattern in a switch statement
+/// @description Checks the case when user-defined class with custom relational
+/// operators is used in a relational pattern. Test switch statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
 
-void test1(double value, String expected) {
-  switch (value) {
-    case < 0:
+class C {
+  final int value;
+  const C(this.value);
+
+  bool operator <(C other) => this.value < other.value;
+  bool operator >(C other) => this.value > other.value;
+  bool operator <=(C other) => this.value <= other.value;
+  bool operator >=(C other) => this.value >= other.value;
+  @override
+  bool operator ==(Object other) => this.value == (other as C).value;
+}
+
+void test1(C c, String expected) {
+  switch (c) {
+    case < C(0):
       Expect.equals("negative", expected);
       break;
-    case == 0:
+    case == C(0):
       Expect.equals("zero", expected);
       break;
-    case > 0:
+    case > C(0):
       Expect.equals("positive", expected);
       break;
     default:
@@ -34,12 +47,12 @@ void test1(double value, String expected) {
   }
 }
 
-void test2(num value, String expected) {
-  switch (value) {
-    case != 0:
+void test2(C c, String expected) {
+  switch (c) {
+    case != C(0):
       Expect.equals("non-zero", expected);
       break;
-    case == 0:
+    case == C(0):
       Expect.equals("zero", expected);
       break;
     default:
@@ -47,12 +60,12 @@ void test2(num value, String expected) {
   }
 }
 
-void test3(int value, String expected) {
-  switch (value) {
-    case >= 0:
+void test3(C c, String expected) {
+  switch (c) {
+    case >= C(0):
       Expect.equals("zero or positive", expected);
       break;
-    case <= -1:
+    case <= C(-1):
       Expect.equals("negative", expected);
       break;
     default:
@@ -61,14 +74,14 @@ void test3(int value, String expected) {
 }
 
 main() {
-  test1(-1.1, "negative");
-  test1(42.42, "positive");
-  test1(0, "zero");
-  test2(3.14, "non-zero");
-  test2(0, "zero");
-  test3(0, "zero or positive");
-  test3(-, "negative");
-  test3(-100, "negative");
-  test3(1, "zero or positive");
-  test3(42, "zero or positive");
+  test1(C(-1), "negative");
+  test1(C(42), "positive");
+  test1(C(0), "zero");
+  test2(C(3), "non-zero");
+  test2(C(0), "zero");
+  test3(C(0), "zero or positive");
+  test3(C(-1), "negative");
+  test3(C(-100), "negative");
+  test3(C(1), "zero or positive");
+  test3(C(42), "zero or positive");
 }

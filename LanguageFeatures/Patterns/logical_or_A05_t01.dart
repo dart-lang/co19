@@ -17,7 +17,8 @@
 /// determines which value the variable gets if both branches would have
 /// matched. In that case, it will always be the value from the left branch.
 ///
-/// @description Checks logical-or pattern in an if-case statement
+/// @description Checks that if the left branch matches, the right branch is not
+/// evaluated. Test switch statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -25,18 +26,31 @@
 import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
-void test(Shape shape, double expectedArea, Type expectedType, bool match) {
-  if (shape case Square(area: var s) || Circle(area: var s)) {
-    Expect.equals(s, expectedArea);
-    Expect.equals(expectedType, shape.runtimeType);
-    Expect.isTrue(match);
-  } else {
-    Expect.isFalse(match);
-  }
-}
-
 main() {
-  test(Circle(1), 3.14, Circle, true);
-  test(Square(2), 4, Square, true);
-  test(Rectangle(2, 1), 2, Rectangle, false);
+  Shape shape1 = Square(1);
+  switch (shape1) {
+    case Square(area: var s) || Shape(area: var s):
+      Expect.equals("Square.area", shape1.log);
+      break;
+    default:
+      print("Other");
+  }
+
+  Shape shape2 = Square(2);
+  switch (shape2) {
+    case Square(area: 2) || Square(area: 4) || Square(area: 4):
+      Expect.equals("Circle.area=2;Circle.area=4;", shape2.log);
+      break;
+    default:
+      print("Other");
+  }
+
+  Shape shape3 = Shape();
+  switch (shape3) {
+    case Circle(area: 0) || Square(area: 1) || Shape(area: 0):
+      Expect.equals("Shape.area=0;", shape3.log);
+      break;
+    default:
+      print("Other");
+  }
 }

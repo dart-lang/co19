@@ -17,56 +17,35 @@
 /// determines which value the variable gets if both branches would have
 /// matched. In that case, it will always be the value from the left branch.
 ///
-/// @description Checks that if the left branch doesn't match, then the right
-/// branch is evaluated
+/// @description Checks that it is a compile-time error if two branches of
+/// logical-or pattern define different sets of variables. Test switch
+/// expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "patterns_lib.dart";
-import "../../Utils/expect.dart";
+
+String test(Shape shape) {
+  return switch (shape) {
+    case Square(area: var s1) || Circle(area: var s2) => "Square or Circle";
+//                                                ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case Square(area: var s1) || Circle(area: _) => "Square or Circle 2";
+//                                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    case Rectangle(x: var x, y: var width) || Rectangle(:var x, :var y) =>
+//                                                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+        "Rectangle";
+    default => "Other";
+  }
+}
 
 main() {
-  Shape shape1 = Square(1);
-  switch (shape1) {
-    case Square(area: 2) || Square(area: 1):
-      Expect.equals("Square.area=2;Square.area=1;", shape1.log);
-      break;
-    default:
-      print("Other");
-  }
-
-  Shape shape2 = Shape();
-  switch (shape2) {
-    case Square(area: 2) || Rectangle(area: 1) || Shape(area: 0):
-      Expect.equals("Shape.area=0;", shape2.log);
-      break;
-    default:
-      print("Other");
-  }
-
-  Shape shape3 = Circle(1);
-  switch (shape2) {
-    case Circle(area: 2) || Circle(area: 1) || Circle(area: 0)
-      || Circle(area: 3.14):
-      Expect.equals(
-          "Circle.area=2;Circle.area=1;Circle.area=0;Circle.area=3.14;",
-          shape3.log);
-      break;
-    default:
-      print("Other");
-  }
-
-  Shape shape4 = Rectangle(1, 2);
-  bool other = false;
-  switch (shape4) {
-    case Rectangle(area: 3) || Rectangle(area: 1) || Rectangle(area: 42):
-      Expect.fail("No branches should match");
-      break;
-    default:
-      other = true;
-      Expect.equals("Rectangle.area=3;Rectangle.area=1;Rectangle.area=42;",
-          shape4.log);
-  }
-  Expect.isTrue(other);
+  test(Circle(1));
 }

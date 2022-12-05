@@ -11,47 +11,47 @@
 /// value with the constant as an argument returns true. It is a compile-time
 /// error if relationalExpression is not a valid constant expression.
 ///
-/// @description Checks a relational pattern in a switch expression
+/// @description Check that it is a compile-time error if relationalExpression
+/// is not a valid constant expression. Test switch expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
-
-String test1(num num) {
+String test1(int num) {
+  int i = 0;
   return switch (num) {
-    case < 0 => "negative";
-    case == 0 => "zero";
-    case > 0 => "positive";
+    case < i => "negative";
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case == i => "zero";
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case > i => "positive";
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
     default => "Impossible!";
   };
 }
 
-String test2(double num) {
+String test2(int num) {
+  final j = 0;
   return switch (num) {
-    case != 0 => "non-zero";
-    case == 0 => "zero";
-    default => "Impossible!";
-  };
-}
-
-String test3(int num) {
-  return switch (num) {
-    case >= 0 => "zero or positive";
-    case <= -1 => "negative";
+    case != j => "non-zero";
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case == j => "zero";
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
     default => "Impossible!";
   };
 }
 
 main() {
-  Expect.equals("negative", test1(-1.1));
-  Expect.equals("positive", test1(42));
-  Expect.equals("zero", test1(0));
-  Expect.equals("non-zero", test2(3.14));
-  Expect.equals("zero", test2(0));
-  Expect.equals("zero or positive", test3(0));
-  Expect.equals("negative", test3(-1));
-  Expect.equals("negative", test3(-2));
-  Expect.equals("zero or positive", test3(1));
-  Expect.equals("zero or positive", test3(42));
+  test1(1);
+  test2(2);
 }
