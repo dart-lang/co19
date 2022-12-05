@@ -43,7 +43,7 @@ String test(Shape shape) {
 // [cfe] unspecified
         "Rectangle";
     default => "Other";
-  }
+  };
 }
 
 main() {

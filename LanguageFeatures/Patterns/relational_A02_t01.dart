@@ -67,7 +67,7 @@ main() {
   test2(3.14, "non-zero");
   test2(0, "zero");
   test3(0, "zero or positive");
-  test3(-, "negative");
+  test3(-1, "negative");
   test3(-100, "negative");
   test3(1, "zero or positive");
   test3(42, "zero or positive");

@@ -82,7 +82,7 @@ main() {
 //                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  if (case [!= i--]) {}
+  if (list case [!= i--]) {}
 //             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
