@@ -39,7 +39,7 @@ main() {
 //                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  if (case == j) {}
+  if (value case == j) {}
 //            ^
 // [analyzer] unspecified
 // [cfe] unspecified
