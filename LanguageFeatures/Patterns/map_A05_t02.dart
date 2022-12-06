@@ -16,6 +16,14 @@
 ///
 /// Any of the entry key expressions are not constant expressions.
 ///
+/// If any two keys in the map are identical. Map patterns that don't have a
+/// rest element only match if the length of the map is equal to the number of
+/// map entries. If a map pattern has multiple identical key entries, they will
+/// increase the required length for the pattern to match but in all but the
+/// most perverse Map implementations will represent the same key. Thus, it's
+/// very unlikely that any map pattern containing identical keys (and no rest
+/// element) will ever match. Duplicate keys are most likely a typo in the code.
+///
 /// If any two keys in the map both have primitive == methods, then it is a
 /// compile-time error if they are equal according to their == operator. In
 /// cases where keys have types whose equality can be checked at compile time,
@@ -37,16 +45,33 @@
 
 import "../../Utils/expect.dart";
 
+class C {
+  final x;
+  const C(this.x);
+
+  @override
+  bool operator ==(Object other) {
+    if (other is C) {
+      return (this.x - other.x).abs() <= 10;
+    }
+    return false;
+  }
+}
+
+const c1 = C(1);
+const c2 = C(2);
+const c3 = C(3);
+
 String test1(Map map) {
   return switch (map) {
-    case {3.14: var a, 3.14: final b} => "a=$a, b=$b";
+    case {c1: var a, c2: final b} => "a=$a, b=$b";
     default => "default";
   };
 }
 
 String test2(Map map) {
   switch (map) {
-    case {3.14: var a, 3.14: final b}:
+    case {c1: var a, c2: final b}:
       return "a=$a, b=$b";
     default:
       return "default";
@@ -54,7 +79,7 @@ String test2(Map map) {
 }
 
 String test3(Map map) {
-  if (map case {3.14: var a, 3.14: final b}) {
+  if (map case {c1: var a, c2: final b}) {
     return "a=$a, b=$b";
   }
   return "default";
@@ -62,25 +87,25 @@ String test3(Map map) {
 
 main() {
   Expect.throws(() {
-    var {3.14: a, 3.14: b} = {3.14: 1};
+    var {c1: a, c2: b} = {3.14: 1};
   });
   Expect.throws(() {
-    var {3.14: a, 3.14: b} = {3.14: 1, 3.14: 2, 3.14: 3};
+    var {c1: a, c2: b} = {3.14: 1, 3.14: 2, 3.14: 3};
   });
-  var {3.14: a1, 3.14: b1} = {3.14: 1, 3.14: 2};
+  var {c1: a1, c2: b1} = {c1: 1, c2: 2};
   Expect.equals(2, a1);
   Expect.equals(2, b1);
-  final {3.14: int a2, 3.14: int b2} = {3.14: 1, 3.14: 2};
+  final {c1: int a2, c2: int b2} = {c1: 1, c2: 2};
   Expect.equals(2, a2);
   Expect.equals(2, b2);
 
-  Expect.equals("a=2, b=2", test1({3.14: 1, 3.14: 2}));
-  Expect.equals("default", test1({3.14: 1}));
-  Expect.equals("default", test1({3.14: 1, 3.14: 2, 3.14: 3}));
-  Expect.equals("a=2, b=2", test2({3.14: 1, 3.14: 2}));
-  Expect.equals("default", test2({3.14: 1}));
-  Expect.equals("default", test2({3.14: 1, 3.14: 2, 3.14: 3}));
-  Expect.equals("a=2, b=2", test3({3.14: 1, 3.14: 2}));
-  Expect.equals("default", test3({3.14: 1}));
-  Expect.equals("default", test3({3.14: 1, 3.14: 2, 3.14: 3}));
+  Expect.equals("a=2, b=2", test1({c1: 1, c2: 2}));
+  Expect.equals("default", test1({c1: 1}));
+  Expect.equals("default", test1({c1: 1, c2: 2, c3: 3}));
+  Expect.equals("a=2, b=2", test2({c1: 1, c1: 2}));
+  Expect.equals("default", test2({c1: 1}));
+  Expect.equals("default", test2({c1: 1, c2: 2, c3: 3}));
+  Expect.equals("a=2, b=2", test3({c1: 1, c2: 2}));
+  Expect.equals("default", test3({c1: 1}));
+  Expect.equals("default", test3({c1: 1, c2: 2, c3: 3}));
 }

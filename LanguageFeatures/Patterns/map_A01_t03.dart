@@ -16,6 +16,14 @@
 ///
 /// Any of the entry key expressions are not constant expressions.
 ///
+/// If any two keys in the map are identical. Map patterns that don't have a
+/// rest element only match if the length of the map is equal to the number of
+/// map entries. If a map pattern has multiple identical key entries, they will
+/// increase the required length for the pattern to match but in all but the
+/// most perverse Map implementations will represent the same key. Thus, it's
+/// very unlikely that any map pattern containing identical keys (and no rest
+/// element) will ever match. Duplicate keys are most likely a typo in the code.
+///
 /// If any two keys in the map both have primitive == methods, then it is a
 /// compile-time error if they are equal according to their == operator. In
 /// cases where keys have types whose equality can be checked at compile time,
@@ -28,7 +36,7 @@
 ///
 /// The ... element is not the last element in the map pattern.
 ///
-/// @description Checks a map pattern with different subpatterns in a if-case
+/// @description Checks a map pattern with different subpatterns in an if-case
 /// statement
 /// @author sgrekhov22@gmail.com
 
@@ -98,7 +106,6 @@ main() {
   Expect.equals("default", test({3: 0}));
   Expect.equals("cast", test({4: 42}));
   Expect.throws(() {test({4: "42"});});
-  Expect.equals("default", test(<int, int>{4: 42}));
   Expect.equals("null-check", test({5: 42}));
   Expect.equals("default", test({5: null}));
   Expect.equals("null-assert", test({6: 42}));
@@ -116,7 +123,7 @@ main() {
   Expect.equals("list-2", test({10: ["42", 42]}));
   Expect.equals("default", test({10: [Object(), 42]}));
   Expect.equals("map-1", test({11: {1: 42}}));
-  Expect.equals("map-2", test({11: {"1": 42}}));
+  Expect.equals("map-2", test({11: {"1": "42"}}));
   Expect.equals("default", test({11: {Object(): 42}}));
   Expect.equals("record-1", test({12: (42,)}));
   Expect.equals("record-2", test({12: (42, x: 0)}));

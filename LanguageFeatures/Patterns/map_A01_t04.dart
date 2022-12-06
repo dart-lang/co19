@@ -16,6 +16,14 @@
 ///
 /// Any of the entry key expressions are not constant expressions.
 ///
+/// If any two keys in the map are identical. Map patterns that don't have a
+/// rest element only match if the length of the map is equal to the number of
+/// map entries. If a map pattern has multiple identical key entries, they will
+/// increase the required length for the pattern to match but in all but the
+/// most perverse Map implementations will represent the same key. Thus, it's
+/// very unlikely that any map pattern containing identical keys (and no rest
+/// element) will ever match. Duplicate keys are most likely a typo in the code.
+///
 /// If any two keys in the map both have primitive == methods, then it is a
 /// compile-time error if they are equal according to their == operator. In
 /// cases where keys have types whose equality can be checked at compile time,
@@ -47,7 +55,7 @@ main() {
   var <Object, String>{1: String _, two: a1} = m1;
   Expect.equals("2", a1);
   a1 = "3";
-  Expect.equals("3", m1[two]);
+  Expect.equals("2", m1[two]);
 
   final {"1": a2, "2": int b2} = {"1": 1, "2": 2};
   Expect.equals(1, a2);

@@ -16,6 +16,14 @@
 ///
 /// Any of the entry key expressions are not constant expressions.
 ///
+/// If any two keys in the map are identical. Map patterns that don't have a
+/// rest element only match if the length of the map is equal to the number of
+/// map entries. If a map pattern has multiple identical key entries, they will
+/// increase the required length for the pattern to match but in all but the
+/// most perverse Map implementations will represent the same key. Thus, it's
+/// very unlikely that any map pattern containing identical keys (and no rest
+/// element) will ever match. Duplicate keys are most likely a typo in the code.
+///
 /// If any two keys in the map both have primitive == methods, then it is a
 /// compile-time error if they are equal according to their == operator. In
 /// cases where keys have types whose equality can be checked at compile time,
@@ -28,16 +36,32 @@
 ///
 /// The ... element is not the last element in the map pattern.
 ///
-/// @description Check that it is a compile-time error if there is more than one
-/// ... element in the map pattern.
+/// @description Check that it is a compile-time error if any two keys in the
+/// map both have primitive == methods and they are equal according to their ==
+/// operator
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+class C {
+  const C();
+}
+
+const c1 = C();
+const c2 = C();
+
 String test1(Map map) {
   return switch (map) {
-    case <int, int>{1: 1, ..., ...} => "";
-//                             ^^^
+    case {const C(): 1, const C(): 2} => "";
+//                      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case {1: 1, 1: 2} => "";
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case {c1: var a, c2: final b} => "";
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
     default => "default";
@@ -46,29 +70,52 @@ String test1(Map map) {
 
 void test2(Map map) {
   switch (map) {
-    case {3: 4, ..., ...}:
-//                   ^^^
+    case {const C(): 1, const C(): 2}:
+//                      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      break;
+    case {1: 1, 1: 2}:
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      break;
+    case {c1: var a, c2: final b}:
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 }
 
-String test3(Map map) {
-  if (map case {1: _, 2: _, ..., ...}) {
-//                               ^^^
+void test3(Map map) {
+  if (map case {const C(): 1, const C(): 2}) {
+//                            ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (map case {1: 1, 1: 2}) {
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (map case {c1: var a, c2: final b}) {
+//                         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 }
 
 main() {
-  var {1: a, 2: b, ..., ...} = {1: 1, 2: 2, 3: 3, 4: 4};
-//                      ^^^
+  var {const C(): 1, const C(): 2} = {const C(): 1};
+//                   ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  final {..., ...} = {1: 1, 2: 2, 3: 3, 4: 4};
-//            ^^^
+  var {1: 1, 1: 2} = {1: 2};
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final {c1: var a, c2: final b} = {c2: 2};
+//                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
