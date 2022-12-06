@@ -36,32 +36,16 @@
 ///
 /// The ... element is not the last element in the map pattern.
 ///
-/// @description Check that it is a compile-time error if any two keys in the
-/// map both have primitive == methods and they are equal according to their ==
-/// operator
+/// @description Check that it is a compile-time error if there is more than one
+/// ... element in the map pattern.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-class C {
-  const C();
-}
-
-const c1 = C();
-const c2 = C();
-
 String test1(Map map) {
   return switch (map) {
-    case {const C(): 1, const C(): 2} => "";
-//                      ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case {1: 1, 1: 2} => "";
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case {c1: var a, c2: final b} => "";
-//                   ^^
+    case <int, int>{1: 1, ..., ...} => "";
+//                             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     default => "default";
@@ -70,52 +54,29 @@ String test1(Map map) {
 
 void test2(Map map) {
   switch (map) {
-    case {const C(): 1, const C(): 2}:
-//                      ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case {1: 1, 1: 2}:
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case {c1: var a, c2: final b}:
-//                   ^^
+    case {3: 4, ..., ...}:
+//                   ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 }
 
-void test3(Map map) {
-  if (map case {const C(): 1, const C(): 2}) {
-//                            ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (map case {1: 1, 1: 2}) {
-//                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (map case {c1: var a, c2: final b}) {
-//                         ^^
+String test3(Map map) {
+  if (map case {1: _, 2: _, ..., ...}) {
+//                               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 }
 
 main() {
-  var {const C(): 1, const C(): 2} = {const C(): 1};
-//                   ^^^^^^^^^
+  var {1: a, 2: b, ..., ...} = {1: 1, 2: 2, 3: 3, 4: 4};
+//                      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  var {1: 1, 1: 2} = {1: 2};
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final {c1: var a, c2: final b} = {c2: 2};
-//                  ^^
+
+  final {..., ...} = {1: 1, 2: 2, 3: 3, 4: 4};
+//            ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

@@ -37,8 +37,7 @@
 /// The ... element is not the last element in the map pattern.
 ///
 /// @description Check that it is no compile-time error if any two keys in the
-/// map are equal according to their == operator, but have no primitive ==
-/// methods
+/// map are equal according to their == operator, but not identical
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
