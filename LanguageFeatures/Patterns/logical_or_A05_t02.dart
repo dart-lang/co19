@@ -30,7 +30,7 @@ main() {
   Shape shape1 = Square(1);
   switch (shape1) {
     case Square(area: 2) || Square(area: 1):
-      Expect.equals("Square.area=2;Square.area=1;", shape1.log);
+      Expect.equals("Square.area=2;=1;", shape1.log);
       break;
     default:
       print("Other");
@@ -50,8 +50,7 @@ main() {
     case Circle(area: 2) || Circle(area: 1) || Circle(area: 0)
       || Circle(area: 3.14):
       Expect.equals(
-          "Circle.area=2;Circle.area=1;Circle.area=0;Circle.area=3.14;",
-          shape3.log);
+          "Circle.area=2;=1;=0;=3.14;", shape3.log);
       break;
     default:
       print("Other");
@@ -65,8 +64,7 @@ main() {
       break;
     default:
       other = true;
-      Expect.equals("Rectangle.area=3;Rectangle.area=1;Rectangle.area=42;",
-          shape4.log);
+      Expect.equals("Rectangle.area=3;=1;=42;", shape4.log);
   }
   Expect.isTrue(other);
 }

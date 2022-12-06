@@ -59,27 +59,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
       break;
-    case == true:
-//          ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
     case > o:
 //         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    default:
-  }
-
-  switch (value) {
-    case != "":
-//          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case == true:
-//          ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
       break;
@@ -104,21 +85,8 @@ main() {
 //                 ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  if (value case == true) {}
-//                  ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   if (value case > o) {}
 //                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  if (value case != "") {}
-//                  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  if (value case == true) {}
-//                  ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   if (value case >= "1") {}

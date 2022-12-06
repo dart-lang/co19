@@ -38,8 +38,8 @@ main() {
 
   Shape shape2 = Square(2);
   switch (shape2) {
-    case Square(area: 2) || Square(area: 4) || Square(area: 4):
-      Expect.equals("Circle.area=2;Circle.area=4;", shape2.log);
+    case Square(area: 2) || Square(area: 4) || Square(area: 8):
+      Expect.equals("Square.area=2;=4;", shape2.log);
       break;
     default:
       print("Other");

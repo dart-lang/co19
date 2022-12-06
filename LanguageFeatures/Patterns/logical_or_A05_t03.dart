@@ -36,7 +36,7 @@ main() {
 
   Shape shape2 = Square(2);
   if (shape2 case Square(area: 2) || Square(area: 4) || Square(area: 4)) {
-    Expect.equals("Circle.area=2;Circle.area=4;", shape2.log);
+    Expect.equals("Square.area=2;=4;", shape2.log);
   } else {
     Expect.fail("Expression should match");
   }

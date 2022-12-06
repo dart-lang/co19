@@ -29,7 +29,7 @@ import "../../Utils/expect.dart";
 main() {
   Shape shape1 = Square(1);
   if (shape1 case Square(area: 2) || Square(area: 1)) {
-    Expect.equals("Square.area=2;Square.area=1;", shape1.log);
+    Expect.equals("Square.area=2;=1;", shape1.log);
   } else {
     Expect.fail("Expression should match");
   }
@@ -45,17 +45,17 @@ main() {
   if (shape2 case Circle(area: 2) || Circle(area: 1) || Circle(area: 0)
       || Circle(area: 3.14)) {
     Expect.equals(
-      "Circle.area=2;Circle.area=1;Circle.area=0;Circle.area=3.14;",
+      "Circle.area=2;=1;=0;=3.14;",
       shape3.log);
   } else {
     Expect.fail("Expression should match");
   }
 
   Shape shape4 = Rectangle(1, 2);
-  if (shape4 case Rectangle(area: 3) || Rectangle(area: 1) || Rectangle(area: 42)) {
+  if (shape4 case Rectangle(area: 3) || Rectangle(area: 1)
+      || Rectangle(area: 42)) {
     Expect.fail("No branches should match");
   } else {
-    Expect.equals("Rectangle.area=3;Rectangle.area=1;Rectangle.area=42;",
-        shape4.log);
+    Expect.equals("Rectangle.area=3;=1;=42;", shape4.log);
   }
 }

@@ -39,7 +39,7 @@ main() {
     case Square(area: 2) || Square(area: 4) || Square(area: 4) => shape2.log;
     default => "Other";
   };
-  Expect.equals("Circle.area=2;Circle.area=4;", s2);
+  Expect.equals("Square.area=2;=4;", s2);
 
   Shape shape3 = Shape();
   String s3 = switch (shape3) {
