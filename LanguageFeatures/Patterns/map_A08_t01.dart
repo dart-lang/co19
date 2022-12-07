@@ -69,7 +69,7 @@ main() {
   Expect.equals(2, b);
 
   final {1: 2, 2: int c, ...} = {1: 2, 2: 2, 3: 3};
-  Expect.equals(3, c);
+  Expect.equals(2, c);
 
   var {1: 3, 2: _, ...} = {1: 3, 2: 2, 3: 3};
 
