@@ -24,28 +24,37 @@
 /// very unlikely that any map pattern containing identical keys (and no rest
 /// element) will ever match. Duplicate keys are most likely a typo in the code.
 ///
-/// If any two keys in the map both have primitive == methods, then it is a
-/// compile-time error if they are equal according to their == operator. In
-/// cases where keys have types whose equality can be checked at compile time,
-/// we report errors if there are redundant keys. But we don't require the keys
-/// to have primitive equality for flexibility. In map patterns where the keys
-/// don't have primitive equality, it is possible to have redundant keys and the
-/// compiler won't detect it.
+/// Any two record keys which both have primitive == are equal. Since records
+/// don't have defined identity, we can't use the previous rule to detect
+/// identical records. But records do support an equality test known at compile
+/// time if all of their fields do, so we use that.
 ///
 /// There is more than one ... element in the map pattern.
 ///
 /// The ... element is not the last element in the map pattern.
 ///
-/// @description Check that it is a compile-time error if there is more than one
-/// ... element in the map pattern.
+/// @description Check that it is a compile-time error if any two record keys
+/// are equal
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 String test1(Map map) {
   return switch (map) {
-    case <int, int>{1: 1, ..., ...} => "";
-//                             ^^^
+    case {(): 1, (): 2} => "";
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case {(1,): 1, (1,): 2} => "";
+//                 ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case {(n: 2): var a1, (n: 2): final b1} => "";
+//                        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case {(1, n: 2): var a2, (n:2, 1): final b2} => "";
+//                           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     default => "default";
@@ -54,29 +63,66 @@ String test1(Map map) {
 
 void test2(Map map) {
   switch (map) {
-    case {3: 4, ..., ...}:
-//                   ^^^
+    case {(): 1, (): 2}:
+//               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+      break;
+    case {(1,): 1, (1,): 2}:
+//                 ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      break;
+    case {(n: 1): var a1, (n: 1): final b1}:
+//                        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case {(1, n: 2): var a2, (n:2, 1): final b2}:
+//                           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      break;
   }
 }
 
-String test3(Map map) {
-  if (map case {1: _, 2: _, ..., ...}) {
-//                               ^^^
+void test3(Map map) {
+  if (map case {(): 1, (): 2}) {
+//                     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (map case {(1,): 1, (1,): 2}) {
+//                       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (map case {(n: 1): var a1, (n: 1): final b1}) {
+//                              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (map case {(1, n: 2): var a2, (n:2, 1): final b2}) {
+//                                 ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 }
 
 main() {
-  var {1: a, 2: b, ..., ...} = {1: 1, 2: 2, 3: 3, 4: 4};
-//                      ^^^
+  var {(): 1, (): 2} = {(): 1};
+//            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  final {..., ...} = {1: 1, 2: 2, 3: 3, 4: 4};
-//            ^^^
+  var {(1,): 1, (1,): 2} = {(1,): 2};
+//              ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final {(n: 1): var a1, (n: 1): final b1} = {(n: 1): 2};
+//                       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final {(1, n: 2): var a2, (n: 2, 1): final b2} = {(1, n: 2): 1};
+//                          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
