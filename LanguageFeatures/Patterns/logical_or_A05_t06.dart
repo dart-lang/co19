@@ -74,5 +74,5 @@ main() {
       => "Wrong!";
     default => log;
   };
-  Expect.equals("Rectangle.area=3;Rectangle.area=1;Rectangle.area=3.14;", s4);
+  Expect.equals("Rectangle.area=3;=1;=3.14;", s4);
 }
