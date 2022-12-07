@@ -32,19 +32,16 @@ main() {
 //                                                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    print("Square or Circle");
   }
   if (shape case Square(area: var s1) || Circle(area: _)) {
 //                                                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    print("Square or Circle 2");
   }
   if (shape case Rectangle(x: var x, y: var width)
       || Rectangle(:var x, :var y)) {
 //                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    print("Rectangle");
   }
 }

@@ -23,32 +23,48 @@
 import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
+String log = "";
+
+void logger(String toLog) {
+  log += toLog;
+}
+
+void clearLog() {
+  log = "";
+}
+
 main() {
-  Shape shape1 = Circle(1);
+  const shape1 = Circle(1, logger);
+  const one = Unit(1, logger);
+  const two = Unit(2, logger);
+  const three = Unit(3, logger);
+
   switch (shape1) {
-    case Circle(area: 2) && Circle(size: 1):
+    case Circle(area: two) && Circle(size: one):
       Expect.fail("Pattern should not match");
       break;
     default:
   }
-  Expect.equals("Circle.area=2;", shape1.log);
+  Expect.equals("Circle.area=2;", log);
+  clearLog();
 
-  Shape shape2 = Square(1);
+  Shape shape2 = Square(1, logger);
   switch (shape2) {
-    case Square(area: 1) && Square(area: 2) && Square(size: 1):
+    case Square(area: one) && Square(area: two) && Square(size: one):
       Expect.fail("Pattern should not match");
       break;
     default:
   }
-  Expect.equals("Square.area=1;=2;", shape2.log);
+  Expect.equals("Square.area=1;=2;", log);
+  clearLog();
 
-  Shape shape3 = Square(1);
+  Shape shape3 = Square(1, logger);
   switch (shape3) {
-    case Shape(area: 1) && Shape(size: 1) && Square(area: 2)
-          && Square(size: 3):
+    case Shape(area: one) && Shape(size: one) && Square(area: two)
+          && Square(size: three):
       Expect.fail("Pattern should not match");
       break;
     default:
   }
-  Expect.equals("Square.area=1;Square.size=1;=2;", shape3.log);
+  Expect.equals("Square.area=1;Square.size=1;=2;", log);
 }

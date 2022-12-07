@@ -26,36 +26,54 @@
 import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
+String log = "";
+
+void logger(String toLog) {
+  log += toLog;
+}
+
+void clearLog() {
+  log = "";
+}
+
 main() {
-  Shape shape1 = Square(1);
-  if (shape1 case Square(area: 2) || Square(area: 1)) {
-    Expect.equals("Square.area=2;=1;", shape1.log);
+  const zero = Unit(0, logger);
+  const one = Unit(1, logger);
+  const two = Unit(2, logger);
+  const three = Unit(3, logger);
+  const pi = Unit(3.14, logger);
+
+  Shape shape1 = Square(1, logger);
+  if (shape1 case Square(area: two) || Square(area: one)) {
+    Expect.equals("Square.area=2;=1;", log);
   } else {
     Expect.fail("Expression should match");
   }
+  clearLog();
 
-  Shape shape2 = Shape();
-  if (shape2 case Square(area: 2) || Rectangle(area: 1) || Shape(area: 0)) {
-    Expect.equals("Shape.area=0;", shape2.log);
+  Shape shape2 = Shape(logger);
+  if (shape2 case Square(area: two) || Rectangle(area: one)
+      || Shape(area: zero)) {
+    Expect.equals("Shape.area=0;", log);
   } else {
     Expect.fail("Expression should match");
   }
+  clearLog();
 
-  Shape shape3 = Circle(1);
-  if (shape2 case Circle(area: 2) || Circle(area: 1) || Circle(area: 0)
-      || Circle(area: 3.14)) {
-    Expect.equals(
-      "Circle.area=2;=1;=0;=3.14;",
-      shape3.log);
+  Shape shape3 = Circle(1, logger);
+  if (shape2 case Circle(area: two) || Circle(area: one) || Circle(area: zero)
+      || Circle(area: pi)) {
+    Expect.equals("Circle.area=2;=1;=0;=3.14;", log);
   } else {
     Expect.fail("Expression should match");
   }
+  clearLog();
 
-  Shape shape4 = Rectangle(1, 2);
-  if (shape4 case Rectangle(area: 3) || Rectangle(area: 1)
-      || Rectangle(area: 42)) {
+  Shape shape4 = Rectangle(1, 2, logger);
+  if (shape4 case Rectangle(area: three) || Rectangle(area: one)
+      || Rectangle(area: pi)) {
     Expect.fail("No branches should match");
   } else {
-    Expect.equals("Rectangle.area=3;=1;=42;", shape4.log);
+    Expect.equals("Rectangle.area=3;=1;=3.14;", log);
   }
 }

@@ -26,34 +26,53 @@
 import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
+String log = "";
+
+void logger(String toLog) {
+  log += toLog;
+}
+
+void clearLog() {
+  log = "";
+}
+
 main() {
-  Shape shape1 = Square(1);
+  const zero = Unit(0, logger);
+  const one = Unit(1, logger);
+  const two = Unit(2, logger);
+  const three = Unit(3, logger);
+  const pi = Unit(3.14, logger);
+
+  Shape shape1 = Square(1, logger);
   String s1 = switch (shape1) {
-    case Square(area: 2) || Square(area: 1) => shape1.log;
+    case Square(area: two) || Square(area: one) => log;
     default => "Other";
   };
   Expect.equals("Square.area=2;=1;", s1);
+  clearLog();
 
   Shape shape2 = Shape();
   String s2 = switch (shape2) {
-    case Square(area: 2) || Rectangle(area: 1) || Shape(area: 0) => shape2.log;
+    case Square(area: two) || Rectangle(area: one) || Shape(area: zero) => log;
     default => "Other";
   };
   Expect.equals("Shape.area=0;", s2);
+  clearLog();
 
   Shape shape3 = Circle(1);
   String s3 = switch (shape2) {
-    case Circle(area: 2) || Circle(area: 1) || Circle(area: 0)
-      || Circle(area: 3.14) => shape3.log;
+    case Circle(area: two) || Circle(area: one) || Circle(area: zero)
+      || Circle(area: pi) => log;
     default => "Other";
   };
   Expect.equals("Circle.area=2;=1;=0;=3.14;", s3);
+  clearLog();
 
-  Shape shape4 = Rectangle(1, 2);
+  Shape shape4 = Rectangle(1, 2, logger);
   String s4 = switch (shape4) {
-    case Rectangle(area: 3) || Rectangle(area: 1) || Rectangle(area: 42) =>
-      "Wrong!";
-    default => shape4.log;
+    case Rectangle(area: three) || Rectangle(area: one) || Rectangle(area: pi)
+      => "Wrong!";
+    default => log;
   };
-  Expect.equals("Rectangle.area=3;Rectangle.area=1;Rectangle.area=42;", s4);
+  Expect.equals("Rectangle.area=3;Rectangle.area=1;Rectangle.area=3.14;", s4);
 }

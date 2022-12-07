@@ -26,31 +26,48 @@
 import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
+String log = "";
+
+void logger(String toLog) {
+  log += toLog;
+}
+
+void clearLog() {
+  log = "";
+}
+
 main() {
-  Shape shape1 = Square(1);
+  Shape shape1 = Square(1, logger);
   switch (shape1) {
     case Square(area: var s) || Shape(area: var s):
-      Expect.equals("Square.area", shape1.log);
+      Expect.equals("Square.area", log);
       break;
     default:
-      print("Other");
+      Expect.fail("No match");
   }
+  clearLog();
 
-  Shape shape2 = Square(2);
+  Shape shape2 = Square(2, logger);
+  const two = Unit(2, logger);
+  const four = Unit(4, logger);
+  const eight = Unit(8, logger);
   switch (shape2) {
-    case Square(area: 2) || Square(area: 4) || Square(area: 8):
-      Expect.equals("Square.area=2;=4;", shape2.log);
+    case Square(area: two) || Square(area: four) || Square(area: eight):
+      Expect.equals("Square.area=2;=4;", log);
       break;
     default:
-      print("Other");
+      Expect.fail("No match");
   }
+  clearLog();
 
-  Shape shape3 = Shape();
+  Shape shape3 = Shape(logger);
+  const zero = Unit(0, logger);
+  const one = Unit(1, logger);
   switch (shape3) {
-    case Circle(area: 0) || Square(area: 1) || Shape(area: 0):
-      Expect.equals("Shape.area=0;", shape3.log);
+    case Circle(area: zero) || Square(area: one) || Shape(area: zero):
+      Expect.equals("Shape.area=0;", log);
       break;
     default:
-      print("Other");
+      Expect.fail("No match");
   }
 }

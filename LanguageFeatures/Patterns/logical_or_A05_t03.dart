@@ -26,24 +26,43 @@
 import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
+String log = "";
+
+void logger(String toLog) {
+  log += toLog;
+}
+
+void clearLog() {
+  log = "";
+}
+
 main() {
-  Shape shape1 = Square(1);
+  const zero = Unit(0, logger);
+  const one = Unit(1, logger);
+  const two = Unit(2, logger);
+  const four = Unit(4, logger);
+
+  Shape shape1 = Square(1, logger);
   if (shape1 case Square(area: var s) || Shape(area: var s)) {
-    Expect.equals("Square.area", shape1.log);
+    Expect.equals("Square.area", log);
   } else {
     Expect.fail("Expression should match");
   }
+  clearLog();
 
-  Shape shape2 = Square(2);
-  if (shape2 case Square(area: 2) || Square(area: 4) || Square(area: 4)) {
-    Expect.equals("Square.area=2;=4;", shape2.log);
+  Shape shape2 = Square(2, logger);
+  if (shape2 case Square(area: two) || Square(area: four)
+      || Square(size: two)) {
+    Expect.equals("Square.area=2;=4;", log);
   } else {
     Expect.fail("Expression should match");
   }
+  clearLog();
 
-  Shape shape3 = Shape();
-  if (shape3 case Circle(area: 0) || Square(area: 1) || Shape(area: 0)) {
-    Expect.equals("Shape.area=0;", shape3.log);
+  Shape shape3 = Shape(logger);
+  if (shape3 case Circle(area: zero) || Square(area: one)
+      || Shape(area: zero)) {
+    Expect.equals("Shape.area=0;", log);
   } else {
     Expect.fail("Expression should match");
   }

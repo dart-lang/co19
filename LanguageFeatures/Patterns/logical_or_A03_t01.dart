@@ -25,7 +25,7 @@
 import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
-void test(Shape shape, double expectedArea, Type expectedType, bool match) {
+void test(Shape shape, Unit expectedArea, Type expectedType, bool match) {
   if (shape case Square(area: var s) || Circle(area: var s)) {
     Expect.equals(s, expectedArea);
     Expect.equals(expectedType, shape.runtimeType);
@@ -36,7 +36,7 @@ void test(Shape shape, double expectedArea, Type expectedType, bool match) {
 }
 
 main() {
-  test(Circle(1), 3.14, Circle, true);
-  test(Square(2), 4, Square, true);
-  test(Rectangle(2, 1), 2, Rectangle, false);
+  test(Circle(1), Unit(3.14), Circle, true);
+  test(Square(2), Unit(4), Square, true);
+  test(Rectangle(2, 1), Unit(2), Rectangle, false);
 }
