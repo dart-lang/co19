@@ -24,13 +24,10 @@
 /// very unlikely that any map pattern containing identical keys (and no rest
 /// element) will ever match. Duplicate keys are most likely a typo in the code.
 ///
-/// If any two keys in the map both have primitive == methods, then it is a
-/// compile-time error if they are equal according to their == operator. In
-/// cases where keys have types whose equality can be checked at compile time,
-/// we report errors if there are redundant keys. But we don't require the keys
-/// to have primitive equality for flexibility. In map patterns where the keys
-/// don't have primitive equality, it is possible to have redundant keys and the
-/// compiler won't detect it.
+/// Any two record keys which both have primitive == are equal. Since records
+/// don't have defined identity, we can't use the previous rule to detect
+/// identical records. But records do support an equality test known at compile
+/// time if all of their fields do, so we use that.
 ///
 /// There is more than one ... element in the map pattern.
 ///
