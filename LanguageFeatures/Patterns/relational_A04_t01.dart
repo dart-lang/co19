@@ -11,89 +11,44 @@
 /// value with the constant as an argument returns true. It is a compile-time
 /// error if relationalExpression is not a valid constant expression.
 ///
-/// @description Check that it is a compile-time error if relational operator is
-/// used with a wrong type
+/// @description Check that it is a compile-time error if relationalExpression
+/// is not a valid constant expression. Test switch statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-const o = const Object();
-
-String test(List<num> list) {
-  return switch (list) {
-    case [> "1" && <= 2] => "case 1";
-//          ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case [== "42"] => "case 2";
-//           ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case [>= "10" && < 20] => "case 3";
-//           ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case [!= "100"] => "case 4";
-//           ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case [> 1 && <= true] => "case 5";
-//                  ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case [>= 10 && < o] => "case 6";
-//                   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    default => "default";
-  };
-}
-
 main() {
-  test([]);
-
+  int i = 0;
   int value = 42;
+
   switch (value) {
-    case < "i":
-//         ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case == true:
-//          ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case > o:
+    case < i:
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified
       break;
-    default:
-  }
-
-  switch (value) {
-    case != "":
-//          ^^
+    case == 0 + i:
+//          ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
       break;
-    case == true:
-//          ^^^^
+    case > i++:
+//         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
       break;
     default:
   }
 
+  final j = 0;
   switch (value) {
-    case >= "1":
-//          ^^^
+    case != j:
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
       break;
-    case <= "2":
-//          ^^^
+    case == j:
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
       break;

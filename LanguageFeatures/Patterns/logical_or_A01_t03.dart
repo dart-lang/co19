@@ -17,35 +17,28 @@
 /// determines which value the variable gets if both branches would have
 /// matched. In that case, it will always be the value from the left branch.
 ///
-/// @description Checks that it is a compile-time error if two branches of
-/// logical-or pattern define different sets of variables. Test switch
-/// expression
+/// @description Checks logical-or pattern with logical-and subpattern in a
+/// switch expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "patterns_lib.dart";
+import "../../Utils/expect.dart";
 
-String test(Shape shape) {
-  return switch (shape) {
-    case Square(area: var s1) || Circle(area: var s2) => "Square or Circle";
-//                                                ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case Square(area: var s1) || Circle(area: _) => "Square or Circle 2";
-//                                            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-    case Rectangle(x: var x, y: var width) || Rectangle(:var x, :var y) =>
-//                                                                   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-        "Rectangle";
-    default => "Other";
-  };
-}
+bool matches(int value) => switch (value) {
+  case > -10 && <= 1 || >=4 && < 10 => true;
+  default => false;
+};
 
 main() {
-  test(Circle(1));
+  Expect.isFalse(matches(-10));
+  Expect.isFalse(matches(10));
+  Expect.isFalse(matches(2));
+  Expect.isFalse(matches(3));
+  Expect.isTrue(matches(-9));
+  Expect.isTrue(matches(-1));
+  Expect.isTrue(matches(0));
+  Expect.isTrue(matches(1));
+  Expect.isTrue(matches(4));
+  Expect.isTrue(matches(9));
 }

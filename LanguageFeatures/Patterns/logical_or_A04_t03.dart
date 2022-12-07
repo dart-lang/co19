@@ -18,34 +18,30 @@
 /// matched. In that case, it will always be the value from the left branch.
 ///
 /// @description Checks that it is a compile-time error if two branches of
-/// logical-or pattern define different sets of variables. Test switch
-/// expression
+/// logical-or pattern define different sets of variables. Test if-case
+/// statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "patterns_lib.dart";
 
-String test(Shape shape) {
-  return switch (shape) {
-    case Square(area: var s1) || Circle(area: var s2) => "Square or Circle";
-//                                                ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case Square(area: var s1) || Circle(area: _) => "Square or Circle 2";
-//                                            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-    case Rectangle(x: var x, y: var width) || Rectangle(:var x, :var y) =>
-//                                                                   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-        "Rectangle";
-    default => "Other";
-  };
-}
-
 main() {
-  test(Circle(1));
+  Shape shape = Circle(1);
+  if (shape case Square(area: var s1) || Circle(area: var s2)) {
+//                                                        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (shape case Square(area: var s1) || Circle(area: _)) {
+//                                                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (shape case Rectangle(x: var x, y: var width)
+      || Rectangle(:var x, :var y)) {
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }

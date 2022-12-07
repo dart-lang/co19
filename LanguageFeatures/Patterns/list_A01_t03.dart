@@ -18,7 +18,7 @@
 /// There is more than one restPattern element in the list pattern. It can
 /// appear anywhere in the list, but there can only be zero or one.
 ///
-/// @description Checks a list pattern with different subpatterns in a if-case
+/// @description Checks a list pattern with different subpatterns in an if-case
 /// statement
 /// @author sgrekhov22@gmail.com
 

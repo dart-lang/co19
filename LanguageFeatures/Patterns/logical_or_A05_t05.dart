@@ -17,35 +17,51 @@
 /// determines which value the variable gets if both branches would have
 /// matched. In that case, it will always be the value from the left branch.
 ///
-/// @description Checks that it is a compile-time error if two branches of
-/// logical-or pattern define different sets of variables. Test switch
-/// expression
+/// @description Checks that if the left branch matches, the right branch is not
+/// evaluated. Test switch expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "patterns_lib.dart";
+import "../../Utils/expect.dart";
 
-String test(Shape shape) {
-  return switch (shape) {
-    case Square(area: var s1) || Circle(area: var s2) => "Square or Circle";
-//                                                ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case Square(area: var s1) || Circle(area: _) => "Square or Circle 2";
-//                                            ^
-// [analyzer] unspecified
-// [cfe] unspecified
+String log = "";
 
-    case Rectangle(x: var x, y: var width) || Rectangle(:var x, :var y) =>
-//                                                                   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-        "Rectangle";
-    default => "Other";
-  };
+void logger(String toLog) {
+  log += toLog;
+}
+
+void clearLog() {
+  log = "";
 }
 
 main() {
-  test(Circle(1));
+  const zero = Unit(0, logger);
+  const one = Unit(1, logger);
+  const two = Unit(2, logger);
+  const four = Unit(4, logger);
+
+  Shape shape1 = Square(1, logger);
+  String s1 = switch (shape1) {
+    case Square(area: var s) || Shape(area: var s) => log;
+    default => "Other";
+  };
+  Expect.equals("Square.area", s1);
+  clearLog();
+
+  Shape shape2 = Square(2, logger);
+  String s2 = switch (shape2) {
+    case Square(area: two) || Square(area: four) || Square(size: four) => log;
+    default => "Other";
+  };
+  Expect.equals("Square.area=2;=4;", s2);
+  clearLog();
+
+  Shape shape3 = Shape(logger);
+  String s3 = switch (shape3) {
+    case Circle(area: zero) || Square(area: one) || Shape(area: zero) => log;
+    default => "Other";
+  };
+  Expect.equals("Shape.area=0;", s3);
 }

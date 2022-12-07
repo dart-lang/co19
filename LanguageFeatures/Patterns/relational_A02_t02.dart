@@ -20,7 +20,7 @@ import "../../Utils/expect.dart";
 
 void test(List<num> list, String expected) {
   switch (list) {
-    case [> 0 && <= 2]:
+    case [> -1 && <= 2]:
       Expect.equals("case 1", expected);
       break;
     case [== 42]:
@@ -38,6 +38,7 @@ void test(List<num> list, String expected) {
 }
 
 main() {
+  test([0], "case 1");
   test([1], "case 1");
   test([2], "case 1");
   test([2.1], "case 2");

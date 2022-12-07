@@ -14,21 +14,26 @@
 /// only matters because patterns may invoke user-defined methods with visible
 /// side effects.
 ///
-/// @description Checks a logical-and in a variable declaration pattern
+/// @description Checks a logical-and pattern in an if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
-main() {
-  var r = (3.14, name: "pi");
-  var ((a, name: b) && record) = r;
-  Expect.equals(3.14, a);
-  Expect.equals("pi", b);
-  Expect.equals(r, record);
+bool test(int value) {
+  if (value case > -1 && <= 3) {
+    return true;
+  }
+  return false;
+}
 
-  var (x && y) = 42;
-  Expect.equals(42, x);
-  Expect.equals(42, y);
+main() {
+  Expect.isTrue(test(0));
+  Expect.isTrue(test(1));
+  Expect.isTrue(test(2));
+  Expect.isTrue(test(3));
+  Expect.isFalse(test(-1));
+  Expect.isFalse(test(4));
 }

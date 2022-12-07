@@ -12,7 +12,7 @@
 /// error if relationalExpression is not a valid constant expression.
 ///
 /// @description Checks the case when user-defined class with custom relational
-/// operators is used in a relational pattern. Test switch statement
+/// operators is used in a relational pattern. Test switch expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -31,56 +31,37 @@ class C {
   bool operator ==(Object other) => this.value == (other as C).value;
 }
 
-void test1(C c, String expected) {
-  switch (c) {
-    case < C(0):
-      Expect.equals("negative", expected);
-      break;
-    case == C(0):
-      Expect.equals("zero", expected);
-      break;
-    case > C(0):
-      Expect.equals("positive", expected);
-      break;
-    default:
-      Expect.fail("One of the cases above should match");
-  }
+String test1(C c) {
+  return switch (c) {
+    case < C(0) => "negative";
+    case >= C(0) => "positive";
+    default => "Impossible!";
+  };
 }
 
-void test2(C c, String expected) {
-  switch (c) {
-    case != C(0):
-      Expect.equals("non-zero", expected);
-      break;
-    case == C(0):
-      Expect.equals("zero", expected);
-      break;
-    default:
-      Expect.fail("One of the cases above should match");
-  }
+String test2(C c) {
+  return switch (c) {
+    case >= C(0) => "positive";
+    case < C(0) => "negative";
+    default => "Impossible!";
+  };
 }
 
-void test3(C c, String expected) {
-  switch (c) {
-    case >= C(1):
-      Expect.equals("positive", expected);
-      break;
-    case <= C(0):
-      Expect.equals("zero or negative", expected);
-      break;
-    default:
-      Expect.fail("One of the cases above should match");
-  }
+String test3(C c) {
+  return switch (c) {
+    case == C(0) => "zero";
+    case != C(0) => "non-zero";
+    default => "Impossible!";
+  };
 }
 
 main() {
-  test1(C(-1), "negative");
-  test1(C(42), "positive");
-  test1(C(0), "zero");
-  test2(C(3), "non-zero");
-  test2(C(0), "zero");
-  test3(C(0), "zero or negative");
-  test3(C(-100), "zero or negative");
-  test3(C(1), "positive");
-  test3(C(42), "positive");
+  Expect.equals("negative", test1(C(-1)));
+  Expect.equals("positive", test1(C(0)));
+  Expect.equals("positive", test1(C(1)));
+  Expect.equals("negative", test2(C(-1)));
+  Expect.equals("positive", test2(C(0)));
+  Expect.equals("positive", test2(C(1)));
+  Expect.equals("zero", test3(C(0)));
+  Expect.equals("non-zero", test3(C(42)));
 }

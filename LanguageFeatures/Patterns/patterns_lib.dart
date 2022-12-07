@@ -40,15 +40,14 @@ enum Color {
 }
 
 class Unit {
+  static final tolerance = 0.001;
   final double value;
   final void Function(String s)? _logger;
-  const Unit(this.value) : _logger = null;
-  const Unit.withLogger(this.value, this._logger);
+  const Unit(this.value, [this._logger = null]);
 
   @override
   bool operator ==(Object other) {
     final _log = _logger;
-    final tolerance = 0.001;
     if (other is Unit) {
       if (_log != null) {
         _log("=$other;");
@@ -71,80 +70,84 @@ class Unit {
   }
 
   @override
-  String toString() => value.toStringAsFixed(2);
+  String toString() => value.toStringAsFixed(2).replaceFirst(".00", "");
 }
 
 class Shape {
-  String _log = "";
-  Shape();
+  final void Function(String s)? logFunction;
+  const Shape([this.logFunction = null]);
 
-  void logger(String toAppend) {
-    _log = _log.isEmpty ? toAppend : "$_log$toAppend";
+  void _log(String toLog) {
+    void Function(String s)? _l = logFunction;
+    if (_l != null) {
+      _l(toLog);
+    }
   }
 
   Unit get area {
-    logger("Shape.area");
-    return Unit.withLogger(0, logger);
+    _log("Shape.area");
+    return Unit(0, logFunction);
   }
 
   Unit get size {
-    logger("Shape.size");
-    return Unit.withLogger(0, logger);
+    _log("Shape.size");
+    return Unit(0, logFunction);
   }
-
-  String get log => _log;
 }
 
 class Square extends Shape {
   final double length;
 
-  Square(this.length);
+  const Square(this.length, [void Function(String s)? logFunction = null])
+      : super(logFunction);
 
   @override
   Unit get area {
-    logger("Square.area");
-    return Unit.withLogger(length * length, logger);
+    _log("Square.area");
+    return Unit(length * length, logFunction);
   }
 
   @override
   Unit get size {
-    logger("Square.size");
-    return Unit.withLogger(length, logger);
+    _log("Square.size");
+    return Unit(length, logFunction);
   }
 }
 
 class Circle extends Shape {
   final double radius;
 
-  Circle(this.radius);
+  const Circle(this.radius, [void Function(String s)? logFunction = null])
+      : super(logFunction);
 
   @override
   Unit get area {
-    logger("Circle.area");
-    return Unit.withLogger(3.14 * radius * radius, logger);
+    _log("Circle.area");
+    return Unit(3.14 * radius * radius, logFunction);
   }
 
   @override
   Unit get size {
-    logger("Circle.size");
-    return Unit.withLogger(radius, logger);
+    _log("Circle.size");
+    return Unit(radius, logFunction);
   }
 }
 
 class Rectangle extends Shape {
   final double x, y;
 
-  Rectangle(this.x, this.y);
+  Rectangle(this.x, this.y, [void Function(String s)? logFunction = null])
+      : super(logFunction);
 
   @override
   Unit get area {
-    logger("Rectangle.area");
-    return Unit.withLogger(x * y, logger);
+    _log("Rectangle.area");
+    return Unit(x * y, logFunction);
   }
 
   @override
   Unit get size {
-    logger("Rectangle.size");
-    return Unit.withLogger(x, logger);
+    _log("Rectangle.size");
+    return Unit(x, logFunction);
   }
 }

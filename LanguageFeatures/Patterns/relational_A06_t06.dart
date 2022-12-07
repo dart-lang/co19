@@ -11,21 +11,35 @@
 /// value with the constant as an argument returns true. It is a compile-time
 /// error if relationalExpression is not a valid constant expression.
 ///
-/// @description Checks a relational subpattern in an if-else statement
+/// @description Checks the case when user-defined class with custom relational
+/// operators is used in a relational pattern. Test a relational subpattern in
+/// an if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
 
-void test(List<num> list, String expected) {
-  if (list case [> -1 && <= 2]) {
+class C {
+  final int value;
+  const C(this.value);
+
+  bool operator <(C other) => this.value < other.value;
+  bool operator >(C other) => this.value > other.value;
+  bool operator <=(C other) => this.value <= other.value;
+  bool operator >=(C other) => this.value >= other.value;
+  @override
+  bool operator ==(Object other) => this.value == (other as C).value;
+}
+
+void test(List<C> list, String expected) {
+  if (list case [> C(0) && <= C(2)]) {
     Expect.equals("case 1", expected);
-  } else if (list case [== 42]) {
+  } else if (list case [== C(42)]) {
     Expect.equals("case 2", expected);
-  } else if (list case [>= 10 && < 20]) {
+  } else if (list case [>= C(10) && < C(20)]) {
     Expect.equals("case 3", expected);
-  } else if (list case [!= 100]) {
+  } else if (list case [!= C(100)]) {
     Expect.equals("case 4", expected);
   } else {
     Expect.equals("default", expected);
@@ -33,12 +47,11 @@ void test(List<num> list, String expected) {
 }
 
 main() {
-  test([0], "case 1");
-  test([1], "case 1");
-  test([2], "case 1");
-  test([2.1], "case 2");
-  test([10], "case 3");
-  test([10.1], "case 3");
-  test([20], "case 4");
-  test([100], "default");
+  test([C(1)], "case 1");
+  test([C(2)], "case 1");
+  test([C(42)], "case 2");
+  test([C(10)], "case 3");
+  test([C(11)], "case 3");
+  test([C(20)], "case 4");
+  test([C(100)], "default");
 }

@@ -17,7 +17,8 @@
 /// determines which value the variable gets if both branches would have
 /// matched. In that case, it will always be the value from the left branch.
 ///
-/// @description Checks logical-or pattern in a switch statement
+/// @description Checks that if the left branch matches, the right branch is not
+/// evaluated. Test switch statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -25,22 +26,48 @@
 import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
-void test(Shape shape, Unit expectedArea, Type expectedType, bool match) {
-  switch (shape) {
-    case Square(area: var s) || Circle(area: var s):
-      Expect.equals(s, expectedArea);
-      Expect.equals(expectedType, shape.runtimeType);
-      Expect.isTrue(match);
-      break;
-    default:
-      Expect.equals(s, expectedArea);
-      Expect.equals(expectedType, shape.runtimeType);
-      Expect.isFalse(match);
-  }
+String log = "";
+
+void logger(String toLog) {
+  log += toLog;
+}
+
+void clearLog() {
+  log = "";
 }
 
 main() {
-  test(Circle(1), Unit(3.14), Circle, true);
-  test(Square(2), Unit(4), Square, true);
-  test(Rectangle(2, 1), Unit(2), Rectangle, false);
+  Shape shape1 = Square(1, logger);
+  switch (shape1) {
+    case Square(area: var s) || Shape(area: var s):
+      Expect.equals("Square.area", log);
+      break;
+    default:
+      Expect.fail("No match");
+  }
+  clearLog();
+
+  Shape shape2 = Square(2, logger);
+  const two = Unit(2, logger);
+  const four = Unit(4, logger);
+  const eight = Unit(8, logger);
+  switch (shape2) {
+    case Square(area: two) || Square(area: four) || Square(area: eight):
+      Expect.equals("Square.area=2;=4;", log);
+      break;
+    default:
+      Expect.fail("No match");
+  }
+  clearLog();
+
+  Shape shape3 = Shape(logger);
+  const zero = Unit(0, logger);
+  const one = Unit(1, logger);
+  switch (shape3) {
+    case Circle(area: zero) || Square(area: one) || Shape(area: zero):
+      Expect.equals("Shape.area=0;", log);
+      break;
+    default:
+      Expect.fail("No match");
+  }
 }

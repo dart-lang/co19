@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-String test(List<num> list) {
+String test() {
   int i = 0;
   final j = 10;
   return switch (list) {
@@ -45,6 +45,8 @@ main() {
   int i = 0;
   final j = 10;
 
+  List<num> list = [];
+
   switch (list) {
     case [> i && <= 2]:
 //          ^
@@ -68,4 +70,21 @@ main() {
     break;
     default:
   }
+  if (list case [> i && <= 2]) {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  if (list case [== i++]) {}
+//                  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  if (list case [>= j && < 20]) {}
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  if (list case [!= i--]) {}
+//                  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  test();
 }
