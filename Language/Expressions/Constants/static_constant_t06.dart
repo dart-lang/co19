@@ -18,7 +18,6 @@ const x = '';
 
 const constList = const [
 //                ^
-// [analyzer] unspecified
 // [cfe] unspecified
   x,
   clib.yy
