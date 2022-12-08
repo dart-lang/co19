@@ -26,8 +26,8 @@
 
 String test1(List list) {
   return switch (list) {
-    case <int>[1, ...r1, 3, 4, ...r2] => "";
-//                                ^^
+    case <int>[1, ...var r1, 3, 4, ... var r2] => "";
+//                                 ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     default => "default";
@@ -36,8 +36,8 @@ String test1(List list) {
 
 String test2(List list) {
   switch (list) {
-    case [...r1, 3, 4, ...r2]:
-//                     ^^^^^
+    case [...final r1, 3, 4, ...final r2]:
+//                           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "";
@@ -47,8 +47,8 @@ String test2(List list) {
 }
 
 String test3(List list) {
-  if (list case [1, ...r1, ...r2]) {
-//                         ^^^^^
+  if (list case [1, ...List r1, ...List r2]) {
+//                              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -57,6 +57,11 @@ String test3(List list) {
 main() {
   var [a, b, ...c, ...] = [1, 2, 3, 4, 5];
 //                 ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var [a, b, ...c, ..._] = [1, 2, 3, 4, 5];
+//                 ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   test1([]);
