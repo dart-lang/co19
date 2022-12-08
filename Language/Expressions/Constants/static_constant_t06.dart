@@ -14,15 +14,12 @@
 /// static constant variable cannot be used as a constant expression.
 /// @author ngl@unipro.ru
 
-
-import '../../../Utils/expect.dart';
 import 'constants_lib.dart' deferred as clib;
 
 const x = '';
 
 const constList = const [
 //                ^
-// [analyzer] unspecified
 // [cfe] unspecified
   x,
   clib.yy

@@ -14,8 +14,6 @@
 /// static constant class variable cannot be used as a constant expression.
 /// @author ngl@unipro.ru
 
-
-import '../../../Utils/expect.dart';
 import 'constants_lib.dart' deferred as clib;
 
 const x = '';
@@ -26,7 +24,6 @@ class C {
 
 const constList = const [
 //                ^
-// [analyzer] unspecified
 // [cfe] unspecified
   x,
   clib.C.y,
