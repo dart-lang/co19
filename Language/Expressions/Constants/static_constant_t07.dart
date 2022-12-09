@@ -34,5 +34,4 @@ const constList = const [
 ];
 
 main() {
-  Expect.isTrue(constList is List);
 }
