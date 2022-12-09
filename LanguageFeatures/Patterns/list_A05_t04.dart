@@ -16,7 +16,7 @@
 /// var [a, b, ...rest, c, d] = [1, 2, 3, 4, 5, 6, 7];
 /// print('$a $b $rest $c $d'); // Prints "1 2 [3, 4, 5] 6 7".
 ///
-/// @description Check that case subpattern can be used in a list's rest
+/// @description Check that a cast subpattern can be used in a list's rest
 /// pattern
 /// @author sgrekhov22@gmail.com
 

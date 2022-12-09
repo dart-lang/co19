@@ -65,7 +65,7 @@ main() {
   Expect.equals(1, a1);
   Expect.equals(2, b1);
   Expect.equals(3, c1);
-  Expect.listEquals([3, 4, 5], r1);
+  Expect.listEquals([4, 5], r1);
 
   final [a2, ...[c2, ...r2, d2], b2] = [2, 3, 4, 5];
   Expect.equals(2, a2);
