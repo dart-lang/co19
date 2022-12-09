@@ -29,7 +29,7 @@
 /// pattern. The field name is then inferred from the name in the variable
 /// pattern.
 ///
-/// @description Checks a `identifier: pattern` record pattern with different
+/// @description Checks an `identifier: pattern` record pattern with different
 /// subpatterns in a switch expression
 /// @author sgrekhov22@gmail.com
 
@@ -47,23 +47,26 @@ String test(Record record) {
     case (n1: > 0 || -42) => "logical-or";
     case (n2: > 0 && < 10) => "logical-and";
     case (n3: > 0) => "relational";
-    case (n4: var c as num) => "cast";
-    case (n5: var a?) => "null-check";
-    case (n6: final b!) => "null-assert";
+    case (n4: var c as num)
+      => "cast = ${c.toStringAsFixed(2).replaceFirst(".00", "")}";
+    case (n5: var a?) => "null-check = $a";
+    case (n6: final b!) => "null-assert = $b";
     case (n7: 42) => "constant-1";
     case (n7: const C()) => "constant-2";
-    case (n8: String s1) => "variable-1";
-    case (n8: var s2) => "variable-2";
-    case (n80: final String s3) => "variable-3";
-    case (n80: final s4) => "variable-4";
+    case (n8: String s1) => "variable-1 = $s1";
+    case (n8: var s2) => "variable-2 = $s2";
+    case (n80: final String s3) => "variable-3 = s3";
+    case (n80: final s4) => "variable-4 = s4";
     case (n9: (42)) => "parenthesized";
     case (n10: [42, _]) => "list-1";
     case (n10: <Object>["42", ...]) => "list-2";
     case (n11: {1: _}) => "map-1";
     case (n11: <String, String>{"1": _}) => "map-2";
-    case (n12: (var x,)) => "record-1";
+    case (n12: (var x,)) => "record-1 = $x";
     case (n12: (42, x: 0)) => "record-2";
-    case (n13: Square(size: 1)) => "object";
+    case (n12: (42, x: final y)) => "record-3 = $y";
+    case (n13: Square(size: 1)) => "object-1";
+    case (n13: Square(size: var sz)) => "object-2 = $sz";
     default => "default";
   };
 }
@@ -76,20 +79,20 @@ main() {
   Expect.equals("default", test((n2: 10)));
   Expect.equals("relational", test((n3: 1)));
   Expect.equals("default", test((n3: 0)));
-  Expect.equals("cast", test((n4: 42)));
-  Expect.equals("cast", test((n4: 3.14)));
+  Expect.equals("cast = 42", test((n4: 42)));
+  Expect.equals("cast = 3.14", test((n4: 3.14)));
   Expect.throws(() {test((n4: "42"));});
-  Expect.equals("null-check", test((n5: 42)));
+  Expect.equals("null-check = 42", test((n5: 42)));
   Expect.equals("default", test((n5: null)));
-  Expect.equals("null-assert", test((n6: 42)));
+  Expect.equals("null-assert = 42", test((n6: 42)));
   Expect.throws(() {test((n6: null));});
   Expect.equals("constant-1", test((n7: 42)));
   Expect.equals("constant-2", test((n7: const C())));
   Expect.equals("default", test((n7: "42")));
-  Expect.equals("variable-1", test((n8: "42")));
-  Expect.equals("variable-2", test((n8: 42)));
-  Expect.equals("variable-3", test((n80: "42")));
-  Expect.equals("variable-4", test((n80: 42)));
+  Expect.equals("variable-1 = 42", test((n8: "42")));
+  Expect.equals("variable-2 = 42", test((n8: 42)));
+  Expect.equals("variable-3 = 42", test((n80: "42")));
+  Expect.equals("variable-4 = 42", test((n80: 42)));
   Expect.equals("parenthesized", test((n9: 42)));
   Expect.equals("default", test((n9: "42")));
   Expect.equals("list-1", test((n10: [42, 42])));
@@ -98,10 +101,12 @@ main() {
   Expect.equals("map-1", test((n11: {1: 42})));
   Expect.equals("map-2", test((n11: {"1": 42})));
   Expect.equals("default", test((n11: {Object(): 42})));
-  Expect.equals("record-1", test((n12: (42,))));
+  Expect.equals("record-1 = 42", test((n12: (42,))));
   Expect.equals("record-2", test((n12: (42, x: 0))));
+  Expect.equals("record-3 = 1", test((n12: (42, x: 1))));
   Expect.equals("default", test((n12: (42, 0))));
   Expect.equals("default", test((n12: (42, a: 0))));
-  Expect.equals("object", test((n13: Square(1))));
+  Expect.equals("object-1", test((n13: Square(1))));
+  Expect.equals("object-2 = 2", test((n13: Square(2))));
   Expect.equals("default", test((n13: Square(2))));
 }
