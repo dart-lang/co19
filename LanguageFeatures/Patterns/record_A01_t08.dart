@@ -36,7 +36,6 @@
 // SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/expect.dart";
-import "patterns_lib.dart";
 
 class C {
   const C();

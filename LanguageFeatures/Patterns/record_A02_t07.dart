@@ -29,7 +29,7 @@
 /// pattern. The field name is then inferred from the name in the variable
 /// pattern.
 ///
-/// @description Checks record patterns with a cast subpattern in a declaration
+/// @description Checks record patterns with a map subpattern in a declaration
 /// context
 /// @author sgrekhov22@gmail.com
 
@@ -38,38 +38,27 @@
 import "../../Utils/expect.dart";
 
 main() {
-  var (a1 as num,) = (-1,);
+  var ({1: a1},) = ({1: -1},);
   Expect.equals(-1, a1);
-  a1 = 3.14;
-  var (n: a2 as num) = (n: 42);
+  var (n: {2: a2}) = (n: {2: 42});
   Expect.equals(42, a2);
-  a2 = 3.14;
-  var (n: a3 as num, b3 as num) = (n: 42, -1);
+  var (n: {3: a3}, {3: b3}) = (n: {3: 42}, {3: -1});
   Expect.equals(42, a3);
   Expect.equals(-1, b3);
-  a3 = 3.14;
-  b3 = 3.14;
-  var (:n1 as num) = (n1: 42);
-  Expect.equals(42, n1);
-  n1 = 3.14;
 
-  final (a4 as num,) = (-1,);
+  final ({4: a4},) = ({4: -1},);
   Expect.equals(-1, a4);
-  final (n: a5 as num) = (n: 42);
+  final (n: {5: a5}) = (n: {5: 42});
   Expect.equals(42, a5);
-  final (n: a6 as num, b6 as num) = (n: 42, -1);
+  final (n: {6: a6}, {6: b6}) = (n: {6: 42}, {6: -1});
   Expect.equals(42, a6);
   Expect.equals(-1, b6);
-  final (:n2 as num) = (n2: 42);
-  Expect.equals(42, n2);
 
-  var (num a7 as int,) = (-1,);
+  var ({7: num a7},) = ({7: -1},);
   Expect.equals(-1, a7);
-  var (n: num a8 as int) = (n: 42);
+  var (n: <int, num>{8: num a8}) = (n: {8: 42});
   Expect.equals(42, a8);
-  var (n: num a9 as int, num b9 as int) = (n: 42, -3);
+  var (n: {9: num a9}, {9: num b9}) = (n: {9: 42}, {9: -3});
   Expect.equals(42, a9);
   Expect.equals(-3, b9);
-  var (:num n3 as int) = (n3: 42);
-  Expect.equals(42, n3);
 }

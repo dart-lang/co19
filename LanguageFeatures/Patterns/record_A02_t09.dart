@@ -29,47 +29,38 @@
 /// pattern. The field name is then inferred from the name in the variable
 /// pattern.
 ///
-/// @description Checks record patterns with a cast subpattern in a declaration
-/// context
+/// @description Checks record patterns with an Object subpattern in a
+/// declaration context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/expect.dart";
+import "patterns_lib.dart";
 
 main() {
-  var (a1 as num,) = (-1,);
-  Expect.equals(-1, a1);
-  a1 = 3.14;
-  var (n: a2 as num) = (n: 42);
-  Expect.equals(42, a2);
-  a2 = 3.14;
-  var (n: a3 as num, b3 as num) = (n: 42, -1);
-  Expect.equals(42, a3);
-  Expect.equals(-1, b3);
-  a3 = 3.14;
-  b3 = 3.14;
-  var (:n1 as num) = (n1: 42);
-  Expect.equals(42, n1);
-  n1 = 3.14;
+  var (Square(size: a1),) = (Square(1),);
+  Expect.equals(Unit(1), a1);
+  var (n: Square(size: a2)) = (n: Square(2));
+  Expect.equals(Unit(2), a2);
+  var (n: Square(size: a3), Circle(size: b3)) = (n: Square(1), Circle(1));
+  Expect.equals(Unit(1), a3);
+  Expect.equals(Unit(1), b3);
 
-  final (a4 as num,) = (-1,);
-  Expect.equals(-1, a4);
-  final (n: a5 as num) = (n: 42);
-  Expect.equals(42, a5);
-  final (n: a6 as num, b6 as num) = (n: 42, -1);
-  Expect.equals(42, a6);
-  Expect.equals(-1, b6);
-  final (:n2 as num) = (n2: 42);
-  Expect.equals(42, n2);
+  final (Square(size: a4),) = (Square(1),);
+  Expect.equals(Unit(1), a4);
+  final (n: Square(size: a5)) = (n: Square(2));
+  Expect.equals(Unit(2), a5);
+  final (n: Square(size: a6), Circle(size: b6)) = (n: Square(1), Circle(1));
+  Expect.equals(Unit(1), a6);
+  Expect.equals(Unit(1), b6);
 
-  var (num a7 as int,) = (-1,);
-  Expect.equals(-1, a7);
-  var (n: num a8 as int) = (n: 42);
-  Expect.equals(42, a8);
-  var (n: num a9 as int, num b9 as int) = (n: 42, -3);
-  Expect.equals(42, a9);
-  Expect.equals(-3, b9);
-  var (:num n3 as int) = (n3: 42);
-  Expect.equals(42, n3);
+  var (Square(size: Unit a7),) = (Square(1),);
+  Expect.equals(Unit(1), a7);
+  var (n: Square(size: Unit a8)) = (n: Square(2));
+  Expect.equals(Unit(2), a8);
+  var (n: Square(size: unit a9), Circle(size: Unit b9)) =
+    (n: Square(1), Circle(1));
+  Expect.equals(Unit(1), a9);
+  Expect.equals(Unit(1), b9);
 }

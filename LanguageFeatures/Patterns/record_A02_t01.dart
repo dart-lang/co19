@@ -29,37 +29,48 @@
 /// pattern. The field name is then inferred from the name in the variable
 /// pattern.
 ///
-/// @description Checks record patterns with logical-or subpattern in a
+/// @description Checks record patterns with a logical-and subpattern in a
 /// declaration context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/expect.dart";
-import "patterns_lib.dart";
 
 main() {
-  var (a1 || a1,) = (-1,);
-  Expect.equals(-1, a1);
-  var (n: a2 || a2) = (n: 42);
-  Expect.equals(42, a2);
-  var (n: a3 || a3, b3 || b3) = (n: 42, -1);
-  Expect.equals(42, a3);
-  Expect.equals(-1, b3);
+  var (a11 && a12,) = (-1,);
+  Expect.equals(-1, a11);
+  Expect.equals(-1, a12);
+  var (n: a21 && a22) = (n: 42);
+  Expect.equals(42, a21);
+  Expect.equals(42, a22);
+  var (n: a31 && a32, b31 && b32) = (n: 42, -1);
+  Expect.equals(42, a31);
+  Expect.equals(42, a32);
+  Expect.equals(-1, b31);
+  Expect.equals(-1, b31);
 
-  final (a4 || a4,) = (-1,);
-  Expect.equals(-1, a4);
-  final (n: a5 || a5) = (n: 42);
-  Expect.equals(42, a5);
-  final (n: a6 || a6, b6 || b6) = (n: 42, -1);
-  Expect.equals(42, a6 || a6);
-  Expect.equals(-1, b6 || b6);
+  final (a41 && a42,) = (-1,);
+  Expect.equals(-1, a41);
+  Expect.equals(-1, a42);
+  final (n: a51 && a52) = (n: 42);
+  Expect.equals(42, a51);
+  Expect.equals(42, a52);
+  final (n: a61 && a62, b61 && b62) = (n: 42, -1);
+  Expect.equals(42, a61);
+  Expect.equals(42, a62);
+  Expect.equals(-1, b61);
+  Expect.equals(-1, b62);
 
-  var (int a7 || a7,) = (-1,);
-  Expect.equals(-1, a7);
-  var (n: int a8 || a8) = (n: 42);
-  Expect.equals(42, a8);
-  var (n: int a9 || a9, num b9 || b9) = (n: 42, -3.14);
-  Expect.equals(42, a9);
-  Expect.equals(-3.14, b9);
+  var (int a71 && a72,) = (-1,);
+  Expect.equals(-1, a71);
+  Expect.equals(-1, a72);
+  var (n: int a81 && a82) = (n: 42);
+  Expect.equals(42, a81);
+  Expect.equals(42, a82);
+  var (n: int a91 && a92, num b91 && b92) = (n: 42, -3.14);
+  Expect.equals(42, a91);
+  Expect.equals(42, a92);
+  Expect.equals(-3.14, b91);
+  Expect.equals(-3.14, b92);
 }
