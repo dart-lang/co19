@@ -41,15 +41,15 @@
 
 String test1(Map map) {
   return switch (map) {
-    case <int, int, String>{1: > 0 || 42} => "";
-//                  ^^^^^^
+    <int, int, String>{1: > 0 || 42} => "",
+//             ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case <int>{1: > 0 || 42} => "";
-//        ^^^
+    <int>{1: > 0 || 42} => "",
+//   ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => "default";
+    _ => "default"
   };
 }
 

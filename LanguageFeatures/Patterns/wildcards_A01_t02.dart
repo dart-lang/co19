@@ -38,9 +38,9 @@ String test1(Map map) {
 
 String test2(Map map) {
   return switch (map) {
-    case {1: _} => "{1: _}";
-    case {42: String _} => "{42: String _}";
-    default => "default";
+    {1: _} => "{1: _}",
+    {42: String _} => "{42: String _}",
+    _ => "default"
   };
 }
 

@@ -54,19 +54,19 @@ void test1(Map m) {
 
 Object? test2(Map m) {
   return switch (m) {
-    case {1: final a} => a = 1;
-//                       ^
+    {1: final a} => a = 1,
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {2: final String b} => b = "";
-//                              ^
+    {2: final String b} => b = "",
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {3: final String? f} => c = "";
-//                              ^
+    {3: final String? f} => c = "",
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => "";
+    _ => ""
   };
 }
 

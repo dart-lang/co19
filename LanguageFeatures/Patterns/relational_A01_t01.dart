@@ -20,26 +20,26 @@ import "../../Utils/expect.dart";
 
 String test1(num num) {
   return switch (num) {
-    case < 0 => "negative";
-    case == 0 => "zero";
-    case > 0 => "positive";
-    default => "Impossible!";
+    < 0 => "negative",
+    == 0 => "zero",
+    > 0 => "positive",
+    _ => "Impossible!"
   };
 }
 
 String test2(double num) {
   return switch (num) {
-    case != 0 => "non-zero";
-    case == 0 => "zero";
-    default => "Impossible!";
+    != 0 => "non-zero",
+    == 0 => "zero",
+    _ => "Impossible!"
   };
 }
 
 String test3(int num) {
   return switch (num) {
-    case >= 0 => "zero or positive";
-    case <= -1 => "negative";
-    default => "Impossible!";
+    >= 0 => "zero or positive",
+    <= -1 => "negative",
+    _ => "Impossible!"
   };
 }
 

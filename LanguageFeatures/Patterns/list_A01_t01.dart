@@ -33,27 +33,27 @@ class C {
 
 String test(List list) {
   return switch (list) {
-    case [1, > 0 || const(-42)] => "logical-or";
-    case [2, > 0 && < 10] => "logical-and";
-    case [3, > 0] => "relational";
-    case [4, var c as num] => "cast";
-    case [5, var a?] => "null-check";
-    case [6, final b!] => "null-assert";
-    case [7, 42] => "constant-1";
-    case [7, const C()] => "constant-2";
-    case [8, String s1] => "variable-1";
-    case [8, var s2] => "variable-2";
-    case [80, final String s3] => "variable-3";
-    case [80, final s4] => "variable-4";
-    case [9, (42)] => "parenthesized";
-    case [10, [42, _]] => "list-1";
-    case [10, <Object>["42", _]] => "list-2";
-    case [11, {1: _}] => "map-1";
-    case [11, <String, String>{"1": _}] => "map-2";
-    case [12, (var x,)] => "record-1";
-    case [12, (42, x: 0)] => "record-2";
-    case [13, Square(size: 1)] => "object";
-    default => "default";
+    [1, > 0 || const(-42)] => "logical-or",
+    [2, > 0 && < 10] => "logical-and",
+    [3, > 0] => "relational",
+    [4, var c as num] => "cast",
+    [5, var a?] => "null-check",
+    [6, final b!] => "null-assert",
+    [7, 42] => "constant-1",
+    [7, const C()] => "constant-2",
+    [8, String s1] => "variable-1",
+    [8, var s2] => "variable-2",
+    [80, final String s3] => "variable-3",
+    [80, final s4] => "variable-4",
+    [9, (42)] => "parenthesized",
+    [10, [42, _]] => "list-1",
+    [10, <Object>["42", _]] => "list-2",
+    [11, {1: _}] => "map-1",
+    [11, <String, String>{"1": _}] => "map-2",
+    [12, (var x,)] => "record-1",
+    [12, (42, x: 0)] => "record-2",
+    [13, Square(size: 1)] => "object",
+    _ => "default",
   };
 }
 

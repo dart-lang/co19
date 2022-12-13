@@ -33,25 +33,25 @@ class C {
 
 String test1(C c) {
   return switch (c) {
-    case < C(0) => "negative";
-    case >= C(0) => "positive";
-    default => "Impossible!";
+    < C(0) => "negative",
+    >= C(0) => "positive",
+    _ => "Impossible!"
   };
 }
 
 String test2(C c) {
   return switch (c) {
-    case >= C(0) => "positive";
-    case < C(0) => "negative";
-    default => "Impossible!";
+    >= C(0) => "positive",
+    < C(0) => "negative",
+    _ => "Impossible!"
   };
 }
 
 String test3(C c) {
   return switch (c) {
-    case == C(0) => "zero";
-    case != C(0) => "non-zero";
-    default => "Impossible!";
+    == C(0) => "zero",
+    != C(0) => "non-zero",
+    _ => "Impossible!"
   };
 }
 

@@ -48,27 +48,27 @@ const c2 = C();
 
 String test1(Map map) {
   return switch (map) {
-    case {const C(): 1, const C(): 2} => "";
-//                      ^^^^^^^^^
+    {const C(): 1, const C(): 2} => "",
+//                 ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {1: 1, 1: 2} => "";
-//              ^
+    {1: 1, 1: 2} => "",
+//         ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {c1: var a1, c2: final b1} => "";
-//                    ^^
+    {c1: var a1, c2: final b1} => "",
+//               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {3.14: var a2, 3.14: final b2} => "";
-//                      ^^^^
+    {3.14: var a2, 3.14: final b2} => "",
+//                 ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {"x": var a3, "x": final b3} => "";
-//                     ^^^
+    {"x": var a3, "x": final b3} => "",
+//                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => "default";
+    _ => "default"
   };
 }
 

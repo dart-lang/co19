@@ -22,8 +22,8 @@
 import "../../Utils/expect.dart";
 
 bool matches(List list) => switch (list) {
-  case [> 0 && <= 2, 3] => true;
-  default => false;
+  [> 0 && <= 2, 3] => true,
+  _ => false
 };
 
 main() {

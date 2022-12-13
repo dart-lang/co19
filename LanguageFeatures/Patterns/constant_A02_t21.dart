@@ -123,31 +123,31 @@ String test2(num value) {
 
 String test3(num value) {
   return switch (value) {
-    case -C.Zero => "zero";
-//       ^^^^^^^
+    -C.Zero => "zero",
+//  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case -C.Pi => "pi";
-//       ^^^^^
+    -C.Pi => "pi",
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case -C.Answer => "answer";
-//       ^^^^^^^^^
+    -C.Answer => "answer",
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case -C.Negative => "nagative";
-//       ^^^^^^^^^^^
+    -C.Negative => "nagative",
+//  ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case -C.NegativePi => "nagative-pi";
-//       ^^^^^^^^^^^^^
+    -C.NegativePi => "nagative-pi",
+//  ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case -C.MaxJSInt => "max_int";
-//       ^^^^^^^^^^^
+    -C.MaxJSInt => "max_int",
+//  ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => "default";
+    _ => "default"
   };
 }
 

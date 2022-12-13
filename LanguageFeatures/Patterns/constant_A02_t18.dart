@@ -40,12 +40,12 @@ import "../../Utils/expect.dart";
 
 String test(p.Color value) {
   return switch (value) {
-    case p.Color.white => "white";
-    case p.Color.red => "red";
-    case p.Color.yellow => "yellow";
-    case p.Color.blue => "default";
-    case p.Color.black => "black";
-    default => "default";
+    p.Color.white => "white",
+    p.Color.red => "red",
+    p.Color.yellow => "yellow",
+    p.Color.blue => "default",
+    p.Color.black => "black",
+    _ => "default"
   };
 }
 

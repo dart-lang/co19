@@ -44,24 +44,24 @@ main() {
 
   Shape shape1 = Square(1, logger);
   String s1 = switch (shape1) {
-    case Square(area: var s) || Shape(area: var s) => log;
-    default => "Other";
+    Square(area: var s) || Shape(area: var s) => log,
+    _ => "Other"
   };
   Expect.equals("Square.area", s1);
   clearLog();
 
   Shape shape2 = Square(2, logger);
   String s2 = switch (shape2) {
-    case Square(area: two) || Square(area: four) || Square(size: four) => log;
-    default => "Other";
+    Square(area: two) || Square(area: four) || Square(size: four) => log,
+    _ => "Other"
   };
   Expect.equals("Square.area=2;=4;", s2);
   clearLog();
 
   Shape shape3 = Shape(logger);
   String s3 = switch (shape3) {
-    case Circle(area: zero) || Square(area: one) || Shape(area: zero) => log;
-    default => "Other";
+    Circle(area: zero) || Square(area: one) || Shape(area: zero) => log,
+    _ => "Other"
   };
   Expect.equals("Shape.area=0;", s3);
 }

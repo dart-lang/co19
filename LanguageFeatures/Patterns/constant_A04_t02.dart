@@ -62,10 +62,10 @@ String test2(C value) {
 
 String test3(C value) {
   return switch (value) {
-    case const C<String>(0) => "0";
-    case const C<num>(1) => "1";
-    case const C<bool>("x") => "x";
-    default => "default";
+    const C<String>(0) => "0",
+    const C<num>(1) => "1",
+    const C<bool>("x") => "x",
+    _ => "default"
   };
 }
 

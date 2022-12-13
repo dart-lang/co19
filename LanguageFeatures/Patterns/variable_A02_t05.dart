@@ -47,9 +47,9 @@ String test1(Map m) {
 
 String test2(Map m) {
   return switch (m) {
-    case ({1: String b}) => "{1: <String>$a}";
-    case ({1: final int b}) => "{1: <int>$b}";
-    default => "default";
+    ({1: String b}) => "{1: <String>$a}",
+    ({1: final int b}) => "{1: <int>$b}",
+    _ => "default"
   };
 }
 

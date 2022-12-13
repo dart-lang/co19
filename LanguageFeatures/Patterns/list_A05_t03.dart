@@ -26,10 +26,10 @@ import "../../Utils/expect.dart";
 
 String test1(List list) {
   return switch (list) {
-    case <int>[1, 2, 3, 4, ... == const [5, 6]] => "case-1";
-    case [2, ...!= const [], 5, 6] => "case-2";
-    case <int>[... /* comment */ == const [3, 4, 5], 6, 7, 8] => "case-3";
-    default => "default";
+    <int>[1, 2, 3, 4, ... == const [5, 6]] => "case-1",
+    [2, ...!= const [], 5, 6] => "case-2",
+    <int>[... /* comment */ == const [3, 4, 5], 6, 7, 8] => "case-3",
+    _ => "default"
   };
 }
 

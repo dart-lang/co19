@@ -51,28 +51,27 @@ class C {
 
 String testBool(bool value) {
   return switch (value) {
-    case C.True => "true";
-    case C.False => "false";
-    default => "default";
+    C.True => "true",
+    C.False => "false"
   };
 }
 
 String testNum(num value) {
   return switch (value) {
-    case C.Zero => "zero";
-    case C.Pi => "pi";
-    case C.Answer => "answer";
-    case C.Negative => "negative";
-    case C.NegativePi => "negative-pi";
-    case C.MaxJSInt => "max_int";
-    default => "default";
+    C.Zero => "zero",
+    C.Pi => "pi",
+    C.Answer => "answer",
+    C.Negative => "negative",
+    C.NegativePi => "negative-pi",
+    C.MaxJSInt => "max_int",
+    _ => "default"
   };
 }
 
 String testString(String value) {
   return switch (value) {
-    case C.Melody => "Melody";
-    default => "default";
+    C.Melody => "Melody",
+    _ => "default"
   };
 }
 

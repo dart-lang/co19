@@ -45,34 +45,34 @@ main() {
 
   Shape shape1 = Square(1, logger);
   String s1 = switch (shape1) {
-    case Square(area: two) || Square(area: one) => log;
-    default => "Other";
+    Square(area: two) || Square(area: one) => log,
+    _ => "Other"
   };
   Expect.equals("Square.area=2;=1;", s1);
   clearLog();
 
   Shape shape2 = Shape();
   String s2 = switch (shape2) {
-    case Square(area: two) || Rectangle(area: one) || Shape(area: zero) => log;
-    default => "Other";
+    Square(area: two) || Rectangle(area: one) || Shape(area: zero) => log,
+    _ => "Other"
   };
   Expect.equals("Shape.area=0;", s2);
   clearLog();
 
   Shape shape3 = Circle(1);
-  String s3 = switch (shape2) {
-    case Circle(area: two) || Circle(area: one) || Circle(area: zero)
-      || Circle(area: pi) => log;
-    default => "Other";
+  String s3 = switch (shape3) {
+    Circle(area: two) || Circle(area: one) || Circle(area: zero)
+      || Circle(area: pi) => log,
+    _ => "Other"
   };
   Expect.equals("Circle.area=2;=1;=0;=3.14;", s3);
   clearLog();
 
   Shape shape4 = Rectangle(1, 2, logger);
   String s4 = switch (shape4) {
-    case Rectangle(area: three) || Rectangle(area: one) || Rectangle(area: pi)
-      => "Wrong!";
-    default => log;
+    Rectangle(area: three) || Rectangle(area: one) || Rectangle(area: pi)
+      => "Wrong!",
+    _ => log
   };
   Expect.equals("Rectangle.area=3;=1;=3.14;", s4);
 }

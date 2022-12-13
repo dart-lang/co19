@@ -50,8 +50,8 @@ String testObject2(Object value) {
 
 String testObject3(Object value) {
   return switch (value) {
-    case const {} => return "{}";
-    default => "default";
+    const {} => "{}",
+    _ => "default"
   };
 }
 
@@ -74,8 +74,8 @@ String testMap2(Map value) {
 
 String testMap3(Map value) {
   return switch (value) {
-    case const {} => "{}";
-    default => "default";
+    const {} => "{}",
+    _ => "default"
   };
 }
 
@@ -98,9 +98,9 @@ String testSet2(Set value) {
 
 String testSet3(Set value) {
   return switch (value) {
-    case const (<dynamic>{}) => "{}";
-    default => "default";
-  }
+    const (<dynamic>{}) => "{}",
+    _ => "default"
+  };
 }
 
 main() {

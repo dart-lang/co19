@@ -40,35 +40,35 @@ int test() {
   final s = "";
   C c = C();
   return switch (value) {
-    case x => 1;
-//       ^
+    x => 1,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case s => 2;
-//       ^
+    s => 2,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case C.s => 3;
-//       ^^^
+    C.s => 3,
+//  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case c => 4;
-//       ^
+    c => 4,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case const C() => 5;
-//       ^^^^^^^^^
+    const C() => 5,
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case const (C().v) => 6;
-//       ^^^^^^^^^^^^^
+    const (C().v) => 6,
+//  ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case "x is $x" => 7;
-//       ^^^^^^^^^
+    "x is $x" => 7,
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default  => -1;
+    _  => -1
   };
 }
 

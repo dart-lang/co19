@@ -41,23 +41,23 @@
 
 String test1(Map map) {
   return switch (map) {
-    case {(): 1, (): 2} => "";
-//               ^^
+    {(): 1, (): 2} => "",
+//          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {(1,): 1, (1,): 2} => "";
-//                 ^^^^
+    {(1,): 1, (1,): 2} => "",
+//            ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {(n: 2): var a1, (n: 2): final b1} => "";
-//                        ^^^^^^
+    {(n: 2): var a1, (n: 2): final b1} => "",
+//                   ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {(1, n: 2): var a2, (n:2, 1): final b2} => "";
-//                           ^^^^^^^^^
+    {(1, n: 2): var a2, (n:2, 1): final b2} => "",
+//                      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => "default";
+    _ => "default"
   };
 }
 

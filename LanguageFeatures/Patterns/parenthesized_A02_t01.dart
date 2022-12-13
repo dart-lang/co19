@@ -17,9 +17,9 @@ import "../../Utils/expect.dart";
 
 String test(int value) =>
   switch(value) {
-    case ((> 0 || == 0) && < 42) => "[0, 42)";
-    case > 42 && (== 100 || < 100) => "(42, 100]";
-    default => "default";
+    ((> 0 || == 0) && < 42) => "[0, 42)",
+    > 42 && (== 100 || < 100) => "(42, 100]",
+    _ => "default"
   };
 
 main() {

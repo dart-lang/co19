@@ -33,59 +33,59 @@
 int test() {
   Object value = Object();
   return switch (value) {
-    case 1 + 2 => 1;
-//       ^^^^^
+    1 + 2 => 1,
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 - 2 => 2;
-//       ^^^^^
+    1 - 2 => 2,
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 * 2 => 3;
-//       ^^^^^
+    1 * 2 => 3,
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 ^ 2 => 4;
-//       ^^^^^
+    1 ^ 2 => 4,
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 % 2 => 5;
-//       ^^^^^
+    1 % 2 => 5,
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 ~/ 2 => 6;
-//       ^^^^^^
+    1 ~/ 2 => 6,
+//  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 << 2 => 7;
-//       ^^^^^^
+    1 << 2 => 7,
+//  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 >> 2 => 8;
-//       ^^^^^^
+    1 >> 2 => 8,
+//  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 >>> 2 => 9;
-//       ^^^^^^^
+    1 >>> 2 => 9,
+//  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 > 2 => 10;
-//       ^^^^^
+    1 > 2 => 10,
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 >= 2:  => 11;
-//       ^^^^^^
+    1 >= 2:  => 11,
+//  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 < 2: => 12;
-//       ^^^^^
+    1 < 2: => 12,
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 1 <= 2 => 13;
-//       ^^^^^^
+    1 <= 2 => 13,
+//  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => -1;
+    _ => -1
   };
 }
 

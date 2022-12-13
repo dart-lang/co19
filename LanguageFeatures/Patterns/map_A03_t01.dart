@@ -48,31 +48,31 @@ final key2 = C();
 
 String test1(Map map) {
   return switch (map) {
-    case {key1: > 0 || 42, 2: var a} => "";
-//        ^^^^
+    {key1: > 0 || 42, 2: var a} => "",
+//   ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {key2: C()} => "";
-//        ^^^^
+    {key2: C()} => "",
+//   ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {var a: 2} => "";
-//        ^^^^^
+    {var a: 2} => "",
+//   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {final b: 2} => "";
-//        ^^^^^^^
+    {final b: 2} => "",
+//   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {final int c: 2} => "";
+    {final int c: 2} => "",
 //        ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case {int d: 2} => "";
+    {int d: 2} => "",
 //        ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => "default";
+    _ => "default"
   };
 }
 

@@ -20,34 +20,34 @@
 String test1(int num) {
   int i = 0;
   return switch (num) {
-    case < i => "negative";
-//         ^
+    < i => "negative",
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case == i => "zero";
-//          ^
+    == i => "zero",
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case > i => "positive";
-//         ^
+    > i => "positive",
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => "Impossible!";
+    _ => "Impossible!"
   };
 }
 
 String test2(int num) {
   final j = 0;
   return switch (num) {
-    case != j => "non-zero";
-//          ^
+    != j => "non-zero",
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case == j => "zero";
-//          ^
+    == j => "zero",
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => "Impossible!";
+    _ => "Impossible!"
   };
 }
 

@@ -41,11 +41,11 @@
 
 String test1(Object object) {
   return switch (object) {
-    case <int>{} => "";
-//       ^^^^^^^
+    <int>{} => "",
+//  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => "default";
+    _ => "default"
   };
 }
 

@@ -49,28 +49,27 @@ const False = false;
 
 String testBool(bool value) {
   return switch (value) {
-    case True => "true";
-    case False => "false";
-    default => "default";
+    True => "true",
+    False => "false"
   };
 }
 
 String testNum(num value) {
   return switch (value) {
-    case Zero => "zero";
-    case Pi =>"pi";
-    case Answer => "answer";
-    case Negative => "nagative";
-    case NegativePi => "nagative-pi";
-    case MaxJSInt => "max_int";
-    default => "default";
+    Zero => "zero",
+    Pi =>"pi",
+    Answer => "answer",
+    Negative => "nagative",
+    NegativePi => "nagative-pi",
+    MaxJSInt => "max_int",
+    _ => "default"
   };
 }
 
 String testString(String value) {
   return switch (value) {
-    case Melody => "Melody";
-    default => "default";
+    Melody => "Melody",
+    _ => "default"
   };
 }
 

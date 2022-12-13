@@ -26,16 +26,16 @@ import "../../Utils/expect.dart";
 
 String test1(List list) {
   return switch (list) {
-    case [1, 2, 3, 4, ... (var r11,)] => r11.toString();
-    case [1, 2, 3, 4, ... (n: var r12)] => r12.toString();
-    case [1, 2, 3, 4, ... (n: var r13, 42)] => r13.toString();
-    case [2, ...(final r21,), 5, 6] => r21.toString();
-    case [2, ...(n: final r22), 5, 6] => r22.toString();
-    case [2, ...(n: final r23, 42), 5, 6] => r23.toString();
-    case [... /* comment */ (var r31,), 6, 7, 8] => r31.toString();
-    case [... /* comment */ (n: var r32), 6, 7, 8] => r32.toString();
-    case [... /* comment */ (n: var r33, 42), 6, 7, 8] => r33.toString();
-    default => "default";
+    [1, 2, 3, 4, ... (var r11,)] => r11.toString(),
+    [1, 2, 3, 4, ... (n: var r12)] => r12.toString(),
+    [1, 2, 3, 4, ... (n: var r13, 42)] => r13.toString(),
+    [2, ...(final r21,), 5, 6] => r21.toString(),
+    [2, ...(n: final r22), 5, 6] => r22.toString(),
+    [2, ...(n: final r23, 42), 5, 6] => r23.toString(),
+    [... /* comment */ (var r31,), 6, 7, 8] => r31.toString(),
+    [... /* comment */ (n: var r32), 6, 7, 8] => r32.toString(),
+    [... /* comment */ (n: var r33, 42), 6, 7, 8] => r33.toString(),
+    _ => "default"
   };
 }
 

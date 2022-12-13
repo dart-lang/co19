@@ -34,31 +34,31 @@ import "../../Utils/expect.dart";
 
 String testList(List value) {
   return switch (value) {
-    case const [1, 2] => "[1, 2]";
-    case const [1, -2] => "[1, -2]";
-    case const ["3", "4"] => "['3', '4']";
-    case const [true, true] => "[true, true]";
-    case const [] => "[]";
-    default => "default";
+    const [1, 2] => "[1, 2]",
+    const [1, -2] => "[1, -2]",
+    const ["3", "4"] => "['3', '4']",
+    const [true, true] => "[true, true]",
+    const [] => "[]",
+    _ => "default"
   };
 }
 
 String testMap(Map value) {
   return switch (value) {
-    case const {1: 2} => "{1: 2}";
-    case const {'answer': -42} => "{'answer': -42}";
-    case const {'true': true} => "{'true': true}";
-    case const {} => "{}";
-    default => "default";
+    const {1: 2} => "{1: 2}",
+    const {'answer': -42} => "{'answer': -42}",
+    const {'true': true} => "{'true': true}",
+    const {} => "{}",
+    _ => "default"
   };
 }
 
 String testSet(Set value) {
   return switch (value) {
-    case const ({1, 2, -3}) => "{1, 2, -3}";
-    case const ({'1', '2', '3'}) => "{'1', '2', '3'}";
-    case const (<dynamic>{}) => "{}";
-    default => "default";
+    const ({1, 2, -3}) => "{1, 2, -3}",
+    const ({'1', '2', '3'}) => "{'1', '2', '3'}",
+    const (<dynamic>{}) => "{}",
+    _ => "default"
   };
 }
 

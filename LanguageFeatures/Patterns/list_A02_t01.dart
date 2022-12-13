@@ -26,11 +26,11 @@
 
 String test1(List list) {
   return switch (list) {
-    case <int, String>[1, > 0 || 42] => "";
-//             ^^^^^^
+    <int, String>[1, > 0 || 42] => "",
+//        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => "default";
+    _ => "default"
   };
 }
 

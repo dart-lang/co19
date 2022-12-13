@@ -53,11 +53,11 @@ String test1(Shape shape) {
 
 String test2(Shape shape) {
   return switch (shape) {
-    case Square(area: double d1) => "Square(area: double $d1)";
-    case Square(area: Unit a) => "Square(area: $a)";
-    case Circle(size: double d2) => "Circle(size: double $d2)";
-    case Circle(size: Unit b) => "Circle(size: $b)";
-    default => "default";
+    Square(area: double d1) => "Square(area: double $d1)",
+    Square(area: Unit a) => "Square(area: $a)",
+    Circle(size: double d2) => "Circle(size: double $d2)",
+    Circle(size: Unit b) => "Circle(size: $b)",
+    _ => "default"
   };
 }
 
