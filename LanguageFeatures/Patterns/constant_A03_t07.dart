@@ -75,7 +75,7 @@ String testMap2(Map value) {
 String testMap3(Map value) {
   return switch (value) {
     const {} => "{}",
-    _ => "default";
+    _ => "default"
   };
 }
 
@@ -99,8 +99,8 @@ String testSet2(Set value) {
 String testSet3(Set value) {
   return switch (value) {
     const (<dynamic>{}) => "{}",
-    _ => "default";
-  }
+    _ => "default"
+  };
 }
 
 main() {

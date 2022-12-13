@@ -35,8 +35,8 @@ import "../../Utils/expect.dart";
 
 String testBool(bool value) {
   return switch (value) {
-    case true => "true",
-    case false => "false"
+    true => "true",
+    false => "false"
   };
 }
 

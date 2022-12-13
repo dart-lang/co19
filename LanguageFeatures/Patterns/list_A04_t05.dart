@@ -72,7 +72,7 @@ main() {
 
   var [... /* comment */, a3, b3] = [1, 2, 3, 4, 5];
   Expect.equals(4, a3);
-  Expect.equals(5, b3)
+  Expect.equals(5, b3);
 
   Expect.equals("[1, 2, 3, 4, ...]", test1([1, 2, 3, 4, 5, 6]));
   Expect.equals("[2, ..., 5, 6]", test1([2, 3, 4, 5, 6]));
