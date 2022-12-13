@@ -4,11 +4,11 @@
 
 // @dart = 2.9
 
-/// @assertion const Deprecated(String expires)
-/// Create a deprecation annotation which specifies the expiration of the
-/// annotated feature.
+/// @assertion const Deprecated(String message)
+/// Create a deprecation annotation which specifies the migration path and
+/// expiration of the annotated feature.
 /// @description Checks that this constructor can be called and returns instance
-/// of Deprecated with correct expires value
+/// of Deprecated with the correct message value
 /// @author sgrekhov@unipro.ru
 
 import "../../../Utils/expect.dart";

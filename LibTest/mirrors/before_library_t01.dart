@@ -10,12 +10,10 @@
 
 import 'dart:mirrors';
 import '../../Utils/expect.dart';
-
 import 'before_library_lib1.dart';
-
 
 main() {
   Symbol libraryName = MirrorSystem.getSymbol('before_library_lib1');
   var metadata = currentMirrorSystem().findLibrary(libraryName).metadata;
-  Expect.equals('before_library_lib1', metadata[0].reflectee.expires);
+  Expect.equals('before_library_lib1', metadata[0].reflectee.message);
 }

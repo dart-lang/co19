@@ -4,6 +4,5 @@
 
 // @dart = 2.9
 
-
 @Deprecated('before_library_lib1')
 library before_library_lib1;
