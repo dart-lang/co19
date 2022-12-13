@@ -29,7 +29,6 @@
 /// pattern. The field name is then inferred from the name in the variable
 /// pattern.
 ///
-///
 /// @description Checks a bare record pattern with different subpatterns in a
 /// switch statement
 /// @author sgrekhov22@gmail.com

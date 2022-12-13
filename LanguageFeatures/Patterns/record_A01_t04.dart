@@ -44,30 +44,30 @@ class C {
 
 String test(Record record) {
   return switch (record) {
-    case (n1: > 0 || -42) => "logical-or";
-    case (n2: > 0 && < 10) => "logical-and";
-    case (n3: > 0) => "relational";
-    case (n4: var c as num)
-      => "cast = ${c.toStringAsFixed(2).replaceFirst(".00", "")}";
-    case (n5: var a?) => "null-check = $a";
-    case (n6: final b!) => "null-assert = $b";
-    case (n7: 42) => "constant-1";
-    case (n7: const C()) => "constant-2";
-    case (n8: String s1) => "variable-1 = $s1";
-    case (n8: var s2) => "variable-2 = $s2";
-    case (n80: final String s3) => "variable-3 = s3";
-    case (n80: final s4) => "variable-4 = s4";
-    case (n9: (42)) => "parenthesized";
-    case (n10: [42, _]) => "list-1";
-    case (n10: <Object>["42", ...]) => "list-2";
-    case (n11: {1: _}) => "map-1";
-    case (n11: <String, String>{"1": _}) => "map-2";
-    case (n12: (var x,)) => "record-1 = $x";
-    case (n12: (42, x: 0)) => "record-2";
-    case (n12: (42, x: final y)) => "record-3 = $y";
-    case (n13: Square(size: 1)) => "object-1";
-    case (n13: Square(size: var sz)) => "object-2 = $sz";
-    default => "default";
+    (n1: > 0 || -42) => "logical-or",
+    (n2: > 0 && < 10) => "logical-and",
+    (n3: > 0) => "relational",
+    (n4: var c as num)
+      => "cast = ${c.toStringAsFixed(2).replaceFirst(".00", "")}",
+    (n5: var a?) => "null-check = $a",
+    (n6: final b!) => "null-assert = $b",
+    (n7: 42) => "constant-1",
+    (n7: const C()) => "constant-2",
+    (n8: String s1) => "variable-1 = $s1",
+    (n8: var s2) => "variable-2 = $s2",
+    (n80: final String s3) => "variable-3 = $s3",
+    (n80: final s4) => "variable-4 = $s4",
+    (n9: (42)) => "parenthesized",
+    (n10: [42, _]) => "list-1",
+    (n10: <Object>["42", ...]) => "list-2",
+    (n11: {1: _}) => "map-1",
+    (n11: <String, String>{"1": _}) => "map-2",
+    (n12: (var x,)) => "record-1 = $x",
+    (n12: (42, x: 0)) => "record-2",
+    (n12: (42, x: final y)) => "record-3 = $y",
+    (n13: Square(size: 1)) => "object-1",
+    (n13: Square(size: var sz)) => "object-2 = $sz",
+    _ => "default"
   };
 }
 

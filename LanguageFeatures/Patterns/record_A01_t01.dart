@@ -44,30 +44,30 @@ class C {
 
 String test(Record record) {
   return switch (record) {
-    case (1, > 0 || -42) => "logical-or";
-    case (2, > 0 && < 10) => "logical-and";
-    case (3, > 0) => "relational";
-    case (4, var c as num)
-      => "cast = ${c.toStringAsFixed(2).replaceFirst(".00", "")}";
-    case (5, var a?) => "null-check = $a";
-    case (6, final b!) => "null-assert = $b";
-    case (7, 42) => "constant-1";
-    case (7, const C()) => "constant-2";
-    case (8, String s1) => "variable-1 = $s1";
-    case (8, var s2) => "variable-2 = $s2";
-    case (80, final String s3) => "variable-3 = s3";
-    case (80, final s4) => "variable-4 = s4";
-    case (9, (42)) => "parenthesized";
-    case (10, [42, _]) => "list-1";
-    case (10, <Object>["42", ...]) => "list-2";
-    case (11, {1: _}) => "map-1";
-    case (11, <String, String>{"1": _}) => "map-2";
-    case (12, (var x,)) => "record-1 = $x";
-    case (12, (42, x: 0)) => "record-2";
-    case (12, (42, x: final y)) => "record-3 = $y";
-    case (13, Square(size: 1)) => "object-1";
-    case (13, Square(size: var sz)) => "object-2 = $sz";
-    default => "default";
+    (1, > 0 || -42) => "logical-or",
+    (2, > 0 && < 10) => "logical-and",
+    (3, > 0) => "relational",
+    (4, var c as num)
+      => "cast = ${c.toStringAsFixed(2).replaceFirst(".00", "")}",
+    (5, var a?) => "null-check = $a",
+    (6, final b!) => "null-assert = $b",
+    (7, 42) => "constant-1",
+    (7, const C()) => "constant-2",
+    (8, String s1) => "variable-1 = $s1",
+    (8, var s2) => "variable-2 = $s2",
+    (80, final String s3) => "variable-3 = $s3",
+    (80, final s4) => "variable-4 = $s4",
+    (9, (42)) => "parenthesized",
+    (10, [42, _]) => "list-1",
+    (10, <Object>["42", ...]) => "list-2",
+    (11, {1: _}) => "map-1",
+    (11, <String, String>{"1": _}) => "map-2",
+    (12, (var x,)) => "record-1 = $x",
+    (12, (42, x: 0)) => "record-2",
+    (12, (42, x: final y)) => "record-3 = $y",
+    (13, Square(size: 1)) => "object-1",
+    (13, Square(size: var sz)) => "object-2 = $sz",
+    _ => "default"
   };
 }
 

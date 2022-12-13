@@ -29,8 +29,8 @@
 /// pattern. The field name is then inferred from the name in the variable
 /// pattern.
 ///
-/// @description Checks record patterns with a null-assert subpattern in a
-/// declaration context
+/// @description Checks that record patterns with a null-assert subpattern in a
+/// declaration context produces a static warning
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -39,32 +39,61 @@ import "../../Utils/expect.dart";
 
 main() {
   var (a1!,) = (-1,);
-  Expect.equals(-1, a1);
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   var (n: a2!) = (n: 42);
-  Expect.equals(42, a2);
-  var (n: a3!, b3!) = (n: 42, -1);
-  Expect.equals(42, a3);
-  Expect.equals(-1, b3);
-  var (:n1!) = (n1: 42);
-  Expect.equals(42, n1);
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  var (n: a3!,
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+            b3!) = (n: 42, -1);
+//          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   final (a4!,) = (-1,);
-  Expect.equals(-1, a4);
+//       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   final (n: a5!) = (n: 42);
-  Expect.equals(42, a5);
-  final (n: a6!, b6!) = (n: 42, -1);
-  Expect.equals(42, a6);
-  Expect.equals(-1, b6);
+//          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final (n: a6!,
+//          ^^
+// [analyzer] unspecified
+// [cfe] unspecified;
+                b6!) = (n: 42, -1);
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified;
   final (:n2!) = (n2: 42);
-  Expect.equals(42, n2);
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   var (num a7!,) = (-1,);
-  Expect.equals(-1, a7);
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   var (n: num a8!) = (n: 42);
-  Expect.equals(42, a8);
-  var (n: num a9!, num b9!) = (n: 42, -3);
-  Expect.equals(42, a9);
-  Expect.equals(-3, b9);
+//            ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  var (n: num a9!,
+//            ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+              num b9!) = (n: 42, -3);
+//                ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   var (:num n3!) = (n3: 42);
-  Expect.equals(42, n3);
+//          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

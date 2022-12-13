@@ -43,23 +43,27 @@ class C {
 
 String test(Record record) {
   return switch (record) {
-    case (: var case1) => "case1 = $case1";
-    case (: final case2) => "case2 = $case2";
-    case (: final () case3) => "case3 = $case3";
-    case (: List<int> case4) => "case4 = $case4";
-    case (: var case5 as num) => "case5 = $case5;
-    case (: final case6 as num) => "case6 = $case5";
-    case (: final Record case7 as ()) => "case7 = $case7";
-    case (: List<num> case8 as List<int>) => "case8 = $case8";
-    case (: var case9?) => "case9 = $case9";
-    case (: final case10?) => "case10 = $case10";
-    case (: final () case11?) => "case11 = $case11";
-    case (: List<int> case12?) => "case12 = $case12";
-    case (: var case13!) => "case13 = $case13";
-    case (: final case14!) => "case14 = $case14";
-    case (: final () case15!) => "case15 = $case15";
-    case (: List<int> case16!) => "case16 = $case15";
-    default => "default";
+    (: var case1) => "case1 = $case1",
+    (: final case2) => "case2 = $case2",
+    (: final () case3) => "case3 = $case3",
+    (: List<int> case4) => "case4 = $case4",
+    (: var case5 as num) => "case5 = $case5,
+    (: final case6 as num) => "case6 = $case5",
+    (: final Record case7 as ()) => "case7 = $case7",
+    (: List<num> case8 as List<int>) => "case8 = $case8",
+    (: var case9?) => "case9 = $case9",
+    (: final case10?) => "case10 = $case10",
+    (: final () case11?) => "case11 = $case11",
+    (: List<int> case12?) => "case12 = $case12",
+    (: var case13!) => "case13 = $case13",
+    (: final case14!) => "case14 = $case14",
+    (: final () case15!) => "case15 = $case15",
+    (: List<int> case16!) => "case16 = $case16",
+    (: (var case17)) => "case17 = $case17",
+    (: (final case18)) => "case18 = $case18",
+    (: (final () case19)) => "case19 = $case19",
+    (: (List<int> case20)) => "case20 = $case20",
+    _ => "default"
   };
 }
 
@@ -80,6 +84,10 @@ main() {
   Expect.equals("case14 = -42", test((case14: -42)));
   Expect.equals("case15 = ${().toString()}", test((case15: ())));
   Expect.equals("case16 = ${[1, 2, 3].toString()}", test((case16: [1, 2, 3])));
+  Expect.equals("case17 = 1", test((case17: 1)));
+  Expect.equals("case18 = -42", test((case18: -42)));
+  Expect.equals("case19 = ${().toString()}", test((case19: ())));
+  Expect.equals("case20 = ${[1, 2, 3].toString()}", test((case20: [1, 2, 3])));
 
   Expect.equals("default", test((case0: 1)));
   Expect.equals("default", test((case1: 1, 42)));
@@ -97,5 +105,9 @@ main() {
   Expect.throws(() {test((case13: null));});
   Expect.throws(() {test((case14: null));});
   Expect.throws(() {test((case15: null));});
-  Expect.throws(() {test((case16: null));} );
+  Expect.throws(() {test((case16: null));});
+  Expect.equals("default", test((case17: 1, 42)));
+  Expect.equals("default", test((case18: -42, 1)));
+  Expect.equals("default", test((case19: (1,))));
+  Expect.equals("default", test((case20: <String>[])));
 }

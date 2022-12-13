@@ -58,14 +58,21 @@ main() {
   Expect.equals(1, c6);
   Expect.equals(0, d6);
 
-  var ((int,) (a7,),) = ((-1,),);
+  var ((int a7,),) = ((-1,),);
   Expect.equals(-1, a7);
-  var (n: ({int x}) (x: a8)) = (n: (x: 42));
+  var (n: (x: int a8)) = (n: (x: 42));
   Expect.equals(42, a8);
-  var (n: (int, {int x}) (x: a9, b9), (int z, {int y}) (y: c9, d9))
-    = (n: (x: 42, -1), (y: 1, 0));
+  var (n: (x: int a9, int b9), (y: int c9, int d9))
+      = (n: (x: 42, -1), (y: 1, 0));
   Expect.equals(42, a9);
   Expect.equals(-1, b9);
   Expect.equals(1, c9);
   Expect.equals(0, d9);
+
+  var (n: (int, {int x}) a10, (int z, {int y}) b10)
+      = (n: (x: 42, -1), (y: 1, 0));
+  Expect.equals(42, a10.x);
+  Expect.equals(-1, a10.$0);
+  Expect.equals(1, b10.y);
+  Expect.equals(0, b10.$0);
 }

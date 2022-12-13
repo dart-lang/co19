@@ -90,6 +90,18 @@ String test(Record record) {
   if (record case (: List<int> case16!)) {
     return "case16 = $case16";
   }
+  if (record case (: (var case17))) {
+    return "case17 = $case17";
+  }
+  if (record case (: (final case18))) {
+    return "case18 = $case18";
+  }
+  if (record case (: (final () case19))) {
+    return "case19 = $case19";
+  }
+  if (record case (: (List<int> case20))) {
+    return "case20 = $case20";
+  }
   return "default";
 }
 
@@ -110,6 +122,10 @@ main() {
   Expect.equals("case14 = -42", test((case14: -42)));
   Expect.equals("case15 = ${().toString()}", test((case15: ())));
   Expect.equals("case16 = ${[1, 2, 3].toString()}", test((case16: [1, 2, 3])));
+  Expect.equals("case17 = 1", test((case17: 1)));
+  Expect.equals("case18 = -42", test((case18: -42)));
+  Expect.equals("case19 = ${().toString()}", test((case19: ())));
+  Expect.equals("case20 = ${[1, 2, 3].toString()}", test((case20: [1, 2, 3])));
 
   Expect.equals("default", test((case0: 1)));
   Expect.equals("default", test((case1: 1, 42)));
@@ -127,5 +143,9 @@ main() {
   Expect.throws(() {test((case13: null));});
   Expect.throws(() {test((case14: null));});
   Expect.throws(() {test((case15: null));});
-  Expect.throws(() {test((case16: null));} );
+  Expect.throws(() {test((case16: null));});
+  Expect.equals("default", test((case17: 1, 42)));
+  Expect.equals("default", test((case18: -42, 1)));
+  Expect.equals("default", test((case19: (1,))));
+  Expect.equals("default", test((case20: <String>[])));
 }
