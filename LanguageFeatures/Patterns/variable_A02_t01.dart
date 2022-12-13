@@ -122,7 +122,7 @@ String testMap2(Map m) {
   return switch (m) {
     {1: var a} => "{1: $a}",
     {2: final b} => "{2: $b}",
-    _ => "default";
+    _ => "default"
   };
 }
 

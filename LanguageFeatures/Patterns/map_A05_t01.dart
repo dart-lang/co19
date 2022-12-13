@@ -49,7 +49,7 @@ String test1(Map map) {
 //            ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    {(n: 2): var a1, (n: 2): final b1} => "";,
+    {(n: 2): var a1, (n: 2): final b1} => "",
 //                   ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
