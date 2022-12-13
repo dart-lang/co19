@@ -10,76 +10,80 @@
 /// It is a compile-time error if a name cannot be inferred for a named field
 /// pattern with the field name omitted
 ///
-/// @description Checks that it is a compile-time error if a name can be
-/// inferred for a named field pattern with the field name omitted, but record
-/// has no such field
+/// @description Checks that it is a compile-time error if a name cannot be
+/// inferred for a named field pattern with the field name omitted. Test non
+/// variable, null check/assert, cast or parenthesis patterns
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
+import "patterns_lib.dart";
+
+test(dynamic r) {
+  var (:n1 || n1) = r;
+//      ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final (:n2 || n2) = r;
+//        ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var (: > 0) = r;
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final (: == 0) = r;
+//         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var (:42) = r;
+//      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final (:42) = r;
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var (:[l1]) = r;
+//      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final (:[l2]) = r;
+//        ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var (:{1: m1}) = r;
+//      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final (:{2: m2}) = r;
+//        ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var (:(n:r1, r2)) = r;
+//      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final (:(n:r3, r4)) = r;
+//        ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var (:Square(size: o1)) = r;
+//      ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final (:Square(size: o2)) = r;
+//        ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
-  var (:_) = (x1: 1);
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final (:_) = (x2: 1);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  var (:int _) = (x3: 1);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var (:_?) = (x4: 1);
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final (:_?) = (x5: 1);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  var (:int _?) = (x6: 1);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var (:_!) = (x7: 1);
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final (:_!) = (x8: 1);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  var (:int _!) = (x9: 1);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var (:_ as int) = (x10: 1);
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final (:_ as int) = (x11: 1);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  var (:num _ as int) = (x12: 1);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var (:(_)) = (x13: 1);
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final (:(_)) = (x14: 1);
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  var (:(int _)) = (x15: 1);
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  test((name: "pi", 3.14));
 }
