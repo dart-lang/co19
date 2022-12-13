@@ -10,8 +10,9 @@
 /// It is a compile-time error if a name cannot be inferred for a named field
 /// pattern with the field name omitted
 ///
-/// @description Checks that it is a compile-time error if a name cannot be
-/// inferred for a named field pattern with the field name omitted
+/// @description Checks that it is a compile-time error if a name can be
+/// inferred for a named field pattern with the field name omitted, but record
+/// has no such field
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
