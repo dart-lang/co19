@@ -38,9 +38,9 @@ String test1(List list) {
 
 String test2(List list) {
   return switch (list) {
-    case [_, 2, var x] => "[_, 2, var x]";
-    case [String _, _, _] => "[String _, _, _]";
-    default => "default";
+    [_, 2, var x] => "[_, 2, var x]",
+    [String _, _, _] => "[String _, _, _]",
+    _ => "default"
   };
 }
 

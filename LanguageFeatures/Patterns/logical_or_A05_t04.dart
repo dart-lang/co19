@@ -61,7 +61,7 @@ main() {
   clearLog();
 
   Shape shape3 = Circle(1, logger);
-  if (shape2 case Circle(area: two) || Circle(area: one) || Circle(area: zero)
+  if (shape3 case Circle(area: two) || Circle(area: one) || Circle(area: zero)
       || Circle(area: pi)) {
     Expect.equals("Circle.area=2;=1;=0;=3.14;", log);
   } else {

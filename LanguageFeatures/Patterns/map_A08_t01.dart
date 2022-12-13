@@ -30,10 +30,10 @@ import "../../Utils/expect.dart";
 
 String test1(Map map) {
   return switch (map) {
-    case {1: 1, 2: > 0, ...} => "case-1";
-    case {1: 2, 2: <= 0, ...} => "case-2";
-    case {1: 3, 2: var a, ...} => "case-3";
-    default => "default";
+    {1: 1, 2: > 0, ...} => "case-1",
+    {1: 2, 2: <= 0, ...} => "case-2",
+    {1: 3, 2: var a, ...} => "case-3",
+    _ => "default"
   };
 }
 

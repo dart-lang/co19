@@ -41,11 +41,11 @@
 
 String test1(Map map) {
   return switch (map) {
-    case <int, int>{1: 1, ..., ...} => "";
-//                             ^^^
+    <int, int>{1: 1, ..., ...} => "",
+//                        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => "default";
+    _ => "default"
   };
 }
 

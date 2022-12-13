@@ -60,8 +60,8 @@ const c3 = C(3);
 
 String test1(Map map) {
   return switch (map) {
-    case {c1: var a, c2: final b} => "a=$a, b=$b";
-    default => "default";
+    {c1: var a, c2: final b} => "a=$a, b=$b",
+    _ => "default"
   };
 }
 

@@ -34,8 +34,8 @@ enum Color {
 
 bool isPrimary(Color color) {
   return switch (color) {
-    case Color.red || Color.yellow || Color.blue => true;
-    default => false;
+    Color.red || Color.yellow || Color.blue => true,
+    _ => false
   };
 }
 

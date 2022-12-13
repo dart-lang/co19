@@ -38,9 +38,9 @@ String test1(Record r) {
 
 String test2(Record r) {
   return switch (r) {
-    case (_, 2, var x) => "[_, 2, var x]";
-    case (String _, _, _) => "(String _, _, _)";
-    default => "default";
+    (_, 2, var x) => "[_, 2, var x]",
+    (String _, _, _) => "(String _, _, _)",
+    _ => "default"
   };
 }
 

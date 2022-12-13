@@ -49,8 +49,8 @@ String testRecord1(Record r, [bool doTypeTest = false]) {
 
 String testRecord2(Record r) {
   return switch (r) {
-    case (var a, final b) => "($a, $b)";
-    default => "default";
+    (var a, final b) => "($a, $b)",
+    _ => "default"
   };
 }
 
@@ -84,8 +84,8 @@ String testList1(List l, [bool doTypeTest = false]) {
 
 String testList2(List l) {
   return switch (l) {
-    case [var a, final b] => "[$a, $b]";
-    default => "default";
+    [var a, final b] => "[$a, $b]",
+    _ => "default"
   };
 }
 
@@ -120,9 +120,9 @@ String testMap1(Map m) {
 
 String testMap2(Map m) {
   return switch (m) {
-    case {1: var a} => "{1: $a}";
-    case {2: final b} => "{2: $b}";
-    default => "default";
+    {1: var a} => "{1: $a}",
+    {2: final b} => "{2: $b}",
+    _ => "default";
   };
 }
 
@@ -154,9 +154,9 @@ String testObject1(Shape shape) {
 
 String testObject2(Shape shape) {
   return switch (shape) {
-    case Square(area: var a) => "a=$a";
-    case Rectangle(area: final b) => "b=$b";
-    default => "default";
+    Square(area: var a) => "a=$a",
+    Rectangle(area: final b) => "b=$b",
+    _ => "default"
   };
 }
 

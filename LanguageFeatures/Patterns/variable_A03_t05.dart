@@ -56,19 +56,19 @@ void test1(Shape shape) {
 
 Unit? test2(Shape shape) {
   return switch (shape) {
-    case Square(area: final s) => s = Unit(1);
+    Square(area: final s) => s = Unit(1),
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    Circle(area: final Unit s) => s = Unit(1),
 //                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case Circle(area: final Unit s) => s = Unit(1);
-//                                     ^
+    Circle(area: final Unit? s) => s = Unit(1),
+//                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case Circle(area: final Unit? s) => s = Unit(1);
-//                                      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    default => Unit(42);
+    _ => Unit(42)
   };
 }
 

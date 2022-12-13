@@ -50,7 +50,7 @@ String testObject2(Object value) {
 
 String testObject3(Object value) {
   return switch (value) {
-    const {} => return "{}",
+    const {} => "{}",
     _ => "default"
   };
 }

@@ -66,19 +66,19 @@ void test1(List l) {
 
 Object? test2(List l) {
   return switch (l) {
-    case [final a] => a = 1;
+    [final a] => a = 1,
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    [final int c] => c = 1,
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    [final int? e] => e = 1,
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case [final int c] => c = 1;
-//                        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case [final int? e] => e = 1;
-//                        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    default => "";
+    _ => ""
   };
 }
 

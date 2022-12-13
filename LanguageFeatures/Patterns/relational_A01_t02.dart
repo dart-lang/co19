@@ -19,11 +19,11 @@
 import "../../Utils/expect.dart";
 
 String test(List<num> list) => switch (list) {
-  case [> -1 && <= 2] => "case 1";
-  case [== 42] => "case 2";
-  case [>= 10 && < 20] => "case 3";
-  case [!= 100] => "case 4";
-  default => "default";
+  [> -1 && <= 2] => "case 1",
+  [== 42] => "case 2",
+  [>= 10 && < 20] => "case 3",
+  [!= 100] => "case 4",
+  _ => "default"
 };
 
 main() {

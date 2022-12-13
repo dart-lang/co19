@@ -25,13 +25,12 @@
 import "../../Utils/expect.dart";
 
 bool matches(List list) {
-  bool result = false;
   switch (list) {
     case [1 || 2, 3]:
-      result = true;
+      return true;
     default:
   };
-  return result;
+  return false;
 }
 
 main() {

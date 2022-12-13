@@ -61,11 +61,11 @@ String test1(List l) {
 
 String test2(List l) {
   return switch (l) {
-    case ([int a, String b]) => "[<int>$a, <String>$b]";
-    case ([int c, final int d]) => "[<int>$c, <int>$d]";
-    case ([String e, bool f]) => "[<String>$e, <bool>$f]";
-    case ([int g, final h]) => "[<int>$g,  final $h]";
-    default => "default";
+    ([int a, String b]) => "[<int>$a, <String>$b]",
+    ([int c, final int d]) => "[<int>$c, <int>$d]",
+    ([String e, bool f]) => "[<String>$e, <bool>$f]",
+    ([int g, final h]) => "[<int>$g,  final $h]",
+    _ => "default"
   };
 }
 

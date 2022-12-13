@@ -28,21 +28,21 @@ import "patterns_lib.dart";
 
 String test(Shape shape) {
   return switch (shape) {
-    case Square(area: var s1) || Circle(area: var s2) => "Square or Circle";
-//                                                ^^
+    Square(area: var s1) || Circle(area: var s2) => "Square or Circle",
+//                                           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case Square(area: var s1) || Circle(area: _) => "Square or Circle 2";
-//                                            ^
+    Square(area: var s1) || Circle(area: _) => "Square or Circle 2",
+//                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-    case Rectangle(x: var x, y: var width) || Rectangle(:var x, :var y) =>
-//                                                                   ^
+    Rectangle(x: var x, y: var width) || Rectangle(:var x, :var y)
+//                                                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        "Rectangle";
-    default => "Other";
+      => "Rectangle",
+    _ => "Other"
   };
 }
 

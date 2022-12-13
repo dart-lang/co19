@@ -26,7 +26,7 @@ import "../../Utils/expect.dart";
 
 bool matches(List list) {
   if (list case [1 || 2, 3]) {
-      result = true;
+      return true;
   }
   return false;
 }

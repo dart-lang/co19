@@ -63,7 +63,7 @@ main() {
   clearLog();
 
   Shape shape3 = Circle(1, logger);
-  switch (shape2) {
+  switch (shape3) {
     case Circle(area: two) || Circle(area: one) || Circle(area: zero)
         || Circle(area: pi):
       Expect.equals(

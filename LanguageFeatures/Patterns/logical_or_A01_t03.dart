@@ -26,8 +26,8 @@
 import "../../Utils/expect.dart";
 
 bool matches(int value) => switch (value) {
-  case > -10 && <= 1 || >=4 && < 10 => true;
-  default => false;
+  > -10 && <= 1 || >= 4 && < 10 => true,
+  _ => false
 };
 
 main() {

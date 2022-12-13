@@ -66,31 +66,31 @@ void test1(Record r) {
 
 Object? test2(Record r) {
   return switch (r) {
-    case (final a,) => a = 1;
+    (final a,) => a = 1,
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (final a, name: final b) => b = 1,
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (final int c,) => c = 1,
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (final int c, final String d) =>  d = "",
+//                                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (final int? e,) => e = 1,
 //                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case (final a, name: final b) => b = 1;
-//                                   ^
+    (final int? e, name: final String? f) => f = "",
+//                                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case (final int c,) => c = 1;
-//                         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case (final int c, final String d) =>  d = "";
-//                                         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case (final int? e,) => e = 1;
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case (final int? e, name: final String? f) => f = "";
-//                                                ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    default => "";
+    _ => ""
   };
 }
 
