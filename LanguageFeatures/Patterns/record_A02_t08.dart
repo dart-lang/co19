@@ -50,7 +50,7 @@ main() {
 
   final ((a4,),) = ((-1,),);
   Expect.equals(-1, a4);
-  final (n: ((x: a5)) = (n: (x: 42));
+  final (n: (x: a5)) = (n: (x: 42));
   Expect.equals(42, a5);
   final (n: (x: a6, b6), (y: c6, d6)) = (n: (x: 42, -1), (y: 1, 0));
   Expect.equals(42, a6);
