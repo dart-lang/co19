@@ -28,10 +28,10 @@ import "../../Utils/expect.dart";
 
 String test1(List list) {
   return switch (list) {
-    case <int>[1, 2, 3, 4, ... _] => "[1, 2, 3, 4, ... _]";
-    case [2, ..._, 5, 6] => "[2, ..._, 5, 6]";
-    case <int>[... /* comment */ _, 6, 7, 8] => "[... _, 6, 7, 8]";
-    default => "default";
+    <int>[1, 2, 3, 4, ... _] => "[1, 2, 3, 4, ... _]",
+    [2, ..._, 5, 6] => "[2, ..._, 5, 6]",
+    <int>[... /* comment */ _, 6, 7, 8] => "[... _, 6, 7, 8]",
+    _ => "default"
   };
 }
 

@@ -35,31 +35,30 @@ import "../../Utils/expect.dart";
 
 String testBool(bool value) {
   return switch (value) {
-    case true => "true";
-    case false => "false";
-    default => "default";
+    case true => "true",
+    case false => "false"
   };
 }
 
 String testNum(num value) {
   return switch (value) {
-    case 0 => "zero";
-    case 3.14 => "pi";
-    case 42 => "answer";
-    case -1 => "negative";
-    case -3.14 => "negative-pi";
-    case 0x1FFFFFFFFFFFFF => "max_int";
-    default => "default";
+    0 => "zero",
+    3.14 => "pi",
+    42 => "answer",
+    -1 => "negative",
+    -3.14 => "negative-pi",
+    0x1FFFFFFFFFFFFF => "max_int",
+    _ => "default"
   };
 }
 
 String testString(String value) {
   return switch (value) {
-    case "0" => "zero";
-    case "3.14" => "pi";
-    case "42" => "answer";
-    case "" => "empty";
-    default => "default";
+    "0" => "zero",
+    "3.14" => "pi",
+    "42" => "answer",
+    "" => "empty",
+    _ => "default"
   };
 }
 

@@ -46,11 +46,11 @@ String test1(Symbol value) {
 
 String test2(Symbol value) {
   return switch (value) {
-    case #+ => "+";
-    case #foo => "foo";
-    case Symbol.unaryMinus => "-";
-    case const Symbol("bar") => "bar";
-    default => "default";
+    #+ => "+",
+    #foo => "foo",
+    Symbol.unaryMinus => "-",
+    const Symbol("bar") => "bar",
+    _ => "default"
   };
 }
 
@@ -69,7 +69,6 @@ String test3(Symbol value) {
   }
   return "default";
 }
-
 
 main() {
   Expect.equals("+", test1(Symbol("+")));

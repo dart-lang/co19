@@ -24,19 +24,19 @@
 
 String test1(List list) {
   return switch (list) {
-    case <int>[1, 2, 3, 4, ... r1] => "[1, 2, 3, 4, ...]";
-//                             ^^
+    <int>[1, 2, 3, 4, ... r1] => "[1, 2, 3, 4, ...]",
+//                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case [2, ...r2, 5, 6] => "[2, ..., 5, 6]";
-//              ^^
+    [2, ...r2, 5, 6] => "[2, ..., 5, 6]",
+//         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case <int>[... /* comment */ r3, 6, 7, 8] => "[..., 6, 7, 8]";
-//                               ^^
+    <int>[... /* comment */ r3, 6, 7, 8] => "[..., 6, 7, 8]",
+//                          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => "default";
+    _ => "default"
   };
 }
 

@@ -46,12 +46,12 @@ enum Color {
 
 String test(Color value) {
   return switch (value) {
-    case Color.white => "white";
-    case Color.red => "red";
-    case Color.yellow => "yellow";
-    case Color.blue => "default";
-    case Color.black => "black";
-    default => "default";
+    Color.white => "white",
+    Color.red => "red",
+    Color.yellow => "yellow",
+    Color.blue => "default",
+    Color.black => "black",
+    _ => "default"
   };
 }
 

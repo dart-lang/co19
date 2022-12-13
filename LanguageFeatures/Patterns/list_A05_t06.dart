@@ -32,10 +32,10 @@ class C {
 
 String test1(List list) {
   return switch (list) {
-    case <int>[1, 2, 3, 4, ... 42] => "case-1";
-    case [2, ...'Lily was here', 5, 6] => "case-2";
-    case <int>[.../* comment */ null, 6, 7, 8] => "case-3";
-    default => "default";
+    <int>[1, 2, 3, 4, ... 42] => "case-1",
+    [2, ...'Lily was here', 5, 6] => "case-2",
+    <int>[.../* comment */ null, 6, 7, 8] => "case-3",
+    _ => "default"
   };
 }
 

@@ -62,10 +62,10 @@ String test2(C value) {
 
 String test3(C value) {
   return switch (value) {
-    case const C(0) => "0";
-    case const C(1) => "1";
-    case const C("x") => "x";
-    default => "default";
+    const C(0) => "0",
+    const C(1) => "1",
+    const C("x") => "x",
+    _ => "default"
   };
 }
 

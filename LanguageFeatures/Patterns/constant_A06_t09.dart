@@ -35,23 +35,23 @@ const l = [1, 2, 3];
 int test() {
   Object value = Object();
   return switch (value) {
-    case 2 / 1 => 1;
-//       ^^^^^
+    2 / 1 => 1,
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case true && true => 2;
-//       ^^^^^^^^^^^^
+    true && true => 2,
+//  ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case false || true => 3;
-//       ^^^^^^^^^^^^^
+    false || true => 3,
+//  ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case l[0] => 4;
-//       ^^^^
+    l[0] => 4,
+//  ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => -1;
+    _ => -1
   };
 }
 

@@ -26,11 +26,11 @@
 
 String test1(List list) {
   return switch (list) {
-    case <int>[1, ...var r1, 3, 4, ... var r2] => "";
+    <int>[1, ...var r1, 3, 4, ... var r2] => "",
 //                                 ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    default => "default";
+    _ => "default"
   };
 }
 

@@ -25,11 +25,11 @@ import "../../Utils/expect.dart";
 
 String test1(List list) {
   return switch (list) {
-    case <int>[1, 2, 3, 4, ... [5, ... var r1]] => r1.toString();
-    case [2, ...[...final r2, 4], 5, 6] => r2.toString();
-    case <int>[... /* comment */ [3, ... /* comment */ List r3, 5], 6, 7, 8]
-      => r3.toString();
-    default => "default";
+    <int>[1, 2, 3, 4, ... [5, ... var r1]] => r1.toString(),
+    [2, ...[...final r2, 4], 5, 6] => r2.toString(),
+    <int>[... /* comment */ [3, ... /* comment */ List r3, 5], 6, 7, 8]
+      => r3.toString(),
+    _ => "default"
   };
 }
 
