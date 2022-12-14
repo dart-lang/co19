@@ -96,7 +96,7 @@ String test(Record record) {
 main() {
   Expect.equals("logical-or", test((n1: 1)));
   Expect.equals("logical-or", test((n1: -42)));
-  Expect.equals("default", test((n1: 100)));
+  Expect.equals("default", test((n1: -100)));
   Expect.equals("logical-and", test((n2: 1)));
   Expect.equals("default", test((n2: 10)));
   Expect.equals("relational", test((n3: 1)));

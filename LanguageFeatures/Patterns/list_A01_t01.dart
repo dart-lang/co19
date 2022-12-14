@@ -60,7 +60,7 @@ String test(List list) {
 main() {
   Expect.equals("logical-or", test([1, 1]));
   Expect.equals("logical-or", test([1, -42]));
-  Expect.equals("default", test([1, 100]));
+  Expect.equals("default", test([1, -100]));
   Expect.equals("logical-and", test([2, 1]));
   Expect.equals("default", test([2, 10]));
   Expect.equals("relational", test([3, 1]));
