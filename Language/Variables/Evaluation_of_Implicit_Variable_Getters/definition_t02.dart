@@ -51,15 +51,15 @@ class C {
 
 
 main() {
-  Expect.throws(() => C.sVar, (e) => e is CyclicInitializationError);
+  Expect.throws(() => C.sVar);
   Expect.equals(null, C.sVar);
 
-  Expect.throws(() => C.sTyped, (e) => e is CyclicInitializationError);
+  Expect.throws(() => C.sTyped);
   Expect.equals(null, C.sTyped);
 
-  Expect.throws(() => C.sFinal, (e) => e is CyclicInitializationError);
+  Expect.throws(() => C.sFinal);
   Expect.equals(null, C.sFinal);
 
-  Expect.throws(() => C.sFinalTyped, (e) => e is CyclicInitializationError);
+  Expect.throws(() => C.sFinalTyped);
   Expect.equals(null, C.sFinalTyped);
 }
