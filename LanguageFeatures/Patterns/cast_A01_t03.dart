@@ -20,9 +20,9 @@ import "../../Utils/expect.dart";
 const Object zero = 0;
 
 main() {
-  int i = 1;
-  if (i case > zero as int) {
-    Expect.equals(1, i);
+  int i = 0;
+  if (i case zero as int) {
+    Expect.equals(0, i);
   } else {
     Expect.fail("Shouldn't be here");
   }

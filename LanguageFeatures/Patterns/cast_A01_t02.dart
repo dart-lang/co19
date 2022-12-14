@@ -20,9 +20,9 @@ import "../../Utils/expect.dart";
 
 const Object zero = 0;
 
-bool isPositive(int i) {
+bool isZero(num i) {
   return switch (i) {
-      >= zero as int => true,
+      zero as int => true,
       _ => false
   };
 }
@@ -30,14 +30,13 @@ bool isPositive(int i) {
 bool isInt(Object o) =>
   switch (o) {
     _ as int => true,
-    => false
+    _ => false
   };
 
-
 main() {
-  Expect.isTrue(isPositive(0));
-  Expect.isTrue(isPositive(1));
-  Expect.isFalse(isPositive(-1));
+  Expect.isTrue(isZero(0));
+  Expect.isFalse(isZero(1));
+  Expect.isFalse(isZero(-1));
   Expect.isTrue(isInt(42));
   Expect.throws(() {
     isInt("42");
@@ -45,7 +44,7 @@ main() {
 
   int i = 1;
   switch (i) {
-    case > zero as int:
+    case zero as int:
       Expect.equals(1, i);
       break;
     default:
