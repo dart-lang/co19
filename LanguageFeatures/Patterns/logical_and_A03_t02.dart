@@ -29,7 +29,7 @@ bool matches(List list) {
 }
 
 main() {
-  Expect.isFalse(matches([0, 3]));
+  Expect.isFalse(matches([-1, 3]));
   Expect.isFalse(matches([2, 2]));
   Expect.isFalse(matches([2, 3, 4]));
   Expect.isFalse(matches([2, "3"]));
