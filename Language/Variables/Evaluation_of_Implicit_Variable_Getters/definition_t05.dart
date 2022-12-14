@@ -24,8 +24,8 @@
 ///   can occur. Otherwise
 /// - Variable declaration without initializer. The result of executing the
 ///   getter method is the value stored in v.
-/// @description Checks that CyclicInitializationError is thrown when getter
-/// is referenced during evaluation of initialization expression.
+/// @description Checks that an error is thrown when getter is referenced during
+/// evaluation of initialization expression.
 /// @author kaigorodov
 
 import "../../../Utils/expect.dart";
@@ -38,13 +38,8 @@ class C {
   static int sTyped = f();
 }
 
-
 main() {
-  try {
+  Expect.throws(() {
     C.sTyped;
-    Expect.fail('CyclicInitializationError is expected');
-  } on CyclicInitializationError catch (e) {
-  } catch (e) {
-    Expect.fail('"$e" of type ${e.runtimeType} thrown instead of CyclicInitializationError');
-  }
+  });
 }
