@@ -41,7 +41,7 @@ main() {
   test([0], "case 1");
   test([1], "case 1");
   test([2], "case 1");
-  test([2.1], "case 2");
+  test([42], "case 2");
   test([10], "case 3");
   test([10.1], "case 3");
   test([20], "case 4");
