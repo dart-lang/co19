@@ -10,7 +10,7 @@
 /// null-assert pattern, this lets you forcibly assert the expected type of some
 /// destructured value.
 ///
-/// @description Check some valid cast patterns in a if-case
+/// @description Check some valid cast patterns in an if-case statements
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

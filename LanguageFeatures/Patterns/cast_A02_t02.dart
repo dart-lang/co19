@@ -20,8 +20,8 @@ import "../../Utils/expect.dart";
 
 bool isOdd1(Object o) =>
   switch (o) {
-    case  var v as int => v.isOdd;
-    default => false;
+    var v as int => v.isOdd,
+    _ => false
   };
 
 bool isOdd2(Object o) {
@@ -30,7 +30,7 @@ bool isOdd2(Object o) {
       return v.isOdd;
     default:
       return false;
-  };
+  }
 }
 
 bool isOdd3(Object o) {

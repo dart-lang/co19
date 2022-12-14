@@ -10,7 +10,8 @@
 /// null-assert pattern, this lets you forcibly assert the expected type of some
 /// destructured value.
 ///
-/// @description Check some valid cast patterns in a switch
+/// @description Check some valid cast patterns in a switch expressions and
+/// statements
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -21,15 +22,15 @@ const Object zero = 0;
 
 bool isPositive(int i) {
   return switch (i) {
-      case >= zero as int => true;
-      default => false;
+      >= zero as int => true,
+      _ => false
   };
 }
 
 bool isInt(Object o) =>
   switch (o) {
-    case  _ as int => true;
-    default => false;
+    _ as int => true,
+    => false
   };
 
 

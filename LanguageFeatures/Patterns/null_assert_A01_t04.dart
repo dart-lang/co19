@@ -18,9 +18,9 @@ import "../../Utils/expect.dart";
 
 String test(List<String?> list) {
   return switch (list) {
-    case ['name', var name!] => name.substring(0);
-    case ['answer', _!] => "answer";
-    default => "default";
+    ['name', var name!] => name.substring(0),
+    ['answer', _!] => "answer",
+    _ => "default"
   };
 }
 

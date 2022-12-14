@@ -38,9 +38,9 @@ test2(List<String?> list) {
 test3(List<String?> list) {
   Expect.throws(() {
     return switch (list) {
-      case ['name', var name!] => 1;
-      case ['value', _!] => 2;
-      default => 3;
+      ['name', var name!] => 1,
+      ['value', _!] => 2,
+      _ => 3
     };
   });
 }

@@ -25,17 +25,17 @@ import "../../Utils/expect.dart";
 
 String test1(List<String?> list) {
   return switch (list) {
-    case [var a?, var b] => "case 1";
-    case [var a, var b?] => "case 2";
-    default => "default";
+    [var a?, var b] => "case 1",
+    [var a, var b?] => "case 2",
+    _ => "default"
   };
 }
 
 String test2(List<String?> list) {
   return switch (list) {
-    case [_?, var b] => "case 1";
-    case [var a, _?] => "case 2";
-    default => "default";
+    [_?, var b] => "case 1",
+    [var a, _?] => "case 2",
+    _ => "default"
   };
 }
 

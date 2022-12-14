@@ -16,7 +16,7 @@
 ///     // s has type non-nullable String here.
 /// }
 /// ```
-/// @description Check null-check pattern in a if-else statement
+/// @description Check null-check pattern in an if-else statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
