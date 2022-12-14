@@ -39,9 +39,8 @@
 /// expression, and both variables just get initialized to the value [null]. No
 /// recursion and no errors.
 ///
-/// @description Checks that [CyclicInitializationError] is not thrown with null
-/// safety turned on.
-///
+/// @description Checks that an error is not thrown with the null safety turned
+/// on.
 /// @author sgrekhov@unipro.ru
 /// @issue 46086
 
