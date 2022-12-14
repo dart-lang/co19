@@ -34,8 +34,8 @@
 /// Reading the variable during initializer evaluation is no longer checked for,
 /// and does not cause an error.
 ///
-/// @description Checks that CyclicInitializationError is not thrown when getter
-/// is referenced during evaluation of initialization expression.
+/// @description Checks that an error is not thrown when getter is referenced
+/// during evaluation of initialization expression.
 /// @author kaigorodov
 /// @Issue 42470
 /// @issue 42642

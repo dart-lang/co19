@@ -37,10 +37,10 @@
 /// and does not cause an error.
 ///
 /// @description Checks that if during the evaluation of [e], the getter for [v]
-/// is invoked, a [CyclicInitializationError] is not thrown. Confirms that [func]
-/// gets recursively called by incrementing a counter and stopping the infinite
-/// recursion after 20 cycles. This avoids relying on particulars of the behavior
-/// on stack overflow and makes the test cheaper to run.
+/// is invoked, an error is not thrown. Confirms that [func] gets recursively
+/// called by incrementing a counter and stopping the infinite recursion after
+/// 20 cycles. This avoids relying on particulars of the behavior on stack
+/// overflow and makes the test cheaper to run.
 /// @author msyabro
 /// @Issue 42470
 /// @issue 42642
