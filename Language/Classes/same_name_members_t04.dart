@@ -8,7 +8,6 @@
 /// a function and an abstract function of the same name.
 /// @author rodionov
 
-
 abstract class A {
   void f() {}
   String f(int f); // abstract
@@ -17,10 +16,6 @@ abstract class A {
 // [cfe] unspecified
 }
 
-class C extends A {
-  String f(int f) => "Lily was here";
-}
-
 main() {
-  new C();
+  print(A);
 }

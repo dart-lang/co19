@@ -12,10 +12,7 @@
 /// instance method and an abstract method with the same name.
 /// @author iefremov
 
-
 class A {
-//    ^
-// [cfe] unspecified
   f() {}
   f();
 //^
@@ -25,6 +22,4 @@ class A {
 
 main() {
   new A().f();
-//        ^
-// [cfe] unspecified
 }

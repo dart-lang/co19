@@ -12,7 +12,6 @@
 /// two instance methods with the same name.
 /// @author msyabro
 
-
 class C {
   conflictingName() {}
   conflictingName(p1) {}
@@ -24,6 +23,4 @@ class C {
 main() {
   var c = new C();
   c.conflictingName;
-//  ^
-// [cfe] unspecified
 }

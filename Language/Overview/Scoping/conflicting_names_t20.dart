@@ -12,7 +12,6 @@
 /// two instance variables with the same name.
 /// @author msyabro
 
-
 class C {
   var conflictingName;
   var conflictingName;
@@ -24,6 +23,4 @@ class C {
 main() {
   var c = new C();
   c.conflictingName;
-//  ^
-// [cfe] unspecified
 }
