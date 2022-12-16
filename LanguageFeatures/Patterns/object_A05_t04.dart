@@ -48,7 +48,7 @@ main() {
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final Square((int x))) = Square(2);
+  final Square((int x)) = Square(2);
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
