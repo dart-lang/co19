@@ -5,7 +5,7 @@
 /// @assertion Evaluation of a throw expression of the form throw e; proceeds as
 /// follows:
 /// The expression e is evaluated yielding a value v.
-/// If v evaluates to null, then a NullThrownError is thrown. Otherwise, control
+/// If v evaluates to null, then a TypeError is thrown. Otherwise, control
 /// is transferred to the nearest dynamically enclosing exception handler, with
 /// the current exception set to v and the current return value becomes
 /// undefined.
@@ -14,9 +14,8 @@
 /// e] is not assignable to [Object].
 ///
 /// @description Checks that attempting to throw null in any manner results in
-/// NullThrownError being thrown instead.
+/// a compile-time error.
 /// @author iarkh
-
 
 main() {
   throw null;
@@ -28,5 +27,4 @@ main() {
 //              ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 }
