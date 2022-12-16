@@ -40,7 +40,7 @@ main() {
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final Circle(int b1!)) = Circle(1);
+  final Circle(int b1!) = Circle(1);
 //                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
