@@ -33,7 +33,7 @@ class C {
 
 String test(List list) {
   return switch (list) {
-    [1, > 0 || const(-42)] => "logical-or",
+    [1, > 0 || -42] => "logical-or",
     [2, > 0 && < 10] => "logical-and",
     [3, > 0] => "relational",
     [4, var c as num] => "cast",
@@ -52,7 +52,7 @@ String test(List list) {
     [11, <String, String>{"1": _}] => "map-2",
     [12, (var x,)] => "record-1",
     [12, (42, x: 0)] => "record-2",
-    [13, Square(size: 1)] => "object",
+    [13, Square(size: const Unit(1))] => "object",
     _ => "default",
   };
 }

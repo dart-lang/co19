@@ -89,7 +89,7 @@ String test(List list) {
   if (list case [12, (42, x: 0)]) {
     return "record-2";
   }
-  if (list case [13, Square(size: 1)]) {
+  if (list case [13, Square(size: const Unit(1))]) {
     return "object";
   } else {
     return "default";

@@ -48,7 +48,7 @@ String test(Record record) {
     (n2: > 0 && < 10) => "logical-and",
     (n3: > 0) => "relational",
     (n4: var c as num)
-      => "cast = ${c.toStringAsFixed(2).replaceFirst(".00", "")}",
+        => "cast = ${c.toStringAsFixed(2).replaceFirst(".00", "")}",
     (n5: var a?) => "null-check = $a",
     (n6: final b!) => "null-assert = $b",
     (n7: 42) => "constant-1",
@@ -65,9 +65,9 @@ String test(Record record) {
     (n12: (var x,)) => "record-1 = $x",
     (n12: (42, x: 0)) => "record-2",
     (n12: (42, x: final y)) => "record-3 = $y",
-    (n13: Square(size: 1)) => "object-1",
+    (n13: Square(size: const Unit(1))) => "object-1",
     (n13: Square(size: var sz)) => "object-2 = $sz",
-    _ => "default"
+    _   => "default"
   };
 }
 
