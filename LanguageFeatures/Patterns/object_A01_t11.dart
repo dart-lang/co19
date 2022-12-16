@@ -13,26 +13,26 @@
 /// declaration context
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
 main() {
-  var Square(areaAsRecord: ("area": a1)) = Square(2);
+  var Square(areaAsRecord: (area: a1)) = Square(2);
   Expect.equals(4, a1);
 
-  final Square(areaAsRecord: ("area": b1)) = Square(2);
+  final Square(areaAsRecord: (area: b1)) = Square(2);
   Expect.equals(4, b1);
 
-  var Square(areaAsRecord: ("area": num c1)) = Square(2);
+  var Square(areaAsRecord: (area: num c1)) = Square(2);
   Expect.equals(4, c1);
 
-  final Square(areaAsRecord: ("area": num d1)) = Square(2);
+  final Square(areaAsRecord: (area: num d1)) = Square(2);
   Expect.equals(4, d1);
 
-  var Square(areaAsMap: ("area": _)) = Square(2);
-  final Square(areaAsMap: ("area": _)) = Square(2);
-  var Square(areaAsMap: ("area": _)) = Square(2);
-  final Square(areaAsMap: ("area": _)) = Square(2);
+  var Square(areaAsRecord: (area: _)) = Square(2);
+  final Square(areaAsRecord: (area: _)) = Square(2);
+  var Square(areaAsRecord: (area: _)) = Square(2);
+  final Square(areaAsRecord: (area: _)) = Square(2);
 }

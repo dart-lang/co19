@@ -20,7 +20,7 @@
 /// pattern with the getter name omitted (see name inference below).
 ///
 /// @description Checks that it is a compile-time error if a `patternField` is
-/// of the form `pattern`. Test a switch expression
+/// of the form `pattern`. Test a switch statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -28,101 +28,102 @@
 import "patterns_lib.dart";
 
 String test(Shape shape) {
-  return switch (shape) {
-    Rectangle(> 3 || 2) => "logical-or",
-//            ^
+  switch (shape) {
+    case Rectangle(> 3 || 2): return "logical-or";
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    Rectangle<Meter>( > 3 || 2) => "logical-or-2",
-//                    ^
+    case Rectangle<Meter>( > 3 || 2): return "logical-or-2";
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    Rectangle( > 0 && < 10) => "logical-and",
-//             ^
+    case Rectangle( > 0 && < 10): return "logical-and";
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    Rectangle( > 5) => "relational",
-//             ^
+    case Rectangle( > 5): return "relational";
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    Circle(var c1 as num) => "cast",
-//         ^
+    case Circle(var c1 as num): return "cast";
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Circle(final c2 as num) => "cast-2",
-//       ^
+    case Circle(final c2 as num): return "cast-2";
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Circle(var a1?) => "null-check",
-//       ^
+    case Circle(var a1?): return "null-check";
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Circle(var a2?) => "null-check-2",
-//       ^
+    case Circle(var a2?): return "null-check-2";
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Circle(var b1!) => "null-assert",
-//       ^
+    case Circle(var b1!): return "null-assert";
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Square(1) => "constant",
-//       ^
+    case Square(1): return "constant";
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Rectangle(int s1) => "variable-1",
-//          ^
+    case Rectangle(int s1): return "variable-1";
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Rectangle(var s2) => "variable-2",
-//          ^
+    case Rectangle(var s2): return "variable-2";
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Rectangle(final int s3) => "variable-3",
-//          ^
+    case Rectangle(final int s3): return "variable-3";
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Rectangle(final s4) => "variable-4",
-//          ^
+    case Rectangle(final s4): return "variable-4";
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Square((var x)) => "parenthesized",
-//       ^
+    case Square((var x)): return "parenthesized";
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Rectangle([var l1]) => "list",
-//          ^
+    case Rectangle([var l1]): return "list";
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Rectangle([5]) => "list-2",
-//          ^
+    case Rectangle([5]): return "list-2";
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Rectangle({"area": var m1}) => "map",
-//          ^
+    case Rectangle({"area": var m1}): return "map";
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Rectangle({"area": 3}) => "map-2",
-//          ^
+    case Rectangle({"area": 3}): return "map-2";
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Rectangle((area: var x1)) => "record",
-//          ^
+    case Rectangle((area: var x1)): return "record";
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Rectangle((area: 1)) => "record-2",
-//          ^
+    case Rectangle((area: 1)): return "record-2";
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Square(Unit(value: 3)) => "object-1",
-//       ^
+    case Square(Unit(value: 3)): return "object-1";
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Square(Unit(value: var o1)) => "object-2",
-//       ^
+    case Square(Unit(value: var o1)): return "object-2";
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  _ => "default"
-  };
+  default:
+    return "default";
+  }
 }
 
 main() {
