@@ -33,6 +33,6 @@ main() {
 
   var Square(areaAsInt: (_)) = Square(2);
   final Square(areaAsInt: (_)) = Square(2);
-  var Square(areaAsInt: num? (_)) = Square(2);
-  final Square(areaAsInt: num? (_)) = Square(2);
+  var Square(areaAsInt: (num? _)) = Square(2);
+  final Square(areaAsInt: (num? _)) = Square(2);
 }
