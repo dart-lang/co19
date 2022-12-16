@@ -18,7 +18,7 @@ check(value) {
   new Future.error(value)
     .catchError((error) {
       if (value == null) {
-        Expect.isTrue(error is NullThrownError);
+        Expect.isTrue(error is TypeError);
       } else {
         Expect.identical(value, error);
       }
