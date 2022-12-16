@@ -46,7 +46,7 @@ String test(Shape shape) {
   if (shape case Circle(sizeAsInt: 3, areaAsNullable: var b1!)) {
     return "null-assert = ${b1.toStringAsFixed(2)}";
   }
-  if (shape case Circle(sizeAsInt: 30, areaAsNull: var b2!) {
+  if (shape case Circle(sizeAsInt: 30, areaAsNull: var b2!)) {
     return "null-assert = ${b2.toStringAsFixed(2)}";
   }
   if (shape case Square(sizeAsInt: 1)) {

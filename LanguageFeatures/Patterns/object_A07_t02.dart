@@ -36,7 +36,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
       break;
-    case Circle(:final _ as num)):
+    case Circle(:final _ as num):
 //                     ^
 // [analyzer] unspecified
 // [cfe] unspecified

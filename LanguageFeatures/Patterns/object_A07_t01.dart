@@ -34,7 +34,7 @@ String test(Shape shape) {
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    Circle(:final _ as num)) => "case-2",
+    Circle(:final _ as num) => "case-2",
 //                ^
 // [analyzer] unspecified
 // [cfe] unspecified
