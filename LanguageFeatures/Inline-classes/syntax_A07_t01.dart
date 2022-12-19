@@ -2,62 +2,60 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A rule for <viewDeclaration> is added to the grammar, along with
-/// some rules for elements used in view declarations:
+/// @assertion A rule for <inlineClassDeclaration> is added to the grammar,
+/// along with some rules for elements used in inline class declarations:
 ///
-/// <viewDeclaration> ::=
-///   'view' 'class' <typeIdentifier> <typeParameters>?
-///       <viewPrimaryConstructor>?
-///       <interfaces>?
+/// <inlineClassDeclaration> ::=
+///   'inline' 'class' <typeIdentifier> <typeParameters>? <interfaces>?
 ///   '{'
-///     (<metadata> <viewMemberDeclaration>)*
+///     (<metadata> <inlineMemberDeclaration>)*
 ///   '}'
 ///
-/// <viewPrimaryConstructor> ::=
-///   '(' <type> <identifier> ')'
-///
-/// <viewMemberDeclaration> ::=
-///   <classMemberDefinition>
+/// <inlineMemberDeclaration> ::= <classMemberDefinition>
 /// ...
-/// That is, every view declares exactly one instance variable, and it is final.
-/// A primary constructor (as defined in this document) is just an abbreviated
-/// syntax whose desugaring includes a declaration of exactly one final instance
-/// variable.
-/// ```dart
-/// // Using a primary constructor.
-/// view class V1(R it) {}
+/// There are no special rules for static members in inline classes. They can be
+/// declared and called or torn off as usual, e.g., Inline.myStaticMethod(42)
 ///
-/// // Same thing, using a normal constructor.
-/// view class V2 {
-///   final R it;
-///   V2(this.it);
-/// }
-/// ```
-/// There are no special rules for static members in views. They can be declared
-/// and called or torn off as usual, e.g., View.myStaticMethod(42).
-///
-/// @description Checks that it is a compile-time error if a view declaration
-/// has <viewPrimaryConstructor> and declares a member with the name equal to
-/// the representation name
+/// @description Checks that inline classes may have static members
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-view class View1(int id) {
-  int get id => 42;
-//^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+import "../../Utils/expect.dart";
+
+inline class IC1 {
+  static int get staticGetter => 42;
+  final int id;
+  IC1(this.id);
 }
 
-view class View2(int id) {
-  void id(int val) {}
-//^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+inline class IC2 {
+  static int _v;
+  static void set staticSetter(int val) {
+    _v = val;
+  }
+  final int id;
+  IC2(this.id);
+}
+
+inline class IC3 {
+  static int staticMethod(int val) => val;
+  final int id;
+  IC3(this.id);
+}
+
+inline class IC4 {
+  static int staticVar = 0;
+  final int id;
+  IC4(this.id);
 }
 
 main() {
-  print(View1);
-  print(View2);
+  Expect.equals(42, IC1.staticGetter);
+  IC2.staticSetter = -42;
+  Expect.equals(-42, IC2._v);
+  Expect.equals(2, IC3.staticMethod(2));
+  Expect.equals(0, IC4.staticVar);
+  IC4.staticVar = 1;
+  Expect.equals(1, IC4.staticVar);
 }

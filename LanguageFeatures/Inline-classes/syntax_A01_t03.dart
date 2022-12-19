@@ -2,35 +2,28 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A rule for <viewDeclaration> is added to the grammar, along with
-/// some rules for elements used in view declarations:
+/// @assertion A rule for <inlineClassDeclaration> is added to the grammar,
+/// along with some rules for elements used in inline class declarations:
 ///
-/// <viewDeclaration> ::=
-///   'view' 'class' <typeIdentifier> <typeParameters>?
-///       <viewPrimaryConstructor>?
-///       <interfaces>?
+/// <inlineClassDeclaration> ::=
+///   'inline' 'class' <typeIdentifier> <typeParameters>? <interfaces>?
 ///   '{'
-///     (<metadata> <viewMemberDeclaration>)*
+///     (<metadata> <inlineMemberDeclaration>)*
 ///   '}'
 ///
-/// <viewPrimaryConstructor> ::=
-///   '(' <type> <identifier> ')'
+/// <inlineMemberDeclaration> ::= <classMemberDefinition>
+/// The token inline is not made a built-in identifier: the reserved word class
+/// that occurs right after inline serves to disambiguate the inline class
+/// declaration with a fixed lookahead.
 ///
-/// <viewMemberDeclaration> ::=
-///   <classMemberDefinition>
-/// The token `view` is made a built-in identifier.
-///
-/// @description Checks that it is a compile-time error import a library with
-/// import prefix `view`
+/// @description Checks that it is not an error to import a library with
+/// import prefix `inline`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "views_lib.dart" as view;
-//                         ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+import "inline_class_lib.dart" as inline;
 
 main() {
-  view.x;
+  print(inline.x);
 }

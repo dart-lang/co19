@@ -2,50 +2,51 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A rule for <viewDeclaration> is added to the grammar, along with
-/// some rules for elements used in view declarations:
+/// @assertion A rule for <inlineClassDeclaration> is added to the grammar,
+/// along with some rules for elements used in inline class declarations:
 ///
-/// <viewDeclaration> ::=
-///   'view' 'class' <typeIdentifier> <typeParameters>?
-///       <viewPrimaryConstructor>?
-///       <interfaces>?
+/// <inlineClassDeclaration> ::=
+///   'inline' 'class' <typeIdentifier> <typeParameters>? <interfaces>?
 ///   '{'
-///     (<metadata> <viewMemberDeclaration>)*
+///     (<metadata> <inlineMemberDeclaration>)*
 ///   '}'
 ///
-/// <viewPrimaryConstructor> ::=
-///   '(' <type> <identifier> ')'
-///
-/// <viewMemberDeclaration> ::=
-///   <classMemberDefinition>
+/// <inlineMemberDeclaration> ::= <classMemberDefinition>
 /// ...
-/// If a view declaration named View does not include a <viewPrimaryConstructor>
-/// then an error occurs unless the view declares exactly one instance variable
-/// v. An error occurs unless the declaration of v is final. An error occurs if
-/// the declaration of v is late.
+/// A compile-time error occurs if the inline class does not declare any
+/// instance variables, and if it declares two or more instance variables. Let
+/// id be the name of unique instance variable that it declares. The declaration
+/// of id must have the modifier final, and it can not have the modifier late;
+/// otherwise a compile-time error occurs.
 ///
-/// @description Checks that it is a compile-time error if a view declaration
-/// does not include a <viewPrimaryConstructor> and doesn't declare an instance
-/// variable
+/// @description Checks that it is a compile-time error if an inline class does
+/// not declare any instance variables
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-view class View1 {
-//         ^^^^^
+inline class IC1 {
+//           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  View.c(int id) {}
+  IC1.c(int id) {}
 }
 
-view class View2 {
-//         ^^^^^
+inline class IC2 {
+//           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  View2(int id) {}
+  IC2(int id) {}
+}
+
+inline class IC3 {
+//           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  print(View1);
-  print(View2);
+  print(IC1);
+  print(IC2);
+  print(IC3);
 }
