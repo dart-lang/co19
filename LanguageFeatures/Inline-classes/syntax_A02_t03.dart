@@ -24,6 +24,7 @@ import "../../Utils/expect.dart";
 
 inline class IC {
   final int id;
+  IC(this.id);
   IC.c1(int x, {int y = 0}) : this(x + y);
   IC.c2(int x, [int y = 0]) : this(x + y);
   IC.c3([int x = 0]) : this(x);
@@ -31,6 +32,7 @@ inline class IC {
 }
 
 main() {
+  Expect.equals(42, IC(42).id);
   Expect.equals(1, IC.c1(1).id);
   Expect.equals(3, IC.c1(1, y: 2).id);
   Expect.equals(4, IC.c2(4).id);

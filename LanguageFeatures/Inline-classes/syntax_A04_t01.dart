@@ -23,6 +23,8 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
+import "../../Utils/static_type_helper.dart";
+
 inline class IC1 {
   final num id0;
   IC1(this.id0);
@@ -39,9 +41,9 @@ inline class IC3 {
 
 main() {
   IC1 ic1 = IC1(3.14);
-  ic1.id0.isFinite;
+  ic1.id0.expectStaticType<Exactly<num>>();
   IC2 ic2 = IC2.n(42);
-  ic2._x.isOdd;
+  ic2._x.expectStaticType<Exactly<int>>();
   IC3 ic3 = IC3();
-  ic3._id.isOdd;
+  ic3._id.expectStaticType<Exactly<int>>();
 }

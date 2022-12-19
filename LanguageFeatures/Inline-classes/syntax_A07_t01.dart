@@ -16,7 +16,10 @@
 /// There are no special rules for static members in inline classes. They can be
 /// declared and called or torn off as usual, e.g., Inline.myStaticMethod(42)
 ///
-/// @description Checks that inline classes may have static members
+/// @description Checks that inline classes may have static members. Note that
+/// static members are declared before instance members (and before the unique
+/// instance variable). This is not likely to be the style which is recommended,
+/// but it should be used in at least one test.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class

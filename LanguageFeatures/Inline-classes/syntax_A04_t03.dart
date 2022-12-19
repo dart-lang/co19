@@ -22,15 +22,14 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
+import "../../Utils/static_type_helper.dart";
+
 inline class IC1 {
   final num id;
   IC1(this.id);
 }
 
 main() {
-  IC1 ic1 = ic1(1);
-  ic1.id.isOdd;
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  IC1 ic1 = IC1(1);
+  ic1.id.expectStaticType<Exactly<num>>();
 }
