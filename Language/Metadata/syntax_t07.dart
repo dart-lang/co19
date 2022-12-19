@@ -19,12 +19,14 @@ class A {
 // [cfe] unspecified
   class B {}
 //^^^^^^^^^
+// [cfe] unspecified
 // [analyzer] unspecified
 
   main() {
 //^^^^
+// [cfe] unspecified
 // [analyzer] unspecified
 }
-// [error line 30, column 0]
+// [error line 33, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
