@@ -22,11 +22,13 @@ class A {
 class B {}
 //      ^
 // [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 //^
 // [analyzer] unspecified
+// [cfe] unspecified
 }
-// [error line 32, column 0]
+// [error line 35, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
