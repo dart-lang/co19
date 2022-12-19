@@ -14,15 +14,15 @@
 
 import "dart:ffi";
 import "package:ffi/ffi.dart";
-import '../../../Utils/expect.dart';
 
 void main() {
   Pointer<Int64> p1 = calloc<Int64>(3);
   try {
     Pointer<Void> p2 = new Pointer.fromAddress(p1.address);
-    Expect.throws(() {
-      p2.elementAt(1);
-    });
+    p2.elementAt(1);
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   } finally {
     calloc.free(p1);
   }
