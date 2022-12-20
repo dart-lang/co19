@@ -103,7 +103,7 @@ String test(Record record) {
   if (record case (12, (42, x: final y))) {
     return "record-3 = $y";
   }
-  if (record case (13, Square(size: 1))) {
+  if (record case (13, Square(size: const Unit(1)))) {
     return "object-1";
   }
   if (record case (13, Square(size: var sz))) {
