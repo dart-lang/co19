@@ -4,8 +4,8 @@
 
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=extension-types
+// SharedOptions=--enable-experiment=inline-class
 
-library views_lib;
+library inline_class_lib;
 
 int x = 42;
