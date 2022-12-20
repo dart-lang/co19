@@ -9,8 +9,8 @@
 /// pattern
 ///
 /// @description Checks that it is a compile-time error if an object pattern
-/// with omitted getter name have subpatterns other than variable, cast, null
-/// check/assert or parenthesized. Test an if-case statement
+/// with omitted getter name have subpatterns other than variable, cast or null
+/// check/assert. Test an if-case statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -32,6 +32,10 @@ void test(Shape shape) {
 // [cfe] unspecified
   if (shape case Square(: 42)) {}
 //                        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  if (shape case Rectangle(sizeAsInt: 5, :(int areaAsInt))) {}
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   if (shape case Rectangle(: [var areaAsList])) {}

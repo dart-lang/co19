@@ -9,8 +9,8 @@
 /// pattern
 ///
 /// @description Checks that it is a compile-time error if an object pattern
-/// with omitted getter name have subpatterns other than variable, cast, null
-/// check/assert or parenthesized. Test a switch statement
+/// with omitted getter name have subpatterns other than variable, cast or null
+/// check/assert. Test a switch statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -33,6 +33,10 @@ String test(Shape shape) {
 // [cfe] unspecified
     case Square(: 42): return "constant";
 //                ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case Rectangle(sizeAsInt: 5, :(int areaAsInt)): return "parenthesized";
+//                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
     case Rectangle(: [var areaAsList]): return "list";

@@ -51,18 +51,6 @@ String test(Shape shape) {
   if (shape case Rectangle<Meter>(sizeAsInt: 44, :final areaAsInt)) {
     return "variable-5 = $areaAsInt";
   }
-  if (shape case Rectangle(sizeAsInt: 5, :(int areaAsInt))) {
-    return "parenthesized-1 = $areaAsInt";
-  }
-  if (shape case Rectangle(sizeAsInt: 6, :(var areaAsInt as num))) {
-    return "parenthesized-2 = $areaAsInt";
-  }
-  if (shape case Rectangle(sizeAsInt: 7, :(final int areaAsInt?))) {
-    return "parenthesized-3 = $areaAsInt";
-  }
-  if (shape case Rectangle(sizeAsInt: 8, :(final areaAsInt!))) {
-    return "parenthesized-4 = $areaAsInt";
-  }
   return "default";
 }
 
@@ -80,8 +68,4 @@ main() {
   Expect.equals("variable-5 = 44", test(Rectangle<Meter>(44, 1)));
   Expect.equals("default", test(Rectangle<Centimeter>(44, 1)));
   Expect.equals("default", test(Rectangle(44, 1)));
-  Expect.equals("parenthesized-1 = 5", test(Rectangle(5, 1)));
-  Expect.equals("parenthesized-2 = 6", test(Rectangle(6, 1)));
-  Expect.equals("parenthesized-3 = 7", test(Rectangle(7, 1)));
-  Expect.equals("parenthesized-4 = 8", test(Rectangle(8, 1)));
 }

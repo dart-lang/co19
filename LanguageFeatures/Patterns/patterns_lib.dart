@@ -84,8 +84,6 @@ class Unit<T extends MetricUnits> {
 }
 
 class Shape<T extends MetricUnits> {
-  static const Area = "area";
-
   final void Function(String s)? logFunction;
   const Shape([this.logFunction = null]);
 
@@ -115,7 +113,7 @@ class Shape<T extends MetricUnits> {
   num? get areaAsNull => null;
   num? get sizeAsNull => null;
   List<num> get areaAsList => [areaAsDouble];
-  Map<String, num> get areaAsMap => {Area: areaAsDouble};
+  Map<String, num> get areaAsMap => {"area": areaAsDouble};
   ({num area}) get areaAsRecord => (area: areaAsDouble);
 }
 

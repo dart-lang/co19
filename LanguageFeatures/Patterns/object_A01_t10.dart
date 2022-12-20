@@ -19,20 +19,20 @@ import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
 main() {
-  var Square(areaAsMap: {Shape.Area: a1}) = Square(2);
+  var Square(areaAsMap: {"area": a1}) = Square(2);
   Expect.equals(4, a1);
 
-  final Square(areaAsMap: {Shape.Area: b1}) = Square(2);
+  final Square(areaAsMap: {"area": b1}) = Square(2);
   Expect.equals(4, b1);
 
-  var Square(areaAsMap: <String, num>{Shape.Area: num c1}) = Square(2);
+  var Square(areaAsMap: <String, num>{"area": num c1}) = Square(2);
   Expect.equals(4, c1);
 
-  final Square(areaAsMap: <String, num>{Shape.Area: num d1}) = Square(2);
+  final Square(areaAsMap: <String, num>{"area": num d1}) = Square(2);
   Expect.equals(4, d1);
 
-  var Square(areaAsMap: {Shape.Area: _}) = Square(2);
-  final Square(areaAsMap: {Shape.Area: _}) = Square(2);
-  var Square(areaAsMap: {Shape.Area: num _}) = Square(2);
-  final Square(areaAsMap: {Shape.Area: num _}) = Square(2);
+  var Square(areaAsMap: {"area": _}) = Square(2);
+  final Square(areaAsMap: {"area": _}) = Square(2);
+  var Square(areaAsMap: {"area": num _}) = Square(2);
+  final Square(areaAsMap: {"area": num _}) = Square(2);
 }

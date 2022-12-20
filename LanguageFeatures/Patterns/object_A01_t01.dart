@@ -85,7 +85,7 @@ main() {
   Expect.equals("default", test(Rectangle(6, 1)));
   Expect.equals("map = 7", test(Rectangle(7, 1)));
   Expect.equals("default", test(Rectangle(8, 1)));
-  Expect.equals("record-1 = 9", test(Rectangle(9, 1)));
+  Expect.equals("record = 9", test(Rectangle(9, 1)));
   Expect.equals("default", test(Rectangle(10, 1)));
   Expect.equals("object-1", test(Square(3)));
   Expect.equals("object-2 = 16", test(Square(4)));

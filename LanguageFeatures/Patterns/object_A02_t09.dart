@@ -8,25 +8,34 @@
 /// the variable pattern in the field subpattern which may be wrapped in a unary
 /// pattern
 ///
-/// @description Checks an object pattern with omitted getter name and a
-/// parenthesized subpattern in a declaration context
+/// @description Checks that an object pattern with omitted getter name and a
+/// parenthesized subpattern in a declaration context produces a compile-time
+/// error
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
 main() {
   var Square(:(areaAsInt)) = Square(1);
-  Expect.equals(1, areaAsInt);
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   final Square(:(sizeAsInt)) = Square(2);
-  Expect.equals(2, sizeAsInt);
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   var Square(: (double areaAsDouble)) = Square(3);
-  Expect.equals(9, areaAsDouble);
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   final Square(: (double sizeAsDouble)) = Square(4);
-  Expect.equals(4, sizeAsDouble);
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

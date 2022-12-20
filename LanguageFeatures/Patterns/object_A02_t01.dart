@@ -37,13 +37,6 @@ String test(Shape shape) {
     Rectangle(sizeAsInt: 4, :final areaAsInt) => "variable-4 = $areaAsInt",
     Rectangle<Meter>(sizeAsInt: 44, :final areaAsInt)
         => "variable-5 = $areaAsInt",
-    Rectangle(sizeAsInt: 5, :(int areaAsInt)) => "parenthesized-1 = $areaAsInt",
-    Rectangle(sizeAsInt: 6, :(var areaAsInt as num))
-        => "parenthesized-2 = $areaAsInt",
-    Rectangle(sizeAsInt: 7, :(final int areaAsInt?))
-        => "parenthesized-3 = $areaAsInt",
-    Rectangle(sizeAsInt: 8, :(final areaAsInt!))
-        => "parenthesized-4 = $areaAsInt",
     _ => "default"
   };
 }
@@ -62,8 +55,4 @@ main() {
   Expect.equals("variable-5 = 44", test(Rectangle<Meter>(44, 1)));
   Expect.equals("default", test(Rectangle<Centimeter>(44, 1)));
   Expect.equals("default", test(Rectangle(44, 1)));
-  Expect.equals("parenthesized-1 = 5", test(Rectangle(5, 1)));
-  Expect.equals("parenthesized-2 = 6", test(Rectangle(6, 1)));
-  Expect.equals("parenthesized-3 = 7", test(Rectangle(7, 1)));
-  Expect.equals("parenthesized-4 = 8", test(Rectangle(8, 1)));
 }
