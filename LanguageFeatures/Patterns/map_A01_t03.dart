@@ -86,7 +86,7 @@ String test(List list) {
       return "record-1";
     case {12: (42, x: 0)}:
       return "record-2";
-    case {13: Square(size: 1)}:
+    case {13: Square(size: Unit(1))}:
       return "object";
     default:
       return "default";

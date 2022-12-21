@@ -67,7 +67,7 @@ String test(Map map) {
     {11: <String, String>{"1": _}} => "map-2",
     {12: (var x,)} => "record-1",
     {12: (42, x: 0)} => "record-2",
-    {13: Square(size: 1)} => "object",
+    {13: Square(size: Unit(1))} => "object",
     _ => "default"
   };
 }

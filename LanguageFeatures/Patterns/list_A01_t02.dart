@@ -33,7 +33,7 @@ class C {
 
 String test(List list) {
   switch (list) {
-    case [1, > 0 || const(-42)]:
+    case [1, > 0 || -42]:
       return "logical-or";
     case [2, > 0 && < 10]:
       return "logical-and";
@@ -71,7 +71,7 @@ String test(List list) {
       return "record-1";
     case [12, (42, x: 0)]:
       return "record-2";
-    case [13, Square(size: 1)]:
+    case [13, Square(size: const Unit(1))]:
       return "object";
     default:
       return "default";

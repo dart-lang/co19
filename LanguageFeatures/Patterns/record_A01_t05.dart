@@ -84,7 +84,7 @@ String test(Record record) {
       return "record-2";
     case (n12: (42, x: final y)) :
       return "record-3 = $y";
-    case (n13: Square(size: 1)):
+    case (n13: Square(size: const Unit(1))):
       return "object-1";
     case (n13: Square(size: var sz)):
       return "object-2 = $sz";
