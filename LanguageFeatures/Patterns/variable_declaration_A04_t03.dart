@@ -37,7 +37,7 @@ main() {
   Expect.isTrue(visited);
 
   visited = false;
-  for([int a2, b2, ...List<int> c2] in [[3, 4, 5, 6]]) {
+  for(var [int a2, b2, ...List<int> c2] in [[3, 4, 5, 6]]) {
     Expect.equals(3, a2);
     Expect.equals(4, b2);
     Expect.listEquals([5, 6], c2);
