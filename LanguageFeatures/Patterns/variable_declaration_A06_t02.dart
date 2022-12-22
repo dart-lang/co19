@@ -15,45 +15,57 @@
 /// As with regular for-in loops, it is a compile-time error if the type of
 /// expression in a pattern-for-in loop is not assignable to Iterable<dynamic>.
 ///
-/// @description Check that it is a compile-time error if final variable is
-/// assigned in a for-in loop. Test a record pattern
+/// @description Check that it is a compile-time error if pattern variable
+/// declaration is used in static fields
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
+// SharedOptions=--enable-experiment=patterns
+
+import "patterns_lib.dart";
 
 class Meta {
   const Meta();
 }
 
+class C {
+  @Meta()
+  static final ((a1, b1) && r1) = (1, 2);
+//             ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  @Meta()
+  static var [a2, b2] = [1, 2];
+//           ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static final {"key1": a3, "key2": b3} = {"key1": 1, "key2": 2};
+//             ^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static var (a4, b4) = (1, 2);
+//           ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static final (:num n1, :n2) = (n1: 3.14, n2: "pi");
+//             ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static var Square(areaAsInt: int a2, sizeAsInt: b2) = Square(1);
+//           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static final Square(:int areaAsInt, :sizeAsInt) = Square(1);
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
-  for (@Meta() final (a1, b1) in [(1, 2)]) {
-    a1 = 3;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    b1 = 4;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  for (final (num a2, n: String b2) in [(3.14, n: "pi")]) {
-    a2 = 2.71;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    b2 = "e";
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  for (final (:num n1, :n2) in [(n1: 3.14, n2: "pi")]) {
-    n1 = 2.71;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    n2 = "e";
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  print(C);
 }
