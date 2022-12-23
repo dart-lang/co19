@@ -72,17 +72,17 @@ main() {
   Expect.throws(() {
     var (_, String _, _, num _) = r2;
   });
-  Expect.equals("(_, 2, var x)", test1((1, 2, "3")));
+  Expect.equals("[_, 2, var x]", test1((1, 2, "3")));
   Expect.equals("(String _, _, _)", test1(("0", 1, 2)));
   Expect.equals("default", test1((1, 1, 3)));
   Expect.equals("default", test1(((1, 2), 3, 4)));
 
-  Expect.equals("(_, 2, var x)", test2((1, 2, "3")));
+  Expect.equals("[_, 2, var x]", test2((1, 2, "3")));
   Expect.equals("(String _, _, _)", test2(("0", 1, 2)));
   Expect.equals("default", test2((1, 1, 3)));
   Expect.equals("default", test2(((1, 2), 3, 4)));
 
-  Expect.equals("(_, 2, var x)", test3((1, 2, "3")));
+  Expect.equals("[_, 2, var x]", test3((1, 2, "3")));
   Expect.equals("(String _, _, _)", test3(("0", 1, 2)));
   Expect.equals("default", test3((1, 1, 3)));
   Expect.equals("default", test3(((1, 2), 3, 4)));
