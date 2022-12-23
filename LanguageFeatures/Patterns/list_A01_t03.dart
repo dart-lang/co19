@@ -80,7 +80,7 @@ String test(List list) {
   if (list case [11, {1: _}]) {
     return "map-1";
   }
-  if (list case [11, <String, String>{"1": _}]) {
+  if (list case [11, <String, int>{"1": _}]) {
     return "map-2";
   }
   if (list case [12, (var x,)]) {
