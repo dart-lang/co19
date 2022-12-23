@@ -43,13 +43,13 @@ class C {
 }
 
 String test(Record record) {
-  if (record case (n1: > 0 || -42)) {
+  if (record case (n1: 0 || -42)) {
     return "logical-or";
   }
-  if (record case (n2: > 0 && < 10)) {
+  if (record case (n2: 0 && != 1)) {
     return "logical-and";
   }
-  if (record case (n3: > 0)) {
+  if (record case (n3: != 0)) {
     return "relational";
   }
   if (record case (n4: var c as num)) {
@@ -113,10 +113,10 @@ String test(Record record) {
 }
 
 main() {
-  Expect.equals("logical-or", test((n1: 1)));
+  Expect.equals("logical-or", test((n1: 0)));
   Expect.equals("logical-or", test((n1: -42)));
   Expect.equals("default", test((n1: -100)));
-  Expect.equals("logical-and", test((n2: 1)));
+  Expect.equals("logical-and", test((n2: 0)));
   Expect.equals("default", test((n2: 10)));
   Expect.equals("relational", test((n3: 1)));
   Expect.equals("default", test((n3: 0)));

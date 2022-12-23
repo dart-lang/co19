@@ -44,11 +44,11 @@ class C {
 
 String test(Record record) {
   switch (record) {
-    case (1, > 0 || -42):
+    case (1, 0 || -42):
       return "logical-or";
-    case (2, > 0 && < 10):
+    case (2, 0 && != 1):
       return "logical-and";
-    case (3, > 0):
+    case (3, != 0):
       return "relational";
     case (4, var c as num):
       return "cast = ${c.toStringAsFixed(2).replaceFirst(".00", "")}";
@@ -94,10 +94,10 @@ String test(Record record) {
 }
 
 main() {
-  Expect.equals("logical-or", test((1, 1)));
+  Expect.equals("logical-or", test((1, 0)));
   Expect.equals("logical-or", test((1, -42)));
   Expect.equals("default", test((1, -100)));
-  Expect.equals("logical-and", test((2, 1)));
+  Expect.equals("logical-and", test((2, 0)));
   Expect.equals("default", test((2, 10)));
   Expect.equals("relational", test((3, 1)));
   Expect.equals("default", test((3, 0)));

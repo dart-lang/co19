@@ -33,9 +33,9 @@ class C {
 
 String test(List list) {
   return switch (list) {
-    [1, > 0 || -42] => "logical-or",
-    [2, > 0 && < 10] => "logical-and",
-    [3, > 0] => "relational",
+    <num>[1, > 0 || -42] => "logical-or",
+    <num>[2, > 0 && < 10] => "logical-and",
+    <num>[3, > 0] => "relational",
     [4, var c as num] => "cast",
     [5, var a?] => "null-check",
     [6, final b!] => "null-assert",

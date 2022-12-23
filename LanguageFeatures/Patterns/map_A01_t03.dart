@@ -46,51 +46,68 @@ class C {
   const C();
 }
 
-String test(List list) {
-  switch (list) {
-    case {1: > 0 || -42}:
-      return "logical-or";
-    case {2: > 0 && < 10}:
-      return "logical-and";
-    case {3: > 0}:
-      return "relational";
-    case {4: var x as num}:
-      return "cast";
-    case {5: var a?}:
-      return "null-check";
-    case {6: final b!}:
-      return "null-assert";
-    case {7: 42}:
-      return "constant-1";
-    case {7: const C()}:
-      return "constant-2";
-    case {8: String s1}:
-      return "variable-1";
-    case {8: var s2}:
-      return "variable-2";
-    case {80: final String s3}:
-      return "variable-3";
-    case {80: final s4}:
-      return "variable-4";
-    case {9: (42)}:
-      return "parenthesized";
-    case {10: [42, _]}:
-      return "list-1";
-    case {10: <Object>["42", _]}:
-      return "list-2";
-    case {11: {1: _}}:
-      return "map-1";
-    case {11: <String, String>{"1": _}}:
-      return "map-2";
-    case {12: (var x,)}:
-      return "record-1";
-    case {12: (42, x: 0)}:
-      return "record-2";
-    case {13: Square(size: Unit(1))}:
-      return "object";
-    default:
-      return "default";
-  };
+String test(Map map) {
+  if (map case <int, num>{1: > 0 || -42}) {
+    return "logical-or";
+  }
+  if (map case <int, num>{2: > 0 && < 10}) {
+    return "logical-and";
+  }
+  if (map case <int, num>{3: > 0}) {
+    return "relational";
+  }
+  if (map case {4: var x as num}) {
+    return "cast";
+  }
+  if (map case {5: var a?}) {
+    return "null-check";
+  }
+  if (map case {6: final b!}) {
+    return "null-assert";
+  }
+  if (map case {7: 42}) {
+    return "constant-1";
+  }
+  if (map case {7: const C()}) {
+    return "constant-2";
+  }
+  if (map case {8: String s1}) {
+    return "variable-1";
+  }
+  if (map case {8: var s2}) {
+    return "variable-2";
+  }
+  if (map case {80: final String s3}) {
+    return "variable-3";
+  }
+  if (map case {80: final s4}) {
+    return "variable-4";
+  }
+  if (map case {9: (42)}) {
+    return "parenthesized";
+  }
+  if (map case {10: [42, _]}) {
+    return "list-1";
+  }
+  if (map case {10: <Object>["42", _]}) {
+    return "list-2";
+  }
+  if (map case {11: {1: _}}) {
+    return "map-1";
+  }
+  if (map case {11: <String, String>{"1": _}}) {
+    return "map-2";
+  }
+  if (map case {12: (var x,)}) {
+    return "record-1";
+  }
+  if (map case {12: (42, x: 0)}) {
+    return "record-2";
+  }
+  if (map case {13: Square(size: Unit(1))}) {
+    return "object";
+  }
+  return "default";
 }
 
 main() {

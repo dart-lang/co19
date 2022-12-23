@@ -48,9 +48,9 @@ class C {
 
 String test(Map map) {
   return switch (map) {
-    {1: > 0 || -42} => "logical-or",
-    {2: > 0 && < 10} => "logical-and",
-    {3: > 0} => "relational",
+    <int, num>{1: > 0 || -42} => "logical-or",
+    <int, num>{2: > 0 && < 10} => "logical-and",
+    <int, num>{3: > 0} => "relational",
     {4: var x as num} => "cast",
     {5: var a?} => "null-check",
     {6: final b!} => "null-assert",
