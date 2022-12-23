@@ -49,7 +49,7 @@ String test(List list) {
     [10, [42, _]] => "list-1",
     [10, <Object>["42", _]] => "list-2",
     [11, {1: _}] => "map-1",
-    [11, <String, String>{"1": _}] => "map-2",
+    [11, <String, int>{"1": _}] => "map-2",
     [12, (var x,)] => "record-1",
     [12, (42, x: 0)] => "record-2",
     [13, Square(size: const Unit(1))] => "object",

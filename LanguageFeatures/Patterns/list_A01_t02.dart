@@ -65,7 +65,7 @@ String test(List list) {
       return "list-2";
     case [11, {1: _}]:
       return "map-1";
-    case [11, <String, String>{"1": _}]:
+    case [11, <String, int>{"1": _}]:
       return "map-2";
     case [12, (var x,)]:
       return "record-1";
