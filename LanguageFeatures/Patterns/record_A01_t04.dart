@@ -44,9 +44,9 @@ class C {
 
 String test(Record record) {
   return switch (record) {
-    (n1: > 0 || -42) => "logical-or",
-    (n2: > 0 && < 10) => "logical-and",
-    (n3: > 0) => "relational",
+    (n1: 0 || -42) => "logical-or",
+    (n2: 0 && != 1) => "logical-and",
+    (n3: != 0) => "relational",
     (n4: var c as num)
         => "cast = ${c.toStringAsFixed(2).replaceFirst(".00", "")}",
     (n5: var a?) => "null-check = $a",
@@ -72,10 +72,10 @@ String test(Record record) {
 }
 
 main() {
-  Expect.equals("logical-or", test((n1: 1)));
+  Expect.equals("logical-or", test((n1: 0)));
   Expect.equals("logical-or", test((n1: -42)));
   Expect.equals("default", test((n1: -100)));
-  Expect.equals("logical-and", test((n2: 1)));
+  Expect.equals("logical-and", test((n2: 0)));
   Expect.equals("default", test((n2: 10)));
   Expect.equals("relational", test((n3: 1)));
   Expect.equals("default", test((n3: 0)));

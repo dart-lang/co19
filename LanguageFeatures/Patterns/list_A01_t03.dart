@@ -32,13 +32,13 @@ class C {
 }
 
 String test(List list) {
-  if (list case [1, > 0 || const(-42)]) {
+  if (list case <num>[1, > 0 || -42]) {
     return "logical-or";
   }
-  if (list case [2, > 0 && < 10]) {
+  if (list case <num>[2, > 0 && < 10]) {
     return "logical-and";
   }
-  if (list case [3, > 0]) {
+  if (list case <num>[3, > 0]) {
     return "relational";
   }
   if (list case [4, var c as num]) {
