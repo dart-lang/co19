@@ -59,7 +59,7 @@ String test(Record record) {
     return "null-check = $a";
   }
   if (record case (6, final b!)) {
-    return "null-assert = $a";
+    return "null-assert = $b";
   }
   if (record case (7, 42)) {
     return "constant-1";
