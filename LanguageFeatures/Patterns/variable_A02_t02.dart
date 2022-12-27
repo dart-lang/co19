@@ -78,7 +78,10 @@ String testList1(List l) {
 
 String testList2(List l) {
   return switch (l) {
-    var [a, b] => "[$a, $b]",
+     [a, b] => "[$a, $b]",
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
     _ => "default"
   };
 }
