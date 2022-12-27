@@ -23,24 +23,20 @@
 ///     print('First field is int $x and second is String $s.');
 /// }
 /// ```
-/// @description Check that if the type annotation is omitted then the
-/// variable's type is inferred and the pattern matches all values. Test the
-/// case when type, `var` and `final` are omitted
+/// @description Check that if type, `var` and `final` are all omitted then it
+/// is a compile-time error
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
-import "../../Utils/static_type_helper.dart";
-import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
-String testRecord1(Record r, [bool doTypeTest = false]) {
+String testRecord1(Record r) {
   switch (r) {
-    case var (a, b):
-      if (doTypeTest) {
-        a.expectStaticType<Exactly<Object?>>();
-        b.expectStaticType<Exactly<Object?>>();
-      }
+    case (a, b):
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
       return "($a, $b)";
     default:
       return "default";
@@ -49,32 +45,31 @@ String testRecord1(Record r, [bool doTypeTest = false]) {
 
 String testRecord2(Record r) {
   return switch (r) {
-    var (a, b) => "($a, $b)",
+    (a, b) => "($a, $b)",
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
     _ => "default"
   };
 }
 
-String testRecord3(Record r, [bool doTypeTest = false]) {
-  if (r case final (a, b)) {
-    if (doTypeTest) {
-      a.expectStaticType<Exactly<Object?>>();
-      b.expectStaticType<Exactly<Object?>>();
-    }
+String testRecord3(Record r) {
+  if (r case (a, b)) {
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return "($a, $b)";
   } else {
     return "default";
   }
 }
 
-String testList1(List l, [bool doTypeTest = false]) {
+String testList1(List l) {
   switch (l) {
-    case var [a, b]:
-    if (doTypeTest) {
-      a.isOdd;
-      b.substring(0);
-      Expect.throws(() {a.whatever;});
-      Expect.throws(() {b.whatever;});
-    }
+    case [a, b]:
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return "[$a, $b]";
     default:
       return "default";
@@ -88,14 +83,11 @@ String testList2(List l) {
   };
 }
 
-String testList3(List l, [bool doTypeTest = false]) {
-  if (l case final [a, b]) {
-    if (doTypeTest) {
-      a.isOdd;
-      b.substring(0);
-      Expect.throws(() {a.whatever;});
-      Expect.throws(() {b.whatever;});
-    }
+String testList3(List l) {
+  if (l case [a, b]) {
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return "[$a, $b]";
   } else {
     return "default";
@@ -104,14 +96,11 @@ String testList3(List l, [bool doTypeTest = false]) {
 
 String testMap1(Map m) {
   switch (m) {
-    case var {1: a}:
-      a.isOdd;
-      Expect.throws(() {a.whatever;});
+    case {1: a}:
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
       return "{1: $a}";
-    case final {2: b}:
-      b.substring(0);
-      Expect.throws(() {b.whatever;});
-      return "{2: $b}";
     default:
       return "default";
   }
@@ -119,22 +108,20 @@ String testMap1(Map m) {
 
 String testMap2(Map m) {
   return switch (m) {
-    var {1: a} => "{1: $a}",
-    final {2: b} => "{2: $b}",
+    {1: a} => "{1: $a}",
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
     _ => "default"
   };
 }
 
 String testMap3(Map m) {
-  if (m case var {1: a}) {
-    a.isOdd;
-    Expect.throws(() {a.whatever;});
+  if (m case {1: a}) {
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return "{1: $a}";
-  }
-  if (m case final {2: final b}) {
-    b.substring(0);
-    Expect.throws(() {b.whatever;});
-    return "{2: $b}";
   } else {
     return "default";
   }
@@ -142,10 +129,11 @@ String testMap3(Map m) {
 
 String testObject1(Shape shape) {
   switch (shape) {
-    case var Square(area: a):
+    case Square(area: a):
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
       return "a=$a";
-    case final Rectangle(area: b):
-      return "b=$b";
     default:
       return "default";
   }
@@ -153,99 +141,39 @@ String testObject1(Shape shape) {
 
 String testObject2(Shape shape) {
   return switch (shape) {
-    var Square(area: a) => "a=$a",
-    final Rectangle(area: b) => "b=$b",
+    Square(area: a) => "a=$a",
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
     _ => "default"
   };
 }
 
 String testObject3(Shape shape) {
-  if (shape case var Square(area: a)) {
+  if (shape case Square(area: a)) {
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return "a=$a";
-  }
-  if (shape case final Rectangle(area: b)) {
-    return "b=$b";
   } else {
     return "default";
   }
 }
 
 main() {
-  Expect.equals("(1, x)", testRecord1((1, "x"), true));
-  Expect.equals("(1, 2)", testRecord1((1, 2)));
-  Expect.equals("(true, false)", testRecord1((true, false)));
-  Expect.equals("default", testRecord1((1, 2, 3)));
-  Expect.equals("default", testRecord1(("x",)));
+  testRecord1((1, "x"));
+  testRecord2((1, "x"));
+  testRecord3((1, "x"));
 
-  Expect.equals("(1, x)", testRecord2((1, "x")));
-  Expect.equals("(1, 2)", testRecord2((1, 2)));
-  Expect.equals("(true, false)", testRecord2((true, false)));
-  Expect.equals("default", testRecord2((1, 2, 3)));
-  Expect.equals("default", testRecord2(("x",)));
+  testList1([1, "x"]);
+  testList2([1, "x"]);
+  testList3([1, "x"]);
 
-  Expect.equals("(1, x)", testRecord3((1, "x"), true));
-  Expect.equals("(1, 2)", testRecord3((1, 2)));
-  Expect.equals("(true, false)", testRecord3((true, false)));
-  Expect.equals("default", testRecord3((1, 2, 3)));
-  Expect.equals("default", testRecord3(("x",)));
+  testMap1({1: 2});
+  testMap2({1: 2});
+  testMap3({1: 2});
 
-  Expect.equals("[1, x]", testList1([1, "x"], true));
-  Expect.equals("[1, 2]", testList1([1, 2]));
-  Expect.equals("[true, false]", testList1([true, false]));
-  Expect.equals("default", testList1([1, 2, 3]));
-  Expect.equals("default", testList1(["x"]));
-
-  Expect.equals("[1, x]", testList2([1, "x"]));
-  Expect.equals("[1, 2]", testList2([1, 2]));
-  Expect.equals("[true, false]", testList2([true, false]));
-  Expect.equals("default", testList2([1, 2, 3]));
-  Expect.equals("default", testList2(["x"]));
-
-  Expect.equals("[1, x]", testList3([1, "x"]));
-  Expect.equals("[1, 2]", testList3([1, 2]));
-  Expect.equals("[true, false]", testList3([true, false]));
-  Expect.equals("default", testList3([1, 2, 3]));
-  Expect.equals("default", testList3(["x"]));
-
-  Expect.equals("{1: 2}", testMap1({1: 2}));
-  Expect.equals("{1: 3}", testMap1({1: 3, 3: 4}));
-  Expect.equals("{2: x}", testMap1({2: "x"}));
-  Expect.equals("{2: true}", testMap1({2: true}));
-  Expect.equals("default", testMap1({3: 3}));
-  Expect.equals("default", testMap1({}));
-
-  Expect.equals("{1: 2}", testMap2({1: 2}));
-  Expect.equals("{1: 3}", testMap2({1: 3, 3: 4}));
-  Expect.equals("{2: x}", testMap2({2: "x"}));
-  Expect.equals("{2: true}", testMap2({2: true}));
-  Expect.equals("default", testMap2({3: 3}));
-  Expect.equals("default", testMap2({}));
-
-  Expect.equals("{1: 2}", testMap3({1: 2}));
-  Expect.equals("{1: 3}", testMap3({1: 3, 3: 4}));
-  Expect.equals("{2: x}", testMap3({2: "x"}));
-  Expect.equals("{2: true}", testMap3({2: true}));
-  Expect.equals("default", testMap3({3: 3}));
-  Expect.equals("default", testMap3({}));
-
-  Expect.equals("a=1.00", testObject1(Square(1)));
-  Expect.equals("a=4.00", testObject1(Square(2)));
-  Expect.equals("b=2.00", testObject1(Rectangle(1, 2)));
-  Expect.equals("b=4.00", testObject1(Rectangle(2, 2)));
-  Expect.equals("default", testObject1(Circle(1)));
-  Expect.equals("default", testObject1(Shape()));
-
-  Expect.equals("a=1.00", testObject2(Square(1)));
-  Expect.equals("a=4.00", testObject2(Square(2)));
-  Expect.equals("b=2.00", testObject2(Rectangle(1, 2)));
-  Expect.equals("b=4.00", testObject2(Rectangle(2, 2)));
-  Expect.equals("default", testObject2(Circle(1)));
-  Expect.equals("default", testObject2(Shape()));
-
-  Expect.equals("a=1.00", testObject3(Square(1)));
-  Expect.equals("a=4.00", testObject3(Square(2)));
-  Expect.equals("b=2.00", testObject3(Rectangle(1, 2)));
-  Expect.equals("b=4.00", testObject3(Rectangle(2, 2)));
-  Expect.equals("default", testObject3(Circle(1)));
-  Expect.equals("default", testObject3(Shape()));
+  testObject1(Square(1));
+  testObject2(Square(1));
+  testObject3(Square(1));
 }
