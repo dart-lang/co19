@@ -36,7 +36,7 @@ import "patterns_lib.dart";
 
 String testRecord1(Record r, [bool doTypeTest = false]) {
   switch (r) {
-    case (a, b):
+    case var (a, b):
       if (doTypeTest) {
         a.expectStaticType<Exactly<Object?>>();
         b.expectStaticType<Exactly<Object?>>();
@@ -49,13 +49,13 @@ String testRecord1(Record r, [bool doTypeTest = false]) {
 
 String testRecord2(Record r) {
   return switch (r) {
-    (a, b) => "($a, $b)",
+    var (a, b) => "($a, $b)",
     _ => "default"
   };
 }
 
 String testRecord3(Record r, [bool doTypeTest = false]) {
-  if (r case (a, b)) {
+  if (r case final (a, b)) {
     if (doTypeTest) {
       a.expectStaticType<Exactly<Object?>>();
       b.expectStaticType<Exactly<Object?>>();
@@ -68,7 +68,7 @@ String testRecord3(Record r, [bool doTypeTest = false]) {
 
 String testList1(List l, [bool doTypeTest = false]) {
   switch (l) {
-    case [a, b]:
+    case var [a, b]:
     if (doTypeTest) {
       a.isOdd;
       b.substring(0);
@@ -83,13 +83,13 @@ String testList1(List l, [bool doTypeTest = false]) {
 
 String testList2(List l) {
   return switch (l) {
-    [a, b] => "[$a, $b]",
+    var [a, b] => "[$a, $b]",
     _ => "default"
   };
 }
 
 String testList3(List l, [bool doTypeTest = false]) {
-  if (l case [a, b]) {
+  if (l case final [a, b]) {
     if (doTypeTest) {
       a.isOdd;
       b.substring(0);
@@ -104,11 +104,11 @@ String testList3(List l, [bool doTypeTest = false]) {
 
 String testMap1(Map m) {
   switch (m) {
-    case {1: a}:
+    case var {1: a}:
       a.isOdd;
       Expect.throws(() {a.whatever;});
       return "{1: $a}";
-    case {2: b}:
+    case final {2: b}:
       b.substring(0);
       Expect.throws(() {b.whatever;});
       return "{2: $b}";
@@ -119,19 +119,19 @@ String testMap1(Map m) {
 
 String testMap2(Map m) {
   return switch (m) {
-    {1: a} => "{1: $a}",
-    {2: b} => "{2: $b}",
+    var {1: a} => "{1: $a}",
+    final {2: b} => "{2: $b}",
     _ => "default"
   };
 }
 
 String testMap3(Map m) {
-  if (m case {1: a}) {
+  if (m case var {1: a}) {
     a.isOdd;
     Expect.throws(() {a.whatever;});
     return "{1: $a}";
   }
-  if (m case {2: final b}) {
+  if (m case final {2: final b}) {
     b.substring(0);
     Expect.throws(() {b.whatever;});
     return "{2: $b}";
@@ -142,9 +142,9 @@ String testMap3(Map m) {
 
 String testObject1(Shape shape) {
   switch (shape) {
-    case Square(area: a):
+    case var Square(area: a):
       return "a=$a";
-    case Rectangle(area: b):
+    case final Rectangle(area: b):
       return "b=$b";
     default:
       return "default";
@@ -153,17 +153,17 @@ String testObject1(Shape shape) {
 
 String testObject2(Shape shape) {
   return switch (shape) {
-    Square(area: a) => "a=$a",
-    Rectangle(area: b) => "b=$b",
+    var Square(area: a) => "a=$a",
+    final Rectangle(area: b) => "b=$b",
     _ => "default"
   };
 }
 
 String testObject3(Shape shape) {
-  if (shape case Square(area: a)) {
+  if (shape case var Square(area: a)) {
     return "a=$a";
   }
-  if (shape case Rectangle(area: b)) {
+  if (shape case final Rectangle(area: b)) {
     return "b=$b";
   } else {
     return "default";
