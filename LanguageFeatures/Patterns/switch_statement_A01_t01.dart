@@ -5,7 +5,7 @@
 /// @assertion We extend switch statements to allow patterns in cases:
 ///
 /// switchStatement         ::= 'switch' '(' expression ')'
-///                             '{' switchStatementCase* switchStatementDefault? '}'
+///                         '{' switchStatementCase* switchStatementDefault? '}'
 /// switchStatementCase     ::= label* 'case' guardedPattern ':' statements
 /// guardedPattern          ::= pattern ( 'when' expression )?
 /// switchStatementDefault  ::= label* 'default' ':' statements
@@ -111,13 +111,13 @@ String testList(List<int> list) {
 
 String testMap(Map<String, int> map) {
   switch (map) {
-    case {"key1:" 1, "key2": 2}:
+    case {"key1": 1, "key2": 2}:
       return "map-1";
-    case {"key1:" 1, "key2": _}:
+    case {"key1": 1, "key2": _}:
       return "map-2";
-    case {"key1:" 1, "key2": 2, ...}:
+    case {"key1": 1, "key2": 2, ...}:
       return "map-3";
-    case {"key1:" 1, "key2": 2, "key3": 3}:
+    case {"key1": 1, "key2": 2, "key3": 3}:
       return "map-4";
     default:
       return "default";
@@ -181,6 +181,6 @@ main() {
   Expect.equals("record-3", testRecord((1, 2, n: 3)));
   Expect.equals("record-4", testRecord((1, 2, n: 4)));
   Expect.equals("object-1", testObject(Square(1)));
-  Expect.equals("object-3", test(Circle(1)));
-  Expect.equals("object-3", test(Circle(2)));
+  Expect.equals("object-3", testObject(Circle(1)));
+  Expect.equals("object-3", testObject(Circle(2)));
 }
