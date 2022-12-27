@@ -173,9 +173,9 @@ main() {
   Expect.equals("list-1", testList([1, 2]));
   Expect.equals("list-2", testList([1, 3]));
   Expect.equals("list-3", testList([1, 2, 3]));
-  Expect.equals("map-1", testMap({"key1:" 1, "key2": 2}));
-  Expect.equals("map-2", testMap({"key1:" 1, "key2": 3}));
-  Expect.equals("map-3", testMap({"key1:" 1, "key2": 2, "key3": 3}));
+  Expect.equals("map-1", testMap({"key1": 1, "key2": 2}));
+  Expect.equals("map-2", testMap({"key1": 1, "key2": 3}));
+  Expect.equals("map-3", testMap({"key1": 1, "key2": 2, "key3": 3}));
   Expect.equals("record-1", testRecord((1, 2)));
   Expect.equals("record-2", testRecord((1, 3)));
   Expect.equals("record-3", testRecord((1, 2, n: 3)));

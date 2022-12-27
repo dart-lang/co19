@@ -22,7 +22,7 @@ import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
 String test(int value) {
-  switch (int value) {
+  switch (value) {
     case var a1 && 0 || var a1 && 1 when a1 == 0:
       return "logical-or-1";
     case 1 || 2:
