@@ -54,7 +54,7 @@ String test1(Map map) {
 // [analyzer] unspecified
 // [cfe] unspecified
     {(1, n: 2): var a2, (n:2, 1): final b2} => "",
-//                      ^^^^^^^^^
+//                      ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     _ => "default"
@@ -78,7 +78,7 @@ void test2(Map map) {
 // [analyzer] unspecified
 // [cfe] unspecified
     case {(1, n: 2): var a2, (n:2, 1): final b2}:
-//                           ^^^^^^^^^
+//                           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
       break;

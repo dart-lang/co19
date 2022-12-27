@@ -46,8 +46,8 @@ class C {
   const C();
 }
 
-String test(List list) {
-  switch (list) {
+String test(Map map) {
+  switch (map) {
     case <int, num>{1: > 0 || -42}:
       return "logical-or";
     case <int, num>{2: > 0 && < 10}:
