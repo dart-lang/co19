@@ -33,11 +33,67 @@ testRecord(Record r) {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+  switch (r) {
+    case (var _, String s):
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (r) {
+    case (final _, String s):
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (r) {
+    case (int _, String s):
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (r) {
+    case (final int _, String s):
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
 testList(List list) {
   switch (list) {
     case [_, String s]:
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (list) {
+    case [var _, String s]:
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (list) {
+    case [final _, String s]:
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (list) {
+    case [final int _, String s]:
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (list) {
+    case [int _, String s]:
       if (_ is int) {}
 //        ^
 // [analyzer] unspecified
@@ -53,11 +109,60 @@ testMap(Map map) {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+  switch (map) {
+    case {1: var _}:
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (map) {
+    case {1: final _}:
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (map) {
+    case {1: final int _}:
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (map) {
+    case {1: int _}:
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
 testObject(Shape shape) {
   switch (shape) {
     case Rectangle(size: 1, area: _):
+      if (_ == 1) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (shape) {
+    case Rectangle(size: 1, area: var _):
+      if (_ == 1) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (shape) {
+    case Rectangle(size: 1, area: final _):
+      if (_ == 1) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (shape) {
+    case Rectangle(size: 1, area: final Unit _):
       if (_ == 1) {}
 //        ^
 // [analyzer] unspecified
