@@ -29,25 +29,25 @@ main() {
 // [cfe] unspecified
 
   int a2 = 3;
-  [a2, _] = [1, 2];
+  [a2, _] ??= [1, 2];
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   var a3 = 42;
-  {"key1": a3, "key2": _} = {"key1": 1, "key2": 2};
+  {"key1": a3, "key2": _} ??= {"key1": 1, "key2": 2};
 //^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   var a4 = 3;
-  (a4, _) = (1, 2);
+  (a4, _) ??= (1, 2);
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   int a5 = 3;
-  Square(areaAsInt: a5, sizeAsInt: _) = Square(1);
+  Square(areaAsInt: a5, sizeAsInt: _) ??= Square(1);
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

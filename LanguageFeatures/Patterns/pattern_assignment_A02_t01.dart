@@ -44,7 +44,7 @@ main() {
 
   var a4 = 3;
   final x4 = (a4, _) = (1, 2);
-  Expect.equals(1, a1);
+  Expect.equals(1, a4);
   Expect.equals(1, x4.$0);
   Expect.equals(2, x4.$1);
 
