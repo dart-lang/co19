@@ -75,7 +75,7 @@ String test(List list) {
       return "object";
     default:
       return "default";
-  };
+  }
 }
 
 main() {
