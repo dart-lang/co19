@@ -122,7 +122,7 @@ String testMap(Map<String, int> map) {
   }
 }
 
-String testRecord(Record record) {
+String testRecord((int, int) record) {
   switch (record) {
     case (1, var _) when _ > 0:
 //                       ^
