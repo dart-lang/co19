@@ -40,7 +40,7 @@ class Number1 extends MyNumber {
   final int value;
   const Number1({required String name, required int value})
       : this.name = name,
-        this.value = value;
+        this.value = value + 1;
 }
 
 class Number2 extends MyNumber {
