@@ -59,8 +59,8 @@ String testNum(num value) {
     Zero => "zero",
     Pi =>"pi",
     Answer => "answer",
-    Negative => "nagative",
-    NegativePi => "nagative-pi",
+    Negative => "negative",
+    NegativePi => "negative-pi",
     MaxJSInt => "max_int",
     _ => "default"
   };

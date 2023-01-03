@@ -49,7 +49,7 @@ String test(Color value) {
     Color.white => "white",
     Color.red => "red",
     Color.yellow => "yellow",
-    Color.blue => "default",
+    Color.blue => "blue",
     Color.black => "black",
     _ => "default"
   };
