@@ -31,7 +31,7 @@ main() {
   Expect.isFalse(matches([2, 2]));
   Expect.isFalse(matches([2, 3, 4]));
   Expect.isFalse(matches([2, "3"]));
-  Expect.isFalse(matches(["1", 3]));
+  Expect.isFalse(matches([3.14, 3]));
   Expect.isTrue(matches([1, 3]));
   Expect.isTrue(matches([2, 3]));
 }
