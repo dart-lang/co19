@@ -79,13 +79,16 @@ String test(List list) {
 }
 
 main() {
-  Expect.equals("logical-or", test([1, 1]));
-  Expect.equals("logical-or", test([1, -42]));
-  Expect.equals("default", test([1, -100]));
-  Expect.equals("logical-and", test([2, 1]));
-  Expect.equals("default", test([2, 10]));
-  Expect.equals("relational", test([3, 1]));
-  Expect.equals("default", test([3, 0]));
+  Expect.equals("logical-or", test(<num>[1, 1]));
+  Expect.equals("logical-or", test(<num>[1, -42]));
+  Expect.equals("default", test(<num>[1, -100]));
+  Expect.equals("default", test([1, 1]));
+  Expect.equals("logical-and", test(<num>[2, 1]));
+  Expect.equals("default", test(<num>[2, 10]));
+  Expect.equals("default", test([2, 1]));
+  Expect.equals("relational", test(<num>[3, 1]));
+  Expect.equals("default", test(<num>[3, 0]));
+  Expect.equals("default", test([3, 1]));
   Expect.equals("cast", test([4, 42]));
   Expect.equals("cast", test([4, 3.14]));
   Expect.throws(() {test([4, "42"]);});

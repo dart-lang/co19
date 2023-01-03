@@ -74,16 +74,19 @@ main() {
   Expect.equals(4, a3);
   Expect.equals(5, b3);
 
-  Expect.equals("[1, 2, 3, 4, ...]", test1([1, 2, 3, 4, 5, 6]));
+  Expect.equals("[1, 2, 3, 4, ...]", test1(<int>[1, 2, 3, 4, 5, 6]));
   Expect.equals("[2, ..., 5, 6]", test1([2, 3, 4, 5, 6]));
-  Expect.equals("[..., 6, 7, 8]", test1([3, 4, 5, 6, 7, 8]));
+  Expect.equals("[..., 6, 7, 8]", test1(<int>[3, 4, 5, 6, 7, 8]));
   Expect.equals("default", test1([1, 2]));
-  Expect.equals("[1, 2, 3, 4, ...]", test2([1, 2, 3, 4, 5, 6]));
+  Expect.equals("default", test1([1, 2, 3, 4, 5, 6]));
+  Expect.equals("[1, 2, 3, 4, ...]", test2(<int>[1, 2, 3, 4, 5, 6]));
   Expect.equals("[2, ..., 5, 6]", test2([2, 3, 4, 5, 6]));
-  Expect.equals("[..., 6, 7, 8]", test2([3, 4, 5, 6, 7, 8]));
+  Expect.equals("[..., 6, 7, 8]", test2(<int>[3, 4, 5, 6, 7, 8]));
   Expect.equals("default", test2([1, 2]));
-  Expect.equals("[1, 2, 3, 4, ...]", test3([1, 2, 3, 4, 5, 6]));
+  Expect.equals("default", test2([1, 2, 3, 4, 5, 6]));
+  Expect.equals("[1, 2, 3, 4, ...]", test3(<int>[1, 2, 3, 4, 5, 6]));
   Expect.equals("[2, ..., 5, 6]", test3([2, 3, 4, 5, 6]));
-  Expect.equals("[..., 6, 7, 8]", test3([3, 4, 5, 6, 7, 8]));
+  Expect.equals("[..., 6, 7, 8]", test3(<int>[3, 4, 5, 6, 7, 8]));
   Expect.equals("default", test3([1, 2]));
+  Expect.equals("default", test3([1, 2, 3, 4, 5, 6]));
 }
