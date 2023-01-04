@@ -104,7 +104,7 @@ String test(Map map) {
   if (map case {12: (42, x: 0)}) {
     return "record-2";
   }
-  if (map case {13: Square(size: Unit(1))}) {
+  if (map case {13: Square(size: const Unit(1))}) {
     return "object";
   }
   return "default";
