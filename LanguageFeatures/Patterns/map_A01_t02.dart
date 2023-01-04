@@ -94,13 +94,13 @@ String test(Map map) {
 }
 
 main() {
-  Expect.equals("logical-or", test({1: 1}));
-  Expect.equals("logical-or", test({1: -42}));
-  Expect.equals("default", test({1: -100}));
-  Expect.equals("logical-and", test({2: 1}));
-  Expect.equals("default", test({2: 10}));
-  Expect.equals("relational", test({3: 1}));
-  Expect.equals("default", test({3: 0}));
+  Expect.equals("logical-or", test(<int, num>{1: 1}));
+  Expect.equals("logical-or", test(<int, num>{1: -42}));
+  Expect.equals("default", test(<int, num>{1: -100}));
+  Expect.equals("logical-and", test(<int, num>{2: 1}));
+  Expect.equals("default", test(<int, num>{2: 10}));
+  Expect.equals("relational", test(<int, num>{3: 1}));
+  Expect.equals("default", test(<int, num>{3: 0}));
   Expect.equals("cast", test({4: 42}));
   Expect.throws(() {test({4: "42"});});
   Expect.equals("null-check", test({5: 42}));
@@ -117,10 +117,10 @@ main() {
   Expect.equals("parenthesized", test({9: 42}));
   Expect.equals("default", test({9: "42"}));
   Expect.equals("list-1", test({10: [42, 42]}));
-  Expect.equals("list-2", test({10: ["42", 42]}));
+  Expect.equals("list-2", test({10: <Object>["42", 42]}));
   Expect.equals("default", test({10: [Object(), 42]}));
   Expect.equals("map-1", test({11: {1: 42}}));
-  Expect.equals("map-2", test({11: {"1": "42"}}));
+  Expect.equals("map-2", test({11: <String, String>{"1": "42"}}));
   Expect.equals("default", test({11: {Object(): 42}}));
   Expect.equals("record-1", test({12: (42,)}));
   Expect.equals("record-2", test({12: (42, x: 0)}));
