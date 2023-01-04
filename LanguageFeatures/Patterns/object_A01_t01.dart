@@ -72,7 +72,7 @@ main() {
   Expect.throws(() {test(Circle(10));});
   Expect.equals("null-check = 12.56", test(Circle(2)));
   Expect.equals("default", test(Circle(20)));
-  Expect.equals("null-assert = 42", test(Circle(3)));
+  Expect.equals("null-assert = 28.26", test(Circle(3)));
   Expect.throws(() {test(Circle(30));});
   Expect.equals("constant", test(Square(1)));
   Expect.equals("variable-1 = 41", test(Rectangle(41, 1)));
