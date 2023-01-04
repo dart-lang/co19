@@ -33,7 +33,7 @@
 /// constant is prefixed by '-'. Test static constants in a perfixed library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "patterns_lib.dart" as p;
 

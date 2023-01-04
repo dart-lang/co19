@@ -22,7 +22,7 @@
 /// statement
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "patterns_lib.dart";
 
