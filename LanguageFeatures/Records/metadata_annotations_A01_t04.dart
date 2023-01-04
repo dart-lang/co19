@@ -63,6 +63,6 @@ main() {
   Expect.equals((), r4);
   Expect.equals(5, r5.$0);
   Expect.equals("name", r5.name);
-  Expect.equals(6, r5.$0);
+  Expect.equals(6, r6.$0);
   Expect.equals("name", r6.name);
 }
