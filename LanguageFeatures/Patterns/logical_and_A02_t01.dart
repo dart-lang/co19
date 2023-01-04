@@ -19,7 +19,6 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
 void test(int value, bool match) {

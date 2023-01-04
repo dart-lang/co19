@@ -21,7 +21,7 @@
 /// @description Check that wildcard `_` can be used in Object patterns
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "patterns_lib.dart";
 import "../../Utils/expect.dart";
