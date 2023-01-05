@@ -40,56 +40,56 @@ import "../../Utils/expect.dart";
 main() {
   var x = switch("one") {
     "one" => 1,
-    _ => 0;
+    _ => 0
   };
   Expect.equals(1, x);
 
   x += switch("one") {
     "one" => 1,
-    _ => 0;
+    _ => 0
   };
   Expect.equals(2, x);
 
   x *= switch("two") {
     "two" => 2,
-    _ => 0;
+    _ => 0
   };
   Expect.equals(4, x);
 
   x -= switch("one") {
     "one" => 1,
-    _ => 0;
+    _ => 0
   };
   Expect.equals(3, x);
 
   x &= switch("two") {
     "two" => 2,
-    _ => 0;
+    _ => 0
   };
   Expect.equals(2, x);
 
   x ^= switch("one") {
     "one" => 1,
-    _ => 0;
+    _ => 0
   };
   Expect.equals(3, x);
 
   x %= switch("two") {
     "two" => 1,
-    _ => 0;
+    _ => 0
   };
   Expect.equals(1, x);
 
   x ~/= switch("two") {
     "two" => 1,
-    _ => 0;
+    _ => 0
   };
   Expect.equals(0, x);
 
   double y = 4;
   y /= switch("two") {
     "two" => 2,
-    _ => 0;
+    _ => 0
   };
   Expect.equals(2, y);
 }
