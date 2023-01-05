@@ -64,7 +64,7 @@ String testMap(Map value) {
 
 String testSet(Set value) {
   if (value case const ({1, 2, -3})) {
-    return "{1, 2, 3}";
+    return "{1, 2, -3}";
   } else if (value case const ({'1', '2', '3'})) {
     return "{'1', '2', '3'}";
   } else if (value case const (<dynamic>{})) {
