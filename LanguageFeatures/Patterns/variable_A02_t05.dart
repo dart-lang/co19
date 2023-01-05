@@ -34,7 +34,7 @@ import "../../Utils/expect.dart";
 
 String test1(Map m) {
   switch (m) {
-    case ({1: String b}):
+    case ({1: String a}):
       a.expectStaticType<Exactly<String>>();
       return "{1: <String>$a}";
     case ({1: final int b}):
@@ -47,14 +47,14 @@ String test1(Map m) {
 
 String test2(Map m) {
   return switch (m) {
-    ({1: String b}) => "{1: <String>$a}",
+    ({1: String a}) => "{1: <String>$a}",
     ({1: final int b}) => "{1: <int>$b}",
     _ => "default"
   };
 }
 
 String test3(Map m) {
-  if (m case ({1: String b})) {
+  if (m case ({1: String a})) {
     a.expectStaticType<Exactly<String>>();
     return "{1: <String>$a}";
   }
