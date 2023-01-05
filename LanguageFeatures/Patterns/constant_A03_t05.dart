@@ -108,7 +108,7 @@ String testSet(Set value) {
 }
 
 main() {
-  Expect.equals("<dynamic>[1, -2]", testList(const [1, 2]));
+  Expect.equals("<dynamic>[1, -2]", testList(const [1, -2]));
   Expect.equals("<int>[1, -2]", testList(const <int>[1, -2]));
   Expect.equals("default", testList([1, -2]));
   Expect.equals("default", testList(const <num>[1, -2]));
