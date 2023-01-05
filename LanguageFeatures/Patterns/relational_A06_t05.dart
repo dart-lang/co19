@@ -32,11 +32,11 @@ class C {
 }
 
 void test1(C c, String expected) {
-  if (c case < C(0)) {
+  if (c case < const C(0)) {
     Expect.equals("negative", expected);
-  } else if (c case == C(0)) {
+  } else if (c case == const C(0)) {
     Expect.equals("zero", expected);
-  } else if (c case > C(0)) {
+  } else if (c case > const C(0)) {
     Expect.equals("positive", expected);
   } else {
     Expect.fail("One of the cases above should match");
@@ -44,9 +44,9 @@ void test1(C c, String expected) {
 }
 
 void test2(C c, String expected) {
-  if (c case != C(0)) {
+  if (c case != const C(0)) {
     Expect.equals("non-zero", expected);
-  } else if (c case == C(0)) {
+  } else if (c case == const C(0)) {
     Expect.equals("zero", expected);
   } else {
     Expect.fail("One of the cases above should match");

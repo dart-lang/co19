@@ -33,13 +33,13 @@ class C {
 
 void test1(C c, String expected) {
   switch (c) {
-    case < C(0):
+    case < const C(0):
       Expect.equals("negative", expected);
       break;
-    case == C(0):
+    case == const C(0):
       Expect.equals("zero", expected);
       break;
-    case > C(0):
+    case > const C(0):
       Expect.equals("positive", expected);
       break;
     default:
@@ -49,10 +49,10 @@ void test1(C c, String expected) {
 
 void test2(C c, String expected) {
   switch (c) {
-    case != C(0):
+    case != const C(0):
       Expect.equals("non-zero", expected);
       break;
-    case == C(0):
+    case == const C(0):
       Expect.equals("zero", expected);
       break;
     default:
