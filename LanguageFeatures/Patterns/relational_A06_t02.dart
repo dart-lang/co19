@@ -33,10 +33,10 @@ class C {
 }
 
 String test(List<C> list) => switch (list) {
-  [> C(0) && <= C(2)] => "case 1",
-  [== C(42)] => "case 2",
-  [>= C(10) && < C(20)] => "case 3",
-  [!= C(100)] => "case 4",
+  [> const C(0) && <= const C(2)] => "case 1",
+  [== const C(42)] => "case 2",
+  [>= const C(10) && < const C(20)] => "case 3",
+  [!= const C(100)] => "case 4",
   _ => "default"
 };
 

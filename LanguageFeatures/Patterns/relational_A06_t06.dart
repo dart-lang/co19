@@ -33,13 +33,13 @@ class C {
 }
 
 void test(List<C> list, String expected) {
-  if (list case [> C(0) && <= C(2)]) {
+  if (list case [> const C(0) && <= const C(2)]) {
     Expect.equals("case 1", expected);
-  } else if (list case [== C(42)]) {
+  } else if (list case [== const C(42)]) {
     Expect.equals("case 2", expected);
-  } else if (list case [>= C(10) && < C(20)]) {
+  } else if (list case [>= const C(10) && < const C(20)]) {
     Expect.equals("case 3", expected);
-  } else if (list case [!= C(100)]) {
+  } else if (list case [!= const C(100)]) {
     Expect.equals("case 4", expected);
   } else {
     Expect.equals("default", expected);

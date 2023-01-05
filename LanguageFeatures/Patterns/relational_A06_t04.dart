@@ -34,16 +34,16 @@ class C {
 
 void test(List<C> list, String expected) {
   switch (list) {
-    case [> C(0) && <= C(2)]:
+    case [> const C(0) && <= const C(2)]:
       Expect.equals("case 1", expected);
       break;
-    case [== C(42)]:
+    case [== const C(42)]:
       Expect.equals("case 2", expected);
       break;
-    case [>= C(10) && < C(20)]:
+    case [>= const C(10) && < const C(20)]:
       Expect.equals("case 3", expected);
       break;
-    case [!= C(100)]:
+    case [!= const C(100)]:
       Expect.equals("case 4", expected);
       break;
     default:

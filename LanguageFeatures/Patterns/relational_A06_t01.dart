@@ -33,24 +33,24 @@ class C {
 
 String test1(C c) {
   return switch (c) {
-    < C(0) => "negative",
-    >= C(0) => "positive",
+    < const C(0) => "negative",
+    >= const C(0) => "positive",
     _ => "Impossible!"
   };
 }
 
 String test2(C c) {
   return switch (c) {
-    >= C(0) => "positive",
-    < C(0) => "negative",
+    >= const C(0) => "positive",
+    < const C(0) => "negative",
     _ => "Impossible!"
   };
 }
 
 String test3(C c) {
   return switch (c) {
-    == C(0) => "zero",
-    != C(0) => "non-zero",
+    == const C(0) => "zero",
+    != const C(0) => "non-zero",
     _ => "Impossible!"
   };
 }
