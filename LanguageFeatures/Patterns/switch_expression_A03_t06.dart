@@ -29,8 +29,8 @@
 /// the same context since a switch expression is always delimited by a switch
 /// and }.
 ///
-/// @description Checks a switch expressions can be used as operands of bitwise
-/// operators
+/// @description Check that switch expressions can be used as operands of
+/// bitwise operators
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

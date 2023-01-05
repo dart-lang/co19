@@ -29,85 +29,55 @@
 /// the same context since a switch expression is always delimited by a switch
 /// and }.
 ///
-/// @description Check that switch expressions can be used as operands of
-/// relational operators
+/// @description Check that it is a compile time error if a switch expression
+/// can be used as operand of -- or ++ operator
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
-
-bool test1(String s1, String s2) =>
-  switch (s1) {
+int test1(String s) =>
+  ++switch (s) {
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
     "one" => 1,
     "two" => 2,
     _ => 0
-  } < switch (s2) {
-        "one" => 1,
-        "two" => 2,
-        _ => 0
   };
 
-bool test2(String s1, String s2) =>
-  switch (s1) {
+int test2(String s) =>
+  --switch (s) {
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
     "one" => 1,
     "two" => 2,
     _ => 0
-  } > switch (s2) {
-        "one" => 1,
-        "two" => 2,
-        _ => 0
   };
 
-bool test3(String s1, String s2) =>
-  switch (s1) {
-    "one" => 1,
-    "two" => 2,
-    _ => 0
-  } <= switch (s2) {
-        "one" => 1,
-        "two" => 2,
-        _ => 0
-  };
-
-bool test4(String s1, String s2) =>
-  switch (s1) {
-    "one" => 1,
-    "two" => 2,
-    _ => 0
-  } >= switch (s2) {
-        "one" => 1,
-        "two" => 2,
-        _ => 0
-  };
-
-bool test5(String s) =>
+int test3(String s) =>
   switch (s) {
     "one" => 1,
     "two" => 2,
     _ => 0
-  } is num;
+  }++;
+// ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-bool test6(String s) =>
+int test4(String s) =>
   switch (s) {
     "one" => 1,
     "two" => 2,
     _ => 0
-  } is !num;
-
-num test7(String s) =>
-  switch (s) {
-    "one" => 1,
-    "two" => 2,
-    _ => 0
-  } as num;
+  }--;
+// ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  Expect.isFalse(test1("two", "one"));
-  Expect.isTrue(test2("two", "one"));
-  Expect.isFalse(test3("two", "one"));
-  Expect.isTrue(test4("two", "one"));
-  Expect.isTrue(test5("two"));
-  Expect.isFalse(test6("two"));
-  Expect.equals(2, test7("two"));
+  test1("one");
+  test2("one");
+  test3("one");
+  test4("one");
 }

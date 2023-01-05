@@ -29,8 +29,8 @@
 /// the same context since a switch expression is always delimited by a switch
 /// and }.
 ///
-/// @description Checks a switch expression can be used as operand of cascade
-/// operator
+/// @description Check that a switch expression can be used as operand of
+/// cascade operator
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

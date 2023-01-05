@@ -29,8 +29,8 @@
 /// the same context since a switch expression is always delimited by a switch
 /// and }.
 ///
-/// @description Checks a switch expression can be used as operand of
-/// if-null operator
+/// @description Check that switch expression can be used as operand of if-null
+/// operator
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

@@ -29,7 +29,7 @@
 /// the same context since a switch expression is always delimited by a switch
 /// and }.
 ///
-/// @description Checks a switch expression can be used as operand of prefix
+/// @description Check that a switch expression can be used as operand of prefix
 /// operator `await`
 /// @author sgrekhov22@gmail.com
 

@@ -29,8 +29,8 @@
 /// the same context since a switch expression is always delimited by a switch
 /// and }.
 ///
-/// @description Checks a switch expressions can be used as operands of prefix
-/// operators
+/// @description Check that switch expressions can be used as operands of
+/// prefix operators
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -38,33 +38,19 @@
 import "../../Utils/expect.dart";
 
 int test1(String s) =>
-  ++switch (s) {
-    "one" => 1,
-    "two" => 2,
-    _ => 0
-  };
-
-int test2(String s) =>
-  --switch (s) {
-    "one" => 1,
-    "two" => 2,
-    _ => 0
-  };
-
-int test3(String s) =>
   -switch (s) {
     "one" => 1,
     "two" => 2,
     _ => 0
   };
 
-bool test4(String s) =>
+bool test2(String s) =>
   !switch (s) {
     "true" => true,
     _ => false
   };
 
-int test5(String s) =>
+int test3(String s) =>
   ~switch (s) {
     "one" => 1,
     "two" => 2,
@@ -72,18 +58,12 @@ int test5(String s) =>
   };
 
 main() {
-  Expect.equals(2, test1("one"));
-  Expect.equals(3, test1("two"));
-  Expect.equals(1, test1("zero"));
-  Expect.equals(0, test2("one"));
-  Expect.equals(1, test2("two"));
-  Expect.equals(-1, test2("zero"));
-  Expect.equals(-1, test3("one"));
-  Expect.equals(-2, test3("two"));
-  Expect.equals(0, test3("zero"));
-  Expect.isFalse(test4("true"));
-  Expect.isTrue(test4("false"));
-  Expect.equals(-2, test5("one"));
-  Expect.equals(-3, test5("two"));
-  Expect.equals(-1, test5("zero"));
+  Expect.equals(-1, test1("one"));
+  Expect.equals(-2, test1("two"));
+  Expect.equals(0, test1("zero"));
+  Expect.isFalse(test2("true"));
+  Expect.isTrue(test2("false"));
+  Expect.equals(-2, test3("one"));
+  Expect.equals(-3, test3("two"));
+  Expect.equals(-1, test3("zero"));
 }

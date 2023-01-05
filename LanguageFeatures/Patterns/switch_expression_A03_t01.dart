@@ -29,8 +29,8 @@
 /// the same context since a switch expression is always delimited by a switch
 /// and }.
 ///
-/// @description Checks a switch expressions can be used as operands of postfix
-/// operators
+/// @description Check that switch expressions can be used as operands of
+/// postfix operators
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -69,20 +69,6 @@ bool? test4(String s) =>
     _ => null
   }?.isEven;
 
-int test5(String s) =>
-  switch (s) {
-    "one" => 1,
-    "two" => 2,
-    _ => 0
-  }++;
-
-int test6(String s) =>
-  switch (s) {
-    "one" => 1,
-    "two" => 2,
-    _ => 0
-  }--;
-
 main() {
   Expect.equals(42, test1("foo"));
   Expect.equals(0, test1("bar"));
@@ -90,13 +76,7 @@ main() {
   Expect.equals(0, test2("l2"));
   Expect.isFalse(test3("one"));
   Expect.isTrue(test3("two"));
-  Expect.isFalse(tes4("one"));
+  Expect.isFalse(test4("one"));
   Expect.isTrue(test4("two"));
   Expect.isNull(test4("zero"));
-  Expect.equals(1, test5("one"));
-  Expect.equals(2, test5("two"));
-  Expect.equals(0, test5("zero"));
-  Expect.equals(1, test6("one"));
-  Expect.equals(2, test6("two"));
-  Expect.equals(0, test6("zero"));
 }
