@@ -39,6 +39,9 @@ main() {
 // [cfe] unspecified
   }
   if (shape case Rectangle(x: var x, y: var width)
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
       || Rectangle(:var x, :var y)) {
 //                              ^
 // [analyzer] unspecified
