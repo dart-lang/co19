@@ -46,7 +46,7 @@ String test2(List list) {
   }
 }
 
-String test3(List list) {
+void test3(List list) {
   if (list case <int, String>[1, > 0 || 42]) {
 //                    ^^^^^^
 // [analyzer] unspecified
