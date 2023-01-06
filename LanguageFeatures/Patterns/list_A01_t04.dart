@@ -31,7 +31,7 @@ class C {
 }
 
 main() {
-  var <Object>[a1, _, int c1] = [1, 2, 3];
+  var <Object>[a1, _, Object c1] = [1, 2, 3];
   Expect.equals(1, a1);
   Expect.equals(3, c1);
   a1 = "4";
