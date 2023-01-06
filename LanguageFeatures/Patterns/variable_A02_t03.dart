@@ -53,7 +53,7 @@ String test1(Record r) {
       return "(<String>$e, <bool>$f)";
     case (int g, final h):
       g.expectStaticType<Exactly<int>>();
-      return "(<int>$g,  final $h)";
+      return "(<int>$g, final $h)";
     default:
       return "default";
   }
@@ -64,7 +64,7 @@ String test2(Record r) {
     (int a, String b) => "(<int>$a, <String>$b)",
     (int c, final int d) => "(<int>$c, <int>$d)",
     (String e, bool f) => "(<String>$e, <bool>$f)",
-    (int g, final h) => "(<int>$g,  final $h)",
+    (int g, final h) => "(<int>$g, final $h)",
     _ => "default"
   };
 }
@@ -87,7 +87,7 @@ String test3(Record r) {
   }
   if (r case (int g, final h)) {
     g.expectStaticType<Exactly<int>>();
-    return "(<int>$g,  final $h)";
+    return "(<int>$g, final $h)";
   } else {
     return "default";
   }

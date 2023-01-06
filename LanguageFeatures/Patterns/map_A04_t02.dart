@@ -89,10 +89,10 @@ main() {
     var {c1: a, c2: b} = {3.14: 1, 3.14: 2, 3.14: 3};
   });
   var {c1: a1, c2: b1} = {c1: 1, c2: 2};
-  Expect.equals(2, a1);
+  Expect.equals(1, a1);
   Expect.equals(2, b1);
   final {c1: int a2, c2: int b2} = {c1: 1, c2: 2};
-  Expect.equals(2, a2);
+  Expect.equals(1, a2);
   Expect.equals(2, b2);
 
   Expect.equals("a=2, b=2", test1({c1: 1, c2: 2}));

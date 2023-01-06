@@ -99,7 +99,7 @@ main() {
   Expect.equals("[<int>1, <int>2]", test1([1, 2]));
   Expect.equals("[<int>3, <int>4]", test1([3, 4]));
   Expect.equals("[<String>x, <bool>true]", test1(["x", true]));
-  Expect.equals("(<String>y, <bool>false)", test1(["y", false]));
+  Expect.equals("[<String>y, <bool>false]", test1(["y", false]));
   Expect.equals("[<int>0, final false]", test1([0, false]));
   Expect.equals("[<int>1, final C]", test1([1, C()]));
   Expect.equals("default", test1([true, false]));
@@ -114,7 +114,7 @@ main() {
   Expect.equals("[<int>1, <int>2]", test2([1, 2]));
   Expect.equals("[<int>3, <int>4]", test2([3, 4]));
   Expect.equals("[<String>x, <bool>true]", test2(["x", true]));
-  Expect.equals("(<String>y, <bool>false)", test2(["y", false]));
+  Expect.equals("[<String>y, <bool>false]", test2(["y", false]));
   Expect.equals("[<int>0, final false]", test2([0, false]));
   Expect.equals("[<int>1, final C]", test2([1, C()]));
   Expect.equals("default", test2([true, false]));
@@ -129,7 +129,7 @@ main() {
   Expect.equals("[<int>1, <int>2]", test3([1, 2]));
   Expect.equals("[<int>3, <int>4]", test3([3, 4]));
   Expect.equals("[<String>x, <bool>true]", test3(["x", true]));
-  Expect.equals("(<String>y, <bool>false)", test3(["y", false]));
+  Expect.equals("[<String>y, <bool>false]", test3(["y", false]));
   Expect.equals("[<int>0, final false]", test3([0, false]));
   Expect.equals("[<int>1, final C]", test3([1, C()]));
   Expect.equals("default", test3([true, false]));
