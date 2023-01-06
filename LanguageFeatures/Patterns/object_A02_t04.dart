@@ -35,10 +35,6 @@ String test(Shape shape) {
 //           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    Rectangle(sizeAsInt: 5, :(int areaAsInt)) => "parenthesized",
-//                           ^
-// [analyzer] unspecified
-// [cfe] unspecified
     Rectangle(: [var areaAsList]) => "list",
 //              ^
 // [analyzer] unspecified
