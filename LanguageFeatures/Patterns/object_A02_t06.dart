@@ -34,10 +34,6 @@ void test(Shape shape) {
 //                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  if (shape case Rectangle(sizeAsInt: 5, :(int areaAsInt))) {}
-//                                        ^
-// [analyzer] unspecified
-// [cfe] unspecified
   if (shape case Rectangle(: [var areaAsList])) {}
 //                           ^
 // [analyzer] unspecified
