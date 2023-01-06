@@ -23,7 +23,7 @@ import "../../Utils/expect.dart";
 
 main() {
   int a1 = 42;
-  Record r = ();
+  dynamic r = ();
   ((a1, _) && r) = (1, 2);
   Expect.equals(1, a1);
   Expect.equals(1, r.$0);
