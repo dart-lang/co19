@@ -39,13 +39,13 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  if (value case true && true) {
-//               ^^^^^^^^^^^^
+  if (value case 1 & 2) {
+//               ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  if (value case false || true) {
-//               ^^^^^^^^^^^^^
+  if (value case 1 | 2) {
+//               ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
