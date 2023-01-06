@@ -39,12 +39,12 @@ main() {
 //       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case true && true:
-//       ^^^^^^^^^^^^
+    case 1 & 2:
+//       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case false || true:
-//       ^^^^^^^^^^^^^
+    case 1 | 2:
+//       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     case l[0]:

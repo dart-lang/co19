@@ -39,12 +39,12 @@ int test() {
 //  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    true && true => 2,
-//  ^^^^^^^^^^^^
+    1 & 2 => 2,
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    false || true => 3,
-//  ^^^^^^^^^^^^^
+    1 | 2 => 3,
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     l[0] => 4,
