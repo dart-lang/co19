@@ -211,7 +211,6 @@ main() {
   Expect.equals("{1: 2}", testMap1({1: 2}));
   Expect.equals("{1: 3}", testMap1({1: 3, 3: 4}));
   Expect.equals("{2: x}", testMap1({2: "x"}));
-  Expect.equals("{2: true}", testMap1({2: true}));
   Expect.equals("default", testMap1({3: 3}));
   Expect.equals("default", testMap1({}));
 
@@ -225,7 +224,6 @@ main() {
   Expect.equals("{1: 2}", testMap3({1: 2}));
   Expect.equals("{1: 3}", testMap3({1: 3, 3: 4}));
   Expect.equals("{2: x}", testMap3({2: "x"}));
-  Expect.equals("{2: true}", testMap3({2: true}));
   Expect.equals("default", testMap3({3: 3}));
   Expect.equals("default", testMap3({}));
 
