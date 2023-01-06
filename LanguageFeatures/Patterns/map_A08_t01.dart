@@ -68,10 +68,10 @@ main() {
   Expect.equals(1, a);
   Expect.equals(2, b);
 
-  final {1: 2, 2: int c, ...} = {1: 2, 2: 2, 3: 3};
+  final {1: _, 2: int c, ...} = {1: 2, 2: 2, 3: 3};
   Expect.equals(2, c);
 
-  var {1: 3, 2: _, ...} = {1: 3, 2: 2, 3: 3};
+  var {1: _, 2: _, ...} = {1: 3, 2: 2, 3: 3};
 
   Expect.equals("case-1", test1({1: 1, 2: 1}));
   Expect.equals("case-1", test1({1: 1, 2: 2, 3: 3}));
