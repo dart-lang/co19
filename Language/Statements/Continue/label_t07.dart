@@ -22,8 +22,10 @@ main() {
     case 1:
       x = 0;
       continue L;
-//             ^
-// [analyzer] unspecified
+  //  ^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.CONTINUE_LABEL_INVALID
+  //  ^^^^^^^^
+  // [cfe] A 'continue' label must be on a loop or a switch member.
     default:
       x = 2;
   }
