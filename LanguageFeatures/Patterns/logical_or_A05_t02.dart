@@ -40,6 +40,7 @@ main() {
   const zero = Unit(0, logger);
   const one = Unit(1, logger);
   const two = Unit(2, logger);
+  const three = Unit(3, logger);
   const pi = Unit(3.14, logger);
 
   Shape shape1 = Square(1, logger);
