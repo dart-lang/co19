@@ -54,13 +54,13 @@ String test2(List list) {
 
 String test3(List list) {
   if (list case <int>[1, 2, 3, 4, ... p.Zero]) {
-    return r1.toString();
+    return "case-1";
   }
   if (list case [2, ...p.C0.Zero, 5, 6]) {
-    return r2.toString();
+    return "case-2";
   }
   if (list case <int>[... /* comment */ p.Color.white, 6, 7, 8]) {
-    return r3.toString();
+    return "case-3";
   }
   return "default";
 }
