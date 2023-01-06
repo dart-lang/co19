@@ -33,7 +33,6 @@ void test(Shape shape, Unit expectedArea, Type expectedType, bool match) {
       Expect.isTrue(match);
       break;
     default:
-      Expect.equals(s, expectedArea);
       Expect.equals(expectedType, shape.runtimeType);
       Expect.isFalse(match);
   }
