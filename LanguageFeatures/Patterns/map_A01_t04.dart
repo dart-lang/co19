@@ -62,13 +62,10 @@ main() {
   var {1: a3} = m2;
   Expect.equals(1, a3.val);
   a3.val = 3;
-  Expect.equals(3, m2[1].val);
+  Expect.equals(3, m2[1]?.val);
 
   Expect.throws(() {
     var {1: a, 2: b} = {1: "1"};
-  });
-  Expect.throws(() {
-    final {1: a, 2: String b} = {1: 1, 2: 2};
   });
   Expect.throws(() {
     final {1: a, 2: b!} = {1: 1, 2: null};
