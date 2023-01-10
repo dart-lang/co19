@@ -67,7 +67,7 @@ String testNullCheck(int? value) =>
     _ => "default"
   };
 
-String testNullAssert(int? value) {
+String testNullAssert(int? value) =>
   switch (value) {
     var a1! when a1 > 0 => "null-assert-1",
     var a2! => "null-assert-2",
@@ -85,18 +85,18 @@ String testList(List<int> list) =>
   switch (list) {
     [1, var a] when a > 0 => "list-1",
     [1, final b, ...] when b < 0 => "list-2",
-    [1, _, ...r] when !r.isEmpty => "list-3",
+    [1, _, ...var r] when !r.isEmpty => "list-3",
     _ => "default"
   };
 
-String testMap(Map<String, int> map) {
+String testMap(Map<String, int> map) =>
   switch (map) {
     {"key1": 1, "key2": var a} when a > 0 => "map-1",
     {"key1": 1, "key2": final b} when b < 0 => "map-2",
     _ => "default"
   };
 
-String testRecord(Record record) {
+String testRecord(Record record) =>
   switch (record) {
     (1, var a) when a > 0 => "record-1",
     (1, final b) when b < 0 => "record-2",
