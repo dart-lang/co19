@@ -39,7 +39,7 @@ import "../../Utils/expect.dart";
 
 String log = "";
 
-class A {
+abstract class A {
   void foo();
   void bar();
 }
