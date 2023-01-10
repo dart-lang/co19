@@ -43,7 +43,7 @@ void test2(num value, String expected) {
 void test3(int value, String expected) {
   if (value case >= 0) {
     Expect.equals("zero or positive", expected);
-  } else if (calue case <= -1) {
+  } else if (value case <= -1) {
     Expect.equals("negative", expected);
   } else {
     Expect.fail("One of the cases above should match");
