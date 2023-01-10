@@ -27,10 +27,10 @@ import "patterns_lib.dart";
 main() {
   int a = 42;
   num d = 3.14;
-  Record r1 = ();
+  (String, int) r1 = ("one", 1);
   ({int n}) r2 = (n: 42);
   List<int> l = [];
-  String areaAsInt = 42;
+  int areaAsInt = 42;
   String s = "";
 
   ((a, _) && r1) = ("one", 2);
@@ -40,11 +40,6 @@ main() {
 
   ((a, _) && r2) = (1, 2);
 //           ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  (d as double) = "one";
-// ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
