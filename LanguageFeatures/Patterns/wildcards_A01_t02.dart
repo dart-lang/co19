@@ -61,14 +61,15 @@ main() {
   Expect.equals(4, __);
 
   var map2 = {"1": 2, "3": 4};
-  var {"1": _, _: num ___} = map2;
+  var {"1": _, "3": num ___} = map2;
   Expect.equals(4, ___);
 
+  dynamic map3 = map2;
   Expect.throws(() {
-    var {"1": String _, "3": num _} = map2;
+    var {"1": String _, "3": num _} = map3;
   });
   Expect.throws(() {
-    var {"1": _, "3": String _} = map2;
+    var {"1": _, "3": String _} = map3;
   });
   Expect.equals("{1, _}", test1({1: 2, 2: 1}));
   Expect.equals("{1, _}", test1({1: 3, 42: ""}));
