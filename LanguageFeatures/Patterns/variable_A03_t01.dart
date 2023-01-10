@@ -41,7 +41,7 @@ main() {
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final [c, String d] = [1, "2"];
+  final <Object>[c, String d] = [1, "2"];
   c = 2;
 //^
 // [analyzer] unspecified
