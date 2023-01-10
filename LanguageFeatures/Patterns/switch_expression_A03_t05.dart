@@ -48,7 +48,7 @@ int test1(String s1, String s2) =>
           _ => 0
   };
 
-double test2(String s1, String s2) =>
+int test2(String s1, String s2) =>
   switch (s1) {
     "one" => 1,
     "two" => 2,
