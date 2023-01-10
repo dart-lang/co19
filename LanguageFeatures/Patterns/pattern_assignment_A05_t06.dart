@@ -30,9 +30,9 @@ import "patterns_lib.dart";
 
 main() {
   var a = 42;
-  Record r = ();
+  (int, int) r = (0, 0);
   late final int af1, af2, af3, af4, af5, af6, af7, af8, areaAsInt;
-  late final Record rf;
+  late final (int, int) rf;
   late final List<int> lf;
 
   if (2 > 1) {
@@ -45,7 +45,7 @@ main() {
     af7 = 0;
     af8 = 0;
     areaAsInt = 0;
-    rf = ();
+    rf = (1, 2);
     lf = [0];
   }
 
