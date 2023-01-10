@@ -56,7 +56,7 @@ String testCast(num value) {
 //                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "cast-1 =$c1";
+      return "cast-1";
     default:
       return "default";
   }
