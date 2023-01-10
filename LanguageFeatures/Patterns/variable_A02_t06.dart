@@ -36,12 +36,13 @@ import "patterns_lib.dart";
 String test1(Shape shape) {
   switch (shape) {
     case Square(area: double d1):
+      d1.expectStaticType<Exactly<double>>();
       return "Square(area: double $d1)";
     case Square(area: Unit a):
       a.expectStaticType<Exactly<Unit>>();
       return "Square(area: $a)";
     case Circle(size: double d2):
-      b.expectStaticType<Exactly<Unit>>();
+      d2.expectStaticType<Exactly<double>>();
       return "Circle(size: double $d2)";
     case Circle(size: Unit b):
       b.expectStaticType<Exactly<Unit>>();
