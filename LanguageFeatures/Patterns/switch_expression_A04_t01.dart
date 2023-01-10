@@ -32,10 +32,10 @@
 
 void test(String s) {
   switch (s) {
-//^^^^^^
+    "one" => 1,
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    "one" => 1,
     _ => 0
   };
 }
@@ -43,10 +43,10 @@ void test(String s) {
 main() {
   String s = "";
   switch (s) {
-//^^^^^^
+    "one" => 1,
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    "one" => 1,
     _ => 0
   };
 }
