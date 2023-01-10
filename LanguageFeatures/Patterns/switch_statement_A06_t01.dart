@@ -98,7 +98,7 @@ String testList(List<int> list) {
       return "list-1";
     case [1, final b, ...] when b < 0:
       return "list-2";
-    case [1, _, ...r] when !r.isEmpty:
+    case [1, _, ...var r] when !r.isEmpty:
       return "list-3";
     default:
       return "default";
@@ -116,12 +116,19 @@ String testMap(Map<String, int> map) {
   }
 }
 
-String testRecord(Record record) {
+String testRecord1((int, int) record) {
   switch (record) {
     case (1, var a) when a > 0:
       return "record-1";
     case (1, final b) when b < 0:
       return "record-2";
+    default:
+      return "default";
+  }
+}
+
+String testRecord2((int, int, {int n}) record) {
+  switch (record) {
     case (1, 2, n: var c) when c > 0:
       return "record-3";
     case (1, 2, n: final d) when d < 0:
@@ -181,12 +188,12 @@ main() {
   Expect.equals("map-2", testMap({"key1": 1, "key2": -3}));
   Expect.equals("default", testMap({"key1": 1, "key2": 0}));
 
-  Expect.equals("record-1", testRecord((1, 2)));
-  Expect.equals("record-2", testRecord((1, -3)));
-  Expect.equals("record-3", testRecord((1, 2, n: 3)));
-  Expect.equals("record-4", testRecord((1, 2, n: -4)));
-  Expect.equals("default", testRecord((1, 0)));
-  Expect.equals("default", testRecord((1, 2, n: 0)));
+  Expect.equals("record-1", testRecord1((1, 2)));
+  Expect.equals("record-2", testRecord1((1, -3)));
+  Expect.equals("default", testRecord1((1, 0)));
+  Expect.equals("record-3", testRecord2((1, 2, n: 3)));
+  Expect.equals("record-4", testRecord2((1, 2, n: -4)));
+  Expect.equals("default", testRecord2((1, 2, n: 0)));
 
   Expect.equals("object-1", testObject(Square(3)));
   Expect.equals("object-2", testObject(Square(1)));
