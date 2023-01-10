@@ -39,6 +39,9 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   on(42, n: "");
 //^^
 // [analyzer] unspecified
