@@ -66,11 +66,12 @@ main() {
   Expect.equals(2, two);
   Expect.equals(4, ___);
 
+  dynamic r3 = r2;
   Expect.throws(() {
-    var (int _, _, _, num _) = r2;
+    var (int _, _, _, num _) = r3;
   });
   Expect.throws(() {
-    var (_, String _, _, num _) = r2;
+    var (_, String _, _, num _) = r3;
   });
   Expect.equals("(_, 2, var x)", test1((1, 2, "3")));
   Expect.equals("(String _, _, _)", test1(("0", 1, 2)));
