@@ -25,16 +25,8 @@ String test(List<num> list) {
 //     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    [== "42"] => "case 2",
-//      ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     [>= "10" && < 20] => "case 3",
 //      ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    [!= "100"] => "case 4",
-//      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     [> 1 && <= true] => "case 5",
