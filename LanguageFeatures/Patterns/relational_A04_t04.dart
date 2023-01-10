@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-String test() {
+String test(List<num> list) {
   int i = 0;
   final j = 10;
   return switch (list) {
@@ -86,5 +86,5 @@ main() {
 //                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  test();
+  test(list);
 }
