@@ -38,6 +38,9 @@ String testRecord1(Record r) {
 // [analyzer] unspecified
 // [cfe] unspecified
       return "($a, $b)";
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
     default:
       return "default";
   }
@@ -59,6 +62,9 @@ String testRecord3(Record r) {
 // [analyzer] unspecified
 // [cfe] unspecified
     return "($a, $b)";
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } else {
     return "default";
   }
@@ -71,6 +77,9 @@ String testList1(List l) {
 // [analyzer] unspecified
 // [cfe] unspecified
     return "[$a, $b]";
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
     default:
       return "default";
   }
@@ -92,6 +101,9 @@ String testList3(List l) {
 // [analyzer] unspecified
 // [cfe] unspecified
     return "[$a, $b]";
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } else {
     return "default";
   }
@@ -104,6 +116,9 @@ String testMap1(Map m) {
 // [analyzer] unspecified
 // [cfe] unspecified
       return "{1: $a}";
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
     default:
       return "default";
   }
@@ -125,6 +140,9 @@ String testMap3(Map m) {
 // [analyzer] unspecified
 // [cfe] unspecified
     return "{1: $a}";
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } else {
     return "default";
   }
@@ -137,6 +155,9 @@ String testObject1(Shape shape) {
 // [analyzer] unspecified
 // [cfe] unspecified
       return "a=$a";
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
     default:
       return "default";
   }
@@ -158,6 +179,9 @@ String testObject3(Shape shape) {
 // [analyzer] unspecified
 // [cfe] unspecified
     return "a=$a";
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } else {
     return "default";
   }
