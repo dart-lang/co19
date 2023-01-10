@@ -59,7 +59,7 @@ main() {
   Expect.equals(Unit(1), a7);
   var (n: Square(size: Unit a8)) = (n: Square(2));
   Expect.equals(Unit(2), a8);
-  var (n: Square(size: unit a9), Circle(size: Unit b9)) =
+  var (n: Square(size: Unit a9), Circle(size: Unit b9)) =
     (n: Square(1), Circle(1));
   Expect.equals(Unit(1), a9);
   Expect.equals(Unit(1), b9);
