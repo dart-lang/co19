@@ -24,7 +24,7 @@ import "patterns_lib.dart";
 
 main() {
   int a1 = 42;
-  Record r1 = ();
+  dynamic r1 = ();
   var x1 = ((a1, _) && r1) = (1, 2);
   Expect.equals(1, a1);
   Expect.equals(1, r1.$0);
