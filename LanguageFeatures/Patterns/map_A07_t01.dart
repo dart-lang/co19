@@ -58,7 +58,7 @@ void test2(Map map) {
   }
 }
 
-String test3(Map map) {
+void test3(Map map) {
   if (map case {1: _, 2: _, ..., 3: _}) {
 //                          ^^^
 // [analyzer] unspecified
