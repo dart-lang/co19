@@ -62,10 +62,10 @@ void test2(C c, String expected) {
 
 void test3(C c, String expected) {
   switch (c) {
-    case >= C(0):
+    case >= const C(0):
       Expect.equals("zero or positive", expected);
       break;
-    case <= C(-1):
+    case <= const C(-1):
       Expect.equals("negative", expected);
       break;
     default:

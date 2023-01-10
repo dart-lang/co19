@@ -54,9 +54,9 @@ void test2(C c, String expected) {
 }
 
 void test3(C c, String expected) {
-  if (c case >= C(0)) {
+  if (c case >= const C(0)) {
     Expect.equals("zero or positive", expected);
-  } else if (c case <= C(-1)) {
+  } else if (c case <= const C(-1)) {
     Expect.equals("negative", expected);
   } else {
     Expect.fail("One of the cases above should match");
