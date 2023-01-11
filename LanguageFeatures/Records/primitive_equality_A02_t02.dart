@@ -29,40 +29,45 @@ class C {
 
 main() {
   const m1 = {
-    const (1, "2", String, C(), Object(), Symbol('foo')) : 1
-//        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
+//           ^
 // [cfe] unspecified
+    const (1, "2", String, C(), Object(), Symbol('foo')) : 1
+//        ^
+// [analyzer] unspecified
   };
   const m2 = {
-    (1, "2", String, const C(), const Object(), const Symbol('foo')): 2
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
+//           ^
 // [cfe] unspecified
+    (1, "2", String, const C(), const Object(), const Symbol('foo')): 2
+//  ^
+// [analyzer] unspecified
   };
   const m3 = {
-    const (one: 1, two: "2", three: String, four: C(), five: Object(), six: Symbol('foo')): 3
-//        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
+//           ^
 // [cfe] unspecified
+    const (one: 1, two: "2", three: String, four: C(), five: Object(), six: Symbol('foo')): 3
+//        ^
+// [analyzer] unspecified
   };
   const m4 = {
-    (one: 1, two: "2", three: String, four: const C(), five: const Object(), six: const Symbol('foo')): 4
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
+//           ^
 // [cfe] unspecified
-
+    (one: 1, two: "2", three: String, four: const C(), five: const Object(), six: const Symbol('foo')): 4
+//  ^
+// [analyzer] unspecified
   };
   const m5 = {
-    const (1, two: "2", String, four: C(), five: Object(), Symbol('foo')): 5
-//        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
+//           ^
 // [cfe] unspecified
+    const (1, two: "2", String, four: C(), five: Object(), Symbol('foo')): 5
+//        ^
+// [analyzer] unspecified
   };
   const m6 = {
-    (1, two: "2", String, const C(), five: const Object(), const Symbol('foo')): 6
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
+//           ^
 // [cfe] unspecified
+    (1, two: "2", String, const C(), five: const Object(), const Symbol('foo')): 6
+//  ^
+// [analyzer] unspecified
   };
 }

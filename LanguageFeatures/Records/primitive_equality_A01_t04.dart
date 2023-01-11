@@ -25,25 +25,28 @@ class C {
 
 main() {
   const m1 = {
+//           ^
+// [cfe] unspecified
     const (1, "2", String, C(), Object(), Symbol('foo')) : 1,
     (1, "2", String, const C(), const Object(), const Symbol('foo')): 2
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//  ^
 // [analyzer] unspecified
-// [cfe] unspecified
   };
   const m2 = {
+//           ^
+// [cfe] unspecified
     const (one: 1, two: "2", three: String, four: C(), five: Object(),
       six: Symbol('foo')): 3,
     (one: 1, two: "2", three: String, four: const C(), five: const Object(), six: const Symbol('foo')): 4
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//  ^
 // [analyzer] unspecified
-// [cfe] unspecified
   };
   const m3 = {
+//           ^
+// [cfe] unspecified
     const (1, two: "2", String, four: C(), five: Object(), Symbol('foo')): 5,
     (1, two: "2", String, four: const C(), five: const Object(), const Symbol('foo')): 6
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//  ^
 // [analyzer] unspecified
-// [cfe] unspecified
   };
 }
