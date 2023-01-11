@@ -68,14 +68,14 @@ String test3(Map m) {
 
 main() {
   Expect.equals("{1: <String>x}", test1({1: "x"}));
-  Expect.equals("{1: <int>2]", test1({1: 2}));
+  Expect.equals("{1: <int>2}", test1({1: 2}));
   Expect.equals("default", test1({1: true}));
 
   Expect.equals("{1: <String>x}", test2({1: "x"}));
-  Expect.equals("{1: <int>2]", test2({1: 2}));
+  Expect.equals("{1: <int>2}", test2({1: 2}));
   Expect.equals("default", test2({1: true}));
 
   Expect.equals("{1: <String>x}", test3({1: "x"}));
-  Expect.equals("{1: <int>2]", test3({1: 2}));
+  Expect.equals("{1: <int>2}", test3({1: 2}));
   Expect.equals("default", test3({1: true}));
 }

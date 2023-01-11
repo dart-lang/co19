@@ -109,5 +109,5 @@ main() {
   Expect.equals(1, test3("three", "two"));
   Expect.equals(1, test4("three", "two"));
   Expect.equals(3, test5("one", "two"));
-  Expect.equals(-1, test5("one", "two"));
+  Expect.equals(-1, test6("one", "two"));
 }

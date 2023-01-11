@@ -75,13 +75,13 @@ main() {
   Expect.equals(3, x);
 
   x %= switch("two") {
-    "two" => 1,
+    "two" => 2,
     _ => 0
   };
   Expect.equals(1, x);
 
   x ~/= switch("two") {
-    "two" => 1,
+    "two" => 2,
     _ => 0
   };
   Expect.equals(0, x);
