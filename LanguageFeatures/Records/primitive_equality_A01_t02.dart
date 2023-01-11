@@ -25,25 +25,30 @@ class C {
 
 main() {
   const s1 = {
+//           ^
+// [cfe] unspecified
     const (1, "2", String, C(), Object(), Symbol('foo')),
     (1, "2", String, const C(), const Object(), const Symbol('foo'))
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//  ^
 // [analyzer] unspecified
-// [cfe] unspecified
+
   };
   const s2 = {
-    const (one: 1, two: "2", three: String, four: C(), five: Object(),
+//           ^
+// [cfe] unspecified
+ const (one: 1, two: "2", three: String, four: C(), five: Object(),
       six: Symbol('foo')),
     (one: 1, two: "2", three: String, four: const C(), five: const Object(), six: const Symbol('foo'))
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//  ^
 // [analyzer] unspecified
-// [cfe] unspecified
+
   };
   const s3 = {
+//           ^
+// [cfe] unspecified
     const (1, two: "2", String, four: C(), five: Object(), Symbol('foo')),
     (1, two: "2", String, four: const C(), five: const Object(), const Symbol('foo'))
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//  ^
 // [analyzer] unspecified
-// [cfe] unspecified
   };
 }
