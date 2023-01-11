@@ -49,11 +49,11 @@ main() {
   Expect.equals(5, c1);
   Expect.equals("6", d1);
 
-  var [int a2, b2] = [1, 3.14];
+  var [int a2, b2] = [1, 2];
   Expect.equals(1, a2);
-  Expect.equals(3.14, b2);
+  Expect.equals(2, b2);
   a2.expectStaticType<Exactly<int>>();
-  b2.expectStaticType<Exactly<double>>();
+  b2.expectStaticType<Exactly<int>>();
   [a2, b2] = [3, 4];
   Expect.equals(3, a2);
   Expect.equals(4, b2);
