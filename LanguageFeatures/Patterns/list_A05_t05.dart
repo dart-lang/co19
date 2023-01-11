@@ -16,8 +16,8 @@
 /// var [a, b, ...rest, c, d] = [1, 2, 3, 4, 5, 6, 7];
 /// print('$a $b $rest $c $d'); // Prints "1 2 [3, 4, 5] 6 7".
 ///
-/// @description Check that null-check subpattern can be used in a list's rest
-/// pattern
+/// @description Check that it is a static warning if null-check subpattern is
+/// used in a list's rest pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -27,8 +27,17 @@ import "../../Utils/expect.dart";
 String test1(List list) {
   return switch (list) {
     <int>[1, 2, 3, 4, ... var r1?] => r1.toString(),
+//                              ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
+// [cfe] The null-check pattern will have no effect because the matched type isn't nullable.
     [2, ...final r2?, 5, 6] => r2.toString(),
+//                 ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
+// [cfe] The null-check pattern will have no effect because the matched type isn't nullable.
     <int>[.../* comment */ List r3?, 6, 7, 8] => r3.toString(),
+//                                ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
+// [cfe] The null-check pattern will have no effect because the matched type isn't nullable.
     _ => "default"
   };
 }
@@ -36,10 +45,19 @@ String test1(List list) {
 String test2(List list) {
   switch (list) {
     case <int>[1, 2, 3, 4, ... var r1?]:
+//                                   ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
+// [cfe] The null-check pattern will have no effect because the matched type isn't nullable.
       return r1.toString();
     case [2, ...final r2?, 5, 6]:
+//                      ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
+// [cfe] The null-check pattern will have no effect because the matched type isn't nullable.
       return r2.toString();
     case <int>[... /* comment */ List r3?, 6, 7, 8]:
+//                                      ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
+// [cfe] The null-check pattern will have no effect because the matched type isn't nullable.
       return r3.toString();
     default:
       return "default";
@@ -48,28 +66,28 @@ String test2(List list) {
 
 String test3(List list) {
   if (list case <int>[1, 2, 3, 4, ... var r1?]) {
+//                                          ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
+// [cfe] The null-check pattern will have no effect because the matched type isn't nullable.
     return r1.toString();
   }
   if (list case [2, ...final r2?, 5, 6]) {
+//                             ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
+// [cfe] The null-check pattern will have no effect because the matched type isn't nullable.
     return r2.toString();
   }
   if (list case <int>[... /* comment */ List r3?, 6, 7, 8]) {
+//                                             ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
+// [cfe] The null-check pattern will have no effect because the matched type isn't nullable.
     return r3.toString();
   }
   return "default";
 }
 
 main() {
-  Expect.equals([5, 6].toString(), test1([1, 2, 3, 4, 5, 6]));
-  Expect.equals([3, 4].toString(), test1([2, 3, 4, 5, 6]));
-  Expect.equals([3, 4, 5].toString(), test1([3, 4, 5, 6, 7, 8]));
-  Expect.equals("default", test1([1, 2]));
-  Expect.equals([5, 6].toString(), test2([1, 2, 3, 4, 5, 6]));
-  Expect.equals([3, 4].toString(), test2([2, 3, 4, 5, 6]));
-  Expect.equals([3, 4, 5].toString(), test2([3, 4, 5, 6, 7, 8]));
-  Expect.equals("default", test2([1, 2]));
-  Expect.equals([5, 6].toString(), test3([1, 2, 3, 4, 5, 6]));
-  Expect.equals([3, 4].toString(), test3([2, 3, 4, 5, 6]));
-  Expect.equals([3, 4, 5].toString(), test3([3, 4, 5, 6, 7, 8]));
-  Expect.equals("default", test3([1, 2]));
+  test1([1, 2, 3, 4, 5, 6]);
+  test2([1, 2, 3, 4, 5, 6]);
+  test3([1, 2, 3, 4, 5, 6]);
 }

@@ -20,7 +20,7 @@
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
-String test(Object o) {
+String test(Object? o) {
   String toReturn = "";
   switch (o) {
     case 0 || -42:
