@@ -62,13 +62,10 @@ main() {
   Expect.equals(4, __);
 
   var list2 = [1, 2, 3.14, 4];
-  var [int _, two, _, int ___] = list2;
+  var [num _, two, _, num ___] = list2;
   Expect.equals(2, two);
   Expect.equals(4, ___);
 
-  Expect.throws(() {
-    var [int _, _, int _, num _] = list2;
-  });
   Expect.equals("[_, 2, var x]", test1([1, 2, "3"]));
   Expect.equals("[String _, _, _]", test1(["0", 1, 2]));
   Expect.equals("default", test1([1, 1, 3]));
