@@ -41,12 +41,12 @@ main() {
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final [c, String d] = [1, "2"];
+  final [int c, num d] = [1, 2];
   c = 2;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
-  d = "";
+  d = 3;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
