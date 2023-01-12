@@ -52,6 +52,9 @@ class C {
     }
     return false;
   }
+
+  @override
+  int get hashCode => x;
 }
 
 const c1 = C(1);
