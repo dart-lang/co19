@@ -62,7 +62,7 @@ main() {
   Expect.equals(4, __);
 
   var list2 = [1, 2, 3.14, 4];
-  var [int _, two, _, num ___] = list2;
+  var [int _, two, _, int ___] = list2;
   Expect.equals(2, two);
   Expect.equals(4, ___);
 
