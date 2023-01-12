@@ -64,11 +64,6 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final String s2 = "Variable pattern";
-//      ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   var String _ = "Variable pattern";
 //    ^^^^^^^^
 // [analyzer] unspecified

@@ -19,7 +19,7 @@
 /// declaration is used in top-level variables
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "patterns_lib.dart";
 
