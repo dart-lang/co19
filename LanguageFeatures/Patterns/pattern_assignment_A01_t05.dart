@@ -17,7 +17,7 @@
 /// @description Check an object pattern in a pattern assignment
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
@@ -31,9 +31,4 @@ main() {
   Square(areaAsInt: a2, sizeAsInt: b2) = Square(2);
   Expect.equals(4, a2);
   Expect.equals(2, b2);
-
-  int areaAsInt = 5, sizeAsInt = 6;
-  var Square(:areaAsInt,: int sizeAsInt) = Square(3);
-  Expect.equals(9, areaAsInt);
-  Expect.equals(3, sizeAsInt);
 }
