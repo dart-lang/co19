@@ -53,7 +53,7 @@ String test1(List l) {
       return "[<String>$e, <bool>$f]";
     case ([int g, final h]):
       g.expectStaticType<Exactly<int>>();
-      return "[<int>$g,  final $h]";
+      return "[<int>$g, final $h]";
     default:
       return "default";
   }
@@ -64,7 +64,7 @@ String test2(List l) {
     ([int a, String b]) => "[<int>$a, <String>$b]",
     ([int c, final int d]) => "[<int>$c, <int>$d]",
     ([String e, bool f]) => "[<String>$e, <bool>$f]",
-    ([int g, final h]) => "[<int>$g,  final $h]",
+    ([int g, final h]) => "[<int>$g, final $h]",
     _ => "default"
   };
 }
@@ -87,7 +87,7 @@ String test3(List l) {
   }
   if (l case ([int g, final h])) {
     g.expectStaticType<Exactly<int>>();
-    return "[<int>$g,  final $h]";
+    return "[<int>$g, final $h]";
   } else {
     return "default";
   }
