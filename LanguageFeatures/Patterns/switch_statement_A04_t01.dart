@@ -53,7 +53,7 @@ class Number2 extends MyNumber {
 
 String test(MyNumber value) {
   switch (value) {
-    case Number1(name: "one", value: 1):
+    case Number1(name: "one", value: 2):
       return "match-1";
     case Number2():
       return "match-2";
