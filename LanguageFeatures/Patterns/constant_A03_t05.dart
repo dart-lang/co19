@@ -59,7 +59,7 @@ String testMap(Map value) {
   if (value case const <int, int>{1: -2}) {
     return "<int, int>{1: -2}";
   }
-  if (value case const <dynamic, dynamic>{1: 2}) {
+  if (value case const <dynamic, dynamic>{1: -2}) {
     return "<dynamic, dynamic>{1: -2}";
   }
   if (value case const <String, num>{'answer': 42}) {
