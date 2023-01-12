@@ -29,13 +29,13 @@ main() {
   Expect.equals(4, c1);
 
   Expect.throws(() {
-    var Square(areaAsNull: d1 as double) = Square(2);
+    var Square(areaAsInt: d1 as String) = Square(2);
   });
   Expect.throws(() {
-    final Square(areaAsNull: e1 as double) = Square(2);
+    final Square(areaAsInt: e1 as String) = Square(2);
   });
   Expect.throws(() {
-    var Square(areaAsNull: num? f1 as double) = Square(2);
+    var Square(areaAsInt: int f1 as String) = Square(2);
   });
 
   var Square(areaAsNullable: _ as double) = Square(2);
@@ -43,15 +43,15 @@ main() {
   var Square(areaAsNullable: num? _ as double) = Square(2);
   final Square(areaAsNullable: num? _ as double) = Square(2);
   Expect.throws(() {
-    var Square(areaAsNull: _ as double) = Square(2);
+    var Square(areaAsInt: _ as String) = Square(2);
   });
   Expect.throws(() {
-    final Square(areaAsNull: _ as double) = Square(2);
+    final Square(areaAsInt: _ as String) = Square(2);
   });
   Expect.throws(() {
-    var Square(areaAsNull: num? _ as double) = Square(2);
+    var Square(areaAsInt: int _ as String) = Square(2);
   });
   Expect.throws(() {
-    final Square(areaAsNull: num? _ as double) = Square(2);
+    final Square(areaAsInt: int _ as String) = Square(2);
   });
 }
