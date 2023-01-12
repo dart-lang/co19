@@ -67,7 +67,7 @@ String test(Shape shape) {
     case Square(size: Unit(value: 3)):
       return "object-1";
     case Square(sizeAsInt: 4, area: Unit(value: var o1)):
-      return "object-2 = $o1";
+      return "object-2 = ${o1.toInt()}";
     default:
       return "default";
   }

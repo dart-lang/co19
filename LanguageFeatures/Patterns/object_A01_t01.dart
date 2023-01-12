@@ -52,7 +52,8 @@ String test(Shape shape) {
         => "record = ${x1.toInt()}",
     Rectangle(sizeAsInt: 10, areaAsRecord: (area: 1)) => "record-2",
     Square(size: Unit(value: 3)) => "object-1",
-    Square(sizeAsInt: 4, area: Unit(value: var o1)) => "object-2 = $o1",
+    Square(sizeAsInt: 4, area: Unit(value: var o1))
+        => "object-2 = ${o1.toInt()}",
     _ => "default"
   };
 }
