@@ -12,7 +12,7 @@
 /// @description Check that null-assert throws if the matched value is null
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/expect.dart";
 

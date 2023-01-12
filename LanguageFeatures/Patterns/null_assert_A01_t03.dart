@@ -22,8 +22,8 @@ test(List<String?> list, [bool testVisited = false]) {
   if (list case ['name', var name!]) {
     name.expectStaticType<Exactly<String>>();
     name.substring(0);
-  }
-  if (list case ['answer', _!]) {
+    visited = true;
+  } else if (list case ['answer', _!]) {
     visited = true;
   } else {
     Expect.fail("Wrong branch of code");

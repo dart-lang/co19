@@ -42,10 +42,10 @@ main() {
     isInt("42");
   });
 
-  int i = 1;
+  int i = 0;
   switch (i) {
     case zero as int:
-      Expect.equals(1, i);
+      Expect.equals(0, i);
       break;
     default:
       Expect.fail("Shouldn't be here");

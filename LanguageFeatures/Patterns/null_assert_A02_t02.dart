@@ -37,7 +37,7 @@ test2(List<String?> list) {
 
 test3(List<String?> list) {
   Expect.throws(() {
-    return switch (list) {
+    var x = switch (list) {
       ['name', var name!] => 1,
       ['value', _!] => 2,
       _ => 3
