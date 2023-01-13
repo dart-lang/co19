@@ -19,25 +19,25 @@ import "../../Utils/expect.dart";
 typedef R = (int a, String, {int x, int y});
 
 extension ER on R {
-  int get $0 => 42;
-  String get $1 => "ER";
+  int get $1 => 42;
+  String get $2 => "ER";
 }
 
 main() {
   R r1 = (1, "r1", x: 3, y: 4);
-  Expect.equals(1, r1.$0);
-  Expect.equals("r1", r1.$1);
-  Expect.equals(42, ER(r1).$0);
-  Expect.equals("ER", ER(r1).$1);
+  Expect.equals(1, r1.$1);
+  Expect.equals("r1", r1.$2);
+  Expect.equals(42, ER(r1).$1);
+  Expect.equals("ER", ER(r1).$2);
 
   var r2 = (x: 5, y: 6, 0, "r2");
-  Expect.equals(0, r2.$0);
-  Expect.equals("r2", r2.$1);
-  Expect.equals(42, ER(r2).$0);
-  Expect.equals("ER", ER(r2).$1);
+  Expect.equals(0, r2.$1);
+  Expect.equals("r2", r2.$2);
+  Expect.equals(42, ER(r2).$1);
+  Expect.equals("ER", ER(r2).$2);
 
-  Expect.equals(1, (1, "r3", x: 7, y: 8).$0);
-  Expect.equals("r3", (1, "r3", x: 7, y: 8).$1);
-  Expect.equals(42, ER((1, "r3", x: 7, y: 8)).$0);
-  Expect.equals("ER", ER((1, "r3", x: 7, y: 8)).$1);
+  Expect.equals(1, (1, "r3", x: 7, y: 8).$1);
+  Expect.equals("r3", (1, "r3", x: 7, y: 8).$2);
+  Expect.equals(42, ER((1, "r3", x: 7, y: 8)).$1);
+  Expect.equals("ER", ER((1, "r3", x: 7, y: 8)).$2);
 }

@@ -21,22 +21,22 @@ main() {
     r1 = (42, s: "answer");
   }
   if (r1 != null) {
-    r1.$0;
+    r1.$1;
     r1.s;
   } else {
-    r1?.$0;
+    r1?.$1;
     r1?.s;
   }
 
   R2 r2 = (42, o: "answer");
   if (r2 is (int? n, {String o})) {
-    r2.$0?.isOdd;
+    r2.$1?.isOdd;
     r2.o.substring(0);
   }
 
   (List<Object?>, {Object o}) r3 = ([42], o: 42);
   if (r3 is (List<num>, {int o})) {
-    r3.$0[0].sign;
+    r3.$1[0].sign;
     r3.o.isOdd;
   }
 
@@ -45,13 +45,13 @@ main() {
     r4 = (0, s: "s");
   }
   if (r4 != null) {
-    r4.$0.isOdd;
+    r4.$1.isOdd;
     r4.s.substring(0);
   }
 
   Record r5 = (3.13, i: 0);
   if (r5 is (num, {int i})) {
-    r5.$0.sign;
+    r5.$1.sign;
     r5.i.isOdd;
   }
 }

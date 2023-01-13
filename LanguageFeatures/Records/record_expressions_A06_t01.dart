@@ -15,12 +15,12 @@
 
 main() {
   var record1 = ();
-  record1.$0;
+  record1.$1;
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  foo().$0;
+  foo().$1;
 //      ^^
 // [analyzer] unspecified
 // [cfe] unspecified

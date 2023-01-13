@@ -55,10 +55,10 @@ class M<T> {
 @M<num>() foo4() => ();
 
 main() {
-  Expect.equals(1, foo1().$0);
-  Expect.equals("2", foo1().$1);
-  Expect.equals(3, foo2().$0);
-  Expect.equals(4, foo2().$1);
+  Expect.equals(1, foo1().$1);
+  Expect.equals("2", foo1().$2);
+  Expect.equals(3, foo2().$1);
+  Expect.equals(4, foo2().$2);
   Expect.equals(5, foo3().x);
   Expect.equals(6, foo3().y);
   Expect.equals((), foo4());

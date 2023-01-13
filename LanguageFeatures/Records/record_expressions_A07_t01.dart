@@ -24,7 +24,7 @@
 /// A field name that starts with an underscore.
 ///
 /// A field name that collides with the synthesized getter name of a positional
-/// field. For example: ('pos', $0: 'named') since the named field '$0' collides
+/// field. For example: ('pos', $1: 'named') since the named field '$1' collides
 /// with the getter for the first positional field.
 ///
 /// @description Checks that record expression may be constant

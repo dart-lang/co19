@@ -24,7 +24,7 @@
 /// A field name that starts with an underscore.
 ///
 /// A field name that collides with the synthesized getter name of a positional
-/// field. For example: ('pos', $0: 'named') since the named field '$0' collides
+/// field. For example: ('pos', $1: 'named') since the named field '$1' collides
 /// with the getter for the first positional field.
 ///
 /// @description Checks that variables can be used in record expressions
@@ -73,27 +73,27 @@ main() {
   C c = C((i, s: s));
   C c1 = C.c1();
 
-  Expect.equals(i, r1.$0);
+  Expect.equals(i, r1.$1);
   Expect.equals(pi, r1.name);
-  Expect.equals(s, r1.$1);
-  Expect.equals(0, foo().$0);
-  Expect.equals(2.1, foo().$1);
-  Expect.equals(s, foo().$2);
-  Expect.equals(-1, c1.cr.$0);
+  Expect.equals(s, r1.$2);
+  Expect.equals(0, foo().$1);
+  Expect.equals(2.1, foo().$2);
+  Expect.equals(s, foo().$3);
+  Expect.equals(-1, c1.cr.$1);
   Expect.equals(s, c1.cr.s);
-  Expect.equals(i, c.cr.$0);
+  Expect.equals(i, c.cr.$1);
   Expect.equals(s, c.cr.s);
   Expect.equals("answer", c.ar.name);
-  Expect.equals(i, c.ar.$0);
-  Expect.equals(C.ci, C.sr.$0);
+  Expect.equals(i, c.ar.$1);
   Expect.equals(C.ci, C.sr.$1);
-  Expect.equals(i, C.sr.$2);
+  Expect.equals(C.ci, C.sr.$2);
+  Expect.equals(i, C.sr.$3);
   Expect.equals(c1.cx, c1.m().s);
-  Expect.equals(C.sr, c1.m().$0);
-  Expect.equals(2, c1.m().$1);
-  Expect.equals(c1.cx, c1.g.$0);
+  Expect.equals(C.sr, c1.m().$1);
+  Expect.equals(2, c1.m().$2);
+  Expect.equals(c1.cx, c1.g.$1);
   Expect.equals(c1.cr, c1.g.x);
   Expect.equals("pi", c1.ar.name);
-  Expect.equals(pi, c1.ar.$0);
-  Expect.equals(Expect.equals, r.$0);
+  Expect.equals(pi, c1.ar.$1);
+  Expect.equals(Expect.equals, r.$1);
 }

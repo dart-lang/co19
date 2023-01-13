@@ -85,9 +85,9 @@ main() {
   1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021,
       1022, 1023, 1024, 1025);
 
-  Expect.equals(0, r.$0);
-  Expect.equals(101, r.$101);
-  Expect.equals(999, r.$999);
-  Expect.equals(1024, r.$1024);
-  Expect.equals(1025, r.$1025);
+  Expect.equals(0, r.$1);
+  Expect.equals(101, r.$102);
+  Expect.equals(999, r.$1000);
+  Expect.equals(1024, r.$1025);
+  Expect.equals(1025, r.$1026);
 }

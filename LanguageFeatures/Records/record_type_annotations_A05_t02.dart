@@ -19,7 +19,7 @@
 /// A field name that starts with an underscore.
 ///
 /// A field name that collides with the synthesized getter name of a positional
-/// field. For example: (int, $0: int) since the named field '$0' collides with
+/// field. For example: (int, $1: int) since the named field '$1' collides with
 /// the getter for the first positional field.
 ///
 /// @description Checks that it is a compile-time error if a record type has a

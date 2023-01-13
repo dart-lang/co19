@@ -52,13 +52,13 @@ main() {
   });
   if (!isJS) {
     Expect.throws(() {
-      (r1.$1 as dynamic).isEven;
+      (r1.$2 as dynamic).isEven;
     });
   }
   Expect.throws(() {
-    (r1.$2 as dynamic)("42");
+    (r1.$3 as dynamic)("42");
   });
   Expect.throws(() {
-    (r1.$3 as dynamic)("42");
+    (r1.$4 as dynamic)("42");
   });
 }

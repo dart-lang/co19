@@ -44,14 +44,14 @@ main() {
   Object _r4 = r4;
 
   if (_r1 is R1) {
-    _r1.$0;
+    _r1.$1;
   }
   if (_r2 is R2) {
-    _r2.$0;
     _r2.$1;
+    _r2.$2;
   }
   if (_r3 is R3) {
-    _r3.$0;
+    _r3.$1;
     _r3.name;
   }
   if (_r4 is R4) {

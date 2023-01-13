@@ -24,7 +24,7 @@
 /// A field name that starts with an underscore.
 ///
 /// A field name that collides with the synthesized getter name of a positional
-/// field. For example: ('pos', $0: 'named') since the named field '$0' collides
+/// field. For example: ('pos', $1: 'named') since the named field '$1' collides
 /// with the getter for the first positional field.
 ///
 /// @description Checks that record fields may contain functions
@@ -34,11 +34,11 @@
 
 import "../../Utils/expect.dart";
 
-num foo((num, {String name}) r) => r.$0;
+num foo((num, {String name}) r) => r.$1;
 String bar((num, {String name}) r) => r.name;
 
 main() {
   var r = (foo, b: bar);
-  Expect.equals(3.14, r.$0((3.14, name: "pi")));
+  Expect.equals(3.14, r.$1((3.14, name: "pi")));
   Expect.equals("pi", r.b((3.14, name: "pi")));
 }

@@ -24,7 +24,7 @@
 /// A field name that starts with an underscore.
 ///
 /// A field name that collides with the synthesized getter name of a positional
-/// field. For example: ('pos', $0: 'named') since the named field '$0' collides
+/// field. For example: ('pos', $1: 'named') since the named field '$1' collides
 /// with the getter for the first positional field.
 ///
 /// @description Checks that record expressions may contain collections with
@@ -40,6 +40,6 @@ main() {
   int j = 2;
   var r1 = ([1, 2, if (j > i) i + j],);
   var r2 = (x: [i, if (i > j) 0 else i + j, j]);
-  Expect.listEquals([1, 2, 3], r1.$0);
+  Expect.listEquals([1, 2, 3], r1.$1);
   Expect.listEquals([1, 3, 2], r2.x);
 }

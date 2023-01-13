@@ -19,7 +19,7 @@
 /// A field name that starts with an underscore.
 ///
 /// A field name that collides with the synthesized getter name of a positional
-/// field. For example: (int, $0: int) since the named field '$0' collides with
+/// field. For example: (int, $1: int) since the named field '$1' collides with
 /// the getter for the first positional field.
 ///
 /// @description Checks that it is no error if a record type has a field name
@@ -29,37 +29,37 @@
 
 // SharedOptions=--enable-experiment=records
 
-typedef R1 = (int $5, {String s});
+typedef R1 = (int $6, {String s});
 
-typedef R2 = (int, {String $100});
+typedef R2 = (int, {String $101});
 
-typedef (int $0, {int i}) R3();
+typedef (int $1, {int i}) R3();
 
-typedef (int, {int $1}) R4();
+typedef (int, {int $2}) R4();
 
-typedef void R5((String s, {String $1}) r);
+typedef void R5((String s, {String $2}) r);
 
-(int, {int $1})? foo1() => null;
+(int, {int $2})? foo1() => null;
 
-(int $2, {int x})? foo2() => null;
+(int $3, {int x})? foo2() => null;
 
-void bar1((int i, {bool $1}) r) {}
+void bar1((int i, {bool $2}) r) {}
 
-void bar2((int $3, {bool b}) r) {}
+void bar2((int $4, {bool b}) r) {}
 
 main() {
-  (int $0, {String s})? r1 = null;
+  (int $1, {String s})? r1 = null;
 
-  (double d, {int $1})? r2 = null;
+  (double d, {int $2})? r2 = null;
 
-  dynamic d = (1, $1: 0);
-  if (d is (int i, {String $1})) {
+  dynamic d = (1, $2: 0);
+  if (d is (int i, {String $2})) {
   }
 
-  if (d is (int $0, {String s})) {
+  if (d is (int $1, {String s})) {
   }
 
-  d as (int, {int $1});
+  d as (int, {int $2});
   d = (1, i: 42);
-  d as (int $0, {int i});
+  d as (int $1, {int i});
 }

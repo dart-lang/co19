@@ -51,13 +51,13 @@ main() {
 
   ((af1, _) && r) = (1, 2);
   Expect.equals(1, af1);
-  Expect.equals(1, r.$0);
-  Expect.equals(2, r.$1);
+  Expect.equals(1, r.$1);
+  Expect.equals(2, r.$2);
 
   ((a, _) && rf) = (1, 2);
   Expect.equals(1, a);
-  Expect.equals(1, rf.$0);
-  Expect.equals(2, rf.$1);
+  Expect.equals(1, rf.$1);
+  Expect.equals(2, rf.$2);
 
   [af2, _] = [1, 2];
   Expect.equals(1, af2);

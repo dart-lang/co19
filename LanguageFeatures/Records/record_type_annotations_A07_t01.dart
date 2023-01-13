@@ -19,7 +19,7 @@
 /// A field name that starts with an underscore.
 ///
 /// A field name that collides with the synthesized getter name of a positional
-/// field. For example: (int, $0: int) since the named field '$0' collides with
+/// field. For example: (int, $1: int) since the named field '$1' collides with
 /// the getter for the first positional field.
 ///
 /// @description Checks that it is a compile-time error if a record type has a
@@ -29,50 +29,50 @@
 
 // SharedOptions=--enable-experiment=records
 
-typedef R1 = (int i, {String $0});
+typedef R1 = (int i, {String $1});
 //                           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int, {int $0}) R2();
+typedef (int, {int $1}) R2();
 //                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void R3((String s, {String $0}) r);
+typedef void R3((String s, {String $1}) r);
 //                                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (int, {int $0})? foo() => null;
+  (int, {int $1})? foo() => null;
 //           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void bar((int i, {bool $0}) r) {}
+void bar((int i, {bool $1}) r) {}
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  (int, {String $0})? r1 = null;
+  (int, {String $1})? r1 = null;
 //              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (double d, {int $0})? r2 = null;
+  (double d, {int $1})? r2 = null;
 //                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   dynamic d = (1, 3.14);
-  if (d is (int i, {String $0})) {
+  if (d is (int i, {String $1})) {
 //                         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  d as (int, {int $0});
+  d as (int, {int $1});
 //                ^^
 // [analyzer] unspecified
 // [cfe] unspecified

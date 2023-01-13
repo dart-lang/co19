@@ -20,5 +20,5 @@ main() {
   Expect.equals("x", r1.$);
 
   (int $,) r2 = (1,);
-  Expect.equals(1, r2.$0);
+  Expect.equals(1, r2.$1);
 }

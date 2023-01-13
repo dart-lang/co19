@@ -24,6 +24,6 @@ class C {
 
 main() {
   const c = const C(42, "Hi");
-  Expect.equals(43, c.r.$0);
+  Expect.equals(43, c.r.$1);
   Expect.equals("Hi!", c.r.name);
 }

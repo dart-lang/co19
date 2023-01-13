@@ -55,14 +55,14 @@ main() {
 
   @Meta /* comment */ (int, {String name}) r6 = (6, name: "name");
 
-  Expect.equals(1, r1.$0);
-  Expect.equals("2", r1.$1);
-  Expect.equals(3, r2.$0);
-  Expect.equals("4", r2.$1);
+  Expect.equals(1, r1.$1);
+  Expect.equals("2", r1.$2);
+  Expect.equals(3, r2.$1);
+  Expect.equals("4", r2.$2);
   Expect.equals((), r3);
   Expect.equals((), r4);
-  Expect.equals(5, r5.$0);
+  Expect.equals(5, r5.$1);
   Expect.equals("name", r5.name);
-  Expect.equals(6, r6.$0);
+  Expect.equals(6, r6.$1);
   Expect.equals("name", r6.name);
 }

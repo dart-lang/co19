@@ -20,12 +20,12 @@ typedef R = (int a, String, {int x, int y});
 
 main() {
   R r1 = (1, "", x: 3, y: 4);
-  r1.$2;
+  r1.$3;
 //   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  r1.$42;
+  r1.$43;
 //   ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -50,7 +50,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (3, 1, 4, name: "pi").$3;
+  (3, 1, 4, name: "pi").$4;
 //                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified

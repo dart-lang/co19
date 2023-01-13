@@ -33,37 +33,37 @@ main() {
   dynamic r5 = (newC: C.new, initC: C.init);
   dynamic r6 = (foo, C.init, newC: C.new, cBar: C.bar);
 
-  Expect.equals("Lily was here", r1.$0("Lily was here"));
-  Expect.throws(() {r1.$1;}, (e) => e is NoSuchMethodError);
+  Expect.equals("Lily was here", r1.$1("Lily was here"));
+  Expect.throws(() {r1.$2;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r1.$100000000000000000000;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r1.any;}, (e) => e is NoSuchMethodError);
 
-  Expect.equals(42, r2.$0(42).x);
-  Expect.throws(() {r2.$1;}, (e) => e is NoSuchMethodError);
+  Expect.equals(42, r2.$1(42).x);
+  Expect.throws(() {r2.$2;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r2.$100000000000000000000;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r2.any;}, (e) => e is NoSuchMethodError);
 
-  Expect.equals(0, r3.$0().x);
-  Expect.throws(() {r3.$1;}, (e) => e is NoSuchMethodError);
+  Expect.equals(0, r3.$1().x);
+  Expect.throws(() {r3.$2;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r3.$100000000000000000000;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r3.any;}, (e) => e is NoSuchMethodError);
 
   Expect.equals("Lily was here", r4.foo("Lily was here"));
-  Expect.throws(() {r4.$0;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {r4.$1;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r4.$100000000000000000000;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r4.any;}, (e) => e is NoSuchMethodError);
 
   Expect.equals(0, r5.newC().x);
   Expect.equals(-1, r5.initC(-1).x);
-  Expect.throws(() {r5.$0;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {r5.$1;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r5.$100000000000000000000;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r5.any;}, (e) => e is NoSuchMethodError);
 
-  Expect.equals("42", r6.$0("42"));
-  Expect.equals(-1, r6.$1(-1).x);
+  Expect.equals("42", r6.$1("42"));
+  Expect.equals(-1, r6.$2(-1).x);
   Expect.equals(0, r6.newC().x);
   Expect.equals(1, r6.cBar(1));
-  Expect.throws(() {r6.$2;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {r6.$3;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r6.$100000000000000000000;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r6.any;}, (e) => e is NoSuchMethodError);
 }

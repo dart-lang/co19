@@ -26,14 +26,14 @@ main() {
   dynamic r = ();
   ((a1, _) && r) = (1, 2);
   Expect.equals(1, a1);
-  Expect.equals(1, r.$0);
-  Expect.equals(2, r.$1);
+  Expect.equals(1, r.$1);
+  Expect.equals(2, r.$2);
 
   var a2 = 2.71;
   var b2 = "e";
   ((a2, n: b2) && r) = (3.14, n: "pi");
   Expect.equals(3.14, a2);
   Expect.equals("pi", b2);
-  Expect.equals(3.14, r.$0);
+  Expect.equals(3.14, r.$1);
   Expect.equals("pi", r.n);
 }

@@ -39,15 +39,15 @@ import "interaction_with_legacy_lib.dart";
 import "../../Utils/expect.dart";
 
 main() {
-  Expect.equals(42, r1.$0);
-  Expect.equals(1, r2.$0);
-  Expect.equals("one", r2.$1);
-  Expect.equals(3.14, r3.$0);
+  Expect.equals(42, r1.$1);
+  Expect.equals(1, r2.$1);
+  Expect.equals("one", r2.$2);
+  Expect.equals(3.14, r3.$1);
   Expect.equals("pi", r3.name);
   Expect.equals("Lily was here", r4.s);
-  Expect.equals(1, rec.$0);
-  Expect.equals(2, rec.$1);
-  Expect.equals(3, rec.$2);
+  Expect.equals(1, rec.$1);
+  Expect.equals(2, rec.$2);
+  Expect.equals(3, rec.$3);
   Expect.equals("1", rec.one);
   Expect.equals("2", rec.two);
   Expect.equals("3", rec.three);
