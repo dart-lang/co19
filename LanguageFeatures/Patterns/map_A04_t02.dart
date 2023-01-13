@@ -48,7 +48,7 @@ class C {
   @override
   bool operator ==(Object other) {
     if (other is C) {
-      return (this.x - other.x).abs() <= 10;
+      return this.x == other.x;
     }
     return false;
   }
