@@ -42,7 +42,7 @@
 import "../../Utils/expect.dart";
 
 class C {
-  final x;
+  final int x;
   const C(this.x);
 
   @override
