@@ -43,7 +43,7 @@ main() {
   var Square(areaAsNullable: num? _ as double) = Square(2);
   final Square(areaAsNullable: num? _ as double) = Square(2);
   Expect.throws(() {
-    var Circle(areaAsNullable: _ as int) = Square(2);
+    var Circle(areaAsNullable: _ as int) = Circle(2);
   });
   Expect.throws(() {
     final Circle(areaAsNullable: _ as int) = Circle(2);
