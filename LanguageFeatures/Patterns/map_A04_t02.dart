@@ -42,16 +42,19 @@
 import "../../Utils/expect.dart";
 
 class C {
-  final x;
+  final int x;
   const C(this.x);
 
   @override
   bool operator ==(Object other) {
     if (other is C) {
-      return (this.x - other.x).abs() <= 10;
+      return this.x == other.x;
     }
     return false;
   }
+
+  @override
+  int get hashCode => x;
 }
 
 const c1 = C(1);
