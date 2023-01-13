@@ -14,10 +14,6 @@
 /// statement occurs in a case clause of switch statement with label L and there
 /// is no another inclosing statement with label L.
 /// @author vasya
-/// @reviewer rodionov
-/// @reviewer iefremov
-
-
 
 main() {
   try {
@@ -27,7 +23,7 @@ main() {
       case 1:
         x = 0;
         continue L;
-    //  ^^^^^^^^^^^
+    //           ^
     // [analyzer] COMPILE_TIME_ERROR.CONTINUE_LABEL_INVALID
     //  ^^^^^^^^
     // [cfe] A 'continue' label must be on a loop or a switch member.
