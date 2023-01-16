@@ -15,7 +15,7 @@
 /// As with regular for-in loops, it is a compile-time error if the type of
 /// expression in a pattern-for-in loop is not assignable to Iterable<dynamic>.
 ///
-/// @description Check that it is a compile-time error if final variable is
+/// @description Check that it is a compile-time error if a final variable is
 /// assigned in a for-in loop. Test a list pattern
 /// @author sgrekhov22@gmail.com
 

@@ -11,9 +11,9 @@
 ///                               | recordPattern
 ///                               | objectPattern
 ///
-/// @description Check that it is a compile-time error if outerPattern is not
-/// parenthesizedPattern, listPattern, mapPattern, recordPattern or
-/// objectPattern
+/// @description Check that it is a compile-time error to have
+/// ('final' | 'var') pattern '=' expression when the given pattern isn't an
+/// outerPattern.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

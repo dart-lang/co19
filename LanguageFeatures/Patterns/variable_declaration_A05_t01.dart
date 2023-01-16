@@ -19,7 +19,7 @@
 /// in a pattern-for-in loop is not assignable to Iterable<dynamic>.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "patterns_lib.dart";
 
@@ -30,11 +30,6 @@ class Meta {
 main() {
   for (@Meta() final ((a1, b1) && r1) in (1, 2)) {
 //                                       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  for (@Meta() var [a2, b2] in [1, 2]) {
-//                             ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

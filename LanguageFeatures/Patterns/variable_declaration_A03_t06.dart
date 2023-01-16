@@ -11,7 +11,7 @@
 ///                               | recordPattern
 ///                               | objectPattern
 ///
-/// @description Check that it is a compile-time error if final variable is
+/// @description Check that it is a compile-time error if a final variable is
 /// assigned twice. Test a map pattern
 /// @author sgrekhov22@gmail.com
 

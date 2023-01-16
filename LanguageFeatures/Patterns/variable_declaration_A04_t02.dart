@@ -15,7 +15,7 @@
 /// As with regular for-in loops, it is a compile-time error if the type of
 /// expression in a pattern-for-in loop is not assignable to Iterable<dynamic>.
 ///
-/// @description Check that it is a compile-time error if final variable is
+/// @description Check that it is a compile-time error if a final variable is
 /// assigned in a for-in loop. Test a parenthesized pattern
 /// @author sgrekhov22@gmail.com
 
@@ -35,13 +35,22 @@ main() {
 //  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    r1 = (3, 4);
+//  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
-  for (final ((num a2, n: String b2) && (num, {String n}) r2) in [(3.14, n: "pi")]) {
+  for (final ((num a2, n: String b2) && (num, {String n}) r2)
+      in [(3.14, n: "pi")]) {
     a2 = 2.71;
 //  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
     b2 = "e";
+//  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    r2 = (2.71, n: "e");
 //  ^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -69,13 +69,18 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final ((n8,) && r8) = (1), c8 = 42;
-//                         ^
+  final ((n8,) && r8) = (1,), c8 = 42;
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var ((n9,) && _) = (1), c9 = 42;
-//                       ^
+  var ((n9,) && _) = (1,), c9 = 42;
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var c10 = 42, ((n10,) && _) = (1,);
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

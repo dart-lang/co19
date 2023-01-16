@@ -54,7 +54,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var (value: n5, name: s5) = (value: 3.14, name: "pi"),(n3,) = (1,);
+  var (value: n5, name: s5) = (value: 3.14, name: "pi"), (n3,) = (1,);
 //                                                     ^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -36,7 +36,7 @@ main() {
   a2 = 5;
   b2 = 6;
 
-  var Square(:areaAsInt,: int sizeAsInt) = Square(3);
+  var Square(:areaAsInt, :int sizeAsInt) = Square(3);
   Expect.equals(9, areaAsInt);
   Expect.equals(3, sizeAsInt);
   areaAsInt = 5;
@@ -50,7 +50,7 @@ main() {
   Expect.equals(4, a4);
   Expect.equals(2, b4);
 
-  final Square(:areaAsDouble,: double sizeAsDouble) = Square(3);
+  final Square(:areaAsDouble, :double sizeAsDouble) = Square(3);
   Expect.equals(9, areaAsDouble);
   Expect.equals(3, sizeAsDouble);
 }

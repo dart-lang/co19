@@ -1,4 +1,4 @@
-// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -15,44 +15,21 @@
 /// As with regular for-in loops, it is a compile-time error if the type of
 /// expression in a pattern-for-in loop is not assignable to Iterable<dynamic>.
 ///
-/// @description Check that it is a compile-time error if a final variable is
-/// assigned in a for-in loop. Test a record pattern
+/// @description Check that it is a compile-time error if the type of expression
+/// in a pattern-for-in loop is not assignable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
+
+import "patterns_lib.dart";
 
 class Meta {
   const Meta();
 }
 
 main() {
-  for (@Meta() final (a1, b1) in [(1, 2)]) {
-    a1 = 3;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    b1 = 4;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  for (final (num a2, n: String b2) in [(3.14, n: "pi")]) {
-    a2 = 2.71;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    b2 = "e";
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  for (final (:num n1, :n2) in [(n1: 3.14, n2: "pi")]) {
-    n1 = 2.71;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    n2 = "e";
-//  ^^
+  for (@Meta() var <int>[a2, b2] in ["1", "2"]) {
+//                                  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
