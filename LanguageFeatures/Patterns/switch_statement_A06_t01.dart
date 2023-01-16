@@ -52,8 +52,8 @@ String testCast(num value) {
   switch (value) {
     case var c1 as int when c1 == 42:
       return "cast-1 =$c1";
-    case var c2 as double when c2 > 4:
-      return "cast-2 =${c2.toStringAsFixed(2)}";
+    case var c2 as int when c2 > 4:
+      return "cast-2 =$c2";
     default:
       return "default";
   }
@@ -142,7 +142,7 @@ String testObject(Shape shape) {
   switch (shape) {
     case Square(sizeAsInt: var a) when a > 2:
       return "object-1";
-    case Square(areaAsInt: final b) when b < 4:
+    case Square(areaAsInt: final b) when b < 4 && b > 0:
       return "object-2";
     case Circle(sizeAsInt: var c) when c > 1:
       return "object-3";
@@ -164,7 +164,7 @@ main() {
   Expect.equals("parenthesized-2", test(40));
 
   Expect.equals("cast-1 =42", testCast(42));
-  Expect.equals("cast-2 =41.00", testCast(41));
+  Expect.equals("cast-2 =41", testCast(41));
   Expect.equals("default", testCast(3));
 
   Expect.equals("null-check-2", testNullCheck(0));
