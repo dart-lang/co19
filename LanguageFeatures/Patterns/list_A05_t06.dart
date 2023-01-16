@@ -30,7 +30,7 @@ class C {
   const C();
 }
 
-String test1(List list) {
+String test1(List<int> list) {
   return switch (list) {
     <int>[1, 2, 3, 4, ... 42] => "case-1",
     [2, ...'Lily was here', 5, 6] => "case-2",
@@ -39,7 +39,7 @@ String test1(List list) {
   };
 }
 
-String test2(List list) {
+String test2(List<int> list) {
   switch (list) {
     case <int>[1, 2, 3, 4, ... const (1 + 2)]:
       return "case-1";
@@ -52,7 +52,7 @@ String test2(List list) {
   }
 }
 
-String test3(List list) {
+String test3(List<int> list) {
   if (list case <int>[1, 2, 3, 4, ... p.Zero]) {
     return "case-1";
   }
