@@ -38,10 +38,10 @@ String test1(Map map) {
 
 String test2(Map map) {
   return switch (map) {
-  {1: _} => "{1: _}",
-  {42: String _} => "{42: String _}",
-  _ => "default"
-};
+    {1: _} => "{1: _}",
+    {42: String _} => "{42: String _}",
+    _ => "default"
+  };
 }
 
 String test3(Map map) {
@@ -66,10 +66,10 @@ main() {
 
   dynamic map3 = map2;
   Expect.throws(() {
-  var {"1": String _, "3": num _} = map3;
+    var {"1": String _, "3": num _} = map3;
   });
   Expect.throws(() {
-  var {"1": _, "3": String _} = map3;
+    var {"1": _, "3": String _} = map3;
   });
   Expect.equals("{1, _}", test1({1: 2, 2: 1}));
   Expect.equals("{1, _}", test1({1: 3, 42: ""}));
