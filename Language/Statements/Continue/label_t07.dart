@@ -14,21 +14,20 @@
 /// statement occurs in a case clause of switch statement with label L and there
 /// is no another inclosing statement with label L.
 /// @author vasya
+/// @issue 51024
 
 main() {
-  try {
-    var x = 1;
-    L:
-    switch (x) {
-      case 1:
-        x = 0;
-        continue L;
-    //           ^
-    // [analyzer] COMPILE_TIME_ERROR.CONTINUE_LABEL_ON_SWITCH
-    //  ^^^^^^^^
-    // [cfe] A 'continue' label must be on a loop or a switch member.
-      default:
-        x = 2;
-    }
-  } catch (x) {}
+  var x = 1;
+  L:
+  switch (x) {
+    case 1:
+      x = 0;
+      continue L;
+//             ^
+// [analyzer] COMPILE_TIME_ERROR.CONTINUE_LABEL_ON_SWITCH
+//    ^^^^^^^^
+// [cfe] A 'continue' label must be on a loop or a switch member.
+    default:
+      x = 2;
+  }
 }
