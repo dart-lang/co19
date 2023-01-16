@@ -20,7 +20,7 @@
 /// pattern with the getter name omitted (see name inference below).
 ///
 /// @description Check that wildcard `_` can be used in Object pattern in a
-/// declaration context. Getter is called, but its value is ignored
+/// declaration context. Getter is not called
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -36,7 +36,7 @@ void logger(String s) {
 
 main() {
   var Square(area: _) = Square(2, logger);
-  Expect.equals("Square.area", log);
+  Expect.equals("", log);
 
   var Square(areaAsInt: int _) = Square(1);
 
