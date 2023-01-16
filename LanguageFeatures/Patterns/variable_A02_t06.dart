@@ -80,18 +80,18 @@ String test3(Shape shape) {
 }
 
 main() {
-  Expect.equals("Square(area: 1.00)", test1(Square(1)));
-  Expect.equals("Square(area: 4.00)", test1(Square(2)));
-  Expect.equals("Circle(size: 1.00)", test1(Circle(1)));
+  Expect.equals("Square(area: 1)", test1(Square(1)));
+  Expect.equals("Square(area: 4)", test1(Square(2)));
+  Expect.equals("Circle(size: 1)", test1(Circle(1)));
   Expect.equals("default", test1(Shape()));
 
-  Expect.equals("Square(area: 1.00)", test2(Square(1)));
-  Expect.equals("Square(area: 4.00)", test2(Square(2)));
-  Expect.equals("Circle(size: 1.00)", test2(Circle(1)));
+  Expect.equals("Square(area: 1)", test2(Square(1)));
+  Expect.equals("Square(area: 4)", test2(Square(2)));
+  Expect.equals("Circle(size: 1)", test2(Circle(1)));
   Expect.equals("default", test2(Shape()));
 
-  Expect.equals("Square(area: 1.00)", test3(Square(1)));
-  Expect.equals("Square(area: 4.00)", test3(Square(2)));
-  Expect.equals("Circle(size: 1.00)", test3(Circle(1)));
+  Expect.equals("Square(area: 1)", test3(Square(1)));
+  Expect.equals("Square(area: 4)", test3(Square(2)));
+  Expect.equals("Circle(size: 1)", test3(Circle(1)));
   Expect.equals("default", test3(Shape()));
 }

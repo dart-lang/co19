@@ -227,24 +227,24 @@ main() {
   Expect.equals("default", testMap3({3: 3}));
   Expect.equals("default", testMap3({}));
 
-  Expect.equals("a=1.00", testObject1(Square(1)));
-  Expect.equals("a=4.00", testObject1(Square(2)));
-  Expect.equals("b=2.00", testObject1(Rectangle(1, 2)));
-  Expect.equals("b=4.00", testObject1(Rectangle(2, 2)));
+  Expect.equals("a=1", testObject1(Square(1)));
+  Expect.equals("a=4", testObject1(Square(2)));
+  Expect.equals("b=2", testObject1(Rectangle(1, 2)));
+  Expect.equals("b=4", testObject1(Rectangle(2, 2)));
   Expect.equals("default", testObject1(Circle(1)));
   Expect.equals("default", testObject1(Shape()));
 
-  Expect.equals("a=1.00", testObject2(Square(1)));
-  Expect.equals("a=4.00", testObject2(Square(2)));
-  Expect.equals("b=2.00", testObject2(Rectangle(1, 2)));
-  Expect.equals("b=4.00", testObject2(Rectangle(2, 2)));
+  Expect.equals("a=1", testObject2(Square(1)));
+  Expect.equals("a=4", testObject2(Square(2)));
+  Expect.equals("b=2", testObject2(Rectangle(1, 2)));
+  Expect.equals("b=4", testObject2(Rectangle(2, 2)));
   Expect.equals("default", testObject2(Circle(1)));
   Expect.equals("default", testObject2(Shape()));
 
-  Expect.equals("a=1.00", testObject3(Square(1)));
-  Expect.equals("a=4.00", testObject3(Square(2)));
-  Expect.equals("b=2.00", testObject3(Rectangle(1, 2)));
-  Expect.equals("b=4.00", testObject3(Rectangle(2, 2)));
+  Expect.equals("a=1", testObject3(Square(1)));
+  Expect.equals("a=4", testObject3(Square(2)));
+  Expect.equals("b=2", testObject3(Rectangle(1, 2)));
+  Expect.equals("b=4", testObject3(Rectangle(2, 2)));
   Expect.equals("default", testObject3(Circle(1)));
   Expect.equals("default", testObject3(Shape()));
 }
