@@ -158,7 +158,7 @@ main() {
   Expect.equals("logical-or-2", test(1));
   Expect.equals("logical-and-1", test(14));
   Expect.equals("logical-and-2", test(13));
-  Expect.equals("relational-1", test(24));
+  Expect.equals("relational-2", test(24));
   Expect.equals("relational-2", test(23));
   Expect.equals("constant-2", test(30));
   Expect.equals("parenthesized-2", test(40));
