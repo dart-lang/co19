@@ -68,8 +68,8 @@ String testCast(num value) {
   if (value case var c1 as int when c1 == 42) {
     return "cast-1 =$c1";
   }
-  if (value case var c2 as double when c2 > 4) {
-    return "cast-2 =${c2.toStringAsFixed(2)}";
+  if (value case var c2 as int when c2 > 4) {
+    return "cast-2 =$c2";
   } else {
     return "default";
   }
