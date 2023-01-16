@@ -38,10 +38,10 @@ String test1(Map map) {
 
 String test2(Map map) {
   return switch (map) {
-    {1: _} => "{1: _}",
-    {42: String _} => "{42: String _}",
-    _ => "default"
-  };
+  {1: _} => "{1: _}",
+  {42: String _} => "{42: String _}",
+  _ => "default"
+};
 }
 
 String test3(Map map) {
@@ -57,7 +57,7 @@ String test3(Map map) {
 
 main() {
   var map1 = {1: 2, 3: 4};
-  var {1: _, 3: __} = map1;
+  var {1: _, 2: __} = map1;
   Expect.equals(4, __);
 
   var map2 = {"1": 2, "3": 4};
@@ -66,39 +66,29 @@ main() {
 
   dynamic map3 = map2;
   Expect.throws(() {
-    var {"1": String _, "3": num _} = map3;
+  var {"1": String _, "3": num _} = map3;
   });
   Expect.throws(() {
-    var {"1": _, "3": String _} = map3;
+  var {"1": _, "3": String _} = map3;
   });
-  Expect.equals("{1: _}", test1({1: 2}));
-  Expect.equals("{1: _}", test1({1: 3}));
-  Expect.equals("{42: String _}", test1({42: ""}));
-  Expect.equals("default", test1({42: "", 2: "2"}));
+  Expect.equals("{1, _}", test1({1: 2, 2: 1}));
+  Expect.equals("{1, _}", test1({1: 3, 42: ""}));
+  Expect.equals("{42: String _}", test1({42: "", 2: "2"}));
   Expect.equals("default", test1({2: 1}));
   Expect.equals("default", test1({3: 2, 2: 1}));
   Expect.equals("default", test1({}));
-  Expect.equals("default", test1({1: 2, 2: 1}));
-  Expect.equals("default", test1({1: 3, 42: ""}));
 
-  Expect.equals("{1: _}", test2({1: 2}));
-  Expect.equals("{1: _}", test2({1: 3}));
-  Expect.equals("{42: String _}", test2({42: ""}));
-  Expect.equals("default", test2({42: "", 2: "2"}));
+  Expect.equals("{1, _}", test2({1: 2, 2: 1}));
+  Expect.equals("{1, _}", test2({1: 3, 42: ""}));
+  Expect.equals("{42: String _}", test2({42: "", 2: "2"}));
   Expect.equals("default", test2({2: 1}));
   Expect.equals("default", test2({3: 2, 2: 1}));
   Expect.equals("default", test2({}));
-  Expect.equals("default", test2({1: 2, 2: 1}));
-  Expect.equals("default", test2({1: 3, 42: ""}));
 
-  Expect.equals("{1: _}", test3({1: 2}));
-  Expect.equals("{1: _}", test3({1: 3}));
-  Expect.equals("{42: String _}", test3({42: ""}));
-  Expect.equals("default", test3({42: "", 2: "2"}));
+  Expect.equals("{1, _}", test3({1: 2, 2: 1}));
+  Expect.equals("{1, _}", test3({1: 3, 42: ""}));
+  Expect.equals("{42: String _}", test3({42: "", 2: "2"}));
   Expect.equals("default", test3({2: 1}));
   Expect.equals("default", test3({3: 2, 2: 1}));
   Expect.equals("default", test3({}));
-  Expect.equals("default", test3({1: 2, 2: 1}));
-  Expect.equals("default", test3({1: 3, 42: ""}));
-
 }
