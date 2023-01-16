@@ -29,7 +29,7 @@ String test(Object? o) {
       toReturn = "logical-and";
     case == 10:
       toReturn = "relational";
-    case var c as num when c == 11:
+    case var c as Object when c == 11:
       toReturn = "cast";
     case var a? when a == 12:
       toReturn = "null-check";
