@@ -26,16 +26,16 @@
 
 import "../../Utils/expect.dart";
 
-String test1(List<int> list) {
+String test1(List list) {
   return switch (list) {
-    <int>[1, 2, 3, 4, ...] => "[1, 2, 3, 4, ...]",
-    [2, ..., 5, 6] => "[2, ..., 5, 6]",
-    <int>[... /* comment */, 6, 7, 8] => "[..., 6, 7, 8]",
-    _ => "default"
-  };
+  <int>[1, 2, 3, 4, ...] => "[1, 2, 3, 4, ...]",
+  [2, ..., 5, 6] => "[2, ..., 5, 6]",
+  <int>[... /* comment */, 6, 7, 8] => "[..., 6, 7, 8]",
+  _ => "default"
+};
 }
 
-String test2(List<int> list) {
+String test2(List list) {
   switch (list) {
     case <int>[1, 2, 3, 4, ...]:
       return "[1, 2, 3, 4, ...]";
@@ -48,7 +48,7 @@ String test2(List<int> list) {
   }
 }
 
-String test3(List<int> list) {
+String test3(List list) {
   if (list case <int>[1, 2, 3, 4, ...]) {
     return "[1, 2, 3, 4, ...]";
   }
