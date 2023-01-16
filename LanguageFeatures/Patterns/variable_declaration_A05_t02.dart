@@ -29,7 +29,7 @@ class Meta {
 
 main() {
   for (@Meta() var <int>[a2, b2] in ["1", "2"]) {
-//                                  ^^^^^^
+//                                  ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
