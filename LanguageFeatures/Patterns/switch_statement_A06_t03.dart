@@ -56,7 +56,7 @@ String testCast(num value) {
   switch (value) {
     case var _ as int when _ == 0:
       return "cast-1";
-    case var _ as double when _ == 42:
+    case var _ as int when _ == 42:
       return "cast-2";
     default:
       return "default";
