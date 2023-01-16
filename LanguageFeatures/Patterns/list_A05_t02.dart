@@ -48,7 +48,7 @@ String test2(List list) {
   }
 }
 
-String test3(List list) {
+String test3(List<int> list) {
   if (list case <int>[1, 2, 3, 4, ... var r11 && var r12]) {
     return r11.toString() + r12.toString();
   }
