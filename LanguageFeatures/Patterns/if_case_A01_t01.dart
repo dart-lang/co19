@@ -42,10 +42,10 @@ String test(int value) {
   if (value case > 12 && < 17) {
     return "logical-and-2";
   }
-  if (value case < 25 when false) {
+  if (value case <= 25 when false) {
     return "relational-1";
   }
-  if (value case <= 25 when true) {
+  if (value case < 24 when true) {
     return "relational-2";
   }
   if (value case 30 when 1 > 2) {
