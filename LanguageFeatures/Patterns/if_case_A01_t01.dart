@@ -134,16 +134,16 @@ String testMap(Map<String, int> map) {
 }
 
 String testRecord(Record record) {
-  if (record case (1, var a) when a > 0) {
+  if (record case (1, int a) when a > 0) {
     return "record-1";
   }
-  if (record case (1, final b) when b < 0) {
+  if (record case (1, final int b) when b < 0) {
     return "record-2";
   }
-  if (record case (1, 2, n: var c) when c > 0) {
+  if (record case (1, 2, n: int c) when c > 0) {
     return "record-3";
   }
-  if (record case (1, 2, n: final d) when d < 0) {
+  if (record case (1, 2, n: final int d) when d < 0) {
     return "record-4";
   } else {
     return "default";
@@ -151,13 +151,13 @@ String testRecord(Record record) {
 }
 
 String testObject(Shape shape) {
-  if (shape case Square(sizeAsInt: var a) when a > 2) {
+  if (shape case Square(sizeAsInt: int a) when a > 2) {
     return "object-1";
   }
-  if (shape case Square(areaAsInt: final b) when b < 4) {
+  if (shape case Square(areaAsInt: final int b) when b < 4) {
     return "object-2";
   }
-  if (shape case Circle(:sizeAsInt) when sizeAsInt > 1) {
+  if (shape case Circle(:int sizeAsInt) when sizeAsInt > 1) {
     return "object-3";
   } else {
     return "default";
