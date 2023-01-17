@@ -154,7 +154,7 @@ String testObject(Shape shape) {
   if (shape case Square(sizeAsInt: int a) when a > 2) {
     return "object-1";
   }
-  if (shape case Square(areaAsInt: final int b) when b < 4) {
+  if (shape case Square(areaAsInt: final int b) when b < 4 && b >= 1) {
     return "object-2";
   }
   if (shape case Circle(:int sizeAsInt) when sizeAsInt > 1) {
@@ -175,7 +175,7 @@ main() {
   Expect.equals("parenthesized-2", test(40));
 
   Expect.equals("cast-1 =42", testCast(42));
-  Expect.equals("cast-2 =41.00", testCast(41));
+  Expect.equals("cast-2 =41", testCast(41));
   Expect.equals("default", testCast(3));
 
   Expect.equals("null-check-2", testNullCheck(0));
