@@ -55,4 +55,19 @@ main() {
 // [cfe] unspecified
     _ => "no match"
   };
+
+  var C(:_) = C();
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final C(:_) = C();
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final C(:int _) = C();
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
