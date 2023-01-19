@@ -6,7 +6,7 @@
 
 /// @assertion If the object being thrown is an instance of class Error or a
 /// subclass thereof, its stackTrace getter will return the stack trace current
-/// at the point where the the object was first thrown.
+/// at the point where the object was first thrown.
 /// @description Checks that if thrown object is an instance of Error or its
 /// subclass the stackTrace getter contains the stack trace.
 /// @author ilya

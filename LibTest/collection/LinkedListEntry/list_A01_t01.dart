@@ -7,7 +7,7 @@
 /// @assertion LinkedList<E> list
 /// Get the linked list containing this element.
 /// Returns [null] if this entry is not currently in any list.
-/// @description Checks that the the linked list containing this element
+/// @description Checks that the linked list containing this element
 /// @author sgrekhov@unipro.ru
 
 import "../../../Utils/expect.dart";
