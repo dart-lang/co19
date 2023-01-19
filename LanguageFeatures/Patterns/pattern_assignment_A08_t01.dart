@@ -26,7 +26,7 @@ main() {
   var a = 42;
   Record r = ();
   List<int> l = [];
-  String areaAsInt = 42;
+  int areaAsInt = 42;
   dynamic d = 0;
 
   ((a, a) && r) = (1, 2);
