@@ -11,7 +11,7 @@
 /// the result of the lookup is the result of looking up m in S with respect to
 /// L. Otherwise, we say that the method lookup has failed.
 /// @description Checks that if class C declares an abstract instance method
-/// and has a superclass, then the result of lookup is the the result of
+/// and has a superclass, then the result of lookup is the result of
 /// lookup in the superclass.
 /// @author ilya
 

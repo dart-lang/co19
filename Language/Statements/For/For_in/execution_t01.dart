@@ -15,7 +15,7 @@
 /// that for purposes of static typechecking, it is checked under the assumption
 /// that n0 is declared to be of type T, where T is the static type of e.iterator.
 /// @description Checks that a for statement of the form
-/// for (finalConstVarOrType? id in e) s is equivalent to the the following code:
+/// for (finalConstVarOrType? id in e) s is equivalent to the following code:
 /// var n0 = e.iterator; while (n0.moveNext()) { varOrType? id = n0.current; s }
 /// @author vasya
 /// @reviewer rodionov

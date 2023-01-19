@@ -7,7 +7,7 @@
 /// @assertion List<int> convert(List<int> bytes)
 /// Convert a list of bytes using the options given to the ZLibEncoder
 /// constructor.
-/// @description Checks that the the convert method works correctly.
+/// @description Checks that the convert method works correctly.
 /// @author ngl@unipro.ru
 
 import "dart:io";

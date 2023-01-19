@@ -7,7 +7,7 @@
 /// @assertion ByteConversionSink startChunkedConversion(Sink<List<int>> sink)
 /// Start a chunked conversion. While it accepts any Sink taking List<int>'s,
 /// the optimal sink to be passed as sink is a ByteConversionSink.
-/// @description Checks that the the [startChunkedConversion] method starts a
+/// @description Checks that the [startChunkedConversion] method starts a
 /// chunked conversion.
 /// @author ngl@unipro.ru
 

@@ -6,7 +6,7 @@
 
 /// @assertion Iterable map(f(E element))
 /// The transformed elements will not be cached. Iterating multiple times
-/// over the the returned [Iterable] will invoke the supplied
+/// over the returned [Iterable] will invoke the supplied
 /// function [f] multiple times on the same element.
 /// @description Checks that [f] will be invoked every time
 /// [Iterable] is iterated.
