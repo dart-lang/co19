@@ -34,48 +34,53 @@
 import "patterns_lib.dart";
 
 main() {
-  final ((n0,) && r0);
+  final ((n0,) && r0), x0 = 42;
 //      ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var [a1, _];
+  var [a1, _], x1 = 42;
 //    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final [a2, b2, ...];
-//      ^^^^^^^^^^^^^
+  final x2 = 42, [a2, b2, ...];
+//               ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var {"pi": a3};
-//    ^^^^^^^^^^
+  var x3 = 42, {"pi": a3};
+//             ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final {"pi": a4, ...};
+  final {"pi": a4, ...}, x4 = 42;
 //      ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var (_, name: s5);
+  var (_, name: s5), x5 = 42;
 //    ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final (n6,);
-//      ^^^^^
+  final x6 = 42, (n6,);
+//               ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var (name: s7);
-//    ^^^^^^^^^^
+  var x7 = 42, (name: s7);
+//             ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final Square(areaAsInt: n8);
+  final Square(areaAsInt: n8), x8 = 42;
 //      ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var x9 = 42, Square(sizeAsInt: n9);
+//             ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
