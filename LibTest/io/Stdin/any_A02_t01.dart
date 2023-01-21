@@ -4,7 +4,7 @@
 
 /// @assertion Future<bool> any(bool test(T element))
 /// Completes the [Future] when the answer is known.
-/// @description Checks that that [Future] is not completed while the answer is
+/// @description Checks that [Future] is not completed while the answer is
 /// unknown
 /// @author iarkh@unipro.ru
 

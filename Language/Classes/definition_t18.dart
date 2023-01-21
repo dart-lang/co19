@@ -8,7 +8,7 @@
 ///   metadata abstract? class mixinApplicationClass
 /// ;
 /// @description Checks that it is a compile-time error if type parameters are 
-/// separated with semicolon in a a class definition.
+/// separated with semicolon in a class definition.
 /// @author kaigorodov
 
 

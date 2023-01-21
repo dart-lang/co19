@@ -8,7 +8,7 @@
 /// exception thrown is identical to the error argument to onError, the throw is
 /// considered a rethrow, and the original stack trace is used instead.
 /// @description Checks that if the invoked onError throws an exception,
-/// which is identical to to the error argument to onError, then the throw is
+/// which is identical to the error argument to onError, then the throw is
 /// considered a rethrow, and the original stack trace is used instead.
 /// @author a.semenov@unipro.ru
 

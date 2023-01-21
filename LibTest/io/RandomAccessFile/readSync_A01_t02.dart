@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion List<int> readSync(int bytes)
-/// Synchronously reads a maximum of bytes bytes from a file and returns the
+/// Synchronously reads a maximum of bytes from a file and returns the
 /// result in a list of bytes.
 ///
 /// Throws a FileSystemException if the operation fails.

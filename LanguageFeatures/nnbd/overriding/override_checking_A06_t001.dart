@@ -9,7 +9,7 @@
 /// Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
 /// implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
 ///
-/// @description Check that that the result of NNBD_TOP_MERGE(Object, Object)] is
+/// @description Check that the result of NNBD_TOP_MERGE(Object, Object)] is
 /// [Object].
 ///
 /// @author iarkh@unipro.ru

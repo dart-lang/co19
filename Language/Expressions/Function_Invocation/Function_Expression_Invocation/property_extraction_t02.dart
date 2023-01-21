@@ -5,7 +5,7 @@
 /// @assertion  A function expression invocation i has the form
 /// ef(a1, ..., an, xn+1: an+1, ..., xn+k: an+k), where ef is an expression.
 /// . . .
-/// If ef is a property extraction expression, then i is is not a function
+/// If ef is a property extraction expression, then i is not a function
 /// expression invocation and is instead recognized as an ordinary method
 /// invocation.
 /// @description Checks that a.b(x) is parsed as a method invocation of method

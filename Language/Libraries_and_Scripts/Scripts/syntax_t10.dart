@@ -9,7 +9,7 @@
 /// libraryDefinition:
 ///   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
 /// ;
-/// @description Checks that is is a compile-time error when a variable
+/// @description Checks that is a compile-time error when a variable
 /// declaration comes before a part directive.
 /// @author vasya
 

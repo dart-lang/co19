@@ -9,7 +9,7 @@
 /// the same as returned by Uri.file
 /// @description Checks that forward slash is interpreted as path separator and
 /// backward slash is not interpreted as path separator for non-Windows
-/// semantics. Also checks that that returned URI is always ends with a slash
+/// semantics. Also checks that returned URI is always ends with a slash
 /// @author sgrekhov@unipro.ru
 
 import "dart:convert";

@@ -8,7 +8,7 @@
 /// declaration with name v nor setter declaration with name v = in the lexical
 /// scope enclosing the assignment.
 /// @description Checks that it is a compile error if an assignment of the form
-/// v = e occurs inside a static setter and and there is neither a local
+/// v = e occurs inside a static setter and there is neither a local
 /// variable declaration with name v nor setter declaration with name v = in the
 /// lexical scope enclosing the assignment.
 /// @author sgrekhov@unipro.ru

@@ -12,7 +12,7 @@
 /// code. It occurs only in native type signatures and as annotation on [Struct]
 /// and [Union] fields.
 ///
-/// @description Checks that this type represents C long long type
+/// @description Checks that this type represents C long type
 /// @author sgrekhov22@gmail.com
 
 import "dart:ffi";

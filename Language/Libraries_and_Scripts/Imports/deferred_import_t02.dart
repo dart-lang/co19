@@ -16,7 +16,7 @@
 /// methods:
 /// • loadLibrary. This method returns a future f. When called, the method
 ///   causes an immediate import I to be executed at some future time, where
-///   I is is derived from I by eliding the word deferred and adding a hide
+///   I is derived from I by eliding the word deferred and adding a hide
 ///   loadLibrary combinator clause. When I executes without error, f completes
 ///   successfully. If I executes without error, we say that the call to
 ///   loadLibrary has succeeded, otherwise we say the call has failed.
@@ -41,7 +41,7 @@
 /// The effect of a repeated call to p.loadLibrary is as follows:
 /// • If another call to p.loadLibrary has already succeeded, the repeated call
 ///   also succeeds. Otherwise,
-/// • If another call to to p.loadLibrary has failed:
+/// • If another call to p.loadLibrary has failed:
 ///   – If the failure is due to a compilation error, the repeated call fails
 ///     for the same reason.
 ///   – If the failure is due to other causes, the repeated call behaves as if
