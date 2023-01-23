@@ -40,7 +40,7 @@ WeakReference createWeakReference() {
     return null;
   }).then((value) {
     triggerGc();
-    // We cannot be sure that that the weakref gets cleared, because the closure
+    // We cannot be sure that the weakref gets cleared, because the closure
     // capturing c1 can still be alive.
     asyncEnd();
   });

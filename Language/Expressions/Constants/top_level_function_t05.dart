@@ -8,7 +8,7 @@
 /// . . .
 /// • A simple or qualified identifier denoting a top-level function or a static
 ///   method that is not qualified by a deferred prefix.
-/// @description Checks that a qualified identifier denoting a a static method
+/// @description Checks that a qualified identifier denoting a static method
 /// accessed via a deferred prefix cannot be assigned to a constant variable.
 /// @author ngl@unipro.ru
 

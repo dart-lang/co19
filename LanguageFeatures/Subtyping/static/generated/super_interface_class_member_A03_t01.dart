@@ -7,7 +7,7 @@
 /// Super-Interface: T0 is an interface type with super-interfaces S0,...Sn
 /// - and Si <: T1 for some i
 /// @description Check that if type T0 is an interface type with super-interfaces
-/// S0,...Sn and and Si <: T1 for some i then T0 is a subtype of a type T1. Test
+/// S0,...Sn and Si <: T1 for some i then T0 is a subtype of a type T1. Test
 /// the case when Si is not direct child of T1
 /// @author sgrekhov@unipro.ru
 ///

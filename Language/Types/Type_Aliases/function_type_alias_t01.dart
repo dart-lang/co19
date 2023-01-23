@@ -4,11 +4,11 @@
 
 /// @assertion The effect of a type alias of the form
 /// typedef T id(T1 p1, ..., Tn pn, [Tn+1 pn+1, ..., Tn+k pn+k]) declared in a
-/// library L is is to introduce the name id into the scope of L, bound to the
+/// library L is to introduce the name id into the scope of L, bound to the
 /// function type (T1, ..., Tn, [Tn+1 pn+1, ..., Tn+k pn+k ]) -> T.
 /// The effect of a type alias of the form
 /// typedef T id(T1 p1, ..., Tn pn, {Tn+1 pn+1, ..., Tn+k pn+k]} declared in a
-/// library L is is to introduce the name id into the scope of L, bound to the
+/// library L is to introduce the name id into the scope of L, bound to the
 /// function type (T1, ..., Tn, {Tn+1 pn+1, ..., Tn+k pn+k }) -> T.
 /// @description Trivially checks that a function type alias (with no arguments) introduces
 /// a new name for a type.

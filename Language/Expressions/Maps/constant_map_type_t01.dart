@@ -4,7 +4,7 @@
 
 /// @assertion It is a compile time error if the type argument of a
 /// constant map literal includes a type parameter.
-/// @description Checks that it is an error if if the type argument of a
+/// @description Checks that it is an error if the type argument of a
 /// constant map literal includes a type variable.
 /// @issue 27492
 /// @author msyabro

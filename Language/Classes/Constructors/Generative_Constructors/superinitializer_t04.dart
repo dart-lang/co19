@@ -4,7 +4,7 @@
 
 /// @assertion Let k be a generative constructor. Then k may include at most one
 /// superinitializer in its initializer list or a compile-time error occurs.
-/// @description Checks that it is a a compile-time error if a generative
+/// @description Checks that it is a compile-time error if a generative
 /// constructor includes two identical superinitializers in its initializer list.
 /// @author sgrekhov@unipro.ru
 

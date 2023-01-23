@@ -27,7 +27,7 @@
 ///   '\r'
 /// ;
 /// @description Checks that it is a compile-time error when a backslash
-/// character is not followed by another character in in a single-line
+/// character is not followed by another character in a single-line
 /// double-quotes string literal that isn't raw.
 /// @author msyabro
 
