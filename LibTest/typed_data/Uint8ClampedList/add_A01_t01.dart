@@ -6,7 +6,7 @@
 
 /// @assertion void add(E value)
 /// Adds value at the end of the list, extending the length by one.
-/// Throws an [UnsupportedError] if the list is is fixed-length.
+/// Throws an [UnsupportedError] if the list is fixed-length.
 /// @description Checks that [UnsupportedError] is thrown since
 /// [Uint8ClampedList] is a fixed-lebgth list.
 /// @author msyabro

@@ -11,7 +11,7 @@
 /// • If I is listed in the implements clause of J
 /// • If I is listed in the with clause of J
 /// • If J is a mixin application of the mixin of I.
-/// @description Checks that Object is a supertype of an an implicit interface
+/// @description Checks that Object is a supertype of an implicit interface
 /// of a class declared without extends clause.
 /// @author iefremov
 /// @reviewer rodionov

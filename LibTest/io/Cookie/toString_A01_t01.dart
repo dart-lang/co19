@@ -6,7 +6,7 @@
 
 /// @assertion String toString()
 /// Returns the formatted string representation of the cookie. The string
-/// representation can be used for for setting the Cookie or 'set-cookie' headers
+/// representation can be used for setting the Cookie or 'set-cookie' headers
 /// @description Checks that this method returns the formatted string
 /// representation of the cookie
 /// @author sgrekhov@unipro.ru

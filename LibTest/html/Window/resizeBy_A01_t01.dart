@@ -4,7 +4,7 @@
 
 // @dart = 2.9
 
-/// @assertion void void resizeBy(num x, num y)
+/// @assertion void resizeBy(num x, num y)
 /// Resizes this window by an offset.
 /// @description Checks that a window can be resized.
 

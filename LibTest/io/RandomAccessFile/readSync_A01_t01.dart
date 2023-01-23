@@ -5,13 +5,13 @@
 // @dart = 2.9
 
 /// @assertion List<int> readSync(int bytes)
-/// Synchronously reads a maximum of bytes bytes from a file and returns the
+/// Synchronously reads a maximum of bytes from a file and returns the
 /// result in a list of bytes.
 ///
 /// Throws a FileSystemException if the operation fails.
 ///
 /// @description Checks that method readSync returns List<int> which contains
-/// a maximum of bytes bytes from a file.
+/// a maximum of bytes from a file.
 /// @author ngl@unipro.ru
 
 import "dart:async";

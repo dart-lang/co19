@@ -18,7 +18,7 @@
 ///
 /// Throws an error if one of the paths points to an object that does not exist.
 /// @description Checks that this method completes with true if two paths refer
-/// to the same object in the file system. Test Test relative paths for directory
+/// to the same object in the file system. Test relative paths for directory
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";

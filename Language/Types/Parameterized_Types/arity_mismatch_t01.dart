@@ -6,7 +6,7 @@
 
 /// @assertion Let T be a parameterized type G < S1 , ..., Sn >. If G is not a
 /// generic type, the type arguments Si, 1 ≤ i ≤ n are discarded. If G has
-/// m <> n type parameters, T is treated as as a parameterized type with m
+/// m <> n type parameters, T is treated as a parameterized type with m
 /// arguments, all of which are dynamic.
 /// In short, any arity mismatch results in all type arguments being dropped,
 /// and replaced with the correct number of type arguments, all set to dynamic.

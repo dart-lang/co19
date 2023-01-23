@@ -9,7 +9,7 @@
 /// use as a full URI.
 /// All characters except uppercase and lowercase letters, digits
 /// and the characters !$&'()*+,-./:;=?@_~ are percent-encoded.
-/// This is the set of characters specified in in ECMA-262 version 5.1 for the
+/// This is the set of characters specified in ECMA-262 version 5.1 for the
 /// encodeURI function .
 /// @description Checks that all characters, except ones, defined in ECMA-262
 /// version 5.1, are encoded

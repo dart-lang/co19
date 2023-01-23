@@ -4,7 +4,7 @@
 
 // @dart = 2.9
 
-/// abstract abstract double floorToDouble()
+/// abstract double floorToDouble()
 /// Returns the greatest integer value no greater than this.
 /// The result is a double.
 /// @description Checks [:floorToDouble():] on a bunch of adjacent values.

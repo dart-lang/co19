@@ -6,7 +6,7 @@
 
 /// @assertion
 /// operatorSignature: 
-///   returnType? operator operator formalParameterList 
+///   returnType? operator formalParameterList
 /// ;
 /// operator: 
 ///   ‘˜’ |

@@ -11,7 +11,7 @@
 /// implementing Type originally created by a constant type literal expression.
 /// It is a compile-time error if any two of the values are equal according to ==
 ///
-/// @description Checks that it is a compile-time error if any any two of the
+/// @description Checks that it is a compile-time error if any two of the
 /// values are equal according to ==
 /// @author sgrekhov@unipro.ru
 

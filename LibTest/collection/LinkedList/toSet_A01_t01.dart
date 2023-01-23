@@ -5,7 +5,7 @@
 // @dart = 2.9
 
 /// @assertion Set<E> toSet()
-/// Creates a [Set] containing containing the same elements as this iterable.
+/// Creates a [Set] containing the same elements as this iterable.
 /// @description Checks that the result [Set] contains all the elements of this
 /// [Iterable].
 /// @author kaigorodov
