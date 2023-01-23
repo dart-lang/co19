@@ -8,7 +8,7 @@
 /// change, and that can be evaluated entirely at compile time.
 /// A constant expression is one of the following:
 /// . . .
-/// • An expression of the form e1?e2:e3 where where e1, e2 and e3 are constant
+/// • An expression of the form e1?e2:e3 where e1, e2 and e3 are constant
 ///   expressions and e1 evaluates to a boolean value.
 /// @description Checks that if e1 does not evaluate to boolean then conditional
 /// expression is not a constant expression.

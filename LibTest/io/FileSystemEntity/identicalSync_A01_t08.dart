@@ -18,7 +18,7 @@
 ///
 /// Throws an error if one of the paths points to an object that does not exist.
 /// @description Checks that this method completes with true if two paths refer
-/// to the same object in the file system. Test Test absolute and relative paths
+/// to the same object in the file system. Test absolute and relative paths
 /// for link
 /// @author sgrekhov@unipro.ru
 

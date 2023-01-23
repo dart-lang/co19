@@ -4,7 +4,7 @@
 
 // @dart = 2.9
 
-/// abstract abstract double floorToDouble()
+/// abstract double floorToDouble()
 /// If this is not finite (NaN or infinity), returns this object unchanged.
 /// @description Checks that [:ceilToDouble():] on NaN returns NaN.
 /// @needsreview #16102

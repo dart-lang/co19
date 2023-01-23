@@ -8,7 +8,7 @@
 /// This function accepts a num as its argument only so that you can scale
 /// Point<double> objects by an int factor.
 /// Because the star operator always returns the same type of Point that
-/// originally called it, passing in a double factor on a Point<int> causes causes a
+/// originally called it, passing in a double factor on a Point<int> causes a
 /// compile time error
 /// @description Checks that passing in a double factor on a Point<int> causes a
 /// runtime error

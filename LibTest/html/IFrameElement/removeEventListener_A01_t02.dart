@@ -7,7 +7,7 @@
 /// @assertion void removeEventListener(String type, EventListener listener,
 /// [bool useCapture])
 /// Removes an event listener from the EventTarget.
-/// @description Checks that that correct listener is removed with useCapture
+/// @description Checks that correct listener is removed with useCapture
 
 import "dart:html";
 import "../../../Utils/expect.dart";

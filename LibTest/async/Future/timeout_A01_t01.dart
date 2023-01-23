@@ -10,7 +10,7 @@
 /// Returns a new future that completes with the same value as this future, if
 /// this future completes in time.
 ///
-/// @description Checks that returned future is completed with with the same
+/// @description Checks that returned future is completed with the same
 /// value as this future, if this future completes in time.
 /// @author ngl@unipro.ru
 

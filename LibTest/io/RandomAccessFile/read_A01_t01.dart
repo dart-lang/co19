@@ -5,10 +5,10 @@
 // @dart = 2.9
 
 /// @assertion Future<List<int>> read(int bytes)
-/// Reads bytes bytes from a file and returns the result as a list of bytes.
+/// Reads bytes from a file and returns the result as a list of bytes.
 ///
 /// @description Checks that method read returns Future<List<int>> that completes
-/// with the List<int> which contains bytes bytes from a file.
+/// with the List<int> which contains bytes from a file.
 /// @author ngl@unipro.ru
 
 import "dart:async";

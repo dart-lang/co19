@@ -6,7 +6,7 @@
 
 /// @assertion factory Timer(Duration duration, void callback())
 /// Creates a new timer.
-/// The callback callback is invoked after the given duration.
+/// The callback is invoked after the given duration.
 /// @description Checks that callback function is called after the given duration.
 /// @author kaigorodov
 
