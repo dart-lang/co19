@@ -23,7 +23,7 @@
 /// @author ngl@unipro.ru
 ///
 /// @description Check that if type T0 is not a subtype of a type T1, then
-/// instance of T0 cannot be be assigned to the mixin member of type T1
+/// instance of T0 cannot be assigned to the mixin member of type T1
 /// @author sgrekhov@unipro.ru
 ///
 /// This test is generated from positional_function_types_fail_A21.dart and 

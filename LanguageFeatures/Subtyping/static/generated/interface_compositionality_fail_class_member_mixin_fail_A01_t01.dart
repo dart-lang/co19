@@ -14,7 +14,7 @@
 /// @author sgrekhov@unipro.ru
 ///
 /// @description Check that if type T0 is not a subtype of a type T1, then
-/// instance of T0 cannot be be assigned to the mixin member of type T1.
+/// instance of T0 cannot be assigned to the mixin member of type T1.
 /// Assignment to instance variable of super class is tested.
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
