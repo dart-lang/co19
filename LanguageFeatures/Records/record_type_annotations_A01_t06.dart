@@ -18,7 +18,7 @@
 /// (bool, num, {int n, String s}) quad;
 ///
 /// @description Checks that if records type annotations are used in an
-/// extension then then applied to the appropriate records only
+/// extension then applied to the appropriate records only
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=records

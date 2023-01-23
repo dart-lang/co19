@@ -9,7 +9,7 @@
 ///
 /// @description Check that compiler error is thrown if opted-in class implements
 /// legacy class and child migrated method with non-nullable argument overrides
-/// legacy method which argument is is nullable.
+/// legacy method which argument is nullable.
 ///
 /// @author iarkh@unipro.ru
 

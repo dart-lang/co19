@@ -6,7 +6,7 @@
 /// as an [Expando] key.
 ///
 /// @description Checks that [value] must be supported as an [Expando] key.
-/// Test Test dart:ffi struct.
+/// Test dart:ffi struct.
 /// @author iarkh@unipro.ru
 
 import "dart:ffi";
