@@ -23,7 +23,7 @@
 /// @author ngl@unipro.ru
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then instance
-/// of T0 cannot be be used as a return value of type T1
+/// of T0 cannot be used as a return value of type T1
 /// @author sgrekhov@unipro.ru
 ///
 /// This test is generated from positional_function_types_fail_A11.dart and 

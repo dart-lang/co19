@@ -5,7 +5,7 @@
 // @dart = 2.9
 
 /// @description Check that if type T0 is a subtype of a type T1, then instance
-/// of T0 can be be assigned to the to global variable of type T1
+/// of T0 can be assigned to the to global variable of type T1
 /// @author sgrekhov@unipro.ru
 
 
