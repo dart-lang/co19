@@ -4,7 +4,7 @@
 
 /// @assertion abstract bool remove(Object value)
 /// Removes value from the list. Returns true if value was in the list. Returns
-/// false otherwise. The method has no effect if value value was not in the list.
+/// false otherwise. The method has no effect if value was not in the list.
 /// @author kaigorodov
 
 library remove_A01_t01;

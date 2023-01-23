@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Set<E> toSet()
-/// Creates a [Set] containing containing the same elements as this iterable.
+/// Creates a [Set] containing the same elements as this iterable.
 /// @description Checks that the result [Set] contains all the elements of this
 /// [Iterable].
 /// @author kaigorodov
