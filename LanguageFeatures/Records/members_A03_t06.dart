@@ -16,30 +16,30 @@
 typedef R = (int a, String, {int x, int y});
 
 extension ER on R {
-  int get $0 => 42;
-  String get $1 => "ER";
-  void set $0(int val) {}
-  void set $1(String val) {}
+  int get $1 => 42;
+  String get $2 => "ER";
+  void set $1(int val) {}
+  void set $2(String val) {}
 }
 
 main() {
   R r1 = (1, "", x: 3, y: 4);
-  r1.$0 = 0;
+  r1.$1 = 0;
 //   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  r1.$1 = "Lily was here";
+  r1.$2 = "Lily was here";
 //   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (3.14, "pi").$0 = 42;
+  (3.14, "pi").$1 = 42;
 //             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (3.14, "pi").$1 = "e";
+  (3.14, "pi").$2 = "e";
 //             ^^
 // [analyzer] unspecified
 // [cfe] unspecified

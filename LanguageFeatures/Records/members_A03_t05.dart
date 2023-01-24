@@ -21,9 +21,9 @@ typedef R = (int a, String, {int x, int y});
 
 main() {
   R r1 = (1, "", x: 3, y: 42);
-  r1.$0.expectStaticType<Exactly<int>>();
-  r1.$1.expectStaticType<Exactly<String>>();
+  r1.$1.expectStaticType<Exactly<int>>();
+  r1.$2.expectStaticType<Exactly<String>>();
 
   var r2 = (value: 3.14, "pi",);
-  r2.$0.expectStaticType<Exactly<String>>();
+  r2.$1.expectStaticType<Exactly<String>>();
 }

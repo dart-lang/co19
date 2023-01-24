@@ -72,7 +72,7 @@ main() {
   var (n: (int, {int x}) a10, (int z, {int y}) b10)
       = (n: (x: 42, -1), (y: 1, 0));
   Expect.equals(42, a10.x);
-  Expect.equals(-1, a10.$0);
+  Expect.equals(-1, a10.$1);
   Expect.equals(1, b10.y);
-  Expect.equals(0, b10.$0);
+  Expect.equals(0, b10.$1);
 }

@@ -19,38 +19,38 @@ main() {
   dynamic r1 = ();
   dynamic r2 = (42,);
   dynamic r3 = ((),);
-  dynamic r4 = (($100: "Lily was here"),);
+  dynamic r4 = (($101: "Lily was here"),);
   dynamic r5 = (name: "name");
   dynamic r6 = (3.14, name: "pi");
 
-  Expect.throws(() {r1.$0;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {r1.$1;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r1.any;}, (e) => e is NoSuchMethodError);
 
-  Expect.equals(42, r2.$0);
-  Expect.throws(() {r2.$1;}, (e) => e is NoSuchMethodError);
+  Expect.equals(42, r2.$1);
+  Expect.throws(() {r2.$2;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r2.$100000000000000000000;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r2.any;}, (e) => e is NoSuchMethodError);
 
-  Expect.equals((), r3.$0);
-  Expect.throws(() {r3.$1;}, (e) => e is NoSuchMethodError);
+  Expect.equals((), r3.$1);
+  Expect.throws(() {r3.$2;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r3.$100000000000000000000;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r3.any;}, (e) => e is NoSuchMethodError);
 
-  Expect.equals("Lily was here", r4.$0.$100);
-  Expect.throws(() {r4.$1;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {r4.$0.$0;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {r4.$100;}, (e) => e is NoSuchMethodError);
+  Expect.equals("Lily was here", r4.$1.$101);
+  Expect.throws(() {r4.$2;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {r4.$1.$1;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {r4.$101;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r4.$100000000000000000000;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r4.any;}, (e) => e is NoSuchMethodError);
 
   Expect.equals("name", r5.name);
-  Expect.throws(() {r5.$0;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {r5.$1;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r5.$100000000000000000000;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r5.any;}, (e) => e is NoSuchMethodError);
 
   Expect.equals("pi", r6.name);
-  Expect.equals(3.14, r6.$0);
-  Expect.throws(() {r6.$1;}, (e) => e is NoSuchMethodError);
+  Expect.equals(3.14, r6.$1);
+  Expect.throws(() {r6.$2;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r6.$100000000000000000000;}, (e) => e is NoSuchMethodError);
   Expect.throws(() {r6.any;}, (e) => e is NoSuchMethodError);
 }

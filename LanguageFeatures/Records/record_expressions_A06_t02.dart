@@ -28,7 +28,7 @@ main() {
   Expect.equals((), bar2(()));
 
   var record2 = ((), n: ());
-  Expect.equals((), record2.$0);
+  Expect.equals((), record2.$1);
   Expect.equals((), record2.n);
 
   Expect.notEquals((), ((),));

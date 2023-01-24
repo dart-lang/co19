@@ -40,6 +40,6 @@ class D<X extends Y, Y> extends C<Y> {}
 
 main() {
   (C<int>, {C<double> x}) r = (D(), x: D());
-  Expect.equals(int, r.$0.typeArgument);
+  Expect.equals(int, r.$1.typeArgument);
   Expect.equals(double, r.x.typeArgument);
 }

@@ -31,11 +31,11 @@
 // SharedOptions=--enable-experiment=records
 
 main() {
-  (num,) r1 = (42,) ..$0.isOdd;
+  (num,) r1 = (42,) ..$1.isOdd;
 
   ({num n}) r2 = (n: 42) ..n.isOdd;
 
   (num, {Object s}) r3 = (42, s: "")
-    ..$0.isOdd
+    ..$1.isOdd
     ..s.substring(0);
 }

@@ -27,10 +27,10 @@ main() {
   dynamic r1 = ();
   var x1 = ((a1, _) && r1) = (1, 2);
   Expect.equals(1, a1);
-  Expect.equals(1, r1.$0);
-  Expect.equals(2, r1.$1);
-  Expect.equals(1, x1.$0);
-  Expect.equals(2, x1.$1);
+  Expect.equals(1, r1.$1);
+  Expect.equals(2, r1.$2);
+  Expect.equals(1, x1.$1);
+  Expect.equals(2, x1.$2);
 
   int a2 = 3;
   final x2 = [a2, _] = [1, 2];
@@ -45,8 +45,8 @@ main() {
   var a4 = 3;
   final x4 = (a4, _) = (1, 2);
   Expect.equals(1, a4);
-  Expect.equals(1, x4.$0);
-  Expect.equals(2, x4.$1);
+  Expect.equals(1, x4.$1);
+  Expect.equals(2, x4.$2);
 
   int a5 = 3;
   var x5 = Square(areaAsInt: a5, sizeAsInt: _) = Square(1);

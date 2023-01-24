@@ -24,7 +24,7 @@
 /// A field name that starts with an underscore.
 ///
 /// A field name that collides with the synthesized getter name of a positional
-/// field. For example: ('pos', $0: 'named') since the named field '$0' collides
+/// field. For example: ('pos', $1: 'named') since the named field '$1' collides
 /// with the getter for the first positional field.
 ///
 /// @description Checks that it is no error if a record has no named fields and
@@ -48,13 +48,13 @@ main() {
   var r2 = ((2),); // The same as (2,)
   var r3 = ((3,),);
 
-  Expect.equals(1, r1.$0);
-  Expect.equals(2, r2.$0);
-  Expect.equals(3, r3.$0.$0);
+  Expect.equals(1, r1.$1);
+  Expect.equals(2, r2.$1);
+  Expect.equals(3, r3.$1.$1);
 
-  Expect.equals(1, foo1().$0);
-  Expect.equals(2, foo2().$0);
-  Expect.equals((3,), foo3().$0);
+  Expect.equals(1, foo1().$1);
+  Expect.equals(2, foo2().$1);
+  Expect.equals((3,), foo3().$1);
   Expect.equals(("Hello",), bar(("Hello",)));
   Expect.equals(("Hello",), bar((("Hello"),)));
 }

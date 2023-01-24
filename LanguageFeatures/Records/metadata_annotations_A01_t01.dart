@@ -53,12 +53,12 @@ const Meta = "meta";
 @Meta (int, {String name}) foo5() => (5, name: "name");
 
 main() {
-  Expect.equals(1, foo1().$0);
-  Expect.equals("2", foo1().$1);
-  Expect.equals(3, foo2().$0);
-  Expect.equals("4", foo2().$1);
+  Expect.equals(1, foo1().$1);
+  Expect.equals("2", foo1().$2);
+  Expect.equals(3, foo2().$1);
+  Expect.equals("4", foo2().$2);
   Expect.equals((), foo3());
   Expect.equals((), foo4());
-  Expect.equals(5, foo5().$0);
+  Expect.equals(5, foo5().$1);
   Expect.equals("name", foo5().name);
 }

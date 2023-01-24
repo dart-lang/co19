@@ -24,7 +24,7 @@
 /// A field name that starts with an underscore.
 ///
 /// A field name that collides with the synthesized getter name of a positional
-/// field. For example: ('pos', $0: 'named') since the named field '$0' collides
+/// field. For example: ('pos', $1: 'named') since the named field '$1' collides
 /// with the getter for the first positional field.
 ///
 /// @description Checks that record fields may contain generic constructor
@@ -44,10 +44,10 @@ class C<T extends Record> {
 
 main() {
   var r1 = (C<(num, {String name})>.new, c1: C<(num, {String name})>.constr1);
-  Expect.equals(3.14, r1.$0((3.14, name: "pi")).i.$0);
+  Expect.equals(3.14, r1.$1((3.14, name: "pi")).i.$1);
   Expect.equals("pi", r1.c1((3.14, name: "pi")).i.name);
 
   var r2 = (C.new, c1: C.constr1);
-  Expect.equals(3.14, r2.$0<(num, {String name})>((3.14, name: "pi")).i.$0);
+  Expect.equals(3.14, r2.$1<(num, {String name})>((3.14, name: "pi")).i.$1);
   Expect.equals("pi", r2.c1<(num, {String name})>((3.14, name: "pi")).i.name);
 }

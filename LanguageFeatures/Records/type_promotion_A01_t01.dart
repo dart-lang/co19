@@ -21,22 +21,22 @@ main() {
     r1 = (42, "answer");
   }
   if (r1 != null) {
-    r1.$0;
     r1.$1;
+    r1.$2;
   } else {
-    r1?.$0;
     r1?.$1;
+    r1?.$2;
   }
 
   R2 r2 = (42, "answer");
   if (r2 is (int, String)) {
-    r2.$0.isOdd;
-    r2.$1.substring(0);
+    r2.$1.isOdd;
+    r2.$2.substring(0);
   }
 
   (Object,) r3 = (42,);
   if (r3 is (int,)) {
-    r3.$0.isOdd;
+    r3.$1.isOdd;
   }
 
   (String,)? r4 = null;
@@ -44,12 +44,12 @@ main() {
     r4 = ("Lily was here",);
   }
   if (r4 != null) {
-    r4.$0.substring(0);
+    r4.$1.substring(0);
   }
 
   Record r5 = (1, 2);
   if (r5 is (int, int)) {
-    r5.$0.isOdd;
     r5.$1.isOdd;
+    r5.$2.isOdd;
   }
 }

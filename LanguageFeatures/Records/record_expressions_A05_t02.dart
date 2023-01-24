@@ -24,7 +24,7 @@
 /// A field name that starts with an underscore.
 ///
 /// A field name that collides with the synthesized getter name of a positional
-/// field. For example: ('pos', $0: 'named') since the named field '$0' collides
+/// field. For example: ('pos', $1: 'named') since the named field '$1' collides
 /// with the getter for the first positional field.
 ///
 /// @description Checks that it is no error if a record has a field name that
@@ -34,14 +34,14 @@
 
 // SharedOptions=--enable-experiment=records
 
-Record foo() => (42, $100: "Lily was here");
+Record foo() => (42, $101: "Lily was here");
 
 void bar(Record r) {}
 
 main() {
-  var record1 = (42, $42: "Lily was here");
+  var record1 = (42, $43: "Lily was here");
 
-  var record2 = (1, 2, 3, $9: 42);
+  var record2 = (1, 2, 3, $10: 42);
 
-  bar((42, $5: 42));
+  bar((42, $6: 42));
 }

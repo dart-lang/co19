@@ -24,6 +24,6 @@ main() {
   if (2 > 1) {
     r1 = (1, "Lily was here", x: 3, y: 4);
   }
-  Expect.equals(1, r1?.$0);
-  Expect.equals("Lily was here", r1?.$1);
+  Expect.equals(1, r1?.$1);
+  Expect.equals("Lily was here", r1?.$2);
 }

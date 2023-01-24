@@ -24,7 +24,7 @@
 /// A field name that starts with an underscore.
 ///
 /// A field name that collides with the synthesized getter name of a positional
-/// field. For example: ('pos', $0: 'named') since the named field '$0' collides
+/// field. For example: ('pos', $1: 'named') since the named field '$1' collides
 /// with the getter for the first positional field.
 ///
 /// @description Checks that it is no error if a record has trailing commas
@@ -47,12 +47,12 @@ main() {
   var r2 = ((2), 3,);
   var r3 = ((3,), n: (), (4),);
 
-  Expect.equals(1, r1.$0);
+  Expect.equals(1, r1.$1);
   Expect.equals("n", r1.n);
-  Expect.equals(2, r2.$0);
-  Expect.equals(3, r2.$1);
-  Expect.equals(3, r3.$0.$0);
-  Expect.equals(4, r3.$1);
+  Expect.equals(2, r2.$1);
+  Expect.equals(3, r2.$2);
+  Expect.equals(3, r3.$1.$1);
+  Expect.equals(4, r3.$2);
   Expect.equals((), r3.n);
 
   Expect.equals((1, 2), foo1());

@@ -19,19 +19,19 @@ class C {
 
   void test() {
     if (_x != null) {
-      _x.$0.sign;
-      _x.$1?.toString();
+      _x.$1.sign;
+      _x.$2?.toString();
     }
     if (_x is (int, String?)) {
-      _x.$0.isOdd;
-      _x.$1?.substring(0);
+      _x.$1.isOdd;
+      _x.$2?.substring(0);
     }
     if (_y != null) {
-      _y.$0.sign;
+      _y.$1.sign;
       _y.o?.toString();
     }
     if (_y is (int, {String o})) {
-      _y.$0.isOdd;
+      _y.$1.isOdd;
       _y.o.substring(0);
     }
     if (_z != null) {

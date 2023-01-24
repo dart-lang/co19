@@ -45,9 +45,9 @@ void f<T, U, V>(void Function(T, U) a, T b, U Function(V) c, V Function(U) d) {
 
 main() {
   f((t, u) {
-    t.$0.isOdd; // T == (int, {String s})
+    t.$1.isOdd; // T == (int, {String s})
     t.s.substring(0);
-    u.$0[0].isOdd; // U == (List<int>, {double n})
+    u.$1[0].isOdd; // U == (List<int>, {double n})
     u.n.isNaN;
   }, (42, s: "x"), (v) => (n: 3.14, [1, 2, 3]), (u) => true);
 }
