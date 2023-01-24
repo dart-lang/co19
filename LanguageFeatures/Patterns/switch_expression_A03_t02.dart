@@ -63,7 +63,7 @@ main() {
   Expect.equals(0, test1("zero"));
   Expect.isFalse(test2("true"));
   Expect.isTrue(test2("false"));
-  Expect.equals(-2, test3("one"));
-  Expect.equals(-3, test3("two"));
-  Expect.equals(-1, test3("zero"));
+  Expect.equals(~1, test3("one"));
+  Expect.equals(~2, test3("two"));
+  Expect.equals(~0, test3("zero"));
 }
