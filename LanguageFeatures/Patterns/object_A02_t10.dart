@@ -31,15 +31,15 @@ main() {
   Expect.equals(4, sizeAsDouble);
 
   Expect.throws(() {
-    var Square(:areaAsNull as double) = Square(1);
+    var Square(:areaAsInt as String) = Square(1);
   });
   Expect.throws(() {
-    final Square(:areaAsNull as double) = Square(1);
+    final Square(:areaAsInt as String) = Square(1);
   });
   Expect.throws(() {
-    var Square(:num? areaAsNull as double) = Square(1);
+    var Square(:num? areaAsNullable as int) = Square(1.5);
   });
   Expect.throws(() {
-    final Square(:num? areaAsNull as double) = Square(1);
+    final Square(:num? areaAsNullable as int) = Square(1.5);
   });
 }
