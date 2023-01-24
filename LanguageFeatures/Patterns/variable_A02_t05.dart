@@ -24,7 +24,7 @@
 /// }
 /// ```
 /// @description Check that if the type annotation is specified then the
-/// the pattern matches values of the appropriate type only. Test map pattern
+/// pattern matches values of the appropriate type only. Test map pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

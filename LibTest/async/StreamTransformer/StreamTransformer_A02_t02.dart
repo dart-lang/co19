@@ -11,7 +11,7 @@
 /// itself to the stream that is given as argument.
 ///
 /// @description Checks that transformer will listen to whatever stream the
-/// the returned StreamSubscription is created for.
+/// returned StreamSubscription is created for.
 /// @author ilya
 
 import "dart:async";
