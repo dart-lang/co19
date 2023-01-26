@@ -20,15 +20,15 @@
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
-String test1(Object x) {
+String test1(Object? x) {
   switch (x) {
-    case var v1 || [var v1] && var [_] when v1 == 1:
+    case var v1 || [var v1] && [_] when v1 == 1:
       return "logical-and";
     case final int v2 || final v2 as int when v2 == 2:
       return "cast";
-    case final int v3 || final int? v3? when v3 == 3:
+    case final int? v3 || final int? v3? when v3 == 3:
       return "null-check";
-    case final int v4 || final int? v4! when v4 == 4:
+    case final int? v4 || final int? v4! when v4 == 4:
       return "null-assert";
     case var v5 || var v5 when v5 == 5:
       return "variable";
@@ -47,15 +47,15 @@ String test1(Object x) {
   }
 }
 
-String test2(Object x) {
+String test2(Object? x) {
   switch (x) {
-    case [var v1] && var [_] || var v1 when v1 == 1:
+    case [var v1] && [_] || var v1 when v1 == 1:
       return "logical-and";
     case final v2 as int || final int v2 when v2 == 2:
       return "cast";
-    case final int? v3? || final int v3 when v3 == 3:
+    case final int? v3? || final int? v3 when v3 == 3:
       return "null-check";
-    case final int? v4! || final int v4 when v4 == 4:
+    case final int? v4! || final int? v4 when v4 == 4:
       return "null-assert";
     case var v5 || var v5 when v5 == 5:
       return "variable";
@@ -74,12 +74,12 @@ String test2(Object x) {
   }
 }
 
-String test3(Object x) =>
+String test3(Object? x) =>
   switch (x) {
-    var v1 || [var v1] && var [_] when v1 == 1 => "logical-and",
+    var v1 || [var v1] && [_] when v1 == 1 => "logical-and",
     final int v2 || final v2 as int when v2 == 2 => "cast",
-    final int v3 || final int? v3? when v3 == 3 => "null-check",
-    final int v4 || final int? v4! when v4 == 4 => "null-assert",
+    final int? v3 || final int? v3? when v3 == 3 => "null-check",
+    final int? v4 || final int? v4! when v4 == 4 => "null-assert",
     var v5 || var v5 when v5 == 5 => "variable",
     final num? v6 || (final num? v6) when v6! == 6 => "parenthesized",
     var v7 || var [v7] when v7 == 7 => "list",
@@ -89,12 +89,12 @@ String test3(Object x) =>
     _ => "no match"
   };
 
-String test4(Object x) =>
+String test4(Object? x) =>
   switch (x) {
-    [var v1] && var [_] || var v1 when v1 == 1 => "logical-and",
+    [var v1] && [_] || var v1 when v1 == 1 => "logical-and",
     final v2 as int || final int v2 when v2 == 2 => "cast",
-    final int? v3? || final int v3 when v3 == 3 => "null-check",
-    final int? v4! || final int v4 when v4 == 4 => "null-assert",
+    final int? v3? || final int? v3 when v3 == 3 => "null-check",
+    final int? v4! || final int? v4 when v4 == 4 => "null-assert",
     var v5 || var v5 when v5 == 5 => "variable",
     (final num? v6) || final num? v6 when v6! == 6 => "parenthesized",
     var [v7] || var v7 when v7 == 7 => "list",
@@ -104,14 +104,14 @@ String test4(Object x) =>
     _ => "no match"
   };
 
-String test5(Object x) {
-  if (x case var v1 || [var v1] && var [_] when v1 == 1)
+String test5(Object? x) {
+  if (x case var v1 || [var v1] && [_] when v1 == 1)
     return "logical-and";
   if (x case final int v2 || final v2 as int when v2 == 2)
     return "cast";
-  if (x case final int v3 || final int? v3? when v3 == 3)
+  if (x case final int? v3 || final int? v3? when v3 == 3)
     return "null-check";
-  if (x case final int v4 || final int? v4! when v4 == 4)
+  if (x case final int? v4 || final int? v4! when v4 == 4)
     return "null-assert";
   if (x case var v5 || var v5 when v5 == 5)
     return "variable";
@@ -129,13 +129,13 @@ String test5(Object x) {
 }
 
 String test6(Object x) {
-  if (x case [var v1] && var [_] || var v1 when v1 == 1)
+  if (x case [var v1] && [_] || var v1 when v1 == 1)
     return "logical-and";
   if (x case final v2 as int || final int v2 when v2 == 2)
     return "cast";
-  if (x case final int? v3? || final int v3 when v3 == 3)
+  if (x case final int? v3? || final int? v3 when v3 == 3)
     return "null-check";
-  if (x case final int? v4! || final int v4 when v4 == 4)
+  if (x case final int? v4! || final int? v4 when v4 == 4)
     return "null-assert";
   if (x case var v5 || var v5 when v5 == 5)
     return "variable";

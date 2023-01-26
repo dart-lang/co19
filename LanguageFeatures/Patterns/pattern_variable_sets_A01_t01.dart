@@ -19,7 +19,7 @@
 
 String test1(Object x) {
   switch (x) {
-    case var v1 || [var v1] && var [v2, ...] when v1 == 1:
+    case var v1 || [var v1] && [var v2, ...] when v1 == 1:
 //                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -29,13 +29,13 @@ String test1(Object x) {
 // [analyzer] unspecified
 // [cfe] unspecified
       return "cast";
-    case final int? v3 || final int? v3? when v3 == 3:
-//                                     ^
+    case final int v3 || final int? v3? when v3 == 3:
+//                             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "null-check";
-    case final int? v4 || final int? v4! when v4 == 4:
-//                                     ^
+    case final int v4 || final int? v4! when v4 == 4:
+//                             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "null-assert";
@@ -44,11 +44,6 @@ String test1(Object x) {
 // [analyzer] unspecified
 // [cfe] unspecified
       return "variable";
-    case var _ || final _:
-//                ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    return "variable-2";
     case final num? v6 || (var num? v6) when v6! == 6:
 //                         ^^^
 // [analyzer] unspecified
@@ -80,7 +75,7 @@ String test1(Object x) {
 }
 
 String test2(Object x) {
-  if (x case var v1 || [var v1] && var [v2, ...] when v1 == 1)
+  if (x case var v1 || [var v1] && [var v2, ...] when v1 == 1)
 //                                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -90,13 +85,13 @@ String test2(Object x) {
 // [analyzer] unspecified
 // [cfe] unspecified
     return "cast";
-  if (x case final int? v3 || final int? v3? when v3 == 3)
-//                                         ^
+  if (x case final int v3 || final int? v3? when v3 == 3)
+//                                 ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "null-check";
-  if (x case final int? v4 || final int? v4! when v4 == 4)
-//                                         ^
+  if (x case final int v4 || final int? v4! when v4 == 4)
+//                                 ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "null-assert";
@@ -105,13 +100,8 @@ String test2(Object x) {
 // [analyzer] unspecified
 // [cfe] unspecified
     return "variable";
-  if (x case var _ || final _)
-//                    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    return "variable-2";
   if (x case final num? v6 || (var num? v6) when v6! == 6)
-//                         ^^^
+//                             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "parenthesized";
@@ -140,7 +130,7 @@ String test2(Object x) {
 
 String test3(Object x) =>
   switch (x) {
-    var v1 || [var v1] && var [v2, ...] when v1 == 1 => "logical-and",
+    var v1 || [var v1] && [var v2, ...] when v1 == 1 => "logical-and",
 //                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -148,20 +138,16 @@ String test3(Object x) =>
 //                              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    final int? v3 || final int? v3? when v3 == 3 => "null-check",
-//                                ^
+    final int v3 || final int? v3? when v3 == 3 => "null-check",
+//                        ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    final int? v4 || final int? v4! when v4 == 4 => "null-assert",
-//                                ^
+    final int v4 || final int? v4! when v4 == 4 => "null-assert",
+//                        ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var v5 || final v5 when v5 == 5 => "variable",
 //            ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    var _ || final _ => "variable-2",
-//           ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     final num? v6 || (var num? v6) when v6! == 6 =>  "parenthesized",
@@ -177,11 +163,11 @@ String test3(Object x) =>
 // [analyzer] unspecified
 // [cfe] unspecified
     final int v9 || final (int v9, n: v99) when v9 == 9 => "record",
-//                                         ^^^
+//                                    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     final int v10 || Square(:var sizeAsInt) when v10 == 10 => "object",
-//                                    ^^^^^^^^^
+//                               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     _ => "no match"

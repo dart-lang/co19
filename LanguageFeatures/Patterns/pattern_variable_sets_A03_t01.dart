@@ -37,6 +37,9 @@ String test1(int x) {
     case final int v3 when v3 == 3:
       v3.expectStaticType<Exactly<int>>();
       return "3";
+    case int v4 when v4 == 4:
+      v4.expectStaticType<Exactly<int>>();
+      return "4";
     default:
       return "default";
   }
@@ -45,8 +48,9 @@ String test1(int x) {
 String test2(int x) =>
   switch (x) {
     var v1 when v1.isOdd && v1 == 1 => "1",
-    final v2 when v2.isEven => "2",
-    final int v3 when v3.isOdd && v3 == 3 => 3,
+    final v2 when v2.isEven && v2 == 2 => "2",
+    final int v3 when v3.isOdd && v3 == 3 => "3",
+    int v4 when v4.isEven && v4 == 4 => "4",
     _ => "default"
   };
 
@@ -62,6 +66,10 @@ String test3(int x) {
   if (x case final int v3 when v3 == 3) {
     v3.expectStaticType<Exactly<int>>();
     return "3";
+  }
+  if (x case final int v4 when v4 == 4) {
+    v4.expectStaticType<Exactly<int>>();
+    return "4";
   }
   return "no match";
 }
@@ -79,10 +87,13 @@ main () {
   Expect.equals("1", test1(1));
   Expect.equals("2", test1(2));
   Expect.equals("3", test1(3));
+  Expect.equals("4", test1(4));
   Expect.equals("1", test2(1));
   Expect.equals("2", test2(2));
   Expect.equals("3", test2(3));
+  Expect.equals("4", test2(4));
   Expect.equals("1", test3(1));
   Expect.equals("2", test3(2));
   Expect.equals("3", test3(3));
+  Expect.equals("4", test3(4));
 }
