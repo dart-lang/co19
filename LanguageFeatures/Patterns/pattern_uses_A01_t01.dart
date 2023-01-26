@@ -14,7 +14,7 @@
 
 String test1(List<int> v) {
   switch (v) {
-    case var [a, _] when a - 1:
+    case [var a, _] when a - 1:
 //                       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -25,7 +25,7 @@ String test1(List<int> v) {
 }
 
 String test2(List<int> v) {
-  if (v case var [a, _] when a - 1) {
+  if (v case [var a, _] when a - 1) {
 //                           ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -36,7 +36,7 @@ String test2(List<int> v) {
 
 String test3(List<int> v) =>
   switch (v) {
-    var [a, _] when a - 1 => "match",
+    [var a, _] when a - 1 => "match",
 //                  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
