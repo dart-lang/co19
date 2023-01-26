@@ -24,48 +24,48 @@
 
 String test1(Object x) {
   switch (x) {
-    case [var v1] && var [v1, ...]:
+    case [var v1] && [var v1, ...]:
 //                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "logical-and";
-    case final [v2, v2] as List<int>:
-//                  ^^
+    case [final v2, final v2] as List<int>:
+//                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "cast";
-    case final List<int>? [v3, v3]?:
-//                             ^^
+    case [final List<int>? v3, final List<int>? v3]?:
+//                                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "null-check";
-    case final List<int>? [v4, v4]!:
-//                             ^^
+    case [final List<int>? v4, final List<int>? v4]!:
+//                                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "null-assert";
-    case (final List<int> [v5, v5]):
-//                             ^^
+    case (final [List<int> v5, List<int> v5]):
+//                                       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "parenthesized";
-    case final [int v6, v6]:
-//                      ^^
+    case [final int v6, final int v6]:
+//                                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "list";
-    case var {"key1": v7, "key2": v7}:
+    case {"key1": var v7, "key2": var v7}:
 //                                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "map";
-    case final (int v8, n: v8):
-//                         ^^
+    case (int v8, n: int v8):
+//                       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "record";
-    case Square(:var sizeAsInt, :final sizeAsInt):
-//                                     ^^^^^^^^^
+    case Square(:var sizeAsInt, :var sizeAsInt):
+//                                   ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "object";
@@ -75,48 +75,48 @@ String test1(Object x) {
 }
 
 String test2(Object x) {
-  if (x case [var v1] && var [v1, ...])
+  if (x case [var v1] && [var v1, ...])
 //                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "logical-and";
-  if (x case final [v2, v2] as List<int>)
-//                      ^^
+  if (x case [final v2, final v2] as List<int>)
+//                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "cast";
-  if (x case final List<int>? [v3, v3]?)
-//                                 ^^
+  if (x case [final List<int>?v3, final List<int>? v3]?)
+//                                                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "null-check";
-  if (x case final List<int>? [v4, v4]!)
-//                                 ^^
+  if (x case [final List<int>? v4, final List<int>? v4]!)
+//                                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "null-assert";
-  if (x case (final List<int> [v5, v5]))
-//                                 ^^
+  if (x case ([List<int> v5, List<int> v5]))
+//                                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "parenthesized";
-  if (x case final [int v6, v6])
-//                          ^^
+  if (x case [int v6, int v6])
+//                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "list";
-  if (x case var {"key1": v7, "key2": v7})
-//                                    ^^
+  if (x case {"key1": var v7, "key2": var v7})
+//                                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "map";
-  if (x case final (int v8, n: v8))
-//                             ^^
+  if (x case (int v8, n: int v8))
+//                           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "record";
-  if (x case Square(:var sizeAsInt, :final sizeAsInt))
-//                                         ^^^^^^^^^
+  if (x case Square(:var sizeAsInt, :var sizeAsInt))
+//                                       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "object";
@@ -125,40 +125,40 @@ String test2(Object x) {
 
 String test3(Object x) =>
   switch (x) {
-    [var v1] && var [v1, ...] => "logical-and",
+    [var v1] && [var v1, ...] => "logical-and",
 //                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    final [v2, v2] as List<int> => "cast",
-//             ^^
+    [final v2, final v2] as List<int> => "cast",
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    final List<int>? [v3, v3]? => "null-check",
-//                        ^^
+    [final List<int>? v3, final List<int>? v3]? => "null-check",
+//                                         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    final List<int>? [v4, v4]! => "null-assert",
-//                        ^^
+    [List<int>? v4, List<int>? v4]! => "null-assert",
+//                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    (final List<int> [v5, v5]) =>  "parenthesized",
-//                        ^^
+    ([final List<int> v5, final List<int> v5]) =>  "parenthesized",
+//                                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    final [int v6, v6] => "list",
-//                 ^^
+    [int v6, int v6] => "list",
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    var {"key1": v7, "key2": v7} => "map",
-//                           ^^
+    {"key1": var v7, "key2": var v7} => "map",
+//                               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    final (int v8, n: v8) => "record",
-//                    ^^
+    (int v8, n: int v8) => "record",
+//                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    Square(:var sizeAsInt, :final sizeAsInt) => "object",
-//                                ^^^^^^^^^
+    Square(:var sizeAsInt, :var sizeAsInt) => "object",
+//                              ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     _ => "no match"
