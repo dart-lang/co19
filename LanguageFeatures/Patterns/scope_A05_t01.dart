@@ -10,53 +10,62 @@
 /// Each guardedPattern introduces a new case scope which is where the variables
 /// defined by that case's pattern are bound.
 /// ...
-/// The guard expression is evaluated in its case's case scope.
+/// It is a compile-time error for a guard to contain an assignment to a
+/// variable defined in the case that owns that guard.
 ///
-/// @description Checks that a variable defined in a guard expression is visible
-/// in its case scope
+/// @description Checks that it is a compile-time error for a guard to contain
+/// an assignment to a variable defined in the case that owns that guard.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
-
-int test1() {
+void test1() {
   switch (42) {
-    case var v when (var z = 1) > 0:
-      z.isOdd;
-      return z;
+    case var v when (v = 1) > 0:
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      print(v);
+      break;
     default:
-      return -1;
   }
 }
 
-int test2() {
-  return switch (42) {
-    final int v when (final z = 1) => 0 => z,
+void test2() {
+  var z = switch (42) {
+    final int v when (v = 1) => 0 => v,
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
     _ => -1
   };
+  print(z);
 }
 
-int test3() {
-  if (42 case var v when (final int z = 1) > 0) {
-    z.isOdd;
-    return z;
+void test3() {
+  if (42 case var v when (v = 1) > 0) {
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    print(v);
   }
-  return -1;
 }
 
-List<int> test4() {
-  return [
+void test4() {
+  List l = [
     1,
-    if (42 case final int v when (var z = 2) > 0) z,
+    if (42 case final int v when (v = 1) > 0) v else 1,
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
     3
   ];
+  print(l);
 }
 
-
 main() {
-  Expect.equals(1, test1());
-  Expect.equals(1, test2());
-  Expect.equals(1, test3());
-  Expect.listEquals([1, 2, 3], test4());
+  test1();
+  test2();
+  test3();
+  test4();
 }

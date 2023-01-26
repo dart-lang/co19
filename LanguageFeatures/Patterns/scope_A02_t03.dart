@@ -18,6 +18,8 @@
 
 // SharedOptions=--enable-experiment=patterns
 
+import "../../Utils/expect.dart";
+
 main() {
   for (var [c] = [1]; c < 2; Expect.equals(2, c)) {
     Expect.equals(1, c);

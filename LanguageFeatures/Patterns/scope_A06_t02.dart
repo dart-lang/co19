@@ -10,31 +10,22 @@
 /// Each guardedPattern introduces a new case scope which is where the variables
 /// defined by that case's pattern are bound.
 /// ...
-/// The then statement of an if-case statement is executed in a new scope whose
+/// The then element of an if-case element is evaluated in a new scope whose
 /// enclosing scope is the case's case scope.
 ///
 /// @description Checks that it is a compile-time error if a variable defined in
-/// a case's scope of if-case statement is referenced in its `then` branch
+/// a case's scope of if-case element is referenced in its `then` branch
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 main() {
-  if (42 case var v1) {
-    print(v1);
-  } else {
-    print(v1);
-//        ^^
+  List<int> l1 = [
+    1,
+    if (42 case var v1) 2 else v1,
+//                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
-
-  if (42 case final v2 when var z = 1 > 0) {
-    print(z);
-  } else {
-    print(z);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+    3
+  ];
 }
