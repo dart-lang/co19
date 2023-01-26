@@ -8,7 +8,7 @@
 ///
 /// @description Check that it is a compile-time error to assign a switch
 /// expression to a type which is not the least upper bound of the static types
-/// of all of it's case expressions.
+/// of all of its case expressions.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
