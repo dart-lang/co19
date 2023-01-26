@@ -11,9 +11,8 @@
 /// for each loop iteration. All pattern variables are in the same scope. They
 /// are considered initialized after the for loop initializer expression.
 ///
-/// @description Checks that variables declared by the pattern in a pattern-for
-/// statement are considered initialized after the for loop initializer
-/// expression
+/// @description Checks that variables declared by the pattern in a for
+/// statement are considered initialized after ⟨forInitializerStatement⟩
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

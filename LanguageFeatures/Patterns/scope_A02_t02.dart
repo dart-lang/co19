@@ -19,15 +19,30 @@
 // SharedOptions=--enable-experiment=patterns
 
 main() {
-  print(c);
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  for (var [c] in [[1], [2]]) {
+  {
     print(c);
-  }
-  print(c);
-//      ^
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
+    for (var [c] in [[1], [2]]) {
+      print(c);
+    }
+    print(c);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  {
+    print(c);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    for (final [c] in [[1], [2]]) {
+      print(c);
+    }
+    print(c);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }

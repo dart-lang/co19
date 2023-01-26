@@ -12,8 +12,8 @@
 /// they are considered initialized after the entire case pattern, before the
 /// guard expression if there is one.
 ///
-/// @description Checks that a variable declared in a case pattern is can be
-/// used in a guard expression and initialized by that time
+/// @description Checks that a variable declared in a case pattern can be used
+/// in a guard expression and initialized by that time
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
