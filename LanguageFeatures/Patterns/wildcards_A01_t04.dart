@@ -28,9 +28,9 @@ import "../../Utils/expect.dart";
 
 String test1(Shape shape) {
   switch (shape) {
-    case Rectangle(size: 1, area: _):
+    case Rectangle(sizeAsInt: 1, area: _):
       return "Rectangle(size: 1, area: _)";
-    case Rectangle(size: 2, area: _):
+    case Rectangle(sizeAsInt: 2, area: _):
       return "Rectangle(size: 2, area: _)";
     default:
       return "default";
@@ -39,17 +39,17 @@ String test1(Shape shape) {
 
 String test2(Shape shape) {
   return switch (shape) {
-    Rectangle(size: 1, area: _) => "Rectangle(size: 1, area: _)",
-    Rectangle(size: 2, area: _) => "Rectangle(size: 2, area: _)",
+    Rectangle(sizeAsInt: 1, area: _) => "Rectangle(size: 1, area: _)",
+    Rectangle(sizeAsInt: 2, area: _) => "Rectangle(size: 2, area: _)",
     _ => "default"
   };
 }
 
 String test3(Shape shape) {
-  if (shape case Rectangle(size: 1, area: _)) {
+  if (shape case Rectangle(sizeAsInt: 1, area: _)) {
     return "Rectangle(size: 1, area: _)";
   }
-  if (shape case Rectangle(size: 2, area: _)) {
+  if (shape case Rectangle(sizeAsInt: 2, area: _)) {
     return "Rectangle(size: 2, area: _)";
   } else {
     return "default";
