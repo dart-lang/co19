@@ -44,8 +44,8 @@ String test1(Object x) {
 // [analyzer] unspecified
 // [cfe] unspecified
       return "variable";
-    case final num? v6 || (var num? v6) when v6! == 6:
-//                         ^^^
+    case final num? v6 || (num? v6) when v6! == 6:
+//                         ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "parenthesized";
@@ -59,7 +59,7 @@ String test1(Object x) {
 // [analyzer] unspecified
 // [cfe] unspecified
       return "map";
-    case final int v9 || final (int v9, n: v99) when v9 == 9:
+    case final int v9 || (final int v9, n: v99) when v9 == 9:
 //                                         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -100,22 +100,22 @@ String test2(Object x) {
 // [analyzer] unspecified
 // [cfe] unspecified
     return "variable";
-  if (x case final num? v6 || (var num? v6) when v6! == 6)
-//                             ^^^
+  if (x case final num? v6 || (num? v6) when v6! == 6)
+//                             ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "parenthesized";
-  if (x case final v7 || final [int v7] when v7 == 7)
+  if (x case final v7 || [final int v7] when v7 == 7)
 //                              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "list";
-  if (x case var v8 || var {"key1": v88} when v8 == 8)
+  if (x case var v8 || {"key1": var v88} when v8 == 8)
 //                                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "map";
-  if (x case final int v9 || final (int v9, n: v99) when v9 == 9)
+  if (x case final int v9 || (final int v9, n: v99) when v9 == 9)
 //                                             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -150,19 +150,19 @@ String test3(Object x) =>
 //            ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    final num? v6 || (var num? v6) when v6! == 6 =>  "parenthesized",
-//                    ^^^
+    final num? v6 || (num? v6) when v6! == 6 =>  "parenthesized",
+//                    ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    final v7 || final [int v7] when v7 == 7 => "list",
+    final v7 || [final int v7] when v7 == 7 => "list",
 //                     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    var v8 || var {"key1": v88} when v8 == 8 => "map",
+    var v8 || {"key1": var v88} when v8 == 8 => "map",
 //                         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    final int v9 || final (int v9, n: v99) when v9 == 9 => "record",
+    final int v9 || (final int v9, n: v99) when v9 == 9 => "record",
 //                                    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
