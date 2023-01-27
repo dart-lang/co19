@@ -24,9 +24,9 @@ String test1(Object? x) {
   switch (x) {
     case int v1 || [int v1] && [_] when v1 == 1:
       return "logical-and";
-    case final int? v2 || final int? v2? when v2 == 2:
+    case final int? v2? || final int? v2? when v2 == 2:
       return "null-check";
-    case final int? v3 || final int? v3! when v3 == 3:
+    case final int? v3! || final int? v3 when v3 == 3:
       return "null-assert";
     case var v4 || var v4 when v4 == 4:
       return "variable";
@@ -51,7 +51,7 @@ String test2(Object? x) {
   switch (x) {
     case [var v1] && [_] || var v1 when v1 == 1:
       return "logical-and";
-    case final int? v2? || final int? v2 when v2 == 2:
+    case final int? v2? || final int? v2? when v2 == 2:
       return "null-check";
     case final int? v3! || final int? v3 when v3 == 3:
       return "null-assert";
@@ -76,13 +76,13 @@ String test2(Object? x) {
 
 String test3(Object? x) =>
   switch (x) {
-    int v1 || [var v1] && [_] when v1 == 1 => "logical-and",
-    final int? v2 || final int? v2? when v2 == 2 => "null-check",
-    final int? v3 || final int? v3! when v3 == 3 => "null-assert",
+    int v1 || [int v1] && [_] when v1 == 1 => "logical-and",
+    final int? v2? || final int? v2? when v2 == 2 => "null-check",
+    final int? v3! || final int? v3 when v3 == 3 => "null-assert",
     var v4 || var v4 when v4 == 4 => "variable",
     final num? v5 || (final num? v5) when v5! == 5 => "parenthesized",
-    int v6 || [var v6] when v6 == 6 => "list",
-    int v7 || {"key1": var v7} when v7 == 7 => "map",
+    int v6 || [int v6] when v6 == 6 => "list",
+    int v7 || {"key1": int v7} when v7 == 7 => "map",
     final int v8 || (final int v8,) when v8 == 8 => "record",
     final int v9 || Square(sizeAsInt: final int v9) when v9 == 9 => "object",
     final int v10 || final v10 as int when v10 == 10 => "cast",
@@ -92,14 +92,14 @@ String test3(Object? x) =>
 String test4(Object? x) =>
   switch (x) {
     [var v1] && [_] || var v1 when v1 == 1 => "logical-and",
-    final int? v2? || final int? v2 when v2 == 2 => "null-check",
+    final int? v2? || final int? v2? when v2 == 2 => "null-check",
     final int? v3! || final int? v3 when v3 == 3 => "null-assert",
     var v4 || var v4 when v4 == 4 => "variable",
     (final num? v5) || final num? v5 when v5! == 5 => "parenthesized",
     [var v6] || var v6 when v6 == 6 => "list",
     {"key1": var v7} || var v7 when v7 == 7 => "map",
     (final int v8,) || final int v8 when v8 == 8 => "record",
-    Square(sizeAsInt: final v9) || final v9 when v9 == 9 => "object",
+    Square(sizeAsInt: final v9) || final int v9 when v9 == 9 => "object",
     final v10 as int || final int v10 when v10 == 10 => "cast",
     _ => "no match"
   };
@@ -107,9 +107,9 @@ String test4(Object? x) =>
 String test5(Object? x) {
   if (x case int v1 || [int v1] && [_] when v1 == 1)
     return "logical-and";
-  if (x case final int? v2 || final int? v2? when v2 == 2)
+  if (x case final int? v2? || final int? v2? when v2 == 2)
     return "null-check";
-  if (x case final int? v3 || final int? v3! when v3 == 3)
+  if (x case final int? v3! || final int? v3 when v3 == 3)
     return "null-assert";
   if (x case var v4 || var v4 when v4 == 4)
     return "variable";
@@ -128,10 +128,10 @@ String test5(Object? x) {
   return "no match";
 }
 
-String test6(Object x) {
+String test6(Object? x) {
   if (x case [int v1] && [_] || int v1 when v1 == 1)
     return "logical-and";
-  if (x case final int? v2? || final int? v2 when v2 == 2)
+  if (x case final int? v2? || final int? v2? when v2 == 2)
     return "null-check";
   if (x case final int? v3! || final int? v3 when v3 == 3)
     return "null-assert";
@@ -139,9 +139,9 @@ String test6(Object x) {
     return "variable";
   if (x case (final num? v5) || final num? v5 when v5! == 5)
     return "parenthesized";
-  if (x case [var v6] || var v6 when v6 == 6)
+  if (x case [int v6] || int v6 when v6 == 6)
     return "list";
-  if (x case {"key1": var v7} || var v7 when v7 == 7)
+  if (x case {"key1": int v7} || int v7 when v7 == 7)
     return "map";
   if (x case (final int v8,) || final int v8 when v8 == 8)
     return "record";

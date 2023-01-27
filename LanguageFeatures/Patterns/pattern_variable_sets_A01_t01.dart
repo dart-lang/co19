@@ -17,8 +17,13 @@
 
 // SharedOptions=--enable-experiment=patterns,records
 
-String test1(Object x) {
+String test1(Object? x) {
   switch (x) {
+    case int v0 || [var v0] when v0 == 0:
+//                  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      return "logical-or";
     case var v1 || [var v1] && [var v2, ...] when v1 == 1:
 //                                  ^^
 // [analyzer] unspecified
@@ -30,12 +35,12 @@ String test1(Object x) {
 // [cfe] unspecified
       return "cast";
     case final int v3 || final int? v3? when v3 == 3:
-//                             ^^^
+//                             ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "null-check";
     case final int v4 || final int? v4! when v4 == 4:
-//                             ^^^
+//                             ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "null-assert";
@@ -74,7 +79,12 @@ String test1(Object x) {
   }
 }
 
-String test2(Object x) {
+String test2(Object? x) {
+  if (x case int v0 || [var v0] when v0 == 0)
+//                      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return "logical-or";
   if (x case var v1 || [var v1] && [var v2, ...] when v1 == 1)
 //                                      ^^
 // [analyzer] unspecified
@@ -90,8 +100,8 @@ String test2(Object x) {
 // [analyzer] unspecified
 // [cfe] unspecified
     return "null-check";
-  if (x case final int v4 || final int? v4! when v4 == 4)
-//                                 ^^^^
+  if (x case final int v4! || final int? v4! when v4 == 4)
+//                                  ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "null-assert";
@@ -128,8 +138,12 @@ String test2(Object x) {
   return "no match";
 }
 
-String test3(Object x) =>
+String test3(Object? x) =>
   switch (x) {
+    int v0 || [var v0] when v0 == 0 => "logical-or",
+//             ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     var v1 || [var v1] && [var v2, ...] when v1 == 1 => "logical-and",
 //                             ^^
 // [analyzer] unspecified
