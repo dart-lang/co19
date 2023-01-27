@@ -24,7 +24,7 @@
 
 import "../../Utils/expect.dart";
 
-String test1(List list) {
+String test1(List<int> list) {
   return switch (list) {
     <int>[1, 2, 3, 4, ... var r11 && var r12] =>
       r11.toString() + r12.toString(),
@@ -35,7 +35,7 @@ String test1(List list) {
   };
 }
 
-String test2(List list) {
+String test2(List<int> list) {
   switch (list) {
     case <int>[1, 2, 3, 4, ... var r11 && var r12]:
       return r11.toString() + r12.toString();
