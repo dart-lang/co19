@@ -44,7 +44,7 @@ String test1(Object x) {
 // [analyzer] unspecified
 // [cfe] unspecified
       return "null-assert";
-    case (final [List<int> v5, List<int> v5]):
+    case ([final List<int> v5, List<int> v5]):
 //                                       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
