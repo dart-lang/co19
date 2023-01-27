@@ -54,12 +54,12 @@ String test1(Object? x) {
 // [analyzer] unspecified
 // [cfe] unspecified
       return "parenthesized";
-    case final v7 || final [int v7] when v7 == 7:
+    case final v7 || [final int v7] when v7 == 7:
 //                          ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "list";
-    case var v8 || var {"key1": v88} when v8 == 8:
+    case var v8 || {"key1": var v88} when v8 == 8:
 //                              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
