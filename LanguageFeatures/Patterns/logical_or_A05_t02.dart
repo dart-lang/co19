@@ -46,7 +46,7 @@ main() {
   Shape shape1 = Square(1, logger);
   switch (shape1) {
     case Square(area: two) || Square(area: one):
-      Expect.equals("Square.area=2;=1;", log);
+      Expect.equals("Square.area:(2==1);:(1==1);", log);
       break;
     default:
       Expect.fail("No match");
@@ -56,7 +56,7 @@ main() {
   Shape shape2 = Shape(logger);
   switch (shape2) {
     case Square(area: two) || Rectangle(area: one) || Shape(area: zero):
-      Expect.equals("Shape.area=0;", log);
+      Expect.equals("Shape.area:(0==0);", log);
       break;
     default:
       Expect.fail("No match");
@@ -68,7 +68,7 @@ main() {
     case Circle(area: two) || Circle(area: one) || Circle(area: zero)
         || Circle(area: pi):
       Expect.equals(
-          "Circle.area=2;=1;=0;=3.14;", log);
+          "Circle.area:(2==3.14);:(1==3.14);:(0==3.14);:(3.14==3.14);", log);
       break;
     default:
       Expect.fail("No match");
@@ -81,6 +81,6 @@ main() {
       Expect.fail("No branches should match");
       break;
     default:
-      Expect.equals("Rectangle.area=3;=1;=3.14;", log);
+      Expect.equals("Rectangle.area:(3==2);:(1==2);:(3.14==2);", log);
   }
 }

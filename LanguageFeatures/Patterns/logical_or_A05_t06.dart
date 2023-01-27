@@ -48,24 +48,25 @@ main() {
     Square(area: two) || Square(area: one) => log,
     _ => "Other"
   };
-  Expect.equals("Square.area=2;=1;", s1);
+  Expect.equals("Square.area:(2==1);:(1==1);", s1);
   clearLog();
 
-  Shape shape2 = Shape();
+  Shape shape2 = Shape(logger);
   String s2 = switch (shape2) {
     Square(area: two) || Rectangle(area: one) || Shape(area: zero) => log,
     _ => "Other"
   };
-  Expect.equals("Shape.area=0;", s2);
+  Expect.equals("Shape.area:(0==0);", s2);
   clearLog();
 
-  Shape shape3 = Circle(1);
+  Shape shape3 = Circle(1, logger);
   String s3 = switch (shape3) {
     Circle(area: two) || Circle(area: one) || Circle(area: zero)
       || Circle(area: pi) => log,
     _ => "Other"
   };
-  Expect.equals("Circle.area=2;=1;=0;=3.14;", s3);
+  Expect.equals("Circle.area:(2==3.14);:(1==3.14);:(0==3.14);:(3.14==3.14);",
+    s3);
   clearLog();
 
   Shape shape4 = Rectangle(1, 2, logger);
@@ -74,5 +75,5 @@ main() {
       => "Wrong!",
     _ => log
   };
-  Expect.equals("Rectangle.area=3;=1;=3.14;", s4);
+  Expect.equals("Rectangle.area:(3==2);:(1==2);:(3.14==2);", s4);
 }

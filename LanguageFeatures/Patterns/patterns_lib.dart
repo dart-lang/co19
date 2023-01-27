@@ -60,19 +60,19 @@ class Unit<T extends MetricUnits> {
     final _log = _logger;
     if (other is Unit) {
       if (_log != null) {
-        _log("=$other;");
+        _log(":($this==$other);");
       }
       return (this.value - other.value).abs() <= tolerance;
     }
     if (other is int) {
       if (_log != null) {
-        _log("=$other;");
+        _log(":($this==$other);");
       }
       return (this.value - other).abs() <= tolerance;
     }
     if (other is double) {
       if (_log != null) {
-        _log("=${other.toStringAsFixed(2)};");
+        _log(":($this==${other.toStringAsFixed(2)});");
       }
       return (this.value - other).abs() <= tolerance;
     }
