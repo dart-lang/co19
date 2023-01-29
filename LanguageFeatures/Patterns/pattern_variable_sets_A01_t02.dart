@@ -24,9 +24,9 @@ String test1(Object? x) {
   switch (x) {
     case int v1 || [int v1] && [_] when v1 == 1:
       return "logical-and";
-    case final int? v2? || final int? v2? when v2 == 2:
+    case final num? v2 || Square(sizeAsNullable: final num? v2?) when v2 == 2:
       return "null-check";
-    case final int? v3! || final int? v3 when v3 == 3:
+    case final num? v3 || Square(sizeAsNullable: final num? v3!) when v3 == 3:
       return "null-assert";
     case var v4 || var v4 when v4 == 4:
       return "variable";
@@ -51,9 +51,9 @@ String test2(Object? x) {
   switch (x) {
     case [var v1] && [_] || var v1 when v1 == 1:
       return "logical-and";
-    case final int? v2? || final int? v2? when v2 == 2:
+    case Square(sizeAsNullable: final num? v2?) || final num? v2? when v2 == 2:
       return "null-check";
-    case final int? v3! || final int? v3 when v3 == 3:
+    case Square(sizeAsNullable: final num? v3!) || final num? v3 when v3 == 3:
       return "null-assert";
     case var v4 || var v4 when v4 == 4:
       return "variable";
@@ -77,8 +77,10 @@ String test2(Object? x) {
 String test3(Object? x) =>
   switch (x) {
     int v1 || [int v1] && [_] when v1 == 1 => "logical-and",
-    final int? v2? || final int? v2? when v2 == 2 => "null-check",
-    final int? v3! || final int? v3 when v3 == 3 => "null-assert",
+    final num? v2 || Square(sizeAsNullable: final num? v2?) when v2 == 2
+        => "null-check",
+    final num? v3 || Square(sizeAsNullable: final num? v3!) when v3 == 3
+        => "null-assert",
     var v4 || var v4 when v4 == 4 => "variable",
     final num? v5 || (final num? v5) when v5! == 5 => "parenthesized",
     int v6 || [int v6] when v6 == 6 => "list",
@@ -92,8 +94,10 @@ String test3(Object? x) =>
 String test4(Object? x) =>
   switch (x) {
     [var v1] && [_] || var v1 when v1 == 1 => "logical-and",
-    final int? v2? || final int? v2? when v2 == 2 => "null-check",
-    final int? v3! || final int? v3 when v3 == 3 => "null-assert",
+    Square(sizeAsNullable: final num? v2?) || final num? v2 when v2 == 2
+        => "null-check",
+    Square(sizeAsNullable: final num? v3!) || final num? v3 when v3 == 3
+        => "null-assert",
     var v4 || var v4 when v4 == 4 => "variable",
     (final num? v5) || final num? v5 when v5! == 5 => "parenthesized",
     [var v6] || var v6 when v6 == 6 => "list",
@@ -107,9 +111,9 @@ String test4(Object? x) =>
 String test5(Object? x) {
   if (x case int v1 || [int v1] && [_] when v1 == 1)
     return "logical-and";
-  if (x case final int? v2? || final int? v2? when v2 == 2)
+  if (x case num? v2 || Square(sizeAsNullable: num? v2?) when v2 == 2)
     return "null-check";
-  if (x case final int? v3! || final int? v3 when v3 == 3)
+  if (x case num? v3 || Square(sizeAsNullable: num? v3!) when v3 == 3)
     return "null-assert";
   if (x case var v4 || var v4 when v4 == 4)
     return "variable";
@@ -131,9 +135,9 @@ String test5(Object? x) {
 String test6(Object? x) {
   if (x case [int v1] && [_] || int v1 when v1 == 1)
     return "logical-and";
-  if (x case final int? v2? || final int? v2? when v2 == 2)
+  if (x case Square(sizeAsNullable: num? v2?) || num? v2 when v2 == 2)
     return "null-check";
-  if (x case final int? v3! || final int? v3 when v3 == 3)
+  if (x case Square(sizeAsNullable: num? v3!) || num? v3 when v3 == 3)
     return "null-assert";
   if (x case var v4 || var v4 when v4 == 4)
     return "variable";
@@ -156,7 +160,9 @@ main () {
   Expect.equals("logical-and", test1(1));
   Expect.equals("logical-and", test1([1]));
   Expect.equals("null-check", test1(2));
+  Expect.equals("null-check", test1(Square(2)));
   Expect.equals("null-assert", test1(3));
+  Expect.equals("null-assert", test1(Square(3)));
   Expect.equals("variable", test1(4));
   Expect.equals("parenthesized", test1(5));
   Expect.equals("list", test1(6));
@@ -172,7 +178,9 @@ main () {
   Expect.equals("logical-and", test2(1));
   Expect.equals("logical-and", test2([1]));
   Expect.equals("null-check", test2(2));
+  Expect.equals("null-check", test2(Square(2)));
   Expect.equals("null-assert", test2(3));
+  Expect.equals("null-assert", test2(Square(3)));
   Expect.equals("variable", test2(4));
   Expect.equals("parenthesized", test2(5));
   Expect.equals("list", test2(6));
@@ -188,7 +196,9 @@ main () {
   Expect.equals("logical-and", test3(1));
   Expect.equals("logical-and", test3([1]));
   Expect.equals("null-check", test3(2));
+  Expect.equals("null-check", test3(Square(2)));
   Expect.equals("null-assert", test3(3));
+  Expect.equals("null-assert", test3(Square(3)));
   Expect.equals("variable", test3(4));
   Expect.equals("parenthesized", test3(5));
   Expect.equals("list", test3(6));
@@ -204,7 +214,9 @@ main () {
   Expect.equals("logical-and", test4(1));
   Expect.equals("logical-and", test4([1]));
   Expect.equals("null-check", test4(2));
+  Expect.equals("null-check", test4(Square(2)));
   Expect.equals("null-assert", test4(3));
+  Expect.equals("null-assert", test4(Square(3)));
   Expect.equals("variable", test4(4));
   Expect.equals("parenthesized", test4(5));
   Expect.equals("list", test4(6));
@@ -220,7 +232,9 @@ main () {
   Expect.equals("logical-and", test5(1));
   Expect.equals("logical-and", test5([1]));
   Expect.equals("null-check", test5(2));
+  Expect.equals("null-check", test5(Square(2)));
   Expect.equals("null-assert", test5(3));
+  Expect.equals("null-assert", test5(Square(3)));
   Expect.equals("variable", test5(4));
   Expect.equals("parenthesized", test5(5));
   Expect.equals("list", test5(6));
@@ -236,7 +250,9 @@ main () {
   Expect.equals("logical-and", test6(1));
   Expect.equals("logical-and", test6([1]));
   Expect.equals("null-check", test6(2));
+  Expect.equals("null-check", test6(Square(2)));
   Expect.equals("null-assert", test6(3));
+  Expect.equals("null-assert", test6(Square(3)));
   Expect.equals("variable", test6(4));
   Expect.equals("parenthesized", test6(5));
   Expect.equals("list", test6(6));
