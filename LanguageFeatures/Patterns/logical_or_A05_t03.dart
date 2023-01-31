@@ -53,7 +53,7 @@ main() {
   Shape shape2 = Square(2, logger);
   if (shape2 case Square(area: two) || Square(area: four)
       || Square(size: two)) {
-    Expect.equals("Square.area=2;=4;", log);
+    Expect.equals("Square.area:(2==4);:(4==4);", log);
   } else {
     Expect.fail("Expression should match");
   }
@@ -62,7 +62,7 @@ main() {
   Shape shape3 = Shape(logger);
   if (shape3 case Circle(area: zero) || Square(area: one)
       || Shape(area: zero)) {
-    Expect.equals("Shape.area=0;", log);
+    Expect.equals("Shape.area:(0==0);", log);
   } else {
     Expect.fail("Expression should match");
   }

@@ -53,7 +53,7 @@ main() {
   const eight = Unit(8, logger);
   switch (shape2) {
     case Square(area: two) || Square(area: four) || Square(area: eight):
-      Expect.equals("Square.area=2;=4;", log);
+      Expect.equals("Square.area:(2==4);:(4==4);", log);
       break;
     default:
       Expect.fail("No match");
@@ -65,7 +65,7 @@ main() {
   const one = Unit(1, logger);
   switch (shape3) {
     case Circle(area: zero) || Square(area: one) || Shape(area: zero):
-      Expect.equals("Shape.area=0;", log);
+      Expect.equals("Shape.area:(0==0);", log);
       break;
     default:
       Expect.fail("No match");

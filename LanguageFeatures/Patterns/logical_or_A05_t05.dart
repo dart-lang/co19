@@ -55,7 +55,7 @@ main() {
     Square(area: two) || Square(area: four) || Square(size: four) => log,
     _ => "Other"
   };
-  Expect.equals("Square.area=2;=4;", s2);
+  Expect.equals("Square.area:(2==4);:(4==4);", s2);
   clearLog();
 
   Shape shape3 = Shape(logger);
@@ -63,5 +63,5 @@ main() {
     Circle(area: zero) || Square(area: one) || Shape(area: zero) => log,
     _ => "Other"
   };
-  Expect.equals("Shape.area=0;", s3);
+  Expect.equals("Shape.area:(0==0);", s3);
 }
