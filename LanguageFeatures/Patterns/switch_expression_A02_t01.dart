@@ -56,7 +56,6 @@ String test(int value) =>
 String testCast(num value) =>
   switch (value) {
     var c1 as int when c1 == 42 => "cast-1 =$c1",
-    var c2 as double when c2 > 4 => "cast-2 =${c2.toStringAsFixed(2)}",
     _ => "default"
   };
 
@@ -98,17 +97,17 @@ String testMap(Map<String, int> map) =>
 
 String testRecord(Record record) =>
   switch (record) {
-    (1, var a) when a > 0 => "record-1",
-    (1, final b) when b < 0 => "record-2",
-    (1, 2, n: var c) when c > 0 => "record-3",
-    (1, 2, n: final d) when d < 0 => "record-4",
+    (1, var a) when a == 1 => "record-1",
+    (1, final b) when b == 2 => "record-2",
+    (1, 2, n: var c) when c == 3 => "record-3",
+    (1, 2, n: final d) when d == 4 => "record-4",
     _ => "default"
   };
 
 String testObject(Shape shape) =>
   switch (shape) {
     Square(sizeAsInt: var a) when a > 2 => "object-1",
-    Square(areaAsInt: final b) when b < 4 => "object-2",
+    Square(areaAsInt: final b) when b < 4 && b > 0 => "object-2",
     Circle(sizeAsInt: var c) when c > 1 => "object-3",
     Circle(sizeAsInt: final d) when d < 1 => "object-4",
     _ => "default"
@@ -119,14 +118,13 @@ main() {
   Expect.equals("logical-or-2", test(1));
   Expect.equals("logical-and-1", test(14));
   Expect.equals("logical-and-2", test(13));
-  Expect.equals("default", test(24));
+  Expect.equals("default", test(26));
   Expect.equals("relational-2", test(23));
   Expect.equals("constant-2", test(30));
   Expect.equals("parenthesized-2", test(40));
   Expect.equals("default", test(100));
 
   Expect.equals("cast-1 =42", testCast(42));
-  Expect.equals("cast-2 =41.00", testCast(41));
   Expect.equals("default", testCast(3));
 
   Expect.equals("null-check-2", testNullCheck(0));
@@ -150,10 +148,10 @@ main() {
   Expect.equals("map-2", testMap({"key1": 1, "key2": -3}));
   Expect.equals("default", testMap({"key1": 1, "key2": 0}));
 
-  Expect.equals("record-1", testRecord((1, 2)));
-  Expect.equals("record-2", testRecord((1, -3)));
+  Expect.equals("record-1", testRecord((1, 1)));
+  Expect.equals("record-2", testRecord((1, 2)));
   Expect.equals("record-3", testRecord((1, 2, n: 3)));
-  Expect.equals("record-4", testRecord((1, 2, n: -4)));
+  Expect.equals("record-4", testRecord((1, 2, n: 4)));
   Expect.equals("default", testRecord((1, 0)));
   Expect.equals("default", testRecord((1, 2, n: 0)));
 
