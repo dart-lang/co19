@@ -26,11 +26,10 @@ import "patterns_lib.dart";
 
 main() {
   int a = 42;
-  num d = 3.14;
   (String, int) r1 = ("one", 1);
   ({int n}) r2 = (n: 42);
   List<int> l = [];
-  int areaAsInt = 42;
+  String areaAsInt = "42";
   String s = "";
 
   ((a, _) && r1) = ("one", 2);
@@ -63,7 +62,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  (a, _)  = ("one", 2);
+  (a, _) = ("one", 2);
 // ^
 // [analyzer] unspecified
 // [cfe] unspecified
