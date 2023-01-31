@@ -19,12 +19,12 @@ import "../../Utils/expect.dart";
 
 int test1(Shape shape) =>
   switch(shape) {
-    Square(:(areaAsInt)) => areaAsInt,
+    Square(:(var areaAsInt)) => areaAsInt,
     _ => -1
   };
 
 int test2(Shape shape) {
-  if (shape case Square(:(areaAsInt))) {
+  if (shape case Square(:(final areaAsInt))) {
     return areaAsInt;
   }
   return -1;
@@ -32,7 +32,7 @@ int test2(Shape shape) {
 
 int test3(Shape shape) {
   switch (shape) {
-    case Square(:(areaAsInt)):
+    case Square(:(int areaAsInt)):
       return areaAsInt;
     default:
       return -1;
@@ -40,10 +40,10 @@ int test3(Shape shape) {
 }
 
 main() {
-  var Square(:(areaAsInt)) = Square(1);
+  var Square(:(var areaAsInt)) = Square(1);
   Expect.equals(1, areaAsInt);
 
-  final Square(:(sizeAsInt)) = Square(2);
+  final Square(:(final sizeAsInt)) = Square(2);
   Expect.equals(2, sizeAsInt);
 
   var Square(: (double areaAsDouble)) = Square(3);
