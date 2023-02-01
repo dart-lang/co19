@@ -22,31 +22,23 @@ String test1(int? x) {
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
 // [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
       return "match-1";
-    case int? v2 && == 2 || int? v2!:
-//                                 ^
-// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
-// [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
+    case int v2!:
       return "match-2";
-    case int v3!:
-      return "match-3";
     default:
       return "no match";
   }
 }
 
 String test2(int? x) {
-  if (x case final int? v1! && == 1 || final int? v1!)
+  if (x case final int? v1! && == 1 || final int? v1!) {
 //                                                  ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
 // [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
     return "match-1";
-  if (x case int? v2 && == 2 || int? v2!)
-//                                     ^
-// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
-// [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
+  }
+  if (x case int v2!) {
     return "match-2";
-  if (x case int v3!)
-    return "match-3";
+  }
   return "no match";
 }
 
@@ -56,11 +48,7 @@ String test3(int? x) =>
 //                                         ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
 // [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
-    final int? v2 && == 2 || final int? v2! => "match-2",
-//                                        ^
-// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
-// [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
-    int v3! => "match-2",
+    int v2! => "match-2",
     _ => "no match"
   };
 

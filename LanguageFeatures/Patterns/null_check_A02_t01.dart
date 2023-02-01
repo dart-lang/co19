@@ -17,8 +17,8 @@
 
 String test1(int? x) {
   switch (x) {
-    case int? v1 && == 1 || int? v1?:
-//                                 ^
+    case int? v1! && == 1 || int? v1?:
+//                                  ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
 // [cfe] The null-check pattern will have no effect because the matched type isn't nullable.
       return "match-1";
@@ -30,20 +30,22 @@ String test1(int? x) {
 }
 
 String test2(int? x) {
-  if (x case int? v1 && == 1 || int? v1?)
-//                                     ^
+  if (x case int? v1! && == 1 || int? v1?) {
+//                                      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
 // [cfe] The null-check pattern will have no effect because the matched type isn't nullable.
     return "match-2";
-  if (x case int v2?)
+  }
+  if (x case int v2?) {
     return "match-2";
+  }
   return "no match";
 }
 
 String test3(int? x) =>
   switch (x) {
-    final int? v1 && == 1 || final int? v1? => "match-1",
-//                                        ^
+    final int? v1! && == 1 || final int? v1? => "match-1",
+//                                         ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
 // [cfe] The null-check pattern will have no effect because the matched type isn't nullable.
     int v2? => "match-2",
