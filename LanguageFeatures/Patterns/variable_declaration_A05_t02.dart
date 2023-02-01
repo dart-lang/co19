@@ -16,7 +16,7 @@
 /// expression in a pattern-for-in loop is not assignable to Iterable<dynamic>.
 ///
 /// @description Check that it is a compile-time error if the type of expression
-/// in a pattern-for-in loop is not assignable
+/// in a pattern-for-in loop is not assignable to pattern's required type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
