@@ -63,12 +63,12 @@ String test1(num value) {
 //       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "nagative";
+      return "negative";
     case -NegativePi:
 //       ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "nagative-pi";
+      return "negative-pi";
     case -MaxJSInt:
 //       ^^^^^^^^^
 // [analyzer] unspecified
@@ -102,13 +102,13 @@ String test2(num value) {
 //               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    return "nagative";
+    return "negative";
   }
   if (value case -NegativePi) {
 //               ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    return "nagative-pi";
+    return "negative-pi";
   }
   if (value case -MaxJSInt) {
 //               ^^^^^^^^^
@@ -133,11 +133,11 @@ String test3(num value) {
 //  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    -Negative => "nagative",
+    -Negative => "negative",
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    -NegativePi => "nagative-pi",
+    -NegativePi => "negative-pi",
 //  ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

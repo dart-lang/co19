@@ -67,9 +67,9 @@ String testNum(num value) {
     case Answer:
       return "answer";
     case Negative:
-      return "nagative";
+      return "negative";
     case NegativePi:
-      return "nagative-pi";
+      return "negative-pi";
     case MaxJSInt:
       return "max_int";
     default:
