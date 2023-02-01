@@ -46,7 +46,7 @@ String test2(List list) {
   }
 }
 
-String test3(List list) {
+void test3(List list) {
   if (list case [1, ...List r1, ...List r2]) {
 //                              ^^^
 // [analyzer] unspecified
