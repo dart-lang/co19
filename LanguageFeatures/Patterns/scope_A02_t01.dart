@@ -18,12 +18,15 @@
 
 // SharedOptions=--enable-experiment=patterns
 
+import "../../Utils/expect.dart";
+
 const c = 1;
 
 main() {
-  for (var [c] = [c] in [[]]) {
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  bool visited = false;
+  for (var [c] in [[]]) {
+    Expect.listEquals([], c);
+    visited = true;
   }
+  Expect.isTrue(visited);
 }

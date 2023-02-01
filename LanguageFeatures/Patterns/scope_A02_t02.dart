@@ -12,8 +12,7 @@
 /// are considered initialized after the for loop initializer expression.
 ///
 /// @description Checks that it is a compile-time error to refer to the variable
-/// declared by the pattern in a pattern-for statement until after the pattern
-/// variable declaration's initializer
+/// declared by the pattern in a pattern-for statement outside of its scope
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

@@ -33,7 +33,7 @@ void test1() {
 
 void test2() {
   var z = switch (42) {
-    final int v when (v = 1) => 0 => v,
+    final int v when (v = 1) >= 0 => v,
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified

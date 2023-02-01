@@ -14,7 +14,7 @@
 /// enclosing scope is the case's case scope.
 ///
 /// @description Checks that it is a compile-time error if a variable defined in
-/// a case's scope of if-case element is referenced in its `then` branch
+/// a case's scope of if-case element is referenced in its `else` branch
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
