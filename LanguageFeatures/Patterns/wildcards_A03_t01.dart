@@ -18,7 +18,7 @@
 ///     print('First field is int and second is String.');
 /// }
 /// ```
-/// @description Check that if an object contains getter named _ the it can be
+/// @description Check that if an object contains getter named _ then it can be
 /// used in an Object pattern
 /// @author sgrekhov22@gmail.com
 
