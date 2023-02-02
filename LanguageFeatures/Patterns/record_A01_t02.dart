@@ -121,7 +121,7 @@ main() {
   Expect.equals("list-2", test((10, ["42", 42, 0])));
   Expect.equals("default", test((10, [Object(), 42])));
   Expect.equals("map-1", test((11, {1: 42})));
-  Expect.equals("map-2", test((11, {"1": 42})));
+  Expect.equals("map-2", test((11, {"1": "42"})));
   Expect.equals("default", test((11, {Object(): 42})));
   Expect.equals("record-1 = 42", test((12, (42,))));
   Expect.equals("record-2", test((12, (42, x: 0))));
