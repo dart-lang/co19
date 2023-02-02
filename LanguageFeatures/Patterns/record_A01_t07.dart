@@ -48,7 +48,7 @@ String test(Record record) {
     (: final () case3) => "case3 = $case3",
     (: List<int> case4) => "case4 = $case4",
     (: var case5 as num) => "case5 = $case5",
-    (: final case6 as num) => "case6 = $case5",
+    (: final case6 as num) => "case6 = $case6",
     (: final Record case7 as ()) => "case7 = $case7",
     (: List<num> case8 as List<int>) => "case8 = $case8",
     (: var case9?) => "case9 = $case9",
