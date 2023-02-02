@@ -18,7 +18,7 @@
 
 void test1() {
   switch (42) {
-    case var [x]:
+    case [var x]:
       print(v);
 //          ^
 // [analyzer] unspecified
@@ -43,7 +43,7 @@ void test1() {
 
 void test2() {
   var z = switch (42) {
-    var [x] => v,
+    [var x] => v,
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
