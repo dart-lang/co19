@@ -63,6 +63,6 @@ main() {
   final Square(:areaAsInt) = Square(2);
   Expect.equals(4, areaAsInt);
 
-  var Square(areaAsInt: final int x17) = Square(2);
+  var Square(areaAsInt: int x17) = Square(2);
   Expect.equals(4, x17);
 }
