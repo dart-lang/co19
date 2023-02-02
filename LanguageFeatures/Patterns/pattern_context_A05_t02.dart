@@ -3,39 +3,52 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion
-/// A simple identifier in any context named _ is treated as a wildcard variable
-/// pattern.
+/// A simple identifier in a matching context is treated as a named constant
+/// pattern unless its name is _
 ///
-/// @description Checks that a simple identifier in a declaration context named
-/// _ is treated as a wildcard variable pattern.
+/// @description Checks that a simple identifier in a matching context is
+/// a compile-time error if no constant with the same name defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
-import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
-int _ = 0;
+var c = 1;
+
+String test1(int x) {
+  switch (x) {
+    case c:
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      return "match $c";
+    default:
+      return "no match";
+  }
+}
+
+String test2(int x) =>
+  switch (x) {
+    c => "match $c",
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    _ => "no match"
+  };
+
+String test3(int x) {
+  if (x case c) {
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return "match $c";
+  }
+  return "no match";
+}
 
 main() {
-  var (_) = 42;
-  Expect.equals(0, _);
-
-  final (int _) = 42;
-  Expect.equals(0, _);
-
-  var [x1, _] = [1, 2];
-  Expect.equals(0, _);
-
-  final {"key1": int _}  = {"key1": 1};
-  Expect.equals(0, _);
-
-  var (_, name: String x2) = (1, name: "one");
-  Expect.equals(0, _);
-
-  final (int x3, name: _) = (1, name: "one");
-  Expect.equals(0, _);
-
-  var Square(areaAsInt: _) = Square(2);
-  Expect.equals(0, _);
+  test1(1);
+  test2(1);
+  test3(1);
 }

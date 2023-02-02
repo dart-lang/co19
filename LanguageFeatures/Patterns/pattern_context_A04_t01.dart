@@ -3,47 +3,158 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion
-/// A simple identifier in a matching context is treated as a named constant
-/// pattern unless its name is _
+/// It is a compile-time error if a variable pattern appears in an assignment
+/// context.
 ///
-/// @description Checks that a simple identifier in a matching context is
-/// treated as a named constant pattern
+/// @description Checks that it is a compile-time error if a variable pattern
+/// appears in an assignment context.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
-import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
-const c = 1;
-
-String test1(int x) {
-  switch (x) {
-    case c:
-      return "match $c";
-    default:
-      return "no match";
-  }
-}
-
-String test2(int x) =>
-  switch (x) {
-    c => "match $c",
-    _ => "no match"
-  };
-
-String test3(int x) {
-  if (x case c) {
-    return "match $c";
-  }
-  return "no match";
-}
-
 main() {
-  Expect.equals("no match", test1(2));
-  Expect.equals("match 1", test1(1));
-  Expect.equals("no match", test2(2));
-  Expect.equals("match 1", test2(1));
-  Expect.equals("no match", test3(2));
-  Expect.equals("match 1", test3(1));
+  var a = 0, b = 0, areaAsInt = 0;
+  String s = "";
+
+  (var a) = 42;
+// ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  (final a) = 42;
+// ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  (final int a) = 42;
+// ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  (int a) = 42;
+// ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  [var a, ...] = [1, 2];
+// ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  [final a, ...] = [1, 2];
+// ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  [int a, ...] = [1, 2];
+// ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  [final int a, ...] = [1, 2];
+// ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  {"key1": var a} = {"key1": 1};
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  {"key1": int a} = {"key1": 1};
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  {"key1": final a} = {"key1": 1};
+//         ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  {"key1": final int a} = {"key1": 1};
+//         ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  (var a, name: s) = (1, name: "one");
+// ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  (final a, name: s) = (1, name: "one");
+// ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  (final int a, name: s) = (1, name: "one");
+// ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  (int a, name: s) = (1, name: "one");
+// ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  (a, name: var s) = (1, name: "one");
+//          ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  (a, name: final s) = (1, name: "one");
+//          ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  (a, name: final String s) = (1, name: "one");
+//          ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  (a, name: String s) = (1, name: "one");
+//          ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Square(areaAsInt: var a) = Square(2);
+//                  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Square(areaAsInt: final a) = Square(2);
+//                  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Square(areaAsInt: int a) = Square(2);
+//                  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Square(areaAsInt: final int a) = Square(2);
+//                  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Square(:var areaAsInt) = Square(2);
+//        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Square(:final areaAsInt) = Square(2);
+//        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Square(:final int areaAsInt) = Square(2);
+//        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Square(:int areaAsInt) = Square(2);
+//        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
