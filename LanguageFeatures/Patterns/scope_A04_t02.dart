@@ -20,7 +20,7 @@
 
 void test1() {
   switch (42) {
-    case var [x] when v > 0:
+    case [var x] when v > 0:
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -39,7 +39,7 @@ void test1() {
 
 void test2() {
   var z = switch (42) {
-    var [x] when v > 0 => 1,
+    [var x] when v > 0 => 1,
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified
