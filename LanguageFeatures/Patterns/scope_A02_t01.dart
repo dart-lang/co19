@@ -11,21 +11,20 @@
 /// for each loop iteration. All pattern variables are in the same scope. They
 /// are considered initialized after the for loop initializer expression.
 ///
-/// @description Checks that it is a compile-time error to refer to the variable
-/// declared by the pattern in a pattern-for statement until after the pattern
-/// variable declaration's initializer
+/// @description Checks that in a pattern-for statement pattern variables are
+/// bound in a new scope
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
 
-const c = 1;
+const c = [1];
 
 main() {
   bool visited = false;
-  for (var [c] in [[]]) {
-    Expect.listEquals([], c);
+  for (var [c] in [c]) {
+    Expect.listEquals(1, c);
     visited = true;
   }
   Expect.isTrue(visited);
