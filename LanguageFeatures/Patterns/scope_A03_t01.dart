@@ -19,12 +19,12 @@ import "patterns_lib.dart";
 
 main() {
   var a = 1;
-  [a, final b1] = [2, 3];
-//    ^^^^^
+  [a, var b1] = [2, 3];
+//    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  {"key1": a, "key2": var int b2} = {"key1": 2, "key2": 3};
-//                    ^^^
+  {"key1": a, "key2": final int b2} = {"key1": 2, "key2": 3};
+//                    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   (a, var b3) = (2, 3);
