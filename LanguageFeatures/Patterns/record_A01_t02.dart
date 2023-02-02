@@ -130,5 +130,5 @@ main() {
   Expect.equals("default", test((12, (42, a: 0))));
   Expect.equals("object-1", test((13, Square(1))));
   Expect.equals("object-2 = 2", test((13, Square(2))));
-  Expect.equals("default", test((13, Square(2))));
+  Expect.equals("default", test((13, Circle(2))));
 }
