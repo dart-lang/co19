@@ -22,12 +22,12 @@ import "../../Utils/static_type_helper.dart";
 main() {
   try {
     var ({} && m) = {"key1": 1, "key2": 1, "key3": 3};
-    m.expectStaticType<Exactly<Map<String, int>>();
+    m.expectStaticType<Exactly<Map<String, int>>>();
   } catch (_) {}
   try {
     var ({} && Map<String, num> m) = {"key1": 1, "key2": 1, "key3": 3};
-    m.expectStaticType<Exactly<Map<String, num>>();
+    m.expectStaticType<Exactly<Map<String, num>>>();
   } catch (_) {}
   var ({} && Map<String, num> m) = {};
-  m.expectStaticType<Exactly<Map<String, num>>();
+  m.expectStaticType<Exactly<Map<String, num>>>();
 }

@@ -38,7 +38,7 @@ main() {
   }
   {
     final <String, A>{"key1": A v1, "key2": B v2, "key3": v3} =
-        <C>{"key1": d, "key2": d, "key3": d};
+        <String, C>{"key1": d, "key2": d, "key3": d};
     v1.expectStaticType<Exactly<A>>();
     v2.expectStaticType<Exactly<A>>();
     v3.expectStaticType<Exactly<A>>();

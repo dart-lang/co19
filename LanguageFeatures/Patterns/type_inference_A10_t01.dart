@@ -11,18 +11,18 @@
 /// object name resolves to
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/static_type_helper.dart";
 import "patterns_lib.dart";
 
 main() {
-  var Square(area: var v1) = Square(1);
+  var Square(area: v1) = Square(1);
   v1.expectStaticType<Exactly<Unit<MetricUnits>>>();
 
-  var Square<SI>(area: var v2) = Square<Centimeter>(1);
-  v2.expectStaticType<Exactly<Unit<CI>>>();
+  var Square<SI>(area: v2) = Square<Centimeter>(1);
+  v2.expectStaticType<Exactly<Unit<SI>>>();
 
-  var Square(area: var v3) = Square<Centimeter>(1);
+  var Square(area: v3) = Square<Centimeter>(1);
   v3.expectStaticType<Exactly<Unit<Centimeter>>>();
 }

@@ -35,12 +35,10 @@ main() {
     v1.expectStaticType<Exactly<A>>();
     v2.expectStaticType<Exactly<C>>();
   }
-  (B v1) = d;
-  v1.expectStaticType<Exactly<B>>();
-  (var v2) = c;
+  var (v2) = c;
   v2.expectStaticType<Exactly<C>>();
-  (final B v3) = d;
+  final (B v3) = d;
   v3.expectStaticType<Exactly<B>>();
-  (final v4) = c;
+  final (v4) = c;
   v4.expectStaticType<Exactly<C>>();
 }
