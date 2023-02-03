@@ -64,13 +64,13 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   final (n: a6!,
-//          ^^
+//            ^
 // [analyzer] unspecified
-// [cfe] unspecified;
+// [cfe] unspecified
                 b6!) = (n: 42, -1);
-//              ^^
+//                ^
 // [analyzer] unspecified
-// [cfe] unspecified;
+// [cfe] unspecified
   final (:n2!) = (n2: 42);
 //        ^^
 // [analyzer] unspecified
