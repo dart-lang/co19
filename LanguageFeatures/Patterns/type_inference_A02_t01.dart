@@ -28,25 +28,25 @@ main() {
   C? c = C();
   D? d = D();
   {
-    var [A? v1, B? v2, v3]! = [b, c, c];
+    var ([A? v1, B? v2, v3]!) = [b, c, c];
     v1.expectStaticType<Exactly<A>>();
     v2.expectStaticType<Exactly<B>>();
     v3.expectStaticType<Exactly<C>>();
   }
   {
-    final [A? v1, B? v2, v3]! = [b, c, d];
+    final ([A? v1, B? v2, v3]!) = [b, c, d];
     v1.expectStaticType<Exactly<A>>();
     v2.expectStaticType<Exactly<B>>();
     v3.expectStaticType<Exactly<D>>();
   }
   {
-    var [A? v1, B? v2, v3]! = <C?>[d, d, d];
+    var ([A? v1, B? v2, v3]!) = <C?>[d, d, d];
     v1.expectStaticType<Exactly<A>>();
     v2.expectStaticType<Exactly<B>>();
     v3.expectStaticType<Exactly<C>>();
   }
   try {
-    final [A? v1, B? v2, v3]! = [];
+    final ([A? v1, B? v2, v3]!) = [];
     v1.expectStaticType<Exactly<A>>();
     v2.expectStaticType<Exactly<B>>();
     v3.expectStaticType<Exactly<B>>();

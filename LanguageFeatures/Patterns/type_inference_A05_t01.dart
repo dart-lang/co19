@@ -26,16 +26,16 @@ main() {
   C c = C();
   D d = D();
 
-  var v1 as B = c;
+  var (v1 as B) = c;
   v1.expectStaticType<Exactly<C>>();
-  final v2 as B = d;
+  final (v2 as B) = d;
   v2.expectStaticType<Exactly<D>>();
-  A v3 as B = c;
+  A (v3 as B) = c;
   v3.expectStaticType<Exactly<C>>();
-  final A v4 as B = d;
+  final A (v4 as B) = d;
   v4.expectStaticType<Exactly<D>>();
   Expect.throws(() {
-    var v5 as B = "String";
+    var (v5 as B) = "String";
     v5.expectStaticType<Exactly<String>>();
   });
 }

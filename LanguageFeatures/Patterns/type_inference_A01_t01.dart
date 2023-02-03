@@ -27,35 +27,35 @@ main() {
   C c = C();
   D d = D();
   {
-    var [A x1, x2] && final [y1, B y2] = [b, c];
+    var ([A x1, x2] && [y1, B y2]) = [b, c];
     x1.expectStaticType<Exactly<A>>();
     x2.expectStaticType<Exactly<C>>();
     y1.expectStaticType<Exactly<B>>();
     y2.expectStaticType<Exactly<B>>();
   }
   {
-    var [A x1, x2] && final [y1, B y2] = [c, d];
+    final ([A x1, x2] && [y1, B y2]) = [c, d];
     x1.expectStaticType<Exactly<A>>();
     x2.expectStaticType<Exactly<D>>();
     y1.expectStaticType<Exactly<C>>();
     y2.expectStaticType<Exactly<B>>();
   }
   {
-    var [A x1, x2] && final [y1, B y2] = [b, b];
+    var ([A x1, x2] && [y1, B y2]) = [b, b];
     x1.expectStaticType<Exactly<A>>();
     x2.expectStaticType<Exactly<B>>();
     y1.expectStaticType<Exactly<B>>();
     y2.expectStaticType<Exactly<B>>();
   }
   {
-    var [A x1, x2] && final [y1, B y2] = <C>[d, d];
+    final ([A x1, x2] && [y1, B y2]) = <C>[d, d];
     x1.expectStaticType<Exactly<A>>();
     x2.expectStaticType<Exactly<C>>();
     y1.expectStaticType<Exactly<C>>();
     y2.expectStaticType<Exactly<B>>();
   }
   try {
-    var [A x1, x2] && final [y1, B y2] = [];
+    var ([A x1, x2] && [y1, B y2]) = [];
     x1.expectStaticType<Exactly<A>>();
     x2.expectStaticType<Exactly<B>>();
     y1.expectStaticType<Exactly<B>>();

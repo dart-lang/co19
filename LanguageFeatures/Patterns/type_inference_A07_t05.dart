@@ -34,9 +34,9 @@
 import "../../Utils/static_type_helper.dart";
 
 main() {
-  var [...] && final v = [1, 3.14];
+  var ([...] && v) = [1, 3.14];
   v.expectStaticType<Exactly<List<num>>>();
-  var [...r1] = [1, 3.14];
+  final [...r1] = [1, 3.14];
   r1.expectStaticType<Exactly<List<num>>>();
   var [...r2] = [1.1, 3.14];
   r2.expectStaticType<Exactly<List<double>>>();
