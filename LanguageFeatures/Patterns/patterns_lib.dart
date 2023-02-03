@@ -42,10 +42,13 @@ enum Color {
 abstract class MetricUnits {
 }
 
-class Centimeter extends MetricUnits {
+abstract class CI {
 }
 
-class Meter extends MetricUnits {
+class Centimeter extends CI {
+}
+
+class Meter extends CI {
 }
 
 
