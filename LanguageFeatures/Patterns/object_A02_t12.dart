@@ -27,5 +27,5 @@ main() {
   var Square(: int sizeAsInt) = Square(2);
 //                 ^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }
