@@ -7,22 +7,23 @@
 /// ...
 /// Object: The type the object name resolves to
 ///
-/// @description Check that the type schema of a record pattern is a type the
+/// @description Check that the type schema of an object pattern is a type the
 /// object name resolves to
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
 main() {
-  var Square(area: v1) = Square(1);
-  v1.expectStaticType<Exactly<Unit<MetricUnits>>>();
+  String log = "";
+  var Square(area: v1) = getType(Square(1), (String s) {log += s;});
+  Expect.equals("Square<MetricUnits>", log);
 
-  var Square<SI>(area: v2) = Square<Centimeter>(1);
-  v2.expectStaticType<Exactly<Unit<SI>>>();
-
-  var Square(area: v3) = Square<Centimeter>(1);
-  v3.expectStaticType<Exactly<Unit<Centimeter>>>();
+  log = "";
+  final Square<Centimeter>(area: v2) =
+      getType(Square<Centimeter>(1), (String s) {log += s;});
+  Expect.equals("Square<Centimeter>", log);
 }

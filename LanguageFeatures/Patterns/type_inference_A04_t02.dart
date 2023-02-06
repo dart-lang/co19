@@ -37,8 +37,10 @@ main() {
     final (v,) = (c,);
     v.expectStaticType<Exactly<C>>();
   }
+
   final v1 = d;
   v1.expectStaticType<Exactly<D>>();
+
   var v2 = c;
   v2.expectStaticType<Exactly<C>>();
 }

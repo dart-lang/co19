@@ -31,9 +31,11 @@
 /// Test the case when there is a matching rest element
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
+import "patterns_lib.dart";
 
 class A {}
 class B extends A {}
@@ -58,15 +60,20 @@ main() {
     v2.expectStaticType<Exactly<D>>();
   }
   {
-    var [A v1, ...r, v2] = <C>[d, d, d, d];
+    final [A v1, ...r, v2] = <C>[d, d, d, d];
     v1.expectStaticType<Exactly<A>>();
     r.expectStaticType<Exactly<List<C>>>();
     v2.expectStaticType<Exactly<C>>();
   }
+  String log = "";
   try {
-    var [A v1, List<B> r, v2] = [];
-    v1.expectStaticType<Exactly<A>>();
-    r.expectStaticType<Exactly<List<B>>>();
-    v2.expectStaticType<Exactly<B>>();
+    var [A v1, ...List<B> r, v2] = getType([], (String s) {log += s;});
   } catch (_) {}
+  Expect.equals("List<B>", log);
+
+  log = "";
+  try {
+    var [A v1, ...r, v2] = getType([], (String s) {log += s;});
+  } catch (_) {}
+  Expect.equals("List<A>", log);
 }

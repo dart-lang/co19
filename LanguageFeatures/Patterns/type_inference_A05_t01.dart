@@ -12,6 +12,7 @@
 
 // SharedOptions=--enable-experiment=patterns,records
 
+import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
@@ -38,4 +39,10 @@ main() {
     var (v5 as B) = "String";
     v5.expectStaticType<Exactly<String>>();
   });
+  String log = "";
+  var (v6 as B) = getType(d, (String s) {log += s;});
+  Expect.equals("Object?", log);
+  log = "";
+  final (v7 as B) = getType(d, (String s) {log += s;});
+  Expect.equals("Object?", log);
 }

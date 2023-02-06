@@ -39,6 +39,17 @@ enum Color {
   black;
 }
 
+T getType<T extends Object?>(Object? o,
+    [void Function(String s)? logger = null]) {
+  if (logger != null) {
+    logger(T.toString());
+  }
+  return o as T;
+}
+
+/**
+ * The class hierarchy below is for testing of Object's pattern type arguments
+ */
 abstract class MetricUnits {
 }
 
@@ -50,7 +61,6 @@ class Centimeter extends SI {
 
 class Meter extends SI {
 }
-
 
 class Unit<T extends MetricUnits> {
   static final tolerance = 0.001;

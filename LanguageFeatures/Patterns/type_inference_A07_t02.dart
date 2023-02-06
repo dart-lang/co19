@@ -31,19 +31,17 @@
 /// @description Check that if list pattern p has no elements then E is _
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
-import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
+import "patterns_lib.dart";
 
 main() {
-  try {
-    var ([] && List<num> v )= [1];
-    v.expectStaticType<Exactly<List<num>>>();
-  } catch (_) {}
-  try {
-    final ([] && v) = [3.14];
-    v.expectStaticType<Exactly<List<double>>>();
-  } catch (_) {}
-  var ([] && List<num> v) = [];
-  v.expectStaticType<Exactly<List<num>>>();
+  String log = "";
+  var [] = getType([], (String s) {log += s;});
+  Expect.equals("List<Object?>", log);
+
+  String log = "";
+  final [] = getType([], (String s) {log += s;});
+  Expect.equals("List<Object?>", log);
 }

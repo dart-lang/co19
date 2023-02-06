@@ -11,23 +11,19 @@
 /// iii. Else K is _ and V is the greatest lower bound of the context type
 ///     schemas of all value subpatterns.
 ///
-/// @description Check that if map pattern p has type arguments then K, and V
-/// are those type arguments.
+/// @description Check that if map pattern p has no entries, then K and V are _.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
-import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
+import "patterns_lib.dart";
 
 main() {
-  try {
-    var ({} && m) = {"key1": 1, "key2": 1, "key3": 3};
-    m.expectStaticType<Exactly<Map<String, int>>>();
-  } catch (_) {}
-  try {
-    var ({} && Map<String, num> m) = {"key1": 1, "key2": 1, "key3": 3};
-    m.expectStaticType<Exactly<Map<String, num>>>();
-  } catch (_) {}
-  var ({} && Map<String, num> m) = {};
-  m.expectStaticType<Exactly<Map<String, num>>>();
+  String log = "";
+  var {} = getType({}, (String s) {log += s;});
+  Expect.equals("Map<Object?, Object?>", log);
+  log = "";
+  final {} = getType({}, (String s) {log += s;});
+  Expect.equals("Map<Object?, Object?>", log);
 }

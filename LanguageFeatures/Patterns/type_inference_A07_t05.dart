@@ -29,15 +29,19 @@
 /// @description Check that if es is empty, then E is _
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
-import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
+import "patterns_lib.dart";
 
 main() {
-  var ([...] && v) = [1, 3.14];
-  v.expectStaticType<Exactly<List<num>>>();
-  final [...r1] = [1, 3.14];
-  r1.expectStaticType<Exactly<List<num>>>();
-  var [...r2] = [1.1, 3.14];
-  r2.expectStaticType<Exactly<List<double>>>();
+  String log = "";
+  var [...] = getType([], (String s) {log += s;});
+  Expect.equals("List<Object?>", log);
+  log = "";
+  final [...r1] = getType([], (String s) {log += s;});
+  Expect.equals("List<Object?>", log);
+  log = "";
+  var [...r2] = getType([], (String s) {log += s;});
+  Expect.equals("List<Object?>", log);
 }

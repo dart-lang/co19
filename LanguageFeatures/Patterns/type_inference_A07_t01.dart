@@ -32,9 +32,11 @@
 /// type argument.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
+import "patterns_lib.dart";
 
 class A {}
 class B extends A {}
@@ -58,10 +60,9 @@ main() {
     v2.expectStaticType<Exactly<A>>();
     v3.expectStaticType<Exactly<A>>();
   }
+  String log = "";
   try {
-    var <A>[A v1, B v2, v3] = [];
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<A>>();
-    v3.expectStaticType<Exactly<A>>();
+    var <A>[A v1, B v2, v3] = getType([], (String s) {log += s;});
   } catch (_) {}
+  Expect.equals("List<A>", log);
 }

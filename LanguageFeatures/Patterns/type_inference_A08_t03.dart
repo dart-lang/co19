@@ -16,9 +16,11 @@
 /// schemas of all value subpatterns.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
+import "patterns_lib.dart";
 
 class A {}
 class B extends A {}
@@ -51,10 +53,16 @@ main() {
     v2.expectStaticType<Exactly<B>>();
     v3.expectStaticType<Exactly<C>>();
   }
+  String log = "";
   try {
-    final {"key1": A v1, "key2": B v2, "key3": v3} = {};
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<B>>();
-    v3.expectStaticType<Exactly<B>>();
+    var {"key1": A v1, "key2": B v2, "key3": v3} =
+        getType({}, (String s) {log += s;});
   } catch (_) {}
+  Expect.equals("Map<Object?, B>", log);
+  log = "";
+  try {
+    var {"key1": A v1, "key2": B v2, "key3": v3} =
+        getType({}, (String s) {log += s;});
+  } catch (_) {}
+  Expect.equals("Map<Object?, B>", log);
 }

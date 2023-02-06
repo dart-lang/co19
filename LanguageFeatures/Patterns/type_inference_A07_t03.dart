@@ -30,9 +30,11 @@
 /// the greatest lower bound of the context type schemas of the subpatterns.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
+import "patterns_lib.dart";
 
 class A {}
 class B extends A {}
@@ -62,10 +64,9 @@ main() {
     v2.expectStaticType<Exactly<B>>();
     v3.expectStaticType<Exactly<C>>();
   }
+  String log = "";
   try {
-    var [A v1, B v2, v3] = [];
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<B>>();
-    v3.expectStaticType<Exactly<B>>();
+    var [A v1, B v2, v3] = getType([], (String s) {log += s;});
   } catch (_) {}
+  Expect.equals("List<B>", log);
 }

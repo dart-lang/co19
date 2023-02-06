@@ -18,7 +18,8 @@
 
 // SharedOptions=--enable-experiment=patterns,records
 
-import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
+import "patterns_lib.dart";
 
 class A {}
 class B extends A {}
@@ -31,15 +32,13 @@ main() {
   C c = C();
   D d = D();
 
-  var (A v,) = (a,);
-  v = b;
-  v.expectStaticType<Exactly<A>>();
+  B v1 = b;
+  String log = "";
+  v1 = getType(d, (String s) {log += s;});
+  Expect.equals("B", log);
 
-  B v1 = d;
-  v1 = c;
-  v1.expectStaticType<Exactly<B>>();
-
+  log = "";
   var v2 = c;
-  v2 = d;
-  v2.expectStaticType<Exactly<C>>();
+  v2 = getType(d, (String s) {log += s;});
+  Expect.equals("C", log);
 }
