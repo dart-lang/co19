@@ -31,79 +31,27 @@
 /// 3. Compile the body in s. It is a compile-time error if any identifier in
 ///   the body resolves to a variable in s that isn't shared.
 ///
-/// @description Checks that it is a compile-time error if any identifier in the
-/// body resolves to a variable in s that isn't shared. Test the case when the
-/// variable is defined in every pattern variable set but with different type or
-/// finality.
+/// @description Checks that a new scope is created for the shared cases
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "../../Utils/expect.dart";
+
+Function captured = () {};
+
+bool capture(Function closure) {
+  captured = closure;
+  return true;
+}
+
 main() {
-  switch (42) {
-    case var a when a == 0:
-      print(a);
-      break;
-    case var a when a == 42:
-    case final a:
-    case int a:
-      print(a);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case final a when a == -1:
-      print(a);
-      break;
+  String log = "";
+  switch (['before']) {
+    case [String a] when capture(() {log = a;}):
+    case [_, String a]:
+    a = 'after';
+    captured();
   }
-
-  switch (42) {
-    case var a when a == 0:
-      print(a);
-      break;
-    case final int a when a == 42:
-    case final String a:
-    case final int a:
-      print(a);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case final a when a == -1:
-      print(a);
-      break;
-  }
-
-  switch (42) {
-    case var a when a == 0:
-      print(a);
-      break;
-    case int a when a == 42:
-    case String a:
-    case int a:
-      print(a);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case final a when a == -1:
-      print(a);
-      break;
-  }
-
-  switch (42 as num) {
-    case var a when a == 0:
-      print(a);
-      break;
-    case final int a when a == 42:
-    case final a:
-      print(a);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case final a when a == -1:
-      print(a);
-      break;
-  }
+  Expect.equals("before", log);
 }

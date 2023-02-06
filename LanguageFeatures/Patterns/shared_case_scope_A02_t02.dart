@@ -31,79 +31,58 @@
 /// 3. Compile the body in s. It is a compile-time error if any identifier in
 ///   the body resolves to a variable in s that isn't shared.
 ///
-/// @description Checks that it is a compile-time error if any identifier in the
-/// body resolves to a variable in s that isn't shared. Test the case when the
-/// variable is defined in every pattern variable set but with different type or
-/// finality.
+/// @description Checks that shared variables can be used in a shared case scope
+/// body. Test promoted variable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-main() {
-  switch (42) {
-    case var a when a == 0:
-      print(a);
-      break;
-    case var a when a == 42:
-    case final a:
-    case int a:
-      print(a);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case final a when a == -1:
-      print(a);
-      break;
-  }
+import "../../Utils/expect.dart";
 
-  switch (42) {
-    case var a when a == 0:
-      print(a);
-      break;
-    case final int a when a == 42:
-    case final String a:
+String test1(int x) {
+  switch (x) {
+    case final a when a == 42:
+    case final a when a == 0:
     case final int a:
       print(a);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case final a when a == -1:
-      print(a);
-      break;
+      return "match";
+    default:
+      return "default";
   }
+}
 
-  switch (42) {
-    case var a when a == 0:
+String test2(int x) {
+  switch (x) {
+    case var a when a == 42:
+    case int a when a == 0:
+    case var a:
       print(a);
-      break;
-    case int a when a == 42:
-    case String a:
-    case int a:
-      print(a);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case final a when a == -1:
-      print(a);
-      break;
+      return "match";
+    default:
+      return "default";
   }
+}
 
-  switch (42 as num) {
-    case var a when a == 0:
+String test3(num? x) {
+  switch (x) {
+    case var a! when a == 0:
+    case num a when a == 1:
+    case num a? when a == 2:
       print(a);
-      break;
-    case final int a when a == 42:
-    case final a:
-      print(a);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case final a when a == -1:
-      print(a);
-      break;
+      return "match";
+    default:
+      return "default";
   }
+}
+
+main() {
+  Expect.equals("match", test1(42));
+  Expect.equals("match", test1(0));
+  Expect.equals("match", test1(1));
+  Expect.equals("match", test2(42));
+  Expect.equals("match", test2(0));
+  Expect.equals("match", test2(1));
+  Expect.equals("match", test3(0));
+  Expect.equals("match", test3(1));
+  Expect.equals("match", test3(2));
 }

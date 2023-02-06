@@ -40,70 +40,33 @@
 // SharedOptions=--enable-experiment=patterns
 
 main() {
-  switch (42) {
-    case var a when a == 0:
-      print(a);
-      break;
-    case var a when a == 42:
-    case final a:
-    case int a:
+  switch ([1, 2, 3]) {
+    case [var a, 2, 3]:
+    case [1, 2, ...var a]:
       print(a);
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break;
-    case final a when a == -1:
-      print(a);
       break;
   }
 
-  switch (42) {
-    case var a when a == 0:
-      print(a);
-      break;
-    case final int a when a == 42:
-    case final String a:
-    case final int a:
+  switch ([1, 2, 3]) {
+    case [final a, 2, 3]:
+    case [1, ...final a, 3]:
       print(a);
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break;
-    case final a when a == -1:
-      print(a);
-      break;
+    break;
   }
 
   switch (42) {
-    case var a when a == 0:
-      print(a);
-      break;
-    case int a when a == 42:
-    case String a:
-    case int a:
+    case var a as num:
+    case var a as int:
       print(a);
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break;
-    case final a when a == -1:
-      print(a);
-      break;
-  }
-
-  switch (42 as num) {
-    case var a when a == 0:
-      print(a);
-      break;
-    case final int a when a == 42:
-    case final a:
-      print(a);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case final a when a == -1:
-      print(a);
       break;
   }
 }
