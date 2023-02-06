@@ -23,15 +23,10 @@ const c = 1;
 
 test() {
   print(c);
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   var [c] = [c];
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-
   print(c);
 }
 
@@ -40,10 +35,6 @@ main() {
   print(c);
   {
     print(c);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
     var [c] = [c];
 //             ^
 // [analyzer] unspecified
