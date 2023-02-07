@@ -60,8 +60,8 @@ main() {
       print(a);
       break;
     case final a when a == 42:
-    case final a:
     case 42:
+    case final a:
       print(a);
 //          ^
 // [analyzer] unspecified

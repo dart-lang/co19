@@ -50,8 +50,8 @@ main() {
   switch (['before']) {
     case [String a] when capture(() {log = a;}):
     case [_, String a]:
-    a = 'after';
-    captured();
+      a = 'after';
+      captured();
   }
   Expect.equals("before", log);
 }
