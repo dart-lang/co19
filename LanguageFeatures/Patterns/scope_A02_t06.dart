@@ -13,7 +13,7 @@
 /// They are considered initialized after the for loop initializer expression.
 ///
 /// @description Checks that variables declared by the pattern in a for
-/// statement are considered initialized after ⟨forInitializerStatement⟩
+/// element are considered initialized after ⟨forInitializerStatement⟩
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -21,8 +21,16 @@
 import "../../Utils/expect.dart";
 
 main() {
-  for (var [c] = [1]; c < 2; Expect.equals(2, c)) {
-    Expect.equals(1, c);
-    c++;
-  }
+  var list = [1, for (var [c] = [2]; c < 3; Expect.equals(3, c)) c++, 3];
+  Expect.listEquals([1, 2, 3], list);
+
+  var map = {
+      "k1": 1,
+      for (var [c] = [2]; c < 3; Expect.equals(3, c)) "k2": c++,
+      "k3": 3
+    };
+  Expect.mapEquals({"k1": 1, "k2": 2, "k2": 3}, map);
+
+  var set = {1, for (var [c] = [2]; c < 3; Expect.equals(3, c)) c++, 3};
+  Expect.setEquals({1, 2, 3}, set);
 }
