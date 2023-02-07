@@ -74,7 +74,7 @@ String testNullAssert(int? value) {
   switch (value) {
     case var a1! when a1 > 0:
       return "null-assert-1";
-    case var a2!:
+    case var a2:
       return "null-assert-2";
     default:
       return "default";
