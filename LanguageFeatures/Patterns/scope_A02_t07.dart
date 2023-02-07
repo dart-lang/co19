@@ -26,8 +26,8 @@ import "../../Utils/expect.dart";
 main() async {
   var c = Stream.fromIterable([[2]]);
   bool visited = false;
-  await for (var c in c) {
-    Expect.listEquals([2], c);
+  await for (var [c] in c) {
+    Expect.equals(2, c);
     visited = true;
   }
   Expect.isTrue(visited);
