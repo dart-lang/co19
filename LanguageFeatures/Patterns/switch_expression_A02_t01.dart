@@ -69,7 +69,7 @@ String testNullCheck(int? value) =>
 String testNullAssert(int? value) =>
   switch (value) {
     var a1! when a1 > 0 => "null-assert-1",
-    var a2! => "null-assert-2",
+    var a2 => "null-assert-2",
     _ => "default"
   };
 
