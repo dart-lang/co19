@@ -40,10 +40,10 @@ int test3(Shape shape) {
 }
 
 main() {
-  var Square(:(var areaAsInt)) = Square(1);
+  var Square(:(int areaAsInt)) = Square(1);
   Expect.equals(1, areaAsInt);
 
-  final Square(:(final sizeAsInt)) = Square(2);
+  final Square(:(int sizeAsInt)) = Square(2);
   Expect.equals(2, sizeAsInt);
 
   var Square(: (double areaAsDouble)) = Square(3);
