@@ -38,12 +38,13 @@
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
+import "../../Utils/static_type_helper.dart";
 
-String test1(int x) {
+String test1(num x) {
   switch (x) {
-    case final a when a == 42:
-    case final a when a == 0:
+    case final a when a is int:
     case final int a:
+      a.expectStaticType<Exactly<int>>();
       print(a);
       return "match";
     default:
@@ -51,11 +52,12 @@ String test1(int x) {
   }
 }
 
-String test2(int x) {
+String test2(num x) {
   switch (x) {
-    case var a when a == 42:
+    case var a when a is int:
     case int a when a == 0:
-    case var a:
+    case var a when a is Never: // this breaks the promotion
+      a.expectStaticType<Exactly<num>>();
       print(a);
       return "match";
     default:
@@ -65,9 +67,10 @@ String test2(int x) {
 
 String test3(num? x) {
   switch (x) {
-    case var a! when a == 0:
-    case num a when a == 1:
-    case num a? when a == 2:
+    case var a? when a == 0:
+    case num? a when a != null:
+    case num? a! when a == 2:
+      a.expectStaticType<Exactly<num>>();
       print(a);
       return "match";
     default:
