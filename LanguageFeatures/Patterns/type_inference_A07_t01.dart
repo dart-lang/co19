@@ -54,7 +54,7 @@ main() {
   } catch (_) {}
   Expect.equals("List<B>", log);
 
-  String log = "";
+  log = "";
   try {
     final <C>[A v1, B v2, v3] = getType([], (String s) {log += s;});
   } catch (_) {}

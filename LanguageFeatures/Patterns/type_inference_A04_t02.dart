@@ -32,10 +32,10 @@ main() {
   D d = D();
 
   String log = "";
-  var (v,) = getType((a,), (String s) {log += s;});
+  var (v1,) = getType((a,), (String s) {log += s;});
   Expect.equals("Object?", log);
 
-  String log = "";
-  final (v,) = getType((c,), (String s) {log += s;});
+  log = "";
+  final (v2,) = getType((c,), (String s) {log += s;});
   Expect.equals("Object?", log);
 }

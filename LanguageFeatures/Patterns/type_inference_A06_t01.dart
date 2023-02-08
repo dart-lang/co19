@@ -31,7 +31,7 @@ main() {
   var (v1) = getType(d, (String s) {log += s;});
   Expect.equals("Object?", log);
 
-  String log = "";
+  log = "";
   var (B v2) = getType(d, (String s) {log += s;});
   Expect.equals("B", log);
 

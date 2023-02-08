@@ -15,7 +15,6 @@
 
 // SharedOptions=--enable-experiment=patterns,records
 
-import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
@@ -38,8 +37,8 @@ main() {
 
   log = "";
   try {
-    final (B v1 as A, v2, n1: v3, n2: C v4 as B) =
+    final (B v1 as C, v2, n1: v3, n2: C v4 as D) =
         getType((), (String s) {log += s;});
   } catch (_) {}
-  Expect.equals((B, Object?, {Object? n1, C n2}).toString(), log);
+  Expect.equals(typeOf<(B, Object?, {Object? n1, C n2})>().toString(), log);
 }

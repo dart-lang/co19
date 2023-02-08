@@ -34,7 +34,7 @@ main() {
   } catch (_) {}
   Expect.equals("List<B>", log);
 
-  String log = "";
+  log = "";
   try {
     var ([C x1, x2] && <B>[y1, A y2]) = getType([], (String s) {log += s;});
   } catch (_) {}

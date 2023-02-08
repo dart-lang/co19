@@ -41,7 +41,7 @@ main() {
   var [] = getType([], (String s) {log += s;});
   Expect.equals("List<dynamic>", log);
 
-  String log = "";
+  log = "";
   final [] = getType([], (String s) {log += s;});
   Expect.equals("List<dynamic>", log);
 }
