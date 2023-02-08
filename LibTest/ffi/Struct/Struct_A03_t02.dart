@@ -30,7 +30,7 @@ class Coord extends Struct {
 // [cfe] unspecified
 
   external Pointer<Coord>? next;
-//                 ^
+//                         ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
