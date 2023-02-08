@@ -41,9 +41,9 @@ String test2(int? value) {
 
 String test3(int? value) {
   switch (value) {
-    case var _! when _ == 0:
+    case var _! when value == 0:
       return "null-assert-1";
-    case var _! when _ == 42:
+    case var _! when value == 42:
 //            ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
 // [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
