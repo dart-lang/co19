@@ -29,30 +29,17 @@ main() {
   B b = B();
   C c = C();
   D d = D();
-  {
-    var (A v1, v2, n1: B v3, n2: v4) = (a, b, c, d);
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<B>>();
-    v3.expectStaticType<Exactly<B>>();
-    v4.expectStaticType<Exactly<D>>();
-  }
-  {
-    var (A v1, v2, n1: B v3, n2: v4) = (d, d, d, d);
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<D>>();
-    v3.expectStaticType<Exactly<B>>();
-    v4.expectStaticType<Exactly<D>>();
-  }
-  {
-    var (A v1, v2, n1: B v3, n2: v4) = (d as C, d as C, d as C, d as C);
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<C>>();
-    v3.expectStaticType<Exactly<B>>();
-    v4.expectStaticType<Exactly<C>>();
-  }
+
   String log = "";
   try {
     var (A v1, v2, n1: B v3, n2: v4) = getType((), (String s) {log += s;});
   } catch (_) {}
-  Expect.equals((A, Object?, {B n1, Object? n2}).toString(), log);
+  Expect.equals(typeOf<(A, Object?, {B n1, Object? n2})>().toString(), log);
+
+  log = "";
+  try {
+    final (B v1 as A, v2, n1: v3, n2: C v4 as B) =
+        getType((), (String s) {log += s;});
+  } catch (_) {}
+  Expect.equals((B, Object?, {Object? n1, C n2}).toString(), log);
 }

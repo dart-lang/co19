@@ -34,7 +34,6 @@
 
 // SharedOptions=--enable-experiment=patterns,records
 
-import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
@@ -48,21 +47,24 @@ main() {
   B b = B();
   C c = C();
   D d = D();
-  {
-    var <A>[A v1, B v2, v3] = [b, c, c];
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<A>>();
-    v3.expectStaticType<Exactly<A>>();
-  }
-  {
-    final <A>[A v1, B v2, v3] = <C>[d, d, d];
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<A>>();
-    v3.expectStaticType<Exactly<A>>();
-  }
+
   String log = "";
   try {
-    var <A>[A v1, B v2, v3] = getType([], (String s) {log += s;});
+    var <B>[A v1, B v2, v3] = getType([], (String s) {log += s;});
   } catch (_) {}
-  Expect.equals("List<A>", log);
+  Expect.equals("List<B>", log);
+
+  String log = "";
+  try {
+    final <C>[A v1, B v2, v3] = getType([], (String s) {log += s;});
+  } catch (_) {}
+  Expect.equals("List<C>", log);
+
+  log = "";
+  var <C>[] = getType([], (String s) {log += s;});
+  Expect.equals("List<C>", log);
+
+  log = "";
+  final <B>[] = getType([], (String s) {log += s;});
+  Expect.equals("List<B>", log);
 }

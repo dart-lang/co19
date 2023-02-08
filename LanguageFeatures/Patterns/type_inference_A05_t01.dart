@@ -14,7 +14,6 @@
 
 import "patterns_lib.dart";
 import "../../Utils/expect.dart";
-import "../../Utils/static_type_helper.dart";
 
 class A {}
 class B extends A {}
@@ -27,22 +26,11 @@ main() {
   C c = C();
   D d = D();
 
-  var (v1 as B) = c;
-  v1.expectStaticType<Exactly<C>>();
-  final (v2 as B) = d;
-  v2.expectStaticType<Exactly<D>>();
-  var(A v3 as B) = c;
-  v3.expectStaticType<Exactly<C>>();
-  final (A v4 as B) = d;
-  v4.expectStaticType<Exactly<D>>();
-  Expect.throws(() {
-    var (v5 as B) = "String";
-    v5.expectStaticType<Exactly<String>>();
-  });
   String log = "";
-  var (v6 as B) = getType(d, (String s) {log += s;});
+  var (v1 as B) = getType(d, (String s) {log += s;});
   Expect.equals("Object?", log);
+
   log = "";
-  final (v7 as B) = getType(d, (String s) {log += s;});
+  final (v2 as B) = getType(d, (String s) {log += s;});
   Expect.equals("Object?", log);
 }

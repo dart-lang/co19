@@ -47,24 +47,7 @@ main() {
   B b = B();
   C c = C();
   D d = D();
-  {
-    var [A v1, ...List<B> r, v2] = [b, c, d, c];
-    v1.expectStaticType<Exactly<A>>();
-    r.expectStaticType<Exactly<List<B>>>();
-    v2.expectStaticType<Exactly<C>>();
-  }
-  {
-    var [A v1, ...r, v2] = [b, c, d, d];
-    v1.expectStaticType<Exactly<A>>();
-    r.expectStaticType<Exactly<List<C>>>();
-    v2.expectStaticType<Exactly<D>>();
-  }
-  {
-    final [A v1, ...r, v2] = <C>[d, d, d, d];
-    v1.expectStaticType<Exactly<A>>();
-    r.expectStaticType<Exactly<List<C>>>();
-    v2.expectStaticType<Exactly<C>>();
-  }
+
   String log = "";
   try {
     var [A v1, ...List<B> r, v2] = getType([], (String s) {log += s;});
@@ -76,4 +59,28 @@ main() {
     var [A v1, ...r, v2] = getType([], (String s) {log += s;});
   } catch (_) {}
   Expect.equals("List<A>", log);
+
+  log = "";
+  try {
+    final [A v1, C v2, ...List<B> r] = getType([], (String s) {log += s;});
+  } catch (_) {}
+  Expect.equals("List<C>", log);
+
+  log = "";
+  try {
+    final [A v1, C v2, ...r] = getType([], (String s) {log += s;});
+  } catch (_) {}
+  Expect.equals("List<C>", log);
+
+  log = "";
+  try {
+    var [v1, v2, ...r] = getType([], (String s) {log += s;});
+  } catch (_) {}
+  Expect.equals("List<Object?>", log);
+
+  log = "";
+  try {
+    var [v1, ..., v2] = getType([], (String s) {log += s;});
+  } catch (_) {}
+  Expect.equals("List<Object?>", log);
 }

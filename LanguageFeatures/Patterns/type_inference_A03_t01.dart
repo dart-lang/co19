@@ -31,18 +31,18 @@ main() {
   D d = D();
 
   String log = "";
-  B v1 = getType(d, (String s) {log += s;});
+  var (B v1) = getType(d, (String s) {log += s;});
   Expect.equals("B", log);
 
   log = "";
-  var v2 = getType(d, (String s) {log += s;});
+  var (v2) = getType(d, (String s) {log += s;});
   Expect.equals("Object?", log);
 
   log = "";
-  final B v3 = getType(d, (String s) {log += s;});
+  final (B v3) = getType(d, (String s) {log += s;});
   Expect.equals("B", log);
 
   log = "";
-  final v4 = getType(d, (String s) {log += s;});
+  final (v4) = getType(d, (String s) {log += s;});
   Expect.equals("Object?", log);
 }

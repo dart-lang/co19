@@ -17,7 +17,6 @@
 
 // SharedOptions=--enable-experiment=patterns,records
 
-import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
@@ -31,24 +30,18 @@ main() {
   B b = B();
   C c = C();
   D d = D();
-  {
-    var <String, A>{"key1": A v1, "key2": B v2, "key3": v3} =
-        {"key1": b, "key2": c, "key3": c};
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<A>>();
-    v3.expectStaticType<Exactly<A>>();
-  }
-  {
-    final <String, A>{"key1": A v1, "key2": B v2, "key3": v3} =
-        <String, C>{"key1": d, "key2": d, "key3": d};
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<A>>();
-    v3.expectStaticType<Exactly<A>>();
-  }
+
   String log = "";
   try {
-    var <String, A>{"key1": A v1, "key2": B v2, "key3": v3} =
+    var <String, B>{"key1": A v1, "key2": B v2, "key3": v3} =
         getType({}, (String s) {log += s;});
   } catch (_) {}
-  Expect.equals("Map<String, A>", log);
+  Expect.equals(typeOf<Map<String, B>>().toString(), log);
+
+  log = "";
+  try {
+    final <String, C>{"key1": v1, "key2": v2, "key3": v3} =
+        getType({}, (String s) {log += s;});
+  } catch (_) {}
+  Expect.equals(typeOf<Map<String, C>>().toString(), log);
 }

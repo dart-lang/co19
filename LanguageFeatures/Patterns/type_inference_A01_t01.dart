@@ -14,7 +14,6 @@
 
 // SharedOptions=--enable-experiment=patterns,records
 
-import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
@@ -28,37 +27,16 @@ main() {
   B b = B();
   C c = C();
   D d = D();
-  {
-    var ([A x1, x2] && [y1, B y2]) = [b, c];
-    x1.expectStaticType<Exactly<A>>();
-    x2.expectStaticType<Exactly<C>>();
-    y1.expectStaticType<Exactly<B>>();
-    y2.expectStaticType<Exactly<B>>();
-  }
-  {
-    final ([A x1, x2] && [y1, B y2]) = [c, d];
-    x1.expectStaticType<Exactly<A>>();
-    x2.expectStaticType<Exactly<D>>();
-    y1.expectStaticType<Exactly<C>>();
-    y2.expectStaticType<Exactly<B>>();
-  }
-  {
-    var ([A x1, x2] && [y1, B y2]) = [b, b];
-    x1.expectStaticType<Exactly<A>>();
-    x2.expectStaticType<Exactly<B>>();
-    y1.expectStaticType<Exactly<B>>();
-    y2.expectStaticType<Exactly<B>>();
-  }
-  {
-    final ([A x1, x2] && [y1, B y2]) = <C>[d, d];
-    x1.expectStaticType<Exactly<A>>();
-    x2.expectStaticType<Exactly<C>>();
-    y1.expectStaticType<Exactly<C>>();
-    y2.expectStaticType<Exactly<B>>();
-  }
+
   String log = "";
   try {
     var ([A x1, x2] && [y1, B y2]) = getType([], (String s) {log += s;});
   } catch (_) {}
-  Expect.equals("B", log);
+  Expect.equals("List<B>", log);
+
+  String log = "";
+  try {
+    var ([C x1, x2] && <B>[y1, A y2]) = getType([], (String s) {log += s;});
+  } catch (_) {}
+  Expect.equals("List<C>", log);
 }
