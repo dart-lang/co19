@@ -32,7 +32,7 @@
 ///   the body resolves to a variable in s that isn't shared.
 ///
 /// @description Checks that shared variables can be used in a shared case scope
-/// body. Test promoted variable
+/// body. Test the case when shared variable in body is promoted
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -42,7 +42,7 @@ import "../../Utils/static_type_helper.dart";
 
 String test1(num x) {
   switch (x) {
-    case final a when a is int:
+    case final a as int when a == 0:
     case final int a:
       a.expectStaticType<Exactly<int>>();
       print(a);
@@ -54,10 +54,10 @@ String test1(num x) {
 
 String test2(num x) {
   switch (x) {
-    case var a when a is int:
-    case int a when a == 0:
-    case var a when a is Never: // this breaks the promotion
-      a.expectStaticType<Exactly<num>>();
+    case var a as int when a > 0:
+    case int a:
+    case int a when a is Never:
+      a.expectStaticType<Exactly<int>>();
       print(a);
       return "match";
     default:
@@ -67,9 +67,8 @@ String test2(num x) {
 
 String test3(num? x) {
   switch (x) {
-    case var a? when a == 0:
-    case num? a when a != null:
-    case num? a! when a == 2:
+    case num? a? when a != null:
+    case num? a! when a == 0:
       a.expectStaticType<Exactly<num>>();
       print(a);
       return "match";
@@ -79,13 +78,12 @@ String test3(num? x) {
 }
 
 main() {
-  Expect.equals("match", test1(42));
   Expect.equals("match", test1(0));
   Expect.equals("match", test1(1));
-  Expect.equals("match", test2(42));
   Expect.equals("match", test2(0));
   Expect.equals("match", test2(1));
   Expect.equals("match", test3(0));
   Expect.equals("match", test3(1));
   Expect.equals("match", test3(2));
 }
+

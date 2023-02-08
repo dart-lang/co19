@@ -37,6 +37,7 @@
 
 // SharedOptions=--enable-experiment=patterns
 
+import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 
 String test1(int x) {
@@ -87,6 +88,19 @@ String test4(int x) {
   }
 }
 
+String test5(num? x) {
+  switch (x) {
+    case num? a? when a is Never:
+    case num? a when a != null:
+    case num? a! when a == 1:
+      a.expectStaticType<Exactly<num?>>();
+      print(a);
+      return "match";
+    default:
+      return "default";
+  }
+}
+
 main() {
   Expect.equals("match", test1(42));
   Expect.equals("match", test1(0));
@@ -100,4 +114,5 @@ main() {
   Expect.equals("match", test4(42));
   Expect.equals("match", test4(0));
   Expect.equals("match", test4(1));
+  Expect.equals("match", test5(1));
 }

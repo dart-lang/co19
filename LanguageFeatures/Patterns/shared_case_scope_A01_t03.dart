@@ -69,4 +69,33 @@ main() {
 // [cfe] unspecified
       break;
   }
+
+  switch(42 as num) {
+    case var a when a is int:
+    case int a:
+      print(a);
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  switch (42 as num?) {
+    case var a? when a == 0:
+    case num? a when a != null:
+    case num? a! when a == 2:
+      print(a);
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  switch (42 as num?) {
+    case num a? when a is Never:
+    case num? a when a != null:
+    case num? a! when a == 2:
+      print(a);
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
