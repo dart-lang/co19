@@ -12,17 +12,23 @@
 /// scope for each loop iteration. All pattern variables are in the same scope.
 /// They are considered initialized after the for loop initializer expression.
 ///
-/// @description Checks that variables declared by the pattern in a for
-/// statement are considered initialized after ⟨forInitializerStatement⟩
+/// The body statement or element of a pattern-for is executed in a new scope
+/// whose enclosing scope is the pattern variables' scope.
+///
+/// @description Checks that in an async pattern-for-in statement pattern
+/// variables are bound in a new scope.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
 
-main() {
-  for (var [c] = [1]; c < 2; Expect.equals(2, c)) {
-    Expect.equals(1, c);
-    c++;
+main() async {
+  var c = Stream.fromIterable([[2]]);
+  bool visited = false;
+  await for (var [c] in c) {
+    Expect.equals(2, c);
+    visited = true;
   }
+  Expect.isTrue(visited);
 }

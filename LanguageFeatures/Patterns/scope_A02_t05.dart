@@ -13,36 +13,57 @@
 /// They are considered initialized after the for loop initializer expression.
 ///
 /// @description Checks that it is a compile-time error to refer to the variable
-/// declared by the pattern in a pattern-for-in statement outside of its scope
+/// declared by the pattern in a pattern-for-in element outside of its scope
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 main() {
-  {
-    print(c);
-//        ^
+  print(c);
+//      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (var [c] in [[1], [2]]) {
-      print(c);
-    }
-    print(c);
-//        ^
+  var list =
+    [
+      1,
+      c,
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
-  {
-    print(c);
-//        ^
+      for (var [c] in [[1], [2]]) c,
+      c
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (final [c] in [[1], [2]]) {
-      print(c);
-    }
-    print(c);
-//        ^
+    ];
+  var map =
+    {
+      "k1": 1,
+      "k2": c,
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
+      for (var [c] in [[3]]) "k3": c,
+      "k4": c
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
+  var set =
+    {
+      1,
+      c,
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      for (var [c] in [[3]]) c,
+      c
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
+  print(c);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

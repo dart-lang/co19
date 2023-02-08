@@ -12,17 +12,26 @@
 /// scope for each loop iteration. All pattern variables are in the same scope.
 /// They are considered initialized after the for loop initializer expression.
 ///
-/// @description Checks that variables declared by the pattern in a for
-/// statement are considered initialized after ⟨forInitializerStatement⟩
+/// The body statement or element of a pattern-for is executed in a new scope
+/// whose enclosing scope is the pattern variables' scope.
+///
+/// @description Checks that in a pattern-for-in element pattern variables are
+/// bound in a new scope.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
 
+const c = [[3], [4]];
+
 main() {
-  for (var [c] = [1]; c < 2; Expect.equals(2, c)) {
-    Expect.equals(1, c);
-    c++;
-  }
+  var l = [1, 2, for (var [c] in [c]) c, 5];
+  Expect.listEquals([1, 2, 3, 4, 5], l);
+
+  var s = {1, 2, for (var [c] in [c]) c, 5};
+  Expect.setEquals({1, 2, 3, 4, 5}, s);
+
+  var m = {"k1": 1, "k2": 2, for (var [c] in [c]) "k$c": c, "k5": 5};
+  Expect.mapEquals({"k1": 1, "k2": 2, "k3": 3, "k4": 4, "k5": 5}, m);
 }
