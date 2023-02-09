@@ -11,13 +11,13 @@
 ///
 /// Else the context type schema is _
 ///
-/// @description Check that for an identifier pattern p not in an assignment
-/// context, the context type schema is _
+/// @description Check that for an old-fashioned (with no patterns) assignment
+/// to variable v, the context type schema is the static type of the variable
+/// that v resolves to
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
-import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
@@ -32,23 +32,18 @@ main() {
   C c = C();
   D d = D();
 
+  B v1 = b;
   String log = "";
-  var (v1,) = getType((a,), (String s) {log += s;});
-  Expect.equals("Object?", log);
+  v1 = getType(d, (String s) {log += s;});
+  Expect.equals("B", log);
 
   log = "";
-  final (v2,) = getType((c,), (String s) {log += s;});
-  Expect.equals("Object?", log);
+  var v2 = c;
+  v2 = getType(d, (String s) {log += s;});
+  Expect.equals("C", log);
 
-  var (v3,) = (1,);
-  v3.expectStaticType<Exactly<int>>();
-
-  var (v4,) = (1 as num,);
-  v4.expectStaticType<Exactly<num>>();
-
-  final (v5,) = ("string",);
-  v5.expectStaticType<Exactly<String>>();
-
-  var (v6,) = ("String" as Object,);
-  v6.expectStaticType<Exactly<Object>>();
+  log = "";
+  B v3 = c;
+  v3 = getType(d, (String s) {log += s;});
+  Expect.equals("B", log);
 }

@@ -44,4 +44,12 @@ main() {
         getType({}, (String s) {log += s;});
   } catch (_) {}
   Expect.equals(typeOf<Map<String, C>>().toString(), log);
+
+  log = "";
+  var <String, C>{} = getType({}, (String s) {log += s;});
+  Expect.equals(typeOf<Map<String, C>>().toString(), log);
+
+  log = "";
+  final <int, B>{} = getType({}, (String s) {log += s;});
+  Expect.equals(typeOf<Map<int, B>>().toString(), log);
 }
