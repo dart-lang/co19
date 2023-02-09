@@ -8,33 +8,37 @@
 /// Logical-or and logical-and: Type check each branch using M as the matched
 /// value type.
 ///
-/// @description Check that it is a compile-time error if any branch of a
-/// logical-and pattern fails a type check in irrefutable context
+/// @description Check that it if both branch of a logical-or pattern fails a
+/// type check in refutable context then there is no error but match fails
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "../../Utils/expect.dart";
+
+String test1() {
+  switch(<num>[]) {
+    case List<num> v1 && List<int> v2:
+      return "match";
+    default:
+      return "no match";
+  }
+}
+
+String test2() {
+  if (<num>[] case List<int> v1 && List<num> v2) {
+    return "match";
+  }
+  return "no match";
+}
+
+String test3() => switch(<num>[]) {
+    final List<num> v1 && List<int> v2 => "match",
+    _ => "no match"
+  };
+
 main() {
-  var (List<int> v1 && List<num> v2) = <num>[];
-//                                     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var (List<num> v3 && List<int> v4) = <num>[];
-//                                     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  List<int> v5 = [];
-  List<num> v6 = [];
-
-  (v5 && v6) = [1, 3.14];
-//             ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  (v6 && v5) = [1, 3.14];
-//             ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals("no match", test1());
+  Expect.equals("no match", test2());
+  Expect.equals("no match", test3());
 }
