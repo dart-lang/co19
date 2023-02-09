@@ -32,19 +32,19 @@
 ///   the body resolves to a variable in s that isn't shared.
 ///
 /// @description Checks that shared variables can be used in a shared case scope
-/// body
+/// body. Test the case when the corresponding variables in vs are promoted
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
+import "../../Utils/static_type_helper.dart";
 
-String test1(int x) {
+String test1(num? x) {
   switch (x) {
-    case final a when a == 42:
-    case final a when a == 0:
-    case final a:
+    case final a when a is int:
+    case final a when a is num:
+      a.expectStaticType<Exactly<num>>();
       print(a);
       return "match";
     default:
@@ -52,47 +52,10 @@ String test1(int x) {
   }
 }
 
-String test2(int x) {
+String test2(num? x) {
   switch (x) {
-    case final int a when a == 42:
-    case final int a when a == 0:
-    case final int a:
-      print(a);
-      return "match";
-    default:
-      return "default";
-  }
-}
-
-String test3(int x) {
-  switch (x) {
-    case int a when a == 42:
-    case int a when a == 0:
-    case int a:
-      print(a);
-      return "match";
-    default:
-      return "default";
-  }
-}
-
-String test4(int x) {
-  switch (x) {
-    case var a when a == 42:
-    case var a when a == 0:
-    case var a:
-      print(a);
-      return "match";
-    default:
-      return "default";
-  }
-}
-
-String test5(num? x) {
-  switch (x) {
-    case num? a? when a is Never:
-    case num? a when a != null:
-    case num? a! when a == 1:
+    case var a when a is int:
+    case var a when a is num:
       a.expectStaticType<Exactly<num>>();
       print(a);
       return "match";
@@ -102,17 +65,9 @@ String test5(num? x) {
 }
 
 main() {
-  Expect.equals("match", test1(42));
   Expect.equals("match", test1(0));
   Expect.equals("match", test1(1));
-  Expect.equals("match", test2(42));
   Expect.equals("match", test2(0));
   Expect.equals("match", test2(1));
-  Expect.equals("match", test3(42));
-  Expect.equals("match", test3(0));
-  Expect.equals("match", test3(1));
-  Expect.equals("match", test4(42));
-  Expect.equals("match", test4(0));
-  Expect.equals("match", test4(1));
-  Expect.equals("match", test5(1));
 }
+
