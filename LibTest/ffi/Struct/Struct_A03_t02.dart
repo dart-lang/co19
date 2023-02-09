@@ -10,43 +10,31 @@
 ///
 /// @description Checks that FFI struct types should extend this class and
 /// declare fields corresponding to the underlying native structure. Test
-/// nullable Struct subtype members
+/// that nullable Struct subtype members cause a compile-time error
 /// @author sgrekhov@unipro.ru
 
 import "dart:ffi";
-import "package:ffi/ffi.dart";
-import "../ffi_utils.dart";
-import "../../../Utils/expect.dart";
 
 class Coord extends Struct {
   Coord() : super();
 
   @Double()
   external double? x;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
   @Double()
   external double? y;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   external Pointer<Coord>? next;
+//                         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-// Native C function
-typedef TransposeCoordinateCFunc = Pointer<Coord> Function(Pointer<Coord>);
-// Dart function
-typedef TransposeCoordinateDartFunc = Pointer<Coord> Function(Pointer<Coord>);
-
 void main() {
-  final dl = new DynamicLibrary.open(libPath(TEST_FUNCTIONS_LIB));
-  final TransposeCoordinateDartFunc f = dl
-      .lookup<NativeFunction<TransposeCoordinateCFunc>>('TransposeCoordinate')
-      .asFunction();
-  Pointer<Coord> c1 = calloc<Coord>();
-  try {
-    c1.ref.x = 1;
-    c1.ref.y = 2;
-    f(c1);
-    Expect.equals(11, c1.ref.x);
-    Expect.equals(12, c1.ref.y);
-  } finally {
-    calloc.free(c1);
-  }
+  print(Coord);
 }
