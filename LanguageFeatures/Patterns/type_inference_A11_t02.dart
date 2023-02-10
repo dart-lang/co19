@@ -20,14 +20,14 @@ import "../../Utils/expect.dart";
 T foo<T>(T t) => t;
 
 main() {
-  var [double v1] && [num v2] = [42];
+  var ([double v1] && [num v2]) = [42];
   v1.expectStaticType<Exactly<double>>();
   v2.expectStaticType<Exactly<num>>();
   Expect.equals(42.0, v1);
   Expect.equals(42.0, v2);
 
   dynamic pi = 3.14;
-  var [double v3] && [num v4] = [pi];
+  var ([double v3] && [num v4]) = [pi];
   v3.expectStaticType<Exactly<double>>();
   v4.expectStaticType<Exactly<num>>();
   Expect.equals(3.14, v3);

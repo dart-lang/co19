@@ -18,11 +18,11 @@ import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
 main() {
-  var v1 as double = 42;
+  var (v1 as double) = 42;
   Expect.equals(42.0, v1);
   v1.expectStaticType<Exactly<double>>();
 
   dynamic pi = 3.14;
-  final List v2 as List<num> = [pi];
+  final (List v2 as List<num>) = [pi];
   v2.expectStaticType<Exactly<List<num>>>();
 }
