@@ -7,7 +7,8 @@
 /// ...
 /// Cast: The context type schema is _.
 ///
-/// @description Check that for a cast pattern the context type schema is _
+/// @description Check that for a cast subpattern the context type schema is _
+/// and is inferred as Object?
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -27,10 +28,10 @@ main() {
   D d = D();
 
   String log = "";
-  var (v1 as B) = getType(d, (String s) {log += s;});
+  var (v1 as B,) = getType((d,), (String s) {log += s;});
   Expect.equals("Object?", log);
 
   log = "";
-  final (v2 as B) = getType(d, (String s) {log += s;});
+  final (v2 as A,) = getType((c,), (String s) {log += s;});
   Expect.equals("Object?", log);
 }

@@ -7,8 +7,8 @@
 /// ...
 /// Parenthesized: The context type schema of the inner subpattern.
 ///
-/// @description Check that a context type schema of a parenthesized pattern is
-/// a context type schema of its subpattern
+/// @description Check that the context type schema of a parenthesized pattern
+/// is the context type schema of its subpattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

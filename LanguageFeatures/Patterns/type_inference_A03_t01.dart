@@ -11,7 +11,7 @@
 /// ii. Else the context type schema is _.
 ///
 /// @description Check that if a variable pattern has a type annotation, then
-/// the context type schema is the annotated type. Otherwise it is _
+/// the context type schema is the annotated type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -36,20 +36,6 @@ main() {
   Expect.equals("B", log);
 
   log = "";
-  var (v2) = getType(d, (String s) {log += s;});
-  Expect.equals("Object?", log);
-
-  var (v3) = (42);
-  v3.expectStaticType<Exactly<int>>();
-
-  log = "";
-  final (B v4) = getType(d, (String s) {log += s;});
+  final (B v2) = getType(d, (String s) {log += s;});
   Expect.equals("B", log);
-
-  log = "";
-  final (v5) = getType(d, (String s) {log += s;});
-  Expect.equals("Object?", log);
-
-  final (v6) = (42 as num?);
-  v6.expectStaticType<Exactly<num?>>();
 }

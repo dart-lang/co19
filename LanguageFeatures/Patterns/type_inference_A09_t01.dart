@@ -40,5 +40,6 @@ main() {
     final (B v1 as C, v2, n1: v3, n2: C v4 as D) =
         getType((), (String s) {log += s;});
   } catch (_) {}
-  Expect.equals(typeOf<(B, Object?, {Object? n1, C n2})>().toString(), log);
+  Expect.equals(typeOf<(B, Object?, {Object? n1, Object? n2})>().toString(),
+      log);
 }
