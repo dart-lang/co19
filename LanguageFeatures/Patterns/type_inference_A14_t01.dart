@@ -13,7 +13,7 @@
 /// and implicit coercions and casts from dynamic are performed
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
@@ -33,4 +33,16 @@ main() {
 
   final (v4) = [42];
   v4.expectStaticType<Exactly<List<int>>>();
+
+  var (v5,) = (1 as int?,);
+  v5.expectStaticType<Exactly<int?>>();
+
+  var (v6,) = (1 as num,);
+  v6.expectStaticType<Exactly<num>>();
+
+  final (v7,) = ("String",);
+  v7.expectStaticType<Exactly<String>>();
+
+  var (v8,) = ("String" as Object?,);
+  v8.expectStaticType<Exactly<Object?>>();
 }

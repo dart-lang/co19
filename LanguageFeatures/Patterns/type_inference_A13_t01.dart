@@ -31,4 +31,15 @@ main() {
 
   (final v4) = [42];
   v4.expectStaticType<Exactly<List<int>>>();
+
+  Object? o = Object();
+  if (1 > 2) {
+    o = null;
+  }
+  (var v5) = o;
+  v5.expectStaticType<Exactly<Object?>>();
+
+  o = null;
+  (final v6) = o;
+  v6.expectStaticType<Exactly<Object?>>();
 }
