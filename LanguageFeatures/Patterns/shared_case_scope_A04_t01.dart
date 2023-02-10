@@ -21,7 +21,7 @@ import "patterns_lib.dart";
 String testLogicalOr(Object obj) {
   switch (obj) {
     case [var a, int n] || [int n, var a] when n == 1 && a is String:
-    case [double n, var a]  || [var a, double n] when n == 3.14:
+    case [double n, var a]  || [var a, double n] when (n - 3.14).abs() < 0.001:
       return a.toString();
     default:
       return "default";
@@ -31,7 +31,7 @@ String testLogicalOr(Object obj) {
 String testLogicalAnd(Object obj) {
   switch (obj) {
     case [var a1, int n1] && [int n2, var a2] when n1 == 2 && n2 == 1:
-    case [String n1, var a1] && [var a2, String n2] when n1 == "2" && n2 == "1":
+    case [String n1, var a1] && [var a2, String n2] when n1 == "1" && n2 == "2":
       return "a1=$a1;a2=$a2";
     default:
       return "default";
@@ -139,9 +139,9 @@ main() {
   Expect.equals("b", testLogicalOr([1, "b"]));
   Expect.equals("2", testLogicalOr([3.14, 2]));
   Expect.equals("3", testLogicalOr([3, 3.14]));
-  Expect.equals("1", testLogicalOr([1, 1]));
+  Expect.equals("default", testLogicalOr([1, 1]));
   Expect.equals("a1=1;a2=2", testLogicalAnd([1, 2]));
-  Expect.equals("a1=1;a2=2", testLogicalAnd(["1", "2"]));
+  Expect.equals("a1=2;a2=1", testLogicalAnd(["1", "2"]));
   Expect.equals("42", testCast([42, 1]));
   Expect.equals("42", testCast([42, "1"]));
   Expect.equals("42", testNullCheck([42, 1]));
