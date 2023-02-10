@@ -8,8 +8,9 @@
 /// coercions and casts from dynamic when values flow into a pattern during
 /// matching.
 ///
-/// @description Check the static type of a cast pattern. Test that implicit
-/// coercions and casts from dynamic are performed
+/// @description Check the static type of a cast pattern. Test that
+/// missing types in a type schema are filled from the initialising expression
+/// and implicit coercions and casts from dynamic are performed
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -24,5 +25,15 @@ main() {
 
   dynamic pi = 3.14;
   final (List v2 as List<num>) = [pi];
-  v2.expectStaticType<Exactly<List<num>>>();
+  v2.expectStaticType<Exactly<List<dynamic>>>();
+
+  try {
+    var (num v3 as double) = "42"; // No compile-time error
+    v3.expectStaticType<Exactly<num>>();
+  } catch (_) {}
+
+  try {
+    final (num v4 as double) = "42";
+    v4.expectStaticType<Exactly<num>>();
+  } catch (_) {}
 }
