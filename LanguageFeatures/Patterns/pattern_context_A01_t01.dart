@@ -48,4 +48,14 @@ main() {
 //                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  var (x6 || x6) = 42;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final ((int x7) || (int x7)) = 42;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

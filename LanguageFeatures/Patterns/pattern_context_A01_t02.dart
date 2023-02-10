@@ -53,4 +53,14 @@ main() {
 //                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  var (x8 == 0) = 42;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final (int x9 > 0) = 42;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
