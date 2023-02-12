@@ -26,7 +26,7 @@ String test(Object? o) {
     case 0 || -42:
     case  == 1 && != 2:
     case == 10:
-    case var c as Object when c == 11:
+    case var c as Object? when c == 11:
     case var a? when a == 12:
     case final b! when b == 13:
     case 14:
