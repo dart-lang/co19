@@ -14,54 +14,64 @@
 /// introduced by p
 ///
 /// @description Check that if a variable pattern has a type annotation, then
-/// the required type of `p` is that type
+/// the required type of `p` is that type. Test that there is no match in
+/// refutable context if matched value type is not assignable to the type of the
+/// variable pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
-import "../../Utils/static_type_helper.dart";
 
-String test1(int x) {
-  switch (x) {
-    case num v:
-      v.expectStaticType<Exactly<num>>();
-      v = 3.14;
+String test1() {
+  switch (42) {
+    case final num v:
       return "match";
     default:
       return "no match";
   }
 }
 
-String test2(int x) {
-  if (x case num v) {
-    v.expectStaticType<Exactly<num>>();
-    v = 3.14;
+String test2() {
+  switch ("42") {
+    case num v:
+    return "match";
+    default:
+      return "no match";
+  }
+}
+
+String test3() {
+  if (3.14 case num v) {
     return "match";
   }
   return "no match";
 }
 
-String test3(int x) =>
-  switch (x) {
-    num v when (v.expectStaticType<Exactly<num>>() is num) && ((v = 3.14) > 0)
-        => "match",
+String test4() {
+  if ("3.14" case final num v) {
+    return "match";
+  }
+  return "no match";
+}
+
+String test5() =>
+  switch (42) {
+    final num v => "match",
+    _ => "no match"
+  };
+
+String test6() =>
+  switch ("42") {
+    num v => "match",
     _ => "no match"
   };
 
 main() {
-  num v1 = 42;
-  v1.expectStaticType<Exactly<num>>();
-  v1 = 3.14;
-  late final num v2;
-  if (2 > 1) {
-    v2 = 42;
-  } else {
-    v2 = 3.14;
-  }
-  v2.expectStaticType<Exactly<num>>();
-
-  Expect.equals("match", test1(42));
-  Expect.equals("match", test2(42));
-  Expect.equals("match", test3(42));
+  Expect.equals("match", test1());
+  Expect.equals("no match", test2());
+  Expect.equals("match", test3());
+  Expect.equals("no match", test4());
+  Expect.equals("match", test5());
+  Expect.equals("no match", test6());
 }

@@ -5,95 +5,106 @@
 /// @assertion
 /// To type check a pattern p being matched against a value of type M:
 /// ...
-/// Map:
-/// i. Calculate the value's entry key type K and value type V, and key context
-///     C:
-///   a. If p has type arguments <K, V> for some K and V then use those, and C
-///     is K.
-///   b. Else if M implements Map<K, V> for some K and V then use those, and C
-///     is K.
-///   c. Else if M is dynamic then K and V are dynamic and C is _.
-///   d. Else K and V are Object? and C is _.
-/// ii. Type-check each key expression using C as the context type.
-/// iii. Type-check each value subpattern using V as the matched value type.
-/// vi. The required type of p is Map<K, V>.
+/// Relational:
 ///
-/// @description Check that if p has a type arguments <K, V>, then value's value
-/// type is V
+/// Let C be the static type of the right operand constant expression.
+///
+/// If the operator is a comparison (<, <=, >, or >=), then it is a compile-time
+/// error if:
+///
+/// - M does not define that operator,
+/// - C is not assignable to the operator's parameter type,
+/// - or if the operator's return type is not assignable to bool.
+///
+/// Else the operator is == or !=. It is a compile-time error if C is not
+/// assignable to T? where T is M's == method parameter type.
+/// The language screens out null before calling the underlying == method, which
+/// is why T? is the allowed type. Since Object declares == to accept Object on
+/// the right, this compile-time error can only happen if a user-defined class
+/// has an override of == with a covariant parameter.
+///
+/// @description Check that it is a compile-time error if the operator is a
+/// comparison (<, <=, >, or >=) and M does not define that operator
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
-import "../../Utils/static_type_helper.dart";
-
 String test1() {
-  switch ({"key1": 1}) {
-    case <Object, num>{"key1": var a}:
-      a.expectStaticType<Exactly<num>>();
-      a = 3.14;
-      return "match";
+  String s = "";
+  switch(s) {
+    case < 0:
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      return "<";
+    case <= 0:
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      return "<=";
+    case > 0:
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+      return ">";
+    case >= 0:
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+      return ">=";
     default:
-      return "no match";
+      return "default";
   }
 }
 
 String test2() {
-  switch ({"key1": 1}) {
-    case <Object, num>{"key1": final a, ...}:
-      a.expectStaticType<Exactly<num>>();
-      return "match";
-    default:
-      return "no match";
-  }
+  String s = "";
+  return switch(s) {
+    < 0 => "<",
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    <= 0 => "<=",
+//  ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    > 0 => ">",
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    >= 0 => ">=",
+//  ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    _ => "default"
+  };
 }
 
 String test3() {
-  if ({"key1": 1} case <Object, num>{"key1": var a}) {
-    a.expectStaticType<Exactly<num>>();
-    a = 3.14;
-    return "match";
-  }
-  return "no match";
+  String s = "";
+  if (s case < 0) return "<";
+//           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  if (s case <= 0) return "<=";
+//           ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  if (s case > 0) return ">";
+//           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  if (s case >= 0) return ">=";
+//           ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  return "default";
 }
 
-String test4() {
-  if ({"key1": 1} case <Object, num>{"key1": final a, ...}) {
-    a.expectStaticType<Exactly<num>>();
-    return "match";
-  }
-  return "no match";
-}
-
-String test5() =>
-  switch ({"key1": 1}) {
-    <Object, num>{"key1": var a} when
-        a.expectStaticType<Exactly<num>>() is num && (a = 3.14) > 0 => "match",
-    _ => "no match"
-  };
-
-String test6() =>
-  switch ({"key1": 1}) {
-    <Object, num>{"key1": final a, ...} when
-        a.expectStaticType<Exactly<num>>() is num => "match",
-    _ => "no match"
-  };
-
-main() {/*
-  var <num>[a1, b1] = [1, 2];
-  a1.expectStaticType<Exactly<num>>();
-  b1.expectStaticType<Exactly<num>>();
-  a1 = 3.14;
-  b1 = 3.14;
-  final <num>[a2, b2, ...c2] = [1, 2, 3];
-  a2.expectStaticType<Exactly<num>>();
-  b2.expectStaticType<Exactly<num>>();
-  c2.expectStaticType<Exactly<List<num>>>();
-
-  Expect.equals("match", test1());
-  Expect.equals("match", test2());
-  Expect.equals("match", test3());
-  Expect.equals("match", test4());
-  Expect.equals("match", test5());
-  Expect.equals("match", test6());*/
+main() {
+  test1();
+  test2();
+  test3();
 }

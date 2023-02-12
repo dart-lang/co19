@@ -7,8 +7,8 @@
 /// ...
 /// Constant: Type check the pattern's value in context type M.
 ///
-/// @description Check that the restriction that constants must be a subtype of
-/// the matched value's static type is removed.
+/// @description Check that the restriction, that constants must be a subtype of
+/// the matched value's static type, is removed.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

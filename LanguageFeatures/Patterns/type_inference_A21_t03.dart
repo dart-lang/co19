@@ -20,19 +20,23 @@
 
 Never foo() => throw 0;
 
+class A {}
+class B extends A {}
+class C extends B {}
+
 main() {
-  final int x as String = "42";
-//               ^^^^^^
+  final (int x as String) = "42";
+//                ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final int y as String = 42;
-//               ^^^^^^
+  var (int y as String) = 42;
+//              ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final int z as String = foo();
-//               ^^^^^^
+  final (int z as String ) = foo();
+//                ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

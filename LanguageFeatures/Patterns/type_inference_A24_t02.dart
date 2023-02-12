@@ -14,40 +14,31 @@
 /// introduced by p
 ///
 /// @description Check that if the variable pattern has a type annotation, the
-/// required type of p is that type
+/// required type of p is that type. Test that it is a compile-time error if in
+/// irrefutable context static type of the M is not assignable to the type of
+/// the variable pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
-import "../../Utils/static_type_helper.dart";
-
-String test1(num x) {
-  switch (x) {
-    case final int v:
-      v.expectStaticType<Exactly<int>>();
-      return "match";
-    default:
-      return "no match";
-  }
-}
-
-String test2(num x) {
-  if (x case final int v) {
-    v.expectStaticType<Exactly<int>>();
-    return "match";
-  }
-  return "no match";
-}
-
-String test3(num x) =>
-  switch (x) {
-     final int v when v.expectStaticType<Exactly<int>>() is int => "match",
-    _ => "no match"
-  };
-
 main() {
-  Expect.equals("match", test1(42));
-  Expect.equals("match", test2(42));
-  Expect.equals("match", test3(42));
+  var (num v1) = "42";
+//               ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final (num v2) = "42";
+//               ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var <int>[v3] = <num>[42];
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final <int>[v4] = <num>[42];
+//                  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

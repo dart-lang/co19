@@ -14,19 +14,19 @@
 /// introduced by p
 ///
 /// @description Check that if a variable pattern has no type annotation, then
-/// the required type of `p` is M
+/// the required type of `p` is M.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
 
 String test1(int x) {
   switch (x) {
     case var v:
-    v.expectStaticType<Exactly<int>>();
-    return "match";
+      v.expectStaticType<Exactly<int>>();
+      return "match";
     default:
       return "no match";
   }
@@ -71,14 +71,10 @@ String test6(int x) =>
   };
 
 main() {
-  var v1 = 42;
+  var (v1) = 42;
   v1.expectStaticType<Exactly<int>>();
-  late final v2;
-  if (2 > 1) {
-    v2 = 42;
-  } else {
-    v2 = 3.14;
-  }
+  final (v2) = 42 as num?;
+  v2.expectStaticType<Exactly<num?>>();
 
   Expect.equals("match", test1(42));
   Expect.equals("match", test2(42));

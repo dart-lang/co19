@@ -11,14 +11,17 @@
 //
 // Type-check the subpattern using N as the matched value type.
 ///
-/// @description Check null-assert pattern in an irrefutable context
+/// @description Check null-assert pattern in an irrefutable context produces no
+/// compile-time errors
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "../../Utils/expect.dart";
+
 main() {
-  try {
+  Expect.throws(() {
     final ((int? y)!) = null;
-    y.isEven;
-  } catch(_) {}
+    y?.isEven;
+  });
 }

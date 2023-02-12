@@ -4,43 +4,21 @@
 
 /// @assertion
 /// To type check a pattern p being matched against a value of type M:
-/// ...
-/// List:
 ///
-/// i. Calculate the value's element type E:
+/// Logical-or and logical-and: Type check each branch using M as the matched
+/// value type.
 ///
-///   a. If p has a type argument T, then E is the type T.
-///   b. Else if M implements List<T> for some T then E is T.
-///   c. Else if M is dynamic then E is dynamic.
-///   d. Else E is Object?.
-///
-/// ii. Type-check each non-rest element subpattern using E as the matched value
-///   type. Note that we calculate a single element type and use it for all
-///   subpatterns. In:
-///     var [a, b] = [1, 2.3];
-///   both a and b use num as their matched value type.
-///
-/// iii. If there is a matching rest element, type-check its subpattern using
-///   List<E> as the matched value type.
-///
-/// iv. The required type of p is List<E>.
-///
-/// @description Check that if p has no type argument and M implements List<T>
-/// for some T then E is T.
+/// @description Check that if any branch of a logical-and pattern fails a
+/// type check in refutable context then there is no error but match fails
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
-import "../../Utils/static_type_helper.dart";
 
 String test1() {
-  switch (<num>[1, 2]) {
-    case [var a, var b]:
-      a.expectStaticType<Exactly<num>>();
-      b.expectStaticType<Exactly<num>>();
-      a = 3.14;
-      b = 3.14;
+  switch(<num>[]) {
+    case List<num> v1 && List<int> v2:
       return "match";
     default:
       return "no match";
@@ -48,71 +26,19 @@ String test1() {
 }
 
 String test2() {
-  switch ([1, 2, 3]) {
-    case [final a, final b, ...final c]:
-      a.expectStaticType<Exactly<int>>();
-      b.expectStaticType<Exactly<int>>();
-      c.expectStaticType<Exactly<List<int>>>();
-      return "match";
-    default:
-      return "no match";
-  }
-}
-
-String test3() {
-  if (<num>[1, 2] case [var a, var b]) {
-    a.expectStaticType<Exactly<num>>();
-    b.expectStaticType<Exactly<num>>();
-    a = 3.14;
-    b = 3.14;
+  if (<num>[] case List<int> v1 && List<num> v2) {
     return "match";
   }
   return "no match";
 }
 
-String test4() {
-  if ([1, 2, 3] case [final a, final b, ...final c]) {
-    a.expectStaticType<Exactly<int>>();
-    b.expectStaticType<Exactly<int>>();
-    c.expectStaticType<Exactly<List<int>>>();
-    return "match";
-  }
-  return "no match";
-}
-
-String test5() =>
-  switch (<num>[1, 2]) {
-    [var a, var b] when
-        a.expectStaticType<Exactly<num>>() is num &&
-        b.expectStaticType<Exactly<num>>() is num &&
-        (a = 3.14) > 0 && (b = 3.14) > 0 => "match",
-    _ => "no match"
-  };
-
-String test6() =>
-  switch ([1, 2, 3]) {
-    [final a, final b, ...final c] when
-        a.expectStaticType<Exactly<int>>() is int &&
-        b.expectStaticType<Exactly<int>>() is int &&
-        c.expectStaticType<Exactly<List<int>>>() is List<int> => "match",
+String test3() => switch(<num>[]) {
+    final List<num> v1 && List<int> v2 => "match",
     _ => "no match"
   };
 
 main() {
-  var [a1, b1] = <num>[1, 2];
-  a1.expectStaticType<Exactly<num>>();
-  b1.expectStaticType<Exactly<num>>();
-  a1 = 3.14;
-  b1 = 3.14;
-  final [a2, b2, ...c2] = [1, 2, 3];
-  a2.expectStaticType<Exactly<int>>();
-  b2.expectStaticType<Exactly<int>>();
-  c2.expectStaticType<Exactly<List<int>>>();
-
-  Expect.equals("match", test1());
-  Expect.equals("match", test2());
-  Expect.equals("match", test3());
-  Expect.equals("match", test4());
-  Expect.equals("match", test5());
-  Expect.equals("match", test6());
+  Expect.equals("no match", test1());
+  Expect.equals("no match", test2());
+  Expect.equals("no match", test3());
 }
