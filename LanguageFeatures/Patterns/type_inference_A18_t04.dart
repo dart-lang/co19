@@ -8,9 +8,8 @@
 /// coercions and casts from dynamic when values flow into a pattern during
 /// matching.
 ///
-/// @description Check the static type of a cast pattern. Test that
-/// missing types in a type schema are filled in from the initializing
-/// expression
+/// @description Check that the calculation of the static type of a map pattern
+/// performs casts from dynamic and generic function instantiation
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -18,22 +17,23 @@
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
+T foo<T>(T t) => t;
+
 main() {
-  var (v1 as double) = 3.14;
-  Expect.equals(3.14, v1);
-  v1.expectStaticType<Exactly<double>>();
+  dynamic pi = 3.14;
+  final <String, double>{"key1": x1} = {"key1": pi};
+  x1.expectStaticType<Exactly<double>>();
+  Expect.equals(3.14, x1);
 
-  final (v2 as String) = "42";
-  Expect.equals("42", v1);
-  v1.expectStaticType<Exactly<double>>();
-
-  Expect.throws((){
-    var (num v3 as double) = "42";
-    v3.expectStaticType<Exactly<num>>();
-  });
+  var {"key1": double x2} = {"key1": pi};
+  x2.expectStaticType<Exactly<double>>();
+  Expect.equals(3.14, x1);
 
   Expect.throws(() {
-    final (num v4 as double) = "42";
-    v4.expectStaticType<Exactly<num>>();
+    var <String, double>{"key1": x3} = {"key1": pi};
   });
+
+  final <String, int Function(int)>{"key1": x4} = {"key1": foo};
+  x4.expectStaticType<Exactly<int Function(int)>>();
+  Expect.equals(foo, x4);
 }

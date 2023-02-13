@@ -9,7 +9,7 @@
 /// matching.
 ///
 /// @description Check the calculation static type of a logical-and pattern.
-/// Test that missing types in a type schema are filled from the initialising
+/// Test that missing types in a type schema are filled in from the initializing
 /// expression
 /// @author sgrekhov22@gmail.com
 
@@ -28,21 +28,24 @@ main() {
   C c = C();
   D d = D();
   {
-    var ([A x1, x2] && [y1, B y2]) = [b, c];
+    // It's important to specify type arguments of the initializing expression
+    // here and below to avoid a type inference from the pattern type schema to
+    // a initializing expression
+    var ([A x1, x2] && [y1, B y2]) = <B>[b, c];
     x1.expectStaticType<Exactly<A>>();
-    x2.expectStaticType<Exactly<C>>();
+    x2.expectStaticType<Exactly<B>>();
     y1.expectStaticType<Exactly<B>>();
     y2.expectStaticType<Exactly<B>>();
   }
   {
-    final ([A x1, x2] && [y1, B y2]) = [c, d];
+    final ([A x1, x2] && [y1, B y2]) = <C>[c, d];
     x1.expectStaticType<Exactly<A>>();
-    x2.expectStaticType<Exactly<D>>();
+    x2.expectStaticType<Exactly<C>>();
     y1.expectStaticType<Exactly<C>>();
     y2.expectStaticType<Exactly<B>>();
   }
   {
-    var ([A x1, x2] && [y1, B y2]) = [b, b];
+    var ([A x1, x2] && [y1, B y2]) = <B>[b, b];
     x1.expectStaticType<Exactly<A>>();
     x2.expectStaticType<Exactly<B>>();
     y1.expectStaticType<Exactly<B>>();

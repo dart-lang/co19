@@ -8,19 +8,26 @@
 /// coercions and casts from dynamic when values flow into a pattern during
 /// matching.
 ///
-/// @description Check that the calculation of the static type of a logical-and
-/// pattern inserts implicit coercions
+/// @description Check that the calculation of the static type of a map pattern
+/// performs implicit coercions
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
+import "../../Utils/static_type_helper.dart";
 
 main() {
-  var ([double v1] && [num v2]) = [42];
-  v1.expectStaticType<Exactly<double>>();
-  v2.expectStaticType<Exactly<num>>();
-  Expect.identical(42.0, v1);
-  Expect.identical(42.0, v2);
+  var <String, double>{"key1": x1} = {"key1": 42};
+  x1.expectStaticType<Exactly<double>>();
+  Expect.identical(42.0, x1);
+
+  var {"key1": double x2} = {"key1": 42};
+  x2.expectStaticType<Exactly<double>>();
+  Expect.identical(42.0, x2);
+
+  double? x3;
+  {"key1": x3} = <String, double>{"key1": 42};
+  x3.expectStaticType<Exactly<double>>();
+  Expect.identical(42.0, x3);
 }

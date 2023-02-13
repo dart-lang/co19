@@ -6,21 +6,21 @@
 /// recurse through the pattern again downwards to the leaf subpatterns filling
 /// in any missing types in the pattern. This process may also insert implicit
 /// coercions and casts from dynamic when values flow into a pattern during
-/// matching.
+/// matching
 ///
-/// @description Check that the calculation of the static type of a logical-and
-/// pattern inserts implicit coercions
+/// @description Check that the calculation of the static type of a record
+/// pattern performs implicit coercions
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
-import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
+import "../../Utils/static_type_helper.dart";
 
 main() {
-  var ([double v1] && [num v2]) = [42];
-  v1.expectStaticType<Exactly<double>>();
-  v2.expectStaticType<Exactly<num>>();
-  Expect.identical(42.0, v1);
-  Expect.identical(42.0, v2);
+  var (double x1, n: double x2) = (42, n: 42);
+  x1.expectStaticType<Exactly<double>>();
+  x2.expectStaticType<Exactly<double>>();
+  Expect.identical(42.0, x1);
+  Expect.identical(42.0, x2);
 }

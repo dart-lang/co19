@@ -9,9 +9,8 @@
 /// matching
 ///
 /// @description Check the static type <K, V> of a map pattern with no type
-/// arguments and not empty. Expect that _ in type schema are filled from an
-/// initializing expression and implicit coercions and casts from dynamic are
-/// performed
+/// arguments and not empty. Expect that _ in type schema are filled in from an
+/// initializing expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -29,37 +28,27 @@ main() {
   C c = C();
   D d = D();
   {
+    // It's important to specify type arguments of the initializing expression
+    // here and below to avoid a type inference from the pattern type schema to
+    // a initializing expression
     var {"key1": A v1, "key2": B v2, "key3": v3} =
-        {"key1": b, "key2": c, "key3": c};
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<B>>();
-    v3.expectStaticType<Exactly<C>>();
-  }
-  {
-    final {"key1": A v1, "key2": B v2, "key3": v3} =
-        {"key1": b, "key2": c, "key3": d};
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<B>>();
-    v3.expectStaticType<Exactly<D>>();
-  }
-  {
-    var {"key1": A v1, "key2": B v2, "key3": v3} =
-        <String, C>{"key1": d, "key2": d, "key3": d};
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<B>>();
-    v3.expectStaticType<Exactly<C>>();
-  }
-  {
-  var {"key1": A v1, "key2": B v2, "key3": v3} =
-      <String, dynamic>{"key1": d, "key2": d, "key3": d};
+        <String, B>{"key1": b, "key2": c, "key3": c};
     v1.expectStaticType<Exactly<A>>();
     v2.expectStaticType<Exactly<B>>();
     v3.expectStaticType<Exactly<B>>();
   }
-  var {"key1": double x1} = {"key1": 42};
-  x1.expectStaticType<Exactly<double>>();
-
-  dynamic pi = 3.14;
-  final {"key1": double x2} = {"key1": pi};
-  x2.expectStaticType<Exactly<double>>();
+  {
+    final {"key1": A v1, "key2": B v2, "key3": v3} =
+        <String, C>{"key1": c, "key2": c, "key3": d};
+    v1.expectStaticType<Exactly<A>>();
+    v2.expectStaticType<Exactly<B>>();
+    v3.expectStaticType<Exactly<C>>();
+  }
+  {
+    var {"key1": A v1, "key2": B v2, "key3": v3} =
+        <String, D>{"key1": d, "key2": d, "key3": d};
+    v1.expectStaticType<Exactly<A>>();
+    v2.expectStaticType<Exactly<B>>();
+    v3.expectStaticType<Exactly<D>>();
+  }
 }

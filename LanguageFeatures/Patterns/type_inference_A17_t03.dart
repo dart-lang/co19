@@ -9,9 +9,8 @@
 /// matching.
 ///
 /// @description Check the calculation static type of a list pattern. Test that
-/// missing types in a type schema are filled from the initialising expression
-/// and implicit coercions and casts from dynamic are performed. Test the case
-/// when there is a matching rest element
+/// missing types in a type schema are filled in from the initializing
+/// expression. Test the case when there is a matching rest element
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -29,16 +28,16 @@ main() {
   C c = C();
   D d = D();
   {
-    var [A v1, ...List<B> r, v2] = [b, c, d, c];
+    var [A v1, ...List<B> r, v2] = <B>[b, c, d, c];
     v1.expectStaticType<Exactly<A>>();
     r.expectStaticType<Exactly<List<B>>>();
-    v2.expectStaticType<Exactly<C>>();
+    v2.expectStaticType<Exactly<B>>();
   }
   {
-    var [A v1, ...r, v2] = [b, c, d, d];
+    var [A v1, ...r, v2] = <B>[b, c, d, d];
     v1.expectStaticType<Exactly<A>>();
-    r.expectStaticType<Exactly<List<D>>>();
-    v2.expectStaticType<Exactly<D>>();
+    r.expectStaticType<Exactly<List<B>>>();
+    v2.expectStaticType<Exactly<B>>();
   }
   {
     final [A v1, ...r, v2] = <C>[d, d, d, d];
@@ -46,13 +45,4 @@ main() {
     r.expectStaticType<Exactly<List<C>>>();
     v2.expectStaticType<Exactly<C>>();
   }
-  {
-    var [A v1, ...List<B> r, v2] = [d as dynamic, d as dynamic, d as dynamic];
-    v1.expectStaticType<Exactly<A>>();
-    r.expectStaticType<Exactly<List<B>>>();
-    v2.expectStaticType<Exactly<B>>();
-  }
-  var [x1, ...List<double> r] = [1, 2, 3];
-  x1.expectStaticType<Exactly<double>>();
-  r.expectStaticType<Exactly<List<double>>>();
 }

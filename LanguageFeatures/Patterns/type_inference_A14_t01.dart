@@ -9,40 +9,30 @@
 /// matching.
 ///
 /// @description Check the static type of an identifier pattern. Test that
-/// missing types in a type schema are filled from the initialising expression
-/// and implicit coercions and casts from dynamic are performed
+/// missing types in a type schema are filled in from the initializing
+/// expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/static_type_helper.dart";
-import "../../Utils/expect.dart";
 
 main() {
-  double v1 = 0;
-  [v1] = [42];
-  Expect.equals(42.0, v1);
+  var (v1) = 42;
+  v1.expectStaticType<Exactly<int>>();
 
-  dynamic pi = 3.14;
-  double v2 = 0.1;
-  (v2) = pi;
-  v2.expectStaticType<Exactly<double>>();
+  final (v2) = [42];
+  v2.expectStaticType<Exactly<List<int>>>();
 
-  var (v3) = 42;
-  v3.expectStaticType<Exactly<int>>();
+  var (v3,) = (1 as int?,);
+  v3.expectStaticType<Exactly<int?>>();
 
-  final (v4) = [42];
-  v4.expectStaticType<Exactly<List<int>>>();
+  var (v4,) = (1 as num,);
+  v4.expectStaticType<Exactly<num>>();
 
-  var (v5,) = (1 as int?,);
-  v5.expectStaticType<Exactly<int?>>();
+  final (v5,) = ("String",);
+  v5.expectStaticType<Exactly<String>>();
 
-  var (v6,) = (1 as num,);
-  v6.expectStaticType<Exactly<num>>();
-
-  final (v7,) = ("String",);
-  v7.expectStaticType<Exactly<String>>();
-
-  var (v8,) = ("String" as Object?,);
-  v8.expectStaticType<Exactly<Object?>>();
+  var (v6,) = ("String" as Object?,);
+  v6.expectStaticType<Exactly<Object?>>();
 }

@@ -9,9 +9,9 @@
 /// matching.
 ///
 /// @description Check the calculation static type of a list pattern. Test that
-/// missing types in a type schema are filled from the initialising expression
-/// and implicit coercions and casts from dynamic are performed. Test the case
-/// when non-empty list pattern has context type schema _
+/// missing types in a type schema are filled in from the initializing
+/// expression. Test the case when non-empty list pattern has context type
+/// schema _
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

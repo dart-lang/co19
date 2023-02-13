@@ -8,8 +8,8 @@
 /// coercions and casts from dynamic when values flow into a pattern during
 /// matching.
 ///
-/// @description Check that the calculation of the static type of a logical-and
-/// pattern inserts implicit coercions
+/// @description Check that the calculation og the static type of a null-assert
+/// pattern performs casts from dynamic
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -18,9 +18,11 @@ import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 
 main() {
-  var ([double v1] && [num v2]) = [42];
-  v1.expectStaticType<Exactly<double>>();
-  v2.expectStaticType<Exactly<num>>();
-  Expect.identical(42.0, v1);
-  Expect.identical(42.0, v2);
+  dynamic pi = 3.14;
+  final (double? v1!) = pi;
+  v1.expectStaticType<Exactly<double?>>();
+
+  Expect.throws(() {
+    var (int? v2!) = pi as dynamic;
+  });
 }

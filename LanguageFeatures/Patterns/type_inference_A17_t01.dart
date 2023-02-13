@@ -27,21 +27,18 @@ main() {
   C c = C();
   D d = D();
   {
-    var <B>[A v1, B v2, v3] = [b, c, c];
-    v1.expectStaticType<Exactly<B>>();
+    // It's important to specify type arguments of the initializing expression
+    // here and below to avoid a type inference from the pattern type schema to
+    // a initializing expression
+    var <B>[A v1, B v2, v3] = <B>[b, c, c];
+    v1.expectStaticType<Exactly<A>>();
     v2.expectStaticType<Exactly<B>>();
     v3.expectStaticType<Exactly<B>>();
   }
   {
     final <B>[A v1, B v2, v3] = <C>[d, d, d];
-    v1.expectStaticType<Exactly<B>>();
+    v1.expectStaticType<Exactly<A>>();
     v2.expectStaticType<Exactly<B>>();
     v3.expectStaticType<Exactly<B>>();
   }
-  var <double>[x1] = [42];
-  x1.expectStaticType<Exactly<double>>();
-
-  dynamic pi = 3.14;
-  var <double>[x2] = [pi];
-  x2.expectStaticType<Exactly<double>>();
 }

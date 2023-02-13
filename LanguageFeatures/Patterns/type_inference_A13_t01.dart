@@ -9,8 +9,7 @@
 /// matching.
 ///
 /// @description Check the static type of a variable pattern. Test that missing
-/// types in a type schema are filled from the initialising expression and
-/// implicit coercions and casts from dynamic are performed
+/// types in a type schema are filled in from the initializing expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -19,27 +18,20 @@ import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 
 main() {
-  var (double v1) = 42;
-  Expect.equals(42.0, v1);
+  var (v1) = 42;
+  v1.expectStaticType<Exactly<int>>();
 
-  dynamic pi = 3.14;
-  final (double v2) = pi;
-  v2.expectStaticType<Exactly<double>>();
-
-  (var v3) = 42;
-  v3.expectStaticType<Exactly<int>>();
-
-  (final v4) = [42];
-  v4.expectStaticType<Exactly<List<int>>>();
+  final (v2) = [42];
+  v2.expectStaticType<Exactly<List<int>>>();
 
   Object? o = Object();
   if (1 > 2) {
     o = null;
   }
-  (var v5) = o;
-  v5.expectStaticType<Exactly<Object?>>();
+  var (v3) = o;
+  v3.expectStaticType<Exactly<Object?>>();
 
   o = null;
-  (final v6) = o;
-  v6.expectStaticType<Exactly<Object?>>();
+  final (v4) = o;
+  v4.expectStaticType<Exactly<Object?>>();
 }

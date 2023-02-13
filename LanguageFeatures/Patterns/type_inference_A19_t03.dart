@@ -6,34 +6,37 @@
 /// recurse through the pattern again downwards to the leaf subpatterns filling
 /// in any missing types in the pattern. This process may also insert implicit
 /// coercions and casts from dynamic when values flow into a pattern during
-/// matching.
+/// matching
 ///
-/// @description Check the static type of a cast pattern. Test that
-/// missing types in a type schema are filled in from the initializing
-/// expression
+/// @description Check that the calculation of the static type of a record
+/// pattern performs casts from dynamic and generic function instantiation
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
+T foo<T>(T t) => t;
+
 main() {
-  var (v1 as double) = 3.14;
+  dynamic pi = 3.14;
+  final (double v1, n: double v2) = (pi, n: pi);
+  v1.expectStaticType<Exactly<double>>();
+  v2.expectStaticType<Exactly<double>>();
   Expect.equals(3.14, v1);
-  v1.expectStaticType<Exactly<double>>();
-
-  final (v2 as String) = "42";
-  Expect.equals("42", v1);
-  v1.expectStaticType<Exactly<double>>();
-
-  Expect.throws((){
-    var (num v3 as double) = "42";
-    v3.expectStaticType<Exactly<num>>();
-  });
+  Expect.equals(3.14, v2);
 
   Expect.throws(() {
-    final (num v4 as double) = "42";
-    v4.expectStaticType<Exactly<num>>();
+    var (int v3,) = (pi,);
   });
+  Expect.throws(() {
+    final (n: int v4) = (n: pi);
+  });
+
+  var (int Function(int) v5, n: int Function(int) v6) = (foo, n: foo);
+  v5.expectStaticType<Exactly<int Function(int)>>();
+  v6.expectStaticType<Exactly<int Function(int)>>();
+  Expect.equals(foo, v5);
+  Expect.equals(foo, v6);
 }

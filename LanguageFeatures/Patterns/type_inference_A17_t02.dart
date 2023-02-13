@@ -9,7 +9,8 @@
 /// matching.
 ///
 /// @description Check the calculation static type of a list pattern. Test that
-/// missing types in a type schema are filled from the initialising expression
+/// missing types in a type schema are filled in from the initializing
+/// expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -27,27 +28,24 @@ main() {
   C c = C();
   D d = D();
   {
-    var [A v1, B v2, v3] = [b, c, c];
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<B>>();
-    v3.expectStaticType<Exactly<C>>();
-  }
-  {
-    var [A v1, B v2, v3] = [b, c, d];
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<B>>();
-    v3.expectStaticType<Exactly<D>>();
-  }
-  {
-    var [A v1, B v2, v3] = <C>[d, d, d];
-    v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<B>>();
-    v3.expectStaticType<Exactly<C>>();
-  }
-  {
-    var [A v1, B v2, v3] = [d as dynamic, d as dynamic, d as dynamic];
+    // It's important to specify type arguments of the initializing expression
+    // here and below to avoid a type inference from the pattern type schema to
+    // a initializing expression
+    var [A v1, B v2, v3] = <B>[b, c, c];
     v1.expectStaticType<Exactly<A>>();
     v2.expectStaticType<Exactly<B>>();
     v3.expectStaticType<Exactly<B>>();
+  }
+  {
+    var [A v1, B v2, v3] = <C>[c, c, d];
+    v1.expectStaticType<Exactly<A>>();
+    v2.expectStaticType<Exactly<B>>();
+    v3.expectStaticType<Exactly<C>>();
+  }
+  {
+    var [A v1, B v2, v3] = <D>[d, d, d];
+    v1.expectStaticType<Exactly<A>>();
+    v2.expectStaticType<Exactly<B>>();
+    v3.expectStaticType<Exactly<D>>();
   }
 }

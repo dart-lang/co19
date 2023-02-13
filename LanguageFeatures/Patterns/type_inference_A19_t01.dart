@@ -9,8 +9,7 @@
 /// matching
 ///
 /// @description Check that the static type of a record pattern is a record type
-/// schema with the holes filled by an initializing expression and implicit
-/// coercions and casts from dynamic are performed
+/// schema with the holes filled in by an initializing expression
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -28,30 +27,24 @@ main() {
   C c = C();
   D d = D();
   {
-    var (A v1, v2, n1: B v3, n2: v4) = (a, b, c, d);
+    var (A v1, v2, n1: B v3, n2: v4) = (a, b, n1: c, n2: d);
     v1.expectStaticType<Exactly<A>>();
     v2.expectStaticType<Exactly<B>>();
     v3.expectStaticType<Exactly<B>>();
     v4.expectStaticType<Exactly<D>>();
   }
   {
-    var (A v1, v2, n1: B v3, n2: v4) = (d, d, d, d);
+    var (A v1, v2, n1: B v3, n2: v4) = (d, d, n1: d, n2: d);
     v1.expectStaticType<Exactly<A>>();
     v2.expectStaticType<Exactly<D>>();
     v3.expectStaticType<Exactly<B>>();
     v4.expectStaticType<Exactly<D>>();
   }
   {
-    var (A v1, v2, n1: B v3, n2: v4) = (d as C, d as C, d as C, d as C);
+    var (A v1, v2, n1: B v3, n2: v4) = (d as C, d as C, n1: d as C, n2: d as C);
     v1.expectStaticType<Exactly<A>>();
     v2.expectStaticType<Exactly<C>>();
     v3.expectStaticType<Exactly<B>>();
     v4.expectStaticType<Exactly<C>>();
   }
-  var (double x1,) = (42,);
-  x1.expectStaticType<Exactly<double>>();
-
-  dynamic pi = 3.14;
-  final (double x2,) = (pi,);
-  x2.expectStaticType<Exactly<double>>();
 }

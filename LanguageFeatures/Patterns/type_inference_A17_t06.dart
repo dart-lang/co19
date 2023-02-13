@@ -8,19 +8,39 @@
 /// coercions and casts from dynamic when values flow into a pattern during
 /// matching.
 ///
-/// @description Check that the calculation of the static type of a logical-and
-/// pattern inserts implicit coercions
+/// @description Check that the calculation of the static type of a list pattern
+/// performs casts from dynamic and generic function instantiation
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
+import "../../Utils/static_type_helper.dart";
+
+T foo<T>(T t) => t;
 
 main() {
-  var ([double v1] && [num v2]) = [42];
+  dynamic pi = 3.14;
+  var <double>[v1] = [pi];
   v1.expectStaticType<Exactly<double>>();
-  v2.expectStaticType<Exactly<num>>();
-  Expect.identical(42.0, v1);
-  Expect.identical(42.0, v2);
+  Expect.equals(3.14, v1);
+
+  Expect.throws(() {
+    final <int>[v2] = [pi];
+  });
+
+  var <double>[...v3] = [pi];
+  v3.expectStaticType<Exactly<List<double>>>();
+  Expect.listEquals([3.14], v3);
+
+  Expect.throws(() {
+    final <int>[...v4] = [pi];
+  });
+
+  final [...List<double> v5] = [pi];
+  Expect.listEquals([3.14], v5);
+
+  var <int Function(int)>[v6] = [foo];
+  v6.expectStaticType<Exactly<int Function(int)>>();
+  Expect.equals(foo, v6);
 }
