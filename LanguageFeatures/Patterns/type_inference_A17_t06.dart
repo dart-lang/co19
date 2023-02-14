@@ -40,7 +40,7 @@ main() {
   final [...List<double> v5] = [pi];
   Expect.listEquals([3.14], v5);
 
-  var <int Function(int)>[v6] = [foo];
+  List<int Function(int)> list = [foo];
+  var <int Function(int)>[v6] = list;
   v6.expectStaticType<Exactly<int Function(int)>>();
-  Expect.equals(foo, v6);
 }

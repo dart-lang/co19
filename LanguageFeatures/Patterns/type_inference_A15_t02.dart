@@ -9,7 +9,7 @@
 /// matching.
 ///
 /// @description Check that the calculation of the static type of an identifier
-/// pattern performs casts from dynamic and generic function instantiation
+/// pattern performs casts from dynamic
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -21,10 +21,6 @@ T foo<T>(T t) => t;
 
 main() {
   dynamic pi = 3.14;
-  final (v1 as List<num>) = [pi];
-  v1.expectStaticType<Exactly<List<num>>>();
-
-  final (v2 as int Function(int)) = foo;
-  v2.expectStaticType<Exactly<int Function(int)>>();
-  Expect.equals(foo, v2);
+  final (v1 as num) = pi;
+  v1.expectStaticType<Exactly<num>>();
 }

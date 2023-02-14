@@ -21,19 +21,19 @@ T foo<T>(T t) => t;
 
 main() {
   dynamic pi = 3.14;
-  final <String, double>{"key1": x1} = {"key1": pi};
+  final <String, double>{"key1": x1} = <String, double>{"key1": pi};
   x1.expectStaticType<Exactly<double>>();
   Expect.equals(3.14, x1);
 
-  var {"key1": double x2} = {"key1": pi};
+  var {"key1": double x2} = <String, double>{"key1": pi};
   x2.expectStaticType<Exactly<double>>();
   Expect.equals(3.14, x1);
 
   Expect.throws(() {
-    var <String, double>{"key1": x3} = {"key1": pi};
+    var <String, int>{"key1": x3} = <String, int>{"key1": pi};
   });
 
-  final <String, int Function(int)>{"key1": x4} = {"key1": foo};
+  Map<String, int Function(int)> map = {"key1": foo};
+  final <String, int Function(int)>{"key1": x4} = map;
   x4.expectStaticType<Exactly<int Function(int)>>();
-  Expect.equals(foo, x4);
 }

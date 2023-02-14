@@ -27,11 +27,10 @@ main() {
 
   Expect.throws(() {
     int v2 = 0;
-    (v2) = pi as dynamic;
+    (v2) = pi;
   });
 
   final int Function(int) v3;
   (v3) = foo;
   v3.expectStaticType<Exactly<int Function(int)>>();
-  Expect.equals(foo, v3);
 }

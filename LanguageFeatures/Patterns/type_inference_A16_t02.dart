@@ -18,7 +18,7 @@ import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
 main() {
-  var (<double>[v1]) = [42];
+  final (double v1) = 42;
   v1.expectStaticType<Exactly<double>>();
   Expect.identical(42.0, v1);
 }

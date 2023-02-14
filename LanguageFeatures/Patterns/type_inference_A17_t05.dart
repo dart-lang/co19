@@ -27,7 +27,7 @@ main() {
   x2.expectStaticType<Exactly<double>>();
   Expect.identical(42.0, x2);
 
-  var [x3, ...List<double> r2] = [1, 2, 3];
+  var [x3, ...List<double> r2] = <double>[1, 2, 3];
   x3.expectStaticType<Exactly<double>>();
   Expect.identical(1.0, x3);
   Expect.identical(2.0, r2[0]);

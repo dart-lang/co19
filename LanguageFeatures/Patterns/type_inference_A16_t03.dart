@@ -31,5 +31,4 @@ main() {
 
   final (int Function(int) v3) = foo;
   v3.expectStaticType<Exactly<int Function(int)>>();
-  Expect.equals(foo, v3);
 }

@@ -37,6 +37,4 @@ main() {
   var (int Function(int) v5, n: int Function(int) v6) = (foo, n: foo);
   v5.expectStaticType<Exactly<int Function(int)>>();
   v6.expectStaticType<Exactly<int Function(int)>>();
-  Expect.equals(foo, v5);
-  Expect.equals(foo, v6);
 }

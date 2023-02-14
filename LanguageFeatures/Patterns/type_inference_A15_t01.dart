@@ -24,7 +24,7 @@ main() {
   v1.expectStaticType<Exactly<double>>();
 
   final (v2 as String) = "42";
-  Expect.equals("42", v1);
+  Expect.equals("42", v2);
   v1.expectStaticType<Exactly<double>>();
 
   Expect.throws((){

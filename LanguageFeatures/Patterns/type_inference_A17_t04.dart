@@ -19,15 +19,18 @@
 import "../../Utils/static_type_helper.dart";
 
 main() {
-  var [...r1] = [1, 2, 3];
+  // It's important to specify type arguments of the initializing expression
+  // here and below to avoid a type inference from the pattern type schema to
+  // a initializing expression
+  var [...r1] = <int>[1, 2, 3];
   r1.expectStaticType<Exactly<List<int>>>();
 
-  final [...r2] = [1, 2, 3.14];
+  final [...r2] = <num>[1, 2, 3.14];
   r2.expectStaticType<Exactly<List<num>>>();
 
-  var [...r3] = [1, 2, "3"];
+  var [...r3] = <Object>[1, 2, "3"];
   r3.expectStaticType<Exactly<List<Object>>>();
 
-  final [...r4] = [1, 2, null];
+  final [...r4] = <int?>[1, 2, null];
   r4.expectStaticType<Exactly<List<int?>>>();
 }
