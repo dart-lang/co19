@@ -5,63 +5,40 @@
 /// @assertion
 /// To type check a pattern p being matched against a value of type M:
 /// ...
-/// Identifier:
+/// Variable:
 ///
-/// In an assignment context, the required type of p is the (unpromoted) static
-/// type of the variable that p resolves to.
+/// If the variable has a type annotation, the required type of p is that type,
+/// as is the static type of the variable introduced by p.
 ///
-/// In a matching context, the name refers to a constant. Type check the
-/// constant identifier expression in context type M.
+/// Else the required type of p is M, as is the static type of the variable
+/// introduced by p
 ///
-/// In a declaration context, the required type of p is M, as is the static type
-/// of the variable introduced by p.
-///
-/// @description Check that in a matching context identifier pattern is type
-/// checked in context type M
+/// @description Check that if the variable pattern has a type annotation, the
+/// required type of p is that type. Test that it is a compile-time error if in
+/// irrefutable context static type of the M is not assignable to the type of
+/// the variable pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
-
-class A<X> {
-  const A();
-}
-
-const a1 = A();
-const a2 = A<int>();
-
-String test1(A<num> v) {
-  switch (v) {
-    case a1:
-      return "match-1";
-    case a2:
-      return "match-2";
-    default:
-      return "no match";
-  }
-}
-
-String test2(A<num> v) {
-  if (v case a1) {
-    return "match-1";
-  }
-  if (v case a2) {
-    return "match-2";
-  }
-  return "no match";
-}
-
-String test3(A<num> v) =>
-  switch (v) {
-    a1 => "match-1",
-    a2 => "match-2",
-    _ => "no match"
-  };
-
 main() {
-  const A<num> v = A<int>();
-  Expect.equals("match-2", test1(v));
-  Expect.equals("match-2", test2(v));
-  Expect.equals("match-2", test3(v));
+  var (num v1) = "42";
+//               ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final (num v2) = "42";
+//               ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var <int>[v3] = <num>[42];
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final <int>[v4] = <num>[42];
+//                  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

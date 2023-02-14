@@ -25,8 +25,8 @@
 ///
 /// iv. The required type of p is List<E>.
 ///
-/// @description Check that if p has no type argument and if M doesn't implement
-/// List<T> and is not dynamic then E is Object?
+/// @description Check that if p has no type argument and if M is dynamic then E
+/// is dynamic
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -35,12 +35,13 @@ import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
 String test1() {
-  switch ([]) {
+  dynamic d = <num>[1, 2];
+  switch (d) {
     case [var a, var b]:
-      a.expectStaticType<Exactly<Object?>>();
-      b.expectStaticType<Exactly<Object?>>();
+      Expect.throws(() {a.whatever;}); // a is dynamic
+      Expect.throws(() {b.whatever;}); // b is dynamic
       a = "3.14";
-      b = null;
+      b = [];
       return "match";
     default:
       return "no match";
@@ -48,11 +49,12 @@ String test1() {
 }
 
 String test2() {
-  switch ([]) {
+  dynamic d = [1, 2, 3];
+  switch (d) {
     case [final a, final b, ...final c]:
-      a.expectStaticType<Exactly<Object?>>();
-      b.expectStaticType<Exactly<Object?>>();
-      c.expectStaticType<Exactly<List<Object?>>>();
+      Expect.throws(() {a.whatever;}); // a is dynamic
+      Expect.throws(() {b.whatever;}); // b is dynamic
+      c.expectStaticType<Exactly<List<dynamic>>>();
       return "match";
     default:
       return "no match";
@@ -60,64 +62,65 @@ String test2() {
 }
 
 String test3() {
-  if ([] case [var a, var b]) {
-    a.expectStaticType<Exactly<Object?>>();
-    b.expectStaticType<Exactly<Object?>>();
+  dynamic d = <num>[1, 2];
+  if (d case [var a, var b]) {
+    Expect.throws(() {a.whatever;}); // a is dynamic
+    Expect.throws(() {b.whatever;}); // b is dynamic
     a = "3.14";
-    b = null;
+    b = {};
     return "match";
   }
   return "no match";
 }
 
 String test4() {
-  if ([] case [final a, final b, ...final c]) {
-    a.expectStaticType<Exactly<Object?>>();
-    b.expectStaticType<Exactly<Object?>>();
-    c.expectStaticType<Exactly<List<Object?>>>();
+  dynamic d = [1, 2, 3];
+  if (d case [final a, final b, ...final c]) {
+    Expect.throws(() {a.whatever;}); // a is dynamic
+    Expect.throws(() {b.whatever;}); // b is dynamic
+    c.expectStaticType<Exactly<List<dynamic>>>();
     return "match";
   }
   return "no match";
 }
 
 String test5() {
-  return switch ([]) {
-    [var a, var b] when
-        a.expectStaticType<Exactly<Object?>>() is Object? &&
-        b.expectStaticType<Exactly<Object?>>() is Object? &&
-        ((a = "3.14") is String) && ((b = null) == null) => "match",
+  dynamic d = <num>[1, 2];
+  return switch (d) {
+    [var a, var b] when a.whwtever => "match",
     _ => "no match"
   };
 }
 
 String test6() {
-  return switch ([]) {
+  dynamic d = [1, 2, 3];
+  return switch (d) {
     [final a, final b, ...final c] when
-        a.expectStaticType<Exactly<Object?>>() is Object? &&
-        b.expectStaticType<Exactly<Object?>>() is Object? &&
-        c.expectStaticType<Exactly<List<Object?>>>() is List<Object?> => "match",
+        c.expectStaticType<Exactly<List<dynamic>>>() is List<dynamic> => "match",
     _ => "no match"
   };
 }
 
 main() {
-  Expect.throws(() {
-    var [a1, b1] = [];
-    a1.expectStaticType<Exactly<Object?>>();
-    b1.expectStaticType<Exactly<Object?>>();
-  });
+  dynamic d = <num>[1, 2];
+  var [a1, b1] = d;
+  Expect.throws(() {a1.whatever;}); // a1 is dynamic
+  Expect.throws(() {b1.whatever;}); // b1 is dynamic
+  a1 = 3.14;
+  b1 = ["3.14"];
+  d = [1, 2, 3];
+  final [a2, b2, ...c2] = d;
+  Expect.throws(() {a2.whatever;}); // a2 is dynamic
+  Expect.throws(() {b2.whatever;}); // b2 is dynamic;
+  c2.expectStaticType<Exactly<List<dynamic>>>();
 
+  Expect.equals("match", test1());
+  Expect.equals("match", test2());
+  Expect.equals("match", test3());
+  Expect.equals("match", test4());
   Expect.throws(() {
-    final [a2, b2, ...c2] = [];
-    a2.expectStaticType<Exactly<Object?>>();
-    b2.expectStaticType<Exactly<Object?>>();
-    c2.expectStaticType<Exactly<List<Object?>>>();
+    test5();
   });
-
-  Expect.equals("no match", test1());
-  Expect.equals("no match", test2());
-  Expect.equals("no match", test3());
-  Expect.equals("no match", test4());
-  Expect.equals("no match", test5());
-  Expect.equals("no match", test6());
+  //Expect.equals("match", test5());
+  Expect.equals("match", test6());
 }

@@ -5,50 +5,38 @@
 /// @assertion
 /// To type check a pattern p being matched against a value of type M:
 /// ...
-/// Null-check or null-assert:
-//
-// Let N be NonNull(M).
-//
-// Type-check the subpattern using N as the matched value type.
+/// Cast:
 ///
-/// @description Check that null-check and null-assert patterns in refutable
-/// context produces no compile-time errors
+/// Resolve the type name to a type X. It is a compile-time error if the name
+/// does not refer to a type.
+///
+/// Type-check the subpattern using X as the matched value type.
+///
+/// @description Check that it is a compile-time error if type-check of the
+/// subpattern using X as the matched value type fails in an irrefutable context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
+Never foo() => throw 0;
 
-test1(int? x) {
-  switch (x) {
-    case var y?:
-      y.isEven;
-      break;
-    default:
-  }
-  if (x case var z?) {
-    z.isEven;
-  }
-}
-
-test2(int? x) {
-  Expect.throws(() {
-    switch (x) {
-      case var y!:
-        y.isEven;
-        break;
-      default:
-    }
-  });
-  Expect.throws(() {
-    if (x case var z!) {
-      z.isEven;
-    }
-  });
-}
+class A {}
+class B extends A {}
+class C extends B {}
 
 main() {
-  test1(42);
-  test1(null);
-  test2(null);
+  final (int x as String) = "42";
+//                ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var (int y as String) = 42;
+//              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final (int z as String ) = foo();
+//                ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

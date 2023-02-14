@@ -5,40 +5,43 @@
 /// @assertion
 /// To type check a pattern p being matched against a value of type M:
 /// ...
-/// Variable:
+/// Constant: Type check the pattern's value in context type M.
 ///
-/// If the variable has a type annotation, the required type of p is that type,
-/// as is the static type of the variable introduced by p.
-///
-/// Else the required type of p is M, as is the static type of the variable
-/// introduced by p
-///
-/// @description Check that if the variable pattern has a type annotation, the
-/// required type of p is that type. Test that it is a compile-time error if in
-/// irrefutable context static type of the M is not assignable to the type of
-/// the variable pattern
+/// @description Check that the restriction, that constants must be a subtype of
+/// the matched value's static type, is removed.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "../../Utils/expect.dart";
+
+class A {}
+class B { const B(); }
+
+String test1() {
+  switch (A()) {
+    case const B():
+      return "match";
+    default:
+      return "no match";
+  }
+}
+
+String test2() {
+  if (A() case const B()) {
+    return "match";
+  }
+  return "no match";
+}
+
+String test3() =>
+  switch (A()) {
+    const B() => "match",
+    _ => "no match"
+  };
+
 main() {
-  var (num v1) = "42";
-//               ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  final (num v2) = "42";
-//               ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var <int>[v3] = <num>[42];
-//                ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  final <int>[v4] = <num>[42];
-//                  ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals("no match", test1());
+  Expect.equals("no match", test2());
+  Expect.equals("no match", test3());
 }

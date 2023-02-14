@@ -4,113 +4,41 @@
 
 /// @assertion
 /// To type check a pattern p being matched against a value of type M:
-/// ...
-/// Relational:
 ///
-/// Let C be the static type of the right operand constant expression.
+/// Logical-or and logical-and: Type check each branch using M as the matched
+/// value type.
 ///
-/// If the operator is a comparison (<, <=, >, or >=), then it is a compile-time
-/// error if:
-///
-/// - M does not define that operator,
-/// - C is not assignable to the operator's parameter type,
-/// - or if the operator's return type is not assignable to bool.
-///
-/// Else the operator is == or !=. It is a compile-time error if C is not
-/// assignable to T? where T is M's == method parameter type.
-/// The language screens out null before calling the underlying == method, which
-/// is why T? is the allowed type. Since Object declares == to accept Object on
-/// the right, this compile-time error can only happen if a user-defined class
-/// has an override of == with a covariant parameter.
-///
-/// @description Check that it is a compile-time error if the operator is a
-/// comparison (<, <=, >, or >=), M does define that operator but C is not
-/// assignable to the operator's parameter type
+/// @description Check that if any branch of a logical-and pattern fails a
+/// type check in refutable context then there is no error but match fails
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-class C {
-  final int v;
-  const C(this.v);
-}
-
-const zero = C(0);
-const one = C(1);
-const two = C(2);
-const three = C(3);
+import "../../Utils/expect.dart";
 
 String test1() {
-  switch (42) {
-    case < zero:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "<";
-    case <= one:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "<=";
-    case > three:
-//       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return ">";
-    case >= two:
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return ">=";
+  switch(<num>[]) {
+    case List<num> v1 && List<int> v2:
+      return "match";
     default:
-      return "default";
+      return "no match";
   }
 }
 
 String test2() {
-  return switch (42) {
-    < zero => "<",
-//  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    <= one => "<=",
-//  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    > three => ">",
-//  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    >= two => ">=",
-//  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    _ => "default"
-  };
+  if (<num>[] case List<int> v1 && List<num> v2) {
+    return "match";
+  }
+  return "no match";
 }
 
-String test3() {
-  if (42 case < zero) return "<";
-//            ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  if (42 case <= one) return "<=";
-//            ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  if (42 case > three) return ">";
-//            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  if (42 case >= two) return ">=";
-//            ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  return "default";
-}
+String test3() => switch(<num>[]) {
+    final List<num> v1 && List<int> v2 => "match",
+    _ => "no match"
+  };
 
 main() {
-  test1();
-  test2();
-  test3();
+  Expect.equals("no match", test1());
+  Expect.equals("no match", test2());
+  Expect.equals("no match", test3());
 }

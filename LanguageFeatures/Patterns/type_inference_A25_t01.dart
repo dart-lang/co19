@@ -5,37 +5,73 @@
 /// @assertion
 /// To type check a pattern p being matched against a value of type M:
 /// ...
-/// Identifier:
+/// Variable:
 ///
-/// In an assignment context, the required type of p is the (unpromoted) static
-/// type of the variable that p resolves to.
+/// If the variable has a type annotation, the required type of p is that type,
+/// as is the static type of the variable introduced by p.
 ///
-/// In a matching context, the name refers to a constant. Type check the
-/// constant identifier expression in context type M.
+/// Else the required type of p is M, as is the static type of the variable
+/// introduced by p
 ///
-/// In a declaration context, the required type of p is M, as is the static type
-/// of the variable introduced by p.
-///
-/// @description Check that in an assignment context, the required type of p is
-/// the unpromoted static type of the variable that p resolves to
+/// @description Check that if a variable pattern has a type annotation, then
+/// the required type of `p` is that type. Test that there is no match in
+/// refutable context if matched value type is not assignable to the type of the
+/// variable pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
+// SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
+
+String test1() {
+  switch (42) {
+    case final num v:
+      return "match";
+    default:
+      return "no match";
+  }
+}
+
+String test2() {
+  switch ("42") {
+    case num v:
+    return "match";
+    default:
+      return "no match";
+  }
+}
+
+String test3() {
+  if (3.14 case num v) {
+    return "match";
+  }
+  return "no match";
+}
+
+String test4() {
+  if ("3.14" case final num v) {
+    return "match";
+  }
+  return "no match";
+}
+
+String test5() =>
+  switch (42) {
+    final num v => "match",
+    _ => "no match"
+  };
+
+String test6() =>
+  switch ("42") {
+    num v => "match",
+    _ => "no match"
+  };
 
 main() {
-  num a = 0;
-  a = 42;
-  a.expectStaticType<Exactly<num>>();
-
-  var (num b,) = (0,);
-  (b,) = (42,);
-  b.expectStaticType<Exactly<num>>();
-
-  var c = 2 > 1 ? 42 : 3.14;
-  c = 0;
-  c.expectStaticType<Exactly<num>>();
-  c = 3.14;
-  c.expectStaticType<Exactly<num>>();
+  Expect.equals("match", test1());
+  Expect.equals("no match", test2());
+  Expect.equals("match", test3());
+  Expect.equals("no match", test4());
+  Expect.equals("match", test5());
+  Expect.equals("no match", test6());
 }

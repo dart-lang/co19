@@ -5,73 +5,54 @@
 /// @assertion
 /// To type check a pattern p being matched against a value of type M:
 /// ...
-/// Variable:
+/// Constant: Type check the pattern's value in context type M.
 ///
-/// If the variable has a type annotation, the required type of p is that type,
-/// as is the static type of the variable introduced by p.
-///
-/// Else the required type of p is M, as is the static type of the variable
-/// introduced by p
-///
-/// @description Check that if a variable pattern has a type annotation, then
-/// the required type of `p` is that type. Test that there is no match in
-/// refutable context if matched value type is not assignable to the type of the
-/// variable pattern
+/// @description Check that type argument may be inferred from a context type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
 
-String test1() {
-  switch (42) {
-    case final num v:
-      return "match";
+class A<X> {
+  const A();
+}
+
+String test1(A<num> a) {
+  switch (a) {
+    case const A():
+      return "match-1";
+    case const A<int>():
+      return "match-2";
     default:
       return "no match";
   }
 }
 
-String test2() {
-  switch ("42") {
-    case num v:
-    return "match";
-    default:
-      return "no match";
+String test2(A<num> a) {
+  if (a case const A()) {
+    return "match-1";
   }
-}
-
-String test3() {
-  if (3.14 case num v) {
-    return "match";
+  if (a case const A<int>()) {
+    return "match-2";
   }
   return "no match";
 }
 
-String test4() {
-  if ("3.14" case final num v) {
-    return "match";
-  }
-  return "no match";
-}
-
-String test5() =>
-  switch (42) {
-    final num v => "match",
-    _ => "no match"
-  };
-
-String test6() =>
-  switch ("42") {
-    num v => "match",
+String test3(A<num> a) =>
+  switch (a) {
+    const A() => "match-1",
+    const A<int>() => "match-2",
     _ => "no match"
   };
 
 main() {
-  Expect.equals("match", test1());
-  Expect.equals("no match", test2());
-  Expect.equals("match", test3());
-  Expect.equals("no match", test4());
-  Expect.equals("match", test5());
-  Expect.equals("no match", test6());
+  const A<num> a1 = A<num>();
+  const A<num> a2 = A<int>();
+  Expect.equals("match-1", test1(a1));
+  Expect.equals("match-1", test2(a1));
+  Expect.equals("match-1", test3(a1));
+  Expect.equals("match-2", test1(a2));
+  Expect.equals("match-2", test2(a2));
+  Expect.equals("match-2", test3(a2));
 }

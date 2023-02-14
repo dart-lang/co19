@@ -5,54 +5,28 @@
 /// @assertion
 /// To type check a pattern p being matched against a value of type M:
 /// ...
-/// Constant: Type check the pattern's value in context type M.
+/// Null-check or null-assert:
+//
+// Let N be NonNull(M).
+//
+// Type-check the subpattern using N as the matched value type.
 ///
-/// @description Check that type argument may be inferred from a context type
+/// @description Check that it is a compile-time error if type-check of the
+/// subpattern, using N as the matched value type, fails in an irrefutable
+/// context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
-
-class A<X> {
-  const A();
-}
-
-String test1(A<num> a) {
-  switch (a) {
-    case const A():
-      return "match-1";
-    case const A<int>():
-      return "match-2";
-    default:
-      return "no match";
-  }
-}
-
-String test2(A<num> a) {
-  if (a case const A()) {
-    return "match-1";
-  }
-  if (a case const A<int>()) {
-    return "match-2";
-  }
-  return "no match";
-}
-
-String test3(A<num> a) =>
-  switch (a) {
-    const A() => "match-1",
-    const A<int>() => "match-2",
-    _ => "no match"
-  };
-
 main() {
-  const A<num> a1 = A<num>();
-  const A<num> a2 = A<int>();
-  Expect.equals("match-1", test1(a1));
-  Expect.equals("match-1", test2(a1));
-  Expect.equals("match-1", test3(a1));
-  Expect.equals("match-2", test1(a2));
-  Expect.equals("match-2", test2(a2));
-  Expect.equals("match-2", test3(a2));
+  final (int x!) = "42";
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  String? s = null;
+  final (int? y!) = s;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
