@@ -62,8 +62,6 @@ main() {
       print(a);
       break;
     case final int a when a == 42:
-//                 ^
-// [cfe] unspecified
     case final String a:
     case final int a:
       print(a);
@@ -81,8 +79,6 @@ main() {
       print(a);
       break;
     case int a when a == 42:
-//           ^
-// [cfe] unspecified
     case String a:
     case int a:
       print(a);
@@ -100,8 +96,6 @@ main() {
       print(a);
       break;
     case final int a when a == 42:
-//                 ^
-// [cfe] unspecified
     case final a:
       print(a);
 //          ^
