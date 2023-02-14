@@ -115,6 +115,7 @@ class Shape<T extends MetricUnits> {
   List<num> get areaAsList => [areaAsDouble];
   Map<String, num> get areaAsMap => {"area": areaAsDouble};
   ({num area}) get areaAsRecord => (area: areaAsDouble);
+  String get type => T.toString();
 }
 
 class Square<T extends MetricUnits> extends Shape<T> {

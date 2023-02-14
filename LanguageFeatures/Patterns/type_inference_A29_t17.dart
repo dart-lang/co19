@@ -78,7 +78,6 @@ String test6() =>
   };
 
 main() {
-
   Expect.throws(() {
     var {"key1": a1} = {};
     a1.expectStaticType<Exactly<Object?>>();
