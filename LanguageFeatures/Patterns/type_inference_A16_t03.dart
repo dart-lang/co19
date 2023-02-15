@@ -26,7 +26,8 @@ main() {
   Expect.equals(3.14, v1);
 
   Expect.throws(() {
-    var (int v2) = pi as dynamic;
+    dynamic e = 2.71;
+    var (int v2) = e;
   });
 
   final (int Function(int) v3) = foo;

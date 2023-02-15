@@ -9,7 +9,7 @@
 /// matching
 ///
 /// @description Check that the calculation of the static type of a record
-/// pattern performs implicit coercions
+/// pattern performs casts from dynamic and generic function instantiation
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -17,11 +17,24 @@
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
+T foo<T>(T t) => t;
+
 main() {
-  var record = (42, n: 42);
-  var (double x1, n: double x2) = record;
-  x1.expectStaticType<Exactly<double>>();
-  x2.expectStaticType<Exactly<double>>();
-  Expect.identical(42.0, x1);
-  Expect.identical(42.0, x2);
+  dynamic pi = 3.14;
+  final (double v1, n: double v2) = (pi, n: pi);
+  v1.expectStaticType<Exactly<double>>();
+  v2.expectStaticType<Exactly<double>>();
+  Expect.equals(3.14, v1);
+  Expect.equals(3.14, v2);
+
+  Expect.throws(() {
+    var (int v3,) = (pi,);
+  });
+  Expect.throws(() {
+    final (n: int v4) = (n: pi);
+  });
+
+  var (int Function(int) v5, n: int Function(int) v6) = (foo, n: foo);
+  v5.expectStaticType<Exactly<int Function(int)>>();
+  v6.expectStaticType<Exactly<int Function(int)>>();
 }

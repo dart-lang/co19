@@ -23,6 +23,7 @@ main() {
   v1.expectStaticType<Exactly<double?>>();
 
   Expect.throws(() {
-    var (int? v2!) = pi as dynamic;
+    dynamic e = 2.71;
+    var (int? v2!) = e;
   });
 }

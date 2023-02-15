@@ -27,7 +27,8 @@ main() {
 
   Expect.throws(() {
     int v2 = 0;
-    (v2) = pi;
+    dynamic e = 2.71;
+    (v2) = e;
   });
 
   final int Function(int) v3;
