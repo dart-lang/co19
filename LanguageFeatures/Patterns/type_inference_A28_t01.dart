@@ -25,7 +25,8 @@
 ///
 /// iv. The required type of p is List<E>.
 ///
-/// @description Check that if p has a type argument T, then E is the type T.
+/// @description Check that if `p` has a type argument `T`, then `E` is the type
+/// `T`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

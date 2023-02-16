@@ -18,8 +18,8 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that if p has no type arguments and M is dynamic then K
-/// and V are dynamic and C is _.
+/// @description Check that if `p` has no type arguments and `M` is dynamic then
+/// `K` and `V` are dynamic and `C` is `_`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

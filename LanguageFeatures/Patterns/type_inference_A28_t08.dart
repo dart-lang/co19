@@ -25,8 +25,8 @@
 ///
 /// iv. The required type of p is List<E>.
 ///
-/// @description Check that if `p` has no type argument and `M` implements
-/// `List<T>` for some `T` then `E` is `T`.
+/// @description Check that if `p` has a type argument `T1` and `M` implements
+/// `List<T2>`, then `E` is the type `T1`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -35,8 +35,8 @@ import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
 String test1() {
-  switch (<num>[1, 2]) {
-    case [var a, var b]:
+  switch (<int>[1, 2]) {
+    case <num>[var a, var b]:
       a.expectStaticType<Exactly<num>>();
       b.expectStaticType<Exactly<num>>();
       a = 3.14;
@@ -48,11 +48,11 @@ String test1() {
 }
 
 String test2() {
-  switch ([1, 2, 3]) {
-    case [final a, final b, ...final c]:
-      a.expectStaticType<Exactly<int>>();
-      b.expectStaticType<Exactly<int>>();
-      c.expectStaticType<Exactly<List<int>>>();
+  switch (<int>[1, 2, 3]) {
+    case <num>[final a, final b, ...final c]:
+      a.expectStaticType<Exactly<num>>();
+      b.expectStaticType<Exactly<num>>();
+      c.expectStaticType<Exactly<List<num>>>();
       return "match";
     default:
       return "no match";
@@ -60,7 +60,7 @@ String test2() {
 }
 
 String test3() {
-  if (<num>[1, 2] case [var a, var b]) {
+  if (<int>[1, 2] case <num>[var a, var b]) {
     a.expectStaticType<Exactly<num>>();
     b.expectStaticType<Exactly<num>>();
     a = 3.14;
@@ -71,42 +71,42 @@ String test3() {
 }
 
 String test4() {
-  if ([1, 2, 3] case [final a, final b, ...final c]) {
-    a.expectStaticType<Exactly<int>>();
-    b.expectStaticType<Exactly<int>>();
-    c.expectStaticType<Exactly<List<int>>>();
+  if (<int>[1, 2, 3] case <num>[final a, final b, ...final c]) {
+    a.expectStaticType<Exactly<num>>();
+    b.expectStaticType<Exactly<num>>();
+    c.expectStaticType<Exactly<List<num>>>();
     return "match";
   }
   return "no match";
 }
 
 String test5() =>
-  switch (<num>[1, 2]) {
-    [var a, var b] when
+  switch (<int>[1, 2]) {
+    <num>[var a, var b] when
         a.expectStaticType<Exactly<num>>() is num &&
         b.expectStaticType<Exactly<num>>() is num => "match",
     _ => "no match"
   };
 
 String test6() =>
-  switch ([1, 2, 3]) {
-    [final a, final b, ...final c] when
-        a.expectStaticType<Exactly<int>>() is int &&
-        b.expectStaticType<Exactly<int>>() is int &&
-        c.expectStaticType<Exactly<List<int>>>() is List<int> => "match",
+  switch (<int>[1, 2, 3]) {
+    <num>[final a, final b, ...final c] when
+        a.expectStaticType<Exactly<num>>() is num &&
+        b.expectStaticType<Exactly<num>>() is num &&
+        c.expectStaticType<Exactly<List<num>>>() is List<num> => "match",
     _ => "no match"
   };
 
 main() {
-  var [a1, b1] = <num>[1, 2];
+  var <num>[a1, b1] = <int>[1, 2];
   a1.expectStaticType<Exactly<num>>();
   b1.expectStaticType<Exactly<num>>();
   a1 = 3.14;
   b1 = 3.14;
-  final [a2, b2, ...c2] = [1, 2, 3];
-  a2.expectStaticType<Exactly<int>>();
-  b2.expectStaticType<Exactly<int>>();
-  c2.expectStaticType<Exactly<List<int>>>();
+  final <num>[a2, b2, ...c2] = <int>[1, 2, 3];
+  a2.expectStaticType<Exactly<num>>();
+  b2.expectStaticType<Exactly<num>>();
+  c2.expectStaticType<Exactly<List<num>>>();
 
   Expect.equals("match", test1());
   Expect.equals("match", test2());

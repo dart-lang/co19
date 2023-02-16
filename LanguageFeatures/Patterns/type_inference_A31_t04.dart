@@ -23,8 +23,8 @@
 ///     type.
 /// iii. The required type of p is X.
 ///
-/// @description Check each field subpattern of p is type checked. Test that
-/// it is a compile-time error if type test fails in irrefutable context
+/// @description Check each field subpattern of `p` is type checked. Test that
+/// it is a compile-time error if type check fails in irrefutable context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

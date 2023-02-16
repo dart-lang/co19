@@ -25,8 +25,8 @@
 ///
 /// iv. The required type of p is List<E>.
 ///
-/// @description Check that if p has no type argument and if M doesn't implement
-/// List<T> and is not dynamic then E is Object?
+/// @description Check that if `p` has no type argument and if `M` doesn't
+/// implement `List<T>` and is not `dynamic` then `E` is `Object?`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -35,7 +35,7 @@ import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
 String test1() {
-  switch ([]) {
+  switch ([] as Object) {
     case [var a, var b]:
       a.expectStaticType<Exactly<Object?>>();
       b.expectStaticType<Exactly<Object?>>();
@@ -48,7 +48,7 @@ String test1() {
 }
 
 String test2() {
-  switch ([]) {
+  switch ([] as Object) {
     case [final a, final b, ...final c]:
       a.expectStaticType<Exactly<Object?>>();
       b.expectStaticType<Exactly<Object?>>();
@@ -60,7 +60,7 @@ String test2() {
 }
 
 String test3() {
-  if ([] case [var a, var b]) {
+  if ([] as Object case [var a, var b]) {
     a.expectStaticType<Exactly<Object?>>();
     b.expectStaticType<Exactly<Object?>>();
     a = "3.14";
@@ -71,7 +71,7 @@ String test3() {
 }
 
 String test4() {
-  if ([] case [final a, final b, ...final c]) {
+  if ([] as Object case [final a, final b, ...final c]) {
     a.expectStaticType<Exactly<Object?>>();
     b.expectStaticType<Exactly<Object?>>();
     c.expectStaticType<Exactly<List<Object?>>>();
@@ -81,7 +81,7 @@ String test4() {
 }
 
 String test5() {
-  return switch ([]) {
+  return switch ([] as Object) {
     [var a, var b] when (a.expectStaticType<Exactly<Object?>>() is Object? &&
         b.expectStaticType<Exactly<Object?>>() is Object?) => "match",
     _ => "no match"
@@ -89,7 +89,7 @@ String test5() {
 }
 
 String test6() {
-  return switch ([]) {
+  return switch ([] as Object) {
     [final a, final b, ...final c] when
         a.expectStaticType<Exactly<Object?>>() is Object? &&
         b.expectStaticType<Exactly<Object?>>() is Object? &&

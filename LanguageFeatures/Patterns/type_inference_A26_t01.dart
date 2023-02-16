@@ -16,8 +16,8 @@
 /// In a declaration context, the required type of p is M, as is the static type
 /// of the variable introduced by p.
 ///
-/// @description Check that in an assignment context, the required type of p is
-/// the unpromoted static type of the variable that p resolves to
+/// @description Check that in an assignment context, the required type of `p`
+/// is the unpromoted static type of the variable that `p` resolves to
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -26,16 +26,21 @@ import "../../Utils/static_type_helper.dart";
 
 main() {
   num a = 0;
-  a = 42;
+  a as int;
+  a.isEven;
+  [a] = [3.14];
   a.expectStaticType<Exactly<num>>();
 
   var (num b,) = (0,);
-  (b,) = (42,);
+  b as int;
+  b.isEven;
+  (b,) = (3.14,);
   b.expectStaticType<Exactly<num>>();
 
   var c = 2 > 1 ? 42 : 3.14;
-  c = 0;
   c.expectStaticType<Exactly<num>>();
-  c = 3.14;
+  c as int;
+  c.isEven;
+  {"key1": c} = {"key1": 3.14};
   c.expectStaticType<Exactly<num>>();
 }

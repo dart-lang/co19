@@ -23,8 +23,8 @@
 ///     type.
 /// iii. The required type of p is X.
 ///
-/// @description Check that downwards inference from M to infer type arguments
-/// for X is performed
+/// @description Check that downwards inference from `M` to infer type arguments
+/// for `X` is performed
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -33,6 +33,6 @@ import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 
 main() {
-  var Square(type: x) = Square<Centimeter>(2);
-  Expect.equals("Centimeter", x);
+  var Square(typeArgument: x) = Square<Centimeter>(2);
+  Expect.equals(Centimeter, x);
 }

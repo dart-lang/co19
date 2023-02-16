@@ -24,14 +24,16 @@
 /// has an override of == with a covariant parameter.
 ///
 /// @description Check that it is a compile-time error if the operator is a
-/// comparison (<, <=, >, or >=) and M does not define that operator
+/// comparison (<, <=, >, or >=) and `M` does not define that operator
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+class A {}
+
 String test1() {
-  String s = "";
-  switch(s) {
+  A a = A();
+  switch(a) {
     case < 0:
 //       ^^^
 // [analyzer] unspecified
@@ -46,13 +48,11 @@ String test1() {
 //       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
       return ">";
     case >= 0:
 //       ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
       return ">=";
     default:
       return "default";
@@ -60,8 +60,8 @@ String test1() {
 }
 
 String test2() {
-  String s = "";
-  return switch(s) {
+  A a = A();
+  return switch(a) {
     < 0 => "<",
 //  ^^^
 // [analyzer] unspecified
@@ -83,20 +83,20 @@ String test2() {
 }
 
 String test3() {
-  String s = "";
-  if (s case < 0) return "<";
+  A a = A();
+  if (a case < 0) return "<";
 //           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  if (s case <= 0) return "<=";
+  if (a case <= 0) return "<=";
 //           ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  if (s case > 0) return ">";
+  if (a case > 0) return ">";
 //           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  if (s case >= 0) return ">=";
+  if (a case >= 0) return ">=";
 //           ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

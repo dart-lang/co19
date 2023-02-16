@@ -26,20 +26,19 @@
 /// iv. The required type of p is List<E>.
 ///
 /// @description Check that rest element subpattern is type checked using
-/// List<E> as the matched value type
-///
+/// `List<E>` as the matched value type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 main() {
-  var [a1, b1, ...List<int> r1] = [1, 2, 42, 3.14];
-//                                ^
+  var <String>[a1, b1, ...List<int> r1] = [1, 2, 42, 3];
+//                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final <int>[a2, b2, ...r2] = [1, 2, 42, 3.14];
-//                             ^
+  final <int>[a2, b2, ...List<String> r2] = [1, 2, 42, 3];
+//                                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

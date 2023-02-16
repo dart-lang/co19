@@ -23,8 +23,8 @@
 /// the right, this compile-time error can only happen if a user-defined class
 /// has an override of == with a covariant parameter.
 ///
-/// @description Check that it is a compile-time error if C is not assignable to
-/// T? where T is M's == method parameter type.
+/// @description Check that it is a compile-time error if `C` is not assignable
+/// to `T?` where `T` is `M`s `==` method parameter type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

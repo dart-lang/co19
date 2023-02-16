@@ -18,8 +18,8 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that if p has no type arguments and M implements
-/// Map<K, V> then value's value type is V and key context is K
+/// @description Check that if `p` has no type arguments and `M` implements
+/// `Map<K, V>` then value's value type is `V` and key context is `K`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -27,9 +27,13 @@
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
+class C<T> {
+  const C();
+}
+
 String test1() {
-  switch (<String, int>{"key1": 1}) {
-    case {"key1": var a}:
+  switch (<C<String>, int>{const C<String>(): 1}) {
+    case {const C(): var a}:
       a.expectStaticType<Exactly<int>>();
       return "match";
     default:
@@ -38,8 +42,8 @@ String test1() {
 }
 
 String test2() {
-  switch (<String, int>{"key1": 1}) {
-    case {"key1": final a, ...}:
+  switch (<C<String>, int>{const C<String>(): 1}) {
+    case {const C(): final a, ...}:
       a.expectStaticType<Exactly<int>>();
       return "match";
     default:
@@ -48,7 +52,7 @@ String test2() {
 }
 
 String test3() {
-  if (<String, int>{"key1": 1} case {"key1": var a}) {
+  if (<C<String>, int>{const C<String>(): 1} case {const C(): var a}) {
     a.expectStaticType<Exactly<int>>();
     return "match";
   }
@@ -56,7 +60,7 @@ String test3() {
 }
 
 String test4() {
-  if (<String, int>{"key1": 1} case {"key1": final a, ...}) {
+  if (<C<String>, int>{const C<String>(): 1} case {const C(): final a, ...}) {
     a.expectStaticType<Exactly<int>>();
     return "match";
   }
@@ -64,23 +68,23 @@ String test4() {
 }
 
 String test5() =>
-  switch (<String, int>{"key1": 1}) {
-    {"key1": var a} when a.expectStaticType<Exactly<int>>() is int => "match",
+  switch (<C<String>, int>{const C<String>(): 1}) {
+    {const C(): var a} when a.expectStaticType<Exactly<int>>() is int => "match",
     _ => "no match"
   };
 
 String test6() =>
-  switch (<String, int>{"key1": 1}) {
-    {"key1": final a, ...} when
+  switch (<C<String>, int>{const C<String>(): 1}) {
+    {const C(): final a, ...} when
         a.expectStaticType<Exactly<int>>() is int => "match",
     _ => "no match"
   };
 
 main() {
-  var {"key1": a1} = <String, int>{"key1": 1};
+  var {const C(): a1} = <C<String>, int>{const C<String>(): 1};
   a1.expectStaticType<Exactly<int>>();
 
-  final {"key1": a2, ...} = <String, int>{"key1": 1, "key2": 2};
+  final {const C(): a2, ...} = <C<String>, int>{const C<String>(): 1, "key2": 2};
   a2.expectStaticType<Exactly<int>>();
 
   var {1: a3, 2: b3} = {1: "str", 2: bool};

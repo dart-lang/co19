@@ -18,8 +18,8 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that if p has no type arguments and M sdoesn't implement
-/// Map<K, V> and is not dynamic then K and V are Object? and C is _.
+/// @description Check that if `p` has no type arguments and `M` doesn't
+/// implement `Map<K, V>` and is not `dynamic` then `V` is `Object?`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -28,7 +28,7 @@ import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 
 String test1() {
-  switch ({}) {
+  switch ({} as Object) {
     case {"key1": var a}:
       a.expectStaticType<Exactly<Object?>>();
       return "match";
@@ -38,7 +38,7 @@ String test1() {
 }
 
 String test2() {
-  switch ({}) {
+  switch ({} as Object) {
     case {"key1": final a, ...}:
       a.expectStaticType<Exactly<Object?>>();
       return "match";
@@ -48,7 +48,7 @@ String test2() {
 }
 
 String test3() {
-  if ({} case {"key1": var a}) {
+  if ({} as Object case {"key1": var a}) {
     a.expectStaticType<Exactly<Object?>>();
     return "match";
   }
@@ -56,7 +56,7 @@ String test3() {
 }
 
 String test4() {
-  if ({} case {"key1": final a, ...}) {
+  if ({} as Object case {"key1": final a, ...}) {
     a.expectStaticType<Exactly<Object?>>();
     return "match";
   }
@@ -64,16 +64,16 @@ String test4() {
 }
 
 String test5() =>
-  switch ({}) {
+  switch ({} as Object) {
     {"key1": var a} when
-        a.expectStaticType<Exactly<Object?>>() is Object? => "match",
+        (a.expectStaticType<Exactly<Object?>>() is Object?) => "match",
     _ => "no match"
   };
 
 String test6() =>
-  switch ({}) {
+  switch ({} as Object) {
     {"key1": final a, ...} when
-        a.expectStaticType<Exactly<Object?>>() is Object? => "match",
+        (a.expectStaticType<Exactly<Object?>>() is Object?) => "match",
     _ => "no match"
   };
 

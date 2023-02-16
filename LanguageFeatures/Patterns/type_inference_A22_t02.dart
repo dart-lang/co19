@@ -12,7 +12,7 @@
 ///
 /// Type-check the subpattern using X as the matched value type.
 ///
-/// @description Check that if type-check of the subpattern using X as the
+/// @description Check that if type-check of the subpattern using `X` as the
 /// matched value type fails then, in a matching context, this pattern will
 /// throw
 /// @author sgrekhov22@gmail.com

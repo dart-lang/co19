@@ -24,4 +24,9 @@ main() {
     final ((int? y)!) = null;
     y?.isEven;
   });
+  Expect.throws(() {
+    int? x;
+    (x!) = null;
+    x.isEven;
+  });
 }

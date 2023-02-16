@@ -24,8 +24,8 @@
 /// has an override of == with a covariant parameter.
 ///
 /// @description Check that it is a compile-time error if the operator is a
-/// comparison (<, <=, >, or >=), M does define that operator but it's return
-/// type is not bool
+/// comparison (<, <=, >, or >=), `M` does define that operator but its return
+/// type is not `bool`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

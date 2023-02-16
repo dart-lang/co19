@@ -18,10 +18,9 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that each value subpattern is type checked using C as the
-/// context type. The case when p has no type arguments and M is dynamic. Test
-/// that in irrefutable context it is a run-time error if value subpattern fails
-/// a type check.
+/// @description Check that each value subpattern is type checked using `C` as
+/// the context type. The case when `p` has no type arguments and `M` is
+/// `dynamic`. Test irrefutable context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -29,15 +28,12 @@
 import "../../Utils/expect.dart";
 
 main() {
-  var {"key1": int a1} = {"key1": 1 as num} as dynamic;
-  Expect.equals(1, a1);
-  final {"key1": int a2, ...} = {"key1": 1 as num, "key2": 2} as dynamic;
-  Expect.equals(1, a2);
-
+  var {"key1": a1} = {"key1": 1 as num} as dynamic;
   Expect.throws(() {
-    var {"key1": String a3} = {"key1": 1} as dynamic;
+    a1.whatever; // a1 id dynamic
   });
+  final {"key1": a2, ...} = {"key1": 1 as num, "key2": 2} as dynamic;
   Expect.throws(() {
-    final {"key1": String a4} = {"key2": 1} as dynamic;
+    a2.whatever;
   });
 }

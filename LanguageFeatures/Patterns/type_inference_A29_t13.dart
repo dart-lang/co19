@@ -18,9 +18,9 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that each key expression is type checked using C as the
-/// context type. Test the refutable context and the case when p has no type
-/// arguments nad M is dynamic
+/// @description Check that each key expression is type checked using `C` as the
+/// context type. Test the refutable context and the case when `p` has no type
+/// arguments and `M` is `dynamic`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

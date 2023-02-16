@@ -61,7 +61,7 @@ String test5(int x) =>
 
 String test6(int x) =>
   switch (x) {
-    (var v) when v.expectStaticType<Exactly<int>>() is int => "match",
+    (final v) when v.expectStaticType<Exactly<int>>() is int => "match",
     _ => "no match"
   };
 

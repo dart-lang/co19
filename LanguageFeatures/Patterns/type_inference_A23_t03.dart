@@ -11,7 +11,7 @@
 //
 // Type-check the subpattern using N as the matched value type.
 ///
-/// @description Check that null-check and null-assert patterns in refutable
+/// @description Check that null-check and null-assert patterns in a refutable
 /// context produces no compile-time errors
 /// @author sgrekhov22@gmail.com
 

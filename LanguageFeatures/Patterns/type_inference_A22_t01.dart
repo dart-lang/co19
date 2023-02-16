@@ -12,8 +12,8 @@
 ///
 /// Type-check the subpattern using X as the matched value type.
 ///
-/// @description Check that it is a compile-time error if X does not refer to a
-/// type
+/// @description Check that it is a compile-time error if `X` does not refer to
+/// a type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

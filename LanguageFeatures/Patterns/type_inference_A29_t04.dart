@@ -18,19 +18,20 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that each value subpattern is type checked using V as the
-/// matched value type. Test the refutable context and the case when p has  type
-/// arguments <K, V>
+/// @description Check that each value subpattern is type checked using `V` as
+/// the matched value type. Test that it is a compile-time error if in the
+/// refutable context type test fails. The case when `p` has type arguments
+/// `<K, V>`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
-import "../../Utils/static_type_helper.dart";
-
 String test1() {
-  switch ({"key1": 1 as num}) {
-    case <String, int>{"key1": var a}:
+  switch ({} as dynamic) {
+    case <String, int>{"key1": String a}:
+//                             ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
       return "match";
     default:
       return "no match";
@@ -38,8 +39,11 @@ String test1() {
 }
 
 String test2() {
-  switch ({"key1": 1 as num}) {
-    case <String, int>{"key1": final a, ...}:
+  switch ({} as dynamic) {
+    case <String, int>{"key1": final String a, ...}:
+//                                   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
       return "match";
     default:
       return "no match";
@@ -47,36 +51,48 @@ String test2() {
 }
 
 String test3() {
-  if ({"key1": 1 as num} case <String, int>{"key1": var a}) {
+  if ({} as dynamic case <String, int>{"key1": String a}) {
+//                             ^               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     return "match";
   }
   return "no match";
 }
 
 String test4() {
-  if ({"key1": 1 as num} case <String, int>{"key1": final a, ...}) {
+  if ({} as dynamic case <String, int>{"key1": final String a, ...}) {
+//                                                   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     return "match";
   }
   return "no match";
 }
 
 String test5() =>
-  switch ({"key1": 1 as num}) {
-    <String, int>{"key1": var a} => "match",
+  switch ({} as dynamic) {
+    <String, int>{"key1": String a} => "match",
+//                        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     _ => "no match"
   };
 
 String test6() =>
-  switch ({"key1": 1 as num}) {
-    <String, int>{"key1": final a, ...} => "match",
+  switch ({} as dynamic) {
+    <String, int>{"key1": final String a, ...} => "match",
+//                              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     _ => "no match"
   };
 
 main() {
-  Expect.equals("no match", test1());
-  Expect.equals("no match", test2());
-  Expect.equals("no match", test3());
-  Expect.equals("no match", test4());
-  Expect.equals("no match", test5());
-  Expect.equals("no match", test6());
+  test1();
+  test2();
+  test3();
+  test4();
+  test5();
+  test6();
 }

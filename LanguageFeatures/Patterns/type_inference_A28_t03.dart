@@ -25,8 +25,8 @@
 ///
 /// iv. The required type of p is List<E>.
 ///
-/// @description Check that if p has no type argument and if M is dynamic then E
-/// is dynamic
+/// @description Check that if `p` has no type argument and if `M` is dynamic
+/// then `E` is `dynamic`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

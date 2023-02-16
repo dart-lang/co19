@@ -16,8 +16,8 @@
 /// In a declaration context, the required type of p is M, as is the static type
 /// of the variable introduced by p.
 ///
-/// @description Check that in a declaration context, the required type of p is
-/// M, as is the static type of the variable introduced by p.
+/// @description Check that in a declaration context, the required type of `p`
+/// is `M`, as is the static type of the variable introduced by `p`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -25,12 +25,12 @@
 import "../../Utils/static_type_helper.dart";
 
 main() {
-  num a = 0;
+  var [num a] = [0];
   a.expectStaticType<Exactly<num>>();
 
   var (num b,) = (0,);
   b.expectStaticType<Exactly<num>>();
 
-  var c = 2 > 1 ? 42 : 3.14;
+  var (c) = 2 > 1 ? 42 : 3.14;
   c.expectStaticType<Exactly<num>>();
 }

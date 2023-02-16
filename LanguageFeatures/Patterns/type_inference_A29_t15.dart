@@ -18,19 +18,21 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that each value subpattern is type checked using V as the
-/// matched value type. Test the refutable context and the case when p has no
-/// type arguments <K, V> and M is dynamic
+/// @description Check that each value subpattern is type checked using `V` as
+/// the matched value type. Test the refutable context and the case when `p` has
+/// no type arguments `<K, V>` and `M` is dynamic
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
-import "../../Utils/static_type_helper.dart";
 
 String test1() {
   switch ({"key1": 1 as num} as dynamic) {
-    case {"key1": int  a}:
+    case {"key1": var  a}:
+      Expect.throws(() {
+        a.whatever; // a is dynamic
+      });
       return "match";
     default:
       return "no match";
@@ -40,6 +42,9 @@ String test1() {
 String test2() {
   switch ({"key1": 1 as num} as dynamic) {
     case {"key1": final a, ...}:
+      Expect.throws(() {
+        a.whatever;
+      });
       return "match";
     default:
       return "no match";
@@ -48,6 +53,9 @@ String test2() {
 
 String test3() {
   if ({"key1": 1 as num} as dynamic case {"key1": var a}) {
+    Expect.throws(() {
+      a.whatever;
+    });
     return "match";
   }
   return "no match";
@@ -55,6 +63,9 @@ String test3() {
 
 String test4() {
   if ({"key1": 1 as num}  as dynamic case {"key1": final a, ...}) {
+    Expect.throws(() {
+      a.whatever;
+    });
     return "match";
   }
   return "no match";
@@ -62,13 +73,13 @@ String test4() {
 
 String test5() =>
   switch ({"key1": 1 as num} as dynamic) {
-    {"key1": var a} => "match",
+    {"key1": var a} when a.whatever => "match",
     _ => "no match"
   };
 
 String test6() =>
   switch ({"key1": 1 as num} as dynamic) {
-    {"key1": final a, ...} => "match",
+    {"key1": final a, ...}  when a.whatever => "match",
     _ => "no match"
   };
 
@@ -77,6 +88,6 @@ main() {
   Expect.equals("match", test2());
   Expect.equals("match", test3());
   Expect.equals("match", test4());
-  Expect.equals("match", test5());
-  Expect.equals("match", test6());
+  Expect.throws(() {test5();});
+  Expect.throws(() {test6();});
 }

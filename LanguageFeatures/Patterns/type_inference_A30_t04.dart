@@ -20,8 +20,8 @@
 ///   Object? for all fields.
 ///
 /// @description Check that each field of the record pattern is type checked.
-/// Test the case when M is dynamic. It is a run-time error if type test fails
-/// in irrefutable context
+/// Test that if `M` is `dynamic` then `F` is also `dynamic`. Test irrefutable
+/// context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -29,18 +29,9 @@
 import "../../Utils/expect.dart";
 
 main() {
+  var (var v1, name: final n1) = (3.14, name: "pi") as dynamic;
   Expect.throws(() {
-    var (int v1, name: String n1) = (3.14, name: "pi") as dynamic;
-  });
-  Expect.throws(() {
-    dynamic d = (1, name: "one" as Object);
-    final (int v1, name: String n1) = d;
-  });
-  Expect.throws(() {
-    var (int v1, name: String n1) = (42,) as dynamic;
-  });
-  Expect.throws(() {
-    dynamic d = (name: "one");
-    final (int v1, name: String n1) = d;
+    v1.whatever;  // no compile-time error, v1 and n1 are dynamic
+    n1.whatever;
   });
 }

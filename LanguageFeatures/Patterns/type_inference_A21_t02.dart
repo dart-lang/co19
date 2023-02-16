@@ -24,7 +24,7 @@
 /// has an override of == with a covariant parameter.
 ///
 /// @description Check that it is a compile-time error if the operator is a
-/// comparison (<, <=, >, or >=), M does define that operator but C is not
+/// comparison (<, <=, >, or >=), `M` does define that operator but `C` is not
 /// assignable to the operator's parameter type
 /// @author sgrekhov22@gmail.com
 

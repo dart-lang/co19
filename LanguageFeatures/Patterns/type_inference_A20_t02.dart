@@ -8,8 +8,8 @@
 /// Logical-or and logical-and: Type check each branch using M as the matched
 /// value type.
 ///
-/// @description Check that if any branch of a logical-and pattern fails a
-/// type check in refutable context then there is no error but match fails
+/// @description Check that if any branch of a logical-and pattern fails a type
+/// check in a refutable context then there is no error, but the match fails
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

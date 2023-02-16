@@ -18,65 +18,48 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that each key expression is type checked using C as the
-/// context type. Test the refutable context and the case when p has type
-/// arguments <K, V>
+/// @description Check that each key expression is type checked using `C` as the
+/// context type. Test the case when `p` has type arguments `<K, V>`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../Utils/expect.dart";
-import "../../Utils/static_type_helper.dart";
+class A<T extends A<T>> {
+  const A();
+}
 
-String test1() {
-  switch ({"key1" as Object: 1}) {
-    case <String, num>{"key1": var a}:
-      return "match";
-    default:
-      return "no match";
+void test1() {
+  switch ({} as dynamic) {
+    case <A<dynamic>, String>{const A(): 1}:
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      break;
   }
 }
 
-String test2() {
-  switch ({"key1" as Object: 1}) {
-    case <String, num>{"key1": final a, ...}:
-      return "match";
-    default:
-      return "no match";
-  }
+void test2() {
+  if ({} as dynamic case <A<dynamic>, String>{const A(): 2}) {}
+//                                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-String test3() {
-  if ({"key1" as Object: 1} case <String, num>{"key1": var a}) {
-    return "match";
-  }
-  return "no match";
-}
-
-String test4() {
-  if ({"key1" as Object: 1} case <String, num>{"key1": final a, ...}) {
-    return "match";
-  }
-  return "no match";
-}
-
-String test5() =>
-  switch ({"key1" as Object: 1}) {
-    <String, num>{"key1": var a} => "match",
-    _ => "no match"
-  };
-
-String test6() =>
-  switch ({"key1" as Object: 1}) {
-    <String, num>{"key1": final a, ...} => "match",
+String test3() =>
+  switch ({} as dynamic) {
+    <A<dynamic>, String>{const A(): 3} => "match",
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
     _ => "no match"
   };
 
 main() {
-  Expect.equals("no match", test1());
-  Expect.equals("no match", test2());
-  Expect.equals("no match", test3());
-  Expect.equals("no match", test4());
-  Expect.equals("no match", test5());
-  Expect.equals("no match", test6());
+  <A<dynamic>, String>{const A(): 3} = {} as dynamic;
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  test1();
+  test2();
+  test3();
 }

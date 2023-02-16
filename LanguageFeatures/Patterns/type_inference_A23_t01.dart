@@ -12,21 +12,33 @@
 // Type-check the subpattern using N as the matched value type.
 ///
 /// @description Check that it is a compile-time error if type-check of the
-/// subpattern, using N as the matched value type, fails in an irrefutable
+/// subpattern, using `N` as the matched value type, fails in an irrefutable
 /// context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 main() {
-  final (int x!) = "42";
-//           ^
+  final (int x1!) = "42";
+//           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   String? s = null;
-  final (int? y!) = s;
-//            ^
+  final (int? y1!) = s;
+//            ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  int x2 = 0;
+  (x2!) = "42";
+// ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  int? y2;
+  (y2!) = s;
+// ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

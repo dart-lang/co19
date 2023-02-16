@@ -14,7 +14,7 @@
 /// introduced by p
 ///
 /// @description Check that if a variable pattern has no type annotation, then
-/// the required type of `p` is M.
+/// the required type of `p` is   M .
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

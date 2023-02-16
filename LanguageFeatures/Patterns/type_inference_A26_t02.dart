@@ -16,52 +16,41 @@
 /// In a declaration context, the required type of p is M, as is the static type
 /// of the variable introduced by p.
 ///
-/// @description Check that in a matching context identifier pattern is type
-/// checked in context type M
+/// @description Check that in a matching context, an identifier pattern is type
+/// checked in context type `M`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
 
-class A<X> {
-  const A();
-}
+X id<X>(X x) => x;
+const int Function(int) intId = id;
 
-const a1 = A();
-const a2 = A<int>();
-
-String test1(A<num> v) {
-  switch (v) {
-    case a1:
-      return "match-1";
-    case a2:
-      return "match-2";
+String test1() {
+  switch (intId) {
+    case id:
+      return "match";
     default:
       return "no match";
   }
 }
 
-String test2(A<num> v) {
-  if (v case a1) {
-    return "match-1";
-  }
-  if (v case a2) {
-    return "match-2";
+String test2() {
+  if (intId case id) {
+    return "match";
   }
   return "no match";
 }
 
-String test3(A<num> v) =>
-  switch (v) {
-    a1 => "match-1",
-    a2 => "match-2",
+String test3() =>
+  switch (intId) {
+    id => "match",
     _ => "no match"
   };
 
 main() {
-  const A<num> v = A<int>();
-  Expect.equals("match-2", test1(v));
-  Expect.equals("match-2", test2(v));
-  Expect.equals("match-2", test3(v));
+  Expect.equals("match", test1());
+  Expect.equals("match", test2());
+  Expect.equals("match", test3());
 }

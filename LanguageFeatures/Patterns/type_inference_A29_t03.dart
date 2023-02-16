@@ -18,20 +18,71 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that each key expression is type checked using C as the
-/// context type. Test that in irrefutable context it is a compile-time error if
-/// key expression fails a type check. The case when p has type arguments <K, V>
+/// @description Check that each value subpattern is type checked using `V` as
+/// the matched value type. Test the refutable context and the case when `p` has
+/// type arguments `<K, V>`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "../../Utils/expect.dart";
+import "../../Utils/static_type_helper.dart";
+
+String test1() {
+  switch ({"key1": 1 as num}) {
+    case <String, int>{"key1": var a}:
+      a.expectStaticType<Exactly<int>>();
+      return "match";
+    default:
+      return "no match";
+  }
+}
+
+String test2() {
+  switch ({"key1": 1 as num}) {
+    case <String, int>{"key1": final a, ...}:
+      a.expectStaticType<Exactly<int>>();
+      return "match";
+    default:
+      return "no match";
+  }
+}
+
+String test3() {
+  if ({"key1": 1 as num} case <String, int>{"key1": var a}) {
+    a.expectStaticType<Exactly<int>>();
+    return "match";
+  }
+  return "no match";
+}
+
+String test4() {
+  if ({"key1": 1 as num} case <String, int>{"key1": final a, ...}) {
+    a.expectStaticType<Exactly<int>>();
+    return "match";
+  }
+  return "no match";
+}
+
+String test5() =>
+  switch ({"key1": 1 as num}) {
+    <String, int>{"key1": var a} when
+        (a.expectStaticType<Exactly<int>>() is num) => "match",
+    _ => "no match"
+  };
+
+String test6() =>
+  switch ({"key1": 1 as num}) {
+    <String, int>{"key1": final a, ...} when
+        (a.expectStaticType<Exactly<int>>() is num)=> "match",
+    _ => "no match"
+  };
+
 main() {
-  var <String, num>{"key1": a1} = {"key1" as Object: 1};
-//                                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final <String, num>{"key1": a2, ...} = {"key1" as Object: 1, "key2": 2};
-//                                        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals("no match", test1());
+  Expect.equals("no match", test2());
+  Expect.equals("no match", test3());
+  Expect.equals("no match", test4());
+  Expect.equals("no match", test5());
+  Expect.equals("no match", test6());
 }

@@ -18,21 +18,21 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that each value subpattern is type checked using C as the
-/// context type. Test that in irrefutable context it is a compile-time error if
-/// value subpattern fails a type check. The case when p has type
-/// arguments <K, V>
+/// @description Check that each value subpattern is type checked using `C` as
+/// the context type. Test that in irrefutable context it is a compile-time
+/// error if value subpattern fails a type check. The case when `p` has type
+/// arguments `<K, V>`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 main() {
-  var <String, int>{"key1": a1} = {"key1": 1 as num};
-//                                         ^
+  var <String, int>{"key1": String a1} = {} as dynamic;
+//                          ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final <String, int>{"key1": a2, ...} = {"key1": 1 as num, "key2": 2};
-//                                                ^
+  final <String, int>{"key1": final String a2, ...} = {} as dynamic;
+//                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

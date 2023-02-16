@@ -20,8 +20,8 @@
 ///   Object? for all fields.
 ///
 /// @description Check that each field of the record pattern is type checked.
-/// Test the case when M is dynamic. Match fails if runtime type test fails in
-/// refutable context
+/// Test that if `M` is `dynamic` then `F` is also `dynamic`. Test refutable
+/// context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -30,36 +30,45 @@ import "../../Utils/expect.dart";
 
 String test1(dynamic d) {
   switch (d) {
-    case (int v1, name: String n1):
-      return "match-1";
-    case (num v2, name: Object n2):
-      return "match-2";
+    case (var v1, name: final n1):
+      Expect.throws(() {
+        v1.whatever;  // no compile-time error, v1 and n1 are dynamic
+        n1.whatever;
+      });
+      return "match";
     default:
       return "no match";
   }
 }
 
 String test2(dynamic d) {
-  if (d case (int v1, name: String n1)) {
-      return "match-1";
-  }
-  if (d case (num v2, name: Object n2)) {
-    return "match-2";
+  if (d case (final v1, name: var n1)) {
+    Expect.throws(() {
+      v1.whatever;
+      n1.whatever;
+    });
+    return "match";
   }
   return "no match";
 }
 
 String test3(dynamic d) =>
   switch (d) {
-    (int v1, name: String n1) => "match-1",
-    (num v2, name: Object n2) => "match-2",
+    (var v1, name: final n1) when v1.whatever => "match",
+    _ => "no match"
+  };
+
+String test4(dynamic d) =>
+  switch (d) {
+    (var v1, name: final n1) when n1.whatever => "match",
     _ => "no match"
   };
 
 main() {
-  Expect.equals("match-2", test1((3.14, name: "pi")));
-  Expect.equals("match-2", test2((3.14, name: "pi")));
-  Expect.equals("match-2", test3((3.14, name: "pi")));
+  Expect.equals("match", test1((3.14, name: "pi")));
+  Expect.equals("match", test2((3.14, name: "pi")));
+  Expect.throws(() {test3((3.14, name: "pi"));});
+  Expect.throws(() {test4((3.14, name: "pi"));});
   Expect.equals("no match", test1((3.14,)));
   Expect.equals("no match", test2((3.14,)));
   Expect.equals("no match", test3((3.14,)));

@@ -7,7 +7,7 @@
 /// ...
 /// Constant: Type check the pattern's value in context type M.
 ///
-/// @description Check that type argument may be inferred from a context type
+/// @description Check that type arguments may be inferred from a context type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

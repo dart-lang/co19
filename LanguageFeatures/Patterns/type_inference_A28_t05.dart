@@ -26,20 +26,38 @@
 /// iv. The required type of p is List<E>.
 ///
 /// @description Check that each non-rest element subpattern is type checked
-/// using E as the matched value type
-///
+/// using `E` as the matched value type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 main() {
-  var [int a1, b1] = [42, 3.14];
-//                   ^
+  var <String>[int a1, b1] = ["42", ""];
+//             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final <int>[a2, b2] = [42, 3.14];
-//                      ^
+  final <int>[String a2,] = [""];
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  switch([]) {
+    case <String>[int v]:
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    default:
+  }
+  if([] case <String>[int v]) {}
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  var x = switch([]) {
+    <String>[int v] => 1,
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    _ => 2
+  };
 }

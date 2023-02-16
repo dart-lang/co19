@@ -20,44 +20,45 @@
 ///   Object? for all fields.
 ///
 /// @description Check that each field of the record pattern is type checked.
-/// Test the case when M is a record type with the same shape as p. Match fails
-/// if type test fails in refutable context
+/// Test the case when `M` is a record type with the same shape as `p`. Match
+/// fails if type test fails in refutable context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
+import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 
 String test1() {
   switch ((3.14, name: "pi")) {
-    case (int v1, name: String n1):
-      return "match-1";
-    case (num v2, name: Object n2):
-      return "match-2";
+    case (var v1, name: var n1):
+      v1.expectStaticType<Exactly<double>>();
+      n1.expectStaticType<Exactly<String>>();
+      return "match";
     default:
       return "no match";
   }
 }
 
 String test2() {
-  if ((3.14, name: "pi") case (int v1, name: String n1)) {
-      return "match-1";
-  }
-  if ((3.14, name: "pi") case (num v2, name: Object n2)) {
-    return "match-2";
+  if ((3.14, name: "pi") case (var v1, name: var n1)) {
+      v1.expectStaticType<Exactly<double>>();
+      n1.expectStaticType<Exactly<String>>();
+      return "match";
   }
   return "no match";
 }
 
 String test3() =>
   switch ((3.14, name: "pi")) {
-    (int v1, name: String n1) => "match-1",
-    (num v2, name: Object n2) => "match-2",
+    (var v1, name: var n1) when (
+        v1.expectStaticType<Exactly<double>>() is double &&
+        n1.expectStaticType<Exactly<String>>() is String) => "match",
     _ => "no match"
   };
 
 main() {
-  Expect.equals("match-2", test1());
-  Expect.equals("match-2", test2());
-  Expect.equals("match-2", test3());
+  Expect.equals("match", test1());
+  Expect.equals("match", test2());
+  Expect.equals("match", test3());
 }

@@ -20,7 +20,7 @@
 ///   Object? for all fields.
 ///
 /// @description Check that each field of the record pattern is type checked.
-/// Test the case when M is a record type with the same shape as p. It is a
+/// Test the case when `M` is a record type with the same shape as `p`. It is a
 /// compile-time error if type test fails in irrefutable context
 /// @author sgrekhov22@gmail.com
 

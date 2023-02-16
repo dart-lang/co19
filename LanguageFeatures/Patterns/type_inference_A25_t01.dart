@@ -13,10 +13,10 @@
 /// Else the required type of p is M, as is the static type of the variable
 /// introduced by p
 ///
-/// @description Check that if a variable pattern has a type annotation, then
-/// the required type of `p` is that type. Test that there is no match in
-/// refutable context if matched value type is not assignable to the type of the
-/// variable pattern
+/// @description Check that if a variable pattern `p` has a type annotation,
+/// then the required type of `p` is that type. Test that there is no match in
+/// a refutable context if the matched value type is not assignable to the type
+/// of the variable pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

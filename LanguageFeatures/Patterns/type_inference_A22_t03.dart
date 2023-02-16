@@ -13,7 +13,8 @@
 /// Type-check the subpattern using X as the matched value type.
 ///
 /// @description Check that it is a compile-time error if type-check of the
-/// subpattern using X as the matched value type fails in an irrefutable context
+/// subpattern using `X` as the matched value type fails in an irrefutable
+/// context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
