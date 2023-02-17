@@ -5,7 +5,7 @@
 /// @assertion int toSigned(int width)
 /// Returns the least significant width bits of this integer, extending the
 /// highest retained bit to the sign. This is the same as truncating the value
-/// to fit in width bits using an signed 2-s complement representation.
+/// to fit in width bits using a signed 2-s complement representation.
 /// The returned value has the same bit value in all positions higher than width.
 ///                                V--sign bit-V
 ///  16.toSigned(5) == -16   //  00010000 -> 11110000

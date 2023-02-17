@@ -8,7 +8,7 @@
 ///  return;, unless T is void, dynamic, or Null
 ///
 /// @description Checks that there's no compile error when a statement of the
-/// form "return;" is used in an synchronous function whose return type is
+/// form "return;" is used in a synchronous function whose return type is
 /// not specified
 ///
 /// @author a.semenov@unipro.ru

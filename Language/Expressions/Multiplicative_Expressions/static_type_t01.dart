@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion The static type of an multiplicative expression is usually
+/// @assertion The static type of a multiplicative expression is usually
 /// determined by the signature given in the declaration of the operator used.
 /// However, invocations of the operators *, % and ~/ of class int are treated
 /// specially by the typechecker.

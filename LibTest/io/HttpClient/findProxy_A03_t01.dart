@@ -27,7 +27,7 @@
 /// The static function findProxyFromEnvironment on this class can be used to
 /// implement proxy server resolving based on environment variables.
 /// @description Checks that this setter sets the function used to resolve the
-/// proxy server to be used for opening a HTTP connection to the specified url.
+/// proxy server to be used for opening an HTTP connection to the specified url.
 /// Test "PROXY" connection and Basic authentication
 /// @author sgrekhov@unipro.ru
 

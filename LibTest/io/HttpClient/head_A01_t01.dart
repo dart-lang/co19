@@ -7,13 +7,13 @@
 ///  int port,
 ///  String path
 ///  )
-/// Opens a HTTP connection using the HEAD method.
+/// Opens an HTTP connection using the HEAD method.
 ///
 /// The server is specified using host and port, and the path (including a
 /// possible query) is specified using path.
 ///
 /// See open for details.
-/// @description Checks that this method opens a HTTP connection using the HEAD
+/// @description Checks that this method opens an HTTP connection using the HEAD
 /// method
 /// @author sgrekhov@unipro.ru
 

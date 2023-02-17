@@ -12,7 +12,7 @@ import "dart:async";
 import "../../Utils/expect.dart";
 
 /**
- * Spawns a HttpServer instance
+ * Spawns an HttpServer instance
  */
 Future<HttpServer> spawnHttpServer(void requestHandler(HttpRequest request)) async {
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
@@ -21,7 +21,7 @@ Future<HttpServer> spawnHttpServer(void requestHandler(HttpRequest request)) asy
 }
 
 /**
- * Spawns a HttpServer instance that is intended to handle web sockets.
+ * Spawns an HttpServer instance that is intended to handle web sockets.
  */
 Future<HttpServer> spawnWebSocketServer(void wsHandler(WebSocket webSocket)) {
   return spawnHttpServer((HttpRequest request) {
@@ -30,7 +30,7 @@ Future<HttpServer> spawnWebSocketServer(void wsHandler(WebSocket webSocket)) {
 }
 
 /**
- * Spawns a HttpServer instance that is intended to handle web sockets.
+ * Spawns an HttpServer instance that is intended to handle web sockets.
  * Each new connection receives the same [content] and then closed.
  */
 Future<HttpServer> spawnStaticContentWebSocketServer(content) {
@@ -41,7 +41,7 @@ Future<HttpServer> spawnStaticContentWebSocketServer(content) {
 }
 
 /**
- * Spawns a HttpServer instance that is intended to handle web sockets.
+ * Spawns an HttpServer instance that is intended to handle web sockets.
  * Each new connection is listened for first message and send it back,
  * then web socket is closed.
  */

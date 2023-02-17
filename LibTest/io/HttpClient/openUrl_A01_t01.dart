@@ -6,7 +6,7 @@
 ///  String method,
 ///  Uri url
 ///  )
-/// Opens a HTTP connection.
+/// Opens an HTTP connection.
 ///
 /// The HTTP method is specified in method and the URL to use in url.
 ///
@@ -18,7 +18,7 @@
 /// For additional information on the sequence of events during an HTTP
 /// transaction, and the objects returned by the futures, see the overall
 /// documentation for the class HttpClient.
-/// @description Checks that this method opens a HTTP connection using specified
+/// @description Checks that this method opens an HTTP connection using specified
 /// method
 /// @author sgrekhov@unipro.ru
 

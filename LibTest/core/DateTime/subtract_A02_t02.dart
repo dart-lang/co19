@@ -4,7 +4,7 @@
 
 /// @assertion DateTime subtract(Duration other)
 /// Throws [Error] if [other] is [:null:].
-/// @description Checks that an compile error appears if [object] is [:null:]
+/// @description Checks that a compile error appears if [object] is [:null:]
 /// statically.
 /// @author iarkh
 

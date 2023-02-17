@@ -9,7 +9,7 @@
 ///     int length
 /// ])
 /// Creates a Float64x2List view of the specified region in buffer.
-/// @description Checks that an created instance has the same elements as in
+/// @description Checks that a created instance has the same elements as in
 /// specified region.
 /// @author ngl@unipro.ru
 
