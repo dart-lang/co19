@@ -17,10 +17,6 @@
 import "../../Utils/static_type_helper.dart";
 
 main() {
-  var [double? v1!] = [42]; // warning means that int converted to double
-//               ^
-// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
-// [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
-  var [double? v2!] = [null];
-  v2.expectStaticType<Exactly<double>>();
+  var [double? v1!] = [42];
+  v1.expectStaticType<Exactly<double>>();
 }
