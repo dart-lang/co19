@@ -15,10 +15,12 @@
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/static_type_helper.dart";
-import "../../Utils/expect.dart";
 
 main() {
-  var [double? v1!] = [42];
-  v1.expectStaticType<Exactly<double>>();
-  Expect.identical(42.0, v1);
+  var [double? v1!] = [42]; // warning means that int converted to double
+//               ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
+// [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
+  var [double? v2!] = [null];
+  v2.expectStaticType<Exactly<double>>();
 }

@@ -30,17 +30,17 @@ main() {
     // It's important to specify type arguments of the initializing expression
     // here and below to avoid a type inference from the pattern type schema to
     // a initializing expression
-    var <String, A>{"key1": A v1, "key2": B v2, "key3": v3} =
-        <String, B>{"key1": b, "key2": c, "key3": c};
+    var <String, B>{"key1": A v1, "key2": B v2, "key3": v3} =
+        <String, C>{"key1": d, "key2": c, "key3": c};
     v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<A>>();
-    v3.expectStaticType<Exactly<A>>();
+    v2.expectStaticType<Exactly<B>>();
+    v3.expectStaticType<Exactly<B>>();
   }
   {
-    final <String, A>{"key1": A v1, "key2": B v2, "key3": v3} =
-        <String, C>{"key1": d, "key2": d, "key3": d};
+    final <String, B>{"key1": A v1, "key2": B v2, "key3": v3} =
+        <String, D>{"key1": d, "key2": d, "key3": d};
     v1.expectStaticType<Exactly<A>>();
-    v2.expectStaticType<Exactly<A>>();
-    v3.expectStaticType<Exactly<A>>();
+    v2.expectStaticType<Exactly<B>>();
+    v3.expectStaticType<Exactly<B>>();
   }
 }
