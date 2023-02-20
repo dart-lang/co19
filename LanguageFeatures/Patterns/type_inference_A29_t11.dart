@@ -18,21 +18,77 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that each value subpattern is type checked using C as the
-/// context type. Test that in irrefutable context it is a compile-time error if
-/// value subpattern fails a type check. The case when p has no type arguments
-/// and M implements Map<K, V>
+/// @description Check that if `p` has no type arguments and `M` doesn't
+/// implement `Map<K, V>` and is not `dynamic` then `V` is `Object?`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
+
+String test1() {
+  switch ({} as Object) {
+    case {"key1": var a}:
+      a.expectStaticType<Exactly<Object?>>();
+      return "match";
+    default:
+      return "no match";
+  }
+}
+
+String test2() {
+  switch ({} as Object) {
+    case {"key1": final a, ...}:
+      a.expectStaticType<Exactly<Object?>>();
+      return "match";
+    default:
+      return "no match";
+  }
+}
+
+String test3() {
+  if ({} as Object case {"key1": var a}) {
+    a.expectStaticType<Exactly<Object?>>();
+    return "match";
+  }
+  return "no match";
+}
+
+String test4() {
+  if ({} as Object case {"key1": final a, ...}) {
+    a.expectStaticType<Exactly<Object?>>();
+    return "match";
+  }
+  return "no match";
+}
+
+String test5() =>
+  switch ({} as Object) {
+    {"key1": var a} when
+        (a.expectStaticType<Exactly<Object?>>() is Object?) => "match",
+    _ => "no match"
+  };
+
+String test6() =>
+  switch ({} as Object) {
+    {"key1": final a, ...} when
+        (a.expectStaticType<Exactly<Object?>>() is Object?) => "match",
+    _ => "no match"
+  };
+
 main() {
-  var {"key1": int a1} = <String, num>{"key1": 1};
-//                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final {"key1": int a2, ...} = <String, num>{"key1": 1, "key2": 2};
-//                              ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.throws(() {
+    var {"key1": a1} = {};
+    a1.expectStaticType<Exactly<Object?>>();
+  });
+  Expect.throws(() {
+    final {"key1": a2, ...} = {};
+  });
+  Expect.equals("no match", test1());
+  Expect.equals("no match", test2());
+  Expect.equals("no match", test3());
+  Expect.equals("no match", test4());
+  Expect.equals("no match", test5());
+  Expect.equals("no match", test6());
 }

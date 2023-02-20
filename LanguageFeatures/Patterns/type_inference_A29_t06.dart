@@ -27,9 +27,20 @@
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
+class A {}
+class B extends A {}
+
+class C<T> {
+  const C();
+}
+
+class D<X> extends C<X> {
+  const D();
+}
+
 String test1() {
-  switch (<String, int>{"key1": 1}) {
-    case <Object, num>{"key1": var a}:
+  switch (<D<B>, int>{const D<B>(): 1} as Object) {
+    case <C<B>, num>{const D(): var a}:
       a.expectStaticType<Exactly<num>>();
       a = 3.14;
       return "match";
@@ -39,8 +50,8 @@ String test1() {
 }
 
 String test2() {
-  switch (<String, int>{"key1": 1}) {
-    case <Object, num>{"key1": final a, ...}:
+  switch (<D<B>, int>{const D<B>(): 1} as Object) {
+    case <C<B>, num>{const D(): final a, ...}:
       a.expectStaticType<Exactly<num>>();
       return "match";
     default:
@@ -49,7 +60,8 @@ String test2() {
 }
 
 String test3() {
-  if (<String, int>{"key1": 1} case <Object, num>{"key1": var a}) {
+  if (<D<B>, int>{const D<B>(): 1} as Object
+      case <C<B>, num>{const D(): var a}) {
     a.expectStaticType<Exactly<num>>();
     a = 3.14;
     return "match";
@@ -58,7 +70,8 @@ String test3() {
 }
 
 String test4() {
-  if (<String, int>{"key1": 1} case <Object, num>{"key1": final a, ...}) {
+  if (<D<B>, int>{const D<B>(): 1} as Object
+      case <C<B>, num>{const D(): final a, ...}) {
     a.expectStaticType<Exactly<num>>();
     return "match";
   }
@@ -66,24 +79,24 @@ String test4() {
 }
 
 String test5() =>
-  switch (<String, int>{"key1": 1}) {
-    <Object, num>{"key1": var a} when
+  switch (<D<B>, int>{const D<B>(): 1} as Object) {
+    <C<B>, num>{const D(): var a} when
         a.expectStaticType<Exactly<num>>() is num => "match",
     _ => "no match"
   };
 
 String test6() =>
-  switch (<String, int>{"key1": 1}) {
-    <Object, num>{"key1": final a, ...} when
+  switch (<D<B>, int>{const D<B>(): 1} as Object) {
+    <C<B>, num>{const D(): final a, ...} when
         a.expectStaticType<Exactly<num>>() is num => "match",
     _ => "no match"
   };
 
 main() {
-  var <Object, num>{"key1": a1} = <String, int>{"key1": 1};
+  var <C<B>, num>{const D(): a1} = <D<B>, int>{const D<B>(): 1};
   a1.expectStaticType<Exactly<num>>();
   a1 = 3.14;
-  final <Object, num>{"key1": a2, ...} = <String, int>{"key1": 1, "key2": 2};
+  final <C<B>, num>{const D(): a2, ...}  = <D<B>, int>{const D<B>(): 1};
   a2.expectStaticType<Exactly<num>>();
 
   Expect.equals("match", test1());

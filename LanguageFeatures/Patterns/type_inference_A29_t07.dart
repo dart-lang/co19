@@ -84,7 +84,7 @@ main() {
   var {const C(): a1} = <C<String>, int>{const C<String>(): 1};
   a1.expectStaticType<Exactly<int>>();
 
-  final {const C(): a2, ...} = <C<String>, int>{const C<String>(): 1, "key2": 2};
+  final {const C(): a2, ...} = <C<String>, int>{const C<String>(): 1};
   a2.expectStaticType<Exactly<int>>();
 
   var {1: a3, 2: b3} = {1: "str", 2: bool};

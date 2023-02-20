@@ -18,65 +18,22 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that each value subpattern is type checked using V as the
-/// matched value type. Test the refutable context and the case when p has no
-/// type arguments <K, V> but M implements Map<K, V>
+/// @description Check that each value subpattern is type checked using `C` as
+/// the context type. The case when `p` has no type arguments and `M` is
+/// `dynamic`. Test irrefutable context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
-import "../../Utils/static_type_helper.dart";
-
-String test1() {
-  switch (<String, num>{"key1": 1}) {
-    case {"key1": int a}:
-      return "match";
-    default:
-      return "no match";
-  }
-}
-
-String test2() {
-  switch (<String, num>{"key1": 1}) {
-    case {"key1": final int a, ...}:
-      return "match";
-    default:
-      return "no match";
-  }
-}
-
-String test3() {
-  if (<String, num>{"key1": 1} case {"key1": int a}) {
-    return "match";
-  }
-  return "no match";
-}
-
-String test4() {
-  if (<String, num>{"key1": 1} case {"key1": final int a, ...}) {
-    return "match";
-  }
-  return "no match";
-}
-
-String test5() =>
-  switch (<String, num>{"key1": 1}) {
-    {"key1": int a} => "match",
-    _ => "no match"
-  };
-
-String test6() =>
-  switch (<String, num>{"key1": 1}) {
-    {"key1": final int a, ...} => "match",
-    _ => "no match"
-  };
 
 main() {
-  Expect.equals("no match", test1());
-  Expect.equals("no match", test2());
-  Expect.equals("no match", test3());
-  Expect.equals("no match", test4());
-  Expect.equals("no match", test5());
-  Expect.equals("no match", test6());
+  var {"key1": a1} = {"key1": 1 as num} as dynamic;
+  Expect.throws(() {
+    a1.whatever; // a1 id dynamic
+  });
+  final {"key1": a2, ...} = {"key1": 1 as num, "key2": 2} as dynamic;
+  Expect.throws(() {
+    a2.whatever;
+  });
 }

@@ -18,21 +18,76 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that each key expression is type checked using C as the
-/// context type. Test that in irrefutable context it is a compile-time error if
-/// key expression fails a type check. The case when p has no type arguments and
-/// M implements Map<K, V>
+/// @description Check that each value subpattern is type checked using `V` as
+/// the matched value type. Test the refutable context and the case when `p` has
+/// no type arguments `<K, V>` and `M` is dynamic
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "../../Utils/expect.dart";
+
+String test1() {
+  switch ({"key1": 1 as num} as dynamic) {
+    case {"key1": var  a}:
+      Expect.throws(() {
+        a.whatever; // a is dynamic
+      });
+      return "match";
+    default:
+      return "no match";
+  }
+}
+
+String test2() {
+  switch ({"key1": 1 as num} as dynamic) {
+    case {"key1": final a, ...}:
+      Expect.throws(() {
+        a.whatever;
+      });
+      return "match";
+    default:
+      return "no match";
+  }
+}
+
+String test3() {
+  if ({"key1": 1 as num} as dynamic case {"key1": var a}) {
+    Expect.throws(() {
+      a.whatever;
+    });
+    return "match";
+  }
+  return "no match";
+}
+
+String test4() {
+  if ({"key1": 1 as num}  as dynamic case {"key1": final a, ...}) {
+    Expect.throws(() {
+      a.whatever;
+    });
+    return "match";
+  }
+  return "no match";
+}
+
+String test5() =>
+  switch ({"key1": 1 as num} as dynamic) {
+    {"key1": var a} when a.whatever => "match",
+    _ => "no match"
+  };
+
+String test6() =>
+  switch ({"key1": 1 as num} as dynamic) {
+    {"key1": final a, ...}  when a.whatever => "match",
+    _ => "no match"
+  };
+
 main() {
-  var {"key1": a1} = <Object, num>{"key1": 1};
-//                   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final {"key1": a2, ...} = <Object, num>{"key1": 1, "key2": 2};
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals("match", test1());
+  Expect.equals("match", test2());
+  Expect.equals("match", test3());
+  Expect.equals("match", test4());
+  Expect.throws(() {test5();});
+  Expect.throws(() {test6();});
 }

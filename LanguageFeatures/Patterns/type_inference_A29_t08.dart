@@ -18,19 +18,18 @@
 /// iii. Type-check each value subpattern using V as the matched value type.
 /// vi. The required type of p is Map<K, V>.
 ///
-/// @description Check that each key expression is type checked using C as the
-/// context type. Test the refutable context and the case when p has no type
-/// arguments and M implements Map<K, V>
+/// @description Check that if `p` has no type arguments and `M` is dynamic then
+/// `K` and `V` are dynamic and `C` is `_`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
-import "../../Utils/static_type_helper.dart";
 
 String test1() {
-  switch (<Object, num>{"key1": 1}) {
+  switch ({"key1": 1} as dynamic) {
     case {"key1": var a}:
+      Expect.throws(() {a.whatever;}); // a is dynamic
       return "match";
     default:
       return "no match";
@@ -38,8 +37,9 @@ String test1() {
 }
 
 String test2() {
-  switch (<Object, num>{"key1" as Object: 1}) {
+  switch ({"key1": 1} as dynamic) {
     case {"key1": final a, ...}:
+      Expect.throws(() {a.whatever;});
       return "match";
     default:
       return "no match";
@@ -47,36 +47,44 @@ String test2() {
 }
 
 String test3() {
-  if (<Object, num>{"key1" as Object: 1} case {"key1": var a}) {
+  if ({"key1": 1} as dynamic case {"key1": var a}) {
+    Expect.throws(() {a.whatever;});
+    a = 3.14;
     return "match";
   }
   return "no match";
 }
 
 String test4() {
-  if (<Object, num>{"key1" as Object: 1} case {"key1": final a, ...}) {
+  if ({"key1": 1} as dynamic case {"key1": final a, ...}) {
+    Expect.throws(() {a.whatever;});
     return "match";
   }
   return "no match";
 }
 
 String test5() =>
-  switch (<Object, num>{"key1" as Object: 1}) {
-    {"key1": var a} => "match",
+  switch ({"key1": 1} as dynamic) {
+    {"key1": var a} when a.whatever => "match",
     _ => "no match"
   };
 
 String test6() =>
-  switch (<Object, num>{"key1" as Object: 1}) {
-    {"key1": final a, ...} => "match",
+  switch ({"key1": 1} as dynamic) {
+    {"key1": final a, ...} when a.whatever => "match",
     _ => "no match"
   };
 
 main() {
-  Expect.equals("no match", test1());
-  Expect.equals("no match", test2());
-  Expect.equals("no match", test3());
-  Expect.equals("no match", test4());
-  Expect.equals("no match", test5());
-  Expect.equals("no match", test6());
+  var {"key1": a1} = {"key1": 1} as dynamic;
+  Expect.throws(() {a1.whatever;});
+  final {"key1": a2, ...} = {"key1": 1, "key2": 2} as dynamic;
+  Expect.throws(() {a2.whatever;});
+
+  Expect.equals("match", test1());
+  Expect.equals("match", test2());
+  Expect.equals("match", test3());
+  Expect.equals("match", test4());
+  Expect.throws(() {test5();});
+  Expect.throws(() {test6();});
 }
