@@ -24,7 +24,7 @@
 /// iii. The required type of p is X.
 ///
 /// @description Check each field subpattern of p is type checked. Test that
-/// match fails if type test fails in refutable context
+/// it is no compile-time error if type test fails in a refutable context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

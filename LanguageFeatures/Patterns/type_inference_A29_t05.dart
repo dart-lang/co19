@@ -19,7 +19,7 @@
 /// vi. The required type of p is Map<K, V>.
 ///
 /// @description Check that each value subpattern is type checked using `C` as
-/// the context type. Test that in irrefutable context it is a compile-time
+/// the context type. Test that in an irrefutable context it is a compile-time
 /// error if value subpattern fails a type check. The case when `p` has type
 /// arguments `<K, V>`
 /// @author sgrekhov22@gmail.com
