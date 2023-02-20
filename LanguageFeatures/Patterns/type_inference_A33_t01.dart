@@ -21,14 +21,14 @@
 import "../../Utils/expect.dart";
 
 main() {
-  var list = [1 as dynamic];
+  List<dynamic> list = [1 as dynamic];
   Expect.throws(() {
-    var [String _] = list;
+    var <dynamic>[String _] = list;
   });
 
-  final map = {"key1": 1 as dynamic};
+  final Map<String, dynamic> map = {"key1": 1 as dynamic};
   Expect.throws(() {
-    final {"key1": String _} = map;
+    final <String, dynamic>{"key1": String _} = map;
   });
 
   var record = (x: 1 as dynamic);

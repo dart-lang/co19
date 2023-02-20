@@ -38,4 +38,14 @@ main() {
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  var (int x9, n: int x10) = (1 as num, n: 2);
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final (int x9, n: int x10) = (1, n: 2 as num);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

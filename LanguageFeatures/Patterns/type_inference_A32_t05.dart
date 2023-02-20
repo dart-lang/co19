@@ -21,13 +21,23 @@
 import "patterns_lib.dart";
 
 main() {
-  var Square(area: x) = Shape();
-//                      ^
+  var Square(area: x1) = Shape();
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
- final Square(area: y) = Circle(1);
-//                       ^
+ final Square(area: y1) = Circle(1);
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var Square<Meter>(area: x2) = Square<Centimeter>(1);
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final Square<Meter>(area: y2) = Square<Centimeter>(1);
+//                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

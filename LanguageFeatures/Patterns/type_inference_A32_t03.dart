@@ -20,27 +20,27 @@
 
 main() {
   var <String, int>{"k1": x1,"k2": num x2} = <String, num>{"k1": 1, "k2": 2};
-//                                           ^
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final {"k1": x3, "k2": num x4} = {"k1": "42", "k2": true};
-//                                 ^
+  final <String, num>{"k1": x3, "k2": num x4} = <String, Object>{"k1": "42", "k2": true};
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var {"k1": x5, "k2": int x6} = {"k1": 1, "k2": 2 as num};
-//                               ^
+  var <String, int>{"k1": x5, "k2": int x6} = <String, int?>{"k1": 1, "k2": 2};
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final {"k1": x7, "k2": x8} = {"k1": 1, "k2" as Object: 2};
-//                             ^
+  final <String, Object?>{"k1": x7, "k2": x8} = <Object, int>{"k1": 1, "k2" as Object: 2};
+//      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   var <String, int>{"k1": x9, "k2": int x10} = <Object, int>{"k1": 1, "k2": 2};
-//                                             ^
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

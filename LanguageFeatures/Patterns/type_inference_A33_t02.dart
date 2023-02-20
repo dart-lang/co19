@@ -24,14 +24,14 @@ T foo<T>(T t) => t;
 
 main() {
   var list = [foo];
-  var [int Function(int) f1] = list;
+  var <int Function(int)>[f1] = list;
   Expect.equals(42, f1(42));
   Expect.throws(() {
     f1("1" as dynamic);
   });
 
   final map = {"key1": foo};
-  final {"key1": int Function(int) f2} = map;
+  final <String, int Function(int)>{"key1": f2} = map;
   Expect.equals(42, f2(42));
   Expect.throws(() {
     f2("1" as dynamic);

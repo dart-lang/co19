@@ -24,21 +24,21 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final [x3, num x4] = ["42", true];
-//                     ^^^^^^^^^^^^
+  final <num>[x3, num x4] = <Object>["42", true];
+//                          ^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  var [x5, int x6] = [1, 2 as num];
-//                   ^^^^^^^^^^^^
+  var <int>[x5, int x6] = <int?>[1, 2 as num];
+//                        ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  var [int x7, x8] = [42, 3.14];
-//                   ^
+  var <int>[int x7, x8] = <dynamic>[42, 3.14];
+//                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final <int>[x9, x10] = [42, 3.14];
-//                       ^
+  final <int>[x9, x10] = <dynamic>[42, 3.14];
+//                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
