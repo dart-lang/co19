@@ -11,7 +11,7 @@
 /// 3. Once all destructuring and matching is done, store all of the assigned
 ///   variables with their corresponding values.
 ///
-/// @description Check that if matching fails no any temporary values assigned
+/// @description Check that if matching fails then no values are assigned
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -20,7 +20,7 @@ import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
 main() {
-  var v1 = 42;
+  int v1 = 42;
   Expect.throws(() {
     (v1) = (3.14) as dynamic;
   });
@@ -56,7 +56,7 @@ main() {
   int o1 = 42;
   int o2 = 42;
   Expect.throws(() {
-    Circle(sizeAsInt: o1, areaAsDynamic: o2) = Circle(1);
+    Circle(sizeAsInt: o1, areaAsDynamicDouble: o2) = Circle(1);
   });
   Expect.equals(42, o1);
   Expect.equals(42, o2);

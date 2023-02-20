@@ -125,7 +125,7 @@ class Shape<T extends MetricUnits> {
   num? get sizeAsNullable => sizeAsDouble;
   num? get areaAsNull => null;
   num? get sizeAsNull => null;
-  dynamic get areaAsDynamic => areaAsDouble as dynamic;
+  dynamic get areaAsDynamicDouble => areaAsDouble as dynamic;
   List<num> get areaAsList => [areaAsDouble];
   Map<String, num> get areaAsMap => {"area": areaAsDouble};
   ({num area}) get areaAsRecord => (area: areaAsDouble);

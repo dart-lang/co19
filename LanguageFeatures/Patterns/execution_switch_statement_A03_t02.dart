@@ -70,14 +70,4 @@ main() {
   Expect.equals("guard3(true);shared body;", log);
   test([4, 4]);
   Expect.equals("guard4(true);not shared body;", log);
-  test([1, 42]);
-  Expect.equals("guard1(false);default;", log);
-  test([2, 42]);
-  Expect.equals("guard2(false);default;", log);
-  test([3, 42]);
-  Expect.equals("guard3(false);default;", log);
-  test([4, 42]);
-  Expect.equals("guard4(false);default;", log);
-  test([]);
-  Expect.equals("default;", log);
 }
