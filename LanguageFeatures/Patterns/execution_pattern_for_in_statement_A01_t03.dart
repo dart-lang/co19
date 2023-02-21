@@ -58,7 +58,7 @@ main() {
   });
 
   Expect.throws(() {
-    for (var Square<Centimeter>(area: v6 in [Circle(1)] as dynamic) {}
+    for (var Square<Centimeter>(area: v6) in [Circle(1)] as dynamic) {}
   });
 
   Expect.throws(() {
