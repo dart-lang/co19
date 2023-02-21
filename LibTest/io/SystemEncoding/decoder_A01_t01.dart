@@ -4,7 +4,7 @@
 
 /// @assertion Converter<List<int>, String> decoder
 ///  Returns the decoder of this, converting from T to S.
-///  It may be stateful an should not be reused.
+///  It may be stateful and should not be reused.
 /// @description Checks that system encoding decoder decodes from UTF-8
 /// on Linux and Mac
 /// @author a.semenov@unipro.ru

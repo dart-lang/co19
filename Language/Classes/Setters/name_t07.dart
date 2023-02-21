@@ -10,7 +10,7 @@
 /// • static member with basename n, and has an instance member with basename n.
 ///
 /// @description Checks that there is a compile-time error if a class has
-/// an explicitly defined setter and an static method with the same name.
+/// an explicitly defined setter and a static method with the same name.
 /// @author iefremov
 
 

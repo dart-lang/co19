@@ -8,11 +8,11 @@
 ///     dynamic protocolSelector(List<String> protocols),
 ///     CompressionOptions compression: CompressionOptions.compressionDefault
 /// })
-/// Upgrades a HttpRequest to a WebSocket connection. If the request is not a
+/// Upgrades an HttpRequest to a WebSocket connection. If the request is not a
 /// valid WebSocket upgrade request an HTTP response with status code 500 will
 /// be returned. Otherwise the returned future will complete with the WebSocket
 /// when the upgrade process is complete.
-/// @description Checks that the method [upgrate] returns Future<WebSocket>.
+/// @description Checks that the method [upgrade] returns Future<WebSocket>.
 /// @author ngl@unipro.ru
 
 import "dart:async";

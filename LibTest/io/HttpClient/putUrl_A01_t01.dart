@@ -5,12 +5,12 @@
 /// @assertion Future<HttpClientRequest> putUrl(
 ///  Uri url
 ///  )
-/// Opens a HTTP connection using the PUT method.
+/// Opens an HTTP connection using the PUT method.
 ///
 /// The URL to use is specified in url.
 ///
 /// See openUrl for details.
-/// @description Checks that this method opens a HTTP connection using the PUT
+/// @description Checks that this method opens an HTTP connection using the PUT
 /// method
 /// @author sgrekhov@unipro.ru
 

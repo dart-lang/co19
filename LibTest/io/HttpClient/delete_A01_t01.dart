@@ -7,13 +7,13 @@
 ///  int port,
 ///  String path
 ///  )
-/// Opens a HTTP connection using the DELETE method.
+/// Opens an HTTP connection using the DELETE method.
 ///
 /// The server is specified using host and port, and the path (including a
 /// possible query) is specified using path.
 ///
 /// See open for details.
-/// @description Checks that this method opens a HTTP connection using the DELETE
+/// @description Checks that this method opens an HTTP connection using the DELETE
 /// method
 /// @author sgrekhov@unipro.ru
 

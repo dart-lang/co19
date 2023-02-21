@@ -6,7 +6,7 @@
 ///  Uri url, {
 ///  Map<String, String> environment
 ///  })
-/// Function for resolving the proxy server to be used for a HTTP connection from
+/// Function for resolving the proxy server to be used for an HTTP connection from
 /// the proxy configuration specified through environment variables.
 ///
 /// The following environment variables are taken into account:

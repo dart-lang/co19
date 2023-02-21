@@ -16,7 +16,7 @@
 /// This requires no new syntax, and in some cases only the removal of a single
 /// check. There might be some platforms where the implementation currently
 /// assumes that generic function types cannot occur as the value of type
-/// variables (an proof-of-concept attempt hit an assert in the VM). Such
+/// variables (a proof-of-concept attempt hit an assert in the VM). Such
 /// assumptions will need to be flushed out with tests and fixed.
 ///
 /// Because we already infer List<T Function<T>(T)> in the code above, this

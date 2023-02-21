@@ -7,7 +7,7 @@
 /// marked with var or final
 ///
 /// @description Checks that it is a compile-time error if a variable pattern in
-/// an declaration context is marked with var, final
+/// a declaration context is marked with var, final
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

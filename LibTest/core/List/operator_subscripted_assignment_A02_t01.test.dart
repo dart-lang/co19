@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion  abstract void operator []=(int index, E value)
-/// Throws an RangeError if index is out of bounds.
+/// Throws a RangeError if index is out of bounds.
 /// @description Checks that the exception is thrown, for fixed size and growable
 /// arrays.
 /// @author iefremov

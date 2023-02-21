@@ -5,12 +5,12 @@
 /// @assertion Future<HttpClientRequest> patchUrl(
 ///  Uri url
 ///  )
-/// Opens a HTTP connection using the PATCH method.
+/// Opens an HTTP connection using the PATCH method.
 ///
 /// The URL to use is specified in url.
 ///
 /// See openUrl for details.
-/// @description Checks that this method opens a HTTP connection using the PATCH
+/// @description Checks that this method opens an HTTP connection using the PATCH
 /// method and path may contain query
 /// @author sgrekhov@unipro.ru
 

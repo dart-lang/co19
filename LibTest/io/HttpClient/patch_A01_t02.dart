@@ -7,13 +7,13 @@
 ///  int port,
 ///  String path
 ///  )
-/// Opens a HTTP connection using the PATCH method.
+/// Opens an HTTP connection using the PATCH method.
 ///
 /// The server is specified using host and port, and the path (including a
 /// possible query) is specified using path.
 ///
 /// See open for details.
-/// @description Checks that this method opens a HTTP connection using the PATCH
+/// @description Checks that this method opens an HTTP connection using the PATCH
 /// method and path may contain query
 /// @author sgrekhov@unipro.ru
 

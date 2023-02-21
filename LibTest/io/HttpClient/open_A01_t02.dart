@@ -8,7 +8,7 @@
 ///  int port,
 ///  String path
 ///  )
-/// Opens a HTTP connection.
+/// Opens an HTTP connection.
 ///
 /// The HTTP method to use is specified in method, the server is specified using
 /// host and port, and the path (including a possible query) is specified using
@@ -22,7 +22,7 @@
 /// For additional information on the sequence of events during an HTTP
 /// transaction, and the objects returned by the futures, see the overall
 /// documentation for the class HttpClient.
-/// @description Checks that this method opens a HTTP connection using the
+/// @description Checks that this method opens an HTTP connection using the
 /// specified arguments and path may contain query and ignored URI fragment
 /// @author sgrekhov@unipro.ru
 

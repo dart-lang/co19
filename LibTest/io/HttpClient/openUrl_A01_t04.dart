@@ -6,7 +6,7 @@
 ///  String method,
 ///  Uri url
 ///  )
-/// Opens a HTTP connection.
+/// Opens an HTTP connection.
 ///
 /// The HTTP method is specified in method and the URL to use in url.
 ///

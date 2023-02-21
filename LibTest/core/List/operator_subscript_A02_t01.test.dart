@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion abstract E operator [](int index)
-/// Throws an RangeError if index is out of bounds.
+/// Throws a RangeError if index is out of bounds.
 /// @description Checks that the exception is thrown.
 /// @author iefremov
 /// @author varlax

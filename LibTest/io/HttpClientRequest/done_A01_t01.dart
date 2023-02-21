@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Future<HttpClientResponse> done
-/// A HttpClientResponse future that will complete once the response is
+/// An HttpClientResponse future that will complete once the response is
 /// available. If an error occurs before the response is available, this future
 /// will complete with an error.
 /// @description Checks that this future completes once the response is

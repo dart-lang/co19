@@ -8,7 +8,7 @@
 ///  int port,
 ///  String path
 ///  )
-/// Opens a HTTP connection.
+/// Opens an HTTP connection.
 ///
 /// The HTTP method to use is specified in method, the server is specified using
 /// host and port, and the path (including a possible query) is specified using
