@@ -34,7 +34,7 @@ main() {
 //    ^
 // [cfe] Constant evaluation error:
 //                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_MAP_KEY_EXPRESSION_TYPE_IMPLEMENTS_EQUALS
+// [analyzer] COMPILE_TIME_ERROR.CONST_MAP_KEY_NOT_PRIMITIVE_EQUALITY
   var v2 = const <Object?, String?> {if (1 > 0) const Duration(seconds: 1), "x"};
 //                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -43,10 +43,10 @@ main() {
 //    ^
 // [cfe] Constant evaluation error:
 //                           ^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_MAP_KEY_EXPRESSION_TYPE_IMPLEMENTS_EQUALS
+// [analyzer] COMPILE_TIME_ERROR.CONST_MAP_KEY_NOT_PRIMITIVE_EQUALITY
   const v4 = {if (2 > 0) const C(1, "x"): "c"};
 //      ^
 // [cfe] Constant evaluation error:
 //                       ^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_MAP_KEY_EXPRESSION_TYPE_IMPLEMENTS_EQUALS
+// [analyzer] COMPILE_TIME_ERROR.CONST_MAP_KEY_NOT_PRIMITIVE_EQUALITY
 }

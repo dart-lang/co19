@@ -27,20 +27,20 @@ main() {
 //         ^
 // [cfe] Constant evaluation error:
 //                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_TYPE_IMPLEMENTS_EQUALS
+// [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_NOT_PRIMITIVE_EQUALITY
   var v2 = const <Object> {1, '2', const Duration(seconds: 1)};
 //         ^
 // [cfe] Constant evaluation error:
 //                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_TYPE_IMPLEMENTS_EQUALS
+// [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_NOT_PRIMITIVE_EQUALITY
   var v3 = const {1, '2', const C(1, "x")};
 //         ^
 // [cfe] Constant evaluation error:
 //                        ^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_TYPE_IMPLEMENTS_EQUALS
+// [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_NOT_PRIMITIVE_EQUALITY
   var v4 = const {1, '2', const C(1, "x")};
 //         ^
 // [cfe] Constant evaluation error:
 //                        ^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_TYPE_IMPLEMENTS_EQUALS
+// [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_NOT_PRIMITIVE_EQUALITY
 }
