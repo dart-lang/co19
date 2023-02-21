@@ -73,26 +73,27 @@ main() {
   switch(42 as num) {
     case var a when a is int:
     case int a:
+    case double a:
       print(a);
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  switch (42 as num?) {
+  switch (42 as int?) {
     case var a? when a == 0:
-    case num? a when a != null:
-    case num? a! when a == 2:
+    case int? a when a != null:
+    case int? a! when a == 2:
       print(a);
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  switch (42 as num?) {
-    case num a? when a is Never:
-    case num? a when a != null:
-    case num? a! when a == 2:
+  switch (42 as int?) {
+    case int a? when a is Never:
+    case int? a when a != null:
+    case int? a! when a == 2:
       print(a);
 //          ^
 // [analyzer] unspecified
