@@ -21,7 +21,7 @@ import "patterns_lib.dart";
 String testLogicalOr(Object obj) {
   switch (obj) {
     case [var a, int n] || [int n, var a] when n == 1 && a is String:
-    case [double n, var a]  || [var a, double n] when (n - 3.14).abs() < 0.001:
+    case [String n, var a]  || [var a, String n] when n == "42":
       return a.toString();
     default:
       return "default";
@@ -137,8 +137,8 @@ String testObject(Object obj) {
 main() {
   Expect.equals("a", testLogicalOr(["a", 1]));
   Expect.equals("b", testLogicalOr([1, "b"]));
-  Expect.equals("2", testLogicalOr([3.14, 2]));
-  Expect.equals("3", testLogicalOr([3, 3.14]));
+  Expect.equals("2", testLogicalOr(["42", 2]));
+  Expect.equals("3", testLogicalOr([3, "42"]));
   Expect.equals("default", testLogicalOr([1, 1]));
   Expect.equals("a1=1;a2=2", testLogicalAnd([1, 2]));
   Expect.equals("a1=2;a2=1", testLogicalAnd(["1", "2"]));
