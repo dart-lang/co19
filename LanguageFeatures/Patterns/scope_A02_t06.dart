@@ -29,7 +29,7 @@ main() {
       for (var [c] = [2]; c < 3; Expect.equals(3, c)) "k2": c++,
       "k3": 3
     };
-  Expect.mapEquals({"k1": 1, "k2": 2, "k2": 3}, map);
+  Expect.mapEquals({"k1": 1, "k2": 2, "k3": 3}, map);
 
   var set = {1, for (var [c] = [2]; c < 3; Expect.equals(3, c)) c++, 3};
   Expect.setEquals({1, 2, 3}, set);
