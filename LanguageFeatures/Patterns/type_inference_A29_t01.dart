@@ -133,10 +133,10 @@ String test6() {
 }
 
 main() {
-  var <C<B>, num>{const C(): var a1, ...} = {const C<B>(): 1};
+  var <C<B>, num>{const C(): a1, ...} = {const C<B>(): 1};
   a1.expectStaticType<Exactly<num>>();
   a1 = 3.14;
-  var <C<B>, num>{const C(): final a2, ...} = {const C<B>(): 1};
+  final <C<B>, num>{const C(): a2, ...} = {const C<B>(): 1};
   a2.expectStaticType<Exactly<num>>();
 
   Expect.equals("match;no match;", test1());
