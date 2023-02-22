@@ -52,7 +52,7 @@ String test2() {
 
 String test3() {
   if ({} as dynamic case <String, int>{"key1": String a}) {
-//                             ^               ^^^^^^
+//                                             ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "match";
