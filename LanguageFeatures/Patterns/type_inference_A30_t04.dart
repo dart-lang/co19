@@ -29,9 +29,15 @@
 import "../../Utils/expect.dart";
 
 main() {
-  var (var v1, name: final n1) = (3.14, name: "pi") as dynamic;
+  var (v1, name: n1) = (3.14, name: "pi") as dynamic;
   Expect.throws(() {
     v1.whatever;  // no compile-time error, v1 and n1 are dynamic
     n1.whatever;
+  });
+
+  final (v2, name: n2) = (3.14, name: "pi") as dynamic;
+  Expect.throws(() {
+    v2.whatever;
+    n2.whatever;
   });
 }
