@@ -26,20 +26,63 @@
 /// iv. The required type of p is List<E>.
 ///
 /// @description Check that each non-rest element subpattern is type checked
-/// using `E` as the matched value type. It is a compile-time error if type test
-/// fails in an irrefutable context
+/// using `E` as the matched value type. Test that it not an error if type test
+/// fails in an refutable context
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-main() {
-  var <String>[int a1, b1] = ["42", ""];
-//             ^
-// [analyzer] unspecified
-// [cfe] unspecified
+import "../../Utils/expect.dart";
 
-  final <int>[String a2,] = [""];
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
+String test1() {
+  switch(["42"]) {
+    case <String>[int v]:
+      return "match";
+    default:
+      return "no match";
+  }
+}
+
+String test2() {
+  switch([42]) {
+    case <String>[int v]:
+      return "match";
+    default:
+      return "no match";
+  }
+}
+
+String test3() {
+  if(["42"] case <String>[int v]) {
+    return "match";
+  }
+  return "no match";
+}
+
+String test4() {
+  if([42] case <String>[int v]) {
+    return "match";
+  }
+  return "no match";
+}
+
+String test5() =>
+  switch(["42"]) {
+    <String>[int v] => "match",
+    _ => "no match"
+  };
+
+String test6() =>
+  switch(["42"]) {
+    <String>[int v] => "match",
+    _ => "no match"
+  };
+
+main() {
+  Expect.equals("no match", test1());
+  Expect.equals("no match", test2());
+  Expect.equals("no match", test3());
+  Expect.equals("no match", test4());
+  Expect.equals("no match", test5());
+  Expect.equals("no match", test6());
 }

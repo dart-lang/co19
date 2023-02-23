@@ -19,80 +19,69 @@
 /// vi. The required type of p is Map<K, V>.
 ///
 /// @description Check that each value subpattern is type checked using `V` as
-/// the matched value type. Test that it is a compile-time error if in the
-/// refutable context type test fails. The case when `p` has type arguments
-/// `<K, V>`
+/// the matched value type. Test that it is not an error if in the refutable
+/// context type test fails. The case when `p` has type arguments `<K, V>`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-String test1() {
-  switch ({} as dynamic) {
+import "../../Utils/expect.dart";
+
+String test1(dynamic d) {
+  switch (d) {
     case <String, int>{"key1": String a}:
-//                             ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
       return "match";
     default:
       return "no match";
   }
 }
 
-String test2() {
-  switch ({} as dynamic) {
+String test2(dynamic d) {
+  switch (d) {
     case <String, int>{"key1": final String a, ...}:
-//                                   ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
       return "match";
     default:
       return "no match";
   }
 }
 
-String test3() {
-  if ({} as dynamic case <String, int>{"key1": String a}) {
-//                             ^               ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+String test3(dynamic d) {
+  if (d case <String, int>{"key1": String a}) {
     return "match";
   }
   return "no match";
 }
 
-String test4() {
-  if ({} as dynamic case <String, int>{"key1": final String a, ...}) {
-//                                                   ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+String test4(dynamic d) {
+  if (d case <String, int>{"key1": final String a, ...}) {
     return "match";
   }
   return "no match";
 }
 
-String test5() =>
-  switch ({} as dynamic) {
+String test5(dynamic d) =>
+  switch (d) {
     <String, int>{"key1": String a} => "match",
-//                        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     _ => "no match"
   };
 
-String test6() =>
-  switch ({} as dynamic) {
+String test6(dynamic d) =>
+  switch (d) {
     <String, int>{"key1": final String a, ...} => "match",
-//                              ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     _ => "no match"
   };
 
 main() {
-  test1();
-  test2();
-  test3();
-  test4();
-  test5();
-  test6();
+  Expect.equals("no match", test1({"key1": 42}));
+  Expect.equals("no match", test1({"key1": "42"}));
+  Expect.equals("no match", test2({"key1": 42}));
+  Expect.equals("no match", test2({"key1": "42"}));
+  Expect.equals("no match", test3({"key1": 42}));
+  Expect.equals("no match", test3({"key1": "42"}));
+  Expect.equals("no match", test4({"key1": 42}));
+  Expect.equals("no match", test4({"key1": "42"}));
+  Expect.equals("no match", test5({"key1": 42}));
+  Expect.equals("no match", test5({"key1": "42"}));
+  Expect.equals("no match", test6({"key1": 42}));
+  Expect.equals("no match", test6({"key1": "42"}));
 }
