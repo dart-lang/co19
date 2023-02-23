@@ -26,12 +26,12 @@ import "../../Utils/expect.dart";
 const c = [[3], [4]];
 
 main() {
-  var l = [1, 2, for (var [c] in [c]) c, 5];
+  var l = [1, 2, for (var [c] in c) c, 5];
   Expect.listEquals([1, 2, 3, 4, 5], l);
 
-  var s = {1, 2, for (var [c] in [c]) c, 5};
+  var s = {1, 2, for (var [c] in c) c, 5};
   Expect.setEquals({1, 2, 3, 4, 5}, s);
 
-  var m = {"k1": 1, "k2": 2, for (var [c] in [c]) "k$c": c, "k5": 5};
+  var m = {"k1": 1, "k2": 2, for (var [c] in c) "k$c": c, "k5": 5};
   Expect.mapEquals({"k1": 1, "k2": 2, "k3": 3, "k4": 4, "k5": 5}, m);
 }
