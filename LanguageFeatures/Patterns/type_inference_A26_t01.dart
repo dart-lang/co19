@@ -28,19 +28,19 @@ main() {
   num a = 0;
   a as int;
   a.isEven;
-  [a] = [3.14];
+  [a] = <double>[3.14];
   a.expectStaticType<Exactly<num>>();
 
   var (num b,) = (0,);
   b as int;
   b.isEven;
   (b,) = (3.14,);
-  b.expectStaticType<Exactly<num>>();
+  a.expectStaticType<Exactly<num>>();
 
   var c = 2 > 1 ? 42 : 3.14;
   c.expectStaticType<Exactly<num>>();
   c as int;
   c.isEven;
-  {"key1": c} = {"key1": 3.14};
+  {"key1": c} = <String, double>{"key1": 3.14};
   c.expectStaticType<Exactly<num>>();
 }
