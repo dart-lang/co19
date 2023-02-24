@@ -24,10 +24,21 @@ T foo<T>(T t) => t;
 
 main() {
   var list = [foo];
-  var <int Function(int)>[f1] = list;
+  var <T Function<T>(T)>[int Function(int) f1] = list;
   Expect.equals(42, f1(42));
   Expect.throws(() {
     f1("1" as dynamic);
+  });
+
+  var <T Function<T>(T)>[int Function(int) fInt &&
+      String Function(String) fString] = list;
+  Expect.equals(42, fInt(42));
+  Expect.throws(() {
+    fInt("1" as dynamic);
+  });
+  Expect.equals("42", fString("42"));
+  Expect.throws(() {
+    fString(1 as dynamic);
   });
 
   final map = {"key1": foo};

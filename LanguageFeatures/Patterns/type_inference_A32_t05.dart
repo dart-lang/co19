@@ -40,4 +40,14 @@ main() {
 //                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  var Square<Meter>(area: Unit<Centimeter> x3) = throw 1;
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final Square<Meter>(area: int y2) = throw 1;
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
