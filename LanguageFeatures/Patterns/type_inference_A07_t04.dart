@@ -76,11 +76,11 @@ main() {
   try {
     var [v1, v2, ...r] = getType([], (String s) {log += s;});
   } catch (_) {}
-  Expect.equals("List<dynamic>", log);
+  Expect.equals("List<Object?>", log);
 
   log = "";
   try {
     var [v1, ..., v2] = getType([], (String s) {log += s;});
   } catch (_) {}
-  Expect.equals("List<dynamic>", log);
+  Expect.equals("List<Object?>", log);
 }
