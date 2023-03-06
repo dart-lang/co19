@@ -31,15 +31,17 @@ main() {
 
   String log = "";
   try {
-    var (A v1, v2, n1: B v3, n2: v4) = getType((), (String s) {log += s;});
+    var [(A v1, v2, n1: B v3, n2: v4)] = getType([], (String s) {log += s;});
   } catch (_) {}
-  Expect.equals(typeOf<(A, Object?, {B n1, Object? n2})>().toString(), log);
+  Expect.equals(typeOf<List<(A, Object?, {B n1, Object? n2})>>().toString(),
+    log);
 
   log = "";
   try {
-    final (B v1 as C, v2, n1: v3, n2: C v4 as D) =
-        getType((), (String s) {log += s;});
+    final [(B v1 as C, v2, n1: v3, n2: C v4 as D)] =
+        getType([], (String s) {log += s;});
   } catch (_) {}
-  Expect.equals(typeOf<(B, Object?, {Object? n1, Object? n2})>().toString(),
+  Expect.equals(
+      typeOf<List<(Object?, Object?, {Object? n1, Object? n2})>>().toString(),
       log);
 }

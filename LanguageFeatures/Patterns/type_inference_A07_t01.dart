@@ -61,10 +61,10 @@ main() {
   Expect.equals("List<C>", log);
 
   log = "";
-  var <C>[] = getType([], (String s) {log += s;});
+  var <C>[] = getType(<C>[], (String s) {log += s;});
   Expect.equals("List<C>", log);
 
   log = "";
-  final <B>[] = getType([], (String s) {log += s;});
+  final <B>[] = getType(<B>[], (String s) {log += s;});
   Expect.equals("List<B>", log);
 }
