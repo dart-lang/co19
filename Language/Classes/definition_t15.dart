@@ -12,12 +12,11 @@
 /// empty.
 /// @author rodionov
 
-
 class A ()
 //       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-main() {
+void main() {
   new A();
 }
