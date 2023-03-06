@@ -37,26 +37,26 @@ main() {
     var {"key1": A v1, "key2": B v2, "key3": v3} =
         getType({}, (String s) {log += s;});
   } catch (_) {}
-  Expect.equals(typeOf<Map<dynamic, B>>().toString(), log);
+  Expect.equals(typeOf<Map<Object?, B>>().toString(), log);
 
   log = "";
   try {
     final {"key1": A v1, "key2": B v2, "key3": v3} =
         getType({}, (String s) {log += s;});
   } catch (_) {}
-  Expect.equals(typeOf<Map<dynamic, B>>().toString(), log);
+  Expect.equals(typeOf<Map<Object?, B>>().toString(), log);
 
   log = "";
   try {
     var {"key1": v1, "key2": v2, "key3": v3} =
         getType({}, (String s) {log += s;});
   } catch (_) {}
-  Expect.equals(typeOf<Map<dynamic, dynamic>>().toString(), log);
+  Expect.equals(typeOf<Map<Object?, Object?>>().toString(), log);
 
   log = "";
   try {
     final {"key1": v1, "key2": v2, "key3": v3, ...} =
         getType({}, (String s) {log += s;});
   } catch (_) {}
-  Expect.equals(typeOf<Map<dynamic, dynamic>>().toString(), log);
+  Expect.equals(typeOf<Map<Object?, Object?>>().toString(), log);
 }
