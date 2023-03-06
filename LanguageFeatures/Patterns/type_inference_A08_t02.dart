@@ -22,9 +22,9 @@ import "patterns_lib.dart";
 main() {
   String log = "";
   var {} = getType({}, (String s) {log += s;});
-  Expect.equals(typeOf<Map<dynamic, dynamic>>().toString(), log);
+  Expect.equals(typeOf<Map<Object?, Object?>>().toString(), log);
 
   log = "";
   final {} = getType({}, (String s) {log += s;});
-  Expect.equals(typeOf<Map<dynamic, dynamic>>().toString(), log);
+  Expect.equals(typeOf<Map<Object?, Object?>>().toString(), log);
 }

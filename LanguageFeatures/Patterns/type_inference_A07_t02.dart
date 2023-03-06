@@ -39,9 +39,9 @@ import "patterns_lib.dart";
 main() {
   String log = "";
   var [] = getType([], (String s) {log += s;});
-  Expect.equals("List<dynamic>", log);
+  Expect.equals("List<Object?>", log);
 
   log = "";
   final [] = getType([], (String s) {log += s;});
-  Expect.equals("List<dynamic>", log);
+  Expect.equals("List<Object?>", log);
 }
