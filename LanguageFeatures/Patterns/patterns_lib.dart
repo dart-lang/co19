@@ -39,12 +39,11 @@ enum Color {
   black;
 }
 
-T getType<T extends Object?>(Object? o,
-    [void Function(String s)? logger = null]) {
+T getType<T extends Object?>(T o, [void Function(String s)? logger = null]) {
   if (logger != null) {
     logger(T.toString());
   }
-  return o as T;
+  return o;
 }
 
 /**

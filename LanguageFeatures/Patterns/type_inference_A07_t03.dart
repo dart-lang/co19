@@ -62,5 +62,5 @@ main() {
   try {
     final [v1, v2, v3] = getType([], (String s) {log += s;});
   } catch (_) {}
-  Expect.equals("List<Object?>", log);
+  Expect.equals("List<dynamic>", log);
 }
