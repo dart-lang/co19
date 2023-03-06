@@ -36,7 +36,7 @@ String test1(Shape shape) {
   switch (shape) {
     case Square(area: int v1):
       return "match-1";
-    case Square(:final num areaAsNullable):
+    case Square(:final String areaAsNullable):
       return "match-2";
     default:
       return "no match";
@@ -47,7 +47,7 @@ String test2(Shape shape) {
   if (shape case Square(area: int v1)) {
       return "match-1";
   }
-  if (shape case Square(:final num areaAsNullable)) {
+  if (shape case Square(:final String areaAsNullable)) {
     return "match-2";
   }
   return "no match";
@@ -56,7 +56,7 @@ String test2(Shape shape) {
 String test3(Shape shape) =>
   switch (shape) {
     Square(area: int v1) => "match-1",
-    Square(:final num areaAsNullable) => "match-2",
+    Square(:final String areaAsNullable) => "match-2",
     _ => "no match"
   };
 
