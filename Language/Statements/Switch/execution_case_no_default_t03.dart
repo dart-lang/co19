@@ -15,27 +15,30 @@
 /// smallest integer such that h >= k and sh is non-empty. The sequence of
 /// statements sh is executed if it exists. If execution reaches the point after
 /// sh then a runtime error occurs, unless h = n.
-/// @description Checks that falling through produces a runtime error, unless
-/// the current case clause is empty or the last case clause.
+/// @description Checks that there is no falling through if case is not empty
 /// @author sgrekhov@unipro.ru
 /// @issue 7537
 
+// SharedOptions=--enable-experiment=patterns
 
+import "../../../Utils/expect.dart";
 
 test(value) {
   var result;
-
   switch (value) {
-    case 1:  result = 1;
-             break;
-    case 2:  result = 2;
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 3:  result = 3;
+    case 1:
+      result = 1;
+      break;
+    case 2:
+      result = 2;
+    case 3:
+      result = 3;
   }
   return result;
 }
+
 main() {
-  test(0);
+  Expect.equals(1, test(1));
+  Expect.equals(2, test(2));
+  Expect.equals(3, test(3));
 }

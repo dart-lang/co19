@@ -10,6 +10,7 @@
 /// produce compile-time errors.
 /// @author msyabro
 
+// SharedOptions=--enable-experiment=records
 
 class A {
   const A();
@@ -34,4 +35,8 @@ main() {
   const B.b(p2: "p2");
 
   const C._1(const [], const {});
+
+  const [];
+  const {};
+  const ();
 }

@@ -16,11 +16,12 @@
 /// - If T is Q? where Q is an enum type, it is a warning if the switch does not
 ///  handle all enum cases and null, either explicitly or via a default.
 ///
-/// @description Check that it is a warning if T is Q? where Q is an enum type
-/// and the switch does not handle all enum cases and null, either explicitly or
-/// via a default.
+/// @description Check that it is a compile-time error if T is Q? where Q is an
+/// enum type and the switch does not handle all enum cases and null, either
+/// explicitly or via a default.
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=patterns
 // Requirements=nnbd-strong
 
 enum E {
@@ -33,7 +34,8 @@ main() {
   E? e = E.three;
   switch (e) {
 //^^^^^^^^^^
-// [analyzer] STATIC_WARNING.MISSING_ENUM_CONSTANT_IN_SWITCH
+// [analyzer] unspecified
+// [cfe] unspecified
     case E.one:
       true;
       break;

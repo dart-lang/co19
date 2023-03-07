@@ -2,23 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a static warning if the type of e is may not be assigned to
+/// @assertion It is not an error if the type of e is may not be assigned to
 /// the type of ek.
-/// @description Checks that a compile error is produced if the type of the
-/// switch expression's value cannot be assigned to any of the case expression
-/// types.
+///
+/// @description Checks that no error is produced if the type of the switch
+/// expression's value cannot be assigned to any of the case expression types.
 /// @author vasya
 
+// SharedOptions=--enable-experiment=patterns
 
 main() {
-  switch (false) {
+  switch ("String") {
     case 0:
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
     case 1:
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 }

@@ -4,19 +4,19 @@
 
 /// @assertion It is a static warning if the last statement of the statement
 /// sequence sk is not a break, continue, return or throw statement.
-/// @description Checks that it is a compile error if the last statement of the
-/// statement sequence of a case clause is not a break, continue, return or throw
-/// statement.
+/// @description Checks that it not an error if the last statement of the
+/// statement sequence of a case clause is not a break, continue, return or
+/// throw statement.
 /// @author msyabro
 
+// SharedOptions=--enable-experiment=patterns
 
 main() {
   switch (1) {
-    case 0: false;
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 1: true;
-            break;
+    case 0:
+      false;
+    case 1:
+      true;
+      break;
   }
 }

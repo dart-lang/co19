@@ -18,6 +18,8 @@
 /// @author rodionov
 /// @issue 7537
 
+// SharedOptions=--enable-experiment=patterns
+
 import '../../../Utils/expect.dart';
 
 switchTestBool(value) {
@@ -46,11 +48,11 @@ switchTestInt(value) {
       {result = 1;}
       break;
 
-    label: case 7 << 2:
+    label: case const (7 << 2):
       result = 2;
       break;
 
-    case 1 ^ 5:
+    case const (1 ^ 5):
       result = 3;
       break;
 
@@ -110,5 +112,4 @@ main() {
   switch (1) {
     $: default:
   }
-
 }

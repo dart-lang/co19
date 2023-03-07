@@ -10,13 +10,13 @@
 /// a constant object expression is missing the type name.
 /// @author msyabro
 
-
 class A {
-  const A();
+  final int i;
+  const A(this.i);
 }
 
 main() {
-  const ();
+  const (42);
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -17,6 +17,7 @@
 /// repeated.
 /// @author vasya
 
+// SharedOptions=--enable-experiment=patterns
 
 foo(value) {
   var result;
@@ -24,8 +25,6 @@ foo(value) {
   switch(value) {
     case 0: break;
     default:
-//  ^
-// [cfe] unspecified
     default: break;
 //  ^
 // [analyzer] unspecified

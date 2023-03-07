@@ -2,16 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if the values of the expressions ek
-/// are not either:
+/// @assertion It is not a compile-time error if the values of the expressions
+/// ek are not either:
 /// • instances of the same class C, for all k in 1..n, or
 /// • instances of a class that implements int, for all k in 1..n, or
 /// • instances of a class that implements String, for all k in 1..n.
-/// @description Checks that it is a compile-time error if case expressions
+/// @description Checks that it is not a compile-time error if case expressions
 /// are of mixed types.
 /// @author msyabro
-/// @note renamed from 09_Switch_A02_t02
 
+// SharedOptions=--enable-experiment=patterns
 
 main() {
   var x=1;
@@ -20,9 +20,6 @@ main() {
       x = 1;
       break;
     case 2.0:
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
       x = 2;
   }
 }

@@ -9,14 +9,9 @@
 /// "throw" is used as a local function name.
 /// @author rodionov
 
-
 main() {
   void throw() {}
 //              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  throw();
-//      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
