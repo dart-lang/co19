@@ -9,17 +9,16 @@
 ///  class.
 /// - It is an error if any of the ei evaluate to a value whose static type is
 ///  not a subtype of T.
-/// - It is an error if any of the ei evaluate to constants for which equality
-///  is not primitive.
 /// - If T is an enum type, it is a warning if the switch does not handle all
 ///  enum cases, either explicitly or via a default.
 /// - If T is Q? where Q is an enum type, it is a warning if the switch does not
 ///  handle all enum cases and null, either explicitly or via a default.
 ///
-/// @description Check that it is an error if any of the ei evaluate to constants
-/// for which equality is not primitive.
+/// @description Check that it is not an error if any of the ei evaluate to
+/// constants for which equality is not primitive.
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=patterns
 
 class C {
   const C();
@@ -31,9 +30,6 @@ main() {
   C c = new C();
   switch (c) {
     case c1:
-//       ^^
-// [analyzer] unspecified
-// [cfe] unspecified
       true;
       break;
     default:

@@ -9,14 +9,9 @@
 /// "return" is used as a local function name.
 /// @author rodionov
 
-
 main() {
   void return() {}
 //               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  return();
-//       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

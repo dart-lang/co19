@@ -18,31 +18,36 @@
 /// such h exists, let h = n + 1. The sequence of statements sh is then executed.
 /// If execution reaches the point after sh then a runtime error occurs, unless
 /// h = n + 1.
-/// @description Checks that falling through produces a compile error, if
-/// the current clause is not empty case clause and not the default clause.
+/// @description Checks that it is not an error, if the current clause is not
+/// empty case clause and not the default clause.
 /// @author sgrekhov@unipro.ru
 /// @issue 7537
 
+// SharedOptions=--enable-experiment=patterns
+
+import "../../../Utils/expect.dart";
 
 test(value) {
   var result;
 
   switch (value) {
-    case 1:  result = 1;
-             break;
-    case 2:  result = 2;
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 3:  result = 3;
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    default: result = 4;
+    case 1:
+      result = 1;
+      break;
+    case 2:
+      result = 2;
+    case 3:
+      result = 3;
+    default:
+      result = 4;
   }
   return result;
 }
 
 main() {
-  test(1);
+  Expect.equals(1, test(1));
+  Expect.equals(2, test(2));
+  Expect.equals(3, test(3));
+  Expect.equals(4, test(4));
+  Expect.equals(4, test(5));
 }

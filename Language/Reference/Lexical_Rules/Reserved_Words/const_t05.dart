@@ -9,14 +9,9 @@
 /// "const" is used as a local function name.
 /// @author rodionov
 
-
 main() {
   void const() {}
 //              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const();
-//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

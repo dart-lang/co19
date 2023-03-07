@@ -9,14 +9,9 @@
 /// is used as a local function name.
 /// @author rodionov
 
-
 main() {
   void is() {}
 //     ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  is();
-//   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

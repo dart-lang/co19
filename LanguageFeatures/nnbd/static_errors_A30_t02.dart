@@ -7,8 +7,8 @@
 ///
 /// - It is no longer required that the ei evaluate to instances of the same
 ///  class.
-/// - It is an error if any of the ei evaluate to a value whose static type is
-///  not a subtype of T.
+/// - It is not an error if any of the ei evaluate to a value whose static type
+/// is not a subtype of T.
 /// - It is an error if any of the ei evaluate to constants for which equality
 ///  is not primitive.
 /// - If T is an enum type, it is a warning if the switch does not handle all
@@ -16,23 +16,25 @@
 /// - If T is Q? where Q is an enum type, it is a warning if the switch does not
 ///  handle all enum cases and null, either explicitly or via a default.
 ///
-/// @description Check that it is an error if any of the ei evaluate to a value
-/// whose static type is not a subtype of T
+/// @description Check that it is not an error if any of the ei evaluate to a
+/// value whose static type is not a subtype of T
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=patterns
 
 void foo() {}
 
 main() {
   num i = 42;
   switch (i) {
-    case 1: true;
+    case 1:
+      true;
       break;
-    case "3": foo();
-//       ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    case "3":
+      foo();
       break;
-    case 42: false;
+    case 42:
+      false;
+    default:
   }
 }

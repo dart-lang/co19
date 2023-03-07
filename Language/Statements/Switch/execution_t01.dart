@@ -24,27 +24,23 @@
 /// does not exist, then if there is a default clause it is executed by
 /// executing sn+1.
 /// @description Checks that if the value of expression e is not an instance of
-/// the same type as the constants of case clauses, then it is a compile error
+/// the same type as the constants of case clauses, then it is not a compile
+/// error
 /// @author msyabro
 
+// SharedOptions=--enable-experiment=patterns
 
 main() {
-   switch (1) {
-     case '1': break;
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-     case '2': break;
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-     default:
-   }
+  switch (1) {
+    case '1':
+      break;
+    case '2':
+      break;
+    default:
+  }
 
   switch ('abc') {
-    case 1: break;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
+    case 1:
+      break;
   }
 }

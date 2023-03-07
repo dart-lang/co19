@@ -2,23 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if the class C has an implementation
-/// of the operator == other than the one inherited from Object unless the
-/// value of the expression is a string, an integer, literal symbol or the result
-/// of invoking a constant constructor of class Symbol.
-/// @description Checks that it is a compile-time error if class C implements
+/// @assertion It is not a compile-time error if the class C has an
+/// implementation of the operator == other than the one inherited from Object
+///
+/// @description Checks that it is not an error if class C implements
 /// operator ==.
 /// @Issue 42461
 /// @author kaigorodov
 
+// SharedOptions=--enable-experiment=patterns
 
 class C {
   final int? x;
   const C(this.x);
-  bool operator ==(C other) {
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  bool operator ==(covariant C other) {
     return this.x == other.x;
   }
 }
@@ -30,15 +27,9 @@ main() {
 
   switch (x) {
     case c1:
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
       y = 1;
       break;
     case c2:
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
       y = 2;
       break;
   }
