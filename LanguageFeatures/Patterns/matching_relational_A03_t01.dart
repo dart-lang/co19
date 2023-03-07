@@ -32,8 +32,8 @@
 ///     operator on v's type returns dynamic.
 ///   c. The pattern matches if r is true and fails otherwise.
 ///
-/// @description Check that it is a run-time error if result of calling `op` on
-/// 'v' with argument `c` is not `bool`
+/// @description Check that it is a run-time error if the result of calling `op`
+/// on 'v' with argument `c` is not `bool`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

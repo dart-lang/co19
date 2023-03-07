@@ -50,12 +50,12 @@ class C {
   }
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     log += "C($value)==$other;";
     if (other is int) {
       return this.value == other;
     }
-    return this == other;
+    return super == other;
   }
 }
 

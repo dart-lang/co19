@@ -20,7 +20,7 @@
 /// ii. Otherwise, match the right subpattern against v and succeed if it
 ///   matches.
 ///
-/// @description Check that in irrefutable context variables are binded
+/// @description Check that in an irrefutable context, variables are bound
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

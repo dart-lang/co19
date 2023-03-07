@@ -55,7 +55,7 @@ class C {
     if (other is int) {
       return this.value == other;
     }
-    return this == other;
+    return super == other;
   }
 }
 
