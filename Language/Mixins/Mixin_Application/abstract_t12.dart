@@ -12,6 +12,11 @@
 /// application are abstract. Test type aliases
 /// @author sgrekhov@unipro.ru
 
+// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
+// being applied in this test should be "mixin", "mixin class" or the test
+// should be left at 2.19.
+// @dart=2.19
+
 abstract class M {
 }
 

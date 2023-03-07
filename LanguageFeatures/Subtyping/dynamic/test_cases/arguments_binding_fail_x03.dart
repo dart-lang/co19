@@ -6,6 +6,11 @@
 /// be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 
+// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
+// being applied in this test should be "mixin", "mixin class" or the test
+// should be left at 2.19.
+// @dart=2.19
+
 class ArgumentsBindingSuper1_t03 {
   void superTest(@T1 val) {}
   void superTestPositioned(@T1 val, [@T1 val2 = t1Default]) {}

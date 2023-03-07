@@ -22,6 +22,11 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
+// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
+// being applied in this test should be "mixin", "mixin class" or the test
+// should be left at 2.19.
+// @dart=2.19
+
 import '../../utils/common.dart';
 
 class S {

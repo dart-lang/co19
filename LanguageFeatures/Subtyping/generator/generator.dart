@@ -78,7 +78,6 @@ main() {
   generateTests(testCasesDir, testTypesDir, outputDir, "static");
 
   // Now generate tests for static only test types
-
   testTypesDir = new Directory(".." +
       Platform.pathSeparator +
       STATIC_TESTS_DIR +
@@ -156,6 +155,14 @@ class Test {
     List<String> testCaseHeader = _removeHeader(_testCaseLines,
         returnCopyright: false);
     List<String> testTypeHeader = _removeHeader(_testTypeLines);
+    List<String> testCaseLV = _removeHeader(_testCaseLines,
+        isLanguageVersion: true);
+    List<String> testTypeLV = _removeHeader(_testTypeLines,
+        isLanguageVersion: true);
+    List<String> languageVersion = (testCaseLV.isEmpty ? testTypeLV : testCaseLV);
+    if (!languageVersion.isEmpty) {
+      languageVersion.insert(0, "");
+    }
 
     List<String> test = [];
     if (_hasMain(_testTypeLines)) {
@@ -164,6 +171,7 @@ class Test {
         "///",
         ...testCaseHeader,
         _getGeneratedFileHeader,
+        ...languageVersion,
         ..._replaceMain(_testTypeLines, _getBeforeMain(_testCaseLines),
             _getMainContent(_testCaseLines))
       ];
@@ -173,6 +181,7 @@ class Test {
         "///",
         ...testCaseHeader,
         _getGeneratedFileHeader,
+        ...languageVersion,
         ..._testTypeLines,
         ..._testCaseLines
       ];
@@ -241,35 +250,50 @@ class Test {
   }
 
   List<String> _removeHeader(List<String> lines,
-      {bool returnCopyright = true}) {
+      {bool returnCopyright = true, bool isLanguageVersion = false}) {
     bool copyrightPart = false;
     bool assertionPart = false;
+    bool languageVersionPart = false;
     List<String> header = [];
     for (int i = lines.length - 1; i >= 0; i--) {
       if (lines[i].trim().length == 0) {
         continue;
       }
-      if (lines[i].startsWith("///")) {
-        if (!assertionPart) {
-          assertionPart = true;
+      if (isLanguageVersion) {
+        if (lines[i].startsWith("// @dart=")) {
+          languageVersionPart = true;
         }
-        header.insert(0, lines[i]);
-        lines.removeAt(i);
-      } else if (lines[i].startsWith("//")) {
-        if (!assertionPart && !copyrightPart) {
-          continue;
-        }
-        if (assertionPart) {
-          assertionPart = false;
-          copyrightPart = true;
-          if (returnCopyright) {
-            header.insert(0, "");
+        if (languageVersionPart) {
+          if (lines[i].startsWith("// ")) {
+            header.insert(0, lines[i]);
+            lines.removeAt(i);
+          } else {
+            break;
           }
         }
-        if (returnCopyright) {
+      } else {
+        if (lines[i].startsWith("///")) {
+          if (!assertionPart) {
+            assertionPart = true;
+          }
           header.insert(0, lines[i]);
+          lines.removeAt(i);
+        } else if (lines[i].startsWith("//")) {
+          if (!assertionPart && !copyrightPart) {
+            continue;
+          }
+          if (assertionPart) {
+            assertionPart = false;
+            copyrightPart = true;
+            if (returnCopyright) {
+              header.insert(0, "");
+            }
+          }
+          if (returnCopyright) {
+            header.insert(0, lines[i]);
+          }
+          lines.removeAt(i);
         }
-        lines.removeAt(i);
       }
     }
     return header;

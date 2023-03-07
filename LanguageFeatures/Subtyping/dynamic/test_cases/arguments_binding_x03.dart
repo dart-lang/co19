@@ -6,6 +6,11 @@
 /// of T0 can be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 
+// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
+// being applied in this test should be "mixin", "mixin class" or the test
+// should be left at 2.19.
+// @dart=2.19
+
 class ArgumentsBindingMixin1_t03 {
   @T1 m = t1Default;
 
