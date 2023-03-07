@@ -54,21 +54,21 @@ String test3(Object o) =>
 
 main() {
   Expect.throws(() {
-    var (<num>[v] as List<int>) = [3.14];
+    var (<num>[v] as List<int>) = <num>[3.14];
   });
-  var (<num>[v] as List<int>) = [42];
+  var (<num>[v] as List<int>) = <int>[42];
   Expect.equals(42, v);
 
   Expect.throws(() {
-    test1([3.14]);
+    test1(<num>[3.14]);
   });
-  Expect.equals("match", test1([42]));
+  Expect.equals("match", test1(<int>[42]));
   Expect.throws(() {
-    test2([3.14]);
+    test2(<num>[3.14]);
   });
-  Expect.equals("match", test2([42]));
+  Expect.equals("match", test2(<int>[42]));
   Expect.throws(() {
-    test3([3.14]);
+    test3(<num>[3.14]);
   });
-  Expect.equals("match", test3([42]));
+  Expect.equals("match", test3(<int>[42]));
 }
