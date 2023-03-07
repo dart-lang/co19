@@ -17,7 +17,8 @@
 /// 4. Else the match failed. Evaluate the else element if there is one and
 ///   yield the result into the collection.
 ///
-/// @description Check that if match fails then else statement evaluated if any
+/// @description Check that if the match fails then the else statement is
+/// evaluated if any
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

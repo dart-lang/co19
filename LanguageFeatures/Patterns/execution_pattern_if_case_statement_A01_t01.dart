@@ -13,9 +13,9 @@
 ///   ii. Else there is no guard clause. Execute the then statement.
 /// 4. Else the match failed. Execute the else statement if there is one.
 ///
-/// @description Check that it is a runtime error if it guard clause doesn't
-/// evaluate to bool. If guard clause does evaluate to bool, no runtime error
-/// occurs
+/// @description Check that it is a runtime error if a guard clause doesn't
+/// evaluate to bool. If the guard clause does evaluate to bool then there is no
+/// runtime error
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -25,7 +25,7 @@ import "patterns_lib.dart";
 
 String log = "";
 
-dynamic guard(Object v) {
+dynamic guard(Object? v) {
   log += "guard($v);";
   return v;
 }
@@ -46,6 +46,15 @@ main() {
   });
   Expect.equals("Square.area:(4==4);guard(42);", log);
 
+  log = "";
+  Expect.throws(() {
+    if (Square(2, logger) case Square(area: unit4) when guard(null)) {
+      log += "statement;";
+    } else {
+      log += "else;";
+    }
+  });
+  Expect.equals("Square.area:(4==4);guard(null);", log);
 
   log = "";
   if (Square(2, logger) case Square(area: unit4) when guard(false)) {

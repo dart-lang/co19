@@ -13,9 +13,10 @@
 ///   ii. Else there is no guard clause. Execute the then statement.
 /// 4. Else the match failed. Execute the else statement if there is one.
 ///
-/// @description Check that if pattern matches and there is a guard clause it is
-/// executed. If guard is evaluated to `true` then the statement is executed. If
-/// guard is evaluated to `false` then else statement is executed if any
+/// @description Check that if a pattern matches and there is a guard clause it
+/// is executed. If the guard is evaluated to `true` then the statement is
+/// executed. If the guard is evaluated to `false` then the else statement is
+/// executed, if any
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

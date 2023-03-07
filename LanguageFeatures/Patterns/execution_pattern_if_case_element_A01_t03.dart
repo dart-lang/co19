@@ -17,8 +17,8 @@
 /// 4. Else the match failed. Evaluate the else element if there is one and
 ///   yield the result into the collection.
 ///
-/// @description Check that if pattern matches and there is no guard clause then
-/// the statement is executed.
+/// @description Check that if a pattern matches and there is no guard clause
+/// then the statement is executed.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

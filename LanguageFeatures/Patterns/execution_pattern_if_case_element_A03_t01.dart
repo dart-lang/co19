@@ -17,8 +17,8 @@
 /// 4. Else the match failed. Evaluate the else element if there is one and
 ///   yield the result into the collection.
 ///
-/// @description Check that it is a compile-time error if value yielded by
-/// pattern-if-case element is not assignable to the collection type
+/// @description Check that it is a compile-time error if the value yielded by
+/// pattern-if-case element is not assignable to the collection element type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

@@ -13,7 +13,8 @@
 ///   ii. Else there is no guard clause. Execute the then statement.
 /// 4. Else the match failed. Execute the else statement if there is one.
 ///
-/// @description Check that if match fails then else statement evaluated if any
+/// @description Check that if a match fails then the else statement is
+/// evaluated, if any
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
