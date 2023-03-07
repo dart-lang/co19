@@ -48,11 +48,11 @@ switchTestInt(value) {
       {result = 1;}
       break;
 
-    label: case const(7 << 2):
+    label: case const (7 << 2):
       result = 2;
       break;
 
-    case const(1 ^ 5):
+    case const (1 ^ 5):
       result = 3;
       break;
 

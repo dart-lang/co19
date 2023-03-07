@@ -14,4 +14,9 @@ main() {
 //     ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  is();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

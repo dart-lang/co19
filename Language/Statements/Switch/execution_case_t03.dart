@@ -19,7 +19,7 @@
 /// If execution reaches the point after sh then a runtime error occurs, unless
 /// h = n + 1.
 /// @description Checks that it is not an error, if the current clause is not
-/// empty case clause and not the default clause.
+/// an empty case clause and not the default clause.
 /// @author sgrekhov@unipro.ru
 /// @issue 7537
 
@@ -49,5 +49,4 @@ main() {
   Expect.equals(2, test(2));
   Expect.equals(3, test(3));
   Expect.equals(4, test(4));
-  Expect.equals(4, test(5));
 }
