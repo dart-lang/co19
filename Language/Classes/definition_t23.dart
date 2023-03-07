@@ -12,6 +12,10 @@
 /// errors and can be instantiated.
 /// @author ngl@unipro.ru
 
+// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
+// being applied in this test should be "mixin", "mixin class" or the test
+// should be left at 2.19.
+// @dart=2.19
 
 @A() abstract class I1<T> = A1 with B1;
 abstract class J1<T> = A1 with B1;
