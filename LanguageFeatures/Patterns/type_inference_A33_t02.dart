@@ -49,7 +49,7 @@ main() {
   });
 
   var record = (x: foo);
-  var (x: T Function<T>(T) f3) = record;
+  var (x: int Function(int) f3) = record;
   Expect.equals(42, f3(42));
   Expect.throws(() {
     f3("1" as dynamic);
