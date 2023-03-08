@@ -48,7 +48,8 @@ main() {
 
   var l2 = [
     0,
-    for (final (v2) in <num>[1, 2, 3] as dynamic) v2,
+    for (final (v2) in <num>[1, 2, 3] as dynamic)
+      (1 > 2 ? v2.whatever : null, v2).$2,
     4
   ];
   Expect.listEquals([0, 1, 2, 3, 4], l2);
@@ -64,7 +65,8 @@ main() {
 
   var l4 = [
     0,
-    for (final [v4] in <List<num>>[[1], [2], [3]] as dynamic) v4,
+    for (final [v4] in <List<num>>[[1], [2], [3]] as dynamic)
+      (1 > 2 ? v4.whatever : null, v4).$2,
     4
   ];
   Expect.listEquals([0, 1, 2, 3, 4], l4);
@@ -80,7 +82,8 @@ main() {
 
   var l6 = [
     0,
-    for (final {"k1": v6} in <Map<String, num>>[{"k1": 1}] as dynamic) v6,
+    for (final {"k1": v6} in <Map<String, num>>[{"k1": 1}] as dynamic)
+      (1 > 2 ? v6.whatever : null, v6).$2,
     2
   ];
   Expect.listEquals([0, 1, 2], l6);
@@ -96,7 +99,8 @@ main() {
 
   var l8 = [
     1,
-    for (final (v9, n: v10) in <(num, {num n})>[(1, n: 2)] as dynamic) v10,
+    for (final (v9, n: v10) in <(num, {num n})>[(1, n: 2)] as dynamic)
+      (1 > 2 ? v10.whatever : null, v10).$2,
     3
   ];
   Expect.listEquals([1, 2, 3], l8);

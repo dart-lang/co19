@@ -36,13 +36,21 @@ import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 import "patterns_lib.dart";
 
+extension Storing on Object? {
+  static dynamic stored;
+  void get store => stored = this;
+}
+
 main() {
   String log = "";
-  for (var (num v1) in [1, 2, 3]) {
+  for (var (num v1) in [1, 2, 3]..store) {
     v1.expectStaticType<Exactly<num>>();
     log += "$v1;";
   }
   Expect.equals("1;2;3;", log);
+  Expect.isTrue(Storing.stored is List<num>);
+  Storing.stored.add(42);
+  Storing.stored.add(3.14);
 
   log = "";
   for (final (v2) in <num>[1, 2, 3]) {
@@ -53,11 +61,14 @@ main() {
   log = "";
 
   log = "";
-  for (var <num>[v3] in [[1], [2], [3]]) {
+  for (var <num>[v3] in [[1], [2], [3]]..store) {
     v3.expectStaticType<Exactly<num>>();
     log += "$v3;";
   }
   Expect.equals("1;2;3;", log);
+  Expect.isTrue(Storing.stored is List<num>);
+  Storing.stored.add(42);
+  Storing.stored.add(3.14);
 
   log = "";
   for (final [v4] in <List<num>>[[1], [2], [3]]) {
@@ -67,11 +78,15 @@ main() {
   Expect.equals("1;2;3;", log);
 
   log = "";
-  for (var <String, num>{"k1": v5} in [{"k1": 1}]) {
+  for (var <String, num>{"k1": v5} in [{"k1": 1}]..store) {
     v5.expectStaticType<Exactly<num>>();
     log += "$v5;";
   }
   Expect.equals("1;", log);
+  Expect.isTrue(Storing.stored is List<Map<String, num>>);
+  Expect.isTrue(Storing.stored.first is Map<String, num>);
+  Storing.stored.first["answer"] = 42;
+  Storing.stored.first["pi"] = 3.14;
 
   log = "";
   for (final {"k1": v6} in <Map<String, num>>[{"k1": 1}]) {
@@ -81,12 +96,13 @@ main() {
   Expect.equals("1;", log);
 
   log = "";
-  for (var (num v7, n: num v8) in [(1, n: 2)]) {
+  for (var (num v7, n: num v8) in [(1, n: 2)]..store) {
     v7.expectStaticType<Exactly<num>>();
     v8.expectStaticType<Exactly<num>>();
     log += "$v7;$v8;";
   }
   Expect.equals("1;2;", log);
+  Expect.isTrue(Storing.stored is List<(num, {num n})>);
 
   log = "";
   for (final (v9, n: v10) in <(num, {num n})>[(1, n: 2)]) {
@@ -102,6 +118,7 @@ main() {
     log += "$v11;";
   }
   Expect.equals("1;", log);
+  Expect.isTrue(Storing.stored is List<Square<Centimeter>>);
 
   log = "";
   for (final Square(area: v12) in <Square<Centimeter>>[Square<Centimeter>(1)]) {
@@ -109,5 +126,4 @@ main() {
     log += "$v12;";
   }
   Expect.equals("1;", log);
-
 }

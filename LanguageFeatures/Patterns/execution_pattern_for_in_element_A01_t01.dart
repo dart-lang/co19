@@ -37,81 +37,92 @@ import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 import "patterns_lib.dart";
 
+extension Storing on Object? {
+  static dynamic stored;
+  void get store => stored = this;
+}
+
 main() {
   var l1 = [
     0,
-    for (var (num v1) in [1, 2, 3]) v1,
+    for (var (num v1) in [1, 2, 3]..store) v1,
     4
   ];
   Expect.listEquals([0, 1, 2, 3, 4], l1);
-  l1.expectStaticType<Exactly<List<num>>>();
+  Expect.isTrue(Storing.stored is List<num>);
+  Storing.stored.add(42);
+  Storing.stored.add(3.14);
 
   var l2 = [
     0,
-    for (final (v2) in <num>[1, 2, 3]) v2,
+    for (final (v2) in <num>[1, 2, 3])
+      v2.expectStaticType<Exactly<num>>(),
     4
   ];
   Expect.listEquals([0, 1, 2, 3, 4], l2);
-  l2.expectStaticType<Exactly<List<num>>>();
 
   var l3 = [
     0,
-    for (var <num>[v3] in [[1], [2], [3]]) v3,
+    for (var <num>[v3] in [[1], [2], [3]]..store) v3,
     4
   ];
   Expect.listEquals([0, 1, 2, 3, 4], l3);
-  l3.expectStaticType<Exactly<List<num>>>();
+  Expect.isTrue(Storing.stored is List<List<num>>);
+  Storing.stored.add(42);
+  Storing.stored.add(3.14);
 
   var l4 = [
     0,
-    for (final [v4] in <List<num>>[[1], [2], [3]]) v4,
+    for (final [v4] in <List<num>>[[1], [2], [3]])
+      v4.expectStaticType<Exactly<num>>(),
     4
   ];
   Expect.listEquals([0, 1, 2, 3, 4], l4);
-  l4.expectStaticType<Exactly<List<num>>>();
 
   var l5 = [
     0,
-    for (var <String, num>{"k1": v5} in [{"k1": 1}]) v5,
+    for (var <String, num>{"k1": v5} in [{"k1": 1}]..store) v5,
     2
   ];
   Expect.listEquals([0, 1, 2], l5);
-  l5.expectStaticType<Exactly<List<num>>>();
+  Expect.isTrue(Storing.stored is List<Map<String, num>>);
+  Expect.isTrue(Storing.stored.first is Map<String, num>);
+  Storing.stored.first["answer"] = 42;
+  Storing.stored.first["pi"] = 3.14;
 
   var l6 = [
     0,
-    for (final {"k1": v6} in <Map<String, num>>[{"k1": 1}]) v6,
+    for (final {"k1": v6} in <Map<String, num>>[{"k1": 1}])
+      v6.expectStaticType<Exactly<num>>(),
     2
   ];
   Expect.listEquals([0, 1, 2], l6);
-  l6.expectStaticType<Exactly<List<num>>>();
 
   var l7 = [
     0,
-    for (var (num v7, n: num v8) in [(1, n: 2)]) v7,
+    for (var (num v7, n: num v8) in [(1, n: 2)]..store) v7,
     2
   ];
   Expect.listEquals([0, 1, 2], l7);
-  l7.expectStaticType<Exactly<List<num>>>();
+  Expect.isTrue(Storing.stored is List<(num, {num n})>);
 
   var l8 = [
     1,
-    for (final (v9, n: v10) in <(num, {num n})>[(1, n: 2)]) v10,
+    for (final (v9, n: v10) in <(num, {num n})>[(1, n: 2)])
+      v10.expectStaticType<Exactly<num>>(),
     3
   ];
   Expect.listEquals([1, 2, 3], l8);
-  l8.expectStaticType<Exactly<List<num>>>();
 
   var l9 = [
-    for (var Square<Centimeter>(area: v11) in [Square(1)]) v11,
+    for (var Square<Centimeter>(area: v11) in [Square(1)]..store) v11,
   ];
-  Expect.isTrue(l9[0] == 1);
-  l9.expectStaticType<Exactly<List<Unit<Centimeter>>>>();
+  Expect.listEquals([Unit<Centimeter>(1)], l9);
+  Expect.isTrue(Storing.stored is List<Square<Centimeter>>);
 
   var l10 = [
     for (final Square(area: v12) in <Square<Centimeter>>[Square<Centimeter>(1)])
-      v12
+      v12.expectStaticType<Exactly<Unit<Centimeter>>>()
   ];
-  Expect.isTrue(l10[0] == 1);
-  l10.expectStaticType<Exactly<List<Unit<Centimeter>>>>();
+  Expect.listEquals([Unit<Centimeter>(1)], l10);
 }

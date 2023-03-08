@@ -26,7 +26,7 @@
 ///   append(<element>);
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if final variable
+/// @description Checks that it is a compile-time error if a final variable
 /// declared by the pattern is assigned in a for-in element
 /// @author sgrekhov22@gmail.com
 

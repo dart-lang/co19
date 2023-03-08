@@ -27,7 +27,8 @@
 /// ```
 /// @description Checks that if `I` is `dynamic` and runtime type of `I` is
 /// `Iterable<T>` where `T` is assignable to `<pattern>` required type then
-/// for-in statement works as expected
+/// for-in statement works as expected. In particular, if `I` is `dynamic` then
+/// element type is `dynamic` and execution of the body does take place
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

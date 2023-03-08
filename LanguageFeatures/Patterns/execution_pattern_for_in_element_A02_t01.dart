@@ -48,7 +48,7 @@ main() {
 // [cfe] unspecified
   ];
   [
-    for (var <String, int>{"k1": v3} in <String, num>[{"k1": 1}]) v3
+    for (var <String, int>{"k1": v3} in <Map<String, num>>[{"k1": 1}]) v3
 //                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
