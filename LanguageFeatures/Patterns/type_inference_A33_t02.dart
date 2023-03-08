@@ -42,14 +42,14 @@ main() {
   });
 
   final map = {"key1": foo};
-  final <String, int Function(int)>{"key1": f2} = map;
+  final <String, T Function<T>(T)>{"key1": int Function(int) f2} = map;
   Expect.equals(42, f2(42));
   Expect.throws(() {
     f2("1" as dynamic);
   });
 
   var record = (x: foo);
-  var (x: int Function(int) f3) = record;
+  var (x: T Function<T>(T) f3) = record;
   Expect.equals(42, f3(42));
   Expect.throws(() {
     f3("1" as dynamic);
