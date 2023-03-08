@@ -32,7 +32,7 @@
 ///   the body resolves to a variable in s that isn't shared.
 ///
 /// @description Checks that shared variables can be used in a shared case scope
-/// body. Test the case when the corresponding variables in vs are not promoted
+/// body. Test whether or not the corresponding variables in vs are promoted
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
