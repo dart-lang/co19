@@ -21,6 +21,7 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40395
 
+// @dart=2.19
 // Requirements=nnbd-weak
 
 enum E {

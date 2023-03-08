@@ -21,6 +21,7 @@
 /// via a default.
 /// @author sgrekhov@unipro.ru
 
+// @dart=2.19
 // Requirements=nnbd-weak
 
 enum E {
