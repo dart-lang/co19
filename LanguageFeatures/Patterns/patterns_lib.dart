@@ -63,7 +63,6 @@ class Meter extends SI {
 }
 
 class Unit<T extends MetricUnits> {
-  static final tolerance = 0.001;
   final double value;
   final void Function(String s)? _logger;
   const Unit(this.value, [this._logger = null]);
@@ -75,22 +74,25 @@ class Unit<T extends MetricUnits> {
       if (_log != null) {
         _log(":($this==$other);");
       }
-      return (this.value - other.value).abs() <= tolerance;
+      return this.value == other.value;
     }
     if (other is int) {
       if (_log != null) {
         _log(":($this==$other);");
       }
-      return (this.value - other).abs() <= tolerance;
+      return this.value == other;
     }
     if (other is double) {
       if (_log != null) {
         _log(":($this==${other.toStringAsFixed(2)});");
       }
-      return (this.value - other).abs() <= tolerance;
+      return this.value == other;
     }
     return false;
   }
+
+  @override
+  int get hashCode => this.value.hashCode;
 
   @override
   String toString() => value.toStringAsFixed(2).replaceFirst(".00", "");
