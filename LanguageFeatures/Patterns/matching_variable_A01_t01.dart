@@ -91,12 +91,12 @@ main() {
   Expect.equals("no match", test3(true));
 
   Expect.throws(() {
-    var [int v] = ["42"] as dynamic;
+    var <dynamic>[int v] = ["42"] as dynamic;
   });
   Expect.throws(() {
-    final [String v] = [42] as dynamic;
+    final <dynamic>[String v] = [42] as dynamic;
   });
   Expect.throws(() {
-    var [int v] = [null] as dynamic;
+    var <dynamic>[int v] = [null] as dynamic;
   });
 }
