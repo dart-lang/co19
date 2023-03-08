@@ -9,10 +9,12 @@
 /// • An expression of one of the forms e1 == e2 or e1 != e2 where e1 and e2 are
 ///   constant expressions that evaluate to a numeric, string or boolean value
 ///   or to null.
-/// @description Checks that it is a compile-time error when an expression of
-/// the form e1 == e2 where e1 does not evaluate to a numeric, string or boolean
-/// value, is used to initialize a constant variable.
+/// @description Checks that it is not an time error when an expression of
+/// the form e1 == e2 or e1 != e2 where e1 does not evaluate to a numeric,
+/// string or boolean value, is used to initialize a constant variable.
 /// @author kaigorodov
+
+// SharedOptions=--enable-experiment=patterns
 
 class A {
   const A() : a = "hello";
@@ -20,11 +22,8 @@ class A {
 }
 
 final constList = const [
-//                ^
-// [cfe] unspecified
-   const A() == "hello",
-// ^
-// [analyzer] unspecified
+  const A() == "hello",
+  const A() != "world"
 ];
 
 main() {
