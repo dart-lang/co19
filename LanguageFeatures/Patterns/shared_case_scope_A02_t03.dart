@@ -42,9 +42,9 @@ import "../../Utils/static_type_helper.dart";
 
 String test1(num? x) {
   switch (x) {
-    case final a when a is int:
+    case final a when a is num && a is int:
     case final a when a is num:
-      a.expectStaticType<Exactly<num?>>();
+      a.expectStaticType<Exactly<num>>();
       print(a);
       return "match";
     default:
