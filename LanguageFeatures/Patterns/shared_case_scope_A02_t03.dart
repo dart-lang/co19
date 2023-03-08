@@ -32,7 +32,7 @@
 ///   the body resolves to a variable in s that isn't shared.
 ///
 /// @description Checks that shared variables can be used in a shared case scope
-/// body. Test the case when the corresponding variables in vs are promoted
+/// body. Test whether or not the corresponding variables in vs are promoted
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -42,7 +42,7 @@ import "../../Utils/static_type_helper.dart";
 
 String test1(num? x) {
   switch (x) {
-    case final a when a is int:
+    case final a when a is num && a is int:
     case final a when a is num:
       a.expectStaticType<Exactly<num>>();
       print(a);
@@ -56,7 +56,7 @@ String test2(num? x) {
   switch (x) {
     case var a when a is int:
     case var a when a is num:
-      a.expectStaticType<Exactly<num>>();
+      a.expectStaticType<Exactly<num?>>();
       print(a);
       return "match";
     default:
