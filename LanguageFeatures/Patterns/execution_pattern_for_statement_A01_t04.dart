@@ -10,8 +10,8 @@
 /// Is executed like a traditional for loop though is more likely to declare
 /// multiple variables.
 ///
-/// @description Check that pattern-for statement is executed like a traditional
-/// for loop. Test record pattern
+/// @description Check that a pattern-for statement is executed like a
+/// traditional for loop. Test a record pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

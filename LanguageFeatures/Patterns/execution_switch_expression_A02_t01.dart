@@ -35,4 +35,5 @@ main() {
   Expect.equals("Case body", test(true));
   Expect.equals("default", test(false));
   Expect.throws(() {test(42);});
+  Expect.throws(() {test(null);});
 }

@@ -10,12 +10,12 @@
 /// Is executed like a traditional for loop though is more likely to declare
 /// multiple variables.
 ///
-/// @description Check that pattern-for statement is executed like a traditional
-/// for loop. Test that it is a compile-time error if final variable is assigned
-/// in a pattern-for element
+/// @description Check that a pattern-for element is executed like a traditional
+/// for loop. Test that it is a compile-time error if a final variable is
+/// assigned in a pattern-for element
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
+// SharedOptions=--enable-experiment=patterns,records
 
 import "patterns_lib.dart";
 

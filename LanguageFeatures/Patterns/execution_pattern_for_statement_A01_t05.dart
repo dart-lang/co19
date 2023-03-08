@@ -10,8 +10,8 @@
 /// Is executed like a traditional for loop though is more likely to declare
 /// multiple variables.
 ///
-/// @description Check that pattern-for statement is executed like a traditional
-/// for loop. Test object pattern
+/// @description Check that a pattern-for statement is executed like a
+/// traditional for loop. Test an object pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -21,9 +21,9 @@ import "patterns_lib.dart";
 
 main() {
   String log = "";
-  for (var Square(:areaAsInt) = Square(1); areaAsInt <= 9;
-      Square(:areaAsInt) = Square(++areaAsInt)) {
+  for (var Square(:areaAsInt) = Square(1); areaAsInt <= 25;
+      Square(:areaAsInt) = Square((++areaAsInt).toDouble())) {
     log += "$areaAsInt;";
   }
-  Expect.equals("1;4;9;", log);
+  Expect.equals("1;4;25;", log);
 }

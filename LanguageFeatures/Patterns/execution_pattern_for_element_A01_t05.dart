@@ -9,8 +9,8 @@
 /// Is executed like a traditional for loop though is more likely to declare
 /// multiple variables
 ///
-/// @description Check that pattern-for element is executed like a traditional
-/// for loop. Test object pattern
+/// @description Check that a pattern-for element is executed like a traditional
+/// for loop. Test an object pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -22,8 +22,8 @@ main() {
   var list = [
     0,
     for (var Square(:areaAsInt) = Square(1); areaAsInt <= 9;
-        Square(:areaAsInt) = Square(++areaAsInt)) areaAsInt,
+        Square(:areaAsInt) = Square((++areaAsInt).toDouble())) areaAsInt,
     42
   ];
-  Expect.listEquals([0, 1, 4, 9, 42], list);
+  Expect.listEquals([0, 1, 4, 42], list);
 }

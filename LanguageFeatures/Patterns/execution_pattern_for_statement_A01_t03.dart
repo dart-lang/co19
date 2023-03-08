@@ -10,8 +10,8 @@
 /// Is executed like a traditional for loop though is more likely to declare
 /// multiple variables.
 ///
-/// @description Check that pattern-for statement is executed like a traditional
-/// for loop. Test map pattern
+/// @description Check that a pattern-for statement is executed like a
+/// traditional for loop. Test a map pattern
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -20,7 +20,7 @@ import "../../Utils/expect.dart";
 
 main() {
   String log = "";
-  for (var {"k1": a, "k2": b} = [0, 1]; a <= 13;
+  for (var {"k1": a, "k2": b} = {"k1": 0, "k2": 1}; a <= 13;
       {"k1": a, "k2": b} = {"k1": b, "k2": a + b}) {
     log += "$a;";
   }
