@@ -23,10 +23,7 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
+// SharedOptions=--enable-experiment=class-modifiers
 
 import '../../utils/common.dart';
 
@@ -40,7 +37,7 @@ S1? t1Instance = new S1();
 
 const t1Default = const S1();
 
-class ArgumentsBindingMixin1_t03 {
+mixin class ArgumentsBindingMixin1_t03 {
   S1? m = t1Default;
 
   void superTest(S1? val) {}
@@ -64,7 +61,7 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
   }
 }
 
-class ArgumentsBindingMixin2_t03<X> {
+mixin class ArgumentsBindingMixin2_t03<X> {
   void superTest(X val) {}
   void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}

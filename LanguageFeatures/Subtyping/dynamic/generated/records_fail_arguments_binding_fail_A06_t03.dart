@@ -21,22 +21,17 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
+// SharedOptions=--enable-experiment=class-modifiers,records
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
-// SharedOptions=--enable-experiment=records
 
 (int, int, {bool b}) t0Instance = (1, 2, b: true);
 (int, String, {bool b}) t1Instance = (3, "4", b: false);
 
 const t1Default = const (5, "6", b: false);
 
-class ArgumentsBindingSuper1_t03 {
+mixin class ArgumentsBindingSuper1_t03 {
   void superTest((int i, String, {bool b}) val) {}
   void superTestPositioned((int i, String, {bool b}) val, [(int i, String, {bool b}) val2 = t1Default]) {}
   void superTestNamed((int i, String, {bool b}) val, {(int i, String, {bool b}) val2 = t1Default}) {}
@@ -45,7 +40,6 @@ class ArgumentsBindingSuper1_t03 {
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingSuper1_t03 {
-
   test() {
     Expect.throws(() {
       superTest(forgetType(t0Instance));
@@ -133,7 +127,7 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingSuper1_t03 {
   }
 }
 
-class ArgumentsBindingSuper2_t03<X> {
+mixin class ArgumentsBindingSuper2_t03<X> {
   void superTest(X val) {}
   void superTestNamed(X val, {required X val2}) {}
   X get superGetter => forgetType(t0Instance);

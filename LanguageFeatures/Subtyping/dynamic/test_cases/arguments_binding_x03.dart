@@ -6,12 +6,9 @@
 /// of T0 can be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
+// SharedOptions=--enable-experiment=class-modifiers
 
-class ArgumentsBindingMixin1_t03 {
+mixin class ArgumentsBindingMixin1_t03 {
   @T1 m = t1Default;
 
   void superTest(@T1 val) {}
@@ -35,7 +32,7 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
   }
 }
 
-class ArgumentsBindingMixin2_t03<X> {
+mixin class ArgumentsBindingMixin2_t03<X> {
   void superTest(X val) {}
   void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}

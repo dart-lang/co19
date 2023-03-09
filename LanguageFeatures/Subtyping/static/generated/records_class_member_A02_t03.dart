@@ -22,14 +22,14 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
-// SharedOptions=--enable-experiment=records
+// SharedOptions=--enable-experiment=class-modifiers,records
 
 (int x, double y, String, {int n1, String n2}) t0Instance =
   (n1: 1, n2: "n2", 42, 3.14, "");
 
 const t1Default = (0, 0, null, n1: 0.1, n2: "");
 
-class ClassMemberMixin1_t03 {
+mixin class ClassMemberMixin1_t03 {
   (num, num, String?, {num n1, String? n2}) m = t1Default;
 
   void set superSetter(dynamic val) {}

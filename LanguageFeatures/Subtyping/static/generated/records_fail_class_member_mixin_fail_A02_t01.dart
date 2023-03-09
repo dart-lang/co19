@@ -23,13 +23,13 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
-// SharedOptions=--enable-experiment=records
+// SharedOptions=--enable-experiment=class-modifiers,records
 
 (int, String) t0Instance = (1, "2");
 
 const t1Default = const (5, "6", false);
 
-class ClassMemberSuper1_t03 {
+mixin class ClassMemberSuper1_t03 {
   (int, String, bool) m = t1Default;
   void set superSetter((int, String, bool) val) {}
 }

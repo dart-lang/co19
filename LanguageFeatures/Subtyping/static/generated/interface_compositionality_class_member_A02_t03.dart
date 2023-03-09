@@ -20,9 +20,11 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 abstract class U0 {}
-abstract class U1 {}
-abstract class U2 {}
+abstract mixin class U1 {}
+abstract mixin class U2 {}
 
 abstract class S0 extends U0 {}
 abstract class S1 extends Object with U1 {}
@@ -36,7 +38,7 @@ C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 
 const t1Default = const C0<U0, U1, U2>();
 
-class ClassMemberMixin1_t03 {
+mixin class ClassMemberMixin1_t03 {
   C0<U0, U1, U2> m = t1Default;
 
   void set superSetter(dynamic val) {}

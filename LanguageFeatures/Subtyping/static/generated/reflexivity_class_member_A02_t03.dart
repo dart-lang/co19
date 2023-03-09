@@ -18,11 +18,13 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 dynamic t0Instance = 3.14;
 
 const t1Default = "";
 
-class ClassMemberMixin1_t03 {
+mixin class ClassMemberMixin1_t03 {
   dynamic m = t1Default;
 
   void set superSetter(dynamic val) {}
