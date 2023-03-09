@@ -21,22 +21,17 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
+// SharedOptions=--enable-experiment=class-modifiers,records
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
-// SharedOptions=--enable-experiment=records
 
 (int, String) t0Instance = (1, "2");
 (int, String, bool) t1Instance = (3, "4", false);
 
 const t1Default = const (5, "6", false);
 
-class ClassMemberSuper1_t03 {
+mixin class ClassMemberSuper1_t03 {
   (int, String, bool) m = t1Default;
 
   void set superSetter((int, String, bool) val) {}

@@ -36,6 +36,7 @@ const IMPORT_COMMON = "import '../../utils/common.dart';";
 const IMPORT_EXPECT = "import '../../../../Utils/expect.dart';";
 
 const String META_PREFIX = "//#";
+const String SHARED_OPTIONS_PREFIX = "// SharedOptions=--enable-experiment=";
 
 main() {
   // Generate dynamic tests
@@ -159,7 +160,10 @@ class Test {
         isLanguageVersion: true);
     List<String> testTypeLV = _removeHeader(_testTypeLines,
         isLanguageVersion: true);
-    List<String> languageVersion = (testCaseLV.isEmpty ? testTypeLV : testCaseLV);
+    List<String> languageVersion =
+        (testCaseLV.isEmpty ? testTypeLV : testCaseLV);
+    String sharedOptions = _getSharedOptions(_testCaseLines, _testTypeLines);
+
     if (!languageVersion.isEmpty) {
       languageVersion.insert(0, "");
     }
@@ -172,6 +176,7 @@ class Test {
         ...testCaseHeader,
         _getGeneratedFileHeader,
         ...languageVersion,
+        if (!sharedOptions.isEmpty) ...["", sharedOptions],
         ..._replaceMain(_testTypeLines, _getBeforeMain(_testCaseLines),
             _getMainContent(_testCaseLines))
       ];
@@ -182,6 +187,7 @@ class Test {
         ...testCaseHeader,
         _getGeneratedFileHeader,
         ...languageVersion,
+        if (!sharedOptions.isEmpty) ...["", sharedOptions],
         ..._testTypeLines,
         ..._testCaseLines
       ];
@@ -298,6 +304,38 @@ class Test {
     }
     return header;
   }
+
+  String _getSharedOptions(List<String> lines1, List<String> lines2) {
+    String sharedOptions1 = _findSharedOptions(lines1);
+    if (sharedOptions1.isEmpty) {
+      return _findSharedOptions(lines2);
+    }
+    String sharedOptions2 = _findSharedOptions(lines2);
+    if (sharedOptions2.isEmpty) {
+      return sharedOptions1;
+    }
+    return _mergeSharedOptions(sharedOptions1, sharedOptions2);
+  }
+
+  String _findSharedOptions(List<String> lines) {
+    for (int i = 0; i < lines.length; i++) {
+      if (lines[i].startsWith(SHARED_OPTIONS_PREFIX)) {
+        String found = lines[i];
+        lines.removeAt(i);
+        return found;
+      }
+    }
+    return "";
+  }
+
+  String _mergeSharedOptions(sharedOptions1, sharedOptions2) {
+    Set<String> optionsSet = _getSharedOptionsSet(sharedOptions1);
+    optionsSet.addAll(_getSharedOptionsSet(sharedOptions2));
+    return SHARED_OPTIONS_PREFIX + optionsSet.join(",");
+  }
+
+  Set<String> _getSharedOptionsSet(String sharedOptions) =>
+     sharedOptions.substring(SHARED_OPTIONS_PREFIX.length).split(",").toSet();
 
   String get _getGeneratedFileHeader => '''
 ///

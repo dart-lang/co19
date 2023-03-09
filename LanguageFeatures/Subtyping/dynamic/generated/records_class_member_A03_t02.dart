@@ -22,9 +22,9 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
-import '../../utils/common.dart';
-
 // SharedOptions=--enable-experiment=records
+
+import '../../utils/common.dart';
 
 ({int x, double y, String z}) t0Instance = (x: 42, y: 3.14, z: "");
 

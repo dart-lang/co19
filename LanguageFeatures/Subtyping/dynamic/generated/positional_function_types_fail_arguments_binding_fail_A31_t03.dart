@@ -29,10 +29,7 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
+// SharedOptions=--enable-experiment=class-modifiers
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -77,7 +74,7 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 const t1Default = t1Func;
 
-class ArgumentsBindingSuper1_t03 {
+mixin class ArgumentsBindingSuper1_t03 {
   void superTest(T1 val) {}
   void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
   void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
@@ -86,7 +83,6 @@ class ArgumentsBindingSuper1_t03 {
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingSuper1_t03 {
-
   test() {
     Expect.throws(() {
       superTest(forgetType(t0Instance));
@@ -174,7 +170,7 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingSuper1_t03 {
   }
 }
 
-class ArgumentsBindingSuper2_t03<X> {
+mixin class ArgumentsBindingSuper2_t03<X> {
   void superTest(X val) {}
   void superTestNamed(X val, {required X val2}) {}
   X get superGetter => forgetType(t0Instance);

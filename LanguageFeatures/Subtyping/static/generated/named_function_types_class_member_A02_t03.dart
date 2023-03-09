@@ -27,6 +27,8 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 class A {}
 
 class C extends A {}
@@ -85,7 +87,7 @@ T0 t0Instance = t0Func;
 
 const t1Default = t1Func;
 
-class ClassMemberMixin1_t03 {
+mixin class ClassMemberMixin1_t03 {
   T1 m = t1Default;
 
   void set superSetter(dynamic val) {}

@@ -25,6 +25,8 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:async";
 
 class S1 {
@@ -36,7 +38,7 @@ T0 t0Instance = new T0();
 
 const t1Default = const S1();
 
-class ClassMemberSuper1_t03 {
+mixin class ClassMemberSuper1_t03 {
   FutureOr<S1> m = t1Default;
   void set superSetter(FutureOr<S1> val) {}
 }

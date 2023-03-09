@@ -20,16 +20,13 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
+// SharedOptions=--enable-experiment=class-modifiers
 
 import '../../utils/common.dart';
 
 abstract class U0 {}
-abstract class U1 {}
-abstract class U2 {}
+abstract mixin class U1 {}
+abstract mixin class U2 {}
 
 abstract class S0 extends U0 {}
 abstract class S1 extends Object with U1 {}
@@ -44,7 +41,7 @@ C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 
 const t1Default = const C0<U0, U1, U2>();
 
-class ClassMemberMixin1_t03 {
+mixin class ClassMemberMixin1_t03 {
   C0<U0, U1, U2> m = t1Default;
 
   void set superSetter(dynamic val) {}
@@ -57,7 +54,7 @@ class ClassMember1_t03 extends Object with ClassMemberMixin1_t03 {
   }
 }
 
-class ClassMemberMixin2_t03<X> {
+mixin class ClassMemberMixin2_t03<X> {
   void set superSetter(dynamic val) {}
 }
 
