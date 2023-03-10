@@ -16,8 +16,8 @@
 /// ...
 /// Parenthesized: Match the subpattern against v and succeed if it matches.
 ///
-/// @description Checks that if subpattern of a parenthesized pattern matches,
-/// then pattern itself matches
+/// @description Checks that if the subpattern of a parenthesized pattern
+/// matches, then the pattern itself matches
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
