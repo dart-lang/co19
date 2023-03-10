@@ -23,24 +23,28 @@ import "../../Utils/expect.dart";
 
 Type typeOf<X>() => X;
 
+class A {}
+class B extends A {}
+class C<T> extends B {}
+
 main() {
-  (num, Object) r1 = (1, 2.3);
-  Expect.runtimeIsType<(int, double)>(r1);
-  Expect.equals(typeOf<(int, double)>(), r1.runtimeType);
+  (Object, Object) r1 = (A(), B());
+  Expect.runtimeIsType<(A, B)>(r1);
+  Expect.equals(typeOf<(A, B)>(), r1.runtimeType);
 
-  (num, {Object name}) r2 = (3.14, name: "pi");
-  Expect.runtimeIsType<(double, {String name})>(r2);
-  Expect.equals(typeOf<(double, {String name})>(), r2.runtimeType);
+  (A, {B name}) r2 = (B(), name: C<A?>());
+  Expect.runtimeIsType<(B, {C<A?> name})>(r2);
+  Expect.equals(typeOf<(B, {C<A?> name})>(), r2.runtimeType);
 
-  (num, {Object name}) r3 = (name: "pi", 3.14);
-  Expect.runtimeIsType<(double, {String name})>(r3);
-  Expect.equals(typeOf<(double, {String name})>(), r3.runtimeType);
+  (A, {B name}) r3 = (name: C<A?>(), B());
+  Expect.runtimeIsType<(B, {C<A?> name})>(r3);
+  Expect.equals(typeOf<(B, {C<A?> name})>(), r3.runtimeType);
 
-  ({num value, Object name}) r4 = (name: "pi", value: 3.14);
-  Expect.runtimeIsType<({String name, double value})>(r4);
-  Expect.equals(typeOf<({String name, double value})>(), r4.runtimeType);
+  ({A value, C name}) r4 = (name: C<A>(), value: B());
+  Expect.runtimeIsType<({C<A> name, B value})>(r4);
+  Expect.equals(typeOf<({C<A> name, B value})>(), r4.runtimeType);
 
-  ({num value, Object name}) r5 = (value: 3.14, name: "pi",);
-  Expect.runtimeIsType<({String name, double value})>(r5);
-  Expect.equals(typeOf<({String name, double value})>(), r5.runtimeType);
+  ({A value, C<A> name}) r5 = (value: C(), name: C<B>(),);
+  Expect.runtimeIsType<({C<B> name, C value})>(r5);
+  Expect.equals(typeOf<({C<B> name, C value})>(), r5.runtimeType);
 }
