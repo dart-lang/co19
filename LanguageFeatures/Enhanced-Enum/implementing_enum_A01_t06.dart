@@ -20,6 +20,8 @@
 /// Enum are used not by enum declarations
 /// @author sgrekhov@unipro.ru
 
+// @dart=2.19
+
 abstract class M1 with Enum {}
 
 abstract class M2 = Object with Enum;

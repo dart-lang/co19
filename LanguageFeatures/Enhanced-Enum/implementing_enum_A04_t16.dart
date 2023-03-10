@@ -23,6 +23,8 @@
 /// named `hashCode=`, but the setter/getter signature constraint does apply.
 /// @author sgrekhov@unipro.ru
 
+// @dart=2.19
+
 abstract class E1 extends Enum {
   void set hashCode(int val) {}
 }

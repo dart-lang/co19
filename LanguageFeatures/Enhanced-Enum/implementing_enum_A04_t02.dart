@@ -23,6 +23,8 @@
 /// named `index`.
 /// @author sgrekhov@unipro.ru
 
+// @dart=2.19
+
 abstract class E1 extends Enum {
   int index() => 42;
 //    ^^^^^

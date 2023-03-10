@@ -23,6 +23,8 @@
 /// named `operator ==`.
 /// @author sgrekhov@unipro.ru
 
+// @dart=2.19
+
 abstract class E1 extends Enum {
   bool operator ==(Object other) {
 //     ^^^^^^^^^^^

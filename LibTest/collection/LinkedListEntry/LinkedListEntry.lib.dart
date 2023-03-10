@@ -4,7 +4,7 @@
 
 import "dart:collection";
 
-class MyLinkedListEntry<E> extends LinkedListEntry<MyLinkedListEntry<E>> {
+base class MyLinkedListEntry<E> extends LinkedListEntry<MyLinkedListEntry<E>> {
   E value;
   MyLinkedListEntry(this.value);
   
