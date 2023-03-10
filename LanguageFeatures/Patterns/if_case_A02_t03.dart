@@ -12,8 +12,8 @@
 // the then element into the surrounding collection. Otherwise, we evaluate and
 // yield the else element if there is one.
 ///
-/// @description Checks if-case statement with different patterns and an
-/// optional guard in a set literal
+/// @description Checks if-case element with different patterns and an optional
+/// guard in a set literal
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -140,7 +140,7 @@ Set<int> testList2(List<int> list) {
 Set<int> testList3(List<int> list) {
   return {
     1,
-    if (list case [1, _, ...r] when !r.isEmpty) 2 else 3,
+    if (list case [1, _, ...var r] when !r.isEmpty) 2 else 3,
     4
   };
 }
@@ -163,7 +163,7 @@ Set<int> testMap2(Map<String, int> map) =>
 Set<int> testRecord1(Record record) {
   return {
     1,
-    if (record case (1, var a) when a > 0) 2 else 3,
+    if (record case (1, int a) when a > 0) 2 else 3,
     4
   };
 }
@@ -171,7 +171,7 @@ Set<int> testRecord1(Record record) {
 Set<int> testRecord2(Record record) =>
   {
     1,
-    if (record case (1, 2, n: final d) when d < 0) 2 else 3,
+    if (record case (1, 2, n: final int d) when d < 0) 2 else 3,
     4
   };
 
@@ -226,6 +226,9 @@ main() {
     Expect.setEquals({1, 2, 4}, testNullCheck1(1));
     Expect.setEquals({1, 3, 4}, testNullCheck1(-1));
     Expect.setEquals({1, 3, 4}, testNullCheck1(null));
+    Expect.setEquals({1, 2, 4}, testNullCheck2(1));
+    Expect.setEquals({1, 2, 4}, testNullCheck2(-1));
+    Expect.setEquals({1, 3, 4}, testNullCheck2(null));
     Expect.setEquals({1, 2, 4}, testNullAssert(1));
     Expect.setEquals({1, 3, 4}, testNullAssert(-1));
     Expect.throws(() {testNullAssert(null);});
@@ -254,18 +257,18 @@ main() {
     Expect.setEquals({1, 2, 4}, testRecord1((1, 2)));
     Expect.setEquals({1, 3, 4}, testRecord1((2, 2)));
     Expect.setEquals({1, 3, 4}, testRecord1((1, -2)));
-    Expect.setEquals({1, 2, 4}, testRecord2((1, 2, n: 1)));
+    Expect.setEquals({1, 2, 4}, testRecord2((1, 2, n: -1)));
     Expect.setEquals({1, 3, 4}, testRecord2((2, 2, n: 1)));
-    Expect.setEquals({1, 3, 4}, testRecord2((1, 2, n: -1)));
+    Expect.setEquals({1, 3, 4}, testRecord2((1, 2, n: 1)));
     Expect.setEquals({1, 3, 4}, testRecord2((1, n: 1)));
     Expect.setEquals({1, 3, 4}, testRecord2((1, 2, n: 1, n2: 2)));
     Expect.setEquals({1, 2, 4}, testObject1(Square(3)));
     Expect.setEquals({1, 3, 4}, testObject1(Circle(3)));
     Expect.setEquals({1, 3, 4}, testObject1(Square(1)));
-    Expect.setEquals({1, 2, 4}, testObject1(Circle(3)));
-    Expect.setEquals({1, 3, 4}, testObject1(Circle(1)));
-    Expect.setEquals({1, 3, 4}, testObject1(Square(3)));
-    Expect.setEquals({1, 2, 4}, testObject1(Square(1)));
-    Expect.setEquals({1, 3, 4}, testObject1(Circle(1)));
-    Expect.setEquals({1, 3, 4}, testObject1(Square(3)));
+    Expect.setEquals({1, 2, 4}, testObject2(Circle(3)));
+    Expect.setEquals({1, 3, 4}, testObject2(Circle(1)));
+    Expect.setEquals({1, 3, 4}, testObject2(Square(3)));
+    Expect.setEquals({1, 2, 4}, testObject3(Square(1)));
+    Expect.setEquals({1, 3, 4}, testObject3(Circle(1)));
+    Expect.setEquals({1, 3, 4}, testObject3(Square(3)));
 }

@@ -12,8 +12,8 @@
 // the then element into the surrounding collection. Otherwise, we evaluate and
 // yield the else element if there is one.
 ///
-/// @description Checks if-case statement with different patterns and an
-/// optional guard in a map literal
+/// @description Checks if-case element with different patterns and an optional
+/// guard in a map literal
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -25,7 +25,8 @@ Map<String, int> testLogicalOr1(int value) =>
     {
       "key1": 1,
       if (value case var a && 0 || var a && 1 when a == 0)
-        "key 2": 2 else
+        "key2": 2
+      else
         "key3": 3,
       "key4": 4
     };
@@ -42,7 +43,8 @@ Map<String, int> testLogicalAnd1(int value) =>
     {
       "key1": 1,
       if (value case var a && > 10 && var b && < 15 when a == 14)
-        "key2": 2 else
+        "key2": 2
+      else
         "key3": 3,
       "key4": 4
     };
@@ -144,7 +146,7 @@ Map<String, int> testList2(List<int> list) {
 Map<String, int> testList3(List<int> list) {
   return {
     "key1": 1,
-    if (list case [1, _, ...r] when !r.isEmpty) "key2": 2 else "key3": 3,
+    if (list case [1, _, ...var r] when !r.isEmpty) "key2": 2 else "key3": 3,
     "key4": 4
   };
 }
@@ -161,7 +163,9 @@ Map<String, int> testMap1(Map<String, int> map) {
 Map<String, int> testMap2(Map<String, int> map) =>
     {
       "key1": 1,
-      if (map case {"key1": 1, "key2": final b, ...} when b < 0) "key2": 2 else
+      if (map case {"key1": 1, "key2": final b, ...} when b < 0)
+        "key2": 2
+      else
         "key3": 3,
       "key4": 4
     };
@@ -169,7 +173,7 @@ Map<String, int> testMap2(Map<String, int> map) =>
 Map<String, int> testRecord1(Record record) {
   return {
     "key1": 1,
-    if (record case (1, var a) when a > 0) "key2": 2 else "key3": 3,
+    if (record case (1, int a) when a > 0) "key2": 2 else "key3": 3,
     "key4": 4
   };
 }
@@ -177,14 +181,14 @@ Map<String, int> testRecord1(Record record) {
 Map<String, int> testRecord2(Record record) =>
   {
     "key1": 1,
-    if (record case (1, 2, n: final d) when d < 0) "key2": 2 else "key3": 3,
+    if (record case (1, 2, n: final int d) when d < 0) "key2": 2 else "key3": 3,
     "key4": 4
   };
 
 Map<String, int> testObject1(Shape shape) {
   return {
     "key1": 1,
-    if (shape case Square(sizeAsInt: var a) when a > 2) "key2": 2 else
+    if (shape case Square(sizeAsInt: int a) when a > 2) "key2": 2 else
       "key3": 3,
     "key4": 4
   };
@@ -192,7 +196,9 @@ Map<String, int> testObject1(Shape shape) {
 
 Map<String, int> testObject2(Shape shape) => {
     "key1": 1,
-    if (shape case Circle(: final sizeAsInt) when sizeAsInt > 1) "key2": 2 else
+    if (shape case Circle(: final sizeAsInt) when sizeAsInt > 1)
+      "key2": 2
+    else
       "key3": 3,
     "key4": 4
   };
@@ -242,6 +248,9 @@ main() {
     Expect.mapEquals({"key1": 1, "key2": 2, "key4": 4}, testNullCheck1(1));
     Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testNullCheck1(-1));
     Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testNullCheck1(null));
+    Expect.mapEquals({"key1": 1, "key2": 2, "key4": 4}, testNullCheck2(1));
+    Expect.mapEquals({"key1": 1, "key2": 2, "key4": 4}, testNullCheck2(-1));
+    Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testNullCheck2(null));
     Expect.mapEquals({"key1": 1, "key2": 2, "key4": 4}, testNullAssert(1));
     Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testNullAssert(-1));
     Expect.throws(() {testNullAssert(null);});
@@ -279,11 +288,11 @@ main() {
     Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testRecord1((2, 2)));
     Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testRecord1((1, -2)));
     Expect.mapEquals({"key1": 1, "key2": 2, "key4": 4},
-        testRecord2((1, 2, n: 1)));
+        testRecord2((1, 2, n: -1)));
     Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4},
         testRecord2((2, 2, n: 1)));
     Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4},
-        testRecord2((1, 2, n: -1)));
+        testRecord2((1, 2, n: 1)));
     Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4},
         testRecord2((1, n: 1)));
     Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4},
@@ -291,10 +300,10 @@ main() {
     Expect.mapEquals({"key1": 1, "key2": 2, "key4": 4}, testObject1(Square(3)));
     Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testObject1(Circle(3)));
     Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testObject1(Square(1)));
-    Expect.mapEquals({"key1": 1, "key2": 2, "key4": 4}, testObject1(Circle(3)));
-    Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testObject1(Circle(1)));
-    Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testObject1(Square(3)));
-    Expect.mapEquals({"key1": 1, "key2": 2, "key4": 4}, testObject1(Square(1)));
-    Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testObject1(Circle(1)));
-    Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testObject1(Square(3)));
+    Expect.mapEquals({"key1": 1, "key2": 2, "key4": 4}, testObject2(Circle(3)));
+    Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testObject2(Circle(1)));
+    Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testObject2(Square(3)));
+    Expect.mapEquals({"key1": 1, "key2": 2, "key4": 4}, testObject3(Square(1)));
+    Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testObject3(Circle(1)));
+    Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4}, testObject3(Square(3)));
 }

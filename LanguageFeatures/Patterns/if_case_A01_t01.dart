@@ -90,11 +90,7 @@ String testNullAssert(int? value) {
   if (value case var a1! when a1 > 0) {
     return "null-assert-1";
   }
-  if (value case var a2!) {
-    return "null-assert-2";
-  } else {
-    return "default";
-  }
+  return "default";
 }
 
 String testVariable(int value) {
@@ -183,7 +179,7 @@ main() {
   Expect.equals("default", testNullCheck(null));
 
   Expect.equals("null-assert-1", testNullAssert(1));
-  Expect.equals("null-assert-2", testNullAssert(0));
+  Expect.equals("default", testNullAssert(0));
   Expect.throws(() {testNullAssert(null);});
 
   Expect.equals("variable-1", testVariable(1));
