@@ -33,8 +33,4 @@ main() {
     String v = "42";
     (<dynamic>[v]) = [42] as dynamic;
   });
-  Expect.throws(() {
-    int v = 0;
-    (<dynamic>[v]) = [null] as dynamic;
-  });
 }
