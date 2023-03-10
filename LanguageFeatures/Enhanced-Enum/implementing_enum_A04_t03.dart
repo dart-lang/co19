@@ -24,6 +24,8 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48353
 
+// @dart=2.19
+
 abstract class E1 extends Enum {
   int get index => 42;
 //        ^^^^^

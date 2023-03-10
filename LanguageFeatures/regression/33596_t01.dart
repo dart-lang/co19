@@ -12,5 +12,6 @@ class M {}
 class O extends M with M {}
 //                     ^
 // [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}
