@@ -32,7 +32,7 @@ switchTestBool(value) {
     label: case false && true:
       result = 2;
       break;
-    case const(false && true):
+    case const (false && true):
       result = 3;
       break;
     default:
