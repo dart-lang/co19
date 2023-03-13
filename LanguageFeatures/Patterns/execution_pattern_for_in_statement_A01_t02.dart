@@ -98,7 +98,7 @@ main() {
   Expect.equals("1;2;", log);
 
   log = "";
-  for (var Square<Centimeter>(area: v11) in [Square(1)] as dynamic) {
+  for (var Square<Centimeter>(area: v11) in [Square<Centimeter>(1)] as dynamic) {
     v11.expectStaticType<Exactly<Unit<Centimeter>>>();
     log += "$v11;";
   }
