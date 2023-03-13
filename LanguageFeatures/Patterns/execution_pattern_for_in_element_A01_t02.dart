@@ -107,7 +107,8 @@ main() {
   l8.expectStaticType<Exactly<List<dynamic>>>();
 
   var l9 = [
-    for (var Square<Centimeter>(area: v11) in [Square(1)] as dynamic) v11,
+    for (var Square<Centimeter>(area: v11) in
+      [Square<Centimeter>(1)] as dynamic) v11,
   ];
   Expect.isTrue(l9[0] == 1);
   l9.expectStaticType<Exactly<List<Unit<Centimeter>>>>();
