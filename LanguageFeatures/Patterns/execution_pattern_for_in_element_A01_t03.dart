@@ -39,7 +39,7 @@ import "patterns_lib.dart";
 main() {
   Expect.throws(() {
     [
-      for (var (int v1) in <num>[1, 2, 3] as dynamic) v1
+      for (var (int v1) in <num>[1, 2, 3.14] as dynamic) v1
     ];
   });
 
@@ -58,13 +58,13 @@ main() {
 
   Expect.throws(() {
     [
-      for (final (int v4,) in <(num,)>[(1,)] as dynamic) v4
+      for (final (int v4,) in <(num,)>[(1.1,)] as dynamic) v4
     ];
   });
 
   Expect.throws(() {
     [
-      for (var (n: int v5) in <({num n})>[(n: 2)] as dynamic) v5
+      for (var (n: int v5) in <({num n})>[(n: 2.1)] as dynamic) v5
     ];
   });
 
