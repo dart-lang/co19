@@ -36,13 +36,13 @@ void logger(String s) {
 
 main() {
   Expect.throws(() {
-    var (Circle(size: v1) && Square(area: v2)) = Circle(1, logger) as dynamic;
+    var (Circle(size: v1) && Shape(area: v2)) = Shape(logger) as dynamic;
   });
-  Expect.equals("Circle.size", log);
+  Expect.equals("", log);
 
   log = "";
   Expect.throws(() {
-    final (Circle(size: v1) && Square(area: v2)) = Square(1, logger) as dynamic;
+    final (Circle(size: v1) && Shape(area: v2)) = Shape(logger) as dynamic;
   });
   Expect.equals("", log);
 }
