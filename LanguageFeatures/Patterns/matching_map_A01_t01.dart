@@ -61,52 +61,14 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-import "dart:collection";
+import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
-
-String log = "";
-
-class MyMap<K, V> extends MapBase<K, V> {
-  Map<K, V> _inner;
-
-  MyMap(this._inner);
-
-  @override
-  operator [](Object? key) {
-    log += "[$key];";
-    return _inner[key];
-  }
-
-  @override
-  void operator []=(key, value) {
-    log += "[$key]=$value;";
-    _inner[key] = value;
-  }
-
-  @override
-  void clear() {
-    log += "clear();";
-    _inner.clear();
-  }
-
-  @override
-  Iterable<K> get keys {
-    log += "keys;";
-    return _inner.keys;
-  }
-
-  @override
-  remove(Object? key) {
-    log += "remove($key);";
-    return _inner.remove(key);
-  }
-}
 
 String test1(Object o) {
   switch (o) {
-    case <String, int>{"key1": 42}:
+    case <String, int>{}:
       return "match-1";
-    case <String, num>{"key1": 42}:
+    case <String, num>{}:
       return "match-2";
     default:
       return "no match";
@@ -114,10 +76,10 @@ String test1(Object o) {
 }
 
 String test2(Object o) {
-  if (o case <String, int>{"key1": 42}) {
+  if (o case <String, int>{}) {
     return "match-1";
   }
-  if (o case <String, num>{"key1": 42}) {
+  if (o case <String, num>{}) {
     return "match-2";
   }
   return "no match";
@@ -125,64 +87,63 @@ String test2(Object o) {
 
 String test3(Object o) {
   return switch (o) {
-    <String, int>{"key1": 42} => "match-1",
-    <String, num>{"key1": 42} => "match-2",
+    <String, int>{} => "match-1",
+    <String, num>{} => "match-2",
     _ => "no match"
   };
 }
 
 void test4(dynamic o) {
-  var <String, int>{"key1": v} = o;
+  var <String, int>{} = o;
 }
 
 main() {
-  Expect.equals("no match", test1(MyMap<String, dynamic>({"key1": 42.0})));
-  Expect.equals("", log);
-  Expect.equals("no match", test1(MyMap<String, dynamic>({"key1": 42})));
-  Expect.equals("", log);
-  Expect.equals("no match", test1(MyMap<String, String>({"key1": "42"})));
-  Expect.equals("", log);
-  Expect.equals("no match", test1(MyMap<String, int?>({"key1": 42})));
-  Expect.equals("", log);
-  Expect.equals("no match", test1(MyMap<String, num?>({"key1": 42})));
-  Expect.equals("", log);
+  final map1 = MyMap<String, dynamic>({});
+  final map2 = MyMap<String, String>({"key1": "42"});
+  final map3 = MyMap<String, int?>({"key1": 42});
+  final map4 = MyMap<String, num?>({"key1": 42});
 
-  Expect.equals("no match", test2(MyMap<String, dynamic>({"key1": 42.0})));
-  Expect.equals("", log);
-  Expect.equals("no match", test2(MyMap<String, dynamic>({"key1": 42})));
-  Expect.equals("", log);
-  Expect.equals("no match", test2(MyMap<String, String>({"key1": "42"})));
-  Expect.equals("", log);
-  Expect.equals("no match", test2(MyMap<String, int?>({"key1": 42})));
-  Expect.equals("", log);
-  Expect.equals("no match", test2(MyMap<String, num?>({"key1": 42})));
-  Expect.equals("", log);
+  Expect.equals("no match", test1(map1));
+  Expect.equals("", map1.log);
+  Expect.equals("no match", test1(map2));
+  Expect.equals("", map2.log);
+  Expect.equals("no match", test1(map3));
+  Expect.equals("", map3.log);
+  Expect.equals("no match", test1(map4));
+  Expect.equals("", map4.log);
 
-  Expect.equals("no match", test3(MyMap<String, dynamic>({"key1": 42.0})));
-  Expect.equals("", log);
-  Expect.equals("no match", test3(MyMap<String, dynamic>({"key1": 42})));
-  Expect.equals("", log);
-  Expect.equals("no match", test3(MyMap<String, String>({"key1": "42"})));
-  Expect.equals("", log);
-  Expect.equals("no match", test3(MyMap<String, int?>({"key1": 42})));
-  Expect.equals("", log);
-  Expect.equals("no match", test3(MyMap<String, num?>({"key1": 42})));
-  Expect.equals("", log);
+  Expect.equals("no match", test2(map1));
+  Expect.equals("", map1.log);
+  Expect.equals("no match", test2(map2));
+  Expect.equals("", map2.log);
+  Expect.equals("no match", test2(map3));
+  Expect.equals("", map3.log);
+  Expect.equals("no match", test2(map4));
+  Expect.equals("", map4.log);
+
+  Expect.equals("no match", test3(map1));
+  Expect.equals("", map1.log);
+  Expect.equals("no match", test3(map2));
+  Expect.equals("", map2.log);
+  Expect.equals("no match", test3(map3));
+  Expect.equals("", map3.log);
+  Expect.equals("no match", test3(map4));
+  Expect.equals("", map4.log);
 
   Expect.throws(() {
-    test4(MyMap<String, num>({"key1": 42}));
+    test4(map1);
   });
-  Expect.equals("", log);
+  Expect.equals("", map1.log);
   Expect.throws(() {
-    test4(MyMap<String, dynamic>({"key1": 42}));
+    test4(map2);
   });
-  Expect.equals("", log);
+  Expect.equals("", map2.log);
   Expect.throws(() {
-    test4(MyMap<String, int?>({"key1": 42}));
+    test4(map3);
   });
-  Expect.equals("", log);
+  Expect.equals("", map3.log);
   Expect.throws(() {
-    test4(MyMap({"key1": "42"}));
+    test4(map4);
   });
-  Expect.equals("", log);
+  Expect.equals("", map4.log);
 }

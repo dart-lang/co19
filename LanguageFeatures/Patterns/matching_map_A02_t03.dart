@@ -62,43 +62,8 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-import "dart:collection";
+import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
-
-String log = "";
-
-class MyMap<K, V> extends MapBase<K, V> {
-  Map<K, V> _inner;
-
-  MyMap(this._inner);
-
-  @override
-  operator [](Object? key) {
-    log += "[$key];";
-    return _inner[key];
-  }
-
-  @override
-  void operator []=(key, value) {
-    log += "[$key]=$value;";
-    _inner[key] = value;
-  }
-
-  @override
-  void clear() {
-    _inner.clear();
-  }
-
-  @override
-  Iterable<K> get keys {
-    return _inner.keys;
-  }
-
-  @override
-  remove(Object? key) {
-    return _inner.remove(key);
-  }
-}
 
 String test1(Object o) {
   switch (o) {
@@ -124,45 +89,40 @@ String test3(Object o) {
 }
 
 main() {
-  Expect.equals("no match", test1(MyMap<String, int>({"key1": 1})));
-  Expect.equals("", log);
-  Expect.equals("no match", test1(MyMap<String, int>({
+  final map1 = MyMap<String, int>({"key1": 1});
+  final map2 = MyMap<String, int>({
     "key1": 1,
     "key2": 2,
     "key3": 3
-  })));
-  Expect.equals("", log);
+  });
 
-  Expect.equals("no match", test2(MyMap<String, int>({"key1": 1})));
-  Expect.equals("", log);
-  Expect.equals("no match", test2(MyMap<String, int>({
-    "key1": 1,
-    "key2": 2,
-    "key3": 3
-  })));
-  Expect.equals("", log);
+  Expect.equals("no match", test1(map1));
+  Expect.equals("length;", map1.log);
+  Expect.equals("no match", test1(map2));
+  Expect.equals("length;", map2.log);
+  map1.clearLog();
+  map2.clearLog();
 
-  Expect.equals("no match", test3(MyMap<String, int>({"key1": 1})));
-  Expect.equals("", log);
-  Expect.equals("no match", test3(MyMap<String, int>({
-    "key1": 1,
-    "key2": 2,
-    "key3": 3
-  })));
-  Expect.equals("", log);
+  Expect.equals("no match", test2(map1));
+  Expect.equals("length;", map1.log);
+  Expect.equals("no match", test2(map2));
+  Expect.equals("length;", map2.log);
+  map1.clearLog();
+  map2.clearLog();
 
+  Expect.equals("no match", test3(map1));
+  Expect.equals("length;", map1.log);
+  Expect.equals("no match", test3(map2));
+  Expect.equals("length;", map2.log);
+  map1.clearLog();
+  map2.clearLog();
 
   Expect.throws(() {
-    var <String, int>{"key1": v1, "key2": v2} =
-        MyMap<String, int>({"key1": 1});
+    var <String, int>{"key1": v1, "key2": v2} = map1;
   });
-  Expect.equals("", log);
+  Expect.equals("length;", map1.log);
   Expect.throws(() {
-    final <String, int>{"key1": v1, "key2": v2} = MyMap<String, int>({
-      "key1": 1,
-      "key2": 2,
-      "key3": 3
-    });
+    final <String, int>{"key1": v1, "key2": v2} = map2;
   });
-  Expect.equals("", log);
+  Expect.equals("length;", map2.log);
 }

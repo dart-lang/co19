@@ -51,3 +51,56 @@ class MyList<T> extends ListBase<T> {
     log = "";
   }
 }
+
+class MyMap<K, V> extends MapBase<K, V> {
+  Map<K, V> _inner;
+  String log = "";
+
+  MyMap(this._inner);
+
+  @override
+  operator [](Object? key) {
+    log += "[$key];";
+    return _inner[key];
+  }
+
+  @override
+  void operator []=(key, value) {
+    log += "[$key]=$value;";
+    _inner[key] = value;
+  }
+
+  @override
+  void clear() {
+    log += "clear();";
+    _inner.clear();
+  }
+
+  @override
+  Iterable<K> get keys {
+    log += "keys;";
+    return _inner.keys;
+  }
+
+  @override
+  remove(Object? key) {
+    log += "remove($key);";
+    return _inner.remove(key);
+  }
+
+  @override
+  int get length {
+    log += "length;";
+    return _inner.length;
+  }
+
+  @override
+  bool containsKey(Object? key) {
+    log += "containsKey($key)";
+    return _inner.containsKey(key);
+  }
+
+  void clearLog() {
+    log = "";
+  }
+}

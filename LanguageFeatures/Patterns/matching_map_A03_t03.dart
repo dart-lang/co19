@@ -63,48 +63,8 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-import "dart:collection";
+import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
-
-String log = "";
-
-class MyMap<K, V> extends MapBase<K, V> {
-  Map<K, V> _inner;
-
-  MyMap(this._inner);
-
-  @override
-  operator [](Object? key) {
-    log += "[$key];";
-    return _inner[key];
-  }
-
-  @override
-  void operator []=(key, value) {
-    _inner[key] = value;
-  }
-
-  @override
-  void clear() {
-    _inner.clear();
-  }
-
-  @override
-  Iterable<K> get keys {
-    return _inner.keys;
-  }
-
-  @override
-  remove(Object? key) {
-    return _inner.remove(key);
-  }
-
-  @override
-  bool containsKey(Object? key) {
-    log += "containsKey($key);";
-    return _inner.containsKey(key);
-  }
-}
 
 String test1(Object o) {
   switch (o) {
@@ -130,25 +90,24 @@ String test3(Object o) {
 }
 
 main() {
-  Expect.equals("no match", test1(MyMap<String, int?>({"key1": null, "keyX": 42})));
-  Expect.equals("[key1];containsKey(key1);", log);
-  log = "";
-  Expect.equals("no match", test2(MyMap<String, int?>({"key1": null, "keyX": 42})));
-  Expect.equals("[key1];containsKey(key1);", log);
-  log = "";
+  final map = MyMap<String, int?>({"key1": null, "keyX": 42});
+  Expect.equals("no match", test1(map));
+  Expect.equals("length;[key1];containsKey(key1);", map.log);
+  map.clearLog();
+  Expect.equals("no match", test2(map));
+  Expect.equals("length;[key1];containsKey(key1);", map.log);
+  map.clearLog();
   Expect.equals("no match", test3(MyMap<String, int?>({"key1": null, "keyX": 42})));
-  Expect.equals("[key1];containsKey(key1);", log);
-  log = "";
+  Expect.equals("length;[key1];containsKey(key1);", map.log);
+  map.clearLog();
 
   Expect.throws(() {
-    var <String, int?>{"key1": v1, "key2": v2} =
-        MyMap<String, int?>({"key1": null, "keyX": 42});
+    var <String, int?>{"key1": v1, "key2": v2} = map;
   });
-  Expect.equals("[key1];containsKey(key1);", log);
-  log = "";
+  Expect.equals("length;[key1];containsKey(key1);", map.log);
+  map.clearLog();
   Expect.throws(() {
-    final <String, int?>{"key1": v1, "key2": v2} =
-        MyMap<String, int?>({"key1": null, "keyX": 42});
+    final <String, int?>{"key1": v1, "key2": v2} = map;
   });
-  Expect.equals("[key1];containsKey(key1);", log);
+  Expect.equals("length;[key1];containsKey(key1);", map.log);
 }

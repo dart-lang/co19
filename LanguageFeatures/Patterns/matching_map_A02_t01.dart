@@ -61,47 +61,8 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-import "dart:collection";
+import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
-
-String log = "";
-
-class MyMap<K, V> extends MapBase<K, V> {
-  Map<K, V> _inner;
-
-  MyMap(this._inner);
-
-  @override
-  operator [](Object? key) {
-    return _inner[key];
-  }
-
-  @override
-  void operator []=(key, value) {
-    _inner[key] = value;
-  }
-
-  @override
-  void clear() {
-    _inner.clear();
-  }
-
-  @override
-  Iterable<K> get keys {
-    return _inner.keys;
-  }
-
-  @override
-  remove(Object? key) {
-    return _inner.remove(key);
-  }
-
-  @override
-  int get length {
-    log = "lenght;";
-    return _inner.length;
-  }
-}
 
 String test1(Object o) {
   switch (o) {
@@ -127,15 +88,16 @@ String test3(Object o) {
 }
 
 main() {
-  Expect.equals("match", test1(MyMap<String, int>({"key1": 42})));
-  Expect.equals("", log);
+  final map = MyMap<String, int>({"key1": 42});
+  Expect.equals("match", test1(map));
+  Expect.equals("", map.log);
   Expect.equals("match", test2(MyMap<String, int>({"key1": 42})));
-  Expect.equals("", log);
+  Expect.equals("", map.log);
   Expect.equals("match", test3(MyMap<String, int>({"key1": 42})));
-  Expect.equals("", log);
+  Expect.equals("", map.log);
 
-  var <String, int>{...} = MyMap<String, int>({"key1": 42});
-  Expect.equals("", log);
-  final <String, int>{...} = MyMap<String, int>({"key1": 42});
-  Expect.equals("", log);
+  var <String, int>{...} = map;
+  Expect.equals("", map.log);
+  final <String, int>{...} = map;
+  Expect.equals("", map.log);
 }
