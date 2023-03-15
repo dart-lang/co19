@@ -57,40 +57,7 @@
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
-import "dart:collection";
-
-String log = "";
-
-class MyList<T> extends ListBase<T> {
-  List<T> _inner = [];
-  MyList(this._inner);
-
-  @override
-  int get length {
-    return _inner.length;
-  }
-
-  @override
-  void set length(int newLength) {
-    _inner.length = newLength;
-  }
-
-  @override
-  T operator [](int index) {
-    return _inner[index];
-  }
-
-  @override
-  void operator []=(int index, T value) {
-    _inner[index] = value;
-  }
-
-  @override
-  List<T> sublist(int start, [int? end]) {
-    log = "sublist($start, $end)";
-    return _inner.sublist(start, end);
-  }
-}
+import "patterns_collections_lib.dart";
 
 String test1(Object o) {
   switch (o) {
@@ -118,28 +85,27 @@ String test3(Object o) =>
 
 main() {
   MyList ml = MyList([1, 2, 3, 4]);
-  log = "";
   Expect.equals("match", test1(ml));
-  Expect.equals("sublist(2, null)", log);
-  log = "";
+  Expect.equals("length;[0];[1];sublist(2, null);", ml.log);
+  ml.clearLog();
 
   Expect.equals("match", test2(ml));
-  Expect.equals("sublist(2, null)", log);
-  log = "";
+  Expect.equals("length;[0];[1];sublist(2, null);", ml.log);
+  ml.clearLog();
 
   Expect.equals("match", test3(ml));
-  Expect.equals("sublist(2, null)", log);
-  log = "";
+  Expect.equals("length;[0];[1];sublist(2, null);", ml.log);
+  ml.clearLog();
 
   var [x1, x2, ...r1] = ml;
-  Expect.equals("sublist(2, null)", log);
+  Expect.equals("length;[0];[1];sublist(2, null);", ml.log);
   Expect.listEquals(r1, [3, 4]);
   Expect.equals(1, x1);
   Expect.equals(2, x2);
-  log = "";
+  ml.clearLog();
 
   final [y1, y2, ...r2] = ml;
-  Expect.equals("sublist(2, null)", log);
+  Expect.equals("length;[0];[1];sublist(2, null);", ml.log);
   Expect.listEquals(r2, [3, 4]);
   Expect.equals(1, y1);
   Expect.equals(2, y2);

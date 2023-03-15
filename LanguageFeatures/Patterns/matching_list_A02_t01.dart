@@ -57,35 +57,7 @@
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
-import "dart:collection";
-
-String log = "";
-
-class MyList<T> extends ListBase<T> {
-  List<T> _inner = [];
-  MyList(this._inner);
-
-  @override
-  int get length {
-    log = "Length called: ${_inner.length}";
-    return _inner.length;
-  }
-
-  @override
-  void set length(int newLength) {
-    _inner.length = newLength;
-  }
-
-  @override
-  T operator [](int index) {
-    return _inner[index];
-  }
-
-  @override
-  void operator []=(int index, T value) {
-    _inner[index] = value;
-  }
-}
+import "patterns_collections_lib.dart";
 
 String test1(Object o) {
   switch (o) {
@@ -111,16 +83,15 @@ String test3(Object o) =>
 
 main() {
   MyList ml = MyList([42]);
-  log = "";
   Expect.equals("match", test1(ml));
-  Expect.equals("", log);
+  Expect.equals("", ml.log);
   Expect.equals("match", test2(ml));
-  Expect.equals("", log);
+  Expect.equals("", ml.log);
   Expect.equals("match", test3(ml));
-  Expect.equals("", log);
+  Expect.equals("", ml.log);
 
   var [...r1] = ml;
-  Expect.equals("", log);
+  Expect.equals("", ml.log);
   final [...] = ml;
-  Expect.equals("", log);
+  Expect.equals("", ml.log);
 }

@@ -60,7 +60,7 @@ import "../../Utils/expect.dart";
 
 String test1(Object o) {
   switch (o) {
-    case [1, 2]:
+    case <int>[1, 2]:
       return "match";
     default:
       return "no match";
@@ -68,7 +68,7 @@ String test1(Object o) {
 }
 
 String test2(Object o) {
-  if (o case [1, 2]) {
+  if (o case <int>[1, 2]) {
     return "match";
   }
   return "no match";
@@ -76,22 +76,22 @@ String test2(Object o) {
 
 String test3(Object o) =>
    switch (o) {
-    [1, 2] => "match",
+    <int>[1, 2] => "match",
     _ => "no match"
   };
 
 main() {
-  Expect.equals("no match", test1([1]));
-  Expect.equals("no match", test1([1, 2, 3]));
-  Expect.equals("no match", test2([1]));
-  Expect.equals("no match", test2([1, 2, 3]));
-  Expect.equals("no match", test3([1]));
-  Expect.equals("no match", test3([1, 2, 3]));
+  Expect.equals("no match", test1(<int>[1]));
+  Expect.equals("no match", test1(<int>[1, 2, 3]));
+  Expect.equals("no match", test2(<int>[1]));
+  Expect.equals("no match", test2(<int>[1, 2, 3]));
+  Expect.equals("no match", test3(<int>[1]));
+  Expect.equals("no match", test3(<int>[1, 2, 3]));
 
   Expect.throws(() {
-    var [v1, v2] = [1];
+    var <int>[v1, v2] = <int>[1];
   });
   Expect.throws(() {
-    final [v1, v2] = [1, 2, 3];
+    final <int>[v1, v2] = <int>[1, 2, 3];
   });
 }

@@ -51,50 +51,13 @@
 /// viii. The match succeeds if all subpatterns match.
 ///
 /// @description Checks that if the runtime type of `v` is not a subtype of the
-/// required type of `p` then the match fails and no any member of `v` is called
+/// required type of `p` then the match fails and operator `[]` is never invoked
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "dart:collection";
+import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
-
-String log = "";
-
-class MyList<T> extends ListBase<T> {
-  List<T> _inner = [];
-  MyList(this._inner);
-
-  @override
-  int get length {
-    log += "length;";
-    return _inner.length;
-  }
-
-  @override
-  void set length(int newLength) {
-    log += "length=;";
-    _inner.length = newLength;
-  }
-
-  @override
-  T operator [](int index) {
-    log += "[$index];";
-    return _inner[index];
-  }
-
-  @override
-  void operator []=(int index, T value) {
-    log += "[$index]=$value;";
-    _inner[index] = value;
-  }
-
-  @override
-  List<T> sublist(int start, [int? end]) {
-    log += "sublist($start, $end)";
-    return _inner.sublist(start, end);
-  }
-}
 
 String test1(Object o) {
   switch (o) {
@@ -130,53 +93,52 @@ void test4(dynamic o) {
 }
 
 main() {
-  Expect.equals("no match", test1(MyList<dynamic>([42.0])));
-  Expect.equals("", log);
-  Expect.equals("no match", test1(MyList<dynamic>([42])));
-  Expect.equals("", log);
-  Expect.equals("no match", test1(MyList<String>(["42"])));
-  Expect.equals("", log);
-  Expect.equals("no match", test1(MyList<int?>([42])));
-  Expect.equals("", log);
-  Expect.equals("no match", test1(MyList<num?>([42])));
-  Expect.equals("", log);
+  var ml1 = MyList<dynamic>([42]);
+  var ml2 = MyList<String>(["42"]);
+  var ml3 = MyList<int?>([42]);
+  var ml4 = MyList<num?>([42]);
 
-  Expect.equals("no match", test2(MyList<dynamic>([42.0])));
-  Expect.equals("", log);
-  Expect.equals("no match", test2(MyList<dynamic>([42])));
-  Expect.equals("", log);
-  Expect.equals("no match", test2(MyList<String>(["42"])));
-  Expect.equals("", log);
-  Expect.equals("no match", test2(MyList<int?>([42])));
-  Expect.equals("", log);
-  Expect.equals("no match", test2(MyList<num?>([42])));
-  Expect.equals("", log);
+  Expect.equals("no match", test1(ml1));
+  Expect.equals("", ml1.log);
+  Expect.equals("no match", test1(ml2));
+  Expect.equals("", ml2.log);
+  Expect.equals("no match", test1(ml3));
+  Expect.equals("", ml3.log);
+  Expect.equals("no match", test1(ml4));
+  Expect.equals("", ml4.log);
 
-  Expect.equals("no match", test3(MyList<dynamic>([42.0])));
-  Expect.equals("", log);
-  Expect.equals("no match", test3(MyList<dynamic>([42])));
-  Expect.equals("", log);
-  Expect.equals("no match", test3(MyList<String>(["42"])));
-  Expect.equals("", log);
-  Expect.equals("no match", test3(MyList<int?>([42])));
-  Expect.equals("", log);
-  Expect.equals("no match", test3(MyList<num?>([42])));
-  Expect.equals("", log);
+  Expect.equals("no match", test2(ml1));
+  Expect.equals("", ml1.log);
+  Expect.equals("no match", test2(ml2));
+  Expect.equals("", ml2.log);
+  Expect.equals("no match", test2(ml3));
+  Expect.equals("", ml3.log);
+  Expect.equals("no match", test2(ml4));
+  Expect.equals("", ml4.log);
+
+  Expect.equals("no match", test3(ml1));
+  Expect.equals("", ml1.log);
+  Expect.equals("no match", test3(ml2));
+  Expect.equals("", ml2.log);
+  Expect.equals("no match", test3(ml3));
+  Expect.equals("", ml3.log);
+  Expect.equals("no match", test3(ml4));
+  Expect.equals("", ml4.log);
 
   Expect.throws(() {
-    test4(MyList<num>([42]));
+    test4(ml1);
   });
-  Expect.equals("", log);
+  Expect.equals("", ml1.log);
   Expect.throws(() {
-    test4(MyList<dynamic>([42]));
+    test4(ml2);
   });
-  Expect.equals("", log);
+  Expect.equals("", ml2.log);
   Expect.throws(() {
-    test4(MyList<int?>([42]));
+    test4(ml3);
   });
-  Expect.equals("", log);
+  Expect.equals("", ml3.log);
   Expect.throws(() {
-    test4(MyList(["42"]));
+    test4(ml4);
   });
-  Expect.equals("", log);
+  Expect.equals("", ml4.log);
 }

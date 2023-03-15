@@ -51,48 +51,14 @@
 /// viii. The match succeeds if all subpatterns match.
 ///
 /// @description Checks that if there is a matching rest element `r` and
-/// `t == 0` then `r` is the result of `v.sublist(h)`. Test the case when `p`
-/// contains only a rest element
+/// `t == 0` then `r` is the result of `v.sublist(h). Test that if `p` contains
+/// only a rest element then no `length` and operators `[]` invoked
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
-import "dart:collection";
-
-String log = "";
-
-class MyList<T> extends ListBase<T> {
-  List<T> _inner = [];
-  MyList(this._inner);
-
-  @override
-  int get length {
-    log += "length called: ${_inner.length};";
-    return _inner.length;
-  }
-
-  @override
-  void set length(int newLength) {
-    _inner.length = newLength;
-  }
-
-  @override
-  T operator [](int index) {
-    return _inner[index];
-  }
-
-  @override
-  void operator []=(int index, T value) {
-    _inner[index] = value;
-  }
-
-  @override
-  List<T> sublist(int start, [int? end]) {
-    log += "sublist($start, $end)";
-    return _inner.sublist(start, end);
-  }
-}
+import "patterns_collections_lib.dart";
 
 String test1(Object o) {
   switch (o) {
@@ -120,25 +86,24 @@ String test3(Object o) =>
 
 main() {
   MyList ml = MyList([1, 2]);
-  log = "";
   Expect.equals("match", test1(ml));
-  Expect.equals("sublist(0, null)", log);
-  log = "";
+  Expect.equals("sublist(0, null);", ml.log);
+  ml.clearLog();
 
   Expect.equals("match", test2(ml));
-  Expect.equals("sublist(0, null)", log);
-  log = "";
+  Expect.equals("sublist(0, null);", ml.log);
+  ml.clearLog();
   
   Expect.equals("match", test3(ml));
-  Expect.equals("sublist(0, null)", log);
-  log = "";
+  Expect.equals("sublist(0, null);", ml.log);
+  ml.clearLog();
 
   var [...r1] = ml;
-  Expect.equals("sublist(0, null)", log);
+  Expect.equals("sublist(0, null);", ml.log);
   Expect.listEquals(r1, [1, 2]);
-  log = "";
+  ml.clearLog();
 
   final [...r2] = ml;
-  Expect.equals("sublist(0, null)", log);
+  Expect.equals("sublist(0, null);", ml.log);
   Expect.listEquals(r2, [1, 2]);
 }

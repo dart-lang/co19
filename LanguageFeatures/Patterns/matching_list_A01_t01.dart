@@ -60,9 +60,9 @@ import "../../Utils/expect.dart";
 
 String test1(Object o) {
   switch (o) {
-    case <int>[42]:
+    case <int>[]:
       return "match-1";
-    case <num>[42]:
+    case <num>[]:
       return "match-2";
     default:
       return "no match";
@@ -70,10 +70,10 @@ String test1(Object o) {
 }
 
 String test2(Object o) {
-  if (o case <int>[42]) {
+  if (o case <int>[]) {
     return "match-1";
   }
-  if (o case <num>[42]) {
+  if (o case <num>[]) {
     return "match-2";
   }
   return "no match";
@@ -81,54 +81,51 @@ String test2(Object o) {
 
 String test3(Object o) {
   return switch (o) {
-    <int>[42] => "match-1",
-    <num>[42] => "match-2",
+    <int>[] => "match-1",
+    <num>[] => "match-2",
     _ => "no match"
   };
 }
 
 void test4(dynamic o) {
-  var <int>[v] = o;
+  var <int>[] = o;
 }
 
 main() {
-  Expect.equals("match-1", test1(<int>[42]));
-  Expect.equals("match-2", test1(<num>[42]));
-  Expect.equals("match-2", test1(<double>[42.0]));
-  Expect.equals("no match", test1(<dynamic>[42.0]));
-  Expect.equals("no match", test1(<dynamic>[42]));
-  Expect.equals("no match", test1(["42"]));
-  Expect.equals("no match", test1(<int?>[42]));
-  Expect.equals("no match", test1(<num?>[42]));
+  Expect.equals("match-1", test1(<int>[]));
+  Expect.equals("match-2", test1(<num>[]));
+  Expect.equals("match-2", test1(<double>[]));
+  Expect.equals("no match", test1(<dynamic>[]));
+  Expect.equals("no match", test1(<String>[]));
+  Expect.equals("no match", test1(<int?>[]));
+  Expect.equals("no match", test1(<num?>[]));
 
-  Expect.equals("match-1", test2(<int>[42]));
-  Expect.equals("match-2", test2(<num>[42]));
-  Expect.equals("match-2", test2(<double>[42.0]));
-  Expect.equals("no match", test2(<dynamic>[42.0]));
-  Expect.equals("no match", test2(<dynamic>[42]));
-  Expect.equals("no match", test2(["42"]));
-  Expect.equals("no match", test2(<int?>[42]));
-  Expect.equals("no match", test2(<num?>[42]));
+  Expect.equals("match-1", test2(<int>[]));
+  Expect.equals("match-2", test2(<num>[]));
+  Expect.equals("match-2", test2(<double>[]));
+  Expect.equals("no match", test2(<dynamic>[]));
+  Expect.equals("no match", test2(<String>[]));
+  Expect.equals("no match", test2(<int?>[]));
+  Expect.equals("no match", test2(<num?>[]));
 
-  Expect.equals("match-1", test3(<int>[42]));
-  Expect.equals("match-2", test3(<num>[42]));
-  Expect.equals("match-2", test3(<double>[42.0]));
-  Expect.equals("no match", test3(<dynamic>[42.0]));
-  Expect.equals("no match", test3(<dynamic>[42]));
-  Expect.equals("no match", test3(["42"]));
-  Expect.equals("no match", test3(<int?>[42]));
-  Expect.equals("no match", test3(<num?>[42]));
+  Expect.equals("match-1", test3(<int>[]));
+  Expect.equals("match-2", test3(<num>[]));
+  Expect.equals("match-2", test3(<double>[]));
+  Expect.equals("no match", test3(<dynamic>[]));
+  Expect.equals("no match", test3(<String>[]));
+  Expect.equals("no match", test3(<int?>[]));
+  Expect.equals("no match", test3(<num?>[]));
 
   Expect.throws(() {
-    test4(<num>[42]);
+    test4(<num>[]);
   });
   Expect.throws(() {
-    test4(<dynamic>[42]);
+    test4(<dynamic>[]);
   });
   Expect.throws(() {
-    test4(<int?>[42]);
+    test4(<int?>[]);
   });
   Expect.throws(() {
-    test4(["42"]);
+    test4(<String>[]);
   });
 }

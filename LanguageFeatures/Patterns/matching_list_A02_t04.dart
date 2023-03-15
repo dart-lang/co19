@@ -59,7 +59,7 @@ import "../../Utils/expect.dart";
 
 String test1(Object o) {
   switch (o) {
-    case []:
+    case <int?>[]:
       return "match";
     default:
       return "no match";
@@ -67,7 +67,7 @@ String test1(Object o) {
 }
 
 String test2(Object o) {
-  if (o case []) {
+  if (o case <int?>[]) {
     return "match";
   }
   return "no match";
@@ -75,22 +75,22 @@ String test2(Object o) {
 
 String test3(Object o) =>
    switch (o) {
-    [] => "match",
+    <int?>[] => "match",
     _ => "no match"
   };
 
 main() {
-  Expect.equals("no match", test1([1]));
-  Expect.equals("no match", test1([null]));
-  Expect.equals("no match", test2([1]));
-  Expect.equals("no match", test2([null]));
-  Expect.equals("no match", test3([1]));
-  Expect.equals("no match", test3([null]));
+  Expect.equals("no match", test1(<int?>[1]));
+  Expect.equals("no match", test1(<int?>[null]));
+  Expect.equals("no match", test2(<int?>[1]));
+  Expect.equals("no match", test2(<int?>[null]));
+  Expect.equals("no match", test3(<int?>[1]));
+  Expect.equals("no match", test3(<int?>[null]));
 
   Expect.throws(() {
-    var [] = [1];
+    var <int>[] = <int>[1];
     });
   Expect.throws(() {
-    final [] = [null];
+    final <Object?>[] = <Object?>[null];
   });
 }

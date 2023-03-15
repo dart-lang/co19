@@ -57,40 +57,7 @@
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
-import "dart:collection";
-
-String log = "";
-
-class MyList<T> extends ListBase<T> {
-  List<T> _inner = [];
-  MyList(this._inner);
-
-  @override
-  int get length {
-    return _inner.length;
-  }
-
-  @override
-  void set length(int newLength) {
-    _inner.length = newLength;
-  }
-
-  @override
-  T operator [](int index) {
-    return _inner[index];
-  }
-
-  @override
-  void operator []=(int index, T value) {
-    _inner[index] = value;
-  }
-
-  @override
-  List<T> sublist(int start, [int? end]) {
-    log = "sublist($start, $end)";
-    return _inner.sublist(start, end);
-  }
-}
+import "patterns_collections_lib.dart";
 
 String test1(Object o) {
   switch (o) {
@@ -117,28 +84,25 @@ String test3(Object o) =>
   };
 
 main() {
-  MyList ml = MyList([1, 2, 3, 4, 5]);
-  log = "";
-  Expect.equals("match", test1(ml));
-  Expect.equals("sublist(2, 4)", log);
-  log = "";
+  MyList ml1 = MyList([1, 2, 3, 4, 5]);
+  Expect.equals("match", test1(ml1));
+  Expect.equals("length;[0];[1];sublist(2, 4);[4];", ml1.log);
 
-  ml = MyList([1, 2, 3]);
-  Expect.equals("match", test2(ml));
-  Expect.equals("sublist(1, 2)", log);
-  log = "";
+  MyList ml2 = MyList([1, 2, 3]);
+  Expect.equals("match", test2(ml2));
+  Expect.equals("length;[0];sublist(1, 2);[2];", ml2.log);
 
-  ml = MyList([1, 2, 3, 4]);
-  Expect.equals("match", test3(ml));
-  Expect.equals("sublist(0, 2)", log);
-  log = "";
+  MyList ml3 = MyList([1, 2, 3, 4]);
+  Expect.equals("match", test3(ml3));
+  Expect.equals("length;sublist(0, 2);[2];[3];", ml3.log);
+  ml3.clearLog();
 
-  var [x1, x2, ...r1, x4] = ml;
-  Expect.equals("sublist(2, 3)", log);
+  var [x1, x2, ...r1, x4] = ml3;
+  Expect.equals("length;[0];[1];sublist(2, 3);[3];", ml3.log);
   Expect.listEquals(r1, [3]);
-  log = "";
+  ml3.clearLog();
 
-  final [... r2, y3, y4] = ml;
-  Expect.equals("sublist(0, 2)", log);
+  final [... r2, y3, y4] = ml3;
+  Expect.equals("length;sublist(0, 2);[2];[3];", ml3.log);
   Expect.listEquals(r2, [1, 2]);
 }
