@@ -44,7 +44,7 @@ main() {
 
   Shape shape1 = Square(1, logger);
   if (shape1 case Square(area: var s) || Shape(area: var s)) {
-    Expect.equals("Square.area", log);
+    Expect.equals("Square.area:", log);
   } else {
     Expect.fail("Expression should match");
   }
@@ -53,7 +53,7 @@ main() {
   Shape shape2 = Square(2, logger);
   if (shape2 case Square(area: two) || Square(area: four)
       || Square(size: two)) {
-    Expect.equals("Square.area:(2==4);:(4==4);", log);
+    Expect.equals("Square.area:(2==4);(4==4);", log);
   } else {
     Expect.fail("Expression should match");
   }

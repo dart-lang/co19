@@ -79,5 +79,5 @@ main() {
   Expect.equals("Square.area:(1==1);Square.size:(1==1);", log);
   log = "";
   test4(square);
-  Expect.equals("Square.areaSquare.size", log);
+  Expect.equals("Square.area:Square.size:", log);
 }

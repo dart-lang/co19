@@ -76,14 +76,14 @@ void test4(dynamic o) {
 main() {
   Square square = Square(1, logger);
   Expect.equals("match", test1(square));
-  Expect.equals("Square.area:(1==1);Square.size", log);
+  Expect.equals("Square.area:(1==1);Square.size:", log);
   log = "";
   Expect.equals("match", test2(square));
-  Expect.equals("Square.sizeSquare.area:(1==1);", log);
+  Expect.equals("Square.size:Square.area:(1==1);", log);
   log = "";
   Expect.equals("match", test3(square));
-  Expect.equals("Square.area:(1==1);Square.size", log);
+  Expect.equals("Square.area:(1==1);Square.size:", log);
   log = "";
   test4(square);
-  Expect.equals("Square.areaSquare.size", log);
+  Expect.equals("Square.area:Square.size:", log);
 }

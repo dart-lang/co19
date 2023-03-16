@@ -82,5 +82,5 @@ main() {
   Expect.throws(() {
     test4(square);
   });
-  Expect.equals("Square.area", log);
+  Expect.equals("Square.area:", log);
 }

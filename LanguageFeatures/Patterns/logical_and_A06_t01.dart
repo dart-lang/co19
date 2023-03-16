@@ -55,7 +55,7 @@ main() {
       break;
     default:
   }
-  Expect.equals("Square.area:(1==1);:(2==1);", log);
+  Expect.equals("Square.area:(1==1);(2==1);", log);
   clearLog();
 
   Shape shape3 = Square(1, logger);
@@ -66,5 +66,5 @@ main() {
       break;
     default:
   }
-  Expect.equals("Square.area:(1==1);Square.size:(1==1);:(2==1);", log);
+  Expect.equals("Square.area:(1==1);Square.size:(1==1);(2==1);", log);
 }

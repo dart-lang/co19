@@ -33,11 +33,11 @@ import "../../Utils/expect.dart";
 
 String test1(Object o) {
   switch (o) {
-    case (1, 2):
+    case (_, int _):
       return "match-1";
-    case (3.14, name: String v1):
+    case (_, name: String _):
       return "match-2";
-    case (value: 42, name: String v1):
+    case (value: int _, name: String _):
       return "match-3";
     default:
       return "no match";
@@ -45,13 +45,13 @@ String test1(Object o) {
 }
 
 String test2(Object o) {
-  if (o case (1, 2)) {
+  if (o case (_, int _)) {
     return "match-1";
   }
-  if (o case (3.14, name: String v1)) {
+  if (o case (_, name: String _)) {
     return "match-2";
   }
-  if (o case (value: 42, name: String v1)) {
+  if (o case (value: int _, name: String _)) {
     return "match-3";
   }
   return "no match";
@@ -59,16 +59,16 @@ String test2(Object o) {
 
 String test3(Object o) {
   return switch (o) {
-      (1, 2) => "match-1",
-      (3.14, name: String v1) => "match-2",
-      (value: 42, name: String v1) => "match-3",
-      _ => "no match"
-    };
+    (_, int _) => "match-1",
+    (_, name: String _) => "match-2",
+    (value: int _, name: String _) => "match-3",
+    _ => "no match"
+  };
 }
 
 void test4(dynamic o) {
   var (int v1, num _) = o;
-}
+  }
 
 main() {
   Expect.equals("no match", test1(()));
@@ -83,7 +83,7 @@ main() {
   Expect.equals("match-2", test1((3.14, name: "pi") as (num, {Object name})));
   Expect.equals("match-3", test1((value: 42, name: "answer")));
   Expect.equals("match-3",
-      test1((value: 42, name: "answer") as ({int value, Object name})));
+  test1((value: 42, name: "answer") as ({int value, Object name})));
 
   Expect.equals("no match", test2(()));
   Expect.equals("no match", test2((1,)));
@@ -97,7 +97,7 @@ main() {
   Expect.equals("match-2", test2((3.14, name: "pi") as (num, {Object name})));
   Expect.equals("match-3", test2((value: 42, name: "answer")));
   Expect.equals("match-3",
-      test2((value: 42, name: "answer") as ({int value, Object name})));
+  test2((value: 42, name: "answer") as ({int value, Object name})));
 
   Expect.equals("no match", test3(()));
   Expect.equals("no match", test3((1,)));
@@ -111,7 +111,7 @@ main() {
   Expect.equals("match-2", test3((3.14, name: "pi") as (num, {Object name})));
   Expect.equals("match-3", test3((value: 42, name: "answer")));
   Expect.equals("match-3",
-      test3((value: 42, name: "answer") as ({int value, Object name})));
+  test3((value: 42, name: "answer") as ({int value, Object name})));
 
   Expect.throws(() {
     test4(());
