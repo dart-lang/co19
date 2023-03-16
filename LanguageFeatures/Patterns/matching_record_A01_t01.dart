@@ -68,7 +68,7 @@ String test3(Object o) {
 
 void test4(dynamic o) {
   var (int v1, num _) = o;
-  }
+}
 
 main() {
   Expect.equals("no match", test1(()));
@@ -83,7 +83,7 @@ main() {
   Expect.equals("match-2", test1((3.14, name: "pi") as (num, {Object name})));
   Expect.equals("match-3", test1((value: 42, name: "answer")));
   Expect.equals("match-3",
-  test1((value: 42, name: "answer") as ({int value, Object name})));
+      test1((value: 42, name: "answer") as ({int value, Object name})));
 
   Expect.equals("no match", test2(()));
   Expect.equals("no match", test2((1,)));
@@ -97,7 +97,7 @@ main() {
   Expect.equals("match-2", test2((3.14, name: "pi") as (num, {Object name})));
   Expect.equals("match-3", test2((value: 42, name: "answer")));
   Expect.equals("match-3",
-  test2((value: 42, name: "answer") as ({int value, Object name})));
+      test2((value: 42, name: "answer") as ({int value, Object name})));
 
   Expect.equals("no match", test3(()));
   Expect.equals("no match", test3((1,)));
@@ -111,7 +111,7 @@ main() {
   Expect.equals("match-2", test3((3.14, name: "pi") as (num, {Object name})));
   Expect.equals("match-3", test3((value: 42, name: "answer")));
   Expect.equals("match-3",
-  test3((value: 42, name: "answer") as ({int value, Object name})));
+      test3((value: 42, name: "answer") as ({int value, Object name})));
 
   Expect.throws(() {
     test4(());
