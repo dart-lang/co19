@@ -9,13 +9,15 @@
 /// matching.
 ///
 /// @description Check that the calculation of the static type of an identifier
-/// pattern performs casts from dynamic
+/// pattern performs casts from dynamic and generic function instantiation
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
+
+T foo<T>(T t) => t;
 
 main() {
   dynamic pi = 3.14;
@@ -28,4 +30,8 @@ main() {
     dynamic e = 2.71;
     (v2) = e;
   });
+
+  final int Function(int) v3;
+  (v3) = foo;
+  v3.expectStaticType<Exactly<int Function(int)>>();
 }
