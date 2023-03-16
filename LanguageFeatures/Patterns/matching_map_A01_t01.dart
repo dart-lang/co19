@@ -66,9 +66,9 @@ import "../../Utils/expect.dart";
 
 String test1(Object o) {
   switch (o) {
-    case <String, int>{}:
+    case <String, int>{...}:
       return "match-1";
-    case <String, num>{}:
+    case <String, num>{"key1": _}:
       return "match-2";
     default:
       return "no match";
@@ -76,10 +76,10 @@ String test1(Object o) {
 }
 
 String test2(Object o) {
-  if (o case <String, int>{}) {
+  if (o case <String, int>{...}) {
     return "match-1";
   }
-  if (o case <String, num>{}) {
+  if (o case <String, num>{"key1": _}) {
     return "match-2";
   }
   return "no match";
@@ -87,14 +87,14 @@ String test2(Object o) {
 
 String test3(Object o) {
   return switch (o) {
-    <String, int>{} => "match-1",
-    <String, num>{} => "match-2",
+    <String, int>{...} => "match-1",
+    <String, num>{"key1": _} => "match-2",
     _ => "no match"
   };
 }
 
 void test4(dynamic o) {
-  var <String, int>{} = o;
+  var <String, int>{"key1": _} = o;
 }
 
 main() {

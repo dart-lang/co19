@@ -57,7 +57,8 @@
 ///
 /// @description Checks that for each non-rest entry in `p`, in source order, if
 /// `v[k] != null || (null is V) && v.containsKey(k)` evaluates to `false` then
-/// the map does not match.
+/// the map does not match. Test that in case of non-nullable `V` if
+/// `v[k] == null` `containsKey(k)` is not called
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -91,22 +92,22 @@ String test3(Object o) {
 main() {
   final map = MyMap<String, int>({"key1": 1, "keyX": 42});
   Expect.equals("no match", test1(map));
-  Expect.equals("length;[key1];[key2];containsKey(key2);", map.log);
+  Expect.equals("length;[key1];[key2];", map.log);
   map.clearLog();
   Expect.equals("no match", test2(MyMap<String, int>({"key1": 1, "keyX": 42})));
-  Expect.equals("length;[key1];[key2];containsKey(key2);", map.log);
+  Expect.equals("length;[key1];[key2];", map.log);
   map.clearLog();
   Expect.equals("no match", test3(MyMap<String, int>({"key1": 1, "keyX": 42})));
-  Expect.equals("length;[key1];[key2];containsKey(key2);", map.log);
+  Expect.equals("length;[key1];[key2];", map.log);
   map.clearLog();
 
   Expect.throws(() {
     var <String, int>{"key1": v1, "key2": v2} = map;
   });
-  Expect.equals("length;[key1];[key2];containsKey(key2);", map.log);
+  Expect.equals("length;[key1];[key2];", map.log);
   map.clearLog();
   Expect.throws(() {
     final <String, int>{"key1": v1, "key2": v2} = map;
   });
-  Expect.equals("length;[key1];[key2];containsKey(key2);", map.log);
+  Expect.equals("length;[key1];[key2];", map.log);
 }
