@@ -81,6 +81,7 @@ main() {
     Expect.equals(5, a6);
     Expect.equals(6, b6);
     Expect.listEquals([7, 8], c6);
+    visited = true;
   }
   Expect.isTrue(visited);
 }
