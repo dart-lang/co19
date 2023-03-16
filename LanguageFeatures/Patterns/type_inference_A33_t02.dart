@@ -13,45 +13,35 @@
 ///   or argument.
 ///
 /// @description Check that if `M` is not a subtype of `T` then generic function
-/// instantiation is performed
+/// instantiation is not performed and compile-time error occurs
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
-
-import "../../Utils/expect.dart";
 
 T foo<T>(T t) => t;
 
 main() {
   var list = [foo];
   var <T Function<T>(T)>[int Function(int) f1] = list;
-  Expect.equals(42, f1(42));
-  Expect.throws(() {
-    f1("1" as dynamic);
-  });
-
+//                                         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   var <T Function<T>(T)>[int Function(int) fInt &&
+//                                         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
       String Function(String) fString] = list;
-  Expect.equals(42, fInt(42));
-  Expect.throws(() {
-    fInt("1" as dynamic);
-  });
-  Expect.equals("42", fString("42"));
-  Expect.throws(() {
-    fString(1 as dynamic);
-  });
-
+//                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   final map = {"key1": foo};
   final <String, T Function<T>(T)>{"key1": int Function(int) f2} = map;
-  Expect.equals(42, f2(42));
-  Expect.throws(() {
-    f2("1" as dynamic);
-  });
-
+//                                                           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   var record = (x: foo);
   var (x: int Function(int) f3) = record;
-  Expect.equals(42, f3(42));
-  Expect.throws(() {
-    f3("1" as dynamic);
-  });
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

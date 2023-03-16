@@ -9,15 +9,13 @@
 /// matching
 ///
 /// @description Check that the calculation of the static type of a record
-/// pattern performs casts from dynamic and generic function instantiation
+/// pattern performs casts from dynamic
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
-
-T foo<T>(T t) => t;
 
 main() {
   dynamic pi = 3.14;
@@ -33,8 +31,4 @@ main() {
   Expect.throws(() {
     final (n: int v4) = (n: pi);
   });
-
-  var (int Function(int) v5, n: int Function(int) v6) = (foo, n: foo);
-  v5.expectStaticType<Exactly<int Function(int)>>();
-  v6.expectStaticType<Exactly<int Function(int)>>();
 }
