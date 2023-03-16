@@ -36,7 +36,7 @@ void logger(String s) {
 
 main() {
   var Square(area: _) = Square(2, logger);
-  Expect.equals("Square.area", log);
+  Expect.equals("Square.area:", log);
 
   var Square(areaAsInt: int _) = Square(1);
 

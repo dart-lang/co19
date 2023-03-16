@@ -72,19 +72,19 @@ class Unit<T extends MetricUnits> {
     final _log = _logger;
     if (other is Unit) {
       if (_log != null) {
-        _log(":($this==$other);");
+        _log("($this==$other);");
       }
       return this.value == other.value;
     }
     if (other is int) {
       if (_log != null) {
-        _log(":($this==$other);");
+        _log("($this==$other);");
       }
       return this.value == other;
     }
     if (other is double) {
       if (_log != null) {
-        _log(":($this==${other.toStringAsFixed(2)});");
+        _log("($this==${other.toStringAsFixed(2)});");
       }
       return this.value == other;
     }
@@ -110,12 +110,12 @@ class Shape<T extends MetricUnits> {
   }
 
   Unit<T> get area {
-    _log("Shape.area");
+    _log("Shape.area:");
     return Unit(0, logFunction);
   }
 
   Unit<T> get size {
-    _log("Shape.size");
+    _log("Shape.size:");
     return Unit(0, logFunction);
   }
 
@@ -142,13 +142,13 @@ class Square<T extends MetricUnits> extends Shape<T> {
 
   @override
   Unit<T> get area {
-    _log("Square.area");
+    _log("Square.area:");
     return Unit(length * length, logFunction);
   }
 
   @override
   Unit<T> get size {
-    _log("Square.size");
+    _log("Square.size:");
     return Unit(length, logFunction);
   }
 
@@ -166,13 +166,13 @@ class Circle<T extends MetricUnits> extends Shape<T> {
 
   @override
   Unit<T> get area {
-    _log("Circle.area");
+    _log("Circle.area:");
     return Unit(3.14 * radius * radius, logFunction);
   }
 
   @override
   Unit<T> get size {
-    _log("Circle.size");
+    _log("Circle.size:");
     return Unit(radius, logFunction);
   }
 
@@ -190,13 +190,13 @@ class Rectangle<T extends MetricUnits> extends Shape<T> {
 
   @override
   Unit<T> get area {
-    _log("Rectangle.area");
+    _log("Rectangle.area:");
     return Unit(x * y, logFunction);
   }
 
   @override
   Unit<T> get size {
-    _log("Rectangle.size");
+    _log("Rectangle.size:");
     return Unit(x, logFunction);
   }
 

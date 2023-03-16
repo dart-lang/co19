@@ -67,21 +67,21 @@ main() {
   Expect.equals("match", test1(Square(1, logger)));
   Expect.equals("Square.area:(1==1);", log);
   Expect.equals("match", test1(Square(2, logger)));
-  Expect.equals("Square.area:(1==4);:(4==4);", log);
+  Expect.equals("Square.area:(1==4);(4==4);", log);
   Expect.equals("no match", test1(Square(3, logger)));
-  Expect.equals("Square.area:(1==9);:(4==9);", log);
+  Expect.equals("Square.area:(1==9);(4==9);", log);
 
   Expect.equals("match", test2(Square(1, logger)));
   Expect.equals("Square.area:(1==1);", log);
   Expect.equals("match", test2(Square(2, logger)));
-  Expect.equals("Square.area:(1==4);:(4==4);", log);
+  Expect.equals("Square.area:(1==4);(4==4);", log);
   Expect.equals("no match", test2(Square(3, logger)));
-  Expect.equals("Square.area:(1==9);:(4==9);", log);
+  Expect.equals("Square.area:(1==9);(4==9);", log);
 
   Expect.equals("match", test3(Square(1, logger)));
   Expect.equals("Square.area:(1==1);", log);
   Expect.equals("match", test3(Square(2, logger)));
-  Expect.equals("Square.area:(1==4);:(4==4);", log);
+  Expect.equals("Square.area:(1==4);(4==4);", log);
   Expect.equals("no match", test3(Square(3, logger)));
-  Expect.equals("Square.area:(1==9);:(4==9);", log);
+  Expect.equals("Square.area:(1==9);(4==9);", log);
 }

@@ -48,7 +48,7 @@ main() {
     Square(area: two) || Square(area: one) => log,
     _ => "Other"
   };
-  Expect.equals("Square.area:(2==1);:(1==1);", s1);
+  Expect.equals("Square.area:(2==1);(1==1);", s1);
   clearLog();
 
   Shape shape2 = Shape(logger);
@@ -65,7 +65,7 @@ main() {
       || Circle(area: pi) => log,
     _ => "Other"
   };
-  Expect.equals("Circle.area:(2==3.14);:(1==3.14);:(0==3.14);:(3.14==3.14);",
+  Expect.equals("Circle.area:(2==3.14);(1==3.14);(0==3.14);(3.14==3.14);",
     s3);
   clearLog();
 
@@ -75,5 +75,5 @@ main() {
       => "Wrong!",
     _ => log
   };
-  Expect.equals("Rectangle.area:(3==2);:(1==2);:(3.14==2);", s4);
+  Expect.equals("Rectangle.area:(3==2);(1==2);(3.14==2);", s4);
 }

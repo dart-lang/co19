@@ -37,5 +37,5 @@ main() {
   var (Circle(size: v1) && Circle(area: v2)) = Circle(1, logger);
   Expect.equals(Unit(1), v1);
   Expect.equals(Unit(3.14), v2);
-  Expect.equals("Circle.sizeCircle.area", log);
+  Expect.equals("Circle.size:Circle.area:", log);
 }

@@ -45,7 +45,7 @@ main() {
 
   Shape shape1 = Square(1, logger);
   if (shape1 case Square(area: two) || Square(area: one)) {
-    Expect.equals("Square.area:(2==1);:(1==1);", log);
+    Expect.equals("Square.area:(2==1);(1==1);", log);
   } else {
     Expect.fail("Expression should match");
   }
@@ -63,7 +63,7 @@ main() {
   Shape shape3 = Circle(1, logger);
   if (shape3 case Circle(area: two) || Circle(area: one) || Circle(area: zero)
       || Circle(area: pi)) {
-    Expect.equals("Circle.area:(2==3.14);:(1==3.14);:(0==3.14);:(3.14==3.14);",
+    Expect.equals("Circle.area:(2==3.14);(1==3.14);(0==3.14);(3.14==3.14);",
       log);
   } else {
     Expect.fail("Expression should match");
@@ -75,6 +75,6 @@ main() {
       || Rectangle(area: pi)) {
     Expect.fail("No branches should match");
   } else {
-    Expect.equals("Rectangle.area:(3==2);:(1==2);:(3.14==2);", log);
+    Expect.equals("Rectangle.area:(3==2);(1==2);(3.14==2);", log);
   }
 }
