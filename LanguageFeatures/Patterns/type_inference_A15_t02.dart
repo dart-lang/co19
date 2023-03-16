@@ -17,8 +17,6 @@
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
-T foo<T>(T t) => t;
-
 main() {
   dynamic pi = 3.14;
   final (v1 as num) = pi;
