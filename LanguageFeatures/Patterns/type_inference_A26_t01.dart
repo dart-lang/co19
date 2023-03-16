@@ -35,7 +35,7 @@ main() {
   b as int;
   b.isEven;
   (b,) = (3.14,);
-  a.expectStaticType<Exactly<num>>();
+  b.expectStaticType<Exactly<num>>();
 
   var c = 2 > 1 ? 42 : 3.14;
   c.expectStaticType<Exactly<num>>();
