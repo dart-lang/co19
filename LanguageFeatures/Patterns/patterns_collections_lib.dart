@@ -96,7 +96,7 @@ class MyMap<K, V> extends MapBase<K, V> {
 
   @override
   bool containsKey(Object? key) {
-    log += "containsKey($key)";
+    log += "containsKey($key);";
     return _inner.containsKey(key);
   }
 

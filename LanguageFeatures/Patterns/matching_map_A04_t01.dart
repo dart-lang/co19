@@ -91,10 +91,10 @@ main() {
   Expect.equals("match", test1(map));
   Expect.equals("length;[key1];[key2];", map.log);
   map.clearLog();
-  Expect.equals("match", test2(MyMap<String, int>({"key1": 1, "key2": 2})));
+  Expect.equals("match", test2(map));
   Expect.equals("length;[key1];[key2];", map.log);
   map.clearLog();
-  Expect.equals("match", test3(MyMap<String, int>({"key1": 1, "key2": 2})));
+  Expect.equals("match", test3(map));
   Expect.equals("length;[key1];[key2];", map.log);
   map.clearLog();
 

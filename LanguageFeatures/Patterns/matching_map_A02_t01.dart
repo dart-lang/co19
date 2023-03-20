@@ -91,9 +91,9 @@ main() {
   final map = MyMap<String, int>({"key1": 42});
   Expect.equals("match", test1(map));
   Expect.equals("", map.log);
-  Expect.equals("match", test2(MyMap<String, int>({"key1": 42})));
+  Expect.equals("match", test2(map));
   Expect.equals("", map.log);
-  Expect.equals("match", test3(MyMap<String, int>({"key1": 42})));
+  Expect.equals("match", test3(map));
   Expect.equals("", map.log);
 
   var <String, int>{...} = map;

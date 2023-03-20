@@ -97,7 +97,7 @@ main() {
   Expect.equals("no match", test2(map));
   Expect.equals("length;[key1];containsKey(key1);", map.log);
   map.clearLog();
-  Expect.equals("no match", test3(MyMap<String, int?>({"key1": null, "keyX": 42})));
+  Expect.equals("no match", test3(map));
   Expect.equals("length;[key1];containsKey(key1);", map.log);
   map.clearLog();
 

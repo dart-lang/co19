@@ -55,10 +55,7 @@
 ///     match, the map does not match.
 /// v. The match succeeds if all entry subpatterns match.
 ///
-/// @description Checks that for each non-rest entry in `p`, in source order, if
-/// `v[k] != null || (null is V) && v.containsKey(k)` evaluates to `false` then
-/// the map does not match. Test that in case of non-nullable `V` if
-/// `v[k] == null` `containsKey(k)` is not called
+/// @description Checks that match succeeds if all entry subpatterns match.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -68,7 +65,7 @@ import "../../Utils/expect.dart";
 
 String test1(Object o) {
   switch (o) {
-    case <String, int>{"key1": 1, "key2": 2}:
+    case <String, int?>{"key1": null,...}:
       return "match";
     default:
       return "no match";
@@ -76,7 +73,7 @@ String test1(Object o) {
 }
 
 String test2(Object o) {
-  if (o case <String, int>{"key1": 1, "key2": 2}) {
+  if (o case <String, int?>{"key1": null,...}) {
     return "match";
   }
   return "no match";
@@ -84,30 +81,25 @@ String test2(Object o) {
 
 String test3(Object o) {
   return switch (o) {
-    <String, int>{"key1": 1, "key2": 2} => "match",
+    <String, int?>{"key1": null,...} => "match",
     _ => "no match"
   };
 }
 
 main() {
-  final map = MyMap<String, int>({"key1": 1, "keyX": 42});
-  Expect.equals("no match", test1(map));
-  Expect.equals("length;[key1];[key2];", map.log);
+  final map = MyMap<String, int?>({"key1": null, "key2": 42});
+  Expect.equals("match", test1(map));
+  Expect.equals("length;[key1];containsKey(key1);", map.log);
   map.clearLog();
-  Expect.equals("no match", test2(map));
-  Expect.equals("length;[key1];[key2];", map.log);
+  Expect.equals("match", test2(map));
+  Expect.equals("length;[key1];containsKey(key1);", map.log);
   map.clearLog();
-  Expect.equals("no match", test3(map));
-  Expect.equals("length;[key1];[key2];", map.log);
+  Expect.equals("match", test3(map));
+  Expect.equals("length;[key1];containsKey(key1);", map.log);
   map.clearLog();
 
-  Expect.throws(() {
-    var <String, int>{"key1": v1, "key2": v2} = map;
-  });
-  Expect.equals("length;[key1];[key2];", map.log);
-  map.clearLog();
-  Expect.throws(() {
-    final <String, int>{"key1": v1, "key2": v2} = map;
-  });
-  Expect.equals("length;[key1];[key2];", map.log);
+  var <String, int?>{...} = map;
+  Expect.equals("", map.log);
+  final <String, int?>{...} = map;
+  Expect.equals("", map.log);
 }
