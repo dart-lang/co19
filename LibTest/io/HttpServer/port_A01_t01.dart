@@ -16,9 +16,15 @@ import "../../../Utils/expect.dart";
 main() {
   asyncStart();
   HttpServer? server = null;
-  HttpServer.bind(InternetAddress.loopbackIPv4, 4813).then((HttpServer s) {
+  HttpServer.bind(InternetAddress.loopbackIPv4, 0).then((HttpServer s) async {
     server = s;
-    Expect.equals(4813, s.port);
+    bool used = false;
+    try {
+      await HttpServer.bind(InternetAddress.loopbackIPv4, s.port);
+    } on SocketException catch (_){
+      used = true;
+    }
+    Expect.isTrue(used);
     asyncEnd();
   }).whenComplete(() {
     server?.close();
