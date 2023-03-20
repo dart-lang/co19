@@ -63,9 +63,9 @@ const c4 = C(4, logger);
 
 String test1(Object o) {
   switch (o) {
-    case (C c1, C c2):
+    case (c1, c2):
       return "match-1";
-    case (C c1, name1: C c2, C c3, name2: C c4):
+    case (c1, name1: c2, c3, name2: c4):
       return "match-2";
     default:
       return "no match";
@@ -91,18 +91,18 @@ String test3(Object o) {
 }
 
 main() {
-  Expect.equals("no match", test1((1, 2)));
+  Expect.equals("no match", test1((null, 2)));
   Expect.equals("", log);
-  Expect.equals("no match", test1((1, 2, name1: 3, name2: 4)));
-  Expect.equals("", log);
-
-  Expect.equals("no match", test2((1, 2)));
-  Expect.equals("", log);
-  Expect.equals("no match", test2((1, 2, name1: 3, name2: 4)));
+  Expect.equals("no match", test1((null, 2, name1: 3, name2: 4)));
   Expect.equals("", log);
 
-  Expect.equals("no match", test3((1, 2)));
+  Expect.equals("no match", test2((null, 2)));
   Expect.equals("", log);
-  Expect.equals("no match", test3((1, 2, name1: 3, name2: 4)));
+  Expect.equals("no match", test2((null, 2, name1: 3, name2: 4)));
+  Expect.equals("", log);
+
+  Expect.equals("no match", test3((null, 2)));
+  Expect.equals("", log);
+  Expect.equals("no match", test3((null, 2, name1: 3, name2: 4)));
   Expect.equals("", log);
 }
