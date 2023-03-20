@@ -95,35 +95,22 @@ void test4(dynamic o) {
 main() {
   var ml1 = MyList<dynamic>([42]);
   var ml2 = MyList<String>(["42"]);
-  var ml3 = MyList<int?>([42]);
-  var ml4 = MyList<num?>([42]);
 
   Expect.equals("no match", test1(ml1));
   Expect.equals("", ml1.log);
   Expect.equals("no match", test1(ml2));
   Expect.equals("", ml2.log);
   Expect.equals("no match", test1(ml3));
-  Expect.equals("", ml3.log);
-  Expect.equals("no match", test1(ml4));
-  Expect.equals("", ml4.log);
 
   Expect.equals("no match", test2(ml1));
   Expect.equals("", ml1.log);
   Expect.equals("no match", test2(ml2));
   Expect.equals("", ml2.log);
-  Expect.equals("no match", test2(ml3));
-  Expect.equals("", ml3.log);
-  Expect.equals("no match", test2(ml4));
-  Expect.equals("", ml4.log);
 
   Expect.equals("no match", test3(ml1));
   Expect.equals("", ml1.log);
   Expect.equals("no match", test3(ml2));
   Expect.equals("", ml2.log);
-  Expect.equals("no match", test3(ml3));
-  Expect.equals("", ml3.log);
-  Expect.equals("no match", test3(ml4));
-  Expect.equals("", ml4.log);
 
   Expect.throws(() {
     test4(ml1);
@@ -133,12 +120,4 @@ main() {
     test4(ml2);
   });
   Expect.equals("", ml2.log);
-  Expect.throws(() {
-    test4(ml3);
-  });
-  Expect.equals("", ml3.log);
-  Expect.throws(() {
-    test4(ml4);
-  });
-  Expect.equals("", ml4.log);
 }

@@ -51,11 +51,13 @@
 /// viii. The match succeeds if all subpatterns match.
 ///
 /// @description Checks that if the runtime type of `v` is not a subtype of the
-/// required type of `p` then the match fails.
+/// required type of `p` then the match fails and operator `[]` is never invoked
 /// @author sgrekhov22@gmail.com
 
+// Requirements=nnbd-strong
 // SharedOptions=--enable-experiment=patterns
 
+import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
 
 String test1(Object o) {
@@ -92,31 +94,36 @@ void test4(dynamic o) {
 }
 
 main() {
-  Expect.equals("match-1", test1(<int>[]));
-  Expect.equals("match-2", test1(<num>[]));
-  Expect.equals("match-2", test1(<double>[]));
-  Expect.equals("no match", test1(<dynamic>[]));
-  Expect.equals("no match", test1(<String>[]));
+  var ml1 = MyList<int?>([42]);
+  var ml2 = MyList<num?>([42]);
 
-  Expect.equals("match-1", test2(<int>[]));
-  Expect.equals("match-2", test2(<num>[]));
-  Expect.equals("match-2", test2(<double>[]));
-  Expect.equals("no match", test2(<dynamic>[]));
-  Expect.equals("no match", test2(<String>[]));
+  Expect.equals("no match", test1(<int?>[]));
+  Expect.equals("no match", test1(<num?>[]));
+  Expect.equals("no match", test2(<int?>[]));
+  Expect.equals("no match", test2(<num?>[]));
+  Expect.equals("no match", test3(<int?>[]));
+  Expect.equals("no match", test3(<num?>[]));
+  Expect.throws(() {
+    test4(<int?>[]);
+  });
 
-  Expect.equals("match-1", test3(<int>[]));
-  Expect.equals("match-2", test3(<num>[]));
-  Expect.equals("match-2", test3(<double>[]));
-  Expect.equals("no match", test3(<dynamic>[]));
-  Expect.equals("no match", test3(<String>[]));
-
+  Expect.equals("", ml1.log);
+  Expect.equals("no match", test1(ml2));
+  Expect.equals("", ml2.log);
+  Expect.equals("no match", test2(ml1));
+  Expect.equals("", ml1.log);
+  Expect.equals("no match", test2(ml2));
+  Expect.equals("", ml2.log);
+  Expect.equals("no match", test3(ml1));
+  Expect.equals("", ml1.log);
+  Expect.equals("no match", test3(ml2));
+  Expect.equals("", ml2.log);
   Expect.throws(() {
-    test4(<num>[]);
+    test4(ml1);
   });
+  Expect.equals("", ml1.log);
   Expect.throws(() {
-    test4(<dynamic>[]);
+    test4(ml2);
   });
-  Expect.throws(() {
-    test4(<String>[]);
-  });
+  Expect.equals("", ml2.log);
 }
