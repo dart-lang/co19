@@ -21,7 +21,7 @@ main() {
     bool used = false;
     try {
       await HttpServer.bind(InternetAddress.loopbackIPv4, s.port);
-    } on SocketException catch (_){
+    } on SocketException catch (_) {
       used = true;
     }
     Expect.isTrue(used);
