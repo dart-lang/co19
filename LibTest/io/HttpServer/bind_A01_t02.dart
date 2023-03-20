@@ -20,9 +20,27 @@ import "../../../Utils/expect.dart";
 
 const String SERVER_URL = "127.0.0.1";
 
+Future<HttpServer> findPortAndBind() async {
+  HttpServer? server;
+  for (int port = 1200; port < 50000; port++) {
+    try {
+      server = await HttpServer.bind(SERVER_URL, port);
+      break;
+    } on SocketException catch (se) {
+      print(se);
+      // port is already in use
+    }
+  }
+  if (server == null) {
+    throw Exception("Unable to find free port");
+  } else {
+    return server;
+  }
+}
+
 test() async {
   String helloWorld = 'Hello, test world!';
-  HttpServer server = await HttpServer.bind(SERVER_URL, 1234);
+  HttpServer server = await findPortAndBind();
   asyncStart();
   server.listen((HttpRequest request) {
     request.response.write(helloWorld);
@@ -33,7 +51,7 @@ test() async {
   HttpClient client = new HttpClient();
   asyncStart();
   client
-      .getUrl(Uri.parse("http://$SERVER_URL:1234"))
+      .getUrl(Uri.parse("http://$SERVER_URL:${server.port}"))
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
