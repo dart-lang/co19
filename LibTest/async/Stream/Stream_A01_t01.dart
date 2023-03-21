@@ -6,10 +6,9 @@
 /// @description Checks that default constructor works.
 /// @author kaigorodov
 
-
 import "dart:async";
 
-class MyStreamSubscription<T> extends StreamSubscription<T> {
+class MyStreamSubscription<T> implements StreamSubscription<T> {
   @override
   Future<E> asFuture<E>([E? futureValue]) {
   throw UnimplementedError();
@@ -48,4 +47,3 @@ class MyStream<T> extends Stream<T> {
 main() {
   new MyStream();
 }
-

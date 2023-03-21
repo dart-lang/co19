@@ -9,38 +9,35 @@
 
 import "dart:async";
 import "../../../Utils/expect.dart";
-class MyStreamSubscription<T> extends StreamSubscription<T> {
+
+class MyStreamSubscription<T> implements StreamSubscription<T> {
   @override
   Future<E> asFuture<E>([E? futureValue]) {
-  throw UnimplementedError();
+    throw UnimplementedError();
   }
+
   @override
   Future<void> cancel() {
-  throw UnimplementedError();
+    throw UnimplementedError();
   }
+
   @override
-  void onData(void Function(T data)? handleData) {
-  }
+  void onData(void Function(T data)? handleData) {}
   @override
-  void onDone(void Function()? handleDone) {
-  }
+  void onDone(void Function()? handleDone) {}
   @override
-  void onError(Function? handleError) {
-  }
+  void onError(Function? handleError) {}
   @override
-  void pause([Future<void>? resumeSignal]) {
-  }
+  void pause([Future<void>? resumeSignal]) {}
   @override
-  void resume() {
-  }
+  void resume() {}
   @override
   bool get isPaused => throw UnimplementedError();
 }
 
 class MyStream<T> extends Stream<T> {
   StreamSubscription<T> listen(void onData(T event)?,
-                   {Function? onError, void onDone()?, bool? cancelOnError})
-  {
+      {Function? onError, void onDone()?, bool? cancelOnError}) {
     return new MyStreamSubscription();
   }
 }
