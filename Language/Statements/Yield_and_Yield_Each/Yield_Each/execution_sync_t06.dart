@@ -26,7 +26,7 @@
 
 import '../../../../Utils/expect.dart';
 
-class IteratorStub extends Iterator<int> {
+class IteratorStub implements Iterator<int> {
 
   int _value = 0;
 
@@ -62,4 +62,3 @@ main() {
   log.add('finish');
   Expect.listEquals(['main', 'before', 1, 2, 3, 4, 'after', 'finish'], log);
 }
-

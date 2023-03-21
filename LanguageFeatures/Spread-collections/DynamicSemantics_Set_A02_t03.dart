@@ -29,7 +29,7 @@ class MyIterable extends IterableBase {
   Iterator getIterator() { return iterator; }
 }
 
-class MyIterator extends Iterator {
+class MyIterator implements Iterator {
   int i = -1;
   late List list;
 

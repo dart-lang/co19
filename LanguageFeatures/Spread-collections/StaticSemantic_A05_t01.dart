@@ -17,7 +17,7 @@ class MyIterable<T> extends IterableBase<T> {
   Iterator getIterator<T>() { return iterator; }
 }
 
-class MyIterator<T> extends Iterator<T> {
+class MyIterator<T> implements Iterator<T> {
    @override
   bool moveNext() { return false; }
 
