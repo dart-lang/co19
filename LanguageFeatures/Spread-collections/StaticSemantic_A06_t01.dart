@@ -9,7 +9,6 @@
 /// literal is not assignable to [Map<Object, Object>]
 /// @author iarkh@unipro.ru
 
-
 import "dart:collection";
 
 class MyIterable<T> extends IterableBase<T> {
@@ -18,7 +17,7 @@ class MyIterable<T> extends IterableBase<T> {
   Iterator getIterator<T>() => iterator;
 }
 
-class MyIterator<T> extends Iterator<T> {
+class MyIterator<T> implements Iterator<T> {
   @override
   bool moveNext() { return false; }
 
@@ -50,10 +49,10 @@ void test1() {
 // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
 //                                    ^
 // [cfe] Unexpected type 'int' of a map spread entry.  Expected 'dynamic' or a Map.
-  var m4  = <dynamic, dynamic>{...itr[0]};
-//                                   ^^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_OPERATOR
-// [cfe] The operator '[]' isn't defined for the class 'MyIterator<dynamic>'.
+  var m4  = <dynamic, dynamic>{...itr};
+//                                ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 void test2() {
@@ -74,8 +73,8 @@ void test2() {
 //                                     ^
 // [analyzer] COMPILE_TIME_ERROR.UNCHECKED_USE_OF_NULLABLE_VALUE
 // [cfe] Operator '[]' cannot be called on 'List<dynamic>?' because it is potentially null.
-  var m8 = <dynamic, dynamic>{...?itr[0]};
-//                                   ^
-// [analyzer] COMPILE_TIME_ERROR.UNCHECKED_USE_OF_NULLABLE_VALUE
-// [cfe] The operator '[]' isn't defined for the class 'Iterator<dynamic>?'.
+  var m8 = <dynamic, dynamic>{...?itr};
+//                                ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

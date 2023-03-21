@@ -15,7 +15,7 @@ class MyIterable extends IterableBase {
   Iterator get iterator => MyIterator();
 }
 
-class MyIterator extends Iterator {
+class MyIterator implements Iterator {
   int i = -1;
 
   MyIterator() {}

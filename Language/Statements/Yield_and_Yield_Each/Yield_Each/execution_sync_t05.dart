@@ -29,7 +29,7 @@ import '../../../../Utils/expect.dart';
 
 class TestException {}
 
-class IteratorStub extends Iterator<int> {
+class IteratorStub implements Iterator<int> {
 
   @override
   int get current => throw new TestException();
@@ -57,4 +57,3 @@ main() {
   Expect.isTrue(generator(its).isEmpty);
   Expect.isTrue(actualException is TestException);
 }
-

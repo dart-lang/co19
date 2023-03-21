@@ -18,7 +18,6 @@
 /// order.
 /// @author iarkh@unipro.ru
 
-
 import "dart:collection";
 import "../../Utils/expect.dart";
 
@@ -30,7 +29,7 @@ class MyIterable extends IterableBase {
   Iterator get iterator => MyIterator(list);
 }
 
-class MyIterator extends Iterator {
+class MyIterator implements Iterator {
   int i = -1;
   late List list;
 

@@ -26,7 +26,7 @@
 
 import '../../../../Utils/expect.dart';
 
-class IteratorStub extends Iterator<int> {
+class IteratorStub implements Iterator<int> {
 
   late int _moveNextCallCount;
 

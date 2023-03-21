@@ -8,7 +8,6 @@
 /// @description Checks that [Map] object can be spread into the spreadable map.
 /// @author iarkh@unipro.ru
 
-
 import "dart:collection";
 import "../../Utils/expect.dart";
 
@@ -19,7 +18,7 @@ class MyIterable extends IterableBase {
   Iterator get iterator => MyIterator();
 }
 
-class MyIterator extends Iterator {
+class MyIterator implements Iterator {
   int i = -1;
 
   MyIterator() {}
