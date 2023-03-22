@@ -25,17 +25,13 @@ Future<HttpServer> findPortAndBind() async {
   for (int port = 1200; port < 50000; port++) {
     try {
       server = await HttpServer.bind(SERVER_URL, port);
-      break;
+      return server;
     } on SocketException catch (se) {
       print(se);
       // port is already in use
     }
   }
-  if (server == null) {
-    throw Exception("Unable to find free port");
-  } else {
-    return server;
-  }
+  throw Exception("Unable to find free port");
 }
 
 test() async {
