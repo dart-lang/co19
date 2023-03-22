@@ -49,7 +49,7 @@ final class U3 extends Union {
 // [cfe] unspecified
 }
 
-final class U4 fextends Union {
+final class U4 extends Union {
   @Double()
   external double x;
   @Int32()

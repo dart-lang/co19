@@ -12,7 +12,7 @@
 
 import "dart:ffi";
 
-final class S1 8extends Struct {
+final class S1 extends Struct {
   @Int8()
 //^^^^^^^
 // [analyzer] unspecified
