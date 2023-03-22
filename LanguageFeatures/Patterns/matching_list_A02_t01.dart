@@ -90,7 +90,7 @@ main() {
   Expect.equals("match", test3(ml));
   Expect.equals("", ml.log);
 
-  var [...r1] = ml;
+  var [...] = ml;
   Expect.equals("", ml.log);
   final [...] = ml;
   Expect.equals("", ml.log);
