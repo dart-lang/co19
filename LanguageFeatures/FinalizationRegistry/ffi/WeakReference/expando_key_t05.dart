@@ -15,7 +15,7 @@ import "dart:ffi";
 import "package:ffi/ffi.dart";
 import '../../../../Utils/expect.dart';
 
-class U extends Union {
+final class U extends Union {
   @Int32()
   external int x;
   @Int16()
