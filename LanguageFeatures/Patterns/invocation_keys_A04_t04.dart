@@ -30,9 +30,9 @@ import "../../Utils/expect.dart";
 
 String test1(Object o) {
   switch (o) {
-    case ([0, 1]): // Expect calls [0], [1]
+    case ([0, 1]): // Expect call [0] (`length` is not logged)
       return "match-1";
-    case [1, 2]: // Expect no new calls
+    case [1, 2]: // Expect call [1]
       return "match-2";
     default:
       return "no match";

@@ -49,6 +49,9 @@ class C {
 
   @override
   String toString() => "C($_value)";
+
+  @override
+  int get hashCode => throw "Never used";
 }
 
 StringBuffer log = StringBuffer();

@@ -47,7 +47,7 @@ String test1(Object o) {
   switch (o) {
     case C(val: 2) && C(val: 3): // Expect call .val
       return "match-1";
-    case C(val: 2 ): // Expect no new calls
+    case C(val: 2): // Expect no new calls
       return "match-2";
     default:
       return "no match";

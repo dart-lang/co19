@@ -41,6 +41,9 @@ class C {
     }
     return super == other;
   }
+
+  @override
+  int get hashCode => throw "Never used";
 }
 
 String log = "";
@@ -49,19 +52,15 @@ void logger(String s) {
   log += s;
 }
 
-const c1 = C(1, logger);
-const c2 = C(2, logger);
-const c3 = C(3, logger);
-
 String test1(int i) {
   switch (i) {
-    case const(c1):
+    case const C(1, logger):
       return "1";
-    case const(c2):
+    case const C(2, logger):
       return "2";
-    case const(c1):
+    case const C(1, logger):
       return "1-2";
-    case const(c3):
+    case const C(3, logger):
       return "3";
     default:
       return "no match";
@@ -70,10 +69,10 @@ String test1(int i) {
 
 String test2(int i) {
   return switch (i) {
-    const(c1) => "1",
-    const(c2) => "2",
-    const(c1) => "1-2",
-    const(c3) => "3",
+    const C(1, logger) => "1",
+    const C(2, logger) => "2",
+    const C(1, logger) => "1-2",
+    const C(3, logger) => "3",
     _ => "no match"
   };
 }

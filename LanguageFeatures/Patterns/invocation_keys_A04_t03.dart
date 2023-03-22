@@ -30,7 +30,7 @@ import "../../Utils/expect.dart";
 
 String test1(Object o) {
   switch (o) {
-    case [0, var x!]: // Expect calls [0], [1]
+    case [var x!, 1]: // Expect calls [0], [1] (`length` is not logged)
       return "match-1";
     case [1, var x!]: // Expect no new calls
       return "match-2";
@@ -41,7 +41,7 @@ String test1(Object o) {
 
 String test2(Object o) =>
   switch (o) {
-    [0, var x!] => "match-1",
+    [var x!, 1] => "match-1",
     [1, var x!] => "match-2",
     _ => "no match"
   };

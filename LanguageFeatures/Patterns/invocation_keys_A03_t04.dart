@@ -50,6 +50,9 @@ class C {
     }
     return super == other;
   }
+
+  @override
+  int get hashCode => throw "Never used";
 }
 
 String test1(C c) {

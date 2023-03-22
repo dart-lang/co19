@@ -21,7 +21,8 @@
 /// i. Bind invocations in the left and right subpatterns using parent i.
 ///
 /// @description Checks that for a logical-or pattern invocation keys
-/// `parent:(field, [])` are invoked only once.
+/// `parent:("length", []), parent:("[]", [0]), parent:("[]", [1])' and
+/// `parent:("[]", [2])` are invoked only once.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

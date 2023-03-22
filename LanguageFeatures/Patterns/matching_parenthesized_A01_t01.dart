@@ -38,6 +38,9 @@ class C {
     }
     return false;
   }
+
+  @override
+  int get hashCode => throw "Never used";
 }
 
 const c1 = C(1);
