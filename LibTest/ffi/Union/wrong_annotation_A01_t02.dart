@@ -12,7 +12,7 @@
 
 import "dart:ffi";
 
-class U1 extends Union {
+final class U1 extends Union {
   @Uint8()
 //^^^^^^^^
 // [analyzer] unspecified
@@ -21,7 +21,7 @@ class U1 extends Union {
 // [cfe] unspecified
 }
 
-class U2 extends Union {
+final class U2 extends Union {
   @Uint16()
 //^^^^^^^^^
 // [analyzer] unspecified
@@ -30,7 +30,7 @@ class U2 extends Union {
 // [cfe] unspecified
 }
 
-class U3 extends Union {
+final class U3 extends Union {
   @Uint32()
 //^^^^^^^^^
 // [analyzer] unspecified
@@ -39,7 +39,7 @@ class U3 extends Union {
 // [cfe] unspecified
 }
 
-class U4 extends Union {
+final class U4 extends Union {
   @Uint64()
 //^^^^^^^^^
 // [analyzer] unspecified

@@ -10,11 +10,11 @@
 
 import "dart:ffi";
 
-  class S1 extends Struct {
-//^^^^^^^^^^^^^^^^^^^^^^^^^
+final class S1 extends Struct {
+//          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
+}
 
 void main() {
   S1? s1;

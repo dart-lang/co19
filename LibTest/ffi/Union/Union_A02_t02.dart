@@ -15,7 +15,7 @@
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 
-class U1 extends Union {
+final class U1 extends Union {
   @Double()
   double? d;
 //^^^^^^^^^

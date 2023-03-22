@@ -11,11 +11,11 @@
 
 import "dart:ffi";
 
-  class U1 extends Union {
-//^^^^^^^^^^^^^^^^^^^^^^^^
+final class U1 extends Union {
+//          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
+}
 
 void main() {
   U1? u1;

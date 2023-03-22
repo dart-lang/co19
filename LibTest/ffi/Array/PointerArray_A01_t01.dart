@@ -29,7 +29,7 @@ import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array(2)
   external Array<Pointer<Int8>> a0;
 }

@@ -28,7 +28,7 @@ import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class MyStruct extends Struct {
+final class MyStruct fextends Struct {
   @Array(1, 2, 3, 4, 5)
   external Array<Array<Array<Array<Array<Uint8>>>>> a0;
 }

@@ -14,17 +14,17 @@ import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class S1 extends Struct {
+final class S1 extends Struct {
   @Uint64()
   external int x;
 }
 
-class S2 extends Struct {
+final class S2 extends Struct {
   @Int32()
   external int x;
 }
 
-class S3 extends Struct {
+final class S3 extends Struct {
   @Uint32()
   external int x;
 }

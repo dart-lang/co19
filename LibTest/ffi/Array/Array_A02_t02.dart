@@ -28,7 +28,7 @@
 
 import "dart:ffi";
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array(-1)
 //^^^^^^^^^^
 // [analyzer] unspecified

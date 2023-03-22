@@ -16,7 +16,7 @@
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 
-class S1 extends Struct {
+final class S1 extends Struct {
   @Double()
   double? d;
 //^^^^^^^^^

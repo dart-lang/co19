@@ -12,7 +12,7 @@
 
 import "dart:ffi";
 
-class U1 extends Union {
+final class U1 extends Union {
   @Int8()
   external int i;
 

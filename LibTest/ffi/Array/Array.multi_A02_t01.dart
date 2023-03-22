@@ -23,7 +23,7 @@
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array.multi([0, 1])
 //^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

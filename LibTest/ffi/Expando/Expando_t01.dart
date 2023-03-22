@@ -12,12 +12,12 @@ import "dart:ffi";
 import "package:ffi/ffi.dart";
 import '../../../Utils/expect.dart';
 
-class S extends Struct {
+final class S extends Struct {
   @Int16()
   external int x;
 }
 
-class U extends Union {
+final class U extends Union {
   @Int16()
   external int x;
 }

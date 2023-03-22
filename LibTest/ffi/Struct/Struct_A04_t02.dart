@@ -18,7 +18,7 @@ import "package:ffi/ffi.dart";
 import "../ffi_utils.dart";
 import "../../../Utils/expect.dart";
 
-class Coord extends Struct {
+final class Coord extends Struct {
   @Double()
   external double x;
   @Double()

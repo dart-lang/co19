@@ -28,14 +28,14 @@ import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class Coord extends Struct {
+final class Coord extends Struct {
   @Double()
   external double x;
   @Double()
   external double y;
 }
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array(2)
   external Array<Coord> a0;
 }

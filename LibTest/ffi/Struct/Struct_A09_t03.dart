@@ -14,7 +14,7 @@
 
 import "dart:ffi";
 
-class S1 extends Struct {
+final class S1 extends Struct {
   Pointer<S1> next = new Pointer.fromAddress(42);
 //            ^^^^
 // [analyzer] unspecified

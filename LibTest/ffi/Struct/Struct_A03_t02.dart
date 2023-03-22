@@ -15,7 +15,7 @@
 
 import "dart:ffi";
 
-class Coord extends Struct {
+final class Coord extends Struct {
   Coord() : super();
 
   @Double()

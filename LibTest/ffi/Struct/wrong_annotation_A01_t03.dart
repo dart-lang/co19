@@ -12,7 +12,7 @@
 
 import "dart:ffi";
 
-class S1 extends Struct {
+final class S1 extends Struct {
   @Double()
 //^^^^^^^^^
 // [analyzer] unspecified
@@ -21,7 +21,7 @@ class S1 extends Struct {
 // [cfe] unspecified
 }
 
-class S2 extends Struct {
+final class S2 extends Struct {
   @Float()
 //^^^^^^^^^
 // [analyzer] unspecified

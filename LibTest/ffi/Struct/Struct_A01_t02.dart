@@ -14,7 +14,7 @@
 
 import "dart:ffi";
 
-class S1 extends Struct {
+final class S1 extends Struct {
   @Int8()
   external int i;
 
@@ -30,7 +30,7 @@ class S1 extends Struct {
 // [cfe] unspecified
 }
 
-class S2 extends Struct {
+final class S2 extends Struct {
   @Int8()
   external int i;
 
@@ -40,7 +40,7 @@ class S2 extends Struct {
 // [cfe] unspecified
 }
 
-class S3 extends Struct {
+final class S3 extends Struct {
   @Int8()
   external int i;
 
@@ -50,7 +50,7 @@ class S3 extends Struct {
 // [cfe] unspecified
 }
 
-class S4 extends Struct {
+final class S4 extends Struct {
   @Int8()
   external int i;
 

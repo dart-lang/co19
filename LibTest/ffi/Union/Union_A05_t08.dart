@@ -14,12 +14,12 @@ import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class U1 extends Union {
+final class U1 extends Union {
   @Double()
   external double x;
 }
 
-class U2 extends Union {
+final class U2 extends Union {
   @Float()
   external double x;
 }

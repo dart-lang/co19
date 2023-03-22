@@ -12,7 +12,7 @@
 
 import "dart:ffi";
 
-class U1 extends Union {
+final class U1 extends Union {
   @NativeType()
 //^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -22,7 +22,7 @@ class U1 extends Union {
 // [cfe] unspecified
 }
 
-class U2 extends Union {
+final class U2 extends Union {
   @NativeType()
 //^^^^^^^^^^^^^
 // [analyzer] unspecified

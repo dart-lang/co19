@@ -14,7 +14,7 @@
 
 import "dart:ffi";
 
-class S1 extends Struct {
+final class S1 extends Struct {
   @Int8()
   external int i;
 

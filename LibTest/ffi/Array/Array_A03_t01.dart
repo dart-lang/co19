@@ -26,7 +26,7 @@
 
 import 'dart:ffi';
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array(16)
   external Array<SomeNotExistingType> a;
 //               ^^^^^^^^^^^^^^^^^^^

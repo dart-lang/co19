@@ -14,7 +14,7 @@
 import "dart:ffi";
 import "dart:async";
 
-class U1 extends Union {
+final class U1 extends Union {
   @Int8()
   external int i;
 
@@ -30,7 +30,7 @@ class U1 extends Union {
 // [cfe] unspecified
 }
 
-class U2 extends Union {
+final class U2 extends Union {
   Pointer<FutureOr<Int8>> x;
 //         ^^^^^^^^^^^^^
 // [analyzer] unspecified
