@@ -30,6 +30,8 @@ class C {
   bool operator >=(C other) => this.value >= other.value;
   @override
   bool operator ==(Object other) => this.value == (other as C).value;
+  @override
+  int get hashCode => throw "Never used";
 }
 
 void test(List<C> list, String expected) {

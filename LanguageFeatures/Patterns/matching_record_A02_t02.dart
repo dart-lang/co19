@@ -47,6 +47,9 @@ class C {
 
   @override
   String toString() => "C($value)";
+
+  @override
+  int get hashCode => throw "Never used";
 }
 
 String log = "";

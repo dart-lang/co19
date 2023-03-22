@@ -46,6 +46,9 @@ class C {
   }
 
   @override
+  int get hashCode => throw "Never used";
+
+  @override
   String toString() => "C($value)";
 }
 
