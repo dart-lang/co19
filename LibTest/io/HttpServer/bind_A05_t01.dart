@@ -25,11 +25,11 @@ import "../../../Utils/expect.dart";
 
 test() async {
   HttpServer server1 =
-      await HttpServer.bind(InternetAddress.loopbackIPv4, 1234);
+      await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   HttpServer? server2 = null;
   bool thrown = false;
   try {
-    server2 = await HttpServer.bind(InternetAddress.loopbackIPv4, 1234);
+    server2 = await HttpServer.bind(InternetAddress.loopbackIPv4, server1.port);
   } catch (e) {
     thrown = true;
   } finally {
