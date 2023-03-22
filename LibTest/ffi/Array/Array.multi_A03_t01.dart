@@ -18,6 +18,8 @@
 /// @description Checks the case when Array has a non-existing type
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import 'dart:ffi';
 
 final class MyStruct extends Struct {

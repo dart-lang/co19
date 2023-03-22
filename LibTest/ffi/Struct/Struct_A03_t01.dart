@@ -12,6 +12,8 @@
 /// declare fields corresponding to the underlying native structure
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../ffi_utils.dart";

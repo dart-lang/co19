@@ -8,6 +8,8 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 44935
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
 final class S1 extends Struct {

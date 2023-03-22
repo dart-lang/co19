@@ -8,6 +8,8 @@
 /// dart:ffi structs, or dart:ffi unions
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import '../../../Utils/expect.dart';

@@ -10,6 +10,8 @@
 /// as Void
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
 final class U1 extends Union {
