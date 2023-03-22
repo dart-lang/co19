@@ -68,8 +68,8 @@ main() {
   ];
   Expect.listEquals([0, 1, 2, 3, 4], l3);
   Expect.isTrue(Storing.stored is List<List<num>>);
-  Storing.stored.add(42);
-  Storing.stored.add(3.14);
+  Storing.stored.first.add(42);
+  Storing.stored.first.add(3.14);
 
   var l4 = [
     0,

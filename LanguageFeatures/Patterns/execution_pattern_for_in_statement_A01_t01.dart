@@ -66,9 +66,9 @@ main() {
     log += "$v3;";
   }
   Expect.equals("1;2;3;", log);
-  Expect.isTrue(Storing.stored is List<num>);
-  Storing.stored.add(42);
-  Storing.stored.add(3.14);
+  Expect.isTrue(Storing.stored is List<List<num>>);
+  Storing.stored.first.add(42);
+  Storing.stored.first.add(3.14);
 
   log = "";
   for (final [v4] in <List<num>>[[1], [2], [3]]) {
@@ -113,7 +113,7 @@ main() {
   Expect.equals("1;2;", log);
 
   log = "";
-  for (var Square<Centimeter>(area: v11) in [Square(1)]) {
+  for (var Square<Centimeter>(area: v11) in [Square(1)]..store) {
     v11.expectStaticType<Exactly<Unit<Centimeter>>>();
     log += "$v11;";
   }
