@@ -12,9 +12,11 @@
 /// 'Union'
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
-class S1 extends Struct {
+final class S1 extends Struct {
   @Double()
   external double x;
   @Int32()
@@ -26,7 +28,7 @@ class S1 extends Struct {
 // [cfe] unspecified
 }
 
-class S2 extends Struct {
+final class S2 extends Struct {
   @Double()
   external double x;
   @Int32()
@@ -38,7 +40,7 @@ class S2 extends Struct {
 // [cfe] unspecified
 }
 
-class S3 extends Struct {
+final class S3 extends Struct {
   @Double()
   external double x;
   @Int32()
@@ -50,7 +52,7 @@ class S3 extends Struct {
 // [cfe] unspecified
 }
 
-class S4 extends Struct {
+final class S4 extends Struct {
   @Double()
   external double x;
   @Int32()
@@ -62,7 +64,7 @@ class S4 extends Struct {
 // [cfe] unspecified
 }
 
-class S5 extends Struct {
+final class S5 extends Struct {
   @Double()
   external double x;
   @Int32()
@@ -74,7 +76,7 @@ class S5 extends Struct {
 // [cfe] unspecified
 }
 
-class S6 extends Struct {
+final class S6 extends Struct {
   @Double()
   external double x;
   @Int32()

@@ -11,9 +11,11 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 46191
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
-class U1 extends Union {
+final class U1 extends Union {
   @Int8()
   external int i;
 

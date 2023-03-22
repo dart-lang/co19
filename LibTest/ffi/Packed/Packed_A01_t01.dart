@@ -12,13 +12,15 @@
 /// @Issue 45838
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
   @Packed(-1)
 //^^^^^^^^^^^
 // [analyzer] unspecified
-class S1 extends Struct {
-//    ^
+final class S1 extends Struct {
+//          ^
 // [cfe] unspecified
   @Double()
   external double x;
@@ -29,8 +31,8 @@ class S1 extends Struct {
   @Packed(0)
 //^^^^^^^^^^
 // [analyzer] unspecified
-class S2 extends Struct {
-//    ^
+final class S2 extends Struct {
+//          ^
 // [cfe] unspecified
   @Double()
   external double x;
@@ -41,8 +43,8 @@ class S2 extends Struct {
   @Packed(3)
 //^^^^^^^^^^
 // [analyzer] unspecified
-class S3 extends Struct {
-//    ^
+final class S3 extends Struct {
+//          ^
 // [cfe] unspecified
   @Double()
   external double x;

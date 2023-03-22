@@ -12,9 +12,11 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 44987
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
-class S1 extends Struct {
+final class S1 extends Struct {
   @Int8()
   external int i;
 

@@ -11,10 +11,12 @@
 /// subclass is not 'int', 'double', 'Pointer' or subtype of Struct or Union
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "dart:async";
 
-class U1 extends Union {
+final class U1 extends Union {
   @Int8()
   external int i;
 
@@ -30,7 +32,7 @@ class U1 extends Union {
 // [cfe] unspecified
 }
 
-class U2 extends Union {
+final class U2 extends Union {
   Pointer<FutureOr<Int8>> x;
 //         ^^^^^^^^^^^^^
 // [analyzer] unspecified

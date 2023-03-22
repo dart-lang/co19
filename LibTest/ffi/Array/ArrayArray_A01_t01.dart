@@ -9,11 +9,13 @@
 /// methods on Arrays of Array
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array(2, 3)
   external Array<Array<Int16>> a0;
   @Array.multi([2, 3])

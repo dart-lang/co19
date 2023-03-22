@@ -9,11 +9,13 @@
 /// @description Checks that fields in a Union subclass shares the same memory
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class U extends Union {
+final class U extends Union {
   @Int32()
   external int x;
 

@@ -10,9 +10,11 @@
 /// as IntX
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
-class S1 extends Struct {
+final class S1 extends Struct {
   @Int8()
 //^^^^^^^
 // [analyzer] unspecified
@@ -21,7 +23,7 @@ class S1 extends Struct {
 // [cfe] unspecified
 }
 
-class S2 extends Struct {
+final class S2 extends Struct {
   @Int16()
 //^^^^^^^^
 // [analyzer] unspecified
@@ -30,7 +32,7 @@ class S2 extends Struct {
 // [cfe] unspecified
 }
 
-class S3 extends Struct {
+final class S3 extends Struct {
   @Int32()
 //^^^^^^^^
 // [analyzer] unspecified
@@ -39,7 +41,7 @@ class S3 extends Struct {
 // [cfe] unspecified
 }
 
-class S4 extends Struct {
+final class S4 extends Struct {
   @Int64()
 //^^^^^^^^
 // [analyzer] unspecified

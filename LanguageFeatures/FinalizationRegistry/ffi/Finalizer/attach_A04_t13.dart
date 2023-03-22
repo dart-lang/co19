@@ -9,6 +9,8 @@
 /// Test dart:ffi struct.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import '../../../../Utils/expect.dart';
@@ -16,7 +18,7 @@ import '../../../../Utils/expect.dart';
 final Finalizer finalizer = Finalizer((_) { throw "Should not reach here"; });
 Object object = Object();
 
-class S extends Struct {
+final class S extends Struct {
   @Int32()
   external int x;
 }

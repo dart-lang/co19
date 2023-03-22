@@ -10,21 +10,23 @@
 /// @description Checks that 'Struct' subtype value depends on annotation
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class S1 extends Struct {
+final class S1 extends Struct {
   @Uint64()
   external int x;
 }
 
-class S2 extends Struct {
+final class S2 extends Struct {
   @Int16()
   external int x;
 }
 
-class S3 extends Struct {
+final class S3 extends Struct {
   @Uint16()
   external int x;
 }

@@ -13,10 +13,12 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 45293
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 
-class S1 extends Struct {
+final class S1 extends Struct {
   Pointer<S1>? next;
 //^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

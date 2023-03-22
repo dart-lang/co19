@@ -18,9 +18,11 @@
 /// @description Checks the case when Array has a non-existing type
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import 'dart:ffi';
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array.multi([16])
   external Array<SomeNotExistingType> a;
 //               ^^^^^^^^^^^^^^^^^^^

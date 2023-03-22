@@ -20,13 +20,15 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 45537
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 const arr = [3, 1];
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array.multi(arr)
   external Array<Array<Int8>> a0;
 }

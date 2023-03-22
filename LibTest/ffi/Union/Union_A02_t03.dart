@@ -12,10 +12,12 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 45293
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 
-class U1 extends Union {
+final class U1 extends Union {
   Pointer<U1>? next;
 //^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

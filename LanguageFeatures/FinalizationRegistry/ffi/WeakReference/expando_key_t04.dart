@@ -11,11 +11,13 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 48264
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import '../../../../Utils/expect.dart';
 
-class S extends Struct {
+final class S extends Struct {
   @Int32()
   external int x;
 }

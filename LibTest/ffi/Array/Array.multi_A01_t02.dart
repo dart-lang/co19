@@ -20,9 +20,11 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 46085
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array.multi([])
 //^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

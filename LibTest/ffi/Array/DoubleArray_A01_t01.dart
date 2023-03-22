@@ -9,11 +9,13 @@
 /// methods on Arrays of Double
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array(2)
   external Array<Double> a0;
   @Array.multi([2, 3])

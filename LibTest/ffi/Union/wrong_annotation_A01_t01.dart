@@ -10,9 +10,11 @@
 /// as IntX
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
-class U1 extends Union {
+final class U1 extends Union {
   @Int8()
 //^^^^^^^
 // [analyzer] unspecified
@@ -21,7 +23,7 @@ class U1 extends Union {
 // [cfe] unspecified
 }
 
-class U2 extends Union {
+final class U2 extends Union {
   @Int16()
 //^^^^^^^^
 // [analyzer] unspecified
@@ -30,7 +32,7 @@ class U2 extends Union {
 // [cfe] unspecified
 }
 
-class U3 extends Union {
+final class U3 extends Union {
   @Int32()
 //^^^^^^^^
 // [analyzer] unspecified
@@ -39,7 +41,7 @@ class U3 extends Union {
 // [cfe] unspecified
 }
 
-class U4 extends Union {
+final class U4 extends Union {
   @Int64()
 //^^^^^^^^
 // [analyzer] unspecified

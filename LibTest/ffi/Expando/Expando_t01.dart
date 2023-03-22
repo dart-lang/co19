@@ -8,16 +8,18 @@
 /// dart:ffi structs, or dart:ffi unions
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import '../../../Utils/expect.dart';
 
-class S extends Struct {
+final class S extends Struct {
   @Int16()
   external int x;
 }
 
-class U extends Union {
+final class U extends Union {
   @Int16()
   external int x;
 }

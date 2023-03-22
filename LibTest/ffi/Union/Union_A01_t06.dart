@@ -12,21 +12,23 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 46194
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class U extends Union {
+final class U extends Union {
   @Int32()
   external int x;
 }
 
-class S extends Struct {
+final class S extends Struct {
   @Int32()
   external int y;
 }
 
-class U1 extends Union {
+final class U1 extends Union {
   @Int8()
   external int i;
 

@@ -25,9 +25,11 @@
 /// subtype of [NativeType]
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import 'dart:ffi';
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array(16)
   external Array<int> a1;
 //               ^^^

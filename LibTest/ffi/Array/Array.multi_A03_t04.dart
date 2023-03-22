@@ -20,11 +20,13 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 47767
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import 'dart:ffi';
 
 import 'package:ffi/ffi.dart';
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array.multi([16])
   external Array<Void> a1;
 //               ^^^^

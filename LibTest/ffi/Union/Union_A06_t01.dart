@@ -9,13 +9,15 @@
 /// @issue 44935
 /// @issue 46199
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
-  class U1 extends Union {
-//^^^^^^^^^^^^^^^^^^^^^^^^
+final class U1 extends Union {
+//          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
+}
 
 void main() {
   U1? u1;

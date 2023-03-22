@@ -11,9 +11,11 @@
 /// subclass is not 'int', 'double', 'Pointer' or subtype of Struct or Union
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
-class U1 extends Union {
+final class U1 extends Union {
   @Double()
   external double x;
   @Int32()
@@ -25,7 +27,7 @@ class U1 extends Union {
 // [cfe] unspecified
 }
 
-class U2 extends Union {
+final class U2 extends Union {
   @Double()
   external double x;
   @Int32()
@@ -37,7 +39,7 @@ class U2 extends Union {
 // [cfe] unspecified
 }
 
-class U3 extends Union {
+final class U3 extends Union {
   @Double()
   external double x;
   @Int32()
@@ -49,7 +51,7 @@ class U3 extends Union {
 // [cfe] unspecified
 }
 
-class U4 extends Union {
+final class U4 extends Union {
   @Double()
   external double x;
   @Int32()
@@ -61,7 +63,7 @@ class U4 extends Union {
 // [cfe] unspecified
 }
 
-class U5 extends Union {
+final class U5 extends Union {
   @Double()
   external double x;
   @Int32()
@@ -73,7 +75,7 @@ class U5 extends Union {
 // [cfe] unspecified
 }
 
-class U6 extends Union {
+final class U6 extends Union {
   @Double()
   external double x;
   @Int32()

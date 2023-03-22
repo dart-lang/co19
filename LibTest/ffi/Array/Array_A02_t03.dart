@@ -25,9 +25,11 @@
 /// wrong dimension
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array(2)
 //^^^^^^^^^
 // [analyzer] unspecified

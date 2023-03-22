@@ -10,11 +10,13 @@
 /// @description Checks that valid values for memberAlignment are accepted
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "../../../Utils/expect.dart";
 
 @Packed(1)
-class S1 extends Struct {
+final class S1 extends Struct {
   @Double()
   external double x;
   @Int32()
@@ -22,7 +24,7 @@ class S1 extends Struct {
 }
 
 @Packed(2)
-class S2 extends Struct {
+final class S2 extends Struct {
   @Double()
   external double x;
   @Int32()
@@ -30,7 +32,7 @@ class S2 extends Struct {
 }
 
 @Packed(4)
-class S4 extends Struct {
+final class S4 extends Struct {
   @Double()
   external double x;
   @Int32()
@@ -38,7 +40,7 @@ class S4 extends Struct {
 }
 
 @Packed(8)
-class S8 extends Struct {
+final class S8 extends Struct {
   @Double()
   external double x;
   @Int32()
@@ -46,7 +48,7 @@ class S8 extends Struct {
 }
 
 @Packed(16)
-class S16 extends Struct {
+final class S16 extends Struct {
   @Double()
   external double x;
   @Int32()

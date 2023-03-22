@@ -12,9 +12,11 @@
 /// declaration cannot have initializers
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
-class S1 extends Struct {
+final class S1 extends Struct {
   @Double()
   double d = 3.14;
 //       ^

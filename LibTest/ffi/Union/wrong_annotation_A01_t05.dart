@@ -10,9 +10,11 @@
 /// as IntPtr
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 
-class U1 extends Union {
+final class U1 extends Union {
   @IntPtr()
 //^^^^^^^^^
 // [analyzer] unspecified
@@ -21,7 +23,7 @@ class U1 extends Union {
 // [cfe] unspecified
 }
 
-class U2 extends Union {
+final class U2 extends Union {
   @IntPtr()
 //^^^^^^^^^
 // [analyzer] unspecified

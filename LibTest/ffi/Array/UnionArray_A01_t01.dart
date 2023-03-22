@@ -24,18 +24,20 @@
 /// @description Checks that this class represents a fixed-size array of Pointer
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=class-modifiers
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class Coord extends Union {
+final class Coord extends Union {
   @Double()
   external double x;
   @Double()
   external double y;
 }
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array(2)
   external Array<Coord> a0;
 }
