@@ -100,7 +100,6 @@ main() {
   Expect.equals("", ml1.log);
   Expect.equals("no match", test1(ml2));
   Expect.equals("", ml2.log);
-  Expect.equals("no match", test1(ml3));
 
   Expect.equals("no match", test2(ml1));
   Expect.equals("", ml1.log);

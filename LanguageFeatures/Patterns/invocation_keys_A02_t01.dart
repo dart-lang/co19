@@ -71,10 +71,10 @@ main() {
   Expect.equals("C(2).val;", c.log);
   c.clearLog();
 
-  var (C(val: int x) && C(val: int y)) = c;
+  var (C(val: int x1) && C(val: int y1)) = c;
   Expect.equals("C(2).val;", c.log);
   c.clearLog();
 
-  final (C(val: int x) && C(val: int y)) = c;
+  final (C(val: int x2) && C(val: int y2)) = c;
   Expect.equals("C(2).val;", c.log);
 }
