@@ -13,6 +13,8 @@
 /// LinkedHashSet<T>
 /// @author sgrekhov@unipro.ru
 
+// @dart=2.19
+
 import "dart:collection";
 
 class C<T> with SetMixin<T> implements LinkedHashSet<T> {
