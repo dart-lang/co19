@@ -17,26 +17,37 @@
 /// 4. Else the match failed. Evaluate the else element if there is one and
 ///   yield the result into the collection.
 ///
-/// @description Check that it is a compile-time error if the value yielded by
-/// pattern-if-case element is not assignable to the collection element type
-/// @author sgrekhov22@gmail.com. Test a list literal
+/// @description Check that if the match fails then the else statement is
+/// evaluated if any. Test a map literal
+/// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
+import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
-main() {
-  <String>[
-    if (Square(2) case Square(area: const Unit(4))) 1,
-//                                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
+String log = "";
 
-  <int>[
-    if (Square(2) case Square(area: const Unit(4))) 1 else 2 as num
-//                                                         ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
+void logger(String s) {
+  log += s;
+}
+
+main() {
+  var m1 = {
+    "k0": 0,
+    if (Square(2, logger) case Square(area: const Unit(2, logger))) "k1": 1,
+    "k2": 2
+  };
+  Expect.equals("Square.area:(2==4);", log);
+  Expect.mapEquals({"k0": 0, "k2": 2}, m1);
+
+  log = "";
+  var m2 = {
+    "k0": 0,
+    if (Square(2, logger) case Square(area: const Unit(2, logger))) "k1": 1
+    else "k1": 2,
+    "k2": 3
+  };
+  Expect.equals("Square.area:(2==4);", log);
+  Expect.mapEquals({"k0": 0, "k1": 2, "k2": 3}, m2);
 }

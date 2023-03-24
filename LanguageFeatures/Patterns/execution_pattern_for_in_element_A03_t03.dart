@@ -26,8 +26,8 @@
 ///   append(<element>);
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if type of for-in
-/// element is not assignable to the type of the collection. Test a list literal
+/// @description Checks that it is a compile-time error if a final variable
+/// declared by the pattern is assigned in a for-in element. Test a set literal
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -35,40 +35,40 @@
 import "patterns_lib.dart";
 
 main() {
-  <String>[
-    for (var (int v1) in [1, 2, 3]) v1
-//                                  ^^
+  {
+    for (final (int v1) in [1, 2, 3]) v1++
+//                                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final <int>[v2] in [[1], [2], [3]]) v2
+  };
+  {
+    for (final <int>[v2] in [[1], [2], [3]]) v2++
 //                                           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final <String, int>{"k1": v3} in [{"k1": 1}]) v3
+  };
+  {
+    for (final <String, int>{"k1": v3} in [{"k1": 1}]) v3++
 //                                                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final (int v4,) in [(1,)]) v4
+  };
+  {
+    for (final (int v4,) in [(1,)]) v4++
 //                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final (n: int v5) in [(n: 2)]) v5
+  };
+  {
+    for (final (n: int v5) in [(n: 2)]) v5++
 //                                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final Square(area: v6) in [Square(1)]) v6
+  };
+  {
+    for (final Square(area: v6) in [Square(1)]) v6++
 //                                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
+  };
 }

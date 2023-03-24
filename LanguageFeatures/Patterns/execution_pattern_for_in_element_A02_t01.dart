@@ -27,7 +27,7 @@
 /// }
 /// ```
 /// @description Checks that it is a compile-time error if type check ot the
-/// `<pattern>` with matched value `E` fails
+/// `<pattern>` with matched value `E` fails. Test a list literal
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

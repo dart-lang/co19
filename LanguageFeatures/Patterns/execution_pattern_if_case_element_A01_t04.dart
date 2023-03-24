@@ -19,7 +19,7 @@
 ///
 /// @description Check that it is a runtime error if a guard clause doesn't
 /// evaluate to bool. If a guard clause does evaluate to bool then there is no
-/// runtime error
+/// runtime error. Test a map literal
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -42,46 +42,47 @@ const unit4 = const Unit(4, logger);
 
 main() {
   Expect.throws(() {
-    [
-      if (Square(2, logger) case Square(area: unit4) when guard(42)) 1
-      else 2
-    ];
+    {
+      if (Square(2, logger) case Square(area: unit4) when guard(42)) "k": 1
+      else "k": 2
+    };
   });
   Expect.equals("Square.area:(4==4);guard(42);", log);
 
   log = "";
   Expect.throws(() {
-    [
-      if (Square(2, logger) case Square(area: unit4) when guard(null)) 1
-      else 2
-    ];
+    {
+      if (Square(2, logger) case Square(area: unit4) when guard(null)) "k": 1
+      else "k": 2
+    };
   });
   Expect.equals("Square.area:(4==4);guard(null);", log);
 
   log = "";
-  var l1 = [
-    0,
-    if (Square(2, logger) case Square(area: unit4) when guard(false)) 1,
-    2
-  ];
+  var m1 = {
+    "k0": 0,
+    if (Square(2, logger) case Square(area: unit4) when guard(false)) "k1": 1,
+    "k2": 2
+  };
   Expect.equals("Square.area:(4==4);guard(false);", log);
-  Expect.listEquals([0, 2], l1);
+  Expect.mapEquals({"k0": 0, "k2": 2}, m1);
 
   log = "";
-  var l2 = [
-    0,
-    if (Square(2, logger) case Square(area: unit4) when guard(true)) 1,
-    2
-  ];
+  var m2 = {
+    "k0": 0,
+    if (Square(2, logger) case Square(area: unit4) when guard(true)) "k1": 1,
+    "k2": 2
+  };
   Expect.equals("Square.area:(4==4);guard(true);", log);
-  Expect.listEquals([0, 1, 2], l2);
+  Expect.mapEquals({"k0": 0, "k2": 2}, m2);
 
   log = "";
-  var l3 = [
-    0,
-    if (Square(2, logger) case Square(area: unit4) when guard(false)) 1 else 2,
-    3
-  ];
+  var m3 = {
+    "k0": 0,
+    if (Square(2, logger) case Square(area: unit4) when guard(false)) "k1": 1
+    else "k1": 2,
+    "k2": 3
+  };
   Expect.equals("Square.area:(4==4);guard(false);", log);
-  Expect.listEquals([0, 2, 3], l3);
+  Expect.mapEquals({"k0": 0, "k1": 2, "k2": 3}, m3);
 }

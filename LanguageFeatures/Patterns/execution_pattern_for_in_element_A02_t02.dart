@@ -26,8 +26,8 @@
 ///   append(<element>);
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if type of for-in
-/// element is not assignable to the type of the collection. Test a list literal
+/// @description Checks that it is a compile-time error if type check ot the
+/// `<pattern>` with matched value `E` fails. Test a map literal
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -35,40 +35,40 @@
 import "patterns_lib.dart";
 
 main() {
-  <String>[
-    for (var (int v1) in [1, 2, 3]) v1
-//                                  ^^
+  {
+    for (var (int v1) in <num>[1, 2, 3]) "k$v1": v1
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final <int>[v2] in [[1], [2], [3]]) v2
-//                                           ^^
+  };
+  {
+    for (final <int>[v2] in <List<num>>[[1], [2], [3]]) "k$v2": v2
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final <String, int>{"k1": v3} in [{"k1": 1}]) v3
-//                                                     ^^
+  };
+  {
+    for (var <String, int>{"k1": v3} in <Map<String, num>>[{"k1": 1}]) "k$v3": v3
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final (int v4,) in [(1,)]) v4
-//                                  ^^
+  };
+  {
+    for (final (int v4,) in <(num,)>[(1,)]) "k$v4": v4
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final (n: int v5) in [(n: 2)]) v5
-//                                      ^^
+  };
+  {
+    for (var (n: int v5) in <({num n})>[(n: 2)]) "k$v5": v5
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final Square(area: v6) in [Square(1)]) v6
-//                                              ^^
+  };
+  {
+    for (var Square<Centimeter>(area: v) in <Square<Meter>>[Square<Meter>(1)]) "k$v": v
+//                                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
+  };
 }
