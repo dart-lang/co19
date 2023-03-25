@@ -42,7 +42,7 @@ const unit4 = const Unit(4, logger);
 
 main() {
   Expect.throws(() {
-    {
+    var s = {
       if (Square(2, logger) case Square(area: unit4) when guard(42)) 1
       else 2
     };
@@ -51,7 +51,7 @@ main() {
 
   log = "";
   Expect.throws(() {
-    {
+    var s = {
       if (Square(2, logger) case Square(area: unit4) when guard(null)) 1
       else 2
     };

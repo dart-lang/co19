@@ -35,37 +35,37 @@
 import "patterns_lib.dart";
 
 main() {
-  {
+  var m1 = {
     for (var (int v1) in 42) "k$v1": v1
 //                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
-  {
+  var m2 = {
     for (final <int>[v2] in "42") "k$v2": v2
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
-  {
+  var m3 = {
     for (var <String, int>{"k1": v3} in 42) "k$v3": v3
 //                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
-  {
+  var m4 = {
     for (final (int v4,) in "42") "k$v4": v4
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
-  {
+  var m5 = {
     for (var (n: v5) in 42) "k$v5": v5
 //                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
-  {
+  var m6 = {
     for (final Square(area: v6) in "42") "k$v6": v6
 //                                 ^
 // [analyzer] unspecified

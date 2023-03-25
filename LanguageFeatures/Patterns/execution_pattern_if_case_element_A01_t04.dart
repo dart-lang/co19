@@ -42,7 +42,7 @@ const unit4 = const Unit(4, logger);
 
 main() {
   Expect.throws(() {
-    {
+    var m = {
       if (Square(2, logger) case Square(area: unit4) when guard(42)) "k": 1
       else "k": 2
     };
@@ -51,7 +51,7 @@ main() {
 
   log = "";
   Expect.throws(() {
-    {
+    var m = {
       if (Square(2, logger) case Square(area: unit4) when guard(null)) "k": 1
       else "k": 2
     };
@@ -74,7 +74,7 @@ main() {
     "k2": 2
   };
   Expect.equals("Square.area:(4==4);guard(true);", log);
-  Expect.mapEquals({"k0": 0, "k2": 2}, m2);
+  Expect.mapEquals({"k0": 0, "k1": 1, "k2": 2}, m2);
 
   log = "";
   var m3 = {

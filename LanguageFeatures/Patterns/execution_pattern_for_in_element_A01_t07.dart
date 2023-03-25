@@ -38,45 +38,45 @@ import "patterns_lib.dart";
 
 main() {
   Expect.throws(() {
-    {
+    var m = {
       for (var (int v1) in <num>[1, 2, 3.14] as dynamic) "k$v1": v1
     };
   });
 
   Expect.throws(() {
-    {
+    var m = {
       for (final <int>[v2] in <List<num>>[[1], [2], [3]] as dynamic) "k$v2": v2
     };
   });
 
   Expect.throws(() {
-    {
+    var m = {
       for (var <String, int>{"k1": v3} in
           <Map<String, num>>[{"k1": 1}] as dynamic) "k$v3": v3
     };
   });
 
   Expect.throws(() {
-    {
+    var m = {
       for (final (int v4,) in <(num,)>[(1.1,)] as dynamic) "k$v4": v4
     };
   });
 
   Expect.throws(() {
-    {
+    var m = {
       for (var (n: int v5) in <({num n})>[(n: 2.1)] as dynamic) "k$v5": v5
     };
   });
 
   Expect.throws(() {
-    {
+    var m = {
       for (var Square<Centimeter>(area: v6) in [Circle(1)] as dynamic)
         "k$v6": v6
     };
   });
 
   Expect.throws(() {
-    {
+    var m = {
       for (final Square<Meter>(area: v7) in
           <Square<Centimeter>>[Square<Centimeter>(1)] as dynamic) "k$v7": v7
     };
