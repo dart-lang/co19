@@ -49,6 +49,10 @@ void main() {
       Expect.equals(256, array[i]);
       array[i] = 32767;
       Expect.equals(32767, array[i]);
+      array[i] = 32768;
+      Expect.equals(32768, array[i]);
+      array[i] = -32769;
+      Expect.equals(-32769, array[i]);
     }
   } finally {
     calloc.free(pointer);
