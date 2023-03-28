@@ -30,6 +30,7 @@
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
+// Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";
 import "patterns_collections_lib.dart";
