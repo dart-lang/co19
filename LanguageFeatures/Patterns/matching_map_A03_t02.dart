@@ -17,18 +17,7 @@
 /// Map:
 /// i. If the runtime type of v is not a subtype of the required type of p then
 ///   the match fails.
-/// ii. Let n be the number of non-rest elements.
-/// iii. Check the length:
-///   a. If p has a rest element and n == 0, then do nothing for checking the
-///     length.
-///   b. Else let l be the length of the map determined by calling length on v.
-///   c. If p has a rest element (and n > 0):
-///     a. If l < n then the match fails.
-///   d. Else if n > 0 (and p has no rest element):
-///     a. If l != n then the match fails.
-///   e. Else p is empty:
-///     a. If l > 0 then the match fails.
-/// iv. For each non-rest entry in p, in source order:
+/// ii. For each entry in p, in source order:
 ///   a. Evaluate the key expression to k.
 ///   b. Evaluate v[k] to r.
 ///   c. If r != null || (null is V) && v.containsKey(k) evaluates to false then
@@ -53,12 +42,9 @@
 ///         preserved.
 ///   d. Else, match r against this entry's value subpattern. If it does not
 ///     match, the map does not match.
-/// v. The match succeeds if all entry subpatterns match.
+/// iii. The match succeeds if all entry subpatterns match.
 ///
-/// @description Checks that for each non-rest entry in `p`, in source order, if
-/// `v[k] != null || (null is V) && v.containsKey(k)` evaluates to `false` then
-/// the map does not match. Test that in case of non-nullable `V`
-/// `containsKey(k)` is not called
+/// @description Checks that match succeeds if all entry subpatterns match.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -69,7 +55,7 @@ import "../../Utils/expect.dart";
 
 String test1(Object o) {
   switch (o) {
-    case <String, int>{"key1": _, "key2": _}:
+    case <String, int?>{"key1": 1, "key2": null}:
       return "match";
     default:
       return "no match";
@@ -77,7 +63,7 @@ String test1(Object o) {
 }
 
 String test2(Object o) {
-  if (o case <String, int>{"key1": _, "key2": _}) {
+  if (o case <String, int?>{"key1": 1, "key2": null}) {
     return "match";
   }
   return "no match";
@@ -85,30 +71,26 @@ String test2(Object o) {
 
 String test3(Object o) {
   return switch (o) {
-    <String, int>{"key1": _, "key2": _} => "match",
+    <String, int?>{"key1": 1, "key2": null} => "match",
     _ => "no match"
   };
 }
 
 main() {
-  final map = MyMap<String, int>({"key1": 1, "keyX": 42});
-  Expect.equals("no match", test1(map));
-  Expect.equals("length;[key1];[key2];", map.log);
+  final map = MyMap<String, int?>({"key1": 1, "key2": null});
+  Expect.equals("match", test1(map));
+  Expect.equals("[key1];[key2];containsKey(key2);", map.log);
   map.clearLog();
-  Expect.equals("no match", test2(map));
-  Expect.equals("length;[key1];[key2];", map.log);
+  Expect.equals("match", test2(map));
+  Expect.equals("[key1];[key2];containsKey(key2);", map.log);
   map.clearLog();
-  Expect.equals("no match", test3(map));
-  Expect.equals("length;[key1];[key2];", map.log);
+  Expect.equals("match", test3(map));
+  Expect.equals("[key1];[key2];containsKey(key2);", map.log);
   map.clearLog();
 
-  Expect.throws(() {
-    var <String, int>{"key1": _, "key2": _} = map;
-  });
-  Expect.equals("length;[key1];[key2];", map.log);
+  var <String, int?>{"key1": x1, "key2": x2} = map;
+  Expect.equals("[key1];[key2];containsKey(key2);", map.log);
   map.clearLog();
-  Expect.throws(() {
-    final <String, int>{"key1": _, "key2": _} = map;
-  });
-  Expect.equals("length;[key1];[key2];", map.log);
+  final <String, int?>{"key1": y1, "key2": y2} = map;
+  Expect.equals("[key1];[key2];containsKey(key2);", map.log);
 }

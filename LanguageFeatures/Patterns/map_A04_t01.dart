@@ -5,153 +5,102 @@
 /// @assertion
 /// mapPattern        ::= typeArguments? '{' mapPatternEntries? '}'
 /// mapPatternEntries ::= mapPatternEntry ( ',' mapPatternEntry )* ','?
-/// mapPatternEntry   ::= expression ':' pattern | '...'
+/// mapPatternEntry   ::= expression ':' pattern
 ///
 /// A map pattern matches values that implement Map and accesses values by key
 /// from it.
-///
 /// It is a compile-time error if:
+/// - typeArguments is present and there are more or fewer than two type
+///   arguments.
+/// - Any of the entry key expressions are not constant expressions.
 ///
-/// typeArguments is present and there are more or fewer than two type arguments
-///
-/// Any of the entry key expressions are not constant expressions.
-///
-/// If any two keys in the map are identical. Map patterns that don't have a
-/// rest element only match if the length of the map is equal to the number of
-/// map entries. If a map pattern has multiple identical key entries, they will
-/// increase the required length for the pattern to match but in all but the
-/// most perverse Map implementations will represent the same key. Thus, it's
-/// very unlikely that any map pattern containing identical keys (and no rest
-/// element) will ever match. Duplicate keys are most likely a typo in the code.
-///
-/// Any two record keys which both have primitive == are equal. Since records
-/// don't have defined identity, we can't use the previous rule to detect
-/// identical records. But records do support an equality test known at compile
-/// time if all of their fields do, so we use that.
-///
-/// There is more than one ... element in the map pattern.
-///
-/// The ... element is not the last element in the map pattern.
-///
-/// @description Check that it is a compile-time error if any two keys in the
-/// map pattern are identical
+/// @description Check that it is no error if any two keys in the map pattern
+/// are identical
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
+
+import "../../Utils/expect.dart";
 
 class C {
   const C();
 }
 
-const c1 = C();
-const c2 = C();
-
 String test1(Map map) {
   return switch (map) {
-    {const C(): 1, const C(): 2} => "",
-//                 ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    {1: 1, 1: 2} => "",
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    {c1: var a1, c2: final b1} => "",
-//               ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    {3.14: var a2, 3.14: final b2} => "",
-//                 ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    {"x": var a3, "x": final b3} => "",
-//                ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    {const C(): 1, const C(): 2} => "case-1",
+    {1: 1, 1: 2} => "case-2",
+    {3.14: var a2, 3.14: final b2} => "case-3",
+    {"x": final String a3, "x": var b3} => "case-4",
     _ => "default"
   };
 }
 
-void test2(Map map) {
+String test2(Map map) {
   switch (map) {
     case {const C(): 1, const C(): 2}:
-//                      ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
+      return "case-1";
     case {1: 1, 1: 2}:
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case {c1: var a1, c2: final b1}:
-//                    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+      return "case-2";
     case {3.14: var a2, 3.14: final b2}:
-//                      ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case {"x": var a3, "x": final b3}:
-//                     ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
+      return "case-3";
+    case {"x": final String a3, "x": var b3}:
+      return "case-4";
+    default:
+      return "default";
   }
 }
 
-void test3(Map map) {
+String test3(Map map) {
   if (map case {const C(): 1, const C(): 2}) {
-//                            ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    return "case-1";
   }
   if (map case {1: 1, 1: 2}) {
-//                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (map case {c1: var a1, c2: final b1}) {
-//                          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    return "case-2";
   }
   if (map case {3.14: var a2, 3.14: final b2}) {
-//                            ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    return "case-3";
   }
-  if (map case {"x": var a3, "x": final b3}) {
-//                           ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  if (map case {"x": final String a3, "x": var b3}) {
+    return "case-4";
   }
+  return "default";
 }
 
 main() {
-  var {const C(): 1, const C(): 2} = {const C(): 1};
-//                   ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  var {1: 1, 1: 2} = {1: 2};
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final {c1: var a1, c2: final b1} = {c2: 2};
-//                   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final {3.14: var a2, 3.14: final b2} = {3.14: 1};
-//                     ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final {"x": var a3, "x": final b3} = {"x": 1};
-//                    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  var {const C(): x1, const C(): y1} = {const C(): 1};
+  Expect.equals(1, x1);
+  Expect.equals(1, y1);
 
-  test1({});
-  test2({});
-  test3({});
+  var {1: x2, 1: y2} = {1: 2};
+  Expect.equals(2, x2);
+  Expect.equals(2, y2);
+
+  final {3.14: x3, 3.14: y3} = {3.14: 1};
+  Expect.equals(1, x3);
+  Expect.equals(1, y3);
+
+  Expect.equals("default", test1({const C(): 1}));
+  Expect.equals("default", test1({const C(): 2}));
+  Expect.equals("default", test1({1: 1}));
+  Expect.equals("default", test1({1: 2}));
+  Expect.equals("case-3", test1({3.14: 1}));
+  Expect.equals("case-4", test1({"x": "y"}));
+  Expect.equals("default", test1({"x": 1}));
+
+  Expect.equals("default", test2({const C(): 1}));
+  Expect.equals("default", test2({const C(): 2}));
+  Expect.equals("default", test2({1: 1}));
+  Expect.equals("default", test2({1: 2}));
+  Expect.equals("case-3", test2({3.14: 1}));
+  Expect.equals("case-4", test2({"x": "y"}));
+  Expect.equals("default", test2({"x": 1}));
+
+  Expect.equals("default", test3({const C(): 1}));
+  Expect.equals("default", test3({const C(): 2}));
+  Expect.equals("default", test3({1: 1}));
+  Expect.equals("default", test3({1: 2}));
+  Expect.equals("case-3", test3({3.14: 1}));
+  Expect.equals("case-4", test3({"x": "y"}));
+  Expect.equals("default", test3({"x": 1}));
 }
