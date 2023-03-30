@@ -60,6 +60,7 @@
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
+// Requirements=nnbd-strong
 
 import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
@@ -98,8 +99,8 @@ void test4(dynamic o) {
 }
 
 main() {
-  final map1 = MyMap<String, dynamic>({});
-  final map2 = MyMap<String, String>({"key1": "42"});
+  final map1 = MyMap<String, int?>({"key1": 42});
+  final map2 = MyMap<String, num?>({"key1": 42});
 
   Expect.equals("no match", test1(map1));
   Expect.equals("", map1.log);
