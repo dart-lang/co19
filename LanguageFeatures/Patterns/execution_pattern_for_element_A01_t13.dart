@@ -26,5 +26,6 @@ main() {
       a,
     13
   };
+  // Set may contain only one 1, so we have 0, 1, 2... instead of 0, 1, 1, 2,...
   Expect.setEquals({-1, 0, 1, 2, 3, 5, 8, 13}, set);
 }

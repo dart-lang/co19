@@ -26,7 +26,7 @@ main() {
   Expect.mapEquals({
     "k-1": -1,
     "k0": 0,
-    "k1": 1,
+    "k1": 1, // Map may contain only one pair "k1": 1
     "k2": 2,
     "k3": 3,
     "k5": 5,

@@ -18,8 +18,8 @@
 ///   yield the result into the collection.
 ///
 /// @description Check that if pattern matches and there is a guard clause it is
-/// executed. If the guard is evaluated to `true` then the statement is
-/// executed. If the guard is evaluated to `false` then the else statement is
+/// executed. If the guard is evaluated to `true` then the then element is
+/// executed. If the guard is evaluated to `false` then the else element is
 /// executed, if any. Test a set literal
 /// @author sgrekhov22@gmail.com
 
@@ -58,13 +58,4 @@ main() {
   };
   Expect.equals("Square.area:(4==4);guard(false);", log);
   Expect.setEquals({0, 2}, s2);
-
-  log = "";
-  var s3 = {
-    0,
-    if (Square(2, logger) case Square(area: unit4) when guard(false)) 1,
-    2
-  };
-  Expect.equals("Square.area:(4==4);guard(false);", log);
-  Expect.setEquals({0, 2}, s3);
 }

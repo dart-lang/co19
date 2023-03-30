@@ -18,7 +18,7 @@
 ///   yield the result into the collection.
 ///
 /// @description Check that if a pattern matches and there is no guard clause
-/// then the statement is executed. Test a set literal
+/// then the then element is executed. Test a set literal
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

@@ -18,8 +18,8 @@
 ///   yield the result into the collection.
 ///
 /// @description Check that if pattern matches and there is a guard clause it is
-/// executed. If the guard is evaluated to `true` then the statement is
-/// executed. If the guard is evaluated to `false` then the else statement is
+/// executed. If the guard is evaluated to `true` then the then element is
+/// executed. If the guard is evaluated to `false` then the else element is
 /// executed, if any. Test a map literal
 /// @author sgrekhov22@gmail.com
 

@@ -26,16 +26,16 @@
 import "patterns_lib.dart";
 
 main() {
-  <String, String>{
-    if (Square(2) case Square(area: const Unit(4))) "k": 1,
-//                                                       ^
+  <String>{
+    if (Square(2) case Square(area: const Unit(4))) 1,
+//                                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
 
-  <String, int>{
-    if (Square(2) case Square(area: const Unit(4))) "k": 1 else "k2": 2 as num
-//                                                                    ^^^^^^^^
+  <int>{
+    if (Square(2) case Square(area: const Unit(4))) 1 else 2 as num
+//                                                         ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
