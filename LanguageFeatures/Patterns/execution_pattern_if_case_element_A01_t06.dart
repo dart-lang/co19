@@ -17,26 +17,27 @@
 /// 4. Else the match failed. Evaluate the else element if there is one and
 ///   yield the result into the collection.
 ///
-/// @description Check that it is a compile-time error if the value yielded by
-/// pattern-if-case element is not assignable to the collection element type
-/// @author sgrekhov22@gmail.com. Test a list literal
+/// @description Check that if a pattern matches and there is no guard clause
+/// then the then element is executed. Test a set literal
+/// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
+import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
-main() {
-  <String>[
-    if (Square(2) case Square(area: const Unit(4))) 1,
-//                                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
+String log = "";
 
-  <int>[
-    if (Square(2) case Square(area: const Unit(4))) 1 else 2 as num
-//                                                         ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
+void logger(String s) {
+  log += s;
+}
+
+main() {
+  var m = {
+    "k0": 0,
+    if (Square(2, logger) case Square(area: const Unit(4, logger))) "k1": 1,
+    "k2": 2
+  };
+  Expect.equals("Square.area:(4==4);", log);
+  Expect.mapEquals({"k0": 0, "k1": 1, "k2": 2}, m);
 }

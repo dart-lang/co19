@@ -26,8 +26,8 @@
 ///   append(<element>);
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if type of for-in
-/// element is not assignable to the type of the collection. Test a list literal
+/// @description Checks that it is a compile-time error if `I` doesn't implement
+/// `Iterable<T>` and in not `dynamic`. Test a set literal
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -35,40 +35,40 @@
 import "patterns_lib.dart";
 
 main() {
-  <String>[
-    for (var (int v1) in [1, 2, 3]) v1
-//                                  ^^
+  var s1 = {
+    for (var (int v1) in 42) v1
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final <int>[v2] in [[1], [2], [3]]) v2
-//                                           ^^
+  };
+  var s2 = {
+    for (final <int>[v2] in "42") v2
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final <String, int>{"k1": v3} in [{"k1": 1}]) v3
-//                                                     ^^
+  };
+  var s3 = {
+    for (var <String, int>{"k1": v3} in 42) v3
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final (int v4,) in [(1,)]) v4
-//                                  ^^
+  };
+  var s4 = {
+    for (final (int v4,) in "42") v4
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final (n: int v5) in [(n: 2)]) v5
-//                                      ^^
+  };
+  var s5 = {
+    for (var (n: v5) in 42) v5
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
-  <String>[
-    for (final Square(area: v6) in [Square(1)]) v6
-//                                              ^^
+  };
+  var s6 = {
+    for (final Square(area: v6) in "42") v6
+//                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
+  };
 }

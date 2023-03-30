@@ -47,7 +47,7 @@ String test1(Object o) {
   switch (o) {
     case <int>[1]: // Expect call length
       return "match-1";
-    case <int>[1, ... var r, 4]: // Expect call [0], [2]
+    case <int>[1, ... var r, 4]: // Expect call [0], sublist(1, 2), [2]
       return "match-2";
     case <int>[1, _, 3]: // Expect call [2]
       return "match-3";
