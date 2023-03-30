@@ -20,8 +20,8 @@
 ///   value is an always-exhaustive type. There is no error if a switch
 ///   statement is not exhaustive when the type is not an always-exhaustive type
 ///
-/// @description Check that it is a compile-time error if a switch statement is
-/// not exhaustive. Test a type `T?` where `T` is always-exhaustive
+/// @description Check that it is no error if a switch statement is  exhaustive.
+/// Test a type `T?` where `T` is always-exhaustive
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,class-modifiers
@@ -32,17 +32,12 @@ main() {
     b = null;
   }
   switch (b) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     case true:
     case false:
+    case null:
   }
   switch (b) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case true:
+    case bool _:
     case null:
   }
 }

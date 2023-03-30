@@ -21,28 +21,35 @@
 ///   statement is not exhaustive when the type is not an always-exhaustive type
 ///
 /// @description Check that it is a compile-time error if a switch statement is
-/// not exhaustive. Test a type `T?` where `T` is always-exhaustive
+/// not exhaustive. Test a type variable `X` with bound `T` where `T` is
+/// always-exhaustive
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,class-modifiers
 
+sealed class Sealed {const Sealed();}
+class C1 extends Sealed {const C1();}
+class C2 extends Sealed {const C2();}
+
+test1<T extends Sealed>(T t) {
+  switch (t) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case C1():
+  }
+}
+
+test2<T extends bool?>(T t) {
+  switch (t) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case bool():
+  }
+}
+
 main() {
-  bool? b = 1 > 2;
-  if (b) {
-    b = null;
-  }
-  switch (b) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case true:
-    case false:
-  }
-  switch (b) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case true:
-    case null:
-  }
+  test1<C1>(C1());
+  test2<bool>(true);
 }

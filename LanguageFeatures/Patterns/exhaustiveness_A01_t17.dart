@@ -21,28 +21,40 @@
 ///   statement is not exhaustive when the type is not an always-exhaustive type
 ///
 /// @description Check that it is a compile-time error if a switch statement is
-/// not exhaustive. Test a type `T?` where `T` is always-exhaustive
+/// not exhaustive. Test a promoted type variable `X & T` where `T` is
+/// always-exhaustive
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,class-modifiers
 
+class C {}
+sealed class Sealed extends C {}
+class C1 extends Sealed {}
+class C2 extends Sealed {}
+
+test1<T extends C>(T t) {
+  if (t is Sealed) {
+    switch (t) {
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      case C1():
+    }
+  }
+}
+
+test2<T>(T t) {
+  if (T is bool?) {
+    switch (t) {
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      case bool():
+    }
+  }
+}
+
 main() {
-  bool? b = 1 > 2;
-  if (b) {
-    b = null;
-  }
-  switch (b) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case true:
-    case false:
-  }
-  switch (b) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case true:
-    case null:
-  }
+  test1<C1>(C1());
+  test2<bool?>(true);
 }

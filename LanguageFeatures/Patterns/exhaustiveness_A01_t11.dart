@@ -21,28 +21,25 @@
 ///   statement is not exhaustive when the type is not an always-exhaustive type
 ///
 /// @description Check that it is a compile-time error if a switch statement is
-/// not exhaustive. Test a type `T?` where `T` is always-exhaustive
+/// not exhaustive. Test a type `FutureOr<T>` for `T` that is always-exhaustive
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,class-modifiers
+// SharedOptions=--enable-experiment=patterns
+
+import "dart:async";
 
 main() {
-  bool? b = 1 > 2;
-  if (b) {
-    b = null;
-  }
-  switch (b) {
+  FutureOr<bool> fo = true;
+  switch (fo) {
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case true:
-    case false:
+    case bool _:
   }
-  switch (b) {
+  switch (fo) {
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case true:
-    case null:
+    case Future<bool> _:
   }
 }

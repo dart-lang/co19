@@ -20,22 +20,17 @@
 ///   value is an always-exhaustive type. There is no error if a switch
 ///   statement is not exhaustive when the type is not an always-exhaustive type
 ///
-/// @description Check that it is a compile-time error if a switch statement is
-/// not exhaustive. Test a type whose declaration is marked sealed
+/// @description Check that it is no error if a switch statement is exhaustive.
+/// Test `null`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,class-modifiers
-
-sealed class Sealed {}
-class C1 extends Sealed {}
-class C2 extends Sealed {}
+// SharedOptions=--enable-experiment=patterns
 
 main() {
-  Sealed s = C1();
-  switch (s) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case C1 _:
+  switch (null) {
+    case null:
+  }
+  switch (null) {
+    case Null():
   }
 }

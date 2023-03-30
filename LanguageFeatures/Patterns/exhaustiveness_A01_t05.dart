@@ -21,28 +21,22 @@
 ///   statement is not exhaustive when the type is not an always-exhaustive type
 ///
 /// @description Check that it is a compile-time error if a switch statement is
-/// not exhaustive. Test a type `T?` where `T` is always-exhaustive
+/// not exhaustive. Test an enum type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,class-modifiers
+// SharedOptions=--enable-experiment=patterns
+
+enum E {
+  e1,
+  e2
+}
 
 main() {
-  bool? b = 1 > 2;
-  if (b) {
-    b = null;
-  }
-  switch (b) {
+  E e = E.e1;
+  switch (e) {
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case true:
-    case false:
-  }
-  switch (b) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case true:
-    case null:
+    case E.e1:
   }
 }

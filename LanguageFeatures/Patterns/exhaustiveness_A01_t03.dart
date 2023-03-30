@@ -21,22 +21,15 @@
 ///   statement is not exhaustive when the type is not an always-exhaustive type
 ///
 /// @description Check that it is a compile-time error if a switch statement is
-/// not exhaustive. Test an enum type
+/// not exhaustive. Test `null`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-enum E {
-  e1,
-  e2
-}
-
 main() {
-  E e = E.e1;
-  switch (e) {
+  switch (null) {
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case E.e1:
   }
 }

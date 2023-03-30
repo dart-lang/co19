@@ -20,16 +20,24 @@
 ///   value is an always-exhaustive type. There is no error if a switch
 ///   statement is not exhaustive when the type is not an always-exhaustive type
 ///
-/// @description Check that it is a compile-time error if a switch statement is
-/// not exhaustive. Test `null`
+/// @description Check that it is no error if a switch statement is exhaustive.
+/// Test `bool`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
 main() {
-  switch (null) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  bool b = 1 > 2;
+  switch (b) {
+    case true:
+    case false:
+  }
+  switch (b) {
+    case false:
+      print("false");
+      break;
+    case true:
+      print("true");
+      break;
   }
 }

@@ -21,23 +21,21 @@
 ///   statement is not exhaustive when the type is not an always-exhaustive type
 ///
 /// @description Check that it is a compile-time error if a switch statement is
-/// not exhaustive. Test a record type whose fields all have always-exhaustive
-/// types
+/// not exhaustive. Test a type whose declaration is marked `sealed`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
+// SharedOptions=--enable-experiment=patterns,class-modifiers
 
-test((bool, {bool b}) r) {
-  switch (r) {
+sealed class Sealed {}
+class C1 extends Sealed {}
+class C2 extends Sealed {}
+
+main() {
+  Sealed s = C1();
+  switch (s) {
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case (true, b: true):
-    case (true, b: false):
-    case (false, b: true):
+    case C1 _:
   }
-}
-
-main() {
-  test((true, b: false));
 }

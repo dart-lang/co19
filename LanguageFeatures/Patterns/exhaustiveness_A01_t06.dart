@@ -20,26 +20,21 @@
 ///   value is an always-exhaustive type. There is no error if a switch
 ///   statement is not exhaustive when the type is not an always-exhaustive type
 ///
-/// @description Check that it is a compile-time error if a switch statement is
-/// not exhaustive. Test a type `FutureOr<T>` for `T` that is always-exhaustive
+/// @description Check that it is no error if a switch statement is exhaustive.
+/// Test an enum type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-import "dart:async";
+enum E {
+  e1,
+  e2
+}
 
 main() {
-  FutureOr<bool> fo = true;
-  switch (fo) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case bool _:
-  }
-  switch (fo) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  case Future<bool> _:
+  E e = E.e1;
+  switch (e) {
+    case E.e1:
+    case E.e2:
   }
 }
