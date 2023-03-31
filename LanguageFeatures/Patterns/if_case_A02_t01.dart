@@ -175,7 +175,7 @@ main() {
     Expect.listEquals([1, 2, 4], testMap1({"key1": 1, "key2": 2}));
     Expect.listEquals([1, 3, 4], testMap1({"key1": 2, "key2": 2}));
     Expect.listEquals([1, 3, 4], testMap1({"key1": 1, "key2": -2}));
-    Expect.listEquals([1, 3, 4], testMap1({"key1": 1, "key2": 2, "key3": 3}));
+    Expect.listEquals([1, 2, 4], testMap1({"key1": 1, "key2": 2, "key3": 3}));
     Expect.listEquals([1, 2, 4], testMap2({"key1": 1, "key2": -2}));
     Expect.listEquals([1, 3, 4], testMap2({"key1": 2, "key2": -2}));
     Expect.listEquals([1, 3, 4], testMap2({"key1": 1, "key2": 2}));

@@ -274,7 +274,7 @@ main() {
         testMap1({"key1": 2, "key2": 2}));
     Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4},
         testMap1({"key1": 1, "key2": -2}));
-    Expect.mapEquals({"key1": 1, "key3": 3, "key4": 4},
+    Expect.mapEquals({"key1": 1, "key2": 2, "key4": 4},
         testMap1({"key1": 1, "key2": 2, "key3": 3}));
     Expect.mapEquals({"key1": 1, "key2": 2, "key4": 4},
         testMap2({"key1": 1, "key2": -2}));

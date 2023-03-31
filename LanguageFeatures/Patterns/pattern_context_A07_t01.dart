@@ -465,10 +465,10 @@ main() {
   Expect.equals("match", testMap2({"key1": 1}));
   Expect.equals("match", testMap3({"key1": 1}));
   Expect.equals("match", testMap4({"key1": 1}));
-  Expect.equals("no match", testMap1({"key1": 1, "key2": 2}));
-  Expect.equals("no match", testMap2({"key1": 1, "key2": 2}));
-  Expect.equals("no match", testMap3({"key1": 1, "key2": 2}));
-  Expect.equals("no match", testMap4({"key1": 1, "key2": 2}));
+  Expect.equals("match", testMap1({"key1": 1, "key2": 2}));
+  Expect.equals("match", testMap2({"key1": 1, "key2": 2}));
+  Expect.equals("match", testMap3({"key1": 1, "key2": 2}));
+  Expect.equals("match", testMap4({"key1": 1, "key2": 2}));
   Expect.equals("match", testRecord1((1,)));
   Expect.equals("match", testRecord2((1,)));
   Expect.equals("match", testRecord3((1,)));
