@@ -83,11 +83,11 @@ main() {
 
   Expect.equals("a=1, b=2", test1({c1: 1, c2: 2}));
   Expect.equals("default", test1({c1: 1}));
-  Expect.equals("default", test1({c1: 1, c2: 2, c3: 3}));
+  Expect.equals("a=1, b=2", test1({c1: 1, c2: 2, c3: 3}));
   Expect.equals("a=1, b=2", test2({c1: 1, c2: 2}));
   Expect.equals("default", test2({c1: 1}));
-  Expect.equals("default", test2({c1: 1, c2: 2, c3: 3}));
+  Expect.equals("a=1, b=2", test2({c1: 1, c2: 2, c3: 3}));
   Expect.equals("a=1, b=2", test3({c1: 1, c2: 2}));
   Expect.equals("default", test3({c1: 1}));
-  Expect.equals("default", test3({c1: 1, c2: 2, c3: 3}));
+  Expect.equals("a=1, b=2", test3({c1: 1, c2: 2, c3: 3}));
 }

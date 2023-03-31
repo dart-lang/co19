@@ -74,31 +74,31 @@ main() {
   Expect.equals("{1: _}", test1({1: 2}));
   Expect.equals("{1: _}", test1({1: 3}));
   Expect.equals("{42: String _}", test1({42: ""}));
-  Expect.equals("default", test1({42: "", 2: "2"}));
+  Expect.equals("{42: String _}", test1({42: "", 2: "2"}));
   Expect.equals("default", test1({2: 1}));
   Expect.equals("default", test1({3: 2, 2: 1}));
   Expect.equals("default", test1({}));
-  Expect.equals("default", test1({1: 2, 2: 1}));
-  Expect.equals("default", test1({1: 3, 42: ""}));
+  Expect.equals("{1: _}", test1({1: 2, 2: 1}));
+  Expect.equals("{1: _}", test1({1: 3, 42: ""}));
 
   Expect.equals("{1: _}", test2({1: 2}));
   Expect.equals("{1: _}", test2({1: 3}));
   Expect.equals("{42: String _}", test2({42: ""}));
-  Expect.equals("default", test2({42: "", 2: "2"}));
+  Expect.equals("{42: String _}", test2({42: "", 2: "2"}));
   Expect.equals("default", test2({2: 1}));
   Expect.equals("default", test2({3: 2, 2: 1}));
   Expect.equals("default", test2({}));
-  Expect.equals("default", test2({1: 2, 2: 1}));
-  Expect.equals("default", test2({1: 3, 42: ""}));
+  Expect.equals("{1: _}", test2({1: 2, 2: 1}));
+  Expect.equals("{1: _}", test2({1: 3, 42: ""}));
 
   Expect.equals("{1: _}", test3({1: 2}));
   Expect.equals("{1: _}", test3({1: 3}));
   Expect.equals("{42: String _}", test3({42: ""}));
-  Expect.equals("default", test3({42: "", 2: "2"}));
+  Expect.equals("{42: String _}", test3({42: "", 2: "2"}));
   Expect.equals("default", test3({2: 1}));
   Expect.equals("default", test3({3: 2, 2: 1}));
   Expect.equals("default", test3({}));
-  Expect.equals("default", test3({1: 2, 2: 1}));
-  Expect.equals("default", test3({1: 3, 42: ""}));
+  Expect.equals("{1: _}", test3({1: 2, 2: 1}));
+  Expect.equals("{1: _}", test3({1: 3, 42: ""}));
 
 }
