@@ -31,7 +31,7 @@ main() {
 //                          ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final <String, int>{"key1": final String a2, ...} = {} as dynamic;
+  final <String, int>{"key1": final String a2} = {} as dynamic;
 //                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -36,7 +36,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  for (final {"key1": int a2, "key2": b2, ...}
+  for (final {"key1": int a2, "key2": b2}
       in [{"key1": 1, "key2": 2, "key3": 3}]) {
     a2 = 42;
 //  ^^
@@ -47,7 +47,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  for (final <String, int>{"key1": a3, "key2": int b3, ...}
+  for (final <String, int>{"key1": a3, "key2": int b3}
       in [{"key1": 1, "key2": 2, "key3": 3}]) {
     a3 = 42;
 //  ^^

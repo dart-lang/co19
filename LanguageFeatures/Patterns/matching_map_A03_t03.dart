@@ -87,9 +87,4 @@ main() {
   Expect.equals("match", test3(map));
   Expect.equals("[key1];containsKey(key1);", map.log);
   map.clearLog();
-
-  var <String, int?>{...} = map;
-  Expect.equals("", map.log);
-  final <String, int?>{...} = map;
-  Expect.equals("", map.log);
 }

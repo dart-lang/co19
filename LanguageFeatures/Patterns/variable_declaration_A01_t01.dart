@@ -54,7 +54,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  Map<String, num> {"pi": a4, ...} = {"pi": 3.14, "e": 2.71};
+  Map<String, num> {"pi": a4} = {"pi": 3.14, "e": 2.71};
 //                 ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -7,8 +7,7 @@
 /// ...
 /// Map: A type schema Map<K, V> where:
 /// i. If p has type arguments then K, and V are those type arguments.
-/// ii.  Else if p has no entries, then K and V are _.
-/// iii. Else K is _ and V is the greatest lower bound of the context type
+/// ii. Else K is _ and V is the greatest lower bound of the context type
 ///     schemas of all value subpatterns.
 ///
 /// @description Check that if map pattern p has type arguments then K, and V
@@ -46,10 +45,10 @@ main() {
   Expect.equals(typeOf<Map<String, C>>().toString(), log);
 
   log = "";
-  var <String, C>{} = getType(<String, C>{}, (String s) {log += s;});
+  var <String, C>{"k": _} = getType(<String, C>{"k": c}, (String s) {log += s;});
   Expect.equals(typeOf<Map<String, C>>().toString(), log);
 
   log = "";
-  final <int, B>{} = getType(<int, B>{}, (String s) {log += s;});
+  final <int, B>{1: _} = getType(<int, B>{1: b}, (String s) {log += s;});
   Expect.equals(typeOf<Map<int, B>>().toString(), log);
 }

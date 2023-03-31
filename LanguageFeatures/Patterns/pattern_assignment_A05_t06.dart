@@ -70,7 +70,7 @@ main() {
   });
 
   Expect.throws(() {
-    {"key1": af4, ...} = {"key1": 1, "key2": 2};
+    {"key1": af4} = {"key1": 1, "key2": 2};
   });
 
   Expect.throws(() {

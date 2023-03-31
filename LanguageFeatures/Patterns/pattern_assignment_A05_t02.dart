@@ -67,7 +67,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  {"key1": af, ...} = {"key1": 1, "key2": 2};
+  {"key1": af} = {"key1": 1, "key2": 2};
 //         ^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -55,7 +55,7 @@ main() {
   {"key1": af3, "key2": _} = {"key1": 1, "key2": 2};
   Expect.equals(1, af3);
 
-  {"key1": af4, ...} = {"key1": 1, "key2": 2};
+  {"key1": af4} = {"key1": 1, "key2": 2};
   Expect.equals(1, af4);
 
   (af5, _)  = (1, 2);

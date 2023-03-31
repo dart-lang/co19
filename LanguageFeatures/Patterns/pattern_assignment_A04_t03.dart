@@ -26,7 +26,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  {"key1": int a, "key2": _, ...} = {"key1": 1, "key2": 2, "key3": 3};
+  {"key1": int a, "key2": _} = {"key1": 1, "key2": 2, "key3": 3};
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -41,7 +41,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  {"key1": a, "key2": int b1, ...} = {"key1": 1, "key2": 2, "key3": 3};
+  {"key1": a, "key2": int b1} = {"key1": 1, "key2": 2, "key3": 3};
 //                    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -51,7 +51,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  {"key1": const a, "key2": b, ...} = {"key1": 1, "key2": 2, "key3": 3};
+  {"key1": const a, "key2": b} = {"key1": 1, "key2": 2, "key3": 3};
 //         ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

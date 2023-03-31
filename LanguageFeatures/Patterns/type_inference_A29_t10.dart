@@ -32,7 +32,7 @@ main() {
   Expect.throws(() {
     a1.whatever; // a1 id dynamic
   });
-  final {"key1": a2, ...} = {"key1": 1 as num, "key2": 2} as dynamic;
+  final {"key1": a2} = {"key1": 1 as num, "key2": 2} as dynamic;
   Expect.throws(() {
     a2.whatever;
   });

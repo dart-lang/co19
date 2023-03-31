@@ -54,8 +54,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final {"pi": a4, ...};
-//      ^^^^^^^^^^^^^^^
+  final {"pi": a4};
+//      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

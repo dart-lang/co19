@@ -39,7 +39,7 @@ String test1() {
 
 String test2() {
   switch ({} as Object) {
-    case {"key1": final a, ...}:
+    case {"key1": final a}:
       a.expectStaticType<Exactly<Object?>>();
       return "match";
     default:
@@ -56,7 +56,7 @@ String test3() {
 }
 
 String test4() {
-  if ({} as Object case {"key1": final a, ...}) {
+  if ({} as Object case {"key1": final a}) {
     a.expectStaticType<Exactly<Object?>>();
     return "match";
   }
@@ -72,7 +72,7 @@ String test5() =>
 
 String test6() =>
   switch ({} as Object) {
-    {"key1": final a, ...} when
+    {"key1": final a} when
         (a.expectStaticType<Exactly<Object?>>() is Object?) => "match",
     _ => "no match"
   };
@@ -83,7 +83,7 @@ main() {
     a1.expectStaticType<Exactly<Object?>>();
   });
   Expect.throws(() {
-    final {"key1": a2, ...} = {};
+    final {"key1": a2} = {};
   });
   Expect.equals("no match", test1());
   Expect.equals("no match", test2());

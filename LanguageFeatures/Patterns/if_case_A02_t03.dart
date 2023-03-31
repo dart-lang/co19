@@ -156,7 +156,7 @@ Set<int> testMap1(Map<String, int> map) {
 Set<int> testMap2(Map<String, int> map) =>
     {
       1,
-      if (map case {"key1": 1, "key2": final b, ...} when b < 0) 2 else 3,
+      if (map case {"key1": 1, "key2": final b} when b < 0) 2 else 3,
       4
     };
 

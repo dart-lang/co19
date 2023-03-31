@@ -51,7 +51,7 @@ String test1() {
 
 String test2() {
   switch (<D<B>, int>{const D<B>(): 1} as Object) {
-    case <C<B>, num>{const D(): final a, ...}:
+    case <C<B>, num>{const D(): final a}:
       a.expectStaticType<Exactly<num>>();
       return "match";
     default:
@@ -71,7 +71,7 @@ String test3() {
 
 String test4() {
   if (<D<B>, int>{const D<B>(): 1} as Object
-      case <C<B>, num>{const D(): final a, ...}) {
+      case <C<B>, num>{const D(): final a}) {
     a.expectStaticType<Exactly<num>>();
     return "match";
   }
@@ -87,7 +87,7 @@ String test5() =>
 
 String test6() =>
   switch (<D<B>, int>{const D<B>(): 1} as Object) {
-    <C<B>, num>{const D(): final a, ...} when
+    <C<B>, num>{const D(): final a} when
         a.expectStaticType<Exactly<num>>() is num => "match",
     _ => "no match"
   };
@@ -96,7 +96,7 @@ main() {
   var <C<B>, num>{const D(): a1} = <D<B>, int>{const D<B>(): 1};
   a1.expectStaticType<Exactly<num>>();
   a1 = 3.14;
-  final <C<B>, num>{const D(): a2, ...}  = <D<B>, int>{const D<B>(): 1};
+  final <C<B>, num>{const D(): a2}  = <D<B>, int>{const D<B>(): 1};
   a2.expectStaticType<Exactly<num>>();
 
   Expect.equals("match", test1());

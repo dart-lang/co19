@@ -47,7 +47,7 @@ main() {
   Expect.isTrue(visited);
 
   visited = false;
-  for (var <String, int>{"key1": int a3, "key2": b3, ...}
+  for (var <String, int>{"key1": int a3, "key2": b3}
       in [{"key1": 5, "key2": 6, "key3": 7}]) {
     Expect.equals(5, a3);
     Expect.equals(6, b3);
@@ -73,7 +73,7 @@ main() {
   Expect.isTrue(visited);
 
   visited = false;
-  for(final <String, int>{"key1": int a6, "key2": b6, ...}
+  for(final <String, int>{"key1": int a6, "key2": b6}
       in [{"key1": 5, "key2": 6, "key3": 7}]) {
     Expect.equals(5, a6);
     Expect.equals(6, b6);

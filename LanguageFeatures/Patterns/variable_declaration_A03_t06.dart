@@ -33,7 +33,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final {"key1": int a2, "key2": b2, ...} = {"key1": 1, "key2": 2, "key3": 3};
+  final {"key1": int a2, "key2": b2} = {"key1": 1, "key2": 2, "key3": 3};
   a2 = 42;
 //^^
 // [analyzer] unspecified
@@ -43,7 +43,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final <String, int>{"key1": a3, "key2": int b3, ...}
+  final <String, int>{"key1": a3, "key2": int b3}
       = {"key1": 1, "key2": 2, "key3": 3};
   a3 = 42;
 //^^
