@@ -13,6 +13,8 @@
 /// - typeArguments is present and there are more or fewer than two type
 ///   arguments.
 /// - Any of the entry key expressions are not constant expressions.
+/// - Any two keys in the map are identical.
+/// - Any two record keys which both have primitive equality are equal.
 ///
 /// @description Check that if a map has more elements than number of
 /// subpatterns in a map pattern then match may happen
