@@ -19,24 +19,24 @@
 ///
 /// @description Check that it is a compile-time error if the value yielded by
 /// pattern-if-case element is not assignable to the collection element type
-/// @author sgrekhov22@gmail.com. Test a list literal
+/// @author sgrekhov22@gmail.com. Test a set literal
 
 // SharedOptions=--enable-experiment=patterns,records
 
 import "patterns_lib.dart";
 
 main() {
-  <String>[
+  <String>{
     if (Square(2) case Square(area: const Unit(4))) 1,
 //                                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
+  };
 
-  <int>[
+  <int>{
     if (Square(2) case Square(area: const Unit(4))) 1 else 2 as num
 //                                                         ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ];
+  };
 }

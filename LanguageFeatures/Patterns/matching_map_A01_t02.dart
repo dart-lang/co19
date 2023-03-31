@@ -17,7 +17,18 @@
 /// Map:
 /// i. If the runtime type of v is not a subtype of the required type of p then
 ///   the match fails.
-/// ii. For each entry in p, in source order:
+/// ii. Let n be the number of non-rest elements.
+/// iii. Check the length:
+///   a. If p has a rest element and n == 0, then do nothing for checking the
+///     length.
+///   b. Else let l be the length of the map determined by calling length on v.
+///   c. If p has a rest element (and n > 0):
+///     a. If l < n then the match fails.
+///   d. Else if n > 0 (and p has no rest element):
+///     a. If l != n then the match fails.
+///   e. Else p is empty:
+///     a. If l > 0 then the match fails.
+/// iv. For each non-rest entry in p, in source order:
 ///   a. Evaluate the key expression to k.
 ///   b. Evaluate v[k] to r.
 ///   c. If r != null || (null is V) && v.containsKey(k) evaluates to false then
@@ -42,13 +53,14 @@
 ///         preserved.
 ///   d. Else, match r against this entry's value subpattern. If it does not
 ///     match, the map does not match.
-/// iii. The match succeeds if all entry subpatterns match.
+/// v. The match succeeds if all entry subpatterns match.
 ///
 /// @description Checks that if the runtime type of `v` is not a subtype of the
 /// required type of `p` then the match fails and no any member of `v` is called
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
+// Requirements=nnbd-strong
 
 import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
@@ -87,8 +99,8 @@ void test4(dynamic o) {
 }
 
 main() {
-  final map1 = MyMap<String, dynamic>({});
-  final map2 = MyMap<String, String>({"key1": "42"});
+  final map1 = MyMap<String, int?>({"key1": 42});
+  final map2 = MyMap<String, num?>({"key1": 42});
 
   Expect.equals("no match", test1(map1));
   Expect.equals("", map1.log);

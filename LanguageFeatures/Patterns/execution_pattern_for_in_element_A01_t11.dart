@@ -26,49 +26,58 @@
 ///   append(<element>);
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if type of for-in
-/// element is not assignable to the type of the collection. Test a list literal
+/// @description Checks that if `I` is `dynamic` and runtime type of `I` is
+/// `Iterable<T>` where `T` is not assignable to `<pattern>` required type then
+/// a run-time error occurs. Test a set literal
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
+import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
 main() {
-  <String>[
-    for (var (int v1) in [1, 2, 3]) v1
-//                                  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
-  <String>[
-    for (final <int>[v2] in [[1], [2], [3]]) v2
-//                                           ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
-  <String>[
-    for (final <String, int>{"k1": v3} in [{"k1": 1}]) v3
-//                                                     ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
-  <String>[
-    for (final (int v4,) in [(1,)]) v4
-//                                  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
-  <String>[
-    for (final (n: int v5) in [(n: 2)]) v5
-//                                      ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
-  <String>[
-    for (final Square(area: v6) in [Square(1)]) v6
-//                                              ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
+  Expect.throws(() {
+    var s = {
+      for (var (int v1) in <num>[1, 2, 3.14] as dynamic) v1
+    };
+  });
+
+  Expect.throws(() {
+    var s = {
+      for (final <int>[v2] in <List<num>>[[1], [2], [3]] as dynamic) v2
+    };
+  });
+
+  Expect.throws(() {
+    var s = {
+      for (var <String, int>{"k1": v3} in
+          <Map<String, num>>[{"k1": 1}] as dynamic) v3
+    };
+  });
+
+  Expect.throws(() {
+    var s = {
+      for (final (int v4,) in <(num,)>[(1.1,)] as dynamic) v4
+    };
+  });
+
+  Expect.throws(() {
+    var s = {
+      for (var (n: int v5) in <({num n})>[(n: 2.1)] as dynamic) v5
+    };
+  });
+
+  Expect.throws(() {
+    var s = {
+      for (var Square<Centimeter>(area: v6) in [Circle(1)] as dynamic) v6
+    };
+  });
+
+  Expect.throws(() {
+    var s = {
+      for (final Square<Meter>(area: v7) in
+          <Square<Centimeter>>[Square<Centimeter>(1)] as dynamic) v7
+    };
+  });
 }

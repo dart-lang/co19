@@ -27,7 +27,7 @@
 /// }
 /// ```
 /// @description Checks that it is a compile-time error if a final variable
-/// declared by the pattern is assigned in a for-in element
+/// declared by the pattern is assigned in a for-in element. Test a list literal
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
