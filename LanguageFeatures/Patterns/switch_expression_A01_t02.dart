@@ -32,6 +32,9 @@
 main () {
   int i = 42;
   var x = switch(i) {
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     1: "one"
 //   ^
 // [analyzer] unspecified
@@ -48,13 +51,13 @@ main () {
   };
 
   var z = switch(i) {
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     1: "one",
 //   ^
 // [analyzer] unspecified
 // [cfe] unspecified
     _: "zero"
-//   ^
-// [analyzer] unspecified
-// [cfe] unspecified
   };
 }
