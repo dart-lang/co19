@@ -163,7 +163,7 @@ Map<String, int> testMap1(Map<String, int> map) {
 Map<String, int> testMap2(Map<String, int> map) =>
     {
       "key1": 1,
-      if (map case {"key1": 1, "key2": final b, ...} when b < 0)
+      if (map case {"key1": 1, "key2": final b} when b < 0)
         "key2": 2
       else
         "key3": 3,

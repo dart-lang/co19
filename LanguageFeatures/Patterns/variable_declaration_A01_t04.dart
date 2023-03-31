@@ -44,8 +44,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var {"pi": a3, ...} = {"pi": 3.14, "e": 2.71}, c3 = 42;
-//                                             ^
+  var {"pi": a3} = {"pi": 3.14, "e": 2.71}, c3 = 42;
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

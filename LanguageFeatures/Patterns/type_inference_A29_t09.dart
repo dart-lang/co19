@@ -41,7 +41,7 @@ String test1() {
 
 String test2() {
   switch ({"key1": 1 as num} as dynamic) {
-    case {"key1": final a, ...}:
+    case {"key1": final a}:
       Expect.throws(() {
         a.whatever;
       });
@@ -62,7 +62,7 @@ String test3() {
 }
 
 String test4() {
-  if ({"key1": 1 as num}  as dynamic case {"key1": final a, ...}) {
+  if ({"key1": 1 as num}  as dynamic case {"key1": final a}) {
     Expect.throws(() {
       a.whatever;
     });
@@ -79,7 +79,7 @@ String test5() =>
 
 String test6() =>
   switch ({"key1": 1 as num} as dynamic) {
-    {"key1": final a, ...}  when a.whatever => "match",
+    {"key1": final a}  when a.whatever => "match",
     _ => "no match"
   };
 

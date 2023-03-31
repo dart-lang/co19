@@ -40,7 +40,7 @@ String test1() {
 
 String test2() {
   switch ({"key1": 1 as num}) {
-    case <String, int>{"key1": final a, ...}:
+    case <String, int>{"key1": final a}:
       a.expectStaticType<Exactly<int>>();
       return "match";
     default:
@@ -57,7 +57,7 @@ String test3() {
 }
 
 String test4() {
-  if ({"key1": 1 as num} case <String, int>{"key1": final a, ...}) {
+  if ({"key1": 1 as num} case <String, int>{"key1": final a}) {
     a.expectStaticType<Exactly<int>>();
     return "match";
   }
@@ -73,7 +73,7 @@ String test5() =>
 
 String test6() =>
   switch ({"key1": 1 as num}) {
-    <String, int>{"key1": final a, ...} when
+    <String, int>{"key1": final a} when
         (a.expectStaticType<Exactly<int>>() is num)=> "match",
     _ => "no match"
   };

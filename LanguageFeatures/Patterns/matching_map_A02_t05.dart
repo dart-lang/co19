@@ -17,18 +17,7 @@
 /// Map:
 /// i. If the runtime type of v is not a subtype of the required type of p then
 ///   the match fails.
-/// ii. Let n be the number of non-rest elements.
-/// iii. Check the length:
-///   a. If p has a rest element and n == 0, then do nothing for checking the
-///     length.
-///   b. Else let l be the length of the map determined by calling length on v.
-///   c. If p has a rest element (and n > 0):
-///     a. If l < n then the match fails.
-///   d. Else if n > 0 (and p has no rest element):
-///     a. If l != n then the match fails.
-///   e. Else p is empty:
-///     a. If l > 0 then the match fails.
-/// iv. For each non-rest entry in p, in source order:
+/// ii. For each entry in p, in source order:
 ///   a. Evaluate the key expression to k.
 ///   b. Evaluate v[k] to r.
 ///   c. If r != null || (null is V) && v.containsKey(k) evaluates to false then
@@ -53,9 +42,12 @@
 ///         preserved.
 ///   d. Else, match r against this entry's value subpattern. If it does not
 ///     match, the map does not match.
-/// v. The match succeeds if all entry subpatterns match.
+/// iii. The match succeeds if all entry subpatterns match.
 ///
-/// @description Checks that match succeeds if all entry subpatterns match
+/// @description Checks that for each entry in `p`, in source order, if
+/// `v[k] != null || (null is V) && v.containsKey(k)` evaluates to `false` then
+/// the map does not match. Test that if `V` is non-nullable and `v[k] == null`
+/// then `v.containsKey(k)` is not called
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -88,20 +80,24 @@ String test3(Object o) {
 }
 
 main() {
-  final map = MyMap<String, int>({"key1": 1, "key2": 2});
-  Expect.equals("match", test1(map));
-  Expect.equals("length;[key1];[key2];", map.log);
+  final map = MyMap<String, int>({"keyX": 0, "key2": 2});
+  Expect.equals("no match", test1(map));
+  Expect.equals("[key1];", map.log);
   map.clearLog();
-  Expect.equals("match", test2(map));
-  Expect.equals("length;[key1];[key2];", map.log);
+  Expect.equals("no match", test2(map));
+  Expect.equals("[key1];", map.log);
   map.clearLog();
-  Expect.equals("match", test3(map));
-  Expect.equals("length;[key1];[key2];", map.log);
+  Expect.equals("no match", test3(map));
+  Expect.equals("[key1];", map.log);
   map.clearLog();
 
-  var <String, int>{"key1": x1, "key2": x2} = map;
-  Expect.equals("length;[key1];[key2];", map.log);
+  Expect.throws(() {
+    var <String, int>{"key1": v1, "key2": v2} = map;
+  });
+  Expect.equals("[key1];", map.log);
   map.clearLog();
-  final <String, int>{"key1": y1, "key2": y2} = map;
-  Expect.equals("length;[key1];[key2];", map.log);
+  Expect.throws(() {
+    final <String, int>{"key1": v1, "key2": v2} = map;
+  });
+  Expect.equals("[key1];", map.log);
 }

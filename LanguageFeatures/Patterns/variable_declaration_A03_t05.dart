@@ -34,7 +34,7 @@ main() {
   a2 = 42;
   b2 = 42;
 
-  var <String, int>{"key1": int a3, "key2": b3, ...}
+  var <String, int>{"key1": int a3, "key2": b3}
       = {"key1": 5, "key2": 6, "key3": 7};
   Expect.equals(5, a3);
   Expect.equals(6, b3);
@@ -49,7 +49,7 @@ main() {
   Expect.equals(3, a5);
   Expect.equals(4, b5);
 
-  final <String, int>{"key1": int a6, "key2": b6, ...}
+  final <String, int>{"key1": int a6, "key2": b6}
       = {"key1": 5, "key2": 6, "key3": 7};
   Expect.equals(5, a6);
   Expect.equals(6, b6);

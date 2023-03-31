@@ -32,7 +32,7 @@ main() {
   Expect.equals(4, b2);
 
   int a3 = 42, b3 = 42;
-  {"key1": a3, "key2": b3, ...} = {"key1": 5, "key2": 6, "key3": 7};
+  {"key1": a3, "key2": b3} = {"key1": 5, "key2": 6, "key3": 7};
   Expect.equals(5, a3);
   Expect.equals(6, b3);
 }

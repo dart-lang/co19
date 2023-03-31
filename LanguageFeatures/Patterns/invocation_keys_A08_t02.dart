@@ -17,15 +17,14 @@
 /// To bind invocation keys in a pattern p using parent invocation i:
 /// ...
 /// Map:
-/// i. Bind i : ("length", []) to the length getter invocation.
-/// ii. For each entry in p:
+/// i. For each entry in p:
 ///   a. Bind i : ("containsKey()", [key]) to the containsKey() invocation where
 ///     key is entry's key constant value.
 ///   b. Let e be i : ("[]", [key]) where key is entry's key constant value.
 ///   c. Bind e to the [] invocation for this entry.
 ///   d. Bind invocations in the entry value subpattern using parent e.
 ///
-/// @description Checks that for a map pattern invocation keys `("length", [])`,
+/// @description Checks that for a map pattern invocation keys
 /// `("containsKey()", [key])` and `("[]", [key])` are invoked only once.
 /// @author sgrekhov22@gmail.com
 
@@ -37,9 +36,9 @@ import "patterns_collections_lib.dart";
 
 String test1(Object o) {
   switch (o) {
-    case <String, int?>{"key1": 1}: // Expect call length
+    case <String, int?>{"key1": 2}: // Expect call [key1]
       return "match-1";
-    case <String, int?>{"key1": 1, "key2": 3}: // Expect call [key1], [key2], containsKey(key2)
+    case <String, int?>{"key1": 1, "key2": 3}: // Expect call [key2], containsKey(key2)
       return "match-2";
     case <String, int?>{"key1": 1, "key2": 2}: // Expect no additional calls
       return "match-3";
@@ -50,7 +49,7 @@ String test1(Object o) {
 
 String test2(Object o) =>
   switch (o) {
-    <String, int?>{"key1": 1} => "match-1",
+    <String, int?>{"key1": 2} => "match-1",
     <String, int?>{"key1": 1, "key2": 3} => "match-2",
     <String, int?>{"key1": 1, "key2": 2} => "match-3",
     _ => "no match"
@@ -59,17 +58,17 @@ String test2(Object o) =>
 main() {
   final map = MyMap<String, int?>({"key1": 1, "key2": null});
   Expect.equals("no match", test1(map));
-  Expect.equals("length;[key1];[key2];containsKey(key2);", map.log);
+  Expect.equals("[key1];[key2];containsKey(key2);", map.log);
   map.clearLog();
 
   Expect.equals("no match", test2(map));
-  Expect.equals("length;[key1];[key2];containsKey(key2);", map.log);
+  Expect.equals("[key1];[key2];containsKey(key2);", map.log);
   map.clearLog();
 
   var {"key1": x1, "key2": x2} = map;
-  Expect.equals("length;[key1];[key2];containsKey(key2);", map.log);
+  Expect.equals("[key1];[key2];containsKey(key2);", map.log);
   map.clearLog();
 
   final {"key1": y1, "key2": y2} = map;
-  Expect.equals("length;[key1];[key2];containsKey(key2);", map.log);
+  Expect.equals("[key1];[key2];containsKey(key2);", map.log);
 }

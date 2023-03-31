@@ -5,79 +5,97 @@
 /// @assertion
 /// mapPattern        ::= typeArguments? '{' mapPatternEntries? '}'
 /// mapPatternEntries ::= mapPatternEntry ( ',' mapPatternEntry )* ','?
-/// mapPatternEntry   ::= expression ':' pattern | '...'
+/// mapPatternEntry   ::= expression ':' pattern
 ///
 /// A map pattern matches values that implement Map and accesses values by key
 /// from it.
-///
 /// It is a compile-time error if:
+/// - typeArguments is present and there are more or fewer than two type
+///   arguments.
+/// - Any of the entry key expressions are not constant expressions.
+/// - Any two keys in the map are identical.
+/// - Any two record keys which both have primitive equality are equal.
 ///
-/// typeArguments is present and there are more or fewer than two type arguments
-///
-/// Any of the entry key expressions are not constant expressions.
-///
-/// If any two keys in the map are identical. Map patterns that don't have a
-/// rest element only match if the length of the map is equal to the number of
-/// map entries. If a map pattern has multiple identical key entries, they will
-/// increase the required length for the pattern to match but in all but the
-/// most perverse Map implementations will represent the same key. Thus, it's
-/// very unlikely that any map pattern containing identical keys (and no rest
-/// element) will ever match. Duplicate keys are most likely a typo in the code.
-///
-/// Any two record keys which both have primitive == are equal. Since records
-/// don't have defined identity, we can't use the previous rule to detect
-/// identical records. But records do support an equality test known at compile
-/// time if all of their fields do, so we use that.
-///
-/// There is more than one ... element in the map pattern.
-///
-/// The ... element is not the last element in the map pattern.
-///
-/// @description Check that it is a compile-time error if the ... element is not
-/// the last element in the map pattern.
+/// @description Check that if a map has more elements than number of
+/// subpatterns in a map pattern then match may happen
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
+import "../../Utils/expect.dart";
+
 String test1(Map map) {
   return switch (map) {
-    <int, int>{1: 1, ..., 2: 2} => "",
-//                   ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    {1: 1, 2: > 0} => "case-1",
+    {1: 2, 2: <= 0} => "case-2",
+    {1: 3, 2: var a} => "case-3",
     _ => "default"
   };
 }
 
-void test2(Map map) {
+String test2(Map map) {
   switch (map) {
-    case {3: 4, ..., 5: 6}:
-//              ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    case {1: 1, 2: > 0}:
+      return "case-1";
+    case {1: 2, 2: <= 0}:
+      return "case-2";
+    case {1: 3, 2: var a}:
+      return "case-3";
+    default:
+      return "default";
   }
 }
 
-void test3(Map map) {
-  if (map case {1: _, 2: _, ..., 3: _}) {
-//                          ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+String test3(Map map) {
+  if (map case {1: 1, 2: > 0}) {
+    return "case-1";
   }
+  if (map case {1: 2, 2: <= 0}) {
+    return "case-2";
+  }
+  if (map case {1: 3, 2: var a}) {
+    return "case-3";
+  }
+  return "default";
 }
 
 main() {
-  var {1: a, 2: b, ..., 4: 4} = {1: 1, 2: 2, 3: 3, 4: 4};
-//                 ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  var {1: a, 2: b} = {1: 1, 2: 2, 3: 3};
+  Expect.equals(1, a);
+  Expect.equals(2, b);
 
-  final {..., 4: 4} = {1: 1, 2: 2, 3: 3, 4: 4};
-//       ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  final {1: _, 2: int c} = {1: 2, 2: 2, 3: 3};
+  Expect.equals(2, c);
 
-  test1({});
-  test2({});
-  test3({});
+  var {1: _, 2: _} = {1: 3, 2: 2, 3: 3};
+
+  Expect.equals("case-1", test1({1: 1, 2: 1}));
+  Expect.equals("case-1", test1({1: 1, 2: 2, 3: 3}));
+  Expect.equals("default", test1({1: 1}));
+  Expect.equals("case-2", test1({1: 2, 2: 0}));
+  Expect.equals("case-2", test1({1: 2, 2: -1, 3: 3}));
+  Expect.equals("default", test1({2: 0}));
+  Expect.equals("case-3", test1({1: 3, 2: 0}));
+  Expect.equals("case-3", test1({1: 3, 2: -1, 3: 3}));
+  Expect.equals("default", test1({1: 3}));
+
+  Expect.equals("case-1", test2({1: 1, 2: 1}));
+  Expect.equals("case-1", test2({1: 1, 2: 2, 3: 3}));
+  Expect.equals("default", test2({1: 1}));
+  Expect.equals("case-2", test2({1: 2, 2: 0}));
+  Expect.equals("case-2", test2({1: 2, 2: -1, 3: 3}));
+  Expect.equals("default", test2({2: 0}));
+  Expect.equals("case-3", test2({1: 3, 2: 0}));
+  Expect.equals("case-3", test2({1: 3, 2: -1, 3: 3}));
+  Expect.equals("default", test2({1: 3}));
+
+  Expect.equals("case-1", test3({1: 1, 2: 1}));
+  Expect.equals("case-1", test3({1: 1, 2: 2, 3: 3}));
+  Expect.equals("default", test3({1: 1}));
+  Expect.equals("case-2", test3({1: 2, 2: 0}));
+  Expect.equals("case-2", test3({1: 2, 2: -1, 3: 3}));
+  Expect.equals("default", test3({2: 0}));
+  Expect.equals("case-3", test3({1: 3, 2: 0}));
+  Expect.equals("case-3", test3({1: 3, 2: -1, 3: 3}));
+  Expect.equals("default", test3({1: 3}));
 }

@@ -33,13 +33,13 @@ main () {
   int i = 42;
   var x = switch(i) {
     1 => "one"
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
     2 => "two"
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
     _ => "any"
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   };
 }

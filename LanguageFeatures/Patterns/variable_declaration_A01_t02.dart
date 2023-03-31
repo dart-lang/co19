@@ -54,8 +54,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const {"pi": a4, ...} = {"pi": 3.14, "e": 2.71};
-//      ^^^^^^^^^^^^^^^
+  const {"pi": a4} = {"pi": 3.14, "e": 2.71};
+//      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

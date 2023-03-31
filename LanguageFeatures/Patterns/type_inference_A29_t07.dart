@@ -43,7 +43,7 @@ String test1() {
 
 String test2() {
   switch (<C<String>, int>{const C<String>(): 1}) {
-    case {const C(): final a, ...}:
+    case {const C(): final a}:
       a.expectStaticType<Exactly<int>>();
       return "match";
     default:
@@ -60,7 +60,7 @@ String test3() {
 }
 
 String test4() {
-  if (<C<String>, int>{const C<String>(): 1} case {const C(): final a, ...}) {
+  if (<C<String>, int>{const C<String>(): 1} case {const C(): final a}) {
     a.expectStaticType<Exactly<int>>();
     return "match";
   }
@@ -75,7 +75,7 @@ String test5() =>
 
 String test6() =>
   switch (<C<String>, int>{const C<String>(): 1}) {
-    {const C(): final a, ...} when
+    {const C(): final a} when
         a.expectStaticType<Exactly<int>>() is int => "match",
     _ => "no match"
   };
@@ -84,7 +84,7 @@ main() {
   var {const C(): a1} = <C<String>, int>{const C<String>(): 1};
   a1.expectStaticType<Exactly<int>>();
 
-  final {const C(): a2, ...} = <C<String>, int>{const C<String>(): 1};
+  final {const C(): a2} = <C<String>, int>{const C<String>(): 1};
   a2.expectStaticType<Exactly<int>>();
 
   var {1: a3, 2: b3} = {1: "str", 2: bool};

@@ -38,7 +38,7 @@ String test1(dynamic d) {
 
 String test2(dynamic d) {
   switch (d) {
-    case <String, int>{"key1": final String a, ...}:
+    case <String, int>{"key1": final String a}:
       return "match";
     default:
       return "no match";
@@ -53,7 +53,7 @@ String test3(dynamic d) {
 }
 
 String test4(dynamic d) {
-  if (d case <String, int>{"key1": final String a, ...}) {
+  if (d case <String, int>{"key1": final String a}) {
     return "match";
   }
   return "no match";
@@ -67,7 +67,7 @@ String test5(dynamic d) =>
 
 String test6(dynamic d) =>
   switch (d) {
-    <String, int>{"key1": final String a, ...} => "match",
+    <String, int>{"key1": final String a} => "match",
     _ => "no match"
   };
 

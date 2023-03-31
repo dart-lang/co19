@@ -17,8 +17,7 @@
 /// To bind invocation keys in a pattern p using parent invocation i:
 /// ...
 /// Map:
-/// i. Bind i : ("length", []) to the length getter invocation.
-/// ii. For each entry in p:
+/// i. For each entry in p:
 ///   a. Bind i : ("containsKey()", [key]) to the containsKey() invocation where
 ///     key is entry's key constant value.
 ///   b. Let e be i : ("[]", [key]) where key is entry's key constant value.
@@ -37,7 +36,7 @@ import "patterns_collections_lib.dart";
 
 String test1(Object o) {
   switch (o) {
-    case <Map<String, int>>[{"key1": 1}, {"key1": 2}]: // Expect call length, ["key1"], length, ["key1]
+    case <Map<String, int>>[{"key1": 1}, {"key1": 2}]: // Expect call ["key1"], ["key1]
       return "match-1";
     case <Map<String, int>>[{"key1": 1}, {"key1": _}]: // Expect no new calls
       return "match-2";
@@ -56,9 +55,9 @@ String test2(Object o) =>
 main() {
   final map = MyMap<String, int>({"key1": 1});
   Expect.equals("match-2", test1([map, map]));
-  Expect.equals("length;[key1];length;[key1];", map.log);
+  Expect.equals("[key1];[key1];", map.log);
   map.clearLog();
 
   Expect.equals("match-2", test2([map, map]));
-  Expect.equals("length;[key1];length;[key1];", map.log);
+  Expect.equals("[key1];[key1];", map.log);
 }

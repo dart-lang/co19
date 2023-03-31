@@ -17,15 +17,14 @@
 /// To bind invocation keys in a pattern p using parent invocation i:
 /// ...
 /// Map:
-/// i. Bind i : ("length", []) to the length getter invocation.
-/// ii. For each entry in p:
+/// i. For each entry in p:
 ///   a. Bind i : ("containsKey()", [key]) to the containsKey() invocation where
 ///     key is entry's key constant value.
 ///   b. Let e be i : ("[]", [key]) where key is entry's key constant value.
 ///   c. Bind e to the [] invocation for this entry.
 ///   d. Bind invocations in the entry value subpattern using parent e.
 ///
-/// @description Checks that for a map pattern invocation keys `("length", [])`,
+/// @description Checks that for a map pattern invocation keys
 /// `("containsKey()", [key])` and `("[]", [key])` are invoked only once.
 /// @author sgrekhov22@gmail.com
 
@@ -37,11 +36,11 @@ import "patterns_collections_lib.dart";
 
 String test1(Object o) {
   switch (o) {
-    case <String, int>{"key1": 1}: // Expect call length
+    case <String, int>{"key1": 2}: // Expect call [key1]
       return "match-1";
-    case <String, int>{"key1": _, "key2": 3}: // Expect call [key1], [key2]
+    case <String, int>{"key1": _, "key2": 3}: // Expect call [key2]
       return "match-2";
-    case <String, int>{"key1": _, "key2": _, ...}: // Expect no additional calls
+    case <String, int>{"key1": _, "key2": _}: // Expect no additional calls
       return "match-3";
     default:
       return "no match";
@@ -50,26 +49,26 @@ String test1(Object o) {
 
 String test2(Object o) =>
   switch (o) {
-    <String, int>{"key1": 1} => "match-1",
+    <String, int>{"key1": 2} => "match-1",
     <String, int>{"key1": _, "key2": 3} => "match-2",
-    <String, int>{"key1": _, "key2": _, ...} => "match-3",
+    <String, int>{"key1": _, "key2": _} => "match-3",
     _ => "no match"
   };
 
 main() {
   final map = MyMap<String, int>({"key1": 1, "key2": 2});
   Expect.equals("match-3", test1(map));
-  Expect.equals("length;[key1];[key2];", map.log);
+  Expect.equals("[key1];[key2];", map.log);
   map.clearLog();
 
   Expect.equals("match-3", test2(map));
-  Expect.equals("length;[key1];[key2];", map.log);
+  Expect.equals("[key1];[key2];", map.log);
   map.clearLog();
 
-  var {"key1": _, "key2": _, ...} = map;
-  Expect.equals("length;[key1];[key2];", map.log);
+  var {"key1": _, "key2": _} = map;
+  Expect.equals("[key1];[key2];", map.log);
   map.clearLog();
 
-  final {"key1": _, "key2": _, ...} = map;
-  Expect.equals("length;[key1];[key2];", map.log);
+  final {"key1": _, "key2": _} = map;
+  Expect.equals("[key1];[key2];", map.log);
 }
