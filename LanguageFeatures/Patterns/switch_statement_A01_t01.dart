@@ -30,38 +30,38 @@ String test(int value) {
     case 1 || 2:
       return "logical-or-2";
     case > 10 && < 15:
-  return "logical-and-1";
-  case > 12 && < 17:
-  return "logical-and-2";
-  case < 25:
-  return "relational-1";
-  case <= 25:
-  return "relational-2";
-  case 30:
-  return "constant-1";
-  case 30:
+      return "logical-and-1";
+    case > 12 && < 17:
+      return "logical-and-2";
+    case < 25:
+      return "relational-1";
+    case <= 25:
+      return "relational-2";
+    case 30:
+      return "constant-1";
+    case 30:
 //  ^^^^
 // [analyzer] HINT.UNREACHABLE_SWITCH_CASE
-  return "constant-2";
-  case (40):
-  return "parenthesized-1";
-  case (40):
+      return "constant-2";
+    case (40):
+      return "parenthesized-1";
+    case (40):
 //  ^^^^
 // [analyzer] HINT.UNREACHABLE_SWITCH_CASE
-  return "parenthesized-2";
-  default:
-  return "default";
-}
+      return "parenthesized-2";
+    default:
+      return "default";
+  }
 }
 
 String testCast(num value) {
   switch (value) {
     case var c1 as double:
-    return "cast-1";
+      return "cast-1";
     case var c2 as double:
 //  ^^^^
 // [analyzer] HINT.UNREACHABLE_SWITCH_CASE
-    return "cast-2";
+      return "cast-2";
     default:
       return "default";
   }
@@ -70,40 +70,40 @@ String testCast(num value) {
 String testNullCheck(int? value) {
   switch (value) {
     case var a1?:
-  return "null-check-1";
-  case var a2?:
+      return "null-check-1";
+    case var a2?:
 //  ^^^^
 // [analyzer] HINT.UNREACHABLE_SWITCH_CASE
-  return "null-check-2";
-  default:
-  return "default";
-}
+      return "null-check-2";
+    default:
+      return "default";
+  }
 }
 
 String testNullAssert(int? value) {
   switch (value) {
     case var a1!:
-  return "null-assert-1";
-  case var a2!:
+      return "null-assert-1";
+    case var a2!:
 //  ^^^^
 // [analyzer] HINT.UNREACHABLE_SWITCH_CASE
-  return "null-assert-2";
-  default:
-  return "default";
-}
+      return "null-assert-2";
+    default:
+      return "default";
+  }
 }
 
 String testVariable(int value) {
   switch (value) {
     case var a1:
-  return "variable-1";
-  case var a2:
+      return "variable-1";
+    case var a2:
 //  ^^^^
 // [analyzer] HINT.UNREACHABLE_SWITCH_CASE
-  return "variable-2";
-  default:
-  return "default";
-}
+      return "variable-2";
+    default:
+      return "default";
+  }
 }
 
 String testList(List<int> list) {
@@ -182,7 +182,9 @@ main() {
   Expect.equals("null-check-1", testNullCheck(0));
   Expect.equals("default", testNullCheck(null));
   Expect.equals("null-assert-1", testNullAssert(1));
-  Expect.throws(() {testNullAssert(null);});
+  Expect.throws(() {
+    testNullAssert(null);
+  });
   Expect.equals("variable-1", testVariable(1));
   Expect.equals("list-1", testList([1, 2]));
   Expect.equals("list-2", testList([1, 3]));
