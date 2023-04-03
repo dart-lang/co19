@@ -53,7 +53,6 @@ main() {
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    _ => "no match"
   };
 
   var C(:_) = C();

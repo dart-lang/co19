@@ -50,8 +50,7 @@ String test(Color value) {
     Color.red => "red",
     Color.yellow => "yellow",
     Color.blue => "blue",
-    Color.black => "black",
-    _ => "default"
+    Color.black => "black"
   };
 }
 

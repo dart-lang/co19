@@ -18,74 +18,62 @@ import "patterns_lib.dart";
 
 String testLogicalOr1(int x) =>
   switch (x) {
-    var _ || var _ => "match",
-    _ => "no match"
+    var _ || var _ => "match"
   };
 
 String testLogicalOr2(int x) =>
   switch (x) {
-    final _ || final _ => "match",
-    _ => "no match"
+    final _ || final _ => "match"
   };
 
 String testLogicalOr3(int x) =>
   switch (x) {
-    final int _ || final int _ => "match",
-    _ => "no match"
+    final int _ || final int _ => "match"
   };
 
 String testLogicalOr4(int x) =>
   switch (x) {
-    int _ || int _ => "match",
-    _ => "no match"
+    int _ || int _ => "match"
   };
 
 String testLogicalAnd1(int x) =>
   switch (x) {
-    var _ && var _ => "match",
-    _ => "no match"
+    var _ && var _ => "match"
   };
 
 String testLogicalAnd2(int x) =>
   switch (x) {
     final _ && final _ => "match",
-    _ => "no match"
   };
 
 String testLogicalAnd3(int x) =>
   switch (x) {
     final int _ && final int _ => "match",
-    _ => "no match"
   };
 
 String testLogicalAnd4(int x) =>
   switch (x) {
     int _ && int _ => "match",
-    _ => "no match"
   };
 
 String testCast1(num x) =>
   switch (x) {
     var _ as int => "match",
-    _ => "no match"
   };
 
 String testCast2(num x) =>
   switch (x) {
-    final _ as int => "match",
-    _ => "no match"
+    final _ as int => "match"
   };
 
 String testCast3(num x) =>
   switch (x) {
-    num _ as int => "match",
-    _ => "no match"
+    num _ as int => "match"
   };
 
 String testCast4(num x) =>
   switch (x) {
-    final int _ as int => "match",
-    _ => "no match"
+    final int _ as int => "match"
   };
 
 String testNullCheck1(int? x) =>
@@ -114,74 +102,62 @@ String testNullCheck4(int? x) =>
 
 String testNullAssert1(int? x) =>
   switch (x) {
-    var _! => "match",
-    _ => "no match"
+    var _! => "match"
   };
 
 String testNullAssert2(int? x) =>
   switch (x) {
-    final _! => "match",
-    _ => "no match"
+    final _! => "match"
   };
 
 String testNullAssert3(int? x) =>
   switch (x) {
-    int? _! => "match",
-    _ => "no match"
+    int? _! => "match"
   };
 
 String testNullAssert4(int? x) =>
   switch (x) {
-    final int? _! => "match",
-    _ => "no match"
+    final int? _! => "match"
   };
 
 String testVariable1(int x) =>
   switch (x) {
-    var _ => "match",
-    _ => "no match"
+    var _ => "match"
   };
 
 String testVariable2(int x) =>
   switch (x) {
-    final _ => "match",
-    _ => "no match"
+    final _ => "match"
   };
 
 String testVariable3(int x) =>
   switch (x) {
-    int _ => "match",
-    _ => "no match"
+    int _ => "match"
   };
 
 String testVariable4(int x) =>
   switch (x) {
-    final int _ => "match",
-    _ => "no match"
+    final int _ => "match"
   };
 
 String testParenthesized1(int x) =>
   switch (x) {
-    (var _) => "match",
-    _ => "no match"
+    (var _) => "match"
   };
 
 String testParenthesized2(int x) =>
   switch (x) {
-    (final _) => "match",
-    _ => "no match"
+    (final _) => "match"
   };
 
 String testParenthesized3(int x) =>
   switch (x) {
-    (int _) => "match",
-    _ => "no match"
+    (int _) => "match"
   };
 
 String testParenthesized4(int x) =>
   switch (x) {
-    (final int _) => "match",
-    _ => "no match"
+    (final int _) => "match"
   };
 
 String testList1(List<int> x) =>

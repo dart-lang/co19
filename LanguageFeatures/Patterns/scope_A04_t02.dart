@@ -44,11 +44,10 @@ void test2() {
 // [analyzer] unspecified
 // [cfe] unspecified
     var v => v,
-    0 when v == 0 => 0,
+    0 when v == 0 => 0
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    _ => -1
   };
   print(z);
 }

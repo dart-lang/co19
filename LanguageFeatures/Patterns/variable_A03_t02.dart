@@ -52,6 +52,8 @@ void test1(Record r) {
 // [cfe] unspecified
     break;
     case (final int? e, name: final String? f):
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       e = 1;
 //    ^
 // [analyzer] unspecified

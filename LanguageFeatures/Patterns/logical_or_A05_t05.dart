@@ -44,8 +44,7 @@ main() {
 
   Shape shape1 = Square(1, logger);
   String s1 = switch (shape1) {
-    Square(area: var s) || Shape(area: var s) => log,
-    _ => "Other"
+    Square(area: var s) || Shape(area: var s) => log
   };
   Expect.equals("Square.area:", s1);
   clearLog();

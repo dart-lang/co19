@@ -66,8 +66,7 @@ String test23(Object x) {
 
 String test31(Object x) =>
   switch (x) {
-    var _ || final _ => "match",
-    _ => "no match"
+    var _ || final _ => "match"
   };
 
 String test32(Object x) =>
@@ -78,8 +77,7 @@ String test32(Object x) =>
 
 String test33(Object x) =>
   switch (x) {
-    int _ || _ => "match",
-    _ => "no match"
+    int _ || _ => "match"
   };
 
 main () {

@@ -40,10 +40,14 @@ String test(int value) {
     case 30:
       return "constant-1";
     case 30:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return "constant-2";
     case (40):
       return "parenthesized-1";
     case (40):
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return "parenthesized-2";
     default:
       return "default";
@@ -55,6 +59,8 @@ String testCast(num value) {
     case var c1 as double:
       return "cast-1";
     case var c2 as double:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return "cast-2";
     default:
       return "default";
@@ -66,6 +72,8 @@ String testNullCheck(int? value) {
     case var a1?:
       return "null-check-1";
     case var a2?:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return "null-check-2";
     default:
       return "default";
@@ -77,6 +85,8 @@ String testNullAssert(int? value) {
     case var a1!:
       return "null-assert-1";
     case var a2!:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return "null-assert-2";
     default:
       return "default";
@@ -88,6 +98,8 @@ String testVariable(int value) {
     case var a1:
       return "variable-1";
     case var a2:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return "variable-2";
     default:
       return "default";
@@ -103,6 +115,8 @@ String testList(List<int> list) {
     case [1, 2, ...]:
       return "list-3";
     case [1, 2, 3]:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return "list-4";
     default:
       return "default";
@@ -146,6 +160,8 @@ String testObject(Shape shape) {
     case Circle(sizeAsInt: _):
       return "object-3";
     case Circle(sizeAsInt: 1):
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return "object-4";
     default:
       return "default";
@@ -166,7 +182,9 @@ main() {
   Expect.equals("null-check-1", testNullCheck(0));
   Expect.equals("default", testNullCheck(null));
   Expect.equals("null-assert-1", testNullAssert(1));
-  Expect.throws(() {testNullAssert(null);});
+  Expect.throws(() {
+    testNullAssert(null);
+  });
   Expect.equals("variable-1", testVariable(1));
   Expect.equals("list-1", testList([1, 2]));
   Expect.equals("list-2", testList([1, 3]));

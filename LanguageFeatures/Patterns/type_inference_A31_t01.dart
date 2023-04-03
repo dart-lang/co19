@@ -53,11 +53,10 @@ String test2() {
 
 String test3() =>
   switch (Object()) {
-    Missing() => "match",
+    Missing() => "match"
 //  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    _ => "no match"
   };
 
 main() {

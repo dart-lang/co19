@@ -34,10 +34,16 @@ test(value) {
     case 2:
       return 3;
     case 1:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return 4;
     case 1:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return 5;
     case 2:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return 6;
     case 4:
     case 5:

@@ -45,7 +45,6 @@ String test(p.Color value) {
     p.Color.yellow => "yellow",
     p.Color.blue => "blue",
     p.Color.black => "black",
-    _ => "default"
   };
 }
 

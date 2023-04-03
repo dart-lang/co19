@@ -30,7 +30,6 @@ String test(Object o) => switch(o) {
 //^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-   _ => ""
 };
 
 main() {
