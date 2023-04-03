@@ -26,11 +26,5 @@ main() {
 // [cfe] unspecified
     true => "true"
   };
-  String? v2 = switch (b) {
-//             ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    true => "true"
-  };
   test(true);
 }

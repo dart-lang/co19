@@ -13,10 +13,12 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-Never test() {
-  return switch (42) {};
+sealed class A {}
+
+Never test(A a) {
+  return switch (a) {};
 }
 
-main () {
-  test();
+main() {
+  print(test);
 }
