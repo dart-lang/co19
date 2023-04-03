@@ -63,6 +63,8 @@ main() {
   switch (42) {
     case var a as num:
     case var a as int:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       print(a);
 //          ^
 // [analyzer] unspecified

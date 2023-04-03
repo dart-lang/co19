@@ -47,6 +47,8 @@ main() {
     case var a when a == 42:
     case final a:
     case int a:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       print(a);
 //          ^
 // [analyzer] unspecified

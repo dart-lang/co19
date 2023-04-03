@@ -30,32 +30,38 @@ String test(int value) {
     case 1 || 2:
       return "logical-or-2";
     case > 10 && < 15:
-      return "logical-and-1";
-    case > 12 && < 17:
-      return "logical-and-2";
-    case < 25:
-      return "relational-1";
-    case <= 25:
-      return "relational-2";
-    case 30:
-      return "constant-1";
-    case 30:
-      return "constant-2";
-    case (40):
-      return "parenthesized-1";
-    case (40):
-      return "parenthesized-2";
-    default:
-      return "default";
-  }
+  return "logical-and-1";
+  case > 12 && < 17:
+  return "logical-and-2";
+  case < 25:
+  return "relational-1";
+  case <= 25:
+  return "relational-2";
+  case 30:
+  return "constant-1";
+  case 30:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
+  return "constant-2";
+  case (40):
+  return "parenthesized-1";
+  case (40):
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
+  return "parenthesized-2";
+  default:
+  return "default";
+}
 }
 
 String testCast(num value) {
   switch (value) {
     case var c1 as double:
-      return "cast-1";
+    return "cast-1";
     case var c2 as double:
-      return "cast-2";
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
+    return "cast-2";
     default:
       return "default";
   }
@@ -64,34 +70,40 @@ String testCast(num value) {
 String testNullCheck(int? value) {
   switch (value) {
     case var a1?:
-      return "null-check-1";
-    case var a2?:
-      return "null-check-2";
-    default:
-      return "default";
-  }
+  return "null-check-1";
+  case var a2?:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
+  return "null-check-2";
+  default:
+  return "default";
+}
 }
 
 String testNullAssert(int? value) {
   switch (value) {
     case var a1!:
-      return "null-assert-1";
-    case var a2!:
-      return "null-assert-2";
-    default:
-      return "default";
-  }
+  return "null-assert-1";
+  case var a2!:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
+  return "null-assert-2";
+  default:
+  return "default";
+}
 }
 
 String testVariable(int value) {
   switch (value) {
     case var a1:
-      return "variable-1";
-    case var a2:
-      return "variable-2";
-    default:
-      return "default";
-  }
+  return "variable-1";
+  case var a2:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
+  return "variable-2";
+  default:
+  return "default";
+}
 }
 
 String testList(List<int> list) {
@@ -103,6 +115,8 @@ String testList(List<int> list) {
     case [1, 2, ...]:
       return "list-3";
     case [1, 2, 3]:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return "list-4";
     default:
       return "default";
@@ -146,6 +160,8 @@ String testObject(Shape shape) {
     case Circle(sizeAsInt: _):
       return "object-3";
     case Circle(sizeAsInt: 1):
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return "object-4";
     default:
       return "default";

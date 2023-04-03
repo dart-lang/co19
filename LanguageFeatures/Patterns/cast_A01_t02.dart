@@ -29,8 +29,7 @@ bool isZero(num i) {
 
 bool isInt(Object o) =>
   switch (o) {
-    _ as int => true,
-    _ => false
+    _ as int => true
   };
 
 main() {

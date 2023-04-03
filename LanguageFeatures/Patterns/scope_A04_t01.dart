@@ -28,6 +28,8 @@ void test1() {
       print(v);
       break;
     case 0:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       print(v);
 //          ^
 // [analyzer] unspecified

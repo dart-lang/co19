@@ -23,6 +23,8 @@ String test1(int? x) {
 // [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
       return "match-1";
     case int v2!:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       return "match-2";
     default:
       return "no match";
@@ -49,7 +51,11 @@ String test3(int? x) =>
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
 // [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
     int v2! => "match-2",
+//          ^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
     _ => "no match"
+//    ^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
   };
 
 main () {

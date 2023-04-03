@@ -47,6 +47,8 @@ void test1(Shape shape) {
 // [cfe] unspecified
     break;
     case Circle(area: final Unit? s):
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       s = Unit(1);
 //    ^
 // [analyzer] unspecified

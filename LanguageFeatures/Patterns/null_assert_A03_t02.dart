@@ -22,7 +22,6 @@ String test1(int? value) =>
 //        ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
 // [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
-    _ => "default"
   };
 
 String test2(int? value) {

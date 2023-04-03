@@ -57,8 +57,7 @@ String test4() {
 
 String test5() =>
   switch (42) {
-    final num v => "match",
-    _ => "no match"
+    final num v => "match"
   };
 
 String test6() =>
