@@ -36,7 +36,7 @@ test1<T extends C>(T t) {
   if (t is Sealed) {
     switch (t) {
       case C1():
-      case C1 _:
+      case C2 _:
     }
   }
 }
@@ -44,9 +44,6 @@ test1<T extends C>(T t) {
 test2<T>(T t) {
   if (T is bool?) {
     switch (t) {
-//  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
       case bool():
       case null:
     }

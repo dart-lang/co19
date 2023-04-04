@@ -30,6 +30,9 @@ String test(Object o) => switch(o) {
 //^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  _ => "no match"
+//  ^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CA
 };
 
 main() {

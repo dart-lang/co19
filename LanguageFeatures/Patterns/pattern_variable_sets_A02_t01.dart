@@ -157,10 +157,13 @@ String test3(Object x) =>
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    Square(:var sizeAsInt, :var sizeAsInt) => "object"
+    Square(:var sizeAsInt, :var sizeAsInt) => "object",
 //                              ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    _ => "default"
+//    ^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
   };
 
 main () {
