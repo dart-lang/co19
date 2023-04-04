@@ -29,9 +29,16 @@
 import "dart:async";
 
 main() {
-  FutureOr<bool> fo = true;
-  switch (fo) {
+  FutureOr<bool> fo1 = true;
+  switch (fo1) {
     case Future<bool> _:
     case bool _:
+  }
+  FutureOr<bool?> fo2 = true;
+  switch (fo2) {
+    case Future<bool?> _:
+    case true:
+    case false:
+    case null:
   }
 }

@@ -53,10 +53,13 @@ String test2() {
 
 String test3() =>
   switch (Object()) {
-    Missing() => "match"
+    Missing() => "match",
 //  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    _ => "default"
+//    ^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
   };
 
 main() {
