@@ -44,7 +44,7 @@ test1<T extends C>(T t) {
 }
 
 test2<T>(T t) {
-  if (T is bool?) {
+  if (t is bool?) {
     switch (t) {
 //  ^^^^^^
 // [analyzer] unspecified
