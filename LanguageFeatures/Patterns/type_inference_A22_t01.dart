@@ -49,7 +49,7 @@ String test2() {
 //             ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    _ => "default";
+    _ => "default"
   };
 }
 
