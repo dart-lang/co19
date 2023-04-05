@@ -50,6 +50,8 @@ String test2() {
 // [analyzer] unspecified
 // [cfe] unspecified
     _ => "default"
+//    ^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
   };
 }
 
