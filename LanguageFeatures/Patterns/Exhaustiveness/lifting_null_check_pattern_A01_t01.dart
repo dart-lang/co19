@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-String test1(Object? o) {
+String test1(bool? o) {
   switch (o) {
 //^^^^^^
 // [analyzer] unspecified
