@@ -37,6 +37,9 @@ main () {
 // [analyzer] unspecified
 // [cfe] unspecified
     _ => "any"
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   };
 
   var y = switch(i) {
