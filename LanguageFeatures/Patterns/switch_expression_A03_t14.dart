@@ -37,23 +37,23 @@
 
 int test1(String s) =>
   ++switch (s) {
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
     "one" => 1,
     "two" => 2,
     _ => 0
   };
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 int test2(String s) =>
   --switch (s) {
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
     "one" => 1,
     "two" => 2,
     _ => 0
   };
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 int test3(String s) =>
   switch (s) {
