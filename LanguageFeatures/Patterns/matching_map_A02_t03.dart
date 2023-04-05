@@ -94,10 +94,10 @@ main() {
   Expect.throws(() {
     var <String, int?>{"key1": v1, "key2": v2} = map;
   });
-  Expect.equals("[key1];containsKey(key1);", map.log);
+  Expect.equals("[key1];containsKey(key1);[key2];containsKey(key2);", map.log);
   map.clearLog();
   Expect.throws(() {
     final <String, int?>{"key1": v1, "key2": v2} = map;
   });
-  Expect.equals("[key1];containsKey(key1);", map.log);
+  Expect.equals("[key1];containsKey(key1);[key2];containsKey(key2);", map.log);
 }
