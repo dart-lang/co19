@@ -15,9 +15,9 @@
 
 import "../../../Utils/expect.dart";
 
-String test1(Object? o) {
+String test1(bool? o) {
   switch (o) {
-    case Object _!:
+    case bool _!:
       return "exhaustive";
   }
 }
@@ -27,7 +27,7 @@ String test2(Object? o) => switch (o) {
     };
 
 main() {
-  Expect.equals("exhaustive" ,test1(42));
+  Expect.equals("exhaustive" ,test1(true));
   Expect.equals("exhaustive" ,test2(42));
   Expect.throws(() {
     test1(null);
