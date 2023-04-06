@@ -4,7 +4,8 @@
 
 /// @assertion Switch expression with a list as a matched type can be exhaustive
 ///
-/// @description Check that a custom implementation of `List` can be exhaustive
+/// @description Check that an implementation of `List` with a negative length
+/// can be exhaustive
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
@@ -12,14 +13,14 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-class MyList<T> extends ListBase<T> {
+class MisbehavingList<T> extends ListBase<T> {
   List<T> _inner = [];
 
-  MyList(this._inner);
+  MisbehavingList(this._inner);
 
   @override
   int get length {
-    return _inner.length;
+    return (-1) * _inner.length;
   }
 
   @override
@@ -38,8 +39,8 @@ class MyList<T> extends ListBase<T> {
   }
 }
 
-String test(MyList<int> l) =>
-  switch (l) {
+String test(MisbehavingList<int> ml) =>
+  switch (ml) {
     [] => "0",
     [_] => "1",
     [_, _] => "2",
@@ -47,8 +48,8 @@ String test(MyList<int> l) =>
   };
 
 main() {
-  Expect.equals("0", test(MyList<int>([])));
-  Expect.equals("1", test(MyList<int>([1])));
-  Expect.equals("2", test(MyList<int>([1, 2])));
-  Expect.equals("2+", test(MyList<int>([1, 2, 3])));
+  Expect.equals("0", test(MisbehavingList<int>([])));
+  Expect.equals("0", test(MisbehavingList<int>([1])));
+  Expect.equals("0", test(MisbehavingList<int>([1, 2])));
+  Expect.equals("0", test(MisbehavingList<int>([1, 2, 3])));
 }

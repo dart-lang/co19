@@ -22,7 +22,7 @@ String test1(bool? o) {
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case Object _?:
+    case Object? _?:
       return "not exhaustive";
   }
 }
@@ -31,7 +31,7 @@ String test2(Object? o) => switch (o) {
 //                         ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      Object _? => "not exhaustive"
+      Object? _? => "not exhaustive"
     };
 
 main() {

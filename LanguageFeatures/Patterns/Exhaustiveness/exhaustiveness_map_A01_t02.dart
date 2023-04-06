@@ -11,14 +11,11 @@
 // SharedOptions=--enable-experiment=patterns
 
 String test1(Map<bool, bool> m) =>
-  switch (m) { // Empty map is not matched
+  switch (m) {
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    {true: true} => "case-1",
-    {true: false} => "case-2",
-    {false: true} => "case-3",
-    {false: false} => "case-4",
+    Map(length: <= 0) => "match"
   };
 
 String test2(Map<bool, bool> m) {
@@ -26,14 +23,8 @@ String test2(Map<bool, bool> m) {
 // [analyzer] unspecified
 // [cfe] unspecified
   switch (m) {
-    case {true: true}:
-      return "case-1";
-    case {true: false}:
-      return "case-2";
-    case {false: true}:
-      return "case-3";
-    case {false: false}:
-      return "case-4";
+    case Map(length: <= 0):
+      return "match";
   }
 // There is no return statement here, switch statement is not exhaustive, so an
 // error above occurs because function return type cannot be null

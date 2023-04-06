@@ -29,9 +29,9 @@ String test1(bool o) {
 }
 
 String test2(bool o) => switch (o) {
-      true => "true",
-      false => "false"
-    };
+    true => "true",
+    false => "false"
+  };
 
 main() {
   Expect.equals("true", test1(true));

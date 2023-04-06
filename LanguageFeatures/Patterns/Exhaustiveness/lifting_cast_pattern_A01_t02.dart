@@ -29,6 +29,9 @@ class B extends A {
 class C extends A {
   C(int field) : super(field);
 }
+class BC extends B implements C {
+  BC(int field) : super(field);
+}
 
 test1(A a) {
   switch (a) {
@@ -40,9 +43,9 @@ test1(A a) {
 }
 
 test2(A a) => switch (a) {
-  C(field: 0) as C => 0,
-  C _ => 1
-};
+    C(field: 0) as C => 0,
+    C _ => 1
+  };
 
 main() {
   Expect.equals(0, test1(C(0)));
@@ -55,4 +58,9 @@ main() {
   Expect.throws(() {
     test2(B(0));
   });
+
+  Expect.equals(0, test1(BC(0)));
+  Expect.equals(1, test1(BC(1)));
+  Expect.equals(0, test2(BC(0)));
+  Expect.equals(1, test2(BC(1)));
 }

@@ -23,17 +23,17 @@ class C {
   bool operator ==(covariant bool other) => v == other;
 }
 
-const True = C(true);
-const False = C(false);
+const _true = C(true);
+const _false = C(false);
 
 String test1(bool b) {
   switch (b) {
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case True:
+    case _true:
       return "true";
-    case False:
+    case _false:
       return "false";
   }
 }
@@ -42,8 +42,8 @@ String test2(bool b) => switch (b) {
 //                      ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      True => "true",
-      False => "false"
+      _true => "true",
+      _false => "false"
     };
 
 main() {
