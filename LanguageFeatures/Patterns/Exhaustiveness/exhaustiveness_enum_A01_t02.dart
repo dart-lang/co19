@@ -6,7 +6,7 @@
 /// always exhaustive
 ///
 /// @description Check that it is no compile-time error if a matched type of a
-/// switch expression is an enum and all cases are exhaustive
+/// switch expression is an enum and the set of cases is exhaustive
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns

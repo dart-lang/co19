@@ -40,3 +40,11 @@ class Queen<T> extends Face<T> {
 class King<T> extends Face<T> {
   King(super.suit);
 }
+
+// The very last person will have to play all the roles.
+class LastPersonOnEarth<T> implements Jack<T>, Queen<T>, King<T> {
+  final Suit suit;
+  final bool oneEyed;
+
+  LastPersonOnEarth(this.suit, {this.oneEyed = false});
+}

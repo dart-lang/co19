@@ -11,8 +11,6 @@
 
 // SharedOptions=--enable-experiment=patterns
 
-import "../../../Utils/expect.dart";
-
 String test(List<bool> l) {
 //     ^^^^
 // [analyzer] unspecified
@@ -24,6 +22,9 @@ String test(List<bool> l) {
     case [_, _, ...]:
       return "ok";
   }
+// There is no return statement here, and static analysis doesn't know if the
+// switch statement exhaustive or not, so an error above occurs because function
+// return type cannot be null
 }
 
 main() {
