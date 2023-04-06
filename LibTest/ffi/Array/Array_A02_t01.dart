@@ -31,10 +31,11 @@ import "package:ffi/ffi.dart";
 
 final class MyStruct extends Struct {
   @Array(0)
-//^^^^^^^^^
+//       ^
 // [analyzer] unspecified
-// [cfe] unspecified
   external Array<Uint8> a0;
+//                      ^^
+// [cfe] unspecified
 }
 
 void main() {
