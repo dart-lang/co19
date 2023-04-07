@@ -28,14 +28,16 @@ final class MyStruct extends Struct {
   @Array.multi([])
 //^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   external Array<Int16> a0;
+//                      ^^
+// [cfe] unspecified
 
   @Array.multi([1])
 //^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   external Array<Array<Int16>> a1;
+//                             ^^
+// [cfe] unspecified
 }
 
 void main() {

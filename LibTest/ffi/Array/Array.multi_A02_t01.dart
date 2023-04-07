@@ -27,28 +27,32 @@ import "package:ffi/ffi.dart";
 
 final class MyStruct extends Struct {
   @Array.multi([0, 1])
-//^^^^^^^^^^^^^^^^^^^^
+//              ^
 // [analyzer] unspecified
-// [cfe] unspecified
   external Array<Array<Int8>> a0;
+//                            ^^
+// [cfe] unspecified
 
   @Array(0, 1, 0, 1)
-//^^^^^^^^^^^^^^^^^^
+//       ^
 // [analyzer] unspecified
-// [cfe] unspecified
   external Array<Array<Array<Array<Int8>>>> a1;
+//                                          ^^
+// [cfe] unspecified
 
   @Array.multi([1, 0])
-//^^^^^^^^^^^^^^^^^^^^
+//                 ^
 // [analyzer] unspecified
-// [cfe] unspecified
   external Array<Array<Int8>> a2;
+//                            ^^
+// [cfe] unspecified
 
   @Array(1, 1, 0, 1)
-//^^^^^^^^^^^^^^^^^^
+//             ^
 // [analyzer] unspecified
-// [cfe] unspecified
   external Array<Array<Array<Array<Int8>>>> a3;
+//                                          ^^
+// [cfe] unspecified
 }
 
 void main() {
