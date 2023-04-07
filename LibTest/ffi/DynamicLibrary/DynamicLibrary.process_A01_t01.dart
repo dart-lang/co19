@@ -8,21 +8,16 @@
 ///  Any symbol in a library currently loaded with global visibility (including
 ///  the executable itself) may be resolved in this library.
 ///
-///  This feature is not available on Windows, instead an exception is thrown.
-///
-/// @description Checks that this constructor creates a dynamic library
-/// holding all global symbol
+/// @description Checks that this constructor creates a dynamic library holding
+/// all global symbol
 /// @author sgrekhov@unipro.ru
 
 import "dart:ffi";
-import 'dart:io' show Platform;
 import "../../../Utils/expect.dart";
 
 void main() {
-  if (!Platform.isWindows) {
-    DynamicLibrary dl = new DynamicLibrary.process();
-    Expect.isNotNull(dl);
-    dl.lookup("Dart_Invoke");
-    dl.lookup("printf");
-  }
+  DynamicLibrary dl = new DynamicLibrary.process();
+  Expect.isNotNull(dl);
+  dl.lookup("Dart_Invoke");
+  dl.lookup("printf");
 }
