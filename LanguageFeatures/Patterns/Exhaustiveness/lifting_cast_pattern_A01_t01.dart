@@ -12,15 +12,14 @@
 ///     space union of E.
 ///
 /// @description Check a lifted space of a cast pattern in case of not sealed
-/// type
+/// type. Test switch statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns
 
-int test1(Object obj) {
-//  ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+import "../../../Utils/expect.dart";
+
+int test(Object obj) {
   switch (obj) {
     case int(isEven: true) as int:
       return 1;
@@ -29,15 +28,7 @@ int test1(Object obj) {
   }
 }
 
-int test2(Object obj) => switch (obj) {
-//                       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    int(isEven: true) as int => 1,
-    int _ => 2
-  };
-
 main() {
-  test1(1);
-  test2(2);
+  Expect.equals(2 ,test(1));
+  Expect.equals(1 ,test(2));
 }
