@@ -10,16 +10,10 @@
 /// @issue 47746
 
 import "dart:ffi";
-import 'package:ffi/ffi.dart';
 
 void main() {
-  Pointer<Int16> p = calloc<Int16>();
-  try {
-    Pointer<dynamic> p1 = Pointer.fromAddress(p.address);
-    Pointer<void> p2 = Pointer.fromAddress(p.address);
-    Pointer<Object?> p3 = Pointer.fromAddress(p.address);
-    Pointer<Never> p4 = Pointer.fromAddress(p.address);
-  } finally {
-    calloc.free(p);
-  }
+  Pointer<dynamic> p1 = Pointer.fromAddress(0x0);
+  Pointer<void> p2 = Pointer.fromAddress(0x0);
+  Pointer<Object?> p3 = Pointer.fromAddress(0x0);
+  Pointer<Never> p4 = Pointer.fromAddress(0x0);
 }
