@@ -51,6 +51,8 @@ String testEnum1(Suit suit) {
     case Suit.spade:
       return "exhaustive";
   }
+// There is no return statement here, switch statement is not exhaustive, so an
+// error above occurs because function return type cannot be null
 }
 
 String testEnum2(Suit suit) => switch (suit) {

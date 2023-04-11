@@ -12,8 +12,8 @@
 /// 4. The switch is exhaustive if is-exhaustive with value and cases is true
 ///   and false otherwise.
 ///
-/// @description Check that any cases with guards are ignored when calculating
-/// an exhaustiveness
+/// @description Check that exhaustiveness can be recognized based on the cases
+/// without guards, even in the case where cases with guards exist as well.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,class-modifiers

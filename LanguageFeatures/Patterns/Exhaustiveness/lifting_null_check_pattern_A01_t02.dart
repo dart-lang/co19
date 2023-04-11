@@ -22,9 +22,9 @@ import "../../../Utils/expect.dart";
 
 String test1(Card? c) {
   switch (c) {
-    case Pip _?:
-      return "Pipe";
-    case Face _?:
+    case Pip? _?:
+      return "Pip";
+    case Face? _?:
       return "Face";
     case Null _:
       return "null";
@@ -32,13 +32,13 @@ String test1(Card? c) {
 }
 
 String test2(Card? c) => switch (c) {
-      Pip _? => "Pipe",
-      Face _? => "Face",
+      Pip? _? => "Pip",
+      Face? _? => "Face",
       Null _ => "null"
     };
 
 main() {
-  Expect.equals("Pipe", test1(Pip(2, Suit.club)));
+  Expect.equals("Pip", test1(Pip(2, Suit.club)));
   Expect.equals("null", test1(null));
   Expect.equals("Face", test2(Jack(Suit.club)));
   Expect.equals("null", test2(null));
