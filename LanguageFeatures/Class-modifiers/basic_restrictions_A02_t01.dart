@@ -20,23 +20,8 @@ class ExtendsInterface extends InterfaceClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract class AbstractExtendsInterface extends InterfaceClass {}
-//                                              ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-final class FinalExtendsInterface extends InterfaceClass {}
-//                                        ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 base class BaseExtendsInterface extends InterfaceClass {}
 //                                      ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-sealed class SealedExtendsInterface extends InterfaceClass {}
-//                                          ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -45,17 +30,68 @@ interface class InterfaceExtendsInterface extends InterfaceClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin class MixinExtendsInterface extends InterfaceClass {}
+final class FinalExtendsInterface extends InterfaceClass {}
 //                                        ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+sealed class SealedExtendsInterface extends InterfaceClass {}
+//                                          ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract class AbstractExtendsInterface extends InterfaceClass {}
+//                                              ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract base class AbstractBaseExtendsInterface extends InterfaceClass {}
+//                                                       ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract interface class AbstractInterfaceExtendsInterface extends InterfaceClass {}
+//                                                                 ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract final class AbstractFinalExtendsInterface extends InterfaceClass {}
+//                                                         ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+mixin class MixinClassExtendsInterface extends InterfaceClass {}
+//                                             ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+base mixin class BaseMixinClassExtendsInterface extends InterfaceClass {}
+//                                                      ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract mixin class AbstractMixinClassExtendsInterface extends InterfaceClass {}
+//                                                              ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract base mixin class AbstractBaseMixinClassExtendsInterface extends InterfaceClass {}
+//                                                                       ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
   print(ExtendsInterface);
-  print(AbstractExtendsInterface);
-  print(FinalExtendsInterface);
   print(BaseExtendsInterface);
-  print(SealedExtendsInterface);
   print(InterfaceExtendsInterface);
-  print(MixinExtendsInterface);
+  print(FinalExtendsInterface);
+  print(SealedExtendsInterface);
+  print(AbstractExtendsInterface);
+  print(AbstractBaseExtendsInterface);
+  print(AbstractInterfaceExtendsInterface);
+  print(AbstractFinalExtendsInterface);
+  print(MixinClassExtendsInterface);
+  print(BaseMixinClassExtendsInterface);
+  print(AbstractMixinClassExtendsInterface);
+  print(AbstractBaseMixinClassExtendsInterface);
 }

@@ -22,23 +22,8 @@ class ImplementsFinalClass implements FinalClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract class AbstractImplementsFinalClass implements FinalClass {}
-//                                                     ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-final class FinalImplementsFinalClass implements FinalClass {}
-//                                               ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 base class BaseImplementsFinalClass implements FinalClass {}
 //                                             ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-sealed class SealedImplementsFinalClass implements FinalClass {}
-//                                                 ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -47,17 +32,86 @@ interface class InterfaceImplementsFinalClass implements FinalClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin class MixinImplementsFinalClass implements FinalClass {}
+final class FinalImplementsFinalClass implements FinalClass {}
 //                                               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+sealed class SealedImplementsFinalClass implements FinalClass {}
+//                                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract class AbstractImplementsFinalClass implements FinalClass {}
+//                                                     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract base class AbstractBaseImplementsFinalClass implements FinalClass {}
+//                                                              ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract interface class AbstractInterfaceImplementsFinalClass implements FinalClass {}
+//                                                                        ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract final class AbstractFinalImplementsFinalClass implements FinalClass {}
+//                                                                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+mixin class MixinClassImplementsFinalClass implements FinalClass {}
+//                                                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+base mixin class BaseMixinClassImplementsFinalClass implements FinalClass {}
+//                                                             ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract mixin class AbstractMixinClassImplementsFinalClass implements FinalClass {}
+//                                                                     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract base mixin class AbstractBaseMixinClassImplementsFinalClass implements FinalClass {}
+//                                                                              ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+mixin MixinImplementsFinalClass implements FinalClass {}
+//                                         ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+base mixin BaseMixinImplementsFinalClass implements FinalClass {}
+//                                                  ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+enum EnumImplementsFinalClass implements FinalClass {e1, e2}
+//                                       ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
   print(ImplementsFinalClass);
-  print(AbstractImplementsFinalClass);
-  print(FinalImplementsFinalClass);
   print(BaseImplementsFinalClass);
-  print(SealedImplementsFinalClass);
   print(InterfaceImplementsFinalClass);
+  print(FinalImplementsFinalClass);
+  print(SealedImplementsFinalClass);
+  print(AbstractImplementsFinalClass);
+  print(AbstractBaseImplementsFinalClass);
+  print(AbstractInterfaceImplementsFinalClass);
+  print(AbstractFinalImplementsFinalClass);
+  print(MixinClassImplementsFinalClass);
+  print(BaseMixinClassImplementsFinalClass);
+  print(AbstractMixinClassImplementsFinalClass);
+  print(AbstractBaseMixinClassImplementsFinalClass);
   print(MixinImplementsFinalClass);
+  print(BaseMixinImplementsFinalClass);
+  print(EnumImplementsFinalClass);
 }

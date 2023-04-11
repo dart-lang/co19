@@ -22,23 +22,8 @@ class ImplementsBaseClass implements BaseClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract class AbstractImplementsBaseClass implements BaseClass {}
-//                                                    ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-final class FinalImplementsBaseClass implements BaseClass {}
-//                                              ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 base class BaseImplementsBaseClass implements BaseClass {}
 //                                            ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-sealed class SealedImplementsBaseClass implements BaseClass {}
-//                                                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -47,17 +32,86 @@ interface class InterfaceImplementsBaseClass implements BaseClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin class MixinImplementsBaseClass implements BaseClass {}
+final class FinalImplementsBaseClass implements BaseClass {}
 //                                              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+sealed class SealedImplementsBaseClass implements BaseClass {}
+//                                                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract class AbstractImplementsBaseClass implements BaseClass {}
+//                                                    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract base class AbstractBaseImplementsBaseClass implements BaseClass {}
+//                                                             ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract interface class AbstractInterfaceImplementsBaseClass implements BaseClass {}
+//                                                                       ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract final class AbstractFinalImplementsBaseClass implements BaseClass {}
+//                                                               ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+mixin class MixinClassImplementsBaseClass implements BaseClass {}
+//                                                   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+base mixin class BaseMixinClassImplementsBaseClass implements BaseClass {}
+//                                                            ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract mixin class AbstractMixinClassImplementsBaseClass implements BaseClass {}
+//                                                                    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract base mixin class AbstractBaseMixinClassImplementsBaseClass implements BaseClass {}
+//                                                                             ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+mixin MixinImplementsBaseClass implements BaseClass {}
+//                                        ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+base mixin BaseMixinImplementsBaseClass implements BaseClass {}
+//                                                 ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+enum EnumImplementsBaseClass implements BaseClass {e1, e2}
+//                                      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
   print(ImplementsBaseClass);
-  print(AbstractImplementsBaseClass);
-  print(FinalImplementsBaseClass);
   print(BaseImplementsBaseClass);
-  print(SealedImplementsBaseClass);
   print(InterfaceImplementsBaseClass);
+  print(FinalImplementsBaseClass);
+  print(SealedImplementsBaseClass);
+  print(AbstractImplementsBaseClass);
+  print(AbstractBaseImplementsBaseClass);
+  print(AbstractInterfaceImplementsBaseClass);
+  print(AbstractFinalImplementsBaseClass);
+  print(MixinClassImplementsBaseClass);
+  print(BaseMixinClassImplementsBaseClass);
+  print(AbstractMixinClassImplementsBaseClass);
+  print(AbstractBaseMixinClassImplementsBaseClass);
   print(MixinImplementsBaseClass);
+  print(BaseMixinImplementsBaseClass);
+  print(EnumImplementsBaseClass);
 }

@@ -6,25 +6,78 @@
 /// - A declaration depends directly on a sealed declaration from another
 ///   library.
 ///
-/// @description Check that it is not an error if a declaration depends
-/// a `sealed` declaration from another librarybut not directly
+/// @description Check that it is a compile-time error to mixin a class marked
+/// `sealed` outside of the library where it is declared
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
 import "class_modifiers_lib.dart";
 
-class ExtendsSealed1 extends ExtendsSealedClass with MixinOnSealed {}
+mixin MixinOnSealed on SealedClass {}
+//                     ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-class ImplementsSealed1 implements ExtendsSealedClass {}
+base mixin BaseMixinOnSealed on SealedClass {}
+//                              ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-class ExtendsSealed2 extends ImplementsSealedClass with MixinOnSealed {}
+class ClassWithSealed with SealedClass {}
+//                         ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-class ImplementsSealed2 implements ImplementsSealedClass {}
+base class BaseClassWithSealed with SealedClass {}
+//                                  ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+interface class InterfaceClassWithSealed with SealedClass {}
+//                                            ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+final class FinalClassWithSealed with SealedClass {}
+//                                    ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+sealed class SealedClassWithSealed with SealedClass {}
+//                                      ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract class AbstractClassWithSealed with SealedClass {}
+//                                          ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract base class AbstractBaseClassWithSealed with SealedClass {}
+//                                                   ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract interface class AbstractInterfaceClassWithSealed with SealedClass {}
+//                                                             ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract final class AbstractFinalClassWithSealed with SealedClass {}
+//                                                     ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  print(ExtendsSealed1);
-  print(ImplementsSealed1);
-  print(ExtendsSealed2);
-  print(ImplementsSealed2);
+  print(MixinOnSealed);
+  print(BaseMixinOnSealed);
+  print(ClassWithSealed);
+  print(BaseClassWithSealed);
+  print(InterfaceClassWithSealed);
+  print(FinalClassWithSealed);
+  print(SealedClassWithSealed);
+  print(AbstractClassWithSealed);
+  print(AbstractBaseClassWithSealed);
+  print(AbstractInterfaceClassWithSealed);
 }
