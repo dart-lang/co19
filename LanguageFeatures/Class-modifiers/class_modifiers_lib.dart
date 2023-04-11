@@ -25,19 +25,3 @@ typedef TypedefBaseClass = BaseClass;
 class ExtendsSealedClass extends SealedClass {}
 class ImplementsSealedClass implements SealedClass {}
 mixin MixinOnSealed on SealedClass {}
-/*
-base class BaseExtendsBaseClass extends BaseClass {}
-final class FinalExtendsBaseClass extends BaseClass {}
-sealed class SealedExtendsBaseClass extends BaseClass {}
-base mixin BaseMixinOnBaseClass on BaseClass {}
-
-base class BaseImplementsBaseClass implements BaseClass {}
-final class FinalImplementsBaseClass implements BaseClass {}
-sealed class SealedImplementsBaseClass implements BaseClass {}
-base mixin BaseMixinImplementsBaseClass implements BaseClass {}
-
-base class BaseExtendsFinalClass extends FinalClass {}
-final class FinalExtendsFinalClass extends FinalClass {}
-sealed class SealedExtendsFinalClass extends FinalClass {}
-base mixin BaseMixinOnFinalClass on FinalClass {}
-*/
