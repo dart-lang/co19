@@ -44,10 +44,5 @@ class C {}
 // [cfe] unspecified
 
 main() {
-  print(E1);
-  print(E2);
-  print(E3);
-  print(E4);
-  print(E5);
-  print(E6);
+  print(C);
 }
