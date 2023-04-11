@@ -25,7 +25,7 @@ test() {
   print(c);
 //      ^
 // [analyzer] unspecified
-// [cfe] unspecified
+
   var [c] = [c];
 //           ^
 // [analyzer] unspecified
@@ -40,7 +40,7 @@ main() {
     print(c);
 //        ^
 // [analyzer] unspecified
-// [cfe] unspecified
+
     var [c] = [c];
 //             ^
 // [analyzer] unspecified

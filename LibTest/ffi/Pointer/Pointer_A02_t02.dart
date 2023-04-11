@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Pointer<T extends NativeType>
-///  Represents a pointer into the native C memory. Cannot be extended.
+/// Represents a pointer into the native C memory. Cannot be extended.
 ///
 /// @description Checks that it is a compile time error if pointer class is
 /// not subtype of NativeType
@@ -35,4 +35,8 @@ void main() {
 // [cfe] unspecified
 // [analyzer] unspecified
 
+  Pointer<Null> p5 = Pointer.fromAddress(p.address);
+//        ^^^^
+// [cfe] unspecified
+// [analyzer] unspecified
 }
