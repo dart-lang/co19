@@ -7,91 +7,91 @@
 /// - A class extends or mixes in a declaration marked interface or final from
 ///   another library.
 ///
-/// @description Check that it is a compile-time error if class marked `final`
-/// is extended outside of the library where it is declared
+/// @description Check that it is a compile-time error if class marked
+/// `abstract interface` is extended outside of the library where it is declared
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
 import "class_modifiers_lib.dart";
 
-class ExtendsFinal extends FinalClass {}
-//                         ^^^^^^^^^^
+class ExtendsInterface extends AbstractInterfaceClass {}
+//                             ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-base class BaseExtendsFinal extends FinalClass {}
-//                                  ^^^^^^^^^^
+base class BaseExtendsInterface extends AbstractInterfaceClass {}
+//                                      ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-interface class InterfaceExtendsFinal extends FinalClass {}
-//                                            ^^^^^^^^^^
+interface class InterfaceExtendsInterface extends AbstractInterfaceClass {}
+//                                                ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final class FinalExtendsFinal extends FinalClass {}
-//                                    ^^^^^^^^^^
+final class FinalExtendsInterface extends AbstractInterfaceClass {}
+//                                        ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-sealed class SealedExtendsFinal extends FinalClass {}
-//                                      ^^^^^^^^^^
+sealed class SealedExtendsInterface extends AbstractInterfaceClass {}
+//                                          ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract class AbstractExtendsFinal extends FinalClass {}
-//                                          ^^^^^^^^^^
+abstract class AbstractExtendsInterface extends AbstractInterfaceClass {}
+//                                              ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract base class AbstractBaseExtendsFinal extends FinalClass {}
-//                                                   ^^^^^^^^^^
+abstract base class AbstractBaseExtendsInterface extends AbstractInterfaceClass {}
+//                                                       ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract interface class AbstractInterfaceExtendsFinal extends FinalClass {}
-//                                                             ^^^^^^^^^^
+abstract interface class AbstractInterfaceExtendsInterface extends AbstractInterfaceClass {}
+//                                                                 ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract final class AbstractFinalExtendsFinal extends FinalClass {}
-//                                                     ^^^^^^^^^^
+abstract final class AbstractFinalExtendsInterface extends AbstractInterfaceClass {}
+//                                                         ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin class MixinClassExtendsFinal extends FinalClass {}
-//                                         ^^^^^^^^^^
+mixin class MixinClassExtendsInterface extends AbstractInterfaceClass {}
+//                                             ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-base mixin class BaseMixinClassExtendsFinal extends FinalClass {}
-//                                                  ^^^^^^^^^^
+base mixin class BaseMixinClassExtendsInterface extends AbstractInterfaceClass {}
+//                                                      ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract mixin class AbstractMixinClassExtendsFinal extends FinalClass {}
-//                                                          ^^^^^^^^^^
+abstract mixin class AbstractMixinClassExtendsInterface extends AbstractInterfaceClass {}
+//                                                              ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract base mixin class AbstractBaseMixinClassExtendsFinal extends FinalClass {}
-//                                                                   ^^^^^^^^^^
+abstract base mixin class AbstractBaseMixinClassExtendsInterface extends AbstractInterfaceClass {}
+//                                                                       ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  print(ExtendsFinal);
-  print(BaseExtendsFinal);
-  print(InterfaceExtendsFinal);
-  print(FinalExtendsFinal);
-  print(SealedExtendsFinal);
-  print(AbstractExtendsFinal);
-  print(AbstractBaseExtendsFinal);
-  print(AbstractInterfaceExtendsFinal);
-  print(AbstractFinalExtendsFinal);
-  print(MixinClassExtendsFinal);
-  print(BaseMixinClassExtendsFinal);
-  print(AbstractMixinClassExtendsFinal);
-  print(AbstractBaseMixinClassExtendsFinal);
+  print(ExtendsInterface);
+  print(BaseExtendsInterface);
+  print(InterfaceExtendsInterface);
+  print(FinalExtendsInterface);
+  print(SealedExtendsInterface);
+  print(AbstractExtendsInterface);
+  print(AbstractBaseExtendsInterface);
+  print(AbstractInterfaceExtendsInterface);
+  print(AbstractFinalExtendsInterface);
+  print(MixinClassExtendsInterface);
+  print(BaseMixinClassExtendsInterface);
+  print(AbstractMixinClassExtendsInterface);
+  print(AbstractBaseMixinClassExtendsInterface);
 }

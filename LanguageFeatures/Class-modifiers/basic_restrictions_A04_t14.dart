@@ -7,25 +7,29 @@
 /// - A declaration has a base or final superdeclaration, and is not itself
 ///   marked base, final or sealed.
 ///
-/// @description Check that it is not an error if a declaration is `final` and
-/// has a superdeclaration marked `final` in the same library
+/// @description Check that it is not an error if a declaration is `sealed` and
+/// has a superdeclaration marked `base`. Test `base` superdeclaration in
+/// another library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-final class FinalClass {}
+import "class_modifiers_lib.dart";
 
-final class FinalExtendsFinalClass extends FinalClass {}
+sealed class ExtendsBaseClass extends BaseClass {}
 
-abstract final class AbstractFinalExtendsFinalClass extends FinalClass {}
+sealed class ExtendsAbstractBaseClass extends AbstractBaseClass {}
 
-final class FinalImplementsFinalClass implements FinalClass {}
+sealed class ClassWithBaseMixin with BaseMixin {}
 
-abstract final class AbstractFinalImplementsFinalClass implements FinalClass {}
+sealed class ClassWithBaseMixinClass with BaseMixinClass {}
+
+sealed class ClassWithBaseAbstractMixinClass with AbstractBaseMixinClass {}
 
 main() {
-  print(FinalExtendsFinalClass);
-  print(AbstractFinalExtendsFinalClass);
-  print(FinalImplementsFinalClass);
-  print(AbstractFinalImplementsFinalClass);
+  print(ExtendsBaseClass);
+  print(ExtendsAbstractBaseClass);
+  print(ClassWithBaseMixin);
+  print(ClassWithBaseMixinClass);
+  print(ClassWithBaseAbstractMixinClass);
 }

@@ -7,47 +7,91 @@
 /// - A class extends or mixes in a declaration marked interface or final from
 ///   another library.
 ///
-/// @description Check that it is not an error if class marked `interface` is
-/// extended in the same library where it is declared
+/// @description Check that it is a compile-time error if class marked `final`
+/// is extended outside of the library where it is declared
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-interface class InterfaceClass {}
+import "class_modifiers_lib.dart";
 
-class ExtendsInterface extends InterfaceClass {}
+class ExtendsFinal extends FinalClass {}
+//                         ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-base class BaseExtendsInterface extends InterfaceClass {}
+base class BaseExtendsFinal extends FinalClass {}
+//                                  ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-interface class InterfaceExtendsInterface extends InterfaceClass {}
+interface class InterfaceExtendsFinal extends FinalClass {}
+//                                            ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-final class FinalExtendsInterface extends InterfaceClass {}
+final class FinalExtendsFinal extends FinalClass {}
+//                                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-sealed class SealedExtendsInterface extends InterfaceClass {}
+sealed class SealedExtendsFinal extends FinalClass {}
+//                                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-abstract class AbstractExtendsInterface extends InterfaceClass {}
+abstract class AbstractExtendsFinal extends FinalClass {}
+//                                          ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-abstract base class AbstractBaseExtendsInterface extends InterfaceClass {}
+abstract base class AbstractBaseExtendsFinal extends FinalClass {}
+//                                                   ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-abstract interface class AbstractInterfaceExtendsInterface
-    extends InterfaceClass {}
+abstract interface class AbstractInterfaceExtendsFinal extends FinalClass {}
+//                                                             ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-abstract final class AbstractFinalExtendsInterface extends InterfaceClass {}
+abstract final class AbstractFinalExtendsFinal extends FinalClass {}
+//                                                     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-mixin MixinOnInterface on InterfaceClass {}
+mixin class MixinClassExtendsFinal extends FinalClass {}
+//                                         ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-base mixin BaseMixinOnInterface on InterfaceClass {}
+base mixin class BaseMixinClassExtendsFinal extends FinalClass {}
+//                                                  ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract mixin class AbstractMixinClassExtendsFinal extends FinalClass {}
+//                                                          ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract base mixin class AbstractBaseMixinClassExtendsFinal extends FinalClass {}
+//                                                                   ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  print(ExtendsInterface);
-  print(BaseExtendsInterface);
-  print(InterfaceExtendsInterface);
-  print(FinalExtendsInterface);
-  print(SealedExtendsInterface);
-  print(AbstractExtendsInterface);
-  print(AbstractBaseExtendsInterface);
-  print(AbstractInterfaceExtendsInterface);
-  print(AbstractFinalExtendsInterface);
-  print(MixinOnInterface);
-  print(BaseMixinOnInterface);
+  print(ExtendsFinal);
+  print(BaseExtendsFinal);
+  print(InterfaceExtendsFinal);
+  print(FinalExtendsFinal);
+  print(SealedExtendsFinal);
+  print(AbstractExtendsFinal);
+  print(AbstractBaseExtendsFinal);
+  print(AbstractInterfaceExtendsFinal);
+  print(AbstractFinalExtendsFinal);
+  print(MixinClassExtendsFinal);
+  print(BaseMixinClassExtendsFinal);
+  print(AbstractMixinClassExtendsFinal);
+  print(AbstractBaseMixinClassExtendsFinal);
 }

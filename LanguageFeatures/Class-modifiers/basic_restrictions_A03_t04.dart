@@ -9,109 +9,109 @@
 ///   not from the first declaration's library
 ///
 /// @description Check that it is a compile-time error to implement the
-/// interface of a mixin class marked `base` outside of the library where it is
-/// declared
+/// interface of a class marked `abstract final` outside of the library where it
+/// is declared
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
 import "class_modifiers_lib.dart";
 
-class ImplementsBaseMixinClass implements BaseMixinClass {}
-//                                        ^^^^^^^^^^^^^^
+class ImplementsFinalClass implements AbstractFinalClass {}
+//                                    ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-base class BaseImplementsBaseMixinClass implements BaseMixinClass {}
-//                                                 ^^^^^^^^^^^^^^
+base class BaseImplementsFinalClass implements AbstractFinalClass {}
+//                                             ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-interface class InterfaceImplementsBaseMixinClass implements BaseMixinClass {}
-//                                                           ^^^^^^^^^^^^^^
+interface class InterfaceImplementsFinalClass implements AbstractFinalClass {}
+//                                                       ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final class FinalImplementsBaseMixinClass implements BaseMixinClass {}
-//                                                   ^^^^^^^^^^^^^^
+final class FinalImplementsFinalClass implements AbstractFinalClass {}
+//                                               ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-sealed class SealedImplementsBaseMixinClass implements BaseMixinClass {}
-//                                                     ^^^^^^^^^^^^^^
+sealed class SealedImplementsFinalClass implements AbstractFinalClass {}
+//                                                 ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract class AbstractImplementsBaseMixinClass implements BaseMixinClass {}
-//                                                         ^^^^^^^^^^^^^^
+abstract class AbstractImplementsFinalClass implements AbstractFinalClass {}
+//                                                     ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract base class AbstractBaseImplementsBaseMixinClass implements BaseMixinClass {}
-//                                                                  ^^^^^^^^^^^^^^
+abstract base class AbstractBaseImplementsFinalClass implements AbstractFinalClass {}
+//                                                              ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract interface class AbstractInterfaceImplementsBaseMixinClass implements BaseMixinClass {}
-//                                                                            ^^^^^^^^^^^^^^
+abstract interface class AbstractInterfaceImplementsFinalClass implements AbstractFinalClass {}
+//                                                                        ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract final class AbstractFinalImplementsBaseMixinClass implements BaseMixinClass {}
-//                                                                    ^^^^^^^^^^^^^^
+abstract final class AbstractFinalImplementsFinalClass implements AbstractFinalClass {}
+//                                                                ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin class MixinClassImplementsBaseMixinClass implements BaseMixinClass {}
-//                                                        ^^^^^^^^^^^^^^
+mixin class MixinClassImplementsFinalClass implements AbstractFinalClass {}
+//                                                    ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-base mixin class BaseMixinClassImplementsBaseMixinClass implements BaseMixinClass {}
-//                                                                 ^^^^^^^^^^^^^^
+base mixin class BaseMixinClassImplementsFinalClass implements AbstractFinalClass {}
+//                                                             ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract mixin class AbstractMixinClassImplementsBaseMixinClass implements BaseMixinClass {}
-//                                                                         ^^^^^^^^^^^^^^
+abstract mixin class AbstractMixinClassImplementsFinalClass implements AbstractFinalClass {}
+//                                                                     ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract base mixin class AbstractBaseMixinClassImplementsBaseMixinClass implements BaseMixinClass {}
-//                                                                                  ^^^^^^^^^^^^^^
+abstract base mixin class AbstractBaseMixinClassImplementsFinalClass implements AbstractFinalClass {}
+//                                                                              ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin MixinImplementsBaseMixinClass implements BaseMixinClass {}
-//                                             ^^^^^^^^^^^^^^
+mixin MixinImplementsFinalClass implements AbstractFinalClass {}
+//                                         ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-base mixin BaseMixinImplementsBaseMixinClass implements BaseMixinClass {}
-//                                                      ^^^^^^^^^^^^^^
+base mixin BaseMixinImplementsFinalClass implements AbstractFinalClass {}
+//                                                  ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum EnumImplementsBaseMixinClass implements BaseMixinClass {e1, e2}
-//                                           ^^^^^^^^^^^^^^
+enum EnumImplementsFinalClass implements AbstractFinalClass {e1, e2}
+//                                       ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  print(ImplementsBaseMixinClass);
-  print(BaseImplementsBaseMixinClass);
-  print(InterfaceImplementsBaseMixinClass);
-  print(FinalImplementsBaseMixinClass);
-  print(SealedImplementsBaseMixinClass);
-  print(AbstractImplementsBaseMixinClass);
-  print(AbstractBaseImplementsBaseMixinClass);
-  print(AbstractInterfaceImplementsBaseMixinClass);
-  print(AbstractFinalImplementsBaseMixinClass);
-  print(MixinClassImplementsBaseMixinClass);
-  print(BaseMixinClassImplementsBaseMixinClass);
-  print(AbstractMixinClassImplementsBaseMixinClass);
-  print(AbstractBaseMixinClassImplementsBaseMixinClass);
-  print(MixinImplementsBaseMixinClass);
-  print(BaseMixinImplementsBaseMixinClass);
-  print(EnumImplementsBaseMixinClass);
+  print(ImplementsFinalClass);
+  print(BaseImplementsFinalClass);
+  print(InterfaceImplementsFinalClass);
+  print(FinalImplementsFinalClass);
+  print(SealedImplementsFinalClass);
+  print(AbstractImplementsFinalClass);
+  print(AbstractBaseImplementsFinalClass);
+  print(AbstractInterfaceImplementsFinalClass);
+  print(AbstractFinalImplementsFinalClass);
+  print(MixinClassImplementsFinalClass);
+  print(BaseMixinClassImplementsFinalClass);
+  print(AbstractMixinClassImplementsFinalClass);
+  print(AbstractBaseMixinClassImplementsFinalClass);
+  print(MixinImplementsFinalClass);
+  print(BaseMixinImplementsFinalClass);
+  print(EnumImplementsFinalClass);
 }

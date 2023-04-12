@@ -7,28 +7,92 @@
 /// - A declaration has a base or final superdeclaration, and is not itself
 ///   marked base, final or sealed.
 ///
-/// @description Check that it is no error if a declaration is `base` and has a
-/// superdeclaration marked `base`. Test `base` superdeclaration in another
-/// library
+/// @description Check that it is a compile-time error if a declaration is not
+/// `base`, `final` or `sealed` and has a superdeclaration marked `final`. Test
+/// `abstract final` superdeclaration in another library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
 import "class_modifiers_lib.dart";
 
-base class ExtendsBaseClass extends BaseClass {}
+class ExtendsFinalClass extends AbstractFinalClass {}
+//                              ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-abstract base class AbstractExtendsBaseClass extends BaseClass {}
+interface class InterfaceExtendsFinalClass extends AbstractFinalClass {}
+//                                                 ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-base class ClassWithBaseMixin with BaseMixin {}
+abstract class AbstractExtendsFinalClass extends AbstractFinalClass {}
+//                                               ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-base class ClassWithBaseMixinClass with BaseMixinClass {}
+abstract interface class AbstractInterfaceExtendsFinalClass extends AbstractFinalClass {}
+//                                                                  ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-base mixin MixinOnBaseClass on BaseClass {}
+class ImplementsFinalClass implements AbstractFinalClass {}
+//                                    ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+interface class InterfaceImplementsFinalClass implements AbstractFinalClass {}
+//                                                       ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract class AbstractImplementsFinalClass implements AbstractFinalClass {}
+//                                                     ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract interface class AbstractInterfaceImplementsFinalClass implements AbstractFinalClass {}
+//                                                                        ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+mixin MixinOnFinalClass on AbstractFinalClass {}
+//                         ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+mixin MixinImplementsFinalClass implements AbstractFinalClass {}
+//                                         ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+mixin class MixinClassImplementsFinalClass implements AbstractFinalClass {}
+//                                                    ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract mixin class AbstractMixinClassImplementsFinalClass implements AbstractFinalClass {}
+//                                                                     ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+enum EnumImplementsFinalClass implements AbstractFinalClass {e1, e2}
+//                                       ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  print(ExtendsBaseClass);
-  print(ClassWithBaseMixin);
-  print(ClassWithBaseMixinClass);
-  print(MixinOnBaseClass);
+  print(ExtendsFinalClass);
+  print(InterfaceExtendsFinalClass);
+  print(AbstractExtendsFinalClass);
+  print(AbstractInterfaceExtendsFinalClass);
+  print(ImplementsFinalClass);
+  print(InterfaceImplementsFinalClass);
+  print(AbstractImplementsFinalClass);
+  print(AbstractInterfaceImplementsFinalClass);
+  print(MixinOnFinalClass);
+  print(MixinImplementsFinalClass);
+  print(MixinClassImplementsFinalClass);
+  print(AbstractMixinClassImplementsFinalClass);
+  print(EnumImplementsFinalClass);
 }

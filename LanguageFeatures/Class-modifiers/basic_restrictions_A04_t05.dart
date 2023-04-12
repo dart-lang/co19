@@ -8,91 +8,91 @@
 ///   marked base, final or sealed.
 ///
 /// @description Check that it is a compile-time error if a declaration is not
-/// `base`, `final` or `sealed` and has a superdeclaration marked `sealed`. Test
-/// `sealed` superdeclaration in another library
+/// `base`, `final` or `sealed` and has a superdeclaration marked `final`. Test
+/// `final` superdeclaration in another library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
 import "class_modifiers_lib.dart";
 
-class ExtendsSealedClass extends SealedClass {}
-//                               ^^^^^^^^^^^
+class ExtendsFinalClass extends FinalClass {}
+//                              ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-interface class InterfaceExtendsSealedClass extends SealedClass {}
-//                                                  ^^^^^^^^^^^
+interface class InterfaceExtendsFinalClass extends FinalClass {}
+//                                                 ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract class AbstractExtendsSealedClass extends SealedClass {}
-//                                                ^^^^^^^^^^^
+abstract class AbstractExtendsFinalClass extends FinalClass {}
+//                                               ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract interface class AbstractInterfaceExtendsSealedClass extends SealedClass {}
-//                                                                   ^^^^^^^^^^^
+abstract interface class AbstractInterfaceExtendsFinalClass extends FinalClass {}
+//                                                                  ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class ImplementsSealedClass implements SealedClass {}
-//                                     ^^^^^^^^^^^
+class ImplementsFinalClass implements FinalClass {}
+//                                    ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-interface class InterfaceImplementsSealedClass implements SealedClass {}
-//                                                        ^^^^^^^^^^^
+interface class InterfaceImplementsFinalClass implements FinalClass {}
+//                                                       ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract class AbstractImplementsSealedClass implements SealedClass {}
-//                                                      ^^^^^^^^^^^
+abstract class AbstractImplementsFinalClass implements FinalClass {}
+//                                                     ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract interface class AbstractInterfaceImplementsSealedClass implements SealedClass {}
-//                                                                         ^^^^^^^^^^^
+abstract interface class AbstractInterfaceImplementsFinalClass implements FinalClass {}
+//                                                                        ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin MixinOnSealedClass on SealedClass {}
-//                          ^^^^^^^^^^^
+mixin MixinOnFinalClass on FinalClass {}
+//                         ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin MixinImplementsSealedClass implements SealedClass {}
-//                                          ^^^^^^^^^^^
+mixin MixinImplementsFinalClass implements FinalClass {}
+//                                         ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin class MixinClassImplementsSealedClass implements SealedClass {}
-//                                                     ^^^^^^^^^^^
+mixin class MixinClassImplementsFinalClass implements FinalClass {}
+//                                                    ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract mixin class AbstractMixinClassImplementsSealedClass implements SealedClass {}
-//                                                                      ^^^^^^^^^^^
+abstract mixin class AbstractMixinClassImplementsFinalClass implements FinalClass {}
+//                                                                     ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum EnumImplementsSealedClass implements SealedClass {e1, e2}
-//                                        ^^^^^^^^^^
+enum EnumImplementsFinalClass implements FinalClass {e1, e2}
+//                                       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  print(ExtendsSealedClass);
-  print(InterfaceExtendsSealedClass);
-  print(AbstractExtendsSealedClass);
-  print(AbstractInterfaceExtendsSealedClass);
-  print(ImplementsSealedClass);
-  print(InterfaceImplementsSealedClass);
-  print(AbstractImplementsSealedClass);
-  print(AbstractInterfaceImplementsSealedClass);
-  print(MixinOnSealedClass);
-  print(MixinImplementsSealedClass);
-  print(MixinClassImplementsSealedClass);
-  print(AbstractMixinClassImplementsSealedClass);
-  print(EnumImplementsSealedClass);
+  print(ExtendsFinalClass);
+  print(InterfaceExtendsFinalClass);
+  print(AbstractExtendsFinalClass);
+  print(AbstractInterfaceExtendsFinalClass);
+  print(ImplementsFinalClass);
+  print(InterfaceImplementsFinalClass);
+  print(AbstractImplementsFinalClass);
+  print(AbstractInterfaceImplementsFinalClass);
+  print(MixinOnFinalClass);
+  print(MixinImplementsFinalClass);
+  print(MixinClassImplementsFinalClass);
+  print(AbstractMixinClassImplementsFinalClass);
+  print(EnumImplementsFinalClass);
 }

@@ -7,28 +7,36 @@
 /// - A declaration has a base or final superdeclaration, and is not itself
 ///   marked base, final or sealed.
 ///
-/// @description Check that it is not an error if a declaration is `sealed` and
-/// has a superdeclaration marked `base`. Test `base` superdeclaration in the
-/// same library
+/// @description Check that it is no error if a declaration is `final` and has a
+/// superdeclaration marked `base`. Test `base` superdeclaration in another
+/// library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-base class BaseClass {}
-base mixin BaseMixin {}
-base mixin class BaseMixinClass {}
+import "class_modifiers_lib.dart";
 
-sealed class ExtendsBaseClass extends BaseClass {}
+final class FinalExtendsBaseClass extends BaseClass {}
 
-sealed class ImplementsBaseClass implements BaseClass {}
+abstract final class AbstractFinalExtendsBaseClass extends BaseClass {}
 
-sealed class ClassWithBaseMixin with BaseMixin {}
+final class FinalClassWithBaseMixin with BaseMixin {}
 
-sealed class ClassWithBaseMixinClass with BaseMixinClass {}
+final class FinalClassWithBaseMixinClass with BaseMixinClass {}
+
+final class FinalExtendsAbstractBaseClass extends AbstractBaseClass {}
+
+abstract final class AbstractFinalExtendsAbstractBaseClass
+    extends AbstractBaseClass {}
+
+final class FinalClassWithAbstractBaseMixinClass with AbstractBaseMixinClass {}
 
 main() {
-  print(ExtendsBaseClass);
-  print(ImplementsBaseClass);
-  print(ClassWithBaseMixin);
-  print(ClassWithBaseMixinClass);
+  print(FinalExtendsBaseClass);
+  print(AbstractFinalExtendsBaseClass);
+  print(FinalClassWithBaseMixin);
+  print(FinalClassWithBaseMixinClass);
+  print(FinalExtendsAbstractBaseClass);
+  print(AbstractFinalExtendsAbstractBaseClass);
+  print(FinalClassWithAbstractBaseMixinClass);
 }

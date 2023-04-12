@@ -8,18 +8,32 @@
 ///   marked base, final or sealed.
 ///
 /// @description Check that it is not an error if a declaration is `sealed` and
-/// has a superdeclaration marked `final` in the same library
+/// has a superdeclaration marked `base`. Test `base` superdeclaration in the
+/// same library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-final class FinalClass {}
+base class BaseClass {}
+abstract base class AbstractBaseClass {}
+base mixin BaseMixin {}
+base mixin class BaseMixinClass {}
+abstract base mixin class AbstractBaseMixinClass {}
 
-sealed class ExtendsFinalClass extends FinalClass {}
+sealed class ExtendsBaseClass extends BaseClass {}
 
-sealed class ImplementsFinalClass implements FinalClass {}
+sealed class ExtendsAbstractBaseClass extends AbstractBaseClass {}
+
+sealed class ClassWithBaseMixin with BaseMixin {}
+
+sealed class ClassWithBaseMixinClass with BaseMixinClass {}
+
+sealed class ClassWithBaseAbstractMixinClass with AbstractBaseMixinClass {}
 
 main() {
-  print(ExtendsFinalClass);
-  print(ImplementsFinalClass);
+  print(ExtendsBaseClass);
+  print(ExtendsAbstractBaseClass);
+  print(ClassWithBaseMixin);
+  print(ClassWithBaseMixinClass);
+  print(ClassWithBaseAbstractMixinClass);
 }

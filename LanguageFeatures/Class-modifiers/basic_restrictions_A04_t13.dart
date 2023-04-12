@@ -7,38 +7,44 @@
 /// - A declaration has a base or final superdeclaration, and is not itself
 ///   marked base, final or sealed.
 ///
-/// @description Check that it is not an error if a declaration is `base` and
-/// has a superdeclaration marked `final` in the same library
+/// @description Check that it is no error if a declaration is `final` and has a
+/// superdeclaration marked `base`. Test `base` superdeclaration in the same
+/// library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-final class FinalClass {}
+base class BaseClass {}
 
-base class BaseExtendsFinalClass extends FinalClass {}
+abstract base class AbstractBaseClass {}
 
-abstract base class AbstractBaseExtendsFinalClass extends FinalClass {}
+base mixin BaseMixin {}
 
-base class BaseImplementsFinalClass implements FinalClass {}
+base mixin class BaseMixinClass {}
 
-abstract base class AbstractBaseImplementsFinalClass implements FinalClass {}
+abstract base mixin class AbstractBaseMixinClass {}
 
-base mixin MixinOnFinalClass on FinalClass {}
+final class FinalExtendsBaseClass extends BaseClass {}
 
-base mixin MixinImplementsFinalClass implements FinalClass {}
+abstract final class AbstractFinalExtendsBaseClass extends BaseClass {}
 
-base mixin class MixinClassImplementsFinalClass implements FinalClass {}
+final class FinalClassWithBaseMixin with BaseMixin {}
 
-abstract base mixin class AbstractMixinClassImplementsFinalClass
-    implements FinalClass {}
+final class FinalClassWithBaseMixinClass with BaseMixinClass {}
+
+final class FinalExtendsAbstractBaseClass extends AbstractBaseClass {}
+
+abstract final class AbstractFinalExtendsAbstractBaseClass
+    extends AbstractBaseClass {}
+
+final class FinalClassWithAbstractBaseMixinClass with AbstractBaseMixinClass {}
 
 main() {
-  print(BaseExtendsFinalClass);
-  print(AbstractBaseExtendsFinalClass);
-  print(BaseImplementsFinalClass);
-  print(AbstractBaseImplementsFinalClass);
-  print(MixinOnFinalClass);
-  print(MixinImplementsFinalClass);
-  print(MixinClassImplementsFinalClass);
-  print(AbstractMixinClassImplementsFinalClass);
+  print(FinalExtendsBaseClass);
+  print(AbstractFinalExtendsBaseClass);
+  print(FinalClassWithBaseMixin);
+  print(FinalClassWithBaseMixinClass);
+  print(FinalExtendsAbstractBaseClass);
+  print(AbstractFinalExtendsAbstractBaseClass);
+  print(FinalClassWithAbstractBaseMixinClass);
 }

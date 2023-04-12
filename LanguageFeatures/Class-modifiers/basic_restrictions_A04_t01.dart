@@ -101,8 +101,18 @@ mixin MixinOnBaseClass on BaseClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+mixin MixinOnBaseMixinClass on BaseMixinClass {}
+//    ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 mixin MixinImplementsBaseClass implements BaseClass {}
 //    ^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+mixin MixinImplementsBaseMixinClass implements BaseMixinClass {}
+//    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -111,8 +121,18 @@ mixin class MixinClassImplementsBaseClass implements BaseClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+mixin class MixinClassImplementsBaseMixinClass implements BaseMixinClass {}
+//          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 abstract mixin class AbstractMixinClassImplementsBaseClass implements BaseClass {}
 //                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract mixin class AbstractMixinClassImplementsBaseMixinClass implements BaseMixinClass {}
+//                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -147,9 +167,13 @@ main() {
   print(AbstractClassWithBaseMixin);
   print(AbstractClassWithBaseMixinClass);
   print(MixinOnBaseClass);
+  print(MixinOnBaseMixinClass);
   print(MixinImplementsBaseClass);
+  print(MixinImplementsBaseMixinClass);
   print(MixinClassImplementsBaseClass);
+  print(MixinClassImplementsBaseMixinClass);
   print(AbstractMixinClassImplementsBaseClass);
+  print(AbstractMixinClassImplementsBaseMixinClass);
   print(EnumImplementsBaseClass);
   print(EnumWithBaseMixin);
   print(EnumWithBaseMixinClass);

@@ -6,8 +6,9 @@
 /// - A declaration depends directly on a sealed declaration from another
 ///   library.
 ///
-/// @description Check that it is not an error if a declaration depends
-/// a `sealed` declaration from another library but not directly
+/// @description Check that it is not an error if a declaration depends on
+/// a `sealed` declaration from another library, but not directly. Test class
+/// that implements a `sealed` class
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
@@ -69,9 +70,14 @@ abstract mixin class AbstractMixinClass implements ImplementsSealedClass {}
 abstract base mixin class AbstractBaseMixinClass
     implements ImplementsSealedClass {}
 
-mixin Mixin implements ImplementsSealedClass {}
+mixin MixinImplementsImplementsSealedClass implements ImplementsSealedClass {}
 
-base mixin BaseMixin implements ImplementsSealedClass {}
+base mixin BaseMixinImplementsImplementsSealedClass
+    implements ImplementsSealedClass {}
+
+mixin MixinOnImplementsSealedClass on ImplementsSealedClass {}
+
+base mixin BaseMixinOnImplementsSealedClass on ImplementsSealedClass {}
 
 main() {
   print(ExtendsSealed);
@@ -96,6 +102,8 @@ main() {
   print(BaseMixinClass);
   print(AbstractMixinClass);
   print(AbstractBaseMixinClass);
-  print(Mixin);
-  print(BaseMixin);
+  print(MixinImplementsImplementsSealedClass);
+  print(BaseMixinImplementsImplementsSealedClass);
+  print(MixinOnImplementsSealedClass);
+  print(BaseMixinOnImplementsSealedClass);
 }

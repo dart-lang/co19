@@ -9,13 +9,21 @@
 
 library class_modifiers_lib;
 
-final class FinalClass {}
-interface class InterfaceClass {}
-sealed class SealedClass {}
+class Class {}
 base class BaseClass {}
-
-base mixin BaseMixin {}
+interface class InterfaceClass {}
+final class FinalClass {}
+abstract class AbstractClass {}
+sealed class SealedClass {}
+abstract base class AbstractBaseClass {}
+abstract interface class AbstractInterfaceClass {}
+abstract final class AbstractFinalClass {}
+mixin class MixinClass {}
 base mixin class BaseMixinClass {}
+abstract mixin class AbstractMixinClass {}
+abstract base mixin class AbstractBaseMixinClass {}
+mixin Mixin {}
+base mixin BaseMixin {}
 
 typedef TypedefFinalClass = FinalClass;
 typedef TypedefInterfaceClass = InterfaceClass;

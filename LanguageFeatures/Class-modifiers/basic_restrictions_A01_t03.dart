@@ -6,8 +6,9 @@
 /// - A declaration depends directly on a sealed declaration from another
 ///   library.
 ///
-/// @description Check that it is a compile-time error to mixin a class marked
-/// `sealed` outside of the library where it is declared
+/// @description Check that it is a compile-time error to mix in or use in the
+/// `on` clause of a mixin a class marked `sealed` outside of the library where
+/// it is declared
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers

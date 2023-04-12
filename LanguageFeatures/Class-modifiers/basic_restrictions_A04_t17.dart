@@ -8,24 +8,41 @@
 ///   marked base, final or sealed.
 ///
 /// @description Check that it is not an error if a declaration is `final` and
-/// has a superdeclaration marked `sealed` in the same library
+/// has a superdeclaration marked `final` in the same library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-final class SealedClass {}
+final class FinalClass {}
 
-final class FinalExtendsSealedClass extends SealedClass {}
+abstract final class AbstractFinalClass {}
 
-abstract final class AbstractFinalExtendsSealedClass extends SealedClass {}
+final class FinalExtendsFinalClass extends FinalClass {}
 
-final class FinalImplementsSealedClass implements SealedClass {}
+abstract final class AbstractFinalExtendsFinalClass extends FinalClass {}
 
-abstract final class AbstractFinalImplementsSealedClass implements SealedClass {}
+final class FinalImplementsFinalClass implements FinalClass {}
+
+abstract final class AbstractFinalImplementsFinalClass implements FinalClass {}
+
+final class FinalExtendsAbstractFinalClass extends AbstractFinalClass {}
+
+abstract final class AbstractFinalExtendsAbstractFinalClass
+    extends AbstractFinalClass {}
+
+final class FinalImplementsAbstractFinalClass implements AbstractFinalClass {}
+
+abstract final class AbstractFinalImplementsAbstractFinalClass
+    implements AbstractFinalClass {}
 
 main() {
-  print(FinalExtendsSealedClass);
-  print(AbstractFinalExtendsSealedClass);
-  print(FinalImplementsSealedClass);
-  print(AbstractFinalImplementsSealedClass);
+  print(FinalExtendsFinalClass);
+  print(AbstractFinalExtendsFinalClass);
+  print(FinalImplementsFinalClass);
+  print(AbstractFinalImplementsFinalClass);
+
+  print(FinalExtendsAbstractFinalClass);
+  print(AbstractFinalExtendsAbstractFinalClass);
+  print(FinalImplementsAbstractFinalClass);
+  print(AbstractFinalImplementsAbstractFinalClass);
 }
