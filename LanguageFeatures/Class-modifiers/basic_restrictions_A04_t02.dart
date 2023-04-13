@@ -138,21 +138,6 @@ abstract mixin class AbstractMixinClassImplementsBaseMixinClass implements BaseM
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum EnumImplementsBaseClass implements BaseClass {e1, e2}
-//                                      ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-enum EnumWithBaseMixin with BaseMixin {e1, e2}
-//                          ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-enum EnumWithBaseMixinClass with BaseMixinClass {e1, e2}
-//                               ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 main() {
   print(ExtendsBaseClass);
   print(InterfaceExtendsBaseClass);
@@ -176,7 +161,4 @@ main() {
   print(MixinClassImplementsBaseMixinClass);
   print(AbstractMixinClassImplementsBaseClass);
   print(AbstractMixinClassImplementsBaseMixinClass);
-  print(EnumImplementsBaseClass);
-  print(EnumWithBaseMixin);
-  print(EnumWithBaseMixinClass);
 }

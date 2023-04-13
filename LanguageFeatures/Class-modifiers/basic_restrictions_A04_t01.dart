@@ -36,26 +36,6 @@ abstract interface class AbstractInterfaceExtendsBaseClass extends BaseClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class ImplementsBaseClass implements BaseClass {}
-//    ^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-interface class InterfaceImplementsBaseClass implements BaseClass {}
-//              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-abstract class AbstractImplementsBaseClass implements BaseClass {}
-//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-abstract interface class AbstractInterfaceImplementsBaseClass implements BaseClass {}
-//                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 class ClassWithBaseMixin with BaseMixin {}
 //    ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -106,60 +86,11 @@ mixin MixinOnBaseMixinClass on BaseMixinClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin MixinImplementsBaseClass implements BaseClass {}
-//    ^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-mixin MixinImplementsBaseMixinClass implements BaseMixinClass {}
-//    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-mixin class MixinClassImplementsBaseClass implements BaseClass {}
-//          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-mixin class MixinClassImplementsBaseMixinClass implements BaseMixinClass {}
-//          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-abstract mixin class AbstractMixinClassImplementsBaseClass implements BaseClass {}
-//                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-abstract mixin class AbstractMixinClassImplementsBaseMixinClass implements BaseMixinClass {}
-//                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-enum EnumImplementsBaseClass implements BaseClass {e1, e2}
-//                                      ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-enum EnumWithBaseMixin with BaseMixin {e1, e2}
-//                          ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-enum EnumWithBaseMixinClass with BaseMixinClass {e1, e2}
-//                               ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 main() {
   print(ExtendsBaseClass);
   print(InterfaceExtendsBaseClass);
   print(AbstractExtendsBaseClass);
   print(AbstractInterfaceExtendsBaseClass);
-  print(ImplementsBaseClass);
-  print(InterfaceImplementsBaseClass);
-  print(AbstractImplementsBaseClass);
-  print(AbstractInterfaceImplementsBaseClass);
   print(ClassWithBaseMixin);
   print(ClassWithBaseMixinClass);
   print(InterfaceClassWithBaseMixin);
@@ -168,13 +99,4 @@ main() {
   print(AbstractClassWithBaseMixinClass);
   print(MixinOnBaseClass);
   print(MixinOnBaseMixinClass);
-  print(MixinImplementsBaseClass);
-  print(MixinImplementsBaseMixinClass);
-  print(MixinClassImplementsBaseClass);
-  print(MixinClassImplementsBaseMixinClass);
-  print(AbstractMixinClassImplementsBaseClass);
-  print(AbstractMixinClassImplementsBaseMixinClass);
-  print(EnumImplementsBaseClass);
-  print(EnumWithBaseMixin);
-  print(EnumWithBaseMixinClass);
 }

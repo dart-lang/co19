@@ -76,11 +76,6 @@ abstract mixin class AbstractMixinClassImplementsSealedClass implements SealedCl
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum EnumImplementsSealedClass implements SealedClass {e1, e2}
-//                                        ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 main() {
   print(ExtendsSealedClass);
   print(InterfaceExtendsSealedClass);
@@ -94,5 +89,4 @@ main() {
   print(MixinImplementsSealedClass);
   print(MixinClassImplementsSealedClass);
   print(AbstractMixinClassImplementsSealedClass);
-  print(EnumImplementsSealedClass);
 }

@@ -31,6 +31,12 @@ abstract final class AbstractFinalExtendsAbstractBaseClass
 
 final class FinalClassWithAbstractBaseMixinClass with AbstractBaseMixinClass {}
 
+enum EnumWithBaseMixin with BaseMixin {e1, e2}
+
+enum EnumWithBaseMixinClass with BaseMixinClass {e1, e2}
+
+enum EnumWithAbstractBaseMixinClass with AbstractBaseMixinClass {e1, e2}
+
 main() {
   print(FinalExtendsBaseClass);
   print(AbstractFinalExtendsBaseClass);
@@ -39,4 +45,7 @@ main() {
   print(FinalExtendsAbstractBaseClass);
   print(AbstractFinalExtendsAbstractBaseClass);
   print(FinalClassWithAbstractBaseMixinClass);
+  print(EnumWithBaseMixin);
+  print(EnumWithBaseMixinClass);
+  print(EnumWithAbstractBaseMixinClass);
 }

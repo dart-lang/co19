@@ -36,48 +36,8 @@ abstract interface class AbstractInterfaceExtendsFinalClass extends FinalClass {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class ImplementsFinalClass implements FinalClass {}
-//                                    ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-interface class InterfaceImplementsFinalClass implements FinalClass {}
-//                                                       ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-abstract class AbstractImplementsFinalClass implements FinalClass {}
-//                                                     ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-abstract interface class AbstractInterfaceImplementsFinalClass implements FinalClass {}
-//                                                                        ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 mixin MixinOnFinalClass on FinalClass {}
 //                         ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-mixin MixinImplementsFinalClass implements FinalClass {}
-//                                         ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-mixin class MixinClassImplementsFinalClass implements FinalClass {}
-//                                                    ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-abstract mixin class AbstractMixinClassImplementsFinalClass implements FinalClass {}
-//                                                                     ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-enum EnumImplementsFinalClass implements FinalClass {e1, e2}
-//                                       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -86,13 +46,5 @@ main() {
   print(InterfaceExtendsFinalClass);
   print(AbstractExtendsFinalClass);
   print(AbstractInterfaceExtendsFinalClass);
-  print(ImplementsFinalClass);
-  print(InterfaceImplementsFinalClass);
-  print(AbstractImplementsFinalClass);
-  print(AbstractInterfaceImplementsFinalClass);
   print(MixinOnFinalClass);
-  print(MixinImplementsFinalClass);
-  print(MixinClassImplementsFinalClass);
-  print(AbstractMixinClassImplementsFinalClass);
-  print(EnumImplementsFinalClass);
 }

@@ -76,11 +76,6 @@ abstract mixin class AbstractMixinClassImplementsFinalClass implements FinalClas
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum EnumImplementsFinalClass implements FinalClass {e1, e2}
-//                                       ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 main() {
   print(ExtendsFinalClass);
   print(InterfaceExtendsFinalClass);
@@ -94,5 +89,4 @@ main() {
   print(MixinImplementsFinalClass);
   print(MixinClassImplementsFinalClass);
   print(AbstractMixinClassImplementsFinalClass);
-  print(EnumImplementsFinalClass);
 }

@@ -14,7 +14,6 @@
 // SharedOptions=--enable-experiment=class-modifiers
 
 final class FinalClass {}
-
 abstract final class AbstractFinalClass {}
 
 final class FinalExtendsFinalClass extends FinalClass {}
@@ -35,14 +34,19 @@ final class FinalImplementsAbstractFinalClass implements AbstractFinalClass {}
 abstract final class AbstractFinalImplementsAbstractFinalClass
     implements AbstractFinalClass {}
 
+enum EnumImplementsFinalClass implements FinalClass {e1, e2}
+
+enum EnumImplementsAbstractFinalClass implements AbstractFinalClass {e1, e2}
+
 main() {
   print(FinalExtendsFinalClass);
   print(AbstractFinalExtendsFinalClass);
   print(FinalImplementsFinalClass);
   print(AbstractFinalImplementsFinalClass);
-
   print(FinalExtendsAbstractFinalClass);
   print(AbstractFinalExtendsAbstractFinalClass);
   print(FinalImplementsAbstractFinalClass);
   print(AbstractFinalImplementsAbstractFinalClass);
+  print(EnumImplementsFinalClass);
+  print(EnumImplementsAbstractFinalClass);
 }

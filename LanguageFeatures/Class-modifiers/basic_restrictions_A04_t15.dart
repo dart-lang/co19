@@ -22,18 +22,34 @@ abstract base mixin class AbstractBaseMixinClass {}
 
 sealed class ExtendsBaseClass extends BaseClass {}
 
+sealed class ImplementsBaseClass implements BaseClass {}
+
 sealed class ExtendsAbstractBaseClass extends AbstractBaseClass {}
+
+sealed class ImplementsAbstractBaseClass implements AbstractBaseClass {}
 
 sealed class ClassWithBaseMixin with BaseMixin {}
 
+sealed class ClassImplementsBaseMixin implements BaseMixin {}
+
 sealed class ClassWithBaseMixinClass with BaseMixinClass {}
+
+sealed class ClassImplementsBaseMixinClass implements BaseMixinClass {}
 
 sealed class ClassWithBaseAbstractMixinClass with AbstractBaseMixinClass {}
 
+sealed class ClassImplementsBaseAbstractMixinClass
+    implements AbstractBaseMixinClass {}
+
 main() {
   print(ExtendsBaseClass);
+  print(ImplementsBaseClass);
   print(ExtendsAbstractBaseClass);
+  print(ImplementsAbstractBaseClass);
   print(ClassWithBaseMixin);
+  print(ClassImplementsBaseMixin);
   print(ClassWithBaseMixinClass);
+  print(ClassImplementsBaseMixinClass);
   print(ClassWithBaseAbstractMixinClass);
+  print(ClassImplementsBaseAbstractMixinClass);
 }

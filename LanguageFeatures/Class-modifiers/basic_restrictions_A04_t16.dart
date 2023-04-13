@@ -14,7 +14,6 @@
 // SharedOptions=--enable-experiment=class-modifiers
 
 final class FinalClass {}
-
 abstract final class AbstractFinalClass {}
 
 base class BaseExtendsFinalClass extends FinalClass {}
