@@ -4,7 +4,7 @@
 
 /// @assertion It's a compile-time error if a mixin class declaration:
 /// ...
-/// - has a with clause, or
+/// - has a with clause
 ///
 /// @description Check that it is a compile-time error if a `mixin class`
 /// declaration has a `with` clause
