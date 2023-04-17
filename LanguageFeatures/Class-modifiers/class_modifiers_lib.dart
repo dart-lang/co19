@@ -25,10 +25,19 @@ abstract base mixin class AbstractBaseMixinClass {}
 mixin Mixin {}
 base mixin BaseMixin {}
 
-typedef TypedefFinalClass = FinalClass;
-typedef TypedefInterfaceClass = InterfaceClass;
-typedef TypedefSealedClass = SealedClass;
 typedef TypedefBaseClass = BaseClass;
+typedef TypedefInterfaceClass = InterfaceClass;
+typedef TypedefFinalClass = FinalClass;
+typedef TypedefSealedClass = SealedClass;
+typedef TypedefAbstractClass = AbstractClass;
+typedef TypedefAbstractBaseClass = AbstractBaseClass;
+typedef TypedefAbstractInterfaceClass = AbstractInterfaceClass;
+typedef TypedefAbstractFinalClass = AbstractFinalClass;
+typedef TypedefMixinClass = MixinClass;
+typedef TypedefBaseMixinClass = BaseMixinClass;
+typedef TypedefAbstractBaseMixinClass = AbstractBaseMixinClass;
+typedef TypedefMixin = Mixin;
+typedef TypedefBaseMixin = BaseMixin;
 
 class ExtendsSealedClass extends SealedClass {}
 class ImplementsSealedClass implements SealedClass {}
