@@ -12,7 +12,7 @@
 ///   - K is a platform library and L is a pre-feature library.
 ///
 /// @description Check that it is not an error if a class declaration mixes in
-/// class not declared as `mixin` but defined in a pre-feature library
+/// a class not declared as `mixin`, but defined in a pre-feature library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers

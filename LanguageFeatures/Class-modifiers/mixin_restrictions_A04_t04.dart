@@ -18,7 +18,15 @@
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-import "class_modifiers_lib.dart";
+class Class {}
+base class BaseClass {}
+interface class InterfaceClass {}
+final class FinalClass {}
+abstract class AbstractClass {}
+sealed class SealedClass {}
+abstract base class AbstractBaseClass {}
+abstract interface class AbstractInterfaceClass {}
+abstract final class AbstractFinalClass {}
 
 class C1 = Object with Class;
 //                     ^^^^^

@@ -12,13 +12,13 @@
 ///   - K is a platform library and L is a pre-feature library.
 ///
 /// @description Check that it is not an error if a class declaration from
-/// pre-feature library mixes in a class not declared as `mixin` but defined in
+/// pre-feature library mixes in a class not declared as `mixin`, but defined in
 /// a platform library
 /// @author sgrekhov22@gmail.com
 
 // @dart=2.19
 
-class C1 with Sink { // abstract class
+class C1 with Symbol { // abstract class
   @override
   noSuchMethod(Invocation invocation) {
     return super.noSuchMethod(invocation);
