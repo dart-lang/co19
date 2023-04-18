@@ -15,14 +15,10 @@ import "class_modifiers_lib.dart";
 sealed class C {}
 class ExtendsC1 extends C {}
 class ExtendsC2 extends C {}
-sealed class SealedExtendsC1 extends C {}
-sealed class SealedExtendsC2 extends C {}
 
 String test1(C c) => switch (c) {
       ExtendsC1 _ => "ExtendsC1",
-      ExtendsC2 _ => "ExtendsC2",
-      SealedExtendsC1 _ => "SealedExtendsC1",
-      SealedExtendsC2 _ => "SealedExtendsC2"
+      ExtendsC2 _ => "ExtendsC2"
     };
 
 String test2(SealedClass c) => switch (c) {

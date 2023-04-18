@@ -15,8 +15,6 @@ import "class_modifiers_lib.dart";
 final class C {}
 final class ExtendsC1 extends C {}
 base class ExtendsC2 extends C {}
-sealed class SealedExtendsC1 extends C {}
-sealed class SealedExtendsC2 extends C {}
 
 String test1(C c) => switch (c) {
 //                   ^^^^^^
@@ -24,8 +22,6 @@ String test1(C c) => switch (c) {
 // [cfe] unspecified
       ExtendsC1 _ => "ExtendsC1",
       ExtendsC2 _ => "ExtendsC2",
-      SealedExtendsC1 _ => "SealedExtendsC1",
-      SealedExtendsC2 _ => "SealedExtendsC2"
     };
 
 String test2(FinalClass c) => switch (c) {
@@ -34,8 +30,6 @@ String test2(FinalClass c) => switch (c) {
 // [cfe] unspecified
       ExtendsFinalClass1 _ => "ExtendsFinalClass1",
       ExtendsFinalClass2 _ => "ExtendsFinalClass2",
-      SealedExtendsFinalClass1 _ => "SealedExtendsFinalClass1",
-      SealedExtendsFinalClass2 _ => "SealedExtendsFinalClass2"
     };
 
 main() {
