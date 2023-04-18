@@ -17,12 +17,24 @@ base class BaseClassImplementsBaseClass implements BaseClass {}
 //                                                 ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
 final class FinalClassImplementsBaseClass implements BaseClass {}
 //                                                   ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
 sealed class SealedClassImplementsBaseClass implements BaseClass {}
 //                                                     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract base class AbstractBaseClassImplementsBaseClass implements BaseClass {}
+//                                                                  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract final class AbstractFinalClassImplementsBaseClass implements BaseClass {}
+//                                                                    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -30,4 +42,6 @@ main() {
   print(BaseClassImplementsBaseClass);
   print(FinalClassImplementsBaseClass);
   print(SealedClassImplementsBaseClass);
+  print(AbstractBaseClassImplementsBaseClass);
+  print(AbstractFinalClassImplementsBaseClass);
 }

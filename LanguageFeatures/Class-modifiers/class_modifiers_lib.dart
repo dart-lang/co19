@@ -49,6 +49,18 @@ base class BaseExtendsBaseClass2 extends BaseClass {}
 sealed class SealedExtendsBaseClass1 extends BaseClass {}
 sealed class SealedExtendsBaseClass2 extends BaseClass {}
 
+class ExtendsInterfaceClass1 extends InterfaceClass {}
+interface class ExtendsInterfaceClass2 extends InterfaceClass {}
+sealed class SealedExtendsInterfaceClass1 extends InterfaceClass {}
+sealed class SealedExtendsInterfaceClass2 extends InterfaceClass {}
+
+final class ExtendsFinalClass1 extends FinalClass {}
+base class ExtendsFinalClass2 extends FinalClass {}
+sealed class SealedExtendsFinalClass1 extends FinalClass {}
+sealed class SealedExtendsFinalClass2 extends FinalClass {}
+
 class ExtendsSealedClass extends SealedClass {}
 class ImplementsSealedClass implements SealedClass {}
 mixin MixinOnSealed on SealedClass {}
+
+ExtendsSealedClass extendsSealedClass = ExtendsSealedClass();

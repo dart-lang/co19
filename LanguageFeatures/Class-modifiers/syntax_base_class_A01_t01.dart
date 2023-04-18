@@ -21,11 +21,21 @@ final class FinalClassExtendsBaseClass extends BaseClass {}
 
 sealed class SealedClassExtendsBaseClass extends BaseClass {}
 
+abstract base class AbstractBaseClassExtendsBaseClass extends BaseClass {}
+
+abstract final class AbstractFinalClassExtendsBaseClass extends BaseClass {}
+
 base class BaseClassExtendsLocalBaseClass extends LocalBaseClass {}
 
 final class FinalClassExtendsLocalBaseClass extends LocalBaseClass {}
 
 sealed class SealedClassExtendsLocalBaseClass extends LocalBaseClass {}
+
+abstract base class AbstractBaseClassExtendsLocalBaseClass
+    extends LocalBaseClass {}
+
+abstract final class AbstractFinalClassExtendsLocalBaseClass
+    extends LocalBaseClass {}
 
 main() {
   BaseClass();
@@ -34,7 +44,12 @@ main() {
   print(BaseClassExtendsBaseClass);
   print(FinalClassExtendsBaseClass);
   print(SealedClassExtendsBaseClass);
+  print(AbstractBaseClassExtendsBaseClass);
+  print(AbstractFinalClassExtendsBaseClass);
+
   print(BaseClassExtendsLocalBaseClass);
   print(FinalClassExtendsLocalBaseClass);
   print(SealedClassExtendsLocalBaseClass);
+  print(AbstractBaseClassExtendsLocalBaseClass);
+  print(AbstractFinalClassExtendsLocalBaseClass);
 }

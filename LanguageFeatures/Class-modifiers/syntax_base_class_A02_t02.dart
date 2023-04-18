@@ -19,8 +19,16 @@ final class FinalClassImplementsLocalBaseClass implements LocalBaseClass {}
 
 sealed class SealedClassImplementsLocalBaseClass implements LocalBaseClass {}
 
+abstract base class AbstractBaseClassImplementsLocalBaseClass
+    implements LocalBaseClass {}
+
+abstract final class AbstractFinalClassImplementsLocalBaseClass
+    implements LocalBaseClass {}
+
 main() {
   print(BaseClassImplementsLocalBaseClass);
   print(FinalClassImplementsLocalBaseClass);
   print(SealedClassImplementsLocalBaseClass);
+  print(AbstractBaseClassImplementsLocalBaseClass);
+  print(AbstractFinalClassImplementsLocalBaseClass);
 }
