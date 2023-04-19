@@ -48,7 +48,7 @@ final class FinalClassWithSealedClass1 with SealedClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final class FinalClassWithSealedClass2 = Object with SealedClass {}
+final class FinalClassWithSealedClass2 = Object with SealedClass;
 //                                                   ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
