@@ -45,11 +45,11 @@ class ExtendsClass2 extends Class {}
 base class BaseExtendsBaseClass1 extends BaseClass {}
 base class BaseExtendsBaseClass2 extends BaseClass {}
 
-class ExtendsInterfaceClass1 extends InterfaceClass {}
+class ExtendsInterfaceClass1 extends InterfaceClass {} // reopen
 interface class ExtendsInterfaceClass2 extends InterfaceClass {}
 
 final class ExtendsFinalClass1 extends FinalClass {}
-base class ExtendsFinalClass2 extends FinalClass {}
+final class ExtendsFinalClass2 extends FinalClass {}
 
 class ExtendsSealedClass extends SealedClass {}
 class ImplementsSealedClass implements SealedClass {}

@@ -13,13 +13,14 @@
 
 final class FinalClass {}
 
-base class BaseClassExtendsFinalClass extends FinalClass {}
+base class BaseClassExtendsFinalClass extends FinalClass {} // reopen
 
 final class FinalClassExtendsFinalClass extends FinalClass {}
 
 sealed class SealedClassExtendsFinalClass extends FinalClass {}
 
-abstract base class AbstractBaseClassExtendsFinalClass extends FinalClass {}
+abstract base class AbstractBaseClassExtendsFinalClass
+    extends FinalClass {} // reopen
 
 abstract final class AbstractFinalClassExtendsFinalClass extends FinalClass {}
 

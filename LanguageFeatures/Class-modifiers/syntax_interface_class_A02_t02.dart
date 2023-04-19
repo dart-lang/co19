@@ -13,9 +13,9 @@
 
 interface class InterfaceClass {}
 
-class ClassExtendsInterfaceClass extends InterfaceClass {}
+class ClassExtendsInterfaceClass extends InterfaceClass {} // reopen
 
-base class BaseClassExtendsInterfaceClass extends InterfaceClass {}
+base class BaseClassExtendsInterfaceClass extends InterfaceClass {} // reopen
 
 interface class InterfaceClassExtendsInterfaceClass extends InterfaceClass {}
 
@@ -23,10 +23,11 @@ final class FinalClassExtendsInterfaceClass extends InterfaceClass {}
 
 sealed class SealedClassExtendsInterfaceClass extends InterfaceClass {}
 
-abstract class AbstractClassExtendsInterfaceClass extends InterfaceClass {}
+abstract class AbstractClassExtendsInterfaceClass
+    extends InterfaceClass {} // reopen
 
 abstract base class AbstractBaseClassExtendsInterfaceClass
-    extends InterfaceClass {}
+    extends InterfaceClass {} // reopen
 
 abstract interface class AbstractInterfaceClassExtendsInterfaceClass
     extends InterfaceClass {}

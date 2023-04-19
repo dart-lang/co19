@@ -6,7 +6,7 @@
 /// but not mixed in and is not exhaustive
 ///
 /// @description Checks that class with no modifiers can be constructed,
-/// extended and implemented in another library library
+/// extended and implemented in another library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers

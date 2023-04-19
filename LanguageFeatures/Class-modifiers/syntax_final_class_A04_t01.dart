@@ -12,12 +12,12 @@
 
 import "class_modifiers_lib.dart";
 
-final class C {}
-final class ExtendsC1 extends C {}
-base class ExtendsC2 extends C {}
+final class _C {}
+final class ExtendsC1 extends _C {}
+final class ExtendsC2 extends _C {}
 
-String test1(C c) => switch (c) {
-//                   ^^^^^^
+String test1(_C c) => switch (c) {
+//                    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
       ExtendsC1 _ => "ExtendsC1",

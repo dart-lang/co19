@@ -28,8 +28,8 @@ base class BaseClassWithClass1 with Class {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class BaseClassWithClass2 = Object with Class;
-//                                      ^^^^^
+base class BaseClassWithClass2 = Object with Class;
+//                                           ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -38,8 +38,8 @@ interface class InterfaceClassWithClass1 with Class {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class InterfaceClassWithClass2 = Object with Class;
-//                                           ^^^^^
+interface class InterfaceClassWithClass2 = Object with Class;
+//                                                     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -48,8 +48,8 @@ final class FinalClassWithClass1 with Class {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class FinalClassWithClass2 = Object with Class;
-//                                       ^^^^^
+final class FinalClassWithClass2 = Object with Class;
+//                                             ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -58,8 +58,8 @@ sealed class SealedClassWithClass1 with Class {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class SealedClassWithClass2 = Object with Class;
-//                                        ^^^^^
+sealed class SealedClassWithClass2 = Object with Class;
+//                                               ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -68,8 +68,8 @@ abstract class AbstractClassWithClass1 with Class {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class AbstractClassWithClass2 = Object with Class;
-//                                          ^^^^^
+abstract class AbstractClassWithClass2 = Object with Class;
+//                                                   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -78,8 +78,8 @@ abstract base class AbstractBaseClassWithClass1 with Class {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class AbstractBaseClassWithClass2 = Object with Class;
-//                                              ^^^^^
+abstract base class AbstractBaseClassWithClass2 = Object with Class;
+//                                                            ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -88,8 +88,8 @@ abstract interface class AbstractInterfaceClassWithClass1 with Class {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class AbstractInterfaceClassWithClass2 = Object with Class;
-//                                                   ^^^^^
+abstract interface class AbstractInterfaceClassWithClass2 = Object with Class;
+//                                                                      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -98,8 +98,8 @@ abstract final class AbstractFinalClassWithClass1 with Class {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class AbstractFinalClassWithClass2 = Object with Class;
-//                                               ^^^^^
+abstract final class AbstractFinalClassWithClass2 = Object with Class;
+//                                                              ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
