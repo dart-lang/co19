@@ -6,7 +6,8 @@
 /// mixed in and is not exhaustive
 ///
 /// @description Checks that it is a compile-time error if a `base class` is
-/// mixed in
+/// mixed in a `base/final/sealed` class (other cases tested in
+/// `basic_restrictions_A04_t*`)
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
@@ -65,6 +66,11 @@ abstract final class AbstractFinalClassWithBaseClass2 = Object with BaseClass;
 // [analyzer] unspecified
 // [cfe] unspecified
 
+enum EnumWithBaseClass with BaseClass {e1, e2}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 base class BaseClassWithLocalBaseClass1 with LocalBaseClass {}
 //                                           ^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -115,6 +121,11 @@ abstract final class AbstractFinalClassWithLocalBaseClass2 = Object with LocalBa
 // [analyzer] unspecified
 // [cfe] unspecified
 
+enum EnumWithLocalBaseClass with LocalBaseClass {e1, e2}
+//                               ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(BaseClassWithBaseClass1);
   print(BaseClassWithBaseClass2);
@@ -126,6 +137,7 @@ main() {
   print(AbstractBaseClassWithBaseClass2);
   print(AbstractFinalClassWithBaseClass1);
   print(AbstractFinalClassWithBaseClass2);
+  print(EnumWithBaseClass);
 
   print(BaseClassWithLocalBaseClass1);
   print(BaseClassWithLocalBaseClass2);
@@ -137,4 +149,5 @@ main() {
   print(AbstractBaseClassWithLocalBaseClass2);
   print(AbstractFinalClassWithLocalBaseClass1);
   print(AbstractFinalClassWithLocalBaseClass2);
+  print(EnumWithLocalBaseClass);
 }

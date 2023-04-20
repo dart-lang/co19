@@ -5,27 +5,41 @@
 /// @assertion Final class can be constructed but not extended, implemented or
 /// mixed in and is not exhaustive
 ///
-/// @description Checks that `final class` can be constructed and extended (by
-/// `base/final/sealed`) inside the same library where it is defined
+/// @description Checks that `final class` can be constructed but not extended
+/// (by `base/final/sealed`) outside of the library where it is defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-final class FinalClass {}
+import "class_modifiers_lib.dart";
 
-base class BaseClassExtendsFinalClass extends FinalClass {} // reopen
+base class BaseClassExtendsFinalClass extends FinalClass {}
+//                                            ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 final class FinalClassExtendsFinalClass extends FinalClass {}
+//                                              ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 sealed class SealedClassExtendsFinalClass extends FinalClass {}
+//                                                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-abstract base class AbstractBaseClassExtendsFinalClass
-    extends FinalClass {} // reopen
+abstract base class AbstractBaseClassExtendsFinalClass extends FinalClass {}
+//                                                             ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 abstract final class AbstractFinalClassExtendsFinalClass extends FinalClass {}
+//                                                               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  FinalClass();
+  FinalClass(); // no error
 
   print(BaseClassExtendsFinalClass);
   print(FinalClassExtendsFinalClass);

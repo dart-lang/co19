@@ -5,8 +5,9 @@
 /// @assertion Interface class can be constructed and implemented but not
 /// extended or mixed in and is not exhaustive
 ///
-/// @description Checks that it is a compile-time error if `interface class`
-/// is extended outside of the library where it is defined
+/// @description Checks that it is a compile-time error if an `interface class`
+/// is extended outside of the library where it is
+/// defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers

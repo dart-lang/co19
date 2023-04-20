@@ -5,38 +5,27 @@
 /// @assertion Final class can be constructed but not extended, implemented or
 /// mixed in and is not exhaustive
 ///
-/// @description Checks that `final class` cannot be implemented
-/// (by `base/final/sealed`) outside of the library where it is defined
+/// @description Checks that `final class` can be implemented (by
+/// `base/final/sealed`) inside the same library where it is defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-import "class_modifiers_lib.dart";
+final class FinalClass {}
 
 base class BaseClassImplementsFinalClass implements FinalClass {}
-//                                                  ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 final class FinalClassImplementsFinalClass implements FinalClass {}
-//                                                    ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 sealed class SealedClassImplementsFinalClass implements FinalClass {}
-//                                                      ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
-abstract base class AbstractBaseClassImplementsFinalClass implements FinalClass {}
-//                                                                   ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+abstract base class AbstractBaseClassImplementsFinalClass
+    implements FinalClass {}
 
-abstract final class AbstractFinalClassImplementsFinalClass implements FinalClass {}
-//                                                                     ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+abstract final class AbstractFinalClassImplementsFinalClass
+    implements FinalClass {}
+
+enum EnumImplementsFinalClass implements FinalClass {e1, e2}
 
 main() {
   print(BaseClassImplementsFinalClass);
@@ -44,4 +33,5 @@ main() {
   print(SealedClassImplementsFinalClass);
   print(AbstractBaseClassImplementsFinalClass);
   print(AbstractFinalClassImplementsFinalClass);
+  print(EnumImplementsFinalClass);
 }

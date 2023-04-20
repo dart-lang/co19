@@ -5,13 +5,13 @@
 /// @assertion Abstract class can be extended and implemented but not
 /// constructed, mixed in and is not exhaustive
 ///
-/// @description Check that it is not an error to extend an `abstract class` or
-/// declare mixin `on` it, outside of the library where it is defined
+/// @description Check that it is not an error to extend an `abstract class` in
+/// the same library where it is defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-import "class_modifiers_lib.dart";
+abstract class AbstractClass {}
 
 class ClassExtendsAbstractClass extends AbstractClass {}
 
@@ -33,10 +33,6 @@ abstract interface class AbstractInterfaceClassExtendsAbstractClass
 
 abstract final class AbstractFinalClassExtendsAbstractClass
     extends AbstractClass {}
-
-mixin MixinOnAbstractClass on AbstractClass {}
-
-base mixin BaseMixinOnAbstractClass on AbstractClass {}
 
 main() {
   print(ClassExtendsAbstractClass);

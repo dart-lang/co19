@@ -6,7 +6,7 @@
 /// constructed, mixed in and is not exhaustive
 ///
 /// @description Check that it is not an error to implement an `abstract class`
-/// outside of the library where it is defined
+/// in the same library where it is defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
@@ -50,6 +50,8 @@ mixin MixinImplementsAbstractClass implements AbstractClass {}
 
 base mixin BaseMixinImplementsAbstractClass implements AbstractClass {}
 
+enum EnumImplementsAbstractClass implements AbstractClass {e1, e2}
+
 main() {
   print(ClassImplementsAbstractClass);
   print(BaseClassImplementsAbstractClass);
@@ -66,4 +68,5 @@ main() {
   print(AbstractBaseMixinClassImplementsAbstractClass);
   print(MixinImplementsAbstractClass);
   print(BaseMixinImplementsAbstractClass);
+  print(EnumImplementsAbstractClass);
 }

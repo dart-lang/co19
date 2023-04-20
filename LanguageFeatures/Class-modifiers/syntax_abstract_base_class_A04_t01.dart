@@ -6,12 +6,14 @@
 /// implemented or mixed in and is not exhaustive
 ///
 /// @description Checks that it is a compile-time error if an
-/// `abstract base class` is mixed in in the same library where it is defined
+/// `abstract base class` is mixed in a `base/final/sealed` class (other cases
+/// tested in `basic_restrictions_A04_t*`) outside of the library where it is
+/// defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-abstract base class AbstractBaseClass {}
+import "class_modifiers_lib.dart";
 
 base class BaseClassWithAbstractBaseClass1 with AbstractBaseClass {}
 //                                              ^^^^^^^^^^^^^^^^^
@@ -63,6 +65,11 @@ abstract final class AbstractFinalClassWithAbstractBaseClass2 = Object with Abst
 // [analyzer] unspecified
 // [cfe] unspecified
 
+enum EnumWithAbstractBaseClass with AbstractBaseClass {e1, e2}
+//                                  ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(BaseClassWithAbstractBaseClass1);
   print(BaseClassWithAbstractBaseClass2);
@@ -74,4 +81,5 @@ main() {
   print(AbstractBaseClassWithAbstractBaseClass2);
   print(AbstractFinalClassWithAbstractBaseClass1);
   print(AbstractFinalClassWithAbstractBaseClass2);
+  print(EnumWithAbstractBaseClass);
 }

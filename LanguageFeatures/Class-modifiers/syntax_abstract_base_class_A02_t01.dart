@@ -6,13 +6,13 @@
 /// implemented or mixed in and is not exhaustive
 ///
 /// @description Check that it is not an error to extend an
-/// `abstract base class` (by `base/final/sealed`) or declare mixin `on` it, in
-/// the same library where it is defined
+/// `abstract base class` (by `base/final/sealed`) outside of the library where
+/// it is defined (other cases tested in `basic_restrictions_A04_t*`)
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-abstract base class AbstractBaseClass {}
+import "class_modifiers_lib.dart";
 
 base class BaseClassExtendsAbstractBaseClass extends AbstractBaseClass {}
 
@@ -26,13 +26,10 @@ abstract base class AbstractBaseClassExtendsAbstractBaseClass
 abstract final class AbstractFinalClassExtendsAbstractBaseClass
     extends AbstractBaseClass {}
 
-base mixin BaseMixinOnAbstractBaseClass on AbstractBaseClass {}
-
 main() {
   print(BaseClassExtendsAbstractBaseClass);
   print(FinalClassExtendsAbstractBaseClass);
   print(SealedClassExtendsAbstractBaseClass);
   print(AbstractBaseClassExtendsAbstractBaseClass);
   print(AbstractFinalClassExtendsAbstractBaseClass);
-  print(BaseMixinOnAbstractBaseClass);
 }

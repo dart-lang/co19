@@ -13,8 +13,8 @@ class Class {}
 base class BaseClass {}
 interface class InterfaceClass {}
 final class FinalClass {}
-abstract class AbstractClass {}
 sealed class SealedClass {}
+abstract class AbstractClass {}
 abstract base class AbstractBaseClass {}
 abstract interface class AbstractInterfaceClass {}
 abstract final class AbstractFinalClass {}
@@ -57,5 +57,14 @@ mixin MixinOnSealed on SealedClass {}
 
 class ExtendsAbstractClass1 extends AbstractClass {}
 class ExtendsAbstractClass2 extends AbstractClass {}
+
+base class BaseClassExtendsAbstractBaseClass1 extends AbstractBaseClass {}
+base class BaseClassExtendsAbstractBaseClass2 extends AbstractBaseClass {}
+
+class ExtendsAbstractInterfaceClass1 extends AbstractInterfaceClass {} // reopen
+interface class ExtendsAbstractInterfaceClass2 extends AbstractInterfaceClass {}
+
+final class ExtendsAbstractFinalClass1 extends AbstractFinalClass {}
+final class ExtendsAbstractFinalClass2 extends AbstractFinalClass {}
 
 ExtendsSealedClass extendsSealedClass = ExtendsSealedClass();

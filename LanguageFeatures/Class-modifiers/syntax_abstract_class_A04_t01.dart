@@ -6,12 +6,12 @@
 /// constructed, mixed in and is not exhaustive
 ///
 /// @description Check that it is a compile-time error to mix in an
-/// `abstract class` in the same library where it is defined
+/// `abstract class` outside of the library where it is defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-abstract class AbstractClass {}
+import "class_modifiers_lib.dart";
 
 class ClassWithAbstractClass1 with AbstractClass {}
 //                                 ^^^^^^^^^^^^^
@@ -103,6 +103,11 @@ abstract final class AbstractFinalClassWithAbstractClass2 = Object with Abstract
 // [analyzer] unspecified
 // [cfe] unspecified
 
+enum EnumWithAbstractClass with AbstractClass {e1, e2}
+//                              ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(ClassWithAbstractClass1);
   print(ClassWithAbstractClass2);
@@ -122,4 +127,5 @@ main() {
   print(AbstractInterfaceClassWithAbstractClass2);
   print(AbstractFinalClassWithAbstractClass1);
   print(AbstractFinalClassWithAbstractClass2);
+  print(EnumWithAbstractClass);
 }

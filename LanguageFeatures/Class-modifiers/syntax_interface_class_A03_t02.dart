@@ -5,7 +5,7 @@
 /// @assertion Interface class can be constructed and implemented but not
 /// extended or mixed in and is not exhaustive
 ///
-/// @description Checks that it is a compile-time error if `interface class`
+/// @description Checks that it is a compile-time error if an `interface class`
 /// is mixed in the same library where it is defined
 /// @author sgrekhov22@gmail.com
 
@@ -103,6 +103,11 @@ abstract final class AbstractFinalClassWithInterfaceClass2 = Object with Interfa
 // [analyzer] unspecified
 // [cfe] unspecified
 
+enum EnumWithInterfaceClass with InterfaceClass {e1, e2}
+//                               ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(ClassWithInterfaceClass1);
   print(ClassWithInterfaceClass2);
@@ -122,4 +127,5 @@ main() {
   print(AbstractInterfaceClassWithInterfaceClass2);
   print(AbstractFinalClassWithInterfaceClass1);
   print(AbstractFinalClassWithInterfaceClass2);
+  print(EnumWithInterfaceClass);
 }

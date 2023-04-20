@@ -5,56 +5,42 @@
 /// @assertion Abstract base class can be extended but not constructed,
 /// implemented or mixed in and is not exhaustive
 ///
-/// @description Checks that it is a compile-time error if an
-/// `abstract base class` is implemented outside of the library where it is
-/// defined
+/// @description Check that it is not an error to implement an
+/// `abstract base class` (by `base/final/sealed`), in the same library where it
+/// is defined (other cases tested in `basic_restrictions_A03_t*`)
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-import "class_modifiers_lib.dart";
+abstract base class AbstractBaseClass {}
 
-base class BaseClassImplementsAbstractBaseClass implements AbstractBaseClass {}
-//                                                         ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+base class BaseClassImplementsBaseClass implements AbstractBaseClass {}
 
-final class FinalClassImplementsAbstractBaseClass implements AbstractBaseClass {}
-//                                                           ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+final class FinalClassImplementsBaseClass implements AbstractBaseClass {}
 
-sealed class SealedClassImplementsAbstractBaseClass implements AbstractBaseClass {}
-//                                                             ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+sealed class SealedClassImplementsBaseClass implements AbstractBaseClass {}
 
-abstract base class AbstractBaseClassImplementsAbstractBaseClass implements AbstractBaseClass {}
-//                                                                          ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+abstract base class AbstractBaseClassImplementsBaseClass
+    implements AbstractBaseClass {}
 
-abstract final class AbstractFinalClassImplementsAbstractBaseClass implements AbstractBaseClass {}
-//                                                                            ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+abstract final class AbstractFinalClassImplementsBaseClass
+    implements AbstractBaseClass {}
 
-base mixin class BaseMixinOnAbstractBaseClass implements AbstractBaseClass {}
-//                                                       ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+base mixin class BaseMixinImplementsAbstractBaseClass
+    implements AbstractBaseClass {}
 
-abstract base mixin class AbstractBaseMixinOnAbstractBaseClass implements AbstractBaseClass {}
-//                                                                        ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+abstract base mixin class AbstractBaseMixinImplementsAbstractBaseClass
+    implements AbstractBaseClass {}
+
+enum EnumImplementsAbstractBaseClass implements AbstractBaseClass { e1, e2 }
 
 main() {
-  print(BaseClassImplementsAbstractBaseClass);
-  print(FinalClassImplementsAbstractBaseClass);
-  print(SealedClassImplementsAbstractBaseClass);
-  print(AbstractBaseClassImplementsAbstractBaseClass);
-  print(AbstractFinalClassImplementsAbstractBaseClass);
-  print(BaseMixinOnAbstractBaseClass);
-  print(AbstractBaseMixinOnAbstractBaseClass);
+  print(BaseClassImplementsBaseClass);
+  print(FinalClassImplementsBaseClass);
+  print(SealedClassImplementsBaseClass);
+  print(AbstractBaseClassImplementsBaseClass);
+  print(AbstractFinalClassImplementsBaseClass);
+  print(BaseMixinImplementsAbstractBaseClass);
+  print(AbstractBaseMixinImplementsAbstractBaseClass);
+  print(EnumImplementsAbstractBaseClass);
 }
