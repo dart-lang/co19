@@ -41,5 +41,5 @@ String test2(AbstractBaseMixinClass c) => switch (c) {
 
 main() {
   test1(ExtendsM());
-  test2(ExtendsBaseMixinClass());
+  test2(ExtendsAbstractBaseMixinClass());
 }

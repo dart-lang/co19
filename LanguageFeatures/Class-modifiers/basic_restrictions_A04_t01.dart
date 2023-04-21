@@ -126,7 +126,7 @@ main() {
   print(InterfaceClassWithBaseMixinClass);
   print(AbstractClassWithBaseMixin);
   print(AbstractClassWithBaseMixinClass);
-  print(MixinOnBase);
   print(MixinOnBaseClass);
+  print(MixinOnBaseMixin);
   print(MixinOnBaseMixinClass);
 }

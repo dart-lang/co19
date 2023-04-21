@@ -30,7 +30,6 @@ abstract final class AbstractFinalClassExtendsAbstractBaseMixinClass
     extends AbstractBaseMixinClass {}
 
 main() {
-  BaseMixinClass();
   print(BaseClassExtendsAbstractBaseMixinClass);
   print(FinalClassExtendsAbstractBaseMixinClass);
   print(SealedClassExtendsAbstractBaseMixinClass);
