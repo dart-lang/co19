@@ -36,6 +36,26 @@ abstract interface class AbstractInterfaceExtendsBaseClass extends AbstractBaseC
 // [analyzer] unspecified
 // [cfe] unspecified
 
+class ExtendsBaseMixinClass extends AbstractBaseMixinClass {}
+//    ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+interface class InterfaceExtendsBaseMixinClass extends AbstractBaseMixinClass {}
+//              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract class AbstractExtendsBaseMixinClass extends AbstractBaseMixinClass {}
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract interface class AbstractInterfaceExtendsBaseMixinClass extends AbstractBaseMixinClass {}
+//                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 class ClassWithBaseMixinClass with AbstractBaseMixinClass {}
 //    ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -71,6 +91,10 @@ main() {
   print(InterfaceExtendsBaseClass);
   print(AbstractExtendsBaseClass);
   print(AbstractInterfaceExtendsBaseClass);
+  print(ExtendsBaseMixinClass);
+  print(InterfaceExtendsBaseMixinClass);
+  print(AbstractExtendsBaseMixinClass);
+  print(AbstractInterfaceExtendsBaseMixinClass);
   print(ClassWithBaseMixinClass);
   print(InterfaceClassWithBaseMixinClass);
   print(AbstractClassWithBaseMixinClass);

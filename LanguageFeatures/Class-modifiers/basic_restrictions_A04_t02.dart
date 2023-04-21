@@ -38,6 +38,27 @@ abstract interface class AbstractInterfaceExtendsBaseClass extends BaseClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+class ExtendsBaseMixinClass extends BaseMixinClass {}
+//    ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+interface class InterfaceExtendsBaseMixinClass extends BaseMixinClass {}
+//              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract class AbstractExtendsBaseMixinClass extends BaseMixinClass {}
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract interface class AbstractInterfaceExtendsBaseMixinClass extends BaseMixinClass {}
+//                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+
 class ImplementsBaseClass implements BaseClass {}
 //    ^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -55,6 +76,26 @@ abstract class AbstractImplementsBaseClass implements BaseClass {}
 
 abstract interface class AbstractInterfaceImplementsBaseClass implements BaseClass {}
 //                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class ImplementsBaseMixinClass implements BaseMixinClass {}
+//    ^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+interface class InterfaceImplementsBaseMixinClass implements BaseMixinClass {}
+//              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract class AbstractImplementsBaseMixinClass implements BaseMixinClass {}
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract interface class AbstractInterfaceImplementsBaseMixinClass implements BaseMixinClass {}
+//                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -103,6 +144,11 @@ mixin MixinOnBaseClass on BaseClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+mixin MixinOnBaseMixin on BaseMixin {}
+//    ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 mixin MixinOnBaseMixinClass on BaseMixinClass {}
 //    ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -143,10 +189,18 @@ main() {
   print(InterfaceExtendsBaseClass);
   print(AbstractExtendsBaseClass);
   print(AbstractInterfaceExtendsBaseClass);
+  print(ExtendsBaseMixinClass);
+  print(InterfaceExtendsBaseMixinClass);
+  print(AbstractExtendsBaseMixinClass);
+  print(AbstractInterfaceExtendsBaseMixinClass);
   print(ImplementsBaseClass);
   print(InterfaceImplementsBaseClass);
   print(AbstractImplementsBaseClass);
   print(AbstractInterfaceImplementsBaseClass);
+  print(ImplementsBaseMixinClass);
+  print(InterfaceImplementsBaseMixinClass);
+  print(AbstractImplementsBaseMixinClass);
+  print(AbstractInterfaceImplementsBaseMixinClass);
   print(ClassWithBaseMixin);
   print(ClassWithBaseMixinClass);
   print(InterfaceClassWithBaseMixin);
@@ -154,6 +208,7 @@ main() {
   print(AbstractClassWithBaseMixin);
   print(AbstractClassWithBaseMixinClass);
   print(MixinOnBaseClass);
+  print(MixinOnBaseMixin);
   print(MixinOnBaseMixinClass);
   print(MixinImplementsBaseClass);
   print(MixinImplementsBaseMixinClass);

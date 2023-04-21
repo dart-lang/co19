@@ -36,6 +36,26 @@ abstract interface class AbstractInterfaceExtendsBaseClass extends BaseClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+class ExtendsBaseMixinClass extends BaseMixinClass {}
+//    ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+interface class InterfaceExtendsBaseMixinClass extends BaseMixinClass {}
+//              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract class AbstractExtendsBaseMixinClass extends BaseMixinClass {}
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract interface class AbstractInterfaceExtendsBaseMixinClass extends BaseMixinClass {}
+//                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 class ClassWithBaseMixin with BaseMixin {}
 //    ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -81,6 +101,11 @@ mixin MixinOnBaseClass on BaseClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+mixin MixinOnBaseMixin on BaseMixin {}
+//    ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 mixin MixinOnBaseMixinClass on BaseMixinClass {}
 //    ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -91,12 +116,17 @@ main() {
   print(InterfaceExtendsBaseClass);
   print(AbstractExtendsBaseClass);
   print(AbstractInterfaceExtendsBaseClass);
+  print(ExtendsBaseMixinClass);
+  print(InterfaceExtendsBaseMixinClass);
+  print(AbstractExtendsBaseMixinClass);
+  print(AbstractInterfaceExtendsBaseMixinClass);
   print(ClassWithBaseMixin);
   print(ClassWithBaseMixinClass);
   print(InterfaceClassWithBaseMixin);
   print(InterfaceClassWithBaseMixinClass);
   print(AbstractClassWithBaseMixin);
   print(AbstractClassWithBaseMixinClass);
+  print(MixinOnBase);
   print(MixinOnBaseClass);
   print(MixinOnBaseMixinClass);
 }
