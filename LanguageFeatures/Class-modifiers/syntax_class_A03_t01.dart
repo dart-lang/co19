@@ -5,7 +5,7 @@
 /// @assertion Class with no modifiers can be constructed, extended, implemented
 /// but not mixed in and is not exhaustive
 ///
-/// @description Checks that it is a compile-time error if class with no
+/// @description Checks that it is a compile-time error if a class with no
 /// modifiers is mixed in in another library
 /// @author sgrekhov22@gmail.com
 

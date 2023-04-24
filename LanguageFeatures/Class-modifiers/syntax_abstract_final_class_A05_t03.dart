@@ -5,9 +5,8 @@
 /// @assertion Abstract final class cannot be constructed, extended, implemented
 /// or mixed in and is not exhaustive
 ///
-/// @description Checks that it is a compile-time error to declare a
-/// `base mixin` on an `abstract final class` in the same library where it is
-/// defined
+/// @description Checks that it is not an error to declare a `base mixin` on an
+/// `abstract final class` in the same library where it is defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers

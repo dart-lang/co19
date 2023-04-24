@@ -40,13 +40,18 @@ abstract final class AbstractFinalClassImplementsAbstractBaseClass implements Ab
 // [analyzer] unspecified
 // [cfe] unspecified
 
-base mixin class BaseMixinImplementsAbstractBaseClass implements AbstractBaseClass {}
-//                                                               ^^^^^^^^^^^^^^^^^
+base mixin class BaseMixinClassImplementsAbstractBaseClass implements AbstractBaseClass {}
+//                                                                    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract base mixin class AbstractBaseMixinImplementsAbstractBaseClass implements AbstractBaseClass {}
-//                                                                                ^^^^^^^^^^^^^^^^^
+abstract base mixin class AbstractBaseMixinClassImplementsAbstractBaseClass implements AbstractBaseClass {}
+//                                                                                     ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+base mixin BaseMixinImplementsAbstractBaseClass implements AbstractBaseClass {}
+//                                                         ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -61,7 +66,8 @@ main() {
   print(SealedClassImplementsAbstractBaseClass);
   print(AbstractBaseClassImplementsAbstractBaseClass);
   print(AbstractFinalClassImplementsAbstractBaseClass);
+  print(BaseMixinClassImplementsAbstractBaseClass);
+  print(AbstractBaseMixinClassImplementsAbstractBaseClass);
   print(BaseMixinImplementsAbstractBaseClass);
-  print(AbstractBaseMixinImplementsAbstractBaseClass);
   print(EnumImplementsAbstractBaseClass);
 }

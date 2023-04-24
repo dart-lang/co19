@@ -26,11 +26,13 @@ abstract base class AbstractBaseClassImplementsBaseClass
 abstract final class AbstractFinalClassImplementsBaseClass
     implements AbstractBaseClass {}
 
-base mixin class BaseMixinImplementsAbstractBaseClass
+base mixin class BaseMixinClassImplementsAbstractBaseClass
     implements AbstractBaseClass {}
 
-abstract base mixin class AbstractBaseMixinImplementsAbstractBaseClass
+abstract base mixin class AbstractBaseMixinClassImplementsAbstractBaseClass
     implements AbstractBaseClass {}
+
+base mixin BaseMixinImplementsAbstractBaseClass implements AbstractBaseClass {}
 
 enum EnumImplementsAbstractBaseClass implements AbstractBaseClass { e1, e2 }
 
@@ -40,7 +42,8 @@ main() {
   print(SealedClassImplementsBaseClass);
   print(AbstractBaseClassImplementsBaseClass);
   print(AbstractFinalClassImplementsBaseClass);
+  print(BaseMixinClassImplementsAbstractBaseClass);
+  print(AbstractBaseMixinClassImplementsAbstractBaseClass);
   print(BaseMixinImplementsAbstractBaseClass);
-  print(AbstractBaseMixinImplementsAbstractBaseClass);
   print(EnumImplementsAbstractBaseClass);
 }
