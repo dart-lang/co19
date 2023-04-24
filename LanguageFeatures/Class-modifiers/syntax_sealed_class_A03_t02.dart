@@ -48,6 +48,8 @@ mixin MixinImplementsSealedClass implements SealedClass {}
 
 base mixin BaseMixinImplementsSealedClass implements SealedClass {}
 
+enum EnumImplementsSealedClass implements SealedClass {e1, e2}
+
 main() {
   print(ClassImplementsSealedClass);
   print(BaseClassImplementsSealedClass);
@@ -64,4 +66,5 @@ main() {
   print(AbstractBaseMixinClassImplementsSealedClass);
   print(MixinImplementsSealedClass);
   print(BaseMixinImplementsSealedClass);
+  print(EnumImplementsSealedClass);
 }

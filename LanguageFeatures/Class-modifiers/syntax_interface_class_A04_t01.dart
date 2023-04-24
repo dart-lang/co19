@@ -5,34 +5,27 @@
 /// @assertion Interface class can be constructed and implemented but not
 /// extended or mixed in and is not exhaustive
 ///
-/// @description Checks that `interface class` is not exhaustive
+/// @description Checks that it is not an error if a mixin is declared on an
+/// `interface class`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
 import "class_modifiers_lib.dart";
 
-interface class _C {}
-interface class ExtendsC1 extends _C {}
-interface class ExtendsC2 extends _C {}
+interface class LocalInterfaceClass {}
 
-String test1(_C c) => switch (c) {
-//                    ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      ExtendsC1 _ => "ExtendsC1",
-      ExtendsC2 _ => "ExtendsC2",
-    };
+mixin MixinOnInterfaceClass on InterfaceClass {}
 
-String test2(InterfaceClass c) => switch (c) {
-//                                ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      ExtendsInterfaceClass1 _ => "ExtendsInterfaceClass1",
-      ExtendsInterfaceClass2 _ => "ExtendsInterfaceClass2",
-    };
+base mixin BaseMixinOnInterfaceClass on InterfaceClass {}
+
+mixin MixinOnLocalInterfaceClass on LocalInterfaceClass {}
+
+base mixin BaseMixinOnLocalInterfaceClass on LocalInterfaceClass {}
 
 main() {
-  test1(ExtendsC1());
-  test2(ExtendsInterfaceClass1());
+  print(MixinOnInterfaceClass);
+  print(BaseMixinOnInterfaceClass);
+  print(MixinOnLocalInterfaceClass);
+  print(BaseMixinOnLocalInterfaceClass);
 }

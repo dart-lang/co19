@@ -6,7 +6,8 @@
 /// mixed in and is not exhaustive
 ///
 /// @description Checks that `base class` can be constructed and extended by
-/// `base/final/sealed` classes
+/// `base/final/sealed` classes (other cases tested in
+/// `basic_restrictions_A04_t*`)
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers

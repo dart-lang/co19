@@ -51,6 +51,8 @@ mixin MixinImplementsInterfaceClass implements InterfaceClass {}
 
 base mixin BaseMixinImplementsInterfaceClass implements InterfaceClass {}
 
+enum EnumImplementsInterfaceClass implements InterfaceClass {e1, e2}
+
 main() {
   InterfaceClass();
 
@@ -69,4 +71,5 @@ main() {
   print(AbstractBaseMixinClassImplementsInterfaceClass);
   print(MixinImplementsInterfaceClass);
   print(BaseMixinImplementsInterfaceClass);
+  print(EnumImplementsInterfaceClass);
 }
