@@ -5,34 +5,20 @@
 /// @assertion Base class can be constructed and extended but not implemented,
 /// mixed in and is not exhaustive
 ///
-/// @description Checks that `base class` is not exhaustive
+/// @description Checks that a `base mixin` can be declared on a `base class`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
 import "class_modifiers_lib.dart";
 
-base class C {}
-base class ExtendsC1 extends C {}
-base class ExtendsC2 extends C {}
+base class LocalBaseClass {}
 
-String test1(C c) => switch (c) {
-//                   ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      ExtendsC1 _ => "ExtendsC1",
-      ExtendsC2 _ => "ExtendsC2",
-    };
+base mixin BaseMixinOnBaseClass on BaseClass {}
 
-String test2(BaseClass c) => switch (c) {
-//                           ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      BaseExtendsBaseClass1 _ => "BaseExtendsBaseClass1",
-      BaseExtendsBaseClass2 _ => "BaseExtendsBaseClass2",
-    };
+base mixin BaseMixinOnLocalBaseClass on LocalBaseClass {}
 
 main() {
-  test1(ExtendsC1());
-  test2(BaseExtendsBaseClass1());
+  print(BaseMixinOnBaseClass);
+  print(BaseMixinOnLocalBaseClass);
 }

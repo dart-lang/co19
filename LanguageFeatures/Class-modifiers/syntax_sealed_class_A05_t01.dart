@@ -5,29 +5,25 @@
 /// @assertion Sealed class cannot be constructed, extended, implemented or
 /// mixed in but is exhaustive
 ///
-/// @description Checks that `sealed class` is exhaustive
+/// @description Checks that it is a compile-time error if mixin is declared on
+/// a `sealed class` outside of the library where it is defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
 import "class_modifiers_lib.dart";
 
-sealed class C {}
-class ExtendsC1 extends C {}
-class ExtendsC2 extends C {}
+mixin MixinOnSealedClass on SealedClass {}
+//                          ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-String test1(C c) => switch (c) {
-      ExtendsC1 _ => "ExtendsC1",
-      ExtendsC2 _ => "ExtendsC2"
-    };
-
-String test2(SealedClass c) => switch (c) {
-      ExtendsSealedClass _ => "ExtendsSealedClass",
-      ImplementsSealedClass _ => "ImplementsSealedClass",
-      MixinOnSealed _ => "SealedExtendsInterfaceClass1"
-    };
+base mixin BaseMixinOnSealedClass on SealedClass {}
+//                                   ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  test1(ExtendsC1());
-  test2(extendsSealedClass);
+  print(MixinOnSealedClass);
+  print(BaseMixinOnSealedClass);
 }

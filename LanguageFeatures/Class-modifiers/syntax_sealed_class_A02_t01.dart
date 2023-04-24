@@ -5,8 +5,8 @@
 /// @assertion Sealed class cannot be constructed, extended, implemented or
 /// mixed in but is exhaustive
 ///
-/// @description Checks that it is a compile-time error if `sealed class`
-/// is extended outside of the library where it is defined
+/// @description Checks that it is a compile-time error if `sealed class` is
+/// extended outside of the library where it is defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers

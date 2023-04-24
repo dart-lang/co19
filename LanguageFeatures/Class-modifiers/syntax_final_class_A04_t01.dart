@@ -5,34 +5,25 @@
 /// @assertion Final class can be constructed but not extended, implemented or
 /// mixed in and is not exhaustive
 ///
-/// @description Checks that `final class` is not exhaustive
+/// @description Checks that it is a compile-time error to declare a mixin on a
+/// `final class` outside of the library where it is defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
 import "class_modifiers_lib.dart";
 
-final class _C {}
-final class ExtendsC1 extends _C {}
-final class ExtendsC2 extends _C {}
-
-String test1(_C c) => switch (c) {
-//                    ^^^^^^
+mixin MixinOnFinalClass on FinalClass {}
+//                         ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      ExtendsC1 _ => "ExtendsC1",
-      ExtendsC2 _ => "ExtendsC2",
-    };
 
-String test2(FinalClass c) => switch (c) {
-//                            ^^^^^^
+base mixin BaseMixinOnFinalClass on FinalClass {}
+//                                  ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      ExtendsFinalClass1 _ => "ExtendsFinalClass1",
-      ExtendsFinalClass2 _ => "ExtendsFinalClass2",
-    };
 
 main() {
-  test1(ExtendsC1());
-  test2(ExtendsFinalClass1());
+  print(MixinOnFinalClass);
+  print(BaseMixinOnFinalClass);
 }

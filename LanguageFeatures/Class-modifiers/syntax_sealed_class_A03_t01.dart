@@ -88,6 +88,11 @@ base mixin BaseMixinImplementsSealedClass implements SealedClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+enum EnumImplementsSealedClass implements SealedClass {e1, e2}
+//                                        ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(ClassImplementsSealedClass);
   print(BaseClassImplementsSealedClass);
@@ -104,4 +109,5 @@ main() {
   print(AbstractBaseMixinClassImplementsSealedClass);
   print(MixinImplementsSealedClass);
   print(BaseMixinImplementsSealedClass);
+  print(EnumImplementsSealedClass);
 }

@@ -103,6 +103,11 @@ abstract final class AbstractFinalClassWithSealedClass2 = Object with SealedClas
 // [analyzer] unspecified
 // [cfe] unspecified
 
+enum EnumWithSealedClass with SealedClass {e1, e2}
+//                            ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(ClassWithSealedClass1);
   print(ClassWithSealedClass2);
@@ -122,4 +127,5 @@ main() {
   print(AbstractInterfaceClassWithSealedClass2);
   print(AbstractFinalClassWithSealedClass1);
   print(AbstractFinalClassWithSealedClass2);
+  print(EnumWithSealedClass);
 }
