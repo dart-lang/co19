@@ -6,7 +6,8 @@
 /// mixed in and is not exhaustive
 ///
 /// @description Checks that it is not an error if a `base class` is
-/// implemented in the same library where it is defined
+/// implemented by `base/final/sealed` in the same library where it is defined
+/// (other cases tested in `basic_restrictions_A03_t*`)
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
@@ -25,10 +26,23 @@ abstract base class AbstractBaseClassImplementsLocalBaseClass
 abstract final class AbstractFinalClassImplementsLocalBaseClass
     implements LocalBaseClass {}
 
+base mixin class BaseMixinClassImplementsBaseClass implements LocalBaseClass {}
+
+abstract base mixin class AbstractBaseMixinClassImplementsBaseClass
+    implements LocalBaseClass {}
+
+base mixin BaseMixinImplementsBaseClass implements LocalBaseClass {}
+
+enum EnumImplementsBaseClass implements LocalBaseClass {e1, e2}
+
 main() {
   print(BaseClassImplementsLocalBaseClass);
   print(FinalClassImplementsLocalBaseClass);
   print(SealedClassImplementsLocalBaseClass);
   print(AbstractBaseClassImplementsLocalBaseClass);
   print(AbstractFinalClassImplementsLocalBaseClass);
+  print(BaseMixinClassImplementsBaseClass);
+  print(AbstractBaseMixinClassImplementsBaseClass);
+  print(BaseMixinImplementsBaseClass);
+  print(EnumImplementsBaseClass);
 }

@@ -27,7 +27,8 @@ abstract class AbstractClassExtendsSealedClass extends SealedClass {}
 
 abstract base class AbstractBaseClassExtendsSealedClass extends SealedClass {}
 
-abstract interface class AbstractInterfaceClassExtendsSealedClass extends SealedClass {}
+abstract interface class AbstractInterfaceClassExtendsSealedClass
+    extends SealedClass {}
 
 abstract final class AbstractFinalClassExtendsSealedClass extends SealedClass {}
 

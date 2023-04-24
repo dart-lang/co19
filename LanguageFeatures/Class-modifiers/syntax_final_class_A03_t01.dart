@@ -103,6 +103,11 @@ abstract final class AbstractFinalClassWithFinalClass2 = Object with FinalClass;
 // [analyzer] unspecified
 // [cfe] unspecified
 
+enum EnumWithFinalClass with FinalClass {e1, e2}
+//                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(ClassWithFinalClass1);
   print(ClassWithFinalClass2);
@@ -122,4 +127,5 @@ main() {
   print(AbstractInterfaceClassWithFinalClass2);
   print(AbstractFinalClassWithFinalClass1);
   print(AbstractFinalClassWithFinalClass2);
+  print(EnumWithFinalClass);
 }
