@@ -78,4 +78,14 @@ enum EnumWithSealedClass with SealedClass {e1, e2}
 main() {
   print(ExtendsSealed);
   print(AbstractExtendsSealed);
+  print(WithSealed1);
+  print(WithSealed2);
+  print(AbstractWithSealed1);
+  print(AbstractWithSealed2);
+  print(ImplementsSealed);
+  print(AbstractImplementsSealed);
+  print(MixinOnSealedClass);
+  print(MixinImplementsSealedClass);
+  print(EnumImplementsSealedClass);
+  print(EnumWithSealedClass);
 }

@@ -6,56 +6,98 @@
 /// placed on a class or mixin, the resulting restrictions apply to all other
 /// libraries, even pre-feature libraries.
 ///
-/// @description Checks that it is a compile-time error if an enum declaration
-/// from a pre-future library mixes in a declaration marked `base` or `final`
-/// from a post-feature library
+/// @description Checks that it is a compile-time error if a class declaration
+/// from a pre-future library has a superdeclaration marked `base` in a
+/// post-feature library
 /// @author sgrekhov22@gmail.com
 
 // @dart=2.19
 
 import "class_modifiers_lib.dart";
 
-enum EnumWithBase with BaseClass {e1, e2}
-//                     ^^^^^^^^^
+class ExtendsBaseClass extends BaseClass {}
+//    ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum EnumWithAbstractBase with AbstractBaseClass {e1, e2}
-//                             ^^^^^^^^^^^^^^^^^
+class ExtendsAbstractBaseClass extends AbstractBaseClass {}
+//    ^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum EnumWithBaseMixinClass with BaseMixinClass {e1, e2}
-//                               ^^^^^^^^^^^^^^
+class ExtendsBaseMixinClass extends BaseMixinClass {}
+//    ^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum EnumWithAbstractBaseMixinClass with AbstractBaseMixinClass {e1, e2}
-//                                       ^^^^^^^^^^^^^^^^^^^^^^
+class ExtendsAbstractBaseMixinClass extends AbstractBaseMixinClass {}
+//    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum EnumWithBaseMixin with BaseMixin {e1, e2}
-//                          ^^^^^^^^^
+abstract class AbstractExtendsBaseClass extends BaseClass {}
+//             ^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum EnumWithFinal with FinalClass {e1, e2}
-//                      ^^^^^^^^^^
+abstract class AbstractExtendsAbstractBaseClass extends AbstractBaseClass {}
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum EnumWithAbstractFinal with AbstractFinalClass {e1, e2}
-//                              ^^^^^^^^^^^^^^^^^^
+abstract class AbstractExtendsBaseMixinClass extends BaseMixinClass {}
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract class AbstractExtendsAbstractBaseMixinClass extends AbstractBaseMixinClass {}
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class WithBaseMixinClass with BaseMixinClass {}
+//    ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class WithAbstractBaseMixinClass with AbstractBaseMixinClass {}
+//    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class WithBaseMixin with BaseMixin {}
+//    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract class AbstractWithBaseMixinClass with BaseMixinClass {}
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract class AbstractWithAbstractBaseMixinClass with AbstractBaseMixinClass {}
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract class AbstractWithBaseMixin with BaseMixin {}
+//             ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  print(EnumWithBase);
-  print(EnumWithAbstractBase);
-  print(EnumWithBaseMixinClass);
-  print(EnumWithAbstractBaseMixinClass);
-  print(EnumWithBaseMixin);
-  print(EnumWithFinal);
-  print(EnumWithAbstractFinal);
+  print(ExtendsBaseClass);
+  print(ExtendsAbstractBaseClass);
+  print(ExtendsBaseMixinClass);
+  print(ExtendsAbstractBaseMixinClass);
+  print(AbstractExtendsBaseClass);
+  print(AbstractExtendsAbstractBaseClass);
+  print(AbstractExtendsBaseMixinClass);
+  print(AbstractExtendsAbstractBaseMixinClass);
+  print(WithBaseMixinClass);
+  print(WithAbstractBaseMixinClass);
+  print(WithBaseMixin);
+  print(AbstractWithBaseMixinClass);
+  print(AbstractWithAbstractBaseMixinClass);
+  print(AbstractWithBaseMixin);
 }
