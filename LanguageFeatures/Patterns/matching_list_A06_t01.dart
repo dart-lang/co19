@@ -91,6 +91,8 @@ String test1(MisbehavingList<int> ml) =>
     [_, _] => "2",
     [_, _, ...] => "2+",
     _ => "any"
+//    ^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
   };
 
 String test2(MisbehavingList<int> ml) {
