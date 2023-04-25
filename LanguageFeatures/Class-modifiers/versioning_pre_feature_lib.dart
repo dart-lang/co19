@@ -18,4 +18,4 @@ class PreFeatureWithFinal with Function {} // abstract final
 
 class PreFeatureImplementsInterface implements Exception {} // abstract interface
 
-class PreFeatureWithInterface with Exception {} // abstract final
+class PreFeatureWithInterface with Exception {} // abstract interface
