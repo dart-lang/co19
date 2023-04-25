@@ -5,7 +5,7 @@
 /// @assertion Mixin can be implemented and mixed in but not constructed or
 /// extended and is not exhaustive
 ///
-/// @description Checks that it is a compile-time error to construct a `mixin`
+/// @description Checks that it is a compile-time error to extend a `mixin`
 /// outside of the library where it is defined
 /// @author sgrekhov22@gmail.com
 

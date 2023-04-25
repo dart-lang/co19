@@ -5,7 +5,7 @@
 /// @assertion Mixin class can be constructed, extended, implemented and mixed
 /// in but is not exhaustive
 ///
-/// @description Checks that a `mixin class` can be mixed in it the same
+/// @description Checks that a `mixin class` can be mixed in in the same
 /// library where it is defined
 /// @author sgrekhov22@gmail.com
 
