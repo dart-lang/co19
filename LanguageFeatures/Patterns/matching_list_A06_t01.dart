@@ -53,10 +53,11 @@
 /// @description Check that empty list pattern matches list with negative length
 /// @author sgrekhov22@gmail.com
 
+import "dart:collection";
+
 // SharedOptions=--enable-experiment=patterns
 
 import "../../Utils/expect.dart";
-import "dart:collection";
 
 class MisbehavingList<T> extends ListBase<T> {
   List<T> _inner = [];
@@ -91,6 +92,8 @@ String test1(MisbehavingList<int> ml) =>
     [_, _] => "2",
     [_, _, ...] => "2+",
     _ => "any"
+//    ^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
   };
 
 String test2(MisbehavingList<int> ml) {
