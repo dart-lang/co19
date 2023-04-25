@@ -55,6 +55,28 @@ class ExtendsSealedClass extends SealedClass {}
 class ImplementsSealedClass implements SealedClass {}
 mixin MixinOnSealed on SealedClass {}
 
+class ExtendsMixinClass extends MixinClass {}
+class ImplementsMixinClass implements MixinClass {}
+class WithMixinClass with MixinClass {}
+
+base class ExtendsBaseMixinClass extends BaseMixinClass {}
+final class ImplementsBaseMixinClass implements BaseMixinClass {}
+sealed class WithBaseMixinClass with BaseMixinClass {}
+
+class ExtendsAbstractMixinClass extends AbstractMixinClass {}
+class ImplementsAbstractMixinClass implements AbstractMixinClass {}
+class WithAbstractMixinClass with AbstractMixinClass {}
+
+base class ExtendsAbstractBaseMixinClass extends AbstractBaseMixinClass {}
+final class ImplementsAbstractBaseMixinClass implements AbstractBaseMixinClass {}
+sealed class WithAbstractBaseMixinClass with AbstractBaseMixinClass {}
+
+class ImplementsMixin implements Mixin {}
+class WithMixin with Mixin {}
+
+base class ImplementsBaseMixin implements BaseMixin {}
+final class WithBaseMixin with BaseMixin {}
+
 class ExtendsAbstractClass1 extends AbstractClass {}
 class ExtendsAbstractClass2 extends AbstractClass {}
 
