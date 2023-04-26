@@ -70,6 +70,11 @@ abstract final class AbstractFinalClassWithSealed with SealedClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+enum EnumWithSealedClass with SealedClass {e1, e2}
+//                            ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(MixinOnSealed);
   print(BaseMixinOnSealed);
@@ -81,4 +86,6 @@ main() {
   print(AbstractClassWithSealed);
   print(AbstractBaseClassWithSealed);
   print(AbstractInterfaceClassWithSealed);
+  print(AbstractFinalClassWithSealed);
+  print(EnumWithSealedClass);
 }
