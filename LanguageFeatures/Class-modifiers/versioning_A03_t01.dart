@@ -9,7 +9,7 @@
 /// ignores the base modifier.
 ///
 /// @description Checks that it is a compile-time error if a declaration from a
-/// post-future library is not marked `base`, `final` or `sealed` extends a
+/// post-feature library is not marked `base`, `final` or `sealed` extends a
 /// platform library class marked `final` and the superinterface chain goes
 /// through a pre-feature library declaration
 /// @author sgrekhov22@gmail.com

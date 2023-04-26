@@ -7,7 +7,7 @@
 /// libraries, even pre-feature libraries.
 ///
 /// @description Checks that it is not an error if an `enum` declaration from a
-/// pre-future library mixes in a `base mixin` from a post-feature library
+/// pre-feature library mixes in a `base mixin` from a post-feature library
 /// (`enum` is implicitly final, so it's not an error)
 /// @author sgrekhov22@gmail.com
 

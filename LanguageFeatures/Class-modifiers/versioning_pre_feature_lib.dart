@@ -10,11 +10,17 @@
 
 library versioning_pre_feature_lib;
 
-class PreFeatureExtendsFinal extends Function {} // abstract final
+class PreFeatureExtendsFinal extends Runes { // final class
+  PreFeatureExtendsFinal() : super("");
+}
 
-class PreFeatureImplementsFinal implements Function {} // abstract final
+class PreFeatureImplementsFinal implements Runes { // final class
+  dynamic noSuchMethod(Invocation i) {}
+}
 
-class PreFeatureWithFinal with Function {} // abstract final
+class PreFeatureWithFinal with BigInt { // abstract final class
+  dynamic noSuchMethod(Invocation i) {}
+}
 
 class PreFeatureImplementsInterface implements Exception {} // abstract interface
 

@@ -7,7 +7,7 @@
 /// libraries, even pre-feature libraries.
 ///
 /// @description Checks that it is a compile-time error if a declaration from a
-/// pre-future library implements a declaration marked `base` or `final` from a
+/// pre-feature library implements a declaration marked `base` or `final` from a
 /// post-feature library
 /// @author sgrekhov22@gmail.com
 

@@ -7,7 +7,7 @@
 /// libraries, even pre-feature libraries.
 ///
 /// @description Checks that it is a compile-time error if a declaration from a
-/// pre-future library mixes in a declaration not marked `mixin` from a
+/// pre-feature library mixes in a declaration not marked `mixin` from a
 /// post-feature library
 /// @author sgrekhov22@gmail.com
 

@@ -7,7 +7,7 @@
 /// libraries, even pre-feature libraries.
 ///
 /// @description Checks that it is a compile-time error if a declaration from
-/// pre-future library depends on a `sealed` declaration from post-feature
+/// a pre-feature library depends on a `sealed` declaration from a post-feature
 /// library.
 /// @author sgrekhov22@gmail.com
 

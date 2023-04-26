@@ -7,7 +7,7 @@
 /// libraries, even pre-feature libraries.
 ///
 /// @description Checks that it is a compile-time error if a class from a
-/// pre-future library extends or mixes in a declaration marked `interface` or
+/// pre-feature library extends or mixes in a declaration marked `interface` or
 /// `final` from a post-feature library
 /// @author sgrekhov22@gmail.com
 
