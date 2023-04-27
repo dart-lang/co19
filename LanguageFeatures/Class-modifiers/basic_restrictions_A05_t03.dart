@@ -79,6 +79,13 @@ abstract base mixin class AbstractBaseMixinClassWithEnum with E {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+typedef TypedefE = E;
+
+class WithTypedefEnum with TypedefE {}
+//                         ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(WithEnum);
   print(BaseWithEnum);
@@ -93,4 +100,5 @@ main() {
   print(BaseMixinClassWithEnum);
   print(AbstractMixinClassWithEnum);
   print(AbstractBaseMixinClassWithEnum);
+  print(WithTypedefEnum);
 }

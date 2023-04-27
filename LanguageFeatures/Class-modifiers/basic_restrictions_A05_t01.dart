@@ -69,6 +69,13 @@ base mixin BaseMixinOnEnum on E {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+typedef TypedefE = E;
+
+class ExtendsTypedefEnum extends TypedefE {}
+//                               ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(ExtendsEnum);
   print(BaseExtendsEnum);
@@ -81,4 +88,5 @@ main() {
   print(AbstractFinalExtendsEnum);
   print(MixinOnEnum);
   print(BaseMixinOnEnum);
+  print(ExtendsTypedefEnum);
 }
