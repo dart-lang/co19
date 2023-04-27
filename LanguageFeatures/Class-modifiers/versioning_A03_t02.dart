@@ -127,6 +127,20 @@ abstract class AbstractClassImplementsPreFeatureExtendsFinal implements PreFeatu
   dynamic noSuchMethod(Invocation i) {}
 }
 
+abstract class AbstractClassImplementsPreFeatureImplementsFinal implements PreFeatureImplementsFinal {
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  dynamic noSuchMethod(Invocation i) {}
+}
+
+abstract class AbstractClassImplementsPreFeatureWithFinal implements PreFeatureWithFinal {
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  dynamic noSuchMethod(Invocation i) {}
+}
+
 abstract base class AbstractBaseClassImplementsPreFeatureExtendsFinal implements PreFeatureExtendsFinal {
 //                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -143,20 +157,6 @@ abstract base class AbstractBaseClassImplementsPreFeatureImplementsFinal impleme
 
 abstract base class AbstractBaseClassImplementsPreFeatureWithFinal implements PreFeatureWithFinal {
 //                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  dynamic noSuchMethod(Invocation i) {}
-}
-
-abstract class AbstractClassImplementsPreFeatureImplementsFinal implements PreFeatureImplementsFinal {
-//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  dynamic noSuchMethod(Invocation i) {}
-}
-
-abstract class AbstractClassImplementsPreFeatureWithFinal implements PreFeatureWithFinal {
-//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   dynamic noSuchMethod(Invocation i) {}
@@ -351,27 +351,6 @@ mixin MixinOnPreFeatureWithFinal on PreFeatureWithFinal {
   dynamic noSuchMethod(Invocation i) {}
 }
 
-base mixin BaseMixinOnPreFeatureExtendsFinal on PreFeatureExtendsFinal {
-//         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  dynamic noSuchMethod(Invocation i) {}
-}
-
-base mixin BaseMixinOnPreFeatureImplementsFinal on PreFeatureImplementsFinal {
-//         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  dynamic noSuchMethod(Invocation i) {}
-}
-
-base mixin BaseMixinOnPreFeatureWithFinal on PreFeatureWithFinal {
-//         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  dynamic noSuchMethod(Invocation i) {}
-}
-
 main() {
   print(ClassImplementsPreFeatureExtendsFinal);
   print(ClassImplementsPreFeatureImplementsFinal);
@@ -421,7 +400,4 @@ main() {
   print(MixinOnPreFeatureExtendsFinal);
   print(MixinOnPreFeatureImplementsFinal);
   print(MixinOnPreFeatureWithFinal);
-  print(BaseMixinOnPreFeatureExtendsFinal);
-  print(BaseMixinOnPreFeatureImplementsFinal);
-  print(BaseMixinOnPreFeatureWithFinal);
 }
