@@ -54,6 +54,13 @@ abstract base mixin class AbstractBaseMixinClassExtendsC extends C {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+typedef TypedefObject = Object;
+
+mixin class MixinClassExtendsTypedefObject extends TypedefObject {}
+//                                         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(MixinClassExtendsObject);
   print(BaseMixinClassExtendsObject);
@@ -63,4 +70,5 @@ main() {
   print(BaseMixinClassExtendsC);
   print(AbstractMixinClassExtendsC);
   print(AbstractBaseMixinClassExtendsC);
+  print(MixinClassExtendsTypedefObject);
 }

@@ -506,6 +506,60 @@ abstract final class AFC9 with AbstractFinalClass {
 // [cfe] unspecified
 }
 
+class TC1 with TypedefClass {
+//             ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class TC2 with TypedefBaseClass {
+//             ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class TC3 with TypedefInterfaceClass {
+//             ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class TC4 with TypedefFinalClass {
+//             ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class TC5 with TypedefSealedClass {
+//             ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class TC6 with TypedefAbstractClass {
+//             ^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class TC7 with TypedefAbstractBaseClass {
+//             ^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class TC8 with TypedefAbstractInterfaceClass {
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class TC9 with TypedefAbstractFinalClass {
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(C1);
   print(C2);
@@ -588,4 +642,13 @@ main() {
   print(AFC7);
   print(AFC8);
   print(AFC9);
+  print(TC1);
+  print(TC2);
+  print(TC3);
+  print(TC4);
+  print(TC5);
+  print(TC6);
+  print(TC7);
+  print(TC8);
+  print(TC9);
 }

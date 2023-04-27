@@ -54,6 +54,13 @@ abstract base mixin class AbstractBaseMixinClassWithM with M {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+typedef TypedefObject = Object;
+
+mixin class MixinClassWithTypedefObject with TypedefObject {}
+//                                      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(MixinClassWithObject);
   print(BaseMixinClassWithObject);
@@ -63,4 +70,5 @@ main() {
   print(BaseMixinClassWithM);
   print(AbstractMixinClassWithM);
   print(AbstractBaseMixinClassWithM);
+  print(MixinClassWithTypedefObject);
 }
