@@ -18,30 +18,14 @@
 ///                       ('on' typeNotVoidList)? interfaces?
 ///                       '{' (metadata classMemberDeclaration)* '}'
 ///
-/// @description Check that it is a compile-time error if any of
-/// keywords/built-in identifiers `abstract`, `final`, `interface`, `mixin`, or
-/// `class` is used as an identifier
+/// @description Check that it is a compile-time error if a built-in identifier
+/// `interface` is used as an identifier
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=class-modifiers
 
-class class {}
-//    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 class interface {}
 //    ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-class abstract {}
-//    ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-class mixin {}
-//    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
