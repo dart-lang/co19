@@ -330,27 +330,6 @@ base mixin BaseMixinImplementsPreFeatureWithFinal implements PreFeatureWithFinal
   dynamic noSuchMethod(Invocation i) {}
 }
 
-mixin MixinOnPreFeatureExtendsFinal on PreFeatureExtendsFinal {
-//    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  dynamic noSuchMethod(Invocation i) {}
-}
-
-mixin MixinOnPreFeatureImplementsFinal on PreFeatureImplementsFinal {
-//    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  dynamic noSuchMethod(Invocation i) {}
-}
-
-mixin MixinOnPreFeatureWithFinal on PreFeatureWithFinal {
-//    ^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  dynamic noSuchMethod(Invocation i) {}
-}
-
 main() {
   print(ClassImplementsPreFeatureExtendsFinal);
   print(ClassImplementsPreFeatureImplementsFinal);
@@ -397,7 +376,4 @@ main() {
   print(BaseMixinImplementsPreFeatureExtendsFinal);
   print(BaseMixinImplementsPreFeatureImplementsFinal);
   print(BaseMixinImplementsPreFeatureWithFinal);
-  print(MixinOnPreFeatureExtendsFinal);
-  print(MixinOnPreFeatureImplementsFinal);
-  print(MixinOnPreFeatureWithFinal);
 }

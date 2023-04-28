@@ -8,12 +8,24 @@
 /// goes through a pre-feature library declaration, and even if that declaration
 /// ignores the base modifier.
 ///
-/// @description Checks that it is not an error to declare a `base mixin` from a
-/// post-feature library on a platform library class marked `final` and the
+/// @description Checks that it is not an error to declare a `mixin` from a
+/// post-feature library `on` a platform library class marked `final` and the
 /// superinterface chain goes through a pre-feature library declaration
 /// @author sgrekhov22@gmail.com
 
 import "versioning_pre_feature_lib.dart";
+
+mixin MixinOnPreFeatureExtendsFinal on PreFeatureExtendsFinal {
+  dynamic noSuchMethod(Invocation i) {}
+}
+
+mixin MixinOnPreFeatureImplementsFinal on PreFeatureImplementsFinal {
+  dynamic noSuchMethod(Invocation i) {}
+}
+
+mixin MixinOnPreFeatureWithFinal on PreFeatureWithFinal {
+  dynamic noSuchMethod(Invocation i) {}
+}
 
 base mixin BaseMixinOnPreFeatureExtendsFinal on PreFeatureExtendsFinal {
   dynamic noSuchMethod(Invocation i) {}
@@ -28,6 +40,9 @@ base mixin BaseMixinOnPreFeatureWithFinal on PreFeatureWithFinal {
 }
 
 main() {
+  print(MixinOnPreFeatureExtendsFinal);
+  print(MixinOnPreFeatureImplementsFinal);
+  print(MixinOnPreFeatureWithFinal);
   print(BaseMixinOnPreFeatureExtendsFinal);
   print(BaseMixinOnPreFeatureImplementsFinal);
   print(BaseMixinOnPreFeatureWithFinal);
