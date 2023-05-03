@@ -27,7 +27,7 @@
 /// }
 /// ```
 /// @description Checks that in an async for-in loop it is a compile-time error
-/// if the type check ot the `<pattern>` with matched value `E` fails
+/// if the type check of the `<pattern>` with matched value `E` fails
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
