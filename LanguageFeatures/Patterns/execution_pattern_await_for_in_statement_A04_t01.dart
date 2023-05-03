@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+/// TODO (sgrekhov) Update assertion part when appropriate spec will be ready
 /// @assertion
 /// A statement of the form:
 ///
@@ -25,42 +26,55 @@
 ///   { <statement> }
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if `I` doesn't implement
-/// `Iterable<T>` and is not `dynamic`
+/// @description Checks that in an async for-in loop it is a compile-time error
+/// if a final variable declared by the pattern is assigned in a for-in
+/// statement
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
 import "patterns_lib.dart";
 
-main() {
-  for (var (int v1) in 42) {}
-//                     ^
+main() async {
+  await for (final (int v1) in Stream.fromIterable([1, 2, 3])) {
+    v1++;
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 
-  for (final <int>[v2] in "42") {}
-//                        ^
+  await for (final <int>[v2] in Stream.fromIterable([[1], [2], [3]])) {
+    v2++;
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 
-  for (var <String, int>{"k1": v3} in 42) {}
-//                                    ^
+  await for (final <String, int>{"k1": v3} in Stream.fromIterable([{"k1": 1}])) {
+    v3++;
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 
-  for (final (int v4,) in "42") {}
-//                      ^
+  await for (final (int v4,) in Stream.fromIterable([(1,)])) {
+    v4++;
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 
-  for (var (n: v5) in 42) {}
-//                    ^
+  await for (final (n: int v5) in Stream.fromIterable([(n: 2)])) {
+    v5++;
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 
-  for (final Square(area: v6) in "42") {}
-//                               ^
+  await for (final Square(area: v6) in Stream.fromIterable([Square(1)])) {
+    v6++;
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 }

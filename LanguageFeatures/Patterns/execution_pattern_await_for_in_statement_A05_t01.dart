@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+/// TODO (sgrekhov) Update assertion part when appropriate spec will be ready
 /// @assertion
 /// A statement of the form:
 ///
@@ -25,42 +26,45 @@
 ///   { <statement> }
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if `I` doesn't implement
-/// `Iterable<T>` and is not `dynamic`
+/// @description Checks that in an async for-in loop it is a compile-time error
+/// if a `<keyword>` is empty
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
 import "patterns_lib.dart";
 
-main() {
-  for (var (int v1) in 42) {}
-//                     ^
+main() async {
+  await for ((int v1) in Stream.fromIterable([1, 2, 3])) {}
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (final <int>[v2] in "42") {}
-//                        ^
+  var v2 = 0;
+  await for (<int>[v2] in Stream.fromIterable([[1], [2], [3]])) {}
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (var <String, int>{"k1": v3} in 42) {}
-//                                    ^
+  var v3 = 0;
+  await for (<String, int>{"k1": v3} in Stream.fromIterable([{"k1": 1}])) {}
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (final (int v4,) in "42") {}
-//                      ^
+  await for ((int v4,) in Stream.fromIterable([(1,)])) {}
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (var (n: v5) in 42) {}
-//                    ^
+  await for ((n: int v5) in Stream.fromIterable([(n: 2)])) {}
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (final Square(area: v6) in "42") {}
-//                               ^
+  var v6 = 0;
+  await for (Square(area: v6) in Stream.fromIterable([Square(1)])) {}
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

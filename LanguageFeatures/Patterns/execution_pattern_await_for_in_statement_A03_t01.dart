@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+/// TODO (sgrekhov) Update assertion part when appropriate spec will be ready
 /// @assertion
 /// A statement of the form:
 ///
@@ -25,42 +26,42 @@
 ///   { <statement> }
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if `I` doesn't implement
-/// `Iterable<T>` and is not `dynamic`
+/// @description Checks that in an async for-in loop it is a compile-time error
+/// if the type check of the `<pattern>` with matched value `E` fails
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
 import "patterns_lib.dart";
 
-main() {
-  for (var (int v1) in 42) {}
-//                     ^
+main() async {
+  await for (var (int v1) in Stream<num>.fromIterable([1, 2, 3])) {}
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (final <int>[v2] in "42") {}
-//                        ^
+  await for (final <int>[v2] in Stream<List<num>>.fromIterable([[1], [2], [3]])) {}
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (var <String, int>{"k1": v3} in 42) {}
-//                                    ^
+  await for (var <String, int>{"k1": v3} in Stream<Map<String, num>>.fromIterable([{"k1": 1}])) {}
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (final (int v4,) in "42") {}
-//                      ^
+  await for (final (int v4,) in Stream<(num,)>.fromIterable([(1,)])) {}
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (var (n: v5) in 42) {}
-//                    ^
+  await for (var (n: int v5) in Stream<({num n})>.fromIterable([(n: 2)])) {}
+//                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (final Square(area: v6) in "42") {}
-//                               ^
+  await for (var Square<Centimeter>(area: v6) in Stream<Square<Meter>>.fromIterable([Square<Meter>(1)])) {}
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
