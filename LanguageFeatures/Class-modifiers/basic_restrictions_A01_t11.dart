@@ -77,8 +77,8 @@ enum EnumWithSealedClass with TypedefSealedClass {e1, e2}
 
 typedef LocalTypedefSealedClass = SealedClass;
 
-mixin MixinOnLocalTypedefSealedClasson LocalTypedefSealedClass {}
-//                                     ^^^^^^^^^^^^^^^^^^^^^^^
+mixin MixinOnLocalTypedefSealedClass on LocalTypedefSealedClass {}
+//                                      ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -100,4 +100,6 @@ main() {
   print(AbstractInterfaceClassWithSealed);
   print(AbstractFinalClassWithSealed);
   print(EnumWithSealedClass);
+  print(MixinOnLocalTypedefSealedClass);
+  print(ClassWithLocalTypedefSealedClass);
 }

@@ -43,7 +43,7 @@ base mixin MixinIndirectlyImplementsBaseClass implements TypedefWithBaseMixinCla
 // [cfe] unspecified
 
 base mixin class MixinClassIndirectlyImplementsBaseClass implements TypedefWithBaseMixinClass {}
-//                                                                  ^^^^^^^^^^^^^^^^^^
+//                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
