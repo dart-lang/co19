@@ -26,48 +26,49 @@
 ///   append(<element>);
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if the type check ot the
-/// `<pattern>` with matched value `E` fails. Test a set literal
+/// @description Checks that in an async for-in element it is a compile-time
+/// error if `I` doesn't implement `Stream<T>` and in not `dynamic`. Test a
+/// set literal
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
 import "patterns_lib.dart";
 
-main() {
+main() async {
   var s1 = {
-    for (var (int v1) in <num>[1, 2, 3]) v1
-//                       ^
+    await for (var (int v1) in [42]) v1
+//                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
   var s2 = {
-    for (final <int>[v2] in <List<num>>[[1], [2], [3]]) v2
-//                          ^
+    await for (final <int>[v2] in "42") v2
+//                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
   var s3 = {
-    for (var <String, int>{"k1": v3} in <Map<String, num>>[{"k1": 1}]) v3
-//                                      ^
+    await for (var <String, int>{"k1": v3} in [42]) v3
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
   var s4 = {
-    for (final (int v4,) in <(num,)>[(1,)]) v4
-//                          ^
+    await for (final (int v4,) in "42") v4
+//                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
   var s5 = {
-    for (var (n: int v5) in <({num n})>[(n: 2)]) v5
-//                          ^
+    await for (var (n: v5) in [42]) v5
+//                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
   var s6 = {
-    for (var Square<Centimeter>(area: v) in <Square<Meter>>[Square<Meter>(1)]) v
-//                                          ^
+    await for (final Square(area: v6) in "42") v6
+//                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
