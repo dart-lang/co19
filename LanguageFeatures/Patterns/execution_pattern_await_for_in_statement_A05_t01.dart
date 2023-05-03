@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+/// TODO (sgrekhov) Update assertion part when appropriate spec will be ready
 /// @assertion
 /// A statement of the form:
 ///
@@ -26,7 +27,7 @@
 /// }
 /// ```
 /// @description Checks that in an async for-in loop it is a compile-time error
-/// if a <keyword> is empty
+/// if a `<keyword>` is empty
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

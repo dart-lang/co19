@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+/// TODO (sgrekhov) Update assertion part when appropriate spec will be ready
 /// @assertion
 /// A statement of the form:
 ///
@@ -26,7 +27,7 @@
 /// }
 /// ```
 /// @description Checks that it is a compile-time error if in an async for-in
-/// loop `I` doesn't implement `Stream<T>` and in not `dynamic`
+/// loop `I` doesn't implement `Stream<T>` and is not `dynamic`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

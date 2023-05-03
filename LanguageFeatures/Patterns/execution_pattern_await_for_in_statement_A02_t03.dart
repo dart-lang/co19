@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+/// TODO (sgrekhov) Update assertion part when appropriate spec will be ready
 /// @assertion
 /// A statement of the form:
 ///
@@ -36,44 +37,66 @@ import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
 main() async {
+  String log = "";
   Expect.throws(() {
     await for (var (int v1)
-        in Stream<num>.fromIterable([1, 2, 3.14]) as dynamic) {}
+        in Stream<num>.fromIterable([1, 2, 3.14]) as dynamic) {
+      log += "$v1;";
+    }
   });
+  Expect.equals("", log);
 
   Expect.throws(() {
     await for (final <int>[v2] in Stream<List<num>>.fromIterable([
       [1],
       [2],
-      [3]
-    ]) as dynamic) {}
+      [3.14]
+    ]) as dynamic) {
+      log += "$v2;";
+    }
   });
+  Expect.equals("", log);
 
   Expect.throws(() {
     await for (var <String, int>{"k1": v3}
         in Stream<Map<String, num>>.fromIterable([
       {"k1": 1}
-    ]) as dynamic) {}
+    ]) as dynamic) {
+      log += "$v3;";
+    }
   });
+  Expect.equals("", log);
 
   Expect.throws(() {
     await for (final (int v4,)
-        in Stream<(num,)>.fromIterable([(1.1,)]) as dynamic) {}
+        in Stream<(num,)>.fromIterable([(1.1,)]) as dynamic) {
+      log += "$v4;";
+    }
   });
+  Expect.equals("", log);
 
   Expect.throws(() {
     await for (var (n: int v5)
-        in Stream<({num n})>.fromIterable([(n: 2.1)]) as dynamic) {}
+        in Stream<({num n})>.fromIterable([(n: 2.1)]) as dynamic) {
+      log += "$v5;";
+    }
   });
+  Expect.equals("", log);
 
   Expect.throws(() {
     await for (var Square<Centimeter>(area: v6)
-        in Stream.fromIterable([Circle(1)]) as dynamic) {}
+        in Stream<Circle>.fromIterable([Circle(1)]) as dynamic) {
+      log += "$v6;";
+    }
   });
+  Expect.equals("", log);
 
   Expect.throws(() {
     await for (final Square<Meter>(area: v7)
         in Stream<Square<Centimeter>>.fromIterable([Square<Centimeter>(1)])
-            as dynamic) {}
+            as dynamic) {
+      log += "$v7;";
+    }
   });
+  Expect.equals("", log);
 }

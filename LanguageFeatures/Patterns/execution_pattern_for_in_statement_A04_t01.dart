@@ -25,7 +25,8 @@
 ///   { <statement> }
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if a <keyword> is empty
+/// @description Checks that it is a compile-time error if a `<keyword>` is
+/// empty
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records

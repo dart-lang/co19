@@ -25,7 +25,7 @@
 ///   { <statement> }
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if type check ot the
+/// @description Checks that it is a compile-time error if the type check ot the
 /// `<pattern>` with matched value `E` fails
 /// @author sgrekhov22@gmail.com
 

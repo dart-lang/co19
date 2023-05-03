@@ -26,7 +26,7 @@
 /// }
 /// ```
 /// @description Checks that it is a compile-time error if `I` doesn't implement
-/// `Iterable<T>` and in not `dynamic`
+/// `Iterable<T>` and is not `dynamic`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
