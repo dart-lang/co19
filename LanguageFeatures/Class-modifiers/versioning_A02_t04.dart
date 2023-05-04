@@ -10,6 +10,7 @@
 /// from a pre-feature library has a superdeclaration marked `base` in a
 /// post-feature library
 /// @author sgrekhov22@gmail.com
+/// @issue 52259
 
 // @dart=2.19
 
