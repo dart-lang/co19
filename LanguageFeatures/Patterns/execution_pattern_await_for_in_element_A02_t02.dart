@@ -28,7 +28,7 @@ Future<Map<String, int>> test1() async {
 Future<Map<String, int>> test2() async {
   var v = 0;
   return {"k0": 0, await for ((v) in Stream.fromIterable([1, 2, 3])) "k$v": v};
-//                      ^
+//                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
