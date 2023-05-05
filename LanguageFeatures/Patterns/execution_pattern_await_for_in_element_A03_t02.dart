@@ -26,8 +26,8 @@
 ///   append(<element>);
 /// }
 /// ```
-/// @description Checks that in a async for-in element if `I` is `dynamic` and a
-/// runtime type of `I` is `Stream<T>` where `T` is assignable to `<pattern>`
+/// @description Checks that in an async for-in element if `I` is `dynamic` and
+/// a runtime type of `I` is `Stream<T>` where `T` is assignable to `<pattern>`
 /// required type then async for-in element works as expected
 /// @author sgrekhov22@gmail.com
 
@@ -110,7 +110,7 @@ main() async {
     1,
     await for (final (v9, n: v10)
         in Stream<(num, {num n})>.fromIterable([(1, n: 2)]) as dynamic)
-      (1 > 2 ? v10.whatever : null, v10).$2,
+      (1 > 2 ? v9.whatever + v10.whatever : null, v10).$2,
     3
   ];
   Expect.listEquals([1, 2, 3], l8);

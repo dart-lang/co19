@@ -26,8 +26,8 @@
 ///   append(<element>);
 /// }
 /// ```
-/// @description Checks that in a async for-in element it is a compile-time
-/// error if the type check ot the `<pattern>` with matched value `E` fails.
+/// @description Checks that in an async for-in element it is a compile-time
+/// error if the type check of the `<pattern>` with matched value `E` fails.
 /// Test a list literal
 /// @author sgrekhov22@gmail.com
 

@@ -122,10 +122,10 @@ main() async {
     1,
     await for (final (v9, n: v10)
         in Stream<(num, {num n})>.fromIterable([(1, n: 2)]))
-      v10.expectStaticType<Exactly<num>>(),
+      v9.expectStaticType<Exactly<num>>() + v10.expectStaticType<Exactly<num>>(),
     3
   };
-  Expect.setEquals({1, 2, 3}, s8);
+  Expect.setEquals({1, 3, 3}, s8);
 
   var s9 = {
     await for (var Square<Centimeter>(area: v11)
