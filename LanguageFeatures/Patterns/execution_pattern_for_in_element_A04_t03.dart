@@ -26,7 +26,7 @@
 ///   append(<element>);
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if type of for-in
+/// @description Checks that it is a compile-time error if the type of for-in
 /// element is not assignable to the type of the collection. Test a set literal
 /// @author sgrekhov22@gmail.com
 

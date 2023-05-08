@@ -26,7 +26,7 @@
 ///   append(<element>);
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if type check ot the
+/// @description Checks that it is a compile-time error if the type check of the
 /// `<pattern>` with matched value `E` fails. Test a list literal
 /// @author sgrekhov22@gmail.com
 
