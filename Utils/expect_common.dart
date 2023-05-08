@@ -5,7 +5,6 @@
 part of 'expect.dart';
 
 class Expect {
-
   /// Checks whether the expected and actual values are equal using `==`.
   static void equals(var expected, var actual, [String reason = '']) {
     if ((expected != actual) &&
@@ -39,7 +38,7 @@ class Expect {
     }
   }
 
-   /// Checks whether [actual] is not [null].
+  /// Checks whether [actual] is not [null].
   static void isNotNull(actual, [String reason = '']) {
     if (null == actual) {
       _fail('Expect.isNotNull(actual: <$actual>$reason) fails.');
@@ -64,9 +63,9 @@ class Expect {
   /// the given tolerance. If no tolerance is given, tolerance is assumed to be
   /// a value of the 4 significant digits smaller than the value given for
   /// [expected].
-  static void approxEquals(
-      num expected, num actual, [num? tolerance, String reason = '']) {
-      tolerance ??= (expected / 1e4).abs();
+  static void approxEquals(num expected, num actual,
+      [num? tolerance, String reason = '']) {
+    tolerance ??= (expected / 1e4).abs();
 
     // Note: use !( <= ) rather than > so we fail on NaNs
     if (!((expected - actual).abs() <= tolerance)) {
@@ -85,71 +84,71 @@ class Expect {
 
   /// Specialized equality test for strings. When the strings don't match,
   /// this method shows where the mismatch starts and ends.
-  static void stringEquals(
-        String? expected, String? actual, [String reason = '']) {
-  String defaultMessage =
-    'Expect.stringEquals(expected: <$expected>, <$actual>$reason) fails';
-  if (expected == actual) return;
+  static void stringEquals(String? expected, String? actual,
+      [String reason = '']) {
+    String defaultMessage =
+        'Expect.stringEquals(expected: <$expected>, <$actual>$reason) fails';
+    if (expected == actual) return;
 
-  if (expected == null || actual == null) {
-    _fail('$defaultMessage');
-  } else {
-     // Scan from the left until we find a mismatch
-    int left = 0;
-    int expLength = expected.length;
-    int actLength = actual.length;
-    while (true) {
-      if (left == expLength) {
-        assert(left < actLength);
-        String snippet = actual.substring(left, actLength);
-        _fail('$defaultMessage\nDiff:\n...[  ]\n...[ $snippet ]');
-      } else if (left == actLength) {
-        assert(left < expLength);
-        String snippet = expected.substring(left, expLength);
-        _fail('$defaultMessage\nDiff:\n...[  ]\n...[ $snippet ]');
-      } else if (expected[left] != actual[left]) {
-        break;
+    if (expected == null || actual == null) {
+      _fail('$defaultMessage');
+    } else {
+      // Scan from the left until we find a mismatch
+      int left = 0;
+      int expLength = expected.length;
+      int actLength = actual.length;
+      while (true) {
+        if (left == expLength) {
+          assert(left < actLength);
+          String snippet = actual.substring(left, actLength);
+          _fail('$defaultMessage\nDiff:\n...[  ]\n...[ $snippet ]');
+        } else if (left == actLength) {
+          assert(left < expLength);
+          String snippet = expected.substring(left, expLength);
+          _fail('$defaultMessage\nDiff:\n...[  ]\n...[ $snippet ]');
+        } else if (expected[left] != actual[left]) {
+          break;
+        }
+        left++;
       }
-      left++;
-    }
 
-    // scan from the right until we find a mismatch
-    int right = 0;
-    while (true) {
-      if (right == expLength) {
-        assert(right < actLength);
-        String snippet = actual.substring(0, actLength - right);
-        _fail('$defaultMessage\nDiff:\n[  ]...\n[ $snippet ]...');
-      } else if (right == actLength) {
-        assert(right < expLength);
-        String snippet = expected.substring(0, expLength - right);
-        _fail('$defaultMessage\nDiff:\n[  ]...\n[ $snippet ]...');
-      } else if ((expLength - right <= left || actLength - right <= left) ||
-          ((expected[expLength - right - 1] != actual[actLength - right - 1]))){
-        // Stop scanning if we've reached the end of the left-to-right match
-        break;
+      // scan from the right until we find a mismatch
+      int right = 0;
+      while (true) {
+        if (right == expLength) {
+          assert(right < actLength);
+          String snippet = actual.substring(0, actLength - right);
+          _fail('$defaultMessage\nDiff:\n[  ]...\n[ $snippet ]...');
+        } else if (right == actLength) {
+          assert(right < expLength);
+          String snippet = expected.substring(0, expLength - right);
+          _fail('$defaultMessage\nDiff:\n[  ]...\n[ $snippet ]...');
+        } else if ((expLength - right <= left || actLength - right <= left) ||
+            ((expected[expLength - right - 1] !=
+                actual[actLength - right - 1]))) {
+          // Stop scanning if we've reached the end of the left-to-right match
+          break;
+        }
+        right++;
       }
-      right++;
-    }
 
-    String eSnippet = expected.substring(left, expLength - right);
-    String aSnippet = actual.substring(left, actLength - right);
-    String diff = '\nDiff:\n...[ $eSnippet ]...\n...[ $aSnippet ]...';
-    _fail('$defaultMessage$diff');
+      String eSnippet = expected.substring(left, expLength - right);
+      String aSnippet = actual.substring(left, actLength - right);
+      String diff = '\nDiff:\n...[ $eSnippet ]...\n...[ $aSnippet ]...';
+      _fail('$defaultMessage$diff');
+    }
   }
- }
 
   /// Checks that every element of [expected] is also in [actual], and that
   /// every element of [actual] is also in [expected].
-  static void setEquals(Iterable<Object?> expected,
-      Iterable<Object?> actual, [String reason = '']) {
+  static void setEquals(Iterable<Object?> expected, Iterable<Object?> actual,
+      [String reason = '']) {
     final missingSet = new Set.from(expected);
     missingSet.removeAll(actual);
     final extraSet = new Set.from(actual);
     extraSet.removeAll(expected);
 
     if (!extraSet.isEmpty || !missingSet.isEmpty) {
-
       StringBuffer buffer = StringBuffer('Expect.setEquals($reason) fails');
       // Report any missing items.
       if (!missingSet.isEmpty) {
@@ -180,8 +179,8 @@ class Expect {
   /// exception you could write this:
   ///
   ///    Expect.throws(myThrowingFunction, (e) => e is MyException);
-  static void throws(
-      void func(), [_CheckExceptionFn? check, String reason = '']) {
+  static void throws(void func(),
+      [_CheckExceptionFn? check, String reason = '']) {
     try {
       func();
     } catch (exception, str) {
@@ -194,9 +193,30 @@ class Expect {
     _fail('Expect.throws($reason) fails');
   }
 
+  /// Calls the async function [func] and verifies that it throws an exception.
+  ///
+  /// The optional [check] function can provide additional validation that
+  /// correct exception is being thrown. For example, to check the type of the
+  /// exception you could write this:
+  ///
+  ///    Expect.asyncThrows(myThrowingAsyncFunction, (e) => e is MyException);
+  static Future<void> asyncThrows(Future<void> func(),
+      [_CheckExceptionFn? check, String reason = '']) async {
+    try {
+      await func();
+    } catch (exception, str) {
+      if (check != null && !check(exception)) {
+        _fail('Expect.throws($reason): '
+            'Unexpected ${exception.runtimeType}($exception)\n$str');
+      }
+      return;
+    }
+    _fail('Expect.throws($reason) fails');
+  }
+
   /// Checks that given lists are equal.
   static void listEquals(var expected, var actual, [String reason = '']) {
-    if (expected is ! List) {
+    if (expected is! List) {
       Expect.fail('expected is not a List:$expected');
     } else if (actual is! List) {
       Expect.fail('actual is not a List:$expected');
@@ -218,7 +238,7 @@ class Expect {
   /// elements. Useful to check cyclic collections passed through ports and
   /// streams.
   static void deepEquals(var expected, var actual, [String reason = '']) {
-    Map planned   = Map();
+    Map planned = Map();
     Map processed = Map();
 
     void plan2check(var expected, var actual) {
@@ -236,10 +256,12 @@ class Expect {
           Expect.equals(savedActual, actual);
         } else {
           // this pair is not yet investigated
-          Expect.equals(expected.length, actual.length,
+          Expect.equals(
+              expected.length,
+              actual.length,
               'Collection lengths are not equal: '
-                  'expected length=${expected.length}, '
-                  'actual length=${actual.length}');
+              'expected length=${expected.length}, '
+              'actual length=${actual.length}');
           planned[expected] = actual;
         }
       } else {
@@ -278,7 +300,8 @@ class Expect {
         runPlanned(key, planned[key]);
       }
     } catch (error) {
-      _fail('deepEquals($expected, $actual, $reason) fails\n   [cause: $error]');
+      _fail(
+          'deepEquals($expected, $actual, $reason) fails\n   [cause: $error]');
     }
   }
 
@@ -302,7 +325,8 @@ class Expect {
   /// to prevent the compiler reducing the code to the answer. Otherwise, dart2js
   /// compiler may optimize `Expect.isTrue(c is C)` to `Expect_isTrue(true)`
   @pragma('dart2js:noInline')
-  static void _checkType(void Function(bool, Object?) checker, bool expected, Object? o) {
+  static void _checkType(
+      void Function(bool, Object?) checker, bool expected, Object? o) {
     checker(expected, o);
   }
 
@@ -345,10 +369,10 @@ class ExpectException implements Exception {
 
 /// Is true iff `assert` statements are enabled.
 final bool assertStatementsEnabled = (() {
-    bool result = false;
-    assert(result = true);
-    return result;
-  })();
+  bool result = false;
+  assert(result = true);
+  return result;
+})();
 
 /// Is true iff js compiler is used
 final bool isJS = identical(1.0, 1);
