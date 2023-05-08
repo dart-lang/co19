@@ -12,7 +12,6 @@
 ///
 /// @author iarkh@unipro.ru
 
-
 import "dart:async";
 
 class A<T> {

@@ -7,7 +7,8 @@
 ///     if S is R* then R?
 ///     else S?
 ///
-/// @description Checks that CONST_CANONICAL_TYPE(FutureOr<int>?) = FutureOr<int>?
+/// @description Checks that
+/// `CONST_CANONICAL_TYPE(FutureOr<int>?) = FutureOr<int>?`
 ///
 /// @author iarkh@unipro.ru
 
