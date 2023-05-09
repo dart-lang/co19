@@ -25,8 +25,8 @@
 ///   { <statement> }
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if `I` doesn't implement
-/// `Iterable<T>` and is not `dynamic`
+/// @description Checks that it is a compile-time error if a `<keyword>` is
+/// empty
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
@@ -34,33 +34,36 @@
 import "patterns_lib.dart";
 
 main() {
-  for (var (int v1) in 42) {}
-//                     ^
+  for ((int v1) in [1, 2, 3]) {}
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (final <int>[v2] in "42") {}
-//                        ^
+  var v2 = 0;
+  for (<int>[v2] in [[1], [2], [3]]) {}
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (var <String, int>{"k1": v3} in 42) {}
-//                                    ^
+  var v3 = 0;
+  for (<String, int>{"k1": v3} in [{"k1": 1}]) {}
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (final (int v4,) in "42") {}
-//                      ^
+  for ((int v4,) in [(1,)]) {}
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (var (n: v5) in 42) {}
-//                    ^
+  for ((n: int v5) in [(n: 2)]) {}
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  for (final Square(area: v6) in "42") {}
-//                               ^
+  var v6 = 0;
+  for (Square(area: v6) in [Square(1)]) {}
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

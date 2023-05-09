@@ -26,48 +26,49 @@
 ///   append(<element>);
 /// }
 /// ```
-/// @description Checks that it is a compile-time error if the type of for-in
-/// element is not assignable to the type of the collection. Test a map literal
+/// @description Checks that it is a compile-time error if the type of an async
+/// for-in element is not assignable to the type of the collection. Test a map
+/// literal
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=patterns,records
 
 import "patterns_lib.dart";
 
-main() {
+main() async {
   <String, String>{
-    for (var (int v1) in [1, 2, 3]) "k$v1": v1
-//                                          ^^
+    await for (var (int v1) in Stream.fromIterable([1, 2, 3])) "k$v1": v1
+//                                                                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
   <String, String>{
-    for (final <int>[v2] in [[1], [2], [3]]) "k$v2": v2
-//                                                   ^^
+    await for (final <int>[v2] in Stream.fromIterable([[1], [2], [3]])) "k$v2": v2
+//                                                                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
   <String, String>{
-    for (final <String, int>{"k1": v3} in [{"k1": 1}]) "k$v3": v3
-//                                                             ^^
+    await for (final <String, int>{"k1": v3} in Stream.fromIterable([{"k1": 1}])) "k$v3": v3
+//                                                                                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
   <String, String>{
-    for (final (int v4,) in [(1,)]) "k$v4": v4
-//                                          ^^
+    await for (final (int v4,) in Stream.fromIterable([(1,)])) "k$v4": v4
+//                                                                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
   <String, String>{
-    for (final (n: int v5) in [(n: 2)]) "k$v5": v5
-//                                              ^^
+    await for (final (n: int v5) in Stream.fromIterable([(n: 2)])) "k$v5": v5
+//                                                                         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
   <String, String>{
-    for (final Square(area: v6) in [Square(1)]) "k$v6": v6
-//                                                      ^^
+    await for (final Square(area: v6) in Stream.fromIterable([Square(1)])) "k$v6": v6
+//                                                                                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
