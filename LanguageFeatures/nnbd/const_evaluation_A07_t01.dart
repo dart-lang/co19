@@ -4,7 +4,7 @@
 
 /// @assertion CONST_CANONICAL_TYPE(X extends T) = X*
 ///
-/// @description Checks that CONST_CANONICAL_TYPE(X extends T) = T
+/// @description Checks that `CONST_CANONICAL_TYPE(X extends T) = X*`
 ///
 /// @author iarkh@unipro.ru
 
@@ -17,7 +17,6 @@ class D<T> extends C<T> {
 }
 
 const dynamic d = null;
-Never n = throw "Should not reach here";
 
 main() {
   const d1 = D<int>(null);

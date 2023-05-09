@@ -2,9 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion •	CONST_CANONICAL_TYPE(T*) = CONST_CANONICAL_TYPE(T)
+/// @assertion CONST_CANONICAL_TYPE(X extends T) = X*
 ///
-/// @description Checks that CONST_CANONICAL_TYPE(int) = int
+/// @description Checks that `CONST_CANONICAL_TYPE(X extends T) = X*`
 ///
 /// @author iarkh@unipro.ru
 

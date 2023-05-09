@@ -4,7 +4,7 @@
 
 /// @assertion CONST_CANONICAL_TYPE(T) = T* if T is Never or Object
 ///
-/// @description Checks that CONST_CANONICAL_TYPE(Object) = Object
+/// @description Checks that `CONST_CANONICAL_TYPE(Object) = Object*`
 ///
 /// @author iarkh@unipro.ru
 

@@ -6,7 +6,7 @@
 /// CONST_CANONICAL_TYPE(T)
 ///
 /// @description Checks that
-/// CONST_CANONICAL_TYPE(FutureOr<Never>) = FutureOr<Never>
+/// `CONST_CANONICAL_TYPE(FutureOr<Never>) = FutureOr<Never>*`
 /// @Issue 45067
 ///
 /// @author iarkh@unipro.ru
