@@ -25,6 +25,7 @@ abstract base mixin class AbstractBaseMixinClass {}
 mixin Mixin {}
 base mixin BaseMixin {}
 
+typedef TypedefClass = Class;
 typedef TypedefBaseClass = BaseClass;
 typedef TypedefInterfaceClass = InterfaceClass;
 typedef TypedefFinalClass = FinalClass;

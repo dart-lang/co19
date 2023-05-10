@@ -89,6 +89,13 @@ base mixin BaseMixinImplementsEnum implements E {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+typedef TypedefE = E;
+
+class ImplementsTypedefEnum implements TypedefE {}
+//                                     ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(ImplementsEnum);
   print(BaseImplementsEnum);
@@ -105,4 +112,5 @@ main() {
   print(AbstractBaseMixinClassImplementsEnum);
   print(MixinImplementsEnum);
   print(BaseMixinImplementsEnum);
+  print(ImplementsTypedefEnum);
 }

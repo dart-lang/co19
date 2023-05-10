@@ -39,6 +39,10 @@ abstract mixin class AbstractMixinClassExtendsObject extends Object {}
 
 abstract base mixin class AbstractBaseMixinClassExtendsObject extends Object {}
 
+typedef TypedefObject = Object;
+
+mixin class MixinClassExtendsTypedefObject extends TypedefObject {}
+
 main() {
   print(MixinClass);
   print(BaseMixinClass);
@@ -48,4 +52,5 @@ main() {
   print(BaseMixinClassExtendsObject);
   print(AbstractMixinClassExtendsObject);
   print(AbstractBaseMixinClassExtendsObject);
+  print(MixinClassExtendsTypedefObject);
 }
