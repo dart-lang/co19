@@ -20,7 +20,7 @@
 /// the same normal form (up to the identity of bound variables), and the
 /// objects are otherwise identical.
 ///
-/// @description Checks that two constant are identical if they type arguments
+/// @description Checks that two constants are identical if their type arguments
 /// are equal according to the runtime type equality.
 /// @author sgrekhov22@gmail.com
 
