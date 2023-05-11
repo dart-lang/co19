@@ -14,7 +14,7 @@ import "dart:io";
 
 int called = 0;
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       Expect.equals(10000 * 2, x.length);

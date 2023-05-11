@@ -29,7 +29,7 @@ List expected = [
   [91, 49, 44, 32, 50, 44, 32, 51, 93],
   [110, 117, 108, 108]];
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   MyStreamConsumer() {}
 
   Future addStream(Stream<List> stream) {

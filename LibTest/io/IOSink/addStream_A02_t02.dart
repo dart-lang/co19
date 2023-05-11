@@ -16,7 +16,7 @@ Stream<List<int>> stream1 = new Stream<List<int>>.fromIterable([[1, 2], [12], [3
 Stream<List<int>> stream2 = new Stream<List<int>>.fromIterable([[0]]);
 int called = 0;
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future addStream(Stream<List<int>> stream) {
     called++;
     return new Future(() {});

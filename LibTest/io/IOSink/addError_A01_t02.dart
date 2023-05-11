@@ -14,7 +14,7 @@ import "dart:io";
 
 int called = 0;
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future<dynamic> addStream(Stream<List> stream) {
     stream.toList().then((x) {}, onError: (error, StackTrace st) {
       called++;

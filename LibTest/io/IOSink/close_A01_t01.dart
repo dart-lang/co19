@@ -13,7 +13,7 @@ import "dart:io";
 
 int closed = 0;
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future addStream(Stream<List<int>> stream) {
     return new Future(() {});
   }
