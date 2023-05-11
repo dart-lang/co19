@@ -37,14 +37,14 @@ import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
 main() async {
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     [
       await for (var (int v1)
           in Stream<num>.fromIterable([1, 2, 3.14]) as dynamic) v1
     ];
   });
 
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     [
       await for (final <int>[v2] in Stream<List<num>>.fromIterable([
         [1],
@@ -54,7 +54,7 @@ main() async {
     ];
   });
 
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     [
       await for (var <String, int>{"k1": v3}
           in Stream<Map<String, num>>.fromIterable([
@@ -63,28 +63,28 @@ main() async {
     ];
   });
 
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     [
       await for (final (int v4,)
           in Stream<(num,)>.fromIterable([(1.1,)]) as dynamic) v4
     ];
   });
 
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     [
       await for (var (n: int v5)
           in Stream<({num n})>.fromIterable([(n: 2.1)]) as dynamic) v5
     ];
   });
 
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     [
       await for (var Square<Centimeter>(area: v6)
           in Stream.fromIterable([Circle(1)]) as dynamic) v6
     ];
   });
 
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     [
       await for (final Square<Meter>(area: v7)
           in Stream<Square<Centimeter>>.fromIterable([Square<Centimeter>(1)])
