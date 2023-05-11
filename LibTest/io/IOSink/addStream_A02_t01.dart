@@ -15,7 +15,7 @@ import "dart:io";
 Stream<List<int>> stream1 = new Stream<List<int>>.fromIterable([[1, 2], [12], [3, 22]]);
 Stream<List<int>> stream2 = new Stream<List<int>>.fromIterable([[0]]);
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future addStream(Stream<List<int>> stream) { return new Future(() {}); }
   Future close() { return new Future(() {}); }
 }

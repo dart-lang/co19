@@ -18,7 +18,7 @@ import "dart:io";
 
 int callCounter = 0;
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       if(callCounter++ == 0)

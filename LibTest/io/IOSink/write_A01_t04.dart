@@ -19,7 +19,7 @@ int called = 0;
 String str = "ащ";
 List expected = [0xd0, 0xb0, 0xd1, 0x89];
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       Expect.listEquals(expected, x[0]);

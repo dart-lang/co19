@@ -26,7 +26,7 @@ class ObjectToPass {
   }
 }
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future close() { return new Future(() {}); }
   Future addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {

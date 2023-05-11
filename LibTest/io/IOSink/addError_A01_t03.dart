@@ -14,7 +14,7 @@ import "dart:io";
 int called = 0;
 StackTrace trace = new StackTrace.fromString("This is a stack trace");
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future<dynamic> addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       Expect.fail("Should not be here!");

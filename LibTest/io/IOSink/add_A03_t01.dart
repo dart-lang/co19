@@ -15,7 +15,7 @@ import "dart:io";
 
 bool called = false;
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       called = true;

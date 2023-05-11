@@ -15,7 +15,7 @@ import "dart:io";
 
 int called = 1;
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future<dynamic> addStream(Stream<List<int>> stream) {
     stream.listen((_) {
       Expect.fail("Error is expected");

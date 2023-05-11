@@ -15,7 +15,7 @@ import "dart:io";
 int called = 0;
 List<int> aList = [1, 2, 3, 4, 5];
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future<dynamic> addStream(Stream<List> stream) {
     stream.toList().then((x) {
       called++;
