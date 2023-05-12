@@ -6,7 +6,7 @@
 /// along with some rules for elements used in inline class declarations:
 ///
 /// <inlineClassDeclaration> ::=
-///   'inline' 'class' <typeIdentifier> <typeParameters>? <interfaces>?
+///   'final'? 'inline' 'class' <typeIdentifier> <typeParameters>? <interfaces>?
 ///   '{'
 ///     (<metadata> <inlineMemberDeclaration>)*
 ///   '}'
@@ -16,8 +16,7 @@
 /// The name of the representation in an inline class declaration is the name id
 /// of the unique final instance variable that it declares, and the type of the
 /// representation is the declared type of id.
-///
-/// @description Checks that static type of id is its declared type
+/// @description Checks that static type of `id` is its declared type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class

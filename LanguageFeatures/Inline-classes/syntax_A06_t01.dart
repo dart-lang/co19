@@ -6,50 +6,59 @@
 /// along with some rules for elements used in inline class declarations:
 ///
 /// <inlineClassDeclaration> ::=
-///   'inline' 'class' <typeIdentifier> <typeParameters>? <interfaces>?
+///   'final'? 'inline' 'class' <typeIdentifier> <typeParameters>? <interfaces>?
 ///   '{'
 ///     (<metadata> <inlineMemberDeclaration>)*
 ///   '}'
 ///
 /// <inlineMemberDeclaration> ::= <classMemberDefinition>
 /// ...
-/// A compile-time error occurs if an inline class declaration declares an
-/// abstract member.
+/// There are no special rules for static members in inline classes. They can be
+/// declared and called or torn off as usual, e.g., Inline.myStaticMethod(42)
 ///
-/// @description Checks that it is a compile-time error if an inline class
-/// declares an abstract member
+/// @description Checks that inline classes may have static members. Note that
+/// static members are declared before instance members (and before the unique
+/// instance variable). This is not likely to be the style which is recommended,
+/// but it should be used in at least one test.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class IC1 {
-  final int id;
+import "../../Utils/expect.dart";
 
+inline class IC1 {
+  static int get staticGetter => 42;
+  final int id;
   IC1(this.id);
-  void foo();
-//^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 inline class IC2 {
-  final int id = 42;
-  int get value;
-//^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  static int _v;
+  static void set staticSetter(int val) {
+    _v = val;
+  }
+  final int id;
+  IC2(this.id);
 }
 
 inline class IC3 {
-  final int id = 42;
-  void set value(int val);
-//^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  static int staticMethod(int val) => val;
+  final int id;
+  IC3(this.id);
+}
+
+inline class IC4 {
+  static int staticVar = 0;
+  final int id;
+  IC4(this.id);
 }
 
 main() {
-  print(IC1);
-  print(IC2);
-  print(IC3);
+  Expect.equals(42, IC1.staticGetter);
+  IC2.staticSetter = -42;
+  Expect.equals(-42, IC2._v);
+  Expect.equals(2, IC3.staticMethod(2));
+  Expect.equals(0, IC4.staticVar);
+  IC4.staticVar = 1;
+  Expect.equals(1, IC4.staticVar);
 }
