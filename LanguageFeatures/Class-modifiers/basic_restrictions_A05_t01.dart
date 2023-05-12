@@ -9,8 +9,6 @@
 /// extended or used in mixin's `on` part
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 enum E {e1, e2}
 
 class ExtendsEnum extends E {}

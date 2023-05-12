@@ -9,8 +9,6 @@
 /// inside the same library where it is defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 sealed class SealedClass {}
 
 class ClassExtendsSealedClass extends SealedClass {}

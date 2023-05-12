@@ -13,8 +13,6 @@
 /// for loop. Test a record pattern in a set literal
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 
 main() {

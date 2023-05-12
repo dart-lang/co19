@@ -24,8 +24,6 @@
 /// case when class has a getter named `_`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 class C {
   int get _ => 42;
 }

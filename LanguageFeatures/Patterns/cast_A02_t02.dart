@@ -14,8 +14,6 @@
 /// expected type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 bool isOdd1(Object o) =>

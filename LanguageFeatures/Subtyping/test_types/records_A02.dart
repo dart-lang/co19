@@ -13,8 +13,6 @@
 /// types of T1 then T0 is a subtype of T1. Check positional and named fields
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 (int x, double y, String, {int n1, String n2}) t0Instance =
   (n1: 1, n2: "n2", 42, 3.14, "");
 (num, num z, String?, {num n1, String? n2}) t1Instance =

@@ -28,8 +28,6 @@
 /// when patterns are added to Dart. Test switch expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 const l = [1, 2, 3];
 
 int test() {

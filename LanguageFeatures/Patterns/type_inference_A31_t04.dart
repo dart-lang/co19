@@ -27,8 +27,6 @@
 /// it is a compile-time error if type check fails in an irrefutable context
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 main() {

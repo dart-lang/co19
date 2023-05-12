@@ -22,8 +22,6 @@
 /// `interface` is used as an identifier
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 class interface {}
 //    ^^^^^^^^^
 // [analyzer] unspecified

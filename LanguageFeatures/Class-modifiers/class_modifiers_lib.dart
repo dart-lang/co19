@@ -5,8 +5,6 @@
 /// @description Library defining some base classes for testing class modifiers
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 library class_modifiers_lib;
 
 class Class {}

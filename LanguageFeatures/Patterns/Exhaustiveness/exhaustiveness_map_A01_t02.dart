@@ -8,8 +8,6 @@
 /// @description Check that map pattern cannot be exhaustive
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(Map<bool, bool> m) =>
   switch (m) {
 //^^^^^^

@@ -27,8 +27,6 @@
 /// to `T?` where `T` is `M`s `==` method parameter type.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 class M {
   final int v;
   const M(this.v);

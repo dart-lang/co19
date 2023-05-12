@@ -25,8 +25,6 @@
 /// only once for each pair `identifier==` and `arg`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 class C {

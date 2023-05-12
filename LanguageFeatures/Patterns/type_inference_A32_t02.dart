@@ -16,8 +16,6 @@
 /// to `T` in irrefutable context. Test list patterns
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   var <int>[x1, num x2] = <num>[1, 2];
 //                        ^^^^^^^^^^^

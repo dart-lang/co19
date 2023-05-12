@@ -13,8 +13,6 @@
 /// used as an expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 main() {
   var t1 = (int, {String s});
 //               ^^^^^^^^^^

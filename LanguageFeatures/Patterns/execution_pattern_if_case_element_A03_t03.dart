@@ -21,8 +21,6 @@
 /// pattern-if-case element is not assignable to the collection element type
 /// @author sgrekhov22@gmail.com. Test a set literal
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 main() {

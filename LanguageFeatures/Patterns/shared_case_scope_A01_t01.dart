@@ -35,8 +35,6 @@
 /// body resolves to a variable in s that isn't shared.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   switch (42) {
     case var a when a == 0:

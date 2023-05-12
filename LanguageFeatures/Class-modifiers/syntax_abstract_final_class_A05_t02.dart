@@ -10,8 +10,6 @@
 /// is defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 abstract final class AbstractFinalClass {}
 
 mixin MixinOnFinalClass on AbstractFinalClass {}

@@ -38,8 +38,6 @@
 /// annotation has `required` keyword
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = ({required int i, String s});
 //             ^^^^^^^^
 // [analyzer] unspecified

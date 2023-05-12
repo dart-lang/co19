@@ -28,8 +28,6 @@
 /// appears at the beginning of an expression statement
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 void test(String s) {
   switch (s) {
     "one" => 1,

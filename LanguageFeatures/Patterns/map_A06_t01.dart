@@ -20,8 +20,6 @@
 /// in a map pattern.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(Map map) {
   return switch (map) {
     <int, int>{1: 1, ...} => "",

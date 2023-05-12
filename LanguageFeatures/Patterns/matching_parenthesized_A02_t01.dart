@@ -20,8 +20,6 @@
 /// doesn't match, then the pattern itself doesn't match too
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 main() {

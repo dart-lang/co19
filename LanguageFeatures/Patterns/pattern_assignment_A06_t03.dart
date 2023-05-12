@@ -22,8 +22,6 @@
 /// variable pattern assigns a parent class member
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 class A {

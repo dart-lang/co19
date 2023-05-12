@@ -9,8 +9,6 @@
 /// mixed in
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 enum E {e1, e2}
 
 class WithEnum with E {}

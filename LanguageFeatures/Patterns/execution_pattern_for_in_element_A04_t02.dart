@@ -30,8 +30,6 @@
 /// element is not assignable to the type of the collection. Test a map literal
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 main() {

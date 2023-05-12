@@ -21,7 +21,6 @@
 /// explicitly or via a default.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=patterns
 // Requirements=nnbd-strong
 
 enum E {

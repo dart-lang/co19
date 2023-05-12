@@ -21,8 +21,6 @@
 /// extension then applied to the appropriate records only
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 extension on (int, num, int n, {String name}) {
   int foo() => 42;
 }

@@ -25,8 +25,6 @@
 /// @description Checks that it is no error if a record type has trailing commas
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = (int i, String s,);
 
 typedef (int, String s,) R2();

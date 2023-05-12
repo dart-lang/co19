@@ -22,8 +22,6 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
-// SharedOptions=--enable-experiment=records
-
 (int x, double y, String) t0Instance = (42, 3.14, "");
 
 const t1Default = (0, 0, null);

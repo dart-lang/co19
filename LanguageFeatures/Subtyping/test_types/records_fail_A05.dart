@@ -12,8 +12,6 @@
 /// then T0 is not a subtype of T1
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 (int, String, {bool b0}) t0Instance = (1, "2", b0: true);
 (int, String, {bool b1}) t1Instance = (3, "4", b1: false);
 

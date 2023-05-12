@@ -28,8 +28,6 @@
 /// @description Checks an implicit downcast for records
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 

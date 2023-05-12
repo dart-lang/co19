@@ -37,8 +37,6 @@
 /// finality.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   switch (42) {
     case var a when a == 0:

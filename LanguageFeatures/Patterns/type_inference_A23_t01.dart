@@ -16,8 +16,6 @@
 /// context
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   final (int x1!) = "42";
 //           ^^

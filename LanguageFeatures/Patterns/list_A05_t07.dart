@@ -20,8 +20,6 @@
 /// rest pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 String test1(List<int> list) {

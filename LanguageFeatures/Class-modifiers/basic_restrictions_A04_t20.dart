@@ -12,8 +12,6 @@
 /// type alias of a `base` superdeclaration in the same library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 base class BaseClass {}
 base mixin BaseMixin {}
 base mixin class BaseMixinClass {}

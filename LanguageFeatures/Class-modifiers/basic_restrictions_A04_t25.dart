@@ -12,8 +12,6 @@
 /// a type alias of an `abstract final` superdeclaration in another library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 class ExtendsFinalClass extends TypedefAbstractFinalClass {}

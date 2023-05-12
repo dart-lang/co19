@@ -10,8 +10,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 52228
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 Map<String, int> test1() {

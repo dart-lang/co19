@@ -15,8 +15,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 51877
 
-// SharedOptions=--enable-experiment=patterns,class-modifiers
-
 import "../../../Utils/expect.dart";
 
 sealed class A {

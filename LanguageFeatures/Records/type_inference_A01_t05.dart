@@ -28,8 +28,6 @@
 /// @description Checks type inference for records.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 class C<X> {

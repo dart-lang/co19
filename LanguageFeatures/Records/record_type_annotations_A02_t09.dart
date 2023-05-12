@@ -35,8 +35,6 @@
 /// @description Checks that records may have metadata
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 class Meta {
   const Meta();
 }

@@ -10,8 +10,6 @@
 /// @description Checks that it is a compile error to mix-in [Record] class
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 class R1 = Object with Record;
 //                     ^^^^^^
 // [analyzer] unspecified

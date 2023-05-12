@@ -10,8 +10,6 @@
 /// @description Checks that valid values for memberAlignment are accepted
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "dart:ffi";
 import "../../../Utils/expect.dart";
 

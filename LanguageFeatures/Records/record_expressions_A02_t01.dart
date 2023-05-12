@@ -31,8 +31,6 @@
 /// fields and only one positional field with no trailing comma
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 Record foo1() => (42);
 //               ^^^^
 // [analyzer] unspecified

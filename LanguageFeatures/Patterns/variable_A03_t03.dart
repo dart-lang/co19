@@ -27,8 +27,6 @@
 /// then it is a compile-time error to assign a value to it. Test lists
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 void test1(List l) {
   switch (l) {
     case [final a, final b]:

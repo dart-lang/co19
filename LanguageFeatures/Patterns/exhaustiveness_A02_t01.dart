@@ -24,8 +24,6 @@
 /// is not exhaustive when the type is not an always-exhaustive type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   int i = 42;
   switch (i) {

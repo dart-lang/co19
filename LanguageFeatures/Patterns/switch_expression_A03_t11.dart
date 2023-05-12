@@ -33,8 +33,6 @@
 /// conditional operator
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 int test(String s1, String s2) =>

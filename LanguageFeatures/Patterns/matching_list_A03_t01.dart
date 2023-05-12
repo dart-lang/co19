@@ -54,8 +54,6 @@
 /// then `v[i]` is not called for this element
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 import "patterns_collections_lib.dart";
 

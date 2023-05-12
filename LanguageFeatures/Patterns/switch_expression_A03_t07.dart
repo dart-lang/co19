@@ -33,8 +33,6 @@
 /// relational operators
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 bool test1(String s1, String s2) =>

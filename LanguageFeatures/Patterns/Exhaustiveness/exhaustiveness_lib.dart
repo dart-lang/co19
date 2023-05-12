@@ -5,8 +5,6 @@
 /// @description Library containing common classes for exhaustiveness tests
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,class-modifiers
-
 library exhaustiveness_lib;
 
 enum Suit { club, diamond, heart, spade }

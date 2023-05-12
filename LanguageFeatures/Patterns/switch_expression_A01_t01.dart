@@ -27,8 +27,6 @@
 /// contains `case`, `default` or uses `;` as a separator
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main () {
   int i = 42;
   var x = switch(i) {

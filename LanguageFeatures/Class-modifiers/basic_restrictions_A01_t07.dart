@@ -10,8 +10,6 @@
 /// declares mixin on a `sealed` declaration from the same library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 sealed class SealedClass {}
 
 class ClassExtendsSealedClass extends SealedClass {}

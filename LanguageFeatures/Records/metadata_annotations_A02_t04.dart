@@ -34,8 +34,6 @@
 /// declaration. Test generic metadata
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 class Meta<T> {
   const Meta(Type t1, Type t2);
 }

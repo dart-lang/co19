@@ -9,7 +9,7 @@
 /// @description Checks private fields promotion for records.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records,inference-update-2
+// SharedOptions=--enable-experiment=inference-update-2
 
 class C {
   final (num, Object?)? _x;

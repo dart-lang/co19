@@ -19,8 +19,6 @@
 /// assignable to the type of the variable pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   var (num v1) = "42";
 //               ^^^^

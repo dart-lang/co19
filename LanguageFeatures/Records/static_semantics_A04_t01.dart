@@ -16,8 +16,6 @@
 /// @description Checks that equality of the record types
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 typedef T1 = ({String s, int i});

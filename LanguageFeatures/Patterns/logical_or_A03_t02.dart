@@ -20,8 +20,6 @@
 /// @description Checks logical-or subpattern in an if-case statement
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 bool matches(List list) {

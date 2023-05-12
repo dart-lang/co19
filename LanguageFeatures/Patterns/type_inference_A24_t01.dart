@@ -10,8 +10,6 @@
 /// @description Check that type arguments may be inferred from a context type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 class A<X> {

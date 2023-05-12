@@ -12,8 +12,6 @@
 /// pattern performs call insertions
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/static_type_helper.dart";
 
 class C {

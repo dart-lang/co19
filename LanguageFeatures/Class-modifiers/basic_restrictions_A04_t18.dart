@@ -11,8 +11,6 @@
 /// has a superdeclaration marked `final` in the same library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 final class FinalClass {}
 abstract final class AbstractFinalClass {}
 

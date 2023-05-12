@@ -24,8 +24,6 @@
 /// arguments `<K, V>`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   var <String, int>{"key1": String a1} = {} as dynamic;
 //                          ^^^^^^

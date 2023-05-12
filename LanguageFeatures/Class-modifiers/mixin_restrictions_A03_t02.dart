@@ -17,8 +17,6 @@
 /// declares a non-trivial generative constructor
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 base mixin class M1 {
   M1(int x);
 //^^

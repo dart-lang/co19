@@ -31,8 +31,6 @@
 /// name that collides with the synthesized getter name of a positional field
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 Record foo() => (42, $1: "Lily was here");
 //                   ^^
 // [analyzer] unspecified

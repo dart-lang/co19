@@ -17,8 +17,6 @@
 /// factory constructor
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 class M1 {
   M1();
   factory M1.f1() = M1;

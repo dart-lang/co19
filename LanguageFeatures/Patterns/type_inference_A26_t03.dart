@@ -20,8 +20,6 @@
 /// is `M`, as is the static type of the variable introduced by `p`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/static_type_helper.dart";
 
 main() {

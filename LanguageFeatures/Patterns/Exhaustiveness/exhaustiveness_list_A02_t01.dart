@@ -9,8 +9,6 @@
 /// statement with a list as a matched type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test(List<bool> l) {
 //     ^^^^
 // [analyzer] unspecified

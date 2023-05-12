@@ -24,8 +24,6 @@
 /// fails if type test fails in refutable context
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 

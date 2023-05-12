@@ -9,8 +9,6 @@
 /// expression's value cannot be assigned to any of the case expression types.
 /// @author vasya
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   switch ("String") {
     case 0:

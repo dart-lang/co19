@@ -17,8 +17,6 @@
 /// @description Check a map pattern in a pattern assignment
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 main() {

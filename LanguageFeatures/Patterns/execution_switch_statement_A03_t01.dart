@@ -34,8 +34,6 @@
 /// @description Check that body of the matched case is executed
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 String log = "";

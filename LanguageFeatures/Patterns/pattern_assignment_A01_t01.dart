@@ -17,8 +17,6 @@
 /// @description Check a parenthesized pattern in a pattern assignment
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 
 main() {

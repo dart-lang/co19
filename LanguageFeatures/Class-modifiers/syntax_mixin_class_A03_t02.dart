@@ -9,8 +9,6 @@
 /// library where it is defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 mixin class MixinClass {}
 
 class ClassWithMixinClass with MixinClass {}

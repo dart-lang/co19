@@ -8,8 +8,6 @@
 /// left to right.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 List<int> log = [];

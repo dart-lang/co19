@@ -15,8 +15,6 @@
 /// the static type of the variable that p resolves to. Test promoted type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 main() {
   num a = 0;
   a as int;

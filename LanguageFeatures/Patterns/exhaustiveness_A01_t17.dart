@@ -25,8 +25,6 @@
 /// always-exhaustive
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,class-modifiers
-
 class C {}
 sealed class Sealed extends C {}
 class C1 extends Sealed {}

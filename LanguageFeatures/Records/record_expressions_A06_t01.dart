@@ -9,8 +9,6 @@
 /// record with no positional fields.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 () foo() => ();
 
 main() {

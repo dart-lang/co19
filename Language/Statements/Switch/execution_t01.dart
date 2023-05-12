@@ -28,8 +28,6 @@
 /// error
 /// @author msyabro
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   switch (1) {
     case '1':

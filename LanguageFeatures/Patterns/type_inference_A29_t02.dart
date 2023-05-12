@@ -22,8 +22,6 @@
 /// context type. Test the case when `p` has type arguments `<K, V>`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 class A<T extends A<T>> {
   const A();
 }

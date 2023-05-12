@@ -37,8 +37,6 @@
 /// sets)
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   switch ([1, 2, 3]) {
     case [var a, 2, 3]:

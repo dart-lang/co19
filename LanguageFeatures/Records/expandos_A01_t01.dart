@@ -8,8 +8,6 @@
 /// @description Checks that [Expando] cannot be attached to records
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 typedef R1 = (int, int i,);

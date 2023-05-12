@@ -24,8 +24,6 @@
 /// Test `bool`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   bool b = 1 > 2;
   switch (b) {

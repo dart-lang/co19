@@ -16,8 +16,6 @@
 /// operator then this record can be used in a constant map literal as a key
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 class C {

@@ -11,8 +11,6 @@
 /// `abstract interface` is extended in the same library where it is declared
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 abstract interface class AbstractInterfaceClass {}
 
 class ExtendsInterface extends AbstractInterfaceClass {}

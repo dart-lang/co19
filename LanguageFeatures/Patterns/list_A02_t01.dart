@@ -22,8 +22,6 @@
 /// present and has more than one type argument
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(List list) {
   return switch (list) {
     <int, String>[1, > 0 || 42] => "",

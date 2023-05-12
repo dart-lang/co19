@@ -11,8 +11,6 @@
 /// lifted space union of the subpattern and a space with type `Null`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../../Utils/expect.dart";
 
 String test1(bool? o) {

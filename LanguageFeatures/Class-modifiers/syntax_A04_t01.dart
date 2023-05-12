@@ -11,8 +11,6 @@
 /// `abstract sealed class`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
   abstract sealed class AbstractSealed {}
 //         ^^^^^^
 // [analyzer] unspecified

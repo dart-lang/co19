@@ -19,8 +19,6 @@
 /// bound in a new scope
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 const c = [1];

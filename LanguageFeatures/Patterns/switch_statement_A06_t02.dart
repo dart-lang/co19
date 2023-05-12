@@ -17,8 +17,6 @@
 /// contains a wildcard
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 String test(int value) {

@@ -27,8 +27,6 @@
 /// pattern does not refer to a type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1() {
   switch (Object()) {
     case Missing():

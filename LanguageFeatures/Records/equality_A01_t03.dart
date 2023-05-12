@@ -22,8 +22,6 @@
 /// @description Checks record equality
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 int foo() => 3;

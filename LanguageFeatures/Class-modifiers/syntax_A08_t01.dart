@@ -11,8 +11,6 @@
 /// `mixin class` have modifiers `interface`, `final` or `sealed`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
   interface mixin M1 {}
 //^^^^^^^^^
 // [analyzer] unspecified

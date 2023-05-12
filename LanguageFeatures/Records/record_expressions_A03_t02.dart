@@ -31,8 +31,6 @@
 /// named `hashCode`, `runtimeType`, `noSuchMethod`, or `toString`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 Record foo1() => (42, name: "Lily was here", hashCode: "Hello");
 //                                           ^^^^^^^^
 // [analyzer] unspecified

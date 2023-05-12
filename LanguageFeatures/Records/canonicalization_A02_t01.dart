@@ -35,8 +35,6 @@
 /// @description Checks canonicalization of the object containing records
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 class C1 {

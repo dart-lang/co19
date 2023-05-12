@@ -12,8 +12,6 @@
 /// @Issue 45838
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "dart:ffi";
 
   @Packed(-1)

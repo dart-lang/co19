@@ -26,8 +26,6 @@
 /// different shapes is [Record].
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/static_type_helper.dart";
 
 main() {

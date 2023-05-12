@@ -33,8 +33,6 @@
 /// variable declaration with no space between @metadata and (a, b) r = ...
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 class Meta {
   const Meta(Type t1, Type t2);
 }

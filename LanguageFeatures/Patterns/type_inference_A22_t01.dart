@@ -16,8 +16,6 @@
 /// a type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 const INT = 42;
 
 String test1() {

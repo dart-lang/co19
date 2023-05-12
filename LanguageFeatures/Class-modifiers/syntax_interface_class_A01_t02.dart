@@ -9,8 +9,6 @@
 /// implemented inside the library where it is defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 interface class InterfaceClass {}
 
 class ClassImplementsInterfaceClass implements InterfaceClass {}

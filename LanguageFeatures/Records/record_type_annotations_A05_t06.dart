@@ -26,8 +26,6 @@
 /// positional field named `runtimeType`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = (Type runtimeType, {String s});
 //                 ^^^^^^^^^^^
 // [analyzer] unspecified

@@ -16,8 +16,6 @@
 /// to `T` in irrefutable context. Test map patterns
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   var <String, int>{"k1": x1,"k2": num x2} = <String, num>{"k1": 1, "k2": 2};
 //    ^

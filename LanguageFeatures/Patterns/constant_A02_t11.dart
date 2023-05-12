@@ -33,8 +33,6 @@
 /// constant patterns. Test if-case statement
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart" as p;
 import "../../Utils/expect.dart";
 

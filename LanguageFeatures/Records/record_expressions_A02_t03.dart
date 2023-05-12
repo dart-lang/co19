@@ -30,8 +30,6 @@
 /// @description Checks that it is no error if a record has trailing commas
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 Record foo1() => (1, 2,);

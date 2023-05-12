@@ -38,8 +38,6 @@
 /// appear in an `on` clause
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef Rec = (int i, String s);
 
 mixin M1 on (int i, String s) {}

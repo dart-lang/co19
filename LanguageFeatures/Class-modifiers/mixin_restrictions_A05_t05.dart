@@ -20,8 +20,6 @@
 /// mixin
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 mixin M {}
 
 mixin class MixinClassWithObject with Object {}

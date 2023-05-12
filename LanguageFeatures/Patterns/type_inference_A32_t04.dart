@@ -16,8 +16,6 @@
 /// to `T` in irrefutable context. Test record patterns
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 main() {
   var (x1, n: x2) = (1, 2);
 //                  ^

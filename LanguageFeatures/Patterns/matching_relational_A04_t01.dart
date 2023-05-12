@@ -36,8 +36,6 @@
 /// with argument `c` is `true`. Match fails otherwise
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 class C {

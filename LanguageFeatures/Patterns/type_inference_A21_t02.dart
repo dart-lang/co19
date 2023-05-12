@@ -28,8 +28,6 @@
 /// assignable to the operator's parameter type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 class C {
   final int v;
   const C(this.v);

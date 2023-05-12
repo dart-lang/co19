@@ -31,8 +31,6 @@
 /// tear-offs
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 class C<T extends Record> {

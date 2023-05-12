@@ -20,8 +20,6 @@
 /// superclass has a mixin
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 mixin M {}
 
 mixin class MixinClassWithM extends Object with M {}

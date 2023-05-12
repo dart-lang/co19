@@ -29,8 +29,6 @@
 /// @description Check that if es is empty, then E is _
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 

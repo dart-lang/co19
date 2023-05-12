@@ -11,8 +11,6 @@
 /// extended in the same library where it is declared
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 final class FinalClass {}
 
 base class BaseExtendsFinal extends FinalClass {}

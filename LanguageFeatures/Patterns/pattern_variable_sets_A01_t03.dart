@@ -15,8 +15,6 @@
 /// different type and finality but declares no variable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 
 String test11(Object x) {

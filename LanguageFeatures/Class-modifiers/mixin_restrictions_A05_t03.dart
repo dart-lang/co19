@@ -19,8 +19,6 @@
 /// class declaration has a declared superclass other than `Object`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 class C {}
 mixin M {}
 

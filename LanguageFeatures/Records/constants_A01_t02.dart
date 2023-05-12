@@ -19,8 +19,6 @@
 /// constant expression.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 final Pi = 3.14;
 
 const r1 = (1, [1], {2}, {"a": 0}, Pi);

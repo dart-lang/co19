@@ -9,8 +9,6 @@
 /// before `typedef`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 class C {}
 
   abstract typedef T1 = C;

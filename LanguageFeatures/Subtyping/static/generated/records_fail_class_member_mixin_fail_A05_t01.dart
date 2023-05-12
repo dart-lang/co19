@@ -23,8 +23,6 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
-// SharedOptions=--enable-experiment=class-modifiers,records
-
 (int, String, {bool b0}) t0Instance = (1, "2", b0: true);
 
 const t1Default = const (5, "6", b1: false);

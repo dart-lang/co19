@@ -31,8 +31,6 @@
 /// than one trailing comma
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 Record foo1() => (1,,);
 //                  ^
 // [analyzer] unspecified

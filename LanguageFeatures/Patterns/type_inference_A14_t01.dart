@@ -13,8 +13,6 @@
 /// expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/static_type_helper.dart";
 
 main() {

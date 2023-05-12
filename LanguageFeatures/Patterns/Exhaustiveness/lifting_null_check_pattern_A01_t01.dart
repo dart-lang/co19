@@ -15,8 +15,6 @@
 /// have type `Null`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(bool? o) {
   switch (o) {
 //^^^^^^

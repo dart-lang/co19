@@ -21,8 +21,6 @@
 /// the declared superclass
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 mixin class MixinClass {}
 
 base mixin class BaseMixinClass {}

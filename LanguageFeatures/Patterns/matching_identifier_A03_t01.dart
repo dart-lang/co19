@@ -24,8 +24,6 @@
 /// succeeds and `v` is stored in `p`s variable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 main() {

@@ -17,8 +17,6 @@
 /// initializer
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 const c = 1;
 
 test() {

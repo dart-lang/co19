@@ -11,8 +11,6 @@
 /// instance
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 main() {
   Record();
 //^^^^^^

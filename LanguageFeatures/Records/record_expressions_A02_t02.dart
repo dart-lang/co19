@@ -31,8 +31,6 @@
 /// only one positional field but with a trailing comma
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 (int,) foo1() => (1,);

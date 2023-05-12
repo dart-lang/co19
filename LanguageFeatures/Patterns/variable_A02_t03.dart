@@ -27,8 +27,6 @@
 /// pattern matches values of the appropriate type only. Test records
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 

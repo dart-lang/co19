@@ -24,8 +24,6 @@
 /// not exhaustive. Test a type whose declaration is marked `sealed`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,class-modifiers
-
 sealed class Sealed {}
 class C1 extends Sealed {}
 class C2 extends Sealed {}

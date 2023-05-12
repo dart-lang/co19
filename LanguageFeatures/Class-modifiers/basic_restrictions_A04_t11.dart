@@ -12,8 +12,6 @@
 /// library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 base class BaseClass {}
 abstract base class AbstractBaseClass {}
 base mixin BaseMixin {}

@@ -21,8 +21,6 @@
 /// @description Check that wildcard `_` can be used in record patterns
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 
 String test1(Record r) {

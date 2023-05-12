@@ -14,8 +14,6 @@
 /// @description Checks a relational subpattern in an if-else statement
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 void test(List<num> list, String expected) {
