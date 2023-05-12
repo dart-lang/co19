@@ -15,8 +15,6 @@
 /// identical if they are equal according to the runtime type equality.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "dart:async";
 import "../../Utils/expect.dart";
 
