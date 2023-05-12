@@ -15,8 +15,6 @@
 /// and `e2` are potentially constant expressions.
 /// @author kaigorodov
 
-// SharedOptions=--enable-experiment=patterns
-
 class A {
   const A() : a = "hello";
   final a;

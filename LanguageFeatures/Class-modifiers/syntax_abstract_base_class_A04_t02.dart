@@ -11,8 +11,6 @@
 // defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 abstract base class AbstractBaseClass {}
 
 base class BaseClassWithAbstractBaseClass1 with AbstractBaseClass {}

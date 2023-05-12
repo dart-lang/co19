@@ -17,8 +17,6 @@
 /// declares any variable. Test a map pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   int a = -1, b = -2;
   {"key1": var a, "key2": _} = {"key1": 1, "key2": 2};

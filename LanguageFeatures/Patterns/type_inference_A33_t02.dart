@@ -16,8 +16,6 @@
 /// instantiation is not performed and compile-time error occurs
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 T foo<T>(T t) => t;
 
 main() {

@@ -11,8 +11,6 @@
 /// `sealed` with `final`, `base`, or `interface` modifiers
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
   sealed final class SealedFinal {}
 //^^^^^^
 // [analyzer] unspecified

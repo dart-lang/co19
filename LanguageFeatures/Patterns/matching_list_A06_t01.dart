@@ -53,8 +53,6 @@
 /// @description Check that empty list pattern matches list with negative length
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 import "dart:collection";
 

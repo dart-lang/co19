@@ -27,8 +27,6 @@
 /// try block if this function has a return type specified
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 main() {

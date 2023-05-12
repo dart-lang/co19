@@ -6,8 +6,6 @@
 /// of T0 can be assigned to the mixin member of type T1
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 mixin class ClassMemberMixin1_t03 {
   @T1 m = t1Default;
 

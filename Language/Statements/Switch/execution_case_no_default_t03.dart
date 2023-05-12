@@ -19,8 +19,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 7537
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../../Utils/expect.dart";
 
 test(value) {

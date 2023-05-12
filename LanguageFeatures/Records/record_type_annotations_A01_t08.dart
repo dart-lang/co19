@@ -20,8 +20,6 @@
 /// @description Checks records type annotations in type arguments
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 T foo<T extends Record>(T t) => t;

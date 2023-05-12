@@ -12,8 +12,6 @@
 /// a type alias of an `abstract final` superdeclaration in the same library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 abstract final class AbstractFinalClass {}
 
 typedef TypedefAbstractFinalClass = AbstractFinalClass;

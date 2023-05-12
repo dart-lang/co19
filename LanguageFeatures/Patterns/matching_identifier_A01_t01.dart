@@ -23,8 +23,6 @@
 /// if `c == v`, where `c` is the pattern's value, evaluates to `true`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 class C {

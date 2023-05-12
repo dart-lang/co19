@@ -15,8 +15,6 @@
 /// a class not declared as `mixin`, but defined in a pre-feature library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_pre_feature_lib.dart";
 
 class C1 with Class {}

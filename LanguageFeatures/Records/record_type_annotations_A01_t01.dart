@@ -20,8 +20,6 @@
 /// @description Checks records type annotations static and runtime types
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 (int, String name, bool) r1 = (42, "Name", true);

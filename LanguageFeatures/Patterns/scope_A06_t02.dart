@@ -17,8 +17,6 @@
 /// a case's scope of if-case element is referenced in its `else` branch
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   List<int> l1 = [
     1,

@@ -9,8 +9,6 @@
 /// `abstract class` in the same library where it is defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 abstract class AbstractClass {}
 
 class ClassWithAbstractClass1 with AbstractClass {}

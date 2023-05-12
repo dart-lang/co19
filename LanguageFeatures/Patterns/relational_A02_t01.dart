@@ -14,8 +14,6 @@
 /// @description Checks a relational pattern in a switch statement
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 void test1(double value, String expected) {

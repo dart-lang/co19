@@ -28,8 +28,6 @@
 /// when patterns are added to Dart. Test if-case statement
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   Object value = Object();
   if (value case 1 + 2) {

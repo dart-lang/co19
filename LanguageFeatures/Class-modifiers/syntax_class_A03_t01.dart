@@ -9,8 +9,6 @@
 /// modifiers is mixed in in another library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 class ClassWithClass1 with Class {}

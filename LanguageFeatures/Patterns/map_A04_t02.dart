@@ -20,8 +20,6 @@
 /// map are equal according to their == operator, but not identical
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 class C {

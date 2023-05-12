@@ -20,8 +20,6 @@
 /// @description Checks records type annotations used in an extension
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 extension on (int, num, int n, {String name}) {

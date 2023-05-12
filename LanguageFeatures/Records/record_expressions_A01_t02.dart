@@ -31,8 +31,6 @@
 /// field name more than once
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 Record foo() => (42, name: "Lily was here", name: "Hello");
 //                                          ^^^^
 // [analyzer] unspecified

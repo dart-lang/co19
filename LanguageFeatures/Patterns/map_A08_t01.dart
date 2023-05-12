@@ -19,8 +19,6 @@
 /// @description Check that an empty map pattern is a compile-time error
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(Map map) {
   return switch (map) {
     {} => "case-1",

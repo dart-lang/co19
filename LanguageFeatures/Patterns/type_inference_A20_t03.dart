@@ -12,8 +12,6 @@
 /// logical-and pattern fails a type check in an irrefutable context
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   var (List<int> v1 && List<num> v2) = <num>[];
 //                                     ^^^^^^^

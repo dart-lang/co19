@@ -30,8 +30,6 @@
 /// @description Checks that record expression may be constant
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 const r1 = const (3.14, name: "pi");
 
 class C {

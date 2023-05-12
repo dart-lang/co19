@@ -27,8 +27,6 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 class U0 extends U1 {}
 class U1 {}
 class V0 {}

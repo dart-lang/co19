@@ -8,8 +8,6 @@
 /// can be exhaustive
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

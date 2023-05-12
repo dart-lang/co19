@@ -16,8 +16,6 @@
 /// outerPattern.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   var [a1] || [_] = ["Logical-or pattern"];
 //         ^^^^^^

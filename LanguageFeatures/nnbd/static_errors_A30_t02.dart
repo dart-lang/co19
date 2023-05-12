@@ -20,8 +20,6 @@
 /// value whose static type is not a subtype of T
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=patterns
-
 void foo() {}
 
 main() {

@@ -35,8 +35,6 @@
 /// matched value is modified in the case body this new value is not tested
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 String log = "";

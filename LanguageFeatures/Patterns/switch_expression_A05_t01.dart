@@ -32,8 +32,6 @@
 /// and the `=>` is treated as the separator between the guard and case body
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 void foo() => 42;

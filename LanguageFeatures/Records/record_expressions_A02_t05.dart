@@ -31,8 +31,6 @@
 /// no trailing comma
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 Record foo1() => (one: 1);
 
 void bar(Record r) {}

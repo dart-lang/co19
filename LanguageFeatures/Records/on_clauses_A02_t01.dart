@@ -28,8 +28,6 @@
 /// function with optional positional parameters
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 main() {
   try {
     print(0);

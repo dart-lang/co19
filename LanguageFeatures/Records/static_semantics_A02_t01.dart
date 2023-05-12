@@ -18,8 +18,6 @@
 /// fields have the same types.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "static_semantics_A02_t01.lib.dart" as lib;
 import "../../Utils/expect.dart";
 

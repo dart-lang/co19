@@ -12,8 +12,6 @@
 /// type alias of an `abstract base` superdeclaration in another library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 class ExtendsBaseClass extends TypedefAbstractBaseClass {}

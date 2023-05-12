@@ -20,8 +20,6 @@
 /// present and map pattern is empty (to ensure that we have no set pattern)
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(Object object) {
   return switch (object) {
     <int>{} => "",

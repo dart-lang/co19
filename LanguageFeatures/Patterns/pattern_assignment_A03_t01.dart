@@ -18,8 +18,6 @@
 /// the left side of a compound assignment operator.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 main() {
   int a1 = 42;
   Record r1 = ();

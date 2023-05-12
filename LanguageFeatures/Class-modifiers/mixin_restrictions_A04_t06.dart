@@ -16,8 +16,6 @@
 /// defined in the same library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 class Class {}
 base class BaseClass {}
 interface class InterfaceClass {}

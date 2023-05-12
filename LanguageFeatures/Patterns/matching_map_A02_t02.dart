@@ -50,7 +50,6 @@
 /// `containsKey(k)` is not called
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
 // Requirements=nnbd-strong
 
 import "patterns_collections_lib.dart";

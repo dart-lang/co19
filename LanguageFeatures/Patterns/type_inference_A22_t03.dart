@@ -17,8 +17,6 @@
 /// context
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 Never foo() => throw 0;
 
 class A {}

@@ -13,8 +13,6 @@
 /// null-assert pattern cannot be null
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(int? value) =>
   switch (value) {
     var a1! when a1 > 0 => "null-assert-1",

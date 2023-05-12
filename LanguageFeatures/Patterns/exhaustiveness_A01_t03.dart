@@ -24,8 +24,6 @@
 /// not exhaustive. Test `null`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   switch (null) {
 //^^^^^^

@@ -25,8 +25,6 @@
 /// `parent:("[]", [2])` are invoked only once.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
 

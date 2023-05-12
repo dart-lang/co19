@@ -15,8 +15,6 @@
 /// not have equal pattern variable sets
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 String test1(Object? x) {
   switch (x) {
     case int v0 || [var v0] when v0 == 0:

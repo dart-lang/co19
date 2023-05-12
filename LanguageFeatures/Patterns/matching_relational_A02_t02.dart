@@ -35,8 +35,6 @@
 /// @description Check that in case `c != null` only `v == null` doesn't match.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 class C {

@@ -10,8 +10,6 @@
 /// @description Checks that class [Record] may have an extension
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 extension on Record {

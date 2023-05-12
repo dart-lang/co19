@@ -17,8 +17,6 @@
 /// repeated.
 /// @author vasya
 
-// SharedOptions=--enable-experiment=patterns
-
 foo(value) {
   var result;
 

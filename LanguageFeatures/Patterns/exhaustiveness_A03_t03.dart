@@ -10,8 +10,6 @@
 /// always-exhaustive type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 String test(List<bool> l) => switch (l) {

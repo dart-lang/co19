@@ -9,8 +9,6 @@
 /// error if a <keyword> is empty. Test a set literal
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 Future<Set<int>> test1() async {

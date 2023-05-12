@@ -33,8 +33,6 @@
 /// between metadata and its arguments list.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 class Meta {
   const Meta(Type t1, Type t2);
 }

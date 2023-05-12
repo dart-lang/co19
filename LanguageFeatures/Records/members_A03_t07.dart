@@ -12,8 +12,6 @@
 /// ones exposed for positional fields have a higher priority
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 typedef R = (int a, String, {int x, int y});

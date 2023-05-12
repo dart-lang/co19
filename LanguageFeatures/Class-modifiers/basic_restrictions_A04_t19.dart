@@ -12,8 +12,6 @@
 /// a type alias of a `base` superdeclaration in another library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 class ExtendsBaseClass extends TypedefBaseClass {}

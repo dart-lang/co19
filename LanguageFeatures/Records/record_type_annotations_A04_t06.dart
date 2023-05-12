@@ -26,8 +26,6 @@
 /// named field with no trailing comma
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = ({int i});
 
 typedef ({int j}) R2();

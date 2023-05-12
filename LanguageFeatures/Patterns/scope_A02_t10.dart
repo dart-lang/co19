@@ -17,8 +17,6 @@
 /// scope
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() async {
   Stream stream = Stream.fromIterable([[3]]);
   print(c);

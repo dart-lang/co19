@@ -31,8 +31,6 @@
 /// name that starts with an underscore
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 Record foo() => (42, _name: "Lily was here");
 //                   ^^^^^
 // [analyzer] unspecified

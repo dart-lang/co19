@@ -10,8 +10,6 @@
 /// defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 base mixin class BaseMixinClass {}
 
 base class BaseClassImplementsBaseMixinClass implements BaseMixinClass {}

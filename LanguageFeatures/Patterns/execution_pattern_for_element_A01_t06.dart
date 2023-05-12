@@ -14,8 +14,6 @@
 /// pattern. Test pattern-for element in a map literal
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 main() {

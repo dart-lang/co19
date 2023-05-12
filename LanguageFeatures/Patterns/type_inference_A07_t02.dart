@@ -31,8 +31,6 @@
 /// @description Check that if list pattern p has no elements then E is _
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 

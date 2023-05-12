@@ -10,8 +10,6 @@
 /// `abstract` modifier
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
   abstract mixin M1 {}
 //^^^^^^^^
 // [analyzer] unspecified

@@ -18,8 +18,6 @@
 /// @author rodionov
 /// @issue 7537
 
-// SharedOptions=--enable-experiment=patterns
-
 import '../../../Utils/expect.dart';
 
 switchTestBool(value) {

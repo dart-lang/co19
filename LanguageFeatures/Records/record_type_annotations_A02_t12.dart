@@ -35,8 +35,6 @@
 /// @description Checks that records itself may be nullable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = (int? i, String? s)?;
 typedef R2 = (int? i,{String? s})?;
 typedef R3 = ({int? i, String? s})?;

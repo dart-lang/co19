@@ -27,8 +27,6 @@
 /// value is not a valid constant expression. Test switch expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 class C {
   final v = 42;
   static final s = "s";

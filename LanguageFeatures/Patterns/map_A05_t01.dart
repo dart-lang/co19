@@ -20,8 +20,6 @@
 /// are equal
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 String test1(Map map) {
   return switch (map) {
     {(): 1, (): 2} => "",

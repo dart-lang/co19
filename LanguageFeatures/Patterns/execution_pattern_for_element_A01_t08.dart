@@ -13,8 +13,6 @@
 /// for loop. Test a map pattern in a map literal
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 main() {

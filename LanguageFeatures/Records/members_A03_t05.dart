@@ -13,8 +13,6 @@
 /// the type of the field. Test type of `.$i`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/static_type_helper.dart";
 
 typedef R = (int a, String, {int x, int y});

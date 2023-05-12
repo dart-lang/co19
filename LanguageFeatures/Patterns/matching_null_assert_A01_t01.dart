@@ -24,8 +24,6 @@
 /// Otherwise the inner pattern matched against `v`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 String test1(Object? o) {

@@ -12,8 +12,6 @@
 /// the greatest lower bound of the context type schemas of the branches.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 

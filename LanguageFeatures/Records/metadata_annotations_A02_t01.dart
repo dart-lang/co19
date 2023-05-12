@@ -33,8 +33,6 @@
 /// then (a, b) denotes an argument lists of the annotation. Test functions
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 class Meta {

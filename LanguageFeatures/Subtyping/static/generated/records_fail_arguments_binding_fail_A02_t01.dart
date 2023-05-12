@@ -22,8 +22,6 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
-// SharedOptions=--enable-experiment=records
-
 (int, String) t0Instance = (1, "2");
 (int, String, bool) t1Instance = (3, "4", false);
 

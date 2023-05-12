@@ -13,8 +13,6 @@
 /// @description Check some valid cast patterns in an if-case statements
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 const Object zero = 0;

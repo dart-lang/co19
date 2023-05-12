@@ -29,8 +29,6 @@
 /// is called only once on `v` for each `arg`. Test the case when `v` is dynamic
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 class C {

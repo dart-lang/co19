@@ -14,8 +14,6 @@
 /// lifted space is an empty space
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 class C {
   final bool v;
   const C(this.v);

@@ -15,8 +15,6 @@
 /// is not a valid constant expression. Test subexpression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test(List<num> list) {
   int i = 0;
   final j = 10;

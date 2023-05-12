@@ -8,8 +8,6 @@
 /// switch expression is a list and cases are not exhaustive.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(List<int> l) =>
   switch (l) {
 //^^^^^^

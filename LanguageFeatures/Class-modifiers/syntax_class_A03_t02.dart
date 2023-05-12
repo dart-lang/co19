@@ -9,8 +9,6 @@
 /// modifiers is mixed in in the same library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 class Class {}
 
 class ClassWithClass1 with Class {}

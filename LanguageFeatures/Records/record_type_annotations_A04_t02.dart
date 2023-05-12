@@ -26,8 +26,6 @@
 /// and only one positional field but with a trailing comma
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = (int i,);
 
 typedef (int,) R2();

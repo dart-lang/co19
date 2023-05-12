@@ -20,8 +20,6 @@
 /// unioned have a variable with the same name
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 String test1(Object x) {
   switch (x) {
     case [var v1] && [var v1, ...]:

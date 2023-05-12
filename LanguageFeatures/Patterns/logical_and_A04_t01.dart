@@ -17,8 +17,6 @@
 /// @description Checks a logical-and in a variable declaration pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 
 main() {

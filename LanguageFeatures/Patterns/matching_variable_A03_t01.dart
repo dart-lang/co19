@@ -24,8 +24,6 @@
 /// in `p`s variable and match succeeds. Test an irrefutable context
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 main() {

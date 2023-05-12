@@ -10,8 +10,6 @@
 /// `basic_restrictions_A04_t*`)
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 base mixin BaseMixin {}
 
 base class BaseClassWithBaseMixin with BaseMixin {}

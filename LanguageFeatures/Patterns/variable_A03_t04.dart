@@ -27,8 +27,6 @@
 /// then it is a compile-time error to assign a value to it. Test maps
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 void test1(Map m) {
   switch (m) {
     case {1: final a}:

@@ -9,8 +9,6 @@
 /// switch expression is a sealed class and cases are not exhaustive
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,class-modifiers
-
 import "exhaustiveness_lib.dart";
 
 String test1(Face face) => switch (face) {

@@ -11,8 +11,6 @@
 /// may complete normally, even when it's not the last or `default` case.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=patterns
-
 void foo() {}
 
 main() {

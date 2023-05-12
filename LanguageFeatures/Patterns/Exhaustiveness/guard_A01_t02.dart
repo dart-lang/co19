@@ -16,8 +16,6 @@
 /// without guards, even in the case where cases with guards exist as well.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,class-modifiers
-
 import "exhaustiveness_lib.dart";
 import "../../../Utils/expect.dart";
 

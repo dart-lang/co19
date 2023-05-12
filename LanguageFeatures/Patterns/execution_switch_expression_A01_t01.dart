@@ -18,8 +18,6 @@
 /// @description Check that if there is a guard clause it is evaluated
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 String log = "";

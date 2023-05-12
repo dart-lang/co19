@@ -33,8 +33,6 @@
 /// operator `await`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 f1() => Future.delayed(Duration(milliseconds: 1), () => 42);

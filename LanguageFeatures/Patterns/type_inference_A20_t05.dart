@@ -13,8 +13,6 @@
 /// case when context type schema of logical-and pattern is `Never`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 Never foo() => throw 42;
 
 main() {

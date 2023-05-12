@@ -30,8 +30,6 @@
 /// if a `<keyword>` is empty
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 main() async {

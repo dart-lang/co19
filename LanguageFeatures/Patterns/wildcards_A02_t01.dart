@@ -21,8 +21,6 @@
 /// @description Check that if variable name is _, it doesn't bind any variable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 testRecord(Record r) {

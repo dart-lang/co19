@@ -15,8 +15,6 @@
 /// is not a valid constant expression. Test switch expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(int num) {
   int i = 0;
   return switch (num) {

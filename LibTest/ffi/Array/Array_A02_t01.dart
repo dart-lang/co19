@@ -24,8 +24,6 @@
 /// @description Checks that it is not allowed to create zero-sized array
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 

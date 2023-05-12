@@ -22,7 +22,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40395
 
-// SharedOptions=--enable-experiment=patterns
 // Requirements=nnbd-strong
 
 enum E {

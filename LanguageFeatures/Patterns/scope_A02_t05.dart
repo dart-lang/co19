@@ -16,8 +16,6 @@
 /// declared by the pattern in a pattern-for-in element outside of its scope
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   print(c);
 //      ^

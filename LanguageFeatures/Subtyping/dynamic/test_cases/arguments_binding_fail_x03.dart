@@ -6,8 +6,6 @@
 /// be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 mixin class ArgumentsBindingSuper1_t03 {
   void superTest(@T1 val) {}
   void superTestPositioned(@T1 val, [@T1 val2 = t1Default]) {}

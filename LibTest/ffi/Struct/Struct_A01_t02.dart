@@ -12,8 +12,6 @@
 /// 'Union'
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "dart:ffi";
 
 final class S1 extends Struct {

@@ -34,8 +34,6 @@
 /// record types
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 class Meta {
   const Meta(Type t1, Type t2);
 }

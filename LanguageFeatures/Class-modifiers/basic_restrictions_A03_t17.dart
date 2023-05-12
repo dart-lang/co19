@@ -13,8 +13,6 @@
 /// declared. Test a type alias of an `abstract base mixin class`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 class ImplementsBaseMixinClass implements TypedefAbstractBaseMixinClass {}

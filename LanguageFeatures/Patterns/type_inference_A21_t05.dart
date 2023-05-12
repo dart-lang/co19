@@ -28,8 +28,6 @@
 /// nullable type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 class A {
   final num v;
   A(this.v);

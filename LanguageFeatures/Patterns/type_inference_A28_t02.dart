@@ -29,8 +29,6 @@
 /// `List<T>` for some `T` then `E` is `T`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 

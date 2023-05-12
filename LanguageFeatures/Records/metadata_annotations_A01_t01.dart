@@ -34,8 +34,6 @@
 /// metadata and a return type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 const Meta = "meta";

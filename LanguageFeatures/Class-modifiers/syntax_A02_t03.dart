@@ -9,8 +9,6 @@
 /// before `extension`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 class C {}
 
   abstract extension E1 on C {foo1() {}}

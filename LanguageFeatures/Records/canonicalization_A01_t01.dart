@@ -27,8 +27,6 @@
 /// `identical()` can be computed (but the returned value is not known).
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 main() {
   var r1 = ("a", 1, const [42], const {"x": 0}, const {1, 2, 3});
   var r2 = const ("a", 1, [42], {"x": 0}, {1, 2, 3},);

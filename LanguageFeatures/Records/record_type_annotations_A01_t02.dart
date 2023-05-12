@@ -21,8 +21,6 @@
 /// types `void` and `Never` in a records
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 (int, String name, void) r1 = (42, "Name", true);

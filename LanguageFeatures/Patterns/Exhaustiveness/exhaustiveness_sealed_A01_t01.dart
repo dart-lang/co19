@@ -9,8 +9,6 @@
 /// switch expression is a sealed class and all cases are exhaustive
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,class-modifiers
-
 import "../../../Utils/expect.dart";
 
 sealed class A<T> {}

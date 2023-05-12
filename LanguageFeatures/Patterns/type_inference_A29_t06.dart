@@ -22,8 +22,6 @@
 /// Map<K2, V2> then value's value type is V1 and key context is K1
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 

@@ -19,8 +19,6 @@
 /// @description Checks a map pattern in a declaration context
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 const two = 2;

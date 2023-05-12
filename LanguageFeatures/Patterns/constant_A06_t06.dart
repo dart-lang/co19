@@ -28,8 +28,6 @@
 /// when patterns are added to Dart. Test switch expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 int test() {
   Object value = Object();
   return switch (value) {

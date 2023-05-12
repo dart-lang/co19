@@ -35,8 +35,6 @@
 /// body. Test whether or not the corresponding variables in vs are promoted
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
@@ -70,4 +68,3 @@ main() {
   Expect.equals("match", test2(0));
   Expect.equals("match", test2(1));
 }
-

@@ -11,8 +11,6 @@
 /// types of all its case expressions is not assignable to `T`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main () {
   var x = 42;
   int v1 = switch (x) {

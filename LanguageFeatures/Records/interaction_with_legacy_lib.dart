@@ -29,8 +29,6 @@
 /// @description Non-legacy library for interaction with legacy ones
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 library interaction_with_legacy_lib;
 export "dart:core" show Record;
 

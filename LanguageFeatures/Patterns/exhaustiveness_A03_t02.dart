@@ -9,8 +9,6 @@
 /// not exhaustive
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test(int i) => switch (i) {
 //                    ^^^^^^
 // [analyzer] unspecified

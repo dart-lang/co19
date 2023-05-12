@@ -11,8 +11,6 @@
 /// `abstract final` is extended in the same library where it is declared
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 abstract final class AbstractFinalClass {}
 
 base class BaseExtendsFinal extends AbstractFinalClass {}

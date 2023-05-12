@@ -27,8 +27,6 @@
 /// final destructuring pattern then declared variable is final
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 main() {

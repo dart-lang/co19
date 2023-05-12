@@ -38,8 +38,6 @@
 /// fields
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef Rec = ();
 
 () foo() => ("",);

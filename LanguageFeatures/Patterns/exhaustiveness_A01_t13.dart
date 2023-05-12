@@ -25,8 +25,6 @@
 /// types
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 test((bool, {bool b}) r) {
   switch (r) {
 //^^^^^^

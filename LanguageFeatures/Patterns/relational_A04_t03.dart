@@ -15,8 +15,6 @@
 /// is not a valid constant expression. Test an if-case statement
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   int i = 0;
   int value = 42;

@@ -17,8 +17,6 @@
 /// other. Check records with positional fields only
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 typedef T1 = (int, String);

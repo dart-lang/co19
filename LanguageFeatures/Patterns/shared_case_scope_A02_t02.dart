@@ -35,8 +35,6 @@
 /// body. Test the case when shared variable in body is promoted
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
@@ -86,4 +84,3 @@ main() {
   Expect.equals("match", test3(1));
   Expect.equals("match", test3(2));
 }
-

@@ -48,8 +48,6 @@
 /// required type of `p` then the match fails and no any member of `v` is called
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
 

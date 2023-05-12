@@ -11,8 +11,6 @@
 /// @description Check that '$' can be used as a member name
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 main() {

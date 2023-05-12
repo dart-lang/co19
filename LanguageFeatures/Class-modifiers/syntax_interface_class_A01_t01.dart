@@ -9,8 +9,6 @@
 /// implemented outside of the library where it is defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 class ClassImplementsInterfaceClass implements InterfaceClass {}

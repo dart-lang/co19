@@ -17,8 +17,6 @@
 /// constant map literal as a keys
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 class C {
   const C();
 }

@@ -26,8 +26,6 @@
 /// positional field named `noSuchMethod`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = (Function noSuchMethod, {String s});
 //                     ^^^^^^^^^^^^
 // [analyzer] unspecified

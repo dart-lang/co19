@@ -10,8 +10,6 @@
 /// a compile-time error if no constant with the same name defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 var c = 1;

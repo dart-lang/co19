@@ -10,8 +10,6 @@
 /// produce compile-time errors.
 /// @author msyabro
 
-// SharedOptions=--enable-experiment=records
-
 class A {
   const A();
   const A.anotherConstructor(p1, p2);

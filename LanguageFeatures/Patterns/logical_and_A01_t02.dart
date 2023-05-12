@@ -17,8 +17,6 @@
 /// @description Checks a logical-and subpattern in a switch expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 bool matches(List list) => switch (list) {

@@ -23,8 +23,6 @@
 /// is present and does not match the arity of the type of typeName.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 String test(Object o) => switch(o) {

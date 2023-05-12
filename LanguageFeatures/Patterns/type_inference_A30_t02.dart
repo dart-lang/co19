@@ -24,8 +24,6 @@
 /// compile-time error if type test fails in an irrefutable context
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 main() {
   var (int v1, name: String n1) = (3.14, name: "pi");
 //                                ^

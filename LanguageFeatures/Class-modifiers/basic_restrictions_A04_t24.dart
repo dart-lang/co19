@@ -12,8 +12,6 @@
 /// a type alias of a `final` superdeclaration in the same library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 final class FinalClass {}
 
 typedef TypedefFinalClass = FinalClass;

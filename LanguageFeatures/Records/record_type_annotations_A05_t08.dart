@@ -26,8 +26,6 @@
 /// positional field named `toString`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = (String toString, {String s});
 //                   ^^^^^^^^
 // [analyzer] unspecified

@@ -26,8 +26,6 @@
 /// constant patterns now and produce a compile-time error
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test(Object value) {
   switch (value) {
     case 1 + 2:

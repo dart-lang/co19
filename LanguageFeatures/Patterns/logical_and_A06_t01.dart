@@ -18,8 +18,6 @@
 /// is not evaluated
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 

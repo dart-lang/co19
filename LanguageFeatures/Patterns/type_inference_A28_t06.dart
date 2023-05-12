@@ -29,8 +29,6 @@
 /// `List<E>` as the matched value type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   var <String>[a1, b1, ...List<int> r1] = [1, 2, 42, 3];
 //                                  ^^

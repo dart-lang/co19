@@ -9,8 +9,6 @@
 /// is a compile-time constant of type double
 /// @author msyabro
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   switch (1.0) {
     case 0.5:

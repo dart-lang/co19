@@ -38,8 +38,6 @@
 /// appear in an `extends` clause
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef Rec = (int i, String s);
 
 class A extends (int i, String s) {}

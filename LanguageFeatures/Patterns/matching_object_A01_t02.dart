@@ -28,8 +28,6 @@
 /// required type of `p` then the match fails and no getters of `v` are called
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 import "../../Utils/expect.dart";
 

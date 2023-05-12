@@ -17,8 +17,6 @@
 /// normalization
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "dart:async";
 import "../../Utils/expect.dart";
 

@@ -34,8 +34,6 @@
 /// @description Checks that a new scope is created for the shared cases
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 Function captured = () {};
