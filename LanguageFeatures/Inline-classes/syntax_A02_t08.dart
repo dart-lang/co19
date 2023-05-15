@@ -13,30 +13,107 @@
 ///
 /// <inlineMemberDeclaration> ::= <classMemberDefinition>
 ///
-/// @description Checks that an inline class can be declared as `final` and can
-/// be extended and implemented by `final inline` classes in the same library
+/// @description Checks that it is a compile-time error to extend, implement (by
+/// non-inline class) or declare a mixin on a `final inline` class even in the
+/// same library where it is defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../../Utils/expect.dart";
-
-final inline class FIC {
-  final int id ;
-  const FIC(this.id);
+final inline class FinalInlineClass {
+  final int x;
+  const FinalInlineClass([this.x = 0]);
 }
 
-final inline class FIC2 extends FIC {
-  const FIC2(int id): super(id);
-}
+class ClassExtendsFinal extends FinalInlineClass {}
+//                              ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-final inline class FIC3 implements FIC {
-  int id;
-  FIC3(this.id);
-}
+base class BaseClassExtendsFinal extends FinalInlineClass {}
+//                                       ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+interface class InterfaceClassExtendsFinal extends FinalInlineClass {}
+//                                                 ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+final class FinalClassExtendsFinal extends FinalInlineClass {}
+//                                         ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+sealed class SealedClassExtendsFinal extends FinalInlineClass {}
+//                                           ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified  const SC(int id): super(id);
+
+abstract class AbstractClassExtendsFinal extends FinalInlineClass {}
+//                                               ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract base class AbstractBaseClassExtendsFinal extends FinalInlineClass {}
+//                                                        ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract interface class AbstractInterfaceClassExtendsFinal extends FinalInlineClass {}
+//                                                                  ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract final class AbstractFinalClassExtendsFinal extends FinalInlineClass {}
+//                                                          ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+mixin class MixinClassExtendsFinal extends FinalInlineClass {}
+//                                         ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+base mixin class BaseMixinClassExtendsFinal extends FinalInlineClass {}
+//                                                  ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract mixin class AbstractMixinClassExtendsFinal extends FinalInlineClass {}
+//                                                          ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+abstract base mixin class AbstractBaseMixinClassExtendsFinal extends FinalInlineClass {}
+//                                                                   ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+mixin Mixin on FinalInlineClass {}
+//             ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+base mixin BaseMixin on FinalInlineClass {}
+//                      ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  Expect.equals(1, FIC(1).id);
-  Expect.equals(2, FIC2(2).id);
-  Expect.equals(3, FIC3(3).id);
+  print(ClassExtendsFinal);
+  print(BaseClassExtendsFinal);
+  print(InterfaceClassExtendsFinal);
+  print(FinalClassExtendsFinal);
+  print(SealedClassExtendsFinal);
+  print(AbstractClassExtendsFinal);
+  print(AbstractBaseClassExtendsFinal);
+  print(AbstractInterfaceClassExtendsFinal);
+  print(AbstractFinalClassExtendsFinal);
+  print(MixinClassExtendsFinal);
+  print(BaseMixinClassExtendsFinal);
+  print(AbstractMixinClassExtendsFinal);
+  print(AbstractBaseMixinClassExtendsFinal);
+  print(Mixin);
+  print(BaseMixin);
 }

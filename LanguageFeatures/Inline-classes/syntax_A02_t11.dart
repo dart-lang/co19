@@ -13,110 +13,25 @@
 ///
 /// <inlineMemberDeclaration> ::= <classMemberDefinition>
 ///
-/// @description Checks that it is a compile-time error if an `inline` class has
-/// a modifier which is not `final`
+/// @description Checks that it is not an error if a `final inline` class is
+/// implemented by another `final inline` class in the same library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-base inline class BaseInlineClass {
-//   ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id;
-  BaseInlineClass(this.id);
+import "../../Utils/expect.dart";
+
+final inline class FIC {
+  final int id ;
+  const FIC(this.id);
 }
 
-interface inline class InterfaceInlineClass {
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id;
-  InterfaceInlineClass(this.id);
-}
-
-sealed inline class SealedInlineClass {
-//     ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id;
-  SealedInlineClass(this.id);
-}
-
-abstract inline class AbstractInlineClass {
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id;
-  AbstractInlineClass(this.id);
-}
-
-abstract base inline class AbstractBaseInlineClass {
-//            ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id;
-  AbstractBaseInlineClass(this.id);
-}
-
-abstract interface inline class AbstractInterfaceInlineClass {
-//                 ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id;
-  AbstractInterfaceInlineClass(this.id);
-}
-
-abstract final inline class AbstractFinalInlineClass {
-//             ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id;
-  AbstractFinalInlineClass(this.id);
-}
-
-mixin inline class MixinInlineClass {
-//    ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id;
-  MixinInlineClass(this.id);
-}
-
-base mixin inline class BaseMixinInlineClass {
-//         ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id;
-  BaseMixinInlineClass(this.id);
-}
-
-abstract mixin inline class AbstractMixinInlineClass {
-//             ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id;
-  AbstractMixinInlineClass(this.id);
-}
-
-abstract base mixin inline class AbstractBaseMixinInlineClass {
-//                  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id;
-  AbstractBaseMixinInlineClass(this.id);
+final inline class FIC2 implements FIC {
+  int id;
+  FIC2(this.id);
 }
 
 main() {
-  print(BaseInlineClass);
-  print(InterfaceInlineClass);
-  print(SealedInlineClass);
-  print(AbstractInlineClass);
-  print(AbstractBaseInlineClass);
-  print(AbstractInterfaceInlineClass);
-  print(AbstractFinalInlineClass);
-  print(MixinInlineClass);
-  print(BaseMixinInlineClass);
-  print(AbstractMixinInlineClass);
-  print(AbstractBaseMixinInlineClass);
+  Expect.equals(1, FIC(1).id);
+  Expect.equals(2, FIC2(2).id);
 }

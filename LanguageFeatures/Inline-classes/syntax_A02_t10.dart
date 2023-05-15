@@ -14,128 +14,23 @@
 /// <inlineMemberDeclaration> ::= <classMemberDefinition>
 ///
 /// @description Checks that it is a compile-time error if a `final inline`
-/// class is implemented outside of the library where it is defined
+/// class is extended by another `final inline` class in the same library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "inline_class_lib.dart";
-
-class ClassImplementsFinal implements FinalInlineClass {
-//                                    ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int get x => 0;
+final inline class FIC {
+  final int id ;
+  const FIC(this.id);
 }
 
-base class BaseClassImplementsFinal implements FinalInlineClass {
-//                                             ^^^^^^^^^^^^^^^^
+final inline class FIC2 extends FIC {
+//                              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  int get x => 0;
+  const FIC2(int id): super(id);
 }
-
-interface class InterfaceClassImplementsFinal implements FinalInlineClass {
-//                                                       ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int get x => 0;
-}
-
-final class FinalClassImplementsFinal implements FinalInlineClass {
-//                                               ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int get x => 0;
-}
-
-sealed class SealedClassImplementsFinal implements FinalInlineClass {
-//                                                 ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified  const SC(int id): super(id);
-  int get x => 0;
-}
-
-abstract class AbstractClassImplementsFinal implements FinalInlineClass {
-//                                                     ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int get x => 0;
-}
-
-abstract base class AbstractBaseClassImplementsFinal implements FinalInlineClass {
-//                                                              ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int get x => 0;
-}
-
-abstract interface class AbstractInterfaceClassImplementsFinal implements FinalInlineClass {
-//                                                                        ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int get x => 0;
-}
-
-abstract final class AbstractFinalClassImplementsFinal implements FinalInlineClass {
-//                                                                ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int get x => 0;
-}
-
-mixin class MixinClassImplementsFinal implements FinalInlineClass {
-//                                               ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int get x => 0;
-}
-
-base mixin class BaseMixinClassImplementsFinal implements FinalInlineClass {
-//                                                        ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int get x => 0;
-}
-
-abstract mixin class AbstractMixinClassImplementsFinal implements FinalInlineClass {
-//                                                                ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int get x => 0;
-}
-
-abstract base mixin class AbstractBaseMixinClassImplementsFinal implements FinalInlineClass {
-//                                                                         ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int get x => 0;
-}
-
-mixin Mixin implements FinalInlineClass {}
-//                     ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-base mixin BaseMixin implements FinalInlineClass {}
-//                              ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 main() {
-  print(ClassImplementsFinal);
-  print(BaseClassImplementsFinal);
-  print(InterfaceClassImplementsFinal);
-  print(FinalClassImplementsFinal);
-  print(SealedClassImplementsFinal);
-  print(AbstractClassImplementsFinal);
-  print(AbstractBaseClassImplementsFinal);
-  print(AbstractInterfaceClassImplementsFinal);
-  print(AbstractFinalClassImplementsFinal);
-  print(MixinClassImplementsFinal);
-  print(BaseMixinClassImplementsFinal);
-  print(AbstractMixinClassImplementsFinal);
-  print(AbstractBaseMixinClassImplementsFinal);
-  print(Mixin);
-  print(BaseMixin);
+  print(FIC2);
 }
