@@ -12,7 +12,7 @@
 /// using the definition of runtime type equality specified above.
 ///
 /// @description Checks that two constant type literals `T1` and `T2` are not
-/// equals if they are not equal according to the runtime type equality.
+/// equal if they are not equal according to the runtime type equality.
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";
