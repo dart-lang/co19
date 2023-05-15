@@ -30,5 +30,4 @@ main() {
   test2();
   test3();
   Expect.throws(() => test4());
-
 }

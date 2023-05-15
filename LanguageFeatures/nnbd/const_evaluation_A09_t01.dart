@@ -9,10 +9,10 @@
 ///   and S1 = CONST_CANONICAL_TYPE(S)
 /// Note, this generalizes to arbitrary number of type and term parameters.
 ///
-/// @description Checks that CONST_CANONICAL_TYPE(R Function<X extends B>(S)) = F*
+/// @description Checks that
+/// `CONST_CANONICAL_TYPE(R Function<X extends B>(S)) = F*`
 ///
 /// @author iarkh@unipro.ru
-
 
 import "const_evaluation_lib.dart";
 
