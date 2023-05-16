@@ -67,6 +67,7 @@ int iLegacy = 42;
 int nLegacy = null;
 String sLegacy = "Yesterday, All my troubles seemed so far away";
 A aLegacy = new A();
+const legacyIntConst = 1;
 
 class S {}
 

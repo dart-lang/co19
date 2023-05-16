@@ -4,7 +4,7 @@
 
 /// @assertion CONST_CANONICAL_TYPE(T*) = CONST_CANONICAL_TYPE(T)
 ///
-/// @description Checks that CONST_CANONICAL_TYPE(int) = int
+/// @description Checks that CONST_CANONICAL_TYPE(int*) = int
 /// @Issue 45067
 ///
 /// @author iarkh@unipro.ru
@@ -12,18 +12,18 @@
 // Requirements=nnbd-strong
 
 import "const_evaluation_lib.dart";
+import "const_evaluation_legacy_lib.dart";
 
 const dynamic d = null;
-Never n = throw "Should not reach here";
 
 main() {
-  const c1 = C<int>(null);
-//           ^^^^^^^^^^^^
+  const c1 = C.t(null, cLegacyInt);
+//           ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const c2 = C<int>(d);
-//           ^^^^^^^^^
+  const c2 = C.t(d, cLegacyInt);
+//           ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

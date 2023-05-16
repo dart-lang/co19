@@ -6,7 +6,7 @@
 /// CONST_CANONICAL_TYPE(T)
 ///
 /// @description Checks that
-/// CONST_CANONICAL_TYPE(FutureOr<int?>) = FutureOr<int?>
+/// `CONST_CANONICAL_TYPE(FutureOr<int?>) = FutureOr<int?>*`
 ///
 /// @author iarkh@unipro.ru
 

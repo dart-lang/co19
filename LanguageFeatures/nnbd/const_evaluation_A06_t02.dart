@@ -4,7 +4,7 @@
 
 /// @assertion CONST_CANONICAL_TYPE(T*) = CONST_CANONICAL_TYPE(T)
 ///
-/// @description Checks that CONST_CANONICAL_TYPE(int) = int
+/// @description Checks that CONST_CANONICAL_TYPE(int*) = int
 ///
 /// @author iarkh@unipro.ru
 
@@ -12,11 +12,12 @@
 
 import "../../Utils/expect.dart";
 import "const_evaluation_lib.dart";
+import "const_evaluation_legacy_lib.dart";
 
 dynamic d = null;
 Never n = throw "Should not reach here";
 
-const c1 = C1<int?>();
+const c1 = C1.t(cLegacyInt);
 
 void test1() => c1.test(1);
 void test2() => c1.test(null);

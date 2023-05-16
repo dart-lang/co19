@@ -5,7 +5,7 @@
 /// @assertion CONST_CANONICAL_TYPE(FutureOr<T>) = FutureOr<S>* where S is
 /// CONST_CANONICAL_TYPE(T)
 ///
-/// @description Checks that CONST_CANONICAL_TYPE(FutureOr) = FutureOr
+/// @description Checks that `CONST_CANONICAL_TYPE(FutureOr) = FutureOr*`
 ///
 /// @author iarkh@unipro.ru
 
