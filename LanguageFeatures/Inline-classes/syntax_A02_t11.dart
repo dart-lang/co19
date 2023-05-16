@@ -27,7 +27,7 @@ final inline class FIC {
 }
 
 final inline class FIC2 implements FIC {
-  int id;
+  final int id;
   FIC2(this.id);
 }
 
