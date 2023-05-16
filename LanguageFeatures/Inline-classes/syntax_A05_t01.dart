@@ -13,33 +13,43 @@
 ///
 /// <inlineMemberDeclaration> ::= <classMemberDefinition>
 /// ...
-/// The name of the representation in an inline class declaration is the name id
-/// of the unique final instance variable that it declares, and the type of the
-/// representation is the declared type of id.
+/// A compile-time error occurs if an inline class declaration declares an
+/// abstract member.
 ///
-/// @description Checks runtime type and values of an inline class
+/// @description Checks that it is a compile-time error if an inline class
+/// declares an abstract member
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../../Utils/expect.dart";
-
 inline class IC1 {
-  final num id;
-  IC1(this.id)
+  final int id;
+
+  IC1(this.id);
+  void foo();
+//^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 inline class IC2 {
-  final num _x = 3.14;
+  final int id = 42;
+  int get value;
+//^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+inline class IC3 {
+  final int id = 42;
+  void set value(int val);
+//^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  IC1 ic1 = IC1(42);
-  IC2 ic2 = IC2(3.14);
-  Expect.equals(42, ic1.id);
-  Expect.equals(3.14, ic2._x);
-  Expect.isTrue(ic1 is num);
-  Expect.isTrue(ic1 is int);
-  Expect.isTrue(ic2 is num);
-  Expect.isTrue(ic2 is double);
+  print(IC1);
+  print(IC2);
+  print(IC3);
 }

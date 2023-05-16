@@ -6,7 +6,7 @@
 /// along with some rules for elements used in inline class declarations:
 ///
 /// <inlineClassDeclaration> ::=
-///   'inline' 'class' <typeIdentifier> <typeParameters>? <interfaces>?
+///   'final'? 'inline' 'class' <typeIdentifier> <typeParameters>? <interfaces>?
 ///   '{'
 ///     (<metadata> <inlineMemberDeclaration>)*
 ///   '}'
@@ -15,7 +15,6 @@
 ///
 /// @description Checks that an inline class declaration may contain different
 /// constructors
-///
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class

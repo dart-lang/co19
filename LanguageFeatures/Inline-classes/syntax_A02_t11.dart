@@ -1,4 +1,4 @@
-// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -12,34 +12,26 @@
 ///   '}'
 ///
 /// <inlineMemberDeclaration> ::= <classMemberDefinition>
-/// ...
-/// The name of the representation in an inline class declaration is the name id
-/// of the unique final instance variable that it declares, and the type of the
-/// representation is the declared type of id.
 ///
-/// @description Checks runtime type and values of an inline class
+/// @description Checks that it is not an error if a `final inline` class is
+/// implemented by another `final inline` class in the same library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/expect.dart";
 
-inline class IC1 {
-  final num id;
-  IC1(this.id)
+final inline class FIC {
+  final int id ;
+  const FIC(this.id);
 }
 
-inline class IC2 {
-  final num _x = 3.14;
+final inline class FIC2 implements FIC {
+  final int id;
+  FIC2(this.id);
 }
 
 main() {
-  IC1 ic1 = IC1(42);
-  IC2 ic2 = IC2(3.14);
-  Expect.equals(42, ic1.id);
-  Expect.equals(3.14, ic2._x);
-  Expect.isTrue(ic1 is num);
-  Expect.isTrue(ic1 is int);
-  Expect.isTrue(ic2 is num);
-  Expect.isTrue(ic2 is double);
+  Expect.equals(1, FIC(1).id);
+  Expect.equals(2, FIC2(2).id);
 }
