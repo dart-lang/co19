@@ -13,8 +13,6 @@
 /// that nullable Struct subtype members cause a compile-time error
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "dart:ffi";
 
 final class Coord extends Struct {

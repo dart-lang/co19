@@ -24,8 +24,6 @@
 /// Test a type `T?` where `T` is always-exhaustive
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,class-modifiers
-
 main() {
   bool? b = 1 > 2;
   if (b) {

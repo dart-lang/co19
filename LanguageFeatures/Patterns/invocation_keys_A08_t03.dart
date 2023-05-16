@@ -28,7 +28,6 @@
 /// `("containsKey()", [key])` and `("[]", [key])` are invoked only once.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
 // Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";

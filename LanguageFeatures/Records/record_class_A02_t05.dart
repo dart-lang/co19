@@ -10,8 +10,6 @@
 /// @description Checks that it is a compile error to implement [Record] class
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 class R1 implements Record {
 //                  ^^^^^^
 // [analyzer] unspecified

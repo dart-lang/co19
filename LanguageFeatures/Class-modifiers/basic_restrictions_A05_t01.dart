@@ -9,8 +9,6 @@
 /// extended or used in mixin's `on` part
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 enum E {e1, e2}
 
 class ExtendsEnum extends E {}
@@ -69,6 +67,13 @@ base mixin BaseMixinOnEnum on E {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+typedef TypedefE = E;
+
+class ExtendsTypedefEnum extends TypedefE {}
+//                               ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(ExtendsEnum);
   print(BaseExtendsEnum);
@@ -81,4 +86,5 @@ main() {
   print(AbstractFinalExtendsEnum);
   print(MixinOnEnum);
   print(BaseMixinOnEnum);
+  print(ExtendsTypedefEnum);
 }

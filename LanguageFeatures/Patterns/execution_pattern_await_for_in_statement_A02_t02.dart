@@ -33,8 +33,6 @@
 /// take place
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 import "patterns_lib.dart";

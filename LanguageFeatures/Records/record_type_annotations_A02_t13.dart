@@ -36,8 +36,6 @@
 /// instead of type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = (var i,);
 //            ^^^
 // [analyzer] unspecified

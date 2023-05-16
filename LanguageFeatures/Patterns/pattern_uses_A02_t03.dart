@@ -11,8 +11,6 @@
 /// is Never.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 sealed class A {}
 
 Never test(A a) {

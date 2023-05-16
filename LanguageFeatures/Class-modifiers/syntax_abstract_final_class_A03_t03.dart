@@ -10,8 +10,6 @@
 /// with `base/final/sealed` modifier
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 abstract final class AbstractFinalClass {}
 
 base class BaseImplementsAbstractFinalClass implements AbstractFinalClass {}

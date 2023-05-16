@@ -20,8 +20,6 @@
 /// present and there are more or fewer than two type arguments
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(Map map) {
   return switch (map) {
     <int, int, String>{1: > 0 || 42} => "",

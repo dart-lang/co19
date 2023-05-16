@@ -13,8 +13,6 @@
 /// null-check pattern cannot be null
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(int? x) {
   switch (x) {
     case int? v1! && == 1 || int? v1?:

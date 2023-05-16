@@ -22,8 +22,6 @@
 /// `abstract` modifiers goes in a wrong order
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
   base abstract mixin class C1 {}
 //     ^^^^^^^^
 // [analyzer] unspecified

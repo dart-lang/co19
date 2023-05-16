@@ -10,8 +10,6 @@
 /// defined (other cases tested in `basic_restrictions_A03_t*`)
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 base class BaseClassImplementsBaseClass implements BaseClass {}

@@ -32,8 +32,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 49883
 
-// SharedOptions=--enable-experiment=records
-
 Record foo() => (42, $101: "Lily was here");
 
 void bar(Record r) {}

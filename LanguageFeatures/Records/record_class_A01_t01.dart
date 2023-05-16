@@ -10,8 +10,6 @@
 /// @description Checks that all records have [Record] as a superclass
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 main() {

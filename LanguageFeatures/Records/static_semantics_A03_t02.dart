@@ -16,8 +16,6 @@
 /// @description Checks that the order of named fields is not significant
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 typedef R1 = (int, bool, {String s, int i});

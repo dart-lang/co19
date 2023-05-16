@@ -10,8 +10,6 @@
 /// fields only
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = (int, String)?;
 typedef R2 = (num, Object);
 

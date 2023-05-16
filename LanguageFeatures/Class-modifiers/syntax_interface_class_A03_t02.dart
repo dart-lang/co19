@@ -9,8 +9,6 @@
 /// is mixed in the same library where it is defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 interface class InterfaceClass {}
 
 class ClassWithInterfaceClass1 with InterfaceClass {}

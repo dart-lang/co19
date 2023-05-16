@@ -27,8 +27,6 @@
 /// comparison (<, <=, >, or >=) and `M` does not define that operator
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 class A {}
 
 String test1() {

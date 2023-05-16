@@ -17,8 +17,6 @@
 /// a case's scope of if-case statement is referenced in its `else` branch
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   if (42 case var v1) {
     print(v1);

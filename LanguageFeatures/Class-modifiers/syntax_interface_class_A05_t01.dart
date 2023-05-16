@@ -8,8 +8,6 @@
 /// @description Checks that an `interface class` is not exhaustive
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 interface class _C {}

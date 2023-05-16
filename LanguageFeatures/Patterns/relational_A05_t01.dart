@@ -15,8 +15,6 @@
 /// used with a wrong type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 const o = const Object();
 
 String test(List<num> list) {

@@ -19,8 +19,6 @@
 /// constant expressions.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 const Pi = 3.14;

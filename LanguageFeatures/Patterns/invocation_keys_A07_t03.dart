@@ -38,8 +38,6 @@
 /// with the rest element at the end
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 import "patterns_collections_lib.dart";
 

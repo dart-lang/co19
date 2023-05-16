@@ -16,8 +16,6 @@
 /// operator then it is a compile-time error to use it in a constant set literal
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 class C {
   const C();
 

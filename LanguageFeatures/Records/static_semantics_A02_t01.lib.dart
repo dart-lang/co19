@@ -18,8 +18,6 @@
 /// fields have the same types.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 library static_semantics_A02_t01_lib;
 
 typedef T1 = (int, String);

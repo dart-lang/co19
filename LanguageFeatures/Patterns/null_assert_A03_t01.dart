@@ -13,8 +13,6 @@
 /// null-assert pattern cannot be null
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(int? x) {
   switch (x) {
     case final int? v1! && == 1 || final int? v1!:

@@ -24,8 +24,6 @@
 /// @description Checks if-case statement with different patterns and a guard
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 

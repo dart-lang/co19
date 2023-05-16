@@ -33,8 +33,6 @@
 /// @description Checks that list and map patterns in a switch statement syntax
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 const a = 1;

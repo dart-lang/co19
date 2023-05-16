@@ -23,8 +23,6 @@
 /// `rf == of` is `false` then these records are not equal.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 main() {

@@ -38,7 +38,7 @@
   abstract interface class AbstractInterfaceClass {}
 //         ^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified'
+// [cfe] unspecified
 
   abstract final class AbstractFinalClass {}
 //         ^^^^^

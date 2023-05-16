@@ -16,8 +16,6 @@
 /// defined in another library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 class C1 = Object with Class;
@@ -426,6 +424,51 @@ abstract final class AFC9 = Object with AbstractFinalClass;
 // [analyzer] unspecified
 // [cfe] unspecified
 
+class TC1 = Object with TypedefClass;
+//                      ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class TC2 = Object with TypedefBaseClass;
+//                      ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class TC3 = Object with TypedefInterfaceClass;
+//                      ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class TC4 = Object with TypedefFinalClass;
+//                      ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class TC5 = Object with TypedefSealedClass;
+//                      ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class TC6 = Object with TypedefAbstractClass;
+//                      ^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class TC7 = Object with TypedefAbstractBaseClass;
+//                      ^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class TC8 = Object with TypedefAbstractInterfaceClass;
+//                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class TC9 = Object with TypedefAbstractFinalClass;
+//                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(C1);
   print(C2);
@@ -508,4 +551,13 @@ main() {
   print(AFC7);
   print(AFC8);
   print(AFC9);
+  print(TC1);
+  print(TC2);
+  print(TC3);
+  print(TC4);
+  print(TC5);
+  print(TC6);
+  print(TC7);
+  print(TC8);
+  print(TC9);
 }

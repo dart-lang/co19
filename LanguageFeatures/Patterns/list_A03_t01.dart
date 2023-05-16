@@ -22,8 +22,6 @@
 /// restPattern element in the list pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(List list) {
   return switch (list) {
     <int>[1, ...var r1, 3, 4, ... var r2] => "",

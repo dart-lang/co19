@@ -28,8 +28,6 @@
 /// function with default values for optional parameters specified
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 main() {
   try {
     print(0);

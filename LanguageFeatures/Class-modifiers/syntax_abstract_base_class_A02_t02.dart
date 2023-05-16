@@ -10,8 +10,6 @@
 /// is defined (other cases tested in `basic_restrictions_A04_t*`)
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 abstract base class AbstractBaseClass {}
 
 base class BaseClassExtendsAbstractBaseClass extends AbstractBaseClass {}

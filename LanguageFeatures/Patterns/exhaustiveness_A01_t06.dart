@@ -24,8 +24,6 @@
 /// Test an enum type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 enum E {
   e1,
   e2

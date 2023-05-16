@@ -20,8 +20,6 @@
 /// matching context declares a variable but has no `final`, `var` or type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(List list) {
   return switch (list) {
     <int>[1, 2, 3, 4, ... r1] => "[1, 2, 3, 4, ...]",

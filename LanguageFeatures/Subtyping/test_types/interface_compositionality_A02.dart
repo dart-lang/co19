@@ -11,8 +11,6 @@
 /// subtype of T1
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 abstract class U0 {}
 abstract mixin class U1 {}
 abstract mixin class U2 {}

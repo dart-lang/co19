@@ -33,8 +33,6 @@
 /// declaration context produces a static warning
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 
 main() {

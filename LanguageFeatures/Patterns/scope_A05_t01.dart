@@ -17,8 +17,6 @@
 /// an assignment to a variable defined in the case that owns that guard.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 void test1() {
   switch (42) {
     case var v when (v = 1) > 0:

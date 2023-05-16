@@ -27,8 +27,6 @@
 /// then it is a compile-time error to assign a value to it. Test records
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 void test1(Record r) {
   switch (r) {
     case (final a, name: final b):

@@ -11,8 +11,6 @@
 /// @description Checks record with a large number of positional fields
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 main() {

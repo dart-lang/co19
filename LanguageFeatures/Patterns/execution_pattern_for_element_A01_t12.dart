@@ -13,8 +13,6 @@
 /// for loop. Test a list pattern in a set literal
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 main() {

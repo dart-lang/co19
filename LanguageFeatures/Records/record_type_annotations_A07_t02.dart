@@ -27,8 +27,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 49883
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = (int $6, {String s});
 
 typedef R2 = (int, {String $101});

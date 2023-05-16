@@ -21,8 +21,6 @@
 /// @description Check that constant _ can be used as a map key in a map pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 
 const _ = "key1";

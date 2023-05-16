@@ -28,8 +28,6 @@
 /// function with required named parameters
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 main() {
   try {
     print(0);

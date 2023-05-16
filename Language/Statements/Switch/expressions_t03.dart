@@ -11,8 +11,6 @@
 /// are of mixed types.
 /// @author msyabro
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   var x=1;
   switch (x) {

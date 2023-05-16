@@ -30,8 +30,6 @@
 /// @description Checks that record fields may contain constructor tear-offs
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 class C {

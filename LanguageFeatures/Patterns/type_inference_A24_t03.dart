@@ -17,8 +17,6 @@
 /// the required type of `p` is   M .
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/static_type_helper.dart";
 import "../../Utils/expect.dart";
 

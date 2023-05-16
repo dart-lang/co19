@@ -33,8 +33,6 @@
 /// statement
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 const Zero = 0;

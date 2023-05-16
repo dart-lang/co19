@@ -15,8 +15,6 @@
 /// assigned twice. Test a map pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 class Meta {
   const Meta();
 }

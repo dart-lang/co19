@@ -31,22 +31,21 @@
 /// `<pattern>` required type then a run-time error occurs
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
 main() async {
   String log = "";
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     await for (var (int v1)
         in Stream<num>.fromIterable([1, 2, 3.14]) as dynamic) {
       log += "$v1;";
     }
   });
-  Expect.equals("", log);
+  Expect.equals("1;2;", log);
+  log = "";
 
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     await for (final <int>[v2] in Stream<List<num>>.fromIterable([
       [1],
       [2],
@@ -57,7 +56,7 @@ main() async {
   });
   Expect.equals("", log);
 
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     await for (var <String, int>{"k1": v3}
         in Stream<Map<String, num>>.fromIterable([
       {"k1": 1}
@@ -67,7 +66,7 @@ main() async {
   });
   Expect.equals("", log);
 
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     await for (final (int v4,)
         in Stream<(num,)>.fromIterable([(1.1,)]) as dynamic) {
       log += "$v4;";
@@ -75,7 +74,7 @@ main() async {
   });
   Expect.equals("", log);
 
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     await for (var (n: int v5)
         in Stream<({num n})>.fromIterable([(n: 2.1)]) as dynamic) {
       log += "$v5;";
@@ -83,7 +82,7 @@ main() async {
   });
   Expect.equals("", log);
 
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     await for (var Square<Centimeter>(area: v6)
         in Stream<Circle>.fromIterable([Circle(1)]) as dynamic) {
       log += "$v6;";
@@ -91,7 +90,7 @@ main() async {
   });
   Expect.equals("", log);
 
-  Expect.throws(() {
+  await Expect.asyncThrows(() async {
     await for (final Square<Meter>(area: v7)
         in Stream<Square<Centimeter>>.fromIterable([Square<Centimeter>(1)])
             as dynamic) {

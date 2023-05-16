@@ -12,8 +12,6 @@
 /// the case when `default` case is present
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=patterns
-
 void foo() {}
 
 main() {

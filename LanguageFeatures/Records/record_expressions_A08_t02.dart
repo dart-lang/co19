@@ -30,8 +30,6 @@
 /// @description Checks that record fields may contain functions
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 num foo((num, {String name}) r) => r.$1;

@@ -25,8 +25,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 51897
 
-// SharedOptions=--enable-experiment=patterns,class-modifiers
-
 sealed class Sealed {const Sealed();}
 class C1 extends Sealed {const C1();}
 class C2 extends Sealed {const C2();}

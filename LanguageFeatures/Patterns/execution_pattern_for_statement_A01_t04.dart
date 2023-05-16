@@ -14,8 +14,6 @@
 /// traditional for loop. Test a record pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 
 main() {

@@ -16,8 +16,6 @@
 /// to `T` in irrefutable context. Test variable and identifier patterns
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   var (int i) = "42";
 //              ^^^^

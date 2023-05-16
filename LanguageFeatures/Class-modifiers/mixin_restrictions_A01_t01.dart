@@ -4,35 +4,13 @@
 
 /// @assertion It's a compile-time error if a mixin class declaration:
 /// ...
-/// - has an extends clause
+/// - does not have Object from dart:core as immediate superclass.
 ///
 /// @description Check that it is a compile-time error if a `mixin class`
-/// declaration has an `extends` clause
+/// extends class other than `Object`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 class C {}
-
-mixin class MixinClassExtendsObject extends Object {}
-//                                  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-base mixin class BaseMixinClassExtendsObject extends Object {}
-//                                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-abstract mixin class AbstractMixinClassExtendsObject extends Object {}
-//                                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-abstract base mixin class AbstractBaseMixinClassExtendsObject extends Object {}
-//                                                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 mixin class MixinClassExtendsC extends C {}
 //                             ^^^^^^^
@@ -54,13 +32,15 @@ abstract base mixin class AbstractBaseMixinClassExtendsC extends C {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+mixin class MixinClassExtendsFutureOr extends FutureOr<Object> {}
+//                                            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
-  print(MixinClassExtendsObject);
-  print(BaseMixinClassExtendsObject);
-  print(AbstractMixinClassExtendsObject);
-  print(AbstractBaseMixinClassExtendsObject);
   print(MixinClassExtendsC);
   print(BaseMixinClassExtendsC);
   print(AbstractMixinClassExtendsC);
   print(AbstractBaseMixinClassExtendsC);
+  print(MixinClassExtendsFutureOr);
 }

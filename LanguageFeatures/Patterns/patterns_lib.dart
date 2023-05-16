@@ -5,8 +5,6 @@
 /// @description Defines data commonly used by Patterns tests
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 library patterns_lib;
 
 const Zero = 0;

@@ -20,8 +20,6 @@
 /// expressions are not constant expressions.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 class C {
   const C();
 }

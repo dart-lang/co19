@@ -17,8 +17,6 @@
 /// declares any variable. Test a parenthesized pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 main() {
   Record r = ();
   int a = 42, b = 42;

@@ -33,8 +33,6 @@
 /// can be used as operand of -- or ++ operator
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 int test1(String s) =>
   ++switch (s) {
     "one" => 1,

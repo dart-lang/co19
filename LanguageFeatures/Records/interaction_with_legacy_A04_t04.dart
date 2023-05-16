@@ -31,8 +31,6 @@
 /// call getters on record values
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 // @dart = 2.18
 
 import "interaction_with_legacy_lib.dart";

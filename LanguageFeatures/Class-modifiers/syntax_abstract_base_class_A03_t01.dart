@@ -11,8 +11,6 @@
 /// `basic_restrictions_A03_t*`)
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 base class BaseClassImplementsAbstractBaseClass implements AbstractBaseClass {}

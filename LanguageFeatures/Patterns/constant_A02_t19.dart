@@ -33,8 +33,6 @@
 /// constant is prefixed by '-'
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 const Zero = 0;
 const Pi = 3.14;
 const Answer = 42;

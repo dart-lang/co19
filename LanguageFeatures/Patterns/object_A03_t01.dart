@@ -23,8 +23,6 @@
 /// refer to a type.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test(Object o) => switch(o) {
   Rectangle(:var areaAsInt) => "matched",
 //^^^^^^^^^

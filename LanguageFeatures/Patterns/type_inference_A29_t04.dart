@@ -23,8 +23,6 @@
 /// context type test fails. The case when `p` has type arguments `<K, V>`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 String test1(dynamic d) {

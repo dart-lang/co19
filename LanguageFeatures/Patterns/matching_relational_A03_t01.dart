@@ -36,8 +36,6 @@
 /// on 'v' with argument `c` is not `bool`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 class C {

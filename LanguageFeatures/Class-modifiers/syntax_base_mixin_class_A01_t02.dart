@@ -10,8 +10,6 @@
 /// (other cases are tested in `basic_restrictions_A04_t*`)
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 base mixin class BaseMixinClass {}
 
 base class BaseClassExtendsBaseMixinClass extends BaseMixinClass {}

@@ -20,8 +20,6 @@
 /// @description Checks records type annotations in classes and mixins
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 class C {

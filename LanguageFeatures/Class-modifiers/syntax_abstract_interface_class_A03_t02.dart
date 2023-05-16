@@ -9,8 +9,6 @@
 /// in the same library where it is defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 abstract interface class AbstractInterfaceClass {}
 
 class ClassImplementsAbstractInterfaceClass implements AbstractInterfaceClass {}

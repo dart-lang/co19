@@ -13,8 +13,6 @@
 /// initializing expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/static_type_helper.dart";
 
 class A {}

@@ -16,8 +16,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 51986
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../../Utils/expect.dart";
 
 int test(Object obj) => switch (obj) {

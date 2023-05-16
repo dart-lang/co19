@@ -19,8 +19,6 @@
 /// assigned in a for-in loop. Test a parenthesized pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 class Meta {
   const Meta();
 }

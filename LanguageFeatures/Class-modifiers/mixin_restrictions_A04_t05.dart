@@ -16,8 +16,6 @@
 /// defined in another library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 enum E1 with Class {
@@ -83,6 +81,69 @@ enum E9 with AbstractFinalClass {
   e
 }
 
+enum TE1 with TypedefClass {
+//            ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  e
+}
+
+enum TE2 with TypedefBaseClass {
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  e
+}
+
+enum TE3 with TypedefInterfaceClass {
+//            ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  e
+}
+
+enum TE4 with TypedefFinalClass {
+//            ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  e
+}
+
+enum TE5 with TypedefSealedClass {
+//            ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  e
+}
+
+enum TE6 with TypedefAbstractClass {
+//            ^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  e
+}
+
+enum TE7 with TypedefAbstractBaseClass {
+//            ^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  e
+}
+
+enum TE8 with TypedefAbstractInterfaceClass {
+//            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  e
+}
+
+enum TE9 with TypedefAbstractFinalClass {
+//            ^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  e
+}
+
 main() {
   print(E1);
   print(E2);
@@ -93,4 +154,13 @@ main() {
   print(E7);
   print(E8);
   print(E9);
+  print(TE1);
+  print(TE2);
+  print(TE3);
+  print(TE4);
+  print(TE5);
+  print(TE6);
+  print(TE7);
+  print(TE8);
+  print(TE9);
 }

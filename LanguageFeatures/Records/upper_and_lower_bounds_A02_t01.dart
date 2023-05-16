@@ -26,8 +26,6 @@
 /// the same shape is the greatest lower bound of their component fields.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/static_type_helper.dart";
 
 (num, String) a1((num, String) r) => r;

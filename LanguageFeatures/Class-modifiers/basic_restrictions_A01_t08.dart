@@ -10,8 +10,6 @@
 /// a `sealed` declaration from the same library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 sealed class SealedClass {}
 
 class ImplementsSealedClass implements SealedClass {}

@@ -4,8 +4,6 @@
 
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 library override_opted_in_lib;
 
 import "dart:async";

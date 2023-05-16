@@ -18,7 +18,7 @@ Stream<List<int>> aStream = new Stream<List<int>>.fromIterable(
     [[1, 2, 3, 4, 5], [12], [3, 22]]);
 int called = 0;
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future addStream(Stream<List<int>> stream) {
     Expect.equals(aStream, stream);
     called++;

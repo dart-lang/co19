@@ -25,8 +25,6 @@
 /// subtype of [NativeType]
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import 'dart:ffi';
 
 final class MyStruct extends Struct {

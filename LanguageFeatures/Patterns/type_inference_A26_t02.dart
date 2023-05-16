@@ -20,8 +20,6 @@
 /// checked in context type `M`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 X id<X>(X x) => x;

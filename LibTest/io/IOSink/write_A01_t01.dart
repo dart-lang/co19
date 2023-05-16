@@ -16,7 +16,7 @@ int called = 0;
 String str = "I am here";
 List<int> res = [73, 32, 97, 109, 32, 104, 101, 114, 101];
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       called++;

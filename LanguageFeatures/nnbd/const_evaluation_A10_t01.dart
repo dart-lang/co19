@@ -15,8 +15,6 @@
 /// identical if they are equal according to the runtime type equality.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "dart:async";
 import "../../Utils/expect.dart";
 
@@ -55,46 +53,42 @@ testXExtendsT1<X extends Never>() {
 }
 
 testXExtendsT2<X extends Y, Y extends Never>() {
-  Expect.identical(X,
-      Never); // NORM(X extends T) = Never if T is a type variable Y and NORM(Y) is Never
+  // NORM(X extends T) = Never if T is a type variable Y and NORM(Y) is Never
+  Expect.identical(X, Never);
 }
 
 main() {
-  Expect.identical(
-      Void,
-      FutureOr<void>); // NORM(FutureOr<T>) == S, if NORM(T) == S and S is a top type
-  Expect.identical(
-      dynamic,
-      FutureOr<dynamic>); // NORM(FutureOr<T>) == S, if NORM(T) == S and S is a top type
-  Expect.identical(
-      NullableObject,
-      FutureOr<Object?>); // NORM(FutureOr<T>) == S, if NORM(T) == S and S is a top type
-  Expect.identical(Object,
-      FutureOr<Object>); // NORM(FutureOr<T>) == Object, if NORM(T) == Object
-  Expect.identical(
-      Future<Never>,
-      FutureOr<Never>); // NORM(FutureOr<T>) == Future<Never>, if NORM(T) == Never
-  Expect.identical(NullableFutureNull,
-      FutureOr<Null>); // NORM(FutureOr<T>) == Future<Null>?, if NORM(T) == Null
-  Expect.identical(
-      FutureOr<int?>,
-      FutureOr<DoubleNullableInt>); // NORM(FutureOr<T>) == FutureOr<S>, where NORM(T) == S (all other cases)
+  // NORM(FutureOr<T>) == S, if NORM(T) == S and S is a top type
+  Expect.identical(Void, FutureOr<void>);
+  // NORM(FutureOr<T>) == S, if NORM(T) == S and S is a top type
+  Expect.identical(dynamic, FutureOr<dynamic>);
+  // NORM(FutureOr<T>) == S, if NORM(T) == S and S is a top type
+  Expect.identical(NullableObject, FutureOr<Object?>);
+  // NORM(FutureOr<T>) == Object, if NORM(T) == Object
+  Expect.identical(Object, FutureOr<Object>);
+  // NORM(FutureOr<T>) == Future<Never>, if NORM(T) == Never
+  Expect.identical(Future<Never>, FutureOr<Never>);
+  // NORM(FutureOr<T>) == Future<Null>?, if NORM(T) == Null
+  Expect.identical(NullableFutureNull, FutureOr<Null>);
+  // NORM(FutureOr<T>) == FutureOr<S>, where NORM(T) == S (all other cases)
+  Expect.identical(FutureOr<int?>, FutureOr<DoubleNullableInt>);
 
-  Expect.identical(dynamic,
-      NullableDynamic); // NORM(T?) == S, if NORM(T) == S and S is a top type
-  Expect.identical(
-      Void, NullableVoid); // NORM(T?) == S, if NORM(T) == S and S is a top type
-  Expect.identical(NullableObject,
-      DoubleNullableObject); // NORM(T?) == S, if NORM(T) == S and S is a top type
-  Expect.identical(
-      Null, NullableNever); // NORM(T?) == Null, if NORM(T) == Never
-  Expect.identical(Null, NullableNull); // NORM(T?) == Null, if NORM(T) == Null
-  Expect.identical(FutureOr<int?>,
-      NullableFutureOrNullableInt); // NORM(T?) == FutureOr<R>, if NORM(T) == FutureOr<R> and R is nullable
-  Expect.identical(
-      NullableInt, DoubleNullableInt); // NORM(T?) == R?, if NORM(T) == R?
-  Expect.identical(NullableInt,
-      NullableInt); // NORM(T?) == S?, if NORM(T) == S (all other cases)
+  // NORM(T?) == S, if NORM(T) == S and S is a top type
+  Expect.identical(dynamic, NullableDynamic);
+  // NORM(T?) == S, if NORM(T) == S and S is a top type
+  Expect.identical(Void, NullableVoid);
+  // NORM(T?) == S, if NORM(T) == S and S is a top type
+  Expect.identical(NullableObject, DoubleNullableObject);
+  // NORM(T?) == Null, if NORM(T) == Never
+  Expect.identical(Null, NullableNever);
+  // NORM(T?) == Null, if NORM(T) == Null
+  Expect.identical(Null, NullableNull);
+  // NORM(T?) == FutureOr<R>, if NORM(T) == FutureOr<R> and R is nullable
+  Expect.identical(FutureOr<int?>, NullableFutureOrNullableInt);
+  // NORM(T?) == R?, if NORM(T) == R?
+  Expect.identical(NullableInt, DoubleNullableInt);
+  // NORM(T?) == S?, if NORM(T) == S (all other cases)
+  Expect.identical(NullableInt, NullableInt);
 
   // NORM(C<T0, ..., Tn>) = C<R0, ..., Rn> where Ri is NORM(Ti)
   Expect.identical(Map<void, dynamic>, Map<FutureOr<void>, FutureOr<dynamic>>);
@@ -108,9 +102,9 @@ main() {
   Expect.identical(Map<Null, Null>, Map<NullableNever, NullableNull>);
   Expect.identical(
       Map<FutureOr<int?>, int?>, Map<FutureOr<int?>?, DoubleNullableInt>);
-  Expect.identical(Map<F1, F2>, Map<F1_NORM, F2_NORM>);
-  Expect.identical(Map<F3, RecordPositionalVoid>,
-      Map<F3_NORM, RecordPositionalNullableVoid>);
+  Expect.identical(Map<F1_NORM, F2_NORM>, Map<F1, F2>);
+  Expect.identical(Map<F3_NORM, RecordPositionalVoid>,
+      Map<F3, RecordPositionalNullableVoid>);
   Expect.identical(Map<RecordNamedNullableInt, RecordDynamicNull>,
       Map<RecordNamedDoubleNullableInt, RecordNullableDynamicNullableNever>);
 
@@ -121,11 +115,12 @@ main() {
   // where R1 = NORM(R)
   // and B1 = NORM(B)
   // and S1 = NORM(S)
-  Expect.identical(F1, F1_NORM);
-  Expect.identical(F2, F2_NORM);
-  Expect.identical(F3, F3_NORM);
+  Expect.identical(F1_NORM, F1);
+  Expect.identical(F2_NORM, F2);
+  Expect.identical(F3_NORM, F3);
 
-  // NORM((S0, ..., Sn, {T0 d0, ..., Tm dm})) = (S0', ..., Sn', {T0' d0, ..., Tm' dm})
+  // NORM((S0, ..., Sn, {T0 d0, ..., Tm dm})) =
+  //                (S0', ..., Sn', {T0' d0, ..., Tm' dm})
   // where Si' = NORM(Si)
   // and Ti' = NORM(Ti)
   Expect.identical(RecordPositionalVoid, RecordPositionalNullableVoid);

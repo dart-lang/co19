@@ -23,8 +23,6 @@
 /// @description Check that in an irrefutable context, variables are bound
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 

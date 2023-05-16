@@ -8,8 +8,6 @@
 /// @description Checks mixin can be declared on a class with no modifiers
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 class LocalClass {}

@@ -15,8 +15,6 @@
 /// variable, null check/assert, cast or parenthesis patterns
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 test(dynamic r) {

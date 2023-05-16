@@ -9,8 +9,6 @@
 /// @description Checks that fields in a Union subclass shares the same memory
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";

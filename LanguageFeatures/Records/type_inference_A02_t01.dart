@@ -28,8 +28,6 @@
 /// @description Checks horizontal inference for records.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 typedef R1 = (int, {String s});

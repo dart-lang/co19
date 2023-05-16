@@ -11,8 +11,6 @@
 /// @description Checks parentheses in a switch expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 String test(int value) =>

@@ -12,8 +12,6 @@
 /// are no setters with the same name
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R = (int a, String, {int x, int y});
 
 extension ER on R {

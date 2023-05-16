@@ -29,38 +29,36 @@
 /// `<pattern>` with matched value `E` fails
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 main() {
   for (var (int v1) in <num>[1, 2, 3]) {}
-//                     ^
+//          ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   for (final <int>[v2] in <List<num>>[[1], [2], [3]]) {}
-//                        ^
+//           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   for (var <String, int>{"k1": v3} in <Map<String, num>>[{"k1": 1}]) {}
-//                                    ^
+//         ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   for (final (int v4,) in <(num,)>[(1,)]) {}
-//                        ^
+//            ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   for (var (n: int v5) in <({num n})>[(n: 2)]) {}
-//                        ^
+//             ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   for (var Square<Centimeter>(area: v6) in <Square<Meter>>[Square<Meter>(1)]) {}
-//                                         ^
+//         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

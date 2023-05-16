@@ -14,8 +14,6 @@
 /// inferred for a named field pattern with the field name omitted
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 main() {
   var (:_) = (x1: 1);
 //      ^

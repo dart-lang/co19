@@ -30,6 +30,13 @@ import "../../Utils/expect.dart";
 typedef NullableInt = int?;
 typedef Void = void;
 typedef NullableVoid = Void?;
+typedef NullableNever = Never?;
+typedef NullableDynamic = dynamic?;
+typedef RecordDynamicNull = (dynamic, {Null n});
+typedef RecordNullableDynamicNullableNever = (
+  NullableDynamic, {
+  NullableNever n
+});
 
 main() {
   const cNullableInt = <int?>[];
@@ -47,14 +54,18 @@ main() {
   const cObject = <Object>[];
   const cNullableFutureNull = <Future<Null>?>[];
   const cFutureOrNull = <FutureOr<Null>>[];
+  const cRecordDynamicNull = <RecordDynamicNull>[];
+  const cRecordNullableDynamicNullableNever =
+      <RecordNullableDynamicNullableNever>[];
 
   Expect.identical(cNullableInt, cDoubleNullableInt);
   Expect.identical(cNull, cNullableNever);
   Expect.identical(cNull, cNullableNull);
   Expect.identical(cDynamic, cNullableDynamic);
   Expect.identical(cVoid, cNullableVoid);
-  Expect.identical(cFutureOrVoid, cVoid);
-  Expect.identical(cFutureOrDynamic, cDynamic);
-  Expect.identical(cFutureOrObject, cObject);
+  Expect.identical(cVoid, cFutureOrVoid);
+  Expect.identical(cDynamic, cFutureOrDynamic);
+  Expect.identical(cObject, cFutureOrObject);
   Expect.identical(cFutureOrNull, cNullableFutureNull);
+  Expect.identical(cRecordDynamicNull, cRecordNullableDynamicNullableNever);
 }

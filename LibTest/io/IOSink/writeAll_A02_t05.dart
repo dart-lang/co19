@@ -17,7 +17,7 @@ int called = 0;
 List objects = ["Testme"];
 List expected = [[84, 101, 115, 116, 109, 101]];
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       Expect.equals(expected.length, x.length);

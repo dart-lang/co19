@@ -12,8 +12,6 @@
 /// calculating of the exhaustiveness
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(bool b) {
   switch (b) {
 //^^^^^^

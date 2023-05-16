@@ -11,8 +11,6 @@
 /// subclass is not 'int', 'double', 'Pointer' or subtype of Struct or Union
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "dart:ffi";
 
 final class U1 extends Union {

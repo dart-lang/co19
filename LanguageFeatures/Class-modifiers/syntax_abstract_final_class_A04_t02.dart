@@ -9,8 +9,6 @@
 /// `abstract final class` is mixed in in the same library where it is defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 abstract final class AbstractFinalClass {}
 
 class ClassWithAbstractFinalClass1 with AbstractFinalClass {}

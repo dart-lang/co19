@@ -27,8 +27,6 @@
 /// uses `:` instead of '=>'
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 main () {
   int i = 42;
   var x = switch(i) {

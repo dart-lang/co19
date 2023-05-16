@@ -12,8 +12,6 @@
 /// of a switch statement with a default case have different types.
 /// @author msyabro
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   var x = 1;
 

@@ -31,8 +31,6 @@
 /// contains no fields and a trailing comma.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 () foo() => (,);
 //          ^^^
 // [analyzer] unspecified

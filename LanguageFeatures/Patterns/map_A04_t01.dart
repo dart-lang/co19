@@ -20,8 +20,6 @@
 /// map pattern are identical
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 class C {
   const C();
 }

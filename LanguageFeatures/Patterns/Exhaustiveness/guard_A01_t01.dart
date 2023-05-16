@@ -16,8 +16,6 @@
 /// an exhaustiveness
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,class-modifiers
-
 import "exhaustiveness_lib.dart";
 
 String testBool1(bool b) {

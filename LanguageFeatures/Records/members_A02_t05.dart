@@ -11,8 +11,6 @@
 /// @description Checks that each exposed getter has the correct type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/static_type_helper.dart";
 
 typedef R = (int a, String, {int x, bool y});

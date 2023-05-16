@@ -11,8 +11,6 @@
 /// is the context type schema of its subpattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 

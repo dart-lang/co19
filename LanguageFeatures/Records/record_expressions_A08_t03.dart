@@ -30,8 +30,6 @@
 /// @description Checks that record fields may contain generic functions
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 num foo<T extends (num, {String name})>(T r) => r.$1;

@@ -19,8 +19,6 @@
 /// in a pattern-for-in loop is not assignable to pattern's required type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "patterns_lib.dart";
 
 class Meta {

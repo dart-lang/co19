@@ -10,8 +10,6 @@
 /// @Issue 42461
 /// @author kaigorodov
 
-// SharedOptions=--enable-experiment=patterns
-
 class C {
   final int? x;
   const C(this.x);

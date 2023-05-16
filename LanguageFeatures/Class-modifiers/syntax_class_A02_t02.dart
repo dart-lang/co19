@@ -9,8 +9,6 @@
 /// same library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 class Class {}
 
 class ClassImplementsClass implements Class {}

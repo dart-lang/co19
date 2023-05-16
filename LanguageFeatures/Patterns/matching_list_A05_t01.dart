@@ -54,8 +54,6 @@
 /// then `v[i]` is not called for this element. Test tail elements
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 import "patterns_collections_lib.dart";
 

@@ -12,8 +12,6 @@
 /// are instances of different user-defined classes.
 /// @author ilya
 
-// SharedOptions=--enable-experiment=patterns
-
 class C {
   final id;
   const C(this.id);

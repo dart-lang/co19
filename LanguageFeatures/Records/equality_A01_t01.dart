@@ -22,8 +22,6 @@
 /// @description Checks that the records with the different shapes are not equal
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 main() {

@@ -23,8 +23,6 @@
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
-// SharedOptions=--enable-experiment=records
-
 (int, String, {bool b}) t0Instance = (1, "2", b: true);
 
 class LocalVariableTest {

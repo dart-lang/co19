@@ -10,8 +10,6 @@
 /// Test the case when there is a default clause
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=patterns
-
 main() {
   switch ("String") {
     case 0:

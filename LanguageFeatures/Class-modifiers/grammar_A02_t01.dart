@@ -22,8 +22,6 @@
 /// 'final' modifiers are placed before an `abstract` modifier
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
   base abstract class C1 {}
 //^^^^
 // [analyzer] unspecified

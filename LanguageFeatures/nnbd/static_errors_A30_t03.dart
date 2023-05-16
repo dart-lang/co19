@@ -18,8 +18,6 @@
 /// constants for which equality is not primitive.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=patterns
-
 class C {
   const C();
   bool operator ==(Object other) => true;

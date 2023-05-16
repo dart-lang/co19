@@ -16,7 +16,7 @@ String str = "Testme";
 List expected = [[84, 101, 115, 116, 109, 101], [10]];
 int called = 0;
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future<dynamic> addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       called++;

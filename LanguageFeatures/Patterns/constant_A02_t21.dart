@@ -33,8 +33,6 @@
 /// constant is prefixed by '-'. Test static constants
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 class C {
   static const Zero = 0;
   static const Pi = 3.14;

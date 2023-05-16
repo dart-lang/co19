@@ -11,8 +11,6 @@
 /// it is declared
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 mixin MixinOnSealed on SealedClass {}
@@ -70,6 +68,11 @@ abstract final class AbstractFinalClassWithSealed with SealedClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+enum EnumWithSealedClass with SealedClass {e1, e2}
+//                            ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(MixinOnSealed);
   print(BaseMixinOnSealed);
@@ -81,4 +84,6 @@ main() {
   print(AbstractClassWithSealed);
   print(AbstractBaseClassWithSealed);
   print(AbstractInterfaceClassWithSealed);
+  print(AbstractFinalClassWithSealed);
+  print(EnumWithSealedClass);
 }

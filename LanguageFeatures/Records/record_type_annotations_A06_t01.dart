@@ -26,8 +26,6 @@
 /// field name that starts with an underscore
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = (int i, {String _s});
 //                           ^^
 // [analyzer] unspecified

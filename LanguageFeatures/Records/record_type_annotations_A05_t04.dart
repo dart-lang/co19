@@ -26,8 +26,6 @@
 /// named field named `toString`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = (int i, {String toString});
 //                           ^^^^^^^^
 // [analyzer] unspecified

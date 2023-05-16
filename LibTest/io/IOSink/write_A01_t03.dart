@@ -20,7 +20,7 @@ String str = "Testme";
 List encodings = [utf8, ascii, latin1, systemEncoding];
 List expected = [84, 101, 115, 116, 109, 101];
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
 
   Future addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {

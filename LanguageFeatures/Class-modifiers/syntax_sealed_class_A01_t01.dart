@@ -8,8 +8,6 @@
 /// @description Checks that `sealed class` cannot be constructed
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 import "class_modifiers_lib.dart";
 
 sealed class LocalSealedClass {}

@@ -12,8 +12,6 @@
 /// added to a mixin-application class declaration
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 class C {}
 
 mixin M1 {}

@@ -14,8 +14,6 @@
 /// @description Check that if matching fails then no values are assigned
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 

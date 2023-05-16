@@ -6,8 +6,6 @@
 /// of T0 can be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 mixin class ArgumentsBindingMixin1_t03 {
   @T1 m = t1Default;
 

@@ -11,8 +11,6 @@
 /// @description Checks that a getter is exposed only for a named field.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R = (int a, String, {int x, int y});
 
 main() {

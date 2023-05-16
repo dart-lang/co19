@@ -15,8 +15,6 @@
 /// context produces no compile-time errors
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 test1(int? x) {

@@ -22,8 +22,6 @@
 /// `base`, `sealed` or `interface`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 main() {
   var base = 1;
   var sealed = 2;

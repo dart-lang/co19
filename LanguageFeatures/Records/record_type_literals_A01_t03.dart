@@ -13,8 +13,6 @@
 /// in a record expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 main() {
   print((void, dynamic) == (dynamic, void));
 //       ^^^^

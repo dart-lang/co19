@@ -14,8 +14,6 @@
 /// fields have the same name
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns,records
-
 main() {
   var (n1: a1, b1, n1: c1) = (n1: 1, 2);
 //                 ^^

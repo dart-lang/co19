@@ -10,8 +10,6 @@
 /// where it is defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 abstract base mixin class AbstractBaseMixinClass {}
 
 class ClassImplementsAbstractBaseMixinClass implements AbstractBaseMixinClass {}

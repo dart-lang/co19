@@ -16,8 +16,6 @@
 /// referenced in a guard expression but not in a case scope where it is defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 void test1() {
   switch (42) {
     case [var x] when v > 0:

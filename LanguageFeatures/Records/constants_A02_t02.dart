@@ -13,8 +13,6 @@
 /// expression (which also implies that it is not a constant expression).
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 final Pi = 3.14;
 
 class C {

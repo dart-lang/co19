@@ -23,8 +23,6 @@
 /// static type of the variable `p` declares or assigns to, then the match fails
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 String test1(Object? o) {

@@ -12,6 +12,7 @@
 /// post-feature library implements a platform library class marked `final` and
 /// the superinterface chain goes through a pre-feature library declaration
 /// @author sgrekhov22@gmail.com
+/// @issue 52078
 
 import "versioning_pre_feature_lib.dart";
 

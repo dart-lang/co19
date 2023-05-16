@@ -9,8 +9,6 @@
 /// `base/final/sealed` class in the library where it is defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 base mixin BaseMixin {}
 
 base class BaseImplementsBaseMixin implements BaseMixin {}

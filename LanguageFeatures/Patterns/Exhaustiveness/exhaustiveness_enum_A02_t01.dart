@@ -9,8 +9,6 @@
 /// switch expression is an enum and the set of cases is not exhaustive
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 enum E<T> {
   a<int>(),
   b<String>(),

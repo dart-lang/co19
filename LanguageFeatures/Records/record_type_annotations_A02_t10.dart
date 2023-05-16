@@ -36,8 +36,6 @@
 /// is before recordTypeFields
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = ({int i, String s}, int);
 //                             ^
 // [analyzer] unspecified

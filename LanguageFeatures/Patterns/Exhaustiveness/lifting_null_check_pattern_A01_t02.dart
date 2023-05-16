@@ -15,8 +15,6 @@
 /// have type `Null`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "exhaustiveness_lib.dart";
 import "../../../Utils/expect.dart";
 

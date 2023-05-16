@@ -26,8 +26,6 @@
 /// positional field named `hashCode`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 typedef R1 = (int hashCode, {String s});
 //                ^^^^^^^^
 // [analyzer] unspecified

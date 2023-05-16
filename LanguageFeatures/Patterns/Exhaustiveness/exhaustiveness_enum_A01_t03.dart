@@ -9,8 +9,6 @@
 /// switch expression is an enum and the set of cases is exhaustive
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../../Utils/expect.dart";
 
 enum E<T> {

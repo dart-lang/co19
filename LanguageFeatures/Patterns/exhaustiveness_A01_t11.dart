@@ -24,8 +24,6 @@
 /// not exhaustive. Test a type `FutureOr<T>` for `T` that is always-exhaustive
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "dart:async";
 
 main() {

@@ -17,8 +17,6 @@
 /// trivial generative constructor
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 mixin class M1 {
   M1();
   M1.named();

@@ -30,8 +30,6 @@
 /// @description Checks that variables can be used in record expressions
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 int i = 42;

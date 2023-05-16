@@ -10,8 +10,6 @@
 /// guard clause is not assignable to bool.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 String test1(List<int> v) {
   switch (v) {
     case [var a, _] when a - 1:

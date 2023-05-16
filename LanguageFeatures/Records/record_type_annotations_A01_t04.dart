@@ -20,8 +20,6 @@
 /// @description Checks records type annotations used in a typedef statements
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=records
-
 import "../../Utils/expect.dart";
 
 typedef (int, String name, bool) R1((int, String name, bool) r);

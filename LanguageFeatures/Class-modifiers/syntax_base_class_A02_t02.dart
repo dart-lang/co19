@@ -10,8 +10,6 @@
 /// (other cases tested in `basic_restrictions_A03_t*`)
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 base class LocalBaseClass {}
 
 base class BaseClassImplementsLocalBaseClass implements LocalBaseClass {}

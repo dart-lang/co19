@@ -27,8 +27,6 @@
 /// @description Check empty map and set literals in constant patterns
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=patterns
-
 import "../../Utils/expect.dart";
 
 String testObject1(Object value) {

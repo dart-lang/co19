@@ -11,8 +11,6 @@
 /// class other than Object
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=class-modifiers
-
 class C {}
 
 mixin class MixinClass extends C {
