@@ -26,7 +26,7 @@ import "../../Utils/expect.dart";
 
 inline class IC1 {
   final num id;
-  IC1(this.id)
+  IC1(this.id);
 }
 
 inline class IC2 {
@@ -35,7 +35,7 @@ inline class IC2 {
 
 main() {
   IC1 ic1 = IC1(42);
-  IC2 ic2 = IC2(3.14);
+  IC2 ic2 = IC2();
   Expect.equals(42, ic1.id);
   Expect.equals(3.14, ic2._x);
   Expect.isTrue(ic1 is num);
