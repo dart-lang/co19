@@ -16,14 +16,14 @@ inline class IC1 {
   final num id;
   IC1(this.id);
 
-  int get asInt => id as int;
+  int get asInt => id.toInt();
 }
 
 inline class IC2<T extends num> {
   final T id;
   IC2(this.id);
 
-  double get asDouble => id as double;
+  double get asDouble => id.toDouble();
 }
 
 main() {
@@ -31,11 +31,11 @@ main() {
   ic1.asInt.expectStaticType<Exactly<int>>();
   ic1.id.expectStaticType<Exactly<num>>();
 
-  IC2 ic2 = IC2<double>(3.14);
+  IC2<num> ic2 = IC2<double>(3.14);
   ic2.asDouble.expectStaticType<Exactly<double>>();
   ic2.id.expectStaticType<Exactly<num>>();
 
-  IC2<double> ic3 = IC2<double>(3.14);
+  IC2<double> ic3 = IC2(3.14);
   ic3.asDouble.expectStaticType<Exactly<double>>();
   ic3.id.expectStaticType<Exactly<double>>();
 }

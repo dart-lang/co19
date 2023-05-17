@@ -23,4 +23,7 @@ main() {
   ic.runtimeType;
   ic.hashCode;
   ic == ic;
+  try {
+    ic.noSuchMethod(Invocation.method(Symbol("test"), []));
+  } catch (_) {}
 }

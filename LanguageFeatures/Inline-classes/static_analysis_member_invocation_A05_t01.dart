@@ -32,9 +32,9 @@ main() {
   IC1 ic1 = IC1(42);
   ic1.foo<String, double>.expectStaticType<Exactly<int Function()>>();
 
-  IC2 ic2 = IC2<double>(3.14);
+  IC2<num> ic2 = IC2<double>(3.14);
   ic2.foo<String, double>.expectStaticType<Exactly<num Function()>>();
 
-  IC2<double> ic3 = IC2<double>(3.14);
+  IC2<double> ic3 = IC2(3.14);
   ic3.foo<String, double>.expectStaticType<Exactly<double Function()>>();
 }

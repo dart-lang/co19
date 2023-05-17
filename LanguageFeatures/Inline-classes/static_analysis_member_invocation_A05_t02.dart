@@ -6,9 +6,8 @@
 /// static analysis of the inline member invocation is the same as that of an
 /// invocation with argument part args of a function with type [T1/X1 .. Ts/Xs]F
 ///
-/// @description Checks that it is a compile-time error if to specify a wrong
+/// @description Checks that it is a compile-time error to specify a wrong
 /// type argument of a torn-off method
-/// specified
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
