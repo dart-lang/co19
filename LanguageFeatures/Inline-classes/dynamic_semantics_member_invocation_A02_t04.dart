@@ -18,30 +18,42 @@
 /// T1, .. Ts. The operator == of the closurization returns true if and only if
 /// the operand is the same object.
 ///
-/// @description Check that the operator `==` of the closurization returns true
-/// if and only if the operand is the same object
+/// @description Check that if the body throws an object and a stack trace then
+/// the invocation completes throwing the same object and stack trace.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/expect.dart";
 
-inline class IC<T> {
+StackTrace st = StackTrace.fromString("42");
+
+inline class IC<T extends num> {
   final T id;
   IC(this.id);
 
-  Map<K, V> asMap<K, V extends T>(K key) => {key: this.id as V};
+  X testMe<X extends T>() {
+    if (2 > 1) {
+      Error.throwWithStackTrace("X is $X", st);
+    }
+    return id as X;
+  }
 }
 
 main() {
-  IC<int> ic1 = IC(42);
-  var asMapTearOff = ic1.asMap;
-  Expect.notEquals(asMapTearOff, ic1.asMap);
-  Expect.equals(asMapTearOff, asMapTearOff);
+  IC<num> ic1 = IC(42);
+  try {
+    ic1.testMe();
+  } catch (e, _st) {
+    Expect.equals("X is num", e);
+    Expect.equals(st, _st);
+  }
 
-  IC<num> ic2 = IC(42);
-  var asMapTearOff2 = ic2.asMap;
-  Expect.notEquals(asMapTearOff2, ic2.asMap);
-  Expect.notEquals(asMapTearOff2, asMapTearOff);
-  Expect.equals(asMapTearOff2, asMapTearOff2);
+  IC<int> ic2 = IC(42);
+  try {
+    ic2.testMe();
+  } catch (e, _st) {
+    Expect.equals("X is int", e);
+    Expect.equals(st, _st);
+  }
 }

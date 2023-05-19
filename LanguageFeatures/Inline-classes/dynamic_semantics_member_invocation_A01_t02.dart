@@ -37,18 +37,26 @@ inline class IC<T extends num> {
 
   T get testMe {
     if (2 > 1) {
-      Error.throwWithStackTrace("I'm inline", st);
+      Error.throwWithStackTrace("T is $T", st);
     }
     return id;
   }
 }
 
 main() {
-  IC ic1 = IC(42);
+  IC<num> ic1 = IC(42);
   try {
     ic1.testMe;
   } catch (e, _st) {
-    Expect.equals("I'm inline", e);
+    Expect.equals("T is num", e);
+    Expect.equals(st, _st);
+  }
+
+  IC<int> ic2 = IC(42);
+  try {
+    ic2.testMe;
+  } catch (e, _st) {
+    Expect.equals("T is int", e);
     Expect.equals(st, _st);
   }
 }

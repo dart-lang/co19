@@ -30,26 +30,12 @@ inline class IC<T> {
   final T id;
   IC(this.id);
 
-  T getId() => this.id;
-}
-
-inline class IC2<T extends num> {
-  final T id;
-  IC2(this.id);
-
-  T plusOne() => this.id + 1 as T;
+  Map<K, V> asMap<K, V extends T>(K key) => {key: this.id as V};
 }
 
 main() {
-  IC ic1_1 = IC(42);
-  Expect.equals(42, ic1_1.getId());
-
-  IC ic1_2 = IC("42");
-  Expect.equals("42", ic1_2.getId());
-
-  IC2 ic2_1 = IC2(42);
-  Expect.equals(43, ic2_1.plusOne());
-
-  IC2 ic2_2 = IC2(3.14);
-  Expect.approxEquals(4.14, ic2_2.plusOne());
+  IC<int> ic1_1 = IC(42);
+  Expect.mapEquals({"key1": 42}, ic1_1.asMap("key1"));
+  Expect.throws(() {ic1_1.asMap("key1").addAll({"key2": 3.14} as dynamic);});
+  Expect.throws(() {ic1_1.asMap("key1").addAll(<String, num>{"key3": 0} as dynamic);});
 }

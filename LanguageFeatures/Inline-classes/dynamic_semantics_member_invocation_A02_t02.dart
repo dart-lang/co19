@@ -25,18 +25,14 @@
 
 import "../../Utils/expect.dart";
 
-extension EIC on IC {
-  String test() => "EIC.test()";
-}
-
 inline class IC<T> {
   final T id;
   IC(this.id);
 
-  String test() => "IC<$T>($id).test()";
+  Object test() => this;
 }
 
 main() {
-  IC ic1 = IC(42);
-  Expect.equals("IC<dynamic>(42).test()", ic1.test());
+  IC ic = IC(42);
+  Expect.identical(ic, ic.test());
 }

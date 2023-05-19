@@ -22,34 +22,30 @@
 /// to o2. If the body throws an object and a stack trace then the invocation
 /// completes throwing the same object and stack trace.
 ///
-/// @description Check that if the body throws an object and a stack trace then
-/// the invocation completes throwing the same object and stack trace.
+/// @description Check that the operator `==` of the closurization returns true
+/// if and only if the operand is the same object
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/expect.dart";
 
-StackTrace st = StackTrace.fromString("42");
-
-inline class IC<T extends num> {
+inline class IC<T> {
   final T id;
   IC(this.id);
 
-  X testMe<X extends T>() {
-    if (2 > 1) {
-      Error.throwWithStackTrace("I'm inline", st);
-    }
-    return id as X;
-  }
+  Map<K, V> asMap<K, V extends T>(K key) => {key: this.id as V};
 }
 
 main() {
-  IC<num> ic1 = IC(42);
-  try {
-    ic1.testMe<int>();
-  } catch (e, _st) {
-    Expect.equals("I'm inline", e);
-    Expect.equals(st, _st);
-  }
+  IC<int> ic1 = IC(42);
+  var asMapTearOff = ic1.asMap<String, int>;
+  Expect.notEquals(asMapTearOff, ic1.asMap<String, int>);
+  Expect.equals(asMapTearOff, asMapTearOff);
+
+  IC<num> ic2 = IC(42);
+  var asMapTearOff2 = ic2.asMap<String, double>;
+  Expect.notEquals(asMapTearOff2, ic2.asMap<String, double>);
+  Expect.notEquals(asMapTearOff2, asMapTearOff);
+  Expect.equals(asMapTearOff2, asMapTearOff2);
 }

@@ -22,28 +22,41 @@
 /// to o2. If the body throws an object and a stack trace then the invocation
 /// completes throwing the same object and stack trace.
 ///
-/// @description Check that invocation of an inline class method in the case
-/// when type arguments are specified.
+/// @description Check that if the body throws an object and a stack trace then
+/// the invocation completes throwing the same object and stack trace.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/expect.dart";
 
-inline class IC<T> {
+StackTrace st = StackTrace.fromString("42");
+
+inline class IC<T extends num> {
   final T id;
   IC(this.id);
 
-  Map<K, V> asMap<K, V extends T>(K key) => {key: this.id as V};
+  X testMe<X extends T>() {
+    if (2 > 1) {
+      Error.throwWithStackTrace("X is $X", st);
+    }
+    return id as X;
+  }
 }
 
 main() {
   IC<num> ic1 = IC(42);
-  Expect.mapEquals({"key1": 42}, ic1.asMap<String, int>("key1"));
-  Expect.mapEquals({"key1": 42}, ic1.asMap<String, num>("key1"));
-  Expect.throws(() {ic1.asMap<String, int>("key1").addAll({"key2": 3.14} as dynamic);});
+  try {
+    ic1.testMe<int>();
+  } catch (e, _st) {
+    Expect.equals("X is int", e);
+    Expect.equals(st, _st);
+  }
 
-  IC<int> ic2 = IC(0);
-  Expect.mapEquals({"key1": 0}, ic2.asMap<String, int>("key1"));
-  Expect.throws(() {ic2.asMap("key1").addAll(<String, num>{"key2": 1} as dynamic);});
+  try {
+    ic1.testMe<double>();
+  } catch (e, _st) {
+    Expect.equals("X is double", e);
+    Expect.equals(st, _st);
+  }
 }

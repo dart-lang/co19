@@ -19,14 +19,15 @@
 /// evaluates to o2. If the body throws an object and a stack trace then the
 /// invocation completes throwing the same object and stack trace.
 ///
-/// @description Check invocation of an inline class getter in the case when
-/// type arguments are omitted. Test that if the body completes returning an
-/// object `o2` then the invocation evaluates to `o2`.
+/// @description Check invocation of an inline class getter. Test that if the
+/// body completes returning an object `o2` then the invocation evaluates to
+/// `o2`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/expect.dart";
+import "../../Utils/static_type_helper.dart";
 
 inline class IC<T> {
   final T id;
@@ -37,19 +38,22 @@ inline class IC2<T extends num> {
   final T id;
   IC2(this.id);
 
-  T get plusOne => id + 1 as T;
+  List<T> get emptyList => <T>[];
 }
 
 main() {
-  IC ic1_1 = IC(42);
+  IC<Object?> ic1_1 = IC(42);
   Expect.equals(42, ic1_1.id);
 
-  IC ic1_2 = IC("42");
+  IC<Object?> ic1_2 = IC("42");
   Expect.equals("42", ic1_2.id);
 
-  IC2 ic2_1 = IC2(42);
-  Expect.equals(43, ic2_1.plusOne);
+  IC2<int> ic2_1 = IC2(42);
+  ic2_1.emptyList.expectStaticType<Exactly<List<int>>>();
+  Expect.throws(() {ic2_1.emptyList.add(3.14 as dynamic);});
 
-  IC2 ic2_2 = IC2(3.14);
-  Expect.approxEquals(4.14, ic2_2.plusOne);
+  IC2<num> ic2_2 = IC2(3.14);
+  ic2_2.emptyList.expectStaticType<Exactly<List<num>>>();
+  ic2_2.emptyList.add(42);
+  ic2_2.emptyList.add(3.14);
 }

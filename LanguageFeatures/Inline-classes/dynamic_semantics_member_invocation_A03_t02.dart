@@ -29,18 +29,14 @@
 
 import "../../Utils/expect.dart";
 
-extension EIC on IC {
-  String test() => "EIC.test()";
-}
-
 inline class IC<T> {
   final T id;
   IC(this.id);
 
-  String test() => "IC<$T>($id).test()";
+  IC test() => this;
 }
 
 main() {
-  IC<num> ic1 = IC(42);
-  Expect.equals("IC<num>(42).test()", ic1.test());
+  IC<num> ic = IC(42);
+  Expect.equals(ic, ic.test());
 }
