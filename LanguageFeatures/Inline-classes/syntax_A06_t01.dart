@@ -33,7 +33,7 @@ inline class IC1 {
 }
 
 inline class IC2 {
-  static int _v;
+  static int _v = 0;
   static void set staticSetter(int val) {
     _v = val;
   }

@@ -22,7 +22,7 @@
 import "../../Utils/expect.dart";
 
 final inline class FIC {
-  final int id ;
+  final int id;
   const FIC(this.id);
 }
 
