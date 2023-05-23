@@ -9,10 +9,10 @@
 ///
 /// @author iarkh@unipro.ru
 
-// Requirements=nnbd-strong
+// Requirements=nnbd-weak
 
-import "const_evaluation_lib.dart";
-import "const_evaluation_legacy_lib.dart";
+import '../const_evaluation_lib.dart';
+import 'const_evaluation_legacy_lib.dart';
 
 const dynamic d = null;
 
