@@ -11,6 +11,7 @@
 
 // Requirements=nnbd-weak
 
+import "../../../Utils/expect.dart";
 import '../const_evaluation_lib.dart';
 import 'const_evaluation_legacy_lib.dart';
 
@@ -18,12 +19,7 @@ const dynamic d = null;
 
 main() {
   const c1 = C.t(null, cLegacyInt);
-//           ^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   const c2 = C.t(d, cLegacyInt);
-//           ^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.isNull(c1.x);
+  Expect.isNull(c2.x);
 }
