@@ -18,8 +18,9 @@
 /// T1, .. Ts. The operator == of the closurization returns true if and only if
 /// the operand is the same object.
 ///
-/// @description Check invocation of an inline class method in the case when
-/// type arguments are omitted.
+/// @description Check that in case of invocation of an inline class method with
+/// the omitted type argument the actual type variables of V are bound to the
+/// actual values of T1, .. Ts.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -30,12 +31,10 @@ inline class IC<T> {
   final T id;
   IC(this.id);
 
-  Map<K, V> asMap<K, V extends T>(K key) => {key: this.id as V};
+  Map<K, Type> asMap<K, V extends T>(K key) => {key: V};
 }
 
 main() {
   IC<int> ic1_1 = IC(42);
-  Expect.mapEquals({"key1": 42}, ic1_1.asMap("key1"));
-  Expect.throws(() {ic1_1.asMap("key1").addAll({"key2": 3.14} as dynamic);});
-  Expect.throws(() {ic1_1.asMap("key1").addAll(<String, num>{"key3": 0} as dynamic);});
+  Expect.mapEquals({"key1": int}, ic1_1.asMap("key1"));
 }

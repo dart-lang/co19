@@ -33,10 +33,14 @@ inline class IC<T> {
   final T id;
   IC(this.id);
 
-  IC test() => this;
+  Object test1() => this;
+  void test2() {
+    Expect.identical(this, id);
+  }
 }
 
 main() {
   IC<num> ic = IC(42);
-  Expect.equals(ic, ic.test());
+  Expect.identical(ic, ic.test1());
+  ic.test2();
 }

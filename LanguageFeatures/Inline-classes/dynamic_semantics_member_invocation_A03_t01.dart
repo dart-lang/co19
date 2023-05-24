@@ -22,8 +22,9 @@
 /// to o2. If the body throws an object and a stack trace then the invocation
 /// completes throwing the same object and stack trace.
 ///
-/// @description Check that invocation of an inline class method in the case
-/// when type arguments are specified.
+/// @description Check that in case of invocation of an inline class method in
+/// with the specified type arguments formal parameters of m are bound to
+/// `args1` in the same way that they would be bound for a normal function call
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -34,16 +35,11 @@ inline class IC<T> {
   final T id;
   IC(this.id);
 
-  Map<K, V> asMap<K, V extends T>(K key) => {key: this.id as V};
+  Map<K, Type> asMap<K, V extends T>(K key) => {key: V};
 }
 
 main() {
   IC<num> ic1 = IC(42);
-  Expect.mapEquals({"key1": 42}, ic1.asMap<String, int>("key1"));
-  Expect.mapEquals({"key1": 42}, ic1.asMap<String, num>("key1"));
-  Expect.throws(() {ic1.asMap<String, int>("key1").addAll({"key2": 3.14} as dynamic);});
-
-  IC<int> ic2 = IC(0);
-  Expect.mapEquals({"key1": 0}, ic2.asMap<String, int>("key1"));
-  Expect.throws(() {ic2.asMap("key1").addAll(<String, num>{"key2": 1} as dynamic);});
+  Expect.mapEquals({"key1": int}, ic1.asMap<String, int>("key1"));
+  Expect.mapEquals({"key1": num}, ic1.asMap<String, num>("key1"));
 }
