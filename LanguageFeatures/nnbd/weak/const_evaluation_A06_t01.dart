@@ -19,7 +19,12 @@ const dynamic d = null;
 
 main() {
   const c1 = C.t(null, cLegacyInt);
+//           ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
   const c2 = C.t(d, cLegacyInt);
+//           ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+
   Expect.isNull(c1.x);
   Expect.isNull(c2.x);
 }
