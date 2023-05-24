@@ -5,21 +5,23 @@
 /// @assertion Abstract final class cannot be constructed, extended, implemented
 /// or mixed in and is not exhaustive
 ///
-/// @description Checks that `final class` cannot be constructed
+/// @description Checks that it is a compile-time error to tear off constructor
+/// of an `abstract final class`
 /// @author sgrekhov22@gmail.com
 
-import "class_modifiers_lib.dart";
-
-abstract final class LocalAbstractFinalClass {}
+abstract final class AbstractFinalClass {
+  AbstractFinalClass();
+  AbstractFinalClass.x();
+}
 
 main() {
-  AbstractFinalClass();
-//^^^^^^^^^^^^^^^^^^
+  var tf1 = AbstractFinalClass.new;
+//          ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  LocalAbstractFinalClass();
-//^^^^^^^^^^^^^^^^^^^^^^^
+  var tf2 = AbstractFinalClass.x;
+//          ^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
