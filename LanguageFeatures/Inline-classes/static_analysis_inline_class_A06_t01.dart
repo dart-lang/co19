@@ -2,81 +2,58 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if an inline type declares a member
-/// whose name is declared by Object as well.
+/// @assertion It is a compile-time error if await e occurs, and the static type
+/// of e is an inline type.
 ///
-/// @description Checks that it is a compile-time error if an inline type
-/// declares a member whose name is declared by `Object` as well.
+/// @description Checks that it is a compile-time error if `await e` occurs, and
+/// the static type of `e` is an inline type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 inline class V1 {
   final int id;
-  V1(this.id);
-
-  int get hashCode => id.hashCode;
-//        ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Type get runtimeType => V1;
-//         ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  dynamic noSuchMethod(Invocation invocation) => null;
-//        ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  String toString() => "V1($id)";
-//       ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  bool operator ==(Object other) => false;
-//              ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  V(this.id);
 }
 
 inline class V2<T> {
   final T id;
-  V2(this.id);
+  V(this.id);
+}
 
-  @override
-  int get hashCode => id.hashCode;
-//        ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  @override
-  Type get runtimeType => V2<T>;
-//         ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  @override
-  dynamic noSuchMethod(Invocation invocation) => null;
-//        ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  @override
-  String toString() => "V2<$T>($id)";
-//       ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  @override
-  bool operator ==(Object other) => false;
-//              ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+inline class V3<T extends num> {
+  final T id;
+  V(this.id);
 }
 
 main() async {
-  print(V1);
-  print(V2);
+  V1 v1 = V1(42);
+  await v1;
+//      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V2<String> v2_1 = V2("42");
+  await v2_1;
+//      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V2 v2_2 = V2("42");
+  await v2_2;
+//      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V3<int> v3_1 = V3(42);
+  await v3_1;
+//      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V3 v3_2 = V3(42);
+  await v3_2;
+//      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

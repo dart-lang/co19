@@ -2,56 +2,81 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if an inline type is used as a
-/// superinterface of a class or a mixin, or if an inline type is used to derive
-/// a mixin.
+/// @assertion A compile-time error occurs if an inline type declares a member
+/// whose name is declared by Object as well.
 ///
-/// @description Checks that it is a compile-time error if an inline type is
-/// used as a superinterface of a class or a mixin, or if an inline type is used
-/// to derive a mixin.
+/// @description Checks that it is a compile-time error if an inline type
+/// declares a member whose name is declared by `Object` as well.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class V {
+inline class V1 {
   final int id;
-  V(this.id);
+  V1(this.id);
+
+  int get hashCode => id.hashCode;
+//        ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Type get runtimeType => V1;
+//         ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  dynamic noSuchMethod(Invocation invocation) => null;
+//        ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  String toString() => "V1($id)";
+//       ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  bool operator ==(Object other) => false;
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-class C1 extends V {
-//               ^
+inline class V2<T> {
+  final T id;
+  V2(this.id);
+
+  @override
+  int get hashCode => id.hashCode;
+//        ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C1(int id) : super(id);
+
+  @override
+  Type get runtimeType => V2<T>;
+//         ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => null;
+//        ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  @override
+  String toString() => "V2<$T>($id)";
+//       ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  @override
+  bool operator ==(Object other) => false;
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-class C2 implements V {
-//                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int get id => -1;
-}
-
-mixin M on V {}
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-class C3 with V {}
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-class C4 = Object with V;
-//                     ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-main() {
-  print(V);
-  print(C1);
-  print(C2);
-  print(M);
-  print(C3);
-  print(C4);
+main() async {
+  print(V1);
+  print(V2);
 }
