@@ -27,6 +27,13 @@ inline class IC2<T extends num> {
   T foo<T1, T2 extends T>() => id;
 }
 
+inline class IC3<T> {
+  final T id;
+  IC3(this.id);
+
+  Map<K, V> asMap<K, V extends T>(K key) => {key: this.id as V};
+}
+
 main() {
   IC1 ic1 = IC1(42);
   ic1.foo.expectStaticType<Exactly<int Function<T1, T2 extends num>()>>();
@@ -34,6 +41,11 @@ main() {
   IC2<num> ic2 = IC2<double>(3.14);
   ic2.foo.expectStaticType<Exactly<num Function<T1, T2 extends num>()>>();
 
-  IC2<double> ic3 = IC2(3.14);
-  ic3.foo.expectStaticType<Exactly<double Function<T1, T2 extends double>()>>();
+  IC2<double> ic2_2 = IC2(3.14);
+  ic2_2.foo
+      .expectStaticType<Exactly<double Function<T1, T2 extends double>()>>();
+
+  IC3<int> ic3 = IC3(0);
+  ic3.asMap
+      .expectStaticType<Exactly<Map<K, V> Function<K, V extends int>(K)>>();
 }
