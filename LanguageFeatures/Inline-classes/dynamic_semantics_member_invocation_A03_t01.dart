@@ -22,8 +22,8 @@
 /// to o2. If the body throws an object and a stack trace then the invocation
 /// completes throwing the same object and stack trace.
 ///
-/// @description Check that in case of invocation of an inline class method in
-/// with the specified type arguments formal parameters of m are bound to
+/// @description Check that in case of an invocation of an inline class method
+/// `m` the specified type parameters and formal parameters of `m` are bound to
 /// `args1` in the same way that they would be bound for a normal function call
 /// @author sgrekhov22@gmail.com
 
@@ -35,11 +35,13 @@ inline class IC<T> {
   final T id;
   IC(this.id);
 
-  Map<K, Type> asMap<K, V extends T>(K key) => {key: V};
+  Map<K, Type> asMap<K, V extends T>(K key1, K key2) => {key1: V, key2: T};
 }
 
 main() {
   IC<num> ic1 = IC(42);
-  Expect.mapEquals({"key1": int}, ic1.asMap<String, int>("key1"));
-  Expect.mapEquals({"key1": num}, ic1.asMap<String, num>("key1"));
+  Expect.mapEquals(
+      {"key1": int, "key2": num}, ic1.asMap<String, int>("key1", "key2"));
+  Expect.mapEquals(
+      {"key1": num, "key2": num}, ic1.asMap<String, num>("key1", "key2"));
 }

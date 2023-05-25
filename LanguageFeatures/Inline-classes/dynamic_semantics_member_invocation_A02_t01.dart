@@ -31,10 +31,10 @@ inline class IC<T> {
   final T id;
   IC(this.id);
 
-  Map<K, Type> asMap<K, V extends T>(K key) => {key: V};
+  Map<K, Type> asMap<K, V extends T>(K key1, K key2) => {key1: V, key2: T};
 }
 
 main() {
-  IC<int> ic1_1 = IC(42);
-  Expect.mapEquals({"key1": int}, ic1_1.asMap("key1"));
+  IC<num> ic1_1 = IC(42);
+  Expect.mapEquals({"key1": num, "key2": num}, ic1_1.asMap("key1", "key2"));
 }
