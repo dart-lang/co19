@@ -16,8 +16,8 @@
 /// When s is greater than zero, a raw occurrence V is treated like a raw type:
 /// Instantiation to bound is used to obtain the omitted type arguments
 ///
-/// @description Checks that it is a compile-time error if the type
-/// `V<T1, .. Ts>` is not regular-bounded.
+/// @description Checks that instantiation to bound is used to obtain the
+/// omitted type arguments
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
