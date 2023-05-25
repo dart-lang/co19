@@ -27,16 +27,28 @@ inline class V<X1 extends num, X2 extends Object> {
   X2 foo() => id as X2;
 }
 
+V<int, int> foo(V<int, int> v) => v;
+
+class C<T extends V<num, Object>> {
+  V<int, int> bar<T extends V<num, num>>(T t) => t as V<int, int>;
+}
+
 main() {
   V v1 = V(42);
   Expect.isTrue(v1 is V<num, Object>);
 
-  V<int, num> v2 = V(42);
-  Expect.isTrue(v2 is V<int, num>);
+  V<int, int> v2 = V(42);
+  Expect.isTrue(v2 is V<int, int>);
+
+  V<int, Never> v3 = V(42);
+  Expect.isTrue(v3 is V<int, Never>);
 
   List<V> l1 = List.empty();
   Expect.isTrue(l1 is List<V<num, Object>>);
 
   List<V<num, double>> l2 = List.empty();
   Expect.isTrue(l2 is List<V<num, double>>);
+
+  foo(v2);
+  C<V<int, int>>().bar<V<int, int>>(v2);
 }

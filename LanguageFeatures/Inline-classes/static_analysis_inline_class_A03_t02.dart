@@ -20,30 +20,14 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-class A {}
-class B extends A {}
-class C extends B {}
-
-inline class V<X1 extends num, X2 extends B> {
-  final X1 id;
+inline class V<T extends V<T>> {
+  final T id;
   V(this.id);
-
-  X2 foo() => id as X2;
 }
 
 main() {
-  V<int, Object?> v1 = V(42);
-//       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  V<String, B> v2 = V("42");
-//  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  <V<num, A>>[];
-//        ^
+  List<V> l = [];
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
