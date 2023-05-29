@@ -20,7 +20,7 @@ inline class C1<T> implements A<void Function(T)> {
 // [analyzer] unspecified
 // [cfe] unspecified
   final int id;
-  C2(this.id);
+  C1(this.id);
 }
 
 inline class C2<T> with A<void Function(T)> {
@@ -28,7 +28,7 @@ inline class C2<T> with A<void Function(T)> {
 // [analyzer] unspecified
 // [cfe] unspecified
   final int id;
-  C3(this.id);
+  C2(this.id);
 }
 
 main() {

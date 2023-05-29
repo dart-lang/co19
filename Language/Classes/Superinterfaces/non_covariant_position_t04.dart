@@ -23,7 +23,7 @@ inline class C1<T> implements A<B<T>> {
 // [analyzer] unspecified
 // [cfe] unspecified
   final int id;
-  C2(this.id);
+  C1(this.id);
 }
 
 inline class C2<T> with A<B<T>> {
@@ -31,7 +31,7 @@ inline class C2<T> with A<B<T>> {
 // [analyzer] unspecified
 // [cfe] unspecified
   final int id;
-  C3(this.id);
+  C2(this.id);
 }
 
 main() {
