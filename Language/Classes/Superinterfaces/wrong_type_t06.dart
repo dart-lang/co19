@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -8,16 +8,22 @@
 /// type FutureOr<T> for any T.
 ///
 /// @description Checks that it is a compile-time error when the type expression
-/// in a class's implements clause denotes an enumerated type
-/// @author sgrekhov@unipro.ru
+/// in a class's implements clause includes type `FutureOr<T>`
+/// @author sgrekhov22@gmail.com
 
-enum E {a, b, c}
+class A {}
 
-class A implements E {}
-//                 ^
+class C1 implements FutureOr<A> {}
+//                  ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class C2<T> implements FutureOr<T> {}
+//                     ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  new A();
+  C1();
+  C2();
 }
