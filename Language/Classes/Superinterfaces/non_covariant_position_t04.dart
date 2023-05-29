@@ -35,6 +35,6 @@ inline class C2<T> with A<B<T>> {
 }
 
 main() {
-  C1();
-  C2();
+  C1(42);
+  C2(42);
 }

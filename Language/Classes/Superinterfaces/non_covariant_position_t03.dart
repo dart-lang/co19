@@ -32,6 +32,6 @@ inline class C2<T> with A<void Function(T)> {
 }
 
 main() {
-  C1();
-  C2();
+  C1(42);
+  C2(42);
 }
