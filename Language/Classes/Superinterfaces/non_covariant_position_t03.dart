@@ -15,15 +15,7 @@
 
 mixin class A<T> {}
 
-inline class C1<T> extends A<void Function(T)> {
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id;
-  C1(this.id);
-}
-
-inline class C2<T> implements A<void Function(T)> {
+inline class C1<T> implements A<void Function(T)> {
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -31,7 +23,7 @@ inline class C2<T> implements A<void Function(T)> {
   C2(this.id);
 }
 
-inline class C3<T> with A<void Function(T)> {
+inline class C2<T> with A<void Function(T)> {
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -42,5 +34,4 @@ inline class C3<T> with A<void Function(T)> {
 main() {
   C1();
   C2();
-  C3();
 }

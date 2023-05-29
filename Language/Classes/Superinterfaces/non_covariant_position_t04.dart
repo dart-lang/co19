@@ -18,15 +18,7 @@ mixin class A<T> {}
 
 typedef B<T> = void Function(T);
 
-inline class C1<T> extends A<B<T>> {
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id;
-  C1(this.id);
-}
-
-inline class C2<T> implements A<B<T>> {
+inline class C1<T> implements A<B<T>> {
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -34,7 +26,7 @@ inline class C2<T> implements A<B<T>> {
   C2(this.id);
 }
 
-inline class C3<T> with A<B<T>> {
+inline class C2<T> with A<B<T>> {
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -45,5 +37,4 @@ inline class C3<T> with A<B<T>> {
 main() {
   C1();
   C2();
-  C3();
 }
