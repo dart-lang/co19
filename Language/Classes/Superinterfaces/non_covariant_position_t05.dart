@@ -161,20 +161,28 @@ base mixin BaseMixin<T> implements A<void Function(T)> {}
 main() {
   print(BaseClass1);
   print(BaseClass2);
+  print(BaseClass3);
   print(InterfaceClass1);
   print(InterfaceClass2);
+  print(InterfaceClass3);
   print(FinalClass1);
   print(FinalClass2);
+  print(FinalClass3);
   print(SealedClass1);
   print(SealedClass2);
+  print(SealedClass3);
   print(AbstractClass1);
   print(AbstractClass2);
+  print(AbstractClass3);
   print(AbstractBaseClass1);
   print(AbstractBaseClass2);
+  print(AbstractBaseClass3);
   print(AbstractInterfaceClass1);
   print(AbstractInterfaceClass2);
+  print(AbstractInterfaceClass3);
   print(AbstractFinalClass1);
   print(AbstractFinalClass2);
+  print(AbstractFinalClass3);
   print(MixinClass);
   print(AbstractMixinClass);
   print(AbstractBaseMixinClass);
