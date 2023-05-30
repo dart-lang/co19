@@ -138,6 +138,11 @@ mixin class MixinClass<T> implements A<void Function(T)> {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+base mixin class BaseMixinClass<T> implements A<void Function(T)> {}
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 abstract mixin class AbstractMixinClass<T> implements A<void Function(T)> {}
 //                                      ^
 // [analyzer] unspecified
@@ -184,6 +189,7 @@ main() {
   print(AbstractFinalClass2);
   print(AbstractFinalClass3);
   print(MixinClass);
+  print(BaseMixinClass);
   print(AbstractMixinClass);
   print(AbstractBaseMixinClass);
   print(Mixin);

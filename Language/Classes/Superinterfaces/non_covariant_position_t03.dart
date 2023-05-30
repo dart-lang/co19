@@ -13,7 +13,9 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-mixin class A<T> {}
+inline class A<T> {
+  final int id = 0;
+}
 
 inline class C<T> implements A<void Function(T)> {
 //             ^

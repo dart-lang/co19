@@ -7,49 +7,49 @@
 ///
 /// @description Checks that it is a compile-time error if a class `C` has two
 /// superinterfaces that are different instantiations of the same generic class.
-/// Test extends/implements case
+/// Test extends/with case
 /// @author sgrekhov22@gmail.com
 
-class A<T> {}
-class B1<T> implements A<T> {}
-class B2<T> implements A<T> {}
+mixin class A<T> {}
+mixin class B1<T> implements A<T> {}
+mixin class B2<T> implements A<T> {}
 
-class C1 extends A<int> implements A {}
-//                                 ^
+class C1 extends A<int> with A {}
+//                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class C2 extends A<num> implements A<int> {}
-//                                 ^^^^^^
+class C2 extends A<num> with A<int> {}
+//                           ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class C3<T> extends A<T> implements A<int> {}
-//                                  ^^^^^^
+class C3<T> extends A<T> with A<int> {}
+//                            ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class C4<T extends num> extends A<T> implements A<num> {}
-//                                              ^^^^^^
+class C4<T extends num> extends A<T> with A<num> {}
+//                                        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class CB1 extends B1<int> implements B2 {}
+class CB1 extends B1<int> with B2 {}
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class CB2 extends B1<num> implements B2<int> {}
+class CB2 extends B1<num> with B2<int> {}
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class CB3<T> extends B1<T> implements B2<int> {}
+class CB3<T> extends B1<T> with B2<int> {}
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class CB4<T extends num> extends B1<T> implements B2<num> {}
+class CB4<T extends num> extends B1<T> with B2<num> {}
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
