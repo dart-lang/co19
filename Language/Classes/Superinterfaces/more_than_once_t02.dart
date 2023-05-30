@@ -4,6 +4,7 @@
 
 /// @assertion It is a compile-time error if the implements clause of a class
 /// C specifies a type T as a superinterface more than once.
+///
 /// @description Checks that it is a compile-time error if the same type appears
 /// more than once in the implements clause. Test type aliases
 /// @Issue 45526

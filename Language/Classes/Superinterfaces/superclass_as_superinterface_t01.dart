@@ -4,6 +4,7 @@
 
 /// @assertion It is a compile-time error if the superclass of a class C is
 /// specified as a superinterface of C.
+///
 /// @description Test checks that it is a compile-time error when a class has
 /// the same class as superclass and interface.
 /// @author hlodvig

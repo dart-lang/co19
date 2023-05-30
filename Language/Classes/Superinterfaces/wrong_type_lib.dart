@@ -3,5 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 library wrong_type_lib;
+
 class A {
 }

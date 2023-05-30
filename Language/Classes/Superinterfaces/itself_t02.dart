@@ -4,6 +4,7 @@
 
 /// @assertion It is a compile-time error if the interface of a class C is a
 /// superinterface of itself.
+///
 /// @description When a class name appears as a type or interface, that name
 /// denotes the interface of the class.
 /// Test checks that it is a compile-time error when a class's own name is

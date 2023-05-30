@@ -5,10 +5,10 @@
 /// @assertion It is a compile error if the implicit interface of a class
 /// C includes an instance member m of type F and C declares or inherits a
 /// corresponding instance member m of type F' if F' is not a subtype of F.
+///
 /// @description Checks that it is a compile error if the type F'
 /// of declared instance member m is not a subtype of F.
 /// @author ilya
-
 
 abstract class I {
   foo(var x);
