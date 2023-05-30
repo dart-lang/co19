@@ -13,17 +13,17 @@
 
 inline class V1 {
   final int id;
-  V(this.id);
+  V1(this.id);
 }
 
 inline class V2<T> {
   final T id;
-  V(this.id);
+  V2(this.id);
 }
 
 inline class V3<T extends num> {
   final T id;
-  V(this.id);
+  V3(this.id);
 }
 
 main() async {
