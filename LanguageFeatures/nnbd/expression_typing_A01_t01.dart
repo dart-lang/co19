@@ -19,8 +19,7 @@
 /// @issue 41282
 /// @author sgrekhov@unipro.ru
 
-
-class T extends Type {}
+class T implements Type {}
 
 class C {
   T get runtimeType => new T();

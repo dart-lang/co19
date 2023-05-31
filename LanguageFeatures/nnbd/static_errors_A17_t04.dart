@@ -36,20 +36,17 @@ main() {
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //  ^
 // [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
-    foo()
-      ?..toString();
+    foo()?..toString();
 //       ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //  ^
 // [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
-    foo()
-      ?..runtimeType;
+    foo()?..runtimeType;
 //       ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //  ^
 // [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
-    foo()
-      ?..s = 1;
+    foo()?..s = 1;
 //       ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //  ^
