@@ -22,12 +22,12 @@
 // SharedOptions=--enable-experiment=inline-class
 
 inline class V1 {
-  final int? id;
+  final Object? id;
   V1(this.id);
 }
 
 inline class V2<T1, T2 extends num?> {
-  final num? id;
+  final Object? id;
   V2(this.id);
 }
 

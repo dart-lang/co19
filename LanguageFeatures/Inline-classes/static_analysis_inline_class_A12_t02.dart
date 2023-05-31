@@ -16,7 +16,7 @@
 /// proper subtype of Object?, and V is potentially nullable.
 ///
 /// @description Checks that if an instantiated representation type `R` is
-/// non-nullable then it is a proper subtype of `Object`
+/// non-nullable then it is a compile-time error to assign `Object` to `V`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -32,8 +32,18 @@ inline class V2<T1, T2 extends num?> {
 }
 
 main() {
-  Object v1 = V1(42);
-  V1 v1_2 = v1 as V1;
-  Object v2 = V2<String?, int?>(3.14);
-  V2 v2_2 = v2 as V2<String?, int?>;
+  V1 v1 = Object();
+//        ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V2 v2_1 = Object();
+//          ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V2<String, int> v2_2 = Object();
+//                       ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

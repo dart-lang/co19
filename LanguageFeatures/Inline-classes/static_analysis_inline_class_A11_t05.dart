@@ -21,6 +21,14 @@ extension E1 on int {
   String foo() => "E1.foo";
 }
 
+extension EV1 on V1 {
+  String foo() => "EV1.foo";
+}
+
+extension EV2 on V2 {
+  String foo() => "EV2.foo";
+}
+
 inline class V1 {
   final int it;
   V1(this.it);
@@ -37,8 +45,8 @@ inline class V2 {
   String foo()  => "V2.foo";
   void test() {
     Expect.equals("V2.foo", foo());
-    Expect.equals("V1.foo",it.foo());
-    Expect.equals("V1.baz",it.baz());
+    Expect.equals("V1.foo", it.foo());
+    Expect.equals("V1.baz", it.baz());
     Expect.equals("E1.foo", 1.foo());
     Expect.equals("qux", qux());
   }

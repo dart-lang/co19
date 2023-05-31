@@ -17,21 +17,24 @@
 /// Instantiation to bound is used to obtain the omitted type arguments
 ///
 /// @description Checks that instantiation to bound is used to obtain the
-/// omitted type arguments. Test default bound
+/// omitted type arguments. Test a super-bounded type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/expect.dart";
 
-inline class V1<T> {
+class A<T extends A<T>> {}
+
+inline class V<T extends A<T>> {
   final int id;
-  V1(this.id);
+  V(this.id);
 
   Type get type => T;
 }
 
 main() {
-  var v1 = V1(42);
-  Expect.equals(dynamic, v1.type);
+  var v = V<Never>(42);
+  var v1 = V<A<void>>(42);
+  Expect.equals(Never, v.type);
 }
