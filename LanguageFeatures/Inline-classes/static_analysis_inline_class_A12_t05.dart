@@ -34,7 +34,7 @@ inline class V2<T1, T2 extends num?> {
 
 test1<X extends V1?>() {
   X x;
-  print(x);
+  print(x); // Expect an error on the first use of non-initialized variable
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified

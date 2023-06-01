@@ -16,7 +16,8 @@
 /// proper subtype of Object?, and V is potentially nullable.
 ///
 /// @description Checks that if an instantiated representation type `R` is
-/// not non-nullable then it is a proper subtype of `Object?`
+/// not non-nullable then it is a proper subtype of `Object?` (can be assigned
+/// to `Object?`)
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -27,21 +28,11 @@ inline class V1 {
 }
 
 inline class V2<T1, T2 extends num?> {
-  final Object? id;
+  final T1? id;
   V2(this.id);
 }
 
-test1<X extends V1?>(X x) {
-  Object? o = x;
-  x?.id;
-}
-
-test2<X extends V2<String?, int?>?>(X x) {
-  Object? o = x;
-  x?.id;
-}
-
 main() {
-  test1<V1>(V1(42));
-  test2<V2<String?, int?>>(V2(42));
+  Object? o1 = V1(42);
+  Object? o2 = V2<String, int>("42");
 }

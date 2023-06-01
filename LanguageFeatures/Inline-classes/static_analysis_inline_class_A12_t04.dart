@@ -16,46 +16,40 @@
 /// proper subtype of Object?, and V is potentially nullable.
 ///
 /// @description Checks that if an instantiated representation type `R` is
-/// not non-nullable then an inline type `V` is potentially nullable
+/// not non-nullable then an inline type `V` is potentially nullable (it's a
+/// compile-time error to assign `Object?` or `null` to `V`)
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 inline class V1 {
-  final int it;
+  final int? it;
   V1(this.it);
 }
 
 inline class V2<T1, T2 extends num?> {
-  final num id;
+  final T1? id;
   V2(this.id);
 }
 
-test1<X extends V1?>(X x) {
-  Object o = x;
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  x.id;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-test2<X extends V2<String, int>?>(X x) {
-  Object o = x;
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  x.id;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
-  test1<V1>(V1(42));
-  test2<V2<String, int>>(V2(42));
+  V1 v1_1 = V1(42) as Object?;
+//          ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V1 v1_2 = null;
+//          ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V2 v2_1 = V2<String, int>("42") as Object?;
+//          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V2 v2_2 = null;
+//          ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

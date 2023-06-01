@@ -22,16 +22,16 @@
 // SharedOptions=--enable-experiment=inline-class
 
 inline class V1 {
-  final int? id;
+  final int id;
   V1(this.id);
 }
 
 inline class V2<T1, T2 extends num?> {
-  final num? id;
+  final T1 id;
   V2(this.id);
 }
 
 main() {
   Object v1 = V1(42);
-  Object v2 = V2<String?, int?>(3.14);
+  Object v2 = V2<String?, int?>("42");
 }

@@ -25,6 +25,7 @@
 import "../../Utils/expect.dart";
 
 class A<T extends A<T>> {}
+class B extends A<B> {}
 
 inline class V<T extends A<T>> {
   final int id;
@@ -34,7 +35,9 @@ inline class V<T extends A<T>> {
 }
 
 main() {
-  var v = V<Never>(42);
-  var v1 = V<A<void>>(42);
-  Expect.equals(Never, v.type);
+  var v1 = V<Never>(42);
+  Expect.equals(Never, v1.type);
+
+  var v2 = V<B>(42);
+  Expect.equals(B, v2.type);
 }
