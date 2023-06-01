@@ -1,0 +1,51 @@
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Let DV be an inline class declaration named V with representation
+/// type R. Assuming that all types have been fully alias expanded, we say that
+/// DV has a representation dependency on an inline class declaration DV2 if R
+/// contains an identifier id (possibly qualified) that resolves to DV2, or id
+/// resolves to an inline class declaration DV3 and DV3 has a representation
+/// dependency on DV2.
+///
+/// It is a compile-time error if an inline class declaration has a
+/// representation dependency on itself.
+///
+/// @description Checks that it is a compile-time error if an inline class has a
+/// representation dependency on itself. Test dependency via extends
+/// @author sgrekhov22@gmail.com
+
+// SharedOptions=--enable-experiment=inline-class
+
+inline class V1 extends V2 {
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final int id = 1;
+  V1();
+}
+
+inline class V2 extends V3 {
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final int id = 2;
+  V2();
+}
+
+typedef V1Alias = V1;
+
+inline class V3 extends V1Alias {
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final int id = 3;
+  V3();
+}
+
+main() {
+  print(V1);
+  print(V2);
+  print(V3);
+}
