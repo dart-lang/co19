@@ -28,11 +28,11 @@ inline class V1 {
 }
 
 inline class V2<T1, T2 extends num?> {
-  final T1? id;
+  final T1 id;
   V2(this.id);
 }
 
 main() {
   Object? o1 = V1(42);
-  Object? o2 = V2<String, int>("42");
+  Object? o2 = V2<String?, int>("42");
 }

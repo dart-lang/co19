@@ -28,7 +28,7 @@ inline class V1 {
 }
 
 inline class V2<T1, T2 extends num?> {
-  final T1? id;
+  final T1 id;
   V2(this.id);
 }
 
@@ -43,13 +43,13 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  V2 v2_1 = V2<String, int>("42") as Object?;
-//          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  V2<String?, int> v2_1 = V2("42") as Object?;
+//                        ^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  V2 v2_2 = null;
-//          ^^^^
+  V2<String?, int> v2_2 = null;
+//                        ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
