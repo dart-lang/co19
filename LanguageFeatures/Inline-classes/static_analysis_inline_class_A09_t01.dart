@@ -3,34 +3,34 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion If e is an expression whose static type V is the inline type
-/// Inline<T1, .. Ts> and m is the name of a member that V has, a member access
-/// like e.m(args) is treated as an invocation of the inline member m on the
-/// receiver e according to the inline type Inline and with the actual type
-/// arguments T1, ..., Ts, with the actual argument part args.
+/// Inline<T1, .. Ts> and V has no member whose basename is the basename of m,
+/// a member access like e.m(args) may be an extension member access, following
+/// the normal rules about applicability and accessibility of extensions, in
+/// particular that V must match the on-type of the extension.
 ///
-/// @description Checks that a member access `e.m(args)` is treated as an
-/// invocation of the inline member m on the receiver `e` according to the
-/// inline type `Inline` and with the actual type arguments `T1, ..., Ts`, with
-/// the actual argument part `args`.
+/// @description Checks that if `V` has no member with the name `m`, but there
+/// is an extension member `m` then it is invoked
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../../Utils/static_type_helper.dart";
+import "../../Utils/expect.dart";
 
-inline class V1<T> {
-  final T id;
-  V1(this.id);
+extension Ex1 on V {
+  String foo() => "Ex1.foo()";
+}
 
-  (Map<K, V>, T) asMap<K, V>() => (<K, V>{}, id);
+extension Ex2 on int {
+  String bar() => "Ex2.bar()";
+}
+
+inline class V {
+  final int id;
+  V(this.id);
 }
 
 main() {
-  V1<num> v1 = V1(42);
-  v1.asMap<String, bool>()
-      .expectStaticType<Exactly<(Map<String, bool>, num)>>();
-
-  V1<String> v2 = V1("42");
-  v2.asMap<String, String>()
-      .expectStaticType<Exactly<(Map<String, String>, String)>>();
+  V v = V(42);
+  Expect.equals("Ex1.foo()", v.foo());
+  Expect.equals("Ex2.bar()", v.id.bar());
 }
