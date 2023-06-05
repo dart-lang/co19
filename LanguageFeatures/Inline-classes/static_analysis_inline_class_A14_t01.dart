@@ -13,7 +13,7 @@
 /// representation dependency on itself.
 ///
 /// @description Checks that it is a compile-time error if an inline class has a
-/// representation dependency on itself. Test dependency via implements
+/// dependency on itself.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class

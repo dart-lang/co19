@@ -13,24 +13,24 @@
 ///
 /// <inlineMemberDeclaration> ::= <classMemberDefinition>
 ///
-/// @description Checks that it is a compile-time error if a `final inline`
-/// class is extended by another `final inline` class in the same library
+/// @description Checks that it is a compile-time error if an `inline` class has
+/// an `extends` clause
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-final inline class FIC {
+inline class IC1 {
   final int id = 0;
-  FIC();
+  IC1();
 }
 
-final inline class FIC2 extends FIC {
-//                              ^^^
+inline class IC2 extends IC1 {
+//               ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  FIC2();
+  IC2(int id);
 }
 
 main() {
-  print(FIC2);
+  print(IC2);
 }

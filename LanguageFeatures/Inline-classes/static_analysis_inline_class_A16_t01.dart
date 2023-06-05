@@ -17,9 +17,10 @@ inline class V1 {
   V1.x(this.id);
 }
 
-inline class V2 extends V1 {
-  V2(int i) : super(i);
-//            ^^^^^
+inline class V2 implements V1 {
+  final int id = 0;
+  V2() : super();
+//       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -31,5 +32,5 @@ inline class V2 extends V1 {
 
 main() {
   V1(42);
-  V2(42);
+  V2();
 }

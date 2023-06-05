@@ -13,39 +13,30 @@
 /// representation dependency on itself.
 ///
 /// @description Checks that it is a compile-time error if an inline class has a
-/// representation dependency on itself. Test dependency via extends
+/// representation dependency on itself.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class V1 extends V2 {
+inline class V1 {
 //           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final int id = 1;
-  V1();
+  final V2 v2;
+  V1(this.v2);
 }
 
-inline class V2 extends V3 {
+inline class V2 implements V1 {
 //           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final int id = 2;
-  V2();
-}
+  final int id;
+  V2(this.id);
 
-typedef V1Alias = V1;
-
-inline class V3 extends V1Alias {
-//           ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  final int id = 3;
-  V3();
+  V2 get v2 => V2(42);
 }
 
 main() {
   print(V1);
   print(V2);
-  print(V3);
 }

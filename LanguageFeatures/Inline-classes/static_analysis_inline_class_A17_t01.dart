@@ -16,18 +16,19 @@ inline class V1 {
   V1(this.id);
 }
 
-inline class V2 extends V1 {
-  V2(super.id);
-//   ^^^^^
+inline class V2 implements V1 {
+  final int id;
+  V2(this.id, super.id);
+//            ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   V2.n(super.id);
-//      ^^^^^
+//     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  V2(42);
+  V2(42, 0);
 }

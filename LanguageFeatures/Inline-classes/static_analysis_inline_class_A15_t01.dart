@@ -19,56 +19,16 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class X implements V {
-  final Y id;
-  X(this.id);
-}
-
-inline class Y implements X {
-  final Y id;
-  Y(this.id);
-}
-
-inline class V {
-  final Y id;
+inline class V<T> {
+  final T id;
   V(this.id);
 }
 
-class C<X extends V, Y extends X> {}
-
-inline class IC<X extends V, Y extends X> {
-  final int id = 42;
-}
-
-mixin M<X extends V, Y extends X> {}
-
-typedef CAlias<X extends V, Y extends X> = C<X, Y>;
-
-void foo<X extends V, Y extends X>() {}
+void foo<X extends V<Y>, Y extends X>() {} // foo<X extends Y, Y extends X>()
+//                 ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  List<C<X, Y>> l1 = []; // C<X extends Y, Y extends X>
-//     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  List<IC<X, Y>> l2 = []; // IC<X extends Y, Y extends X>
-//     ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  List<M<X, Y>> l3 = []; // M<X extends Y, Y extends X>
-//     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  List<CAlias<X, Y>> l4 = []; // CAlias<X extends Y, Y extends X>
-//     ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  foo<X, Y>(); // foo<X extends Y, Y extends X>()
-//    ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  print(foo);
 }
