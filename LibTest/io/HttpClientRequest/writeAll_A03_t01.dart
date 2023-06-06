@@ -36,23 +36,24 @@ var localhost = InternetAddress.loopbackIPv4.address;
 
 test(String method) async {
   asyncStart();
-  Iterable objects = [1, "2", 3.14, new C(), null];
+  Iterable objects = [1, "2", 3.25, new C(), null];
   HttpServer server = await HttpServer.bind(localhost, 0);
-  server.listen((HttpRequest request) { });
+  server.listen((HttpRequest request) {
+    request.response.write('OK');
+    request.response.close();
+  });
 
   HttpClient client = new HttpClient();
-  client.open(method, localhost, server.port, "")
-      .then((HttpClientRequest request) {
-    request.contentLength = 6;
-    Expect.throws(() { request.writeAll(objects); }, (e) => identical(e, const MarkerException()));
-    return request.close();
-  }).then((HttpClientResponse response) {
-    Expect.fail("Closing the request should trigger contentLength validation failure");
-  }, onError: (_) async {
-    await client.close(force: true);
-    await server.close();
-    asyncEnd();
-  });
+  HttpClientRequest request =
+      await client.open(method, localhost, server.port, "");
+  request.contentLength = 6;
+  Expect.throws(() {
+    request.writeAll(objects);
+  }, (e) => identical(e, const MarkerException()));
+  await request.close();
+  client.close(force: true);
+  server.close();
+  asyncEnd();
 }
 
 main() {
