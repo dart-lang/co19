@@ -20,7 +20,7 @@ main() {
     (HttpServer? server) async {
        WebSocket ws = await WebSocket.connect("ws://${server?.address.address}:${server?.port}/");
        await ws.addStream(new Stream.fromIterable(["Hello", ",", "World"]));
-       ws.close();
+       await ws.close();
     },
     setup: () => spawnWebSocketServer(
       (WebSocket ws) => AsyncExpect.data(["Hello", ",", "World"], ws)

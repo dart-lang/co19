@@ -18,7 +18,7 @@ main() {
     (HttpServer? server) async {
       WebSocket ws = await WebSocket.connect("ws://${server?.address.address}:${server?.port}/");
       ws.add("Hello");
-      ws.close();
+      await ws.close();
     },
     setup: () => spawnWebSocketServer(
       (WebSocket ws) => AsyncExpect.data(["Hello"], ws)

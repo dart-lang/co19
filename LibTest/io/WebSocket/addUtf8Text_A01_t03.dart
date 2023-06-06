@@ -25,14 +25,14 @@ main() {
       await AsyncExpect.data(["Hello", "client"], ws.take(2));
       ws.addUtf8Text(utf8.encode("Hi"));
       ws.addUtf8Text(utf8.encode("server"));
-      ws.close();
+      await ws.close();
     },
     setup: () => spawnWebSocketServer(
       (WebSocket ws) async {
         ws.addUtf8Text(utf8.encode("Hello"));
         ws.addUtf8Text(utf8.encode("client"));
         await AsyncExpect.data(["Hi", "server"], ws);
-        ws.close();
+        await ws.close();
       }
     ),
     cleanup: (HttpServer? server) => server?.close()

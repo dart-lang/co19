@@ -41,6 +41,7 @@ test() async {
   });
 
   HttpClient client = new HttpClient();
+  client.maxConnectionsPerHost = 1;
   Uri uri = Uri
       .parse("http://${InternetAddress.loopbackIPv4.address}:${server.port}");
   client.getUrl(uri).then((HttpClientRequest request) => request.close())

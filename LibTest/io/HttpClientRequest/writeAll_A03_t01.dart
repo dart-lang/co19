@@ -19,10 +19,14 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 
+class MarkerException {
+  const MarkerException();
+}
+
 class C {
   String toString() {
     if (1 + 1 == 2) {
-      throw new Exception("An exception");
+      throw const MarkerException();
     }
     return "This is C";
   }
@@ -34,20 +38,19 @@ test(String method) async {
   asyncStart();
   Iterable objects = [1, "2", 3.14, new C(), null];
   HttpServer server = await HttpServer.bind(localhost, 0);
-  server.listen((HttpRequest request) {
-  });
+  server.listen((HttpRequest request) { });
 
   HttpClient client = new HttpClient();
   client.open(method, localhost, server.port, "")
       .then((HttpClientRequest request) {
     request.contentLength = 6;
-    request.writeAll(objects);
+    Expect.throws(() { request.writeAll(objects); }, (e) => identical(e, const MarkerException()));
     return request.close();
   }).then((HttpClientResponse response) {
-    Expect.fail("Error expected");
-  }, onError: (_) {
-    client.close(force: true);
-    server.close();
+    Expect.fail("Closing the request should trigger contentLength validation failure");
+  }, onError: (_) async {
+    await client.close(force: true);
+    await server.close();
     asyncEnd();
   });
 }

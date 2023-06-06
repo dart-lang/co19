@@ -26,11 +26,10 @@ main() {
     WebSocket.connect("ws://127.0.0.1:${server.port}/").then((WebSocket ws) async {
       Expect.isNull(ws.closeCode);
       Expect.isNull(ws.closeReason);
+      await ws.listen((_) { }).asFuture();
+      Expect.equals(WebSocketStatus.normalClosure, ws.closeCode);
+      Expect.equals("closed", ws.closeReason);
       await server.close();
-      ws.close().then((_) {
-        Expect.equals(WebSocketStatus.normalClosure, ws.closeCode);
-        Expect.equals("closed", ws.closeReason);
-      });
     });
   });
 }
