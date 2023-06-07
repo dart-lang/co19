@@ -13,25 +13,37 @@
 ///
 /// <inlineMemberDeclaration> ::= <classMemberDefinition>
 ///
-/// @description Checks that it is not an error if a `final inline` class is
-/// implemented by another `final inline` class in the same library
+/// @description Checks that it is a compile-time error if an `inline` class has
+/// an `extends` clause
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../../Utils/expect.dart";
-
-final inline class FIC {
+inline class IC1 {
   final int id = 0;
-  const FIC();
+  IC1();
 }
 
-final inline class FIC2 implements FIC {
-  final int id;
-  FIC2(this.id);
+inline class IC2 extends IC1 {
+//               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  IC2(int id);
+}
+
+final inline class FIC1 {
+  final int id = 0;
+  FIC1();
+}
+
+final inline class FIC2 extends FIC1 {
+//                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  FIC2(int id);
 }
 
 main() {
-  Expect.equals(0, FIC().id);
-  Expect.equals(2, FIC2(2).id);
+  print(IC2);
+  print(FIC2);
 }
