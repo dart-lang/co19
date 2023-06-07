@@ -2,48 +2,33 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Let DV be an inline class declaration named Inline with type
-/// parameters X1 extends B1, .. Xs extends Bs. Assume that DV declares a final
-/// instance variable with name id and type R.
-///
-/// We say that the declared representation type of Inline is R, and the
-/// instantiated representation type corresponding to Inline<T1,.. Ts> is
-/// [T1/X1, .. Ts/Xs]R.
-/// ...
-/// In the body of a member of an inline class declaration DV named Inline and
-/// declaring the type parameters X1, .. Xs, the static type of this is
-/// Inline<X1 .. Xs>. The static type of the representation name is the
+/// @assertion The inline erasure of an inline type V is obtained by recursively
+/// replacing every subterm of V which is an inline type by the corresponding
 /// representation type.
 ///
-/// @description Checks that static type of `this` in an inline class
-/// `Inline<X1 .. Xs>` is `Inline<X1 .. Xs>`
+/// Let X1 extends B1, .. Xs extends Bs be a declaration of the type parameters
+/// of a generic entity (it could be a generic class, inline or not, or mixin,
+/// or typedef, or function). Let BBj be the inline erasure of Bj, for j in
+/// 1 .. s. It is a compile-time error if X1 extends BB1, .. Xs extends BBs has
+/// any compile-time errors.
+///
+/// @description Checks that if `BBj` is the inline erasure of `Bj`, for `j` in
+/// `1 .. s`, then it is a compile-time error if
+/// `X1 extends BB1, .. Xs extends BBs` has any compile-time errors.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../../Utils/static_type_helper.dart";
-
-inline class V1 {
-  final int id;
-  V1(this.id);
-
-  test() {
-    this.expectStaticType<Exactly<V1>>();
-  }
+inline class V<T> {
+  final T id;
+  V(this.id);
 }
 
-inline class V2<T1, T2 extends num> {
-  final int id;
-  V2(this.id);
-
-  test() {
-    this.expectStaticType<Exactly<V2<T1, T2>>>();
-  }
-}
+void foo<X extends V<Y>, Y extends X>() {} // foo<X extends Y, Y extends X>()
+//                 ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  V1(42).test();
-  V2(42).test();
-  V2<String, num>(42).test();
-  V2<int, int>(42).test();
+  print(foo);
 }

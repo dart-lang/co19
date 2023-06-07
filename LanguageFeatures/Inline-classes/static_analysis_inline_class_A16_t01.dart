@@ -2,35 +2,23 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if an inline class constructor
-/// includes a superinitializer
+/// @assertion An inline type V used as an expression (a type literal) is
+/// allowed and has static type Type.
 ///
-/// @description Checks that a compile-time error occurs if an inline class
-/// constructor includes a superinitializer
+/// @description Checks that an inline type `V` can be used as an expression (a
+/// type literal) is and has static type `Type`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class V1 {
+import "../../Utils/static_type_helper.dart";
+
+inline class V {
   final int id;
-  V1([this.id = 0]);
-  V1.x(this.id);
-}
-
-inline class V2 implements V1 {
-  final int id = 0;
-  V2() : super();
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  V2.x(int i) : super.x(i);
-//              ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  V(this.id);
 }
 
 main() {
-  V1(42);
-  V2();
+  var t = V;
+  t.expectStaticType<Exactly<Type>>();
 }
