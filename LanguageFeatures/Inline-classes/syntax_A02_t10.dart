@@ -14,23 +14,22 @@
 /// <inlineMemberDeclaration> ::= <classMemberDefinition>
 ///
 /// @description Checks that it is a compile-time error if a `final inline`
-/// class is extended by another `final inline` class in the same library
+/// class is implemented by another `final inline` class outside of the library
+/// where it is defined
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-final inline class FIC {
+import "inline_class_lib.dart";
+
+final inline class FIC implements FinalInlineClass {
+//                                ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   final int id = 0;
   FIC();
 }
 
-final inline class FIC2 extends FIC {
-//                              ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  FIC2();
-}
-
 main() {
-  print(FIC2);
+  print(FIC);
 }

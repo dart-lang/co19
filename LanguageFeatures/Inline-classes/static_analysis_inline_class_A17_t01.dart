@@ -13,7 +13,7 @@
 
 inline class V1 {
   final int id;
-  V1(this.id);
+  V1(this.id, [Object? _]);
 }
 
 inline class V2 implements V1 {

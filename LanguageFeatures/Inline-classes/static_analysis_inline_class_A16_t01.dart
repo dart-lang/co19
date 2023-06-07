@@ -13,7 +13,7 @@
 
 inline class V1 {
   final int id;
-  V1(this.id);
+  V1([this.id = 0]);
   V1.x(this.id);
 }
 

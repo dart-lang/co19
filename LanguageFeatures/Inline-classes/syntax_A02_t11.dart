@@ -22,8 +22,8 @@
 import "../../Utils/expect.dart";
 
 final inline class FIC {
-  final int id;
-  const FIC(this.id);
+  final int id = 0;
+  const FIC();
 }
 
 final inline class FIC2 implements FIC {
@@ -32,6 +32,6 @@ final inline class FIC2 implements FIC {
 }
 
 main() {
-  Expect.equals(1, FIC(1).id);
+  Expect.equals(0, FIC().id);
   Expect.equals(2, FIC2(2).id);
 }

@@ -13,37 +13,25 @@
 ///
 /// <inlineMemberDeclaration> ::= <classMemberDefinition>
 ///
-/// @description Checks that it is a compile-time error if an `inline` class has
-/// an `extends` clause
+/// @description Checks that it is a compile-time error if a `final inline`
+/// class has has a subinterface which is not final
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class IC1 {
+final inline class IC1 {
   final int id = 0;
   IC1();
 }
 
-inline class IC2 extends IC1 {
-//               ^^^^^^^
+inline class IC2 implements IC1 {
+//                          ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  IC2(int id);
-}
-
-final inline class FIC1 {
-  final int id = 0;
-  FIC1();
-}
-
-final inline class FIC2 extends FIC1 {
-//                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  FIC2(int id);
+  final int id;
+  IC2(this.id);
 }
 
 main() {
   print(IC2);
-  print(FIC2);
 }
