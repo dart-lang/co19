@@ -2,50 +2,35 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Let DV be an inline class declaration named V with representation
-/// type R. Assuming that all types have been fully alias expanded, we say that
-/// DV has a representation dependency on an inline class declaration DV2 if R
-/// contains an identifier id (possibly qualified) that resolves to DV2, or id
-/// resolves to an inline class declaration DV3 and DV3 has a representation
-/// dependency on DV2.
+/// @assertion A compile-time error occurs if an inline class constructor
+/// includes a superinitializer
 ///
-/// It is a compile-time error if an inline class declaration has a
-/// representation dependency on itself.
-///
-/// @description Checks that it is a compile-time error if an inline class has a
-/// dependency on itself.
+/// @description Checks that a compile-time error occurs if an inline class
+/// constructor includes a superinitializer
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class V1 implements V2 {
-//           ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+inline class V1 {
   final int id;
-  V1(this.id);
+  V1([this.id = 0]);
+  V1.x(this.id);
 }
 
-inline class V2 implements V3 {
-//           ^^
+inline class V2 implements V1 {
+  final int id = 0;
+  V2() : super();
+//       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final int id;
-  V2(this.id);
-}
 
-typedef V1Alias = V1;
-
-inline class V3 implements V1Alias {
-//           ^^
+  V2.x(int i) : super.x(i);
+//              ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final int id;
-  V3(this.id);
 }
 
 main() {
-  print(V1);
-  print(V2);
-  print(V3);
+  V1(42);
+  V2();
 }
