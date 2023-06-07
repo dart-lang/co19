@@ -16,9 +16,7 @@ import "../../../Utils/expect.dart";
 main() {
   HttpServer.bind("127.0.0.1", 0).then((server) {
     server.listen((request) {
-      WebSocketTransformer
-          .upgrade(request)
-          .then((websocket) {
+      WebSocketTransformer.upgrade(request).then((websocket) {
         websocket.close(WebSocketStatus.normalClosure, "closed");
       });
     });
@@ -26,10 +24,9 @@ main() {
     var webs = WebSocket.connect("ws://127.0.0.1:${server.port}/");
     webs.then((client) async {
       Expect.isNull(client.closeReason);
+      await client.listen((_) {}).asFuture();
+      Expect.equals("closed", client.closeReason);
       await server.close();
-      client.close().then((_) {
-        Expect.equals("closed", client.closeReason);
-      });
     });
   });
 }

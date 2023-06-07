@@ -16,21 +16,19 @@ import "../../../Utils/expect.dart";
 main() {
   HttpServer.bind("127.0.0.1", 0).then((server) {
     server.listen((request) {
-      WebSocketTransformer
-          .upgrade(request)
-          .then((websocket) {
+      WebSocketTransformer.upgrade(request).then((websocket) {
         websocket.close(WebSocketStatus.normalClosure, "closed");
       });
     });
 
-    WebSocket.connect("ws://127.0.0.1:${server.port}/").then((WebSocket ws) async {
+    WebSocket.connect("ws://127.0.0.1:${server.port}/")
+        .then((WebSocket ws) async {
       Expect.isNull(ws.closeCode);
       Expect.isNull(ws.closeReason);
+      await ws.listen((_) {}).asFuture();
+      Expect.equals(WebSocketStatus.normalClosure, ws.closeCode);
+      Expect.equals("closed", ws.closeReason);
       await server.close();
-      ws.close().then((_) {
-        Expect.equals(WebSocketStatus.normalClosure, ws.closeCode);
-        Expect.equals("closed", ws.closeReason);
-      });
     });
   });
 }

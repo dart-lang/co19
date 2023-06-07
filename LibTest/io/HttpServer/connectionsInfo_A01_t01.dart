@@ -41,15 +41,20 @@ test() async {
   });
 
   HttpClient client = new HttpClient();
-  Uri uri = Uri
-      .parse("http://${InternetAddress.loopbackIPv4.address}:${server.port}");
-  client.getUrl(uri).then((HttpClientRequest request) => request.close())
+  client.maxConnectionsPerHost = 1;
+  Uri uri = Uri.parse(
+      "http://${InternetAddress.loopbackIPv4.address}:${server.port}");
+  client
+      .getUrl(uri)
+      .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-        response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
   });
-  client.getUrl(uri).then((HttpClientRequest request) => request.close())
+  client
+      .getUrl(uri)
+      .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-        response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
   });
 }
 
