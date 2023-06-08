@@ -16,11 +16,7 @@ inline class BaseIC {
   foo() {}
 }
 
-abstract class BaseC {
-  bar();
-}
-
-inline class IC implements BaseIC, BaseC {
+inline class IC implements BaseIC {
   final int id;
   IC(this.id);
   foo() {}

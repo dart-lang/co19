@@ -41,6 +41,11 @@ inline class IC2<T extends num> {
   List<T> get emptyList => <T>[];
 }
 
+inline class IC3 implements IC2<int> {
+  final int id;
+  IC3(this.id);
+}
+
 main() {
   IC<Object?> ic1_1 = IC(42);
   Expect.equals(42, ic1_1.id);
@@ -56,4 +61,7 @@ main() {
   ic2_2.emptyList.expectStaticType<Exactly<List<num>>>();
   ic2_2.emptyList.add(42);
   ic2_2.emptyList.add(3.14);
+
+  IC3 ic3 = IC3(3);
+  ic3.emptyList.expectStaticType<Exactly<List<int>>>();
 }
