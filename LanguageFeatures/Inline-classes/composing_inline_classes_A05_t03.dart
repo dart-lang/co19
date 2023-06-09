@@ -19,34 +19,27 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../../Utils/expect.dart";
-
 inline class V1 {
   final int id;
   V1(this.id);
 
-  int get m => 1;
+  int m() => 1;
 }
 
 inline class V2 {
   final int id;
   V2(this.id);
 
-  num m() => 2;
+  int m() => 2;
 }
 
 inline class V implements V1, V2 {
   final int id;
   V(this.id);
 
-  String get m => "42";
+  num get m => 3.14;
 }
 
 main() {
-  V1 v1 = V(1);
-  V2 v2 = V(2);
-  V v = V(3);
-  Expect.equals(1, v1.m);
-  Expect.equals(2, v2.m());
-  Expect.equals("42", v.m);
+  print(V);
 }

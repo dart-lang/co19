@@ -11,34 +11,42 @@
 /// the two declarations of m are distinct declarations, and DV does not declare
 /// a member named m.
 ///
-/// @description Checks that it is no an error if an inline class declaration
-/// `DV` has two superinterfaces `V1` and `V2`, where both `V1` and `V2` have
-/// the same declaration named `m`
+/// @description Checks that it is not an error if an inline class declaration
+/// `DV` has two superinterfaces `V1` and `V2`, where both `V1` and `V2` have a
+/// member named `m`, and the two declarations of `m` are distinct
+/// declarations, but DV does declare a member named `m`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/expect.dart";
 
-inline class V1 implements V3 {
+inline class V1 {
   final int id;
   V1(this.id);
+
+  int get m => 1;
 }
 
-inline class V2 implements V3 {
+inline class V2 {
   final int id;
   V2(this.id);
-}
 
-inline class V3 {
-  num foo() => 42;
+  num m() => 2;
 }
 
 inline class V implements V1, V2 {
   final int id;
   V(this.id);
+
+  String get m => "42";
 }
 
 main() {
-  Expect.equals(42, V(1).foo());
+  V1 v1 = V(1);
+  V2 v2 = V(2);
+  V v = V(3);
+  Expect.equals(1, v1.m);
+  Expect.equals(2, v2.m());
+  Expect.equals("42", v.m);
 }

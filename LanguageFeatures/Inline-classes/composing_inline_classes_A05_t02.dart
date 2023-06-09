@@ -11,10 +11,11 @@
 /// the two declarations of m are distinct declarations, and DV does not declare
 /// a member named m.
 ///
-/// @description Checks that it is not an error if an inline class declaration
-/// `DV` has two superinterfaces `V1` and `V2`, where both `V1` and `V2` have a
-/// member named `m`, and the two declarations of `m` are distinct
-/// declarations, but DV does declare a member named `m`.
+/// @description Checks that it is a compile-time error if an inline class
+/// declaration `DV` has two superinterfaces `V1` and `V2`, where both `V1` and
+/// `V2` have a member named `m`, and the two declarations of `m` are distinct
+/// declarations, and DV does not declare a member named `m`. Test the case when
+/// members in `V1` and `V2` have equal signatures
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -34,10 +35,11 @@ inline class V2 {
 }
 
 inline class V implements V1, V2 {
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   final int id;
   V(this.id);
-
-  num get m => 3.14;
 }
 
 main() {
