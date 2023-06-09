@@ -15,7 +15,7 @@
 /// declaration `DV` has two superinterfaces `V1` and `V2`, where both `V1` and
 /// `V2` have a member named `m`, and the two declarations of `m` are distinct
 /// declarations, and DV does not declare a member named `m`. Test the case when
-/// members in `V1` and `V2` have different signatures
+/// members in `V1` and `V2` have equal signatures
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -24,14 +24,14 @@ inline class V1 {
   final int id;
   V1(this.id);
 
-  int m() => 42;
+  int m() => 1;
 }
 
 inline class V2 {
   final int id;
   V2(this.id);
 
-  String m() => "42";
+  int m() => 2;
 }
 
 inline class V implements V1, V2 {

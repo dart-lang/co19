@@ -13,7 +13,7 @@
 ///
 /// @description Checks that it is no an error if an inline class declaration
 /// `DV` has two superinterfaces `V1` and `V2`, where both `V1` and `V2` have
-/// the same member named `m`
+/// the same declaration named `m`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
