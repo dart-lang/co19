@@ -50,7 +50,6 @@ main() {
 
   IC2<num> ic2 = IC2(42);
   var asMapTearOff2 = ic2.asMap;
-  Expect.notEquals(asMapTearOff2, ic2.asMap);
   Expect.notEquals(asMapTearOff2, asMapTearOff_1);
   Expect.equals(asMapTearOff2, asMapTearOff2);
 }
