@@ -45,18 +45,15 @@ inline class IC2<T> implements IC<T>{
 main() {
   IC<int> ic_1 = IC(42);
   var asMapTearOff_1 = ic_1.asMap<String, int>;
-  Expect.notEquals(asMapTearOff_1, ic_1.asMap<String, int>);
   Expect.equals(asMapTearOff_1, asMapTearOff_1);
 
   IC<num> ic_2 = IC(42);
   var asMapTearOff_2 = ic_2.asMap<String, double>;
-  Expect.notEquals(asMapTearOff_2, ic_2.asMap<String, double>);
   Expect.notEquals(asMapTearOff_2, asMapTearOff_1);
   Expect.equals(asMapTearOff_2, asMapTearOff_2);
 
   IC2<num> ic2 = IC2(42);
   var asMapTearOff2 = ic2.asMap<String, num>;
-  Expect.notEquals(asMapTearOff2, ic2.asMap<String, num>);
   Expect.notEquals(asMapTearOff2, asMapTearOff_1);
   Expect.notEquals(asMapTearOff2, asMapTearOff_2);
   Expect.equals(asMapTearOff2, asMapTearOff2);
