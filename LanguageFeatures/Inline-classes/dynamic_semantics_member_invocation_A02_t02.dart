@@ -35,8 +35,18 @@ inline class IC<T> {
   }
 }
 
+inline class IC2<T> implements IC<T> {
+  final T id;
+  IC2(this.id);
+}
+
+
 main() {
   IC ic = IC(42);
   Expect.identical(ic, ic.test1());
   ic.test2();
+
+  IC2 ic2 = IC2(42);
+  Expect.identical(ic2, ic2.test1());
+  ic2.test2();
 }

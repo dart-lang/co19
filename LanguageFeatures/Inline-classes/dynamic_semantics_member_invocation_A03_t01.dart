@@ -38,10 +38,33 @@ inline class IC<T> {
   Map<K, Type> asMap<K, V extends T>(K key1, K key2) => {key1: V, key2: T};
 }
 
+inline class IC2<T> implements IC<T> {
+  final T id;
+  IC2(this.id);
+}
+
+inline class IC3<T extends num> implements IC<num> {
+  final T id;
+  IC3(this.id);
+}
+
 main() {
   IC<num> ic1 = IC(42);
   Expect.mapEquals(
       {"key1": int, "key2": num}, ic1.asMap<String, int>("key1", "key2"));
   Expect.mapEquals(
       {"key1": num, "key2": num}, ic1.asMap<String, num>("key1", "key2"));
+
+  IC<num> ic2 = IC2(42);
+  Expect.mapEquals(
+      {"key1": int, "key2": num}, ic2.asMap<String, int>("key1", "key2"));
+  Expect.mapEquals(
+      {"key1": num, "key2": num}, ic2.asMap<String, num>("key1", "key2"));
+
+  IC3<int> ic3 = IC3(42);
+  Expect.mapEquals(
+      {"key1": int, "key2": num}, ic3.asMap<String, int>("key1", "key2"));
+  Expect.mapEquals(
+      {"key1": num, "key2": num}, ic3.asMap<String, num>("key1", "key2"));
+
 }

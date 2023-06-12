@@ -40,20 +40,33 @@ inline class IC<T extends num> {
   }
 }
 
+inline class IC2 implements IC<num> {
+  final int id;
+  IC2(this.id);
+}
+
 main() {
-  IC<num> ic1 = IC(42);
+  IC<num> ic_1 = IC(42);
   try {
-    ic1.testMe();
+    ic_1.testMe();
   } catch (e, _st) {
     Expect.equals("X is num", e);
     Expect.equals(st, _st);
   }
 
-  IC<int> ic2 = IC(42);
+  IC<int> ic_2 = IC(42);
+  try {
+    ic_2.testMe();
+  } catch (e, _st) {
+    Expect.equals("X is int", e);
+    Expect.equals(st, _st);
+  }
+
+  IC2 ic2 = IC2(42);
   try {
     ic2.testMe();
   } catch (e, _st) {
-    Expect.equals("X is int", e);
+    Expect.equals("X is num", e);
     Expect.equals(st, _st);
   }
 }
