@@ -14,20 +14,35 @@
 
 import "../../Utils/expect.dart";
 
-inline class V {
+inline class V1 {
   final int id;
-  V(this.id);
+  V1(this.id);
 }
 
-main() {
-  var v = V(42);
-  Expect.isTrue(v is V);
-  Expect.isFalse(v is! V);
-  Expect.isTrue(v is int);
-  Expect.isFalse(v is! int);
-  Expect.isFalse(v is String);
+inline class V2<T> {
+  final T id;
+  V2(this.id);
+}
 
-  int i = 0;
-  Expect.isTrue(i is V);
-  Expect.isFalse(i is! V);
+void main() {
+  var objects = [
+    true,
+    1,
+    3.14,
+    "String",
+    #foo,
+    <String>[],
+    {'a': () {}},
+    {42,},
+    (),
+    (42,),
+    StringBuffer('Hello')
+  ];
+
+  for (var o in objects) {
+    Expect.equals(o is V1, o is int);
+    Expect.equals(o is! V1, o is! int);
+    Expect.equals(o is V2<String>, o is String);
+    Expect.equals(o is! V2<String>, o is! String);
+  }
 }

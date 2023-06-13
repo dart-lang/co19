@@ -5,22 +5,32 @@
 /// @assertion The run-time representation of a type argument which is an inline
 /// type V is the corresponding instantiated representation type.
 ///
-/// @description Check that at a run time an instance of an inline class is
-/// treated as an instance of its representation type
+/// @description Check that the run-time representation of a type argument which
+/// is an inline type V is the corresponding instantiated representation type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/expect.dart";
 
-inline class V {
+inline class V1 {
   final int id;
-  V(this.id);
+  V1(this.id);
+}
+
+inline class V2<T> {
+  final T id;
+  V2(this.id);
 }
 
 main() {
-  var v = V(42);
-  int i = v as int;
-  Expect.equals(42, i);
-  Expect.isTrue(i.isEven);
+  List<V1> l1 = [];
+  Expect.equals(List<int>, l1.runtimeType);
+  (l1 as List<int>).add(42);
+  Expect.throws(() { (l1 as dynamic).add(3.14);});
+
+  List<V2<String>> l2 = [];
+  Expect.equals(List<String>, l2.runtimeType);
+  (l2 as List<String>).add("42");
+  Expect.throws(() { (l2 as dynamic).add(42);});
 }

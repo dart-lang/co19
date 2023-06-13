@@ -15,12 +15,17 @@
 
 import "../../Utils/expect.dart";
 
-inline class V {
+inline class V1 {
   final int id;
-  V(this.id);
+  V1(this.id);
+}
+
+inline class V2<T> {
+  final T Function(int) f;
+  V2(this.f);
 }
 
 main() {
-  Type t = V;
-  Expect.equals(int, t);
+  Expect.equals(int, V1);
+  Expect.equals(V2<bool>, typeOf<bool Function(int)>());
 }
