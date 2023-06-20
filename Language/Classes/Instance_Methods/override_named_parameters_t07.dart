@@ -2,22 +2,24 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a static warning if an instance method m1 overrides an 
+/// @assertion It is a compile-time error if an instance method m1 overrides an
 /// instance member m2 and m1 does not declare all the named parameters declared 
 /// by m2.
-/// @description Checks that it is a compile error if an instance method m1
-/// overrides an instance member m2 and m1 does not declare all the named 
-/// parameters declared by m2. Test type aliases
+///
+/// @description Checks that it is a compile error if an instance method `m1`
+/// overrides an instance member `m2` and `m1` does not declare all the named
+/// parameters declared by `m2`. Test type aliases
 /// @author sgrekhov@unipro.ru
 
 class A {
   foo(var a, {x, y}) {}
 }
+
 typedef AAlias = A;
 
 class C extends AAlias {
   foo(var a, {x}) {}
-//^
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

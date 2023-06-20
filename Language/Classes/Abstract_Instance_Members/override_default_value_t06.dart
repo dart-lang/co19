@@ -4,16 +4,16 @@
 
 /// @assertion Unless explicitly stated otherwise, all ordinary rules that apply
 /// to methods apply to abstract methods.
-/// It is a static warning if an instance method m1 overrides an instance member
-/// m2, the signature of m2 explicitly specifies a default value for a formal
-/// parameter p and the signature of m1 specifies a different default value for
-/// p.
-/// @description Checks that it is a static warning if an abstract method
-/// overrides an abstract method and does not explicitly specify a default value
-/// for its optional parameter while the overridden method does.
+/// It is not an error or warning if an instance method m1 overrides an instance
+/// member m2, the signature of m2 explicitly specifies a default value for a
+/// formal parameter p and the signature of m1 specifies a different default
+/// value for p
+///
+/// @description Checks that it is not an error if an abstract method overrides
+/// an abstract method and does not explicitly specify a default value for its
+/// optional parameter while the overridden method does.
 /// @author msyabro
 /// @issue 42195
-
 
 abstract class A {
   foo([x = 1]);
