@@ -11,87 +11,99 @@
 /// type of m′. F must then be a subtype of F′.
 ///
 /// @description Checks that it is a compile-time error if `m` and `m′` are both
-/// methods and function type `m` is not a subtype of `m′. Test `implements`
-/// clause
+/// methods and function type `m` is not a subtype of `m′`. Test `extends` and
+/// `on` clauses
 /// @author sgrekhov22@gmail.com
 
-interface class I1 {
-  void i1_m1(num v1) {}
-  void i1_m2(num v1, [num v2 = 0]) {}
-  void i1_m3(num v1, {num v2 = 0}) {}
+mixin class I1 {
+  void m1(int v1) {}
+  void m2(int v1) {}
 }
 
 interface class I2 {
-  void i2_m1(covariant int v1) {}
-  void i2_m2(num v1, [covariant int v2 = 0]) {}
-  void i2_m3(num v1, {covariant int v2 = 0}) {}
+  void m1(int v1, [num v2 = 0]) {}
 }
 
-class C implements I1, I2 {
-  void i1_m1(covariant String i) {}
-//     ^^^^^
+interface class I3 {
+  void m2(int v1, {String s = ""}) {}
+}
+
+class C1 extends I1 implements I2, I3 {
+  void m1() {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i1_m2(num v1, [covariant String v2 = ""]) {}
-//     ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void i1_m3(num v1, {covariant String v2 = ""}) {}
-//     ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void i2_m1(String i) {}
-//     ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void i2_m2(num v1, [String v2 = ""]) {}
-//     ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void i2_m3(num v1, {String v2 = ""}) {}
-//     ^^^^^
+  void m2() {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-mixin M implements I1, I2 {
-  void i1_m1(covariant String i) {}
-//     ^^^^^
+class C2 extends I1 implements I2, I3 {
+  void m1(int v1, [int v2 = 1]) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i1_m2(num v1, [covariant String v2 = ""]) {}
-//     ^^^^^
+  void m2(int v1, {String s0 = ""}) {}
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C3 extends I1 implements I2, I3 {
+  void m1(int v1, {required num v2}) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i1_m3(num v1, {covariant String v2 = ""}) {}
-//     ^^^^^
+  void m2(int v1, {required String s}) {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+mixin M1 on I1 implements I2, I3 {
+  void m1() {}
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void m2() {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+mixin M2 on I1 implements I2, I3 {
+  void m1(int v1, [int v2 = 1]) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i2_m1(String i) {}
-//     ^^^^^
+  void m2(int v1, {String s0 = ""}) {}
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+mixin M3 implements I1, I2, I3 {
+  void m1(int v1, {required int v2}) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i2_m2(num v1, [String v2 = ""]) {}
-//     ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void i2_m3(num v1, {String v2 = ""}) {}
-//     ^^^^^
+  void m2(int v1, {required String s}) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(C);
-  print(M);
+  print(C1);
+  print(C2);
+  print(C3);
+  print(M1);
+  print(M2);
+  print(M3);
 }

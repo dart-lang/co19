@@ -11,11 +11,11 @@
 /// type of m′. F must then be a subtype of F′.
 ///
 /// @description Checks that it is a compile-time error if `m` and `m′` are both
-/// methods and function type `m` is not a subtype of `m′`. Test `implements`
-/// clause
+/// methods and function type `m` is not a subtype of `m′`. Test `extends` and
+/// `on` clauses
 /// @author sgrekhov22@gmail.com
 
-interface class I1 {
+mixin class I1 {
   num m1<T>() => 42;
   void m2<T extends num>(int i) {}
 }
@@ -25,7 +25,7 @@ interface class I2 {
   void m2<T>(Object i) {}
 }
 
-class C implements I1, I2 {
+class C extends I1 implements I2 {
   int m1<T>() => 42;
 //    ^^
 // [analyzer] unspecified
@@ -37,7 +37,7 @@ class C implements I1, I2 {
 // [cfe] unspecified
 }
 
-mixin M implements I1, I2 {
+mixin M on I1 implements I2 {
   int m1<T extends num>() => 42;
 //    ^^
 // [analyzer] unspecified

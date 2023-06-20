@@ -10,7 +10,7 @@
 ///
 /// @description Checks that it is a compile-time error if `m` and `m′` are both
 /// getters and the return type of `m` is not a subtype of the return type of
-/// `m′`
+/// `m′`. Test `implements` clause
 /// @author sgrekhov22@gmail.com
 
 interface class I {

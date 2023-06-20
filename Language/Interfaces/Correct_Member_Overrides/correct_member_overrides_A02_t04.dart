@@ -4,44 +4,47 @@
 
 /// @assertion Let m and m′ be member signatures with the same name id. Then m
 /// is a correct override of m′ iff the following criteria are all satisfied:
-/// • m and m′ are both methods, both getters, or both setters.
+/// ...
+/// • If m and m′ are both getters: The return type of m must be a subtype of
+/// the return type of m′
 ///
-/// @description Checks that it is a compile-time error if `m` and `m′` are not
-/// both getters or methods. Test 'implements' clause
+/// @description Checks that it is a compile-time error if `m` and `m′` are both
+/// getters and the return type of `m` is not a subtype of the return type of
+/// `m′`
 /// @author sgrekhov22@gmail.com
 
-interface class I1 {
-  int get m => 42;
+mixin class I1 {
+  int get m => 1;
 }
 
 interface class I2 {
-  int m() => 42;
+  num get m => 2;
 }
 
-class C1 implements I1 {
-  int m() => 42;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C2 implements I2 {
-  int get m => 42;
+class C1 extends I1 implements I2 {
+  num get m => 3;
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-mixin M1 implements I1 {
-  int m() => 0;
-//    ^
+class C2 extends I1 implements I2 {
+  Object get m => "C2";
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-mixin M2 implements I2 {
-  int get m => 0;
+mixin M1 on I1 implements I2 {
+  num get m => 4;
 //        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+mixin M2 on I1 implements I2 {
+  Object get m => "M2";
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -7,39 +7,39 @@
 /// • m and m′ are both methods, both getters, or both setters.
 ///
 /// @description Checks that it is a compile-time error if `m` and `m′` are not
-/// both getters or methods. Test 'implements' clause
+/// both getters or methods. Test `extends` and `on` clauses
 /// @author sgrekhov22@gmail.com
 
-interface class I1 {
+class I1 {
   int get m => 42;
 }
 
-interface class I2 {
+class I2 {
   int m() => 42;
 }
 
-class C1 implements I1 {
+class C1 extends I1 {
   int m() => 42;
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C2 implements I2 {
+class C2 extends I2 {
   int get m => 42;
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-mixin M1 implements I1 {
+mixin M1 on I1 {
   int m() => 0;
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-mixin M2 implements I2 {
+mixin M2 on I2 {
   int get m => 0;
 //        ^
 // [analyzer] unspecified

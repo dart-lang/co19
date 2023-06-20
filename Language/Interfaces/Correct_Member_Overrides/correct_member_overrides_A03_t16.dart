@@ -11,31 +11,34 @@
 /// type of m′. F must then be a subtype of F′.
 ///
 /// @description Checks that it is not an error if `m` and `m′` are both methods
-/// and function type `m` is a subtype of `m′. Test `implements` clause
+/// and function type `m` is a subtype of `m′. Test `extends` and `on` clauses
 /// @author sgrekhov22@gmail.com
 
-interface class I1 {
+mixin class I {
   void m1(num v1) {}
   void m2(num v1, [num v2 = 0]) {}
   void m3(num v1, {num v2 = 0}) {}
+  void m4(covariant int v1) {}
+  void m5(num v1, [covariant int v2 = 0]) {}
+  void m6(num v1, {covariant int v2 = 0}) {}
 }
 
-interface class I2 {
-  void m1(covariant int v1) {}
-  void m2(num v1, [covariant int v2 = 0]) {}
-  void m3(num v1, {covariant int v2 = 0}) {}
-}
-
-class C implements I1, I2 {
+class C extends I {
   void m1(covariant int i) {}
   void m2(num v1, [covariant Object v2 = ""]) {}
   void m3(num v1, {covariant int v2 = 0}) {}
+  void m4(num i) {}
+  void m5(num v1, [Object v2 = ""]) {}
+  void m6(num v1, {int v2 = 0}) {}
 }
 
-mixin M implements I1, I2 {
-  void m1(num i) {}
-  void m2(num v1, [Object v2 = ""]) {}
-  void m3(num v1, {int v2 = 0}) {}
+mixin M on I {
+  void m1(covariant int i) {}
+  void m2(num v1, [covariant Object v2 = ""]) {}
+  void m3(num v1, {covariant int v2 = 0}) {}
+  void m4(num i) {}
+  void m5(num v1, [Object v2 = ""]) {}
+  void m6(num v1, {int v2 = 0}) {}
 }
 
 main() {

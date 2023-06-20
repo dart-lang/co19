@@ -11,23 +11,17 @@
 /// type of m′. F must then be a subtype of F′.
 ///
 /// @description Checks that it is a compile-time error if `m` and `m′` are both
-/// methods and function type `m` is not a subtype of `m′`. Test `implements`
-/// clause
+/// methods and function type `m` is not a subtype of `m′`. Test `extends` and
+/// `on` clauses
 /// @author sgrekhov22@gmail.com
 
-interface class I1 {
+mixin class I {
   void m1(int v1) {}
-}
-
-interface class I2 {
   void m2(int v1, [int v2 = 0]) {}
-}
-
-interface class I3 {
   void m3(int v1, {String s = ""}) {}
 }
 
-class C1 implements I1, I2, I3 {
+class C1 extends I {
   void m1() {}
 //     ^^
 // [analyzer] unspecified
@@ -44,7 +38,7 @@ class C1 implements I1, I2, I3 {
 // [cfe] unspecified
 }
 
-class C2 implements I1, I2, I3 {
+class C2 extends I {
   void m1(int v1, int v2) {}
 //     ^^
 // [analyzer] unspecified
@@ -61,7 +55,7 @@ class C2 implements I1, I2, I3 {
 // [cfe] unspecified
 }
 
-class C3 implements I1, I2, I3 {
+class C3 extends I {
   void m1(int v1, {required int v2}) {}
 //     ^^
 // [analyzer] unspecified
@@ -78,7 +72,7 @@ class C3 implements I1, I2, I3 {
 // [cfe] unspecified
 }
 
-mixin M1 implements I1, I2, I3 {
+mixin M1 on I {
   void m1() {}
 //     ^^
 // [analyzer] unspecified

@@ -11,82 +11,79 @@
 /// type of m′. F must then be a subtype of F′.
 ///
 /// @description Checks that it is a compile-time error if `m` and `m′` are both
-/// methods and function type `m` is not a subtype of `m′. Test `implements`
-/// clause
+/// methods and function type `m` is not a subtype of `m′. Test `extends` and
+/// `on` clauses
 /// @author sgrekhov22@gmail.com
 
-interface class I1 {
-  void i1_m1(num v1) {}
-  void i1_m2(num v1, [num v2 = 0]) {}
-  void i1_m3(num v1, {num v2 = 0}) {}
+mixin class I {
+  void m1(num v1) {}
+  void m2(num v1, [num v2 = 0]) {}
+  void m3(num v1, {num v2 = 0}) {}
+  void m4(covariant int v1) {}
+  void m5(num v1, [covariant int v2 = 0]) {}
+  void m6(num v1, {covariant int v2 = 0}) {}
 }
 
-interface class I2 {
-  void i2_m1(covariant int v1) {}
-  void i2_m2(num v1, [covariant int v2 = 0]) {}
-  void i2_m3(num v1, {covariant int v2 = 0}) {}
-}
-
-class C implements I1, I2 {
-  void i1_m1(covariant String i) {}
-//     ^^^^^
+class C extends I {
+  void m1(covariant String i) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i1_m2(num v1, [covariant String v2 = ""]) {}
-//     ^^^^^
+  void m2(num v1, [covariant String v2 = ""]) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i1_m3(num v1, {covariant String v2 = ""}) {}
-//     ^^^^^
+  void m3(num v1, {covariant String v2 = ""}) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i2_m1(String i) {}
-//     ^^^^^
+  void m4(String i) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i2_m2(num v1, [String v2 = ""]) {}
-//     ^^^^^
+  void m5(num v1, [String v2 = ""]) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i2_m3(num v1, {String v2 = ""}) {}
-//     ^^^^^
+  void m6(num v1, {String v2 = ""}) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-mixin M implements I1, I2 {
-  void i1_m1(covariant String i) {}
-//     ^^^^^
+mixin M on I {
+  void m1(covariant String i) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i1_m2(num v1, [covariant String v2 = ""]) {}
-//     ^^^^^
+  void m2(num v1, [covariant String v2 = ""]) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i1_m3(num v1, {covariant String v2 = ""}) {}
-//     ^^^^^
+  void m3(num v1, {covariant String v2 = ""}) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i2_m1(String i) {}
-//     ^^^^^
+  void m4(String i) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i2_m2(num v1, [String v2 = ""]) {}
-//     ^^^^^
+  void m5(num v1, [String v2 = ""]) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void i2_m3(num v1, {String v2 = ""}) {}
-//     ^^^^^
+  void m6(num v1, {String v2 = ""}) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

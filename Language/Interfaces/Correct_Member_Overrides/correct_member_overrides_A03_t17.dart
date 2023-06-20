@@ -10,43 +10,32 @@
 /// parameter of m which is covariant-by-declaration. Let F′ be the function
 /// type of m′. F must then be a subtype of F′.
 ///
-/// @description Checks that it is a compile-time error if `m` and `m′` are both
-/// methods and function type `m` is not a subtype of `m′`. Test `implements`
-/// clause
+/// @description Checks that it is not an error if `m` and `m′` are both methods
+/// and function type `m` is a subtype of `m′. Test `extends` and `on` clauses
 /// @author sgrekhov22@gmail.com
 
-interface class I1 {
-  num m1<T>() => 42;
-  void m2<T extends num>(int i) {}
+mixin class I1 {
+  void m1(num v1) {}
+  void m2(num v1, [num v2 = 0]) {}
+  void m3(num v1, {num v2 = 0}) {}
 }
 
 interface class I2 {
-  Object m1() => "";
-  void m2<T>(Object i) {}
+  void m1(covariant int v1) {}
+  void m2(num v1, [covariant int v2 = 0]) {}
+  void m3(num v1, {covariant int v2 = 0}) {}
 }
 
-class C implements I1, I2 {
-  int m1<T>() => 42;
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void m2<T extends num>(Object i) {}
-//     ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C extends I1 implements I2 {
+  void m1(covariant int i) {}
+  void m2(num v1, [covariant Object v2 = ""]) {}
+  void m3(num v1, {covariant int v2 = 0}) {}
 }
 
-mixin M implements I1, I2 {
-  int m1<T extends num>() => 42;
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void m2<T>(Object i) {}
-//     ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+mixin M on I1 implements I2 {
+  void m1(num i) {}
+  void m2(num v1, [Object v2 = ""]) {}
+  void m3(num v1, {int v2 = 0}) {}
 }
 
 main() {

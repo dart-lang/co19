@@ -7,7 +7,7 @@
 /// • m and m′ are both methods, both getters, or both setters.
 ///
 /// @description Checks that it is a compile-time error if `m` and `m′` are not
-/// both getters or methods
+/// both getters or methods. Test `implements` clause
 /// @author sgrekhov22@gmail.com
 /// @issue 52620
 

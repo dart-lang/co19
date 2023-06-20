@@ -11,7 +11,7 @@
 /// type of m′. F must then be a subtype of F′.
 ///
 /// @description Checks that it is not an error if `m` and `m′` are both methods
-/// and function type `m` is a subtype of `m′.
+/// and function type `m` is a subtype of `m′. Test `implements` clause
 /// @author sgrekhov22@gmail.com
 
 interface class I1 {
