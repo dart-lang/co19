@@ -11,7 +11,7 @@
 /// the two declarations of m are distinct declarations, and DV does not declare
 /// a member named m.
 ///
-/// @description Checks that it is no an error if an inline class declaration
+/// @description Checks that it is not an error if an inline class declaration
 /// `DV` has two superinterfaces `V1` and `V2`, where both `V1` and `V2` have
 /// the same declaration named `m`
 /// @author sgrekhov22@gmail.com
@@ -31,6 +31,7 @@ inline class V2 implements V3 {
 }
 
 inline class V3 {
+  final int id = 0;
   num foo() => 42;
 }
 
