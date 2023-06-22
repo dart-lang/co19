@@ -47,7 +47,7 @@ class C2 implements I1, I2, I3 {
 // [cfe] unspecified
 
   void m2(int v1, {String s0 = ""}) {}
-//     ^
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
