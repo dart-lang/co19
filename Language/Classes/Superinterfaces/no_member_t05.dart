@@ -13,7 +13,6 @@
 /// class.
 /// @author ngl@unipro.ru
 
-
 class I {
   foo() {}
 }

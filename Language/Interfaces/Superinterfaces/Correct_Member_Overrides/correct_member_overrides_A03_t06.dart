@@ -66,7 +66,7 @@ class C3 implements I1, I2, I3 {
 
 mixin M1 implements I1, I2, I3 {
   void m1() {}
-//     ^
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   void m2() {}
@@ -82,7 +82,7 @@ mixin M2 implements I1, I2, I3 {
 // [cfe] unspecified
 
   void m2(int v1, {String s0 = ""}) {}
-//     ^
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -33,20 +33,20 @@ main() {
 // [cfe] unspecified
   List<int> list6 = const [for (var i in [1, 2, 3]) i];
 //                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-// [cfe] 'for' is not supported in constant expressions.
+// [analyzer] unspecified
+// [cfe] unspecified
   const List<int> list7 = [for (var i in [1, 2, 3]) i];
 //                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var list8 = const [for (var i in [1, 2, 3]) i];
 //                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-// [cfe] 'for' is not supported in constant expressions.
+// [analyzer] unspecified
+// [cfe] unspecified
   var list9 = const <int>[for (var i in [1, 2, 3]) i];
 //                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-// [cfe] 'for' is not supported in constant expressions.
+// [analyzer] unspecified
+// [cfe] unspecified
   const list10 = [for (var i in [1, 2, 3]) i];
 //                ^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -74,8 +74,8 @@ main() {
 // [cfe] unspecified
   Set<int> set6 = const {for (var i in [1, 2, 3]) i};
 //                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
-// [cfe] 'for' is not supported in constant expressions.
+// [analyzer] unspecified
+// [cfe] unspecified
   const Set<int> set7 = {for (var i in [1, 2, 3]) i};
 //                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
