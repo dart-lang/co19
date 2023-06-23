@@ -89,7 +89,7 @@ mixin M1 on I {
 // [cfe] unspecified
 }
 
-mixin M2 implements I1, I2, I3 {
+mixin M2 implements I {
   void m1(int v1, int v2) {}
 //     ^^
 // [analyzer] unspecified
@@ -106,7 +106,7 @@ mixin M2 implements I1, I2, I3 {
 // [cfe] unspecified
 }
 
-mixin M3 implements I1, I2, I3 {
+mixin M3 implements I {
   void m1(int v1, {required int v2}) {}
 //     ^^
 // [analyzer] unspecified
