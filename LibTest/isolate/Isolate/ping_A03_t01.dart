@@ -35,7 +35,8 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
-entryPoint(message){
+entryPoint(message) {
+  message.send("Started");
   Random random = new Random();
   int s = 0;
   while (true){
@@ -44,14 +45,15 @@ entryPoint(message){
 }
 
 test() async {
+  ReceivePort port = new ReceivePort();
   ReceivePort onExit = new ReceivePort();
   Isolate isolate = await Isolate.spawn(
       entryPoint,
-      null, // message
+      port.sendPort,
       onExit:onExit.sendPort,
       errorsAreFatal:true
   );
-  // check
+  await port.first;
   ReceivePort pingPort = new ReceivePort();
   isolate.ping(pingPort.sendPort, priority:Isolate.beforeNextEvent);
   Future pingResponse = pingPort.first.timeout(TWO_SECONDS, onTimeout: () {
@@ -59,7 +61,7 @@ test() async {
     return "timeout";
   });
   Expect.equals("timeout", await pingResponse);
-  // clean up
+
   isolate.kill(priority:Isolate.immediate);
   await onExit.first;
   asyncEnd();
