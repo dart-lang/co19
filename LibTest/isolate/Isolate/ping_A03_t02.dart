@@ -35,42 +35,36 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
-entryPoint(message){
+entryPoint(SendPort message) {
+  message.send("Started");
   Random random = new Random();
   int s = 0;
-  while (true){
+  while (true) {
     s = -s + random.nextInt(100);
   }
 }
 
 Future test(List<Object> values) async {
+  ReceivePort port = new ReceivePort();
   ReceivePort onExit = new ReceivePort();
-  Isolate isolate = await Isolate.spawn(
-      entryPoint,
-      null, // message
-      onExit:onExit.sendPort,
-      errorsAreFatal:true
-  );
-  // check
+  Isolate isolate = await Isolate.spawn(entryPoint, port.sendPort,
+      onExit: onExit.sendPort, errorsAreFatal: true);
+  await port.first;
   List<Future> pingResponses = [];
   for (Object value in values) {
     ReceivePort pingPort = new ReceivePort();
-    isolate.ping(
-        pingPort.sendPort,
-        response:value,
-        priority:Isolate.beforeNextEvent
-    );
+    isolate.ping(pingPort.sendPort,
+        response: value, priority: Isolate.beforeNextEvent);
     Future pingResponse = pingPort.first.timeout(TWO_SECONDS, onTimeout: () {
       pingPort.close();
       return "timeout";
     });
     pingResponses.add(pingResponse);
   }
-  for (Object response in await Future.wait(pingResponses)){
-    Expect.equals("timeout",response);
+  for (Object response in await Future.wait(pingResponses)) {
+    Expect.equals("timeout", response);
   }
-  // clean up
-  isolate.kill(priority:Isolate.immediate);
+  isolate.kill(priority: Isolate.immediate);
   await onExit.first;
   asyncEnd();
 }
@@ -79,9 +73,16 @@ main() {
   asyncStart();
   test([
     null,
-    0, 1, -1,
-    true, false,
-    "", "string",
-    1.1, double.nan, double.infinity, 0.0
+    0,
+    1,
+    -1,
+    true,
+    false,
+    "",
+    "string",
+    1.1,
+    double.nan,
+    double.infinity,
+    0.0
   ]);
 }
