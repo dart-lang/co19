@@ -7,7 +7,8 @@
 /// other than Object.
 ///
 /// @description Checks that it is a compile-time error if a derived mixin
-/// explicitly declares a constructor. Test type alias
+/// explicitly declares a constructor. Test the case when type alias is used in
+/// a `with` clause
 /// @author sgrekhov@unipro.ru
 
 // @dart=2.19
