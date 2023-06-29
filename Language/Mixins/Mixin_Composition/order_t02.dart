@@ -2,28 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A mixin application of the form S with M1,...,Mk; defines a
-/// class C whose superclass is the application of the mixin composition
-/// Mk−1 ∗ ... ∗ M1 to S.
-/// ...
-/// The composition of two mixins, M1< T1...TkM1 > and M2< U1...UkM2 >,
-/// written M1< T1...TkM1 > ∗ M2< U1...UkM2 > defines an anonymous mixin
-/// such that for any class S< V1...VkS >, the application of
-/// M1< T1...TkM1 > ∗ M2< U1...UkM2 >
-/// to S< V1...VkS > is equivalent to
-/// abstract class Id1< T1...TkM1, U1...UkM2, V1...VkS > =
-/// Id2< U1...UkM2, V1...VkS > with M1< T1...TkM1 >;
-/// where Id2 denotes
-/// abstract class Id2< U1...UkM2, V1...VkS > =
-/// S< V1...VkS > with M2< U1...UkM2 >;
+/// @assertion If there is more than one mixin (n > 1), then let X be the class
+/// defined by S with M1, ..., Mn−1 with name F, where F is a fresh name, and
+/// make X abstract. Then S with M1, ..., Mn defines the class yielded by the
+/// mixin application of the mixin of Mn to the class X with name N.
+///
 /// @description Checks that mixin composition applies mixins in the right
 /// order. Test type aliases
 /// @author sgrekhov@unipro.ru
-
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
 
 import "../../../Utils/expect.dart";
 
@@ -31,15 +17,15 @@ class A {
   int m = 0;
 }
 
-class M1 {
+mixin class M1 {
   int m = 1;
 }
 
-class M2 {
+mixin class M2 {
   int m = 2;
 }
 
-class M3 {
+mixin class M3 {
   int m = 3;
 }
 

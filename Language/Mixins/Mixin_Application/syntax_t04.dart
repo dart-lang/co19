@@ -4,19 +4,16 @@
 
 /// @assertion Let S be a class, M be a mixin with required superinterfaces
 /// T1, . . . , Tn, combined superinterface MS, implemented interfaces
-/// I1, . . . , Ik and members as mixin member declarations, and let N be a name.
+/// I1, . . . , Ik and members as mixin member declarations, and let N be a
+/// name.
 /// ...
-/// The mixin application of M to S with name N introduces a new class, C,
-/// with name N, superclass S, implemented interface I1, . . . , Ik and members
-/// as instance members.
-/// @description Checks that instance class has the same instance variables as
-/// its mixins
+/// The mixin application of M to S with name N introduces a new class, C, with
+/// name N, superclass S, implemented interface I1, . . . , Ik and members as
+/// instance members.
+///
+/// @description Checks that an instance class has the same instance variables
+/// as its mixins
 /// @author sgrekhov@unipro.ru
-
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
 
 import "../../../Utils/expect.dart";
 
@@ -25,14 +22,14 @@ class A {
   int get ga => x;
 }
 
-class M1 {
+mixin class M1 {
   int x = 1;
   int y = 1;
   int get g1x => x;
   int get g1y => y;
 }
 
-class M2 {
+mixin class M2 {
   int x = 2;
   int z = 2;
   int get g2x => x;

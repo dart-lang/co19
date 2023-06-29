@@ -4,20 +4,18 @@
 
 /// @assertion Let S be a class, M be a mixin with required superinterfaces
 /// T1, . . . , Tn, combined superinterface MS, implemented interfaces
-/// I1, . . . , Ik and members as mixin member declarations, and let N be a name.
+/// I1, . . . , Ik and members as mixin member declarations, and let N be a
+/// name.
 /// ...
-/// The mixin application of M to S with name N introduces a new class, C,
-/// with name N, superclass S, implemented interface I1, . . . , Ik and members
-/// as instance members.
-/// @description Checks that mixin application of the form S with M; defines a
-/// class C with superclass S. So if M and S have methods with the same names
-/// then mixin method overrides the one from S. Test class C = S with M syntax
+/// The mixin application of M to S with name N introduces a new class, C, with
+/// name N, superclass S, implemented interface I1, . . . , Ik and members as
+/// instance members.
+///
+/// @description Checks that a mixin application of the form `S with M;` defines
+/// a class `C` with superclass `S`. So if `M` and `S` have methods with the
+/// same names then the mixin method overrides the one from `S`. Test
+/// `class C = S with M` syntax
 /// @author sgrekhov@unipro.ru
-
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
 
 import "../../../Utils/expect.dart";
 
@@ -25,7 +23,7 @@ class S {
   String get m => "S";
 }
 
-class M {
+mixin class M {
   String get m => "M";
 }
 

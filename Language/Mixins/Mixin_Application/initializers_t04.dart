@@ -5,14 +5,10 @@
 /// @assertion If any of the instance fields of M (respectively, Mk) have
 /// initializers, they are executed in the scope of M (respectively, Mk) to
 /// initialize the corresponding fields of C.
+///
 /// @description Checks that if mixins have initializers then they are executed
 /// and initialize corresponding fields of the class. Test type aliases
 /// @author sgrekhov@unipro.ru
-
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
 
 import "../../../Utils/expect.dart";
 
@@ -21,12 +17,12 @@ class A {
   int get x => _xa;
 }
 
-class M1 {
+mixin class M1 {
   int _xm1 = 1;
   int get x => _xm1;
 }
 
-class M2 {
+mixin class M2 {
   int _xm2 = 2;
   int get x => _xm2;
 }

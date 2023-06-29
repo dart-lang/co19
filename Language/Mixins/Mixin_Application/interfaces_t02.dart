@@ -2,18 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion If the mixin application declares support for interfaces, the
-/// resulting class implements those interfaces.
-/// @description Checks that if the mixin application declares support for
-/// interfaces and the resulting class implements those interfaces then no
-/// static warning occurs. Interface num get g => 0; declared in class S of the
-/// S with M
+/// @assertion Let D be a mixin application class declaration of the form
+/// abstract? class N = S with M1, ..., Mn implements I1, ..., Ik;
+/// ...
+// The effect of D in library L is to introduce the name N into the scope of L,
+// bound to the class defined by the clause S with M1, ..., Mn with name N,
+/// as described below. If k > 0 then the class also implements I1, . . . , Ik.
+///
+/// @description Checks that if the mixin application declares interfaces then
+/// the resulting class implements those interfaces
 /// @author sgrekhov@unipro.ru
-
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
 
 abstract class I {
   num get g;
@@ -23,7 +21,7 @@ class S {
   num get g => 0;
 }
 
-class M {
+mixin class M {
 }
 
 class C = S with M implements I;

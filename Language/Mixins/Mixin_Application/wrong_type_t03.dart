@@ -2,17 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A mixin application of the form S with M1,...,Mk; defines a class
-/// C whose superclass is the application of the mixin composition
-/// Mk−1 ∗ ... ∗ M1 to S
-/// ...
-/// It is a compile-time error if S is an enumerated type or a malformed type.
-/// @description Checks that it is a compile-time error if S is a malformed type
+/// @assertion
+/// ⟨mixinApplicationClass⟩ ::=
+///     ⟨identifier⟩ ⟨typeParameters⟩? ‘=’ ⟨mixinApplication⟩ ‘;’
+/// ⟨mixinApplication⟩ ::= ⟨typeNotVoid⟩ ⟨mixins⟩ ⟨interfaces⟩?
+///
+/// @description Checks that it is a compile-time error if `typeNotVoid` is
+/// not a type
 /// @author sgrekhov@unipro.ru
 
 var E;
 
-class M {
+mixin class M {
 }
 
 class C extends E with M {
