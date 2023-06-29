@@ -3,27 +3,24 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion
-/// classDefinition:
-///   metadata abstract? class mixinApplicationClass
-/// ;
-/// mixinClassApplication:
-///   identifier typeParameters? `=' mixinApplication `;'
+/// ⟨mixinApplicationClass⟩ ::=
+///     ⟨identifier⟩ ⟨typeParameters⟩? ‘=’ ⟨mixinApplication⟩ ‘;’
+/// ⟨mixinApplication⟩ ::= ⟨typeNotVoid⟩ ⟨mixins⟩ ⟨interfaces⟩?
+/// ...
+/// A clause of the form S with M1, ..., Mn with name N defines a
+/// class as follows:
+/// If there is only one mixin (n = 1), then S with M1 defines the class yielded
+/// by the mixin application of the mixin of M1 to the class denoted by S with
+/// name N.
+/// If there is more than one mixin (n > 1), then let X be the class defined by
+/// S with M1, ..., Mn−1 with name F, where F is a fresh name, and make X
+/// abstract. Then S with M1, ..., Mn defines the class yielded by the mixin
+/// application of the mixin of Mn to the class X with name N.
 ///
-/// mixinApplication:
-///   type mixins interfaces?
-/// ;
-///
-/// A mixin application of the form S with M; defines a class C with superclass
-/// S.
-/// A mixin application of the form S with M1,...,Mk; defines a class C whose
-/// superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
-/// In both cases above, C declares the same instance members as M (respectively,
-/// Mk).
-/// @description Test that mixin may have type parameters. Test that if there are
-/// two members have the same name then it is a compile error
+/// @description Test that mixin may have type parameters. Test that it is a
+/// compile-time error if there are members with conflicting types
 /// @issue 26409
 /// @author sgrekhov@unipro.ru
-
 
 class A<T> {
   T? a;
@@ -38,11 +35,11 @@ mixin M<T> on A<T> {
 }
 
 class C extends S<int> with M<String> {
-//                          ^
+//                          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  C c = new C();
+  new C();
 }

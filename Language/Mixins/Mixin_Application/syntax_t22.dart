@@ -2,25 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion
-/// classDefinition:
-///   metadata abstract? class mixinApplicationClass
-/// ;
-/// mixinApplicationClass:
-///   identifier typeParameters? `=' mixinApplication `;'
+/// @assertion A mixin declaration introduces a mixin and provides a scope for
+/// static member declarations.
+/// ⟨mixinDeclaration⟩ ::= mixin ⟨typeIdentifier⟩ ⟨typeParameters⟩?
+///     (on ⟨typeNotVoidList⟩)? ⟨interfaces⟩?
+///     ‘{’ (⟨metadata⟩ ⟨classMemberDeclaration⟩)* ‘}’
+/// ...
+/// A mixin declaration with no on clause is equivalent to one with the clause
+/// on Object.
 ///
-/// mixinApplication:
-///   type mixins interfaces?
-/// ;
-///
-/// A mixin application of the form S with M; defines a class C with superclass
-/// S.
-/// A mixin application of the form S with M1,...,Mk; defines a class C whose
-/// superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
-/// In both cases above, C declares the same instance members as M (respectively,
-/// Mk).
 /// @description Checks that it is no compile error to declare mixin on a class
-/// which has a superclass other than Object.
+/// which has a superclass other than `Object`.
 /// @issue 26409
 /// @author sgrekhov@unipro.ru
 

@@ -2,18 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion For each generative constructor named
-/// qi(Ti1 ai1,..., Tiki aiki), i ∈ 1..n of S, C has an implicitly declared
-/// constructor named qi = [C/S]qi of the form
-/// qi(ai1,..., aiki): super(ai1,...,aiki);.
-/// @description Checks that for each generative constructor mixin application
-/// declares constructor described in the assertion
+/// @assertion For each generative constructor of the form
+/// Sq(T1 a1, . . ., Tk ak)
+/// of S that is accessible to LC, C has an implicitly declared constructor of
+/// the form
+/// Cq(T1 a1, ..., Tk ak): superq(a1, . . ., ak);
+/// where Cq is obtained from Sq by replacing occurrences of SN, which denote
+/// the superclass, by N, and superq is obtained from Sq by replacing
+/// occurrences of SN which denote the superclass by super.
+///
+/// @description Checks that for each generative constructor of the form
+/// Sq(T1 a1, . . ., Tk ak) a mixin application declares constructor of the form
+/// Cq(T1 a1, ..., Tk ak): superq(a1, . . ., ak);
 /// @author sgrekhov@unipro.ru
-
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
 
 import "../../../Utils/expect.dart";
 
@@ -23,7 +24,7 @@ class A {
   A(bool this.v1, num this.v2);
 }
 
-class M1 {
+mixin class M1 {
   num v2 = -1;
 }
 

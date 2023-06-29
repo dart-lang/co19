@@ -3,31 +3,24 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion
-/// classDefinition:
-///   metadata abstract? class mixinApplicationClass
-/// ;
-/// mixinApplicationClass:
-///   identifier typeParameters? `=' mixinApplication `;'
+/// ⟨mixinApplicationClass⟩ ::=
+///     ⟨identifier⟩ ⟨typeParameters⟩? ‘=’ ⟨mixinApplication⟩ ‘;’
+/// ⟨mixinApplication⟩ ::= ⟨typeNotVoid⟩ ⟨mixins⟩ ⟨interfaces⟩?
+/// ...
+/// A clause of the form S with M1, ..., Mn with name N defines a
+/// class as follows:
+/// If there is only one mixin (n = 1), then S with M1 defines the class yielded
+/// by the mixin application of the mixin of M1 to the class denoted by S with
+/// name N.
+/// If there is more than one mixin (n > 1), then let X be the class defined by
+/// S with M1, ..., Mn−1 with name F, where F is a fresh name, and make X
+/// abstract. Then S with M1, ..., Mn defines the class yielded by the mixin
+/// application of the mixin of Mn to the class X with name N.
 ///
-/// mixinApplication:
-///   type mixins interfaces?
-/// ;
-///
-/// A mixin application of the form S with M; defines a class C with superclass
-/// S.
-/// A mixin application of the form S with M1,...,Mk; defines a class C whose
-/// superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
-/// In both cases above, C declares the same instance members as M (respectively,
-/// Mk).
-/// @description Checks that if two members have the same name then it is a
-/// compile error
+/// @description Checks that it is a compile-time error if there are members
+/// with conflicting types
 /// @issue 26409
 /// @author sgrekhov@unipro.ru
-
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
 
 class A {
   int a = 0;
@@ -36,7 +29,7 @@ class A {
 class S extends A {
 }
 
-class M {
+mixin class M {
   int a = 42;
 }
 

@@ -2,18 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion The effect of a class definition of the form class C = M; or the
-/// form class C<T1,...,Tn> = M; in library L is to introduce the name C into
-/// the scope of L, bound to the class defined by the mixin application M.
-/// The name of the class is also set to C. Iff the class is prefixed by the
-/// built-in identifier abstract, the class being defined is an abstract class.
-/// @description Checks that compile error is issued, if class C<T1,...,Tn>
-/// declared without 'abstract' identifier does not implement all abstract
+/// @assertion Let D be a mixin application class declaration of the form
+/// abstract? class N = S with M1, ..., Mn implements I1, ..., Ik;
+/// ...
+/// The effect of D in library L is to introduce the name N into the scope of
+/// L, bound to the class defined by the clause S with M1, ..., Mn with name N,
+/// as described below. If k > 0 then the class also implements I1, . . . , Ik.
+/// Iff the class declaration is prefixed by the built-in identifier abstract,
+/// the class being defined is made an abstract class
+///
+/// @description Checks that it is a compile-time error, if class `C<T1,...,Tn>`
+/// is declared without an `abstract` identifier does not implement all abstract
 /// methods.
 /// @author sgrekhov@unipro.ru
 
-
-abstract class M {
+abstract mixin class M {
   int n();
 }
 
