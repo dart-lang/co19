@@ -20,6 +20,9 @@
 /// is any member declaration after it
 /// @author sgrekhov@unipro.ru
 
+// [error line 1, column 0]
+// [analyzer] unspecified
+
 enum Time1 {
   hour,
   day,
