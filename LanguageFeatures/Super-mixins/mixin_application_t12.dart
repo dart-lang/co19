@@ -15,11 +15,6 @@
 /// 'implements' part of the mixin
 /// @author sgrekhov@unipro.ru
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
-
 import "../../Utils/expect.dart";
 
 class S {}
@@ -37,6 +32,7 @@ class I<T> {
   String i3() => "I.i3";
   String operator ~() => i1.substring(0, 1);
 }
+
 abstract class J<T> {
   String get j1;
   void set j2(String v);
@@ -44,7 +40,7 @@ abstract class J<T> {
   String operator -() => j1.substring(0, 1);
 }
 
-class A<T> {
+mixin class A<T> {
   String get a1 => "A.a1";
   set a2(String v) {
     console = "A:$v";
@@ -52,12 +48,14 @@ class A<T> {
   String a3() => "A.a3";
   String operator +(A v) => a1.substring(0, 1);
 }
+
 abstract class B<T> extends A<T> {
   String get b1;
   void set b2(String v);
   String b3();
   String operator -(B v) => b1.substring(0, 1);
 }
+
 class C<T1, T2> extends B<T1> with A<T1> implements J<T2> {
   String get b1 => "C.b1";
   void set b2(String v) {

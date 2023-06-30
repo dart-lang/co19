@@ -11,11 +11,6 @@
 /// to this syntax do not cause any errors and can be instantiated.
 /// @author msyabro
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
-
 abstract class I {}
 abstract class J {}
 abstract class IT<T> {}
@@ -23,10 +18,10 @@ abstract class IT<T> {}
 class A {}
 class B extends A {}
 class C extends B implements I {}
-class D implements I, J {}
+mixin class D implements I, J {}
 class E extends D implements I, J {}
 
-class F<T> {}
+mixin class F<T> {}
 class G<S, T> extends F<T> {}
 class H<T> implements I {}
 class K extends G<int, int> implements I {}

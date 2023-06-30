@@ -8,16 +8,12 @@
 /// [T] is an immediate subterm of an [extends] clause of a class (10.8), or it
 /// occurs as an element in the type list of an [implements] clause (10.9), or a
 /// [with] clause (10).
+///
 /// @description Checks that exception is thrown if super-bounded class occurs in
 /// as an element in the type list of [with] clause
 /// @author iarkh@unipro.ru
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
-
-class A<T extends A<T>> {}
+mixin class A<T extends A<T>> {}
 class C {}
 
 class B1 extends C with A {}

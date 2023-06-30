@@ -14,11 +14,6 @@
 /// declaration. Test 'mixin' implementation of 'on' clause interfaces
 /// @author sgrekhov@unipro.ru
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
-
 import "../../Utils/expect.dart";
 
 class S {}
@@ -28,7 +23,7 @@ class Y extends T {}
 
 String console = "";
 
-class A<T> {
+mixin class A<T> {
   String get a1 => "A.a1";
   set a2(String v) {
     console = "A:$v";

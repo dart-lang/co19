@@ -8,20 +8,14 @@
 /// 
 /// @description Checks that result of a lookup of a method m in object o
 /// is method m in class C, where C is class of o
-/// 
 /// @author sgrekhov@unipro.ru
-
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
 
 import '../../../../Utils/expect.dart';
 
 class A {
 }
 
-class M {
+mixin M {
   int m1() => 1;
 }
 
