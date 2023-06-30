@@ -10,20 +10,14 @@
 /// mixins:
 ///   with typeList
 /// ;
-/// @description Checks that a correct class declaration with mixins is 
-/// accepted.
+/// @description Checks that a correct class declaration with mixins is accepted
 /// @author kaigorodov
-
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
 
 class A {
   int a() {return 1;}
 }
 
-class M {
+mixin M {
   var m;
 }
 

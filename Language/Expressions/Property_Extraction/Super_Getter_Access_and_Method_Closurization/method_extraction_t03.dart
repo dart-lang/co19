@@ -9,21 +9,17 @@
 /// looking up method m in Sdynamic with respect to the current library L. If
 /// method lookup succeeds then i evaluates to the closurization of method f
 /// with respect to superclass Sdynamic.
+///
 /// @description Check that if method lookup succeeds then result of the
 /// property extraction is method that was found in a mixin.
 /// @author sgrekhov@unipro.ru
-
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
 
 import '../../../../Utils/expect.dart';
 
 class A {
 }
 
-class M {
+mixin class M {
   int m() => 1;
 }
 

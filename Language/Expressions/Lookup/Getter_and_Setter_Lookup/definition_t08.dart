@@ -9,21 +9,17 @@
 /// has a superclass S, then the result of the lookup is the result of looking
 /// up getter (respectively setter) m in S with respect to L. Otherwise, we say
 /// that the lookup has failed.
+///
 /// @description Checks that implicit getters and setters are found during
 /// lookup.
 /// @author ilya
-
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
 
 import '../../../../Utils/expect.dart';
 
 class A {
 }
 
-class M {
+mixin M {
   int mValue = 0;
   int get m => -1;
   void set m(int val) {

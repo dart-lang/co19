@@ -12,11 +12,6 @@
 /// errors and can be instantiated.
 /// @author ngl@unipro.ru
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
-
 @A() abstract class I1<T> = A1 with B1;
 abstract class J1<T> = A1 with B1;
 @B() class X1<T> = B1 with A1;
@@ -30,8 +25,8 @@ class Y2 = A1 with B1;
 @B() class X3<T> = B1 with A1 implements A1;
 class Y3<T> = B1 with A1 implements A1;
 
-abstract class A1 {}
-class B1 {}
+abstract mixin class A1 {}
+mixin class B1 {}
 
 @B.fromInt(1) class A {
   const A();

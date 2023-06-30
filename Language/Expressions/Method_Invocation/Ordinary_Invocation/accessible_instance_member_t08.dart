@@ -15,14 +15,12 @@
 ///   subclass of Function that fails to implement call will also provoke a
 ///   warning, as this exemption is limited to type Function, and does not apply
 ///   to its subtypes.
+///
 /// @description Checks that there is no static warning if T is a local function
 /// and m is a method call. Local function is declared in an instance method of
 /// a class that extends class Function and implements method call.
 /// @author ngl@unipro.ru
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
 // @dart=2.19
 
 import '../../../../Utils/expect.dart';

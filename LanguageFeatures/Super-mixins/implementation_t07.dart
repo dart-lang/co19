@@ -15,12 +15,7 @@
 /// to the class with mixins only one of the interfaces
 /// @author sgrekhov@unipro.ru
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
-
-class B {
+mixin class B {
   String get gb1 => "B.gb1";
 }
 abstract class C {

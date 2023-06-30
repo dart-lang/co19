@@ -10,23 +10,19 @@
 /// mixins:
 ///   with typeList
 /// ;
-/// @description Checks that mixins without superclass are allowed
+/// @description Checks that mixins can be specified without superclass (`with`
+/// without `extends`)
 /// @author kaigorodov
 
-// TODO(https://github.com/dart-lang/sdk/issues/51557): Decide if the mixins
-// being applied in this test should be "mixin", "mixin class" or the test
-// should be left at 2.19.
-// @dart=2.19
-
-class A {
-  int a() {return 1;}
+mixin class A {
+  int a() => 1;
 }
 
-class M {
+mixin M {
   var m;
 }
 
-class AM with A,M {
+class AM with A, M {
 }
 
 main() {
