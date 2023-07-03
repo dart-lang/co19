@@ -10,6 +10,7 @@
 ///
 /// @description Checks that an instance field is promotable even if it is late
 /// @author sgrekhov22@gmail.com
+/// @issue 50949
 
 // SharedOptions=--enable-experiment=inference-update-2
 
