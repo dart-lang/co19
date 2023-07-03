@@ -12,7 +12,7 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 42031
 
-import 'deferred_lib.dart' deferred as d;
+import '../Mixin_Classes/deferred_lib.dart' deferred as d;
 
 class B {
 }
