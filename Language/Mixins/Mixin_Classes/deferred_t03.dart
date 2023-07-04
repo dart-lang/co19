@@ -17,7 +17,7 @@ import 'deferred_lib.dart' deferred as d;
 class B {
 }
 
-class C = B with d.AAlias {}
+class C = B with d.AAlias;
 //               ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

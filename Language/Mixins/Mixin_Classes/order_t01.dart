@@ -1,4 +1,4 @@
-// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -8,10 +8,10 @@
 /// mixin application of the mixin of Mn to the class X with name N.
 ///
 /// @description Checks that mixin composition applies mixins in the right
-/// order. Test type aliases
+/// order
 /// @author sgrekhov@unipro.ru
 
-import "../../../Utils/expect.dart";
+import '../../../Utils/expect.dart';
 
 class A {
   int m = 0;
@@ -29,14 +29,9 @@ mixin class M3 {
   int m = 3;
 }
 
-typedef AAlias = A;
-typedef MAlias1 = M1;
-typedef MAlias2 = M2;
-typedef MAlias3 = M3;
-
-class B1 = AAlias with MAlias1, MAlias2;
-class B2 = AAlias with MAlias1, MAlias2, MAlias3;
-class B3 = B1 with MAlias3, MAlias2, MAlias1;
+class B1 = A with M1, M2;
+class B2 = A with M1, M2, M3;
+class B3 = B1 with M3, M2, M1;
 
 main() {
   B1 b1 = new B1();
