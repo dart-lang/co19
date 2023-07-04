@@ -12,27 +12,25 @@
 /// the instantiated representation type corresponding to V1. A compile-time
 /// error occurs if R is not a subtype of S.
 ///
-/// @description Checks that it is not an error if an inline class has a
-/// representation type `R` and a superinterface with a representation type `S`
-/// and `R` is a subtype of `S`
+/// @description Checks that it is a compile-time error if an inline class has
+/// a representation type `R` and a superinterface with a representation type
+/// `S` and `R` is not a subtype of `S`. Test the case when superinterface of
+/// wrong representation type came from another library and its instance
+/// variable is private
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
-import "../../Utils/expect.dart";
 
-inline class V1<T> {
-  final T id1;
-  V1(this.id1);
-}
+import "inline_class_lib.dart";
 
-inline class V implements V1<num> {
-  final int id;
-  V(this.id);
+inline class IC implements LibraryInlineClass1 {
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  final String id;
+  IC(this.id);
 }
 
 main() {
-  V v = V(42);
-  Expect.equals(42, v.id);
-  Expect.equals(42, v.id1);
-
+  print(IC);
 }
