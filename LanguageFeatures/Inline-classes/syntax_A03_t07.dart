@@ -20,7 +20,7 @@
 /// otherwise a compile-time error occurs.
 ///
 /// @description Checks that it is not an error if an inline class implements
-/// another inline class from another library
+/// another inline class with a private instance variable from another library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -28,7 +28,7 @@
 import "../../Utils/expect.dart";
 import "inline_class_lib.dart";
 
-inline class IC implements LibraryInlineClass2 {
+inline class IC implements LibraryInlineClass1 {
   final int id;
   IC(this.id);
 }
