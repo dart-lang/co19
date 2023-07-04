@@ -15,3 +15,9 @@ final inline class FinalInlineClass {
   final int x;
   const FinalInlineClass([this.x = 0]);
 }
+
+inline class LibraryInlineClass {
+  final int _x = 0;
+
+  int get val => _x;
+}
