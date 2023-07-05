@@ -19,17 +19,11 @@
 class S {}
 typedef void Foo();
 
-class C1 = S with Function;
-//                ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-class C2 = S with Foo;
-//                ^^^
+class C = S with Foo;
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  print(C1);
-  print(C2);
+  print(C);
 }

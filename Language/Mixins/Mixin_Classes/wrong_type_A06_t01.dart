@@ -13,7 +13,7 @@
 /// dynamic, type void, or type FutureOr<T> for any T
 ///
 /// @description Checks that it is a compile-time error if an element in the
-/// type list of the with clause of a mixin application is a type dynamic
+/// type list of the with clause of a mixin application is the type `dynamic`
 /// @author sgrekhov22@gmail.com
 
 class S {}
