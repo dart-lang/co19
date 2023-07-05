@@ -7,6 +7,11 @@
 ///     ⟨identifier⟩ ⟨typeParameters⟩? ‘=’ ⟨mixinApplication⟩ ‘;’
 /// ⟨mixinApplication⟩ ::= ⟨typeNotVoid⟩ ⟨mixins⟩ ⟨interfaces⟩?
 ///
+/// It is a compile-time error if an element in the type list of the with clause
+/// of a mixin application is a type variable, a function type, a type alias
+/// that does not denote a class, an enumerated type, a deferred type, type
+/// dynamic, type void, or type FutureOr<T> for any T
+///
 /// @description Checks that it is a compile-time error if any of `mixins` is
 /// not a type
 /// @author sgrekhov@unipro.ru

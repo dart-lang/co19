@@ -1,4 +1,4 @@
-// Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -12,21 +12,17 @@
 /// that does not denote a class, an enumerated type, a deferred type, type
 /// dynamic, type void, or type FutureOr<T> for any T
 ///
-/// @description Checks that it is a compile-time error if a class extends mixin
-/// application where `M` is an enumerated type
-/// @author sgrekhov@unipro.ru
+/// @description Checks that it is a compile-time error if an element in the
+/// type list of the with clause of a mixin application is a type variable
+/// @author sgrekhov22@gmail.com
 
-class S {
-}
+class S {}
 
-enum M {a, b, c}
-
-class C extends S with M {
-//                     ^
+class C<T> = S with T;
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
 main() {
-  new C();
+  print(C);
 }
