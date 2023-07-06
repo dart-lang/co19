@@ -17,18 +17,15 @@
 /// abstract. Then S with M1, ..., Mn defines the class yielded by the mixin
 /// application of the mixin of Mn to the class X with name N.
 ///
-/// @description Test that mixin cannot be derived from the superclass
+/// @description Test that mixin can be derived from the superclass
 /// @author sgrekhov@unipro.ru
 /// @issue 25765
 /// @issue 42256
+/// @issue 52859
 
-mixin class S {
-}
+mixin class S {}
 
 class C = S with S;
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 main() {
   new C();

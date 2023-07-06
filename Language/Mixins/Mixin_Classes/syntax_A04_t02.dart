@@ -38,7 +38,7 @@ class C<T> extends S with M {
 
 main() {
   C c = new C();
-  c.m1.expectStaticType<Exactly<num?>>();
-  c.m2.expectStaticType<Exactly<String?>>();
-  c.s.expectStaticType<Exactly<Object?>>();
+  c.m1?.expectStaticType<Exactly<num>>();
+  c.m2?.expectStaticType<Exactly<String>>();
+  c.s?.expectStaticType<Exactly<Object>>();
 }
