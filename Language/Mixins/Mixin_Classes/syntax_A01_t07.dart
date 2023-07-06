@@ -7,8 +7,9 @@
 ///     ⟨identifier⟩ ⟨typeParameters⟩? ‘=’ ⟨mixinApplication⟩ ‘;’
 /// ⟨mixinApplication⟩ ::= ⟨typeNotVoid⟩ ⟨mixins⟩ ⟨interfaces⟩?
 ///
-/// @description Checks that it is a compile-time error if extends mixin
-/// application where `M` is not a type. Test type alias
+/// @description  Checks that it is a compile-time error if a class extends a
+/// mixin application where the superclass is a type alias and the mixin is a
+/// non-type.
 /// @author sgrekhov@unipro.ru
 
 class S {
