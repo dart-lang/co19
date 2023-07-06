@@ -32,13 +32,13 @@ mixin class M<T1 extends num, T2 extends String> {
   T2? m2;
 }
 
-class C<T> extends S with M {
-  T? c;
-}
+class C extends S with M {}
 
 main() {
   C c = new C();
   c.m1.expectStaticType<Exactly<num?>>();
   c.m2.expectStaticType<Exactly<String?>>();
-  c.s.expectStaticType<Exactly<Object?>>();
+  if (1 > 2) {
+    c.s.whatever; // s is dynamic
+  }
 }
