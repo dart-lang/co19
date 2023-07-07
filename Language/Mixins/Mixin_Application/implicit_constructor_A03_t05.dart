@@ -19,6 +19,7 @@
 ///     superq(a1, ... , ak, ak+1, ..., ap);. Test that it is a compile-time
 /// error if required named parameter is not specified
 /// @author sgrekhov22@gmail.com
+/// @issue 52872
 
 class A {
   bool v1;

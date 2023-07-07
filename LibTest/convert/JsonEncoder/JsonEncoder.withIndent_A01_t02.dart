@@ -2,12 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertionconst JsonEncoder.withIndent(
-///  String indent, [
-///  dynamic toEncodable(
-///  nonSerializable
-///  )
-///  ])
+/// @assertion const JsonEncoder.withIndent(
+///   String indent, [dynamic toEncodable(nonSerializable)])
 /// Creates a JSON encoder that creates multi-line JSON.
 /// The encoding of elements of lists and maps are indented and put on separate
 /// lines. The indent string is prepended to these elements, once for each level
@@ -22,6 +18,7 @@
 /// of one of the convertible types.
 ///
 /// If toEncodable is omitted, it defaults to calling .toJson() on the object.
+///
 /// @description Checks that this constructor, called with not null indent
 /// parameter, and no toEncodable creates a JSON encoder that creates multi-line
 /// JSON.
