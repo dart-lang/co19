@@ -20,16 +20,16 @@
 /// where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
 ///
 /// @description Check that if `T0` has a required named argument and `T1` has
-/// not required named argument of the same type and with the same name, then
-/// anyway `T0` is a subtype of `T1`.
+/// an optional named argument of the same type and with the same name, then
+/// `T0` is not a subtype of `T1`.
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is not a subtype of a type T1, then
-/// instance of T0 cannot be assigned to the mixin member of type T1
+/// instance of T0 cannot be assigned to the superclass member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/named_function_types_fail_A061.dart and 
-/// test_cases/class_member_fail_x03.dart. Don't modify it! 
+/// This test is generated from test_types/named_function_types_fail_A61.dart and 
+/// test_cases/class_member_fail_x02.dart. Don't modify it! 
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
@@ -43,17 +43,34 @@ void f0Instance({required int i}) {}
 void f1Instance({int i = 0}) {}
 
 F0 t0Instance = f0Instance;
-F1 t1Instance = f1Instance;
 
 const t1Default = f1Instance;
 
-mixin class ClassMemberSuper1_t03 {
+class ClassMemberSuper1_t02 {
   F1 m = t1Default;
+
+  ClassMemberSuper1_t02(dynamic value) {
+    m = value;
+  }
+
+  ClassMemberSuper1_t02.named(dynamic value) {
+    m = value;
+  }
+
+  ClassMemberSuper1_t02.short(this.m);
 
   void set superSetter(F1 val) {}
 }
 
-class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
+class ClassMember1_t02 extends ClassMemberSuper1_t02 {
+
+  ClassMember1_t02() : super(forgetType(t0Instance)) {}
+
+  ClassMember1_t02.named() : super.named(forgetType(t0Instance)) {}
+
+  ClassMember1_t02.short() : super.short(forgetType(t0Instance));
+
+  ClassMember1_t02.valid() : super(null);
 
   test1() {
     m = forgetType(t0Instance);
@@ -64,17 +81,27 @@ class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
   }
 }
 
-class ClassMemberSuper2_t03<X> {
+class ClassMemberSuper2_t02<X> {
   X m;
 
-  ClassMemberSuper2_t03(X x) : m = x {}
+  ClassMemberSuper2_t02(X value): m = value {
+  }
+
+  ClassMemberSuper2_t02.named(X value): m = value {
+  }
+
+  ClassMemberSuper2_t02.short(this.m);
 
   void set superSetter(X val) {}
 }
 
-class ClassMember2_t03<X> extends ClassMemberSuper2_t03<X> {
+class ClassMember2_t02<X> extends ClassMemberSuper2_t02<X> {
 
-  ClassMember2_t03(X x): super(x) {}
+  ClassMember2_t02() : super(forgetType(t0Instance)) {}
+
+  ClassMember2_t02.named() : super.named(forgetType(t0Instance)) {}
+
+  ClassMember2_t02.short() : super.short(forgetType(t0Instance));
 
   test1() {
     m = forgetType(t0Instance);
@@ -87,30 +114,48 @@ class ClassMember2_t03<X> extends ClassMemberSuper2_t03<X> {
 
 main() {
   Expect.throws(() {
-    new ClassMember1_t03().m = forgetType(t0Instance);
+    new ClassMember1_t02();
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember1_t03().superSetter = forgetType(t0Instance);
+    new ClassMember1_t02.short();
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember1_t03().test1();
+    new ClassMember1_t02.named();
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember1_t03().test2();
+    new ClassMember1_t02().m = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember1_t02().superSetter = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember1_t02().test1();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember1_t02().test2();
   }, (e) => e is TypeError);
 
   // Test type parameters
 
   Expect.throws(() {
-    new ClassMember2_t03<F1>(t1Instance).m = forgetType(t0Instance);
+    new ClassMember2_t02<F1>();
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t03<F1>(t1Instance).superSetter = forgetType(t0Instance);
+    new ClassMember2_t02<F1>.short();
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t03<F1>(t1Instance).test1();
+    new ClassMember2_t02<F1>.named();
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t03<F1>(t1Instance).test2();
+    new ClassMember2_t02<F1>().m = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<F1>().superSetter = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<F1>().test1();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<F1>().test2();
   }, (e) => e is TypeError);
 }

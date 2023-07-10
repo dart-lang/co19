@@ -20,8 +20,8 @@
 /// where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
 ///
 /// @description Check that if `T0` has a required named argument and `T1` has
-/// not required named argument of the same type and with the same name, then
-/// anyway `T0` is a subtype of `T1`.
+/// an optional named argument of the same type and with the same name, then
+/// `T0` is not a subtype of `T1`.
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is not a subtype of a type T1, then
@@ -30,7 +30,7 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
-/// This test is generated from test_types/named_function_types_fail_A061.dart and 
+/// This test is generated from test_types/named_function_types_fail_A61.dart and 
 /// test_cases/global_variable_fail_x01.dart. Don't modify it! 
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.

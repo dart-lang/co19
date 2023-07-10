@@ -20,9 +20,19 @@
 /// where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
 ///
 /// @description Check that if `T0` has a required named argument and `T1` has
-/// not required named argument of the same type and with the same name, then
-/// anyway `T0` is a subtype of `T1`.
+/// an optional named argument of the same type and with the same name, then
+/// `T0` is not a subtype of `T1`.
 /// @author sgrekhov22@gmail.com
+///
+/// @description Check that if type T0 not a subtype of a type T1, then instance
+/// of T0 cannot be used as a return value of type T1. Return value is tested.
+/// @author sgrekhov@unipro.ru
+/// @author ngl@unipro.ru
+///
+/// This test is generated from test_types/named_function_types_fail_A61.dart and 
+/// test_cases/return_value_fail_x01.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
 
 typedef void F0({required int i});
 typedef void F1({int i});
@@ -31,9 +41,31 @@ void f0Instance({required int i}) {}
 void f1Instance({int i = 0}) {}
 
 F0 t0Instance = f0Instance;
-F1 t1Instance = f1Instance;
 
-const t1Default = f1Instance;
+F1 returnValueFunc() => t0Instance;
+//                       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-//# @T0 = F0
-//# @T1 = F1
+class ReturnValueTest {
+  static F1 staticTestMethod() => t0Instance;
+//                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  F1 testMethod() => t0Instance;
+//                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F1 get testGetter => t0Instance;
+//                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+main() {
+  F1 returnValueLocalFunc() => t0Instance;
+//                              ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

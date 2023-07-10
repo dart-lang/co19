@@ -20,16 +20,16 @@
 /// where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
 ///
 /// @description Check that if `T0` has a required named argument and `T1` has
-/// not required named argument of the same type and with the same name, then
-/// anyway `T0` is a subtype of `T1`.
+/// an optional named argument of the same type and with the same name, then
+/// `T0` is not a subtype of `T1`.
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is not a subtype of a type T1, then
-/// instance of T0 cannot be assigned to the to local variable of type T1
+/// instance of T0 cannot be assigned to the to global variable of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/named_function_types_fail_A061.dart and 
-/// test_cases/local_variable_fail_x01.dart. Don't modify it! 
+/// This test is generated from test_types/named_function_types_fail_A61.dart and 
+/// test_cases/global_variable_fail_x01.dart. Don't modify it! 
 /// If you need to change this test, then change one of the files above and then 
 /// run generator/generator.dart to regenerate the tests.
 
@@ -43,31 +43,31 @@ void f0Instance({required int i}) {}
 void f1Instance({int i = 0}) {}
 
 F0 t0Instance = f0Instance;
+F1 t1Instance = f1Instance;
 
-class LocalVariableTest {
-
-  LocalVariableTest() {
-    F1 t1 = forgetType(t0Instance);
+class GlobalVariableTest {
+  GlobalVariableTest() {
+    t1Instance = forgetType(t0Instance);
   }
 
-  LocalVariableTest.valid() {}
+  GlobalVariableTest.valid() {}
 
-  static staticTest() {
-    F1 t1 = forgetType(t0Instance);
+  foo() {
+    t1Instance = forgetType(t0Instance);
   }
 
-  test() {
-    F1 t1 = forgetType(t0Instance);
+  static test() {
+    t1Instance = forgetType(t0Instance);
   }
 }
 
 main() {
   bar () {
-    F1 t1 = forgetType(t0Instance);
+    t1Instance = forgetType(t0Instance);
   }
 
   Expect.throws(() {
-    F1 t1 = forgetType(t0Instance);
+    t1Instance = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {
@@ -75,14 +75,14 @@ main() {
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new LocalVariableTest();
+    new GlobalVariableTest();
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new LocalVariableTest.valid().test();
+    new GlobalVariableTest.valid().foo();
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    LocalVariableTest.staticTest();
+    GlobalVariableTest.test();
   }, (e) => e is TypeError);
 }
