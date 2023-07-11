@@ -84,17 +84,12 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void set s0(covariant int i) {}
-//            ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   var h1 = (covariant int i) {};
 //          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var h2 = ([covariant int i]) {};
+  var h2 = ([covariant int i = 0]) {};
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
