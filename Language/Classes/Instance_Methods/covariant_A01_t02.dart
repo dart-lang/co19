@@ -20,21 +20,16 @@ class A {
   void m4({required num a}) {}
 
   void set s(num n) {}
-
   void operator +(num n) {}
 }
 
 class C extends A {
   void m1(covariant Object a) {}
-
   void m2([covariant Object a = ""]) {}
-
   void m3({covariant Object a = ""}) {}
-
   void m4({required covariant Object a}) {}
 
   void set s(covariant Object s) {}
-
   void operator +(covariant Object n) {}
 }
 

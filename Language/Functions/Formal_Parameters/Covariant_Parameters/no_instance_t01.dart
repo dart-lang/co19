@@ -16,7 +16,7 @@ void f1(covariant int i) {}
 // [cfe] unspecified
 
 void f2([covariant int i = 0]) {}
-//      ^^^^^^^^^
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -64,9 +64,62 @@ class C {
 }
 
 main() {
+  void g1(covariant int i) {}
+//        ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void g2([covariant int i = 0]) {}
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void g3({covariant int i = 0}) {}
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void g4({required covariant int i}) {}
+//                  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void set s0(covariant int i) {}
+//            ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var h1 = (covariant int i) {};
+//          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var h2 = ([covariant int i]) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var h3 = ({covariant int i = 0}) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var h4 = ({required covariant int i}) {};
+//                    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   print(f1);
   print(f2);
   print(f3);
   print(f4);
+  print(g1);
+  print(g2);
+  print(g3);
+  print(g4);
+  print(h1);
+  print(h2);
+  print(h3);
+  print(h4);
   print(C);
 }

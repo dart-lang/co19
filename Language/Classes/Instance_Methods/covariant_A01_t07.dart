@@ -8,12 +8,22 @@
 /// that m′′ has a parameter p′′ that corresponds to p, unless the type of p is
 /// a subtype or a supertype of the type of p′′
 ///
-/// @description Checks that it is not an error if there is a member with a
-/// covariant parameter `p` and there is another member with the same name but
-/// with the parameter which is a supertype of `p`
+/// @description Checks that it is not an error if there is a member
+/// with a covariant parameter `p` and there is another member with the same
+/// name but with the parameter which is a subtype of `p`
 /// @author sgrekhov22@gmail.com
 
 class A {
+  void m1(covariant Object a) {}
+  void m2([covariant Object a = ""]) {}
+  void m3({covariant Object a = ""}) {}
+  void m4({required covariant Object a}) {}
+
+  void set s(covariant Object s) {}
+  void operator +(covariant Object n) {}
+}
+
+class C extends A {
   void m1(num a) {}
   void m2([num a = 0]) {}
   void m3({num a = 0}) {}
@@ -21,16 +31,6 @@ class A {
 
   void set s(num n) {}
   void operator +(num n) {}
-}
-
-class C extends A {
-  void m1(covariant int a) {}
-  void m2([covariant int a = 1]) {}
-  void m3({covariant int a = 1}) {}
-  void m4({required covariant int a}) {}
-
-  void set s(covariant int s) {}
-  void operator +(covariant int n) {}
 }
 
 main() {

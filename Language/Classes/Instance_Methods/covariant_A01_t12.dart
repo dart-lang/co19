@@ -14,6 +14,26 @@
 /// @author sgrekhov22@gmail.com
 
 class A {
+  void m1(Object a) {}
+  void m2([Object a = 1]) {}
+  void m3({Object a = 1}) {}
+  void m4({required Object a}) {}
+
+  void set s(Object s) {}
+  void operator +(Object n) {}
+}
+
+abstract mixin class B {
+  void m1(covariant int a);
+  void m2([covariant int a = 1]);
+  void m3({covariant int a = 1});
+  void m4({required covariant int a});
+
+  void set s(covariant int s);
+  void operator +(covariant int n);
+}
+
+class C extends A with B {
   void m1(num a) {}
   void m2([num a = 0]) {}
   void m3({num a = 0}) {}
@@ -21,16 +41,6 @@ class A {
 
   void set s(num n) {}
   void operator +(num n) {}
-}
-
-class C extends A {
-  void m1(covariant int a) {}
-  void m2([covariant int a = 1]) {}
-  void m3({covariant int a = 1}) {}
-  void m4({required covariant int a}) {}
-
-  void set s(covariant int s) {}
-  void operator +(covariant int n) {}
 }
 
 main() {
