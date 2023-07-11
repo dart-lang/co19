@@ -23,7 +23,7 @@ class A {
   void operator +(num n) {}
 }
 
-abstract mixin class B {
+abstract class B {
   void m1(covariant String a);
   void m2([covariant String a = ""]);
   void m3({covariant String a = ""});
@@ -33,7 +33,7 @@ abstract mixin class B {
   void operator +(covariant String n);
 }
 
-class C extends A with B {
+mixin M on A implements B {
   void m1(int a) {}
 //     ^^
 // [analyzer] unspecified
@@ -66,5 +66,5 @@ class C extends A with B {
 }
 
 main() {
-  print(C);
+  print(M);
 }

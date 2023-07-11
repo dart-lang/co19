@@ -14,57 +14,47 @@
 /// @author sgrekhov22@gmail.com
 
 class A {
-  void m1(num a) {}
-  void m2([num a = 0]) {}
-  void m3({a = 0}) {}
-  void m4({required num a}) {}
+  void m1(covariant num a) {}
+  void m2([covariant num a = 0]) {}
+  void m3({covariant a = 0}) {}
+  void m4({required covariant num a}) {}
 
-  void set s(num n) {}
-  void operator +(num n) {}
+  void set s(covariant num n) {}
+  void operator +(covariant num n) {}
 }
 
-abstract mixin class B {
-  void m1(covariant String a);
-  void m2([covariant String a = ""]);
-  void m3({covariant String a = ""});
-  void m4({required covariant String a});
-
-  void set s(covariant String s);
-  void operator +(covariant String n);
-}
-
-class C extends A with B {
-  void m1(int a) {}
+mixin M on A {
+  void m1(String a) {}
 //     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void m2([int a = 1]) {}
+  void m2([String a = ""]) {}
 //     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void m3({int a = 1}) {}
+  void m3({String a = ""}) {}
 //     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void m4({required int a}) {}
+  void m4({required String a}) {}
 //     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void set s(int s) {}
+  void set s(String s) {}
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void operator +(int n) {}
+  void operator +(String n) {}
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(C);
+  print(M);
 }

@@ -14,13 +14,13 @@
 /// @author sgrekhov22@gmail.com
 
 class A {
-  void m1(covariant num a) {}
-  void m2([covariant num a = 0]) {}
-  void m3({covariant a = 0}) {}
-  void m4({required covariant num a}) {}
+  void m1(num a) {}
+  void m2([num a = 0]) {}
+  void m3({a = 0}) {}
+  void m4({required num a}) {}
 
-  void set s(covariant num n) {}
-  void operator +(covariant num n) {}
+  void set s(num n) {}
+  void operator +(num n) {}
 }
 
 abstract class B {
