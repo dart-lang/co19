@@ -2,21 +2,38 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if the extends clause of a class C
-/// specifies an enumerated type, a malformed type or a deferred type as a
-/// superclass.
-/// @description Checks that it is a compile-time error when the type expression
-/// in a class's extends clause denotes a function type.
+/// @assertion It is a compile-time error if the type in the extends clause of a
+/// class C is a type variable, a type alias that does not denote a class, an
+/// enumerated type, a deferred type, type dynamic, or type FutureOr<T> for any
+/// T.
+///
+/// @description Checks that it is a compile-time error if a type expression in
+/// a class's `extends` clause denotes a type alias that does not denote a class
 /// @author rodionov
 
+enum E {e1, e2}
 
-typedef void foo();
+typedef EAlias = E;
+typedef void Foo();
+typedef D = dynamic;
 
-class A extends foo {}
-//              ^
+class A1 extends Foo {}
+//               ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class A2 extends EAlias {}
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class A3 extends D {}
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  new A();
+  A1();
+  A2();
+  A3();
 }

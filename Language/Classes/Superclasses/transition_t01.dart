@@ -5,6 +5,7 @@
 /// @assertion A class S is a superclass of a class C iff either:
 /// - S is the superclass of C, or
 /// - S is a superclass of a class S0 and S0 is a superclass of C.
+///
 /// @description Checks that the superclass-subclass relationship is transitive.
 /// @author rodionov
 

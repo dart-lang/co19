@@ -2,14 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if the extends clause of a class C
-/// specifies an enumerated type, a malformed type or a deferred type as a
-/// superclass.
-/// @description Checks that it is a compile-time error if enumeration is used
-/// as a superclass
+/// @assertion It is a compile-time error if the type in the extends clause of a
+/// class C is a type variable, a type alias that does not denote a class, an
+/// enumerated type, a deferred type, type dynamic, or type FutureOr<T> for any
+/// T.
+///
+/// @description Checks that it is a compile-time error if an enumerated type is
+/// used as a superclass
 /// @author sgrekhov@unipro.ru
-
-
 
 enum E {a, b, c}
 
