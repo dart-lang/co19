@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -7,15 +7,10 @@
 /// enumerated type, a deferred type, type dynamic, or type FutureOr<T> for any
 /// T.
 ///
-/// @description Checks that it is a compile-time error if type dynamic is used
-/// as a superclass
-/// @author sgrekhov@unipro.ru
+/// @description Checks that it is a compile-time error if a deferred type is
+/// used as a superclass
+/// @author sgrekhov22@gmail.com
 
-class A extends dynamic {}
-//              ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+library superclass_lib;
 
-main() {
-  new A();
-}
+class A {}
