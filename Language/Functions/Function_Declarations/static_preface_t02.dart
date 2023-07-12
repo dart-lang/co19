@@ -3,15 +3,15 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error to preface a function declaration with
-/// the built-in identier static.
-/// @description Checks that it is a compile-time error to preface local function
-/// with 'static'.
+/// the built-in identifier static.
+///
+/// @description Checks that it is a compile-time error to preface a local
+/// function declaration with 'static'.
 /// @author msyabro
-
 
 main() {
   static void f() {}
-//^
+//^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
