@@ -10,8 +10,8 @@
 /// Ssuper, and let F be the return type of D. If both lookups failed, a
 /// compile-time error occurs
 ///
-/// @description Checks that it is a compile-time error if a superclass does not
-/// have an instance member named `m`
+/// @description Checks that it is a compile-time error if loockup for an
+/// instance member named `m` failed
 /// @author sgrekhov22@gmail.com
 /// @issue 52901
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -10,21 +10,25 @@
 /// Ssuper, and let F be the return type of D. If both lookups failed, a
 /// compile-time error occurs
 ///
-/// @description Checks that it is a compile error if loockup of an instance
-/// member named `m` in `S` failed.
-/// @author msyabro
+/// @description Checks that it is not an error if loockup for an instance
+/// member named `m` succeeds. Test an external member (with no body but not an
+/// abstract)
+/// @author sgrekhov22@gmail.com
 
-class S {}
+abstract class A {
+  external void m();
+  external int g;
+  external void set s(int i);
+}
 
-class A extends S {
-  test() {
+class C extends A {
+  void n() {
     super.m();
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+    super.g;
+    super.s = 0;
   }
 }
 
 main() {
-  new A().test();
+  print(C);
 }
