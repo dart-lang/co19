@@ -11,7 +11,7 @@
 /// compile-time error occurs
 ///
 /// @description Checks that it is not an error if loockup for an instance
-/// member named `m` successes. Test an external member (with no body but not an
+/// member named `m` succeeds. Test an external member (with no body but not an
 /// abstract)
 /// @author sgrekhov22@gmail.com
 
