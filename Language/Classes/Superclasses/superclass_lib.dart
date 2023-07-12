@@ -8,7 +8,7 @@
 /// T.
 ///
 /// @description Checks that it is a compile-time error if a deferred type is
-/// used as a superclass
+/// used as a superclass. This library will be used as the deferred import.
 /// @author sgrekhov22@gmail.com
 
 library superclass_lib;
