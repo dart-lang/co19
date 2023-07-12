@@ -10,8 +10,8 @@
 /// Ssuper, and let F be the return type of D. If both lookups failed, a
 /// compile-time error occurs
 ///
-/// @description Checks that it is a compile error if member `m` in `S` is
-/// inaccessible.
+/// @description Checks that it is a compile error if loockup of an instance
+/// member named `m` in `S` failed because member `m` in `S` is inaccessible.
 /// @author msyabro
 
 import '../lib.dart';
