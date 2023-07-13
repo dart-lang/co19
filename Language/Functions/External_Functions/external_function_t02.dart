@@ -28,4 +28,5 @@ class C2 {
 
 main() {
   print(C1);
+  print(C2);
 }
