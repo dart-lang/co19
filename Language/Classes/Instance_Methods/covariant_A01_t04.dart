@@ -23,7 +23,7 @@ class A {
   void operator +(covariant num n) {}
 }
 
-class C extends A {
+mixin M on A {
   void m1(String a) {}
 //     ^^
 // [analyzer] unspecified
@@ -56,5 +56,5 @@ class C extends A {
 }
 
 main() {
-  print(C);
+  print(M);
 }

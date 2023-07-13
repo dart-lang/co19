@@ -8,29 +8,51 @@
 /// that m′′ has a parameter p′′ that corresponds to p, unless the type of p is
 /// a subtype or a supertype of the type of p′′
 ///
-/// @description Checks that it is not an error if there is a member
+/// @description Checks that it is a compile-time error if there is a member
 /// with a covariant parameter `p` and there is another member with the same
-/// name but with the parameter which is a subtype of `p`
+/// name but with the parameter which is not a subtype or supertype of `p`
 /// @author sgrekhov22@gmail.com
 
 class A {
-  void m1(num a) {}
-  void m2([num a = 0]) {}
-  void m3({num a = 0}) {}
-  void m4({required num a}) {}
+  void m1(covariant num a) {}
+  void m2([covariant num a = 0]) {}
+  void m3({covariant a = 0}) {}
+  void m4({required covariant num a}) {}
 
-  void set s(num n) {}
-  void operator +(num n) {}
+  void set s(covariant num n) {}
+  void operator +(covariant num n) {}
 }
 
 class C extends A {
-  void m1(covariant Object a) {}
-  void m2([covariant Object a = ""]) {}
-  void m3({covariant Object a = ""}) {}
-  void m4({required covariant Object a}) {}
+  void m1(String a) {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  void set s(covariant Object s) {}
-  void operator +(covariant Object n) {}
+  void m2([String a = ""]) {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void m3({String a = ""}) {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void m4({required String a}) {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void set s(String s) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void operator +(String n) {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
