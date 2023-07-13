@@ -8,9 +8,9 @@
 /// that m′′ has a parameter p′′ that corresponds to p, unless the type of p is
 /// a subtype or a supertype of the type of p′′
 ///
-/// @description Checks that it is not an error if there is a member with a
-/// covariant parameter `p` and there is another member with the same name but
-/// with the parameter which is a supertype of `p`
+/// @description Checks that it is a compile-time error if there is a member
+/// with a covariant parameter `p` and there is another member with the same
+/// name but with the parameter which is not a subtype or supertype of `p`
 /// @author sgrekhov22@gmail.com
 
 class A {
@@ -20,19 +20,42 @@ class A {
   void m4({required num a}) {}
 
   void set s(num n) {}
+
   void operator +(num n) {}
 }
 
-class C extends A {
-  void m1(covariant int a) {}
-  void m2([covariant int a = 1]) {}
-  void m3({covariant int a = 1}) {}
-  void m4({required covariant int a}) {}
+mixin M on A {
+  void m1(covariant String a) {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  void set s(covariant int s) {}
-  void operator +(covariant int n) {}
+  void m2([covariant String a = ""]) {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void m3({covariant String a = ""}) {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void m4({required covariant String a}) {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void set s(covariant String s) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void operator +(covariant String n) {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  print(C);
+  print(M);
 }

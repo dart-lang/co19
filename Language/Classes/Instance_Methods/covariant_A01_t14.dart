@@ -23,14 +23,24 @@ class A {
   void operator +(num n) {}
 }
 
-mixin M on A {
-  void m1(covariant Object a) {}
-  void m2([covariant Object a = ""]) {}
-  void m3({covariant Object a = ""}) {}
-  void m4({required covariant Object a}) {}
+abstract class B {
+  void m1(covariant Object a);
+  void m2([covariant Object a = ""]);
+  void m3({covariant Object a = ""});
+  void m4({required covariant Object a});
 
-  void set s(covariant Object s) {}
-  void operator +(covariant Object n) {}
+  void set s(covariant Object s);
+  void operator +(covariant Object n);
+}
+
+mixin M on A implements B {
+  void m1(int a) {}
+  void m2([int a = 0]) {}
+  void m3({int a = 0}) {}
+  void m4({required int a}) {}
+
+  void set s(int n) {}
+  void operator +(int n) {}
 }
 
 class C = A with M;

@@ -23,24 +23,14 @@ class A {
   void operator +(num n) {}
 }
 
-abstract class B {
-  void m1(covariant Object a);
-  void m2([covariant Object a = ""]);
-  void m3({covariant Object a = ""});
-  void m4({required covariant Object a});
+class C extends A {
+  void m1(covariant Object a) {}
+  void m2([covariant Object a = ""]) {}
+  void m3({covariant Object a = ""}) {}
+  void m4({required covariant Object a}) {}
 
-  void set s(covariant Object s);
-  void operator +(covariant Object n);
-}
-
-class C extends A implements B {
-  void m1(int a) {}
-  void m2([int a = 0]) {}
-  void m3({int a = 0}) {}
-  void m4({required int a}) {}
-
-  void set s(int n) {}
-  void operator +(int n) {}
+  void set s(covariant Object s) {}
+  void operator +(covariant Object n) {}
 }
 
 main() {
