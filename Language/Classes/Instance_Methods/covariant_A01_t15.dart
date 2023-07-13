@@ -12,6 +12,7 @@
 /// with a covariant parameter `p` and there is another member with the same
 /// name but with the parameter which is a subtype of `p`
 /// @author sgrekhov22@gmail.com
+/// @issue 52927
 
 class A {
   void m1(num a) {}

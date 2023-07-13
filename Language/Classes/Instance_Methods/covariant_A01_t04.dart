@@ -16,7 +16,7 @@
 class A {
   void m1(covariant num a) {}
   void m2([covariant num a = 0]) {}
-  void m3({covariant a = 0}) {}
+  void m3({covariant num a = 0}) {}
   void m4({required covariant num a}) {}
 
   void set s(covariant num n) {}

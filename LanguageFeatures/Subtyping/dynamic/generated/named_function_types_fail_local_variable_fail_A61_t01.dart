@@ -23,6 +23,7 @@
 /// an optional named argument of the same type and with the same name, then
 /// `T0` is not a subtype of `T1`.
 /// @author sgrekhov22@gmail.com
+/// @issue 52928
 ///
 /// @description Check that if type T0 is not a subtype of a type T1, then
 /// instance of T0 cannot be assigned to the to local variable of type T1

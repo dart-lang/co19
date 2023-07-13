@@ -34,6 +34,9 @@ abstract mixin class B {
 }
 
 class C extends A with B {
+//    ^
+// [cfe] unspecified
+
   void m1(int a) {}
 //     ^^
 // [analyzer] unspecified
