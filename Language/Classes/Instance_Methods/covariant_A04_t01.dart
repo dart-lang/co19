@@ -8,8 +8,8 @@
 /// that m′′ has a parameter p′′ that corresponds to p, unless the type of p is
 /// a subtype or a supertype of the type of p′′
 ///
-/// @description Checks that tearing-off a method with a covariant-by-class
-/// parameter strips a `covariant` keyword
+/// @description Checks static type of a torn-off method with a
+/// covariant-by-class parameter
 /// @author sgrekhov22@gmail.com
 
 import "../../../Utils/static_type_helper.dart";

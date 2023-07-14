@@ -35,15 +35,10 @@ class C<T> {
   void m4({required T a}) {}
 }
 
-typedef Expected1 = void Function(Object?);
-typedef Expected2 = void Function([Object?]);
-typedef Expected3 = void Function({Object? a});
-typedef Expected4 = void Function({required Object? a});
-
 main() {
   C<int> c = C<int>();
-  Expect.equals(Expected1, c.m1.runtimeType);
-  Expect.equals(Expected2, c.m2.runtimeType);
-  Expect.equals(Expected3, c.m3.runtimeType);
-  Expect.equals(Expected4, c.m4.runtimeType);
+  Expect.isTrue(c.m1 is void Function(Object?));
+  Expect.isTrue(c.m2 is void Function([Object?]));
+  Expect.isTrue(c.m3 is void Function({Object? a}));
+  Expect.isTrue(c.m4 is void Function({required Object? a}));
 }

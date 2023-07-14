@@ -22,8 +22,9 @@
 /// For each parameter pj , j ∈ 1..n + k, if pj is covariant then Tj is the
 /// built-in class Object?.
 ///
-/// @description Check that it is a run-time error if a run-time type of
-/// covariant-by-class parameter is not a subtype `Object?` of a declared type
+/// @description Check that it is a run-time error if the run-time type of the
+/// actual argument passed to a covariant-by-class parameter is not a subtype of
+/// the declared type of that parameter
 /// @author sgrekhov22@gmail.com
 
 import '../../../../Utils/expect.dart';
