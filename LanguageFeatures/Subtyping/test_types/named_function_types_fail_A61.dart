@@ -23,6 +23,7 @@
 /// an optional named argument of the same type and with the same name, then
 /// `T0` is not a subtype of `T1`.
 /// @author sgrekhov22@gmail.com
+/// @issue 52928
 
 typedef void F0({required int i});
 typedef void F1({int i});

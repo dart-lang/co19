@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -11,20 +11,31 @@
 ///
 /// @description Checks that invoking an external function that is not connected
 /// to its body indeed results in a `NoSuchMethodError` being thrown. Test
-/// top-level functions
-/// @Issue 42182
-/// @author rodionov
+/// getters
+/// @author sgrekhov22@gmail.com
 
 import '../../../Utils/expect.dart';
 
-external f();
-external g([var x]);
-external h({var x});
-external m({required var x});
+external int get g0;
+
+class C1 {
+  external static int get g1;
+  external int get g2;
+}
+
+mixin M {
+  external static int get g1;
+  external int get g2;
+}
+
+class C2 = Object with M;
 
 main() {
-  Expect.throws(() { f(); }, (e) => e is NoSuchMethodError);
-  Expect.throws(() { g(); }, (e) => e is NoSuchMethodError);
-  Expect.throws(() { h(); }, (e) => e is NoSuchMethodError);
-  Expect.throws(() { m(x: ""); }, (e) => e is NoSuchMethodError);
+  C1 c1 = C1();
+  C2 c2 = C2();
+  Expect.throws(() { int i = g0; }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { int i = C1.g1; }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { int i = c1.g2; }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { int i = M.g1; }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { int i = c2.g2; }, (e) => e is NoSuchMethodError);
 }

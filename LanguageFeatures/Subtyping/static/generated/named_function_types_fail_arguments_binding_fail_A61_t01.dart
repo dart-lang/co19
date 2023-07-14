@@ -23,6 +23,7 @@
 /// an optional named argument of the same type and with the same name, then
 /// `T0` is not a subtype of `T1`.
 /// @author sgrekhov22@gmail.com
+/// @issue 52928
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then it cannot
 /// be used as an argument of type T1. Global function required argument is
