@@ -9,6 +9,7 @@
 /// @description Checks that various correct declarations with only required
 /// formal parameters do not cause any errors.
 /// @author sgrekhov22@gmail.com
+/// @issue 52934
 
 void f1(covariant int i) {}
 //      ^^^^^^^^^
