@@ -2,16 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a static warning if the declared return type of a function
-/// marked sync* may not be assigned to Iterable. It is a static warning if
-/// the declared return type of a function marked async* may not be assigned
-/// to Stream.
+/// @assertion It is a compile-time error if the declared return type of a
+/// function marked sync* is not a supertype of Iterable<T> for some type T
 ///
-/// @description Check that it is no compile error, if the declared
-/// return type of synchronous generator function may be assigned
-/// to Iterable.
+/// @description Check that it is no compile error, if the declared return type
+/// of synchronous generator function is supertype of `Iterable`.
 /// @author a.semenov@unipro.ru
-
 
 Iterable c() sync* { }
 
