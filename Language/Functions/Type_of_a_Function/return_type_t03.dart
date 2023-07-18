@@ -1,4 +1,4 @@
-// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -9,27 +9,16 @@
 ///
 /// @description Checks that return type of a constructor is the immediately
 /// enclosing class.
-/// @author ngl@unipro.ru
+/// @author sgrekhov22@gmail.com
 
-import "../../../Utils/expect.dart";
-
-class A {
-  A() {}
-  A.b() {}
-}
+import "../../../Utils/static_type_helper.dart";
 
 class C {
-  const C();
-  const C.c();
+  C() {}
+  C.n() {}
 }
 
 main() {
-  Expect.isTrue(new A() is A);
-  Expect.isTrue(new A.b() is A);
-  Expect.isTrue(const C() is C);
-  Expect.isTrue(const C.c() is C);
-  Expect.runtimeIsType<A>(new A());
-  Expect.runtimeIsType<A>(new A.b());
-  Expect.runtimeIsType<C>(new C());
-  Expect.runtimeIsType<C>(new C.c());
+  C.new.expectStaticType<Exactly<C Function()>>();
+  C.n.expectStaticType<Exactly<C Function()>>();
 }
