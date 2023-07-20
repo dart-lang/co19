@@ -4,10 +4,10 @@
 
 /// @assertion It is a compile-time error if an instance variable is declared
 /// to be constant.
-/// @description Checks that It is a compile-time error if an instance variable
+///
+/// @description Checks that it is a compile-time error if an instance variable
 /// is declared to be constant.
 /// @author sgrekhov@unipro.ru
-
 
 class C {
   const v1 = 1;
