@@ -23,7 +23,7 @@ class C extends A implements I {
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  void set v(int val) {}
+  void set v(Object val) {}
 }
 
 main() {

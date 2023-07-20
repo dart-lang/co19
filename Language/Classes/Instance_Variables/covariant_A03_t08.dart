@@ -8,7 +8,8 @@
 /// covariant-by-declaration
 ///
 /// @description Checks that if an instance variable is declared as covariant
-/// then the corresponding implicitly induced setter is covariant-by-declaration
+/// then the corresponding implicitly induced setter has a parameter which is
+/// covariant-by-declaration
 /// @author sgrekhov22@gmail.com
 
 class A {
@@ -20,10 +21,14 @@ mixin class I {
 }
 
 class C1 extends A implements I {
+  // This override will work without `covariant` modifier in I as well, but we
+  // do need to test this case too
   Object v = 1;
 }
 
 class C2 extends A with I {
+  // This override will work without `covariant` modifier in I as well, but we
+  // do need to test this case too
   Object v = 1;
 }
 

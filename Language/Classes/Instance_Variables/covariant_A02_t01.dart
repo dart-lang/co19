@@ -7,8 +7,8 @@
 /// parameter of the corresponding implicitly induced setter is considered to be
 /// covariant-by-declaration
 ///
-/// @description Checks that if an instance variable can be declared as a
-/// covariant
+/// @description Checks that an instance variable can be declared with the
+/// modifier `covariant`
 /// @author sgrekhov22@gmail.com
 
 import "../../../Utils/expect.dart";
@@ -18,7 +18,7 @@ class A {
 }
 
 class C extends A {
-  var v = 2;
+  var v = 2;  // Because of override inference type of v here is num
 }
 
 main() {

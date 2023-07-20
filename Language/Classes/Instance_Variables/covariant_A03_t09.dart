@@ -8,7 +8,8 @@
 /// covariant-by-declaration
 ///
 /// @description Checks that if an instance variable is declared as covariant
-/// then the corresponding implicitly induced setter is covariant-by-declaration
+/// then the corresponding implicitly induced setter has a parameter which is
+/// covariant-by-declaration
 /// @author sgrekhov22@gmail.com
 
 mixin M {
