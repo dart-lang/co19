@@ -8,7 +8,7 @@
 /// type, and modifiers
 ///
 /// @description Checks that it is a compile-time error to use an instance
-/// variable in an initializing expression of the another instance variable
+/// variable in an initializing expression of another instance variable
 /// @author sgrekhov22@gmail.com
 
 class C {

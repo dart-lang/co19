@@ -9,13 +9,13 @@
 /// modifier `covariant`
 /// @author sgrekhov22@gmail.com
 
-  covariant var c1 = 1;
-//^^^^^^^^^
+/**/covariant var c1 = 1;
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  covariant int c2 = 2;
-//^^^^^^^^^
+/**/covariant int c2 = 2;
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

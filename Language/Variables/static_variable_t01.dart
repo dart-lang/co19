@@ -4,7 +4,7 @@
 
 /// @assertion A static variable is a variable whose declaration is immediately
 /// nested inside a class, mixin, enum, or extension declaration and includes
-/// the modifier static
+/// the modifier `static`
 ///
 /// @description Checks that a static variable is not associated with a
 /// particular instance.
