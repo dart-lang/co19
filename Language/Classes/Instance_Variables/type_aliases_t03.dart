@@ -6,6 +6,7 @@
 /// immediately contained within a class declaration and that are not declared
 /// static. The instance variables of a class C are those instance variables
 /// declared by C and the instance variables inherited by C from its superclass.
+///
 /// @description Checks that class may contain type alias as a member
 /// @author sgrekhov@unipro.ru
 
