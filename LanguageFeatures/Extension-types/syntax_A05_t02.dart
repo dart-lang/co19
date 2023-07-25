@@ -20,7 +20,7 @@
 /// <extensionTypeMemberDeclaration> ::= <classMemberDefinition>
 ///
 /// @description Checks that it is a compile-time error if
-/// `representationDeclaration` declares any optional variables
+/// `representationDeclaration` declares any optional or named variables
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class

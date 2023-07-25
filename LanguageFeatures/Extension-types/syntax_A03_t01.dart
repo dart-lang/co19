@@ -33,6 +33,6 @@ main() {
   ET<int> et1 = ET<int>(42);
   Expect.equals(42, et1.id);
 
-  ET<String> et2 = ET<String>("42");
+  ET<String> et2 = ET<String>.new("42");
   Expect.equals("42", et2.id);
 }

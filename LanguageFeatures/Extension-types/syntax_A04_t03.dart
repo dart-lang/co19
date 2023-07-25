@@ -30,6 +30,9 @@ import "../../Utils/expect.dart";
 extension type ET.new(int id) {}
 
 main() {
-  ET et = ET(42);
-  Expect.equals(42, et.id);
+  ET et1 = ET(1);
+  Expect.equals(1, et1.id);
+
+  ET et2 = ET.new(2);
+  Expect.equals(2, et2.id);
 }

@@ -25,6 +25,8 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
+// TODO (sgrekhov) Change it if a primary constructors proposal will be accepted
+
 extension type ET1(var id) {}
 //                 ^^^
 // [analyzer] unspecified
