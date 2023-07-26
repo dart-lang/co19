@@ -6,10 +6,10 @@
 /// immediately contained within a class declaration and that are not declared
 /// static. The instance variables of a class C are those instance variables
 /// declared by C and the instance variables inherited by C from its superclass.
+///
 /// @description Checks that class instance variables are those not declared as
 /// static. It's compile error to call static variables as instance ones
 /// @author sgrekhov@unipro.ru
-
 
 class A {
   int v1 = 1;
