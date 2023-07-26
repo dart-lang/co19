@@ -16,13 +16,9 @@
 
 import "../../Utils/expect.dart";
 
-class I {
-  int id = 0;
-}
-
-extension type ET(int id) implements I {}
+extension type ET(int id) implements num {}
 
 main() {
-  I et = ET(42);
-  Expect.equals(42, et.id);
+  ET et = ET(42);
+  Expect.equals(42, et.ceil());
 }

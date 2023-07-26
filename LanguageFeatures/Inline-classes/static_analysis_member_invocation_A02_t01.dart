@@ -10,13 +10,13 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-interface class I {
+extension type ET0(int id) {
   foo() {}
 }
 
-extension type ET(int id) implements I {
-foo() {}
-bar() {}
+extension type ET(int id) implements ET0 {
+  foo() {}
+  bar() {}
 }
 
 main() {

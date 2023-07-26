@@ -15,9 +15,9 @@
 import "../../Utils/static_type_helper.dart";
 
 extension types ET1(int id) {
-  IC1.n1(this.id, [String s = ""]);
-  IC1.n2(this.id, {String s = ""});
-  IC1.n3(this.id, {required String s});
+  ET1.n1(this.id, [String s = ""]);
+  ET1.n2(this.id, {String s = ""});
+  ET1.n3(this.id, {required String s});
 }
 
 extension types ET2<T extends num>.n0(T id) {

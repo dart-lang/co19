@@ -26,11 +26,11 @@ extension type ET1(int id) {
   int foo<T1, T2 extends num>() => 42;
 }
 
-extension type IC2<T extends num>(T id) {
+extension type ET2<T extends num>(T id) {
   T foo<T1, T2 extends T>() => id;
 }
 
-extension type IC3<T>(T id) {
+extension type ET3<T>(T id) {
   Map<K, V> asMap<K, V extends T>(K key) => {key: this.id as V};
 }
 
