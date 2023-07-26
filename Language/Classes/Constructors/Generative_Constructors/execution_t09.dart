@@ -26,16 +26,14 @@
 /// parameters of the immediately enclosing class bound to a set of actual type
 /// arguments V1, ... , Vm and the formal parameter bindings determined by the
 /// argument list of the superinitializer of k.
+///
 /// @description Checks that 'this' is not accessible in the right-hand side of
 /// an initialized instance variable declaration (e.g. a variable can't be
 /// initialized using another variable).
 /// @author msyabro
 
-
 class C {
   const C();
-//^
-// [analyzer] unspecified
 
   final x = 1;
   final y = x;
