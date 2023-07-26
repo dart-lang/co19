@@ -11,11 +11,21 @@
 
 class C {
   const v1 = 1;
-//^
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const var v2 = 2;
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const int v3 = 3;
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  new C().v1;
+  print(C);
 }
