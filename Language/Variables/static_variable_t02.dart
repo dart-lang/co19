@@ -29,4 +29,9 @@
 // [analyzer] unspecified
 // [cfe] unspecified
 
+/**/static late final v5 = 1;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {}
