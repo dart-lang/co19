@@ -10,8 +10,8 @@
 /// @issue 32192
 /// @author a.semenov@unipro.ru
 
-void h() sync* { }
-//^
+/**/void h() sync* { }
+//  ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

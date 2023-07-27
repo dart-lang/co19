@@ -9,8 +9,8 @@
 /// of a function marked `async*` is not a supertype of Stream<T>
 /// @author a.semenov@unipro.ru
 
-int f() async* { }
-//^
+/**/int f() async* { }
+//  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

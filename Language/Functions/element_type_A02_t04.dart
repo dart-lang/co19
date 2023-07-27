@@ -13,45 +13,30 @@
 /// If `f` is an asynchronous generator and `S` implements `Stream<U>` for some
 /// `U` then the element type of `f` is `U`.
 ///
-/// @description Check that it is a compile-time error if an element type of a
-/// synchronous generator function `f` is not `U`, where `S` is a union-free
-/// type of the declared return type of `f` and `S` implements `Stream<U>`
+/// @description Check that element type of an asynchronous generator function
+/// `f` is `U`, where `S` is a union-free type of the declared return type of
+/// `f` and `S` implements `Stream<U>`
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";
+import "../../Utils/expect.dart";
+import "../../Utils/static_type_helper.dart";
 
-Stream<num?>? f1() async* {
+FutureOr<Stream<int>?> foo() async* {
   yield 1;
-  yield 3.14;
-  yield null; // Ok, element type is `num?`
+  yield 2;
+  yield 3;
 }
 
-Stream<num>? f2() async* {
-  yield 1;
-  yield null;
-//      ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-FutureOr<Stream<num>?> f3() async* {
-  yield 1;
-  yield null;
-//      ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  yield Future<Null>.value(null);
-//      ^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  yield Future<num>.value(1);
-//      ^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-main() {
-  f1();
-  f2();
-  f3();
+main() async {
+  var o = await foo();
+  o.expectStaticType<Exactly<Stream<int>?>>();
+  if (o is Future<Stream<int>?>) {
+    print("No");
+  } else if (o == null) {
+    print("No");
+  } else {
+    o.expectStaticType<Exactly<Stream<int>>>();
+    Expect.isTrue(o is Stream<int>);
+  }
 }

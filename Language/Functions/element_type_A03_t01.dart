@@ -19,6 +19,7 @@
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";
+import "../../Utils/expect.dart";
 
 Object? f1() sync* {
   yield 1;
@@ -30,11 +31,13 @@ Object? f1() sync* {
 Object f2() sync* {
   yield 1;
   yield null;
+  yield "42";
 }
 
 FutureOr<Object> f3() sync* {
   yield 1;
   yield null;
+  yield "42";
   yield Future<Null>.value(null);
   yield Future<num>.value(1);
 }
@@ -42,13 +45,36 @@ FutureOr<Object> f3() sync* {
 FutureOr<Object?>? f4() sync* {
   yield 1;
   yield null;
+  yield "42";
   yield Future<Null>.value(null);
   yield Future<num>.value(1);
 }
 
+FutureOr<void> f5() sync* {
+  yield 1;
+  yield null;
+  yield "42";
+  yield Future<Null>.value(null);
+  yield Future<num>.value(1);
+  yield Future<void>.value(1);
+  yield Future<void>.value(null);
+}
+
+FutureOr<void>? f6() sync* {
+  yield 1;
+  yield null;
+  yield "42";
+  yield Future<Null>.value(null);
+  yield Future<num>.value(1);
+  yield Future<void>.value(1);
+  yield Future<void>.value(null);
+}
+
 main() {
-  f1();
-  f2();
-  f3();
-  f4();
+  Expect.iterableElementsRuntimeIs<dynamic>(f1());
+  Expect.iterableElementsRuntimeIs<dynamic>(f2());
+  Expect.iterableElementsRuntimeIs<dynamic>(f3());
+  Expect.iterableElementsRuntimeIs<dynamic>(f4());
+  Expect.iterableElementsRuntimeIs<dynamic>(f5());
+  Expect.iterableElementsRuntimeIs<dynamic>(f6());
 }

@@ -9,8 +9,8 @@
 /// of synchronous generator function is not a supertype of `Iterable<T>`
 /// @author a.semenov@unipro.ru
 
-int f() sync* { }
-//^
+/**/int f() sync* { }
+//  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

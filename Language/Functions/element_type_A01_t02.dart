@@ -19,32 +19,26 @@
 
 import "dart:async";
 
-Iterable<num?>? f1() sync* {
+Iterable<int>? f1() sync* {
   yield 1;
   yield 3.14;
-  yield null; // Ok, element type is `num?`
-}
-
-Iterable<num>? f2() sync* {
-  yield 1;
-  yield null;
 //      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  yield "2";
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-FutureOr<Iterable<num>?> f3() sync* {
+FutureOr<Iterable<int>?> f2() sync* {
   yield 1;
-  yield null;
+  yield 3.14;
 //      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  yield Future<Null>.value(null);
-//      ^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  yield Future<num>.value(1);
-//      ^^^^^^^^^^^^^^^^^^^^
+  yield "2";
+//      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -52,5 +46,4 @@ FutureOr<Iterable<num>?> f3() sync* {
 main() {
   f1();
   f2();
-  f3();
 }
