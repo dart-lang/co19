@@ -2,21 +2,23 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Consider an invocation of the inline member m on the receiver e
-/// according to the inline type V and with actual type arguments T1, ..., Ts.
-/// If the invocation includes an actual argument part (possibly including some
-/// actual type arguments) then call it args. Assume that V declares the type
-/// variables X1, ..., Xs.
-///
-/// Let Dm be the declaration named m thath V has.
+/// @assertion Consider an invocation of the extension type member m on the
+/// receiver expression e according to the extension type declaration V with
+/// actual type arguments T1, ..., Ts. If the invocation includes an actual
+/// argument part (possibly including some actual type arguments) then call it
+/// args. If the invocation omits args, but includes a list of actual type
+/// arguments then call them typeArgs. Assume that V declares the type variables
+/// X1, ..., Xs
+/// ...
+/// Let Dm be the unique declaration named m that V has.
 ///
 /// Evaluation of this invocation proceeds by evaluating e to an object o.
 /// ...
 /// Otherwise, if args is omitted and Dm is a method, the invocation evaluates
 /// to a closurization of Dm where this and the name of the representation are
-/// bound to o, and the type variables of V are bound to the actual values of
-/// T1, .. Ts. The operator == of the closurization returns true if and only if
-/// the operand is the same object.
+/// bound as with the getter invocation, and the type variables of V are bound
+/// to the actual values of T1, .. Ts. The operator == of the closurization
+/// returns true if and only if the operand is the same object.
 ///
 /// @description Check that if the body throws an object and a stack trace then
 /// the invocation completes throwing the same object and stack trace.
@@ -28,10 +30,7 @@ import "../../Utils/expect.dart";
 
 StackTrace st = StackTrace.fromString("42");
 
-inline class IC<T extends num> {
-  final T id;
-  IC(this.id);
-
+extension type ET1<T extends num>(T id) {
   X testMe<X extends T>() {
     if (2 > 1) {
       Error.throwWithStackTrace("X is $X", st);
@@ -40,31 +39,28 @@ inline class IC<T extends num> {
   }
 }
 
-inline class IC2 implements IC<num> {
-  final int id;
-  IC2(this.id);
-}
+extension type ET2 implements ET1<num>(int id) {}
 
 main() {
-  IC<num> ic_1 = IC(42);
+  ET1<num> et1_1 = ET1(42);
   try {
-    ic_1.testMe();
+    et1_1.testMe();
   } catch (e, _st) {
     Expect.equals("X is num", e);
     Expect.equals(st, _st);
   }
 
-  IC<int> ic_2 = IC(42);
+  ET1<int> et1_2 = ET1(42);
   try {
-    ic_2.testMe();
+    et1_2.testMe();
   } catch (e, _st) {
     Expect.equals("X is int", e);
     Expect.equals(st, _st);
   }
 
-  IC2 ic2 = IC2(42);
+  ET2 et2 = ET2(42);
   try {
-    ic2.testMe();
+    et2.testMe();
   } catch (e, _st) {
     Expect.equals("X is num", e);
     Expect.equals(st, _st);

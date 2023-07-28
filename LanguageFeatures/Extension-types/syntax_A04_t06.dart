@@ -20,7 +20,7 @@
 /// <extensionTypeMemberDeclaration> ::= <classMemberDefinition>
 ///
 /// @description Checks that it is a compile-time error if `type` in
-/// `representationDeclaration` is `var` or `final`
+/// `representationDeclaration` is `var` or `final` or `final type`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -37,7 +37,13 @@ extension type ET2.n1(final id) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+extension type ET3.new(final int id) {}
+//                     ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(ET1);
   print(ET2);
+  print(ET3);
 }
