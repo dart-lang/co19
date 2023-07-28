@@ -38,7 +38,7 @@ extension type ET2<T extends num>(T id) {
   List<T> get emptyList => <T>[];
 }
 
-extension type ET3 implements ET2<int>(T id) {}
+extension type ET3(int id) implements ET2<int> {}
 
 main() {
   ET1<Object?> et1_1 = ET1(42);

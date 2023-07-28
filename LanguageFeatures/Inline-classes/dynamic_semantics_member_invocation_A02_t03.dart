@@ -35,7 +35,7 @@ extension type ET1<T>(T id) {
 extension type ET2<T> implements ET1<T>(T id) {}
 
 main() {
-  ET1<int> ic_1 = ET1(42);
+  ET1<int> et1_1 = ET1(42);
   var asMapTearOff_1 = et1_1.asMap;
   Expect.equals(asMapTearOff_1, asMapTearOff_1);
 
@@ -44,7 +44,7 @@ main() {
   Expect.notEquals(asMapTearOff_2, asMapTearOff_1);
   Expect.equals(asMapTearOff_2, asMapTearOff_2);
 
-  IC2<num> et2 = IC2(42);
+  ET2<num> et2 = ET2(42);
   var asMapTearOff2 = et2.asMap;
   Expect.notEquals(asMapTearOff2, asMapTearOff_1);
   Expect.equals(asMapTearOff2, asMapTearOff2);

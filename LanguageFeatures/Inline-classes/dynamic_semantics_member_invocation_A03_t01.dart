@@ -55,7 +55,7 @@ main() {
   Expect.mapEquals(
       {"key1": num, "key2": num}, et2.asMap<String, num>("key1", "key2"));
 
-  ET3<int> ic3 = ET3(42);
+  ET3<int> et3 = ET3(42);
   Expect.mapEquals(
       {"key1": int, "key2": num}, et3.asMap<String, int>("key1", "key2"));
   Expect.mapEquals(
