@@ -37,7 +37,7 @@ extension type ET1(num id) {}
 
 extension type ET2.n(int _x) {}
 
-extension type IC3.new(int _id) {}
+extension type ET3.new(int _id) {}
 
 main() {
   ET1 et1 = ET1(3.14);
