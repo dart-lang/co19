@@ -14,16 +14,21 @@
 /// regular-bounded.
 ///
 /// @description Checks that it is a compile-time error if the type
-/// `V<T1, .. Ts>` is not regular-bounded.
+/// `V<T1, .. Tk>` provides a wrong number of type arguments to `V`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V<T extends V<T>>(T id) {}
+extension type V<T1, T2>(T1 id) {}
 
 main() {
-  List<V> l = [];
-//     ^
+  var et1 = V<int>(42);
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var et2 = V<int, String, bool>(42);
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

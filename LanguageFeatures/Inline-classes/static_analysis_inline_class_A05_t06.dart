@@ -2,32 +2,27 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Assume that T1, .. Ts are types, and V resolves to an inline
-/// class declaration of the following form:
+/// @assertion Assume that T1, .. Ts are types, and V resolves to an extension
+/// type declaration of the following form:
 ///
-/// inline class V<X1 extends B1, .. Xs extends Bs> ... {
-///   final T id;
-///   V(this.id);
-///
-///   ... // Other members.
+/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
+///   ... // Members.
 /// }
 /// ...
-/// When s is zero, V<T1, .. Ts> simply stands for V, a non-generic inline type.
-/// When s is greater than zero, a raw occurrence V is treated like a raw type:
-/// Instantiation to bound is used to obtain the omitted type arguments
+/// When s is zero (that is, the declaration of V is not generic), V<T1, .. Ts>
+/// simply stands for V, a non-generic extension type. When s is greater than
+/// zero, a raw occurrence V is treated like a raw type: Instantiation to bound
+/// is used to obtain the omitted type arguments.
 ///
 /// @description Checks that it is a compile-time error to use super-bounded
-/// inline type with wrong type arguments
+/// extension type with wrong type arguments
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 class A<T extends A<T>> {}
 
-inline class V<T extends A<T>> {
-  final int id;
-  V(this.id);
-
+extension type V<T extends A<T>>(int id) {
   Type get type => T;
 }
 
