@@ -11,5 +11,15 @@ library extension_type_lib;
 
 int x = 42;
 
+class A {}
+
+final class FinalClass {}
+
+base class BaseClass {}
+
+sealed class SealedClass {}
+
+class ExtendsSealedClass extends SealedClass {}
+
 extension type _PrivateExtensionType(int id) {
 }

@@ -2,19 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if an inline type declares a member
-/// whose name is declared by Object as well.
+/// @assertion A compile-time error occurs if an extension type declares a
+/// member whose basename is the basename of an instance member declared by
+/// Object as well.
 ///
-/// @description Checks that it is a compile-time error if an inline type
+/// @description Checks that it is a compile-time error if an extension type
 /// declares a member whose name is declared by `Object` as well.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class V1 {
-  final int id;
-  V1(this.id);
-
+extension type V1(int id) {
   int get hashCode => id.hashCode;
 //        ^^^^^^^^
 // [analyzer] unspecified
@@ -41,10 +39,7 @@ inline class V1 {
 // [cfe] unspecified
 }
 
-inline class V2<T> {
-  final T id;
-  V2(this.id);
-
+extension type V2<T>(T id) {
   @override
   int get hashCode => id.hashCode;
 //        ^^^^^^^^

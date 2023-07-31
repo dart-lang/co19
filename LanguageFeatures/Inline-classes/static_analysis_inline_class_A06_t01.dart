@@ -3,28 +3,20 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if await e occurs, and the static type
-/// of e is an inline type.
+/// of e is an extension type which is not a subtype of Future<T> for any T.
 ///
 /// @description Checks that it is a compile-time error if `await e` occurs, and
-/// the static type of `e` is an inline type.
+/// the static type of `e` is an extension type which is not a subtype of
+/// `Future<T>` for any `T`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class V1 {
-  final int id;
-  V1(this.id);
-}
+extension type V1(int id) {}
 
-inline class V2<T> {
-  final T id;
-  V2(this.id);
-}
+extension type V2<T>(T id) {}
 
-inline class V3<T extends num> {
-  final T id;
-  V3(this.id);
-}
+extension type V3<T extends num>(T id) {}
 
 main() async {
   V1 v1 = V1(42);
