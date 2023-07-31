@@ -8,7 +8,9 @@
 /// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
 ///   ... // Members.
 /// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// It is then allowed to use V<T1, .. Tk> as a type. A compile-time error
+/// occurs if the type V<T1, .. Tk> provides a wrong number of type arguments to
+/// V (when k is different from s), and if it is not regular-bounded.
 ///
 /// @description Checks that `V<T1, .. Ts>` can be used as a type
 /// @author sgrekhov22@gmail.com

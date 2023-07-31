@@ -28,7 +28,13 @@ extension type ET2<T extends Foo2>(T id) implements Foo2 {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+extension type ET3<T extends Function>(T id) implements void Function() {}
+//                                                      ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(ET1);
   print(ET2);
+  print(ET3);
 }
