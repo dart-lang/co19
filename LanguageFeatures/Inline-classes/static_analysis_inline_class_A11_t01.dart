@@ -2,40 +2,34 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Let DV be an inline class declaration named Inline with type
-/// parameters X1 extends B1, .. Xs extends Bs. Assume that DV declares a final
-/// instance variable with name id and type R.
+/// @assertion Let DV be an extension type declaration named Name with type
+/// parameters X1 extends B1, .. Xs extends Bs. Assume that the representation
+/// declaration of DV is (R id)
 ///
-/// We say that the declared representation type of Inline is R, and the
-/// instantiated representation type corresponding to Inline<T1,.. Ts> is
+/// We then say that the declared representation type of Name is R, and the
+/// instantiated representation type corresponding to Name<T1,.. Ts> is
 /// [T1/X1, .. Ts/Xs]R.
 /// ...
-/// In the body of a member of an inline class declaration DV named Inline and
+/// In the body of a member of an extension type declaration DV named Name and
 /// declaring the type parameters X1, .. Xs, the static type of this is
-/// Inline<X1 .. Xs>. The static type of the representation name is the
+/// Name<X1 .. Xs>. The static type of the representation name is the
 /// representation type.
 ///
-/// @description Checks that static type of `this` in an inline class
-/// `Inline<X1 .. Xs>` is `Inline<X1 .. Xs>`
+/// @description Checks that static type of `this` in an extension type
+/// `Name<X1 .. Xs>` is `Name<X1 .. Xs>`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/static_type_helper.dart";
 
-inline class V1 {
-  final int id;
-  V1(this.id);
-
+extension type V1(int id) {
   test() {
     this.expectStaticType<Exactly<V1>>();
   }
 }
 
-inline class V2<T1, T2 extends num> {
-  final int id;
-  V2(this.id);
-
+extension type V2<T1, T2 extends num>(int id) {
   test() {
     this.expectStaticType<Exactly<V2<T1, T2>>>();
   }

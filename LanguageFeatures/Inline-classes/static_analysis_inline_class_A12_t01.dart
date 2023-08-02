@@ -2,38 +2,32 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Let DV be an inline class declaration named V with representation
-/// type R. Assuming that all types have been fully alias expanded, we say that
-/// DV has a representation dependency on an inline class declaration DV2 if R
-/// contains an identifier id (possibly qualified) that resolves to DV2, or id
-/// resolves to an inline class declaration DV3 and DV3 has a representation
-/// dependency on DV2.
+/// @assertion Let DV be an extension type declaration named V with
+/// representation type R. Assuming that all types have been fully alias
+/// expanded, we say that DV has a representation dependency on an extension
+/// type declaration DV2 if R contains an identifier id (possibly qualified)
+/// that resolves to DV2, or id resolves to an extension type declaration DV3
+/// and DV3 has a representation dependency on DV2.
 ///
-/// It is a compile-time error if an inline class declaration has a
+/// It is a compile-time error if an extension type declaration has a
 /// representation dependency on itself.
 ///
-/// @description Checks that it is a compile-time error if an inline class has a
-/// representation dependency on itself.
+/// @description Checks that it is a compile-time error if an extension type has
+/// a representation dependency on itself.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class V1 {
-//           ^^
+extension type V1(V2 v2) {
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final V2 v2;
-  V1(this.v2);
 }
 
-inline class V2 implements V1 {
-//           ^^
+extension type V2(int id) implements V1 {
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final int id;
-  V2(this.id);
-
-  V2 get v2 => V2(42);
 }
 
 main() {

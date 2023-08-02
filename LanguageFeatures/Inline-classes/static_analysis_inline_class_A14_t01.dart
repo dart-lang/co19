@@ -2,25 +2,23 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if an inline class constructor
-/// includes a superinitializer
+/// @assertion A compile-time error occurs if an extension type constructor
+/// includes a superinitializer.
 ///
-/// @description Checks that a compile-time error occurs if an inline class
+/// @description Checks that a compile-time error occurs if an extension type
 /// constructor includes a superinitializer
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class V1 {
-  final int id;
-  V1([this.id = 0]);
+extension type V1(int id) {
+  V1.new([this.id = 0]);
   V1.x(this.id);
 }
 
-inline class V2 implements V1 {
-  final int id = 0;
-  V2() : super();
-//       ^^^^^
+extension type V2 implements V1(int id) {
+  V2.new(this.id) : super();
+//                  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
