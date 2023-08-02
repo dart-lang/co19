@@ -22,7 +22,7 @@ extension Ex2 on int {
   String bar() => "Ex2.bar()";
 }
 
-inline class V(int id) {}
+extension type V(int id) {}
 
 main() {
   V v = V(42);
