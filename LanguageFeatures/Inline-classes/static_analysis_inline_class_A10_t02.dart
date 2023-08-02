@@ -23,7 +23,7 @@
 
 extension type V1(int id) {}
 
-inline class V2<T1, T2 extends num?>(T1 id) {}
+extension type V2<T1, T2 extends num?>(T1 id) {}
 
 main() {
   V1 v1 = Object();
