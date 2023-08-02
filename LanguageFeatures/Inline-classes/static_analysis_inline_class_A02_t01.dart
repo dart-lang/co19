@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Assume that T1, .. Ts are types, and V resolves to an inline
-/// class declaration of the following form:
+/// @assertion Assume that T1, .. Ts are types, and V resolves to an extension
+/// type declaration of the following form:
 ///
-/// inline class V<X1 extends B1, .. Xs extends Bs> ... {
-///   final T id;
-///   V(this.id);
-///
-///   ... // Other members.
+/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
+///   ... // Members.
 /// }
-/// It is then allowed to use V<T1, .. Ts> as a type.
+/// It is then allowed to use V<T1, .. Tk> as a type. A compile-time error
+/// occurs if the type V<T1, .. Tk> provides a wrong number of type arguments to
+/// V (when k is different from s), and if it is not regular-bounded.
 ///
 /// @description Checks that `V<T1, .. Ts>` can be used as a type
 /// @author sgrekhov22@gmail.com
@@ -20,10 +19,7 @@
 
 import "../../Utils/expect.dart";
 
-inline class V<X1 extends num, X2 extends Object> {
-  final X1 id;
-  V(this.id);
-}
+extension type V<X1 extends num, X2 extends Object>(X1 id) {}
 
 V<int, int> foo(V<int, int> v) => v;
 
