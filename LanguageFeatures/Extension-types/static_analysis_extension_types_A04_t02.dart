@@ -12,7 +12,7 @@
 /// occurs if the type V<T1, .. Tk> provides a wrong number of type arguments to
 /// V (when k is different from s), and if it is not regular-bounded.
 ///
-/// @description Checks that an inline type `V<T1, .. Ts>` can be used in a
+/// @description Checks that an extension type `V<T1, .. Ts>` can be used in a
 /// function types and type aliases
 /// @author sgrekhov22@gmail.com
 

@@ -10,7 +10,8 @@
 ///
 /// @description Checks that if a declaration named `m` is found in the body of
 /// an extension type then that invocation is treated as an invocation of the
-/// extension type member `m` on the receiver this according to its inline type
+/// extension type member `m` on the receiver this according to its extension
+/// type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class

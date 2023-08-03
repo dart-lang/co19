@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../Extension-types/extension_type_lib.dart" deferred as d;
+import "extension_type_lib.dart" deferred as d;
 
 extension type ET1(d.A id) implements d.A {}
 //                                    ^
