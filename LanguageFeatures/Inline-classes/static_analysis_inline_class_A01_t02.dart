@@ -6,24 +6,24 @@
 /// considered to have a final instance variable whose name is the
 /// representation name and whose declared type is the representation type.
 ///
-/// @description Checks that the extension type has a final instance variable
-/// whose name is the representation name and whose declared type is the
-/// representation type
+/// @description Checks that an instance variable that an extension type has is
+/// final
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
-
-import "../../Utils/expect.dart";
-import "../../Utils/static_type_helper.dart";
 
 extension type ET1(int id) {}
 
 extension type ET2<T>(T id) {}
 
 main() {
-  Expect.equals(42, ET1(42).id);
-  ET1(42).id.expectStaticType<Exactly<int>>();
+  ET1(42).id = 0;
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  Expect.equals("42", ET2<String>("42").id);
-  ET2<String>("42").id.expectStaticType<Exactly<String>>();
+  ET2<String>("42").id = "";
+//                  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
