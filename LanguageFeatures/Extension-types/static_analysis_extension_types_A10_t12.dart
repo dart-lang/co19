@@ -16,7 +16,7 @@
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/expect.dart";
-import "../Extension-types/extension_type_lib.dart";
+import "extension_type_lib.dart";
 
 extension type ET1(BaseClass id) implements BaseClass {}
 
