@@ -12,50 +12,20 @@
 // SharedOptions=--enable-experiment=inline-class
 
 extension type ET1(int id) {
-  ET1.new(int id);
+  ET1.new() {
 //^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    id = 0;
+  }
 
-  ET1.n1(int id);
-//^^^
+  const ET1.n1(int id) {
+//      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  ET1.n2(int id) : this(id);
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET1.n3(int id) : this.new(id);
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    this.id = id;
+  }
 }
-
-extension type ET2<T>(T id) {
-  ET2.new(T id);
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET2.n(int id) {}
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET2.n2(int id) : this(id);
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET2.n3(int id) : this.new(id);
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
   print(ET1);
-  print(ET2);
 }
