@@ -13,9 +13,9 @@
 /// Otherwise, if `f` is a generator (synchronous or asynchronous) and `S` is a
 /// supertype of `Object` then the element type of `f` is dynamic
 ///
-/// @description Check that element type of a synchronous generator function `f`
-/// is `dynamic`, if `S` is a union-free type of the declared return type of `f`
-/// and `S` is a supertype of `Object`
+/// @description Let `f` be a synchronous generator function whose declared
+/// return type derives a union-free type which is a supertype of `Object`
+/// (including `Object` itself). Then check that its element type is `dynamic`.
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";
@@ -71,10 +71,10 @@ FutureOr<void>? f6() sync* {
 }
 
 main() {
-  Expect.isRuntimeTypeIterable<dynamic>(f1());
-  Expect.isRuntimeTypeIterable<dynamic>(f2());
-  Expect.isRuntimeTypeIterable<dynamic>(f3());
-  Expect.isRuntimeTypeIterable<dynamic>(f4());
-  Expect.isRuntimeTypeIterable<dynamic>(f5());
-  Expect.isRuntimeTypeIterable<dynamic>(f6());
+  Expect.isRuntimeTypeImplementsIterable<dynamic>(f1());
+  Expect.isRuntimeTypeImplementsIterable<dynamic>(f2());
+  Expect.isRuntimeTypeImplementsIterable<dynamic>(f3());
+  Expect.isRuntimeTypeImplementsIterable<dynamic>(f4());
+  Expect.isRuntimeTypeImplementsIterable<dynamic>(f5());
+  Expect.isRuntimeTypeImplementsIterable<dynamic>(f6());
 }

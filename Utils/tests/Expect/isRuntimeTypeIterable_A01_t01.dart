@@ -14,40 +14,40 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isRuntimeTypeIterable<int>([1, 2, 3]);
-  Expect.isRuntimeTypeIterable<num>(<num>[]);
-  Expect.isRuntimeTypeIterable<Object?>([]);
+  Expect.isRuntimeTypeImplementsIterable<int>(<int>[1, 2, 3]);
+  Expect.isRuntimeTypeImplementsIterable<num>(<num>[]);
+  Expect.isRuntimeTypeImplementsIterable<Object?>(<Object?>[]);
   FutureOr<List<int>> o = [1, 2, 3];
-  Expect.isRuntimeTypeIterable<int>(o);
+  Expect.isRuntimeTypeImplementsIterable<int>(o);
 
   Expect.throws(() {
-    Expect.isRuntimeTypeIterable<num>(<int>[1, 2, 3]);
+    Expect.isRuntimeTypeImplementsIterable<num>(<int>[1, 2, 3]);
   }, (e) => e is ExpectException);
   Expect.throws(() {
-    Expect.isRuntimeTypeIterable<num>(<Object>[]);
+    Expect.isRuntimeTypeImplementsIterable<num>(<Object>[]);
   }, (e) => e is ExpectException);
   Expect.throws(() {
-    Expect.isRuntimeTypeIterable<double>(<int>[]);
+    Expect.isRuntimeTypeImplementsIterable<double>(<int>[]);
   }, (e) => e is ExpectException);
   Expect.throws(() {
-    Expect.isRuntimeTypeIterable<int>([1, 2, 3 as num]);
+    Expect.isRuntimeTypeImplementsIterable<int>(<num>[1, 2, 3 as num]);
   }, (e) => e is ExpectException);
   Expect.throws(() {
-    Expect.isRuntimeTypeIterable<Object>([]);
+    Expect.isRuntimeTypeImplementsIterable<Object>(<Object?>[]);
   }, (e) => e is ExpectException);
   Expect.throws(() {
-    Expect.isRuntimeTypeIterable<Object?>(<num>[1, 2, 3]);
+    Expect.isRuntimeTypeImplementsIterable<Object?>(<num>[1, 2, 3]);
   });
   Expect.throws(() {
-    Expect.isRuntimeTypeIterable<dynamic>([1, 2, 3]);
+    Expect.isRuntimeTypeImplementsIterable<dynamic>(<int>[1, 2, 3]);
   });
   Expect.throws(() {
-    Expect.isRuntimeTypeIterable<void>([1, 2, 3]);
+    Expect.isRuntimeTypeImplementsIterable<void>(<int>[1, 2, 3]);
   });
   Expect.throws(() {
-    Expect.isRuntimeTypeIterable<Null>([1, 2, 3]);
+    Expect.isRuntimeTypeImplementsIterable<Null>(<int>[1, 2, 3]);
   });
   Expect.throws(() {
-    Expect.isRuntimeTypeIterable<Never>([1, 2, 3]);
+    Expect.isRuntimeTypeImplementsIterable<Never>(<int>[1, 2, 3]);
   });
 }

@@ -28,5 +28,5 @@ FutureOr<Iterable<int>?> foo() sync* {
 main() {
   FutureOr<Iterable<int>?> o = foo() as dynamic;
   o as FutureOr<Iterable<int>>;
-  Expect.isRuntimeTypeIterable<int>(o);
+  Expect.isRuntimeTypeImplementsIterable<int>(o);
 }

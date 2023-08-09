@@ -12,10 +12,9 @@
 /// f is a synchronous generator and S implements Iterable<U> for some U then
 /// the element type of f is U.
 ///
-/// @description Check that runtime type of an element type of a synchronous
-/// generator function `f` is `U`, where `S` is a union-free type of the
-/// declared return type of `f` and `S` implements `Iterable<U>`. Test the
-/// run-time types of objects returned by a synchronous generator function
+/// @description Let `f` be a synchronous generator function whose declared
+/// return type derives the union-free type `S`, and assume that `S` implements
+/// `Iterable<U>`. Then check that the element type of `f` is `U`.
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";
@@ -34,18 +33,6 @@ FutureOr<Iterable<int>?>? f2() sync* {
 }
 
 main() {
-  Expect.isNotRuntimeTypeIterable<num?>(f1());
-  Expect.isNotRuntimeTypeIterable<int>(f1());
-  Expect.isNotRuntimeTypeIterable<Object>(f1());
-  Expect.isNotRuntimeTypeIterable<Object?>(f1());
-  Expect.isNotRuntimeTypeIterable<dynamic>(f1());
-  Expect.isRuntimeTypeIterable<int?>(f1());
-
-  Expect.isNotRuntimeTypeIterable<num?>(f2());
-  Expect.isNotRuntimeTypeIterable<num>(f2());
-  Expect.isNotRuntimeTypeIterable<int?>(f2());
-  Expect.isNotRuntimeTypeIterable<Object>(f2());
-  Expect.isNotRuntimeTypeIterable<Object?>(f2());
-  Expect.isNotRuntimeTypeIterable<dynamic>(f2());
-  Expect.isRuntimeTypeIterable<int>(f2());
+  Expect.isRuntimeTypeImplementsIterable<int?>(f1());
+  Expect.isRuntimeTypeImplementsIterable<int>(f2());
 }

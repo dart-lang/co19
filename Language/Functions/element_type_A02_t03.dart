@@ -20,7 +20,7 @@
 import "dart:async";
 import "../../Utils/expect.dart";
 
-void isRuntimeTypeStream<T>(Object? o) async {
+void isRuntimeTypeImplementsStream<T>(Object? o) async {
   if (o is! Stream<T>) {
     throw ExpectException("Not a Stream<$T>: ${o.runtimeType}");
   }
@@ -41,5 +41,5 @@ FutureOr<Stream<int>?> foo() async* {
 main() async {
   dynamic d = await foo();
   FutureOr<Stream<int>> o = d;
-  isRuntimeTypeStream<int>(d);
+  isRuntimeTypeImplementsStream<int>(d);
 }

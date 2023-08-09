@@ -15,16 +15,16 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.throws(() {
-    Expect.isRuntimeTypeIterable<Object>(Object());
+    Expect.isRuntimeTypeImplementsIterable<Object>(Object());
   }, (e) => e is ExpectException);
 
   Expect.throws(() {
     Future<List<int>> o = Future.value([1, 2, 3]);
-    Expect.isRuntimeTypeIterable<int>(o);
+    Expect.isRuntimeTypeImplementsIterable<int>(o);
   }, (e) => e is ExpectException);
 
   Expect.throws(() {
     FutureOr<List<int>> o = Future.value([1, 2, 3]);
-    Expect.isRuntimeTypeIterable<num>(o);
+    Expect.isRuntimeTypeImplementsIterable<num>(o);
   }, (e) => e is ExpectException);
 }

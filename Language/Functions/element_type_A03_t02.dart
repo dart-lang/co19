@@ -13,9 +13,9 @@
 /// Otherwise, if `f` is a generator (synchronous or asynchronous) and `S` is a
 /// supertype of `Object` then the element type of `f` is dynamic
 ///
-/// @description Check that element type of an asynchronous generator function
-/// `f` is `dynamic`, if `S` is a union-free type of the declared return type of
-/// `f` and `S` is a supertype of `Object`
+/// @description Let `f` be an asynchronous generator function whose declared
+/// return type derives a union-free type which is a supertype of `Object`
+/// (including `Object` itself). Then check that its element type is `dynamic`.
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";
@@ -71,22 +71,27 @@ FutureOr<void>? f6() async* {
 }
 
 main() async {
-  dynamic r1 = await f1();
+  dynamic r1 = f1();
   var v1 = await r1.toList();
-  Expect.isRuntimeTypeIterable<dynamic>(v1);
+  Expect.isRuntimeTypeImplementsIterable<dynamic>(v1);
 
-  dynamic r2 = await f2();
+  dynamic r2 = f2();
   var v2 = await r2.toList();
-  Expect.isRuntimeTypeIterable<dynamic>(v2);
+  Expect.isRuntimeTypeImplementsIterable<dynamic>(v2);
 
-  dynamic r3 = await f3();
+  dynamic r3 = f3();
   var v3 = await r3.toList();
-  Expect.isRuntimeTypeIterable<dynamic>(v3);
+  Expect.isRuntimeTypeImplementsIterable<dynamic>(v3);
 
-  dynamic r4 = await f4();
+  dynamic r4 = f4();
   var v4 = await r4.toList();
-  Expect.isRuntimeTypeIterable<dynamic>(v4);
+  Expect.isRuntimeTypeImplementsIterable<dynamic>(v4);
 
-  // Can't check runtime types of return values of f5() and f6() because it's
-  // `void`
+  dynamic r5 = f5();
+  var v5 = await r5.toList();
+  Expect.isRuntimeTypeImplementsIterable<dynamic>(v5);
+
+  dynamic r6 = f6();
+  var v6 = await r6.toList();
+  Expect.isRuntimeTypeImplementsIterable<dynamic>(v6);
 }

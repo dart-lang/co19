@@ -12,9 +12,9 @@
 /// f is a synchronous generator and S implements Iterable<U> for some U then
 /// the element type of f is U.
 ///
-/// @description Check that element type of a synchronous generator function `f`
-/// is `U`, where `S` is a union-free type of the declared return type of `f`
-/// and `S` implements `Iterable<U>`
+/// @description Let `f` be a synchronous generator function whose declared
+/// return type derives the union-free type `S`, and assume that `S` implements
+/// `Iterable<U>`. Then check that the element type of `f` is `U`.
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";
@@ -30,15 +30,5 @@ FutureOr<Iterable<int>?> foo() sync* {
 main() {
   var o = foo();
   o.expectStaticType<Exactly<FutureOr<Iterable<int>?>>>();
-  if (o is Future<Iterable<int>?>) {
-    print("No");
-  } else if (o == null) {
-    print("No");
-  } else {
-    // Now static type must be `Iterable<int>
-    o.expectStaticType<Exactly<Iterable<int>>>();
-    Expect.isTrue(o is Iterable<int>, ": o is ${o.runtimeType}");
-    Expect.isRuntimeTypeIterable<int>(o);
-    Expect.isNotRuntimeTypeIterable<Never>(o);
-  }
+  Expect.isRuntimeTypeImplementsIterable<int>(o);
 }

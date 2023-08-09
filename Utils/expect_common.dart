@@ -356,11 +356,12 @@ class Expect {
     _checkType(_checkIs<T>, false, o);
   }
 
-  /// Checks that all elements of this `Iterable` have type `T`, not a subtype
-  /// of `T`. For example `<int>[1, 2, 3] is Iterable<num>` returns `true`, but
-  /// `isRuntimeTypeIterable<num>(<int>[1, 2, 3])` will throw
-  /// `ExpectException`. Fails if `it` is not instance of `Iterable<T>`
-  static void isRuntimeTypeIterable<T>(Object? o) {
+  /// Checks that the run-time type of [o] implements `Iterable<T>`, otherwise
+  /// throws. For example,
+  /// `isRuntimeTypeImplementsIterable<num>(<int>[1, 2, 3])` will throw
+  /// `ExpectException`, but
+  /// `isRuntimeTypeImplementsIterable<num>(<num>[1, 2, 3])` succeeds.
+  static void isRuntimeTypeImplementsIterable<T>(Object? o) {
     if (o is! Iterable<T>) {
       throw ExpectException("Not Iterable<$T>: ${o.runtimeType}");
     }
@@ -370,20 +371,6 @@ class Expect {
     } on TypeError catch (_) {
       throw ExpectException("Expected Iterable<$T> but found $o");
     }
-  }
-
-  /// Checks that all elements of this `Iterable` don't have type `T`, but may
-  /// be a subtype of `T`. For example
-  /// `isNotRuntimeTypeIterable<num>([1, 2, 3])` is Ok, but
-  /// isNotRuntimeTypeIterable<num>([1, 2, 3 as num]) throws an
-  /// `ExpectException`
-  static void isNotRuntimeTypeIterable<T>(Object? o) {
-    try {
-      Expect.isRuntimeTypeIterable<T>(o);
-    } on ExpectException catch (_) {
-      return;
-    }
-    throw ExpectException("All elements in Iterable are $T");
   }
 }
 

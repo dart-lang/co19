@@ -13,16 +13,16 @@
 /// If `f` is an asynchronous generator and `S` implements `Stream<U>` for some
 /// `U` then the element type of `f` is `U`.
 ///
-/// @description Check that element type of an asynchronous generator function
-/// `f` is `U`, where `S` is a union-free type of the declared return type of
-/// `f` and `S` implements `Stream<U>`
+/// @description Let `f` be an asynchronous generator function whose declared
+/// return type derives the union-free type `S`, and assume that `S` implements
+/// `Stream<U>`. Then check that the element type of `f` is `U`.
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
-void isRuntimeTypeStream<T>(Object? o) async {
+void isRuntimeTypeImplementsStream<T>(Object? o) async {
   if (o is! Stream<T>) {
     throw ExpectException("Not a Stream<$T>: ${o.runtimeType}");
   }
@@ -43,11 +43,5 @@ FutureOr<Stream<int>?> foo() async* {
 main() async {
   var o = await foo();
   o.expectStaticType<Exactly<Stream<int>?>>();
-  if (o == null) {
-    print("No");
-  } else {
-    // Now static type must be `Stream<int>
-    o.expectStaticType<Exactly<Stream<int>>>();
-    isRuntimeTypeStream<int>(o);
-  }
+  isRuntimeTypeImplementsStream<int>(o);
 }
