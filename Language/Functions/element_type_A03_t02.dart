@@ -2,13 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We define the union-free type of a type `T` as follows:
-/// If `T` is of the form `S?` or the form `FutureOr<S>` then the union-free
-/// type of `T` is the union-free type of `S`. Otherwise, the union-free type
-/// of `T` is T.
+/// @assertion We define the union-free type derived from a type T as follows:
+/// If T is of the form S? or the form FutureOr<S> then the union-free type
+/// derived from T is the union-free type derived from S. Otherwise, the
+/// union-free type derived from T is T
 ///
 /// We define the element type of a generator function `f` as follows:
-/// Let `S` be the union-free type of the declared return type of `f`.
+/// Let S be the union-free type derived from the declared return type of f.
 /// ...
 /// Otherwise, if `f` is a generator (synchronous or asynchronous) and `S` is a
 /// supertype of `Object` then the element type of `f` is dynamic
@@ -73,19 +73,19 @@ FutureOr<void>? f6() async* {
 main() async {
   dynamic r1 = await f1();
   var v1 = await r1.toList();
-  Expect.iterableElementsRuntimeIs<dynamic>(v1);
+  Expect.isRuntimeTypeIterable<dynamic>(v1);
 
   dynamic r2 = await f2();
   var v2 = await r2.toList();
-  Expect.iterableElementsRuntimeIs<dynamic>(v2);
+  Expect.isRuntimeTypeIterable<dynamic>(v2);
 
   dynamic r3 = await f3();
   var v3 = await r3.toList();
-  Expect.iterableElementsRuntimeIs<dynamic>(v3);
+  Expect.isRuntimeTypeIterable<dynamic>(v3);
 
   dynamic r4 = await f4();
   var v4 = await r4.toList();
-  Expect.iterableElementsRuntimeIs<dynamic>(v4);
+  Expect.isRuntimeTypeIterable<dynamic>(v4);
 
   // Can't check runtime types of return values of f5() and f6() because it's
   // `void`

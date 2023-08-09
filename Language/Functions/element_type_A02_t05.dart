@@ -2,13 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We define the union-free type of a type `T` as follows:
-/// If `T` is of the form `S?` or the form `FutureOr<S>` then the union-free
-/// type of `T` is the union-free type of `S`. Otherwise, the union-free type
-/// of `T` is T.
+/// @assertion We define the union-free type derived from a type T as follows:
+/// If T is of the form S? or the form FutureOr<S> then the union-free type
+/// derived from T is the union-free type derived from S. Otherwise, the
+/// union-free type derived from T is T
 ///
 /// We define the element type of a generator function `f` as follows:
-/// Let `S` be the union-free type of the declared return type of `f`.
+/// Let S be the union-free type derived from the declared return type of f.
 /// ...
 /// If `f` is an asynchronous generator and `S` implements `Stream<U>` for some
 /// `U` then the element type of `f` is `U`.
@@ -35,19 +35,19 @@ Stream<int>? f2() async* {
 
 main() async {
   var it1 = await f1()?.toList();
-  Expect.iterableElementsRuntimeIsNot<num?>(it1);
-  Expect.iterableElementsRuntimeIsNot<int>(it1);
-  Expect.iterableElementsRuntimeIsNot<Object>(it1);
-  Expect.iterableElementsRuntimeIsNot<Object?>(it1);
-  Expect.iterableElementsRuntimeIsNot<dynamic>(it1);
-  Expect.iterableElementsRuntimeIs<int?>(it1);
+  Expect.isNotRuntimeTypeIterable<num?>(it1);
+  Expect.isNotRuntimeTypeIterable<int>(it1);
+  Expect.isNotRuntimeTypeIterable<Object>(it1);
+  Expect.isNotRuntimeTypeIterable<Object?>(it1);
+  Expect.isNotRuntimeTypeIterable<dynamic>(it1);
+  Expect.isRuntimeTypeIterable<int?>(it1);
 
   var it2 = await f2()?.toList();
-  Expect.iterableElementsRuntimeIsNot<num?>(it2);
-  Expect.iterableElementsRuntimeIsNot<num>(it2);
-  Expect.iterableElementsRuntimeIsNot<int?>(it2);
-  Expect.iterableElementsRuntimeIsNot<Object>(it2);
-  Expect.iterableElementsRuntimeIsNot<Object?>(it2);
-  Expect.iterableElementsRuntimeIsNot<dynamic>(it2);
-  Expect.iterableElementsRuntimeIs<int>(it2);
+  Expect.isNotRuntimeTypeIterable<num?>(it2);
+  Expect.isNotRuntimeTypeIterable<num>(it2);
+  Expect.isNotRuntimeTypeIterable<int?>(it2);
+  Expect.isNotRuntimeTypeIterable<Object>(it2);
+  Expect.isNotRuntimeTypeIterable<Object?>(it2);
+  Expect.isNotRuntimeTypeIterable<dynamic>(it2);
+  Expect.isRuntimeTypeIterable<int>(it2);
 }

@@ -2,13 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We define the union-free type of a type `T` as follows:
-/// If `T` is of the form `S?` or the form `FutureOr<S>` then the union-free
-/// type of `T` is the union-free type of `S`. Otherwise, the union-free type
-/// of `T` is T.
+/// @assertion We define the union-free type derived from a type T as follows:
+/// If T is of the form S? or the form FutureOr<S> then the union-free type
+/// derived from T is the union-free type derived from S. Otherwise, the
+/// union-free type derived from T is T
 ///
 /// We define the element type of a generator function `f` as follows:
-/// Let `S` be the union-free type of the declared return type of `f`.
+/// Let S be the union-free type derived from the declared return type of f.
 /// ...
 /// If `f` is an asynchronous generator and `S` implements `Stream<U>` for some
 /// `U` then the element type of `f` is `U`.
@@ -22,6 +22,18 @@ import "dart:async";
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 
+void isRuntimeTypeStream<T>(Object? o) async {
+  if (o is! Stream<T>) {
+    throw ExpectException("Not a Stream<$T>: ${o.runtimeType}");
+  }
+  List<T> list = await o.toList();
+  try {
+    list.addAll(<T>[]);
+  } on TypeError catch (_) {
+    throw ExpectException("Expected Stream<$T> but found $o");
+  }
+}
+
 FutureOr<Stream<int>?> foo() async* {
   yield 1;
   yield 2;
@@ -31,12 +43,11 @@ FutureOr<Stream<int>?> foo() async* {
 main() async {
   var o = await foo();
   o.expectStaticType<Exactly<Stream<int>?>>();
-  if (o is Future<Stream<int>?>) {
-    print("No");
-  } else if (o == null) {
+  if (o == null) {
     print("No");
   } else {
+    // Now static type must be `Stream<int>
     o.expectStaticType<Exactly<Stream<int>>>();
-    Expect.isTrue(o is Stream<int>);
+    isRuntimeTypeStream<int>(o);
   }
 }

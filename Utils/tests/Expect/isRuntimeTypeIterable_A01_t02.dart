@@ -6,8 +6,8 @@
 /// Failure if `it` is not instance of `Iterable<T>` or has an element type of
 /// which is not exactly the `T`
 ///
-/// @description Checks no exception is thrown when `it` is an `Iterable<T>` and
-/// all elements of it have a type `T` (not a subtype)
+/// @description Checks that an exception is thrown when `it` is not
+/// `Iterable<T>`
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";
@@ -15,16 +15,16 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.throws(() {
-    Expect.iterableElementsRuntimeIs<Object>(Object());
+    Expect.isRuntimeTypeIterable<Object>(Object());
   }, (e) => e is ExpectException);
 
   Expect.throws(() {
     Future<List<int>> o = Future.value([1, 2, 3]);
-    Expect.iterableElementsRuntimeIs<int>(o);
+    Expect.isRuntimeTypeIterable<int>(o);
   }, (e) => e is ExpectException);
 
   Expect.throws(() {
     FutureOr<List<int>> o = Future.value([1, 2, 3]);
-    Expect.iterableElementsRuntimeIs<num>(o);
+    Expect.isRuntimeTypeIterable<num>(o);
   }, (e) => e is ExpectException);
 }

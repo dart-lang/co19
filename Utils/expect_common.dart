@@ -358,40 +358,32 @@ class Expect {
 
   /// Checks that all elements of this `Iterable` have type `T`, not a subtype
   /// of `T`. For example `<int>[1, 2, 3] is Iterable<num>` returns `true`, but
-  /// `iterableElementsRuntimeIs<num>(<int>[1, 2, 3])` will throw
+  /// `isRuntimeTypeIterable<num>(<int>[1, 2, 3])` will throw
   /// `ExpectException`. Fails if `it` is not instance of `Iterable<T>`
-  static void iterableElementsRuntimeIs<T>(dynamic it) {
-    if (it is! Iterable<T>) {
-      throw ExpectException("Expected Iterable<$T> but got ${it.runtimeType}");
+  static void isRuntimeTypeIterable<T>(Object? o) {
+    if (o is! Iterable<T>) {
+      throw ExpectException("Not Iterable<$T>: ${o.runtimeType}");
     }
-    if (it.isNotEmpty) {
-      X combine<X>(X x, X _) => x;
-      try {
-        (it.reduce)(combine<T>);
-      } catch (e) {
-        throw ExpectException("Not $T in collection $it.");
-      }
+    List<T> list = o.toList(growable: true);
+    try {
+      list.addAll(<T>[]);
+    } on TypeError catch (_) {
+      throw ExpectException("Expected Iterable<$T> but found $o");
     }
   }
 
   /// Checks that all elements of this `Iterable` don't have type `T`, but may
   /// be a subtype of `T`. For example
-  /// `iterableElementsRuntimeIsNot<num>([1, 2, 3])` is Ok, but
-  /// iterableElementsRuntimeIsNot<num>([1, 2, 3 as num]) throws an
+  /// `isNotRuntimeTypeIterable<num>([1, 2, 3])` is Ok, but
+  /// isNotRuntimeTypeIterable<num>([1, 2, 3 as num]) throws an
   /// `ExpectException`
-  static void iterableElementsRuntimeIsNot<T>(dynamic it) {
-    if (it is! Iterable<T>) {
-      return; // Ok
-    }
-    X combine<X>(X x, X _) => x;
+  static void isNotRuntimeTypeIterable<T>(Object? o) {
     try {
-      (it.reduce)(combine<T>);
-      throw ExpectException("All elements in Iterable are $T.");
-    } catch (e) {
-      if (e is ExpectException) {
-        rethrow;
-      }
+      Expect.isRuntimeTypeIterable<T>(o);
+    } on ExpectException catch (_) {
+      return;
     }
+    throw ExpectException("All elements in Iterable are $T");
   }
 }
 
