@@ -10,7 +10,7 @@
 ///
 /// @description Checks that if an extension type `ET` has a superinterface with
 /// a member `m` then this member is also presents in `ET`v but members of its
-/// representation type
+/// representation type are not
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -57,7 +57,6 @@ main() {
   var et3 = ET3(J());
   et3.rep;
   et3.i;
-  et3.j;
   et3.jOfEt3;
   et3.j;
 //    ^
