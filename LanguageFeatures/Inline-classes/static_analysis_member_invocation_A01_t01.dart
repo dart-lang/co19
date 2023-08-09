@@ -3,27 +3,24 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion If the name of m is a name in the interface of Object (that is,
-/// toString, ==, etc.), the static analysis of the invocation is treated as an
-/// ordinary instance member invocation on a receiver of type Object and with
-/// the same args, if any.
+/// toString, ==, hashCode, runtimeType, or noSuchMethod), the static analysis
+/// of the invocation is treated as an ordinary instance member invocation on a
+/// receiver of type Object? and with the same args or typeArgs, if any.
 ///
 /// @description Checks that members of an `Object` class can be called
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class IC {
-  final int id;
-  IC(this.id);
-}
+extension type ET(int id) {}
 
 main() {
-  IC ic = IC(42);
-  ic.toString();
-  ic.runtimeType;
-  ic.hashCode;
-  ic == ic;
+  ET et = ET(42);
+  et.toString();
+  et.runtimeType;
+  et.hashCode;
+  et == et;
   try {
-    ic.noSuchMethod(Invocation.method(Symbol("test"), []));
+    et.noSuchMethod(Invocation.method(Symbol("test"), []));
   } catch (_) {}
 }

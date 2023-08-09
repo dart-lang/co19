@@ -2,50 +2,47 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion If Dm is a method with function type F, and args is omitted, the
-/// invocation has static type [T1/X1 .. Ts/Xs]F.
+/// @assertion Consider an invocation of the extension type member m on the
+/// receiver expression e according to the extension type declaration V with the
+/// actual type arguments T1, ..., Ts.
+/// ...
+/// V has an extension type member m with a uniquely determined declaration Dm
+/// ...
+/// If Dm is a method with function type F, and args is omitted, the invocation
+/// has static type F
 ///
 /// @description Checks static type of a method tear-off with omitted type
-/// arguments of an `inline` class
+/// arguments of an extension type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/static_type_helper.dart";
 
-inline class IC1 {
-  final int id;
-  IC1(this.id);
-
+extension type ET1(int id) {
   int foo<T1, T2 extends num>() => 42;
 }
 
-inline class IC2<T extends num> {
-  final T id;
-  IC2(this.id);
-
+extension type ET2<T extends num>(T id) {
   T foo<T1, T2 extends T>() => id;
 }
 
-inline class IC3<T> {
-  final T id;
-  IC3(this.id);
-
+extension type ET3<T>(T id) {
   Map<K, V> asMap<K, V extends T>(K key) => {key: this.id as V};
 }
 
 main() {
-  IC1 ic1 = IC1(42);
-  ic1.foo.expectStaticType<Exactly<int Function<T1, T2 extends num>()>>();
+  ET1 et1 = ET1(42);
+  et1.foo.expectStaticType<Exactly<int Function<T1, T2 extends num>()>>();
 
-  IC2<num> ic2 = IC2<double>(3.14);
-  ic2.foo.expectStaticType<Exactly<num Function<T1, T2 extends num>()>>();
+  ET2<num> et2 = ET2<double>(3.14);
+  et2.foo.expectStaticType<Exactly<num Function<T1, T2 extends num>()>>();
 
-  IC2<double> ic2_2 = IC2(3.14);
-  ic2_2.foo
+  ET2<double> et2_2 = ET2(3.14);
+  et2_2.foo
       .expectStaticType<Exactly<double Function<T1, T2 extends double>()>>();
 
-  IC3<int> ic3 = IC3(0);
-  ic3.asMap
+  ET3<int> et3 = ET3(0);
+  et3.asMap
       .expectStaticType<Exactly<Map<K, V> Function<K, V extends int>(K)>>();
 }

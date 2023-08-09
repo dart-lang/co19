@@ -5,47 +5,43 @@
 /// @assertion A compile-time error occurs if V does not have a member named m.
 ///
 /// @description Checks that it is a compile-time error to call a not-existing
-/// member of an `inline` class
+/// member of an extension type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class BaseIC {
-  final int id;
-  BaseIC(this.id);
+extension type ET0(int id) {
   foo() {}
 }
 
-inline class IC implements BaseIC {
-  final int id;
-  IC(this.id);
+extension type ET(int id) implements ET0 {
   foo() {}
   bar() {}
 }
 
 main() {
-  IC ic = IC(42);
-  ic.noGetter;
+  ET et = ET(42);
+  et.noGetter;
 //   ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ic.noSetter = 0;
+  et.noSetter = 0;
 //   ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ic.noMethod();
+  et.noMethod();
 //   ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ic + 1;
+  et + 1;
 //   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ic.id;
-  ic.foo();
-  ic.bar();
+  et.id;
+  et.foo();
+  et.bar();
 }

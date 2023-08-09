@@ -8,14 +8,11 @@
 /// ...
 /// V has an extension type member m with a uniquely determined declaration Dm
 /// ...
-/// Assume that Dm is a method with function type F, and typeArgs is provided. A
-/// compile-time error occurs if F is not a generic function type where typeArgs
-/// is a list of actual type arguments that conform to the declared bounds. If
-/// no error occurred, the invocation has the static type which is a non-generic
-/// function type where typeArgs are substituted into the function type.
+/// If Dm is a method with function type F, and args exists, the static analysis
+/// of the extension type member invocation is the same as that of an invocation
+/// with argument part args of a function with the given type.
 ///
-/// @description Checks static type of a method tear-off with type arguments
-/// specified
+/// @description Checks static type of an extension type  method invocation
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -36,17 +33,17 @@ extension type ET3<T>(T id) {
 
 main() {
   ET1 et1 = ET1(42);
-  et1.foo<String, double>.expectStaticType<Exactly<int Function()>>();
+  et1.foo<String, double>().expectStaticType<Exactly<int>>();
 
   ET2<num> et2_1 = ET2<double>(3.14);
-  et2_1.foo<String, double>.expectStaticType<Exactly<num Function()>>();
+  et2_1.foo<String, double>().expectStaticType<Exactly<num>>();
 
   ET2<double> et2_2 = ET2(3.14);
-  et2_2.foo<String, double>.expectStaticType<Exactly<double Function()>>();
+  et2_2.foo<String, double>().expectStaticType<Exactly<double>>();
 
   ET3<num> et3 = ET3(0);
-  et3.asMap<String, double>
-      .expectStaticType<Exactly<Map<String, double> Function(String)>>();
-  et3.asMap<String, int>
-      .expectStaticType<Exactly<Map<String, int> Function(String)>>();
+  et3.asMap<String, double>()
+      .expectStaticType<Exactly<Map<String, double>>>();
+  et3.asMap<String, int>()
+      .expectStaticType<Exactly<Map<String, int>>>();
 }
