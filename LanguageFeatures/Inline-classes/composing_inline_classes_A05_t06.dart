@@ -33,8 +33,8 @@
 /// redeclared by a getter, or vice versa.
 ///
 /// @description Checks that it is not an error if an extension type declaration
-/// `DV` has superinterface `V` with member `m` and redeclares this member even
-/// this is not a correct override for a regular class
+/// `DV` has a superinterface `V` with a member `m` and redeclares this member
+/// even though this is not a correct override for a regular class
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
