@@ -355,6 +355,23 @@ class Expect {
   static void runtimeIsNotType<T>(Object? o) {
     _checkType(_checkIs<T>, false, o);
   }
+
+  /// Checks that the run-time type of [o] implements `Iterable<T>`, otherwise
+  /// throws. For example,
+  /// `isRuntimeTypeImplementsIterable<num>(<int>[1, 2, 3])` will throw
+  /// `ExpectException`, but
+  /// `isRuntimeTypeImplementsIterable<num>(<num>[1, 2, 3])` succeeds.
+  static void isRuntimeTypeImplementsIterable<T>(Object? o) {
+    if (o is! Iterable<T>) {
+      throw ExpectException("Not Iterable<$T>: ${o.runtimeType}");
+    }
+    List<T> list = o.toList(growable: true);
+    try {
+      list.addAll(<T>[]);
+    } on TypeError catch (_) {
+      throw ExpectException("Expected Iterable<$T> but found $o");
+    }
+  }
 }
 
 bool _identical(a, b) => identical(a, b);
