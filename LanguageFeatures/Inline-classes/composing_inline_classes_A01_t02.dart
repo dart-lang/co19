@@ -12,34 +12,46 @@
 /// extension type erasure of the representation type of DV.
 ///
 /// @description Checks that it is a compile-time error if superinterface of an
-/// extension type `DV` is not a supertype of the erasure of the representation
-/// type of `DV`.
+/// extension type `DV` is a subtype of the erasure of the representation type
+/// of `DV`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-class V1 {}
-class V2<T1, T2> {}
+mixin class V1 {}
+class V2 extends V1 {}
+class V3<T1, T2 extends num?> implements V1 {}
+class V4 = Object with V1;
 
-extension type ET0(int id) {}
+extension type ET0(V1 id) {}
 
-extension type ET1(int id) implements V1 {}
+extension type ET1(V1 id) implements V2 {}
+//                                   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type ET2(ET0 id) implements V2 {}
 //                                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type ET2(ET0 id) implements V1 {}
+extension type ET3<T1, T2 extends num?>(V1 id) implements V3<T1, T2> {}
+//                                                        ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type ET4<T1, T2 extends num?>(V1 id) implements V3<T1, T2> {}
+//                                                        ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type ET5(V1 id) implements V4 {}
+//                                   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type ET6(ET0 id) implements V4 {}
 //                                    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-extension type ET3<T1, T2 extends num?>(T1 id) implements V2<T1, T2> {}
-//                                                        ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-extension type ET4<T1, T2 extends num?>(ET0 id) implements V2<T1, T2> {}
-//                                                        ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -48,4 +60,6 @@ main() {
   print(ET2);
   print(ET3);
   print(ET4);
+  print(ET5);
+  print(ET6);
 }

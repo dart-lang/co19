@@ -2,47 +2,38 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Assume that DV is an inline class declaration named Inline, and
+/// @assertion Assume that DV is an extension type declaration named Name, and
 /// V1 occurs as one of the <type>s in the <interfaces> of DV. In this case we
 /// say that V1 is a superinterface of DV.
 /// ...
 /// A compile-time error occurs if any direct or indirect superinterface of DV
-/// is the type Inline or a type of the form Inline<...>
+/// is the type Name or a type of the form Name<...>.
 ///
-/// @description Checks that it is a compile-time error if an inline class has a
-/// dependency on itself.
+/// @description Checks that it is a compile-time error if an extension type has
+/// a dependency on itself.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class V1<T> implements V2<T> {
-//           ^^
+extension type ET1<T>(T id) implements ET2<T> {}
+//                                     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final T id;
-  V1(this.id);
-}
 
-inline class V2<T> implements V3<T> {
-//           ^^
+extension type ET2<T>(T id) implements ET3<T> {}
+//             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final T id;
-  V2(this.id);
-}
 
-typedef V1Alias = V1<String>;
+typedef ET1Alias = ET1<String>;
 
-inline class V3<T> implements V1Alias {
-//           ^^
+extension type ET3<T>(T id) implements ET1Alias {}
+//                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final T id;
-  V3(this.id);
-}
 
 main() {
-  print(V1);
-  print(V2);
-  print(V3);
+  print(ET1);
+  print(ET2);
+  print(ET3);
 }
