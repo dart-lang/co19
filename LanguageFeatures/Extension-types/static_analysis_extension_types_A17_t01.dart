@@ -27,5 +27,5 @@ extension type V2<T1, T2 extends num?>(T1 id) {}
 
 main() {
   Object v1 = V1(42);
-  Object v2 = V2<String?, int?>("42");
+  Object v2 = V2<String, int?>("42");
 }
