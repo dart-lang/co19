@@ -11,9 +11,9 @@
 /// does not denote an extension type, and V1 does not denote a supertype of the
 /// extension type erasure of the representation type of DV.
 ///
-/// @description Checks that it is a compile-time error if superinterface of an
-/// extension type `DV` is a subtype of the erasure of the representation type
-/// of `DV`.
+/// @description Checks that it is a compile-time error if a superinterface of
+/// an extension type `DV` is a subtype of the erasure of the representation
+/// type of `DV`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -40,8 +40,8 @@ extension type ET3<T1, T2 extends num?>(V1 id) implements V3<T1, T2> {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type ET4<T1, T2 extends num?>(V1 id) implements V3<T1, T2> {}
-//                                                        ^^^^^^^^^^
+extension type ET4<T1, T2 extends num?>(ET0 id) implements V3<T1, T2> {}
+//                                                         ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

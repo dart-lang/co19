@@ -32,7 +32,7 @@
 /// signature with the same name, including the case where a method is
 /// redeclared by a getter, or vice versa.
 ///
-/// @description Checks that it is no an error if an extension type declaration
+/// @description Checks that it is not an error if an extension type declaration
 /// `DV` has superinterface `V` with member `m` and redeclares this member even
 /// this is not a correct override for a regular class
 /// @author sgrekhov22@gmail.com
