@@ -2,27 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A type test, o is U or o is! U, and a type cast, o as U, where U
-/// is or contains an inline type, is performed at run time as a type test and
-/// type cast on the run-time representation of the inline type
+/// @assertion A type test, `o is U` or `o is! U`, and a type cast, `o as U`,
+/// where `U` is or contains an extension type, is performed at run time as a
+/// type test and type cast on the run-time representation of the extension type
 ///
 /// @description Check that at run time a type cast, `o as U` is performed as a
-/// type cast on the run-time representation of the inline type
+/// type cast on the run-time representation of the extension type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/expect.dart";
 
-inline class V1 {
-  final int id;
-  V1(this.id);
-}
+extension type V1(int id) {}
 
-inline class V2<T> {
-  final T id;
-  V2(this.id);
-}
+extension type V2<T>(T id) {}
 
 bool testAsInt(Object instance) {
   try {

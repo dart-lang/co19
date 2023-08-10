@@ -2,26 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion At run time, for a given instance o typed as an inline type V,
+/// @assertion At run time, for a given instance o typed as an extension type V,
 /// there is no reification of V associated with o.
 ///
-/// @description Check that the run-time type of an instance of an inline class
-/// is its representation type
+/// @description Check that the run-time type of an instance of an extension
+/// type is its representation type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/expect.dart";
 
-inline class V1 {
-  final int id;
-  V1(this.id);
-}
+extension type V1(int id) {}
 
-inline class V2<T> {
-  final T id;
-  V2(this.id);
-}
+extension type V2<T>(T id) {}
 
 main() {
   var v1 = V1(42);
