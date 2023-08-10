@@ -12,21 +12,24 @@
 /// Assume that S is the instantiated representation type corresponding to V1. A
 /// compile-time error occurs if R is not a subtype of S.
 ///
-/// @description Checks that it is not an error if an extension type has a
-/// representation type `R` and a superinterface with a representation type `S`
-/// and `R` is a subtype of `S`
+/// @description Checks that it is a compile-time error if an extension type has
+/// a representation type `R` and a superinterface with a representation type
+/// `S` and `R` is not a subtype of `S`
 /// @author sgrekhov22@gmail.com
+/// @issue 53170
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../../Utils/expect.dart";
+extension type V0(int id) {}
 
-extension type V1<T>(T id1) {}
+extension type V1(V0 id) {}
 
-extension type V(int id) implements V1<num> {
+extension type V(num id) implements V1 {}
+//                                  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  V v = V(42);
-  Expect.equals(42, v.id);
-  Expect.equals(42, v.id1);
+  print(V1);
+  print(V);
 }
