@@ -21,5 +21,8 @@ sealed class SealedClass {}
 
 class ExtendsSealedClass extends SealedClass {}
 
-extension type _PrivateExtensionType(int id) {
-}
+extension type _PrivateExtensionType(int id) {}
+
+extension type LibraryExtensionTypeInt(int id) {}
+
+extension type LibraryExtensionTypeInt2(int _id) {}
