@@ -22,7 +22,7 @@ extension type ET1.n0(int id) {
 // [cfe] unspecified
   }
 
-   const ET1.n1(int id);
+  const ET1.n1(int id);
 //       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
