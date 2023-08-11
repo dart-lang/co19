@@ -33,24 +33,27 @@
 /// redeclared by a getter, or vice versa.
 ///
 /// @description Checks that it is not an error if an extension type declaration
-/// `DV` has two superinterfaces `V1` and `V2`, where both `V1` and `V2` have
-/// the same declaration named `m` ("diamond" inheritance)
+/// `DV` has two superinterfaces `V1` and `V2`, where both `V1` and `V2` have a
+/// member named `m`, and the two declarations of `m` are distinct declarations,
+/// but DV does declare a member named `m`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../../Utils/expect.dart";
+import '../../Utils/expect.dart';
 
-extension type V0(int id) {
-  num foo() => 42;
+extension type V1(int id) {
+  int m() => 1;
 }
 
-extension type V1(int id) implements V0 {}
+extension type V2(int id) {
+  int m() => 2;
+}
 
-extension type V2(int id) implements V0 {}
-
-extension type V(int id) implements V1, V2 {}
+extension type V(int id) implements V1, V2 {
+  num get m => 3.14;
+}
 
 main() {
-  Expect.equals(42, V(1).foo());
+  Expect.equals(3.14, V(0).m);
 }
