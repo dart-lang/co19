@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../../Utils/static_type_helper.dart";
+import '../../Utils/static_type_helper.dart';
 
 extension type ET1(num id) {
   int get asInt => id.toInt();

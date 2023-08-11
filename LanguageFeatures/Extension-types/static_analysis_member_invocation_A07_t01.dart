@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../../Utils/static_type_helper.dart";
+import '../../Utils/static_type_helper.dart';
 
 extension type ET1(int id) {
   int foo<T1, T2 extends num>() => 42;

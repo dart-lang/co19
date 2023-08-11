@@ -14,13 +14,13 @@
 
 import "../../Utils/static_type_helper.dart";
 
-extension types ET1(int id) {
+extension type ET1(int id) {
   ET1.n1(this.id, [String s = ""]);
   ET1.n2(this.id, {String s = ""});
   ET1.n3(this.id, {required String s});
 }
 
-extension types ET2<T extends num>.n0(T id) {
+extension type ET2<T extends num>.n0(T id) {
   ET2.n1(this.id, [String s = ""]);
   ET2.n2(this.id, {String s = ""});
   ET2.n3(this.id, {required String s});
