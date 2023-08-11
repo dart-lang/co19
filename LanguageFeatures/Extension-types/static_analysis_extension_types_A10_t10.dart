@@ -15,6 +15,8 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
+import "dart:async";
+
 typedef FutureOrInt = FutureOr<int>;
 
 extension type ET1(FutureOr<int> id) implements FutureOr<int> {}
