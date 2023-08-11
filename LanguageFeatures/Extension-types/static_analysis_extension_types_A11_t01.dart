@@ -19,7 +19,7 @@ class C1 extends V {
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C1(int id) : super(id);
+  C1(int id);
 
   int get id => 0;
 }
