@@ -17,7 +17,7 @@
 import "../../Utils/expect.dart";
 
 enum E {
-  e1, e2;
+  e1, e2, e3;
 
   int get eGetter => 0;
 }
@@ -26,14 +26,20 @@ typedef EAlias = E;
 
 extension type ET1(E id) implements E {}
 
-extension type ET2<T extends Enum>(T id) implements EAlias {}
+extension type ET2(E id) implements EAlias {}
+
+extension type ET3<T extends Enum>(T id) implements Enum {}
 
 main() {
-  ET1 et1 = ET1(E.e2);
-  Expect.equals(E.e2, et1.id);
+  ET1 et1 = ET1(E.e1);
+  Expect.equals(E.e1, et1.id);
   Expect.equals(0, et1.eGetter);
 
-  ET2<E> et2 = ET2<E>(E.e1);
-  Expect.equals(E.e1, et2.id);
+  ET2 et2 = ET2(E.e2);
+  Expect.equals(E.e2, et2.id);
   Expect.equals(0, et2.eGetter);
+
+  ET3<E> et3 = ET3<E>(E.e3);
+  Expect.equals(E.e3, et3.id);
+  Expect.equals(0, et3.id.eGetter);
 }
