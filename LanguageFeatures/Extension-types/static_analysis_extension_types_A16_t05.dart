@@ -38,7 +38,7 @@ extension type V1(int it) {
 
 String qux() => "qux";
 
-extension type V2(int it) {
+extension type V2(V1 it) {
   String foo()  => "V2.foo";
   void test() {
     Expect.equals("V2.foo", foo());
