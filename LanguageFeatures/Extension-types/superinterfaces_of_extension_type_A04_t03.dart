@@ -23,7 +23,7 @@ import '../../Utils/expect.dart';
 
 extension type V1<T>(T id1) {}
 
-extension type V(int id) implements V1<num> {
+extension type V(int id) implements V1<num> {}
 
 main() {
   V v = V(42);
