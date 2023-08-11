@@ -15,33 +15,37 @@
 
 extension type ET1(int id) {
   static int get n => 1;
+//               ^
+// [analyzer] unspecified
   int get n => 1;
 //        ^
-// [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET2(int id) {
   static int n() => 2;
+//           ^
+// [analyzer] unspecified
   int get n => 2;
 //        ^
-// [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET3(int id) {
   static int n() => 3;
-  int get n() => 3;
-//        ^
+//           ^
 // [analyzer] unspecified
+  int n() => 3;
+//    ^
 // [cfe] unspecified
 }
 
 extension type ET4(int id) {
   static int get n => 4;
-  int get n() => 4;
-//        ^
+//               ^
 // [analyzer] unspecified
+  int n() => 4;
+//    ^
 // [cfe] unspecified
 }
 
