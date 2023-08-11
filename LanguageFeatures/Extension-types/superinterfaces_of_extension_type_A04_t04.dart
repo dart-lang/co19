@@ -21,7 +21,7 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../Extension-types/extension_type_lib.dart";
+import "extension_type_lib.dart";
 
 extension type ET(String id) implements LibraryExtensionTypeInt {}
 //                                      ^^^^^^^^^^^^^^^^^^^^^^^

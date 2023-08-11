@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../../Utils/expect.dart";
+import '../../Utils/expect.dart';
 
 mixin class V1 {
   int x = 1;
