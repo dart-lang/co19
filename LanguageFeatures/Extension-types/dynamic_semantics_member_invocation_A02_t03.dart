@@ -32,7 +32,7 @@ extension type ET1<T>(T id) {
   Map<K, V> asMap<K, V extends T>(K key) => {key: this.id as V};
 }
 
-extension type ET2<T> implements ET1<T>(T id) {}
+extension type ET2<T>(T id) implements ET1<T> {}
 
 main() {
   ET1<int> et1_1 = ET1(42);

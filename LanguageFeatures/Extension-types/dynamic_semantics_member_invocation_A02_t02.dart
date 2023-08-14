@@ -34,7 +34,7 @@ extension type ET<T>(T id) {
   }
 }
 
-extension type ET2<T> implements ET<T>(T id) {}
+extension type ET2<T>(T id) implements ET<T> {}
 
 main() {
   ET et = ET(42);

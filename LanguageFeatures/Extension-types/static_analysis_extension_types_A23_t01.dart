@@ -15,7 +15,7 @@ extension type V1(int id) {
   V1.new(this.id, [Object? _]);
 }
 
-extension type V2 implements V1(int id) {
+extension type V2(int id) implements V1 {
   V2.n1(this.id, super.id);
 //               ^^^^^
 // [analyzer] unspecified
