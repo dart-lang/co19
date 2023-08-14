@@ -24,7 +24,7 @@
 extension type const ET1(int id) {
   ET1.c() : id = 0;
   factory ET1.f(int id) = ET1.c;
-//                         ^^^^^
+//                        ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -38,6 +38,6 @@ extension type ET2(int id) {
 }
 
 main() {
-  ET1.f(1);
-  ET2.f(2);
+  print(ET1);
+  print(ET2);
 }
