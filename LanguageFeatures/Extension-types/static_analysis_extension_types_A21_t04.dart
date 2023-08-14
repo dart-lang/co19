@@ -35,6 +35,6 @@ extension type ET2<T>(T id) {
 }
 
 main() {
-  const ET1.n(1);
-  const ET2<String>.n("2");
+  print(ET1);
+  print(ET2);
 }
