@@ -39,7 +39,7 @@ extension type ET1<T extends num>(T id) {
   }
 }
 
-extension type ET2 implements ET1<num>(int id) {}
+extension type ET2(int id) implements ET1<num> {}
 
 main() {
   ET1<num> et1_1 = ET1(42);

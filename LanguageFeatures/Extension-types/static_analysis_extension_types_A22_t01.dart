@@ -16,7 +16,7 @@ extension type V1(int id) {
   V1.x(this.id);
 }
 
-extension type V2 implements V1(int id) {
+extension type V2(int id) implements V1 {
   V2.new(this.id) : super();
 //                  ^^^^^
 // [analyzer] unspecified

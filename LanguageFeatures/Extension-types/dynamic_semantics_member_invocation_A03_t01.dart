@@ -38,9 +38,9 @@ extension type ET1<T>(T id) {
   Map<K, Type> asMap<K, V extends T>(K key1, K key2) => {key1: V, key2: T};
 }
 
-extension type ET2<T> implements ET1<T>(T id) {}
+extension type ET2<T>(T id) implements ET1<T> {}
 
-extension type ET3<T extends num> implements ET1<num>(T id) {}
+extension type ET3<T extends num>(T id) implements ET1<num> {}
 
 main() {
   ET1<num> et1 = ET1(42);
