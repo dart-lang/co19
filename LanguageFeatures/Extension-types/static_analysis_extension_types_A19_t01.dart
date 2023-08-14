@@ -24,7 +24,7 @@ extension type V1(V2 v2) {
 // [cfe] unspecified
 }
 
-extension type V2(int id) implements V1 {
+extension type V2(V1 id) {
 //             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
