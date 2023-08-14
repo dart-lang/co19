@@ -23,7 +23,7 @@
 import "../../Utils/expect.dart";
 
 extension type ET1.c0(int id) {
-  ET1.c1() : this(0);
+  ET1.c1() : this.c0(0);
   ET1.c2(this.id);
   ET1.c3(int a, int b) : id = a + b;
   ET1.c4(int a, [int b = 1]) : id = a + b;
@@ -34,7 +34,7 @@ extension type ET1.c0(int id) {
 }
 
 extension type const ET2<T>.c0(int id) {
-  const ET2.c1() : this(0);
+  const ET2.c1() : this.c0(0);
   const ET2.c2(this.id);
   const ET2.c3(int a, int b) : id = a + b;
   const ET2.c4(int a, [int b = 1]) : id = a + b;
