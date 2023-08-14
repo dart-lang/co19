@@ -42,8 +42,10 @@ main() {
   et2_2.foo<String, double>().expectStaticType<Exactly<double>>();
 
   ET3<num> et3 = ET3(0);
-  et3.asMap<String, double>()
-      .expectStaticType<Exactly<Map<String, double>>>();
-  et3.asMap<String, int>()
+  et3.asMap<String, int>("k1")
       .expectStaticType<Exactly<Map<String, int>>>();
+
+  ET3<num> et3_2 = ET3(3.14);
+  et3_2.asMap<String, double>("k1")
+      .expectStaticType<Exactly<Map<String, double>>>();
 }
