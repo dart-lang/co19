@@ -39,5 +39,5 @@ extension type ET2(int id) {
 
 main() {
   ET1.f(1);
-  ET2<int>.f(2);
+  ET2.f(2);
 }
