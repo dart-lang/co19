@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../../Utils/expect.dart";
+import '../../Utils/expect.dart';
 
 extension type V1(int id) {}
 
