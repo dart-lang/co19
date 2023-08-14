@@ -29,7 +29,7 @@ extension type const ET1(int id) {
 
 extension type ET2<T>(T id) {
   const ET2.n(this.id);
-  const factory ET2.f(int id) => ET2.n(id);
+  const factory ET2.f(T id) => ET2.n(id);
 //^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
