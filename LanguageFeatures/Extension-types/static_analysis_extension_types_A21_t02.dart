@@ -35,7 +35,7 @@ extension type const ET4.n(int id) {}
 main() {
   const c1 = ET1(1);
   const f1 = ET1.f(1);
-  const c2 = const ET2<String>("2");
+  const c2 = const ET2<String>.const1("2");
   const f2 = const ET2<String>.f("2");
   const c3 = const ET3(3);
   const c4 = const ET4.n(4);
