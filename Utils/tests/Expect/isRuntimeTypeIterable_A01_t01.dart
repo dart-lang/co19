@@ -10,6 +10,8 @@
 /// all elements of it have a type `T` (not a subtype). Throws otherwise.
 /// @author sgrekhov22@gmail.com
 
+// Requirements=nnbd-strong
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
