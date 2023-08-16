@@ -7,13 +7,12 @@
 /// say that V1 is a superinterface of DV.
 ///
 /// A compile-time error occurs if V1 is a type name or a parameterized type
-/// which occurs as a superinterface in an extension type declaration DV, but V1
-/// does not denote an extension type, and V1 does not denote a supertype of the
-/// extension type erasure of the representation type of DV.
+/// which occurs as a superinterface in an extension type declaration DV, and V1
+/// denotes a non-extension type which is not a supertype of the representation
+/// type of DV.
 ///
 /// @description Checks that it is a compile-time error if a superinterface of
-/// an extension type `DV` is a subtype of the erasure of the representation
-/// type of `DV`.
+/// an extension type `DV` is a subtype of the representation type of `DV`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
