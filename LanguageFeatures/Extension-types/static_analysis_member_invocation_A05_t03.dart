@@ -24,6 +24,9 @@ extension type ET2<T extends num>.n0(T id) {
   ET2.n1(this.id, [String s = ""]);
   ET2.n2(this.id, {String s = ""});
   ET2.n3(this.id, {required String s});
+  ET2.new(T id, String s) : this.id = id {
+    print(s);
+  }
 }
 
 main() {
@@ -38,6 +41,7 @@ main() {
   ET2<int>
       .n3
       .expectStaticType<Exactly<ET2<int> Function(int, {required String s})>>();
+  ET2<int>.new.expectStaticType<Exactly<ET2<int> Function(int, String s)>>();
 
   ET2.n0.expectStaticType<Exactly<ET2<T> Function<T extends num>(T)>>();
   ET2.n1
@@ -46,4 +50,6 @@ main() {
       Exactly<ET2<T> Function<T extends num>(T, {String s})>>();
   ET2.n3.expectStaticType<
       Exactly<ET2<T> Function<T extends num>(T, {required String s})>>();
+  ET2.new
+      .expectStaticType<Exactly<ET2<T> Function<T extends num>(T, String s)>>();
 }

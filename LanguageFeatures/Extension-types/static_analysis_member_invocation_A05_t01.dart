@@ -37,16 +37,22 @@ extension type ET3<T>(T id) {
 main() {
   ET1 et1 = ET1(42);
   et1.foo<String, double>.expectStaticType<Exactly<int Function()>>();
+  et1.foo.expectStaticType<Exactly<int Function<T1, T2 extends num>()>>();
 
   ET2<num> et2_1 = ET2<double>(3.14);
   et2_1.foo<String, double>.expectStaticType<Exactly<num Function()>>();
+  et2_1.foo.expectStaticType<Exactly<num Function<T1, T2 extends num>()>>();
 
   ET2<double> et2_2 = ET2(3.14);
   et2_2.foo<String, double>.expectStaticType<Exactly<double Function()>>();
+  et2_2.foo
+      .expectStaticType<Exactly<double Function<T1, T2 extends double>()>>();
 
   ET3<num> et3 = ET3(0);
   et3.asMap<String, double>
       .expectStaticType<Exactly<Map<String, double> Function(String)>>();
   et3.asMap<String, int>
       .expectStaticType<Exactly<Map<String, int> Function(String)>>();
+  et3.asMap
+      .expectStaticType<Exactly<Map<K, V> Function<K, V extends num>(K)>>();
 }
