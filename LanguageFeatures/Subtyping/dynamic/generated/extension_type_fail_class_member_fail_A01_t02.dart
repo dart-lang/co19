@@ -1,0 +1,152 @@
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion We say that a type T0 is a subtype of a type T1 (written
+/// T0 <: T1) when:
+/// Assume that T1, .. Ts are types, and V resolves to an extension type
+/// declaration of the following form:
+///
+/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
+///   ... // Members.
+/// }
+/// It is then allowed to use V<T1, .. Tk> as a type.
+///
+/// @description Check that if a type `T0` is an extension type `V<T1, .. Ts>`
+/// and `T1` is an extension type `V<X1, .. Ss>` and there is `i` such that `Ti`
+/// is not a subtype of `Xi` then `T0` is not a subtype of `T1`
+/// @author sgrekhov22@gmail.com
+///
+/// @description Check that if type T0 is not a subtype of a type T1, then
+/// instance of T0 cannot be assigned to the superclass member of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from test_types/extension_type_fail_A01.dart and 
+/// test_cases/class_member_fail_x02.dart. Don't modify it! 
+/// If you need to change this test, then change one of the files above and then 
+/// run generator/generator.dart to regenerate the tests.
+
+// SharedOptions=--enable-experiment=inline-class
+
+import '../../utils/common.dart';
+import '../../../../Utils/expect.dart';
+
+extension type const V<T extends num>(T id) {}
+
+V<num> t0Instance = V<num>(3.14);
+
+const t1Default = const V<int>(42);
+
+class ClassMemberSuper1_t02 {
+  V<int> m = t1Default;
+
+  ClassMemberSuper1_t02(dynamic value) {
+    m = value;
+  }
+
+  ClassMemberSuper1_t02.named(dynamic value) {
+    m = value;
+  }
+
+  ClassMemberSuper1_t02.short(this.m);
+
+  void set superSetter(V<int> val) {}
+}
+
+class ClassMember1_t02 extends ClassMemberSuper1_t02 {
+
+  ClassMember1_t02() : super(forgetType(t0Instance)) {}
+
+  ClassMember1_t02.named() : super.named(forgetType(t0Instance)) {}
+
+  ClassMember1_t02.short() : super.short(forgetType(t0Instance));
+
+  ClassMember1_t02.valid() : super(null);
+
+  test1() {
+    m = forgetType(t0Instance);
+  }
+
+  test2() {
+    superSetter = forgetType(t0Instance);
+  }
+}
+
+class ClassMemberSuper2_t02<X> {
+  X m;
+
+  ClassMemberSuper2_t02(X value): m = value {
+  }
+
+  ClassMemberSuper2_t02.named(X value): m = value {
+  }
+
+  ClassMemberSuper2_t02.short(this.m);
+
+  void set superSetter(X val) {}
+}
+
+class ClassMember2_t02<X> extends ClassMemberSuper2_t02<X> {
+
+  ClassMember2_t02() : super(forgetType(t0Instance)) {}
+
+  ClassMember2_t02.named() : super.named(forgetType(t0Instance)) {}
+
+  ClassMember2_t02.short() : super.short(forgetType(t0Instance));
+
+  test1() {
+    m = forgetType(t0Instance);
+  }
+
+  test2() {
+    superSetter = forgetType(t0Instance);
+  }
+}
+
+main() {
+  Expect.throws(() {
+    new ClassMember1_t02();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember1_t02.short();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember1_t02.named();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember1_t02().m = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember1_t02().superSetter = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember1_t02().test1();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember1_t02().test2();
+  }, (e) => e is TypeError);
+
+  // Test type parameters
+
+  Expect.throws(() {
+    new ClassMember2_t02<V<int>>();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<V<int>>.short();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<V<int>>.named();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<V<int>>().m = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<V<int>>().superSetter = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<V<int>>().test1();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<V<int>>().test2();
+  }, (e) => e is TypeError);
+}
