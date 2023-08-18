@@ -14,9 +14,9 @@
 /// of T0 can be assigned to the to global variable of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/function_type_function_A12.dart and 
-/// test_cases/global_variable_x01.dart. Don't modify it! 
-/// If you need to change this test, then change one of the files above and then 
+/// This test is generated from test_types/function_type_function_A12.dart and
+/// test_cases/global_variable_x01.dart. Don't modify it!
+/// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';

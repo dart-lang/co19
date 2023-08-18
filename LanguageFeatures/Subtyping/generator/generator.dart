@@ -339,9 +339,9 @@ class Test {
 
   String get _getGeneratedFileHeader => '''
 ///
-/// This test is generated from test_types/$_testTypeFileName and 
-/// test_cases/$_testCaseFileName. Don't modify it! 
-/// If you need to change this test, then change one of the files above and then 
+/// This test is generated from test_types/$_testTypeFileName and
+/// test_cases/$_testCaseFileName. Don't modify it!
+/// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 ''';
 
@@ -422,18 +422,18 @@ class Test {
 
     String generatedTestName = "";
     File? generatedFile = null;
-    String testNameSuffix2 = "";
+    String testNameConflictSuffix = "";
     for (int i = 1;; i++) {
       generatedTestName = testNamePrefix +
           "_" +
           testCasePrefix +
+          testNameConflictSuffix +
           testNameSuffix +
-          testNameSuffix2 +
           testCaseSuffix;
       generatedFile = new File(
           _outputDir.path + Platform.pathSeparator + generatedTestName);
       if (generatedFile.existsSync()) {
-        testNameSuffix2 = "_$i";
+        testNameConflictSuffix = "_$i";
       } else {
         break;
       }

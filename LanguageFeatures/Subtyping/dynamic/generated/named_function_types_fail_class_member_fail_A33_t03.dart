@@ -28,9 +28,9 @@
 /// instance of T0 cannot be assigned to the mixin member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/named_function_types_fail_A33.dart and 
-/// test_cases/class_member_fail_x03.dart. Don't modify it! 
-/// If you need to change this test, then change one of the files above and then 
+/// This test is generated from test_types/named_function_types_fail_A33.dart and
+/// test_cases/class_member_fail_x03.dart. Don't modify it!
+/// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
