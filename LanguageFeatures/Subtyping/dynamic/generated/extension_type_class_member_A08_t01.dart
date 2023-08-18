@@ -4,39 +4,35 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
+/// Assume that DV declares an extension type declaration named Name with type
+/// parameters X1 .. Xs, and V1 is a superinterface of DV. Then Name<T1, .. Ts>
+/// is a subtype of [T1/X1 .. Ts/Xs]V1 for all T1, .. Ts.
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
-///
-/// @description Check that at run time an extension type is identical to its
-/// representation type
+/// @description Check that an extension type `ET<T1, ..., Ts>` is a subtype of
+/// an extension type `ET<X1, ..., Xs>` if `Ti` is a subtype of `Xi` for all `i`
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is a subtype of a type T1, then instance
 /// of T0 can be assigned to the class member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/extension_type_A08.dart and 
-/// test_cases/class_member_x01.dart. Don't modify it! 
-/// If you need to change this test, then change one of the files above and then 
+/// This test is generated from test_types/extension_type_A08.dart and
+/// test_cases/class_member_x01.dart. Don't modify it!
+/// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
 // SharedOptions=--enable-experiment=inline-class
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type const ET<T>(T id) {}
 
-V<int> t0Instance = V<int>(42);
+ET<String> t0Instance = ET("42");
 
 class ClassMember1_t01 {
-  static int s = forgetType(t0Instance);
-  int m = forgetType(t0Instance);
-  int _p = forgetType(t0Instance);
+  static ET<Object> s = forgetType(t0Instance);
+  ET<Object> m = forgetType(t0Instance);
+  ET<Object> _p = forgetType(t0Instance);
 
   ClassMember1_t01() {
     s = forgetType(t0Instance);
@@ -44,7 +40,7 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  ClassMember1_t01.named(int value) {
+  ClassMember1_t01.named(ET<Object> value) {
     s = value;
     m = value;
     _p = value;
@@ -58,21 +54,21 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  set setter(int val) {
+  set setter(ET<Object> val) {
     _p = val;
   }
 
-  int get getter => forgetType(_p);
+  ET<Object> get getter => forgetType(_p);
 
   static staticTest() {
     s = forgetType(t0Instance);
   }
 
-  static set staticSetter(int val) {
+  static set staticSetter(ET<Object> val) {
     s = val;
   }
 
-  static int get staticGetter => forgetType(t0Instance);
+  static ET<Object> get staticGetter => forgetType(t0Instance);
 }
 
 class ClassMember2_t01<X> {
@@ -96,7 +92,7 @@ class ClassMember2_t01<X> {
     _p = val;
   }
 
-  int get getter => forgetType(_p);
+  ET<Object> get getter => forgetType(_p);
 }
 
 main() {
@@ -116,10 +112,10 @@ main() {
 
   // Test type parameters
 
-  ClassMember2_t01<int> c2 = new ClassMember2_t01<int>();
-  c2 = new ClassMember2_t01<int>.short(forgetType(t0Instance),
+  ClassMember2_t01<ET<Object>> c2 = new ClassMember2_t01<ET<Object>>();
+  c2 = new ClassMember2_t01<ET<Object>>.short(forgetType(t0Instance),
   forgetType(t0Instance));
-  c2 = new ClassMember2_t01<int>.named(forgetType(t0Instance));
+  c2 = new ClassMember2_t01<ET<Object>>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;

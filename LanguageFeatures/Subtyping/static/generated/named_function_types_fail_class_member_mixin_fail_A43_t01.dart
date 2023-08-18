@@ -29,9 +29,9 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
-/// This test is generated from test_types/named_function_types_fail_A43.dart and 
-/// test_cases/class_member_mixin_fail_x01.dart. Don't modify it! 
-/// If you need to change this test, then change one of the files above and then 
+/// This test is generated from test_types/named_function_types_fail_A43.dart and
+/// test_cases/class_member_mixin_fail_x01.dart. Don't modify it!
+/// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
 class A {}

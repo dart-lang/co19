@@ -14,9 +14,9 @@
 /// be used as an argument of type T1. Test superclass members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/left_legacy_fail_A02.dart and 
-/// test_cases/arguments_binding_fail_x02.dart. Don't modify it! 
-/// If you need to change this test, then change one of the files above and then 
+/// This test is generated from test_types/left_legacy_fail_A02.dart and
+/// test_cases/arguments_binding_fail_x02.dart. Don't modify it!
+/// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';

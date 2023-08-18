@@ -21,9 +21,9 @@
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
-/// This test is generated from test_types/extension_type_fail_A02.dart and 
-/// test_cases/arguments_binding_mixin_fail_x01.dart. Don't modify it! 
-/// If you need to change this test, then change one of the files above and then 
+/// This test is generated from test_types/extension_type_fail_A02.dart and
+/// test_cases/arguments_binding_mixin_fail_x01.dart. Don't modify it!
+/// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
 // SharedOptions=--enable-experiment=inline-class

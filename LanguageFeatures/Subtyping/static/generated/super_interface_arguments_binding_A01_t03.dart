@@ -14,9 +14,9 @@
 /// of T0 can be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/super_interface_A01.dart and 
-/// test_cases/arguments_binding_x03.dart. Don't modify it! 
-/// If you need to change this test, then change one of the files above and then 
+/// This test is generated from test_types/super_interface_A01.dart and
+/// test_cases/arguments_binding_x03.dart. Don't modify it!
+/// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
 class T1 {
