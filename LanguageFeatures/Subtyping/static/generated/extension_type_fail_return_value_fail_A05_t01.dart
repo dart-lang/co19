@@ -4,16 +4,15 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that representation type of an inline class `V` is not
-/// subtype of `V`
+/// @description Check that a superinterface of an extension type is not a
+/// subtype of it
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then instance
@@ -28,33 +27,33 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V(int id) {}
+extension type const V0<T extends String>(T i) implements String {}
 
-V t0Instance = V(42);
+String t0Instance = "0";
 
-int returnValueFunc() => t0Instance;
+V0<String> returnValueFunc() => t0Instance;
 //                       ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 class ReturnValueTest {
-  static int staticTestMethod() => t0Instance;
+  static V0<String> staticTestMethod() => t0Instance;
 //                                 ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  int testMethod() => t0Instance;
+  V0<String> testMethod() => t0Instance;
 //                    ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  int get testGetter => t0Instance;
+  V0<String> get testGetter => t0Instance;
 //                      ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  int returnValueLocalFunc() => t0Instance;
+  V0<String> returnValueLocalFunc() => t0Instance;
 //                              ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

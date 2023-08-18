@@ -4,16 +4,14 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that at run time an extension type is identical to its
-/// representation type
+/// @description Check that an extension type is a subtype of its superinterface
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is a subtype of a type T1, then instance
@@ -29,26 +27,26 @@
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type V0<T extends String>(T s) implements String {}
 
-int t1Instance = 1;
-V<int> t0Instance = V<int>(42);
+String t1Instance = "0";
+V0<String> t0Instance = V0("42");
 
-const t1Default = 0;
+const t1Default = "1";
 
 class ArgumentsBindingSuper1_t02 {
-  int m;
+  String m;
 
-  ArgumentsBindingSuper1_t02(int value): m = value {}
-  ArgumentsBindingSuper1_t02.named(int value, {int val2 = t1Default}): m = value {}
-  ArgumentsBindingSuper1_t02.positional(int value, [int val2 = t1Default]): m = value {}
+  ArgumentsBindingSuper1_t02(String value): m = value {}
+  ArgumentsBindingSuper1_t02.named(String value, {String val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(String value, [String val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
-  void superTest(int val) {}
-  void superTestPositioned(int val, [int val2 = t1Default]) {}
-  void superTestNamed(int val, {int val2 = t1Default}) {}
-  int get superGetter => m;
-  void set superSetter(int val) {}
+  void superTest(String val) {}
+  void superTestPositioned(String val, [String val2 = t1Default]) {}
+  void superTestNamed(String val, {String val2 = t1Default}) {}
+  String get superGetter => m;
+  void set superSetter(String val) {}
 }
 
 class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
@@ -115,10 +113,10 @@ main() {
 
   // Test type parameters
 
-  ArgumentsBinding2_t02<int> c2 =
-    new ArgumentsBinding2_t02<int>(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<int>.c2(t1Instance, forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<int>.c5(forgetType(t0Instance));
+  ArgumentsBinding2_t02<String> c2 =
+    new ArgumentsBinding2_t02<String>(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<String>.c2(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<String>.c5(forgetType(t0Instance));
 
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));

@@ -4,26 +4,26 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that if type `T0` is an extension type `V` with a
-/// non-nullable representation type then `Object` is not subtype of `V`
+/// @description Check that if a type `T1` is an extension type `V0`
+/// and `T0` is a superinterface of `T0` then `T0` is not a subtype of `T1`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type const V<T>(T id) {}
+extension type V1(int i) {}
+extension type const V0(int i) implements V1 {}
 
-V<Object> t1Instance = V<Object>(42);
-Object t0Instance = Object();
+V0 t1Instance = V0(0);
+V1 t0Instance = V1(42);
 
-const t1Default = const V<Object>(Object());
+const t1Default = const V0(1);
 
-//# @T0 = Object
-//# @T1 = V<Object>
+//# @T0 = V1
+//# @T1 = V0

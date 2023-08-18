@@ -422,18 +422,18 @@ class Test {
 
     String generatedTestName = "";
     File? generatedFile = null;
-    String testNameSuffix2 = "";
+    String testNameConflictSuffix = "";
     for (int i = 1;; i++) {
       generatedTestName = testNamePrefix +
           "_" +
           testCasePrefix +
+          testNameConflictSuffix +
           testNameSuffix +
-          testNameSuffix2 +
           testCaseSuffix;
       generatedFile = new File(
           _outputDir.path + Platform.pathSeparator + generatedTestName);
       if (generatedFile.existsSync()) {
-        testNameSuffix2 = "_$i";
+        testNameConflictSuffix = "_$i";
       } else {
         break;
       }

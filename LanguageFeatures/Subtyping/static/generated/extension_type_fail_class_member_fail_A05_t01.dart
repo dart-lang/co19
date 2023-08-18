@@ -4,16 +4,15 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that representation type of an inline class `V` is not
-/// subtype of `V`
+/// @description Check that a superinterface of an extension type is not a
+/// subtype of it
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then it cannot
@@ -29,16 +28,16 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V(int id) {}
+extension type const V0<T extends String>(T i) implements String {}
 
-V t0Instance = V(42);
+String t0Instance = "0";
 
-const t1Default = -1;
+const t1Default = V0("1");
 
 class ClassMemberTestStatic {
-  static int s = t1Default;
+  static V0<String> s = t1Default;
 
-  ClassMemberTestStatic(V val) {
+  ClassMemberTestStatic(String val) {
     s = val;
 //      ^^^
 // [analyzer] unspecified
@@ -52,23 +51,23 @@ class ClassMemberTestStatic {
 // [cfe] unspecified
   }
 
-  static set staticSetter(V val) {
+  static set staticSetter(String val) {
     s = val;
 //      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  static int get staticGetter => t0Instance;
+  static V0<String> get staticGetter => t0Instance;
 //                               ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class ClassMemberTestPublic {
-  int m = t1Default;
+  V0<String> m = t1Default;
 
-  ClassMemberTestPublic(V val) {
+  ClassMemberTestPublic(String val) {
     m = val;
 //      ^^^
 // [analyzer] unspecified
@@ -79,30 +78,30 @@ class ClassMemberTestPublic {
 
   ClassMemberTestPublic.validConstructor() {}
 
-  test(V val) {
+  test(String val) {
     m = val;
 //      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  set setter(V val) {
+  set setter(String val) {
     m = val;
 //      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  int get getter => t0Instance;
+  V0<String> get getter => t0Instance;
 //                  ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class ClassMemberTestPrivate {
-  int _m = t1Default;
+  V0<String> _m = t1Default;
 
-  ClassMemberTestPrivate(V val) {
+  ClassMemberTestPrivate(String val) {
     _m = val;
 //       ^^^
 // [analyzer] unspecified
@@ -113,14 +112,14 @@ class ClassMemberTestPrivate {
 
   ClassMemberTestPrivate.validConstructor() {}
 
-  test(V val) {
+  test(String val) {
     _m = val;
 //       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  set setter(V val) {
+  set setter(String val) {
     _m = val;
 //       ^^^
 // [analyzer] unspecified
@@ -129,11 +128,11 @@ class ClassMemberTestPrivate {
 }
 
 class ClassMemberTestInitFail {
-  static int s = t0Instance;
+  static V0<String> s = t0Instance;
 //               ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  int m = t0Instance;
+  V0<String> m = t0Instance;
 //        ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

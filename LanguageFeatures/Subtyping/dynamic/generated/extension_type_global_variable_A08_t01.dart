@@ -29,10 +29,10 @@
 
 import '../../utils/common.dart';
 
-extension type const V<T>(T id) {}
+extension type V<T>(T id) {}
 
-V<String> t1Instance = V<String>("42");
-String t0Instance = "1";
+int t1Instance = 1;
+V<int> t0Instance = V<int>(42);
 
 class GlobalVariableTest {
   GlobalVariableTest() {

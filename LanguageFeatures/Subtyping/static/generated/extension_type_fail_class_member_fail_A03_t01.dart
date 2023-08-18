@@ -4,16 +4,15 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that if type `T0` is an extension type `V` with a
-/// nullable representation type then `Object?` is not subtype of `V`
+/// @description Check that if a type `T1` is an extension type `V0`
+/// and `T0` is a superinterface of `T0` then `T0` is not a subtype of `T1`
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then it cannot
@@ -29,16 +28,17 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type const V<T>(T id) {}
+extension type V1<T>(T i) {}
+extension type const V0<T>(T i) implements V1<T> {}
 
-Object? t0Instance = null;
+V1<int> t0Instance = V1<int>(42);
 
-const t1Default = const V<Object?>(0);
+const t1Default = const V0<int>(1);
 
 class ClassMemberTestStatic {
-  static V<Object?> s = t1Default;
+  static V0<int> s = t1Default;
 
-  ClassMemberTestStatic(Object? val) {
+  ClassMemberTestStatic(V1<int> val) {
     s = val;
 //      ^^^
 // [analyzer] unspecified
@@ -52,23 +52,23 @@ class ClassMemberTestStatic {
 // [cfe] unspecified
   }
 
-  static set staticSetter(Object? val) {
+  static set staticSetter(V1<int> val) {
     s = val;
 //      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  static V<Object?> get staticGetter => t0Instance;
+  static V0<int> get staticGetter => t0Instance;
 //                               ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class ClassMemberTestPublic {
-  V<Object?> m = t1Default;
+  V0<int> m = t1Default;
 
-  ClassMemberTestPublic(Object? val) {
+  ClassMemberTestPublic(V1<int> val) {
     m = val;
 //      ^^^
 // [analyzer] unspecified
@@ -79,30 +79,30 @@ class ClassMemberTestPublic {
 
   ClassMemberTestPublic.validConstructor() {}
 
-  test(Object? val) {
+  test(V1<int> val) {
     m = val;
 //      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  set setter(Object? val) {
+  set setter(V1<int> val) {
     m = val;
 //      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  V<Object?> get getter => t0Instance;
+  V0<int> get getter => t0Instance;
 //                  ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class ClassMemberTestPrivate {
-  V<Object?> _m = t1Default;
+  V0<int> _m = t1Default;
 
-  ClassMemberTestPrivate(Object? val) {
+  ClassMemberTestPrivate(V1<int> val) {
     _m = val;
 //       ^^^
 // [analyzer] unspecified
@@ -113,14 +113,14 @@ class ClassMemberTestPrivate {
 
   ClassMemberTestPrivate.validConstructor() {}
 
-  test(Object? val) {
+  test(V1<int> val) {
     _m = val;
 //       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  set setter(Object? val) {
+  set setter(V1<int> val) {
     _m = val;
 //       ^^^
 // [analyzer] unspecified
@@ -129,11 +129,11 @@ class ClassMemberTestPrivate {
 }
 
 class ClassMemberTestInitFail {
-  static V<Object?> s = t0Instance;
+  static V0<int> s = t0Instance;
 //               ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  V<Object?> m = t0Instance;
+  V0<int> m = t0Instance;
 //        ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

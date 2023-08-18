@@ -4,16 +4,14 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that at run time an extension type is identical to its
-/// representation type
+/// @description Check that an extension type is a subtype of its superinterface
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is a subtype of a type T1, then instance
@@ -29,15 +27,15 @@
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type V0<T extends String>(T s) implements String {}
 
-int t1Instance = 1;
-V<int> t0Instance = V<int>(42);
+String t1Instance = "0";
+V0<String> t0Instance = V0("42");
 
-const t1Default = 0;
+const t1Default = "1";
 
 mixin class ClassMemberMixin1_t03 {
-  int m = t1Default;
+  String m = t1Default;
 
   void set superSetter(dynamic val) {}
 }
@@ -70,7 +68,7 @@ main() {
 
   // Test type parameters
 
-  ClassMember2_t03<int> c2 = new ClassMember2_t03<int>(t1Instance);
+  ClassMember2_t03<String> c2 = new ClassMember2_t03<String>(t1Instance);
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

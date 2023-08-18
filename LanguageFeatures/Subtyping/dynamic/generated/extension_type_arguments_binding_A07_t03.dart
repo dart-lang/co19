@@ -4,16 +4,14 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that at run time an extension type is identical to its
-/// representation type
+/// @description Check that an extension type is a subtype of its superinterface
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is a subtype of a type T1, then instance
@@ -29,21 +27,21 @@
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type V0<T extends String>(T s) implements String {}
 
-int t1Instance = 1;
-V<int> t0Instance = V<int>(42);
+String t1Instance = "0";
+V0<String> t0Instance = V0("42");
 
-const t1Default = 0;
+const t1Default = "1";
 
 mixin class ArgumentsBindingMixin1_t03 {
-  int m = t1Default;
+  String m = t1Default;
 
-  void superTest(int val) {}
-  void superTestPositioned(int val, [int val2 = t1Default]) {}
-  void superTestNamed(int val, {int val2 = t1Default}) {}
-  int get superGetter => m;
-  void set superSetter(int val) {}
+  void superTest(String val) {}
+  void superTestPositioned(String val, [String val2 = t1Default]) {}
+  void superTestNamed(String val, {String val2 = t1Default}) {}
+  String get superGetter => m;
+  void set superSetter(String val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -88,7 +86,7 @@ main() {
   c1.superGetter;
 
   // Test type parameters
-  ArgumentsBinding2_t03<int> c2 = new ArgumentsBinding2_t03<int>();
+  ArgumentsBinding2_t03<String> c2 = new ArgumentsBinding2_t03<String>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));

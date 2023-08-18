@@ -29,12 +29,12 @@
 
 import '../../utils/common.dart';
 
-extension type const V<T>(T id) {}
+extension type V<T>(T id) {}
 
-String t0Instance = "1";
+V<int> t0Instance = V<int>(42);
 
 class ClassMemberSuper1_t02 {
-  V<String> m;
+  int m;
 
   ClassMemberSuper1_t02(dynamic value): m = value {
   }
@@ -44,7 +44,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(V<String> val) {}
+  void set superSetter(int val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
@@ -99,9 +99,9 @@ main() {
 
   // Test type parameters
 
-  ClassMember2_t02<V<String>> c2 = new ClassMember2_t02<V<String>>();
-  c2 = new ClassMember2_t02<V<String>>.short();
-  c2 = new ClassMember2_t02<V<String>>.named();
+  ClassMember2_t02<int> c2 = new ClassMember2_t02<int>();
+  c2 = new ClassMember2_t02<int>.short();
+  c2 = new ClassMember2_t02<int>.named();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

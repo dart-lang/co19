@@ -4,16 +4,14 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that at run time an extension type is identical to its
-/// representation type
+/// @description Check that an extension type is a subtype of its superinterface
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is a subtype of a type T1, then instance
@@ -29,37 +27,37 @@
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type V0<T extends String>(T s) implements String {}
 
-V<int> t0Instance = V<int>(42);
+V0<String> t0Instance = V0("42");
 
-const t1Default = 0;
+const t1Default = "1";
 
-namedArgumentsFunc1(int t1, {int t2 = t1Default}) {}
-positionalArgumentsFunc1(int t1, [int t2 = t1Default]) {}
+namedArgumentsFunc1(String t1, {String t2 = t1Default}) {}
+positionalArgumentsFunc1(String t1, [String t2 = t1Default]) {}
 
 namedArgumentsFunc2<X>(X t1, {required X t2}) {}
 
 class ArgumentsBindingClass {
-  ArgumentsBindingClass(int t1) {}
+  ArgumentsBindingClass(String t1) {}
 
-  ArgumentsBindingClass.named(int t1, {int t2 = t1Default}) {}
-  ArgumentsBindingClass.positional(int t1, [int t2 = t1Default]) {}
+  ArgumentsBindingClass.named(String t1, {String t2 = t1Default}) {}
+  ArgumentsBindingClass.positional(String t1, [String t2 = t1Default]) {}
 
-  factory ArgumentsBindingClass.fNamed(int t1, {int t2  = t1Default}) {
+  factory ArgumentsBindingClass.fNamed(String t1, {String t2  = t1Default}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(int t1, [int t2 = t1Default]) {
+  factory ArgumentsBindingClass.fPositional(String t1, [String t2 = t1Default]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(int t1, {int t2 = t1Default}) {}
-  static positionalArgumentsStaticMethod(int t1, [int t2 = t1Default]) {}
+  static namedArgumentsStaticMethod(String t1, {String t2 = t1Default}) {}
+  static positionalArgumentsStaticMethod(String t1, [String t2 = t1Default]) {}
 
-  namedArgumentsMethod(int t1, {int t2 = t1Default}) {}
-  positionalArgumentsMethod(int t1, [int t2 = t1Default]) {}
+  namedArgumentsMethod(String t1, {String t2 = t1Default}) {}
+  positionalArgumentsMethod(String t1, [String t2 = t1Default]) {}
 
-  set testSetter(int val) {}
+  set testSetter(String val) {}
 }
 
 class ArgumentsBindingGen<X>  {
@@ -107,14 +105,14 @@ main() {
   // Test type parameters
 
   // test generic functions
-  namedArgumentsFunc2<int>(forgetType(t0Instance), t2: forgetType(t0Instance));
+  namedArgumentsFunc2<String>(forgetType(t0Instance), t2: forgetType(t0Instance));
 
   // test generic class constructors
-  ArgumentsBindingGen<int> instance2 =
-      new ArgumentsBindingGen<int>(forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen<int>.fNamed(forgetType(t0Instance),
+  ArgumentsBindingGen<String> instance2 =
+      new ArgumentsBindingGen<String>(forgetType(t0Instance));
+  instance2 = new ArgumentsBindingGen<String>.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen<int>.named(forgetType(t0Instance),
+  instance2 = new ArgumentsBindingGen<String>.named(forgetType(t0Instance),
       t2: forgetType(t0Instance));
 
   // test generic class methods and setters

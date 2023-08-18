@@ -29,14 +29,14 @@
 
 import '../../utils/common.dart';
 
-extension type const V<T>(T id) {}
+extension type V<T>(T id) {}
 
-String t0Instance = "1";
+V<int> t0Instance = V<int>(42);
 
 class ClassMember1_t01 {
-  static V<String> s = forgetType(t0Instance);
-  V<String> m = forgetType(t0Instance);
-  V<String> _p = forgetType(t0Instance);
+  static int s = forgetType(t0Instance);
+  int m = forgetType(t0Instance);
+  int _p = forgetType(t0Instance);
 
   ClassMember1_t01() {
     s = forgetType(t0Instance);
@@ -44,7 +44,7 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  ClassMember1_t01.named(V<String> value) {
+  ClassMember1_t01.named(int value) {
     s = value;
     m = value;
     _p = value;
@@ -58,21 +58,21 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  set setter(V<String> val) {
+  set setter(int val) {
     _p = val;
   }
 
-  V<String> get getter => forgetType(_p);
+  int get getter => forgetType(_p);
 
   static staticTest() {
     s = forgetType(t0Instance);
   }
 
-  static set staticSetter(V<String> val) {
+  static set staticSetter(int val) {
     s = val;
   }
 
-  static V<String> get staticGetter => forgetType(t0Instance);
+  static int get staticGetter => forgetType(t0Instance);
 }
 
 class ClassMember2_t01<X> {
@@ -96,7 +96,7 @@ class ClassMember2_t01<X> {
     _p = val;
   }
 
-  V<String> get getter => forgetType(_p);
+  int get getter => forgetType(_p);
 }
 
 main() {
@@ -116,10 +116,10 @@ main() {
 
   // Test type parameters
 
-  ClassMember2_t01<V<String>> c2 = new ClassMember2_t01<V<String>>();
-  c2 = new ClassMember2_t01<V<String>>.short(forgetType(t0Instance),
+  ClassMember2_t01<int> c2 = new ClassMember2_t01<int>();
+  c2 = new ClassMember2_t01<int>.short(forgetType(t0Instance),
   forgetType(t0Instance));
-  c2 = new ClassMember2_t01<V<String>>.named(forgetType(t0Instance));
+  c2 = new ClassMember2_t01<int>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;

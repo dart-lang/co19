@@ -4,16 +4,15 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that extension type `V` is not a subtype of its
-/// representation type
+/// @description Check that a superinterface of an extension type is not a
+/// subtype of it
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then it cannot
@@ -29,29 +28,29 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type const V(int id) {}
+extension type const V0(int i) implements int {}
 
-V t1Instance = V(42);
+V0 t1Instance = V0(42);
 int t0Instance = 0;
 
-const t1Default = const V(42);
+const t1Default = V0(1);
 
 class ArgumentsBindingSuper1_t02 {
-  V m = t1Default;
+  V0 m = t1Default;
 
-  ArgumentsBindingSuper1_t02(V value): m = value {}
-  ArgumentsBindingSuper1_t02.named(V value, {V val2 = t1Default}): m = value {}
-  ArgumentsBindingSuper1_t02.positional(V value, [V val2 = t1Default]): m = value {}
+  ArgumentsBindingSuper1_t02(V0 value): m = value {}
+  ArgumentsBindingSuper1_t02.named(V0 value, {V0 val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(V0 value, [V0 val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
-  void superTest(V val) {}
-  void superTestPositioned(V val, [V val2 = t1Default]) {}
-  void superTestNamed(V val, {V val2 = t1Default}) {}
-  V get superGetter => t0Instance;
+  void superTest(V0 val) {}
+  void superTestPositioned(V0 val, [V0 val2 = t1Default]) {}
+  void superTestNamed(V0 val, {V0 val2 = t1Default}) {}
+  V0 get superGetter => t0Instance;
 //                       ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  void set superSetter(V val) {}
+  void set superSetter(V0 val) {}
 }
 
 class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
@@ -63,7 +62,7 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
 //                                               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ArgumentsBinding1_t02.c2(V t1, int t2) : super.named(t1, val2: t2) {}
+  ArgumentsBinding1_t02.c2(V0 t1, int t2) : super.named(t1, val2: t2) {}
 //                                                       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -71,7 +70,7 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
 //                                                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ArgumentsBinding1_t02.c4(V t1, int t2) : super.positional(t1, t2) {}
+  ArgumentsBinding1_t02.c4(V0 t1, int t2) : super.positional(t1, t2) {}
 //                                                                ^^
 // [analyzer] unspecified
 // [cfe] unspecified

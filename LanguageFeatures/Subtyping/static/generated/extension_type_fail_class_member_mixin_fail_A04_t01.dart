@@ -4,16 +4,15 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that extension type `V` is not a subtype of its
-/// representation type
+/// @description Check that a superinterface of an extension type is not a
+/// subtype of it
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is not a subtype of a type T1, then
@@ -29,15 +28,15 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type const V(int id) {}
+extension type const V0(int i) implements int {}
 
 int t0Instance = 0;
 
-const t1Default = const V(42);
+const t1Default = V0(1);
 
 mixin class ClassMemberSuper1_t03 {
-  V m = t1Default;
-  void set superSetter(V val) {}
+  V0 m = t1Default;
+  void set superSetter(V0 val) {}
 }
 
 class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {

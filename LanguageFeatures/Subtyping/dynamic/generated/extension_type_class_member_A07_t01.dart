@@ -4,16 +4,14 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that at run time an extension type is identical to its
-/// representation type
+/// @description Check that an extension type is a subtype of its superinterface
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is a subtype of a type T1, then instance
@@ -29,14 +27,14 @@
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type V0<T extends String>(T s) implements String {}
 
-V<int> t0Instance = V<int>(42);
+V0<String> t0Instance = V0("42");
 
 class ClassMember1_t01 {
-  static int s = forgetType(t0Instance);
-  int m = forgetType(t0Instance);
-  int _p = forgetType(t0Instance);
+  static String s = forgetType(t0Instance);
+  String m = forgetType(t0Instance);
+  String _p = forgetType(t0Instance);
 
   ClassMember1_t01() {
     s = forgetType(t0Instance);
@@ -44,7 +42,7 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  ClassMember1_t01.named(int value) {
+  ClassMember1_t01.named(String value) {
     s = value;
     m = value;
     _p = value;
@@ -58,21 +56,21 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  set setter(int val) {
+  set setter(String val) {
     _p = val;
   }
 
-  int get getter => forgetType(_p);
+  String get getter => forgetType(_p);
 
   static staticTest() {
     s = forgetType(t0Instance);
   }
 
-  static set staticSetter(int val) {
+  static set staticSetter(String val) {
     s = val;
   }
 
-  static int get staticGetter => forgetType(t0Instance);
+  static String get staticGetter => forgetType(t0Instance);
 }
 
 class ClassMember2_t01<X> {
@@ -96,7 +94,7 @@ class ClassMember2_t01<X> {
     _p = val;
   }
 
-  int get getter => forgetType(_p);
+  String get getter => forgetType(_p);
 }
 
 main() {
@@ -116,10 +114,10 @@ main() {
 
   // Test type parameters
 
-  ClassMember2_t01<int> c2 = new ClassMember2_t01<int>();
-  c2 = new ClassMember2_t01<int>.short(forgetType(t0Instance),
+  ClassMember2_t01<String> c2 = new ClassMember2_t01<String>();
+  c2 = new ClassMember2_t01<String>.short(forgetType(t0Instance),
   forgetType(t0Instance));
-  c2 = new ClassMember2_t01<int>.named(forgetType(t0Instance));
+  c2 = new ClassMember2_t01<String>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;

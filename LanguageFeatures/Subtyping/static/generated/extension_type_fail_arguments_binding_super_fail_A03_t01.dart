@@ -4,16 +4,15 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that if type `T0` is an extension type `V` with a
-/// nullable representation type then `Object?` is not subtype of `V`
+/// @description Check that if a type `T1` is an extension type `V0`
+/// and `T0` is a superinterface of `T0` then `T0` is not a subtype of `T1`
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then it cannot
@@ -29,53 +28,54 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type const V<T>(T id) {}
+extension type V1<T>(T i) {}
+extension type const V0<T>(T i) implements V1<T> {}
 
-V<Object?> t1Instance = V<Object?>(42);
-Object? t0Instance = null;
+V0<int> t1Instance = V0<int>(0);
+V1<int> t0Instance = V1<int>(42);
 
-const t1Default = const V<Object?>(0);
+const t1Default = const V0<int>(1);
 
 class ArgumentsBindingSuper1_t02 {
-  V<Object?> m = t1Default;
+  V0<int> m = t1Default;
 
-  ArgumentsBindingSuper1_t02(V<Object?> value): m = value {}
-  ArgumentsBindingSuper1_t02.named(V<Object?> value, {V<Object?> val2 = t1Default}): m = value {}
-  ArgumentsBindingSuper1_t02.positional(V<Object?> value, [V<Object?> val2 = t1Default]): m = value {}
+  ArgumentsBindingSuper1_t02(V0<int> value): m = value {}
+  ArgumentsBindingSuper1_t02.named(V0<int> value, {V0<int> val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(V0<int> value, [V0<int> val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
-  void superTest(V<Object?> val) {}
-  void superTestPositioned(V<Object?> val, [V<Object?> val2 = t1Default]) {}
-  void superTestNamed(V<Object?> val, {V<Object?> val2 = t1Default}) {}
-  V<Object?> get superGetter => t0Instance;
+  void superTest(V0<int> val) {}
+  void superTestPositioned(V0<int> val, [V0<int> val2 = t1Default]) {}
+  void superTestNamed(V0<int> val, {V0<int> val2 = t1Default}) {}
+  V0<int> get superGetter => t0Instance;
 //                       ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  void set superSetter(V<Object?> val) {}
+  void set superSetter(V0<int> val) {}
 }
 
 class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
-  ArgumentsBinding1_t02(Object? t0) : super(t0) {}
+  ArgumentsBinding1_t02(V1<int> t0) : super(t0) {}
 //                                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ArgumentsBinding1_t02.c1(Object? t0) : super.named(t0) {}
+  ArgumentsBinding1_t02.c1(V1<int> t0) : super.named(t0) {}
 //                                               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ArgumentsBinding1_t02.c2(V<Object?> t1, Object? t2) : super.named(t1, val2: t2) {}
+  ArgumentsBinding1_t02.c2(V0<int> t1, V1<int> t2) : super.named(t1, val2: t2) {}
 //                                                       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ArgumentsBinding1_t02.c3(Object? t0) : super.positional(t0) {}
+  ArgumentsBinding1_t02.c3(V1<int> t0) : super.positional(t0) {}
 //                                                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ArgumentsBinding1_t02.c4(V<Object?> t1, Object? t2) : super.positional(t1, t2) {}
+  ArgumentsBinding1_t02.c4(V0<int> t1, V1<int> t2) : super.positional(t1, t2) {}
 //                                                                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ArgumentsBinding1_t02.c5(Object? t1) : super.short(t1) {}
+  ArgumentsBinding1_t02.c5(V1<int> t1) : super.short(t1) {}
 //                                               ^^
 // [analyzer] unspecified
 // [cfe] unspecified

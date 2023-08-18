@@ -4,16 +4,14 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that at run time an extension type is identical to its
-/// representation type
+/// @description Check that an extension type is a subtype of its superinterface
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is a subtype of a type T1, then instance
@@ -29,18 +27,18 @@
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type V0<T extends String>(T s) implements String {}
 
-V<int> t0Instance = V<int>(42);
+V0<String> t0Instance = V0("42");
 
-int returnValueFunc() => forgetType(t0Instance);
+String returnValueFunc() => forgetType(t0Instance);
 
 class ReturnValueTest {
-  static int staticTestMethod() => forgetType(t0Instance);
+  static String staticTestMethod() => forgetType(t0Instance);
 
-  int testMethod() => forgetType(t0Instance);
+  String testMethod() => forgetType(t0Instance);
 
-  int get testGetter => forgetType(t0Instance);
+  String get testGetter => forgetType(t0Instance);
 }
 
 class ReturnValueGen<X> {
@@ -49,7 +47,7 @@ class ReturnValueGen<X> {
 }
 
 main() {
-  int returnValueLocalFunc() => forgetType(t0Instance);
+  String returnValueLocalFunc() => forgetType(t0Instance);
 
   returnValueFunc();
   returnValueLocalFunc();
@@ -61,6 +59,6 @@ main() {
 
   // Test type parameters
 
-  new ReturnValueGen<int>().testMethod();
-  new ReturnValueGen<int>().testGetter;
+  new ReturnValueGen<String>().testMethod();
+  new ReturnValueGen<String>().testGetter;
 }

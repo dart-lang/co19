@@ -12,18 +12,18 @@
 /// }
 /// It is then allowed to use V<T1, .. Tk> as a type.
 ///
-/// @description Check that at run time an extension type is identical to its
-/// representation type
+/// @description Check that if type `T0` is an extension type `V` with a
+/// nullable representation type then `Object?` is not subtype of `V`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V<T>(T id) {}
+extension type const V<T>(T id) {}
 
-int t1Instance = 1;
-V<int> t0Instance = V<int>(42);
+V<Object?> t1Instance = V<Object?>(42);
+Object? t0Instance = null;
 
-const t1Default = 0;
+const t1Default = const V<Object?>(0);
 
-//# @T0 = V<int>
-//# @T1 = int
+//# @T0 = Object?
+//# @T1 = V<Object?>

@@ -4,16 +4,15 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that extension type `V` is not a subtype of its
-/// representation type
+/// @description Check that a superinterface of an extension type is not a
+/// subtype of it
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then it cannot
@@ -29,14 +28,14 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type const V(int id) {}
+extension type const V0(int i) implements int {}
 
 int t0Instance = 0;
 
-const t1Default = const V(42);
+const t1Default = V0(1);
 
 class ClassMemberTestStatic {
-  static V s = t1Default;
+  static V0 s = t1Default;
 
   ClassMemberTestStatic(int val) {
     s = val;
@@ -59,14 +58,14 @@ class ClassMemberTestStatic {
 // [cfe] unspecified
   }
 
-  static V get staticGetter => t0Instance;
+  static V0 get staticGetter => t0Instance;
 //                               ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class ClassMemberTestPublic {
-  V m = t1Default;
+  V0 m = t1Default;
 
   ClassMemberTestPublic(int val) {
     m = val;
@@ -93,14 +92,14 @@ class ClassMemberTestPublic {
 // [cfe] unspecified
   }
 
-  V get getter => t0Instance;
+  V0 get getter => t0Instance;
 //                  ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class ClassMemberTestPrivate {
-  V _m = t1Default;
+  V0 _m = t1Default;
 
   ClassMemberTestPrivate(int val) {
     _m = val;
@@ -129,11 +128,11 @@ class ClassMemberTestPrivate {
 }
 
 class ClassMemberTestInitFail {
-  static V s = t0Instance;
+  static V0 s = t0Instance;
 //               ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  V m = t0Instance;
+  V0 m = t0Instance;
 //        ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

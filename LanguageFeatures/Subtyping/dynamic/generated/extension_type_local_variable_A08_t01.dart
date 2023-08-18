@@ -29,35 +29,35 @@
 
 import '../../utils/common.dart';
 
-extension type const V<T>(T id) {}
+extension type V<T>(T id) {}
 
-String t0Instance = "1";
+V<int> t0Instance = V<int>(42);
 
 class LocalVariableTest {
 
   LocalVariableTest() {
-    V<String> t1 = forgetType(t0Instance);
+    int t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   static staticTest() {
-    V<String> t1 = forgetType(t0Instance);
+    int t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   test() {
-    V<String> t1 = forgetType(t0Instance);
+    int t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   foo() {
-    V<String> t1 = forgetType(t0Instance);
+    int t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
-  V<String> t1 = forgetType(t0Instance);
+  int t1 = forgetType(t0Instance);
   t1 = forgetType(t0Instance);
   foo();
   LocalVariableTest x = new LocalVariableTest();

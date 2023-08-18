@@ -4,16 +4,15 @@
 
 /// @assertion We say that a type T0 is a subtype of a type T1 (written
 /// T0 <: T1) when:
-/// Assume that T1, .. Ts are types, and V resolves to an extension type
-/// declaration of the following form:
 ///
-/// extension type V<X1 extends B1, .. Xs extends Bs>(T id) ... {
-///   ... // Members.
-/// }
-/// It is then allowed to use V<T1, .. Tk> as a type.
+/// Here is an overview of the subtype relationships of an extension type V0
+/// with instantiated representation type R and instantiated superinterface
+/// types V1 .. Vk, as well as other typing relationships involving V0
+/// ...
+/// V0 is a proper subtype of each of V1 .. Vk
 ///
-/// @description Check that representation type of an inline class `V` is not
-/// subtype of `V`
+/// @description Check that a superinterface of an extension type is not a
+/// subtype of it
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then it cannot
@@ -28,44 +27,44 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V(int id) {}
+extension type const V0<T extends String>(T i) implements String {}
 
-int t1Instance = 0;
-V t0Instance = V(42);
+V0<String> t1Instance = V0("42");
+String t0Instance = "0";
 
-const t1Default = -1;
+const t1Default = V0("1");
 
-namedArgumentsFunc1(int t1, {int t2 = t1Default}) {}
-positionalArgumentsFunc1(int t1, [int t2 = t1Default]) {}
+namedArgumentsFunc1(V0<String> t1, {V0<String> t2 = t1Default}) {}
+positionalArgumentsFunc1(V0<String> t1, [V0<String> t2 = t1Default]) {}
 
 class ArgumentsBindingClass {
-    ArgumentsBindingClass(int t1) {}
+    ArgumentsBindingClass(V0<String> t1) {}
 
-    ArgumentsBindingClass.named(int t1, {int t2 = t1Default}) {}
-    ArgumentsBindingClass.positional(int t1, [int t2 = t1Default]) {}
+    ArgumentsBindingClass.named(V0<String> t1, {V0<String> t2 = t1Default}) {}
+    ArgumentsBindingClass.positional(V0<String> t1, [V0<String> t2 = t1Default]) {}
 
-    factory ArgumentsBindingClass.fNamed(int t1, {int t2 = t1Default}) {
+    factory ArgumentsBindingClass.fNamed(V0<String> t1, {V0<String> t2 = t1Default}) {
         return new ArgumentsBindingClass.named(t1, t2: t2);
     }
-    factory ArgumentsBindingClass.fPositional(int t1, [int t2 = t1Default]) {
+    factory ArgumentsBindingClass.fPositional(V0<String> t1, [V0<String> t2 = t1Default]) {
         return new ArgumentsBindingClass.positional(t1, t2);
     }
 
-    static namedArgumentsStaticMethod(int t1, {int t2 = t1Default}) {}
-    static positionalArgumentsStaticMethod(int t1, [int t2 = t1Default]) {}
+    static namedArgumentsStaticMethod(V0<String> t1, {V0<String> t2 = t1Default}) {}
+    static positionalArgumentsStaticMethod(V0<String> t1, [V0<String> t2 = t1Default]) {}
 
-    namedArgumentsMethod(int t1, {int t2 = t1Default}) {}
-    positionalArgumentsMethod(int t1, [int t2 = t1Default]) {}
+    namedArgumentsMethod(V0<String> t1, {V0<String> t2 = t1Default}) {}
+    positionalArgumentsMethod(V0<String> t1, [V0<String> t2 = t1Default]) {}
 
-    set testSetter(int val) {}
+    set testSetter(V0<String> val) {}
 }
 
 class ArgumentsBindingClassSuper {
-  ArgumentsBindingClassSuper(int t1) {}
+  ArgumentsBindingClassSuper(V0<String> t1) {}
 }
 
 class ArgumentsBindingDesc extends ArgumentsBindingClassSuper {
-  ArgumentsBindingDesc(V t0) : super (t0) {}
+  ArgumentsBindingDesc(String t0) : super (t0) {}
 //                                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified

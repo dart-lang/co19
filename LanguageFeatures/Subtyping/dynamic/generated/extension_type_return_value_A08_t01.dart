@@ -29,18 +29,18 @@
 
 import '../../utils/common.dart';
 
-extension type const V<T>(T id) {}
+extension type V<T>(T id) {}
 
-String t0Instance = "1";
+V<int> t0Instance = V<int>(42);
 
-V<String> returnValueFunc() => forgetType(t0Instance);
+int returnValueFunc() => forgetType(t0Instance);
 
 class ReturnValueTest {
-  static V<String> staticTestMethod() => forgetType(t0Instance);
+  static int staticTestMethod() => forgetType(t0Instance);
 
-  V<String> testMethod() => forgetType(t0Instance);
+  int testMethod() => forgetType(t0Instance);
 
-  V<String> get testGetter => forgetType(t0Instance);
+  int get testGetter => forgetType(t0Instance);
 }
 
 class ReturnValueGen<X> {
@@ -49,7 +49,7 @@ class ReturnValueGen<X> {
 }
 
 main() {
-  V<String> returnValueLocalFunc() => forgetType(t0Instance);
+  int returnValueLocalFunc() => forgetType(t0Instance);
 
   returnValueFunc();
   returnValueLocalFunc();
@@ -61,6 +61,6 @@ main() {
 
   // Test type parameters
 
-  new ReturnValueGen<V<String>>().testMethod();
-  new ReturnValueGen<V<String>>().testGetter;
+  new ReturnValueGen<int>().testMethod();
+  new ReturnValueGen<int>().testGetter;
 }
