@@ -12,7 +12,7 @@
 /// }
 /// It is then allowed to use V<T1, .. Tk> as a type.
 ///
-/// @description Check that representation type of an inline class `V` is not
+/// @description Check that representation type of an extension type `V` is not
 /// subtype of `V`
 /// @author sgrekhov22@gmail.com
 
