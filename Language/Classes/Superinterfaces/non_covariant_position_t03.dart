@@ -8,23 +8,19 @@
 ///
 /// @description Checks that it is a compile-time error if a generic class `C`
 /// declares a type parameter `X` which occurs in a non-covariant position in a
-/// type which specifies a superinterface of `C`. Test an inline class
+/// type which specifies a superinterface of `C`. Test an extension type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-inline class A<T> {
-  final int id = 0;
-}
+extension type A<T>(int id) {}
 
-inline class C<T> implements A<void Function(T)> {
+extension type C<T>(int id) implements A<void Function(T)> {
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final int id;
-  C(this.id);
 }
 
 main() {
-  C(42);
+  print(C);
 }
