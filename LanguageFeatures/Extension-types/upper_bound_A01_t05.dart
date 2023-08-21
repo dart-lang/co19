@@ -22,10 +22,8 @@ import '../../Utils/static_type_helper.dart';
 extension type ET1<T>(T id) {}
 extension type ET2<T>(T id) {}
 
-typedef NullableNum = num?;
-
 extension type ET3<T extends String>(T id) implements ET1<T>, String {}
-extension type ET4<T extends int>(T id) implements ET2<T>, NullableNum {}
+extension type ET4<T extends int>(T id) implements ET2<T?>, num {}
 
 main() {
   var v1 = 2 > 1 ? ET1<String>("String") : ET2<num>(1);
@@ -43,6 +41,6 @@ main() {
   var v5 = 2 > 1 ? ET1<String?>("String") : ET3("String");
   v5.expectStaticType<Exactly<Object?>>();
 
-  var v6 = 2 > 1 ? ET2<num>("String") : ET4("String");
+  var v6 = 2 > 1 ? ET2<num>("String") : ET4(4);
   v6.expectStaticType<Exactly<Object?>>();
 }
