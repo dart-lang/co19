@@ -11,8 +11,7 @@
 /// algorithm will increase by one (because they start from `Object?` rather
 /// than from `Object`).
 ///
-/// @description Check that the least upper bound calculation algorithm takes
-/// into account `Object?`
+/// @description Check that the least upper bound calculation algorithm
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -20,27 +19,29 @@
 import '../../Utils/static_type_helper.dart';
 
 extension type ET1<T>(T id) {}
-extension type ET2<T>(T id) {}
 
-extension type ET3<T extends String>(T id) implements ET1<T>, String {}
-extension type ET4<T extends int>(T id) implements ET2<T?>, num {}
+extension type ET2<T extends String>(T id) implements ET1<T>, String {}
+extension type ET3<T extends String>(T id) implements ET1<T?>, String {}
 
 main() {
-  var v1 = 2 > 1 ? ET1<String>("String") : ET2<num>(1);
-  v1.expectStaticType<Exactly<Object>>();
+  var v1 = 2 > 1 ? ET2("ET2") : ET3("ET3");
+  v1.expectStaticType<Exactly<String?>>();
 
-  var v2 = 2 > 1 ? ET1<String>("String") : ET2<String?>("String");
-  v2.expectStaticType<Exactly<Object?>>();
+  var v2 = 2 > 1 ? "String" : ET2("ET2");
+  v2.expectStaticType<Exactly<String>>();
 
-  var v3 = 2 > 1 ? ET3("String") : ET4(3);
-  v3.expectStaticType<Exactly<Object?>>();
+  var v3 = 2 > 1 ? "String" : ET3("ET3");
+  v3.expectStaticType<Exactly<String?>>();
 
-  var v4 = 2 > 1 ? ET1<String>("String") : ET3("String");
-  v4.expectStaticType<Exactly<Object>>();
+  var v4 = 2 > 1 ? "String" : ET1<String>("ET1");
+  v4.expectStaticType<Exactly<String>>();
 
-  var v5 = 2 > 1 ? ET1<String?>("String") : ET3("String");
-  v5.expectStaticType<Exactly<ET1<String?>>>();
+  var v5 = 2 > 1 ? "String" : ET1<String?>("ET1");
+  v5.expectStaticType<Exactly<String?>>();
 
-  var v6 = 2 > 1 ? ET2<num>(4) : ET4(5);
-  v6.expectStaticType<Exactly<ET2<num?>>>();
+  var v6 = 2 > 1 ? Object() : ET1<String>("ET1");
+  v6.expectStaticType<Exactly<Object>>();
+
+  var v7 = 2 > 1 ? Object() : ET1<String?>("ET1");
+  v7.expectStaticType<Exactly<Object?>>();
 }

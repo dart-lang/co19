@@ -11,8 +11,8 @@
 /// algorithm will increase by one (because they start from `Object?` rather
 /// than from `Object`).
 ///
-/// @description Check that the least upper bound calculation algorithm takes
-/// starts from `Object?`
+/// @description Check that the least upper bound calculation algorithm for
+/// non-nullable types starts superinterfaces tree from `Object`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class

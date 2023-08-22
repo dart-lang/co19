@@ -11,8 +11,8 @@
 /// algorithm will increase by one (because they start from `Object?` rather
 /// than from `Object`).
 ///
-/// @description Check that the least upper bound calculation algorithm takes
-/// starts from `Object?`
+/// @description Check that the least upper bound calculation algorithm for
+/// nullable types starts superinterfaces tree from `Object?`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -30,11 +30,11 @@ main() {
   v1.expectStaticType<Exactly<Object?>>();
 
   var v2 = 2 > 1 ? ET1("String") : ET3("String");
-  v2.expectStaticType<Exactly<Object>>();
+  v2.expectStaticType<Exactly<ET1>>();
 
   var v3 = 2 > 1 ? ET2(2) : ET4(3);
   v3.expectStaticType<Exactly<Object?>>();
 
   var v4 = 2 > 1 ? ET2(2) : ET3("String");
-  v4.expectStaticType<Exactly<Object?>>();
+  v4.expectStaticType<Exactly<ET2>>();
 }
