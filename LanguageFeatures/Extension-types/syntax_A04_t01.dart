@@ -35,5 +35,4 @@ main() {
   print(ET);
 //      ^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
