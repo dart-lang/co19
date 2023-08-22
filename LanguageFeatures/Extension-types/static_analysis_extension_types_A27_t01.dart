@@ -39,9 +39,17 @@ extension type ET4<T>(T id) {
 // [cfe] unspecified
 }
 
+extension type ET5(int id) {
+  int operator +(int other);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(ET1);
   print(ET2);
   print(ET3);
   print(ET4);
+  print(ET5);
 }
