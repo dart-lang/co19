@@ -42,5 +42,5 @@ main() {
   v5.expectStaticType<Exactly<ET1<String?>>>();
 
   var v6 = 2 > 1 ? ET2<num>(4) : ET4(5);
-  v6.expectStaticType<Exactly<Object?>>();
+  v6.expectStaticType<Exactly<Object>>();
 }

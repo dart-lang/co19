@@ -35,11 +35,11 @@ main() {
   v2.expectStaticType<Exactly<Object?>>();
 
   var v3 = 2 > 1 ? ET1(Object()) : ET3(Object());
-  v3.expectStaticType<Exactly<ET1<Object?>>>();
+  v3.expectStaticType<Exactly<ET1>>>();
 
   var v4 = 2 > 1 ? ET1(Object()) : ET4(Object());
   v4.expectStaticType<Exactly<Object?>>();
 
   var v5 = 2 > 1 ? ET2(Object()) : ET4(Object());
-  v5.expectStaticType<Exactly<ET2<Object>>>();
+  v5.expectStaticType<Exactly<ET2>>();
 }

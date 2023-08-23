@@ -25,7 +25,7 @@ extension type ET3<T extends String>(T id) implements ET1<T?>, String {}
 
 main() {
   var v1 = 2 > 1 ? ET2("ET2") : ET3("ET3");
-  v1.expectStaticType<Exactly<String?>>();
+  v1.expectStaticType<Exactly<String>>();
 
   var v2 = 2 > 1 ? "String" : ET2("ET2");
   v2.expectStaticType<Exactly<String>>();
