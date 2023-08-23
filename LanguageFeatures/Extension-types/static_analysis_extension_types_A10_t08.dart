@@ -17,8 +17,8 @@
 
 typedef RAlias = Record;
 
-extension type ET1((,) id) implements Record {}
-//                                    ^^^^^^
+extension type ET1((int,) id) implements Record {}
+//                                       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -27,7 +27,13 @@ extension type ET2<T extends Record>(T id) implements RAlias {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+extension type ET3(() id) implements Record {}
+//                                   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(ET1);
   print(ET2);
+  print(ET3);
 }
