@@ -20,7 +20,7 @@
 /// of T0 can be assigned to the superclass member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/extension_type_A09.dart and
+/// This test is generated from test_types/extension_type_A10.dart and
 /// test_cases/class_member_x02.dart. Don't modify it!
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
@@ -29,12 +29,12 @@
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type const V<T>(T id) {}
 
-V<int> t0Instance = V<int>(42);
+String t0Instance = "1";
 
 class ClassMemberSuper1_t02 {
-  int m;
+  V<String> m;
 
   ClassMemberSuper1_t02(dynamic value): m = value {
   }
@@ -44,7 +44,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(int val) {}
+  void set superSetter(V<String> val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
@@ -99,9 +99,9 @@ main() {
 
   // Test type parameters
 
-  ClassMember2_t02<int> c2 = new ClassMember2_t02<int>();
-  c2 = new ClassMember2_t02<int>.short();
-  c2 = new ClassMember2_t02<int>.named();
+  ClassMember2_t02<V<String>> c2 = new ClassMember2_t02<V<String>>();
+  c2 = new ClassMember2_t02<V<String>>.short();
+  c2 = new ClassMember2_t02<V<String>>.named();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

@@ -17,11 +17,11 @@
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is a subtype of a type T1, then instance
-/// of T0 can be assigned to the to global variable of type T1
+/// of T0 can be assigned to the to local variable of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/extension_type_A09.dart and
-/// test_cases/global_variable_x01.dart. Don't modify it!
+/// This test is generated from test_types/extension_type_A10.dart and
+/// test_cases/local_variable_x01.dart. Don't modify it!
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
@@ -29,33 +29,38 @@
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type const V<T>(T id) {}
 
-int t1Instance = 1;
-V<int> t0Instance = V<int>(42);
+String t0Instance = "1";
 
-class GlobalVariableTest {
-  GlobalVariableTest() {
-    t1Instance = forgetType(t0Instance);
+class LocalVariableTest {
+
+  LocalVariableTest() {
+    V<String> t1 = forgetType(t0Instance);
+    t1 = forgetType(t0Instance);
   }
 
-  foo() {
-    t1Instance = forgetType(t0Instance);
+  static staticTest() {
+    V<String> t1 = forgetType(t0Instance);
+    t1 = forgetType(t0Instance);
   }
 
-  static test() {
-    t1Instance = forgetType(t0Instance);
+  test() {
+    V<String> t1 = forgetType(t0Instance);
+    t1 = forgetType(t0Instance);
   }
 }
 
 main() {
-  bar () {
-    t1Instance = forgetType(t0Instance);
+  foo() {
+    V<String> t1 = forgetType(t0Instance);
+    t1 = forgetType(t0Instance);
   }
 
-  t1Instance = forgetType(t0Instance);
-  bar();
-  GlobalVariableTest t = new GlobalVariableTest();
-  t.foo();
-  GlobalVariableTest.test();
+  V<String> t1 = forgetType(t0Instance);
+  t1 = forgetType(t0Instance);
+  foo();
+  LocalVariableTest x = new LocalVariableTest();
+  x.test();
+  LocalVariableTest.staticTest();
 }

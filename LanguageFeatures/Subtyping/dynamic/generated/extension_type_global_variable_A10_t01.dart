@@ -20,7 +20,7 @@
 /// of T0 can be assigned to the to global variable of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/extension_type_A09.dart and
+/// This test is generated from test_types/extension_type_A10.dart and
 /// test_cases/global_variable_x01.dart. Don't modify it!
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
@@ -29,10 +29,10 @@
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type const V<T>(T id) {}
 
-int t1Instance = 1;
-V<int> t0Instance = V<int>(42);
+V<String> t1Instance = V<String>("42");
+String t0Instance = "1";
 
 class GlobalVariableTest {
   GlobalVariableTest() {

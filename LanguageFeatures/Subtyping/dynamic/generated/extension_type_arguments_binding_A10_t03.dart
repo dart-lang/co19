@@ -20,7 +20,7 @@
 /// of T0 can be used as an argument of type T1. Test mixin members
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/extension_type_A09.dart and
+/// This test is generated from test_types/extension_type_A10.dart and
 /// test_cases/arguments_binding_x03.dart. Don't modify it!
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
@@ -29,21 +29,21 @@
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type const V<T>(T id) {}
 
-int t1Instance = 1;
-V<int> t0Instance = V<int>(42);
+V<String> t1Instance = V<String>("42");
+String t0Instance = "1";
 
-const t1Default = 0;
+const t1Default = V<String>("0");
 
 mixin class ArgumentsBindingMixin1_t03 {
-  int m = t1Default;
+  V<String> m = t1Default;
 
-  void superTest(int val) {}
-  void superTestPositioned(int val, [int val2 = t1Default]) {}
-  void superTestNamed(int val, {int val2 = t1Default}) {}
-  int get superGetter => m;
-  void set superSetter(int val) {}
+  void superTest(V<String> val) {}
+  void superTestPositioned(V<String> val, [V<String> val2 = t1Default]) {}
+  void superTestNamed(V<String> val, {V<String> val2 = t1Default}) {}
+  V<String> get superGetter => m;
+  void set superSetter(V<String> val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -88,7 +88,7 @@ main() {
   c1.superGetter;
 
   // Test type parameters
-  ArgumentsBinding2_t03<int> c2 = new ArgumentsBinding2_t03<int>();
+  ArgumentsBinding2_t03<V<String>> c2 = new ArgumentsBinding2_t03<V<String>>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));

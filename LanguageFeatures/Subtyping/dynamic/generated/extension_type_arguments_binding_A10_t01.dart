@@ -20,7 +20,7 @@
 /// of T0 can be used as an argument of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/extension_type_A09.dart and
+/// This test is generated from test_types/extension_type_A10.dart and
 /// test_cases/arguments_binding_x01.dart. Don't modify it!
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
@@ -29,37 +29,37 @@
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type const V<T>(T id) {}
 
-V<int> t0Instance = V<int>(42);
+String t0Instance = "1";
 
-const t1Default = 0;
+const t1Default = V<String>("0");
 
-namedArgumentsFunc1(int t1, {int t2 = t1Default}) {}
-positionalArgumentsFunc1(int t1, [int t2 = t1Default]) {}
+namedArgumentsFunc1(V<String> t1, {V<String> t2 = t1Default}) {}
+positionalArgumentsFunc1(V<String> t1, [V<String> t2 = t1Default]) {}
 
 namedArgumentsFunc2<X>(X t1, {required X t2}) {}
 
 class ArgumentsBindingClass {
-  ArgumentsBindingClass(int t1) {}
+  ArgumentsBindingClass(V<String> t1) {}
 
-  ArgumentsBindingClass.named(int t1, {int t2 = t1Default}) {}
-  ArgumentsBindingClass.positional(int t1, [int t2 = t1Default]) {}
+  ArgumentsBindingClass.named(V<String> t1, {V<String> t2 = t1Default}) {}
+  ArgumentsBindingClass.positional(V<String> t1, [V<String> t2 = t1Default]) {}
 
-  factory ArgumentsBindingClass.fNamed(int t1, {int t2  = t1Default}) {
+  factory ArgumentsBindingClass.fNamed(V<String> t1, {V<String> t2  = t1Default}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(int t1, [int t2 = t1Default]) {
+  factory ArgumentsBindingClass.fPositional(V<String> t1, [V<String> t2 = t1Default]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(int t1, {int t2 = t1Default}) {}
-  static positionalArgumentsStaticMethod(int t1, [int t2 = t1Default]) {}
+  static namedArgumentsStaticMethod(V<String> t1, {V<String> t2 = t1Default}) {}
+  static positionalArgumentsStaticMethod(V<String> t1, [V<String> t2 = t1Default]) {}
 
-  namedArgumentsMethod(int t1, {int t2 = t1Default}) {}
-  positionalArgumentsMethod(int t1, [int t2 = t1Default]) {}
+  namedArgumentsMethod(V<String> t1, {V<String> t2 = t1Default}) {}
+  positionalArgumentsMethod(V<String> t1, [V<String> t2 = t1Default]) {}
 
-  set testSetter(int val) {}
+  set testSetter(V<String> val) {}
 }
 
 class ArgumentsBindingGen<X>  {
@@ -107,14 +107,14 @@ main() {
   // Test type parameters
 
   // test generic functions
-  namedArgumentsFunc2<int>(forgetType(t0Instance), t2: forgetType(t0Instance));
+  namedArgumentsFunc2<V<String>>(forgetType(t0Instance), t2: forgetType(t0Instance));
 
   // test generic class constructors
-  ArgumentsBindingGen<int> instance2 =
-      new ArgumentsBindingGen<int>(forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen<int>.fNamed(forgetType(t0Instance),
+  ArgumentsBindingGen<V<String>> instance2 =
+      new ArgumentsBindingGen<V<String>>(forgetType(t0Instance));
+  instance2 = new ArgumentsBindingGen<V<String>>.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen<int>.named(forgetType(t0Instance),
+  instance2 = new ArgumentsBindingGen<V<String>>.named(forgetType(t0Instance),
       t2: forgetType(t0Instance));
 
   // test generic class methods and setters

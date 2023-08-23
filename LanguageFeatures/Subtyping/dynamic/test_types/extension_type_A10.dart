@@ -18,12 +18,12 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V<T>(T id) {}
+extension type const V<T>(T id) {}
 
-int t1Instance = 1;
-V<int> t0Instance = V<int>(42);
+V<String> t1Instance = V<String>("42");
+String t0Instance = "1";
 
-const t1Default = 0;
+const t1Default = V<String>("0");
 
-//# @T0 = V<int>
-//# @T1 = int
+//# @T0 = String
+//# @T1 = V<String>
