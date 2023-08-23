@@ -23,8 +23,8 @@
 /// be declared and called or torn off as usual, e.g.,
 /// AnExtensionType.myStaticMethod(42)
 ///
-/// @description Checks that it is a compile-time error if an extension types
-/// has a static operator
+/// @description Checks that it is a compile-time error if an extension type
+/// declares a static operator
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
