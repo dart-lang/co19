@@ -16,7 +16,7 @@ extension type ET1(int id) {
 }
 
 extension type ET2<T>(T id) {
-  external static T get getter;
+  external static int get getter;
 }
 
 extension type ET3(int id) {

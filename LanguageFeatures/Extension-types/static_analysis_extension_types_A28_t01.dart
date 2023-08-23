@@ -11,23 +11,19 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type ET1(int id) {
-  external int m;
-}
-
-extension type ET2<T>(T id) {
+extension type ET1<T>(T id) {
   external T get getter;
 }
 
-extension type ET3(int id) {
+extension type ET2(int id) {
   external void setter(int x);
 }
 
-extension type ET4<T extends num>(T id) {
+extension type ET3<T extends num>(T id) {
   external void method();
 }
 
-extension type ET5(int id) {
+extension type ET4(int id) {
   external int operator +(int other);
 }
 
@@ -36,5 +32,4 @@ main() {
   print(ET2);
   print(ET3);
   print(ET4);
-  print(ET5);
 }
