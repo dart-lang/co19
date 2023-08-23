@@ -20,7 +20,7 @@
 /// of T0 can be assigned to the class member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/extension_type_A09.dart and
+/// This test is generated from test_types/extension_type_A10.dart and
 /// test_cases/class_member_x01.dart. Don't modify it!
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
@@ -29,14 +29,14 @@
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type const V<T>(T id) {}
 
-V<int> t0Instance = V<int>(42);
+String t0Instance = "1";
 
 class ClassMember1_t01 {
-  static int s = forgetType(t0Instance);
-  int m = forgetType(t0Instance);
-  int _p = forgetType(t0Instance);
+  static V<String> s = forgetType(t0Instance);
+  V<String> m = forgetType(t0Instance);
+  V<String> _p = forgetType(t0Instance);
 
   ClassMember1_t01() {
     s = forgetType(t0Instance);
@@ -44,7 +44,7 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  ClassMember1_t01.named(int value) {
+  ClassMember1_t01.named(V<String> value) {
     s = value;
     m = value;
     _p = value;
@@ -58,21 +58,21 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  set setter(int val) {
+  set setter(V<String> val) {
     _p = val;
   }
 
-  int get getter => forgetType(_p);
+  V<String> get getter => forgetType(_p);
 
   static staticTest() {
     s = forgetType(t0Instance);
   }
 
-  static set staticSetter(int val) {
+  static set staticSetter(V<String> val) {
     s = val;
   }
 
-  static int get staticGetter => forgetType(t0Instance);
+  static V<String> get staticGetter => forgetType(t0Instance);
 }
 
 class ClassMember2_t01<X> {
@@ -96,7 +96,7 @@ class ClassMember2_t01<X> {
     _p = val;
   }
 
-  int get getter => forgetType(_p);
+  V<String> get getter => forgetType(_p);
 }
 
 main() {
@@ -116,10 +116,10 @@ main() {
 
   // Test type parameters
 
-  ClassMember2_t01<int> c2 = new ClassMember2_t01<int>();
-  c2 = new ClassMember2_t01<int>.short(forgetType(t0Instance),
+  ClassMember2_t01<V<String>> c2 = new ClassMember2_t01<V<String>>();
+  c2 = new ClassMember2_t01<V<String>>.short(forgetType(t0Instance),
   forgetType(t0Instance));
-  c2 = new ClassMember2_t01<int>.named(forgetType(t0Instance));
+  c2 = new ClassMember2_t01<V<String>>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;

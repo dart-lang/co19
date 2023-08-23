@@ -20,7 +20,7 @@
 /// of T0 can be assigned to the mixin member of type T1
 /// @author sgrekhov@unipro.ru
 ///
-/// This test is generated from test_types/extension_type_A09.dart and
+/// This test is generated from test_types/extension_type_A10.dart and
 /// test_cases/class_member_x03.dart. Don't modify it!
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
@@ -29,15 +29,15 @@
 
 import '../../utils/common.dart';
 
-extension type V<T>(T id) {}
+extension type const V<T>(T id) {}
 
-int t1Instance = 1;
-V<int> t0Instance = V<int>(42);
+V<String> t1Instance = V<String>("42");
+String t0Instance = "1";
 
-const t1Default = 0;
+const t1Default = V<String>("0");
 
 mixin class ClassMemberMixin1_t03 {
-  int m = t1Default;
+  V<String> m = t1Default;
 
   void set superSetter(dynamic val) {}
 }
@@ -70,7 +70,7 @@ main() {
 
   // Test type parameters
 
-  ClassMember2_t03<int> c2 = new ClassMember2_t03<int>(t1Instance);
+  ClassMember2_t03<V<String>> c2 = new ClassMember2_t03<V<String>>(t1Instance);
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
