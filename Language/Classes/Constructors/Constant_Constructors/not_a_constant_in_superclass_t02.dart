@@ -35,6 +35,4 @@ class C extends B {
 
 main() {
   const C();
-//^^^^^^^^^
-// [analyzer] unspecified
 }
