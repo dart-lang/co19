@@ -5,8 +5,8 @@
 /// @assertion It is a compile-time error if a member declaration in an
 /// extension type declaration is abstract.
 ///
-/// @description Checks that it is a compile-time error if a member declaration
-/// in an extension type declaration is abstract.
+/// @description Checks that it is a compile-time error if an extension type
+/// declares an abstract member.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class

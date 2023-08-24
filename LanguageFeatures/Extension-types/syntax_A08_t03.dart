@@ -25,28 +25,21 @@
 /// instance variables, unless they are external
 ///
 /// @description Checks that it is a compile-time error if an extension type
-/// declaration declares any instance variables.
+/// declaration declares an external variables with the conflicting name
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 extension type ET1(int id) {
-  int id = 0;
-//    ^^
+  external int id;
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET2(int id) {
-  int x = 0;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET3(int id) {
-  final int x = 0;
-//          ^
+extension type ET2<T>(T id) {
+  external final T id;
+//                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -54,5 +47,4 @@ extension type ET3(int id) {
 main() {
   print(ET1);
   print(ET2);
-  print(ET3);
 }

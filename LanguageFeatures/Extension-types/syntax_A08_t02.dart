@@ -24,35 +24,21 @@
 /// A compile-time error occurs if the extension type declaration declares any
 /// instance variables, unless they are external
 ///
-/// @description Checks that it is a compile-time error if an extension type
-/// declaration declares any instance variables.
+/// @description Checks that it is not an error if an extension type declaration
+/// declares an external variables
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 extension type ET1(int id) {
-  int id = 0;
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  external int x;
 }
 
-extension type ET2(int id) {
-  int x = 0;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET3(int id) {
-  final int x = 0;
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
+extension type ET2<T>(T id) {
+  external final T x;
 }
 
 main() {
   print(ET1);
   print(ET2);
-  print(ET3);
 }
