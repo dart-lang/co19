@@ -3,27 +3,25 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion
-/// operator:
-///   ‘˜’ |
-///   binaryOperator |
-///   ‘[’ ‘]’ |
-///   ‘[’ ‘]’ ‘=’
-/// ;
-/// binaryOperator:
-///   multiplicativeOperator |
-///   additiveOperator |
-///   shiftOperator |
-///   relationalOperator |
-///   ‘==’ |
-///   bitwiseOperator
-/// ;
+/// ⟨operatorSignature⟩ ::=
+/// ⟨type⟩? operator ⟨operator⟩ ⟨formalParameterList⟩
+/// ⟨operator⟩ ::= ‘~’
+/// | ⟨binaryOperator⟩
+/// | ‘[]’
+/// | ‘[]=’
+/// ⟨binaryOperator⟩ ::= ⟨multiplicativeOperator⟩
+/// | ⟨additiveOperator⟩
+/// | ⟨shiftOperator⟩
+/// | ⟨relationalOperator⟩
+/// | ‘==’
+/// | ⟨bitwiseOperator⟩
+///
 /// @description Checks that it is a compile-time error if an operator-specific
 /// method name is used without the operator keyword.
 /// @author iefremov
 
-
 class C {
-  int ~/(var v) => 42; /// compile-time error
+  int ~/(var v) => 42;
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified

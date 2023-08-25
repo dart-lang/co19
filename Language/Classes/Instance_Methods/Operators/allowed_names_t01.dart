@@ -4,10 +4,10 @@
 
 /// @assertion The following names are allowed for user-defined operators:
 /// <, >, <=, >=, ==, -, +, /, ˜/, *, %, |, ˆ, &, <<, >>, >>>, []=, [], ˜.
+///
 /// @description Checks that the listed operators may indeed be defined in a 
 /// user class.
 /// @author vasya
-
 
 import "../../../../Utils/expect.dart";
 

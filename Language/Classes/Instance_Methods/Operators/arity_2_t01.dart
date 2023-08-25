@@ -4,10 +4,10 @@
 
 /// @assertion It is a compile-time error if arity of the user-declared operator
 /// []= is not 2.
+///
 /// @description Checks that a compile-time error is produced if a user-defined 
 /// operator []= specifies three parameters.
 /// @author vasya
-
 
 class C {
   operator []=(var index, var val, var val2) {}
@@ -19,4 +19,3 @@ class C {
 main() {
   new C()[0] = new C();
 }
-

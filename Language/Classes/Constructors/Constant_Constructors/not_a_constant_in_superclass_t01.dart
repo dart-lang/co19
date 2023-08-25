@@ -8,6 +8,7 @@
 /// A superclass of C cannot declare such an initializer either, because it must
 /// necessarily declare constant constructor as well (unless it is Object, which
 /// declares no instance variables)
+///
 /// @description Checks that compile error is produced if class declares a
 /// constant constructor and its superclass has instance variable initialized
 /// by non-constant expression

@@ -4,9 +4,9 @@
 
 /// @assertion The following names are allowed for user-defined operators:
 /// <, >, <=, >=, ==, -, +, /, ˜/, *, %, |, ˆ, &, <<, >>, >>>, []=, [], ˜.
+///
 /// @description Checks that operator != cannot be defined in a user class.
 /// @author vasya
-
 
 class C {
   operator !=(other) {}

@@ -4,11 +4,11 @@
 
 /// @assertion It is a compile-time error to declare an optional parameter in an 
 /// operator.
+///
 /// @description Checks that a compile-time error is produced if a user-defined
 /// operator []= specifies one optional positional parameter in addition to the 
 /// two required ones.
 /// @author rodionov
-
 
 class C {
   operator []=(var x, var y, [var o]) {}
