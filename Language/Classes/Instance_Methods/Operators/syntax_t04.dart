@@ -3,24 +3,22 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion
-/// operator:
-///   ‘˜’ |
-///   binaryOperator |
-///   ‘[’ ‘]’ |
-///   ‘[’ ‘]’ ‘=’
-/// ;
-/// binaryOperator:
-///   multiplicativeOperator |
-///   additiveOperator |
-///   shiftOperator |
-///   relationalOperator |
-///   ‘==’ |
-///   bitwiseOperator
-/// ;
+/// ⟨operatorSignature⟩ ::=
+/// ⟨type⟩? operator ⟨operator⟩ ⟨formalParameterList⟩
+/// ⟨operator⟩ ::= ‘~’
+/// | ⟨binaryOperator⟩
+/// | ‘[]’
+/// | ‘[]=’
+/// ⟨binaryOperator⟩ ::= ⟨multiplicativeOperator⟩
+/// | ⟨additiveOperator⟩
+/// | ⟨shiftOperator⟩
+/// | ⟨relationalOperator⟩
+/// | ‘==’
+/// | ⟨bitwiseOperator⟩
+///
 /// @description Checks that it is a compile-time error if a class defines an
 /// operator without a formal parameter list.
 /// @author iefremov
-
 
 class C {
   int operator - {return 42;}

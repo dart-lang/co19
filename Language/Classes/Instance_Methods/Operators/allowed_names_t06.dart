@@ -4,8 +4,8 @@
 
 /// @assertion The following names are allowed for user-defined operators: 
 /// <, >, <=, >=, ==, -, +, /, ˜/, *, %, |, ˆ, &, <<, >>, >>>, []=, [], ˜.
+///
 /// @description Checks that operator = cannot be defined in a user class.
-
 
 class C {
   operator =(x) {}

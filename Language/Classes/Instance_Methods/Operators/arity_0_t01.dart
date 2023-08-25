@@ -4,6 +4,7 @@
 
 /// @assertion It is a compile-time error if the arity of the user-declared
 /// operator ~ is not 0.
+///
 /// @description Checks that no compile-time error is produced if a user-defined
 /// operator ~ specifies zero parameters.
 /// @author kaigorodov

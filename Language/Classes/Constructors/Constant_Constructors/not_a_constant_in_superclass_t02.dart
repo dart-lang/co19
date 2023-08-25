@@ -6,11 +6,11 @@
 /// by a class C if any instance variable declared in C is initialized with an
 /// expression that is not a constant expression.
 /// A superclass of C cannot declare such an initializer either, because it must
-/// necessarily declare constant constructor as well (unless it is Object, which declares
-/// no instance variables)
+/// necessarily declare constant constructor as well (unless it is Object, which
+/// declares no instance variables)
 ///
 /// @description Checks that compile error is produced if class declares a
-/// constant constructor and its superclass has overriden instance variable
+/// constant constructor and its superclass has overridden instance variable
 /// initialized by non-constant expression.
 /// @author sgrekhov@unipro.ru
 

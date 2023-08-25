@@ -7,10 +7,10 @@
 /// The - operator is unique in that two overloaded versions are permitted.
 /// If the operator has no arguments, it denotes unary minus.
 /// If it as an argument, it denotes binary subtraction.
+///
 /// @description Checks that a compile-time error is produced if a user-defined
-/// operator - specifies two parameters.
+/// operator `-` specifies two parameters.
 /// @author kaigorodov
-
 
 class C {
   operator -(var val, var val2) {}

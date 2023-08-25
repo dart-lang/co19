@@ -7,7 +7,8 @@
 /// The - operator is unique in that two overloaded versions are permitted.
 /// If the operator has no arguments, it denotes unary minus.
 /// If it as an argument, it denotes binary subtraction.
-/// @description Checks that operator - can be defined both with 0 and 1 
+///
+/// @description Checks that operator `-` can be defined both with 0 and 1
 /// arguments.
 /// @author kaigorodov
 
