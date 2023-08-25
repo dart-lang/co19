@@ -11,15 +11,12 @@
 
 class C {
   operator []=({var v}) {}
-//         ^
+//         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
   C c = new C();
-  c[] = new C();
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  c[1] = new C();
 }

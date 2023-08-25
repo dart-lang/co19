@@ -17,8 +17,5 @@ class C {
 }
 
 main() {
-  new C()[];
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  new C()[1];
 }

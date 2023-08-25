@@ -12,7 +12,7 @@
 
 class C {
   operator []=(var x, var y, {var o}) {}
-//         ^
+//         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
