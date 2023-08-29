@@ -4,7 +4,8 @@
 
 /// @assertion A variable declaration statement, also known as a local variable
 /// declaration, has the following form:
-/// ⟨localVariableDeclaration⟩ ::= ⟨metadata⟩⟨initializedVariableDeclaration⟩‘;’
+/// ⟨localVariableDeclaration⟩ ::=
+///     ⟨metadata⟩ ⟨initializedVariableDeclaration⟩ ‘;’
 ///
 /// @description Checks several assignments of variables declared as `T id;`
 /// that are correct and do not produce errors or warnings.

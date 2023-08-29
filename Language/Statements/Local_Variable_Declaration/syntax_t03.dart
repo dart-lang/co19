@@ -4,9 +4,10 @@
 
 /// @assertion A variable declaration statement, also known as a local variable
 /// declaration, has the following form:
-/// ⟨localVariableDeclaration⟩ ::= ⟨metadata⟩⟨initializedVariableDeclaration⟩‘;’
+/// ⟨localVariableDeclaration⟩ ::=
+///     ⟨metadata⟩ ⟨initializedVariableDeclaration⟩ ‘;’
 ///
-/// @description Checks that a variable declaration statement `T id;`  have a
+/// @description Checks that a variable declaration statement `T id;` has a
 /// semicolon at the end.
 /// @author vasya
 
