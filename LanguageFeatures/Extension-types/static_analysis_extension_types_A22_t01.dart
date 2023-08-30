@@ -12,23 +12,22 @@
 // SharedOptions=--enable-experiment=inline-class
 
 extension type V1(int id) {
-  V1.new([this.id = 0]);
   V1.x(this.id);
 }
 
 extension type V2(int id) implements V1 {
-  V2.new(this.id) : super();
-//                  ^^^^^
+  V2.n1(this.id) : super();
+//                 ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  V2.x(int i) : super.x(i);
-//              ^^^^^^^
+  V2.n2(int i) : id = i, super.x(i);
+//                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  V1(42);
-  V2();
+  V1(1);
+  V2(2);
 }
