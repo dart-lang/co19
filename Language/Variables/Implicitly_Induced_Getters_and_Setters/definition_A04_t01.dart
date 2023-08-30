@@ -9,7 +9,7 @@
 /// sets the value of id to the incoming argument x.
 /// Type inference could have provided a type different from dynamic.
 ///
-/// @description Checks that the static type of an implicit getter of a mutable
+/// @description Checks that the static type of an implicit setter of a mutable
 /// variable with no declared type but with an initialization is provided by the
 /// type inference
 /// @author sgrekhov22@gmail.com

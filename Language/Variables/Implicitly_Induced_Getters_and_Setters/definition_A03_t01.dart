@@ -9,8 +9,8 @@
 /// implicitly induces a setter with the header void set id(T x), whose
 /// execution sets the value of id to the incoming argument x.
 ///
-/// @description Checks the static type of an implicit getter of a variable with
-/// no declared type
+/// @description Checks the static type of an implicit setter of a mutable
+/// variable with declared type
 /// @author sgrekhov22@gmail.com
 
 late int x1;

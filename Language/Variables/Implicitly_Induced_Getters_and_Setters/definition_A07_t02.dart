@@ -24,13 +24,17 @@ class C {
 }
 
 main() {
+  x1 = 1;
   Expect.throws(() {
-    x1;
+    x1 = 2;
   });
+  C.v1 = 1;
   Expect.throws(() {
-    C.v1;
+    C.v1 = 2;
   });
+  C c = C();
+  c.v2 = 3;
   Expect.throws(() {
-    C().v2;
+    c.v2 = 3;
   });
 }

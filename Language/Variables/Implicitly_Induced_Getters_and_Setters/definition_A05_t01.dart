@@ -7,7 +7,7 @@
 /// implicitly induces a setter with the header void set id(dynamic x), whose
 /// execution sets the value of id to the incoming argument x.
 ///
-/// @description Checks that the static type of an implicit getter of a mutable
+/// @description Checks that the static type of an implicit setter of a mutable
 /// variable with no declared type and no initialization is `dynamic`
 /// @author sgrekhov22@gmail.com
 
