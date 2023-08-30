@@ -1,0 +1,3 @@
+# Tests below shouldn't be part end-of-line conversion upon checkin or checkout
+Language/Reference/Lexical_Rules/line_endings_cr_t01.dart -text
+Language/Reference/Lexical_Rules/line_endings_crlf_t01.dart text eol=crlf
