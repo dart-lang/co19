@@ -9,8 +9,8 @@
 /// implicitly induces a setter with the header void set id(T x), whose
 /// execution sets the value of id to the incoming argument x.
 ///
-/// @description Checks the static type of an implicit setter of a mutable
-/// variable with declared type
+/// @description Checks that it is a compile-time error to pass a parameter of
+/// type `num` to implicit setter of type `int`
 /// @author sgrekhov22@gmail.com
 
 late int x1;
@@ -31,18 +31,55 @@ class C {
 }
 
 main() {
-  x1 = -1;
-  x2 = -2;
-  x3 = -3;
-  x4 = -4;
+  num n = 1;
+  x1 = n;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  x2 = n;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  x3 = n;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  x4 = n;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   C c = C();
-  C.v1 = -1;
-  c.v2 = -2;
-  c.v3 = -3;
-  C.v4 = -4;
-  C.v5 = -5;
-  C.v6 = -6;
-  c.v7 = -7;
-  c.v8 = -8;
+  C.v1 = n;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  c.v2 = n;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  c.v3 = n;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C.v4 = n;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C.v5 = n;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C.v6 = n;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  c.v7 = n;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  c.v8 = n;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

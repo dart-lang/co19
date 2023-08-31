@@ -11,7 +11,8 @@
 ///
 /// @description Checks that the static type of an implicit setter of a mutable
 /// variable with no declared type but with an initialization is provided by the
-/// type inference
+/// type inference. Test that it is a compile-time error to pass a parameter of
+/// type `num` to implicit setter of type `int`
 /// @author sgrekhov22@gmail.com
 
 late var x1 = 1;
@@ -25,30 +26,31 @@ class C {
 }
 
 main() {
-  x1 = -1;
-  x2 = -2;
-  try {
-    x1 = "1" as dynamic;
-  } catch (_) {}
-  try {
-    x2 = "2" as dynamic;
-  } catch (_) {}
+  num n = 0;
+  x1 = n;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  x2 = n;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   C c = C();
-  C.v1 = -1;
-  c.v2 = -2;
-  c.v3 = -3;
-  C.v4 = -4;
-  try {
-    C.v1 = "1" as dynamic;
-  } catch (_) {}
-  try {
-    c.v2 = "2" as dynamic;
-  } catch (_) {}
-  try {
-    c.v3 = "3" as dynamic;
-  } catch (_) {}
-  try {
-    C.v4 = "4" as dynamic;
-  } catch (_) {}
+  C.v1 = n;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  c.v2 = n;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  c.v3 = n;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C.v4 = n;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

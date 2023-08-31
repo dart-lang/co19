@@ -9,32 +9,22 @@
 /// object that x is bound to. If this setter is executed in a situation where
 /// the variable id has been bound to an object, a dynamic error occurs
 ///
-/// @description Checks that it is a compile-time error to pass a parameter of
-/// type `num` to an implicit setter of a late final variable with the declared
-/// type `int`
+/// @description Checks that the static type of an implicit setter of a late
+/// final instance variable with the declared type `T` is `T`
 /// @author sgrekhov22@gmail.com
 
-late final int x1;
+import '../../../Utils/static_type_helper.dart';
 
-class C {
-  static late final int v1;
-  late final int v2;
+class A {
+  late final int v1;
+}
+
+class C extends A {
+  void set v1(x) {
+    x.expectStaticType<Exactly<int>>();
+  }
 }
 
 main() {
-  num n = 0;
-  x1 = n;
-//     ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  C.v1 = n;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  C c = C();
-  c.v2 = 2;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  C().v1 = 42;
 }
