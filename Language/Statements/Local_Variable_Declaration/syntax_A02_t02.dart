@@ -16,11 +16,21 @@
 
 main() {
   {
-    int id;
+    int id1;
+    var id2;
+    final id3 = 1;
   }
   {
-    id = null;
-//  ^
+    id1 = null;
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  print(id2);
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  print(id3);
+//      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
