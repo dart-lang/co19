@@ -11,9 +11,7 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V1(int id) {
-  V1.new(this.id, [Object? _]);
-}
+extension type V1(int id) {}
 
 extension type V2(int id) implements V1 {
   V2.n1(this.id, super.id);
@@ -28,5 +26,5 @@ extension type V2(int id) implements V1 {
 }
 
 main() {
-  V2(42, 0);
+  V2.n1(42, 0);
 }

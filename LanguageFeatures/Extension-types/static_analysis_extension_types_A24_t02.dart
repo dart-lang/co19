@@ -67,22 +67,22 @@ main() {
   ET2<String>.f1.expectStaticType<Exactly<ET2<String> Function()>>();
   ET2<String>.f2.expectStaticType<Exactly<ET2<String> Function(int)>>();
 
-  ET2.c1.expectStaticType<Exactly<ET2<dynamic> Function()>>();
-  ET2.c2.expectStaticType<Exactly<ET2<dynamic> Function(int)>>();
-  ET2.c3.expectStaticType<Exactly<ET2<dynamic> Function(int, int)>>();
-  ET2.c4.expectStaticType<Exactly<ET2<dynamic> Function(int, [int])>>();
-  ET2.c5.expectStaticType<Exactly<ET2<dynamic> Function(int, {int b})>>();
-  ET2.c6.expectStaticType<Exactly<ET2<dynamic> Function(int,
+  ET2.c1.expectStaticType<Exactly<ET2<T> Function<T>()>>();
+  ET2.c2.expectStaticType<Exactly<ET2<T> Function<T>(int)>>();
+  ET2.c3.expectStaticType<Exactly<ET2<T> Function<T>(int, int)>>();
+  ET2.c4.expectStaticType<Exactly<ET2<T> Function<T>(int, [int])>>();
+  ET2.c5.expectStaticType<Exactly<ET2<T> Function<T>(int, {int b})>>();
+  ET2.c6.expectStaticType<Exactly<ET2<T> Function<T>(int,
       {required int b})>>();
-  ET2.f1.expectStaticType<Exactly<ET2<dynamic> Function()>>();
-  ET2.f2.expectStaticType<Exactly<ET2<dynamic> Function(int)>>();
+  ET2.f1.expectStaticType<Exactly<ET2<T> Function<T>()>>();
+  ET2.f2.expectStaticType<Exactly<ET2<T> Function<T>(int)>>();
 
-  ET3.c1.expectStaticType<Exactly<ET3<num> Function()>>();
-  ET3.c2.expectStaticType<Exactly<ET3<num> Function(int)>>();
-  ET3.c3.expectStaticType<Exactly<ET3<num> Function(int, int)>>();
-  ET3.c4.expectStaticType<Exactly<ET3<num> Function(int, [int])>>();
-  ET3.c5.expectStaticType<Exactly<ET3<num> Function(int, {int b})>>();
-  ET3.c6.expectStaticType<Exactly<ET3<num> Function(int, {required int b})>>();
-  ET3.f1.expectStaticType<Exactly<ET3<num> Function()>>();
-  ET3.f2.expectStaticType<Exactly<ET3<num> Function(int)>>();
+  ET3.c1.expectStaticType<Exactly<ET3<T> Function<T extends num>()>>();
+  ET3.c2.expectStaticType<Exactly<ET3<T> Function<T extends num>(int)>>();
+  ET3.c3.expectStaticType<Exactly<ET3<T> Function<T extends num>(int, int)>>();
+  ET3.c4.expectStaticType<Exactly<ET3<T> Function<T extends num>(int, [int])>>();
+  ET3.c5.expectStaticType<Exactly<ET3<T> Function<T extends num>(int, {int b})>>();
+  ET3.c6.expectStaticType<Exactly<ET3<T> Function<T extends num>(int, {required int b})>>();
+  ET3.f1.expectStaticType<Exactly<ET3<T> Function<T extends num>()>>();
+  ET3.f2.expectStaticType<Exactly<ET3<T> Function<T extends num>(int)>>();
 }

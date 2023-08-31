@@ -2,12 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A variable declaration statement declares a new local variable.
-///   localVariableDeclaration:
-///     initializedVariableDeclaration ’;’
-///   ;
-/// @description Checks that a variable declaration statement var id; introduces
-/// a new variable id with dynamic static type into the innermost enclosing scope.
+/// @assertion The declared type of a local variable with a declaration of one
+/// of the forms late? var v = e; late? final v = e; const v = e; is determined
+/// as follows:
+/// • If the static type of e is Null then the declared type of v is dynamic.
+///
+/// @description Checks that a variable declaration statement `var id;`
+/// introduces a new variable `id` with `dynamic` static type into the innermost
+/// enclosing scope.
 /// @author vasya
 
 import '../../../Utils/expect.dart';
@@ -16,8 +18,9 @@ class C {}
 
 main() {
   var id;
-  Expect.isTrue(id is dynamic);
-  Expect.runtimeIsType<dynamic>(id);
+  Expect.throws(() {
+    id.whatever;
+  });
   id = false;
   id = "";
   id = 2;

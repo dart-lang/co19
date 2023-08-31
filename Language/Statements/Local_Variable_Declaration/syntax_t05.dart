@@ -2,12 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A variable declaration statement declares a new local variable.
-///   localVariableDeclaration:
-///     initializedVariableDeclaration ’;’
-///   ;
-/// @description Checks that the variable 'int id;' declared in a block is not
-/// available in a scope that encloses this block.
+/// @assertion A variable declaration statement, also known as a local variable
+/// declaration, has the following form:
+/// ⟨localVariableDeclaration⟩ ::=
+///     ⟨metadata⟩ ⟨initializedVariableDeclaration⟩ ‘;’
+///
+/// Each local variable declaration introduces a local variable into the current
+/// scope.
+///
+/// @description Checks that the variable `int id;` declared in a block is not
+/// available outside of this block.
 /// @author rodionov
 
 main() {
