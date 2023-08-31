@@ -33,7 +33,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   C c = C();
-  c.v2 = 2;
+  c.v2 = n;
 //       ^
 // [analyzer] unspecified
 // [cfe] unspecified
