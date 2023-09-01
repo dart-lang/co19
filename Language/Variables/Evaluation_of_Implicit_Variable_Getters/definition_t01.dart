@@ -44,9 +44,11 @@ class C {
 
 main() {
   Expect.equals(4, C.d);
+  Expect.equals("4", log, "Lazy static getters execution was wrong!");
   Expect.equals(1, C.a);
+  Expect.equals("41", log, "Lazy static getters execution was wrong!");
   Expect.equals(2, C.b);
+  Expect.equals("412", log, "Lazy static getters execution was wrong!");
   Expect.equals(3, C.c);
-
   Expect.equals("4123", log, "Lazy static getters execution was wrong!");
 }
