@@ -51,7 +51,7 @@ main() {
     et1_1.testMe;
   } catch (e, _st) {
     Expect.equals("T is num", e);
-    Expect.equals(st, _st);
+    Expect.equals("$st", "$_st");
   }
 
   ET1<int> et1_2 = ET1(42);
@@ -59,7 +59,7 @@ main() {
     et1_2.testMe;
   } catch (e, _st) {
     Expect.equals("T is int", e);
-    Expect.equals(st, _st);
+    Expect.equals("$st", "$_st");
   }
 
   ET2<int> et2 = ET2(42);
@@ -67,6 +67,6 @@ main() {
     et2.testMe;
   } catch (e, _st) {
     Expect.equals("T is int", e);
-    Expect.equals(st, _st);
+    Expect.equals("$st", "$_st");
   }
 }
