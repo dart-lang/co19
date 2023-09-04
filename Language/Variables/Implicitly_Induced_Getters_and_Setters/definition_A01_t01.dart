@@ -50,6 +50,7 @@ class C {
 
 main() {
   x1 = 1 as dynamic;
+  x2 = 2 as dynamic;
   x1.expectStaticType<Exactly<int?>>();
   x2.expectStaticType<Exactly<int>>();
   x3.expectStaticType<Exactly<int?>>();
