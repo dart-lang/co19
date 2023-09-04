@@ -8,7 +8,7 @@
 /// ...
 /// • Otherwise, the declared type of v is the static type of e.
 ///
-/// @description Checks that static type of a variable declared by the
+/// @description Checks that the static type of a variable declared by the
 /// statements `late? var v = e; late? final v = e; const v = e;` is the static
 /// type of `e`. Check that `v` is not erroneously promoted
 /// @author sgrekhov22@gmail.com
