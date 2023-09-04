@@ -13,11 +13,12 @@
 import '../../../Utils/static_type_helper.dart';
 
 main() {
-  late num v1 = 1;
-  late final num v2 = 2;
-  num v3 = 3;
-  final num? v4 = 4;
-  const num v5 = 5;
+  // We use `as dynamic` below to avoid a type promotion on an assignment
+  late num v1 = 1 as dynamic;
+  late final num v2 = 2 as dynamic;
+  num v3 = 3 as dynamic;
+  final num? v4 = 4 as dynamic;
+  const num v5 = 5 as dynamic;
 
   v1.expectStaticType<Exactly<num>>();
   v2.expectStaticType<Exactly<num>>();

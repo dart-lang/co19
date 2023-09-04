@@ -7,7 +7,7 @@
 /// as follows:
 /// • If the static type of e is Null then the declared type of v is dynamic.
 ///
-/// @description Checks that a variable declaration statements
+/// @description Checks that the variable declaration statements
 /// `late? var v = null; late? final v = null; const v = null;` introduce a new
 /// variable `v` with `dynamic` static type into the innermost enclosing scope.
 /// @author vasya

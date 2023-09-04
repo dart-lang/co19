@@ -11,44 +11,48 @@
 ///
 /// @description Checks that the static type of a variable declared by the
 /// statements `late? var v = e; late? final v = e;` is `X` if the static type
-/// of `e` is `X & T` where `X` is a type variable. Also test that `v` is
-/// promoted to `X & T`
+/// of `e` is where `X` is a type variable. Also check that `v` is not
+/// erroneously promoted
 /// @author sgrekhov22@gmail.com
-
-import '../../../Utils/static_type_helper.dart';
 
 test1<T>(T t) {
   if (t is int) {
-    var v = t;
-    v.isEven;
-    T x = v;
-    v = x;
   }
+  var v = t;
+  v.isEven;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 test2<T>(T t) {
   if (t is int) {
-    late var v = t;
-    v.isEven;
-    T x = v;
-    v = x;
   }
+  late var v = t;
+  v.isEven;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 test3<T>(T t) {
   if (t is int) {
-    final v = t;
-    v.isEven;
-    T x = v;
   }
+  final v = t;
+  v.isEven;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 test4<T>(T t) {
   if (t is int) {
-    late final v = t;
-    v.isEven;
-    T x = v;
   }
+  late final v = t;
+  v.isEven;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

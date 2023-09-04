@@ -7,9 +7,8 @@
 /// if any, and otherwise before the declaring occurrence of the identifier
 /// which names the variable.
 ///
-/// @description Checks that a variable is introduced into the scope after a
-/// variable declaration statement is evaluated, and the name of this variable
-/// cannot be used in its initialization.
+/// @description Checks that a variable is introduced into the scope and the
+/// name of this variable cannot be used in its initialization.
 /// @author sgrekhov22@gmail.com
 
 var x = 0;
