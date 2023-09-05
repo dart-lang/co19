@@ -12,18 +12,26 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that if there is a concrete instance getters with the
-/// same name in some mixin in the same library then the field is not promotable
+/// @description Checks that an instance field is not promotable if it is not
+/// final
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
 
-class A {
-  final int? _x = 42;
+class C {
+  int? _x;
+  int? _y = 42;
+  C(this._x);
 
-  void testA() {
+  void test() {
     if (_x != null) {
       _x.isOdd;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+    if (_y != null) {
+      _y.isOdd;
 //       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -31,13 +39,6 @@ class A {
   }
 }
 
-mixin M {
-  String get _x => "Lily was here";
-}
-
-class MA = Object with M;
-
 main() {
-  A().testA();
-  MA();
+  C(42).test();
 }

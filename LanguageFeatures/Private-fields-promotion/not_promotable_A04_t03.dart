@@ -12,20 +12,32 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that if there are other concrete instance getters with
-/// the same name in the same library and they are not a final fields then the
-/// field is not promotable. Test when the variable with the same name is not
-/// final in some class in the same library
+/// @description Checks that if there is a concrete instance getter with the
+/// same name in some mixin in the same library then the field is not promotable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
 
-library promotion_A06_t04_lib;
+class A {
+  final int? _x = 42;
 
-class C {
-  int? _x = 43;
-
-  void testC() {
-    print(_x);
+  void testA() {
+    if (_x != null) {
+      _x.isOdd;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
   }
+}
+
+mixin M {
+  String get _x => "Lily was here";
+}
+
+class MA = Object with M;
+
+main() {
+  A().testA();
+  MA();
 }

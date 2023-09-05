@@ -12,19 +12,33 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @descriptionChecks that if there is a non-final field with the same name in
-/// some class in the same library  but in another file then the field is not
-/// promotable
+/// @description Checks that an instance field is not promotable if it is not
+/// private
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
 
-part of "promotion_A05_t10.dart";
-
 class C {
-  int? _x = 43;
+  final int? x;
+  final int? y = 42;
+  C(this.x);
 
-  C() {
-    print(_x);
+  void test() {
+    if (x != null) {
+      x.isOdd;
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+    if (y != null) {
+      y.isOdd;
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
   }
+}
+
+main() {
+  C(42).test();
 }
