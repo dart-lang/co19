@@ -1,4 +1,4 @@
-// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -12,20 +12,30 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that if there are other concrete instance getters with
-/// the same name in the same library and they are not a final fields then the
-/// field is not promotable. Test when the variable with the same name is not
-/// final in some class in the same library
+/// @description Checks that an instance field is not promotable if it is
+/// external
 /// @author sgrekhov22@gmail.com
+/// @issue 53426
 
 // SharedOptions=--enable-experiment=inference-update-2
 
-library promotion_A06_t04_lib;
+class A {
+  void foo() {}
+}
 
-class C {
-  int? _x = 43;
+class C<T> {
+   external final T _x;
 
-  void testC() {
-    print(_x);
+  void test() {
+    if (_x is A) {
+      _x.foo();
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
   }
+}
+
+main() {
+  C().test();
 }
