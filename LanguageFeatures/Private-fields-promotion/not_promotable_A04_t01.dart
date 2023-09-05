@@ -12,18 +12,17 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that if there is a concrete instance getters with the
+/// @description Checks that if there is a concrete instance getter with the
 /// same name in some class in the same library then the field is not promotable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
 
-class A<T> {
-  final T _x;
-  A(this._x);
+class A {
+  final int? _x = 42;
 
   void testA() {
-    if (_x is int) {
+    if (_x != null) {
       _x.isOdd;
 //       ^^^^^
 // [analyzer] unspecified
@@ -37,6 +36,6 @@ class C {
 }
 
 main() {
-  A(42).testA();
+  A().testA();
   C();
 }

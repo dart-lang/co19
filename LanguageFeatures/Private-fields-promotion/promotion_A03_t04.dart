@@ -12,16 +12,16 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @descriptionChecks that if there is a non-final field with the same name in
-/// some class in the same library  but in another file then the field is not
-/// promotable
+/// @description Checks that an instance field is promotable if all of the
+/// conditions above are met. Test the case when library imports another library
+/// which contains a class with variable with the same name but not final
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
 
-library promotion_A05_t10;
+library promotion_A03_t04;
 
-part "promotion_A05_t10.lib.dart";
+import "promotion_A03_t04_lib.dart";
 
 class A {
   final int? _x = 42;
@@ -29,14 +29,11 @@ class A {
   void testA() {
     if (_x != null) {
       _x.isOdd;
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     }
   }
 }
 
 main() {
   A().testA();
-  C();
+  C().testC();
 }

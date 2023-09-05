@@ -12,26 +12,27 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that an instance field is not promotable if it is not
-/// private. Test type variable
+/// @description Checks that an instance field is promotable if all of the
+/// conditions above are met. Test the case when library contains not a final
+/// global getter with the same name
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
 
+int get _x => 42;
+
 class C<T> {
-  final T x;
-  C(this.x);
+  final T _x;
+  C(this._x);
 
   void test() {
-    if (x is int) {
-      x.isOdd;
-//      ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    if (_x is int) {
+      _x.isOdd;
     }
   }
 }
 
 main() {
+  _x;
   C(42).test();
 }

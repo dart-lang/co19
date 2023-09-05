@@ -12,27 +12,31 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that an instance field is promotable if all of the
-/// conditions above are met. Test the case when library contains not a final
-/// global variable with the same name
+/// @descriptionChecks that if there is a non-final field with the same name in
+/// some class in the same library  but in another file then the field is not
+/// promotable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
 
-int _x = 42;
+library not_promotable_A05_t05_lib;
 
-class C<T> {
-  final T _x;
-  C(this._x);
+part "not_promotable_A05_t05_lib.dart";
 
-  void test() {
-    if (_x is int) {
+class A {
+  final int? _x = 42;
+
+  void testA() {
+    if (_x != null) {
       _x.isOdd;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     }
   }
 }
 
 main() {
-  _x;
-  C(42).test();
+  A().testA();
+  C();
 }
