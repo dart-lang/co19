@@ -12,10 +12,10 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that if there are other concrete instance getters with
-/// the same name in the same library and they are not a final fields then the
-/// field is not promotable. Test the case when there is a getter with the same
-/// name in some extension in the same library. In this case promotion is
+/// @description Checks that if there are other concrete class instance getters
+/// with the same name in the same library and they are not a final fields then
+/// the field is not promotable. Test the case when there is a getter with the
+/// same name in some extension in the same library. In this case promotion is
 /// allowed
 /// @author sgrekhov22@gmail.com
 
