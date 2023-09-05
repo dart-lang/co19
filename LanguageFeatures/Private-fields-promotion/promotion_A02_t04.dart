@@ -12,7 +12,7 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that an instance field is promotable even if it is
+/// @description Checks that an instance field is not promotable if it is
 /// external
 /// @author sgrekhov22@gmail.com
 /// @issue 53426
@@ -23,8 +23,8 @@ class A {
   void foo() {}
 }
 
-class C<T extends A> {
-  external final T? _x;
+class C<T> {
+   external final T _x;
 
   void test() {
     if (_x is A) {
