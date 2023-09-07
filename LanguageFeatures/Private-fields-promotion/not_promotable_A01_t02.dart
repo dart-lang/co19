@@ -12,7 +12,7 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that a getter is not promotable
+/// @description Checks that an instance getter is not promotable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2

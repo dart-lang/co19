@@ -1,4 +1,4 @@
-// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -12,30 +12,19 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that an instance field is not promotable if it is
-/// external
+/// @descriptionChecks that if there is a getter with the same name in some
+/// class in the same library  but in another file then the field is not
+/// promotable
 /// @author sgrekhov22@gmail.com
-/// @issue 53426
 
 // SharedOptions=--enable-experiment=inference-update-2
 
-class A {
-  void foo() {}
-}
+part of "not_promotable_A04_t05.dart";
 
-class C<T> {
-   external final T _x;
+class C {
+  String get _x => "";
 
-  void test() {
-    if (_x is A) {
-      _x.foo();
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    }
+  C() {
+    print(_x);
   }
-}
-
-main() {
-  C().test();
 }

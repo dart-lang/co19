@@ -47,6 +47,20 @@ mixin M {
 class MA = Object with M;
 
 main() {
-  A().testA();
-  MA().testM();
+  A a = A();
+  if (a._x is int) {
+    a._x.isEven;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  a.testA();
+  MA ma = MA();
+  if (ma._x is int) {
+    ma._x.isEven;
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  ma.testM();
 }

@@ -30,7 +30,7 @@ class C {
 // [analyzer] unspecified
 // [cfe] unspecified
     }
-    if (_y != null) {
+    if (_y is int) {
       _y.isOdd;
 //       ^^^^^
 // [analyzer] unspecified
@@ -39,6 +39,43 @@ class C {
   }
 }
 
+mixin M {
+  int? _x = 42;
+
+  void test() {
+    if (_x != null) {
+      _x.isOdd;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+}
+
+class MA = Object with M;
+
 main() {
-  C(42).test();
+  C c = C(1);
+  if (c._x is int) {
+    c._x.isEven;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (c._y != null) {
+    c._y.isEven;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  c.test();
+
+  MA ma = MA();
+  if (ma._x is int) {
+    ma._x.isEven;
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  ma.test();
 }

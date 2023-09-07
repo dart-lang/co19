@@ -57,7 +57,20 @@ class C extends A {
 }
 
 main() {
-  A(42).testA();
-  B("X").testB();
-  C(1).testC();
+  A a = A(42);
+  if (a._x is int) {
+    a._x.isEven;
+  }
+  a.testA();
+
+  B b = B("X");
+  if (b._x is String) {
+    b._x.substring(0);
+  }
+  b.testB();
+  C c = C(1);
+  if (c._x is int) {
+    c._x.isEven;
+  }
+  c.testC();
 }

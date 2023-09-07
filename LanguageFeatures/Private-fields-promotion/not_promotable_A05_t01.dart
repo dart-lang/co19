@@ -45,6 +45,20 @@ class C {
 }
 
 main() {
-  A().testA();
-  C().testC();
+  A a = A();
+  if (a._x is int) {
+    a._x.isEven;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  a.testA();
+  C c = C();
+  if (c._x is int) {
+    c._x.isEven;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  c.testC();
 }

@@ -12,7 +12,7 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that a getter is not promotable
+/// @description Checks that an instance getter is not promotable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
@@ -30,6 +30,21 @@ class C {
   }
 }
 
+mixin M {
+  int? get _x => 42;
+
+  void test() {
+    if (_x != null) {
+      _x.isOdd;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+}
+
+class MA = Object with M;
+
 main() {
   C c = C();
   if (c._x is int) {
@@ -39,4 +54,13 @@ main() {
 // [cfe] unspecified
   }
   c.test();
+
+  MA ma = MA();
+  if (ma._x is int) {
+    ma._x.isEven;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  ma.test();
 }

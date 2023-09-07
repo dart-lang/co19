@@ -37,5 +37,12 @@ abstract class C<T> {
 }
 
 main() {
-  A(42).testA();
+  A<num?> a = A(42);
+  if (a._x is int) {
+    a._x.isEven;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  a.testA();
 }

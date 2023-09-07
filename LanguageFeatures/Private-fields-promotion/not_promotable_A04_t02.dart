@@ -33,10 +33,17 @@ class A<T> {
 }
 
 class C {
-  int? get _x => 43;
+  String get _x => "43";
 }
 
 main() {
-  A(42).testA();
-  C();
+  A<num?> a = A(42);
+  if (a._x is int) {
+    a._x.isEven;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  a.testA();
+  C()._x; // to remove 'no used' hint
 }

@@ -39,7 +39,11 @@ class C<T> {
 }
 
 main() {
-  C(42).test();
-  A._x;
+  C<num?> c = C(42);
+  if (c._x is int) {
+    c._x.isEven;
+  }
+  c.test();
+  A._x; // to remove `not used` hint
   B._x;
 }
