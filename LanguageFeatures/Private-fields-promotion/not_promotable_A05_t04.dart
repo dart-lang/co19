@@ -12,8 +12,9 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @descriptionChecks that if there is a non-final field with the same name
-/// in some abstract class in the same library then the field is not promotable
+/// @descriptionChecks that if there is a non-final abstract field with the same
+/// name in some abstract class in the same library then the field is not
+/// promotable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
@@ -33,8 +34,8 @@ class A<T> {
 }
 
 abstract class C<T> {
-  T _x;
-  C(this._x);
+  abstract T _x;
+  C();
 }
 
 main() {

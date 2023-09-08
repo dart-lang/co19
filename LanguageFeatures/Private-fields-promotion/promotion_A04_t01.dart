@@ -45,7 +45,7 @@ extension on C {
 main() {
   C<num?> c = C(43);
   if (c._x is int) {
-    c._x;
+    c._x.isEven;
   }
   c.testC();
   A()._x; // to remove `not used` hint

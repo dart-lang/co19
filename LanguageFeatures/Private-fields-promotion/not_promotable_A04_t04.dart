@@ -12,8 +12,8 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @descriptionChecks that if there is a getter with the same name in some
-/// abstract class in the same library then the field is not promotable
+/// @descriptionChecks that if there is an abstract getter with the same name in
+/// some abstract class in the same library then the field is not promotable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2

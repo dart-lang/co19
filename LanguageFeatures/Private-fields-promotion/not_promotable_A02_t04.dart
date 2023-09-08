@@ -12,31 +12,36 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that an instance field is promotable even if it is late
+/// @description Checks that a late final instance field cannot be promoted by
+/// writing to it. See
+/// https://github.com/dart-lang/sdk/issues/50949#issuecomment-1708280192
 /// @author sgrekhov22@gmail.com
 /// @issue 50949
 
 // SharedOptions=--enable-experiment=inference-update-2
 
-class A {
-  void foo() {}
-}
+class C {
+  late final int? _x;
 
-class C<T extends A?> {
-  late final T? _x;
-
-  void test(T t) {
-    _x = t;
-    if (_x != null) {
-      _x.foo();
-    }
+  void test() {
+    _x = 42;
+    _x.isOdd;
+//     ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
-  C<A?> c = C();
-  c.test(A());
-  if (c._x != null) {
-    c._x.foo();
-  }
+  C c = C();
+  c._x = 0;
+  c._x.isEven;
+//     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  c.test();
+  c._x.isEven;
+//     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
