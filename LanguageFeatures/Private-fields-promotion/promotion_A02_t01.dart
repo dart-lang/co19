@@ -12,7 +12,7 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that an instance field is not promotable if it is late
+/// @description Checks that an instance field is promotable even if it is late
 /// @author sgrekhov22@gmail.com
 /// @issue 50949
 
@@ -23,22 +23,16 @@ class C {
 
   void test() {
     _x = 42;
-    _x.isOdd;
-//     ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    if (_x != null) {
+      _x.isOdd;
+    }
   }
 }
 
 main() {
   C c = C();
-  c._x.isEven;
-//     ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   c.test();
-  c._x.isEven;
-//     ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  if (c._x != null) {
+    c._x.isEven;
+  }
 }
