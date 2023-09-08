@@ -21,8 +21,6 @@ run_process() async {
   stdout.write(stdin.readByteSync());
   // print [OK] finally
   print("OK");
-  await stdout.flush();
-  exit(0);
 }
 
 run_main() async {
