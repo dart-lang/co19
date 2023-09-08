@@ -30,5 +30,9 @@ class C<T> {
 }
 
 main() {
-  C(42).test();
+  C<num?> c = C(42);
+  if (c._x is int) {
+    c._x.isOdd;
+  }
+  c.test();
 }

@@ -1,4 +1,4 @@
-// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -12,18 +12,16 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @descriptionChecks that if there is a non-final field with the same name
-/// in some class in the same library then the field is not promotable
+/// @description Checks that an enum instance getter is not promotable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
+enum E1 {
+  e1, e2;
 
-class A<T> {
-  final T _x;
-  A(this._x);
+  int? get _x => 42;
 
-  void testA() {
-    if (_x is int) {
+  void test() {
+    if (_x != null) {
       _x.isOdd;
 //       ^^^^^
 // [analyzer] unspecified
@@ -32,12 +30,16 @@ class A<T> {
   }
 }
 
-class C<T> {
-  T _x;
-  C(this._x);
+enum E2<T> {
+  e1<int?>(0), e2<num?>(null);
 
-  void testC() {
-    if (_x is int) {
+  final T t;
+  const E2(this.t);
+
+  T get _x => t;
+
+  void test() {
+    if (_x != null) {
       _x.isOdd;
 //       ^^^^^
 // [analyzer] unspecified
@@ -47,20 +49,33 @@ class C<T> {
 }
 
 main() {
-  A<num?> a = A(1);
-  if (a._x is int) {
-    a._x.isEven;
-//       ^^^^^^
+  if (E1.e1._x is int) {
+    E1.e1._x.isEven;
+//          ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  a.testA();
-  C<num> c = C(2);
-  if (c._x is int) {
-    c._x.isEven;
-//       ^^^^^^
+  var _e1 = E1.e1;
+  if (_e1._x is int) {
+    _e1._x.isEven;
+//         ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  c.testC();
+  E1.e1.test();
+
+  if (E2.e2._x != null) {
+    E2.e2._x.isEven;
+//          ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  var _e2 = E2.e2;
+  if (_e2._x != null) {
+    _e2._x.isEven;
+//         ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  E2.e2.test();
 }

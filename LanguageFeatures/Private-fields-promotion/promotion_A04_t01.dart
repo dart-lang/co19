@@ -43,6 +43,10 @@ extension on C {
 }
 
 main() {
-  A();
-  C(43).testC();
+  C<num?> c = C(43);
+  if (c._x is int) {
+    c._x;
+  }
+  c.testC();
+  A()._x; // to remove `not used` hint
 }

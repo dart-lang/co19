@@ -35,5 +35,9 @@ class C<T extends A> {
 }
 
 main() {
-  C(B()).test();
+  C<A> c = C(B());
+  if (c._x is B) {
+    c._x.foo();
+  }
+  c.test();
 }

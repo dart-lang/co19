@@ -1,4 +1,4 @@
-// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -13,35 +13,29 @@
 ///   in the library.
 ///
 /// @description Checks that an instance field is promotable if all of the
-/// conditions above are met
+/// conditions above are met. Test an enum
 /// @author sgrekhov22@gmail.com
+/// @issue 53437
 
-// SharedOptions=--enable-experiment=inference-update-2
+enum E {
+  e1, e2;
 
-class C {
-  final int? _x;
-  final int? _y = 42;
-  C(this._x);
+  final int? _x = 42;
 
   void test() {
     if (_x != null) {
       _x.isOdd;
     }
-    if (_y != null) {
-      _y.isOdd;
-    }
   }
 }
 
-C c1 = C(1);
-
 main() {
-  C c = C(42);
-  if (c._x != null) {
-    c._x.isOdd;
+  var e = E.e1;
+  if (e._x != null) {
+    e._x.isEven;
   }
-  if (c._y != null) {
-    c._y.isOdd;
+  E.e1.test();
+  if (E.e1._x != null) {
+    E.e1._x.isEven;
   }
-  c.test();
 }

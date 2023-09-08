@@ -34,6 +34,10 @@ class A {
 }
 
 main() {
-  A().testA();
+  A a = A();
+  if (a._x is int) {
+    a._x.isEven;
+  }
+  a.testA();
   C().testC();
 }

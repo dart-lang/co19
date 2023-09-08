@@ -13,8 +13,8 @@
 ///   in the library.
 ///
 /// @description Checks that an instance field is promotable if all of the
-/// conditions above are met. Test the case when library contains not a final
-/// global getter with the same name
+/// conditions above are met. Test the case when library contains not a global
+/// getter with the same name
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
@@ -33,6 +33,10 @@ class C<T> {
 }
 
 main() {
-  _x;
-  C(42).test();
+  C<num?> c = C(42);
+  if (c._x is int) {
+    c._x.isEven;
+  }
+  c.test();
+  _x; // to remove `not used` hint
 }

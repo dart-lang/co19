@@ -38,6 +38,13 @@ mixin M {
 class MA = Object with M;
 
 main() {
-  A().testA();
-  MA();
+  A a = A();
+  if (a._x is int) {
+    a._x.isEven;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  a.testA();
+  MA()._x; // to remove 'not used' hint
 }

@@ -15,6 +15,7 @@
 /// @description Checks that an instance field is promotable if all of the
 /// conditions above are met. Test that the right variable is promoted
 /// @author sgrekhov22@gmail.com
+/// @issue 53436
 
 // SharedOptions=--enable-experiment=inference-update-2
 
@@ -62,6 +63,18 @@ mixin M on A {
   }
 }
 
+class MA = A with M;
+
 main() {
-  C(42).testC();
+  C c = C(42);
+  if (c._x is int) {
+    c._x.isEven;
+  }
+  c.testC();
+
+  MA ma = MA(42);
+  if (ma._x is int) {
+    ma._x.isEven;
+  }
+  ma.testM();
 }

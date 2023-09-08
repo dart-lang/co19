@@ -12,26 +12,40 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that an instance field is not promotable if it is an
-/// external field (which actually is a getter)
+/// @description Checks that an instance field is promotable if all of the
+/// conditions above are met. Test a generic enum
 /// @author sgrekhov22@gmail.com
-/// @issue 53426
+/// @issue 53437
 
-// SharedOptions=--enable-experiment=inference-update-2
+enum E<T> {
+  e1<num?>(1), e2<int?>(2);
 
-class C {
-  external final int? _x;
+  const E(this._x);
+  final T _x;
 
   void test() {
     if (_x is int) {
       _x.isOdd;
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     }
   }
 }
 
 main() {
-  C().test();
+  var _e1 = E.e1;
+  if (_e1._x is int) {
+    _e1._x.isEven;
+  }
+  E.e1.test();
+  if (E.e1._x is int) {
+    E.e1._x.isEven;
+  }
+
+  var _e2 = E.e2;
+  if (_e2._x != null) {
+    _e2._x.isEven;
+  }
+  E.e2.test();
+  if (E.e2._x != null) {
+    E.e2._x.isEven;
+  }
 }

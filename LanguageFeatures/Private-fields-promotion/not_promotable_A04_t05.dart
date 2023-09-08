@@ -12,32 +12,22 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @descriptionChecks that if there is a non-final field with the same name
-/// in some class in the same library then the field is not promotable
+/// @descriptionChecks that if there is a getter with the same name in some
+/// class in the same library  but in another file then the field is not
+/// promotable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inference-update-2
 
-class A<T> {
-  final T _x;
-  A(this._x);
+library not_promotable_A04_t05_lib;
+
+part "not_promotable_A04_t05_lib.dart";
+
+class A {
+  final int? _x = 42;
 
   void testA() {
-    if (_x is int) {
-      _x.isOdd;
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    }
-  }
-}
-
-class C<T> {
-  T _x;
-  C(this._x);
-
-  void testC() {
-    if (_x is int) {
+    if (_x != null) {
       _x.isOdd;
 //       ^^^^^
 // [analyzer] unspecified
@@ -47,7 +37,7 @@ class C<T> {
 }
 
 main() {
-  A<num?> a = A(1);
+  A a = A();
   if (a._x is int) {
     a._x.isEven;
 //       ^^^^^^
@@ -55,12 +45,5 @@ main() {
 // [cfe] unspecified
   }
   a.testA();
-  C<num> c = C(2);
-  if (c._x is int) {
-    c._x.isEven;
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  c.testC();
+  C();
 }

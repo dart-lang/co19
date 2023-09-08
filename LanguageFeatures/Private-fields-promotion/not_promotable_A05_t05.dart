@@ -37,6 +37,13 @@ class A {
 }
 
 main() {
-  A().testA();
+  A a = A();
+  if (a._x is int) {
+    a._x.isEven;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  a.testA();
   C();
 }

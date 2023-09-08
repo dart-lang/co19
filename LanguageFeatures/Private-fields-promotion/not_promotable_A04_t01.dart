@@ -32,10 +32,17 @@ class A {
 }
 
 class C {
-  int? get _x => 43;
+  int get _x => 43;
 }
 
 main() {
-  A().testA();
-  C();
+  A a = A();
+  if (a._x is int) {
+    a._x.isEven;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  a.testA();
+  C()._x; // to remove 'no used' hint
 }

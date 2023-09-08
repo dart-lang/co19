@@ -33,5 +33,12 @@ class C<T> {
 }
 
 main() {
-  C(42).test();
+  C<int?> c = C(42);
+  if (c._x != null) {
+    c._x.isEven;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  c.test();
 }
