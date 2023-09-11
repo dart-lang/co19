@@ -6,40 +6,32 @@
 /// section 'Class Member Conflicts' occur as well in an extension type
 /// declaration.
 ///
-/// @description Checks that it is a compile-time error if an extension type
-/// declares a constructor named `n` and has a static member with basename `n`.
+/// @description Checks that it is a compile-time error error if an extension
+/// type declares an instance setter with the same basename as the instance
+/// getter but with an incompatible type
 /// @author sgrekhov22@gmail.com
+/// @issue 53489
 
 // SharedOptions=--enable-experiment=inline-class
 
+extension type I(int id) {
+  void set x(String i) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 extension type ET1(int id) {
-  static int get n => 1;
-  ET1.n(this.id);
-//    ^
+  void set x(String i) {}
+  int get x => 42;
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET2(int id) {
-  static int n() => 2;
-  const ET2.n(this.id);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET3(int id) {
-  static int n() => 3;
-  factory ET3.n(int id) = ET3.new;
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET4(int id) {
-  static int n = 1;
-  ET4.n(this.id);
-//    ^
+extension type ET2(int id) implements I {
+  int get x => 42;
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -47,6 +39,4 @@ extension type ET4(int id) {
 main() {
   print(ET1);
   print(ET2);
-  print(ET3);
-  print(ET4);
 }

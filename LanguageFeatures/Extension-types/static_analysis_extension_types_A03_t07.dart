@@ -7,39 +7,36 @@
 /// declaration.
 ///
 /// @description Checks that it is a compile-time error if an extension type
-/// declares a constructor named `n` and has a static member with basename `n`.
+/// declares an instance member whose name conflicts with the representation
+/// variable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 extension type ET1(int id) {
-  static int get n => 1;
-  ET1.n(this.id);
-//    ^
+  void set id(int i) {}
+//         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET2(int id) {
-  static int n() => 2;
-  const ET2.n(this.id);
-//          ^
+  int get id => 42;
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET3(int id) {
-  static int n() => 3;
-  factory ET3.n(int id) = ET3.new;
-//            ^
+  void id() {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET4(int id) {
-  static int n = 1;
-  ET4.n(this.id);
-//    ^
+  void id<T>(String arg, T t) {}
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
