@@ -4,7 +4,8 @@
 
 /// @assertion The representation variable is not a subject to promotion
 ///
-/// @description Check that the representation variable is not promotable
+/// @description Check that a final local variable with the same name as the
+/// representation variable can be promoted
 /// @author sgrekhov22@gmail.com
 /// @issue 53446
 
@@ -12,40 +13,26 @@
 
 extension type ET1(int? id) {
   void test() {
+    final id = this.id;
     if (id != null) {
       id.isOdd;
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     }
   }
 }
 
 extension type ET2<T>(T id) {
   void test() {
+    final id = this.id;
     if (id is int) {
       id.isOdd;
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     }
   }
 }
 
 main() {
   ET1 et1 = ET1(1);
-  if (et1.id != null) {
-    et1.id.isEven;
-//         ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  et1.test();
 
   ET2<num?> et2 = ET2(2);
-  if (et2.id is int) {
-    et2.id.isEven;
-//         ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  et2.test();
 }
