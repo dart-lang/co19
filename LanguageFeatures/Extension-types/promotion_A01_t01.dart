@@ -33,7 +33,7 @@ main() {
   }
 
   ET2<num?> et2 = ET2(2);
-  if (et2.id != null) {
+  if (et2.id is int) {
     et2.id.isEven;
   }
 }
