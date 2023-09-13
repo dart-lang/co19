@@ -12,9 +12,9 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that if there an implicit `noSuchMethod` forwarder with
-/// the same name in the same library then the field is not promotable. Test a
-/// forwarder of a getter
+/// @description Checks that if there is an implicit `noSuchMethod` forwarder
+/// with the same name in the same library then the field is not promotable.
+/// Test a forwarder of a getter
 /// @author sgrekhov22@gmail.com
 
 class A {
