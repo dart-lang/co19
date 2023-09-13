@@ -14,27 +14,20 @@
 // SharedOptions=--enable-experiment=inline-class
 
 extension type ET1(int id) {
-  void set id(int i) {}
-//         ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET2(int id) {
   int get id => 42;
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET3(int id) {
+extension type ET2(int id) {
   void id() {}
 //     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET4(int id) {
+extension type ET3(int id) {
   void id<T>(String arg, T t) {}
 //     ^^
 // [analyzer] unspecified
@@ -45,5 +38,4 @@ main() {
   print(ET1);
   print(ET2);
   print(ET3);
-  print(ET4);
 }

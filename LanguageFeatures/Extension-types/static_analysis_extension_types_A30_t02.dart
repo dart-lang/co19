@@ -19,9 +19,6 @@
 
 extension type I(int id) {
   void set x(String i) {}
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension type ET1(int id) {
