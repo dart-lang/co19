@@ -26,14 +26,14 @@ extension type ET2(int id) {
   static int n() => 2;
 //           ^
 // [analyzer] unspecified
-  int get n => 2;
-//        ^
+  void set n(int v) {}
+//         ^
 // [cfe] unspecified
 }
 
 extension type ET3(int id) {
-  static int n() => 3;
-//           ^
+  static void set n(int x) {}
+//                ^
 // [analyzer] unspecified
   int n() => 3;
 //    ^
@@ -41,11 +41,47 @@ extension type ET3(int id) {
 }
 
 extension type ET4(int id) {
-  static int get n => 4;
-//               ^
+  static int n = 4;
+//           ^
 // [analyzer] unspecified
   int n() => 4;
 //    ^
+// [cfe] unspecified
+}
+
+extension type ET5(int id) {
+//                     ^^
+// [cfe] unspecified
+  static int get id => 5;
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET6(int id) {
+//                     ^^
+// [cfe] unspecified
+  static String id = "6";
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET7(int id) {
+//                     ^^
+// [cfe] unspecified
+  static void id() {}
+//            ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET8(int id) {
+//                     ^^
+// [cfe] unspecified
+  static void set id(int v) {}
+//                ^^
+// [analyzer] unspecified
 // [cfe] unspecified
 }
 
@@ -54,4 +90,8 @@ main() {
   print(ET2);
   print(ET3);
   print(ET4);
+  print(ET5);
+  print(ET6);
+  print(ET7);
+  print(ET8);
 }
