@@ -12,37 +12,34 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that an instance field is promotable if all of the
-/// conditions above are met. Test an extension type
+/// @description Checks that if there are other concrete class instance getters
+/// with the same name in the same library and they are not a final fields then
+/// the field is not promotable. Test the case when there is a member with the
+/// same name in some extension type in the same library. In this case promotion
+/// is allowed
 /// @author sgrekhov22@gmail.com
-/// @issue 53439
 
-// SharedOptions=--enable-experiment=inline-class
+class C<T> {
+  final T _x;
+  C(this._x);
 
-extension type ET1(int? _id) {
-  void test() {
-    if (_id != null) {
-      _id.isOdd;
+  void testC() {
+    if (_x is int) {
+      _x.isOdd;
     }
   }
 }
 
-extension type ET2<T>(T _id) {
-  void test() {
-    if (_id is int) {
-      _id.isOdd;
-    }
-  }
+extension type ET1(int id) {
+  String get _x => "Lily was here";
 }
+
+extension type ET2(int _x) {}
 
 main() {
-  ET1 et1 = ET1(1);
-  if (et1._id != null) {
-    et1._id.isEven;
+  C<num?> c = C(43);
+  if (c._x is int) {
+    c._x.isEven;
   }
-
-  ET2<num?> et2 = ET2(2);
-  if (et2._id is int) {
-    et2._id.isEven;
-  }
+  c.testC();
 }
