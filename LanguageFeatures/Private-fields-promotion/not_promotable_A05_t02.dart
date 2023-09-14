@@ -16,8 +16,6 @@
 /// in some class in the same library then the field is not promotable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 class A<T> {
   final T _x;
   A(this._x);

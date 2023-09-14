@@ -16,8 +16,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 50949
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 class C {
   late final int? _x;
 

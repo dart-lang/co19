@@ -15,8 +15,6 @@
 /// @description Checks that an instance getter is not promotable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 class C<T> {
   T _t;
   T get _x => _t;

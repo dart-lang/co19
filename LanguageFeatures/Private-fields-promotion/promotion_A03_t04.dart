@@ -17,8 +17,6 @@
 /// which contains a class with variable with the same name but not final
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 library promotion_A03_t04;
 
 import "promotion_A03_t04_lib.dart";

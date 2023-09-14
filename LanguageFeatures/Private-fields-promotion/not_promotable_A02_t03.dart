@@ -16,8 +16,6 @@
 /// private
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 enum E {
   e1(1), e2(2);
 

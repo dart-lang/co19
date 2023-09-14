@@ -17,8 +17,6 @@
 /// getter with the same name
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 int get _x => 42;
 
 class C<T> {
