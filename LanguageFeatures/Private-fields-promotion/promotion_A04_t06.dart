@@ -13,9 +13,9 @@
 ///   in the library.
 ///
 /// @description Checks that if there is an implicit `noSuchMethod` forwarder
-/// with the same name in the same library then the field is not promotable.
-/// Test a forwarder of a getter
+/// of a method with the same name then the field is  promotable.
 /// @author sgrekhov22@gmail.com
+/// @issue 53510
 
 class A {
   final int? _x = 42;
@@ -23,15 +23,12 @@ class A {
   void testA() {
     if (_x != null) {
       _x.isOdd;
-//       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     }
   }
 }
 
 class C {
-  void get _x;
+  void _x();
 
   dynamic noSuchMethod(Invocation inv) {}
 }
@@ -40,9 +37,6 @@ main() {
   A a = A();
   if (a._x is int) {
     a._x.isEven;
-//       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
   a.testA();
 }
