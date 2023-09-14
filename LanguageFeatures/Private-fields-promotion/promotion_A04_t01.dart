@@ -19,8 +19,6 @@
 /// allowed
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 class A {}
 
 class C<T> {

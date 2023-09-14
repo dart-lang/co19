@@ -16,8 +16,6 @@
 /// final
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 class C {
   int? _x;
   int? _y = 42;

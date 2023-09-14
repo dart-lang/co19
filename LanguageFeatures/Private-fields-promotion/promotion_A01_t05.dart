@@ -17,8 +17,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53436
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 class A {
   final int? _x;
   A(this._x);

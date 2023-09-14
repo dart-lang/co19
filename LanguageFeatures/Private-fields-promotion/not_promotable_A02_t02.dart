@@ -16,8 +16,6 @@
 /// private. Test type variable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 class C<T> {
   final T x;
   C(this.x);

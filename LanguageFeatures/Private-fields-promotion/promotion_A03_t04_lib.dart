@@ -18,8 +18,6 @@
 /// final in some class in the same library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 library promotion_A03_t04_lib;
 
 class C {

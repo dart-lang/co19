@@ -18,8 +18,6 @@
 /// final fields
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 class A {
   final int? _x;
   A(this._x);

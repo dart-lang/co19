@@ -17,8 +17,6 @@
 /// promotable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 library not_promotable_A05_t05_lib;
 
 part "not_promotable_A05_t05_lib.dart";

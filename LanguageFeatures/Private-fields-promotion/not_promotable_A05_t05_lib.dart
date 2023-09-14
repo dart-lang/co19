@@ -17,8 +17,6 @@
 /// promotable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 part of "not_promotable_A05_t05.dart";
 
 class C {

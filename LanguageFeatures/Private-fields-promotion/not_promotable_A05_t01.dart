@@ -16,8 +16,6 @@
 /// in some class in the same library then the field is not promotable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 class A {
   final int? _x = 42;
 

@@ -17,8 +17,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53426
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 class A {
   void foo() {}
 }

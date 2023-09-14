@@ -16,8 +16,6 @@
 /// conditions above are met. Test type variable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-update-2
-
 class A {}
 class B extends A {
   void foo() {}
