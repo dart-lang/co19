@@ -26,6 +26,7 @@ extension type ET2(int id) {
   static int n() => 2;
 //           ^
 // [analyzer] unspecified
+// [cfe] unspecified
   void set n(int v) {}
 //         ^
 // [cfe] unspecified
@@ -35,6 +36,7 @@ extension type ET3(int id) {
   static void set n(int x) {}
 //                ^
 // [analyzer] unspecified
+// [cfe] unspecifiedß
   int n() => 3;
 //    ^
 // [cfe] unspecified
