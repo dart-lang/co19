@@ -36,7 +36,7 @@ extension type ET3(int id) {
   static void set n(int x) {}
 //                ^
 // [analyzer] unspecified
-// [cfe] unspecifiedß
+// [cfe] unspecified
   int n() => 3;
 //    ^
 // [cfe] unspecified
