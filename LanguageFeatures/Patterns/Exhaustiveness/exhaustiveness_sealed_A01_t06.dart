@@ -5,8 +5,9 @@
 /// @assertion Switch statements and expressions with a sealed class as a
 /// matched type are always exhaustive
 ///
-/// @description Check that it is no compile-time error if matched type of a
-/// switch expression is a sealed class and all cases are exhaustive
+/// @description Check that it is no compile-time error if the matched value
+/// type of a switch expression is a sealed class and the set of cases is
+/// exhaustive
 /// @author sgrekhov22@gmail.com
 
 import "../../../Utils/expect.dart";

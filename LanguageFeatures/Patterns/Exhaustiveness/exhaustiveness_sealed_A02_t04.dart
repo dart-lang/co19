@@ -5,8 +5,9 @@
 /// @assertion Switch statements and expressions with a sealed class as a
 /// matched type are always exhaustive
 ///
-/// @description Check that it is a compile-time error if matched type of a
-/// switch expression is a sealed class and cases are not exhaustive
+/// @description Check that it is a compile-time error if the matched value type
+/// of a switch expression is a sealed class and the set of cases is not
+/// exhaustive
 /// @author sgrekhov22@gmail.com
 /// @issue 53392
 

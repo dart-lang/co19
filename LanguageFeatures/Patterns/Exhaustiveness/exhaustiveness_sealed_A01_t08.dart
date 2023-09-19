@@ -5,8 +5,9 @@
 /// @assertion Switch statements and expressions with a sealed class as a
 /// matched type are always exhaustive
 ///
-/// @description Check that it is no compile-time error if matched type of a
-/// switch expression is a sealed class and all cases are exhaustive
+/// @description Check that it is no compile-time error if the matched value
+/// type of a switch expression is a sealed class and the set of cases is
+/// exhaustive
 /// @author sgrekhov22@gmail.com
 
 import "../../../Utils/expect.dart";
@@ -21,9 +22,9 @@ class F<T> implements M<T> {}
 
 class MS = S<int> with M<int>;
 
-String test1(S<int> s) => switch (s) { C<int> _ => "C", F<int> _ => "F", M<int> _ => "M" };
+String test1(S<int> s) => switch (s) { C<int> _ => "C", M<int> _ => "M" };
 
-String test2(S<int> s) => switch (s) { C<num>() => "C", F<num>() => "F", M<num>() => "M" };
+String test2(S<int> s) => switch (s) { C<num>() => "C", M<num>() => "M" };
 
 void main() {
   String v1 = test1(C<int>());
@@ -39,8 +40,8 @@ void main() {
   Expect.equals("M", v4);
 
   String v5 = test1(F<int>());
-  Expect.equals("F", v5);
+  Expect.equals("M", v5);
 
   String v6 = test2(F<int>());
-  Expect.equals("F", v6);
+  Expect.equals("M", v6);
 }
