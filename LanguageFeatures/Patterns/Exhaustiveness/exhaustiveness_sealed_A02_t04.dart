@@ -9,26 +9,42 @@
 /// of a switch expression is a sealed class and the set of cases is not
 /// exhaustive
 /// @author sgrekhov22@gmail.com
+/// @issue 53392
 
-import "exhaustiveness_lib.dart";
+sealed class S {}
 
-String test1(Face face) => switch (face) {
-//                         ^^^^^^
+mixin M on S {}
+
+class C extends S {}
+
+class F implements M {}
+
+void main() {
+  S s = F();
+  int i1 = switch (s) { C _ => 1 };
+//         ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  LastPersonOnEarth _ => 'LastPersonOnEarth'
-};
 
-String test2(Face face) => switch (face) {
-//                         ^^^^^^
+  int i2 = switch (s) { F _ => 1 };
+//         ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  LastPersonOnEarth _ => 'Jack',
-  Queen _ => 'Queen',
-  King _  => 'King'
-};
 
-main() {
-  test1(King(Suit.club));
-  test2(King(Suit.club));
+  int i3 = switch (s) { M _ => 1 };
+//         ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var i4 = switch (s) { C _ => 1, F _ => 2 };
+//         ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  final i5 = switch (s) { M _ => 1, F _ => 2 };
+//           ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  int i6 = switch (s) { C _ => 1, M _ => 2 }; // Ok, exhaustive
 }

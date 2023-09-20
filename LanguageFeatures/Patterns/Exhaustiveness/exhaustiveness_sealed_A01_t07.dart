@@ -7,22 +7,25 @@
 ///
 /// @description Check that it is no compile-time error if the matched value
 /// type of a switch expression is a sealed class and the set of cases is
-/// exhaustive
+/// exhaustive. Test `base mixin`
 /// @author sgrekhov22@gmail.com
 
 import "../../../Utils/expect.dart";
 
-sealed class A<T> {}
+sealed class S {}
 
-class B<T> extends A<T> {}
+base mixin M on S {}
 
-class C extends A<int> {}
+class C extends S {}
 
-test1(A<String> a) => switch (a) { B _ => 'B'};
+base class F extends S with M {}
 
-test2(A<String> a) => switch (a) { B _ => 'B', C _ => 'C'};
+String test(S s) => switch (s) { C _ => "C", M() => "M" };
 
-main() {
-  Expect.equals("B", test1(B<String>()));
-  Expect.equals("B", test2(B<String>()));
+void main() {
+  String v1 = test(C());
+  Expect.equals("C", v1);
+
+  String v2 = test(F());
+  Expect.equals("M", v2);
 }

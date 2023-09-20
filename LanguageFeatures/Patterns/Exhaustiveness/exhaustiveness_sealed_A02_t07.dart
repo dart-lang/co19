@@ -7,28 +7,27 @@
 ///
 /// @description Check that it is a compile-time error if the matched value type
 /// of a switch expression is a sealed class and the set of cases is not
-/// exhaustive
+/// exhaustive. Test `base mixin`
 /// @author sgrekhov22@gmail.com
 
-import "exhaustiveness_lib.dart";
+sealed class S<T> {}
 
-String test1(Face face) => switch (face) {
-//                         ^^^^^^
+base mixin M<T> on S<T> {}
+
+class C<T> extends S<T> {}
+
+base class F<T> implements M<T> {}
+
+void main() {
+  S s1 = F();
+  int v1 = switch (s1) { C _ => 1, M<int>() => 2 };
+//         ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  LastPersonOnEarth _ => 'LastPersonOnEarth'
-};
 
-String test2(Face face) => switch (face) {
-//                         ^^^^^^
+  S<num> s2 = C<int>();
+  int v2 = switch (s2) { C<int>()  => 1, M<int> _ => 2 };
+//         ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  LastPersonOnEarth _ => 'Jack',
-  Queen _ => 'Queen',
-  King _  => 'King'
-};
-
-main() {
-  test1(King(Suit.club));
-  test2(King(Suit.club));
 }

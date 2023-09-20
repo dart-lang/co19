@@ -12,17 +12,23 @@
 
 import "../../../Utils/expect.dart";
 
-sealed class A<T> {}
+sealed class S {}
 
-class B<T> extends A<T> {}
+mixin M on S {}
 
-class C extends A<int> {}
+class C extends S {}
 
-test1(A<String> a) => switch (a) { B _ => 'B'};
+class F implements M {}
 
-test2(A<String> a) => switch (a) { B _ => 'B', C _ => 'C'};
+void main() {
+  S s = F();
+  int v1 = switch (s) { C _ => 1, M _ => 2 };
+  Expect.equals(2, v1);
 
-main() {
-  Expect.equals("B", test1(B<String>()));
-  Expect.equals("B", test2(B<String>()));
+  s = C();
+  if (1 > 2) {
+    s = F(); // to remove 'dead code' hint below
+  }
+  int v2 = switch (s) { C _ => 1, M _ => 2 };
+  Expect.equals(1, v2);
 }
