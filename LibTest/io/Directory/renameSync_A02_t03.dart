@@ -12,10 +12,10 @@
 /// identifies an existing empty directory then that directory is deleted
 /// before this directory is renamed.
 ///
-/// If newPath identifies an existing file the operation fails and a
+/// If newPath identifies an existing file or link the operation fails and a
 /// [FileSystemException] is thrown.
 ///
-/// @description Checks that if newPath identifies an existing not empty
+/// @description Checks that if [newPath] identifies an existing not empty
 /// directory (contains a link) then a [FileSystemException] is thrown
 /// @author sgrekhov@unipro.ru
 

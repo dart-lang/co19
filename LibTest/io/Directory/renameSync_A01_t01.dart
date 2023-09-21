@@ -12,11 +12,11 @@
 /// identifies an existing empty directory then that directory is deleted
 /// before this directory is renamed.
 ///
-/// If newPath identifies an existing file the operation fails and a
+/// If newPath identifies an existing file or link the operation fails and a
 /// [FileSystemException] is thrown.
 ///
 /// @description Checks that this method synchronously renames this directory
-/// and returns a Directory instance for the renamed directory.
+/// and returns a [Directory] instance for the renamed directory.
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";

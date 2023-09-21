@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -15,9 +15,9 @@
 /// If newPath identifies an existing file or link the operation fails and a
 /// [FileSystemException] is thrown.
 ///
-/// @description Checks that this method returns a `Future<Directory>` that
-/// completes with a [Directory] instance for the renamed directory.
-/// @author sgrekhov@unipro.ru
+/// @description Checks that if [newPath] identifies an existing link, the
+/// operation fails and the future completes with an exception.
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -28,16 +28,15 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
-  String oldName = dir.path;
-  String newName = getTempDirectoryPath(parent: sandbox);
+  Directory srcDir = getTempDirectorySync(parent: sandbox);
+  Directory linkDir = getTempDirectorySync(parent: sandbox);
+  Link link = getTempLinkSync(parent: sandbox, target: linkDir.path);
 
   asyncStart();
-  await dir.rename(newName).then((renamed) {
-    Expect.equals(newName, renamed.path);
-    Expect.isTrue(renamed.existsSync());
-    File oldFile = new File(oldName);
-    Expect.isFalse(oldFile.existsSync());
+  await srcDir.rename(link.path).then((d) {
+    Expect.fail("FileSystemException expected");
+  }, onError: (e) {
+    Expect.isTrue(e is FileSystemException);
     asyncEnd();
   });
 }

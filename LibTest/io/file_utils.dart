@@ -14,7 +14,8 @@ import "../../Utils/expect.dart";
 
 final int eventsTimeout = 45;
 
-Future<Object?> inSandbox(Object? test(Directory sandbox), {Directory? sandbox}) async {
+Future<Object?> inSandbox(Object? test(Directory sandbox),
+    {Directory? sandbox}) async {
   if (sandbox == null) {
     sandbox = getTempDirectorySync();
   }
@@ -27,7 +28,8 @@ Future<Object?> inSandbox(Object? test(Directory sandbox), {Directory? sandbox})
 
 Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory root,
     {required Future<void> createEvent(),
-    required void test(FileSystemEvent? event), bool failIfNoEvent = true,
+    required void test(FileSystemEvent? event),
+    bool failIfNoEvent = true,
     bool ignoreRootEvents = true}) async {
   final eventCompleter = new Completer<FileSystemEvent?>();
   bool first = true;

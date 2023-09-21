@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -27,9 +27,10 @@
 /// first. If [newPath] identifies an existing directory the operation throws a
 /// [FileSystemException].
 ///
-/// @description Checks that if [newPath] identifies an existing file, that file
+/// @description Checks that if [newPath] identifies an existing link, that link
 /// is replaced
-/// @author sgrekhov@unipro.ru
+/// @author sgrekhov22@gmail.com
+/// @issue 53583
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -41,12 +42,12 @@ main() async {
 
 _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
-  File target = getTempFileSync(parent: sandbox);
+  Directory linkDir = getTempDirectorySync(parent: sandbox);
+  Link link = getTempLinkSync(parent: sandbox, target: linkDir.path);
   file.writeAsStringSync("Source");
-  target.writeAsStringSync("Target");
 
-  File renamed = file.renameSync(target.path);
-  Expect.equals(target.path, renamed.path);
+  File renamed = file.renameSync(link.path);
+  Expect.equals(link.path, renamed.path);
   Expect.isTrue(renamed.existsSync());
   Expect.equals("Source", renamed.readAsStringSync());
   Expect.isFalse(file.existsSync());
