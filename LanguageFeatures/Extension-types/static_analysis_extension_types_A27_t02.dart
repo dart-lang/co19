@@ -6,51 +6,40 @@
 /// extension type declaration is abstract.
 ///
 /// @description Checks that it is a compile-time error if an extension type
-/// declares an abstract member.
+/// declares an abstract member. Test the case when an extension type inherits
+/// non-trivial `noSuchMethod()`
 /// @author sgrekhov22@gmail.com
 /// @issue 53320
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type ET1(int id) {
-  abstract int m;
+class A {
+  int x();
+  dynamic noSuchMethod(Invocation invocation) => null;
+}
+
+extension type ET(A id) implements A {
+  int method();
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-extension type ET2<T>(T id) {
-  T get getter;
+  int get getter;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-extension type ET3(int id) {
-  void setter(int x);
+  void set setter(int v);
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-extension type ET4<T>(T id) {
-  void method();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET5(int id) {
-  int operator +(int other);
+  int get getter;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(ET1);
-  print(ET2);
-  print(ET3);
-  print(ET4);
-  print(ET5);
+  print(ET);
 }
