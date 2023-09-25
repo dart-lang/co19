@@ -2,17 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Future<Link> rename(String newPath)
-/// Renames this link.
+/// @assertion Link renameSync(String newPath)
+/// Synchronously renames this link.
 ///
-/// Returns a `Future<Link>` that completes with a [Link] for the renamed link.
+/// Returns a [Link] instance for the renamed link.
 ///
 /// If [newPath] identifies an existing file or link, that entity is removed
-/// first. If [newPath] identifies an existing directory then the future
-/// completes with a [FileSystemException].
+/// first. If [newPath] identifies an existing directory then
+/// [FileSystemException] is thrown.
 ///
-/// @description Checks that if [newPath] identifies an existing link to a
-/// directory, that link is replaced
+/// @description Checks that if [newPath] identifies an existing link to another
+/// link, that link is replaced.
 ///
 /// @note The test should be in the Administrator mode on Windows.
 /// Dart API Spec reads:
@@ -33,16 +33,14 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Link link = getTempLinkSync(parent: sandbox);
-  Link target = getTempLinkSync(parent: sandbox, target: sandbox.path);
-  String oldTarget = link.targetSync();
+  Directory target1 = getTempDirectorySync(parent: sandbox);
+  Link target2 = getTempLinkSync(parent: sandbox, target: sandbox.path);
 
-  asyncStart();
-  await link.rename(target.path).then((renamed) {
-    Expect.equals(target.path, renamed.path);
-    Expect.isTrue(renamed.existsSync());
-    Expect.isFalse(link.existsSync());
-    Expect.equals(oldTarget, renamed.targetSync());
-    asyncEnd();
-  });
+  Link link1 = getTempLinkSync(target: target1.path, parent: sandbox);
+  Link link2 = getTempLinkSync(target: target2.path, parent: sandbox);
+
+  Link renamed = link1.renameSync(link2.path);
+  Expect.equals(link2.path, renamed.path);
+  Expect.isTrue(renamed.existsSync());
+  Expect.isFalse(link1.existsSync());
 }

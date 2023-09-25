@@ -26,10 +26,9 @@
 /// first. If [newPath] identifies an existing directory, the operation fails
 /// and the future completes with a [FileSystemException]
 ///
-/// @description Checks that if [newPath] identifies an existing link to a
-/// directory, that link is replaced
+/// @description Checks that if [newPath] identifies an existing link to another
+/// link, that link is replaced
 /// @author sgrekhov22@gmail.com
-/// @issue 53583
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -41,16 +40,18 @@ main() async {
 
 _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
-  Link link = getTempLinkSync(parent: sandbox, target: sandbox.path);
+  File linkTarget = getTempFileSync(parent: sandbox);
+  Link link1 = getTempLinkSync(parent: sandbox, target: linkTarget.path);
+  Link link2 = getTempLinkSync(parent: sandbox, target: link1.path);
   file.writeAsStringSync("Source");
 
   asyncStart();
-  await file.rename(link.path).then((renamed) {
-    Expect.equals(link.path, renamed.path);
+  await file.rename(link2.path).then((renamed) {
+    Expect.equals(link2.path, renamed.path);
     Expect.isTrue(renamed.existsSync());
     Expect.equals("Source", renamed.readAsStringSync());
     Expect.isFalse(file.existsSync());
-    Expect.isFalse(link.existsSync());
+    Expect.isFalse(link2.existsSync());
     asyncEnd();
   });
 }

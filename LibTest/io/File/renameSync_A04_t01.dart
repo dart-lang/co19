@@ -27,8 +27,8 @@
 /// first. If [newPath] identifies an existing directory the operation throws a
 /// [FileSystemException].
 ///
-/// @description Checks that if [newPath] identifies an existing link, that link
-/// is replaced
+/// @description Checks that if [newPath] identifies an existing link to a
+/// directory, that link is replaced
 /// @author sgrekhov22@gmail.com
 /// @issue 53583
 
@@ -42,8 +42,7 @@ main() async {
 
 _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
-  Directory linkDir = getTempDirectorySync(parent: sandbox);
-  Link link = getTempLinkSync(parent: sandbox, target: linkDir.path);
+  Link link = getTempLinkSync(parent: sandbox, target: sandbox.path);
   file.writeAsStringSync("Source");
 
   File renamed = file.renameSync(link.path);
@@ -51,4 +50,5 @@ _main(Directory sandbox) async {
   Expect.isTrue(renamed.existsSync());
   Expect.equals("Source", renamed.readAsStringSync());
   Expect.isFalse(file.existsSync());
+  Expect.isFalse(link.existsSync());
 }

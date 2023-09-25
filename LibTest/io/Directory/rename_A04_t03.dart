@@ -2,9 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Directory renameSync(String newPath)
-/// Synchronously renames this directory. Returns a Directory instance for the
-/// renamed directory.
+/// @assertion Future<Directory> rename(String newPath)
+/// Renames this directory. Returns a Future<Directory> that completes with a
+/// Directory instance for the renamed directory.
 ///
 /// If [newPath] identifies an existing directory, then the behavior is
 /// platform-specific. On all platforms, a [FileSystemException] is thrown
@@ -15,8 +15,8 @@
 /// If newPath identifies an existing file or link the operation fails and a
 /// [FileSystemException] is thrown.
 ///
-/// @description Checks that if [newPath] identifies an existing link to a
-/// directory, the operation fails and an exception is thrown.
+/// @description Checks that if [newPath] identifies an existing link to another
+/// link, the operation fails and the future completes with an exception.
 /// @author sgrekhov22@gmail.com
 
 import "dart:io";
@@ -29,11 +29,17 @@ main() async {
 
 _main(Directory sandbox) async {
   Directory srcDir = getTempDirectorySync(parent: sandbox);
-  Link link = getTempLinkSync(parent: sandbox, target: sandbox.path);
+  File file = getTempFileSync(parent: sandbox);
+  Link link1 = getTempLinkSync(parent: sandbox, target: file.path);
+  Link link2 = getTempLinkSync(parent: sandbox, target: link1.path);
 
-  Expect.throws(() {
-    srcDir.renameSync(link.path);
-  }, (e) => e is FileSystemException);
-  Expect.isTrue(srcDir.existsSync());
-  Expect.isTrue(link.existsSync());
+  asyncStart();
+  await srcDir.rename(link2.path).then((d) {
+    Expect.fail("FileSystemException expected");
+  }, onError: (e) {
+    Expect.isTrue(e is FileSystemException);
+    Expect.isTrue(srcDir.existsSync());
+    Expect.isTrue(link2.existsSync());
+    asyncEnd();
+  });
 }

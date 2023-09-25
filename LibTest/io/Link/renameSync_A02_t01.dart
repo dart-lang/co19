@@ -11,8 +11,8 @@
 /// first. If [newPath] identifies an existing directory then
 /// [FileSystemException] is thrown.
 ///
-/// @description Checks that if [newPath] identifies an existing link, that link
-/// is replaced.
+/// @description Checks that if [newPath] identifies an existing link to a
+/// directory, that link is replaced.
 ///
 /// @note The test should be in the Administrator mode on Windows.
 /// Dart API Spec reads:

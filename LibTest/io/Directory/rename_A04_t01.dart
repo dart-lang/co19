@@ -15,8 +15,8 @@
 /// If newPath identifies an existing file or link the operation fails and a
 /// [FileSystemException] is thrown.
 ///
-/// @description Checks that if [newPath] identifies an existing link, the
-/// operation fails and the future completes with an exception.
+/// @description Checks that if [newPath] identifies an existing link to a
+/// directory, the operation fails and the future completes with an exception.
 /// @author sgrekhov22@gmail.com
 
 import "dart:io";
@@ -29,14 +29,15 @@ main() async {
 
 _main(Directory sandbox) async {
   Directory srcDir = getTempDirectorySync(parent: sandbox);
-  Directory linkDir = getTempDirectorySync(parent: sandbox);
-  Link link = getTempLinkSync(parent: sandbox, target: linkDir.path);
+  Link link = getTempLinkSync(parent: sandbox, target: sandbox.path);
 
   asyncStart();
   await srcDir.rename(link.path).then((d) {
     Expect.fail("FileSystemException expected");
   }, onError: (e) {
     Expect.isTrue(e is FileSystemException);
+    Expect.isTrue(srcDir.existsSync());
+    Expect.isTrue(link.existsSync());
     asyncEnd();
   });
 }

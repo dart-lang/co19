@@ -11,8 +11,8 @@
 /// first. If [newPath] identifies an existing directory then the future
 /// completes with a [FileSystemException].
 ///
-/// @description Checks that if [newPath] identifies an existing link to a
-/// directory, that link is replaced
+/// @description Checks that if [newPath] identifies an existing link to a file,
+/// that link is replaced
 ///
 /// @note The test should be in the Administrator mode on Windows.
 /// Dart API Spec reads:
@@ -34,7 +34,8 @@ main() async {
 
 _main(Directory sandbox) async {
   Link link = getTempLinkSync(parent: sandbox);
-  Link target = getTempLinkSync(parent: sandbox, target: sandbox.path);
+  File linkFile = getTempFileSync(parent: sandbox);
+  Link target = getTempLinkSync(parent: sandbox, target: linkFile.path);
   String oldTarget = link.targetSync();
 
   asyncStart();
