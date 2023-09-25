@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Let C be a concrete class, let L be the library that contains the
-/// declaration C, L, m of C, and let m be a name. Then m is noSuchMethod
-/// forwarded in C iff one of the following is true:
+/// declaration of C, and let m be a name. Then m is noSuchMethod forwarded in C
+/// iff one of the following is true:
 ///
 /// • Requested in program: C has a non-trivial noSuchMethod, the interface of C
 /// contains a member signature S named m, and C has no concrete member named m
@@ -25,7 +25,8 @@
 ///
 /// @description Checks that for a concrete class, a `noSuchMethod` forwarder is
 /// implicitly induced for each member signature which is `noSuchMethod`
-/// forwarded. Test the case when forwarding is requested in program
+/// forwarded. Test the case when forwarding is requested in program and `C` has
+/// no concrete member named `m`
 /// @author sgrekhov22@gmail.com
 
 import "../../../../Utils/expect.dart";

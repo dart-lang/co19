@@ -23,69 +23,68 @@
 /// For a concrete class C, a noSuchMethod forwarder is implicitly induced for
 /// each member signature which is noSuchMethod forwarded.
 ///
-/// @description Checks that it is a compile-time error if a class or enum
-/// doesn't have a non-trivial `noSuchMethod` instance and has a member without
-/// an implementation
+/// @description Checks that if there is an override of a `noSuchMethod` then
+/// those override is called
 /// @author sgrekhov22@gmail.com
 
+import "../../../../Utils/expect.dart";
+
 abstract mixin class A {
-  String a();
+  String m([String s]);
+  dynamic noSuchMethod(Invocation i) => "A";
 }
 
-mixin class B {
-  noSuchMethod(Invocation i) => "B";
+class B {
+  String m() => "B";
 }
 
-abstract class D {
-  String d();
-  noSuchMethod(Invocation i) => "D";
+class C1 extends A implements B {
+  dynamic noSuchMethod(Invocation i) => "C1";
 }
 
-class C1 implements D {
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C2 implements A, B {
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C2 with A implements B {
+  dynamic noSuchMethod(Invocation i) => "C2";
 }
 
 mixin M on A implements B {}
 
 class MA = A with M;
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
-enum E1 implements D {
-//   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+enum E with A implements B {
   e1, e2;
-}
-
-enum E2 implements A, B {
-//   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  e1, e2;
-}
-
-enum E3 with A implements B {
-//   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-e1, e2;
+  dynamic noSuchMethod(Invocation i) => "E";
 }
 
 main() {
-  print(C1);
-  print(C2);
-  print(MA);
-  print(E1);
-  print(E2);
-  print(E3);
+  Expect.equals("C1", C1().m());
+  Expect.equals("C1", C1().m("s"));
+  A a1 = C1();
+  Expect.equals("C1", a1.m());
+  Expect.equals("C1", a1.m("s"));
+  B b1 = C1();
+  Expect.equals("C1", b1.m());
+
+  Expect.equals("C2", C2().m());
+  Expect.equals("C2", C2().m("s"));
+  A a2 = C2();
+  Expect.equals("C2", a2.m());
+  Expect.equals("C2", a2.m("s"));
+  B b2 = C2();
+  Expect.equals("C2", b2.m());
+
+  Expect.equals("A", MA().m());
+  Expect.equals("A", MA().m("s"));
+  M m = MA();
+  Expect.equals("A", m.m());
+  Expect.equals("A", m.m("s"));
+  A a3 = MA();
+  Expect.equals("A", a3.m("s"));
+
+  Expect.equals("E", E.e1.m());
+  Expect.equals("E", E.e1.m("s"));
+  A a4 = E.e1;
+  Expect.equals("E", a4.m());
+  Expect.equals("E", a4.m("s"));
+  B b3 = E.e1;
+  Expect.equals("E", b3.m());
 }

@@ -23,69 +23,35 @@
 /// For a concrete class C, a noSuchMethod forwarder is implicitly induced for
 /// each member signature which is noSuchMethod forwarded.
 ///
-/// @description Checks that it is a compile-time error if a class or enum
-/// doesn't have a non-trivial `noSuchMethod` instance and has a member without
-/// an implementation
+/// @description Checks that for a concrete class, a `noSuchMethod` forwarder is
+/// implicitly induced for each member signature which is `noSuchMethod`
+/// forwarded. Test the case when forwarding is requested in program and `C` has
+/// no concrete member named `m`
 /// @author sgrekhov22@gmail.com
+
+import "../../../../Utils/expect.dart";
 
 abstract mixin class A {
   String a();
+  noSuchMethod(Invocation i) => "A";
 }
 
-mixin class B {
-  noSuchMethod(Invocation i) => "B";
-}
+class C1 extends A {}
 
-abstract class D {
-  String d();
-  noSuchMethod(Invocation i) => "D";
-}
+class C2 with A {}
 
-class C1 implements D {
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C2 implements A, B {
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-mixin M on A implements B {}
+mixin M on A {}
 
 class MA = A with M;
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
-enum E1 implements D {
-//   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  e1, e2;
-}
-
-enum E2 implements A, B {
-//   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  e1, e2;
-}
-
-enum E3 with A implements B {
-//   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-e1, e2;
+enum E with A {
+  e1,
+  e2;
 }
 
 main() {
-  print(C1);
-  print(C2);
-  print(MA);
-  print(E1);
-  print(E2);
-  print(E3);
+  Expect.equals("A", C1().a());
+  Expect.equals("A", C2().a());
+  Expect.equals("A", MA().a());
+  Expect.equals("A", E.e1.a());
 }

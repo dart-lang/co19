@@ -23,69 +23,53 @@
 /// For a concrete class C, a noSuchMethod forwarder is implicitly induced for
 /// each member signature which is noSuchMethod forwarded.
 ///
-/// @description Checks that it is a compile-time error if a class or enum
-/// doesn't have a non-trivial `noSuchMethod` instance and has a member without
-/// an implementation
+/// @description Checks that it is a compile-time error if a class has an
+/// interface member `m` and doesn't have a valid concrete implementation of a
+/// `m` even if it has a non-trivial `noSuchMethod`
 /// @author sgrekhov22@gmail.com
 
 abstract mixin class A {
-  String a();
+  String m([String s = ""]);
 }
 
 mixin class B {
-  noSuchMethod(Invocation i) => "B";
+  String m() => "B";
 }
 
-abstract class D {
-  String d();
-  noSuchMethod(Invocation i) => "D";
-}
-
-class C1 implements D {
+class C1 extends B implements A {
 //    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  dynamic noSuchMethod(Invocation i) => "C1";
 }
 
-class C2 implements A, B {
+class C2 with B implements A {
 //    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  dynamic noSuchMethod(Invocation i) => "C2";
 }
 
-mixin M on A implements B {}
+mixin M on B implements A {
+  dynamic noSuchMethod(Invocation i) => "M";
+}
 
-class MA = A with M;
+class MA = B with M;
 //    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum E1 implements D {
-//   ^^
+enum E with B implements A {
+//   ^
 // [analyzer] unspecified
 // [cfe] unspecified
   e1, e2;
-}
-
-enum E2 implements A, B {
-//   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  e1, e2;
-}
-
-enum E3 with A implements B {
-//   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-e1, e2;
+  dynamic noSuchMethod(Invocation i) => "E";
 }
 
 main() {
   print(C1);
   print(C2);
   print(MA);
-  print(E1);
-  print(E2);
-  print(E3);
+  print(E);
 }
