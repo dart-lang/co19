@@ -12,7 +12,8 @@
 /// [FileSystemException] is thrown.
 ///
 /// @description Checks that if [newPath] identifies an existing directory the
-/// operation fails and an exception is thrown.
+/// operation fails and an exception is thrown. The link being renamed is a link
+/// to a directory
 ///
 /// @note The test should be in the Administrator mode on Windows.
 /// Dart API Spec reads:

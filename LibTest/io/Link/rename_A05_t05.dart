@@ -12,7 +12,8 @@
 /// completes with a [FileSystemException].
 ///
 /// @description Checks that if [newPath] identifies an existing link to another
-/// link, that link is replaced. The link being renamed is a link to a directory
+/// link, that link is replaced. The link being renamed is a link to a not
+/// existing entity
 ///
 /// @note The test should be in the Administrator mode on Windows.
 /// Dart API Spec reads:
@@ -32,7 +33,7 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Link link = getTempLinkSync(parent: sandbox);
+  Link link = getTempLinkSync(parent: sandbox, target: getTempFileName());
   File linkFile = getTempFileSync(parent: sandbox);
   Link link1 = getTempLinkSync(parent: sandbox, target: linkFile.path);
   Link link2 = getTempLinkSync(parent: sandbox, target: link1.path);

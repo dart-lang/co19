@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -12,7 +12,7 @@
 /// completes with a [FileSystemException].
 ///
 /// @description Checks that if [newPath] identifies an existing link to a file,
-/// that link is replaced
+/// that link is replaced. The link being renamed is a link to a directory
 ///
 /// @note The test should be in the Administrator mode on Windows.
 /// Dart API Spec reads:
@@ -21,8 +21,7 @@
 /// a [FileSystemException] will be raised with `ERROR_PRIVILEGE_NOT_HELD` set
 /// as the errno when this call is made.
 ///
-/// @author sgrekhov@unipro.ru
-/// @issue 30687
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../../../Utils/expect.dart";

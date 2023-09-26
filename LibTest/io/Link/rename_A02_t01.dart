@@ -12,7 +12,8 @@
 /// completes with a [FileSystemException].
 ///
 /// @description Checks that if [newPath] identifies an existing link to a
-/// directory, that link is replaced
+/// directory, that link is replaced. The link being renamed is a link to a
+/// directory
 ///
 /// @note The test should be in the Administrator mode on Windows.
 /// Dart API Spec reads:

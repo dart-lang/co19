@@ -11,8 +11,9 @@
 /// first. If [newPath] identifies an existing directory then the future
 /// completes with a [FileSystemException].
 ///
-/// @description Checks that if [newPath] identifies an existing link to another
-/// link, that link is replaced. The link being renamed is a link to a directory
+/// @description Checks that if [newPath] identifies an existing directory, the
+/// operation fails and the future completes with an exception. The link being
+/// renamed is a link to another link
 ///
 /// @note The test should be in the Administrator mode on Windows.
 /// Dart API Spec reads:
@@ -32,18 +33,15 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Link link = getTempLinkSync(parent: sandbox);
-  File linkFile = getTempFileSync(parent: sandbox);
-  Link link1 = getTempLinkSync(parent: sandbox, target: linkFile.path);
-  Link link2 = getTempLinkSync(parent: sandbox, target: link1.path);
-  String oldTarget = link.targetSync();
+  Link target = getTempLinkSync(parent: sandbox, target: sandbox.path);
+  Link link = getTempLinkSync(parent: sandbox, target: target.path);
+  Directory dir = getTempDirectorySync(parent: sandbox);
 
   asyncStart();
-  await link.rename(link2.path).then((renamed) {
-    Expect.equals(link2.path, renamed.path);
-    Expect.isTrue(renamed.existsSync());
-    Expect.isFalse(link.existsSync());
-    Expect.equals(oldTarget, renamed.targetSync());
+  await link.rename(dir.path).then((renamed) {
+    Expect.fail("FileSystemException expected");
+  }, onError: (e) {
+    Expect.isTrue(e is FileSystemException);
     asyncEnd();
   });
 }
