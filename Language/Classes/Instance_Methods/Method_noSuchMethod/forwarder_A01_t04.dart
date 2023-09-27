@@ -24,8 +24,8 @@
 /// each member signature which is noSuchMethod forwarded.
 ///
 /// @description Checks that it is a compile-time error if a class or enum
-/// doesn't have a non-trivial `noSuchMethod` instance and has a member without
-/// an implementation
+/// doesn't have a non-trivial `noSuchMethod` instance method, and has a member
+/// without an implementation
 /// @author sgrekhov22@gmail.com
 
 abstract mixin class A {

@@ -24,8 +24,8 @@
 /// each member signature which is noSuchMethod forwarded.
 ///
 /// @description Checks that it is a compile-time error if a class has an
-/// interface member `m` and doesn't have a valid concrete implementation of a
-/// `m` even if it has a non-trivial `noSuchMethod`
+/// interface member `m` and doesn't have a valid concrete implementation of `m`
+/// even if it has a non-trivial `noSuchMethod`
 /// @author sgrekhov22@gmail.com
 
 abstract mixin class A {
