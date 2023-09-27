@@ -27,6 +27,13 @@
 /// first. If [newPath] identifies an existing directory the operation throws a
 /// [FileSystemException].
 ///
+/// @note Shortly:
+/// - [File]/[Link] `rename/renameSync` can replace other [File]/[Link] but not
+///   [Directory]
+/// - [Directory] `rename/renameSync` can not replace an existing
+///   [File]/[Link]/[Directory] except on POSIX where it can replace an empty
+///   [Directory]
+///
 /// @description Checks that this method synchronously renames this file and
 /// returns a [File] instance for the renamed file.
 /// @author sgrekhov@unipro.ru

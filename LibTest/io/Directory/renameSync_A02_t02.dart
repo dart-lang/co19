@@ -15,6 +15,13 @@
 /// If newPath identifies an existing file or link the operation fails and a
 /// [FileSystemException] is thrown.
 ///
+/// @note Shortly:
+/// - [File]/[Link] `rename/renameSync` can replace other [File]/[Link] but not
+///   [Directory]
+/// - [Directory] `rename/renameSync` can not replace an existing
+///   [File]/[Link]/[Directory] except on POSIX where it can replace an empty
+///   [Directory]
+///
 /// @description Checks that if [newPath] identifies an existing directory and
 /// this directory is not empty (contains a subdirectory), a
 /// [FileSystemException] is thrown
