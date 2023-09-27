@@ -12,11 +12,18 @@
 /// identifies an existing empty directory then that directory is deleted
 /// before this directory is renamed.
 ///
-/// If newPath identifies an existing file the operation fails and a
+/// If newPath identifies an existing file or link the operation fails and a
 /// [FileSystemException] is thrown.
 ///
-/// @description Checks that this method returns a Future<Directory> that
-/// completes with a Directory instance for the renamed directory.
+/// @note Shortly:
+/// - [File]/[Link] `rename/renameSync` can replace other [File]/[Link] but not
+///   [Directory]
+/// - [Directory] `rename/renameSync` can not replace an existing
+///   [File]/[Link]/[Directory] except on POSIX where it can replace an empty
+///   [Directory]
+///
+/// @description Checks that this method returns a `Future<Directory>` that
+/// completes with a [Directory] instance for the renamed directory.
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";

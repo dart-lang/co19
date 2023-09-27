@@ -3,22 +3,27 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Link renameSync(String newPath)
-/// Synchronously renames this link. Returns a Link instance for the renamed
-/// link.
+/// Synchronously renames this link.
 ///
-/// If newPath identifies an existing link, that link is replaced. If newPath
-/// identifies an existing file or directory the operation fails and an
-/// exception is thrown.
-/// @description Checks that if newPath identifies an existing file the
-/// operation fails and an exception is thrown.
+/// Returns a [Link] instance for the renamed link.
 ///
-/// @note The test should run with the Administrator priveleges on Windows.
-/// Dart API Spec reads:
+/// If [newPath] identifies an existing file or link, that entity is removed
+/// first. If [newPath] identifies an existing directory then
+/// [FileSystemException] is thrown.
+///
+/// @note Shortly:
+/// - [File]/[Link] `rename/renameSync` can replace other [File]/[Link] but not
+///   [Directory]
+/// - [Directory] `rename/renameSync` can not replace an existing
+///   [File]/[Link]/[Directory] except on POSIX where it can replace an empty
+///   [Directory]
 /// In order to create a symbolic link on Windows, Dart must be run in
 /// Administrator mode or the system must have Developer Mode enabled, otherwise
-/// a FileSystemException will be raised with ERROR_PRIVILEGE_NOT_HELD set as
-/// the errno when this call is made.
+/// a [FileSystemException] will be raised with `ERROR_PRIVILEGE_NOT_HELD` set
+/// as the errno when this call is made.
 ///
+/// @description Checks that if [newPath] identifies an existing file, that file
+/// is replaced. The link being renamed is a link to a directory
 /// @author sgrekhov@unipro.ru
 /// @issue 30697
 
@@ -31,12 +36,13 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Link link = getTempLinkSync(parent: sandbox);
+  Directory target = getTempDirectorySync(parent: sandbox);
+  Link link = getTempLinkSync(target: target.path, parent: sandbox);
   File file = getTempFileSync(parent: sandbox);
 
-  Expect.throws(() {
-    link.renameSync(file.path);
-  });
-  Expect.isTrue(link.existsSync());
-  Expect.isTrue(file.existsSync());
+  Link renamed = link.renameSync(file.path);
+  Expect.equals(file.path, renamed.path);
+  Expect.isTrue(renamed.existsSync());
+  Expect.isFalse(link.existsSync());
+  Expect.isFalse(file.existsSync());
 }
