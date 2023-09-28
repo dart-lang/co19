@@ -24,89 +24,67 @@
 /// @author sgrekhov22@gmail.com
 
 class C1 {
-  external void noSuchMethod();
-//              ^^^^^^^^^^^^
+  void noSuchMethod<T>(Invocation i) {}
+//     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class C2 {
-  external void noSuchMethod(Invocation i, String s);
-//              ^^^^^^^^^^^^
+  void noSuchMethod<T extends Invocation>(Invocation i) {}
+//     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class C3 {
-  external void noSuchMethod(Invocation i, {required String s});
-//              ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C4 {
-  external dynamic noSuchMethod(int i);
-//                 ^^^^^^^^^^^^
+  void noSuchMethod<T extends Invocation>(T t) {}
+//     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin M1 {
-  external void noSuchMethod();
-//              ^^^^^^^^^^^^
+  void noSuchMethod<T>(Invocation i) {}
+//     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin M2 {
-  external void noSuchMethod(Invocation i, String s);
-//              ^^^^^^^^^^^^
+  void noSuchMethod<T extends Invocation>(Invocation i) {}
+//     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin M3 {
-  external void noSuchMethod(Invocation i, {required String s});
-//              ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-mixin M4 {
-  external dynamic noSuchMethod(int i);
-//                 ^^^^^^^^^^^^
+  void noSuchMethod<T extends Invocation>(T t) {}
+//     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E1 {
   e1, e2;
-  external void noSuchMethod();
-//              ^^^^^^^^^^^^
+  void noSuchMethod<T>(Invocation i) {}
+//     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E2 {
   e1, e2;
-  external void noSuchMethod(Invocation i, String s);
-//              ^^^^^^^^^^^^
+  void noSuchMethod<T extends Invocation>(Invocation i) {}
+//     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E3 {
   e1, e2;
-  external void noSuchMethod(Invocation i, {required String s});
-//              ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-enum E4 {
-  e1, e2;
-  external dynamic noSuchMethod(int i);
-//                 ^^^^^^^^^^^^
+  void noSuchMethod<T extends Invocation>(T t) {}
+//     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -115,13 +93,4 @@ main() {
   print(C1);
   print(C2);
   print(C3);
-  print(C4);
-  print(M1);
-  print(M2);
-  print(M3);
-  print(M4);
-  print(E1);
-  print(E2);
-  print(E3);
-  print(E4);
 }

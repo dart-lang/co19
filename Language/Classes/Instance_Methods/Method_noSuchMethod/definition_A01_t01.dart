@@ -22,6 +22,7 @@
 /// @description Checks that it is possible to define a `noSuchMethod` which
 /// is a correct override of `noSuchMethod` in `Object`.
 /// @author sgrekhov22@gmail.com
+/// @issue 53640
 
 import "../../../../Utils/expect.dart";
 
@@ -50,6 +51,68 @@ class C5 {
   int noSuchMethod(Invocation i) => 5;
 }
 
+mixin M1 {
+  int m();
+  void noSuchMethod(Invocation i) {}
+}
+
+mixin M2 {
+  int m();
+  Object? noSuchMethod(Invocation i) => 2;
+}
+
+mixin M3 {
+  int m();
+  Null noSuchMethod(Invocation i) => null;
+}
+
+mixin M4 {
+  int m();
+  Never noSuchMethod(Invocation i) => throw 42;
+}
+
+mixin M5 {
+  int m();
+  int noSuchMethod(Invocation i) => 5;
+}
+
+class MA1 = Object with M1;
+class MA2 = Object with M2;
+class MA3 = Object with M3;
+class MA4 = Object with M4;
+class MA5 = Object with M5;
+
+enum E1 {
+  e1, e2;
+  int m();
+  void noSuchMethod(Invocation i) {}
+}
+
+enum E2 {
+  e1, e2;
+  int m();
+  Object? noSuchMethod(Invocation i) => 2;
+}
+
+enum E3 {
+  e1, e2;
+  int m();
+  Null noSuchMethod(Invocation i) => null;
+}
+
+enum E4 {
+  e1, e2;
+  int m();
+  Never noSuchMethod(Invocation i) => throw 42;
+}
+
+enum E5 {
+  e1, e2;
+  int m();
+  int noSuchMethod(Invocation i) => 5;
+}
+
+
 main() {
   Expect.throws(() {
     C1().m();
@@ -62,4 +125,28 @@ main() {
     C4().m();
   });
   Expect.equals(5, C5().m());
+
+  Expect.throws(() {
+    MA1().m();
+  });
+  Expect.equals(2, MA2().m());
+  Expect.throws(() {
+    MA3().m();
+  });
+  Expect.throws(() {
+    MA4().m();
+  });
+  Expect.equals(5, MA5().m());
+
+  Expect.throws(() {
+    E1.e1.m();
+  });
+  Expect.equals(2, E2.e1.m());
+  Expect.throws(() {
+    E3.e1.m();
+  });
+  Expect.throws(() {
+    E4.e1.m();
+  });
+  Expect.equals(5, E5.e1.m());
 }

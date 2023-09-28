@@ -23,44 +23,52 @@
 /// For a concrete class C, a noSuchMethod forwarder is implicitly induced for
 /// each member signature which is noSuchMethod forwarded.
 ///
-/// @description Checks that 'noSuchMethod' forwarder forced by privacy always
-/// throws
+/// @description Checks that for a concrete class, a `noSuchMethod` forwarder is
+/// implicitly induced for each member signature which is `noSuchMethod`
+/// forwarded. Test the case when forwarding is requested in program and `C` has
+/// no concrete member named `m`
 /// @author sgrekhov22@gmail.com
 
 import "no_such_method_lib.dart";
 import "../../../../Utils/expect.dart";
 
-class C extends D0 {
-  String _m(); // This _m is different from D0._m: They behave differently.
-  dynamic noSuchMethod(Invocation i) => "C";
-}
-
-mixin M on D0 {
+class C1 extends D1 {
   String _m();
-  dynamic noSuchMethod(Invocation i) => "M";
 }
 
-class MA = D0 with M;
+class C2 extends D2 {
+  String _m();
+  dynamic noSuchMethod(Invocation i) => "C2";
+}
 
-enum E with D0 {
+mixin M1 on D1 {
+  String _m();
+}
+
+mixin M2 on D2 {
+  String _m();
+  dynamic noSuchMethod(Invocation i) => "M2";
+}
+
+class MA1 = D1 with M1;
+class MA2 = D2 with M2;
+
+enum E1 with D1 {
   e1, e2;
   String _m();
-  dynamic noSuchMethod(Invocation i) => "E";
+}
+
+enum E2 with D2 {
+  e1, e2;
+  String _m();
+  dynamic noSuchMethod(Invocation i) => "E2";
 }
 
 main() {
-  Expect.equals("C", C()._m());
-  Expect.throws(() {C().test();});
-  D0 d1 = C();
-  Expect.throws(() {d1.test();});
-
-  Expect.equals("M", MA()._m());
-  Expect.throws(() {MA().test();});
-  D0 d2 = MA();
-  Expect.throws(() {d2.test();});
-
-  Expect.equals("E", E.e1._m());
-  Expect.throws(() {E.e1.test();});
-  D0 d3 = E.e1;
-  Expect.throws(() {d3.test();});
+  Expect.equals("D1", C1()._m());
+  Expect.equals("C2", C2()._m());
+  Expect.equals("D1", MA1()._m());
+  Expect.equals("M2", MA2()._m());
+  Expect.equals("D1", E1.e1._m());
+  Expect.equals("E2", E2.e2._m());
 }

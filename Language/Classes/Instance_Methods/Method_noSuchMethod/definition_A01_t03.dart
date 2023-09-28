@@ -35,9 +35,42 @@ class C2 {
   dynamic noSuchMethod(covariant Invocation i) => 2;
 }
 
+mixin M1 {
+  int m();
+  external dynamic noSuchMethod(Invocation i);
+}
+
+mixin M2 {
+  int m();
+  dynamic noSuchMethod(covariant Invocation i) => 2;
+}
+
+class MA1 = Object with M1;
+class MA2 = Object with M2;
+
+enum E1 {
+  e1, e2;
+  int m();
+  external dynamic noSuchMethod(Invocation i);
+}
+
+enum E2 {
+  e1, e2;
+  int m();
+  dynamic noSuchMethod(covariant Invocation i) => 2;
+}
+
 main() {
   Expect.throws(() {
     C1().m();
   });
   Expect.equals(2, C2().m());
+  Expect.throws(() {
+    MA1().m();
+  });
+  Expect.equals(2, MA2().m());
+  Expect.throws(() {
+    E1.e1.m();
+  });
+  Expect.equals(2, E2.e2.m());
 }
