@@ -110,6 +110,7 @@ enum E4 {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
 main() {
   print(C1);
   print(C2);
