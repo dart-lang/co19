@@ -46,7 +46,7 @@ extension type ET1(int id) {
 // [cfe] unspecified
 }
 
-extension type V2<T>(T id) {
+extension type ET2<T>(T id) {
   @override
   IntET get hashCode => IntET(0);
 //          ^^^^^^^^
@@ -72,7 +72,7 @@ extension type V2<T>(T id) {
 // [cfe] unspecified
 
   @override
-  BoolET operator ==(V2<T> other) => BoolET(false);
+  BoolET operator ==(ET2<T> other) => BoolET(false);
 //                ^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -24,6 +24,8 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53640
 
+// Requirements=nnbd-strong
+
 import "../../../../Utils/expect.dart";
 
 class C1 {

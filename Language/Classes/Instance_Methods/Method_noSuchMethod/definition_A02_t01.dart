@@ -22,6 +22,7 @@
 /// @description Checks that it is a compile-time error to define a
 /// `noSuchMethod` which is not a correct override of `noSuchMethod` in `Object`
 /// @author sgrekhov22@gmail.com
+/// @issue 53643
 
 class C1 {
   void noSuchMethod() {}
