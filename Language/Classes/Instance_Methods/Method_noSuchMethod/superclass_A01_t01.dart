@@ -9,7 +9,9 @@
 /// @description Checks that it is a compile-time error if the name `m` is
 /// `noSuchMethod` forwarded in a concrete class `C`, and a superclass of `C`
 /// has an accessible concrete declaration of `m` which is not a `noSuchMethod`
-/// forwarder.
+/// forwarder. Note that in this situation the inherited `m` must have a
+/// signature which is not a correct override of the signature of `m` in this
+/// class, otherwise `m` wouldn't be `noSuchMethod` forwarded.
 /// @author sgrekhov22@gmail.com
 
 mixin class A {

@@ -31,7 +31,7 @@ import "no_such_method_lib.dart";
 import "../../../../Utils/expect.dart";
 
 class C extends D0 {
-  String _m();
+  String _m(); // This _m is different from D0._m: They behave differently.
   dynamic noSuchMethod(Invocation i) => "C";
 }
 
