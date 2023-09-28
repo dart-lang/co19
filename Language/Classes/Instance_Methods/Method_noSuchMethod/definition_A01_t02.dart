@@ -37,7 +37,40 @@ class C2 {
   dynamic noSuchMethod(Invocation i, {int x = 2}) => x;
 }
 
+mixin M1 {
+  int m();
+  dynamic noSuchMethod(Invocation i, [int x = 1]) {
+    return x;
+  }
+}
+
+mixin M2 {
+  int m();
+  dynamic noSuchMethod(Invocation i, {int x = 2}) => x;
+}
+
+class MA1 = Object with M1;
+class MA2 = Object with M2;
+
+enum E1 {
+  e1, e2;
+  int m();
+  dynamic noSuchMethod(Invocation i, [int x = 1]) {
+    return x;
+  }
+}
+
+enum E2 {
+  e1, e2;
+  int m();
+  dynamic noSuchMethod(Invocation i, {int x = 2}) => x;
+}
+
 main() {
   Expect.equals(1, C1().m());
   Expect.equals(2, C2().m());
+  Expect.equals(1, MA1().m());
+  Expect.equals(2, MA2().m());
+  Expect.equals(1, E1.e1.m());
+  Expect.equals(2, E2.e2.m());
 }

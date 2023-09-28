@@ -51,9 +51,77 @@ class C4 {
 // [cfe] unspecified
 }
 
+mixin M1 {
+  void noSuchMethod() {}
+//     ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+mixin M2 {
+  void noSuchMethod(Invocation i, String s) {}
+//     ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+mixin M3 {
+  void noSuchMethod(Invocation i, {required String s}) {}
+//     ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+mixin M4 {
+  dynamic noSuchMethod(int i) => i;
+//        ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E1 {
+  e1, e2;
+  void noSuchMethod() {}
+//     ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E2 {
+  e1, e2;
+  void noSuchMethod(Invocation i, String s) {}
+//     ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E3 {
+  e1, e2;
+  void noSuchMethod(Invocation i, {required String s}) {}
+//     ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E4 {
+  e1, e2;
+  dynamic noSuchMethod(int i) => i;
+//        ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(C1);
   print(C2);
   print(C3);
   print(C4);
+  print(M1);
+  print(M2);
+  print(M3);
+  print(M4);
+  print(E1);
+  print(E2);
+  print(E3);
+  print(E4);
 }

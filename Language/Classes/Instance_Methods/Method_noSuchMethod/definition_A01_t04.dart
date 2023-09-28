@@ -22,16 +22,36 @@
 /// @description Checks that it is possible to define a `noSuchMethod` which
 /// is a correct override of `noSuchMethod` in `Object`.
 /// @author sgrekhov22@gmail.com
+/// @issue 53640
 
 import "../../../../Utils/expect.dart";
 
-class C1 {
+class C {
+  int m();
+  dynamic noSuchMethod(covariant Object o) => o;
+}
+
+mixin M {
+  int m();
+  dynamic noSuchMethod(covariant Object o) => o;
+}
+
+class MA = Object with M;
+
+enum E {
+  e1, e2;
   int m();
   dynamic noSuchMethod(covariant Object o) => o;
 }
 
 main() {
   Expect.throws(() {
-    C1().m();
+    C().m();
+  });
+  Expect.throws(() {
+    print(MA().m());
+  });
+  Expect.throws(() {
+    E.e1.m();
   });
 }
