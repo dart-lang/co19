@@ -56,4 +56,5 @@ main() {
   var e1 = E.e1.m;
 //              ^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
+}
