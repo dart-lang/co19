@@ -78,7 +78,7 @@ main() {
   c21.expectStaticType<Exactly<int Function(int, [String])>>();
   Expect.equals(42, c21(1, "1"));
 
-  var c22 = C1().m2;
+  var c22 = C2().m2;
   c22.expectStaticType<Exactly<int Function(int, {String s})>>();
   Expect.equals(42, c22(1, s: "1"));
 

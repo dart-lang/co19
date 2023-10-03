@@ -11,11 +11,12 @@
 /// @description Checks that when a `noSuchMethod` forwarder is a method it can
 /// be closurized using a property extraction
 /// @author sgrekhov22@gmail.com
+/// @issue 53677
 
 import "../../../../Utils/expect.dart";
 import "../../../../Utils/static_type_helper.dart";
 
-abstract mixin class A {
+class C {
   String m1(int v, [String s = "s1"]);
 
   String m2(int v, {String s});
@@ -23,67 +24,59 @@ abstract mixin class A {
   String m3(int v, {required String s});
 
   String m4(int v, [covariant String s]);
-}
 
-class C1 extends A {
   dynamic noSuchMethod(Invocation inv) {
     return "C1";
   }
 }
 
-class C2 with A {
-  dynamic noSuchMethod(Invocation inv) {
-    return "C2";
-  }
-}
+mixin M {
+  String m1(int v, [String s = "s1"]);
 
-mixin M on A {
+  String m2(int v, {String s});
+
+  String m3(int v, {required String s});
+
+  String m4(int v, [covariant String s]);
+
   dynamic noSuchMethod(Invocation inv) {
     return "M";
   }
 }
 
-class MA = A with M;
+class MA = Object with M;
 
-enum E with A {
+enum E {
   e1, e2;
+  String m1(int v, [String s = "s1"]);
+
+  String m2(int v, {String s});
+
+  String m3(int v, {required String s});
+
+  String m4(int v, [covariant String s]);
+
   dynamic noSuchMethod(Invocation inv) {
     return "E";
   }
 }
 
 main() {
-  var c11 = C1().m1;
-  c11.expectStaticType<Exactly<String Function(int, [String])>>();
-  Expect.equals("C1", c11(1, "1"));
+  var c1 = C().m1;
+  c1.expectStaticType<Exactly<String Function(int, [String])>>();
+  Expect.equals("C1", c1(1, "1"));
 
-  var c12 = C1().m2;
-  c12.expectStaticType<Exactly<String Function(int, {String s})>>();
-  Expect.equals("C1", c12(1, s: "1"));
+  var c2 = C().m2;
+  c2.expectStaticType<Exactly<String Function(int, {String s})>>();
+  Expect.equals("C1", c2(1, s: "1"));
 
-  var c13 = C1().m3;
-  c13.expectStaticType<Exactly<String Function(int, {required String s})>>();
-  Expect.equals("C1", c13(1, s: "1"));
+  var c3 = C().m3;
+  c3.expectStaticType<Exactly<String Function(int, {required String s})>>();
+  Expect.equals("C1", c3(1, s: "1"));
 
-  var c14 = C1().m4;
-  c14.expectStaticType<Exactly<String Function(int, [String s])>>();
-  Expect.equals("C1", c14(1, "1"));
-
-  var c21 = C2().m1;
-  c21.expectStaticType<Exactly<String Function(int, [String])>>();
-  Expect.equals("C2", c21(1, "1"));
-
-  var c22 = C2().m2;
-  c22.expectStaticType<Exactly<String Function(int, {String s})>>();
-  Expect.equals("C2", c22(1, s: "1"));
-
-  var c23 = C2().m3;
-  c23.expectStaticType<Exactly<String Function(int, {required String s})>>();
-  Expect.equals("C2", c23(1, s: "1"));
-
-  var c24 = C2().m4;
-  c24.expectStaticType<Exactly<String Function(int, [String s])>>();
-  Expect.equals("C2", c24(1, "1"));
+  var c4 = C().m4;
+  c4.expectStaticType<Exactly<String Function(int, [String s])>>();
+  Expect.equals("C1", c4(1, "1"));
 
   var m1 = MA().m1;
   m1.expectStaticType<Exactly<String Function(int, [String])>>();
