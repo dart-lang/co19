@@ -8,15 +8,11 @@
 /// functions, because the first one uses the second before declaration.
 /// @author ilya
 
-
 main() {
   evenHandler(x) => x.isEven ? 1 : oddHandler(x);
 //                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
   oddHandler(x) => x.isOdd ? 1 : evenHandler(x);
-//^
-// [cfe] unspecified
-
   evenHandler(1);
 }
