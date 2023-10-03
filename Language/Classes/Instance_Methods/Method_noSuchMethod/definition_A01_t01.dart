@@ -114,7 +114,6 @@ enum E5 {
   int noSuchMethod(Invocation i) => 5;
 }
 
-
 main() {
   Expect.throws(() {
     C1().m();
