@@ -10,13 +10,10 @@
 /// before its initializer.
 /// @author kaigorodov
 
-
 main() {
   var v = w;
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   var w;
-//    ^
-// [cfe] unspecified
 }
