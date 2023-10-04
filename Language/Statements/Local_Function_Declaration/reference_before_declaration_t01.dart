@@ -12,15 +12,10 @@
 /// @reviewer rodionov
 /// @note renamed from 04_Local_Function_Declaration_A02_t02
 
-
 main() {
-  try {
-    func();
-//  ^
+  func();
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
-  } catch (e) {}
   void func() {}
-//     ^
-// [cfe] unspecified
 }
