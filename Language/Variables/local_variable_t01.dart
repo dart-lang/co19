@@ -13,15 +13,10 @@
 /// @author kaigorodov
 /// @reviewer rodionov
 
-
 main() {
-  try {
-    var v = w;
-//          ^
+  var v = w;
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    var w;
-//      ^
-// [cfe] unspecified
-  } catch (_) {}
+  var w;
 }

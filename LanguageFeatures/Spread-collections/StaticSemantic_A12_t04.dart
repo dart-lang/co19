@@ -9,13 +9,10 @@
 /// references.
 /// @author iarkh@unipro.ru
 
-
 main() {
   Set s1 = {...s2};
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set s2 = {...s1};
-//    ^
-// [cfe] unspecified
 }

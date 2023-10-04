@@ -9,13 +9,10 @@
 /// references.
 /// @author iarkh@unipro.ru
 
-
 main() {
   Map m1 = {...m2};
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map m2 = {...m1};
-//    ^
-// [cfe] unspecified
 }
