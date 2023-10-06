@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -34,9 +34,11 @@
 /// link containing the string `target`. If `target` is a relative path, it will
 /// be interpreted relative to the directory containing the link.
 ///
-/// @description Checks that if `target` exists then the type of the link will
-/// match the type `target`. Test [Link] pointing to a [Directory] as a target
-/// @author sgrekhov@unipro.ru
+/// @description Checks that relative paths to the target will be interpreted
+/// relative to the directory containing the link. Test relative path to [Link]
+/// pointing to a not existing entity
+/// @author sgrekhov22@gmail.com
+/// @issue 53684
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -47,12 +49,34 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Link target = getTempLinkSync(parent: sandbox, target: sandbox.path);
-  Link link = Link(getTempFilePath(parent: sandbox));
+  String notExisting = getTempFileName();
+  String target = getTempFileName(extension: "lnk");
+  Link targetLink =
+      getTempLinkSync(parent: sandbox, target: notExisting, name: target);
+  Link link = Link(sandbox.path +
+      Platform.pathSeparator +
+      getTempFileName(extension: "lnk"));
   asyncStart();
-  await link.create(target.path).then((Link created) {
-    Expect.equals(FileSystemEntityType.directory,
-        FileSystemEntity.typeSync(created.path));
+  await link.create(target).then((Link created) {
+    Expect.equals(target, created.targetSync());
+    if (Platform.isWindows) {
+      Expect.equals(
+          FileSystemEntityType.link, FileSystemEntity.typeSync(created.path));
+    } else {
+      Expect.equals(FileSystemEntityType.notFound,
+          FileSystemEntity.typeSync(created.path));
+    }
+    // Now create a directory and into it the file with the name as link's
+    // target. Then move the link into the directory. Its relative target should
+    // point to that file after it
+    Directory dir = getTempDirectorySync(parent: sandbox);
+    File file = File(dir.path + Platform.pathSeparator + target);
+    file.createSync();
+    Link moved =
+        created.renameSync(dir.path + Platform.pathSeparator + "moved.lnk");
+    Expect.equals(target, moved.targetSync());
+    Expect.equals(
+        FileSystemEntityType.file, FileSystemEntity.typeSync(moved.path));
     asyncEnd();
   });
 }
