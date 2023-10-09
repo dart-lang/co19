@@ -13,7 +13,7 @@
 ///   in the library.
 ///
 /// @description Checks that if there are other concrete class instance getters
-/// with the same name in the same library and they are not a final fields then
+/// with the same name in the same library and they are not final fields then
 /// the field is not promotable. Test that in this case extension type
 /// representation variable is still promotable
 /// @author sgrekhov22@gmail.com

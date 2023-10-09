@@ -13,7 +13,7 @@
 ///   in the library.
 ///
 /// @description Checks that if there are other concrete class instance getters
-/// with the same name in the same library and they are not a final fields then
+/// with the same name in the same library and they are not final fields then
 /// the field is not promotable. Test the case when there is a member with the
 /// same name in some extension type in the same library. In this case promotion
 /// is allowed
@@ -21,6 +21,8 @@
 /// @issue 53436
 
 // SharedOptions=--enable-experiment=inline-class
+
+import "dart:math";
 
 mixin M {
   final num? _x = 42;
@@ -35,7 +37,7 @@ mixin M {
 class MA = Object with M;
 
 extension type ET1(int id) {
-  String get _x => "Lily was here";
+  num? get _x => Random().nextBool() ? null : 42;
 }
 
 extension type ET2(int _x) {}
