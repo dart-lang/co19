@@ -12,36 +12,45 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that if there are other concrete class instance getters
-/// with the same name in the same library and they are not final fields then
-/// the field is not promotable. Test the case when there is a member with the
-/// same name in some extension type in the same library. In this case promotion
-/// is allowed
+/// @description Checks that an extension type representation variable is not
+/// promotable if it is not private
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
-class C<T> {
-  final T _x;
-  C(this._x);
-
-  void testC() {
-    if (_x is int) {
-      _x.isOdd;
+extension type ET1(int? id) {
+  void test() {
+    if (id != null) {
+      id.isOdd;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     }
   }
 }
 
-extension type ET1(int id) {
-  String get _x => "Lily was here";
+extension type ET2<T extends num>(T id) {
+  void test() {
+    if (id is int) {
+      id.isOdd;
+//       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
 }
 
-extension type ET2(int _x) {}
-
 main() {
-  C<num?> c = C(43);
-  if (c._x is int) {
-    c._x.isEven;
+  ET1 et1 = ET1(42);
+  if (et1.id != null) {
+    et1.x.isEven;
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
-  c.testC();
+  ET2 et2 = ET2<num>(42);
+  if (et2.id is int) {
+    et2.id.isEven;
+//         ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }

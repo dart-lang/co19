@@ -18,14 +18,19 @@
 /// same name in some extension type in the same library. In this case promotion
 /// is allowed
 /// @author sgrekhov22@gmail.com
+/// @issue 53437, language#3326
 
 // SharedOptions=--enable-experiment=inline-class
 
-class C<T> {
-  final T _x;
-  C(this._x);
+import "dart:math";
 
-  void testC() {
+enum E {
+  e1(1), e2(2);
+  final num? _x;
+
+  const E(this._x);
+
+  void testE() {
     if (_x is int) {
       _x.isOdd;
     }
@@ -33,15 +38,14 @@ class C<T> {
 }
 
 extension type ET1(int id) {
-  String get _x => "Lily was here";
+  num? get _x => Random().nextBool() ? null : 42;
 }
 
 extension type ET2(int _x) {}
 
 main() {
-  C<num?> c = C(43);
-  if (c._x is int) {
-    c._x.isEven;
+  if (E.e1._x is int) {
+    E.e1._x.isEven;
   }
-  c.testC();
+  E.e1.testE();
 }
