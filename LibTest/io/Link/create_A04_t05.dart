@@ -56,7 +56,7 @@ _main(Directory sandbox) async {
   await link.create(target.path).then((Link created) {
     if (Platform.isWindows) {
       Expect.equals(
-          FileSystemEntityType.file, FileSystemEntity.typeSync(created.path));
+          FileSystemEntityType.link, FileSystemEntity.typeSync(created.path));
     } else {
       Expect.equals(FileSystemEntityType.notFound,
           FileSystemEntity.typeSync(created.path));
