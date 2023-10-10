@@ -9,9 +9,9 @@
 /// because this is an invocation of a function object (and they do not override
 /// noSuchMethod)
 ///
-/// @description Checks that `Object.noSuchMethod` invocked in case when
-/// torn-off forwarder is called with an actual argument list which does not
-/// match the formal parameter list
+/// @description Checks that `Object.noSuchMethod` invoked when a torn-off
+/// forwarder is called with an actual argument list which does not match the
+/// formal parameter list
 /// @author sgrekhov22@gmail.com
 /// @issue 53676
 
