@@ -35,6 +35,7 @@ class C1 extends A {
 
 class C2 with A {
   test() {
+    // Superclass of `C2 with A` is abstract, so there is no `super.m1/m2()`
     Expect.equals(42, this.m1(1, "1"));
     Expect.equals(42, this.m2(2, s: "2"));
   }
@@ -54,6 +55,7 @@ class MA = A with M;
 enum E with A {
   e1, e2;
   test() {
+    // Superclass of `E with A` is abstract, so there is no `super.m1/m2()`
     Expect.equals(42, this.m1(1, "1"));
     Expect.equals(42, this.m2(2, s: "2"));
   }

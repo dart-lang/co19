@@ -24,9 +24,8 @@
 /// each member signature which is noSuchMethod forwarded.
 ///
 /// @description Checks that for a concrete class, a `noSuchMethod` forwarder is
-/// implicitly induced for each member signature which is `noSuchMethod`
-/// forwarded. Test the case when forwarding is requested in program and `C` has
-/// no concrete member named `m`. Test setters
+/// invoked if `C` has no concrete member named `m`. Expect run-time error if a
+/// forwarder of a setter is called with a wrong type.
 /// @author sgrekhov22@gmail.com
 
 import "../../../../Utils/expect.dart";
@@ -114,34 +113,24 @@ enum E3 with A {
 }
 
 main() {
-  C1().m = "";
-  Expect.equals("C1", log);
-  log = "";
-  C2().a = "";
-  Expect.equals("C2", log);
-  log = "";
-  C3().a = "";
-  Expect.equals("C3", log);
-  log = "";
-  C4().a = "";
-  Expect.equals("C4", log);
-  log = "";
-  MA1().m = "";
-  Expect.equals("M1", log);
-  log = "";
-  MA2().a = "";
-  Expect.equals("M2", log);
-  log = "";
-  MA3().a = "";
-  Expect.equals("M3", log);
-  log = "";
-  E1.e1.m = "";
-  Expect.equals("E1", log);
-  log = "";
-  E2.e1.a = "";
-  Expect.equals("E2", log);
-  log = "";
-  E3.e1.a = "";
-  Expect.equals("E3", log);
-  log = "";
+  Expect.throws(() {C1().m = 1 as dynamic;});
+  Expect.equals("", log);
+  Expect.throws(() {C2().a = 2 as dynamic;});
+  Expect.equals("", log);
+  Expect.throws(() {C3().a = 3 as dynamic;});
+  Expect.equals("", log);
+  Expect.throws(() {C4().a = 4 as dynamic;});
+  Expect.equals("", log);
+  Expect.throws(() {MA1().m = 11 as dynamic;});
+  Expect.equals("", log);
+  Expect.throws(() {MA2().a = 12 as dynamic;});
+  Expect.equals("", log);
+  Expect.throws(() {MA3().a = 13 as dynamic;});
+  Expect.equals("", log);
+  Expect.throws(() {E1.e1.m = 21 as dynamic;});
+  Expect.equals("", log);
+  Expect.throws(() {E2.e2.a = 22 as dynamic;});
+  Expect.equals("", log);
+  Expect.throws(() {E3.e1.a = 23 as dynamic;});
+  Expect.equals("", log);
 }

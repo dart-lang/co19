@@ -24,61 +24,44 @@
 /// each member signature which is noSuchMethod forwarded.
 ///
 /// @description Checks that for a concrete class, a `noSuchMethod` forwarder is
-/// implicitly induced for each member signature which is `noSuchMethod`
-/// forwarded. Test the case when forwarding is requested in program and `C` has
-/// no concrete member named `m`. Test setters
+/// invoked if `C` has no concrete member named `m`. Expect run-time error if a
+/// forwarder returns not expected run-time type. Test getters
 /// @author sgrekhov22@gmail.com
 
 import "../../../../Utils/expect.dart";
 
-String log = "";
-
 abstract mixin class A {
-  void set a(String s);
+  String get a;
 }
 
 class C1 {
-  void set m(String s);
-  noSuchMethod(Invocation i) {
-    log = "C1";
-  }
+  String get m;
+  noSuchMethod(Invocation i) => 1;
 }
 
 class C2 extends A {
-  dynamic noSuchMethod(Invocation i) {
-    log = "C2";
-  }
+  dynamic noSuchMethod(Invocation i) => 2;
 }
 
 class C3 implements A {
-  dynamic noSuchMethod(Invocation i) {
-    log = "C3";
-  }
+  dynamic noSuchMethod(Invocation i) => 3;
 }
 
 class C4 with A {
-  dynamic noSuchMethod(Invocation i) {
-    log = "C4";
-  }
+  dynamic noSuchMethod(Invocation i) => 4;
 }
 
 mixin M1 {
-  void set m(String s);
-  noSuchMethod(Invocation i) {
-    log = "M1";
-  }
+  String get m;
+  noSuchMethod(Invocation i) => 11;
 }
 
 mixin M2 on A {
-  dynamic noSuchMethod(Invocation i) {
-    log = "M2";
-  }
+  dynamic noSuchMethod(Invocation i) => 12;
 }
 
 mixin M3 implements A {
-  dynamic noSuchMethod(Invocation i) {
-    log = "M3";
-  }
+  dynamic noSuchMethod(Invocation i) => 13;
 }
 
 class MA1 = Object with M1;
@@ -89,59 +72,33 @@ enum E1 {
   e1,
   e2;
 
-  void set m(String s);
-  noSuchMethod(Invocation i) {
-    log = "E1";
-  }
+  String get m;
+  noSuchMethod(Invocation i) => 21;
 }
 
 enum E2 implements A {
   e1,
   e2;
 
-  dynamic noSuchMethod(Invocation i) {
-    log = "E2";
-  }
+  dynamic noSuchMethod(Invocation i) => 22;
 }
 
 enum E3 with A {
   e1,
   e2;
 
-  dynamic noSuchMethod(Invocation i) {
-    log = "E3";
-  }
+  dynamic noSuchMethod(Invocation i) => 23;
 }
 
 main() {
-  C1().m = "";
-  Expect.equals("C1", log);
-  log = "";
-  C2().a = "";
-  Expect.equals("C2", log);
-  log = "";
-  C3().a = "";
-  Expect.equals("C3", log);
-  log = "";
-  C4().a = "";
-  Expect.equals("C4", log);
-  log = "";
-  MA1().m = "";
-  Expect.equals("M1", log);
-  log = "";
-  MA2().a = "";
-  Expect.equals("M2", log);
-  log = "";
-  MA3().a = "";
-  Expect.equals("M3", log);
-  log = "";
-  E1.e1.m = "";
-  Expect.equals("E1", log);
-  log = "";
-  E2.e1.a = "";
-  Expect.equals("E2", log);
-  log = "";
-  E3.e1.a = "";
-  Expect.equals("E3", log);
-  log = "";
+  Expect.throws(() {C1().m;}, (e) => e is TypeError);
+  Expect.throws(() {C2().a;}, (e) => e is TypeError);
+  Expect.throws(() {C3().a;}, (e) => e is TypeError);
+  Expect.throws(() {C4().a;}, (e) => e is TypeError);
+  Expect.throws(() {MA1().m;}, (e) => e is TypeError);
+  Expect.throws(() {MA2().a;}, (e) => e is TypeError);
+  Expect.throws(() {MA3().a;}, (e) => e is TypeError);
+  Expect.throws(() {E1.e1.m;}, (e) => e is TypeError);
+  Expect.throws(() {E2.e1.a;}, (e) => e is TypeError);
+  Expect.throws(() {E3.e1.a;}, (e) => e is TypeError);
 }
