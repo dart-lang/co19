@@ -48,24 +48,29 @@ main() {
   Expect.isFalse(A().g);
   A().s = true;
   Expect.isFalse(log);
+  Expect.isTrue(A().m is bool Function()); // tear-off, no `noSuchMethod` invoked
 
   Expect.isTrue(C1().m());
   Expect.isFalse(C1().g);
   C1().s = true;
   Expect.isFalse(log);
+  Expect.isTrue(C1().m is bool Function());
 
   Expect.isTrue(C2().m());
   Expect.isFalse(C2().g);
   C2().s = true;
   Expect.isFalse(log);
+  Expect.isTrue(C2().m is bool Function());
 
   Expect.isTrue(MA().m());
   Expect.isFalse(MA().g);
   MA().s = true;
   Expect.isFalse(log);
+  Expect.isTrue(MA().m is bool Function());
 
   Expect.isTrue(E.e1.m());
   Expect.isFalse(E.e1.g);
   E.e1.s = true;
   Expect.isFalse(log);
+  Expect.isTrue(E.e1.m is bool Function());
 }
