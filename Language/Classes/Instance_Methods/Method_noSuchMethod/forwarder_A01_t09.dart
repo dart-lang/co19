@@ -113,24 +113,24 @@ enum E3 with A {
 }
 
 main() {
-  Expect.throws(() {C1().m = 1 as dynamic;});
+  Expect.throws(() {(C1() as dynamic).m = 1;}, (e) => e is TypeError);
   Expect.equals("", log);
-  Expect.throws(() {C2().a = 2 as dynamic;});
+  Expect.throws(() {(C2() as dynamic).a = 2;}, (e) => e is TypeError);
   Expect.equals("", log);
-  Expect.throws(() {C3().a = 3 as dynamic;});
+  Expect.throws(() {(C3() as dynamic).a = 3;}, (e) => e is TypeError);
   Expect.equals("", log);
-  Expect.throws(() {C4().a = 4 as dynamic;});
+  Expect.throws(() {(C4() as dynamic).a = 4;}, (e) => e is TypeError);
   Expect.equals("", log);
-  Expect.throws(() {MA1().m = 11 as dynamic;});
+  Expect.throws(() {(MA1() as dynamic).m = 11;}, (e) => e is TypeError);
   Expect.equals("", log);
-  Expect.throws(() {MA2().a = 12 as dynamic;});
+  Expect.throws(() {(MA2() as dynamic).a = 12;}, (e) => e is TypeError);
   Expect.equals("", log);
-  Expect.throws(() {MA3().a = 13 as dynamic;});
+  Expect.throws(() {(MA3() as dynamic).a = 13;}, (e) => e is TypeError);
   Expect.equals("", log);
-  Expect.throws(() {E1.e1.m = 21 as dynamic;});
+  Expect.throws(() {(E1.e1 as dynamic).m = 21;}, (e) => e is TypeError);
   Expect.equals("", log);
-  Expect.throws(() {E2.e2.a = 22 as dynamic;});
+  Expect.throws(() {(E2.e2 as dynamic).a = 22;}, (e) => e is TypeError);
   Expect.equals("", log);
-  Expect.throws(() {E3.e1.a = 23 as dynamic;});
+  Expect.throws(() {(E3.e1 as dynamic).a = 23;}, (e) => e is TypeError);
   Expect.equals("", log);
 }
