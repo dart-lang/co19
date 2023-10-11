@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -34,9 +34,10 @@
 /// link containing the string `target`. If `target` is a relative path, it will
 /// be interpreted relative to the directory containing the link.
 ///
-/// @description Checks that if `target` exists then the type of the link will
-/// match the type `target`. Test [Link] pointing to a [Directory] as a target
-/// @author sgrekhov@unipro.ru
+/// @description Checks that if a directory with the same path exists, the
+/// future will complete with an error. Test the case when created link has a
+/// [Directory] as a target
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -47,12 +48,14 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Link target = getTempLinkSync(parent: sandbox, target: sandbox.path);
-  Link link = Link(getTempFilePath(parent: sandbox));
+  Directory target = getTempDirectorySync(parent: sandbox);
+  Directory dir = getTempDirectorySync(parent: sandbox);
+  Link link = Link(dir.path);
   asyncStart();
   await link.create(target.path).then((Link created) {
-    Expect.equals(FileSystemEntityType.directory,
-        FileSystemEntity.typeSync(created.path));
+    Expect.fail("Link create() should fail");
+    asyncEnd();
+  }, onError: (_) {
     asyncEnd();
   });
 }
