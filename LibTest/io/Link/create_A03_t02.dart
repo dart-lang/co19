@@ -34,9 +34,9 @@
 /// link containing the string `target`. If `target` is a relative path, it will
 /// be interpreted relative to the directory containing the link.
 ///
-/// @description Checks that if the link exists, the future will complete with
-/// an error. Test the case when created and existing links have different
-/// directories as targets
+/// @description Checks that if a link with the same path exists, the future
+/// will complete with an error. Test the case when created and existing links
+/// have different directories as targets
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";

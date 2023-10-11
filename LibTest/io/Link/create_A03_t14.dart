@@ -34,9 +34,9 @@
 /// link containing the string `target`. If `target` is a relative path, it will
 /// be interpreted relative to the directory containing the link.
 ///
-/// @description Checks that if a link with the same path exists, the future
-/// will complete with an error. Test the case when created and existing links
-/// have different not existing entities as targets
+/// @description Checks that if a directory with the same path exists, the
+/// future will complete with an error. Test the case when created link has a
+/// not existing entity as a target
 /// @author sgrekhov22@gmail.com
 
 import "dart:io";
@@ -48,12 +48,11 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  String target1 = getTempFilePath(parent: sandbox);
-  String target2 = getTempFilePath(parent: sandbox);
-  Link tmp = getTempLinkSync(parent: sandbox, target: target1);
-  Link link = Link(tmp.path);
+  String target = getTempFilePath(parent: sandbox);
+  Directory dir = getTempDirectorySync(parent: sandbox);
+  Link link = Link(dir.path);
   asyncStart();
-  await link.create(target2).then((Link created) {
+  await link.create(target).then((Link created) {
     Expect.fail("Link create() should fail");
     asyncEnd();
   }, onError: (_) {
