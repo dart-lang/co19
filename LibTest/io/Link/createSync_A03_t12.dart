@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion void createSync(
-/// String target,
-/// {bool recursive = false}
+///   String target,
+///   {bool recursive = false}
 /// )
 ///  Synchronously create the link. Calling createSync on an existing link will
 ///  throw an exception.
