@@ -28,8 +28,8 @@
 /// containing the string target. If target is a relative path, it will be
 /// interpreted relative to the directory containing the link.
 ///
-/// @description Checks that if `recursive` is `false` and there are
-/// non-existing path components, then operation fails
+/// @description Checks thatCalling `createSync` on an existing link will throw
+/// an exception. Test new [File] target
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";
@@ -41,12 +41,8 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  String dirPath = getTempDirectoryPath(parent: sandbox);
-  Directory target = getTempDirectorySync(parent: sandbox);
-  String linkPath =
-      dirPath + Platform.pathSeparator + getTempFileName(extension: "lnk");
-  Link link = new Link(linkPath);
-  Expect.throws(() {
-    link.createSync(target.path);
-  }, (e) => e is FileSystemException);
+  File target1 = getTempFileSync(parent: sandbox);
+  File target2 = getTempFileSync(parent: sandbox);
+  Link link = getTempLinkSync(parent: sandbox, target: target1.path);
+  Expect.throws(() {link.createSync(target2.path);});
 }

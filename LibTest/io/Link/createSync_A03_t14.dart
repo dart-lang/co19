@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -28,9 +28,10 @@
 /// containing the string target. If target is a relative path, it will be
 /// interpreted relative to the directory containing the link.
 ///
-/// @description Checks that if `recursive` is `false` and there are
-/// non-existing path components, then operation fails
-/// @author sgrekhov@unipro.ru
+/// @description Checks that if there is an existing link to a [Directory] on
+/// the path, then calling `createSync` will throw an exception. Test the case
+/// when the new link has [Directory] as a target
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -41,12 +42,8 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  String dirPath = getTempDirectoryPath(parent: sandbox);
   Directory target = getTempDirectorySync(parent: sandbox);
-  String linkPath =
-      dirPath + Platform.pathSeparator + getTempFileName(extension: "lnk");
-  Link link = new Link(linkPath);
-  Expect.throws(() {
-    link.createSync(target.path);
-  }, (e) => e is FileSystemException);
+  Link existing = getTempLinkSync(parent: sandbox, target: target.path);
+  Link link = Link(existing.path);
+  Expect.throws(() {link.createSync(sandbox.path);});
 }
