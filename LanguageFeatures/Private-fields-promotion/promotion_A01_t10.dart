@@ -13,32 +13,48 @@
 ///   in the library.
 ///
 /// @description Checks that expression `target._fieldName` is not promotable if
-/// `target` is a static constant field. Test enum.
+/// `target` is a static field (even constant).
 /// See https://github.com/dart-lang/language/issues/3326
 /// @author sgrekhov22@gmail.com
 /// @issue 53437
 
-enum E {
-  e1, e2;
+class C {
+  static const c1 = C(1);
+  static final c2 = C(2);
+  static const _c3 = C(3);
 
-  final int? _x = 42;
-
-  void test() {
-    if (_x != null) {
-      _x.isOdd; // Ok, `target` is `this`
-    }
-  }
+  final int? _x;
+  const C(this._x);
 }
 
 main() {
-  var e = E.e1;
-  if (e._x != null) {
-    e._x.isEven;  // Ok, `target` is a local variable
+  var v1 = C.c1;
+  if (v1._x != null) {
+    v1._x.isEven;  // Ok, `target` is a local variable
   }
-  E.e1.test();
-  if (E.e1._x != null) {
-    E.e1._x.isEven;
-//          ^^^^^^
+  var v2 = C.c2;
+  if (v2._x != null) {
+    v2._x.isEven;  // Ok, `target` is a local variable
+  }
+  var v3 = C._c3;
+  if (v3._x != null) {
+    v3._x.isEven;  // Ok, `target` is a local variable
+  }
+  if (C.c1._x != null) {
+    C.c1._x.isEven;
+//         ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (C.c2._x != null) {
+    C.c2._x.isEven;
+//         ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (C._c3._x != null) {
+    C._c3._x.isEven;
+//           ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

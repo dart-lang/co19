@@ -12,8 +12,9 @@
 /// - There is no implicit noSuchMethod forwarder with the same name elsewhere
 ///   in the library.
 ///
-/// @description Checks that an instance field is promotable if all of the
-/// conditions above are met. Test a generic enum
+/// @description Checks that expression `target._fieldName` is not promotable if
+/// `target` is a static constant field. Test a generic enum.
+/// See https://github.com/dart-lang/language/issues/3326
 /// @author sgrekhov22@gmail.com
 /// @issue 53437
 
@@ -25,7 +26,7 @@ enum E<T> {
 
   void test() {
     if (_x is int) {
-      _x.isOdd;
+      _x.isOdd; // Ok, `target` is `this`
     }
   }
 }
@@ -33,19 +34,25 @@ enum E<T> {
 main() {
   var _e1 = E.e1;
   if (_e1._x is int) {
-    _e1._x.isEven;
+    _e1._x.isEven;  // Ok, `target` is a local variable
   }
   E.e1.test();
   if (E.e1._x is int) {
     E.e1._x.isEven;
+//          ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   var _e2 = E.e2;
   if (_e2._x != null) {
-    _e2._x.isEven;
+    _e2._x.isEven;  // Ok, `target` is a local variable
   }
   E.e2.test();
   if (E.e2._x != null) {
     E.e2._x.isEven;
+//          ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
