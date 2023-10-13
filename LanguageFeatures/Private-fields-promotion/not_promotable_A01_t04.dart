@@ -15,7 +15,6 @@
 /// @description Checks that an instance field is not promotable if it is
 /// external
 /// @author sgrekhov22@gmail.com
-/// @issue 53426
 
 class A {
   void foo() {}
@@ -27,7 +26,7 @@ class C<T> {
   void test() {
     if (_x is A) {
       _x.foo();
-//       ^^^^^
+//       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     }
@@ -35,10 +34,10 @@ class C<T> {
 }
 
 main() {
-  C c = C();
+  C<Object> c = C<Object>();
   if (c._x is A) {
     c._x.foo();
-//       ^^^^^
+//       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
