@@ -44,8 +44,9 @@ extension type ET1(int id) {
 extension type ET2(int _x) {}
 
 main() {
-  if (E.e1._x is int) {
-    E.e1._x.isEven;
+  var v = E.e1;
+  if (v._x is int) {
+    v._x.isEven;
   }
   E.e1.testE();
 }

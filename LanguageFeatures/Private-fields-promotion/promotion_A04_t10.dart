@@ -58,7 +58,7 @@ main() {
   }
   et1.test();
 
-  ET2 et2 = ET2<int>(2);
+  ET2<int?> et2 = ET2<int?>(2);
   if (et2._x is int) {
     et2._x.isEven;
   }
