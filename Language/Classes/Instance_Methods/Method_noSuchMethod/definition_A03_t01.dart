@@ -24,10 +24,11 @@
 /// @author sgrekhov22@gmail.com
 
 class C1 {
+//    ^^
+// [cfe] unspecified
   int m1();
 //^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   dynamic noSuchMethod(Invocation inv);
 }
 

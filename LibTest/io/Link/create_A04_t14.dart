@@ -82,7 +82,7 @@ _main(Directory sandbox) async {
       Expect.equals(
           FileSystemEntityType.link, FileSystemEntity.typeSync(created.path));
     } else {
-      Expect.equals(FileSystemEntityType.file,
+      Expect.equals(FileSystemEntityType.directory,
           FileSystemEntity.typeSync(created.path));
     }
     asyncEnd();
