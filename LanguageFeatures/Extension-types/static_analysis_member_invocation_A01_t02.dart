@@ -15,20 +15,33 @@
 /// necessarily a non-extension type member, which determines the static
 /// analysis and dynamic semantics.
 ///
-/// @description Checks that members of an `Object` class can be called
+/// @description Checks that members of an `Object` are treated as all other
+/// non-extension type members. Check `toString()`
 /// @author sgrekhov22@gmail.com
+/// @issue 53740
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type ET(int id) {}
+class A {
+}
 
-main() {
-  ET et = ET(42);
-  et.toString();
-  et.runtimeType;
-  et.hashCode;
-  et == et;
-  try {
-    et.noSuchMethod(Invocation.method(Symbol("test"), []));
-  } catch (_) {}
+class B implements A {
+  @override
+  String toString([bool whatever = true]) => super.toString();
+}
+
+extension type ET1(B b) implements A {}
+
+extension type ET2(B b) implements ET1, B {}
+
+void main() {
+  var e2 = ET2(B());
+  ET1 e1 = e2;
+
+  e2.toString(true); // OK, signature is `String toString([bool])`.
+
+  e1.toString(true); // Compile-time error, signature is `String toString()`.
+//   ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

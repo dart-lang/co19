@@ -15,20 +15,52 @@
 /// necessarily a non-extension type member, which determines the static
 /// analysis and dynamic semantics.
 ///
-/// @description Checks that members of an `Object` class can be called
+/// @description Checks that members of an `Object` are treated as all other
+/// non-extension type members. Test static behavior
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type ET(int id) {}
+class A {
+}
 
-main() {
-  ET et = ET(42);
-  et.toString();
-  et.runtimeType;
-  et.hashCode;
-  et == et;
-  try {
-    et.noSuchMethod(Invocation.method(Symbol("test"), []));
-  } catch (_) {}
+class B implements A {
+  @override
+  IntET get hashCode => IntET(super.hashCode);
+
+  @override
+  TypeET get runtimeType => TypeET(super.runtimeType);
+
+  @override
+  BoolET operator ==(Object? other) => BoolET(other == this);
+}
+
+extension type ET1(B b) implements A {}
+
+extension type ET2(B b) implements ET1, B {}
+
+extension type IntET(int i) implements int {}
+
+extension type TypeET(Type t) implements Type {}
+
+extension type BoolET(bool b) implements bool {}
+
+void main() {
+  var e2 = ET2(B());
+  ET1 e1 = e2;
+
+  IntET hc1 = e1.hashCode;
+//               ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  TypeET t1 = e1.runtimeType;
+//               ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  BoolET b1 = e1 == e1;
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
