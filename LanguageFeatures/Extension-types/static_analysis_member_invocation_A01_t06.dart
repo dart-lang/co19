@@ -16,9 +16,8 @@
 /// analysis and dynamic semantics.
 ///
 /// @description Checks that members of an `Object` are treated as all other
-/// non-extension type members. Check `noSuchMethod()`
+/// non-extension type members. Test static behavior
 /// @author sgrekhov22@gmail.com
-/// @issue 53740
 
 // SharedOptions=--enable-experiment=inline-class
 
@@ -27,23 +26,41 @@ class A {
 
 class B implements A {
   @override
-  noSuchMethod(Invocation inv, [bool whatever = true]) {}
+  IntET get hashCode => IntET(super.hashCode);
+
+  @override
+  TypeET get runtimeType => TypeET(super.runtimeType);
+
+  @override
+  BoolET operator ==(Object? other) => BoolET(other == this);
 }
 
 extension type ET1(B b) implements A {}
 
-extension type ET2(B b) implements  ET1, B {}
+extension type ET2(B b) implements ET1, B {}
+
+extension type IntET(int i) implements int {}
+
+extension type TypeET(Type t) implements Type {}
+
+extension type BoolET(bool b) implements bool {}
 
 void main() {
   var e2 = ET2(B());
   ET1 e1 = e2;
 
-  // OK, signature is `noSuchMethod(Invocation, [bool])`.
-  e2.noSuchMethod(Invocation.method(Symbol("test"), []), true);
+  IntET hc1 = e1.hashCode;
+//               ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  // Compile-time error, signature is `noSuchMethod(Invocation)`.
-  e1.noSuchMethod(Invocation.method(Symbol("test"), []), true);
-//   ^^^^^^^^
+  TypeET t1 = e1.runtimeType;
+//               ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  BoolET b1 = e1 == e1;
+//               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

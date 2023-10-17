@@ -16,9 +16,8 @@
 /// analysis and dynamic semantics.
 ///
 /// @description Checks that members of an `Object` are treated as all other
-/// non-extension type members.
+/// non-extension type members. Test dynamic behavior
 /// @author sgrekhov22@gmail.com
-/// @issue 53740
 
 // SharedOptions=--enable-experiment=inline-class
 
