@@ -33,7 +33,7 @@ extension type ET2(B<int> _) implements B<int>, B<int> {}
 // [cfe] unspecified
 
 extension type ET3(IntET _) implements IntET, int, IntET {}
-//                                               ^^^^^
+//                                                 ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

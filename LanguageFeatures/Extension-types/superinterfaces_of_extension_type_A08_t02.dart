@@ -15,6 +15,8 @@
 
 class A<T> {}
 
+extension type AET(A<int> _) implements A<int> {}
+
 extension type IntET(int _) implements int {}
 
 extension type ET<T extends num>(T _) implements num {}
@@ -25,8 +27,14 @@ extension type ET2(IntET _) implements IntET, int {}
 
 extension type ET3(IntET _) implements IntET, ET<int> {}
 
+extension type ET4(A<int> _) implements A<int>, AET {}
+
+extension type ET5(int _) implements ET<num>, num {}
+
 main() {
   print(ET1);
   print(ET2);
   print(ET3);
+  print(ET4);
+  print(ET5);
 }

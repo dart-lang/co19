@@ -20,32 +20,14 @@
 
 class A<T> {}
 
-extension type IntET(int _) implements int {}
+extension type A_ET1<T>(A<T> _) implements A<T> {}
 
-extension type ET<T extends num>(T _) implements num {}
+extension type A_ET2<T>(A<T> _) implements A<T> {}
 
-extension type ET1(A<int> _) implements A<num>, A<int> {}
-//                                              ^
+extension type ET(A<int> _) implements A_ET1<int>, A_ET2<num> {}
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-extension type ET2<T extends num>(A<T> _) implements A<num>, A<T> {}
-//                                                             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-extension type ET3<T extends num>(T _) implements ET<T>, ET<num> {}
-//                                                       ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-extension type ET4(int _) implements IntET, num {}
-//                                                       ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 main() {
-  print(ET1);
-  print(ET2);
-  print(ET3);
+  print(ET);
 }
