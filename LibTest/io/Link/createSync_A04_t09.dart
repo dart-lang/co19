@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -28,11 +28,9 @@
 /// containing the string target. If target is a relative path, it will be
 /// interpreted relative to the directory containing the link.
 ///
-/// @description Checks that relative paths to the target will be interpreted
-/// relative to the directory containing the link. Test relative path to
-/// [Directory]
-/// @author sgrekhov@unipro.ru
-/// @issue 53689
+/// @description Checks that if a link with the target file was created and
+/// then this file was deleted and created again, then the link stays valid
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -43,26 +41,28 @@ main() {
 }
 
 _main(Directory sandbox) {
-  String dirName = getTempDirectoryName();
-  Directory target = Directory(sandbox.path + Platform.pathSeparator + dirName);
-  target.createSync();
-  Link link = Link(sandbox.path +
-      Platform.pathSeparator +
-      getTempFileName(extension: "lnk"));
-  link.createSync(dirName);
-  Expect.equals(dirName, link.targetSync());
+  File target1 = getTempFileSync(parent: sandbox);
+  Link link = Link(getTempFilePath(parent: sandbox));
+  link.createSync(target1.path);
   Expect.equals(
-      FileSystemEntityType.directory, FileSystemEntity.typeSync(link.path));
-  // Now create a directory and move the link into it. Its relative target
-  // should point to a not existing entity after it
-  Directory dir = getTempDirectorySync(parent: sandbox);
-  Link moved = link.renameSync(dir.path + Platform.pathSeparator + "moved.lnk");
-  Expect.equals(dirName, moved.targetSync());
+      FileSystemEntityType.file, FileSystemEntity.typeSync(link.path));
+  target1.deleteSync();
   if (Platform.isWindows) {
     Expect.equals(
-        FileSystemEntityType.link, FileSystemEntity.typeSync(moved.path));
+        FileSystemEntityType.link, FileSystemEntity.typeSync(link.path));
   } else {
     Expect.equals(
-        FileSystemEntityType.notFound, FileSystemEntity.typeSync(moved.path));
+        FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
   }
+  File target2 = File(target1.path);
+  target2.createSync();
+  Expect.equals(
+      FileSystemEntityType.file, FileSystemEntity.typeSync(link.path));
+  target2.deleteSync();
+
+  Link target3 = Link(target1.path);
+  File linkTarget = getTempFileSync();
+  target3.createSync(linkTarget.path);
+  Expect.equals(
+      FileSystemEntityType.file, FileSystemEntity.typeSync(link.path));
 }

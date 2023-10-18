@@ -51,8 +51,7 @@ main() async {
 _main(Directory sandbox) async {
   String notExisting = getTempFileName();
   String target = getTempFileName(extension: "lnk");
-  Link targetLink =
-      getTempLinkSync(parent: sandbox, target: notExisting, name: target);
+  getTempLinkSync(parent: sandbox, target: notExisting, name: target);
   Link link = Link(sandbox.path +
       Platform.pathSeparator +
       getTempFileName(extension: "lnk"));
