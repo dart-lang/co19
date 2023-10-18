@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -29,9 +29,9 @@
 /// interpreted relative to the directory containing the link.
 ///
 /// @description Checks that relative paths to the target will be interpreted
-/// relative to the directory containing the link. Test relative path to
-/// [Directory]
-/// @author sgrekhov@unipro.ru
+/// relative to the directory containing the link. Test relative path to [Link]
+/// pointing to [Directory]
+/// @author sgrekhov22@gmail.com
 /// @issue 53689
 
 import "dart:io";
@@ -43,21 +43,21 @@ main() {
 }
 
 _main(Directory sandbox) {
-  String dirName = getTempDirectoryName();
-  Directory target = Directory(sandbox.path + Platform.pathSeparator + dirName);
-  target.createSync();
-  Link link = Link(sandbox.path +
+  String linkName = getTempFileName();
+  Link target = new Link(sandbox.path + Platform.pathSeparator + linkName);
+  target.createSync(sandbox.path);
+  Link link = new Link(sandbox.path +
       Platform.pathSeparator +
       getTempFileName(extension: "lnk"));
-  link.createSync(dirName);
-  Expect.equals(dirName, link.targetSync());
+  link.createSync(linkName);
+  Expect.equals(linkName, link.targetSync());
   Expect.equals(
       FileSystemEntityType.directory, FileSystemEntity.typeSync(link.path));
   // Now create a directory and move the link into it. Its relative target
   // should point to a not existing entity after it
   Directory dir = getTempDirectorySync(parent: sandbox);
   Link moved = link.renameSync(dir.path + Platform.pathSeparator + "moved.lnk");
-  Expect.equals(dirName, moved.targetSync());
+  Expect.equals(linkName, moved.targetSync());
   if (Platform.isWindows) {
     Expect.equals(
         FileSystemEntityType.link, FileSystemEntity.typeSync(moved.path));

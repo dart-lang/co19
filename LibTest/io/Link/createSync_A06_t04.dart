@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -29,10 +29,9 @@
 /// interpreted relative to the directory containing the link.
 ///
 /// @description Checks that relative paths to the target will be interpreted
-/// relative to the directory containing the link. Test relative path to
-/// [Directory]
-/// @author sgrekhov@unipro.ru
-/// @issue 53689
+/// relative to the directory containing the link. Test relative path to [Link]
+/// pointing to [File]
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -43,21 +42,22 @@ main() {
 }
 
 _main(Directory sandbox) {
-  String dirName = getTempDirectoryName();
-  Directory target = Directory(sandbox.path + Platform.pathSeparator + dirName);
-  target.createSync();
+  String linkName = getTempFileName();
+  File file = getTempFileSync(parent: sandbox);
+  Link target = Link(sandbox.path + Platform.pathSeparator + linkName);
+  target.createSync(file.path);
   Link link = Link(sandbox.path +
       Platform.pathSeparator +
       getTempFileName(extension: "lnk"));
-  link.createSync(dirName);
-  Expect.equals(dirName, link.targetSync());
+  link.createSync(linkName);
+  Expect.equals(linkName, link.targetSync());
   Expect.equals(
-      FileSystemEntityType.directory, FileSystemEntity.typeSync(link.path));
+      FileSystemEntityType.file, FileSystemEntity.typeSync(link.path));
   // Now create a directory and move the link into it. Its relative target
   // should point to a not existing entity after it
   Directory dir = getTempDirectorySync(parent: sandbox);
   Link moved = link.renameSync(dir.path + Platform.pathSeparator + "moved.lnk");
-  Expect.equals(dirName, moved.targetSync());
+  Expect.equals(linkName, moved.targetSync());
   if (Platform.isWindows) {
     Expect.equals(
         FileSystemEntityType.link, FileSystemEntity.typeSync(moved.path));
