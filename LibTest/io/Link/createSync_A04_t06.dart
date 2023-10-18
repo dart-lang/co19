@@ -28,7 +28,7 @@
 /// containing the string target. If target is a relative path, it will be
 /// interpreted relative to the directory containing the link.
 ///
-/// @description Checks that if `target` not exists then the type of the link
+/// @description Checks that if `target` does not exist then the type of the link
 /// will be `file` on Windows and `notFound` on other platforms.
 /// @author sgrekhov22@gmail.com
 
