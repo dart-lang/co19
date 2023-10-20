@@ -25,8 +25,16 @@ extension type V1<T>(T id1) {}
 
 extension type V(int id) implements V1<num> {}
 
+extension type IntET(int id1) implements int {}
+
+extension type ET(int id) implements IntET, num {}
+
 main() {
   V v = V(42);
   Expect.equals(42, v.id);
   Expect.equals(42, v.id1);
+
+  ET et = ET(42);
+  Expect.equals(42, et.id);
+  Expect.equals(42, et.id1);
 }

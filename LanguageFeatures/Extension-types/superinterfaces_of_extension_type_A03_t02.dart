@@ -39,11 +39,6 @@ extension type ET3<T extends num>(T _) implements ET<T>, ET<num> {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type ET4(int _) implements IntET, num {}
-//                                                       ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 main() {
   print(ET1);
   print(ET2);

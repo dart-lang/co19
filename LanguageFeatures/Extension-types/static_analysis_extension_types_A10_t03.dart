@@ -32,8 +32,14 @@ extension type ET3(NObject id) implements NObject {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+extension type ET4(Object id) implements Object {}
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(ET1);
   print(ET2);
   print(ET3);
+  print(ET4);
 }
