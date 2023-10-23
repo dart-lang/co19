@@ -19,17 +19,20 @@
 ///
 /// <extensionTypeMemberDeclaration> ::= <classMemberDefinition>
 ///
-/// @description Checks that it is a compile-time error if an extension type
-/// declares a type parameter which extends type `void`
+/// @description Checks that it is not an error if an extension type declares a
+/// type parameter which extends an alias of the type `void`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type ET1<T extends void>(T id) {}
-//                           ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+import "../../Utils/expect.dart";
+
+typedef VoidAlias = void;
+
+extension type ET<T extends VoidAlias>(T id) {} // Ok, no error
 
 main() {
-  print(ET1);
+  Expect.equals(42, ET(42).id);
+  Expect.equals(null, ET(null).id);
+  Expect.equals("42", ET<String>("42").id);
 }

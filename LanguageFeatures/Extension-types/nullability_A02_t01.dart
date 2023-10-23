@@ -10,33 +10,27 @@
 /// @description Checks that null can be assigned to an extension type at run
 /// time if its representation type is nullable
 /// @author sgrekhov22@gmail.com
+/// @issue 53822
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "dart:async" show FutureOr;
-import "../../Utils/expect.dart";
+extension type ET1<T>(T _) {
+  void test() {
+    this ?? print("No warning here!");
+  }
+}
 
-typedef VoidAlias = void;
-
-extension type ET1<T extends int?>(T _) {}
-
-extension type ET2<T extends Null>(T _) {}
-
-extension type ET3<T extends dynamic>(T _) {}
-
-extension type ET4<T extends FutureOr<Null>>(T _) {}
-
-extension type ET5<T extends VoidAlias>(T _) {}
+extension type ET2<T extends Object>(T _) {
+  void test() {
+    this ?? print("Expect a warning here!");
+//       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
 
 main() {
-  ET1 et1 = null as dynamic;
-  Expect.isNull(et1);
-  ET2 et2 = null as dynamic;
-  Expect.isNull(et2);
-  ET3 et3 = null as dynamic;
-  Expect.isNull(et3);
-  ET4 et4 = null as dynamic;
-  Expect.isNull(et4);
-  ET5 et5 = null as dynamic;
-  Expect.isNull(et5);
+  ET1(42).test();
+  //ET1(null).test();
+  ET2(42).test();
 }
