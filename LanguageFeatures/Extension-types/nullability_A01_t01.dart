@@ -25,8 +25,6 @@ extension type ET4(void _) {}
 
 extension type ET5(FutureOr<Null> _) {}
 
-extension type ET6(Never _) {}
-
 main() {
   ET1 et11 = null;
 //           ^^^^
@@ -57,10 +55,4 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   ET5? et52 = null;
-
-  ET6 et61 = null;
-//           ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ET6? et62 = null;
 }
