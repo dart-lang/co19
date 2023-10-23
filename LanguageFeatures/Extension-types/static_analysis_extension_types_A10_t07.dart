@@ -16,7 +16,7 @@
 // SharedOptions=--enable-experiment=inline-class
 
 extension type ET1((int,) id) implements (int,) {}
-//                                    ^^^^^^
+//                                       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
