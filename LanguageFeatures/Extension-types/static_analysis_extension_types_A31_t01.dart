@@ -22,7 +22,8 @@ extension type ET2<T extends Never>(T _) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type ET3<T extends Never>(int _) {} // no error
+// Representation type is not a bottom type. So, no error expected
+extension type ET3<T extends Never>(int _) {}
 
 main() {
   print(ET1);
