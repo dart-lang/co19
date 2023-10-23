@@ -22,7 +22,10 @@ extension type ET2<T extends Never>(T _) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+extension type ET3<T extends Never>(int _) {} // no error
+
 main() {
   print(ET1);
   print(ET2);
+  print(ET3);
 }
