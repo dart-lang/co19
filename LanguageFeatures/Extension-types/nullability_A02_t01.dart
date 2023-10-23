@@ -31,6 +31,7 @@ extension type ET2<T extends Object>(T _) {
 
 main() {
   ET1(42).test();
-  //ET1(null).test();
+  ET1(null).test();
+  ET1<int?>(42).test();
   ET2(42).test();
 }
