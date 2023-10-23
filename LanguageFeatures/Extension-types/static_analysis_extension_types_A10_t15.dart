@@ -14,10 +14,19 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
+typedef VoidAlias = void;
+
 extension type ET1(void id) {}
+
+extension type ET2(VoidAlias id) {}
 
 main() {
   print(ET1("42").id);
+//                ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  print(ET2("42").id);
 //                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
