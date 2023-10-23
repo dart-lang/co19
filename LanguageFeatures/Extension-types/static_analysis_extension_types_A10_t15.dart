@@ -9,7 +9,7 @@
 /// Record, or any type of the form T? or FutureOr<T> for any type T.
 ///
 /// @description Checks that it is not an error if the representation type of an
-/// extension type is a type `void` (but it is an error to use this type)
+/// extension type is the type `void` (but it is an error to use this type)
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
