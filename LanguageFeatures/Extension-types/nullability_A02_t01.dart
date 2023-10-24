@@ -7,8 +7,8 @@
 /// then V is a proper subtype of Object, and V is non-nullable. Otherwise, V is
 /// a proper subtype of Object?, and V is potentially nullable.
 ///
-/// @description Checks that null can be assigned to an extension type at run
-/// time if its representation type is nullable
+/// @description Checks that a warning is produced depending of the
+/// representation type when an extension type is checked by `??` operator
 /// @author sgrekhov22@gmail.com
 /// @issue 53822
 
