@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -23,10 +23,10 @@
 ///
 /// Completes the future with a FileSystemException if the operation fails.
 ///
-/// @description Checks that future is completed with a `FileSystemException` if
-/// the operation fails. Test the case when there is an existing directory with
-/// the same path, `recursive` is `false` and `exclusive` is `false`
-/// @author sgrekhov@unipro.ru
+/// @description Checks that if `exclusive` is `true` and to-be-created file
+/// already exists, this operation completes the future with a
+/// [PathExistsException]. Test the case when `recursive` is `true`
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -37,13 +37,14 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
-  File file = new File(dir.path);
+  File tmp = getTempFileSync(parent: sandbox);
+  tmp.writeAsStringSync("Existing file content");
+  File file = new File(tmp.path);
   asyncStart();
-  await file.create(recursive: false).then((File created) {
-    Expect.fail("FileSystemException is expected");
+  await file.create(exclusive: true, recursive: true).then((File created) {
+    Expect.fail("PathExistsException is expected");
   }, onError: (e) {
-    Expect.isTrue(e is FileSystemException);
+    Expect.isTrue(e is PathExistsException);
     asyncEnd();
   });
 }
