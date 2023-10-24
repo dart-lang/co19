@@ -15,8 +15,8 @@
 /// is a proper subtype of Object, and V is non-nullable. Otherwise, V is a
 /// proper subtype of Object?, and V is potentially nullable.
 ///
-/// @description Checks that it is a compile-time error to call a member of an
-/// extension type with a nullable representation type
+/// @description Checks that it is not an error to call a member of an extension
+/// type with a nullable representation type
 /// @author sgrekhov22@gmail.com
 /// @issue 53822
 
@@ -32,14 +32,6 @@ extension type ET2<T>(T _) {
 
 main() {
   ET1(42).foo();
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   ET2<int?>(42).foo();
-//             ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET2<int>(42).foo(); // Ok
+  ET2<Null>(null).foo();
 }
