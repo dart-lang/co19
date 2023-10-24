@@ -12,6 +12,7 @@
 /// has a non-extension superinterface whose transitive alias expansion is a top
 /// type
 /// @author sgrekhov22@gmail.com
+/// @issue 53836
 
 // SharedOptions=--enable-experiment=inline-class
 
@@ -32,10 +33,7 @@ extension type ET3(NObject id) implements NObject {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type ET4(Object id) implements Object {}
-//                                       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+extension type ET4(Object id) implements Object {} // Ok, no error
 
 main() {
   print(ET1);
