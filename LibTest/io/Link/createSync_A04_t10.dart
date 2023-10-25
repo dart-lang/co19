@@ -48,18 +48,13 @@ _main(Directory sandbox) {
   Expect.equals(
       FileSystemEntityType.file, FileSystemEntity.typeSync(link.path));
   target1.deleteSync();
-  if (Platform.isWindows) {
-    Expect.equals(
-        FileSystemEntityType.link, FileSystemEntity.typeSync(link.path));
-  } else {
-    Expect.equals(
-        FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
-  }
+  Expect.equals(
+      FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
   Directory target2 = Directory(target1.path);
   target2.createSync();
   if (Platform.isWindows) {
     Expect.equals(
-        FileSystemEntityType.link, FileSystemEntity.typeSync(link.path));
+        FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
   } else {
     Expect.equals(
         FileSystemEntityType.directory, FileSystemEntity.typeSync(link.path));
@@ -71,7 +66,7 @@ _main(Directory sandbox) {
   target3.createSync(linkTarget.path);
   if (Platform.isWindows) {
     Expect.equals(
-        FileSystemEntityType.link, FileSystemEntity.typeSync(link.path));
+        FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
   } else {
     Expect.equals(
         FileSystemEntityType.directory, FileSystemEntity.typeSync(link.path));

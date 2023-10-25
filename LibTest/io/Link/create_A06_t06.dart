@@ -59,13 +59,8 @@ _main(Directory sandbox) async {
   asyncStart();
   await link.create(target).then((Link created) {
     Expect.equals(target, created.targetSync());
-    if (Platform.isWindows) {
-      Expect.equals(
-          FileSystemEntityType.link, FileSystemEntity.typeSync(created.path));
-    } else {
-      Expect.equals(FileSystemEntityType.notFound,
-          FileSystemEntity.typeSync(created.path));
-    }
+    Expect.equals(FileSystemEntityType.notFound,
+        FileSystemEntity.typeSync(created.path));
     // Now create a directory and into it another directory with the name as
     // link's target. Then move the link into the first directory. Its relative
     // target should point to the second directory after it (except Windows)
@@ -77,7 +72,7 @@ _main(Directory sandbox) async {
     Expect.equals(target, moved.targetSync());
     if (Platform.isWindows) {
       Expect.equals(
-          FileSystemEntityType.link, FileSystemEntity.typeSync(moved.path));
+          FileSystemEntityType.notFound, FileSystemEntity.typeSync(moved.path));
     } else {
       Expect.equals(FileSystemEntityType.directory,
           FileSystemEntity.typeSync(moved.path));

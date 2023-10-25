@@ -58,13 +58,8 @@ _main(Directory sandbox) async {
   asyncStart();
   await link.create(target).then((Link created) {
     Expect.equals(target, created.targetSync());
-    if (Platform.isWindows) {
-      Expect.equals(
-          FileSystemEntityType.link, FileSystemEntity.typeSync(created.path));
-    } else {
-      Expect.equals(FileSystemEntityType.notFound,
-          FileSystemEntity.typeSync(created.path));
-    }
+    Expect.equals(FileSystemEntityType.notFound,
+        FileSystemEntity.typeSync(created.path));
     // Now create a directory and into it the file with the name as link's
     // target. Then move the link into the directory. Its relative target should
     // point to that file after it
