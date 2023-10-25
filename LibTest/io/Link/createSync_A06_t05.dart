@@ -50,13 +50,8 @@ _main(Directory sandbox) {
       getTempFileName(extension: "lnk"));
   link.createSync(target);
   Expect.equals(target, link.targetSync());
-  if (Platform.isWindows) {
-    Expect.equals(
-        FileSystemEntityType.link, FileSystemEntity.typeSync(link.path));
-  } else {
-    Expect.equals(
-        FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
-  }
+  Expect.equals(
+      FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
   // Now create a directory and into it the file with the name as link's
   // target. Then move the link into the directory. Its relative target should
   // point to that file after it

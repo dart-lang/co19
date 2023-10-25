@@ -65,13 +65,8 @@ _main(Directory sandbox) async {
     Link moved =
         created.renameSync(dir.path + Platform.pathSeparator + "moved.lnk");
     Expect.equals(fileName, moved.targetSync());
-    if (Platform.isWindows) {
-      Expect.equals(
-          FileSystemEntityType.link, FileSystemEntity.typeSync(moved.path));
-    } else {
-      Expect.equals(
-          FileSystemEntityType.notFound, FileSystemEntity.typeSync(moved.path));
-    }
+    Expect.equals(
+        FileSystemEntityType.notFound, FileSystemEntity.typeSync(moved.path));
     asyncEnd();
   });
 }

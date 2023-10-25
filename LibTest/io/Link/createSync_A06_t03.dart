@@ -58,11 +58,6 @@ _main(Directory sandbox) {
   Directory dir = getTempDirectorySync(parent: sandbox);
   Link moved = link.renameSync(dir.path + Platform.pathSeparator + "moved.lnk");
   Expect.equals(linkName, moved.targetSync());
-  if (Platform.isWindows) {
-    Expect.equals(
-        FileSystemEntityType.link, FileSystemEntity.typeSync(moved.path));
-  } else {
-    Expect.equals(
-        FileSystemEntityType.notFound, FileSystemEntity.typeSync(moved.path));
-  }
+  Expect.equals(
+      FileSystemEntityType.notFound, FileSystemEntity.typeSync(moved.path));
 }

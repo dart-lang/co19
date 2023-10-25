@@ -55,21 +55,16 @@ _main(Directory sandbox) async {
     Expect.equals(FileSystemEntityType.directory,
         FileSystemEntity.typeSync(created.path));
     target1.deleteSync();
-    if (Platform.isWindows) {
-      Expect.equals(
-          FileSystemEntityType.link, FileSystemEntity.typeSync(created.path));
-    } else {
-      Expect.equals(FileSystemEntityType.notFound,
-          FileSystemEntity.typeSync(created.path));
-    }
+    Expect.equals(
+        FileSystemEntityType.notFound, FileSystemEntity.typeSync(created.path));
     File target2 = File(target1.path);
     target2.createSync();
     if (Platform.isWindows) {
-      Expect.equals(
-          FileSystemEntityType.link, FileSystemEntity.typeSync(created.path));
-    } else {
-      Expect.equals(FileSystemEntityType.file,
+      Expect.equals(FileSystemEntityType.notFound,
           FileSystemEntity.typeSync(created.path));
+    } else {
+      Expect.equals(
+          FileSystemEntityType.file, FileSystemEntity.typeSync(created.path));
     }
     target2.deleteSync();
 
@@ -77,11 +72,11 @@ _main(Directory sandbox) async {
     File linkTarget = getTempFileSync();
     target3.createSync(linkTarget.path);
     if (Platform.isWindows) {
-      Expect.equals(
-          FileSystemEntityType.link, FileSystemEntity.typeSync(created.path));
-    } else {
-      Expect.equals(FileSystemEntityType.file,
+      Expect.equals(FileSystemEntityType.notFound,
           FileSystemEntity.typeSync(created.path));
+    } else {
+      Expect.equals(
+          FileSystemEntityType.file, FileSystemEntity.typeSync(created.path));
     }
     asyncEnd();
   });

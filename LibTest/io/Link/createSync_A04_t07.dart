@@ -47,13 +47,8 @@ _main(Directory sandbox) {
   Expect.equals(
       FileSystemEntityType.directory, FileSystemEntity.typeSync(link.path));
   target1.deleteSync();
-  if (Platform.isWindows) {
-    Expect.equals(
-        FileSystemEntityType.link, FileSystemEntity.typeSync(link.path));
-  } else {
-    Expect.equals(
-        FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
-  }
+  Expect.equals(
+      FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
   Directory target2 = Directory(target1.path);
   target2.createSync();
   Expect.equals(

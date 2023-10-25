@@ -28,8 +28,8 @@
 /// containing the string target. If target is a relative path, it will be
 /// interpreted relative to the directory containing the link.
 ///
-/// @description Checks that if `target` does not exist then the type of the link
-/// will be `file` on Windows and `notFound` on other platforms.
+/// @description Checks that if `target` does not exist then the type of the
+/// link is `notFound`
 /// @author sgrekhov22@gmail.com
 
 import "dart:io";
@@ -43,15 +43,6 @@ main() {
 _main(Directory sandbox) {
   Link link = Link(getTempFilePath(parent: sandbox));
   link.createSync(getTempFilePath(parent: sandbox));
-  if (Platform.isWindows) {
-    Expect.equals(
-        FileSystemEntityType.link, FileSystemEntity.typeSync(link.path));
-    File file = File(link.targetSync());
-    file.createSync();
-    Expect.equals(
-        FileSystemEntityType.file, FileSystemEntity.typeSync(link.path));
-  } else {
-    Expect.equals(
-        FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
-  }
+  Expect.equals(
+      FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
 }

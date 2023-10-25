@@ -44,13 +44,8 @@ _main(Directory sandbox) {
   String linkTarget = getTempFilePath(parent: sandbox);
   Link link = Link(getTempFilePath(parent: sandbox));
   link.createSync(linkTarget);
-  if (Platform.isWindows) {
-    Expect.equals(
-        FileSystemEntityType.link, FileSystemEntity.typeSync(link.path));
-  } else {
-    Expect.equals(
-        FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
-  }
+  Expect.equals(
+      FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
   File target2 = File(linkTarget);
   target2.createSync();
   Expect.equals(
