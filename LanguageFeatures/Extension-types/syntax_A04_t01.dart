@@ -33,6 +33,4 @@ extension type ET {
 
 main() {
   print(ET);
-//      ^^
-// [analyzer] unspecified
 }
