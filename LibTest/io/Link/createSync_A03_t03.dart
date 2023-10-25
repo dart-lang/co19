@@ -28,23 +28,20 @@
 /// containing the string target. If target is a relative path, it will be
 /// interpreted relative to the directory containing the link.
 ///
-/// @description Checks that if `target` exists then the type of the link will
-/// match the type `target`. Test [File] as a target
+/// @description Checks thatCalling `createSync` on an existing link will throw
+/// an exception. Test the same [File] target
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";
-
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  inSandbox(_main);
+main() async {
+  await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+_main(Directory sandbox) async {
   File target = getTempFileSync(parent: sandbox);
-  Link link = Link(getTempFilePath(parent: sandbox));
-  link.createSync(target.path);
-  Expect.equals(
-      FileSystemEntityType.file, FileSystemEntity.typeSync(link.path));
+  Link link = getTempLinkSync(parent: sandbox, target: target.path);
+  Expect.throws(() {link.createSync(link.targetSync());});
 }

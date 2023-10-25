@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -28,23 +28,22 @@
 /// containing the string target. If target is a relative path, it will be
 /// interpreted relative to the directory containing the link.
 ///
-/// @description Checks that if `target` exists then the type of the link will
-/// match the type `target`. Test [File] as a target
-/// @author sgrekhov@unipro.ru
+/// @description Checks that this method creates the link. Test not existing
+/// entity as a target
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
-
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  inSandbox(_main);
+main() async {
+  await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
-  File target = getTempFileSync(parent: sandbox);
-  Link link = Link(getTempFilePath(parent: sandbox));
-  link.createSync(target.path);
-  Expect.equals(
-      FileSystemEntityType.file, FileSystemEntity.typeSync(link.path));
+_main(Directory sandbox) async {
+  String target = getTempFilePath(parent: sandbox);
+  Link link = new Link(getTempFilePath(parent: sandbox));
+  link.createSync(target);
+  Expect.isTrue(link.existsSync());
+  Expect.equals(target, link.targetSync());
 }
