@@ -15,6 +15,7 @@
 /// two superinterfaces of the form `W<T1, .. Tk>`, `W<S1, .. Sk>` and there is
 /// a `j` such that `Tj` is not equal to `Sj`.
 /// @author sgrekhov22@gmail.com
+/// @issue 53799
 
 // SharedOptions=--enable-experiment=inline-class
 
