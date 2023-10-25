@@ -36,7 +36,7 @@
 ///
 /// @description Checks that if `target` exists then the type of the link will
 /// match the type `target`. Test [Link] pointing to a not existing entity as a
-/// target (expect `file` on Windows and `notFound` on other platforms).
+/// target.
 /// @author sgrekhov22@gmail.com
 /// @issue 53684
 

@@ -35,7 +35,7 @@
 /// be interpreted relative to the directory containing the link.
 ///
 /// @description Checks that if `target` not exists then the type of the link
-/// will be `file` on Windows and `notFound` on other platforms.
+/// will be `notFound`.
 /// @author sgrekhov22@gmail.com
 /// @issue 53684
 
