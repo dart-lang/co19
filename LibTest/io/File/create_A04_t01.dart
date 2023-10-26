@@ -25,25 +25,35 @@
 ///
 /// @description Checks that future is completed with a `FileSystemException` if
 /// the operation fails. Test the case when there is an existing directory with
-/// the same path, `recursive` is `false` and `exclusive` is `false`
+/// the same path
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() async {
-  await inSandbox(_main);
+main() {
+  inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_test(Directory sandbox,
+    {bool recursive = false, bool exclusive = false}) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
   File file = new File(dir.path);
   asyncStart();
-  await file.create(recursive: false).then((File created) {
-    Expect.fail("FileSystemException is expected");
+  await file.create(recursive: recursive, exclusive: exclusive).then(
+      (File created) {
+    Expect.fail("FileSystemException is expected."
+        "Recursive=$recursive, exclusive=$exclusive");
   }, onError: (e) {
     Expect.isTrue(e is FileSystemException);
     asyncEnd();
   });
+}
+
+_main(Directory sandbox) {
+   _test(sandbox, recursive: false, exclusive: false);
+   _test(sandbox, recursive: false, exclusive: true);
+   _test(sandbox, recursive: true, exclusive: false);
+   _test(sandbox, recursive: true, exclusive: true);
 }
