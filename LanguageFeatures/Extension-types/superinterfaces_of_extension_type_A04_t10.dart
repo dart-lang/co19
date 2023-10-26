@@ -13,29 +13,22 @@
 /// compile-time error occurs if R is is neither a subtype of S nor a subtype of
 /// V1.
 ///
-/// @description Checks that it is not an error if an extension type has a
-/// representation type `R` and a superinterface with a representation type `S`
-/// and `R` is a subtype of `S`
+/// @description Checks that it is a compile-time error if an extension type has
+/// a representation type `R` and a superinterface `V1` with a representation
+/// type `S` and `R` is neither a subtype of `S` nor a subtype of `V1`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-import '../../Utils/expect.dart';
+extension type V1<T>(T _) {}
 
-extension type V1<T>(T id1) {}
+extension type V2<T extends num>(T _) implements V1<T> {}
 
-extension type V(int id) implements V1<num> {}
-
-extension type IntET(int id1) implements int {}
-
-extension type ET(int id) implements IntET, num {}
+extension type ET<T>(V2<double> id) implements V1<int> {}
+//                   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  V v = V(42);
-  Expect.equals(42, v.id);
-  Expect.equals(42, v.id1);
-
-  ET et = ET(42);
-  Expect.equals(42, et.id);
-  Expect.equals(42, et.id1);
+  print(ET);
 }
