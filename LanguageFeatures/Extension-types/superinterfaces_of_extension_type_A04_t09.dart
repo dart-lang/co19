@@ -27,7 +27,7 @@ extension type V1<T>(T _) {}
 
 extension type V2<T extends num>(T _) implements V1<num> {}
 
-extension type ET<T extends V2<int>>(T id) implements V1<int> {}
+extension type ET<T extends V2<int>>(T id) implements V1<num> {}
 
 main() {
   Expect.equals(42, ET(V2(42)).id);

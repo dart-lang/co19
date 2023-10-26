@@ -14,8 +14,8 @@
 /// V1.
 ///
 /// @description Checks that it is a compile-time error if an extension type has
-/// a representation type `R` and a superinterface with a representation type
-/// `S` and `R` is neither a subtype of `S` nor a subtype of `V1`.
+/// a representation type `R` and a superinterface `V1` with a representation
+/// type `S` and `R` is neither a subtype of `S` nor a subtype of `V1`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class

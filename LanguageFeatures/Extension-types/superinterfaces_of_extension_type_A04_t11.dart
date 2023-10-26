@@ -14,7 +14,7 @@
 /// V1.
 ///
 /// @description Checks that it is not an error if an extension type has a
-/// representation type `R` and a superinterface 'V1' with a representation type
+/// representation type `R` and a superinterface `V1` with a representation type
 /// `S` and `R` is not a subtype of `V1` but subtype of `S`
 /// @author sgrekhov22@gmail.com
 
