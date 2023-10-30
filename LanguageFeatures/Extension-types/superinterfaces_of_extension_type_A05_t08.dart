@@ -32,24 +32,23 @@
 /// signature with the same name, including the case where a method is
 /// redeclared by a getter, or vice versa.
 ///
-/// @description Checks that it is not an error if an extension type declaration
-/// `DV` has a superinterface `V` with a member `m` and redeclares this member
-/// even though this is not a correct override for a regular class. Test an
-/// external variable
+/// @description Checks that it is a compile-time error if an extension type
+/// declaration `DV` declares a member that conflicts with an inherited one
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-import '../../Utils/expect.dart';
-
 extension type V(int id) {
-  external final int id2;
+  external int id2;
 }
 
 extension type ET(int id) implements V {
-  int id2() => id; // Redeclaration
+  int id2() => id;
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  Expect.equals(0, ET(0).id2());
+  print(ET);
 }
