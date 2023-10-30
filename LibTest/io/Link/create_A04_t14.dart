@@ -54,21 +54,17 @@ _main(Directory sandbox) async {
   Link link = Link(getTempFilePath(parent: sandbox));
   asyncStart();
   await link.create(target1.path).then((Link created) {
-    Expect.equals(FileSystemEntityType.file,
-        FileSystemEntity.typeSync(created.path));
+    Expect.equals(
+        FileSystemEntityType.file, FileSystemEntity.typeSync(created.path));
     target1.deleteSync();
-    if (Platform.isWindows) {
-      Expect.equals(
-          FileSystemEntityType.link, FileSystemEntity.typeSync(created.path));
-    } else {
-      Expect.equals(FileSystemEntityType.notFound,
-          FileSystemEntity.typeSync(created.path));
-    }
+    Expect.equals(
+        FileSystemEntityType.notFound, FileSystemEntity.typeSync(created.path));
+
     Directory target2 = Directory(target1.path);
     target2.createSync();
     if (Platform.isWindows) {
-      Expect.equals(
-          FileSystemEntityType.link, FileSystemEntity.typeSync(created.path));
+      Expect.equals(FileSystemEntityType.notFound,
+          FileSystemEntity.typeSync(created.path));
     } else {
       Expect.equals(FileSystemEntityType.directory,
           FileSystemEntity.typeSync(created.path));
@@ -79,8 +75,8 @@ _main(Directory sandbox) async {
     Directory linkTarget = getTempDirectorySync();
     target3.createSync(linkTarget.path);
     if (Platform.isWindows) {
-      Expect.equals(
-          FileSystemEntityType.link, FileSystemEntity.typeSync(created.path));
+      Expect.equals(FileSystemEntityType.notFound,
+          FileSystemEntity.typeSync(created.path));
     } else {
       Expect.equals(FileSystemEntityType.directory,
           FileSystemEntity.typeSync(created.path));

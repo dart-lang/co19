@@ -10,11 +10,12 @@
 /// type R, and that the extension type V1 with declaration DV1 is a
 /// superinterface of DV (note that V1 may have some actual type arguments).
 /// Assume that S is the instantiated representation type corresponding to V1. A
-/// compile-time error occurs if R is not a subtype of S.
+/// compile-time error occurs if R is is neither a subtype of S nor a subtype of
+/// V1.
 ///
 /// @description Checks that it is a compile-time error if an extension type has
 /// a representation type `R` and a superinterface with a representation type
-/// `S` and `R` is not a subtype of `S`
+/// `S` and `R` is neither a subtype of `S` nor a subtype of `V1`.
 /// @author sgrekhov22@gmail.com
 /// @issue 53170
 

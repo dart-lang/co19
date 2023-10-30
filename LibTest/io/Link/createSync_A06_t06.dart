@@ -51,13 +51,8 @@ _main(Directory sandbox) {
       getTempFileName(extension: "lnk"));
   link.createSync(target);
   Expect.equals(target, link.targetSync());
-  if (Platform.isWindows) {
-    Expect.equals(
-        FileSystemEntityType.link, FileSystemEntity.typeSync(link.path));
-  } else {
-    Expect.equals(
-        FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
-  }
+  Expect.equals(
+      FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
   // Now create a directory and into it another directory with the name as
   // link's target. Then move the link into the first directory. Its relative
   // target should point to the second directory after it (except Windows)
@@ -69,7 +64,7 @@ _main(Directory sandbox) {
   Expect.equals(target, moved.targetSync());
   if (Platform.isWindows) {
     Expect.equals(
-        FileSystemEntityType.link, FileSystemEntity.typeSync(moved.path));
+        FileSystemEntityType.notFound, FileSystemEntity.typeSync(moved.path));
   } else {
     Expect.equals(
         FileSystemEntityType.directory, FileSystemEntity.typeSync(moved.path));

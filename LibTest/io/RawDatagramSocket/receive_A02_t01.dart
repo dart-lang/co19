@@ -4,8 +4,6 @@
 
 /// @assertion Datagram receive()
 /// Receive a datagram.
-/// . . .
-/// The maximum length of the datagram that can be received is 65503 bytes.
 ///
 /// @description Checks that the 65503 bytes datagram can be received.
 /// @author ngl@unipro.ru

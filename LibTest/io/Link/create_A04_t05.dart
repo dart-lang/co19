@@ -36,7 +36,7 @@
 ///
 /// @description Checks that if `target` exists then the type of the link will
 /// match the type `target`. Test [Link] pointing to a not existing entity as a
-/// target (expect `file` on Windows and `notFound` on other platforms).
+/// target.
 /// @author sgrekhov22@gmail.com
 /// @issue 53684
 
@@ -54,17 +54,8 @@ _main(Directory sandbox) async {
   Link link = Link(getTempFilePath(parent: sandbox));
   asyncStart();
   await link.create(target.path).then((Link created) {
-    if (Platform.isWindows) {
-      Expect.equals(
-          FileSystemEntityType.link, FileSystemEntity.typeSync(created.path));
-      File file = File(created.targetSync());
-      file.createSync();
-      Expect.equals(
-          FileSystemEntityType.file, FileSystemEntity.typeSync(created.path));
-    } else {
-      Expect.equals(FileSystemEntityType.notFound,
-          FileSystemEntity.typeSync(created.path));
-    }
+    Expect.equals(FileSystemEntityType.notFound,
+        FileSystemEntity.typeSync(created.path));
     asyncEnd();
   });
 }

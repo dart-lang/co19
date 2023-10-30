@@ -30,7 +30,7 @@
 ///
 /// @description Checks that if `target` exists then the type of the link will
 /// match the type `target`. Test [Link] pointing to a not existing entity as a
-/// target (expect `file` on Windows and `notFound` on other platforms).
+/// target.
 /// @author sgrekhov22@gmail.com
 
 import "dart:io";
@@ -46,15 +46,6 @@ _main(Directory sandbox) {
       parent: sandbox, target: getTempFilePath(parent: sandbox));
   Link link = Link(getTempFilePath(parent: sandbox));
   link.createSync(target.path);
-  if (Platform.isWindows) {
-    Expect.equals(
-        FileSystemEntityType.link, FileSystemEntity.typeSync(link.path));
-    File file = File(link.targetSync());
-    file.createSync();
-    Expect.equals(
-        FileSystemEntityType.file, FileSystemEntity.typeSync(link.path));
-  } else {
-    Expect.equals(
-        FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
-  }
+  Expect.equals(
+      FileSystemEntityType.notFound, FileSystemEntity.typeSync(link.path));
 }
