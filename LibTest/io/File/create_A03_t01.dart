@@ -24,7 +24,7 @@
 /// Completes the future with a FileSystemException if the operation fails.
 ///
 /// @description Checks that if `exclusive` is `false`, existing files are left
-/// untouched by create. Test the case when `recursive` is `false`
+/// untouched by create.
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";
@@ -35,15 +35,20 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_test(Directory sandbox, {bool recursive = false}) async {
   File tmp = getTempFileSync(parent: sandbox);
   tmp.writeAsStringSync("Existing file content");
   File file = new File(tmp.path);
-  asyncStart();
-  await file.create().then((File created) {
+  await file.create(recursive: recursive).then((File created) {
     Expect.isTrue(created.existsSync());
     Expect.equals(tmp.path, created.path);
     Expect.equals("Existing file content", created.readAsStringSync());
     asyncEnd();
   });
+}
+
+_main(Directory sandbox) async {
+  asyncMultiStart(2);
+  await _test(sandbox, recursive: false);
+  await _test(sandbox, recursive: true);
 }

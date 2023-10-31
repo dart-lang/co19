@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -24,9 +24,9 @@
 /// Completes the future with a FileSystemException if the operation fails.
 ///
 /// @description Checks that future is completed with a `FileSystemException` if
-/// the operation fails. Test the case when there is an existing directory with
-/// the same path
-/// @author sgrekhov@unipro.ru
+/// the operation fails. Test the case when there is an existing link to a
+/// directory on the path
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -38,8 +38,9 @@ main() async {
 
 _test(Directory sandbox,
     {bool recursive = false, bool exclusive = false}) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
-  File file = new File(dir.path);
+  Directory target = getTempDirectorySync(parent: sandbox);
+  Link link = getTempLinkSync(parent: sandbox, target: target.path);
+  File file = File(link.path);
   await file.create(recursive: recursive, exclusive: exclusive).then(
       (File created) {
     Expect.fail("FileSystemException is expected."

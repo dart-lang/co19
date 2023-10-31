@@ -35,15 +35,21 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_test(Directory sandbox, {bool exclusive = false}) async {
   String dirPath = getTempDirectoryPath(parent: sandbox);
   String filePath = dirPath + Platform.pathSeparator + getTempFileName();
   File file = new File(filePath);
-  asyncStart();
-  await file.create(recursive: false).then((File created) {
+  await file.create(recursive: false, exclusive: exclusive).then(
+      (File created) {
     Expect.fail("FileSystemException is expected");
   }, onError: (e) {
     Expect.isTrue(e is FileSystemException);
     asyncEnd();
   });
+}
+
+_main(Directory sandbox) async {
+  asyncMultiStart(2);
+  await _test(sandbox, exclusive: false);
+  await _test(sandbox, exclusive: true);
 }

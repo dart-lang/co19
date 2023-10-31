@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -21,28 +21,34 @@
 ///
 /// Throws a FileSystemException if the operation fails.
 ///
-/// @description Checks that if `recursive` is `false` and there are
-/// non-existing path components, then operation fails
-/// @author sgrekhov@unipro.ru
+/// @description Checks that a [FileSystemException] is thrown if the operation
+/// fails. Test the case when there is an existing link to a directory on the
+/// path
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  inSandbox(_main);
+main() async {
+  await inSandbox(_main);
 }
 
-_test(Directory sandbox, {bool exclusive = false}) {
-  String dirPath = getTempDirectoryPath(parent: sandbox);
-  String filePath = dirPath + Platform.pathSeparator + getTempFileName();
-  File file = new File(filePath);
+_test(Directory sandbox, {bool recursive = false, bool exclusive = false}) {
+  Directory target = getTempDirectorySync(parent: sandbox);
+  Link link = getTempLinkSync(parent: sandbox, target: target.path);
+  File file = new File(link.path);
   Expect.throws(() {
-    file.createSync(recursive: false, exclusive: exclusive);
-  }, (e) => e is FileSystemException);
+    file.createSync();
+  },
+      (e) => e is FileSystemException,
+      "FileSystemException expected. "
+      "Resursive=$recursive, exclusive=$exclusive");
 }
 
 _main(Directory sandbox) {
-  _test(sandbox, exclusive: false);
-  _test(sandbox, exclusive: true);
+  _test(sandbox, recursive: false, exclusive: false);
+  _test(sandbox, recursive: false, exclusive: true);
+  _test(sandbox, recursive: true, exclusive: false);
+  _test(sandbox, recursive: true, exclusive: true);
 }
