@@ -51,6 +51,7 @@ _test(Directory sandbox, {bool recursive = false}) async {
     created.deleteSync();
     Expect.isFalse(file.existsSync());
     Expect.isTrue(target.existsSync());
+    Expect.isFalse(link.existsSync());
     asyncEnd();
   });
 }
