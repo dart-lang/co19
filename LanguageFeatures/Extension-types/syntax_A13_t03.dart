@@ -20,38 +20,39 @@
 /// <extensionTypeMemberDeclaration> ::= <classMemberDefinition>
 ///
 /// @description Checks that it is a compile-time error if an extension type
-/// has the name which is a reserved word
+/// has the name which is a built-in identifier
 /// @author sgrekhov22@gmail.com
+/// @issue 53930
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type assert(int id) {}
-//             ^^^^^^
+extension type abstract(int id) {}
+//             ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type class(int id) {}
-//             ^^^^^
+extension type extension(int id) {}
+//             ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type extends(int id) {}
+extension type factory(int id) {}
 //             ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type if(int id) {}
-//             ^^
+extension type import(int id) {}
+//             ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type new(int id) {}
-//             ^^^
+extension type required(int id) {}
+//             ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type with(int id) {}
-//             ^^^^
+extension type typedef(int id) {}
+//             ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

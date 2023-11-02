@@ -20,38 +20,49 @@
 /// <extensionTypeMemberDeclaration> ::= <classMemberDefinition>
 ///
 /// @description Checks that it is a compile-time error if an extension type
-/// has the name which is a reserved word
+/// has the name which is OTHER_IDENTIFIER_NOT_TYPE
 /// @author sgrekhov22@gmail.com
+/// @issue 53930
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type assert(int id) {}
-//             ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-extension type class(int id) {}
+extension type async(int id) {}
 //             ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type extends(int id) {}
-//             ^^^^^^^
+extension type hide(int id) {}
+//             ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type if(int id) {}
+extension type of(int id) {}
 //             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type new(int id) {}
-//             ^^^
+extension type on(int id) {}
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type with(int id) {}
+extension type show(int id) {}
 //             ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type sync(int id) {}
+//             ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type await(int id) {}
+//             ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type yield(int id) {}
+//             ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
