@@ -19,52 +19,37 @@
 ///
 /// <extensionTypeMemberDeclaration> ::= <classMemberDefinition>
 ///
-/// @description Checks that it is a compile-time error if an extension type
-/// has the name which is OTHER_IDENTIFIER_NOT_TYPE
+/// @description Checks that it is not an error if an extension type has the
+/// name which is OTHER_IDENTIFIER_NOT_TYPE
 /// @author sgrekhov22@gmail.com
-/// @issue 53930
 
 // SharedOptions=--enable-experiment=inline-class
 
+import "../../Utils/expect.dart";
+
 extension type async(int id) {}
-//             ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 extension type hide(int id) {}
-//             ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 extension type of(int id) {}
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 extension type on(int id) {}
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 extension type show(int id) {}
-//             ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 extension type sync(int id) {}
-//             ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 extension type await(int id) {}
-//             ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 extension type yield(int id) {}
-//             ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 main() {
+  Expect.equals(42, async(42).id);
+  Expect.equals(42, hide(42).id);
+  Expect.equals(42, of(42).id);
+  Expect.equals(42, on(42).id);
+  Expect.equals(42, show(42).id);
+  Expect.equals(42, sync(42).id);
+  Expect.equals(42, await(42).id);
+  Expect.equals(42, yield(42).id);
 }
