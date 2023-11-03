@@ -34,6 +34,8 @@
 
 class C {
   const C();
+//^^^^^
+// [analyzer] unspecified
 
   final x = 1;
   final y = x;
