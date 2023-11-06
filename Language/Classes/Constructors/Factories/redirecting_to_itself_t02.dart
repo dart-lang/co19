@@ -2,13 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if a redirecting factory constructor
-/// redirects to itself, either directly or indirectly via a sequence of
-/// redirections.
+/// @assertion A redirecting factory constructor q′ is redirection-reachable
+/// from a redirecting factory constructor q iff q′ is the redirectee
+/// constructor of q, or q′′ is the redirectee constructor of q and q′ is
+/// redirection-reachable from q′′. It is a compile-time error if a redirecting
+/// factory constructor is redirection-reachable from itself.
+///
 /// @description Checks that compile-error occurs when named factory constructor
 /// redirects to itself.
 /// @author ilya
-
 
 class F {
   factory F.id() = F.id;
@@ -18,5 +20,5 @@ class F {
 }
 
 main() {
-  new F.id();
+  print(F.id());
 }
