@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -16,10 +16,10 @@
 /// It is a compile-time error if k explicitly specifies a default value for an
 /// optional parameter.
 ///
-/// @description Checks that it is not an error if a redirecting factory
+/// @description Checks that it is not an error if redirecting factory
 /// constructor has optional parameters with no defaults and that actual
 /// arguments are passed as expected.
-/// @author ilya
+/// @author sgrekhov22@gmail.com
 
 import "../../../../Utils/expect.dart";
 
@@ -29,41 +29,39 @@ test(x, y) {
   Expect.listEquals(expect, [x, y]);
 }
 
-class F {
-  factory F(int x, [int y]) = C;
-  factory F.foo(int x, [int y]) = C.foo;
-  factory F.bar(int x, {int y}) = C.bar;
-  factory F.baz(int x, {required int y}) = C.baz;
-}
+enum E {
+  e1, e2, e3;
+  const E();
 
-class C implements F {
-  C(int x, [int y = 0]) {
+  factory E.f1(int x, [int y = 0]) {
     test(x, y);
+    return E.e1;
   }
-  C.foo(int x, [int y = 0]) {
+  factory E.f2(int x, {int y = 0}) {
     test(x, y);
+    return E.e2;
   }
-  C.bar(int x, {int y = 0}) {
+  factory E.f3(int x, {required int y}) {
     test(x, y);
+    return E.e3;
   }
-  C.baz(int x, {required int y}) {
-    test(x, y);
-  }
+
+  factory E.fr1(int x, [int y]) = E.f1;
+  factory E.fr2(int x, {int y}) = E.f2;
+  factory E.fr3(int x, {required int y}) = E.f3;
 }
 
 main() {
   expect = [1, 0];
-  new F(1);
-  expect = [1, 1];
-  new F(1, 1);
+  E.fr1(1);
+  expect = [1, 2];
+  E.fr1(1, 2);
+
   expect = [1, 0];
-  new F.foo(1);
-  expect = [1, 1];
-  new F.foo(1, 1);
-  expect = [1, 0];
-  new F.bar(1);
-  expect = [1, 1];
-  new F.bar(1, y: 1);
-  expect = [2, 2];
-  new F.baz(2, y: 2);
+  E.fr2(1);
+  expect = [1, 2];
+  E.fr2(1, y: 2);
+
+  expect = [1, 2];
+  E.fr3(1, y: 2);
 }
