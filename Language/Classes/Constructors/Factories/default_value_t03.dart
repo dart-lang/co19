@@ -16,7 +16,7 @@
 /// It is a compile-time error if k explicitly specifies a default value for an
 /// optional parameter.
 ///
-/// @description Checks that it is not an error if redirecting factory
+/// @description Checks that it is not an error if a redirecting factory
 /// constructor has optional parameters with no defaults and that actual
 /// arguments are passed as expected.
 /// @author ilya

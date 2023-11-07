@@ -20,7 +20,7 @@
 /// is not a constant constructor.
 ///
 /// @description Checks that it is a compile-error if const redirecting
-/// factory constructor redirects to non-const redirecting factory constructor
+/// factory constructor redirects to non-const factory constructor
 /// @author ilya
 
 class F1 {
