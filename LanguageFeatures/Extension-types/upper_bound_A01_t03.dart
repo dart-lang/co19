@@ -19,8 +19,8 @@
 
 import '../../Utils/static_type_helper.dart';
 
-extension type ET1(String s) {}
-extension type ET2(int n) {}
+extension type ET1(String s) implements Object {}
+extension type ET2(int n) implements Object {}
 
 extension type ET3(String s) implements String {}
 extension type ET4(int i) implements num {}

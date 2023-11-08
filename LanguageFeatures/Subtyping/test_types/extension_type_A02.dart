@@ -18,7 +18,7 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type const V<T>(T id) {}
+extension type const V<T extends Object>(T id) implements Object {}
 
 Object t1Instance = Object();
 V<int> t0Instance = V<int>(42);

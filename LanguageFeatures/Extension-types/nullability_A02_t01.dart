@@ -20,7 +20,7 @@ extension type ET1<T>(T _) {
   }
 }
 
-extension type ET2<T extends Object>(T _) {
+extension type ET2<T extends Object>(T _) implements Object {
   void test() {
     this ?? print("Expect a warning here!");
 //       ^^
