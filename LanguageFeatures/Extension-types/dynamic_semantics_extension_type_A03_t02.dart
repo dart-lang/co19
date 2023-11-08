@@ -27,7 +27,7 @@ bool testAsInt(Object instance) {
   }
 }
 
-bool testAsV1(Object instance) {
+bool testAsV1(Object? instance) {
   try {
     instance as V1;
     return true;
@@ -36,7 +36,7 @@ bool testAsV1(Object instance) {
   }
 }
 
-bool testAsT<T>(Object instance) {
+bool testAsT<T>(Object? instance) {
   try {
     instance as T;
     return true;
@@ -45,7 +45,7 @@ bool testAsT<T>(Object instance) {
   }
 }
 
-bool testAsV2<T>(Object instance) {
+bool testAsV2<T>(Object? instance) {
   try {
     instance as V2<T>;
     return true;
