@@ -29,8 +29,8 @@ check(delayms, value) {
   sw.start();
   new Future.delayed(delay, () {
     Duration elapsed = sw.elapsed;
-    Expect.isTrue(
-        elapsed + safetyMargin >= delay, "delay=$delay, elapsed=$elapsed");
+    Expect.isTrue(elapsed + safetyMargin >= delay,
+        "delay=$delay, elapsed=${elapsed + safetyMargin}");
     asyncEnd();
   });
 }

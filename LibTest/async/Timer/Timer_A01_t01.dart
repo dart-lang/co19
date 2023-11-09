@@ -28,8 +28,8 @@ check(int delayms) {
   asyncStart();
   new Timer(delay, () {
     Duration actual = sw.elapsed;
-    Expect.isTrue(
-        delay <= actual + safetyMargin, "expected=$delay, actual=$actual");
+    Expect.isTrue(delay <= actual + safetyMargin,
+        "expected=$delay, actual=${actual + safetyMargin}");
     asyncEnd();
   });
 }

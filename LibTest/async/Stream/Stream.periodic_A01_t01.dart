@@ -37,7 +37,7 @@ void check(int periodMs) {
     Duration expected = period * count;
     Duration actual = sw.elapsed;
     Expect.isTrue(expected <= actual + safetyMargin,
-        "expected=$expected, actual=$actual");
+        "expected=$expected, actual=${actual + safetyMargin}");
     if (count >= maxCount) {
       ss.cancel();
       asyncEnd();
