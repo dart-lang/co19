@@ -22,7 +22,7 @@
 // SharedOptions=--enable-experiment=inline-class
 
 extension type const Num(num id) {
-  const Num.add(Num v1, Num v2) : this(v1.id + (v2 as num);
+  const Num.add(Num v1, Num v2) : this(v1.id + (v2 as num));
 //                                     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
