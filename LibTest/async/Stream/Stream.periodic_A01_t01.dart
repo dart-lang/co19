@@ -50,5 +50,7 @@ main() {
   check(1);
   check(10);
   check(30);
+  check(50);
   check(100);
+  check(200);
 }

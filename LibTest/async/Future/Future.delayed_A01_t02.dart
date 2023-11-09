@@ -22,7 +22,7 @@ Duration safetyMargin = const bool.fromEnvironment('dart.library.js')
     ? Duration(milliseconds: 40)
     : Duration.zero;
 
-check(delayms, value) {
+check(delayms) {
   Duration delay = durationInMilliseconds(delayms);
   Stopwatch sw = new Stopwatch();
   asyncStart();
@@ -36,7 +36,9 @@ check(delayms, value) {
 }
 
 main() {
-  check(0, 11);
-  check(300, 3);
-  check(50, 22);
+  check(0);
+  check(30);
+  check(50);
+  check(100);
+  check(150);
 }

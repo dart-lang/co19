@@ -20,6 +20,7 @@ main() {
       Expect.equals(type, e.type);
       if (!fired) {
         asyncEnd();
+        fired = true;
       }
     });
     var event = new MouseEvent(type);
