@@ -15,7 +15,7 @@
 /// declared const or not, following the normal rules for constant constructors.
 ///
 /// @description Checks that if an extension type declaration declares a
-/// constant constructor then it can be used in a constant expressions
+/// constant constructor then it can be used in a constant expression
 /// @author sgrekhov22@gmail.com
 /// @issue 53935
 
