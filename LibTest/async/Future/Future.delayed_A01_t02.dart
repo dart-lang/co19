@@ -7,12 +7,20 @@
 ///    The computation will be executed after the given duration has passed, and
 /// the future is completed with the result. If the duration is 0 or less, it
 /// completes no sooner than in the next event-loop iteration.
+///
 /// @description Checks that execution of the supplied computation() function
 /// happens after delay.
 /// @author kaigorodov
 
 import "dart:async";
 import "../../../Utils/expect.dart";
+
+// Most browsers can trigger timers too early. Test data shows instances where
+// timers fire even 15ms early. We add a safety margin to prevent flakiness
+// when running this test on affected platforms.
+Duration safetyMargin = const bool.fromEnvironment('dart.library.js')
+    ? Duration(milliseconds: 40)
+    : Duration.zero;
 
 check(delayms, value) {
   Duration delay = durationInMilliseconds(delayms);
@@ -21,7 +29,8 @@ check(delayms, value) {
   sw.start();
   new Future.delayed(delay, () {
     Duration elapsed = sw.elapsed;
-    Expect.isTrue(elapsed >= delay, "delay=$delay, elapsed=${elapsed}");
+    Expect.isTrue(elapsed + safetyMargin >= delay,
+        "delay=$delay, elapsed=${elapsed + safetyMargin}");
     asyncEnd();
   });
 }
