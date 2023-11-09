@@ -6,12 +6,20 @@
 ///     [T computation(int computationCount)])
 /// Creates a stream that repeatedly emits events at period intervals.
 /// If computation is omitted the event values will all be null.
+///
 /// @description Checks that created stream emits events at period intervals.
 /// Checks that if computation is omitted the event value is null.
 /// @author kaigorodov
 
 import "dart:async";
 import "../../../Utils/expect.dart";
+
+// Most browsers can trigger timers too early. Test data shows instances where
+// timers fire even 15ms early. We add a safety margin to prevent flakiness
+// when running this test on affected platforms.
+Duration safetyMargin = const bool.fromEnvironment('dart.library.js')
+    ? Duration(milliseconds: 40)
+    : Duration.zero;
 
 void check(int periodMs) {
   Duration period = durationInMilliseconds(periodMs);
@@ -20,19 +28,18 @@ void check(int periodMs) {
 
   Stopwatch sw = new Stopwatch();
   sw.start();
-
   asyncStart();
-
   Stream s = new Stream.periodic(period);
-  StreamSubscription? ss;
+  late StreamSubscription ss;
   ss = s.listen((var event) {
     count++;
     Expect.isNull(event);
     Duration expected = period * count;
     Duration actual = sw.elapsed;
-    Expect.isTrue(expected <= actual, "expected=$expected, actual=$actual");
+    Expect.isTrue(expected <= actual + safetyMargin,
+        "expected=$expected, actual=$actual");
     if (count >= maxCount) {
-      ss?.cancel();
+      ss.cancel();
       asyncEnd();
     }
   });
