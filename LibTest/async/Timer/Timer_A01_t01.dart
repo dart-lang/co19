@@ -35,10 +35,14 @@ check(int delayms) {
 }
 
 main() {
+  check(150);
+  check(100);
+  check(50);
   check(25);
   check(10);
   check(2);
   check(1);
   check(0);
   check(-5);
+  check(-50);
 }
