@@ -15,13 +15,11 @@
 /// name `type`. Test record type
 /// @author sgrekhov22@gmail.com
 
-class C<T> {}
-
 extension type on (int i,) {}
-//        ^^^^
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  C();
+  print((int,));
 }
