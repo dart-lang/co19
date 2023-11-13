@@ -5,10 +5,13 @@
 /// @assertion A redirecting factory constructor specifies a call to a
 /// constructor of another class that is to be used whenever the redirecting
 /// constructor is called.
-/// redirectingFactoryConstructorSignature:
-///   const? factory identifier (‘.’ identifier)? formalParameterList
-/// ‘=’ typeName (‘.’ identifier)?
-/// ;
+/// ⟨redirectingFactoryConstructorSignature⟩ ::=
+///     const? factory ⟨constructorName⟩ ⟨formalParameterList⟩ ‘=’
+///     ⟨constructorDesignation⟩
+/// ⟨constructorDesignation⟩ ::= ⟨typeIdentifier⟩
+///     | ⟨qualifiedName⟩
+///     | ⟨typeName⟩ ⟨typeArguments⟩ (‘.’ ⟨identifier⟩)?
+///
 /// @description Checks that correct declarations of redirecting factory
 /// constructors do not cause errors. Test type aliases
 /// @author sgrekhov@unipro.ru
@@ -35,7 +38,17 @@ class D extends CAlias {
 }
 typedef DAlias = D;
 
+enum E {
+  e1, e2;
+  const E();
+
+  factory E.f1() => E.e1;
+  factory E.f2() = EAlias.f1;
+}
+typedef EAlias = E;
+
 main() {
   A a = new A.foo();
   Expect.equals(2, a.m());
+  Expect.identical(E.e1, E.f2());
 }
