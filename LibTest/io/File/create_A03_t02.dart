@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -23,10 +23,10 @@
 ///
 /// Completes the future with a FileSystemException if the operation fails.
 ///
-/// @description Checks that future is completed with a `FileSystemException` if
-/// the operation fails. Test the case when there is an existing directory with
-/// the same path
-/// @author sgrekhov@unipro.ru
+/// @description Checks that if `exclusive` is `true` and to-be-created file
+/// already exists, this operation completes the future with a
+/// [PathExistsException].
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -36,24 +36,19 @@ main() async {
   await inSandbox(_main);
 }
 
-_test(Directory sandbox,
-    {bool recursive = false, bool exclusive = false}) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
-  File file = new File(dir.path);
-  await file.create(recursive: recursive, exclusive: exclusive).then(
-      (File created) {
-    Expect.fail("FileSystemException is expected."
-        "Recursive=$recursive, exclusive=$exclusive");
+_test(Directory sandbox, {bool recursive = false}) async {
+  File tmp = getTempFileSync(parent: sandbox);
+  File file = new File(tmp.path);
+  await file.create(exclusive: true, recursive: recursive).then((File created) {
+    Expect.fail("PathExistsException is expected");
   }, onError: (e) {
-    Expect.isTrue(e is FileSystemException);
+    Expect.isTrue(e is PathExistsException);
     asyncEnd();
   });
 }
 
 _main(Directory sandbox) async {
-  asyncMultiStart(4);
-  await _test(sandbox, recursive: false, exclusive: false);
-  await _test(sandbox, recursive: false, exclusive: true);
-  await _test(sandbox, recursive: true, exclusive: false);
-  await _test(sandbox, recursive: true, exclusive: true);
+  asyncMultiStart(2);
+  await _test(sandbox, recursive: true);
+  await _test(sandbox, recursive: false);
 }

@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -23,8 +23,9 @@
 ///
 /// Completes the future with a FileSystemException if the operation fails.
 ///
-/// @description Checks that this method creates the file
-/// @author sgrekhov@unipro.ru
+/// @description Checks that if `exclusive` is `false`, existing files are left
+/// untouched by create. Test [Link] pointing to a not existing entity
+/// @author sgrekhov22@gmail.com
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -34,12 +35,29 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
-  File file = new File(getTempFilePath(parent: sandbox));
-  asyncStart();
-  await file.create().then((File created) {
+_test(Directory sandbox, {bool recursive = false}) async {
+  File target = File(getTempFilePath(parent: sandbox));
+  Expect.isFalse(target.existsSync());
+  Link link = getTempLinkSync(parent: sandbox, target: target.path);
+  File file = File(link.path);
+  await file.create(recursive: recursive).then((File created) {
     Expect.isTrue(created.existsSync());
     Expect.equals(file.path, created.path);
+    // Now check that all read/write operations are performed on link's target
+    Expect.isTrue(target.existsSync());
+    created.writeAsStringSync("Lily was here");
+    Expect.equals("Lily was here", target.readAsStringSync());
+    // Delete doesn't delete the target of the link but the link itself
+    created.deleteSync();
+    Expect.isFalse(file.existsSync());
+    Expect.isTrue(target.existsSync());
+    Expect.isFalse(link.existsSync());
     asyncEnd();
   });
+}
+
+_main(Directory sandbox) async {
+  asyncMultiStart(2);
+  await _test(sandbox, recursive: false);
+  await _test(sandbox, recursive: true);
 }
