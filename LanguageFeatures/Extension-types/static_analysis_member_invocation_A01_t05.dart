@@ -57,5 +57,6 @@ void main() {
   TypeET t2 = e2.runtimeType;
 
   bool b1 = e1 == e1;
-  BoolET b2 = e2 == e2;
+  // The type of an equality expression is always bool
+  bool b2 = e2 == e2;
 }
