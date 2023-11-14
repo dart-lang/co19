@@ -45,7 +45,7 @@ _test(Directory sandbox, {bool recursive = false}) {
   // Now check that all read/write operations are performed on link's target
   file.writeAsStringSync("Lily was here");
   Expect.equals("Lily was here", target.readAsStringSync());
-  // Delete doesn't delete target of the link
+  // Delete doesn't delete the target of the link but the link itself
   file.deleteSync();
   Expect.isFalse(file.existsSync());
   Expect.isTrue(target.existsSync());
