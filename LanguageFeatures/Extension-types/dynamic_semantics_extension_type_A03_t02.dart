@@ -18,7 +18,7 @@ extension type V1(int id) {}
 
 extension type V2<T>(T id) {}
 
-bool testAsInt(Object instance) {
+bool testAsInt(Object? instance) {
   try {
     instance as int;
     return true;

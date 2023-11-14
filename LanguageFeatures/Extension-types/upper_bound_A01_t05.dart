@@ -27,7 +27,7 @@ extension type ET4<T extends int>(T id) implements ET2<T?>, num {}
 
 main() {
   var v1 = 2 > 1 ? ET1<String>("String") : ET2<num>(1);
-  v1.expectStaticType<Exactly<Object>>();
+  v1.expectStaticType<Exactly<Object?>>();
 
   var v2 = 2 > 1 ? ET1<String>("String") : ET2<String?>("String");
   v2.expectStaticType<Exactly<Object?>>();
@@ -42,5 +42,5 @@ main() {
   v5.expectStaticType<Exactly<ET1<String?>>>();
 
   var v6 = 2 > 1 ? ET2<num>(4) : ET4(5);
-  v6.expectStaticType<Exactly<Object>>();
+  v6.expectStaticType<Exactly<Object?>>();
 }

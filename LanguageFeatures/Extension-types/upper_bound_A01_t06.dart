@@ -34,13 +34,13 @@ main() {
   v3.expectStaticType<Exactly<String>>();
 
   var v4 = 2 > 1 ? "String" : ET1<String>("ET1");
-  v4.expectStaticType<Exactly<Object>>();
+  v4.expectStaticType<Exactly<Object?>>();
 
   var v5 = 2 > 1 ? "String" : ET1<String?>("ET1");
   v5.expectStaticType<Exactly<Object?>>();
 
   var v6 = 2 > 1 ? Object() : ET1<String>("ET1");
-  v6.expectStaticType<Exactly<Object>>();
+  v6.expectStaticType<Exactly<Object?>>();
 
   var v7 = 2 > 1 ? Object() : ET1<String?>("ET1");
   v7.expectStaticType<Exactly<Object?>>();
