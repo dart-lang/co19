@@ -4,10 +4,10 @@
 
 /// @assertion It is a compile-time error if the enum declaration contains any
 /// generative constructor which is not const.
-//
-// We can allow omitting the const on constructors since it’s required, so we
-// can just assume it’s there. That’s a convenience we can also add at any later
-// point.
+///
+/// We can allow omitting the const on constructors since it’s required, so we
+/// can just assume it’s there. That’s a convenience we can also add at any
+/// later point.
 ///
 /// @description Check that non constant factory constructor is allowed
 /// @author sgrekhov@unipro.ru

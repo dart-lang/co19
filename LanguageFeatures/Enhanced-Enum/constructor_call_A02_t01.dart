@@ -2,10 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It’s a compile time error to call any of enums constructors
+/// @assertion It is a compile-time error to refer to a declared or default
+/// generative constructor of an enum declaration in any way, other than:
+/// - As the target of a redirecting generative constructor of the same enum
+///   declaration (: this(...);/: this.targetName(...);), or
+/// - Implicitly in the enum value declarations of the same enum
+///   (enumValueName(args)/enumValueName.targetName(args)).
 ///
 /// @description Check that it’s a compile time error to call any of enums
-/// constructors
+/// generative constructors in a factory constructor
 /// @author sgrekhov@unipro.ru
 
 enum E {
@@ -16,13 +21,17 @@ enum E {
   const E(int i);
   const E.named(int i) : this(i);
 
-  factory E.f(int i) => E.named(i);
-//                      ^^^^^^^
+  factory E.f1(int i) => E.named(i);
+//                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  E getInstance(int i) => E.f(i);
+
+  factory E.f2(int i) => this(i);
+//                       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  E.e1.getInstance(42);
+  E.f1(42);
 }
