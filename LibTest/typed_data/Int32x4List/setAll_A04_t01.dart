@@ -22,7 +22,7 @@ equal(o1, o2) => o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
 void listEquals(List<Int32x4> expected, Int32x4List l) {
   Expect.equals(expected.length, l.length);
   for (int i = 0; i < l.length; ++i) {
-    Expect.isTrue(equal(l[i], expected[i]));
+    Expect.isTrue(equal(expected[i], l[i]));
   }
 }
 
