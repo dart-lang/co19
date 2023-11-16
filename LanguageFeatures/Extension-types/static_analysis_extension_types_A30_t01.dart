@@ -18,10 +18,11 @@
 // SharedOptions=--enable-experiment=inline-class
 
 extension type ET(int id) {
+//                    ^^
+// [cfe] unspecified
   void set id(String i) {}
 //         ^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
