@@ -4,12 +4,12 @@
 
 /// @assertion void setAll(int index, Iterable<E> iterable)
 /// ...
-/// If iterable is based on this list, its values may change /during/ the setAll
+/// If iterable is based on this list, its values may change during the setAll
 /// operation.
+///
 /// @description Checks that values of iterable may change if iterable is based
 /// on this list.
 /// @author ngl@unipro.ru
-
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
