@@ -33,7 +33,7 @@
 import "../../Utils/expect.dart";
 
 extension type ET1<T>(T id) {
-  Object test1() => this;
+  Object? test1() => this;
   void test2() {
     Expect.identical(this, id);
   }
