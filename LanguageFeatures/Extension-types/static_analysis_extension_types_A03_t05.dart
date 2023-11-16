@@ -23,6 +23,8 @@ extension type I2(int id) {
 
 extension type ET1(int id) {
   int n() => 1;
+//    ^
+// [cfe] unspecified
   void set n(int i) {}
 //         ^
 // [analyzer] unspecified
@@ -31,6 +33,8 @@ extension type ET1(int id) {
 
 extension type ET2(int id) {
   void set n(String s) {}
+//         ^
+// [cfe] unspecified
   int n() => 2;
 //    ^
 // [analyzer] unspecified
