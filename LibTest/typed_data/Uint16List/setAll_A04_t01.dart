@@ -7,7 +7,7 @@
 /// If iterable is based on this list, its values may change during the setAll
 /// operation.
 ///
-/// @description Checks that iterable values may change during the setAll
+/// @description Checks that iterable values may change during the `setAll`
 /// operation, if iterable is based on this list.
 /// @author ngl@unipro.ru
 
