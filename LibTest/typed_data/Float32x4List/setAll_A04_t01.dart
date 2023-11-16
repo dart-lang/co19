@@ -28,8 +28,8 @@ listEquals(List<Float32x4> expected, Float32x4List actual) {
 
 main() {
   var list = [
-    f32x4(1.0), f32x4(2.0), f32x4(3.0), f32x4(4.0), f32x4(5.0),
-    f32x4(6.0), f32x4(7.0), f32x4(8.0), f32x4(9.0)
+    f32x4(1.1), f32x4(2.1), f32x4(3.1), f32x4(4.1), f32x4(5.1),
+    f32x4(6.1), f32x4(7.1), f32x4(8.1), f32x4(9.1)
   ];
 
   var l = new Float32x4List.fromList(list);
@@ -37,26 +37,26 @@ main() {
   var view = new Float32x4List.view(buffer,
       3 * Float32x4List.bytesPerElement, 3);
 
-  listEquals([f32x4(4.0), f32x4(5.0), f32x4(6.0)], view);
+  listEquals([f32x4(4.1), f32x4(5.1), f32x4(6.1)], view);
   l.setAll(2, view);
   listEquals([
-    f32x4(1.0), f32x4(2.0), f32x4(4.0), f32x4(5.0), f32x4(6.0),
-    f32x4(6.0), f32x4(7.0), f32x4(8.0), f32x4(9.0)
+    f32x4(1.1), f32x4(2.1), f32x4(4.1), f32x4(5.1), f32x4(6.1),
+    f32x4(6.1), f32x4(7.1), f32x4(8.1), f32x4(9.1)
   ], l);
 
-  listEquals([f32x4(5.0), f32x4(6.0), f32x4(6.0)], view);
+  listEquals([f32x4(5.1), f32x4(6.1), f32x4(6.1)], view);
   l.setAll(4, view);
   listEquals([
-    f32x4(1.0), f32x4(2.0), f32x4(4.0), f32x4(5.0), f32x4(5.0),
-    f32x4(6.0), f32x4(6.0), f32x4(8.0), f32x4(9.0)
+    f32x4(1.1), f32x4(2.1), f32x4(4.1), f32x4(5.1), f32x4(5.1),
+    f32x4(6.1), f32x4(6.1), f32x4(8.1), f32x4(9.1)
   ], l);
 
-  listEquals([f32x4(5.0), f32x4(5.0), f32x4(6.0)], view);
+  listEquals([f32x4(5.1), f32x4(5.1), f32x4(6.1)], view);
   l.setAll(0, view);
   listEquals([
-    f32x4(5.0), f32x4(5.0), f32x4(6.0), f32x4(5.0), f32x4(5.0),
-      f32x4(6.0), f32x4(6.0), f32x4(8.0), f32x4(9.0)
+    f32x4(5.1), f32x4(5.1), f32x4(6.1), f32x4(5.1), f32x4(5.1),
+      f32x4(6.1), f32x4(6.1), f32x4(8.1), f32x4(9.1)
   ], l);
 
-  listEquals([f32x4(5.0), f32x4(5.0), f32x4(6.0)], view);
+  listEquals([f32x4(5.1), f32x4(5.1), f32x4(6.1)], view);
 }
