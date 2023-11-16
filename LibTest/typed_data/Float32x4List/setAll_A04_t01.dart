@@ -4,7 +4,7 @@
 
 /// @assertion void setAll(int index, Iterable<E> iterable)
 /// ...
-/// If iterable is based on this list, its values may change /during/ the setAll
+/// If iterable is based on this list, its values may change during the setAll
 /// operation.
 ///
 /// @description Checks that if iterable is based on this list, its values may
