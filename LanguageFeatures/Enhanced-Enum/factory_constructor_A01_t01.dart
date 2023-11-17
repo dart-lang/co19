@@ -5,7 +5,7 @@
 /// @assertion It is a compile-time error if the constructor implicitly invoked
 /// by an enumerated enum value declaration is a factory constructor.
 ///
-/// @description Check that It is a compile-time error if the constructor
+/// @description Check that it is a compile-time error if the constructor
 /// implicitly invoked by an enumerated enum value declaration is a factory
 /// constructor
 /// @author sgrekhov22@gmail.com

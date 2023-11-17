@@ -33,7 +33,7 @@ class B implements A {
   TypeET get runtimeType => TypeET(super.runtimeType);
 
   @override
-  BoolET operator ==(Object? other) => BoolET(other == this);
+  BoolET operator ==(Object? other) => BoolET(super == other);
 }
 
 extension type ET1(B b) implements A {}

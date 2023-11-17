@@ -7,6 +7,7 @@
 /// @description Checks that it is a compile-time error to assign the result of
 /// `==` operator call to a variable which static type is not bool
 /// @author sgrekhov22@gmail.com
+/// @issue 54080
 
 // SharedOptions=--enable-experiment=inline-class
 
