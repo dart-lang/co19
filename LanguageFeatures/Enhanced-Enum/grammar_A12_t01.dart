@@ -25,10 +25,12 @@ enum E1 with M {
 
 enum E2<T> {
   e1<Type>(String),
+//         ^^^^^^
+// [cfe] unspecified
   e2<int>.foo(0);
 
   const E2(super.runtimeType);
-//                   ^^^^^^^^
+//               ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const E2.foo(super.hashCode);

@@ -10,6 +10,7 @@
 /// @description Checks that if iterable is based on this list, its values may
 /// change during the `setAll` operation.
 /// @author sgrekhov22@gmail.com
+/// @issue 54078
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
