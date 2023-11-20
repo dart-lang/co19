@@ -2,28 +2,38 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Let V be an extension type of the form Name<T1, .. Ts>, and let R
-/// be the corresponding instantiated representation type. If R is non-nullable
-/// then V is a proper subtype of Object, and V is non-nullable. Otherwise, V is
-/// a proper subtype of Object?, and V is potentially nullable.
+/// @assertion An extension type `V` is a proper subtype of `Object?`. It is
+/// potentially non-nullable, unless it implements `Object` or a subtype thereof
 ///
-/// @description Checks that a warning is produced depending of the
-/// representation type when an extension type is checked by `??` operator
+/// @description Checks that a warning is produced if an extension type is a
+/// subtype of `Object` and is checked by one of null-check operators
 /// @author sgrekhov22@gmail.com
 /// @issue 53822
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type ET1<T>(T _) {
+extension type ET1<T>(T id) {
   void test() {
     this ?? print("No warning here!");
+    this?.id; // No warning here!
   }
 }
 
-extension type ET2<T extends Object>(T _) implements Object {
+extension type ET2<T extends Object>(T id) {
+  void test() {
+    this ?? print("No warning here!");
+    this?.id; // No warning here!
+  }
+}
+
+extension type ET3<T extends Object>(T id) implements Object {
   void test() {
     this ?? print("Expect a warning here!");
 //       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    this?.id;
+//      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -34,4 +44,5 @@ main() {
   ET1(null).test();
   ET1<int?>(42).test();
   ET2(42).test();
+  ET3(42).test();
 }

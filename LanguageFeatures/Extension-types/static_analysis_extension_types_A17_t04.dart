@@ -2,33 +2,27 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Let DV be an extension type declaration named Name with type
-/// parameters X1 extends B1, .. Xs extends Bs. Assume that the representation
-/// declaration of DV is (R id)
+/// @assertion An extension type `V` is a proper subtype of `Object?`. It is
+/// potentially non-nullable, unless it implements `Object` or a subtype thereof
 ///
-/// We then say that the declared representation type of Name is R, and the
-/// instantiated representation type corresponding to Name<T1,.. Ts> is
-/// [T1/X1, .. Ts/Xs]R.
-/// ...
-/// Let V be an extension type of the form Name<T1, .. Ts>, and let R be the
-/// corresponding instantiated representation type. If R is non-nullable then V
-/// is a proper subtype of Object, and V is non-nullable. Otherwise, V is a
-/// proper subtype of Object?, and V is potentially nullable.
-///
-/// @description Checks that if an instantiated representation type `R` is
-/// not non-nullable then an extension type `V` is potentially nullable (it's a
-/// compile-time error to assign `Object?` or `null` to `V`)
+/// @description Checks that if an extension type doesn't implement subtype of
+/// `Object` then is potentially non-nullable (it's a compile-time error to
+/// assign `Object?` or `null` to it)
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 extension type V1(int? it) {}
 
-extension type V2<T1, T2 extends num?>(T1 id) {}
+extension type V2<T>(T id) {}
+
+extension type V3(int it) {}
+
+extension type V4<T extends Object>(T id) {}
 
 main() {
   V1 v1_1 = V1(42) as Object?;
-//          ^^^^^^^^^^^^^^^^^
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -37,13 +31,34 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  V2<String?, int> v2_1 = V2("42") as Object?;
-//                        ^^^^^^^^^^^^^^^^^^^
+  V2<String?> v2_1 = V2("42") as Object?;
+//                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  V2<String?, int> v2_2 = null;
-//                        ^^^^
+  V2<String?> v2_2 = null;
+//                   ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  V3 v3_1 = V3(42) as Object?;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V3 v3_2 = null;
+//          ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V4<String> v4_1 = V2("42") as Object?;
+//                            ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V4<String> v4_2 = null;
+//                  ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

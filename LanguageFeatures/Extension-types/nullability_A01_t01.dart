@@ -2,13 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Let V be an extension type of the form Name<T1, .. Ts>, and let R
-/// be the corresponding instantiated representation type. If R is non-nullable
-/// then V is a proper subtype of Object, and V is non-nullable. Otherwise, V is
-/// a proper subtype of Object?, and V is potentially nullable.
+/// @assertion An extension type `V` is a proper subtype of `Object?`. It is
+/// potentially non-nullable, unless it implements `Object` or a subtype thereof
 ///
-/// @description Checks that an extension type is not-nullable even if its
-/// representation type is nullable
+/// @description Checks that an extension type is not-nullable even if doesn't
+/// implement subtype of `Object` and its representation type is nullable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
