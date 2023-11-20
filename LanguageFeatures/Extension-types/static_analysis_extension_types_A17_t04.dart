@@ -5,7 +5,7 @@
 /// @assertion An extension type `V` is a proper subtype of `Object?`. It is
 /// potentially non-nullable, unless it implements `Object` or a subtype thereof
 ///
-/// @description Checks that if an extension type doesn't implement subtype of
+/// @description Checks that if an extension type doesn't implement a subtype of
 /// `Object` then is potentially non-nullable (it's a compile-time error to
 /// assign `Object?` or `null` to it)
 /// @author sgrekhov22@gmail.com
