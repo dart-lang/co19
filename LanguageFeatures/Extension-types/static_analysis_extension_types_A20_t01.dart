@@ -26,6 +26,8 @@ void foo<X extends V<Y>, Y extends X>() {} // foo<X extends Y, Y extends X>()
 // [analyzer] unspecified
 // [cfe] unspecified
 
+
+
 main() {
   print(foo);
 }

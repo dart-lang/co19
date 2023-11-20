@@ -14,19 +14,23 @@
 /// regular-bounded.
 ///
 /// @description Checks that it is a compile-time error if the type
-/// `V<T1, .. Ts>` has type bound like V<T extends V<T>> (after extension type
-/// erasure it become `extension type V<T extends T>(T id) {}` which is an
-/// error)
+/// `V<T1, .. Ts>` is not well-bounded
 /// @author sgrekhov22@gmail.com
 /// @issue 54097
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V<T extends V<T>>(T id) {}
+extension type V1<T extends T>(T id) {}
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+extension type V2<T1 extends T2, T2 extends T1>(T1 id) {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
-  print(V<Never>);
+  print(V1<Never>);
+  print(V2<Never, Never>);
 }
