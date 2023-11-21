@@ -13,8 +13,8 @@
 /// of type arguments to V (when k is different from s), and if it is not
 /// regular-bounded.
 ///
-/// @description Checks that it is a compile-time error if the type
-/// `V<T1, .. Ts>` is not well-bounded
+/// @description Checks that it is a compile-time error if an extension type
+/// `V<T1, .. Ts>` has any dependency cycles in type bounds
 /// @author sgrekhov22@gmail.com
 /// @issue 54097
 

@@ -25,23 +25,24 @@
 /// stack trace then the invocation completes throwing the same object and stack
 /// trace.
 ///
-/// @description Check invocation of a representation type `call` member
+/// @description Check invocation of an extension type `call` member
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/expect.dart";
 
-extension type V1<T extends Object Function(num)>(T id) {}
+extension type ET1(int id) {
+  int call(int other) => id + other;
+}
 
-typedef num Foo(Object o);
-
-Foo foo = (Object o) => o as num;
+extension type ET2<T>(T id) {
+  T call() => id;
+}
 
 main() {
-  Expect.equals(42, V1<Foo>(foo).id(42));
-  Expect.equals(42, V1<Foo>(foo).id.call(42));
-  dynamic d = V1<Foo>(foo);
-  Expect.equals(42, d(42));
-  Expect.equals(42, d.call(42));
+  Expect.equals(3, ET1(1).call(2));
+  Expect.equals(5, ET1(2)(3));
+  Expect.equals("42", ET2<String>("42").call());
+  Expect.equals("42", ET2<String>("42")());
 }
