@@ -7,7 +7,7 @@
 ///
 /// @description Checks that even if an extension type doesn't implement a
 /// subtype of `Object` then it is a proper subtype of `Object?` (can be
-/// assigned to `Object?`).
+/// assigned to `Object?` but `Object?` cannot be assigned to it).
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -26,4 +26,24 @@ main() {
   Object? o22 = V2<String>("42");
   Object? o3 = V3(42);
   Object? o4 = V4<String>("42");
+
+  V1 v1 = V1(42) as Object?;
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V2<String?> v2 = V2("42") as Object?;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V3 v3 = V3(42) as Object?;
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V4<String> v4 = V2("42") as Object?;
+//                         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
