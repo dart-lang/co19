@@ -5,52 +5,43 @@
 /// @assertion An extension type `V` is a proper subtype of `Object?`. It is
 /// potentially non-nullable, unless it implements `Object` or a subtype thereof
 ///
-/// @description Checks that an extension type is not-nullable even if its
-/// representation type is nullable
+/// @description Checks that it is a compile-time error if an extension type
+/// does implement a subtype of `Object` and its representation type is nullable
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 import "dart:async" show FutureOr;
 
-extension type ET1(int? _) {}
+extension type ET1(int? _) implements Object {}
+//                                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-extension type ET2(Null _) {}
+extension type ET2(Null _) implements Object {}
+//                                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-extension type ET3(dynamic _) {}
+extension type ET3(dynamic _) implements Object {}
+//                                       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-extension type ET4(void _) {}
+extension type ET4(void _) implements Object {}
+//                                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-extension type ET5(FutureOr<Null> _) {}
+extension type ET5(FutureOr<Null> _) implements Object {}
+//                                              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  ET1 et11 = null;
-//           ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ET1? et12 = null;
-
-  ET2 et21 = null;
-//           ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ET2? et22 = null;
-
-  ET3 et31 = null;
-//           ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ET3? et32 = null;
-
-  ET4 et41 = null;
-//           ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ET4? et42 = null;
-
-  ET5 et51 = null;
-//           ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ET5? et52 = null;
+  print(ET1);
+  print(ET2);
+  print(ET3);
+  print(ET4);
+  print(ET5);
 }
