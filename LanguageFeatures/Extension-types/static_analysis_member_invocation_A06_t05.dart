@@ -9,26 +9,45 @@
 ///   superinterface V that has an extension type member named n due to a member
 ///   declaration DM2, and DV does not declare a member that precludes DM2.
 ///
-/// @description Checks that method inherited from superinterface can be
-/// abstract
+/// @description Checks that it is no error if an extension type declares a
+/// getter that precludes inherited members
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-import '../../Utils/expect.dart';
+import "../../Utils/expect.dart";
 
-abstract class A {
-  int m();
+extension type V1(int id) {
+  void n(int n) {}
 }
 
-abstract class B extends A {}
-
-class C implements B {
-  int m() => 42;
+extension type V2(int id) {
+  String get n => "V2";
 }
 
-extension type ET(B id) implements A {}
+extension type V3(int id) {
+  void set n(int n) {}
+}
+
+extension type ET1(int id) implements V1 {
+  bool get n => true;
+}
+
+extension type ET2(int id) implements V2 {
+  bool get n => true;
+}
+
+extension type ET3(int id) implements V3 {
+  bool get n => true;
+}
+
+extension type ET4(int id) implements V1, V2, V3 {
+  bool get n => true;
+}
 
 main() {
-  Expect.equals(42, ET(C()).m());
+  Expect.isTrue(ET1(42).n);
+  Expect.isTrue(ET2(42).n);
+  Expect.isTrue(ET3(42).n);
+  Expect.isTrue(ET4(42).n);
 }
