@@ -23,7 +23,9 @@ enum E {
 }
 
 extension type const ET(E it) implements E {
-  const ET.foo() : this(E.e1);
+  const ET.foo() : this(E.e1); //declaration of E.e1 has a cyclic dependency
+//      ^^
+// [analyzer] unspecified
 }
 
 void main() {
