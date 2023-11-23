@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion double operator -(num other)
- * @description Checks that when the 'other' is less than spacing the result
- * is rounded to the closest double. If 'other' is in the middle between two
- * adjacent doubles it's rounded to the value which significand ends in an
- * even digit.
- * @author pagolubev
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion double operator -(num other)
+/// @description Checks that when the 'other' is less than spacing the result
+/// is rounded to the closest double. If 'other' is in the middle between two
+/// adjacent doubles it's rounded to the value which significand ends in an
+/// even digit.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 

@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion The upwards inference key type of an if map element without an
- * else is the key type of the "then" element, likewise for the value type
- *
- * @description Checks that the upwards inference key type of an if map element
- * without an else is the key type of the "then" element, likewise for the value
- * type
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The upwards inference key type of an if map element without an
+/// else is the key type of the "then" element, likewise for the value type
+///
+/// @description Checks that the upwards inference key type of an if map element
+/// without an else is the key type of the "then" element, likewise for the value
+/// type
+/// @author sgrekhov@unipro.ru
+
 import "../../Utils/expect.dart";
 
 main() {
@@ -21,6 +19,7 @@ main() {
     if (i > 0) ...?x,
   };
   Expect.isTrue(map1 is Map<int, String>);
+  Expect.runtimeIsType<Map<int, String>>(map1);
 
   var map2 = {
     "": "",
@@ -29,4 +28,7 @@ main() {
   Expect.isTrue(map2 is Map<Object, String>);
   Expect.isFalse(map2 is Map<String, String>);
   Expect.isFalse(map2 is Map<num, String>);
+  Expect.runtimeIsType<Map<Object, String>>(map2);
+  Expect.runtimeIsNotType<Map<String, String>>(map2);
+  Expect.runtimeIsNotType<Map<num, String>>(map2);
 }

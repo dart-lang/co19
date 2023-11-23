@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract bool remove(Object value)
- * Removes value from the list. Returns true if value was in the list. Returns
- * false otherwise. The method has no effect if value value was not in the list.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract bool remove(Object value)
+/// Removes value from the list. Returns true if value was in the list. Returns
+/// false otherwise. The method has no effect if value was not in the list.
+/// @author kaigorodov
+
 library remove_A01_t01;
 
 import "../../../Utils/expect.dart";
@@ -21,6 +19,7 @@ test(List<E> create<E>([int length, E fill])) {
   
     bool r = a.remove(value);
     Expect.isTrue(r is bool, "remove returned: ${r.runtimeType} ${r}, not bool");
+    Expect.runtimeIsType<bool>(r);
     if (r) {
       Expect.isTrue(expected);
       Expect.equals(a0.length-1, a.length);

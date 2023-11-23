@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Represents credentials for basic authentication.
- * @description Checks that class represents credentials for basic
- * authentication.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Represents credentials for basic authentication.
+/// @description Checks that class represents credentials for basic
+/// authentication.
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import 'dart:async';
 import "dart:convert";
@@ -36,7 +34,7 @@ test() async {
   });
   HttpClient client = new HttpClient();
 
-  client.authenticate = (Uri url, String scheme, String realm) {
+  client.authenticate = (Uri url, String scheme, String? realm) {
     Expect.equals("Basic", scheme);
     Expect.equals("realm", realm);
     Completer<bool> completer = new Completer<bool>();

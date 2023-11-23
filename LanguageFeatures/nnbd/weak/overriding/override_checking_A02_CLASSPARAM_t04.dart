@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion In a migrated library, override checking must check that an
- * override is consistent with all overridden methods from other migrated
- * libraries in the super-interface chain, since a legacy library is permitted
- * to override otherwise incompatible signatures for a method.
- *
- * @description Check that if generic opted-in class extends generic legacy
- * class with [FutureOr<non_nullable_type>] type parameter, child opted-in class
- * type parameter can extend non-nullable [FutureOr<non_nullable_type>] type.
- *
- * @Issue 39666
- *
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion In a migrated library, override checking must check that an
+/// override is consistent with all overridden methods from other migrated
+/// libraries in the super-interface chain, since a legacy library is permitted
+/// to override otherwise incompatible signatures for a method.
+///
+/// @description Check that if generic opted-in class extends generic legacy
+/// class with [FutureOr<non_nullable_type>] type parameter, child opted-in class
+/// type parameter can extend non-nullable [FutureOr<non_nullable_type>] type.
+///
+/// @Issue 39666
+///
+/// @author iarkh@unipro.ru
+
 // Requirements=nnbd-weak
 import "dart:async";
 import "../../../../Utils/expect.dart";

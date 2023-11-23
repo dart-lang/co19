@@ -1,25 +1,23 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion The switch statement supports dispatching control among a large
- * number of cases.
- * switchStatement:
- *   switch '(' expression ')' '{' switchCase* defaultCase? '}'
- * ;
- * switchCase:
- *   label* case expression ':' statements
- * ;
- * defaultCase:
- *   label* default ':' statements
- * ;
- * @description Checks that a switch statement with all kinds of case
- * expressions (as long as they're allowed by spec) works as expected.
- * @author rodionov
- * @issue 7537
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The switch statement supports dispatching control among a large
+/// number of cases.
+/// switchStatement:
+///   switch '(' expression ')' '{' switchCase* defaultCase? '}'
+/// ;
+/// switchCase:
+///   label* case expression ':' statements
+/// ;
+/// defaultCase:
+///   label* default ':' statements
+/// ;
+/// @description Checks that a switch statement with all kinds of case
+/// expressions (as long as they're allowed by spec) works as expected.
+/// @author rodionov
+/// @issue 7537
+
 import '../../../Utils/expect.dart';
 
 switchTestBool(value) {
@@ -29,11 +27,12 @@ switchTestBool(value) {
     case true:
       {result = 1;}
       break;
-
     label: case false && true:
       result = 2;
       break;
-
+    case const (false && true):
+      result = 3;
+      break;
     default:
       result = -1;
   }
@@ -47,15 +46,12 @@ switchTestInt(value) {
     case 1:
       {result = 1;}
       break;
-
-    label: case 7 << 2:
+    label: case const (7 << 2):
       result = 2;
       break;
-
-    case 1 ^ 5:
+    case const (1 ^ 5):
       result = 3;
       break;
-
     default:
       result = -1;
   }
@@ -69,11 +65,9 @@ switchTestStr(value) {
     case 'foo':
       {result = 1;}
       break;
-
     label: case r"""bar""":
       result = 2;
       break;
-
     default:
       result = -1;
   }
@@ -82,7 +76,7 @@ switchTestStr(value) {
 
 main() {
   Expect.equals(1, switchTestBool(true));
-  Expect.equals(2, switchTestBool(false));
+  Expect.equals(3, switchTestBool(false));
   Expect.equals(-1, switchTestBool(null));
 
   Expect.equals(1, switchTestInt(1));
@@ -112,5 +106,4 @@ main() {
   switch (1) {
     $: default:
   }
-
 }

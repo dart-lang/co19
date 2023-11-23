@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion dynamic fold(initialValue, combine(previousValue, E element))
- * Reduces a collection to a single value by iteratively combining each
- * [element] of the collection with an existing value.
- * Uses [initialValue] as the initial value, then iterates through the elements
- * and updates the [value] with each element using the [combine] function.
- * @description Checks that the result of folding is correct.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion dynamic fold(initialValue, combine(previousValue, E element))
+/// Reduces a collection to a single value by iteratively combining each
+/// [element] of the collection with an existing value.
+/// Uses [initialValue] as the initial value, then iterates through the elements
+/// and updates the [value] with each element using the [combine] function.
+/// @description Checks that the result of folding is correct.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "dart:math";
 import "../../../Utils/expect.dart";

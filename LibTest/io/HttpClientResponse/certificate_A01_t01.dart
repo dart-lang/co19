@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion X509Certificate certificate
- * Returns the certificate of the HTTPS server providing the response. Returns
- * null if the connection is not a secure TLS or SSL connection.
- * @description Checks that this getter returns null if the connection is not a
- * secure TLS or SSL connection.
- * @author sgrekhov@unipro.ru
- * @issue 31931
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion X509Certificate certificate
+/// Returns the certificate of the HTTPS server providing the response. Returns
+/// null if the connection is not a secure TLS or SSL connection.
+/// @description Checks that this getter returns null if the connection is not a
+/// secure TLS or SSL connection.
+/// @author sgrekhov@unipro.ru
+/// @issue 31931
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion The mixin introduced by a mixin declaration contains all the
- * non-static members declared by the mixin, just as the mixin derived from a
- * class declaration currently does.
- *
- * @description Checks that a mixin declaration doesn't contain the static
- * members declared by the mixin
- * @author ngl@unipro.ru
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The mixin introduced by a mixin declaration contains all the
+/// non-static members declared by the mixin, just as the mixin derived from a
+/// class declaration currently does.
+///
+/// @description Checks that a mixin declaration doesn't contain the static
+/// members declared by the mixin
+/// @author ngl@unipro.ru
+/// @author sgrekhov@unipro.ru
+
 
 class I {
   static int i1 = 1;
@@ -66,25 +64,25 @@ class MA extends C with M {
 main() {
   MA ma = new MA();
   MA.i1 == 1;
-  // ^^
-  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-  // [cfe] Getter not found: 'i1'.
+//   ^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
+// [cfe] Member not found: 'i1'.
   MA.j1 == 2;
-  // ^^
-  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-  // [cfe] Getter not found: 'j1'.
+//   ^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
+// [cfe] Member not found: 'j1'.
   MA.b1 == 3;
-  // ^^
-  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-  // [cfe] Getter not found: 'b1'.
+//   ^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
+// [cfe] Member not found: 'b1'.
   MA.c1 == 4;
-  // ^^
-  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-  // [cfe] Getter not found: 'c1'.
+//   ^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
+// [cfe] Member not found: 'c1'.
   MA.m1 == 5;
-  // ^^
-  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-  // [cfe] Getter not found: 'm1'.
+//   ^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
+// [cfe] Member not found: 'm1'.
 
   ma.test();
 }

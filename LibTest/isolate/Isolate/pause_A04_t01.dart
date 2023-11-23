@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS
- * file for details. All rights reserved. Use of this source code is governed
- * by a BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Capability pause([
- *    Capability resumeCapability
- * ])
- * ...
- *   If an isolate is paused using more than one capability, each pause must
- * be individually ended before the isolate resumes.
- *
- * @description Check that if an isolate is paused using more than one
- * capability, each pause must be individually ended before the isolate resumes.
- *
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS
+// file for details. All rights reserved. Use of this source code is governed
+// by a BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Capability pause([
+///    Capability resumeCapability
+/// ])
+/// ...
+///   If an isolate is paused using more than one capability, each pause must
+/// be individually ended before the isolate resumes.
+///
+/// @description Check that if an isolate is paused using more than one
+/// capability, each pause must be individually ended before the isolate resumes.
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "dart:async";
 import "IsolateUtil.dart";

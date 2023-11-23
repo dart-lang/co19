@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Calling the .length setter on a List with element type E with an
- * argument greater than the current length of the list is a runtime error
- * unless Null <: E
- * @description Check that calling the .length setter on a List with element
- * type E with an argument greater than the current length of the list is a
- * runtime error if E is not subtype of Null
- * @author sgrekhov@unipro.ru
- * @issue 39777
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Calling the .length setter on a List with element type E with an
+/// argument greater than the current length of the list is a runtime error
+/// unless Null <: E
+/// @description Check that calling the .length setter on a List with element
+/// type E with an argument greater than the current length of the list is a
+/// runtime error if E is not subtype of Null
+/// @author sgrekhov@unipro.ru
+/// @issue 39777
+
 // Requirements=nnbd-strong
 import "dart:async";
 import "../../Utils/expect.dart";

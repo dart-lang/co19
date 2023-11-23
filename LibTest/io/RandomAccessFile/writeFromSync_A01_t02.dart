@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void writeFromSync(List<int> buffer, [int start = 0, int end])
- * Synchronously writes from a List<int> to the file. It will read the buffer
- * from index start to index end. If start is omitted, it'll start from index 0.
- * If end is omitted, it will write to the end of buffer.
- *
- * @description Checks that method writeFromSync synchronously writes from a
- * List<int> to file from index start to index end and if start is omitted, it
- * starts from index 0.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void writeFromSync(List<int> buffer, [int start = 0, int end])
+/// Synchronously writes from a List<int> to the file. It will read the buffer
+/// from index start to index end. If start is omitted, it'll start from index 0.
+/// If end is omitted, it will write to the end of buffer.
+///
+/// @description Checks that method writeFromSync synchronously writes from a
+/// List<int> to file from index start to index end and if start is omitted, it
+/// starts from index 0.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion factory List([int length])
- * Creates a list of the given length.
- * The list is a fixed-length list if length is provided, and an empty growable
- * list if length is omitted.
- * @description Checks that created list is not resizable if length is provided.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion factory List([int length])
+/// Creates a list of the given length.
+/// The list is a fixed-length list if length is provided, and an empty growable
+/// list if length is omitted.
+/// @description Checks that created list is not resizable if length is provided.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 
 List<String> failures = new List<String>.empty(growable: true);

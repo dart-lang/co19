@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void writeAll(Iterable objects, [String separator = ""])
- * If [separator] is provided, a [write] with the [separator] is performed
- * between any two elements of objects.
- * @description Check that all the objects are written in the result stream with
- * the provided [separator] which is a long string.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void writeAll(Iterable objects, [String separator = ""])
+/// If [separator] is provided, a [write] with the [separator] is performed
+/// between any two elements of objects.
+/// @description Check that all the objects are written in the result stream with
+/// the provided [separator] which is a long string.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:io";
 

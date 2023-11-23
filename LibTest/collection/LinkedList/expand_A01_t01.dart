@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertionIterable expand(Iterable f(E element))
- * Expands each element of this [Iterable] into zero or more elements.
- * The resulting [Iterable] runs through the elements returned by [f] for each
- * element of this, in iteration order.
- * @description Checks that the function [f] is called for every element of the
- * list.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertionIterable expand(Iterable f(E element))
+/// Expands each element of this [Iterable] into zero or more elements.
+/// The resulting [Iterable] runs through the elements returned by [f] for each
+/// element of this, in iteration order.
+/// @description Checks that the function [f] is called for every element of the
+/// list.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";

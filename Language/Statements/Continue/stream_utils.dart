@@ -1,13 +1,12 @@
-/*
- * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- *
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @author a.semenov@unipro.ru
+
 import 'dart:async';
 
-Stream makeStream(Iterable iterable, {Function? beforeCancel()?: null}) {
+Stream makeStream(Iterable iterable, {Function? beforeCancel()? = null}) {
   Stream s = new Stream.fromIterable(iterable);
   return new _StreamWrapper(s, beforeCancel);
 }
@@ -72,4 +71,3 @@ class _StreamSubscriptionWrapper implements StreamSubscription {
     _streamSubscription.resume();
   }
 }
-

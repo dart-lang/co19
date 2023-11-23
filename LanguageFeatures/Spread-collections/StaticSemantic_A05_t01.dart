@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion It is a static error if:
- *    If a list or set spread element's static type implements [Iterable<T>] for
- *    some [T] and [T] is not assignable to the element type of the list.
- * @description Checks that compile error is not thrown if spread element type
- * in the list literal is assignable to the type of the list.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion It is a static error if:
+///    If a list or set spread element's static type implements [Iterable<T>] for
+///    some [T] and [T] is not assignable to the element type of the list.
+/// @description Checks that compile error is not thrown if spread element type
+/// in the list literal is assignable to the type of the list.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 
 class MyIterable<T> extends IterableBase<T> {
@@ -19,7 +17,7 @@ class MyIterable<T> extends IterableBase<T> {
   Iterator getIterator<T>() { return iterator; }
 }
 
-class MyIterator<T> extends Iterator<T> {
+class MyIterator<T> implements Iterator<T> {
    @override
   bool moveNext() { return false; }
 

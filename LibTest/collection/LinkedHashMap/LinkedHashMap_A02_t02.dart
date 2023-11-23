@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion LinkedHashMap({bool equals(K key1, K key2), int hashCode(K key),
- * bool isValidKey(potentialKey)})
- * Creates an insertion-ordered hash-table based [Map].
- * @description Checks that [inkedHashMap] preserves insertion order if [addAll]
- * is used to add elements to the map.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion LinkedHashMap({bool equals(K key1, K key2), int hashCode(K key),
+/// bool isValidKey(potentialKey)})
+/// Creates an insertion-ordered hash-table based [Map].
+/// @description Checks that [inkedHashMap] preserves insertion order if [addAll]
+/// is used to add elements to the map.
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

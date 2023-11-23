@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool operator ==(other)
- * The equality operator.
- * ...
- * Symmetric: For all objects o1 and o2, o1 == o2 and o2 == o1 must either both
- * be true, or both be false.
- * @description Checks that the equality operator is symmetric.
- * @author kaigorodov
- */
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool operator ==(other)
+/// The equality operator.
+/// ...
+/// Symmetric: For all objects o1 and o2, o1 == o2 and o2 == o1 must either both
+/// be true, or both be false.
+/// @description Checks that the equality operator is symmetric.
+/// @author kaigorodov
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

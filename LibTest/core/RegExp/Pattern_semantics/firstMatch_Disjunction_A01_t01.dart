@@ -1,24 +1,22 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion 15.10.2.3: The | regular expression operator separates two
- * alternatives. The pattern first tries to match the left Alternative (followed
- * by the sequel of the regular expression); if it fails, it tries to match the
- * right Disjunction (followed by the sequel of the regular expression). If the
- * left Alternative, the right Disjunction, and the sequel all have choice
- * points, all choices in the sequel are tried before moving on to the next
- * choice in the left Alternative. If choices in the left Alternative are
- * exhausted, the right Disjunction is tried instead of the left Alternative.
- * Any capturing parentheses inside a portion of the pattern skipped by |
- * produce undefined values instead of Strings.
- * @description Checks that a valid disjunction pattern works as described and
- * that the captured groups have correct values.
- * @3rdparty sputnik-v1:S15.10.2.3_A1_T1.js-S15.10.2.3_A1_T17.js
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion 15.10.2.3: The | regular expression operator separates two
+/// alternatives. The pattern first tries to match the left Alternative (followed
+/// by the sequel of the regular expression); if it fails, it tries to match the
+/// right Disjunction (followed by the sequel of the regular expression). If the
+/// left Alternative, the right Disjunction, and the sequel all have choice
+/// points, all choices in the sequel are tried before moving on to the next
+/// choice in the left Alternative. If choices in the left Alternative are
+/// exhausted, the right Disjunction is tried instead of the left Alternative.
+/// Any capturing parentheses inside a portion of the pattern skipped by |
+/// produce undefined values instead of Strings.
+/// @description Checks that a valid disjunction pattern works as described and
+/// that the captured groups have correct values.
+/// @3rdparty sputnik-v1:S15.10.2.3_A1_T1.js-S15.10.2.3_A1_T17.js
+/// @author rodionov
+
 import "../../../../Utils/expect.dart";
 
 main() {
@@ -47,9 +45,9 @@ main() {
 }
 
 void check(String pattern, String str,
-    {bool multiLine: false,
-    bool ignoreCase: false,
-    List<String?>? expectedGroups: null}) {
+    {bool multiLine = false,
+    bool ignoreCase = false,
+    List<String?>? expectedGroups = null}) {
   RegExp re =
       new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
   Expect.isNotNull(re.firstMatch(str));

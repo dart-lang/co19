@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future addStream(Stream<S> stream)
- * Consumes the elements of stream.
- *
- * No further calls to addStream or close should happen before the returned
- * future has completed.
- *
- * @description Checks that no further calls to addStream or close should
- * happen before the returned future has completed.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future addStream(Stream<S> stream)
+/// Consumes the elements of stream.
+///
+/// No further calls to addStream or close should happen before the returned
+/// future has completed.
+///
+/// @description Checks that no further calls to addStream or close should
+/// happen before the returned future has completed.
+/// @author ngl@unipro.ru
+
 library addStream_A02_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void addError(errorEvent, [StackTrace stackTrace])
- * Send an async error to a stream.
- *
- * @description Checks the addError method.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void addError(errorEvent, [StackTrace stackTrace])
+/// Send an async error to a stream.
+///
+/// @description Checks the addError method.
+/// @author ngl@unipro.ru
+
 library addError_A01_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion String toRadixString(int radix)
- * Converts this to a string representation in the given radix.
- *
- * In the string representation, lower-case letters are used for digits
- * above '9', with 'a' being 10 an 'z' being 35.
- * @description Checks that this method returns correct value.
- * @author vasya
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion String toRadixString(int radix)
+/// Converts this to a string representation in the given radix.
+///
+/// In the string representation, lower-case letters are used for digits
+/// above '9', with 'a' being 10 an 'z' being 35.
+/// @description Checks that this method returns correct value.
+/// @author vasya
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

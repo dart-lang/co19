@@ -1,38 +1,33 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
- * when:
- * Right Object: if T1 is Object then:
- *  - if T0 is an unpromoted type variable with bound B then T0 <: T1 iff
- *      B <: Object
- *  - if T0 is a promoted type variable X & S then T0 <: T1 iff S <: Object
- *  - if T0 is FutureOr<S> for some S, then T0 <: T1 iff S <: Object.
- *  - if T0 is S* for any S, then T0 <: T1 iff S <: T1
- *  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does not
- *      hold (per above, the result of the subtyping query is false).
- *  - Otherwise T0 <: T1 is true.
- * @description Check that if T0 is FutureOr<S> for some S and S <: Object then
- * T0 is subtype of T1
- * @author sgrekhov@unipro.ru
- */
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as an argument of type T1. Test mixin members
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from right_object_A05.dart and 
- * arguments_binding_x03.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
+/// @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
+/// when:
+/// Right Object: if T1 is Object then:
+///  - if T0 is an unpromoted type variable with bound B then T0 <: T1 iff
+///      B <: Object
+///  - if T0 is a promoted type variable X & S then T0 <: T1 iff S <: Object
+///  - if T0 is FutureOr<S> for some S, then T0 <: T1 iff S <: Object.
+///  - if T0 is S* for any S, then T0 <: T1 iff S <: T1
+///  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does
+///      not hold (per above, the result of the subtyping query is false).
+///  - Otherwise T0 <: T1 is true.
+/// @description Check that if T0 is FutureOr<S> for some S and S <: Object then
+/// T0 is subtype of T1
+/// @author sgrekhov@unipro.ru
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be used as an argument of type T1. Test mixin members
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from test_types/right_object_A05.dart and
+/// test_cases/arguments_binding_x03.dart. Don't modify it!
+/// If you need to change this test, then change one of the files above and then
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
+
 import "dart:async";
 
 class S {}
@@ -42,10 +37,7 @@ Object t1Instance = new Object();
 
 const t1Default = const Object();
 
-
-
-
-class ArgumentsBindingMixin1_t03 {
+mixin class ArgumentsBindingMixin1_t03 {
   Object m = t1Default;
 
   void superTest(Object val) {}
@@ -69,7 +61,7 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
   }
 }
 
-class ArgumentsBindingMixin2_t03<X> {
+mixin class ArgumentsBindingMixin2_t03<X> {
   void superTest(X val) {}
   void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}
@@ -97,12 +89,9 @@ main() {
   c1.superGetter;
 
   // Test type parameters
-
-  //# <-- NotGenericFunctionType
   ArgumentsBinding2_t03<Object> c2 = new ArgumentsBinding2_t03<Object>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
   c2.superSetter = forgetType(t0Instance);
-  //# -->
 }

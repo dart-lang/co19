@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int maxRedirects
- *  read / write
- * Set this property to the maximum number of redirects to follow when
- * followRedirects is true. If this number is exceeded an error event will be
- * added with a RedirectException.
- *
- * The default value is 5.
- * @description Checks that this property doesn't work for DELETE, PUT, POST and
- * PATH methods
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int maxRedirects
+///  read / write
+/// Set this property to the maximum number of redirects to follow when
+/// followRedirects is true. If this number is exceeded an error event will be
+/// added with a RedirectException.
+///
+/// The default value is 5.
+/// @description Checks that this property doesn't work for DELETE, PUT, POST and
+/// PATH methods
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "dart:async";

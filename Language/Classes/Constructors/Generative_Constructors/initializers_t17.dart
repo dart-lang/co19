@@ -1,24 +1,20 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion 
- * initializers:
- *   ':' superCallOrFieldInitializer (', ' superCallOrFieldInitializer)*
- * ;
- * superCallOrFieldInitializer: 
- *   super arguments  | super '.' identifier arguments | fieldInitializer
- * ;
- * fieldInitializer:
- *   (this '.')? identifier '=' conditionalExpression cascadeSection*
- * ;
- * @description Checks various valid variations of an initializer list. Test
- * type aliases
- * @author sgrekhov@unipro.ru
- */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion 
+/// initializers:
+///   ':' superCallOrFieldInitializer (', ' superCallOrFieldInitializer)*
+/// ;
+/// superCallOrFieldInitializer: 
+///   super arguments  | super '.' identifier arguments | fieldInitializer
+/// ;
+/// fieldInitializer:
+///   (this '.')? identifier '=' conditionalExpression cascadeSection*
+/// ;
+/// @description Checks various valid variations of an initializer list. Test
+/// type aliases
+/// @author sgrekhov@unipro.ru
 
 typedef void FType();
 

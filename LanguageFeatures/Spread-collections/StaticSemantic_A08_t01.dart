@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Note that you can spread any [Iterable] into a set literal, not
- * just other sets
- * @description Checks that list and custom [Iterable] cannot be assigned to
- * set, but can be spreaded into a set literal.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Note that you can spread any [Iterable] into a set literal, not
+/// just other sets
+/// @description Checks that list and custom [Iterable] cannot be assigned to
+/// set, but can be spreaded into a set literal.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 
 class MyIterable extends IterableBase {
@@ -17,7 +15,7 @@ class MyIterable extends IterableBase {
   Iterator get iterator => MyIterator();
 }
 
-class MyIterator extends Iterator {
+class MyIterator implements Iterator {
   int i = -1;
 
   MyIterator() {}

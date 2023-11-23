@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int exitCode
- * See [exit] for more information on how to chose a value for the exit code.
- * @description Checks that exit code [-1] is processed correctly.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int exitCode
+/// See [exit] for more information on how to chose a value for the exit code.
+/// @description Checks that exit code [-1] is processed correctly.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:io";
 

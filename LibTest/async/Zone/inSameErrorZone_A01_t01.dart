@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract bool inSameErrorZone(Zone otherZone)
- * Returns true if this and otherZone are in the same error zone.
- * Two zones are in the same error zone if they share the same
- * handleUncaughtError callback.
- * @description Checks that inSameErrorZone returns true if zones share the
- * same handleUncaughtError callback and false otherwise.
- * @author ilya
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract bool inSameErrorZone(Zone otherZone)
+/// Returns true if this and otherZone are in the same error zone.
+/// Two zones are in the same error zone if they share the same
+/// handleUncaughtError callback.
+/// @description Checks that inSameErrorZone returns true if zones share the
+/// same handleUncaughtError callback and false otherwise.
+/// @author ilya
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -54,7 +52,7 @@ main() {
     z.fork().run(same); //
   });
 
-  runZoned(diff, onError: (_, __) {}); // child is new error zone
+  runZonedGuarded(diff, (_, __) {}); // child is new error zone
   newErrorZone(z).run(diff); // child is new error zone
 
   newErrorZone(z).run(() {

@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract E removeAt(int index)
- * Throws an ArgumentError if index is not an int.
- * @description Checks that an ArgumentError is thrown if index is not an int.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract E removeAt(int index)
+/// Throws an ArgumentError if index is not an int.
+/// @description Checks that an ArgumentError is thrown if index is not an int.
+/// @author kaigorodov
+
 library removeAt_A02_t01;
 
 import "../../../Utils/expect.dart";
@@ -19,7 +17,7 @@ test(List<E> create<E>([int length, E fill])) {
     List a = create();
     a.addAll(a0);
     Expect.throws(() {a.removeAt(index);},
-        (e) => (e is ArgumentError) || (e is TypeError) || (e is CastError));
+        (e) => (e is ArgumentError) || (e is TypeError));
   }
 
   List a0 = [1, 3, 3, 4, 5, 6];

@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
- * when:
- * Right Promoted Variable: if T1 is a promoted type variable X1 & S1 then:
- * - T0 <: T1 iff T0 <: X1 and T0 <: S1
- * @description Check that if type T1 is a promoted type variables X1 & S1 and
- * T0 <: X1 and T0 <: S1 then T0 is a subtype of T1.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
+/// when:
+/// Right Promoted Variable: if T1 is a promoted type variable X1 & S1 then:
+/// - T0 <: T1 iff T0 <: X1 and T0 <: S1
+/// @description Check that if type T1 is a promoted type variables X1 & S1 and
+/// T0 <: X1 and T0 <: S1 then T0 is a subtype of T1.
+/// @author sgrekhov@unipro.ru
+
 class X1 {
   const X1();
 }

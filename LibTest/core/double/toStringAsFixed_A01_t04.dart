@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion String toStringAsFixed(int fractionDigits)
- * @description Checks that 0.0123456789 and -0.0123456789 are properly rounded
- * and converted to string with 'fractionDigits' ranging from 0 to 10.
- * @author pagolubev
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion String toStringAsFixed(int fractionDigits)
+/// @description Checks that 0.0123456789 and -0.0123456789 are properly rounded
+/// and converted to string with 'fractionDigits' ranging from 0 to 10.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 check(String expected, int digits) {

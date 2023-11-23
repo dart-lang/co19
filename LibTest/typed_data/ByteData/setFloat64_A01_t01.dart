@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * void setFloat64(
- *     int byteOffset,
- *     double value, [
- *     Endian endian = Endian.big
- * ])
- * Sets the eight bytes starting at the specified [byteOffset] in this object to
- * the IEEE 754 double-precision binary floating-point (binary64) representation
- * of the specified [value].
- * @description Checks that the value at the [byteOffset] is set to [value].
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// void setFloat64(
+///     int byteOffset,
+///     double value, [
+///     Endian endian = Endian.big
+/// ])
+/// Sets the eight bytes starting at the specified [byteOffset] in this object to
+/// the IEEE 754 double-precision binary floating-point (binary64) representation
+/// of the specified [value].
+/// @description Checks that the value at the [byteOffset] is set to [value].
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract class LinkedListEntry<E extends LinkedListEntry
- * An entry can be in at most one linked list at a time. While an entry is in a
- * linked list, the [list] property points to that linked list, and otherwise
- * the [list] property is [null].
- * When created, an entry is not in any linked list.
- * @description Checks that [LinkedListEntry] element can belong to only one
- * linked list at a time.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract class LinkedListEntry<E extends LinkedListEntry
+/// An entry can be in at most one linked list at a time. While an entry is in a
+/// linked list, the [list] property points to that linked list, and otherwise
+/// the [list] property is [null].
+/// When created, an entry is not in any linked list.
+/// @description Checks that [LinkedListEntry] element can belong to only one
+/// linked list at a time.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedListEntry.lib.dart";

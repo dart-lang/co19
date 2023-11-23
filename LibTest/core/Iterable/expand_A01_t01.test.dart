@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable expand(Iterable f(E element))
- * Expands each element of this Iterable into zero or more elements.
- * The resulting Iterable runs through the elements returned by f for each
- * element of this, in iteration order.
- * The returned Iterable is lazy, and calls f for each element of this every
- * time it's iterated.
- * @description Checks that the function [f] is called for every element of the
- * list.
- * Checks that resulting Iterable will run through the elements returned by f
- * for each element of this
- * @author kaigorodov
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable expand(Iterable f(E element))
+/// Expands each element of this Iterable into zero or more elements.
+/// The resulting Iterable runs through the elements returned by f for each
+/// element of this, in iteration order.
+/// The returned Iterable is lazy, and calls f for each element of this every
+/// time it's iterated.
+/// @description Checks that the function [f] is called for every element of the
+/// list.
+/// Checks that resulting Iterable will run through the elements returned by f
+/// for each element of this
+/// @author kaigorodov
+/// @author sgrekhov@unipro.ru
+
 library expand_A01_t01;
 import "../../../Utils/expect.dart";
 

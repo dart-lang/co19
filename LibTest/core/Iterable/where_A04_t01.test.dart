@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<E> where(bool f(E element))
- * ...
- * Iterating will not cache results, and thus iterating multiple times over the
- * returned Iterable will invoke the supplied function test multiple times on
- * the same element.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<E> where(bool f(E element))
+/// ...
+/// Iterating will not cache results, and thus iterating multiple times over the
+/// returned Iterable will invoke the supplied function test multiple times on
+/// the same element.
+/// @author sgrekhov@unipro.ru
+
 library where_A04_t01;
 
 import "../../../Utils/expect.dart"	;

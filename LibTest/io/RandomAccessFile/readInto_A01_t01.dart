@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<int> readInto(List<int> buffer, [int start = 0, int end])
- * Reads into an existing List<int> from the file. If start is present, the
- * bytes will be filled into buffer from at index start, otherwise index 0. If
- * end is present, the end - start bytes will be read into buffer, otherwise up
- * to buffer.length. If end == start nothing happens.
- *
- * @description Checks that method readInto reads into an existing List<int>
- * from the file, and if start is not set the bytes are filled into buffer at
- * index 0.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<int> readInto(List<int> buffer, [int start = 0, int end])
+/// Reads into an existing List<int> from the file. If start is present, the
+/// bytes will be filled into buffer from at index start, otherwise index 0. If
+/// end is present, the end - start bytes will be read into buffer, otherwise up
+/// to buffer.length. If end == start nothing happens.
+///
+/// @description Checks that method readInto reads into an existing List<int>
+/// from the file, and if start is not set the bytes are filled into buffer at
+/// index 0.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -33,9 +31,9 @@ main() {
     rf.setPositionSync(0);
     var num = rf.readInto(list);
     Expect.isTrue(num is Future<int>);
+    Expect.runtimeIsType<Future<int>>(num);
 
     num.then((int n) {
-      Expect.isTrue(n is int);
       for (int i = 0; i < n; i++) {
         Expect.equals((i + 1) & 0xff, list[i]);
       }

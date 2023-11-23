@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion If e1 translates to F then e1.f = e2 translates to:
- *  PASSTHRU[F, fn[x] => x.f = EXP(e2)]
- *
- *  The other assignment operators are handled equivalently.
- *
- * @description Check that assignments like e1.f |= e2 translates to:
- *  PASSTHRU[F, fn[x] => x.f |= EXP(e2)]
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion If e1 translates to F then e1.f = e2 translates to:
+///  PASSTHRU[F, fn[x] => x.f = EXP(e2)]
+///
+///  The other assignment operators are handled equivalently.
+///
+/// @description Check that assignments like e1.f |= e2 translates to:
+///  PASSTHRU[F, fn[x] => x.f |= EXP(e2)]
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

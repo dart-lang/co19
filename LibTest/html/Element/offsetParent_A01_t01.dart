@@ -1,13 +1,11 @@
-/*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion final Element offsetParent
- * The element from which all offset calculations are currently computed.
- * @description Checks expected offsetParent
- */
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion final Element offsetParent
+/// The element from which all offset calculations are currently computed.
+/// @description Checks expected offsetParent
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";

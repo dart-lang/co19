@@ -1,25 +1,23 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A [set] literal [<E>{elem_1 ... elem_n}] is evaluated as follows:
- *   2. For each element in the [set] literal:
- *      i. Evaluate the element's expression to a value value.
- *      ii. If element is a spread element:
- *          a. If element is null-aware and value is [null], continue to the
- *             next element in the literal.
- *          b. Evaluate [value.iterator] to a [value] iterator.
- *          c. Loop:
- *             a. If [iterator.moveNext()] returns [false], exit the loop.
- *             b. Evaluate set.add(iterator.current).
- *       iii. Else:
- *           a. Evaluate [set.add(value)].
- * @description Checks that elements in the spread element are added to the
- * result set in correct order.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A [set] literal [<E>{elem_1 ... elem_n}] is evaluated as follows:
+///   2. For each element in the [set] literal:
+///      i. Evaluate the element's expression to a value value.
+///      ii. If element is a spread element:
+///          a. If element is null-aware and value is [null], continue to the
+///             next element in the literal.
+///          b. Evaluate [value.iterator] to a [value] iterator.
+///          c. Loop:
+///             a. If [iterator.moveNext()] returns [false], exit the loop.
+///             b. Evaluate set.add(iterator.current).
+///       iii. Else:
+///           a. Evaluate [set.add(value)].
+/// @description Checks that elements in the spread element are added to the
+/// result set in correct order.
+/// @author iarkh@unipro.ru
+
 
 import "dart:collection";
 import "../../Utils/expect.dart";
@@ -32,7 +30,7 @@ class MyIterable extends IterableBase {
   Iterator getIterator() { return iterator; }
 }
 
-class MyIterator extends Iterator {
+class MyIterator implements Iterator {
   int i = -1;
   late List list;
 

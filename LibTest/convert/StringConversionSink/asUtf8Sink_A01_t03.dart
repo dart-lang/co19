@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion ByteConversionSink asUtf8Sink(bool allowMalformed)
- * Returns this as a sink that accepts UTF-8 input.
- *
- * If used, this method must be the first and only call to this. It invalidates
- * this. All further operations must be performed on the result.
- * @description Checks that this method returns this as a ByteConversionSink.
- * Test allowMalformed == true
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion ByteConversionSink asUtf8Sink(bool allowMalformed)
+/// Returns this as a sink that accepts UTF-8 input.
+///
+/// If used, this method must be the first and only call to this. It invalidates
+/// this. All further operations must be performed on the result.
+/// @description Checks that this method returns this as a ByteConversionSink.
+/// Test allowMalformed == true
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

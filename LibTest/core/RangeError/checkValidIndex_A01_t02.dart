@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void checkValidIndex(int index, indexable, [String name,
- * int length, String message])
- * Check that a value is a valid index into an indexable object.
- * Throws if index is not a valid index into indexable
- * @description Checks that this method checks that a value is a valid index
- * into an indexable object and name has correct value set
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void checkValidIndex(int index, indexable, [String name,
+/// int length, String message])
+/// Check that a value is a valid index into an indexable object.
+/// Throws if index is not a valid index into indexable
+/// @description Checks that this method checks that a value is a valid index
+/// into an indexable object and name has correct value set
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 check(int index, indexable, String? name) {

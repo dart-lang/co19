@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Represents credentials for digest authentication. Digest
- * authentication is only supported for servers using the MD5 algorithm and
- * quality of protection (qop) of either "none" or "auth".
- * @description Checks that this class represents credentials for digest
- * authentication
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Represents credentials for digest authentication. Digest
+/// authentication is only supported for servers using the MD5 algorithm and
+/// quality of protection (qop) of either "none" or "auth".
+/// @description Checks that this class represents credentials for digest
+/// authentication
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import 'dart:async';
 import "dart:convert";
@@ -45,7 +43,7 @@ test() async {
   });
   HttpClient client = new HttpClient();
 
-  client.authenticate = (Uri url, String scheme, String realm) {
+  client.authenticate = (Uri url, String scheme, String? realm) {
     Expect.equals("Digest", scheme);
     Expect.equals("realm", realm);
     Completer<bool> completer = new Completer<bool>();

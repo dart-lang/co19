@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<int> length
- * The number of elements in this stream.
- *
- * Waits for all elements of this stream. When the stream ends, the returned
- * future is completed with the number of elements.
- *
- * @description Checks that [length] returns the future, and when the stream
- * ends, the returned future is completed with the number of elements.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<int> length
+/// The number of elements in this stream.
+///
+/// Waits for all elements of this stream. When the stream ends, the returned
+/// future is completed with the number of elements.
+///
+/// @description Checks that [length] returns the future, and when the stream
+/// ends, the returned future is completed with the number of elements.
+/// @author ngl@unipro.ru
+
 // OtherResources=server_chain.pem
 // OtherResources=server_key.pem
 // OtherResources=trusted_certs.pem

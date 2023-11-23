@@ -1,30 +1,28 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion ByteData asByteData([int offsetInBytes = 0, int length ])
- * Creates a ByteData view of a region of this byte buffer.
- * The view is backed by the bytes of this byte buffer. Any changes made to
- * the ByteData will also change the buffer, and vice versa.
- * @description Checks that method asByteData creates a ByteData view of a
- * region of this byte buffer, and any changes made to ByteData will also change
- * the buffer, and vice versa. The checking is done for buffers of lists with
- * different elements size.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion ByteData asByteData([int offsetInBytes = 0, int length ])
+/// Creates a ByteData view of a region of this byte buffer.
+/// The view is backed by the bytes of this byte buffer. Any changes made to
+/// the ByteData will also change the buffer, and vice versa.
+/// @description Checks that method asByteData creates a ByteData view of a
+/// region of this byte buffer, and any changes made to ByteData will also change
+/// the buffer, and vice versa. The checking is done for buffers of lists with
+/// different elements size.
+/// @author ngl@unipro.ru
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   int bufSizeInBytes = buffer.lengthInBytes;
-  ByteData res = buffer.asByteData(0);
+  var res = buffer.asByteData(0);
   ByteData res1 = buffer.asByteData(0);
   int viewSizeInBytes = res.lengthInBytes;
 
   Expect.isTrue(res is ByteData);
+  Expect.runtimeIsType<ByteData>(res);
   Expect.equals(bufSizeInBytes, viewSizeInBytes);
 
   if (viewSizeInBytes != 0) {
@@ -62,9 +60,11 @@ main() {
   check((new Int32List.fromList(list1)).buffer);
   check((new Int32List.fromList(list2)).buffer);
 
-  check((new Int64List.fromList(list0)).buffer);
-  check((new Int64List.fromList(list1)).buffer);
-  check((new Int64List.fromList(list2)).buffer);
+  if (!isJS) {
+    check((new Int64List.fromList(list0)).buffer);
+    check((new Int64List.fromList(list1)).buffer);
+    check((new Int64List.fromList(list2)).buffer);
+  }
 
   check((new Int32x4List.fromList(list5)).buffer);
   check((new Int32x4List.fromList(list3)).buffer);

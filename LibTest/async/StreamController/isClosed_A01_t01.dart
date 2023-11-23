@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool isClosed
- * Whether the stream is closed for adding more events.
- * If the controller is closed, the "done" event might not have been delivered
- * yet, but it has been scheduled, and it is too late to add more events.
- *
- * @description Checks that the property returns correct value. Checks that an
- * error is thrown if events are added after the stream is closed.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool isClosed
+/// Whether the stream is closed for adding more events.
+/// If the controller is closed, the "done" event might not have been delivered
+/// yet, but it has been scheduled, and it is too late to add more events.
+///
+/// @description Checks that the property returns correct value. Checks that an
+/// error is thrown if events are added after the stream is closed.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

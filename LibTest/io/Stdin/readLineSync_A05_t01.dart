@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int readByteSync()
- * @assertion String readLineSync({
- *   Encoding encoding: systemEncoding,
- *   bool retainNewlines: false
- *   })
- * If [retainNewlines] is [false], the returned [String] will not contain the
- * final [newline]. If [true], the returned [String] will contain the line
- * terminator. Default is [false].
- * @description Check that if [retainNewlines] is [false], the returned [String]
- * does not contain [newLine] in the end
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int readByteSync()
+/// @assertion String readLineSync({
+///   Encoding encoding: systemEncoding,
+///   bool retainNewlines: false
+///   })
+/// If [retainNewlines] is [false], the returned [String] will not contain the
+/// final [newline]. If [true], the returned [String] will contain the line
+/// terminator. Default is [false].
+/// @description Check that if [retainNewlines] is [false], the returned [String]
+/// does not contain [newLine] in the end
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:io";
 

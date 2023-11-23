@@ -1,18 +1,15 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * Description    Operator                          Associativity Precedence
- * Logical OR        ||                                Left           5
- * @description Test that '||' logical OR operator has precedence (5).
- * Compare with if-null '??' operator (precedence 4). Test that '||' has
- * priority higher than '??'
- * @static-warning
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// Description    Operator                          Associativity Precedence
+/// Logical OR        ||                                Left           5
+/// @description Test that '||' logical OR operator has precedence (5).
+/// Compare with if-null '??' operator (precedence 4). Test that '||' has
+/// priority higher than '??'
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 String log = "";
@@ -26,7 +23,11 @@ class C {
 
 main() {
   dynamic c = new C();
-  c.m("c1") || c.m("c2") ?? c.m("c3") || c.m("c4"); /// static type warning
+  c.m("c1") || c.m("c2") ?? c.m("c3") || c.m("c4");
+//                          ^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//          ^
+// [cfe] Operand of null-aware operation '??' has type 'bool' which excludes null.
   Expect.equals("c1c2", log);
 
   log = "";

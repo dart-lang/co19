@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion 15.10.2.8: The form (?! Disjunction ) specifies a zero-width
- * negative lookahead. In order for it to succeed, the pattern inside
- * Disjunction must fail to match at the current position. The current position
- * is not advanced before matching the sequel. Disjunction can contain capturing
- * parentheses, but backreferences to them only make sense from within
- * Disjunction itself. Backreferences to these capturing parentheses from
- * elsewhere in the pattern always return undefined because the negative
- * lookahead must fail for the pattern to succeed.
- * @description Checks that this syntax works as specified.
- * @3rdparty sputnik-v1:S15.10.2.8_A2_T1.js-S15.10.2.8_A2_T11.js
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion 15.10.2.8: The form (?! Disjunction ) specifies a zero-width
+/// negative lookahead. In order for it to succeed, the pattern inside
+/// Disjunction must fail to match at the current position. The current position
+/// is not advanced before matching the sequel. Disjunction can contain capturing
+/// parentheses, but backreferences to them only make sense from within
+/// Disjunction itself. Backreferences to these capturing parentheses from
+/// elsewhere in the pattern always return undefined because the negative
+/// lookahead must fail for the pattern to succeed.
+/// @description Checks that this syntax works as specified.
+/// @3rdparty sputnik-v1:S15.10.2.8_A2_T1.js-S15.10.2.8_A2_T11.js
+/// @author rodionov
+
 import "../../../../Utils/expect.dart";
 
 main() {

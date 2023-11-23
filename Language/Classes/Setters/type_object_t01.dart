@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Static setter declaration doesn't add instance setter
- * with the same name to the Type object of the class
- * @description Check that static setter declaration doesn't add instance setter
- * with the same name to the Type object of the class.
- * See https://github.com/dart-lang/sdk/issues/23721
- * @author sgrekhov@unipro.ru
- * @issue 23721
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Static setter declaration doesn't add instance setter
+/// with the same name to the Type object of the class
+/// @description Check that static setter declaration doesn't add instance setter
+/// with the same name to the Type object of the class.
+/// See https://github.com/dart-lang/sdk/issues/23721
+/// @author sgrekhov@unipro.ru
+/// @issue 23721
+
 import "../../../Utils/expect.dart";
 
 class C {

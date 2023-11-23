@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion An additive expression of the form super op e2 is equivalent
- * to the method invocation super.op(e2).
- * @description Checks that an additive expression of the form super op e2 is
- * equivalent to the method invocation super.op(e2).
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion An additive expression of the form super op e2 is equivalent
+/// to the method invocation super.op(e2).
+/// @description Checks that an additive expression of the form super op e2 is
+/// equivalent to the method invocation super.op(e2).
+/// @author kaigorodov
+
 
 import '../../../Utils/expect.dart';
 

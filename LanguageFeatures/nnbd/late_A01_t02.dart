@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A read of a field or variable which is marked as late which has
- * not yet been written to causes the initializer expression of the variable to
- * be evaluated to a value, assigned to the variable or field, and returned as
- * the value of the read.
- *
- * @description Check that a read of a field or variable which is marked as late
- * which has not yet been written to causes the initializer expression of the
- * variable to be evaluated to a value, assigned to the variable or field, and
- * returned as the value of the read
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A read of a field or variable which is marked as late which has
+/// not yet been written to causes the initializer expression of the variable to
+/// be evaluated to a value, assigned to the variable or field, and returned as
+/// the value of the read.
+///
+/// @description Check that a read of a field or variable which is marked as late
+/// which has not yet been written to causes the initializer expression of the
+/// variable to be evaluated to a value, assigned to the variable or field, and
+/// returned as the value of the read
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

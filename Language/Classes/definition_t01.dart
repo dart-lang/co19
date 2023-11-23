@@ -1,18 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion classDefinition:
- *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
- * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
- *   metadata abstract? class mixinApplicationClass
- * ;
- * @description Checks that various class definitions that are valid according 
- * to this syntax do not cause any errors and can be instantiated.
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion classDefinition:
+///   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+/// interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+///   metadata abstract? class mixinApplicationClass
+/// ;
+/// @description Checks that various class definitions that are valid according 
+/// to this syntax do not cause any errors and can be instantiated.
+/// @author msyabro
 
 abstract class I {}
 abstract class J {}
@@ -21,10 +18,10 @@ abstract class IT<T> {}
 class A {}
 class B extends A {}
 class C extends B implements I {}
-class D implements I, J {}
+mixin class D implements I, J {}
 class E extends D implements I, J {}
 
-class F<T> {}
+mixin class F<T> {}
 class G<S, T> extends F<T> {}
 class H<T> implements I {}
 class K extends G<int, int> implements I {}

@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion If a for element declares a variable, then a new namespace is
- * created on each iteration where that variable is defined. The body of the for
- * element is resolved and evaluated in that namespace. The variable goes out of
- * scope at the end of the for element's body.
- *
- * @description Checks that if a for element declares a variable, then the
- * variable goes out of scope at the end of the for element's body.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion If a for element declares a variable, then a new namespace is
+/// created on each iteration where that variable is defined. The body of the for
+/// element is resolved and evaluated in that namespace. The variable goes out of
+/// scope at the end of the for element's body.
+///
+/// @description Checks that if a for element declares a variable, then the
+/// variable goes out of scope at the end of the for element's body.
+/// @author sgrekhov@unipro.ru
+
 import "../../Utils/expect.dart";
 
 main() {

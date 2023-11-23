@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Evaluation of an assignment of the form e1[e2] = e3 is equivalent
- * to the evaluation of the expression
- * (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
- * @description Checks that the value of an assignment of the form e1[e2] = e3
- * is the result of evaluating e3.
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Evaluation of an assignment of the form e1[e2] = e3 is equivalent
+/// to the evaluation of the expression
+/// (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
+/// @description Checks that the value of an assignment of the form e1[e2] = e3
+/// is the result of evaluating e3.
+/// @author rodionov
+
 
 import '../../../Utils/expect.dart';
 

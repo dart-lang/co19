@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion List<E> toList({bool growable: true})
- * Creates a [List] containing the elements of this [Iterable].
- * The elements will be in iteration order.
- * @description Checks that the returned [List] contains all elements of [this]
- * in the same order.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion List<E> toList({bool growable: true})
+/// Creates a [List] containing the elements of this [Iterable].
+/// The elements will be in iteration order.
+/// @description Checks that the returned [List] contains all elements of [this]
+/// in the same order.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

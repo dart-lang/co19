@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<HttpClientResponse> done
- * A HttpClientResponse future that will complete once the response is
- * available. If an error occurs before the response is available, this future
- * will complete with an error.
- * @description Checks that this future completes once the response is
- * available
- * @author sgrekhov@unipro.ru
- * @issue 31599
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<HttpClientResponse> done
+/// An HttpClientResponse future that will complete once the response is
+/// available. If an error occurs before the response is available, this future
+/// will complete with an error.
+/// @description Checks that this future completes once the response is
+/// available
+/// @author sgrekhov@unipro.ru
+/// @issue 31599
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

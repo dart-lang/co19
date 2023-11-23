@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool isNotEmpty
- * Returns true if there is at least one element in this collection.
- * May be computed by checking if iterator.moveNext() returns true.
- * @description Checks various collections, that the method returns false if
- * there are no elements, in the collection, true otherwise.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool isNotEmpty
+/// Returns true if there is at least one element in this collection.
+/// May be computed by checking if iterator.moveNext() returns true.
+/// @description Checks various collections, that the method returns false if
+/// there are no elements, in the collection, true otherwise.
+/// @author kaigorodov
+
 library isNotEmpty_A01_t01;
  
 import "../../../Utils/expect.dart";

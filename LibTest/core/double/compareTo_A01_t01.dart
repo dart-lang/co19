@@ -1,13 +1,11 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int compareTo(Comparable other)
- * @description Checks that [:compareTo():] returns 0 if values are equal.
- * @author pagolubev
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int compareTo(Comparable other)
+/// @description Checks that [:compareTo():] returns 0 if values are equal.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 

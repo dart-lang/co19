@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion final SendPort sendPort
- * Returns a SendPort that sends to this raw receive port.
- *
- * @description Checks that different isolates can send to single RawReceivePort
- * instance
- *
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion final SendPort sendPort
+/// Returns a SendPort that sends to this raw receive port.
+///
+/// @description Checks that different isolates can send to single RawReceivePort
+/// instance
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 

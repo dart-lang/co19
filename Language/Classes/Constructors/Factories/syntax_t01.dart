@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A factory is a constructor prefaced by the built-in identifier
- * factory.
- * factoryConstructorSignature:
- *   factory identifier ('.' identifier)? formalParameterList
- * ;
- * @description Checks various valid factory declarations, including those
- * referencing classes from another file.
- * @author iefremov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A factory is a constructor prefaced by the built-in identifier
+/// factory.
+/// factoryConstructorSignature:
+///   factory identifier ('.' identifier)? formalParameterList
+/// ;
+/// @description Checks various valid factory declarations, including those
+/// referencing classes from another file.
+/// @author iefremov
+
 library test;
 import "../../../../Utils/expect.dart";
 import "syntax_t01.lib.dart" as lib;

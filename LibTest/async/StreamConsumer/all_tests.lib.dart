@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion streamConsumer abstract interface for a "sink" accepting multiple
- * entire streams.
- *
- * @description Checks that all members of StreamComsumer are implemented.
- * @note Tests run by ../StreamSink/StreamSink_inherited_tests.lib.dart
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion streamConsumer abstract interface for a "sink" accepting multiple
+/// entire streams.
+///
+/// @description Checks that all members of StreamComsumer are implemented.
+/// @note Tests run by ../StreamSink/StreamSink_inherited_tests.lib.dart
+/// @author ngl@unipro.ru
+
 library all_tests_streamconsumer;
 import "dart:async";
 

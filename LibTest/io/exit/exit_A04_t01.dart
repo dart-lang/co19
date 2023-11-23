@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void exit(int code)
- * On Windows the exit code can be set to any 32-bit value.
- * @description Checks that on Windows any exit code is returned as is.
- * range are
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
- * @author iarkh@unipro.ru
- */
+/// @assertion void exit(int code)
+/// On Windows the exit code can be set to any 32-bit value.
+/// @description Checks that on Windows any exit code is returned as is.
+/// range are
+///
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:io";
 

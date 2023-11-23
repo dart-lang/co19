@@ -1,15 +1,12 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Float32x4List.fromList(List<Float32x4> elements)
- * Creates a [Float32x4List] with the same length as the [elements] list and
- * copies over the elements.
- * @description Checks that an instance of Float32x4List is created.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Float32x4List.fromList(List<Float32x4> elements)
+/// Creates a [Float32x4List] with the same length as the [elements] list and
+/// copies over the elements.
+/// @description Checks that an instance of Float32x4List is created.
+/// @author msyabro
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -20,6 +17,7 @@ Float32x4 packV(v) => new Float32x4.splat(v);
 void check(List<Float32x4> list) {
   Float32x4List l = new Float32x4List.fromList(list);
   Expect.isTrue(l is Float32x4List);
+  Expect.runtimeIsType<Float32x4List>(l);
 }
 
 main() {

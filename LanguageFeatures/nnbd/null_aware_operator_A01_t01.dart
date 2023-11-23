@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A property access e?.f translates to:
- *  SHORT[EXP(e), fn[x] => x.f]
- *
- * @description Check that a property access e?.f translates to:
- *  SHORT[EXP(e), fn[x] => x.f]
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A property access e?.f translates to:
+///  SHORT[EXP(e), fn[x] => x.f]
+///
+/// @description Check that a property access e?.f translates to:
+///  SHORT[EXP(e), fn[x] => x.f]
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

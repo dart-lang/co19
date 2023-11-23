@@ -1,13 +1,10 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be assigned to the class member of type T1
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be assigned to the class member of type T1
+/// @author sgrekhov@unipro.ru
 
 class ClassMember1_t01 {
   static @T1 s = forgetType(t0Instance);
@@ -92,7 +89,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   ClassMember2_t01<@T1> c2 = new ClassMember2_t01<@T1>();
   c2 = new ClassMember2_t01<@T1>.short(forgetType(t0Instance),
   forgetType(t0Instance));
@@ -100,5 +96,4 @@ main() {
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;
-  //# -->
 }

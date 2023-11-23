@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Evaluation of an if-null expression e of the form e1 ??e2 is
- * equivalent to the evaluation of the expression ((x) => x == null?e2 : x)(e1).
- *
- * @description Check evaluation order
- *
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Evaluation of an if-null expression e of the form e1 ??e2 is
+/// equivalent to the evaluation of the expression ((x) => x == null?e2 : x)(e1).
+///
+/// @description Check evaluation order
+///
+/// @author a.semenov@unipro.ru
+
 import '../../../Utils/expect.dart';
 
 int e1count = 0;

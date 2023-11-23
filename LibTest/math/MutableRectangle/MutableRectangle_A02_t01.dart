@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion MutableRectangle(T left, T top, T width, T height)
- * ...
- * The rectangle contains the points with x-coordinate between left and
- * left + width, and with y-coordinate between top and top + height, both
- * inclusive.
- * @description Checks that the rectangle contains the points with x-coordinate
- * between left and left + width, and with y-coordinate between top and
- * top + height, both inclusive.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion MutableRectangle(T left, T top, T width, T height)
+/// ...
+/// The rectangle contains the points with x-coordinate between left and
+/// left + width, and with y-coordinate between top and top + height, both
+/// inclusive.
+/// @description Checks that the rectangle contains the points with x-coordinate
+/// between left and left + width, and with y-coordinate between top and
+/// top + height, both inclusive.
+/// @author ngl@unipro.ru
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

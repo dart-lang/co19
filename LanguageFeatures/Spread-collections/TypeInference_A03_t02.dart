@@ -1,17 +1,14 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion If a map literal has a downwards inference type of [Map<K, V>] for
- * some [K] and [V], then the downwards inference context type of a spread
- * element in that map is [Map<K, V>].
- * @description Checks statically that a spread element inference context type
- * is [K, V] in the map literal
- * @static-warning
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion If a map literal has a downwards inference type of [Map<K, V>] for
+/// some [K] and [V], then the downwards inference context type of a spread
+/// element in that map is [Map<K, V>].
+/// @description Checks statically that a spread element inference context type
+/// is [K, V] in the map literal
+/// @author iarkh@unipro.ru
+
 
 class A1 {}
 class B1 extends A1 {}
@@ -33,13 +30,33 @@ main() {
 
   Map map1 = <int, int>{2: 4, 7: 16, ...int_map, 4: 40};
   Map map2 = <A1, A2>{new A1(): new A2(), ...?a_map};
+//                                        ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                            ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<A1, A2>' which excludes null.
   Map map3 = <A1, A2>{new A1(): new A2(), ...b_map};
   Map map4 = <A1, A2>{new A1(): new A2(), ...c_map, new B1(): new C2()};
   Map map5 = <A1, A2>{new A1(): new B2(), new B1(): new C2(),
       new C1(): new C2(), ...?c_map, new B1(): new A2(), ...a_map, ...b_map,
+//                        ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                            ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<C1, C2>' which excludes null.
       new A1(): new C2()};
   Map map6 = <B1, B2>{new B1(): new B2(), ...?b_map, new C1(): new C2(),
+//                                        ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                            ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<B1, B2>' which excludes null.
       ...c_map};
   Map map7 = {123: 14, "123": "1", new A1(): null, new A2(): new C1(), ...a_map,
       ...?b_map, 148: new C1(), ...?c_map, ...int_map, 1499: null, -7: []};
+//    ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//        ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<B1, B2>' which excludes null.
+//                              ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                  ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<C1, C2>' which excludes null.
 }

@@ -1,29 +1,27 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<HttpClientRequest> openUrl(
- *  String method,
- *  Uri url
- *  )
- * Opens a HTTP connection.
- *
- * The HTTP method is specified in method and the URL to use in url.
- *
- * The Host header for the request will be set to the value Uri.host:Uri.port
- * from url. This can be overridden through the HttpClientRequest interface
- * before the request is sent. NOTE if host is an IP address this will still be
- * set in the Host header.
- *
- * For additional information on the sequence of events during an HTTP
- * transaction, and the objects returned by the futures, see the overall
- * documentation for the class HttpClient.
- * @description Checks that this method opens a HTTP connection using specified
- * method
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<HttpClientRequest> openUrl(
+///  String method,
+///  Uri url
+///  )
+/// Opens an HTTP connection.
+///
+/// The HTTP method is specified in method and the URL to use in url.
+///
+/// The Host header for the request will be set to the value Uri.host:Uri.port
+/// from url. This can be overridden through the HttpClientRequest interface
+/// before the request is sent. NOTE if host is an IP address this will still be
+/// set in the Host header.
+///
+/// For additional information on the sequence of events during an HTTP
+/// transaction, and the objects returned by the futures, see the overall
+/// documentation for the class HttpClient.
+/// @description Checks that this method opens an HTTP connection using specified
+/// method
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

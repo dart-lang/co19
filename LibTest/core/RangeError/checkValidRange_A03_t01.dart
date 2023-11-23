@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int checkValidRange(int start, int end, int length,
- * [String startName, String endName, String message])
- * Check that a range represents a slice of an indexable object.
- * @description Checks that if startName, endName and message are set then name
- * and message have appropriate values
- * @issue 28116
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int checkValidRange(int start, int end, int length,
+/// [String startName, String endName, String message])
+/// Check that a range represents a slice of an indexable object.
+/// @description Checks that if startName, endName and message are set then name
+/// and message have appropriate values
+/// @issue 28116
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 check(int start, int end, int length, String? startName, String? endName,

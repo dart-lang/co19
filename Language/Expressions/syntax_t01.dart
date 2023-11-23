@@ -1,46 +1,44 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion An expression is a fragment of Dart code that can be evaluated
- * at run time to yield a value, which is always an object.
- * . . .
- *  expression:
- *    assignableExpression assignmentOperator expression |
- *    conditionalExpression cascadeSection* |
- *    throwExpression
- *  ;
- *
- *  expressionWithoutCascade:
- *    assignableExpression assignmentOperator expressionWithoutCascade |
- *    conditionalExpression |
- *    throwExpressionWithoutCascade
- *  ;
- *
- *  expressionList:
- *    expression (`, ' expression)*
- *  ;
- *
- *  primary:
- *    thisExpression |
- *    super assignableSelector |
- *    functionExpression |
- *    literal |
- *    identifier |
- *    newExpression |
- *    new type ‘#’ (‘.’ identifier)? |
- *    constObjectExpression |
- *    `(' expression `)'
- *  ;
- * An expression [e] may always be enclosed in parentheses, but this never has
- * any semantic effect on [e].
- * @description Checks that a valid expression enclosed in parentheses is also a
- * valid expression and evaluates the same way.
- * @author hlodvig
- * @needsreview TODO: extend to cover all expressions.
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion An expression is a fragment of Dart code that can be evaluated
+/// at run time to yield a value, which is always an object.
+/// . . .
+///  expression:
+///    assignableExpression assignmentOperator expression |
+///    conditionalExpression cascadeSection* |
+///    throwExpression
+///  ;
+///
+///  expressionWithoutCascade:
+///    assignableExpression assignmentOperator expressionWithoutCascade |
+///    conditionalExpression |
+///    throwExpressionWithoutCascade
+///  ;
+///
+///  expressionList:
+///    expression (`, ' expression)*
+///  ;
+///
+///  primary:
+///    thisExpression |
+///    super assignableSelector |
+///    functionExpression |
+///    literal |
+///    identifier |
+///    newExpression |
+///    new type ‘#’ (‘.’ identifier)? |
+///    constObjectExpression |
+///    `(' expression `)'
+///  ;
+/// An expression [e] may always be enclosed in parentheses, but this never has
+/// any semantic effect on [e].
+/// @description Checks that a valid expression enclosed in parentheses is also a
+/// valid expression and evaluates the same way.
+/// @author hlodvig
+/// @needsreview TODO: extend to cover all expressions.
+
 
 import "../../Utils/expect.dart";
 
@@ -65,13 +63,16 @@ main() {
   Expect.isTrue(null == (null));
   Expect.isTrue(-1.1 == (-1.1));
   Expect.isTrue(([]) is List);
+  Expect.runtimeIsType<List>(([]));
   Expect.listEquals([], ([]));
   Expect.listEquals([1, 2, "three"], ([1, 2, "three"]));
   Expect.isTrue(({}) is Map);
+  Expect.runtimeIsType<Map>(({}));
   Expect.mapEquals({}, ({}));
   Expect.mapEquals({"foo": "f00", "bar": 214}, ({"foo": "f00", "bar": 214}));
   Expect.isTrue(() {return 3;}() == (() {return 3;}()));
   Expect.isTrue((new A()) is A);
+  Expect.runtimeIsType<A>((new A()));
   Expect.isTrue((new A()) != null);
   A a = new A();
   Expect.equals(a, (a));

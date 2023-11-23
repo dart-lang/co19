@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<RandomAccessFile> flush()
- * Flushes the contents of the file to disk. Returns a Future<RandomAccessFile>
- * that completes with this RandomAccessFile when the flush operation completes.
- *
- * @description Checks that method flush returns Future<RandomAccessFile> that
- * completes with this RandomAccessFile.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<RandomAccessFile> flush()
+/// Flushes the contents of the file to disk. Returns a Future<RandomAccessFile>
+/// that completes with this RandomAccessFile when the flush operation completes.
+///
+/// @description Checks that method flush returns Future<RandomAccessFile> that
+/// completes with this RandomAccessFile.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -26,10 +24,12 @@ main() {
     rf.writeByteSync(9);
     var rfFlush = rf.flush();
     Expect.isTrue(rfFlush is Future<RandomAccessFile>);
+    Expect.runtimeIsType<Future<RandomAccessFile>>(rfFlush);
     var list;
 
     rfFlush.then((RandomAccessFile f) {
       Expect.isTrue(f is RandomAccessFile);
+      Expect.runtimeIsType<RandomAccessFile>(f);
       Expect.isTrue(f == rf);
       f.setPositionSync(0);
       list = f.readSync(1);

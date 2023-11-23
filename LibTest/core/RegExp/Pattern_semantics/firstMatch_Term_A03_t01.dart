@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion 15.10.2.5: Atom's captures are cleared each time Atom is repeated.
- * @description Checks that the assertion is true.
- * @3rdparty sputnik-v1:S15.10.2.5_A1_T4.js
- * @author rodionov
- * @reviewer msyabro
- * @note issue 1290
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion 15.10.2.5: Atom's captures are cleared each time Atom is repeated.
+/// @description Checks that the assertion is true.
+/// @3rdparty sputnik-v1:S15.10.2.5_A1_T4.js
+/// @author rodionov
+/// @reviewer msyabro
+/// @note issue 1290
+
 import "../../../../Utils/expect.dart";
  
 

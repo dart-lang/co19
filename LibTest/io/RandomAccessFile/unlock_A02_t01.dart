@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<RandomAccessFile> unlock([int start = 0, int end = -1])
- * Unlocks the file or part of the file.
- *
- * NOTE file locking does have slight differences in behavior across platforms:
- *
- * See lock for more details.
- *
- * @description Checks that on Windows the regions used for lock and unlock
- * needs to match.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<RandomAccessFile> unlock([int start = 0, int end = -1])
+/// Unlocks the file or part of the file.
+///
+/// NOTE file locking does have slight differences in behavior across platforms:
+///
+/// See lock for more details.
+///
+/// @description Checks that on Windows the regions used for lock and unlock
+/// needs to match.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

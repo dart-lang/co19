@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion const JsonCodec({dynamic reviver(key,value),
- * dynamic toEncodable(object)})
- * Creates a JsonCodec with the given reviver and encoding function.
- * ...
- * If reviver is omitted, it defaults to returning the value argument.
- * ...
- * If toEncodable is omitted, it defaults to a function that returns the result
- * of calling .toJson() on the unencodable object.
- * @description Checks that this constructor, called without parameters,
- * created object with default reviver and toEncodable
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion const JsonCodec({dynamic reviver(key,value),
+/// dynamic toEncodable(object)})
+/// Creates a JsonCodec with the given reviver and encoding function.
+/// ...
+/// If reviver is omitted, it defaults to returning the value argument.
+/// ...
+/// If toEncodable is omitted, it defaults to a function that returns the result
+/// of calling .toJson() on the unencodable object.
+/// @description Checks that this constructor, called without parameters,
+/// created object with default reviver and toEncodable
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

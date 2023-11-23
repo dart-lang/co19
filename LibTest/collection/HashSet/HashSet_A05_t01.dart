@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion interface HashSet<E>
- * HashSet({bool equals(E e1, E e2), int hashCode(E e),
- * bool isValidKey(potentialKey) })
- * Likewise, if [equals] is [identical], [hashCode] is [identityHashCode] and
- * [isValidKey] is omitted, the resulting set is identity based, and the
- * [isValidKey] defaults to accepting all keys. Such a map can be created
- * directly using [HashSet.identity].
- * @description Checks that default [isValidKey] function accepts all the keys
- * if [equals] and [hashCode] functions are not provided for [HashSet.identity]
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion interface HashSet<E>
+/// HashSet({bool equals(E e1, E e2), int hashCode(E e),
+/// bool isValidKey(potentialKey) })
+/// Likewise, if [equals] is [identical], [hashCode] is [identityHashCode] and
+/// [isValidKey] is omitted, the resulting set is identity based, and the
+/// [isValidKey] defaults to accepting all keys. Such a map can be created
+/// directly using [HashSet.identity].
+/// @description Checks that default [isValidKey] function accepts all the keys
+/// if [equals] and [hashCode] functions are not provided for [HashSet.identity]
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

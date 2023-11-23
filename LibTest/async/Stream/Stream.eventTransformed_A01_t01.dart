@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream.eventTransformed(Stream source,
- *   EventSink mapSink(EventSink<T> sink))
- * Creates a stream where all events of an existing stream are piped through
- * a sink-transformation.
- * The given mapSink closure is invoked when the returned stream is listened
- * to. All events from the source are added into the event sink that is
- * returned from the invocation. The transformation puts all transformed
- * events into the sink the mapSink closure received during its invocation.
- * Conceptually the mapSink creates a transformation pipe with the input sink
- * being the returned EventSink and the output sink being the sink it received.
- * @description Checks that data events are produced according to transform.
- * @author ilya
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream.eventTransformed(Stream source,
+///   EventSink mapSink(EventSink<T> sink))
+/// Creates a stream where all events of an existing stream are piped through
+/// a sink-transformation.
+/// The given mapSink closure is invoked when the returned stream is listened
+/// to. All events from the source are added into the event sink that is
+/// returned from the invocation. The transformation puts all transformed
+/// events into the sink the mapSink closure received during its invocation.
+/// Conceptually the mapSink creates a transformation pipe with the input sink
+/// being the returned EventSink and the output sink being the sink it received.
+/// @description Checks that data events are produced according to transform.
+/// @author ilya
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

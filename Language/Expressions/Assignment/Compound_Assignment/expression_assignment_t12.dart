@@ -1,17 +1,14 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A compound assignment of the form e1.v op = e2 is equivalent
- * to ((x) => x.v = x.v op e2)(e1) where x is a variable that is not used in e2.
- * @description Checks that an expression of the form e1.v >>>= e2 is equivalent
- * to ((x) => x.v = x.v >>> e2)(e1) where x is a variable that is not used in
- * e2.
- * @author iarkh@unipro.ru
- */
-// SharedOptions=--enable-experiment=triple-shift
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A compound assignment of the form e1.v op = e2 is equivalent
+/// to ((x) => x.v = x.v op e2)(e1) where x is a variable that is not used in e2.
+/// @description Checks that an expression of the form e1.v >>>= e2 is equivalent
+/// to ((x) => x.v = x.v >>> e2)(e1) where x is a variable that is not used in
+/// e2.
+/// @author iarkh@unipro.ru
+
 
 import '../../../../Utils/expect.dart';
 

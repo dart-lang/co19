@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A class may implement a number of interfaces by declaring them 
- * in its implements clause.
- * @description Checks that class can implement one or more interfaces.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A class may implement a number of interfaces by declaring them 
+/// in its implements clause.
+/// @description Checks that class can implement one or more interfaces.
+/// @author kaigorodov
+
 import "../../Utils/expect.dart";
 
 class I1 {}
@@ -31,4 +29,10 @@ main() {
   Expect.isTrue(d is I1);
   Expect.isTrue(d is I2);
   Expect.isTrue(d is I3);
+  Expect.runtimeIsType<I1>(b);
+  Expect.runtimeIsType<I1>(c);
+  Expect.runtimeIsType<I2>(c);
+  Expect.runtimeIsType<I1>(d);
+  Expect.runtimeIsType<I2>(d);
+  Expect.runtimeIsType<I3>(d);
 }

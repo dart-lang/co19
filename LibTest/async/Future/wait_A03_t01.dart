@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<List> wait(Iterable<Future> futures,
- *                {bool eagerError: false, void cleanUp(successValue)})
- * If eagerError is true, the future completes with an error immediately on
- * the first error from one of the futures. Otherwise all futures must complete
- * before the returned future is completed (still with the first error to occur,
- * the remaining errors are silently dropped).
- * @description Checks if eagerError is true, the future completes with an error
- * immediately on the first error from one of the futures.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<List> wait(Iterable<Future> futures,
+///                {bool eagerError: false, void cleanUp(successValue)})
+/// If eagerError is true, the future completes with an error immediately on
+/// the first error from one of the futures. Otherwise all futures must complete
+/// before the returned future is completed (still with the first error to occur,
+/// the remaining errors are silently dropped).
+/// @description Checks if eagerError is true, the future completes with an error
+/// immediately on the first error from one of the futures.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

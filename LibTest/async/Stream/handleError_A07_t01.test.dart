@@ -1,24 +1,22 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream<T> handleError(Function onError, {bool test(error)})
- *    If a broadcast stream is listened to more than once, each subscription will
- * individually perform the test and handle the error.
- * @description Checks that [test] and [onError] are called once per listener
- * per error.
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<T> handleError(Function onError, {bool test(error)})
+/// If a broadcast stream is listened to more than once, each subscription will
+/// individually perform the test and handle the error.
+/// @description Checks that [test] and [onError] are called once per listener
+/// per error.
+/// @author a.semenov@unipro.ru
+
 library handleError_A07_t01;
 
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  Stream s =
-      create(["a", 1, "b", 2, "c", 3], isError: (x) => x is num, defVal: 42);
+  Stream s = create(["a", 1, "b", 2, "c", 3], isError: (x) => x is num,
+      defaultValue: 42);
   Map onErrorCalls = new Map();
   Map testCalls = new Map();
   asyncStart();

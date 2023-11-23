@@ -1,13 +1,11 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion The null object is the sole instance of the built-in class Null.
- * @description Checks that type of null is Null type.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The null object is the sole instance of the built-in class Null.
+/// @description Checks that type of null is Null type.
+/// @author ngl@unipro.ru
+
 import '../../../Utils/expect.dart';
 
 class A {}
@@ -19,4 +17,9 @@ main() {
   Expect.isTrue(n is Null);
   Expect.isFalse(null is A);
   Expect.isFalse(n is A);
+  Expect.runtimeIsType<Type>(Null);
+  Expect.runtimeIsType<Null>(null);
+  Expect.runtimeIsType<Null>(n);
+  Expect.runtimeIsNotType<A>(null);
+  Expect.runtimeIsNotType<A>(n);
 }

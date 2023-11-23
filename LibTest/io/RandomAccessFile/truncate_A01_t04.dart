@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<RandomAccessFile> truncate(int length)
- * Truncates (or extends) the file to length bytes. Returns a
- * Future<RandomAccessFile> that completes with this RandomAccessFile when the
- * truncation has been performed.
- *
- * @description Checks that method truncate returns a Future<RandomAccessFile>
- * that completes with this RandomAccessFile when the truncation has been
- * performed.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<RandomAccessFile> truncate(int length)
+/// Truncates (or extends) the file to length bytes. Returns a
+/// Future<RandomAccessFile> that completes with this RandomAccessFile when the
+/// truncation has been performed.
+///
+/// @description Checks that method truncate returns a Future<RandomAccessFile>
+/// that completes with this RandomAccessFile when the truncation has been
+/// performed.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -30,9 +28,9 @@ main() {
     }
     var f1 = rf.truncate(10);
     Expect.isTrue(f1 is Future<RandomAccessFile>);
+    Expect.runtimeIsType<Future<RandomAccessFile>>(f1);
     f1.then((RandomAccessFile f) {
-      Expect.isTrue(f is RandomAccessFile);
-      Expect.isTrue(f == rf);
+      Expect.equals(f, rf);
       asyncEnd();
     }).whenComplete(() {
       rf.closeSync();

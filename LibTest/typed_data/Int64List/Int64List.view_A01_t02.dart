@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * Int64List.view(
- *     ByteBuffer buffer, [
- *     int byteOffset = 0,
- *     int length
- * ])
- * Creates an [Int64List] view of the specified region in buffer.
- * @description Checks that a new instance has the same elements as the
- * specified region.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// Int64List.view(
+///     ByteBuffer buffer, [
+///     int byteOffset = 0,
+///     int length
+/// ])
+/// Creates an [Int64List] view of the specified region in buffer.
+/// @description Checks that a new instance has the same elements as the
+/// specified region.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

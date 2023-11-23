@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Match matchAsPrefix(String string, [int start = 0])
- * Match this pattern against the start of string.
- *
- * If start is provided, it must be an integer in the range 0 .. string.length.
- * ...
- * @description Checks that if start is provided, it must be an integer
- * in the range 0 .. string.length.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Match matchAsPrefix(String string, [int start = 0])
+/// Match this pattern against the start of string.
+///
+/// If start is provided, it must be an integer in the range 0 .. string.length.
+/// ...
+/// @description Checks that if start is provided, it must be an integer
+/// in the range 0 .. string.length.
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
  
 main() {

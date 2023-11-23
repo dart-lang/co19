@@ -1,23 +1,21 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion String decode(List<int> codeUnits, {bool allowMalformed})
- * Decodes the UTF-8 codeUnits (a list of unsigned 8-bit integers) to the
- * corresponding string.
- * ...
- * If allowMalformed is true the decoder replaces invalid (or unterminated)
- * character sequences with the Unicode Replacement character U+FFFD (�).
- * Otherwise it throws a FormatException.
- * @description Checks that this method throws FormatException for invalid or
- * unterminated character sequences
- * Invalid characters taken from
- * http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-test.txt
- * @issue 28832
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion String decode(List<int> codeUnits, {bool allowMalformed})
+/// Decodes the UTF-8 codeUnits (a list of unsigned 8-bit integers) to the
+/// corresponding string.
+/// ...
+/// If allowMalformed is true the decoder replaces invalid (or unterminated)
+/// character sequences with the Unicode Replacement character U+FFFD (�).
+/// Otherwise it throws a FormatException.
+/// @description Checks that this method throws FormatException for invalid or
+/// unterminated character sequences
+/// Invalid characters taken from
+/// http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-test.txt
+/// @issue 28832
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

@@ -1,25 +1,23 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion const Utf8Decoder({bool allowMalformed: false})
- * Instantiates a new Utf8Decoder.
- *
- * The optional allowMalformed argument defines how convert deals with invalid
- * or unterminated character sequences.
- *
- * If it is true convert replaces invalid (or unterminated) character sequences
- * with the Unicode Replacement character U+FFFD (�). Otherwise it throws a
- * FormatException.
- * @description Checks that this constructor creates Utf8Decoder which throws
- * FormatException for invalid or unterminated character sequences
- * Invalid characters taken from
- * http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-test.txt
- * @issue 28832
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion const Utf8Decoder({bool allowMalformed: false})
+/// Instantiates a new Utf8Decoder.
+///
+/// The optional allowMalformed argument defines how convert deals with invalid
+/// or unterminated character sequences.
+///
+/// If it is true convert replaces invalid (or unterminated) character sequences
+/// with the Unicode Replacement character U+FFFD (�). Otherwise it throws a
+/// FormatException.
+/// @description Checks that this constructor creates Utf8Decoder which throws
+/// FormatException for invalid or unterminated character sequences
+/// Invalid characters taken from
+/// http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-test.txt
+/// @issue 28832
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

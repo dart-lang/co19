@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<List<int>> read(int bytes)
- * Reads bytes bytes from a file and returns the result as a list of bytes.
- *
- * @description Checks that method read returns Future<List<int>> that completes
- * with the List<int> which contains bytes bytes from a file.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<List<int>> read(int bytes)
+/// Reads bytes from a file and returns the result as a list of bytes.
+///
+/// @description Checks that method read returns Future<List<int>> that completes
+/// with the List<int> which contains bytes from a file.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -28,9 +26,9 @@ void check(int num) {
     rf.setPositionSync(0);
     var list1 = rf.read(num);
     Expect.isTrue(list1 is Future<List<int>>);
+    Expect.runtimeIsType<Future<List<int>>>(list1);
 
     list1.then((List<int> list) {
-      Expect.isTrue(list is List<int>);
       int len = list.length;
       Expect.equals(num, len);
       for (int i = 0; i < len; i++) {
@@ -39,8 +37,8 @@ void check(int num) {
     }).whenComplete(() {
       var list2 = rf.read(11 - num);
       Expect.isTrue(list2 is Future<List<int>>);
+      Expect.runtimeIsType<Future<List<int>>>(list2);
       list2.then((List<int> list) {
-        Expect.isTrue(list is List<int>);
         int len = list.length;
         Expect.equals(10 - num, len);
         for (int i = 0; i < len; i++) {

@@ -1,0 +1,93 @@
+// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A pattern on the left side of an assignment expression is used to
+/// destructure the assigned value. We extend expression:
+///
+/// expression        ::= patternAssignment
+///                     | // Existing productions...
+///
+/// patternAssignment ::= outerPattern '=' expression
+/// ...
+/// It is a compile-time error if:
+///
+/// An identifier in a variable pattern does not resolve to an assignable local
+/// variable or formal parameter. A variable is assignable if it is any of:
+///
+/// - Non-final
+/// - Final and definitely unassigned
+/// - Late final and not definitely assigned
+///
+/// @description Check that it is no compile-time error if an identifier in a
+/// variable pattern is late final and not definitely assigned
+/// @author sgrekhov22@gmail.com
+
+import "../../Utils/expect.dart";
+import "patterns_lib.dart";
+
+main() {
+  var a = 42;
+  (int, int) r = (0, 0);
+  late final int af1, af2, af3, af4, af5, af6, af7, af8, areaAsInt;
+  late final (int, int) rf;
+  late final List<int> lf;
+
+  if (2 > 1) {
+    af1 = 0;
+    af2 = 0;
+    af3 = 0;
+    af4 = 0;
+    af5 = 0;
+    af6 = 0;
+    af7 = 0;
+    af8 = 0;
+    areaAsInt = 0;
+    rf = (1, 2);
+    lf = [0];
+  }
+
+  Expect.throws(() {
+    ((af1, _) && r) = (1, 2);
+  });
+
+  Expect.throws(() {
+    ((a, _) && rf) = (1, 2);
+  });
+
+  Expect.throws(() {
+    [af2, _] = [1, 2];
+  });
+
+  Expect.throws(() {
+    [a, ...lf] = [1, 2];
+  });
+
+  Expect.throws(() {
+    {"key1": af3, "key2": _} = {"key1": 1, "key2": 2};
+  });
+
+  Expect.throws(() {
+    {"key1": af4} = {"key1": 1, "key2": 2};
+  });
+
+  Expect.throws(() {
+    (af5, _)  = (1, 2);
+  });
+
+  Expect.throws(() {
+    (n1: af6, _)  = (n1: 1, 2);
+  });
+
+  Expect.throws(() {
+    (:af7, _)  = (af7: 1, 2);
+  });
+
+  Expect.throws(() {
+    Square(areaAsInt: af8) = Square(1);
+  });
+
+  Expect.throws(() {
+    Square(:areaAsInt) = Square(1);
+  });
+}

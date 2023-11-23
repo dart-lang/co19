@@ -1,31 +1,30 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Float32x4List asFloat32x4List([int offsetInBytes = 0, int length])
- * Creates a Float32x4List view of a region of this byte buffer.
- * The view is backed by the bytes of this byte buffer. Any changes made to the
- * Float32x4List will also change the buffer, and vice versa.
- * @description Checks that method asFloat32x4List creates a Float32x4List view
- * of a region of this byte buffer, and any changes made to Float32x4List will
- * also change the buffer, and vice versa.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Float32x4List asFloat32x4List([int offsetInBytes = 0, int length])
+/// Creates a Float32x4List view of a region of this byte buffer.
+/// The view is backed by the bytes of this byte buffer. Any changes made to the
+/// Float32x4List will also change the buffer, and vice versa.
+/// @description Checks that method asFloat32x4List creates a Float32x4List view
+/// of a region of this byte buffer, and any changes made to Float32x4List will
+/// also change the buffer, and vice versa.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer){
   int bufSizeInBytes = buffer.lengthInBytes;
-  Float32x4List res = buffer.asFloat32x4List(0);
+  var res = buffer.asFloat32x4List(0);
   Float32x4List res1 = buffer.asFloat32x4List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int viewLength = res.length;
   int shift = (Float32x4List.bytesPerElement == 16) ? 4 : 0;
 
   Expect.isTrue(res is Float32x4List);
+  Expect.runtimeIsType<Float32x4List>(res);
   Expect.equals(bufSizeInBytes >> shift, viewLength);
 
   if (viewSizeInBytes != 0) {
@@ -76,9 +75,11 @@ main() {
   check((new Int32List.fromList(list1)).buffer);
   check((new Int32List.fromList(list2)).buffer);
 
-  check((new Int64List.fromList(list0)).buffer);
-  check((new Int64List.fromList(list1)).buffer);
-  check((new Int64List.fromList(list2)).buffer);
+  if (!isJS) {
+    check((new Int64List.fromList(list0)).buffer);
+    check((new Int64List.fromList(list1)).buffer);
+    check((new Int64List.fromList(list2)).buffer);
+  }
 
   check((new Int32x4List.fromList(list5)).buffer);
   check((new Int32x4List.fromList(list3)).buffer);

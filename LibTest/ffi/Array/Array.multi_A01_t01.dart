@@ -1,30 +1,28 @@
-/*
- * Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * const Array<T extends NativeType>.multi(List<int> dimensions)
- *  Const constructor to specify Array dimensions in Structs.
- *
- *  class MyStruct extends Struct {
- *  @Array.multi([2, 2, 2])
- *  external Array<Array<Array<Uint8>>> threeDimensionalInlineArray;
- *
- * @Array.multi([2, 2, 2, 2, 2, 2, 2, 2])
- *  external Array<Array<Array<Array<Array<Array<Array<Array<Uint8>>>>>>>> eightDimensionalInlineArray;
- *  }
- *  Do not invoke in normal code.
- *
- * @description Checks multidimentional array created by Array.multi()
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// const Array<T extends NativeType>.multi(List<int> dimensions)
+///  Const constructor to specify Array dimensions in Structs.
+///
+///  class MyStruct extends Struct {
+///  @Array.multi([2, 2, 2])
+///  external Array<Array<Array<Uint8>>> threeDimensionalInlineArray;
+///
+/// @Array.multi([2, 2, 2, 2, 2, 2, 2, 2])
+///  external Array<Array<Array<Array<Array<Array<Array<Array<Uint8>>>>>>>> eightDimensionalInlineArray;
+///  }
+///  Do not invoke in normal code.
+///
+/// @description Checks multidimentional array created by Array.multi()
+/// @author sgrekhov@unipro.ru
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array.multi([1, 2, 3, 4, 5, 6])
   external Array<Array<Array<Array<Array<Array<Uint8>>>>>> a0;
 }

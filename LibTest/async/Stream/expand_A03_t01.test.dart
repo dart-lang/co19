@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream<S> expand<S>(Iterable<S> convert(T value))
- * If a broadcast stream is listened to more than once, each subscription will
- * individually call convert and expand the events.
- * @description Checks that [convert] is called once per event per subscription.
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<S> expand<S>(Iterable<S> convert(T value))
+/// If a broadcast stream is listened to more than once, each subscription will
+/// individually call convert and expand the events.
+/// @description Checks that [convert] is called once per event per subscription.
+/// @author a.semenov@unipro.ru
+
 library expand_A03_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

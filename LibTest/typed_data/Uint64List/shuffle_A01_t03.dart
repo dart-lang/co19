@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void shuffle([Random random])
- * Shuffles the elements of this list randomly.
- * @description Checks that use of the same Random seed produces the same
- * shuffle
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void shuffle([Random random])
+/// Shuffles the elements of this list randomly.
+/// @description Checks that use of the same Random seed produces the same
+/// shuffle
+/// @author sgrekhov@unipro.ru
+
 import "dart:typed_data";
 import "dart:math";
 import "../../../Utils/expect.dart";

@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion num operator %(num other) 
- * The % operator yields the remainder of its operands from an implied division;
- * the left operand is the dividend and the right operand is the divisor.
- * @description Checks that this operator returns correct value for double
- * arguments (including special values) and that it is double.
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion num operator %(num other) 
+/// The % operator yields the remainder of its operands from an implied division;
+/// the left operand is the dividend and the right operand is the divisor.
+/// @description Checks that this operator returns correct value for double
+/// arguments (including special values) and that it is double.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
 import "dart:math" as Math;
 
@@ -53,4 +51,5 @@ main() {
 void check(num ex, int a, double b) {
   Expect.equals(ex, a % b);
   Expect.isTrue((a % b) is double);
+  Expect.runtimeIsType<double>((a % b));
 }

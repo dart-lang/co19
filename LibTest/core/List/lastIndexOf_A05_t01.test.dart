@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract int lastIndexOf(E element, [int start])
- * The first time an element e is encountered so that e == element,
- * the index of e is returned.
- * @description Checks searching custom objects.
- * @author varlax
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract int lastIndexOf(E element, [int start])
+/// The first time an element e is encountered so that e == element,
+/// the index of e is returned.
+/// @description Checks searching custom objects.
+/// @author varlax
+
 library lastIndexOf_A05_t01;
 
 import "../../../Utils/expect.dart";

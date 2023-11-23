@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * Uint16List.view(
- *     ByteBuffer buffer, [
- *     int offsetInBytes = 0,
- *     int length
- * ])
- * ...
- * If the [offsetInBytes] index of the region is not specified, it defaults to
- * zero (the first byte in the byte buffer).
- * @description Checks that if the [offsetInBytes] is not specified, it defaults
- * to zero.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// Uint16List.view(
+///     ByteBuffer buffer, [
+///     int offsetInBytes = 0,
+///     int length
+/// ])
+/// ...
+/// If the [offsetInBytes] index of the region is not specified, it defaults to
+/// zero (the first byte in the byte buffer).
+/// @description Checks that if the [offsetInBytes] is not specified, it defaults
+/// to zero.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

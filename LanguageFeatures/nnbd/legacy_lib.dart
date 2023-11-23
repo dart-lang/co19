@@ -1,11 +1,9 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @author sgrekhov@unipro.ru
+
 // @dart=2.6
 library legacy_library_lib;
 
@@ -69,6 +67,7 @@ int iLegacy = 42;
 int nLegacy = null;
 String sLegacy = "Yesterday, All my troubles seemed so far away";
 A aLegacy = new A();
+const legacyIntConst = 1;
 
 class S {}
 

@@ -1,33 +1,31 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void authenticateProxy=(
- *  Future<bool> f(
- *  String host,
- *  int port,
- *  String scheme,
- *  String realm
- *  )
- *  )
- * Sets the function to be called when a proxy is requesting authentication.
- * Information on the proxy in use and the security realm for the authentication
- * are passed in the arguments host, port and realm.
- *
- * The function returns a Future which should complete when the authentication
- * has been resolved. If credentials cannot be provided the Future should
- * complete with false. If credentials are available the function should add
- * these using addProxyCredentials before completing the Future with the value
- * true.
- *
- * If the Future completes with true the request will be retried using the
- * updated credentials. Otherwise response processing will continue normally.
- * @description  Checks that if Future returned by authenticateProxy callback
- * completes with false then response processing is continued normally
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void authenticateProxy=(
+///  Future<bool> f(
+///  String host,
+///  int port,
+///  String scheme,
+///  String realm
+///  )
+///  )
+/// Sets the function to be called when a proxy is requesting authentication.
+/// Information on the proxy in use and the security realm for the authentication
+/// are passed in the arguments host, port and realm.
+///
+/// The function returns a Future which should complete when the authentication
+/// has been resolved. If credentials cannot be provided the Future should
+/// complete with false. If credentials are available the function should add
+/// these using addProxyCredentials before completing the Future with the value
+/// true.
+///
+/// If the Future completes with true the request will be retried using the
+/// updated credentials. Otherwise response processing will continue normally.
+/// @description  Checks that if Future returned by authenticateProxy callback
+/// completes with false then response processing is continued normally
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import 'dart:async';
 import "dart:convert";
@@ -58,7 +56,7 @@ test() async {
   };
 
   client.authenticateProxy =
-      (String host, int port, String scheme, String realm) {
+      (String host, int port, String scheme, String? realm) {
     Expect.equals(InternetAddress.loopbackIPv4.address, host);
     Expect.equals(server.port, port);
     Expect.equals("Basic", scheme);

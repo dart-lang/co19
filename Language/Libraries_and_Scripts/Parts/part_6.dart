@@ -5,6 +5,9 @@
 part of Parts_test_lib;
 
 var foo;
-if (foo == null) {
-  foo = -1;
-}
+  if (foo == null) {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+    foo = -1;
+  }

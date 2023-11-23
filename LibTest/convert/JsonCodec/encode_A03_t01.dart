@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Object encode(Object value, {toEncodable(object)})
- * If a List or Map contains a reference to itself, directly or through other
- * lists or maps, it cannot be serialized and a JsonCyclicError is thrown.
- * @description Checks that if a List or Map contains a reference to itself
- * directly or through other lists or maps,
- * it cannot be serialized and a JsonCyclicError is thrown.
- * @note undocumented
- * @author kaigorodov
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Object encode(Object value, {toEncodable(object)})
+/// If a List or Map contains a reference to itself, directly or through other
+/// lists or maps, it cannot be serialized and a JsonCyclicError is thrown.
+/// @description Checks that if a List or Map contains a reference to itself
+/// directly or through other lists or maps,
+/// it cannot be serialized and a JsonCyclicError is thrown.
+/// @note undocumented
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 import "dart:convert";
 

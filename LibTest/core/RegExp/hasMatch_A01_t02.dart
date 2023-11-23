@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Returns whether the regular expression has a match in the string
- * [str].
- * @description Tests this method with various patterns, flags and input strings.
- * @author rodionov
- * @Issue 1297
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Returns whether the regular expression has a match in the string
+/// [str].
+/// @description Tests this method with various patterns, flags and input strings.
+/// @author rodionov
+/// @Issue 1297
+
 import "../../../Utils/expect.dart";
 
 main() {
@@ -319,15 +317,15 @@ main() {
 //  check(r"[\d][\0012-\0014]{1,}[^\d]", "line1\n\n\n\n\nline2"); // issue 1297
 }
 
-void check(String pattern, String str, {bool multiLine: false,
-    bool ignoreCase: false}) {
+void check(String pattern, String str, {bool multiLine = false,
+    bool ignoreCase = false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Expect.isTrue(re.hasMatch(str), "'/$pattern/' !~ '$str'");
 }
 
-void checkNeg(String pattern, String str, {bool multiLine: false,
-  bool ignoreCase: false}) {
+void checkNeg(String pattern, String str, {bool multiLine = false,
+  bool ignoreCase = false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Expect.isFalse(re.hasMatch(str), "'/$pattern/' ~ '$str'");

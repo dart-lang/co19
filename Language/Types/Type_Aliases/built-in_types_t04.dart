@@ -1,14 +1,11 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Test for type aliases for built-in types
- * @description Checks first time initialization via type aliases
- * @author sgrekhov@unipro.ru
- */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Test for type aliases for built-in types
+/// @description Checks first time initialization via type aliases
+/// @author sgrekhov@unipro.ru
+
 import '../../../Utils/expect.dart';
 
 typedef IntAlias = int;
@@ -42,4 +39,10 @@ main() {
   Expect.isTrue(dd is double);
   Expect.isTrue(bb is bool);
   Expect.isTrue(ss is String);
+  Expect.runtimeIsType<int>(ii);
+  Expect.runtimeIsType<num>(nn);
+  Expect.runtimeIsNotType<int>(nn);
+  Expect.runtimeIsType<double>(dd);
+  Expect.runtimeIsType<bool>(bb);
+  Expect.runtimeIsType<String>(ss);
 }

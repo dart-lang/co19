@@ -1,25 +1,23 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A read of a field or variable which is marked as late which has
- * not yet been written to causes the initializer expression of the variable to
- * be evaluated to a value, assigned to the variable or field, and returned as
- * the value of the read.
- * ...
- * Evaluating the initializer expression may cause an exception to be thrown. If
- * the variable was written to before the exception was thrown, the value of the
- * variable on subsequent reads is the last written value. If the variable was
- * not written before the exception was thrown, then the next read attempts to
- * evaluate the initializer expression again.
- *
- * @description Check that if evaluating of the initializer expression throws an
- * exception and the value of the variable was not written to then next read
- * attempts to evaluate the initializer expression again
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A read of a field or variable which is marked as late which has
+/// not yet been written to causes the initializer expression of the variable to
+/// be evaluated to a value, assigned to the variable or field, and returned as
+/// the value of the read.
+/// ...
+/// Evaluating the initializer expression may cause an exception to be thrown. If
+/// the variable was written to before the exception was thrown, the value of the
+/// variable on subsequent reads is the last written value. If the variable was
+/// not written before the exception was thrown, then the next read attempts to
+/// evaluate the initializer expression again.
+///
+/// @description Check that if evaluating of the initializer expression throws an
+/// exception and the value of the variable was not written to then next read
+/// attempts to evaluate the initializer expression again
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

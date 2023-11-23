@@ -1,24 +1,21 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A null-shorting cascade expression e?..s translates as follows,
- * where x and y are fresh object level variables.
- *  fn[k : Exp -> Exp] : Exp =>
- *  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
- *
- * @description Check that a null-shorting cascade expression e?..s translates
- * as follows, where x and y are fresh object level variables.
- *  fn[k : Exp -> Exp] : Exp =>
- *  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
- * Test e ?.. m().n()
- * @static-warning
- * @author sgrekhov@unipro.ru
- * @issue 39141
- * @issue 40959
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A null-shorting cascade expression e?..s translates as follows,
+/// where x and y are fresh object level variables.
+///  fn[k : Exp -> Exp] : Exp =>
+///  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
+///
+/// @description Check that a null-shorting cascade expression e?..s translates
+/// as follows, where x and y are fresh object level variables.
+///  fn[k : Exp -> Exp] : Exp =>
+///  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
+/// Test e ?.. m().n()
+/// @author sgrekhov@unipro.ru
+/// @issue 39141
+/// @issue 40959
+
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 class A {
@@ -47,13 +44,21 @@ class C {
 
 main() {
   C c1 = new C();
-  var actual1 = c1 ?.. m1().m();        /// static type warning
+  var actual1 = c1 ?.. m1().m();
+//                 ^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//              ^
+// [cfe] Operand of null-aware operation '?..' has type 'C' which excludes null.
   var expected = c1;
   Expect.equals(expected, actual1);
   Expect.equals(1, c1.m1().counter);
 
   var actual3 = c1
-    ?.. m1().m()                        /// static type warning
+//              ^
+// [cfe] Operand of null-aware operation '?..' has type 'C' which excludes null.
+    ?.. m1().m()
+//  ^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     .. m2().m();
   Expect.equals(expected, actual3);
   Expect.equals(2, c1.m1().counter);
@@ -70,12 +75,24 @@ main() {
 
   c2 = new C();
   var actual7 = c2 ?.. m1().m();
+//                 ^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//              ^
+// [cfe] Operand of null-aware operation '?..' has type 'C' which excludes null.
   var expected2 = c2;
   Expect.equals(expected2, actual7);
   Expect.equals(1, c2?.m1().counter);
+//                   ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                 ^
+// [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.
 
   var actual9 = c2
+//              ^
+// [cfe] Operand of null-aware operation '?..' has type 'C' which excludes null.
       ?.. m1().m()
+//    ^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
       .. m2().m();
   Expect.equals(expected2, actual9);
   Expect.equals(2, c2.m1().counter);

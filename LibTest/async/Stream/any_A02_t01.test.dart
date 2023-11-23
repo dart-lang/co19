@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<bool> any(bool test(T element))
- * If this stream reports an error, the Future will report that error.
- * @description Checks that the future reports the instance of the error object
- * which was reported by the stream.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<bool> any(bool test(T element))
+/// If this stream reports an error, the Future will report that error.
+/// @description Checks that the future reports the instance of the error object
+/// which was reported by the stream.
+/// @author kaigorodov
+
 library any_A02_t01;
 
 import "dart:async";
@@ -21,10 +19,12 @@ void check<T>(Stream<T> stream, Object expectedError) {
 
 void test(CreateStreamWithErrorsFunction create) {
   Object error = new Error();
-  check(create([error], isError: (_) => true, defVal: new Object()), error);
+  check(create([error],
+      isError: (_) => true, defaultValue: new Object()), error);
 
   error = new Exception();
-  check(create([error], isError: (_) => true, defVal: new Object()), error);
+  check(create([error],
+      isError: (_) => true, defaultValue: new Object()), error);
 
-  check(create<int>([1, 2, 3], isError: (x) => x.isOdd, defVal: 42), 1);
+  check(create<int>([1, 2, 3], isError: (x) => x.isOdd, defaultValue: 42), 1);
 }

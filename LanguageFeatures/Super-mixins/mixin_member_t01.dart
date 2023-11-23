@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion The mixinMember production allows the same instance or static
- * members that a class would allow, but no constructors (for now).
- *
- * @description Checks that mixin declaration allows same instance or static
- * members that a class would allow. Test abstract members
- * @author ngl@unipro.ru
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The mixinMember production allows the same instance or static
+/// members that a class would allow, but no constructors (for now).
+///
+/// @description Checks that mixin declaration allows same instance or static
+/// members that a class would allow. Test abstract members
+/// @author ngl@unipro.ru
+/// @author sgrekhov@unipro.ru
+
 import "../../Utils/expect.dart";
 
 class I {}

@@ -1,18 +1,15 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A generic type alias is a declaration [D] of one of the following
- * forms:
- *   S0 Function(T1, . . . , Tn, [Tn+1, . . . , Tn+k])
- *   S0 Function(T1, . . . , Tn, {Tn+1 xn+1, . . . , Tn+k xn+k})
- *   ...
- * [D] introduces a mapping from actual type argument lists to types.
- * @description Checks that [D] maps argument list to types
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A generic type alias is a declaration [D] of one of the following
+/// forms:
+///   S0 Function(T1, . . . , Tn, [Tn+1, . . . , Tn+k])
+///   S0 Function(T1, . . . , Tn, {Tn+1 xn+1, . . . , Tn+k xn+k})
+///   ...
+/// [D] introduces a mapping from actual type argument lists to types.
+/// @description Checks that [D] maps argument list to types
+/// @author iarkh@unipro.ru
 
 import "../../Utils/expect.dart";
 
@@ -44,20 +41,25 @@ main() {
   Test1 t2 = checkme2;
   X x2 = t2(X, X());
   Expect.isTrue(t2(X, x2) is X);
+  Expect.runtimeIsType<X>(t2(X, x2));
 
   Test1 t3 = checkme3;
   Y y3 = t3(Y, Y());
   Expect.isTrue(t3(Y, Y()) is Y);
+  Expect.runtimeIsType<Y>(t3(Y, Y()));
 
   Test2 t4 = checkme2;
   X x4 = t4(X, X());
   Expect.isTrue(t4(X, x4) is X);
+  Expect.runtimeIsType<X>(t4(X, x4));
 
   Test2 t5 = checkme3;
   X y5 = t5(Y, Y());
   Expect.isTrue(t5(Y, y5) is Y);
+  Expect.runtimeIsType<Y>(t5(Y, y5));
 
   Test2 t6 = checkme2;
   X x6 = t6(X, X());
   Expect.isTrue(t6(X, x6) is X);
+  Expect.runtimeIsType<X>(t6(X, x6));
 }

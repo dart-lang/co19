@@ -1,23 +1,20 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Int64List asInt64List([int offsetInBytes = 0, int length ])
- * Creates a Int64List view of a region of this byte buffer.
- * ...
- * The viewed region start at offsetInBytes, which must be 64-bit aligned, and
- * contains length 64-bit integers. If length is omitted, the range extends as
- * far towards the end of the buffer as possible - if lengthInBytes is not
- * divisible by eight, the last bytes can't be part of the view.
- * @description Checks that the viewed region begins with offsetInBytes byte,
- * which must be 64-bit aligned, and contains length 64-bit integers. If length
- * is omitted, the range extends to the end of the buffer (if buffer length in
- * bytes is divisible by eight), otherwise, the last bytes can't be part of the
- * view.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Int64List asInt64List([int offsetInBytes = 0, int length ])
+/// Creates a Int64List view of a region of this byte buffer.
+/// ...
+/// The viewed region start at offsetInBytes, which must be 64-bit aligned, and
+/// contains length 64-bit integers. If length is omitted, the range extends as
+/// far towards the end of the buffer as possible - if lengthInBytes is not
+/// divisible by eight, the last bytes can't be part of the view.
+/// @description Checks that the viewed region begins with offsetInBytes byte,
+/// which must be 64-bit aligned, and contains length 64-bit integers. If length
+/// is omitted, the range extends to the end of the buffer (if buffer length in
+/// bytes is divisible by eight), otherwise, the last bytes can't be part of the
+/// view.
+/// @author ngl@unipro.ru
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -34,15 +31,17 @@ void check(ByteBuffer buffer) {
   int offset2 = 16;
 
   // Int64List view of a byte buffer with offset1 and length1
-  Int64List res1 = buffer.asInt64List(offset1, length1);
+  var res1 = buffer.asInt64List(offset1, length1);
   int view1Length = res1.length;
 
   // Int64List view of a byte buffer with offset2
-  Int64List res2 = buffer.asInt64List(offset2);
+  var res2 = buffer.asInt64List(offset2);
   int view2Length = res2.length;
 
   Expect.isTrue(res1 is Int64List);
   Expect.isTrue(res2 is Int64List);
+  Expect.runtimeIsType<Int64List>(res1);
+  Expect.runtimeIsType<Int64List>(res2);
   Expect.equals(length1, view1Length);
   Expect.equals((viewSizeInBytes - offset2) >> shift, view2Length);
 

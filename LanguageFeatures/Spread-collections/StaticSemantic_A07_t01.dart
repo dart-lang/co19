@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion It is a static error if:
- *    If a map spread element's static type implements [Map<K, V>] for some [K]
- *    and [V] and [K] is not assignable to the key type of the map or [V] is not
- *    assignable to the value type of the map.
- * @description Checks that compile error is thrown if spread element type in
- * map literal is not assignable to the type of the map.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion It is a static error if:
+///    If a map spread element's static type implements [Map<K, V>] for some [K]
+///    and [V] and [K] is not assignable to the key type of the map or [V] is not
+///    assignable to the value type of the map.
+/// @description Checks that compile error is thrown if spread element type in
+/// map literal is not assignable to the type of the map.
+/// @author iarkh@unipro.ru
+
 
 main() {
   test1();

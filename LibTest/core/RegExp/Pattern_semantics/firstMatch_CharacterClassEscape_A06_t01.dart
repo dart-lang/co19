@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion 15.10.2.12: The production CharacterClassEscape :: W evaluates by
- * returning the set of all characters not included in the set returned by
- * CharacterClassEscape :: w.
- * @description Checks that \W indeed matches all but the specified characters
- * (tested vs all characters from the basic plane)
- * @3rdparty sputnik-v1:S15.10.2.12_A4_T1.js-S15.10.2.12_A4_T5.js
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion 15.10.2.12: The production CharacterClassEscape :: W evaluates by
+/// returning the set of all characters not included in the set returned by
+/// CharacterClassEscape :: w.
+/// @description Checks that \W indeed matches all but the specified characters
+/// (tested vs all characters from the basic plane)
+/// @3rdparty sputnik-v1:S15.10.2.12_A4_T1.js-S15.10.2.12_A4_T5.js
+/// @author rodionov
+
 import "../../../../Utils/expect.dart";
  
 

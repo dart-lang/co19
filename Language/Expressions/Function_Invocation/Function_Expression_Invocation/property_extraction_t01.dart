@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion  A function expression invocation i has the form
- * ef(a1, ..., an, xn+1: an+1, ..., xn+k: an+k), where ef is an expression.
- * . . .
- * If ef is a property extraction expression, then i is not a function
- * expression invocation and is instead recognized as an ordinary method
- * invocation.
- * @description Checks that if ef is a property access expression,
- * then i is treated as an ordinary method invocation.
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion  A function expression invocation i has the form
+/// ef(a1, ..., an, xn+1: an+1, ..., xn+k: an+k), where ef is an expression.
+/// . . .
+/// If ef is a property extraction expression, then i is not a function
+/// expression invocation and is instead recognized as an ordinary method
+/// invocation.
+/// @description Checks that if ef is a property access expression,
+/// then i is treated as an ordinary method invocation.
+/// @author msyabro
+
 import '../../../../Utils/expect.dart';
 
 class C {

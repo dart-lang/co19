@@ -1,26 +1,24 @@
-/*
- * Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Struct()
- *  The supertype of all FFI struct types.
- *
- *  FFI struct types should extend this class and declare fields corresponding
- *  to the underlying native structure.
- *
- * @description Checks that FFI struct types should extend this class and
- * declare fields corresponding to the underlying native structure. Test
- * incomplete data
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Struct()
+///  The supertype of all FFI struct types.
+///
+///  FFI struct types should extend this class and declare fields corresponding
+///  to the underlying native structure.
+///
+/// @description Checks that FFI struct types should extend this class and
+/// declare fields corresponding to the underlying native structure. Test
+/// incomplete data
+/// @author sgrekhov@unipro.ru
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../ffi_utils.dart";
 import "../../../Utils/expect.dart";
 
-class Coord extends Struct {
+final class Coord extends Struct {
   @Double()
   external double x;
   @Double()

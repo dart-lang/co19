@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Element querySelector(String selectors)
- * Finds the first descendant element of this element that matches the
- * specified group of selectors.
- *
- * selectors should be a string using CSS selector syntax.
- * @description Checks that for IframeElement all queries return null
- * @issue #17456: all queries return null
- */
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Element querySelector(String selectors)
+/// Finds the first descendant element of this element that matches the
+/// specified group of selectors.
+///
+/// selectors should be a string using CSS selector syntax.
+/// @description Checks that for IframeElement all queries return null
+/// @issue #17456: all queries return null
+
 // OtherResources=iframe.html
 import "dart:html";
 import "../../../Utils/expect.dart";

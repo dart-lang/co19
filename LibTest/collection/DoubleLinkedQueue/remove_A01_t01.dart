@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool remove(Object o)
- * Remove a single instance of [value] from the queue.
- * @description Checks that only single instance of value gets removed from the
- * queue and it does not affect another elements
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool remove(Object o)
+/// Remove a single instance of [value] from the queue.
+/// @description Checks that only single instance of value gets removed from the
+/// queue and it does not affect another elements
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

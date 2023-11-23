@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion HashSet.identity()
- * Creates an unordered identity-based set.
- * Effectively a shorthand for:
- * new HashSet<E>(equals: identical, hashCode: identityHashCode)
- * @description Checks that created hash set is equivalent of
- * new HashSet<E>(equals: identical, hashCode: identityHashCode)
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion HashSet.identity()
+/// Creates an unordered identity-based set.
+/// Effectively a shorthand for:
+/// new HashSet<E>(equals: identical, hashCode: identityHashCode)
+/// @description Checks that created hash set is equivalent of
+/// new HashSet<E>(equals: identical, hashCode: identityHashCode)
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

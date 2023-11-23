@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool operator ==(other)
- * The equality operator.
- * ...
- * The method should also be consistent over time, so whether two objects are
- * equal should only change if at least one of the objects was modified.
- * @description Checks that the equality operator should be consistent
- * over time.
- * @author ngl@unipru.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool operator ==(other)
+/// The equality operator.
+/// ...
+/// The method should also be consistent over time, so whether two objects are
+/// equal should only change if at least one of the objects was modified.
+/// @description Checks that the equality operator should be consistent
+/// over time.
+/// @author ngl@unipru.ru
+
 import "dart:math";
 import "../../../Utils/expect.dart";
  

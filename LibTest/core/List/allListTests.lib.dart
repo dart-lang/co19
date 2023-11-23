@@ -1,13 +1,11 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion List<E> abstract class 
- * @description Checks that List-specific methods work as specified.
- * @author kaigorodov
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion List<E> abstract class 
+/// @description Checks that List-specific methods work as specified.
+/// @author kaigorodov
+
 library allListTests;
 
 import "add_A01_t01.test.dart" as add_A01_t01;

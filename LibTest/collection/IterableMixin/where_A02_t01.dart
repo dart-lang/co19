@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<E> where(bool f(E element))
- * As long as the returned [Iterable] is not iterated over, the supplied
- * function [test] will not be invoked.
- * @description Checks that filtering happens lazily.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<E> where(bool f(E element))
+/// As long as the returned [Iterable] is not iterated over, the supplied
+/// function [test] will not be invoked.
+/// @description Checks that filtering happens lazily.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

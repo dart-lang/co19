@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion 15.10.2.7: The production QuantifierPrefix :: ? evaluates by
- * returning the two results 0 and 1.
- * @description Checks that this quantifier is applied correctly in various
- * scenarios.
- * @3rdparty sputnik-v1:S15.10.2.7_A5_T1.js-S15.10.2.7_A5_T12.js
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion 15.10.2.7: The production QuantifierPrefix :: ? evaluates by
+/// returning the two results 0 and 1.
+/// @description Checks that this quantifier is applied correctly in various
+/// scenarios.
+/// @3rdparty sputnik-v1:S15.10.2.7_A5_T1.js-S15.10.2.7_A5_T12.js
+/// @author rodionov
+
 import "../../../../Utils/expect.dart";
  
 main() {

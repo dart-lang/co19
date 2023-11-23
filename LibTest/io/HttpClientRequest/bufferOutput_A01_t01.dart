@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool bufferOutput
- *  read / write
- * Get or set if the HttpClientRequest should buffer output.
- *
- * Default value is true.
- * @description Checks that default value of this property is true.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool bufferOutput
+///  read / write
+/// Get or set if the HttpClientRequest should buffer output.
+///
+/// Default value is true.
+/// @description Checks that default value of this property is true.
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

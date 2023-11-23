@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Mixin application semantics is mostly unchanged, except that it's
- * a compile-time error to apply a mixin to a class that doesn't implement all
- * the 'on' type requirements of the mixin declaration, or apply a mixin
- * containing super-invocations to a class that doesn't have a concrete
- * implementation of the super-invoked members compatible with the
- * super-constraint interface.
- *
- * @description Checks that there is no compile error if a mixin is applied to a
- * class that implements all the 'on' type requirements of the mixin
- * declaration. Test 'mixin' implementation of 'on' clause interfaces and
- * 'implements' part of the mixin
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Mixin application semantics is mostly unchanged, except that it's
+/// a compile-time error to apply a mixin to a class that doesn't implement all
+/// the 'on' type requirements of the mixin declaration, or apply a mixin
+/// containing super-invocations to a class that doesn't have a concrete
+/// implementation of the super-invoked members compatible with the
+/// super-constraint interface.
+///
+/// @description Checks that there is no compile error if a mixin is applied to a
+/// class that implements all the 'on' type requirements of the mixin
+/// declaration. Test 'mixin' implementation of 'on' clause interfaces and
+/// 'implements' part of the mixin
+/// @author sgrekhov@unipro.ru
+
 import "../../Utils/expect.dart";
 
 class S {}
@@ -34,6 +32,7 @@ class I<T> {
   String i3() => "I.i3";
   String operator ~() => i1.substring(0, 1);
 }
+
 abstract class J<T> {
   String get j1;
   void set j2(String v);
@@ -41,7 +40,7 @@ abstract class J<T> {
   String operator -() => j1.substring(0, 1);
 }
 
-class A<T> {
+mixin class A<T> {
   String get a1 => "A.a1";
   set a2(String v) {
     console = "A:$v";
@@ -49,12 +48,14 @@ class A<T> {
   String a3() => "A.a3";
   String operator +(A v) => a1.substring(0, 1);
 }
+
 abstract class B<T> extends A<T> {
   String get b1;
   void set b2(String v);
   String b3();
   String operator -(B v) => b1.substring(0, 1);
 }
+
 class C<T1, T2> extends B<T1> with A<T1> implements J<T2> {
   String get b1 => "C.b1";
   void set b2(String v) {

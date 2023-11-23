@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion The value of a constant map literal const <K, V>{k1: e1...kn: en}
- * is an object m whose class implements the built-in class Map < K, V >. The
- * entries of m are ui : vi; i ∈ 1..n, where ui is the value of the
- * compile-time expression ki and vi is the value of the compile-time
- * expression ei. The value of a constant map literal const {k1: e1 ... kn: en}
- * is defined as the value of a constant map literal const
- * <dynamic, dynamic>{k1: e1 ... kn: en}.
- * @description Checks that entries of the resulted object are added correctly.
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The value of a constant map literal const <K, V>{k1: e1...kn: en}
+/// is an object m whose class implements the built-in class Map < K, V >. The
+/// entries of m are ui : vi; i ∈ 1..n, where ui is the value of the
+/// compile-time expression ki and vi is the value of the compile-time
+/// expression ei. The value of a constant map literal const {k1: e1 ... kn: en}
+/// is defined as the value of a constant map literal const
+/// <dynamic, dynamic>{k1: e1 ... kn: en}.
+/// @description Checks that entries of the resulted object are added correctly.
+/// @author msyabro
+
 import '../../../Utils/expect.dart';
 
 main() {

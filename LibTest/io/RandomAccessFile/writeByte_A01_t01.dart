@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<RandomAccessFile> writeByte(int value)
- * Writes a single byte to the file. Returns a Future<RandomAccessFile> that
- * completes with this RandomAccessFile when the write completes.
- *
- * @description Checks that method writeByte writes a single byte to the file
- * and returns Future<RandomAccessFile> that completes with this
- * RandomAccessFile when the write completes.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<RandomAccessFile> writeByte(int value)
+/// Writes a single byte to the file. Returns a Future<RandomAccessFile> that
+/// completes with this RandomAccessFile when the write completes.
+///
+/// @description Checks that method writeByte writes a single byte to the file
+/// and returns Future<RandomAccessFile> that completes with this
+/// RandomAccessFile when the write completes.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -26,6 +24,7 @@ void check(int num, List<int> list) {
     Expect.equals(0, file.lengthSync());
     var f = rf.writeByte(num);
     Expect.isTrue(f is Future<RandomAccessFile>);
+    Expect.runtimeIsType<Future<RandomAccessFile>>(f);
 
     f.then((RandomAccessFile file) {
       Expect.equals(rf, file);

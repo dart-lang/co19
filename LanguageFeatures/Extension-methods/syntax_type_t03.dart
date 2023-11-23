@@ -1,23 +1,21 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion an extension declaration is a top-level declaration with a grammar
- * similar to:
- * <extension> ::=
- *   `extension' <identifier>? <typeParameters>? `on' <type> `?'? `{'
- *     memberDeclaration*
- *   `}'
- * ...
- * The type can be any valid Dart type, including a single type variable. It can
- * refer to the type parameters of the extension.
- *
- * @description Check that the type can be any valid Dart type, including a
- * single type variable. Test built-in types
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion an extension declaration is a top-level declaration with a grammar
+/// similar to:
+/// <extension> ::=
+///   `extension' <identifier>? <typeParameters>? `on' <type> `?'? `{'
+///     memberDeclaration*
+///   `}'
+/// ...
+/// The type can be any valid Dart type, including a single type variable. It can
+/// refer to the type parameters of the extension.
+///
+/// @description Check that the type can be any valid Dart type, including a
+/// single type variable. Test built-in types
+/// @author sgrekhov@unipro.ru
+
 
 import "dart:async";
 

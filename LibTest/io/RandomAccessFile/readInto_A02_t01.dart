@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<int> readInto(List<int> buffer, [int start = 0, int end])
- * . . .
- * Returns a Future<int> that completes with the number of bytes read.
- *
- * @description Checks that method readInto returns Future<int> that completes
- * with the number of bytes read.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<int> readInto(List<int> buffer, [int start = 0, int end])
+/// . . .
+/// Returns a Future<int> that completes with the number of bytes read.
+///
+/// @description Checks that method readInto returns Future<int> that completes
+/// with the number of bytes read.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -30,8 +28,8 @@ check(int number) {
     rf.setPositionSync(0);
     var num = rf.readInto(list, 0, number);
     Expect.isTrue(num is Future<int>);
+    Expect.runtimeIsType<Future<int>>(num);
     num.then((int n) {
-      Expect.isTrue(n is int);
       Expect.equals(number, n);
       asyncEnd();
     }).whenComplete(() {

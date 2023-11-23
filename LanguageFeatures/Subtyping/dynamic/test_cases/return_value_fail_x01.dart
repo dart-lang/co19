@@ -1,13 +1,10 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @description Check that if type T0 not a subtype of a type T1, then instance
- * of T0 cannot be be used as a return value of type T1
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @description Check that if type T0 not a subtype of a type T1, then instance
+/// of T0 cannot be used as a return value of type T1
+/// @author sgrekhov@unipro.ru
 
 @T1 returnValueFunc() => forgetType(t0Instance);
 
@@ -29,29 +26,27 @@ main() {
 
   Expect.throws(() {
     returnValueFunc();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     returnValueLocalFunc();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     ReturnValueTest.staticTestMethod();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ReturnValueTest().testMethod();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ReturnValueTest().testGetter;
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   Expect.throws(() {
     new ReturnValueGen<@T1>().testMethod();
-  }, (e) => e is TypeError || e is CastError);
+  }, (e) => e is TypeError);
   Expect.throws(() {
     new ReturnValueGen<@T1>().testGetter;
-  }, (e) => e is TypeError || e is CastError);
-  //# -->
+  }, (e) => e is TypeError);
 }

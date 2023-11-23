@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<Socket> detachSocket()
- * Detach the underlying socket from the HTTP client. When the socket is
- * detached the HTTP client will no longer perform any operations on it.
- *
- * This is normally used when a HTTP upgrade is negotiated and the communication
- * should continue with a different protocol.
- * @description Checks that this method detaches the underlying socket from the
- * HTTP client
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<Socket> detachSocket()
+/// Detach the underlying socket from the HTTP client. When the socket is
+/// detached the HTTP client will no longer perform any operations on it.
+///
+/// This is normally used when an HTTP upgrade is negotiated and the communication
+/// should continue with a different protocol.
+/// @description Checks that this method detaches the underlying socket from the
+/// HTTP client
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion String getAllResponseHeaders()
- * Retrieve all the response headers from a request.
- * null if no headers have been received. For multipart requests,
- * getAllResponseHeaders will return the response headers for the current part
- * of the request.
- * @description Checks that response headers are retrieved.
- */
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion String getAllResponseHeaders()
+/// Retrieve all the response headers from a request.
+/// null if no headers have been received. For multipart requests,
+/// getAllResponseHeaders will return the response headers for the current part
+/// of the request.
+/// @description Checks that response headers are retrieved.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";

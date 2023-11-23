@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<T> expand<T>(Iterable<T> f(E element))
- * ...
- * The returned Iterable is lazy, and calls f for each element of this every
- * time it's iterated.
- * @description Checks that returned Iterable is lazy and f is invoked for each
- * element of this every time it's iterated.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<T> expand<T>(Iterable<T> f(E element))
+/// ...
+/// The returned Iterable is lazy, and calls f for each element of this every
+/// time it's iterated.
+/// @description Checks that returned Iterable is lazy and f is invoked for each
+/// element of this every time it's iterated.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -30,7 +28,7 @@ void check(List<Float64x2> list) {
   for (int i = 0; i < list.length; ++i) {
     expected += i + 1;
     var el = res.elementAt(i);
-    Expect.equals(expected , count);
+    Expect.equals(expected, count);
     Expect.equals(l[i].x + l[i].x, el.x);
     Expect.equals(l[i].y + l[i].y, el.y);
   }

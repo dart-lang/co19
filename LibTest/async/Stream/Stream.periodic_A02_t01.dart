@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream.periodic(Duration period,
- *     [T computation(int computationCount)])
- * The event values are computed by invoking computation.
- * @description Checks that event values are computed by invoking computation.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream.periodic(Duration period,
+///     [T computation(int computationCount)])
+/// The event values are computed by invoking computation.
+/// @description Checks that event values are computed by invoking computation.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(int periodMs) {
   Stream s = new Stream<int>.periodic(
-      durationMs(periodMs), (computationCount) => computationCount * periodMs);
+      durationInMilliseconds(periodMs), (computationCount) => computationCount * periodMs);
   int count = 0;
   asyncStart();
   StreamSubscription<int>? subs;

@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Dart source text is represented as a sequence of Unicode code
- * points.
- * @description Checks that various whitespaces represented in UTF-8 format are
- * recognized as Unicode code points.
- * @author iefremov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Dart source text is represented as a sequence of Unicode code
+/// points.
+/// @description Checks that various whitespaces represented in UTF-8 format are
+/// recognized as Unicode code points.
+/// @author iefremov
+
 import "../../../Utils/expect.dart";
 
   List<String> unicode = [

@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Represents a native pointer-sized integer in C.
- *
- * @description Checks that this represents a native pointer-sized integer in C.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Represents a native pointer-sized integer in C.
+///
+/// @description Checks that this represents a native pointer-sized integer in C.
+/// @author sgrekhov@unipro.ru
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";

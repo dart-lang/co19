@@ -1,23 +1,21 @@
-/*
- * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Evaluation of an await expression a of the form await e proceeds
- * as follows:
- * ...
- * If e raises an exception x, then an instance f of class Future is allocated
- * and later completed with x. Otherwise, if e evaluates to an object o that is
- * not an instance of Future, then let f be the result of calling
- * Future.value() with o as its argument; otherwise let f be the result of
- * evaluating e.
- * Next, execution of the function m immediately enclosing a is suspended
- * until after f completes.
- * @description Check that execution of the function m immediately enclosing a
- * is suspended until after f completes
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Evaluation of an await expression a of the form await e proceeds
+/// as follows:
+/// ...
+/// If e raises an exception x, then an instance f of class Future is allocated
+/// and later completed with x. Otherwise, if e evaluates to an object o that is
+/// not an instance of Future, then let f be the result of calling
+/// Future.value() with o as its argument; otherwise let f be the result of
+/// evaluating e.
+/// Next, execution of the function m immediately enclosing a is suspended
+/// until after f completes.
+/// @description Check that execution of the function m immediately enclosing a
+/// is suspended until after f completes
+/// @author sgrekhov@unipro.ru
+
 
 import 'dart:async';
 import '../../../Utils/expect.dart';

@@ -1,13 +1,11 @@
-/*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion final Stream<ProgressEvent> onLoad
- * Stream of load events handled by this HttpRequestEventTarget.
- * @description Checks the state of request at various moments of time.
- */
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion final Stream<ProgressEvent> onLoad
+/// Stream of load events handled by this HttpRequestEventTarget.
+/// @description Checks the state of request at various moments of time.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

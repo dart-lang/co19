@@ -1,24 +1,21 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Float32List asFloat32List([int offsetInBytes = 0, int length ])
- * Creates a Float32List view of a region of this byte buffer.
- * ...
- * The viewed region start at offsetInBytes, which must be 32-bit aligned, and
- * contains length 32-bit integers. If length is omitted, the range extends as
- * far towards the end of the buffer as possible - if lengthInBytes is not
- * divisible by four, the last bytes can't be part of the view.
- * @description Checks that the viewed region begins with offsetInBytes byte,
- * which must be 32-bit aligned, and contains length 32-bit integers. If length
- * is omitted, the range extends to the end of the buffer (if buffer length in
- * bytes is divisible by four), otherwise, the last bytes can't be part of the
- * view.
- * @author ngl@unipro.ru
- * @issue 43204
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Float32List asFloat32List([int offsetInBytes = 0, int length ])
+/// Creates a Float32List view of a region of this byte buffer.
+/// ...
+/// The viewed region start at offsetInBytes, which must be 32-bit aligned, and
+/// contains length 32-bit integers. If length is omitted, the range extends as
+/// far towards the end of the buffer as possible - if lengthInBytes is not
+/// divisible by four, the last bytes can't be part of the view.
+/// @description Checks that the viewed region begins with offsetInBytes byte,
+/// which must be 32-bit aligned, and contains length 32-bit integers. If length
+/// is omitted, the range extends to the end of the buffer (if buffer length in
+/// bytes is divisible by four), otherwise, the last bytes can't be part of the
+/// view.
+/// @author ngl@unipro.ru
+/// @issue 43204
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -35,15 +32,17 @@ void check(ByteBuffer buffer) {
   int offset2 = 8;
 
   // Float32List view of a byte buffer with offset1 and length1
-  Float32List res1 = buffer.asFloat32List(offset1, length1);
+  var res1 = buffer.asFloat32List(offset1, length1);
   int view1Length = res1.length;
 
   // Float32List view of a byte buffer with offset2
-  Float32List res2 = buffer.asFloat32List(offset2);
+  var res2 = buffer.asFloat32List(offset2);
   int view2Length = res2.length;
 
   Expect.isTrue(res1 is Float32List);
   Expect.isTrue(res2 is Float32List);
+  Expect.runtimeIsType<Float32List>(res1);
+  Expect.runtimeIsType<Float32List>(res2);
   Expect.equals(length1, view1Length);
   Expect.equals((viewSizeInBytes - offset2) >> shift, view2Length);
 
@@ -90,7 +89,9 @@ main() {
   check((new Int32List.fromList(list2)).buffer);
 
   check((new Int32List.fromList(list1)).buffer);
-  check((new Int64List.fromList(list2)).buffer);
+  if(!isJS) {
+    check((new Int64List.fromList(list2)).buffer);
+  }
 
   check((new Int32x4List.fromList(list4)).buffer);
 }

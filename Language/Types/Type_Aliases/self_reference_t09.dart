@@ -1,18 +1,18 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Any self reference in a typedef, either directly, or recursively
- * via another typedef, is a compile time error.
- * @description Checks that it is compile error to reference type alias in a
- * bound of its own type parameter.
- * @compile-error
- * @author ilya
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
-typedef F<T extends List<F>>();
+/// @assertion Any self reference in a typedef, either directly, or recursively
+/// via another typedef, is a compile time error.
+/// @description Checks that it is compile error to reference type alias in a
+/// bound of its own type parameter.
+/// @author ilya
+/// @issue 46062
+
+  typedef F<T extends List<F>>();
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   F<int>? x;

@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<E> skip(int count)
- * Returns an [Iterable] that provides all but the first [count] elements.
- * When the returned iterable is iterated, it starts iterating over this, first
- * skipping past the initial [count] elements.
- * After that, the remaining elements are iterated in the same order as in this
- * iterable.
- * @description checks that an [Iterable] that skips the first n elements is
- * returned.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<E> skip(int count)
+/// Returns an [Iterable] that provides all but the first [count] elements.
+/// When the returned iterable is iterated, it starts iterating over this, first
+/// skipping past the initial [count] elements.
+/// After that, the remaining elements are iterated in the same order as in this
+/// iterable.
+/// @description checks that an [Iterable] that skips the first n elements is
+/// returned.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

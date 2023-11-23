@@ -1,58 +1,43 @@
-/*
- * Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * const Array<T extends NativeType>(
- * int dimension1,
- *  [int dimension2,
- *  int dimension3,
- *  int dimension4,
- *  int dimension5]
- *  )
- *  Const constructor to specify Array dimensions in Structs.
- *
- *  class MyStruct extends Struct {
- *  @Array(8)
- *  external Array<Uint8> inlineArray;
- *
- *  @Array(2, 2, 2)
- *  external Array<Array<Array<Uint8>>> threeDimensionalInlineArray;
- *  }
- *  Do not invoke in normal code.
- *
- * @description Checks that this class represents a fixed-size array of Uint32
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Uint32Array extension Null safety
+/// Bounds checking indexing methods on Arrays of Uint32.
+///
+/// @description Checks that this extension contains bounds checking indexing
+/// methods on Arrays of Uint32
+/// @author sgrekhov@unipro.ru
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class MyStruct extends Struct {
+final class MyStruct extends Struct {
   @Array(2)
   external Array<Uint32> a0;
+  @Array.multi([2, 3])
+  external Array<Array<Uint32>> a1;
 }
 
 void main() {
   final pointer = calloc<MyStruct>();
   try {
-    final array = pointer.ref.a0;
+    final array1 = pointer.ref.a0;
     for (int i = 0; i < 2; i++) {
-      Expect.equals(0, array[i]);
-      array[i] = 256;
-      Expect.equals(256, array[i]);
-      array[i] = 32768;
-      Expect.equals(32768, array[i]);
-      array[i] = 65536;
-      Expect.equals(65536, array[i]);
-      array[i] = 4294967295;
-      Expect.equals(4294967295, array[i]);
-      array[i] = 4294967296;
-      Expect.equals(0, array[i]);
-      array[i] = -1;
-      Expect.equals(4294967295, array[i]);
+      array1[i] = 42;
+      Expect.equals(42, array1[i]);
+      array1[i] = -42;
+      Expect.equals(4294967254, array1[i]);
+    }
+    final array2 = pointer.ref.a1;
+    for (int i = 0; i < 2; i++) {
+      for (int j = 0; j < 3; j++) {
+        array2[i][j] = 42;
+        Expect.equals(42, array2[i][j]);
+        array2[i][j] = -42;
+        Expect.equals(4294967254, array2[i][j]);
+      }
     }
   } finally {
     calloc.free(pointer);

@@ -1,32 +1,30 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Float32List asFloat32List([int offsetInBytes = 0, int length ])
- * Creates a Float32List view of a region of this byte buffer.
- * The view is backed by the bytes of this byte buffer. Any changes made to the
- * Float32List will also change the buffer, and vice versa.
- * @description Checks that method asFloat32List creates a Float32List view of
- * a region of this byte buffer, and any changes made to Float32List will also
- * change the buffer, and vice versa.
- * @author ngl@unipro.ru
- * @issue 43204
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Float32List asFloat32List([int offsetInBytes = 0, int length ])
+/// Creates a Float32List view of a region of this byte buffer.
+/// The view is backed by the bytes of this byte buffer. Any changes made to the
+/// Float32List will also change the buffer, and vice versa.
+/// @description Checks that method asFloat32List creates a Float32List view of
+/// a region of this byte buffer, and any changes made to Float32List will also
+/// change the buffer, and vice versa.
+/// @author ngl@unipro.ru
+/// @issue 43204
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   int bufSizeInBytes = buffer.lengthInBytes;
-  Float32List res = buffer.asFloat32List(0);
+  var res = buffer.asFloat32List(0);
   Float32List res1 = buffer.asFloat32List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int viewLength = res.length;
   int shift = (Float32List.bytesPerElement == 4) ? 2 : 0;
 
   Expect.isTrue(res is Float32List);
+  Expect.runtimeIsType<Float32List>(res);
   Expect.equals(bufSizeInBytes >> shift, viewLength);
 
   if (viewSizeInBytes != 0) {
@@ -66,9 +64,11 @@ main() {
   check((new Int32List.fromList(list1)).buffer);
   check((new Int32List.fromList(list2)).buffer);
 
-  check((new Int64List.fromList(list0)).buffer);
-  check((new Int64List.fromList(list1)).buffer);
-  check((new Int64List.fromList(list2)).buffer);
+  if(!isJS) {
+    check((new Int64List.fromList(list0)).buffer);
+    check((new Int64List.fromList(list1)).buffer);
+    check((new Int64List.fromList(list2)).buffer);
+  }
 
   check((new Int32x4List.fromList(list5)).buffer);
   check((new Int32x4List.fromList(list3)).buffer);

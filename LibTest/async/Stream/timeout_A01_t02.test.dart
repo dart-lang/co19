@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream timeout(Duration timeLimit,
- *                           {void onTimeout(EventSink sink)})
- * Creates a new stream with the same events as this stream.
- *
- * @description Check that timeout creates a new stream with the same events as
- * this stream, including errors.
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream timeout(Duration timeLimit,
+///                           {void onTimeout(EventSink sink)})
+/// Creates a new stream with the same events as this stream.
+///
+/// @description Check that timeout creates a new stream with the same events as
+/// this stream, including errors.
+/// @author a.semenov@unipro.ru
+
 library timeout_A01_t02;
 
 import "dart:async";
@@ -24,10 +22,10 @@ void check<T>(Stream<T> s, List<T> expectedData, List expectedErrors) {
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => true, defVal: 42), [],
-      [1, 2, 3, 4, 5]);
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42),
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => true, defaultValue: 42),
+      [], [1, 2, 3, 4, 5]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defaultValue: 42),
       [1, 3, 5], [2, 4]);
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defVal: 42),
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defaultValue: 42),
       [2, 4], [1, 3, 5]);
 }

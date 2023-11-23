@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion 15.10.2.8: The form (?= Disjunction ) specifies a zero-width
- * positive lookahead. In order for it to succeed, the pattern inside
- * Disjunction must match at the current position, but the current position is
- * not advanced before matching the sequel. If Disjunction can match at the
- * current position in several ways, only the first one is tried. Unlike other
- * regular expression operators, there is no backtracking into a (?= form (this
- * unusual behaviour is inherited from Perl). This only matters when the
- * Disjunction contains capturing parentheses and the sequel of the pattern
- * contains backreferences to those captures.
- * @description Checks that this syntax works as specified.
- * @3rdparty sputnik-v1:S15.10.2.8_A1_T1.js-S15.10.2.8_A1_T5.js
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion 15.10.2.8: The form (?= Disjunction ) specifies a zero-width
+/// positive lookahead. In order for it to succeed, the pattern inside
+/// Disjunction must match at the current position, but the current position is
+/// not advanced before matching the sequel. If Disjunction can match at the
+/// current position in several ways, only the first one is tried. Unlike other
+/// regular expression operators, there is no backtracking into a (?= form (this
+/// unusual behaviour is inherited from Perl). This only matters when the
+/// Disjunction contains capturing parentheses and the sequel of the pattern
+/// contains backreferences to those captures.
+/// @description Checks that this syntax works as specified.
+/// @3rdparty sputnik-v1:S15.10.2.8_A1_T1.js-S15.10.2.8_A1_T5.js
+/// @author rodionov
+
 import "../../../../Utils/expect.dart";
  
 

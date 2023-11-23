@@ -1,17 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion In either case, iff no return type is specified, it is taken to
- * be dynamic.
- * @description checks that function types with various return types
- * are all subtypes of given type t1 that declares no return type, therefore
- * the return type of t1 should be dynamic.
- * @static-clean
- * @author iefremov, sgrekhov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion In either case, iff no return type is specified, it is taken to
+/// be dynamic.
+/// @description checks that function types with various return types
+/// are all subtypes of given type t1 that declares no return type, therefore
+/// the return type of t1 should be dynamic.
+/// @author iefremov, sgrekhov@unipro.ru
+
 import '../../../Utils/expect.dart';
 
 typedef F1();
@@ -31,5 +28,10 @@ main() {
   Expect.isTrue(sfunc is F1);
   Expect.isTrue(ffunc is F1);
   Expect.isTrue(f2func is F1);
+  Expect.runtimeIsType<F1>(ifunc);
+  Expect.runtimeIsType<F1>(bfunc);
+  Expect.runtimeIsType<F1>(sfunc);
+  Expect.runtimeIsType<F1>(ffunc);
+  Expect.runtimeIsType<F1>(f2func);
 }
 

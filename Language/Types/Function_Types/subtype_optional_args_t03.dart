@@ -1,29 +1,32 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A function type (T1,...Tk,[Tk+1,...,Tn+m]) -> T is a subtype of
- * the function type (S1,...,Sk+j,[Sk+j+1,...,Sn]) -> S, if all of the following
- * conditions are met:
- * 1. Either
- *    • S is void, or
- *    • T <=> S.
- * 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
- * @description Checks that this statement is true even if the subtype function
- * type has more positional optional parameters than the supertype as long as the
- * supertype's positional optional parameters match the beginning of the list of
- * subtype's positional optional parameters.
- * @author iefremov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A function type (T1,...Tk,[Tk+1,...,Tn+m]) -> T is a subtype of
+/// the function type (S1,...,Sk+j,[Sk+j+1,...,Sn]) -> S, if all of the following
+/// conditions are met:
+/// 1. Either
+///    • S is void, or
+///    • T <=> S.
+/// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+/// @description Checks that this statement is true even if the subtype function
+/// type has more positional optional parameters than the supertype as long as the
+/// supertype's positional optional parameters match the beginning of the list of
+/// subtype's positional optional parameters.
+/// @author iefremov
+
 import "../../../Utils/expect.dart";
 
 class A {}
+
 class A1 {}
+
 class A2 {}
+
 class B implements A, A1, A2 {}
+
 class C implements B {}
+
 class D implements C {}
 
 class G<T, S, U, W> {}
@@ -45,15 +48,50 @@ typedef okWithGenericsFunc_2(
 typedef okWithDynamicFunc_1([A? x, G? y, mixFunc z, var v]);
 typedef okWithDynamicFunc_2([int? x, bool? y, List<Map>? z, classesFunc? v]);
 
-
 main() {
-  Expect.isFalse((var vv, [D? a, B? b, C? c, A? d, var xx, Map? xxx, Object? xxxx]) {} is classesFunc);
-
-  Expect.isTrue(([var m, var l, var g, var xx, var xxx, var xxxx]) {} is genericsFunc);
-
-  Expect.isFalse(
-          ([A? x, G? y, mixFunc? z, var v, Object? xx, List<Map<int, mixFunc>>? xxx, mixFunc? xxxx]) {} is dynamicFunc);
+  Expect.isFalse((var vv,
+      [D? a,
+      B? b,
+      C? c,
+      A? d,
+      var xx,
+      Map? xxx,
+      Object? xxxx]) {} is classesFunc);
+  Expect.runtimeIsNotType<classesFunc>(
+      (var vv, [A? a, C? c, B? b, D? d, Map? xxx, Object? xxxx]) {});
 
   Expect.isTrue(
-          ([okWithClassesFunc_2? f1, okWithGenericsFunc_2? f2, okWithDynamicFunc_2? f3, mixFunc? xx, funcFunc? xxx]) {} is funcFunc);
+      ([var m, var l, var g, var xx, var xxx, var xxxx]) {} is genericsFunc);
+  Expect.runtimeIsType<genericsFunc>(
+      ([var m, var l, var g, var xx, var xxx, var xxxx]) {});
+  Expect.runtimeIsType<genericsFunc>(
+      ([var m, var l, var g, var xx, var xxx, var xxxx]) {});
+  Expect.isFalse((
+      [A? x,
+      G? y,
+      mixFunc? z,
+      var v,
+      Object? xx,
+      List<Map<int, mixFunc>>? xxx,
+      mixFunc? xxxx]) {} is dynamicFunc);
+  Expect.runtimeIsNotType<dynamicFunc>((
+      [A? x,
+      G? y,
+      mixFunc? z,
+      var v,
+      Object? xx,
+      List<Map<int, mixFunc>>? xxx,
+      mixFunc? xxxx]) {});
+  Expect.isTrue((
+      [okWithClassesFunc_2? f1,
+      okWithGenericsFunc_2? f2,
+      okWithDynamicFunc_2? f3,
+      mixFunc? xx,
+      funcFunc? xxx]) {} is funcFunc);
+  Expect.runtimeIsType<funcFunc>((
+      [okWithClassesFunc_2? f1,
+      okWithGenericsFunc_2? f2,
+      okWithDynamicFunc_2? f3,
+      mixFunc? xx,
+      funcFunc? xxx]) {});
 }

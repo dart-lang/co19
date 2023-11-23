@@ -1,15 +1,12 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<E> reversed
- * Returns an Iterable of the objects in this list in reverse order.
- * @description Checks that returned iterable contains the elements of this list
- * in reverse order.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<E> reversed
+/// Returns an Iterable of the objects in this list in reverse order.
+/// @description Checks that returned iterable contains the elements of this list
+/// in reverse order.
+/// @author ngl@unipro.ru
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -22,6 +19,7 @@ void check(list) {
   var l = new Int32x4List.fromList(list);
   var reversed = l.reversed;
   Expect.isTrue(reversed is Iterable);
+  Expect.runtimeIsType<Iterable>(reversed);
   for (int i = 0; i < l.length; ++i) {
     Expect.isTrue(equal(l[l.length -1 - i], reversed.elementAt(i)));
   }

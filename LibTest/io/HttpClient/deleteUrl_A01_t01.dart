@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<HttpClientRequest> deleteUrl(
- *  Uri url
- *  )
- * Opens a HTTP connection using the DELETE method.
- *
- * The URL to use is specified in url.
- *
- * See openUrl for details.
- * @description Checks that this method opens a HTTP connection using the DELETE
- * method
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<HttpClientRequest> deleteUrl(
+///  Uri url
+///  )
+/// Opens an HTTP connection using the DELETE method.
+///
+/// The URL to use is specified in url.
+///
+/// See openUrl for details.
+/// @description Checks that this method opens an HTTP connection using the DELETE
+/// method
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void addSlice(List<int> chunk, int start, int end, bool isLast)
- * Adds the next chunk to this.
- * ...
- * If isLast is true closes this.
- * ...
- * @description Checks that if isLast is true closes this.
- * ByteConversionSink
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void addSlice(List<int> chunk, int start, int end, bool isLast)
+/// Adds the next chunk to this.
+/// ...
+/// If isLast is true closes this.
+/// ...
+/// @description Checks that if isLast is true closes this.
+/// ByteConversionSink
+/// @author sgrekhov@unipro.ru
+
 library addSlice_A01_t03;
 
 import "dart:convert";

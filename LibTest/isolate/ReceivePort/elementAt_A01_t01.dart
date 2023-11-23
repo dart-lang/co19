@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<T> elementAt(int index)
- * Returns the value of the indexth data event of this stream.
- * @description Checks that the future returns the value of the indexth data event of this stream.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<T> elementAt(int index)
+/// Returns the value of the indexth data event of this stream.
+/// @description Checks that the future returns the value of the indexth data event of this stream.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;

@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Mixin application semantics is mostly unchanged, except that it's
- * a compile-time error to apply a mixin to a class that doesn't implement all
- * the 'on' type requirements of the mixin declaration, or apply a mixin
- * containing super-invocations to a class that doesn't have a concrete
- * implementation of the super-invoked members compatible with the
- * super-constraint interface.
- *
- * @description Checks that there is no compile error if a mixin is applied to a
- * class that implements all the 'on' type requirements of the mixin
- * declaration. Test 'mixin' implementation of 'on' clause interfaces and
- * 'implements' part of the mixin
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Mixin application semantics is mostly unchanged, except that it's
+/// a compile-time error to apply a mixin to a class that doesn't implement all
+/// the 'on' type requirements of the mixin declaration, or apply a mixin
+/// containing super-invocations to a class that doesn't have a concrete
+/// implementation of the super-invoked members compatible with the
+/// super-constraint interface.
+///
+/// @description Checks that there is no compile error if a mixin is applied to a
+/// class that implements all the 'on' type requirements of the mixin
+/// declaration. Test 'mixin' implementation of 'on' clause interfaces and
+/// 'implements' part of the mixin
+/// @author sgrekhov@unipro.ru
+
 import "../../Utils/expect.dart";
 
 String console = "";
@@ -29,6 +27,7 @@ class I {
   String i3() => "I.i3";
   String operator ~() => i1.substring(0, 1);
 }
+
 abstract class J {
   String get j1;
   void set j2(String v);
@@ -36,7 +35,7 @@ abstract class J {
   String operator -() => j1.substring(0, 1);
 }
 
-class A {
+mixin class A {
   String get a1 => "A.a1";
   set a2(String v) {
     console = "A:$v";

@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion double operator /(num other)
- * @description Checks that if operands are finite non-zero numbers and have the
- * same absolute value the result is 1 if operands have the same sign and -1
- * otherwise.
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion double operator /(num other)
+/// @description Checks that if operands are finite non-zero numbers and have the
+/// same absolute value the result is 1 if operands have the same sign and -1
+/// otherwise.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 final List<double> values = const [

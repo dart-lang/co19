@@ -1,0 +1,35 @@
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A variable declaration statement, also known as a local variable
+/// declaration, has the following form:
+/// ⟨localVariableDeclaration⟩ ::=
+///     ⟨metadata⟩ ⟨initializedVariableDeclaration⟩ ‘;’
+///
+/// Each local variable declaration introduces a local variable into the current
+/// scope.
+///
+/// @description Checks that the variable `int id;` declared in a block is not
+/// available outside of this block.
+/// @author rodionov
+
+main() {
+  {
+    int? id1;
+    var id2;
+    final id3 = 1;
+  }
+  id1 = null;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+  print(id2);
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  print(id3);
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

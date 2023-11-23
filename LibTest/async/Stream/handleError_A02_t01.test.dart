@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream<T> handleError(Function onError, {bool test(error)})
- * If test is omitted, every error is considered matching.
- * @description Checks that if [test] is omitted, every error is intercepted
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<T> handleError(Function onError, {bool test(error)})
+/// If test is omitted, every error is considered matching.
+/// @description Checks that if [test] is omitted, every error is intercepted
+/// @author a.semenov@unipro.ru
+
 library handleError_A02_t01;
 
 import "dart:async";
@@ -32,14 +30,14 @@ void check(Stream s, List expectedData, List interceptedErrors) {
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([], defVal: 42), [], []);
-  check(create([], isError: (x) => true, defVal: 42), [], []);
+  check(create([], defaultValue: 42), [], []);
+  check(create([], isError: (x) => true, defaultValue: 42), [], []);
 
-  check(create([1, 2, 3, 4], defVal: 42), [1, 2, 3, 4], []);
-  check(
-      create([1, 2, 3, 4], isError: (x) => true, defVal: 42), [], [1, 2, 3, 4]);
-  check(create([1, 2, 3, 4], isError: (x) => x.isEven, defVal: 42), [1, 3],
-      [2, 4]);
-  check(create([null, "2", -3, 4.0, []], isError: (x) => x is num, defVal: 42),
-      [null, "2", []], [-3, 4.0]);
+  check(create([1, 2, 3, 4], defaultValue: 42), [1, 2, 3, 4], []);
+  check(create([1, 2, 3, 4], isError: (x) => true, defaultValue: 42),
+      [], [1, 2, 3, 4]);
+  check(create([1, 2, 3, 4], isError: (x) => x.isEven, defaultValue: 42),
+      [1, 3], [2, 4]);
+  check(create([null, "2", -3, 4.0, []], isError: (x) => x is num,
+      defaultValue: 42), [null, "2", []], [-3, 4.0]);
 }

@@ -1,18 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Type dynamic has properties for every possible identifier. These
- * properties all have type dynamic.
- * @description Checks that accessing properties with all sort of names on a
- * dynamic variable and assigning the results (in case of getters) to local
- * variables of various types does not produce any static type warnings.
- * @static-clean
- * @issue #27495
- * @author iefremov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Type dynamic has properties for every possible identifier. These
+/// properties all have type dynamic.
+/// @description Checks that accessing properties with all sort of names on a
+/// dynamic variable and assigning the results (in case of getters) to local
+/// variables of various types does not produce any static type warnings.
+/// @issue #27495
+/// @author iefremov
+
 import "../../../Utils/expect.dart";
 
 typedef func();

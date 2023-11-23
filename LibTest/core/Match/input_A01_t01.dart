@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion String input
- * The string on which this match was computed.
- * @description Checks that this property holds the correct string.
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion String input
+/// The string on which this match was computed.
+/// @description Checks that this property holds the correct string.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
 
 main() {

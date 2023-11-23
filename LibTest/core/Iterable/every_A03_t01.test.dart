@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool every(bool f(E element))
- * Checks whether every element of this iterable satisfies test.
- * Checks every element in iteration order, and returns false if any of them
- * make test return false, otherwise returns true.
- * @description Checks that something is thrown if the argument
- * is not a closure, doesn't implement a call() method with appropriate
- * signature or is null.
- * @author vasya
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool every(bool f(E element))
+/// Checks whether every element of this iterable satisfies test.
+/// Checks every element in iteration order, and returns false if any of them
+/// make test return false, otherwise returns true.
+/// @description Checks that something is thrown if the argument
+/// is not a closure, doesn't implement a call() method with appropriate
+/// signature or is null.
+/// @author vasya
+
 library every_A03_t01;
 
 import "../../../Utils/expect.dart";

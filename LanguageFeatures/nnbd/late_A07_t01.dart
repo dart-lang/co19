@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A non-local late variable declaration D implicitly induces a
- * getter into the enclosing scope. It also induces an implicit setter iff one
- * of the following conditions is satisfied:
- * - D is non-final.
- * - D is late, final, and has no initializing expression.
- *
- * @description Check overriding of an implicit setter
- * @author sgrekhov@unipro.ru
- * @issue 40391
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A non-local late variable declaration D implicitly induces a
+/// getter into the enclosing scope. It also induces an implicit setter iff one
+/// of the following conditions is satisfied:
+/// - D is non-final.
+/// - D is late, final, and has no initializing expression.
+///
+/// @description Check overriding of an implicit setter
+/// @author sgrekhov@unipro.ru
+/// @issue 40391
+
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

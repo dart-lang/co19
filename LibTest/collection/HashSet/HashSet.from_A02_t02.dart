@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion interface HashSet.from(Iterable elements)
- * All the [elements] should be assignable to [E]. [The elements] iterable
- * itself may have any element type, so this constructor can be used to
- * down-cast a [Set], for example as:
- * Set<SuperType> superSet = ...;
- * Set<SubType> subSet =
- *     new HashSet<SubType>.from(superSet.where((e) => e is SubType));
- * @description Checks that provided down-cast example works as expected
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion interface HashSet.from(Iterable elements)
+/// All the [elements] should be assignable to [E]. [The elements] iterable
+/// itself may have any element type, so this constructor can be used to
+/// down-cast a [Set], for example as:
+/// Set<SuperType> superSet = ...;
+/// Set<SubType> subSet =
+///     new HashSet<SubType>.from(superSet.where((e) => e is SubType));
+/// @description Checks that provided down-cast example works as expected
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

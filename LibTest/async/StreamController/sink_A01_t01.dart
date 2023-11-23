@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion StreamSink<T> sink
- * Returns a view of this object that only exposes the StreamSink interface.
- *
- * @description Checks that only the StreamSink interface is exposed.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion StreamSink<T> sink
+/// Returns a view of this object that only exposes the StreamSink interface.
+///
+/// @description Checks that only the StreamSink interface is exposed.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

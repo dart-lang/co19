@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Otherwise, control is transferred to the nearest innermost
- * enclosing exception handler.
- * @description Checks that an expression statement of the form "rethrow;"
- * indeed transfers control to the nearest enclosing exception handler if there
- * is one, leaving the current exception and stack trace unchanged.
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Otherwise, control is transferred to the nearest innermost
+/// enclosing exception handler.
+/// @description Checks that an expression statement of the form "rethrow;"
+/// indeed transfers control to the nearest enclosing exception handler if there
+/// is one, leaving the current exception and stack trace unchanged.
+/// @author rodionov
+
 import '../../../Utils/expect.dart';
 
 String ex = "";

@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A composite member invocation on a target expression X is an
- * expression of one of the forms:
- * Composite member invocation on target X	     Corresponding member base name
- *    X.id binop= expr2	                                       id
- * @description Check explicit extension member invocation in form of
- * X.id %= expr2
- * @issue 39198
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A composite member invocation on a target expression X is an
+/// expression of one of the forms:
+/// Composite member invocation on target X	     Corresponding member base name
+///    X.id binop= expr2	                                       id
+/// @description Check explicit extension member invocation in form of
+/// X.id %= expr2
+/// @issue 39198
+/// @author sgrekhov@unipro.ru
+
 
 import "../../Utils/expect.dart";
 

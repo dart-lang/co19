@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Returns whether the regular expression has a match in the string
- * [str].
- * @description Tests whether regular expressions for shallow XML parsing work.
- * @3rdparty sputnik-v1:S15.10.2_A1_T1.js /
- * http://www.cs.sfu.ca/~cameron/REX.html#AppB
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Returns whether the regular expression has a match in the string
+/// [str].
+/// @description Tests whether regular expressions for shallow XML parsing work.
+/// @3rdparty sputnik-v1:S15.10.2_A1_T1.js /
+/// http://www.cs.sfu.ca/~cameron/REX.html#AppB
+/// @author rodionov
+
 
 // REX/Javascript 1.0
 // Robert D. Cameron "REX: XML Shallow Parsing with Regular Expressions",

@@ -1,28 +1,27 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion To infer the type of element:
- * ...
- * If element is a spreadElement with expression e1:
- *
- * If P is ? then let S be the inferred type of e1 in context ?:
- * ...
- * If none of these cases match, it is an error.
- *
- * @description Checks that it is a compile error if none of the cases
- * (`Iterable<Object>` nor of `Map<Object, Object>`, and it's also not `dynamic`
- * nor `Null`) match
- * @compile-error
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion To infer the type of element:
+/// ...
+/// If element is a spreadElement with expression e1:
+///
+/// If P is ? then let S be the inferred type of e1 in context ?:
+/// ...
+/// If none of these cases match, it is an error.
+///
+/// @description Checks that it is a compile error if none of the cases
+/// (`Iterable<Object>` nor of `Map<Object, Object>`, and it's also not
+/// `dynamic` nor `Null`) match
+/// @author sgrekhov@unipro.ru
 
 Map<X, Y> foo<X, Y>(Map<X, Y> m) => m;
 
 void test<T>(T t) {
   foo({...?t});
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

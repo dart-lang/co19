@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion 15.10.2.12: The production CharacterClassEscape :: S evaluates by
- * returning the set of all characters not included in the set returned by
- * CharacterClassEscape :: s.
- * @description Checks that \S indeed matches all characters but the 26
- * whitespace and line terminator ones (tested vs all characters from the basic
- * plane)
- * @3rdparty sputnik-v1:S15.10.2.12_A2_T1.js-S15.10.2.12_A2_T5.js
- * @author rodionov
- * @Issue 1296
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion 15.10.2.12: The production CharacterClassEscape :: S evaluates by
+/// returning the set of all characters not included in the set returned by
+/// CharacterClassEscape :: s.
+/// @description Checks that \S indeed matches all characters but the 26
+/// whitespace and line terminator ones (tested vs all characters from the basic
+/// plane)
+/// @3rdparty sputnik-v1:S15.10.2.12_A2_T1.js-S15.10.2.12_A2_T5.js
+/// @author rodionov
+/// @Issue 1296
+
 import "../../../../Utils/expect.dart";
  
 main() {

@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future pipe(StreamConsumer<T> streamConsumer)
- *    Returns a future which completes when the stream has been consumed
- * and the consumer has been closed. The returned future completes with
- * the same result as the future returned by StreamConsumer.close.
- * @description Checks that returned future is completed when the stream
- * has been consumed and the consumer has been closed. The returned future
- * completes with the same result as the future returned by StreamConsumer.close.
- * StreamConsumer.close completes with error.
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future pipe(StreamConsumer<T> streamConsumer)
+///    Returns a future which completes when the stream has been consumed
+/// and the consumer has been closed. The returned future completes with
+/// the same result as the future returned by StreamConsumer.close.
+/// @description Checks that returned future is completed when the stream
+/// has been consumed and the consumer has been closed. The returned future
+/// completes with the same result as the future returned by StreamConsumer.close.
+/// StreamConsumer.close completes with error.
+/// @author a.semenov@unipro.ru
+
 library pipe_A03_t02;
 import "dart:async";
 import "../../../Utils/expect.dart";

@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion SplayTreeMap([int compare(K key1, K key2),
- * bool isValidKey(potentialKey)])
- * ...
- * If the map contains only the key [a], then [map.containsKey(b)] will return
- * [true] if and only if [compare(a, b) == 0], and the value of [a == b] is not
- * even checked.
- * @description Checks that if [compare(a, b) == 0] then [map.containsKey(b)]
- * returns [true]
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion SplayTreeMap([int compare(K key1, K key2),
+/// bool isValidKey(potentialKey)])
+/// ...
+/// If the map contains only the key [a], then [map.containsKey(b)] will return
+/// [true] if and only if [compare(a, b) == 0], and the value of [a == b] is not
+/// even checked.
+/// @description Checks that if [compare(a, b) == 0] then [map.containsKey(b)]
+/// returns [true]
+/// @author sgrekhov@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

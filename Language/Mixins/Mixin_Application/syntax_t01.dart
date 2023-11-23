@@ -1,31 +1,31 @@
-/*
- * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Let S be a class, M be a mixin with required superinterfaces
- * T1, . . . , Tn, combined superinterface MS, implemented interfaces
- * I1, . . . , Ik and members as mixin member declarations, and let N be a name.
- * ...
- * The mixin application of M to S with name N introduces a new class, C,
- * with name N, superclass S, implemented interface I1, . . . , Ik and members
- * as instance members.
- * @description Checks that instance class has the same instance getters as
- * its mixins
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Let S be a class, M be a mixin with required superinterfaces
+/// T1, . . . , Tn, combined superinterface MS, implemented interfaces
+/// I1, . . . , Ik and members as mixin member declarations, and let N be a
+/// name.
+/// ...
+/// The mixin application of M to S with name N introduces a new class, C, with
+/// name N, superclass S, implemented interface I1, . . . , Ik and members as
+/// instance members.
+///
+/// @description Checks that an instance class has the same instance getters as
+/// its mixins
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 class A {
   int get ga => 0;
 }
 
-class M1 {
+mixin class M1 {
   int get gm1 => 1;
 }
 
-class M2 {
+mixin class M2 {
   int get gm2 => 2;
 }
 

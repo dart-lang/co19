@@ -1,25 +1,23 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A read of a field or variable which is marked as late which has
- * not yet been written to causes the initializer expression of the variable to
- * be evaluated to a value, assigned to the variable or field, and returned as
- * the value of the read.
- * ...
- * If a variable or field is read from during the process of evaluating its own
- * initializer expression, and no write to the variable has occurred, the read
- * is treated as a first read and the initializer expression is evaluated again.
- *
- * @description Check that if a variable or field is read from during the
- * process of evaluating its own initializer expression, and no write to the
- * variable has occurred, the read is treated as a first read and the
- * initializer expression is evaluated again
- * @author sgrekhov@unipro.ru
- * @issue 40390
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A read of a field or variable which is marked as late which has
+/// not yet been written to causes the initializer expression of the variable to
+/// be evaluated to a value, assigned to the variable or field, and returned as
+/// the value of the read.
+/// ...
+/// If a variable or field is read from during the process of evaluating its own
+/// initializer expression, and no write to the variable has occurred, the read
+/// is treated as a first read and the initializer expression is evaluated again.
+///
+/// @description Check that if a variable or field is read from during the
+/// process of evaluating its own initializer expression, and no write to the
+/// variable has occurred, the read is treated as a first read and the
+/// initializer expression is evaluated again
+/// @author sgrekhov@unipro.ru
+/// @issue 40390
+
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

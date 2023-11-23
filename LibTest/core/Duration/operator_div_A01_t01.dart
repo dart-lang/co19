@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Duration operator ~/(int quotient)
- * Divides this Duration by the given quotient and returns the truncated result
- * as a new Duration.
- * @description Checks that duration calculation is correct
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Duration operator ~/(int quotient)
+/// Divides this Duration by the given quotient and returns the truncated result
+/// as a new Duration.
+/// @description Checks that duration calculation is correct
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 
 void check(int d, int h, int m, int s, int ms, int q) {

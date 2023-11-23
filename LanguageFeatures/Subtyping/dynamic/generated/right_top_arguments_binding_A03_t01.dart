@@ -1,36 +1,28 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
- * when:
- * Right Top: T1 is a top type (i.e. Object, dynamic, or void)
- * @description Check that if type T1 is an Object and T0 is a dynamic then
- * T0 is a subtype of a type T1.
- * @author sgrekhov@unipro.ru
- */
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as an argument of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from right_top_A03.dart and 
- * arguments_binding_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
+/// @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
+/// when:
+/// Right Top: T1 is a top type (i.e. Object, dynamic, or void)
+/// @description Check that if type T1 is an Object and T0 is a dynamic then
+/// T0 is a subtype of a type T1.
+/// @author sgrekhov@unipro.ru
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be used as an argument of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from test_types/right_top_A03.dart and
+/// test_cases/arguments_binding_x01.dart. Don't modify it!
+/// If you need to change this test, then change one of the files above and then
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
+
 dynamic t0Instance = "";
-Object? t1Instance = new Object();
 
 const t1Default = null;
-
-
 
 namedArgumentsFunc1(Object? t1, {Object? t2 = t1Default}) {}
 positionalArgumentsFunc1(Object? t1, [Object? t2 = t1Default]) {}
@@ -103,7 +95,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   // test generic functions
   namedArgumentsFunc2<Object?>(forgetType(t0Instance), t2: forgetType(t0Instance));
 
@@ -119,5 +110,4 @@ main() {
   instance2.namedArgumentsMethod(forgetType(t0Instance),
       t2: forgetType(t0Instance));
   instance2.testSetter = forgetType(t0Instance);
-  //# -->
 }

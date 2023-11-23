@@ -2,271 +2,250 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-part of Expect;
+part of 'expect.dart';
 
-/**
- * Expect is used for tests that do not want to make use of the
- * Dart unit test library - for example, the core language tests.
- * Third parties are discouraged from using this, and should use
- * the expect() function in the unit test library instead for
- * test assertions.
- *
- * This part contains all except
- *   static void _fail(String message) {}
- */
 class Expect {
-  /**
-   * Checks whether the expected and actual values are equal (using `==`).
-   */
-  static void equals(var expected, var actual, [String? reason = null]) {
-    if (expected == actual) return;
-    if ((expected is double) &&
-        (actual is double) &&
-        (expected.isNaN) &&
-        (actual.isNaN)) {
-      return;
+  /// Checks whether the expected and actual values are equal using `==`.
+  static void equals(var expected, var actual, [String reason = '']) {
+    if ((expected != actual) &&
+        !((expected is double) &&
+            (actual is double) &&
+            (expected.isNaN) &&
+            (actual.isNaN))) {
+      _fail('Expect.equals(expected: <$expected>, actual: <$actual>$reason) '
+          'fails.');
     }
-    String msg = _getMessage(reason);
-    _fail("Expect.equals(expected: <$expected>, actual: <$actual>$msg) fails.");
   }
 
-  /**
-   * Checks whether the actual value is a bool and its value is true.
-   */
-  static void isTrue(var actual, [String? reason = null]) {
-    if (_identical(actual, true)) return;
-    String msg = _getMessage(reason);
-    _fail("Expect.isTrue($actual$msg) fails.");
+  /// Checks whether the actual value is [bool] and its value is [true].
+  static void isTrue(var actual, [String reason = '']) {
+    if (!_identical(actual, true)) {
+      _fail('Expect.isTrue($actual$reason) fails.');
+    }
   }
 
-  /**
-   * Checks whether the actual value is a bool and its value is false.
-   */
-  static void isFalse(var actual, [String? reason = null]) {
-    if (_identical(actual, false)) return;
-    String msg = _getMessage(reason);
-    _fail("Expect.isFalse($actual$msg) fails.");
+  /// Checks whether the actual value is [bool] and its value is [false].
+  static void isFalse(var actual, [String reason = '']) {
+    if (!_identical(actual, false)) {
+      _fail('Expect.isFalse($actual$reason) fails.');
+    }
   }
 
-  /**
-   * Checks whether [actual] is null.
-   */
-  static void isNull(actual, [String? reason = null]) {
-    if (null == actual) return;
-    String msg = _getMessage(reason);
-    _fail("Expect.isNull(actual: <$actual>$msg) fails.");
+  /// Checks whether [actual] is [null].
+  static void isNull(actual, [String reason = '']) {
+    if (null != actual) {
+      _fail('Expect.isNull(actual: <$actual>$reason) fails.');
+    }
   }
 
-  /**
-   * Checks whether [actual] is not null.
-   */
-  static void isNotNull(actual, [String? reason = null]) {
-    if (null != actual) return;
-    String msg = _getMessage(reason);
-    _fail("Expect.isNotNull(actual: <$actual>$msg) fails.");
+  /// Checks whether [actual] is not [null].
+  static void isNotNull(actual, [String reason = '']) {
+    if (null == actual) {
+      _fail('Expect.isNotNull(actual: <$actual>$reason) fails.');
+    }
   }
 
-  /**
-   * Checks whether the expected and actual values are identical
-   * (using `identical`).
-   */
-  static void identical(var expected, var actual, [String? reason = null]) {
-    if (_identical(expected, actual)) return;
-    String msg = _getMessage(reason);
-    _fail("Expect.identical(expected: <$expected>, actual: <$actual>$msg) "
-        "fails.");
+  /// Checks whether the expected and actual values are identical (using
+  /// `identical`).
+  static void identical(var expected, var actual, [String reason = '']) {
+    if (!_identical(expected, actual)) {
+      _fail('Expect.identical(expected: <$expected>, '
+          'actual: <$actual>$reason) fails.');
+    }
   }
 
-  // Unconditional failure.
-  static void fail(String? msg) {
-    _fail("Expect.fail('$msg')");
+  /// Unconditional failure.
+  static void fail(String reason) {
+    _fail('Expect.fail($reason)');
   }
 
-  /**
-   * Failure if the difference between expected and actual is greater than the
-   * given tolerance. If no tolerance is given, tolerance is assumed to be the
-   * value 4 significant digits smaller than the value given for expected.
-   */
+  /// Checks whether the difference between expected and actual is greater than
+  /// the given tolerance. If no tolerance is given, tolerance is assumed to be
+  /// a value of the 4 significant digits smaller than the value given for
+  /// [expected].
   static void approxEquals(num expected, num actual,
-      [num? tolerance = null, String? reason = null]) {
-    if (tolerance == null) {
-      tolerance = (expected / 1e4).abs();
-    }
+      [num? tolerance, String reason = '']) {
+    tolerance ??= (expected / 1e4).abs();
+
     // Note: use !( <= ) rather than > so we fail on NaNs
-    if ((expected - actual).abs() <= tolerance) return;
-
-    String msg = _getMessage(reason);
-    _fail('Expect.approxEquals(expected:<$expected>, actual:<$actual>, '
-        'tolerance:<$tolerance>$msg) fails');
+    if (!((expected - actual).abs() <= tolerance)) {
+      _fail('Expect.approxEquals(expected:<$expected>, actual:<$actual>, '
+          'tolerance:<$tolerance>$reason) fails');
+    }
   }
 
-  static void notEquals(unexpected, actual, [String? reason = null]) {
-    if (unexpected != actual) return;
-    String msg = _getMessage(reason);
-    _fail("Expect.notEquals(unexpected: <$unexpected>, actual:<$actual>$msg) "
-        "fails.");
+  /// Checks whether the expected and actual values are not equal.
+  static void notEquals(unexpected, actual, [String reason = '']) {
+    if (unexpected == actual) {
+      _fail('Expect.notEquals(unexpected: <$unexpected>, '
+          'actual:<$actual>$reason) fails.');
+    }
   }
 
-  /**
-   * Specialized equality test for strings. When the strings don't match,
-   * this method shows where the mismatch starts and ends.
-   */
+  /// Specialized equality test for strings. When the strings don't match,
+  /// this method shows where the mismatch starts and ends.
   static void stringEquals(String? expected, String? actual,
-      [String? reason = null]) {
-    String msg = _getMessage(reason);
+      [String reason = '']) {
     String defaultMessage =
-        'Expect.stringEquals(expected: <$expected>", <$actual>$msg) fails';
-
+        'Expect.stringEquals(expected: <$expected>, <$actual>$reason) fails';
     if (expected == actual) return;
-    if ((expected == null) || (actual == null)) {
-      _fail('$defaultMessage');
-      return;
-    }
-    // scan from the left until we find a mismatch
-    int left = 0;
-    int eLen = expected.length;
-    int aLen = actual.length;
-    while (true) {
-      if (left == eLen) {
-        assert(left < aLen);
-        String snippet = actual.substring(left, aLen);
-        _fail('$defaultMessage\nDiff:\n...[  ]\n...[ $snippet ]');
-        return;
-      }
-      if (left == aLen) {
-        assert(left < eLen);
-        String snippet = expected.substring(left, eLen);
-        _fail('$defaultMessage\nDiff:\n...[  ]\n...[ $snippet ]');
-        return;
-      }
-      if (expected[left] != actual[left]) {
-        break;
-      }
-      left++;
-    }
 
-    // scan from the right until we find a mismatch
-    int right = 0;
-    while (true) {
-      if (right == eLen) {
-        assert(right < aLen);
-        String snippet = actual.substring(0, aLen - right);
-        _fail('$defaultMessage\nDiff:\n[  ]...\n[ $snippet ]...');
-        return;
+    if (expected == null || actual == null) {
+      _fail('$defaultMessage');
+    } else {
+      // Scan from the left until we find a mismatch
+      int left = 0;
+      int expLength = expected.length;
+      int actLength = actual.length;
+      while (true) {
+        if (left == expLength) {
+          assert(left < actLength);
+          String snippet = actual.substring(left, actLength);
+          _fail('$defaultMessage\nDiff:\n...[  ]\n...[ $snippet ]');
+        } else if (left == actLength) {
+          assert(left < expLength);
+          String snippet = expected.substring(left, expLength);
+          _fail('$defaultMessage\nDiff:\n...[  ]\n...[ $snippet ]');
+        } else if (expected[left] != actual[left]) {
+          break;
+        }
+        left++;
       }
-      if (right == aLen) {
-        assert(right < eLen);
-        String snippet = expected.substring(0, eLen - right);
-        _fail('$defaultMessage\nDiff:\n[  ]...\n[ $snippet ]...');
-        return;
+
+      // scan from the right until we find a mismatch
+      int right = 0;
+      while (true) {
+        if (right == expLength) {
+          assert(right < actLength);
+          String snippet = actual.substring(0, actLength - right);
+          _fail('$defaultMessage\nDiff:\n[  ]...\n[ $snippet ]...');
+        } else if (right == actLength) {
+          assert(right < expLength);
+          String snippet = expected.substring(0, expLength - right);
+          _fail('$defaultMessage\nDiff:\n[  ]...\n[ $snippet ]...');
+        } else if ((expLength - right <= left || actLength - right <= left) ||
+            ((expected[expLength - right - 1] !=
+                actual[actLength - right - 1]))) {
+          // Stop scanning if we've reached the end of the left-to-right match
+          break;
+        }
+        right++;
       }
-      // stop scanning if we've reached the end of the left-to-right match
-      if (eLen - right <= left || aLen - right <= left) {
-        break;
-      }
-      if (expected[eLen - right - 1] != actual[aLen - right - 1]) {
-        break;
-      }
-      right++;
+
+      String eSnippet = expected.substring(left, expLength - right);
+      String aSnippet = actual.substring(left, actLength - right);
+      String diff = '\nDiff:\n...[ $eSnippet ]...\n...[ $aSnippet ]...';
+      _fail('$defaultMessage$diff');
     }
-    String eSnippet = expected.substring(left, eLen - right);
-    String aSnippet = actual.substring(left, aLen - right);
-    String diff = '\nDiff:\n...[ $eSnippet ]...\n...[ $aSnippet ]...';
-    _fail('$defaultMessage$diff');
   }
 
-  /**
-   * Checks that every element of [expected] is also in [actual], and that
-   * every element of [actual] is also in [expected].
-   */
+  /// Checks that every element of [expected] is also in [actual], and that
+  /// every element of [actual] is also in [expected].
   static void setEquals(Iterable<Object?> expected, Iterable<Object?> actual,
-      [String? reason = null]) {
+      [String reason = '']) {
     final missingSet = new Set.from(expected);
     missingSet.removeAll(actual);
     final extraSet = new Set.from(actual);
     extraSet.removeAll(expected);
 
-    if (extraSet.isEmpty && missingSet.isEmpty) return;
-    String msg = _getMessage(reason);
+    if (!extraSet.isEmpty || !missingSet.isEmpty) {
+      StringBuffer buffer = StringBuffer('Expect.setEquals($reason) fails');
+      // Report any missing items.
+      if (!missingSet.isEmpty) {
+        buffer.write('\nExpected collection does not contain: ');
+      }
 
-    StringBuffer sb = new StringBuffer("Expect.setEquals($msg) fails");
-    // Report any missing items.
-    if (!missingSet.isEmpty) {
-      sb.write('\nExpected collection does not contain: ');
-    }
+      for (final val in missingSet) {
+        buffer.write('$val ');
+      }
 
-    for (final val in missingSet) {
-      sb.write('$val ');
-    }
+      // Report any extra items.
+      if (!extraSet.isEmpty) {
+        buffer.write('\nExpected collection should not contain: ');
+      }
 
-    // Report any extra items.
-    if (!extraSet.isEmpty) {
-      sb.write('\nExpected collection should not contain: ');
-    }
+      for (final val in extraSet) {
+        buffer.write('$val ');
+      }
 
-    for (final val in extraSet) {
-      sb.write('$val ');
+      _fail(buffer.toString());
     }
-    _fail(sb.toString());
   }
 
-  /**
-   * Calls the function [f] and verifies that it throws an exception.
-   * The optional [check] function can provide additional validation
-   * that the correct exception is being thrown.  For example, to check
-   * the type of the exception you could write this:
-   *
-   *     Expect.throws(myThrowingFunction, (e) => e is MyException);
-   */
-  static void throws(void f(),
-      [_CheckExceptionFn? check = null, String? reason = null]) {
+  /// Calls the function [func] and verifies that it throws an exception.
+  ///
+  /// The optional [check] function can provide additional validation that
+  /// correct exception is being thrown. For example, to check the type of the
+  /// exception you could write this:
+  ///
+  ///    Expect.throws(myThrowingFunction, (e) => e is MyException);
+  static void throws(void func(),
+      [_CheckExceptionFn? check, String reason = '']) {
     try {
-      f();
-    } catch (e, s) {
-      if (check != null) {
-        if (!check(e)) {
-          String msg = reason == null ? "" : reason;
-          _fail("Expect.throws($msg): Unexpected ${e.runtimeType}('$e')\n$s");
-        }
+      func();
+    } catch (exception, str) {
+      if (check != null && !check(exception)) {
+        _fail('Expect.throws($reason): '
+            'Unexpected ${exception.runtimeType}($exception)\n$str');
       }
       return;
     }
-    String msg = reason == null ? "" : reason;
-    _fail('Expect.throws($msg) fails');
+    _fail('Expect.throws($reason) fails');
   }
 
-  static String _getMessage(String? reason) =>
-      (reason == null) ? "" : ", '$reason'";
+  /// Calls the async function [func] and verifies that it throws an exception.
+  ///
+  /// The optional [check] function can provide additional validation that
+  /// correct exception is being thrown. For example, to check the type of the
+  /// exception you could write this:
+  ///
+  ///    Expect.asyncThrows(myThrowingAsyncFunction, (e) => e is MyException);
+  static Future<void> asyncThrows(Future<void> func(),
+      [_CheckExceptionFn? check, String reason = '']) async {
+    try {
+      await func();
+    } catch (exception, str) {
+      if (check != null && !check(exception)) {
+        _fail('Expect.throws($reason): '
+            'Unexpected ${exception.runtimeType}($exception)\n$str');
+      }
+      return;
+    }
+    _fail('Expect.throws($reason) fails');
+  }
 
-  static void listEquals(var expected, var actual, [String? reason = null]) {
+  /// Checks that given lists are equal.
+  static void listEquals(var expected, var actual, [String reason = '']) {
     if (expected is! List) {
-      Expect.fail("expected is not a List:$expected");
+      Expect.fail('expected is not a List:$expected');
+    } else if (actual is! List) {
+      Expect.fail('actual is not a List:$expected');
+    } else {
+      deepEquals(expected, actual, reason);
     }
-    if (actual is! List) {
-      Expect.fail("actual is not a List:$expected");
-    }
-    deepEquals(expected, actual, reason);
   }
 
-  static void mapEquals(var expected, var actual, [String? reason = null]) {
+  /// Checks that given maps are equal.
+  static void mapEquals(var expected, var actual, [String reason = '']) {
     if ((expected is! Map) || (actual is! Map)) {
-      Expect.fail("not a Map");
+      Expect.fail('not a Map');
+    } else {
+      deepEquals(expected, actual, reason);
     }
-    deepEquals(expected, actual, reason);
   }
 
-  /** checks that both collections have identical topology and equal primitive elements.
-   *  useful to check cyclic collections passed through ports and streams.
-   */
-  static void deepEquals(var expected, var actual, [String? reason = null]) {
-    Map planned = new Map();
-    Map processed = new Map();
+  /// Checks that both collections have identical topology and equal primitive
+  /// elements. Useful to check cyclic collections passed through ports and
+  /// streams.
+  static void deepEquals(var expected, var actual, [String reason = '']) {
+    Map planned = Map();
+    Map processed = Map();
 
     void plan2check(var expected, var actual) {
       if (expected == null) {
         Expect.isNull(actual);
       }
-      ;
+
       if ((expected is Map) || (expected is List)) {
         var savedActual = planned[expected];
         if (savedActual != null) {
@@ -277,19 +256,24 @@ class Expect {
           Expect.equals(savedActual, actual);
         } else {
           // this pair is not yet investigated
-          Expect.equals(expected.length, actual.length,
-              "Collections' lengths are not equal: expected length=${expected.length}, actual length=${actual.length}");
+          Expect.equals(
+              expected.length,
+              actual.length,
+              'Collection lengths are not equal: '
+              'expected length=${expected.length}, '
+              'actual length=${actual.length}');
           planned[expected] = actual;
         }
       } else {
-        Expect.equals(expected, actual);
+        Expect.equals(expected, actual, reason);
       }
     }
 
     void runPlanned(var expected, var actual) {
       if (expected is Map) {
         for (var key in expected.keys) {
-//        TODO check that key sets are equivalent. Following method does not work:
+//        TODO check that key sets are equivalent.
+//        The following method does not work:
 //          Expect.isTrue(actual.keys.toSet().remove(key)");
           plan2check(expected[key], actual[key]);
         }
@@ -300,7 +284,7 @@ class Expect {
       } else {
         Expect.fail("only Lists and Maps expected in the plan");
       }
-      // move pair from planned to processed
+      // Move pair from planned to processed
       planned.remove(expected);
       processed[expected] = actual;
     }
@@ -316,19 +300,77 @@ class Expect {
         runPlanned(key, planned[key]);
       }
     } catch (error) {
-      String msg = _getMessage(reason);
-      _fail('deepEquals($expected, $actual, $msg) fails\n   [cause: $error]');
+      _fail(
+          'deepEquals($expected, $actual, $reason) fails\n   [cause: $error]');
     }
   }
 
+  // Checks that given шеукфидуы are equal.
   static void iterableEquals(Iterable expected, Iterable actual) {
-    Iterator eit = expected.iterator;
-    Iterator ait = actual.iterator;
-    while (eit.moveNext()) {
-      Expect.isTrue(ait.moveNext());
-      Expect.equals(eit.current, ait.current);
+    Iterator expIterator = expected.iterator;
+    Iterator actIterator = actual.iterator;
+    while (expIterator.moveNext()) {
+      Expect.isTrue(actIterator.moveNext());
+      Expect.equals(expIterator.current, actIterator.current);
     }
-    Expect.isFalse(ait.moveNext());
+    Expect.isFalse(actIterator.moveNext());
+  }
+
+  /// Checks that [obj] object is of the type [T] or not.
+  static void _checkIs<T>(bool expected, Object? obj) {
+    Expect.equals(expected, obj is T);
+  }
+
+  /// Call this function with `checkIs` as the first parameter to check the type
+  /// to prevent the compiler reducing the code to the answer. Otherwise, dart2js
+  /// compiler may optimize `Expect.isTrue(c is C)` to `Expect_isTrue(true)`
+  @pragma('dart2js:noInline')
+  static void _checkType(
+      void Function(bool, Object?) checker, bool expected, Object? o) {
+    checker(expected, o);
+  }
+
+  /// Call this function to perform runtime type check. Sometimes compiler (for
+  /// example dart2js or AOT) optimizes
+  /// `Expect.isTrue(c is C)` to `Expect_isTrue(true)`
+  /// If you want to test not only compiler optimization but runtime as well the
+  /// use
+  /// ```dart
+  /// Expect.isTrue(c is C);  // to test optimization
+  /// Expect.runtimeIsType<C>(c); // to test runtime
+  /// ```
+  static void runtimeIsType<T>(Object? o) {
+    _checkType(_checkIs<T>, true, o);
+  }
+
+  /// Call this function to perform runtime type check. Sometimes compiler (for
+  /// example dart2js or AOT) optimizes
+  /// `Expect.isFalse(c is C)` to `Expect_isFalse(false)`
+  /// If you want to test not only compiler optimization but runtime as well the
+  /// use
+  /// ```dart
+  /// Expect.isFalse(c is C); // to test optimization
+  /// Expect.runtimeIsNotType<C>(c); // to test runtime
+  /// ```
+  static void runtimeIsNotType<T>(Object? o) {
+    _checkType(_checkIs<T>, false, o);
+  }
+
+  /// Checks that the run-time type of [o] implements `Iterable<T>`, otherwise
+  /// throws. For example,
+  /// `isRuntimeTypeImplementsIterable<num>(<int>[1, 2, 3])` will throw
+  /// `ExpectException`, but
+  /// `isRuntimeTypeImplementsIterable<num>(<num>[1, 2, 3])` succeeds.
+  static void isRuntimeTypeImplementsIterable<T>(Object? o) {
+    if (o is! Iterable<T>) {
+      throw ExpectException("Not Iterable<$T>: ${o.runtimeType}");
+    }
+    List<T> list = o.toList(growable: true);
+    try {
+      list.addAll(<T>[]);
+    } on TypeError catch (_) {
+      throw ExpectException("Expected Iterable<$T> but found $o");
+    }
   }
 }
 
@@ -351,3 +393,13 @@ final bool assertStatementsEnabled = (() {
 
 /// Is true iff js compiler is used
 final bool isJS = identical(1.0, 1);
+
+/// Checks that objects are identical at the compile time
+class CheckIdentical {
+  const CheckIdentical(Object? o1, Object? o2) : assert(identical(o1, o2));
+}
+
+/// Checks that objects are not identical at the compile time
+class CheckNotIdentical {
+  const CheckNotIdentical(Object? o1, Object? o2) : assert(!identical(o1, o2));
+}

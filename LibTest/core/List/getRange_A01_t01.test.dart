@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion  abstract Iterable<E> getRange(int start, int end)
- * Returns an Iterable that iterators over the elements in the range start to
- * end exclusive. The result of this function is backed by this.
- * @description Checks lists with valid ranges.
- * @author vasya
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion  abstract Iterable<E> getRange(int start, int end)
+/// Returns an Iterable that iterators over the elements in the range start to
+/// end exclusive. The result of this function is backed by this.
+/// @description Checks lists with valid ranges.
+/// @author vasya
+
 library getRange_A01_t01;
 
 import "../../../Utils/expect.dart";

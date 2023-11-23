@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion  Stream.fromFutures(Iterable<Future<T>> futures)
- * Create a stream from a group of futures.
- * . . .
- * If some futures have completed before calling Stream.fromFutures, their
- * result will be output on the created stream in some unspecified order.
- *
- * When all futures have completed, the stream is closed.
- *
- * @description Checks that if one future has completed before calling
- * Stream.fromFutures, their result will be output on the created stream in
- * some unspecified order. The stream is closed when all futures completed.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion  Stream.fromFutures(Iterable<Future<T>> futures)
+/// Create a stream from a group of futures.
+/// . . .
+/// If some futures have completed before calling Stream.fromFutures, their
+/// result will be output on the created stream in some unspecified order.
+///
+/// When all futures have completed, the stream is closed.
+///
+/// @description Checks that if one future has completed before calling
+/// Stream.fromFutures, their result will be output on the created stream in
+/// some unspecified order. The stream is closed when all futures completed.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

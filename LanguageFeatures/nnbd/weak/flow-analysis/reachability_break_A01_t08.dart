@@ -1,24 +1,22 @@
-/*
- * Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Break statement: If N is a statement of the form break [L];, then:
- *
- *  Let S be the statement targeted by the break. If L is not present, this is
- *  the innermost do, for, switch, or while statement. Otherwise it is the do,
- *  for, switch, or while statement with a label matching L.
- *
- *  Update break(S) = join(break(S), before(N)).
- *
- *  Let after(N) = unreachable(before(N)).
- *
- * @description Checks reachability after break statement. Test for-in loop and
- * a label. The outer loop is while
- *
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Break statement: If N is a statement of the form break [L];, then:
+///
+///  Let S be the statement targeted by the break. If L is not present, this is
+///  the innermost do, for, switch, or while statement. Otherwise it is the do,
+///  for, switch, or while statement with a label matching L.
+///
+///  Update break(S) = join(break(S), before(N)).
+///
+///  Let after(N) = unreachable(before(N)).
+///
+/// @description Checks reachability after break statement. Test for-in loop and
+/// a label. The outer loop is while
+///
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-weak
 import "../../../../Utils/expect.dart";
 

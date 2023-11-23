@@ -1,19 +1,16 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Float64x2List asFloat64x2List([int offsetInBytes = 0, int length])
- * Creates a Float64x2List view of a region of this byte buffer.
- * The view is backed by the bytes of this byte buffer. Any changes made to the
- * Float64x2List will also change the buffer, and vice versa.
- * @description Checks that method asFloat64x2List creates a Float64x2List view
- * of a region of this byte buffer, and any changes made to Float64x2List will
- * also change the buffer, and vice versa.
- * @author ngl@unipro.ru
- * @issue 43204
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Float64x2List asFloat64x2List([int offsetInBytes = 0, int length])
+/// Creates a Float64x2List view of a region of this byte buffer.
+/// The view is backed by the bytes of this byte buffer. Any changes made to the
+/// Float64x2List will also change the buffer, and vice versa.
+/// @description Checks that method asFloat64x2List creates a Float64x2List view
+/// of a region of this byte buffer, and any changes made to Float64x2List will
+/// also change the buffer, and vice versa.
+/// @author ngl@unipro.ru
+/// @issue 43204
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -27,6 +24,7 @@ void check(ByteBuffer buffer){
   int shift = (Float64x2List.bytesPerElement == 16) ? 4 : 0;
 
   Expect.isTrue(res is Float64x2List);
+  Expect.runtimeIsType<Float64x2List>(res);
   Expect.equals(bufSizeInBytes >> shift, viewLength);
 
   if (viewSizeInBytes != 0) {
@@ -72,9 +70,11 @@ main() {
   check((new Int32List.fromList(list1)).buffer);
   check((new Int32List.fromList(list2)).buffer);
 
-  check((new Int64List.fromList(list0)).buffer);
-  check((new Int64List.fromList(list1)).buffer);
-  check((new Int64List.fromList(list2)).buffer);
+  if(!isJS) {
+    check((new Int64List.fromList(list0)).buffer);
+    check((new Int64List.fromList(list1)).buffer);
+    check((new Int64List.fromList(list2)).buffer);
+  }
 
   check((new Int32x4List.fromList(list5)).buffer);
   check((new Int32x4List.fromList(list3)).buffer);

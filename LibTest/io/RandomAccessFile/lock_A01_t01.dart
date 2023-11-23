@@ -1,24 +1,22 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * Future<RandomAccessFile> lock([
- *     FileLock mode = FileLock.exclusive,
- *     int start = 0,
- *     int end = -1
- * ])
- * Locks the file or part of the file.
- *
- * By default an exclusive lock will be obtained, but that can be overridden by
- * the mode argument.
- *
- * @description Checks that method lock returns Future<RandomAccessFile> that
- * completes with this RandomAccessFile.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// Future<RandomAccessFile> lock([
+///     FileLock mode = FileLock.exclusive,
+///     int start = 0,
+///     int end = -1
+/// ])
+/// Locks the file or part of the file.
+///
+/// By default an exclusive lock will be obtained, but that can be overridden by
+/// the mode argument.
+///
+/// @description Checks that method lock returns Future<RandomAccessFile> that
+/// completes with this RandomAccessFile.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -31,6 +29,7 @@ check(FileLock lock) {
   asyncStart();
   var rfLock = rf.lock(lock);
   Expect.isTrue(rfLock is Future<RandomAccessFile>);
+  Expect.runtimeIsType<Future<RandomAccessFile>>(rfLock);
   rfLock.then((RandomAccessFile f) {
     Expect.isTrue(f == rf);
     asyncEnd();

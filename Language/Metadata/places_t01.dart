@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 // ignore: deprecated_member_use_from_same_package
-/**
- * @assertion
- *  Metadata can appear before a library, part header, class, typedef, type
- *  parameter, constructor, factory, function, parameter, or variable
- *  declaration, and before an import, export, or part directive.
- *
- * @description Check that metadata can appear before a library, class, typedef,
- * type parameter, constructor, factory, function, parameter, or variable
- * declaration
- * @author sgekhov@unipro.ru
- */
+/// @assertion
+///  Metadata can appear before a library, part header, class, typedef, type
+///  parameter, constructor, factory, function, parameter, or variable
+///  declaration, and before an import, export, or part directive.
+///
+/// @description Check that metadata can appear before a library, class, typedef,
+/// type parameter, constructor, factory, function, parameter, or variable
+/// declaration
+/// @author sgekhov@unipro.ru
+
 import "places_lib.dart";
 
 class A {

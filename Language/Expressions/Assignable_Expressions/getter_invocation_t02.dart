@@ -1,16 +1,13 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion An assignable expression of the form e.id or e?.id is evaluated
- * as a property extraction.
- * @description Checks that expression of the form e?.id is evaluated as
- * ((x) => x == null ? null : x.id)(e).
- * @static-warning
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion An assignable expression of the form e.id or e?.id is evaluated
+/// as a property extraction.
+/// @description Checks that expression of the form e?.id is evaluated as
+/// ((x) => x == null ? null : x.id)(e).
+/// @author ngl@unipro.ru
+
 
 import '../../../Utils/expect.dart';
 
@@ -29,8 +26,16 @@ class A {
 main() {
   A a = new A();
   A? b = null;
-  Expect.equals(1, a?.x);   /// static type warning
-  Expect.equals(20, a?.y);  /// static type warning
+  Expect.equals(1, a?.x);
+//                  ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                 ^
+// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
+  Expect.equals(20, a?.y);
+//                   ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                  ^
+// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
   Expect.isNull(b?.x);
   Expect.isNull(b?.y);
 }

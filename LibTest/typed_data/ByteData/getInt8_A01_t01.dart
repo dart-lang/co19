@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int getInt8(int byteOffset)
- * Returns the (possibly negative) integer represented by the byte at the
- * specified [byteOffset] in this object, in two's complement binary
- * representation.
- * The return value will be between -128 and 127, inclusive.
- * @description Checks that the correct value is returned.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int getInt8(int byteOffset)
+/// Returns the (possibly negative) integer represented by the byte at the
+/// specified [byteOffset] in this object, in two's complement binary
+/// representation.
+/// The return value will be between -128 and 127, inclusive.
+/// @description Checks that the correct value is returned.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

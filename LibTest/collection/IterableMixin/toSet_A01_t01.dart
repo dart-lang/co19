@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Set<E> toSet()
- * Creates a [Set] containing the elements of this [Iterable].  ...
- * The order of the elements in the set is not guaranteed to be the same as for
- * the iterable.
- * @description Checks that proper [Set] is created.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Set<E> toSet()
+/// Creates a [Set] containing the elements of this [Iterable].  ...
+/// The order of the elements in the set is not guaranteed to be the same as for
+/// the iterable.
+/// @description Checks that proper [Set] is created.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

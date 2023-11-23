@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<E> where(bool f(E element))
- * ...
- * The matching elements have the same order in the returned iterable as they
- * have in iterator.
- * @description Checks that all elements of the returned have the same order as
- * they have in iterator
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<E> where(bool f(E element))
+/// ...
+/// The matching elements have the same order in the returned iterable as they
+/// have in iterator.
+/// @description Checks that all elements of the returned have the same order as
+/// they have in iterator
+/// @author sgrekhov@unipro.ru
+
 library where_A02_t01;
  
 import "../../../Utils/expect.dart";

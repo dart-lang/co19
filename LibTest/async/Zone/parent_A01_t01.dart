@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion final Zone parent
- * Returns the parent zone.
- * Returns null if this is the ROOT zone.
- * @description Checks that parent property has expected values.
- * @author ilya
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion final Zone parent
+/// Returns the parent zone.
+/// Returns null if this is the ROOT zone.
+/// @description Checks that parent property has expected values.
+/// @author ilya
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future forEach(void action(T element))
- * Completes the future with an error if the stream has an error event, or if
- * action throws.
- * @description Checks that the future is completed with error if the stream has
- * an error event.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future forEach(void action(T element))
+/// Completes the future with an error if the stream has an error event, or if
+/// action throws.
+/// @description Checks that the future is completed with error if the stream
+/// has an error event.
+/// @author kaigorodov
+
 library forEach_A02_t01;
 
 import "dart:async";
@@ -21,12 +19,14 @@ void check(Stream s, Object expectedError) {
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([1, 2, 3, 4], isError: (v) => v == 4, defVal: 42), 4);
+  check(create([1, 2, 3, 4], isError: (v) => v == 4, defaultValue: 42), 4);
   List list = [];
   check(
-      create([null, "2", -3, 4.0, list], isError: (v) => v == list, defVal: 42),
+      create([null, "2", -3, 4.0, list], isError: (v) => v == list,
+          defaultValue: 42),
       list);
   check(
-      create([null, "2", -3, 4.0, list], isError: (v) => v == 4.0, defVal: 42),
+      create([null, "2", -3, 4.0, list], isError: (v) => v == 4.0,
+          defaultValue: 42),
       4.0);
 }

@@ -1,21 +1,18 @@
-/*
- * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion If e1 translates to F then e1?[e2] = e3 translates to:
- *  SHORT[EXP(e1), fn[x] => x[EXP(e2)] = EXP(e3)]
- *
- *  The other assignment operators are handled equivalently.
- *
- * @description Check that assignments like e1?[e2] ??= e3 translates to:
- *  SHORT[EXP(e1), fn[x] => x[EXP(e2)] ??= EXP(e3)]
- * @author sgrekhov@unipro.ru
- * @issue 40369
- * @issue 40557
- * @static-warning
- */
+// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion If e1 translates to F then e1?[e2] = e3 translates to:
+///  SHORT[EXP(e1), fn[x] => x[EXP(e2)] = EXP(e3)]
+///
+///  The other assignment operators are handled equivalently.
+///
+/// @description Check that assignments like e1?[e2] ??= e3 translates to:
+///  SHORT[EXP(e1), fn[x] => x[EXP(e2)] ??= EXP(e3)]
+/// @author sgrekhov@unipro.ru
+/// @issue 40369
+/// @issue 40557
+
 // Requirements=nnbd-weak
 import "../../../Utils/expect.dart";
 
@@ -42,9 +39,17 @@ class C {
 
 void testShort(C? x, int index, dynamic value) {
   var actual = x?[index] ??= value;
+//                           ^^^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//               ^
+// [cfe] Operand of null-aware operation '??=' has type 'int' which excludes null.
   var n0 = x;
   x?.init();
   var expected = n0 == null ? null : n0[index] ??= value;
+//                                                 ^^^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//                                     ^
+// [cfe] Operand of null-aware operation '??=' has type 'int' which excludes null.
   Expect.equals(expected, actual);
 }
 

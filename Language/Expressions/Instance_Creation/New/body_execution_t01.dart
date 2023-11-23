@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Otherwise, the body of q is executed with respect to the bindings
- * that resulted from the evaluation of the argument list and the type
- * parameters (if any) of q bound to the actual type arguments V1, ..., Vl
- * resulting in an object i. The result of the evaluation of e is i.
- * @description Checks that arguments of a constructor and instance variables
- * are bound correctly.
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Otherwise, the body of q is executed with respect to the bindings
+/// that resulted from the evaluation of the argument list and the type
+/// parameters (if any) of q bound to the actual type arguments V1, ..., Vl
+/// resulting in an object i. The result of the evaluation of e is i.
+/// @description Checks that arguments of a constructor and instance variables
+/// are bound correctly.
+/// @author msyabro
+
 import '../../../../Utils/expect.dart';
 
 int factoryA = 0;

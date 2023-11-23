@@ -1,44 +1,44 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void findProxy=(
- *  String f(
- *  Uri url
- *  )
- *  )
- * Sets the function used to resolve the proxy server to be used for opening a
- * HTTP connection to the specified url. If this function is not set, direct
- * connections will always be used.
- *
- * The string returned by f must be in the format used by browser PAC (proxy
- * auto-config) scripts. That is either
- *
- * "DIRECT"
- * for using a direct connection or
- *
- * "PROXY host:port"
- * for using the proxy server host on port port.
- *
- * A configuration can contain several configuration elements separated by
- * semicolons, e.g.
- *
- * "PROXY host:port; PROXY host2:port2; DIRECT"
- * The static function findProxyFromEnvironment on this class can be used to
- * implement proxy server resolving based on environment variables.
- * @description Checks that if this function is not set, direct connections are
- * used. Test Digest authentication response
- * @author sgrekhov@unipro.ru
- * @issue 42870
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void findProxy=(
+///  String f(
+///  Uri url
+///  )
+///  )
+/// Sets the function used to resolve the proxy server to be used for opening a
+/// HTTP connection to the specified url. If this function is not set, direct
+/// connections will always be used.
+///
+/// The string returned by f must be in the format used by browser PAC (proxy
+/// auto-config) scripts. That is either
+///
+/// "DIRECT"
+/// for using a direct connection or
+///
+/// "PROXY host:port"
+/// for using the proxy server host on port port.
+///
+/// A configuration can contain several configuration elements separated by
+/// semicolons, e.g.
+///
+/// "PROXY host:port; PROXY host2:port2; DIRECT"
+/// The static function findProxyFromEnvironment on this class can be used to
+/// implement proxy server resolving based on environment variables.
+/// @description Checks that if this function is not set, direct connections are
+/// used (no proxy routine is called in this case). Test Digest authentication
+/// response
+/// @author sgrekhov@unipro.ru
+/// @issue 42870
+
 import "dart:io";
 import 'dart:async';
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
 test() async {
+  bool authenticateProxyCalled = false;
   int requestCounter = 0;
 
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
@@ -46,31 +46,30 @@ test() async {
     Expect.isNull(request.headers[HttpHeaders.proxyAuthorizationHeader]);
     if (requestCounter++ == 0) {
       request.response.statusCode = HttpStatus.unauthorized;
-      request.response.headers
-          .set(HttpHeaders.proxyAuthenticateHeader, 'Digest, realm=realm, nonce=2');
+      request.response.headers.set(
+          HttpHeaders.proxyAuthenticateHeader, 'Digest, realm=realm, nonce=2');
       request.response.statusCode = HttpStatus.proxyAuthenticationRequired;
       request.response.close();
-    } else  {
-      request.response.close();
-      server.close();
-      asyncEnd();
+    } else {
+      Expect.fail("Unexpected request");
     }
   });
   HttpClient client = new HttpClient();
 
   client.authenticateProxy =
-      (String host, int port, String scheme, String realm) {
-    Completer<bool> completer = new Completer<bool>();
-    completer.complete(true);
-    return completer.future;
+      (String host, int port, String scheme, String? realm) {
+    authenticateProxyCalled = true;
+    return Future<bool>.value(true);
   };
 
-  client
-      .getUrl(Uri.parse(
+  client.getUrl(Uri.parse(
           "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
+    Expect.isFalse(authenticateProxyCalled);
+    server.close();
     response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
+    asyncEnd();
   });
 }
 

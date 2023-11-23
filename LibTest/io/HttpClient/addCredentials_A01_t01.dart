@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void addCredentials(
- *  Uri url,
- *  String realm,
- *  HttpClientCredentials credentials
- *  )
- * Add credentials to be used for authorizing HTTP requests.
- * @description Checks that this method adds credentials to be used for
- * authorizing HTTP requests.  Test Basic authorisation
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void addCredentials(
+///  Uri url,
+///  String realm,
+///  HttpClientCredentials credentials
+///  )
+/// Add credentials to be used for authorizing HTTP requests.
+/// @description Checks that this method adds credentials to be used for
+/// authorizing HTTP requests.  Test Basic authorisation
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

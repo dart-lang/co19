@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion DateTime modified
- *  final
- * The time of the last change to the data of the file system object.
- * @description Checks that this property returns the time of the last access to
- * the data of the file system object
- * @author sgrekhov@unipro.ru
- * @issue 18442
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion DateTime modified
+///  final
+/// The time of the last change to the data of the file system object.
+/// @description Checks that this property returns the time of the last access to
+/// the data of the file system object
+/// @author sgrekhov@unipro.ru
+/// @issue 18442
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";

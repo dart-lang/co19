@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool moveNext()
- * Moves to the next element.Returns true if [current] contains the next element.
- * @description Checks that true is returned if [current] contains the next
- * element.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool moveNext()
+/// Moves to the next element.Returns true if [current] contains the next element.
+/// @description Checks that true is returned if [current] contains the next
+/// element.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 void check(string) {

@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion An unforgeable object that comes back as equal when passed through
- * other isolates.
- *    Sending a capability object to another isolate, and getting it back, will
- * produce an object that is equal to the original. There is no other way to
- * create objects equal to a capability object.
- *
- * @description Checks Capability instance sent to another isolate and received
- * back is equal to itself
- *
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion An unforgeable object that comes back as equal when passed through
+/// other isolates.
+///    Sending a capability object to another isolate, and getting it back, will
+/// produce an object that is equal to the original. There is no other way to
+/// create objects equal to a capability object.
+///
+/// @description Checks Capability instance sent to another isolate and received
+/// back is equal to itself
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:async";
 import "dart:isolate";
 import "../../../Utils/expect.dart";

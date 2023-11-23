@@ -1,18 +1,15 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * Float32List.view(
- *     ByteBuffer buffer, [
- *     int byteOffset = 0, int length
- * ])
- * Creates a [Float32List] view of the specified region in buffer.
- * @description Checks that an instance of Float32List is created.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// Float32List.view(
+///     ByteBuffer buffer, [
+///     int byteOffset = 0, int length
+/// ])
+/// Creates a [Float32List] view of the specified region in buffer.
+/// @description Checks that an instance of Float32List is created.
+/// @author msyabro
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -22,6 +19,7 @@ void check(List<double> array, int offset, int length) {
   var byteBuffer = tmp.buffer;
   var l = new Float32List.view(byteBuffer, offset, length);
   Expect.isTrue(l is Float32List);
+  Expect.runtimeIsType<Float32List>(l);
 }
 
 main() {

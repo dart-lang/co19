@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion The implicit conversion of integer literals to double literals is
- * performed when the context type is double or double?
- *
- * @description Check that the implicit conversion of integer literals to double
- * literals is performed when the context type is double or double?
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The implicit conversion of integer literals to double literals is
+/// performed when the context type is double or double?
+///
+/// @description Check that the implicit conversion of integer literals to double
+/// literals is performed when the context type is double or double?
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 test1(double d) {

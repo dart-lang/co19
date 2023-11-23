@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract Iterable map(f(E element))
- * Returns a new lazy Iterable with elements that are created by calling f on
- * each element of this Iterable in iteration order.
- * @description Checks that the resulting [Iterable] contains all the results of
- * [f(e)].
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract Iterable map(f(E element))
+/// Returns a new lazy Iterable with elements that are created by calling f on
+/// each element of this Iterable in iteration order.
+/// @description Checks that the resulting [Iterable] contains all the results of
+/// [f(e)].
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

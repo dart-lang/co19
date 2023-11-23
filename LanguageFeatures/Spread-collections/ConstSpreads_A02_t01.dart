@@ -1,14 +1,11 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion In a constant map, a spread element expands to the series of
- * entries contained in the spread object map.
- * @static-warning
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion In a constant map, a spread element expands to the series of
+/// entries contained in the spread object map.
+/// @author iarkh@unipro.ru
+
 
 import "../../Utils/expect.dart";
 
@@ -21,16 +18,28 @@ main() {
   const Map res1 = {...map1};
   Expect.mapEquals(map1, res1);
   const Map res2 = <int, int>{...?map1};
+//                            ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.mapEquals(map1, res2);
 
   const Map res3 = <int, String>{...map2};
   Expect.mapEquals(map2, res3);
   const Map res4 = {...?map2};
+//                  ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                      ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.mapEquals(map2, res4);
 
   const Map res5 = {...map3};
   Expect.mapEquals(map3, res5);
   const Map res6 = {...?map3};
+//                  ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                      ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.mapEquals(map3, res6);
 
   const Map res7 = {...?map4};

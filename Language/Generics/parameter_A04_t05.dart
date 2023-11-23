@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- *    typeParameter ::= metadata identifier (extends typeNotVoid)?
- *    typeParameters ::= ‘<’ typeParameter (‘,’ typeParameter)* ‘>’
- * ...
- * Type parameters are declared in the type parameter scope of a class or
- * function. The type parameters of a generic [G] are in scope in the bounds of
- * all of the type parameters of [G].
- * @description Checks that function type parameter is in the type parameter
- * scope.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+///    typeParameter ::= metadata identifier (extends typeNotVoid)?
+///    typeParameters ::= ‘<’ typeParameter (‘,’ typeParameter)* ‘>’
+/// ...
+/// Type parameters are declared in the type parameter scope of a class or
+/// function. The type parameters of a generic [G] are in scope in the bounds of
+/// all of the type parameters of [G].
+/// @description Checks that function type parameter is in the type parameter
+/// scope.
+/// @author iarkh@unipro.ru
+
 
 import "../../Utils/expect.dart";
 

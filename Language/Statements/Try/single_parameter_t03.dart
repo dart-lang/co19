@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion An on-catch clause of the form on T catch (p1) s is equivalent to
- * an on-catch clause on T catch (p1, p2) s where p2 is an identiier that does
- * not occur anywhere else in the program.
- * @description Checks that a catch clause matches an object o if the type of o
- * is a subtype of T1.
- * @author vasya
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion An on-catch clause of the form on T catch (p1) s is equivalent to
+/// an on-catch clause on T catch (p1, p2) s where p2 is an identiier that does
+/// not occur anywhere else in the program.
+/// @description Checks that a catch clause matches an object o if the type of o
+/// is a subtype of T1.
+/// @author vasya
+
 import '../../../Utils/expect.dart';
 
 import 'try_lib.dart';

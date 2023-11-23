@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion If both the extension and the method is generic, then inference
- * must infer the extension type parameters first, to figure out whether the
- * extension applies, and only then start inferring method type parameters. As
- * mentioned above, the inference is similar to other cases of chained inference.
- * @description Check that runtime error is thrown if parameter type is
- * incorrect.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion If both the extension and the method is generic, then inference
+/// must infer the extension type parameters first, to figure out whether the
+/// extension applies, and only then start inferring method type parameters. As
+/// mentioned above, the inference is similar to other cases of chained inference.
+/// @description Check that runtime error is thrown if parameter type is
+/// incorrect.
+/// @author iarkh@unipro.ru
+
 
 
 import "../../Utils/expect.dart";

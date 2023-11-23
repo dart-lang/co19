@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int contentLength
- * Returns the content length of the response body. Returns -1 if the size of
- * the response body is not known in advance.
- *
- * If the content length needs to be set, it must be set before the body is
- * written to. Setting the reason phrase after writing to the body will throw a
- * StateError.
- * @description Checks that this getter returns the content length of the
- * response body. Test zero length response
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int contentLength
+/// Returns the content length of the response body. Returns -1 if the size of
+/// the response body is not known in advance.
+///
+/// If the content length needs to be set, it must be set before the body is
+/// written to. Setting the reason phrase after writing to the body will throw a
+/// StateError.
+/// @description Checks that this getter returns the content length of the
+/// response body. Test zero length response
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion other literal: If N is some other literal than the above, then:
- *  Let null(N) = unreachable(before(N)).
- *  Let notNull(N) = before(N)
- * @description Checks reachability after int literal
- *
- * @author sgrekhov@unipro.ru
- * @issue 41985
- */
+// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion other literal: If N is some other literal than the above, then:
+///  Let null(N) = unreachable(before(N)).
+///  Let notNull(N) = before(N)
+/// @description Checks reachability after int literal
+///
+/// @author sgrekhov@unipro.ru
+/// @issue 41985
+
 // Requirements=nnbd-weak
 import "../../../../Utils/expect.dart";
 

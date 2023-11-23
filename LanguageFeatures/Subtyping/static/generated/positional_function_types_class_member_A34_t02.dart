@@ -1,37 +1,31 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A type T0 is a subtype of a type T1 (written T0 <: T1) when:
- * Positional Function Types: T0 is U0 Function<X0 extends B00, ... ,
- * Xk extends B0k>(V0 x0, ..., Vn xn, [Vn+1 xn+1, ..., Vm xm])
- *
- *  and T1 is U1 Function<Y0 extends B10, ..., Yk extends B1k>(S0 y0, ...,
- *  Sp yp, [Sp+1 yp+1, ..., Sq yq])
- *  and p >= n
- *  and m >= q
- *  and Si[Z0/Y0, ..., Zk/Yk] <: Vi[Z0/X0, ..., Zk/Xk] for i in 0...q
- *  and U0[Z0/X0, ..., Zk/Xk] <: U1[Z0/Y0, ..., Zk/Yk]
- *  and B0i[Z0/X0, ..., Zk/Xk] === B1i[Z0/Y0, ..., Zk/Yk] for i in 0...k
- *  where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
- * @description Check that if T0 and T1 satisfies the rules above, then T0 is
- * subtype of T1. Test generic types with Null type when p > n and m = q.
- * @author sgrekhov@unipro.ru
- */
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be assigned to the superclass member of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from positional_function_types_A34.dart and 
- * class_member_x02.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
+/// @assertion A type T0 is a subtype of a type T1 (written T0 <: T1) when:
+/// Positional Function Types: T0 is U0 Function<X0 extends B00, ...,
+/// Xk extends B0k>(V0 x0, ..., Vn xn, [Vn+1 xn+1, ..., Vm xm])
+///
+///  and T1 is U1 Function<Y0 extends B10, ..., Yk extends B1k>(S0 y0, ...,
+///  Sp yp, [Sp+1 yp+1, ..., Sq yq])
+///  and p >= n
+///  and m >= q
+///  and Si[Z0/Y0, ..., Zk/Yk] <: Vi[Z0/X0, ..., Zk/Xk] for i in 0...q
+///  and U0[Z0/X0, ..., Zk/Xk] <: U1[Z0/Y0, ..., Zk/Yk]
+///  and B0i[Z0/X0, ..., Zk/Xk] === B1i[Z0/Y0, ..., Zk/Yk] for i in 0...k
+///  where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
+/// @description Check that if T0 and T1 satisfies the rules above, then T0 is
+/// subtype of T1. Test generic types with Null type when p > n and m = q.
+/// @author sgrekhov@unipro.ru
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be assigned to the superclass member of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from test_types/positional_function_types_A34.dart and
+/// test_cases/class_member_x02.dart. Don't modify it!
+/// If you need to change this test, then change one of the files above and then
+/// run generator/generator.dart to regenerate the tests.
 
 class A {}
 
@@ -88,10 +82,7 @@ U1<A?, List?, num?> t1Func<X extends B0, Y extends B1>(
     new U1<A?, List?, num?>();
 
 T0 t0Instance = t0Func;
-T1 t1Instance = t1Func;
 const t1Default = t1Func;
-
-
 
 class ClassMemberSuper1_t02 {
   T1 m = t1Default;
@@ -131,4 +122,3 @@ main() {
   c1.test();
   c1.superSetter = t0Instance;
 }
-

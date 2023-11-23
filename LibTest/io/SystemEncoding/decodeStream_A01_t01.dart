@@ -1,13 +1,11 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<String> decodeStream(Stream<List<int>> byteStream)
- * @description Checks that system encoding decodes from UTF-8 on Linux and Mac
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<String> decodeStream(Stream<List<int>> byteStream)
+/// @description Checks that system encoding decodes from UTF-8 on Linux and Mac
+/// @author a.semenov@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

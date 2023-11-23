@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Rectangle<T> intersection(Rectangle<T> other)
- * Computes the intersection of this and other.
- * The intersection of two axis-aligned rectangles, if any, is always another
- * axis-aligned rectangle.
- * Returns the intersection of this and other, or null if they don't intersect.
- * @description Checks the function for some predefined data.
- * @author kaigorodov
- */
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Rectangle<T> intersection(Rectangle<T> other)
+/// Computes the intersection of this and other.
+/// The intersection of two axis-aligned rectangles, if any, is always another
+/// axis-aligned rectangle.
+/// Returns the intersection of this and other, or null if they don't intersect.
+/// @description Checks the function for some predefined data.
+/// @author kaigorodov
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

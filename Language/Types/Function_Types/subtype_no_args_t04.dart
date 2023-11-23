@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A function type (T1,...Tk,[Tk+1,...,Tn+m]) -> T is a subtype of
- * the function type (S1,...,Sk+j,[Sk+j+1,...,Sn]) -> S, if all of the following
- * conditions are met:
- * 1. Either
- *    • S is void, or
- *    • T <=> S.
- * 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
- * @description Checks that this statement is true for function types with no
- * arguments: S is some generic, T is some other type assignable to S.
- * @author iefremov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A function type (T1,...Tk,[Tk+1,...,Tn+m]) -> T is a subtype of
+/// the function type (S1,...,Sk+j,[Sk+j+1,...,Sn]) -> S, if all of the following
+/// conditions are met:
+/// 1. Either
+///    • S is void, or
+///    • T <=> S.
+/// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+/// @description Checks that this statement is true for function types with no
+/// arguments: S is some generic, T is some other type assignable to S.
+/// @author iefremov
+
 import "../../../Utils/expect.dart";
 
 typedef t1();
@@ -95,11 +93,23 @@ main() {
   Expect.isTrue(f7 is t8);
   Expect.isTrue(f8 is t8);
   Expect.isTrue(f9 is t8);
+  Expect.runtimeIsType<t8>(f1);
+  Expect.runtimeIsType<t8>(f2);
+  Expect.runtimeIsType<t8>(f3);
+  Expect.runtimeIsType<t8>(f4);
+  Expect.runtimeIsType<t8>(f5);
+  Expect.runtimeIsType<t8>(f6);
+  Expect.runtimeIsType<t8>(f7);
+  Expect.runtimeIsType<t8>(f8);
+  Expect.runtimeIsType<t8>(f9);
 
   //() -> T is () -> List<int>
   Expect.isFalse(f10 is t9);
   Expect.isTrue(f11 is t9);
   Expect.isFalse(f12 is t9);
+  Expect.runtimeIsNotType<t9>(f10);
+  Expect.runtimeIsType<t9>(f11);
+  Expect.runtimeIsNotType<t9>(f12);
 
   //() -> T is () -> List<B>
   Expect.isFalse(f13 is t14);
@@ -108,6 +118,12 @@ main() {
   Expect.isTrue(f16 is t14);
   Expect.isTrue(f17 is t14);
   Expect.isTrue(f18 is t14);
+  Expect.runtimeIsNotType<t14>(f13);
+  Expect.runtimeIsNotType<t14>(f14);
+  Expect.runtimeIsNotType<t14>(f15);
+  Expect.runtimeIsType<t14>(f16);
+  Expect.runtimeIsType<t14>(f17);
+  Expect.runtimeIsType<t14>(f18);
 
   //() -> T is () -> Map
   Expect.isTrue(f19 is t15);
@@ -120,6 +136,16 @@ main() {
   Expect.isTrue(f26 is t15);
   Expect.isTrue(f27 is t15);
   Expect.isTrue(f28 is t15);
+  Expect.runtimeIsType<t15>(f19);
+  Expect.runtimeIsType<t15>(f20);
+  Expect.runtimeIsType<t15>(f21);
+  Expect.runtimeIsType<t15>(f22);
+  Expect.runtimeIsType<t15>(f23);
+  Expect.runtimeIsType<t15>(f24);
+  Expect.runtimeIsType<t15>(f25);
+  Expect.runtimeIsType<t15>(f26);
+  Expect.runtimeIsType<t15>(f27);
+  Expect.runtimeIsType<t15>(f28);
 
   //() -> T is () -> Map<num, Object>
   Expect.isTrue(f29 is t16);
@@ -133,4 +159,15 @@ main() {
   Expect.isTrue(f37 is t16);
   Expect.isTrue(f38 is t16);
   Expect.isTrue(f39 is t16);
+  Expect.runtimeIsType<t16>(f29);
+  Expect.runtimeIsType<t16>(f30);
+  Expect.runtimeIsType<t16>(f31);
+  Expect.runtimeIsType<t16>(f32);
+  Expect.runtimeIsType<t16>(f33);
+  Expect.runtimeIsType<t16>(f34);
+  Expect.runtimeIsType<t16>(f35);
+  Expect.runtimeIsType<t16>(f36);
+  Expect.runtimeIsType<t16>(f37);
+  Expect.runtimeIsType<t16>(f38);
+  Expect.runtimeIsType<t16>(f39);
 }

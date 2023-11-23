@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void removeWhere(bool test(E element))
- * The [test] function must not throw or modify the queue.
- *
- * @description Checks case when test function throws exception
- * @author iarkh@unipro.ru
- * @issue 27920
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void removeWhere(bool test(E element))
+/// The [test] function must not throw or modify the queue.
+///
+/// @description Checks case when test function throws exception
+/// @author iarkh@unipro.ru
+/// @issue 27920
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

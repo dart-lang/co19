@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int contentLength
- *  read / write
- * Gets and sets the content length of the request. If the size of the request
- * is not known in advance set content length to -1, which is also the default.
- * @description Checks that default value of this property
- * @author sgrekhov@unipro.ru
- * @issue 31583
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int contentLength
+///  read / write
+/// Gets and sets the content length of the request. If the size of the request
+/// is not known in advance set content length to -1, which is also the default.
+/// @description Checks that default value of this property
+/// @author sgrekhov@unipro.ru
+/// @issue 31583
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

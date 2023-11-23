@@ -1,25 +1,23 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream timeout(Duration timeLimit,
- *                           {void onTimeout(EventSink sink)})
- * Creates a new stream with the same events as this stream.
- *
- * Whenever more than timeLimit passes between two events from this stream, the
- * onTimeout function is called.
- *
- * The onTimeout function is called with one argument: an EventSink that allows
- * putting events into the returned stream. This EventSink is only valid during
- * the call to onTimeout.
- *
- * @description Check that if more than timeLimit passes between two events
- * from this stream, the onTimeout function is called with one argument: an
- * EventSink that allows putting events into the returned stream.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream timeout(Duration timeLimit,
+///                           {void onTimeout(EventSink sink)})
+/// Creates a new stream with the same events as this stream.
+///
+/// Whenever more than timeLimit passes between two events from this stream, the
+/// onTimeout function is called.
+///
+/// The onTimeout function is called with one argument: an EventSink that allows
+/// putting events into the returned stream. This EventSink is only valid during
+/// the call to onTimeout.
+///
+/// @description Check that if more than timeLimit passes between two events
+/// from this stream, the onTimeout function is called with one argument: an
+/// EventSink that allows putting events into the returned stream.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

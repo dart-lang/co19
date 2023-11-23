@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Duration operator *(num factor)
- * Multiplies this Duration by the given factor and returns the result as a new Duration.
- * Note that when factor is a double, and the duration is greater than 53 bits,
- * precision is lost because of double-precision arithmetic.
- * @description Checks that duration calculation is correct
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Duration operator *(num factor)
+/// Multiplies this Duration by the given factor and returns the result as a new Duration.
+/// Note that when factor is a double, and the duration is greater than 53 bits,
+/// precision is lost because of double-precision arithmetic.
+/// @description Checks that duration calculation is correct
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 
 void check(int d, int h, int m, int s, int ms, num f) {

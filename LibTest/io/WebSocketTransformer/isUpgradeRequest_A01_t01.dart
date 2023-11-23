@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool isUpgradeRequest(HttpRequest request)
- * Checks whether the request is a valid WebSocket upgrade request.
- * @description Checks that he method [isUpgradeRequest] return true if a
- * parameter is a valid WebSocket upgrade request.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool isUpgradeRequest(HttpRequest request)
+/// Checks whether the request is a valid WebSocket upgrade request.
+/// @description Checks that he method [isUpgradeRequest] return true if a
+/// parameter is a valid WebSocket upgrade request.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

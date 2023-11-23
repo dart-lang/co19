@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void checkNotNegative(int value, [String name, String message])
- * Check that an integer value isn't negative.
- * Throws if the value is negative.
- * @description Checks that this method throws a RangeError if value
- * is negative
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void checkNotNegative(int value, [String name, String message])
+/// Check that an integer value isn't negative.
+/// Throws if the value is negative.
+/// @description Checks that this method throws a RangeError if value
+/// is negative
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
  
 main() {
@@ -19,7 +17,7 @@ main() {
     Expect.fail("RangeError expected");
   } on RangeError catch (e) {
     Expect.equals(-1, e.invalidValue);
-    Expect.equals(null, e.name);
+    Expect.isNotNull(e.name);
     Expect.equals("Invalid value", e.message);
     Expect.equals(0, e.start);
     Expect.equals(null, e.end);

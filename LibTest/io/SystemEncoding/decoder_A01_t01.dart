@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Converter<List<int>, String> decoder
- *  Returns the decoder of this, converting from T to S.
- *  It may be stateful an should not be reused.
- * @description Checks that system encoding decoder decodes from UTF-8
- * on Linux and Mac
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Converter<List<int>, String> decoder
+///  Returns the decoder of this, converting from T to S.
+///  It may be stateful and should not be reused.
+/// @description Checks that system encoding decoder decodes from UTF-8
+/// on Linux and Mac
+/// @author a.semenov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

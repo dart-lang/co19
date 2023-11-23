@@ -1,20 +1,16 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion The grammar of selectors is extended to allow null-aware
- * subscripting using the syntax e1?[e2] which evaluates to null if e1
- * evaluates to null and otherwise evaluates as e1[e2].
- *
- * @description Check that the grammar of selectors is extended to allow
- * null-aware subscripting using the syntax e1?[e2] which evaluates to null if
- * e1 evaluates to null and otherwise evaluates as e1[e2].
- * @static-warning
- * @author sgrekhov@unipro.ru
- * @issue 39865
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The grammar of selectors is extended to allow null-aware
+/// subscripting using the syntax e1?[e2] which evaluates to null if e1
+/// evaluates to null and otherwise evaluates as e1[e2].
+///
+/// @description Check that the grammar of selectors is extended to allow
+/// null-aware subscripting using the syntax e1?[e2] which evaluates to null if
+/// e1 evaluates to null and otherwise evaluates as e1[e2].
+/// @author sgrekhov@unipro.ru
+/// @issue 39865
 
 // Requirements=nnbd-strong
 
@@ -28,5 +24,9 @@ main() {
   C? c = null;
   Expect.isNull(c?[42]);
   c = new C();
-  Expect.equals(4, c?[2]);   /// static type warning
+  Expect.equals(4, c?[2]);
+//                  ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                 ^
+// [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.
 }

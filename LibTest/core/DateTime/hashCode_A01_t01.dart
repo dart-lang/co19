@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion final int hashCode
- * Get a hash code for this object.
- * docs inherited from Object:
- * All objects have hash codes. Hash codes are guaranteed to be the same for
- * objects that are equal when compared using the equality operator ==.
- * @description Checks that hashCode is int.
- * Checks that hashcodes are the same for equal objects. 
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion final int hashCode
+/// Get a hash code for this object.
+/// docs inherited from Object:
+/// All objects have hash codes. Hash codes are guaranteed to be the same for
+/// objects that are equal when compared using the equality operator ==.
+/// @description Checks that hashCode is int.
+/// Checks that hashcodes are the same for equal objects. 
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 
 check(t1, t2) {
@@ -22,6 +20,8 @@ check(t1, t2) {
   var h2 = date2.hashCode;
   Expect.isTrue(h1 is int);
   Expect.isTrue(h2 is int);
+  Expect.runtimeIsType<int>(h1);
+  Expect.runtimeIsType<int>(h2);
   if (date1 == date2) {
     Expect.equals(h1, h2);
   }

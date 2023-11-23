@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void write(Object obj)
- * Converts [obj] to a [String] by invoking [Object.toString] and adds the
- * encoding of the result to the target consumer.
- * @description Checks that objects of the different types can be correctly
- * added to the consumer
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void write(Object obj)
+/// Converts [obj] to a [String] by invoking [Object.toString] and adds the
+/// encoding of the result to the target consumer.
+/// @description Checks that objects of the different types can be correctly
+/// added to the consumer
+/// @author iarkh@unipro.ru
+
 
 import "../../../Utils/expect.dart";
 import "dart:async";
@@ -32,7 +30,7 @@ List expected = [
   [91, 49, 44, 32, 50, 44, 32, 51, 93],
   [110, 117, 108, 108]];
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       Expect.equals(expected.length, x.length);

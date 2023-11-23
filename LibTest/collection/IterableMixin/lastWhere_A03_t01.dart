@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion E lastWhere(bool test(E value), { E orElse() })
- * If no element satisfies [test] ... . If [orElse] is omitted, it defaults to
- * throwing a [StateError].
- * @description Checks that [StateError] is thrown if there are no elements
- * corresponding [test] and [orElse] function is omitted.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion E lastWhere(bool test(E value), { E orElse() })
+/// If no element satisfies [test] ... . If [orElse] is omitted, it defaults to
+/// throwing a [StateError].
+/// @description Checks that [StateError] is thrown if there are no elements
+/// corresponding [test] and [orElse] function is omitted.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

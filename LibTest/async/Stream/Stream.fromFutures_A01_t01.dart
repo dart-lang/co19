@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion  Stream.fromFutures(Iterable<Future<T>> futures)
- * Create a stream from a group of futures.
- *
- * The stream reports the results of the futures on the stream in the order in
- * which the futures complete.
- *
- * @description Checks that the stream reports the results of the futures on the
- * stream in the order in which the futures complete. Check serial order.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion  Stream.fromFutures(Iterable<Future<T>> futures)
+/// Create a stream from a group of futures.
+///
+/// The stream reports the results of the futures on the stream in the order in
+/// which the futures complete.
+///
+/// @description Checks that the stream reports the results of the futures on the
+/// stream in the order in which the futures complete. Check serial order.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

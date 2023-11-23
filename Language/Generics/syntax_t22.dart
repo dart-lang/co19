@@ -1,15 +1,11 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A class declaration, type alias, or function [G] may be generic,
- * that is, [G] may have formal type parameters declared.
- * @description @description Checks various correct type alias declarations.
- * @author iarkh@unipro.ru
- */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A class declaration, type alias, or function [G] may be generic,
+/// that is, [G] may have formal type parameters declared.
+/// @description @description Checks various correct type alias declarations.
+/// @author iarkh@unipro.ru
 
 import "../../Utils/expect.dart";
 
@@ -25,12 +21,16 @@ main() {
   BAlias b1 = new B(1, 2);
   Expect.isTrue(b1 is B);
   Expect.isTrue(b1 is BAlias);
+  Expect.runtimeIsType<B>(b1);
+  Expect.runtimeIsType<BAlias>(b1);
   Expect.equals(1, b1.x);
   Expect.equals(2, b1.y);
 
   BAlias<int, String> b2 = new B<int, String>(0, "testme");
   Expect.isTrue(b2 is B<int, String>);
   Expect.isTrue(b2 is BAlias<int, String>);
+  Expect.runtimeIsType<B<int, String>>(b2);
+  Expect.runtimeIsType<BAlias<int, String>>(b2);
   Expect.equals(0, b2.x);
   Expect.equals("testme", b2.y);
 }

@@ -1,17 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A constant object expression invokes a constant constructor.
- * constObjectExpression:
- *   const type ('.' identifier)? arguments
- * ;
- * @description Checks that various valid constant object expressions don't
- * produce compile-time errors.
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A constant object expression invokes a constant constructor.
+/// constObjectExpression:
+///   const type ('.' identifier)? arguments
+/// ;
+/// @description Checks that various valid constant object expressions don't
+/// produce compile-time errors.
+/// @author msyabro
 
 class A {
   const A();
@@ -36,4 +33,8 @@ main() {
   const B.b(p2: "p2");
 
   const C._1(const [], const {});
+
+  const [];
+  const {};
+  const ();
 }

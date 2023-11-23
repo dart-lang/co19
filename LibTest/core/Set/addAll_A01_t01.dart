@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion  abstract void addAll(Iterable<E> elements)
- * Adds all of elements to this Set.
- * @description Adds some integers to the set and checks that all of the unique
- * ones are actually added.
- * @author pagolubev
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion  abstract void addAll(Iterable<E> elements)
+/// Adds all of elements to this Set.
+/// @description Adds some integers to the set and checks that all of the unique
+/// ones are actually added.
+/// @author pagolubev
+
 library addAll_A01_t01;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";

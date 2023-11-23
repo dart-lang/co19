@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Duration difference(DateTime other) 
- * Returns a [Duration] with the difference of [:this:] and [other]
- * @description Checks that the method returns correct value
- * @author hlodvig
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Duration difference(DateTime other) 
+/// Returns a [Duration] with the difference of [:this:] and [other]
+/// @description Checks that the method returns correct value
+/// @author hlodvig
+
 import "../../../Utils/expect.dart";
 void check(val1, val2, expected){
   DateTime dt1 = new DateTime.fromMillisecondsSinceEpoch(val1);

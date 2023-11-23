@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion 15.10.2.9: An escape sequence of the form \ followed by a nonzero
- * decimal number n matches the result of the Nth set of capturing parentheses
- * (see 15.10.2.11). It is an error if the regular expression has fewer than n
- * capturing parentheses. If the regular expression has n or more capturing
- * parentheses but the Nth one is undefined because it has not captured
- * anything, then the backreference always succeeds.
- * @description Checks that backreferences work as specified.
- * @3rdparty sputnik-v1:S15.10.2.9_A1_T1.js-S15.10.2.9_A1_T5.js
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion 15.10.2.9: An escape sequence of the form \ followed by a nonzero
+/// decimal number n matches the result of the Nth set of capturing parentheses
+/// (see 15.10.2.11). It is an error if the regular expression has fewer than n
+/// capturing parentheses. If the regular expression has n or more capturing
+/// parentheses but the Nth one is undefined because it has not captured
+/// anything, then the backreference always succeeds.
+/// @description Checks that backreferences work as specified.
+/// @3rdparty sputnik-v1:S15.10.2.9_A1_T1.js-S15.10.2.9_A1_T5.js
+/// @author rodionov
+
 import "../../../../Utils/expect.dart";
  
 

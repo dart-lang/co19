@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Float32x4 shuffleMix(Float32x4 other, int mask)
- * Shuffle the lane values in this and other.
- * The returned Float32x4 will have XY lanes from this and ZW lanes from other.
- * Uses the same mask as shuffle.
- * @description Checks that the lane values are shuffled correctly.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Float32x4 shuffleMix(Float32x4 other, int mask)
+/// Shuffle the lane values in this and other.
+/// The returned Float32x4 will have XY lanes from this and ZW lanes from other.
+/// Uses the same mask as shuffle.
+/// @description Checks that the lane values are shuffled correctly.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

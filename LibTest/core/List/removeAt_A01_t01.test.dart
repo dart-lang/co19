@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract E removeAt(int index)
- * Removes the element at position index from the list.
- * This reduces the length of the list by one and moves all later elements down
- * by one position. Returns the removed element.
- * @description Checks that the element at the index is removed. Checks that the
- * removed element is returned.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract E removeAt(int index)
+/// Removes the element at position index from the list.
+/// This reduces the length of the list by one and moves all later elements down
+/// by one position. Returns the removed element.
+/// @description Checks that the element at the index is removed. Checks that the
+/// removed element is returned.
+/// @author kaigorodov
+
 library removeAt_A01_t01;
 
 import "../../../Utils/expect.dart";

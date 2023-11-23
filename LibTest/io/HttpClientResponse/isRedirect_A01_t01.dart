@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool isRedirect
- * Returns whether the status code is one of the normal redirect codes
- * HttpStatus.movedPermanently, HttpStatus.found, HttpStatus.movedTemporarily,
- * HttpStatus.seeOther and HttpStatus.temporaryRedirect.
- * @description Checks that this getter returns whether the status code is one
- * of the normal redirect codes
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool isRedirect
+/// Returns whether the status code is one of the normal redirect codes
+/// HttpStatus.movedPermanently, HttpStatus.found, HttpStatus.movedTemporarily,
+/// HttpStatus.seeOther and HttpStatus.temporaryRedirect.
+/// @description Checks that this getter returns whether the status code is one
+/// of the normal redirect codes
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion LinkedHashSet({bool equals(E e1, E e2), int hashCode(E e),
- * bool isValidKey(potentialKey)})
- * Create an insertion-ordered hash set using the provided [equals] and
- * [hashCode]. The provided [equals] must define a stable equivalence relation,
- * and [hashCode] must be consistent with [equals]
- * @description Checks that if consistent [equals] and [hashCode] are provided,
- * they are used to compare the keys and produce hash value for keys
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion LinkedHashSet({bool equals(E e1, E e2), int hashCode(E e),
+/// bool isValidKey(potentialKey)})
+/// Create an insertion-ordered hash set using the provided [equals] and
+/// [hashCode]. The provided [equals] must define a stable equivalence relation,
+/// and [hashCode] must be consistent with [equals]
+/// @description Checks that if consistent [equals] and [hashCode] are provided,
+/// they are used to compare the keys and produce hash value for keys
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

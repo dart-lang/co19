@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Set<E> abstract class 
- * Implements Iterable<E>
- * @description All set tests runner
- * @author kaigorodov
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Set<E> abstract class 
+/// Implements Iterable<E>
+/// @description All set tests runner
+/// @author kaigorodov
+/// @author sgrekhov@unipro.ru
+
 library all_set_tests;
 
 import "../../core/Iterable/allTests.lib.dart" as iterable_tests;
@@ -52,8 +50,8 @@ import "retainAll_A01_t02.dart" as retainAll_A01_t02;
 import "retainWhere_A01_t01.dart" as retainWhere_A01_t01;
 import "union_A01_t01.dart" as union_A01_t01;
 
-test(Set create([Iterable? content])) {
-  iterable_tests.test(create, isSet: true);
+test(Set create([Iterable? content]), {bool ordered = true}) {
+  iterable_tests.test(create, isSet: true, ordered: ordered);
 
   add_A01_t01.test(create);
   add_A01_t02.test(create);

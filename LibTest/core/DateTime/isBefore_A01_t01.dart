@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool isBefore(DateTime other)
- * Returns true if this occurs before other.
- * The comparison is independent of whether the time is in UTC or in the local
- * time zone.
- * @description Checks that true is returned only if this occurs before other.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool isBefore(DateTime other)
+/// Returns true if this occurs before other.
+/// The comparison is independent of whether the time is in UTC or in the local
+/// time zone.
+/// @description Checks that true is returned only if this occurs before other.
+/// @author kaigorodov
+
 
 import "../../../Utils/expect.dart";
 

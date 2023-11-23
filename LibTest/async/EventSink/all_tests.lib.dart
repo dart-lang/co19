@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion EventSync abstract class
- *
- * @description Runner for ll members of EventSync
- * @note Run by ../StreamSink/StreamSink_inherited_tests.lib.dart
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion EventSync abstract class
+///
+/// @description Runner for ll members of EventSync
+/// @note Run by ../StreamSink/StreamSink_inherited_tests.lib.dart
+/// @author ngl@unipro.ru
+
 library all_tests_eventsink;
 import "dart:async";
 

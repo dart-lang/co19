@@ -1,23 +1,21 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Finally, we define inference on a setOrMapLiteral collection as
- * follows:
- * ...
- * Else, if collection is unambiguously a map literal where P is Map<Pk, Pv>:
- *
- * If Pv is ? then the static value type of collection is V where V is the least
- * upper bound of the inferred value types of the elements.
- *
- * @description Checks that if collection is unambiguously a map literal and Pv
- * is ? then the static value type of collection is V where V is the least
- * upper bound of the inferred value types of the elements
- * @author sgrekhov@unipro.ru
- * @issue 43280
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Finally, we define inference on a setOrMapLiteral collection as
+/// follows:
+/// ...
+/// Else, if collection is unambiguously a map literal where P is Map<Pk, Pv>:
+///
+/// If Pv is ? then the static value type of collection is V where V is the least
+/// upper bound of the inferred value types of the elements.
+///
+/// @description Checks that if collection is unambiguously a map literal and Pv
+/// is ? then the static value type of collection is V where V is the least
+/// upper bound of the inferred value types of the elements
+/// @author sgrekhov@unipro.ru
+/// @issue 43280
+
 import "../../Utils/expect.dart";
 
 class C<K, V extends num> {
@@ -26,6 +24,9 @@ class C<K, V extends num> {
     Expect.isTrue(m is Map<Object?, num>);
     Expect.isFalse(m is Map<Object?, int>);
     Expect.isFalse(m is Map<int?, num>);
+    Expect.runtimeIsType<Map<Object?, num>>(m);
+    Expect.runtimeIsNotType<Map<Object?, int>>(m);
+    Expect.runtimeIsNotType<Map<int?, num>>(m);
   }
 }
 

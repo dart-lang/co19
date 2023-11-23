@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Returns an ordered collection of matches of the regular expression
- * in [str]. The order in the collection is the order of the matches found
- * in [str].
- * @description Checks that all matches are returned in correct order
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Returns an ordered collection of matches of the regular expression
+/// in [str]. The order in the collection is the order of the matches found
+/// in [str].
+/// @description Checks that all matches are returned in correct order
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
  
 main() {
@@ -70,8 +68,8 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase,
   });
 }
 
-void checkNeg(String pattern, String str, {bool multiLine: false,
-    bool ignoreCase: false}) {
+void checkNeg(String pattern, String str, {bool multiLine = false,
+    bool ignoreCase = false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
   Iterable<Match> matches = re.allMatches(str);

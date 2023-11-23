@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Float32List.fromList(List<double> elements)
- * Creates a [Float32List] with the same length as the [elements] list
- * and copies over the elements.
- * @description Checks that an instance of Float32List is created.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Float32List.fromList(List<double> elements)
+/// Creates a [Float32List] with the same length as the [elements] list
+/// and copies over the elements.
+/// @description Checks that an instance of Float32List is created.
+/// @author msyabro
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(List<double> array) {
-  Float32List l = new Float32List.fromList(array);
+  var l = new Float32List.fromList(array);
   Expect.isTrue(l is Float32List);
+  Expect.runtimeIsType<Float32List>(l);
 }
 
 main() {

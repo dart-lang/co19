@@ -1,17 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream<List<int>> stderr
- *
- * Returns the standard error stream of the process as a Stream.
- *
- * @description Checks that [stderr] returns Stream<List<int>> value that is the
- * standard error stream of the process as a Stream.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<List<int>> stderr
+///
+/// Returns the standard error stream of the process as a Stream.
+///
+/// @description Checks that [stderr] returns Stream<List<int>> value that is the
+/// standard error stream of the process as a Stream.
+/// @author sgrekhov@unipro.ru
 
 import 'dart:convert';
 import "dart:io";
@@ -29,6 +26,7 @@ runMain() async {
   asyncStart();
   Process.start(command, args).then((Process process) {
     Expect.isTrue(process.stderr is Stream<List<int>>);
+    Expect.runtimeIsType<Stream<List<int>>>(process.stderr);
     process.stderr.transform(utf8.decoder)
       .transform(const LineSplitter()).toList().then((List errList) {
       Expect.isTrue(errList[0].contains("stderr"), "Actual value: errList[0]");

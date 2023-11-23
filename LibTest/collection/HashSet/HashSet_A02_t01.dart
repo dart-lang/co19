@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion interface HashSet<E>
- * HashSet({bool equals(E e1, E e2), int hashCode(E e),
- * bool isValidKey(potentialKey) })
- * If the [equals] or [hashCode] methods won't work on all objects, but only on
- * some instances of [E], the [isValidKey] predicate can be used to restrict the
- * keys that the functions are applied to. Any key for which [isValidKey]
- * returns [false] is automatically assumed to not be in the set when asking
- * contains.
- * @description Checks that if [isValidKey] returns [false] given key is assumed
- * not to be in the set and so [equals] and [hashCode] methods are not called.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion interface HashSet<E>
+/// HashSet({bool equals(E e1, E e2), int hashCode(E e),
+/// bool isValidKey(potentialKey) })
+/// If the [equals] or [hashCode] methods won't work on all objects, but only on
+/// some instances of [E], the [isValidKey] predicate can be used to restrict the
+/// keys that the functions are applied to. Any key for which [isValidKey]
+/// returns [false] is automatically assumed to not be in the set when asking
+/// contains.
+/// @description Checks that if [isValidKey] returns [false] given key is assumed
+/// not to be in the set and so [equals] and [hashCode] methods are not called.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

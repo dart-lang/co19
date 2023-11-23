@@ -10,4 +10,7 @@ get value { return _value; }
 set value(value) { _value = value; }
 var _value;
 
-12 //error
+  12
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified

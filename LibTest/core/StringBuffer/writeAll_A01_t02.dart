@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void writeAll(Iterable objects, [String separator = ""])
- * Iterates over the given objects and writes them in sequence.
- * @description Tries to pass a list with elements that are null or aren't
- * Strings as argument, correct string conversion expected
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void writeAll(Iterable objects, [String separator = ""])
+/// Iterates over the given objects and writes them in sequence.
+/// @description Tries to pass a list with elements that are null or aren't
+/// Strings as argument, correct string conversion expected
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 class A {

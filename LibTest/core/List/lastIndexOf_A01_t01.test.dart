@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract int lastIndexOf(E element, [int start])
- * Returns the last index of element in the list.
- * Searches the list backwards from index start to 0.
- * The first time an element e is encountered so that e == element,
- * the index of e is returned.
- * @description Checks that the correct index is returned, if the element is
- * present in the list.
- * @author iefremov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract int lastIndexOf(E element, [int start])
+/// Returns the last index of element in the list.
+/// Searches the list backwards from index start to 0.
+/// The first time an element e is encountered so that e == element,
+/// the index of e is returned.
+/// @description Checks that the correct index is returned, if the element is
+/// present in the list.
+/// @author iefremov
+
 library lastIndexOf_A01_t01;
 
 import "../../../Utils/expect.dart";

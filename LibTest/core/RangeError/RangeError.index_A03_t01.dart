@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion RangeError.index(int index, indexable,
- *    [String name, String message, int length])
- * ...
- * The length is the length of indexable at the time of the error. If length
- * is omitted, it defaults to indexable.length.
- * ...
- * @description Checks that if If length is omitted, it defaults
- * to indexable.length.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion RangeError.index(int index, indexable,
+///    [String name, String message, int length])
+/// ...
+/// The length is the length of indexable at the time of the error. If length
+/// is omitted, it defaults to indexable.length.
+/// ...
+/// @description Checks that if If length is omitted, it defaults
+/// to indexable.length.
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

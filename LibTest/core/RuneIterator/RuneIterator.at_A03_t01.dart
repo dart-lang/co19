@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion RuneIterator.at(String string, int index)
- * A moveNext will use the rune starting at [index] the current value, and a
- * movePrevious
- * will use the rune ending just before [index] as the the current value.
- * @description Checks that moveNext and movePrevious set [current] correctly.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion RuneIterator.at(String string, int index)
+/// A moveNext will use the rune starting at [index] the current value, and a
+/// movePrevious
+/// will use the rune ending just before [index] as the current value.
+/// @description Checks that moveNext and movePrevious set [current] correctly.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 check(string, pos, current, prev) {

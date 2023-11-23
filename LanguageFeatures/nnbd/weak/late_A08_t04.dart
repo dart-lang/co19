@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A toplevel or static variable with an initializer is evaluated as
- * if it was marked late. Note that this is a change from pre-NNBD semantics in
- * that:
- *  - Throwing an exception during initializer evaluation no longer sets the
- *    variable to null
- *  - Reading the variable during initializer evaluation is no longer checked
- *    for, and does not cause an error.
- *
- * @description Check that throwing an exception during initializer evaluation
- * no longer sets a toplevel or static variable no null
- * @author sgrekhov@unipro.ru
- * @issue 40390
- */
+// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A toplevel or static variable with an initializer is evaluated as
+/// if it was marked late. Note that this is a change from pre-NNBD semantics in
+/// that:
+///  - Throwing an exception during initializer evaluation no longer sets the
+///    variable to null
+///  - Reading the variable during initializer evaluation is no longer checked
+///    for, and does not cause an error.
+///
+/// @description Check that throwing an exception during initializer evaluation
+/// no longer sets a toplevel or static variable no null
+/// @author sgrekhov@unipro.ru
+/// @issue 40390
+
 // Requirements=nnbd-weak
 import "../../../Utils/expect.dart";
 

@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion final int month
- * Returns the month into the year 1..12.
- * @description Creates a new DateTime with various integer month values (1..12),
- * and reads the value back.
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion final int month
+/// Returns the month into the year 1..12.
+/// @description Creates a new DateTime with various integer month values (1..12),
+/// and reads the value back.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
 
 main() {
@@ -33,5 +31,6 @@ main() {
 void check(int m) {
   DateTime date = new DateTime(2011, m, 18, 0, 0, 0, 0);
   Expect.isTrue(date.month is int);
+  Expect.runtimeIsType<int>(date.month);
   Expect.equals(m, date.month);
 }

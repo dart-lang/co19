@@ -1,33 +1,31 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * Future<RandomAccessFile> lock([
- *     FileLock mode = FileLock.exclusive,
- *     int start = 0,
- *     int end = -1
- * ])
- * . . .
- * NOTE file locking does have slight differences in behavior across platforms:
- *
- * On Linux and OS X this uses advisory locks, which have the surprising
- * semantics that all locks associated with a given file are removed when any
- * file descriptor for that file is closed by the process. Note that this does
- * not actually lock the file for access. Also note that advisory locks are on
- * a process level. This means that several isolates in the same process can
- * obtain an exclusive lock on the same file.
- *
- * On Windows the regions used for lock and unlock needs to match. If that is
- * not the case unlocking will result in the OS error "The segment is already
- * unlocked".
- *
- * @description Checks that on Windows the regions used for lock and unlock
- * needs to match.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// Future<RandomAccessFile> lock([
+///     FileLock mode = FileLock.exclusive,
+///     int start = 0,
+///     int end = -1
+/// ])
+/// . . .
+/// NOTE file locking does have slight differences in behavior across platforms:
+///
+/// On Linux and OS X this uses advisory locks, which have the surprising
+/// semantics that all locks associated with a given file are removed when any
+/// file descriptor for that file is closed by the process. Note that this does
+/// not actually lock the file for access. Also note that advisory locks are on
+/// a process level. This means that several isolates in the same process can
+/// obtain an exclusive lock on the same file.
+///
+/// On Windows the regions used for lock and unlock needs to match. If that is
+/// not the case unlocking will result in the OS error "The segment is already
+/// unlocked".
+///
+/// @description Checks that on Windows the regions used for lock and unlock
+/// needs to match.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

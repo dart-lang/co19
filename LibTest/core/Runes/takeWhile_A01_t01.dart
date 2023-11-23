@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<E> takeWhile(bool test(E element))
- * Returns an [Iterable] that stops once [test] is not satisfied anymore.
- * @description Checks that all first elements that satisfy test are
- * retained, and elements after that are skipped.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<E> takeWhile(bool test(E element))
+/// Returns an [Iterable] that stops once [test] is not satisfied anymore.
+/// @description Checks that all first elements that satisfy test are
+/// retained, and elements after that are skipped.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 void check(string, bool test(int element)) {

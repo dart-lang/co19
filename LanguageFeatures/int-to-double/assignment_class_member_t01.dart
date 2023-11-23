@@ -1,15 +1,11 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion The static type of a double valued integer literal is [double]
- * @description Checks that the static type of a double valued integer literal
- * is [double]. Test class member assignment
- * @static-warning
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The static type of a double valued integer literal is [double]
+/// @description Checks that the static type of a double valued integer literal
+/// is [double]. Test class member assignment
+/// @author sgrekhov@unipro.ru
 
 class C {
   double m1 = 42;
@@ -32,21 +28,61 @@ class C {
 main() {
   C.s = 42;
   C?.s = -42;
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//^
+// [cfe] The class 'C' cannot be null.
   C.s ??= 42;
+//        ^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//  ^
+// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   C?.s ??= -42;
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//         ^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//^
+// [cfe] The class 'C' cannot be null.
+//   ^
+// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   C.staticSetter = -42;
   C?.staticSetter = 42;
+//^
+// [cfe] The class 'C' cannot be null.
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 
   C? c = null;
   c?.m1 = 42;
   c?.instanceSetter = -42;
   c?.m1 ??= 42;
+//          ^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
 
   c = new C();
   c.m1 = -42;
   c.instanceSetter = 42;
   c?.m1 = 42;
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//^
+// [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.
   c?.instanceSetter = -42;
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//^
+// [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.
   c.m1 ??= -42;
+//         ^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//  ^
+// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   c?.m1 ??= 42;
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//          ^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//^
+// [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.
 }

@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
- * when:
- * Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
- * variables X0 & S0 and T1 is X0
- * @description Check that if type T0 a promoted type variables X0 & S0 and T1
- * is X0 then T0 is a subtype of T1.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
+/// when:
+/// Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
+/// variables X0 & S0 and T1 is X0
+/// @description Check that if type T0 a promoted type variables X0 & S0 and T1
+/// is X0 then T0 is a subtype of T1.
+/// @author sgrekhov@unipro.ru
+
 class X0 {
   const X0();
 }

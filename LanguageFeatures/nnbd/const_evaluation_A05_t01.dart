@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion CONST_CANONICAL_TYPE(T?) =
- *     let S be CONST_CANONICAL_TYPE(T)
- *     if S is R* then R?
- *     else S?
- *
- * @description Checks that CONST_CANONICAL_TYPE(int?) = int?
- *
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion CONST_CANONICAL_TYPE(T?) =
+///     let S be CONST_CANONICAL_TYPE(T)
+///     if S is R* then R?
+///     else S?
+///
+/// @description Checks that CONST_CANONICAL_TYPE(int?) = int?
+///
+/// @author iarkh@unipro.ru
+
 // Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";

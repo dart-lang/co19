@@ -1,15 +1,12 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion This is true even if the object being spread is a user-defined
- * class that implements [Iterable] but isn't even a subtype of List.
- * @description Checks that [Iterable] object can be spread into the spreadable
- * set.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion This is true even if the object being spread is a user-defined
+/// class that implements [Iterable] but isn't even a subtype of List.
+/// @description Checks that [Iterable] object can be spread into the spreadable
+/// set.
+/// @author iarkh@unipro.ru
 
 import "dart:collection";
 import "../../Utils/expect.dart";
@@ -19,7 +16,7 @@ class MyIterable extends IterableBase {
   Iterator get iterator => MyIterator();
 }
 
-class MyIterator extends Iterator {
+class MyIterator implements Iterator {
   int i = -1;
 
   MyIterator() {}

@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Returns the string matched by the given [group]. If [group] is 0,
- * returns the match of the regular expression.
- * @description Checks that the correct group is returned when valid index is used.
- * @author rodionov
- * @issue 1290
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Returns the string matched by the given [group]. If [group] is 0,
+/// returns the match of the regular expression.
+/// @description Checks that the correct group is returned when valid index is used.
+/// @author rodionov
+/// @issue 1290
+
 import "../../../Utils/expect.dart";
  
 main() {
@@ -28,7 +26,7 @@ main() {
 }
 
 void check(String pattern, String str, List<String?> groupData,
-    {bool multiLine: false, bool caseSensitive: true}) {
+    {bool multiLine = false, bool caseSensitive = true}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: caseSensitive);
   Match fm = re.firstMatch(str) as Match;

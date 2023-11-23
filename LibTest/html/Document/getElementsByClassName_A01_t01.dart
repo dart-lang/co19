@@ -1,13 +1,11 @@
-/*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion List<Node> getElementsByClassName(String tagname)
- * Returns a list of elements with the given class name.
- * @description Checks that a list of elements with the given class name is returned.
- */
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion List<Node> getElementsByClassName(String tagname)
+/// Returns a list of elements with the given class name.
+/// @description Checks that a list of elements with the given class name is returned.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

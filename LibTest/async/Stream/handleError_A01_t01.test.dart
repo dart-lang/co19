@@ -1,18 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream<T> handleError(Function onError, {bool test(error)})
- * Creates a wrapper Stream that intercepts some errors from this stream.
- * If this stream sends an error that matches test, then it is intercepted by
- * the onError function.
- * An asynchronous error e is matched by a test function if test(e) returns true.
- * @description Checks that an error e intercepted by [onError] function
- * if test(e) returns true.
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<T> handleError(Function onError, {bool test(error)})
+/// Creates a wrapper Stream that intercepts some errors from this stream.
+/// If this stream sends an error that matches test, then it is intercepted by
+/// the onError function.
+/// An asynchronous error e is matched by a test function if test(e) returns
+/// true.
+/// @description Checks that an error e intercepted by [onError] function
+/// if test(e) returns true.
+/// @author a.semenov@unipro.ru
+
 library handleError_A01_t01;
 
 import "dart:async";
@@ -38,14 +37,15 @@ void check(
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([], defVal: 42), (x) => true, [], [], []);
-  check(create([], isError: (x) => true, defVal: 42), (x) => true, [], [], []);
-  check(create([1, 2, 3, 4, 5], isError: (x) => true, defVal: 42),
+  check(create([], defaultValue: 42), (x) => true, [], [], []);
+  check(create([], isError: (x) => true, defaultValue: 42),
+          (x) => true, [], [], []);
+  check(create([1, 2, 3, 4, 5], isError: (x) => true, defaultValue: 42),
       (x) => x.isEven, [], [2, 4], [1, 3, 5]);
 
   check(
       create(["a", 1, "b", 2, "c", 3, "d", 4, "e", 5, "f"],
-          isError: (x) => x is int, defVal: 42),
+          isError: (x) => x is int, defaultValue: 42),
       (x) => (x is int && x.isEven), // test function
       ["a", "b", "c", "d", "e", "f"], // expected data
       [2, 4], // intercepted errors

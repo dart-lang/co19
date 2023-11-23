@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * int getInt64(
- *     int byteOffset, [
- *     Endian endian = Endian.big
- * ])
- * Returns the (possibly negative) integer represented by the eight bytes at
- * the specified [byteOffset] in this object, in two's complement binary form.
- * The return value will be between -pow(2, 63) and pow(2, 63) - 1, inclusive.
- * @description Checks that the correct value is returned.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// int getInt64(
+///     int byteOffset, [
+///     Endian endian = Endian.big
+/// ])
+/// Returns the (possibly negative) integer represented by the eight bytes at
+/// the specified [byteOffset] in this object, in two's complement binary form.
+/// The return value will be between -pow(2, 63) and pow(2, 63) - 1, inclusive.
+/// @description Checks that the correct value is returned.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

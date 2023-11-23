@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<T> expand<T>(Iterable<T> f(E element))
- * Expands each element of this Iterable into zero or more elements.
- * The resulting Iterable runs through the elements returned by f for each
- * element of this, in iteration order.
- * @description Checks that the returned iterable is correct.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<T> expand<T>(Iterable<T> f(E element))
+/// Expands each element of this Iterable into zero or more elements.
+/// The resulting Iterable runs through the elements returned by f for each
+/// element of this, in iteration order.
+/// @description Checks that the returned iterable is correct.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

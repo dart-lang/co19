@@ -1,45 +1,43 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion classDefinition:
- *   metadata abstract? class identifier typeParameters? (superclass mixins?)?
- * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
- *   metadata abstract? class mixinApplicationClass
- * ;
- * .  .  .
- * classMemberDefinition:
- *   declaration ';' |
- *   methodSignature functionBody
- * ;
- * .  .  .
- * declaration:
- *   constantConstructorSignature (redirection | initializers)? |
- *   constructorSignature (redirection | initializers)? |
- *   external constantConstructorSignature |
- *   external constructorSignature |
- *   (external static?)? getterSignature |
- *   (external static?)? setterSignature |
- *   external? operatorSignature |
- *   (external static?)? functionSignature |
- *   static (final | const) type? staticFinalDeclarationList |
- *   final type? initializedIdentifierList |
- *   static? (var | type) initializedIdentifierList
- * ;
- * staticFinalDeclarationList:
- *   staticFinalDeclaration (', ' staticFinalDeclaration)*
- * ;
- * staticFinalDeclaration:
- *   identifier '=' expression
- * ;
- * @description Checks that various class member declarations that are valid
- * according to this syntax do not cause any errors and such class can be
- * instantiated.
- * @author kaigorodov
- * @reviewer rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion classDefinition:
+///   metadata abstract? class identifier typeParameters? (superclass mixins?)?
+/// interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+///   metadata abstract? class mixinApplicationClass
+/// ;
+/// .  .  .
+/// classMemberDefinition:
+///   declaration ';' |
+///   methodSignature functionBody
+/// ;
+/// .  .  .
+/// declaration:
+///   constantConstructorSignature (redirection | initializers)? |
+///   constructorSignature (redirection | initializers)? |
+///   external constantConstructorSignature |
+///   external constructorSignature |
+///   (external static?)? getterSignature |
+///   (external static?)? setterSignature |
+///   external? operatorSignature |
+///   (external static?)? functionSignature |
+///   static (final | const) type? staticFinalDeclarationList |
+///   final type? initializedIdentifierList |
+///   static? (var | type) initializedIdentifierList
+/// ;
+/// staticFinalDeclarationList:
+///   staticFinalDeclaration (', ' staticFinalDeclaration)*
+/// ;
+/// staticFinalDeclaration:
+///   identifier '=' expression
+/// ;
+/// @description Checks that various class member declarations that are valid
+/// according to this syntax do not cause any errors and such class can be
+/// instantiated.
+/// @author kaigorodov
+/// @reviewer rodionov
+
 
 class A {
   const A(): this.anotherConstructor();
@@ -90,7 +88,7 @@ abstract class Abstract {
   func();
   funcWithParams(p1, p2);
   funcWithOptionalParams([p1 = 1, p2 = 2]);
-  funcWithOptionalParams2({p1: 1, p2: 2});
+  funcWithOptionalParams2({p1 = 1, p2 = 2});
   get val;
   set val(var v);
   operator ==(dynamic other);
@@ -102,7 +100,7 @@ class Concrete extends Abstract {
   func() {}
   funcWithParams(p1, p2) {}
   funcWithOptionalParams([p1 = 1, p2 = 2]) {}
-  funcWithOptionalParams2({p1: 1, p2: 2}) {}
+  funcWithOptionalParams2({p1 = 1, p2 = 2}) {}
   get val => _val;
   set val(var v) {_val = v;}
   operator ==(dynamic other) {return identical(this, other);}

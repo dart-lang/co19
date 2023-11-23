@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void writeAll(Iterable objects, [String separator = ""])
- * If [separator] is provided, a [write] with the [separator] is performed
- * between any two elements of objects.
- * @description Check that all the objects are written in the result stream with
- * the provided simple [separator].
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void writeAll(Iterable objects, [String separator = ""])
+/// If [separator] is provided, a [write] with the [separator] is performed
+/// between any two elements of objects.
+/// @description Check that all the objects are written in the result stream with
+/// the provided simple [separator].
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
@@ -31,7 +29,7 @@ List expected = [
   [91, 49, 44, 32, 50, 44, 32, 51, 93], [44],
   [110, 117, 108, 108]];
 
-class MyStreamConsumer extends StreamConsumer<List<int>> {
+class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       Expect.equals(expected.length, x.length);

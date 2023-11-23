@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void insertAll(int index, Iterable<E> iterable)
- * Inserts all objects of iterable at position [index] in the list.
- * This increases the length of the list by the length of iterable and shifts
- * all later objects towards the end of the list.
- * ...
- * An [UnsupportedError] occurs if the list is fixed-length.
- * @description Checks that [UnsupportedError] is thrown since [Uint16List] is
- * a fixed-length list.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void insertAll(int index, Iterable<E> iterable)
+/// Inserts all objects of iterable at position [index] in the list.
+/// This increases the length of the list by the length of iterable and shifts
+/// all later objects towards the end of the list.
+/// ...
+/// An [UnsupportedError] occurs if the list is fixed-length.
+/// @description Checks that [UnsupportedError] is thrown since [Uint16List] is
+/// a fixed-length list.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

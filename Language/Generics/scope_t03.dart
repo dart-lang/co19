@@ -1,18 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion The type parameters of a generic G are in scope in the bounds of
- * all of the type parameters of G. The type parameters of a generic class
- * declaration G are also in scope in the extends and implements clauses of G
- * (if these exist) and in the body of G.
- * @description Checks that type parameters are in scope in the body of G
- * (if G is a class declaration).
- * @Issue 29388
- * @author iefremov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Type parameters are declared in the type parameter scope of a
+/// class or function. The type parameters of a generic G are in scope in the
+/// bounds of all of the type parameters of G. The type parameters of a generic
+/// class declaration G are also in scope in the extends and implements clauses
+/// of G (if these exist) and in the body of G.
+///
+/// @description Checks that type parameters are in scope in the body of G
+/// (if G is a class declaration).
+/// @Issue 29388
+/// @author iefremov
 
 import "../../Utils/expect.dart";
 
@@ -22,13 +21,16 @@ class A<N, S, U> {
 
   A(N n, S s) : field = <U>[] {
     Expect.isTrue(n is N);
+    Expect.runtimeIsType<N>(n);
     Expect.isTrue(s is S);
+    Expect.runtimeIsType<S>(s);
   }
 
   A.empty() : field = null{}
 
   factory A.f(S s) {
     Expect.isTrue(s is S);
+    Expect.runtimeIsType<S>(s);
     return new A.empty();
   }
 
@@ -44,7 +46,6 @@ class A<N, S, U> {
 abstract class J<Aa, B> {}
 
 abstract class I<H, C, K> extends J<C, K> {}
-
 
 main() {
   new A<num, double, List>(1, 2.0);

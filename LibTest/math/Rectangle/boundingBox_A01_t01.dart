@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Rectangle<T> boundingBox(Rectangle<T> other)
- * Returns a new rectangle which completely contains this and other.
- * @description Checks that this operation is symmetric.
- * @author kaigorodov
- */
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Rectangle<T> boundingBox(Rectangle<T> other)
+/// Returns a new rectangle which completely contains this and other.
+/// @description Checks that this operation is symmetric.
+/// @author kaigorodov
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

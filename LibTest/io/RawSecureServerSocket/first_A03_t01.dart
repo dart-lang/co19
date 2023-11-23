@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion  Future<RawSecureSocket> first
- * The first element of the stream.
- * . . .
- * Except for the type of the error, this method is equivalent to
- * this.elementAt(0).
- *
- * @description Checks that the [first] is equivalent to this.elementAt(0).
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion  Future<RawSecureSocket> first
+/// The first element of the stream.
+/// . . .
+/// Except for the type of the error, this method is equivalent to
+/// this.elementAt(0).
+///
+/// @description Checks that the [first] is equivalent to this.elementAt(0).
+/// @author ngl@unipro.ru
+
 // OtherResources=server_chain.pem
 // OtherResources=server_key.pem
 // OtherResources=trusted_certs.pem

@@ -1,39 +1,31 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
- * when:
- * Right Top: T1 is a top type (i.e. Object?, dynamic, or void)
- * @description Check that if type T1 is an Object then T0 is a subtype of a
- * type T1
- * @author sgrekhov@unipro.ru
- */
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as an argument of type T1. Test superclass members
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from right_top_A01.dart and 
- * arguments_binding_x02.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
+/// @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
+/// when:
+/// Right Top: T1 is a top type (i.e. Object?, dynamic, or void)
+/// @description Check that if type T1 is an Object then T0 is a subtype of a
+/// type T1
+/// @author sgrekhov@unipro.ru
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be used as an argument of type T1. Test superclass members
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from test_types/right_top_A01.dart and
+/// test_cases/arguments_binding_x02.dart. Don't modify it!
+/// If you need to change this test, then change one of the files above and then
+/// run generator/generator.dart to regenerate the tests.
 
 import '../../utils/common.dart';
+
 class T0 {}
 
 T0 t0Instance = new T0();
 Object? t1Instance = new Object();
 
 const t1Default = null;
-
-
-
 
 class ArgumentsBindingSuper1_t02 {
   Object? m;
@@ -72,8 +64,8 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
 class ArgumentsBindingSuper2_t02<X> {
   X m;
 
-  ArgumentsBindingSuper2_t02(X value): m = value {}
-  ArgumentsBindingSuper2_t02.named(X value, {required X val2}):m = value {}
+  ArgumentsBindingSuper2_t02(X value) : m = value {}
+  ArgumentsBindingSuper2_t02.named(X value, {required X val2}) : m = value {}
   ArgumentsBindingSuper2_t02.short(this.m);
 
   void superTest(X val) {}
@@ -84,8 +76,8 @@ class ArgumentsBindingSuper2_t02<X> {
 
 class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
   ArgumentsBinding2_t02(X t1) : super(t1) {}
-  ArgumentsBinding2_t02.c2(dynamic t1, dynamic t2) : super.named(t1, val2: t2) {}
-  ArgumentsBinding2_t02.c5(dynamic t1) : super.short(t1) {}
+  ArgumentsBinding2_t02.c2(X t1, X t2) : super.named(t1, val2: t2) {}
+  ArgumentsBinding2_t02.c5(X t1) : super.short(t1) {}
 
   test(X t1, X t2) {
     superTest(t1);
@@ -97,13 +89,13 @@ class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
 }
 
 main() {
-  ArgumentsBinding1_t02 c1 = new ArgumentsBinding1_t02(forgetType(t0Instance));
-  c1 = new ArgumentsBinding1_t02.c2(t1Instance, forgetType(t0Instance));
-  c1 = new ArgumentsBinding1_t02.c3(forgetType(t0Instance));
-  c1 = new ArgumentsBinding1_t02.c4(t1Instance, forgetType(t0Instance));
-  c1 = new ArgumentsBinding1_t02.c5(forgetType(t0Instance));
+  ArgumentsBinding1_t02 c1 = new ArgumentsBinding1_t02(t0Instance);
+  c1 = new ArgumentsBinding1_t02.c2(t1Instance, t0Instance);
+  c1 = new ArgumentsBinding1_t02.c3(t0Instance);
+  c1 = new ArgumentsBinding1_t02.c4(t1Instance, t0Instance);
+  c1 = new ArgumentsBinding1_t02.c5(t0Instance);
 
-  c1.test(forgetType(t0Instance), t1Instance);
+  c1.test(t0Instance, t1Instance);
   c1.superTest(forgetType(t0Instance));
   c1.superTestPositioned(forgetType(t0Instance));
   c1.superTestPositioned(t1Instance, forgetType(t0Instance));
@@ -114,7 +106,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
   ArgumentsBinding2_t02<Object?> c2 =
     new ArgumentsBinding2_t02<Object?>(forgetType(t0Instance));
   c2 = new ArgumentsBinding2_t02<Object?>.c2(t1Instance, forgetType(t0Instance));
@@ -125,5 +116,4 @@ main() {
   c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
   c2.superSetter = forgetType(t0Instance);
   c2.superGetter;
-  //# -->
 }

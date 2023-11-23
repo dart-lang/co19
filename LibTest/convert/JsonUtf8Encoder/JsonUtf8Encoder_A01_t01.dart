@@ -1,39 +1,37 @@
- /*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion JsonUtf8Encoder([
- *  String indent,
- *  dynamic toEncodable(
- *  object
- *  ),
- *  int bufferSize = DEFAULT_BUFFER_SIZE
- *  ])
- * Create converter.
- *
- * If indent is non-null, the converter attempts to "pretty-print" the JSON,
- * and uses indent as the indentation. Otherwise the result has no whitespace
- * outside of string literals. If indent contains characters that are not valid
- * JSON whitespace characters, the result will not be valid JSON. JSON
- * whitespace characters are space (U+0020), tab (U+0009), line feed (U+000a)
- * and carriage return (U+000d) (ECMA 404).
- *
- * The bufferSize is the size of the internal buffers used to collect UTF-8 code
- * units. If using startChunkedConversion, it will be the size of the chunks.
- *
- * The JSON encoder handles numbers, strings, booleans, null, lists and maps
- * directly.
- *
- * Any other object is attempted converted by toEncodable to an object that is
- * of one of the convertible types.
- *
- * If toEncodable is omitted, it defaults to calling .toJson() on the object.
- * @description Checks that this constructor, called without parameters,
- * creates object with default parameters
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion JsonUtf8Encoder([
+///  String indent,
+///  dynamic toEncodable(
+///  object
+///  ),
+///  int bufferSize = DEFAULT_BUFFER_SIZE
+///  ])
+/// Create converter.
+///
+/// If indent is non-null, the converter attempts to "pretty-print" the JSON,
+/// and uses indent as the indentation. Otherwise the result has no whitespace
+/// outside of string literals. If indent contains characters that are not valid
+/// JSON whitespace characters, the result will not be valid JSON. JSON
+/// whitespace characters are space (U+0020), tab (U+0009), line feed (U+000a)
+/// and carriage return (U+000d) (ECMA 404).
+///
+/// The bufferSize is the size of the internal buffers used to collect UTF-8 code
+/// units. If using startChunkedConversion, it will be the size of the chunks.
+///
+/// The JSON encoder handles numbers, strings, booleans, null, lists and maps
+/// directly.
+///
+/// Any other object is attempted converted by toEncodable to an object that is
+/// of one of the convertible types.
+///
+/// If toEncodable is omitted, it defaults to calling .toJson() on the object.
+/// @description Checks that this constructor, called without parameters,
+/// creates object with default parameters
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

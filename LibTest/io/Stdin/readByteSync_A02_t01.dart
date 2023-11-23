@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int readByteSync()
- * This call will block until a byte is available.
- * @description Checks that call is blocked until a byte is available.
- * @author iarkh@unipro.ru
- * @issue https://github.com/dart-lang/co19/issues/970
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int readByteSync()
+/// This call will block until a byte is available.
+/// @description Checks that call is blocked until a byte is available.
+/// @author iarkh@unipro.ru
+/// @issue https://github.com/dart-lang/co19/issues/970
+
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
@@ -36,7 +34,7 @@ run_main() async {
       .then((Process process) async {
     process.stdin.add([5]);
     await new Future.delayed(new Duration(seconds: 2)).then((_) async {
-      process.kill();
+      await process.stdin.close();
       await process.exitCode.then((_) async {
         process.stderr.toList().then((errors) {
           Expect.isTrue(errors.isEmpty);

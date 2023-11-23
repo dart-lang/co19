@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion List.unmodifiable(Iterable elements)
- * Creates an unmodifiable list containing all elements.
- *
- * The Iterator of elements provides the order of the elements.
- *
- * An unmodifiable list cannot have its length or elements changed. If the
- * elements are themselves immutable, then the resulting list is also immutable.
- * @description Checks that proper list with correct element order is created
- * but cannot ne changed
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion List.unmodifiable(Iterable elements)
+/// Creates an unmodifiable list containing all elements.
+///
+/// The Iterator of elements provides the order of the elements.
+///
+/// An unmodifiable list cannot have its length or elements changed. If the
+/// elements are themselves immutable, then the resulting list is also immutable.
+/// @description Checks that proper list with correct element order is created
+/// but cannot ne changed
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

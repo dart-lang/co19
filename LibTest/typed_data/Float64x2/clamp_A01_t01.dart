@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Float64x2 clamp(Float64x2 lowerLimit, Float64x2 upperLimit)
- * Lane-wise clamp this to be in the range lowerLimit-upperLimit.
- * @description Checks that the returned value is in the correct range.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Float64x2 clamp(Float64x2 lowerLimit, Float64x2 upperLimit)
+/// Lane-wise clamp this to be in the range lowerLimit-upperLimit.
+/// @description Checks that the returned value is in the correct range.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

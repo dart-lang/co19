@@ -1,18 +1,18 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Executing a variable declaration statement of one of the forms
- * var v = e;, T v = e;, const v = e;, const T v = e;, final v = e; or
- * final T v = e; proceeds as follows:
- * The expression e is evaluated to an object o. Then, the variable v is set
- * to o.
- * @description Checks that an expression e is evaluated correctly in a multiple
- * variable declaration statement.
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Execution of a variable declaration statement of one of the forms
+/// var v = e; T v = e; const v = e; const T v = e; final v = e; or
+/// final T v = e; proceeds as follows:
+/// The expression e is evaluated to an object o. A dynamic type error occurs if
+/// the dynamic type of o is not a subtype of the actual declared type of v.
+/// Otherwise, the variable v is bound to o.
+///
+/// @description Checks that an expression e is evaluated correctly in a
+/// multiple variable declaration statement.
+/// @author msyabro
+
 import '../../../Utils/expect.dart';
 
 foo(p1) {

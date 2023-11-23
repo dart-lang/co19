@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion The upwards inference element type of an if-else list element is
- * the least upper bound of the types of the "then" and "else" elements.
- *
- * @description Checks that the upwards inference element type of an if-else
- * list element is the least upper bound of the types of the "then" and "else"
- * elements.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The upwards inference element type of an if-else list element is
+/// the least upper bound of the types of the "then" and "else" elements.
+///
+/// @description Checks that the upwards inference element type of an if-else
+/// list element is the least upper bound of the types of the "then" and "else"
+/// elements.
+/// @author sgrekhov@unipro.ru
+
 import "../../Utils/expect.dart";
 
 class A {}
@@ -25,12 +23,14 @@ main() {
     if (i > 0) new B() else new A()
   ];
   Expect.isTrue(list1 is List<A>);
+  Expect.runtimeIsType<List<A>>(list1);
 
   var list2 = [
     "",
     if (i < 0) "" else 1,
   ];
   Expect.isTrue(list2 is List<Object>);
+  Expect.runtimeIsType<List<Object>>(list2);
 
   var list3 = [
     1,
@@ -38,4 +38,5 @@ main() {
     if (i < 0) 2
   ];
   Expect.isTrue(list3 is List<num>);
+  Expect.runtimeIsType<List<num>>(list3);
 }

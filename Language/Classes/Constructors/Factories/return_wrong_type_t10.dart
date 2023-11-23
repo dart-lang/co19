@@ -1,20 +1,17 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion It is a compile error if a factory returns a non-null object whose
- * type is not a subtype of its actual return type.
- * @description Checks that returning an object of subtype of M
- * from factory constructor M does not produce an error. Test type alias
- * @author sgrekhov@unipro.ru
- */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+
+/// @assertion It is a compile error if a factory returns a non-null object whose
+/// type is not a subtype of its actual return type.
+/// @description Checks that returning an object of subtype of M
+/// from factory constructor M does not produce an error. Test type alias
+/// @author sgrekhov@unipro.ru
 
 abstract class A {
   A() {}
-  factory A.foo() { return new CAlias.foo(); }
+  factory A.foo() => CAlias.foo();
 }
 
 class C extends A {
@@ -23,5 +20,5 @@ class C extends A {
 typedef CAlias = C;
 
 main() {
-  new A.foo();
+  A.foo();
 }

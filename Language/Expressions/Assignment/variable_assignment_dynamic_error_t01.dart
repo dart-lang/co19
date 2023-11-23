@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Evaluation of an assignment of the form v = e2 proceeds as
- * follows:
- * ...
- * It is a dynamic type error if o is not null and the interface of the class of
- * o is not a subtype of the actual type of v.
- * @description Checks that it is a dynamic type error if the interface of
- * the class of o is not a subtype of the actual type of v
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Evaluation of an assignment of the form v = e2 proceeds as
+/// follows:
+/// ...
+/// It is a dynamic type error if o is not null and the interface of the class of
+/// o is not a subtype of the actual type of v.
+/// @description Checks that it is a dynamic type error if the interface of
+/// the class of o is not a subtype of the actual type of v
+/// @author msyabro
+
 
 import '../../../Utils/dynamic_check.dart';
 

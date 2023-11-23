@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract Map<int, E> asMap()
- * The [Map.keys] [Iterable] iterates the indices of this list in numerical
- * order.
- * @description Checks that [Map.keys] iterates the indices of this list in
- * numerical order.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract Map<int, E> asMap()
+/// The [Map.keys] [Iterable] iterates the indices of this list in numerical
+/// order.
+/// @description Checks that [Map.keys] iterates the indices of this list in
+/// numerical order.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

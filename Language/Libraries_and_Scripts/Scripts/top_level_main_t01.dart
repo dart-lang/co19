@@ -1,23 +1,40 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion It is a run time error if S does not declare or export either:
- * • A top-level function named main, or
- * • A top-level getter named main that returns a function.
- * @description Checks that it is a run time error if script does not declare a
- * top level function main()
- * @runtime-error
- * @author vasya
- * @issue 42487
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
-library Script_without_main;
+/// @assertion A Dart program will typically be executed by executing a script.
+/// @description Checks that dart returns correct exit code if main function
+/// presents in the executed dart script.
+/// @author iarkh
+/// @issue 42487
 
-class C {}
+// OtherResources=top_level_main_t01_lib.dart
+import "../../../Utils/expect.dart";
+import "../../../Utils/test_mode_check.dart";
+import "dart:io";
 
-void f() {}
+run_main() async {
+  String executable = Platform.resolvedExecutable;
+  String eScript = Platform.script.toString().replaceAll(".dart", "_lib.dart");
+  if (isAot) {
+    // This is the case of AOT configuration
+    executable = executable.replaceRange(
+        executable.lastIndexOf(Platform.pathSeparator) + 1, null, "dart");
+    eScript = eScript.replaceRange(
+        eScript.lastIndexOf("/") + 1,
+        null,
+        "top_level_main_t01_lib.dart");
+  }
+  int called = 0;
 
-final constX = 1;
+  await Process.run(executable, [...Platform.executableArguments, eScript])
+      .then((ProcessResult results) {
+    Expect.equals(0, results.exitCode);
+    called++;
+  });
+  Expect.equals(1, called);
+}
+
+main(List<String> args) {
+  run_main();
+}

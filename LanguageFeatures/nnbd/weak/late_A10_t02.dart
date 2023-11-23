@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion An instance variable declaration may be declared covariant iff it
- * introduces an implicit setter.
- *
- * @description Check that it is not an error when an instance variable
- * introduces an implicit setter and declared covariant
- * @author sgrekhov@unipro.ru
- * @issue 40805
- */
+// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion An instance variable declaration may be declared covariant iff it
+/// introduces an implicit setter.
+///
+/// @description Check that it is not an error when an instance variable
+/// introduces an implicit setter and declared covariant
+/// @author sgrekhov@unipro.ru
+/// @issue 40805
+
 // Requirements=nnbd-weak
 
 class C {

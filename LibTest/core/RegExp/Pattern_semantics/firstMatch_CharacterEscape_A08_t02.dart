@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion 15.10.2.10: The production CharacterEscape ::
- * UnicodeEscapeSequence evaluates by evaluating the character value of the
- * UnicodeEscapeSequence (see 7.8.4) and returning its character result.<br/>
- * HexEscapeSequence :: u HexDigit HexDigit HexDigit HexDigit
- * @description Checks the assertion using characters from the English and
- * Russian alphabets.
- * @3rdparty sputnik-v1:S15.10.2.10_A4.1_T2.js, S15.10.2.10_A4.1_T3.js
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion 15.10.2.10: The production CharacterEscape ::
+/// UnicodeEscapeSequence evaluates by evaluating the character value of the
+/// UnicodeEscapeSequence (see 7.8.4) and returning its character result.<br/>
+/// HexEscapeSequence :: u HexDigit HexDigit HexDigit HexDigit
+/// @description Checks the assertion using characters from the English and
+/// Russian alphabets.
+/// @3rdparty sputnik-v1:S15.10.2.10_A4.1_T2.js, S15.10.2.10_A4.1_T3.js
+/// @author rodionov
+
 import "../../../../Utils/expect.dart";
  
 

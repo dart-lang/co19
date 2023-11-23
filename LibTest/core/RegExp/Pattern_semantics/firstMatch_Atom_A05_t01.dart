@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion 15.10.2.8: The production Atom :: . evaluates as follows:
- *   <ol>
- *   <li>Let A be the set of all characters except LineTerminator. </li>
- *   <li>Call CharacterSetMatcher(A, false) and return its Matcher result.</li>
- *   </ol>
- * @description Checks that this Atom is handled correctly.
- * @3rdparty sputnik-v1:S15.10.2.8_A4_T1.js-S15.10.2.8_A4_T9.js
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion 15.10.2.8: The production Atom :: . evaluates as follows:
+///   <ol>
+///   <li>Let A be the set of all characters except LineTerminator. </li>
+///   <li>Call CharacterSetMatcher(A, false) and return its Matcher result.</li>
+///   </ol>
+/// @description Checks that this Atom is handled correctly.
+/// @3rdparty sputnik-v1:S15.10.2.8_A4_T1.js-S15.10.2.8_A4_T9.js
+/// @author rodionov
+
 import "../../../../Utils/expect.dart";
 
 main() {

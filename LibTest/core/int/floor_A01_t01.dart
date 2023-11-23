@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int floor()
- * Returns this.
- * @description Checks that this method returns this.
- * @author vasya
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int floor()
+/// Returns this.
+/// @description Checks that this method returns this.
+/// @author vasya
+
 import "../../../Utils/expect.dart";
 
 main() {

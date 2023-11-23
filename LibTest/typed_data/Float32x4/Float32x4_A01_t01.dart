@@ -1,15 +1,12 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Float32x4(double x, double y, double z, double w)
- * Creates a new [Float32x4] instance.
- * @description Checks that an instance of [Float32x4] is created and all fields
- * are set correctly.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Float32x4(double x, double y, double z, double w)
+/// Creates a new [Float32x4] instance.
+/// @description Checks that an instance of [Float32x4] is created and all fields
+/// are set correctly.
+/// @author msyabro
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -17,6 +14,7 @@ import "../../../Utils/expect.dart";
 check(x, y, z, w) {
   var obj = new Float32x4(x, y, z, w);
   Expect.isTrue(obj is Float32x4);
+  Expect.runtimeIsType<Float32x4>(obj);
   Expect.approxEquals(x, obj.x, (x / 1e7).abs());
   Expect.approxEquals(y, obj.y, (y / 1e7).abs());
   Expect.approxEquals(z, obj.z, (z / 1e7).abs());

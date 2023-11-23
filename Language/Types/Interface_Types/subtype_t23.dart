@@ -1,32 +1,30 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A type T is more specific than a type S, written T << S, if one
- * of the following conditions is met:
- *  • T is S.
- *  • T is ⊥
- *  • S is dynamic.
- *  • S is a direct supertype of T.
- *  • T is a type parameter and S is the upper bound of T.
- *  • T is a type parameter and S is Object.
- *  • T is of the form I<T1, ..., Tn > and S is of the form I <S1, ..., Sn>
- *    and Ti << Si 1 <= i <= n.
- *  • T and S are both function types, and T << S under the rules of section
- *    (Types/Function Types).
- *  • T is a function type and S is Function.
- *  • T << U and U << S.
- * << is a partial order on types. T is a subtype of S, written T <: S, iff
- * [⊥/Dynamic]T << S.
- * . . .
- * An interface type T may be assigned to a type S, written T <=> S, if either
- * T <: S or S <: T.
- * @description Checks that GenericType<T> is a subtype of GenericType<S> where
- * T and S are simple functions.
- * @author iefremov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A type T is more specific than a type S, written T << S, if one
+/// of the following conditions is met:
+///  • T is S.
+///  • T is ⊥
+///  • S is dynamic.
+///  • S is a direct supertype of T.
+///  • T is a type parameter and S is the upper bound of T.
+///  • T is a type parameter and S is Object.
+///  • T is of the form I<T1, ..., Tn > and S is of the form I <S1, ..., Sn>
+///    and Ti << Si 1 <= i <= n.
+///  • T and S are both function types, and T << S under the rules of section
+///    (Types/Function Types).
+///  • T is a function type and S is Function.
+///  • T << U and U << S.
+/// << is a partial order on types. T is a subtype of S, written T <: S, iff
+/// [⊥/Dynamic]T << S.
+/// . . .
+/// An interface type T may be assigned to a type S, written T <=> S, if either
+/// T <: S or S <: T.
+/// @description Checks that GenericType<T> is a subtype of GenericType<S> where
+/// T and S are simple functions.
+/// @author iefremov
+
 import "../../../Utils/expect.dart";
 
 class I0 {}
@@ -53,16 +51,27 @@ typedef t1_2 t3_2(t1_2 f1, [t1_2 f2]);
 
 main() {
   Expect.isTrue(new List<t1>.empty() is List<t1>);
+  Expect.runtimeIsType<List<t1>>(new List<t1>.empty());
   Expect.isTrue(new List<t1_1>.empty() is List<t1>);
+  Expect.runtimeIsType<List<t1>>(new List<t1_1>.empty());
   Expect.isTrue(new List<t1_2>.empty() is List<t1>);
+  Expect.runtimeIsType<List<t1>>(new List<t1_2>.empty());
 
   Expect.isTrue(new List<t2>.empty() is List<t2>);
   Expect.isFalse(new List<t2_1>.empty() is List<t2>);
   Expect.isFalse(new List<t2_2>.empty() is List<t2>);
   Expect.isFalse(new List<t2_3>.empty() is List<t2>);
   Expect.isFalse(new List<t2_4>.empty() is List<t2>);
+  Expect.runtimeIsType<List<t2>>(new List<t2>.empty());
+  Expect.runtimeIsNotType<List<t2>>(new List<t2_1>.empty());
+  Expect.runtimeIsNotType<List<t2>>(new List<t2_2>.empty());
+  Expect.runtimeIsNotType<List<t2>>(new List<t2_3>.empty());
+  Expect.runtimeIsNotType<List<t2>>(new List<t2_4>.empty());
 
   Expect.isTrue(new List<t3>.empty() is List<t3>);
   Expect.isTrue(new List<t3_1>.empty() is List<t3>);
   Expect.isFalse(new List<t3_2>.empty() is List<t3>);
+  Expect.runtimeIsType<List<t3>>(new List<t3>.empty());
+  Expect.runtimeIsType<List<t3>>(new List<t3_1>.empty());
+  Expect.runtimeIsNotType<List<t3>>(new List<t3_2>.empty());
 }

@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void addProxyCredentials(
- *  String host,
- *  int port,
- *  String realm,
- *  HttpClientCredentials credentials
- *  )
- * Add credentials to be used for authorizing HTTP proxies.
- * @description Checks that this method adds credentials to be used for
- * authorizing HTTP proxies. Test realm argument
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void addProxyCredentials(
+///  String host,
+///  int port,
+///  String realm,
+///  HttpClientCredentials credentials
+///  )
+/// Add credentials to be used for authorizing HTTP proxies.
+/// @description Checks that this method adds credentials to be used for
+/// authorizing HTTP proxies. Test realm argument
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import 'dart:async';
 import "../../../Utils/expect.dart";
@@ -46,7 +44,7 @@ test() async {
     return "PROXY ${localhost}:${server.port}";
   };
   client.authenticateProxy =
-      (String host, int port, String scheme, String realm) {
+      (String host, int port, String scheme, String? realm) {
     Expect.equals(localhost, host);
     Expect.equals(server.port, port);
     Expect.equals("Digest", scheme);

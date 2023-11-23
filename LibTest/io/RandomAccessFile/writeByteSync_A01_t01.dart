@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int writeByteSync(int value)
- * Synchronously writes a single byte to the file. Returns the number of bytes
- * successfully written.
- *
- * Throws a FileSystemException if the operation fails.
- *
- * @description Checks that method writeByteSync synchronously writes a single
- * byte to the file and returns the number of bytes successfully written.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int writeByteSync(int value)
+/// Synchronously writes a single byte to the file. Returns the number of bytes
+/// successfully written.
+///
+/// Throws a FileSystemException if the operation fails.
+///
+/// @description Checks that method writeByteSync synchronously writes a single
+/// byte to the file and returns the number of bytes successfully written.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -28,6 +26,7 @@ main() {
     List<int> list = new List<int>.filled(10, 0);
     var n = rf.writeByteSync(0);
     Expect.isTrue(n is int);
+    Expect.runtimeIsType<int>(n);
     Expect.equals(1, n);
     Expect.equals(1, rf.lengthSync());
     for (int i = 1; i < 10; i++) {

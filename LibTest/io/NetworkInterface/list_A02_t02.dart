@@ -1,26 +1,24 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * Future<List<NetworkInterface>> list({
- *     bool includeLoopback: false,
- *     bool includeLinkLocal: false,
- *     InternetAddressType type: InternetAddressType.ANY
- * })
- * Query the system for NetworkInterfaces.
- * ...
- * If type is either InternetAddressType.IPv4 or InternetAddressType.IPv6 it
- * will only lookup addresses of the specified type. Default is
- * InternetAddressType.ANY.
- *
- * @description Checks that if parameter 'type' of static method [list] is
- * InternetAddressType.IPv4, only addresses of InternetAddressType.IPv4 type
- * are lookup.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// Future<List<NetworkInterface>> list({
+///     bool includeLoopback: false,
+///     bool includeLinkLocal: false,
+///     InternetAddressType type: InternetAddressType.any
+/// })
+/// Query the system for NetworkInterfaces.
+/// ...
+/// If type is either InternetAddressType.IPv4 or InternetAddressType.IPv6 it
+/// will only lookup addresses of the specified type. Default is
+/// InternetAddressType.any.
+///
+/// @description Checks that if parameter 'type' of static method [list] is
+/// InternetAddressType.IPv4, only addresses of InternetAddressType.IPv4 type
+/// are lookup.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

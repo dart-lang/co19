@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion double operator /(num other)
- * The result of division is always a double.
- * @description Checks that the result of division is always a double
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion double operator /(num other)
+/// The result of division is always a double.
+/// @description Checks that the result of division is always a double
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {
@@ -20,5 +18,13 @@ main() {
   Expect.isTrue(1/0 is double);
   Expect.isTrue(-1/0 is double);
   Expect.isTrue(0/0 is double);
+  Expect.runtimeIsType<double>(1/2);
+  Expect.runtimeIsType<double>(2/1);
+  Expect.runtimeIsType<double>(-2/1);
+  Expect.runtimeIsType<double>(1/1);
+  Expect.runtimeIsType<double>(20/10);
+  Expect.runtimeIsType<double>(1/0);
+  Expect.runtimeIsType<double>(-1/0);
+  Expect.runtimeIsType<double>(0/0);
 }
 

@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A function type (T1,...Tk,[Tk+1,...,Tn+m]) -> T is a subtype of
- * the function type (S1,...,Sk+j,[Sk+j+1,...,Sn]) -> S, if all of the following
- * conditions are met:
- * 1. Either
- *    • S is void, or
- *    • T <=> S.
- * 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
- * @description Checks that this statement is true for function types with a
- * single formal parameter (class, generic, function, Dynamic).
- * @author iefremov
- * @issue 42648
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A function type (T1,...Tk,[Tk+1,...,Tn+m]) -> T is a subtype of
+/// the function type (S1,...,Sk+j,[Sk+j+1,...,Sn]) -> S, if all of the following
+/// conditions are met:
+/// 1. Either
+///    • S is void, or
+///    • T <=> S.
+/// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+/// @description Checks that this statement is true for function types with a
+/// single formal parameter (class, generic, function, Dynamic).
+/// @author iefremov
+/// @issue 42648
+
 // Requirements=nnbd-strong
 import "../../../Utils/expect.dart";
 
@@ -108,6 +106,12 @@ main() {
   Expect.isFalse(f4 is t1);
   Expect.isTrue(f5 is t1);
   Expect.isTrue(f6 is t1);
+  Expect.runtimeIsType<t1>(f1);
+  Expect.runtimeIsType<t1>(f2);
+  Expect.runtimeIsNotType<t1>(f3);
+  Expect.runtimeIsNotType<t1>(f4);
+  Expect.runtimeIsType<t1>(f5);
+  Expect.runtimeIsType<t1>(f6);
 
   Expect.isTrue(f10 is t2);
   Expect.isTrue(f11 is t2);
@@ -115,11 +119,21 @@ main() {
   Expect.isFalse(f13 is t2);
   Expect.isTrue(f14 is t2);
   Expect.isTrue(f15 is t2);
+  Expect.runtimeIsType<t2>(f10);
+  Expect.runtimeIsType<t2>(f11);
+  Expect.runtimeIsType<t2>(f12);
+  Expect.runtimeIsNotType<t2>(f13);
+  Expect.runtimeIsType<t2>(f14);
+  Expect.runtimeIsType<t2>(f15);
 
   Expect.isTrue(f20 is t3);
   Expect.isTrue(f21 is t3);
   Expect.isTrue(f22 is t3);
   Expect.isTrue(f23 is t3);
+  Expect.runtimeIsType<t3>(f20);
+  Expect.runtimeIsType<t3>(f21);
+  Expect.runtimeIsType<t3>(f22);
+  Expect.runtimeIsType<t3>(f23);
 
   Expect.isFalse(f30 is t4);
   Expect.isFalse(f31 is t4);
@@ -134,6 +148,19 @@ main() {
   Expect.isFalse(f40 is t4);
   Expect.isFalse(f41 is t4);
   Expect.isFalse(f42 is t4);
+  Expect.runtimeIsNotType<t4>(f30);
+  Expect.runtimeIsNotType<t4>(f31);
+  Expect.runtimeIsNotType<t4>(f32);
+  Expect.runtimeIsNotType<t4>(f33);
+  Expect.runtimeIsNotType<t4>(f34);
+  Expect.runtimeIsType<t4>(f35);
+  Expect.runtimeIsNotType<t4>(f36);
+  Expect.runtimeIsNotType<t4>(f37);
+  Expect.runtimeIsNotType<t4>(f38);
+  Expect.runtimeIsNotType<t4>(f39);
+  Expect.runtimeIsNotType<t4>(f40);
+  Expect.runtimeIsNotType<t4>(f41);
+  Expect.runtimeIsNotType<t4>(f42);
 
   Expect.isTrue(f50 is t5);
   Expect.isFalse(f51 is t5);
@@ -141,17 +168,32 @@ main() {
   Expect.isTrue(f53 is t5);
   Expect.isFalse(f54 is t5);
   Expect.isFalse(f55 is t5);
+  Expect.runtimeIsType<t5>(f50);
+  Expect.runtimeIsNotType<t5>(f51);
+  Expect.runtimeIsType<t5>(f52);
+  Expect.runtimeIsType<t5>(f53);
+  Expect.runtimeIsNotType<t5>(f54);
+  Expect.runtimeIsNotType<t5>(f55);
 
   Expect.isTrue(f61 is t6);
   Expect.isFalse(f62 is t6);
   Expect.isTrue(f63 is t6);
   Expect.isTrue(f64 is t6);
   Expect.isTrue(f65 is t6);
+  Expect.runtimeIsType<t6>(f61);
+  Expect.runtimeIsNotType<t6>(f62);
+  Expect.runtimeIsType<t6>(f63);
+  Expect.runtimeIsType<t6>(f64);
+  Expect.runtimeIsType<t6>(f65);
 
   Expect.isFalse(f71 is t7);
   Expect.isTrue(f72 is t7);
   Expect.isTrue(f73 is t7);
   Expect.isTrue(f74 is t7);
+  Expect.runtimeIsNotType<t7>(f71);
+  Expect.runtimeIsType<t7>(f72);
+  Expect.runtimeIsType<t7>(f73);
+  Expect.runtimeIsType<t7>(f74);
 
   Expect.isFalse(f81 is t8);
   Expect.isFalse(f82 is t8);
@@ -164,4 +206,15 @@ main() {
   Expect.isFalse(f89 is t8);
   Expect.isFalse(f90 is t8);
   Expect.isFalse(f91 is t8);
+  Expect.runtimeIsNotType<t8>(f81);
+  Expect.runtimeIsNotType<t8>(f82);
+  Expect.runtimeIsNotType<t8>(f83);
+  Expect.runtimeIsNotType<t8>(f84);
+  Expect.runtimeIsType<t8>(f85);
+  Expect.runtimeIsType<t8>(f86);
+  Expect.runtimeIsNotType<t8>(f87);
+  Expect.runtimeIsNotType<t8>(f88);
+  Expect.runtimeIsNotType<t8>(f89);
+  Expect.runtimeIsNotType<t8>(f90);
+  Expect.runtimeIsNotType<t8>(f91);
 }

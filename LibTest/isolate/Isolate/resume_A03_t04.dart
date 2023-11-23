@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS
- * file for details. All rights reserved. Use of this source code is governed
- * by a BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void resume(
- *                    Capability resumeCapability
- *                    )
- *    Resumes a paused isolate.
- * ...
- *    The capability must be one returned by a call to pause on this isolate,
- * otherwise the resume call does nothing.
- *
- * @description Check that call to resume() with freshly created capability
- * does nothing on isolate that is not paused
- *
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS
+// file for details. All rights reserved. Use of this source code is governed
+// by a BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void resume(
+///                    Capability resumeCapability
+///                    )
+///    Resumes a paused isolate.
+/// ...
+///    The capability must be one returned by a call to pause on this isolate,
+/// otherwise the resume call does nothing.
+///
+/// @description Check that call to resume() with freshly created capability
+/// does nothing on isolate that is not paused
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";

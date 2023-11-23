@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion An if element:
- * ...
- * The expansion is:
- * - The then element if the condition expression evaluates to true.
- * - The else element if the condition is false and there is one.
- * - Otherwise, the if element expands to nothing.
- *
- * @description Checks that if element expands to nothing if the condition
- * evaluates to false and the else expression is not exist.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion An if element:
+/// ...
+/// The expansion is:
+/// - The then element if the condition expression evaluates to true.
+/// - The else element if the condition is false and there is one.
+/// - Otherwise, the if element expands to nothing.
+///
+/// @description Checks that if element expands to nothing if the condition
+/// evaluates to false and the else expression is not exist.
+/// @author ngl@unipro.ru
+
 import "../../Utils/expect.dart";
 
 main() {

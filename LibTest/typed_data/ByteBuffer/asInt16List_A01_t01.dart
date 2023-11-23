@@ -1,32 +1,30 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Int16List asInt16List([int offsetInBytes = 0, int length ])
- * Creates a Int16List view of a region of this byte buffer.
- * The view is backed by the bytes of this byte buffer. Any changes made to the
- * Int16List will also change the buffer, and vice versa.
- * @description Checks that method asInt16List creates a Int16List view of
- * a region of this byte buffer, and any changes made to Int16List will also
- * change the buffer, and vice versa.
- * @author ngl@unipro.ru
- * @issue 43204
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Int16List asInt16List([int offsetInBytes = 0, int length ])
+/// Creates a Int16List view of a region of this byte buffer.
+/// The view is backed by the bytes of this byte buffer. Any changes made to the
+/// Int16List will also change the buffer, and vice versa.
+/// @description Checks that method asInt16List creates a Int16List view of
+/// a region of this byte buffer, and any changes made to Int16List will also
+/// change the buffer, and vice versa.
+/// @author ngl@unipro.ru
+/// @issue 43204
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
   int bufSizeInBytes = buffer.lengthInBytes;
-  Int16List res = buffer.asInt16List(0);
+  var res = buffer.asInt16List(0);
   Int16List res1 = buffer.asInt16List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int viewLength = res.length;
   int shift = (Int16List.bytesPerElement == 2) ? 1 : 0;
 
   Expect.isTrue(res is Int16List);
+  Expect.runtimeIsType<Int16List>(res);
   Expect.equals(bufSizeInBytes >> shift, viewLength);
 
   if (viewSizeInBytes != 0) {
@@ -66,10 +64,11 @@ main() {
   check((new Int32List.fromList(list1)).buffer);
   check((new Int32List.fromList(list2)).buffer);
 
-  check((new Int64List.fromList(list0)).buffer);
-  check((new Int64List.fromList(list1)).buffer);
-  check((new Int64List.fromList(list2)).buffer);
-
+  if (!isJS) {
+    check((new Int64List.fromList(list0)).buffer);
+    check((new Int64List.fromList(list1)).buffer);
+    check((new Int64List.fromList(list2)).buffer);
+  }
   check((new Int32x4List.fromList(list5)).buffer);
   check((new Int32x4List.fromList(list3)).buffer);
   check((new Int32x4List.fromList(list4)).buffer);
