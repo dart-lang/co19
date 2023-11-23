@@ -14,8 +14,8 @@
 /// It is a compile-time error if M is not the name of the immediately enclosing
 /// class or enum.
 ///
-/// @description Checks that it's a compile-time error when `M` is the name of
-/// the type alias.
+/// @description Checks that it's a compile-time error when `M` is the name of a
+/// type alias.
 /// @author sgrekhov@unipro.ru
 
 class S {}

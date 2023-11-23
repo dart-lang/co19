@@ -18,10 +18,12 @@
 /// if R does not denote a constructor. Otherwise, it is a compile-time error if
 /// R denotes a generative constructor and D is abstract.
 ///
-/// @description Checks that a compile error is produced if referenced type in a
-/// redirecting constructor is in fact an accessible type, but the referenced
-/// name does not denote a constructor.
+/// @description Checks that a compile error is produced if the referenced type
+/// in a redirecting constructor is in fact an accessible type, but the
+/// referenced name does not denote a constructor.
 /// @author ilya
+
+// SharedOptions=--enable-experiment=inline-class
 
 class F {
   factory F.foo() = C.foo;
@@ -44,7 +46,6 @@ class C implements F {
   C foo() => this;
   late C bar;
   static C cInstance() => C();
-  static E eInstance() => E.e1;
 
   C() {
     bar = this;
@@ -54,10 +55,17 @@ class C implements F {
 enum E {
   e1, e2;
 
-  factory E.foo() = C.eInstance;
-//                  ^^^^^^^^^^^
+  const E();
+  const factory E.foo() = ET.foo;
+  const factory E.bar() = ET.bar;
+//                        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
+
+extension type const ET(E it) implements E {
+  const ET.foo() : this(E.e1);
+  static ET bar() => const ET(E.e1);
 }
 
 main() {

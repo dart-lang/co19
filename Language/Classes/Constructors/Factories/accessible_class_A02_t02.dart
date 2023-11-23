@@ -29,8 +29,8 @@ T bar<T>() => C.gen() as dynamic;
 class C {
   C.gen();
 
-  factory C() = function;
-//              ^^^^^^^^
+  factory C() = foo;
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -42,8 +42,8 @@ class C {
 
 enum E {
   e1, e2;
-  const factory E() = function;
-//                    ^^^^^^^^
+  const factory E() = foo;
+//                    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory E.f() = bar<E>;
