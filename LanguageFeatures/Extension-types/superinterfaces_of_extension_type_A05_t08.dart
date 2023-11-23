@@ -33,18 +33,21 @@
 /// redeclared by a getter, or vice versa.
 ///
 /// @description Checks that it is a compile-time error if an extension type
-/// declaration `DV` declares a member that conflicts with an inherited one
+/// declaration `DV` includes a member that conflicts with other ones
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V(int id) {
-  external int id2;
+extension type V1(int id) {
+  external int id2; // id2 here declares a setter with conflicts with V2.id2()
 }
 
-extension type ET(int id) implements V {
+extension type V2(int id) {
   int id2() => id;
-//    ^^^
+}
+
+extension type ET(int id) implements V1, V2 {
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

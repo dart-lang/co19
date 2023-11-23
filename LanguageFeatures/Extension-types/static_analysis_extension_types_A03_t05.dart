@@ -42,17 +42,11 @@ extension type ET2(int id) {
 }
 
 extension type ET3(int id) implements I1 {
-  void set n(int i) {}
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  void set n(int i) {} // no error, the setter precludes the method
 }
 
 extension type ET4(int id) implements I2 {
-  int n() => 2;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  int n() => 2; // no error, the method precludes the setter
 }
 
 main() {

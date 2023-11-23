@@ -30,10 +30,7 @@ extension type ET1(int id) {
 }
 
 extension type ET2(int id) implements I {
-  int get x => 42;
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  int get x => 42; // no error, the getter precludes the setter
 }
 
 main() {
