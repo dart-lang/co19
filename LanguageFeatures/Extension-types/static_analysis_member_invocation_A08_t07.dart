@@ -18,47 +18,47 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-class V1 {
-  String n() => "V1";
+class C1 {
+  String n() => "C1";
 }
 
-class V2 {
+class C2 {
   void set n(String v) {}
 }
 
-extension type ET1(V1 _) implements V1 {
+extension type ET1(C1 _) implements C1 {
   void set n(String v) {}
 }
 
-extension type ET2(V2 _) implements V2 {
+extension type ET2(C2 _) implements C2 {
   String n() => "ET2";
 }
 
-extension type ET3(V1 _) implements V1 {
+extension type ET3(C1 _) implements C1 {
   void set n(int v) {}
 }
 
-extension type ET4(V2 _) implements V2 {
+extension type ET4(C2 _) implements C2 {
   int n() => 42;
 }
 
 main() {
-  ET1(V1()).n();
+  ET1(C()).n();
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ET2(V2()).n = "42";
+  ET2(C2()).n = "42";
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ET3(V1()).n();
+  ET3(C1()).n();
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ET4(V2()).n = "42";
+  ET4(C2()).n = "42";
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified

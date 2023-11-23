@@ -9,7 +9,8 @@
 ///   superinterface V that has an extension type member named n due to a member
 ///   declaration DM2, and DV does not declare a member that precludes DM2.
 ///
-/// @description Checks that a getter doesn't preclude setter and vice versa
+/// @description Checks that a getter doesn't preclude setter and vice versa,
+/// and hence the `ET*` types have a getter/setter signature conflict.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class

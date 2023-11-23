@@ -19,13 +19,7 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type ET0(int id) {
-  void m1() {}
-  int get m2 => 42;
-  void set m3(int val) {}
-}
-
-extension type ET2(int id) implements num {}
+extension type ET1(int id) implements num {}
 
 class I {
   int i = 0;
@@ -35,23 +29,23 @@ class J extends I {
   int j = 1;
 }
 
-extension type ET3(J rep) implements I {
+extension type ET2(J rep) implements I {
   int get jOfEt3 => rep.j;
 }
 
 main() {
-  ET2 et2 = ET2(42);
-  et2.ceil();
-  et2.isOdd;
+  ET1 et1 = ET1(42);
+  et1.ceil();
+  et1.isOdd;
 //    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var et3 = ET3(J());
-  et3.rep;
-  et3.i;
-  et3.jOfEt3;
-  et3.j;
+  var et2 = ET2(J());
+  et2.rep;
+  et2.i;
+  et2.jOfEt3;
+  et2.j;
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified

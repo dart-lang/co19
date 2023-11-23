@@ -12,43 +12,44 @@
 ///   a member signature m named n, and DV does not declare a member that
 ///   precludes m.
 ///
-/// @description Checks that a getter doesn't preclude setter and vice versa
+/// @description Checks that a getter doesn't preclude setter and vice versa,
+/// and hence the `ET*` types have a getter/setter signature conflict.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-class V1 {
-  String get n => "V1";
+class C1 {
+  String get n => "C1";
 }
 
-mixin class V2 {
+mixin class C2 {
   void set n(String v) {}
 }
 
-class V0 = V1 with V2;
+class C0 = C1 with C2;
 
-extension type ET1(V1 _) implements V1 {
+extension type ET1(C1 _) implements C1 {
   void set n(int v) {}
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET2(V2 _) implements V2 {
+extension type ET2(C2 _) implements C2 {
   int get n => 2;
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET3(V0 _) implements V1, V2 {
+extension type ET3(C0 _) implements C1, C2 {
   int get n => 3;
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET4(V0 _) implements V1, V2 {
+extension type ET4(C0 _) implements C1, C2 {
   void set n(int v) {}
 //         ^
 // [analyzer] unspecified

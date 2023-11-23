@@ -24,8 +24,6 @@ extension type ET0(int id) {
 
 extension type ET1(int id) implements ET0 {}
 
-extension type ET2(int id) implements num {}
-
 main() {
   ET1 et1 = ET1(42);
   et1.m1();

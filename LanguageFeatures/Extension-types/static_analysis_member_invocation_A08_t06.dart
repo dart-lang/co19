@@ -22,42 +22,42 @@ import "../../Utils/expect.dart";
 
 String log = "";
 
-class V1 {
-  String n() => "V1";
+class C1 {
+  String n() => "C1";
 }
 
-class V2 {
+class C2 {
   void set n(String v) {
-    log = "V2: $v";
+    log = "C2: $v";
   }
 }
 
-extension type ET1(V1 _) implements V1 {
+extension type ET1(C1 _) implements C1 {
   void set n(String v) {
     log = "ET1: $v";
   }
 }
 
-extension type ET2(V2 _) implements V2 {
+extension type ET2(C2 _) implements C2 {
   String n() => "ET2";
 }
 
-extension type ET3(V1 _) implements V1 {
+extension type ET3(C1 _) implements C1 {
   void set n(int v) {
     log = "ET3: $v";
   }
 }
 
-extension type ET4(V2 _) implements V2 {
+extension type ET4(C2 _) implements C2 {
   T n<T>(T t) => t;
 }
 
 main() {
-  ET1(V1()).n = "1";
+  ET1(C1()).n = "1";
   Expect.equals("ET1: 1", log);
   log = "";
-  Expect.equals("ET2", ET2(V2()).n());
-  ET3(V1()).n = 3;
+  Expect.equals("ET2", ET2(C2()).n());
+  ET3(C1()).n = 3;
   Expect.equals("ET3: 3", log);
-  Expect.equals(42, ET4(V2()).n<int>(42));
+  Expect.equals(42, ET4(C2()).n<int>(42));
 }
