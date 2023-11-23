@@ -9,54 +9,52 @@
 ///   superinterface V that has an extension type member named n due to a member
 ///   declaration DM2, and DV does not declare a member that precludes DM2.
 ///
-/// @description Checks that an extension type declares a method it precludes
-/// inherited members
+/// @description Checks that a getter doesn't preclude setter and vice versa
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
 extension type V1(int _) {
-  String n() => "V1";
+  String get n => "V1";
 }
 
 extension type V2(int _) {
-  void set n(String v) {}
+  void set n(String n) {}
 }
 
+extension type V0(int _) implements V1, V2 {}
+
 extension type ET1(V1 _) implements V1 {
-  void set n(String v) {}
+  void set n(int v) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET2(V2 _) implements V2 {
-  String n() => "ET2";
+  int get n => 2;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-extension type ET3(V1 _) implements V1 {
+extension type ET3(V0 _) implements V1, V2 {
+  int get n => 3;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET4(V0 _) implements V1, V2 {
   void set n(int v) {}
-}
-
-extension type ET4(V2 _) implements V2 {
-  int n() => 42;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  ET1(V1(0)).n();
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET2(V2(0)).n = "42";
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET3(V1(0)).n();
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET4(V2(0)).n = "42";
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  print(ET1);
+  print(ET2);
+  print(ET3);
+  print(ET4);
 }

@@ -10,7 +10,7 @@
 ///   declaration DM2, and DV does not declare a member that precludes DM2.
 ///
 /// @description Checks that if an extension type `ET` has a superinterface with
-/// a member `m` then this member is also presents in `ET` but members of its
+/// a member `m` then this member is also present in `ET` but members of its
 /// representation type are not
 /// @author sgrekhov22@gmail.com
 
@@ -26,18 +26,6 @@ extension type ET1(int id) implements ET0 {}
 
 extension type ET2(int id) implements num {}
 
-class I {
-  int i = 0;
-}
-
-class J extends I {
-  int j = 1;
-}
-
-extension type ET3(J rep) implements I {
-  int get jOfEt3 => rep.j;
-}
-
 main() {
   ET1 et1 = ET1(42);
   et1.m1();
@@ -45,22 +33,6 @@ main() {
   et1.m3 = 42;
   et1.ceil();
 //    ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET2 et2 = ET2(42);
-  et2.ceil();
-  et2.isOdd;
-//    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var et3 = ET3(J());
-  et3.rep;
-  et3.i;
-  et3.jOfEt3;
-  et3.j;
-//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

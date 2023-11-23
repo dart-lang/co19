@@ -10,7 +10,7 @@
 ///   declaration DM2, and DV does not declare a member that precludes DM2.
 ///
 /// @description Checks that if an extension type `ET` has a superinterface with
-/// a member `m` then this member is also presents in `ET`
+/// a member `m` then this member is also present in `ET`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class

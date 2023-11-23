@@ -2,12 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We say that an extension type declaration DV has an extension
-/// type member named n in the cases where:
-/// - DV declares a member named n.
-/// - DV has no such declaration, but DV has a direct extension type
-///   superinterface V that has an extension type member named n due to a member
-///   declaration DM2, and DV does not declare a member that precludes DM2.
+/// @assertion We say that an extension type declaration DV has a non-extension
+/// type member named n in the case where DV does not declare a member named n,
+/// and one of the following criteria is satisfied:
+/// - DV has a direct extension type superinterface V that has a non-extension
+///   type member with signature m and name n, and DV does not declare a member
+///   that precludes m.
+/// - DV has a direct non-extension type superinterface whose interface contains
+///   a member signature m named n, and DV does not declare a member that
+///   precludes m.
 ///
 /// @description Checks that an extension type declares a method it precludes
 /// inherited members
@@ -15,11 +18,11 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V1(int _) {
+class V1 {
   String n() => "V1";
 }
 
-extension type V2(int _) {
+class V2 {
   void set n(String v) {}
 }
 
@@ -40,23 +43,23 @@ extension type ET4(V2 _) implements V2 {
 }
 
 main() {
-  ET1(V1(0)).n();
-//           ^
+  ET1(V1()).n();
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ET2(V2(0)).n = "42";
-//           ^
+  ET2(V2()).n = "42";
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ET3(V1(0)).n();
-//           ^
+  ET3(V1()).n();
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ET4(V2(0)).n = "42";
-//           ^
+  ET4(V2()).n = "42";
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
