@@ -72,7 +72,7 @@ Set<dynamic> test7() => {
 // [cfe] unspecified
   };
 
-main() async {
+main() {
   test1();
   test2();
   test3();

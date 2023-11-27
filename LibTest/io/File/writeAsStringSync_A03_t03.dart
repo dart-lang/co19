@@ -32,7 +32,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("Old content ");
   file.writeAsStringSync("New content", mode: FileMode.append);

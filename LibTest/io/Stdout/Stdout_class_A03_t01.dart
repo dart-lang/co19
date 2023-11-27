@@ -14,7 +14,7 @@
 import "dart:async";
 import "dart:io";
 
-test(Stdout sink) async {
+test(Stdout sink) {
   Stream<List<int>> stream = new Stream<List<int>>.fromIterable(
       [[1, 2, 3, 4, 5], [12], [3, 22]]);
   sink.nonBlocking.addStream(stream).then((x) {
@@ -27,7 +27,7 @@ test(Stdout sink) async {
   sink.add([1, 2, 3]);
 }
 
-main() async {
+main() {
   test(stdout);
   test(stderr);
 }

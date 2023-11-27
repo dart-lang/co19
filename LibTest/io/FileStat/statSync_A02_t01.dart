@@ -20,7 +20,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   DateTime begOfEpoch = DateTime.fromMillisecondsSinceEpoch(0, isUtc: true);
   File file = new File(getTempFilePath(parent: sandbox));
   FileStat fs = FileStat.statSync(file.path);

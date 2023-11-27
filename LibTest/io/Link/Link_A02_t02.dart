@@ -16,7 +16,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   Directory dir = getTempDirectorySync(parent: sandbox);
   Link link = new Link(dir.path + Platform.pathSeparator + "NotExistingFile");
   Expect.equals(dir.path + Platform.pathSeparator + "NotExistingFile",

@@ -40,7 +40,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   // create 2 Directories
   Directory dir1 = getTempDirectorySync(parent: sandbox);
   Directory dir2 = getTempDirectorySync(parent: sandbox);

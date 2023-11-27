@@ -20,7 +20,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   File file = new File(getTempFilePath(parent: sandbox));
   file.writeAsStringSync("Line 1\nLine 2\rLine3");
   Expect.listEquals(["Line 1", "Line 2", "Line3"], file.readAsLinesSync());

@@ -27,7 +27,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   Expect.throws(() {
     FileSystemEntity.identicalSync(sandbox.path, getTempDirectoryName());
   });

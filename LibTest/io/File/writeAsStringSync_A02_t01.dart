@@ -32,7 +32,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("File content: Кириллица прекрасна");
   Expect.equals("File content: Кириллица прекрасна", file.readAsStringSync());

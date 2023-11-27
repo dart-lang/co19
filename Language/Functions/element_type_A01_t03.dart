@@ -15,6 +15,7 @@
 /// @description Check a run-time type of a return value of a synchronous
 /// generator function
 /// @author sgrekhov22@gmail.com
+/// @issue 54159
 
 import "dart:async";
 import "../../Utils/expect.dart";

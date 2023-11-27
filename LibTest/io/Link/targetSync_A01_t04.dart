@@ -29,7 +29,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   Directory parent = getTempDirectorySync(parent: sandbox);
   Directory dir = getTempDirectorySync(parent: parent);
   File target = getTempFileSync(parent: parent);

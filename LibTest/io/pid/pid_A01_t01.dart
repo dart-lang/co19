@@ -18,9 +18,11 @@ run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   bool called = false;
+  asyncStart();
   await Process.run(executable, [eScript, "run"]).then((ProcessResult results) {
     Expect.notEquals(results.pid, pid);
     called = true;
+    asyncEnd();
   });
   Expect.isTrue(called);
 }

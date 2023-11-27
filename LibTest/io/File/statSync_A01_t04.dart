@@ -22,7 +22,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   Directory dir = getTempDirectorySync(parent: sandbox);
   File file = new File(dir.path);
   Expect.equals(FileSystemEntityType.directory, file.statSync().type);

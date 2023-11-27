@@ -40,7 +40,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   String dirPath = getTempDirectoryPath(parent: sandbox);
   String targetPath = getTempDirectoryPath(parent: sandbox);
   Directory target = new Directory(targetPath);

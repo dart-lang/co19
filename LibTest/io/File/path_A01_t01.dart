@@ -15,7 +15,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   File tmp = getTempFileSync(parent: sandbox);
   File file = new File(tmp.path);
   Expect.equals(tmp.path, file.path);

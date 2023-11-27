@@ -18,7 +18,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   Directory tmp = getTempDirectorySync(parent: sandbox);
   // test existing Directory
   Uri uri = new Uri.directory(tmp.path);

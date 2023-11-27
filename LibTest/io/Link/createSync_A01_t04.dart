@@ -40,7 +40,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   String target = getTempFilePath(parent: sandbox);
   Link link = new Link(getTempFilePath(parent: sandbox));
   link.createSync(target);

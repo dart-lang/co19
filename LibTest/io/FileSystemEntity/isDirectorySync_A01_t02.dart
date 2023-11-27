@@ -18,7 +18,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   Directory dir = getTempDirectorySync(parent: sandbox);
   Expect.isTrue(FileSystemEntity.isDirectorySync(dir.path));
   Expect.equals(FileSystemEntityType.directory,

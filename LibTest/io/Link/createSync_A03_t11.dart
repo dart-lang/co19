@@ -41,7 +41,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   File existing = getTempFileSync(parent: sandbox);
   Link link = Link(existing.path);
   Expect.throws(() {link.createSync(sandbox.path);});

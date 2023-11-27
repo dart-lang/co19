@@ -72,7 +72,7 @@ Future<Map<String, int>> test6() async {
 // [cfe] unspecified
 }
 
-main() async {
+main() {
   test1();
   test2();
   test3();

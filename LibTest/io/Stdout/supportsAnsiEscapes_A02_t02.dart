@@ -25,12 +25,16 @@ run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = -1;
+  asyncStart();
   await Process.run(
           executable, [...Platform.executableArguments, eScript, "test"],
           runInShell: true)
       .then((ProcessResult results) {
     called = results.exitCode;
-    if (called != 0 && called != 1) print(results.stderr);
+    if (called != 0 && called != 1) {
+      print(results.stderr);
+    }
+    asyncEnd();
   });
   Expect.isTrue(called == 0 || called == 1);
 }

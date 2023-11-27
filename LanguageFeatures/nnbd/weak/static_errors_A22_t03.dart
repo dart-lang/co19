@@ -32,7 +32,7 @@ Future<int> init() async {
   return await 42;
 }
 
-main() async {
+main() {
   late Future<int> i = init();
   test();
   C.sTest();

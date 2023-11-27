@@ -34,7 +34,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   Link target1 = getTempLinkSync(parent: sandbox, target: sandbox.path);
   File target2 = getTempFileSync(parent: sandbox);
 

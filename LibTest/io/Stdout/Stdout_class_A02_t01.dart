@@ -20,14 +20,14 @@ Stream<List<int>> stream1 = new Stream<List<int>>.fromIterable(
 Stream<List<int>> stream2 = new Stream<List<int>>.fromIterable(
     [[1, 2, 3, 4, 5], [12], [3, 22]]);
 
-test(Stdout sink, Stream<List<int>> stream) async {
+test(Stdout sink, Stream<List<int>> stream) {
   sink.addStream(stream).then((x) {
     new Future.delayed(new Duration(seconds: 3));
   });
   Expect.throws(() { sink.writeln(); }, (e) => e is StateError);
 }
 
-main() async {
+main() {
   test(stdout, stream1);
   test(stderr, stream2);
 }

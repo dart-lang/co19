@@ -24,7 +24,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   Directory dir = getTempDirectorySync(parent: sandbox);
   Link link = new Link(dir.path);
   Expect.isFalse(link.existsSync());

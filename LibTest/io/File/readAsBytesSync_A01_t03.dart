@@ -18,7 +18,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   File file = new File(getTempFilePath(parent: sandbox));
   file.writeAsBytesSync([0, 1, 2, 3, 255]);
   Expect.listEquals([0, 1, 2, 3, 255], file.readAsBytesSync());

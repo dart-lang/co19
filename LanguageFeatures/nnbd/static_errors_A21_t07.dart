@@ -11,8 +11,7 @@
 /// element in a collection literal
 /// @author sgrekhov@unipro.ru
 
-
-main() async {
+main() {
   List list = [1, 2, 3, 4];
   <int> [
     1, 2, 3,

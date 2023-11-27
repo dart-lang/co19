@@ -37,7 +37,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+_main(Directory sandbox) {
   Directory target = new Directory(getTempDirectoryPath(parent: sandbox));
   Link link1 = getTempLinkSync(target: target.path, parent: sandbox);
   Expect.throws(() {
