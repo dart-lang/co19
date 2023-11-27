@@ -8,8 +8,9 @@
 /// type parameters of the enclosing class.
 ///
 /// @description Checks that assigning the result of invoking a factory
-/// constructor to a variable whose type is assignable to `M<T1,...,Tn>` does
-/// not result in an error or a static warning.
+/// constructor to a variable `v` with declared type `T` such that
+/// `M<T1,...,Tn>` is assignable to `T` does not result in an error or a static
+/// warning.
 /// @author rodionov
 
 class S1 {}

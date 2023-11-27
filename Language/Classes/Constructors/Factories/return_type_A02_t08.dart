@@ -8,7 +8,7 @@
 /// type parameters of the enclosing class.
 ///
 /// @description Checks that returning an object whose type is not subtype of
-/// `M` from factory constructor `M` produces a compile error. Test type alias
+/// `M` from a factory constructor `M` produces a compile error. Test type alias
 /// @author sgrekhov@unipro.ru
 
 class C {}

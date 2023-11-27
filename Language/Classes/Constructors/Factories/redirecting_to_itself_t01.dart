@@ -8,7 +8,7 @@
 /// redirection-reachable from q′′. It is a compile-time error if a redirecting
 /// factory constructor is redirection-reachable from itself.
 ///
-/// @description Checks that compile-error occurs when factory constructor
+/// @description Checks that compile-error occurs when a factory constructor
 /// redirects to itself.
 /// @author ilya
 

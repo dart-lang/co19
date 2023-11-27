@@ -7,7 +7,7 @@
 /// otherwise the return type is M<T1, . . . , Tn> where T1, . . . , Tn are the
 /// type parameters of the enclosing class.
 ///
-/// @description Checks that returning `null` from factory constructor `M`
+/// @description Checks that returning `null` from a factory constructor `M`
 /// produces an error.
 /// @author ilya
 

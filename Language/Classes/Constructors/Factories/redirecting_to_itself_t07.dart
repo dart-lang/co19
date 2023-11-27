@@ -21,15 +21,15 @@ class F1 {
 
 typedef F1Alias = F1;
 
-class F2 {
+class F2 extends F1 {
   factory F2() = F3;
 //               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class F3 {
-  factory F3() = FAlias1;
+class F3 extends F2 {
+  factory F3() = F1Alias;
 //               ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

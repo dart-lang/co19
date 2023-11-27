@@ -7,9 +7,9 @@
 /// otherwise the return type is M<T1, . . . , Tn> where T1, . . . , Tn are the
 /// type parameters of the enclosing class.
 ///
-/// @description Checks that assigning the result of invoking a factory
-/// constructor to a variable whose type is not assignable to `M<T1,...,Tn>`
-/// produces a compile error.
+/// @description Checks that a compile error is produced when assigning the
+/// result of invoking the factory constructor `M` to a variable `v` with
+/// declared type `T` such that `M` is not assignable to `T`
 /// @author rodionov
 
 class S1 {}

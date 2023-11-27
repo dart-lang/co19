@@ -8,7 +8,7 @@
 /// type parameters of the enclosing class.
 ///
 /// @description Checks that returning an object whose type is not subtype of
-/// `M` from factory constructor `M` produces a compile error.
+/// `M` from a factory constructor `M` produces a compile-time error.
 /// @author kaigorodov
 
 class C {}

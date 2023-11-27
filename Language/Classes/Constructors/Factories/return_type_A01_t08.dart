@@ -7,9 +7,10 @@
 /// otherwise the return type is M<T1, . . . , Tn> where T1, . . . , Tn are the
 /// type parameters of the enclosing class.
 ///
-/// @description Checks that result of invoking factory constructor of the form
-/// `M` or `M.id` can be assigned to the variables whose types are assignable to
-/// `M`. Test type aliases
+/// @description Checks that assigning the result of invoking a factory
+/// constructor to a variable `v` with declared type `T` such that
+/// `M<T1,...,Tn>` is assignable to `T` does not result in an error or a static
+/// warning. Test type aliases
 /// @author sgrekhov@unipro.ru
 
 class S {}

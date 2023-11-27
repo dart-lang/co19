@@ -8,8 +8,8 @@
 /// type parameters of the enclosing class.
 ///
 /// @description Checks that a compile error is produced when assigning the
-/// result of invoking factory constructor `M.id` to the variable whose type is
-/// not assignable to `M`.
+/// result of invoking the factory constructor `M.id` to a variable `v` with
+/// declared type `T` such that `M` is not assignable to `T`.
 /// @author iefremov
 
 class A {

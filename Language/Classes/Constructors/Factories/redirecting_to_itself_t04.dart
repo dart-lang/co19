@@ -19,14 +19,14 @@ class F1 {
 // [cfe] unspecified
 }
 
-class F2 {
+class F2 extends F1 {
   factory F2() = F3;
 //               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class F3 {
+class F3 extends F2 {
   factory F3() = F1;
 //               ^^
 // [analyzer] unspecified

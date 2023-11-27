@@ -8,7 +8,8 @@
 /// type parameters of the enclosing class.
 ///
 /// @description Checks that returning an object whose type is not subtype of
-/// `M` from factory `M.id` produces a compile error. Test type alias
+/// `M` from a factory named `M.id` produces a compile-time error. Test type
+/// alias
 /// @author sgrekhov@unipro.ru
 
 abstract class I {}

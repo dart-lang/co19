@@ -7,8 +7,8 @@
 /// otherwise the return type is M<T1, . . . , Tn> where T1, . . . , Tn are the
 /// type parameters of the enclosing class.
 ///
-/// @description Checks that returning an object of subtype of `M`
-/// from factory constructor `M` does not produce an error. Test type alias
+/// @description Checks that returning an instance of a subtype of `M`
+/// from a factory constructor `M` does not produce an error. Test type alias
 /// @author sgrekhov@unipro.ru
 
 abstract class A {

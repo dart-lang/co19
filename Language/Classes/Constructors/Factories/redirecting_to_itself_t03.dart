@@ -8,8 +8,9 @@
 /// redirection-reachable from q′′. It is a compile-time error if a redirecting
 /// factory constructor is redirection-reachable from itself.
 ///
-/// @description Checks that compile-error occurs when named factory constructor
-/// redirects to non-named and vice versa.
+/// @description Checks that compile-error occurs when a named factory
+/// constructor redirects to a non-named constructor and vice versa, yielding a
+/// cycle.
 /// @author ilya
 
 class F {

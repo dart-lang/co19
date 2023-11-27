@@ -15,7 +15,7 @@
 /// class or enum.
 ///
 /// @description Checks that it's a compile-time error when `M` is the name of
-/// the enclosing class's superclass.
+/// a superinterface of the enclosing class.
 /// @author rodionov
 
 class S {}

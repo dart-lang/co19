@@ -7,9 +7,9 @@
 /// otherwise the return type is M<T1, . . . , Tn> where T1, . . . , Tn are the
 /// type parameters of the enclosing class.
 ///
-/// @description Checks that result of invoking factory constructor of the form
-/// `M` or `M.id` can be assigned to the variables whose types are assignable to
-/// `M`
+/// @description Checks that result of invoking a factory constructor of the
+/// form `M` or `M.id` can be assigned to a variable `v` when `M` is assignable
+/// to declared type of `v`
 /// @author iefremov
 
 class S {}
