@@ -55,6 +55,10 @@ void main() {
   const Check(Map<ExtInt2, ExtString2>, expected: Map<int, String>);
   const Check(ExtMap1<int, String>, expected: Map<int, String>);
   const Check(ExtMap2<int, String>, expected: Map<int, String>);
+  const Check(ExtMap1<int, ExtString1>, expected: Map<int, String>);
+  const Check(ExtMap2<int, ExtString1>, expected: Map<int, String>);
+  const Check(ExtMap1<int, ExtString2>, expected: Map<int, String>);
+  const Check(ExtMap2<int, ExtString2>, expected: Map<int, String>);
   const Check(ExtMap1<ExtInt1, String>, expected: Map<int, String>);
   const Check(ExtMap1<ExtInt2, String>, expected: Map<int, String>);
   const Check(ExtMap2<ExtInt1, String>, expected: Map<int, String>);
@@ -62,9 +66,11 @@ void main() {
   const Check(ExtMap1<ExtInt1, ExtString1>, expected: Map<int, String>);
   const Check(ExtMap1<ExtInt1, ExtString2>, expected: Map<int, String>);
   const Check(ExtMap1<ExtInt2, ExtString2>, expected: Map<int, String>);
+  const Check(ExtMap1<ExtInt2, ExtString1>, expected: Map<int, String>);
   const Check(ExtMap2<ExtInt1, ExtString1>, expected: Map<int, String>);
   const Check(ExtMap2<ExtInt1, ExtString2>, expected: Map<int, String>);
   const Check(ExtMap2<ExtInt2, ExtString2>, expected: Map<int, String>);
+  const Check(ExtMap2<ExtInt2, ExtString1>, expected: Map<int, String>);
   // Generic twice.
   const Check(List<List<ExtInt1>>, expected: List<List<int>>);
   const Check(List<List<ExtInt2>>, expected: List<List<int>>);
@@ -90,4 +96,5 @@ void main() {
   const Check(ExtList2<ExtList1<ExtInt1>>, expected: List<List<int>>);
   const Check(ExtList2<ExtList1<ExtInt2>>, expected: List<List<int>>);
   const Check(ExtList2<ExtList2<ExtInt2>>, expected: List<List<int>>);
+  const Check(ExtList2<ExtList2<ExtInt1>>, expected: List<List<int>>);
 }
