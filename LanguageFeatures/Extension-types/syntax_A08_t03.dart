@@ -31,8 +31,6 @@
 // SharedOptions=--enable-experiment=inline-class
 
 extension type ET1(int id) {
-//                     ^^
-// [cfe] unspecified
   external int id;
 //             ^^
 // [analyzer] unspecified
@@ -40,8 +38,6 @@ extension type ET1(int id) {
 }
 
 extension type ET2<T>(T id) {
-//                      ^^
-// [cfe] unspecified
   external final T id;
 //                 ^^
 // [analyzer] unspecified

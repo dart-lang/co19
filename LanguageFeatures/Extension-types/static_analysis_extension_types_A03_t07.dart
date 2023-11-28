@@ -14,8 +14,6 @@
 // SharedOptions=--enable-experiment=inline-class
 
 extension type ET1(int id) {
-//                     ^^
-// [cfe] unspecified
   int get id => 42;
 //        ^^
 // [analyzer] unspecified
@@ -23,8 +21,6 @@ extension type ET1(int id) {
 }
 
 extension type ET2(int id) {
-//                     ^^
-// [cfe] unspecified
   void id() {}
 //     ^^
 // [analyzer] unspecified
@@ -32,8 +28,6 @@ extension type ET2(int id) {
 }
 
 extension type ET3(int id) {
-//                     ^^
-// [cfe] unspecified
   void id<T>(String arg, T t) {}
 //     ^^
 // [analyzer] unspecified
