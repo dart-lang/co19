@@ -52,8 +52,6 @@ extension type ET4(int id) {
 }
 
 extension type ET5(int id) {
-//                     ^^
-// [cfe] unspecified
   static int get id => 5;
 //               ^^
 // [analyzer] unspecified
@@ -61,8 +59,6 @@ extension type ET5(int id) {
 }
 
 extension type ET6(int id) {
-//                     ^^
-// [cfe] unspecified
   static String id = "6";
 //              ^^
 // [analyzer] unspecified
@@ -70,8 +66,6 @@ extension type ET6(int id) {
 }
 
 extension type ET7(int id) {
-//                     ^^
-// [cfe] unspecified
   static void id() {}
 //            ^^
 // [analyzer] unspecified
