@@ -2,13 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Any use of a type [T] which is not well-bounded is a
+/// @assertion Any use of a type `T` which is not well-bounded is a
 /// compile-time error.
-/// @description Checks that compile error is thrown when function alias with not
-/// well bounded type parameter is declared
+///
+/// @description Checks that it is a compile-time error when a function alias
+/// with a not well-bounded type parameter is declared
 /// @Issue 37031
 /// @author iarkh@unipro.ru
-
 
 class A<T extends A<T>> {}
 
@@ -98,4 +98,24 @@ typedef B20<X extends A<int>> = X Function(X);
 // [cfe] unspecified
 
 main() {
+  print(B1);
+  print(B2);
+  print(B3);
+  print(B4);
+  print(B5);
+  print(B6);
+  print(B7);
+  print(B8);
+  print(B9);
+  print(B10);
+  print(B11);
+  print(B12);
+  print(B13);
+  print(B14);
+  print(B15);
+  print(B16);
+  print(B17);
+  print(B18);
+  print(B19);
+  print(B20);
 }

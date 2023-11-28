@@ -2,10 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Any use of a type [T] which is not well-bounded is a
+/// @assertion Any use of a type `T` which is not well-bounded is a
 /// compile-time error.
-/// @description Checks that compile error is thrown when class with not well
-/// bounded type parameter is declared
+///
+/// @description Checks that it is a compile-time error when a class with a not
+/// well-bounded type parameter is declared
 /// @author iarkh@unipro.ru
 
 class A<T extends A<T>> {}
@@ -27,4 +28,8 @@ class B3<X extends A<int>> {}
 // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
 
 main() {
+  print(A);
+  print(B1);
+  print(B2);
+  print(B3);
 }

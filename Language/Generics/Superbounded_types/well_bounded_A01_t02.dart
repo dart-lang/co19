@@ -2,15 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Any use of a type [T] which is not well-bounded is a
+/// @assertion Any use of a type `T` which is not well-bounded is a
 /// compile-time error.
-/// @description Checks that compile error is thrown if variable type is not well
-/// bounded
+///
+/// @description Checks that it is a compile-time error to declare a variable
+/// with a type parameter which is not well-bounded
 /// @author iarkh@unipro.ru
 
 class A<T extends A<T>> {}
 
 main() {
+  A<Object> a0;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   A<int> a1;
 //  ^^^
 // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
@@ -21,6 +26,10 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   A<A<A<int>>> a3;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  A<A<Object>>  a4;
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
