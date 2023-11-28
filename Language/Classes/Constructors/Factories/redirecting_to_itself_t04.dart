@@ -8,33 +8,27 @@
 /// redirection-reachable from q′′. It is a compile-time error if a redirecting
 /// factory constructor is redirection-reachable from itself.
 ///
-/// @description Checks that compile-error occurs when factory constructor
+/// @description Checks that a compile-error occurs when a factory constructor
 /// redirects to itself through a cycle.
 /// @author ilya
 
-class F1 {
-  factory F1() = F2;
-//               ^^
+class C {
+  factory C.f1() = C.f2;
+//                 ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-class F2 extends F1 {
-  factory F2() = F3;
-//               ^^
+  factory C.f2() = C.f3;
+//                 ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-class F3 extends F2 {
-  factory F3() = F1;
-//               ^^
+  factory C.f3() = C.f1;
+//                 ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(F1);
-  print(F2);
-  print(F3);
+  print(C);
 }

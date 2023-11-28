@@ -8,8 +8,8 @@
 /// redirection-reachable from q′′. It is a compile-time error if a redirecting
 /// factory constructor is redirection-reachable from itself.
 ///
-/// @description Checks that compile-error occurs when named factory constructor
-/// redirects to non-named and vice versa. Test type aliases
+/// @description Checks that compile-error occurs when a named factory
+/// constructor redirects to a non-named one, and vice versa. Test type aliases
 /// @author sgrekhov@unipro.ru
 
 class F {
