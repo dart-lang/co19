@@ -5,8 +5,8 @@
 /// @assertion Any use of a type `T` which is not well-bounded is a
 /// compile-time error.
 ///
-/// @description Checks that it is not an error to declare a function type with
-/// a well-bounded type parameters.
+/// @description Checks that it is not an error to declare a type alias for a
+/// function type with a type parameter whose bound is well-bounded.
 /// @Issue 36959, 37050, 42415
 /// @author iarkh@unipro.ru
 

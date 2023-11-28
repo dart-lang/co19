@@ -6,10 +6,9 @@
 /// compile-time error.
 ///
 /// @description Checks that it is a compile-time error to call a generic
-/// function with a type parameter which is not well-bounded
+/// function with a type parameter which is not regular-bounded
 /// @author iarkh@unipro.ru
 
-class A<T> {}
 void testme<X extends num>() {}
 
 main() {

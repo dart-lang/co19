@@ -6,7 +6,7 @@
 /// compile-time error.
 ///
 /// @description Checks that it is not an error when a function alias with a
-/// well-bounded type parameters is declared.
+/// type parameter whose bound is a well-bounded type is declared.
 /// @author iarkh@unipro.ru
 
 class A<T extends A<T>> {}

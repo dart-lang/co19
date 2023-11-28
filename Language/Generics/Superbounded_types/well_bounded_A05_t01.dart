@@ -6,11 +6,14 @@
 /// compile-time error.
 ///
 /// @description Checks that it is a compile-time error when a non-function type
-/// alias with a not well-bounded type parameter is declared
+/// has a type parameter bound which is a raw type that does not have simple
+/// bounds, and when a function has a type parameter bound which is malbounded.
 /// @author iarkh@unipro.ru
 
 class A<T extends A<T>> {}
 
+// Here B1 is a well-bounded type but the bound is a raw type A<A<dynamic>> that
+// doesn't have simple bounds
 typedef B1<X extends A> = A<X>;
 //                   ^
 // [analyzer] unspecified
@@ -19,7 +22,7 @@ typedef B2<X extends A<A>> = A<X>;
 //                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B3<X extends A<int>> = A<X>;
+typedef B3<X extends A<int>> = A<X>; // A<int> is a  mailbounded type
 //                     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

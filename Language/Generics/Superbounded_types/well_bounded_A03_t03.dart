@@ -6,7 +6,7 @@
 /// compile-time error.
 ///
 /// @description Checks that it is not an error when a function alias with a
-/// well-bounded type parameter is declared
+/// type parameter with a bound which is a well-bounded type is declared.
 /// @Issue 36959, 37050, 42415
 /// @author iarkh@unipro.ru
 

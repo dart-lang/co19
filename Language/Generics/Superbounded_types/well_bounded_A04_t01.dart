@@ -5,13 +5,16 @@
 /// @assertion Any use of a type `T` which is not well-bounded is a
 /// compile-time error.
 ///
-/// @description Checks that it is a compile-time error when a function type
-/// with a not well-bounded type parameter is declared
+/// @description Checks that it is a compile-time error when a function type has
+/// a type parameter bound which is a raw type that does not have simple bounds,
+/// and when a function has a type parameter bound which is malbounded.
 /// @Issue 37031
 /// @author iarkh@unipro.ru
 
 class A<T extends A<T>> {}
 
+// Here B1 is a well-bounded type but the bound is a raw type A<A<dynamic>> that
+// doesn't have simple bounds
 typedef void B1<X extends A>(X);
 //                        ^
 // [analyzer] unspecified
@@ -22,7 +25,7 @@ typedef void B2<X extends A<A>>(X);
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void B3<X extends A<int>>(X);
+typedef void B3<X extends A<int>>(X); // A<int> is a  mailbounded type
 //                          ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

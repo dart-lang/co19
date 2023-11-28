@@ -6,7 +6,7 @@
 /// compile-time error.
 ///
 /// @description Checks that it is not an error when a function type with a
-/// well-bounded type parameter is declared
+/// type parameter whose bound is a well-bounded type is declared.
 /// @Issue 36959, 37050, 37034
 /// @author iarkh@unipro.ru
 

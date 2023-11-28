@@ -5,56 +5,59 @@
 /// @assertion Any use of a type `T` which is not well-bounded is a
 /// compile-time error.
 ///
-/// @description Checks that it is a compile-time error when a function alias
-/// with a not well-bounded type parameter is declared
+/// @description Checks that it is a compile-time error when a function type has
+/// a type parameter bound which is a raw type that does not have simple bounds,
+/// and when a function has a type parameter bound which is malbounded.
 /// @Issue 37031
 /// @author iarkh@unipro.ru
 
 class A<T extends A<T>> {}
 
-typedef B1<X extends A>     = void Function();
+// Here B1 is a well-bounded type but the bound is a raw type A<A<dynamic>> that
+// doesn't have simple bounds
+typedef B1<X extends A> = void Function();
 //                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B2<X extends A<A>>  = void Function();
+typedef B2<X extends A<A>> = void Function();
 //                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B3<X extends A>     = void Function();
+typedef B3<X extends A> = void Function();
 //                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B4<X extends A<int>>  = void Function();
+typedef B4<X extends A<int>> = void Function(); // A<int> is a  mailbounded type
 //                     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef B5<X extends A>       = X Function();
+typedef B5<X extends A> = X Function();
 //                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B6<X extends A<A>>    = X Function();
+typedef B6<X extends A<A>> = X Function();
 //                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B7<X extends A>       = X Function();
+typedef B7<X extends A> = X Function();
 //                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B8<X extends A<int>>  = X Function();
+typedef B8<X extends A<int>> = X Function();
 //                     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef B9<X extends A>       = void Function(X);
+typedef B9<X extends A> = void Function(X);
 //                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B10<X extends A<A>>   = void Function(X);
+typedef B10<X extends A<A>> = void Function(X);
 //                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B11<X extends A>      = void Function(X);
+typedef B11<X extends A> = void Function(X);
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -63,15 +66,15 @@ typedef B12<X extends A<int>> = void Function(X);
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef B13<X extends A>      = void Function<X1 extends X>();
+typedef B13<X extends A> = void Function<X1 extends X>();
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B14<X extends A<A>>   = void Function<X1 extends X>();
+typedef B14<X extends A<A>> = void Function<X1 extends X>();
 //                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B15<X extends A>      = void Function<X1 extends X>();
+typedef B15<X extends A> = void Function<X1 extends X>();
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -80,15 +83,15 @@ typedef B16<X extends A<int>> = void Function<X1 extends X>();
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef B17<X extends A>      = X Function(X);
+typedef B17<X extends A> = X Function(X);
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B18<X extends A<A>>   = X Function(X);
+typedef B18<X extends A<A>> = X Function(X);
 //                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B19<X extends A>      = X Function(X);
+typedef B19<X extends A> = X Function(X);
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified

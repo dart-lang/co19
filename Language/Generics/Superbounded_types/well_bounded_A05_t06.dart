@@ -6,7 +6,7 @@
 /// compile-time error.
 ///
 /// @description Checks that it is a compile-time error to declare a variable
-/// with a type which ia a non-function type alias with is not a well-bounded
+/// with a type which is a non-function type alias which is not well-bounded.
 /// @Issue 37031
 /// @author iarkh@unipro.ru
 

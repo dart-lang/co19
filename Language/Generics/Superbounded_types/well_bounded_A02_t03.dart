@@ -9,7 +9,6 @@
 /// a well-bounded type parameter
 /// @author iarkh@unipro.ru
 
-class A<T> {}
 void testme<X extends num>() {}
 
 main() {

@@ -6,21 +6,21 @@
 /// compile-time error.
 ///
 /// @description Checks that it is not an error when a function alias with a
-/// well-bounded type parameter is declared
+/// type parameter with a well-bounded bound is declared.
 /// @Issue 36959, 37050, 37034
 /// @author iarkh@unipro.ru
 
 class A<T extends A<T>> {}
 
 typedef B1<X extends A<dynamic>> = void Function();
-typedef B2<X extends A<Never>>   = void Function();
+typedef B2<X extends A<Never>> = void Function();
 typedef B3<X extends A<Object?>> = void Function();
-typedef B4<X extends A<void>>    = void Function();
+typedef B4<X extends A<void>> = void Function();
 
 typedef B5<X extends A<A<dynamic>>> = void Function();
-typedef B6<X extends A<A<Never>>>   = void Function();
+typedef B6<X extends A<A<Never>>> = void Function();
 typedef B7<X extends A<A<Object?>>> = void Function();
-typedef B8<X extends A<A<void>>>    = void Function();
+typedef B8<X extends A<A<void>>> = void Function();
 
 main() {
   print(B1);

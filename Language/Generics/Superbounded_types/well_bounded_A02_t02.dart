@@ -5,8 +5,8 @@
 /// @assertion Any use of a type `T` which is not well-bounded is a
 /// compile-time error.
 ///
-/// @description Checks that it is not an error when a function with a
-/// well-bounded type parameter is declared
+/// @description Checks that it is not an error when a function with a type
+/// parameter whose bound is super-bounded is declared
 /// @Issue 36959, 37028, 37050
 /// @author iarkh@unipro.ru
 
