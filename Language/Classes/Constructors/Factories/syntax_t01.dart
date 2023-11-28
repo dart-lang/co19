@@ -4,9 +4,9 @@
 
 /// @assertion A factory is a constructor prefaced by the built-in identifier
 /// factory.
-/// factoryConstructorSignature:
-///   factory identifier ('.' identifier)? formalParameterList
-/// ;
+/// ⟨factoryConstructorSignature⟩ ::=
+///     const? factory ⟨constructorName⟩ ⟨formalParameterList⟩
+///
 /// @description Checks various valid factory declarations, including those
 /// referencing classes from another file.
 /// @author iefremov

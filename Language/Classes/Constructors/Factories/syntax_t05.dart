@@ -4,13 +4,12 @@
 
 /// @assertion A factory is a constructor prefaced by the built-in identifier
 /// factory.
-/// factoryConstructorSignature:
-///   factory identifier ('.' identifier)? formalParameterList
-/// ;
-/// @description Checks that it is a compile-time error if a factory constructor
-/// is constant.
+/// ⟨factoryConstructorSignature⟩ ::=
+///     const? factory ⟨constructorName⟩ ⟨formalParameterList⟩
+///
+/// @description Checks that it is a compile-time error if a non-redirecting
+/// factory constructor is declared constant.
 /// @author msyabro
-
 
 class C {
   const factory C() => C();
@@ -19,6 +18,16 @@ class C {
 // [cfe] unspecified
 }
 
+enum E {
+  e1, e2;
+  const E();
+  const factory E.f() => E.e1;
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
-  new C();
+  print(C);
+  print(E);
 }
