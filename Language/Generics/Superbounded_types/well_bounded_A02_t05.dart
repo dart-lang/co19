@@ -6,7 +6,7 @@
 /// compile-time error.
 ///
 /// @description Checks that it is not an error to call a generic function with
-/// two dependent regular-bounded type arguments
+/// two dependent type arguments that satisfy the bounds.
 /// @author iarkh@unipro.ru
 
 class A<X extends A<X>> {}

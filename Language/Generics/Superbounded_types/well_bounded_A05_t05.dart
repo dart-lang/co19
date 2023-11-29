@@ -11,13 +11,16 @@
 
 class A<T> {}
 
-typedef B<X> = A<X>;
+typedef B1<X> = A<X>;
+
+typedef B2<X extends A<X>> = A<X>;
 
 main() {
-  B b1;
-  B<A<dynamic>> b2;
-  B<A<Object?>> b3;
-  B<A<Null>> b4;
-  B<A<Never>> b5;
-  B<A<void>> b6;
+  B1 b1;
+  B1<A<dynamic>> b2;
+  B1<A<Object?>> b3;
+  B1<A<Null>> b4;
+  B1<A<Never>> b5;
+  B1<A<void>> b6;
+  B2<A<A<A<B2>>>> b7;
 }

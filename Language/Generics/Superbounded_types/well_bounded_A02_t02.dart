@@ -6,7 +6,7 @@
 /// compile-time error.
 ///
 /// @description Checks that it is not an error when a function with a type
-/// parameter whose bound is super-bounded is declared
+/// parameter whose bound is super-bounded type is declared
 /// @Issue 36959, 37028, 37050
 /// @author iarkh@unipro.ru
 

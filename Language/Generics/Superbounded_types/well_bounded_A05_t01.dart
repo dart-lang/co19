@@ -13,7 +13,7 @@
 class A<T extends A<T>> {}
 
 // Here B1 is a well-bounded type but the bound is a raw type A<A<dynamic>> that
-// doesn't have simple bounds
+// doesn't have simple bounds, and that's a compile-time error.
 typedef B1<X extends A> = A<X>;
 //                   ^
 // [analyzer] unspecified

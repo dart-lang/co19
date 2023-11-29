@@ -19,5 +19,4 @@ main() {
 //  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  B<A<A<A<B>>>> b2;
 }

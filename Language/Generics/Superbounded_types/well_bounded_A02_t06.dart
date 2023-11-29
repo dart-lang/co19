@@ -6,7 +6,7 @@
 /// compile-time error.
 ///
 /// @description Checks that it is a compile-time to call a generic function
-/// with two dependent type arguments which are not regular-bounded.
+/// with two dependent type arguments that do not satisfy the bounds.
 /// @Issue 37061
 /// @author iarkh@unipro.ru
 

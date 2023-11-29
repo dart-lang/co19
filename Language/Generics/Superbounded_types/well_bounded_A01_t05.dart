@@ -6,7 +6,7 @@
 /// compile-time error.
 ///
 /// @description Checks that it is not an error to have a class with a
-/// super-bounded type parameter whose bound is a super-bounded
+/// super-bounded type parameter whose bound is a super-bounded type.
 /// @Issue 37034, 37050
 /// @author iarkh@unipro.ru
 

@@ -6,7 +6,7 @@
 /// compile-time error.
 ///
 /// @description Checks that it is a compile-time error to call a generic
-/// function with a type parameter which is not regular-bounded
+/// function with an actual type argument which does not satisfy the bounds.
 /// @author iarkh@unipro.ru
 
 void testme<X extends num>() {}
