@@ -21,7 +21,7 @@ run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  asyncStart();
+  asyncMultiStart(2);
   await Process.run(
           executable, [...Platform.executableArguments, eScript, "run"])
       .then((ProcessResult results) {
@@ -30,6 +30,7 @@ run_main() async {
     asyncEnd();
   });
   Expect.equals(1, called);
+  asyncEnd();
 }
 
 main(List<String> args) {

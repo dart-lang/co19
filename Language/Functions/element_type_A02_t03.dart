@@ -41,8 +41,9 @@ FutureOr<Stream<int>?> foo() async* {
 }
 
 main() async {
-  asyncStart();
+  asyncMultiStart(2);
   dynamic d = await foo();
   FutureOr<Stream<int>> o = d;
   isRuntimeTypeImplementsStream<int>(d);
+  asyncEnd();
 }

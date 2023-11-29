@@ -25,7 +25,7 @@ run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = -1;
-  asyncStart();
+  asyncMultiStart(2);
   await Process.run(
           executable, [...Platform.executableArguments, eScript, "test"],
           runInShell: true)
@@ -37,6 +37,7 @@ run_main() async {
     asyncEnd();
   });
   Expect.isTrue(called == 0 || called == 1);
+  asyncEnd();
 }
 
 main(List<String> args) {

@@ -43,8 +43,9 @@ FutureOr<Stream<int>?> foo() async* {
 }
 
 main() async {
-  asyncStart();
+  asyncMultiStart(2);
   var o = await foo();
   o.expectStaticType<Exactly<Stream<int>?>>();
   isRuntimeTypeImplementsStream<int>(o);
+  asyncEnd();
 }
