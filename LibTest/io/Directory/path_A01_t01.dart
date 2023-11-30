@@ -16,7 +16,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) {
   String dirName = getTempDirectoryName();
   Directory dir = new Directory(dirName);
   Expect.equals(dirName, dir.path);

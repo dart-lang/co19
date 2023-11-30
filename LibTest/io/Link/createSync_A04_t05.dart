@@ -41,7 +41,7 @@ main() {
   inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   Link target = getTempLinkSync(
       parent: sandbox, target: getTempFilePath(parent: sandbox));
   Link link = Link(getTempFilePath(parent: sandbox));

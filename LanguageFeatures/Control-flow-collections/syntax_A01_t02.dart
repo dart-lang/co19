@@ -15,7 +15,7 @@
 
 import "../../Utils/expect.dart";
 
-main() async {
+main() {
   bool b = true;
   List<int> collection = [9, 8, 7, 6];
 

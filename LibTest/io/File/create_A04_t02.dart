@@ -51,7 +51,7 @@ _test(Directory sandbox,
   });
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   asyncMultiStart(4);
   await _test(sandbox, recursive: false, exclusive: false);
   await _test(sandbox, recursive: false, exclusive: true);

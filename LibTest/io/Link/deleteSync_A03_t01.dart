@@ -37,7 +37,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) {
   Directory target = getTempDirectorySync(parent: sandbox);
   Link link = getTempLinkSync(target: target.path, parent: sandbox);
   link.deleteSync();

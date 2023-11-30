@@ -22,7 +22,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) {
   File file = getTempFileSync(parent: sandbox);
   DateTime date = file.lastModifiedSync();
   Expect.isNotNull(date);

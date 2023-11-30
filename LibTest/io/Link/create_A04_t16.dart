@@ -47,7 +47,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   String linkTarget = getTempFilePath(parent: sandbox);
   Link link = Link(getTempFilePath(parent: sandbox));
   asyncStart();

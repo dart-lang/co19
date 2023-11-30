@@ -33,7 +33,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) {
   Encoding? encoding = Encoding.getByName("iso-8859-1");
   File file = getTempFileSync(parent: sandbox);
   String toWrite = "â\nã";

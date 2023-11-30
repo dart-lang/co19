@@ -41,7 +41,7 @@ _test(Directory sandbox, {bool recursive = false}) async {
   }, (e) => e is PathExistsException);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   _test(sandbox, recursive: false);
   _test(sandbox, recursive: true);
 }

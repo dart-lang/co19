@@ -31,7 +31,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) {
   File file = new File(getTempFilePath(parent: sandbox));
   file.writeAsBytesSync([3, 1, 4, 1, 5]);
   Expect.isTrue(file.existsSync());

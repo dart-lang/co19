@@ -28,7 +28,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("UTF-8: кириллица ");
   IOSink sink = file.openWrite(mode: FileMode.append);

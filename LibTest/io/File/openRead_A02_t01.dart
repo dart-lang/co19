@@ -25,7 +25,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   List<int> content = [3, 1, 4, 1, 5, 9, 2, 6];
   file.writeAsBytesSync(content);

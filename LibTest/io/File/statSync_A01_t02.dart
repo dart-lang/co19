@@ -22,7 +22,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) {
   File file = getTempFileSync(parent: sandbox);
   FileStat fs = file.statSync();
   FileStat fs2 = FileStat.statSync(file.path);

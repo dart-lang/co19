@@ -34,7 +34,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   Directory srcDir = getTempDirectorySync(parent: sandbox);
   Directory targetDir = getTempDirectorySync(parent: sandbox);
   Directory d = targetDir.createTempSync();

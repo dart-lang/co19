@@ -47,7 +47,7 @@ _test(Directory sandbox, {bool recursive = false}) async {
   });
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   asyncMultiStart(2);
   await _test(sandbox, recursive: true);
   await _test(sandbox, recursive: false);

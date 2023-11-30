@@ -41,7 +41,7 @@ main() {
   inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   String notExisting = getTempFileName();
   String target = getTempFileName(extension: "lnk");
   getTempLinkSync(parent: sandbox, target: notExisting, name: target);

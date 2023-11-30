@@ -21,7 +21,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   File file1 = getTempFileSync(parent: sandbox);
   File file2 = getTempFileSync(parent: sandbox);
   file2.writeAsStringSync("Existing file content");

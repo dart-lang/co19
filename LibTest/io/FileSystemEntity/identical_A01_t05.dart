@@ -29,7 +29,7 @@ main() async {
   await inSandbox(_main, sandbox: sandbox);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   String dirName = getTempDirectoryName();
   Directory dir =
       new Directory(sandbox.path + Platform.pathSeparator + dirName);

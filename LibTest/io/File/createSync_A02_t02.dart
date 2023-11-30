@@ -42,7 +42,7 @@ _test(Directory sandbox, {bool exclusive = false}) {
   Expect.equals(filePath, file.path);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   _test(sandbox, exclusive: false);
   _test(sandbox, exclusive: true);
 }

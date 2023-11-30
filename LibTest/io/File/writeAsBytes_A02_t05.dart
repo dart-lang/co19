@@ -31,7 +31,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   asyncStart();
   await file.writeAsBytes([0, 1, 2, 255], mode: FileMode.read).then((f) {

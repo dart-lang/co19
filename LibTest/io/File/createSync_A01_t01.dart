@@ -32,7 +32,7 @@ main() {
   inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   File file = new File(getTempFilePath(parent: sandbox));
   file.createSync();
   Expect.isTrue(file.existsSync());

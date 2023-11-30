@@ -35,7 +35,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   Link link = getTempLinkSync(parent: sandbox, target: getTempFileName());
   Link replaced = getTempLinkSync(parent: sandbox, target: getTempFileName());
   String oldTarget = link.targetSync();

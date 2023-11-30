@@ -46,7 +46,7 @@ _test(Directory sandbox, {bool recursive = false, bool exclusive = false}) {
       "Resursive=$recursive, exclusive=$exclusive");
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   _test(sandbox, recursive: false, exclusive: false);
   _test(sandbox, recursive: false, exclusive: true);
   _test(sandbox, recursive: true, exclusive: false);

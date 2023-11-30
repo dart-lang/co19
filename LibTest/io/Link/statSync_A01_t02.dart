@@ -30,7 +30,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) {
   Link link = getTempLinkSync(parent: sandbox);
   FileStat fs = link.statSync();
   FileStat fs2 = FileStat.statSync(link.path);

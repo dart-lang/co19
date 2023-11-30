@@ -48,7 +48,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   String linkName = getTempFileName();
   File file = getTempFileSync(parent: sandbox);
   Link target = Link(sandbox.path + Platform.pathSeparator + linkName);

@@ -25,7 +25,7 @@ main() async {
   }
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
 
   asyncStart();

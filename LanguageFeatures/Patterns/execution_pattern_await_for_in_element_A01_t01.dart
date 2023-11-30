@@ -64,7 +64,7 @@ List<dynamic> test7() => [
 // [analyzer] unspecified
 // [cfe] unspecified
 
-main() async {
+main() {
   test1();
   test2();
   test3();

@@ -21,7 +21,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   Directory dir = getTempDirectorySync(parent: sandbox);
   asyncStart();
