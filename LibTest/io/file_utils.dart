@@ -54,7 +54,7 @@ Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory root,
     if (failIfNoEvent) {
       Expect.fail("No event was fired for $eventsTimeout seconds");
     }
-    return;
+    return null;
   });
   test(event);
 }
