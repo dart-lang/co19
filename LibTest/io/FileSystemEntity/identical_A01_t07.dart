@@ -28,7 +28,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   Link link = getTempLinkSync(parent: sandbox);
   bool result = await FileSystemEntity.identical(link.path, link.path);
   Expect.isTrue(result);

@@ -19,7 +19,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("File content");
   Expect.listEquals(["File content"], file.readAsLinesSync());

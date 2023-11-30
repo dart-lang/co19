@@ -23,7 +23,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   asyncStart();
   Directory dir = getTempDirectorySync(parent: sandbox);
   await dir.create().then((created) {

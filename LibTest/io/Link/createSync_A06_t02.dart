@@ -40,7 +40,7 @@ main() {
   inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   String fileName = getTempFileName();
   File target = new File(sandbox.path + Platform.pathSeparator + fileName);
   target.createSync();

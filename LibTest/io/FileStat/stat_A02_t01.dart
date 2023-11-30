@@ -21,7 +21,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   DateTime begOfEpoch = DateTime.fromMillisecondsSinceEpoch(0, isUtc: true);
   File file = new File(getTempFilePath(parent: sandbox));
   asyncStart();

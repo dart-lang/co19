@@ -29,7 +29,7 @@ main() async {
   await inSandbox(_main, sandbox: sandbox);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   String fileName = getTempFileName();
   File file = new File(sandbox.path + Platform.pathSeparator + fileName);
   file.createSync();

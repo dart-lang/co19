@@ -29,7 +29,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   File target = getTempFileSync(parent: sandbox);
   Link link = new Link(getTempFilePath(parent: sandbox));
   link.createSync(target.path);

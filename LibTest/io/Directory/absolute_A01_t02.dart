@@ -19,7 +19,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   Directory tmp = getTempDirectorySync(parent: sandbox);
   Directory dir =
       new Directory(tmp.path + Platform.pathSeparator + "TestDir");

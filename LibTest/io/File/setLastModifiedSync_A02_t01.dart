@@ -18,7 +18,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   File file = getTempFileSync(parent: sandbox);
   DateTime oldDate = file.lastModifiedSync();
   DateTime newDate = oldDate.add(new Duration(days: -1));

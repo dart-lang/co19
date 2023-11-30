@@ -20,7 +20,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   Directory parent = getTempDirectorySync(parent: sandbox);
   Directory dir = parent.createTempSync();
   Expect.equals(parent.path, dir.parent.path);

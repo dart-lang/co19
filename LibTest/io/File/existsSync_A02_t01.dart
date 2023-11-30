@@ -24,7 +24,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   Directory dir = getTempDirectorySync(parent: sandbox);
   File file = new File(dir.path);
   Expect.isFalse(file.existsSync());

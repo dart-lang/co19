@@ -42,7 +42,7 @@ main() {
   inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   String linkName = getTempFileName();
   Link target = new Link(sandbox.path + Platform.pathSeparator + linkName);
   target.createSync(sandbox.path);

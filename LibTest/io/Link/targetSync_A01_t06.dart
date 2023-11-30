@@ -30,7 +30,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   Directory parent = getTempDirectorySync(parent: sandbox);
   Directory dir = getTempDirectorySync(parent: parent);
   Link target = getTempLinkSync(parent: parent);

@@ -47,7 +47,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) async {
+void _main(Directory sandbox) async {
   Link link = Link(getTempFilePath(parent: sandbox));
   asyncStart();
   await link.create(getTempFilePath(parent: sandbox)).then((Link created) {

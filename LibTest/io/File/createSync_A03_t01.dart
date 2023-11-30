@@ -44,7 +44,7 @@ _test(Directory sandbox, {bool recursive = false}) async {
   Expect.equals("Existing file content", file.readAsStringSync());
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   _test(sandbox, recursive: false);
   _test(sandbox, recursive: true);
 }

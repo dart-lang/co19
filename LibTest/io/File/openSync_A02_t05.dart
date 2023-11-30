@@ -22,7 +22,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   File file = getTempFileSync(parent: sandbox);
   file.writeAsBytesSync([0, 1, 2, 3, 4]);
   RandomAccessFile raFile = file.openSync(mode: FileMode.writeOnlyAppend);

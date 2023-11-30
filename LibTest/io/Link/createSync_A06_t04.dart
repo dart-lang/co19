@@ -41,7 +41,7 @@ main() {
   inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   String linkName = getTempFileName();
   File file = getTempFileSync(parent: sandbox);
   Link target = Link(sandbox.path + Platform.pathSeparator + linkName);

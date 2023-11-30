@@ -41,7 +41,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   if (Platform.isWindows) {
     Directory dir = getTempDirectorySync(parent: sandbox);
     String dirName = getTempDirectoryName();

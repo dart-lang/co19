@@ -31,7 +31,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   File file = new File(getTempFilePath(parent: sandbox));
   Expect.throws(() {
     file.writeAsBytesSync([3, 1, 4], mode: FileMode.read);

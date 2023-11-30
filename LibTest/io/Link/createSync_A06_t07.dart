@@ -41,7 +41,7 @@ main() {
   inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   String target = getTempFileName();
   Link link = Link(sandbox.path +
       Platform.pathSeparator +

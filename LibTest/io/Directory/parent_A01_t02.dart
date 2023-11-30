@@ -16,7 +16,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   Directory tmp = sandbox;
   Directory child = getTempDirectorySync(parent: tmp);
   Directory dir = new Directory(child.path);

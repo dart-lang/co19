@@ -32,7 +32,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   Directory dir = sandbox;
   File file = getTempFileSync(parent: dir);
   bool found = false;

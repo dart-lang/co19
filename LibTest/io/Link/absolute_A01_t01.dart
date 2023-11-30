@@ -26,7 +26,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   Link link = getTempLinkSync(parent: sandbox);
   Expect.isNotNull(link.absolute);
   Expect.equals(link.path, link.absolute.path);

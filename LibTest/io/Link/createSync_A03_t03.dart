@@ -40,7 +40,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   File target = getTempFileSync(parent: sandbox);
   Link link = getTempLinkSync(parent: sandbox, target: target.path);
   Expect.throws(() {link.createSync(link.targetSync());});

@@ -21,7 +21,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("Lily was here");
   String path = "!" + file.absolute.path;

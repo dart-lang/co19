@@ -19,7 +19,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   File file = getTempFileSync(parent: sandbox);
   FileStat fs = FileStat.statSync(file.path);
   if (Platform.isWindows) {

@@ -42,7 +42,7 @@ main() {
   inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   String dirName = getTempDirectoryName();
   Directory target = Directory(sandbox.path + Platform.pathSeparator + dirName);
   target.createSync();

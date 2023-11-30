@@ -20,7 +20,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   Directory dir = new Directory(getTempDirectoryName());
   Expect.isFalse(dir.isAbsolute);
 

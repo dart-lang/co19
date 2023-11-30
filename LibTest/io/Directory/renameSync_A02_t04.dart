@@ -35,7 +35,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   bool isPosix = Platform.isAndroid ||
       Platform.isIOS ||
       Platform.isMacOS ||

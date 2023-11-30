@@ -32,7 +32,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_main(Directory sandbox) {
+void _main(Directory sandbox) {
   File file = new File(getTempFilePath(parent: sandbox));
   Expect.throws(() {
     file.writeAsStringSync("File content", mode: FileMode.read);
