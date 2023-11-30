@@ -52,7 +52,7 @@ _test(Directory sandbox,
 }
 
 void _main(Directory sandbox) async {
-  asyncMultiStart(4);
+  asyncStart(4);
   await _test(sandbox, recursive: false, exclusive: false);
   await _test(sandbox, recursive: false, exclusive: true);
   await _test(sandbox, recursive: true, exclusive: false);

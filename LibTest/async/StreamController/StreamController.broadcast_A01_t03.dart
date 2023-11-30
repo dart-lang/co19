@@ -25,7 +25,7 @@ check(List events) {
   List expectedData = events.where((e) => !(e is num) || e >= 0).toList();
   List expectedErrors = events.where((e) => e is num && e < 0).toList();
 
-  asyncMultiStart(2);
+  asyncStart(2);
 
   List events1 = [], errors1 = [];
   s.listen(

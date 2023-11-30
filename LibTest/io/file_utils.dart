@@ -20,9 +20,11 @@ Future<Object?> inSandbox(Object? test(Directory sandbox),
     sandbox = getTempDirectorySync();
   }
   try {
+    asyncStart();
     return await test(sandbox);
   } finally {
     sandbox.deleteSync(recursive: true);
+    asyncEnd();
   }
 }
 
@@ -52,6 +54,7 @@ Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory root,
     if (failIfNoEvent) {
       Expect.fail("No event was fired for $eventsTimeout seconds");
     }
+    return;
   });
   test(event);
 }

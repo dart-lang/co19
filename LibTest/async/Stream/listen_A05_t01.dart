@@ -33,7 +33,7 @@ main() {
     }
   });
 
-  asyncMultiStart(N);
+  asyncStart(N);
 
   s2.listen((_) {
     Expect.fail('unexpected call to onData');

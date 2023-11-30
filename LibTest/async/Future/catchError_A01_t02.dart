@@ -28,6 +28,6 @@ main() {
   f.catchError(onError1);
   f.catchError(onError2);
 
-  asyncMultiStart(2);
+  asyncStart(2);
   completer.completeError('!!!');
 }

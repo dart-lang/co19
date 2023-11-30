@@ -52,7 +52,7 @@ void test(CreateStreamFunction create) {
     }
   );
 
-  asyncMultiStart(2);
+  asyncStart(2);
   s.pipe(c).then(
       (_) {
         Expect.fail("Returned future should complete with error");

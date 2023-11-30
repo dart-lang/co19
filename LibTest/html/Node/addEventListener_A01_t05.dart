@@ -34,7 +34,7 @@ main() {
     document,
     new DocumentFragment(),
   ];
-  asyncMultiStart(targets.length * n);
+  asyncStart(targets.length * n);
   for (Node x in targets) {
     check(x);
   }

@@ -38,7 +38,7 @@ main() {
       asyncEnd();
     });
 
-    asyncMultiStart(2);
+    asyncStart(2);
     id1.click();
     class1.click();
   } else {

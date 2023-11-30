@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 main() {
   StreamController controller = new StreamController.broadcast();
   Stream stream = controller.stream;
-  asyncMultiStart(2);
+  asyncStart(2);
   List log1 = [];
   StreamSubscription sub1 =
       stream.listen((event) => log1.add(event), onDone: () {
@@ -27,8 +27,7 @@ main() {
   });
 
   List log2 = [];
-  StreamSubscription sub2 =
-      stream.listen((event) => log2.add(event), onDone: () {
+  stream.listen((event) => log2.add(event), onDone: () {
     Expect.listEquals([1, 2, 3, 4, 5], log2);
     asyncEnd();
   });

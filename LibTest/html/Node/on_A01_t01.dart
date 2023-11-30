@@ -25,7 +25,7 @@ main() {
     new IFrameElement(),
     new DocumentFragment(),
   ];
-  asyncMultiStart(targets.length);
+  asyncStart(targets.length);
   for (Node x in targets) {
     check(x);
   }

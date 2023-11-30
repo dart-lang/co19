@@ -49,7 +49,7 @@ _test(Directory sandbox, {bool exclusive = false}) async {
 }
 
 void _main(Directory sandbox) async {
-  asyncMultiStart(2);
+  asyncStart(2);
   await _test(sandbox, exclusive: false);
   await _test(sandbox, exclusive: true);
 }

@@ -15,7 +15,7 @@ main() {
   var x = new ButtonElement();
   document.body?.append(x);
 
-  asyncMultiStart(3);
+  asyncStart(3);
 
   x.addEventListener(type, (e) {
     Expect.equals(type, e.type);

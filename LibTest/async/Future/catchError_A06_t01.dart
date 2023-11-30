@@ -25,7 +25,7 @@ check(value) {
   Completer completer = new Completer();
   Future f = completer.future;
 
-  asyncMultiStart(2);
+  asyncStart(2);
 
   f.catchError(
     (exception) {

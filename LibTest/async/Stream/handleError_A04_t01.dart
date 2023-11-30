@@ -38,7 +38,7 @@ main() {
     asyncEnd();
   });
 
-  asyncMultiStart(N);
+  asyncStart(N);
 
   s3.listen((_) {
     Expect.fail('unexpected onData event');

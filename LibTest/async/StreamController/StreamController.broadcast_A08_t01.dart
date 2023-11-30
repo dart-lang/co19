@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 main() {
   bool onListenCalled = false;
   bool onCancelCalled = false;
-  asyncMultiStart(4);
+  asyncStart(4);
 
   StreamController controller = new StreamController.broadcast(
     onListen: () {
@@ -44,4 +44,3 @@ main() {
 
   controller.close();
 }
-

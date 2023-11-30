@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   int onCancelCallCount = 0;
-  asyncMultiStart(6);
+  asyncStart(6);
   StreamController? controller;
   controller = new StreamController.broadcast(
     onCancel: () {

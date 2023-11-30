@@ -19,7 +19,7 @@ main() {
 
   var e = new Error();
 
-  asyncMultiStart(2);
+  asyncStart(2);
 
   var f = new Future.error(e).catchError((x) {
     asyncEnd();

@@ -43,7 +43,7 @@ main() {
     new Comment("Comment"),
     new DocumentFragment(),
   ];
-  asyncMultiStart(
+  asyncStart(
       targets.length * 3); // first time two handlers, second time one handler
   for (Node x in targets) {
     check(x);
