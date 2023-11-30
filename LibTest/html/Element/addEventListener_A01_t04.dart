@@ -16,7 +16,7 @@ main() {
   var x = new ButtonElement();
   document.body?.append(x);
 
-  asyncMultiStart(2);
+  asyncStart(2);
 
   // intercept on capture
   document.body?.addEventListener(type, (e) {

@@ -22,7 +22,7 @@ main() {
   var completer2 = new Completer();
   Future future2 = new Future.microtask(() => completer2.future);
 
-  asyncMultiStart(2);
+  asyncStart(2);
 
   future
     .then((x) {

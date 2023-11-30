@@ -38,7 +38,7 @@ main() {
     }
   );
 
-  asyncMultiStart(3);
+  asyncStart(3);
 
   c.stream.transform(tr).listen(
     (x) {

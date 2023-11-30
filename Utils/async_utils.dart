@@ -31,34 +31,49 @@ Future runAfter(Future f, void action()) {
   });
 }
 
-/// Let the test driver know the test is asynchronous and continues after the
-/// method main() exits.
-/// See http://code.google.com/p/co19/issues/detail?id=423
+bool _initialized = false;
+int _asyncLevel = 0;
 
-Completer _completer = new Completer();
-Future asyncCompleted = _completer.future;
-
-int _asyncTestStart() {
-  print("unittest-suite-wait-for-done");
-  return 0;
+Exception _buildException(String msg) {
+  return Exception('Fatal: $msg. This is most likely a bug in your test.');
 }
 
-int _asyncCounter=_asyncTestStart();
-
-void  asyncStart() {
-  _asyncCounter++;
+/// Call this method before an asynchronous test is created.
+///
+/// If [count] is provided, expect [count] [asyncEnd] calls instead of just one.
+void asyncStart([int count = 1]) {
+  if (count <= 0) {
+    return;
+  }
+  if (_initialized && _asyncLevel == 0) {
+    throw _buildException('asyncStart() was called even though we are done '
+        'with testing.');
+  }
+  if (!_initialized) {
+    print('unittest-suite-wait-for-done');
+    _initialized = true;
+  }
+  _asyncLevel += count;
 }
 
-void  asyncMultiStart(int delta) {
-  _asyncCounter += delta;
-}
-
-void  asyncEnd() {
-  Expect.isFalse(_asyncCounter == 0, "asyncEnd: _asyncCounter==0");
-  _asyncCounter--;
-  if (_asyncCounter == 0) {
-    print("unittest-suite-success");
-    _completer.complete(null);
+/// Call this after an asynchronous test has ended successfully.
+///
+/// Note, that when all async tests are finished and `unittest-suite-success` is
+/// printed browser tests are successfully finished. So, there should be no any
+/// assertions after `asyncEnd()`. Otherwise the test may produce false-positive
+/// result
+void asyncEnd() {
+  if (_asyncLevel <= 0) {
+    if (!_initialized) {
+      throw _buildException('asyncEnd() was called before asyncStart().');
+    } else {
+      throw _buildException('asyncEnd() was called more often than '
+          'asyncStart().');
+    }
+  }
+  _asyncLevel--;
+  if (_asyncLevel == 0) {
+    print('unittest-suite-success');
   }
 }
 

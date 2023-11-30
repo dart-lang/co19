@@ -19,7 +19,7 @@ main() {
 
   var v = [1,2,3];
 
-  asyncMultiStart(2);
+  asyncStart(2);
 
   var f = new Future.value(v).then((x) {
     asyncEnd();
@@ -34,4 +34,3 @@ main() {
 
   completer.completeError(f);
 }
-

@@ -17,7 +17,7 @@ main() {
 
   var n = 10;
 
-  asyncMultiStart(n);
+  asyncStart(n);
 
   EventListener genHandler() => (e) {
         Expect.equals(type, e.type);

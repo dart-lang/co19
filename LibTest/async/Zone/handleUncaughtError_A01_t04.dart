@@ -32,7 +32,7 @@ void test() {
   } catch (e, st) {
     stackTraces[count] = st;
 
-    asyncMultiStart(2);
+    asyncStart(2);
 
     new Future.error(e,st);
 

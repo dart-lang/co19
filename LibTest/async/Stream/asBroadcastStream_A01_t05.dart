@@ -25,7 +25,7 @@ main() {
   );
   Stream b = controller.stream.asBroadcastStream();
   Expect.isFalse(hasListener);
-  asyncMultiStart(2);
+  asyncStart(2);
   b.listen(
     (_) {
       Expect.isTrue(hasListener);

@@ -35,7 +35,7 @@ main() {
   body?.addEventListener(type, handler1, true);
   body?.addEventListener(type, handler2, true);
 
-  asyncMultiStart(3); // first time two handlers, second time one handler
+  asyncStart(3); // first time two handlers, second time one handler
   var event = new Event(type);
   x.dispatchEvent(event);
   event = new Event(type);

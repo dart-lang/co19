@@ -22,7 +22,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var value = [1, 2, 3];
-  asyncMultiStart(2);
+  asyncStart(2);
   Future future = new Future(() => new Future.value(value));
   Future future2 = new Future(() => new Future.error(value));
 

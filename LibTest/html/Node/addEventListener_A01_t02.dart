@@ -29,7 +29,7 @@ main() {
     document,
     new DocumentFragment(),
   ];
-  asyncMultiStart(targets.length);
+  asyncStart(targets.length);
   for (Node x in targets) {
     check(x);
   }

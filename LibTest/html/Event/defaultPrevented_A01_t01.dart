@@ -25,6 +25,6 @@ main() {
     asyncEnd();
   });
 
-  asyncMultiStart(2);
+  asyncStart(2);
   div.dispatchEvent(new MouseEvent('click'));
 }

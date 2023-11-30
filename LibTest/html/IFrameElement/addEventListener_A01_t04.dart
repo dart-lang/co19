@@ -16,7 +16,7 @@ main() {
   IFrameElement x = new IFrameElement();
   document.body?.append(x);
 
-  asyncMultiStart(2);
+  asyncStart(2);
 
   // intercept on capture
   document.body?.addEventListener(type, (e) {
