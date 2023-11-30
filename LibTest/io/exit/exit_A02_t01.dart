@@ -24,20 +24,17 @@ run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  asyncMultiStart(2);
   await Process.run(
           executable, [...Platform.executableArguments, eScript, "run"])
       .then((ProcessResult results) {
     Expect.equals(123, results.exitCode);
     Expect.isFalse(results.stdout.contains("Hello, World!"));
     called++;
-    asyncEnd();
   });
   if (called != 1) {
     throw new Exception("Called must be <1> but actually <$called>");
   }
   Expect.equals(1, called);
-  asyncEnd();
 }
 
 main(List<String> args) {

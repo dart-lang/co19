@@ -17,7 +17,6 @@
 /// return type derives the union-free type `S`, and assume that `S` implements
 /// `Stream<U>`. Then check that the element type of `f` is `U`.
 /// @author sgrekhov22@gmail.com
-/// @issue 54159
 
 import "dart:async";
 import "../../Utils/expect.dart";
@@ -30,7 +29,6 @@ void isRuntimeTypeImplementsStream<T>(Object? o) async {
   List<T> list = await o.toList();
   try {
     list.addAll(<T>[]);
-    asyncEnd();
   } on TypeError catch (_) {
     throw ExpectException("Expected Stream<$T> but found $o");
   }
@@ -43,9 +41,7 @@ FutureOr<Stream<int>?> foo() async* {
 }
 
 main() async {
-  asyncMultiStart(2);
   var o = await foo();
   o.expectStaticType<Exactly<Stream<int>?>>();
   isRuntimeTypeImplementsStream<int>(o);
-  asyncEnd();
 }

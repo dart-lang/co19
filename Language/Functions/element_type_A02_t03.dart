@@ -16,7 +16,6 @@
 /// @description Check a run-time type of a returned value of an asynchronous
 /// generator function
 /// @author sgrekhov22@gmail.com
-/// @issue 54159
 
 import "dart:async";
 import "../../Utils/expect.dart";
@@ -28,7 +27,6 @@ void isRuntimeTypeImplementsStream<T>(Object? o) async {
   List<T> list = await o.toList();
   try {
     list.addAll(<T>[]);
-    asyncEnd();
   } on TypeError catch (_) {
     throw ExpectException("Expected Stream<$T> but found $o");
   }
@@ -41,9 +39,7 @@ FutureOr<Stream<int>?> foo() async* {
 }
 
 main() async {
-  asyncMultiStart(2);
   dynamic d = await foo();
   FutureOr<Stream<int>> o = d;
   isRuntimeTypeImplementsStream<int>(d);
-  asyncEnd();
 }
