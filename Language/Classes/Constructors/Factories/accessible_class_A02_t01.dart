@@ -34,8 +34,9 @@ class C {
 enum E {
   e1, e2;
 
-  const factory E() = variable;
-//                    ^^^^^^^^
+  const E();
+  const factory E.f() = variable;
+//                      ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -37,13 +37,14 @@ class C {
 enum E {
   e1, e2;
 
-  const factory E() = A;
-//                    ^
+  const E();
+  const factory E.f1() = A;
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const factory E.f() = A<String>;
-//                      ^
+  const factory E.f2() = A<String>;
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
