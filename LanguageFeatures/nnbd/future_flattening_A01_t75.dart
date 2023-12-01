@@ -26,10 +26,9 @@ import "dart:async";
 import "../../Utils/expect.dart";
 
 main() {
-  asyncStart();
+  asyncStart(2);
   Future<dynamic>(() => 1).then((value) => asyncEnd());
 
-  asyncStart();
   Future<Future<dynamic>>(() => Future<dynamic>(() => 1)).then((value) {
     value.then((value1) => asyncEnd());
   });

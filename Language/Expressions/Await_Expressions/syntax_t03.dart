@@ -9,9 +9,7 @@
 /// @description Check that it is a compile error if unaryExpression is missing
 /// @author a.semenov@unipro.ru
 
-
 import 'dart:async';
-import '../../../Utils/expect.dart';
 
 f() {
   return new Future<int>.value(1);
@@ -25,6 +23,5 @@ Future test() async {
 }
 
 main() {
-  asyncStart();
-  test().then( (value) => asyncEnd() );
+  test();
 }

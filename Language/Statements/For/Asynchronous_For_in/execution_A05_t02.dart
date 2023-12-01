@@ -56,7 +56,7 @@ import 'dart:async';
 import '../../../../Utils/expect.dart';
 
 main() async {
-  asyncStart();
+  asyncStart(2);
   List<int> log = [];
   StreamController sc = StreamController(onCancel: () {
     Expect.listEquals([1, 2, 3], log);
@@ -72,4 +72,5 @@ main() async {
       }
     }
   }
+  asyncEnd();
 }

@@ -28,12 +28,11 @@ import "../../Utils/expect.dart";
 dynamic getNull() => null;
 
 main() {
-  asyncStart();
+  asyncStart(2);
   Future f = Future<int>(() => getNull());
   f.then((value) { Expect.fail("Should not reach here"); },
       onError:(e) => asyncEnd());
 
-  asyncStart();
   f = Future<Future<int>>(() => getNull());
   f.then((value) { Expect.fail("Should not reach here"); },
       onError:(e) => asyncEnd());

@@ -16,6 +16,7 @@
 /// return type derives the union-free type `S`, and assume that `S` implements
 /// `Iterable<U>`. Then check that the element type of `f` is `U`.
 /// @author sgrekhov22@gmail.com
+/// @issue 54159
 
 import "dart:async";
 import "../../Utils/expect.dart";

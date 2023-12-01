@@ -68,9 +68,10 @@ Future test() async {
   await c.future;
   log.add('two');
   await sc.close();
+  asyncEnd();
 }
 
 main() {
-  asyncStart();
+  asyncStart(2);
   test();
 }

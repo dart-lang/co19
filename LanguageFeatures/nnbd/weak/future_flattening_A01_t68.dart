@@ -26,10 +26,9 @@ import "../../../Utils/expect.dart";
 import "future_flattening_legacy_lib.dart";
 
 main() {
-  asyncStart();
+  asyncStart(2);
   Future<A?>(() => null).then((value) => asyncEnd());
 
-  asyncStart();
   Future<Future<A?>>(() => Future<A?>(() => null)).then((value) {
     value.then((value1) => asyncEnd());
   });

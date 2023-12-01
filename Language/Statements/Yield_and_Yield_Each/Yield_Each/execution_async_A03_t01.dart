@@ -56,9 +56,10 @@ Future test() async {
   log.add('c');
   ss.resume();
   await sc.close();
+  asyncEnd();
 }
 
 main() {
-  asyncStart();
+  asyncStart(2);
   test();
 }

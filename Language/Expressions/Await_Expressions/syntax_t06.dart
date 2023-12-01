@@ -11,9 +11,7 @@
 /// enclosing await expression is marked with sync*
 /// @author a.semenov@unipro.ru
 
-
 import 'dart:async';
-import '../../../Utils/expect.dart';
 
 f() {
   return new Future<int>.value(1);
@@ -27,5 +25,5 @@ Iterable test() sync* {
 }
 
 main() {
-  Expect.isTrue(test().isEmpty);
+  test();
 }

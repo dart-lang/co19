@@ -52,9 +52,10 @@ Future test() async {
   await null;
   log.add('c');
   ss.resume();
+  asyncEnd();
 }
 
 main() {
-  asyncStart();
+  asyncStart(2);
   test();
 }

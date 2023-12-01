@@ -26,18 +26,15 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  asyncStart();
+  asyncStart(4);
   Future<int?>(() => 1).then((value) => asyncEnd());
 
-  asyncStart();
   Future<Future<int?>>(() => Future<int?>(() => 1)).then((value) {
     value.then((value1) => asyncEnd());
   });
 
-  asyncStart();
   Future<Object?>(() => 1).then((value) => asyncEnd());
 
-  asyncStart();
   Future<Future<Object?>>(() => Future<Object?>(() => 1)).then((value) {
     value.then((value1) => asyncEnd());
   });

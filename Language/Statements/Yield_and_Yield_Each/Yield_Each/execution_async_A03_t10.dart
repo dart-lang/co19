@@ -71,9 +71,10 @@ Future test() async {
   ss.resume();
   await c.future;
   await sc.close();
+  asyncEnd();
 }
 
 main() {
-  asyncStart();
+  asyncStart(2);
   test();
 }
