@@ -11,10 +11,6 @@
 
 import 'dart:async';
 
-f() {
-  return new Future<int>.value(1);
-}
-
 Future test() async {
   await;
 //     ^
