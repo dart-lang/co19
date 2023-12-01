@@ -28,11 +28,10 @@ import "../../../Utils/expect.dart";
 dynamic getNull() => null;
 
 main() {
-  asyncStart();
+  asyncStart(2);
   Future f = Future<Object>(() => Future<Object?>(() => getNull()));
   f.then((value) => asyncEnd());
 
-  asyncStart();
   Future f1 = Future<Object?>(() => Future<Object>(() => getNull()));
   f1.then((value) => asyncEnd());
 }

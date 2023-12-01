@@ -73,9 +73,10 @@ Future test() async {
   await c.future;
   Expect.listEquals([-1, 1, 'one', 'two',  2], log);
   await sc.close();
+  asyncEnd();
 }
 
 main() {
-  asyncStart();
+  asyncStart(2);
   test();
 }

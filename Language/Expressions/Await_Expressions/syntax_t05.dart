@@ -11,9 +11,7 @@
 /// enclosing await expression is not marked with async, async* or sync*
 /// @author a.semenov@unipro.ru
 
-
 import 'dart:async';
-import '../../../Utils/expect.dart';
 
 f() {
   return new Future<int>.value(1);

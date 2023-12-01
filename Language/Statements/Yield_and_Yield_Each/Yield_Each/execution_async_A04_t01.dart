@@ -48,9 +48,10 @@ Future test() async {
   sc.add('b');
   sc.add('c');
   sc.close();
+  asyncEnd();
 }
 
 main() {
-  asyncStart();
+  asyncStart(2);
   test();
 }
