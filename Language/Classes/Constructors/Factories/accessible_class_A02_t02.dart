@@ -41,13 +41,15 @@ class C {
 }
 
 enum E {
-  e1, e2;
+  e1.g(), e2.g();
+
+  const E.g();
   const factory E() = foo;
 //                    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  factory E.f() = bar<E>;
-//                ^^^
+  factory E.f2() = bar<E>;
+//                 ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
