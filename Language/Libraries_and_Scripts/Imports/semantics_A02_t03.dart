@@ -22,7 +22,7 @@
 ///   in a dynamic error that occurs before the actual argument is evaluated.
 ///
 /// @description Checks that closurizing a function from a deferred library
-/// before `loadLibrary()` call results in a dynamic error.
+/// before the future returned by `loadLibrary()` has been completed
 /// @author sgrekhov22@gmail.com
 
 import "../../../Utils/expect.dart";

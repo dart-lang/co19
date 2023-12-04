@@ -16,8 +16,8 @@
 ///
 /// @description Checks that for every class, mixin, enum, and type alias
 /// declaration in the imported library a corresponding getter with the same
-/// name and return type `Type` is in the current library. Call of this getter
-/// is a dynamic error
+/// name and return type `Type` is present in the namespace denoted by the
+/// deferred import prefix. An invocation of this getter is a dynamic error.
 /// @author sgrekhov22@gmail.com
 
 import "../../../Utils/expect.dart";
