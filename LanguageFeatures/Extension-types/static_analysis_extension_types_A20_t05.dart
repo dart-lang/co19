@@ -21,25 +21,21 @@
 
 extension type const Check._(Object? _) {
   const Check(Object? object, {required Object? expected}) : _ = object,
-      assert(identical(expected, object));
+    assert(identical(expected, object));
 }
 
-typedef GenFunction = X Function<X>(X x);
-typedef ListFunction = X Function<X>(List<X> v);
-typedef MapFunction = void Function<K, V>(Map<K, V> v);
+extension type const ExtInt(int _) {}
 
-extension type const ExtFuncGen(GenFunction _) {}
-extension type const ExtFuncList(ListFunction _) {}
-extension type const ExtFuncMap(MapFunction _) {}
+typedef ExtIntFunc1 = ExtInt Function(ExtInt _, [ExtInt __]);
+typedef ExtIntFunc2 = ExtInt Function(ExtInt _, {ExtInt n});
+typedef ExtIntFunc3 = ExtInt Function(ExtInt _, {required ExtInt n});
+
+typedef IntFunc1 = int Function(int _, [int __]);
+typedef IntFunc2 = int Function(int _, {int n});
+typedef IntFunc3 = int Function(int _, {required int n});
 
 void main() {
-  const Check(ExtFuncGen, expected: GenFunction);
-  const Check(ExtFuncList, expected: ListFunction);
-  const Check(ExtFuncMap, expected: MapFunction);
-
-  const Check(List<ExtFuncGen>, expected: List<GenFunction>);
-  const Check(Map<ExtFuncGen, String>, expected: Map<GenFunction, String>);
-  const Check(Map<String, ExtFuncGen>, expected: Map<String, GenFunction>);
-  const Check(Map<ExtFuncList, ExtFuncGen>,
-      expected: Map<ListFunction, GenFunction>);
+  const Check(ExtIntFunc1, expected: IntFunc1);
+  const Check(ExtIntFunc2, expected: IntFunc2);
+  const Check(ExtIntFunc3, expected: IntFunc3);
 }
