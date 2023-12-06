@@ -34,9 +34,11 @@ void check(Object value) {
 }
 
 main() {
+  asyncStart();
   check(1e98);
   check('value');
   check(true);
   check(const {});
   check(const  C());
+  asyncEnd();
 }

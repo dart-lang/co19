@@ -37,7 +37,6 @@ main() {
   f.then(
       (value) {
         Expect.fail("Returned future should complete with error");
-        asyncEnd();
       },
       onError: (Object error) {
         Expect.equals(2, error);

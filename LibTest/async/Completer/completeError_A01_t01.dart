@@ -34,11 +34,14 @@ check(value) {
 }
 
 main() {
+  asyncStart();
   check(0);
   check(-5);
-  //check(null); // null is disallowed as an argument to completeError()
   check('string');
   check(true);
   check(const {'k1': 1, 'k2': 2});
-  Future.wait(futures).whenComplete(() => Expect.equals(5, count));
+  Future.wait(futures).whenComplete(() {
+    Expect.equals(5, count);
+    asyncEnd();
+  });
 }

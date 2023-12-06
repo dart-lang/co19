@@ -17,7 +17,6 @@ listen(Stream stream, List expectedData, List expectedErrors) {
   List actualData = [];
   List actualErrors = [];
 
-  asyncStart();
   stream.listen(
       (x) {
         actualData.add(x);
@@ -35,10 +34,8 @@ listen(Stream stream, List expectedData, List expectedErrors) {
 
 main() {
   StreamController c = new StreamController();
-
+  asyncStart(2);
   listen(c.stream, [1, 2, 3, 4, 5, 6, 7], [0]);
-
-  asyncStart();
   c.addStream(new Stream.fromIterable([1, 2, 3])).then((_) {
     c.add(4);
     c.addStream(new Stream.fromIterable([5, 6, 7])).then((_) {

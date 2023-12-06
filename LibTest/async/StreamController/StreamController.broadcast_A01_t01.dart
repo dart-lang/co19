@@ -46,6 +46,8 @@ check(List events0) {
 }
 
 main() {
+  asyncStart();
   check([]);
   check([1, 2, null, []]);
+  asyncEnd();
 }

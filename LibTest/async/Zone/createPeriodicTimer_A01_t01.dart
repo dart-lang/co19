@@ -28,6 +28,8 @@ void test(Zone zone) {
 }
 
 main() {
+  asyncStart();
   test(Zone.current);
   test(Zone.current.fork());
+  asyncEnd();
 }

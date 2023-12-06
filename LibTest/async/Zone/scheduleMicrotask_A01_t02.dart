@@ -19,6 +19,8 @@ test(Zone z) {
 }
 
 main() {
+  asyncStart();
   test(Zone.current);
   test(Zone.current.fork());
+  asyncEnd();
 }

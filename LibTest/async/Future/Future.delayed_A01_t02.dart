@@ -36,9 +36,11 @@ check(delayms) {
 }
 
 main() {
+  asyncStart();
   check(0);
   check(30);
   check(50);
   check(100);
   check(150);
+  asyncEnd();
 }

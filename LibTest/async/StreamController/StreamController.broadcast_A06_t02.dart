@@ -26,8 +26,8 @@ main() {
   Stream stream = controller.stream;
 
   int event1 = 0;
-  asyncStart();
-  StreamSubscription sub1 = stream.listen(
+  asyncStart(2);
+  stream.listen(
     (event){
       Expect.equals(event1, event);
       event1++;
@@ -38,8 +38,7 @@ main() {
   );
 
   int event2 = 0;
-  asyncStart();
-  StreamSubscription sub2 = stream.listen(
+  stream.listen(
     (event){
       Expect.equals(event2, event);
       event2++;

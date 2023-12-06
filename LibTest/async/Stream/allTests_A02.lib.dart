@@ -76,6 +76,7 @@ import "transform_A01_t01.test.dart" as transform_A01_t01;
 import "where_A01_t02.test.dart" as where_A01_t02;
 
 void test(CreateStreamWithErrorsFunction create) {
+  asyncStart();
   any_A02_t01.test(create);
 
   asBroadcastStream_A05_t02.test(create);
@@ -141,4 +142,5 @@ void test(CreateStreamWithErrorsFunction create) {
   transform_A01_t01.test(create);
 
   where_A01_t02.test(create);
+  asyncEnd();
 }

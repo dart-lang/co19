@@ -31,8 +31,10 @@ void check(Object value) {
 }
 
 main() {
-    check("0");
-    check(20);
-    check(3.14);
-    check(new Error());
+  asyncStart();
+  check("0");
+  check(20);
+  check(3.14);
+  check(new Error());
+  asyncEnd();
 }

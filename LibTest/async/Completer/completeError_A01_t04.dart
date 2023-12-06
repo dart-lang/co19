@@ -16,21 +16,16 @@ import "dart:async";
 main() {
   var completer = new Completer();
   var future = completer.future;
-
   var e = new Error();
 
   asyncStart(2);
-
   var f = new Future.error(e).catchError((x) {
     asyncEnd();
     return x;
   });
-
-  future
-    .catchError((e) {
-      Expect.identical(f, e);
-      asyncEnd();
-    });
-
+  future.catchError((e) {
+    Expect.identical(f, e);
+    asyncEnd();
+  });
   completer.completeError(f);
 }

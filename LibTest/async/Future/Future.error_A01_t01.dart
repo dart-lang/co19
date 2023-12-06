@@ -27,6 +27,7 @@ check(value) {
 }
 
 main() {
+  asyncStart();
   check(0);
   check(1);
   check(-5);
@@ -35,4 +36,5 @@ main() {
   check(true);
   check(const []);
   check(const {'k1': 1, 'k2': 2});
+  asyncEnd();
 }

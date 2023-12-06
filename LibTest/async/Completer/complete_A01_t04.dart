@@ -24,6 +24,7 @@ main() {
   var completer = new Completer();
   var future = completer.future;
 
+  asyncStart();
   for (int k = 0; k < N; k++) {
     asyncStart();
     futures.add(future.then((fValue) {
@@ -32,7 +33,9 @@ main() {
       asyncEnd();
     }));
   }
-  Future.wait(futures).whenComplete(() => Expect.equals(N, count));
-
+  Future.wait(futures).whenComplete(() {
+    Expect.equals(N, count);
+    asyncEnd();
+  });
   completer.complete(v);
 }

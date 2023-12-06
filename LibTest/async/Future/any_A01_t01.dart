@@ -41,7 +41,6 @@ main() {
       c.complete(null);
     }
   }
-
   Future f = Future.any(futures);
 
   asyncStart();

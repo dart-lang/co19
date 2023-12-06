@@ -54,13 +54,11 @@ main() {
   c.addError(5);
 
   asyncStart();
-  
   c.stream.transform(myTransformer()).toList().then(
     (x) {
       Expect.listEquals([1,2,3,6,5,10,1,2,3,4,5], x);
       asyncEnd();
     }
   );
-
   c.close();
 }

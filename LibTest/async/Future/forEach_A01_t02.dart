@@ -35,8 +35,10 @@ void check(List input) {
 }
 
 main() {
+  asyncStart();
   check([0, 1, 2, 3, 4]);
   check(["a", "b", "c", "d"]);
   check([]);
   check([0, null, "a", 3.14, true, false]);
+  asyncEnd();
 }

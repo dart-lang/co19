@@ -61,9 +61,11 @@ check(List events) {
 }
 
 main() {
+  asyncStart();
   check([]);
   check([1, 2, null, []]);
   check([1, 2, -1, "aaa", -3, 10]);
   check([-1, -2, -1, -3, -10]);
   check([-1, 1, -2, 2, "hello", "world", -10]);
+  asyncEnd();
 }

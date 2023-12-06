@@ -23,13 +23,11 @@ main() {
   Iterable iterable = [1, 2, 3];
   Stream s = new Stream.fromIterable(iterable);
 
-  asyncStart();
+  asyncStart(2);
   c.stream.toList().then((x) {
     Expect.listEquals(iterable, x);
     asyncEnd();
   });
-
-  asyncStart();
   c.addStream(s).then((_) {
     c.close();
     asyncEnd();
