@@ -27,8 +27,10 @@ check(Object value) {
 }
 
 main() {
+  asyncStart();
   check("0");
   check(20);
   check(3.14);
   check(new Object());
+  asyncEnd();
 }

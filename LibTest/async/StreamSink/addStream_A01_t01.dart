@@ -20,13 +20,12 @@ main() {
   var c = new StreamController();
   var sink = c.sink;
 
-  asyncStart();
+  asyncStart(2);
   sink.addStream(from).then((_) {
     c.close();
     asyncEnd();
   });
 
-  asyncStart();
   c.stream.toList().then((x) {
     Expect.listEquals([1,2,3,4,5], x);
     asyncEnd();

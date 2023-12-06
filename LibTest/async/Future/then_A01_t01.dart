@@ -31,10 +31,12 @@ void check(Object value) {
 }
 
 main() {
+  asyncStart();
   check(0);
   check('');
   check(false);
   check([]);
   check(new Object());
   check(new Exception());
+  asyncEnd();
 }

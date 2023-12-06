@@ -19,7 +19,6 @@ void listen(Stream stream, List expectedData, List expectedErrors) {
   List actualData = [];
   List actualErrors = [];
 
-  asyncStart();
   stream.listen(
       (x) {
         actualData.add(x);
@@ -44,9 +43,8 @@ main() {
   Stream s1 = toDataErrorStream(new Stream.fromIterable(iterable));
   Stream s2 = toDataErrorStream(new Stream.fromIterable(iterable));
 
+  asyncStart(2);
   listen(c.stream, [1, 2, 3, 4, 5, 6, 1, 2, 3], [-1, -2, -3, -1]);
-
-  asyncStart();
   c.addStream(s1).then((_) {
     c.addStream(s2, cancelOnError:true).then((_) {
       c.close();

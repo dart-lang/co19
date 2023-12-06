@@ -9,7 +9,6 @@
 /// @author kaigorodov
 /// @todo move from LibTest to Language
 
-
 import "../../../Utils/expect.dart";
 
 import 'DeferredLibrary_A01_t01.lib.dart' deferred as lazy;
@@ -17,8 +16,7 @@ import 'DeferredLibrary_A01_t01.lib.dart' deferred as lazy;
 void main() {
   try {
     lazy.method(); // foo is not loaded yet.
-//    Expect.fail("NoSuchMethodError expected"); -- #11507: do not insist on lazy loading
-  } on NoSuchMethodError  catch(ok) {
+  } on NoSuchMethodError  catch(_) {
   }
   asyncStart();
   lazy.loadLibrary().then(onFooLoaded);

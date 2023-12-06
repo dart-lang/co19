@@ -46,8 +46,10 @@ check(value) {
 }
 
 main() {
+  asyncStart();
   check(1);
   check('');
   check({});
   check(false);
+  asyncEnd();
 }

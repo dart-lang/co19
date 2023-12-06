@@ -33,7 +33,6 @@ main() {
   f.then(
       (value) {
         Expect.fail("Returned future should complete with error");
-        asyncEnd();
       },
       onError: (error) {
         Expect.isTrue([1, 2, 3, 4, 5].contains(error), "error: $error");

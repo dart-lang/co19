@@ -17,8 +17,6 @@ main() {
     x = 1;
     asyncEnd();
   });
-
   Expect.isNull(x);
-
   asyncStart();
 }

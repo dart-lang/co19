@@ -19,15 +19,12 @@ import "../../../Utils/expect.dart";
 main() {
   var completer = new Completer();
   var future = completer.future;
-
   var value = [1, 2, 3];
 
   asyncStart();
-
   future.then((x) {
     Expect.identical(value, x);
     asyncEnd();
   });
-
   completer.complete(new Future.value(value));
 }

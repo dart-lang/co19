@@ -24,8 +24,10 @@ check(value) {
 }
 
 main() {
+  asyncStart();
   check(0);
   check(-5);
   check('string');
   check(true);
+  asyncEnd();
 }

@@ -26,7 +26,7 @@ main() {
   Stream stream = controller.stream;
 
   int event1 = 0;
-  asyncStart();
+  asyncStart(2);
   stream.listen(
     (event) {
       Expect.equals(event1, event);
@@ -36,14 +36,12 @@ main() {
       asyncEnd();
     }
   );
-
   for (int k = 0; k < 5; k++) {
     controller.add(k);
   }
 
   int event2 = 5;
-  asyncStart();
-  StreamSubscription sub2 = stream.listen(
+  stream.listen(
     (event) {
       Expect.equals(event2, event);
       event2++;
@@ -52,7 +50,6 @@ main() {
       asyncEnd();
     }
   );
-
   for (int k = 5; k < 10; k++) {
     controller.add(k);
   }

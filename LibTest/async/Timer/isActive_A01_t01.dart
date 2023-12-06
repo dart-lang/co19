@@ -26,9 +26,11 @@ check(int delayms) {
 }
 
 main() {
+  asyncStart();
   check(10);
   check(1);
   check(0);
   check(-1);
   check(-10);
+  asyncEnd();
 }

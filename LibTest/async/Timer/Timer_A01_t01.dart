@@ -35,6 +35,7 @@ check(int delayms) {
 }
 
 main() {
+  asyncStart();
   check(150);
   check(100);
   check(50);
@@ -45,4 +46,5 @@ main() {
   check(0);
   check(-5);
   check(-50);
+  asyncEnd();
 }

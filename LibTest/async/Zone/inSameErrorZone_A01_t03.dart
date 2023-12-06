@@ -31,7 +31,7 @@ diff() {
 
 main() {
   runZonedGuarded(() {
-    asyncStart();
+    asyncStart(2);
     // new error zone
     diff();
     // error is caught by catchError
@@ -43,7 +43,6 @@ main() {
     runZoned(() {
       // not error zone, shares callback with the parent
       same();
-      asyncStart();
       // catchError is registered in same error zone
       // error is caught by catchError
       new Future.error(2).catchError((_) {

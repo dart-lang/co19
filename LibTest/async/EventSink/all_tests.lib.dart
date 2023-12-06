@@ -11,6 +11,7 @@
 library all_tests_eventsink;
 import "dart:async";
 
+import "../../../Utils/expect.dart";
 import "EventSink_A01_t01.test.dart" as EventSink_A01_t01;
 import "hashCode_A01_t01.test.dart" as hashCode_A01_t01;
 import "runtimeType_A01_t01.test.dart" as runtimeType_A01_t01;
@@ -22,6 +23,7 @@ import "noSuchMethodError_A01_t01.test.dart" as noSuchMethodError_A01_t01;
 import "toString_A01_t01.test.dart" as toString_A01_t01;
 
 test(EventSink create()) {
+  asyncStart();
   EventSink_A01_t01.test(create);
   hashCode_A01_t01.test(create);
   runtimeType_A01_t01.test(create);
@@ -31,4 +33,5 @@ test(EventSink create()) {
   close_A01_t01.test(create);
   noSuchMethodError_A01_t01.test(create);
   toString_A01_t01.test(create);
+  asyncEnd();
 }

@@ -34,7 +34,6 @@ import "asyncMap_A01_t04.test.dart" as asyncMap_A01_t04;
 import "asyncMap_A02_t01.test.dart" as asyncMap_A02_t01;
 import "asyncMap_A03_t02.test.dart" as asyncMap_A03_t02;
 import "asyncMap_A03_t03.test.dart" as asyncMap_A03_t03;
-import "asyncMap_A04_t01.test.dart" as asyncMap_A04_t01;
 
 import "contains_A01_t01.test.dart" as contains_A01_t01;
 import "contains_A02_t01.test.dart" as contains_A02_t01;
@@ -161,6 +160,7 @@ import "transform_A01_t02.test.dart" as transform_A01_t02;
 import "where_A01_t01.test.dart" as where_A01_t01;
 
 void test(CreateStreamFunction create) {
+  asyncStart();
   any_A01_t01.test(create);
   any_A01_t02.test(create);
 
@@ -186,7 +186,6 @@ void test(CreateStreamFunction create) {
   asyncMap_A02_t01.test(create);
   asyncMap_A03_t02.test(create);
   asyncMap_A03_t03.test(create);
-//  asyncMap_A04_t01.test(create); // fails with error, moved to allTests_A03
 
   contains_A01_t01.test(create);
   contains_A02_t01.test(create);
@@ -310,4 +309,5 @@ void test(CreateStreamFunction create) {
   transform_A01_t02.test(create);
 
   where_A01_t01.test(create);
+  asyncEnd();
 }

@@ -27,7 +27,9 @@ check(delay, value) {
 }
 
 main() {
+  asyncStart();
   check(100, 3);
   check(50, '');
   check(0, []);
+  asyncEnd();
 }

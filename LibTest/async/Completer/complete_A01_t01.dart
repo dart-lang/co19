@@ -31,10 +31,12 @@ check(value) {
 }
 
 main() {
+  asyncStart();
   check(0);
   check(-5);
   check(null);
   check('string');
   check(true);
   check(const {'k1': 1, 'k2': 2});
+  asyncEnd();
 }

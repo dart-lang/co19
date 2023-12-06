@@ -33,8 +33,10 @@ void check(expected) {
 }
 
 main() {
+  asyncStart();
   check(null);
   check(12345);
   check("expected");
   check(["expected"]);
+  asyncEnd();
 }

@@ -15,26 +15,20 @@ import "dart:async";
 main() {
   var completer = new Completer();
   var future = completer.future;
-
   var error = new Error();
   var stackTrace;
 
   asyncStart();
-
   try {
     throw error;
-  } catch(e, st) {
+  } catch (e, st) {
     stackTrace = st;
     completer.completeError(e, st);
   }
 
-  future.then(
-          (fValue) => Expect.fail('should not get here'),
-          onError:(e, st) {
-            Expect.identical(error, e);
-            Expect.identical(stackTrace, st);
-            asyncEnd();
-          }
-    );
+  future.then((fValue) => Expect.fail('should not get here'), onError: (e, st) {
+    Expect.identical(error, e);
+    Expect.identical(stackTrace, st);
+    asyncEnd();
+  });
 }
-

@@ -19,15 +19,12 @@ import "../../../Utils/expect.dart";
 main() {
   var completer = new Completer();
   var future = completer.future;
-
   var error = new Error();
 
   asyncStart();
-
   future.catchError((x) {
     Expect.identical(error, x);
     asyncEnd();
   });
-
   completer.complete(new Future.error(error));
 }

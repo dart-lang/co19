@@ -50,7 +50,6 @@ void check<T>(Stream<T> s) {
   Map<Key<T>, int> equalsLog = new Map<Key<T>, int>();
 
   bool equals(T p, T n) {
-  //  print("equals($p,$n)");
     Key<T> key = new Key<T>(p,n);
     equalsLog[key] = 1 + equalsLog.putIfAbsent(key, () => 0);
     return p==n;
@@ -64,14 +63,11 @@ void check<T>(Stream<T> s) {
     subscribe(d)
   ]).then(
     (List<List<T>> result) {
-  //    print(equalsLog);
-  //    result.forEach(print);
       result.forEach((received) => Expect.listEquals(result[0], received));
       equalsLog.values.forEach((v) => Expect.equals(3, v));
       asyncEnd();
     }
   );
-
 }
 
 void test(CreateStreamFunction create) {
@@ -79,6 +75,4 @@ void test(CreateStreamFunction create) {
   check(create([1, 2, 4, 3]));
   check(create([1, 2, 2, 3]));
   check(create(["a", "b", null, null]));
-//  check(create(new Iterable.generate(5, (int index) => 1)));
-//  check(create(new Iterable.generate(10, (int index) => [0])));
 }

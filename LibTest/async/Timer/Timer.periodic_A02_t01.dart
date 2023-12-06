@@ -24,7 +24,9 @@ check(int delay) {
 }
 
 main() {
+  asyncStart();
   check(0);
   check(-1);
   check(-10);
+  asyncEnd();
 }

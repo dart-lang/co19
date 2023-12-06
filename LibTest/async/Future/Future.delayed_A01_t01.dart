@@ -24,6 +24,7 @@ void check(delay, value) {
 }
 
 main() {
+  asyncStart();
   check(0, 0);
   check(10, 1);
   check(0, -5);
@@ -33,4 +34,5 @@ main() {
   check(0, true);
   check(10, const []);
   check(0, const {'k1': 1, 'k2': 2});
+  asyncEnd();
 }

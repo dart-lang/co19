@@ -17,25 +17,23 @@ check(value) {
   Future f = completer.future;
 
   asyncStart();
-  f.catchError(
-    (Object error) {
-      Expect.fail("onError should not be called");
-    }
-  ).then(
-    (x) {
-      Expect.identical(value, x);
-      asyncEnd();
-    }
-  );
+  f.catchError((Object error) {
+    Expect.fail("onError should not be called");
+  }).then((x) {
+    Expect.identical(value, x);
+    asyncEnd();
+  });
 
   completer.complete(value);
 }
 
 main() {
+  asyncStart();
   check(0);
   check('');
   check(false);
   check([]);
   check(new Object());
   check(new Exception());
+  asyncEnd();
 }
