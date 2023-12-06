@@ -21,9 +21,9 @@
 ///   setter named id= with the same signature as s. Calling the setter results
 ///   in a dynamic error that occurs before the actual argument is evaluated.
 ///
-/// @description Checks that calling a function from a deferred library before
-/// `loadLibrary()` call results in a dynamic error that occurs before any
-/// actual arguments are evaluated.
+/// @description Checks that calling a function or setter from a deferred
+/// library before `loadLibrary()` call results in a dynamic error that occurs
+/// before any actual arguments are evaluated.
 /// @author sgrekhov22@gmail.com
 
 import "../../../Utils/expect.dart";
@@ -33,9 +33,11 @@ String log = "";
 
 class C {
   int value;
-  C(this.value);
+  C(this.value) {
+    log += "C($value)";
+  }
   int operator +(int other) {
-    log = "C($value).+($other)";
+    log += ".+($other)";
     return value + other;
   }
 }
