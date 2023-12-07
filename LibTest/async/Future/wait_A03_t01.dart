@@ -28,29 +28,24 @@ main() {
   var future4 = completer4.future;
   var future5 = completer5.future;
 
-  var f = Future.wait(
-      [future1, future2, future3, future4, future5],
-      eagerError: true
-  );
+  var f = Future.wait([future1, future2, future3, future4, future5],
+      eagerError: true);
 
   asyncStart();
-  f.then(
-      (value) {
-        Expect.fail("Returned future should complete with error");
-      },
-      onError: (Object error) {
-        Expect.equals(2, error);
-        Expect.isTrue(completer1.isCompleted);
-        Expect.isTrue(completer2.isCompleted);
-        Expect.isFalse(completer3.isCompleted);
-        Expect.isFalse(completer4.isCompleted);
-        Expect.isFalse(completer5.isCompleted);
-        completer3.complete(3);
-        completer4.complete(4);
-        completer5.complete(5);
-        asyncEnd();
-      }
-  );
+  f.then((value) {
+    Expect.fail("Returned future should complete with error");
+  }, onError: (Object error) {
+    Expect.equals(2, error);
+    Expect.isTrue(completer1.isCompleted);
+    Expect.isTrue(completer2.isCompleted);
+    Expect.isFalse(completer3.isCompleted);
+    Expect.isFalse(completer4.isCompleted);
+    Expect.isFalse(completer5.isCompleted);
+    completer3.complete(3);
+    completer4.complete(4);
+    completer5.complete(5);
+    asyncEnd();
+  });
 
   completer1.complete(1);
   completer2.completeError(2);

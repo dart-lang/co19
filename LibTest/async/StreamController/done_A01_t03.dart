@@ -22,23 +22,19 @@ import "dart:async";
 main() {
   var c = new StreamController();
 
-  c.done
-    .then((x) {
-      print('completed with value $x');
-    })
-    .catchError((x) {
-      print('completed with error $x');
-    });
+  c.done.then((x) {
+    print('completed with value $x');
+  }).catchError((x) {
+    print('completed with error $x');
+  });
 
   c.addError(1);
 
   c.stream.listen(null, onError: (_) {});
 
-  c.close()
-    .then((x) {
-      print('completed with value $x');
-    })
-    .catchError((x) {
-      print('completed with error $x');
-    });
+  c.close().then((x) {
+    print('completed with value $x');
+  }).catchError((x) {
+    print('completed with error $x');
+  });
 }

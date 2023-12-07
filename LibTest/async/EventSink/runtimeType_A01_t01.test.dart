@@ -9,6 +9,7 @@
 /// @author ngl@unipro.ru
 
 library runtimeType_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -24,4 +25,3 @@ test(EventSink create()) {
   Expect.equals(es1.runtimeType, es2.runtimeType);
   Expect.notEquals(es1.runtimeType, o.runtimeType);
 }
-

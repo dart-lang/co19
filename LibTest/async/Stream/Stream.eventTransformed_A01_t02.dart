@@ -29,6 +29,7 @@ class MySink implements EventSink<int> {
       _sink.add(i * 2);
     }
   }
+
   void addError(e, [st]) => _sink.addError(e, st);
   void close() => _sink.close();
 }
@@ -36,7 +37,9 @@ class MySink implements EventSink<int> {
 List<int> input = [1, 2, 3, 4, 5];
 
 main() {
-  Stream s = new Stream.fromIterable(input).map((x) {throw x;});
+  Stream s = new Stream.fromIterable(input).map((x) {
+    throw x;
+  });
   Stream s2 = new Stream.eventTransformed(s, (sink) => new MySink(sink));
 
   AsyncExpect.events([], input, s2);

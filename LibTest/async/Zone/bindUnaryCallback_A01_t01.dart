@@ -27,7 +27,7 @@ main() {
   }
 
   ZoneUnaryCallback<int, int> boundCallback =
-                                    zone.bindUnaryCallback<int, int>(callback);
+      zone.bindUnaryCallback<int, int>(callback);
 
   int? result = null;
   runZoned(() {

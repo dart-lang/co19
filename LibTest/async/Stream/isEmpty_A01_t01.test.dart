@@ -13,11 +13,14 @@
 /// @author kaigorodov
 
 library isEmpty_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.value(true, create([]).isEmpty);
   AsyncExpect.value(false, create([1, 2, 3, null]).isEmpty);
-  AsyncExpect.value(true, create(new Iterable.generate(0, (int index) => 1)).isEmpty);
-  AsyncExpect.value(false, create(new Iterable.generate(10, (int index) => 1)).isEmpty);
+  AsyncExpect.value(
+      true, create(new Iterable.generate(0, (int index) => 1)).isEmpty);
+  AsyncExpect.value(
+      false, create(new Iterable.generate(10, (int index) => 1)).isEmpty);
 }

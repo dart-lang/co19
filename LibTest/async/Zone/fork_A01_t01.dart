@@ -11,7 +11,7 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-int count=0;
+int count = 0;
 
 void test(Zone z) {
   Zone z2 = z.fork();

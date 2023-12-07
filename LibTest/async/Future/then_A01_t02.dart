@@ -39,6 +39,6 @@ main() {
   check('value');
   check(true);
   check(const {});
-  check(const  C());
+  check(const C());
   asyncEnd();
 }

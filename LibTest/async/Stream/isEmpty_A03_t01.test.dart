@@ -11,12 +11,17 @@
 /// @author a.semenov@unipro.ru
 
 library isEmpty_A03_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
   AsyncExpect.value(true, create([], defaultValue: 42).isEmpty);
-  AsyncExpect.error(1,
-      create([1, 2, 3, null], isError:(x) => x==1, defaultValue: 42).isEmpty);
-  AsyncExpect.value(false,
-      create([1, 2, 3, null], isError:(x) => x==3, defaultValue: 42).isEmpty);
+  AsyncExpect.error(
+      1,
+      create([1, 2, 3, null], isError: (x) => x == 1, defaultValue: 42)
+          .isEmpty);
+  AsyncExpect.value(
+      false,
+      create([1, 2, 3, null], isError: (x) => x == 3, defaultValue: 42)
+          .isEmpty);
 }

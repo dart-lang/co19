@@ -15,7 +15,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  var from = new Stream.fromIterable([1,2,3,4,5]);
+  var from = new Stream.fromIterable([1, 2, 3, 4, 5]);
 
   var c = new StreamController();
   var sink = c.sink;
@@ -27,7 +27,7 @@ main() {
   });
 
   c.stream.toList().then((x) {
-    Expect.listEquals([1,2,3,4,5], x);
+    Expect.listEquals([1, 2, 3, 4, 5], x);
     asyncEnd();
   });
 }

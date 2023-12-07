@@ -28,15 +28,19 @@ main() {
   Expect.runtimeIsType<ZoneCallback<int>>(callback);
   Expect.equals(0, callback());
 
-  ZoneCallback<R> registerFunction<R>(Zone self, ZoneDelegate parent, Zone zone, R f()) {
+  ZoneCallback<R> registerFunction<R>(
+      Zone self, ZoneDelegate parent, Zone zone, R f()) {
     return () => 42 as R;
   }
 
-  z.fork(specification: new ZoneSpecification(registerCallback: registerFunction))
+  z
+      .fork(
+          specification:
+              new ZoneSpecification(registerCallback: registerFunction))
       .run(() {
-        ZoneCallback<int> callback = Zone.current.registerCallback<int>(f);
-        Expect.isTrue(callback is ZoneCallback<int>);
-        Expect.runtimeIsType<ZoneCallback<int>>(callback);
-        Expect.equals(42, callback());
-      });
+    ZoneCallback<int> callback = Zone.current.registerCallback<int>(f);
+    Expect.isTrue(callback is ZoneCallback<int>);
+    Expect.runtimeIsType<ZoneCallback<int>>(callback);
+    Expect.equals(42, callback());
+  });
 }

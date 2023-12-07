@@ -23,24 +23,18 @@ main() {
   List log = [];
   asyncStart();
   StackTrace stackTrace = StackTrace.current;
-  new Future.error("!", stackTrace)
-    .catchError(
-      (Object e, StackTrace st) {
-        log.add(2);
-        log.add(e);
-        log.add(st);
-        return "ok";
-      },
-      test:(Object e) {
-        log.add(1);
-        log.add(e);
-        return true;
-      }
-    ).then(
-      (value) {
-        Expect.listEquals([1, "!", 2, "!", stackTrace], log);
-        Expect.equals("ok", value);
-        asyncEnd();
-      }
-    );
+  new Future.error("!", stackTrace).catchError((Object e, StackTrace st) {
+    log.add(2);
+    log.add(e);
+    log.add(st);
+    return "ok";
+  }, test: (Object e) {
+    log.add(1);
+    log.add(e);
+    return true;
+  }).then((value) {
+    Expect.listEquals([1, "!", 2, "!", stackTrace], log);
+    Expect.equals("ok", value);
+    asyncEnd();
+  });
 }

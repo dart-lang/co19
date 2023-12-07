@@ -9,6 +9,7 @@
 /// @author a.semenov@unipro.ru
 
 library skipWhile_A03_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -27,8 +28,8 @@ void test(CreateStreamFunction create) {
   check(create([null]).asBroadcastStream(), (x) => false);
   check(create([1, 2, 3]), (x) => false);
   check(create([1, 2, 3]).asBroadcastStream(), (x) => false);
-  check(create([1, 2, 3]), (x) => x==1);
-  check(create([1, 2, 3]).asBroadcastStream(), (x) => x==1);
+  check(create([1, 2, 3]), (x) => x == 1);
+  check(create([1, 2, 3]).asBroadcastStream(), (x) => x == 1);
   check(create([1, 2, 3]), (x) => true);
   check(create([1, 2, 3]).asBroadcastStream(), (x) => true);
 }

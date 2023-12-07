@@ -11,6 +11,7 @@
 /// @author ngl@unipro.ru
 
 library noSuchMethodError_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -18,14 +19,17 @@ test(EventSink create()) {
   dynamic es1 = create();
 
   try {
-    es1.listen((_) {});   /// static type warning
+    es1.listen((_) {});
+
+    /// static type warning
   } catch (e) {
     Expect.isTrue(e is NoSuchMethodError);
   }
   try {
-    es1.abc((_) {});   /// static type warning
+    es1.abc((_) {});
+
+    /// static type warning
   } catch (e) {
     Expect.isTrue(e is NoSuchMethodError);
   }
 }
-

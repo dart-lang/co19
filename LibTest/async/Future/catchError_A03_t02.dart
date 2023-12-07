@@ -24,25 +24,19 @@ main() {
   List log = [];
   Object initialError = "!";
 
-  future.catchError(
-    (Object error) {
-      log.add(2);
-      log.add(error);
-    },
-    test: (Object error){
-      log.add(1);
-      log.add(error);
-      return false;
-    }
-  )
-  .catchError(
-    (Object error) {
-      Expect.listEquals([1, initialError], log);
-      Expect.identical(initialError, log[1]);
-      Expect.identical(initialError, error);
-      asyncEnd();
-    }
-  );
+  future.catchError((Object error) {
+    log.add(2);
+    log.add(error);
+  }, test: (Object error) {
+    log.add(1);
+    log.add(error);
+    return false;
+  }).catchError((Object error) {
+    Expect.listEquals([1, initialError], log);
+    Expect.identical(initialError, log[1]);
+    Expect.identical(initialError, error);
+    asyncEnd();
+  });
 
   asyncStart();
   completer.completeError(initialError);

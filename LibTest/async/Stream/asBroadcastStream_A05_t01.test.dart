@@ -11,13 +11,14 @@
 /// @author a.semenov@unipro.ru
 
 library asBroadcastStream_A05_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "allTests_A01.lib.dart" as StreamTests;
 
 void test(CreateStreamFunction create) {
   Stream s = create([]);
-  if (!s.isBroadcast){
+  if (!s.isBroadcast) {
     StreamTests.test(<T>(Iterable<T> data) => create(data).asBroadcastStream());
   }
 }

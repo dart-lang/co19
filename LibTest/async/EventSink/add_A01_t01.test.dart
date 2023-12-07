@@ -9,6 +9,7 @@
 /// @author ngl@unipro.ru
 
 library add_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -21,11 +22,9 @@ test(EventSink create()) {
 
     sc.stream.listen((value) {
       Expect.equals(values[i++], value);
-    },
-    onError: (error) {
+    }, onError: (error) {
       Expect.fail("Should not be here: $error");
-    },
-    onDone: () {
+    }, onDone: () {
       asyncEnd();
     });
 
@@ -36,4 +35,3 @@ test(EventSink create()) {
     sc.close();
   }
 }
-

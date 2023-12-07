@@ -14,6 +14,7 @@
 /// @author ngl@unipro.ru
 
 library hashCode_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -33,4 +34,3 @@ test(EventSink create()) {
     Expect.isFalse(es1.hashCode == es3.hashCode);
   }
 }
-

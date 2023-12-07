@@ -44,6 +44,7 @@ void check(List source, List expected) {
     }
     streamIterator.moveNext().then(step);
   }
+
   streamIterator.moveNext().then(step);
 }
 

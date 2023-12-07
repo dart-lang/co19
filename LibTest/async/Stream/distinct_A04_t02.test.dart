@@ -27,11 +27,14 @@ void test(CreateStreamWithErrorsFunction create) {
       [1, 3], [2, 2]);
   check<int>(
       create([1, 1, 2, 2, 3, 3], isError: (e) => e.isEven, defaultValue: 42),
-      [1, 3], [2, 2]);
+      [1, 3],
+      [2, 2]);
   check<int>(
       create([1, 1, 2, 2, 3, 3], isError: (e) => e.isOdd, defaultValue: 42),
-      [2], [1, 1, 3, 3]);
+      [2],
+      [1, 1, 3, 3]);
   check<int?>(
       create([1, 2, null, null], isError: (e) => e is num, defaultValue: 42),
-      [null], [1, 2]);
+      [null],
+      [1, 2]);
 }

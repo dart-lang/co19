@@ -15,11 +15,16 @@ import "../../../Utils/expect.dart";
 main() {
   Error error = new Error();
   // using immediate sync future
-  void throwError() {throw error;}
-  AsyncExpect.events([], [error], new Stream.fromFuture(new Future.sync(throwError)));
+  void throwError() {
+    throw error;
+  }
+
+  AsyncExpect.events(
+      [], [error], new Stream.fromFuture(new Future.sync(throwError)));
 
   // using immediate future
-  AsyncExpect.events([], [error], new Stream.fromFuture(new Future(throwError)));
+  AsyncExpect.events(
+      [], [error], new Stream.fromFuture(new Future(throwError)));
 
   // using completable future
   Completer completer = new Completer();

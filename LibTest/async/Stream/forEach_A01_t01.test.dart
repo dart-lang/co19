@@ -11,18 +11,17 @@
 /// @author kaigorodov
 
 library forEach_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, List<T> data) {
   List<T> sink = [];
   asyncStart();
-  s.forEach((T element) => sink.add(element)).then(
-    (_) {
-      Expect.listEquals(data, sink);
-      asyncEnd();
-    }
-  );
+  s.forEach((T element) => sink.add(element)).then((_) {
+    Expect.listEquals(data, sink);
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {

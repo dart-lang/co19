@@ -24,12 +24,10 @@ main() {
   asyncStart();
   completer.completeError(value);
 
-  f.then(
-    (value2) {
-      Expect.fail("Returned future should complete with error");
-    },
-    onError: (error) {
-      Expect.equals(value, error);
-      asyncEnd();
+  f.then((value2) {
+    Expect.fail("Returned future should complete with error");
+  }, onError: (error) {
+    Expect.equals(value, error);
+    asyncEnd();
   });
 }

@@ -19,11 +19,12 @@
 /// @author ilya
 
 library asBroadcastStream_A03_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
-  Stream<int> s = create([1,2,3,4,5]);
+  Stream<int> s = create([1, 2, 3, 4, 5]);
 
   asyncStart();
 
@@ -40,4 +41,3 @@ void test(CreateStreamFunction create) {
     Expect.fail('unexpected onData event');
   });
 }
-

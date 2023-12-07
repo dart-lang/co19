@@ -10,6 +10,7 @@
 /// @author ilya
 
 library elementAt_A01_t03;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -18,17 +19,13 @@ const int INDEX = 10;
 void test(CreateStreamFunction create) {
   int i = -1;
   Stream<int> s = create(new Iterable<int>.generate(100, (int i) => i));
-  s = s.map(
-    (int e) {
-      i++;
-      return e;
-    }
-  );
+  s = s.map((int e) {
+    i++;
+    return e;
+  });
   asyncStart();
-  s.elementAt(INDEX).then(
-    (int t) {
-      Expect.equals(INDEX, i);
-      asyncEnd();
-    }
-  );
+  s.elementAt(INDEX).then((int t) {
+    Expect.equals(INDEX, i);
+    asyncEnd();
+  });
 }

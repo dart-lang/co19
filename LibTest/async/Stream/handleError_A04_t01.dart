@@ -25,7 +25,7 @@ main() {
   Stream s2 = s.map((event) {
     try {
       throw new Error();
-    } catch(e, st) {
+    } catch (e, st) {
       errors.add(e);
       stackTraces.add(st);
       rethrow; // error and stack trace are the same as e and st
@@ -42,7 +42,7 @@ main() {
 
   s3.listen((_) {
     Expect.fail('unexpected onData event');
-  }, onError:(_) {
+  }, onError: (_) {
     Expect.fail('unexpected onError event');
   });
 }

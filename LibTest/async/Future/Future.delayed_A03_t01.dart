@@ -14,16 +14,14 @@ import "../../../Utils/expect.dart";
 
 check(delay, value) {
   asyncStart();
-  new Future.delayed(durationInMilliseconds(delay), () {throw value;})
-    .then(
-      (v) {
-        Expect.fail("Created future should complete with error");
-      },
-      onError: (error) {
-        Expect.equals(value, error);
-        asyncEnd();
-      }
-    );
+  new Future.delayed(durationInMilliseconds(delay), () {
+    throw value;
+  }).then((v) {
+    Expect.fail("Created future should complete with error");
+  }, onError: (error) {
+    Expect.equals(value, error);
+    asyncEnd();
+  });
 }
 
 main() {

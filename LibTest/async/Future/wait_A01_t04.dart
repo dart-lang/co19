@@ -17,16 +17,15 @@ import "../../../Utils/expect.dart";
 const N = 5;
 
 main() {
-  List<Completer> completers = new List.generate(5, (_)=> new Completer());
+  List<Completer> completers = new List.generate(5, (_) => new Completer());
   Iterable<Future> futures = completers.map((Completer c) => c.future);
   int i = 0;
   completers.forEach((Completer c) => c.complete(i++));
 
   asyncStart();
-  Future.wait(futures)
-    .then((value) {
-      List expected = new List.generate(completers.length, (i) => i);
-      Expect.listEquals(expected, value);
-      asyncEnd();
-    });
+  Future.wait(futures).then((value) {
+    List expected = new List.generate(completers.length, (i) => i);
+    Expect.listEquals(expected, value);
+    asyncEnd();
+  });
 }

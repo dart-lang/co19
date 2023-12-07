@@ -15,9 +15,9 @@ import "../../../Utils/expect.dart";
 
 main() {
   bool onPauseCalled = false;
-  StreamController controller = new StreamController(
-    onPause: () {onPauseCalled = true;}
-  );
+  StreamController controller = new StreamController(onPause: () {
+    onPauseCalled = true;
+  });
 
   StreamSubscription subs = controller.stream.listen((event) {});
   controller.add(1);

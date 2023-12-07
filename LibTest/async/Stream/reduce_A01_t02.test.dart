@@ -10,16 +10,14 @@
 /// @author kaigorodov
 
 library reduce_A01_t02;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
-  int combine(int p, int e){
+  int combine(int p, int e) {
     Expect.fail("combine should not be called");
     return 0; // makes analyzer happy
   }
 
-  AsyncExpect.value(
-      777,
-      create([777]).reduce(combine)
-  );
+  AsyncExpect.value(777, create([777]).reduce(combine));
 }

@@ -15,47 +15,41 @@
 /// @author a.semenov@unipro.ru
 
 library timeout_A03_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, List expectedEvents) {
   int count = 0;
   // delay for 100 ms and throw error if element starts with '!'
-  Stream s2 = s.asyncMap(
-                          (x) => new Future.delayed(
-                              durationInMilliseconds(100),
-                              () {
-                                if (x is String && x.startsWith("!")){
-                                  throw x;
-                                }
-                                return x;
-                              }
-                          )
-  );
+  Stream s2 =
+      s.asyncMap((x) => new Future.delayed(durationInMilliseconds(100), () {
+            if (x is String && x.startsWith("!")) {
+              throw x;
+            }
+            return x;
+          }));
   Stream s3 = s2.timeout(durationInMilliseconds(10));
   List actualEvents = [];
   asyncStart();
-  s3.listen(
-    (event) {
-      actualEvents.add(event);
-    },
-    onError: (error) {
-      if (error is TimeoutException){
-        actualEvents.add("+TE"+count.toString());
-        count++;
-      } else {
-        actualEvents.add("+" + error.toString());
-      }
-    },
-    onDone: () {
-      Expect.listEquals(expectedEvents, actualEvents);
-      asyncEnd();
+  s3.listen((event) {
+    actualEvents.add(event);
+  }, onError: (error) {
+    if (error is TimeoutException) {
+      actualEvents.add("+TE" + count.toString());
+      count++;
+    } else {
+      actualEvents.add("+" + error.toString());
     }
-  );
+  }, onDone: () {
+    Expect.listEquals(expectedEvents, actualEvents);
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {
-  check(create(["!a", "!b", "!c"]), ["+TE0", "+!a", "+TE1", "+!b", "+TE2", "+!c"]);
+  check(create(["!a", "!b", "!c"]),
+      ["+TE0", "+!a", "+TE1", "+!b", "+TE2", "+!c"]);
   check(create(["!a", "b", "!c"]), ["+TE0", "+!a", "+TE1", "b", "+TE2", "+!c"]);
   check(create(["a", "b", "!c"]), ["+TE0", "a", "+TE1", "b", "+TE2", "+!c"]);
   check(create(["a", "!b", "c"]), ["+TE0", "a", "+TE1", "+!b", "+TE2", "c"]);

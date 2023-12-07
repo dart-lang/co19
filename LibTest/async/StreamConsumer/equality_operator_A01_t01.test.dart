@@ -10,6 +10,7 @@
 /// @author ngl@unipro.ru
 
 library equality_operator_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -21,4 +22,3 @@ test(StreamConsumer create()) {
   Expect.isFalse(sc1 == sc2);
   Expect.isTrue(sc1 == sc3);
 }
-

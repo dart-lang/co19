@@ -12,22 +12,21 @@
 /// @author a.semenov@unipro.ru
 
 library first_A04_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(Stream s) {
   asyncStart();
-  s.first.then(
-    (_) {
-      if (!s.isBroadcast){
-        Expect.throws(() => s.listen((_){}));
-      }
-      asyncEnd();
+  s.first.then((_) {
+    if (!s.isBroadcast) {
+      Expect.throws(() => s.listen((_) {}));
     }
-  );
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {
   check(create([123]));
-  check(create([1,2,3]));
+  check(create([1, 2, 3]));
 }

@@ -26,20 +26,15 @@ main() {
   Future future = new Future(() => new Future.value(value));
   Future future2 = new Future(() => new Future.error(value));
 
-  future.then(
-    (x) {
-      Expect.identical(value, x);
-      asyncEnd();
-    }
-  );
+  future.then((x) {
+    Expect.identical(value, x);
+    asyncEnd();
+  });
 
-  future2.then(
-    (_) {
-      Expect.fail("Created future should complete with error");
-    },
-    onError: (x) {
-      Expect.identical(value, x);
-      asyncEnd();
-    }
-  );
+  future2.then((_) {
+    Expect.fail("Created future should complete with error");
+  }, onError: (x) {
+    Expect.identical(value, x);
+    asyncEnd();
+  });
 }

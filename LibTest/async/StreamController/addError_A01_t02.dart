@@ -22,15 +22,12 @@ main() {
     controller.addError(e, st);
   }
   asyncStart();
-  controller.stream.listen(
-    (value) {
-      Expect.fail("unexpected onData call");
-    },
-    onError: (error1, stackTrace1) {
-      Expect.identical(error0, error1);
-      Expect.identical(stackTrace0, stackTrace1);
-      asyncEnd();
-    }
-  );
+  controller.stream.listen((value) {
+    Expect.fail("unexpected onData call");
+  }, onError: (error1, stackTrace1) {
+    Expect.identical(error0, error1);
+    Expect.identical(stackTrace0, stackTrace1);
+    asyncEnd();
+  });
   controller.close();
 }

@@ -11,6 +11,7 @@
 /// @author a.semenov@unipro.ru
 
 library pipe_A04_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -34,15 +35,12 @@ void test(CreateStreamFunction create) {
   Stream<int> s = create([1, 2, 3, 4, 5]);
 
   asyncStart();
-  s.pipe(c).then(
-      (_) {
-        Expect.fail("Returned future should complete with error");
-      },
-      onError:(e) {
-        Expect.equals("addStreamError", e);
-        Expect.equals(0, c.closeCallCount);
+  s.pipe(c).then((_) {
+    Expect.fail("Returned future should complete with error");
+  }, onError: (e) {
+    Expect.equals("addStreamError", e);
+    Expect.equals(0, c.closeCallCount);
 
-        asyncEnd();
-      }
-  );
+    asyncEnd();
+  });
 }

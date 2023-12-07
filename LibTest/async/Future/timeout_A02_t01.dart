@@ -22,13 +22,11 @@ import "../../../Utils/expect.dart";
 main() {
   asyncStart();
   Completer completer = new Completer();
-  completer.future.timeout(
-      new Duration(microseconds:1),
-      onTimeout: () => new Future.value(55)
-  ).then(
-    (value) {
-      Expect.equals(55, value);
-      asyncEnd();
-    }
-  );
+  completer.future
+      .timeout(new Duration(microseconds: 1),
+          onTimeout: () => new Future.value(55))
+      .then((value) {
+    Expect.equals(55, value);
+    asyncEnd();
+  });
 }

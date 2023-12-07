@@ -28,6 +28,7 @@ class MySink implements EventSink<int> {
       _sink.add(i * 2);
     }
   }
+
   void addError(e, [st]) => _sink.addError(e, st);
   void close() => _sink.close();
 }

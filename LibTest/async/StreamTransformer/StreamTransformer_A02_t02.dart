@@ -19,18 +19,14 @@ import "../../../Utils/expect.dart";
 
 main() {
   Stream<int> s = new Stream.fromIterable([1]);
-  StreamTransformer<int, dynamic> tr = new StreamTransformer(
-    (_, __) {
-      Stream s2 = new Stream.fromIterable([2]);
-      return s2.listen(null);
-    }
-  );
+  StreamTransformer<int, dynamic> tr = new StreamTransformer((_, __) {
+    Stream s2 = new Stream.fromIterable([2]);
+    return s2.listen(null);
+  });
 
   asyncStart();
-  s.transform(tr).toList().then(
-    (x) {
-      Expect.listEquals([2], x);
-      asyncEnd();
-    }
-  );
+  s.transform(tr).toList().then((x) {
+    Expect.listEquals([2], x);
+    asyncEnd();
+  });
 }

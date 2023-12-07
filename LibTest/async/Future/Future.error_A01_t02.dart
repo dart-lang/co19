@@ -20,7 +20,7 @@ main() {
 
   try {
     throw error;
-  } catch(e, st) {
+  } catch (e, st) {
     stackTrace = st;
     future = new Future.error(e, st);
   }

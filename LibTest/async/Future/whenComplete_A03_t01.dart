@@ -16,18 +16,13 @@ main() {
 
   Completer completer = new Completer();
   Future f0 = completer.future;
-  f0.whenComplete(
-    () {
-      throw value;
-    }
-  ).catchError(
-    (Object error) {
-      Expect.equals(value, error);
-      asyncEnd();
-    }
-  );
+  f0.whenComplete(() {
+    throw value;
+  }).catchError((Object error) {
+    Expect.equals(value, error);
+    asyncEnd();
+  });
 
   asyncStart();
   completer.complete(0);
 }
-

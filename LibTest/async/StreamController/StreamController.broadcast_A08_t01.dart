@@ -19,27 +19,24 @@ main() {
   bool onCancelCalled = false;
   asyncStart(4);
 
-  StreamController controller = new StreamController.broadcast(
-    onListen: () {
-      onListenCalled = true;
-      asyncEnd();
-    },
-    onCancel: () {
-      onCancelCalled = true;
-      asyncEnd();
-    }
-  );
+  StreamController controller = new StreamController.broadcast(onListen: () {
+    onListenCalled = true;
+    asyncEnd();
+  }, onCancel: () {
+    onCancelCalled = true;
+    asyncEnd();
+  });
   Stream stream = controller.stream;
 
   Expect.isFalse(onListenCalled);
-  StreamSubscription subs = stream.listen((event){});
+  StreamSubscription subs = stream.listen((event) {});
   Expect.isTrue(onListenCalled);
 
   subs.cancel();
   Expect.isTrue(onCancelCalled);
 
   onListenCalled = false;
-  subs=stream.listen((event) {});
+  subs = stream.listen((event) {});
   Expect.isTrue(onListenCalled);
 
   controller.close();

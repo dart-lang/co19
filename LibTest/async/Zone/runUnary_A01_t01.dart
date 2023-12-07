@@ -12,13 +12,10 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(Zone zone) {
-  int result = zone.runUnary<int, int>(
-    (int x) {
-      Expect.equals(zone, Zone.current);
-      return x;
-    },
-    1
-  );
+  int result = zone.runUnary<int, int>((int x) {
+    Expect.equals(zone, Zone.current);
+    return x;
+  }, 1);
   Expect.equals(1, result);
 }
 

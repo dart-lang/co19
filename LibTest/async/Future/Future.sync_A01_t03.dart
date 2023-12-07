@@ -19,25 +19,20 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 check(value) {
-  asyncStart();
-
-  new Future.sync(() => throw value).then(
-    (_) {
-      Expect.fail("Created future should complete with error");
-    },
-    onError: (e) {
-      if (value == null){
-        Expect.isTrue(e is TypeError);
-      } else {
-        Expect.identical(value, e);
-      }
-      asyncEnd();
+  new Future.sync(() => throw value).then((_) {
+    Expect.fail("Created future should complete with error");
+  }, onError: (e) {
+    if (value == null) {
+      Expect.isTrue(e is TypeError);
+    } else {
+      Expect.identical(value, e);
     }
-  );
+    asyncEnd();
+  });
 }
 
 main() {
-  asyncStart();
+  asyncStart(9);
   check(0);
   check(1);
   check(-5);
@@ -47,5 +42,4 @@ main() {
   check(true);
   check(const []);
   check(const {'k1': 1, 'k2': 2});
-  asyncEnd();
 }

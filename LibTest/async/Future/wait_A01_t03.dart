@@ -28,11 +28,10 @@ main() {
   var future5 = completer5.future;
 
   asyncStart();
-  Future.wait([future1, future2, future3, future4, future5])
-    .then((value) {
-      Expect.listEquals([1, 2, 3, 4, 5], value);
-      asyncEnd();
-    });
+  Future.wait([future1, future2, future3, future4, future5]).then((value) {
+    Expect.listEquals([1, 2, 3, 4, 5], value);
+    asyncEnd();
+  });
 
   completer1.complete(1);
   completer2.complete(2);

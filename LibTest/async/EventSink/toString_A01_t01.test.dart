@@ -10,6 +10,7 @@
 /// @author ngl@unipro.ru
 
 library toString_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -24,4 +25,3 @@ test(EventSink create()) {
   Expect.notEquals(es1, es2);
   Expect.equals(es1.toString(), es2.toString());
 }
-

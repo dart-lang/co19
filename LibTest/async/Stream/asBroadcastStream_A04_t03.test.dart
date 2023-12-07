@@ -17,6 +17,7 @@
 /// @author ilya
 
 library asBroadcastStream_A04_t03;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -32,28 +33,25 @@ void test(CreateStreamFunction create) {
 
   asyncStart();
 
-  Stream<int> b = s.asBroadcastStream(
-      onListen: (StreamSubscription<int> subs) {
-        if (firstListen)
-          firstListen = false;
-        else {
-          Expect.isTrue(subs.isPaused);
-          subs.resume();
-        }
-      },
-      onCancel: (StreamSubscription<int> subs) {
-        if (streamOpen) {
-          Expect.isFalse(subs.isPaused);
-          subs.pause();
-          anySubscribers = false;
-        } else {
-          subs.cancel();
-          timer.cancel();
-          Expect.listEquals([], values);
-          asyncEnd();
-        }
-      }
-  );
+  Stream<int> b = s.asBroadcastStream(onListen: (StreamSubscription<int> subs) {
+    if (firstListen)
+      firstListen = false;
+    else {
+      Expect.isTrue(subs.isPaused);
+      subs.resume();
+    }
+  }, onCancel: (StreamSubscription<int> subs) {
+    if (streamOpen) {
+      Expect.isFalse(subs.isPaused);
+      subs.pause();
+      anySubscribers = false;
+    } else {
+      subs.cancel();
+      timer.cancel();
+      Expect.listEquals([], values);
+      asyncEnd();
+    }
+  });
 
   newSubscription(Stream<int> stream, int n) {
     // get n elements and cancel
@@ -62,8 +60,7 @@ void test(CreateStreamFunction create) {
     subs.onData((x) {
       // remove seen value from list
       values.remove(x);
-      if (++count == n)
-        subs.cancel();
+      if (++count == n) subs.cancel();
     });
     subs.onDone(() {
       streamOpen = false;

@@ -15,10 +15,9 @@ import "../../../Utils/expect.dart";
 main() {
   bool inMain = true;
   asyncStart();
-  new Future.error("@")
-    .catchError((_) {
-      Expect.isFalse(inMain);
-      asyncEnd();
-    });
+  new Future.error("@").catchError((_) {
+    Expect.isFalse(inMain);
+    asyncEnd();
+  });
   inMain = false;
 }

@@ -15,12 +15,10 @@ import "../../../Utils/expect.dart";
 
 check(value) {
   asyncStart();
-  new Future.value(value).then(
-    (x) {
-      Expect.equals(value, x);
-      asyncEnd();
-    }
-  );
+  new Future.value(value).then((x) {
+    Expect.equals(value, x);
+    asyncEnd();
+  });
 }
 
 main() {

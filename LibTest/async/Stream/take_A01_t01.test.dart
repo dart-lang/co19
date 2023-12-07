@@ -12,6 +12,7 @@
 /// @author kaigorodov
 
 library take_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
@@ -23,10 +24,21 @@ void test(CreateStreamFunction create) {
   AsyncExpect.data([null], create([null]).take(1));
   AsyncExpect.data([null], create([null]).take(2));
 
-  AsyncExpect.data([], create([1,2,3]).take(0));
-  AsyncExpect.data([1], create([1,2,3]).take(1));
-  AsyncExpect.data([1,2], create([1,2,3]).take(2));
-  AsyncExpect.data([1,2,3], create([1,2,3]).take(12));
+  AsyncExpect.data([], create([1, 2, 3]).take(0));
+  AsyncExpect.data([1], create([1, 2, 3]).take(1));
+  AsyncExpect.data([1, 2], create([1, 2, 3]).take(2));
+  AsyncExpect.data([1, 2, 3], create([1, 2, 3]).take(12));
 
-  AsyncExpect.data([[], [[]]], create([[], [[]], [[[]]]]).take(2));
+  AsyncExpect.data(
+      [
+        [],
+        [[]]
+      ],
+      create([
+        [],
+        [[]],
+        [
+          [[]]
+        ]
+      ]).take(2));
 }

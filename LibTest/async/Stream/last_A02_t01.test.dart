@@ -10,6 +10,7 @@
 /// @author kaigorodov
 
 library last_A02_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {

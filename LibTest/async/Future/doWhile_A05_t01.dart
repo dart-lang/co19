@@ -25,10 +25,8 @@ main() {
   }
 
   asyncStart();
-  Future.doWhile(f).then(
-    (_) {
-      Expect.equals(N, num);
-      asyncEnd();
-    }
-  );
+  Future.doWhile(f).then((_) {
+    Expect.equals(N, num);
+    asyncEnd();
+  });
 }

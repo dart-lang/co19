@@ -19,12 +19,12 @@ void check<T>(Stream<T> stream, Object expectedError) {
 
 void test(CreateStreamWithErrorsFunction create) {
   Object error = new Error();
-  check(create([error],
-      isError: (_) => true, defaultValue: new Object()), error);
+  check(
+      create([error], isError: (_) => true, defaultValue: new Object()), error);
 
   error = new Exception();
-  check(create([error],
-      isError: (_) => true, defaultValue: new Object()), error);
+  check(
+      create([error], isError: (_) => true, defaultValue: new Object()), error);
 
   check(create<int>([1, 2, 3], isError: (x) => x.isOdd, defaultValue: 42), 1);
 }

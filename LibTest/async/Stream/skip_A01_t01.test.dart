@@ -8,6 +8,7 @@
 /// @author kaigorodov
 
 library skip_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
@@ -21,5 +22,17 @@ void test(CreateStreamFunction create) {
   AsyncExpect.data([2, 3], create([1, 2, 3]).skip(1));
   AsyncExpect.data([3], create([1, 2, 3]).skip(2));
   AsyncExpect.data([], create([1, 2, 3]).skip(12));
-  AsyncExpect.data([[[[]]]], create([[], [[]], [[[]]]]).skip(2));
+  AsyncExpect.data(
+      [
+        [
+          [[]]
+        ]
+      ],
+      create([
+        [],
+        [[]],
+        [
+          [[]]
+        ]
+      ]).skip(2));
 }

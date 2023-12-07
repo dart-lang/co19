@@ -14,27 +14,25 @@
 /// @author ngl@unipro.ru
 
 library timeout_A03_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   int count = 0;
   Stream s1 = create(["a", "b", "c"]);
-  Stream s2 = s1.asyncMap((x) => new Future.delayed(durationInMilliseconds(100), () => x));
+  Stream s2 = s1.asyncMap(
+      (x) => new Future.delayed(durationInMilliseconds(100), () => x));
   Stream s3 = s2.timeout(durationInMilliseconds(10));
   List actual = [];
   asyncStart();
-  s3.listen(
-      (event) {
-        actual.add(event);
-      },
-      onError: (error) {
-        Expect.isTrue(error is TimeoutException);
-        actual.add(count++);
-      },
-      onDone: () {
-        Expect.listEquals([0, "a", 1, "b", 2, "c"], actual);
-        asyncEnd();
-      }
-  );
+  s3.listen((event) {
+    actual.add(event);
+  }, onError: (error) {
+    Expect.isTrue(error is TimeoutException);
+    actual.add(count++);
+  }, onDone: () {
+    Expect.listEquals([0, "a", 1, "b", 2, "c"], actual);
+    asyncEnd();
+  });
 }

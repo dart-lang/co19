@@ -14,16 +14,12 @@ import "../../../Utils/expect.dart";
 
 check(Object value) {
   asyncStart();
-  new Future.value("1").then(
-      (_) {
-        return new Future.value(value);
-      }
-  ).then(
-      (v) {
-        Expect.identical(value, v);
-        asyncEnd();
-      }
-  );
+  new Future.value("1").then((_) {
+    return new Future.value(value);
+  }).then((v) {
+    Expect.identical(value, v);
+    asyncEnd();
+  });
 }
 
 main() {

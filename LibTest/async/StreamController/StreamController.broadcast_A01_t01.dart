@@ -24,7 +24,9 @@ check(List events0) {
   Stream s = controller.stream;
 
   List events1 = new List.empty(growable: true);
-  StreamSubscription ss1 = s.listen((event) {events1.add(event);});
+  StreamSubscription ss1 = s.listen((event) {
+    events1.add(event);
+  });
   asyncStart();
   ss1.onDone(() {
     Expect.listEquals(events0, events1);
@@ -32,7 +34,9 @@ check(List events0) {
   });
 
   List events2 = new List.empty(growable: true);
-  StreamSubscription ss2 = s.listen((event) {events2.add(event);});
+  StreamSubscription ss2 = s.listen((event) {
+    events2.add(event);
+  });
   asyncStart();
   ss2.onDone(() {
     Expect.listEquals(events0, events2);

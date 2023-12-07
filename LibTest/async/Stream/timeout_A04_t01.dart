@@ -30,11 +30,10 @@ void ontimeout(EventSink sink) {
 }
 
 main() {
-  Stream s1 = new Stream.fromIterable(
-      [cl[0].future, cl[1].future, cl[2].future]);
+  Stream s1 =
+      new Stream.fromIterable([cl[0].future, cl[1].future, cl[2].future]);
   Stream s2 = s1.asyncMap((var event) => event);
-  Stream s3 = s2.timeout(new Duration(microseconds: 1),
-      onTimeout: ontimeout);
+  Stream s3 = s2.timeout(new Duration(microseconds: 1), onTimeout: ontimeout);
 
   asyncStart();
   s3.listen((var event) {

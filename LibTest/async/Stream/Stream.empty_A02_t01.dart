@@ -16,12 +16,9 @@ import "../../../Utils/expect.dart";
 
 main() {
   asyncStart();
-  new Stream.empty().listen(
-    (_) {
-      Expect.fail("Created stream should be empty");
-    },
-    onDone: () {
-      asyncEnd();
-    }
-  );
+  new Stream.empty().listen((_) {
+    Expect.fail("Created stream should be empty");
+  }, onDone: () {
+    asyncEnd();
+  });
 }

@@ -13,31 +13,27 @@
 /// @author a.semenov@unipro.ru
 
 library pipe_A03_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 class TestStreamConsumer<T> implements StreamConsumer<T> {
-
   bool _addStreamFutureCompleted = false;
   bool _closeFutureCompleted = false;
   StreamController _controller = new StreamController();
 
   Future addStream(Stream<T> source) {
-    return _controller.addStream(source, cancelOnError:false).then(
-        (x) {
-          _addStreamFutureCompleted = true;
-          return x;
-        }
-    );
+    return _controller.addStream(source, cancelOnError: false).then((x) {
+      _addStreamFutureCompleted = true;
+      return x;
+    });
   }
 
   Future close() {
-    return _controller.close().then(
-      (_) {
-        _closeFutureCompleted = true;
-        return 3.14;
-      }
-    );
+    return _controller.close().then((_) {
+      _closeFutureCompleted = true;
+      return 3.14;
+    });
   }
 
   Stream get stream => _controller.stream;
@@ -49,11 +45,9 @@ void test(CreateStreamFunction create) {
   List values = [];
   TestStreamConsumer<int> c = new TestStreamConsumer<int>();
 
-  c.stream.listen(
-    (x) {
-      values.add(x);
-    }
-  );
+  c.stream.listen((x) {
+    values.add(x);
+  });
 
   Stream<int> s = create([1, 2, 3, 4, 5]);
 

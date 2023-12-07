@@ -15,21 +15,15 @@ main() {
   Completer completer = new Completer();
   Future f = completer.future;
 
-  f.catchError(
-    (Object error) {
-      Expect.equals("!", error);
-      throw "@";
-    }
-  )
-  .then(
-    (var value){
-      Expect.fail("returned future should complete with error");
-    },
-    onError: (Object error){
-      Expect.equals("@", error);
-      asyncEnd();
-    }
-  );
+  f.catchError((Object error) {
+    Expect.equals("!", error);
+    throw "@";
+  }).then((var value) {
+    Expect.fail("returned future should complete with error");
+  }, onError: (Object error) {
+    Expect.equals("@", error);
+    asyncEnd();
+  });
 
   asyncStart();
   completer.completeError("!");

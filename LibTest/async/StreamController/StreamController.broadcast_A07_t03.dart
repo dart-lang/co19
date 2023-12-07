@@ -18,29 +18,23 @@ main() {
   int onCancelCallCount = 0;
   asyncStart(6);
   StreamController? controller;
-  controller = new StreamController.broadcast(
-    onCancel: () {
-      onCancelCallCount++;
-      Expect.equals(1, onCancelCallCount);
-      asyncEnd();
-      controller?.close();
-    }
-  );
-  List<StreamSubscription> subscriptions = new List.generate(
-    5,
-    (_) => controller!.stream.listen((event) {})
-  );
+  controller = new StreamController.broadcast(onCancel: () {
+    onCancelCallCount++;
+    Expect.equals(1, onCancelCallCount);
+    asyncEnd();
+    controller?.close();
+  });
+  List<StreamSubscription> subscriptions =
+      new List.generate(5, (_) => controller!.stream.listen((event) {}));
 
   int i = 0, k = 0;
   new Timer.periodic(durationInMilliseconds(100), (Timer timer) {
-    new Future.value(subscriptions[i].cancel()).then(
-      (_) {
-        Expect.equals((++k < 5) ? 0 : 1, onCancelCallCount);
-        asyncEnd();
-      }
-    );
+    new Future.value(subscriptions[i].cancel()).then((_) {
+      Expect.equals((++k < 5) ? 0 : 1, onCancelCallCount);
+      asyncEnd();
+    });
     i++;
-    if (i==5) {
+    if (i == 5) {
       timer.cancel();
     }
   });

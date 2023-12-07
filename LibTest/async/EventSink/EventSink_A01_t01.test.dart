@@ -8,6 +8,7 @@
 /// @author ngl@unipro.ru
 
 library EventSink_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -16,4 +17,3 @@ test(EventSink create()) {
   Expect.isTrue(es is EventSink);
   Expect.runtimeIsType<EventSink>(es);
 }
-

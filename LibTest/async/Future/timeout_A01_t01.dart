@@ -18,12 +18,10 @@ import "../../../Utils/expect.dart";
 check(var value) {
   asyncStart();
   Future future = new Future.value(value);
-  future.timeout(new Duration(milliseconds:1)).then(
-    (v) {
-      Expect.identical(value, v);
-      asyncEnd();
-    }
-  );
+  future.timeout(new Duration(milliseconds: 1)).then((v) {
+    Expect.identical(value, v);
+    asyncEnd();
+  });
 }
 
 main() {

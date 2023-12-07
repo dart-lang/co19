@@ -16,7 +16,7 @@ same() {
   Zone? z = Zone.current.parent;
   if (z != null) {
     Expect.isTrue(Zone.current.inSameErrorZone(z));
-  return;
+    return;
   }
   Expect.fail("Zone.current.parent is null");
 }
@@ -25,9 +25,10 @@ diff() {
   Zone? z = Zone.current.parent;
   if (z != null) {
     Expect.isFalse(Zone.current.inSameErrorZone(z));
-  return;
+    return;
   }
 }
+
 main() {
   runZonedGuarded(() {
     asyncStart();
@@ -39,7 +40,7 @@ main() {
       // catchError is registered in different error zone
       // error is not caught by catchError, neither by this error zone handler
       f.catchError((_) {
-         Expect.fail('Future completed with unexpected error');
+        Expect.fail('Future completed with unexpected error');
       });
     }, (_, __) {
       Expect.fail('Unexpected error in runZonedGuarded call');

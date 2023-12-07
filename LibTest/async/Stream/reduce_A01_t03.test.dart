@@ -10,8 +10,9 @@
 /// @author kaigorodov
 
 library reduce_A01_t03;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
-  AsyncExpect.error((e) => e is Error, create([]).reduce((p,e) => 0));
+  AsyncExpect.error((e) => e is Error, create([]).reduce((p, e) => 0));
 }

@@ -17,24 +17,21 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  List<Completer> completers = new List.generate(5, (_)=> new Completer());
+  List<Completer> completers = new List.generate(5, (_) => new Completer());
   Iterable<Future> futures = completers.map((Completer c) => c.future);
   List successful = [];
 
   asyncStart();
   Future.wait(futures, eagerError: false, cleanUp: (v) => successful.add(v))
-     .then(
-        (_) {
-          Expect.fail("Returned future should complete with error");
-        },
-        onError: (Object error) {
-          Expect.isTrue(error == 1 || error == 2, "error: $error, expected 1 or 2");
-          Expect.isTrue(completers.fold(true, (bool r, v) => r && v.isCompleted));
-          successful.sort();
-          Expect.listEquals([0, 3, 4], successful);
-          asyncEnd();
-        }
-     );
+      .then((_) {
+    Expect.fail("Returned future should complete with error");
+  }, onError: (Object error) {
+    Expect.isTrue(error == 1 || error == 2, "error: $error, expected 1 or 2");
+    Expect.isTrue(completers.fold(true, (bool r, v) => r && v.isCompleted));
+    successful.sort();
+    Expect.listEquals([0, 3, 4], successful);
+    asyncEnd();
+  });
 
   completers[0].complete(0);
   completers[1].completeError(1);

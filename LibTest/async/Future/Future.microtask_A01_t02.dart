@@ -19,15 +19,13 @@ main() {
   var value = [1, 2, 3];
   asyncStart();
   new Future.microtask(() {
-    bool b = true;
-    if (b) {
+    if (2 > 1) {
       throw value;
     }
     return 42;
-  })
-    .catchError((e) {
-      Expect.identical(value, e);
-      asyncEnd();
-      return 0;
-    });
+  }).catchError((e) {
+    Expect.identical(value, e);
+    asyncEnd();
+    return 0;
+  });
 }

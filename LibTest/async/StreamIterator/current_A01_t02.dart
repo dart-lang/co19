@@ -38,7 +38,6 @@ main() {
       Expect.isNull(si.current);
       asyncEnd();
     });
-
   });
 
   c.close();

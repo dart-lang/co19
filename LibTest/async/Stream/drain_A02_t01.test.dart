@@ -8,12 +8,11 @@
 /// @author kaigorodov
 
 library drain_A02_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.value(-11, create([]).drain(-11));
-  AsyncExpect.value(
-    "abc",
-    create(new Iterable.generate(10, (int index) => index)).drain("abc")
-  );
+  AsyncExpect.value("abc",
+      create(new Iterable.generate(10, (int index) => index)).drain("abc"));
 }

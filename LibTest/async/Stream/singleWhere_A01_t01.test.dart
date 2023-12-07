@@ -10,6 +10,7 @@
 /// @author kaigorodov
 
 library singleWhere_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -20,9 +21,6 @@ void check<T>(Stream<T> s, bool test(T element), T expected) {
 void test(CreateStreamFunction create) {
   check<int?>(create([1, 2, 3, null]), (int? element) => element == null, null);
   check(create([1, 2, 3]), (int element) => element > 2, 3);
-  check(
-      create(new Iterable.generate(10, (int index) => index * 5)),
-      (int element) => element == 30,
-      30
-  );
+  check(create(new Iterable.generate(10, (int index) => index * 5)),
+      (int element) => element == 30, 30);
 }

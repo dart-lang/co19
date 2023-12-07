@@ -25,8 +25,16 @@ main() {
   sink.toString();
   sink.close();
 
-  Expect.throws(() {var v = sink.hasListener;});
-  Expect.throws(() {var v = sink.isClosed;});
-  Expect.throws(() {var v = sink.isPaused;});
-  Expect.throws(() {var v = sink.stream;});
+  Expect.throws(() {
+    var v = sink.hasListener;
+  });
+  Expect.throws(() {
+    var v = sink.isClosed;
+  });
+  Expect.throws(() {
+    var v = sink.isPaused;
+  });
+  Expect.throws(() {
+    var v = sink.stream;
+  });
 }

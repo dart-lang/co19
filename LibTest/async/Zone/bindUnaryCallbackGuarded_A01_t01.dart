@@ -27,7 +27,7 @@ main() {
   }
 
   void Function(int) boundCallback =
-                                  zone.bindUnaryCallbackGuarded<int>(callback);
+      zone.bindUnaryCallbackGuarded<int>(callback);
 
   runZoned(() {
     boundCallback(3);

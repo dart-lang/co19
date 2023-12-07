@@ -24,18 +24,15 @@ main() {
     handlerCallCount++;
   }
 
-  Zone zone = Zone.current.fork(
-      specification: new ZoneSpecification(
-          handleUncaughtError: handler
-      )
-  );
+  Zone zone = Zone.current
+      .fork(specification: new ZoneSpecification(handleUncaughtError: handler));
 
   int callback(int x) {
     throw "callback error";
   }
 
-  ZoneUnaryCallback<int,int> boundCallback =
-                                  zone.bindUnaryCallback<int,int>(callback);
-  Expect.throws( () => boundCallback(2), (e) => e == "callback error");
+  ZoneUnaryCallback<int, int> boundCallback =
+      zone.bindUnaryCallback<int, int>(callback);
+  Expect.throws(() => boundCallback(2), (e) => e == "callback error");
   Expect.equals(0, handlerCallCount);
 }

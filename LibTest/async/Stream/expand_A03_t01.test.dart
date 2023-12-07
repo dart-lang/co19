@@ -9,35 +9,29 @@
 /// @author a.semenov@unipro.ru
 
 library expand_A03_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, List<T> expected) {
-  Map<T,int> convertLog = new Map();
+  Map<T, int> convertLog = new Map();
   asyncStart();
-  Stream<T> stream = s.asBroadcastStream().expand(
-    (T event) {
-      convertLog[event] = 1 + convertLog.putIfAbsent(event, () => 0);
-      return [event];
-    }
-  );
-  Future.wait([
-    stream.toList(),
-    stream.toList(),
-    stream.toList()
-  ]).then(
-    (List<List<T>> results) {
-      Expect.equals(3, results.length);
-      results.forEach((actual) => Expect.listEquals(expected,actual));
-      Expect.equals(expected.length, convertLog.length);
-      expected.forEach((e) => Expect.equals(3, convertLog[e]));
-      asyncEnd();
-    }
-  );
+  Stream<T> stream = s.asBroadcastStream().expand((T event) {
+    convertLog[event] = 1 + convertLog.putIfAbsent(event, () => 0);
+    return [event];
+  });
+  Future.wait([stream.toList(), stream.toList(), stream.toList()])
+      .then((List<List<T>> results) {
+    Expect.equals(3, results.length);
+    results.forEach((actual) => Expect.listEquals(expected, actual));
+    Expect.equals(expected.length, convertLog.length);
+    expected.forEach((e) => Expect.equals(3, convertLog[e]));
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {
-    check(create([]), []);
-    check(create([1,2,3,4,5]), [1,2,3,4,5]);
-    check(create(["a","b","c"]), ["a","b","c"]);
+  check(create([]), []);
+  check(create([1, 2, 3, 4, 5]), [1, 2, 3, 4, 5]);
+  check(create(["a", "b", "c"]), ["a", "b", "c"]);
 }

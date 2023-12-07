@@ -16,7 +16,9 @@ main() {
   Expect.isFalse(controller.hasListener);
 
   List events1 = new List.empty(growable: true);
-  StreamSubscription ss = s.listen((event) {events1.add(event);});
+  StreamSubscription ss = s.listen((event) {
+    events1.add(event);
+  });
   Expect.isTrue(controller.hasListener);
 
   ss.cancel();

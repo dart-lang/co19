@@ -29,13 +29,10 @@ main() {
   }
 
   asyncStart();
-  Future.doWhile(f).then(
-      (_) {
-        Expect.fail("Returned future should fail with error");
-      },
-      onError: (e) {
-        Expect.equals(2, num);
-        asyncEnd();
-      }
-  );
+  Future.doWhile(f).then((_) {
+    Expect.fail("Returned future should fail with error");
+  }, onError: (e) {
+    Expect.equals(2, num);
+    asyncEnd();
+  });
 }

@@ -33,12 +33,17 @@ void test(CreateStreamWithErrorsFunction create) {
       (x) => false, [], [1]);
   check<int>(
       create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defaultValue: 42),
-      (x) => x < 4, [2], [1, 3]);
-  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defaultValue: 42),
+      (x) => x < 4,
+      [2],
+      [1, 3]);
+  check(
+      create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defaultValue: 42),
       (x) => false, [], []);
   check<int>(
       create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defaultValue: 42),
-      (x) => x < 4, [1, 3], [2, 4]);
+      (x) => x < 4,
+      [1, 3],
+      [2, 4]);
 
   check(create<int>([1, 2, 3, 4, 5], isError: (x) => x < 4, defaultValue: 42),
       (x) => true, [4, 5], [1, 2, 3]);
@@ -46,8 +51,12 @@ void test(CreateStreamWithErrorsFunction create) {
       (x) => false, [], [1, 2, 3]);
   check<int>(
       create<int>([1, 2, 3, 4, 5], isError: (x) => x < 4, defaultValue: 42),
-      (x) => x > 2, [4, 5], [1, 2, 3]);
+      (x) => x > 2,
+      [4, 5],
+      [1, 2, 3]);
   check<int>(
       create<int>([1, 2, 3, 4, 5], isError: (x) => x > 2, defaultValue: 42),
-      (x) => x < 3, [1, 2], [3, 4, 5]);
+      (x) => x < 3,
+      [1, 2],
+      [3, 4, 5]);
 }

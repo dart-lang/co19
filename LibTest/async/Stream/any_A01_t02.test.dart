@@ -10,6 +10,7 @@
 /// @author ilya
 
 library any_A01_t02;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
@@ -17,10 +18,10 @@ void test(CreateStreamFunction create) {
   asyncStart();
   int last = -1;
   create(new Iterable<int>.generate(100, (_) => ++count))
-    .any((x) => (last = x) % 10 == 0)
-    .then((x) {
-      Expect.isTrue(x);
-      Expect.equals(10, last);
-      asyncEnd();
-    });
+      .any((x) => (last = x) % 10 == 0)
+      .then((x) {
+    Expect.isTrue(x);
+    Expect.equals(10, last);
+    asyncEnd();
+  });
 }

@@ -5,14 +5,14 @@
 /// @assertion void handleUncaughtError(error, StackTrace stackTrace)
 ///  Handles uncaught asynchronous errors.
 /// @description Checks that handleUncaughtError callback can be set via
-/// ZoneSpecification and that correct callback is invoked. 
+/// ZoneSpecification and that correct callback is invoked.
 /// @author ilya
 
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 int count = 0;
-var stackTraces={};
+var stackTraces = {};
 
 HandleUncaughtErrorHandler newHandler() {
   int id = ++count;
@@ -22,8 +22,8 @@ HandleUncaughtErrorHandler newHandler() {
   };
 }
 
-Zone newErrorZone (Zone z) =>
-  z.fork(specification: new ZoneSpecification(handleUncaughtError: newHandler()));
+Zone newErrorZone(Zone z) => z.fork(
+    specification: new ZoneSpecification(handleUncaughtError: newHandler()));
 
 void test() {
   try {

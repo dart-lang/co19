@@ -27,29 +27,23 @@ main() {
 
   int event1 = 0;
   asyncStart(2);
-  stream.listen(
-    (event) {
-      Expect.equals(event1, event);
-      event1++;
-    },
-    onDone: () {
-      asyncEnd();
-    }
-  );
+  stream.listen((event) {
+    Expect.equals(event1, event);
+    event1++;
+  }, onDone: () {
+    asyncEnd();
+  });
   for (int k = 0; k < 5; k++) {
     controller.add(k);
   }
 
   int event2 = 5;
-  stream.listen(
-    (event) {
-      Expect.equals(event2, event);
-      event2++;
-    },
-    onDone: () {
-      asyncEnd();
-    }
-  );
+  stream.listen((event) {
+    Expect.equals(event2, event);
+    event2++;
+  }, onDone: () {
+    asyncEnd();
+  });
   for (int k = 5; k < 10; k++) {
     controller.add(k);
   }

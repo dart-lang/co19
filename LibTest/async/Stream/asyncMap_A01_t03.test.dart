@@ -15,10 +15,11 @@
 /// @author ngl@unipro.ru
 
 library asyncMap_A01_t03;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T,E>(Stream<T> s1, List<E> expected) {
+void check<T, E>(Stream<T> s1, List<E> expected) {
   int len = expected.length;
   List<Completer<E>> c = new List.generate(len, (_) => new Completer<E>());
   int i = 0;

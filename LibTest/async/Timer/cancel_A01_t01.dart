@@ -15,11 +15,10 @@ main() {
   int count = 0;
 
   Timer timer = new Timer.periodic(durationInMilliseconds(delay), (Timer t) {
-      count++;
-    }
-  );
+    count++;
+  });
   timer.cancel();
-  
+
   asyncStart();
   new Timer(durationInMilliseconds(delay * 3), () {
     Expect.equals(count, 0);

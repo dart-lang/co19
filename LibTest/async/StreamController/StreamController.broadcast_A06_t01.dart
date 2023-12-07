@@ -26,12 +26,10 @@ main() {
   Stream stream = controller.stream;
   bool onDataCalled = false;
   asyncStart();
-  stream.listen(
-    (event) {
-      onDataCalled = true;
-      asyncEnd();
-    }
-  );
+  stream.listen((event) {
+    onDataCalled = true;
+    asyncEnd();
+  });
   controller.add(1);
   Expect.isFalse(onDataCalled);
   controller.close();

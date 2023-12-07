@@ -13,25 +13,23 @@
 /// @author a.semenov@unipro.ru
 
 library map_A05_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 Future<List<T>> subscribe<T>(Stream<T> stream) {
   Completer<List<T>> completer = new Completer<List<T>>();
   List<T> received = [];
-  stream.listen(
-      (T event) {
-        received.add(event);
-      },
-      onDone: () {
-        completer.complete(received);
-      }
-  );
+  stream.listen((T event) {
+    received.add(event);
+  }, onDone: () {
+    completer.complete(received);
+  });
   return completer.future;
 }
 
 void check<T>(Stream<T> stream, List<T> expected) {
-  Map<T,int> convertLog = new Map<T,int>();
+  Map<T, int> convertLog = new Map<T, int>();
 
   T convert(T event) {
     convertLog[event] = 1 + convertLog.putIfAbsent(event, () => 0);
@@ -40,17 +38,13 @@ void check<T>(Stream<T> stream, List<T> expected) {
 
   asyncStart();
   Stream<T> converted = stream.map(convert);
-  Future.wait([
-    subscribe(converted),
-    subscribe(converted),
-    subscribe(converted)
-  ]).then(
-      (List<List<T>> result) {
-        result.forEach((received) => Expect.listEquals(expected, received));
-        expected.forEach((event) => Expect.equals(3, convertLog[event]));
-        asyncEnd();
-      }
-  );
+  Future.wait(
+          [subscribe(converted), subscribe(converted), subscribe(converted)])
+      .then((List<List<T>> result) {
+    result.forEach((received) => Expect.listEquals(expected, received));
+    expected.forEach((event) => Expect.equals(3, convertLog[event]));
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {

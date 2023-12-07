@@ -13,23 +13,21 @@
 /// @author a.semenov@unipro.ru
 
 library pipe_A02_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 class TestStreamConsumer<T> implements StreamConsumer<T> {
-
   int _addStreamFutureCompleted = 0;
   int _addStreamFutureCompletedInClose = 0;
   int _closeCallCount = 0;
   StreamController _controller = new StreamController();
 
   Future addStream(Stream<T> source) {
-    return _controller.addStream(source).then(
-      (x) {
-        _addStreamFutureCompleted++;
-        return x;
-      }
-    );
+    return _controller.addStream(source).then((x) {
+      _addStreamFutureCompleted++;
+      return x;
+    });
   }
 
   Future close() {
@@ -47,21 +45,17 @@ void test(CreateStreamFunction create) {
   List values = [];
   TestStreamConsumer<int> c = new TestStreamConsumer<int>();
 
-  c.stream.listen(
-    (x) {
-      values.add(x);
-    }
-  );
+  c.stream.listen((x) {
+    values.add(x);
+  });
 
   Stream<int> s = create([1, 2, 3, 4, 5]);
 
   asyncStart();
-  s.pipe(c).then(
-    (x) {
-      Expect.listEquals([1, 2, 3, 4, 5], values);
-      Expect.equals(1, c.closeCallCount);
-      Expect.equals(1, c.addStreamFutureCompletedInClose);
-      asyncEnd();
-    }
-  );
+  s.pipe(c).then((x) {
+    Expect.listEquals([1, 2, 3, 4, 5], values);
+    Expect.equals(1, c.closeCallCount);
+    Expect.equals(1, c.addStreamFutureCompletedInClose);
+    asyncEnd();
+  });
 }

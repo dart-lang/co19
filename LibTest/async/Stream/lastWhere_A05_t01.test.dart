@@ -20,12 +20,15 @@
 /// @author a.semenov@unipro
 
 library lastWhere_A05_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.error("a", create([1, 2, 3]).lastWhere((e) => throw "a"));
   AsyncExpect.error(
       "b",
-      create([1, 2, 3]).lastWhere((e) { if (e == 3) throw "b"; return true; })
-  );
+      create([1, 2, 3]).lastWhere((e) {
+        if (e == 3) throw "b";
+        return true;
+      }));
 }

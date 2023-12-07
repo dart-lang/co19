@@ -9,6 +9,7 @@
 /// @author ilya
 
 library transform_A01_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -17,14 +18,13 @@ List<int> expected = [1, 2, 3, 6, 5, 10];
 
 // transform: skip evens, produce number and its double
 StreamTransformer<int, int> createMyTransformer() {
-  return new StreamTransformer.fromHandlers (
-    handleData: (int event, EventSink<int> sink) {
-      if (event.isOdd) {
-        sink.add(event);
-        sink.add(event * 2);
-      }
+  return new StreamTransformer.fromHandlers(
+      handleData: (int event, EventSink<int> sink) {
+    if (event.isOdd) {
+      sink.add(event);
+      sink.add(event * 2);
     }
-  );
+  });
 }
 
 void test(CreateStreamFunction create) {

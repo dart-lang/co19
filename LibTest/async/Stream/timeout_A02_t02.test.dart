@@ -14,41 +14,32 @@
 /// @author a.semenov@unipro.ru
 
 library timeout_A02_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, List expectedEvents) {
   int count = 0;
   // delay for 100 ms and throw error if element starts with '!'
-  Stream s2 = s.asyncMap(
-                          (x) => new Future.delayed(
-                              durationInMilliseconds(100),
-                              () {
-                                if (x is String && x.startsWith("!")){
-                                  throw x;
-                                }
-                                return x;
-                              }
-                          )
-  );
-  Stream s3 = s2.timeout(
-      durationInMilliseconds(10),
-      onTimeout: (EventSink sink) => sink.add(count++)
-  );
+  Stream s2 =
+      s.asyncMap((x) => new Future.delayed(durationInMilliseconds(100), () {
+            if (x is String && x.startsWith("!")) {
+              throw x;
+            }
+            return x;
+          }));
+  Stream s3 = s2.timeout(durationInMilliseconds(10),
+      onTimeout: (EventSink sink) => sink.add(count++));
   List actualEvents = [];
   asyncStart();
-  s3.listen(
-    (event) {
-      actualEvents.add(event);
-    },
-    onError: (error) {
-      actualEvents.add("+"+error.toString());
-    },
-    onDone: () {
-      Expect.listEquals(expectedEvents, actualEvents);
-      asyncEnd();
-    }
-  );
+  s3.listen((event) {
+    actualEvents.add(event);
+  }, onError: (error) {
+    actualEvents.add("+" + error.toString());
+  }, onDone: () {
+    Expect.listEquals(expectedEvents, actualEvents);
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {

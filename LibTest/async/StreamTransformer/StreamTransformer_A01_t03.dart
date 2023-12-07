@@ -20,12 +20,11 @@ import "../../../Utils/expect.dart";
 
 main() {
   Stream<int> s = new Stream.fromIterable([1]);
-  StreamTransformer<int, dynamic> tr = new StreamTransformer(
-    (stream, cancelOnError) {
-      asyncEnd();
-      return stream.listen(null);
-    }
-  );
+  StreamTransformer<int, dynamic> tr =
+      new StreamTransformer((stream, cancelOnError) {
+    asyncEnd();
+    return stream.listen(null);
+  });
 
   asyncStart();
   s.transform(tr).toList();

@@ -33,12 +33,13 @@
 /// @author a.semenov@unipro.ru
 
 library firstWhere_A03_t04;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(Stream<int?> s, bool test(int? element)) {
   Error expected = new TypeError();
-  AsyncExpect.error(expected, s.firstWhere(test, orElse:() => throw expected));
+  AsyncExpect.error(expected, s.firstWhere(test, orElse: () => throw expected));
 }
 
 void test(CreateStreamFunction create) {

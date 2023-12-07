@@ -16,9 +16,8 @@ main() {
   var value = [1, 2, 3];
 
   asyncStart();
-  new Future.microtask(() => value)
-    .then((x) {
-      Expect.identical(value, x);
-      asyncEnd();
-    });
+  new Future.microtask(() => value).then((x) {
+    Expect.identical(value, x);
+    asyncEnd();
+  });
 }

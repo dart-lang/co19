@@ -6,9 +6,8 @@
 /// @description Checks that DeferredLibrary loads in lazy way.
 /// @author kaigorodov
 
-
 library DeferredLibrary_A01_t01.lib;
 
 String method() {
-   return "DeferredLibrary_A01_t01.lib";
+  return "DeferredLibrary_A01_t01.lib";
 }

@@ -18,14 +18,10 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(Zone zone) {
-  int result = zone.runBinary<int,int,String>(
-    (int x, String y) {
-      Expect.equals(zone, Zone.current);
-      return x + int.parse(y);
-    },
-    1,
-    "2"
-  );
+  int result = zone.runBinary<int, int, String>((int x, String y) {
+    Expect.equals(zone, Zone.current);
+    return x + int.parse(y);
+  }, 1, "2");
 
   Expect.equals(3, result);
 }

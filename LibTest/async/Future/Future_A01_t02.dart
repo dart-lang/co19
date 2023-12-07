@@ -25,9 +25,8 @@ main() {
   asyncStart();
   Future future = new Future(() => throw value);
 
-  future
-    .catchError((e) {
-      Expect.identical(value, e);
-      asyncEnd();
-    });
+  future.catchError((e) {
+    Expect.identical(value, e);
+    asyncEnd();
+  });
 }

@@ -11,6 +11,7 @@
 /// @author a.semenov@unipro.ru
 
 library pipe_A04_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -19,12 +20,10 @@ class TestStreamConsumer<T> implements StreamConsumer<T> {
   StreamController _controller = new StreamController();
 
   Future addStream(Stream<T> source) {
-    return _controller.addStream(source).then(
-      (_) {
-        _controller.close();
-        return new Future.error("addStreamError");
-      }
-    );
+    return _controller.addStream(source).then((_) {
+      _controller.close();
+      return new Future.error("addStreamError");
+    });
   }
 
   Future close() {
@@ -42,25 +41,19 @@ void test(CreateStreamFunction create) {
 
   Stream<int> s = create([1, 2, 3, 4, 5]);
 
-  c.stream.listen(
-    (x) {
-      values.add(x);
-    },
-    onDone:(){
-      Expect.listEquals([1, 2, 3, 4, 5], values);
-      asyncEnd();
-    }
-  );
+  c.stream.listen((x) {
+    values.add(x);
+  }, onDone: () {
+    Expect.listEquals([1, 2, 3, 4, 5], values);
+    asyncEnd();
+  });
 
   asyncStart(2);
-  s.pipe(c).then(
-      (_) {
-        Expect.fail("Returned future should complete with error");
-      },
-      onError:(e) {
-        Expect.equals("addStreamError", e);
-        Expect.equals(0, c.closeCallCount);
-        asyncEnd();
-      }
-  );
+  s.pipe(c).then((_) {
+    Expect.fail("Returned future should complete with error");
+  }, onError: (e) {
+    Expect.equals("addStreamError", e);
+    Expect.equals(0, c.closeCallCount);
+    asyncEnd();
+  });
 }

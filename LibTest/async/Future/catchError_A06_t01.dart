@@ -27,20 +27,15 @@ check(value) {
 
   asyncStart(2);
 
-  f.catchError(
-    (exception) {
-      asyncEnd();
-    }
-  );
+  f.catchError((exception) {
+    asyncEnd();
+  });
 
-  f.then(
-    (fValue) {
-      Expect.fail("Error is expected");
-    },
-    onError:(Object asyncError){
-      asyncEnd();
-    }
-  );
+  f.then((fValue) {
+    Expect.fail("Error is expected");
+  }, onError: (Object asyncError) {
+    asyncEnd();
+  });
 
   completer.completeError(value);
 }

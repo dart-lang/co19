@@ -4,7 +4,7 @@
 
 /// @assertion abstract dynamic operator [](Symbol key)
 /// Retrieves the zone-value associated with key.
-/// If this zone does not contain the value looks up the same key in the 
+/// If this zone does not contain the value looks up the same key in the
 /// parent zone. If the key is not found returns null.
 /// @description Check that operator[] returns expected values.
 /// @author ilya
@@ -13,10 +13,10 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  Zone.current.fork(zoneValues: {#a:1, #b:2}).run(() {
+  Zone.current.fork(zoneValues: {#a: 1, #b: 2}).run(() {
     Expect.equals(1, Zone.current[#a]);
     Expect.equals(2, Zone.current[#b]);
-    Zone.current.fork(zoneValues: {#a:11}).run(() {
+    Zone.current.fork(zoneValues: {#a: 11}).run(() {
       Expect.equals(11, Zone.current[#a]);
       Expect.equals(2, Zone.current[#b]);
       Expect.equals(1, Zone.current.parent![#a]);

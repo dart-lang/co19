@@ -10,6 +10,7 @@
 /// @author a.semenov@unipro.ru
 
 library distinct_A02_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -18,16 +19,15 @@ void check<T>(Stream<T> stream, bool equals(T previous, T next)) {
 }
 
 void test(CreateStreamFunction create) {
+  check(create([]), (p, n) => true);
+  check(create([]).asBroadcastStream(), (p, n) => true);
+  check(create([]), (p, n) => false);
+  check(create([]).asBroadcastStream(), (p, n) => false);
 
-  check(create([]), (p,n) => true);
-  check(create([]).asBroadcastStream(), (p,n) => true);
-  check(create([]), (p,n) => false);
-  check(create([]).asBroadcastStream(), (p,n) => false);
-
-  check(create([1,2,3,4,5]), (p,n) => true);
-  check(create([1,2,3,4,5]).asBroadcastStream(), (p,n) => true);
-  check(create([1,2,3,4,5]), (p,n) => false);
-  check(create([1,2,3,4,5]).asBroadcastStream(), (p,n) => false);
-  check(create([1,2,3,4,5]), (p,n) => p==n);
-  check(create([1,2,3,4,5]).asBroadcastStream(), (p,n) => p==n);
+  check(create([1, 2, 3, 4, 5]), (p, n) => true);
+  check(create([1, 2, 3, 4, 5]).asBroadcastStream(), (p, n) => true);
+  check(create([1, 2, 3, 4, 5]), (p, n) => false);
+  check(create([1, 2, 3, 4, 5]).asBroadcastStream(), (p, n) => false);
+  check(create([1, 2, 3, 4, 5]), (p, n) => p == n);
+  check(create([1, 2, 3, 4, 5]).asBroadcastStream(), (p, n) => p == n);
 }

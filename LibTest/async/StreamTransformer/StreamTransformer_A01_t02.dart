@@ -20,11 +20,10 @@ import "../../../Utils/expect.dart";
 
 main() {
   Stream<int> s = new Stream.fromIterable([1]);
-  StreamTransformer<int, dynamic> tr = new StreamTransformer(
-    (stream, cancelOnError) {
-      Expect.fail('unexpected call to transformer');
-      return stream.listen((var x) {});
-    }
-  );
+  StreamTransformer<int, dynamic> tr =
+      new StreamTransformer((stream, cancelOnError) {
+    Expect.fail('unexpected call to transformer');
+    return stream.listen((var x) {});
+  });
   s.transform(tr);
 }

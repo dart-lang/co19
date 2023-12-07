@@ -11,18 +11,21 @@
 /// @author kaigorodov
 
 library where_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.data([], create([]).where((e) => true));
   AsyncExpect.data([], create([]).where((e) => false));
 
-  AsyncExpect.data([null], create([1, 2, 3, null]).where((int? e) => e == null));
+  AsyncExpect.data(
+      [null], create([1, 2, 3, null]).where((int? e) => e == null));
   AsyncExpect.data([3], create([1, 2, 3]).where((int e) => e > 2));
   AsyncExpect.data(
       [30],
-      create(new Iterable.generate(10, (int i) => i * 5)).where((int e) => e == 30)
-  );
-  AsyncExpect.data([1,3,5], create([1, 2, 3, 4, 5]).where((int e) => e.isOdd));
-  AsyncExpect.data([2,4], create([1, 2, 3, 4, 5]).where((int e) => e.isEven));
+      create(new Iterable.generate(10, (int i) => i * 5))
+          .where((int e) => e == 30));
+  AsyncExpect.data(
+      [1, 3, 5], create([1, 2, 3, 4, 5]).where((int e) => e.isOdd));
+  AsyncExpect.data([2, 4], create([1, 2, 3, 4, 5]).where((int e) => e.isEven));
 }

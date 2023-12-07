@@ -19,7 +19,8 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  StreamController streamController = new StreamController.broadcast(sync: true);
+  StreamController streamController =
+      new StreamController.broadcast(sync: true);
   Expect.isTrue(streamController is SynchronousStreamController);
   streamController.close();
 }

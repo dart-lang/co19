@@ -22,34 +22,30 @@ import "../../../Utils/expect.dart";
 main() {
   bool hasListener = false;
   bool listenerCancelled = false;
-  StreamController controller = new StreamController(
-    onListen:() { hasListener = true;},
-    onCancel:() { listenerCancelled = true;}
-  );
+  StreamController controller = new StreamController(onListen: () {
+    hasListener = true;
+  }, onCancel: () {
+    listenerCancelled = true;
+  });
   Stream b = controller.stream.asBroadcastStream(
-    onCancel:(StreamSubscription subscription){
-      subscription.cancel();
-    }
-  );
+      onCancel: (StreamSubscription subscription) {
+    subscription.cancel();
+  });
   Expect.isFalse(hasListener);
   Expect.isFalse(listenerCancelled);
   asyncStart();
   var ss;
-  ss = b.listen(
-    (_) {
-      Future f = ss.cancel();
-      if (f == null) {
-        f = new Future.value(0);
-      }
-      f.then(
-        (_) {
-            Expect.isTrue(listenerCancelled);
-            controller.close();
-            asyncEnd();
-        }
-      );
+  ss = b.listen((_) {
+    Future f = ss.cancel();
+    if (f == null) {
+      f = new Future.value(0);
     }
-  );
+    f.then((_) {
+      Expect.isTrue(listenerCancelled);
+      controller.close();
+      asyncEnd();
+    });
+  });
 
   Expect.isTrue(hasListener);
   Expect.isFalse(listenerCancelled);

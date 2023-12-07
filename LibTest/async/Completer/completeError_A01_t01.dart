@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 
 List<Future<dynamic>> futures = [];
-int count=0;
+int count = 0;
 
 check(value) {
   var completer = new Completer();
@@ -23,14 +23,12 @@ check(value) {
   completer.completeError(value);
 
   asyncStart();
-  futures.add(future.then(
-    (fValue) => Expect.fail('should not get here'),
-    onError: (Object asyncError) {
-      Expect.equals(value, asyncError);
-      count++;
-      asyncEnd();
-    }
-  ));
+  futures.add(future.then((fValue) => Expect.fail('should not get here'),
+      onError: (Object asyncError) {
+    Expect.equals(value, asyncError);
+    count++;
+    asyncEnd();
+  }));
 }
 
 main() {

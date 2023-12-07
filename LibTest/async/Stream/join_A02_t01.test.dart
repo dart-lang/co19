@@ -11,13 +11,14 @@
 /// @author ilya
 
 library join_A02_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
   Error error = new Error();
-  Stream s = create([1, 2, error, 4, 5], isError: (e) => e is Error,
-      defaultValue: 42);
+  Stream s =
+      create([1, 2, error, 4, 5], isError: (e) => e is Error, defaultValue: 42);
 
   AsyncExpect.error(error, s.join());
 }

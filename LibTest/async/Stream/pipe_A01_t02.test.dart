@@ -9,15 +9,15 @@
 /// @author a.semenov@unipro.ru
 
 library pipe_A01_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 class TestStreamConsumer<T> implements StreamConsumer<T> {
-
   StreamController _controller = new StreamController();
 
   Future addStream(Stream<T> source) {
-    return _controller.addStream(source, cancelOnError:false);
+    return _controller.addStream(source, cancelOnError: false);
   }
 
   Future close() {
@@ -32,17 +32,14 @@ void test(CreateStreamWithErrorsFunction create) {
   List errors = [];
   TestStreamConsumer<int> c = new TestStreamConsumer<int>();
 
-  c.stream.listen(
-    (x) {
-      values.add(x);
-    },
-    onError:(error) {
-      errors.add(error);
-    }
-  );
+  c.stream.listen((x) {
+    values.add(x);
+  }, onError: (error) {
+    errors.add(error);
+  });
 
   Stream<int> s =
-      create([1, 2, 3, 4, 5], isError:(x) => x.isEven, defaultValue: 42);
+      create([1, 2, 3, 4, 5], isError: (x) => x.isEven, defaultValue: 42);
 
   asyncStart();
   s.pipe(c).then((x) {

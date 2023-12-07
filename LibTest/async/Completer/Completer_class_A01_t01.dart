@@ -13,10 +13,10 @@ import "dart:async";
 Object create() => new Completer();
 
 List<Object> createEqual(int number) =>
-  new List.filled(number, new Completer(), growable:false);
+    new List.filled(number, new Completer(), growable: false);
 
 List<Object> createNonEqual(int number) =>
-  new List.generate(number, (_) => new Completer(), growable:false);
+    new List.generate(number, (_) => new Completer(), growable: false);
 
 main() {
   object.test(create, createEqual, createNonEqual);

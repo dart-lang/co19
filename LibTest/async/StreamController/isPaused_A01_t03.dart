@@ -21,9 +21,9 @@ main() {
   Expect.isFalse(controller.isPaused);
 
   List events1 = new List.empty(growable: true);
-  StreamSubscription ss = controller.stream.listen(
-      (event) {events1.add(event);}
-  );
+  StreamSubscription ss = controller.stream.listen((event) {
+    events1.add(event);
+  });
   Expect.isFalse(controller.isPaused);
 
   ss.pause();

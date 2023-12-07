@@ -11,12 +11,14 @@
 /// @author kaigorodov
 
 library skipWhile_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.data([], create([]).skipWhile((_) => false));
   AsyncExpect.data([1, 2, 3], create([1, 2, 3]).skipWhile((element) => false));
-  AsyncExpect.data([1, 2, 3], create([-1, -2, -3, 1, 2, 3]).skipWhile((e) => e < 0));
+  AsyncExpect.data(
+      [1, 2, 3], create([-1, -2, -3, 1, 2, 3]).skipWhile((e) => e < 0));
   AsyncExpect.data([2, 3], create([1, 2, 3]).skipWhile((e) => e == 1));
   AsyncExpect.data([], create([1, 2, 3]).skipWhile((element) => true));
 }

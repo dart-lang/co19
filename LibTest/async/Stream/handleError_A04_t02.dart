@@ -21,7 +21,7 @@ main() {
   var s;
   try {
     throw error;
-  } catch (e,st) {
+  } catch (e, st) {
     stackTrace = st;
     s = new Stream.fromFuture(new Future.error(e, st));
   }

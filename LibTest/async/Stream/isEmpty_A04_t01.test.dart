@@ -10,20 +10,19 @@
 /// @author a.semenov@unipro.ru
 
 library isEmpty_A04_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(Stream s, bool expected) {
   asyncStart();
-  s.isEmpty.then(
-    (bool actual) {
-      Expect.equals(expected, actual);
-      if (!s.isBroadcast) {
-        Expect.throws(() => s.listen((_) {}));
-      }
-      asyncEnd();
+  s.isEmpty.then((bool actual) {
+    Expect.equals(expected, actual);
+    if (!s.isBroadcast) {
+      Expect.throws(() => s.listen((_) {}));
     }
-  );
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {

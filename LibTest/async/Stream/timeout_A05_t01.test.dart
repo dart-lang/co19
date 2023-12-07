@@ -10,17 +10,19 @@
 /// @author a.semenov@unipro.ru
 
 library timeout_A05_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, T timeoutValue) {
-  Expect.equals(s.isBroadcast, s.timeout(durationInMilliseconds(10)).isBroadcast);
-  Expect.equals(s.isBroadcast,
-                s.timeout(
-                    durationInMilliseconds(10),
-                    onTimeout:(EventSink<T> sink) => sink.add(timeoutValue)
-                ).isBroadcast
-  );
+  Expect.equals(
+      s.isBroadcast, s.timeout(durationInMilliseconds(10)).isBroadcast);
+  Expect.equals(
+      s.isBroadcast,
+      s
+          .timeout(durationInMilliseconds(10),
+              onTimeout: (EventSink<T> sink) => sink.add(timeoutValue))
+          .isBroadcast);
 }
 
 void test(CreateStreamFunction create) {

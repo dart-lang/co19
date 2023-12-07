@@ -11,19 +11,18 @@
 /// @author a.semenov@unipro.ru
 
 library asBroadcastStream_A05_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "allTests_A02.lib.dart" as StreamTests;
 
 void test(CreateStreamWithErrorsFunction create) {
-  Stream s = create([], isError:(_) => false, defaultValue: Object());
+  Stream s = create([], isError: (_) => false, defaultValue: Object());
   if (!s.isBroadcast) {
-    StreamTests.test(
-        <T>(Iterable<T> data, { bool isError(T x)?, required T defaultValue }) {
-          return create<T>(data,
-              isError: isError,
-              defaultValue: defaultValue).asBroadcastStream();
-        }
-    );
+    StreamTests.test(<T>(Iterable<T> data,
+        {bool isError(T x)?, required T defaultValue}) {
+      return create<T>(data, isError: isError, defaultValue: defaultValue)
+          .asBroadcastStream();
+    });
   }
 }

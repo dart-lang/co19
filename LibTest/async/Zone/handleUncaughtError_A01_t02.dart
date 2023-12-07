@@ -29,9 +29,9 @@ void myErrorHandler(Zone self, ZoneDelegate parent, Zone zone, e, st) {
 }
 
 main() {
-  Zone.current.fork(
-      specification: new ZoneSpecification(
-          handleUncaughtError: myErrorHandler
-      )
-  ).run(test);
+  Zone.current
+      .fork(
+          specification:
+              new ZoneSpecification(handleUncaughtError: myErrorHandler))
+      .run(test);
 }

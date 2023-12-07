@@ -21,21 +21,19 @@ main() {
   Future f0 = completer.future;
   Completer completer2 = new Completer();
   Future f2 = completer2.future;
-  Future f = f0.whenComplete(() {return f2;});
+  Future f = f0.whenComplete(() {
+    return f2;
+  });
 
   asyncStart();
-  f.then(
-      (var v) {
-        Expect.fail("Returned future should complete with error");
-      },
-      onError: (Object e) {
-        Expect.equals(value, e);
-        asyncEnd();
-      }
-  );
+  f.then((var v) {
+    Expect.fail("Returned future should complete with error");
+  }, onError: (Object e) {
+    Expect.equals(value, e);
+    asyncEnd();
+  });
 
   completer.complete(1);
 
   completer2.completeError(value);
 }
-

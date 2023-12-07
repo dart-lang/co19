@@ -26,13 +26,19 @@ void test(CreateStreamWithErrorsFunction create) {
   AsyncExpect.events([], [1, 2, 3],
       create([1, 2, 3], isError: (_) => true, defaultValue: 42).skip(10));
 
-  AsyncExpect.events([], [1, 3, 5],
+  AsyncExpect.events(
+      [],
+      [1, 3, 5],
       create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defaultValue: 42)
           .skip(10));
-  AsyncExpect.events([3, 5], [2, 4],
+  AsyncExpect.events(
+      [3, 5],
+      [2, 4],
       create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defaultValue: 42)
           .skip(1));
-  AsyncExpect.events([5], [2, 4],
+  AsyncExpect.events(
+      [5],
+      [2, 4],
       create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defaultValue: 42)
           .skip(2));
 }

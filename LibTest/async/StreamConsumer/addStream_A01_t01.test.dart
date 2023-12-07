@@ -14,6 +14,7 @@
 /// @author ngl@unipro.ru
 
 library addStream_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -26,11 +27,9 @@ test(StreamConsumer create()) {
 
     sc.stream.listen((value) {
       Expect.equals(values[i++], value);
-    },
-    onError: (error) {
+    }, onError: (error) {
       Expect.fail("Unexpected error: $error");
-    },
-    onDone: () {
+    }, onDone: () {
       asyncEnd();
     });
 
@@ -42,4 +41,3 @@ test(StreamConsumer create()) {
     });
   }
 }
-

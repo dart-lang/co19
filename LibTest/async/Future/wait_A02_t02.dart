@@ -31,20 +31,17 @@ main() {
   var f = Future.wait([future1, future2, future3, future4, future5]);
 
   asyncStart();
-  f.then(
-      (value) {
-        Expect.fail("Returned future should complete with error");
-      },
-      onError: (Object error) {
-        Expect.equals(1, error);
-        Expect.isTrue(completer1.isCompleted);
-        Expect.isTrue(completer2.isCompleted);
-        Expect.isTrue(completer3.isCompleted);
-        Expect.isTrue(completer4.isCompleted);
-        Expect.isTrue(completer5.isCompleted);
-        asyncEnd();
-      }
-  );
+  f.then((value) {
+    Expect.fail("Returned future should complete with error");
+  }, onError: (Object error) {
+    Expect.equals(1, error);
+    Expect.isTrue(completer1.isCompleted);
+    Expect.isTrue(completer2.isCompleted);
+    Expect.isTrue(completer3.isCompleted);
+    Expect.isTrue(completer4.isCompleted);
+    Expect.isTrue(completer5.isCompleted);
+    asyncEnd();
+  });
 
   completer1.completeError(1);
   completer2.complete(2);

@@ -13,6 +13,7 @@
 /// @author kaigorodov
 
 library distinct_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -21,16 +22,13 @@ void check<T>(Stream<T> s) {
   bool first = true;
   T? previous;
   asyncStart();
-  d.listen(
-    (T event) {
-      Expect.isTrue(first || !(previous == event));
-      first = false;
-      previous = event;
-    },
-    onDone:() {
-      asyncEnd();
-    }
-  );
+  d.listen((T event) {
+    Expect.isTrue(first || !(previous == event));
+    first = false;
+    previous = event;
+  }, onDone: () {
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {

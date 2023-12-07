@@ -16,14 +16,13 @@ import 'DeferredLibrary_A01_t01.lib.dart' deferred as lazy;
 void main() {
   try {
     lazy.method(); // foo is not loaded yet.
-  } on NoSuchMethodError  catch(_) {
-  }
+  } on NoSuchMethodError catch (_) {}
   asyncStart();
   lazy.loadLibrary().then(onFooLoaded);
 }
 
 void onFooLoaded(_) {
-  String name=lazy.method();
+  String name = lazy.method();
   Expect.equals('DeferredLibrary_A01_t01.lib', name);
   asyncEnd();
 }

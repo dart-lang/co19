@@ -12,7 +12,7 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-List<int> input = [0,1,2,3,4];
+List<int> input = [0, 1, 2, 3, 4];
 int e2stop = 2;
 
 main() {
@@ -20,7 +20,7 @@ main() {
 
   dynamic f(int element) {
     if (element == e2stop) {
-       throw element;
+      throw element;
     }
     operationTrace[element] = true;
     return new Future.sync(() => element);

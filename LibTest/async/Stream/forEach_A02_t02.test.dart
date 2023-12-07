@@ -9,26 +9,22 @@
 /// @author kaigorodov
 
 library forEach_A02_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, Object errorElement) {
   Error expectedError = new Error();
-  AsyncExpect.error(
-      expectedError,
-      s.forEach(
-        (element) {
-          if (element == errorElement) {
-            throw expectedError;
-          }
-        }
-      )
-  );
+  AsyncExpect.error(expectedError, s.forEach((element) {
+    if (element == errorElement) {
+      throw expectedError;
+    }
+  }));
 }
 
 void test(CreateStreamFunction create) {
   check(create([1, 2, 3, 4]), 4);
-  Map m={};
+  Map m = {};
   check(create([null, "2", -3, 4.0, m]), m);
   check(create([null, "2", -3, 4.0, m]), 4.0);
 }

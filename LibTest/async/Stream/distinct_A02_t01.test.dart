@@ -10,6 +10,7 @@
 /// @author a.semenov@unipro.ru
 
 library distinct_A02_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -18,13 +19,12 @@ void check<T>(Stream<T> stream) {
 }
 
 void test(CreateStreamFunction create) {
-
   check(create([]));
   check(create([]).asBroadcastStream());
 
-  check(create([1,2,3,4,5]));
-  check(create([1,2,3,4,5]).asBroadcastStream());
+  check(create([1, 2, 3, 4, 5]));
+  check(create([1, 2, 3, 4, 5]).asBroadcastStream());
 
-  check(create(["a","b","c"]));
-  check(create(["a","b","c"]).asBroadcastStream());
+  check(create(["a", "b", "c"]));
+  check(create(["a", "b", "c"]).asBroadcastStream());
 }

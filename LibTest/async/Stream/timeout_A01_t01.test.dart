@@ -11,9 +11,10 @@
 /// @author ngl@unipro.ru
 
 library timeout_A01_t01;
+
 import "../../../Utils/expect.dart";
 
-const Duration _10DAYS = const Duration(days:10);
+const Duration _10DAYS = const Duration(days: 10);
 
 void test(CreateStreamFunction create) {
   AsyncExpect.data([], create([]).timeout(_10DAYS));
@@ -21,8 +22,6 @@ void test(CreateStreamFunction create) {
   List<int> data = new List<int>.generate(10, (int index) => index * 2);
   AsyncExpect.data(data, create(data).timeout(_10DAYS));
 
-  AsyncExpect.data(
-      ["a", "b", "c", 3.14, 100],
-      create(["a", "b", "c", 3.14, 100]).timeout(_10DAYS)
-  );
+  AsyncExpect.data(["a", "b", "c", 3.14, 100],
+      create(["a", "b", "c", 3.14, 100]).timeout(_10DAYS));
 }

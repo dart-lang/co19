@@ -38,8 +38,8 @@ void check(
 
 void test(CreateStreamWithErrorsFunction create) {
   check(create([], defaultValue: 42), (x) => true, [], [], []);
-  check(create([], isError: (x) => true, defaultValue: 42),
-          (x) => true, [], [], []);
+  check(create([], isError: (x) => true, defaultValue: 42), (x) => true, [], [],
+      []);
   check(create([1, 2, 3, 4, 5], isError: (x) => true, defaultValue: 42),
       (x) => x.isEven, [], [2, 4], [1, 3, 5]);
 

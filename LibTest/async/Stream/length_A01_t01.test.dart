@@ -10,11 +10,14 @@
 /// @author kaigorodov
 
 library length_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.value(0, create([]).length);
   AsyncExpect.value(4, create([1, 2, 3, null]).length);
-  AsyncExpect.value(0, create(new Iterable.generate(0, (int i) => i * 2)).length);
-  AsyncExpect.value(10, create(new Iterable.generate(10, (int i) => i * 2)).length);
+  AsyncExpect.value(
+      0, create(new Iterable.generate(0, (int i) => i * 2)).length);
+  AsyncExpect.value(
+      10, create(new Iterable.generate(10, (int i) => i * 2)).length);
 }

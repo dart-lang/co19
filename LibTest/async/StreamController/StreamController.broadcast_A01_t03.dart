@@ -28,27 +28,22 @@ check(List events) {
   asyncStart(2);
 
   List events1 = [], errors1 = [];
-  s.listen(
-    (event) => events1.add(event),
-    onError: (error) => errors1.add(error),
-    onDone: () {
-      Expect.listEquals(expectedData, events1);
-      Expect.listEquals(expectedErrors, errors1);
-      asyncEnd();
-    }
-  );
-
+  s.listen((event) => events1.add(event),
+      onError: (error) => errors1.add(error),
+      onDone: () {
+        Expect.listEquals(expectedData, events1);
+        Expect.listEquals(expectedErrors, errors1);
+        asyncEnd();
+      });
 
   List events2 = [], errors2 = [];
-  s.listen(
-      (event) => events2.add(event),
+  s.listen((event) => events2.add(event),
       onError: (error) => errors2.add(error),
       onDone: () {
         Expect.listEquals(expectedData, events2);
         Expect.listEquals(expectedErrors, errors2);
         asyncEnd();
-      }
-  );
+      });
 
   for (var event in events) {
     if (event is num && event < 0) {

@@ -15,11 +15,9 @@ main() {
   var value0 = 12345;
   controller.add(value0);
   asyncStart();
-  controller.stream.listen(
-    (value1) {
-      Expect.equals(value0, value1);
-      asyncEnd();
-    }
-  );
+  controller.stream.listen((value1) {
+    Expect.equals(value0, value1);
+    asyncEnd();
+  });
   controller.close();
 }

@@ -14,16 +14,14 @@ import "../../../Utils/expect.dart";
 
 main() {
   asyncStart();
-  new Future.delayed(Duration.zero)
-    .then((value) {
-      Expect.equals(null, value);
-      asyncEnd();
-    });
+  new Future.delayed(Duration.zero).then((value) {
+    Expect.equals(null, value);
+    asyncEnd();
+  });
 
   asyncStart();
-  new Future.delayed(Duration.zero, null)
-    .then((value) {
-      Expect.equals(null, value);
-      asyncEnd();
-    });
+  new Future.delayed(Duration.zero, null).then((value) {
+    Expect.equals(null, value);
+    asyncEnd();
+  });
 }

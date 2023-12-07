@@ -19,15 +19,10 @@ import "../../../Utils/expect.dart";
 main() {
   asyncStart();
   Completer completer = new Completer();
-  completer.future.timeout(
-      new Duration(microseconds:1)
-  ).then(
-      (_) {
-        Expect.fail("Returned future should complete with error");
-      },
-      onError: (e) {
-        Expect.isTrue(e is TimeoutException);
-        asyncEnd();
-      }
-  );
+  completer.future.timeout(new Duration(microseconds: 1)).then((_) {
+    Expect.fail("Returned future should complete with error");
+  }, onError: (e) {
+    Expect.isTrue(e is TimeoutException);
+    asyncEnd();
+  });
 }

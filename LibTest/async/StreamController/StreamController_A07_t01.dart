@@ -18,21 +18,15 @@ main() {
   asyncStart();
   bool onCancelFutureComplete = false;
   StreamController controller = new StreamController(
-    onCancel: () => new Future.delayed(
-      durationInMilliseconds(100),
-      () {
-        onCancelFutureComplete = true;
-      }
-    )
-  );
+      onCancel: () => new Future.delayed(durationInMilliseconds(100), () {
+            onCancelFutureComplete = true;
+          }));
 
   Expect.isFalse(onCancelFutureComplete);
   StreamSubscription subs = controller.stream.listen((event) {});
 
-  new Future(() => subs.cancel()).then(
-    (_) {
-      Expect.isTrue(onCancelFutureComplete);
-      asyncEnd();
-    }
-  );
+  new Future(() => subs.cancel()).then((_) {
+    Expect.isTrue(onCancelFutureComplete);
+    asyncEnd();
+  });
 }

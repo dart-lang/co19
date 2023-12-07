@@ -24,22 +24,26 @@ main() {
 
   int f(int x) => x;
 
-  ZoneUnaryCallback<int,int> callback = z.registerUnaryCallback<int,int>(f);
+  ZoneUnaryCallback<int, int> callback = z.registerUnaryCallback<int, int>(f);
 
   Expect.isTrue(callback is ZoneUnaryCallback<int, int>);
   Expect.runtimeIsType<ZoneUnaryCallback<int, int>>(callback);
   Expect.equals(1, callback(1));
 
   ZoneUnaryCallback<R, T> registerFunction<R, T>(
-                    Zone self, ZoneDelegate parent, Zone zone, f(T arg)){
+      Zone self, ZoneDelegate parent, Zone zone, f(T arg)) {
     return (_) => 42 as R;
   }
 
-  z.fork(specification: new ZoneSpecification(registerUnaryCallback:registerFunction))
+  z
+      .fork(
+          specification:
+              new ZoneSpecification(registerUnaryCallback: registerFunction))
       .run(() {
-        ZoneUnaryCallback<int,int> callback = Zone.current.registerUnaryCallback<int,int>(f);
-        Expect.isTrue(callback is ZoneUnaryCallback<int, int>);
-        Expect.runtimeIsType<ZoneUnaryCallback<int, int>>(callback);
-        Expect.equals(42, callback(1));
-      });
+    ZoneUnaryCallback<int, int> callback =
+        Zone.current.registerUnaryCallback<int, int>(f);
+    Expect.isTrue(callback is ZoneUnaryCallback<int, int>);
+    Expect.runtimeIsType<ZoneUnaryCallback<int, int>>(callback);
+    Expect.equals(42, callback(1));
+  });
 }
