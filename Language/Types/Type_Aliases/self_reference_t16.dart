@@ -14,12 +14,16 @@ typedef void F(G g);
 // [analyzer] unspecified
 // [cfe] unspecified
 typedef H G();
-//^
+//        ^
 // [analyzer] unspecified
+// [cfe] unspecified
 typedef void H(List<F> f);
-//^
+//           ^
 // [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  F? x;
+  print(F);
+  print(G);
+  print(H);
 }

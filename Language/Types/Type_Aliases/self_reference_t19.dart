@@ -11,12 +11,15 @@
 class C<T> {}
 
 typedef CAlias1<T extends CAlias2> = C<T>;
-//                        ^
+//      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 typedef CAlias2<T extends CAlias1> = C<T>;
-//                        ^
+//      ^
 // [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
+  print(CAlias1);
+  print(CAlias2);
 }

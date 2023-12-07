@@ -12,15 +12,20 @@ class C<T1, T2> {}
 
 typedef CAlias1<T1, T2> = C<T1, T2>;
 typedef CAlias2<T1, T2> = CAlias1<T1, CAlias4>;
-//^
+//      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 typedef CAlias3<T1, T2> = CAlias2<T1, T2>;
-//^
+//      ^
 // [analyzer] unspecified
+// [cfe] unspecified
 typedef CAlias4<T1, T2> = CAlias3<T1, T2>;
-//^
+//      ^
 // [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
+  print(CAlias2);
+  print(CAlias3);
+  print(CAlias4);
 }
