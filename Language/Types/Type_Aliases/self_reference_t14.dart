@@ -14,9 +14,11 @@ typedef F(G x);
 // [analyzer] unspecified
 // [cfe] unspecified
 typedef G(F x);
-//^
+//      ^
 // [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  F? x;
+  print(F);
+  print(G);
 }
