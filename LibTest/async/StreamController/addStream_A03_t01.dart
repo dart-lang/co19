@@ -19,23 +19,20 @@ void listen(Stream stream, List expectedData, List expectedErrors) {
   List actualData = [];
   List actualErrors = [];
 
-  stream.listen(
-      (x) {
-        actualData.add(x);
-      },
-      onError: (x) {
-        actualErrors.add(x);
-      },
-      onDone: () {
-        Expect.listEquals(expectedData, actualData);
-        Expect.listEquals(expectedErrors, actualErrors);
-        asyncEnd();
-      }
-  );
+  stream.listen((x) {
+    actualData.add(x);
+  }, onError: (x) {
+    actualErrors.add(x);
+  }, onDone: () {
+    Expect.listEquals(expectedData, actualData);
+    Expect.listEquals(expectedErrors, actualErrors);
+    asyncEnd();
+  });
 }
 
 // new stream, negative data become errors
-Stream toDataErrorStream(Stream stream) => stream.map((x) => x < 0 ? throw x : x);
+Stream toDataErrorStream(Stream stream) =>
+    stream.map((x) => x < 0 ? throw x : x);
 
 main() {
   StreamController c = new StreamController();
@@ -46,7 +43,7 @@ main() {
   asyncStart(2);
   listen(c.stream, [1, 2, 3, 4, 5, 6, 1, 2, 3], [-1, -2, -3, -1]);
   c.addStream(s1).then((_) {
-    c.addStream(s2, cancelOnError:true).then((_) {
+    c.addStream(s2, cancelOnError: true).then((_) {
       c.close();
       asyncEnd();
     });

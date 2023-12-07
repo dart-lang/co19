@@ -18,7 +18,9 @@ void test(CreateStreamWithErrorsFunction create) {
       1, create([1], isError: (_) => true, defaultValue: 42).length);
   AsyncExpect.error(3,
       create([1, 2, 3, null], isError: (e) => e == 3, defaultValue: 42).length);
-  AsyncExpect.error(12,
+  AsyncExpect.error(
+      12,
       create<int>(new Iterable.generate(10, (int i) => i * 2),
-          isError: (e) => e > 10, defaultValue: 42).length);
+              isError: (e) => e > 10, defaultValue: 42)
+          .length);
 }

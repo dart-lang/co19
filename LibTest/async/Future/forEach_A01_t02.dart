@@ -27,7 +27,7 @@ void check(List input) {
   }
 
   asyncStart();
-  List expected = input.expand((e)=>["start", e, "finish"]).toList();
+  List expected = input.expand((e) => ["start", e, "finish"]).toList();
   Future.forEach(input, f).then((_) {
     Expect.listEquals(expected, log);
     asyncEnd();

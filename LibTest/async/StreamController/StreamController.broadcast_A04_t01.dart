@@ -20,10 +20,14 @@ main() {
   Stream stream = controller.stream;
 
   bool event1seen = false;
-  StreamSubscription sub1 = stream.listen((event) {event1seen = true;});
+  StreamSubscription sub1 = stream.listen((event) {
+    event1seen = true;
+  });
   sub1.pause();
   bool event2seen = false;
-  StreamSubscription sub2 = stream.listen((event) {event2seen = true;});
+  StreamSubscription sub2 = stream.listen((event) {
+    event2seen = true;
+  });
 
   controller.add(1);
 

@@ -17,7 +17,9 @@ main() {
   Completer completer = new Completer.sync();
   Future f = completer.future;
   var value;
-  f.then((v) {value = v;});
+  f.then((v) {
+    value = v;
+  });
   completer.complete(cv);
   Expect.identical(cv, value);
 }

@@ -9,12 +9,13 @@
 /// @author a.semenov@unipro.ru
 
 library contains_A03_t03;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
   Error error = new Error();
-  Stream s = create(
-      [1, 2, error, 3, 4], isError: (e) => e is Error, defaultValue: Object());
+  Stream s = create([1, 2, error, 3, 4],
+      isError: (e) => e is Error, defaultValue: Object());
   AsyncExpect.error(error, s.contains(4));
 }

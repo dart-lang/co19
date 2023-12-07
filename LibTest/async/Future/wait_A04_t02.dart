@@ -23,19 +23,16 @@ main() {
 
   asyncStart();
   Future.wait(futures, eagerError: true, cleanUp: (v) => successful.add(v))
-    .then(
-      (_) {
-        Expect.fail("Returned future should complete with error");
-      },
-      onError: (Object error) {
-        Expect.equals(1, error);
-        Expect.isTrue(completers[0].isCompleted);
-        Expect.isTrue(completers[1].isCompleted);
-        Expect.isFalse(completers[4].isCompleted);
-        Expect.listEquals([0], successful);
-        asyncEnd();
-      }
-    );
+      .then((_) {
+    Expect.fail("Returned future should complete with error");
+  }, onError: (Object error) {
+    Expect.equals(1, error);
+    Expect.isTrue(completers[0].isCompleted);
+    Expect.isTrue(completers[1].isCompleted);
+    Expect.isFalse(completers[4].isCompleted);
+    Expect.listEquals([0], successful);
+    asyncEnd();
+  });
 
   completers[0].complete(0);
   completers[1].completeError(1);

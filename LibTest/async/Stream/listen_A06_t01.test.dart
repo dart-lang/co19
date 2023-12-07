@@ -9,18 +9,25 @@
 /// @author ilya
 
 library listen_A06_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   asyncStart();
-  create([]).listen((_) {}, onDone: () {asyncEnd();});
+  create([]).listen((_) {}, onDone: () {
+    asyncEnd();
+  });
 
   asyncStart();
-  create([1]).listen((_) {}, onDone: () {asyncEnd();});
+  create([1]).listen((_) {}, onDone: () {
+    asyncEnd();
+  });
 
   asyncStart();
   Stream s = create([1]).asBroadcastStream();
   s.single.then((_) {});
-  s.listen((_) {}, onDone: () {asyncEnd();});
+  s.listen((_) {}, onDone: () {
+    asyncEnd();
+  });
 }

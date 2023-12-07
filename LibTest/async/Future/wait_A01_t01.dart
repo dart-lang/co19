@@ -15,29 +15,24 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  List<Completer> completers = new List.generate(5, (_)=> new Completer());
+  List<Completer> completers = new List.generate(5, (_) => new Completer());
   Iterable<Future> futures = completers.map((Completer c) => c.future);
 
   bool futureCompleted = false;
   asyncStart();
-  Future.wait(futures).then(
-    (value) {
-      futureCompleted = true;
-      List expected = new List.generate(completers.length, (i) => i);
-      Expect.listEquals(expected, value);
-      asyncEnd();
-    }
-  );
+  Future.wait(futures).then((value) {
+    futureCompleted = true;
+    List expected = new List.generate(completers.length, (i) => i);
+    Expect.listEquals(expected, value);
+    asyncEnd();
+  });
 
   int i = 0;
-  new Timer.periodic(
-      durationInMilliseconds(50),
-      (Timer t){
-        Expect.isFalse(futureCompleted);
-        completers[i].complete(i);
-        if (++i == completers.length) {
-          t.cancel();
-        }
-      }
-  );
+  new Timer.periodic(durationInMilliseconds(50), (Timer t) {
+    Expect.isFalse(futureCompleted);
+    completers[i].complete(i);
+    if (++i == completers.length) {
+      t.cancel();
+    }
+  });
 }

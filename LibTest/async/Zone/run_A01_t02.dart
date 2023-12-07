@@ -25,16 +25,13 @@ main() {
     handlerCallCount++;
   }
 
-  Zone zone = Zone.current.fork(
-      specification: new ZoneSpecification(
-          handleUncaughtError: handler
-      )
-  );
+  Zone zone = Zone.current
+      .fork(specification: new ZoneSpecification(handleUncaughtError: handler));
 
   int action() {
     throw "action error";
   }
 
-  Expect.throws(() => zone.run(action), (e) => e=="action error");
+  Expect.throws(() => zone.run(action), (e) => e == "action error");
   Expect.equals(0, handlerCallCount);
 }

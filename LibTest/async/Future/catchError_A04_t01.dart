@@ -15,18 +15,13 @@ main() {
   Completer completer = new Completer();
   Future f = completer.future;
 
-  f.catchError(
-    (Object error) {
-      Expect.equals("!", error);
-      return "@";
-    }
-  )
-  .then(
-    (var value){
-      Expect.equals("@", value);
-      asyncEnd();
-    }
-  );
+  f.catchError((Object error) {
+    Expect.equals("!", error);
+    return "@";
+  }).then((var value) {
+    Expect.equals("@", value);
+    asyncEnd();
+  });
 
   asyncStart();
   completer.completeError("!");

@@ -25,11 +25,8 @@ main() {
     caughtError = e;
   }
 
-  Zone zone = Zone.current.fork(
-      specification: new ZoneSpecification(
-          handleUncaughtError: handler
-      )
-  );
+  Zone zone = Zone.current
+      .fork(specification: new ZoneSpecification(handleUncaughtError: handler));
 
   void callback() {
     throw "callback error";

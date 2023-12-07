@@ -10,6 +10,7 @@
 /// @author kaigorodov
 
 library fold_A01_t02;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {

@@ -12,24 +12,21 @@
 import "dart:async";
 import "allTests_A02.lib.dart" as all;
 
-Stream<T> create<T>(
-    Iterable<T> data, {bool isError(T x)?, required T defaultValue}) {
+Stream<T> create<T>(Iterable<T> data,
+    {bool isError(T x)?, required T defaultValue}) {
   int count = data.length;
   Iterator<T> iterator = data.iterator;
-  return new Stream<T>.periodic(
-      new Duration(milliseconds: 10),
-      (_) {
-        count--;
-        if (iterator.moveNext()) {
-          T x = iterator.current;
-          if (isError != null && isError(x) && count >= 0) {
-            throw x!;
-          }
-          return x;
-        }
-        return defaultValue;
+  return new Stream<T>.periodic(new Duration(milliseconds: 10), (_) {
+    count--;
+    if (iterator.moveNext()) {
+      T x = iterator.current;
+      if (isError != null && isError(x) && count >= 0) {
+        throw x!;
       }
-  ).takeWhile((_) => count >= 0);
+      return x;
+    }
+    return defaultValue;
+  }).takeWhile((_) => count >= 0);
 }
 
 main() {

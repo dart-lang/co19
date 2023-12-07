@@ -10,11 +10,12 @@
 /// @author a.semenov@unipro.ru
 
 library every_A03_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   Object expectedError = new ArgumentError(1);
-  Stream s = create([1,2,3]);
+  Stream s = create([1, 2, 3]);
   AsyncExpect.error(expectedError, s.every((element) => throw expectedError));
 }

@@ -11,6 +11,7 @@
 /// @author ngl@unipro.ru
 
 library noSuchMethodError_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -18,14 +19,17 @@ test(StreamConsumer create()) {
   dynamic cs1 = create();
 
   try {
-    cs1.m1();   /// static type warning
+    cs1.m1();
+
+    /// static type warning
   } catch (e) {
     Expect.isTrue(e is NoSuchMethodError);
   }
   try {
-    cs1.abc;   /// static type warning
+    cs1.abc;
+
+    /// static type warning
   } catch (e) {
     Expect.isTrue(e is NoSuchMethodError);
   }
 }
-

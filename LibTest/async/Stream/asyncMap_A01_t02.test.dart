@@ -14,6 +14,7 @@
 /// @author ngl@unipro.ru
 
 library asyncMap_A01_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -22,8 +23,6 @@ dynamic convert(event) => new Future.value(event);
 void test(CreateStreamFunction create) {
   AsyncExpect.data([], create([]).asyncMap(convert));
   AsyncExpect.data([1, 2, 3, 4], create([1, 2, 3, 4]).asyncMap(convert));
-  AsyncExpect.data(
-      [null, "2", -3, 4.0, []],
-      create([null, "2", -3, 4.0, []]).asyncMap(convert)
-  );
+  AsyncExpect.data([null, "2", -3, 4.0, []],
+      create([null, "2", -3, 4.0, []]).asyncMap(convert));
 }

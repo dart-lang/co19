@@ -18,13 +18,12 @@ import "../../../Utils/expect.dart";
 
 main() {
   Stream<int> source = new Stream.fromIterable([1]);
-  StreamTransformer<int, dynamic> tr = new StreamTransformer(
-    (stream, cancelOnError) {
-      Expect.identical(source, stream);
-      asyncEnd();
-      return stream.listen(null);
-    }
-  );
+  StreamTransformer<int, dynamic> tr =
+      new StreamTransformer((stream, cancelOnError) {
+    Expect.identical(source, stream);
+    asyncEnd();
+    return stream.listen(null);
+  });
 
   asyncStart();
   source.transform(tr).toList();

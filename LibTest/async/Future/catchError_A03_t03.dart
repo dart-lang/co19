@@ -25,25 +25,18 @@ main() {
 
   asyncStart();
 
-  new Future.error(error, stackTrace)
-    .catchError(
-      (Object e) {
-        log.add(2);
-        log.add(e);
-      },
-      test: (Object e) {
-        log.add(1);
-        log.add(e);
-        return false;
-      }
-    )
-    .catchError(
-      (Object e, StackTrace st) {
-        Expect.listEquals([1, error], log);
-        Expect.identical(error, log[1]);
-        Expect.identical(error, e);
-        Expect.identical(stackTrace, st);
-        asyncEnd();
-      }
-    );
+  new Future.error(error, stackTrace).catchError((Object e) {
+    log.add(2);
+    log.add(e);
+  }, test: (Object e) {
+    log.add(1);
+    log.add(e);
+    return false;
+  }).catchError((Object e, StackTrace st) {
+    Expect.listEquals([1, error], log);
+    Expect.identical(error, log[1]);
+    Expect.identical(error, e);
+    Expect.identical(stackTrace, st);
+    asyncEnd();
+  });
 }

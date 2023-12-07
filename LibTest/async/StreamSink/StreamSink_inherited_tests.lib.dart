@@ -8,6 +8,7 @@
 /// @author ngl@unipro.ru
 
 library inherited_tests_streamcontroller;
+
 import "dart:async";
 
 import "../EventSink/all_tests.lib.dart" as allTest_EventSink;

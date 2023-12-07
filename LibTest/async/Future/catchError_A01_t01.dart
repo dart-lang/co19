@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 void onError(Object asyncError) {}
 
-void check (Future f1) {
+void check(Future f1) {
   Object f2 = f1.catchError(onError);
   Expect.isTrue(f2 is Future);
   Expect.isFalse(identical(f1, f2));
@@ -24,5 +24,7 @@ void check (Future f1) {
 main() {
   check(new Completer().future);
   check(new Future.sync(() => 1));
-  check(new Future.sync(() {throw 1;}));
+  check(new Future.sync(() {
+    throw 1;
+  }));
 }

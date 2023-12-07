@@ -15,15 +15,15 @@
 /// @author a.semenov@unipro.ru
 
 library asyncMap_A01_t04;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> stream, List<T> expected) {
   AsyncExpect.data(
       expected,
-      stream.asyncMap((e) =>
-          new Future.delayed(durationInMilliseconds(50), () => e))
-  );
+      stream.asyncMap(
+          (e) => new Future.delayed(durationInMilliseconds(50), () => e)));
 }
 
 void test(CreateStreamFunction create) {

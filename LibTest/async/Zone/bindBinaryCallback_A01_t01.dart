@@ -26,7 +26,7 @@ main() {
   }
 
   ZoneBinaryCallback<int, int, int> boundCallback =
-                  zone.bindBinaryCallback<int, int, int>(callback);
+      zone.bindBinaryCallback<int, int, int>(callback);
 
   int? result = null;
   runZoned(() {

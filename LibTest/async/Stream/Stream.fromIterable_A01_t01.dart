@@ -7,7 +7,6 @@
 /// @description Checks that created stream is single-subscription.
 /// @author kaigorodov
 
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -16,4 +15,3 @@ main() {
 
   Expect.isFalse(s.isBroadcast);
 }
-

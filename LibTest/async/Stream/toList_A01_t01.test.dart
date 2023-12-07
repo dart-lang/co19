@@ -9,15 +9,28 @@
 /// @author kaigorodov
 
 library toList_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.value([], create([]).toList());
-  AsyncExpect.value(
-      [-1, -2, -3, 1, 2, 3, -1, -2, -3],
-      create([-1, -2, -3, 1, 2, 3, -1, -2, -3]).toList()
-  );
+  AsyncExpect.value([-1, -2, -3, 1, 2, 3, -1, -2, -3],
+      create([-1, -2, -3, 1, 2, 3, -1, -2, -3]).toList());
   AsyncExpect.value([1, 2, 3], create([1, 2, 3]).toList());
-  AsyncExpect.value([[], [[]], [[[]]]], create([[], [[]], [[[]]]]).toList());
+  AsyncExpect.value(
+      [
+        [],
+        [[]],
+        [
+          [[]]
+        ]
+      ],
+      create([
+        [],
+        [[]],
+        [
+          [[]]
+        ]
+      ]).toList());
   AsyncExpect.value(["1", 2, null], create(["1", 2, null]).toList());
 }

@@ -16,6 +16,7 @@
 /// @author ilya
 
 library asBroadcastStream_A04_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -23,26 +24,22 @@ void test(CreateStreamFunction create) {
   Stream s = create([1, 2, 3, 4, 5]);
   int cancelCount = 0;
   asyncStart();
-  Stream b = s.asBroadcastStream(
-      onCancel: (subs) {
-        // cancel subscription to underlying stream
-        subs.cancel();
-        Expect.equals(3, cancelCount);
-        asyncEnd();
-      }
-  );
+  Stream b = s.asBroadcastStream(onCancel: (subs) {
+    // cancel subscription to underlying stream
+    subs.cancel();
+    Expect.equals(3, cancelCount);
+    asyncEnd();
+  });
 
   newSubscription(Stream stream, int count) {
     // get count elements and cancel
     var subs;
-    subs = stream.listen(
-       (_) {
-         if (--count==0) {
-           subs.cancel();
-           cancelCount++;
-         }
-       }
-    );
+    subs = stream.listen((_) {
+      if (--count == 0) {
+        subs.cancel();
+        cancelCount++;
+      }
+    });
   }
 
   newSubscription(b, 1);

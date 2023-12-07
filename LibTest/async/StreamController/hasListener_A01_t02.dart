@@ -17,10 +17,14 @@ main() {
   Expect.isFalse(controller.hasListener);
 
   List events1 = new List.empty(growable: true);
-  StreamSubscription ss1 = s.listen((event) {events1.add(event);});
+  StreamSubscription ss1 = s.listen((event) {
+    events1.add(event);
+  });
   Expect.isTrue(controller.hasListener);
 
-  StreamSubscription ss2 = s.listen((event) {events1.add(event);});
+  StreamSubscription ss2 = s.listen((event) {
+    events1.add(event);
+  });
   Expect.isTrue(controller.hasListener);
 
   ss1.cancel();
@@ -29,7 +33,9 @@ main() {
   ss2.cancel();
   Expect.isFalse(controller.hasListener);
 
-  ss2 = s.listen((event){events1.add(event);});
+  ss2 = s.listen((event) {
+    events1.add(event);
+  });
   Expect.isTrue(controller.hasListener);
 
   ss2.cancel();

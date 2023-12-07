@@ -16,14 +16,11 @@ main() {
   var error0 = 12345;
   controller.addError(error0);
   asyncStart();
-  controller.stream.listen(
-    (value) {
-      Expect.fail("unexpected onData call");
-    },
-    onError: (error1) {
-      Expect.equals(error0, error1);
-      asyncEnd();
-    }
-  );
+  controller.stream.listen((value) {
+    Expect.fail("unexpected onData call");
+  }, onError: (error1) {
+    Expect.equals(error0, error1);
+    asyncEnd();
+  });
   controller.close();
 }

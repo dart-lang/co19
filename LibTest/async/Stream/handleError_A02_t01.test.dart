@@ -34,10 +34,13 @@ void test(CreateStreamWithErrorsFunction create) {
   check(create([], isError: (x) => true, defaultValue: 42), [], []);
 
   check(create([1, 2, 3, 4], defaultValue: 42), [1, 2, 3, 4], []);
-  check(create([1, 2, 3, 4], isError: (x) => true, defaultValue: 42),
-      [], [1, 2, 3, 4]);
+  check(create([1, 2, 3, 4], isError: (x) => true, defaultValue: 42), [],
+      [1, 2, 3, 4]);
   check(create([1, 2, 3, 4], isError: (x) => x.isEven, defaultValue: 42),
       [1, 3], [2, 4]);
-  check(create([null, "2", -3, 4.0, []], isError: (x) => x is num,
-      defaultValue: 42), [null, "2", []], [-3, 4.0]);
+  check(
+      create([null, "2", -3, 4.0, []],
+          isError: (x) => x is num, defaultValue: 42),
+      [null, "2", []],
+      [-3, 4.0]);
 }

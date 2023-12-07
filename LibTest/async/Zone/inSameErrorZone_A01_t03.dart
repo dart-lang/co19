@@ -16,7 +16,7 @@ same() {
   Zone? z = Zone.current.parent;
   if (z != null) {
     Expect.isTrue(Zone.current.inSameErrorZone(z));
-  return;
+    return;
   }
   Expect.fail("Zone.current.parent is null");
 }
@@ -25,7 +25,7 @@ diff() {
   Zone? z = Zone.current.parent;
   if (z != null) {
     Expect.isFalse(Zone.current.inSameErrorZone(z));
-  return;
+    return;
   }
 }
 

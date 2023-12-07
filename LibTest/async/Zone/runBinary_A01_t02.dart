@@ -24,19 +24,14 @@ main() {
     handlerCallCount++;
   }
 
-  Zone zone = Zone.current.fork(
-      specification: new ZoneSpecification(
-          handleUncaughtError: handler
-      )
-  );
+  Zone zone = Zone.current
+      .fork(specification: new ZoneSpecification(handleUncaughtError: handler));
 
   int action(int x, String y) {
     throw "action error";
   }
 
-  Expect.throws(
-          () => zone.runBinary<int, int, String>(action, 1, "2"),
-          (e) => e=="action error"
-  );
+  Expect.throws(() => zone.runBinary<int, int, String>(action, 1, "2"),
+      (e) => e == "action error");
   Expect.equals(0, handlerCallCount);
 }

@@ -9,6 +9,7 @@
 /// @author ngl@unipro.ru
 
 library all_tests_eventsink;
+
 import "dart:async";
 
 import "../../../Utils/expect.dart";

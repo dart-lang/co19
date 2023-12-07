@@ -19,15 +19,15 @@
 /// @author a.semenov@unipro.ru
 
 library asyncMap_A03_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  Stream stream = create(
-      ["a", "b", "c"], isError: (e) => true, defaultValue: "");
+  Stream stream =
+      create(["a", "b", "c"], isError: (e) => true, defaultValue: "");
   AsyncExpect.events([], ["a", "b", "c"], stream.asyncMap((e) => e));
 
-  stream = create(
-      [1, 2, 3, 4, 5], isError:(e) => e.isEven, defaultValue: -1);
+  stream = create([1, 2, 3, 4, 5], isError: (e) => e.isEven, defaultValue: -1);
   AsyncExpect.events([1, 3, 5], [2, 4], stream.asyncMap((e) => e));
 }

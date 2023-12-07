@@ -22,16 +22,12 @@ main() {
   Error error = new Error();
   asyncStart();
   Completer completer = new Completer();
-  completer.future.timeout(
-      new Duration(microseconds:1),
-      onTimeout: () => throw error
-  ).then(
-      (_) {
-        Expect.fail("Returned future should complete with error");
-      },
-      onError: (e) {
-        Expect.identical(error, e);
-        asyncEnd();
-      }
-  );
+  completer.future
+      .timeout(new Duration(microseconds: 1), onTimeout: () => throw error)
+      .then((_) {
+    Expect.fail("Returned future should complete with error");
+  }, onError: (e) {
+    Expect.identical(error, e);
+    asyncEnd();
+  });
 }

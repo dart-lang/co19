@@ -10,6 +10,7 @@
 /// @author ngl@unipro.ru
 
 library toString_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -24,4 +25,3 @@ test(StreamConsumer create()) {
   Expect.notEquals(sc1, sc2);
   Expect.equals(sc1.toString(), sc2.toString());
 }
-

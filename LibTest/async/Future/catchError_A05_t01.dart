@@ -14,23 +14,15 @@ import "../../../Utils/expect.dart";
 
 main() {
   asyncStart();
-  new Future.error("!")
-    .catchError(
-      (Object error) {
-        Expect.fail("The onError should not be executed, if test throws");
-      },
-      test:(Object error){
-        Expect.equals("!", error);
-        throw "@";
-      }
-    )
-    .then(
-      (var value) {
-        Expect.fail("returned future should complete with error");
-      },
-      onError: (Object error){
-        Expect.equals("@", error);
-        asyncEnd();
-      }
-    );
+  new Future.error("!").catchError((Object error) {
+    Expect.fail("The onError should not be executed, if test throws");
+  }, test: (Object error) {
+    Expect.equals("!", error);
+    throw "@";
+  }).then((var value) {
+    Expect.fail("returned future should complete with error");
+  }, onError: (Object error) {
+    Expect.equals("@", error);
+    asyncEnd();
+  });
 }

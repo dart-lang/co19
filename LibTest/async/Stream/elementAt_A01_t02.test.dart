@@ -10,18 +10,17 @@
 /// @author a.semenov@unipro.ru
 
 library elementAt_A01_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   Stream<int> s = create(new Iterable<int>.generate(100, (int i) => i));
   asyncStart();
-  s.elementAt(5).then(
-    (int t) {
-      if (!s.isBroadcast) {
-        Expect.throws(() => s.listen((_) {}));
-      }
-      asyncEnd();
+  s.elementAt(5).then((int t) {
+    if (!s.isBroadcast) {
+      Expect.throws(() => s.listen((_) {}));
     }
-  );
+    asyncEnd();
+  });
 }

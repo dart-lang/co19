@@ -37,6 +37,7 @@ main() {
       }
     });
   }
+
   asyncStart();
   f();
 }

@@ -29,23 +29,19 @@ main() {
 
   asyncStart(2);
 
-  future
-    .then((x) {
-      Expect.isTrue(completer.isCompleted);
-      Expect.identical(value, x);
-      asyncEnd();
-    });
+  future.then((x) {
+    Expect.isTrue(completer.isCompleted);
+    Expect.identical(value, x);
+    asyncEnd();
+  });
 
-  future2.then(
-    (_) {
-      Expect.fail("Created future should complete with error");
-    },
-    onError: (x) {
-      Expect.isTrue(completer2.isCompleted);
-      Expect.identical(value, x);
-      asyncEnd();
-    }
-  );
+  future2.then((_) {
+    Expect.fail("Created future should complete with error");
+  }, onError: (x) {
+    Expect.isTrue(completer2.isCompleted);
+    Expect.identical(value, x);
+    asyncEnd();
+  });
 
   completer.complete(value);
   completer2.completeError(value);

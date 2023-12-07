@@ -12,22 +12,16 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-
 void check(Object value) {
   asyncStart();
-  new Future.error(value).then(
-      (_) {
-        Expect.fail("Initial future should complete with error");
-      }
-  ).then(
-      (_) {
-        Expect.fail("Returned future should complete with error");
-      },
-      onError: (error) {
-        Expect.equals(value, error);
-        asyncEnd();
-      }
-  );
+  new Future.error(value).then((_) {
+    Expect.fail("Initial future should complete with error");
+  }).then((_) {
+    Expect.fail("Returned future should complete with error");
+  }, onError: (error) {
+    Expect.equals(value, error);
+    asyncEnd();
+  });
 }
 
 main() {

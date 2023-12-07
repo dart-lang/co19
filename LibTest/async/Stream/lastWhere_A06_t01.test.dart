@@ -20,10 +20,11 @@
 /// @author a.semenov@unipro
 
 library lastWhere_A06_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
-  Stream s = create([1,2,3]);
-  AsyncExpect.error("z", s.lastWhere((e) => false, orElse:() => throw "z"));
+  Stream s = create([1, 2, 3]);
+  AsyncExpect.error("z", s.lastWhere((e) => false, orElse: () => throw "z"));
 }

@@ -20,13 +20,10 @@ main() {
   controller.add("event");
   asyncStart();
   List receivedData = [];
-  controller.stream.listen(
-      (data) => receivedData.add(data),
-      onDone: () {
-        Expect.listEquals(["published", "event"], receivedData);
-        asyncEnd();
-      }
-  );
+  controller.stream.listen((data) => receivedData.add(data), onDone: () {
+    Expect.listEquals(["published", "event"], receivedData);
+    asyncEnd();
+  });
   controller.add("published");
   controller.add("event");
   controller.close();

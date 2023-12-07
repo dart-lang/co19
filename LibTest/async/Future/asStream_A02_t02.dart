@@ -23,12 +23,13 @@ main() {
   int count = 1;
 
   asyncStart();
-  stream.listen(
-    (var event) {count = count + 1;}, // should be invoked first
-    onDone: (){
-      Expect.equals(2, count);
-      Expect.isTrue(completer.isCompleted);
-      asyncEnd();
-    }   // should be invoked second
-  );
+  stream.listen((var event) {
+    count = count + 1;
+  }, // should be invoked first
+      onDone: () {
+    Expect.equals(2, count);
+    Expect.isTrue(completer.isCompleted);
+    asyncEnd();
+  } // should be invoked second
+      );
 }

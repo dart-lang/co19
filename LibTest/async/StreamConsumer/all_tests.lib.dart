@@ -10,6 +10,7 @@
 /// @author ngl@unipro.ru
 
 library all_tests_streamconsumer;
+
 import "dart:async";
 
 import "../../../Utils/expect.dart";

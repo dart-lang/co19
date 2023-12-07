@@ -14,18 +14,17 @@ import "../../../Utils/expect.dart";
 
 main() {
   Error error = new Error();
-  Future future = new Future.sync(() {throw error;});
+  Future future = new Future.sync(() {
+    throw error;
+  });
   Stream stream = future.asStream();
   Future f2 = stream.single;
 
   asyncStart();
-  f2.then(
-    (fValue) {
-      Expect.fail("unexpected value=$fValue");
-    },
-    onError: (Object e){
-      Expect.identical(error, e);
-      asyncEnd();
-    }
-  );
+  f2.then((fValue) {
+    Expect.fail("unexpected value=$fValue");
+  }, onError: (Object e) {
+    Expect.identical(error, e);
+    asyncEnd();
+  });
 }

@@ -29,4 +29,3 @@ main() {
   asyncStart();
   completer2.completeError(22);
 }
-

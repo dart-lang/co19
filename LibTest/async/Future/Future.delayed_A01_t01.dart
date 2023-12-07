@@ -16,11 +16,10 @@ import "../../../Utils/expect.dart";
 
 void check(delay, value) {
   asyncStart();
-  new Future.delayed(durationInMilliseconds(delay), () => value)
-    .then((v) {
-      Expect.equals(value, v);
-      asyncEnd();
-    });
+  new Future.delayed(durationInMilliseconds(delay), () => value).then((v) {
+    Expect.equals(value, v);
+    asyncEnd();
+  });
 }
 
 main() {

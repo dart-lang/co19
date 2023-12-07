@@ -33,22 +33,21 @@
 /// @author a.semenov@unipro.ru
 
 library firstWhere_A04_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(Stream s) {
   asyncStart();
-  s.firstWhere((_) => true).then(
-    (_) {
-      if (!s.isBroadcast){
-        Expect.throws(() => s.listen((_){}));
-      }
-      asyncEnd();
+  s.firstWhere((_) => true).then((_) {
+    if (!s.isBroadcast) {
+      Expect.throws(() => s.listen((_) {}));
     }
-  );
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {
   check(create([123]));
-  check(create([1,2,3]));
+  check(create([1, 2, 3]));
 }

@@ -17,19 +17,15 @@ listen(Stream stream, List expectedData, List expectedErrors) {
   List actualData = [];
   List actualErrors = [];
 
-  stream.listen(
-      (x) {
-        actualData.add(x);
-      },
-      onError: (x) {
-        actualErrors.add(x);
-      },
-      onDone: () {
-        Expect.listEquals(expectedData, actualData);
-        Expect.listEquals(expectedErrors, actualErrors);
-        asyncEnd();
-      }
-  );
+  stream.listen((x) {
+    actualData.add(x);
+  }, onError: (x) {
+    actualErrors.add(x);
+  }, onDone: () {
+    Expect.listEquals(expectedData, actualData);
+    Expect.listEquals(expectedErrors, actualErrors);
+    asyncEnd();
+  });
 }
 
 main() {

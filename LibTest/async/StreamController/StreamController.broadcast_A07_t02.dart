@@ -17,12 +17,10 @@ import "../../../Utils/expect.dart";
 main() {
   bool onCancelCalled = false;
   asyncStart();
-  StreamController controller = new StreamController.broadcast(
-    onCancel: () {
-      onCancelCalled = true;
-      asyncEnd();
-    }
-  );
+  StreamController controller = new StreamController.broadcast(onCancel: () {
+    onCancelCalled = true;
+    asyncEnd();
+  });
 
   Expect.isFalse(onCancelCalled);
   StreamSubscription subs = controller.stream.listen((event) {});

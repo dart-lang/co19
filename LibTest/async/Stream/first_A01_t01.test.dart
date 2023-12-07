@@ -8,9 +8,10 @@
 /// @author kaigorodov
 
 library first_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.value(123, create([123]).first);
-  AsyncExpect.value(1, create([1,2,3]).first);
+  AsyncExpect.value(1, create([1, 2, 3]).first);
 }

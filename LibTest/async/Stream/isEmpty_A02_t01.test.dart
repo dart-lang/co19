@@ -12,25 +12,22 @@
 /// @author a.semenov@unipro.ru
 
 library isEmpty_A02_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(Stream s, bool expected) {
   int count = 0;
   asyncStart();
-  s = s.map(
-    (e) {
-      count++;
-      return e;
-    }
-  );
-  s.isEmpty.then(
-    (bool actual) {
-      Expect.equals(expected ? 0 : 1, count);
-      Expect.equals(expected, actual);
-      asyncEnd();
-    }
-  );
+  s = s.map((e) {
+    count++;
+    return e;
+  });
+  s.isEmpty.then((bool actual) {
+    Expect.equals(expected ? 0 : 1, count);
+    Expect.equals(expected, actual);
+    asyncEnd();
+  });
 }
 
 test(CreateStreamFunction create) {

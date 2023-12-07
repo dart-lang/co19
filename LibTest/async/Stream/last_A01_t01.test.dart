@@ -8,10 +8,11 @@
 /// @author kaigorodov
 
 library last_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.value(123, create([123]).last);
-  AsyncExpect.value(123, create([123/2, 123]).last);
+  AsyncExpect.value(123, create([123 / 2, 123]).last);
   AsyncExpect.value(9, create(new Iterable.generate(10, (int i) => i)).last);
 }

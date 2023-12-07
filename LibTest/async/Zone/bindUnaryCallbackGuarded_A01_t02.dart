@@ -27,11 +27,8 @@ main() {
     caughtError = e;
   }
 
-  Zone zone = Zone.current.fork(
-      specification: new ZoneSpecification(
-          handleUncaughtError: handler
-      )
-  );
+  Zone zone = Zone.current
+      .fork(specification: new ZoneSpecification(handleUncaughtError: handler));
 
   void callback(int x) {
     Expect.equals(1, x);
@@ -39,7 +36,7 @@ main() {
   }
 
   void Function(int) boundCallback =
-                          zone.bindUnaryCallbackGuarded<int>(callback);
+      zone.bindUnaryCallbackGuarded<int>(callback);
   boundCallback(1);
   Expect.equals(1, handlerCallCount);
   Expect.equals("callback error", caughtError);

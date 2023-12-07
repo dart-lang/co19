@@ -10,16 +10,15 @@
 /// @author kaigorodov
 
 library listen_A02_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(Stream s) {
   asyncStart();
-  s.listen(null,
-    onDone: () {
-      asyncEnd();
-    }
-  );
+  s.listen(null, onDone: () {
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {

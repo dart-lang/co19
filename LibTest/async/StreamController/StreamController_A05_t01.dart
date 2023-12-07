@@ -15,12 +15,10 @@ import "../../../Utils/expect.dart";
 main() {
   bool onResumeCalled = false;
   asyncStart();
-  StreamController controller = new StreamController(
-    onResume: () {
-      onResumeCalled = true;
-      asyncEnd();
-    }
-  );
+  StreamController controller = new StreamController(onResume: () {
+    onResumeCalled = true;
+    asyncEnd();
+  });
 
   StreamSubscription subs = controller.stream.listen((event) {});
   controller.add(1);

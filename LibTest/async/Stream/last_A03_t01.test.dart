@@ -11,18 +11,17 @@
 /// @author a.semenov@unipro.ru
 
 library last_A03_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
   Error error = new Error();
   AsyncExpect.error(
-    error,
-    create(
-        [1, 2, error, 4, 5], isError: (e) => e is Error, defaultValue: 42).last);
-  AsyncExpect.error(
       error,
+      create([1, 2, error, 4, 5], isError: (e) => e is Error, defaultValue: 42)
+          .last);
+  AsyncExpect.error(error,
       create([error, 4, 5], isError: (e) => e is Error, defaultValue: 42).last);
-  AsyncExpect.error(
-      error,
+  AsyncExpect.error(error,
       create([1, 2, error], isError: (e) => e is Error, defaultValue: 42).last);
 }

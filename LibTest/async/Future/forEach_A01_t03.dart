@@ -22,12 +22,10 @@ void check(List input) {
   }
 
   asyncStart();
-  Future.forEach(input, f).then(
-    (_) {
-      Expect.listEquals(input, log);
-      asyncEnd();
-    }
-  );
+  Future.forEach(input, f).then((_) {
+    Expect.listEquals(input, log);
+    asyncEnd();
+  });
 }
 
 main() {

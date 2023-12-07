@@ -9,6 +9,7 @@
 /// @author ngl@unipro.ru
 
 library runtimeType_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -24,4 +25,3 @@ test(StreamConsumer create()) {
   Expect.equals(sc1.runtimeType, sc2.runtimeType);
   Expect.notEquals(sc1.runtimeType, o.runtimeType);
 }
-

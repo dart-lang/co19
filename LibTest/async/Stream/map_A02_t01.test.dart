@@ -12,6 +12,7 @@
 /// @author a.semenov@unipro.ru
 
 library map_A02_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -20,5 +21,6 @@ void test(CreateStreamFunction create) {
   AsyncExpect.events([], ["a", "b", "c"], stream.map((e) => throw e));
 
   stream = create([1, 2, 3, 4, 5]);
-  AsyncExpect.events([1, 3, 5], [2, 4], stream.map((e) => e.isOdd ? e : throw e));
+  AsyncExpect.events(
+      [1, 3, 5], [2, 4], stream.map((e) => e.isOdd ? e : throw e));
 }

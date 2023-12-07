@@ -12,7 +12,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 int count = 0;
-var stackTraces={};
+var stackTraces = {};
 
 HandleUncaughtErrorHandler newHandler() {
   int id = ++count;
@@ -23,8 +23,8 @@ HandleUncaughtErrorHandler newHandler() {
   };
 }
 
-Zone newErrorZone(Zone z) =>
-  z.fork(specification: new ZoneSpecification(handleUncaughtError: newHandler()));
+Zone newErrorZone(Zone z) => z.fork(
+    specification: new ZoneSpecification(handleUncaughtError: newHandler()));
 
 void test() {
   try {
@@ -34,11 +34,11 @@ void test() {
 
     asyncStart(2);
 
-    new Future.error(e,st);
+    new Future.error(e, st);
 
     runZoned(() {
       // in same error zone as parent zone
-      new Future.error(e,st);
+      new Future.error(e, st);
     });
   }
 

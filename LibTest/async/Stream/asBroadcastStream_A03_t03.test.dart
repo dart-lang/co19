@@ -19,12 +19,13 @@
 /// @author a.semenov@unipro.ru
 
 library asBroadcastStream_A03_t03;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
-  Stream<int> s = create([1,2,3]);
-  s.asBroadcastStream(onListen: (StreamSubscription ss){
-    Expect.throws(()=>ss.asFuture());
-  }).listen((_){});
+  Stream<int> s = create([1, 2, 3]);
+  s.asBroadcastStream(onListen: (StreamSubscription ss) {
+    Expect.throws(() => ss.asFuture());
+  }).listen((_) {});
 }

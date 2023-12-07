@@ -17,21 +17,21 @@
 /// @author a.semenov@unipro.ru
 
 library skipWhile_A04_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.data([], create([]).skipWhile((e) => throw "a"));
-  AsyncExpect.events([2, 3], ["b"], create([1, 2, 3]).skipWhile((e) => throw "b"));
+  AsyncExpect.events(
+      [2, 3], ["b"], create([1, 2, 3]).skipWhile((e) => throw "b"));
   AsyncExpect.events(
       [2, 3], // expected data
-      ["c"],  // expected errors
-      create([-1, -2, -3, 1, 2, 3]).skipWhile(
-        (element) {
-          if (element > 0) {
-            throw "c";
-          };
-          return true;
+      ["c"], // expected errors
+      create([-1, -2, -3, 1, 2, 3]).skipWhile((element) {
+        if (element > 0) {
+          throw "c";
         }
-      )
-  );
+        ;
+        return true;
+      }));
 }

@@ -22,11 +22,11 @@ void test(CreateStreamWithErrorsFunction create) {
   check(create([1, 2, 3, 4], isError: (v) => v == 4, defaultValue: 42), 4);
   List list = [];
   check(
-      create([null, "2", -3, 4.0, list], isError: (v) => v == list,
-          defaultValue: 42),
+      create([null, "2", -3, 4.0, list],
+          isError: (v) => v == list, defaultValue: 42),
       list);
   check(
-      create([null, "2", -3, 4.0, list], isError: (v) => v == 4.0,
-          defaultValue: 42),
+      create([null, "2", -3, 4.0, list],
+          isError: (v) => v == 4.0, defaultValue: 42),
       4.0);
 }

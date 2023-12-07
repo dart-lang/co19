@@ -20,21 +20,21 @@
 /// @author a.semenov@unipro.ru
 
 library lastWhere_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.value(3, create([1, 2, 3]).lastWhere((element) => true));
-  AsyncExpect.value(3, create([1, 2, 3]).lastWhere((int? element) => element != null));
+  AsyncExpect.value(
+      3, create([1, 2, 3]).lastWhere((int? element) => element != null));
   AsyncExpect.value(null, create([1, 2, 3, null]).lastWhere((e) => e == null));
   AsyncExpect.value(3, create([1, 2, 3]).lastWhere((element) => element > 0));
   AsyncExpect.value(
       45,
       create(new Iterable.generate(10, (int index) => index * 5))
-        .lastWhere((int element) => element != 30)
-  );
+          .lastWhere((int element) => element != 30));
   AsyncExpect.value(
       30,
       create(new Iterable.generate(10, (int index) => index * 5))
-        .lastWhere((int element) => element == 30)
-  );
+          .lastWhere((int element) => element == 30));
 }

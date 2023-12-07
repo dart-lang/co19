@@ -17,13 +17,13 @@ main() {
 
   dynamic f(element) {
     log.add(element);
-    return element==2 ? new Future.error("@") : new Future.value(null);
+    return element == 2 ? new Future.error("@") : new Future.value(null);
   }
 
   asyncStart();
-  Future.forEach([0,1,2,3,4], f).catchError((Object error) {
+  Future.forEach([0, 1, 2, 3, 4], f).catchError((Object error) {
     Expect.equals("@", error);
-    Expect.listEquals([0,1,2], log);
+    Expect.listEquals([0, 1, 2], log);
     asyncEnd();
   });
 }

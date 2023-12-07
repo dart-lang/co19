@@ -13,7 +13,6 @@
 /// @description Checks that [callback] is run in the zone it was bound to.
 /// @author a.semenov@unipro.ru
 
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

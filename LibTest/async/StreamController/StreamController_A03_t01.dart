@@ -23,15 +23,12 @@ void check(List source) {
   Expect.isTrue(sink.isEmpty);
 
   asyncStart();
-  s.listen(
-    (event) {
-      sink.add(event);
-    },
-    onDone:() {
-        Expect.listEquals(source, sink);
-        asyncEnd();
-    }
-  );
+  s.listen((event) {
+    sink.add(event);
+  }, onDone: () {
+    Expect.listEquals(source, sink);
+    asyncEnd();
+  });
 
   controller.close();
 }

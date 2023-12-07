@@ -9,6 +9,7 @@
 /// @author a.semenov@unipro.ru
 
 library reduce_A01_t04;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -23,11 +24,9 @@ void test(CreateStreamFunction create) {
 
   Stream<int> s = create([1, 2, 3, 4]);
   asyncStart();
-  s.reduce(combine).then(
-      (value) {
-        Expect.equals(10, value);
-        Expect.listEquals([1, 2, 3, 3, 6, 4], log);
-        asyncEnd();
-      }
-  );
+  s.reduce(combine).then((value) {
+    Expect.equals(10, value);
+    Expect.listEquals([1, 2, 3, 3, 6, 4], log);
+    asyncEnd();
+  });
 }

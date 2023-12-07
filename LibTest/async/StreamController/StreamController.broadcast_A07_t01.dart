@@ -17,12 +17,10 @@ import "../../../Utils/expect.dart";
 main() {
   bool onListenCalled = false;
   asyncStart();
-  StreamController controller = new StreamController.broadcast(
-    onListen: () {
-      onListenCalled = true;
-      asyncEnd();
-    }
-  );
+  StreamController controller = new StreamController.broadcast(onListen: () {
+    onListenCalled = true;
+    asyncEnd();
+  });
 
   Expect.isFalse(onListenCalled);
   StreamSubscription subs = controller.stream.listen((event) {});

@@ -35,19 +35,15 @@ main() {
   List<int> events = [];
   asyncStart();
 
-  s.listen(
-    (var event) {
-      events.add(event);
-    },
-    onError: (_) {
-      Expect.fail("onError called unexpectedly");
-    },
-    onDone: () {
-      events.sort();
-      Expect.listEquals([0,1,2,3], events);
-      asyncEnd();
-    }
-  );
+  s.listen((var event) {
+    events.add(event);
+  }, onError: (_) {
+    Expect.fail("onError called unexpectedly");
+  }, onDone: () {
+    events.sort();
+    Expect.listEquals([0, 1, 2, 3], events);
+    asyncEnd();
+  });
 
   for (int k = 0; k < N; k++) {
     if (k != 1) {

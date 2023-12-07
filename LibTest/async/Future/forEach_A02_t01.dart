@@ -11,7 +11,7 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check(List input){
+void check(List input) {
   List<Completer> c = new List.generate(input.length, (_) => new Completer());
   int k = 0;
 
@@ -20,12 +20,10 @@ void check(List input){
   }
 
   asyncStart();
-  Future.forEach(input, f).then(
-    (_) {
-      Expect.isTrue(c.fold(true, (bool v, Completer x) => v && x.isCompleted));
-      asyncEnd();
-    }
-  );
+  Future.forEach(input, f).then((_) {
+    Expect.isTrue(c.fold(true, (bool v, Completer x) => v && x.isCompleted));
+    asyncEnd();
+  });
   // complete the futures in reverse order
   c.reversed.forEach((Completer x) => x.complete(null));
 }

@@ -20,24 +20,20 @@ import "../../../Utils/expect.dart";
 
 main() {
   bool hasListener = false;
-  StreamController controller = new StreamController(
-      onListen:(){ hasListener = true;}
-  );
+  StreamController controller = new StreamController(onListen: () {
+    hasListener = true;
+  });
   Stream b = controller.stream.asBroadcastStream();
   Expect.isFalse(hasListener);
   asyncStart(2);
-  b.listen(
-    (_) {
-      Expect.isTrue(hasListener);
-      asyncEnd();
-    }
-  );
-  b.listen(
-    (_) {
-      Expect.isTrue(hasListener);
-      asyncEnd();
-    }
-  );
+  b.listen((_) {
+    Expect.isTrue(hasListener);
+    asyncEnd();
+  });
+  b.listen((_) {
+    Expect.isTrue(hasListener);
+    asyncEnd();
+  });
   Expect.isTrue(hasListener);
   controller.add("a");
   new Future(() => controller.close());

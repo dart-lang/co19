@@ -23,15 +23,11 @@ void main() {
   Stream s = new Stream.fromIterable(it).map((x) => throw new ArgumentError(x));
   Stream t = s.take(takeCount);
   asyncStart();
-  t.listen(
-    (value) {
-      Expect.fail("onData call not expected");
-    },
-    onError: (error) {
-      Expect.isTrue(error is ArgumentError);
-    },
-    onDone: () {
-      asyncEnd();
-    }
-  );
+  t.listen((value) {
+    Expect.fail("onData call not expected");
+  }, onError: (error) {
+    Expect.isTrue(error is ArgumentError);
+  }, onDone: () {
+    asyncEnd();
+  });
 }

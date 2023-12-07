@@ -11,6 +11,7 @@
 /// @author a.semenov@unipro.ru
 
 library handleError_A03_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -20,48 +21,50 @@ void check(
   List actualErrors = [];
   List actualData = [];
   asyncStart();
-  s.handleError(
-    (error) {
-      actualIntercepted.add(error);
-      onError(error);
-    }
-  ).listen(
-      (data) {
-        actualData.add(data);
-      },
-      onError: (error){
-        actualErrors.add(error);
-      },
-      onDone:() {
-        Expect.listEquals(data, actualData);
-        Expect.listEquals(intercepted, actualIntercepted);
-        Expect.listEquals(expected, actualErrors);
-        asyncEnd();
-      }
-   );
+  s.handleError((error) {
+    actualIntercepted.add(error);
+    onError(error);
+  }).listen((data) {
+    actualData.add(data);
+  }, onError: (error) {
+    actualErrors.add(error);
+  }, onDone: () {
+    Expect.listEquals(data, actualData);
+    Expect.listEquals(intercepted, actualIntercepted);
+    Expect.listEquals(expected, actualErrors);
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamWithErrorsFunction create) {
   check(create([], defaultValue: 42), (e) => throw e, [], [], []);
-  check(create([], isError:(x) => true, defaultValue: 42),
-          (e) => throw e, [], [], []);
+  check(create([], isError: (x) => true, defaultValue: 42), (e) => throw e, [],
+      [], []);
 
   check(create([1, 2, 3, 4, 5], isError: (x) => true, defaultValue: 42),
       (x) => throw x, [], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]);
 
-  check(create(["a", 1, "b", 2, "c", 3, "d", 4, "e", 5, "f"],
-      isError: (x) => x is num, defaultValue: 42),
-      (x) { if (x.isEven) { throw x; }}, // onError function
+  check(
+      create(["a", 1, "b", 2, "c", 3, "d", 4, "e", 5, "f"],
+          isError: (x) => x is num, defaultValue: 42), (x) {
+    if (x.isEven) {
+      throw x;
+    }
+  }, // onError function
       ["a", "b", "c", "d", "e", "f"], // expected data
-      [1, 2, 3, 4, 5],  // intercepted errors
-      [2,4] // rethrown errors
-  );
+      [1, 2, 3, 4, 5], // intercepted errors
+      [2, 4] // rethrown errors
+      );
 
-  check(create(["a", 1, "b", 2, "c", 3, "d", 4, "e", 5, "f"],
-          isError: (x) => x is num, defaultValue: 42),
-      (x) { if (x.isEven) { throw x + 10; }}, // onError function
+  check(
+      create(["a", 1, "b", 2, "c", 3, "d", 4, "e", 5, "f"],
+          isError: (x) => x is num, defaultValue: 42), (x) {
+    if (x.isEven) {
+      throw x + 10;
+    }
+  }, // onError function
       ["a", "b", "c", "d", "e", "f"], // expected data
-      [1, 2, 3, 4, 5],  // intercepted errors
-      [12,14] // rethrown errors
-  );
+      [1, 2, 3, 4, 5], // intercepted errors
+      [12, 14] // rethrown errors
+      );
 }

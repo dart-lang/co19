@@ -14,15 +14,15 @@
 /// @author a.semenov@unipro.ru
 
 library takeWhile_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.data([], create([]).takeWhile((_) => false));
-  AsyncExpect.data(
-      [-1, -2, -3],
-      create([-1, -2, -3, 1, 2, 3, -1, -2, -3]).takeWhile((x) => x < 0)
-  );
+  AsyncExpect.data([-1, -2, -3],
+      create([-1, -2, -3, 1, 2, 3, -1, -2, -3]).takeWhile((x) => x < 0));
   AsyncExpect.data([1, 2, 3], create([1, 2, 3]).takeWhile((element) => true));
-  AsyncExpect.data([1], create([1, 2, 3, 1]).takeWhile((element) => element == 1));
+  AsyncExpect.data(
+      [1], create([1, 2, 3, 1]).takeWhile((element) => element == 1));
   AsyncExpect.data([], create([1, 2, 3]).takeWhile((element) => false));
 }

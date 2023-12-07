@@ -15,8 +15,8 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  Stream s = create(["a", 1, "b", 2, "c", 3], isError: (x) => x is num,
-      defaultValue: 42);
+  Stream s = create(["a", 1, "b", 2, "c", 3],
+      isError: (x) => x is num, defaultValue: 42);
   Map onErrorCalls = new Map();
   Map testCalls = new Map();
   asyncStart();

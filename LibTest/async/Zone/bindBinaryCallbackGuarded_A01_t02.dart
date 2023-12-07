@@ -13,7 +13,6 @@
 /// @description Checks that synchronous [callback] errors are caught in zone
 /// @author a.semenov@unipro.ru
 
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -26,11 +25,8 @@ main() {
     caughtError = e;
   }
 
-  Zone zone = Zone.current.fork(
-      specification: new ZoneSpecification(
-          handleUncaughtError: handler
-      )
-  );
+  Zone zone = Zone.current
+      .fork(specification: new ZoneSpecification(handleUncaughtError: handler));
 
   void callback(int x, int y) {
     Expect.equals(1, x);
@@ -39,8 +35,8 @@ main() {
   }
 
   void Function(int, int) boundCallback =
-                          zone.bindBinaryCallbackGuarded<int,int>(callback);
-  boundCallback(1,2);
+      zone.bindBinaryCallbackGuarded<int, int>(callback);
+  boundCallback(1, 2);
   Expect.equals(1, handlerCallCount);
   Expect.equals("callback error", caughtError);
 }

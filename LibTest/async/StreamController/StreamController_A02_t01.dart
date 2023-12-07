@@ -23,10 +23,9 @@ main() {
   bool onDataCalled = false;
   asyncStart();
   s.listen((var event) {
-      onDataCalled = true;
-      asyncEnd();
-    }
-  );
+    onDataCalled = true;
+    asyncEnd();
+  });
   controller.add(1);
   Expect.isFalse(onDataCalled);
   controller.close();

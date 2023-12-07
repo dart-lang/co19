@@ -8,6 +8,7 @@
 /// @author kaigorodov
 
 library reduce_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {

@@ -16,18 +16,12 @@ main() {
   asyncStart();
   Error error = new Error();
   StackTrace stackTrace = StackTrace.current;
-  new Future.error(error, stackTrace)
-    .catchError(
-      (Object e, StackTrace st) {
-        Expect.equals(error, e);
-        Expect.equals(stackTrace, st);
-        return "@";
-      }
-    )
-    .then(
-      (var value){
-        Expect.equals("@", value);
-        asyncEnd();
-      }
-    );
+  new Future.error(error, stackTrace).catchError((Object e, StackTrace st) {
+    Expect.equals(error, e);
+    Expect.equals(stackTrace, st);
+    return "@";
+  }).then((var value) {
+    Expect.equals("@", value);
+    asyncEnd();
+  });
 }

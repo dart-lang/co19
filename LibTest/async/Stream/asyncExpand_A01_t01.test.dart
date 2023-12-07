@@ -14,23 +14,26 @@
 /// @author a.semenov@unipro.ru
 
 library asyncExpand_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T,E>(Stream<T> stream, Stream<E> convert(T event), List<E> expected) {
+void check<T, E>(
+    Stream<T> stream, Stream<E> convert(T event), List<E> expected) {
   AsyncExpect.data(expected, stream.asyncExpand(convert));
 }
 
 void test(CreateStreamFunction create) {
   // expand to empty stream
   check(create([]), (_) => create([]), []);
-  check(create([1,2,3,4,5]), (_) => create([]), []);
+  check(create([1, 2, 3, 4, 5]), (_) => create([]), []);
   // expand to the same stream
   check(create([]), (e) => create([e]), []);
-  check(create([1,2,3,4,5]), (e) => create([e]), [1,2,3,4,5]);
-  check(create(['a',null,'b']), (e) => create([e]), ['a',null,'b']);
+  check(create([1, 2, 3, 4, 5]), (e) => create([e]), [1, 2, 3, 4, 5]);
+  check(create(['a', null, 'b']), (e) => create([e]), ['a', null, 'b']);
   // double events in the input stream
-  check(create([]), (e) => create([e,e]), []);
-  check(create([1,2,3]), (e) => create([e,e]), [1,1,2,2,3,3]);
-  check(create(['a',null,'b']), (e) => create([e,e]), ['a','a',null,null,'b','b']);
+  check(create([]), (e) => create([e, e]), []);
+  check(create([1, 2, 3]), (e) => create([e, e]), [1, 1, 2, 2, 3, 3]);
+  check(create(['a', null, 'b']), (e) => create([e, e]),
+      ['a', 'a', null, null, 'b', 'b']);
 }

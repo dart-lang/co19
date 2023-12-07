@@ -10,6 +10,7 @@
 /// @author a.semenov@unipro.ru
 
 library distinct_A03_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -19,9 +20,10 @@ class Key<T> {
 
   Key(this.previous, this.next);
 
-  bool operator ==(other) => (other is Key)
-      && other.previous == this.previous
-      && other.next == this.next;
+  bool operator ==(other) =>
+      (other is Key) &&
+      other.previous == this.previous &&
+      other.next == this.next;
 
   int get hashCode {
     return previous.hashCode ^ next.hashCode;
@@ -35,14 +37,11 @@ class Key<T> {
 Future<List<T>> subscribe<T>(Stream<T> stream) {
   Completer<List<T>> completer = new Completer<List<T>>();
   List<T> received = [];
-  stream.listen(
-      (T event) {
-        received.add(event);
-      },
-      onDone: () {
-        completer.complete(received);
-      }
-  );
+  stream.listen((T event) {
+    received.add(event);
+  }, onDone: () {
+    completer.complete(received);
+  });
   return completer.future;
 }
 
@@ -50,24 +49,19 @@ void check<T>(Stream<T> s) {
   Map<Key<T>, int> equalsLog = new Map<Key<T>, int>();
 
   bool equals(T p, T n) {
-    Key<T> key = new Key<T>(p,n);
+    Key<T> key = new Key<T>(p, n);
     equalsLog[key] = 1 + equalsLog.putIfAbsent(key, () => 0);
-    return p==n;
+    return p == n;
   }
 
   asyncStart();
   Stream<T> d = s.asBroadcastStream().distinct(equals);
-  Future.wait([
-    subscribe(d),
-    subscribe(d),
-    subscribe(d)
-  ]).then(
-    (List<List<T>> result) {
-      result.forEach((received) => Expect.listEquals(result[0], received));
-      equalsLog.values.forEach((v) => Expect.equals(3, v));
-      asyncEnd();
-    }
-  );
+  Future.wait([subscribe(d), subscribe(d), subscribe(d)])
+      .then((List<List<T>> result) {
+    result.forEach((received) => Expect.listEquals(result[0], received));
+    equalsLog.values.forEach((v) => Expect.equals(3, v));
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {

@@ -18,7 +18,7 @@ main() {
 
   asyncStart();
   c.stream.toList().then((x) {
-    Expect.listEquals([1,2], x);
+    Expect.listEquals([1, 2], x);
     asyncEnd();
   });
   c.close();

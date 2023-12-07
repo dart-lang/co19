@@ -13,6 +13,7 @@
 /// @author kaigorodov
 
 library distinct_A01_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -21,37 +22,25 @@ void check<T>(Stream<T> s, bool equals(T previous, T next)) {
   bool first = true;
   var previous;
   asyncStart();
-  d.listen(
-    (T event) {
-      Expect.isTrue(first || !equals(previous, event), "p=$previous, e=$event");
-      first = false;
-      previous = event;
-    },
-    onDone:() {
-      asyncEnd();
-    }
-  );
+  d.listen((T event) {
+    Expect.isTrue(first || !equals(previous, event), "p=$previous, e=$event");
+    first = false;
+    previous = event;
+  }, onDone: () {
+    asyncEnd();
+  });
 }
 
-int abs(x) => x < 0 ? -x: x;
+int abs(x) => x < 0 ? -x : x;
 
-int sign(x) => (x < 0) ? -1: (x == 0 ? 0 : 1);
+int sign(x) => (x < 0) ? -1 : (x == 0 ? 0 : 1);
 
 void test(CreateStreamFunction create) {
+  check<int>(create([1, 2, 2, 3]), (previous, next) => previous == next);
   check<int>(
-      create([1, 2, 2, 3]),
-      (previous, next) => previous == next
-  );
-  check<int>(
-      create([2, 4, 3, 1]),
-      (previous, next) => previous % 2 == next % 2
-  );
-  check<int>(
-      create(new Iterable.generate(10, (int index) => index)),
-      (var previous, var next) => abs(previous - next) <= 1
-  );
-  check(
-      create(new Iterable.generate(10, (int index) => -5 + index)),
-      (var previous, var next) => sign(previous) == sign(next)
-  );
+      create([2, 4, 3, 1]), (previous, next) => previous % 2 == next % 2);
+  check<int>(create(new Iterable.generate(10, (int index) => index)),
+      (var previous, var next) => abs(previous - next) <= 1);
+  check(create(new Iterable.generate(10, (int index) => -5 + index)),
+      (var previous, var next) => sign(previous) == sign(next));
 }

@@ -19,8 +19,9 @@ main() {
   Expect.isFalse(controller.isClosed);
 
   List events1 = new List.empty(growable: true);
-  StreamSubscription ss = controller.stream.listen(
-      (event) {events1.add(event);});
+  StreamSubscription ss = controller.stream.listen((event) {
+    events1.add(event);
+  });
   Expect.isFalse(controller.isClosed);
 
   controller.add(1);
@@ -29,5 +30,5 @@ main() {
   controller.close();
   Expect.isTrue(controller.isClosed);
 
-  Expect.throws(() =>  controller.add(0), null, "add() works after close()");
+  Expect.throws(() => controller.add(0), null, "add() works after close()");
 }

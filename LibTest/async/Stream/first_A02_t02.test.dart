@@ -12,20 +12,17 @@
 /// @author kaigorodov
 
 library first_A02_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(Stream s) {
   asyncStart();
   s = s.asBroadcastStream();
-  Future.wait(
-    [s.elementAt(0), s.first]
-  ).then(
-    (List result) {
-      Expect.equals(result[0], result[1]);
-      asyncEnd();
-    }
-  );
+  Future.wait([s.elementAt(0), s.first]).then((List result) {
+    Expect.equals(result[0], result[1]);
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {

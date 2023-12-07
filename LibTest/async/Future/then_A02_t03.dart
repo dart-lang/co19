@@ -19,21 +19,15 @@ main() {
   asyncStart();
   Error error = new Error();
   StackTrace stackTrace = StackTrace.current;
-  new Future.error(error, stackTrace).then(
-      (_) {
-        Expect.fail("Initial future should complete with error");
-      },
-      onError: (_) {
-        throw error;
-      }
-  ).then(
-      (_) {
-        Expect.fail("Returned future should complete with error");
-      },
-      onError: (e, st) {
-        Expect.identical(error, e);
-        Expect.identical(stackTrace, st);
-        asyncEnd();
-      }
-  );
+  new Future.error(error, stackTrace).then((_) {
+    Expect.fail("Initial future should complete with error");
+  }, onError: (_) {
+    throw error;
+  }).then((_) {
+    Expect.fail("Returned future should complete with error");
+  }, onError: (e, st) {
+    Expect.identical(error, e);
+    Expect.identical(stackTrace, st);
+    asyncEnd();
+  });
 }

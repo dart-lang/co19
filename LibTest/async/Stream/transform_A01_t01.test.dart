@@ -30,8 +30,8 @@ void check<T, S>(Stream<T> s, StreamTransformer<T, S> transformer,
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([1, 2, 3, 4, 5], defaultValue: 42),
-      passThrough, [1, 2, 3, 4, 5], []);
+  check(create([1, 2, 3, 4, 5], defaultValue: 42), passThrough, [1, 2, 3, 4, 5],
+      []);
   check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defaultValue: 42),
       passThrough, [2, 4], [1, 3, 5]);
   check(create([1, 2, 3, 4, 5], isError: (x) => true, defaultValue: 42),

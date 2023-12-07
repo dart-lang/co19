@@ -18,19 +18,14 @@ main() {
   Error error = new Error();
   Completer completer = new Completer();
   asyncStart();
-  completer.future.then(
-      (_) {
-        throw error;
-      }
-  ).then(
-      (_) {
-        Expect.fail("Returned future should complete with error");
-      },
-      onError: (e) {
-        Expect.identical(error, e);
-        asyncEnd();
-      }
-  );
+  completer.future.then((_) {
+    throw error;
+  }).then((_) {
+    Expect.fail("Returned future should complete with error");
+  }, onError: (e) {
+    Expect.identical(error, e);
+    asyncEnd();
+  });
 
   completer.complete("go");
 }

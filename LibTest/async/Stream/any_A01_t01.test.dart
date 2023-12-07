@@ -9,6 +9,7 @@
 /// @author kaigorodov
 
 library any_A01_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
@@ -17,14 +18,10 @@ void test(CreateStreamFunction create) {
   AsyncExpect.value(true, create([1, 2, 3, null]).any((int? e) => e == null));
   AsyncExpect.value(
       false,
-      create(
-          new Iterable<int>.generate(0, (int index) => index * 2)
-      ).any((int element) => true)
-  );
+      create(new Iterable<int>.generate(0, (int index) => index * 2))
+          .any((int element) => true));
   AsyncExpect.value(
       true,
-      create(
-          new Iterable<int>.generate(10, (int index) => index * 5)
-      ).any((int element) => element == 30)
-  );
+      create(new Iterable<int>.generate(10, (int index) => index * 5))
+          .any((int element) => element == 30));
 }

@@ -19,21 +19,19 @@
 /// @author a.semenov@unipro.ru
 
 library asyncMap_A03_t03;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   Stream<String> stream1 = create(["a", "b", "c"]);
-  AsyncExpect.events([],
-      ["a", "b", "c"], stream1.asyncMap((e) => new Future.error(e)));
+  AsyncExpect.events(
+      [], ["a", "b", "c"], stream1.asyncMap((e) => new Future.error(e)));
 
   Stream<int> stream2 = create([1, 2, 3, 4, 5]);
   AsyncExpect.events(
-    [1, 3, 5],
-    [2, 4],
-    stream2.asyncMap(
-      (int e) => new Future.delayed(
-          durationInMilliseconds(50), () => e.isOdd ? e : throw e)
-    )
-  );
+      [1, 3, 5],
+      [2, 4],
+      stream2.asyncMap((int e) => new Future.delayed(
+          durationInMilliseconds(50), () => e.isOdd ? e : throw e)));
 }

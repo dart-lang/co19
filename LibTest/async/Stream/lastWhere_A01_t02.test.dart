@@ -20,21 +20,21 @@
 /// @author a.semenov@unipro.ru
 
 library lastWhere_A01_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, bool test(T element), T expected) {
   bool orElseCalled = false;
   asyncStart();
-  s.lastWhere(test, orElse:() {
+  s.lastWhere(test, orElse: () {
     orElseCalled = true;
     return null as T;
-  })
-   .then((T actual){
-     Expect.equals(expected, actual);
-     Expect.isFalse(orElseCalled);
-     asyncEnd();
-   });
+  }).then((T actual) {
+    Expect.equals(expected, actual);
+    Expect.isFalse(orElseCalled);
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {

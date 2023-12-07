@@ -23,24 +23,19 @@ main() {
   Future f = completer.future;
   List log = [];
 
-  f.catchError(
-    (Object error) {
-      log.add(2);
-      log.add(error);
-      return "ok";
-    },
-    test:(Object error) {
-      log.add(1);
-      log.add(error);
-      return true;
-    }
-  ).then(
-    (value) {
-      Expect.listEquals([1, "!", 2, "!"], log);
-      Expect.equals("ok", value);
-      asyncEnd();
-    }
-  );
+  f.catchError((Object error) {
+    log.add(2);
+    log.add(error);
+    return "ok";
+  }, test: (Object error) {
+    log.add(1);
+    log.add(error);
+    return true;
+  }).then((value) {
+    Expect.listEquals([1, "!", 2, "!"], log);
+    Expect.equals("ok", value);
+    asyncEnd();
+  });
 
   asyncStart();
   completer.completeError("!");

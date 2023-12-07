@@ -9,6 +9,7 @@
 /// @author a.semenov@unipro.ru
 
 library contains_A02_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -23,7 +24,7 @@ void check<T>(Stream<T> s, Object? match, bool expected) {
     Expect.equals(expected, actual);
     if (expected) {
       Expect.equals(match, seen.last);
-      Expect.equals(seen.length-1, seen.indexOf(match));
+      Expect.equals(seen.length - 1, seen.indexOf(match));
     } else {
       Expect.isFalse(seen.contains(match));
     }

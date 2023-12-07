@@ -16,18 +16,17 @@ String output1 = "";
 
 main() {
   var value = 99;
-  Future future = new Future.sync(()=>value);
+  Future future = new Future.sync(() => value);
   Stream stream = future.asStream();
   int count = 1;
 
   asyncStart();
-  stream.listen(
-    (var event){  // should be invoked first
-    	count = count + 1;
-    },
-    onDone: () {
-	    Expect.equals(2, count);
-      asyncEnd();
-    }   // should be invoked second
-  );
+  stream.listen((var event) {
+    // should be invoked first
+    count = count + 1;
+  }, onDone: () {
+    Expect.equals(2, count);
+    asyncEnd();
+  } // should be invoked second
+      );
 }
