@@ -35,6 +35,7 @@ import "asyncMap_A01_t04.test.dart" as asyncMap_A01_t04;
 import "asyncMap_A02_t01.test.dart" as asyncMap_A02_t01;
 import "asyncMap_A03_t02.test.dart" as asyncMap_A03_t02;
 import "asyncMap_A03_t03.test.dart" as asyncMap_A03_t03;
+import "asyncMap_A04_t01.test.dart" as asyncMap_A04_t01;
 
 import "contains_A01_t01.test.dart" as contains_A01_t01;
 import "contains_A02_t01.test.dart" as contains_A02_t01;
@@ -186,6 +187,7 @@ void test(CreateStreamFunction create) {
   asyncMap_A02_t01.test(create);
   asyncMap_A03_t02.test(create);
   asyncMap_A03_t03.test(create);
+  asyncMap_A04_t01.test(create);
 
   contains_A01_t01.test(create);
   contains_A02_t01.test(create);

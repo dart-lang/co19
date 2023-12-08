@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion  Stream asyncMap(dynamic convert(T event))
-/// This acts like [map], ...
-///
-/// The convert function is called once per data event per listener.
-/// If a broadcast stream is listened to more than once, each subscription
-/// will individually call convert on each data event.
+/// @assertion  Stream<E> asyncMap<E>(FutureOr<E> convert(T event))
+/// ...
+/// This acts like [map], in that [convert] function is called once per
+/// data event, but here [convert] may be asynchronous and return a [Future].
+/// If that happens, this stream waits for that future to complete before
+/// continuing with further events.
 ///
 /// @description Checks that convert function is called once per data event
 /// per listener.
-///
 /// @issue #29615
 /// @author a.semenov@unipro.ru
 
@@ -39,18 +38,19 @@ Future? check<T>(Stream<T> stream, List<T> expected) {
     return event;
   }
 
-  asyncStart();
   Stream<T> converted = stream.asyncMap(convert);
   Future.wait(
           [subscribe(converted), subscribe(converted), subscribe(converted)])
       .then((List<List<T>> result) {
     result.forEach((received) => Expect.listEquals(expected, received));
-    expected.forEach((event) => Expect.equals(3, convertLog[event]));
+    expected.forEach((event) => Expect.equals(1, convertLog[event]));
     asyncEnd();
   });
+  return null;
 }
 
 void test(CreateStreamFunction create) {
+  asyncStart(3);
   check(create([]).asBroadcastStream(), []);
   check(create([1, 2, 3, 4, 5]).asBroadcastStream(), [1, 2, 3, 4, 5]);
   check(create(['a', 'b', 'c']).asBroadcastStream(), ['a', 'b', 'c']);
