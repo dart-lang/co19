@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Any use of a type [T] which is not well-bounded is a
+/// @assertion Any use of a type `T` which is not well-bounded is a
 /// compile-time error.
-/// @description Checks that compile error is thrown when call generic
-/// function with type parameter which is not well bounded
+///
+/// @description Checks that it is a compile-time error to call a generic
+/// function with an actual type argument which does not satisfy the bounds.
 /// @author iarkh@unipro.ru
 
-
-class A<T> {}
 void testme<X extends num>() {}
 
 main() {

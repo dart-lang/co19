@@ -2,10 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Any use of a type [T] which is not well-bounded is a
+/// @assertion Any use of a type `T` which is not well-bounded is a
 /// compile-time error.
-/// @description Checks that compile error is not thrown when non-function type
-/// alias with well bounded type parameter is declared
+///
+/// @description Checks that it is a compile-time error when a non-function type
+/// alias is declared with a type parameter which doesn't satisfy the bounds
 /// @Issue 44830
 /// @author iarkh@unipro.ru
 
@@ -29,4 +30,8 @@ typedef B4<X extends A<void>> = A<X>;
 // [cfe] unspecified
 
 main() {
+  print(B1);
+  print(B2);
+  print(B3);
+  print(B4);
 }
