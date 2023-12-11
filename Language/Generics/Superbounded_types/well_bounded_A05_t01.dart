@@ -22,7 +22,7 @@ typedef B2<X extends A<A>> = A<X>;
 //                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B3<X extends A<int>> = A<X>; // A<int> is a  mailbounded type
+typedef B3<X extends A<int>> = A<X>; // A<int> is a  malbounded type
 //                     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

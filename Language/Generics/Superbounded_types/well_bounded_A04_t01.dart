@@ -25,7 +25,7 @@ typedef void B2<X extends A<A>>(X);
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef void B3<X extends A<int>>(X); // A<int> is a  mailbounded type
+typedef void B3<X extends A<int>>(X); // A<int> is a  malbounded type
 //                          ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

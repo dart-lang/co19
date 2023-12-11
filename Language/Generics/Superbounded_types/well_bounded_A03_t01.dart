@@ -27,7 +27,7 @@ typedef B3<X extends A> = void Function();
 //                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef B4<X extends A<int>> = void Function(); // A<int> is a  mailbounded type
+typedef B4<X extends A<int>> = void Function(); // A<int> is a  malbounded type
 //                     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

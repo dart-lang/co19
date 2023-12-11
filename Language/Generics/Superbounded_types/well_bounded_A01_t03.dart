@@ -28,7 +28,7 @@ class B2<X extends A<A>> {}
 //                   ^
 // [analyzer] COMPILE_TIME_ERROR.NOT_INSTANTIATED_BOUND
 
-class B3<X extends A<int>> {} // A<int> is a  mailbounded type
+class B3<X extends A<int>> {} // A<int> is a  malbounded type
 //                 ^
 // [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
 //                   ^^^
