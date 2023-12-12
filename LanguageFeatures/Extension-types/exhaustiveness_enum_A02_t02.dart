@@ -12,16 +12,14 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-enum E<T> {
-  a<int>(),
-  b<String>(),
-  c<double>(),
+enum E {
+  a, b, c
 }
 
-extension type ET1<T>(E<T> _) {}
-extension type ET2<T>(E<T> _) implements E<T> {}
+extension type ET1(E _) {}
+extension type ET2(E _) implements E {}
 
-String testStatement1<T extends num>(ET1<T> e) {
+String testStatement1(ET1 e) {
   switch (e) {
 //^^^^^^
 // [analyzer] unspecified
@@ -33,7 +31,7 @@ String testStatement1<T extends num>(ET1<T> e) {
   }
 }
 
-String testStatement2<T extends num>(ET2<T> e) {
+String testStatement2(ET2 e) {
   switch (e) {
 //^^^^^^
 // [analyzer] unspecified
@@ -45,7 +43,7 @@ String testStatement2<T extends num>(ET2<T> e) {
   }
 }
 
-String testExpression1<T extends num>(ET1<T> e) =>
+String testExpression1(ET1 e) =>
   switch (e) {
 //^^^^^^
 // [analyzer] unspecified
@@ -54,7 +52,7 @@ String testExpression1<T extends num>(ET1<T> e) =>
       E.b => "b"
     };
 
-String testExpression2<T extends num>(ET2<T> e) =>
+String testExpression2(ET2 e) =>
   switch (e) {
 //^^^^^^
 // [analyzer] unspecified
@@ -63,49 +61,9 @@ String testExpression2<T extends num>(ET2<T> e) =>
     E.b => "b"
   };
 
-String testStatement3(ET1<num> e) {
-  switch (e) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case E.a:
-      return "ok";
-  }
-}
-
-String testStatement4(ET2<num> e) {
-  switch (e) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case E.a:
-      return "ok";
-  }
-}
-
-String testExpression3(ET1<num> e) =>
-  switch (e) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    E.a => "a"
-  };
-
-String testExpression4(ET2<num> e) =>
-  switch (e) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    E.a => "a"
-  };
-
 main() {
   testStatement1(ET1(E.a));
   testStatement2(ET2(E.a));
   testExpression1(ET1(E.c));
   testExpression2(ET2(E.c));
-  testStatement3(ET1(E.a));
-  testStatement4(ET2(E.a));
-  testExpression3(ET1(E.a));
-  testExpression4(ET2(E.a));
 }
