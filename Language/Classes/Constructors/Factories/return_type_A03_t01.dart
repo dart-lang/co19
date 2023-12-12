@@ -17,8 +17,6 @@ class C extends A {
   factory C() => "42" as dynamic;
 
   factory C.f1() => A() as dynamic;
-
-  factory C.f2() => A() as C;
 }
 
 enum E implements A {
@@ -28,8 +26,6 @@ enum E implements A {
   factory E.f1() => "42" as dynamic;
 
   factory E.f2() => A() as dynamic;
-
-  factory E.f3() => A() as E;
 }
 
 main() {
@@ -40,15 +36,9 @@ main() {
     C.f1();
   });
   Expect.throws(() {
-    C.f2();
-  });
-  Expect.throws(() {
     E.f1();
   });
   Expect.throws(() {
     E.f2();
-  });
-  Expect.throws(() {
-    E.f3();
   });
 }

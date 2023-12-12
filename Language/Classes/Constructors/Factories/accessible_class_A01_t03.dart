@@ -18,9 +18,6 @@
 /// if R does not denote a constructor. Otherwise, it is a compile-time error if
 /// R denotes a generative constructor and D is abstract.
 ///
-/// @description Checks that a compile error is produced if `T` does not denote
-/// a class accessible in the current scope.
-///
 /// @description Checks that it is a compile-time error if `T` does not denote a
 /// class accessible in the current scope
 /// @author sgrekhov22@gmail.com

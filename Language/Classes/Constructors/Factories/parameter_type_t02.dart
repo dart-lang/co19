@@ -11,16 +11,17 @@
 ///
 /// @description Checks that it is a dynamic type error if an actual argument
 /// type of a redirecting factory constructor call is not a subtype of the
-/// actual type of its corresponding formal parameter (that this situation can
-/// only occur when the static type of the given actual argument is `dynamic`).
+/// actual type of its corresponding formal parameter. Test the case when the
+/// constructor which is actually invoked would be satisfied by that argument if
+/// called directly.
 /// @author sgrekhov22@gmail.com
 
 import "../../../../Utils/expect.dart";
 
 class F {
-  factory F(num x) = C;
-  factory F.foo(num x, [num y]) = C.foo;
-  factory F.bar(num x, {num z}) = C.bar;
+  factory F(int x) = C;
+  factory F.foo(int x, [int y]) = C.foo;
+  factory F.bar(int x, {int z}) = C.bar;
 }
 
 class C implements F {
@@ -38,16 +39,16 @@ enum E {
   factory E.g1(num x) => E.e1;
   factory E.g2(num x, [num y = 1]) => E.e1;
   factory E.g3(num x, {num z = 2}) => E.e1;
-  factory E.f1(num x) = E.g1;
-  factory E.f2(num x, [num y]) = E.g2;
-  factory E.f3(num x, {num z}) = E.g3;
+  factory E.f1(int x) = E.g1;
+  factory E.f2(int x, [int y]) = E.g2;
+  factory E.f3(int x, {int z}) = E.g3;
 }
 
 main() {
-  Expect.throws(() {F(Object() as dynamic);});
-  Expect.throws(() {F.foo(42, Object() as dynamic);});
-  Expect.throws(() {F.bar(3.14, z: Object() as dynamic);});
-  Expect.throws(() {E.f1(Object() as dynamic);});
-  Expect.throws(() {E.f2(42, Object() as dynamic);});
-  Expect.throws(() {E.f3(3.14, z: Object() as dynamic);});
+  Expect.throws(() {F(3.14 as dynamic);});
+  Expect.throws(() {F.foo(1.1 as dynamic, 3.14 as dynamic);});
+  Expect.throws(() {F.bar(3.14 as dynamic, z: 1.1 as dynamic);});
+  Expect.throws(() {E.f1(3.14 as dynamic);});
+  Expect.throws(() {E.f2(4.2 as dynamic, 1.1 as dynamic);});
+  Expect.throws(() {E.f3(3.14 as dynamic, z: 1.1 as dynamic);});
 }
