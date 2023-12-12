@@ -24,7 +24,6 @@ extension type ET2(E _) implements E {}
 String testStatement1(ET1 e) {
   switch (e) {
     case E.a:
-    case E.a:
     case E.b:
     case E.c:
       return "ok";
