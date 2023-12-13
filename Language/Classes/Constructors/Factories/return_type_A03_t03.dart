@@ -28,5 +28,5 @@ enum E {
 
 main() {
   print(C);
-  print(F);
+  print(E);
 }
