@@ -2,11 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Switch statements and expressions with map as a matched type can
-/// never be exhaustive
+/// @assertion Exhaustiveness with map patterns can only be achieved when there
+/// is an exhaustive pattern in addition to any map patterns
 ///
-/// @description Check that a map pattern cannot be exhaustive. Test an
-/// extension type
+/// @description Check that a switch statement/expression with map patterns only
+/// cannot be exhaustive. Test the case when a matched type is an extension type
+/// with a `Map` as a representation type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
