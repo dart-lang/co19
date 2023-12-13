@@ -13,18 +13,18 @@
 
 class C {
   factory C{ return A();}
-//        ^^
+//         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class A implements C{}
+class A implements C {}
 
 enum E {
   e1, e2;
   const E();
   factory E.f => E.e1;
-//        ^^
+//            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
