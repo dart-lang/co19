@@ -3,13 +3,13 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion StreamController.broadcast({void onListen(), void onCancel(),
-///                                       bool sync: false})
+///                                       bool sync = false})
 /// The controller does not have any internal queue of events, and if there
-/// are no listeners at the time the event is added, it will just be dropped,
-/// or, if it is an error, be reported as uncaught.
+/// are no listeners at the time the event or error is added, it will just be
+/// dropped.
 ///
-/// @description Checks that errors are reported as uncaught if there are no
-/// listeners.
+/// @description Checks that an error is not reported as uncaught if there are
+/// no listeners. The error is just dropped.
 /// @issue 29403
 /// @author a.semenov@unipro.ru
 
@@ -18,6 +18,13 @@ import "../../../Utils/expect.dart";
 
 main() {
   StreamController controller = new StreamController.broadcast();
-  Expect.throws(() => controller.addError("lost event"));
+  controller.addError("lost error");
+  asyncStart();
+  List receivedData = [];
+  controller.stream.listen((data) => receivedData.add(data), onDone: () {
+    Expect.listEquals(["event"], receivedData);
+    asyncEnd();
+  });
+  controller.add("event");
   controller.close();
 }

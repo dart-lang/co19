@@ -3,10 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion StreamController.broadcast({void onListen(), void onCancel(),
-///                                       bool sync: false})
+///                                       bool sync = false})
 /// The controller does not have any internal queue of events, and if there
-/// are no listeners at the time the event is added, it will just be dropped,
-/// or, if it is an error, be reported as uncaught.
+/// are no listeners at the time the event or error is added, it will just be
+/// dropped.
 ///
 /// @description Checks that data events are dropped if there are no listeners.
 /// @author a.semenov@unipro.ru
