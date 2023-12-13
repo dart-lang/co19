@@ -5,10 +5,13 @@
 /// @assertion A redirecting factory constructor specifies a call to a
 /// constructor of another class that is to be used whenever the redirecting
 /// constructor is called.
-/// redirectingFactoryConstructorSignature:
-///   const? factory identifier (‘.’ identifier)? formalParameterList
-/// ‘=’ typeName (‘.’ identifier)?
-/// ;
+/// ⟨redirectingFactoryConstructorSignature⟩ ::=
+///     const? factory ⟨constructorName⟩ ⟨formalParameterList⟩ ‘=’
+///     ⟨constructorDesignation⟩
+/// ⟨constructorDesignation⟩ ::= ⟨typeIdentifier⟩
+///     | ⟨qualifiedName⟩
+///     | ⟨typeName⟩ ⟨typeArguments⟩ (‘.’ ⟨identifier⟩)?
+///
 /// @description Checks that correct declarations of redirecting factory
 /// constructors do not cause errors.
 /// @author kaigorodov

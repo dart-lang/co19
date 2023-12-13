@@ -2,15 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Calling a redirecting factory constructor k causes the
-/// constructor k' denoted by type (respectively, type.identifier) to be called
-/// with the actual arguments passed to k, and returns the result of k' as the
-/// result of k. The resulting constructor call is governed by the same rules
-/// as an instance creation expression using new.
+/// @assertion For the dynamic semantics, assume that k is a redirecting factory
+/// constructor and k′ is the redirectee of k
+/// ...
+/// When the redirectee k′ is a generative constructor, let o be a
+/// fresh instance of the class that contains k′. Execution of k then amounts to
+/// execution of k′ to initialize o, governed by the same rules as an instance
+/// creation expression. If k′ completed normally then the execution of k
+/// completes normally returning o, otherwise k completes by throwing the
+/// exception and stack trace thrown by k′.
+///
 /// @description Checks that compile error occurs when referenced type is not
 /// defined or refers to non class or non constructor.
 /// @author ilya
-
 
 function() {}
 var variable;
@@ -39,4 +43,5 @@ class D {
 }
 
 main() {
+  print(F);
 }
