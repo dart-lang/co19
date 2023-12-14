@@ -26,42 +26,38 @@ extension type V2(int _) {
 
 extension type ET1(V1 _) implements V1 {
   void set n(String v) {}
-//         ^
-// [cfe] unspecified
 }
 
 extension type ET2(V2 _) implements V2 {
   String n() => "ET2";
-//       ^
-// [cfe] unspecified
 }
 
 extension type ET3(V1 _) implements V1 {
   void set n(int v) {}
-//         ^
-// [cfe] unspecified
 }
 
 extension type ET4(V2 _) implements V2 {
   int n() => 42;
-//    ^
-// [cfe] unspecified
 }
 
 main() {
   ET1(V1(0)).n();
 //           ^
 // [analyzer] unspecified
+// [cfe] unspecified
 
   ET2(V2(0)).n = "42";
 //           ^
 // [analyzer] unspecified
+// [cfe] unspecified
 
   ET3(V1(0)).n();
 //           ^
 // [analyzer] unspecified
+// [cfe] unspecified
 
   ET4(V2(0)).n = "42";
 //           ^
 // [analyzer] unspecified
+// [cfe] unspecified
 }
