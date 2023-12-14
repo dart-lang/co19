@@ -39,6 +39,6 @@ main() async {
   var it1 = await res1?.toList();
   Expect.isRuntimeTypeImplementsIterable<int?>(it1);
 
-  var it2 = (await f2())?.toList();
+  var it2 = await (await f2())?.toList();
   Expect.isRuntimeTypeImplementsIterable<int>(it2);
 }
