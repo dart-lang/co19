@@ -20,7 +20,7 @@ class C extends A<int> {}
 
 test1(A<String> a) => switch (a) { B _ => 'B'};
 
-test2(A<String> a) => switch (a) { B _ => 'B', C _ => 'C'};
+test2(A a) => switch (a) { B _ => 'B', C _ => 'C'};
 
 main() {
   Expect.equals("B", test1(B<String>()));
