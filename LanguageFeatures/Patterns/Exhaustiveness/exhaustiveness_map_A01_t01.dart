@@ -2,14 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Switch statements and expressions with map as a matched type can
-/// never be exhaustive
+/// @assertion Exhaustiveness with map patterns can only be achieved when there
+/// is an exhaustive pattern in addition to any map patterns
 ///
-/// @description Check that map pattern cannot be exhaustive
+/// @description Check that switch expression/statement with map patterns only
+/// cannot be exhaustive
 /// @author sgrekhov22@gmail.com
 
 String test1(Map<bool, bool> m) =>
-  switch (m) { // Empty map is not matched
+  switch (m) {
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
