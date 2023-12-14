@@ -2,7 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Switch expression with a list as a matched type can be exhaustive
+/// @assertion A switch expression with `List` as the matched value type can be
+/// exhaustive, which can also make a switch expression with an extension type
+/// whose representation type is `List<...>` exhaustive.
 ///
 /// @description Check that an extension type with an implementation of `List`
 /// with a negative length as a representation type can be exhaustive

@@ -6,7 +6,8 @@
 /// exhaustive
 ///
 /// @description Check that exhaustiveness check is not performed for a switch
-/// statement with a list as a matched type
+/// statement with a matched value type an extension type with the
+/// representation type`List`.
 /// @author sgrekhov22@gmail.com
 
 extension type ET1<T>(List<T> _) {}

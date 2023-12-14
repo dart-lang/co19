@@ -2,10 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Switch expression with a list as a matched type can be exhaustive
+/// @assertion A switch expression with `List` as the matched value type can be
+/// exhaustive, which can also make a switch expression with an extension type
+/// whose representation type is `List<...>` exhaustive.
 ///
-/// @description Check that it is a compile-time error if a matched type of a
-/// switch expression is a list and cases are not exhaustive.
+/// @description Check that it is a compile-time error if a matched value type
+/// of a switch expression is an extension type with representation type `List`
+/// and the set of cases is not exhaustive.
 /// @author sgrekhov22@gmail.com
 
 extension type ET1<T>(List<T> _) {}
