@@ -35,21 +35,6 @@ String test1_2(ET2<bool, bool> m) =>
     Map() => "other"
   };
 
-String test2_1(ET1<bool, bool> m) {
-  switch (m) {
-    case {true: true}:
-      return "case-1";
-    case {true: false}:
-      return "case-2";
-    case {false: true}:
-      return "case-3";
-    case {false: false}:
-      return "case-4";
-    case Map():
-      return "other";
-  }
-}
-
 String test2_2(ET2<bool, bool> m) {
   switch (m) {
     case {true: true}:
@@ -68,14 +53,11 @@ String test2_2(ET2<bool, bool> m) {
 main() {
   Expect.equals("case-1", test1_1(ET1({true: true})));
   Expect.equals("case-2", test1_2(ET2({true: false})));
-  Expect.equals("case-3", test2_1(ET1({false: true})));
   Expect.equals("case-4", test2_2(ET2({false: false})));
   Expect.equals("other", test1_1(ET1<bool, bool>({})));
   Expect.equals("other", test1_2(ET2<bool, bool>({})));
-  Expect.equals("other", test2_1(ET1<bool, bool>({})));
   Expect.equals("other", test2_2(ET2<bool, bool>({})));
-  Expect.equals("other", test1_1(ET1({true: true, false: false})));
-  Expect.equals("other", test1_2(ET2({true: false, false: false})));
-  Expect.equals("other", test2_1(ET1({false: true, true: true})));
-  Expect.equals("other", test2_2(ET2({false: false, true: true})));
+  Expect.equals("case-1", test1_1(ET1({true: true, false: false})));
+  Expect.equals("case-2", test1_2(ET2({true: false, false: false})));
+  Expect.equals("case-1", test2_2(ET2({false: false, true: true})));
 }

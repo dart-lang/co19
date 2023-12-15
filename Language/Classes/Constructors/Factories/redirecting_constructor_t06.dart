@@ -17,22 +17,20 @@
 /// @author sgrekhov22@gmail.com
 
 class F {
-  external factory F(num x) = C;
-//                          ^
+  external factory F() = C;
+//                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  external factory F.f1(num x) = C.f1;
-//                             ^
+  external factory F.f1() = C.f1;
+//                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class C implements F {
-  num x;
-
-  external C(this.x);
-  C.f1(this.x);
+  external C();
+  C.f1();
 }
 
 enum E {
