@@ -32,8 +32,6 @@
 // SharedOptions=--enable-experiment=inline-class
 
 extension type ET1(int id) {
-//                     ^^
-// [cfe] unspecified
   late int id = 0;
 //         ^^
 // [analyzer] unspecified
