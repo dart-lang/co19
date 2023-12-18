@@ -20,9 +20,10 @@ extension type ET1(E _) {}
 extension type ET2(E _) implements E {}
 
 String testStatement1(ET1 e) {
+//     ^^^^^^^^^^^^^^
+// [analyzer] unspecified
   switch (e) {
 //^^^^^^
-// [analyzer] unspecified
 // [cfe] unspecified
     case E.a:
       return "a";
@@ -32,9 +33,10 @@ String testStatement1(ET1 e) {
 }
 
 String testStatement2(ET2 e) {
+//     ^^^^^^^^^^^^^^
+// [analyzer] unspecified
   switch (e) {
 //^^^^^^
-// [analyzer] unspecified
 // [cfe] unspecified
     case E.a:
       return "a";

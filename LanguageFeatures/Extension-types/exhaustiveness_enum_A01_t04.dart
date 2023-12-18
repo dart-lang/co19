@@ -47,7 +47,7 @@ String testExpression1(ET1 e) =>
     E.c => "c"
   };
 
-String testExpression2(ET2<num> e) =>
+String testExpression2(ET2 e) =>
   switch (e) {
     E.a => "a",
     E.b => "b",

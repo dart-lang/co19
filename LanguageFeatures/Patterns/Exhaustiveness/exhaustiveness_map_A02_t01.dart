@@ -6,18 +6,12 @@
 /// is an exhaustive pattern in addition to any map patterns
 ///
 /// @description Check that a switch statement/expression with map patterns and
-/// additional exhaustive pattern can be exhaustive. Test the case when a
-/// matched type is an extension type with a `Map` as a representation type
+/// additional exhaustive pattern can be exhaustive.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
+import "../../../Utils/expect.dart";
 
-import "../../Utils/expect.dart";
-
-extension type ET1<K, V>(Map<K, V> _) {}
-extension type ET2<K, V>(Map<K, V> _) implements Map<K, V> {}
-
-String test1_1(ET1<bool, bool> m) =>
+String test1_1(Map<bool, bool> m) =>
   switch (m) {
     {true: true} => "case-1",
     {true: false} => "case-2",
@@ -26,7 +20,7 @@ String test1_1(ET1<bool, bool> m) =>
     Map() => "other"
   };
 
-String test1_2(ET2<bool, bool> m) =>
+String test1_2(Map<bool, bool> m) =>
   switch (m) {
     {true: true} => "case-1",
     {true: false} => "case-2",
@@ -35,7 +29,22 @@ String test1_2(ET2<bool, bool> m) =>
     Map() => "other"
   };
 
-String test2_2(ET2<bool, bool> m) {
+String test2_1(Map<bool, bool> m) {
+  switch (m) {
+    case {true: true}:
+      return "case-1";
+    case {true: false}:
+      return "case-2";
+    case {false: true}:
+      return "case-3";
+    case {false: false}:
+      return "case-4";
+    case Map():
+      return "other";
+  }
+}
+
+String test2_2(Map<bool, bool> m) {
   switch (m) {
     case {true: true}:
       return "case-1";
@@ -51,13 +60,12 @@ String test2_2(ET2<bool, bool> m) {
 }
 
 main() {
-  Expect.equals("case-1", test1_1(ET1({true: true})));
-  Expect.equals("case-2", test1_2(ET2({true: false})));
-  Expect.equals("case-4", test2_2(ET2({false: false})));
-  Expect.equals("other", test1_1(ET1<bool, bool>({})));
-  Expect.equals("other", test1_2(ET2<bool, bool>({})));
-  Expect.equals("other", test2_2(ET2<bool, bool>({})));
-  Expect.equals("case-1", test1_1(ET1({true: true, false: false})));
-  Expect.equals("case-2", test1_2(ET2({true: false, false: false})));
-  Expect.equals("case-1", test2_2(ET2({false: false, true: true})));
+  Expect.equals("other", test1_1(<bool, bool>{}));
+  Expect.equals("other", test1_2(<bool, bool>{}));
+  Expect.equals("other", test2_1(<bool, bool>{}));
+  Expect.equals("other", test2_2(<bool, bool>{}));
+  Expect.equals("case-1", test1_1({true: true, false: false}));
+  Expect.equals("case-2", test1_2({true: false, false: false}));
+  Expect.equals("case-1", test2_1({false: true, true: true}));
+  Expect.equals("case-1", test2_2({false: false, true: true}));
 }
