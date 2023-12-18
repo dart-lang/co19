@@ -33,7 +33,8 @@
 /// redeclared by a getter, or vice versa.
 ///
 /// @description Checks that a `call` member can be redeclared as any other
-/// member
+/// member, and it can coexist with a member named `call` in the interface of
+/// the representation type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class

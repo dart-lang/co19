@@ -33,7 +33,8 @@
 /// redeclared by a getter, or vice versa.
 ///
 /// @description Checks that a `call` member can be redeclared as any other
-/// member
+/// member, and also that an extension type member named `call` can coexist with
+/// a member named `call` in the interface of the representation type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -79,14 +80,20 @@ extension type ET6(C3 c) implements C3 {
 main() {
   Expect.equals("call from ET1", ET1(C1())());
   Expect.equals("call from ET1", ET1(C1()).call());
+  Expect.equals("call from C1", ET1(C1()).c());
   Expect.equals("call from ET2", ET2(C2())());
   Expect.equals("call from ET2", ET2(C2()).call());
+  Expect.equals("call from C2", ET2(C2()).c.call);
   Expect.equals("call from ET3", ET3(C3())());
   Expect.equals("call from ET3", ET3(C3()).call());
+  ET3(C3()).c.call = "x";
   Expect.equals("call from ET4", ET4(C1())());
   Expect.equals("call from ET4", ET4(C1()).call());
+  Expect.equals("call from C1", ET4(C1()).c());
   Expect.equals("call from ET5", ET5(C2())());
   Expect.equals("call from ET5", ET5(C2()).call());
+  Expect.equals("call from C2", ET5(C2()).c.call);
   Expect.equals("call from ET6", ET6(C3())());
   Expect.equals("call from ET6", ET6(C3()).call());
+  ET6(C3()).c.call = "x";
 }

@@ -14,16 +14,11 @@
 ///
 /// Evaluation of this invocation proceeds by evaluating e to an object o.
 /// ...
-/// Otherwise, the following is known: args is included, and Dm is a method. The
-/// invocation proceeds to evaluate args to an actual argument list args1. Then
-/// it executes the body of Dm in an environment where this and the name of the
-/// representation are bound in the same way as in the getter invocation, the
-/// type variables of V are bound to the actual values of T1, .. Ts, and the
-/// formal parameters of m are bound to args1 in the same way that they would be
-/// bound for a normal function call. If the body completes returning an object
-/// o2 then the invocation evaluates to o2. If the body throws an object and a
-/// stack trace then the invocation completes throwing the same object and stack
-/// trace.
+/// Otherwise, if args is omitted and Dm is a method, the invocation evaluates
+/// to a closurization of Dm where this and the name of the representation are
+/// bound as with the getter invocation, and the type variables of V are bound
+/// to the actual values of T1, .. Ts. The operator == of the closurization
+/// returns true if and only if the operand is the same object.
 ///
 /// @description Check that if an extension type has `call()` member then it can
 /// be assigned to the type `Function`
