@@ -40,6 +40,8 @@
 
 import '../../Utils/expect.dart';
 
+String log = "";
+
 class C1 {
   String call() => "call from C1";
 }
@@ -53,40 +55,52 @@ class C3 {
 }
 
 extension type ET1(C1 c) {
-  String call() => "call from ET1";
+  void set call(String value) {
+    log = "call from ET1";
+  }
 }
 
 extension type ET2(C2 c) {
-  String call() => "call from ET2";
+  void set call(String value) {
+    log = "call from ET3";
+  }
 }
 
 extension type ET3(C3 c) {
-  String call() => "call from ET3";
+  void set call(String value) {
+    log = "call from ET3";
+  }
 }
 
 extension type ET4(C1 c) implements C1 {
-  String call() => "call from ET4";
+  void set call(String value) {
+    log = "call from ET4";
+  }
 }
 
 extension type ET5(C2 c) implements C2 {
-  String call() => "call from ET5";
+  void set call(String value) {
+    log = "call from ET5";
+  }
 }
 
 extension type ET6(C3 c) implements C3 {
-  String call() => "call from ET6";
+  void set call(String value) {
+    log = "call from ET6";
+  }
 }
 
 main() {
-  Expect.equals("call from ET1", ET1(C1())());
-  Expect.equals("call from ET1", ET1(C1()).call());
-  Expect.equals("call from ET2", ET2(C2())());
-  Expect.equals("call from ET2", ET2(C2()).call());
-  Expect.equals("call from ET3", ET3(C3())());
-  Expect.equals("call from ET3", ET3(C3()).call());
-  Expect.equals("call from ET4", ET4(C1())());
-  Expect.equals("call from ET4", ET4(C1()).call());
-  Expect.equals("call from ET5", ET5(C2())());
-  Expect.equals("call from ET5", ET5(C2()).call());
-  Expect.equals("call from ET6", ET6(C3())());
-  Expect.equals("call from ET6", ET6(C3()).call());
+  ET1(C1()).call = "1";
+  Expect.equals("call from ET1", log);
+  ET2(C2()).call = "2";
+  Expect.equals("call from ET2", log);
+  ET3(C3()).call = "3";
+  Expect.equals("call from ET3", log);
+  ET4(C1()).call = "4";
+  Expect.equals("call from ET4", log);
+  ET5(C2()).call = "5";
+  Expect.equals("call from ET5", log);
+  ET6(C3()).call = "6";
+  Expect.equals("call from ET6", log);
 }

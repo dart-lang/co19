@@ -32,7 +32,7 @@
 /// signature with the same name, including the case where a method is
 /// redeclared by a getter, or vice versa.
 ///
-/// @description Checks that `call()` member can be redeclared as any other
+/// @description Checks that a `call` member can be redeclared as any other
 /// member
 /// @author sgrekhov22@gmail.com
 
@@ -52,23 +52,35 @@ class C3 {
   void set call(String _) {}
 }
 
-extension type ET1(C1 c) implements C1 {
-  String call() => "call from ET1";
+extension type ET1(C1 c) {
+  String get call => "call from ET1";
 }
 
-extension type ET2(C2 c) implements C2 {
-  String call() => "call from ET2";
+extension type ET2(C2 c) {
+  String get call => "call from ET2";
 }
 
-extension type ET3(C3 c) implements C3 {
-  String call() => "call from ET3";
+extension type ET3(C3 c) {
+  String get call => "call from ET3";
+}
+
+extension type ET4(C1 c) implements C1 {
+  String get call => "call from ET4";
+}
+
+extension type ET5(C2 c) implements C2 {
+  String get call => "call from ET5";
+}
+
+extension type ET6(C3 c) implements C3 {
+  String get call => "call from ET6";
 }
 
 main() {
-  Expect.equals("call from ET1", ET1(C1())());
-  Expect.equals("call from ET1", ET1(C1()).call());
-  Expect.equals("call from ET2", ET2(C2())());
-  Expect.equals("call from ET2", ET2(C2()).call());
-  Expect.equals("call from ET3", ET3(C3())());
-  Expect.equals("call from ET3", ET3(C3()).call());
+  Expect.equals("call from ET1", ET1(C1()).call);
+  Expect.equals("call from ET2", ET2(C2()).call);
+  Expect.equals("call from ET3", ET3(C3()).call);
+  Expect.equals("call from ET4", ET4(C1()).call);
+  Expect.equals("call from ET5", ET5(C2()).call);
+  Expect.equals("call from ET6", ET6(C3()).call);
 }
