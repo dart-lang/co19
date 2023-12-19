@@ -4,15 +4,27 @@
 
 /// @assertion A constant expression is an expression whose value can never
 /// change, and that can be evaluated entirely at compile time.
-/// A constant expression is one of the following:
+/// The potentially constant expressions and constant expressions are the
+/// following:
 /// . . .
-/// • An expression of the form e1 + e2 where e1 and e2 are constant expressions
-///   that evaluate to a numeric or string value or to null.
-/// • An expression of one of the forms −e, e1 - e2, e1 * e2, e1 / e2, e1 ˜/ e2,
-///   e1 > e2, e1 < e2, e1 >= e2, e1 <= e2 or e1 % e2, where e, e1 and e2 are
-///   constant expressions that evaluate to a numeric value or to null.
-/// @description Checks that an expression of the form e1 + e2 can be used to
-/// initialize a constant variable if e1 and e2 are strings.
+/// • An expression of the form e1 + e2 is a potentially constant expression if
+///   e1 and e2 are both potentially constant expressions. It is further a
+///   constant expression if both e1 and e2 are constant expressions and either
+///   both evaluate to an instance of int or double, or both evaluate to an
+///   instance of String, such that ‘+’ denotes an instance operator invocation.
+/// • An expression of the form -e1 is a potentially constant expression if e1
+///   is a potentially constant expression. It is further a constant expression
+///   if e1 is a constant expression that evaluates to an instance of type int
+///   or double, such that ‘-’ denotes an instance operator invocation.
+/// • An expression of the form e1 - e2, e1 * e2, e1 / e2, e1 ~/ e2, e1 % e2,
+///   e1 < e2, e1 <= e2, e1 > e2, or e1 >= e2 is potentially constant if e1 and
+///   e2 are both potentially constant expressions. It is further constant if
+///   both e1 and e2 are constant expressions that evaluate to instances of int
+///   or double, such that the given operator symbol denotes an invocation of an
+///   instance operator
+///
+/// @description Checks that an expression of the form `e1 + e2` can be used to
+/// initialize a constant variable if `e1` and `e2` are strings.
 /// @author ngl@unipro.ru
 
 import '../../../Utils/expect.dart';
