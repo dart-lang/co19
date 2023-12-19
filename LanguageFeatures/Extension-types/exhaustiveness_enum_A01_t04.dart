@@ -59,7 +59,7 @@ main() {
   Expect.equals("ok", testStatement1(ET1(E.b)));
   Expect.equals("ok", testStatement1(ET1(E.c)));
   Expect.equals("a", testExpression1(ET1(E.a)));
-  Expect.equals("a", testExpression1(ET1(E.b)));
+  Expect.equals("b", testExpression1(ET1(E.b)));
   Expect.equals("c", testExpression1(ET1(E.c)));
 
   Expect.equals("ok1", testStatement2(ET2(E.a)));
