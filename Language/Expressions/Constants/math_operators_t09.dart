@@ -78,12 +78,13 @@ class C {
     ap = 1.42 ~/ 1.42,
     aq = 5 ~/ 1,
     ar = 0.2 ~/ 2,
-    as = 1 ~/ (2 + 1);
+    as = 1 ~/ (2 + 1),
+    at = 3 ~/ 1.1;
 
     final a, b, c, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w,
       x, y, z,
       aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar,
-      as;
+      as, at;
 }
 
 main() {
