@@ -109,9 +109,9 @@ main() {
   print(B6);
   print(B7);
   print(B8);
-  print(B9);
-  print(B10);
-  print(B11);
+  print(B9<Never>);
+  print(B10<Never>);
+  print(B11<Never>);
   print(B12);
   print(B13);
   print(B14);
