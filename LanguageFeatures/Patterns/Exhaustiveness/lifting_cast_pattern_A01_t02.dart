@@ -18,8 +18,11 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 51986
 
-// Switch statement is exhaustive in this case but switch expression isn't. It's
-// expected. For details see
+// The corresponding switch statement (can be found in
+// `lifting_cast_pattern_A01_t01.dart`) will not complete normally in this case
+// (which means that there is no "returns null" error), but this switch
+// expression is an error because it can not be recognized as exhaustive. This
+// discrepancy is expected. For more details see
 // https://github.com/dart-lang/sdk/issues/51986#issuecomment-1864237801
 int test(Object obj) => switch (obj) {
 //                      ^^^^^^

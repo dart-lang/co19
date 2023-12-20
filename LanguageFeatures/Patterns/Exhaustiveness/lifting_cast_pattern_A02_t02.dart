@@ -24,14 +24,14 @@ class B extends A {}
 
 class C extends A {}
 
-test1(A a) {
+int test1(A a) {
   switch (a) {
     case B() as B:
       return 0;
   }
 }
 
-test2(A a) => switch (a) { C() as C => 0 };
+int test2(A a) => switch (a) { C() as C => 0 };
 
 main() {
   Expect.equals(0, test1(B()));

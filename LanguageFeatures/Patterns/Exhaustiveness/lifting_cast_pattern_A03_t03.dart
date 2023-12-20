@@ -23,15 +23,18 @@ class B extends A {}
 
 class C extends A {}
 
-test1(A a) {
+int test1(A a) {
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   switch (a) {
     case B() as C:
       return 0;
   }
 }
 
-test2(A a) => switch (a) { B() as C => 0 };
-//            ^^^^^^
+int test2(A a) => switch (a) { B() as C => 0 };
+//                ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

@@ -29,8 +29,8 @@ class C extends A {
   C(int field) : super(field);
 }
 
-test1(A a) {
-  switch (a) { // B is not matched
+int test1(A a) {
+  switch (a) { // `B()` is not matched here
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -41,8 +41,8 @@ test1(A a) {
   }
 }
 
-test2(A a) => switch (a) {
-//            ^^^^^^
+int test2(A a) => switch (a) {
+//                ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C(field: 0) as C => 0,
