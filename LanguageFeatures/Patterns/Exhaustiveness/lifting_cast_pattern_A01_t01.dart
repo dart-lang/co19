@@ -5,11 +5,13 @@
 /// @assertion The lifted space union for a pattern with matched value type M is
 /// ...
 /// Cast pattern:
-/// The space union spaces for a cast pattern with cast type C is a union of:
-/// - The lifted space union of the cast's subpattern in context C.
-/// - For each space E in the expanded spaces of M:
-///   a. If E is not a subset of C and C is not a subset of M, then the lifted
-///     space union of E.
+/// ...
+/// Let S be the lifted space union of the cast's subpattern in context C.
+/// i. If C is a subset (see below about type subsetting) of S then the result
+///   spaces is the lifted space union of M.
+/// ii. Otherwise, the result spaces is S plus the lifted space union of Null
+///   when C is a non-nullable type, and spaces is S when C is potentially
+///   nullable.
 ///
 /// @description Check a lifted space of a cast pattern in case of not sealed
 /// type. Test switch statement
