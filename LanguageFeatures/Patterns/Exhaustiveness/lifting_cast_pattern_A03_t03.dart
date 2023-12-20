@@ -9,24 +9,31 @@
 /// - The lifted space union of the cast's subpattern in context C.
 /// - For each space E in the expanded spaces of M:
 ///   a. If E is not a subset of C and C is not a subset of M, then the lifted
-///     space union of E.
+///   space union of E.
 ///
-/// @description Check a lifted space of a cast pattern in case of not sealed
-/// type. Test switch element
+/// @description Check a lifted space of a cast pattern in case of a not sealed
+/// type
 /// @author sgrekhov22@gmail.com
-/// @issue 51986
 
-// Switch statement is exhaustive in this case but switch expression isn't. It's
-// expected. For details see
-// https://github.com/dart-lang/sdk/issues/51986#issuecomment-1864237801
-int test(Object obj) => switch (obj) {
-//                      ^^^^^^
+class A {}
+
+class B extends A {}
+
+class C extends A {}
+
+test1(A a) {
+  switch (a) {
+    case B() as C:
+      return 0;
+  }
+}
+
+test2(A a) => switch (a) { B() as C => 0 };
+//            ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    int(isEven: true) as int => 1,
-    int _ => 2
-  };
 
 main() {
-  print(test);
+  print(test1);
+  print(test2);
 }
