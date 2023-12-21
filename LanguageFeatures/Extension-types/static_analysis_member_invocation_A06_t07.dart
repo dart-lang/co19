@@ -35,7 +35,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var n = switch(et) {
+  var n = switch (et) {
     ET(isEven: true) => true,
 //     ^^^^^^
 // [analyzer] unspecified
