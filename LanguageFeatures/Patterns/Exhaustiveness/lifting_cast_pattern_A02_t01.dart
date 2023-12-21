@@ -30,7 +30,7 @@ class C extends A {
 }
 
 int test1(A a) {
-  switch (a) { // `B()` is not matched here
+  switch (a) {
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
