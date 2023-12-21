@@ -9,34 +9,37 @@
 ///   superinterface V that has an extension type member named n due to a member
 ///   declaration DM2, and DV does not declare a member that precludes DM2.
 ///
-/// @description Checks that if an extension type `ET` has a superinterface with
-/// a member `m` then this member is also present in `ET` but members of its
-/// representation type are not
+/// @description Checks that if an extension type `ET` has no superinterface
+/// with a member `m` and doesn't declare it then it is a compile-time error to
+/// call this member
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type ET0(int id) {
-  void m1() {}
-  int get m2 => 42;
-  void set m3(int val) {}
-}
-
-extension type ET1(int id) implements ET0 {}
+extension type ET(int _) {}
 
 main() {
-  ET1 et1 = ET1(42);
-  et1.m1();
-  et1.m2;
-  et1.m3 = 42;
-  et1.ceil();
-//    ^^^^
+  ET et = ET(42);
+  et.ceil();
+//   ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var ET1(m2: v1) = et1;
-  var ET1(isOdd: v2) = et1;
-//        ^^^^^
+  et.isOdd;
+//   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  var ET(isEven: b) = et;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var n = switch (et) {
+    ET(isEven: true) => true,
+//     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    _ => false
+  };
 }
