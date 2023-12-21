@@ -13,22 +13,31 @@
 ///   when C is a non-nullable type, and spaces is S when C is potentially
 ///   nullable.
 ///
-/// @description Check a lifted space of a cast pattern in case of not sealed
-/// type. Test switch statement
+/// @description Check a lifted space of a cast pattern in case of a sealed type
 /// @author sgrekhov22@gmail.com
 
-import "../../../Utils/expect.dart";
+sealed class A {}
 
-int test(Object obj) {
-  switch (obj) {
-    case int(isEven: true) as int:
-      return 1;
-    case int _:
-      return 2;
+class B extends A {}
+
+class C extends A {}
+
+int test1(A a) {
+  switch (a) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case B() as C:
+      return 0;
   }
 }
 
+int test2(A a) => switch (a) { B() as C => 0 };
+//                ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
-  Expect.equals(2 ,test(1));
-  Expect.equals(1 ,test(2));
+  print(test1);
+  print(test2);
 }

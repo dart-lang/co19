@@ -13,10 +13,11 @@
 ///   when C is a non-nullable type, and spaces is S when C is potentially
 ///   nullable.
 ///
-/// @description Check a lifted space of a cast pattern in case of a sealed type
+/// @description Check a lifted space of a cast pattern in case of a not sealed
+/// type
 /// @author sgrekhov22@gmail.com
 
-sealed class A {
+class A {
   final int field;
   A(this.field);
 }
@@ -31,9 +32,6 @@ class C extends A {
 
 int test1(A a) {
   switch (a) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     case C(field: 0) as C:
       return 0;
     case C _:
@@ -41,6 +39,11 @@ int test1(A a) {
   }
 }
 
+// The corresponding switch statement above will not complete normally in this
+// case (which means that there is no "returns null" error), but this switch
+// expression is an error because it can not be recognized as exhaustive. This
+// discrepancy is expected. For more details see
+// https://github.com/dart-lang/sdk/issues/51986#issuecomment-1864237801
 int test2(A a) => switch (a) {
 //                ^^^^^^
 // [analyzer] unspecified
