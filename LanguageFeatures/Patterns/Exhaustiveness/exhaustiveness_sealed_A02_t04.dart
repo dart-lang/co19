@@ -6,8 +6,8 @@
 /// matched type are always exhaustive
 ///
 /// @description Check that it is a compile-time error if the matched value type
-/// of a switch expression is a sealed class and the set of cases is not
-/// exhaustive
+/// of a switch expression or statement is a sealed class and the set of cases
+/// is not exhaustive
 /// @author sgrekhov22@gmail.com
 /// @issue 53392
 
@@ -18,6 +18,61 @@ mixin M on S {}
 class C extends S {}
 
 class F implements M {}
+
+int test1(S s) {
+  switch (s) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case C _: return 1;
+  }
+}
+
+int test2(S s) {
+  switch (s) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case F _: return 1;
+  }
+}
+
+int test3(S s) {
+  switch (s) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case M _: return 1;
+  }
+}
+
+int test4(S s) {
+  switch (s) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case C _: return 1;
+    case F _: return 2;
+  }
+}
+
+int test5(S s) {
+  switch (s) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case M _: return 1;
+    case F _: return 2;
+  }
+}
+
+int test6(S s) {
+  switch (s) { // Ok, exhaustive
+    case C _: return 1;
+    case M _: return 2;
+  }
+}
+
 
 void main() {
   S s = F();
@@ -47,4 +102,11 @@ void main() {
 // [cfe] unspecified
 
   int i6 = switch (s) { C _ => 1, M _ => 2 }; // Ok, exhaustive
+
+  print(test1);
+  print(test2);
+  print(test3);
+  print(test4);
+  print(test5);
+  print(test6);
 }

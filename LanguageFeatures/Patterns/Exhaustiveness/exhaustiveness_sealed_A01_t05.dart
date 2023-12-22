@@ -6,8 +6,8 @@
 /// matched type are always exhaustive
 ///
 /// @description Check that it is no compile-time error if the matched value
-/// type of a switch expression is a sealed class and the set of cases is
-/// exhaustive
+/// type of a switch expression or statement is a sealed class and the set of
+/// cases is exhaustive
 /// @author sgrekhov22@gmail.com
 
 import "../../../Utils/expect.dart";
@@ -22,15 +22,31 @@ class F implements M {}
 
 class MS = S with M;
 
-String test(S s) => switch (s) { C _ => "C", M _ => "M" };
+String test1(S s) => switch (s) { C _ => "C", M _ => "M" };
+
+String test2(S s) {
+  switch (s) {
+    case C _: return "C";
+    case M _: return "M";
+  }
+}
 
 void main() {
-  String v1 = test(C());
+  String v1 = test1(C());
   Expect.equals("C", v1);
 
-  String v2 = test(MS());
+  String v2 = test1(MS());
   Expect.equals("M", v2);
 
-  String v3 = test(F());
+  String v3 = test1(F());
   Expect.equals("M", v3);
+
+  String v4 = test2(C());
+  Expect.equals("C", v4);
+
+  String v5 = test2(MS());
+  Expect.equals("M", v5);
+
+  String v6 = test2(F());
+  Expect.equals("M", v6);
 }

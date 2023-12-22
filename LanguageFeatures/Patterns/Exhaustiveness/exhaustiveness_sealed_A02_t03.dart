@@ -6,8 +6,8 @@
 /// matched type are always exhaustive
 ///
 /// @description Check that it is a compile-time error if the matched value type
-/// of a switch expression is a sealed class and the set of cases is not
-/// exhaustive
+/// of a switch expression or statement is a sealed class and the set of cases
+/// is not exhaustive
 /// @author sgrekhov22@gmail.com
 
 import "exhaustiveness_lib.dart";
@@ -28,7 +28,29 @@ String test2(Face face) => switch (face) {
   King _  => 'King'
 };
 
+String test3(Face face) {
+  switch (face) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    LastPersonOnEarth _: return 'LastPersonOnEarth';
+  }
+}
+
+String test4(Face face) {
+  switch (face) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    LastPersonOnEarth _: return 'Jack';
+    Queen _: return 'Queen';
+    King _: return 'King';
+  }
+}
+
 main() {
-  test1(King(Suit.club));
-  test2(King(Suit.club));
+  print(test1);
+  print(test2);
+  print(test3);
+  print(test4);
 }
