@@ -26,14 +26,14 @@ extension type BET2<T>(B<T> _) implements B<T> {}
 extension type CET1(C _) {}
 extension type CET2(C _) implements C {}
 
-test1_1(AET1<String> a) => switch (a) { BET1 _ => 'B'};
-test1_2(AET2<String> a) => switch (a) { BET2 _ => 'B'};
+String test1_1(AET1<String> a) => switch (a) { BET1 _ => 'B'};
+String test1_2(AET2<String> a) => switch (a) { BET2 _ => 'B'};
 
-test2_1(AET1<int> a) => switch (a) { BET1 _ => 'B', C _ => 'C'};
-test2_2(AET2<int> a) => switch (a) { B _ => 'B', CET2 _ => 'C'};
+String test2_1(AET1<int> a) => switch (a) { BET1 _ => 'B', C _ => 'C'};
+String test2_2(AET2<int> a) => switch (a) { B _ => 'B', CET2 _ => 'C'};
 
-test3_1(AET1<int> a) => switch (a) { AET1 _ => 'A'};
-test3_2(AET2<int> a) => switch (a) { AET2 _ => 'A'};
+String test3_1(AET1<int> a) => switch (a) { AET1 _ => 'A'};
+String test3_2(AET2<int> a) => switch (a) { AET2 _ => 'A'};
 
 main() {
   Expect.equals("B", test1_1(AET1(B<String>())));

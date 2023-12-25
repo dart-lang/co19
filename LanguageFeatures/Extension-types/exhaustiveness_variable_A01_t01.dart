@@ -26,8 +26,8 @@ extension type AET2(A _) implements A {}
 extension type BET1(B _) {}
 extension type BET2(B _) implements B {}
 
-test1(AET1 a) => switch (a) { B _ => 'B' };
-test2(AET2 a) => switch (a) { B _ => 'B' };
+String test1(AET1 a) => switch (a) { B _ => 'B' };
+String test2(AET2 a) => switch (a) { B _ => 'B' };
 
 main() {
   Expect.equals("B", test1(AET1(B())));

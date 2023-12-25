@@ -6,7 +6,7 @@
 /// matched type are always exhaustive if the set of cases is exhaustive
 ///
 /// @description Check that it is no compile-time error if the matched value
-/// type of a switch expression is an extension type with a sealed class as a
+/// type of a switch statement is an extension type with a sealed class as a
 /// representation type and the set of cases is an exhaustive set of variable
 /// patterns. Test generic types
 /// @author sgrekhov22@gmail.com
@@ -22,11 +22,31 @@ class C extends A<int> {}
 extension type AET1<T>(A<T> _) {}
 extension type AET2<T>(A<T> _) implements A<T> {}
 
-String test1_1(AET1<String> a) => switch (a) { B _ => 'B'};
-String test1_2(AET2<String> a) => switch (a) { B _ => 'B'};
+String test1_1(AET1<String> a) {
+  switch (a) {
+    case B _: return 'B';
+  }
+}
 
-String test2_1(AET1<int> a) => switch (a) { B _ => 'B', C _ => 'C'};
-String test2_2(AET2<int> a) => switch (a) { B _ => 'B', C _ => 'C'};
+String test1_2(AET2<String> a) {
+  switch (a) {
+    case B _: return 'B';
+  }
+}
+
+String test2_1(AET1<int> a) {
+  switch (a) {
+    case B _: return 'B';
+    case C _: return 'C';
+  }
+}
+
+String test2_2(AET2<int> a) {
+  switch (a) {
+    case B _: return 'B';
+    case C _: return 'C';
+  }
+}
 
 main() {
   Expect.equals("B", test1_1(AET1(B<String>())));
