@@ -19,6 +19,60 @@ class C extends S {}
 
 base class F extends S with M {}
 
+int test1(S s) {
+  switch (s) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case C _: return 1;
+  }
+}
+
+int test2(S s) {
+  switch (s) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case F _: return 1;
+  }
+}
+
+int test3(S s) {
+  switch (s) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case M _: return 1;
+  }
+}
+
+int test4(S s) {
+  switch (s) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case C _: return 1;
+    case F _: return 2;
+  }
+}
+
+int test5(S s) {
+  switch (s) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case M _: return 1;
+    case F _: return 2;
+  }
+}
+
+int test6(S s) {
+  switch (s) { // Ok, exhaustive
+    case C _: return 1;
+    case M _: return 2;
+  }
+}
+
 void main() {
   S s = F();
   int i1 = switch (s) { C() => 1 };
@@ -47,4 +101,11 @@ void main() {
 // [cfe] unspecified
 
   int i6 = switch (s) { C() => 1, M() => 2 }; // Ok, exhaustive
+
+  print(test1);
+  print(test2);
+  print(test3);
+  print(test4);
+  print(test5);
+  print(test6);
 }

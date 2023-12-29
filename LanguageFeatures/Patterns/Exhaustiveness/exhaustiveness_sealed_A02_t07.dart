@@ -6,8 +6,8 @@
 /// matched type are always exhaustive
 ///
 /// @description Check that it is a compile-time error if the matched value type
-/// of a switch expression is a sealed class and the set of cases is not
-/// exhaustive. Test `base mixin`
+/// of a switch expression or statement is a sealed class and the set of cases
+/// is not exhaustive. Test `base mixin`
 /// @author sgrekhov22@gmail.com
 
 sealed class S<T> {}
@@ -17,6 +17,26 @@ base mixin M<T> on S<T> {}
 class C<T> extends S<T> {}
 
 base class F<T> implements M<T> {}
+
+int test1(S s) {
+  switch (s) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case C _: return 1;
+    case M<int>(): return 2;
+  }
+}
+
+int test2(S s) {
+  switch (s) {
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case C<int>(): return 1;
+    case M<int> _: return 2;
+  }
+}
 
 void main() {
   S s1 = F();
@@ -30,4 +50,6 @@ void main() {
 //         ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  print(test1);
+  print(test2);
 }
