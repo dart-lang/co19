@@ -33,7 +33,7 @@ String test3(Face face) {
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    LastPersonOnEarth _: return 'LastPersonOnEarth';
+    case LastPersonOnEarth _: return 'LastPersonOnEarth';
   }
 }
 
@@ -42,9 +42,9 @@ String test4(Face face) {
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    LastPersonOnEarth _: return 'Jack';
-    Queen _: return 'Queen';
-    King _: return 'King';
+    case LastPersonOnEarth _: return 'Jack';
+    case Queen _: return 'Queen';
+    case King _: return 'King';
   }
 }
 
