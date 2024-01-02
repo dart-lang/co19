@@ -21,8 +21,7 @@ extension type const ConstIterableET1<T>(Iterable<T> _) {}
 extension type const ConstIterableET2<T>(Iterable<T> _)
     implements Iterable<T> {}
 
-
-main() {
+void main() {
   dynamic l1 = IterableET1(<int>[]);
   dynamic l2 = IterableET2(<int>[]);
   const dynamic cl1 = ConstIterableET1(<int>[]);
