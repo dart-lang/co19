@@ -18,19 +18,20 @@ extension type BoolET2(bool _) implements bool {}
 extension type const ConstBoolET1(bool _) {}
 extension type const ConstBoolET2(bool _) implements bool {}
 
-main() {
-  var _false = BoolET1(false);
-  var _true = BoolET2(true);
-  const True = ConstBoolET1(true);
-  const False = ConstBoolET2(false);
+var _false = BoolET1(false);
+var _true = BoolET2(true);
 
+const cTrue = ConstBoolET1(true);
+const cFalse = ConstBoolET2(false);
+
+main() {
   if (_true) {}
   if (_false) {}
 //    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  if (False) {}
-  if (True) {}
+  if (cFalse) {}
+  if (cTrue) {}
 //    ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -42,7 +43,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   switch (42) {
-    case _ when False:
+    case _ when cFalse:
   }
   switch (42) {
     case _ when _false:
@@ -51,8 +52,8 @@ main() {
 // [cfe] unspecified
   }
   var _ = switch(42) {
-    >0 when True => 0,
-//          ^^^^
+    >0 when cTrue => 0,
+//          ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     _ when _true => 1,
