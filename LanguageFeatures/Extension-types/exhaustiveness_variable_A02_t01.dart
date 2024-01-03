@@ -11,6 +11,8 @@
 /// patterns. Test generic types
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=inline-class
+
 import "../../Utils/expect.dart";
 
 sealed class A<T> {}
