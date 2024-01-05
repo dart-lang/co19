@@ -41,7 +41,11 @@ class C extends A {
 }
 
 enum E {
+//   ^
+// [cfe] unspecified
   e1;
+//^
+// [cfe] unspecified
 
   final int? x;
   external const E() : x = 1;

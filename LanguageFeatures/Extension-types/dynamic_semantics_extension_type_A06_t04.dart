@@ -17,18 +17,22 @@ import '../../Utils/expect.dart';
 
 extension type IterableET1<T>(Iterable<T> id) {}
 extension type IterableET2<T>(Iterable<T> id) implements Iterable<T> {}
-extension type const ConstIterableET1<T>(Iterable<T> _) {}
-extension type const ConstIterableET2<T>(Iterable<T> _)
+extension type const ConstIterableET1<T>(Iterable<T> id) {}
+extension type const ConstIterableET2<T>(Iterable<T> id)
     implements Iterable<T> {}
 
 void main() {
-  dynamic l1 = IterableET1(<int>[]);
-  dynamic l2 = IterableET2(<int>[]);
-  const dynamic cl1 = ConstIterableET1(<int>[]);
-  const dynamic cl2 = ConstIterableET2(<int>[]);
+  var l1 = IterableET1(<int>[]);
+  dynamic dl1 = l1;
+  var l2 = IterableET2(<int>[]);
+  dynamic dl2 = l2;
+  const cl1 = ConstIterableET1(<int>[]);
+  const dynamic dcl1 = cl1;
+  const cl2 = ConstIterableET2(<int>[]);
+  const dynamic dcl2 = cl2;
 
-  Expect.identical(l1.id, l1);
-  Expect.identical(l2.id, l2);
+  Expect.identical(l1.id, dl1);
+  Expect.identical(l2.id, dl2);
   Expect.identical(cl1.id, cl1);
   Expect.identical(cl2.id, cl2);
 }
