@@ -31,7 +31,6 @@ String testStatement1(bool b) {
     case == False1:
       return "false";
   }
-
 }
 
 String testStatement2(bool b) {
