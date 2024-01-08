@@ -20,7 +20,11 @@ class C {
 }
 
 enum E {
+//   ^
+// [cfe] unspecified
   a(1);
+//^
+// [cfe] unspecified
 
   final int x;
   external const E([this.x = 0]);
