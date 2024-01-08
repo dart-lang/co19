@@ -5,8 +5,8 @@
 /// @assertion If the constant has no primitive equality, then it is not
 /// exhausted
 ///
-/// @description Check that if a constant have no primitive equality then it is
-/// not exhausted
+/// @description Check that if a constant does not have primitive equality
+/// then it is not exhausted
 /// @author sgrekhov22@gmail.com
 
 import "../../Utils/expect.dart";

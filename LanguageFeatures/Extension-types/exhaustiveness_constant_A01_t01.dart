@@ -6,7 +6,7 @@
 /// is defined by the constant type and value.
 ///
 /// @description Check that if a constant has primitive equality, then its
-/// exhaustiveness is defined by the constant type and value.
+/// exhaustiveness is defined by the type of the value of the constant.
 /// @author sgrekhov22@gmail.com
 
 import "../../Utils/expect.dart";
