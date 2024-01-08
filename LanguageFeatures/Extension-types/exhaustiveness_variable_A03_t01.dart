@@ -5,8 +5,8 @@
 /// @assertion Exhaustiveness of a variable pattern is determined by the static
 /// type of the corresponding variable.
 ///
-/// @description Check that an exhaustiveness of a variable pattern is
-/// determined by the static type of the corresponding variable.
+/// @description Check that a lifted space union of a variable pattern is a
+/// union of the static type of the corresponding variable.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
