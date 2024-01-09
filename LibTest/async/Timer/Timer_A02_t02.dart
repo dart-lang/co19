@@ -7,7 +7,7 @@
 /// A negative duration is treated the same as [Duration.zero]
 ///
 /// @description Checks that negative duration is accepted and treated as
-/// [Duration.zero]. Test that timer waits for microtasks queue before the start
+/// [Duration.zero]. Test that timer waits for microtask queue before the start
 /// @author sgrekhov@gmail.com
 
 import "dart:async";
