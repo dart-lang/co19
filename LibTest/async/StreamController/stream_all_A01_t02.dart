@@ -8,6 +8,7 @@
 /// @author a.semenov@unipro.ru
 
 import "dart:async";
+import "../../../Utils/expect.dart";
 import "../Stream/allTests_A02.lib.dart";
 
 Stream<T> create<T>(Iterable<T> data,
@@ -20,7 +21,11 @@ Stream<T> create<T>(Iterable<T> data,
       sc.add(e);
     }
   }
-  new Future(() => sc.close()); // close stream controller later
+  asyncStart();
+  new Future(() { // close stream controller later
+    sc.close();
+    asyncEnd();
+  });
   return sc.stream;
 }
 

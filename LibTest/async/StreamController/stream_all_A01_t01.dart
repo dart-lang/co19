@@ -8,6 +8,7 @@
 /// @author a.semenov@unipro.ru
 
 import "dart:async";
+import "../../../Utils/expect.dart";
 import "../Stream/allTests_A01.lib.dart";
 
 Stream<T> create<T>(Iterable<T> data, {bool isError(T element)?}) {
@@ -21,7 +22,11 @@ Stream<T> create<T>(Iterable<T> data, {bool isError(T element)?}) {
       sc.add(e);
     }
   }
-  new Future(() => sc.close()); // close stream controller later
+  asyncStart();
+  new Future(() { // close the stream controller later
+    sc.close();
+    asyncEnd();
+  });
   return sc.stream;
 }
 
