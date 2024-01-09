@@ -4,41 +4,42 @@
 
 /// @assertion factory Timer(Duration duration, void callback())
 ///
-/// A negative duration is treated the same as a duration of 0.
+/// A negative duration is treated the same as [Duration.zero]
 ///
-/// @description Checks that negative duration is accepted.
+/// @description Checks that negative duration is accepted and treated as
+/// [Duration.zero].
 /// @author kaigorodov
 
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-// Most browsers can trigger timers too early. Test data shows instances where
-// timers fire even 15ms early. We add a safety margin to prevent flakiness
-// when running this test on affected platforms.
-Duration safetyMargin = const bool.fromEnvironment('dart.library.js')
-    ? Duration(milliseconds: 40)
-    : Duration.zero;
+check(int durationInMs) {
+  bool earlierZeroTimerTriggered = false;
+  bool laterZeroTimerTriggered = false;
 
-check(int delayms) {
-  Stopwatch sw = new Stopwatch();
-  sw.start();
+  // Timer is not started immediately but waits for microtask queue. So the
+  // timer can be started with some unpredictable delay. Therefore let's check
+  // that it triggers not earlier that previously-scheduled zero-duration timer
+  // and not earlier that later-scheduled zero-duration timer
+  Timer(Duration.zero, () {
+    earlierZeroTimerTriggered = true;
+  });
 
-  asyncStart();
-  new Timer(durationInMilliseconds(delayms), () {
-    Duration expected = durationInMilliseconds(40); // Expect actual time near 0
-    Duration actual = sw.elapsed;
-    Expect.isTrue(actual <= expected + safetyMargin,
-        "expected=${expected + safetyMargin}, actual=$actual");
+  Timer(Duration(milliseconds: durationInMs), () {
+    Expect.isTrue(earlierZeroTimerTriggered);
+    Expect.isFalse(laterZeroTimerTriggered);
+  });
+
+  Timer(Duration.zero, () {
+    laterZeroTimerTriggered = true;
     asyncEnd();
   });
 }
 
 main() {
-  asyncStart();
+  asyncStart(4);
   check(0);
-  check(-1);
   check(-10);
   check(-100);
-  check(-1000);
-  asyncEnd();
+  check(-500);
 }

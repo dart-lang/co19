@@ -24,8 +24,6 @@ check(int delayms) {
   Duration delay = durationInMilliseconds(delayms);
   Stopwatch sw = new Stopwatch();
   sw.start();
-
-  asyncStart();
   new Timer(delay, () {
     Duration actual = sw.elapsed;
     Expect.isTrue(delay <= actual + safetyMargin,
@@ -35,7 +33,7 @@ check(int delayms) {
 }
 
 main() {
-  asyncStart();
+  asyncStart(7);
   check(150);
   check(100);
   check(50);
@@ -43,8 +41,4 @@ main() {
   check(10);
   check(2);
   check(1);
-  check(0);
-  check(-5);
-  check(-50);
-  asyncEnd();
 }
