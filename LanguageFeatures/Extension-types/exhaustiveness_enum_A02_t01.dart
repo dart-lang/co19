@@ -22,11 +22,10 @@ extension type ET1<T>(E<T> _) {}
 extension type ET2<T>(E<T> _) implements E<T> {}
 
 String testStatement1<T extends num>(ET1<T> e) {
-//     ^^^^^^^^^^^^^^
-// [analyzer] unspecified
   switch (e) {
 //^^^^^^
 // [cfe] unspecified
+// [analyzer] unspecified
     case E.a:
       return "a";
     case E.b:
@@ -35,11 +34,10 @@ String testStatement1<T extends num>(ET1<T> e) {
 }
 
 String testStatement2<T extends num>(ET2<T> e) {
-//     ^^^^^^^^^^^^^^
-// [analyzer] unspecified
   switch (e) {
 //^^^^^^
 // [cfe] unspecified
+// [analyzer] unspecified
     case E.a:
       return "a";
     case E.b:
@@ -66,22 +64,20 @@ String testExpression2<T extends num>(ET2<T> e) =>
   };
 
 String testStatement3(ET1<num> e) {
-//     ^^^^^^^^^^^^^^
-// [analyzer] unspecified
   switch (e) {
 //^^^^^^
 // [cfe] unspecified
+// [analyzer] unspecified
     case E.a:
       return "ok";
   }
 }
 
 String testStatement4(ET2<num> e) {
-//     ^^^^^^^^^^^^^^
-// [analyzer] unspecified
   switch (e) {
 //^^^^^^
 // [cfe] unspecified
+// [analyzer] unspecified
     case E.a:
       return "ok";
   }
