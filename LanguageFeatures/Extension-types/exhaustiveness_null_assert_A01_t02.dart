@@ -9,6 +9,8 @@
 /// subpattern and a type `Null` is exhausted. Test switch expression
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=inline-class
+
 import "../../Utils/expect.dart";
 
 extension type const ObjectET1(Object _) {}
