@@ -10,6 +10,8 @@
 /// with a negative length as a representation type can be exhaustive
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=inline-class
+
 import "dart:collection";
 import "../../Utils/expect.dart";
 

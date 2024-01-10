@@ -9,6 +9,8 @@
 /// exhaustiveness is defined by the type of the value of the constant.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=inline-class
+
 import "../../Utils/expect.dart";
 
 extension type const BoolET1(bool _) {}
