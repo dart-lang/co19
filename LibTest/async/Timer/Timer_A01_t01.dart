@@ -27,7 +27,7 @@ check(int delayms) {
   new Timer(delay, () {
     Duration actual = sw.elapsed;
     Expect.isTrue(delay <= actual + safetyMargin,
-        "expected=$delay, actual=${actual + safetyMargin}");
+        "expected=$delay, actual=$actual");
     asyncEnd();
   });
 }

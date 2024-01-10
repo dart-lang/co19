@@ -46,7 +46,7 @@ main() {
     Duration expected = delay * count;
     Duration actual = sw.elapsed;
     Expect.isTrue(expected <= actual + safetyMargin,
-        "expected=$expected, actual=${actual + safetyMargin}");
+        "expected=$expected, actual=$actual");
     if (count == maxCount) {
       timer.cancel();
       asyncEnd();
