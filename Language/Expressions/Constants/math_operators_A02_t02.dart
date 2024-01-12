@@ -39,15 +39,15 @@ extension type const ExtInt(int _) implements int {}
 extension type const ExtDouble(double _) implements double {}
 
 main() {
-  const c1 = ExtNum(1);
-  Expect.identical(-1, -c1);
+  const c1 = -ExtNum(1);
+  Expect.identical(-1, c1);
 
-  const c2 = ExtNum(3.14);
-  Expect.identical(-3.14, -c2);
+  const c2 = -ExtNum(3.14);
+  Expect.identical(-3.14, c2);
 
-  const c3 = ExtInt(2);
-  Expect.identical(-2, -c3);
+  const c3 = -ExtInt(2);
+  Expect.identical(-2, c3);
 
-  const c4 = ExtDouble(3.14);
-  Expect.identical(-3.14, -c4);
+  const c4 = -ExtDouble(3.14);
+  Expect.identical(-3.14, c4);
 }
