@@ -9,6 +9,7 @@
 /// @description Checks that negative duration is accepted and treated as
 /// [Duration.zero].
 /// @author kaigorodov
+/// @issue 54598
 
 import "dart:async";
 import "../../../Utils/expect.dart";
