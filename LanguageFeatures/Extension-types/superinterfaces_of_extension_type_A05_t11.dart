@@ -63,7 +63,7 @@ extension type ET1(C1 c) {
 
 extension type ET2(C2 c) {
   void set call(String value) {
-    log = "call from ET3";
+    log = "call from ET2";
   }
 }
 

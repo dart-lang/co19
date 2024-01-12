@@ -18,7 +18,7 @@
 // SharedOptions=--enable-experiment=inline-class
 
 import "../../Utils/expect.dart";
-import "../Patterns/exhaustiveness/exhaustiveness_lib.dart";
+import "../Patterns/Exhaustiveness/exhaustiveness_lib.dart";
 
 extension type CardET1<T>(Card<T> _) {}
 extension type CardET2<T>(Card<T> _) implements Card<T> {}
