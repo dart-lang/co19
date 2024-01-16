@@ -19,9 +19,9 @@ void main() {
   Pointer<UintPtr> p1 = calloc<UintPtr>(2);
   try {
     if (sizeOf<UintPtr>() == 4) {
-      Expect.equals(4, p1.elementAt(1).address - p1.address);
+      Expect.equals(4, (p1 + 1).address - p1.address);
     } else {
-      Expect.equals(8, p1.elementAt(1).address - p1.address);
+      Expect.equals(8, (p1 + 1).address - p1.address);
       Expect.equals(8, sizeOf<UintPtr>());
     }
   } finally {

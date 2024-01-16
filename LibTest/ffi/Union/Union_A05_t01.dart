@@ -37,11 +37,11 @@ void main() {
 
     Pointer<U2> u2 = new Pointer.fromAddress(u1.address);
     Expect.equals(0x22222222, u2.ref.x);
-    Expect.equals(0x11111111, u2.elementAt(1).ref.x);
+    Expect.equals(0x11111111, (u2 + 1).ref.x);
 
     Pointer<U3> u3 = new Pointer.fromAddress(u1.address);
     Expect.equals(0x22222222, u3.ref.x);
-    Expect.equals(0x11111111, u3.elementAt(1).ref.x);
+    Expect.equals(0x11111111, (u3 + 1).ref.x);
 
     u1.ref.x = 0xFFFFFFFFFFFFFFFF;
     Expect.equals(-1, u2.ref.x);

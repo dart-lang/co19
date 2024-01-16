@@ -21,7 +21,7 @@ import "../../../Utils/expect.dart";
 void main() {
   Pointer<UnsignedInt> p1 = calloc<UnsignedInt>(2);
   try {
-    Expect.equals(4, p1.elementAt(1).address - p1.address);
+    Expect.equals(4, (p1 + 1).address - p1.address);
     Expect.equals(4, sizeOf<UnsignedInt>());
   } finally {
     calloc.free(p1);
