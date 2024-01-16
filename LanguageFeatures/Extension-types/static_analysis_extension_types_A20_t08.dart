@@ -24,16 +24,15 @@ class Check {
       : assert(v == eq, "Not equal ${(v, eq: eq)}");
 }
 
-extension type const Ext1(Object? value) {}
-extension type const Ext2(Object value) implements Object {}
+extension type const IntET1(int _) {}
+extension type const IntET2(int _) implements int {}
+
+extension type const MapET1<X>(Map<IntET1, X> _) {}
+extension type const MapET2<X>(Map<IntET2, X> _) {}
 
 void main() {
-  const Check([Ext1(1)], eq: <Object?>[1,]);
-  const Check([Ext2(1)], eq: <Object>[1,]);
-  const Check({Ext1(1)}, eq: <Object?>{1,});
-  const Check({Ext2(1)}, eq: <Object>{1,});
-  const Check({Ext1(1): Ext1(2)}, eq: <Object?, Object?>{1: 2});
-  const Check({Ext2(1): Ext1(2)}, eq: <Object, Object?>{1: 2});
-  const Check({Ext1(1): Ext2(2)}, eq: <Object?, Object>{1: 2});
-  const Check({Ext2(1): Ext2(2)}, eq: <Object, Object>{1: 2});
+  const Check([MapET1<List<IntET1>>({})], eq: [<int, List<int>>{}]);
+  const Check([MapET1<List<IntET2>>({})], eq: [<int, List<int>>{}]);
+  const Check([MapET2<List<IntET1>>({})], eq: [<int, List<int>>{}]);
+  const Check([MapET2<List<IntET2>>({})], eq: [<int, List<int>>{}]);
 }
