@@ -8,6 +8,9 @@ library Libraries_and_Scripts_A01_t06;
 f() {}
 
   f()
-//^
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
+// [error line 17, column 1]
 // [analyzer] unspecified
 // [cfe] unspecified
