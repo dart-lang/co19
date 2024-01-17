@@ -38,23 +38,23 @@ void main() {
 
     Pointer<S2> s2 = new Pointer.fromAddress(s1.address);
     Expect.equals(0x12, s2.ref.x);
-    Expect.equals(0x77, s2.elementAt(1).ref.x);
-    Expect.equals(0x66, s2.elementAt(2).ref.x);
-    Expect.equals(0x55, s2.elementAt(3).ref.x);
-    Expect.equals(0x44, s2.elementAt(4).ref.x);
-    Expect.equals(0x33, s2.elementAt(5).ref.x);
-    Expect.equals(0x22, s2.elementAt(6).ref.x);
-    Expect.equals(0x11, s2.elementAt(7).ref.x);
+    Expect.equals(0x77, (s2 + 1).ref.x);
+    Expect.equals(0x66, (s2 + 2).ref.x);
+    Expect.equals(0x55, (s2 + 3).ref.x);
+    Expect.equals(0x44, (s2 + 4).ref.x);
+    Expect.equals(0x33, (s2 + 5).ref.x);
+    Expect.equals(0x22, (s2 + 6).ref.x);
+    Expect.equals(0x11, (s2 + 7).ref.x);
 
     Pointer<S3> s3 = new Pointer.fromAddress(s1.address);
     Expect.equals(0x12, s3.ref.x);
-    Expect.equals(0x77, s3.elementAt(1).ref.x);
-    Expect.equals(0x66, s3.elementAt(2).ref.x);
-    Expect.equals(0x55, s3.elementAt(3).ref.x);
-    Expect.equals(0x44, s3.elementAt(4).ref.x);
-    Expect.equals(0x33, s3.elementAt(5).ref.x);
-    Expect.equals(0x22, s3.elementAt(6).ref.x);
-    Expect.equals(0x11, s3.elementAt(7).ref.x);
+    Expect.equals(0x77, (s3 + 1).ref.x);
+    Expect.equals(0x66, (s3 + 2).ref.x);
+    Expect.equals(0x55, (s3 + 3).ref.x);
+    Expect.equals(0x44, (s3 + 4).ref.x);
+    Expect.equals(0x33, (s3 + 5).ref.x);
+    Expect.equals(0x22, (s3 + 6).ref.x);
+    Expect.equals(0x11, (s3 + 7).ref.x);
 
     s1.ref.x = 0xFFFFFFFFFFFFFFFF;
     Expect.equals(-1, s2.ref.x);

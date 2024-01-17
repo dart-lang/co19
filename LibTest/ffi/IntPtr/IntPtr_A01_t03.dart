@@ -15,10 +15,10 @@ void main() {
   Pointer<IntPtr> p1 = calloc<IntPtr>(3);
   try {
     if (sizeOf<IntPtr>() == 4) {
-      Expect.equals(4, p1.elementAt(1).address - p1.address);
-      Expect.equals(4, p1.elementAt(2).address - p1.elementAt(1).address);
+      Expect.equals(4, (p1 + 1).address - p1.address);
+      Expect.equals(4, (p1 + 2).address - (p1 + 1).address);
     } else {
-      Expect.equals(8, p1.elementAt(1).address - p1.address);
+      Expect.equals(8, (p1 + 1).address - p1.address);
       Expect.equals(8, sizeOf<IntPtr>());
     }
   } finally {

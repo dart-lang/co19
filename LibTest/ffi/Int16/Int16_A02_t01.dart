@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 void main() {
   Pointer<Int16> p1 = calloc<Int16>(2);
   try {
-    Expect.equals(2, p1.elementAt(1).address - p1.address);
+    Expect.equals(2, (p1 + 1).address - p1.address);
     Expect.equals(2, sizeOf<Int16>());
   } finally {
     calloc.free(p1);

@@ -23,8 +23,8 @@ import "../../../Utils/expect.dart";
 void main() {
   Pointer<UnsignedLong> p1 = calloc<UnsignedLong>(2);
   try {
-    Expect.isTrue(p1.elementAt(1).address - p1.address == 4 ||
-        p1.elementAt(1).address - p1.address == 8);
+    Expect.isTrue((p1 + 1).address - p1.address == 4 ||
+        (p1 + 1).address - p1.address == 8);
     Expect.isTrue(sizeOf<UnsignedLong>() == 4 || sizeOf<UnsignedLong>() == 8);
   } finally {
     calloc.free(p1);
