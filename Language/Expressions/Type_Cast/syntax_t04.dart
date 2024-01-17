@@ -3,12 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion The cast expression ensures that an object is a member of a type.
-/// typeCast:
-///   asOperator type
-/// ;
-/// asOperator:
-///   as
-/// ;
+/// ⟨typeCast⟩ ::= ⟨asOperator⟩ ⟨typeNotVoid⟩
+/// ⟨asOperator⟩ ::= as
+///
 /// @description Checks that it is not a compile-time error when the first
 /// argument of a type cast operator is a type literal.
 /// @author rodionov
