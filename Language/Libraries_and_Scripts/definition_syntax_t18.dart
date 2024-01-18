@@ -19,8 +19,9 @@
 /// library begins with the word library (possibly prefaced with any applicable
 /// metadata annotations), followed by a qualified identifier that gives the
 /// name of the library.
-/// @description Checks that it is a compile-time error if the library directive
-/// is missing the library name.
+///
+/// @description Checks that it is not an error if a library name is missing in
+/// the library directive
 /// @author vasya
 /// @issue 44990
 

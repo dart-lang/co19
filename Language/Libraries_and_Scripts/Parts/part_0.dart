@@ -10,7 +10,4 @@ class Annot {
 }
 
 final foo = "foo";
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 var bar = 1;

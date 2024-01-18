@@ -10,7 +10,7 @@
 /// @description Checks that it is a compile-time error when the included part
 /// unit contains an import declaration.
 /// @author rodionov
-/// @issue 44990
+/// @issue 44990, 54661
 
 part "part_9.dart";
 //   ^
