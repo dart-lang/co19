@@ -48,6 +48,8 @@ main() {
   const c18 = IntET2(1) as IntET1;
   const c19 = C() as Object;
   const c20 = const C() as Object;
+  const c21 = () as ();
+  const c22 = (i: 1) as ({num i});
 
   Expect.identical(1, c1);
   Expect.identical(3.14, c2);
@@ -69,4 +71,6 @@ main() {
   Expect.identical(1, c18);
   Expect.identical(const C(), c19);
   Expect.identical(const C(), c20);
+  Expect.identical((), c21);
+  Expect.identical((i: 1), c22);
 }

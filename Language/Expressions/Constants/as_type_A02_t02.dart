@@ -33,4 +33,14 @@ main() {
 //          ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  const R1 = (void,) as Type;
+//            ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const R2 = ({int i}) as Type;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+
 }
