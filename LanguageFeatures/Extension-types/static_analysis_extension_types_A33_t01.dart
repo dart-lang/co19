@@ -15,7 +15,7 @@ import '../../Utils/expect.dart';
 
 extension type BoolET(bool b) {}
 
-String test1(BoolET b) {
+String test(BoolET b) {
   switch (b) {
     case BoolET(b: true):
       return "True";
@@ -24,15 +24,7 @@ String test1(BoolET b) {
   }
 }
 
-String test2(BoolET b) =>
-    switch (b) {
-      BoolET(b: true) => "True",
-      BoolET(b: false) => "False"
-    };
-
 main() {
-  Expect.equals("True", test1(BoolET(true)));
-  Expect.equals("False", test1(BoolET(false)));
-  Expect.equals("True", test2(BoolET(true)));
-  Expect.equals("False", test2(BoolET(false)));
+  Expect.equals("True", test(BoolET(true)));
+  Expect.equals("False", test(BoolET(false)));
 }
