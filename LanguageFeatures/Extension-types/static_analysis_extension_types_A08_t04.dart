@@ -19,40 +19,79 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V1(int id) {}
+import 'dart:async';
 
-extension type V2<T>(T id) {}
+extension type V1(int _) {}
 
-extension type V3<T extends num>(T id) {}
+extension type V2<T>(T _) {}
+
+extension type V3<T extends num>(T _) {}
+
+extension type V4(Future<int> _) {}
+
+extension type V5<T>(FutureOr<T> _) {}
+
+extension type V6<T extends num>(Future<T>? _) {}
 
 main() async {
   V1? v1 = V1(42);
   await v1;
-//      ^^
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   V2<String>? v2_1 = null;
   await v2_1;
-//      ^^^^
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   V2? v2_2 = V2("42");
   await v2_2;
-//      ^^^^
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   V3<int>? v3_1 = V3(42);
   await v3_1;
-//      ^^^^
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  V3 v3_2 = null;
+  V3? v3_2 = null;
   await v3_2;
-//      ^^^^
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  V4? v4 = V4(Future<int>.value(42));
+  await v4;
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V5<String>? v5_1 = null;
+  await v5_1;
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V5<String>? v5_2 = V5("42");
+  await v2_2;
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V6<int>? v6_1 = V6(null);
+  await v6_1;
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  V6? v6_2 = null;
+  await v6_2;
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

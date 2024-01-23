@@ -20,13 +20,13 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V0(Future<int> id) {}
+extension type V0(Future<int> _) {}
 
-extension type V1(Future<int> id) {}
+extension type V1(Future<int> _) {}
 
-extension type V2<T extends Future<Object>>(T id) {}
+extension type V2<T extends Future<Object>>(T _) {}
 
-extension type V3(Future<int> id) implements V0 {}
+extension type V3(Future<int> _) implements V0 {}
 
 main() async {
   V1 v1 = V1(Future<int>.value(42));

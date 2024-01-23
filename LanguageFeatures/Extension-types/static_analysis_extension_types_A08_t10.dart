@@ -20,11 +20,13 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
+import '../../Utils/static_type_helper.dart';
+
 extension type ET(Future<num> n) implements Future<Object> {}
 
 test<T1 extends num, T2 extends ET>(T1 t1, T2 t2) async {
   await t1;
-  await t2;
+  (await t2).expectStaticType<Exactly<Object>>();
 }
 
 main() {

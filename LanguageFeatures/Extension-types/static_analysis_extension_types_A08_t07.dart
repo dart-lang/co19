@@ -20,21 +20,37 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type IntET(int i) {}
-extension type ET(Future<int> id) {}
+import 'dart:async';
 
-main() async {
-  ET et = ET(Future<int>.value(2));
-  if (et is IntET) {
-    await et;
+extension type NumET(num _) {}
+extension type IntET(int _) {}
+extension type FutureET<T>(Future<T> _) {}
+
+test1<X extends Future<NumET>>(X x) async {
+  if (x is int) {
+    await x; // No error here, int is compatible with await
+  }
+  if (x is IntET) {
+    await x;
 //  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  if (et is IntET?) {
-    await et;
+}
+
+test2<X extends FutureOr<num>>(X x) async {
+  if (x is int) {
+    await x; // No error here, int is compatible with await
+  }
+  if (x is IntET) {
+    await x;
 //  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+}
+
+main() {
+  print(test1);
+  print(test2);
 }

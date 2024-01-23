@@ -20,11 +20,11 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V1(int id) {}
+extension type V1(int _) {}
 
-extension type V2<T>(T id) {}
+extension type V2<T>(T _) {}
 
-extension type V3<T extends num>(T id) {}
+extension type V3<T extends num>(T _) {}
 
 main() async {
   V1 v1 = V1(42);

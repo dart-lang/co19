@@ -19,16 +19,28 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "dart:async";
-extension type IntET(int i) {}
-extension type ET(Future<int> id) implements Future<int> {}
+import 'dart:async';
 
-ma() async {
-  ET et = ET(Future<int>.value(2));
-  if (et is int) {
-    await et;
+extension type IntET(int _) {}
+extension type ET(Future<int> _) implements Future<int> {}
+
+test<X extends FutureOr<num>>(X x) async {
+  if (x is num) {
+    await x;
   }
-  if (et is FutureOr<Object>?) {
-    await et;
+  if (x is FutureOr<Object>?) {
+    await x;
   }
+  if (x is ET) {
+    await x;
+  }
+  if (x is ET?) {
+    await x;
+  }
+}
+
+main() {
+  test(Future<num>.value(42));
+  test(Future<int>.value(42));
+  test(42);
 }
