@@ -87,6 +87,7 @@ main() {
   Expect.identical(fo4, fo5);
   Expect.identical(fo6, fo7);
   Expect.identical(foo, f1);
-  Expect.identical(bar<int>, f2);
+  Expect.identical(as, f2);
+  Expect.identical(bar<int>, f3);
   Expect.identical(2, d);
 }
