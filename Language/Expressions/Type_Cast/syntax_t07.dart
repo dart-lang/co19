@@ -15,4 +15,9 @@ main() {
 //              ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  const c = 1 as void;
+//               ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
