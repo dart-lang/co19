@@ -28,7 +28,7 @@ extension type CET2(C _) implements C {}
 
 String test1_1(A<String> a) {
   switch (a) {
-    case BET1 _: 'B';
+    case BET1 _: return 'B';
   }
 }
 
