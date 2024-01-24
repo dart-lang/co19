@@ -39,6 +39,9 @@ extension type CET1(C _) {}
 extension type CET2(C _) implements C {}
 
 int test1_1(AET1 a) {
+//  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   switch (a) {
     case C(field: 0) as C:
       return 0;
@@ -48,6 +51,9 @@ int test1_1(AET1 a) {
 }
 
 int test1_2(AET2 a) {
+//  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   switch (a) {
     case C(field: 0) as C:
       return 0;

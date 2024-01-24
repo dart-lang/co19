@@ -13,14 +13,13 @@
 ///   when C is a non-nullable type, and spaces is S when C is potentially
 ///   nullable.
 ///
-/// @description Check a lifted space of a cast pattern in case of not sealed
-/// type. Test switch statement
+/// @description Check a lifted space of a cast pattern in case of not a sealed
+/// type. Test switch statement which is not exhausted from a float analysis
+/// point of view
 /// @author sgrekhov22@gmail.com
 /// @issue 54460
 
 // SharedOptions=--enable-experiment=inline-class
-
-import "../../Utils/expect.dart";
 
 extension type ObjectET1(Object _) {}
 extension type ObjectET2(Object _) implements Object {}
@@ -29,6 +28,9 @@ extension type IntET1(int _) {}
 extension type IntET2(int _) implements int {}
 
 int test1_1(ObjectET1 obj) {
+//  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   switch (obj) {
     case int(isEven: true) as int:
       return 1;
@@ -38,6 +40,9 @@ int test1_1(ObjectET1 obj) {
 }
 
 int test1_2(ObjectET2 obj) {
+//  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   switch (obj) {
     case int(isEven: true) as int:
       return 1;
@@ -46,7 +51,10 @@ int test1_2(ObjectET2 obj) {
   }
 }
 
-int test2_1(Object obj) {
+int test2(Object obj) {
+//  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   switch (obj) {
     case int(isEven: true) as IntET1:
       return 1;
@@ -55,16 +63,10 @@ int test2_1(Object obj) {
   }
 }
 
-int test2_2(Object obj) {
-  switch (obj) {
-    case int(isEven: true) as IntET2:
-      return 1;
-    case int _:
-      return 2;
-  }
-}
-
 int test3_1(ObjectET1 obj) {
+//  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   switch (obj) {
     case IntET2(isEven: true) as IntET1:
       return 1;
@@ -74,6 +76,9 @@ int test3_1(ObjectET1 obj) {
 }
 
 int test3_2(ObjectET2 obj) {
+//  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   switch (obj) {
     case IntET2(isEven: true) as int:
       return 1;
@@ -83,18 +88,9 @@ int test3_2(ObjectET2 obj) {
 }
 
 main() {
-  Expect.equals(2 ,test1_1(ObjectET1(1)));
-  Expect.equals(1 ,test1_1(ObjectET1(2)));
-  Expect.equals(2 ,test1_2(ObjectET2(1)));
-  Expect.equals(1 ,test1_2(ObjectET2(2)));
-
-  Expect.equals(2 ,test2_1(1));
-  Expect.equals(1 ,test2_1(2));
-  Expect.equals(2 ,test2_2(1));
-  Expect.equals(1 ,test2_2(2));
-
-  Expect.equals(2 ,test3_1(ObjectET1(1)));
-  Expect.equals(1 ,test3_1(ObjectET1(2)));
-  Expect.equals(2 ,test3_2(ObjectET2(1)));
-  Expect.equals(1 ,test3_2(ObjectET2(2)));
+  print(test1_1);
+  print(test1_2);
+  print(test2);
+  print(test3_1);
+  print(test3_2);
 }
