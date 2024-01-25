@@ -6,18 +6,15 @@
 /// is an exhaustive pattern in addition to any map patterns
 ///
 /// @description Check that a switch statement with a value type an extension
-/// type with a `Map` as a representation type but which doesn't implement `Map`
-/// is not exhaustive
+/// type with a `Map` as a representation type is exhaustive if there is `Map()`
+/// or a wildcard case
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type ET1<K, V>(Map<K, V> _) {}
+extension type ET<K, V>(Map<K, V> _) {}
 
-String test(ET1<bool, bool> m) {
-//     ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+String test1(ET<bool, bool> m) {
   switch (m) {
     case {true: true}:
       return "case-1";
@@ -32,6 +29,22 @@ String test(ET1<bool, bool> m) {
   }
 }
 
+String test2(Map<bool, bool> m) {
+  switch (m) {
+    case {true: true}:
+      return "case-1";
+    case {true: false}:
+      return "case-2";
+    case {false: true}:
+      return "case-3";
+    case {false: false}:
+      return "case-4";
+    case ET _:
+      return "other";
+  }
+}
+
 main() {
-  test(ET1({false: true}));
+  test1(ET({false: true}));
+  test2({false: true});
 }
