@@ -23,14 +23,12 @@ class C extends A<int> {}
 
 extension type AET1<T>(A<T> _) {}
 extension type AET2<T>(A<T> _) implements A<T> {}
-extension type BET1<T>(B<T> _) {}
-extension type BET2<T>(B<T> _) implements B<T> {}
 
-test1_1(AET1<String> a) => switch (a) { B _ => 'B'};
-test1_2(AET2<String> a) => switch (a) { B _ => 'B'};
+String test1_1(AET1<String> a) => switch (a) { B _ => 'B'};
+String test1_2(AET2<String> a) => switch (a) { B _ => 'B'};
 
-test2_1(AET1<int> a) => switch (a) { B _ => 'B', C _ => 'C'};
-test2_2(AET2<int> a) => switch (a) { B _ => 'B', C _ => 'C'};
+String test2_1(AET1<int> a) => switch (a) { B _ => 'B', C _ => 'C'};
+String test2_2(AET2<int> a) => switch (a) { B _ => 'B', C _ => 'C'};
 
 main() {
   Expect.equals("B", test1_1(AET1(B<String>())));
