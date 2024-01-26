@@ -72,7 +72,7 @@ main() {
   const fo7 = IntET2(1) is! FutureOr<IntET1Alias>;
 
   const f1 = foo is! void Function();
-  const f2 = bar<int> is! int Function<int>(int);
+  const f2 = bar<int> is! int Function(int);
 
   const d = 2 is! dynamic;
 
