@@ -16,7 +16,7 @@
 ///   It is further a constant expression if the set literal evaluates to an
 ///   object.
 ///
-/// @description Checks that a constant set literal of the for
+/// @description Checks that a constant set literal of the form
 /// `const <T>{e1, ..., en}`, or `<T>{e1, ..., en}` that occurs in a constant
 /// context are constants
 /// @author sgrekhov22@gmail.com

@@ -17,7 +17,7 @@
 ///   object.
 ///
 /// @description Checks that it is a compile-time error if in a constant set
-/// literal of the form const `<T>{e1, ..., en}`, or `<T>{e1, ..., en}` any of
+/// literal of the form const `<T>{e1, ..., en}`, or `<T>{e1, ..., en}`, any of
 /// `ei` is not a constant expression
 /// @author sgrekhov22@gmail.com
 
