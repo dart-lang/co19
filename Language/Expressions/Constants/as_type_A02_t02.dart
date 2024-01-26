@@ -29,10 +29,6 @@ main() {
 //                      ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const F = () {} as Function;
-//          ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   const R1 = (void,) as Type;
 //            ^^^^
 // [analyzer] unspecified

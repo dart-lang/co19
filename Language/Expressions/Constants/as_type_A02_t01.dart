@@ -107,4 +107,8 @@ main() {
 //            ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  const c20 = () {} as Function;
+//            ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
