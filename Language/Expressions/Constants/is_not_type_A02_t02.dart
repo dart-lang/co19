@@ -9,7 +9,7 @@
 /// • An expression of the form e is! T is equivalent to !(e is T) in every
 ///   way, including whether it’s potentially constant or constant.
 ///
-/// @description Checks that an expression of the form `e is T` is not a
+/// @description Checks that an expression of the form `e is! T` is not a
 /// constant expression if `e` is not an expression
 /// @author sgrekhov22@gmail.com
 
@@ -26,10 +26,6 @@ main() {
 // [cfe] unspecified
   const cIntExtension = IntExtension is! Type;
 //                      ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const F = () {} is! Function;
-//          ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const R1 = (void,) is! Type;

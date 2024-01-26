@@ -21,7 +21,7 @@
 /// • The type void.
 /// • The type dynamic
 ///
-/// @description Checks that an expression of the form `e is T` is a constant
+/// @description Checks that an expression of the form `e is! T` is a constant
 /// expression if `T` is a constant type expression of type `FutureOr<void>` or
 /// an extension type with a representation type `void`
 /// @author sgrekhov22@gmail.com

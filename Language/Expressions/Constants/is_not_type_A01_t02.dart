@@ -21,7 +21,7 @@
 /// • The type void.
 /// • The type dynamic
 ///
-/// @description Checks that an expression of the form `e is T` is a constant
+/// @description Checks that an expression of the form `e is! T` is a constant
 /// expression if `e` is a constant expression and `T` is a constant type
 /// expression. Test different constant type expressions
 /// @author sgrekhov22@gmail.com

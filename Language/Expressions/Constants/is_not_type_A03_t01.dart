@@ -21,7 +21,7 @@
 /// • The type void.
 /// • The type dynamic
 ///
-/// @description Checks that an expression of the form `e is T` is not a
+/// @description Checks that an expression of the form `e is! T` is not a
 /// constant expression if `T` is not a constant type expression
 /// @author sgrekhov22@gmail.com
 
