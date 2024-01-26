@@ -45,8 +45,8 @@ main() {
 
   Expect.identical(1, c1);
   Expect.identical(2, c2);
-  Expect.identical((3,), c3);
-  Expect.identical((4,), c4);
-  Expect.identical((i: 5), c5);
-  Expect.identical((i: 6), c6);
+  Expect.equals((3,), c3);
+  Expect.equals((4,), c4);
+  Expect.equals((i: 5), c5);
+  Expect.equals((i: 6), c6);
 }

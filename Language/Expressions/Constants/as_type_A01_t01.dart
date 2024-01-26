@@ -72,5 +72,5 @@ main() {
   Expect.identical(const C(), c19);
   Expect.identical(const C(), c20);
   Expect.identical((), c21);
-  Expect.identical((i: 1), c22);
+  Expect.equals((i: 1), c22);
 }
