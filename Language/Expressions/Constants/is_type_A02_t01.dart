@@ -6,11 +6,11 @@
 /// change, and that can be evaluated entirely at compile time.
 /// A constant expression is one of the following:
 /// ...
-/// • An expression of the form e as T is potentially constant if e is a
+/// • An expression of the form e is T is potentially constant if e is a
 ///   potentially constant expression and T is a constant type expression, and
 ///   it is further constant if e is constant.
 ///
-/// @description Checks that an expression of the form `e as T` is not a
+/// @description Checks that an expression of the form `e is T` is not a
 /// constant expression if `e` is not a constant expression
 /// @author sgrekhov22@gmail.com
 
@@ -24,7 +24,7 @@ extension type IntET1(int _) {}
 extension type IntET2(int _) implements int {}
 
 test<T>() {
-  const c = T as Type;
+  const c = T is Type;
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -35,80 +35,76 @@ main() {
   var d = 3.14;
   var c = C();
 
-  const c1 = i as num;
+  const c1 = i is num;
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c2 = (d as num) as double;
+  const c2 = (d as num) is double;
 //            ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c3 = IntET1(1) as int;
+  const c3 = IntET1(1) is int;
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c4 = IntET2(1) as int;
+  const c4 = IntET2(1) is int;
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c5 = (i,) as (int,);
+  const c5 = (i,) is (int,);
 //            ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c6 = (IntET1(1),) as (int,);
+  const c6 = (IntET1(1),) is (int,);
 //            ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c7 = (IntET2(1),) as (int,);
+  const c7 = (IntET2(1),) is (int,);
 //            ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c8 = [i] as List<int>;
+  const c8 = [i] is List<int>;
 //            ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c9 = [IntET1(1)] as List<int>;
+  const c9 = [IntET1(1)] is List<int>;
 //            ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c10 = [IntET2(1)] as List<num>;
+  const c10 = [IntET2(1)] is List<num>;
 //             ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c11 = {d} as Set<num>;
+  const c11 = {d} is Set<num>;
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c12 = {IntET1(1)} as Set<num>;
+  const c12 = {IntET1(1)} is Set<num>;
 //             ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c13 = {IntET2(1)} as Set<num>;
+  const c13 = {IntET2(1)} is Set<num>;
 //             ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c14 = {IntET1(1): IntET1(2)} as Map<num, int>;
+  const c14 = {IntET1(1): IntET1(2)} is Map<num, int>;
 //             ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c15 = {IntET2(1): IntET2(2)} as Map<num, int>;
+  const c15 = {IntET2(1): IntET2(2)} is Map<num, int>;
 //             ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c16 = IntET1(1) as IntET2;
+  const c16 = IntET1(1) is IntET2;
 //            ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c17 = IntET2(1) as IntET1;
+  const c17 = IntET2(1) is IntET1;
 //            ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const c19 = c as Object;
+  const c19 = c is Object;
 //            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const c20 = () {} as Function;
-//            ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

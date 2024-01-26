@@ -6,7 +6,7 @@
 /// change, and that can be evaluated entirely at compile time.
 /// A constant expression is one of the following:
 /// ...
-/// • An expression of the form e as T is potentially constant if e is a
+/// • An expression of the form e is T is potentially constant if e is a
 ///   potentially constant expression and T is a constant type expression, and
 ///   it is further constant if e is constant.
 /// ...
@@ -22,7 +22,7 @@
 /// • The type void.
 /// • The type dynamic
 ///
-/// @description Checks that an expression of the form `e as T` is a constant
+/// @description Checks that an expression of the form `e is T` is a constant
 /// expression if `e` is a constant expression and `T` is a constant type
 /// expression. Test different constant type expressions
 /// @author sgrekhov22@gmail.com
@@ -56,38 +56,42 @@ void as() {}
 int bar<T>(T t) => 42;
 
 main() {
-  const c1 = C() as C;
-  const c2 = C() as M;
-  const c3 = E.e1 as E;
-  const c4 = C<int>() as C<num>;
-  const c5 = C<int>() as CNumAlias;
-  const c6 = IntET1(1) as IntET2Alias;
-  const c7 = IntET2(1) as IntET1Alias;
+  const c1 = C() is C;
+  const c2 = C() is M;
+  const c3 = E.e1 is E;
+  const c4 = C<int>() is C<num>;
+  const c5 = C<int>() is CNumAlias;
+  const c6 = IntET1(1) is IntET2Alias;
+  const c7 = IntET2(1) is IntET1Alias;
 
-  const fo1 = C() as FutureOr<C>;
-  const fo2 = C() as FutureOr<M>;
-  const fo3 = E.e1 as FutureOr<E>;
-  const fo4 = C<int>() as FutureOr<C<num>>;
-  const fo5 = C<int>() as FutureOr<CNumAlias>;
-  const fo6 = IntET1(1) as FutureOr<IntET2Alias>;
-  const fo7 = IntET2(1) as FutureOr<IntET1Alias>;
+  const fo1 = C() is FutureOr<C>;
+  const fo2 = C() is FutureOr<M>;
+  const fo3 = E.e1 is FutureOr<E>;
+  const fo4 = C<int>() is FutureOr<C<num>>;
+  const fo5 = C<int>() is FutureOr<CNumAlias>;
+  const fo6 = IntET1(1) is FutureOr<IntET2Alias>;
+  const fo7 = IntET2(1) is FutureOr<IntET1Alias>;
 
-  const f1 = foo as void Function();
-  const f2 = as as void Function();
-  const f3 = bar<int> as int Function(int);
+  const f1 = foo is void Function();
+  const f2 = bar<int> is int Function<int>(int);
 
-  const d = 2 as dynamic;
+  const d = 2 is dynamic;
 
-  Expect.identical(c1, c2);
-  Expect.identical(E.e1, c3);
-  Expect.identical(c4, c5);
-  Expect.identical(c6, c7);
-  Expect.identical(fo1, fo2);
-  Expect.identical(E.e1, fo3);
-  Expect.identical(fo4, fo5);
-  Expect.identical(fo6, fo7);
-  Expect.identical(foo, f1);
-  Expect.identical(as, f2);
-  Expect.identical(bar<int>, f3);
-  Expect.identical(2, d);
+  Expect.isTrue(c1);
+  Expect.isTrue(c2);
+  Expect.isTrue(c3);
+  Expect.isTrue(c4);
+  Expect.isTrue(c5);
+  Expect.isTrue(c6);
+  Expect.isTrue(c7);
+  Expect.isTrue(fo1);
+  Expect.isTrue(fo2);
+  Expect.isTrue(fo3);
+  Expect.isTrue(fo4);
+  Expect.isTrue(fo5);
+  Expect.isTrue(fo6);
+  Expect.isTrue(fo7);
+  Expect.isTrue(f1);
+  Expect.isTrue(f2);
+  Expect.isTrue(d);
 }
