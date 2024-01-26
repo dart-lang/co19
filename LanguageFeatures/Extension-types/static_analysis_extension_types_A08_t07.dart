@@ -7,8 +7,8 @@
 /// - T is an extension type that does not implement Future.
 /// - T is S?, and S is incompatible with await.
 /// - T is X & B, and either:
-/// - B is incompatible with await, or
-/// - B does not derive a future type, and X is incompatible with await.
+///   - B is incompatible with await, or
+///   - B does not derive a future type, and X is incompatible with await.
 /// - T is a type variable with bound S, and S is incompatible with await.
 /// Consider an expression of the form await e. A compile-time error occurs if
 /// the static type of e is incompatible with await.
@@ -19,16 +19,17 @@
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
-
 import 'dart:async';
 
-extension type NumET(num _) {}
-extension type IntET(int _) {}
-extension type FutureET<T>(Future<T> _) {}
+extension type NumET(num _) implements num {}
+extension type IntET(int _) implements NumET {}
 
-test1<X extends Future<NumET>>(X x) async {
+test1<X extends NumET>(X x) async {
   if (x is int) {
     await x; // No error here, int is compatible with await
+  }
+  if (x is FutureOr<IntET>) {
+    await x; // No error here, FutureOr<IntET> derives a future type
   }
   if (x is IntET) {
     await x;
@@ -38,9 +39,12 @@ test1<X extends Future<NumET>>(X x) async {
   }
 }
 
-test2<X extends FutureOr<num>>(X x) async {
+test2<X extends num>(X x) async {
   if (x is int) {
     await x; // No error here, int is compatible with await
+  }
+  if (x is FutureOr<IntET>) {
+    await x; // No error here, FutureOr<IntET> derives a future type
   }
   if (x is IntET) {
     await x;
