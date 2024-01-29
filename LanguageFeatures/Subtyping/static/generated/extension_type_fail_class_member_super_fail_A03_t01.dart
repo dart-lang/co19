@@ -12,7 +12,7 @@
 /// V0 is a proper subtype of each of V1 .. Vk
 ///
 /// @description Check that if a type `T1` is an extension type `V0`
-/// and `T0` is a superinterface of `T0` then `T0` is not a subtype of `T1`
+/// and `T0` is a superinterface of `V0` then `T0` is not a subtype of `T1`
 /// @author sgrekhov22@gmail.com
 ///
 /// @description Check that if type T0 is not a subtype of a type T1, then
