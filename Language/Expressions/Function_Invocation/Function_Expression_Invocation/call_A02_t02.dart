@@ -10,8 +10,8 @@
 /// named call, i is treated as the ordinary invocation
 /// ef .call<A1, . . . , Ar>(a1, . . . , an, xn+1: an+1, . . . , xn+k: an+k)
 ///
-/// @description Checks that it is a compile-time error to call a a `call`
-/// member of a record
+/// @description Checks that it is a compile-time error to invoke a record
+/// that has a getter named `call`.
 /// @author sgrekhov22@gmail.com
 /// @issue 54616,54651
 
