@@ -28,7 +28,7 @@ test<X extends FutureOr<num>>(X x) async {
   if (x is num) {
     await x;
   }
-  if (x is FutureOr<int>?) {
+  if (x is FutureOr<int>) {
     await x;
   }
   if (x is ET) {
