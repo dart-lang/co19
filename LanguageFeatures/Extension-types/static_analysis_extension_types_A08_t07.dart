@@ -19,18 +19,11 @@
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
-import 'dart:async';
 
 extension type NumET(num _) implements num {}
 extension type IntET(int _) implements NumET {}
 
 test1<X extends NumET>(X x) async {
-  if (x is int) {
-    await x; // No error here, int is compatible with await
-  }
-  if (x is FutureOr<IntET>) {
-    await x; // No error here, FutureOr<IntET> derives a future type
-  }
   if (x is IntET) {
     await x;
 //  ^^^^^
@@ -42,9 +35,6 @@ test1<X extends NumET>(X x) async {
 test2<X extends num>(X x) async {
   if (x is int) {
     await x; // No error here, int is compatible with await
-  }
-  if (x is FutureOr<IntET>) {
-    await x; // No error here, FutureOr<IntET> derives a future type
   }
   if (x is IntET) {
     await x;

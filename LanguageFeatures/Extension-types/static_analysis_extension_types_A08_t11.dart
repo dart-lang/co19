@@ -13,37 +13,27 @@
 /// Consider an expression of the form await e. A compile-time error occurs if
 /// the static type of e is incompatible with await.
 ///
-/// @description Checks that it is a compile-time error if `await e` occurs, and
-/// the static type of `e` is `X & B`, and `B` is incompatible with await.
+/// @description Checks that it is not an error if `await e` occurs, and the
+/// static type of `e` is `X & B` and `X` does not derive a future type, but `B`
+/// does
 /// @author sgrekhov22@gmail.com
-/// @issue 54648, 54649
 
 // SharedOptions=--enable-experiment=inline-class
 
 import 'dart:async';
 
-extension type NumET(num _) implements num {}
-extension type IntET(int _) implements NumET {}
+extension type ObjectET(Object _) implements Object {}
+extension type FutureIntET(Future<int> _) implements Future<int>, ObjectET {}
 
-test1<X extends FutureOr<NumET>>(X x) async {
-  if (x is IntET) {
+test<X extends ObjectET>(X x) async {
+  if (x is FutureIntET) {
     await x;
-//  ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
-}
-
-test2<X extends FutureOr<num>>(X x) async {
-  if (x is IntET) {
+  if (x is FutureIntET?) {
     await x;
-//  ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 }
 
 main() {
-  print(test1);
-  print(test2);
+  test(FutureIntET(Future<int>.value(42)));
 }
