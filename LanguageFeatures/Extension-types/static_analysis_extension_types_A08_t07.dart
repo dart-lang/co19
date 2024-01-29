@@ -1,4 +1,4 @@
-// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -7,43 +7,44 @@
 /// - T is an extension type that does not implement Future.
 /// - T is S?, and S is incompatible with await.
 /// - T is X & B, and either:
-/// - B is incompatible with await, or
-/// - B does not derive a future type, and X is incompatible with await.
+///   - B is incompatible with await, or
+///   - B does not derive a future type, and X is incompatible with await.
 /// - T is a type variable with bound S, and S is incompatible with await.
 /// Consider an expression of the form await e. A compile-time error occurs if
 /// the static type of e is incompatible with await.
 ///
 /// @description Checks that it is a compile-time error if `await e` occurs, and
-/// the static type of `e` is an extension type which is not a subtype of
-/// `Future<T>`.
+/// the static type of `e` is `X & B` and `B` does not derive a future type, and
+/// `X` is incompatible with await.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type V0(Future<int> _) {}
+extension type NumET(num _) implements num {}
+extension type IntET(int _) implements NumET {}
 
-extension type V1(Future<int> _) {}
-
-extension type V2<T extends Future<Object>>(T _) {}
-
-extension type V3(Future<int> _) implements V0 {}
-
-main() async {
-  V1 v1 = V1(Future<int>.value(42));
-  await v1;
-//^^^^^
+test1<X extends NumET>(X x) async {
+  if (x is IntET) {
+    await x;
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+}
 
-  V2<Future<String>> v2 = V2(Future<String>.value("42"));
-  await v2;
-//^^^^^
+test2<X extends num>(X x) async {
+  if (x is int) {
+    await x; // No error here, int is compatible with await
+  }
+  if (x is IntET) {
+    await x;
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+}
 
-  V3 v3 = V3(Future<int>.value(42));
-  await v3;
-//^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+main() {
+  print(test1);
+  print(test2);
 }

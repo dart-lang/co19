@@ -1,4 +1,4 @@
-// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -13,25 +13,25 @@
 /// Consider an expression of the form await e. A compile-time error occurs if
 /// the static type of e is incompatible with await.
 ///
-/// @description Checks that it is not an error if `await e` occurs and the
-/// static type of `e` is an extension type which is a subtype of `Future<T>`
-/// for some `T`.
+/// @description Checks that it is a compile-time error if `await e` occurs, and
+/// the static type of `e` is `T` where `T` is a type variable with bound `S`,
+/// and `S` is incompatible with await.
 /// @author sgrekhov22@gmail.com
+/// @issue 54648, 54649
 
 // SharedOptions=--enable-experiment=inline-class
 
-import "../../Utils/expect.dart";
+extension type NumET(num i) {}
 
-extension type V1(Future<int> _) implements Future<int> {}
+test<T1 extends num, T2 extends NumET>(T1 t1, T2 t2) async {
+  await t1; // Ok, T1 is compatible with await
 
-extension type V2<T extends Future<Object>>(T _) implements Future<Object>{}
+  await t2;
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
 
-main() async {
-  V1 v1 = V1(Future<int>.value(42));
-  var _v1 = await v1;
-  Expect.equals(42, _v1);
-
-  V2<Future<String>> v2 = V2(Future<String>.value("42"));
-  var _v2 = await v2;
-  Expect.equals("42", _v2);
+main() {
+  print(test);
 }

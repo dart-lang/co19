@@ -14,8 +14,7 @@
 /// the static type of e is incompatible with await.
 ///
 /// @description Checks that it is not an error if `await e` occurs and the
-/// static type of `e` is an extension type which is a subtype of `Future<T>`
-/// for some `T`.
+/// static type of `e` is `S?`, and `S` is compatible with await.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -27,11 +26,11 @@ extension type V1(Future<int> _) implements Future<int> {}
 extension type V2<T extends Future<Object>>(T _) implements Future<Object>{}
 
 main() async {
-  V1 v1 = V1(Future<int>.value(42));
+  V1? v1 = V1(Future<int>.value(42));
   var _v1 = await v1;
   Expect.equals(42, _v1);
 
-  V2<Future<String>> v2 = V2(Future<String>.value("42"));
+  V2<Future<String>>? v2 = V2(Future<String>.value("42"));
   var _v2 = await v2;
   Expect.equals("42", _v2);
 }
