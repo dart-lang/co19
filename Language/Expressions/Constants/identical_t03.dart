@@ -14,7 +14,7 @@
 /// constant expression.
 /// @author ilya
 
-final x;
+final x = 1;
 const y = identical(x, x);
 //                  ^
 // [analyzer] unspecified
