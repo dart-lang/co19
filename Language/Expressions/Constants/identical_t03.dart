@@ -9,17 +9,23 @@
 /// • An expression of the form identical(e1, e2) where e1 and e2 are constant
 ///   expressions and identical is statically bound to the predefined dart
 ///   function identical() discussed above.
+///
 /// @description Checks that identical() with non constant expressions is not a
 /// constant expression.
 /// @author ilya
 
-
-var x;
+final x = 1;
 const y = identical(x, x);
-//                     ^
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+const z = identical(() {}, () {});
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
   print(y);
+  print(z);
 }
