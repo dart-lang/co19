@@ -6,16 +6,30 @@
 /// change, and that can be evaluated entirely at compile time.
 /// A constant expression is one of the following:
 /// . . .
-/// • A constant list literal.
-/// @description Checks that a constant list literal can be an element of
-/// a constant list literal and is, therefore, a constant expression.
+/// • A constant list literal, const <T>[e1, ..., en], or <T>[e1,..., en] that
+///   occurs in a constant context, is a potentially constant expression if T is
+///   a constant type expression, and e1, . . . , en are constant expressions.
+///   It is further a constant expression if the list literal evaluates to an
+///   object.
+///
+/// @description Checks that a constant list literal of the form
+/// `const <T>[e1, ..., en]`, or `<T>[e1, ..., en]` that occurs in a constant
+/// context are constants
 /// @author iefremov
 
 import '../../../Utils/expect.dart';
 
-final constList = const [const ["hello", "world"]];
-
 main() {
-  Expect.isTrue(constList is List);
-  Expect.runtimeIsType<List>(constList);
+  const c1 = <int>[1, 2];
+  var c2 = const [1, 2];
+
+  var c3 = const <num>[];
+  const List<num> c4 = [];
+
+  const c5 = <Object>[[], {}, ()];
+  var c6 = const [[], {}, ()];
+
+  Expect.identical(c1, c2);
+  Expect.identical(c3, c4);
+  Expect.identical(c5, c6);
 }

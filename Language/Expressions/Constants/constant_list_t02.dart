@@ -6,21 +6,28 @@
 /// change, and that can be evaluated entirely at compile time.
 /// A constant expression is one of the following:
 /// . . .
-/// • A constant list literal.
-/// @description Checks that a non-constant list literal cannot be assigned to
-/// a constant variable.
+/// • A constant list literal, const <T>[e1, ..., en], or <T>[e1,..., en] that
+///   occurs in a constant context, is a potentially constant expression if T is
+///   a constant type expression, and e1, . . . , en are constant expressions.
+///   It is further a constant expression if the list literal evaluates to an
+///   object.
+///
+/// @description Checks that it is a compile-time error if in a constant list
+/// literal of the form const `<T>[e1, ..., en]`, or `<T>[e1, ..., en]`, `T` is
+/// not a constant type expression
 /// @author iefremov
-/// @reviewer rodionov
 
-
-var nonconstant = [1, 2, 3];
-const a = nonconstant;
-//        ^
+test<T extends num>() {
+  const c1 = <T>[];
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  print(const <T>[]);
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
 
 main() {
-  try {
-    print(a);
-  } catch (x) {}
+  print(test);
 }

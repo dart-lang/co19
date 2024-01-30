@@ -5,8 +5,12 @@
 /// @assertion A constant expression is an expression whose value can never
 /// change, and that can be evaluated entirely at compile time.
 /// A constant expression is one of the following:
-/// . . .
-/// • A constant map literal.
+/// ...
+/// A constant map literal, const <K, V >{k1: v1, ..., kn: vn}, or
+/// <K, V >{k1: v1, ..., kn: vn} that occurs in a constant context, is a
+/// potentially constant expression. It is further a constant expression if the
+/// map literal evaluates to an object.
+///
 /// @description Checks that a non-constant map literal cannot be assigned to
 /// a constant variable.
 /// @author sgrekhov22@gmail.com

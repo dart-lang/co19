@@ -32,13 +32,19 @@ const constList = const [
   (const {}),
   (1 == 1),
   (identical('', null)),
+  (identical((), ())),
   (true != false),
   (!true),
   (false && false),
   (1 ^ 2),
   (~0),
   (2 + 0.5),
-  (1 * 1)
+  (1 * 1),
+  (()),
+  ((1,)),
+  ((x: 2)),
+  ((1 < 2), (2 > 3)),
+  (((0)))
 ];
 
 main() {
