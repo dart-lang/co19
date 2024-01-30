@@ -6,7 +6,7 @@
 /// matched type are always exhaustive
 ///
 /// @description Check that it is a compile-time error if the matched value type
-/// of a switch expression or stetement is a sealed class and the set of cases
+/// of a switch expression or statement is a sealed class and the set of cases
 /// is not exhaustive
 /// @author sgrekhov22@gmail.com
 
