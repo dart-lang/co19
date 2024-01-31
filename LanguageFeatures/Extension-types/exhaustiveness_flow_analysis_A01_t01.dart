@@ -10,35 +10,21 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type const ET1(int value) {}
-extension type const ET2(int value) implements int {}
+extension type const ET1(int value) {
+  void confirmET1() {}
+}
+extension type const ET2(int value) implements int {
+  void confirmET2() {}
+}
 
 void main() {
   int i = 42;
-  int x;
   switch (i) {
-    case >0:
-      x = 1;
-    case ET1 _:
-      print("x not assigned here");
-    case _:
-      x = -1;
+    case ET1 v:
+      v.confirmET1(); // This confirms that ET1 is not erased by int
   }
-  print(x);
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   switch (i) {
-    case >0:
-      x = 1;
-    case ET2 _:
-      print("x not assigned here");
-    case _:
-      x = -1;
+    case ET2 v:
+    v.confirmET2();
   }
-  print(x);
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

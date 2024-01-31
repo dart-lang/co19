@@ -9,20 +9,21 @@
 /// the case where it accepts only objects of an unrelated type.
 /// @author sgrekhov22@gmail.com
 
-class A {}
+import 'exhaustiveness_lib.dart';
 
-class B {}
+class C {}
+class D extends C implements B1Class {}
 
 void main() {
   int x;
-  A a = A();
-  switch (a) {
-    case B():
-      print(
-          '''x is not assigned here. This case looks impossible, but there can 
-          be a hidden subtype of A and B in some other library''');
-    case _:
+  SClass s = D();
+  switch (s) {
+    case C():
+      print('x is not assigned here');
+    case B1Class():
       x = 1;
+    case B2Class():
+      x = 2;
   }
   print(x);
 //      ^

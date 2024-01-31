@@ -46,3 +46,7 @@ class LastPersonOnEarth<T> implements Jack<T>, Queen<T>, King<T> {
 
   LastPersonOnEarth(this.suit, {this.oneEyed = false});
 }
+
+sealed class SClass {}
+class B1Class extends SClass {}
+class B2Class extends SClass {}
