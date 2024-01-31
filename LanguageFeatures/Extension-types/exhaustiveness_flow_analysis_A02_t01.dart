@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion An extension type V is always-exhaustive if and only if its
-/// instantiated representation type is always-exhaustive.
+/// @assertion Extension type erasure is used by flow analysis for implicit `is`
+/// reachability.
 ///
-/// @description Check that an extension type is always-exhaustive if its
-/// representation type is always-exhaustive.
+/// @description Check that an xxtension type erasure is used by flow analysis
+/// for implicit `is` reachability.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -21,7 +21,8 @@ extension type BET(B _) {}
 
 String test1(BET b) {
   switch (b) {
-    case B _: return 'B';
+    case B _:
+      return 'B';
   }
 }
 
@@ -31,7 +32,8 @@ String test2(BET b) => switch (b) {
 
 String test3(A a) {
   switch (a) {
-    case BET _: return 'BET';
+    case BET _:
+      return 'BET';
   }
 }
 

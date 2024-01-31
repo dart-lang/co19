@@ -5,7 +5,7 @@
 /// @assertion Extension type erasure is not used during flow analysis
 ///
 /// @description Check that an extension type erasure is not used during flow
-/// analysis
+/// analysis that isn't concerned with run-time type tests
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=inline-class
@@ -19,7 +19,7 @@ void main() {
   switch (i) {
     case >0:
       x = 1;
-    case ET1(value: var __):
+    case ET1 _:
       print("x not assigned here");
     case _:
       x = -1;
@@ -32,7 +32,7 @@ void main() {
   switch (i) {
     case >0:
       x = 1;
-    case ET2(value: var __):
+    case ET2 _:
       print("x not assigned here");
     case _:
       x = -1;

@@ -9,12 +9,12 @@
 /// sealed class then flow analysis treats this statement as a not exhaustive
 /// @author sgrekhov22@gmail.com
 
-abstract class A {}
-class B extends A {}
+class A {}
+class B {}
 
 void main() {
   int x;
-  A a = B();
+  A a = A();
   switch (a) {
     case B():
       print("x not assigned here");
