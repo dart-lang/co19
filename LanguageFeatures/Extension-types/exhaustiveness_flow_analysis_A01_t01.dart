@@ -21,10 +21,10 @@ void main() {
   int i = 42;
   switch (i) {
     case ET1 v:
-      v.confirmET1(); // This confirms that ET1 is not erased by int
+      v.confirmET1(); // This confirms that `ET1` is not erased to int
   }
   switch (i) {
     case ET2 v:
-    v.confirmET2();
+      v.confirmET2();
   }
 }
