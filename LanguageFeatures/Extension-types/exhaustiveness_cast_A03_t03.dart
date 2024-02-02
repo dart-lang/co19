@@ -17,6 +17,8 @@
 /// type
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=inline-class
+
 class A {}
 
 class B extends A {}

@@ -18,6 +18,8 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 54460
 
+// SharedOptions=--enable-experiment=inline-class
+
 class A {
   final int field;
   A(this.field);
@@ -83,7 +85,7 @@ int test1_4(AET2 a) => switch (a) {
     C _ => 1
   };
 
-int test2_1(A a) {
+int test2_1(A a) { // Ok
   switch (a) {
     case C(field: 0) as CET1:
       return 0;
@@ -92,11 +94,8 @@ int test2_1(A a) {
   }
 }
 
-int test2_2(A a) {
+int test2_2(A a) { // Ok
   switch (a) {
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     case CET2(field: 0) as CET2:
       return 0;
     case C _:
