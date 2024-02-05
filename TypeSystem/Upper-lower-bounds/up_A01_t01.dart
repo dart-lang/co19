@@ -19,6 +19,8 @@
 /// expected
 /// @author sgrekhov22@gmail.com
 
+import '../../Utils/static_type_helper.dart';
+
 int? foo() => DateTime.now().millisecondsSinceEpoch.isEven? null : 1;
 
 void f<X extends num>(bool b, X x) {
@@ -29,9 +31,20 @@ void f<X extends num>(bool b, X x) {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+    X? z1 = y1;
+//          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
     var y2 = b ? foo() : x;
     y2.isEven;
 //     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    y2.expectStaticType<Exactly<int?>>();
+    X? z2 = y2;
+//          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

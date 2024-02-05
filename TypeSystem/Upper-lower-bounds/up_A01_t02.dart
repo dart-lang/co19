@@ -20,6 +20,7 @@
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/expect.dart';
+import '../../Utils/static_type_helper.dart';
 
 int? foo() => DateTime.now().millisecondsSinceEpoch.isEven? null : 1;
 
@@ -27,9 +28,11 @@ void f<X extends num>(X x) {
   if (x is int) { // `x` promoted to `X & int`.
     var y1 = 2 > 1 ? x : null;
     Expect.isTrue(y1?.isEven);
+    y1.expectStaticType<Exactly<int?>>();
 
     var y2 = 1 > 2 ? foo() : x;
     Expect.isTrue(y2?.isEven);
+    y2.expectStaticType<Exactly<int?>>();
   }
 }
 
