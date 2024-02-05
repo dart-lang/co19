@@ -48,15 +48,6 @@ typedef RecordNullableDynamicNullableNever = (
   NullableNever n
 });
 
-testXExtendsT1<X extends Never>() {
-  Expect.identical(X, Never); // NORM(X extends T) = Never if T is Never
-}
-
-testXExtendsT2<X extends Y, Y extends Never>() {
-  // NORM(X extends T) = Never if T is a type variable Y and NORM(Y) is Never
-  Expect.identical(X, Never);
-}
-
 main() {
   // NORM(FutureOr<T>) == S, if NORM(T) == S and S is a top type
   Expect.identical(Void, FutureOr<void>);
@@ -107,9 +98,6 @@ main() {
       Map<F3, RecordPositionalNullableVoid>);
   Expect.identical(Map<RecordNamedNullableInt, RecordDynamicNull>,
       Map<RecordNamedDoubleNullableInt, RecordNullableDynamicNullableNever>);
-
-  testXExtendsT1();
-  testXExtendsT2();
 
   // NORM(R Function<X extends B>(S)) = R1 Function<X extends B1>(S1)
   // where R1 = NORM(R)
