@@ -31,6 +31,7 @@ void f<X extends num>(bool b, X x) {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+    y1.expectStaticType<Exactly<int?>>();
     X? z1 = y1;
 //          ^^
 // [analyzer] unspecified
