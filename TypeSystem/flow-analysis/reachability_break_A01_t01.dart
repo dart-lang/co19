@@ -13,12 +13,13 @@
 ///  Let after(N) = unreachable(before(N)).
 ///
 /// @description Checks reachability after break statement. Test for loop
-///
 /// @author sgrekhov@unipro.ru
 /// @issue 42039
 
 // Requirements=nnbd-strong
-import "../../../Utils/expect.dart";
+
+import "../../Utils/expect.dart";
+
 main() {
   late int i;
   for (;;) {
