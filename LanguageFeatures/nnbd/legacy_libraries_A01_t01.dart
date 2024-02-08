@@ -17,7 +17,7 @@
 
 // @dart=2.6
 // ^^^^^^^^^
+// [analyzer] unspecified
 // [cfe] unspecified
 
 main() {}
-
