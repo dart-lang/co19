@@ -40,6 +40,7 @@ import "fold_A01_t01.test.dart" as fold_A01_t02;
 import "forEach_A01_t01.test.dart" as forEach_A01_t01;
 import "forEach_A01_t02.test.dart" as forEach_A01_t02;
 import "forEach_A02_t01.test.dart" as forEach_A02_t01;
+import "forEach_A03_t01.test.dart" as forEach_A03_t01;
 import "isEmpty_A01_t01.test.dart" as isEmpty_A01_t01;
 import "isNotEmpty_A01_t01.test.dart" as isNotEmpty_A01_t01;
 import "iterator_A01_t01.test.dart" as iterator_A01_t01;
@@ -128,6 +129,7 @@ test(Iterable create([Iterable? content]), {bool isSet = false,
   forEach_A01_t01.test(create);
   forEach_A01_t02.test(create);
   forEach_A02_t01.test(create);
+  forEach_A03_t01.test(create);
   isEmpty_A01_t01.test(create);
   isNotEmpty_A01_t01.test(create);
   iterator_A01_t01.test(create, isSet: isSet);

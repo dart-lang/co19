@@ -10,7 +10,7 @@
 library forEach_A03_t01;
 import "../../../Utils/expect.dart";
 
-check(List a, predicate(var e), exc) {
+check(Iterable a, predicate(var e), exc) {
   int actualCount = 0;
   Expect.throws(
     () {
