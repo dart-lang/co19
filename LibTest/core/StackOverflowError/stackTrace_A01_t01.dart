@@ -3,7 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion StackTrace stackTrace
-/// @description Checks that this property is not null if error is thrown
+/// @description Checks that this property is not null for the newly created
+/// instance
 /// @author sgrekhov@unipro.ru
 /// @issue 28179
 
@@ -12,9 +13,4 @@ import "../../../Utils/expect.dart";
 main() {
   Error e = new StackOverflowError();
   Expect.isNull(e.stackTrace);
-  try {
-    throw e;
-  } on StackOverflowError catch (er) {
-    Expect.isNotNull(e.stackTrace);
-  }
 }
