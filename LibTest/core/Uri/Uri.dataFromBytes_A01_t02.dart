@@ -51,6 +51,6 @@ main() {
   check(l, "image/gif");
   check(l, "text/plain");
   check(l, "Text/Plain");
-  check(l, "Avada / Kedavra");
-  check(l, "Абра / Кадабра");
+  check(l, "avada / kedavra");
+  check(l, "абра / кадабра");
 }
