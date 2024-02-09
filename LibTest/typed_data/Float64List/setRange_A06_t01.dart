@@ -13,6 +13,7 @@
 /// @description Checks that it is a run time error if run-time type of the
 /// `iterable` is not subtype of this list. Test list elements of the same size
 /// @author sgrekhov22@gmail.com
+/// @issue 53945
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
