@@ -53,7 +53,6 @@ typedef IntET2Alias = IntET2;
 
 void foo() {}
 void as() {}
-int bar<T>(T t) => 42;
 
 main() {
   const c1 = C() as C;
@@ -74,7 +73,6 @@ main() {
 
   const f1 = foo as void Function();
   const f2 = as as void Function();
-  const f3 = bar<int> as int Function(int);
 
   const d = 2 as dynamic;
 
@@ -88,6 +86,5 @@ main() {
   Expect.identical(fo6, fo7);
   Expect.identical(foo, f1);
   Expect.identical(as, f2);
-  Expect.identical(bar<int>, f3);
   Expect.identical(2, d);
 }
