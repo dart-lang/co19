@@ -74,7 +74,7 @@ main() {
 
   const f1 = foo as void Function();
   const f2 = as as void Function();
-  const f3 = bar<int> as int Function(int);
+  const f3 = (bar<int>) as int Function(int);
 
   const d = 2 as dynamic;
 
