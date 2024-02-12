@@ -46,7 +46,7 @@ main() {
 // [cfe] unspecified
 
   final j = IntET1(0);
-  if (value case != i) {}
+  if (value case != j) {}
 //                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
