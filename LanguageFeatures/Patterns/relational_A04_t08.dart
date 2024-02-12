@@ -1,4 +1,4 @@
-// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -13,28 +13,32 @@
 /// It is a compile-time error if bitwiseOrExpression is not a valid constant
 /// expression.
 ///
-/// @description Check that it is a compile-time error if relational operator is
-/// used with a wrong type
+/// @description Check that it is a compile-time error if `bitwiseOrExpression`
+/// is not a valid constant expression. Test subexpression
 /// @author sgrekhov22@gmail.com
+/// @issue 54627
 
-const o = const Object();
+// SharedOptions=--enable-experiment=inline-class
+
+extension type const NumET(num _) implements num {}
 
 String test(List<num> list) {
+  NumET i = NumET(0);
   return switch (list) {
-    [> "1" && <= 2] => "case 1",
-//     ^^^
+    [> i && <= 2] => "case 1",
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    [>= "10" && < 20] => "case 3",
-//      ^^^^
+    [== -NumET(0)] => "case 2",
+//       ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    [> 1 && <= true] => "case 5",
-//             ^^^^
+    [>= NumET(0) && < 20] => "case 3",
+//      ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    [>= 10 && < o] => "case 6",
-//              ^
+    [!= NumET(0) + 1] => "case 4",
+//      ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     _ => "default"
@@ -42,51 +46,48 @@ String test(List<num> list) {
 }
 
 main() {
-  test([]);
+  final i = NumET(0);
 
-  int value = 42;
-  switch (value) {
-    case < "i":
-//         ^^^
+  List<num> list = [];
+
+  switch (list) {
+    case [> i && <= 2]:
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break;
-    case > o:
-//         ^
+    break;
+    case [== -NumET(0)]:
+//           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break;
+    break;
+    case [>= NumET(0) && < 20]:
+//           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    break;
+    case [!= NumET(0) + 1]:
+//           ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    break;
     default:
   }
-
-  switch (value) {
-    case >= "1":
-//          ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    case <= "2":
-//          ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      break;
-    default:
-  }
-
-  if (value case < "i") {}
-//                 ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  if (value case > o) {}
+  if (list case [> i && <= 2]) {}
 //                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  if (value case >= "1") {}
-//                  ^^^
+  if (list case [== NumET(0)]) {}
+//                  ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  if (value case <= "2") {}
-//                  ^^^
+  if (list case [>= NumET(0) && < 20]) {}
+//                  ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  if (list case [!= -NumET(0)]) {}
+//                   ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  test(list);
 }
