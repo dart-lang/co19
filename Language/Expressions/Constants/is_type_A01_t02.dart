@@ -93,6 +93,5 @@ main() {
   Expect.isTrue(fo7);
   Expect.isTrue(f1);
   Expect.isTrue(f2);
-  Expect.isTrue(f2);
   Expect.isTrue(d);
 }
