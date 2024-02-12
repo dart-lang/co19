@@ -3,15 +3,17 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion relationalPattern ::=
-///   ( equalityOperator | relationalOperator) relationalExpression
+///   ( equalityOperator | relationalOperator) bitwiseOrExpression
 ///
 /// A relational pattern lets you compare the matched value to a given constant
 /// using any of the equality or relational operators: ==, !=, <, >, <=, and >=.
 /// The pattern matches when calling the appropriate operator on the matched
-/// value with the constant as an argument returns true. It is a compile-time
-/// error if relationalExpression is not a valid constant expression.
+/// value with the constant as an argument returns true.
 ///
-/// @description Check that it is a compile-time error if relationalExpression
+/// It is a compile-time error if bitwiseOrExpression is not a valid constant
+/// expression.
+///
+/// @description Check that it is a compile-time error if `bitwiseOrExpression`
 /// is not a valid constant expression. Test subexpression
 /// @author sgrekhov22@gmail.com
 
