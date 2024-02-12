@@ -44,12 +44,12 @@
 /// operator. This leaves us open to allowing some of those operators as prefix 
 /// operators in the future, like we currently allow the - operator.
 ///
-/// @description Checks that any other token following the ambiguous > will make
-/// the prior tokens be parsed as comma separated < and > operator invocations.
-/// Test `as`, `as!` and `is` tokens
+/// @description Checks that it is a syntax error if function with type argument
+/// specified is part of `as`, `as!` or `is` expressions
 /// @author sgrekhov22@gmail.com
 
 int bar<T>(T t) => 42;
+void foo<T1, T2, T3>() {}
 
 main() {
   const c1 = bar<int> as int Function(int);
@@ -62,8 +62,23 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const c3 = bar<int> is int Function<int>(int);
+  const c3 = bar<int> is int Function(int);
 //           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const c4 = foo<int, String, bool> as void Function();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const c5 = foo<int, String, bool> is! void Function();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const c6 = foo<int, String, bool> is void Function();
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

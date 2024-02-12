@@ -52,6 +52,7 @@ typedef IntET2Alias = IntET2;
 
 void foo() {}
 void as() {}
+int bar<T>(T t) => 42;
 
 main() {
   const c1 = C() is! C;
@@ -71,6 +72,7 @@ main() {
   const fo7 = IntET2(1) is! FutureOr<IntET1Alias>;
 
   const f1 = foo is! void Function();
+  const f2 = (bar<int>) is! int Function(int);
 
   const d = 2 is! dynamic;
 
@@ -89,5 +91,6 @@ main() {
   Expect.isFalse(fo6);
   Expect.isFalse(fo7);
   Expect.isFalse(f1);
+  Expect.isFalse(f2);
   Expect.isFalse(d);
 }
