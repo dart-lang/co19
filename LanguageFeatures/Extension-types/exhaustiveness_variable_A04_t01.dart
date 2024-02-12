@@ -21,7 +21,9 @@ main() {
     case int y:
       x.expectStaticType<Exactly<ET>>;
       y.expectStaticType<Exactly<int>>;
-    case TO z: // Unreachable, it's Ok
+    case TO z:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       x.expectStaticType<Exactly<TO>>;
       z.expectStaticType<Exactly<TO>>;
   }
@@ -29,7 +31,9 @@ main() {
     case ET y:
       x.expectStaticType<Exactly<ET>>;
       y.expectStaticType<Exactly<ET>>;
-    case TO z: // Unreachable, it's Ok
+    case TO z:
+//  ^^^^
+// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
       x.expectStaticType<Exactly<ET>>;
       z.expectStaticType<Exactly<TO>>;
   }
