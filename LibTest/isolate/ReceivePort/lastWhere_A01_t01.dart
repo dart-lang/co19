@@ -2,19 +2,25 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Future<T> lastWhere (bool test(T element),
-///     {@deprecated dynamic defaultValue(),  T orElse()})
+/// @assertion Future<T> lastWhere(bool test(T element), {T orElse()?})
 ///
 /// Finds the last element in this stream matching test.
 ///
-/// If this stream emits an error, the returned future is completed with that
-/// error, and processing stops.
+/// Returns a future that is completed with the last element of this stream for
+/// which test returns true.
 ///
-/// Otherwise as firstWhere, except that the last matching element is found
-/// instead of the first. That means that a non-error result cannot be provided
-/// before this stream is done.
+/// If no such element is found before this stream is done, and an orElse
+/// function is provided, the result of calling orElse becomes the value of the
+/// future. If orElse throws, the returned future is completed with that error.
 ///
-/// The defaultValue parameter is deprecated, and orElse should be used instead.
+/// If this stream emits an error at any point, the returned future is completed
+/// with that error, and the subscription is canceled.
+///
+/// A non-error result cannot be provided before this stream is done.
+///
+/// Similar too firstWhere, except that the last matching element is found
+/// instead of the first.
+///
 /// @description Checks that if element is found, it is passed to the resulting
 /// future.
 /// @author kaigorodov
