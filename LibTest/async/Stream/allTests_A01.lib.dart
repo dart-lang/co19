@@ -96,7 +96,7 @@ import "last_A01_t01.test.dart" as last_A01_t01;
 import "last_A02_t01.test.dart" as last_A02_t01;
 
 import "lastWhere_A01_t01.test.dart" as lastWhere_A01_t01;
-import "lastWhere_A01_t01.test.dart" as lastWhere_A01_t02;
+import "lastWhere_A01_t02.test.dart" as lastWhere_A01_t02;
 import "lastWhere_A02_t01.test.dart" as lastWhere_A02_t01;
 import "lastWhere_A04_t01.test.dart" as lastWhere_A04_t01;
 import "lastWhere_A05_t01.test.dart" as lastWhere_A05_t01;

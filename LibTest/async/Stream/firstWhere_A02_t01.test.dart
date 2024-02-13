@@ -2,22 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Future<T> firstWhere (
-///  bool test(T element), {@deprecated dynamic defaultValue(), T orElse()})
+/// @assertion Future<T> firstWhere (bool test(T element), T orElse()})
 ///
 /// Finds the first element of this stream matching test.
 ///
-/// Returns a future that is completed with the first element of this stream that
-/// test returns true for.
+/// Returns a future that is completed with the first element of this stream for
+/// which test returns true.
 ///
-/// If no such element is found before this stream is done, and a orElse function
-/// is provided, the result of calling orElse becomes the value of the future. If
-/// orElse throws, the returned future is completed with that error.
+/// If no such element is found before this stream is done, and an orElse
+/// function is provided, the result of calling orElse becomes the value of the
+/// future. If orElse throws, the returned future is completed with that error.
 ///
-/// If this stream emits an error before the first matching element, the returned
-/// future is completed with that error, and processing stops.
+/// If this stream emits an error before the first matching element, the
+/// returned future is completed with that error, and processing stops.
 ///
-/// Stops listening to the stream after the first matching element or error has
+/// Stops listening to this stream after the first matching element or error has
 /// been received.
 ///
 /// Internally the method cancels its subscription after the first element that
@@ -27,9 +26,8 @@
 /// If an error occurs, or if this stream ends without finding a match and with
 /// no orElse function provided, the returned future is completed with an error.
 ///
-/// The defaultValue parameter is deprecated, and orElse should be used instead.
 /// @description Checks that if this stream ends without finding a match and an
-/// orElse function is provided, then the result of calling orElse becomes
+/// [orElse] function is provided, then the result of calling [orElse] becomes
 /// the value of the future.
 /// @author kaigorodov
 
