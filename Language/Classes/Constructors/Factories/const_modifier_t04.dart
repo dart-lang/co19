@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -19,36 +19,37 @@
 /// It is a compile-time error if k is prefixed with the const modifier but k'
 /// is not a constant constructor.
 ///
-/// @description Checks that it is a compile-error if a const redirecting
-/// factory constructor redirects to a non-const factory constructor
-/// @author ilya
+/// @description Checks that it is not an error if a const redirecting
+/// factory constructor redirects to a const factory constructor. Test extension
+/// types
+/// @author sgrekhov22@gmail.com
 
-class F1 {
-  const factory F1() = F2;
-//                     ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+// SharedOptions=--enable-experiment=inline-class
+
+import '../../../../Utils/expect.dart';
+
+class F {
+  const F();
+  const factory F.test(F _) = FET;
 }
 
-class F2 extends F1 {
-  factory F2() = C;
-}
-
-class C implements F2 {
-}
+extension type const FET(F _) implements F {}
 
 enum E {
   e1, e2;
-  const E();
 
-  factory E.f1() => E.e1;
-  const factory E.f2() = E.f1;
-//                       ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  const E();
+  const factory E.test(E _) = EET;
 }
 
+extension type const EET(E _) implements E {}
+
 main() {
-  print(F1);
-  print(E);
+  const f1 = FET(F());
+  const f = F.test(F());
+  Expect.identical(f, f1);
+
+  const e1 = EET(E.e1);
+  const e = E.test(E.e1);
+  Expect.identical(e, e1);
 }
