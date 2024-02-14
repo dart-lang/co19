@@ -12,7 +12,7 @@
 /// completes normally returning o, otherwise k completes by throwing the
 /// exception and stack trace thrown by k′.
 ///
-/// @description Checks that if a call of the redirectee completes by a throwing
+/// @description Checks that if a call of the redirectee completes by throwing
 /// an exception, the redirecting constructor call completes with the same
 /// exception
 /// @author sgrekhov22@gmail.com
@@ -33,10 +33,10 @@ class C implements F {
 main() {
   try {
     C();
-  } on Error catch (e1) {
+  } catch (e1) {
     try {
       F();
-    } on Error catch (e2) {
+    } catch (e2) {
       Expect.equals(e1.toString(), e2.toString());
     }
   }
