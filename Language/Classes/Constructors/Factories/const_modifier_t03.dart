@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -20,35 +20,52 @@
 /// is not a constant constructor.
 ///
 /// @description Checks that it is a compile-error if a const redirecting
-/// factory constructor redirects to a non-const factory constructor
-/// @author ilya
+/// factory constructor redirects to a non-const constructor. Test extension
+/// types
+/// @author sgrekhov22@gmail.com
 
-class F1 {
-  const factory F1() = F2;
-//                     ^^
+// SharedOptions=--enable-experiment=inline-class
+
+class F {
+  const factory F(F _) = FET1;
+//                       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const factory F.f2(F _) = FET2.nonConst;
+//                          ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class F2 extends F1 {
-  factory F2() = C;
-}
+extension type FET1(F _) implements F {}
 
-class C implements F2 {
+extension type const FET2(F v) implements F {
+  FET2.nonConst(this.v) {}
 }
 
 enum E {
   e1, e2;
-  const E();
 
-  factory E.f1() => E.e1;
-  const factory E.f2() = E.f1;
-//                       ^^^^
+  const E();
+  const factory E.f1(E _) = EET1;
+//                          ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const factory E.f2(E _) = EET2.nonConst;
+//                          ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
+extension type EET1(E _) implements E {}
+
+extension type const EET2(E v) implements E {
+  EET2.nonConst(this.v) {}
+}
+
 main() {
-  print(F1);
+  print(F);
   print(E);
 }

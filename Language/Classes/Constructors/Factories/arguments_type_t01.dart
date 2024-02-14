@@ -31,7 +31,7 @@ class F<T extends String> {
 }
 
 class C<T extends num> implements F<T> {
-//                                   ^
+//                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
