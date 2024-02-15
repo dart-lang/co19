@@ -19,12 +19,15 @@
 /// library begins with the word library (possibly prefaced with any applicable
 /// metadata annotations), followed by a qualified identifier that gives the
 /// name of the library.
-/// @description Checks that it is a compile-time error if the library directive
-/// is missing the library name.
+///
+/// An implicitly named library has the empty string as its name
+///
+/// @description Checks that it is not an error if a library name is missing in
+/// the library directive of the imported library.
 /// @author vasya
 /// @issue 44990
 
-import "definition_syntax_t18_lib.dart";
+library;
 
 main() {
   var someVar = 0;
