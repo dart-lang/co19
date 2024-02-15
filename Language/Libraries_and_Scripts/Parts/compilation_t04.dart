@@ -7,14 +7,15 @@
 /// The top-level declarations at that URI are then compiled by the Dart compiler
 /// in the scope of the current library. It is a compile-time error if the
 /// contents of the URI are not a valid part declaration.
+///
 /// @description Checks that more than one part can be included in a library
-/// without errors as long as there're no name conflicts.
+/// without errors as long as there are no name conflicts.
 /// @author rodionov
 
 library Parts_test_lib;
 import "../../../Utils/expect.dart";
-part "part_0.dart";
 part "part_3.dart";
+part "part_12.dart";
 
 main() {
   // get/set

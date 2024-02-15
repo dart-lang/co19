@@ -7,21 +7,24 @@
 /// The top-level declarations at that URI are then compiled by the Dart compiler
 /// in the scope of the current library. It is a compile-time error if the
 /// contents of the URI are not a valid part declaration.
-/// @description Checks that partDirective, partHeader and libraryName can
+///
+/// @description Checks that `partDirective`, `partHeader` and `libraryName` may
 /// contain metadata.
 /// @author kaigorodov
 
 @Annot()
 library Parts_test_lib;
+
 import "../../../Utils/expect.dart";
-@Annot1()
-part "part_0.dart";
+
 @Annot1.nn(1)
 part "part_3.dart";
+@Annot1()
+part "part_12.dart";
 
 class Annot1 {
   final int n;
-  const Annot1():n=0;
+  const Annot1() : n = 0;
   const Annot1.nn(int this.n);
 }
 
@@ -33,8 +36,8 @@ main() {
   Expect.equals(false, value);
   value = foo;
   Expect.equals("foo", value);
-  value = [1,2,3,4];
-  Expect.listEquals([1,2,3,4], value);
+  value = [1, 2, 3, 4];
+  Expect.listEquals([1, 2, 3, 4], value);
 
   // variables
   Expect.isTrue("foo" == foo);

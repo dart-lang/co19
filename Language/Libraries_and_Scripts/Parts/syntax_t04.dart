@@ -25,7 +25,7 @@
 
 
 library Parts_test_lib;
-#part "part_0.dart";
+#part "part_12.dart";
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
