@@ -9,8 +9,8 @@
 ///   const.
 ///
 /// @description Checks that an expression `e` is a constant expression if `e`
-/// is an element of a map whose first token is `const`. In this case `const`
-/// modifier for `e` can be omitted
+/// is an element of a list literal whose first token is `const`. In this case
+/// the `const` modifier for `e` can be omitted
 /// @author sgrekhov22@gmail.com
 
 import '../../../../Utils/expect.dart';
@@ -24,5 +24,5 @@ main() {
   var c = const {C(1): C(2)};
 
   Expect.identical(const C(2), c[const C(1)]);
-  Expect.identical(const C(1), c.keys.toList()[0]);
+  Expect.identical(const C(1), c.keys.first);
 }

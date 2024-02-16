@@ -7,7 +7,7 @@
 /// modifier to be omitted in cases where it does not contribute any new
 /// information.
 ///
-/// @description Checks that an initializers list is not a constant context
+/// @description Checks that an initializer list is not a constant context
 /// @author sgrekhov22@gmail.com
 
 class A {

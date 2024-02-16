@@ -19,13 +19,13 @@ class C {
 }
 
 main() {
-  const c1 = (){C(1);};
-//           ^^^^^^^^
+  const c1 = C((){C(1)};);
+//             ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var c2 = const (){C(1);};
-//               ^^^^^^^^
+  var c2 = const C((){C(1);});
+//                 ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

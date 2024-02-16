@@ -20,6 +20,6 @@ class C {
 }
 
 main() {
-  const c = const C(1);
-  Expect.identical(c, const C(1));
+  const c = const C([]);
+  Expect.identical(c, const C([]));
 }
