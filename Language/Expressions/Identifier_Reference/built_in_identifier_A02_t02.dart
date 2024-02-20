@@ -16,21 +16,21 @@ class C<as> {
 // [cfe] unspecified
 }
 
-mixin M<abstract> {
-//      ^^^^^^^^
+mixin M<as> {
+//      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E<abstract> {
-//     ^^^^^^^^
+enum E<as> {
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   e1;
 }
 
-void foo<abstract>() {}
-//       ^^^^^^^^
+void foo<as>() {}
+//       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
