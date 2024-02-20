@@ -16,5 +16,5 @@ import "../lib.dart" as mixin;
 // [cfe] unspecified
 
 main() {
-  Function.x;
+  mixin.x;
 }

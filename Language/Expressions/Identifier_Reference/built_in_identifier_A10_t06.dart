@@ -13,20 +13,20 @@
 
 // SharedOptions=--enable-experiment=inline-class
 
-extension type extension(int _) {}
-//             ^^^^^^^^^
+extension type Function(int _) {}
+//             ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type ListET<extension>(List<extension> _) {}
-//                    ^^^^^^^^^
+extension type ListET<Function>(List<Function> _) {}
+//                    ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 extension type ET(int _) {}
 
-typedef extension = ET;
-//      ^^^^^^^^^
+typedef Function = ET;
+//      ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

@@ -7,7 +7,7 @@
 /// or extension.
 ///
 /// @description Checks that it is a compile-time error if a built-in identifier
-/// `set` is used as the declared name of a prefix.
+/// `static` is used as the declared name of a prefix.
 /// @author ngl@unipro.ru
 /// @issue 25733
 

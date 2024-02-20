@@ -16,5 +16,5 @@ import "../lib.dart" as late;
 // [cfe] unspecified
 
 main() {
-  Function.x;
+  late.x;
 }

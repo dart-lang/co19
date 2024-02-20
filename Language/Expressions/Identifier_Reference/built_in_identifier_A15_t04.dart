@@ -16,5 +16,5 @@ import "../lib.dart" as interface;
 // [cfe] unspecified
 
 main() {
-  Function.x;
+  interface.x;
 }

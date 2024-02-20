@@ -16,5 +16,5 @@ import "../lib.dart" as required;
 // [cfe] unspecified
 
 main() {
-  Function.x;
+  required.x;
 }
