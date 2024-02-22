@@ -7,28 +7,28 @@
 /// type, a generic function or method, or a type alias.
 ///
 /// @description Check that it is a compile-time error if a variance modifier is
-/// specified for a type parameter declared by an enum
+/// specified for a type parameter declared by a type alias
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=variance
 
-enum  E1<in T> {e;}
-//       ^^
+typedef AList1<in T> = List<T>;
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum  E2<out T> {e;}
-//       ^^^
+typedef AList2<out T> = List<T>;
+//             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum  E3<inout T> {e;}
-//       ^^^^^
+typedef AList3<inout T> = List<T>;
+//             ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  print(E1);
-  print(E2);
-  print(E3);
+  print(AList1);
+  print(AList2);
+  print(AList3);
 }
