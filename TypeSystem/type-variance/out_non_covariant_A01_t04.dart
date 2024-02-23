@@ -24,32 +24,32 @@
 // SharedOptions=--enable-experiment=variance,inline-class
 
 typedef C<T> = T;
-typedef ContrvariantT<T> = void Function(T);
+typedef ContravariantT<T> = void Function(T);
 
 class A<out X> {
-  final C<ContrvariantT<X>>? v = null;
+  final C<ContravariantT<X>>? v = null;
 //                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C<ContrvariantT<X>>? f() {}
+  C<ContravariantT<X>>? f() {}
 //^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C<ContrvariantT<X>>? get g => null;
+  C<ContravariantT<X>>? get g => null;
 //^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin M<out X> {
-  C<ContrvariantT<X>>? f() {}
+  C<ContravariantT<X>>? f() {}
 //^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C<ContrvariantT<X>>? get g => null;
+  C<ContravariantT<X>>? get g => null;
 //^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -58,24 +58,24 @@ mixin M<out X> {
 enum E<out X> {
   e;
 
-  ContrvariantT<X>? f() {}
+  ContravariantT<X>? f() {}
 //^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ContrvariantT<X>? get g => null;
+  ContravariantT<X>? get g => null;
 //^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET<out X>(X x) {
-  ContrvariantT<X>? f() {}
+  ContravariantT<X>? f() {}
 //^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ContrvariantT<X>? get g => null;
+  ContravariantT<X>? get g => null;
 //^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

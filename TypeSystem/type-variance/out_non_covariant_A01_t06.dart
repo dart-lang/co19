@@ -25,32 +25,32 @@
 
 import 'dart:async';
 
-typedef ContrvariantT<T> = void Function(T);
+typedef ContravariantT<T> = void Function(T);
 
 class C<out X> {
-  final FutureOr<ContrvariantT<X>>? v = null;
+  final FutureOr<ContravariantT<X>>? v = null;
 //                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  FutureOr<ContrvariantT<X>>? f() {}
+  FutureOr<ContravariantT<X>>? f() {}
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  FutureOr<ContrvariantT<X>>? get g => null;
+  FutureOr<ContravariantT<X>>? get g => null;
 //^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin M<out X> {
-  FutureOr<ContrvariantT<X>>? f() {}
+  FutureOr<ContravariantT<X>>? f() {}
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  FutureOr<ContrvariantT<X>>? get g => null;
+  FutureOr<ContravariantT<X>>? get g => null;
 //^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -59,24 +59,24 @@ mixin M<out X> {
 enum E<out X> {
   e;
 
-  FutureOr<ContrvariantT<X>>? f() {}
+  FutureOr<ContravariantT<X>>? f() {}
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  FutureOr<ContrvariantT<X>>? get g => null;
+  FutureOr<ContravariantT<X>>? get g => null;
 //^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET<out X>(X x) {
-  FutureOr<ContrvariantT<X>>? f() {}
+  FutureOr<ContravariantT<X>>? f() {}
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  FutureOr<ContrvariantT<X>>? get g => null;
+  FutureOr<ContravariantT<X>>? get g => null;
 //^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
