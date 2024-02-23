@@ -16,7 +16,7 @@
 /// method
 ///
 /// @description Check that it is a compile-time error if a type parameter has a
-/// variance modifier `out` and occurs in the contrvariant position in a member
+/// variance modifier `out` and occurs in a contrvariant position in a member
 /// signature in the body of `D` (it occurs in a contrvariant position in a
 /// `FutureOr<U>` type).
 /// @author sgrekhov22@gmail.com
