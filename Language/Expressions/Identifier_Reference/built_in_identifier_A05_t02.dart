@@ -34,9 +34,33 @@ void foo<dynamic>() {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+extension Ext<dynamic> on List {}
+//            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef int F1<dynamic>();
+//             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef F2<dynamic extends Comparable<dynamic>> = int Function();
+//         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+const void Function<dynamic>()? c = null;
+//                  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(C);
   print(M);
   print(E);
   print(foo);
+  print(List);
+  print(F1);
+  print(F2);
+  print(c);
 }

@@ -34,9 +34,33 @@ void foo<library>() {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+extension Ext<library> on List {}
+//            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef int F1<library>();
+//             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef F2<library extends Comparable<library>> = int Function();
+//         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+const void Function<library>()? c = null;
+//                  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(C);
   print(M);
   print(E);
   print(foo);
+  print(List);
+  print(F1);
+  print(F2);
+  print(c);
 }

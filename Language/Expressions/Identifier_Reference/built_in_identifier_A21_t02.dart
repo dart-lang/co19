@@ -34,9 +34,33 @@ void foo<part>() {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+extension Ext<part> on List {}
+//            ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef int F1<part>();
+//             ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef F2<part extends Comparable<part>> = int Function();
+//         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+const void Function<part>()? c = null;
+//                  ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(C);
   print(M);
   print(E);
   print(foo);
+  print(List);
+  print(F1);
+  print(F2);
+  print(c);
 }

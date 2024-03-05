@@ -1,4 +1,4 @@
-// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -7,50 +7,52 @@
 /// or extension.
 ///
 /// @description Checks that it is a compile-time error if a built-in identifier
-/// `import` is used as the declared name of a type variable.
-/// @author ngl@unipro.ru
+/// `augment` is used as the declared name of a type variable.
+/// @author sgrekhov22@gmail.com
 
-class C<import> {
-//      ^^^^^^
+// SharedOptions=--enable-experiment=macros
+
+class C<augment> {
+//      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-mixin M<import> {
-//      ^^^^^^
+mixin M<augment> {
+//      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E<import> {
-//     ^^^^^^
+enum E<augment> {
+//     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   e1;
 }
 
-void foo<import>() {}
-//       ^^^^^^
+void foo<augment>() {}
+//       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension Ext<import> on List {}
-//            ^^^^^^
+extension Ext<augment> on List {}
+//            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef int F1<import>();
-//             ^^^^^^
+typedef int F1<augment>();
+//             ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef F2<import extends Comparable<import>> = int Function();
-//         ^^^^^
+typedef F2<augment extends Comparable<augment>> = int Function();
+//         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-const void Function<import>()? c = null;
-//                  ^^^^^
+const void Function<augment>()? c = null;
+//                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

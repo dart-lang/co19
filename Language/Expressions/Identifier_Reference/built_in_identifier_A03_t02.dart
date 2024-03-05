@@ -34,9 +34,33 @@ void foo<covariant>() {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+extension Ext<covariant> on List {}
+//            ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef int F1<covariant>();
+//             ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef F2<covariant extends Comparable<covariant>> = int Function();
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+const void Function<covariant>()? c = null;
+//                  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(C);
   print(M);
   print(E);
   print(foo);
+  print(List);
+  print(F1);
+  print(F2);
+  print(c);
 }
