@@ -34,9 +34,33 @@ void foo<import>() {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+extension Ext<import> on List {}
+//            ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef int F1<import>();
+//             ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef F2<import extends Comparable<import>> = int Function();
+//         ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+const void Function<import>()? c = null;
+//                  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(C);
   print(M);
   print(E);
   print(foo);
+  print(List);
+  print(F1);
+  print(F2);
+  print(c);
 }

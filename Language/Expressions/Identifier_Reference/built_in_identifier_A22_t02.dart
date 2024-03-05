@@ -29,8 +29,28 @@ enum E<required> {
   e1;
 }
 
-void foo<mixin>() {}
-//       ^^^^^
+void foo<required>() {}
+//       ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension Ext<required> on List {}
+//            ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef int F1<required>();
+//             ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef F2<required extends Comparable<required>> = int Function();
+//         ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+const void Function<required>()? c = null;
+//                  ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -39,4 +59,8 @@ main() {
   print(M);
   print(E);
   print(foo);
+  print(List);
+  print(F1);
+  print(F2);
+  print(c);
 }

@@ -29,8 +29,28 @@ enum E<extension> {
   e1;
 }
 
-void foo<external>() {}
-//       ^^^^^^^^
+void foo<extension>() {}
+//       ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension Ext<extension> on List {}
+//            ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef int F1<extension>();
+//             ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef F2<extension extends Comparable<extension>> = int Function();
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+const void Function<extension>()? c = null;
+//                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -39,4 +59,8 @@ main() {
   print(M);
   print(E);
   print(foo);
+  print(List);
+  print(F1);
+  print(F2);
+  print(c);
 }
