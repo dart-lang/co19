@@ -6,14 +6,12 @@
 /// ...
 /// - An augmentation library contains any part directives.
 ///
-/// @description Checks that it is a compile-time error if an augmentation
-/// library contains any part directives.
+/// @description Checks that it is no error if a library that has an
+/// augmentation contains a part directive.
 /// @author sgrekhov22@gmail.com
-/// @issue 55116
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'defining_augmentation_A04_t01_lib.dart';
+part of 'defining_augmentation_A04_t03.dart';
 
-main() {
-}
+var x = "x";
