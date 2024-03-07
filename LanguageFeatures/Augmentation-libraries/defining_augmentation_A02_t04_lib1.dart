@@ -12,7 +12,6 @@
 
 // SharedOptions=--enable-experiment=macros
 
-library augment 'defining_augmentation_A02_t04_main.dart';
+library augment 'defining_augmentation_A02_t04.dart';
 
 import 'augmentation_libraries_lib.dart';
-export 'augmentation_libraries_lib.dart';

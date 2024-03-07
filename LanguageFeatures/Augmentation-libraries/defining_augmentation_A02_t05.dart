@@ -12,11 +12,10 @@
 
 // SharedOptions=--enable-experiment=macros
 
-library augment 'defining_augmentation_A02_t05_main.dart';
+import augment 'defining_augmentation_A02_t05_lib.dart';
+
+import 'augmentation_libraries_lib.dart';
 
 main() {
-  print(AL);
-//      ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  test();
 }

@@ -12,47 +12,66 @@
 
 // SharedOptions=--enable-experiment=macros
 
-library augment 'defining_augmentation_A01_t02_lib.dart';
+import augment 'defining_augmentation_A01_t02_lib.dart';
 
 import '../../Utils/expect.dart';
 
-extension on C1 {
-  String get z => "z";
+class C1 {
+  String get y => "y";
 }
 
-extension on _C2 {
-  String get _z => "_z";
+mixin M1 {
+  String get m => "m";
 }
 
-extension type ET1(C1 id) {}
-extension type ET2(_C2 id) {}
+enum E1 {
+  e;
 
-class MA1 = Object with M1;
-class MA2 = Object with _M2;
+  E1 get instance => e;
+}
+
+var x1 = 42;
+
+int foo1() => 0;
+
+extension MyList on List {
+  String get bar => "bar";
+}
+
+extension type MyInt(int id) {}
+
+typedef void Foo1();
+
+typedef C1Alias = C1;
+
+class _C2 {
+  String get _y => "_y";
+}
+
+mixin _M2 {
+  String get _m => "_m";
+}
+
+enum _E2 {
+  e;
+
+  _E2 get _instance => e;
+}
+
+var _x2 = 42;
+
+int _foo2() => 0;
+
+extension _MyList on List {
+  String get baz => "_baz";
+}
+
+extension type _MyInt(int id2) {}
+
+typedef void _Foo2();
+
+typedef _C2Alias = _C2;
 
 main() {
-  Expect.equals("y", C1().y);
-  Expect.equals("z", C1().z);
-  Expect.equals("m", MA1().m);
-  Expect.equals("_y", _C2()._y);
-  Expect.equals("_z", _C2()._z);
-  Expect.equals("_m", MA2()._m);
-  Expect.equals("y", ET1(C1()).id.y);
-  Expect.equals("_y", ET2(_C2()).id._y);
-  Expect.equals(E1.e, E1.e.instance);
-  Expect.equals(_E2.e, _E2.e._instance);
-  Expect.equals(42, x1);
-  Expect.equals(42, _x2);
-  Expect.equals(0, foo1());
-  Expect.equals(0, _foo2());
-  Expect.equals("bar", [].bar);
-  Expect.equals("bar", MyList([]).bar);
-  Expect.equals("_baz", [].baz);
-  Expect.equals("_baz", _MyList([]).baz);
-  Expect.equals(42, MyInt(42));
-  Expect.equals(42, _MyInt(42));
-  Expect.isTrue((Foo1 as dynamic) is Type);
-  Expect.isTrue((_Foo2 as dynamic) is Type);
-  Expect.isTrue((C1Alias as dynamic) is Type);
-  Expect.isTrue((_C2Alias as dynamic) is Type);
+  test();
 }

@@ -7,10 +7,16 @@
 /// that file.
 ///
 /// @description Checks that imports in an augmentation library are not visible
-/// in another augmentation library even it exports it
+/// in another augmentation library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'defining_augmentation_A02_t04.dart';
-import augment 'defining_augmentation_A02_t04_lib.dart';
+library augment 'defining_augmentation_A02_t03.dart';
+
+test() {
+  print(AL);
+//      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

@@ -6,12 +6,12 @@
 /// or each other. The libraries one augmentation imports are visible only to
 /// that file.
 ///
-/// @description Checks that imports from main library are not visible in an
-/// augmentation library
+/// @description Checks that imports in an augmentation library are not visible
+/// in another augmentation library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'defining_augmentation_A02_t05.dart';
+library augment 'defining_augmentation_A02_t03.dart';
 
 import 'augmentation_libraries_lib.dart';
