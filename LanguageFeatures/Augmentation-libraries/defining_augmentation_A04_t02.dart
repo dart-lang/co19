@@ -6,19 +6,17 @@
 /// ...
 /// - An augmentation library contains any part directives.
 ///
-/// @description Checks that it is a compile-time error if an augmentation
-/// library contains any part directives.
+/// @description Checks that it is no error if a library that has an
+/// augmentation contains a part directive.
 /// @author sgrekhov22@gmail.com
-/// @issue 55116
 
 // SharedOptions=--enable-experiment=macros
 
-library augment 'defining_augmentation_A04_t02_main.dart';
+import augment 'defining_augmentation_A04_t02_lib.dart';
+import '../../Utils/expect.dart';
 
-/**/part 'defining_augmentation_A04_t02_part.dart';
-//  ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+part 'defining_augmentation_A04_t02_part.dart';
 
 main() {
+  Expect.equals("x", x);
 }

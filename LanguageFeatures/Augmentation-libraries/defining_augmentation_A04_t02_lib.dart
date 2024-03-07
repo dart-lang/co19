@@ -12,6 +12,4 @@
 
 // SharedOptions=--enable-experiment=macros
 
-part of 'defining_augmentation_A04_t03.dart';
-
-var x = "x";
+library augment 'defining_augmentation_A04_t02.dart';
