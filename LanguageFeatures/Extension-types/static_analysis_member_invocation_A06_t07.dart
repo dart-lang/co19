@@ -14,8 +14,6 @@
 /// call this member
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET(int _) {}
 
 main() {

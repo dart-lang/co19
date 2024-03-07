@@ -13,8 +13,6 @@
 /// type `Null`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 typedef NAlias = Null;
 
 extension type ET1(Null id) implements Null {}

@@ -23,8 +23,6 @@
 /// parameters
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type ET<T>(T id) {}

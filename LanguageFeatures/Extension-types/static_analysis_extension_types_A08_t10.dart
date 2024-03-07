@@ -16,8 +16,6 @@
 /// and `S` is compatible with await.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/static_type_helper.dart';
 
 extension type ET(Future<num> n) implements Future<Object> {}

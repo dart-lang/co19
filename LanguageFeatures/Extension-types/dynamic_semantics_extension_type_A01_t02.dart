@@ -8,8 +8,6 @@
 /// @description Check that an extension type is 'erased' at run time
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type ET1(int id) {

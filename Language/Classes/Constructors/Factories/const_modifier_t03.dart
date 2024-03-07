@@ -24,8 +24,6 @@
 /// types
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class F {
   const factory F(F _) = FET1;
 //                       ^^^^

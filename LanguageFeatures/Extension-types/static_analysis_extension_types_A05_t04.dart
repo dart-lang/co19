@@ -18,8 +18,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 54097
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1<T extends T>(T id) {}
 //               ^
 // [analyzer] unspecified

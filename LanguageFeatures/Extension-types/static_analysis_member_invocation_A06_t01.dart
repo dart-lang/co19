@@ -13,8 +13,6 @@
 /// a member `m` then this member is also present in `ET`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET0(int id) {
   void m1() {}
   int get m2 => 42;

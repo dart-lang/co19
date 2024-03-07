@@ -23,8 +23,6 @@
 /// referenced name does not denote a constructor.
 /// @author ilya
 
-// SharedOptions=--enable-experiment=inline-class
-
 class F {
   factory F.foo() = C.foo;
 //                  ^^^^^

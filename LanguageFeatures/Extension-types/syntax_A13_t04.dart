@@ -23,8 +23,6 @@
 /// name which is OTHER_IDENTIFIER_NOT_TYPE
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type async(int id) {}

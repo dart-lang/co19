@@ -13,8 +13,6 @@
 /// a dependency on itself.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(int id) implements ET2 {}
 //                                    ^^^
 // [analyzer] unspecified

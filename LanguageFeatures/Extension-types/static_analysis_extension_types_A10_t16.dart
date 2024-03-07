@@ -13,8 +13,6 @@
 /// `Never`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 typedef NeverAlias = Never;
 
 extension type NeverET1(Object? _) implements Never {}

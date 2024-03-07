@@ -19,8 +19,6 @@
 /// `Name<X1 .. Xs>` is `Name<X1 .. Xs>`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/static_type_helper.dart";
 
 extension type V1(int id) {

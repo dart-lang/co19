@@ -17,8 +17,6 @@
 /// `V<T1, .. Ts>` is not regular-bounded.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class A {}
 class B extends A {}
 class C extends B {}

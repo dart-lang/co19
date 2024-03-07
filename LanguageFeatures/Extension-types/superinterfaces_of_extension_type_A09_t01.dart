@@ -14,8 +14,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53803
 
-// SharedOptions=--enable-experiment=inline-class
-
 class A<T> {}
 
 extension type ET<T>(A<Never> _) implements A<void Function(T)> {}

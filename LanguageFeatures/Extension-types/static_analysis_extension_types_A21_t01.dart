@@ -18,8 +18,6 @@
 /// constructors
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type ET1.c0(int id) {

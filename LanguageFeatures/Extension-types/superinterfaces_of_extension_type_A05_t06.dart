@@ -37,8 +37,6 @@
 /// even though this is not a correct override for a regular class
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/expect.dart';
 
 String log = "";

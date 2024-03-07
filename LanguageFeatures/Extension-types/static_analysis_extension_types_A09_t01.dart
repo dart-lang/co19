@@ -10,8 +10,6 @@
 /// declares a member whose name is declared by `Object` as well.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1(int id) {
   int get hashCode => id.hashCode;
 //        ^^^^^^^^

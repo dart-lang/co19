@@ -19,8 +19,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53170
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1<T>(T id) {}
 
 extension type V(num id) implements V1<String> {}

@@ -11,8 +11,6 @@
 /// representation and semantics as its erasure
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/expect.dart';
 
 extension type BoolET1(bool _) {}

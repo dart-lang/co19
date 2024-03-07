@@ -21,7 +21,7 @@
 /// `FutureOr<U>` type).
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=variance,inline-class
+// SharedOptions=--enable-experiment=variance
 
 import 'dart:async';
 

@@ -17,8 +17,6 @@
 /// and `id` are bound to the value of `v`. Check non-default constructors
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/expect.dart';
 
 extension type V1.n0(int id) {

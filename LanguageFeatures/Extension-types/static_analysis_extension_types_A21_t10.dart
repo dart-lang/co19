@@ -19,8 +19,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53936,53395
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type const E<T>(Object? id) {

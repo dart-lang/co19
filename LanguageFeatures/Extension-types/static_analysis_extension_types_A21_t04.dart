@@ -18,8 +18,6 @@
 /// type constructor has a body
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const ET1(int id) {
   const ET1.n(this.id) {}
 //                     ^^

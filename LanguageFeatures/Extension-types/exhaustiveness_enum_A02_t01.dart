@@ -10,8 +10,6 @@
 /// and the set of cases is not exhaustive
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 enum E<T> {
   a<int>(),
   b<String>(),

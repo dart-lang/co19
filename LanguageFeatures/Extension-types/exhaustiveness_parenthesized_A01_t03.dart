@@ -10,8 +10,6 @@
 /// when extension types are used in `case` and expression parts of a `switch`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type const BoolET1(bool _) {}

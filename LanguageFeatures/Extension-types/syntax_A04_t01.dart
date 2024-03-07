@@ -23,8 +23,6 @@
 /// declaration doesn't contain `representationDeclaration`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET {
 //             ^^
 // [analyzer] unspecified

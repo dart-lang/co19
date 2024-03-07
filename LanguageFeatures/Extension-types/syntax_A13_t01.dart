@@ -23,8 +23,6 @@
 /// name `type` or 'on'
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type type(int id) {}

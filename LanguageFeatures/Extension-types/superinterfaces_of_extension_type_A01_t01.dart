@@ -15,8 +15,6 @@
 /// extension type `DV` is not a supertype of the representation type of `DV`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class V1 {}
 class V2<T1, T2> {}
 

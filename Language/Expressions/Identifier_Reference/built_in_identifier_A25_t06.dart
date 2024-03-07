@@ -10,8 +10,6 @@
 /// `typedef` is used as the name, type parameter or alias of an extension type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type typedef(int _) {}
 //             ^^^^^^^
 // [analyzer] unspecified

@@ -17,8 +17,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 54648, 54649
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type NumET(num i) {}
 
 test<T1 extends num, T2 extends NumET>(T1 t1, T2 t2) async {

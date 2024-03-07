@@ -11,8 +11,6 @@
 /// extension type member named `m`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class A {
   void set m(int v) {}
 }

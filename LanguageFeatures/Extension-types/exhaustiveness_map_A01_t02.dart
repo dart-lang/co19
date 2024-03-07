@@ -10,8 +10,6 @@
 /// with a `Map` as a representation type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1<K, V>(Map<K, V> _) {}
 extension type ET2<K, V>(Map<K, V> _) implements Map<K, V> {}
 

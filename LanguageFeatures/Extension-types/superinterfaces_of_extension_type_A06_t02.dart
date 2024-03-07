@@ -9,8 +9,6 @@
 /// member contains `super`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(int id) {}
 
 extension type ET2(int id) implements ET1 {

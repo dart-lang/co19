@@ -10,8 +10,6 @@
 /// constructor
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 enum E1 {
   e1,
   e2.foo();

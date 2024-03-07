@@ -24,8 +24,6 @@
 /// it is defined
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 main() {
   print(_PrivateExtensionType);
 //      ^^^^^^^^^^^^^^^^^^^^^

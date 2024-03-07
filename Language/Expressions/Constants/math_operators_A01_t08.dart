@@ -27,8 +27,6 @@
 /// correctly in case of extension types
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../../Utils/expect.dart';
 
 extension type const ExtNum(num _) implements num {}

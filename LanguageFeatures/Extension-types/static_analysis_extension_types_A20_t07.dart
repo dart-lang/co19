@@ -17,8 +17,6 @@
 /// corresponding representation type.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class Check {
   const Check(Object? v, {required Object? eq})
       : assert(v == eq, "Not equal ${(v, eq: eq)}");

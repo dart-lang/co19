@@ -19,8 +19,6 @@
 /// actual type arguments and argument part
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type ET1<T>(T i) {

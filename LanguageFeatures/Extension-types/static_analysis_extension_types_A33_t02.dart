@@ -9,8 +9,6 @@
 /// representation type is not always-exhaustive.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type IntET(int i) {}
 
 String test1(IntET v) {

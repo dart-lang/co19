@@ -10,8 +10,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53822
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1<T>(T id) {
   void test() {
     this ?? print("No warning here!");

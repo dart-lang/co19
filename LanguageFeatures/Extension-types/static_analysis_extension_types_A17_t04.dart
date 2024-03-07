@@ -10,8 +10,6 @@
 /// assign `null` to it)
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1(int? it) {}
 
 extension type V2<T>(T id) {}

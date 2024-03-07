@@ -14,8 +14,6 @@
 /// @description Check that an extension type is a subtype of its superinterface
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V0(int i) implements int {}
 
 int t1Instance = 0;

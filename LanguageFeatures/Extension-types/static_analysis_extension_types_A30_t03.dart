@@ -15,8 +15,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53489
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(int id) {
   static void set x(String i) {}
   static int get x => 42;

@@ -12,8 +12,6 @@
 /// named `m`, and the two members have distinct declarations.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(int i) {
   int m() => 0;
 }

@@ -25,8 +25,6 @@
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const V0<T extends String>(T i) implements String {}
 
 V0<String> t1Instance = V0("42");

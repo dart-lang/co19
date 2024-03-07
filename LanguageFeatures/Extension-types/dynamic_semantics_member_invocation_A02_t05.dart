@@ -23,8 +23,6 @@
 /// @description Check implicit tear-off of a `call` member
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 class C {

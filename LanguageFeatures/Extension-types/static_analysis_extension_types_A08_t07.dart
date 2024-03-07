@@ -15,8 +15,6 @@
 /// the static type of `e` is `X & B` and `B` is incompatible with await.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type NumET(num _) implements num {}
 extension type IntET(int _) implements NumET {}
 

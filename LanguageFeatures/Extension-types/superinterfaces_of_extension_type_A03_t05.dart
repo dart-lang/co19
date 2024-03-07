@@ -17,8 +17,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53799
 
-// SharedOptions=--enable-experiment=inline-class
-
 class A<T> {}
 
 extension type ET1(A<Never> _) implements A<int> {}

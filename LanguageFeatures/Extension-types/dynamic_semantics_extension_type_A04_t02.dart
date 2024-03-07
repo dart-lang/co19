@@ -11,8 +11,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53918
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET(int id) {}
 
 main() {

@@ -17,8 +17,6 @@
 /// corresponding representation type. Test function types
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const Check._(Object? _) {
   const Check(Object? object, {required Object? expected}) : _ = object,
       assert(identical(expected, object));

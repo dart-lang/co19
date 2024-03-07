@@ -10,8 +10,6 @@
 /// declares a static method named `n` and a static setter with basename `n`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(int id) {
   static int n() => 1;
 //           ^

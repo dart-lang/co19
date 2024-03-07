@@ -9,8 +9,6 @@
 /// time if its representation type is nullable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "dart:async" show FutureOr;
 import "../../Utils/expect.dart";
 

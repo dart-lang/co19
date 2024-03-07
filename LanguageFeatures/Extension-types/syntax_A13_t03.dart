@@ -24,8 +24,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53930
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type abstract(int id) {}
 //             ^^^^^^^^
 // [analyzer] unspecified

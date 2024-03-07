@@ -9,8 +9,6 @@
 /// constructor includes a superinitializer
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1(int id) {
   V1.x(this.id);
 }

@@ -16,8 +16,6 @@
 /// inherited members
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class C1 {
   String n() => "C1";
 }

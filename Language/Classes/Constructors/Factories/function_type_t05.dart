@@ -24,8 +24,6 @@
 /// factory's function type. Checks extension type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class Bool {
   final bool _value;
   Bool(this._value);

@@ -17,8 +17,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53439
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(int? _id) {
   void test() {
     if (_id != null) {

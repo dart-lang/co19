@@ -22,8 +22,6 @@
 /// class accessible in the current scope
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class F {
   factory F(x) = null;
 //               ^^^^

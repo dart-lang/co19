@@ -11,8 +11,6 @@
 /// statically outside of switch expressions and statements
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type IterableET1<T>(Iterable<T> _) {}
 extension type IterableET2<T>(Iterable<T> _) implements Iterable<T> {}
 extension type const ConstIterableET1<T>(Iterable<T> _) {}

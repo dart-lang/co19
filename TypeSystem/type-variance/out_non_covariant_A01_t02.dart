@@ -20,7 +20,7 @@
 /// signature in the body of `D`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=variance,inline-class
+// SharedOptions=--enable-experiment=variance
 
 class C<out X> {
   C([X? x]) {} // No error here

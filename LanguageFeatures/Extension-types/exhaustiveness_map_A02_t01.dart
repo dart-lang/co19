@@ -10,8 +10,6 @@
 /// matched type is an extension type with a `Map` as a representation type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type ET1<K, V>(Map<K, V> _) {}

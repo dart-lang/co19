@@ -18,8 +18,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 54627
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const NumET(num _) implements num {}
 
 String test(List<num> list) {

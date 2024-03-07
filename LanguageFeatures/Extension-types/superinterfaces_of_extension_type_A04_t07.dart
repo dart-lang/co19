@@ -19,8 +19,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53170
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V0(String id) {}
 
 extension type V1<T>(T id) {}

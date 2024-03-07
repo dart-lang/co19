@@ -17,8 +17,6 @@
 /// is not a subtype of `Xi` then `T0` is not a subtype of `T1`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const V<T extends num>(T id) {}
 
 V<int> t1Instance = V(42);

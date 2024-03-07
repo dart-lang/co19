@@ -23,8 +23,6 @@
 /// declaration doesn't contain `typeIdentifier`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type (int id) {
 //             ^
 // [analyzer] unspecified

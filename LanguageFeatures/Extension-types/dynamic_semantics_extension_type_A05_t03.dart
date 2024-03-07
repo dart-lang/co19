@@ -17,8 +17,6 @@
 /// and `id` are bound to the value of `v`. Check constant constructors
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/expect.dart';
 
 extension type const V1(int id) {

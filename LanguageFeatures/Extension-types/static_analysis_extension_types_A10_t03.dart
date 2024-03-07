@@ -14,8 +14,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53836
 
-// SharedOptions=--enable-experiment=inline-class
-
 typedef NObject = Object?;
 
 extension type ET1(dynamic id) implements dynamic {}

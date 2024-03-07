@@ -10,8 +10,6 @@
 /// @description Check that an extension type can be used in an object pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 class C {

@@ -10,8 +10,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53320
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(int id) {
   abstract int m;
 //^

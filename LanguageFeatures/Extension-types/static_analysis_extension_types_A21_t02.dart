@@ -17,8 +17,6 @@
 /// @description Checks that an extension type constructor can be a constant
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const ET1(int id) {
   const factory ET1.f(int id) = ET1.new;
 }

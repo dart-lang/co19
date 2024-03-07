@@ -15,8 +15,6 @@
 /// and `T0` is a superinterface of `V0` then `T0` is not a subtype of `T1`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1(int i) {}
 extension type const V0(int i) implements V1 {}
 
