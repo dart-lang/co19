@@ -15,8 +15,6 @@
 /// subtype of it
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const V0(int i) implements int {}
 
 V0 t1Instance = V0(42);

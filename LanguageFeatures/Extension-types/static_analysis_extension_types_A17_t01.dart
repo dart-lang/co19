@@ -10,8 +10,6 @@
 /// subtype of `Object` (can be assigned to `Object`).
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1(int id) implements Object {}
 
 extension type V2<T extends num>(T id) implements Object {}

@@ -29,8 +29,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 54545
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const ExtNum1(num _) implements num {}
 
 extension type const ExtNum2(num value) implements num {

@@ -16,8 +16,6 @@
 /// type of `DV`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 mixin class V1 {
   int x = 1;
 }

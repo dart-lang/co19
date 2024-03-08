@@ -15,8 +15,6 @@
 /// an extension type `DV` is a subtype of the representation type of `DV`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 mixin class V1 {}
 class V2 extends V1 {}
 class V3<T1, T2 extends num?> implements V1 {}

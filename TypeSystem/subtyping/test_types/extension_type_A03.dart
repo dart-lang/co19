@@ -16,8 +16,6 @@
 /// representation type then it is subtype of `Object?`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const V<T>(T id) {}
 
 Object? t1Instance = null;

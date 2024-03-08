@@ -23,8 +23,6 @@
 /// declaration contains `extends` or `with` clauses
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 mixin M {}
 
 extension type ET1(int id) extends Object {}

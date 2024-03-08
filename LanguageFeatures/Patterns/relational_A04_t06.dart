@@ -18,8 +18,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 54627
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const IntET1(int _) {}
 extension type const IntET2(int _) implements int, IntET1 {}
 

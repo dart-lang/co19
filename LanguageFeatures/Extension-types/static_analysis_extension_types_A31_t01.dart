@@ -10,8 +10,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53823, 53824
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(Never _) {}
 //                 ^^^^^
 // [analyzer] unspecified

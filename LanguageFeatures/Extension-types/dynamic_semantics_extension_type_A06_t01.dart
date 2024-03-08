@@ -11,8 +11,6 @@
 /// statically outside of switch expressions and statements
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type BoolET1(bool _) {}
 extension type BoolET2(bool _) implements bool {}
 extension type const ConstBoolET1(bool _) {}

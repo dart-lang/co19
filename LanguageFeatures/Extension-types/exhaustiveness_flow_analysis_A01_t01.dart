@@ -8,8 +8,6 @@
 /// analysis that isn't concerned with run-time type tests
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const ET1(int value) {
   void confirmET1() {}
 }

@@ -17,8 +17,6 @@
 /// type. Test switch expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ObjectET1(Object _) {}
 extension type ObjectET2(Object _) implements Object {}
 

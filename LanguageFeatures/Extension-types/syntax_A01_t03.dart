@@ -27,8 +27,6 @@
 /// import prefix `type`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "extension_type_lib.dart" as type;
 
 main() {

@@ -16,8 +16,6 @@
 /// a representation dependency on itself.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1(V2 v2) {
 //             ^^
 // [analyzer] unspecified

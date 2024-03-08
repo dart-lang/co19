@@ -21,7 +21,7 @@
 /// covariant parameter).
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=variance,inline-class
+// SharedOptions=--enable-experiment=variance
 
 typedef C<T> = T;
 typedef ContravariantT<T> = void Function(T);

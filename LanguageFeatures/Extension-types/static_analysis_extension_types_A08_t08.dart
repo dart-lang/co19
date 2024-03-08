@@ -15,8 +15,6 @@
 /// static type of `e` is `X & B` and both `X` and `B` are compatible with await
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import 'dart:async';
 
 extension type IntET(int _) {}

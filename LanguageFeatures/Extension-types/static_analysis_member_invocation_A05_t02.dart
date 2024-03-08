@@ -18,8 +18,6 @@
 /// type argument of a torn-off method
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(int id) {
   int foo<T1, T2 extends num>() => 42;
 }

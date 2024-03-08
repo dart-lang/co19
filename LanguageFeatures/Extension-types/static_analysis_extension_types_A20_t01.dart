@@ -17,8 +17,6 @@
 /// `X1 extends BB1, .. Xs extends BBs` has any compile-time errors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V<T>(T id) {}
 
 void foo<X extends V<Y>, Y extends X>() {} // foo<X extends Y, Y extends X>()

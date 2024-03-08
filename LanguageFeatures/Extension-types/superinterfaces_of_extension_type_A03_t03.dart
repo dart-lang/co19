@@ -17,8 +17,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53799
 
-// SharedOptions=--enable-experiment=inline-class
-
 class A<T> {}
 
 extension type A_ET1<T>(A<T> _) implements A<T> {}

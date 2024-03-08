@@ -16,8 +16,6 @@
 /// @description Check a lifted space of a cast pattern in case of a sealed type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 sealed class A {
   final int field;
   A(this.field);

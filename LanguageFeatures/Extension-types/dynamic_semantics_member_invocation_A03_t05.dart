@@ -28,8 +28,6 @@
 /// @description Check invocation of a representation type `call` member
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type V1<T extends Object Function(num)>(T id) {}

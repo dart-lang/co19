@@ -18,8 +18,6 @@
 /// initialize a representation variable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(Object? _) {
   ET1.named(Object? _);
 //^^^

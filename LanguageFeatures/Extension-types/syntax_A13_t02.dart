@@ -23,8 +23,6 @@
 /// has the name which is a reserved word
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type assert(int id) {}
 //             ^^^^^^
 // [analyzer] unspecified

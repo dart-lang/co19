@@ -11,8 +11,6 @@
 /// when extension type declares overrides of members of `Object`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type IntET(int id) implements int {}
 
 extension type TypeET(Type id) implements Type {}

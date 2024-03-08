@@ -16,8 +16,6 @@
 /// nullable representation type then `Object?` is not subtype of `V`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const V<T>(T id) {}
 
 V<Object?> t1Instance = V<Object?>(42);

@@ -23,8 +23,6 @@
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V0(int i) implements int {}
 
 V0 t0Instance = V0(42);

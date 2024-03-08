@@ -13,8 +13,6 @@
 /// type of the form `FutureOr<T>`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "dart:async";
 
 typedef FutureOrInt = FutureOr<int>;

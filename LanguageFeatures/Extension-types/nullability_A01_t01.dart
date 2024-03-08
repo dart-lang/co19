@@ -9,8 +9,6 @@
 /// representation type is nullable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "dart:async" show FutureOr;
 
 extension type ET1(int? _) {}

@@ -39,8 +39,6 @@
 /// members in `V1` and `V2` have equal signatures
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1(int id) {
   int m() => 1;
 }

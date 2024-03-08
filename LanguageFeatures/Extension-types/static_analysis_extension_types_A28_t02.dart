@@ -9,8 +9,6 @@
 /// member to have the modifier `external`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(int id) {
   external static int m;
 }

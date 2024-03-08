@@ -27,8 +27,6 @@
 /// value is not a valid constant expression. Test switch statement
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type NumET(num n) implements num {}
 extension type const IntET(int i) implements int {}
 

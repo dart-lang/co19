@@ -19,8 +19,6 @@
 /// incompatible parameters
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const ET1(int id) {
   ET1.c() : id = 0;
   factory ET1.f(int id) = ET1.c;

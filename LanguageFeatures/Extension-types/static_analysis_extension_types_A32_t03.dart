@@ -11,8 +11,6 @@
 /// pattern outside of switch statements and expressions
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class C {
   int x;
   C(this.x);

@@ -15,8 +15,6 @@
 /// static type of `e` is `S?`, and `S` is compatible with await.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type V1(Future<int> _) implements Future<int> {}

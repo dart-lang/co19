@@ -20,8 +20,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53437, language#3326
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "dart:math";
 
 enum E {

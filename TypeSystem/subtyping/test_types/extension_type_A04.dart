@@ -13,8 +13,6 @@
 /// subtype of `[T1/X1 .. Ts/Xs]V1` for all `T1, .. Ts`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const V1<T1, T2>(T1 id) {}
 
 extension type V<T1, T2>(T1 id) implements V1<T1, T2> {}

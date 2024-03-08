@@ -21,8 +21,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53170
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../Extension-types/extension_type_lib.dart";
 
 extension type ET(String id) implements LibraryExtensionTypeInt2 {}

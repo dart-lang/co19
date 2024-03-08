@@ -9,8 +9,6 @@
 /// representation type is always-exhaustive.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/expect.dart';
 
 extension type BoolET(bool b) {}

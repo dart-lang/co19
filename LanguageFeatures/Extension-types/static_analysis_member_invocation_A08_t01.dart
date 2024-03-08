@@ -16,8 +16,6 @@
 /// a member `m` then this member is also present in `ET`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/expect.dart';
 
 extension type ET(int id) implements num {}

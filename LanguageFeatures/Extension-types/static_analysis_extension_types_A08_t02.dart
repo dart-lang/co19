@@ -16,8 +16,6 @@
 /// `Future<T>`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V0(Future<int> _) {}
 
 extension type V1(Future<int> _) {}

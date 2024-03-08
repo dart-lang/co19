@@ -16,8 +16,6 @@
 /// abstract
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/expect.dart';
 
 int log = 0;

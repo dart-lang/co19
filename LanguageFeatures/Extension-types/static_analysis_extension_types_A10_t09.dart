@@ -13,8 +13,6 @@
 /// type of the form `T?`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 typedef NullableInt = int?;
 
 extension type ET1(int? id) implements int? {}

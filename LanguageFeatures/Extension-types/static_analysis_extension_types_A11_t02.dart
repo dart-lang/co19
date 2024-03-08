@@ -10,8 +10,6 @@
 /// a type parameter of a superinterface of a class or a mixin
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V(int id) {}
 
 class A<T> {}

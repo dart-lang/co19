@@ -13,8 +13,6 @@
 /// type variable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1<T>(T id) implements T {}
 //                                       ^
 // [analyzer] unspecified

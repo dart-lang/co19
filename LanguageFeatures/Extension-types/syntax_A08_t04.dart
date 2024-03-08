@@ -29,8 +29,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53467
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(int id) {
   late int id = 0;
 //         ^^

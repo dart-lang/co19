@@ -26,8 +26,6 @@
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const V<T1 extends num, T2 extends Object>(T1 id) {}
 
 V<num, Object> t1Instance = V<num, num>(3.14);

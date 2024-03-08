@@ -13,8 +13,6 @@
 /// and hence the `ET*` types have a getter/setter signature conflict.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1(int _) {
   String get n => "V1";
 }

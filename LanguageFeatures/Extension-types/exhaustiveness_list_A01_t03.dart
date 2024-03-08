@@ -12,8 +12,6 @@
 /// the list pattern
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type ET1<T>(List<T> _) {}

@@ -10,8 +10,6 @@
 /// a `switch` are extension types
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const BoolET1(bool _) {}
 extension type const BoolET2(bool _) implements bool {}
 

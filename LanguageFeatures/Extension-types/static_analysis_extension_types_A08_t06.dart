@@ -16,8 +16,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 54648, 54649
 
-// SharedOptions=--enable-experiment=inline-class
-
 import 'dart:async';
 
 extension type NumET(num _) implements num {}

@@ -13,8 +13,6 @@
 /// deferred type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "extension_type_lib.dart" deferred as d;
 
 extension type ET1(d.A id) implements d.A {}

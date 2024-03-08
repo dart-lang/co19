@@ -14,8 +14,6 @@
 /// constant expression if `e` is not a constant expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class C {
   C();
 }

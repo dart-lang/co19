@@ -15,8 +15,6 @@
 /// have type `Null`. Test switch expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const ObjectET1(Object _) {}
 extension type const ObjectET2(Object _) implements Object {}
 

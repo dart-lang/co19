@@ -18,8 +18,6 @@
 /// extension type with wrong type arguments
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class A<T extends A<T>> {}
 
 extension type V<T extends A<T>>(int id) {

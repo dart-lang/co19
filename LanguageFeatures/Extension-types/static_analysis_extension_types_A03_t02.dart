@@ -11,8 +11,6 @@
 /// instance member with basename `n`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(int id) {
   static int get n => 1;
 //               ^

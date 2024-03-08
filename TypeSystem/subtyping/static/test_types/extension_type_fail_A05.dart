@@ -15,8 +15,6 @@
 /// subtype of it
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const V0<T extends String>(T i) implements String {}
 
 V0<String> t1Instance = V0("42");

@@ -35,8 +35,6 @@
 /// @description Checks that an operator can be redeclared
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/expect.dart';
 
 enum E {

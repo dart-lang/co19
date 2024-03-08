@@ -12,8 +12,6 @@
 /// extension type is the type `void` (but it is an error to use this type)
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 typedef VoidAlias = void;
 
 extension type ET1(void id) {}

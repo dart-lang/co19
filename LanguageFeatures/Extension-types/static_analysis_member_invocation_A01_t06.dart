@@ -19,8 +19,6 @@
 /// non-extension type members. Test static behavior
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class A {
 }
 

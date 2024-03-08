@@ -11,7 +11,7 @@
 /// type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class,variance
+// SharedOptions=--enable-experiment=variance
 
 extension type inout(int _) {}
 //             ^^^^^

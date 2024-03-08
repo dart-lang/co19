@@ -11,8 +11,6 @@
 /// with basename `n`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type I1(int id) {
   int n() => 1;
 }

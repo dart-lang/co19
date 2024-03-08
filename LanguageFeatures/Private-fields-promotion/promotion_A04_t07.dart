@@ -19,8 +19,6 @@
 /// is allowed
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class C<T> {
   final T _x;
   C(this._x);

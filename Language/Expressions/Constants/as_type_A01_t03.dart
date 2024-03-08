@@ -28,8 +28,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 54620
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

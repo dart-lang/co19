@@ -10,8 +10,6 @@
 /// or a wildcard case
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET<K, V>(Map<K, V> _) {}
 
 String test1(ET<bool, bool> m) {
