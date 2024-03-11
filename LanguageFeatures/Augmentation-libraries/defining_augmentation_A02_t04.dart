@@ -7,7 +7,7 @@
 /// that file.
 ///
 /// @description Checks that imports in an augmentation library are not visible
-/// in another augmentation library even it exports it
+/// in another augmentation library even if exports it
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

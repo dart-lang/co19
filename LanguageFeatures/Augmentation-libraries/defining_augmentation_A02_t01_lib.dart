@@ -15,3 +15,5 @@
 library augment 'defining_augmentation_A02_t01.dart';
 
 import 'augmentation_libraries_lib.dart';
+
+class C implements AL {}
