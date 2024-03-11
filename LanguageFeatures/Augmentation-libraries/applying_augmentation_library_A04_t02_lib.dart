@@ -12,6 +12,8 @@
 /// library has version lower than main.
 /// @author sgrekhov22@gmail.com
 
+// @dart=3.4
+
 // SharedOptions=--enable-experiment=macros
 
 library augment 'applying_augmentation_library_A04_t02.dart';
