@@ -7,7 +7,7 @@
 ///   apply to.
 ///
 /// @description Checks that it is not an error if an augmenting
-/// declaration do has a corresponding original declaration to apply to
+/// declaration has a corresponding original declaration to apply to
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
