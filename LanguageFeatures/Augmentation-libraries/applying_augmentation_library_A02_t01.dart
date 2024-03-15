@@ -15,6 +15,8 @@
 // SharedOptions=--enable-experiment=macros
 
 import 'applying_augmentation_library_A02_t01_lib.dart';
-
+//     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 main() {
 }
