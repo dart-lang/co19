@@ -14,6 +14,3 @@
 // SharedOptions=--enable-experiment=macros
 
 library augment 'applying_augmentation_library_A02_t01.dart';
-//               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
