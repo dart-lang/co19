@@ -16,7 +16,7 @@
 
 import augment 'augmenting_types_A02_t15_lib.dart';
 
-mixin C {}
+base mixin C {}
 
 main() {
   print(C);
