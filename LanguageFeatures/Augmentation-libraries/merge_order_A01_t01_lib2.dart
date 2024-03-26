@@ -10,7 +10,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-library augment 'merge_order_A01_t01_lib1.dart';
+augment library 'merge_order_A01_t01_lib1.dart';
 
 augment class B {
   String foo() => "Augmented B";

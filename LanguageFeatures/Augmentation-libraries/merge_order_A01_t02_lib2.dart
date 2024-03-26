@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-library augment 'merge_order_A01_t02_lib1.dart';
+augment library 'merge_order_A01_t02_lib1.dart';
 
 class B {}
 

@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-library augment 'merge_order_A01_t02.dart';
+augment library 'merge_order_A01_t02.dart';
 
 import augment 'merge_order_A01_t02_lib2.dart';
 

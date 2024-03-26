@@ -11,7 +11,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-library augment 'applying_augmentation_library_A03_t02.dart';
+augment library 'applying_augmentation_library_A03_t02.dart';
 /**/library;
 //  ^^^^^^^
 // [analyzer] unspecified
