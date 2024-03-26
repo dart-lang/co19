@@ -4,16 +4,16 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - The library referenced in a `library augment` directive does not have an
+/// - The library referenced in a `augment library` directive does not have an
 ///   `import augment` directive pointing back to this augmentation.
 ///
 /// @description Check that it is a compile-time error if a library referenced
-/// in an `library augment` directive is not an does not have a `import augment`
+/// in an `augment library` directive is not an does not have a `import augment`
 /// directive pointing back to this augmentation.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-library augment 'applying_augmentation_library_A02_t02.dart';
+augment library 'applying_augmentation_library_A02_t02.dart';
 
 // Another augmentation library of 'applying_augmentation_library_A02_t02.dart'

@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-library augment 'augmenting_types_A01_t01.dart';
+augment library 'augmenting_types_A01_t01.dart';
 
 augment mixin C {}
 //            ^

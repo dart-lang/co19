@@ -11,7 +11,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-library augment 'defining_augmentation_A05_t02_lib.dart';
+augment library 'defining_augmentation_A05_t02_lib.dart';
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified

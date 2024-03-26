@@ -4,10 +4,10 @@
 
 /// @assertion It is a compile-time error if:
 /// - The library referenced in an `import augment` directive is not an
-///   augmentation and does not have a `library augment` directive.
+///   augmentation and does not have a `augment library` directive.
 ///
 /// @description Check that it is a compile-time error if a library referenced
-/// in an `import augment` directive is not an does not have a `library augment`
+/// in an `import augment` directive is not an does not have a `augment library`
 /// directive. Test the case when referenced library is part of the main library
 /// @author sgrekhov22@gmail.com
 
