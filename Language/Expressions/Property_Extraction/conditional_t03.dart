@@ -6,6 +6,7 @@
 /// the form e1?.id is equivalent to the evaluation of the expression
 /// ((x) => x == null?null : x.id)(e1), unless e1 is a type literal, in which
 /// case it is equivalent to e1.m.
+///
 /// @description Check that for static property e1?.id is equivalent to e1.id
 /// @author sgrekhov@unipro.ru
 
@@ -19,6 +20,4 @@ main() {
   Expect.equals(C?.id, C.id);
 //               ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//              ^
-// [cfe] The class 'C' cannot be null.
 }

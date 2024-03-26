@@ -11,14 +11,11 @@
 /// @issue 39598
 /// @issue 39867
 
-
 class A {}
 
 test(var a) {
   if (a is Object) {
     a!;
-//  ^
-// [cfe] Operand of null-aware operation '!' has type 'Object' which excludes null.
 //   ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   }

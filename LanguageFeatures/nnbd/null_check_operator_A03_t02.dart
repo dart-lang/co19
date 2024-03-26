@@ -21,13 +21,9 @@ extension on C {
     Expect.equals("Lily was here: 42", this!(42));
 //                                         ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
-//                                     ^
-// [cfe] Operand of null-aware operation '!' has type 'C' which excludes null.
     Expect.equals("Lily was here: 42", this(42)!);
 //                                             ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
-//                                         ^
-// [cfe] Operand of null-aware operation '!' has type 'String' which excludes null.
   }
   String call(int v) => "Lily was here: $v";
 }

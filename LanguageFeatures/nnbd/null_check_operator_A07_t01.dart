@@ -10,25 +10,17 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39723
 
-
 main() {
   true!;
-//^
-// [cfe] Operand of null-aware operation '!' has type 'bool' which excludes null.
 //    ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   true!.toString();
-//^
-// [cfe] Operand of null-aware operation '!' has type 'bool' which excludes null.
 //    ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   true!?.toString();
 //    ^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   true.toString()!;
-//     ^
-// [cfe] Operand of null-aware operation '!' has type 'String' which excludes null.
 //               ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }

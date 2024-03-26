@@ -18,12 +18,8 @@ main() {
   Expect.equals(2, ((x as int) + 1) ?? 10);
 //                                     ^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//                             ^
-// [cfe] Operand of null-aware operation '??' has type 'int' which excludes null.
   Expect.iterableEquals([], empty ?? 10);
   Expect.equals(30, (10 + 5 * 4) ?? (2 + 2 * 2));
 //                                  ^^^^^^^^^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//                      ^
-// [cfe] Operand of null-aware operation '??' has type 'int' which excludes null.
 }

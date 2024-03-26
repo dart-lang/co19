@@ -11,36 +11,25 @@
 /// @issue 39598
 /// @issue 39714
 
-
 void foo() {}
 void bar() {}
 
 main() {
   Function a = foo;
   a?.toString();
-//^
-// [cfe] Operand of null-aware operation '?.' has type 'Function' which excludes null.
 // ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   a?..toString();
-//^
-// [cfe] Operand of null-aware operation '?..' has type 'Function' which excludes null.
 // ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   a ?? bar;
-//^
-// [cfe] Operand of null-aware operation '??' has type 'Function' which excludes null.
 //     ^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   a ??= bar;
-//^
-// [cfe] Operand of null-aware operation '??=' has type 'Function' which excludes null.
 //      ^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   List<Function> clist = [foo, bar];
   List<Function> alist = [foo, bar, ...? clist];
 //                                  ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                       ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<Function>' which excludes null.
 }

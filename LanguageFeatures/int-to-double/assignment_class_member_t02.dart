@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion The static type of a double valued integer literal is [double]
+///
 /// @description Checks that the static type of a double valued integer literal
 /// is [double]. Test class member assignment and hexadecimal values
 /// @author sgrekhov@unipro.ru
@@ -30,28 +31,18 @@ main() {
   C?.s = -0x42;
 // ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//^
-// [cfe] The class 'C' cannot be null.
   C.s ??= 0x42;
 //        ^^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//  ^
-// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   C?.s ??= -0x42;
 // ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //         ^^^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//^
-// [cfe] The class 'C' cannot be null.
-//   ^
-// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   C.staticSetter = -0x42;
   C?.staticSetter = 0x42;
 // ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//^
-// [cfe] The class 'C' cannot be null.
 
   C? c = null;
   c?.m1 = 0x42;
@@ -65,23 +56,15 @@ main() {
   c?.m1 = 0x42;
 // ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//^
-// [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.
   c?.instanceSetter = -0x42;
 // ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//^
-// [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.
   c.m1 ??= -0x42;
 //         ^^^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//  ^
-// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   c?.m1 ??= 0x42;
 // ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //          ^^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//^
-// [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.
 }

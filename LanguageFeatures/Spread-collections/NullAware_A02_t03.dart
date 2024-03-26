@@ -19,6 +19,7 @@
 ///   // [1, 2, 3, 4].
 /// @description Checks that [null] element is allowed inside the spreadable
 /// element in the map.
+///
 /// @author iarkh@unipro.ru
 
 import "../../Utils/expect.dart";
@@ -32,7 +33,5 @@ main() {
   Map more1 = {4: 4,  ...?things, 5: 10};
 //                    ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                        ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.mapEquals({4: 4, 1: 2, 2: null,  3: 3, 5: 10}, more1);
 }

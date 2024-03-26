@@ -10,25 +10,17 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39723
 
-
 main() {
   42!;
-//^
-// [cfe] Operand of null-aware operation '!' has type 'int' which excludes null.
 //  ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   42!.abs();
-//^
-// [cfe] Operand of null-aware operation '!' has type 'int' which excludes null.
 //  ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   42!?.abs();
 //^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   42.abs()!;
-//   ^
-// [cfe] Operand of null-aware operation '!' has type 'int' which excludes null.
 //        ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }

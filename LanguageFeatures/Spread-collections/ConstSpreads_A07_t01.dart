@@ -6,6 +6,7 @@
 /// collections defined elsewhere, which is useful:
 ///   const list = [2, 3];
 ///   const another = [1, ...list, 4]; // [1, 2, 3, 4].
+///
 /// @description: Checks that spread element in the list can refer to constant
 /// collections defined elsewhere
 /// @author iarkh@unipro.ru
@@ -22,8 +23,6 @@ main() {
   const res2 = [1, ...?list, 4];
 //                 ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                     ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<dynamic>' which excludes null.
   Expect.listEquals([1, 2, 3, 4], res2);
   const res3 = [1, ...?list1, 4];
   Expect.listEquals([1, 4], res3);
@@ -33,7 +32,5 @@ main() {
   const res5 = [1, ...?set, 4];
 //                 ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                     ^
-// [cfe] Operand of null-aware operation '...?' has type 'Set<dynamic>' which excludes null.
   Expect.listEquals([1, 2, 3, 4], res5);
 }

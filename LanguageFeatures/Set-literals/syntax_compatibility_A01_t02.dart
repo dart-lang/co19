@@ -24,8 +24,6 @@ main() {
   var v1 = {cn?.x ?? 3, C?.n2, cn?.n1};
 //                       ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                      ^
-// [cfe] The class 'C' cannot be null.
   Expect.isTrue(v1 is Set);
   Expect.runtimeIsType<Set>(v1);
   Expect.iterableEquals({3, 2, null}, v1);
@@ -35,8 +33,6 @@ main() {
   var v2 = {c?.x ?? 3, C?.n2, c?.n1};
 //                      ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                     ^
-// [cfe] The class 'C' cannot be null.
   Expect.isTrue(v2 is Set);
   Expect.runtimeIsType<Set>(v2);
   Expect.iterableEquals({3, 2, 1}, v2);
@@ -44,8 +40,6 @@ main() {
   var v3 = <int?>{c?.x ?? 3, C?.n2, c?.n1};
 //                            ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                           ^
-// [cfe] The class 'C' cannot be null.
   Expect.isTrue(v3 is Set);
   Expect.runtimeIsType<Set>(v3);
   Expect.iterableEquals({3, 2, 1}, v3);
@@ -53,8 +47,6 @@ main() {
   var v4 = <int?>{c?.n1 ??= (c as C).x, c?.x ??= 4, C?.n2, c?.x ?? 3};
 //                                                   ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                  ^
-// [cfe] The class 'C' cannot be null.
   Expect.isTrue(v4 is Set);
   Expect.runtimeIsType<Set>(v4);
   Expect.iterableEquals({1, 4, 2}, v4);

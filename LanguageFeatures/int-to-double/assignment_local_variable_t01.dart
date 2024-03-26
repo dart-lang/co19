@@ -3,10 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion The static type of a double valued integer literal is [double]
+///
 /// @description Checks that the static type of a double valued integer literal
 /// is [double]. Test local variable assignment
 /// @author sgrekhov@unipro.ru
-
 
 class C {
 
@@ -23,8 +23,6 @@ class C {
     s1 ??= -42;
 //         ^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//  ^
-// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   }
 
   void instanceMethod() {
@@ -40,8 +38,6 @@ class C {
     m1 ??= -42;
 //         ^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//  ^
-// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   }
 }
 
@@ -58,8 +54,6 @@ void foo() {
   l1 ??= -42;
 //       ^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//^
-// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
 }
 
 main() {
@@ -75,8 +69,6 @@ main() {
   d1 ??= -42;
 //       ^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//^
-// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
 
   foo();
   C.staticMethod();
@@ -95,8 +87,6 @@ main() {
     b1 ??= -42;
 //         ^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//  ^
-// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   }
   bar();
 }

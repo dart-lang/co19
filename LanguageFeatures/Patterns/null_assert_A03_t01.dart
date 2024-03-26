@@ -18,7 +18,6 @@ String test1(int? x) {
     case final int? v1! && == 1 || final int? v1!:
 //                                              ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
-// [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
       return "match-1";
     case int v2!:
 //  ^^^^
@@ -33,7 +32,6 @@ String test2(int? x) {
   if (x case final int? v1! && == 1 || final int? v1!) {
 //                                                  ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
-// [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
     return "match-1";
   }
   if (x case int v2!) {
@@ -47,7 +45,6 @@ String test3(int? x) =>
     final int? v1! && == 1 || final int? v1! => "match-1",
 //                                         ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
-// [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
     int v2! => "match-2",
 //          ^^
 // [analyzer] HINT.UNREACHABLE_SWITCH_CASE

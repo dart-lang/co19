@@ -13,6 +13,7 @@
 ///    {...x, ...l} // Statically a set, runtime error when spreading x.
 ///    {...x, ...m} // Statically a map, no runtime error.
 ///    {...l, ...m} // Static error, because it must be both a set and a map.
+///
 /// @description Checks that if one of the spreadable element is [Iterable],
 /// result is statically [Set]
 /// @author iarkh@unipro.ru
@@ -28,13 +29,9 @@ main() {
   Expect.throws(() =>  res = {...?l, ...map});
 //                            ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                ^
-// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
   Expect.throws(() =>  res = {...map, ...?l});
 //                                    ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                        ^
-// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
 
   Expect.throws(() =>  res = {...l, ...?map});
   Expect.throws(() =>  res = {...?map, ...l});
@@ -42,24 +39,16 @@ main() {
   Expect.throws(() =>  res = {...?l, ...?map});
 //                            ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                ^
-// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
   Expect.throws(() =>  res = {...?map, ...?l});
 //                                     ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                         ^
-// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
 
   Expect.isTrue({...set, ...?l} is Set);
 //                       ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                           ^
-// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
   Expect.isTrue({...?l, ...set} is Set);
 //               ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                   ^
-// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
 
   Expect.isTrue({...?set, ...l} is Set);
   Expect.isTrue({...l, ...?set} is Set);
@@ -67,6 +56,4 @@ main() {
   Expect.isTrue({...?set, ...?l} is Set);
 //                        ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                            ^
-// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
 }

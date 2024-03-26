@@ -39,59 +39,45 @@ main() {
   var (a1!,) = (-1,);
 //     ^^
 // [analyzer] unspecified
-// [cfe] unspecified
   var (n: a2!) = (n: 42);
 //        ^^
 // [analyzer] unspecified
-// [cfe] unspecified
   var (n: a3!,
 //        ^^
 // [analyzer] unspecified
-// [cfe] unspecified
             b3!) = (n: 42, -1);
 //          ^^
 // [analyzer] unspecified
-// [cfe] unspecified
 
   final (a4!,) = (-1,);
 //       ^^
 // [analyzer] unspecified
-// [cfe] unspecified
   final (n: a5!) = (n: 42);
 //          ^^
 // [analyzer] unspecified
-// [cfe] unspecified
   final (n: a6!,
 //            ^
 // [analyzer] unspecified
-// [cfe] unspecified
                 b6!) = (n: 42, -1);
 //                ^
 // [analyzer] unspecified
-// [cfe] unspecified
   final (:n2!) = (n2: 42);
 //        ^^
 // [analyzer] unspecified
-// [cfe] unspecified
 
   var (num a7!,) = (-1,);
 //         ^^
 // [analyzer] unspecified
-// [cfe] unspecified
   var (n: num a8!) = (n: 42);
 //            ^^
 // [analyzer] unspecified
-// [cfe] unspecified
   var (n: num a9!,
 //            ^^
 // [analyzer] unspecified
-// [cfe] unspecified
               num b9!) = (n: 42, -3);
 //                ^^
 // [analyzer] unspecified
-// [cfe] unspecified
   var (:num n3!) = (n3: 42);
 //          ^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }

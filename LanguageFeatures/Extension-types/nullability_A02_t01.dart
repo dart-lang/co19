@@ -29,11 +29,9 @@ extension type ET3<T extends Object>(T id) implements Object {
     this ?? print("Expect a warning here!");
 //       ^^
 // [analyzer] unspecified
-// [cfe] unspecified
     this?.id;
 //      ^^
 // [analyzer] unspecified
-// [cfe] unspecified
   }
 }
 
