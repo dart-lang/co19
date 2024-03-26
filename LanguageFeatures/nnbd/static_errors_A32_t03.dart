@@ -26,29 +26,19 @@ main() {
   a?.test();
 // ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//^
-// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
   a?..test();
 // ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//^
-// [cfe] Operand of null-aware operation '?..' has type 'A' which excludes null.
 
   a ?? c;
 //     ^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//^
-// [cfe] Operand of null-aware operation '??' has type 'A' which excludes null.
   a ??= c;
 //      ^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//^
-// [cfe] Operand of null-aware operation '??=' has type 'A' which excludes null.
 
   List<CAlias> clist = [C(), C()];
   List<A> alist = [A(), C(), ...? clist];
 //                           ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
 }

@@ -10,11 +10,8 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39598
 
-
 test (Never n) {
   n!;
-//^
-// [cfe] Operand of null-aware operation '!' has type 'Never' which excludes null.
 // ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }

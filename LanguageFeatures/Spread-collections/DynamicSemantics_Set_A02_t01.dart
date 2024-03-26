@@ -14,10 +14,10 @@
 ///             b. Evaluate set.add(iterator.current).
 ///       iii. Else:
 ///           a. Evaluate [set.add(value)].
+///
 /// @description Checks that if element is null-aware and it's [null], nothing
 /// added to the result set.
 /// @author iarkh@unipro.ru
-
 
 import "../../Utils/expect.dart";
 
@@ -33,8 +33,6 @@ main() {
       {10, ...?list4, ...?list3, ...list1});
 //         ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//             ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<dynamic>' which excludes null.
   Expect.setEquals({}, {...?list3, ...?list3, ...?list3});
   Expect.setEquals({}, {...list2, ...?list3});
 }

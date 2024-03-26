@@ -9,6 +9,7 @@
 ///     [LinkedHashMap<K, V>].
 ///     ...
 ///   3. The result of the map literal expression is [map].
+///
 /// @description Checks that instance of [LinkedHashMap<K, V>] is created for a
 /// map literal
 /// @author iarkh@unipro.ru
@@ -31,14 +32,10 @@ main() {
       <int, num>{1: 0, ...?map1, 14: 6, 9: 9} is LinkedHashMap<int, num>);
 //                     ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                         ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.isTrue(<int, String>{...map2, 1: "123"} is LinkedHashMap<int, String>);
   Expect.isTrue(<int, String>{...?map2} is LinkedHashMap<int, String>);
 //                            ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.isTrue(<int, String>{...map2} is LinkedHashMap<int, String>);
   Expect.isTrue(
       <int, String>{...?map3, 1: "123"} is LinkedHashMap<int, String>);

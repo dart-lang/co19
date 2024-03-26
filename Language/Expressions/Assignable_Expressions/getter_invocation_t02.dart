@@ -29,13 +29,9 @@ main() {
   Expect.equals(1, a?.x);
 //                  ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                 ^
-// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
   Expect.equals(20, a?.y);
 //                   ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                  ^
-// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
   Expect.isNull(b?.x);
   Expect.isNull(b?.y);
 }

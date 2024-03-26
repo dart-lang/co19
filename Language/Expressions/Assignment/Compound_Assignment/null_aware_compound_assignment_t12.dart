@@ -5,11 +5,11 @@
 /// @assertion Evaluation of a compound assignment of the form e1?.v op = e2 is
 /// equivalent to ((x) => x?.v = x.v op e2)(e1) where x is a variable that is not
 /// used in e2.
+///
 /// @description Checks that an expression of the form e1?.v >>>= e2 is
 /// equivalent to ((x) => x?.v = x.v >>> e2)(e1) where x is a variable that is
 /// not used in e2
 /// @author iarkh@unipro.ru
-
 
 import '../../../../Utils/expect.dart';
 
@@ -43,15 +43,11 @@ main() {
   Expect.throws(() {c2?.v >>>= 2;});
 //                    ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                  ^
-// [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.
 
   C c3 = new C(20);
   var res3 = (c3?.v >>>= 2);
 //              ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//            ^
-// [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.
   var expected = 20 >>> 2;
   Expect.equals(1, c3.getterInvocation);
   Expect.equals(1, c3.setterInvocation);

@@ -11,7 +11,6 @@
 /// @issue 39598
 /// @issue 39714
 
-
 import "dart:async";
 
 class A {}
@@ -19,29 +18,19 @@ class A {}
 main() {
   FutureOr<FutureOr<A>> a = new A();
   a?.toString();
-//^
-// [cfe] Operand of null-aware operation '?.' has type 'FutureOr<FutureOr<A>>' which excludes null.
 // ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   a?..toString();
-//^
-// [cfe] Operand of null-aware operation '?..' has type 'FutureOr<FutureOr<A>>' which excludes null.
 // ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   a ?? a;
-//^
-// [cfe] Operand of null-aware operation '??' has type 'FutureOr<FutureOr<A>>' which excludes null.
 //     ^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   a ??= a;
-//^
-// [cfe] Operand of null-aware operation '??=' has type 'FutureOr<FutureOr<A>>' which excludes null.
 //      ^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   List<FutureOr<FutureOr<A>>> clist = [a, a];
   List<FutureOr<FutureOr<A>>> alist = [a, a, ...? clist];
 //                                           ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<FutureOr<FutureOr<A>>>' which excludes null.
 }

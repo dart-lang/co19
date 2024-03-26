@@ -10,22 +10,17 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39598
 
-
 void foo() {}
 typedef void Foo();
 
 main() {
   Function f1 = foo;
   f1!;
-//^
-// [cfe] Operand of null-aware operation '!' has type 'Function' which excludes null.
 //  ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 
   Foo f2 = foo;
   f2!;
-//^
-// [cfe] Operand of null-aware operation '!' has type 'void Function()' which excludes null.
 //  ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }

@@ -10,7 +10,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39598
 
-
 import "dart:async";
 
 class A {}
@@ -18,8 +17,6 @@ class A {}
 main() {
   FutureOr<A> a = new A();
   a!;
-//^
-// [cfe] Operand of null-aware operation '!' has type 'FutureOr<A>' which excludes null.
 // ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }

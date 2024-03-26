@@ -5,6 +5,7 @@
 /// @assertion Evaluation of an assignment a of the form e1?.v = e2 is equivalent
 /// to the evaluation of the expression ((x) => x == null?null : x.v = e2)(e1)
 /// unless e1 is a type literal, in which case it is equivalent to e1.v = e2.
+///
 /// @description Checks that an assignment a of the form e1?.v = e2 is equivalent
 /// to the evaluation of the to e1.v = e2 if e1 is a type literal
 /// @author sgrekhov@unipro.ru
@@ -26,13 +27,9 @@ main() {
   var x = C?.v = e() + 1;
 //         ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//        ^
-// [cfe] The class 'C' cannot be null.
   Expect.equals(1, C?.v);
 //                  ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                 ^
-// [cfe] The class 'C' cannot be null.
   Expect.equals(1, x);
   Expect.equals(1, count);
 }

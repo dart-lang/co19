@@ -24,46 +24,32 @@ class A {
 
   test() {
     this!;
-//  ^
-// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!.foo();
-//  ^
-// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this![42];
-//  ^
-// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?.foo();
 //      ^^^
 // [analyzer] unspecified
-// [cfe] unspecified
     this!?[42];
 //      ^^
 // [analyzer] unspecified
-// [cfe] unspecified
     this!.s = "Lily was here";
-//  ^
-// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?.s = "Lily was here";
 //      ^^^
 // [analyzer] unspecified
-// [cfe] unspecified
     this![0] = "Lily was here";
-//  ^
-// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?[0] = "Lily was here";
 //      ^^^
 // [analyzer] unspecified
-// [cfe] unspecified
     this.getValue!;
     this[42]!;
   }

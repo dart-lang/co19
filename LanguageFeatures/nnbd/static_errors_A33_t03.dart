@@ -10,14 +10,11 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39598
 
-
 class A {}
 
 main() {
   A a = new A();
   a!;
-//^
-// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 // ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }

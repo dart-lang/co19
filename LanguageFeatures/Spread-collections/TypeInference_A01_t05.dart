@@ -5,10 +5,10 @@
 /// @assertion If a list or set literal has a downwards inference type of
 /// [Iterable<T>] for some [T], then the downwards inference context type of a
 /// spread element in that list is [Iterable<T>].
+///
 /// @description Checks statically that a spread element inference context type
 /// is [T] in the set literal
 /// @author iarkh@unipro.ru
-
 
 class A {}
 class B extends A {}
@@ -35,11 +35,7 @@ main() {
   Set set7 = {123, "123", null, a, ...a_list, ...?b_list, c, b, ...?c_list,
 //                                            ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<B>' which excludes null.
 //                                                              ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                                  ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
       ...str_list, ...int_list, null, 1499, []};
 }

@@ -7,6 +7,7 @@
 ///  1. Create a fresh instance [list] of a class that implements [List<E>].
 ///    ...
 /// 3. The result of the literal expression is [list].
+///
 /// @description Checks that instance of [List<E>] is created for a list literal
 /// @author iarkh@unipro.ru
 
@@ -23,8 +24,6 @@ main() {
   Expect.isTrue(<int>[1, ...?list1, 14, 9] is List<int>);
 //                       ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                           ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<dynamic>' which excludes null.
   Expect.isTrue(<String>[...list2, "123"] is List<String>);
   Expect.isTrue(<String>[...?list3] is List<String>);
   Expect.isTrue(<int>[...?list3] is List<int>);

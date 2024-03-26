@@ -18,10 +18,10 @@
 ///       a. Evaluate [e1] to a value key.
 ///       b. Evaluate [e2] to a value value.
 ///       c. Call map[key] = value.
+///
 /// @description Checks that final map is correct if element and spread element
 /// has duplicated keys
 /// @author iarkh@unipro.ru
-
 
 import "dart:collection";
 import "../../Utils/expect.dart";
@@ -42,13 +42,9 @@ main() {
       {-1: 1, 1: 14, -3: 3, ...?map1, 6: 6});
 //                          ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                              ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.mapEquals(
     {-1: 1, 1: 14, -3: 3, ...?map2, 2: 48},
 //                        ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                            ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
     {-1: 1, 1: 14, -3: 3, 4: 7, 2: 48});
 }

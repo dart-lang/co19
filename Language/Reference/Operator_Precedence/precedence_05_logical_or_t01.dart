@@ -26,8 +26,6 @@ main() {
   c.m("c1") || c.m("c2") ?? c.m("c3") || c.m("c4");
 //                          ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//          ^
-// [cfe] Operand of null-aware operation '??' has type 'bool' which excludes null.
   Expect.equals("c1c2", log);
 
   log = "";
@@ -35,4 +33,3 @@ main() {
   null ?? c.m("c3") || c.m("c4");
   Expect.equals("c3c4", log);
 }
-
