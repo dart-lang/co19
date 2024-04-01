@@ -10,17 +10,25 @@
 /// after this appending process, so you cannot have multiple extends on a
 /// class, or an on clause on an enum, etc
 ///
-/// @description Checks that it is a compile-time error if a class, extension
-/// type, mixin or enum augment specifies `implements` clause but doesn't
-/// implement this interface
+/// @description Checks that it is a compile-time error if a mixin augment
+/// specifies an incompatible interface in an `on` clause
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A06_t05.dart';
+import augment 'augmenting_types_A06_t08_lib.dart';
 
-augment class C implements I {}
+class A {
+  int get getter => 42;
+}
 
-augment mixin M implements I {}
+class C {
+  String get getter => "C";
+}
 
-augment enum E implements I {}
+mixin M on A {}
+
+main() {
+  print(C);
+  print(M);
+}
