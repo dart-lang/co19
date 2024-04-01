@@ -22,7 +22,7 @@ augment class C implements I {
   String get id => "C";
 }
 
-augment extension type ET(int _) implements I {}
+augment extension type ET(I _) implements I {}
 
 augment mixin M implements I {
   String get id => "M";

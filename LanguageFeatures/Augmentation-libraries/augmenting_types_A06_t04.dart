@@ -19,7 +19,12 @@
 import '../../Utils/expect.dart';
 import augment 'augmenting_types_A06_t04_lib.dart';
 
-interface class I1 {
+abstract class I0 {
+  String get id0;
+}
+
+class I1 impelements I0 {
+  String get id0 => "I1";
   String get id1 => "I1";
 }
 
@@ -31,7 +36,7 @@ mixin M implements I1 {
   String get id1 => "M";
 }
 
-extension type ET(int _) implements I1 {}
+extension type ET(I1 _) implements I1 {}
 
 enum E implements I1 {
   e1;
@@ -42,7 +47,7 @@ class MA = Object with M;
 
 main() {
   I1 c1 = C();
-  I1 et1 = ET(1);
+  I1 et1 = ET(I1());
   I1 m1 = MA();
   I1 e1 = E.e1;
   Expect.equals("C", c1.id1);
@@ -51,11 +56,11 @@ main() {
   Expect.equals("E", e1.id1);
 
   I2 c2 = C();
-  I2 et2 = ET(2);
+  I2 et2 = ET(I1());
   I2 m2 = MA();
   I2 e2 = E.e1;
   Expect.equals("I2 from C", c2.id2);
-  Expect.equals("I2 from ET", et2.id2);
+  Expect.equals("I0 from ET", et2.id0);
   Expect.equals("I2 from M", m2.id2);
   Expect.equals("I2 from E", e2.id2);
 }

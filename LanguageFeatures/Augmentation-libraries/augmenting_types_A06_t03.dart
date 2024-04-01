@@ -25,7 +25,7 @@ interface class I {
 
 class C {}
 
-extension type ET(int _) {}
+extension type ET(I _) {}
 
 mixin M {}
 
@@ -37,7 +37,7 @@ class MA = Object with M;
 
 main() {
   I c = C();
-  I et = ET(1);
+  I et = ET(I());
   I m = MA();
   I e = E.e1;
   Expect.equals("C", c.id);
