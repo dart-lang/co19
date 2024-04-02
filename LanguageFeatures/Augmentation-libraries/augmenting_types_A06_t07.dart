@@ -17,12 +17,12 @@
 import augment 'augmenting_types_A06_t07_lib.dart';
 
 class A {}
-
-class C implements A {}
+class C {}
+class D implements A, C {}
 
 mixin M on A {}
 
-class MA = C with M;
+class MA = D with M;
 
 main() {
   A a = MA();
