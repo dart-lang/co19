@@ -28,7 +28,9 @@ augment mixin M implements BaseClass {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum E implements BaseClass {}
+augment enum E implements BaseClass {
 //                        ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment e1;
+}

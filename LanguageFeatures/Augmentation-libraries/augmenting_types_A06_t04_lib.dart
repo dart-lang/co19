@@ -38,5 +38,6 @@ augment mixin M implements I2 {
 }
 
 augment enum E implements I2 {
+  augment e1;
   String get id2 => "I2 from E";
 }
