@@ -21,15 +21,11 @@ interface class I2 {
   String id2 => "I2";
 }
 
-interface class I3 extends I1 {
-  String id2 => "I2";
-}
-
 augment class C implements I2 {
   String get id2 => "I2 from C";
 }
 
-extension type ET(I1 _) implements I0 {
+augment extension type ET(I1 _) implements I0 {
   String get id0 => "I0 from ET";
 }
 

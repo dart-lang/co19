@@ -9,22 +9,30 @@
 /// with the new types. All regular rules apply after this appending process, so
 /// you cannot have multiple extends on a class, or an on clause on an enum, etc
 ///
-/// @description Checks that a mixin augment may specify an `on` clause
+/// @description Checks that a mixin augment may specify an `on` clause and it
+/// is a compile-time error to create a mixin application that doesn't take into
+/// account this augment
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A06_t07_lib.dart';
+import augment 'augmenting_types_A06_t09_lib.dart';
 
 class A {}
 class C {}
-class D implements A, C {}
-
 mixin M on A {}
 
-class MA = D with M;
+class BadMA1 = A with M;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class BadMA2 = C with M;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  A a = MA();
-  C c = MA();
+  print(BadMA1);
+  print(BadMA2);
 }
