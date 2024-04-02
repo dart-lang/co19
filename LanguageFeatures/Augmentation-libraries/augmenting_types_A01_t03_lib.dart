@@ -24,6 +24,6 @@ augment mixin MAlias {
 }
 
 augment enum EAlias {
-  e1;
+  augment e1;
   String foo() => "E";
 }
