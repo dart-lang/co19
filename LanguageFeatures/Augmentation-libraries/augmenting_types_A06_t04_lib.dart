@@ -18,7 +18,7 @@
 augment library 'augmenting_types_A06_t04.dart';
 
 interface class I2 {
-  String id2 => "I2";
+  String get id2 => "I2";
 }
 
 augment class C implements I2 {
