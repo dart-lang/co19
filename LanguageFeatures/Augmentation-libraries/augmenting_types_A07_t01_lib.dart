@@ -9,22 +9,25 @@
 /// with the new types. All regular rules apply after this appending process, so
 /// you cannot have multiple extends on a class, or an on clause on an enum, etc
 ///
-/// @description Checks that a mixin augment may specify an `on` clause
+/// @description Checks that a class, extension type, mixin and enum augment may
+/// specify `implements` clause
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A06_t07_lib.dart';
+augment library 'augmenting_types_A07_t01.dart';
 
-class A {}
-class C {}
-class D implements A, C {}
+augment class C implements I {
+  String get id => "C";
+}
 
-mixin M on A {}
+augment extension type ET(I _) implements I {}
 
-class MA = D with M;
+augment mixin M implements I {
+  String get id => "M";
+}
 
-main() {
-  A a = MA();
-  C c = MA();
+augment enum E implements I {
+  augment e1;
+  String get id => "E";
 }
