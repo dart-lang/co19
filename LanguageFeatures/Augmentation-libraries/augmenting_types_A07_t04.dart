@@ -9,31 +9,22 @@
 /// with the new types. All regular rules apply after this appending process, so
 /// you cannot have multiple extends on a class, or an on clause on an enum, etc
 ///
-/// @description Checks that a class, extension type, mixin and enum augment may
-/// specify an additional `implements` clause
+/// @description Checks that it is a compile-time error if a class, mixin or
+/// enum augment specifies a base class in an `implements` clause
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A06_t04.dart';
+import augment 'augmenting_types_A07_t04_lib.dart';
 
-interface class I2 {
-  String get id2 => "I2";
-}
+class C {}
 
-augment class C implements I2 {
-  String get id2 => "I2 from C";
-}
+mixin M {}
 
-augment extension type ET(I1 _) implements I0 {
-  String get id0 => "I0 from ET";
-}
+enum E {e1;}
 
-augment mixin M implements I2 {
-  String get id2 => "I2 from M";
-}
-
-augment enum E implements I2 {
-  augment e1;
-  String get id2 => "I2 from E";
+main() {
+  print(C);
+  print(M);
+  print(E);
 }

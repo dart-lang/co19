@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A06_t08_lib.dart';
+import augment 'augmenting_types_A08_t02_lib.dart';
 
 class A {
   int get getter => 42;

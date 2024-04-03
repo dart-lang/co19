@@ -9,38 +9,13 @@
 /// with the new types. All regular rules apply after this appending process, so
 /// you cannot have multiple extends on a class, or an on clause on an enum, etc
 ///
-/// @description Checks that a class, extension type, mixin and enum augment may
-/// specify `implements` clause
+/// @description Checks that a mixin augment may specify an `on` clause and it
+/// is a compile-time error to create a mixin application that doesn't take into
+/// account this augment
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import '../../Utils/expect.dart';
-import augment 'augmenting_types_A06_t03_lib.dart';
+augment library 'augmenting_types_A08_t03.dart';
 
-interface class I {
-  String get id => "I";
-}
-
-class C {}
-
-extension type ET(I _) {}
-
-mixin M {}
-
-enum E {
-  e1;
-}
-
-class MA = Object with M;
-
-main() {
-  I c = C();
-  I et = ET(I());
-  I m = MA();
-  I e = E.e1;
-  Expect.equals("C", c.id);
-  Expect.equals("I", et.id);
-  Expect.equals("M", m.id);
-  Expect.equals("E", e.id);
-}
+augment mixin M on C {}

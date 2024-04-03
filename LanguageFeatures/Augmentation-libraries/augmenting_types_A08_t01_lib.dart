@@ -10,33 +10,11 @@
 /// you cannot have multiple extends on a class, or an on clause on an enum, etc
 ///
 /// @description Checks that it is a compile-time error if a class, mixin or
-/// enum augment specifies `implements` clause but doesn't implement this
-/// interface
+/// enum augment specifies a base class in an `implements` clause
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A06_t05_lib.dart';
+augment library 'augmenting_types_A08_t01.dart';
 
-interface class I {
-  String get id => "I";
-}
-
-class C {}
-
-mixin M {}
-
-enum E {
-  e1;
-}
-
-class MA = Object with M;
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-main() {
-  print(C);
-  print(MA);
-  print(E);
-}
+augment mixin M on C {}

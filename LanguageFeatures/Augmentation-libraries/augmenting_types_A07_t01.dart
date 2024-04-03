@@ -10,56 +10,37 @@
 /// you cannot have multiple extends on a class, or an on clause on an enum, etc
 ///
 /// @description Checks that a class, extension type, mixin and enum augment may
-/// specify an additional `implements` clause
+/// specify `implements` clause
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
 import '../../Utils/expect.dart';
-import augment 'augmenting_types_A06_t04_lib.dart';
+import augment 'augmenting_types_A07_t01_lib.dart';
 
-abstract class I0 {
-  String get id0;
+interface class I {
+  String get id => "I";
 }
 
-class I1 impelements I0 {
-  String get id0 => "I1";
-  String get id1 => "I1";
-}
+class C {}
 
-class C implements I1 {
-  String get id1 => "C";
-}
+extension type ET(I _) {}
 
-mixin M implements I1 {
-  String get id1 => "M";
-}
+mixin M {}
 
-extension type ET(I1 _) implements I1 {}
-
-enum E implements I1 {
+enum E {
   e1;
-  String get id1 => "E";
 }
 
 class MA = Object with M;
 
 main() {
-  I1 c1 = C();
-  I1 et1 = ET(I1());
-  I1 m1 = MA();
-  I1 e1 = E.e1;
-  Expect.equals("C", c1.id1);
-  Expect.equals("I1", et1.id1);
-  Expect.equals("M", m1.id1);
-  Expect.equals("E", e1.id1);
-
-  I2 c2 = C();
-  I2 et2 = ET(I1());
-  I2 m2 = MA();
-  I2 e2 = E.e1;
-  Expect.equals("I2 from C", c2.id2);
-  Expect.equals("I0 from ET", et2.id0);
-  Expect.equals("I2 from M", m2.id2);
-  Expect.equals("I2 from E", e2.id2);
+  I c = C();
+  I et = ET(I());
+  I m = MA();
+  I e = E.e1;
+  Expect.equals("C", c.id);
+  Expect.equals("I", et.id);
+  Expect.equals("M", m.id);
+  Expect.equals("E", e.id);
 }
