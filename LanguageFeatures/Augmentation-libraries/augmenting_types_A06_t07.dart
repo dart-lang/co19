@@ -10,27 +10,25 @@
 /// you cannot have multiple extends on a class, or an on clause on an enum, etc
 ///
 /// @description Checks that it is a compile-time error if an augment adds a
-/// superclass in an `extends` statement which is not compatible with existing
-/// interfaces
+/// superclass in an `extends` statement which is incompatible with existing
+/// class members
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A06_t03_lib.dart';
-
-abstract interface class I {
-  int get foo => 1;
-}
+import augment 'augmenting_types_A06_t07_lib.dart';
 
 class A {
-  void set foo(String v) {}
+  int foo();
 }
 
-class C1 implements I {
-  int get foo => 2;
+class C1 {
+  String get foo => "C1";
 }
 
-abstract class C2 implements I {}
+abstract class C2 {
+  void set foo(String _);
+}
 
 main() {
   print(C1);

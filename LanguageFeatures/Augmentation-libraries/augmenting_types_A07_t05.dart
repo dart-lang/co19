@@ -9,30 +9,23 @@
 /// with the new types. All regular rules apply after this appending process, so
 /// you cannot have multiple extends on a class, or an on clause on an enum, etc
 ///
-/// @description Checks that it is a compile-time error if an augment adds a
-/// superclass in an `extends` statement which is not compatible with existing
-/// interfaces
+/// @description Checks that an augment of an extension type may specify a base,
+/// final or sealed class in an `implements` clause
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A06_t03_lib.dart';
+import augment 'augmenting_types_A07_t05_lib.dart';
+import 'augmentation_libraries_lib.dart';
 
-abstract interface class I {
-  int get foo => 1;
-}
+extension type ET1(FinalClass _) {}
 
-class A {
-  void set foo(String v) {}
-}
+extension type ET2(BaseClass _) {}
 
-class C1 implements I {
-  int get foo => 2;
-}
-
-abstract class C2 implements I {}
+extension type ET3(SealedClass _) {}
 
 main() {
-  print(C1);
-  print(C2);
+  FinalClass fc = ET1(FinalClass());
+  BaseClass bc = ET2(BaseClass());
+  SealedClass sc = ET3(SealedClassImpl());
 }
