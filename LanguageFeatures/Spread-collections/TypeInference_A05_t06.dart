@@ -24,6 +24,7 @@ main() {
   dynamic map = <int, int>{};
   dynamic set = <int>{};
   Map m = {};
+  Map res;
 
   Expect.throws(() =>  res = {...?m, ...set});
 //                            ^^^^
