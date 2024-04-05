@@ -19,8 +19,6 @@ import augment 'augmenting_types_A07_t10_lib.dart';
 
 class C {}
 
-extension type ET(int _) implements int {}
-
 mixin M {}
 
 enum E {
@@ -29,7 +27,6 @@ enum E {
 
 main() {
   print(C);
-  print(ET);
   print(M);
   print(E);
 }

@@ -9,8 +9,8 @@
 /// with the new types. All regular rules apply after this appending process, so
 /// you cannot have multiple extends on a class, or an on clause on an enum, etc
 ///
-/// @description Checks that a class, extension type, mixin and enum augment may
-/// specify `implements` clause
+/// @description Checks that a class, mixin and enum augment may specify
+/// `implements` clause
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -24,8 +24,6 @@ interface class I {
 
 class C {}
 
-extension type ET(I _) {}
-
 mixin M {}
 
 enum E {
@@ -36,11 +34,9 @@ class MA = Object with M;
 
 main() {
   I c = C();
-  I et = ET(I());
   I m = MA();
   I e = E.e1;
   Expect.equals("C", c.id);
-  Expect.equals("I", et.id);
   Expect.equals("M", m.id);
   Expect.equals("E", e.id);
 }

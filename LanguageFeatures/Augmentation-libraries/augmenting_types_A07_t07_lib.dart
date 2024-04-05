@@ -28,11 +28,6 @@ augment abstract class C2 implements I {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension type ET implements I {}
-//                     ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 augment mixin M implements I {}
 //            ^
 // [analyzer] unspecified

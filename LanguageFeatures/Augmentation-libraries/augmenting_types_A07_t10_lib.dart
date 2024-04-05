@@ -22,11 +22,6 @@ augment class C implements C {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension type ET(int _) implements ET {}
-//                                          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 augment mixin M implements M {}
 //                         ^
 // [analyzer] unspecified
