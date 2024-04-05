@@ -11,7 +11,7 @@
 ///
 /// @description Checks that it is a compile-time error if a mixin augment
 /// specifies an interface in an `on` clause which is incompatible with an
-/// existing mixin members
+/// existing mixin member
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
