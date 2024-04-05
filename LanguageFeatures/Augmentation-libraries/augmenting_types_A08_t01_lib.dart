@@ -9,8 +9,7 @@
 /// with the new types. All regular rules apply after this appending process, so
 /// you cannot have multiple extends on a class, or an on clause on an enum, etc
 ///
-/// @description Checks that it is a compile-time error if a class, mixin or
-/// enum augment specifies a base class in an `implements` clause
+/// @description Checks that a mixin augment may specify an `on` clause
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

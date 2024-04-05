@@ -9,23 +9,39 @@
 /// with the new types. All regular rules apply after this appending process, so
 /// you cannot have multiple extends on a class, or an on clause on an enum, etc
 ///
-/// @description Checks that a class, mixin and enum augment may specify
-/// `implements` clause
+/// @description Checks that it is a compile-time error if a class, mixin or
+/// enum augment specifies an interface in an `implements` clause which is not
+/// compatible with existing interfaces
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A07_t01.dart';
+import augment 'augmenting_types_A07_t08_lib.dart';
 
-augment class C implements I {
-  String get id => "C";
+abstract interface class I1 {
+  String foo();
 }
 
-augment mixin M implements I {
-  String get id => "M";
+abstract interface class I2 {
+  int foo();
 }
 
-augment enum E implements I {
-  augment e1;
-  String get id => "E";
+class C1 implements I1 {
+  String foo() => "С1";
+}
+
+abstract class C2 implements I1 {}
+
+mixin M implements I1 {}
+
+enum E implements I1 {
+  e1;
+  String foo() => "E";
+}
+
+main() {
+  print(C1);
+  print(C2);
+  print(M);
+  print(E);
 }
