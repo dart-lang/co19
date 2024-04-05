@@ -11,7 +11,7 @@
 ///
 /// @description Checks that it is a compile-time error if a class, extension
 /// type, mixin or enum augment specifies an interface in an `implements` clause
-/// which is already exists
+/// which already exists
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

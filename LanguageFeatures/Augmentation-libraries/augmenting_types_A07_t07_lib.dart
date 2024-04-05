@@ -9,9 +9,9 @@
 /// with the new types. All regular rules apply after this appending process, so
 /// you cannot have multiple extends on a class, or an on clause on an enum, etc
 ///
-/// @description Checks that it is a compile-time error if a class augment
-/// specifies an interface in an `implements` clause which is not compatible
-/// with the superclass
+/// @description Checks that it is a compile-time error if a class, extension
+/// type, mixin or enum augment specifies an interface in an `implements` clause
+/// which already exists
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

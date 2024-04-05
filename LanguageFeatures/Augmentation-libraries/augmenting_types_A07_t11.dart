@@ -19,7 +19,7 @@
 import augment 'augmenting_types_A07_t11_lib.dart';
 
 interface class I {
-  int foo() => "42;
+  int foo() => 42;
 }
 
 abstract class C {

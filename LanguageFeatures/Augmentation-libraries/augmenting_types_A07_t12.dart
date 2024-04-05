@@ -9,26 +9,24 @@
 /// with the new types. All regular rules apply after this appending process, so
 /// you cannot have multiple extends on a class, or an on clause on an enum, etc
 ///
-/// @description Checks that it is a compile-time error if a class, mixin or
-/// enum augment specifies an interface in an `implements` clause which is not
-/// compatible with existing members
+/// @description Checks that if an extension type augment specifies an interface
+/// in an `implements` clause which is not compatible with existing members then
+/// existing members redeclare inherited ones
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A07_t11.dart';
+import '../../Utils/expect.dart';
+import augment 'augmenting_types_A07_t12_lib.dart';
 
-augment abstract class C implements I {}
-//                     ^
-// [analyzer] unspecified
-// [cfe] unspecified
+class A {
+  int foo() => 42;
+}
 
-augment mixin M implements I {}
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
+extension type ET(A _) {
+  String get foo => "ET";
+}
 
-augment enum E implements I {e1;}
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
+main() {
+  Expect.equals("ET", ET(A()).foo);
+}
