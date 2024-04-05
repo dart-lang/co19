@@ -28,7 +28,9 @@ augment mixin M implements I {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum E implements I {e1;}
+augment enum E implements I {
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment e1;
+}
