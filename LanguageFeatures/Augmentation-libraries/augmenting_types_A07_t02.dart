@@ -22,7 +22,7 @@ abstract class I0 {
   String get id0;
 }
 
-class I1 impelements I0 {
+class I1 implements I0 {
   String get id0 => "I1";
   String get id1 => "I1";
 }
