@@ -3,9 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if:
-/// - A top-level declaration in an augmentation has the same name as a
-///   declaration in the main library or another of its augmentations (unless it
-///   is an augmenting declaration)
+/// - A top-level declaration in a library augmentation has the same name as a
+///   declaration in the augmented library or another of its library
+///   augmentations (unless it is a declaration augmentation)
 ///
 /// @description Checks that it is a compile-time error if a top-level
 /// declaration in an augmentation has the same name as a declaration in another
