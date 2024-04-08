@@ -7,7 +7,7 @@
 /// - An export or import (not import augment) refers to an entity which is not
 ///   a library
 ///
-/// @description Checks that it is a compile-time error if an `import` refers to
+/// @description Checks that it is a compile-time error if an `export` refers to
 /// an entity which is not a library
 /// @author sgrekhov22@gmail.com
 

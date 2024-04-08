@@ -13,10 +13,4 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import 'defining_augmentation_A08_t01_lib1.dart';
-//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-main() {
-}
+import augment 'defining_augmentation_A08_t01_lib1.dart';

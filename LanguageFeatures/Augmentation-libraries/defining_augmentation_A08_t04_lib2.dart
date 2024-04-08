@@ -15,7 +15,7 @@
 
 augment library 'defining_augmentation_A08_t04.dart';
 
-import 'defining_augmentation_A08_t04_lib1.dart';
+export 'defining_augmentation_A08_t04_lib1.dart';
 //      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
