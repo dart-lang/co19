@@ -2,7 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if a library tries to augment itself
+/// @assertion It is a compile-time error if:
+/// ...
+/// - There is a cycle in the graph whose edges are the import augment
+///   directives of an augmented library and of any augmentation libraries which
+///   are directly or indirectly reachable from there via said edges.
 ///
 /// @description Checks that it is a compile-time error if a library tries to
 /// augment itself
