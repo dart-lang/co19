@@ -8,8 +8,8 @@
 /// augmentation can add new members to an existing type.
 ///
 /// @description Checks that instance members defined in the body of an augment
-/// of a class, mixin, extension or enum are added to an instance namespace of
-/// the corresponding type in the augmented library
+/// of a class, mixin or enum are added to an instance namespace of the
+/// corresponding type in the augmented library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -36,14 +36,6 @@ augment enum E {
   augment e1;
   String method() => "E";
   String get getter => "get E";
-  void set setter(String v) {
-    _log = v;
-  }
-}
-
-augment extension ExtA {
-  String method() => "ExtA";
-  String get getter => "get ExtA";
   void set setter(String v) {
     _log = v;
   }

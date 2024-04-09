@@ -8,8 +8,8 @@
 /// augmentation can add new members to an existing type.
 ///
 /// @description Checks that it is a compile-time error if an augment of a
-/// class, mixin, extension or enum adds an instance member but the is an
-/// existing instance member with the same name
+/// class, mixin or enum adds an instance member but there is an existing
+/// instance member with the same name
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -34,18 +34,6 @@ augment enum E {
   augment e1;
   int foo() => 42;
 //    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-augment extension ExtA {
-  int get foo => 42;
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void set bar(String _) {}
-//         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

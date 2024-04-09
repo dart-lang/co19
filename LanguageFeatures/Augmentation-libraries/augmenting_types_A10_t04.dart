@@ -8,8 +8,8 @@
 /// augmentation can add new members to an existing type.
 ///
 /// @description Checks that static members defined in the body of an augment of
-/// a class, mixin, extension or enum are added to a static namespace of the
-/// corresponding type in the augmented library
+/// a class, mixin or enum are added to a static namespace of the corresponding
+/// type in the augmented library
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -19,15 +19,11 @@ import '../../Utils/expect.dart';
 
 String _log = "";
 
-class A {}
-
 class C {}
 
 mixin M {}
 
 enum E {e1;}
-
-extension ExtA on A {}
 
 main() {
   Expect.equals("C", C.method());
@@ -44,9 +40,4 @@ main() {
   Expect.equals("get E", E.e1.getter);
   E.e1.setter = "set E";
   Expect.equals("set E", _log);
-
-  Expect.equals("ExtA", ExtA.method());
-  Expect.equals("get ExtA", ExtA.getter);
-  ExtA.setter = "set ExtA";
-  Expect.equals("set ExtA", _log);
 }
