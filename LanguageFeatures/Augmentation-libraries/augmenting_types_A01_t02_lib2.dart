@@ -15,12 +15,12 @@
 
 augment library 'augmenting_types_A01_t02.dart';
 
-augment enum CAlias {}
+augment enum CAlias {e0;}
 //           ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum MAlias {}
+augment enum MAlias {e0;}
 //           ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
