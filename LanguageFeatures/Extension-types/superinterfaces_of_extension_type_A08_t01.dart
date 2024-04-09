@@ -12,8 +12,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53790, 53791
 
-// SharedOptions=--enable-experiment=inline-class
-
 class A {}
 
 class B<T> {}

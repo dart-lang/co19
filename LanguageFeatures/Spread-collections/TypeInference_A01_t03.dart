@@ -5,10 +5,10 @@
 /// @assertion If a list or set literal has a downwards inference type of
 /// [Iterable<T>] for some [T], then the downwards inference context type of a
 /// spread element in that list is [Iterable<T>].
+///
 /// @description Checks statically that a spread element inference context type
 /// is [T] in the list literal
 /// @author iarkh@unipro.ru
-
 
 class A {}
 class B extends A {}

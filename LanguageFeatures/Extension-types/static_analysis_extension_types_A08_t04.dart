@@ -15,8 +15,6 @@
 /// the static type of `e` is `S?`, and `S` is incompatible with await.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import 'dart:async';
 
 extension type V1(int _) {}

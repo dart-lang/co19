@@ -18,8 +18,6 @@
 /// extension type constructor is used as a constant
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const ET1(int id) {
   ET1.n(this.id);
 }

@@ -11,8 +11,6 @@
 /// instantiated representation type.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/expect.dart';
 
 extension type V1(int id) {}

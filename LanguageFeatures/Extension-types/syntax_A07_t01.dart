@@ -23,8 +23,6 @@
 /// declaration has no body
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 // TODO (sgrekhov) Change it if a primary constructors proposal will be accepted
 extension type ET(int id);
 //                       ^

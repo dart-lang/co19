@@ -18,10 +18,10 @@
 ///       a. Evaluate [e1] to a value key.
 ///       b. Evaluate [e2] to a value value.
 ///       c. Call map[key] = value.
+///
 /// @description Checks that final map is correct if two its elements have
 /// duplicated keys
 /// @author iarkh@unipro.ru
-
 
 import "dart:collection";
 import "../../Utils/expect.dart";
@@ -63,24 +63,18 @@ main() {
       {8: 4, 5: 112, 1: 14, ...?map1, -6: 6});
 //                          ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                              ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.mapEquals(
       {-1: 1, 4: 7, 22: 22, 2: 10},
       {-1: 1, ...?map2, 22: 22, 2: 10});
 //            ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.mapEquals(
       {8: 4, 1: 1, 3: 3, 4: 4, -6: 6, 2: 20, 14: 241, 5: 7},
       {8: 4, 3: 112, 1: 10, ...?map1, -6: 6, 2: 20, 14: 241, 5: 7});
 //                          ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                              ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.mapEquals(
       {"p": "p", 3: 112, 146:149, 1: "test", 2: 248, 100: 218,
@@ -93,7 +87,5 @@ main() {
       ...?verylongmap, -6: 6, 14: 20, -1000: 241, 5: 7, 121: 14, "b": "c",
 //    ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//        ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
       -7: -7});
 }

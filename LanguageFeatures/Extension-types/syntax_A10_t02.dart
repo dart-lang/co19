@@ -27,8 +27,6 @@
 /// declares a static operator
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET(int id) {
   static int operator +(int other) => id + other;
 //^^^^^^

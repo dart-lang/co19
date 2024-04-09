@@ -23,8 +23,6 @@
 /// `representationDeclaration` is `var` or `final` or `final type`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 // TODO (sgrekhov) Change it if a primary constructors proposal will be accepted
 
 extension type ET1(var id) {}

@@ -13,8 +13,6 @@
 /// function type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 typedef void Foo1();
 typedef Foo2 = int Function(int);
 

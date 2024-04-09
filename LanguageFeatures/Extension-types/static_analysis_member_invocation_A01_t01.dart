@@ -18,8 +18,6 @@
 /// @description Checks that members of an `Object` class can be called
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET(int id) {}
 
 main() {

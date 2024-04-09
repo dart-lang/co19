@@ -20,7 +20,6 @@
 /// added to the result list.
 /// @author iarkh@unipro.ru
 
-
 import "../../Utils/expect.dart";
 
 List list1 = [1, 2, 3, 4, 5];
@@ -35,8 +34,6 @@ main() {
       [1, ...?list4, ...?list3, ...list1]);
 //        ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//            ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<dynamic>' which excludes null.
   Expect.listEquals([], [...?list3, ...?list3, ...?list3]);
   Expect.listEquals([], [...list2, ...?list3]);
 }

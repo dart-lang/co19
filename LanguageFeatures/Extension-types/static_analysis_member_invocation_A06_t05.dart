@@ -13,8 +13,6 @@
 /// they may preclude inherited members
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 String log = "";

@@ -40,8 +40,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53172
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1(int id) {
   int m() => 42;
 }

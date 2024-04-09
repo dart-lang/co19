@@ -17,8 +17,6 @@
 /// expressions
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/expect.dart';
 
 extension type ET1(List<int> id)  {

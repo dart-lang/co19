@@ -18,8 +18,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 54460
 
-// SharedOptions=--enable-experiment=inline-class
-
 class A {
   final int field;
   A(this.field);

@@ -15,8 +15,6 @@
 /// @description Checks that an extension type instance getter is not promotable
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET(int id) {
   int? get _x => 42;
 

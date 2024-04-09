@@ -18,8 +18,6 @@
 /// factory extension type constructor is declared as a constant
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const ET1(int id) {
   const factory ET1.f(int id) => ET1.new(id);
 //^^^^^

@@ -24,33 +24,20 @@ main() {
     foo()?.toString();
 //       ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
     foo()?.runtimeType;
 //       ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
     foo()?.s = 1;
 //       ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
     foo()?..toString();
 //       ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
     foo()?..runtimeType;
 //       ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
     foo()?..s = 1;
 //       ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
-
   } catch (_) {}
 }

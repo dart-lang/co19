@@ -22,8 +22,6 @@
 /// If you need to change this test, then change one of the files above and then
 /// run generator/generator.dart to regenerate the tests.
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../utils/common.dart';
 
 extension type const V1<T1, T2>(T1 id) {}

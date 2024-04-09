@@ -20,8 +20,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53436
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "dart:math";
 
 mixin M {

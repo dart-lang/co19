@@ -9,8 +9,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 54080
 
-// SharedOptions=--enable-experiment=inline-class
-
 class C {
   BoolET operator ==(Object? other) {
     return BoolET(other == this);

@@ -4,8 +4,9 @@
 
 /// @assertion If a spread element in a list or set literal has static type
 /// [Iterable<T>] for some [T], then the upwards inference element type is [T].
-/// @description Checks that spread element upwards inference element type is [T]
-/// in the list literal
+///
+/// @description Checks that spread element upwards inference element type is
+/// [T] in the list literal
 /// @author iarkh@unipro.ru
 
 import "../../Utils/expect.dart";
@@ -30,63 +31,43 @@ main() {
   Expect.isTrue(["test", "a", ...?str_list, "ooooo"] is List<String>);
 //                            ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<String>' which excludes null.
   Expect.runtimeIsType<List<String>>(["test", "a", ...?str_list, "ooooo"]);
 //                                                 ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                     ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<String>' which excludes null.
 
   Expect.isTrue([...a_list] is List<A>);
   Expect.runtimeIsType<List<A>>([...a_list]);
   Expect.isTrue([a, ...?a_list] is List<A>);
 //                  ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                      ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<A>' which excludes null.
   Expect.runtimeIsType<List<A>>([a, ...?a_list]);
 //                                  ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                      ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<A>' which excludes null.
 
   Expect.isTrue([...b_list] is List<A>);
   Expect.runtimeIsType<List<A>>([...b_list]);
   Expect.isTrue([a, ...?b_list] is List<A>);
 //                  ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                      ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<B>' which excludes null.
   Expect.runtimeIsType<List<A>>([a, ...?b_list]);
 //                                  ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                      ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<B>' which excludes null.
   Expect.isTrue([...c_list] is List<A>);
   Expect.runtimeIsType<List<A>>([...c_list]);
   Expect.isTrue([a, ...?c_list] is List<A>);
 //                  ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                      ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.runtimeIsType<List<A>>([a, ...?c_list]);
 //                                  ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                      ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isTrue([a, ...a_list, ...b_list, b] is List<A>);
   Expect.runtimeIsType<List<A>>([a, ...a_list, ...b_list, b]);
   Expect.isTrue([a, b, c, ...a_list, ...b_list, ...?c_list] is List<A>);
 //                                              ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                  ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.runtimeIsType<List<A>>([a, b, c, ...a_list, ...b_list, ...?c_list]);
 //                                                              ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                                  ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isTrue([a, ...a_list, ...b_list, b] is List<A>);
   Expect.runtimeIsType<List<A>>([a, ...a_list, ...b_list, b]);
 
@@ -95,49 +76,33 @@ main() {
   Expect.isFalse([b, ...?a_list] is List<B>);
 //                   ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                       ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<A>' which excludes null.
   Expect.runtimeIsNotType<List<B>>([b, ...?a_list]);
 //                                     ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                         ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<A>' which excludes null.
   Expect.isTrue([...b_list] is List<B>);
   Expect.runtimeIsType<List<B>>([...b_list]);
   Expect.isTrue([b, ...?b_list] is List<B>);
 //                  ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                      ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<B>' which excludes null.
   Expect.runtimeIsType<List<B>>([b, ...?b_list]);
 //                                  ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                      ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<B>' which excludes null.
   Expect.isTrue([...c_list] is List<B>);
   Expect.runtimeIsType<List<B>>([...c_list]);
   Expect.isTrue([b, ...?c_list] is List<B>);
 //                  ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                      ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.runtimeIsType<List<B>>([b, ...?c_list]);
 //                                  ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                      ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isFalse([c, ...a_list, ...b_list, b] is List<B>);
   Expect.runtimeIsNotType<List<B>>([c, ...a_list, ...b_list, b]);
   Expect.isFalse([b, c, ...a_list, ...b_list, ...?c_list] is List<B>);
 //                                            ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.runtimeIsNotType<List<B>>([b, c, ...a_list, ...b_list, ...?c_list]);
 //                                                              ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                                  ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isTrue([b, ...c_list, ...b_list, b] is List<B>);
   Expect.runtimeIsType<List<B>>([b, ...c_list, ...b_list, b]);
 
@@ -146,59 +111,39 @@ main() {
   Expect.isFalse([c, ...?a_list] is List<C>);
 //                   ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                       ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<A>' which excludes null.
   Expect.runtimeIsNotType<List<C>>([c, ...?a_list]);
 //                                     ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                         ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<A>' which excludes null.
   Expect.isFalse([...b_list] is List<C>);
   Expect.runtimeIsNotType<List<C>>([...b_list]);
   Expect.isFalse([c, ...?b_list] is List<C>);
 //                   ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                       ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<B>' which excludes null.
   Expect.runtimeIsNotType<List<C>>([c, ...?b_list]);
 //                                     ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                         ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<B>' which excludes null.
   Expect.isTrue([...c_list] is List<C>);
   Expect.runtimeIsType<List<C>>([...c_list]);
   Expect.isTrue([...?c_list] is List<C>);
 //               ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                   ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.runtimeIsType<List<C>>([...?c_list]);
 //                               ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                   ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isTrue([c, ...?c_list] is List<C>);
 //                  ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                      ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.runtimeIsType<List<C>>([c, ...?c_list]);
 //                                  ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                      ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isFalse([c, ...a_list, ...b_list, c] is List<C>);
   Expect.runtimeIsNotType<List<C>>([c, ...a_list, ...b_list, c]);
   Expect.isFalse([c, ...a_list, ...b_list, ...?c_list] is List<C>);
 //                                         ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                             ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.runtimeIsNotType<List<C>>([c, ...a_list, ...b_list, ...?c_list] );
 //                                                           ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                               ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isFalse([a, ...c_list, ...b_list, b] is List<C>);
   Expect.runtimeIsNotType<List<C>>([a, ...c_list, ...b_list, b]);
 }

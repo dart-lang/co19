@@ -16,8 +16,6 @@
 /// a `j` such that `Tj` is not equal to `Sj`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type A<T>(T _) {}
 
 extension type ET1(A<Never> _) implements A<A<int>> {}

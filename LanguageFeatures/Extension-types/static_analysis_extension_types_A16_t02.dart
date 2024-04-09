@@ -12,8 +12,6 @@
 /// with name `m` and there is no extension member with the name `m`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension Ex1 on V {
   String foo() => "Ex1.foo()";
 }

@@ -12,8 +12,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53485
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type I(int id) {
   void set id(int i) {}
 }

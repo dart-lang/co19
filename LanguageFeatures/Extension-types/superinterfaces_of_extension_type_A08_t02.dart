@@ -11,8 +11,6 @@
 /// different types.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class A<T> {}
 
 extension type AET(A<int> _) implements A<int> {}

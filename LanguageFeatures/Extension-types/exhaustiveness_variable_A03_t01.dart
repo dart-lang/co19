@@ -9,8 +9,6 @@
 /// determined by the static type of the corresponding variable.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type BoolET1(bool _) {}

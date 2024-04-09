@@ -15,8 +15,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 54620
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../../Utils/expect.dart";
 
 class C {

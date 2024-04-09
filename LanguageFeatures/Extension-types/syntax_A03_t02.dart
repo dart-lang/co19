@@ -23,8 +23,6 @@
 /// declares a type parameter which extends type `void`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1<T extends void>(T id) {}
 //                           ^^^^
 // [analyzer] unspecified

@@ -11,8 +11,6 @@
 /// type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V<T extends num>(void Function(T) f) {
 //                                            ^
 // [analyzer] unspecified

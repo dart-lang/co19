@@ -14,8 +14,6 @@
 /// @description Check that an extension type is a subtype of its superinterface
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const V1(int i) {}
 extension type V0(int i) implements V1 {}
 

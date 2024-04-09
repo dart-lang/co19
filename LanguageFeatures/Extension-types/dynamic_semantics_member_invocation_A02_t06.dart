@@ -23,8 +23,6 @@
 /// @description Check invocation of an extension type `call` member
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 class C {

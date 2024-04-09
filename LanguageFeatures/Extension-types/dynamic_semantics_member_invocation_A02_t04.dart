@@ -24,8 +24,6 @@
 /// the invocation completes throwing the same object and stack trace.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 StackTrace st = StackTrace.fromString("42");

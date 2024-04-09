@@ -4,6 +4,7 @@
 
 /// @assertion A compound assignment of the form C?.v ??= e2 is equivalent to the
 /// expression C.v ??= e.
+///
 /// @description Checks that an expression of the form C?.v ??= e is equivalent
 /// to the expression C.v ??= e (in other words
 /// ((x) => x == null? C.v = e : x)(C.v) where x is a fresh variable that is not
@@ -39,8 +40,6 @@ main() {
   var res = (C?.v ??= 1);
 //            ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//           ^
-// [cfe] The class 'C' cannot be null.
   Expect.equals(1, C.getterInvocation);
   Expect.equals(1, C.setterInvocation);
   Expect.equals(1, C.v);
@@ -50,8 +49,6 @@ main() {
   res = (C?.v ??= 2);
 //        ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//       ^
-// [cfe] The class 'C' cannot be null.
   Expect.equals(1, C.getterInvocation);
   Expect.equals(0, C.setterInvocation);
   Expect.equals(1, C.v);

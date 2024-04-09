@@ -13,8 +13,6 @@
 /// `base` class in a different library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 import "extension_type_lib.dart";
 

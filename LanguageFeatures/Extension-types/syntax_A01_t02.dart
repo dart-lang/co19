@@ -26,8 +26,6 @@
 /// @description Checks that it is not an error to declare a mixin named `type`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 mixin type on Object {
 }
 

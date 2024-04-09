@@ -26,8 +26,6 @@
 /// @description Checks that it is not an error to declare a class named `type`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class type {
 }
 

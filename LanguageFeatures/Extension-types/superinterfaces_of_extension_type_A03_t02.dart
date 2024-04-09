@@ -16,8 +16,6 @@
 /// a `j` such that `Tj` is not equal to `Sj`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class A<T> {}
 
 extension type IntET(int _) implements int {}

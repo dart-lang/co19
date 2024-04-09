@@ -18,8 +18,6 @@
 /// type `S` and `R` is neither a subtype of `S` nor a subtype of `V1`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1<T>(T _) {}
 
 extension type V2<T extends num>(T _) implements V1<T> {}

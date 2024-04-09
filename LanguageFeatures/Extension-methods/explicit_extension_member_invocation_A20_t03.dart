@@ -16,7 +16,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 43217
 
-
 import "../../Utils/expect.dart";
 
 class C {
@@ -34,7 +33,5 @@ main() {
   Ext(c)?.id = 42;
 //      ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//    ^
-// [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.
   Expect.equals(42, c.v);
 }

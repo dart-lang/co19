@@ -19,8 +19,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53866, 53867
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type V1(num _) {}

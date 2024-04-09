@@ -23,8 +23,6 @@
 /// part
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 const Meta1 = 2023;
 class Meta2 {
   const Meta2();

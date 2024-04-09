@@ -16,8 +16,6 @@
 /// non-nullable representation type then it is subtype of `Object`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const V<T extends Object>(T id) implements Object {}
 
 Object t1Instance = Object();

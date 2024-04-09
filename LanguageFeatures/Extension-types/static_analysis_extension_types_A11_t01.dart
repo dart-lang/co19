@@ -11,8 +11,6 @@
 /// an extension type is used to derive a mixin.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V(int id) {}
 
 class C1 extends V {

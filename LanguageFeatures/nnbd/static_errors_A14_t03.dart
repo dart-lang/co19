@@ -26,25 +26,15 @@ main() {
   f1?.toString();
 //  ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//^
-// [cfe] Operand of null-aware operation '?.' has type 'Function' which excludes null.
   f1 ?.. toString();
 //   ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//^
-// [cfe] Operand of null-aware operation '?..' has type 'Function' which excludes null.
 
   Foo f2 = foo;
   f2?.toString();
 //  ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//^
-// [cfe] Operand of null-aware operation '?.' has type 'void Function()' which excludes null.
   f2 ?.. toString();
 //   ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//^
-// [cfe] Operand of null-aware operation '?..' has type 'void Function()' which excludes null.
 }
-
-

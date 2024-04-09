@@ -10,3 +10,11 @@
 library augmentation_libraries_lib;
 
 class AL {}
+
+final class FinalClass {}
+
+base class BaseClass {}
+
+sealed class SealedClass {}
+
+class SealedClassImpl implements SealedClass {}

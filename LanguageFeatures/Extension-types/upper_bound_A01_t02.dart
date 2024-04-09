@@ -15,8 +15,6 @@
 /// least upper bound is `ET<T>` where `T` is least upper bound of `T1` and `T2`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/static_type_helper.dart';
 
 extension type ET<T>(T o) {}

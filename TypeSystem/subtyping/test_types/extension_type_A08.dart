@@ -12,8 +12,6 @@
 /// an extension type `ET<X1, ..., Xs>` if `Ti` is a subtype of `Xi` for all `i`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const ET<T>(T id) {}
 
 ET<Object> t1Instance = ET(Object());

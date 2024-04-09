@@ -5,6 +5,7 @@
 /// @assertion Execution of a postfix expression of the form e1?.v-- is
 /// equivalent to executing ((x) => x == null? null: x.v--)(e1) unless e1 is
 /// a type literal, in which case it is equivalent to e1.v--
+///
 /// @description Checks that if in expression e1?.v-- e1 is a type literal,
 /// then it is equivalent to e1.v--
 /// @author sgrekhov@unipro.ru
@@ -19,11 +20,7 @@ main() {
   Expect.equals(C?.v--, 0);
 //               ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//              ^
-// [cfe] The class 'C' cannot be null.
   Expect.equals(C?.v, -1);
 //               ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//              ^
-// [cfe] The class 'C' cannot be null.
 }

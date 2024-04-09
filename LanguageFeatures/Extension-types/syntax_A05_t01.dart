@@ -23,8 +23,6 @@
 /// `representationDeclaration` has zero or more than one identifiers
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1() {}
 //                 ^
 // [analyzer] unspecified

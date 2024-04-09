@@ -16,8 +16,6 @@
 /// subtype of `V`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V(int id) {}
 
 int t1Instance = 0;

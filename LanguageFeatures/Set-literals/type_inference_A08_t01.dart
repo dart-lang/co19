@@ -26,8 +26,6 @@ void test1<T extends Map<num, String>>(T t) {
   var m2 = {...?t};
 //          ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//              ^
-// [cfe] Operand of null-aware operation '...?' has type 'T' which excludes null.
   Expect.isTrue(m1 is Map<num, String>);
   Expect.isTrue(m2 is Map<num, String>);
   Expect.isFalse(m1 is Map<int, String>);
@@ -43,8 +41,6 @@ void test2<T extends Map<Object, Object>>(T t) {
   var m2 = {...?t};
 //          ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//              ^
-// [cfe] Operand of null-aware operation '...?' has type 'T' which excludes null.
   Expect.isTrue(m1 is Map<Object, Object>);
   Expect.isTrue(m2 is Map<Object, Object>);
   Expect.isFalse(m1 is Map<int, String>);

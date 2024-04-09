@@ -18,8 +18,6 @@
 /// and `R` is a subtype of `S`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/expect.dart';
 
 extension type V1<T>(T id1) {}

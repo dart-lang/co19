@@ -28,8 +28,6 @@
 /// declaration declares a non-static constant.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET(int _) {
   const int x = 0;
 //^^^^^

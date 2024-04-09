@@ -29,8 +29,6 @@
 /// `true` if and only if the operand is the same object
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type ET1<T>(T id) {

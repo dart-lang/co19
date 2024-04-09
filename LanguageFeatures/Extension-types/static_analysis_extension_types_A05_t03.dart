@@ -17,8 +17,6 @@
 /// `V<T1, .. Tk>` provides a wrong number of type arguments to `V`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V<T1, T2>(T1 id) {}
 
 main() {

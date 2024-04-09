@@ -11,7 +11,6 @@
 /// @issue 39598
 /// @issue 39714
 
-
 class A {
 }
 class C extends A {}
@@ -19,23 +18,15 @@ class C extends A {}
 test(var a, C c) {
   if (a is Object) {
     a?.toString();
-//  ^
-// [cfe] Operand of null-aware operation '?.' has type 'Object' which excludes null.
 //   ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     a?..toString();
-//  ^
-// [cfe] Operand of null-aware operation '?..' has type 'Object' which excludes null.
 //   ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     a ?? c;
-//  ^
-// [cfe] Operand of null-aware operation '??' has type 'Object' which excludes null.
 //       ^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
     a ??= c;
-//  ^
-// [cfe] Operand of null-aware operation '??=' has type 'Object' which excludes null.
 //        ^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   }

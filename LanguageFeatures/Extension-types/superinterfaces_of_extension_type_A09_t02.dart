@@ -14,8 +14,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53803
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1<T>(int _) {}
 
 extension type ET2<T>(int _) implements ET1<void Function(T)> {}

@@ -4,6 +4,7 @@
 
 /// @assertion This is true even if the object being spread is a user-defined
 /// class that implements [Iterable] but isn't even a subtype of List.
+///
 /// @description Checks that [Iterable] object can be spread into the spreadable
 /// list.
 /// @author iarkh@unipro.ru
@@ -35,15 +36,9 @@ main() {
   Expect.listEquals(iterable?.toList(), [...iterable]);
 //                          ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                  ^
-// [cfe] Operand of null-aware operation '?.' has type 'Iterable<dynamic>' which excludes null.
   Expect.listEquals(iterable?.toList(), [...?iterable]);
 //                          ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //                                       ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                  ^
-// [cfe] Operand of null-aware operation '?.' has type 'Iterable<dynamic>' which excludes null.
-//                                           ^
-// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
 }

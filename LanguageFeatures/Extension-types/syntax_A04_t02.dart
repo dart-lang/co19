@@ -23,8 +23,6 @@
 /// `identifier`.`identifier`...
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type ET.et(int id) {}

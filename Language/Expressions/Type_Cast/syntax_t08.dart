@@ -11,8 +11,6 @@
 /// representation type `void` or `FutureOr<void>`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import 'dart:async';
 import '../../../Utils/expect.dart';
 

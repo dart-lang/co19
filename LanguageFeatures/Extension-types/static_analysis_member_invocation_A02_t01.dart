@@ -8,8 +8,6 @@
 /// member of an extension type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET0(int id) {
   foo() {}
 }

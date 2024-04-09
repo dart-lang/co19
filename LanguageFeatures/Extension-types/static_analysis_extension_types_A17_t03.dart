@@ -10,8 +10,6 @@
 /// assigned to `Object?` but `Object?` cannot be assigned to it).
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1(Object? id) {}
 
 extension type V2<T>(T id) {}

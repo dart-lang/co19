@@ -18,9 +18,9 @@
 ///       a. Evaluate [e1] to a value key.
 ///       b. Evaluate [e2] to a value value.
 ///       c. Call map[key] = value.
+///
 /// @description Checks that elements are added to the result map
 /// @author iarkh@unipro.ru
-
 
 import "dart:collection";
 import "../../Utils/expect.dart";
@@ -58,8 +58,6 @@ main() {
       {1: 1, 2: 2, 3: 3}, {1: 1, ...map4, 2: 2, ...?map4, 3: 3, ...?map5});
 //                                              ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                  ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.mapEquals({-9: 9, -8: 8, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, -7: 7, 9: "14",
         8: 1, 7: 2, 6: null, -6: 6, 10: 1, 20: 2, 30: map4, 40: list,
@@ -69,9 +67,5 @@ main() {
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //                                    ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                       ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
-//                                        ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
         ...map4, -3: 3, -2: 2});
 }

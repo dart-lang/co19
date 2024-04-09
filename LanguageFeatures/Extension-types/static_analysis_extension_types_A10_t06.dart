@@ -13,8 +13,6 @@
 /// type `Function`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(Function id) implements Function {}
 //                                         ^^^^^^^^
 // [analyzer] unspecified

@@ -12,8 +12,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 54444
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 import "../Patterns/Exhaustiveness/exhaustiveness_lib.dart";
 

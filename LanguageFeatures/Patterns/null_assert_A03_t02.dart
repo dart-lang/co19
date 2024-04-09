@@ -19,7 +19,6 @@ String test1(int? value) =>
     var a2! => "null-assert-2",
 //        ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
-// [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
   };
 
 String test2(int? value) {
@@ -29,7 +28,6 @@ String test2(int? value) {
     case var a2!:
 //             ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
-// [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
       return "null-assert-2";
     default:
       return "default";
@@ -43,7 +41,6 @@ String test3(int? value) {
     case var _! when value == 42:
 //            ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
-// [cfe] The null-assert pattern will have no effect because the matched type isn't nullable.
       return "null-assert-2";
     default:
       return "default";

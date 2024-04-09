@@ -12,8 +12,6 @@
 /// is an extension member `m` then it is invoked
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension Ex1 on V<String> {

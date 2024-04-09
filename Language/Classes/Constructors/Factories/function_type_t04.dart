@@ -25,8 +25,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53934
 
-// SharedOptions=--enable-experiment=inline-class
-
 enum Bool {
   _true._(true),
   _false._(false);

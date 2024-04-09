@@ -16,8 +16,6 @@
 /// function types and type aliases
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type V<X1 extends num, X2 extends Object>(X1 id) {}

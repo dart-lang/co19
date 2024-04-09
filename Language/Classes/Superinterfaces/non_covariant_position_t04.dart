@@ -12,8 +12,6 @@
 /// type alias
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type A<T>(int id) {}
 
 typedef B<T> = void Function(T);

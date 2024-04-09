@@ -36,8 +36,6 @@
 /// declaration `DV` includes a member that conflicts with other ones
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type V1(int id) {
   external int id2; // id2 here declares a setter with conflicts with V2.id2()
 }

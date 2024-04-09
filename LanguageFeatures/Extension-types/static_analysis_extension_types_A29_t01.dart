@@ -10,8 +10,6 @@
 /// member has a member with a covariant formal parameter
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1(num id) {
   void method(covariant int i) {}
 //            ^^^^^^^^^

@@ -23,8 +23,6 @@
 /// type parameter which extends an alias of the type `void`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 typedef VoidAlias = void;

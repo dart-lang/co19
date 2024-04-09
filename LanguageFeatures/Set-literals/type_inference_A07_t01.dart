@@ -25,8 +25,6 @@ void test1<T extends Iterable<num>>(T t) {
   var s2 = {...?t};
 //          ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//              ^
-// [cfe] Operand of null-aware operation '...?' has type 'T' which excludes null.
   Expect.isTrue(s1 is Set<num>);
   Expect.isFalse(s1 is Set<int>);
   Expect.isTrue(s2 is Set<num>);
@@ -42,8 +40,6 @@ void test2<T extends Iterable<Object>>(T t) {
   var s2 = {...?t};
 //          ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//              ^
-// [cfe] Operand of null-aware operation '...?' has type 'T' which excludes null.
   Expect.isTrue(s1 is Set<Object>);
   Expect.isFalse(s1 is Set<num>);
   Expect.isTrue(s2 is Set<Object>);

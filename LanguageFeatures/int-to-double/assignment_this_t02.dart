@@ -3,11 +3,11 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion The static type of a double valued integer literal is [double]
+///
 /// @description Checks that the static type of a double valued integer literal
 /// is [double]. Test this assignment expression and hexadecimal values
 /// @author sgrekhov@unipro.ru
 /// @issue 43461
-
 
 class C {
   double? m1;
@@ -23,21 +23,15 @@ class C {
     this?.m1 = -0x42;
 //      ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] The receiver 'this' cannot be null.
     this.m1 ??= 0x42;
     this?.m1 ??= -0x42;
 //      ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] The receiver 'this' cannot be null.
 
     this.instanceSetter = 0x42;
     this?.instanceSetter = -0x42;
 //      ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//  ^
-// [cfe] The receiver 'this' cannot be null.
   }
 }
 

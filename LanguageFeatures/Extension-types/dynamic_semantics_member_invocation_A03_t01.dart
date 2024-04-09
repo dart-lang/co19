@@ -30,8 +30,6 @@
 /// `args1` in the same way that they would be bound for a normal function call
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 extension type ET1<T>(T id) {

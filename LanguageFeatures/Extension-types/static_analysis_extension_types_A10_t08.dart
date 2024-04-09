@@ -13,8 +13,6 @@
 /// type `Record`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 typedef RAlias = Record;
 
 extension type ET1((int,) id) implements Record {}

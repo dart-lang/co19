@@ -16,8 +16,6 @@
 /// and hence the `ET*` types have a getter/setter signature conflict.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class C1 {
   String get n => "C1";
 }

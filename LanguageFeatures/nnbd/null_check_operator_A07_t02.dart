@@ -25,21 +25,13 @@ main() {
   Expect.equals("Lily was here 2 times", true!(2));
 //                                           ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
-//                                       ^
-// [cfe] Operand of null-aware operation '!' has type 'bool' which excludes null.
   Expect.equals(24, true![24]);
 //                      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
-//                  ^
-// [cfe] Operand of null-aware operation '!' has type 'bool' which excludes null.
   true![24] = 24;
 //    ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
-//^
-// [cfe] Operand of null-aware operation '!' has type 'bool' which excludes null.
   true!.s = 24;
 //    ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
-//^
-// [cfe] Operand of null-aware operation '!' has type 'bool' which excludes null.
 }

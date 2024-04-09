@@ -9,8 +9,6 @@
 /// an enumerated type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 import "../../Utils/static_type_helper.dart";
 

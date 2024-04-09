@@ -11,7 +11,6 @@
 /// @issue 39723
 /// @issue 41193
 
-
 class A {
   String s = "Show must go on";
   foo() {}
@@ -26,41 +25,29 @@ main() {
   var a = new A() as A?;
   a!;
   a!.foo();
-//^
-// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 // ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   a![42];
-//^
-// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 // ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   a!?.foo();
 // ^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   a!?[42];
 // ^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   a!.s = "Lily was here";
-//^
-// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 // ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   a!?.s = "Let it be";
 // ^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   a![0] = "Lily was here";
-//^
-// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 // ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   a!?[0] = "Lily was here";
 // ^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   if (a != null) {
     a.getValue!;
     a[42]!;

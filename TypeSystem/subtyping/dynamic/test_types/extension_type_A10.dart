@@ -16,8 +16,6 @@
 /// representation type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const V<T>(T id) {}
 
 V<String> t1Instance = V<String>("42");

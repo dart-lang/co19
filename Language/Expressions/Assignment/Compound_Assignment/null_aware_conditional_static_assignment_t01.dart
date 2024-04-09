@@ -4,6 +4,7 @@
 
 /// @assertion A compound assignment of the form C?.v ??= e2 is equivalent to the
 /// expression C.v ??= e.
+///
 /// @description Checks that in expression of the form C?.v ??= e value is set
 /// only if C.v == null
 /// @author sgrekhov@unipro.ru
@@ -19,14 +20,10 @@ main() {
   C?.v ??= 1;
 // ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//^
-// [cfe] The class 'C' cannot be null.
   Expect.equals(1, C.v);
 
   C?.v ??= 2;
 // ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//^
-// [cfe] The class 'C' cannot be null.
   Expect.equals(1, C.v);
 }

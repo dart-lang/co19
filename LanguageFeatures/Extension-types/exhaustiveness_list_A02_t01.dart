@@ -10,8 +10,6 @@
 /// representation type`List`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1<T>(List<T> _) {}
 extension type ET2<T>(List<T> _) implements List<T> {}
 

@@ -13,8 +13,6 @@
 /// fails.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class A {
   void m(int i) {}
 }

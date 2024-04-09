@@ -5,8 +5,6 @@
 /// @description Helper library for testing extension types
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 library extension_type_lib;
 
 int x = 42;

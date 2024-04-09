@@ -19,8 +19,6 @@
 /// non-extension type members. Test dynamic behavior
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import "../../Utils/expect.dart";
 
 String log = "";

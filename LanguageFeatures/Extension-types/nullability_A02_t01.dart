@@ -10,8 +10,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53822
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type ET1<T>(T id) {
   void test() {
     this ?? print("No warning here!");
@@ -31,11 +29,9 @@ extension type ET3<T extends Object>(T id) implements Object {
     this ?? print("Expect a warning here!");
 //       ^^
 // [analyzer] unspecified
-// [cfe] unspecified
     this?.id;
 //      ^^
 // [analyzer] unspecified
-// [cfe] unspecified
   }
 }
 

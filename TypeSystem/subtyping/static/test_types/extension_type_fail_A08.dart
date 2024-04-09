@@ -16,8 +16,6 @@
 /// representation type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type const V(int id) {}
 
 V t1Instance = V(42);

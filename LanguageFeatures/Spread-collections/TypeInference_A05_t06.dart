@@ -13,10 +13,10 @@
 ///    {...x, ...l} // Statically a set, runtime error when spreading x.
 ///    {...x, ...m} // Statically a map, no runtime error.
 ///    {...l, ...m} // Static error, because it must be both a set and a map.
+///
 /// @description Checks that if one of the spreadable element is [Map], result
 /// is statically [Map]
 /// @author iarkh@unipro.ru
-
 
 import "../../Utils/expect.dart";
 
@@ -24,18 +24,14 @@ main() {
   dynamic map = <int, int>{};
   dynamic set = <int>{};
   Map m = {};
-
   Map res;
+
   Expect.throws(() =>  res = {...?m, ...set});
 //                            ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.throws(() =>  res = {...set, ...?m});
 //                                    ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                        ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.throws(() =>  res = {...m, ...?set});
   Expect.throws(() =>  res = {...?set, ...m});
@@ -43,8 +39,6 @@ main() {
   Expect.throws(() =>  res = {...?set, ...?m});
 //                                     ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                         ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.isTrue({...?map, ...m} is Map);
   Expect.runtimeIsType<Map>({...?map, ...m});
@@ -54,32 +48,20 @@ main() {
   Expect.isTrue({...map, ...?m} is Map);
 //                       ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                           ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.runtimeIsType<Map>({...map, ...?m});
 //                                   ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                       ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.isTrue({...?m, ...map} is Map);
 //               ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                   ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.runtimeIsType<Map>({...?m, ...map});
 //                           ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                               ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.isTrue({...?map, ...?m} is Map);
 //                        ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                            ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.runtimeIsType<Map>({...?map, ...?m});
 //                                    ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                        ^
-// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 }

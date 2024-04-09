@@ -9,8 +9,6 @@
 /// then it is not exhausted
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 class C {
   final bool v;
   const C(this.v);

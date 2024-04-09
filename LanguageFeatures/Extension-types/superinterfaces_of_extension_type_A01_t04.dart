@@ -15,8 +15,6 @@
 /// type `DV` is a supertype of the representation type of `DV`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 import '../../Utils/expect.dart';
 
 mixin class V1 {

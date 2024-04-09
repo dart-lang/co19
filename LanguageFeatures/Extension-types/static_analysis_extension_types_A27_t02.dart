@@ -11,8 +11,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53320
 
-// SharedOptions=--enable-experiment=inline-class
-
 class A {
   int x();
   dynamic noSuchMethod(Invocation invocation) => null;

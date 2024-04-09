@@ -11,8 +11,6 @@
 /// type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inline-class
-
 extension type interface(int _) {}
 //             ^^^^^^^^^
 // [analyzer] unspecified
