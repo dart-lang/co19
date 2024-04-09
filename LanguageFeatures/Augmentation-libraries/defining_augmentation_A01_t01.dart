@@ -2,8 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Declarations in any augmentation or the main library are visible
-/// to all of the others, including private ones.
+/// @assertion Declarations in any library augmentation or the augmented library
+/// are visible to all of the others, including private ones.
 ///
 /// @description Checks that declarations in an augmentation are visible in a
 /// main library
