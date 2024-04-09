@@ -15,12 +15,12 @@
 
 augment library 'augmenting_types_A01_t01.dart';
 
-augment enum C {}
+augment enum C {e0;}
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum M {}
+augment enum M {e0;}
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
