@@ -32,14 +32,17 @@ main() {
   Expect.equals("get C", C().getter);
   C().setter = "set C";
   Expect.equals("set C", _log);
+  Expect.equals(1, C() + 1);
 
   Expect.equals("M", MA().method());
   Expect.equals("M", MA().getter);
   MA().setter = "set M";
   Expect.equals("set M", _log);
+  Expect.equals(2, MA() + 2);
 
   Expect.equals("E", E.e1.method());
   Expect.equals("get E", E.e1.getter);
   E.e1.setter = "set E";
   Expect.equals("set E", _log);
+  Expect.equals(3, E.e1 + 3);
 }

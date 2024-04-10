@@ -18,15 +18,18 @@ import augment 'augmenting_types_A10_t02_lib.dart';
 
 abstract class C {
   int foo();
+  int operator +(int other);
 }
 
 mixin M {
   int get foo => 42;
+  int operator +(int other) => other;
 }
 
 enum E {
   e1;
   void set foo(String _) {}
+  int operator +(int other) => other;
 }
 
 main() {
