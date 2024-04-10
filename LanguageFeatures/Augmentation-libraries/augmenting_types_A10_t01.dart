@@ -44,5 +44,5 @@ main() {
   Expect.equals("get E", E.e1.getter);
   E.e1.setter = "set E";
   Expect.equals("set E", _log);
-  Expect.equals(3, E.e1 + 1);
+  Expect.equals(3, E.e1 + 3);
 }

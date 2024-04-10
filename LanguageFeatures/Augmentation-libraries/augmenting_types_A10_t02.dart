@@ -14,7 +14,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-//import augment 'augmenting_types_A10_t02_lib.dart';
+import augment 'augmenting_types_A10_t02_lib.dart';
 
 abstract class C {
   int foo();
