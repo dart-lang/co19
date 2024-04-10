@@ -22,6 +22,7 @@ augment class C {
   void set setter(String v) {
     _log = v;
   }
+  int operator +(int other) => other;
 }
 
 augment mixin M {
@@ -30,6 +31,7 @@ augment mixin M {
   void set setter(String v) {
     _log = v;
   }
+  int operator +(int other) => other;
 }
 
 augment enum E {
@@ -39,4 +41,5 @@ augment enum E {
   void set setter(String v) {
     _log = v;
   }
+  int operator +(int other) => other;
 }

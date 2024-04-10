@@ -21,11 +21,19 @@ augment abstract class C {
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  int operator +(int other);
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment mixin M {
   int foo() => 42;
 //    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  int operator +(int other) => other;
+//             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -34,6 +42,10 @@ augment enum E {
   augment e1;
   int foo() => 42;
 //    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  int operator +(int other) => other;
+//             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
