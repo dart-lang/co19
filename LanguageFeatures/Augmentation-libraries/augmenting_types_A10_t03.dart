@@ -8,13 +8,17 @@
 /// augmentation can add new members to an existing type.
 ///
 /// @description Checks that it is a compile-time error if an augment of a
-/// class, mixin or enum adds an instance member but there is an existing static
-/// member with the same name
+/// class, mixin, extension, or enum adds an instance member but there is an
+/// existing static member with the same name
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
 import augment 'augmenting_types_A10_t03_lib.dart';
+
+class A {
+  static int foo() => 42;
+}
 
 class C {
   static int foo() => 42;
@@ -29,7 +33,12 @@ enum E {
   static void set foo(String _) {}
 }
 
+extension ExtA on A {
+  static void bar() {}
+}
+
 main() {
+  print(A);
   print(C);
   print(M);
   print(E);

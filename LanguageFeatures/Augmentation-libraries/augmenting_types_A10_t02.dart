@@ -8,13 +8,18 @@
 /// augmentation can add new members to an existing type.
 ///
 /// @description Checks that it is a compile-time error if an augment of a
-/// class, mixin or enum adds an instance member but there is an existing
-/// instance member with the same name
+/// class, mixin, extension, or enum adds an instance member but there is an
+/// existing instance member with the same name
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
 import augment 'augmenting_types_A10_t02_lib.dart';
+
+class A {
+  int foo() => 42;
+  int operator -(int other) => other;
+}
 
 abstract class C {
   int foo();
@@ -32,7 +37,13 @@ enum E {
   int operator +(int other) => other;
 }
 
+extension ExtA on A {
+  void bar() {}
+  int operator +(int other) => other;
+}
+
 main() {
+  print(A);
   print(C);
   print(M);
   print(E);
