@@ -7,8 +7,8 @@
 /// corresponding type in the augmented library. In other words, the
 /// augmentation can add new members to an existing type.
 ///
-/// @description Checks that instance members defined in the body of an augment
-/// of a class, mixin, extension, or enum are added to an instance namespace of
+/// @description Checks that static members defined in the body of an augment
+/// of a class, mixin, extension, or enum are added to a static namespace of
 /// the corresponding type in the augmented library
 /// @author sgrekhov22@gmail.com
 

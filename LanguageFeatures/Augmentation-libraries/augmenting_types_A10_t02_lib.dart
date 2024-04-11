@@ -51,19 +51,14 @@ augment enum E {
 }
 
 augment extension ExtA {
-  int get foo => 42;
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  int get foo => 42; // No error, no conflict with A.foo()
 
   void set bar(String _) {}
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  int operator -(int other) => other;
-//             ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  int operator -(int other) => other; // No error, no conflict with A.-()
+
   int operator +(int other) => other;
 //             ^
 // [analyzer] unspecified
