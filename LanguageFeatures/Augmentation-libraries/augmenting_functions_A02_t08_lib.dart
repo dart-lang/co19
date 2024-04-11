@@ -18,7 +18,7 @@
 
 augment library 'augmenting_functions_A02_t08.dart';
 
-augment class C {
+augment mixin M {
   augment String instanceMethod1() {
     _log += augmented();
     _log += "augmented;";

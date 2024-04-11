@@ -19,9 +19,7 @@
 
 augment library 'augmenting_functions_A02_t10.dart';
 
-augment enum E {
-  augment e1;
-  
+augment extension Ext {
   augment String instanceMethod1() {
     _log += augmented();
     _log += "augmented;";
