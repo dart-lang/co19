@@ -51,23 +51,23 @@ enum E {
 }
 
 main() {
-  Expect.equals("augment", E.e1.staticMethod1());
+  Expect.equals("augment", E.staticMethod1());
   Expect.equals("augment staticMethod1;", _log);
   clearLog();
 
-  Expect.equals("augment v=A", E.e1.staticMethod2("A"));
+  Expect.equals("augment v=A", E.staticMethod2("A"));
   Expect.equals("augment staticMethod2(A);", _log);
   clearLog();
 
-  Expect.equals("augment v1=B, [v2=C]", E.e1.staticMethod3("B", "C"));
+  Expect.equals("augment v1=B, [v2=C]", E.staticMethod3("B", "C"));
   Expect.equals("augment staticMethod3(B, [C]);", _log);
   clearLog();
 
-  Expect.equals("augment v1=D, {v2=E}", E.e1.staticMethod4("D", v2: "E"));
+  Expect.equals("augment v1=D, {v2=E}", E.staticMethod4("D", v2: "E"));
   Expect.equals("augment staticMethod4(D, {E});", _log);
   clearLog();
 
   Expect.equals("augment v1=F, {required v2=G}",
-      E.e1.staticMethod5("F", v2: "G"));
+      E.staticMethod5("F", v2: "G"));
   Expect.equals("augment staticMethod5(F, {required G});", _log);
 }
