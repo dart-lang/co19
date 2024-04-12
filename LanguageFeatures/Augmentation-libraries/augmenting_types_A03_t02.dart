@@ -12,6 +12,7 @@
 /// declares an extends clause, but one was already present. Test the same
 /// `extends` class
 /// @author sgrekhov22@gmail.com
+/// @issue 55454
 
 // SharedOptions=--enable-experiment=macros
 

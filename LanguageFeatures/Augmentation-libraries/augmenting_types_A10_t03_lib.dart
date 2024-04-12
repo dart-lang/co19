@@ -11,6 +11,7 @@
 /// class, mixin, extension, or enum adds an instance member but there is an
 /// existing static member with the same name
 /// @author sgrekhov22@gmail.com
+/// @issue 55452
 
 // SharedOptions=--enable-experiment=macros
 

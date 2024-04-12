@@ -18,7 +18,7 @@
 
 import augment 'augmenting_types_A09_t06_lib.dart';
 
-class A {
+abstract class A {
   String foo();
 }
 
@@ -26,8 +26,10 @@ mixin M {
   int get foo => 42;
 }
 
-abstract class C extends A {
-}
+abstract class C extends A {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(C);

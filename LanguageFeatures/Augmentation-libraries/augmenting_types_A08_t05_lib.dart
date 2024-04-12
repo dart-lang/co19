@@ -13,6 +13,7 @@
 /// specifies an interface in an `on` clause which is incompatible with an
 /// existing mixin member
 /// @author sgrekhov22@gmail.com
+/// @issue 55451
 
 // SharedOptions=--enable-experiment=macros
 

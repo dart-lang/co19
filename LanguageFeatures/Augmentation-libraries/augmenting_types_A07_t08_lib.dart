@@ -19,10 +19,10 @@
 augment library 'augmenting_types_A07_t08.dart';
 
 augment class C1 implements I2 {
-//            ^^
+  int foo() => 0;
+//    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  int foo() => 0;
 }
 
 augment abstract class C2 implements I2 {}

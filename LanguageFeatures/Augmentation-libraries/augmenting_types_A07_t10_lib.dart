@@ -12,6 +12,7 @@
 /// @description Checks that it is a compile-time error if a class, mixin or
 /// enum augment specifies itself in an `implements` clause
 /// @author sgrekhov22@gmail.com
+/// @issue 55449
 
 // SharedOptions=--enable-experiment=macros
 

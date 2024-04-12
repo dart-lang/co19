@@ -12,6 +12,7 @@
 /// declares an extends clause, but one was already present. Test
 /// `extends Object` case
 /// @author sgrekhov22@gmail.com
+/// @issue 55454
 
 // SharedOptions=--enable-experiment=macros
 

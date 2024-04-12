@@ -13,6 +13,7 @@
 /// augment specifies an interface in an `implements` clause which is not
 /// compatible with existing mixins
 /// @author sgrekhov22@gmail.com
+/// @issue 55448
 
 // SharedOptions=--enable-experiment=macros
 
@@ -29,6 +30,9 @@ mixin M {
 class C1 = Object with M;
 
 abstract class C2 with M {}
+//             ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 enum E with M {
   e1;

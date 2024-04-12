@@ -28,9 +28,15 @@ class A {
 
 class C1 implements I {
   int get foo => 2;
+//        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 abstract class C2 implements I {}
+//             ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(C1);

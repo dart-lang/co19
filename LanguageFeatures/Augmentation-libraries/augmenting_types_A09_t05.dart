@@ -26,8 +26,10 @@ mixin M {
   int get foo => 42;
 }
 
-abstract class C implements I {
-}
+abstract class C implements I {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 enum E implements I {
   e1;

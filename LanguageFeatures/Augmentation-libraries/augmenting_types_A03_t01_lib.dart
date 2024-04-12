@@ -11,6 +11,7 @@
 /// @description Checks that it is a compile-time error if an augmenting type
 /// declares an extends clause, but one was already present
 /// @author sgrekhov22@gmail.com
+/// @issue 55454
 
 // SharedOptions=--enable-experiment=macros
 

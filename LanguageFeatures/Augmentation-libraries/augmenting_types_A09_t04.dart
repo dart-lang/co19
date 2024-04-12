@@ -25,6 +25,9 @@ mixin M implements I {}
 
 abstract class C {
   String foo();
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {

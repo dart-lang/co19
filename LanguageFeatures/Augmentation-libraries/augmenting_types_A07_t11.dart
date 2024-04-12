@@ -13,6 +13,7 @@
 /// enum augment specifies an interface in an `implements` clause which is not
 /// compatible with existing members
 /// @author sgrekhov22@gmail.com
+/// @issue 55448
 
 // SharedOptions=--enable-experiment=macros
 
@@ -28,6 +29,9 @@ abstract class C {
 
 mixin M {
   String get foo => "M";
+//           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {

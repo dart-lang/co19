@@ -27,6 +27,9 @@ class A<T> {
 }
 
 class C extends A<String> {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(C);
