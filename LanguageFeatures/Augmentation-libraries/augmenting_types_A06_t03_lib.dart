@@ -19,11 +19,5 @@
 augment library 'augmenting_types_A06_t03.dart';
 
 augment class C1 extends A {}
-//            ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 augment abstract class C2 extends A {}
-//                     ^^
-// [analyzer] unspecified
-// [cfe] unspecified

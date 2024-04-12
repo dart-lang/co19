@@ -13,12 +13,13 @@
 /// specifies an interface in an `on` clause which is incompatible with an
 /// existing interface
 /// @author sgrekhov22@gmail.com
+/// @issue 55448
 
 // SharedOptions=--enable-experiment=macros
 
 import augment 'augmenting_types_A08_t04_lib.dart';
 
-interface class I {
+abstract interface class I {
   int foo();
 }
 
@@ -27,6 +28,9 @@ abstract class C {
 }
 
 mixin M implements I {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(M);

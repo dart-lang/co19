@@ -13,6 +13,7 @@
 /// augment specifies an interface in an `implements` clause which is not
 /// compatible with existing mixins
 /// @author sgrekhov22@gmail.com
+/// @issue 55448
 
 // SharedOptions=--enable-experiment=macros
 
@@ -26,9 +27,6 @@ augment class C1 implements I {
 }
 
 augment abstract class C2 implements I {}
-//                     ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 augment enum E implements I {
 //           ^

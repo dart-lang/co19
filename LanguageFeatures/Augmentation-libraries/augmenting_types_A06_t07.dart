@@ -18,16 +18,22 @@
 
 import augment 'augmenting_types_A06_t07_lib.dart';
 
-class A {
+abstract class A {
   int foo();
 }
 
 class C1 {
   String get foo => "C1";
+//           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 abstract class C2 {
   void set foo(String _);
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

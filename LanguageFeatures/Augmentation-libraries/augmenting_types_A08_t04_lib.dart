@@ -13,12 +13,10 @@
 /// specifies an interface in an `on` clause which is incompatible with an
 /// existing interface
 /// @author sgrekhov22@gmail.com
+/// @issue 55448
 
 // SharedOptions=--enable-experiment=macros
 
 augment library 'augmenting_types_A08_t04.dart';
 
 augment mixin M on C {}
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified

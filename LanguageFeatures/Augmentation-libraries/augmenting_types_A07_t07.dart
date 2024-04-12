@@ -13,6 +13,7 @@
 /// enum augment specifies an interface in an `implements` clause which already
 /// exists
 /// @author sgrekhov22@gmail.com
+/// @issue 55456
 
 // SharedOptions=--enable-experiment=macros
 

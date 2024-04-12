@@ -19,6 +19,3 @@
 augment library 'augmenting_types_A07_t06.dart';
 
 augment class C implements I<num> {}
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified

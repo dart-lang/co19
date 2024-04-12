@@ -18,6 +18,3 @@
 augment library 'augmenting_types_A09_t06.dart';
 
 augment abstract class C with M {}
-//                     ^
-// [analyzer] unspecified
-// [cfe] unspecified
