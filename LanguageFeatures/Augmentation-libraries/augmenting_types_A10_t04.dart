@@ -40,9 +40,9 @@ main() {
   M.setter = "set M";
   Expect.equals("set M", _log);
 
-  Expect.equals("E", E.e1.method());
-  Expect.equals("get E", E.e1.getter);
-  E.e1.setter = "set E";
+  Expect.equals("E", E.method());
+  Expect.equals("get E", E.getter);
+  E.setter = "set E";
   Expect.equals("set E", _log);
 
   Expect.equals("ExtA", ExtA.method());
