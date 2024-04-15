@@ -13,8 +13,9 @@
 
 // SharedOptions=--enable-experiment=macros
 
-/**/library defining_augmentation_A06_t02;
-//  ^^^^^^^
+library defining_augmentation_A06_t02;
+
+augment library 'defining_augmentation_A06_t02.dart';
+//      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-augment library 'defining_augmentation_A06_t02.dart';

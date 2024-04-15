@@ -25,6 +25,9 @@ interface class I {
 
 abstract class C {
   String get foo => "C";
+//           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M {
