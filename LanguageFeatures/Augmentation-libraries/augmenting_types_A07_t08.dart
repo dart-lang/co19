@@ -31,8 +31,14 @@ class C1 implements I1 {
 }
 
 abstract class C2 implements I1 {}
+//             ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 mixin M implements I1 {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 enum E implements I1 {
   e1;

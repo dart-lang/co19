@@ -13,6 +13,7 @@
 /// superclass in an `extends` statement which is incompatible with existing
 /// class members
 /// @author sgrekhov22@gmail.com
+/// @issue 55472
 
 // SharedOptions=--enable-experiment=macros
 
