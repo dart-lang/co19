@@ -65,7 +65,7 @@ main() {
   clearLog();
 
   Expect.equals("augment instanceMethod2(A);", MA().instanceMethod2("A"));
-  Expect.equals("instanceMethod1();Original v=A;augmented;", _log);
+  Expect.equals("instanceMethod2(A);Original v=A;augmented;", _log);
   clearLog();
 
   Expect.equals("augment v1=B, [v2=C]", MA().instanceMethod3("B", "C"));

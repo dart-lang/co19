@@ -56,7 +56,7 @@ main() {
   clearLog();
 
   Expect.equals("augment topLevelFunction2(A);", topLevelFunction2("A"));
-  Expect.equals("topLevelFunction1();Original v=A;augmented;", _log);
+  Expect.equals("topLevelFunction2(A);Original v=A;augmented;", _log);
   clearLog();
 
   Expect.equals("augment v1=B, [v2=C]", topLevelFunction3("B", "C"));

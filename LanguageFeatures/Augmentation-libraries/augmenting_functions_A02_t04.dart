@@ -60,7 +60,7 @@ main() {
   clearLog();
 
   Expect.equals("augment staticMethod2(A);", E.e1.staticMethod2("A"));
-  Expect.equals("staticMethod1();Original v=A;augmented;", _log);
+  Expect.equals("staticMethod2(A);Original v=A;augmented;", _log);
   clearLog();
 
   Expect.equals("augment v1=B, [v2=C]", E.e1.staticMethod3("B", "C"));
