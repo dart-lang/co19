@@ -29,11 +29,11 @@ mixin M2<T extends AAlias> {}
 
 enum E1<T extends A> {
   e1<B>(),
-  e2<AAlias>;
+  e2<AAlias>();
 }
 enum E2<T extends AAlias>{
   e1<B>(),
-  e2<AAlias>;
+  e2<AAlias>();
 }
 
 class D<T extends A> {}
