@@ -43,19 +43,24 @@ augment mixin M2<T extends AAlias> {
 }
 
 augment enum E1<T extends A> {
-  augment e1;
+  augment e1<B>(),
+  augment e2<AAlias>;
   String get name1 => 'E1<$T>';
 }
 augment enum E1<T extends AAlias> {
-  augment e1;
+  augment e1<B>(),
+  augment e2<AAlias>;
+
   String name2() => 'E1<$T>';
 }
 augment enum E2<T extends A> {
-  augment e1;
+  augment e1<B>(),
+  augment e2<AAlias>;
   String get name1 => 'E2<$T>';
 }
 augment enum E2<T extends AAlias> {
-  augment e1;
+  augment e1<B>(),
+  augment e2<AAlias>;
   String name2() => 'E2<$T>';
 }
 

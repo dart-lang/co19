@@ -23,7 +23,7 @@ class C<X extends A, Y> {}
 
 mixin M<X extends A, Y> {}
 
-enum E<X extends A, Y> {}
+enum E<X extends A, Y> {e1;}
 
 extension Ext<X extends A, Y> on B {}
 
