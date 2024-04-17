@@ -28,3 +28,46 @@ augment class C2<T extends A> {
 augment class C2<T extends AAlias> {
   String name2() => 'C2<$T>';
 }
+
+augment mixin M1<T extends A> {
+  String get name1 => 'M1<$T>';
+}
+augment mixin M1<T extends AAlias> {
+  String name2() => 'M1<$T>';
+}
+augment mixin M2<T extends A> {
+  String get name1 => 'M2<$T>';
+}
+augment mixin M2<T extends AAlias> {
+  String name2() => 'M2<$T>';
+}
+
+augment enum E1<T extends A> {
+  augment e1;
+  String get name1 => 'E1<$T>';
+}
+augment enum E1<T extends AAlias> {
+  augment e1;
+  String name2() => 'E1<$T>';
+}
+augment enum E2<T extends A> {
+  augment e1;
+  String get name1 => 'E2<$T>';
+}
+augment enum E2<T extends AAlias> {
+  augment e1;
+  String name2() => 'E2<$T>';
+}
+
+augment extension Ext1<T extends A> {
+  String get name1 => 'Ext1<$T>';
+}
+augment extension Ext1<T extends AAlias> {
+  String name2() => 'Ext1<$T>';
+}
+augment extension Ext2<T extends A> {
+  String get name1 => 'Ext2<$T>';
+}
+augment extension Ext2<T extends AAlias> {
+  String name2() => 'Ext2<$T>';
+}

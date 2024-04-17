@@ -25,3 +25,37 @@ augment class C<T, X> {}
 //              ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+augment mixin M {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment mixin M<T, X> {}
+//              ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment enum E {
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment e1;
+}
+
+augment enum E<T, X> {
+//             ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment e1;
+}
+
+augment extension Ext {}
+//                ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment extension Ext<T, X> {}
+//                    ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

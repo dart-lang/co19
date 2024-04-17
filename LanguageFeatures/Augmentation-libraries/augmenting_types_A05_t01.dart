@@ -18,6 +18,19 @@ import augment 'augmenting_types_A05_t01_lib.dart';
 
 class C<T> {}
 
+mixin M<T> {}
+
+enum E<T> {
+  e1;
+}
+
+class A {}
+
+extension Ext<T> on A {}
+
 main() {
   print(C);
+  print(M);
+  print(E);
+  print(A);
 }

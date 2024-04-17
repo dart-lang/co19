@@ -30,3 +30,54 @@ augment class C<T extends List> {}
 //                        ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+augment mixin M<T extends B> {}
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment mixin M<T extends Object> {}
+//                        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment mixin M<T extends List> {}
+//                        ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment enum E<T extends B> {
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment e1;
+}
+
+augment enum E<T extends Object> {
+//                       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment e1;
+}
+
+augment enum E<T extends List> {
+//                       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment e1;
+}
+
+augment extension Ext<T extends B> {}
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment extension Ext<T extends Object> {}
+//                              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment extension Ext<T extends List> {}
+//                              ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

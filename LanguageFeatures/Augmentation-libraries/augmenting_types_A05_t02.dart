@@ -20,6 +20,18 @@ class A {}
 class B extends A {}
 class C<T extends A> {}
 
+mixin M<T extends A> {}
+
+enum E<T extends A> {
+  e1;
+}
+
+class D {}
+extension Ext<T extends A> on D {}
+
 main() {
   print(C);
+  print(M);
+  print(E);
+  print(D);
 }

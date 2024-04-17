@@ -17,8 +17,19 @@
 import augment 'augmenting_types_A05_t03_lib.dart';
 
 class A {}
+class B {}
+
 class C<X extends A, Y> {}
+
+mixin M<X extends A, Y> {}
+
+enum E<X extends A, Y> {}
+
+extension Ext<X extends A, Y> on B {}
 
 main() {
   print(C);
+  print(M);
+  print(E);
+  print(B);
 }
