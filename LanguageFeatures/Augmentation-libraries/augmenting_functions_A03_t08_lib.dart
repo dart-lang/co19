@@ -6,7 +6,7 @@
 /// may be augmented to wrap the original code in additional code. The
 /// augmentation replaces the original function body with the augmenting code.
 ///
-/// @description Checks that it's not an error if augmenting function passes
+/// @description Checks that it's not an error if an augmenting function passes
 /// different arguments to the `augmented()` expression and calls it more than
 /// once. Test instance methods of a mixin.
 /// @author sgrekhov22@gmail.com

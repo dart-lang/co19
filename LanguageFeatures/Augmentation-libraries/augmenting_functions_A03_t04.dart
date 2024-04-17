@@ -6,7 +6,7 @@
 /// to augmented() as were passed to it. It may call it once, more than once, or
 /// not at all.
 ///
-/// @description Checks that it's not an error if augmenting function passes
+/// @description Checks that it's not an error if an augmenting function passes
 /// different arguments to the `augmented()` expression and calls it more than
 /// once. Test static methods of an enum.
 /// @author sgrekhov22@gmail.com
