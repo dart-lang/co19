@@ -21,27 +21,35 @@
 import augment 'augmenting_functions_A04_t08_lib.dart';
 
 void topLevelFunction1([int i = 1]) {}
-
 void topLevelFunction2([Object o = 2]) {}
-
 void topLevelFunction3([String s = "3"]) {}
+void topLevelFunction4<T extends String>([T? t]) {}
+void topLevelFunction5<T extends String>([String? t]) {}
 
 class C {
   static void staticMethod1([int i = 1]) {}
   static void staticMethod2([Object o = 2]) {}
   static void staticMethod3([String s = "3"]) {}
+  static void staticMethod4<T extends String>([T? t]) {}
+  static void staticMethod5<T extends String>([String? t]) {}
   void instanceMethod1([int i = 1]) {}
   void instanceMethod2([Object o = 2]) {}
   void instanceMethod3([String s = "3"]) {}
+  void instanceMethod4<T extends String>([T? t]) {}
+  void instanceMethod5<T extends String>([String? t]) {}
 }
 
 mixin M {
   static void staticMethod1([int i = 1]) {}
   static void staticMethod2([Object o = 2]) {}
   static void staticMethod3([String s = "3"]) {}
+  static void staticMethod4<T extends String>([T? t]) {}
+  static void staticMethod5<T extends String>([String? t]) {}
   void instanceMethod1([int i = 1]) {}
   void instanceMethod2([Object o = 2]) {}
   void instanceMethod3([String s = "3"]) {}
+  void instanceMethod4<T extends String>([T? t]) {}
+  void instanceMethod5<T extends String>([String? t]) {}
 }
 
 enum E {
@@ -50,9 +58,13 @@ enum E {
   static void staticMethod1([int i = 1]) {}
   static void staticMethod2([Object o = 2]) {}
   static void staticMethod3([String s = "3"]) {}
+  static void staticMethod4<T extends String>([T? t]) {}
+  static void staticMethod5<T extends String>([String? t]) {}
   void instanceMethod1([int i = 1]) {}
   void instanceMethod2([Object o = 2]) {}
   void instanceMethod3([String s = "3"]) {}
+  void instanceMethod4<T extends String>([T? t]) {}
+  void instanceMethod5<T extends String>([String? t]) {}
 }
 
 class A {}
@@ -61,15 +73,21 @@ extension Ext on A {
   static void staticMethod1([int i = 1]) {}
   static void staticMethod2([Object o = 2]) {}
   static void staticMethod3([String s = "3"]) {}
+  static void staticMethod4<T extends String>([T? t]) {}
+  static void staticMethod5<T extends String>([String? t]) {}
   void instanceMethod1([int i = 1]) {}
   void instanceMethod2([Object o = 2]) {}
   void instanceMethod3([String s = "3"]) {}
+  void instanceMethod4<T extends String>([T? t]) {}
+  void instanceMethod5<T extends String>([String? t]) {}
 }
 
 main() {
   print(topLevelFunction1);
   print(topLevelFunction2);
   print(topLevelFunction3);
+  print(topLevelFunction4);
+  print(topLevelFunction5);
   print(C);
   print(M);
   print(E);

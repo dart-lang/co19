@@ -35,6 +35,16 @@ augment String? topLevelFunction3() => "42";
 // [analyzer] unspecified
 // [cfe] unspecified
 
+augment String topLevelFunction4<T extends String>(T t) => "42";
+//             ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment T topLevelFunction5<T extends String>(T t) => t;
+//        ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 augment class C {
   augment static Object staticMethod1() => "42";
 //                      ^^^^^^^^^^^^^
@@ -48,6 +58,15 @@ augment class C {
 //                       ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment static String staticMethod4<T extends String>(T t) => "42";
+//                      ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static T staticMethod5<T extends String>(T t) => t;
+//                 ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   augment Object instanceMethod1() => "42";
 //               ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -58,6 +77,14 @@ augment class C {
 // [cfe] unspecified
   augment String? instanceMethod3() => "42";
 //                ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String instanceMethod4<T extends String>(T t) => "42";
+//               ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment T instanceMethod5<T extends String>(T t) => t;
+//          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -75,6 +102,15 @@ augment mixin M {
 //                       ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment static String staticMethod4<T extends String>(T t) => "42";
+//                      ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static T staticMethod5<T extends String>(T t) => t;
+//                 ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   augment Object instanceMethod1() => "42";
 //               ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -85,6 +121,14 @@ augment mixin M {
 // [cfe] unspecified
   augment String? instanceMethod3() => "42";
 //                ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String instanceMethod4<T extends String>(T t) => "42";
+//               ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment T instanceMethod5<T extends String>(T t) => t;
+//          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -104,6 +148,15 @@ augment enum E {
 //                       ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment static String staticMethod4<T extends String>(T t) => "42";
+//                      ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static T staticMethod5<T extends String>(T t) => t;
+//                 ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   augment Object instanceMethod1() => "42";
 //               ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -114,6 +167,14 @@ augment enum E {
 // [cfe] unspecified
   augment String? instanceMethod3() => "42";
 //                ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String instanceMethod4<T extends String>(T t) => "42";
+//               ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment T instanceMethod5<T extends String>(T t) => t;
+//          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -131,6 +192,11 @@ augment extension Ext {
 //                       ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment static String staticMethod4<T extends String>(T t) => "42";
+//                      ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   augment Object instanceMethod1() => "42";
 //               ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -141,6 +207,10 @@ augment extension Ext {
 // [cfe] unspecified
   augment String? instanceMethod3() => "42";
 //                ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String instanceMethod4<T extends String>(T t) => "42";
+//               ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -24,13 +24,19 @@ augment void topLevelFunction1([Object i]) {}
 //           ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 augment void topLevelFunction2([int o]) {}
 //           ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 augment void topLevelFunction3([String? s]) {}
+//           ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+augment void topLevelFunction4<T extends String>([String? t]) {}
+//           ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+augment void topLevelFunction5<T extends String>([T? t]) {}
 //           ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -48,6 +54,18 @@ augment class C {
 //                    ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment static void staticMethod3([String? s]) {}
+//                    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod4<T extends String>([String? t]) {}
+//                    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod5<T extends String>([T? t]) {}
+//                    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   augment void instanceMethod1([Object i]) {}
 //             ^^^^^^^^^^^^^^^
@@ -58,6 +76,14 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
   augment void instanceMethod3([String? s]) {}
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod4<T extends String>([String? t]) {}
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod5<T extends String>([T? t]) {}
 //             ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -76,6 +102,18 @@ augment mixin M {
 //                    ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment static void staticMethod3([String? s]) {}
+//                    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod4<T extends String>([String? t]) {}
+//                    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod5<T extends String>([T? t]) {}
+//                    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   augment void instanceMethod1([Object i]) {}
 //             ^^^^^^^^^^^^^^^
@@ -86,6 +124,14 @@ augment mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
   augment void instanceMethod3([String? s]) {}
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod4<T extends String>([String? t]) {}
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod5<T extends String>([T? t]) {}
 //             ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -106,6 +152,18 @@ augment enum E {
 //                    ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment static void staticMethod3([String? s]) {}
+//                    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod4<T extends String>([String? t]) {}
+//                    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod5<T extends String>([T? t]) {}
+//                    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   augment void instanceMethod1([Object i]) {}
 //             ^^^^^^^^^^^^^^^
@@ -116,6 +174,14 @@ augment enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
   augment void instanceMethod3([String? s]) {}
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod4<T extends String>([String? t]) {}
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod5<T extends String>([T? t]) {}
 //             ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -134,6 +200,18 @@ augment extension Ext {
 //                    ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment static void staticMethod3([String? s]) {}
+//                    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod4<T extends String>([String? t]) {}
+//                    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod5<T extends String>([T? t]) {}
+//                    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   augment void instanceMethod1([Object i]) {}
 //             ^^^^^^^^^^^^^^^
@@ -144,6 +222,14 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
   augment void instanceMethod3([String? s]) {}
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod4<T extends String>([String? t]) {}
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod5<T extends String>([T? t]) {}
 //             ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
