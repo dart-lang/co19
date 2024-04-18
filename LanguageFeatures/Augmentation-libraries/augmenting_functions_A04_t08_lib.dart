@@ -54,10 +54,6 @@ augment class C {
 //                    ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void staticMethod3([String? s]) {}
-//                    ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment static void staticMethod4<T extends String>([String? t]) {}
 //                    ^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -95,10 +91,6 @@ augment mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
   augment static void staticMethod2([int o]) {}
-//                    ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment static void staticMethod3([String? s]) {}
 //                    ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -152,10 +144,6 @@ augment enum E {
 //                    ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void staticMethod3([String? s]) {}
-//                    ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment static void staticMethod4<T extends String>([String? t]) {}
 //                    ^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -193,10 +181,6 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
   augment static void staticMethod2([int o]) {}
-//                    ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment static void staticMethod3([String? s]) {}
 //                    ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

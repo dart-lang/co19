@@ -196,6 +196,10 @@ augment extension Ext {
 //                      ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment static T staticMethod5<T extends String>(T t) => t;
+//                 ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   augment Object instanceMethod1() => "42";
 //               ^^^^^^^^^^^^^^^
@@ -211,6 +215,10 @@ augment extension Ext {
 // [cfe] unspecified
   augment String instanceMethod4<T extends String>(T t) => "42";
 //               ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment T instanceMethod5<T extends String>(T t) => t;
+//          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
