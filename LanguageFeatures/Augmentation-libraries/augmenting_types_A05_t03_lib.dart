@@ -30,3 +30,54 @@ augment class C<Y extends A, X> {}
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+augment mixin M<X extends A, Z> {}
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment mixin M<T extends A, Y> {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment mixin M<Y extends A, X> {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment enum E<X extends A, Z> {
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment e1;
+}
+
+augment enum E<T extends A, Y> {
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment e1;
+}
+
+augment enum E<Y extends A, X> {
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment e1;
+}
+
+augment extension Ext<X extends A, Z> {}
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment extension Ext<T extends A, Y> {}
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment extension Ext<Y extends A, X> {}
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
