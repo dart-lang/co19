@@ -31,10 +31,10 @@ class C {
 }
 
 mixin M {
-  void instanceMethod1(num i) {}
-  void instanceMethod2([num i = 1]) {}
-  void instanceMethod3({num i = 1}) {}
-  void instanceMethod4({required num i}) {}
+  void instanceMethod1(covariant num i) {}
+  void instanceMethod2([covariant num i = 1]) {}
+  void instanceMethod3({covariant num i = 1}) {}
+  void instanceMethod4({required covariant num i}) {}
   void instanceMethod5<T>({required covariant T i}) {}
 }
 
@@ -42,9 +42,9 @@ enum E {
   e1;
 
   void instanceMethod1(covariant num i) {}
-  void instanceMethod2([num i = 1]) {}
-  void instanceMethod3({num i = 1}) {}
-  void instanceMethod4({required num i}) {}
+  void instanceMethod2([covariant num i = 1]) {}
+  void instanceMethod3({covariant num i = 1}) {}
+  void instanceMethod4({required covariant num i}) {}
   void instanceMethod5<T>({required covariant T i}) {}
 }
 

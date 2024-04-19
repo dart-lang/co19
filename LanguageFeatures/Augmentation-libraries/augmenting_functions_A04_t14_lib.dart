@@ -21,30 +21,30 @@
 
 augment library 'augmenting_functions_A04_t14.dart';
 
-augment void topLevelFunction({int i}) {}
+augment void topLevelFunction({int? i}) {}
 //           ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 augment class C {
-  augment static void staticMethod({int i}) {}
+  augment static void staticMethod({int? i}) {}
 //                    ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment void instanceMethod({int i}) {}
+  augment void instanceMethod({int? i}) {}
 //             ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment mixin M {
-  augment static void staticMethod({int i}) {}
+  augment static void staticMethod({int? i}) {}
 //                    ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment void instanceMethod({int i}) {}
+  augment void instanceMethod({int? i}) {}
 //             ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -53,24 +53,24 @@ augment mixin M {
 augment enum E {
   augment e1;
 
-  augment static void staticMethod({int i}) {}
+  augment static void staticMethod({int? i}) {}
 //                    ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment void instanceMethod({int i}) {}
+  augment void instanceMethod({int? i}) {}
 //             ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension Ext {
-  augment static void staticMethod({int i}) {}
+  augment static void staticMethod({int? i}) {}
 //                    ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment void instanceMethod({int i}) {}
+  augment void instanceMethod({int? i}) {}
 //             ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

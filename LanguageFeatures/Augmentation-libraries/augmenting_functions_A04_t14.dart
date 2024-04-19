@@ -21,30 +21,30 @@
 
 import augment 'augmenting_functions_A04_t14_lib.dart';
 
-void topLevelFunction({required int i}) {}
+void topLevelFunction({required int? i}) {}
 
 class C {
-  static void staticMethod({required int i}) {}
-  void instanceMethod({required int i}) {}
+  static void staticMethod({required int? i}) {}
+  void instanceMethod({required int? i}) {}
 }
 
 mixin M {
-  static void staticMethod({required int i}) {}
-  void instanceMethod({required int i}) {}
+  static void staticMethod({required int? i}) {}
+  void instanceMethod({required int? i}) {}
 }
 
 enum E {
   e1;
 
-  static void staticMethod({required int i}) {}
-  void instanceMethod({required int i}) {}
+  static void staticMethod({required int? i}) {}
+  void instanceMethod({required int? i}) {}
 }
 
 class A {}
 
 extension Ext on A {
-  static void staticMethod({required int i}) {}
-  void instanceMethod({required int i}) {}
+  static void staticMethod({required int? i}) {}
+  void instanceMethod({required int? i}) {}
 }
 
 main() {
