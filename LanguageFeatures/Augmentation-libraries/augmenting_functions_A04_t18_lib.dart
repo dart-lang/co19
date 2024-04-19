@@ -51,7 +51,7 @@ augment mixin M {
   augment int instanceMethod3([int i0 = 0]) => i0 + 1;
   augment int? instanceMethod4({int? i}) => i;
   augment T instanceMethod5<T extends num>(T t) => t + 1 as T;
-  }
+}
 
 augment enum E {
   augment e1;
