@@ -17,7 +17,7 @@
 
 augment library 'augmenting_functions_A06_t02.dart';
 
-augment external void topLevelFunction() {
+augment void topLevelFunction() {
   augmented();
 }
 
