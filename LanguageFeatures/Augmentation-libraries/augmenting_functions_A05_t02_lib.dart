@@ -14,68 +14,89 @@
 
 augment library 'augmenting_functions_A05_t02.dart';
 
-augment void topLevelFunction1([int i = 1]) {}
-//                                    ^
+augment void topLevelFunction1([int? i = 1]) {}
+//                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment void topLevelFunction2({int i = 2}) {}
-//                                    ^
+augment void topLevelFunction2({int? i = 2}) {}
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment void topLevelFunction3({required int? i = 2}) {}
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 augment class C {
-  augment static void staticMethod1([int i = 2]) {}
-//                                         ^
+  augment static void staticMethod1([int? i = 2]) {}
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void staticMethod2({int i = 1}) {}
-//                                         ^
+  augment static void staticMethod2({int? i = 1}) {}
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod3({required int? i = 1}) {}
+//                                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment void instanceMethod1([int i = 1]) {}
-//                                    ^
+  augment void instanceMethod1([int? i = 1]) {}
+//                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod2([covariant int i = 2]) {}
-//                                              ^
+  augment void instanceMethod2([covariant int? i = 2]) {}
+//                                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod3({int i = 2}) {}
-//                                    ^
+  augment void instanceMethod3({int? i = 2}) {}
+//                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod4({covariant int i = 1}) {}
-//                                              ^
+  augment void instanceMethod4({covariant int? i = 1}) {}
+//                                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod5({required int? i = 1}) {}
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment mixin M {
-  augment static void staticMethod1([int i = 2]) {}
-//                                         ^
+  augment static void staticMethod1([int? i = 2]) {}
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void staticMethod2({int i = 1}) {}
-//                                         ^
+  augment static void staticMethod2({int? i = 1}) {}
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod3({required int? i = 1}) {}
+//                                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment void instanceMethod1([int i = 1]) {}
-//                                    ^
+  augment void instanceMethod1([int? i = 1]) {}
+//                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod2([covariant int i = 2]) {}
-//                                              ^
+  augment void instanceMethod2([covariant int? i = 2]) {}
+//                                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod3({int i = 2}) {}
-//                                    ^
+  augment void instanceMethod3({int? i = 2}) {}
+//                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod4({covariant int i = 1}) {}
-//                                              ^
+  augment void instanceMethod4({covariant int? i = 1}) {}
+//                                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod5({required int? i = 1}) {}
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -83,49 +104,65 @@ augment mixin M {
 augment enum E {
   augment e1;
 
-  augment static void staticMethod1([int i = 2]) {}
-//                                         ^
+  augment static void staticMethod1([int? i = 2]) {}
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void staticMethod2({int i = 1}) {}
-//                                         ^
+  augment static void staticMethod2({int? i = 1}) {}
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod3({required int? i = 1}) {}
+//                                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment void instanceMethod1([int i = 1]) {}
-//                                    ^
+  augment void instanceMethod1([int? i = 1]) {}
+//                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod2([covariant int i = 2]) {}
-//                                              ^
+  augment void instanceMethod2([covariant int? i = 2]) {}
+//                                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod3({int i = 2}) {}
-//                                    ^
+  augment void instanceMethod3({int? i = 2}) {}
+//                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod4({covariant int i = 1}) {}
-//                                              ^
+  augment void instanceMethod4({covariant int? i = 1}) {}
+//                                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod5({required int? i = 1}) {}
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension Ext {
-  augment static void staticMethod1([int i = 2]) {}
-//                                         ^
+  augment static void staticMethod1([int? i = 2]) {}
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void staticMethod2({int i = 1}) {}
-//                                         ^
+  augment static void staticMethod2({int? i = 1}) {}
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod3({required int? i = 1}) {}
+//                                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment void instanceMethod1([int i = 1]) {}
-//                                    ^
+  augment void instanceMethod1([int? i = 1]) {}
+//                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod2({int i = 2}) {}
-//                                    ^
+  augment void instanceMethod2({int? i = 2}) {}
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod3({required int? i = 2}) {}
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

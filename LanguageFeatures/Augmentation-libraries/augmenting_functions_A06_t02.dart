@@ -10,8 +10,7 @@
 ///   they will throw a runtime exception when called if not.
 ///
 /// @description Checks that it is not an error if an augmenting
-/// declaration uses `augmented` when the original declaration has no concrete
-/// implementation but is an `external` declaration
+/// declaration uses `augmented` when the original declaration is an `external`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

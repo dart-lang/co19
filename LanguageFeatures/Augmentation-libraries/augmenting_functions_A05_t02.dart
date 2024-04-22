@@ -14,117 +14,54 @@
 
 import augment 'augmenting_functions_A05_t02_lib.dart';
 
-void topLevelFunction1([int i]) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-void topLevelFunction2({int i}) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
+void topLevelFunction1([int? i]) {}
+void topLevelFunction2({int? i}) {}
+void topLevelFunction3({required int? i}) {}
 
 class C {
-  static void staticMethod1([int i]) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  static void staticMethod2({int i}) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod1([int i]) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod2([covariant int i]) {}
-//                                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod3({int i}) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod4({covariant int i}) {}
-//                                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  static void staticMethod1([int? i]) {}
+  static void staticMethod2({int? i}) {}
+  static void staticMethod3({required int? i}) {}
+  void instanceMethod1([int? i]) {}
+  void instanceMethod2([covariant int? i]) {}
+  void instanceMethod3({int? i}) {}
+  void instanceMethod4({covariant int? i}) {}
+  void instanceMethod5({required int? i}) {}
 }
 
 mixin M {
-  static void staticMethod1([int i]) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  static void staticMethod2({int i}) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod1([int i]) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod2([covariant int i]) {}
-//                                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod3({int i}) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod4({covariant int i}) {}
-//                                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  static void staticMethod1([int? i]) {}
+  static void staticMethod2({int? i}) {}
+  static void staticMethod3({required int? i}) {}
+  void instanceMethod1([int? i]) {}
+  void instanceMethod2([covariant int? i]) {}
+  void instanceMethod3({int? i}) {}
+  void instanceMethod4({covariant int? i}) {}
+  void instanceMethod5({required int? i}) {}
 }
 
 enum E {
   e1;
 
-  static void staticMethod1([int i]) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  static void staticMethod2({int i}) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod1([int i]) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod2([covariant int i]) {}
-//                                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod3({int i}) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod4({covariant int i}) {}
-//                                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  static void staticMethod1([int? i]) {}
+  static void staticMethod2({int? i}) {}
+  static void staticMethod3({required int? i}) {}
+  void instanceMethod1([int? i]) {}
+  void instanceMethod2([covariant int? i]) {}
+  void instanceMethod3({int? i}) {}
+  void instanceMethod4({covariant int? i}) {}
+  void instanceMethod5({required int? i}) {}
 }
 
 class A {}
 
 extension Ext on A {
-  static void staticMethod1([int i]) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  static void staticMethod2({int i}) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod1([int i]) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod2({int i}) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  static void staticMethod1([int? i]) {}
+  static void staticMethod2({int? i}) {}
+  static void staticMethod3({required int? i}) {}
+  void instanceMethod1([int? i]) {}
+  void instanceMethod2({int? i}) {}
+  void instanceMethod3({required int? i}) {}
 }
 
 main() {
