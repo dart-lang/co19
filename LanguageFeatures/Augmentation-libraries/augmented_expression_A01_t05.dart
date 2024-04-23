@@ -9,8 +9,8 @@
 ///   getter and evaluates to the return value. If augmenting a field with a
 ///   getter, this will invoke the implicit getter from the augmented field.
 ///
-/// @description Checks that it is a compile-time error if within an augmenting
-/// getter `augmented +` expression is invoked.
+/// @description Checks that it is not an error to invoke operator `+` on return
+/// value of `augmented` expression if its return type has a `+` operator
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

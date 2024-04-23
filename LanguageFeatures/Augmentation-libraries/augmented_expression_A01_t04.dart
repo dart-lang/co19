@@ -17,7 +17,7 @@
 
 import augment 'augmented_expression_A01_t04_lib.dart';
 
-void augmented(String value) {}
+void set augmented(String value) {}
 
 String topLevelVariable = "Original";
 

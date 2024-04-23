@@ -10,7 +10,8 @@
 ///   getter, this will invoke the implicit getter from the augmented field.
 ///
 /// @description Checks that it is a compile-time error if within an augmenting
-/// getter `augmented()` expression is invoked.
+/// getter `augmented()` expression is invoked, and the augmented declaration
+/// does not return a function.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
