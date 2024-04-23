@@ -7,7 +7,7 @@
 /// not at all.
 ///
 /// @description Checks that it's not an error if an augmenting function passes
-/// different arguments to the `augmented()` expression and calls it more than
+/// different arguments to the `augmented` expression and calls it more than
 /// once. Test operators.
 /// @author sgrekhov22@gmail.com
 

@@ -11,7 +11,7 @@
 /// function's return type.
 ///
 /// @description Checks that inside an augmentation body of an operator
-/// `augmented()` expression executes the body of the original operator.
+/// `augmented` expression executes the body of the original operator.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
