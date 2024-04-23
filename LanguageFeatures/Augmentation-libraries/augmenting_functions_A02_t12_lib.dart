@@ -11,7 +11,7 @@
 /// function's return type.
 ///
 /// @description Checks that inside an augmentation body of an operator
-/// `augmented()` expression executes the body of the original operator.
+/// `augmented` expression executes the body of the original operator.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -20,7 +20,7 @@ augment library 'augmenting_functions_A02_t12.dart';
 
 augment class C {
   augment String operator +(String other) {
-    _log += augmented(other);
+    _log += augmented + other;
     _log += "augmented;";
     return "C: augment other=$other";
   }
@@ -28,7 +28,7 @@ augment class C {
 
 augment mixin M {
   augment String operator +(String other) {
-    _log += augmented(other);
+    _log += augmented + other;
     _log += "augmented;";
     return "M: augment other=$other";
   }
@@ -38,7 +38,7 @@ augment enum E {
   augment e1;
 
   augment String operator +(String other) {
-    _log += augmented(other);
+    _log += augmented + other;
     _log += "augmented;";
     return "E: augment other=$other";
   }
@@ -46,7 +46,7 @@ augment enum E {
 
 augment extension Ext {
   augment String operator +(String other) {
-    _log += augmented(other);
+    _log += augmented + other;
     _log += "augmented;";
     return "Ext: augment other=$other";
   }

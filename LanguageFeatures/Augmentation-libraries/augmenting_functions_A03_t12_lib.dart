@@ -11,7 +11,7 @@
 /// function's return type.
 ///
 /// @description Checks that it's not an error if an augmenting function passes
-/// different arguments to the `augmented()` expression and calls it more than
+/// different arguments to the `augmented` expression and calls it more than
 /// once. Test operators.
 /// @author sgrekhov22@gmail.com
 
@@ -21,18 +21,18 @@ augment library 'augmenting_functions_A03_t12.dart';
 
 augment class C {
   augment String operator +(String other) {
-    _log += augmented("a");
+    _log += augmented + "a";
     _log += "augmented;";
-    augmented("b");
+    augmented + "b";
     return "C: augment other=$other";
   }
 }
 
 augment mixin M {
   augment String operator +(String other) {
-    _log += augmented("c");
+    _log += augmented + "c";
     _log += "augmented;";
-    augmented("d");
+    augmented + "d";
     return "M: augment other=$other";
   }
 }
@@ -41,18 +41,18 @@ augment enum E {
   augment e1;
 
   augment String operator +(String other) {
-    _log += augmented("e");
+    _log += augmented + "e";
     _log += "augmented;";
-    augmented("f");
+    augmented + "f";
     return "E: augment other=$other";
   }
 }
 
 augment extension Ext {
   augment String operator +(String other) {
-    _log += augmented("g");
+    _log += augmented + "g";
     _log += "augmented;";
-    augmented("h");
+    augmented + "h";
     return "Ext: augment other=$other";
   }
 }
