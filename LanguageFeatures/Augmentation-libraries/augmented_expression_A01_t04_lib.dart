@@ -27,7 +27,7 @@ augment String get topLevelVariable {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
+  };
   return "Augmented";
 }
 
@@ -42,7 +42,7 @@ augment class C {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
     return "Augmented";
   }
   augment String get instanceField {
@@ -55,7 +55,7 @@ augment class C {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
     return "Augmented";
   }
 }
@@ -71,7 +71,7 @@ augment mixin M {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
     return "Augmented";
   }
   augment String get instanceField {
@@ -84,7 +84,7 @@ augment mixin M {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
     return "Augmented";
   }
 }
@@ -102,7 +102,7 @@ augment enum E {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
     return "Augmented";
   }
   augment String get instanceField {
@@ -115,7 +115,7 @@ augment enum E {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
     return "Augmented";
   }
 }
@@ -131,7 +131,7 @@ augment extension Ext {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
     return "Augmented";
   }
 }

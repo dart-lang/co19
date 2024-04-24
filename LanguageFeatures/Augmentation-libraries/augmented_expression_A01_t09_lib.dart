@@ -22,7 +22,7 @@ augment A get topLevelGetter {
   Expect.equals("A(topLevelGetter).call", augmented());
   var f = () {
     return augmented();
-  }
+  };
   Expect.equals("A(topLevelGetter).call", f());
   return A("Augmented");
 }
@@ -32,7 +32,7 @@ augment class C {
     Expect.equals("A(C.staticGetter).call", augmented());
     var f = () {
       return augmented();
-    }
+    };
     Expect.equals("A(C.staticGetter).call", f());
     return A("Augmented");
   }
@@ -40,7 +40,7 @@ augment class C {
     Expect.equals("A(C.instanceGetter).call", augmented());
     var f = () {
       return augmented();
-    }
+    };
     Expect.equals("A(C.instanceGetter).call", f());
     return A("Augmented");
   }
@@ -51,7 +51,7 @@ augment mixin M {
     Expect.equals("A(M.staticGetter).call", augmented());
     var f = () {
       return augmented();
-    }
+    };
     Expect.equals("A(M.staticGetter).call", f());
     return A("Augmented");
   }
@@ -59,7 +59,7 @@ augment mixin M {
     Expect.equals("A(M.instanceGetter).call", augmented());
     var f = () {
       return augmented();
-    }
+    };
     Expect.equals("A(M.instanceGetter).call", f());
     return A("Augmented");
   }
@@ -72,7 +72,7 @@ augment enum E {
     Expect.equals("A(E.staticGetter).call", augmented());
     var f = () {
       return augmented();
-    }
+    };
     Expect.equals("A(E.staticGetter).call", f());
     return A("Augmented");
   }
@@ -80,7 +80,7 @@ augment enum E {
     Expect.equals("A(E.instanceGetter).call", augmented());
     var f = () {
       return augmented();
-    }
+    };
     Expect.equals("A(E.instanceGetter).call", f());
     return A("Augmented");
   }
@@ -91,7 +91,7 @@ augment extension Ext {
     Expect.equals("A(Ext.staticGetter).call", augmented());
     var f = () {
       return augmented();
-    }
+    };
     Expect.equals("A(Ext.staticGetter).call", f());
     return A("Augmented");
   }
@@ -99,7 +99,7 @@ augment extension Ext {
     Expect.equals("A(Ext.instanceGetter).call", augmented());
     var f = () {
       return augmented();
-    }
+    };
     Expect.equals("A(Ext.instanceGetter).call", f());
     return A("Augmented");
   }

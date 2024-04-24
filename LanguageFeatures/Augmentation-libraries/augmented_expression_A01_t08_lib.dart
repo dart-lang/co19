@@ -21,7 +21,7 @@ import '../../Utils/expect.dart';
 augment String get topLevelGetter {
   var f = () {
     return augmented;
-  }
+  };
   Expect.equals("Original", f());
   return "Augmented";
 }
@@ -30,14 +30,14 @@ augment class C {
   augment static String get staticGetter {
     var f = () {
       return augmented;
-    }
+    };
     Expect.equals("Original", f());
     return "Augmented";
   }
   augment String get instanceGetter {
     var f = () {
       return augmented;
-    }
+    };
     Expect.equals("Original", f());
     return "Augmented";
   }
@@ -47,14 +47,14 @@ augment mixin M {
   augment static String get staticGetter {
     var f = () {
       return augmented;
-    }
+    };
     Expect.equals("Original", f());
     return "Augmented";
   }
   augment String get instanceGetter {
     var f = () {
       return augmented;
-    }
+    };
     Expect.equals("Original", f());
     return "Augmented";
   }
@@ -66,14 +66,14 @@ augment enum E {
   augment static String get staticGetter {
     var f = () {
       return augmented;
-    }
+    };
     Expect.equals("Original", f());
     return "Augmented";
   }
   augment String get instanceGetter {
     var f = () {
       return augmented;
-    }
+    };
     Expect.equals("Original", f());
     return "Augmented";
   }
@@ -83,14 +83,14 @@ augment extension Ext {
   augment static String get staticGetter {
     var f = () {
       return augmented;
-    }
+    };
     Expect.equals("Original", f());
     return "Augmented";
   }
   augment String get instanceGetter {
     var f = () {
       return augmented;
-    }
+    };
     Expect.equals("Original", f());
     return "Augmented";
   }

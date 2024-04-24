@@ -21,7 +21,7 @@ augment String get topLevelVariable {
   Expect.equals("Original:a1", augmented + "a1");
   var f = () {
     return augmented + "a2";
-  }
+  };
   Expect.equals("Original:a2", f());
   return "Augmented";
 }
@@ -31,7 +31,7 @@ augment class C {
     Expect.equals("Original:b1", augmented + "b1");
     var f = () {
       return augmented + "b2";
-    }
+    };
     Expect.equals("Original:b2", f());
     return "Augmented";
   }
@@ -39,7 +39,7 @@ augment class C {
     Expect.equals("Original:c1", augmented + "c1");
     var f = () {
       return augmented + "c2";
-    }
+    };
     Expect.equals("Original:c2", f());
     return "Augmented";
   }
@@ -50,7 +50,7 @@ augment mixin M {
     Expect.equals("Original:d1", augmented + "d1");
     var f = () {
       return augmented + "d2";
-    }
+    };
     Expect.equals("Original:d2", f());
     return "Augmented";
   }
@@ -58,7 +58,7 @@ augment mixin M {
     Expect.equals("Original:e1", augmented + "e1");
     var f = () {
       return augmented + "e2";
-    }
+    };
     Expect.equals("Original:e2", f());
     return "Augmented";
   }
@@ -71,7 +71,7 @@ augment enum E {
     Expect.equals("Original:f1", augmented + "f1");
     var f = () {
       return augmented + "f2";
-    }
+    };
     Expect.equals("Original:f2", f());
     return "Augmented";
   }
@@ -79,7 +79,7 @@ augment enum E {
     Expect.equals("Original:g1", augmented + "g1");
     var f = () {
       return augmented + "g2";
-    }
+    };
     Expect.equals("Original:g2", f());
     return "Augmented";
   }
@@ -90,7 +90,7 @@ augment extension Ext {
     Expect.equals("Original:h1", augmented + "h1");
     var f = () {
       return augmented + "h2";
-    }
+    };
     Expect.equals("Original:h2", f());
     return "Augmented";
   }
@@ -98,7 +98,7 @@ augment extension Ext {
     Expect.equals("Original:i1", augmented + "i1");
     var f = () {
       return augmented + "i2";
-    }
+    };
     Expect.equals("Original:i2", f());
     return "Augmented";
   }
