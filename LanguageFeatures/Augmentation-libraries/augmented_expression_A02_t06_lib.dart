@@ -11,8 +11,9 @@
 ///   augmenting a field with a setter, this will invoke the implicit setter
 ///   from the augmented field.
 ///
-/// @description Checks that within an augmented setter `augmented=` can be used
-/// to invoke appropriate setter in the current scope.
+/// @description Checks that within an augmenting setter `augmented=` invokes
+/// the augmented setter but within an augmented setter `augmented=` can be used
+/// to invoke appropriate setter if there is one in the scope.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -22,19 +23,19 @@ import '../../Utils/expect.dart';
 
 augment void set topLevelSetter(String value) {
   augmented = "a";
-  Expect.equals("Setter augmented: a", _log);
+  Expect.equals("Setter augmented: a, via original declaration", _log);
   _log = "Augmented: $value";
 }
 
 augment class C {
   augment static void set staticSetter(String value) {
     augmented = "b";
-    Expect.equals("Setter augmented: b", _log);
+    Expect.equals("Setter augmented: b, via original declaration", _log);
     _log = "Augmented: $value";
   }
   augment void set instanceSetter(String value) {
     augmented = "c";
-    Expect.equals("Setter augmented: c", _log);
+    Expect.equals("Setter augmented: c, via original declaration", _log);
     _log = "Augmented: $value";
   }
 }
@@ -42,12 +43,12 @@ augment class C {
 augment mixin M {
   augment static void set staticSetter(String value) {
     augmented = "d";
-    Expect.equals("Setter augmented: d", _log);
+    Expect.equals("Setter augmented: d, via original declaration", _log);
     _log = "Augmented: $value";
   }
   augment void set instanceSetter(String value) {
     augmented = "e";
-    Expect.equals("Setter augmented: e", _log);
+    Expect.equals("Setter augmented: e, via original declaration", _log);
     _log = "Augmented: $value";
   }
 }
@@ -57,12 +58,12 @@ augment enum E {
 
   augment static void set staticSetter(String value) {
     augmented = "f";
-    Expect.equals("Setter augmented: f", _log);
+    Expect.equals("Setter augmented: f, via original declaration", _log);
     _log = "Augmented: $value";
   }
   augment void set instanceSetter(String value) {
     augmented = "g";
-    Expect.equals("Setter augmented: g", _log);
+    Expect.equals("Setter augmented: g, via original declaration", _log);
     _log = "Augmented: $value";
   }
 }
@@ -70,12 +71,12 @@ augment enum E {
 augment extension Ext {
   augment static void set staticSetter(String value) {
     augmented = "h";
-    Expect.equals("Setter augmented: h", _log);
+    Expect.equals("Setter augmented: h, via original declaration", _log);
     _log = "Augmented: $value";
   }
   augment void set instanceSetter(String value) {
     augmented = "g";
-    Expect.equals("Setter augmented: g", _log);
+    Expect.equals("Setter augmented: g, via original declaration", _log);
     _log = "Augmented: $value";
   }
 }

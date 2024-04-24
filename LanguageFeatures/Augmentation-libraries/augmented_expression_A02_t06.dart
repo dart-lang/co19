@@ -11,8 +11,9 @@
 ///   augmenting a field with a setter, this will invoke the implicit setter
 ///   from the augmented field.
 ///
-/// @description Checks that within an augmented setter `augmented=` can be used
-/// to invoke appropriate setter in the current scope.
+/// @description Checks that within an augmenting setter `augmented=` invokes
+/// the augmented setter but within an augmented setter `augmented=` can be used
+/// to invoke appropriate setter if there is one in the scope.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -27,25 +28,25 @@ void set augmented(String value) {
 }
 
 void set topLevelSetter(String value) {
-  augmented = value;
+  augmented = "$value, via original declaration";
 }
 
 
 class C {
   static void set staticSetter(String value) {
-    augmented = value;
+    augmented = "$value, via original declaration";
   }
   void set instanceSetter(String value) {
-    augmented = value;
+    augmented = "$value, via original declaration";
   }
 }
 
 mixin M {
   static void set staticSetter(String value) {
-    augmented = value;
+    augmented = "$value, via original declaration";
   }
   void set instanceSetter(String value) {
-    augmented = value;
+    augmented = "$value, via original declaration";
   }
 }
 
@@ -53,10 +54,10 @@ enum E {
   e1;
 
   static void set staticSetter(String value) {
-    augmented = value;
+    augmented = "$value, via original declaration";
   }
   void set instanceSetter(String value) {
-    augmented = value;
+    augmented = "$value, via original declaration";
   }
 }
 
@@ -64,10 +65,10 @@ class A {}
 
 extension Ext on A {
   static void set staticSetter(String value) {
-    augmented = value;
+    augmented = "$value, via original declaration";
   }
   void set instanceSetter(String value) {
-    augmented = value;
+    augmented = "$value, via original declaration";
   }
 }
 
