@@ -9,57 +9,53 @@
 ///   getter and evaluates to the return value. If augmenting a field with a
 ///   getter, this will invoke the implicit getter from the augmented field.
 ///
-/// @description Checks that it is not an error to invoke operator `+` on return
-/// value of `augmented` expression if its return type has a `+` operator
+/// @description Checks that within an augmenting getter `augmented` invokes the
+/// augmented getter and evaluates it to the return value.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A01_t05.dart';
+augment library 'augmented_expression_A01_t08.dart';
+import '../../Utils/expect.dart';
 
-augment String get topLevelVariable {
-  Expect.equals("Original:a1", augmented + "a1");
+augment String get topLevelGetter {
   var f = () {
-    return augmented + "a2";
+    return augmented;
   }
-  Expect.equals("Original:a2", f());
+  Expect.equals("Original", f());
   return "Augmented";
 }
 
 augment class C {
   augment static String get staticGetter {
-    Expect.equals("Original:b1", augmented + "b1");
     var f = () {
-      return augmented + "b2";
+      return augmented;
     }
-    Expect.equals("Original:b2", f());
+    Expect.equals("Original", f());
     return "Augmented";
   }
   augment String get instanceGetter {
-    Expect.equals("Original:c1", augmented + "c1");
     var f = () {
-      return augmented + "c2";
+      return augmented;
     }
-    Expect.equals("Original:c2", f());
+    Expect.equals("Original", f());
     return "Augmented";
   }
 }
 
 augment mixin M {
   augment static String get staticGetter {
-    Expect.equals("Original:d1", augmented + "d1");
     var f = () {
-      return augmented + "d2";
+      return augmented;
     }
-    Expect.equals("Original:d2", f());
+    Expect.equals("Original", f());
     return "Augmented";
   }
   augment String get instanceGetter {
-    Expect.equals("Original:e1", augmented + "e1");
     var f = () {
-      return augmented + "e2";
+      return augmented;
     }
-    Expect.equals("Original:e2", f());
+    Expect.equals("Original", f());
     return "Augmented";
   }
 }
@@ -68,38 +64,34 @@ augment enum E {
   augment e1;
 
   augment static String get staticGetter {
-    Expect.equals("Original:f1", augmented + "f1");
     var f = () {
-      return augmented + "f2";
+      return augmented;
     }
-    Expect.equals("Original:f2", f());
+    Expect.equals("Original", f());
     return "Augmented";
   }
   augment String get instanceGetter {
-    Expect.equals("Original:g1", augmented + "g1");
     var f = () {
-      return augmented + "g2";
+      return augmented;
     }
-    Expect.equals("Original:g2", f());
+    Expect.equals("Original", f());
     return "Augmented";
   }
 }
 
 augment extension Ext {
   augment static String get staticGetter {
-    Expect.equals("Original:h1", augmented + "h1");
     var f = () {
-      return augmented + "h2";
+      return augmented;
     }
-    Expect.equals("Original:h2", f());
+    Expect.equals("Original", f());
     return "Augmented";
   }
   augment String get instanceGetter {
-    Expect.equals("Original:i1", augmented + "i1");
     var f = () {
-      return augmented + "i2";
+      return augmented;
     }
-    Expect.equals("Original:i2", f());
+    Expect.equals("Original", f());
     return "Augmented";
   }
 }

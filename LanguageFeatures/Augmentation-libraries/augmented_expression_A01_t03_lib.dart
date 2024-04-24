@@ -11,7 +11,7 @@
 ///
 /// @description Checks that it is a compile-time error if within an augmenting
 /// getter `augmented()` expression is invoked, and the augmented declaration
-/// does not return a function.
+/// does not return a callable type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -23,6 +23,12 @@ augment String get topLevelGetter {
 //^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  var f = () {
+    augmented();
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
   return "Augmented";
 }
 
@@ -32,6 +38,12 @@ augment class C {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
     return "Augmented";
   }
   augment String get instanceGetter {
@@ -39,6 +51,12 @@ augment class C {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
     return "Augmented";
   }
 }
@@ -49,6 +67,12 @@ augment mixin M {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
     return "Augmented";
   }
   augment String get instanceGetter {
@@ -56,6 +80,12 @@ augment mixin M {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
     return "Augmented";
   }
 }
@@ -68,6 +98,12 @@ augment enum E {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
     return "Augmented";
   }
   augment String get instanceGetter {
@@ -75,6 +111,12 @@ augment enum E {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
     return "Augmented";
   }
 }
@@ -85,6 +127,12 @@ augment extension Ext {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
     return "Augmented";
   }
   augment String get instanceGetter {
@@ -92,6 +140,12 @@ augment extension Ext {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
     return "Augmented";
   }
 }

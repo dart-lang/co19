@@ -9,46 +9,53 @@
 ///   getter and evaluates to the return value. If augmenting a field with a
 ///   getter, this will invoke the implicit getter from the augmented field.
 ///
-/// @description Checks that it is not an error to invoke operator `+` on return
-/// value of `augmented` expression if its return type has a `+` operator
+/// @description Checks that within an augmenting getter it is not an error to
+/// call `augmented()` if an augmented getter return value is callable.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A01_t05_lib.dart';
+import augment 'augmented_expression_A01_t09_lib.dart';
+import '../../Utils/expect.dart';
 
-final bool augmented = false;
+class A {
+  String id;
+  A(this.id);
+  String call() => "A($id).call";
+}
 
-String get topLevelGetter => "Original:";
+String augmented() => "Wrong augmented() call!";
+
+A get topLevelGetter => A("topLevelGetter");
 
 class C {
-  static String get staticGetter => "Original:";
-  String get instanceGetter => "Original:";
+  static A get staticGetter => A("C.staticGetter");
+  A get instanceGetter => A("C.instanceGetter");
 }
 
 mixin M {
-  static String get staticGetter => "Original:";
-  String get instanceGetter => "Original:";
+  static A get staticGetter => A("M.staticGetter");
+  A get instanceGetter => A("M.instanceGetter");
 }
 
 enum E {
   e1;
 
-  static String get staticGetter => "Original:";
-  String get instanceGetter => "Original:";
+  static A get staticGetter => A("E.staticGetter");
+  A get instanceGetter => A("E.instanceGetter");
 }
 
 class A {}
 
 extension Ext on A {
-  static String get staticGetter => "Original:";
-  String get instanceGetter => "Original:";
+  static A get staticGetter => A("Ext.staticGetter");
+  A get instanceGetter => A("Ext.instanceGetter");
 }
 
 class MA = Object with M;
 
 main() {
-  Expect.equals("Augmented", topLevelGetter);
+  Expect.equals("Augmented", topLevelGetter.id);
   Expect.equals("Augmented", C.staticGetter);
   Expect.equals("Augmented", C().instanceGetter);
   Expect.equals("Augmented", M.staticGetter);

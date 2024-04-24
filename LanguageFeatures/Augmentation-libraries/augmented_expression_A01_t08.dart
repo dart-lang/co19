@@ -9,16 +9,16 @@
 ///   getter and evaluates to the return value. If augmenting a field with a
 ///   getter, this will invoke the implicit getter from the augmented field.
 ///
-/// @description Checks that it is a compile-time error if within an augmenting
-/// getter `augmented()` expression is invoked, and the augmented declaration
-/// does not return a callable type.
+/// @description Checks that within an augmenting getter `augmented` invokes the
+/// augmented getter and evaluates it to the return value.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A01_t03_lib.dart';
+import augment 'augmented_expression_A01_t08_lib.dart';
+import '../../Utils/expect.dart';
 
-String augmented() => "Function augmented()";
+String get augmented => "Getter augmented";
 
 String get topLevelGetter => "Original";
 
@@ -49,9 +49,13 @@ extension Ext on A {
 class MA = Object with M;
 
 main() {
-  print(topLevelGetter);
-  print(C);
-  print(M);
-  print(E);
-  print(A);
+  Expect.equals("Augmented", topLevelGetter);
+  Expect.equals("Augmented", C.staticGetter);
+  Expect.equals("Augmented", C().instanceGetter);
+  Expect.equals("Augmented", M.staticGetter);
+  Expect.equals("Augmented", MA().instanceGetter);
+  Expect.equals("Augmented", E.staticGetter);
+  Expect.equals("Augmented", E.e1.instanceGetter);
+  Expect.equals("Augmented", Ext.staticGetter);
+  Expect.equals("Augmented", A().instanceGetter);
 }
