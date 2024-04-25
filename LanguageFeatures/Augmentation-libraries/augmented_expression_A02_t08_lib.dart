@@ -17,37 +17,52 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A02_t01.dart';
+augment library 'augmented_expression_A02_t08.dart';
 import '../../Utils/expect.dart';
 
 augment void set topLevelSetter(String value) {
-  augmented = "a";
-  Expect.equals("topLevelSetter: a", _log);
+  var f = () {
+    augmented = "a";
+    return _log;
+  };
+  Expect.equals("topLevelSetter: a", f());
   _log = "Augmented: $value";
 }
 
 augment class C {
   augment static void set staticSetter(String value) {
-    augmented = "b";
-    Expect.equals("C.staticSetter: b", _log);
+    var f = () {
+      augmented = "b";
+      return _log;
+    };
+    Expect.equals("C.staticSetter: b", f());
     _log = "Augmented: $value";
   }
   augment void set instanceSetter(String value) {
-    augmented = "c";
-    Expect.equals("C.instanceSetter: c", _log);
+    var f = () {
+      augmented = "c";
+      return _log;
+    };
+    Expect.equals("C.instanceSetter: c", f());
     _log = "Augmented: $value";
   }
 }
 
 augment mixin M {
   augment static void set staticSetter(String value) {
-    augmented = "d";
-    Expect.equals("M.staticSetter: d", _log);
+    var f = () {
+      augmented = "d";
+      return _log;
+    };
+    Expect.equals("M.staticSetter: d", f());
     _log = "Augmented: $value";
   }
   augment void set instanceSetter(String value) {
-    augmented = "e";
-    Expect.equals("M.instanceSetter: e", _log);
+    var f = () {
+      augmented = "e";
+      return _log;
+    };
+    Expect.equals("M.instanceSetter: e", f());
     _log = "Augmented: $value";
   }
 }
@@ -56,26 +71,38 @@ augment enum E {
   augment e1;
 
   augment static void set staticSetter(String value) {
-    augmented = "f";
-    Expect.equals("E.staticSetter: f", _log);
+    var f = () {
+      augmented = "f";
+      return _log;
+    };
+    Expect.equals("E.staticSetter: f", f());
     _log = "Augmented: $value";
   }
   augment void set instanceSetter(String value) {
-    augmented = "g";
-    Expect.equals("E.instanceSetter: g", _log);
+    var f = () {
+      augmented = "g";
+      return _log;
+    };
+    Expect.equals("E.instanceSetter: g", f());
     _log = "Augmented: $value";
   }
 }
 
 augment extension Ext {
   augment static void set staticSetter(String value) {
-    augmented = "h";
-    Expect.equals("E.staticSetter: h", _log);
+    var f = () {
+      augmented = "h";
+      return _log;
+    };
+    Expect.equals("E.staticSetter: h", f());
     _log = "Augmented: $value";
   }
   augment void set instanceSetter(String value) {
-    augmented = "i";
-    Expect.equals("E.instanceSetter: i", _log);
+    var f = () {
+      augmented = "i";
+      return _log;
+    };
+    Expect.equals("E.instanceSetter: i", f());
     _log = "Augmented: $value";
   }
 }
