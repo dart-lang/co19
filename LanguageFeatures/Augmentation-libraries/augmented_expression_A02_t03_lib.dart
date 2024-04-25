@@ -24,6 +24,12 @@ augment void set topLevelSetter(String value) {
 //^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  var f = () {
+    augmented();
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 }
 
 augment class C {
@@ -32,12 +38,24 @@ augment class C {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
   }
   augment void set instanceSetter(String value) {
     augmented();
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
   }
 }
 
@@ -47,12 +65,24 @@ augment mixin M {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
   }
   augment void set instanceSetter(String value) {
     augmented();
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
   }
 }
 
@@ -64,12 +94,24 @@ augment enum E {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
   }
   augment void set instanceSetter(String value) {
     augmented();
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
   }
 }
 
@@ -79,11 +121,23 @@ augment extension Ext {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
   }
   augment void set instanceSetter(String value) {
     augmented();
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+    var f = () {
+      augmented();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
   }
 }
