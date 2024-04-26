@@ -13,9 +13,8 @@
 /// It is a compile-time error to use augmented in an augmenting field's
 /// initializer if the member being augmented is not a field with an initializer
 ///
-/// @description Checks that it is a compile-time error to use `augmented()`
-/// within an augmenting field if the original field's initializer expression is
-/// not callable
+/// @description Checks that it is a compile-time error to use `augmented=`
+/// setter within an augmenting field
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

@@ -15,7 +15,7 @@
 ///
 /// @description Checks that it is not an error to use `augmented +` within an
 /// augmenting field if the field has a type which has an operator `+` and an
-/// actual argument type is valid
+/// actual argument with a valid type is given
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
