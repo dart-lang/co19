@@ -9,6 +9,7 @@
 /// @description Checks that it is a compile-time error if a function
 /// augmentation specifies any default values.
 /// @author sgrekhov22@gmail.com
+/// @issue 55569
 
 // SharedOptions=--enable-experiment=macros
 

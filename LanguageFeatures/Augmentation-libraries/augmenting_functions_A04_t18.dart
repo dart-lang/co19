@@ -128,7 +128,7 @@ main() {
   Expect.equals("augmented X", Ext.staticMethod2("X"));
   Expect.equals(1, Ext.staticMethod3());
   Expect.equals(1, Ext.staticMethod4(i: 1));
-  Expect.equals(2, ext.staticMethod5<int>(1));
+  Expect.equals(2, Ext.staticMethod5<int>(1));
   Expect.equals("augmented", A().instanceMethod1());
   Expect.equals("augmented X", A().instanceMethod2("X"));
   Expect.equals(1, A().instanceMethod3());
