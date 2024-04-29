@@ -8,9 +8,8 @@
 /// parameters X1 .. Xs, and V1 is a superinterface of DV. Then Name<T1, .. Ts>
 /// is a subtype of [T1/X1 .. Ts/Xs]V1 for all T1, .. Ts.
 ///
-/// @description Check that an extension type `ET<T1, ..., Ts>` is a subtype of
-/// an extension type `ET<X1, ..., Xs>` if `Ti` is a subtype of `Xi` for all
-/// `i`. Test union types.
+/// @description Check that an extension type `ET` that implements `S` is a
+/// subtype of `FutureOr<S>`.
 /// @author sgrekhov22@gmail.com
 /// @issue 55578
 ///

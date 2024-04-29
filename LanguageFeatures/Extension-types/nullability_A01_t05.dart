@@ -6,7 +6,7 @@
 /// potentially non-nullable, unless it implements `Object` or a subtype thereof
 ///
 /// @description Checks that an extension type is assignable to a type `T?` when
-/// `T` is its representation type
+/// it implements `T`
 /// @author sgrekhov22@gmail.com
 
 import "../../Utils/expect.dart";
