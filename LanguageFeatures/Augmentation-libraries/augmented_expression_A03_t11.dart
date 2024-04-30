@@ -24,7 +24,7 @@
 
 import augment 'augmented_expression_A03_t11_lib.dart';
 
-final String augmented = "Augmented variable";
+final String augmented = "Augmented variable, should not be used";
 
 class C {
   Function instanceVariable;
