@@ -56,6 +56,7 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
     };
+  }
 }
 
 augment mixin M {
