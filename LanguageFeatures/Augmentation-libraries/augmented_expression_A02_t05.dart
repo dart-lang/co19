@@ -27,20 +27,20 @@ void set topLevelSetter(String value) {}
 class C {
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
-  String get augmented => "C.augmented, shouldn't be invoked"";
+  String get augmented => "C.augmented, shouldn't be invoked";
 }
 
 mixin M {
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
-  static String get augmented => "M.augmented, shouldn't be invoked"";
+  static String get augmented => "M.augmented, shouldn't be invoked";
 }
 
 enum E {
   e1;
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
-  String get augmented => "E.augmented, shouldn't be invoked"";
+  String get augmented => "E.augmented, shouldn't be invoked";
 }
 
 class A {}
@@ -48,7 +48,7 @@ class A {}
 extension Ext on A {
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
-  static String get augmented => "Ext.augmented, shouldn't be invoked"";
+  static String get augmented => "Ext.augmented, shouldn't be invoked";
 }
 
 main() {
