@@ -22,7 +22,7 @@
 import augment 'augmented_expression_A03_t01_lib.dart';
 import '../../Utils/expect.dart';
 
-final String augmented = "Augmented variable";
+const augmented = "Augmented constant, shouldn't be used";
 
 String topLevelVariable = "Original";
 final String finalTopLevelVariable = "Original";
@@ -32,6 +32,7 @@ class C {
   static final String finalStaticVariable = "Original";
   String instanceVariable = "Original";
   final String finalInstanceVariable = "Original";
+  final String augmented = "C.augmented, shouldn't be used";
 }
 
 mixin M {
@@ -39,6 +40,7 @@ mixin M {
   static final String finalStaticVariable = "Original";
   String instanceVariable = "Original";
   final String finalInstanceVariable = "Original";
+  final String augmented = "M.augmented, shouldn't be used";
 }
 
 enum E {
@@ -47,6 +49,7 @@ enum E {
   static String staticVariable = "Original";
   static final String finalStaticVariable = "Original";
   final String finalInstanceVariable = "Original";
+  final String augmented = "E.augmented, shouldn't be used";
 }
 
 class A {}
@@ -54,6 +57,7 @@ class A {}
 extension Ext on A {
   static String staticVariable = "Original";
   static final String finalStaticVariable = "Original";
+  static final String augmented = "Ext.augmented, shouldn't be used";
 }
 
 class MA = Object with M;

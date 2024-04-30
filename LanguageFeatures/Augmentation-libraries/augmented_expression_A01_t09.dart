@@ -24,18 +24,20 @@ class A {
   String call() => "A($id).call";
 }
 
-String augmented() => "Wrong augmented() call!";
+String augmented() => "Global function, shouldn't be invoked";
 
 A get topLevelGetter => A("topLevelGetter");
 
 class C {
   static A get staticGetter => A("C.staticGetter");
   A get instanceGetter => A("C.instanceGetter");
+  static String augmented() => "C.augmented(), shouldn't be invoked";
 }
 
 mixin M {
   static A get staticGetter => A("M.staticGetter");
   A get instanceGetter => A("M.instanceGetter");
+  static String augmented() => "M.augmented(), shouldn't be invoked";
 }
 
 enum E {
@@ -43,6 +45,7 @@ enum E {
 
   static A get staticGetter => A("E.staticGetter");
   A get instanceGetter => A("E.instanceGetter");
+  static String augmented() => "E.augmented(), shouldn't be invoked";
 }
 
 class A {}
@@ -50,6 +53,7 @@ class A {}
 extension Ext on A {
   static A get staticGetter => A("Ext.staticGetter");
   A get instanceGetter => A("Ext.instanceGetter");
+  static String augmented() => "Ext.augmented(), shouldn't be invoked";
 }
 
 class MA = Object with M;

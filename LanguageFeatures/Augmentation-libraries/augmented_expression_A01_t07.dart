@@ -20,18 +20,20 @@ import augment 'augmented_expression_A01_t07_lib1.dart';
 import augment 'augmented_expression_A01_t07_lib2.dart';
 import '../../Utils/expect.dart';
 
-String get augmented => "Getter augmented";
+const augmented = "Const augmented, shouldn't be used";
 
 String get topLevelGetter => "Original";
 
 class C {
   static String get staticGetter => "Original";
   String get instanceGetter => "Original";
+  String get augmented => "C.augmented, shouldn't be invoked";
 }
 
 mixin M {
   static String get staticGetter => "Original";
   String get instanceGetter => "Original";
+  static String get augmented => "M.augmented, shouldn't be invoked";
 }
 
 enum E {
@@ -39,6 +41,7 @@ enum E {
 
   static String get staticGetter => "Original";
   String get instanceGetter => "Original";
+  String get augmented => "E.augmented, shouldn't be invoked";
 }
 
 class A {}
@@ -46,6 +49,7 @@ class A {}
 extension Ext on A {
   static String get staticGetter => "Original";
   String get instanceGetter => "Original";
+  static String get augmented => "Ext.augmented, shouldn't be invoked";
 }
 
 class MA = Object with M;

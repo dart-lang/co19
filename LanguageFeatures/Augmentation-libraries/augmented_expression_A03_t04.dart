@@ -21,7 +21,7 @@
 
 //import augment 'augmented_expression_A03_t04_lib.dart';
 
-void set augmented(String v) {}
+void set augmented(String _) {}
 
 String topLevelVariable = "Original";
 final String finalTopLevelVariable = "Original";
@@ -31,6 +31,7 @@ class C {
   static final String finalStaticVariable = "Original";
   String instanceVariable = "Original";
   final String finalInstanceVariable = "Original";
+  static void set augmented(String _) {}
 }
 
 mixin M {
@@ -38,6 +39,7 @@ mixin M {
   static final String finalStaticVariable = "Original";
   String instanceVariable = "Original";
   final String finalInstanceVariable = "Original";
+  static void set augmented(String _) {}
 }
 
 enum E {
@@ -46,6 +48,7 @@ enum E {
   static String staticVariable = "Original";
   static final String finalStaticVariable = "Original";
   final String finalInstanceVariable = "Original";
+  void set augmented(String _) {}
 }
 
 class A {}
@@ -53,6 +56,7 @@ class A {}
 extension Ext on A {
   static String staticVariable = "Original";
   static final String finalStaticVariable = "Original";
+  static void set augmented(String _) {}
 }
 
 main() {

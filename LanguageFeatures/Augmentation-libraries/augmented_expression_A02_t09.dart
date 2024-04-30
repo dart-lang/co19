@@ -11,15 +11,13 @@
 ///   augmenting a field with a setter, this will invoke the implicit setter
 ///   from the augmented field.
 ///
-/// @description Checks that it is a compile-time error if within an augmenting
-/// setter `augmented` getter is invoked.
+/// @description Checks that it is a compile-time error to declare local
+/// variable named `augmented` within an augmenting setter
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A02_t04_lib.dart';
-
-String get augmented => "Global getter, shouldn't be invoked";
+import augment 'augmented_expression_A02_t09_lib.dart';
 
 void set topLevelSetter(String value) {}
 
@@ -27,20 +25,17 @@ void set topLevelSetter(String value) {}
 class C {
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
-  static String get augmented => "C.augmented, shouldn't be invoked"";
 }
 
 mixin M {
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
-  static String get augmented => "M.augmented, shouldn't be invoked"";
 }
 
 enum E {
   e1;
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
-  static String get augmented => "E.augmented, shouldn't be invoked"";
 }
 
 class A {}
@@ -48,7 +43,6 @@ class A {}
 extension Ext on A {
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
-  static String get augmented => "Ext.augmented, shouldn't be invoked"";
 }
 
 main() {

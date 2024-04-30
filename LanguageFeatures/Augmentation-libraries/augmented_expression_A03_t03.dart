@@ -22,7 +22,7 @@
 
 import augment 'augmented_expression_A03_t03_lib.dart';
 
-String augmented() => "Wrong augmented() call!";
+String augmented() => "Top-level augmented(), shouldn't be invoked";
 
 String topLevelVariable = "Original";
 final String finalTopLevelVariable = "Original";
@@ -32,6 +32,7 @@ class C {
   static final String finalStaticVariable = "Original";
   String instanceVariable = "Original";
   final String finalInstanceVariable = "Original";
+  String augmented() => "C.augmented(), shouldn't be invoked";
 }
 
 mixin M {
@@ -39,6 +40,7 @@ mixin M {
   static final String finalStaticVariable = "Original";
   String instanceVariable = "Original";
   final String finalInstanceVariable = "Original";
+  String augmented() => "M.augmented(), shouldn't be invoked";
 }
 
 enum E {
@@ -47,6 +49,7 @@ enum E {
   static String staticVariable = "Original";
   static final String finalStaticVariable = "Original";
   final String finalInstanceVariable = "Original";
+  String augmented() => "E.augmented(), shouldn't be invoked";
 }
 
 class A {}
@@ -54,6 +57,7 @@ class A {}
 extension Ext on A {
   static String staticVariable = "Original";
   static final String finalStaticVariable = "Original";
+  static String augmented() => "Ext.augmented(), shouldn't be invoked";
 }
 
 main() {

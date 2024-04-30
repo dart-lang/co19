@@ -22,7 +22,7 @@
 import augment 'augmented_expression_A03_t02_lib.dart';
 import '../../Utils/expect.dart';
 
-String augmented() => "Wrong augmented() call!";
+String augmented() => "Top-level augmented(), shouldn't be invoked";
 
 String foo() => "Original";
 
@@ -34,6 +34,7 @@ class C {
   static final finalStaticVariable = foo;
   var instanceVariable = foo;
   final finalInstanceVariable = foo;
+  static String augmented() => "C.augmented(), shouldn't be invoked";
 }
 
 mixin M {
@@ -41,6 +42,7 @@ mixin M {
   static final finalStaticVariable = foo;
   var instanceVariable = foo;
   final finalInstanceVariable = foo;
+  static String augmented() => "M.augmented(), shouldn't be invoked";
 }
 
 enum E {
@@ -49,6 +51,7 @@ enum E {
   static var staticVariable = foo;
   static final finalStaticVariable = foo;
   final finalInstanceVariable = foo;
+  static String augmented() => "E.augmented(), shouldn't be invoked";
 }
 
 class A {}
@@ -56,6 +59,7 @@ class A {}
 extension Ext on A {
   static var staticVariable = foo;
   static final finalStaticVariable = foo;
+  static String augmented() => "Ext.augmented(), shouldn't be invoked";
 }
 
 class MA = Object with M;
