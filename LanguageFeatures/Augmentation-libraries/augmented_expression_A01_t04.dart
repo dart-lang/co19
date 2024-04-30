@@ -19,16 +19,18 @@ import augment 'augmented_expression_A01_t04_lib.dart';
 
 void set augmented(String value) {}
 
-String topLevelVariable = "Original";
+final String topLevelVariable = "Original";
 
 class C {
   static String staticField = "Original";
   String instanceField = "Original";
+  void set augmented(String value) {}
 }
 
 mixin M {
   static String staticField = "Original";
   String instanceField = "Original";
+  void set augmented(String value) {}
 }
 
 enum E {
@@ -36,18 +38,20 @@ enum E {
 
   static String staticField = "Original";
   final String instanceField = "Original";
+  void set augmented(String value) {}
 }
 
 class A {}
 
 extension Ext on A {
   static String staticField = "Original";
+  static void set augmented(String value) {}
 }
 
 class MA = Object with M;
 
 main() {
-  print(topLevelGetter);
+  print(topLevelVariable);
   print(C);
   print(M);
   print(E);

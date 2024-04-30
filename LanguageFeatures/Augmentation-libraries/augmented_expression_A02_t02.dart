@@ -23,7 +23,7 @@ import '../../Utils/expect.dart';
 String _log = "";
 
 void set augmented(String value) {
-  throw Exception("Wrong setter is called");
+  _log = "Global setter augmented = $value, shouldn't be invoked";
 }
 
 String topLevelVariable = "";
@@ -31,28 +31,40 @@ String topLevelVariable = "";
 class C {
   static String staticVariable = "";
   String instanceVariable = "";
+  static void set augmented(String value) {
+    _log = "Setter C.augmented = $value, shouldn't be invoked";
+  }
 }
 
 mixin M {
   static String staticVariable = "";
   String instanceVariable = "";
+  static void set augmented(String value) {
+    _log = "Setter M.augmented = $value, shouldn't be invoked";
+  }
 }
 
 enum E {
   e1;
   static String staticVariable = "";
+  static void set augmented(String value) {
+    _log = "Setter E.augmented = $value, shouldn't be invoked";
+  }
 }
 
 class A {}
 
 extension Ext on A {
   static String staticVariable = "";
+  static void set augmented(String value) {
+    _log = "Setter Ext.augmented = $value, shouldn't be invoked";
+  }
 }
 
 class MA = Object with M;
 
 main() {
-  topLevelSetter = "1";
+  topLevelVariable = "1";
   Expect.equals("Augmented: 1", _log);
   C.staticVariable = "2";
   Expect.equals("Augmented: 2", _log);

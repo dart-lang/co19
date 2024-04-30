@@ -17,18 +17,20 @@
 
 import augment 'augmented_expression_A01_t05_lib.dart';
 
-final bool augmented = false;
+const augmented = false;
 
 String get topLevelGetter => "Original:";
 
 class C {
   static String get staticGetter => "Original:";
   String get instanceGetter => "Original:";
+  final bool augmented = false;
 }
 
 mixin M {
   static String get staticGetter => "Original:";
   String get instanceGetter => "Original:";
+  static final bool augmented = false;
 }
 
 enum E {
@@ -36,6 +38,7 @@ enum E {
 
   static String get staticGetter => "Original:";
   String get instanceGetter => "Original:";
+  static final bool augmented = false;
 }
 
 class A {}
@@ -43,6 +46,7 @@ class A {}
 extension Ext on A {
   static String get staticGetter => "Original:";
   String get instanceGetter => "Original:";
+  static final bool augmented = false;
 }
 
 class MA = Object with M;

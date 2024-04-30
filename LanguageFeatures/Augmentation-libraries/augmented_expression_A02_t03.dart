@@ -27,17 +27,20 @@ void set topLevelSetter(String value) {}
 class C {
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
+  void augmented() {}
 }
 
 mixin M {
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
+  void augmented() {}
 }
 
 enum E {
   e1;
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
+  void augmented() {}
 }
 
 class A {}
@@ -45,6 +48,7 @@ class A {}
 extension Ext on A {
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
+  void augmented() {}
 }
 
 main() {

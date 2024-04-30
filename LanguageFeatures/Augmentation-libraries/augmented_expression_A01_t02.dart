@@ -18,18 +18,19 @@
 import augment 'augmented_expression_A01_t02_lib.dart';
 import '../../Utils/expect.dart';
 
-String get augmented => "Getter augmented";
-
+String get augmented => "Global getter, shouldn't be invoked";
 String topLevelVariable = "Original";
 
 class C {
   static String staticField = "Original";
   String instanceField = "Original";
+  static String get augmented => "C.augmented, shouldn't be invoked";
 }
 
 mixin M {
   static String staticField = "Original";
   String instanceField = "Original";
+  static String get augmented => "M.augmented, shouldn't be invoked";
 }
 
 enum E {
@@ -37,12 +38,14 @@ enum E {
 
   static String staticField = "Original";
   final String instanceField = "Original";
+  static String get augmented => "E.augmented, shouldn't be invoked";
 }
 
 class A {}
 
 extension Ext on A {
   static String staticField = "Original";
+  static String get augmented => "Ext.augmented, shouldn't be invoked";
 }
 
 class MA = Object with M;

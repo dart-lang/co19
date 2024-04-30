@@ -18,18 +18,19 @@
 
 import augment 'augmented_expression_A01_t03_lib.dart';
 
-String augmented() => "Function augmented()";
-
+String augmented() => "Global function, shouldn't be invoked";
 String get topLevelGetter => "Original";
 
 class C {
   static String get staticGetter => "Original";
   String get instanceGetter => "Original";
+  static String augmented() => "C.augmented(), shouldn't be invoked";
 }
 
 mixin M {
   static String get staticGetter => "Original";
   String get instanceGetter => "Original";
+  static String augmented() => "M.augmented(), shouldn't be invoked";
 }
 
 enum E {
@@ -37,6 +38,7 @@ enum E {
 
   static String get staticGetter => "Original";
   String get instanceGetter => "Original";
+  static String augmented() => "E.augmented(), shouldn't be invoked";
 }
 
 class A {}
@@ -44,6 +46,7 @@ class A {}
 extension Ext on A {
   static String get staticGetter => "Original";
   String get instanceGetter => "Original";
+  static String augmented() => "Ext.augmented(), shouldn't be invoked";
 }
 
 class MA = Object with M;

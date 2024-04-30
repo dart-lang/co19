@@ -23,7 +23,7 @@ import '../../Utils/expect.dart';
 String _log = "";
 
 void set augmented(String value) {
-  _log = "Setter augmented: $value";
+  _log = "Global setter augmented = $value, shouldn't be invoked";
 }
 
 void set topLevelSetter(String value) {
@@ -38,6 +38,9 @@ class C {
   void set instanceSetter(String value) {
     _log = "C.instanceSetter: $value";
   }
+  static void set augmented(String value) {
+    _log = "C.augmented = $value, shouldn't be invoked";
+  }
 }
 
 mixin M {
@@ -46,6 +49,9 @@ mixin M {
   }
   void set instanceSetter(String value) {
     _log = "M.instanceSetter: $value";
+  }
+  static void set augmented(String value) {
+    _log = "M.augmented = $value, shouldn't be invoked";
   }
 }
 
@@ -58,6 +64,9 @@ enum E {
   void set instanceSetter(String value) {
     _log = "E.instanceSetter: $value";
   }
+  static void set augmented(String value) {
+    _log = "E.augmented = $value, shouldn't be invoked";
+  }
 }
 
 class A {}
@@ -68,6 +77,9 @@ extension Ext on A {
   }
   void set instanceSetter(String value) {
     _log = "Ext.instanceSetter: $value";
+  }
+  static void set augmented(String value) {
+    _log = "Ext.augmented = $value, shouldn't be invoked";
   }
 }
 

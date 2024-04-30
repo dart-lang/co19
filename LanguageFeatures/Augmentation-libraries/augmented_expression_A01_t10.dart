@@ -9,28 +9,22 @@
 ///   getter and evaluates to the return value. If augmenting a field with a
 ///   getter, this will invoke the implicit getter from the augmented field.
 ///
-/// @description Checks that within an augmenting getter `augmented` invokes the
-/// augmented getter and evaluates it to the return value.
+/// @description Checks that it is a compile-time error to declare a local
+/// variable named `augmented` within an augmenting getter
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A01_t01_lib.dart';
-import '../../Utils/expect.dart';
-
-String get augmented => "Global getter, shouldn't be invoked";
-String get topLevelGetter => "Original";
+import augment 'augmented_expression_A01_t10_lib.dart';
 
 class C {
   static String get staticGetter => "Original";
   String get instanceGetter => "Original";
-  String get augmented => "C.augmented, shouldn't be invoked";
 }
 
 mixin M {
   static String get staticGetter => "Original";
   String get instanceGetter => "Original";
-  String get augmented => "M.augmented, shouldn't be invoked";
 }
 
 enum E {
@@ -38,12 +32,9 @@ enum E {
 
   static String get staticGetter => "Original";
   String get instanceGetter => "Original";
-  String get augmented => "E.augmented, shouldn't be invoked";
 }
 
-class A {
-  String get augmented => "A.augmented, shouldn't be invoked";
-}
+class A {}
 
 extension Ext on A {
   static String get staticGetter => "Original";
@@ -53,13 +44,9 @@ extension Ext on A {
 class MA = Object with M;
 
 main() {
-  Expect.equals("Augmented", topLevelGetter);
-  Expect.equals("Augmented", C.staticGetter);
-  Expect.equals("Augmented", C().instanceGetter);
-  Expect.equals("Augmented", M.staticGetter);
-  Expect.equals("Augmented", MA().instanceGetter);
-  Expect.equals("Augmented", E.staticGetter);
-  Expect.equals("Augmented", E.e1.instanceGetter);
-  Expect.equals("Augmented", Ext.staticGetter);
-  Expect.equals("Augmented", A().instanceGetter);
+  print(topLevelGetter);
+  print(C);
+  print(M);
+  print(E);
+  print(A);
 }
