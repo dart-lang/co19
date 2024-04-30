@@ -7,8 +7,8 @@
 /// - The augmenting type and corresponding type are not the same kind: class,
 ///   mixin, enum, or extension. You can't augment a class with a mixin, etc.
 ///
-/// @description Checks that it is a compile-time error if an augmenting type
-/// and the corresponding type are not the same kind. Test type aliases
+/// @description Checks that it is a compile-time error if an augmenting type is
+/// a type alias of a different type
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

@@ -7,23 +7,27 @@
 /// - The augmenting type and corresponding type are not the same kind: class,
 ///   mixin, enum, or extension. You can't augment a class with a mixin, etc.
 ///
-/// @description Checks that it is not an error if an augmenting type and the
-/// corresponding type are the same kind. Test type aliases
+/// @description Checks that it is a compile-time error if an augmenting type is
+/// a type alias
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
 augment library 'augmenting_types_A01_t03.dart';
 
-augment class CAlias {
-  String foo() => "C";
-}
+augment class CAlias {}
+//            ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-augment mixin MAlias {
-  String foo() => "M";
-}
+augment mixin MAlias {}
+//            ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 augment enum EAlias {
+//           ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment e1;
-  String foo() => "E";
 }
