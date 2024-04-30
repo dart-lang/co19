@@ -25,7 +25,7 @@
 import augment 'augmented_expression_A03_t08_lib.dart';
 import '../../Utils/expect.dart';
 
-final String augmented = "Augmented variable";
+final String augmented = "Augmented variable, should not be used";
 
 Function? topLevelVariable;
 
