@@ -15,7 +15,7 @@
 /// variable's type is nullable, augmented evaluates to null. If the variable's
 /// type is not nullable, then it's a compile-time error.
 ///
-/// @description Checks that it is a compile-time error ot declare a local
+/// @description Checks that it is a compile-time error to declare a local
 /// variable named `augmented` in an augmenting field initializer
 /// @author sgrekhov22@gmail.com
 
