@@ -7,8 +7,8 @@
 /// - The augmenting type and corresponding type are not the same kind: class,
 ///   mixin, enum, or extension. You can't augment a class with a mixin, etc.
 ///
-/// @description Checks that it is a compile-time error if an augmenting type is
-/// a type alias
+/// @description Checks that it is a compile-time error if an augmenting
+/// declaration is a type alias and an augmented one is not
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -24,8 +24,6 @@ enum E {e1;}
 typedef CAlias = C;
 typedef MAlias = M;
 typedef EAlias = E;
-
-class MA = Object with M;
 
 main() {
   print(CAlias);

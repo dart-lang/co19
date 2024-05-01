@@ -7,15 +7,15 @@
 /// - The augmenting type and corresponding type are not the same kind: class,
 ///   mixin, enum, or extension. You can't augment a class with a mixin, etc.
 ///
-/// @description Checks that it is a compile-time error if an augmenting type is
-/// a type alias of a different type
+/// @description Checks that it is a compile-time error if an augmented
+/// declaration is a type alias and an augmenting declaration is not
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
 augment library 'augmenting_types_A01_t02.dart';
 
-augment mixin CAlias {}
+augment class CAlias {}
 //            ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
