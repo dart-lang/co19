@@ -15,53 +15,41 @@
 /// variable's type is nullable, augmented evaluates to null. If the variable's
 /// type is not nullable, then it's a compile-time error.
 ///
-/// @description Checks that if an `augmented` is used in an augmenting field's
-/// initializer and the member being augmented is a nullable field with no
-/// initializer then `augmented` evaluates to `null`.
+/// @description Checks that it is a compile-time error ot declare a local
+/// variable named `augmented` in an augmenting field initializer
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A03_t08_lib.dart';
-import '../../Utils/expect.dart';
-
-const augmented = "Augmented constant, should not be used";
+import augment 'augmented_expression_A03_t13_lib.dart';
 
 Function? topLevelVariable;
 
 class C {
   static Function? staticVariable;
   Function? instanceVariable;
-  static final augmented = "C.augmented, should not be used";
 }
 
 mixin M {
   static Function? staticVariable;
   Function? instanceVariable;
-  static final augmented = "M.augmented, should not be used";
 }
 
 enum E {
   e1;
   static Function? staticVariable;
-  static final augmented = "E.augmented, should not be used";
 }
 
 class A {}
 
 extension Ext on A {
   static Function? staticVariable;
-  static final augmented = "Ext.augmented, should not be used";
 }
 
-class MA = Object with M;
-
 main() {
-  Expect.equals("Augment: null", topLevelVariable());
-  Expect.equals("Augment: null", C.staticVariable());
-  Expect.equals("Augment: null", C().instanceVariable());
-  Expect.equals("Augment: null", M.staticVariable());
-  Expect.equals("Augment: null", MA().instanceVariable());
-  Expect.equals("Augment: null", E.staticVariable());
-  Expect.equals("Augment: null", Ext.staticVariable());
+  print(topLevelVariable);
+  print(C);
+  print(M);
+  print(E);
+  print(A);
 }

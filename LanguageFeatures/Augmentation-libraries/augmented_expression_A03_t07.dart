@@ -25,29 +25,33 @@
 import augment 'augmented_expression_A03_t07_lib.dart';
 import '../../Utils/expect.dart';
 
-final String augmented = "Augmented variable, should not be used";
+const augmented = "Augmented constant, should not be used";
 
 String? topLevelVariable;
 
 class C {
   static String? staticVariable;
   String? instanceVariable;
+  final augmented = "C.augmented, should not be used";
 }
 
 mixin M {
   static String? staticVariable;
   String? instanceVariable;
+  final augmented = "M.augmented, should not be used";
 }
 
 enum E {
   e1;
   static String? staticVariable;
+  static final augmented = "E.augmented, should not be used";
 }
 
 class A {}
 
 extension Ext on A {
   static String? staticVariable;
+  static final augmented = "Ext.augmented, should not be used";
 }
 
 class MA = Object with M;
