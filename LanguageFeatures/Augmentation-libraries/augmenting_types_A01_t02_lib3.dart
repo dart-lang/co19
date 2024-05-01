@@ -15,17 +15,17 @@
 
 augment library 'augmenting_types_A01_t02.dart';
 
-augment mixin CAlias {}
-//            ^^^^^^
+augment enum CAlias {e2;}
+//           ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment mixin MAlias {}
-//            ^^^^^^
+augment enum MAlias {e2;}
+//           ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment mixin EAlias {}
-//            ^^^^^^
+augment enum EAlias {augment e1;}
+//           ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
