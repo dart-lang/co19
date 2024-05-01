@@ -21,12 +21,8 @@ mixin M {}
 
 enum E {e1;}
 
-typedef CAlias = C;
-typedef MAlias = M;
-typedef EAlias = E;
-
 main() {
-  print(CAlias);
-  print(MAlias);
-  print(EAlias);
+  print(C);
+  print(M);
+  print(E);
 }
