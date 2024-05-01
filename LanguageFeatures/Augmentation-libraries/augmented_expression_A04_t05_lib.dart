@@ -11,30 +11,31 @@
 ///   immediately be invoked.
 ///
 /// @description Checks that it is a compile-time error to declare a local
-/// variable named `augmented` inside of an augmenting function
+/// function named `augmented` inside of an augmenting function. Test a
+/// parenthesized pattern.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A04_t02.dart';
+augment library 'augmented_expression_A04_t05.dart';
 
 augment void topLevelFunction() {
-  var augmented;
-//    ^^^^^^^^^
+  var (augmented) = (42);
+//     ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment class C {
   augment static void staticMethod() {
-    var augmented;
-//      ^^^^^^^^^
+    var (augmented) = (42);
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod() {
-    var augmented;
-//      ^^^^^^^^^
+    final (augmented) = (42);
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -42,14 +43,14 @@ augment class C {
 
 augment mixin M {
   augment static void staticMethod() {
-    var augmented;
-//      ^^^^^^^^^
+    var (augmented) = (42);
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod() {
-    var augmented;
-//      ^^^^^^^^^
+    final (augmented) = (42);
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -59,14 +60,14 @@ augment enum E {
   augment e1;
 
   augment static void staticMethod() {
-    var augmented;
-//      ^^^^^^^^^
+    var (augmented) = (42);
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod() {
-    var augmented;
-//      ^^^^^^^^^
+    final (augmented) = (42);
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -74,14 +75,14 @@ augment enum E {
 
 augment extension Ext {
   augment static void staticMethod() {
-    var augmented;
-//      ^^^^^^^^^
+    var (augmented) = (42);
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod() {
-    var augmented;
-//      ^^^^^^^^^
+    final (augmented) = (42);
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

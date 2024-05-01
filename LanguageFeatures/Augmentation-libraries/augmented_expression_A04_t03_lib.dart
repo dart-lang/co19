@@ -16,10 +16,10 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A04_t02.dart';
+augment library 'augmented_expression_A04_t03.dart';
 
 augment void topLevelFunction() {
-  var augmented;
+  int augmented() => 42;
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -27,13 +27,13 @@ augment void topLevelFunction() {
 
 augment class C {
   augment static void staticMethod() {
-    var augmented;
+    int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod() {
-    var augmented;
+    int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -42,13 +42,13 @@ augment class C {
 
 augment mixin M {
   augment static void staticMethod() {
-    var augmented;
+    int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod() {
-    var augmented;
+    int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -59,13 +59,13 @@ augment enum E {
   augment e1;
 
   augment static void staticMethod() {
-    var augmented;
+    int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod() {
-    var augmented;
+    int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -74,13 +74,13 @@ augment enum E {
 
 augment extension Ext {
   augment static void staticMethod() {
-    var augmented;
+    int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod() {
-    var augmented;
+    int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
