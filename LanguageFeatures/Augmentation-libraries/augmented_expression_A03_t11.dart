@@ -24,11 +24,12 @@
 
 import augment 'augmented_expression_A03_t11_lib.dart';
 
-final String augmented = "Augmented variable, should not be used";
+const augmented = "Augmented constant, should not be used";
 
 class C {
   Function instanceVariable;
   final Function finalInstanceVariable;
+  final augmented = "C.augmented, should not be used";
   C(this.instanceVariable, this.finalInstanceVariable);
 }
 
@@ -37,6 +38,7 @@ void foo() {}
 enum E {
   e1(foo);
   final Function finalInstanceVariable;
+  final augmented = "E.augmented, should not be used";
   const E(this.finalInstanceVariable);
 }
 
