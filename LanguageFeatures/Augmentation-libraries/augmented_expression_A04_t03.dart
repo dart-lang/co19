@@ -11,7 +11,7 @@
 ///   immediately be invoked.
 ///
 /// @description Checks that it is a compile-time error to declare a local
-/// function named `augmented` inside of an augmenting function
+/// function named `augmented()` inside of an augmenting function
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

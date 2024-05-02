@@ -6,83 +6,75 @@
 /// being augmented, but it generally follows the same rules as any normal
 /// identifier:
 /// ...
-/// - Augmenting functions: When augmenting a function, augmented refers to the
-///   augmented function. Tear offs are not allowed, so this function must
-///   immediately be invoked.
+/// - Augmenting fields: Within an augmenting field, augmented can only be used
+///   in an initializer expression, and refers to the original field's
+///   initializer expression, which is immediately evaluated.
+///
+/// If augmented refers to a variable declaration (as defined by a declaration
+/// and a number of prior augmentations) with no initializer expression, and the
+/// variable's type is nullable, augmented evaluates to null. If the variable's
+/// type is not nullable, then it's a compile-time error.
 ///
 /// @description Checks that it is a compile-time error to declare a local
-/// function named `augmented()` inside of an augmenting function
+/// function named `augmented()` in an augmenting field initializer
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A04_t03.dart';
+augment library 'augmented_expression_A03_t14.dart';
 
-augment void topLevelFunction() {
+augment Function? topLevelVariable = () {
   int augmented() => 42;
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
+};
 
 augment class C {
-  augment static void staticMethod() {
+  augment static Function? staticVariable = () {
     int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
-  augment void instanceMethod() {
+  };
+  augment Function? instanceVariable = () {
     int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
+  };
 }
 
 augment mixin M {
-  augment static void staticMethod() {
+  augment static Function? staticVariable = () {
     int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
-  augment void instanceMethod() {
+  };
+  augment Function? instanceVariable = () {
     int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
+  };
 }
 
 augment enum E {
   augment e1;
-
-  augment static void staticMethod() {
+  augment static Function? staticVariable = () {
     int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
-  augment void instanceMethod() {
-    int augmented() => 42;
-//      ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  };
 }
 
 augment extension Ext {
-  augment static void staticMethod() {
+  augment static Function? staticVariable = () {
     int augmented() => 42;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
-  augment void instanceMethod() {
-    int augmented() => 42;
-//      ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  };
 }
