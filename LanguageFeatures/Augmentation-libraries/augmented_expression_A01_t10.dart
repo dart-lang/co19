@@ -17,6 +17,8 @@
 
 import augment 'augmented_expression_A01_t10_lib.dart';
 
+String get topLevelGetter => "Original";
+
 class C {
   static String get staticGetter => "Original";
   String get instanceGetter => "Original";
