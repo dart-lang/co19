@@ -24,7 +24,7 @@ augment void topLevelFunction() {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
+  };
 }
 
 augment class C {
@@ -34,7 +34,7 @@ augment class C {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
   }
   augment void instanceMethod() {
     var f = () {
@@ -42,7 +42,7 @@ augment class C {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
   }
 }
 
@@ -53,7 +53,7 @@ augment mixin M {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
   }
   augment void instanceMethod() {
     var f = () {
@@ -61,7 +61,7 @@ augment mixin M {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
   }
 }
 
@@ -74,7 +74,7 @@ augment enum E {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
   }
   augment void instanceMethod() {
     var f = () {
@@ -82,7 +82,7 @@ augment enum E {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
   }
 }
 
@@ -93,7 +93,7 @@ augment extension Ext {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
   }
   augment void instanceMethod() {
     var f = () {
@@ -101,6 +101,6 @@ augment extension Ext {
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
+    };
   }
 }
