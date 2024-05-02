@@ -34,7 +34,7 @@ augment class C {
 // [cfe] unspecified
   }
   augment void instanceMethod() {
-    final (augmented) = (42);
+    final (augmented) = 42;
 //         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -43,7 +43,7 @@ augment class C {
 
 augment mixin M {
   augment static void staticMethod() {
-    var (augmented) = (42);
+    var (augmented) = 42;
 //       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -66,7 +66,7 @@ augment enum E {
 // [cfe] unspecified
   }
   augment void instanceMethod() {
-    final (augmented) = (42);
+    final (augmented) = 42;
 //         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -75,7 +75,7 @@ augment enum E {
 
 augment extension Ext {
   augment static void staticMethod() {
-    var (augmented) = (42);
+    var (augmented) = 42;
 //       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

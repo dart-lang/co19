@@ -20,8 +20,8 @@
 augment library 'augmented_expression_A02_t10.dart';
 
 augment void set topLevelSetter(String value) {
-  var augmented() => "x";
-//    ^^^^^^^^^
+  String augmented() => "x";
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var f = () {
@@ -34,8 +34,8 @@ augment void set topLevelSetter(String value) {
 
 augment class C {
   augment static void set staticSetter(String value) {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -46,8 +46,8 @@ augment class C {
     };
   }
   augment void set instanceSetter(String value) {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -61,8 +61,8 @@ augment class C {
 
 augment mixin M {
   augment static void set staticSetter(String value) {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -73,8 +73,8 @@ augment mixin M {
     };
   }
   augment void set instanceSetter(String value) {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -90,8 +90,8 @@ augment enum E {
   augment e1;
 
   augment static void set staticSetter(String value) {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -102,8 +102,8 @@ augment enum E {
     };
   }
   augment void set instanceSetter(String value) {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -117,8 +117,8 @@ augment enum E {
 
 augment extension Ext {
   augment static void set staticSetter(String value) {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -129,8 +129,8 @@ augment extension Ext {
     };
   }
   augment void set instanceSetter(String value) {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {

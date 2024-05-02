@@ -18,8 +18,8 @@
 augment library 'augmented_expression_A01_t11.dart';
 
 augment String get topLevelGetter {
-  var augmented() => "x";
-//    ^^^^^^^^^
+  String augmented() => "x";
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var f = () {
@@ -33,8 +33,8 @@ augment String get topLevelGetter {
 
 augment class C {
   augment static String get staticGetter {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -46,8 +46,8 @@ augment class C {
     return "Augmented";
   }
   augment String get instanceGetter {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -62,8 +62,8 @@ augment class C {
 
 augment mixin M {
   augment static String get staticGetter {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -75,8 +75,8 @@ augment mixin M {
     return "Augmented";
   }
   augment String get instanceGetter {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -93,8 +93,8 @@ augment enum E {
   augment e1;
 
   augment static String get staticGetter {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -106,8 +106,8 @@ augment enum E {
     return "Augmented";
   }
   augment String get instanceGetter {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -122,8 +122,8 @@ augment enum E {
 
 augment extension Ext {
   augment static String get staticGetter {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
@@ -135,8 +135,8 @@ augment extension Ext {
     return "Augmented";
   }
   augment String get instanceGetter {
-    var augmented() => "x";
-//      ^^^^^^^^^
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
