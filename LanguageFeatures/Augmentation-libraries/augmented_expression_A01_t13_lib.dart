@@ -10,81 +10,52 @@
 ///   getter, this will invoke the implicit getter from the augmented field.
 ///
 /// @description Checks that it is a compile-time error to declare a local
-/// variable named `augmented` within an augmenting getter
+/// variable named `augmented` within an augmenting getter. Test a parenthesized
+/// pattern.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A01_t10.dart';
+augment library 'augmented_expression_A01_t13.dart';
 
 augment String get topLevelGetter {
-  var augmented = "x";
-//    ^^^^^^^^^
+  var (augmented) = (42);
+//     ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  var f = () {
-    String augmented = "y";
-//         ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
   return "Augmented";
 }
 
 augment class C {
   augment static String get staticGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+    var (augmented) = (42);
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    var f = () {
-      String augmented = "y";
-//           ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    };
     return "Augmented";
   }
   augment String get instanceGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+    var (augmented) = (42);
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    var f = () {
-      String augmented = "y";
-//           ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    };
     return "Augmented";
   }
 }
 
 augment mixin M {
   augment static String get staticGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+    var (augmented) = (42);
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    var f = () {
-      String augmented = "y";
-//           ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    };
     return "Augmented";
   }
   augment String get instanceGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+    var (augmented) = (42);
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    var f = () {
-      String augmented = "y";
-//           ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    };
     return "Augmented";
   }
 }
@@ -93,58 +64,34 @@ augment enum E {
   augment e1;
 
   augment static String get staticGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+    var (augmented) = (42);
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    var f = () {
-      String augmented = "y";
-//           ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    };
     return "Augmented";
   }
   augment String get instanceGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+    var (augmented) = (42);
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    var f = () {
-      String augmented = "y";
-//           ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    };
     return "Augmented";
   }
 }
 
 augment extension Ext {
   augment static String get staticGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+    var (augmented) = (42);
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    var f = () {
-      String augmented = "y";
-//           ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    };
     return "Augmented";
   }
   augment String get instanceGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+    var (augmented) = (42);
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    var f = () {
-      String augmented = "y";
-//           ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    };
     return "Augmented";
   }
 }

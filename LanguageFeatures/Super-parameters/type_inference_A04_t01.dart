@@ -8,7 +8,7 @@
 /// Otherwise the inferred type of the parameter is dynamic
 ///
 /// @description Check that the inferred type of the parameter is dynamic if
-// /// there is no information about the parameter type
+/// there is no information about the parameter type
 /// @author sgrekhov@unipro.ru
 
 import "../../Utils/expect.dart";

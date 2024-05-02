@@ -17,9 +17,10 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A02_t09_lib.dart';
+import augment 'augmented_expression_A02_t10_lib.dart';
 
 void set topLevelSetter(String value) {}
+
 class C {
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
