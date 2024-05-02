@@ -29,8 +29,8 @@ augment void set topLevelSetter(String value) {
 
 augment class C {
   augment static void set staticSetter(String value) {
-    var (augmented,) = (42,);
-//       ^^^^^^^^^
+    var (x: augmented) = (x: 42);
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -50,8 +50,8 @@ augment mixin M {
 // [cfe] unspecified
   }
   augment void set instanceSetter(String value) {
-    final (augmented,) = (42,);
-//         ^^^^^^^^^
+    final (x: augmented) = (x: 42);
+//            ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -61,8 +61,8 @@ augment enum E {
   augment e1;
 
   augment static void set staticSetter(String value) {
-    var (augmented,) = (42,);
-//       ^^^^^^^^^
+    var (x: augmented) = (x: 42);
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -82,8 +82,8 @@ augment extension Ext {
 // [cfe] unspecified
   }
   augment void set instanceSetter(String value) {
-    final (augmented,) = (42,);
-//         ^^^^^^^^^
+    final (x: augmented) = (x: 42);
+//            ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

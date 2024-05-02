@@ -28,8 +28,8 @@ augment String get topLevelGetter {
 
 augment class C {
   augment static String get staticGetter {
-    var (augmented,) = (42,);
-//       ^^^^^^^^^
+    var (x: augmented) = (x: 42);
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "Augmented";
@@ -52,8 +52,8 @@ augment mixin M {
     return "Augmented";
   }
   augment String get instanceGetter {
-    final (augmented,) = (42,);
-//         ^^^^^^^^^
+    final (x: augmented) = (x: 42);
+//            ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "Augmented";
@@ -64,8 +64,8 @@ augment enum E {
   augment e1;
 
   augment static String get staticGetter {
-    var (augmented,) = (42,);
-//       ^^^^^^^^^
+    var (x: augmented) = (x: 42);
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "Augmented";
@@ -88,8 +88,8 @@ augment extension Ext {
     return "Augmented";
   }
   augment String get instanceGetter {
-    final (augmented,) = (42,);
-//         ^^^^^^^^^
+    final (x: augmented) = (x: 42);
+//            ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return "Augmented";
