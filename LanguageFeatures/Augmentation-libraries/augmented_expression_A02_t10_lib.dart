@@ -5,146 +5,139 @@
 /// @assertion The exact result of an `augmented` expression depends on what is
 /// being augmented, but it generally follows the same rules as any normal
 /// identifier:
-/// - Augmenting getters: Within an augmenting getter `augmented` invokes the
-///   getter and evaluates to the return value. If augmenting a field with a
-///   getter, this will invoke the implicit getter from the augmented field.
+/// ...
+/// - Augmenting setters: Within an augmenting setter `augmented` must be
+///   followed by an `=` and will directly invoke the augmented setter. If
+///   augmenting a field with a setter, this will invoke the implicit setter
+///   from the augmented field.
 ///
-/// @description Checks that it is a compile-time error to declare a local
-/// variable named `augmented` within an augmenting getter
+/// @description Checks that it is a compile-time error to declare local
+/// function named `augmented()` within an augmenting setter
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A01_t10.dart';
+augment library 'augmented_expression_A02_t10.dart';
 
-augment String get topLevelGetter {
-  var augmented = "x";
-//    ^^^^^^^^^
+augment void set topLevelSetter(String value) {
+  String augmented() => "x";
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var f = () {
-    String augmented = "y";
+    String augmented() => "y";
 //         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
-  return "Augmented";
 }
 
 augment class C {
-  augment static String get staticGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+  augment static void set staticSetter(String value) {
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
-      String augmented = "y";
+      String augmented() => "y";
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     };
-    return "Augmented";
   }
-  augment String get instanceGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+  augment void set instanceSetter(String value) {
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
-      String augmented = "y";
+      String augmented() => "y";
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     };
-    return "Augmented";
   }
 }
 
 augment mixin M {
-  augment static String get staticGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+  augment static void set staticSetter(String value) {
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
-      String augmented = "y";
+      String augmented() => "y";
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     };
-    return "Augmented";
   }
-  augment String get instanceGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+  augment void set instanceSetter(String value) {
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
-      String augmented = "y";
+      String augmented() => "y";
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     };
-    return "Augmented";
   }
 }
 
 augment enum E {
   augment e1;
 
-  augment static String get staticGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+  augment static void set staticSetter(String value) {
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
-      String augmented = "y";
+      String augmented() => "y";
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     };
-    return "Augmented";
   }
-  augment String get instanceGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+  augment void set instanceSetter(String value) {
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
-      String augmented = "y";
+      String augmented() => "y";
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     };
-    return "Augmented";
   }
 }
 
 augment extension Ext {
-  augment static String get staticGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+  augment static void set staticSetter(String value) {
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
-      String augmented = "y";
+      String augmented() => "y";
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     };
-    return "Augmented";
   }
-  augment String get instanceGetter {
-    var augmented = "x";
-//      ^^^^^^^^^
+  augment void set instanceSetter(String value) {
+    String augmented() => "x";
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     var f = () {
-      String augmented = "y";
+      String augmented() => "y";
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     };
-    return "Augmented";
   }
 }

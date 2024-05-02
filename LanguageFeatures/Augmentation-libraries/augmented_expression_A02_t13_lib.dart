@@ -6,35 +6,35 @@
 /// being augmented, but it generally follows the same rules as any normal
 /// identifier:
 /// ...
-/// - Augmenting functions: When augmenting a function, augmented refers to the
-///   augmented function. Tear offs are not allowed, so this function must
-///   immediately be invoked.
+/// - Augmenting setters: Within an augmenting setter `augmented` must be
+///   followed by an `=` and will directly invoke the augmented setter. If
+///   augmenting a field with a setter, this will invoke the implicit setter
+///   from the augmented field.
 ///
-/// @description Checks that it is a compile-time error to declare a local
-/// variable named `augmented` inside of an augmenting function. Test a
-/// parenthesized pattern.
+/// @description Checks that it is a compile-time error to declare local
+/// variable named `augmented` within an augmenting setter. Test a list pattern.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A04_t05.dart';
+augment library 'augmented_expression_A02_t13.dart';
 
-augment void topLevelFunction() {
-  var (augmented) = (42);
+augment void set topLevelSetter(String value) {
+  var [augmented] = [42];
 //     ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment class C {
-  augment static void staticMethod() {
-    var (augmented) = (42);
+  augment static void set staticSetter(String value) {
+    var [augmented] = [42];
 //       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment void instanceMethod() {
-    final (augmented) = 42;
+  augment void set instanceSetter(String value) {
+    final [augmented] = [42];
 //         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -42,14 +42,14 @@ augment class C {
 }
 
 augment mixin M {
-  augment static void staticMethod() {
-    var (augmented) = 42;
+  augment static void set staticSetter(String value) {
+    var [augmented] = [42];
 //       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment void instanceMethod() {
-    final (augmented) = (42);
+  augment void set instanceSetter(String value) {
+    final [augmented] = [42];
 //         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -59,14 +59,14 @@ augment mixin M {
 augment enum E {
   augment e1;
 
-  augment static void staticMethod() {
-    var (augmented) = (42);
+  augment static void set staticSetter(String value) {
+    var [augmented] = [42];
 //       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment void instanceMethod() {
-    final (augmented) = 42;
+  augment void set instanceSetter(String value) {
+    final [augmented] = [42];
 //         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -74,14 +74,14 @@ augment enum E {
 }
 
 augment extension Ext {
-  augment static void staticMethod() {
-    var (augmented) = 42;
+  augment static void set staticSetter(String value) {
+    var [augmented] = [42];
 //       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment void instanceMethod() {
-    final (augmented) = (42);
+  augment void set instanceSetter(String value) {
+    final [augmented] = [42];
 //         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
