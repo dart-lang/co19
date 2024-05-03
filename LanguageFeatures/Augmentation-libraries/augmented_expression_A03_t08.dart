@@ -57,11 +57,11 @@ extension Ext on A {
 class MA = Object with M;
 
 main() {
-  Expect.equals("Augment: null", topLevelVariable());
-  Expect.equals("Augment: null", C.staticVariable());
-  Expect.equals("Augment: null", C().instanceVariable());
-  Expect.equals("Augment: null", M.staticVariable());
-  Expect.equals("Augment: null", MA().instanceVariable());
-  Expect.equals("Augment: null", E.staticVariable());
-  Expect.equals("Augment: null", Ext.staticVariable());
+  Expect.equals("Augment: null", topLevelVariable?.call());
+  Expect.equals("Augment: null", C.staticVariable?.call());
+  Expect.equals("Augment: null", C().instanceVariable?.call());
+  Expect.equals("Augment: null", M.staticVariable?.call());
+  Expect.equals("Augment: null", MA().instanceVariable?.call());
+  Expect.equals("Augment: null", E.staticVariable?.call());
+  Expect.equals("Augment: null", Ext.staticVariable?.call());
 }
