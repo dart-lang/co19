@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -13,18 +13,14 @@
 /// extension itself in various places. The name can be hidden or shown in
 /// import export declarations.
 ///
-/// @description Check that it is a compile-time error to create a type alias
-/// for an extension
-/// @author sgrekhov22@gmail.com
+/// @description Check that the name does not denote a type
+/// @author sgrekhov@unipro.ru
 
-class A {}
-extension Ext on A {}
-
-typedef ExtAlias = Ext;
-//                 ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+extension MyFancyList<T> on List<T> {}
 
 main() {
-  print(A);
+  MyFancyList<String> list = ["Lily", "was", "here"];
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
