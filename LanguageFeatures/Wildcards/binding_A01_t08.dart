@@ -5,8 +5,8 @@
 /// @assertion A local declaration whose name is `_` does not bind that name to
 /// anything.
 ///
-/// @description Checks that it is a compile-time error to access the value of
-/// a local declaration named `_`. Test type parameters of generic functions.
+/// @description Checks that no entry named `_` is introduced into the enclosing
+/// scope by a wildcarded declaration. Test type parameters of generic functions
 /// @author sgrekhov22@gmail.com
 
 void topLevelFunction<_>() {
@@ -62,7 +62,7 @@ enum E {
   }
 }
 
-extension type ET(int _) {
+extension type ET(int id) {
   static void staticMethod<_>() {
     print(_);
 //        ^

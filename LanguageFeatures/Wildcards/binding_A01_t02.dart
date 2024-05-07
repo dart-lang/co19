@@ -5,8 +5,8 @@
 /// @assertion A local declaration whose name is `_` does not bind that name to
 /// anything.
 ///
-/// @description Checks that it is a compile-time error to access the value of
-/// a local declaration named `_`. Test parameters of constructors.
+/// @description Checks that no entry named `_` is introduced into the enclosing
+/// scope by a wildcarded declaration. Test parameters of constructors.
 /// @author sgrekhov22@gmail.com
 
 class C<T> {
@@ -47,7 +47,7 @@ class C<T> {
 }
 
 extension type ET<T>(int id) {
-  ET.constructor1(this,id, int _) {
+  ET.constructor1(this.id, int _) {
     print(_);
 //        ^
 // [analyzer] unspecified

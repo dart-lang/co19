@@ -7,8 +7,8 @@
 /// the same namespace without a collision error. The initializer, if there is
 /// one, is still executed, but the value is not accessible.
 ///
-/// @description Checks that it is a compile-time error to access the value of
-/// a local declaration named `_`. Test type parameters of type aliases.
+/// @description Checks that no entry named `_` is introduced into the enclosing
+/// scope by a wildcarded declaration. Test type parameters of type aliases.
 /// @author sgrekhov22@gmail.com
 
 class C<T> {}
