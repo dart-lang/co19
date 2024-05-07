@@ -19,7 +19,7 @@
 ///
 /// <extensionTypeMemberDeclaration> ::= <classMemberDefinition>
 ///
-/// @description Checks that it is a compile-time error if representation
+/// @description Checks that it is a compile-time error if the representation
 /// variable of an extension type has the same name as one of type parameters
 /// @author sgrekhov22@gmail.com
 
