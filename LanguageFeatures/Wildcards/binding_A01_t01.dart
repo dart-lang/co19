@@ -9,6 +9,8 @@
 /// scope by a wildcarded declaration. Test parameters of functions and methods.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=wildcards
+
 void topLevelFunction1(int _) {
   print(_);
 //      ^

@@ -9,6 +9,8 @@
 /// scope by a wildcarded declaration. Test catch clause parameters.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=wildcards
+
 main() {
   try {
     throw "!";

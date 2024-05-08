@@ -9,6 +9,8 @@
 /// scope by a wildcarded declaration. Test parameters of constructors.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=wildcards
+
 class C<T> {
   C();
   C.constructor1(int _) {
