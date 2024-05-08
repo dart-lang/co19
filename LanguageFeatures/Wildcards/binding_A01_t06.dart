@@ -9,6 +9,8 @@
 /// scope by a wildcarded declaration. Test for-loop variables.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=wildcards
+
 test() async {
   await for (var _ in Stream.fromIterable([1, 2,3])) {
     print(_);

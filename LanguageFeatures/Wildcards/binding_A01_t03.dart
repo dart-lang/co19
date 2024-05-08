@@ -9,6 +9,8 @@
 /// scope by a wildcarded declaration. Test parameters of operators.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=wildcards
+
 class C {
   int operator +(int _) {
     print(_);
