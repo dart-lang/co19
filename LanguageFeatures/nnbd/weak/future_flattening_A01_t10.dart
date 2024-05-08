@@ -18,24 +18,27 @@
 /// non-nullable legacy types statically and the expression cannot be null.
 ///
 /// @description Check that type of `await` expression match with expected type
-/// dynamically for the custom legacy class type parameter and the expression can
-/// be `null` in weak mode.
+/// dynamically for the custom legacy class type parameter and the expression
+/// can be `null` in weak mode.
 ///
-/// Here is a situation where sound and non-sound null checking produce different
-/// results. The `null` value is tested using `null as A`, and such a cast
-/// succeeds. So `test()` does not throw error and returns `Future<A>` that will
-/// be completed with `null`. No dynamic error here.
+/// Here is a situation where sound and non-sound null checking produces
+/// different results. The `null` value is tested using `null as A`, and such a
+/// cast succeeds. So `test()` does not throw error and returns `Future<A>` that
+/// will be completed with `null`. No dynamic error here.
 ///
 /// @author iarkh@unipro.ru
 
 // Requirements=nnbd-weak
 
 import "dart:async";
-import "future_flattening_legacy_lib.dart";
+
+class A {}
 
 Future<A> test() async {
   A a = await (null as A);
   return new Future<A>.value(new A());
 }
 
-main() {}
+main() {
+  test();
+}

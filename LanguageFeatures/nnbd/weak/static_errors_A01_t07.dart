@@ -15,7 +15,6 @@
 // Requirements=nnbd-weak
 import "dart:async";
 import "../../../Utils/expect.dart";
-import "legacy_lib.dart";
 
 class C {}
 
@@ -43,12 +42,6 @@ main() {
   Expect.isNotNull(x4.toString());
   Expect.isNotNull(x4.runtimeType);
   Expect.isFalse(x4 == new Object());
-
-  FutureOr<A?> x5 = new A();
-  Expect.isNotNull(x5.hashCode);
-  Expect.isNotNull(x5.toString());
-  Expect.isNotNull(x5.runtimeType);
-  Expect.isFalse(x5 == new Object());
 
   var x6 = new C();
   Expect.isNotNull(x6.hashCode);
