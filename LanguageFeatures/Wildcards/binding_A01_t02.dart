@@ -12,7 +12,6 @@
 // SharedOptions=--enable-experiment=wildcards
 
 class C<T> {
-  C();
   C.constructor1(int _) {
     print(_);
 //        ^
@@ -46,6 +45,15 @@ class C<T> {
 // [cfe] unspecified
     return C();
   }
+}
+
+class D {
+  final int x;
+
+  const D(int _) : this.x = _;
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET<T>(int id) {
@@ -86,5 +94,6 @@ extension type ET<T>(int id) {
 
 main() {
   print(C);
+  print(D);
   print(ET);
 }

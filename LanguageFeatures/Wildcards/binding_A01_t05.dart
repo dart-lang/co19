@@ -9,8 +9,6 @@
 /// scope by a wildcarded declaration. Test callable local variables.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcards
-
 class C {}
 
 test1() {
@@ -29,7 +27,16 @@ test2() {
 // [cfe] unspecified
 }
 
+test3() {
+  void _() {}
+  _();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   test1();
   test2();
+  test3();
 }
