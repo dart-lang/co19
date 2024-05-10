@@ -9,7 +9,7 @@
 /// scope by a wildcarded declaration. Test parameters of constructors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcards
+// SharedOptions=--enable-experiment=wildcard-variables
 
 class C<T> {
   C.constructor1(int _) {
