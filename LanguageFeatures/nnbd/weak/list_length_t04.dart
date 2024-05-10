@@ -11,7 +11,6 @@
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-weak
-import "legacy_lib.dart";
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -25,8 +24,6 @@ test<T>(T t1, T t2) {
 
 main() {
   test<A?>(A(), A());
-  test<LegacyFoo?>(fLegacy2, fLegacy2);
   test<FutureOr<A?>>(A(), A());
-  test<FutureOr<LegacyFoo?>>(fLegacy2, fLegacy2);
   test<FutureOr<FutureOr<A?>>>(A(), A());
 }
