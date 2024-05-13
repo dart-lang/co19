@@ -3,13 +3,14 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion bool isInfinite
+///
 /// @description Checks that some operations with Infinity results to Infinity
 /// @author msyabro
 
-//import "../../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 check(double d) {
-  //Expect.isTrue(d.isInfinite);
+  Expect.isTrue(d.isInfinite);
 }
 
 main() {
