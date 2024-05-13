@@ -12,7 +12,7 @@
 /// @issue 39777
 
 // Requirements=nnbd-weak
-//import "legacy_lib.dart";
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
