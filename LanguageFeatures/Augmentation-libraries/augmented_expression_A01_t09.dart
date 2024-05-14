@@ -48,9 +48,9 @@ enum E {
   static String augmented() => "E.augmented(), shouldn't be invoked";
 }
 
-class A {}
+class D {}
 
-extension Ext on A {
+extension Ext on D {
   static A get staticGetter => A("Ext.staticGetter");
   A get instanceGetter => A("Ext.instanceGetter");
   static String augmented() => "Ext.augmented(), shouldn't be invoked";
@@ -60,12 +60,12 @@ class MA = Object with M;
 
 main() {
   Expect.equals("Augmented", topLevelGetter.id);
-  Expect.equals("Augmented", C.staticGetter);
-  Expect.equals("Augmented", C().instanceGetter);
-  Expect.equals("Augmented", M.staticGetter);
-  Expect.equals("Augmented", MA().instanceGetter);
-  Expect.equals("Augmented", E.staticGetter);
-  Expect.equals("Augmented", E.e1.instanceGetter);
-  Expect.equals("Augmented", Ext.staticGetter);
-  Expect.equals("Augmented", A().instanceGetter);
+  Expect.equals("Augmented", C.staticGetter.id);
+  Expect.equals("Augmented", C().instanceGetter.id);
+  Expect.equals("Augmented", M.staticGetter.id);
+  Expect.equals("Augmented", MA().instanceGetter.id);
+  Expect.equals("Augmented", E.staticGetter.id);
+  Expect.equals("Augmented", E.e1.instanceGetter.id);
+  Expect.equals("Augmented", Ext.staticGetter.id);
+  Expect.equals("Augmented", D().instanceGetter.id);
 }

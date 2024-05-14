@@ -28,7 +28,7 @@ augment A get topLevelGetter {
 }
 
 augment class C {
-  augment static String get staticGetter {
+  augment static A get staticGetter {
     Expect.equals("A(C.staticGetter).call", augmented());
     var f = () {
       return augmented();
@@ -36,7 +36,7 @@ augment class C {
     Expect.equals("A(C.staticGetter).call", f());
     return A("Augmented");
   }
-  augment String get instanceGetter {
+  augment A get instanceGetter {
     Expect.equals("A(C.instanceGetter).call", augmented());
     var f = () {
       return augmented();
@@ -47,7 +47,7 @@ augment class C {
 }
 
 augment mixin M {
-  augment static String get staticGetter {
+  augment static A get staticGetter {
     Expect.equals("A(M.staticGetter).call", augmented());
     var f = () {
       return augmented();
@@ -55,7 +55,7 @@ augment mixin M {
     Expect.equals("A(M.staticGetter).call", f());
     return A("Augmented");
   }
-  augment String get instanceGetter {
+  augment A get instanceGetter {
     Expect.equals("A(M.instanceGetter).call", augmented());
     var f = () {
       return augmented();
@@ -68,7 +68,7 @@ augment mixin M {
 augment enum E {
   augment e1;
 
-  augment static String get staticGetter {
+  augment static A get staticGetter {
     Expect.equals("A(E.staticGetter).call", augmented());
     var f = () {
       return augmented();
@@ -76,7 +76,7 @@ augment enum E {
     Expect.equals("A(E.staticGetter).call", f());
     return A("Augmented");
   }
-  augment String get instanceGetter {
+  augment A get instanceGetter {
     Expect.equals("A(E.instanceGetter).call", augmented());
     var f = () {
       return augmented();
@@ -87,7 +87,7 @@ augment enum E {
 }
 
 augment extension Ext {
-  augment static String get staticGetter {
+  augment static A get staticGetter {
     Expect.equals("A(Ext.staticGetter).call", augmented());
     var f = () {
       return augmented();
@@ -95,7 +95,7 @@ augment extension Ext {
     Expect.equals("A(Ext.staticGetter).call", f());
     return A("Augmented");
   }
-  augment String get instanceGetter {
+  augment A get instanceGetter {
     Expect.equals("A(Ext.instanceGetter).call", augmented());
     var f = () {
       return augmented();
