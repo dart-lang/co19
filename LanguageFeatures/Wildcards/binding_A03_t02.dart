@@ -7,7 +7,7 @@
 /// the same namespace without a collision error. The initializer, if there is
 /// one, is still executed, but the value is not accessible.
 ///
-/// @description Checks that for late local variables declarations named `_`
+/// @description Checks that for late local variable declarations named `_`
 /// initializer is not executed
 /// @author sgrekhov22@gmail.com
 
