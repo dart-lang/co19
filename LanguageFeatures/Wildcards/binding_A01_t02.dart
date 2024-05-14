@@ -12,6 +12,7 @@
 // SharedOptions=--enable-experiment=wildcard-variables
 
 class C<T> {
+  C();
   C.constructor1(int _) {
     print(_);
 //        ^
@@ -45,6 +46,19 @@ class C<T> {
 // [cfe] unspecified
     return C();
   }
+
+  C.redirectingConstructor1(int _) : this.constructor1(_);
+//                                                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C.redirectingConstructor2([int _ = 0]) : this.constructor2(_);
+//                                                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C.redirectingConstructor3(T _) : this.constructor3(_);
+//                                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class D {
@@ -90,6 +104,18 @@ extension type ET<T>(int id) {
 // [cfe] unspecified
     return ET(id);
   }
+  ET.redirectingConstructor1(int id, int _) : this.constructor1(id, _);
+//                                                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ET.redirectingConstructor2([int _ = 0]) : this.constructor2(0, _);
+//                                                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ET.redirectingConstructor3(T _) : this.constructor3(0, _);
+//                                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
