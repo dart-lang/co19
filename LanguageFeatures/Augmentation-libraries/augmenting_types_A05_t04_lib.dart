@@ -71,8 +71,8 @@ augment extension Ext1<T extends AAlias> {
   String name2() => 'Ext1<$T>';
 }
 augment extension Ext2<T extends A> {
-  String get name1 => 'Ext2<$T>';
+  String get name3 => 'Ext2<$T>';
 }
 augment extension Ext2<T extends AAlias> {
-  String name2() => 'Ext2<$T>';
+  String name4() => 'Ext2<$T>';
 }
