@@ -75,8 +75,8 @@ main() {
   Expect.equals("Ext1<B>", D<B>().name2());
   Expect.equals("Ext1<A>", D<AAlias>().name1);
   Expect.equals("Ext1<A>", D<AAlias>().name2());
-  Expect.equals("Ext2<B>", D<B>().name1);
-  Expect.equals("Ext2<B>", D<B>().name2());
-  Expect.equals("Ext2<A>", D<AAlias>().name1);
-  Expect.equals("Ext2<A>", D<AAlias>().name2());
+  Expect.equals("Ext2<B>", D<B>().name3);
+  Expect.equals("Ext2<B>", D<B>().name4());
+  Expect.equals("Ext2<A>", D<AAlias>().name3);
+  Expect.equals("Ext2<A>", D<AAlias>().name4());
 }
