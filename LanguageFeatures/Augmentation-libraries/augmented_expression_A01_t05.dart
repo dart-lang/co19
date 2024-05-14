@@ -16,6 +16,7 @@
 // SharedOptions=--enable-experiment=macros
 
 import augment 'augmented_expression_A01_t05_lib.dart';
+import '../../Utils/expect.dart';
 
 const augmented = false;
 
