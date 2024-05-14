@@ -21,7 +21,7 @@ test1() {
 
 test2() {
   var _, _;
-  var _ = 1, _ - "x";
+  var _ = 1, _ = "x";
 }
 
 test3() {
