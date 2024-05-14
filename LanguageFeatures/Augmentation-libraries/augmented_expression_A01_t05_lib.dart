@@ -17,7 +17,7 @@
 
 augment library 'augmented_expression_A01_t05.dart';
 
-augment String get topLevelVariable {
+augment String get topLevelGetter {
   Expect.equals("Original:a1", augmented + "a1");
   var f = () {
     return augmented + "a2";
