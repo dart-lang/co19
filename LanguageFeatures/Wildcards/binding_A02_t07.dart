@@ -47,7 +47,7 @@ extension Ext on A {
 class MA = Object with M;
 
 main() {
-  void localFunction<_, _, _ extends num>() => "localFunction";
+  String localFunction<_, _, _ extends num>() => "localFunction";
 
   var functionExpression = <_, _, _ extends num>() => "functionExpression";
 
