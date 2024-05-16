@@ -12,6 +12,22 @@
 
 // SharedOptions=--enable-experiment=wildcard-variables
 
+mixin class ContainsWildcardVariable {
+  int _ = 0;
+}
+
+mixin class ContainsWildcardMethod {
+  int _() => 0;
+}
+
+mixin class ContainsWildcardGetter {
+  int get _ => 0;
+}
+
+mixin class ContainsWildcardSetter {
+  void set _(int v) {}
+}
+
 class C1 {
   static int get _ => 1;
   static int _ = 1;
@@ -50,12 +66,54 @@ class C5 {
 // [cfe] unspecified
 }
 
+class C5Extends extends ContainsWildcardVariable {
+  static int get _ => 1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C5Implements extends ContainsWildcardVariable {
+  static int get _ => 1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C5With with ContainsWildcardVariable {
+  static int get _ => 1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 class C6 {
   static int get _ => 1;
 //               ^
 // [analyzer] unspecified
   int _() => 6;
 //    ^
+// [cfe] unspecified
+}
+
+class C6Extends extends ContainsWildcardMethod {
+  static int get _ => 1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C6Implements extends ContainsWildcardMethod {
+  static int get _ => 1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C6With with ContainsWildcardMethod {
+  static int get _ => 1;
+//               ^
+// [analyzer] unspecified
 // [cfe] unspecified
 }
 
@@ -68,6 +126,27 @@ class C7 {
 // [cfe] unspecified
 }
 
+class C7Extends extends ContainsWildcardGetter {
+  static int get _ => 1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C7Implements extends ContainsWildcardGetter {
+  static int get _ => 1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C7With with ContainsWildcardGetter {
+  static int get _ => 1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 class C8 {
   static int get _ => 1;
 //               ^
@@ -77,13 +156,46 @@ class C8 {
 // [cfe] unspecified
 }
 
+class C8Extends extends ContainsWildcardSetter {
+  static int get _ => 1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C8Implements extends ContainsWildcardSetter {
+  static int get _ => 1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C8With with ContainsWildcardSetter {
+  static int get _ => 1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(C1);
   print(C2);
   print(C3);
   print(C4);
   print(C5);
+  print(C5Extends);
+  print(C5Implements);
+  print(C5With);
   print(C6);
+  print(C6Extends);
+  print(C6Implements);
+  print(C6With);
   print(C7);
+  print(C7Extends);
+  print(C7Implements);
+  print(C7With);
   print(C8);
+  print(C8Extends);
+  print(C8Implements);
+  print(C8With);
 }

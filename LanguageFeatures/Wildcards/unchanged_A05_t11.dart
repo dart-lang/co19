@@ -12,39 +12,23 @@
 
 // SharedOptions=--enable-experiment=wildcard-variables
 
+mixin class ContainsWildcardVariable {
+  int _ = 0;
+}
+
+mixin class ContainsWildcardMethod {
+  int _() => 0;
+}
+
+mixin class ContainsWildcardGetter {
+  int get _ => 0;
+}
+
+mixin class ContainsWildcardSetter {
+  void set _(int v) {}
+}
+
 class C1 {
-  int get _ => 1;
-  static int _ = 1;
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C2 {
-  int get _ => 1;
-  static int _() => 2;
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C3 {
-  int get _ => 1;
-  static int get _ => 3;
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C4 {
-  int get _ => 1;
-  static void set _(int v) {}
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C5 {
   int get _ => 1;
   int _ = 5;
 //    ^
@@ -52,7 +36,19 @@ class C5 {
 // [cfe] unspecified
 }
 
-class C6 {
+class C1Extends extends ContainsWildcardVariable {
+  int get _ => 1;  // Ok
+}
+
+class C1Implements extends ContainsWildcardVariable {
+  int get _ => 1; // Ok
+}
+
+class C1With with ContainsWildcardVariable {
+  int get _ => 1; // Ok
+}
+
+class C2 {
   int get _ => 1;
   int _() => 6;
 //    ^
@@ -60,7 +56,28 @@ class C6 {
 // [cfe] unspecified
 }
 
-class C7 {
+class C2Extends extends ContainsWildcardMethod {
+  int get _ => 1;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C2Implements extends ContainsWildcardMethod {
+  int get _ => 1;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C2With with ContainsWildcardMethod {
+  int get _ => 1;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C3 {
   int get _ => 1;
   int get _ => 7;
 //        ^
@@ -68,18 +85,50 @@ class C7 {
 // [cfe] unspecified
 }
 
-class C8 {
+class C3Extends extends ContainsWildcardGetter {
+  int get _ => 1; // Ok
+}
+
+class C3Implements extends ContainsWildcardGetter {
+  int get _ => 1; // Ok
+}
+
+class C3With with ContainsWildcardGetter {
+  int get _ => 1; // Ok
+}
+
+class C4 {
   int get _ => 1;
   void set _(int v) {} // Ok
 }
 
+class C4Extends extends ContainsWildcardSetter {
+  int get _ => 1;  // Ok
+}
+
+class C4Implements extends ContainsWildcardSetter {
+  int get _ => 1;  // Ok
+}
+
+class C4With with ContainsWildcardSetter {
+  int get _ => 1;  // Ok
+}
+
 main() {
   print(C1);
+  print(C1Extends);
+  print(C1Implements);
+  print(C1With);
   print(C2);
+  print(C2Extends);
+  print(C2Implements);
+  print(C2With);
   print(C3);
+  print(C3Extends);
+  print(C3Implements);
+  print(C3With);
   print(C4);
-  print(C5);
-  print(C6);
-  print(C7);
-  print(C8);
+  print(C4Extends);
+  print(C4Implements);
+  print(C4With);
 }
