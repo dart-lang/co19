@@ -30,6 +30,8 @@ mixin class ContainsWildcardSetter {
 
 class C1 {
   static void set _(int v) {}
+//                ^
+// [cfe] unspecified
   static int _ = 1;
 //           ^
 // [analyzer] unspecified
@@ -61,6 +63,7 @@ class C5 {
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
+// [cfe] unspecified
   int _ = 5;
 //    ^
 // [cfe] unspecified
@@ -91,9 +94,8 @@ class C6 {
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
-  int _() => 6;
-//    ^
 // [cfe] unspecified
+  int _() => 6;
 }
 
 class C6Extends extends ContainsWildcardMethod {
@@ -121,9 +123,8 @@ class C7 {
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
-  int get _ => 7;
-//        ^
 // [cfe] unspecified
+  int get _ => 7;
 }
 
 class C7Extends extends ContainsWildcardGetter {
