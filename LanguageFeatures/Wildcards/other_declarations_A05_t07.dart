@@ -151,9 +151,8 @@ class C8 {
   static int get _ => 1;
 //               ^
 // [analyzer] unspecified
-  void set _(int v) {}
-//         ^
 // [cfe] unspecified
+  void set _(int v) {}
 }
 
 class C8Extends extends ContainsWildcardSetter {
