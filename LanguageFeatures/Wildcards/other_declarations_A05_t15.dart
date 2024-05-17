@@ -130,9 +130,8 @@ mixin M8 {
   static int get _ => 1;
 //               ^
 // [analyzer] unspecified
-  void set _(int v) {}
-//         ^
 // [cfe] unspecified
+  void set _(int v) {}
 }
 
 mixin M8On on ContainsWildcardSetter {
