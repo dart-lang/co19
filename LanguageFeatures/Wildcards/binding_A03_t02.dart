@@ -7,8 +7,9 @@
 /// the same namespace without a collision error. The initializer, if there is
 /// one, is still executed, but the value is not accessible.
 ///
-/// @description Checks that for late local variable declarations named `_`
-/// initializer is not executed
+/// @description Checks that it is a dead code warning in the analyzer to
+/// declare late local variable named `_`. Check that at a run time the
+/// initializer is not executed.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=wildcard-variables
@@ -24,14 +25,20 @@ int init(int val) {
 
 test1() {
   late var _ = init(1);
+//         ^
+// [analyzer] unspecified
 }
 
 test2() {
   late final _ = init(2);
+//           ^
+// [analyzer] unspecified
 }
 
 test3() {
   late int _ = init(3);
+//         ^
+// [analyzer] unspecified
 }
 
 main() {
