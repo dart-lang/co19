@@ -11,4 +11,6 @@
 
 // SharedOptions=--enable-experiment=wildcard-variables
 
-int one = 1;
+extension ExtString on String {
+  int get tripleLength => this.length * 3;
+}

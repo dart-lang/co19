@@ -5,19 +5,17 @@
 /// @assertion Import prefixes named `_` are non-binding and will provide access
 /// to the extensions in that library.
 ///
-/// @description Checks that it's not an error to import more than one library
-/// with the prefix `_`.
+/// @description Checks that it is a compile-time error to reference a
+/// non-extension definition in a library with a prefix named `_`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=wildcard-variables
 
 import 'imports_lib1.dart' as _;
-import 'imports_lib2.dart' as _;
-import '../../Utils/expect.dart';
 
 main() {
-  main() {
-    Expect.equals(2, "x".doubleLength);
-    Expect.equals(3, "x".tripleLength);
-  }
+  print(theAnswer);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

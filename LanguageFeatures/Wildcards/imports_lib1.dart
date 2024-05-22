@@ -14,3 +14,7 @@
 library imports_lib1;
 
 int theAnswer = 42;
+
+extension ExtString on String {
+  int get doubleLength => this.length * 2;
+}

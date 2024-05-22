@@ -6,7 +6,7 @@
 /// to the extensions in that library.
 ///
 /// @description Checks that an import prefix named `_` is non binding and
-/// provides access to the imported library.
+/// provides access to extensions an imported library.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=wildcard-variables
@@ -15,5 +15,5 @@ import 'imports_lib1.dart' as _;
 import '../../Utils/expect.dart';
 
 main() {
-  Expect.equals(42, theAnswer);
+  Expect.equals(2, "x".doubleLength);
 }
