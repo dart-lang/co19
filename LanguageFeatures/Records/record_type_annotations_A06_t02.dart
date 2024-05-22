@@ -31,8 +31,8 @@ typedef R1 = (int _i, {String s});
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef (int _, {int n}) R2();
-//           ^
+typedef (int __, {int n}) R2();
+//           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -41,8 +41,8 @@ typedef void R3((String _s, {String s}) r);
 // [analyzer] unspecified
 // [cfe] unspecified
 
-(int _, {int n}) foo() => (42, n: 0);
-//   ^
+(int __, {int n}) foo() => (42, n: 0);
+//   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -52,8 +52,8 @@ void bar((int _i, {bool b}) r) {}
 // [cfe] unspecified
 
 main() {
-  (int _, {String s}) r1 = (42, s: "");
-//     ^
+  (int __, {String s}) r1 = (42, s: "");
+//     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
