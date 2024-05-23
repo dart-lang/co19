@@ -168,18 +168,48 @@ testObject(Shape shape) {
   }
 }
 
-main() {
-  var list = [1, 2];
-  var [_, _a] = list;
-  var map = {1: 2};
-  var {1: _} = map;
-
-  if (_ == 1) {}
-//    ^
+testParenthesized(int x) {
+  switch (x) {
+    case (_):
+      if (_ is int) {}
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+  switch (x) {
+    case (var _):
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (x) {
+    case (final _):
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (x) {
+    case (final int _):
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  switch (x) {
+    case (int _):
+      if (_ is int) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+main() {
   testRecord(());
   testList([]);
   testMap({});
   testObject(Rectangle(1, 2));
+  testParenthesized(0);
 }

@@ -54,7 +54,12 @@ String test3(Shape shape) {
   }
 }
 
+final _ = -1;
+
 main() {
+  var Rectangle(x: _, y: _) = Rectangle(1, 2);
+  Expect.equals(-1, _);
+
   Expect.equals("Rectangle(size: 1, area: _)", test1(Rectangle(1, 2)));
   Expect.equals("Rectangle(size: 1, area: _)", test1(Rectangle(1, 3)));
   Expect.equals("Rectangle(size: 2, area: _)", test1(Rectangle(2, 2)));
