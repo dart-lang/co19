@@ -53,20 +53,25 @@ String test3(List list) {
   }
 }
 
+const _ = -1;
+
 main() {
   var list1 = [1, 2, 3, 4];
   var [_, _two, _, __] = list1;
   Expect.equals(2, _two);
   Expect.equals(4, __);
+  Expect.equals(-1, _);
 
   var [int _, _, num three, num ___] = list1;
   Expect.equals(3, three);
   Expect.equals(4, ___);
+  Expect.equals(-1, _);
 
   var list2 = [1, 2, 3.14, 4];
   var [num _, two, _, num __x_] = list2;
   Expect.equals(2, two);
   Expect.equals(4, __x_);
+  Expect.equals(-1, _);
 
   Expect.equals("[_, 2, var x]", test1([1, 2, "3"]));
   Expect.equals("[String _, _, _]", test1(["0", 1, 2]));

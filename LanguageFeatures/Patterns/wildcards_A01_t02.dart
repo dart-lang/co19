@@ -53,22 +53,30 @@ String test3(Map map) {
   }
 }
 
+int _ = -1;
+
 main() {
   var map1 = {1: 2, 3: 4};
   var {1: _, 3: __} = map1;
   Expect.equals(4, __);
+  Expect.equals(-1, _);
 
   var map2 = {"1": 2, "3": 4};
   var {"1": _, "3": num ___} = map2;
   Expect.equals(4, ___);
+  Expect.equals(-1, _);
 
   dynamic map3 = map2;
   Expect.throws(() {
     var {"1": String _, "3": num _} = map3;
   });
+  Expect.equals(-1, _);
+
   Expect.throws(() {
     var {"1": _, "3": String _} = map3;
   });
+  Expect.equals(-1, _);
+
   Expect.equals("{1: _}", test1({1: 2}));
   Expect.equals("{1: _}", test1({1: 3}));
   Expect.equals("{42: String _}", test1({42: ""}));

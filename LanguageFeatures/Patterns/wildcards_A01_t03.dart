@@ -53,24 +53,32 @@ String test3(Record r) {
   }
 }
 
+var _ = -1;
+
 main() {
   var r1 = (1, 2, 3, 4);
   var (_, _two, _, __) = r1;
   Expect.equals(2, _two);
   Expect.equals(4, __);
+  Expect.equals(-1, _);
 
   var r2 = ("1", 2, "3", 4);
   var (String _, two, _, num ___) = r2;
   Expect.equals(2, two);
   Expect.equals(4, ___);
+  Expect.equals(-1, _);
 
   dynamic r3 = r2;
   Expect.throws(() {
     var (int _, _, _, num _) = r3;
   });
+
+  Expect.equals(-1, _);
   Expect.throws(() {
     var (_, String _, _, num _) = r3;
   });
+  Expect.equals(-1, _);
+
   Expect.equals("(_, 2, var x)", test1((1, 2, "3")));
   Expect.equals("(String _, _, _)", test1(("0", 1, 2)));
   Expect.equals("default", test1((1, 1, 3)));
