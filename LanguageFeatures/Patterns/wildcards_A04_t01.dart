@@ -18,7 +18,6 @@
 ///     print('First field is int and second is String.');
 /// }
 /// ```
-///
 /// @description Checks that an initializer is executed for wildcards.
 /// @author sgrekhov22@gmail.com
 

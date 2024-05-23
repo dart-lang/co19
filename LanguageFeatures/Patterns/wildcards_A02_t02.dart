@@ -2,16 +2,25 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A local declaration whose name is `_` does not bind that name to
-/// anything. This means you can have multiple local declarations named `_` in
-/// the same namespace without a collision error. The initializer, if there is
-/// one, is still executed, but the value is not accessible.
-///
+/// @assertion
+/// If the variable's name is _, it doesn't bind any variable. This "wildcard"
+/// name is useful as a placeholder in places where you need a subpattern in
+/// order to destructure later positional values:
+/// ```dart
+/// var list = [1, 2, 3];
+/// var [_, two, _] = list;
+/// ```
+/// The `_` identifier can also be used with a type annotation when you want to
+/// test a value's type but not bind the value to a name:
+/// ```dart
+/// switch (record) {
+///   case (int _, String _):
+///     print('First field is int and second is String.');
+/// }
+/// ```
 /// @description Checks that no entry named `_` is introduced into the enclosing
 /// scope by a wildcarded declaration. Test patterns.
 /// @author sgrekhov22@gmail.com
-
-// SharedOptions=--enable-experiment=wildcard-variables
 
 class C {
   int a, b;
