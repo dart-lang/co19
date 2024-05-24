@@ -2,20 +2,23 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if the name of a named
-/// optional parameter begins with an _ character.
+/// @assertion It is a compile-time error if the name of a named optional
+/// parameter begins with an `_` character.
+///
 /// @description Checks that it is a compile-time error if the name of a named
-/// optional parameter begins with an '_' character.
+/// optional parameter begins with an `_` character.
 /// @author rodionov
-/// @reviewer kaigorodov
 
-
-main() {
-  try {
-    void func({var _x}) {}
-//                 ^
+void f1({int _ = 0}) {}
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    func(_x: 1);
-  } catch (x) {}
+
+main() {
+  void f2({var _x}) {}
+//             ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  f1(_x: 1);
+  f2();
 }
