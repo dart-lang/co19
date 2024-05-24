@@ -17,7 +17,7 @@
 // This program is valid and assigns to the field, not the local.
 ///
 /// @description Checks that a local variable named `_` doesn't shadow a
-/// top-level ыуееук named `_` but a class field does.
+/// top-level method named `_` but a class field does.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=wildcard-variables
