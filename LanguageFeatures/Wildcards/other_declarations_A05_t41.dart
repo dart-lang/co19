@@ -16,6 +16,8 @@ class A {}
 
 extension E1 on A {
   static void set _(int v) {}
+//                ^
+// [cfe] unspecified
   static int _ = 1;
 //           ^
 // [analyzer] unspecified
@@ -24,6 +26,8 @@ extension E1 on A {
 
 extension E2 on A {
   static void set _(int v) {}
+//                ^
+// [cfe] unspecified
   static int _() => 2;
 //           ^
 // [analyzer] unspecified
@@ -49,6 +53,8 @@ extension E5 on A {
 // [analyzer] unspecified
 // [cfe] unspecified
   int _() => 5;
+//    ^
+// [cfe] unspecified
 }
 
 extension E6 on A {
@@ -57,14 +63,17 @@ extension E6 on A {
 // [analyzer] unspecified
 // [cfe] unspecified
   int get _ => 6;
+//         ^
+// [cfe] unspecified
 }
 
 extension E7 on A {
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
-// [cfe] unspecified
   void set _(int v) {}
+//         ^
+// [cfe] unspecified
 }
 
 main() {
