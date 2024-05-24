@@ -47,16 +47,18 @@ extension E5 on A {
   static int get _ => 1;
 //               ^
 // [analyzer] unspecified
-// [cfe] unspecified
   int _() => 5;
+//    ^
+// [cfe] unspecified
 }
 
 extension E6 on A {
   static int get _ => 1;
 //               ^
 // [analyzer] unspecified
-// [cfe] unspecified
   int get _ => 6;
+//        ^
+// [cfe] unspecified
 }
 
 extension E7 on A {
@@ -65,6 +67,8 @@ extension E7 on A {
 // [analyzer] unspecified
 // [cfe] unspecified
   void set _(int v) {}
+//         ^
+// [cfe] unspecified
 }
 
 main() {

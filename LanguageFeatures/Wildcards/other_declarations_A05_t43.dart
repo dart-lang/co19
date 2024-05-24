@@ -33,6 +33,8 @@ extension E2 on A {
 
 extension E3 on A {
   int _() => 1;
+//    ^
+// [cfe] unspecified
   void set _(int v) {}
 //         ^
 // [analyzer] unspecified
