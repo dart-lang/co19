@@ -40,6 +40,8 @@ extension E3 on A {
 
 extension E4 on A {
   static int _ = 1;
+//           ^
+// [cfe] unspecified
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
