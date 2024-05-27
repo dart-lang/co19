@@ -14,15 +14,25 @@
 
 int _ = -1;
 
-class C {
+class C1 {
   int _, a;
-  C.init(this._, this.a);
-  C(int _) : this.init(_, 0);
-//                     ^
+  C1.init(this._, this.a);
+  C1(int _) : this.init(_, 0);
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C2 {
+  final int _, a;
+  const C2.init(this._, this.a);
+  const C2(int _) : this.init(_, 0);
+//                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(C);
+  print(C1);
+  print(C2);
 }

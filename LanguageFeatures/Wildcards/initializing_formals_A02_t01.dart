@@ -14,14 +14,23 @@
 
 int _ = 0;
 
-class C {
+class C1 {
   int _, a;
-  C(this._) : a = _;
-//                ^
+  C1(this._) : a = _;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C2 {
+  final int _, a;
+  const C2(this._) : a = _;
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(C);
+  print(C1);
+  print(C2);
 }

@@ -14,11 +14,17 @@
 
 import '../../Utils/expect.dart';
 
-class C {
+class C1 {
   int _, a;
-  C(this.a) : _ = a;
+  C1(this.a) : _ = a;
+}
+
+class C2 {
+  final int _, a;
+  const C2(this.a) : _ = a;
 }
 
 main() {
-  Expect.equals(42, C(42)._);
+  Expect.equals(42, C1(42)._);
+  Expect.equals(42, const C2(42)._);
 }
