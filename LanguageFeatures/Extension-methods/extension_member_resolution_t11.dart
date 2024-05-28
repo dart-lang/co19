@@ -1,4 +1,4 @@
-// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -14,24 +14,34 @@
 /// otherwise correct, based on number or type of the arguments, it only checks
 /// whether there is a member at all.
 ///
-/// @description Check that an instance member takes a precedence over an
-/// extension member and it's never mind if the invocation is otherwise correct,
-/// based on number or type of the arguments, it only checks whether there is a
-/// member at all.
-/// @author sgrekhov@unipro.ru
+/// @description Check that it does not give rise to an ambiguity error at the
+/// call site if extension declares an instance getter with the same name as a
+/// static method in an extended class has and vice versa
+/// @author sgrekhov22@gmail.com
+
+import '../../Utils/expect.dart';
 
 class C {
-  String method(int i) => "$i";
+  static String foo1() => "C";
+  String foo2() => "C";
+  static String get baz1 => "C";
+  String get baz2 => "C";
 }
 
-extension on C {
-  String method(int i, String s) => "";
+extension E on C {
+  String get foo1 => "E";
+  static String get foo2 => "E";
+  String baz1() => "E";
+  static String baz2() => "E";
 }
 
 main() {
-  C c = new C();
-  c.method(42, "-42");
-//             ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals("C", C.foo1());
+  Expect.equals("E", C().foo1);
+  Expect.equals("C", C().foo2());
+  Expect.equals("E", E.foo2);
+  Expect.equals("C", C.baz1);
+  Expect.equals("E", C().baz1());
+  Expect.equals("C", C().baz2);
+  Expect.equals("E", E.baz2());
 }

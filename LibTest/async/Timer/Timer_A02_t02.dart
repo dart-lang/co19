@@ -8,7 +8,7 @@
 ///
 /// @description Checks that negative duration is accepted and treated as
 /// [Duration.zero]. Test that timer waits for microtask queue before the start
-/// @author sgrekhov@gmail.com
+/// @author sgrekhov22@gmail.com
 
 import "dart:async";
 import "../../../Utils/expect.dart";
