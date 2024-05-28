@@ -14,9 +14,9 @@
 /// otherwise correct, based on number or type of the arguments, it only checks
 /// whether there is a member at all.
 ///
-/// @description Check that it is not an error if extension declares an instance
-/// member with the same name as has a static member in an extended class and
-/// vice versa
+/// @description Check that it does not give rise to an ambiguity error at the
+/// call site if extension declares an instance method with the same name as has
+/// a static method in an extended class and vice versa
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/expect.dart';

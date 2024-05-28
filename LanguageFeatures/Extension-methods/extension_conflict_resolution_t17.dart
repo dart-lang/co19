@@ -22,8 +22,8 @@
 ///      instantiate-to-bounds type of [T2] and not vice versa.
 ///
 /// @description Check that it does not give rise to an ambiguity error at the
-/// call site if two extensions add static and instance methods with the same
-/// name
+/// call site if two extensions add static and instance methods/setters with the
+/// same basename
 /// @author sgrekhov22@gmail.com
 /// @issue 55848
 
@@ -32,18 +32,18 @@ import '../../Utils/expect.dart';
 class C {}
 
 extension Ext1 on C {
-  static String foo() => "Ext1";
-  String baz() => "Ext1";
+  String foo() => "Ext1";
+  static void set baz(String v) {}
 }
 
 extension Ext2 on C {
-  String foo() => "Ext2";
-  static String baz() => "Ext2";
+  static void set foo(String v) {}
+  String baz() => "Ext2";
 }
 
 main() {
-  Expect.equals("Ext1", Ext1.foo());
-  Expect.equals("Ext1", C().baz());
-  Expect.equals("Ext2", C().foo());
-  Expect.equals("Ext2", Ext2.baz());
+  Expect.equals("Ext1", C().foo());
+  Ext1.baz = "a";
+  Ext2.foo = "b";
+  Expect.equals("Ext2", C().baz());
 }

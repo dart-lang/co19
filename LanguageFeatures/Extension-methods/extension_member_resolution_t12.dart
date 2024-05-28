@@ -15,33 +15,48 @@
 /// whether there is a member at all.
 ///
 /// @description Check that it does not give rise to an ambiguity error at the
-/// call site if extension declares an instance getter with the same name as a
-/// static method in an extended class has and vice versa
+/// call site if extension declares an instance setter with the same basename as
+/// a static method in an extended class has and vice versa
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/expect.dart';
 
+String _log = "";
+
 class C {
   static String foo1() => "C";
   String foo2() => "C";
-  static String get baz1 => "C";
-  String get baz2 => "C";
+  static set baz1(String v) {
+    _log = "C.baz1=$v";
+  }
+  void set baz2(String v) {
+    _log = "C.baz2=$v";
+  }
 }
 
 extension E on C {
-  String get foo1 => "E";
-  static String get foo2 => "E";
+  void set foo1(String v) {
+    _log = "E.foo1=$v";
+  }
+  static void set foo2(String v) {
+    _log = "E.foo2=$v";
+  }
   String baz1() => "E";
   static String baz2() => "E";
 }
 
 main() {
   Expect.equals("C", C.foo1());
-  Expect.equals("E", C().foo1);
+  C().foo1 = "a";
+  Expect.equals("E.foo1=a", _log);
   Expect.equals("C", C().foo2());
-  Expect.equals("E", E.foo2);
-  Expect.equals("C", C.baz1);
+  E.foo2 = "b";
+  Expect.equals("E.foo2=b", _log);
+
+  C.baz1 = "c";
+  Expect.equals("C.baz1=c", _log);
   Expect.equals("E", C().baz1());
-  Expect.equals("C", C().baz2);
+  C().baz2 = "d";
+  Expect.equals("C.baz2=d", _log);
   Expect.equals("E", E.baz2());
 }

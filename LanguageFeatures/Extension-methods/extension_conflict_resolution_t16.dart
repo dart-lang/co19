@@ -21,8 +21,9 @@
 ///   5. the instantiate-to-bounds type of [T1] is a subtype of the
 ///      instantiate-to-bounds type of [T2] and not vice versa.
 ///
-/// @description Check that it is not an error if two extensions add static and
-/// instance members with the same basename
+/// @description Check that it does not give rise to an ambiguity error at the
+/// call site if two extensions add static and instance methods/getters with the
+/// same name
 /// @author sgrekhov22@gmail.com
 /// @issue 55848
 
