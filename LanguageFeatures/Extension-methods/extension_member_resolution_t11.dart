@@ -1,4 +1,4 @@
-// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -14,24 +14,26 @@
 /// otherwise correct, based on number or type of the arguments, it only checks
 /// whether there is a member at all.
 ///
-/// @description Check that an instance member takes a precedence over an
-/// extension member and it's never mind if the invocation is otherwise correct,
-/// based on number or type of the arguments, it only checks whether there is a
-/// member at all.
-/// @author sgrekhov@unipro.ru
+/// @description Check that it is not an error if extension declares an instance
+/// member with the same basename as has a static member in an extended class
+/// and vice versa
+/// @author sgrekhov22@gmail.com
+
+import '../../Utils/expect.dart';
 
 class C {
-  String method(int i) => "$i";
+  static String foo() => "C";
+  String baz() => "C";
 }
 
-extension on C {
-  String method(int i, String s) => "";
+extension E on C {
+  String get foo => "E";
+  static String get baz => "E";
 }
 
 main() {
-  C c = new C();
-  c.method(42, "-42");
-//             ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals("C", C.foo());
+  Expect.equals("E", C().foo);
+  Expect.equals("C", C().baz());
+  Expect.equals("E", E.baz);
 }
