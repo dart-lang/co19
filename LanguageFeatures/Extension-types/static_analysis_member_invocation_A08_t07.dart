@@ -12,7 +12,7 @@
 ///   a member signature m named n, and DV does not declare a member that
 ///   precludes m.
 ///
-/// @description Checks that an extension type declares a method it precludes
+/// @description Checks that if an extension type declares a method it precludes
 /// inherited members
 /// @author sgrekhov22@gmail.com
 
@@ -42,7 +42,7 @@ extension type ET4(C2 _) implements C2 {
 
 main() {
   ET1(C()).n();
-//          ^
+//         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

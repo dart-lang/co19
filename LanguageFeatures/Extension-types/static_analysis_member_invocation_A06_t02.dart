@@ -6,8 +6,9 @@
 /// type member named n in the cases where:
 /// - DV declares a member named n.
 /// - DV has no such declaration, but DV has a direct extension type
-///   superinterface V that has an extension type member named n due to a member
-///   declaration DM2, and DV does not declare a member that precludes DM2.
+///   superinterface V that has an extension type instance member named n due to
+///   a member declaration DM2, and DV does not declare an instance member that
+///   precludes DM2.
 ///
 /// @description Checks that if an extension type `ET` has a superinterface with
 /// a member `m` then this member is also present in `ET` but members of its

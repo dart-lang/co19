@@ -6,11 +6,12 @@
 /// type member named n in the cases where:
 /// - DV declares a member named n.
 /// - DV has no such declaration, but DV has a direct extension type
-///   superinterface V that has an extension type member named n due to a member
-///   declaration DM2, and DV does not declare a member that precludes DM2.
+///   superinterface V that has an extension type instance member named n due to
+///   a member declaration DM2, and DV does not declare an instance member that
+///   precludes DM2.
 ///
-/// @description Checks that an extension type declares a method or setter then
-/// they may preclude inherited members
+/// @description Checks that an extension type declares an instance method or
+/// setter then they may preclude inherited members
 /// @author sgrekhov22@gmail.com
 
 import "../../Utils/expect.dart";
@@ -50,7 +51,7 @@ extension type ET4(V2 _) implements V2 {
 main() {
   ET1(V1(0)).n = "1";
   Expect.equals("ET1: 1", log);
-  log = "";
+
   Expect.equals("ET2", ET2(V2(0)).n());
   ET3(V1(0)).n = 3;
   Expect.equals("ET3: 3", log);

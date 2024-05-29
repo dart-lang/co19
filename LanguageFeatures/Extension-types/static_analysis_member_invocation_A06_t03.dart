@@ -6,10 +6,12 @@
 /// type member named n in the cases where:
 /// - DV declares a member named n.
 /// - DV has no such declaration, but DV has a direct extension type
-///   superinterface V that has an extension type member named n due to a member
-///   declaration DM2, and DV does not declare a member that precludes DM2.
+///   superinterface V that has an extension type instance member named n due to
+///   a member declaration DM2, and DV does not declare an instance member that
+///   precludes DM2.
 ///
-/// @description Checks that a getter doesn't preclude setter and vice versa
+/// @description Checks that an instance getter doesn't preclude an instance
+/// setter and vice versa
 /// @author sgrekhov22@gmail.com
 
 import "../../Utils/expect.dart";
@@ -53,17 +55,14 @@ main() {
   Expect.equals("V1", ET1(v).n);
   ET1(v).n = "a";
   Expect.equals("ET1: a", log);
-  log = "";
 
   Expect.equals("ET2", ET2(v).n);
   ET2(v).n = "b";
   Expect.equals("V2: b", log);
-  log = "";
 
   Expect.equals("ET3", ET3(v).n);
   ET3(v).n = "c";
   Expect.equals("V2: c", log);
-  log = "";
 
   Expect.equals("V1", ET4(v).n);
   ET4(v).n = "d";
