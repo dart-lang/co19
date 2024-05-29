@@ -6,11 +6,11 @@
 /// type member named n in the case where DV does not declare a member named n,
 /// and one of the following criteria is satisfied:
 /// - DV has a direct extension type superinterface V that has a non-extension
-///   type member with signature m and name n, and DV does not declare a member
-///   that precludes m.
+///   type member with signature m and name n, and DV does not declare an
+///   instance member that precludes m.
 /// - DV has a direct non-extension type superinterface whose interface contains
-///   a member signature m named n, and DV does not declare a member that
-///   precludes m.
+///   a member signature m named n, and DV does not declare an instance member
+///   that precludes m.
 ///
 /// @description Checks that a getter doesn't preclude setter and vice versa,
 /// and hence the `ET*` types have a getter/setter signature conflict.

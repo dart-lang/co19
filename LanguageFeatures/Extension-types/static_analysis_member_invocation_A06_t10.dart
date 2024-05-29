@@ -1,4 +1,4 @@
-// Copyright (c) 2023, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -10,50 +10,38 @@
 ///   a member declaration DM2, and DV does not declare an instance member that
 ///   precludes DM2.
 ///
-/// @description Checks that an extension type declares an instance method or
-/// setter then they may preclude inherited members
+/// @description Checks that an instance members don't preclude a static setter
 /// @author sgrekhov22@gmail.com
 
 import "../../Utils/expect.dart";
 
-String log = "";
+String _log = "";
 
 extension type V1(int _) {
-  String n() => "V1";
-}
-
-extension type V2(int _) {
-  void set n(String v) {
-    log = "V2: $v";
+  static void set n(String v) {
+    _log = "V1.n=$v";
   }
 }
 
 extension type ET1(V1 _) implements V1 {
-  void set n(String v) {
-    log = "ET1: $v";
-  }
+  String n() => "ET1";
 }
 
-extension type ET2(V2 _) implements V2 {
-  String n() => "ET2";
+extension type ET2(V1 _) implements V1 {
+  String get n => "ET2";
 }
 
 extension type ET3(V1 _) implements V1 {
-  void set n(int v) {
-    log = "ET3: $v";
+  void set n(String v) {
+    _log = "ET3.n=$v";
   }
 }
 
-extension type ET4(V2 _) implements V2 {
-  T n<T>(T t) => t;
-}
-
 main() {
-  ET1(V1(0)).n = "1";
-  Expect.equals("ET1: 1", log);
-
-  Expect.equals("ET2", ET2(V2(0)).n());
-  ET3(V1(0)).n = 3;
-  Expect.equals("ET3: 3", log);
-  Expect.equals(42, ET4(V2(0)).n<int>(42));
+  V1.n = "x";
+  Expect.equals("V1.n=x", _log);
+  Expect.equals("ET1", ET1(V1(1)).n());
+  Expect.equals("ET2", ET2(V1(2)).n);
+  ET3(V1(2)).n = "y";
+  Expect.equals("ET3.n=y", _log);
 }

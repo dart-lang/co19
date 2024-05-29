@@ -8,7 +8,7 @@
 ///
 /// @description Checks that it is a compile-time error if an extension type `V`
 /// declares a static member with basename `n` and the interface of `V` has an
-/// instance member with basename `n`.
+/// instance method or getter with name `n`.
 /// @author sgrekhov22@gmail.com
 /// @issue 53172
 
