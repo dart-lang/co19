@@ -73,9 +73,14 @@ int test6(S s) {
   }
 }
 
-
 void main() {
   S s = F();
+
+  var i0 = switch (s) { C _ => 1, F _ => 2 };
+//         ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   int i1 = switch (s) { C _ => 1 };
 //         ^^^^^^
 // [analyzer] unspecified
@@ -91,10 +96,9 @@ void main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  // The same as `i0` but the error is not reported. It's flow analysis issue
+  // described in #53392. Considered Ok.
   var i4 = switch (s) { C _ => 1, F _ => 2 };
-//         ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   final i5 = switch (s) { M _ => 1, F _ => 2 };
 //           ^^^^^^
