@@ -2,15 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We say that an extension type declaration DV has an extension
-/// type member named n in the cases where:
-/// - DV declares a member named n.
-/// - DV has no such declaration, but DV has a direct extension type
-///   superinterface V that has an extension type instance member named n due to
-///   a member declaration DM2, and DV does not declare an instance member that
-///   precludes DM2.
+/// @assertion All name conflicts specified in the language specification
+/// section 'Class Member Conflicts' occur as well in an extension type
+/// declaration.
 ///
-/// @description Checks that an instance members don't preclude a static setter
+/// @description Checks that it is not an error if an extension type declares an
+/// instance members with the basename `n` and there is a superinterface with a
+/// static method with the name `n`.
 /// @author sgrekhov22@gmail.com
 
 import "../../Utils/expect.dart";
@@ -18,9 +16,7 @@ import "../../Utils/expect.dart";
 String _log = "";
 
 extension type V1(int _) {
-  static void set n(String v) {
-    _log = "V1.n=$v";
-  }
+  static String n() => "V1";
 }
 
 extension type ET1(V1 _) implements V1 {
@@ -38,10 +34,9 @@ extension type ET3(V1 _) implements V1 {
 }
 
 main() {
-  V1.n = "x";
-  Expect.equals("V1.n=x", _log);
+  Expect.equals("V1", V1.n());
   Expect.equals("ET1", ET1(V1(1)).n());
   Expect.equals("ET2", ET2(V1(2)).n);
-  ET3(V1(2)).n = "y";
-  Expect.equals("ET3.n=y", _log);
+  ET3(V1(2)).n = "x";
+  Expect.equals("ET3.n=x", _log);
 }

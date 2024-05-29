@@ -2,15 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We say that an extension type declaration DV has an extension
-/// type member named n in the cases where:
-/// - DV declares a member named n.
-/// - DV has no such declaration, but DV has a direct extension type
-///   superinterface V that has an extension type instance member named n due to
-///   a member declaration DM2, and DV does not declare an instance member that
-///   precludes DM2.
+/// @assertion All name conflicts specified in the language specification
+/// section 'Class Member Conflicts' occur as well in an extension type
+/// declaration.
 ///
-/// @description Checks that a static members doesn't preclude each others
+/// @description Checks that it is not an error if an extension type declares
+/// static members with the basename `n` and there is a superinterface with
+/// static members with the sane basename `n`.
 /// @author sgrekhov22@gmail.com
 
 import "../../Utils/expect.dart";
