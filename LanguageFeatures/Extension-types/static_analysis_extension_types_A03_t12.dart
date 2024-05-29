@@ -7,7 +7,7 @@
 /// declaration.
 ///
 /// @description Checks that it is not an error if an extension type declares an
-/// instance members with the basename `n` and there is a superinterface with a
+/// instance member with the basename `n` and there is a superinterface with a
 /// non-extension static getter with the name `n`.
 /// @author sgrekhov22@gmail.com
 
