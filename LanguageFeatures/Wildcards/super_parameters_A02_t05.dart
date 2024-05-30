@@ -6,27 +6,28 @@
 /// non-redirecting generative constructors. Such a parameter forwards the
 /// argument's value to the super constructor invocation.
 ///
-/// @description Checks that it is not an error to refer `super._` in a body of
-/// a constructor or a method.
+/// @description Check that is is still a compile-time error to use `super._`as
+/// a named parameter
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=wildcard-variables
 
-import '../../Utils/expect.dart';
-
 class A {
-  final _ = () => 42;
+  final int x;
+  const A({this.x = 0});
 }
 
 class C extends A {
-  Function v = () {};
-  C() {
-    v = super._;
-  }
-
+  C({super._ = 1});
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const C.cnst({super._ = 2});
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  C c = C();
-  Expect.equals(42, c.v());
+  print(C);
 }

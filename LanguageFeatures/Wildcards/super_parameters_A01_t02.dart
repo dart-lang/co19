@@ -2,39 +2,37 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion An occurrence of `super._` as a declaration of a formal parameter
-/// in a constructor is a compile-time error. This error also occurs in the case
-/// where the super parameter has an explicitly declared type and/or default
-/// value.
+/// @assertion The positional formal parameter super._ is still allowed in
+/// non-redirecting generative constructors. Such a parameter forwards the
+/// argument's value to the super constructor invocation.
 ///
-/// @description Checks that it is a compile-time error to refer `super._` as a
-/// formal parameter of a constructor. Test the case when the super parameter
-/// has an explicitly declared type and/or default value.
+/// @description Checks that `super._` forwards the argument's value to the
+/// super constructor invocation.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=wildcard-variables
 
+import '../../Utils/expect.dart';
+
 class A {
-  int _ = 0;
-  A(this._);
+  final x, _;
+  const A(this.x, this._);
 }
 
-class C1 extends A {
-  C1(super._);
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C2 extends A {
-  final int _;
-  C2(int v, super._) : this._ = v;
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C extends A {
+  C(super._, super.x);
+  C.n(int super.z, int super._);
+  const C.cnst1(super._, super.x);
+  const C.cnst2(String super._, super.z);
 }
 
 main() {
-  print(C1);
-  print(C2);
+  Expect.equals(1, C(1, 2).x);
+  Expect.equals(2, C(1, 2)._);
+  Expect.equals(3, C.n(3, 4).x);
+  Expect.equals(4, C.n(3, 4)._);
+  Expect.equals(5, const C.cnst1(5, 6).x);
+  Expect.equals(6, const C.cnst1(5, 6)._);
+  Expect.equals("7", C.cnst2("7", "8").x);
+  Expect.equals("8", C.cnst2("7", "8")._);
 }

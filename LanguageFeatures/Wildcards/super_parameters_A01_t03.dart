@@ -2,38 +2,48 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion An occurrence of `super._` as a declaration of a formal parameter
-/// in a constructor is a compile-time error. This error also occurs in the case
-/// where the super parameter has an explicitly declared type and/or default
-/// value.
+/// @assertion The positional formal parameter super._ is still allowed in
+/// non-redirecting generative constructors. Such a parameter forwards the
+/// argument's value to the super constructor invocation.
 ///
-/// @description Checks that it is a compile-time error to refer `super._` as a
-/// formal parameter of a constructor.
+/// @description Checks that `super._` forwards the argument's value to the
+/// super constructor invocation. Test optional parameters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=wildcard-variables
 
+import '../../Utils/expect.dart';
+
 class A {
-  int _ = 0;
-  A(this._);
+  final x, _;
+  const A([this.x = 1, this._ = 2]);
 }
 
-class C1 extends A {
-  C1([super._ = 1]);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C2 extends A {
-  final int _;
-  C2(int v, [super._ = 2]) : this._ = v;
-//                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C extends A {
+  C([super._, super.x]);
+  C.n([int super.z, int super._ = -1]);
+  const C.cnst1([super._, super.x]);
+  const C.cnst2([int super._ = -1, super.z]);
 }
 
 main() {
-  print(C1);
-  print(C2);
+  Expect.equals(1, C().x);
+  Expect.equals(2, C()._);
+  Expect.equals(3, C(3, 4).x);
+  Expect.equals(4, C(3, 4)._);
+
+  Expect.equals(1, C.n().x);
+  Expect.equals(-1, C.n()._);
+  Expect.equals(5, C.n(5, 6).x);
+  Expect.equals(6, C.n(5, 6)._);
+
+  Expect.equals(1, const C.cnst1().x);
+  Expect.equals(2, const C.cnst1()._);
+  Expect.equals(7, const C.cnst1(7, 8).x);
+  Expect.equals(8, const C.cnst1(7, 8)._);
+
+  Expect.equals(-1, C.cnst2().x);
+  Expect.equals(2, C.cnst2()._);
+  Expect.equals(9, C.cnst2(9, 10).x);
+  Expect.equals(10, C.cnst2(9, 10)._);
 }

@@ -2,10 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion An occurrence of `super._` as a declaration of a formal parameter
-/// in a constructor is a compile-time error. This error also occurs in the case
-/// where the super parameter has an explicitly declared type and/or default
-/// value.
+/// @assertion The positional formal parameter super._ is still allowed in
+/// non-redirecting generative constructors. Such a parameter forwards the
+/// argument's value to the super constructor invocation.
 ///
 /// @description Checks that it is not an error to refer `super._` in a body of
 /// a constructor or a method.
@@ -16,7 +15,8 @@
 import '../../Utils/expect.dart';
 
 class A {
-  int _ = 0;
+  int _;
+  A([this._ = 0]);
 }
 
 class C extends A {

@@ -6,8 +6,8 @@
 /// non-redirecting generative constructors. Such a parameter forwards the
 /// argument's value to the super constructor invocation.
 ///
-/// @description Checks that it is not an error to refer `super._` in a body of
-/// a constructor or a method.
+/// @description Checks that `super._` forwards the argument's value to the
+/// super constructor invocation, not to the current class.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=wildcard-variables
@@ -15,18 +15,21 @@
 import '../../Utils/expect.dart';
 
 class A {
-  final _ = () => 42;
+  int x, y;
+  A(this.x, this.y);
 }
 
 class C extends A {
-  Function v = () {};
-  C() {
-    v = super._;
-  }
-
+  final _ = 0;
+  C(super._, super.x);
+  C.n(int super.z, int super._);
 }
 
 main() {
-  C c = C();
-  Expect.equals(42, c.v());
+  Expect.equals(1, C(1, 2).x);
+  Expect.equals(2, C(1, 2).y);
+  Expect.equals(0, C(1, 2)._);
+  Expect.equals(3, C.n(3, 4).x);
+  Expect.equals(4, C.n(3, 4).y);
+  Expect.equals(0, C.n(3, 4)._);
 }
