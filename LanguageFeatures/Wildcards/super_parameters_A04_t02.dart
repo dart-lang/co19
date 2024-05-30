@@ -5,7 +5,7 @@
 /// @assertion Multiple `super._` and `this._` parameters can occur in the same
 /// constructor without any name collision.
 ///
-/// @description Checks that multiple `super._` and `this._` parameters can
+/// @description Checks that `this._` and multiple `super._` parameters can
 /// occur in the same constructor without any name collision.
 /// @author sgrekhov22@gmail.com
 
