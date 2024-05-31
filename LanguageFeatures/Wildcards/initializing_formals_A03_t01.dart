@@ -6,7 +6,7 @@
 /// error to have two initializing formals named `_`
 ///
 /// @description Checks that it is a compile-time error to declare more than one
-/// initializing formals named `_`
+/// initializing formal `this._`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=wildcard-variables

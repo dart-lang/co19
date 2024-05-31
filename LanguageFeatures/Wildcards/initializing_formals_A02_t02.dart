@@ -16,12 +16,12 @@ import '../../Utils/expect.dart';
 
 class C1 {
   int _, a;
-  C1(this.a) : _ = a;
+  C1(this.a) : _ = a; // OK, there is no name clash with the wildcard parameter.
 }
 
 class C2 {
   final int _, a;
-  const C2(this.a) : _ = a;
+  const C2(this.a) : _ = a; // OK, there is no name clash with the wildcard parameter.
 }
 
 main() {
