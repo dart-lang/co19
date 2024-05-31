@@ -16,15 +16,19 @@ import '../../Utils/expect.dart';
 
 class C1 {
   int _, a;
-  C1(this.a) : _ = a; // OK, there is no name clash with the wildcard parameter.
+  C1(this.a) : _ = a;
+  C1.n(this.a, int _) : _ = a;
 }
 
 class C2 {
   final int _, a;
-  const C2(this.a) : _ = a; // OK, there is no name clash with the wildcard parameter.
+  const C2(this.a) : _ = a;
+  const C2.n(this.a, int _) : _ = a;
 }
 
 main() {
   Expect.equals(42, C1(42)._);
+  Expect.equals(42, C1.n(42, 0)._);
   Expect.equals(42, const C2(42)._);
+  Expect.equals(42, const C2.n(42, 0)._);
 }
