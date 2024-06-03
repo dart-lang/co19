@@ -27,7 +27,7 @@
 import '../../../Utils/static_type_helper.dart';
 
 main() {
-  String e1 = "e1";
+  String e1? = "e1";
 
   var set1 = <String>{
     ?(e1.expectStaticType<Exactly<String?>>()),
