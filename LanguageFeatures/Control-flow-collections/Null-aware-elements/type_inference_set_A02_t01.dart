@@ -34,5 +34,4 @@ main() {
     ?null
   };
   set1.expectStaticType<Exactly<String>>();
-
 }
