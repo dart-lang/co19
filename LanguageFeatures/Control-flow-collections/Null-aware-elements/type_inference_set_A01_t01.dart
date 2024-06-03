@@ -33,5 +33,5 @@ main() {
     ?e1,
     ?null
   };
-  set1.expectStaticType<Exactly<String>>();
+  set1.expectStaticType<Exactly<Set<String>>>();
 }
