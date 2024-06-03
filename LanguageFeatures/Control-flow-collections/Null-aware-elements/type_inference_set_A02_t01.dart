@@ -30,7 +30,7 @@ main() {
   String? e1 = "e1";
 
   var set1 = <String>{
-    ?(e1.expectStaticType<Exactly<String?>>()),
+    ?(e1..expectStaticType<Exactly<String?>>()),
     ?null
   };
   set1.expectStaticType<Exactly<Set<String>>>();
