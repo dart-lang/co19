@@ -17,7 +17,7 @@
 ///   least one `expressionElement` or `nullAwareExpressionElement`, report a
 ///   compile-time error.
 ///
-/// @description Check that if leaf elements has at least one
+/// @description Check that if the set of leaf elements has at least one
 /// `nullAwareExpressionElement` and no `mapEntry` or
 /// `nullAwareMapEntry` elements, then `e` is a set literal
 /// @author sgrekhov22@gmail.com

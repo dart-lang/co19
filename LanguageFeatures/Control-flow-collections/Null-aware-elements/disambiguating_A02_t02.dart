@@ -17,9 +17,9 @@
 ///   least one `expressionElement` or `nullAwareExpressionElement`, report a
 ///   compile-time error.
 ///
-/// @description Check that it is a compile-time error if leaf elements has at
-/// least one `nullAwareMapEntry` and at least one `expressionElement` or
-/// `nullAwareExpressionElement` elements.
+/// @description Check that it is a compile-time error if the set of leaf
+/// elements has at least one `nullAwareMapEntry` and at least one
+/// `expressionElement` or `nullAwareExpressionElement` elements.
 /// @author sgrekhov22@gmail.com
 
 main() {
