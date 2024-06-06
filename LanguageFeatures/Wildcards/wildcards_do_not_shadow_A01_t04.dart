@@ -17,7 +17,7 @@
 // This program is valid and assigns to the field, not the local.
 ///
 /// @description Checks that a local variable named `_` doesn't shadow a
-/// top-level method named `_` but a class field does.
+/// top-level setter named `_` but a class field does.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=wildcard-variables
@@ -26,7 +26,9 @@ import '../../Utils/expect.dart';
 
 String _log = "";
 
-void _(String v) {_log = "top-level $v";}
+void set _(String v) {
+  _log = "top-level $v";
+}
 
 test() {
   var _ = "";
