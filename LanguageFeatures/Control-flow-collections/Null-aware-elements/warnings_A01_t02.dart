@@ -8,102 +8,99 @@
 /// has no meaningful effect.
 ///
 /// @description Check that it is a warning if the inner expressions in
-/// null-aware elements are not potentially nullable.
+/// null-aware elements are not potentially nullable. Test literals
 /// @author sgrekhov22@gmail.com
 
 main() {
-  int e1 = 42;
-  int? e2 = 2 > 1 ? 2 : null;
-  int? e3 = 2 > 1 ? 3 : null;
-  int? e4 = 2 > 1 ? 4 : null;
+  <Object>{
+    ?42,
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ?3.14,
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ?true,
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ?"",
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ?'''  Raw string   '''
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 
-  if (e4 != null) {
-    <Object>{
-      ?e1,
-//    ^
+  <Object>[
+    ?42,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      ?e2!,
-//    ^
+    ?3.14,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      if (e3 != null)
-        ?e3
-//      ^
+    ?true,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      else
-        ?e3, // Ok
-      ?e4
-//    ^
+    ?"",
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    };
+    ?'''  Raw string   '''
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ];
 
-    <Object>[
-        ?e1,
-//      ^
+  <Object, int>{
+    ?42: 0,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        ?e2!,
-//      ^
+    ?3.14: 0,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        if (e3 != null)
-          ?e3
-//        ^
+    ?true: 0,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        else
-          ?e3, // Ok
-        ?e4
-//      ^
+    ?"": 0,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    ];
+    ?'''  Raw string   ''': 0
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 
-    <Object, int>{
-        ?e1: 1,
-//      ^
+  <int, Object>{
+    1: ?42,
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        ?e2!: 2,
-//      ^
+    2: ?3.14,
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        if (e3 != null)
-          ?e3: 3
-//        ^
+    3: ?true,
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        else
-          ?e3: 3, // Ok
-        ?e4: 4
-//      ^
+    4: ?"",
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    };
-
-    <int, Object>{
-      1: ?e1,
-//       ^
+    5: ?'''  Raw string   '''
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      2: ?e2!,
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      if (e3 != null)
-        3: ?e3
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      else
-        3: ?e3, // Ok
-      4: ?e4
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    };
-  }
+  };
 }

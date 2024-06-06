@@ -8,102 +8,117 @@
 /// has no meaningful effect.
 ///
 /// @description Check that it is a warning if the inner expressions in
-/// null-aware elements are not potentially nullable.
+/// null-aware elements are not potentially nullable. Test collection literals
 /// @author sgrekhov22@gmail.com
 
 main() {
-  int e1 = 42;
-  int? e2 = 2 > 1 ? 2 : null;
-  int? e3 = 2 > 1 ? 3 : null;
-  int? e4 = 2 > 1 ? 4 : null;
+  int? e = 2 > 1 ? 1 : null;
 
-  if (e4 != null) {
-    <Object>{
-      ?e1,
-//    ^
+  <Iterable>{
+    ?[],
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      ?e2!,
-//    ^
+    ?[?e],
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      if (e3 != null)
-        ?e3
-//      ^
+    ?{?e},
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      else
-        ?e3, // Ok
-      ?e4
-//    ^
+    ?{},
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    };
+    ?{?e: 1},
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ?{2: ?e},
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 
-    <Object>[
-        ?e1,
-//      ^
+  <Iterable>[
+    ?[],
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        ?e2!,
-//      ^
+    ?[?e],
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        if (e3 != null)
-          ?e3
-//        ^
+    ?{?e},
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        else
-          ?e3, // Ok
-        ?e4
-//      ^
+    ?{},
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    ];
+    ?{?e: 1},
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ?{2: ?e},
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ];
 
-    <Object, int>{
-        ?e1: 1,
-//      ^
+  <Iterable, int>{
+    ?[]: 1,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        ?e2!: 2,
-//      ^
+    ?[?e]: 2,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        if (e3 != null)
-          ?e3: 3
-//        ^
+    ?{?e}: 3,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        else
-          ?e3: 3, // Ok
-        ?e4: 4
-//      ^
+    ?{}: 4,
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    };
+    ?{?e: 1}: 5,
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ?{2: ?e}: 6,
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 
-    <int, Object>{
-      1: ?e1,
-//       ^
+  <int, Iterable>{
+    1: ?[],
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      2: ?e2!,
-//       ^
+    2: ?[?e],
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      if (e3 != null)
-        3: ?e3
-//         ^
+    3: ?{?e},
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      else
-        3: ?e3, // Ok
-      4: ?e4
-//       ^
+    4: ?{},
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    };
-  }
+    5: ?{?e: 1},
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    6: ?{2: ?e},
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 }
