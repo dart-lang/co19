@@ -25,5 +25,5 @@ class C {
 }
 
 main() {
-  Expect.equals(42, C(42));
+  Expect.equals(42, C(42)._);
 }
