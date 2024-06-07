@@ -19,6 +19,7 @@ main() {
 //             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  f1(_x: 1);
+
+  f1(_: 1);
   f2();
 }
