@@ -28,6 +28,10 @@ mixin M {
   void set call(int _) {}
 }
 
+extension type ET(int _) {
+  void set call(int _) {}
+}
+
 class MA = Object with M;
 
 main() {
@@ -40,6 +44,10 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   Function f3 = MA();
+//              ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Function f4 = ET(0);
 //              ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

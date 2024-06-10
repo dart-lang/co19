@@ -10,45 +10,15 @@
 /// named call, i is treated as the ordinary invocation
 /// ef .call<A1, . . . , Ar>(a1, . . . , an, xn+1: an+1, . . . , xn+k: an+k)
 ///
-/// @description Checks that an interface containing a `call` getter is not
-/// assignable to the type `Function`
+/// @description Checks that it is a compile-time error to assign an extension
+/// type with an implicit `call` getter to the type `Function`
 /// @author sgrekhov22@gmail.com
 
-class C {
-  int get call => 1;
-}
+extension type ET(Function call) {}
 
-enum E {
-  e1, e2;
-
-  int get call => 2;
-}
-
-mixin M {
-  int get call => 3;
-}
-
-extension type ET(int _) {
-  int get call => 4;
-}
-
-class MA = Object with M;
-
-main() {
-  Function f1 = C();
-//              ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Function f2 = E.e1;
-//              ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Function f3 = MA();
-//              ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Function f4 = ET(4);
-//              ^^^^^
+void main() {
+  Function f = ET(() {print("Somethig");});
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
