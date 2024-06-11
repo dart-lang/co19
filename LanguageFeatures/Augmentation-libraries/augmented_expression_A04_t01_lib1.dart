@@ -6,8 +6,8 @@
 /// being augmented, but it generally follows the same rules as any normal
 /// identifier:
 /// ...
-/// - Augmenting functions: When augmenting a function, augmented refers to the
-///   augmented function. Tear offs are not allowed, so this function must
+/// - Augmenting functions: When augmenting a function, `augmented` refers to
+///   the augmented function. Tear offs are not allowed, so this function must
 ///   immediately be invoked.
 ///
 /// @description Checks that it is a compile-time error to tear-off `augmented`

@@ -10,46 +10,42 @@
 ///   the augmented function. Tear offs are not allowed, so this function must
 ///   immediately be invoked.
 ///
-/// @description Checks that it is a compile-time error to declare a local
-/// function named `augmented()` inside of an augmenting function
+/// @description Checks that it is a compile-time error for an augmenting
+/// function to have as a positional parameter a record with a named field
+/// with the name `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A04_t03.dart';
+augment library 'augmented_expression_A04_t14.dart';
 
-augment void topLevelFunction() {
-  int augmented() => 42;
-//    ^^^^^^^^^
+augment void topLevelFunction(({int augmented}) r) {
+//                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment class C {
-  augment static void staticMethod() {
-    int augmented() => 42;
-//      ^^^^^^^^^
+  augment static void staticMethod(({int augmented}) r) {
+//                                       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment void instanceMethod() {
-    int augmented() => 42;
-//      ^^^^^^^^^
+  augment void instanceMethod(({int augmented}) r) {
+//                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 }
 
 augment mixin M {
-  augment static void staticMethod() {
-    int augmented() => 42;
-//      ^^^^^^^^^
+  augment static void staticMethod(({int augmented}) r) {
+//                                       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment void instanceMethod() {
-    int augmented() => 42;
-//      ^^^^^^^^^
+  augment void instanceMethod(({int augmented}) r) {
+//                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -58,30 +54,26 @@ augment mixin M {
 augment enum E {
   augment e1;
 
-  augment static void staticMethod() {
-    int augmented() => 42;
-//      ^^^^^^^^^
+  augment static void staticMethod(({int augmented}) r) {
+//                                       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment void instanceMethod() {
-    int augmented() => 42;
-//      ^^^^^^^^^
+  augment void instanceMethod(({int augmented}) r) {
+//                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 }
 
 augment extension Ext {
-  augment static void staticMethod() {
-    int augmented() => 42;
-//      ^^^^^^^^^
+  augment static void staticMethod(({int augmented}) r) {
+//                                       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment void instanceMethod() {
-    int augmented() => 42;
-//      ^^^^^^^^^
+  augment void instanceMethod(({int augmented}) r) {
+//                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
