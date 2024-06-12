@@ -30,14 +30,20 @@ mixin M {
   int call() => 3;
 }
 
+extension type ET(int _) {
+  int call() => 4;
+}
+
 class MA = Object with M;
 
 main() {
   Function f1 = C();
   Function f2 = E.e1;
   Function f3 = MA();
+  Function f4 = ET(0);
 
   Expect.equals(1, f1());
   Expect.equals(2, f2());
   Expect.equals(3, f3());
+  Expect.equals(4, f4());
 }

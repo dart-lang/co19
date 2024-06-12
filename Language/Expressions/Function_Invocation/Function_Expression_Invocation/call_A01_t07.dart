@@ -10,45 +10,64 @@
 /// named call, i is treated as the ordinary invocation
 /// ef .call<A1, . . . , Ar>(a1, . . . , an, xn+1: an+1, . . . , xn+k: an+k)
 ///
-/// @description Checks that an interface containing a `call` getter is not
-/// assignable to the type `Function`
+/// @description Checks that if a getter named `call` returns a function id
+/// doesn't make an object callable
 /// @author sgrekhov22@gmail.com
+/// @issue 55803
 
 class C {
-  int get call => 1;
-}
-
-enum E {
-  e1, e2;
-
-  int get call => 2;
+  Function get call => () {print("C");};
 }
 
 mixin M {
-  int get call => 3;
+  Function get call => () {print("M");};
+}
+
+enum E {
+  e0;
+  Function get call => () {print("E");};
 }
 
 extension type ET(int _) {
-  int get call => 4;
+  Function get call => () {print("ET");};
+}
+
+class A {}
+
+extension Ext on A {
+  Function get call => () {print("Ext");};
 }
 
 class MA = Object with M;
 
-main() {
-  Function f1 = C();
-//              ^^^
+void main() {
+  C().call(); // Ok
+  C()();
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Function f2 = E.e1;
-//              ^^^^
+
+  MA().call(); // Ok
+  MA()();
+//^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Function f3 = MA();
-//              ^^^^
+
+  E.e0.call(); // Ok
+  E.e0();
+//^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Function f4 = ET(4);
-//              ^^^^^
+
+  ET(0).call(); // Ok
+  ET(1)();
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A().call(); // Ok
+  A()();
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
