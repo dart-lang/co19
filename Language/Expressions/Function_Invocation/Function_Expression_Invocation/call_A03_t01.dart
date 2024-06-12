@@ -17,8 +17,8 @@
 extension type ET(Function call) {}
 
 void main() {
-  Function f = ET(() {print("Somethig");});
-//             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  Function f = ET(() {print("Something");});
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
