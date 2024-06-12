@@ -24,10 +24,7 @@ class A {
 // [cfe] unspecified
 }
 
-class C extends A {
-//    ^
-// [analyzer] unspecified
-}
+class C extends A {}
 
 enum E {
   e1, e2;
