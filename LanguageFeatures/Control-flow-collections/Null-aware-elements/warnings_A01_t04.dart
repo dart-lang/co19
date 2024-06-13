@@ -45,11 +45,11 @@ main() {
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    4: ? f(1) ?? 1: 0,
+    4: ? f(1) ?? 1,
 //     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    5: ? 2 > 1 ? 2 : 3: 0,
+    5: ? 2 > 1 ? 2 : 3,
 //     ^
 // [analyzer] unspecified
 // [cfe] unspecified
