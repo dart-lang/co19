@@ -24,6 +24,10 @@ main() {
   int? e = 2 > 1 ? 1 : null;
 
   <int>[
+    (?e),
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
     1 + ?e,
 //      ^
 // [analyzer] unspecified
@@ -39,6 +43,10 @@ main() {
   ];
 
   <int>{
+    (?e),
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
     1 + ?e,
 //      ^
 // [analyzer] unspecified
@@ -54,6 +62,10 @@ main() {
   };
 
   <int, int>{
+    (?e): 0,
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
     1 + ?e: 1,
 //      ^
 // [analyzer] unspecified
@@ -69,6 +81,10 @@ main() {
   };
 
   <int, int>{
+    0: (?e),
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
     1: 1 + ?e,
 //         ^
 // [analyzer] unspecified
