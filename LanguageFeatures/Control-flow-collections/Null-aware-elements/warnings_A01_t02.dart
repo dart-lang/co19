@@ -29,7 +29,11 @@ main() {
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    ?'''  Raw string   '''
+    ?'''  Triple quoted string   ''',
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ?r'  Raw string   '
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -52,7 +56,11 @@ main() {
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    ?'''  Raw string   '''
+    ?'''  Triple quoted string   ''',
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ?r'  Raw string   '
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -75,7 +83,11 @@ main() {
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    ?'''  Raw string   ''': 0
+    ?'''  Triple quoted string   ''': 0,
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ?r'  Raw string   ': 0
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -98,8 +110,12 @@ main() {
 //     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    5: ?'''  Raw string   '''
-//     ^
+    5: ?'''  Triple quoted string   ''',
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    6: ?r'  Raw string  '
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
   };

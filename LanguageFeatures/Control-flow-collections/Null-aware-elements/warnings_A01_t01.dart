@@ -11,7 +11,7 @@
 /// null-aware elements are not potentially nullable.
 /// @author sgrekhov22@gmail.com
 
-main() {
+void testSet() {
   int e1 = 42;
   int? e2 = 2 > 1 ? 2 : null;
   int? e3 = 2 > 1 ? 3 : null;
@@ -39,51 +39,78 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
     };
+  }
+}
 
+void testList() {
+  int e1 = 42;
+  int? e2 = 2 > 1 ? 2 : null;
+  int? e3 = 2 > 1 ? 3 : null;
+  int? e4 = 2 > 1 ? 4 : null;
+
+  if (e4 != null) {
     <Object>[
-        ?e1,
+      ?e1,
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      ?e2!,
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      if (e3 != null)
+        ?e3
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        ?e2!,
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-        if (e3 != null)
-          ?e3
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-        else
-          ?e3, // Ok
-        ?e4
-//      ^
+      else
+        ?e3, // Ok
+      ?e4
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
     ];
+  }
+}
 
+void testMapKey() {
+  int e1 = 42;
+  int? e2 = 2 > 1 ? 2 : null;
+  int? e3 = 2 > 1 ? 3 : null;
+  int? e4 = 2 > 1 ? 4 : null;
+
+  if (e4 != null) {
     <Object, int>{
-        ?e1: 1,
+      ?e1: 1,
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      ?e2!: 2,
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      if (e3 != null)
+        ?e3: 3
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        ?e2!: 2,
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-        if (e3 != null)
-          ?e3: 3
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-        else
-          ?e3: 3, // Ok
+      else
+        ?e3: 3, // Ok
         ?e4: 4
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
     };
+  }
+}
 
+void testMapValue() {
+  int e1 = 42;
+  int? e2 = 2 > 1 ? 2 : null;
+  int? e3 = 2 > 1 ? 3 : null;
+  int? e4 = 2 > 1 ? 4 : null;
+
+  if (e4 != null) {
     <int, Object>{
       1: ?e1,
 //       ^
@@ -106,4 +133,11 @@ main() {
 // [cfe] unspecified
     };
   }
+}
+
+main() {
+  testSet();
+  testList();
+  testMapKey();
+  testMapValue();
 }
