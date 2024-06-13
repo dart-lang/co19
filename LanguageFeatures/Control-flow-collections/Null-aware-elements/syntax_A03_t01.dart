@@ -20,43 +20,37 @@
 /// whole expression, not just the first token
 /// @author sgrekhov22@gmail.com
 
+import '../../../Utils/expect.dart';
+
+extension on int? {
+  int? operator +(int other) {
+    if (this != null) {
+      return other + this!;
+    }
+    return null;
+  }
+}
+
 main() {
   int? e = 2 > 1 ? 1 : null;
 
-  <int>[
+  var list = <int>[
     ? e + 1,
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
     ?(e) + 1
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
   ];
+  Expect.listEquals([2, 3], list);
 
-  <int>{
+  var set = <int>{
     ? e + 1,
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    ?(e) + 1
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+    ?(e) + 2
   };
+  Expect.setEquals({2, 3}, set);
 
-  <int, int>{
-    ? e + 1: 1,
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    ? (e) + 1: 1,
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    1: ? e + 1,
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  var map = <int, int>{
+    0: ? e - 1,
+    1: ? (e) + 0,
+    ? e + 1: 2,
+    ? (e) + 2: 3,
   };
+  Expect.mapEquals({0: 0, 1: 1, 2: 2, 3: 3}, map);
 }
