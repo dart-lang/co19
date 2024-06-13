@@ -28,7 +28,7 @@ main() {
   var map1 = {
     f(1): ?f(2),
     ?f(3): ?f(null),
-    ?(f4) ?null
+    ?(f4): ?null
   };
   Expect.mapEquals({1: 2}, map1);
   Expect.equals("f(1);f(2);f(3);f(null);f(4);", _log);
