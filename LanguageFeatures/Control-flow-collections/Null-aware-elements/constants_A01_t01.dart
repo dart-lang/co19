@@ -15,13 +15,13 @@ import '../../../Utils/expect.dart';
 main() {
   const e1 = 2 > 1 ? 1 : null;
   const e2 = 1 > 2 ? 2 : null;
-  const Nil = null;
+  const nil = null;
 
   const set = {
     ?e1,
     ?e2,
     ?null,
-    ?Nil
+    ?nil
   };
   Expect.setEquals({e1}, set);
 
@@ -29,17 +29,18 @@ main() {
     ?e1,
     ?e2,
     ?null,
-    ?Nil
+    ?nil
   ];
   Expect.listEquals([e1], list);
 
   const map = {
     ?e1: 1,
     e1: ?null,
-    e1: ?Nil,
+    e1: ?nil,
     ?e1: ?e2,
     ?null: e2,
-    ?Nil: e2,
+    ?nil: e2,
+    1: ?e1
   };
-  Expect.mapEquals({e1: 1}, map);
+  Expect.mapEquals({e1: 1, 1: e1}, map);
 }

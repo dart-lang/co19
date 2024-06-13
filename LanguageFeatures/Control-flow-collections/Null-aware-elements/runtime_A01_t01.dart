@@ -13,6 +13,15 @@
 
 import '../../../Utils/expect.dart';
 
+extension on int? {
+  int? operator +(int other) {
+    if (this != null) {
+      return other + this!;
+    }
+    return null;
+  }
+}
+
 main() {
   var e1 = 2 > 1 ? 1 : null;
   var e2 = 1 > 2 ? 2 : null;
@@ -31,7 +40,7 @@ main() {
       ?null,
       ?e2
     },
-    ?e2
+    ?e2 + 1
   };
   Expect.setEquals({2, 1}, set2);
 
