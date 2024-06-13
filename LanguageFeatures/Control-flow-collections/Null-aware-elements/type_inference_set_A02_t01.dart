@@ -19,8 +19,8 @@
 ///   - The inferred set element type is `NonNull(U)`. The value added to the
 ///     set will never be `null`.
 ///
-/// @description Check that if the context type of element `?e1` is `Ps`, then
-///  the inferred type of the expression `e1` in the context `Ps?`.
+/// @description Check that if the context type of the element `?e1` is `Ps`,
+/// then the context type of `e1` is `Ps?`.
 /// @author sgrekhov22@gmail.com
 
 import '../../../Utils/static_type_helper.dart';
