@@ -305,7 +305,7 @@ class Expect {
     }
   }
 
-  // Checks that given шеукфидуы are equal.
+  // Checks that given iterables are equal.
   static void iterableEquals(Iterable expected, Iterable actual) {
     Iterator expIterator = expected.iterator;
     Iterator actIterator = actual.iterator;
