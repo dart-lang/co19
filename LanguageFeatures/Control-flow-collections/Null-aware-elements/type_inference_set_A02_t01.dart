@@ -20,7 +20,7 @@
 ///     set will never be `null`.
 ///
 /// @description Check that if the context type of the element `?e1` is `Ps`,
-/// then the context type of `e1` is `Ps?`.
+/// then the context type of expression `e1` is `Ps?`.
 /// @author sgrekhov22@gmail.com
 
 import '../../../Utils/static_type_helper.dart';
@@ -28,8 +28,7 @@ import '../../../Utils/static_type_helper.dart';
 main() {
   String? e1 = "e1";
 
-  var set1 = <String>{
+  <String>{
     ?(contextType(e1)..expectStaticType<Exactly<String?>>())
   };
-  set1.expectStaticType<Exactly<Set<String>>>();
 }

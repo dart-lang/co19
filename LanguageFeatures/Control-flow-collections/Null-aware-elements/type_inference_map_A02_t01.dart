@@ -46,8 +46,8 @@
 ///       context `Pv`. The whole element is null-aware, but the value part is
 ///       not, so it is inferred as normal.
 ///
-/// @description Check that inferred type of element `ek: ?ev` in an unknown
-/// context is `Uk: NonNull(Uv)`, where `Uk` is the inferred type of the
+/// @description Check that inferred key type of an element `ek: ?ev` in an
+/// unknown context is `Uk: NonNull(Uv)`, where `Uk` is the inferred type of the
 /// expression `ek` in an unknown context.
 /// @author sgrekhov22@gmail.com
 

@@ -46,9 +46,9 @@
 ///       context `Pv`. The whole element is null-aware, but the value part is
 ///       not, so it is inferred as normal.
 ///
-/// @description Check that inferred type of element `ek: ?ev` in the context
-/// `Map<Pk, Pv> is `Uk: NonNull(Uv)`, where `Uv` is the inferred type of the
-/// expression `ev` the context `Pv?`.
+/// @description Check that inferred value type of an element `ek: ?ev` in the
+/// context `Map<Pk, Pv> is `Uk: NonNull(Uv)`, where `Uv` is the inferred type
+/// of the expression `ev` the context `Pv?`.
 /// @author sgrekhov22@gmail.com
 
 import '../../../Utils/static_type_helper.dart';
@@ -56,8 +56,7 @@ import '../../../Utils/static_type_helper.dart';
 main() {
   String? ev = "ev";
 
-  var map = <String, String?>{
+  <String, String?>{
     "ek": ?(contextType(ev)..expectStaticType<Exactly<String?>>())
   };
-  map.expectStaticType<Exactly<Map<String, String>>>();
 }

@@ -19,9 +19,9 @@
 ///   - The inferred set element type is `NonNull(U)`. The value added to the
 ///     set will never be `null`.
 ///
-/// @description Check that the inferred type of element `?e1` in an unknown
-/// context is `NonNull(U)`, where `U` is the inferred type of the expression
-/// `e1` in an unknown context.
+/// @description Check that the inferred element type of an element `?e1` in an
+/// unknown context is `NonNull(U)`, where `U` is the inferred type of the
+/// expression `e1` in an unknown context.
 /// @author sgrekhov22@gmail.com
 
 import '../../../Utils/static_type_helper.dart';
