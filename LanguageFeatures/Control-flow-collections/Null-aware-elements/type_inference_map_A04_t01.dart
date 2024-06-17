@@ -61,3 +61,4 @@ main() {
     ?ek: ev
   };
   map.expectStaticType<Exactly<Map<String, int?>>>();
+}
