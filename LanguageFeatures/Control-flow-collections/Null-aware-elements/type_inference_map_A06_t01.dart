@@ -58,6 +58,6 @@ main() {
   int? ev = 1;
 
   <String, int>{
-    contextType(ek)..expectStaticType<Exactly<String>>()): ?ev,
+    contextType(ek)..expectStaticType<Exactly<String>>(): ?ev,
   };
 }
