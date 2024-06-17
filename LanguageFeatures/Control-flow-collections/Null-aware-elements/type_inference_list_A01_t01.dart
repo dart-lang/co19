@@ -19,7 +19,7 @@
 ///   - The inferred set element type is `NonNull(U)`. The value added to the
 ///     set will never be `null`.
 ///
-/// @description Check that the inferred element type of element `?e1` in an
+/// @description Check that the inferred element type of an element `?e1` in an
 /// unknown context is `NonNull(U)`, where `U` is the inferred type of the
 /// expression `e1` in an unknown context.
 /// @author sgrekhov22@gmail.com
@@ -29,9 +29,9 @@ import '../../../Utils/static_type_helper.dart';
 main() {
   var e1 = 2 > 1 ? "e1" : null;
 
-  var set1 = {
+  var list = [
     ?e1,
     ?null
-  };
-  set1.expectStaticType<Exactly<Set<String>>>();
+  ];
+  list.expectStaticType<Exactly<List<String>>>();
 }
