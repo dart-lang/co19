@@ -54,7 +54,7 @@ extension on int? {
 
   int? operator ~/(int? other) {
     if (this != null && other != null) {
-      return this! % other;
+      return this! ~/ other;
     }
     return null;
   }
@@ -64,11 +64,11 @@ main() {
   int? x = 2 > 1 ? 1 : null;
 
   var list = [
-    ?x += 1,
-    ?x -= 1,
-    ?x *= 1,
-    ?x %= 1,
-    ?x ~/= 1,
+    x += 1,
+    x -= 1,
+    x *= 1,
+    x %= 1,
+    x ~/= 1,
     ?x += null,
     ?x -= null,
     ?x *= null,
