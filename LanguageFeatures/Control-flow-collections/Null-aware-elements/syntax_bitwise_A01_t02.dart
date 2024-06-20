@@ -22,9 +22,9 @@
 
 import '../../../Utils/expect.dart';
 
-class C {
+class A {
   int value;
-  C(this.value);
+  A(this.value);
 
   int? operator |(int? v) {
     if (v != null) {
@@ -46,54 +46,62 @@ class C {
   }
 }
 
+class C extends A {
+  C() : super(4);
+
+  void test() {
+    var list = [
+      ?super | 1,
+      ?super | null,
+      ?super & 1,
+      ?super & null,
+      ?super ^ 1,
+      ?super ^ null
+    ];
+    Expect.listEquals([5, 0, 5], list);
+
+    var set = {
+      ?super | 1,
+      ?super | null,
+      ?super & 1,
+      ?super & null,
+      ?super ^ 1,
+      ?super ^ null
+    };
+    Expect.setEquals({5, 0}, set);
+
+    var map1 = {
+      ?super | 1: 1,
+      ?super | null: 2,
+      ?super & 1: 3,
+      ?super & null: 4,
+      ?super ^ 1: 5,
+      ?super ^ null: 6
+    };
+    Expect.mapEquals({5: 5, 0: 3}, map1);
+
+    var map2 = {
+      1: ?super | 1,
+      2: ?super | null,
+      3: ?super & 1,
+      4: ?super & null,
+      5: ?super ^ 1,
+      6: ?super ^ null
+    };
+    Expect.mapEquals({1: 5, 3: 0, 5: 5}, map2);
+
+    var map3 = {
+      ?super | 1: ?super | 1,
+      ?super | null: ?super | null,
+      ?super & 1: ?super & 1,
+      ?super & null: ?super & null,
+      ?super ^ 1: ?super ^ 1,
+      ?super ^ null: ?super ^ null
+    };
+    Expect.mapEquals({5: 5, 0: 0}, map3);
+  }
+}
+
 main() {
-  var list = [
-    ?C(4) | 1,
-    ?C(4) | null,
-    ?C(4) & 1,
-    ?C(4) & null,
-    ?C(2) ^ 1,
-    ?C(4) ^ null
-  ];
-  Expect.listEquals([5, 0, 3], list);
-
-  var set = {
-    ?C(4) | 1,
-    ?C(4) | null,
-    ?C(4) & 1,
-    ?C(4) & null,
-    ?C(2) ^ 1,
-    ?C(4) ^ null
-  };
-  Expect.setEquals({5, 0, 3}, set);
-
-  var map1 = {
-    ?C(4) | 1: 1,
-    ?C(4) | null: 2,
-    ?C(4) & 1: 3,
-    ?C(4) & null: 4,
-    ?C(2) ^ 1: 5,
-    ?C(4) ^ null: 6
-  };
-  Expect.mapEquals({5: 1, 0: 3, 3: 5}, map1);
-
-  var map2 = {
-    1: ?C(4) | 1,
-    2: ?C(4) | null,
-    3: ?C(4) & 1,
-    4: ?C(4) & null,
-    5: ?C(2) ^ 1,
-    6: ?C(4) ^ null
-  };
-  Expect.mapEquals({1: 5, 3: 0, 5: 3}, map2);
-
-  var map3 = {
-    ?C(4) | 1: ?C(4) | 1,
-    ?C(4) | null: ?C(4) | null,
-    ?C(4) & 1: ?C(4) & 1,
-    ?C(4) & null: ?C(4) & null,
-    ?C(2) ^ 1: ?C(2) ^ 1,
-    ?C(4) ^ null: ?C(4) ^ null
-  };
-  Expect.mapEquals({5: 5, 0: 0, 3: 3}, map3);
+  C().test();
 }
