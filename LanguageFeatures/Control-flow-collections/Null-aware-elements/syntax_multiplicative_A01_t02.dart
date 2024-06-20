@@ -58,7 +58,7 @@ class C extends A {
       ?super ~/ 3,
       ?super * null,
       ?super % null,
-      ?super % null,
+      ?super ~/ null,
     ];
     Expect.listEquals([4, 0, 1], list);
 
@@ -68,7 +68,7 @@ class C extends A {
       ?super ~/ 3,
       ?super * null,
       ?super % null,
-      ?super % null,
+      ?super ~/ null,
     };
     Expect.setEquals({4, 0, 1}, set);
 
@@ -78,13 +78,13 @@ class C extends A {
       ?super ~/ 3: 3,
       ?super * null: 4,
       ?super % null: 5,
-      ?super % null: 6,
+      ?super ~/ null: 6,
       7: ?super * 1,
       8: ?super % 2,
       9: ?super ~/ 3,
       10: ?super * null,
       11: ?super % null,
-      12: ?super % null,
+      12: ?super ~/ null,
     };
     Expect.mapEquals({4: 1, 0: 2, 1: 3, 7: 4, 8: 0, 9: 1}, map1);
 

@@ -39,7 +39,7 @@ extension on int? {
 
   int? operator ~/(int? other) {
     if (this != null && other != null) {
-      return this! % other;
+      return this! ~/ other;
     }
     return null;
   }
@@ -54,7 +54,7 @@ main() {
     ?x ~/ 3,
     ?x * null,
     ?x % null,
-    ?x % null,
+    ?x ~/ null,
   ];
   Expect.listEquals([4, 0, 1], list);
 
@@ -64,7 +64,7 @@ main() {
     ?x ~/ 3,
     ?x * null,
     ?x % null,
-    ?x % null,
+    ?x ~/ null,
   };
   Expect.setEquals({4, 0, 1}, set);
 
