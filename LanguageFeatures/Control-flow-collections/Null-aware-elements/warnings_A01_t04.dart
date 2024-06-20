@@ -11,47 +11,65 @@
 /// null-aware elements are not potentially nullable.
 /// @author sgrekhov22@gmail.com
 
+// TODO(sgrekhov): replace unspecified by the actual lint name
+
+import '../../../Utils/expect.dart';
+
 int? f(int? v) => v;
 
 main() {
-  <int>[
-    ? f(1) ?? 1,
+  var list = <int>[
+    ? f(1) ?? 2,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
-    ? 2 > 1 ? 2 : 3
+    ? f(null) ?? 2,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
+    ? 2 > 1 ? 3 : 4
+//  ^
+// [analyzer] unspecified
   ];
+  Expect.listEquals([1, 2, 3], list);
 
-  <int>{
-    ? f(1) ?? 1,
+  var set = <int>{
+    ? f(1) ?? 2,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
-    ? 2 > 1 ? 2 : 3
+    ? f(null) ?? 2,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
+    ? 2 > 1 ? 3 : 4
+//  ^
+// [analyzer] unspecified
   };
+  Expect.setEquals({1, 2, 3}, set);
 
-  <int, int>{
-    ? f(1) ?? 1: 0,
+  var map = <int, int>{
+    ? f(1) ?? 2: 1,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
-    ? 2 > 1 ? 2 : 3: 0,
+    ? f(null) ?? 2: 2,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
-    4: ? f(1) ?? 1,
+    ? 2 > 1 ? 3 : 4: 3,
+//  ^
+// [analyzer] unspecified
+    4: ? f(1) ?? 2,
 //     ^
 // [analyzer] unspecified
-// [cfe] unspecified
-    5: ? 2 > 1 ? 2 : 3,
+    5: ? f(null) ?? 2,
 //     ^
 // [analyzer] unspecified
-// [cfe] unspecified
+    6: ? 2 > 1 ? 3 : 4
+//  ^
+// [analyzer] unspecified
   };
+  Expect.mapEquals({
+    ? f(1) ?? 2: 1,
+    ? f(null) ?? 2: 2,
+    ? 2 > 1 ? 3 : 4: 3,
+    4: ? f(1) ?? 2,
+    5: ? f(null) ?? 2,
+    6: ? 2 > 1 ? 3 : 4
+  }, map);
 }

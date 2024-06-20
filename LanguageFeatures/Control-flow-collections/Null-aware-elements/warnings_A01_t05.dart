@@ -8,7 +8,8 @@
 /// has no meaningful effect.
 ///
 /// @description Check that it is a warning if the inner expressions in
-/// null-aware elements are not potentially nullable. Test literals
+/// null-aware elements are not potentially nullable. Test const collection
+/// literals
 /// @author sgrekhov22@gmail.com
 
 // TODO(sgrekhov): replace unspecified by the actual lint name
@@ -17,166 +18,118 @@ import '../../../Utils/expect.dart';
 
 main() {
   var set = <Object>{
-    ?42,
+    ?const [],
 //  ^
 // [analyzer] unspecified
-    ?0x1,
+    ?const <int?>[null],
 //  ^
 // [analyzer] unspecified
-    ?3.14,
+    ?const {},
 //  ^
 // [analyzer] unspecified
-    ?true,
+    ?const <int?>{null},
 //  ^
 // [analyzer] unspecified
-    ?false,
+    ?const {null: 1},
 //  ^
 // [analyzer] unspecified
-    ?" String ",
-//  ^
-// [analyzer] unspecified
-    ?'''  Triple quoted string   ''',
-//  ^
-// [analyzer] unspecified
-    ?r'  Raw string   ',
-//  ^
-// [analyzer] unspecified
-    ?#void
+    ?const <int?, int?>{2: null},
 //  ^
 // [analyzer] unspecified
   };
   Expect.setEquals({
-    42,
-    0x1,
-    3.14,
-    true,
-    false,
-    " String ",
-    '''  Triple quoted string   ''',
-    r'  Raw string   ',
-    #void
+    const [],
+    const <int?>[null],
+    const {},
+    const <int?>{null},
+    const {null: 1},
+    const <int?, int?>{2: null},
   }, set);
 
   var list = <Object>[
-    ?42,
+    ?const [],
 //  ^
 // [analyzer] unspecified
-    ?0x1,
+    ?const <int?>[null],
 //  ^
 // [analyzer] unspecified
-    ?3.14,
+    ?const {},
 //  ^
 // [analyzer] unspecified
-    ?true,
+    ?const <int?>{null},
 //  ^
 // [analyzer] unspecified
-    ?false,
+    ?const {null: 1},
 //  ^
 // [analyzer] unspecified
-    ?" String ",
-//  ^
-// [analyzer] unspecified
-    ?'''  Triple quoted string   ''',
-//  ^
-// [analyzer] unspecified
-    ?r'  Raw string   ',
-//  ^
-// [analyzer] unspecified
-    ?#void
+    ?const <int?, int?>{2: null},
 //  ^
 // [analyzer] unspecified
   ];
   Expect.listEquals([
-    42,
-    0x1,
-    3.14,
-    true,
-    false,
-    " String ",
-    '''  Triple quoted string   ''',
-    r'  Raw string   ',
-    #void
+    const [],
+    const <int?>[null],
+    const {},
+    const <int?>{null},
+    const {null: 1},
+    const <int?, int?>{2: null},
   ], list);
 
   var map1 = <Object, int>{
-    ?42: 0,
+    ?const []: 1,
 //  ^
 // [analyzer] unspecified
-    ?0x1: 0,
+    ?const <int?>[null]: 2,
 //  ^
 // [analyzer] unspecified
-    ?3.14: 0,
+    ?const {}: 3,
 //  ^
 // [analyzer] unspecified
-    ?true: 0,
+    ?const <int?>{null}: 4,
 //  ^
 // [analyzer] unspecified
-    ?false: 0,
+    ?const {null: 1}: 5,
 //  ^
 // [analyzer] unspecified
-    ?" String ": 0,
-//  ^
-// [analyzer] unspecified
-    ?'''  Triple quoted string   ''': 0,
-//  ^
-// [analyzer] unspecified
-    ?r'  Raw string   ': 0,
-//  ^
-// [analyzer] unspecified
-    ?#void: 0
+    ?const <int?, int?>{2: null}: 6,
 //  ^
 // [analyzer] unspecified
   };
   Expect.mapEquals({
-    42: 0,
-    0x1: 0,
-    3.14: 0,
-    true: 0,
-    false: 0,
-    " String ": 0,
-    '''  Triple quoted string   ''': 0,
-    r'  Raw string   ': 0,
-    #void: 0
+    const []: 1,
+    const <int?>[null]: 2,
+    const {}: 3,
+    const <int?>{null}: 4,
+    const {null: 1}: 5,
+    const <int?, int?>{2: null}: 6
   }, map1);
 
   var map2 = <int, Object>{
-    1: ?42,
+    1: ?const [],
 //     ^
 // [analyzer] unspecified
-    2: ?0x1,
+    2: ?const <int?>[null],
 //     ^
 // [analyzer] unspecified
-    3: ?3.14,
+    3: ?const {},
 //     ^
 // [analyzer] unspecified
-    4: ?true,
+    4: ?const <int?>{null},
 //     ^
 // [analyzer] unspecified
-    5: ?false,
+    5: ?const {null: 1},
 //     ^
 // [analyzer] unspecified
-    6: ?" String ",
-//     ^
-// [analyzer] unspecified
-    7: ?'''  Triple quoted string   ''',
-//     ^
-// [analyzer] unspecified
-    8: ?r'  Raw string   ',
-//     ^
-// [analyzer] unspecified
-    9: ?#void
+    6: ?const <int?, int?>{2: null},
 //     ^
 // [analyzer] unspecified
   };
   Expect.mapEquals({
-    1: 42,
-    2: 0x1,
-    3: 3.14,
-    4: true,
-    5: false,
-    6: " String ",
-    7: '''  Triple quoted string   ''',
-    8: r'  Raw string   ',
-    9: #void
+    1: const [],
+    2: const <int?>[null],
+    3: const {},
+    4: const <int?>{null},
+    5: const {null: 1},
+    6: const <int?, int?>{2: null}
   }, map2);
 }

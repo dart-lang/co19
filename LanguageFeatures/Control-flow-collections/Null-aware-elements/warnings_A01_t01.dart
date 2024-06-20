@@ -22,22 +22,18 @@ void testSet() {
       ?e1,
 //    ^
 // [analyzer] unspecified
-// [cfe] unspecified
       ?e2!,
 //    ^
 // [analyzer] unspecified
-// [cfe] unspecified
       if (e3 != null)
         ?e3
 //      ^
 // [analyzer] unspecified
-// [cfe] unspecified
       else
         ?e3, // Ok
       ?e4
 //    ^
 // [analyzer] unspecified
-// [cfe] unspecified
     };
   }
 }
@@ -53,22 +49,18 @@ void testList() {
       ?e1,
 //    ^
 // [analyzer] unspecified
-// [cfe] unspecified
       ?e2!,
 //    ^
 // [analyzer] unspecified
-// [cfe] unspecified
       if (e3 != null)
         ?e3
 //      ^
 // [analyzer] unspecified
-// [cfe] unspecified
       else
         ?e3, // Ok
       ?e4
 //    ^
 // [analyzer] unspecified
-// [cfe] unspecified
     ];
   }
 }
@@ -84,22 +76,18 @@ void testMapKey() {
       ?e1: 1,
 //    ^
 // [analyzer] unspecified
-// [cfe] unspecified
       ?e2!: 2,
 //    ^
 // [analyzer] unspecified
-// [cfe] unspecified
       if (e3 != null)
         ?e3: 3
 //      ^
 // [analyzer] unspecified
-// [cfe] unspecified
       else
         ?e3: 3, // Ok
         ?e4: 4
 //      ^
 // [analyzer] unspecified
-// [cfe] unspecified
     };
   }
 }
@@ -115,22 +103,18 @@ void testMapValue() {
       1: ?e1,
 //       ^
 // [analyzer] unspecified
-// [cfe] unspecified
       2: ?e2!,
 //       ^
 // [analyzer] unspecified
-// [cfe] unspecified
       if (e3 != null)
         3: ?e3
 //         ^
 // [analyzer] unspecified
-// [cfe] unspecified
       else
         3: ?e3, // Ok
       4: ?e4
 //       ^
 // [analyzer] unspecified
-// [cfe] unspecified
     };
   }
 }
