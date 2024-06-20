@@ -11,114 +11,174 @@
 /// null-aware elements are not potentially nullable. Test collection literals
 /// @author sgrekhov22@gmail.com
 
+// TODO(sgrekhov): replace unspecified by the actual lint name
+
+import '../../../Utils/expect.dart';
+
 main() {
   int? e = 2 > 1 ? 1 : null;
 
-  <Iterable>{
+  var set = <Object>{
     ?[],
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
     ?[?e],
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
+    ?<int?>[?e, null],
+//  ^
+// [analyzer] unspecified
     ?{?e},
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
     ?{},
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
+    ?<int?>{?e, null},
+//  ^
+// [analyzer] unspecified
     ?{?e: 1},
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
     ?{2: ?e},
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
+    ?<int?, int?>{e: e},
+//  ^
+// [analyzer] unspecified
   };
+  Expect.setEquals({
+    [],
+    [e],
+    <int?>[e, null],
+    {e},
+    {},
+    <int?>{e, null},
+    {e: 1},
+    {2: e},
+    <int?, int?>{e: e}
+  }, set);
 
-  <Iterable>[
+  var list = <Object>[
     ?[],
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
     ?[?e],
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
+    ?<int?>[?e, null],
+//  ^
+// [analyzer] unspecified
     ?{?e},
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
     ?{},
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
+    ?<int?>{?e, null},
+//  ^
+// [analyzer] unspecified
     ?{?e: 1},
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
     ?{2: ?e},
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
+    ?<int?, int?>{e: e},
+//  ^
+// [analyzer] unspecified
   ];
+  Expect.listEquals([
+    [],
+    [e],
+    <int?>[e, null],
+    {e},
+    {},
+    <int?>{e, null},
+    {e: 1},
+    {2: e},
+    <int?, int?>{e: e}
+  ], list);
 
-  <Iterable, int>{
+  var map1 = <Object, int>{
     ?[]: 1,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
     ?[?e]: 2,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
-    ?{?e}: 3,
+    ?<int?>[?e, null]: 3,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
-    ?{}: 4,
+    ?{?e}: 4,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
-    ?{?e: 1}: 5,
+    ?{}: 5,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
-    ?{2: ?e}: 6,
+    ?<int?>{?e, null}: 6,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
+    ?{?e: 1}: 7,
+//  ^
+// [analyzer] unspecified
+    ?{2: ?e}: 8,
+//  ^
+// [analyzer] unspecified
+    ?<int?, int?>{e: e}: 9,
+//  ^
+// [analyzer] unspecified
   };
+  Expect.mapEquals({
+    []: 1,
+    [e]: 2,
+    <int?>[e, null]: 3,
+    {e}: 4,
+    {}: 5,
+    <int?>{e, null}: 6,
+    {e: 1}: 7,
+    {2: e}: 8,
+    <int?, int?>{e: e}: 9,
+  }, map1);
 
-  <int, Iterable>{
+  var map2 = <int, Object>{
     1: ?[],
 //     ^
 // [analyzer] unspecified
-// [cfe] unspecified
     2: ?[?e],
 //     ^
 // [analyzer] unspecified
-// [cfe] unspecified
-    3: ?{?e},
+    3: ?<int?>[?e, null],
 //     ^
 // [analyzer] unspecified
-// [cfe] unspecified
-    4: ?{},
+    4: ?{?e},
 //     ^
 // [analyzer] unspecified
-// [cfe] unspecified
-    5: ?{?e: 1},
+    5: ?{},
 //     ^
 // [analyzer] unspecified
-// [cfe] unspecified
-    6: ?{2: ?e},
+    6: ?<int?>{?e, null},
 //     ^
 // [analyzer] unspecified
-// [cfe] unspecified
+    7: ?{?e: 1},
+//     ^
+// [analyzer] unspecified
+    8: ?{2: ?e},
+//     ^
+// [analyzer] unspecified
+    9: ?<int?, int?>{e: e},
+//     ^
+// [analyzer] unspecified
   };
+  Expect.mapEquals({
+    1: [],
+    2: [?e],
+    3: <int?>[?e, null],
+    4: {?e},
+    5: {},
+    6: <int?>{?e, null},
+    7: {?e: 1},
+    8: {2: ?e},
+    9: <int?, int?>{e: e},
+  }, map2);
 }
