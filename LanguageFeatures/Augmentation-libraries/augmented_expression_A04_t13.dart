@@ -10,38 +10,39 @@
 ///   the augmented function. Tear offs are not allowed, so this function must
 ///   immediately be invoked.
 ///
-/// @description Checks that it is a compile-time error to declare a local
-/// variable named `augmented` inside of an augmenting function
+/// @description Checks that it is a compile-time error for an augmenting
+/// function to have as a positional parameter a record with a positional field
+/// named `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A04_t02_lib.dart';
+import augment 'augmented_expression_A04_t13_lib.dart';
 
-void topLevelFunction() {}
+void topLevelFunction((int augmented,) r) {}
 
 class C {
-  static void staticMethod() {}
-  void instanceMethod() {}
+  static void staticMethod((int augmented,) r) {}
+  void instanceMethod((int augmented,) r) {}
 }
 
 mixin M {
-  static void staticMethod() {}
-  void instanceMethod() {}
+  static void staticMethod((int augmented,) r) {}
+  void instanceMethod((int augmented,) r) {}
 }
 
 enum E {
   e1;
 
-  static void staticMethod() {}
-  void instanceMethod() {}
+  static void staticMethod((int augmented,) r) {}
+  void instanceMethod((int augmented,) r) {}
 }
 
 class A {}
 
 extension Ext on A {
-  static void staticMethod() {}
-  void instanceMethod() {}
+  static void staticMethod((int augmented,) r) {}
+  void instanceMethod((int augmented,) r) {}
 }
 
 main() {
