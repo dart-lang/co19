@@ -9,38 +9,40 @@
 ///   getter and evaluates to the return value. If augmenting a field with a
 ///   getter, this will invoke the implicit getter from the augmented field.
 ///
-/// @description Checks that it is a compile-time error to declare a local
-/// function named `augmented` within an augmenting getter
+/// @description Checks that it is a compile-time error to if an augmenting
+/// getter has return type with the name `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A01_t11_lib.dart';
+import augment 'augmented_expression_A01_t18_lib.dart';
 
-String get topLevelGetter => "Original";
+class augmented {}
+
+augmented? get topLevelGetter => null;
 
 class C {
-  static String get staticGetter => "Original";
-  String get instanceGetter => "Original";
+  static augmented? get staticGetter => null;
+  augmented? get instanceGetter => null;
 }
 
 mixin M {
-  static String get staticGetter => "Original";
-  String get instanceGetter => "Original";
+  static augmented? get staticGetter => null;
+  augmented? get instanceGetter => null;
 }
 
 enum E {
   e1;
 
-  static String get staticGetter => "Original";
-  String get instanceGetter => "Original";
+  static augmented? get staticGetter => null;
+  augmented? get instanceGetter => null;
 }
 
 class A {}
 
 extension Ext on A {
-  static String get staticGetter => "Original";
-  String get instanceGetter => "Original";
+  static augmented? get staticGetter => null;
+  augmented? get instanceGetter => null;
 }
 
 main() {

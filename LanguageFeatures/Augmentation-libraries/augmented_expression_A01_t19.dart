@@ -9,13 +9,15 @@
 ///   getter and evaluates to the return value. If augmenting a field with a
 ///   getter, this will invoke the implicit getter from the augmented field.
 ///
-/// @description Checks that it is a compile-time error to declare a local
-/// function named `augmented` within an augmenting getter
+/// @description Checks that it is a compile-time error for an augmenting
+/// function to have as a parameter of a type with the name `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A01_t11_lib.dart';
+import augment 'augmented_expression_A01_t19_lib.dart';
+
+class augmented {}
 
 String get topLevelGetter => "Original";
 
