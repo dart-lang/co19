@@ -16,7 +16,7 @@
 /// type is not nullable, then it's a compile-time error.
 ///
 /// @description Checks that it is a compile-time error if an augmenting field
-/// has `augmented` type name.
+/// has a type whose name is `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

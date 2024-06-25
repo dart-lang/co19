@@ -9,7 +9,7 @@
 ///   getter and evaluates to the return value. If augmenting a field with a
 ///   getter, this will invoke the implicit getter from the augmented field.
 ///
-/// @description Checks that it is a compile-time error to if an augmenting
+/// @description Checks that it is a compile-time error if an augmenting
 /// getter has return type with the name `augmented`.
 /// @author sgrekhov22@gmail.com
 

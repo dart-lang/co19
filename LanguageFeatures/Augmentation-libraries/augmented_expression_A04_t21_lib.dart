@@ -10,8 +10,8 @@
 ///   the augmented function. Tear offs are not allowed, so this function must
 ///   immediately be invoked.
 ///
-/// @description Checks that it is a compile-time error to use type named
-/// `augmented` in an augmenting function body.
+/// @description Checks that it is a compile-time error to use a type whose name
+/// is `augmented` in an augmenting function return type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

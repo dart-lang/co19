@@ -11,9 +11,8 @@
 ///   augmenting a field with a setter, this will invoke the implicit setter
 ///   from the augmented field.
 ///
-/// @description Checks that it is a compile-time error to declare local
-/// variable named `augmented` within an augmenting setter. Test an object
-/// pattern.
+/// @description Checks that it is a compile-time error for an augmenting
+/// setter to have as a parameter of a type whose name is `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

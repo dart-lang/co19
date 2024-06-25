@@ -11,7 +11,7 @@
 ///   immediately be invoked.
 ///
 /// @description Checks that it is a compile-time error for an augmenting
-/// function to have as a parameter of a type with the name `augmented`.
+/// function to have as a parameter of a type whose name is `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

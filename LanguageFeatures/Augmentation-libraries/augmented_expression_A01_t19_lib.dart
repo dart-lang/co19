@@ -9,8 +9,8 @@
 ///   getter and evaluates to the return value. If augmenting a field with a
 ///   getter, this will invoke the implicit getter from the augmented field.
 ///
-/// @description Checks that it is a compile-time error to if an augmenting
-/// getter has return type with the name `augmented`.
+/// @description Checks that it is a compile-time error to use type whose name
+/// is `augmented` in an augmenting getter body.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -130,7 +130,8 @@ augment enum E {
 //   ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    return "Augmented";  }
+    return "Augmented";
+  }
 }
 
 augment extension Ext {
