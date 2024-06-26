@@ -22,6 +22,8 @@
 /// `nullAwareMapEntry` elements, then `e` is a set literal
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=null-aware-elements
+
 import '../../../Utils/expect.dart';
 
 main() {

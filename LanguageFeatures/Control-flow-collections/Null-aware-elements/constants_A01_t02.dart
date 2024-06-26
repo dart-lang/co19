@@ -9,6 +9,8 @@
 /// `nullAwareMapElement` is a non-nullable constant
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=null-aware-elements
+
 main() {
   const e1 = 1;
   const e2 = 2;
