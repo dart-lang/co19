@@ -11,6 +11,8 @@
 /// null-aware elements are not potentially nullable.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=null-aware-elements
+
 void testSet() {
   int e1 = 42;
   int? e2 = 2 > 1 ? 2 : null;

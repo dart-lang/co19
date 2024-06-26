@@ -20,6 +20,8 @@
 /// `nullAwareMapElement` or `nullAwareExpressionElement`.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=null-aware-elements
+
 import '../../../Utils/expect.dart';
 
 class C {

@@ -20,6 +20,8 @@
 /// `nullAwareExpressionElement` can be in a form `e1 + e2`.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=null-aware-elements
+
 import '../../../Utils/expect.dart';
 
 extension on int? {

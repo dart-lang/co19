@@ -10,6 +10,8 @@
 /// collection.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=null-aware-elements
+
 main() {
   var e1 = 2 > 1 ? 1 : null;
   var e2 = 2 > 1 ? 2 : null;

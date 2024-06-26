@@ -20,6 +20,8 @@
 /// `nullAwareExpressionElement` can be in a form `super * e2`.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=null-aware-elements
+
 import '../../../Utils/expect.dart';
 
 class A {

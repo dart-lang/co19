@@ -20,6 +20,8 @@
 /// elements
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=null-aware-elements
+
 main() {
   int? e = 2 > 1 ? 1 : null;
   List<int>? l = 2 > 1 ? [1, 2, 3] : null;

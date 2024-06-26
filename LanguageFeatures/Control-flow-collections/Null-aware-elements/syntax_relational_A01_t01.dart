@@ -20,6 +20,8 @@
 /// `nullAwareExpressionElement` can be a relational expression.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=null-aware-elements
+
 import '../../../Utils/expect.dart';
 
 class C {

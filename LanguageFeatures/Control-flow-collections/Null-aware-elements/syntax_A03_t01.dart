@@ -20,6 +20,8 @@
 /// whole expression, not just the first token
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=null-aware-elements
+
 import '../../../Utils/expect.dart';
 
 extension on int? {
