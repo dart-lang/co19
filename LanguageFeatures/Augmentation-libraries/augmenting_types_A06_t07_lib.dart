@@ -22,6 +22,6 @@ augment library 'augmenting_types_A06_t07.dart';
 augment class C1 extends A {}
 
 augment abstract class C2 extends A {}
-//                                ^
+
+// [error line 28, column 47]
 // [analyzer] unspecified
-// [cfe] unspecified

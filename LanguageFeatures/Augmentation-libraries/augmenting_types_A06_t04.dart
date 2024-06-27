@@ -25,6 +25,9 @@ abstract interface class I<T> {
 abstract class A implements I<int> {}
 
 abstract class C implements I<String> {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(C);
