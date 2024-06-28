@@ -13,89 +13,56 @@
 
 // SharedOptions=--enable-experiment=wildcard-variables
 
-void topLevelFunction1([int _]) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-void topLevelFunction2({int _}) {}
+void topLevelFunction([int _]) {}
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 class C {
-  static void staticMethod1([int _]) {}
-//                               ^
+  static void staticMethod([int _]) {}
+//                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void staticMethod2({int _}) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod1([int _]) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod2({int _}) {}
-//                          ^
+
+  void instanceMethod([int _]) {}
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin M {
-  static void staticMethod1([int _]) {}
-//                               ^
+  static void staticMethod([int _]) {}
+//                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void staticMethod2({int _}) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod1([int _]) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod2({int _}) {}
-//                          ^
+
+  void instanceMethod([int _]) {}
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E {
   e0;
-  static void staticMethod1([int _]) {}
-//                               ^
+  static void staticMethod([int _]) {}
+//                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void staticMethod2({int _}) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod1([int _]) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod2({int _}) {}
-//                          ^
+
+  void instanceMethod([int _]) {}
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-exnetsion type ET(int i) {
-  static void staticMethod1([int _]) {}
-//                               ^
+extension type ET(int i) {
+  static void staticMethod([int _]) {}
+//                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void staticMethod2({int _}) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod1([int _]) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod2({int _}) {}
-//                          ^
+
+  void instanceMethod([int _]) {}
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -103,20 +70,13 @@ exnetsion type ET(int i) {
 class A {}
 
 extension Ext on A {
-  static void staticMethod1([int _]) {}
-//                               ^
+  static void staticMethod([int _]) {}
+//                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void staticMethod2({int _}) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod1([int _]) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod2({int _}) {}
-//                          ^
+
+  void instanceMethod([int _]) {}
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -127,13 +87,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var f2 = ({int _}) {};
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  print(topLevelFunction1);
-  print(topLevelFunction2);
+  print(topLevelFunction);
   print(C);
   print(M);
   print(E);
