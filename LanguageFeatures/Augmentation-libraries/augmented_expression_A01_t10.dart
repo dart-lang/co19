@@ -43,8 +43,6 @@ extension Ext on A {
   String get instanceGetter => "Original";
 }
 
-class MA = Object with M;
-
 main() {
   print(topLevelGetter);
   print(C);
