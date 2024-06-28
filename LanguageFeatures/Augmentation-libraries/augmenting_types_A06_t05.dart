@@ -27,6 +27,9 @@ class A {
 }
 
 class C with M {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(C);

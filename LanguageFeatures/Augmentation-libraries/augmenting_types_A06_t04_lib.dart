@@ -19,6 +19,3 @@
 augment library 'augmenting_types_A06_t04.dart';
 
 augment abstract class C extends A {}
-//                     ^
-// [analyzer] unspecified
-// [cfe] unspecified

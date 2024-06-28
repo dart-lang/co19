@@ -18,6 +18,9 @@
 import augment 'augmenting_types_A06_t06_lib.dart';
 
 class C {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(C);

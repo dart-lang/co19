@@ -19,6 +19,3 @@
 augment library 'augmenting_types_A06_t05.dart';
 
 augment class C extends A {}
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
