@@ -28,15 +28,18 @@ class I1 implements I0 {
 }
 
 class C implements I1 {
+  String get id0 => "C";
   String get id1 => "C";
 }
 
 mixin M implements I1 {
+  String get id0 => "M";
   String get id1 => "M";
 }
 
 enum E implements I1 {
   e1;
+  String get id0 => "E";
   String get id1 => "E";
 }
 
