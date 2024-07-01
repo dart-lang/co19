@@ -53,7 +53,7 @@ augment mixin M2 {
 }
 
 augment enum E1 {
-  e1;
+  augment e1;
   augment static void set augmented(String value) {}
 //                        ^^^^^^^^^
 // [analyzer] unspecified
