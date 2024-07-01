@@ -26,6 +26,11 @@ var nol = 0.0;
 main() {
   double nan1 = div(nol, nol);
   double nan2 = div(nol, nol);
-  Expect.isTrue(identical(nan1, nan2));
-  Expect.isTrue(identical(double.nan, double.nan));
+  if (isJS) {
+    Expect.isFalse(identical(nan1, nan2));
+    Expect.isFalse(identical(double.nan, double.nan));
+  } else {
+    Expect.isTrue(identical(nan1, nan2));
+    Expect.isTrue(identical(double.nan, double.nan));
+  }
 }
