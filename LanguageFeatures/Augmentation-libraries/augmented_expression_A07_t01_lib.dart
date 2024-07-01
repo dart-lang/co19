@@ -29,6 +29,7 @@ augment mixin M {
 }
 
 augment enum E {
+  augment e1;
   augment E test() {
     Expect.identical(this, augmented());
     return this;
