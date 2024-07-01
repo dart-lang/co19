@@ -19,15 +19,9 @@
 augment library 'augmenting_types_A07_t03.dart';
 
 augment class C implements I {}
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 augment mixin M implements I {}
 
 augment enum E implements I {
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment e1;
 }
