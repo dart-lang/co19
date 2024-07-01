@@ -10,8 +10,8 @@
 ///   getter, this will invoke the implicit getter from the augmented field.
 ///
 /// @description Checks that it is a compile-time error to call a function which
-/// has a formal parameter with the name `augmented` in a body of an augmenting
-/// getter.
+/// has a named formal parameter with the name `augmented` in the body of an
+/// augmenting getter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

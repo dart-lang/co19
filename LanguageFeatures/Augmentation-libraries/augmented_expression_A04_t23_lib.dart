@@ -31,14 +31,14 @@ augment class C {
   augment static void staticMethod() {
     foo(); // Ok
     foo(augmented: 1);
-//    ^^^^^^^^^
+//      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod() {
     foo(); // Ok
     foo(augmented: 1);
-//    ^^^^^^^^^
+//      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -48,14 +48,14 @@ augment mixin M {
   augment static void staticMethod() {
     foo(); // Ok
     foo(augmented: 1);
-//    ^^^^^^^^^
+//      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod() {
     foo(); // Ok
     foo(augmented: 1);
-//    ^^^^^^^^^
+//      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -67,14 +67,14 @@ augment enum E {
   augment static void staticMethod() {
     foo(); // Ok
     foo(augmented: 1);
-//    ^^^^^^^^^
+//      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod() {
     foo(); // Ok
     foo(augmented: 1);
-//    ^^^^^^^^^
+//      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

@@ -12,8 +12,8 @@
 ///   from the augmented field.
 ///
 /// @description Checks that it is a compile-time error to call a function which
-/// has a formal parameter with the name `augmented` in a body of an augmenting
-/// setter.
+/// has a named formal parameter with the name `augmented` in the body of an
+/// augmenting setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
