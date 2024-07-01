@@ -19,7 +19,7 @@
 
 import augment 'augmented_expression_A02_t21_lib.dart';
 
-void set topLevelSetter(String _) {};
+void set topLevelSetter(String _) {}
 
 class C {
   static void set staticSetter(String _) {}
@@ -46,7 +46,6 @@ extension Ext on A {
 }
 
 main() {
-  print(topLevelGetter);
   print(C);
   print(M);
   print(E);

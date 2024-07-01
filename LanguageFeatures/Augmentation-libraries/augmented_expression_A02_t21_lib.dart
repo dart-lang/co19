@@ -27,7 +27,7 @@ augment void set topLevelSetter(String _) {
 }
 
 augment class C {
-  augment static void get staticSetter(String _) {
+  augment static void set staticSetter(String _) {
     print((augmented: 1));
 //         ^^^^^^^^^
 // [analyzer] unspecified
@@ -43,7 +43,7 @@ augment class C {
 }
 
 augment mixin M {
-  augment static void get staticSetter(String _) {
+  augment static void set staticSetter(String _) {
     print((augmented: 1));
 //         ^^^^^^^^^
 // [analyzer] unspecified
@@ -61,7 +61,7 @@ augment mixin M {
 augment enum E {
   e1;
 
-  augment static void get staticSetter(String _) {
+  augment static void set staticSetter(String _) {
     print((augmented: 1));
 //         ^^^^^^^^^
 // [analyzer] unspecified
@@ -77,7 +77,7 @@ augment enum E {
 }
 
 augment extension Ext {
-  augment static void get staticSetter(String _) {
+  augment static void set staticSetter(String _) {
     print((augmented: 1));
 //         ^^^^^^^^^
 // [analyzer] unspecified

@@ -55,8 +55,8 @@ augment mixin M {
   }
 }
 
-enum E {
-  e1;
+augment enum E {
+  augment e1;
   augment int operator +(Object? other) => foo(augmented: 1);
 //                                             ^^^^^^^^^
 // [analyzer] unspecified
@@ -73,7 +73,7 @@ enum E {
   }
 }
 
-extension Ext {
+augment extension Ext {
   augment int operator +(Object? other) => foo(augmented: 1);
 //                                             ^^^^^^^^^
 // [analyzer] unspecified

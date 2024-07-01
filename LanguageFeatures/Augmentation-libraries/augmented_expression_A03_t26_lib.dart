@@ -57,10 +57,6 @@ augment enum E {
 //                                           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  final augment String instanceVariable = foo(augmented: 1);
-//                                            ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment extension Ext {

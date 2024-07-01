@@ -55,8 +55,8 @@ augment mixin M {
   }
 }
 
-enum E {
-  e1;
+augment enum E {
+  augment e1;
   augment Record operator +(Object? other) => (augmented: 1);
 //                                             ^^^^^^^^^
 // [analyzer] unspecified
@@ -73,7 +73,7 @@ enum E {
   }
 }
 
-extension Ext {
+augment extension Ext {
   augment Record operator +(Object? other) => (augmented: 1);
 //                                             ^^^^^^^^^
 // [analyzer] unspecified

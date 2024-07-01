@@ -41,7 +41,6 @@ mixin M {
 enum E {
   e1;
   static String staticVariable = "Static variable of an enum";
-  final String instanceVariable = "Instance variable of an enum";
 }
 
 class A {}
