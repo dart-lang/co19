@@ -23,10 +23,16 @@ interface class I {
 }
 
 class C {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 mixin M {}
 
 enum E {
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   e1;
 }
 
