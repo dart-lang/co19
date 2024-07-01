@@ -36,7 +36,7 @@ augment enum E {
   }
 }
 
-augment extension Ext on A {
+augment extension Ext {
   augment A test() {
     Expect.identical(this, augmented());
     return this;
