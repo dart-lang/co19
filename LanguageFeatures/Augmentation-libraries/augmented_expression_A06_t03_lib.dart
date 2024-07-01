@@ -9,8 +9,8 @@
 /// - Augmenting enum values: When augmenting an enum value, augmented has no
 ///   meaning and is not allowed.
 ///
-/// @description Checks that it is a compile-time error to augment an enum value
-/// whose constructor name is `augmented`.
+/// @description Checks that it is a compile-time error to have an augmenting
+/// declaration that has a named parameter whose name is `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
