@@ -10,7 +10,7 @@
 ///   meaning and is not allowed.
 ///
 /// @description Checks that it is a compile-time error to augment an enum value
-/// with a parameter whose name is `augmented`.
+/// with an augmenting declaration that passes `augmented` as an actual argument
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
