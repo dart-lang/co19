@@ -68,14 +68,14 @@ augment enum E2 {
 // [cfe] unspecified
 }
 
-augment extension Ext1 on A {
+augment extension Ext1 {
   augment static void set augmented(String value) {}
 //                        ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment extension Ext2 on A {
+augment extension Ext2 {
   augment void set augmented(String value) {}
 //                 ^^^^^^^^^
 // [analyzer] unspecified

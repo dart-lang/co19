@@ -68,14 +68,14 @@ augment enum E2 {
 // [cfe] unspecified
 }
 
-augment extension Ext1 on A {
+augment extension Ext1 {
   augment static String get augmented => "Augmented";
 //                          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment extension Ext2 on A {
+augment extension Ext2 {
   augment String get augmented => "Augmented";
 //                   ^^^^^^^^^
 // [analyzer] unspecified

@@ -64,7 +64,7 @@ augment enum E {
 // [cfe] unspecified
 }
 
-augment extension Ext on A {
+augment extension Ext {
   augment static String augmented = "Augmented static variable of an extension";
 //                      ^^^^^^^^^
 // [analyzer] unspecified
