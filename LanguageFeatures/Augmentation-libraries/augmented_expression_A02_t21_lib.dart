@@ -11,73 +11,83 @@
 ///   augmenting a field with a setter, this will invoke the implicit setter
 ///   from the augmented field.
 ///
-/// @description Checks that it is a compile-time error to augment a setter
-/// whose name is `augmented`.
+/// @description Checks that it is a compile-time error to use a record which
+/// has a field with the name `augmented` in a body of an augmenting setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A02_t19.dart';
+augment library 'augmented_expression_A02_t21.dart';
 
-augment void set augmented(String value) {}
-//               ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment class C1 {
-  augment static void set augmented(String value) {}
-//                        ^^^^^^^^^
+augment void set topLevelSetter(String _) {
+  print((augmented: 1));
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment class C2 {
-  augment void set augmented(String value) {}
-//                 ^^^^^^^^^
+augment class C {
+  augment static void set staticSetter(String _) {
+    print((augmented: 1));
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
+  }
 
-augment mixin M1 {
-  augment static void set augmented(String value) {}
-//                        ^^^^^^^^^
+  augment void set instanceSetter(String _) {
+    print((augmented: 1));
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 }
 
-augment mixin M2 {
-  augment void set augmented(String value) {}
-//                 ^^^^^^^^^
+augment mixin M {
+  augment static void set staticSetter(String _) {
+    print((augmented: 1));
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+
+  augment void set instanceSetter(String _) {
+    print((augmented: 1));
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
-augment enum E1 {
+augment enum E {
   augment e1;
-  augment static void set augmented(String value) {}
-//                        ^^^^^^^^^
+
+  augment static void set staticSetter(String _) {
+    print((augmented: 1));
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+
+  augment void set instanceSetter(String _) {
+    print((augmented: 1));
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
-augment enum E2 {
-  e1;
-  augment void set augmented(String value) {}
-//                 ^^^^^^^^^
+augment extension Ext {
+  augment static void set staticSetter(String _) {
+    print((augmented: 1));
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
+  }
 
-augment extension Ext1 {
-  augment static void set augmented(String value) {}
-//                        ^^^^^^^^^
+  augment void set instanceSetter(String _) {
+    print((augmented: 1));
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-augment extension Ext2 {
-  augment void set augmented(String value) {}
-//                 ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  }
 }
