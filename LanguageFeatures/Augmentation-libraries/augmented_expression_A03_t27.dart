@@ -15,48 +15,43 @@
 /// variable's type is nullable, augmented evaluates to null. If the variable's
 /// type is not nullable, then it's a compile-time error.
 ///
-/// @description Checks that it is a compile-time error to augment a variable or
-/// a field named `augmented`.
+/// @description Checks that it is a compile-time error if an augmenting
+/// field initializer contains a record with a named parameter whose name is
+/// `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A03_t24_lib.dart';
+import augment 'augmented_expression_A03_t27_lib.dart';
 
-String augmented = "Top-level variable";
+Record topLevelVariable = ();
 
-class C1 {
-  static String augmented = "Static variable of a class";
+class C {
+  static Record staticVariable =();
+  Record instanceVariable = ();
 }
 
-class C2 {
-  String augmented = "Instance variable of a class";
-}
-
-mixin M1 {
-  static String augmented = "Static variable of a mixin";
-}
-
-mixin M2 {
-  String augmented = "Instance variable of a mixin";
+mixin M {
+  static Record staticVariable =();
+  Record instanceVariable = ();
 }
 
 enum E {
   e1;
-  static String augmented = "Static variable of an enum";
+  static Record staticVariable =();
+  final Record instanceVariable = ();
 }
 
 class A {}
 
 extension Ext on A {
-  static String augmented = "Static variable of an extension";
+  static Record staticVariable = ();
 }
 
 main() {
-  print(C1);
-  print(C2);
-  print(M1);
-  print(M2);
+  print(topLevelVariable);
+  print(C);
+  print(M);
   print(E);
   print(A);
 }

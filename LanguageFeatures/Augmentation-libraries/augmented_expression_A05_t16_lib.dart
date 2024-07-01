@@ -50,8 +50,8 @@ augment mixin M {
 // [cfe] unspecified
 }
 
-enum E {
-  e1;
+augment enum E {
+  augment e1;
   augment String operator +(augmented other) => "E +";
 //                          ^^^^^^^^^
 // [analyzer] unspecified
@@ -66,7 +66,7 @@ enum E {
 // [cfe] unspecified
 }
 
-extension Ext on A {
+augment extension Ext {
   augment String operator +(augmented other) => "Ext +";
 //                          ^^^^^^^^^
 // [analyzer] unspecified

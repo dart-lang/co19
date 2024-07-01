@@ -42,8 +42,8 @@ augment mixin M {
 // [cfe] unspecified
 }
 
-enum E {
-  e1;
+augment enum E {
+  augment e1;
   augment augmented? operator +(Object? other) => null;
 //        ^^^^^^^^^
 // [analyzer] unspecified
@@ -54,7 +54,7 @@ enum E {
 // [cfe] unspecified
 }
 
-extension Ext on A {
+augment extension Ext {
   augment augmented? operator +(Object? other) => null;
 //        ^^^^^^^^^
 // [analyzer] unspecified
