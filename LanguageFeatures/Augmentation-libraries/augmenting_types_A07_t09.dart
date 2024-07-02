@@ -27,6 +27,8 @@ mixin M {
   int foo() => 42;
 }
 
+mixin M2 {}
+
 class C1 = Object with M;
 
 abstract class C2 with M {}
@@ -35,6 +37,9 @@ abstract class C2 with M {}
 // [cfe] unspecified
 
 enum E with M {
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   e1;
 }
 
