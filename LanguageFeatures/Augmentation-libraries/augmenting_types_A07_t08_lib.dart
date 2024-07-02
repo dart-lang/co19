@@ -30,8 +30,5 @@ augment abstract class C2 implements I2 {}
 augment mixin M implements I2 {}
 
 augment enum E implements I2 {
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment e1;
 }

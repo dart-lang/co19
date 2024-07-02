@@ -28,6 +28,9 @@ abstract interface class I2 {
 
 class C1 implements I1 {
   String foo() => "С1";
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 abstract class C2 implements I1 {}
@@ -43,6 +46,9 @@ mixin M implements I1 {}
 enum E implements I1 {
   e1;
   String foo() => "E";
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
