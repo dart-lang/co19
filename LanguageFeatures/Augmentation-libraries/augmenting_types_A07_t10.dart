@@ -19,8 +19,14 @@
 import augment 'augmenting_types_A07_t10_lib.dart';
 
 class C {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 mixin M {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 enum E {
   e1;
