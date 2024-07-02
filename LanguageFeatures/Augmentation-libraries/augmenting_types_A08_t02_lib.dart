@@ -18,6 +18,3 @@
 augment library 'augmenting_types_A08_t02.dart';
 
 augment mixin M on C {}
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified

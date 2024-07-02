@@ -32,6 +32,9 @@ abstract class C implements I {}
 // [cfe] unspecified
 
 enum E implements I {
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   e1;
   String foo() => "E";
 }

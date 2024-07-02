@@ -24,6 +24,9 @@ abstract class C {
 
 mixin M {
   String foo();
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

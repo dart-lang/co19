@@ -20,8 +20,5 @@ augment library 'augmenting_types_A09_t04.dart';
 augment abstract class C with M {}
 
 augment enum E with M {
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment e1;
 }
