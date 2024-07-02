@@ -29,8 +29,5 @@ augment class C1 implements I {
 augment abstract class C2 implements I {}
 
 augment enum E implements I {
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment e1;
 }
