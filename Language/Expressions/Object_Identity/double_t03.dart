@@ -44,7 +44,13 @@ main() {
   Expect.isTrue(identical(mul(pnil, -2), nnil));
   Expect.isTrue(identical(mul(nnil, 2), nnil));
 
-  Expect.isFalse(identical(pnil, nnil));
-  Expect.isFalse(identical(pnil1, nnil1));
-  Expect.isFalse(identical(pnil2, nnil2));
+  if (isJS) {
+    Expect.isTrue(identical(pnil, nnil));
+    Expect.isTrue(identical(pnil1, nnil1));
+    Expect.isTrue(identical(pnil2, nnil2));
+  } else {
+    Expect.isFalse(identical(pnil, nnil));
+    Expect.isFalse(identical(pnil1, nnil1));
+    Expect.isFalse(identical(pnil2, nnil2));
+  }
 }

@@ -32,5 +32,9 @@ main() {
   Expect.isFalse(identical(const C(1), const C(2)));
 
   Expect.isFalse(double.nan == double.nan);
-  Expect.isTrue(identical(double.nan, double.nan));
+  if (isJS) {
+    Expect.isFalse(identical(double.nan, double.nan));
+  } else {
+    Expect.isTrue(identical(double.nan, double.nan));
+  }
 }
