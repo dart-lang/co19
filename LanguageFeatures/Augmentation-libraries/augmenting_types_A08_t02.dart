@@ -26,6 +26,9 @@ class C {
 }
 
 mixin M on A {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(C);

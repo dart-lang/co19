@@ -40,6 +40,9 @@ mixin M {
 enum E {
   e1;
   String get foo => "E";
+//           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

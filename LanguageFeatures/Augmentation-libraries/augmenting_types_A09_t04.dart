@@ -33,6 +33,9 @@ abstract class C {
 enum E {
   e1;
   String foo() => "E";
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
