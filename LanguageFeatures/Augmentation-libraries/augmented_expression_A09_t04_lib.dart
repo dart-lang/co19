@@ -7,7 +7,7 @@
 /// is augmenting.
 ///
 /// @description Checks that it is a compile-time error if a declaration of a
-/// setter with the name `augmented` occurs in a location where the outermost
+/// setter with the name `augmented=` occurs in a location where the outermost
 /// enclosing declaration is augmenting.
 /// @author sgrekhov22@gmail.com
 
