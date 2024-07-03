@@ -24,7 +24,7 @@ import '../../Utils/expect.dart';
 augment void set topLevelSetter(String value) {
   var f = () {
     augmented = "a";
-  }
+  };
   f();
   Expect.equals("topLevelSetter: a", _log);
 }
@@ -33,14 +33,14 @@ augment class C {
   augment static void set staticSetter(String value) {
     var f = () {
       augmented = "b";
-    }
+    };
     f();
     Expect.equals("C.staticSetter: b", _log);
   }
   augment void set instanceSetter(String value) {
     var f = () {
       augmented = "c";
-    }
+    };
     f();
     Expect.equals("C.instanceSetter: c", _log);
   }
@@ -50,14 +50,14 @@ augment mixin M {
   augment static void set staticSetter(String value) {
     var f = () {
       augmented = "d";
-    }
+    };
     f();
     Expect.equals("M.staticSetter: d", _log);
   }
   augment void set instanceSetter(String value) {
     var f = () {
       augmented = "e";
-    }
+    };
     f();
     Expect.equals("M.instanceSetter: e", _log);
   }
@@ -69,14 +69,14 @@ augment enum E {
   augment static void set staticSetter(String value) {
     var f = () {
       augmented = "f";
-    }
+    };
     f();
     Expect.equals("E.staticSetter: f", _log);
   }
   augment void set instanceSetter(String value) {
     var f = () {
       augmented = "g";
-    }
+    };
     f();
     Expect.equals("E.instanceSetter: g", _log);
   }
@@ -86,14 +86,14 @@ augment extension Ext {
   augment static void set staticSetter(String value) {
     var f = () {
       augmented = "h";
-    }
+    };
     f();
     Expect.equals("E.staticSetter: h", _log);
   }
   augment void set instanceSetter(String value) {
     var f = () {
       augmented = "i";
-    }
+    };
     f();
     Expect.equals("E.instanceSetter: i", _log);
   }

@@ -20,28 +20,28 @@ augment library 'augmented_expression_A04_t30.dart';
 import '../../Utils/expect.dart';
 
 augment String topLevelFunction() {
-  var f = l() => "Augmented:" + augmented();
+  var f = () => "Augmented:" + augmented();
   return f();
 }
 
 augment class C {
   augment static String staticMethod(){
-    var f = l() => "Augmented:" + augmented();
+    var f = () => "Augmented:" + augmented();
     return f();
   }
   augment String instanceMethod() {
-    var f = l() => "Augmented:" + augmented();
+    var f = () => "Augmented:" + augmented();
     return f();
   }
 }
 
 augment mixin M {
   augment static String staticMethod(){
-    var f = l() => "Augmented:" + augmented();
+    var f = () => "Augmented:" + augmented();
     return f();
   }
   augment String instanceMethod() {
-    var f = l() => "Augmented:" + augmented();
+    var f = () => "Augmented:" + augmented();
     return f();
   }
 }
@@ -50,22 +50,22 @@ augment enum E {
   augment e1;
 
   augment static String staticMethod(){
-    var f = l() => "Augmented:" + augmented();
+    var f = () => "Augmented:" + augmented();
     return f();
   }
   augment String instanceMethod() {
-    var f = l() => "Augmented:" + augmented();
+    var f = () => "Augmented:" + augmented();
     return f();
   }
 }
 
 augment extension Ext {
   augment static String staticMethod(){
-    var f = l() => "Augmented:" + augmented();
+    var f = () => "Augmented:" + augmented();
     return f();
   }
   augment String instanceMethod() {
-    var f = l() => "Augmented:" + augmented();
+    var f = () => "Augmented:" + augmented();
     return f();
   }
 }
