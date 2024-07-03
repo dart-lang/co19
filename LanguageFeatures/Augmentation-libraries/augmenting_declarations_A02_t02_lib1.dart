@@ -10,7 +10,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-library augment 'augmenting_declarations_A02_t02.dart';
+augment library 'augmenting_declarations_A02_t02.dart';
 import augment 'augmenting_declarations_A02_t02_lib2.dart';
 
 /**/augment class C {}

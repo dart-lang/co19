@@ -14,6 +14,6 @@
 
 // SharedOptions=--enable-experiment=macros
 
-library augment 'augmenting_declarations_A02_t01.dart';
+augment library  'augmenting_declarations_A02_t01.dart';
 
 class C {}
