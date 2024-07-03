@@ -6,20 +6,21 @@
 /// - An augmenting declaration has no corresponding original declaration to
 ///   apply to.
 ///
-/// @description Checks that it is not an error if an augmenting
-/// declaration has a corresponding original declaration to apply to
+/// @description Checks that it is a compile-time error if an augmenting
+/// declaration has no corresponding original declaration to apply to.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
-
-import '../../Utils/expect.dart';
 
 augment class C {
   int get baz => 42;
 }
 
 class C {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  Expect.equals(42, C().baz);
+  print(C);
 }
