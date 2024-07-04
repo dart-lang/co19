@@ -20,8 +20,8 @@ import augment 'augmented_expression_A01_t26_lib.dart';
 import '../../Utils/expect.dart';
 
 String get augmented => "Global getter, shouldn't be invoked";
-int counter = 1;
-String get topLevelGetter => "Original ${counter++}";
+
+String get topLevelGetter => "Original";
 
 class C {
   static String get staticGetter => "Original";
@@ -55,13 +55,13 @@ extension Ext on A {
 class MA = Object with M;
 
 main() {
-  Expect.equals("Augmented: Original", topLevelGetter);
-  Expect.equals("Augmented: Original", C.staticGetter);
-  Expect.equals("Augmented: Original", C().instanceGetter);
-  Expect.equals("Augmented: Original", M.staticGetter);
-  Expect.equals("Augmented: Original", MA().instanceGetter);
-  Expect.equals("Augmented: Original", E.staticGetter);
-  Expect.equals("Augmented: Original", E.e1.instanceGetter);
-  Expect.equals("Augmented: Original", Ext.staticGetter);
-  Expect.equals("Augmented: Original", A().instanceGetter);
+  Expect.equals("1: Original, 2: Original", topLevelGetter);
+  Expect.equals("1: Original, 2: Original", C.staticGetter);
+  Expect.equals("1: Original, 2: Original", C().instanceGetter);
+  Expect.equals("1: Original, 2: Original", M.staticGetter);
+  Expect.equals("1: Original, 2: Original", MA().instanceGetter);
+  Expect.equals("1: Original, 2: Original", E.staticGetter);
+  Expect.equals("1: Original, 2: Original", E.e1.instanceGetter);
+  Expect.equals("1: Original, 2: Original", Ext.staticGetter);
+  Expect.equals("1: Original, 2: Original", A().instanceGetter);
 }

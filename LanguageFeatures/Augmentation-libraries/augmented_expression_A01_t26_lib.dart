@@ -20,28 +20,28 @@ augment library 'augmented_expression_A01_t26.dart';
 import '../../Utils/expect.dart';
 
 augment String get topLevelGetter {
-  String local() => "Augmented: ${augmented}";
+  String local() => "1: ${augmented}, 2: " + augmented;
   return local();
 }
 
 augment class C {
   augment static String get staticGetter {
-    String local() => "Augmented: ${augmented}";
+    String local() => "1: ${augmented}, 2: " + augmented;
     return local();
   }
   augment String get instanceGetter {
-    String local() => "Augmented: ${augmented}";
+    String local() => "1: ${augmented}, 2: " + augmented;
     return local();
   }
 }
 
 augment mixin M {
   augment static String get staticGetter {
-    String local() => "Augmented: ${augmented}";
+    String local() => "1: ${augmented}, 2: " + augmented;
     return local();
   }
   augment String get instanceGetter {
-    String local() => "Augmented: ${augmented}";
+    String local() => "1: ${augmented}, 2: " + augmented;
     return local();
   }
 }
@@ -50,22 +50,22 @@ augment enum E {
   augment e1;
 
   augment static String get staticGetter {
-    String local() => "Augmented: ${augmented}";
+    String local() => "1: ${augmented}, 2: " + augmented;
     return local();
   }
   augment String get instanceGetter {
-    String local() => "Augmented: ${augmented}";
+    String local() => "1: ${augmented}, 2: " + augmented;
     return local();
   }
 }
 
 augment extension Ext {
   augment static String get staticGetter {
-    String local() => "Augmented: ${augmented}";
+    String local() => "1: ${augmented}, 2: " + augmented;
     return local();
   }
   augment String get instanceGetter {
-    String local() => "Augmented: ${augmented}";
+    String local() => "1: ${augmented}, 2: " + augmented;
     return local();
   }
 }
