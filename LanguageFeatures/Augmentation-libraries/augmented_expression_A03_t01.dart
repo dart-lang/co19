@@ -22,58 +22,64 @@
 import augment 'augmented_expression_A03_t01_lib.dart';
 import '../../Utils/expect.dart';
 
-const augmented = "Augmented constant, shouldn't be used";
+String get augmented => "Top-level augmented, shouldn't be invoked";
 
-String topLevelVariable = "Original";
-final String finalTopLevelVariable = "Original";
+int counter = 1;
+String get foo => "Original ${counter++}";
+String bar() => "Original ${counter++}";
+
+var topLevelVariable = foo;
+final finalTopLevelVariable = foo;
 
 class C {
-  static String staticVariable = "Original";
-  static final String finalStaticVariable = "Original";
-  String instanceVariable = "Original";
-  final String finalInstanceVariable = "Original";
-  final String augmented = "C.augmented, shouldn't be used";
+  static var staticVariable = foo;
+  static final finalStaticVariable = foo;
+  var instanceVariable = foo;
+  final finalInstanceVariable = foo;
+  static String get augmented => "C.augmented, shouldn't be invoked";
 }
 
 mixin M {
-  static String staticVariable = "Original";
-  static final String finalStaticVariable = "Original";
-  String instanceVariable = "Original";
-  final String finalInstanceVariable = "Original";
-  final String augmented = "M.augmented, shouldn't be used";
+  static var staticVariable = foo;
+  static final finalStaticVariable = foo;
+  var instanceVariable = foo;
+  final finalInstanceVariable = foo;
+  static String get augmented => "M.augmented, shouldn't be invoked";
 }
 
 enum E {
   e1;
-
-  static String staticVariable = "Original";
-  static final String finalStaticVariable = "Original";
-  final String finalInstanceVariable = "Original";
-  final String augmented = "E.augmented, shouldn't be used";
+  // Enum members are constants so we cannot use a getter as an initializer here
+  static var staticVariable = bar;
+  static final finalStaticVariable = bar;
+  final finalInstanceVariable = bar;
+  static String get augmented => "E.augmented, shouldn't be invoked";
 }
 
 class A {}
 
 extension Ext on A {
-  static String staticVariable = "Original";
-  static final String finalStaticVariable = "Original";
-  static final String augmented = "Ext.augmented, shouldn't be used";
+  static var staticVariable = foo;
+  static final finalStaticVariable = foo;
+  static String get augmented => "Ext.augmented, shouldn't be invoked";
 }
 
 class MA = Object with M;
 
 main() {
-  Expect.equals("Augment: Original", topLevelVariable);
-  Expect.equals("Augment: Original", finalTopLevelVariable);
-  Expect.equals("Augment: Original", C.staticVariable);
-  Expect.equals("Augment: Original", C.finalStaticVariable);
-  Expect.equals("Augment: Original", C().instanceVariable);
-  Expect.equals("Augment: Original", C().finalInstanceVariable);
-  Expect.equals("Augment: Original", M.staticVariable);
-  Expect.equals("Augment: Original", M.finalStaticVariable);
-  Expect.equals("Augment: Original", MA().instanceVariable);
-  Expect.equals("Augment: Original", MA().finalInstanceVariable);
-  Expect.equals("Augment: Original", E.staticVariable);
-  Expect.equals("Augment: Original", E.finalStaticVariable);
-  Expect.equals("Augment: Original", E.e1.finalInstanceVariable);
+  Expect.equals("1: Original 1, 2: Original 2", topLevelVariable);
+  Expect.equals("1: Original 3, 2: Original 4", finalTopLevelVariable);
+  Expect.equals("1: Original 5, 2: Original 6", C.staticVariable);
+  Expect.equals("1: Original 6, 2: Original 8", C.finalStaticVariable);
+  Expect.equals("1: Original 9, 2: Original 10", C().instanceVariable);
+  Expect.equals("1: Original 11, 2: Original 12", C().finalInstanceVariable);
+  Expect.equals("1: Original 13, 2: Original 14", M.staticVariable);
+  Expect.equals("1: Original 15, 2: Original 16", M.finalStaticVariable);
+  Expect.equals("1: Original 17, 2: Original 18", MA().instanceVariable);
+  Expect.equals("1: Original 19, 2: Original 20", MA().finalInstanceVariable);
+  Expect.equals("1: Original 21, 2: Original 22", E.staticVariable());
+  Expect.equals("1: Original 23, 2: Original 24", E.finalStaticVariable());
+  Expect.equals("1: Original 25, 2: Original 26", E.e1.finalInstanceVariable());
+  Expect.equals("1: Original 27, 2: Original 28", Ext.staticVariable);
+  Expect.equals("1: Original 29, 2: Original 30", Ext.finalStaticVariable);
 }

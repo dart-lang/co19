@@ -21,32 +21,34 @@
 
 augment library 'augmented_expression_A03_t01.dart';
 
-augment String topLevelVariable = "Augment: $augmented";
-augment final String finalTopLevelVariable = "Augment: $augmented";
+augment var topLevelVariable = "1: $augmented, 2: " + augmented;
+
+augment final finalTopLevelVariable = "1: $augmented, 2: " + augmented;
 
 augment class C {
-  augment static String staticVariable = "Augment: $augmented";
-  augment static final String finalStaticVariable = "Augment: $augmented";
-  augment String instanceVariable = "Augment: $augmented";
-  augment final String finalInstanceVariable = "Augment: $augmented";
+  augment static var staticVariable = "1: $augmented, 2: " + augmented;
+  augment static final finalStaticVariable = "1: $augmented, 2: " + augmented;
+  augment var instanceVariable = "1: $augmented, 2: " + augmented;
+  augment final finalInstanceVariable ="1: $augmented, 2: " + augmented;
 }
 
 augment mixin M {
-  augment static String staticVariable = "Augment: $augmented";
-  augment static final String finalStaticVariable = "Augment: $augmented";
-  augment String instanceVariable = "Augment: $augmented";
-  augment final String finalInstanceVariable = "Augment: $augmented";
+  augment static var staticVariable = "1: $augmented, 2: " + augmented;
+  augment static final finalStaticVariable = "1: $augmented, 2: " + augmented;
+  augment var instanceVariable = "1: $augmented, 2: " + augmented;
+  augment final finalInstanceVariable ="1: $augmented, 2: " + augmented;
 }
 
 augment enum E {
   augment e1;
 
-  augment static String staticVariable = "Augment: $augmented";
-  augment static final String finalStaticVariable = "Augment: $augmented";
-  augment final String finalInstanceVariable = "Augment: $augmented";
+  augment static var staticVariable = "1: ${augmented()}, 2: " + augmented();
+  augment static final finalStaticVariable
+  = "1: ${augmented()}, 2: " + augmented();
+  augment final finalInstanceVariable ="1: ${augmented()}, 2: " + augmented();
 }
 
 augment extension Ext {
-  augment static String staticVariable = "Augment: $augmented";
-  augment static final String finalStaticVariable = "Augment: $augmented";
+  augment static var staticVariable = "1: $augmented, 2: " + augmented;
+  augment static final finalStaticVariable = "1: $augmented, 2: " + augmented;
 }
