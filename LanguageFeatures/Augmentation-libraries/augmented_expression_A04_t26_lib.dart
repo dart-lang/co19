@@ -17,37 +17,36 @@
 // SharedOptions=--enable-experiment=macros
 
 augment library 'augmented_expression_A04_t26.dart';
-import '../../Utils/expect.dart';
 
-augment String topLevelFunction1() => augmented();
-augment String topLevelFunction2() => augmented();
+augment String topLevelFunction1([String value]) => augmented();
+augment String topLevelFunction2({String value}) => augmented();
 
 augment class C {
-  augment static String staticMethod1() => augmented();
-  augment static String staticMethod2() => augmented();
-  augment String instanceMethod1() => augmented();
-  augment String instanceMethod2() => augmented();
+  static String staticMethod1([String value]) => augmented();
+  static String staticMethod2({String value}) => augmented();
+  String instanceMethod1([String value]) => augmented();
+  String instanceMethod2({String value}) => augmented();
 }
 
 augment mixin M {
-  augment static String staticMethod1() => augmented();
-  augment static String staticMethod2() => augmented();
-  augment String instanceMethod1() => augmented();
-  augment String instanceMethod2() => augmented();
+  static String staticMethod1([String value]) => augmented();
+  static String staticMethod2({String value}) => augmented();
+  String instanceMethod1([String value]) => augmented();
+  String instanceMethod2({String value}) => augmented();
 }
 
 augment enum E {
   augment e1;
 
-  augment static String staticMethod1() => augmented();
-  augment static String staticMethod2() => augmented();
-  augment String instanceMethod1() => augmented();
-  augment String instanceMethod2() => augmented();
+  static String staticMethod1([String value]) => augmented();
+  static String staticMethod2({String value}) => augmented();
+  String instanceMethod1([String value]) => augmented();
+  String instanceMethod2({String value}) => augmented();
 }
 
 augment extension Ext {
-  augment static String staticMethod1() => augmented();
-  augment static String staticMethod2() => augmented();
-  augment String instanceMethod1() => augmented();
-  augment String instanceMethod2() => augmented();
+  static String staticMethod1([String value]) => augmented();
+  static String staticMethod2({String value}) => augmented();
+  String instanceMethod1([String value]) => augmented();
+  String instanceMethod2({String value}) => augmented();
 }

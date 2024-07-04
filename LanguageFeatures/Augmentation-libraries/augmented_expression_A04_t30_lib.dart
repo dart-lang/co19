@@ -17,7 +17,6 @@
 // SharedOptions=--enable-experiment=macros
 
 augment library 'augmented_expression_A04_t30.dart';
-import '../../Utils/expect.dart';
 
 augment String topLevelFunction() {
   var f = () => "Augmented:" + augmented();

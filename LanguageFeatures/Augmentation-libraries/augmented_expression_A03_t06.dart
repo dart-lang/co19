@@ -78,4 +78,6 @@ main() {
   Expect.equals("Augment2: Augment1: Original", E.staticVariable);
   Expect.equals("Augment2: Augment1: Original", E.finalStaticVariable);
   Expect.equals("Augment2: Augment1: Original", E.e1.finalInstanceVariable);
+  Expect.equals("Augment2: Augment1: Original", Ext.staticVariable);
+  Expect.equals("Augment2: Augment1: Original", Ext.finalStaticVariable);
 }

@@ -12,8 +12,8 @@
 ///   from the augmented field.
 ///
 /// @description Checks that within an augmenting setter `augmented=` invokes
-/// the augmented setter and evaluates it to the return value. Test a function
-/// literal.
+/// the augmented setter and binds the right hand side of the assignment
+/// expression to the given actual argument. Test a function literal.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

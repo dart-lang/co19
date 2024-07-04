@@ -14,7 +14,7 @@
 /// initializer if the member being augmented is not a field with an initializer
 ///
 /// @description Checks that within an augmenting field `augmented` invokes the
-/// original field's initializer expression. Test a local function.
+/// original field's initializer expression. Test a function literal.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

@@ -17,7 +17,6 @@
 // SharedOptions=--enable-experiment=macros
 
 augment library 'augmented_expression_A04_t27.dart';
-import '../../Utils/expect.dart';
 
 String topLevelFunction1(String value) => augmented(value.toUpperCase());
 String topLevelFunction2([String value]) => augmented(value.toUpperCase());

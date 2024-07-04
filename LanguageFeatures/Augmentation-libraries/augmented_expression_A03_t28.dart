@@ -19,12 +19,13 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A03_t28_lib.dart';
+//import augment 'augmented_expression_A03_t28_lib.dart';
 import '../../Utils/expect.dart';
 
 String augmented() => "Top-level augmented(), shouldn't be invoked";
 
-String foo() => "Original";
+int counter = 1;
+String foo() => "Original ${counter++}";
 
 var topLevelVariable = foo;
 final finalTopLevelVariable = foo;
@@ -65,17 +66,19 @@ extension Ext on A {
 class MA = Object with M;
 
 main() {
-  Expect.equals("Augment: Original", topLevelVariable());
-  Expect.equals("Augment: Original", finalTopLevelVariable());
-  Expect.equals("Augment: Original", C.staticVariable());
-  Expect.equals("Augment: Original", C.finalStaticVariable());
-  Expect.equals("Augment: Original", C().instanceVariable());
-  Expect.equals("Augment: Original", C().finalInstanceVariable());
-  Expect.equals("Augment: Original", M.staticVariable());
-  Expect.equals("Augment: Original", M.finalStaticVariable());
-  Expect.equals("Augment: Original", MA().instanceVariable());
-  Expect.equals("Augment: Original", MA().finalInstanceVariable());
-  Expect.equals("Augment: Original", E.staticVariable());
-  Expect.equals("Augment: Original", E.finalStaticVariable());
-  Expect.equals("Augment: Original", E.e1.finalInstanceVariable());
+  Expect.equals("Augment: Original 1", topLevelVariable());
+  Expect.equals("Augment: Original 2", finalTopLevelVariable());
+  Expect.equals("Augment: Original 3", C.staticVariable());
+  Expect.equals("Augment: Original 4", C.finalStaticVariable());
+  Expect.equals("Augment: Original 5", C().instanceVariable());
+  Expect.equals("Augment: Original 6", C().finalInstanceVariable());
+  Expect.equals("Augment: Original 7", M.staticVariable());
+  Expect.equals("Augment: Original 8", M.finalStaticVariable());
+  Expect.equals("Augment: Original 9", MA().instanceVariable());
+  Expect.equals("Augment: Original 10", MA().finalInstanceVariable());
+  Expect.equals("Augment: Original 11", E.staticVariable());
+  Expect.equals("Augment: Original 12", E.finalStaticVariable());
+  Expect.equals("Augment: Original 13", E.e1.finalInstanceVariable());
+  Expect.equals("Augment: Original 14", Ext.staticVariable());
+  Expect.equals("Augment: Original 15", Ext.finalStaticVariable());
 }
