@@ -12,45 +12,50 @@
 ///   These constructs invoke the augmented operator, and are the only valid
 ///   uses of `augmented` in these contexts.
 ///
-/// @description Checks that it is a compile-time error to use a record which
-/// has a named formal parameter with the name `augmented` in an augmenting
-/// operator body.
+/// @description Checks that within an augmenting operator `augmented` invokes
+/// the augmented one and evaluates it to the return value. Test a function
+/// literal.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A05_t19_lib.dart';
+import augment 'augmented_expression_A05_t23_lib.dart';
+import '../../Utils/expect.dart';
+
+String _log = "";
 
 class C {
-  Record operator +(Object? other) => ();
-  Record operator [](int index) => ();
-  void operator []=(int index, int value) {}
+  void operator []=(int index, Object? value) {
+    _log = "Original [$index]=$value";
+  }
 }
 
 mixin M {
-  Record operator +(Object? other) => ();
-  Record operator [](int index) => ();
-  void operator []=(int index, int value) {}
+  void operator []=(int index, Object? value) {
+    _log = "Original [$index]=$value";
+  }
 }
 
 enum E {
   e1;
-  Record operator +(Object? other) => ();
-  Record operator [](int index) => ();
-  void operator []=(int index, int value) {}
+  void operator []=(int index, Object? value) {
+    _log = "Original [$index]=$value";
+  }
 }
 
 class A {}
 
 extension Ext on A {
-  Record operator +(Object? other) => ();
-  Record operator [](int index) => ();
-  void operator []=(int index, int value) {}
+  void operator []=(int index, Object? value) {
+    _log = "Original [$index]=$value";
+  }
 }
 
+class MA = Object with M;
+
 main() {
-  print(C);
-  print(M);
-  print(E);
-  print(A);
+  Expect.equals("Augmented [1]=2", C()[1] = 2);
+  Expect.equals("Augmented [3]=4", MA()[3] = 4);
+  Expect.equals("Augmented [5]=6", E.e1[5] = 6);
+  Expect.equals("Augmented [7]=8", A()[7] = 8);
 }
