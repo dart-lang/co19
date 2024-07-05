@@ -23,23 +23,23 @@ augment library 'augmented_expression_A05_t20.dart';
 
 augment class C {
   augment String operator +(Object? other) {
-    var local() => "Augmented: ${augmented + other}";
+    String local() => "Augmented: ${augmented + other}";
     return local();
   }
 
   augment String operator [](int index) {
-    var local() => "Augmented: ${augmented[index]}";
+    String local() => "Augmented: ${augmented[index]}";
     return local();
   }
 }
 
 augment mixin M {
   augment Record operator +(Object? other) {
-    var local() => "Augmented: ${augmented + other}";
+    String local() => "Augmented: ${augmented + other}";
     return local();
   }
   augment Record operator [](int index) {
-    var local() => "Augmented: ${augmented[index]}";
+    String local() => "Augmented: ${augmented[index]}";
     return local();
   }
 }
@@ -47,22 +47,22 @@ augment mixin M {
 augment enum E {
   augment e1;
   augment Record operator +(Object? other) {
-    var local() => "Augmented: ${augmented + other}";
+    String local() => "Augmented: ${augmented + other}";
     return local();
   }
   augment Record operator [](int index) {
-    var local() => "Augmented: ${augmented[index]}";
+    String local() => "Augmented: ${augmented[index]}";
     return local();
   }
 }
 
 augment extension Ext {
   augment Record operator +(Object? other) {
-    var local() => "Augmented: ${augmented + other}";
+    String local() => "Augmented: ${augmented + other}";
     return local();
   }
   augment Record operator [](int index) {
-    var local() => "Augmented: ${augmented[index]}";
+    String local() => "Augmented: ${augmented[index]}";
     return local();
   }
 }

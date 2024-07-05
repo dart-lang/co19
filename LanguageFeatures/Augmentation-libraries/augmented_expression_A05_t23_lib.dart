@@ -27,7 +27,7 @@ augment class C {
     var f = () {
       augmented[index] = value;
       Expect.equals("Original [$index]=$value", _log);
-    }
+    };
     f();
     _log = "Augmented [$index]=$value";
   }
@@ -38,7 +38,7 @@ augment mixin M {
     var f = () {
       augmented[index] = value;
       Expect.equals("Original [$index]=$value", _log);
-    }
+    };
     f();
     _log = "Augmented [$index]=$value";
   }
@@ -50,7 +50,7 @@ augment enum E {
     var f = () {
       augmented[index] = value;
       Expect.equals("Original [$index]=$value", _log);
-    }
+    };
     f();
     _log = "Augmented [$index]=$value";
   }
@@ -61,7 +61,7 @@ augment extension Ext {
     var f = () {
       augmented[index] = value;
       Expect.equals("Original [$index]=$value", _log);
-    }
+    };
     f();
     _log = "Augmented [$index]=$value";
   }
