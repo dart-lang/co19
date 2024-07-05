@@ -23,30 +23,30 @@ import augment 'augmented_expression_A05_t12_lib.dart';
 var augmented = ["Top-level augmented", "should", "not", "be", "used"];
 
 class C {
-  String operator [](int index) => "C[$ndex]";
-  String operator []=(int index, String value) => "C[$index]=$value";
+  String operator [](int index) => "C[$index]";
+  void operator []=(int index, String value) => "C[$index]=$value";
   List<String> augmented = ["C.augmented", "should", "not", "be", "used"];
 }
 
 mixin M {
-  String operator [](int index) => "M[$ndex]";
-  String operator []=(int index, String value) => "M[$index]=$value";
+  String operator [](int index) => "M[$index]";
+  void operator []=(int index, String value) => "M[$index]=$value";
   List<String> augmented = ["M.augmented", "should", "not", "be", "used"];
 }
 
 enum E {
   e1;
-  String operator [](int index) => "E[$ndex]";
-  String operator []=(int index, String value) => "E[$index]=$value";
+  String operator [](int index) => "E[$index]";
+  void operator []=(int index, String value) => "E[$index]=$value";
   List<String> augmented = ["E.augmented", "should", "not", "be", "used"];
 }
 
 class A {}
 
 extension Ext on A {
-  String operator [](int index) => "Ext[$ndex]";
-  String operator []=(int index, String value) => "Ext[$index]=$value";
-  List<String> augmented = ["Ext.augmented", "should", "not", "be", "used"];
+  String operator [](int index) => "Ext[$index]";
+  void operator []=(int index, String value) => "Ext[$index]=$value";
+  List<String> get augmented => ["Ext.augmented", "should", "not", "be", "used"];
 }
 
 main() {
