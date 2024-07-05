@@ -18,71 +18,89 @@
 
 augment library 'augmented_expression_A04_t27.dart';
 
-String topLevelFunction1(String value) => augmented(value.toUpperCase());
-String topLevelFunction2([String value]) => augmented(value.toUpperCase());
-String topLevelFunction3({String value}) =>
+augment String topLevelFunction1(String value) =>
+    augmented(value.toUpperCase());
+augment String topLevelFunction2([String value]) =>
+    augmented(value.toUpperCase());
+augment String topLevelFunction3({String value}) =>
     augmented(value: value.toUpperCase());
-String topLevelFunction4({required String value}) =>
+augment String topLevelFunction4({required String value}) =>
     augmented(value: value.toUpperCase());
 
 augment class C {
-  static String staticMethod1(String value) => augmented(value.toUpperCase());
-  static String staticMethod2([String value]) => augmented(value.toUpperCase());
-  static String staticMethod3({String value}) =>
+  augment  static String staticMethod1(String value) =>
+      augmented(value.toUpperCase());
+  augment static String staticMethod2([String value]) =>
+      augmented(value.toUpperCase());
+  augment static String staticMethod3({String value}) =>
       augmented(value: value.toUpperCase());
-  static String staticMethod4({required String value}) =>
+  augment static String staticMethod4({required String value}) =>
       augmented(value: value.toUpperCase());
-  String instanceMethod1(String value) => augmented(value.toUpperCase());
-  String instanceMethod2([String value]) => augmented(value.toUpperCase());
-  String instanceMethod3({String value}) =>
+  augment String instanceMethod1(String value) =>
+      augmented(value.toUpperCase());
+  augment String instanceMethod2([String value]) =>
+      augmented(value.toUpperCase());
+  augment String instanceMethod3({String value}) =>
       augmented(value: value.toUpperCase());
-  String instanceMethod4({required String value}) =>
+  augment String instanceMethod4({required String value}) =>
       augmented(value: value.toUpperCase());
 }
 
 augment mixin M {
-  static String staticMethod1(String value) => augmented(value.toUpperCase());
-  static String staticMethod2([String value]) => augmented(value.toUpperCase());
-  static String staticMethod3({String value}) =>
+  augment static String staticMethod1(String value) =>
+      augmented(value.toUpperCase());
+  augment static String staticMethod2([String value]) =>
+      augmented(value.toUpperCase());
+  augment static String staticMethod3({String value}) =>
       augmented(value: value.toUpperCase());
-  static String staticMethod4({required String value}) =>
+  augment static String staticMethod4({required String value}) =>
       augmented(value: value.toUpperCase());
-  String instanceMethod1(String value) => augmented(value.toUpperCase());
-  String instanceMethod2([String value]) => augmented(value.toUpperCase());
-  String instanceMethod3({String value}) =>
+  augment String instanceMethod1(String value) =>
+      augmented(value.toUpperCase());
+  augment String instanceMethod2([String value]) =>
+      augmented(value.toUpperCase());
+  augment String instanceMethod3({String value}) =>
       augmented(value: value.toUpperCase());
-  String instanceMethod4({required String value}) =>
+  augment String instanceMethod4({required String value}) =>
       augmented(value: value.toUpperCase());
 }
 
 augment enum E {
   augment e1;
 
-  static String staticMethod1(String value) => augmented(value.toUpperCase());
-  static String staticMethod2([String value]) => augmented(value.toUpperCase());
-  static String staticMethod3({String value}) =>
+  augment static String staticMethod1(String value) =>
+      augmented(value.toUpperCase());
+  augment static String staticMethod2([String value]) =>
+      augmented(value.toUpperCase());
+  augment static String staticMethod3({String value}) =>
       augmented(value: value.toUpperCase());
-  static String staticMethod4({required String value}) =>
+  augment static String staticMethod4({required String value}) =>
       augmented(value: value.toUpperCase());
-  String instanceMethod1(String value) => augmented(value.toUpperCase());
-  String instanceMethod2([String value]) => augmented(value.toUpperCase());
-  String instanceMethod3({String value}) =>
+  augment String instanceMethod1(String value) =>
+      augmented(value.toUpperCase());
+  augment String instanceMethod2([String value]) =>
+      augmented(value.toUpperCase());
+  augment String instanceMethod3({String value}) =>
       augmented(value: value.toUpperCase());
-  String instanceMethod4({required String value}) =>
+  augment String instanceMethod4({required String value}) =>
       augmented(value: value.toUpperCase());
 }
 
 augment extension Ext {
-  static String staticMethod1(String value) => augmented(value.toUpperCase());
-  static String staticMethod2([String value]) => augmented(value.toUpperCase());
-  static String staticMethod3({String value}) =>
+  augment static String staticMethod1(String value) =>
+      augmented(value.toUpperCase());
+  augment static String staticMethod2([String value]) =>
+      augmented(value.toUpperCase());
+  augment static String staticMethod3({String value}) =>
       augmented(value: value.toUpperCase());
-  static String staticMethod4({required String value}) =>
+  augment static String staticMethod4({required String value}) =>
       augmented(value: value.toUpperCase());
-  String instanceMethod1(String value) => augmented(value.toUpperCase());
-  String instanceMethod2([String value]) => augmented(value.toUpperCase());
-  String instanceMethod3({String value}) =>
+  augment String instanceMethod1(String value) =>
+      augmented(value.toUpperCase());
+  augment String instanceMethod2([String value]) =>
+      augmented(value.toUpperCase());
+  augment String instanceMethod3({String value}) =>
       augmented(value: value.toUpperCase());
-  String instanceMethod4({required String value}) =>
+  augment String instanceMethod4({required String value}) =>
       augmented(value: value.toUpperCase());
 }

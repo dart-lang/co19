@@ -13,3 +13,6 @@
 augment library 'augmenting_declarations_A02_t02_lib1.dart';
 
 class C {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified

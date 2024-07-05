@@ -19,89 +19,96 @@
 
 augment library 'augmented_expression_A04_t28.dart';
 
-String topLevelFunction1(String value) => augmented();
-//                                        ^^^^^^^^^
+augment String topLevelFunction1(String value) => augmented();
+//                                                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-String topLevelFunction2([String value]) => augmented("a", "b");
-//                                          ^^^^^^^^^
+augment String topLevelFunction2([String value]) => augmented("a", "b");
+//                                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-String topLevelFunction3({String value}) => augmented("c");
-//                                          ^^^^^^^^^
+augment String topLevelFunction3({String value}) => augmented("c");
+//                                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-String topLevelFunction4({required String value}) => augmented(value: "d", "f");
-//                                                   ^^^^^^^^^
+augment String topLevelFunction4({required String value}) =>
+    augmented(value: "d", "f");
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 augment class C {
-  static String staticMethod1(String value) => augmented("a", "b");
-//                                             ^^^^^^^^^
+  augment static String staticMethod1(String value) => augmented("a", "b");
+//                                                     ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String staticMethod2([String value]) => augmented(1);
-//                                               ^^^^^^^^^
+  augment static String staticMethod2([String value]) => augmented(1);
+//                                                       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String staticMethod3({String value}) => augmented(value: "c", "d");
-//                                               ^^^^^^^^^
+  augment static String staticMethod3({String value}) =>
+      augmented(value: "c", "d");
+//    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String staticMethod4({required String value}) => augmented("e");
-//                                                        ^^^^^^^^^
+  augment static String staticMethod4({required String value}) =>
+      augmented("e");
+//    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod1(String value) => augmented(1);
-//                                        ^^^^^^^^^
+  augment String instanceMethod1(String value) => augmented(1);
+//                                                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod2([String value]) => augmented(null);
-//                                          ^^^^^^^^^
+  augment String instanceMethod2([String value]) => augmented(null);
+//                                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod3({String value}) => augmented(value: 1);
-//                                          ^^^^^^^^^
+  augment String instanceMethod3({String value}) => augmented(value: 1);
+//                                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod4({required String value}) => augmented(value: null);
-//                                                   ^^^^^^^^^
+  augment String instanceMethod4({required String value}) =>
+      augmented(value: null);
+//    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment mixin M {
-  static String staticMethod1(String value) => augmented("a", "b");
-//                                             ^^^^^^^^^
+  augment static String staticMethod1(String value) => augmented("a", "b");
+//                                                     ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String staticMethod2([String value]) => augmented(1);
-//                                               ^^^^^^^^^
+  augment static String staticMethod2([String value]) => augmented(1);
+//                                                       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String staticMethod3({String value}) => augmented(value: "c", "d");
-//                                               ^^^^^^^^^
+  augment static String staticMethod3({String value}) =>
+      augmented(value: "c", "d");
+//    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String staticMethod4({required String value}) => augmented("e");
-//                                                        ^^^^^^^^^
+  augment static String staticMethod4({required String value}) =>
+      augmented("e");
+//    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod1(String value) => augmented(1);
-//                                        ^^^^^^^^^
+  augment String instanceMethod1(String value) => augmented(1);
+//                                                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod2([String value]) => augmented(null);
-//                                          ^^^^^^^^^
+  augment String instanceMethod2([String value]) => augmented(null);
+//                                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod3({String value}) => augmented(value: 1);
-//                                          ^^^^^^^^^
+  augment String instanceMethod3({String value}) => augmented(value: 1);
+//                                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod4({required String value}) => augmented(value: null);
-//                                                   ^^^^^^^^^
+  augment String instanceMethod4({required String value}) =>
+      augmented(value: null);
+//    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -109,71 +116,77 @@ augment mixin M {
 augment enum E {
   augment e1;
 
-  static String staticMethod1(String value) => augmented("a", "b");
-//                                             ^^^^^^^^^
+  augment static String staticMethod1(String value) => augmented("a", "b");
+//                                                     ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String staticMethod2([String value]) => augmented(1);
-//                                               ^^^^^^^^^
+  augment static String staticMethod2([String value]) => augmented(1);
+//                                                       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String staticMethod3({String value}) => augmented(value: "c", "d");
-//                                               ^^^^^^^^^
+  augment static String staticMethod3({String value}) =>
+      augmented(value: "c", "d");
+//    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String staticMethod4({required String value}) => augmented("e");
-//                                                        ^^^^^^^^^
+  augment static String staticMethod4({required String value}) =>
+      augmented("e");
+//    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod1(String value) => augmented(1);
-//                                        ^^^^^^^^^
+  augment String instanceMethod1(String value) => augmented(1);
+//                                                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod2([String value]) => augmented(null);
-//                                          ^^^^^^^^^
+  augment String instanceMethod2([String value]) => augmented(null);
+//                                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod3({String value}) => augmented(value: 1);
-//                                          ^^^^^^^^^
+  augment String instanceMethod3({String value}) => augmented(value: 1);
+//                                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod4({required String value}) => augmented(value: null);
-//                                                   ^^^^^^^^^
+  augment String instanceMethod4({required String value}) =>
+      augmented(value: null);
+//    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension Ext {
-  static String staticMethod1(String value) => augmented("a", "b");
-//                                             ^^^^^^^^^
+  augment static String staticMethod1(String value) => augmented("a", "b");
+//                                                     ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String staticMethod2([String value]) => augmented(1);
-//                                               ^^^^^^^^^
+  augment static String staticMethod2([String value]) => augmented(1);
+//                                                       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String staticMethod3({String value}) => augmented(value: "c", "d");
-//                                               ^^^^^^^^^
+  augment static String staticMethod3({String value}) =>
+      augmented(value: "c", "d");
+//    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String staticMethod4({required String value}) => augmented("e");
-//                                                        ^^^^^^^^^
+  augment static String staticMethod4({required String value}) =>
+      augmented("e");
+//    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod1(String value) => augmented(1);
-//                                        ^^^^^^^^^
+  augment String instanceMethod1(String value) => augmented(1);
+//                                                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod2([String value]) => augmented(null);
-//                                          ^^^^^^^^^
+  augment String instanceMethod2([String value]) => augmented(null);
+//                                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod3({String value}) => augmented(value: 1);
-//                                          ^^^^^^^^^
+  augment String instanceMethod3({String value}) => augmented(value: 1);
+//                                                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String instanceMethod4({required String value}) => augmented(value: null);
-//                                                   ^^^^^^^^^
+  augment String instanceMethod4({required String value}) =>
+      augmented(value: null);
+//    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
