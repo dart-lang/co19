@@ -12,40 +12,33 @@
 ///   These constructs invoke the augmented operator, and are the only valid
 ///   uses of `augmented` in these contexts.
 ///
-/// @description Checks that it is a compile-time error to use a record which
-/// has a named formal parameter with the name `augmented` in an augmenting
-/// operator body.
+/// @description Checks that it is a compile-time error to use `augmented` as a
+/// constant value in a switch expressions and statements.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A05_t19_lib.dart';
+import augment 'augmented_expression_A05_t24_lib.dart';
+
+const augmented = "Constant augmented, shouldn't be used";
 
 class C {
-  Record operator +(Object? other) => ();
-  Record operator [](int index) => ();
-  void operator []=(int index, int value) {}
+  String operator +(Object? other) => "Original + $other";
 }
 
 mixin M {
-  Record operator +(Object? other) => ();
-  Record operator [](int index) => ();
-  void operator []=(int index, int value) {}
+  String operator +(Object? other) => "Original + $other";
 }
 
 enum E {
   e1;
-  Record operator +(Object? other) => ();
-  Record operator [](int index) => ();
-  void operator []=(int index, int value) {}
+  String operator +(Object? other) => "Original + $other";
 }
 
 class A {}
 
 extension Ext on A {
-  Record operator +(Object? other) => ();
-  Record operator [](int index) => ();
-  void operator []=(int index, int value) {}
+  String operator +(Object? other) => "Original + $other";
 }
 
 main() {
