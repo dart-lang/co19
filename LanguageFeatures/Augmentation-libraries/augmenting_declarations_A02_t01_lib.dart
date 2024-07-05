@@ -17,3 +17,6 @@
 augment library  'augmenting_declarations_A02_t01.dart';
 
 class C {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified

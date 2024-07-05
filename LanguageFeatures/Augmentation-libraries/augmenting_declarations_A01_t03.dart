@@ -13,13 +13,13 @@
 // SharedOptions=--enable-experiment=macros
 
 augment class C {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   int get baz => 42;
 }
 
 class C {}
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 main() {
   print(C);
