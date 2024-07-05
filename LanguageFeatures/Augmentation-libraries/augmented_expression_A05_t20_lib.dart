@@ -34,11 +34,11 @@ augment class C {
 }
 
 augment mixin M {
-  augment Record operator +(Object? other) {
+  augment String operator +(Object? other) {
     String local() => "Augmented: ${augmented + other}";
     return local();
   }
-  augment Record operator [](int index) {
+  augment String operator [](int index) {
     String local() => "Augmented: ${augmented[index]}";
     return local();
   }
@@ -46,22 +46,22 @@ augment mixin M {
 
 augment enum E {
   augment e1;
-  augment Record operator +(Object? other) {
+  augment String operator +(Object? other) {
     String local() => "Augmented: ${augmented + other}";
     return local();
   }
-  augment Record operator [](int index) {
+  augment String operator [](int index) {
     String local() => "Augmented: ${augmented[index]}";
     return local();
   }
 }
 
 augment extension Ext {
-  augment Record operator +(Object? other) {
+  augment String operator +(Object? other) {
     String local() => "Augmented: ${augmented + other}";
     return local();
   }
-  augment Record operator [](int index) {
+  augment String operator [](int index) {
     String local() => "Augmented: ${augmented[index]}";
     return local();
   }
