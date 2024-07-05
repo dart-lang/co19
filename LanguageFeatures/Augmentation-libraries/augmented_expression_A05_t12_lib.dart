@@ -27,7 +27,7 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment String operator []=(int index, String value) {
+  augment void operator []=(int index, String value) {
     return augmented[index];
 //         ^^^^^^^^^
 // [analyzer] unspecified
@@ -42,7 +42,7 @@ augment mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment String operator []=(int index, String value) {
+  augment void operator []=(int index, String value) {
     return augmented[index];
 //         ^^^^^^^^^
 // [analyzer] unspecified
@@ -58,7 +58,7 @@ augment enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment String operator []=(int index, String value) {
+  augment void operator []=(int index, String value) {
     return augmented[index];
 //         ^^^^^^^^^
 // [analyzer] unspecified
@@ -73,7 +73,7 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment String operator []=(int index, String value) {
+  augment void operator []=(int index, String value) {
     return augmented[index];
 //         ^^^^^^^^^
 // [analyzer] unspecified
