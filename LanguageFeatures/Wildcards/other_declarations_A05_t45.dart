@@ -14,7 +14,7 @@
 // SharedOptions=--enable-experiment=wildcard-variables
 
 void topLevelFunction([int _]) {}
-//                          ^
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

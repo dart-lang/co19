@@ -23,7 +23,7 @@ augment library 'augmented_expression_A05_t21.dart';
 import '../../Utils/expect.dart';
 
 augment class C {
-  void operator []=(int index, Object? value) {
+  augment void operator []=(int index, Object? value) {
     void local() {
       augmented[index] = value;
       Expect.equals("Original [$index]=$value", _log);
@@ -34,7 +34,7 @@ augment class C {
 }
 
 augment mixin M {
-  void operator []=(int index, Object? value) {
+  augment void operator []=(int index, Object? value) {
     void local() {
       augmented[index] = value;
       Expect.equals("Original [$index]=$value", _log);
@@ -46,7 +46,7 @@ augment mixin M {
 
 augment enum E {
   augment e1;
-  void operator []=(int index, Object? value) {
+  augment void operator []=(int index, Object? value) {
     void local() {
       augmented[index] = value;
       Expect.equals("Original [$index]=$value", _log);
@@ -57,7 +57,7 @@ augment enum E {
 }
 
 augment extension Ext {
-  void operator []=(int index, Object? value) {
+  augment void operator []=(int index, Object? value) {
     void local() {
       augmented[index] = value;
       Expect.equals("Original [$index]=$value", _log);
