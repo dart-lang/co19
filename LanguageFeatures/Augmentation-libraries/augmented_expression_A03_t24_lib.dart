@@ -57,7 +57,7 @@ augment mixin M2 {
 }
 
 augment enum E {
-  e1;
+  augment e1;
   augment static String augmented = "Augmented static variable of an enum";
 //                      ^^^^^^^^^
 // [analyzer] unspecified

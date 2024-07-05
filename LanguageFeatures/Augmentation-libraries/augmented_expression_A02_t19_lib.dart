@@ -61,7 +61,7 @@ augment enum E1 {
 }
 
 augment enum E2 {
-  e1;
+  augment e1;
   augment void set augmented(String value) {}
 //                 ^^^^^^^^^
 // [analyzer] unspecified

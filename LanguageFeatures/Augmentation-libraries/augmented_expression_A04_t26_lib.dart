@@ -22,31 +22,31 @@ augment String topLevelFunction1([String value]) => augmented();
 augment String topLevelFunction2({String value}) => augmented();
 
 augment class C {
-  static String staticMethod1([String value]) => augmented();
-  static String staticMethod2({String value}) => augmented();
-  String instanceMethod1([String value]) => augmented();
-  String instanceMethod2({String value}) => augmented();
+  augment static String staticMethod1([String value]) => augmented();
+  augment static String staticMethod2({String value}) => augmented();
+  augment String instanceMethod1([String value]) => augmented();
+  augment String instanceMethod2({String value}) => augmented();
 }
 
 augment mixin M {
-  static String staticMethod1([String value]) => augmented();
-  static String staticMethod2({String value}) => augmented();
-  String instanceMethod1([String value]) => augmented();
-  String instanceMethod2({String value}) => augmented();
+  augment static String staticMethod1([String value]) => augmented();
+  augment static String staticMethod2({String value}) => augmented();
+  augment String instanceMethod1([String value]) => augmented();
+  augment String instanceMethod2({String value}) => augmented();
 }
 
 augment enum E {
   augment e1;
 
-  static String staticMethod1([String value]) => augmented();
-  static String staticMethod2({String value}) => augmented();
-  String instanceMethod1([String value]) => augmented();
-  String instanceMethod2({String value}) => augmented();
+  augment static String staticMethod1([String value]) => augmented();
+  augment static String staticMethod2({String value}) => augmented();
+  augment String instanceMethod1([String value]) => augmented();
+  augment String instanceMethod2({String value}) => augmented();
 }
 
 augment extension Ext {
-  static String staticMethod1([String value]) => augmented();
-  static String staticMethod2({String value}) => augmented();
-  String instanceMethod1([String value]) => augmented();
-  String instanceMethod2({String value}) => augmented();
+  augment static String staticMethod1([String value]) => augmented();
+  augment static String staticMethod2({String value}) => augmented();
+  augment String instanceMethod1([String value]) => augmented();
+  augment String instanceMethod2({String value}) => augmented();
 }

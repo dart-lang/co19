@@ -33,22 +33,22 @@ augment String topLevelFunction2({String value}) {
 }
 
 augment class C {
-  static String staticMethod1([String value]) {
+  augment static String staticMethod1([String value]) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
   }
-  static String staticMethod2({String value}) {
+  augment static String staticMethod2({String value}) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
   }
-  String instanceMethod1([String value]) {
+  augment String instanceMethod1([String value]) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
   }
-  String instanceMethod2({String value}) {
+  augment String instanceMethod2({String value}) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
@@ -56,22 +56,22 @@ augment class C {
 }
 
 augment mixin M {
-  static String staticMethod1([String value]) {
+  augment static String staticMethod1([String value]) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
   }
-  static String staticMethod2({String value}) {
+  augment static String staticMethod2({String value}) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
   }
-  String instanceMethod1([String value]) {
+  augment String instanceMethod1([String value]) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
   }
-  String instanceMethod2({String value}) {
+  augment String instanceMethod2({String value}) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
@@ -81,22 +81,22 @@ augment mixin M {
 augment enum E {
   augment e1;
 
-  static String staticMethod1([String value]) {
+  augment static String staticMethod1([String value]) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
   }
-  static String staticMethod2({String value}) {
+  augment static String staticMethod2({String value}) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
   }
-  String instanceMethod1([String value]) {
+  augment String instanceMethod1([String value]) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
   }
-  String instanceMethod2({String value}) {
+  augment String instanceMethod2({String value}) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
@@ -104,22 +104,22 @@ augment enum E {
 }
 
 augment extension Ext {
-  static String staticMethod1([String value]) {
+  augment static String staticMethod1([String value]) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
   }
-  static String staticMethod2({String value}) {
+  augment static String staticMethod2({String value}) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
   }
-  String instanceMethod1([String value]) {
+  augment String instanceMethod1([String value]) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";
   }
-  String instanceMethod2({String value}) {
+  augment String instanceMethod2({String value}) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
     return "Augmented 1";

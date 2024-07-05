@@ -51,7 +51,7 @@ augment mixin M2 {
 }
 
 augment enum E1 {
-  e1;
+  augment e1;
 
   augment static String get augmented => "Augmented";
 //                          ^^^^^^^^^
@@ -60,7 +60,7 @@ augment enum E1 {
 }
 
 augment enum E2 {
-  e1;
+  augment e1;
 
   augment String get augmented => "Augmented";
 //                   ^^^^^^^^^
