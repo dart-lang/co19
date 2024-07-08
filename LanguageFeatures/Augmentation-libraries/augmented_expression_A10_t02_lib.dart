@@ -2,9 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if a declaration with the name
-/// `augmented` occurs in a location where the outermost enclosing declaration
-/// is augmenting.
+/// @assertion A compile-time error occurs if the identifier `augmented` occurs
+/// in a non-augmenting declaration, of a kind that can be augmenting, inside an
+/// augmenting declaration.
 ///
 /// @description Checks that it is a compile-time error to declare a local
 /// variable whose name is `augmented` in a location where the outermost
@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A09_t07.dart';
+augment library 'augmented_expression_A10_t02.dart';
 
 augment class C {
   static void staticMethod() {
