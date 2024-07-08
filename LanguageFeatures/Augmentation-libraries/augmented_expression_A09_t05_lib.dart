@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if a declaration with the name
+/// @assertion A compile-time error occurs if a declaration with the basename
 /// `augmented` occurs in a location where the outermost enclosing declaration
 /// is augmenting.
 ///
@@ -17,24 +17,24 @@ augment library 'augmented_expression_A09_t05.dart';
 
 augment class C {
   static void staticMethod<augmented>(int v) {}
-//                          ^^^^^^^^^
+//                         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   void instanceMethod<augmented>(int v) {}
-//                     ^^^^^^^^^
+//                    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment mixin M {
   static void staticMethod<augmented>(int v) {}
-//                          ^^^^^^^^^
+//                         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   void instanceMethod<augmented>(int v) {}
-//                     ^^^^^^^^^
+//                    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -42,24 +42,24 @@ augment mixin M {
 augment enum E {
   augment e0;
   static void staticMethod<augmented>(int v) {}
-//                          ^^^^^^^^^
+//                         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   void instanceMethod<augmented>(int v) {}
-//                     ^^^^^^^^^
+//                    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension Ext {
   static void staticMethod<augmented>(int v) {}
-//                          ^^^^^^^^^
+//                         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   void instanceMethod<augmented>(int v) {}
-//                     ^^^^^^^^^
+//                    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
