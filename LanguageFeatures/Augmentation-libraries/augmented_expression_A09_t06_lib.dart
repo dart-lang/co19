@@ -31,7 +31,7 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augmented? instanceVariable => null;
+  augmented? instanceVariable = null;
 //^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -63,7 +63,7 @@ augment mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augmented? instanceVariable => null;
+  augmented? instanceVariable = null;
 //^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -96,7 +96,7 @@ augment enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final augmented? instanceVariable => null;
+  final augmented? instanceVariable = null;
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
