@@ -19,31 +19,19 @@ augment library 'augmenting_types_A10_t03.dart';
 
 augment class C {
   int foo() => 42;
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment mixin M {
   int foo() => 42;
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment enum E {
   augment e1;
   int foo() => 42;
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment extension ExtA {
   int get foo => 42; // No error, no conflict with A.foo()
 
   void set bar(String _) {}
-//         ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

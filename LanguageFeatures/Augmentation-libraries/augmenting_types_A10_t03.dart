@@ -23,19 +23,31 @@ class A {
 
 class C {
   static int foo() => 42;
+//           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M {
   static int get foo => 42;
+//               ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {
   e1;
   static void set foo(String _) {}
+//                ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension ExtA on A {
   static void bar() {}
+//            ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
