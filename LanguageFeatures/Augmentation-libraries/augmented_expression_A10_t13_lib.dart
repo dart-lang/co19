@@ -2,41 +2,38 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion The exact result of an `augmented` expression depends on what is
-/// being augmented, but it generally follows the same rules as any normal
-/// identifier:
-/// ...
-/// - Augmenting functions: When augmenting a function, `augmented` refers to
-///   the augmented function. Tear offs are not allowed, so this function must
-///   immediately be invoked.
+/// @assertion A compile-time error occurs if the identifier `augmented` occurs
+/// in a non-augmenting declaration, of a kind that can be augmenting, inside an
+/// augmenting declaration.
 ///
 /// @description Checks that it is a compile-time error to use `augmented` as a
-/// constant value in a switch expressions and statements.
+/// constant value in a switch expressions and statements in a location where
+/// the outermost enclosing declaration is augmenting.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A04_t31.dart';
-
-augment void topLevelFunction() {
-  switch ("") {
-    case augmented:
-//       ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    default:
-  }
-  var x = switch("") {
-    augmented => 1,
-//  ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    _ => 0
-  };
-}
+augment library 'augmented_expression_A10_t13.dart';
 
 augment class C {
-  augment static void staticMethod() {
+  static var staticVariable = () {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  };
+
+  static void staticMethod() {
     switch ("") {
       case augmented:
 //         ^^^^^^^^^
@@ -52,7 +49,25 @@ augment class C {
       _ => 0
     };
   }
-  augment void instanceMethod() {
+
+  var instanceVariable = () {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  };
+
+  void instanceMethod() {
     switch ("") {
       case augmented:
 //         ^^^^^^^^^
@@ -71,7 +86,24 @@ augment class C {
 }
 
 augment mixin M {
-  augment static void staticMethod() {
+  static var staticVariable = () {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  };
+
+  static void staticMethod() {
     switch ("") {
       case augmented:
 //         ^^^^^^^^^
@@ -87,7 +119,25 @@ augment mixin M {
       _ => 0
     };
   }
-  augment void instanceMethod() {
+
+  var instanceVariable = () {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  };
+
+  void instanceMethod() {
     switch ("") {
       case augmented:
 //         ^^^^^^^^^
@@ -107,8 +157,24 @@ augment mixin M {
 
 augment enum E {
   augment e1;
+  static var staticVariable = () {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  };
 
-  augment static void staticMethod() {
+  static void staticMethod() {
     switch ("") {
       case augmented:
 //         ^^^^^^^^^
@@ -124,7 +190,25 @@ augment enum E {
       _ => 0
     };
   }
-  augment void instanceMethod() {
+
+  final instanceVariable = () {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  };
+
+  void instanceMethod() {
     switch ("") {
       case augmented:
 //         ^^^^^^^^^
@@ -143,7 +227,24 @@ augment enum E {
 }
 
 augment extension Ext {
-  augment static void staticMethod() {
+  static var staticVariable = () {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  };
+
+  static void staticMethod() {
     switch ("") {
       case augmented:
 //         ^^^^^^^^^
@@ -159,7 +260,8 @@ augment extension Ext {
       _ => 0
     };
   }
-  augment void instanceMethod() {
+
+  void instanceMethod() {
     switch ("") {
       case augmented:
 //         ^^^^^^^^^

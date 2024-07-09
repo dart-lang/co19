@@ -6,20 +6,27 @@
 /// in a non-augmenting declaration, of a kind that can be augmenting, inside an
 /// augmenting declaration.
 ///
-/// @description Checks that it is a compile-time error to declare a local
-/// variable whose name is `augmented` in a location where the outermost
-/// enclosing declaration is augmenting. Test a list pattern.
+/// @description Checks that it is a compile-time error to use `augmented` as a
+/// constant value in a switch expressions and statements in a location where
+/// the outermost enclosing declaration is augmenting.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A10_t05_lib.dart';
+import augment 'augmented_expression_A10_t13_lib.dart';
+
+const augmented = "Constant augmented, shouldn't be used";
 
 class C {}
+
 mixin M {}
-enum E {e0;}
+
+enum E2 {
+  e1;
+}
 
 class A {}
+
 extension Ext on A {}
 
 main() {

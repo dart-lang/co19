@@ -16,6 +16,13 @@
 augment library 'augmented_expression_A10_t06.dart';
 
 augment class C {
+  static var staticVariable = () {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
   static void staticMethod() {
     var {"key": augmented} = {"key": 42};
 //              ^^^^^^^^^
@@ -37,6 +44,13 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+
+  var instanceVariable = () {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 
   void instanceMethod() {
     var {"key": augmented} = {"key": 42};
@@ -62,6 +76,13 @@ augment class C {
 }
 
 augment mixin M {
+  static var staticVariable = () {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
   static void staticMethod() {
     var {"key": augmented} = {"key": 42};
 //              ^^^^^^^^^
@@ -83,6 +104,13 @@ augment mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+
+  var instanceVariable = () {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 
   void instanceMethod() {
     var {"key": augmented} = {"key": 42};
@@ -109,6 +137,13 @@ augment mixin M {
 
 augment enum E {
   augment e0;
+  static var staticVariable = () {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
   static void staticMethod() {
     var {"key": augmented} = {"key": 42};
 //              ^^^^^^^^^
@@ -138,6 +173,13 @@ augment enum E {
 // [cfe] unspecified
   }
 
+  final instanceVariable = () {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
   int get instanceGetter {
     var {"key": augmented} = {"key": 42};
 //              ^^^^^^^^^
@@ -155,6 +197,13 @@ augment enum E {
 }
 
 augment extension Ext {
+  static var staticVariable = () {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
   static void staticMethod() {
     var {"key": augmented} = {"key": 42};
 //              ^^^^^^^^^

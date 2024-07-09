@@ -16,6 +16,15 @@
 augment library 'augmented_expression_A10_t08.dart';
 
 augment class C {
+  static var staticVariable = () {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  };
+
   static void staticMethod() {
     switch(1) {
       case int(isEven: var augmented):
@@ -43,6 +52,15 @@ augment class C {
 // [cfe] unspecified
     }
   }
+
+  var instanceVariable = () {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  };
 
   void instanceMethod() {
     switch(1) {
@@ -74,6 +92,15 @@ augment class C {
 }
 
 augment mixin M {
+  static var staticVariable = () {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  };
+
   static void staticMethod() {
     switch(1) {
       case int(isEven: var augmented):
@@ -101,6 +128,15 @@ augment mixin M {
 // [cfe] unspecified
     }
   }
+
+  var instanceVariable = () {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  };
 
   void instanceMethod() {
     switch(1) {
@@ -133,6 +169,15 @@ augment mixin M {
 
 augment enum E {
   augment e0;
+  static var staticVariable = () {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  };
+
   static void staticMethod() {
     switch(1) {
       case int(isEven: var augmented):
@@ -160,6 +205,15 @@ augment enum E {
 // [cfe] unspecified
     }
   }
+
+  final instanceVariable = () {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  };
 
   void instanceMethod() {
     switch(1) {
@@ -191,6 +245,15 @@ augment enum E {
 }
 
 augment extension Ext {
+  static var staticVariable = () {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  };
+
   static void staticMethod() {
     switch(1) {
       case int(isEven: var augmented):

@@ -62,7 +62,7 @@ augment mixin M {
 }
 
 augment enum E {
-  e1;
+  augment e1;
 
   augment static void staticMethod() {
     foo(); // Ok
