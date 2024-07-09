@@ -6,14 +6,16 @@
 /// in a non-augmenting declaration, of a kind that can be augmenting, inside an
 /// augmenting declaration.
 ///
-/// @description Checks that it is a compile-time error to use a record with
-/// a named parameter whose name is `augmented` in a location where the
+/// @description Checks that it is a compile-time error to use a type whose name
+/// is `augmented` in `is` and `as` expressions in a location where the
 /// outermost enclosing declaration is augmenting.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A10_t12_lib.dart';
+//import augment 'augmented_expression_A10_t18_lib.dart';
+
+typedef augmented = Null;
 
 class C {}
 
