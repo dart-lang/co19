@@ -173,13 +173,6 @@ augment enum E {
 // [cfe] unspecified
   }
 
-  final instanceVariable = () {
-    var {"key": augmented} = {"key": 42};
-//              ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-
   int get instanceGetter {
     var {"key": augmented} = {"key": 42};
 //              ^^^^^^^^^

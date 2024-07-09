@@ -21,7 +21,7 @@ class C {}
 
 mixin M {}
 
-enum E2 {
+enum E {
   e1;
 }
 

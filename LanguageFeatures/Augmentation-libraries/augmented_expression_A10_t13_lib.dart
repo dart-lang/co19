@@ -50,6 +50,41 @@ augment class C {
     };
   }
 
+  static int get staticGetter {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  }
+
   var instanceVariable = () {
     switch ("") {
       case augmented:
@@ -68,6 +103,41 @@ augment class C {
   };
 
   void instanceMethod() {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  }
+
+  int get instanceGetter {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
     switch ("") {
       case augmented:
 //         ^^^^^^^^^
@@ -120,6 +190,41 @@ augment mixin M {
     };
   }
 
+  static int get staticGetter {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  }
+
   var instanceVariable = () {
     switch ("") {
       case augmented:
@@ -138,6 +243,41 @@ augment mixin M {
   };
 
   void instanceMethod() {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  }
+
+  int get instanceGetter {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
     switch ("") {
       case augmented:
 //         ^^^^^^^^^
@@ -191,7 +331,7 @@ augment enum E {
     };
   }
 
-  final instanceVariable = () {
+  static int get staticGetter {
     switch ("") {
       case augmented:
 //         ^^^^^^^^^
@@ -206,9 +346,62 @@ augment enum E {
 // [cfe] unspecified
       _ => 0
     };
-  };
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  }
 
   void instanceMethod() {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  }
+
+  int get instanceGetter {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
     switch ("") {
       case augmented:
 //         ^^^^^^^^^
@@ -261,7 +454,77 @@ augment extension Ext {
     };
   }
 
+  static int get staticGetter {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  }
+
   void instanceMethod() {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  }
+
+  int get instanceGetter {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
     switch ("") {
       case augmented:
 //         ^^^^^^^^^

@@ -206,15 +206,6 @@ augment enum E {
     }
   }
 
-  final instanceVariable = () {
-    switch(1) {
-      case int(isEven: var augmented):
-//                         ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    }
-  };
-
   void instanceMethod() {
     switch(1) {
       case int(isEven: var augmented):

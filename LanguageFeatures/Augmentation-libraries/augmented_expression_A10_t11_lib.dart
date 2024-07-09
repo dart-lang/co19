@@ -32,6 +32,23 @@ augment class C {
 // [cfe] unspecified
   }
 
+  static int get staticGetter {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
   var instanceVariable = () {
     foo(); // Ok
     foo(augmented: 1);
@@ -41,6 +58,23 @@ augment class C {
   };
 
   void instanceMethod() {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
     foo(); // Ok
     foo(augmented: 1);
 //      ^^^^^^^^^
@@ -66,6 +100,23 @@ augment mixin M {
 // [cfe] unspecified
   }
 
+  static int get staticGetter {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
   var instanceVariable = () {
     foo(); // Ok
     foo(augmented: 1);
@@ -75,6 +126,23 @@ augment mixin M {
   };
 
   void instanceMethod() {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
     foo(); // Ok
     foo(augmented: 1);
 //      ^^^^^^^^^
@@ -101,15 +169,41 @@ augment enum E {
 // [cfe] unspecified
   }
 
-  final instanceVariable = () {
+  static int get staticGetter {
     foo(); // Ok
     foo(augmented: 1);
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  };
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 
   void instanceMethod() {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
     foo(); // Ok
     foo(augmented: 1);
 //      ^^^^^^^^^
@@ -135,7 +229,41 @@ augment extension Ext {
 // [cfe] unspecified
   }
 
+  static int get staticGetter {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
   void instanceMethod() {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
     foo(); // Ok
     foo(augmented: 1);
 //      ^^^^^^^^^

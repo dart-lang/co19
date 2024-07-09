@@ -6,14 +6,17 @@
 /// in a non-augmenting declaration, of a kind that can be augmenting, inside an
 /// augmenting declaration.
 ///
-/// @description Checks that it is a compile-time error to use a record with
-/// a named parameter whose name is `augmented` in a location where the
-/// outermost enclosing declaration is augmenting.
+/// @description Checks that it is a compile-time error to declare a local
+/// function with a constant with name `augmented` as a default value of a
+/// formal parameter, in a location where the outermost enclosing declaration is
+/// augmenting.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A10_t12_lib.dart';
+import augment 'augmented_expression_A10_t17_lib.dart';
+
+const augmented = "Should not be used";
 
 class C {}
 

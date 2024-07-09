@@ -46,6 +46,37 @@ augment class C {
 // [cfe] unspecified
   }
 
+  static int get staticGetter {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
   var instanceVariable = () {
     augmented? x;
 //  ^^^^^^^^^
@@ -62,6 +93,37 @@ augment class C {
   };
 
   void instanceMethod() {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
     augmented? x;
 //  ^^^^^^^^^
 // [analyzer] unspecified
@@ -108,6 +170,37 @@ augment mixin M {
 // [cfe] unspecified
   }
 
+  static int get staticGetter {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
   var instanceVariable = () {
     augmented? x;
 //  ^^^^^^^^^
@@ -124,6 +217,37 @@ augment mixin M {
   };
 
   void instanceMethod() {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
     augmented? x;
 //  ^^^^^^^^^
 // [analyzer] unspecified
@@ -172,7 +296,7 @@ augment enum E {
 // [cfe] unspecified
   }
 
-  final instanceVariable = () {
+  static int get staticGetter {
     augmented? x;
 //  ^^^^^^^^^
 // [analyzer] unspecified
@@ -185,9 +309,56 @@ augment enum E {
 //   ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  };
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 
   void instanceMethod() {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
     augmented? x;
 //  ^^^^^^^^^
 // [analyzer] unspecified
@@ -233,7 +404,70 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+
+  static int get staticGetter {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
   void instanceMethod() {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
     augmented? x;
 //  ^^^^^^^^^
 // [analyzer] unspecified

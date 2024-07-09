@@ -247,17 +247,6 @@ augment enum E {
 // [cfe] unspecified
   }
 
-  final instanceVariable = () {
-    int augmented = 42;
-//      ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-
   void instanceMethod() {
     int augmented = 42;
 //      ^^^^^^^^^
