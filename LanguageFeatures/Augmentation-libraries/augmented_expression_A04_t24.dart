@@ -31,7 +31,7 @@ mixin M {
   void instanceMethod() {}
 }
 
-enum E2 {
+enum E {
   e1;
 
   static void staticMethod() {}

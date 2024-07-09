@@ -6,102 +6,102 @@
 /// in a non-augmenting declaration, of a kind that can be augmenting, inside an
 /// augmenting declaration.
 ///
-/// @description Checks that it is a compile-time error to declare a local
-/// variable whose name is `augmented` in a location where the outermost
+/// @description Checks that it is a compile-time error to use an `augmented`
+/// variable in a right hand expression in a location where the outermost
 /// enclosing declaration is augmenting.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A10_t02.dart';
+augment library 'augmented_expression_A10_t09.dart';
 
 augment class C {
   static var staticVariable = () {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
 
   static void staticMethod() {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   static int get staticGetter {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return 0;
   }
 
   static void set staticSetter(int _) {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   var instanceVariable = () {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
 
   void instanceMethod() {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   int get instanceGetter {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return 0;
   }
 
   void set instanceSetter(int _) {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -109,91 +109,91 @@ augment class C {
 
 augment mixin M {
   static var staticVariable = () {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
 
   static void staticMethod() {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   static int get staticGetter {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return 0;
   }
 
   static void set staticSetter(int _) {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   var instanceVariable = () {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
 
   void instanceMethod() {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   int get instanceGetter {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return 0;
   }
 
   void set instanceSetter(int _) {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -201,93 +201,92 @@ augment mixin M {
 
 augment enum E {
   augment e0;
-
   static var staticVariable = () {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
 
   static void staticMethod() {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   static int get staticGetter {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return 0;
   }
 
   static void set staticSetter(int _) {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   final instanceVariable = () {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
 
   void instanceMethod() {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   int get instanceGetter {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return 0;
   }
 
   void set instanceSetter(int _) {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -295,80 +294,80 @@ augment enum E {
 
 augment extension Ext {
   static var staticVariable = () {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
 
   static void staticMethod() {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   static int get staticGetter {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return 0;
   }
 
   static void set staticSetter(int _) {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   void instanceMethod() {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   int get instanceGetter {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return 0;
   }
 
   void set instanceSetter(int _) {
-    int augmented = 42;
-//      ^^^^^^^^^
+    int v = augmented;
+//          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
-//           ^^^^^^^^^
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

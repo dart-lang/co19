@@ -13,9 +13,16 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A09_t10.dart';
+augment library 'augmented_expression_A10_t05.dart';
 
 augment class C {
+  static var staticVariable = () {
+    var [augmented] = [42];
+//       ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
   static void staticMethod() {
     var [augmented] = [42];
 //       ^^^^^^^^^
@@ -37,6 +44,13 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+
+  var instanceVariable = () {
+    var [augmented] = [42];
+//       ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 
   void instanceMethod() {
     var [augmented] = [42];
@@ -62,6 +76,13 @@ augment class C {
 }
 
 augment mixin M {
+  static var staticVariable = () {
+    var [augmented] = [42];
+//       ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
   static void staticMethod() {
     var [augmented] = [42];
 //       ^^^^^^^^^
@@ -83,6 +104,13 @@ augment mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+
+  var instanceVariable = () {
+    var [augmented] = [42];
+//       ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 
   void instanceMethod() {
     var [augmented] = [42];
@@ -109,6 +137,13 @@ augment mixin M {
 
 augment enum E {
   augment e0;
+  static var staticVariable = () {
+    var [augmented] = [42];
+//       ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
   static void staticMethod() {
     var [augmented] = [42];
 //       ^^^^^^^^^
@@ -130,6 +165,13 @@ augment enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+
+  final instanceVariable = () {
+    var [augmented] = [42];
+//       ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 
   void instanceMethod() {
     var [augmented] = [42];
@@ -155,6 +197,13 @@ augment enum E {
 }
 
 augment extension Ext {
+  static var staticVariable = () {
+    var [augmented] = [42];
+//       ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
   static void staticMethod() {
     var [augmented] = [42];
 //       ^^^^^^^^^

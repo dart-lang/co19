@@ -16,6 +16,13 @@
 augment library 'augmented_expression_A10_t01.dart';
 
 augment class C {
+  static var staticVariable = () {
+    int augmented() => 42;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
   static void staticMethod() {
     int augmented() => 42;
 //      ^^^^^^^^^
@@ -37,6 +44,13 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+
+  var instanceVariable = () {
+    int augmented() => 42;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 
   void instanceMethod() {
     int augmented() => 42;
@@ -62,6 +76,13 @@ augment class C {
 }
 
 augment mixin M {
+  static var staticVariable = () {
+    int augmented() => 42;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
   static void staticMethod() {
     int augmented() => 42;
 //      ^^^^^^^^^
@@ -83,6 +104,13 @@ augment mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+
+  var instanceVariable = () {
+    int augmented() => 42;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 
   void instanceMethod() {
     int augmented() => 42;
@@ -109,6 +137,14 @@ augment mixin M {
 
 augment enum E {
   augment e0;
+
+  static var staticVariable = () {
+    int augmented() => 42;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
   static void staticMethod() {
     int augmented() => 42;
 //      ^^^^^^^^^
@@ -130,6 +166,13 @@ augment enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+
+  final instanceVariable = () {
+    int augmented() => 42;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
 
   void instanceMethod() {
     int augmented() => 42;
@@ -155,6 +198,13 @@ augment enum E {
 }
 
 augment extension Ext {
+  static var staticVariable = () {
+    int augmented() => 42;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
   static void staticMethod() {
     int augmented() => 42;
 //      ^^^^^^^^^
