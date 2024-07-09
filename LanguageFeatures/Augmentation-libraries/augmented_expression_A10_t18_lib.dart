@@ -7,7 +7,7 @@
 /// augmenting declaration.
 ///
 /// @description Checks that it is a compile-time error to use a type whose name
-/// is `augmented` in `is` ans `as` expressions in a location where the
+/// is `augmented` in `is` and `as` expressions in a location where the
 /// outermost enclosing declaration is augmenting.
 /// @author sgrekhov22@gmail.com
 
