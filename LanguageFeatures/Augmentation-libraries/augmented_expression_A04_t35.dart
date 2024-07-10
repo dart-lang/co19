@@ -19,7 +19,7 @@
 import augment 'augmented_expression_A04_t35_lib.dart';
 import '../../Utils/expect.dart';
 
-const augmented => "Const augmented";
+const augmented = "Const augmented";
 
 String topLevelFunction1([String v = augmented]) => v;
 String topLevelFunction2({String v = augmented}) => v;
