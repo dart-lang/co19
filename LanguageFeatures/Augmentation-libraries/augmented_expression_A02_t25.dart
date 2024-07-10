@@ -11,15 +11,15 @@
 ///   augmenting a field with a setter, this will invoke the implicit setter
 ///   from the augmented field.
 ///
-/// @description Checks that it is a compile-time error to use `augmented` as a
-/// constant value in a switch expressions and statements.
+/// @description Checks that it is a compile-time error to use a type whose name
+/// is `augmented` in `is` and `as` expressions.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A02_t24_lib.dart';
+import augment 'augmented_expression_A02_t25_lib.dart';
 
-const augmented = "Constant augmented, shouldn't be used";
+typedef augmented = Null;
 
 void set topLevelSetter(String value) {}
 

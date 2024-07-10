@@ -12,50 +12,38 @@
 ///   These constructs invoke the augmented operator, and are the only valid
 ///   uses of `augmented` in these contexts.
 ///
-/// @description Checks that it is a compile-time error to use `augmented` as a
-/// constant value in a switch expressions and statements.
+/// @description Checks that it is a compile-time error to use a type whose name
+/// is `augmented` in `is` and `as` expressions.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A05_t24.dart';
+augment library 'augmented_expression_A05_t25.dart';
 
 augment class C {
   augment String operator +(Object? other) {
-    switch ("") {
-      case augmented:
-//         ^^^^^^^^^
+    print(null as augmented);
+//                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      default:
-    }
-    var x = switch("") {
-      augmented => 1,
-//    ^^^^^^^^^
+    print(null is augmented);
+//                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      _ => 0
-    };
     return "";
   }
 }
 
 augment mixin M {
   augment String operator +(Object? other) {
-    switch ("") {
-      case augmented:
-//         ^^^^^^^^^
+    print(null as augmented);
+//                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      default:
-    }
-    var x = switch("") {
-      augmented => 1,
-//    ^^^^^^^^^
+    print(null is augmented);
+//                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      _ => 0
-    };
     return "";
   }
 }
@@ -63,20 +51,14 @@ augment mixin M {
 augment enum E {
   augment e1;
   augment String operator +(Object? other) {
-    switch ("") {
-      case augmented:
-//         ^^^^^^^^^
+    print(null as augmented);
+//                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      default:
-    }
-    var x = switch("") {
-      augmented => 1,
-//    ^^^^^^^^^
+    print(null is augmented);
+//                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      _ => 0
-    };
     return "";
   }
 }
