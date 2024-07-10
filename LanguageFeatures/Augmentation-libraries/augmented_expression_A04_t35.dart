@@ -10,8 +10,8 @@
 ///   the augmented function. Tear offs are not allowed, so this function must
 ///   immediately be invoked.
 ///
-/// @description Checks that it's not an error to augment function whose default
-/// value of a formal parameters is a constant with the name `augmented`.
+/// @description Checks that it's not an error to augment a function whose
+/// default value of a formal parameter is a constant with the name `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

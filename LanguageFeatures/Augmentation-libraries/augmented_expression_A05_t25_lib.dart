@@ -65,20 +65,14 @@ augment enum E {
 
 augment extension Ext {
   augment String operator +(Object? other) {
-    switch ("") {
-      case augmented:
-//         ^^^^^^^^^
+    print(null as augmented);
+//                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      default:
-    }
-    var x = switch("") {
-      augmented => 1,
-//    ^^^^^^^^^
+    print(null is augmented);
+//                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      _ => 0
-    };
     return "";
   }
 }

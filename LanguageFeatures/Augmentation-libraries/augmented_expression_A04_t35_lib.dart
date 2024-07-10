@@ -10,8 +10,8 @@
 ///   the augmented function. Tear offs are not allowed, so this function must
 ///   immediately be invoked.
 ///
-/// @description Checks that it's not an error to augment function whose default
-/// value of a formal parameters is a constant with the name `augmented`.
+/// @description Checks that it's not an error to augment a function whose
+/// default value of a formal parameter is a constant with the name `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -22,30 +22,30 @@ augment String topLevelFunction1([String v]) => "Augmented: $v";
 augment String topLevelFunction2({String v}) => "Augmented: $v";
 
 augment class C {
-  static String staticMethod1([String v]) => "Augmented: $v";
-  static String staticMethod2({String v}) => "Augmented: $v";
-  String instanceMethod1([String v]) => "Augmented: $v";
-  String instanceMethod2({String v}) => "Augmented: $v";
+  augment static String staticMethod1([String v]) => "Augmented: $v";
+  augment static String staticMethod2({String v}) => "Augmented: $v";
+  augment String instanceMethod1([String v]) => "Augmented: $v";
+  augment String instanceMethod2({String v}) => "Augmented: $v";
 }
 
 augment mixin M {
-  static String staticMethod1([String v]) => "Augmented: $v";
-  static String staticMethod2({String v}) => "Augmented: $v";
-  String instanceMethod1([String v]) => "Augmented: $v";
-  String instanceMethod2({String v}) => "Augmented: $v";
+  augment static String staticMethod1([String v]) => "Augmented: $v";
+  augment static String staticMethod2({String v}) => "Augmented: $v";
+  augment String instanceMethod1([String v]) => "Augmented: $v";
+  augment String instanceMethod2({String v}) => "Augmented: $v";
 }
 
 augment enum E {
   augment e1;
-  static String staticMethod1([String v]) => "Augmented: $v";
-  static String staticMethod2({String v}) => "Augmented: $v";
-  String instanceMethod1([String v]) => "Augmented: $v";
-  String instanceMethod2({String v}) => "Augmented: $v";
+  augment static String staticMethod1([String v]) => "Augmented: $v";
+  augment static String staticMethod2({String v}) => "Augmented: $v";
+  augment String instanceMethod1([String v]) => "Augmented: $v";
+  augment String instanceMethod2({String v}) => "Augmented: $v";
 }
 
 augment extension Ext {
-  static String staticMethod1([String v]) => "Augmented: $v";
-  static String staticMethod2({String v}) => "Augmented: $v";
-  String instanceMethod1([String v]) => "Augmented: $v";
-  String instanceMethod2({String v}) => "Augmented: $v";
+  augment static String staticMethod1([String v]) => "Augmented: $v";
+  augment static String staticMethod2({String v}) => "Augmented: $v";
+  augment String instanceMethod1([String v]) => "Augmented: $v";
+  augment String instanceMethod2({String v}) => "Augmented: $v";
 }
