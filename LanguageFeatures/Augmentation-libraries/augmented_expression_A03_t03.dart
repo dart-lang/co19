@@ -10,7 +10,7 @@
 ///   in an initializer expression, and refers to the original field's
 ///   initializer expression, which is immediately evaluated.
 ///
-/// It is a compile-time error to use augmented in an augmenting field's
+/// It is a compile-time error to use `augmented` in an augmenting field's
 /// initializer if the member being augmented is not a field with an initializer
 ///
 /// @description Checks that it is a compile-time error to use `augmented()`

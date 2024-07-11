@@ -10,10 +10,8 @@
 ///   in an initializer expression, and refers to the original field's
 ///   initializer expression, which is immediately evaluated.
 ///
-/// If augmented refers to a variable declaration (as defined by a declaration
-/// and a number of prior augmentations) with no initializer expression, and the
-/// variable's type is nullable, augmented evaluates to null. If the variable's
-/// type is not nullable, then it's a compile-time error.
+/// It is a compile-time error to use `augmented` in an augmenting field's
+/// initializer if the member being augmented is not a field with an initializer
 ///
 /// @description Checks that it is a compile-time error to use a type whose name
 /// is `augmented` in an augmenting field initializer.
@@ -25,27 +23,27 @@ import augment 'augmented_expression_A03_t22_lib.dart';
 
 class augmented {}
 
-Function? topLevelVariable;
+Function? topLevelVariable = () {};
 
 class C {
-  static Function? staticVariable;
-  Function? instanceVariable;
+  static Function? staticVariable = () {};
+  Function? instanceVariable = () {};
 }
 
 mixin M {
-  static Function? staticVariable;
-  Function? instanceVariable;
+  static Function? staticVariable = () {};
+  Function? instanceVariable = () {};
 }
 
 enum E {
   e1;
-  static Function? staticVariable;
+  static Function? staticVariable = () {};
 }
 
 class A {}
 
 extension Ext on A {
-  static Function? staticVariable;
+  static Function? staticVariable = () {};
 }
 
 main() {

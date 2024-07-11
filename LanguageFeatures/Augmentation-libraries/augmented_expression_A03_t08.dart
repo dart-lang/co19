@@ -10,20 +10,17 @@
 ///   in an initializer expression, and refers to the original field's
 ///   initializer expression, which is immediately evaluated.
 ///
-/// If augmented refers to a variable declaration (as defined by a declaration
-/// and a number of prior augmentations) with no initializer expression, and the
-/// variable's type is nullable, augmented evaluates to null. If the variable's
-/// type is not nullable, then it's a compile-time error.
+/// It is a compile-time error to use `augmented` in an augmenting field's
+/// initializer if the member being augmented is not a field with an initializer
 ///
-/// @description Checks that if an `augmented` is used in an augmenting field's
-/// initializer and the member being augmented is a nullable field with no
-/// initializer then `augmented` evaluates to `null`.
+/// @description Checks that it is a compile-time error if an `augmented` is
+/// used in an augmenting field's initializer and the member being augmented is
+/// a nullable field with no initializer.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
 import augment 'augmented_expression_A03_t08_lib.dart';
-import '../../Utils/expect.dart';
 
 const augmented = "Augmented constant, should not be used";
 
@@ -54,14 +51,10 @@ extension Ext on A {
   static final augmented = "Ext.augmented, should not be used";
 }
 
-class MA = Object with M;
-
 main() {
-  Expect.equals("Augment: null", topLevelVariable?.call());
-  Expect.equals("Augment: null", C.staticVariable?.call());
-  Expect.equals("Augment: null", C().instanceVariable?.call());
-  Expect.equals("Augment: null", M.staticVariable?.call());
-  Expect.equals("Augment: null", MA().instanceVariable?.call());
-  Expect.equals("Augment: null", E.staticVariable?.call());
-  Expect.equals("Augment: null", Ext.staticVariable?.call());
+  topLevelVariable;
+  print(C);
+  print(M);
+  print(E);
+  print(A);
 }
