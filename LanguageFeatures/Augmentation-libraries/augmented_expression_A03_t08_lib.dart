@@ -10,14 +10,12 @@
 ///   in an initializer expression, and refers to the original field's
 ///   initializer expression, which is immediately evaluated.
 ///
-/// If augmented refers to a variable declaration (as defined by a declaration
-/// and a number of prior augmentations) with no initializer expression, and the
-/// variable's type is nullable, augmented evaluates to null. If the variable's
-/// type is not nullable, then it's a compile-time error.
+/// It is a compile-time error to use augmented in an augmenting field's
+/// initializer if the member being augmented is not a field with an initializer
 ///
-/// @description Checks that if an `augmented` is used in an augmenting field's
-/// initializer and the member being augmented is a nullable field with no
-/// initializer then `augmented` evaluates to `null`.
+/// @description Checks that it is a compile-time error if an `augmented` is
+/// used in an augmenting field's initializer and the member being augmented is
+/// a nullable field with no initializer.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -26,23 +24,38 @@ augment library 'augmented_expression_A03_t08.dart';
 
 augment Function? topLevelVariable = () {
   return "Augment: $augmented";
+//                  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 };
 
 augment class C {
   augment static Function? staticVariable = () {
     return "Augment: $augmented";
+//                    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   };
   augment Function? instanceVariable = () {
     return "Augment: $augmented";
+//                    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   };
 }
 
 augment mixin M {
   augment static Function? staticVariable = () {
     return "Augment: $augmented";
+//                    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   };
   augment Function? instanceVariable = () {
     return "Augment: $augmented";
+//                    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   };
 }
 
@@ -50,11 +63,17 @@ augment enum E {
   augment e1;
   augment static Function? staticVariable = () {
     return "Augment: $augmented";
+//                    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   };
 }
 
 augment extension Ext {
   augment static Function? staticVariable = () {
     return "Augment: $augmented";
+//                    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   };
 }

@@ -13,58 +13,53 @@
 /// It is a compile-time error to use `augmented` in an augmenting field's
 /// initializer if the member being augmented is not a field with an initializer
 ///
-/// @description Checks that it is a compile-time error to augment a variable or
-/// a field named `augmented`.
+/// @description Checks that it is a compile-time error if an `augmented` is
+/// used in an augmenting field's initializer and the member being augmented is
+/// a late field with no initializer.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A03_t24.dart';
+augment library 'augmented_expression_A03_t09.dart';
 
-augment String augmented = "Augmented top-level variable";
-//             ^^^^^^^^^
+augment late String? topLevelVariable = "Augment: $augmented";
+//                                                 ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment class C1 {
-  augment static String augmented = "Augmented static variable of a class";
-//                      ^^^^^^^^^
+augment class C {
+  augment static late String? staticVariable = "Augment: $augmented";
+//                                                        ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-augment class C2 {
-  augment String augmented = "Augmented instance variable of a class";
-//               ^^^^^^^^^
+  augment late String? instanceVariable = "Augment: $augmented";
+//                                                   ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment mixin M1 {
-  augment static String augmented = "Augmented static variable of a mixin";
-//                      ^^^^^^^^^
+augment mixin M {
+  augment static late String? staticVariable = "Augment: $augmented";
+//                                                        ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-augment mixin M2 {
-  augment String augmented = "Augmented instance variable of a mixin";
-//               ^^^^^^^^^
+  augment late String? instanceVariable = "Augment: $augmented";
+//                                                   ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment enum E {
   augment e1;
-  augment static String augmented = "Augmented static variable of an enum";
-//                      ^^^^^^^^^
+  augment static late String? staticVariable = "Augment: $augmented";
+//                                                        ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension Ext {
-  augment static String augmented = "Augmented static variable of an extension";
-//                      ^^^^^^^^^
+  augment static late String? staticVariable = "Augment: $augmented";
+//                                                        ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

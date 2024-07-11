@@ -13,41 +13,46 @@
 /// It is a compile-time error to use `augmented` in an augmenting field's
 /// initializer if the member being augmented is not a field with an initializer
 ///
-/// @description Checks that it is a compile-time error if an augmenting
-/// field initializer contains a record with a named parameter whose name is
-/// `augmented`.
+/// @description Checks that it is a compile-time error if an `augmented` is
+/// used in an augmenting field's initializer and the member being augmented is
+/// a late field with no initializer.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A03_t27_lib.dart';
+import augment 'augmented_expression_A03_t09_lib.dart';
 
-Record topLevelVariable = ();
+const augmented = "Augmented constant, should not be used";
+
+late String? topLevelVariable;
 
 class C {
-  static Record staticVariable =();
-  Record instanceVariable = ();
+  static late String? staticVariable;
+  late String? instanceVariable;
+  final augmented = "C.augmented, should not be used";
 }
 
 mixin M {
-  static Record staticVariable =();
-  Record instanceVariable = ();
+  static late String? staticVariable;
+  late String? instanceVariable;
+  final augmented = "M.augmented, should not be used";
 }
 
 enum E {
   e1;
-  static Record staticVariable =();
-  final Record instanceVariable = ();
+  static late String? staticVariable;
+  static final augmented = "E.augmented, should not be used";
 }
 
 class A {}
 
 extension Ext on A {
-  static Record staticVariable = ();
+  static late String? staticVariable;
+  static final augmented = "Ext.augmented, should not be used";
 }
 
 main() {
-  print(topLevelVariable);
+  topLevelVariable;
   print(C);
   print(M);
   print(E);

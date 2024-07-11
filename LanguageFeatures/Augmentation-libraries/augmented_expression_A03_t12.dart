@@ -14,53 +14,50 @@
 /// initializer if the member being augmented is not a field with an initializer
 ///
 /// @description Checks that within an augmenting field `augmented` invokes the
-/// original field's initializer expression.
+/// original field's initializer expression. Test late variables.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A03_t01_lib.dart';
+import augment 'augmented_expression_A03_t12_lib.dart';
 import '../../Utils/expect.dart';
 
 String get augmented => "Top-level augmented, shouldn't be invoked";
 
 int counter = 1;
 String get foo => "Original ${counter++}";
-String bar() => "Original ${counter++}";
 
-var topLevelVariable = foo;
-final finalTopLevelVariable = foo;
+late var topLevelVariable = foo;
+late final finalTopLevelVariable = foo;
 
 class C {
-  static var staticVariable = foo;
-  static final finalStaticVariable = foo;
-  var instanceVariable = foo;
-  final finalInstanceVariable = foo;
+  static late var staticVariable = foo;
+  static late final finalStaticVariable = foo;
+  late var instanceVariable = foo;
+  late final finalInstanceVariable = foo;
   static String get augmented => "C.augmented, shouldn't be invoked";
 }
 
 mixin M {
-  static var staticVariable = foo;
-  static final finalStaticVariable = foo;
-  var instanceVariable = foo;
-  final finalInstanceVariable = foo;
+  static late var staticVariable = foo;
+  static late final finalStaticVariable = foo;
+  late var instanceVariable = foo;
+  late final finalInstanceVariable = foo;
   static String get augmented => "M.augmented, shouldn't be invoked";
 }
 
 enum E {
   e1;
-  // Enum members are constants so we cannot use a getter as an initializer here
-  static var staticVariable = bar;
-  static final finalStaticVariable = bar;
-  final finalInstanceVariable = bar;
+  static late var staticVariable = foo;
+  static late final finalStaticVariable = foo;
   static String get augmented => "E.augmented, shouldn't be invoked";
 }
 
 class A {}
 
 extension Ext on A {
-  static var staticVariable = foo;
-  static final finalStaticVariable = foo;
+  static late var staticVariable = foo;
+  static late final finalStaticVariable = foo;
   static String get augmented => "Ext.augmented, shouldn't be invoked";
 }
 
@@ -70,16 +67,15 @@ main() {
   Expect.equals("1: Original 1, 2: Original 2", topLevelVariable);
   Expect.equals("1: Original 3, 2: Original 4", finalTopLevelVariable);
   Expect.equals("1: Original 5, 2: Original 6", C.staticVariable);
-  Expect.equals("1: Original 6, 2: Original 8", C.finalStaticVariable);
+  Expect.equals("1: Original 7, 2: Original 8", C.finalStaticVariable);
   Expect.equals("1: Original 9, 2: Original 10", C().instanceVariable);
   Expect.equals("1: Original 11, 2: Original 12", C().finalInstanceVariable);
   Expect.equals("1: Original 13, 2: Original 14", M.staticVariable);
   Expect.equals("1: Original 15, 2: Original 16", M.finalStaticVariable);
   Expect.equals("1: Original 17, 2: Original 18", MA().instanceVariable);
   Expect.equals("1: Original 19, 2: Original 20", MA().finalInstanceVariable);
-  Expect.equals("1: Original 21, 2: Original 22", E.staticVariable());
-  Expect.equals("1: Original 23, 2: Original 24", E.finalStaticVariable());
-  Expect.equals("1: Original 25, 2: Original 26", E.e1.finalInstanceVariable());
-  Expect.equals("1: Original 27, 2: Original 28", Ext.staticVariable);
-  Expect.equals("1: Original 29, 2: Original 30", Ext.finalStaticVariable);
+  Expect.equals("1: Original 21, 2: Original 22", E.staticVariable);
+  Expect.equals("1: Original 23, 2: Original 24", E.finalStaticVariable);
+  Expect.equals("1: Original 25, 2: Original 26", Ext.staticVariable);
+  Expect.equals("1: Original 27, 2: Original 28", Ext.finalStaticVariable);
 }
