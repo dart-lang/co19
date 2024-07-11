@@ -67,7 +67,7 @@ main() {
   Expect.equals("1: Original 1, 2: Original 2", topLevelVariable);
   Expect.equals("1: Original 3, 2: Original 4", finalTopLevelVariable);
   Expect.equals("1: Original 5, 2: Original 6", C.staticVariable);
-  Expect.equals("1: Original 6, 2: Original 8", C.finalStaticVariable);
+  Expect.equals("1: Original 7, 2: Original 8", C.finalStaticVariable);
   Expect.equals("1: Original 9, 2: Original 10", C().instanceVariable);
   Expect.equals("1: Original 11, 2: Original 12", C().finalInstanceVariable);
   Expect.equals("1: Original 13, 2: Original 14", M.staticVariable);
