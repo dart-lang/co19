@@ -11,7 +11,9 @@
 /// This applies both to top-level declarations and to member declarations of,
 /// for example, class declarations.
 ///
-/// @description Checks augmentation application order.
+/// @description Checks that augmentation declaration is applied after any
+/// augmentation declarations that are before it, and before augmentation
+/// declarations that it is before.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
