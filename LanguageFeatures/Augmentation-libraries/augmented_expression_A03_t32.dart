@@ -20,28 +20,41 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A03_t31.dart';
-import augment 'augmented_expression_A03_t31_lib2.dart';
+import augment 'augmented_expression_A03_t32_lib1.dart';
+import '../../Utils/expect.dart';
 
-augment late String? topLevelVariable;
+late String? topLevelVariable = "Original";
 
-augment class C {
-  augment static String? staticVariable;
-  augment String? instanceVariable;
+class C {
+  static late String? staticVariable = "Original";
+  late String? instanceVariable = "Original";
 }
 
-augment mixin M {
-  augment static String? staticVariable;
-  augment String? instanceVariable;
+mixin M {
+  static late String? staticVariable = "Original";
+  late String? instanceVariable = "Original";
 }
 
-augment enum E {
-  augment e1;
-
-  augment static String? staticVariable;
-  final String? instanceVariable;
+enum E {
+  e1;
+  static late String? staticVariable = "Original";
 }
 
-augment extension Ext {
-  augment static String? staticVariable;
+class A {}
+
+extension Ext on A {
+  static late String? staticVariable = "Original";
+}
+
+class MA = Object with M;
+
+main() {
+  Expect.equals("Augment: Original", topLevelVariable);
+  Expect.equals("Augment: Original", C.staticVariable);
+  Expect.equals("Augment: Original", C().instanceVariable);
+  Expect.equals("Augment: Original", M.staticVariable);
+  Expect.equals("Augment: Original", MA().instanceVariable);
+  Expect.equals("Augment: Original", E.staticVariable);
+  Expect.equals("Augment: Original", E.e1.instanceVariable);
+  Expect.equals("Augment: Original", Ext.staticVariable);
 }

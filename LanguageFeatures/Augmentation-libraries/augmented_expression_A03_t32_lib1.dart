@@ -20,26 +20,28 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A03_t31_lib1.dart';
+augment library 'augmented_expression_A03_t32.dart';
+import augment 'augmented_expression_A03_t32_lib2.dart';
 
-augment String? topLevelVariable = "Augment: $augmented";
+augment late String? topLevelVariable;
 
 augment class C {
-  augment static String? staticVariable = "Augment: $augmented";
-  augment String? instanceVariable = "Augment: $augmented";
+  augment static String? staticVariable;
+  augment String? instanceVariable;
 }
 
 augment mixin M {
-  augment static String? staticVariable = "Augment: $augmented";
-  augment String? instanceVariable = "Augment: $augmented";
+  augment static String? staticVariable;
+  augment String? instanceVariable;
 }
 
 augment enum E {
   augment e1;
-  augment static String? staticVariable = "Augment: $augmented";
-  final String? instanceVariable = "Augment: $augmented";
+
+  augment static String? staticVariable;
+  final String? instanceVariable;
 }
 
 augment extension Ext {
-  augment static String? staticVariable = "Augment: $augmented";
+  augment static String? staticVariable;
 }
