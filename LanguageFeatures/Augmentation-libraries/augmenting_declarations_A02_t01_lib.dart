@@ -9,7 +9,7 @@
 ///
 /// @description Checks that it is a compile-time error if an augmenting
 /// declaration appears before non-augmenting one. Test augmented declaration in
-/// a main library
+/// a main library.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -17,6 +17,16 @@
 augment library  'augmenting_declarations_A02_t01.dart';
 
 class C {}
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+
+mixin M {}
+
+enum E {e0;}
+
+class A {}
+extension Ext on A {}
+
+extension type ET(int _) {}
+
+typedef StringAlias = String;
+
+typedef void Foo();

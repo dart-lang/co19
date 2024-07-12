@@ -1,0 +1,32 @@
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The augmentation application order for a single base
+/// declaration’s (validly positioned) augmentation declarations is then in
+/// before order: An augmentation declaration is applied after any augmentation
+/// declarations that are before it, and before augmentation declarations that
+/// it is before.
+///
+/// This applies both to top-level declarations and to member declarations of,
+/// for example, class declarations.
+///
+/// @description Checks that augmentation declaration is applied after any
+/// augmentation declarations that are before it, and before augmentation
+/// declarations that it is before.
+/// @author sgrekhov22@gmail.com
+
+// SharedOptions=--enable-experiment=macros
+
+import augment 'augmenting_declarations_A03_t01_lib1.dart';
+import augment 'augmenting_declarations_A03_t01_lib3.dart';
+import '../../Utils/expect.dart';
+
+class A {}
+
+main() {
+  Expect.equals("Augmented A", A().foo());
+  Expect.equals("Augmented B", B().foo());
+  Expect.equals("Augmented C", C().foo());
+  Expect.equals("Augmented D", D().foo());
+}

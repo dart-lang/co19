@@ -19,24 +19,23 @@
 ///
 /// @description Checks that it is a compile-time error if an augmenting
 /// declaration appears before non-augmenting one. Test augmented declaration in
-/// an augment library.
+/// a main library.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_declarations_A02_t02_lib1.dart';
+augment library  'augmenting_declarations_A02_t03.dart';
 
-class C {}
+int variable = 0;
 
-mixin M {}
+final finalVariable = 0;
 
-enum E {e0;}
+late int lateVariable = 0;
 
-class A {}
-extension Ext on A {}
+late final lateFinalVariable = 0;
 
-extension type ET(int _) {}
+void function() {}
 
-typedef StringAlias = String;
+int get getter => 0;
 
-typedef void Foo();
+void set setter(int _) {}
