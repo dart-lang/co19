@@ -46,7 +46,7 @@ extension Ext on A {
 }
 
 main() {
-  print(topLevelFunction());
+  print(topLevelFunction);
   print(C);
   print(M);
   print(E);
