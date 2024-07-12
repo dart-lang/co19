@@ -54,8 +54,6 @@ main() {
   late int lateVariable = 0;
   late final lateFinalVariable = 0;
   void function() {}
-  int get getter => 0;
-  void set setter(int _) {}
 
   print(variable);
   print(finalVariable);
