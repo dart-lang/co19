@@ -17,47 +17,74 @@
 /// and a corresponding non-augmentation base declaration, and the base
 /// declaration is not above the augmentation declaration.
 ///
-/// @description Checks that it is a compile-time error if an augmenting
-/// declaration appears before non-augmenting one. Test augmented declaration in
-/// an augment library.
+/// @description Checks that it is a compile-time error if a base declaration is
+/// not above the augmentation declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_declarations_A02_t02.dart';
-import augment 'augmenting_declarations_A02_t02_lib2.dart';
-
-augment class C {}
-//            ^
+augment int variable = 0;
+//          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment mixin M {}
-//            ^
+augment final finalVariable = 0;
+//            ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum E {e0;}
-//           ^
+augment late int lateVariable = 0;
+//               ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension Ext {}
-//                ^^^
+augment late final lateFinalVariable = 0;
+//                 ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension type ET(int _) {}
-//                     ^^
+augment external int externalVariable;
+//                   ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment typedef StringAlias = String;
-//              ^^^^^^^^^^^
+augment void function() {}
+//           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment typedef void Foo();
-//                   ^^^
+augment int get getter => 0;
+//              ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+augment void set setter(int _) {}
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+int variable = 0;
+
+final finalVariable = 0;
+
+late int lateVariable = 0;
+
+late final lateFinalVariable = 0;
+
+external int externalVariable;
+
+void function() {}
+
+int get getter => 0;
+
+void set setter(int _) {}
+
+main() {
+  print(variable);
+  print(finalVariable);
+  print(lateVariable);
+  print(lateFinalVariable);
+  print(function);
+  print(getter);
+  setter = 0;
+}

@@ -19,19 +19,61 @@
 ///
 /// @description Checks that it is a compile-time error if an augmenting
 /// declaration appears before non-augmenting one. Test augmented declaration in
-/// an augment library.
+/// a main library.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_declarations_A02_t02_lib1.dart';
+import augment 'augmenting_declarations_A02_t03_lib.dart';
+
+augment int variable = 0;
+//          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment final finalVariable = 0;
+//            ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment late int lateVariable = 0;
+//               ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment late final lateFinalVariable = 0;
+//                 ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment external int externalVariable;
+//                   ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment void function() {}
+//           ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment int get getter => 0;
+//              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment void set setter(int _) {}
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  print(C);
-  print(M);
-  print(E);
-  print(A);
-  print(ET);
-  print(StringAlias);
-  print(Foo);
+  int variable = 0;
+  void function() {}
+  int get getter => 0;
+  void set setter(int _) {}
+
+  print(variable);
+  print(function);
+  print(getter);
+  setter = 0;
 }

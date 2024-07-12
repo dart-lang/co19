@@ -17,14 +17,60 @@
 /// and a corresponding non-augmentation base declaration, and the base
 /// declaration is not above the augmentation declaration.
 ///
-/// @description Checks that it is a compile-time error if an augmenting
-/// declaration appears before non-augmenting one. Test augmented declaration in
-/// an augment library.
+/// @description Checks that it is a compile-time error if a base declaration is
+/// not above the augmentation declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_declarations_A02_t02_lib1.dart';
+augment class C {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment mixin M {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment enum E {e0;}
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment extension Ext {}
+//                ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment extension type ET(int _) {}
+//                     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment typedef StringAlias = String;
+//              ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment typedef void Foo();
+//                   ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class C {}
+
+mixin M {}
+
+enum E {e0;}
+
+extension Ext {}
+
+extension type ET(int _) {}
+
+typedef StringAlias = String;
+
+typedef void Foo();
 
 main() {
   print(C);
