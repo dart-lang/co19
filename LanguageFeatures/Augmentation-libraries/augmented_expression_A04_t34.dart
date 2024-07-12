@@ -10,15 +10,15 @@
 ///   the augmented function. Tear offs are not allowed, so this function must
 ///   immediately be invoked.
 ///
-/// @description Checks that it is a compile-time error to use `augmented` as a
-/// constant value in a switch expressions and statements.
+/// @description Checks that it is a compile-time error to use a type whose name
+/// is `augmented` in `is` and `as` expressions.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A04_t31_lib.dart';
+import augment 'augmented_expression_A04_t34_lib.dart';
 
-const augmented = "Constant augmented, shouldn't be used";
+typedef augmented = Null;
 
 void topLevelFunction() {}
 
@@ -34,7 +34,6 @@ mixin M {
 
 enum E {
   e1;
-
   static void staticMethod() {}
   void instanceMethod() {}
 }
