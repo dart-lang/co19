@@ -32,7 +32,8 @@ mixin M {}
 
 enum E {e0;}
 
-extension Ext {}
+class A {}
+extension Ext on A {}
 
 extension type ET(int _) {}
 
