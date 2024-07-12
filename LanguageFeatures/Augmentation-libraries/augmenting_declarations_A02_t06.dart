@@ -43,11 +43,6 @@ augment late final lateFinalVariable = 0;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment external int externalVariable;
-//                   ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 augment void function() {}
 //           ^^^^^^^^
 // [analyzer] unspecified
@@ -70,8 +65,6 @@ final finalVariable = 0;
 late int lateVariable = 0;
 
 late final lateFinalVariable = 0;
-
-external int externalVariable;
 
 void function() {}
 

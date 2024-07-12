@@ -33,11 +33,6 @@ augment late final lateFinalVariable = 0;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment external int externalVariable;
-//                   ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 augment void function() {}
 //           ^^^^^^^^
 // [analyzer] unspecified
@@ -58,7 +53,6 @@ main() {
   final finalVariable = 0;
   late int lateVariable = 0;
   late final lateFinalVariable = 0;
-  external int externalVariable;
   void function() {}
   int get getter => 0;
   void set setter(int _) {}

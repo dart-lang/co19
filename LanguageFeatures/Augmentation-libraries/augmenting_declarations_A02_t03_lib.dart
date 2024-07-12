@@ -34,8 +34,6 @@ late int lateVariable = 0;
 
 late final lateFinalVariable = 0;
 
-external int externalVariable;
-
 void function() {}
 
 int get getter => 0;
