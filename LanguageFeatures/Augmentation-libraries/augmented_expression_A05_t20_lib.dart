@@ -6,13 +6,13 @@
 /// being augmented, but it generally follows the same rules as any normal
 /// identifier:
 /// ...
-/// - Augmenting operators: When augmenting an operator, `augmented` must be
-///   followed by the operator. For example when augmenting `+` you must do
-///   `augmented + 1`, and when augmenting `[]` you must do `augmented[<arg>]`.
-///   These constructs invoke the augmented operator, and are the only valid
-///   uses of `augmented` in these contexts.
+/// - Augmenting operators: When augmenting an operator, augmented refers to the
+///   augmented operator method, which must be immediately invoked using
+///   function call syntax. For example when augmenting `operator +` you would
+///   use `augmented(1)` to call the augmented operator, and when augmenting
+///   `operator []=` you would use the `augmented(key, value)` syntax.
 ///
-/// @description Checks that within an augmenting operator `augmented` invokes
+/// @description Checks that within an augmenting operator `augmented()` invokes
 /// the augmented one and evaluates it to the return value. Test a local
 /// function.
 /// @author sgrekhov22@gmail.com
@@ -23,23 +23,23 @@ augment library 'augmented_expression_A05_t20.dart';
 
 augment class C {
   augment String operator +(Object? other) {
-    String local() => "Augmented: ${augmented + other}";
+    String local() => "Augmented: ${augmented(other)}";
     return local();
   }
 
   augment String operator [](int index) {
-    String local() => "Augmented: ${augmented[index]}";
+    String local() => "Augmented: ${augmented(index)}";
     return local();
   }
 }
 
 augment mixin M {
   augment String operator +(Object? other) {
-    String local() => "Augmented: ${augmented + other}";
+    String local() => "Augmented: ${augmented(index)}";
     return local();
   }
   augment String operator [](int index) {
-    String local() => "Augmented: ${augmented[index]}";
+    String local() => "Augmented: ${augmented(index)}";
     return local();
   }
 }
@@ -47,22 +47,22 @@ augment mixin M {
 augment enum E {
   augment e1;
   augment String operator +(Object? other) {
-    String local() => "Augmented: ${augmented + other}";
+    String local() => "Augmented: ${augmented(index)}";
     return local();
   }
   augment String operator [](int index) {
-    String local() => "Augmented: ${augmented[index]}";
+    String local() => "Augmented: ${augmented(index)}";
     return local();
   }
 }
 
 augment extension Ext {
   augment String operator +(Object? other) {
-    String local() => "Augmented: ${augmented + other}";
+    String local() => "Augmented: ${augmented(index)}";
     return local();
   }
   augment String operator [](int index) {
-    String local() => "Augmented: ${augmented[index]}";
+    String local() => "Augmented: ${augmented(index)}";
     return local();
   }
 }

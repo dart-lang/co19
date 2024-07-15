@@ -6,14 +6,15 @@
 /// being augmented, but it generally follows the same rules as any normal
 /// identifier:
 /// ...
-/// - Augmenting operators: When augmenting an operator, `augmented` must be
-///   followed by the operator. For example when augmenting `+` you must do
-///   `augmented + 1`, and when augmenting `[]` you must do `augmented[<arg>]`.
-///   These constructs invoke the augmented operator, and are the only valid
-///   uses of `augmented` in these contexts.
+/// - Augmenting operators: When augmenting an operator, augmented refers to the
+///   augmented operator method, which must be immediately invoked using
+///   function call syntax. For example when augmenting `operator +` you would
+///   use `augmented(1)` to call the augmented operator, and when augmenting
+///   `operator []=` you would use the `augmented(key, value)` syntax.
 ///
-/// @description Checks that it is a compile-time error call `augmented()` as a
-/// method inside of an augmenting operator.
+/// @description Checks that it is a compile-time error call `augmented + 1`,
+/// `augmented[index]` and `augmented[index]=value` inside of an augmenting
+/// operator.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -22,8 +23,18 @@ augment library 'augmented_expression_A05_t02.dart';
 
 augment class C {
   augment String operator +(Object other) {
-    return augmented(other);
+    return augmented + other;
 //         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment String operator [](int index) => augmented[index];
+//                                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void operator []=(int index, String value) {
+    augmented[index] = value;
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -31,8 +42,18 @@ augment class C {
 
 augment mixin M {
   augment String operator +(Object other) {
-    return augmented(other);
+    return augmented + other;
 //         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment String operator [](int index) => augmented[index];
+//                                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void operator []=(int index, String value) {
+    augmented[index] = value;
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -41,8 +62,18 @@ augment mixin M {
 augment enum E {
   augment e1;
   augment String operator +(Object other) {
-    return augmented(other);
+    return augmented + other;
 //         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment String operator [](int index) => augmented[index];
+//                                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void operator []=(int index, String value) {
+    augmented[index] = value;
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -50,8 +81,18 @@ augment enum E {
 
 augment extension Ext {
   augment String operator +(Object other) {
-    return augmented(other);
+    return augmented + other;
 //         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment String operator [](int index) => augmented[index];
+//                                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void operator []=(int index, String value) {
+    augmented[index] = value;
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
