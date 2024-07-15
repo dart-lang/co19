@@ -6,8 +6,8 @@
 /// being augmented, but it generally follows the same rules as any normal
 /// identifier:
 /// ...
-/// - Augmenting operators: When augmenting an operator, augmented refers to the
-///   augmented operator method, which must be immediately invoked using
+/// - Augmenting operators: When augmenting an operator, `augmented` refers to
+///   the augmented operator method, which must be immediately invoked using
 ///   function call syntax. For example when augmenting `operator +` you would
 ///   use `augmented(1)` to call the augmented operator, and when augmenting
 ///   `operator []=` you would use the `augmented(key, value)` syntax.
