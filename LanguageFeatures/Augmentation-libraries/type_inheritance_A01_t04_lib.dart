@@ -14,40 +14,51 @@
 // SharedOptions=--enable-experiment=macros
 
 augment library 'type_inheritance_A01_t04.dart';
+import '../../Utils/static_type_helper.dart';
 
 augment void topLevelFunction(v) {
+  v.expectStaticType<Exactly<String>>();
   _log = "Augmented $v";
 }
 augment void topLevelSetter(v) {
+  v.expectStaticType<Exactly<String>>();
   _log = "Augmented $v";
 }
 
 augment class C {
   augment static void staticMethod(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment static void set staticSetter(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment void instanceMethod(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment void set instanceSetter(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
 }
 
 augment mixin M {
   augment static void staticMethod(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment static void set staticSetter(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment void instanceMethod(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment void set instanceSetter(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
 }
@@ -55,45 +66,57 @@ augment mixin M {
 augment enum E {
   augment e0;
   augment static void staticMethod(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment static void set staticSetter(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment void instanceMethod(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment void set instanceSetter(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
 }
 
 augment extension Ext {
   augment static void staticMethod(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment static void set staticSetter(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment void instanceMethod(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment void set instanceSetter(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
 }
 
 augment extension type ET(int id) {
   augment static void staticMethod(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment static void set staticSetter(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment void instanceMethod(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
   augment void set instanceSetter(v) {
+    v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
   }
 }

@@ -15,7 +15,7 @@
 /// must repeat the type from the augmented definition.
 ///
 /// @description Check that it is a compile-time error if augmenting declaration
-/// specifies a different return type than the augmented declaration.Test a
+/// specifies a different return type than the augmented declaration. Test a
 /// wrong top type.
 /// @author sgrekhov22@gmail.com
 
