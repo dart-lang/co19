@@ -52,4 +52,5 @@ augment extension type ET(int id) {
   augment static staticMethod() => "Augmented static method";
   augment get instanceGetter => "Augmented instance getter";
   augment instanceMethod() => "Augmented instance method";
+  augment get id => 42;
 }

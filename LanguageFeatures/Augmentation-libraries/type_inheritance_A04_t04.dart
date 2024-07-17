@@ -26,38 +26,48 @@ import '../../Utils/expect.dart';
 String _log = "";
 
 void topLevelFunction(v) {
+  if (1 > 2) v.memberThatDoesNotExist; // To check that v is still dynamic
   _log = "Original $v";
 }
 void set topLevelSetter(v) {
+  if (1 > 2) v.memberThatDoesNotExist;
   _log = "Original $v";
 }
 
 class C {
   static void staticMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   static void set staticSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   void instanceMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   void set instanceSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
 }
 
 mixin M {
   static void staticMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   static void set staticSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   void instanceMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   void set instanceSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
 }
@@ -65,15 +75,19 @@ mixin M {
 enum E {
   e0;
   static void staticMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   static void set staticSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   void instanceMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   void set instanceSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
 }
@@ -82,30 +96,38 @@ class A {}
 
 extension Ext on A {
   static void staticMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   static void set staticSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   void instanceMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   void set instanceSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
 }
 
 extension type ET(int id) {
   static void staticMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   static void set staticSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   void instanceMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
   void set instanceSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
     _log = "Original $v";
   }
 }

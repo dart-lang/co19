@@ -22,45 +22,89 @@
 
 import augment 'type_inheritance_A04_t05_lib.dart';
 
-void topLevelFunction(v) {}
-void set topLevelSetter(var v) {}
+void topLevelFunction(v) {
+  if (1 > 2) v.memberThatDoesNotExist; // To check that type is still dynamic
+}
+void set topLevelSetter(var v) {
+  if (1 > 2) v.memberThatDoesNotExist;
+}
 
 class C {
-  static void staticMethod(v) {}
-  static void set staticSetter(var v) {}
-  void instanceMethod(final v) {}
-  void set instanceSetter(v) {}
+  static void staticMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  static void set staticSetter(var v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  void instanceMethod(final v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  void set instanceSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
 }
 
 mixin M {
-  static void staticMethod(v) {}
-  static void set staticSetter(var v) {}
-  void instanceMethod(final v) {}
-  void set instanceSetter(v) {}
+  static void staticMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  static void set staticSetter(var v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  void instanceMethod(final v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  void set instanceSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
 }
 
 enum E {
   e0;
-  static void staticMethod(v) {}
-  static void set staticSetter(var v) {}
-  void instanceMethod(final v) {}
-  void set instanceSetter(v) {}
+  static void staticMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  static void set staticSetter(var v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  void instanceMethod(final v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  void set instanceSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
 }
 
 class A {}
 
 extension Ext on A {
-  static void staticMethod(v) {}
-  static void set staticSetter(var v) {}
-  void instanceMethod(final v) {}
-  void set instanceSetter(v) {}
+  static void staticMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  static void set staticSetter(var v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  void instanceMethod(final v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  void set instanceSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
 }
 
 extension type ET(int id) {
-  static void staticMethod(v) {}
-  static void set staticSetter(var v) {}
-  void instanceMethod(final v) {}
-  void set instanceSetter(v) {}
+  static void staticMethod(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  static void set staticSetter(var v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  void instanceMethod(final v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
+  void set instanceSetter(v) {
+    if (1 > 2) v.memberThatDoesNotExist;
+  }
 }
 
 main() {

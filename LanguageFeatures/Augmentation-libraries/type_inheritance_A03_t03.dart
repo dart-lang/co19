@@ -74,11 +74,9 @@ main() {
   Expect.equals("Augmented", MA().finalInstanceVariable);
   Expect.equals("Augmented", E.staticVariable);
   Expect.equals("Augmented", E.finalStaticVariable);
-  Expect.equals("Augmented", E.e0.instanceVariable);
   Expect.equals("Augmented", E.e0.finalInstanceVariable);
   Expect.equals("Augmented", Ext.staticVariable);
   Expect.equals("Augmented", Ext.finalStaticVariable);
-  Expect.equals("Augmented", ET.instanceVariable);
-  Expect.equals("Augmented", ET.finalInstanceVariable);
-
+  Expect.equals("Augmented", ET.staticVariable);
+  Expect.equals("Augmented", ET.finalStaticVariable);
 }

@@ -90,4 +90,5 @@ main() {
       ET.staticVariable.expectStaticType<Exactly<String>>());
   Expect.equals("Augmented static variable",
       ET.finalStaticVariable.expectStaticType<Exactly<String>>());
+  Expect.equals(42, ET(0).id.expectStaticType<Exactly<int>>());
 }

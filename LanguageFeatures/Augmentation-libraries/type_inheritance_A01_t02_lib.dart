@@ -47,4 +47,5 @@ augment extension Ext {
 augment extension type ET(int id) {
   augment static var staticVariable = "Augmented static variable";
   augment static final finalStaticVariable = "Augmented static variable";
+  augment final id = 42;
 }
