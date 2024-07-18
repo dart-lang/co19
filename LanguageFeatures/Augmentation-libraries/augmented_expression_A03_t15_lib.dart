@@ -6,12 +6,13 @@
 /// being augmented, but it generally follows the same rules as any normal
 /// identifier:
 /// ...
-/// - Augmenting fields: Within an augmenting field, augmented can only be used
-///   in an initializer expression, and refers to the original field's
-///   initializer expression, which is immediately evaluated.
+/// - Augmenting fields: Within an augmenting variable declaration, `augmented`
+///   can only be used in an initializer expression, and refers to the augmented
+///   variable's initializing expression, which is immediately evaluated.
 ///
-/// It is a compile-time error to use `augmented` in an augmenting field's
-/// initializer if the member being augmented is not a field with an initializer
+/// It is a compile-time error to use `augmented` in an augmenting variable's
+/// initializer if the member being augmented is not a variable declaration with
+/// an initializing expression.
 ///
 /// @description Checks that it is a compile-time error to declare a local
 /// variable named `augmented` in an augmenting field initializer. Test a

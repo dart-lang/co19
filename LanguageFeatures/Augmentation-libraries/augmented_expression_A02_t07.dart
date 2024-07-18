@@ -8,8 +8,8 @@
 /// ...
 /// - Augmenting setters: Within an augmenting setter `augmented` must be
 ///   followed by an `=` and will directly invoke the augmented setter. If
-///   augmenting a field with a setter, this will invoke the implicit setter
-///   from the augmented field.
+///   augmenting a variable with a setter, this will invoke the implicitly
+///   induced setter from the augmented variable declaration.
 ///
 /// @description Checks that within an augmenting setter `augmented=` invokes
 /// the augmented setter. Test the case when a setter is augmented more than

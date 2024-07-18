@@ -6,8 +6,9 @@
 /// being augmented, but it generally follows the same rules as any normal
 /// identifier:
 /// - Augmenting getters: Within an augmenting getter `augmented` invokes the
-///   getter and evaluates to the return value. If augmenting a field with a
-///   getter, this will invoke the implicit getter from the augmented field.
+///   augmented getter and evaluates to its return value. If augmenting a
+///   variable with a getter, this will invoke the implicitly induced getter
+///   from the augmented variable declaration.
 ///
 /// @description Checks that it is a compile-time error to augment a getter
 /// whose name is `augmented`.
