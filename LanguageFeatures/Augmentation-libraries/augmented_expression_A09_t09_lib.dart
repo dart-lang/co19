@@ -3,12 +3,12 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion A compile-time error occurs if a declaration with the basename
-/// `augmented` occurs in a location where the outermost enclosing declaration
-/// is augmenting.
+/// `augmented` occurs in a location where any enclosing declaration is
+/// augmenting.
 ///
 /// @description Checks that it is a compile-time error if a declaration of a
 /// member whose return type is a record with named field `augmented` occurs
-/// in a location where the outermost enclosing declaration is augmenting.
+/// in a location where there is an enclosing augmenting declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

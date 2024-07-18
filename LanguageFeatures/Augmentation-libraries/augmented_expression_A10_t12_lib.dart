@@ -2,13 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if the identifier `augmented` occurs
-/// in a non-augmenting declaration, of a kind that can be augmenting, inside an
-/// augmenting declaration.
+/// @assertion Consider a non-augmenting member declaration Dm that occurs
+/// inside an augmenting type declaration Dt. A compile-time error occurs if the
+/// identifier `augmented` occurs in Dm.
 ///
 /// @description Checks that it is a compile-time error to use a record with
-/// a named parameter whose name is `augmented` in a location where the
-/// outermost enclosing declaration is augmenting.
+/// a named parameter whose name is `augmented` in a non-augmenting member
+/// declaration inside an augmenting declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
