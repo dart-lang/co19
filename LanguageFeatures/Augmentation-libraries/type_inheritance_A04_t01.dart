@@ -15,56 +15,56 @@
 /// must repeat the type from the augmented definition.
 ///
 /// @description Check that it is a compile-time error if augmenting declaration
-/// specifies a different return type than the augmented declaration.
+/// specifies a formal parameter type other than the augmented declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'type_inheritance_A02_t01_lib.dart';
+import augment 'type_inheritance_A04_t01_lib.dart';
 
-num get topLevelGetter => 0;
-num topLevelFunction() => 0;
+void topLevelFunction(num v) {}
+void set topLevelSetter(num v) {}
 
 class C {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static void staticMethod(num v) {}
+  static void set staticSetter(num v) {}
+  void instanceMethod(num v) {}
+  void set instanceSetter(num v) {}
 }
 
 mixin M {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static void staticMethod(num v) {}
+  static void set staticSetter(num v) {}
+  void instanceMethod(num v) {}
+  void set instanceSetter(num v) {}
 }
 
 enum E {
   e0;
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static void staticMethod(num v) {}
+  static void set staticSetter(num v) {}
+  void instanceMethod(num v) {}
+  void set instanceSetter(num v) {}
 }
 
 class A {}
 
 extension Ext on A {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static void staticMethod(num v) {}
+  static void set staticSetter(num v) {}
+  void instanceMethod(num v) {}
+  void set instanceSetter(num v) {}
 }
 
-extension type ET(num id) {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+extension type ET(int id) {
+  static void staticMethod(num v) {}
+  static void set staticSetter(num v) {}
+  void instanceMethod(num v) {}
+  void set instanceSetter(num v) {}
 }
 
 main() {
-  topLevelGetter;
+  topLevelSetter = 0;
   print(topLevelFunction);
   print(C);
   print(M);

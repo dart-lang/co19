@@ -15,57 +15,48 @@
 /// must repeat the type from the augmented definition.
 ///
 /// @description Check that it is a compile-time error if augmenting declaration
-/// specifies a different return type than the augmented declaration.
+/// specifies a type parameter bound other than the augmented declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'type_inheritance_A02_t01_lib.dart';
+import augment 'type_inheritance_A05_t01_lib.dart';
 
-num get topLevelGetter => 0;
-num topLevelFunction() => 0;
+void topLevelFunction1<T extends num>(T v) {}
+void topLevelFunction2<T extends num>(T v) {}
 
-class C {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+class C<T extends num> {
+  static void staticMethod<X extends num>(X _) {}
+  void instanceMethod<X extends num>(X _) {}
 }
 
-mixin M {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+mixin M<T extends num> {
+  static void staticMethod<X extends num>(X _) {}
+  void instanceMethod<X extends num>(X _) {}
 }
 
-enum E {
+enum E<T extends num> {
   e0;
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static void staticMethod<X extends num>(X _) {}
+  void instanceMethod<X extends num>(X _) {}
 }
 
 class A {}
 
-extension Ext on A {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+extension Ext<T extends num> on A {
+  static void staticMethod<X extends num>(X _) {}
+  void instanceMethod<X extends num>(X _) {}
+  void typeCheck(T t) {}
 }
 
-extension type ET(num id) {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+extension type ET<T extends num>(int id) {
+  static void staticMethod<X extends num>(X _) {}
+  void instanceMethod<X extends num>(X _) {}
 }
 
 main() {
-  topLevelGetter;
-  print(topLevelFunction);
+  print(topLevelFunction1);
+  print(topLevelFunction2);
   print(C);
   print(M);
   print(E);

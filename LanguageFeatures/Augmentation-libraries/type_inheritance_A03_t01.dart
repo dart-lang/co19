@@ -15,57 +15,52 @@
 /// must repeat the type from the augmented definition.
 ///
 /// @description Check that it is a compile-time error if augmenting declaration
-/// specifies a different return type than the augmented declaration.
+/// specifies a different variable type than the augmented declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'type_inheritance_A02_t01_lib.dart';
+import augment 'type_inheritance_A03_t01_lib.dart';
 
-num get topLevelGetter => 0;
-num topLevelFunction() => 0;
+num topLevelVariable = 0;
+final num finalTopLevelVariable = 0;
 
 class C {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static num staticVariable = 0;
+  static final num finalStaticVariable = 0;
+  num instanceVariable = 0;
+  final num finalInstanceVariable = 0;
 }
 
 mixin M {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static num staticVariable = 0;
+  static final num finalStaticVariable = 0;
+  num instanceVariable = 0;
+  final num finalInstanceVariable = 0;
 }
 
 enum E {
   e0;
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static num staticVariable = 0;
+  static final num finalStaticVariable = 0;
+  final num finalInstanceVariable = 0;
 }
 
 class A {}
 
 extension Ext on A {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static num staticVariable = 0;
+  static final num finalStaticVariable = 0;
 }
 
 extension type ET(num id) {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static num staticVariable = 0;
+  static final num finalStaticVariable = 0;
 }
 
 main() {
-  topLevelGetter;
-  print(topLevelFunction);
+  print(topLevelVariable);
+  print(finalTopLevelVariable);
   print(C);
   print(M);
   print(E);

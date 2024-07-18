@@ -103,4 +103,5 @@ main() {
       ET(0).instanceGetter.expectStaticType<Exactly<String>>());
   Expect.equals("Augmented instance method",
       ET(0).instanceMethod().expectStaticType<Exactly<String>>());
+  Expect.equals(42, ET(0).id.expectStaticType<Exactly<int>>());
 }

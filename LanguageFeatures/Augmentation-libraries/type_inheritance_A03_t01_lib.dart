@@ -15,122 +15,102 @@
 /// must repeat the type from the augmented definition.
 ///
 /// @description Check that it is a compile-time error if augmenting declaration
-/// specifies a different return type than the augmented declaration.
+/// specifies a different variable type than the augmented declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'type_inheritance_A02_t01.dart';
+augment library 'type_inheritance_A03_t01.dart';
 
-augment int get topLevelGetter => 0;
+augment int topLevelVariable = 0;
 //      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-augment Object topLevelFunction() => 0;
-//      ^^^^^^
+augment final Object finalTopLevelVariable = 0;
+//            ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 augment class C {
-  augment static Object get staticGetter => 0;
-//               ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment static int staticMethod() => 0;
+  augment static int staticVariable = 0;
 //               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get instanceGetter => 0;
-//        ^^^
+  augment static final Object finalStaticVariable = 0;
+//                     ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment Object instanceMethod() => 0;
+  augment Object instanceVariable = 0;
 //        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment final int finalInstanceVariable = 0;
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment mixin M {
-  augment static Object get staticGetter => 0;
-//               ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment static int staticMethod() => 0;
+  augment static int staticVariable = 0;
 //               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get instanceGetter => 0;
-//        ^^^
+  augment static final Object finalStaticVariable = 0;
+//                     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment Object instanceMethod() => 0;
+  augment Object instanceVariable = 0;
 //        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment final int finalInstanceVariable = 0;
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment enum E {
   augment e0;
-  augment static Object get staticGetter => 0;
-//               ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment static int staticMethod() => 0;
+  augment static int staticVariable = 0;
 //               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get instanceGetter => 0;
-//        ^^^
+  augment static final Object finalStaticVariable = 0;
+//                     ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment Object instanceMethod() => 0;
-//        ^^^^^^
+  augment final int finalInstanceVariable = 0;
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension Ext {
-  augment static Object get staticGetter => 0;
-//               ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment static int staticMethod() => 0;
+  augment static int staticVariable = 0;
 //               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get instanceGetter => 0;
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment Object instanceMethod() => 0;
-//        ^^^^^^
+  augment static final Object finalStaticVariable = 0;
+//                     ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment extension type ET(num id) {
-  augment static Object get staticGetter => 0;
-//               ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment static int staticMethod() => 0;
+augment extension type ET(int id) {
+  augment static int staticVariable = 0;
 //               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get instanceGetter => 0;
-//        ^^^
+  augment static final Object finalStaticVariable = 0;
+//                     ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment Object instanceMethod() => 0;
-//        ^^^^^^
+  augment final int id = 0;
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get id => 0;
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment Object get id => 0;
-//        ^^^^^^
+  augment final Object id = 0;
+//              ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
