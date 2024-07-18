@@ -108,7 +108,7 @@ augment extension Ext {
 // [cfe] unspecified
 }
 
-augment extension type ET(int id) {
+augment extension type ET(num id) {
   augment static Object get staticGetter => 0;
 //               ^^^^^^
 // [analyzer] unspecified
@@ -122,6 +122,14 @@ augment extension type ET(int id) {
 // [analyzer] unspecified
 // [cfe] unspecified
   augment Object instanceMethod() => 0;
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment int get id => 0;
+//        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment Object get id => 0;
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -53,7 +53,7 @@ extension Ext on A {
   static final num finalStaticVariable = 0;
 }
 
-extension type ET(int id) {
+extension type ET(num id) {
   static num staticVariable = 0;
   static final num finalStaticVariable = 0;
 }

@@ -51,7 +51,8 @@ augment extension Ext {
   augment static final NumAlias finalStaticVariable = 15;
 }
 
-augment extension type ET(int id) {
+augment extension type ET(num id) {
   augment static NumAlias staticVariable = 16;
   augment static final NumAlias finalStaticVariable = 17;
+  augment final NumAlias id = 18;
 }

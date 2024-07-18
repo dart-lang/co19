@@ -105,4 +105,12 @@ augment extension type ET(int id) {
 //                     ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment final int id = 0;
+//              ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment final Object id = 0;
+//              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

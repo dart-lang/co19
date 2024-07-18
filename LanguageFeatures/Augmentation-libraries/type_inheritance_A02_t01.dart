@@ -56,7 +56,7 @@ extension Ext on A {
   num instanceMethod() => 0;
 }
 
-extension type ET(int id) {
+extension type ET(num id) {
   static num get staticGetter => 0;
   static num staticMethod() => 0;
   num get instanceGetter => 0;

@@ -56,7 +56,7 @@ extension Ext on A {
   static final num finalStaticVariable = 0;
 }
 
-extension type ET(int id) {
+extension type ET(num id) {
   static num staticVariable = 0;
   static final num finalStaticVariable = 0;
 }
@@ -81,4 +81,5 @@ main() {
   Expect.equals(15, Ext.finalStaticVariable);
   Expect.equals(16, ET.staticVariable);
   Expect.equals(17, ET.finalStaticVariable);
+  Expect.equals(18, ET(0).id);
 }

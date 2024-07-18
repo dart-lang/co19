@@ -54,9 +54,10 @@ augment extension Ext {
   augment NumAlias instanceMethod() => 18;
 }
 
-augment extension type ET(int id) {
+augment extension type ET(num id) {
   augment static NumAlias get staticGetter => 19;
   augment static NumAlias staticMethod() => 20;
   augment NumAlias get instanceGetter => 21;
   augment NumAlias instanceMethod() => 22;
+  augment NumAlias get id => 23;
 }
