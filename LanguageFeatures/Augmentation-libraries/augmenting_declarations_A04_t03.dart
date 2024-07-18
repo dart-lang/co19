@@ -27,7 +27,7 @@ enum E with M {
   e0;
 }
 
-augment E with M {
+augment enum E with M {
   augment e0;
   augment String method() => "Method";
 //^^^^^^^
