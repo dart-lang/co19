@@ -18,22 +18,22 @@
 
 augment library 'augmenting_types_A01_t02.dart';
 
-augment enum CAlias {e2;}
-//           ^^^^^^
+augment extension type CAlias(int _) {}
+//                     ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum MAlias {e2;}
-//           ^^^^^^
+augment extension type MAlias(int _) {}
+//                     ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum EAlias {augment e1;}
-//           ^^^^^^
+augment extension type EAlias(int _) {}
+//                     ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum ETAlias {augment e1;}
-//           ^^^^^^^
+augment extension type ETAlias(int _) {}
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
