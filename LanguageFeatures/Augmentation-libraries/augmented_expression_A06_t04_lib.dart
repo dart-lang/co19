@@ -6,7 +6,7 @@
 /// being augmented, but it generally follows the same rules as any normal
 /// identifier:
 /// ...
-/// - Augmenting enum values: When augmenting an enum value, augmented has no
+/// - Augmenting enum values: When augmenting an enum value, `augmented` has no
 ///   meaning and is not allowed.
 ///
 /// @description Checks that it is a compile-time error to augment an enum value
