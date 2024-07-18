@@ -10,30 +10,40 @@
 ///   extension or extension type declaration, and the other is not the same
 ///   kind of declaration.
 ///
-/// @description Checks that it is a compile-time error if an augmented
-/// declaration is a type alias and an augmenting declaration is not
+/// @description Checks that it is a compile-time error if an augmenting type
+/// and the corresponding type are not the same kind.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A01_t02.dart';
+augment library 'augmenting_types_A01_t01.dart';
 
-augment enum CAlias {e2;}
-//           ^^^^^^
+augment class Ext {}
+//            ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum MAlias {e2;}
-//           ^^^^^^
+augment mixin ET {}
+//            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum EAlias {augment e1;}
-//           ^^^^^^
+augment enum F {augment e1;}
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum ETAlias {augment e1;}
-//           ^^^^^^^
+augment extension C {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment extension type M(int _) {}
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment typedef void E();
+//                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
