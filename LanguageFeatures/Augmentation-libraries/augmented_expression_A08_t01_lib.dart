@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Assume that the identifier augmented occurs such that the
-/// outermost enclosing declaration is not an augmenting declaration. In this
-/// case, the identifier is taken to be a reference to a declaration which is in
-/// scope.
-///
-/// @description Checks that if an identifier `augmented` occurs such that the
-/// outermost enclosing declaration is not an augmenting declaration then the
+/// @assertion Assume that the identifier `augmented` occurs in a source
+/// location where no enclosing declaration is augmenting. In this case, the
 /// identifier is taken to be a reference to a declaration which is in scope.
-/// Test a function named `augmented()`.
+///
+/// @description Checks that if an identifier `augmented` occurs in a source
+/// location where no enclosing declaration is augmenting then the identifier is
+/// taken to be a reference to a declaration which is in scope. Test a function
+/// named `augmented()`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
