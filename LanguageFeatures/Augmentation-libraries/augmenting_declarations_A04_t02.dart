@@ -11,21 +11,44 @@
 /// error occurs if no declaration satisfies the requirements on D1.
 ///
 /// @description Checks that it is a compile-time error if an augmentation
-/// declaration is applied before the augmented declaration.
+/// declaration augments member defined in a mixin.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_declarations_A03_t02_lib1.dart';
-import augment 'augmenting_declarations_A03_t02_lib3.dart';
+mixin M {
+  final String variable = "Variable";
+  String method() => "Method";
+  String get getter => "Getter";
+  void set setter(String _) {}
+  String operator +(Object? other) => "Operator";
+}
 
-augment class A {}
-//            ^
+class C = Object with M;
+
+augment class C {
+  augment String variable = "Variable";
+//^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment String method() => "Method";
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String get getter => "Getter";
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void set setter(String _) {}
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String operator +(Object? other) => "Operator";
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
 
 main() {
-  print(A);
-  print(B);
   print(C);
 }
