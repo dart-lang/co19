@@ -18,7 +18,7 @@ augment library 'type_inheritance_A04_t02.dart';
 augment void topLevelFunction(StringAlias v) {
   _log = "Augmented $v";
 }
-augment void topLevelSetter(final StringAlias v) {
+augment void set topLevelSetter(final StringAlias v) {
   _log = "Augmented $v";
 }
 

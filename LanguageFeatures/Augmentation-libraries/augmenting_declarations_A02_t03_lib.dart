@@ -27,15 +27,36 @@
 augment library  'augmenting_declarations_A02_t03.dart';
 
 int variable = 0;
+//  ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 final finalVariable = 0;
+//    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 late int lateVariable = 0;
+//       ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 late final lateFinalVariable = 0;
+//         ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 void function() {}
+//   ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 int get getter => 0;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 void set setter(int _) {}
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

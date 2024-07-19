@@ -40,7 +40,6 @@ augment enum E {
   augment e1;
 
   augment static String? staticVariable;
-  final String? instanceVariable;
 }
 
 augment extension Ext {

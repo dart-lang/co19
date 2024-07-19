@@ -35,7 +35,7 @@ augment class C {
 
 augment mixin M {
   augment String operator +(Object? other) {
-    String local() => "Augmented: ${augmented(index)}";
+    String local() => "Augmented: ${augmented(other)}";
     return local();
   }
   augment String operator [](int index) {
@@ -47,7 +47,7 @@ augment mixin M {
 augment enum E {
   augment e1;
   augment String operator +(Object? other) {
-    String local() => "Augmented: ${augmented(index)}";
+    String local() => "Augmented: ${augmented(other)}";
     return local();
   }
   augment String operator [](int index) {
@@ -58,7 +58,7 @@ augment enum E {
 
 augment extension Ext {
   augment String operator +(Object? other) {
-    String local() => "Augmented: ${augmented(index)}";
+    String local() => "Augmented: ${augmented(other)}";
     return local();
   }
   augment String operator [](int index) {

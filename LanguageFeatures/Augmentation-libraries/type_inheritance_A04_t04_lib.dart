@@ -18,7 +18,7 @@ augment library 'type_inheritance_A04_t04.dart';
 augment void topLevelFunction(dynamic v) {
   _log = "Augmented $v";
 }
-augment void topLevelSetter(final dynamic v) {
+augment void set topLevelSetter(final dynamic v) {
   _log = "Augmented $v";
 }
 

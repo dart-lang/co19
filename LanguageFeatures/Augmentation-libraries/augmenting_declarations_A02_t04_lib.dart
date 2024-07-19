@@ -26,7 +26,7 @@
 
 augment library  'augmenting_declarations_A02_t04.dart';
 
-class C {
+augment class C {
   static int staticVariable = 0;
   static void staticMethod() {}
   static int get staticGetter => 0;
@@ -37,7 +37,7 @@ class C {
   void set instanceSetter(int _) {}
 }
 
-mixin M {
+augment mixin M {
   static int staticVariable = 0;
   static void staticMethod() {}
   static int get staticGetter => 0;
@@ -48,8 +48,8 @@ mixin M {
   void set instanceSetter(int _) {}
 }
 
-enum E {
-  e0;
+augment enum E {
+  augment e0;
   static int staticVariable = 0;
   static void staticMethod() {}
   static int get staticGetter => 0;
@@ -60,9 +60,7 @@ enum E {
   void set instanceSetter(int _) {}
 }
 
-class A {}
-
-extension Etx on A {
+augment extension Etx {
   static int staticVariable = 0;
   static void staticMethod() {}
   static int get staticGetter => 0;
@@ -72,7 +70,7 @@ extension Etx on A {
   void set instanceSetter(int _) {}
 }
 
-extension type ET(int _) {
+augment extension type ET(int _) {
   static int staticVariable = 0;
   static void staticMethod() {}
   static int get staticGetter => 0;

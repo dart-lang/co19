@@ -20,8 +20,10 @@
 augment library 'augmenting_declarations_A03_t02.dart';
 import augment 'augmenting_declarations_A03_t02_lib2.dart';
 
-class A {
-}
+class A {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 augment class B {}
 //            ^
 // [analyzer] unspecified

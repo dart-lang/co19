@@ -38,7 +38,6 @@ augment mixin M {
 augment enum E {
   augment e1;
   augment static String? staticVariable = "Augment: $augmented";
-  final String? instanceVariable = "Augment: $augmented";
 }
 
 augment extension Ext {

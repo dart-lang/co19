@@ -232,7 +232,6 @@ augment extension Ext  {
   static void staticMethod() {}
   static int get staticGetter => 0;
   static void set staticSetter(int _) {}
-  int instanceVariable = 0;
   int get instanceGetter => 0;
   void set instanceSetter(int _) {}
 }

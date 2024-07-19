@@ -28,7 +28,7 @@ augment class C {
   }
 
   augment String operator [](int index) {
-    var f = () => "Augmented: ${augmented(other)}";
+    var f = () => "Augmented: ${augmented(index)}";
     return f();
   }
 }
@@ -39,7 +39,7 @@ augment mixin M {
     return f();
   }
   augment String operator [](int index) {
-    var f = () => "Augmented: ${augmented(other)}";
+    var f = () => "Augmented: ${augmented(index)}";
     return f();
   }
 }
@@ -51,7 +51,7 @@ augment enum E {
     return f();
   }
   augment String operator [](int index) {
-    var f = () => "Augmented: ${augmented(other)}";
+    var f = () => "Augmented: ${augmented(index)}";
     return f();
   }
 }
@@ -62,7 +62,7 @@ augment extension Ext {
     return f();
   }
   augment String operator [](int index) {
-    var f = () => "Augmented: ${augmented(other)}";
+    var f = () => "Augmented: ${augmented(index)}";
     return f();
   }
 }
