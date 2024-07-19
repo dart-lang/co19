@@ -20,7 +20,7 @@ augment void topLevelFunction(var v) {
   v.expectStaticType<Exactly<String>>();
   _log = "Augmented $v";
 }
-augment void topLevelSetter(final v) {
+augment void set topLevelSetter(final v) {
   v.expectStaticType<Exactly<String>>();
   _log = "Augmented $v";
 }

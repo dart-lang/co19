@@ -27,16 +27,37 @@
 augment library 'augmenting_declarations_A02_t02_lib1.dart';
 
 class C {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 mixin M {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 enum E {e0;}
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class A {}
 extension Ext on A {}
+//        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 extension type ET(int _) {}
+//             ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 typedef StringAlias = String;
+//      ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 typedef void Foo();
+//           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
