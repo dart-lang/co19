@@ -10,19 +10,13 @@
 /// after this appending process, so you cannot have multiple `extends` on a
 /// class, or an `on` clause on an enum, etc.
 ///
-/// @description Checks that it is a compile-time error if a class, extension
-/// type, mixin or enum augment specifies `implements` clause but doesn't
-/// implement this interface
+/// @description Checks that if an extension type augment specifies an interface
+/// in an `implements` clause which is not compatible with existing members then
+/// existing members redeclare inherited ones
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A07_t03.dart';
+augment library 'augmenting_types_A07_t12.dart';
 
-augment class C implements I {}
-
-augment mixin M implements I {}
-
-augment enum E implements I {
-  augment e1;
-}
+augment extension type ET(A _) implements A {}

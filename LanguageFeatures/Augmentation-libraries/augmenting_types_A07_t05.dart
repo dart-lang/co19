@@ -10,19 +10,23 @@
 /// after this appending process, so you cannot have multiple `extends` on a
 /// class, or an `on` clause on an enum, etc.
 ///
-/// @description Checks that it is a compile-time error if a class, extension
-/// type, mixin or enum augment specifies `implements` clause but doesn't
-/// implement this interface
+/// @description Checks that an augment of an extension type may specify a base,
+/// final or sealed class in an `implements` clause
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A07_t03.dart';
+import augment 'augmenting_types_A07_t05_lib.dart';
+import 'augmentation_libraries_lib.dart';
 
-augment class C implements I {}
+extension type ET1(FinalClass _) {}
 
-augment mixin M implements I {}
+extension type ET2(BaseClass _) {}
 
-augment enum E implements I {
-  augment e1;
+extension type ET3(SealedClass _) {}
+
+main() {
+  FinalClass fc = ET1(FinalClass());
+  BaseClass bc = ET2(BaseClass());
+  SealedClass sc = ET3(SealedClassImpl());
 }
