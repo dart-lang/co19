@@ -4,14 +4,12 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - An augmenting extension declares an on clause. We don't allow filling this
-///   in for extensions, it must be on the original declaration. This
-///   restriction could be lifted later if we have a compelling use case, as
-///   there is no fundamental reason it cannot be allowed, although it would be
-///   a parse error today to have an extension with no on clause.
+/// - An augmenting extension declares an `on` clause (this is a syntax error).
+///   We also do not allow adding further restrictions to a `mixin` declaration,
+///   so no further types can be added to its `on` clause, if it even has one.
 ///
 /// @description Checks that it is a compile-time error if an augmenting
-/// extension declares an `on` clause
+/// extension declares an `on` clause.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

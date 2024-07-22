@@ -11,33 +11,37 @@
 ///   written exactly the same in case one of the declarations needs to refer to
 ///   a type using an import prefix).
 ///
-/// @description Checks that it is a compile-time error if an augmenting type
-/// declares type parameters with different bounds.
+/// @description Checks that it is not an error if an augmenting type declares
+/// the same number of type parameters with the same names and bounds. Test the
+/// case when bound name has a library prefix.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A05_t02_lib.dart';
+import 'augmentation_libraries_lib.dart';
+import augment 'augmenting_types_A05_t05_lib.dart';
+import '../../Utils/expect.dart';
+import '../../Utils/static_type_helper.dart';
 
-class A {}
-class B extends A {}
-class C<T extends A> {}
+class C<T extends AL> {}
 
-mixin M<T extends A> {}
+mixin M<T extends AL> {}
 
-enum E<T extends A> {
-  e1;
+enum E<T extends AL> {
+  e0;
 }
 
-class D {}
-extension Ext<T extends A> on D {}
+class A{}
+extension Ext<T extends AL> on A {}
 
-extension type ET<T extends A>(int _) {}
+extension type ET<T extends AL>(int _) {}
+
+class MA<T extends AL> = Object with M<T>;
 
 main() {
-  print(C);
-  print(M);
-  print(E);
-  print(D);
-  print(ET);
+  C().expectStaticType<Exactly<C<AL>>>();
+  MA().expectStaticType<Exactly<MA<AL>>>();
+  E.e0.expectStaticType<Exactly<E<AL>>>();
+  Expect.equals(AL, A().type);
+  ET(0).expectStaticType<Exactly<ET<AL>>>();
 }

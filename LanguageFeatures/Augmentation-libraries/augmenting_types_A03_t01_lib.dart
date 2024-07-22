@@ -4,9 +4,9 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - The augmenting type declares an extends clause, but one was already
-///   present. We don't allow overwriting an existing extends, but one can be
-///   filled in if it wasn't present originally.
+/// - The augmenting declaration declares an `extends` clause for a `class`
+///   declaration, but one was already present (or the `class` was a
+///   `mixin class` declaration, which does not allow `extends` clauses).
 ///
 /// @description Checks that it is a compile-time error if an augmenting type
 /// declares an extends clause, but one was already present

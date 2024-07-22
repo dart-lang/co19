@@ -9,21 +9,21 @@
 ///   so no further types can be added to its `on` clause, if it even has one.
 ///
 /// @description Checks that it is a compile-time error if an augmenting
-/// extension declares an `on` clause.
+/// declaration adds any additional types to mixin's `on` clause.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A04_t01.dart';
+augment library 'augmenting_types_A04_t02.dart';
 
-augment extension on C {
-//                ^^
+augment mixin M1 on C {
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment extension Ext on C {
-//                    ^^
+augment mixin M2 on Object {
+//                  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
