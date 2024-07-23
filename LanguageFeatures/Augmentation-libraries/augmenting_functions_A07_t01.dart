@@ -15,7 +15,7 @@
 import augment 'augmenting_functions_A07_t01_lib.dart';
 import '../../Utils/expect.dart';
 
-String topLevelFunction() => "Original"
+String topLevelFunction() => "Original";
 
 class C {
   static String staticMethod() => "Original";
