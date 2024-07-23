@@ -4,7 +4,7 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - The function augmentation specifies any default values.
+/// - The augmenting function specifies any default values.
 ///
 /// @description Checks that it is a compile-time error if a function
 /// augmentation specifies any default values.
@@ -141,6 +141,34 @@ augment enum E {
 }
 
 augment extension Ext {
+  augment static void staticMethod1([int? i = 2]) {}
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod2({int? i = 1}) {}
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void staticMethod3({required int? i = 1}) {}
+//                                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment void instanceMethod1([int? i = 1]) {}
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod2({int? i = 2}) {}
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod3({required int? i = 2}) {}
+//                                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+augment extension type ET(int _) {
   augment static void staticMethod1([int? i = 2]) {}
 //                                        ^
 // [analyzer] unspecified

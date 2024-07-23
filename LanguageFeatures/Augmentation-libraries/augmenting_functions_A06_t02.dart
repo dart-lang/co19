@@ -4,8 +4,8 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - An augmenting declaration uses augmented when the original declaration has
-///   no concrete implementation. Note that all external declarations are
+/// - An augmenting declaration uses `augmented` when the augmented declaration
+///   has no concrete implementation. Note that all external declarations are
 ///   assumed to have an implementation provided by another external source, and
 ///   they will throw a runtime exception when called if not.
 ///
@@ -43,9 +43,17 @@ extension Ext on A {
   external void instanceMethod();
 }
 
+extension type ET(int _) {
+  external static void staticMethod();
+  external void instanceMethod();
+}
+
 class MA = Object with M;
 
 main() {
+  Expect.throws(() {
+    topLevelFunction();
+  });
   Expect.throws(() {
     C.staticMethod();
   });
@@ -69,5 +77,11 @@ main() {
   });
   Expect.throws(() {
     A().instanceMethod();
+  });
+  Expect.throws(() {
+    ET.staticMethod();
+  });
+  Expect.throws(() {
+    ET(0).instanceMethod();
   });
 }
