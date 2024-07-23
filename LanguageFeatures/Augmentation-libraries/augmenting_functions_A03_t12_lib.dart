@@ -2,13 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A top-level function, static method, instance method, or operator
-/// may be augmented to wrap the original code in additional code. The
-/// augmentation replaces the original function body with the augmenting code.
-/// Inside the augmentation body, a special augmented() expression may be used
-/// to execute the original function body. That expression takes an argument
-/// list matching the original function's parameter list and returns the
-/// function's return type.
+/// @assertion The augmenting function does not have to pass the same arguments
+/// to `augmented(…)` as were passed to it. It may invoke `augmented` once, more
+/// than once, or not at all.
 ///
 /// @description Checks that it's not an error if an augmenting function passes
 /// different arguments to the `augmented` expression and calls it more than

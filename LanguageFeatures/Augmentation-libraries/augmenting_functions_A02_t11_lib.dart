@@ -9,14 +9,14 @@
 ///
 /// @description Checks that inside an augmentation body of an instance method
 /// `augmented()` expression executes the original method body. Test an
-/// extension.
+/// extension type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A02_t10.dart';
+augment library 'augmenting_functions_A02_t11.dart';
 
-augment extension Ext {
+augment extension type ET(int id) {
   augment String instanceMethod1() {
     _log += augmented();
     _log += "augmented;";

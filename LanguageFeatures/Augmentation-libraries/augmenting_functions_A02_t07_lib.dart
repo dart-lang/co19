@@ -2,13 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A top-level function, static method, instance method, or operator
-/// may be augmented to wrap the original code in additional code. The
-/// augmentation replaces the original function body with the augmenting code.
-/// Inside the augmentation body, a special augmented() expression may be used
-/// to execute the original function body. That expression takes an argument
-/// list matching the original function's parameter list and returns the
-/// function's return type.
+/// @assertion Inside the augmentation body, a special `augmented()` expression
+/// may be used to execute the original function body. That expression takes an
+/// argument list matching the original function's parameter list and returns
+/// the function's return type.
 ///
 /// @description Checks that inside an augmentation body of an instance method
 /// `augmented()` expression executes the original method body. Test a class.

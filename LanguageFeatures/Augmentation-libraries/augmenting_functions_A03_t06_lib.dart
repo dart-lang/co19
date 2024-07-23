@@ -8,14 +8,14 @@
 ///
 /// @description Checks that it's not an error if an augmenting function passes
 /// different arguments to the `augmented()` expression and calls it more than
-/// once. Test static methods of an extension.
+/// once. Test static methods of an extension type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A03_t05.dart';
+augment library 'augmenting_functions_A03_t06.dart';
 
-augment extension Ext {
+augment extension type ET(int id) {
   augment static String staticMethod1() {
     _log += augmented();
     _log += "augmented;";

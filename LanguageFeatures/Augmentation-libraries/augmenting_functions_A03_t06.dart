@@ -8,12 +8,12 @@
 ///
 /// @description Checks that it's not an error if an augmenting function passes
 /// different arguments to the `augmented()` expression and calls it more than
-/// once. Test static methods of a class.
+/// once. Test static methods of an extension type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_functions_A03_t02_lib.dart';
+import augment 'augmenting_functions_A03_t06_lib.dart';
 import '../../Utils/expect.dart';
 
 String _log = "";
@@ -22,7 +22,7 @@ void clearLog() {
   _log = "";
 }
 
-class C {
+extension type ET(int id) {
   static String staticMethod1() {
     _log += "staticMethod1();";
     return "Original;";
@@ -50,26 +50,27 @@ class C {
 }
 
 main() {
-  Expect.equals("augment;", C.staticMethod1());
+  Expect.equals("augment;", ET.staticMethod1());
   Expect.equals("staticMethod1();Original;augmented;staticMethod1();", _log);
   clearLog();
 
-  Expect.equals("augment staticMethod2(A);", C.staticMethod2("A"));
+  Expect.equals("augment staticMethod2(A);", ET.staticMethod2("A"));
   Expect.equals("staticMethod2(a);Original v=A;augmented;staticMethod2(b);",
       _log);
   clearLog();
 
-  Expect.equals("augment v1=B, [v2=C]", C.staticMethod3("B", "C"));
+  Expect.equals("augment v1=B, [v2=C]", ET.staticMethod3("B", "C"));
   Expect.equals("staticMethod3(c, [d]);Original v1=B, [v2=C];augmented;" +
       "staticMethod3(e, [f]);", _log);
   clearLog();
 
-  Expect.equals("augment v1=D, {v2=E}", C.staticMethod4("D", v2: "E"));
+  Expect.equals("augment v1=D, {v2=E}", ET.staticMethod4("D", v2: "E"));
   Expect.equals("staticMethod4(g, {h});Original v1=D, {v2=E};augmented;" +
       "staticMethod4(i, {j});", _log);
   clearLog();
 
-  Expect.equals("augment v1=F, {required v2=G}", C.staticMethod5("F", v2: "G"));
+  Expect.equals(
+      "augment v1=F, {required v2=G}", ET.staticMethod5("F", v2: "G"));
   Expect.equals(
       "staticMethod5(k, {required l});Original v1=F, {required v2=G};" +
           "augmented;staticMethod5(m, {required n});", _log);
