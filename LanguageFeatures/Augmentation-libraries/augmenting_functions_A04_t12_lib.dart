@@ -76,7 +76,7 @@ augment extension Ext {
 // [cfe] unspecified
 }
 
-augment extension ET(int _) {
+augment extension type ET(int _) {
   augment static void staticMethod<X>() {}
 //                    ^^^^^^^^^^^^
 // [analyzer] unspecified
