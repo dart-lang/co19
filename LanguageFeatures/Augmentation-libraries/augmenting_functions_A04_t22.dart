@@ -3,13 +3,14 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if:
-/// - The signature of the function augmentation does not exactly match the
-///   original function. This means the return types must be the same; there
-///   must be the same number of positional, optional, and named parameters; the
-///   types of corresponding positional and optional parameters must be the
-///   same; the names and types of named parameters must be the same; any type
-///   parameters and bounds must be the same; and any required or covariant
-///   modifiers must match.
+/// - The function signature of the augmenting function does not exactly match
+///   the function signature of the augmented function. This means that any
+///   provided return types must be the same type; there must be same number or
+///   required and optional positional parameters, all with the same types (when
+///   provided), the same number of named parameters, each pairwise with the
+///   same name, same type (when provided) and same `required` and `covariant`
+///   modifiers, and any type parameters and their bounds (when provided) must
+///   be the same (like for type declarations).
 ///
 /// @description Checks that it is not an error if return type and  parameters
 /// of an augmentation exactly matches the original function. Test implicit
@@ -65,6 +66,15 @@ extension Ext on A {
   String instanceMethod3(_) => "original";
 }
 
+extension type ET(int _) {
+  static staticMethod1() => "original";
+  static String staticMethod2(var s) => "original";
+  static String staticMethod3(_) => "original";
+  instanceMethod1() => "original";
+  String instanceMethod2(var s) => "original";
+  String instanceMethod3(_) => "original";
+}
+
 class MA = Object with M;
 
 main() {
@@ -99,4 +109,11 @@ main() {
   Expect.equals("augmented", A().instanceMethod1());
   Expect.equals("augmented X", A().instanceMethod2("X"));
   Expect.equals("augmented Y", A().instanceMethod3("Y"));
+
+  Expect.equals("augmented", ET.staticMethod1());
+  Expect.equals("augmented X", ET.staticMethod2("X"));
+  Expect.equals("augmented Y", ET.staticMethod3("Y"));
+  Expect.equals("augmented", ET(0).instanceMethod1());
+  Expect.equals("augmented X", ET(0).instanceMethod2("X"));
+  Expect.equals("augmented Y", ET(0).instanceMethod3("Y"));
 }
