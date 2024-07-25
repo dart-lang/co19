@@ -34,9 +34,9 @@ augment enum E {
 }
 
 augment extension Ext {
-  augment static String set staticGetter => "Augmented1: $augmented";
+  augment static String set staticVariable(String v) {}
 }
 
 augment extension type ET(int _) {
-  augment static String set staticGetter => "Augmented1: $augmented";
+  augment static String set staticVariable(String v) {}
 }
