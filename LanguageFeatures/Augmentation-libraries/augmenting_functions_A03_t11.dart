@@ -8,12 +8,12 @@
 ///
 /// @description Checks that it's not an error if an augmenting function passes
 /// different arguments to the `augmented()` expression and calls it more than
-/// once. Test instance methods of a mixin.
+/// once. Test instance methods of an extension type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_functions_A03_t08_lib.dart';
+import augment 'augmenting_functions_A03_t11_lib.dart';
 import '../../Utils/expect.dart';
 
 String _log = "";
@@ -22,7 +22,7 @@ void clearLog() {
   _log = "";
 }
 
-mixin M {
+extension type ET(int id) {
   String instanceMethod1() {
     _log += "instanceMethod1();";
     return "Original;";
@@ -49,31 +49,29 @@ mixin M {
   }
 }
 
-class MA = Object with M;
-
 main() {
-  Expect.equals("augment;", MA().instanceMethod1());
+  Expect.equals("augment;", ET(0).instanceMethod1());
   Expect.equals(
       "instanceMethod1();Original;augmented;instanceMethod1();", _log);
   clearLog();
 
-  Expect.equals("augment instanceMethod2(A);", MA().instanceMethod2("A"));
+  Expect.equals("augment instanceMethod2(A);", ET(0).instanceMethod2("A"));
   Expect.equals("instanceMethod2(a);Original v=A;augmented;instanceMethod2(b);",
       _log);
   clearLog();
 
-  Expect.equals("augment v1=B, [v2=C]", MA().instanceMethod3("B", "C"));
+  Expect.equals("augment v1=B, [v2=C]", ET(0).instanceMethod3("B", "C"));
   Expect.equals("instanceMethod3(c, [d]);Original v1=B, [v2=C];augmented;" +
       "instanceMethod3(e, [f]);", _log);
   clearLog();
 
-  Expect.equals("augment v1=D, {v2=E}", MA().instanceMethod4("D", v2: "E"));
+  Expect.equals("augment v1=D, {v2=E}", ET(0).instanceMethod4("D", v2: "E"));
   Expect.equals("instanceMethod4(g, {h});Original v1=D, {v2=E};augmented;" +
       "instanceMethod4(i, {j});", _log);
   clearLog();
 
   Expect.equals(
-      "augment v1=F, {required v2=G}", MA().instanceMethod5("F", v2: "G"));
+      "augment v1=F, {required v2=G}", ET(0).instanceMethod5("F", v2: "G"));
   Expect.equals(
       "instanceMethod5(k, {required l});Original v1=F, {required v2=G};" +
           "augmented;instanceMethod5(m, {required n});", _log);

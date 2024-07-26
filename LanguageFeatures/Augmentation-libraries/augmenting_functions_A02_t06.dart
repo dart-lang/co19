@@ -8,12 +8,13 @@
 /// the function's return type.
 ///
 /// @description Checks that inside an augmentation body of a static method
-/// `augmented()` expression executes the original method body. Test a mixin.
+/// `augmented()` expression executes the original method body. Test an
+/// extension type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_functions_A02_t03_lib.dart';
+import augment 'augmenting_functions_A02_t06_lib.dart';
 import '../../Utils/expect.dart';
 
 String _log = "";
@@ -22,7 +23,7 @@ void clearLog() {
   _log = "";
 }
 
-mixin M {
+extension type ET(int id) {
   static String staticMethod1() {
     _log += "staticMethod1();";
     return "Original;";
@@ -50,23 +51,24 @@ mixin M {
 }
 
 main() {
-  Expect.equals("augment;", M.staticMethod1());
+  Expect.equals("augment;", ET.staticMethod1());
   Expect.equals("staticMethod1();Original;augmented;", _log);
   clearLog();
 
-  Expect.equals("augment v=A;", M.staticMethod2("A"));
+  Expect.equals("augment v=A;", ET.staticMethod2("A"));
   Expect.equals("staticMethod2(A);Original v=A;augmented;", _log);
   clearLog();
 
-  Expect.equals("augment v1=B, [v2=C]", M.staticMethod3("B", "C"));
+  Expect.equals("augment v1=B, [v2=C]", ET.staticMethod3("B", "C"));
   Expect.equals("staticMethod3(B, [C]);Original v1=B, [v2=C];augmented;", _log);
   clearLog();
 
-  Expect.equals("augment v1=D, {v2=E}", M.staticMethod4("D", v2: "E"));
+  Expect.equals("augment v1=D, {v2=E}", ET.staticMethod4("D", v2: "E"));
   Expect.equals("staticMethod4(D, {E});Original v1=D, {v2=E};augmented;", _log);
   clearLog();
 
-  Expect.equals("augment v1=F, {required v2=G}", M.staticMethod5("F", v2: "G"));
+  Expect.equals("augment v1=F, {required v2=G}",
+      ET.staticMethod5("F", v2: "G"));
   Expect.equals(
       "staticMethod5(F, {required G});Original v1=F, {required v2=G};" +
           "augmented;", _log);

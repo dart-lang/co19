@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion The augmenting function does not have to pass the same arguments
-/// to augmented() as were passed to it. It may call it once, more than once, or
-/// not at all.
+/// to `augmented(…)` as were passed to it. It may invoke `augmented` once, more
+/// than once, or not at all.
 ///
 /// @description Checks that it's not an error if an augmenting function passes
 /// different arguments to the `augmented()` expression and calls it more than

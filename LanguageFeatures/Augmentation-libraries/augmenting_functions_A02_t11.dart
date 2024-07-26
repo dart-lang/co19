@@ -8,12 +8,13 @@
 /// the function's return type.
 ///
 /// @description Checks that inside an augmentation body of an instance method
-/// `augmented()` expression executes the original method body. Test a class.
+/// `augmented()` expression executes the original method body. Test an
+/// extension type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_functions_A02_t07_lib.dart';
+import augment 'augmenting_functions_A02_t11_lib.dart';
 import '../../Utils/expect.dart';
 
 String _log = "";
@@ -22,7 +23,7 @@ void clearLog() {
   _log = "";
 }
 
-class C {
+extension type ET(int id) {
   String instanceMethod1() {
     _log += "instanceMethod1();";
     return "Original;";
@@ -47,40 +48,30 @@ class C {
     _log += "instanceMethod5($v1, {required $v2});";
     return "Original v1=$v1, {required v2=$v2};";
   }
-
-  String instanceMethod6(covariant String v) {
-    _log += "instanceMethod6(covariant $v);";
-    return "Original covariant v=$v";
-  }
 }
 
 main() {
-  Expect.equals("augment;", C().instanceMethod1());
+  Expect.equals("augment;", ET(0).instanceMethod1());
   Expect.equals("instanceMethod1();Original;augmented;", _log);
   clearLog();
 
-  Expect.equals("augment v=A;", C().instanceMethod2("A"));
+  Expect.equals("augment v=A;", ET(0).instanceMethod2("A"));
   Expect.equals("instanceMethod2(A);Original v=A;augmented;", _log);
   clearLog();
 
-  Expect.equals("augment v1=B, [v2=C]", C().instanceMethod3("B", "C"));
+  Expect.equals("augment v1=B, [v2=C]", ET(0).instanceMethod3("B", "C"));
   Expect.equals("instanceMethod3(B, [C]);Original v1=B, [v2=C];augmented;",
       _log);
   clearLog();
 
-  Expect.equals("augment v1=D, {v2=E}", C().instanceMethod4("D", v2: "E"));
+  Expect.equals("augment v1=D, {v2=E}", ET(0).instanceMethod4("D", v2: "E"));
   Expect.equals("instanceMethod4(D, {E});Original v1=D, {v2=E};augmented;",
       _log);
   clearLog();
 
   Expect.equals("augment v1=F, {required v2=G}",
-      C().instanceMethod5("F", v2: "G"));
+      ET(0).instanceMethod5("F", v2: "G"));
   Expect.equals(
       "instanceMethod5(F, {required G});Original v1=F, {required v2=G};" +
           "augmented;", _log);
-  clearLog();
-
-  Expect.equals("augment covariant v=H", C().instanceMethod6("H"));
-  Expect.equals(
-      "instanceMethod6(covariant H);Original covariant v=H;augmented;", _log);
 }

@@ -7,14 +7,14 @@
 /// augmentation replaces the original function body with the augmenting code.
 ///
 /// @description Checks that a static method may be augmented and the original
-/// code is replaced by the augmentation. Test an extension.
+/// code is replaced by the augmentation. Test an extension type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A01_t05.dart';
+augment library 'augmenting_functions_A01_t06.dart';
 
-augment extension Ext {
+augment extension type ET(int id) {
   augment static String staticMethod1() {
     _log += "augment staticMethod1();";
     return "augment";
