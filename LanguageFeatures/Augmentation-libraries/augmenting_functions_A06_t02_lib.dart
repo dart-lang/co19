@@ -4,8 +4,8 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - An augmenting declaration uses augmented when the original declaration has
-///   no concrete implementation. Note that all external declarations are
+/// - An augmenting declaration uses `augmented` when the augmented declaration
+///   has no concrete implementation. Note that all external declarations are
 ///   assumed to have an implementation provided by another external source, and
 ///   they will throw a runtime exception when called if not.
 ///
@@ -51,6 +51,15 @@ augment enum E {
 }
 
 augment extension Ext {
+  augment static void staticMethod() {
+    augmented();
+  }
+  augment void instanceMethod() {
+    augmented();
+  }
+}
+
+augment extension type ET(int _) {
   augment static void staticMethod() {
     augmented();
   }

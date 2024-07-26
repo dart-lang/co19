@@ -4,8 +4,8 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - An augmenting declaration uses augmented when the original declaration has
-///   no concrete implementation. Note that all external declarations are
+/// - An augmenting declaration uses `augmented` when the augmented declaration
+///   has no concrete implementation. Note that all external declarations are
 ///   assumed to have an implementation provided by another external source, and
 ///   they will throw a runtime exception when called if not.
 ///
@@ -41,10 +41,15 @@ extension Ext on A {
   void foo();
 }
 
+extension type ET(int _) {
+  void foo();
+}
+
 main() {
   print(C1);
   print(C2);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

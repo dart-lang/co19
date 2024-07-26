@@ -4,7 +4,7 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - The function augmentation specifies any default values.
+/// - The augmenting function specifies any default values.
 ///
 /// @description Checks that it is a compile-time error if a function
 /// augmentation specifies any default values.
@@ -65,6 +65,15 @@ extension Ext on A {
   void instanceMethod3({required int? i}) {}
 }
 
+extension type ET(int _) {
+  static void staticMethod1([int? i]) {}
+  static void staticMethod2({int? i}) {}
+  static void staticMethod3({required int? i}) {}
+  void instanceMethod1([int? i]) {}
+  void instanceMethod2({int? i}) {}
+  void instanceMethod3({required int? i}) {}
+}
+
 main() {
   print(topLevelFunction1);
   print(topLevelFunction2);
@@ -72,4 +81,5 @@ main() {
   print(M);
   print(E);
   print(A);
+  print(ET);
 }
