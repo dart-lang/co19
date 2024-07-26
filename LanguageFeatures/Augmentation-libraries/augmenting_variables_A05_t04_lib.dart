@@ -24,24 +24,24 @@ augment library 'augmenting_variables_A05_t04.dart';
 augment dynamic topLevelVariable;
 
 augment class C {
-  augment static Object? staticVariable;
-  augment Object? instanceVariable;
+  augment static dynamic staticVariable;
+  augment dynamic instanceVariable;
 }
 
 augment mixin M {
-  augment static Object? staticVariable;
-  augment Object? instanceVariable;
+  augment static dynamic staticVariable;
+  augment dynamic instanceVariable;
 }
 
 augment enum E {
   augment e0;
-  augment static Object? staticVariable;
+  augment static dynamic staticVariable;
 }
 
 augment extension Ext {
-  augment static Object? staticVariable;
+  augment static dynamic staticVariable;
 }
 
 augment extension type ET(String _) {
-  augment static Object? staticVariable;
+  augment static dynamic staticVariable;
 }
