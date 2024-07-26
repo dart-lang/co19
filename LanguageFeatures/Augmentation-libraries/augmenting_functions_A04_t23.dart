@@ -3,13 +3,14 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if:
-/// - The signature of the function augmentation does not exactly match the
-///   original function. This means the return types must be the same; there
-///   must be the same number of positional, optional, and named parameters; the
-///   types of corresponding positional and optional parameters must be the
-///   same; the names and types of named parameters must be the same; any type
-///   parameters and bounds must be the same; and any required or covariant
-///   modifiers must match.
+/// - The function signature of the augmenting function does not exactly match
+///   the function signature of the augmented function. This means that any
+///   provided return types must be the same type; there must be same number or
+///   required and optional positional parameters, all with the same types (when
+///   provided), the same number of named parameters, each pairwise with the
+///   same name, same type (when provided) and same `required` and `covariant`
+///   modifiers, and any type parameters and their bounds (when provided) must
+///   be the same (like for type declarations).
 ///
 /// @description Checks that it is a compile-time error if type of parameters of
 /// an augmentation doesn't exactly match the original function. Test the case
@@ -66,6 +67,15 @@ extension Ext on A {
   void instanceMethod3() => 0;
 }
 
+extension type ET(int _) {
+  static Object? staticMethod1() => 0;
+  static dynamic staticMethod2() => 0;
+  static void staticMethod3() => 0;
+  Object? instanceMethod1() => 0;
+  dynamic instanceMethod2() => 0;
+  void instanceMethod3() => 0;
+}
+
 main() {
   print(topLevelFunction1);
   print(topLevelFunction2);
@@ -74,4 +84,5 @@ main() {
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

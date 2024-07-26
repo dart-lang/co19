@@ -3,16 +3,17 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if:
-/// - The signature of the function augmentation does not exactly match the
-///   original function. This means the return types must be the same; there
-///   must be the same number of positional, optional, and named parameters; the
-///   types of corresponding positional and optional parameters must be the
-///   same; the names and types of named parameters must be the same; any type
-///   parameters and bounds must be the same; and any required or covariant
-///   modifiers must match.
+/// - The function signature of the augmenting function does not exactly match
+///   the function signature of the augmented function. This means that any
+///   provided return types must be the same type; there must be same number or
+///   required and optional positional parameters, all with the same types (when
+///   provided), the same number of named parameters, each pairwise with the
+///   same name, same type (when provided) and same `required` and `covariant`
+///   modifiers, and any type parameters and their bounds (when provided) must
+///   be the same (like for type declarations).
 ///
 /// @description Checks that it is not an error if a `required` modifier of
-/// named parameters of an augmentation exactly matches the original function
+/// named parameters of an augmentation exactly matches the original function.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -48,6 +49,11 @@ extension Ext on A {
   void instanceMethod({required int i}) {}
 }
 
+extension type ET(int _) {
+  static void staticMethod({required int i}) {}
+  void instanceMethod({required int i}) {}
+}
+
 class MA = Object with M;
 
 main() {
@@ -73,4 +79,9 @@ main() {
   Expect.equals("i=8", _log);
   A().instanceMethod(i: 9);
   Expect.equals("i=9", _log);
+
+  ET.staticMethod(i: 10);
+  Expect.equals("i=10", _log);
+  ET(0).instanceMethod(i: 11);
+  Expect.equals("i=11", _log);
 }
