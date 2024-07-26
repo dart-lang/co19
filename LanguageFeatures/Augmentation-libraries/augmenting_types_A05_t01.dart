@@ -4,12 +4,15 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - The type parameters of the type augmentation do not match the original
-///   type's type parameters. This means there must be the same number of type
-///   parameters with the same bounds and names.
+/// - The type parameters of the augmenting declaration do not match the
+///   augmented declarations's type parameters. This means there must be the
+///   same number of type parameters with the exact same type parameter names
+///   (same identifiers) and bounds if any (same types, even if they may not be
+///   written exactly the same in case one of the declarations needs to refer to
+///   a type using an import prefix).
 ///
 /// @description Checks that it is a compile-time error if an augmenting type
-/// declares wrong number of type parameters
+/// declares wrong number of type parameters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -28,9 +31,12 @@ class A {}
 
 extension Ext<T> on A {}
 
+extension type ET<T>(int _) {}
+
 main() {
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

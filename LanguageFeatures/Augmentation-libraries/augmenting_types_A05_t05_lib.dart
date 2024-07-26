@@ -11,33 +11,27 @@
 ///   written exactly the same in case one of the declarations needs to refer to
 ///   a type using an import prefix).
 ///
-/// @description Checks that it is a compile-time error if an augmenting type
-/// declares type parameters with different bounds.
+/// @description Checks that it is not an error if an augmenting type declares
+/// the same number of type parameters with the same names and bounds. Test the
+/// case when the bound name has a library prefix.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A05_t02_lib.dart';
+import 'augmentation_libraries_lib.dart' as p;
+augment library 'augmenting_types_A05_t05.dart';
 
-class A {}
-class B extends A {}
-class C<T extends A> {}
+augment class C<T extends p.AL> {}
 
-mixin M<T extends A> {}
+augment mixin M<T extends p.AL> {}
 
-enum E<T extends A> {
-  e1;
+augment enum E<T extends p.AL> {
+  augment e0;
 }
 
-class D {}
-extension Ext<T extends A> on D {}
-
-extension type ET<T extends A>(int _) {}
-
-main() {
-  print(C);
-  print(M);
-  print(E);
-  print(D);
-  print(ET);
+class A{}
+augment extension Ext<T extends p.AL> {
+  Type get type => T;
 }
+
+augment extension type ET<T extends p.AL>(int _) {}

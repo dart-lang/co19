@@ -8,20 +8,19 @@
 ///   declaration, but one was already present (or the `class` was a
 ///   `mixin class` declaration, which does not allow `extends` clauses).
 ///
-/// @description Checks that it is a compile-time error if an augmenting type
-/// declares an extends clause, but one was already present. Test the same
-/// `extends` class
+/// @description Checks that it is a compile-time error if an augmentation adds
+/// `extends` clause to `mixin class` declaration.
 /// @author sgrekhov22@gmail.com
 /// @issue 55454
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A03_t02_lib.dart';
+import augment 'augmenting_types_A03_t04_lib.dart';
 
-class A {}
-class C extends A {}
-typedef AAlias = A;
+mixin class C1 {}
+mixin class C2 {}
 
 main() {
-  print(C);
+  print(C1);
+  print(C2);
 }

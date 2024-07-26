@@ -4,12 +4,15 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - The type parameters of the type augmentation do not match the original
-///   type's type parameters. This means there must be the same number of type
-///   parameters with the same bounds and names.
+/// - The type parameters of the augmenting declaration do not match the
+///   augmented declarations's type parameters. This means there must be the
+///   same number of type parameters with the exact same type parameter names
+///   (same identifiers) and bounds if any (same types, even if they may not be
+///   written exactly the same in case one of the declarations needs to refer to
+///   a type using an import prefix).
 ///
-/// @description Checks that it is not an error if an augmenting type
-/// declares the same number of type parameters with the same names and bounds
+/// @description Checks that it is not an error if an augmenting type declares
+/// the same number of type parameters with the same names and bounds.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -39,6 +42,9 @@ enum E2<T extends AAlias>{
 class D<T extends A> {}
 extension Ext1<T extends A> on D<T> {}
 extension Ext2<T extends AAlias> on D<T> {}
+
+extension type ET1<T extends A>(int _) {}
+extension type ET2<T extends AAlias>(int _) {}
 
 class MA1<T extends A> = Object with M1<T>;
 class MA2<T extends AAlias> = Object with M2<T>;
@@ -79,4 +85,13 @@ main() {
   Expect.equals("Ext2<B>", D<B>().name4());
   Expect.equals("Ext2<A>", D<AAlias>().name3);
   Expect.equals("Ext2<A>", D<AAlias>().name4());
+
+  Expect.equals("ET1<B>", ET1<B>(0).name1);
+  Expect.equals("ET1<B>", ET1<B>(0).name2());
+  Expect.equals("ET1<A>", ET1<AAlias>(0).name1);
+  Expect.equals("ET1<A>", ET1<AAlias>(0).name2());
+  Expect.equals("ET2<B>", ET2<B>(0).name3);
+  Expect.equals("ET2<B>", ET2<B>(0).name4());
+  Expect.equals("ET2<A>", ET2<AAlias>(0).name3);
+  Expect.equals("ET2<A>", ET2<AAlias>(0).name4());
 }
