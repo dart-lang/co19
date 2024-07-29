@@ -21,7 +21,7 @@ String test1(int? x) {
       return "match-1";
     case int v2!:
 //  ^^^^
-// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
+// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
       return "match-2";
     default:
       return "no match";
@@ -47,10 +47,10 @@ String test3(int? x) =>
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_ASSERT_PATTERN
     int v2! => "match-2",
 //          ^^
-// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
+// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
     _ => "no match"
 //    ^^
-// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
+// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
   };
 
 main () {

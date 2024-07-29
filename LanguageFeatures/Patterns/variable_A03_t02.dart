@@ -51,7 +51,7 @@ void test1(Record r) {
     break;
     case (final int? e, name: final String? f):
 //  ^^^^
-// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
+// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
       e = 1;
 //    ^
 // [analyzer] unspecified

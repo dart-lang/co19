@@ -31,7 +31,7 @@ String test1(Map map) {
 // [cfe] unspecified
     _ => "default"
 //    ^^
-// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
+// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
   };
 }
 
