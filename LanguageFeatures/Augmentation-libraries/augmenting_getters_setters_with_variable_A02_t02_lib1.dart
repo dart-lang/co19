@@ -16,27 +16,27 @@
 
 augment library 'augmenting_getters_setters_with_variable_A02_t02.dart';
 
-augment String set topLevelVariable(String v) {}
+augment void set topLevelVariable(String v) {}
 
 augment class C {
-  augment static String set staticVariable(String v) {}
-  augment String set instanceVariable(String v) {}
+  augment static void set staticVariable(String v) {}
+  augment void set instanceVariable(String v) {}
 }
 
 augment mixin M {
-  augment static String set staticVariable(String v) {}
-  augment String set instanceVariable(String v) {}
+  augment static void set staticVariable(String v) {}
+  augment void set instanceVariable(String v) {}
 }
 
 augment enum E {
   augment e0;
-  augment static String set staticVariable(String v) {}
+  augment static void set staticVariable(String v) {}
 }
 
 augment extension Ext {
-  augment static String set staticVariable(String v) {}
+  augment static void set staticVariable(String v) {}
 }
 
 augment extension type ET(int _) {
-  augment static String set staticVariable(String v) {}
+  augment static void set staticVariable(String v) {}
 }

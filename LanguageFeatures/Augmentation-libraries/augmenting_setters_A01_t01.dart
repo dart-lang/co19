@@ -148,7 +148,7 @@ main() {
   M.staticSetter = 0;
   Expect.equals("Original = 2;Augment1 = 1;Augment2 = 0;", _log);
   _log = "";
-  M().instanceSetter = 0;
+  MA().instanceSetter = 0;
   Expect.equals("Original = 2;Augment1 = 1;Augment2 = 0;", _log);
   _log = "";
   E.staticSetter = 0;

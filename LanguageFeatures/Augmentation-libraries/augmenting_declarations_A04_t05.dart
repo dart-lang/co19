@@ -26,7 +26,7 @@ class A {
 
 extension type ET(A id) implements A {}
 
-augment extension type ET(A id) implements A  {
+augment extension type ET(A id) {
   augment String method() => "Method";
 //^^^^^^^
 // [analyzer] unspecified

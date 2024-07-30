@@ -15,7 +15,7 @@
 
 augment library 'augmenting_getters_setters_with_variable_A01_t02.dart';
 
-augment class C {
+augment abstract class C {
   augment String instanceGetter = "Augmented";
 //               ^^^^^^^^^^^^^^
 // [analyzer] unspecified
