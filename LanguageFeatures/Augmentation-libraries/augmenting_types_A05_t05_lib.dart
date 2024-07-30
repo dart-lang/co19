@@ -29,7 +29,6 @@ augment enum E<T extends p.AL> {
   augment e0;
 }
 
-class A{}
 augment extension Ext<T extends p.AL> {
   Type get type => T;
 }

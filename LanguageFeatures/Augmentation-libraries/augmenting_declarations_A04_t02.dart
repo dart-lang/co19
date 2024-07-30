@@ -26,7 +26,10 @@ mixin M {
 
 class C = Object with M;
 
-augment class C {
+/**/augment class C {
+//  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment String variable = "Variable";
 //^^^^^^^
 // [analyzer] unspecified
