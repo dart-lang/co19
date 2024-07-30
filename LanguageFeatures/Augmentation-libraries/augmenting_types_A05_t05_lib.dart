@@ -18,8 +18,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import 'augmentation_libraries_lib.dart' as p;
 augment library 'augmenting_types_A05_t05.dart';
+import 'augmentation_libraries_lib.dart' as p;
 
 augment class C<T extends p.AL> {}
 
