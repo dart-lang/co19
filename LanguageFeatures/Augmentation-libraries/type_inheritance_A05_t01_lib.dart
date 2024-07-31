@@ -7,7 +7,8 @@
 /// the last case, that includes omitting the extends keyword. For a variable or
 /// parameter, a var keyword may replace the type.
 ///
-/// @description Check that augmenting declaration may omit type parameter bound
+/// @description Check that it is a compile-time error if augmenting declaration
+/// specifies a type parameter bound other than the augmented declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
