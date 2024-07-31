@@ -55,11 +55,8 @@ augment extension Ext {
   }
 }
 
-augment extension type ET(String instanceVariable) {
+augment extension type ET(String _) {
   augment static String get staticVariable {
-    return "Augment2: $augmented";
-  }
-  augment String get instanceVariable {
     return "Augment2: $augmented";
   }
 }

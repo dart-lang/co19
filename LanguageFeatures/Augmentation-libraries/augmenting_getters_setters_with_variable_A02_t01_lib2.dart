@@ -38,7 +38,6 @@ augment extension Ext {
   augment static String staticVariable = "Augmented2: $augmented";
 }
 
-augment extension type ET(int instanceVariable) {
+augment extension type ET(int _) {
   augment static String staticVariable = "Augmented2: $augmented";
-  augment final String instanceVariable = "Augmented2: $augmented";
 }

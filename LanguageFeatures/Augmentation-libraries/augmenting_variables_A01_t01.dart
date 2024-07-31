@@ -47,7 +47,7 @@ extension Ext on A {
   static final String finalStaticVariable = "Original";
 }
 
-extension type ET(String finalInstanceVariable) {
+extension type ET(String _) {
   static String staticVariable = "Original";
   static final String finalStaticVariable = "Original";
 }
@@ -72,5 +72,4 @@ main() {
   Expect.equals("Augmented", Ext.finalStaticVariable);
   Expect.equals("Augmented", ET.staticVariable);
   Expect.equals("Augmented", ET.finalStaticVariable);
-  Expect.equals("Augmented", ET("X").finalInstanceVariable);
 }
