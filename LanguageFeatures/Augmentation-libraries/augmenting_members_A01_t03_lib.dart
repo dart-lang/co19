@@ -8,7 +8,6 @@
 /// declaration has no concrete implementation. Note that all external
 /// declarations are assumed to have an implementation provided by another
 /// external source, and otherwise they will throw a runtime error when called.
-/// An `abstract` variable introduces no implementation.
 ///
 /// @description Checks that it is a not an error if an augmenting
 /// declaration uses `augmented` when the augmented declaration is an external.
@@ -110,7 +109,7 @@ augment extension Ext {
   }
 }
 
-augment extension type ET(String _) {
+augment extension type ET {
   augment String externalMethod() {
     Expect.throws(() {augmented();});
     return "Augmented";
