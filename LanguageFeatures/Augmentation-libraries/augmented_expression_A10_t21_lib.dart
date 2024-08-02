@@ -454,7 +454,7 @@ augment extension Ext {
   }
 }
 
-extension type ET(int _) {
+extension type ET {
   void instanceMethod() {
     var list = [
       for (var augmented = 0; 1 > 2;) 0

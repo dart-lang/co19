@@ -366,7 +366,7 @@ augment extension Ext {
   }
 }
 
-augment extension type ET(int _) {
+augment extension type ET {
   static var staticVariable = () {
     var list = [
       for (var augmented = 0; 1 > 2;) 0
