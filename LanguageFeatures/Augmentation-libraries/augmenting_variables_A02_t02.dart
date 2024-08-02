@@ -5,55 +5,48 @@
 /// @assertion Augmenting initializer expressions replace the augmented
 /// initializer (or provide one where none existed previously).
 ///
-/// @description Checks that augmenting initializer expressions replaces the
-/// augmented initializer.
+/// @description Checks that augmenting initializer expressions may provide the
+/// initializer if it was not existed.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_variables_A02_t01_lib.dart';
+import augment 'augmenting_variables_A02_t02_lib.dart';
 import '../../Utils/expect.dart';
 
-String originalInitializer() {
-  Expect.fail("This initializer should be replaced");
-  return "Original";
-}
-
-String augmentingInitializer() => "Augmented";
-
-String topLevelVariable = originalInitializer();
-String finalTopLevelVariable = originalInitializer();
+String topLevelVariable;
+String finalTopLevelVariable;
 
 class C {
-  static String staticVariable = originalInitializer();
-  static final String finalStaticVariable = originalInitializer();
-  String instanceVariable = originalInitializer();
-  final String finalInstanceVariable = originalInitializer();
+  static String staticVariable;
+  static final String finalStaticVariable;
+  String instanceVariable;
+  final String finalInstanceVariable;
 }
 
 mixin M {
-  static String staticVariable = originalInitializer();
-  static final String finalStaticVariable = originalInitializer();
-  String instanceVariable = originalInitializer();
-  final String finalInstanceVariable = originalInitializer();
+  static String staticVariable;
+  static final String finalStaticVariable;
+  String instanceVariable;
+  final String finalInstanceVariable;
 }
 
 enum E {
   e0;
-  static String staticVariable = originalInitializer();
-  static final String finalStaticVariable = originalInitializer();
+  static String staticVariable;
+  static final String finalStaticVariable;
 }
 
 class A {}
 
 extension Ext on A {
-  static String staticVariable = originalInitializer();
-  static final String finalStaticVariable = originalInitializer();
+  static String staticVariable;
+  static final String finalStaticVariable;
 }
 
 extension type ET(String _) {
-  static String staticVariable = originalInitializer();
-  static final String finalStaticVariable = originalInitializer();
+  static String staticVariable;
+  static final String finalStaticVariable;
 }
 
 class MA = Object with M;
