@@ -21,4 +21,4 @@ augment enum E {}
 
 augment extension Ext {}
 
-augment extension type ET(String _) {}
+augment extension type ET {}

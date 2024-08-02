@@ -50,7 +50,7 @@ augment extension Ext {
   }
 }
 
-augment extension type ET(String _) {
+augment extension type ET {
   augment static String abstractMethod() => "abstractMethod";
   augment static String get abstractGetter => "abstractGetter";
   augment static void set abstractSetter(String v) {
