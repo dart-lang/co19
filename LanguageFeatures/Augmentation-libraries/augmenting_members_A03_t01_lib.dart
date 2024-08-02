@@ -56,7 +56,7 @@ augment extension Ext {
 // [cfe] unspecified
 }
 
-augment extension type ET(String _) {
+augment extension type ET {
   augment static final String staticVariable = "Augmented";
 //^^^^^^^
 // [analyzer] unspecified
