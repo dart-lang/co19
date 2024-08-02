@@ -42,7 +42,7 @@ augment extension Ext {
   augment static final String finalStaticVariable;
 }
 
-augment extension type ET(String _) {
+augment extension type ET {
   augment static String staticVariable;
   augment static final String finalStaticVariable;
 }
