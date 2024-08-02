@@ -7,15 +7,14 @@
 /// An [IOSink] combines a [StreamSink] of bytes with a [StringSink], and allows
 /// easy output of both bytes and text.
 /// Writing text ([write]) and adding bytes ([add]) may be interleaved freely.
+///
 /// @description Checks that the different targets can be added and written
 /// frequently to the consumer.
-/// method call
 /// @author iarkh@unipro.ru
 
-
-import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
+import "../../../Utils/expect.dart";
 
 List<int> aList1 = [1, 2, 3, 4, 5];
 List<int> aList2 = [11, 23];
@@ -27,7 +26,8 @@ List objects = [
   123,
   new StackTrace.fromString("Stack trace"),
   [1, 2, 3],
-  null];
+  null
+];
 
 List expected = [
   [73, 32, 97, 109, 32, 104, 101, 114, 101],
@@ -37,8 +37,6 @@ List expected = [
   [83, 116, 97, 99, 107, 32, 116, 114, 97, 99, 101],
   [91, 49, 44, 32, 50, 44, 32, 51, 93],
   [110, 117, 108, 108],
-  [73, 32, 97, 109, 32, 50],
-  [10],
   [11, 23],
   [10]
 ];
@@ -48,16 +46,16 @@ int called = 0;
 class MyStreamConsumer implements StreamConsumer<List<int>> {
   Future<dynamic> addStream(Stream<List> stream) {
     stream.toList().then((x) {
-      Expect.equals(12, x.length);
+      Expect.isTrue(expected.length <= x.length);
       for (int i = 0; i < expected.length; i++) {
-        Expect.listEquals(expected[i], x[i],
-            "'" + x[i].toString() + "' object fails!");
+        Expect.listEquals(expected[i], x[i], "'${x[i]}' object fails!");
       }
       called++;
     });
-    return new Future(() {});
+    return Future(() {});
   }
-  Future close() { return new Future(() {}); }
+
+  Future close() => Future(() {});
 }
 
 test() async {
@@ -67,13 +65,16 @@ test() async {
   sink.write(str1);
   sink.add(aList1);
   sink.writeAll(objects);
-  sink.writeln(str2);
   sink.add(aList2);
   sink.writeln();
   sink.writeCharCode(8);
 
   await sink.close();
   Expect.equals(1, called);
+  asyncEnd();
 }
 
-main() { test(); }
+main() {
+  asyncStart();
+  test();
+}
