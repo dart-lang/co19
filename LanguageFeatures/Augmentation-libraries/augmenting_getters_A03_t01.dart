@@ -37,7 +37,7 @@ extension Ext on A {
   static String staticVariable = "Original";
 }
 
-extension type ET(String instanceVariable) {
+extension type ET(String _) {
   static String staticVariable = "Original";
 }
 

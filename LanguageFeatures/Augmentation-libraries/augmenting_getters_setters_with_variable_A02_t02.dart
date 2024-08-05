@@ -42,7 +42,7 @@ extension Ext on A {
   static String staticVariable = "Original";
 }
 
-extension type ET(String _) {
+extension type ET(int _) {
   static String staticVariable = "Original";
 }
 

@@ -80,15 +80,12 @@ augment extension Ext {
   }
 }
 
-extension type ET(String instanceVariable) {
+extension type ET(String _) {
   static String staticVariable = "Original";
 }
 
-augment extension type ET(String instanceVariable) {
+augment extension type ET {
   augment static String get staticVariable {
-    return "Augment1: $augmented";
-  }
-  augment String get instanceVariable {
     return "Augment1: $augmented";
   }
 }
@@ -105,5 +102,4 @@ main() {
   Expect.equals("Augment2: Augment1: Original", E.e0.instanceVariable);
   Expect.equals("Augment2: Augment1: Original", Ext.staticVariable);
   Expect.equals("Augment2: Augment1: Original", ET.staticVariable);
-  Expect.equals("Augment2: Augment1: X", ET("X").instanceVariable);
 }
