@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Augmenting initializer expressions replace the augmented
-/// initializer.
+/// initializer (or provide one where none existed previously).
 ///
 /// @description Checks that augmenting initializer expressions replaces the
 /// augmented initializer.
@@ -41,7 +41,7 @@ augment extension Ext {
   augment static final String finalStaticVariable = augmentingInitializer();
 }
 
-augment extension type ET(String _) {
+augment extension type ET {
   augment static String staticVariable = augmentingInitializer();
   augment static final String finalStaticVariable = augmentingInitializer();
 }
