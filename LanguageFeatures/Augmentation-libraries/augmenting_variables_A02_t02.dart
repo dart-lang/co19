@@ -6,7 +6,7 @@
 /// initializer (or provide one where none existed previously).
 ///
 /// @description Checks that augmenting initializer expressions may provide the
-/// initializer if it was not existed.
+/// initializer if it did not exist.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
