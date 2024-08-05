@@ -59,13 +59,9 @@ augment extension Ext {
 // [cfe] unspecified
 }
 
-augment extension type ET(String instanceVariable) {
+augment extension type ET {
   augment static String get staticVariable;
 //                          ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment String get instanceVariable;
-//                   ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

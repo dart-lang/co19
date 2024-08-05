@@ -84,7 +84,7 @@ extension type ET(String _) {
   static String staticVariable = "Original";
 }
 
-augment extension type ET(String _) {
+augment extension type ET {
   augment static String get staticVariable {
     return "Augment1: $augmented";
   }

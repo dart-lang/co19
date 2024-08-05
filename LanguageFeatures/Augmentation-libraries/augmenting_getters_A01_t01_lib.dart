@@ -58,7 +58,7 @@ augment extension Ext {
   }
 }
 
-augment extension type ET(int _) {
+augment extension type ET {
   augment static String get staticGetter {
     return "Augment2: $augmented";
   }

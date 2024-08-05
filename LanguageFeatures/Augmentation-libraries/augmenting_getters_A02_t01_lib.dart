@@ -37,7 +37,7 @@ augment extension Ext {
   augment String get instanceGetter;
 }
 
-augment extension type ET(int _) {
+augment extension type ET {
   augment static String get staticGetter;
   augment String get instanceGetter;
 }
