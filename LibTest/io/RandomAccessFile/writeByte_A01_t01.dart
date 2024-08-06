@@ -6,9 +6,9 @@
 /// Writes a single byte to the file. Returns a Future<RandomAccessFile> that
 /// completes with this RandomAccessFile when the write completes.
 ///
-/// @description Checks that method writeByte writes a single byte to the file
-/// and returns Future<RandomAccessFile> that completes with this
-/// RandomAccessFile when the write completes.
+/// @description Checks that method [writeByte] writes a single byte to the file
+/// and returns [Future<RandomAccessFile>] that completes with this
+/// [RandomAccessFile] when the write completes.
 /// @author ngl@unipro.ru
 
 import "dart:async";
@@ -16,9 +16,8 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-void check(int num, List<int> list) {
+void check(int num) {
   File file = getTempFileSync();
-  asyncStart();
   Future<RandomAccessFile> raFile = file.open(mode: FileMode.write);
   raFile.then((RandomAccessFile rf) {
     Expect.equals(0, file.lengthSync());
@@ -29,14 +28,9 @@ void check(int num, List<int> list) {
     f.then((RandomAccessFile file) {
       Expect.equals(rf, file);
       Expect.equals(1, file.lengthSync());
-      rf.setPositionSync(0);
-      file.readIntoSync(list, num);
-      for (int i = 0; i <= num; i++) {
-        Expect.equals(i, list[i]);
-      }
-      for (int i = num + 1; i < 10; i++) {
-        Expect.equals(0, list[i]);
-      }
+      file.setPositionSync(0);
+      int v = file.readByteSync();
+      Expect.equals(num, v);
       asyncEnd();
     }).whenComplete(() {
       rf.closeSync();
@@ -46,8 +40,8 @@ void check(int num, List<int> list) {
 }
 
 main() {
-  List<int> list = new List<int>.filled(10, 0);
-  for (int i = 0; i < 10; i++) {
-    check(i, list);
+  asyncStart(5);
+  for (int i = 0; i < 5; i++) {
+    check(i);
   }
 }
