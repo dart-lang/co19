@@ -9,7 +9,7 @@
 /// - Augmenting enum values: When augmenting an enum value, `augmented` has no
 ///   meaning and is not allowed.
 ///
-/// @description Checks that it is a compile-time error to augment an enum value
+/// @description Checks that it is a compile-time error to add an enum value
 /// whose constructor name is `augmented`.
 /// @author sgrekhov22@gmail.com
 
@@ -18,7 +18,7 @@
 import augment 'augmented_expression_A06_t02_lib.dart';
 
 enum E {
-  e.augmented();
+  e0.augmented();
 
   const E.augmented();
 }
