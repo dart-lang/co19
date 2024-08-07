@@ -9,8 +9,8 @@
 /// - Augmenting enum values: When augmenting an enum value, `augmented` has no
 ///   meaning and is not allowed.
 ///
-/// @description Checks that it is a compile-time error to augment an enum value
-/// with an augmenting declaration that passes `augmented` as an actual argument
+/// @description Checks that it is a compile-time error for augmentation to add
+/// an enum value that passes `augmented` as an actual argument of a constructor
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -25,10 +25,12 @@ enum E0 {
 const augmented = 42;
 
 enum E1 {
+  e0,
   e1.required(0),
   e2.named(y: 0),
   e3.fromE0(E0.e0);
 
+  const E1();
   const E1.required(int x);
   const E1.named({int y = 0});
   const E1.fromE0(E0 e);

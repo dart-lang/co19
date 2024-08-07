@@ -18,7 +18,7 @@
 augment library 'augmented_expression_A06_t02.dart';
 
 augment enum E {
-  augment e.augmented();
+  augment e.augmented;
 //          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
