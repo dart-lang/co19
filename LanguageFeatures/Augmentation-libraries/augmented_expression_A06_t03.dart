@@ -10,7 +10,8 @@
 ///   meaning and is not allowed.
 ///
 /// @description Checks that it is a compile-time error to have an augmenting
-/// declaration that has a named parameter whose name is `augmented`.
+/// declaration that calls an enum constructor with a named parameter whose name
+/// is `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -18,10 +19,9 @@
 import augment 'augmented_expression_A06_t03_lib.dart';
 
 enum E {
-  e1.named(augmented: 1),
-  e2.namedRequired(augmented: 2),
-  e3.record((augmented: 3));
+  e0;
 
+  const E();
   const E.named({int augmented = 0});
   const E.namedRequired({required int augmented});
   const E.record(({int augmented}) r);
