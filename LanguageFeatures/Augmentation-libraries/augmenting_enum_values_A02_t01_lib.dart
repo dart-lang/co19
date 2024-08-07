@@ -5,8 +5,8 @@
 /// @assertion Enum values can only be augmented by enum values, and the
 /// implicit getter introduced by them is not augmentable.
 ///
-/// @description Checks that it is a compile-time error to augment enum's
-/// implicit getter.
+/// @description Checks that it is a compile-time error to augment an enum value
+/// by the constructor invocation.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

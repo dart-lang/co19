@@ -5,8 +5,8 @@
 /// @assertion Augmenting an existing enum value never changes the order in
 /// which it appears in `values`.
 ///
-/// @description Checks that an augmenting of an existing enum value never
-/// changes the order in which it appears in `values`.
+/// @description Checks that an augmenting declaration of an existing enum value
+/// never changes the order in which it appears in `values`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

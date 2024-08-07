@@ -10,8 +10,8 @@
 ///   meaning and is not allowed.
 ///
 /// @description Checks that it is a compile-time error to have an augmenting
-/// declaration that calls enum constructor with a named parameter whose name is
-/// `augmented`.
+/// declaration that calls an enum constructor with a named parameter whose name
+/// is `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

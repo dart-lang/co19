@@ -6,8 +6,8 @@
 /// be provided. The original value is always used, and the explicit constructor
 /// invocation (if present) should not be copied.
 ///
-/// @description Checks that when augmentation of enum value omits constructor
-/// invocation then the original value is used.
+/// @description Checks that when an augmentation of an enum value omits the
+/// constructor invocation then the original value is used.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
