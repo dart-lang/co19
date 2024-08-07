@@ -14,6 +14,7 @@
 augment library 'augmenting_enum_values_A01_t01.dart';
 
 augment enum E1 {
+  e1;
   augment static E1 get e0;
 //^^^^^^^
 // [analyzer] unspecified
@@ -21,6 +22,7 @@ augment enum E1 {
 }
 
 augment enum E2 {
+  e1;
   augment static E2 get e0 => e0;
 //^^^^^^^
 // [analyzer] unspecified
@@ -28,6 +30,7 @@ augment enum E2 {
 }
 
 augment enum E3 {
+  e1;
   augment static E3 get e0 => augmented;
 //^^^^^^^
 // [analyzer] unspecified
