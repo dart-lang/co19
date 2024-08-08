@@ -15,6 +15,7 @@
 /// static type of `e` is `X & B` and `X` does not derive a future type, but `B`
 /// does
 /// @author sgrekhov22@gmail.com
+/// @issue 56405
 
 import 'dart:async';
 
