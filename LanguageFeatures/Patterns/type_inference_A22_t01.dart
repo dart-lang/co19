@@ -49,7 +49,7 @@ String test2() {
 // [cfe] unspecified
     _ => "default"
 //    ^^
-// [analyzer] HINT.UNREACHABLE_SWITCH_CASE
+// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
   };
 }
 
