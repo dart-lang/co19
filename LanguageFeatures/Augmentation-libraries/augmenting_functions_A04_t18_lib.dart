@@ -84,7 +84,7 @@ augment extension Ext {
   augment T instanceMethod5<T extends num>(T t) => t + 1 as T;
 }
 
-augment extension type ET(int _) {
+augment extension type ET {
   augment static Object staticMethod1() => "augmented";
   augment static String staticMethod2(String s0) => "augmented $s0";
   augment static int staticMethod3([int i0 = 0]) => i0 + 1;
