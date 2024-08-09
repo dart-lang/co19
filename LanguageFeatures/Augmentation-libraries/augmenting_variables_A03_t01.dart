@@ -15,7 +15,7 @@ import augment 'augmenting_variables_A03_t01_lib.dart';
 import '../../Utils/expect.dart';
 
 String topLevelVariable = "Original";
-String finalTopLevelVariable = "Original";
+final String finalTopLevelVariable = "Original";
 
 class C {
   static String staticVariable = "Original";
