@@ -16,7 +16,7 @@ augment library 'augmenting_members_A09_t02.dart';
 
 String _log = "";
 
-augment abstract class C1 {
+augment class C1 {
   augment String get abstractVariable => "Augmented";
 }
 

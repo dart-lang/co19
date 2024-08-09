@@ -15,7 +15,7 @@
 import augment 'augmenting_members_A09_t02_lib.dart';
 import '../../Utils/expect.dart';
 
-abstract class C1 {
+class C1 {
   abstract final String abstractVariable;
 }
 
@@ -23,13 +23,12 @@ abstract class C2 {
   abstract String abstractVariable;
 }
 
-class D1 extends C1 {}
 class D2 extends C2 {
   String get abstractVariable => "D2";
 }
 
 main() {
-  Expect.equals("Augmented", D1().abstractVariable);
+  Expect.equals("Augmented", C1().abstractVariable);
   D2().abstractVariable = "x";
   Expect.equals("x", _log);
 }
