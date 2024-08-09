@@ -14,7 +14,7 @@
 augment library 'augmenting_enum_values_A02_t01.dart';
 
 augment enum E {
-  augment e0(1);
+  augment e0(1),
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
