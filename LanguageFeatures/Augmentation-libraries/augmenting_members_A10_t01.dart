@@ -4,31 +4,20 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// An `external` declaration is augmented with an abstract declaration. For
-/// variables this also applies to the implicit getter and setter.
+/// An `external` variable is augmented with an abstract variable.
 ///
 /// @description Checks that that it is a compile-time error if an `external`
-/// declaration is augmented with an abstract declaration.
+/// variable is augmented with an abstract variable.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
 import augment 'augmenting_members_A10_t01_lib.dart';
 
-abstract class C1 {
-  external void externalMethod();
-}
-
-abstract class C2 {
-  external int get externalGetter;
-}
-
-abstract class C3 {
-  external void set externalSetter(int _);
+abstract class C {
+  external String externalVariable;
 }
 
 main() {
-  print(C1);
-  print(C2);
-  print(C3);
+  print(C);
 }

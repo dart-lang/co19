@@ -4,20 +4,24 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// An `external` variable is augmented with an abstract variable.
+/// An `abstract` variable is augmented with a non-abstract variable.
 ///
-/// @description Checks that that it is not an error if an `external` variable
-/// is augmented with an abstract getter or setter.
+/// @description Checks that that it is not an error if an `abstract` variable
+/// is augmented with a non-abstract getter or setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_members_A10_t02.dart';
+augment library 'augmenting_members_A09_t02.dart';
+
+String _log = "";
 
 augment abstract class C1 {
-  augment int get externalVariable;
+  augment String get abstractVariable => "Augmented";
 }
 
 augment abstract class C2 {
-  augment void set externalVariable(int _);
+  augment void set abstractVariable(String v) {
+    _log = v;
+  }
 }

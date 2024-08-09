@@ -6,17 +6,28 @@
 /// ...
 /// An `external` variable is augmented with an abstract variable.
 ///
-/// @description Checks that that it is a compile-time error if an `external`
-/// variable is augmented with an abstract variable.
+/// @description Checks that that it is not an error if an `external`
+/// member is augmented with an abstract one.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_members_A10_t01.dart';
+import augment 'augmenting_members_A10_t03_lib.dart';
 
-augment abstract class C {
-  augment abstract String externalVariable;
-//        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+abstract class C1 {
+  external void externalMethod();
+}
+
+abstract class C2 {
+  external int get externalGetter;
+}
+
+abstract class C3 {
+  external void set externalSetter(int _);
+}
+
+main() {
+  print(C1);
+  print(C2);
+  print(C3);
 }

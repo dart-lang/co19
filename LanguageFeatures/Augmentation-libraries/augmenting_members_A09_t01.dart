@@ -4,31 +4,21 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// An `abstract` variable is augmented with a non-abstract variable, getter, or
-/// setter.
+/// An `abstract` variable is augmented with a non-abstract variable.
 ///
 /// @description Checks that that it is a compile-time error if an `abstract`
-/// variable is augmented with a non-abstract variable, getter or setter.
+/// variable is augmented with a non-abstract variable.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
 import augment 'augmenting_members_A09_t01_lib.dart';
 
-abstract class C1 {
+abstract class C {
   abstract String abstractVariable;
-}
-
-abstract class C2 {
-  abstract String abstractVariable;
-}
-
-abstract class C3 {
-  abstract String abstractVariable;
+  abstract final String finalAbstractVariable;
 }
 
 main() {
-  print(C1);
-  print(C2);
-  print(C3);
+  print(C);
 }

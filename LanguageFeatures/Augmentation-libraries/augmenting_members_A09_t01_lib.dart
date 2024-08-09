@@ -4,8 +4,7 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// An `abstract` variable is augmented with a non-abstract variable, getter, or
-/// setter.
+/// An `abstract` variable is augmented with a non-abstract variable.
 ///
 /// @description Checks that that it is a compile-time error if an `abstract`
 /// variable is augmented with a non-abstract variable.
@@ -15,22 +14,12 @@
 
 augment library 'augmenting_members_A09_t01.dart';
 
-augment abstract class C1 {
+augment abstract class C {
   augment String abstractVariable = "Augmented";
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-augment abstract class C2 {
-  augment String get abstractVariable => "Augmented";
-//^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-augment abstract class C3 {
-  augment void set abstractVariable(String _) {}
+  augment final String finalAbstractVariable = "Augmented";
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
