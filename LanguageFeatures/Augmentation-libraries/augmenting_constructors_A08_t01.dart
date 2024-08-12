@@ -7,7 +7,7 @@
 /// - A redirecting constructor augments a constructor which is not potentially
 ///   redirecting.
 ///
-/// @description Checks that it is a compile-time error a redirecting
+/// @description Checks that it is a compile-time error if a redirecting
 /// constructor augments a constructor which is not potentially redirecting.
 /// @author sgrekhov22@gmail.com
 

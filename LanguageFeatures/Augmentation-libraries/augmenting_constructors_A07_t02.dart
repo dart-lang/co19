@@ -8,13 +8,28 @@
 ///   potentially non-redirecting.
 ///
 /// @description Checks that it is a compile-time error if a non-redirecting
-/// constructor augments a constructor which is not potentially non-redirecting.
+/// factory constructor augments a factory constructor which is not potentially
+/// non-redirecting.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_constructors_A07_t01.dart';
+import augment 'augmenting_constructors_A07_t02_lib.dart';
 
-augment class C {
-  augment C.foo(): x = 1, super(0);
+class C {
+  C();
+  factory C.foo() = C;
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET(int id) {
+  ET.foo(this.id);
+  factory ET.bar(int id) = ET.foo;
+}
+
+main() {
+  print(C);
+  print(ET);
 }

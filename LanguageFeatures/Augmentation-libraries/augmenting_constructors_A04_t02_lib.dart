@@ -7,8 +7,8 @@
 /// - The introductory constructor is marked `factory` and the augmenting
 /// constructor is not, or vice versa.
 ///
-/// @description Checks that it is a compile-time error if the introductory
-/// constructor is marked `factory` and the augmenting constructor is not.
+/// @description Checks that it is a compile-time error if the augmenting
+/// constructor is marked `factory` and the introductory constructor is not.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -16,8 +16,12 @@
 augment library 'augmenting_constructors_A04_t02.dart';
 
 augment class C {
-  augment C(): super(0);
-//             ^^^^^
+  augment factory C.foo() = C;
+//                ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
+
+augment extension type ET {
+  augment factory ET.bar(int id) = ET.foo;
 }

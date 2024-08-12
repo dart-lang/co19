@@ -8,13 +8,25 @@
 ///   redirecting.
 ///
 /// @description Checks that it is a compile-time error if a redirecting
-/// constructor augments a constructor which is not potentially redirecting.
+/// factory constructor augments a factory constructor which is not potentially
+/// redirecting.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_constructors_A08_t01.dart';
+import augment 'augmenting_constructors_A08_t02_lib.dart';
 
-augment class C {
-  augment C.foo(): this(0);
+class C {
+  C();
+  factory C.foo() => C();
+}
+
+extension type ET(int id) {
+  ET.foo(this.id);
+  factory ET.bar(int id) => ET.foo(id);
+}
+
+main() {
+  print(C);
+  print(ET);
 }
