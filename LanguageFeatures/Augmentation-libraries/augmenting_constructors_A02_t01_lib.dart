@@ -24,16 +24,6 @@ augment class C {
 //                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  augment factory C.c2([int x = 0]);
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment factory C.c3({int x = 0});
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment enum E {
@@ -47,16 +37,6 @@ augment enum E {
 //                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  augment factory E.c2([int x = 0]);
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment factory E.c3({int x = 0});
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment extension type ET {
@@ -67,16 +47,6 @@ augment extension type ET {
 
   augment ET.c2(this.id, {int x = 0});
 //                            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment factory ET.c3([int x = 0]);
-//                           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment factory ET.c4({int x = 0});
-//                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

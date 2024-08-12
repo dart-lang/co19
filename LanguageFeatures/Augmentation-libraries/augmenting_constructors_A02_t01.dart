@@ -17,23 +17,17 @@ import augment 'augmenting_constructors_A02_t01_lib.dart';
 class C {
   C([int x = 0]);
   C.c1({int x = 0});
-  factory C.c2([int x = 0]) => C(x);
-  factory C.c3({int x = 0}) => C.c1(x: x);
 }
 
 enum E {
   e0(0);
   const E([int x = 0]);
   const E.c1({int x = 0});
-  factory E.c2([int x = 0]) => E.e0;
-  factory E.c3({int x = 0}) => E.e0;
 }
 
 extension type ET(int id) {
   ET.c1(this.id, [int x = 0]);
   ET.c2(this.id, {int x = 0});
-  factory ET.c3(int id, [int x = 0]) => ET.c1(id, x);
-  factory ET.c4(int id, {int x = 0}) => ET.c2(id, x: x);
 }
 
 main() {
