@@ -19,83 +19,59 @@
 augment library 'augmenting_constructors_A01_t05.dart';
 
 augment class C {
-  augment C([int x]);
-//               ^
+  augment C([int? x]);
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C({int x});
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C.foo(int y);
-//                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C.foo([int y]);
+  augment C.foo(int? y);
 //                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C.baz(int z);
-//                  ^
+  augment C.bar({required int? z});
+//                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C.baz([int z]);
-//                   ^
+  augment C.baz({int? v});
+//                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment enum E {
   augment e0;
-  augment const E([int x]);
-//                     ^
+  augment const E([int? x]);
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment const E({int x});
-//                     ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment const E.foo(int y);
-//                        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment const E.foo([int y]);
+  augment const E.foo(int? y);
 //                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment const E.baz(int z);
-//                        ^
+  augment const E.bar({required int? z});
+//                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment const E.baz([int z]);
-//                         ^
+  augment const E.baz({int? v});
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension type ET {
-  augment ET.foo([int x]);
+  augment ET.foo([int? x]);
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.bar(int? y);
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment ET.foo({int x});
+  augment ET.baz({required int? z});
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment ET.bar(int y);
-//                   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.bar({int y});
-//                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.baz(int z);
-//                   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.baz([int z]);
-//                    ^
+  augment ET.qux({int? v});
+//                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

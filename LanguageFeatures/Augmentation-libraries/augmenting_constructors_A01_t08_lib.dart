@@ -18,23 +18,23 @@
 augment library 'augmenting_constructors_A01_t08.dart';
 
 augment class C1 {
-  augment C1(super.y, super.x);
-//                 ^
+  augment C1(super.x, int y);
+//                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C1.foo([super.y, super.x]);
-//                      ^
+  augment C1.foo([int x, super.y]);
+//                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment class C2 {
-  augment C2({super.y, super.x});
-//                  ^
+  augment C2({super.x, int y});
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C2.foo({super.y, super.x});
-//                      ^
+  augment C2.foo({int x, super.y});
+//                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

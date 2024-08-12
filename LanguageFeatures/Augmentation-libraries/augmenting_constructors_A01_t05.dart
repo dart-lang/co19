@@ -19,22 +19,25 @@
 import augment 'augmenting_constructors_A01_t05_lib.dart';
 
 class C {
-  C(int x);
-  C.foo([int y = 0]);
-  C.baz({int z = 0});
+  C(int? x);
+  C.foo([int? y = 0]);
+  C.bar({int? z = 0});
+  C.baz({required int? v});
 }
 
 enum E {
   e0(0);
-  const E(int x);
-  const E.foo([int y = 0]);
-  const E.baz({int z = 0});
+  const E(int? x);
+  const E.foo([int? y = 0]);
+  const E.bar({int? z = 0});
+  const E.baz({required int? v});
 }
 
-extension type ET(int id) {
-  ET.foo(int x): this.id = 0;
-  ET.bar([int y = 0]): this.id = 0;
-  ET.baz({int z = 0}): this.id = 0;
+extension type ET(int? id) {
+  ET.foo(int? x): this.id = 0;
+  ET.bar([int? y = 0]): this.id = 0;
+  ET.baz({int? z = 0}): this.id = 0;
+  ET.qux({required int? v}): this.id = 0;
 }
 
 main() {
