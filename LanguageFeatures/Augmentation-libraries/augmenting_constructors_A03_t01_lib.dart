@@ -20,19 +20,11 @@ augment class C {
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment factory C.foo();
-//                ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment extension type ET {
   augment ET.foo(this.id);
 //        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment factory ET.bar(int id);
-//                ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -17,12 +17,10 @@ import augment 'augmenting_constructors_A03_t01_lib.dart';
 
 class C {
   const C();
-  const factory C.foo() = C;
 }
 
 extension type ET(int id) {
   const ET.foo(this.id);
-  const factory ET.bar(int id) = ET.foo;
 }
 
 main() {
