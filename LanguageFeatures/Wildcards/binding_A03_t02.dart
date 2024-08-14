@@ -25,20 +25,20 @@ int init(int val) {
 
 test1() {
   late var _ = init(1);
-//         ^
-// [analyzer] unspecified
+//             ^^^^^^^
+// [analyzer] STATIC_WARNING.DEAD_CODE_LATE_WILDCARD_VARIABLE_INITIALIZER
 }
 
 test2() {
   late final _ = init(2);
-//           ^
-// [analyzer] unspecified
+//               ^^^^^^^
+// [analyzer] STATIC_WARNING.DEAD_CODE_LATE_WILDCARD_VARIABLE_INITIALIZER
 }
 
 test3() {
   late int _ = init(3);
-//         ^
-// [analyzer] unspecified
+//             ^^^^^^^
+// [analyzer] STATIC_WARNING.DEAD_CODE_LATE_WILDCARD_VARIABLE_INITIALIZER
 }
 
 main() {
