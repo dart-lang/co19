@@ -17,7 +17,7 @@
 augment library 'augmenting_constructors_A13_t01.dart';
 
 augment class C {
-  augment C {
+  augment C() {
     int x = 0;
     augmented();
   }
