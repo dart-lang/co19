@@ -22,14 +22,19 @@ augment library 'augmenting_constructors_A10_t03.dart';
 augment class C {
   augment C(int x, [int y = 0]) {
     _log += "C($x, $y);";
+    x++;
+    y++;
     augmented();
   }
   augment C.foo(int x, {int y = 0}) {
     _log += "C.foo($x, $y);";
+    x++;
+    y++;
     augmented();
   }
   augment C.bar({required int x}) {
     _log += "C.bar($x);";
+    x++;
     augmented();
   }
 }
@@ -37,10 +42,12 @@ augment class C {
 augment extension type ET {
   augment ET.foo(this.id, [int y = 0]) {
     _log += "ET.foo($id, $y);";
+    y++;
     augmented();
   }
   augment ET.bar(this.id, {int y = 0}) {
     _log += "ET.bar($id, $y);";
+    y++;
     augmented();
   }
   augment ET.baz({required this.id}) {

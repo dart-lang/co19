@@ -48,32 +48,32 @@ extension type ET(int id) {
 
 main() {
   C(1);
-  Expect.equals("C(1, 0);C(1, 0);", _log);
+  Expect.equals("C(1, 0);C(2, 1);", _log);
   _log = "";
   C(1, 2);
-  Expect.equals("C(1, 2);C(1, 2);", _log);
+  Expect.equals("C(1, 2);C(2, 3);", _log);
   _log = "";
   C.foo(1);
-  Expect.equals("C.foo(1, 0);C.foo(1, 0);", _log);
+  Expect.equals("C.foo(1, 0);C.foo(2, 1);", _log);
   _log = "";
   C.foo(1, y: 2);
-  Expect.equals("C.foo(1, 2);C.foo(1, 2);", _log);
+  Expect.equals("C.foo(1, 2);C.foo(2, 3);", _log);
   _log = "";
   C.bar(1);
-  Expect.equals("C.bar(1);C.bar(1);", _log);
+  Expect.equals("C.bar(1);C.bar(2);", _log);
   _log = "";
 
   ET.foo(1);
-  Expect.equals("ET.foo(1, 0);ET.foo(1, 0);", _log);
+  Expect.equals("ET.foo(1, 0);ET.foo(1, 1);", _log);
   _log = "";
   ET.foo(1, 2);
-  Expect.equals("ET.foo(1, 2);ET.foo(1, 2);", _log);
+  Expect.equals("ET.foo(1, 2);ET.foo(1, 3);", _log);
   _log = "";
   ET.bar(1);
-  Expect.equals("ET.bar(1, 0);ET.bar(1, 0);", _log);
+  Expect.equals("ET.bar(1, 0);ET.bar(1, 1);", _log);
   _log = "";
   ET.bar(1, y: 2);
-  Expect.equals("ET.bar(1, 2);ET.bar(1, 2);", _log);
+  Expect.equals("ET.bar(1, 2);ET.bar(1, 3);", _log);
   _log = "";
   ET.baz(1);
   Expect.equals("ET.baz(1);ET.baz(1);", _log);

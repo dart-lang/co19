@@ -8,7 +8,7 @@
 ///     replaces any existing constructor body.
 ///
 /// @description Checks that it is a compile-time error to augment a default
-/// unnamed constructor.
+/// unnamed constructor (that doesn't exist during augmentation).
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

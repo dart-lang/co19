@@ -8,12 +8,12 @@
 ///     replaces any existing constructor body.
 ///
 /// @description Checks that it is a compile-time error to augment a default
-/// unnamed constructor.
+/// unnamed constructor (that doesn't exist during augmentation).
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_constructors_A09_t04.dart';
+augment library 'augmenting_constructors_A09_t03.dart';
 
 augment class C1 {
   augment C1();

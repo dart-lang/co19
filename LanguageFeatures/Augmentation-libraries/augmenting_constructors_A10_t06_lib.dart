@@ -10,8 +10,9 @@
 ///     augmenting body is executing in. The expression has type `void` and
 ///     evaluates to `null`.
 ///
-/// @description Checks that it is a compile-time error to use value returned by
-/// `augmented()` call in an augmenting constructor body.
+/// @description Checks that it is a compile-time error to use the value
+/// returned by the invocation of  `augmented()` in an augmenting constructor
+/// body.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
