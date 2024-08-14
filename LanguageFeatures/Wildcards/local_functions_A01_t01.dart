@@ -12,9 +12,9 @@
 // SharedOptions=--enable-experiment=wildcard-variables
 
 test1() {
-  _() {}
-//^
-// [analyzer] unspecified
+  _() {} // Analyzer reports DEAD_CODE here, but this warning is ignored by
+         // the test runner. So, we only can check that the invocation of this
+         // function is an error (see the check below).
   _();
 //^
 // [analyzer] unspecified
