@@ -16,18 +16,12 @@
 // SharedOptions=--enable-experiment=macros
 
 import augment 'augmenting_constructors_A11_t01_lib.dart';
-import '../../Utils/expect.dart';
 
 class C {
-  String x;
+  String x, y;
   C(): x = "Original";
 }
 
-extension type ET(String id) {
-  ET.foo(): id = "Original";
-}
-
 main() {
-  Expect.equals("Augmented", C().x);
-  Expect.equals("Augmented", ET.foo().id);
+  C();
 }

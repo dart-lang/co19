@@ -10,30 +10,25 @@
 ///     super parameters.
 ///
 /// @description Checks that when `augmented()` is called in the body of an
-/// augmenting constructor initializing formals are not re-run.
+/// augmenting constructor initializing formals are not re-run (no attempt to
+/// reinitialize a final variable already initialized by initializing formals of
+/// augmenting constructor).
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
 import augment 'augmenting_constructors_A11_t02_lib.dart';
-import '../../Utils/expect.dart';
 
 class C {
   final String x;
-  void set x(String _) {
-    Expect.fail("Setter should not be called");
-  }
   C(this.x);
 }
 
 extension type ET(String id) {
-  void set id(String _) {
-    Expect.fail("Setter should not be called");
-  }
   ET.foo(this.id);
 }
 
 main() {
-  Expect.equals("Original", C("Original").x);
-  Expect.equals("Original", ET.foo("Original").id);
+  C("x");
+  ET.foo("x");
 }

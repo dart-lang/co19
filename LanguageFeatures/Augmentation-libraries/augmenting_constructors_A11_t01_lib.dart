@@ -16,15 +16,16 @@
 // SharedOptions=--enable-experiment=macros
 
 augment library 'augmenting_constructors_A11_t01.dart';
+import '../../Utils/expect.dart';
 
 augment class C {
-  augment C(): x = "Augmented" {
+  augment C(): y = "Augmented" {
+    Expect.equals("Original", x);
+    Expect.equals("Augmented", y);
+    x = "x";
+    y = "y";
     augmented();
-  }
-}
-
-augment extension type ET {
-  augment ET.foo(): id = "Augmented" {
-    augmented();
+    Expect.equals("x", x);
+    Expect.equals("y", y);
   }
 }

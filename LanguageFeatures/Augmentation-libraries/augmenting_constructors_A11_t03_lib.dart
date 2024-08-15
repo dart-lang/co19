@@ -10,15 +10,19 @@
 ///     super parameters.
 ///
 /// @description Checks that when `augmented()` is called in the body of an
-/// augmenting constructor super parameters are not re-run.
+/// augmenting constructor super parameters are not passed twice to a
+/// superinitializer (no attempt to reinitialize a final variable already
+/// initialized by augmenting constructor).
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
 augment library 'augmenting_constructors_A11_t03.dart';
+import '../../Utils/expect.dart';
 
 augment class C {
   augment C(super.x) {
+    Expect.equals("x", x);
     augmented();
   }
 }
