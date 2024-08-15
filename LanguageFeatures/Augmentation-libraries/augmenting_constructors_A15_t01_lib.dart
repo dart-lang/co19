@@ -27,5 +27,5 @@ augment library 'augmenting_constructors_A15_t01.dart';
 augment class C {
   augment C(int x, int y, int z): assert(x++ == 1), this.y = y;
   augment C.foo(int x, int y, int z): this.y = y, assert(y++ == 1), super(++z);
-  augment C.bar(int x, int y, int z): this.x = x, this y = y, super(z);
+  augment C.bar(int x, int y, int z): this.x = x, this.y = y, super(z);
 }
