@@ -24,6 +24,9 @@ class C {
 
 enum E {
   e0;
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
   const E({int x = 0});
 }
 

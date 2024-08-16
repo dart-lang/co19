@@ -25,6 +25,9 @@ class C {
 
 enum E {
   e0(0);
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
   const E(num x, [num y = 0]);
   const E.foo(num x, {required num y, num z = 0});
 }
