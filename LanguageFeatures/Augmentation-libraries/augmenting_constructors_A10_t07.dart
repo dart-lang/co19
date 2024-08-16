@@ -19,16 +19,18 @@
 import augment 'augmenting_constructors_A10_t07_lib.dart';
 
 class C {
+  dynamic x;
   C();
 }
 
 enum E {
   e0;
+  final x;
   const E();
 }
 
-extension type ET(int id) {
-  ET.foo(this.id);
+extension type ET(int id) implements int {
+  ET.foo(): id = ET(0);
 }
 
 main() {

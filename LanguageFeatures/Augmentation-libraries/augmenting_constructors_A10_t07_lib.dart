@@ -19,8 +19,8 @@
 augment library 'augmenting_constructors_A10_t07.dart';
 
 augment class C {
-  augment C(): augmented() {
-//             ^
+  augment C(): x = augmented() {
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -28,15 +28,15 @@ augment class C {
 
 augment enum E {
   augment e0;
-  augment const E(): augmented();
-//                   ^
+  augment const E(): x = augmented();
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension type ET {
-  augment ET.foo(this.id): augmented() {
-//                         ^
+  augment ET.foo(): id = augmented() {
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
