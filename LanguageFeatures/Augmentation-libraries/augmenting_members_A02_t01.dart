@@ -6,8 +6,8 @@
 /// ...
 /// A non-writable variable declaration is augmented with a setter.
 ///
-/// @description Checks that it is a compile-time error if a non-writable
-/// variable declaration is augmented with a setter.
+/// @description Checks that it is a compile-time error if an implicitly induced
+/// getter of a final variable declaration is augmented with a setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -38,7 +38,7 @@ extension Ext on A {
   static final String staticVariable = "staticVariable";
 }
 
-extension type ET(String _) {
+extension type ET(String id) {
   static final String staticVariable = "staticVariable";
 }
 

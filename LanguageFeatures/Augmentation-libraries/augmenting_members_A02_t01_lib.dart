@@ -6,9 +6,8 @@
 /// ...
 /// A non-writable variable declaration is augmented with a setter.
 ///
-/// @description Checks that it is a compile-time error if an augmenting
-/// declaration uses `augmented` when the augmented declaration has no concrete
-/// implementation.
+/// @description Checks that it is a compile-time error if an implicitly induced
+/// getter of a final variable declaration is augmented with a setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -63,6 +62,10 @@ augment extension Ext {
 
 augment extension type ET {
   augment static void set staticVariable(String _) {}
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static void set id(String _) {}
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

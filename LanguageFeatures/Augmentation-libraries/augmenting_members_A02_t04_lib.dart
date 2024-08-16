@@ -6,37 +6,36 @@
 /// ...
 /// A non-writable variable declaration is augmented with a setter.
 ///
-/// @description Checks that it is a compile-time error if an implicitly induced
-/// getter of a `late final` variable declaration with an initializer is
-/// augmented with a setter.
+/// @description Checks that it is a compile-time error if a getter declaration
+/// is augmented with a setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_members_A02_t02.dart';
+augment library 'augmenting_members_A02_t04.dart';
 
-/**/augment void set topLevelVariable(String _) {}
+/**/augment void set topLevelGetter(String _) {}
 //  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 augment class C {
-  augment static void set staticVariable(String _) {}
+  augment static void set staticGetter(String _) {}
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceVariable(String _) {}
+  augment void set instanceGetter(String _) {}
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment mixin M {
-  augment static void set staticVariable(String _) {}
+  augment static void set staticGetter(String _) {}
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceVariable(String _) {}
+  augment void set instanceGetter(String _) {}
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -44,21 +43,33 @@ augment mixin M {
 
 augment enum E {
   augment e0;
-  augment static void set staticVariable(String _) {}
+  augment static void set staticGetter(String _) {}
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void set instanceGetter(String _) {}
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension Ext {
-  augment static void set staticVariable(String _) {}
+  augment static void set staticGetter(String _) {}
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void set instanceGetter(String _) {}
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension type ET {
-  augment static void set staticVariable(String _) {}
+  augment static void set staticGetter(String _) {}
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void set instanceGetter(String _) {}
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

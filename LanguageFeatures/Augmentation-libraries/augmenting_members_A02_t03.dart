@@ -6,8 +6,8 @@
 /// ...
 /// A non-writable variable declaration is augmented with a setter.
 ///
-/// @description Checks that it is a compile-time error if a non-writable
-/// variable declaration is augmented with a setter. Test `const` variables.
+/// @description Checks that it is a compile-time error if a `const` variable
+/// declaration is augmented with a setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

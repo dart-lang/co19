@@ -6,39 +6,40 @@
 /// ...
 /// A non-writable variable declaration is augmented with a setter.
 ///
-/// @description Checks that it is a compile-time error if a non-writable
-/// variable declaration is augmented with a setter. Test `late final` variables
+/// @description Checks that it is a compile-time error if an implicitly induced
+/// getter of a `late final` variable declaration with an initializer is
+/// augmented with a setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
 import augment 'augmenting_members_A02_t02_lib.dart';
 
-late final String topLevelVariable;
+late final String topLevelVariable = "";
 
 class C {
-  static late final String staticVariable;
-  late final String instanceVariable;
+  static late final String staticVariable = "";
+  late final String instanceVariable = "";
 }
 
 mixin M {
-  static late final String staticVariable;
-  late final String instanceVariable;
+  static late final String staticVariable = "";
+  late final String instanceVariable = "";
 }
 
 enum E {
   e0;
-  static late final String staticVariable;
+  static late final String staticVariable = "";
 }
 
 class A {}
 
 extension Ext on A {
-  static late final String staticVariable;
+  static late final String staticVariable = "";
 }
 
 extension type ET(String _) {
-  static late final String staticVariable;
+  static late final String staticVariable = "";
 }
 
 main() {
