@@ -19,27 +19,54 @@
 augment library 'augmenting_members_A05_t02.dart';
 
 augment final String? topLevelVariable;
+//                    ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 augment class C {
   augment static final String? staticVariable;
+//                             ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment final String? instanceVariable;
+//                      ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment mixin M {
   augment static final String? staticVariable;
+//                             ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment final String? instanceVariable;
+//                      ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment enum E {
   augment e0;
   augment static final String? staticVariable;
+//                             ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment final String? instanceVariable;
+//                      ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment extension Ext {
-  augment final static String? staticVariable;
+  augment static final String? staticVariable;
+//                             ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment extension type ET {
-  augment final static String? staticVariable;
+  augment static final String? staticVariable;
+//                             ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -26,6 +26,9 @@ class A {
 
 class C extends A {
   C(int x);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

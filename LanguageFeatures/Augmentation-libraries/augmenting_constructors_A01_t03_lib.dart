@@ -27,6 +27,9 @@ augment class C {
 
 augment enum E {
   augment e0;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment const E({int y});
 //              ^
 // [analyzer] unspecified

@@ -22,35 +22,35 @@ augment library 'augmenting_functions_A04_t18.dart';
 
 augment String topLevelFunction1() => "augmented";
 augment Object topLevelFunction2(String s0) => "augmented $s0";
-augment int topLevelFunction3([int i0 = 0]) => i0 + 1;
-augment int? topLevelFunction4({int j, int? i}) => i == null? 0 : j + i;
+augment int topLevelFunction3([int i0]) => i0 + 1;
+augment int? topLevelFunction4({int j, int? i}) => i == null ? 0 : j + i;
 augment T topLevelFunction5<T extends num>(T t) => t + 1 as T;
 
 augment class C {
   augment static Object staticMethod1() => "augmented";
   augment static String staticMethod2(String s0) => "augmented $s0";
-  augment static int staticMethod3([int i0 = 0]) => i0 + 1;
-  augment static int? staticMethod4({int j, int? i}) => i == null? 0 : j + i;
+  augment static int staticMethod3([int i0]) => i0 + 1;
+  augment static int? staticMethod4({int j, int? i}) => i == null ? 0 : j + i;
   augment static T staticMethod5<T extends num>(T t) => t + 1 as T;
 
   augment Object instanceMethod1() => "augmented";
   augment String instanceMethod2(String s0) => "augmented $s0";
-  augment int instanceMethod3([int i0 = 0]) => i0 + 1;
-  augment int? instanceMethod4({int j, int? i}) => i == null? 0 : j + i;
+  augment int instanceMethod3([int i0]) => i0 + 1;
+  augment int? instanceMethod4({int j, int? i}) => i == null ? 0 : j + i;
   augment T instanceMethod5<T extends num>(T t) => t + 1 as T;
 }
 
 augment mixin M {
   augment static Object staticMethod1() => "augmented";
   augment static String staticMethod2(String s0) => "augmented $s0";
-  augment static int staticMethod3([int i0 = 0]) => i0 + 1;
-  augment static int? staticMethod4({int j, int? i}) => i == null? 0 : j + i;
+  augment static int staticMethod3([int i0]) => i0 + 1;
+  augment static int? staticMethod4({int j, int? i}) => i == null ? 0 : j + i;
   augment static T staticMethod5<T extends num>(T t) => t + 1 as T;
 
   augment Object instanceMethod1() => "augmented";
   augment String instanceMethod2(String s0) => "augmented $s0";
-  augment int instanceMethod3([int i0 = 0]) => i0 + 1;
-  augment int? instanceMethod4({int j, int? i}) => i == null? 0 : j + i;
+  augment int instanceMethod3([int i0]) => i0 + 1;
+  augment int? instanceMethod4({int j, int? i}) => i == null ? 0 : j + i;
   augment T instanceMethod5<T extends num>(T t) => t + 1 as T;
 }
 
@@ -59,41 +59,41 @@ augment enum E {
 
   augment static Object staticMethod1() => "augmented";
   augment static String staticMethod2(String s0) => "augmented $s0";
-  augment static int staticMethod3([int i0 = 0]) => i0 + 1;
-  augment static int? staticMethod4({int j, int? i}) => i == null? 0 : j + i;
+  augment static int staticMethod3([int i0]) => i0 + 1;
+  augment static int? staticMethod4({int j, int? i}) => i == null ? 0 : j + i;
   augment static T staticMethod5<T extends num>(T t) => t + 1 as T;
 
   augment Object instanceMethod1() => "augmented";
   augment String instanceMethod2(String s0) => "augmented $s0";
-  augment int instanceMethod3([int i0 = 0]) => i0 + 1;
-  augment int? instanceMethod4({int j, int? i}) => i == null? 0 : j + i;
+  augment int instanceMethod3([int i0]) => i0 + 1;
+  augment int? instanceMethod4({int j, int? i}) => i == null ? 0 : j + i;
   augment T instanceMethod5<T extends num>(T t) => t + 1 as T;
 }
 
 augment extension Ext {
   augment static Object staticMethod1() => "augmented";
   augment static String staticMethod2(String s0) => "augmented $s0";
-  augment static int staticMethod3([int i0 = 0]) => i0 + 1;
-  augment static int? staticMethod4({int j, int? i}) => i == null? 0 : j + i;
+  augment static int staticMethod3([int i0]) => i0 + 1;
+  augment static int? staticMethod4({int j, int? i}) => i == null ? 0 : j + i;
   augment static T staticMethod5<T extends num>(T t) => t + 1 as T;
 
   augment Object instanceMethod1() => "augmented";
   augment String instanceMethod2(String s0) => "augmented $s0";
-  augment int instanceMethod3([int i0 = 0]) => i0 + 1;
-  augment int? instanceMethod4({int j, int? i}) => i == null? 0 : j + i;
+  augment int instanceMethod3([int i0]) => i0 + 1;
+  augment int? instanceMethod4({int j, int? i}) => i == null ? 0 : j + i;
   augment T instanceMethod5<T extends num>(T t) => t + 1 as T;
 }
 
 augment extension type ET {
   augment static Object staticMethod1() => "augmented";
   augment static String staticMethod2(String s0) => "augmented $s0";
-  augment static int staticMethod3([int i0 = 0]) => i0 + 1;
-  augment static int? staticMethod4({int j, int? i}) => i == null? 0 : j + i;
+  augment static int staticMethod3([int i0]) => i0 + 1;
+  augment static int? staticMethod4({int j, int? i}) => i == null ? 0 : j + i;
   augment static T staticMethod5<T extends num>(T t) => t + 1 as T;
 
   augment Object instanceMethod1() => "augmented";
   augment String instanceMethod2(String s0) => "augmented $s0";
-  augment int instanceMethod3([int i0 = 0]) => i0 + 1;
-  augment int? instanceMethod4({int j, int? i}) => i == null? 0 : j + i;
+  augment int instanceMethod3([int i0]) => i0 + 1;
+  augment int? instanceMethod4({int j, int? i}) => i == null ? 0 : j + i;
   augment T instanceMethod5<T extends num>(T t) => t + 1 as T;
 }
