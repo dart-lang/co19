@@ -8,8 +8,8 @@
 /// - The augmented constructor has any initializers or a body.
 ///
 /// @description Checks that it is a compile-time error to declare an augmenting
-/// redirecting generative constructor if the augmented constructor is already
-/// redirecting.
+/// redirecting generative constructor if the augmented constructor has a
+/// non-empty initializing list.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -17,8 +17,6 @@
 augment library 'augmenting_constructors_A18_t04.dart';
 
 augment class C {
-  augment C.bar(): this.foo();
-//                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment C.foo(int x): this.foo(x); // Cyclic! But it is fixed below
+  augment C.foo(int x): this(x + 1); // Not a cyclic now
 }

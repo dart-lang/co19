@@ -7,21 +7,22 @@
 /// It is a compile-time error if:
 /// - The augmented constructor has any initializers or a body.
 ///
-/// @description Checks that it is a compile-time error to declare an augmenting
-/// redirecting generative constructor if the augmented constructor is already
-/// redirecting.
+/// @description Checks that it is not an error to declare an augmenting
+/// redirecting generative constructor more than once and the fully merged
+/// constructor has no errors.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
 import augment 'augmenting_constructors_A18_t04_lib.dart';
+import '../../Utils/expect.dart';
 
 class C {
-  C();
-  C.foo(): this();
-  C.bar(): this();
+  int x;
+  C(this.x);
+  C.foo(int x);
 }
 
 main() {
-  print(C);
+  Expect.equals(2, C.foo(1));
 }
