@@ -10,7 +10,7 @@
 ///
 /// @description Checks that `augmented(arguments)` in the body of augmenting
 /// non-redirecting factory constructor calls the introductory constructor with
-/// appropriate parameters.
+/// `arguments` as the actual arguments.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
