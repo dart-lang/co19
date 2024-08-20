@@ -11,12 +11,12 @@
 /// constructor.
 ///
 /// @description Checks that it is not an error if an introductory constructor
-/// already has a redirection. Test the same augmenting redirections.
+/// already has a redirection.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_constructors_A19_t02_lib.dart';
+import augment 'augmenting_constructors_A19_t03_lib.dart';
 import '../../Utils/expect.dart';
 
 class C {
@@ -29,17 +29,18 @@ class C {
 }
 
 class D extends C {
-  D(super.x, [super.y = 0]);
+  D(super.x, [super.y = 1]);
+  D.foo(int x, {int y = 1}): super(x, y);
 }
 
 main() {
   Expect.equals(1, C.bar(1).x);
-  Expect.equals(0, C.bar(1).y);
+  Expect.equals(1, C.bar(1).y);
   Expect.equals(1, C.bar(1, 2).x);
   Expect.equals(2, C.bar(1, 2).y);
 
   Expect.equals(1, C.baz(1).x);
-  Expect.equals(0, C.baz(1).y);
+  Expect.equals(1, C.baz(1).y);
   Expect.equals(1, C.baz(1, y: 2).x);
   Expect.equals(2, C.baz(1, y: 2).y);
 

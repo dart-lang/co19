@@ -11,15 +11,15 @@
 /// constructor.
 ///
 /// @description Checks that it is not an error if an introductory constructor
-/// already has a redirection. Test the same augmenting redirections.
+/// already has a redirection.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_constructors_A19_t02.dart';
+augment library 'augmenting_constructors_A19_t03.dart';
 
 augment class C {
-  augment factory C.bar(int x, [int y]) = C;
-  augment factory C.baz(int x, {int y}) = C.foo;
-  augment factory C.qux(int x, [int y]) = D;
+  augment factory C.bar(int x, [int y]) = D;
+  augment factory C.baz(int x, {int y}) = D.foo;
+  augment factory C.qux(int x, [int y]) = C;
 }
