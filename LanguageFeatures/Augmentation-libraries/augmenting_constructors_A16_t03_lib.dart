@@ -22,7 +22,7 @@ import '../../Utils/static_type_helper.dart';
 augment class C {
   augment factory C.foo(int x, [int y = 0]) {
     // Note that for factory constructors every call of `augmented()` creates
-    // a new object. Let's don't create too much of them.
+    // a new object. Let's not create too many of them.
     var c1 = augmented(0);
     c1.expectStaticType<Exactly<C>>();
     Expect.equals(0, c1.x);
