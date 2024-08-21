@@ -24,21 +24,16 @@ int init(int val) {
 }
 
 test1() {
-  late var _ = init(1);
-//             ^^^^^^^
-// [analyzer] STATIC_WARNING.DEAD_CODE_LATE_WILDCARD_VARIABLE_INITIALIZER
+  late var _ = init(1); // Analyzer reports DEAD_CODE here, but this warning is
+                        // ignored by the test runner.
 }
 
 test2() {
-  late final _ = init(2);
-//               ^^^^^^^
-// [analyzer] STATIC_WARNING.DEAD_CODE_LATE_WILDCARD_VARIABLE_INITIALIZER
+  late final _ = init(2); // The same as the above.
 }
 
 test3() {
-  late int _ = init(3);
-//             ^^^^^^^
-// [analyzer] STATIC_WARNING.DEAD_CODE_LATE_WILDCARD_VARIABLE_INITIALIZER
+  late int _ = init(3);  // The same as the above.
 }
 
 main() {
