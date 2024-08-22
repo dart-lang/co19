@@ -14,6 +14,7 @@
 ///
 /// @description Check that enum declaration may contain external members
 /// @author sgrekhov@unipro.ru
+/// @issue 56536
 
 enum E1 {
   e1,
@@ -40,8 +41,15 @@ enum E3 {
   external void set foo(int val);
 }
 
+enum E4 {
+  e1;
+  external final int foo;
+  external int bar;
+}
+
 main() {
   E1.e1;
   E2.e2;
   E3.e3;
+  E4.e1;
 }
