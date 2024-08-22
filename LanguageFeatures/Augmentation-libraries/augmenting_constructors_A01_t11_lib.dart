@@ -19,22 +19,22 @@ augment library 'augmenting_constructors_A01_t11.dart';
 import '../../Utils/static_type_helper.dart';
 
 augment class C {
-  augment C(var this.x, [var this.y = 0]) {
+  augment C(var this.x, [var this.y]) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment C.foo({required var this.x, var this.y = 0}) {
+  augment C.foo({required var this.x, var this.y}) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment C.bar(var x, [var y = 0]) {
+  augment C.bar(var x, [var y]) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment C.baz({required var x, var y = 0}) {
+  augment C.baz({required var x, var y}) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
@@ -43,29 +43,29 @@ augment class C {
 
 augment enum E {
   augment e0(1);
-  augment const E(var this.x, [var this.y = 0]);
-  augment const E.foo({required var this.x, var this.y = 0});
-  augment const E.bar(var x, [var y = 0]);
-  augment const E.baz({required var x, var y = 0});
+  augment const E(var this.x, [var this.y]);
+  augment const E.foo({required var this.x, var this.y});
+  augment const E.bar(var x, [var y]);
+  augment const E.baz({required var x, var y});
 }
 
 augment extension type ET {
-  augment ET.foo(var this.x, [var y = 0]) {
+  augment ET.foo(var this.x, [var y]) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment ET.bar({required var this.x, var y = 0}) {
+  augment ET.bar({required var this.x, var y}) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment ET.baz(var x, [var y = 0]) {
+  augment ET.baz(var x, [var y]) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment ET.qux({required var x, var y = 0}) {
+  augment ET.qux({required var x, var y}) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";

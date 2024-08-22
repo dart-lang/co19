@@ -10,8 +10,8 @@
 ///   formals and super parameters must also be the same in both constructors.
 ///
 /// @description Checks that it is not an error if a constructor augmentation
-/// specifies a type of formal parameter which were not specified in the
-/// introductory constructor.
+/// specifies a type of formal parameter which were not explicitly specified in
+/// the introductory constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -20,22 +20,22 @@ augment library 'augmenting_constructors_A01_t12.dart';
 import '../../Utils/static_type_helper.dart';
 
 augment class C {
-  augment C(int this.x, [int this.y = 0]) {
+  augment C(int this.x, [int this.y]) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment C.foo({required int this.x, int this.y = 0}) {
+  augment C.foo({required int this.x, int this.y}) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment C.bar(int x, [int y = 0]) {
+  augment C.bar(int x, [int y]) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment C.baz({required int x, int y = 0}) {
+  augment C.baz({required int x, int y}) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
@@ -44,29 +44,29 @@ augment class C {
 
 augment enum E {
   augment e0(1);
-  augment const E(int this.x, [int this.y = 0]);
-  augment const E.foo({required int this.x, int this.y = 0});
-  augment const E.bar(int x, [int y = 0]);
-  augment const E.baz({required int x, int y = 0});
+  augment const E(int this.x, [int this.y]);
+  augment const E.foo({required int this.x, int this.y});
+  augment const E.bar(int x, [int y]);
+  augment const E.baz({required int x, int y});
 }
 
 augment extension type ET {
-  augment ET.foo(int this.x, [int y = 0]) {
+  augment ET.foo(int this.x, [int y]) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment ET.bar({required int this.x, int y = 0}) {
+  augment ET.bar({required int this.x, int y}) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment ET.baz(int x, [int y = 0]) {
+  augment ET.baz(int x, [int y]) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment ET.qux({required int x, int y = 0}) {
+  augment ET.qux({required int x, int y}) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";

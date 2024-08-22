@@ -10,8 +10,8 @@
 ///   formals and super parameters must also be the same in both constructors.
 ///
 /// @description Checks that it is not an error if a constructor augmentation
-/// specifies a type of formal parameter which were not specified in the
-/// introductory constructor.
+/// specifies a type of formal parameter which were not explicitly specified in
+/// the introductory constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
