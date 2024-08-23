@@ -38,5 +38,5 @@ main() {
   Expect.equals(2, C(y: 2).y);
   Expect.equals(1, E.e0.x);
   Expect.equals(2, E.e0.y);
-  Expect.equals(1,ET.foo(x: 1));
+  Expect.equals(1, ET.foo(x: 1));
 }

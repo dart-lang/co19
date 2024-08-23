@@ -16,7 +16,7 @@
 augment library 'type_inheritance_A01_t03.dart';
 import '../../Utils/static_type_helper.dart';
 
-augment void topLevelFunction(var v) {
+augment void topLevelFunction(v) {
   v.expectStaticType<Exactly<String>>();
   _log = "Augmented $v";
 }
@@ -102,7 +102,7 @@ augment extension Ext {
   }
 }
 
-augment extension type ET(int id) {
+augment extension type ET {
   augment static void staticMethod(final v) {
     v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";
