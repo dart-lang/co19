@@ -14,6 +14,7 @@
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
+library metadata_A01_t02;
 
 import augment 'metadata_A01_t02_lib.dart';
 import 'dart:mirrors';
@@ -65,8 +66,8 @@ extension type ET(int id) {
 }
 
 main() {
-  Symbol emptyName = MirrorSystem.getSymbol('');
-  LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(emptyName);
+  Symbol libName = MirrorSystem.getSymbol('metadata_A01_t02');
+  LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(libName);
   var symbol = MirrorSystem .getSymbol("topLevelVariable");
   DeclarationMirror varMirror =
     libraryMirror.declarations[symbol] as DeclarationMirror;

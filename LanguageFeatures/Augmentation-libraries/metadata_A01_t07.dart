@@ -10,10 +10,11 @@
 /// applications.
 ///
 /// @description Check that augmenting metadata is appended to the introductory
-/// declaration. Test setters.
+/// declaration. Test functions.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
+library metadata_A01_t07;
 
 import augment 'metadata_A01_t07_lib.dart';
 import 'dart:mirrors';
@@ -54,8 +55,8 @@ extension type ET(int id) {
 }
 
 main() {
-  Symbol emptyName = MirrorSystem.getSymbol('');
-  LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(emptyName);
+  Symbol libName = MirrorSystem.getSymbol('metadata_A01_t07');
+  LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(libName);
   var symbol = MirrorSystem .getSymbol("topLevelFunction");
   DeclarationMirror varMirror =
     libraryMirror.declarations[symbol] as DeclarationMirror;
