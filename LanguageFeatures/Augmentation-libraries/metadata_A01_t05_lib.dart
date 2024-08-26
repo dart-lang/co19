@@ -25,22 +25,22 @@ augment class C {
 }
 
 augment mixin M {
-  @Meta() augment static String get staticGetter;
-  @Meta() augment String get instanceGetter;
+  @Meta() augment static void set staticSetter(String _) {}
+  @Meta() augment void set instanceSetter(String _) {}
 }
 
 augment enum E {
   augment e0;
-  @Meta() augment static String get staticGetter;
-  @Meta() augment String get instanceGetter;
+  @Meta() augment static void set staticSetter(String _) {}
+  @Meta() augment void set instanceSetter(String _) {}
 }
 
 augment extension Ext {
-  @Meta() augment static String get staticGetter;
-  @Meta() augment String get instanceGetter;
+@Meta() augment static void set staticSetter(String _) {}
+@Meta() augment void set instanceSetter(String _) {}
 }
 
 augment extension type ET {
-  @Meta() augment static String get staticGetter;
-  @Meta() augment String get instanceGetter;
+  @Meta() augment static void set staticSetter(String _) {}
+  @Meta() augment void set instanceSetter(String _) {}
 }
