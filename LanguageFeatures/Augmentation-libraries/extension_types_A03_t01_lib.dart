@@ -29,21 +29,21 @@ augment extension type ET2 {
 // [cfe] unspecified
 }
 
-augment extension type ET2(int id) {
+augment extension type ET2 {
   augment int get id;
 //                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment extension type ET3(int id) {
+augment extension type ET3 {
   augment int id() => 0;
 //            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment extension type ET3(int id) {
+augment extension type ET3 {
   augment int id();
 //            ^^
 // [analyzer] unspecified
