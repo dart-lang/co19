@@ -6,8 +6,8 @@
 /// constructor, which isn't otherwise possible. This is done by augmenting the
 /// constructor in the body of the extension type.
 ///
-/// @description Checks that default constructor of the extension type `ET` can
-/// be augmented by `ET.new` and vice versa.
+/// @description Checks that a constructor whose name is `ET` can be augmented
+/// by `ET.new` and vice versa.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
