@@ -15,10 +15,8 @@
 import augment 'extension_types_A02_t06_lib.dart';
 import '../../Utils/expect.dart';
 
-extension type ET1(int id) {}
-extension type ET2(int id) {}
+extension type ET(int id) {}
 
 main() {
-  Expect.equals(2, ET1(1).id);
-  Expect.equals(1, ET2(1).id);
+  Expect.equals(1, ET(1).id);
 }

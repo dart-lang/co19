@@ -7,8 +7,8 @@
 /// constructor in the body of the extension type.
 ///
 /// @description Checks that it is a compile-time error if an augmentation of an
-/// extension type's implicit constructor initializes representation variable
-/// more than once.
+/// extension type's implicit constructor initializes the representation
+/// variable more than once.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

@@ -6,8 +6,8 @@
 /// constructor, which isn't otherwise possible. This is done by augmenting the
 /// constructor in the body of the extension type.
 ///
-/// @description Checks that augmentation can add a body to an extension type's
-/// implicit  constructor.
+/// @description Checks that an augmentation can add a body to an extension
+/// type's implicit constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

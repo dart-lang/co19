@@ -21,11 +21,9 @@ extension type ET2(int id) {}
 
 extension type ET3(int id) {}
 
-extension type ET4(int id) {}
 
 main() {
   print(ET1);
   print(ET2);
   print(ET3);
-  print(ET4);
 }

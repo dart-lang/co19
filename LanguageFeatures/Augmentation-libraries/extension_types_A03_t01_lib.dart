@@ -37,27 +37,13 @@ augment extension type ET2(int id) {
 }
 
 augment extension type ET3(int id) {
-  augment void set id(int v) {}
-//                 ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-augment extension type ET3(int id) {
-  augment void set id(int v);
-//                 ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-augment extension type ET4(int id) {
   augment int id() => 0;
 //            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment extension type ET4(int id) {
+augment extension type ET3(int id) {
   augment int id();
 //            ^^
 // [analyzer] unspecified

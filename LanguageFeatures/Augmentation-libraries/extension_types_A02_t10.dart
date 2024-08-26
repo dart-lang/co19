@@ -6,7 +6,7 @@
 /// constructor, which isn't otherwise possible. This is done by augmenting the
 /// constructor in the body of the extension type.
 ///
-/// @description Checks that that 'augmented()` in the body of extension type's
+/// @description Checks that 'augmented()` in the body of extension type's
 /// implicit constructor doesn't reinitialize the representation variable.
 /// @author sgrekhov22@gmail.com
 

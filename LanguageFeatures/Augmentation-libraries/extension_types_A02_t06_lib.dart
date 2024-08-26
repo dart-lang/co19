@@ -14,10 +14,6 @@
 
 augment library 'extension_types_A02_t06.dart';
 
-augment extension type ET1 {
-  augment ET1(int id): this.id = id + 1;
-}
-
-augment extension type ET2 {
-  augment ET2(this.id): assert(id > 0);
+augment extension type ET {
+  augment ET(this.id): assert(id > 0);
 }

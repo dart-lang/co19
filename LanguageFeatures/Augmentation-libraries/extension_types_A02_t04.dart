@@ -7,7 +7,7 @@
 /// constructor in the body of the extension type.
 ///
 /// @description Checks that it is a compile-time error if an augmentation of an
-/// extension type's implicit constructor doesn't initializes representation
+/// extension type's implicit constructor doesn't initialize the representation
 /// variable.
 /// @author sgrekhov22@gmail.com
 
