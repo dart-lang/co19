@@ -132,6 +132,6 @@ main() {
   print(C);
   print(M);
   print(E);
-  print(Ext);
+  print(A);
   print(ET);
 }
