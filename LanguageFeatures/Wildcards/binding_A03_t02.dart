@@ -38,9 +38,9 @@ test3() {
 
 main() {
   test1();
-  Expect.equals("", _log);
+  Expect.equals("init(1)", _log);
   test2();
-  Expect.equals("", _log);
+  Expect.equals("init(2)", _log);
   test3();
-  Expect.equals("", _log);
+  Expect.equals("init(3)", _log);
 }
