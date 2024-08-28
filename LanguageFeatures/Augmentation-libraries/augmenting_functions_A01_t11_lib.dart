@@ -14,7 +14,7 @@
 
 augment library 'augmenting_functions_A01_t11.dart';
 
-augment extension type ET(int id) {
+augment extension type ET {
   augment String instanceMethod1() {
     _log += "augment instanceMethod1();";
     return "augment";

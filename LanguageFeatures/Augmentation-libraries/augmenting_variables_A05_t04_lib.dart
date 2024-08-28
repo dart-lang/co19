@@ -42,6 +42,6 @@ augment extension Ext {
   augment static dynamic staticVariable;
 }
 
-augment extension type ET(String _) {
+augment extension type ET {
   augment static dynamic staticVariable;
 }

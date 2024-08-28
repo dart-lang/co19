@@ -19,4 +19,4 @@
 
 augment library 'augmenting_types_A07_t12.dart';
 
-augment extension type ET(A _) implements A {}
+augment extension type ET implements A {}

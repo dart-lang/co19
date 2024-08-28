@@ -85,17 +85,17 @@ augment extension Ext<T extends List> {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension type ET<T extends B>(int _) {}
+augment extension type ET<T extends B> {}
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension type ET<T extends Object>(int _) {}
+augment extension type ET<T extends Object> {}
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension type ET<T extends List>(int _) {}
+augment extension type ET<T extends List> {}
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified

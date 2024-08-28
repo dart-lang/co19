@@ -229,7 +229,7 @@ augment extension Ext  {
   void set instanceSetter(int _) {}
 }
 
-augment extension type ET(int _) {
+augment extension type ET {
   static int staticVariable = 0;
   static void staticMethod() {}
   static int get staticGetter => 0;

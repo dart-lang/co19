@@ -59,7 +59,7 @@ augment extension Ext {
   }
 }
 
-augment extension type ET(String _) {
+augment extension type ET {
   augment static void set staticVariable(int v) {
     augmented = v + 1;
     _log += "Augment1 = $v;";

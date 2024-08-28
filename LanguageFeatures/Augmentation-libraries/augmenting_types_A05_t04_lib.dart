@@ -80,15 +80,15 @@ augment extension Ext2<T extends AAlias> {
   String name4() => 'Ext2<$T>';
 }
 
-augment extension type ET1<T extends A>(int _) {
+augment extension type ET1<T extends A> {
   String get name1 => 'ET1<$T>';
 }
-augment extension type ET1<T extends AAlias>(int _) {
+augment extension type ET1<T extends AAlias> {
   String name2() => 'ET1<$T>';
 }
-augment extension type ET2<T extends A>(int _) {
+augment extension type ET2<T extends A> {
   String get name3 => 'ET2<$T>';
 }
-augment extension type ET2<T extends AAlias>(int _) {
+augment extension type ET2<T extends AAlias> {
   String name4() => 'ET2<$T>';
 }

@@ -109,7 +109,7 @@ augment extension Ext {
 // [cfe] unspecified
 }
 
-augment extension type ET(int id) {
+augment extension type ET {
   augment static Object? get staticGetter => 0;
 //               ^^^^^^
 // [analyzer] unspecified

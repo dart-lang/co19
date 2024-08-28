@@ -18,8 +18,8 @@
 
 augment library 'augmenting_types_A07_t05.dart';
 
-augment extension type ET1(FinalClass _) implements FinalClass {}
+augment extension type ET1 implements FinalClass {}
 
-augment extension type ET2(BaseClass _) implements BaseClass {}
+augment extension type ET2 implements BaseClass {}
 
-augment extension type ET3(SealedClass _) implements SealedClass {}
+augment extension type ET3 implements SealedClass {}

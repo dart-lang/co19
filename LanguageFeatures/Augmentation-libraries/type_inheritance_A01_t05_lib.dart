@@ -37,7 +37,7 @@ augment extension Ext<T> {
   augment void instanceMethod<X>(X _) {}
 }
 
-augment extension type ET<T>(int id) {
+augment extension type ET<T> {
   augment static void staticMethod<X>(X _) {}
   augment void instanceMethod<X>(X _) {}
 }

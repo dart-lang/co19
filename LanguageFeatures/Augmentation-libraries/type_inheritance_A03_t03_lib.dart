@@ -51,7 +51,7 @@ augment extension Ext {
   augment static final String finalStaticVariable = "Augmented";
 }
 
-augment extension type ET(int id) {
+augment extension type ET {
   augment static String staticVariable = "Augmented";
   augment static final String finalStaticVariable = "Augmented";
 }

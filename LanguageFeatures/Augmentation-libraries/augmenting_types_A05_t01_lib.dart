@@ -63,12 +63,12 @@ augment extension Ext<T, X> {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension type ET(int _) {}
+augment extension type ET {}
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension type ET<T, X>(int _) {}
+augment extension type ET<T, X> {}
 //                        ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

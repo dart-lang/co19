@@ -45,7 +45,7 @@ augment extension Ext<T extends NumAlias> {
   augment void instanceMethod<X extends NumAlias>(X _) {}
 }
 
-augment extension type ET<T extends NumAlias>(int id) {
+augment extension type ET<T extends NumAlias> {
   augment static void staticMethod<X extends NumAlias>(X _) {}
   augment void instanceMethod<X extends NumAlias>(X _) {}
 }

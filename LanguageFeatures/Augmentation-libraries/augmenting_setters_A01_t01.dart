@@ -113,7 +113,7 @@ augment extension Ext {
   }
 }
 
-extension type ET(int _) {
+extension type ET {
   static void set staticSetter(int v) {
     _log += "Original = $v;";
   }
@@ -122,7 +122,7 @@ extension type ET(int _) {
   }
 }
 
-augment extension type ET(int _) {
+augment extension type ET {
   augment static void set staticSetter(int v) {
     augmented = v + 1;
     _log += "Augment1 = $v;";
