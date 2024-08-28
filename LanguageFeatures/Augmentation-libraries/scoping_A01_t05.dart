@@ -9,69 +9,66 @@
 /// `name` is not in the lexical scope at all, in which case it’s interpreted as
 /// `this.name` if it occurs inside a scope where a `this` is available.
 ///
-/// @description Checks that it is possible to use `this.name` and
-/// `TypeName.name` for referencing declarations in another introductory or
-/// augmenting declaration. Test a getter.
+/// @description Checks that `name` is interpreted as `this.name` if it occurs
+/// inside a scope where a `this` is available. Test a variable.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'scoping_A01_t02_lib.dart';
+import augment 'scoping_A01_t05_lib.dart';
 import '../../Utils/expect.dart';
 
-String get foo => "Should not be used!";
-String get bar => "Should not be used!";
+const foo = "Global foo";
+const bar = "Global bar";
 
 class C {
-  static String get foo => "foo";
-  String get bar => "bar";
+  static const foo = "foo";
+  String bar = "bar";
 
   void testAugmenting() {
-    Expect.equals("baz", C.baz);
-    Expect.equals("qux", this.qux);
+    Expect.equals("Global baz", baz);
+    Expect.equals("qux", qux);
   }
 }
 
 mixin M {
-  static String get foo => "foo";
-  String get bar => "bar";
+  static const foo = "foo";
+  String bar = "bar";
 
   void testAugmenting() {
-    Expect.equals("baz", C.baz);
-    Expect.equals("qux", this.qux);
+    Expect.equals("Global baz", baz);
+    Expect.equals("qux", qux);
   }
 }
 
 enum E {
   e0;
-  static String get foo => "foo";
-  String get bar => "bar";
+  static const foo = "foo";
+  final String bar = "bar";
 
   void testAugmenting() {
-    Expect.equals("baz", C.baz);
-    Expect.equals("qux", this.qux);
+    Expect.equals("Global baz", baz);
+    Expect.equals("qux", qux);
   }
 }
 
 class A {}
 
 extension Ext on A {
-  static String get foo => "foo";
-  String get bar => "bar";
+  static const foo = "foo";
 
   void testAugmenting() {
-    Expect.equals("baz", C.baz);
-    Expect.equals("qux", this.qux);
+    Expect.equals("Global baz", baz);
+    Expect.equals("Global qux", qux);
   }
 }
 
 extension type ET(String id) {
-  static String get foo => "foo";
-  String get bar => "bar";
+  static const foo = "foo";
 
   void testAugmenting() {
-    Expect.equals("baz", C.baz);
-    Expect.equals("qux", this.qux);
+    Expect.equals("Global baz", baz);
+    Expect.equals("Global qux", qux);
   }
 }
 

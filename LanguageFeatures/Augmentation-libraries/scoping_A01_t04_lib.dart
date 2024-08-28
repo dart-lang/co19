@@ -11,61 +11,64 @@
 ///
 /// @description Checks that it is possible to use `this.name` and
 /// `TypeName.name` for referencing declarations in another introductory or
-/// augmenting declaration. Test a variable.
+/// augmenting declaration. Test a method.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'scoping_A01_t01.dart';
+augment library 'scoping_A01_t04.dart';
 import '../../Utils/expect.dart';
 
-const baz = "Should not be used!";
-String qux = "Should not be used!";
+String baz() => "Should not be used!";
+String qux() => "Should not be used!";
 
 augment class C {
-  static const baz = "baz";
-  String qux = "qux";
+  static String baz() => "baz";
+  String qux() => "qux";
 
   void testIntroductory() {
-    Expect.equals("foo", C.foo);
-    Expect.equals("bar", this.bar);
+    Expect.equals("foo", C.foo());
+    Expect.equals("bar", this.bar());
   }
 }
 
 augment mixin M {
-  static const baz = "baz";
-  String qux = "qux";
+  static String baz() => "baz";
+  String qux() => "qux";
 
   void testIntroductory() {
-    Expect.equals("foo", C.foo);
-    Expect.equals("bar", this.bar);
+    Expect.equals("foo", C.foo());
+    Expect.equals("bar", this.bar());
   }
 }
 
 augment enum E {
   augment e0;
-  static const baz = "baz";
-  final String qux = "qux";
+  static String baz() => "baz";
+  String qux() => "qux";
 
   void testIntroductory() {
-    Expect.equals("foo", C.foo);
-    Expect.equals("bar", this.bar);
+    Expect.equals("foo", C.foo());
+    Expect.equals("bar", this.bar());
   }
 }
 
 augment extension Ext {
-  static const baz = "baz";
+  static String baz() => "baz";
+  String qux() => "qux";
 
   void testIntroductory() {
-    Expect.equals("foo", C.foo);
+    Expect.equals("foo", C.foo());
+    Expect.equals("bar", this.bar());
   }
 }
 
 augment extension type ET {
-  static const baz = "baz";
+  static String baz() => "baz";
+  String qux() => "qux";
 
   void testIntroductory() {
-    Expect.equals("foo", C.foo);
-    Expect.equals("id", this.id);
+    Expect.equals("foo", C.foo());
+    Expect.equals("bar", this.bar());
   }
 }

@@ -11,67 +11,103 @@
 ///
 /// @description Checks that it is possible to use `this.name` and
 /// `TypeName.name` for referencing declarations in another introductory or
-/// augmenting declaration. Test a getter.
+/// augmenting declaration. Test a setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'scoping_A01_t02_lib.dart';
+import augment 'scoping_A01_t03_lib.dart';
 import '../../Utils/expect.dart';
 
-String get foo => "Should not be used!";
-String get bar => "Should not be used!";
+String _log = "";
+
+void set foo(String _) {
+  _log = "Should not be used!";
+}
+void set bar(String _) {
+  _log = "Should not be used!";
+}
 
 class C {
-  static String get foo => "foo";
-  String get bar => "bar";
+  static void set foo(String _) {
+    _log = "foo";
+  }
+  void set bar(String _) {
+    _log = "bar";
+  }
 
   void testAugmenting() {
-    Expect.equals("baz", C.baz);
-    Expect.equals("qux", this.qux);
+    C.baz = "";
+    Expect.equals("baz", _log);
+    this.qux = "";
+    Expect.equals("qux", _log);
   }
 }
 
 mixin M {
-  static String get foo => "foo";
-  String get bar => "bar";
+  static void set foo(String _) {
+    _log = "foo";
+  }
+  void set bar(String _) {
+    _log = "bar";
+  }
 
   void testAugmenting() {
-    Expect.equals("baz", C.baz);
-    Expect.equals("qux", this.qux);
+    C.baz = "";
+    Expect.equals("baz", _log);
+    this.qux = "";
+    Expect.equals("qux", _log);
   }
 }
 
 enum E {
   e0;
-  static String get foo => "foo";
-  String get bar => "bar";
+  static void set foo(String _) {
+    _log = "foo";
+  }
+  void set bar(String _) {
+    _log = "bar";
+  }
 
   void testAugmenting() {
-    Expect.equals("baz", C.baz);
-    Expect.equals("qux", this.qux);
+    C.baz = "";
+    Expect.equals("baz", _log);
+    this.qux = "";
+    Expect.equals("qux", _log);
   }
 }
 
 class A {}
 
 extension Ext on A {
-  static String get foo => "foo";
-  String get bar => "bar";
+  static void set foo(String _) {
+    _log = "foo";
+  }
+  void set bar(String _) {
+    _log = "bar";
+  }
 
   void testAugmenting() {
-    Expect.equals("baz", C.baz);
-    Expect.equals("qux", this.qux);
+    C.baz = "";
+    Expect.equals("baz", _log);
+    this.qux = "";
+    Expect.equals("qux", _log);
   }
 }
 
 extension type ET(String id) {
-  static String get foo => "foo";
-  String get bar => "bar";
+  static void set foo(String _) {
+    _log = "foo";
+  }
+  void set bar(String _) {
+    _log = "bar";
+  }
 
   void testAugmenting() {
-    Expect.equals("baz", C.baz);
-    Expect.equals("qux", this.qux);
+    C.baz = "";
+    Expect.equals("baz", _log);
+    this.qux = "";
+    Expect.equals("qux", _log);
   }
 }
 

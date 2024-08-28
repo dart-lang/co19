@@ -16,112 +16,89 @@
 augment library 'scoping_A02_t02.dart';
 
 augment class C {
-  static String augmentingStatic = "augmentingStatic";
-//              ^^^^^^^^^^^^^^^^
+  static String foo = "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String get augmentingStaticGetter => "augmentingStaticGetter";
-//                  ^^^^^^^^^^^^^^^^^^^^^^
+  static String get bar => "";
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void set augmentingStaticSetter(String _) {}
-//                ^^^^^^^^^^^^^^^^^^^^^^
+  static void set baz(String _) {}
+//                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String augmentingStaticMethod() => "augmentingStaticMethod";
-//              ^^^^^^^^^^^^^^^^^^^^^^
+  static String qux() => "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  String augmentingInstance = "augmentingInstance";
-  String get augmentingGetter => "augmentingGetter";
-  void set augmentingSetter(String _) {}
-  String augmentingMethod() => "augmentingMethod";
 }
 
 augment mixin M {
-  static String augmentingStatic = "augmentingStatic";
-//              ^^^^^^^^^^^^^^^^
+  static String foo = "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String get augmentingStaticGetter => "augmentingStaticGetter";
-//                  ^^^^^^^^^^^^^^^^^^^^^^
+  static String get bar => "";
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void set augmentingStaticSetter(String _) {}
-//                ^^^^^^^^^^^^^^^^^^^^^^
+  static void set baz(String _) {}
+//                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String augmentingStaticMethod() => "augmentingStaticMethod";
-//              ^^^^^^^^^^^^^^^^^^^^^^
+  static String qux() => "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  String augmentingInstance = "augmentingInstance";
-  String get augmentingGetter => "augmentingGetter";
-  void set augmentingSetter(String _) {}
-  String augmentingMethod() => "augmentingMethod";
 }
 
 augment enum E {
   augment e0;
-  static final String augmentingStatic = "augmentingStatic";
-//              ^^^^^^^^^^^^^^^^
+  static final String foo = "";
+//                    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String get augmentingStaticGetter => "augmentingStaticGetter";
-//                  ^^^^^^^^^^^^^^^^^^^^^^
+  static String get bar => "";
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void set augmentingStaticSetter(String _) {}
-//                ^^^^^^^^^^^^^^^^^^^^^^
+  static void set baz(String _) {}
+//                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String augmentingStaticMethod() => "augmentingStaticMethod";
-//              ^^^^^^^^^^^^^^^^^^^^^^
+  static String qux() => "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  final String augmentingInstance = "augmentingInstance";
-  String get augmentingGetter => "augmentingGetter";
-  void set augmentingSetter(String _) {}
-  String augmentingMethod() => "augmentingMethod";
 }
 
 augment extension Ext {
-  static String get augmentingStaticGetter => "augmentingStaticGetter";
-//                  ^^^^^^^^^^^^^^^^^^^^^^
+  static String get bar => "";
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void set augmentingStaticSetter(String _) {}
-//                ^^^^^^^^^^^^^^^^^^^^^^
+  static void set baz(String _) {}
+//                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String augmentingStaticMethod() => "augmentingStaticMethod";
-//              ^^^^^^^^^^^^^^^^^^^^^^
+  static String qux() => "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  String get augmentingGetter => "augmentingGetter";
-  void set augmentingSetter(String _) {}
-  String augmentingMethod() => "augmentingMethod";
 }
 
 augment extension type ET {
-  static String get augmentingStaticGetter => "augmentingStaticGetter";
-//                  ^^^^^^^^^^^^^^^^^^^^^^
+  static String get bar => "";
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void set augmentingStaticSetter(String _) {}
-//                ^^^^^^^^^^^^^^^^^^^^^^
+  static void set baz(String _) {}
+//                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String augmentingStaticMethod() => "augmentingStaticMethod";
-//              ^^^^^^^^^^^^^^^^^^^^^^
+  static String qux() => "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  String get augmentingGetter => "augmentingGetter";
-  void set augmentingSetter(String _) {}
-  String augmentingMethod() => "augmentingMethod";
 }

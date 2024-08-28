@@ -11,7 +11,7 @@
 ///
 /// @description Checks that it is possible to use `this.name` and
 /// `TypeName.name` for referencing declarations in another introductory or
-/// augmenting declarations.
+/// augmenting declaration. Test a variable.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -19,168 +19,55 @@
 import augment 'scoping_A01_t01_lib.dart';
 import '../../Utils/expect.dart';
 
-String _log = "";
-
-const introductoryStatic = "Should not be used!";
-String get introductoryStaticGetter => "Should not be used!";
-void set introductoryStaticSetter(String _) {
-  _log = "Should not be used!";
-}
-String introductoryStaticMethod() => "Should not be used!";
-
-const introductoryInstance = "Should not be used!";
-String get introductoryGetter => "Should not be used!";
-void set introductorySetter(String _) {
-  _log = "Should not be used!";
-}
-String introductoryMethod() => "Should not be used!";
+const foo = "Should not be used!";
+const bar = "Should not be used!";
 
 class C {
-  static const introductoryStatic = "introductoryStatic";
-  static String get introductoryStaticGetter => "introductoryStaticGetter";
-  static void set introductoryStaticSetter(String _) {
-    _log = "introductoryStaticSetter";
-  }
-  static String introductoryStaticMethod() => "introductoryStaticMethod";
-
-  String introductoryInstance = "introductoryInstance";
-  String get introductoryGetter => "introductoryGetter";
-  void set introductorySetter(String _) {
-    _log = "introductorySetter";
-  }
-  String introductoryMethod() => "introductoryMethod";
+  static const foo = "foo";
+  String bar = "bar";
 
   void testAugmenting() {
-    Expect.equals("augmentingStatic", C.augmentingStatic);
-    Expect.equals("augmentingStaticGetter", C.augmentingStaticGetter);
-    C.augmentingStaticSetter = "";
-    Expect.equals("augmentingStaticSetter", _log);
-    Expect.equals("augmentingStaticMethod", C.augmentingStaticMethod());
-
-    Expect.equals("augmentingInstance", this.augmentingInstance);
-    Expect.equals("augmentingGetter", this.augmentingGetter);
-    this.augmentingSetter = "";
-    Expect.equals("augmentingSetter", _log);
-    Expect.equals("augmentingMethod", this.augmentingMethod());
+    Expect.equals("baz", C.baz);
+    Expect.equals("qux", this.qux);
   }
 }
 
 mixin M {
-  static const introductoryStatic = "introductoryStatic";
-  static String get introductoryStaticGetter => "introductoryStaticGetter";
-  static void set introductoryStaticSetter(String _) {
-    _log = "introductoryStaticSetter";
-  }
-  static String introductoryStaticMethod() => "introductoryStaticMethod";
-
-  String introductoryInstance = "introductoryInstance";
-  String get introductoryGetter => "introductoryGetter";
-  void set introductorySetter(String _) {
-    _log = "introductorySetter";
-  }
-  String introductoryMethod() => "introductoryMethod";
+  static const foo = "foo";
+  String bar = "bar";
 
   void testAugmenting() {
-    Expect.equals("augmentingStatic", M.augmentingStatic);
-    Expect.equals("augmentingStaticGetter", M.augmentingStaticGetter);
-    M.augmentingStaticSetter = "";
-    Expect.equals("augmentingStaticSetter", _log);
-    Expect.equals("augmentingStaticMethod", M.augmentingStaticMethod());
-
-    Expect.equals("augmentingInstance", this.augmentingInstance);
-    Expect.equals("augmentingGetter", this.augmentingGetter);
-    this.augmentingSetter = "";
-    Expect.equals("augmentingSetter", _log);
-    Expect.equals("augmentingMethod", this.augmentingMethod());
+    Expect.equals("baz", C.baz);
+    Expect.equals("qux", this.qux);
   }
 }
 
 enum E {
   e0;
-  static const introductoryStatic = "introductoryStatic";
-  static String get introductoryStaticGetter => "introductoryStaticGetter";
-  static void set introductoryStaticSetter(String _) {
-    _log = "introductoryStaticSetter";
-  }
-  static String introductoryStaticMethod() => "introductoryStaticMethod";
-
-  final String introductoryInstance = "introductoryInstance";
-  String get introductoryGetter => "introductoryGetter";
-  void set introductorySetter(String _) {
-    _log = "introductorySetter";
-  }
-  String introductoryMethod() => "introductoryMethod";
+  static const foo = "foo";
+  final String bar = "bar";
 
   void testAugmenting() {
-    Expect.equals("augmentingStatic", E.augmentingStatic);
-    Expect.equals("augmentingStaticGetter", E.augmentingStaticGetter);
-    E.augmentingStaticSetter = "";
-    Expect.equals("augmentingStaticSetter", _log);
-    Expect.equals("augmentingStaticMethod", E.augmentingStaticMethod());
-
-    Expect.equals("augmentingInstance", this.augmentingInstance);
-    Expect.equals("augmentingGetter", this.augmentingGetter);
-    this.augmentingSetter = "";
-    Expect.equals("augmentingSetter", _log);
-    Expect.equals("augmentingMethod", this.augmentingMethod());
+    Expect.equals("baz", C.baz);
+    Expect.equals("qux", this.qux);
   }
 }
 
 class A {}
 
 extension Ext on A {
-  static const introductoryStatic = "introductoryStatic";
-  static String get introductoryStaticGetter => "introductoryStaticGetter";
-  static void set introductoryStaticSetter(String _) {
-    _log = "introductoryStaticSetter";
-  }
-  static String introductoryStaticMethod() => "introductoryStaticMethod";
-
-  String get introductoryGetter => "introductoryGetter";
-  void set introductorySetter(String _) {
-    _log = "introductorySetter";
-  }
-  String introductoryMethod() => "introductoryMethod";
+  static const foo = "foo";
 
   void testAugmenting() {
-    Expect.equals("augmentingStatic", Ext.augmentingStatic);
-    Expect.equals("augmentingStaticGetter", Ext.augmentingStaticGetter);
-    Ext.augmentingStaticSetter = "";
-    Expect.equals("augmentingStaticSetter", _log);
-    Expect.equals("augmentingStaticMethod", Ext.augmentingStaticMethod());
-
-    Expect.equals("augmentingGetter", this.augmentingGetter);
-    this.augmentingSetter = "";
-    Expect.equals("augmentingSetter", _log);
-    Expect.equals("augmentingMethod", this.augmentingMethod());
+    Expect.equals("baz", C.baz);
   }
 }
 
 extension type ET(String id) {
-  static const introductoryStatic = "introductoryStatic";
-  static String get introductoryStaticGetter => "introductoryStaticGetter";
-  static void set introductoryStaticSetter(String _) {
-    _log = "introductoryStaticSetter";
-  }
-  static String introductoryStaticMethod() => "introductoryStaticMethod";
-
-  String get introductoryGetter => "introductoryGetter";
-  void set introductorySetter(String _) {
-    _log = "introductorySetter";
-  }
-  String introductoryMethod() => "introductoryMethod";
+  static const foo = "foo";
 
   void testAugmenting() {
-    Expect.equals("augmentingStatic", ET.augmentingStatic);
-    Expect.equals("augmentingStaticGetter", ET.augmentingStaticGetter);
-    ET.augmentingStaticSetter = "";
-    Expect.equals("augmentingStaticSetter", _log);
-    Expect.equals("augmentingStaticMethod", ET.augmentingStaticMethod());
-
-    Expect.equals("augmentingGetter", this.augmentingGetter);
-    this.augmentingSetter = "";
-    Expect.equals("augmentingSetter", _log);
-    Expect.equals("augmentingMethod", this.augmentingMethod());
+    Expect.equals("baz", C.baz);
   }
 }
 

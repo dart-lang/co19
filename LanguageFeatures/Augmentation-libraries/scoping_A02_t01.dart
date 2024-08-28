@@ -16,116 +16,93 @@
 import augment 'scoping_A02_t01_lib.dart';
 
 class C {
-  static String introductoryStatic = "introductoryStatic";
-//              ^^^^^^^^^^^^^^^^^^
+  static String foo = "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String get introductoryStaticGetter => "introductoryStaticGetter";
-//                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  static String get bar => "";
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void set introductoryStaticSetter(String _) {}
-//                ^^^^^^^^^^^^^^^^^^^^^^^^
+  static void set baz(String _) {}
+//                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String introductoryStaticMethod() => "introductoryStaticMethod";
-//              ^^^^^^^^^^^^^^^^^^^^^^^^
+  static String qux() => "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  String introductoryInstance = "introductoryInstance";
-  String get introductoryGetter => "introductoryGetter";
-  void set introductorySetter(String _) {}
-  String introductoryMethod() => "introductoryMethod";
 }
 
 mixin M {
-  static String introductoryStatic = "introductoryStatic";
-//              ^^^^^^^^^^^^^^^^^^
+  static String foo = "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String get introductoryStaticGetter => "introductoryStaticGetter";
-//                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  static String get bar => "";
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void set introductoryStaticSetter(String _) {}
-//                ^^^^^^^^^^^^^^^^^^^^^^^^
+  static void set baz(String _) {}
+//                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String introductoryStaticMethod() => "introductoryStaticMethod";
-//              ^^^^^^^^^^^^^^^^^^^^^^^^
+  static String qux() => "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  String introductoryInstance = "introductoryInstance";
-  String get introductoryGetter => "introductoryGetter";
-  void set introductorySetter(String _) {}
-  String introductoryMethod() => "introductoryMethod";
 }
 
 enum E {
   e0;
-  static String introductoryStatic = "introductoryStatic";
-//              ^^^^^^^^^^^^^^^^^^
+  static final String foo = "";
+//                    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String get introductoryStaticGetter => "introductoryStaticGetter";
-//                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  static String get bar => "";
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void set introductoryStaticSetter(String _) {}
-//                ^^^^^^^^^^^^^^^^^^^^^^^^
+  static void set baz(String _) {}
+//                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String introductoryStaticMethod() => "introductoryStaticMethod";
-//              ^^^^^^^^^^^^^^^^^^^^^^^^
+  static String qux() => "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  final String introductoryInstance = "introductoryInstance";
-  String get introductoryGetter => "introductoryGetter";
-  void set introductorySetter(String _) {}
-  String introductoryMethod() => "introductoryMethod";
 }
 
 class A {}
 
 extension Ext on A {
-  static String get introductoryStaticGetter => "introductoryStaticGetter";
-//                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  static String get bar => "";
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void set introductoryStaticSetter(String _) {}
-//                ^^^^^^^^^^^^^^^^^^^^^^^^
+  static void set baz(String _) {}
+//                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String introductoryStaticMethod() => "introductoryStaticMethod";
-//              ^^^^^^^^^^^^^^^^^^^^^^^^
+  static String qux() => "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  String get introductoryGetter => "introductoryGetter";
-  void set introductorySetter(String _) {}
-  String introductoryMethod() => "introductoryMethod";
 }
 
 extension type ET(String id) {
-  static String get introductoryStaticGetter => "introductoryStaticGetter";
-//                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  static String get bar => "";
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void set introductoryStaticSetter(String _) {}
-//                ^^^^^^^^^^^^^^^^^^^^^^^^
+  static void set baz(String _) {}
+//                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static String introductoryStaticMethod() => "introductoryStaticMethod";
-//              ^^^^^^^^^^^^^^^^^^^^^^^^
+  static String qux() => "";
+//              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  String get introductoryGetter => "introductoryGetter";
-  void set introductorySetter(String _) {}
-  String introductoryMethod() => "introductoryMethod";
 }
 
 main() {
