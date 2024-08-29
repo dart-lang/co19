@@ -67,7 +67,7 @@ augment extension Ext {
   augment String instanceMethod3(dynamic v) => "augmented $v";
 }
 
-augment extension type ET(int _) {
+augment extension type ET {
   augment static dynamic staticMethod1() => "augmented";
   augment static String staticMethod2(dynamic s0) => "augmented $s0";
   augment static String staticMethod3(dynamic v) => "augmented $v";

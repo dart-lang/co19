@@ -15,7 +15,7 @@
 
 augment library 'augmenting_functions_A03_t06.dart';
 
-augment extension type ET(int id) {
+augment extension type ET {
   augment static String staticMethod1() {
     _log += augmented();
     _log += "augmented;";

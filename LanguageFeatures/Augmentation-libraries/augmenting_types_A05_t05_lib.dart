@@ -33,4 +33,4 @@ augment extension Ext<T extends p.AL> {
   Type get type => T;
 }
 
-augment extension type ET<T extends p.AL>(int _) {}
+augment extension type ET<T extends p.AL> {}

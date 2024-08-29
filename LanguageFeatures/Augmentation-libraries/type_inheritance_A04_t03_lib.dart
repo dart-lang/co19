@@ -83,7 +83,7 @@ augment extension Ext {
   }
 }
 
-augment extension type ET(int id) {
+augment extension type ET {
   augment static void staticMethod(final dynamic v) {
     _log = "Augmented $v";
   }

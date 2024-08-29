@@ -47,7 +47,7 @@ augment extension Ext {
   augment instanceMethod() => "Augmented instance method";
 }
 
-augment extension type ET(int id) {
+augment extension type ET {
   augment static get staticGetter => "Augmented static getter";
   augment static staticMethod() => "Augmented static method";
   augment get instanceGetter => "Augmented instance getter";

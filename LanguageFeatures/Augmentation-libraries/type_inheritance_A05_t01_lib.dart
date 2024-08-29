@@ -81,7 +81,7 @@ augment extension Ext<T extends Object> {
 // [cfe] unspecified
 }
 
-augment extension type ET<T extends int>(int id) {
+augment extension type ET<T extends int> {
 //                                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -38,7 +38,7 @@ augment extension Ext {
   augment String instanceMethod();
 }
 
-augment extension type ET(int _) {
+augment extension type ET {
   augment static String staticMethod();
   augment String instanceMethod();
 }

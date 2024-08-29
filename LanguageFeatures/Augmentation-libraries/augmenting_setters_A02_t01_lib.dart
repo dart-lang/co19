@@ -37,7 +37,7 @@ augment extension Ext {
   augment void set instanceSetter(int v);
 }
 
-augment extension type ET(int _) {
+augment extension type ET {
   augment static void set staticSetter(int v);
   augment void set instanceSetter(int v);
 }

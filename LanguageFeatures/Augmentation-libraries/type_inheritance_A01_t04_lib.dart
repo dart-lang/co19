@@ -102,7 +102,7 @@ augment extension Ext {
   }
 }
 
-augment extension type ET(int id) {
+augment extension type ET {
   augment static void staticMethod(v) {
     v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";

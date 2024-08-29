@@ -62,7 +62,7 @@ augment extension Ext {
   }
 }
 
-augment extension type ET(int _) {
+augment extension type ET {
   augment static void staticMethod({required int i}) {
     _log = "i=$i";
   }

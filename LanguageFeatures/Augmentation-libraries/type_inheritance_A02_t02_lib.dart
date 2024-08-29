@@ -54,7 +54,7 @@ augment extension Ext {
   augment dynamic instanceMethod() => 18;
 }
 
-augment extension type ET(int id) {
+augment extension type ET {
   augment static dynamic get staticGetter => 19;
   augment static dynamic staticMethod() => 20;
   augment dynamic get instanceGetter => 21;

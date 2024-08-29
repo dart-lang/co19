@@ -108,7 +108,7 @@ augment extension Ext {
 // [cfe] unspecified
 }
 
-augment extension type ET(num id) {
+augment extension type ET {
   augment static Object get staticGetter => 0;
 //               ^^^^^^
 // [analyzer] unspecified

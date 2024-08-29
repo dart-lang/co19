@@ -89,7 +89,7 @@ extension type ET(int _) {
   static int staticVariable = -1;
 }
 
-augment extension type ET(int _) {
+augment extension type ET {
   augment static void set staticVariable(int v) {
     augmented = v + 1;
     _log += "Augment1 = $v;";

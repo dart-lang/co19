@@ -37,6 +37,6 @@ augment extension Ext {
   augment static void set staticVariable(String v) {}
 }
 
-augment extension type ET(int _) {
+augment extension type ET {
   augment static void set staticVariable(String v) {}
 }

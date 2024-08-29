@@ -85,17 +85,17 @@ augment extension Ext<Y extends A, X> {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension type ET<X extends A, Z>(int _) {}
+augment extension type ET<X extends A, Z> {}
 //                                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension type ET<T extends A, Y>(int _) {}
+augment extension type ET<T extends A, Y> {}
 //                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension type ET<Y extends A, X>(int _) {}
+augment extension type ET<Y extends A, X> {}
 //                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
