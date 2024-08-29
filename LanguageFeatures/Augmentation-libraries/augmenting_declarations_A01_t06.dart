@@ -28,8 +28,8 @@ class C1 extends A {}
 class C2 with A {}
 
 augment class C1 {
-  augment void instanceVariable;
-//             ^^^^^^^^^^^^^^^^
+  augment int instanceVariable;
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment void instanceMethod() {}
@@ -47,8 +47,8 @@ augment class C1 {
 }
 
 augment class C2 {
-  augment void instanceVariable;
-//             ^^^^^^^^^^^^^^^^
+  augment int instanceVariable;
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment void instanceMethod() {}
