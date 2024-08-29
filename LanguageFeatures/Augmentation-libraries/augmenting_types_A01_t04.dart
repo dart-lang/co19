@@ -20,18 +20,10 @@ import augment 'augmenting_types_A01_t04_lib.dart';
 
 class A {}
 
-mixin M1 {}
+mixin M {}
 
-mixin M2 on A {}
-
-class C1 = A with M1;
-
-class C2 = A with M1;
-
-class C3 {}
+class C = A with M;
 
 main() {
-  print(C1);
-  print(C2);
-  print(C3);
+  print(C);
 }

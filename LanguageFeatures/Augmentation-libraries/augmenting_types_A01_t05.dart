@@ -10,15 +10,19 @@
 ///   extension or extension type declaration, and the other is not the same
 ///   kind of declaration.
 ///
-/// @description Checks that it is a compile-time error to augment a mixin
-/// application class with `=` syntax.
+/// @description Checks that `augment class C = ...` is a syntax error.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A01_t04.dart';
+import augment 'augmenting_types_A01_t05_lib.dart';
 
-augment class C {}
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
+class A {}
+
+mixin M on A {}
+
+class C = A with M;
+
+main() {
+  print(C);
+}
