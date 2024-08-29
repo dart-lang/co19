@@ -113,7 +113,7 @@ augment extension Ext {
   }
 }
 
-extension type ET {
+extension type ET(int _) {
   static void set staticSetter(int v) {
     _log += "Original = $v;";
   }
