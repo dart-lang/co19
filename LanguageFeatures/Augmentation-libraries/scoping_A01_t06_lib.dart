@@ -26,8 +26,10 @@ augment class C {
   String get qux => "qux";
 
   void testIntroductory() {
+    Expect.equals("Global baz", baz);
+    Expect.equals("qux", qux);
     Expect.equals("Global foo", foo);
-    Expect.equals("bar", bar);
+    Expect.equals("Global bar", bar);
   }
 }
 
@@ -36,8 +38,10 @@ augment mixin M {
   String get qux => "qux";
 
   void testIntroductory() {
+    Expect.equals("Global baz", baz);
+    Expect.equals("qux", qux);
     Expect.equals("Global foo", foo);
-    Expect.equals("bar", bar);
+    Expect.equals("Global bar", bar);
   }
 }
 
@@ -47,8 +51,10 @@ augment enum E {
   String get qux => "qux";
 
   void testIntroductory() {
+    Expect.equals("Global baz", baz);
+    Expect.equals("qux", qux);
     Expect.equals("Global foo", foo);
-    Expect.equals("bar", bar);
+    Expect.equals("Global bar", bar);
   }
 }
 
@@ -57,8 +63,10 @@ augment extension Ext {
   String get qux => "qux";
 
   void testIntroductory() {
+    Expect.equals("Global baz", baz);
+    Expect.equals("qux", qux);
     Expect.equals("Global foo", foo);
-    Expect.equals("bar", bar);
+    Expect.equals("Global bar", bar);
   }
 }
 
@@ -67,7 +75,9 @@ augment extension type ET {
   String get qux => "qux";
 
   void testIntroductory() {
+    Expect.equals("Global baz", baz);
+    Expect.equals("qux", qux);
     Expect.equals("Global foo", foo);
-    Expect.equals("bar", bar);
+    Expect.equals("Global bar", bar);
   }
 }

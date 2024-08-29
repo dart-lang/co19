@@ -33,11 +33,15 @@ augment class C {
     _log = "qux";
   }
 
-  void testAugmenting() {
+  void testIntroductory() {
+    baz = "";
+    Expect.equals("Global baz", _log);
+    qux = "";
+    Expect.equals("qux", _log);
     foo = "";
     Expect.equals("Global foo", _log);
     bar = "";
-    Expect.equals("bar", _log);
+    Expect.equals("Global bar", _log);
   }
 }
 
@@ -49,11 +53,15 @@ augment mixin M {
     _log = "qux";
   }
 
-  void testAugmenting() {
+  void testIntroductory() {
+    baz = "";
+    Expect.equals("Global baz", _log);
+    qux = "";
+    Expect.equals("qux", _log);
     foo = "";
     Expect.equals("Global foo", _log);
     bar = "";
-    Expect.equals("bar", _log);
+    Expect.equals("Global bar", _log);
   }
 }
 
@@ -66,11 +74,15 @@ augment enum E {
     _log = "qux";
   }
 
-  void testAugmenting() {
+  void testIntroductory() {
+    baz = "";
+    Expect.equals("Global baz", _log);
+    qux = "";
+    Expect.equals("qux", _log);
     foo = "";
     Expect.equals("Global foo", _log);
     bar = "";
-    Expect.equals("bar", _log);
+    Expect.equals("Global bar", _log);
   }
 }
 
@@ -82,7 +94,11 @@ augment extension Ext {
     _log = "qux";
   }
 
-  void testAugmenting() {
+  void testIntroductory() {
+    baz = "";
+    Expect.equals("Global baz", _log);
+    qux = "";
+    Expect.equals("qux", _log);
     foo = "";
     Expect.equals("Global foo", _log);
     bar = "";
@@ -98,7 +114,11 @@ augment extension type ET {
     _log = "qux";
   }
 
-  void testAugmenting() {
+  void testIntroductory() {
+    baz = "";
+    Expect.equals("Global baz", _log);
+    qux = "";
+    Expect.equals("qux", _log);
     foo = "";
     Expect.equals("Global foo", _log);
     bar = "";

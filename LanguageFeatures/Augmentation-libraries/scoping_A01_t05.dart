@@ -26,8 +26,10 @@ class C {
   String bar = "bar";
 
   void testAugmenting() {
+    Expect.equals("Global foo", foo);
+    Expect.equals("bar", bar);
     Expect.equals("Global baz", baz);
-    Expect.equals("qux", qux);
+    Expect.equals("Global qux", qux);
   }
 }
 
@@ -36,8 +38,10 @@ mixin M {
   String bar = "bar";
 
   void testAugmenting() {
+    Expect.equals("Global foo", foo);
+    Expect.equals("bar", bar);
     Expect.equals("Global baz", baz);
-    Expect.equals("qux", qux);
+    Expect.equals("Global qux", qux);
   }
 }
 
@@ -47,8 +51,10 @@ enum E {
   final String bar = "bar";
 
   void testAugmenting() {
+    Expect.equals("Global foo", foo);
+    Expect.equals("bar", bar);
     Expect.equals("Global baz", baz);
-    Expect.equals("qux", qux);
+    Expect.equals("Global qux", qux);
   }
 }
 
@@ -58,6 +64,7 @@ extension Ext on A {
   static const foo = "foo";
 
   void testAugmenting() {
+    Expect.equals("Global foo", foo);
     Expect.equals("Global baz", baz);
     Expect.equals("Global qux", qux);
   }
@@ -67,6 +74,8 @@ extension type ET(String id) {
   static const foo = "foo";
 
   void testAugmenting() {
+    Expect.equals("id", id);
+    Expect.equals("Global foo", foo);
     Expect.equals("Global baz", baz);
     Expect.equals("Global qux", qux);
   }
