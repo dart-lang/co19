@@ -6,15 +6,16 @@
 /// A simple identifier in any context named _ is treated as a wildcard variable
 /// pattern.
 ///
-/// @description Checks that a simple identifier in aa assignment context named
-/// _ is treated as a wildcard variable pattern.
+/// @description Checks that a simple identifier in an assignment context named
+/// `_` is treated as a wildcard variable pattern.
 /// @author sgrekhov22@gmail.com
 
 import "../../Utils/expect.dart";
 import "patterns_lib.dart";
 
+int _ = 0;
+
 main() {
-  int _ = 0;
   int a = 0;
   String s = "";
 

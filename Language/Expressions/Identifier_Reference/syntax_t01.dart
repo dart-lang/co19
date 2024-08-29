@@ -35,8 +35,6 @@
 /// ;
 /// @description Checks various identifiers.
 /// @author msyabro
-/// @reviewer kaigorodov
-
 
 main() {
   var x, _x, $x, x1y2, $$$, _12, ___, $, _, $1_;
@@ -46,7 +44,6 @@ main() {
   x1y2;
   $$$;
   _12;
-  _;
   $;
   ___;
   $1_;

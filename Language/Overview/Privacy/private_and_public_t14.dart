@@ -17,15 +17,15 @@
 import "../../../Utils/expect.dart";
 
 class A {
-  fun(_, _$, ___) {return _ + _$ + ___;}
-  static staticfun(_, _$, __) {return _ + _$ + __;}
+  fun(_x, _$, ___) {return _x + _$ + ___;}
+  static staticfun(_x, _$, __) {return _x + _$ + __;}
 
   var _check;
   var __;
-  A(_, _$, this.__) : _check = _ + _$ {}
-  A.named(_, _$, ___) : _check = _ + _$ + ___ {}
+  A(_x, _$, this.__) : _check = _x + _$ {}
+  A.named(_x, _$, ___) : _check = _x + _$ + ___ {}
 
-  void set _setter(_) {__ = _;}
+  void set _setter(_x) {__ = _x;}
 }
 
 
