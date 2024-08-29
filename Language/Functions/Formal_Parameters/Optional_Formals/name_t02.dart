@@ -30,4 +30,7 @@ class C {
 main() {
   new A(_p: "Optional parameter names must not begin with an underscore!");
   new C(_: "Optional parameter names must not begin with an underscore!");
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

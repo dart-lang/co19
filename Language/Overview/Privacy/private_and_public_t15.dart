@@ -14,15 +14,14 @@
 /// and are still accessible in the appropriate scope.
 /// @author iefremov
 
-
-class G<_, _$, __> {
-  _? x = null;
+class G<_x, _$, __> {
+  _x? x = null;
   _$? y = null;
   __? z;
 }
 
 class G2<A, B, C> extends G<A, B, C> {}
-class G3<_> extends G<_, _, _>{}
+class G3<_X> extends G<_X, _X, _X>{}
 
 main() {
   new G<int, String, double>();
