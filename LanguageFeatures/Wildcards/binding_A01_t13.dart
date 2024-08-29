@@ -5,8 +5,9 @@
 /// @assertion A local declaration whose name is `_` does not bind that name to
 /// anything.
 ///
-/// @description Checks that it is a compile-time error to use a variable named
-/// `_` in a string literal.
+/// @description Checks that an identifier reference of the form `_` in a string
+/// literal does not resolve to a local variable which is a wildcard since there
+/// is no such binding.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=wildcard-variables
