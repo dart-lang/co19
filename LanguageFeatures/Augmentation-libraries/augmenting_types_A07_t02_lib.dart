@@ -10,15 +10,15 @@
 /// after this appending process, so you cannot have multiple `extends` on a
 /// class, or an `on` clause on an enum, etc.
 ///
-/// @description Checks that a class, mixin and enum augment may specify an
-/// additional `implements` clause
+/// @description Checks that a class, mixin, enum and extension type
+/// augmentations may specify additional `implements` clauses.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
 augment library 'augmenting_types_A07_t02.dart';
 
-interface class I2 {
+abstract interface class I2 implements I0 {
   String get id2 => "I2";
 }
 
@@ -33,4 +33,8 @@ augment mixin M implements I2 {
 augment enum E implements I2 {
   augment e1;
   String get id2 => "I2 from E";
+}
+
+augment extension type ET implements I2 {
+  String get id2 => "I2 from ET";
 }

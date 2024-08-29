@@ -8,48 +8,34 @@
 /// augmentation can add new members to an existing type.
 ///
 /// @description Checks that it is a compile-time error if an augment of a
-/// class, mixin, extension, enum or an extension type adds a static member but
-/// there is an existing static member with the same name.
+/// class, mixin, extension, enum or an extension type adds an instance member
+/// but there is an existing static member with the same name.
 /// @author sgrekhov22@gmail.com
+/// @issue 55452
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A10_t05.dart';
+augment library 'augmenting_types_A10_t03.dart';
 
 augment class C {
-  static int foo() => 42;
-//       ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  int foo() => 42;
 }
 
 augment mixin M {
-  static int foo() => 42;
-//           ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  int foo() => 42;
 }
 
 augment enum E {
   augment e1;
-  static int foo() => 42;
-//           ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  int foo() => 42;
 }
 
 augment extension ExtA {
-  static int get foo => 42; // No error, no conflict with A.foo()
+  int get foo => 42; // No error, no conflict with A.foo()
 
-  static void set bar(String _) {}
-//                ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  void set bar(String _) {}
 }
 
 augment extension type ET {
-  static int get foo => 42;
-//               ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  int get foo => 42;
 }

@@ -7,9 +7,9 @@
 /// corresponding type in the augmented library. In other words, the
 /// augmentation can add new members to an existing type.
 ///
-/// @description Checks that static members defined in the body of an augment
-/// of a class, mixin, extension, or enum are added to the static namespace of
-/// the corresponding type in the augmented library
+/// @description Checks that static members defined in the body of an augment of
+/// a class, mixin, extension, enum or an extension type are added to a static
+/// namespace of the corresponding type in the augmented library.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -19,24 +19,40 @@ augment library 'augmenting_types_A10_t04.dart';
 augment class C {
   static String method() => "C";
   static String get getter => "get C";
-  static void set setter(String v) {}
+  static void set setter(String v) {
+    _log = "set C";
+  }
 }
 
 augment mixin M {
   static String method() => "M";
   static String get getter => "get M";
-  static void set setter(String v) {}
+  static void set setter(String v) {
+    _log = "set M";
+  }
 }
 
 augment enum E {
   augment e1;
   static String method() => "E";
   static String get getter => "get E";
-  static void set setter(String v) {}
+  static void set setter(String v) {
+    _log = "set E";
+  }
 }
 
 augment extension ExtA {
   static String method() => "ExtA";
   static String get getter => "get ExtA";
-  static void set setter(String v) {}
+  static void set setter(String v) {
+    _log = "set ExtA";
+  }
+}
+
+augment extension type ET {
+  static String method() => "ET";
+  static String get getter => "get ET";
+  static void set setter(String v) {
+    _log = "set ET";
+  }
 }

@@ -41,3 +41,8 @@ augment enum E implements I {
 // [cfe] unspecified
   augment e1;
 }
+
+augment extension type ET implements I {}
+//                     ^^
+// [analyzer] unspecified
+// [cfe] unspecified

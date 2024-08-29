@@ -9,69 +9,46 @@
 ///
 /// @description Checks that it is a compile-time error if an augment of a
 /// class, mixin, extension, enum or an extension type adds an instance member
-/// but there is an existing instance member with the same name.
+/// but there is an existing static member with the same name.
 /// @author sgrekhov22@gmail.com
+/// @issue 55452
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A10_t02.dart';
+augment library 'augmenting_types_A10_t03.dart';
 
-augment abstract class C {
-  int foo();
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int operator +(int other);
-//             ^
+augment class C {
+  static int foo() => 42;
+//           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment mixin M {
-  int foo() => 42;
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int operator +(int other) => other;
-//             ^
+  static int get foo => 42;
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment enum E {
   augment e1;
-  int foo() => 42;
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int operator +(int other) => other;
-//             ^
+  static void set foo(String _) {}
+//                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension ExtA {
-  int get foo => 42; // No error, no conflict with A.foo()
-
-  void set bar(String _) {}
-//         ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int operator -(int other) => other; // No error, no conflict with A.-()
-
-  int operator +(int other) => other;
-//             ^
+  static void bar() {}
+//            ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension type ET {
-  int foo() => 42;
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  int operator +(int other) => other;
-//             ^
+  static int get foo => 42;
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

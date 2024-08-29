@@ -10,9 +10,9 @@
 /// after this appending process, so you cannot have multiple `extends` on a
 /// class, or an `on` clause on an enum, etc.
 ///
-/// @description Checks that it is a compile-time error if a class, mixin or
-/// enum augment specifies an interface in an `implements` clause which already
-/// exists
+/// @description Checks that it is a compile-time error if a class, mixin, enum
+/// or extension type augment specifies an interface in an `implements` clause
+/// which already exists.
 /// @author sgrekhov22@gmail.com
 /// @issue 55456
 
@@ -38,9 +38,12 @@ enum E implements I {
   String foo() => "C1";
 }
 
+extension type ET(I i) implements I {}
+
 main() {
   print(C1);
   print(C2);
   print(M);
   print(E);
+  print(ET);
 }
