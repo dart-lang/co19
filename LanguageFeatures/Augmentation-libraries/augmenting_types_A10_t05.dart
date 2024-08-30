@@ -8,7 +8,7 @@
 /// augmentation can add new members to an existing type.
 ///
 /// @description Checks that it is a compile-time error if an augment of a
-/// class, mixin, extension, enum or an extension type adds a static member but
+/// class, mixin, extension, enum or extension type adds a static member but
 /// there is an existing static member with the same name.
 /// @author sgrekhov22@gmail.com
 

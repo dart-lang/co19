@@ -11,7 +11,7 @@
 /// class, or an `on` clause on an enum, etc.
 ///
 /// @description Checks that a class, mixin, enum and extension type
-/// augmentations may specify `implements` clause.
+/// augmentation may specify an `implements` clause.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

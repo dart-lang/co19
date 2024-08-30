@@ -8,8 +8,8 @@
 /// augmentation can add new members to an existing type.
 ///
 /// @description Checks that instance members defined in the body of an augment
-/// of a class, mixin, extension, enum or an extension type are added to an
-/// instance namespace of the corresponding type in the augmented library.
+/// of a class, mixin, extension, enum or extension type are added to the
+/// interface of the corresponding type in the augmented library.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

@@ -8,7 +8,7 @@
 /// augmentation can add new members to an existing type.
 ///
 /// @description Checks that static members defined in the body of an augment of
-/// a class, mixin, extension, enum or an extension type are added to a static
+/// a class, mixin, extension, enum or extension type are added to a static
 /// namespace of the corresponding type in the augmented library.
 /// @author sgrekhov22@gmail.com
 
