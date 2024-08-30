@@ -10,8 +10,8 @@
 /// after this appending process, so you cannot have multiple `extends` on a
 /// class, or an `on` clause on an enum, etc.
 ///
-/// @description Checks that a class, mixin and enum augment may specify
-/// `implements` clause
+/// @description Checks that a class, mixin, enum and extension type
+/// augmentation may specify an `implements` clause.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -29,4 +29,8 @@ augment mixin M implements I {
 augment enum E implements I {
   augment e1;
   String get id => "E";
+}
+
+augment extension type ET implements I {
+  String get id => "ET";
 }

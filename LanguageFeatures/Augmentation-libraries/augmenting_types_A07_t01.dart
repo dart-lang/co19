@@ -10,8 +10,8 @@
 /// after this appending process, so you cannot have multiple `extends` on a
 /// class, or an `on` clause on an enum, etc.
 ///
-/// @description Checks that a class, mixin and enum augment may specify
-/// `implements` clause
+/// @description Checks that a class, mixin, enum and extension type
+/// augmentation may specify an `implements` clause.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -31,13 +31,17 @@ enum E {
   e1;
 }
 
+extension type ET(I v) {}
+
 class MA = Object with M;
 
 main() {
   I c = C();
   I m = MA();
   I e = E.e1;
+  I et = ET(I());
   Expect.equals("C", c.id);
   Expect.equals("M", m.id);
   Expect.equals("E", e.id);
+  Expect.equals("ET", et.id);
 }

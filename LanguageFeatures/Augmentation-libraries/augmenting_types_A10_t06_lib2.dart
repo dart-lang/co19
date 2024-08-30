@@ -46,3 +46,10 @@ augment extension ExtA {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  static void foo() {}
+//            ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

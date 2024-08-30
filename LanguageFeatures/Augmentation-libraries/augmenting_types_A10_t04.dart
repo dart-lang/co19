@@ -8,8 +8,8 @@
 /// augmentation can add new members to an existing type.
 ///
 /// @description Checks that static members defined in the body of an augment of
-/// a class, mixin, extension, or enum are added to a static namespace of the
-/// corresponding type in the augmented library
+/// a class, mixin, extension, enum or extension type are added to a static
+/// namespace of the corresponding type in the augmented library.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -28,6 +28,8 @@ mixin M {}
 enum E {e1;}
 
 extension ExtA on A {}
+
+extension type ET(int id) {}
 
 main() {
   Expect.equals("C", C.method());
@@ -49,4 +51,9 @@ main() {
   Expect.equals("get ExtA", ExtA.getter);
   ExtA.setter = "set ExtA";
   Expect.equals("set ExtA", _log);
+
+  Expect.equals("ET", ET(0).method());
+  Expect.equals("get ET", ET(0).getter);
+  ExtA.setter = "set ET";
+  Expect.equals("set ET", _log);
 }

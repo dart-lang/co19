@@ -8,8 +8,8 @@
 /// augmentation can add new members to an existing type.
 ///
 /// @description Checks that instance members defined in the body of an augment
-/// of a class, mixin, extension, or enum are added to an instance namespace of
-/// the corresponding type in the augmented library
+/// of a class, mixin, extension, enum or extension type are added to the
+/// interface of the corresponding type in the augmented library.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -28,6 +28,8 @@ mixin M {}
 enum E {e1;}
 
 extension ExtA on A {}
+
+extension type ET(int id) {}
 
 class MA = Object with M;
 
@@ -55,4 +57,10 @@ main() {
   A().setter = "set ExtA";
   Expect.equals("set ExtA", _log);
   Expect.equals(4, A() + 4);
+
+  Expect.equals("ET", ET(0).method());
+  Expect.equals("get ET", ET(0).getter);
+  ET().setter = "set ET";
+  Expect.equals("set ET", _log);
+  Expect.equals(5, ET(42) + 5);
 }

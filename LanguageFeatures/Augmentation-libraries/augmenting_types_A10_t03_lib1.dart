@@ -9,48 +9,33 @@
 ///
 /// @description Checks that it is a compile-time error if an augment of a
 /// class, mixin, extension, enum or extension type adds an instance member but
-/// there is an existing instance member with the same name.
+/// there is an existing static member with the same name.
 /// @author sgrekhov22@gmail.com
+/// @issue 55452
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A10_t02_lib.dart';
+augment library 'augmenting_types_A10_t03.dart';
 
-class A {
+augment class C {
   int foo() => 42;
-  int operator -(int other) => other;
 }
 
-abstract class C {
-  int foo();
-  int operator +(int other);
+augment mixin M {
+  int foo() => 42;
 }
 
-mixin M {
+augment enum E {
+  augment e1;
+  int foo() => 42;
+}
+
+augment extension ExtA {
+  int get foo => 42; // No error, no conflict with A.foo()
+
+  void set bar(String _) {}
+}
+
+augment extension type ET {
   int get foo => 42;
-  int operator +(int other) => other;
-}
-
-enum E {
-  e1;
-  void set foo(String _) {}
-  int operator +(int other) => other;
-}
-
-extension ExtA on A {
-  void bar() {}
-  int operator +(int other) => other;
-}
-
-extension type ET(int id) {
-  int get foo => 42;
-  int operator +(int other) => other;
-}
-
-main() {
-  print(A);
-  print(C);
-  print(M);
-  print(E);
-  print(ET);
 }
