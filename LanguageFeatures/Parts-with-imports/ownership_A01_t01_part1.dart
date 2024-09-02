@@ -23,7 +23,7 @@ String variable = "variable part1";
 // [analyzer] unspecified
 // [cfe] unspecified
 String get getter => "getter part1";
-//          ^^^^^^
+//         ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
