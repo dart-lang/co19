@@ -15,8 +15,8 @@
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-part 'top_level_A01_t02_part1.dart';
 import '../../Utils/expect.dart';
+part 'top_level_A01_t02_part1.dart';
 
 String _mainVar = "mainVar";
 String get _mainGetter => "mainGetter";
@@ -24,48 +24,48 @@ void set _mainSetter(String _) {}
 String _mainFunc() => "mainFunc";
 
 class _MainClass {
-  static final id => "MainClass";
+  static final id = "MainClass";
 }
 
 mixin _MainMixin {
-  static final id => "MainMixin";
+  static final id = "MainMixin";
 }
 
 enum _MainEnum {
   e0;
-  static final id => "MainEnum";
+  static final id = "MainEnum";
 }
 
 class A {}
 
 extension _MainExt on A {
-  static final id => "MainExt";
+  static final id = "MainExt";
 }
 
 extension type _MainET(int _) {
-  static final id => "MainET";
+  static final id = "MainET";
 }
 
 main() {
-  Expect.equlas("part1Var", _part1Var);
-  Expect.equlas("part1Getter", _part1Getter);
+  Expect.equals("part1Var", _part1Var);
+  Expect.equals("part1Getter", _part1Getter);
   _part1Setter = "x";
-  Expect.equlas("part1Func", _part1Func);
-  Expect.equlas("Part1Class", _Part1Class.id);
-  Expect.equlas("Part1Mixin", _Part1Mixin.id);
-  Expect.equlas("Part1Enum", _Part1Enum.id);
-  Expect.equlas("Part1Ext", _Part1Ext.id);
-  Expect.equlas("Part1ET", _Part1ET.id);
+  Expect.equals("part1Func", _part1Func);
+  Expect.equals("Part1Class", _Part1Class.id);
+  Expect.equals("Part1Mixin", _Part1Mixin.id);
+  Expect.equals("Part1Enum", _Part1Enum.id);
+  Expect.equals("Part1Ext", _Part1Ext.id);
+  Expect.equals("Part1ET", _Part1ET.id);
 
-  Expect.equlas("part2Var", _part2Var);
-  Expect.equlas("part2Getter", _part2Getter);
-  part2Setter = "x";
-  Expect.equlas("part2Func", _part2Func);
-  Expect.equlas("Part2Class", _Part2Class.id);
-  Expect.equlas("Part2Mixin", _Part2Mixin.id);
-  Expect.equlas("Part2Enum", _Part2Enum.id);
-  Expect.equlas("Part2Ext", _Part2Ext.id);
-  Expect.equlas("Part2ET", _Part2ET.id);
+  Expect.equals("part2Var", _part2Var);
+  Expect.equals("part2Getter", _part2Getter);
+  _part2Setter = "x";
+  Expect.equals("part2Func", _part2Func);
+  Expect.equals("Part2Class", _Part2Class.id);
+  Expect.equals("Part2Mixin", _Part2Mixin.id);
+  Expect.equals("Part2Enum", _Part2Enum.id);
+  Expect.equals("Part2Ext", _Part2Ext.id);
+  Expect.equals("Part2ET", _Part2ET.id);
   testPart1();
   testPart2();
 }

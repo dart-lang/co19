@@ -21,19 +21,19 @@ void set libSetter(String _) {
 String libFunc() => "libFunc";
 
 class LibClass {
-  static final id => "LibClass";
+  static final String id = "LibClass";
 }
 mixin LibMixin {
-  static final id => "LibMixin";
+  static final String id = "LibMixin";
 }
 enum LibEnum {
   e0;
-  static final id => "LibEnum";
+  static final String id = "LibEnum";
 }
 class A {}
 extension LibExt on A {
-  static final id => "LibExt";
+  static final String id = "LibExt";
 }
 extension type LibET(int _) {
-  static final id => "LibET";
+  static final String id = "LibET";
 }

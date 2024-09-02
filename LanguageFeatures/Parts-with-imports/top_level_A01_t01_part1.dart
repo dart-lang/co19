@@ -24,44 +24,44 @@ void set part1Setter(String _) {}
 String part1Func() => "part1Func";
 
 class Part1Class {
-  static final id => "Part1Class";
+  static final id = "Part1Class";
 }
 
 mixin Part1Mixin {
-  static final id => "Part1Mixin";
+  static final id = "Part1Mixin";
 }
 
 enum Part1Enum {
   e0;
-  static final id => "Part1Enum";
+  static final id = "Part1Enum";
 }
 
 extension Part1Ext on A {
-  static final id => "Part1Ext";
+  static final id = "Part1Ext";
 }
 
 extension type Part1ET(int _) {
-  static final id => "Part1ET";
+  static final id = "Part1ET";
 }
 
 testPart1() {
-  Expect.equlas("mainVar", mainVar);
-  Expect.equlas("mainGetter", mainGetter);
+  Expect.equals("mainVar", mainVar);
+  Expect.equals("mainGetter", mainGetter);
   mainSetter = "x";
-  Expect.equlas("mainFunc", mainFunc);
-  Expect.equlas("MainClass", MainClass.id);
-  Expect.equlas("MainMixin", MainMixin.id);
-  Expect.equlas("MainEnum", MainEnum.id);
-  Expect.equlas("MainExt", MainExt.id);
-  Expect.equlas("MainET", MainET.id);
+  Expect.equals("mainFunc", mainFunc);
+  Expect.equals("MainClass", MainClass.id);
+  Expect.equals("MainMixin", MainMixin.id);
+  Expect.equals("MainEnum", MainEnum.id);
+  Expect.equals("MainExt", MainExt.id);
+  Expect.equals("MainET", MainET.id);
 
-  Expect.equlas("part2Var", part2Var);
-  Expect.equlas("part2Getter", part2Getter);
+  Expect.equals("part2Var", part2Var);
+  Expect.equals("part2Getter", part2Getter);
   part2Setter = "x";
-  Expect.equlas("part2Func", part2Func);
-  Expect.equlas("Part2Class", Part2Class.id);
-  Expect.equlas("Part2Mixin", Part2Mixin.id);
-  Expect.equlas("Part2Enum", Part2Enum.id);
-  Expect.equlas("Part2Ext", Part2Ext.id);
-  Expect.equlas("Part2ET", Part2ET.id);
+  Expect.equals("part2Func", part2Func);
+  Expect.equals("Part2Class", Part2Class.id);
+  Expect.equals("Part2Mixin", Part2Mixin.id);
+  Expect.equals("Part2Enum", Part2Enum.id);
+  Expect.equals("Part2Ext", Part2Ext.id);
+  Expect.equals("Part2ET", Part2ET.id);
 }

@@ -21,9 +21,9 @@ part 'top_level_A02_t01_part2.dart';
 String get libGetter => "libGetter part1";
 
 class LibClass {
-  static final id => "LibClass part1";
+  static final id = "LibClass part1";
 }
 
 extension type LibET(int _) {
-  static final id => "LibET part1";
+  static final id = "LibET part1";
 }

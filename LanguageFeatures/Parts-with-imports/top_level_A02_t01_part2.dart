@@ -23,5 +23,5 @@ void set libSetter(String _) {
 
 enum LibEnum {
   e0;
-  static final id => "LibEnum part2";
+  static final id = "LibEnum part2";
 }

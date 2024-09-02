@@ -24,44 +24,44 @@ void set _part1Setter(String _) {}
 String _part1Func() => "part1Func";
 
 class _Part1Class {
-  static final id => "Part1Class";
+  static final id = "Part1Class";
 }
 
 mixin _Part1Mixin {
-  static final id => "Part1Mixin";
+  static final id = "Part1Mixin";
 }
 
 enum _Part1Enum {
   e0;
-  static final id => "Part1Enum";
+  static final id = "Part1Enum";
 }
 
 extension _Part1Ext on A {
-  static final id => "Part1Ext";
+  static final id = "Part1Ext";
 }
 
 extension type _Part1ET(int _) {
-  static final id => "Part1ET";
+  static final id = "Part1ET";
 }
 
 testPart1() {
-  Expect.equlas("mainVar", _mainVar);
-  Expect.equlas("mainGetter", _mainGetter);
+  Expect.equals("mainVar", _mainVar);
+  Expect.equals("mainGetter", _mainGetter);
   _mainSetter = "x";
-  Expect.equlas("mainFunc", _mainFunc);
-  Expect.equlas("MainClass", _MainClass.id);
-  Expect.equlas("MainMixin", _MainMixin.id);
-  Expect.equlas("MainEnum", _MainEnum.id);
-  Expect.equlas("MainExt", _MainExt.id);
-  Expect.equlas("MainET", _MainET.id);
+  Expect.equals("mainFunc", _mainFunc);
+  Expect.equals("MainClass", _MainClass.id);
+  Expect.equals("MainMixin", _MainMixin.id);
+  Expect.equals("MainEnum", _MainEnum.id);
+  Expect.equals("MainExt", _MainExt.id);
+  Expect.equals("MainET", _MainET.id);
 
-  Expect.equlas("part2Var", _part2Var);
-  Expect.equlas("part2Getter", _part2Getter);
-  part2Setter = "x";
-  Expect.equlas("part2Func", _part2Func);
-  Expect.equlas("Part2Class", _Part2Class.id);
-  Expect.equlas("Part2Mixin", _Part2Mixin.id);
-  Expect.equlas("Part2Enum", _Part2Enum.id);
-  Expect.equlas("Part2Ext", _Part2Ext.id);
-  Expect.equlas("Part2ET", _Part2ET.id);
+  Expect.equals("part2Var", _part2Var);
+  Expect.equals("part2Getter", _part2Getter);
+  _part2Setter = "x";
+  Expect.equals("part2Func", _part2Func);
+  Expect.equals("Part2Class", _Part2Class.id);
+  Expect.equals("Part2Mixin", _Part2Mixin.id);
+  Expect.equals("Part2Enum", _Part2Enum.id);
+  Expect.equals("Part2Ext", _Part2Ext.id);
+  Expect.equals("Part2ET", _Part2ET.id);
 }

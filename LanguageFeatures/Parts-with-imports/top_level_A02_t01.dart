@@ -15,33 +15,33 @@
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-part 'top_level_A02_t01_part1.dart';
-
 import 'parts_lib.dart';
 import '../../Utils/expect.dart';
+
+part 'top_level_A02_t01_part1.dart';
 
 String libVar = "libVar main";
 String libFunc() => "libFunc main";
 
 mixin LibMixin {
-  static final id => "LibMixin main";
+  static final id = "LibMixin main";
 }
 
 class A {}
 
 extension LibExt on A {
-  static final id => "LibExt main";
+  static final id = "LibExt main";
 }
 
 main() {
-  Expect.equlas("libVar main", libVar);
-  Expect.equlas("libGetter part1", libGetter);
+  Expect.equals("libVar main", libVar);
+  Expect.equals("libGetter part1", libGetter);
   libSetter = "x";
-  Expect.equlas("libSetter part2", log);
-  Expect.equlas("libFunc main", libFunc);
-  Expect.equlas("LibClass part1", LibClass.id);
-  Expect.equlas("LibMixin main", LibMixin.id);
-  Expect.equlas("LibEnum part2", LibEnum.id);
-  Expect.equlas("LibExt main", LibExt.id);
-  Expect.equlas("LibET part1", LibET.id);
+  Expect.equals("libSetter part2", log);
+  Expect.equals("libFunc main", libFunc);
+  Expect.equals("LibClass part1", LibClass.id);
+  Expect.equals("LibMixin main", LibMixin.id);
+  Expect.equals("LibEnum part2", LibEnum.id);
+  Expect.equals("LibExt main", LibExt.id);
+  Expect.equals("LibET part1", LibET.id);
 }

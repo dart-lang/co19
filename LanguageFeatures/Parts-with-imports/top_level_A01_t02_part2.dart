@@ -23,44 +23,44 @@ void set _part2Setter(String _) {}
 String _part2Func() => "part2Func";
 
 class _Part2Class {
-  static final id => "Part2Class";
+  static final id = "Part2Class";
 }
 
 mixin _Part2Mixin {
-  static final id => "Part2Mixin";
+  static final id = "Part2Mixin";
 }
 
 enum _Part2Enum {
   e0;
-  static final id => "Part2Enum";
+  static final id = "Part2Enum";
 }
 
 extension _Part2Ext on A {
-  static final id => "Part2Ext";
+  static final id = "Part2Ext";
 }
 
 extension type _Part2ET(int _) {
-  static final id => "Part2ET";
+  static final id = "Part2ET";
 }
 
 testPart2() {
-  Expect.equlas("mainVar", _mainVar);
-  Expect.equlas("mainGetter", _mainGetter);
+  Expect.equals("mainVar", _mainVar);
+  Expect.equals("mainGetter", _mainGetter);
   _mainSetter = "x";
-  Expect.equlas("mainFunc", _mainFunc);
-  Expect.equlas("MainClass", _MainClass.id);
-  Expect.equlas("MainMixin", _MainMixin.id);
-  Expect.equlas("MainEnum", _MainEnum.id);
-  Expect.equlas("MainExt", _MainExt.id);
-  Expect.equlas("MainET", _MainET.id);
+  Expect.equals("mainFunc", _mainFunc);
+  Expect.equals("MainClass", _MainClass.id);
+  Expect.equals("MainMixin", _MainMixin.id);
+  Expect.equals("MainEnum", _MainEnum.id);
+  Expect.equals("MainExt", _MainExt.id);
+  Expect.equals("MainET", _MainET.id);
 
-  Expect.equlas("part1Var", _part1Var);
-  Expect.equlas("part1Getter", _part1Getter);
+  Expect.equals("part1Var", _part1Var);
+  Expect.equals("part1Getter", _part1Getter);
   _part1Setter = "x";
-  Expect.equlas("part1Func", _part1Func);
-  Expect.equlas("Part1Class", _Part1Class.id);
-  Expect.equlas("Part1Mixin", _Part1Mixin.id);
-  Expect.equlas("Part1Enum", _Part1Enum.id);
-  Expect.equlas("Part1Ext", _Part1Ext.id);
-  Expect.equlas("Part1ET", _Part1ET.id);
+  Expect.equals("part1Func", _part1Func);
+  Expect.equals("Part1Class", _Part1Class.id);
+  Expect.equals("Part1Mixin", _Part1Mixin.id);
+  Expect.equals("Part1Enum", _Part1Enum.id);
+  Expect.equals("Part1Ext", _Part1Ext.id);
+  Expect.equals("Part1ET", _Part1ET.id);
 }
