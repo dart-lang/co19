@@ -9,18 +9,20 @@
 /// allows a file, like a macro generated file, to import all its own
 /// dependencies and be completely self-contained when it comes to imports.
 ///
-/// @description Check that for the part file import, inherited from the parent,
-/// can be overridden by it's own import.
+/// @description Check that for the part file, an imported name which is
+/// "inherited" from the parent can be overridden by it's own import.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-import 'import_inheritance_A01_t01_lib2.dart';
 part of 'import_inheritance_A01_t01_part1.dart';
+
+import 'import_inheritance_A01_t01_lib2.dart';
 
 void testPart2() {
   Expect.equals("libGetter lib2", libGetter);
   Expect.equals("LibMixin lib2", LibMixin.id);
   Expect.equals("foo lib2", foo());
   Expect.equals("C lib2", C.id);
+  Expect.equals("libFunc", libFunc());
 }

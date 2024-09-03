@@ -15,9 +15,9 @@
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-import 'parts_lib.dart';
-
 part of 'import_inheritance_A01_t02_part1.dart';
+
+import 'parts_lib.dart';
 
 void testPart2() {
   Expect.equals(0, counter);

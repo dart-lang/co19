@@ -15,9 +15,10 @@
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
+part of 'import_inheritance_A01_t02.dart';
+
 import 'parts_lib.dart';
 
-part of 'import_inheritance_A01_t02.dart';
 part 'import_inheritance_A01_t02_part2.dart';
 
 void testPart1() {

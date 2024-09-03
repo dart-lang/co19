@@ -17,7 +17,7 @@
 // SharedOptions=--enable-experiment=enhanced-parts
 
 part of 'grammar_A01_t01.dart';
-part 'grammar_A01_t01_part2.dart';
-//    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+part 'grammar_A01_t01_this_file_does_not_exist.dart';
+//    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

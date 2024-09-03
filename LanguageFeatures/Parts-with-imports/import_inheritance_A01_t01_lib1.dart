@@ -9,8 +9,8 @@
 /// allows a file, like a macro generated file, to import all its own
 /// dependencies and be completely self-contained when it comes to imports.
 ///
-/// @description Check that for the part file import, inherited from the parent,
-/// can be overridden by it's own import.
+/// @description Check that for the part file, an imported name which is
+/// "inherited" from the parent can be overridden by it's own import.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts

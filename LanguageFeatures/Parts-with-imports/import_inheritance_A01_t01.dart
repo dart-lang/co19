@@ -9,11 +9,25 @@
 /// allows a file, like a macro generated file, to import all its own
 /// dependencies and be completely self-contained when it comes to imports.
 ///
-/// @description Check that for the part file import, inherited from the parent,
-/// can be overridden by it's own import.
+/// @description Check that for the part file, an imported name which is
+/// "inherited" from the parent can be overridden by it's own import.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts
+
+/* A file relationship graph can be shown on github.com as follows:
+```mermaid
+graph BT;
+  Lib["import_inheritance_A01_t01.dart"]
+  -->|import| PartsLib["parts_lib.dart\nlibVar, LibClass, libGetter, LibMixin"]
+  Lib1["...lib1.dart\nlibVar, LibClass, foo, C"]
+  Part1["...part1.dart"] -->|part of| Lib
+  Part1 -->|import| Lib1
+  Part2["...part2.dart"] -->|part of| Part1
+  Lib2["...lib2.dart\nlibGetter, LibMixin, foo, C"]
+  Part2 -->|import| Lib2
+```
+*/
 
 import 'parts_lib.dart';
 import '../../Utils/expect.dart';
