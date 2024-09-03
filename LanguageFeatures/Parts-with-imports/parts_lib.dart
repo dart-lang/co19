@@ -12,6 +12,7 @@
 library parts_lib;
 
 String log = "";
+int _counter = 0;
 
 String libVar = "libVar";
 String get libGetter => "libGetter";
@@ -19,21 +20,27 @@ void set libSetter(String _) {
   log = "libSetter";
 }
 String libFunc() => "libFunc";
+int get counter => _counter++;
 
 class LibClass {
   static final String id = "LibClass";
 }
+
 mixin LibMixin {
   static final String id = "LibMixin";
 }
+
 enum LibEnum {
   e0;
   static final String id = "LibEnum";
 }
+
 class A {}
+
 extension LibExt on A {
   static final String id = "LibExt";
 }
+
 extension type LibET(int _) {
   static final String id = "LibET";
 }
