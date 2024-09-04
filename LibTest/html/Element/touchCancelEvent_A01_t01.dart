@@ -14,13 +14,18 @@ main() {
   var type = 'touchcancel';
   var x = document.body;
   if (x != null) {
+    var event;
+    try {
+      event = new TouchEvent(type);
+    } catch (_) {
+      // TouchEvent is not present in Safari and Firefox. Nothing to test.
+      return;
+    }
     asyncStart();
     Element.touchCancelEvent.forElement(x).listen((e) {
       Expect.equals(type, e.type);
       asyncEnd();
     });
-
-    var event = new TouchEvent(type);
     x.dispatchEvent(event);
   } else {
     Expect.fail("Body is null");
