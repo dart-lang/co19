@@ -11,4 +11,4 @@
 
 var libId = "scope_lib2";
 
-String lib2Func() => "lib2Func";
+String lib2Func() => "scope_lib2 lib2Func";

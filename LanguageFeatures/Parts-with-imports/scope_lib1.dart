@@ -13,53 +13,53 @@ part 'scope_lib1_part.dart';
 
 String log = "";
 
-String libVar = "libVar";
-String get libGetter => "libGetter";
-var scope = "scope";
+String libVar = "scope_lib1 libVar";
+String get libGetter => "scope_lib1 libGetter";
+var scope = "scope_lib1";
 
-String _libVar = "_libVar";
-String get _libGetter => "_libGetter";
+String _libVar = "scope_lib1 _libVar";
+String get _libGetter => "scope_lib1 _libGetter";
 void set _libSetter(String _) {
-  log = "_libSetter";
+  log = "scope_lib1 _libSetter";
 }
-String _libFunc() => "_libFunc";
+String _libFunc() => "scope_lib1 _libFunc";
 
 class LibClass {
-  static final String id = "LibClass";
-  static final String _id = "LibClass._id";
-  final _private = "LibClass._private";
+  static final String id = "scope_lib1 LibClass";
+  static final String _id = "scope_lib1 LibClass._id";
+  final _private = "scope_lib1 LibClass._private";
 }
 
 mixin LibMixin {
-  static final String id = "LibMixin";
-  static final String _id = "LibMixin._id";
-  final _private = "LibClass._private";
+  static final String id = "scope_lib1 LibMixin";
+  static final String _id = "scope_lib1 LibMixin._id";
+  final _private = "scope_lib1 LibClass._private";
 }
 
 class A {}
 
 extension LibExt on A {
-  static final String id = "LibExt";
-  static final String _id = "LibExt._id";
+  static final String id = "scope_lib1 LibExt";
+  static final String _id = "scope_lib1 LibExt._id";
 }
 
 class _LibClass {
-  static final String id = "_LibClass";
+  static final String id = "scope_lib1 _LibClass";
 }
 
 mixin _LibMixin {
-  static final String id = "_LibMixin";
+  static final String id = "scope_lib1 _LibMixin";
 }
 
 extension _LibExt on A {
-  static final String id = "_LibExt";
+  static final String id = "scope_lib1 _LibExt";
 }
 
 enum _LibEnum {
   e0;
-  static final String id = "_LibEnum";
+  static final String id = "scope_lib1 _LibEnum";
 }
 
 extension type _LibET(int _) {
-  static final String id = "_LibET";
+  static final String id = "scope_lib1 _LibET";
 }

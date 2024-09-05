@@ -10,8 +10,8 @@
 /// conflicts of different declarations is not an error, but the name is marked
 /// as conflicted in the scope, and then referencing it is an error.)
 ///
-/// @description Check that if unprefixed imports of a part file contain
-/// conflicting names it is not an error if those names are not referenced.
+/// @description Check that it is a compile-time error if unprefixed imports of
+/// a part file contain conflicting names and those names are referenced.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts

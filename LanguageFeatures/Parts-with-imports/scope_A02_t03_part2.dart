@@ -23,15 +23,15 @@ import 'parts_lib.dart';
 
 testPart2() {
   // From scope_lib1.dart
-  Expect.equals("libVar", libVar);
-  Expect.equals("libGetter", libGetter);
+  Expect.equals("scope_lib1 libVar", libVar);
+  Expect.equals("scope_lib1 libGetter", libGetter);
   libSetter = "x";
-  Expect.equals("libFunc", libFunc);
-  Expect.equals("LibClass", LibClass.id);
-  Expect.equals("LibMixin", LibMixin.id);
-  Expect.equals("LibEnum", LibEnum.id);
-  Expect.equals("LibExt", LibExt.id);
-  Expect.equals("LibET", LibET.id);
+  Expect.equals("scope_lib1 libFunc", libFunc);
+  Expect.equals("scope_lib1 LibClass", LibClass.id);
+  Expect.equals("scope_lib1 LibMixin", LibMixin.id);
+  Expect.equals("scope_lib1 LibEnum", LibEnum.id);
+  Expect.equals("scope_lib1 LibExt", LibExt.id);
+  Expect.equals("scope_lib1 LibET", LibET.id);
   // From scope_lib2.dart
   Expect.equals("scope_lib2", libId);
   // From parts_lib.dart

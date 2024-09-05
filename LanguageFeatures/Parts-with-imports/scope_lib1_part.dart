@@ -12,18 +12,18 @@
 part of 'scope_lib1.dart';
 
 void set libSetter(String _) {
-  log = "libSetter";
+  log = "scope_lib1 libSetter";
 }
-String libFunc() => "libFunc";
+String libFunc() => "scope_lib1 libFunc";
 
 enum LibEnum {
   e0;
-  static final String id = "LibEnum";
-  static final String _id = "LibEnum._id";
-  final _private = "LibEnum._private";
+  static final String id = "scope_lib1 LibEnum";
+  static final String _id = "scope_lib1 LibEnum._id";
+  final _private = "scope_lib1 LibEnum._private";
 }
 
 extension type LibET(int _) {
-  static final String id = "LibET";
-  static final String _id = "LibET._id";
+  static final String id = "scope_lib1 LibET";
+  static final String _id = "scope_lib1 LibET._id";
 }
