@@ -19,9 +19,9 @@
 // SharedOptions=--enable-experiment=macros
 
 import 'augmentation_libraries_lib.dart';
-import augment 'augmenting_types_A05_t05_lib.dart';
 import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
+part 'augmenting_types_A05_t05_lib.dart';
 
 class C<T extends AL> {}
 

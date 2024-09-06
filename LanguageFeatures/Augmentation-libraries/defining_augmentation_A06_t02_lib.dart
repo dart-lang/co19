@@ -15,7 +15,7 @@
 
 library defining_augmentation_A06_t02;
 
-augment library 'defining_augmentation_A06_t02.dart';
+part of 'defining_augmentation_A06_t02.dart';
 //      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

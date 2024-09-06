@@ -21,8 +21,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A03_t32.dart';
-import augment 'augmented_expression_A03_t32_lib2.dart';
+part of 'augmented_expression_A03_t32.dart';
+part 'augmented_expression_A03_t32_lib2.dart';
 
 augment late String? topLevelVariable;
 

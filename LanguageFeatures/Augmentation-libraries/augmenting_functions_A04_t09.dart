@@ -19,7 +19,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_functions_A04_t09_lib.dart';
+part 'augmenting_functions_A04_t09_lib.dart';
 
 void topLevelFunction1({int i = 1}) {}
 void topLevelFunction2({Object o = 2}) {}

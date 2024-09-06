@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'extension_types_A02_t05_lib.dart';
+part 'extension_types_A02_t05_lib.dart';
 
 extension type ET(int id) {}
 

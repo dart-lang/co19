@@ -17,7 +17,7 @@
 // SharedOptions=--enable-experiment=macros
 
 import '../../Utils/expect.dart';
-import augment 'augmenting_types_A07_t02_lib.dart';
+part 'augmenting_types_A07_t02_lib.dart';
 
 abstract class I0 {
   String get id0;

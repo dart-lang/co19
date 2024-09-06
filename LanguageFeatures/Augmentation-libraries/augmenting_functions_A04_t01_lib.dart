@@ -19,7 +19,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A04_t01.dart';
+part of 'augmenting_functions_A04_t01.dart';
 
 augment Object topLevelFunction1() => "42";
 //             ^^^^^^^^^^^^^^^^^

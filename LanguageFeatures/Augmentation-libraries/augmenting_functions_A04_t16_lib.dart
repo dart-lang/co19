@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A04_t16.dart';
+part of 'augmenting_functions_A04_t16.dart';
 
 augment class C {
   augment void instanceMethod1(num i) {}

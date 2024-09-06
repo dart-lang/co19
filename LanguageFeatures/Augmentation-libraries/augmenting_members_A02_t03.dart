@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_members_A02_t03_lib.dart';
+part 'augmenting_members_A02_t03_lib.dart';
 
 const topLevelVariable = "topLevelVariable";
 

@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A01_t27_lib.dart';
+part 'augmented_expression_A01_t27_lib.dart';
 
 typedef augmented = Null;
 

@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A04_t35.dart';
+part of 'augmented_expression_A04_t35.dart';
 
 augment String topLevelFunction1([String v]) => "Augmented: $v";
 augment String topLevelFunction2({String v}) => "Augmented: $v";

@@ -19,7 +19,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A05_t18.dart';
+part of 'augmented_expression_A05_t18.dart';
 
 augment class C {
   augment int operator +(Object? other) => foo(augmented: 1);

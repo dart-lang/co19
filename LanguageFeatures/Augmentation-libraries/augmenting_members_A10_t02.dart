@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_members_A10_t02_lib.dart';
+part 'augmenting_members_A10_t02_lib.dart';
 
 abstract class C1 {
   external int externalVariable;

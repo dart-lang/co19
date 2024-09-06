@@ -18,7 +18,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A04_t19.dart';
+part of 'augmenting_functions_A04_t19.dart';
 
 augment void topLevelFunction<X, Y extends num>() {
   _log = "$X, $Y";

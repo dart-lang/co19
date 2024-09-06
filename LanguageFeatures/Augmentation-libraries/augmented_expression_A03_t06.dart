@@ -21,9 +21,9 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A03_t06_lib1.dart';
-import augment 'augmented_expression_A03_t06_lib2.dart';
 import '../../Utils/expect.dart';
+part 'augmented_expression_A03_t06_lib1.dart';
+part 'augmented_expression_A03_t06_lib2.dart';
 
 const augmented = "Top-level constant, shouldn't be used";
 

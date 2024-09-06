@@ -21,7 +21,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A03_t26.dart';
+part of 'augmented_expression_A03_t26.dart';
 
 augment String topLevelVariable = foo(augmented: 1);
 //                                    ^^^^^^^^^

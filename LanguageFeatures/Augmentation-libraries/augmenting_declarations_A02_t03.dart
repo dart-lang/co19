@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_declarations_A02_t03_lib.dart';
+part 'augmenting_declarations_A02_t03_lib.dart';
 
 augment int variable = 0;
 //          ^^^^^^^

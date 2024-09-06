@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A02_t01.dart';
+part of 'augmenting_functions_A02_t01.dart';
 
 augment String topLevelFunction1() {
   _log += augmented();

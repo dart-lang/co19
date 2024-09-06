@@ -11,7 +11,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_getters_A03_t01_lib.dart';
+part 'augmenting_getters_A03_t01_lib.dart';
 
 String topLevelVariable = "Original";
 

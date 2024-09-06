@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'type_inheritance_A03_t03.dart';
+part of 'type_inheritance_A03_t03.dart';
 
 augment String topLevelVariable = "Augmented";
 augment final String finalTopLevelVariable = "Augmented";

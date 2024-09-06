@@ -16,8 +16,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_constructors_A19_t03_lib.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_constructors_A19_t03_lib.dart';
 
 class C {
   int x, y;

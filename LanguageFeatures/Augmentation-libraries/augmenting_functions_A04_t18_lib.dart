@@ -18,7 +18,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A04_t18.dart';
+part of 'augmenting_functions_A04_t18.dart';
 
 augment String topLevelFunction1() => "augmented";
 augment Object topLevelFunction2(String s0) => "augmented $s0";

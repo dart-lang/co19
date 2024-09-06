@@ -14,7 +14,7 @@
 // SharedOptions=--enable-experiment=macros
 
 library defining_augmentation_A06_t02;
-import augment 'defining_augmentation_A06_t02_lib.dart';
+part 'defining_augmentation_A06_t02_lib.dart';
 
 main() {
 }

@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A07_t08_lib.dart';
+part 'augmenting_types_A07_t08_lib.dart';
 
 abstract interface class I1 {
   String foo();

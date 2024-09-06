@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_setters_A02_t01.dart';
+part of 'augmenting_setters_A02_t01.dart';
 
 void set topLevelSetter(int v);
 

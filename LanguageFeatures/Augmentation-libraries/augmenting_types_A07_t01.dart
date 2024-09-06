@@ -17,7 +17,7 @@
 // SharedOptions=--enable-experiment=macros
 
 import '../../Utils/expect.dart';
-import augment 'augmenting_types_A07_t01_lib.dart';
+part 'augmenting_types_A07_t01_lib.dart';
 
 interface class I {
   String get id => "I";

@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_members_A10_t03.dart';
+part of 'augmenting_members_A10_t03.dart';
 
 augment abstract class C1 {
   augment void externalMethod();

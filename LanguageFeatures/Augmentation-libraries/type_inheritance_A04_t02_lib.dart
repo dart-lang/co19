@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'type_inheritance_A04_t02.dart';
+part of 'type_inheritance_A04_t02.dart';
 
 augment void topLevelFunction(StringAlias v) {
   _log = "Augmented $v";

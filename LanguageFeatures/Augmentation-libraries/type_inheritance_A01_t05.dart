@@ -12,8 +12,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'type_inheritance_A01_t05_lib.dart';
 import '../../Utils/static_type_helper.dart';
+part 'type_inheritance_A01_t05_lib.dart';
 
 void topLevelFunction<T extends num>(T v) {}
 

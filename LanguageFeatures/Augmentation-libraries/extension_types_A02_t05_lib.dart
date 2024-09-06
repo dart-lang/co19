@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'extension_types_A02_t05.dart';
+part of 'extension_types_A02_t05.dart';
 
 augment extension type ET {
   augment ET(this.id): this.id = id;

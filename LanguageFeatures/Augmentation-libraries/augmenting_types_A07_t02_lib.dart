@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A07_t02.dart';
+part of 'augmenting_types_A07_t02.dart';
 
 augment interface class I2 implements I0 {
   String get id2 => "I2";

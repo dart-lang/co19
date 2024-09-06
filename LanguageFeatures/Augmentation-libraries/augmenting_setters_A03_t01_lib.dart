@@ -11,7 +11,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_setters_A03_t01.dart';
+part of 'augmenting_setters_A03_t01.dart';
 
 augment void set topLevelVariable(String v);
 //               ^^^^^^^^^^^^^^^^

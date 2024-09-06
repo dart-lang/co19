@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A04_t22.dart';
+part of 'augmented_expression_A04_t22.dart';
 
 augment augmented() {}
 //      ^^^^^^^^^

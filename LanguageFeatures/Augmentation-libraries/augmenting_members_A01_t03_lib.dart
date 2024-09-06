@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_members_A01_t03.dart';
+part of 'augmenting_members_A01_t03.dart';
 import '../../Utils/expect.dart';
 
 String _log = "";

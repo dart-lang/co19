@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_members_A02_t02_lib.dart';
+part 'augmenting_members_A02_t02_lib.dart';
 
 late final String topLevelVariable = "";
 

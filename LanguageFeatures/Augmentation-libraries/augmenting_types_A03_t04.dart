@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A03_t04_lib.dart';
+part 'augmenting_types_A03_t04_lib.dart';
 
 mixin class C1 {}
 mixin class C2 {}

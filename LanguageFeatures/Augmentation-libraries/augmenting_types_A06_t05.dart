@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A06_t05_lib.dart';
+part 'augmenting_types_A06_t05_lib.dart';
 
 mixin M {
   String get foo => "M";

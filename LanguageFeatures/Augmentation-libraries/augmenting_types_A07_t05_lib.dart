@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A07_t05.dart';
+part of 'augmenting_types_A07_t05.dart';
 
 augment extension type ET1 implements FinalClass {}
 

@@ -16,8 +16,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'scoping_A01_t03_lib.dart';
 import '../../Utils/expect.dart';
+part 'scoping_A01_t03_lib.dart';
 
 String _log = "";
 

@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A10_t09_lib.dart';
+part 'augmented_expression_A10_t09_lib.dart';
 
 const augmented = 0;
 

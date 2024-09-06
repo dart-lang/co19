@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A07_t03.dart';
+part of 'augmenting_types_A07_t03.dart';
 
 augment class C implements I {}
 

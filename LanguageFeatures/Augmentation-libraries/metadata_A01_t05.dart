@@ -16,9 +16,9 @@
 // SharedOptions=--enable-experiment=macros
 library metadata_A01_t05;
 
-import augment 'metadata_A01_t05_lib.dart';
 import 'dart:mirrors';
 import '../../Utils/expect.dart';
+part 'metadata_A01_t05_lib.dart';
 
 class Meta {
   const Meta();

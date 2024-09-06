@@ -14,7 +14,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A10_t04.dart';
+part of 'augmenting_types_A10_t04.dart';
 
 augment class C {
   static String method() => "C";

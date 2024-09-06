@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'scoping_A02_t02.dart';
+part of 'scoping_A02_t02.dart';
 
 augment class C {
   static String foo = "";

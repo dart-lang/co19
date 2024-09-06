@@ -14,7 +14,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_constructors_A20_t04.dart';
+part of 'augmenting_constructors_A20_t04.dart';
 
 augment class C {
   augment factory C.bar([int x = 0]) = C;

@@ -17,6 +17,6 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A07_t12.dart';
+part of 'augmenting_types_A07_t12.dart';
 
 augment extension type ET implements A {}

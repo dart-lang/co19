@@ -12,7 +12,7 @@
 // SharedOptions=--enable-experiment=macros
 
 import '../../Utils/expect.dart';
-import augment 'defining_augmentation_A01_t01_lib.dart';
+part 'defining_augmentation_A01_t01_lib.dart';
 
 extension on C1 {
   String get z => "z";

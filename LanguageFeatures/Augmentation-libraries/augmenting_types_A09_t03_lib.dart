@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A09_t03.dart';
+part of 'augmenting_types_A09_t03.dart';
 
 class AugM {}
 

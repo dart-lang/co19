@@ -14,7 +14,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A10_t17.dart';
+part of 'augmented_expression_A10_t17.dart';
 
 augment class C {
   static var staticVariable = () {

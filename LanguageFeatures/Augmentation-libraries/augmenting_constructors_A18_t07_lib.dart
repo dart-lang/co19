@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_constructors_A18_t07.dart';
+part of 'augmenting_constructors_A18_t07.dart';
 
 augment class C {
   augment C(): this.foo();

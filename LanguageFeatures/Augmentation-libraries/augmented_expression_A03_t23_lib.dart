@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A03_t23.dart';
+part of 'augmented_expression_A03_t23.dart';
 
 augment Function? topLevelVariable = (augmented x) {};
 //                                    ^^^^^^^^^

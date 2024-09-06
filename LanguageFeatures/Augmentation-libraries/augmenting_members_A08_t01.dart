@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_members_A08_t01_lib.dart';
+part 'augmenting_members_A08_t01_lib.dart';
 
 const topLevelConstant = "Original";
 

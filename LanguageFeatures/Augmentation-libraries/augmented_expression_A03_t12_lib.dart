@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A03_t12.dart';
+part of 'augmented_expression_A03_t12.dart';
 
 augment late var topLevelVariable = "1: $augmented, 2: " + augmented;
 augment late final finalTopLevelVariable = "1: $augmented, 2: " + augmented;

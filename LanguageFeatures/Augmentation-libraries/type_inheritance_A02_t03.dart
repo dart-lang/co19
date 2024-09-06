@@ -20,8 +20,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'type_inheritance_A02_t03_lib.dart';
 import '../../Utils/expect.dart';
+part 'type_inheritance_A02_t03_lib.dart';
 
 typedef NumAlias = num;
 

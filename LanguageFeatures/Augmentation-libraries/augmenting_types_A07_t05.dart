@@ -16,8 +16,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A07_t05_lib.dart';
 import 'augmentation_libraries_lib.dart';
+part 'augmenting_types_A07_t05_lib.dart';
 
 extension type ET1(FinalClass _) {}
 

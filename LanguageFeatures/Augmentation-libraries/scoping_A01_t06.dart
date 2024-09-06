@@ -15,8 +15,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'scoping_A01_t06_lib.dart';
 import '../../Utils/expect.dart';
+part 'scoping_A01_t06_lib.dart';
 
 String get foo => "Global foo";
 String get bar => "Global bar";

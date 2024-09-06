@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_declarations_A05_t03_lib.dart';
+part 'augmenting_declarations_A05_t03_lib.dart';
 
 class C {
   String abstractMethod();

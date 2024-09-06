@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'type_inheritance_A05_t01_lib.dart';
+part 'type_inheritance_A05_t01_lib.dart';
 
 void topLevelFunction1<T extends num>(T v) {}
 void topLevelFunction2<T extends num>(T v) {}

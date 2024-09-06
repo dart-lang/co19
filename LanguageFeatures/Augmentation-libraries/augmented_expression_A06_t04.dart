@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A06_t04_lib.dart';
+part 'augmented_expression_A06_t04_lib.dart';
 
 enum E0 {
   e0,

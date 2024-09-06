@@ -17,9 +17,9 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_declarations_A03_t01_lib1.dart';
-import augment 'augmenting_declarations_A03_t01_lib3.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_declarations_A03_t01_lib1.dart';
+part 'augmenting_declarations_A03_t01_lib3.dart';
 
 class A {}
 

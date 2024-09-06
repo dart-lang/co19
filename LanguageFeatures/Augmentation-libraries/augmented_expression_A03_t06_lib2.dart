@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A03_t06.dart';
+part of 'augmented_expression_A03_t06.dart';
 
 augment String topLevelVariable = "Augment2: $augmented";
 augment final String finalTopLevelVariable = "Augment2: $augmented";

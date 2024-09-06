@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_constructors_A01_t10.dart';
+part of 'augmenting_constructors_A01_t10.dart';
 import '../../Utils/static_type_helper.dart';
 
 augment class C {

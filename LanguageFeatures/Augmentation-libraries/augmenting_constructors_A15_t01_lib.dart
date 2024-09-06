@@ -22,7 +22,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_constructors_A15_t01.dart';
+part of 'augmenting_constructors_A15_t01.dart';
 
 augment class C {
   augment C(int x, int y, int z): assert(x++ == 1), this.y = y;

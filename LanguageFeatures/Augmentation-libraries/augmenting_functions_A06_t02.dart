@@ -15,8 +15,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_functions_A06_t02_lib.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_functions_A06_t02_lib.dart';
 
 external void topLevelFunction();
 

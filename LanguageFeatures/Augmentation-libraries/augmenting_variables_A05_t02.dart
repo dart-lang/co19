@@ -19,8 +19,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_variables_A05_t02_lib.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_variables_A05_t02_lib.dart';
 
 class A {
   num? instanceVariable;

@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A03_t04_lib.dart';
+part 'augmented_expression_A03_t04_lib.dart';
 
 void set augmented(String _) {}
 

@@ -12,8 +12,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_members_A09_t02_lib.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_members_A09_t02_lib.dart';
 
 class C1 {
   abstract final String abstractVariable;

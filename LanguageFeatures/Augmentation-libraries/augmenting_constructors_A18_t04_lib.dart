@@ -14,7 +14,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_constructors_A18_t04.dart';
+part of 'augmenting_constructors_A18_t04.dart';
 
 augment class C {
   augment C.foo(int x): this.foo(x); // Cyclic! But it is fixed below

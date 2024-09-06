@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'type_inheritance_A04_t05.dart';
+part of 'type_inheritance_A04_t05.dart';
 
 augment void topLevelFunction(Object? v) {}
 //                            ^^^^^^

@@ -13,8 +13,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_variables_A01_t01_lib.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_variables_A01_t01_lib.dart';
 
 String topLevelVariable = "Original";
 String finalTopLevelVariable = "Original";

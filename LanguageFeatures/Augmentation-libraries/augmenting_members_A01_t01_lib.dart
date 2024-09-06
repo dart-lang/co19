@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_members_A01_t01.dart';
+part of 'augmenting_members_A01_t01.dart';
 
 augment abstract class A {
   augment void abstractMethod() {

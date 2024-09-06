@@ -4,7 +4,7 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - There is a cycle in the graph whose edges are the import augment
+/// - There is a cycle in the graph whose edges are the part
 ///   directives of an augmented library and of any augmentation libraries which
 ///   are directly or indirectly reachable from there via said edges.
 ///
@@ -15,12 +15,12 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'defining_augmentation_A05_t01.dart';
+part of 'defining_augmentation_A05_t01.dart';
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-import augment 'defining_augmentation_A05_t01.dart';
+part 'defining_augmentation_A05_t01.dart';
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified

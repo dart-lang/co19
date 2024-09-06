@@ -11,7 +11,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'defining_augmentation_A01_t02.dart';
+part of 'defining_augmentation_A01_t02.dart';
 
 import '../../Utils/expect.dart';
 

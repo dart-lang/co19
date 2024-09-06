@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A03_t03_lib.dart';
+part 'augmenting_types_A03_t03_lib.dart';
 
 typedef ObjectAlias = Object;
 

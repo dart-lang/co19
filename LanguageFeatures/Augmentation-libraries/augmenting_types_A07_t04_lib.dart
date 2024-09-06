@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A07_t04.dart';
+part of 'augmenting_types_A07_t04.dart';
 import 'augmentation_libraries_lib.dart';
 
 augment class C implements BaseClass {}

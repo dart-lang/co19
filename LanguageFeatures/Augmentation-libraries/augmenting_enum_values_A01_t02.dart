@@ -11,7 +11,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_enum_values_A01_t02_lib.dart';
+part 'augmenting_enum_values_A01_t02_lib.dart';
 
 enum E1 {
   e0;

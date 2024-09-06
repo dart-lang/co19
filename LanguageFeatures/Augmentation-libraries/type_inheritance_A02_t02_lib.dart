@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'type_inheritance_A02_t02.dart';
+part of 'type_inheritance_A02_t02.dart';
 
 augment dynamic get topLevelGetter => 1;
 augment dynamic topLevelFunction() => 2;

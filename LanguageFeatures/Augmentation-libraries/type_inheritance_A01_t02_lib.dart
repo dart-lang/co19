@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'type_inheritance_A01_t02.dart';
+part of 'type_inheritance_A01_t02.dart';
 
 augment var topLevelVariable = "Augmented top-level variable";
 augment final finalTopLevelVariable = "Augmented top-level variable";

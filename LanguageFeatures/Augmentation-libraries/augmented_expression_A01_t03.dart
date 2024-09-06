@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A01_t03_lib.dart';
+part 'augmented_expression_A01_t03_lib.dart';
 
 String augmented() => "Global function, shouldn't be invoked";
 String get topLevelGetter => "Original";

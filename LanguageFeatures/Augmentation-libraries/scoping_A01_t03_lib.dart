@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'scoping_A01_t03.dart';
+part of 'scoping_A01_t03.dart';
 import '../../Utils/expect.dart';
 
 void set baz(String _) {

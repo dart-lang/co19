@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A07_t03_lib.dart';
+part 'augmenting_types_A07_t03_lib.dart';
 
 interface class I {
   String get id => "I";

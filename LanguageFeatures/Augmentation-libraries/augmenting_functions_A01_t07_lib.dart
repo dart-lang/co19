@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A01_t07.dart';
+part of 'augmenting_functions_A01_t07.dart';
 
 augment class C {
   augment String instanceMethod1() {

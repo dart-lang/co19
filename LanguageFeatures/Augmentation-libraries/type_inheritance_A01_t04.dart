@@ -13,8 +13,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'type_inheritance_A01_t04_lib.dart';
 import '../../Utils/expect.dart';
+part 'type_inheritance_A01_t04_lib.dart';
 
 String _log = "";
 

@@ -14,7 +14,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A10_t05_lib.dart';
+part 'augmenting_types_A10_t05_lib.dart';
 
 class A {
   static int foo() => 42;

@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A03_t10.dart';
+part of 'augmenting_functions_A03_t10.dart';
 
 augment extension Ext {
   augment String instanceMethod1() {

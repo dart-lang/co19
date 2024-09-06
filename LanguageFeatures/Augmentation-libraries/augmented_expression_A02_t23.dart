@@ -18,7 +18,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A02_t23_lib.dart';
+part 'augmented_expression_A02_t23_lib.dart';
 
 String _log = "";
 

@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A05_t02_lib.dart';
+part 'augmenting_types_A05_t02_lib.dart';
 
 class A {}
 class B extends A {}

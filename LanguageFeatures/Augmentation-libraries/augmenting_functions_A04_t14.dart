@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_functions_A04_t14_lib.dart';
+part 'augmenting_functions_A04_t14_lib.dart';
 
 void topLevelFunction({required int? i}) {}
 

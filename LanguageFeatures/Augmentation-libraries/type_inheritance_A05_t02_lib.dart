@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'type_inheritance_A05_t02.dart';
+part of 'type_inheritance_A05_t02.dart';
 
 augment void topLevelFunction<T extends NumAlias>(T v) {}
 

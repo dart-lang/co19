@@ -20,8 +20,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_functions_A04_t23_lib1.dart';
-import augment 'augmenting_functions_A04_t23_lib2.dart';
+part 'augmenting_functions_A04_t23_lib1.dart';
+part 'augmenting_functions_A04_t23_lib2.dart';
 
 Object? topLevelFunction1() => 0;
 dynamic topLevelFunction2() => 0;

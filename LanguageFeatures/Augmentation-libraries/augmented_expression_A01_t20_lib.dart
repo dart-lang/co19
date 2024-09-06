@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A01_t20.dart';
+part of 'augmented_expression_A01_t20.dart';
 
 augment String get augmented => "Augmented";
 //                 ^^^^^^^^^

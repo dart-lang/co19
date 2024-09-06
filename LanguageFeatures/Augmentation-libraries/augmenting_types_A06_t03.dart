@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A06_t03_lib.dart';
+part 'augmenting_types_A06_t03_lib.dart';
 
 abstract interface class I {
   int get foo => 1;

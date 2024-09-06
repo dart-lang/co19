@@ -16,8 +16,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'scoping_A01_t02_lib.dart';
 import '../../Utils/expect.dart';
+part 'scoping_A01_t02_lib.dart';
 
 String get foo => "Should not be used!";
 String get bar => "Should not be used!";

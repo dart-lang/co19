@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A01_t08.dart';
+part of 'augmenting_functions_A01_t08.dart';
 
 augment mixin M {
   augment String instanceMethod1() {

@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'defining_augmentation_A02_t03.dart';
+part of 'defining_augmentation_A02_t03.dart';
 
 test() {
   print(AL);

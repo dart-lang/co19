@@ -15,8 +15,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'scoping_A01_t05_lib.dart';
 import '../../Utils/expect.dart';
+part 'scoping_A01_t05_lib.dart';
 
 const foo = "Global foo";
 const bar = "Global bar";

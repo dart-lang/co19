@@ -14,7 +14,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_getters_setters_with_variable_A02_t02.dart';
+part of 'augmenting_getters_setters_with_variable_A02_t02.dart';
 
 augment void set topLevelVariable(String v) {}
 

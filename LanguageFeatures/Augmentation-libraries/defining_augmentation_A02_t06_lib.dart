@@ -6,13 +6,13 @@
 /// or each other. The libraries one augmentation imports are visible only to
 /// that file.
 ///
-/// @description Checks that if augment library does exports then augmented
+/// @description Checks that if part of does exports then augmented
 /// library implicitly exports it
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library  'defining_augmentation_A02_t06_augmented_lib.dart';
+part of  'defining_augmentation_A02_t06_augmented_lib.dart';
 
 import 'augmentation_libraries_lib.dart';
 export 'augmentation_libraries_lib.dart';

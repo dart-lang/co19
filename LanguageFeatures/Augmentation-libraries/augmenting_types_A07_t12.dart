@@ -18,7 +18,7 @@
 // SharedOptions=--enable-experiment=macros
 
 import '../../Utils/expect.dart';
-import augment 'augmenting_types_A07_t12_lib.dart';
+part 'augmenting_types_A07_t12_lib.dart';
 
 class A {
   int foo() => 42;

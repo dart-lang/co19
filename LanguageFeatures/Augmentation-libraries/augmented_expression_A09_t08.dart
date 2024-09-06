@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A09_t08_lib.dart';
+part 'augmented_expression_A09_t08_lib.dart';
 
 class C {}
 mixin M {}
