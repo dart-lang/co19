@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-part of 'scope_A03_t02_part1.dart';
+part of 'scope_A02_t03_part1.dart';
 
 import 'scope_lib1.dart';
 import 'parts_lib.dart';

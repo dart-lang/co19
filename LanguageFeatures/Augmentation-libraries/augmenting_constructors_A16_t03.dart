@@ -47,10 +47,10 @@ main() {
   Expect.equals(2, C.baz(x: 1).x);
   Expect.equals(0, C.baz(x: 1).y);
 
-  Expext.equals(2, ET.foo(1).id);
-  Expext.equals(1, ET.bar().id);
-  Expext.equals(2, ET.bar(1).id);
-  Expext.equals(1, ET.baz().id);
-  Expext.equals(2, ET.baz(x: 1).id);
-  Expext.equals(2, ET.qux(x: 1).id);
+  Expect.equals(2, ET.foo(1).id);
+  Expect.equals(1, ET.bar().id);
+  Expect.equals(2, ET.bar(1).id);
+  Expect.equals(1, ET.baz().id);
+  Expect.equals(2, ET.baz(x: 1).id);
+  Expect.equals(2, ET.qux(x: 1).id);
 }
