@@ -14,7 +14,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A02_t11.dart';
+part of 'augmenting_functions_A02_t11.dart';
 
 augment extension type ET {
   augment String instanceMethod1() {

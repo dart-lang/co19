@@ -17,6 +17,6 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A06_t04.dart';
+part of 'augmenting_types_A06_t04.dart';
 
 augment abstract class C extends A {}

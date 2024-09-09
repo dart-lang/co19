@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'type_inheritance_A03_t02.dart';
+part of 'type_inheritance_A03_t02.dart';
 
 augment NumAlias topLevelVariable = 1;
 augment final NumAlias finalTopLevelVariable = 2;

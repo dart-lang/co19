@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'scoping_A01_t08.dart';
+part of 'scoping_A01_t08.dart';
 import '../../Utils/expect.dart';
 
 String baz() => "Global baz";

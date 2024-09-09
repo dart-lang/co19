@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'scoping_A01_t01.dart';
+part of 'scoping_A01_t01.dart';
 import '../../Utils/expect.dart';
 
 const baz = "Should not be used!";

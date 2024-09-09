@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_members_A04_t05.dart';
+part of 'augmenting_members_A04_t05.dart';
 
 augment late String topLevelVariable = "Augmented";
 

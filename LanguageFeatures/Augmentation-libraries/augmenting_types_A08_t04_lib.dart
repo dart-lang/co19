@@ -18,6 +18,6 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A08_t04.dart';
+part of 'augmenting_types_A08_t04.dart';
 
 augment mixin M on C {}

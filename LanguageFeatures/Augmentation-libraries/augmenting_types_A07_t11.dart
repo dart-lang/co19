@@ -18,7 +18,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A07_t11_lib.dart';
+part 'augmenting_types_A07_t11_lib.dart';
 
 interface class I {
   int foo() => 42;

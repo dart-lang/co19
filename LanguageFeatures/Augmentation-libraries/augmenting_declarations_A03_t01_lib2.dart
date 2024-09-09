@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_declarations_A03_t01_lib1.dart';
+part of 'augmenting_declarations_A03_t01_lib1.dart';
 
 augment class B {
   String foo() => "Augmented B";

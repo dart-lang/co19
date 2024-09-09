@@ -18,7 +18,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A05_t15.dart';
+part of 'augmented_expression_A05_t15.dart';
 
 augment class C {
   augment String operator +(Object augmented) => "C +";

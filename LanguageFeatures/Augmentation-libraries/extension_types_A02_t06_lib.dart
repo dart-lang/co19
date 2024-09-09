@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'extension_types_A02_t06.dart';
+part of 'extension_types_A02_t06.dart';
 
 augment extension type ET {
   augment ET(this.id): assert(id > 0);

@@ -21,7 +21,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'type_inheritance_A02_t04_lib.dart';
+part 'type_inheritance_A02_t04_lib.dart';
 
 get topLevelGetter => 0;
 topLevelFunction() => 0;

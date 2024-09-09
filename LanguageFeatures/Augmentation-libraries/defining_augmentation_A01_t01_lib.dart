@@ -11,7 +11,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'defining_augmentation_A01_t01.dart';
+part of 'defining_augmentation_A01_t01.dart';
 
 class C1 {
   String get y => "y";

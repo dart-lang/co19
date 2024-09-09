@@ -16,10 +16,10 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_types_A01_t02_lib1.dart';
-import augment 'augmenting_types_A01_t02_lib2.dart';
-import augment 'augmenting_types_A01_t02_lib3.dart';
-import augment 'augmenting_types_A01_t02_lib4.dart';
+part 'augmenting_types_A01_t02_lib1.dart';
+part 'augmenting_types_A01_t02_lib2.dart';
+part 'augmenting_types_A01_t02_lib3.dart';
+part 'augmenting_types_A01_t02_lib4.dart';
 
 class C {}
 

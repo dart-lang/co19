@@ -18,8 +18,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_functions_A04_t18_lib.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_functions_A04_t18_lib.dart';
 
 String topLevelFunction1() => "42";
 Object topLevelFunction2(String s) => s;

@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_getters_A02_t01.dart';
+part of 'augmenting_getters_A02_t01.dart';
 
 augment String get topLevelGetter;
 

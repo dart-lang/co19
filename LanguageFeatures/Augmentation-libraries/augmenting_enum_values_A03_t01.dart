@@ -13,9 +13,9 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_enum_values_A03_t01_lib1.dart';
-import augment 'augmenting_enum_values_A03_t01_lib2.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_enum_values_A03_t01_lib1.dart';
+part 'augmenting_enum_values_A03_t01_lib2.dart';
 
 enum E {
   e0;

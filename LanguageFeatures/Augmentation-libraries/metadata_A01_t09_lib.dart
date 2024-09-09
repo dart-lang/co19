@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'metadata_A01_t09.dart';
+part of 'metadata_A01_t09.dart';
 
 @Meta()
 augment class C {}

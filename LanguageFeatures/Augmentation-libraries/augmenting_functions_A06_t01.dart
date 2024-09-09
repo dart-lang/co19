@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_functions_A06_t01_lib.dart';
+part 'augmenting_functions_A06_t01_lib.dart';
 
 class C1 {
   void foo();

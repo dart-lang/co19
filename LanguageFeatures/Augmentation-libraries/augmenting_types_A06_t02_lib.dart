@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A06_t02.dart';
+part of 'augmenting_types_A06_t02.dart';
 import 'augmentation_libraries_lib.dart';
 
 augment class A extends FinalClass {}

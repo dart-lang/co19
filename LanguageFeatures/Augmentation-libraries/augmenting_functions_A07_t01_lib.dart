@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A07_t01.dart';
+part of 'augmenting_functions_A07_t01.dart';
 
 augment String topLevelFunction();
 

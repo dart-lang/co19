@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A02_t10.dart';
+part of 'augmented_expression_A02_t10.dart';
 
 augment void set topLevelSetter(String value) {
   String augmented() => "x";

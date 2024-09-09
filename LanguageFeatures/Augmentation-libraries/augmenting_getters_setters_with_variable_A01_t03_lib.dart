@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_getters_setters_with_variable_A01_t03.dart';
+part of 'augmenting_getters_setters_with_variable_A01_t03.dart';
 
 augment String topLevelSetter = "Augmented";
 //             ^^^^^^^^^^^^^^

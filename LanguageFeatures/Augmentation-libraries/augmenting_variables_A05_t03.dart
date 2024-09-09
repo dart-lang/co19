@@ -19,7 +19,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_variables_A05_t03_lib.dart';
+part 'augmenting_variables_A05_t03_lib.dart';
 
 var topLevelVariable;
 

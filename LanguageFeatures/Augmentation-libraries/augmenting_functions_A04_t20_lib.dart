@@ -18,7 +18,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A04_t20.dart';
+part of 'augmenting_functions_A04_t20.dart';
 
 augment void topLevelFunction({required int i}) {
   _log = "i=$i";

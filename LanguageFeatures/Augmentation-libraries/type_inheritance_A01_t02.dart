@@ -13,9 +13,9 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'type_inheritance_A01_t02_lib.dart';
 import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
+part 'type_inheritance_A01_t02_lib.dart';
 
 String topLevelVariable = "Top-level variable";
 final String finalTopLevelVariable = "Final top-level variable";

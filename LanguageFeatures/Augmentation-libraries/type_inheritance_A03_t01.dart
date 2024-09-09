@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'type_inheritance_A03_t01_lib.dart';
+part 'type_inheritance_A03_t01_lib.dart';
 
 num topLevelVariable = 0;
 final num finalTopLevelVariable = 0;

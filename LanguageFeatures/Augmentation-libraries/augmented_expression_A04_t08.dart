@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A04_t08_lib.dart';
+part 'augmented_expression_A04_t08_lib.dart';
 
 void topLevelFunction() {}
 

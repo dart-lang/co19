@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A10_t13_lib.dart';
+part 'augmented_expression_A10_t13_lib.dart';
 
 const augmented = "Constant augmented, shouldn't be used";
 

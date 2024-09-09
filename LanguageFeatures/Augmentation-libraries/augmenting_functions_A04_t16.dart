@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_functions_A04_t16_lib.dart';
+part 'augmenting_functions_A04_t16_lib.dart';
 
 class C {
   void instanceMethod1(covariant num i) {}

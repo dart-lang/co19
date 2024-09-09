@@ -4,17 +4,16 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - An import augment directive has a <uri> that denotes an entity which is
+/// - A part directive has a <uri> that denotes an entity which is
 ///   not a library augmentation
 ///
-/// @description Checks that it is a compile-time error if an `import augment`
-/// directive has an <uri> that denotes an entity which is not a library
-/// augmentation
+/// @description Checks that it is a compile-time error if a `part` directive
+/// has an <uri> that denotes an entity which is not a part file.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'defining_augmentation_A07_t01_lib.dart';
+part 'defining_augmentation_A07_t01_lib.dart';
 //              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -13,8 +13,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_declarations_A05_t01_lib.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_declarations_A05_t01_lib.dart';
 
 class C {
   String abstractMethod();

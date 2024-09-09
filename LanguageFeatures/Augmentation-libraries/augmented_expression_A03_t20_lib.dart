@@ -21,7 +21,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A03_t20.dart';
+part of 'augmented_expression_A03_t20.dart';
 
 augment Function? topLevelVariable = () {
   switch(1) {

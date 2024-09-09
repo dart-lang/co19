@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'extension_types_A02_t07_lib.dart';
+part 'extension_types_A02_t07_lib.dart';
 
 extension type ET(int id) {
   ET.foo(this.id);

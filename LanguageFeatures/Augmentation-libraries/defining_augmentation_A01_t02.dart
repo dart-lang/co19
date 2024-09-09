@@ -12,9 +12,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'defining_augmentation_A01_t02_lib.dart';
-
 import '../../Utils/expect.dart';
+part 'defining_augmentation_A01_t02_lib.dart';
 
 class C1 {
   String get y => "y";

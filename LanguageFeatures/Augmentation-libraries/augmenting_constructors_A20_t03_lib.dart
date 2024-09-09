@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_constructors_A20_t03.dart';
+part of 'augmenting_constructors_A20_t03.dart';
 
 augment class C {
   augment factory C() = C.bar;

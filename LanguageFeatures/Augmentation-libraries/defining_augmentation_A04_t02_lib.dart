@@ -12,4 +12,4 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'defining_augmentation_A04_t02.dart';
+part of 'defining_augmentation_A04_t02.dart';

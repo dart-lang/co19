@@ -19,9 +19,9 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A05_t14_lib1.dart';
-import augment 'augmented_expression_A05_t14_lib2.dart';
 import '../../Utils/expect.dart';
+part 'augmented_expression_A05_t14_lib1.dart';
+part 'augmented_expression_A05_t14_lib2.dart';
 
 String _log = "";
 var augmented = ["Top-level augmented", "should", "not", "be", "used"];

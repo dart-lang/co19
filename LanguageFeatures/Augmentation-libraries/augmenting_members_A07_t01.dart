@@ -14,7 +14,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_members_A07_t01_lib.dart';
+part 'augmenting_members_A07_t01_lib.dart';
 
 late final String? finalTopLevelVariable;
 

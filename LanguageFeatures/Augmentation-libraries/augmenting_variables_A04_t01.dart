@@ -10,8 +10,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_variables_A04_t01_lib.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_variables_A04_t01_lib.dart';
 
 late String topLevelVariable = "Original";
 late String finalTopLevelVariable = "Original";

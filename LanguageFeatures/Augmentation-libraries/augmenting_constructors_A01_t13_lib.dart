@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_constructors_A01_t13.dart';
+part of 'augmenting_constructors_A01_t13.dart';
 
 augment class C {
   augment C(dynamic this.x, [dynamic this.y]) {

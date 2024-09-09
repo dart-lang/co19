@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'type_inheritance_A02_t01.dart';
+part of 'type_inheritance_A02_t01.dart';
 
 augment int get topLevelGetter => 0;
 //      ^^^

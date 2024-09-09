@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_types_A05_t04.dart';
+part of 'augmenting_types_A05_t04.dart';
 
 augment class C1<T extends A> {
   String get name1 => 'C1<$T>';

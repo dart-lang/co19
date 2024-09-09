@@ -4,8 +4,7 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - An export or import (not import augment) refers to an entity which is not
-///   a library
+/// - An export or import directive refers to an entity which is not a library.
 ///
 /// @description Checks that it is a compile-time error if an `export` refers to
 /// an entity which is not a library
@@ -13,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'defining_augmentation_A08_t03_lib.dart';
+part 'defining_augmentation_A08_t03_lib.dart';
 export 'defining_augmentation_A08_t03_lib.dart';
 //      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

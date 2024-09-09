@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_getters_setters_with_variable_A01_t04_lib.dart';
+part 'augmenting_getters_setters_with_variable_A01_t04_lib.dart';
 
 abstract class C {
   void set instanceSetter(String v);

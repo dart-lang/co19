@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A02_t02.dart';
+part of 'augmenting_functions_A02_t02.dart';
 
 augment class C {
   augment static String staticMethod1() {

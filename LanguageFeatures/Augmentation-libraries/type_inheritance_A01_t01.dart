@@ -13,9 +13,9 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'type_inheritance_A01_t01_lib.dart';
 import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
+part 'type_inheritance_A01_t01_lib.dart';
 
 String get topLevelGetter => "Top-level getter";
 String topLevelFunction() => "Top-level function";

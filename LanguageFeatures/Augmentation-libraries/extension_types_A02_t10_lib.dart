@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'extension_types_A02_t10.dart';
+part of 'extension_types_A02_t10.dart';
 import '../../Utils/expect.dart';
 
 augment extension type ET {

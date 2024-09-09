@@ -19,7 +19,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A05_t02_lib.dart';
+part 'augmented_expression_A05_t02_lib.dart';
 
 String augmented(Object other) => "Top-level augmented(), should not be used";
 

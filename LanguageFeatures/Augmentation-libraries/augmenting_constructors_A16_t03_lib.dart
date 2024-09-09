@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_constructors_A16_t03.dart';
+part of 'augmenting_constructors_A16_t03.dart';
 import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
 

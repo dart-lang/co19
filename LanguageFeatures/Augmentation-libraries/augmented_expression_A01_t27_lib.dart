@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A01_t27.dart';
+part of 'augmented_expression_A01_t27.dart';
 
 augment String get topLevelGetter {
   print(null as augmented);

@@ -19,7 +19,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_variables_A05_t01.dart';
+part of 'augmenting_variables_A05_t01.dart';
 
 augment class C {
   augment Object? instanceVariable1 = 0;

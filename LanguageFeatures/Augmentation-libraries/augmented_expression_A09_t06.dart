@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A09_t06_lib.dart';
+part 'augmented_expression_A09_t06_lib.dart';
 
 class augmented {}
 

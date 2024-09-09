@@ -12,8 +12,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'defining_augmentation_A04_t02_lib.dart';
 import '../../Utils/expect.dart';
+part 'defining_augmentation_A04_t02_lib.dart';
 
 part 'defining_augmentation_A04_t02_part.dart';
 

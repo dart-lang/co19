@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'metadata_A01_t11.dart';
+part of 'metadata_A01_t11.dart';
 
 augment enum E {
   @Meta1()

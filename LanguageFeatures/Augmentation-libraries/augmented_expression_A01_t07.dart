@@ -17,9 +17,9 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A01_t07_lib1.dart';
-import augment 'augmented_expression_A01_t07_lib2.dart';
 import '../../Utils/expect.dart';
+part 'augmented_expression_A01_t07_lib1.dart';
+part 'augmented_expression_A01_t07_lib2.dart';
 
 const augmented = "Const augmented, shouldn't be used";
 

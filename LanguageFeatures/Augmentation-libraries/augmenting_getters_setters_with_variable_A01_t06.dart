@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_getters_setters_with_variable_A01_t06_lib.dart';
+part 'augmenting_getters_setters_with_variable_A01_t06_lib.dart';
 
 external String topLevelVariable;
 

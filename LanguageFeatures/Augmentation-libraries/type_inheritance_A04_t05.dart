@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'type_inheritance_A04_t05_lib.dart';
+part 'type_inheritance_A04_t05_lib.dart';
 
 void topLevelFunction(v) {
   if (1 > 2) v.memberThatDoesNotExist; // To check that type is still dynamic

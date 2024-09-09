@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'type_inheritance_A01_t01.dart';
+part of 'type_inheritance_A01_t01.dart';
 
 augment get topLevelGetter => "Augmented top-level getter";
 augment topLevelFunction() => "Augmented top-level function";

@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'metadata_A01_t05.dart';
+part of 'metadata_A01_t05.dart';
 
 @Meta() augment void set topLevelSetter(String _) {}
 

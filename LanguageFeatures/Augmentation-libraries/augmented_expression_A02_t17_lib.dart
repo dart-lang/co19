@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A02_t17.dart';
+part of 'augmented_expression_A02_t17.dart';
 
 augment void set topLevelSetter(augmented value) {
 //                              ^^^^^^^^^

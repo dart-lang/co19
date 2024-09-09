@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_constructors_A20_t01_lib.dart';
+part 'augmenting_constructors_A20_t01_lib.dart';
 
 class C {
   int x, y;

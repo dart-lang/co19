@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'extension_types_A02_t09.dart';
+part of 'extension_types_A02_t09.dart';
 
 augment extension type ET {
   augment factory ET(int id) => ET.foo(id);

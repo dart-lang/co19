@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_members_A02_t04.dart';
+part of 'augmenting_members_A02_t04.dart';
 
 /**/augment void set topLevelGetter(String _) {}
 //  ^^^^^^^

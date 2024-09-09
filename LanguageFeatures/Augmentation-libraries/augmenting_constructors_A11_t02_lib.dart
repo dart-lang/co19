@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_constructors_A11_t02.dart';
+part of 'augmenting_constructors_A11_t02.dart';
 import '../../Utils/expect.dart';
 
 augment class C {

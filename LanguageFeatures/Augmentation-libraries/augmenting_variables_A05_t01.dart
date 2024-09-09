@@ -19,7 +19,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_variables_A05_t01_lib.dart';
+part 'augmenting_variables_A05_t01_lib.dart';
 
 class A {
   num? instanceVariable1;

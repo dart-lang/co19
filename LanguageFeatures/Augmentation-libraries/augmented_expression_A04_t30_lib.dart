@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A04_t30.dart';
+part of 'augmented_expression_A04_t30.dart';
 
 augment String topLevelFunction() {
   var f = () => "Augmented:" + augmented();

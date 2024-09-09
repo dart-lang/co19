@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_getters_A01_t02.dart';
+part of 'augmenting_getters_A01_t02.dart';
 
 augment String get topLevelVariable {
   return "Augment2: $augmented";

@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A09_t01.dart';
+part of 'augmented_expression_A09_t01.dart';
 
 augment class C1 {
   static String augmented = "static";

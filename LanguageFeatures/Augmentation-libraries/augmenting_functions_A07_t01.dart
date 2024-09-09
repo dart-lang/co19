@@ -12,8 +12,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_functions_A07_t01_lib.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_functions_A07_t01_lib.dart';
 
 String topLevelFunction() => "Original";
 

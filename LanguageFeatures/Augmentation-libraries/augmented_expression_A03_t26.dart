@@ -21,7 +21,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A03_t26_lib.dart';
+part 'augmented_expression_A03_t26_lib.dart';
 
 String foo({int augmented = 0}) => "${augmented + 42}";
 

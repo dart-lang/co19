@@ -21,7 +21,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A03_t03.dart';
+part of 'augmented_expression_A03_t03.dart';
 
 augment String topLevelVariable = "Augment: ${augmented()}";
 //                                            ^^^^^^^^^

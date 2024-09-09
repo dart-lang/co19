@@ -21,7 +21,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A03_t10.dart';
+part of 'augmented_expression_A03_t10.dart';
 
 augment class C {
   augment String instanceVariable = "Augment: $augmented";

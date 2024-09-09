@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A04_t20_lib.dart';
+part 'augmented_expression_A04_t20_lib.dart';
 
 class augmented {}
 

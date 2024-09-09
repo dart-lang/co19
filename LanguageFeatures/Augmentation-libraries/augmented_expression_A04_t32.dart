@@ -17,9 +17,9 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A04_t32_lib1.dart';
-import augment 'augmented_expression_A04_t32_lib2.dart';
 import '../../Utils/expect.dart';
+part 'augmented_expression_A04_t32_lib1.dart';
+part 'augmented_expression_A04_t32_lib2.dart';
 
 String augmented() => "Global augmented() function, shouldn't be invoked";
 

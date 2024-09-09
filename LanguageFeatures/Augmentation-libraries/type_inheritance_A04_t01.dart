@@ -20,7 +20,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'type_inheritance_A04_t01_lib.dart';
+part 'type_inheritance_A04_t01_lib.dart';
 
 void topLevelFunction(num v) {}
 void set topLevelSetter(num v) {}

@@ -19,7 +19,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A05_t21.dart';
+part of 'augmented_expression_A05_t21.dart';
 import '../../Utils/expect.dart';
 
 augment class C {

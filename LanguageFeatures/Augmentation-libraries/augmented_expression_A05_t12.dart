@@ -18,7 +18,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A05_t12_lib.dart';
+part 'augmented_expression_A05_t12_lib.dart';
 
 var augmented = ["Top-level augmented", "should", "not", "be", "used"];
 

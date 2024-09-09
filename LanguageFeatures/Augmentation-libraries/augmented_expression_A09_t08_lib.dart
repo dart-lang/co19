@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A09_t08.dart';
+part of 'augmented_expression_A09_t08.dart';
 
 augment class C {
   static void staticMethod1(int augmented) {}

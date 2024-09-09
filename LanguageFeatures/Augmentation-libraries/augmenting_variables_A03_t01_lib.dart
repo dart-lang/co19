@@ -11,7 +11,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_variables_A03_t01.dart';
+part of 'augmenting_variables_A03_t01.dart';
 
 augment String topLevelVariable;
 augment String finalTopLevelVariable;

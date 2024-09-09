@@ -14,9 +14,9 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_getters_setters_with_variable_A02_t02_lib1.dart';
-import augment 'augmenting_getters_setters_with_variable_A02_t02_lib2.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_getters_setters_with_variable_A02_t02_lib1.dart';
+part 'augmenting_getters_setters_with_variable_A02_t02_lib2.dart';
 
 String topLevelVariable = "Original";
 

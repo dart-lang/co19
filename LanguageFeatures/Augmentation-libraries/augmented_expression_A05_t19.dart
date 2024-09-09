@@ -19,7 +19,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A05_t19_lib.dart';
+part 'augmented_expression_A05_t19_lib.dart';
 
 class C {
   Record operator +(Object? other) => ();

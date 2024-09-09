@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library  'augmenting_declarations_A05_t01.dart';
+part of  'augmenting_declarations_A05_t01.dart';
 
 String _log = "";
 

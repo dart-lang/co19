@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_functions_A06_t02.dart';
+part of 'augmenting_functions_A06_t02.dart';
 
 augment void topLevelFunction() {
   augmented();

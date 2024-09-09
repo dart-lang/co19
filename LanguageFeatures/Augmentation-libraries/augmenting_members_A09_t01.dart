@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_members_A09_t01_lib.dart';
+part 'augmenting_members_A09_t01_lib.dart';
 
 abstract class C {
   abstract String abstractVariable;

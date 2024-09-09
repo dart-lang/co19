@@ -18,7 +18,7 @@
 // SharedOptions=--enable-experiment=macros
 
 import '../../Utils/expect.dart';
-import augment 'augmenting_types_A05_t04_lib.dart';
+part 'augmenting_types_A05_t04_lib.dart';
 
 class A {}
 typedef AAlias = A;

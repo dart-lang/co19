@@ -12,13 +12,13 @@
 ///
 /// @description Checks that it is a compile-time error if an augmenting
 /// declaration appears before non-augmenting one. Test augmented declaration in
-/// an augment library.
+/// a part file.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmenting_declarations_A02_t02.dart';
-import augment 'augmenting_declarations_A02_t02_lib2.dart';
+part of 'augmenting_declarations_A02_t02.dart';
+part 'augmenting_declarations_A02_t02_lib2.dart';
 
 augment class C {}
 //            ^

@@ -11,8 +11,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_variables_A02_t01_lib.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_variables_A02_t01_lib.dart';
 
 String originalInitializer() {
   Expect.fail("This initializer should be replaced");

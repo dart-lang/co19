@@ -15,8 +15,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_members_A01_t03_lib.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_members_A01_t03_lib.dart';
 
 class C {
   external String externalMethod();

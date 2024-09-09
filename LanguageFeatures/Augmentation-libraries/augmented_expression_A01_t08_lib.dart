@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A01_t08.dart';
+part of 'augmented_expression_A01_t08.dart';
 import '../../Utils/expect.dart';
 
 augment String get topLevelGetter {

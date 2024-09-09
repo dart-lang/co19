@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A01_t16_lib.dart';
+part 'augmented_expression_A01_t16_lib.dart';
 
 String get topLevelGetter => "Original";
 

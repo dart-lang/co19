@@ -21,7 +21,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A03_t27.dart';
+part of 'augmented_expression_A03_t27.dart';
 
 augment Record topLevelVariable = (augmented: 1);
 //                                 ^^^^^^^^^

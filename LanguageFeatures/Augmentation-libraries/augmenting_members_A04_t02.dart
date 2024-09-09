@@ -12,8 +12,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmenting_members_A04_t02_lib.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_members_A04_t02_lib.dart';
 
 late final String topLevelVariable = "topLevelVariable";
 

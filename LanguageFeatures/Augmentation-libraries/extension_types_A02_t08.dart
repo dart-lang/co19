@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'extension_types_A02_t08_lib.dart';
+part 'extension_types_A02_t08_lib.dart';
 
 extension type const ET1(int id) {}
 extension type ET2(int id) {}
