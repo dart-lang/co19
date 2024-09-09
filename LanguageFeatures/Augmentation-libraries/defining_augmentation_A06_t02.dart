@@ -15,6 +15,9 @@
 
 library defining_augmentation_A06_t02;
 part 'defining_augmentation_A06_t02_lib.dart';
+//    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

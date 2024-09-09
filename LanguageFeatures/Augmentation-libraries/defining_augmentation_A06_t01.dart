@@ -14,6 +14,9 @@
 // SharedOptions=--enable-experiment=macros
 
 part 'defining_augmentation_A06_t01_lib.dart';
+//    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

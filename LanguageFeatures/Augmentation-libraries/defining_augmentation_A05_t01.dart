@@ -16,12 +16,12 @@
 // SharedOptions=--enable-experiment=macros
 
 part of 'defining_augmentation_A05_t01.dart';
-//               ^
+//       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 part 'defining_augmentation_A05_t01.dart';
-//              ^
+//    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

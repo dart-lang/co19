@@ -29,7 +29,7 @@ mixin M {
 enum E {
   e0;
   static final String staticVariable = "staticVariable";
-  final String instanceVariable = "staticVariable";
+  final String instanceVariable = "instanceVariable";
 }
 
 class A {}

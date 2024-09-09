@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-part 'scope_A02_t01_part1.dart';
+part 'scope_A02_t02_part1.dart';
 
 main() {
   testPart1();
