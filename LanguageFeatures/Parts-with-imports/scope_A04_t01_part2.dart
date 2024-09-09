@@ -10,7 +10,7 @@
 ///   prefix name.
 ///
 /// @description Check that a prefixed import scope contains an entry from each
-/// import directives with the same prefix name.
+/// import directive with the same prefix name.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts
@@ -19,7 +19,7 @@ part of 'scope_A04_t01_part1.dart';
 
 import 'scope_lib2.dart' as l;
 
-part 'scope_A04_t01_part2.dart'
+part 'scope_A04_t01_part2.dart';
 
 testPart2() {
   // From scope_lib1.dart

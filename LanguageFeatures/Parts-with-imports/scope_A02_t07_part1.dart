@@ -22,37 +22,37 @@ import 'scope_lib4.dart';
 
 testPart1() {
   // From scope_lib1.dart
-  print(_libVar);
-//      ^^^^^^^
+  print(libVar);
+//      ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  print(_libGetter);
-//      ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  _libSetter = "";
-//^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  print(_libFunc);
-//      ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  print(_LibClass); // Ok
-  print(_LibMixin);
+  print(libGetter);
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  print(_LibEnum);
+  libSetter = "";
+//^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  print(libFunc);
 //      ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  print(_LibExt.id);
-//      ^^^^^^^^^^
+  print(LibClass); // Ok
+  print(LibMixin);
+//      ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  print(_LibET);
-//      ^^^^^^
+  print(LibEnum);
+//      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  print(LibExt.id);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  print(LibET);
+//      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

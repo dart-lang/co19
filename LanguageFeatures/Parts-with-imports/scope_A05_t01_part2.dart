@@ -18,39 +18,29 @@
 
 part of 'scope_A05_t01_part1.dart';
 
-import 'scope_lib2.dart' deferred as l;
-
-part 'scope_A05_t01_part2.dart'
+import 'scope_lib2.dart' deferred as l2;
 
 testPart2() async {
   // From scope_lib1.dart
-  Expect.equals("scope_lib1 libVar", l.libVar);
-  Expect.equals("scope_lib1 libGetter", l.libGetter);
-  l.libSetter = "x";
-  Expect.equals("scope_lib1 libFunc", l.libFunc);
-  Expect.equals("scope_lib1 LibClass", l.LibClass.id);
-  Expect.equals("scope_lib1 LibMixin", l.LibMixin.id);
-  Expect.equals("scope_lib1 LibEnum", l.LibEnum.id);
-  Expect.equals("scope_lib1 LibExt", l.LibExt.id);
-  Expect.equals("scope_lib1 LibET", l.LibET.id);
+  Expect.equals("scope_lib1 libVar", l1.libVar);
+  Expect.equals("scope_lib1 libGetter", l1.libGetter);
+  l1.libSetter = "x";
+  Expect.equals("scope_lib1 libFunc", l1.libFunc);
+  Expect.equals("scope_lib1 LibClass", l1.LibClass.id);
+  Expect.equals("scope_lib1 LibMixin", l1.LibMixin.id);
+  Expect.equals("scope_lib1 LibEnum", l1.LibEnum.id);
+  Expect.equals("scope_lib1 LibExt", l1.LibExt.id);
+  Expect.equals("scope_lib1 LibET", l1.LibET.id);
 
   // From scope_lib2.dart
-  Expect.throws(() {print(l.libId);});
-  Expect.throws(() {print(l.lib2Func());});
-  await l.loadLibrary();
-  Expect.equals("scope_lib2", l.libId);
-  Expect.equals("scope_lib2 lib2Func", l.lib2Func());
+  Expect.throws(() {print(l2.libId);});
+  Expect.throws(() {print(l2.lib2Func());});
 
-  // Check that scope_lib1.dart members are still accessible
-  Expect.equals("scope_lib1 libVar", l.libVar);
-  Expect.equals("scope_lib1 libGetter", l.libGetter);
-  l.libSetter = "x";
-  Expect.equals("scope_lib1 libFunc", l.libFunc);
-  Expect.equals("scope_lib1 LibClass", l.LibClass.id);
-  Expect.equals("scope_lib1 LibMixin", l.LibMixin.id);
-  Expect.equals("scope_lib1 LibEnum", l.LibEnum.id);
-  Expect.equals("scope_lib1 LibExt", l.LibExt.id);
-  Expect.equals("scope_lib1 LibET", l.LibET.id);
+  await l2.loadLibrary();
 
-  await l.loadLibrary(); // Not an error
+  Expect.equals("scope_lib2", l2.libId);
+  Expect.equals("scope_lib2 lib2Func", l2.lib2Func());
+
+  await l1.loadLibrary(); // Not an error
+  await l2.loadLibrary(); // Not an error
 }

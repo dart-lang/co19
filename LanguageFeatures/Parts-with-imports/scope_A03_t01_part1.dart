@@ -23,7 +23,7 @@ part of 'scope_A03_t01.dart';
 import 'scope_lib1.dart' as l1;
 import 'scope_lib2.dart' as l2;
 
-part 'scope_A03_t01_part2.dart'
+part 'scope_A03_t01_part2.dart';
 
 testPart1() {
   // From scope_lib1.dart

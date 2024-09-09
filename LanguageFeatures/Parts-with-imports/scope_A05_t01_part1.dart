@@ -18,32 +18,32 @@
 
 part of 'scope_A05_t01.dart';
 
-import 'scope_lib1.dart' deferred as l;
+import 'scope_lib1.dart' deferred as l1;
 
-part 'scope_A05_t01_part2.dart'
+part 'scope_A05_t01_part2.dart';
 
 testPart1() async {
-  Expect.throws(() {print(l.libVar);});
-  Expect.throws(() {print(l.libGetter);});
-  Expect.throws(() {l.libSetter = "x";});
-  Expect.throws(() {print(l.libFunc);});
-  Expect.throws(() {print(l.LibClass.id);});
-  Expect.throws(() {print(l.LibMixin.id);});
-  Expect.throws(() {print(l.LibEnum.id);});
-  Expect.throws(() {print(l.LibExt.id);});
-  Expect.throws(() {print(l.LibET.id);});
+  Expect.throws(() {print(l1.libVar);});
+  Expect.throws(() {print(l1.libGetter);});
+  Expect.throws(() {l1.libSetter = "x";});
+  Expect.throws(() {print(l1.libFunc);});
+  Expect.throws(() {print(l1.LibClass.id);});
+  Expect.throws(() {print(l1.LibMixin.id);});
+  Expect.throws(() {print(l1.LibEnum.id);});
+  Expect.throws(() {print(l1.LibExt.id);});
+  Expect.throws(() {print(l1.LibET.id);});
 
-  await l.loadLibrary();
+  await l1.loadLibrary();
 
-  Expect.equals("scope_lib1 libVar", l.libVar);
-  Expect.equals("scope_lib1 libGetter", l.libGetter);
-  l.libSetter = "x";
-  Expect.equals("scope_lib1 libFunc", l.libFunc);
-  Expect.equals("scope_lib1 LibClass", l.LibClass.id);
-  Expect.equals("scope_lib1 LibMixin", l.LibMixin.id);
-  Expect.equals("scope_lib1 LibEnum", l.LibEnum.id);
-  Expect.equals("scope_lib1 LibExt", l.LibExt.id);
-  Expect.equals("scope_lib1 LibET", l.LibET.id);
+  Expect.equals("scope_lib1 libVar", l1.libVar);
+  Expect.equals("scope_lib1 libGetter", l1.libGetter);
+  l1.libSetter = "x";
+  Expect.equals("scope_lib1 libFunc", l1.libFunc);
+  Expect.equals("scope_lib1 LibClass", l1.LibClass.id);
+  Expect.equals("scope_lib1 LibMixin", l1.LibMixin.id);
+  Expect.equals("scope_lib1 LibEnum", l1.LibEnum.id);
+  Expect.equals("scope_lib1 LibExt", l1.LibExt.id);
+  Expect.equals("scope_lib1 LibET", l1.LibET.id);
 
-  await l.loadLibrary(); // Not an error
+  await l1.loadLibrary(); // Not an error
 }

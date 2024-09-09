@@ -10,7 +10,7 @@
 ///   prefix name.
 ///
 /// @description Check that a prefixed import scope contains an entry from each
-/// import directives with the same prefix name.
+/// import directive with the same prefix name.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts
