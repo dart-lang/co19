@@ -10,8 +10,8 @@
 /// conflicts of different declarations is not an error, but the name is marked
 /// as conflicted in the scope, and then referencing it is an error.)
 ///
-/// @description Check that it is a compile-time error to access re-exported
-/// members hidden by implicit `hide` and `show`.
+/// @description Check that it is a compile-time error to access exported
+/// members hidden by `hide` and `show`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts

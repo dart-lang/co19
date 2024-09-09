@@ -9,7 +9,6 @@
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-import 'scope_lib2.dart';
 export 'scope_lib2.dart';
 
 String lib3Func() => "scope_lib3 lib3Func";

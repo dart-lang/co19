@@ -11,9 +11,7 @@
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-import 'scope_lib1.dart' show LibClass;
-import 'scope_lib2.dart' hide lib2Func;
-export 'scope_lib1.dart';
-export 'scope_lib2.dart';
+export 'scope_lib1.dart' show LibClass;
+export 'scope_lib2.dart' hide lib2Func;
 
 String lib4Func() => "scope_lib4 lib4Func";
