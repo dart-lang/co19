@@ -12,7 +12,7 @@
 ///
 /// @description Checks that it is a compile-time error if an augmenting
 /// declaration appears before non-augmenting one. Test augmented declaration in
-/// an part of.
+/// a part file.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
