@@ -20,6 +20,9 @@
 part of 'scope_A03_t02.dart';
 
 import 'scope_lib1.dart' deferred as d;
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' deferred as d;
 //                                   ^
 // [analyzer] unspecified

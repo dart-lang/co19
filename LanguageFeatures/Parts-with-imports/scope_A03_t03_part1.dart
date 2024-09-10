@@ -21,7 +21,7 @@ part of 'scope_A03_t03.dart';
 
 import 'scope_lib1.dart' deferred as d;
 
-part 'scope_A03_t03_part2.dart'
+part 'scope_A03_t03_part2.dart';
 
 testPart1() async {
   await d.loadLibrary();
