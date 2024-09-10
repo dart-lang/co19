@@ -8,7 +8,7 @@
 /// along with those of any other `exports` in the library and the non-private
 /// declarations of the library itself.
 ///
-/// @description Check that export directive contained in a part files of a
+/// @description Check that an export directive contained in a part file of a
 /// library is added to the library's export scope.
 /// @author sgrekhov22@gmail.com
 
