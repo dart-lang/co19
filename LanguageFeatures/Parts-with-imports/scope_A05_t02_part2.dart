@@ -10,7 +10,7 @@
 ///   implicit `hide  loadLibrary` modifier.
 ///
 /// @description Check that if an import is deferred an extra `loadLibrary`
-/// member is added and it is a runtime error to access any of its members
+/// member is added and it can be a runtime error to access any of its members
 /// before `loadLibrary()` completes successfully. Test the case when
 /// `loadLibrary()` is called from another part file.
 /// @author sgrekhov22@gmail.com
@@ -21,15 +21,36 @@ part of 'scope_A05_t02_part1.dart';
 
 testPart2() async {
   // From scope_lib1.dart
-  Expect.throws(() {print(l1.libVar);});
-  Expect.throws(() {print(l1.libGetter);});
-  Expect.throws(() {l1.libSetter = "x";});
-  Expect.throws(() {print(l1.libFunc);});
-  Expect.throws(() {print(l1.LibClass.id);});
-  Expect.throws(() {print(l1.LibMixin.id);});
-  Expect.throws(() {print(l1.LibEnum.id);});
-  Expect.throws(() {print(l1.LibExt.id);});
-  Expect.throws(() {print(l1.LibET.id);});
+  // If a deferred library is not loaded then an attempt to access its members
+  // is a runtime error. But it's also possible that if some configuration
+  // doesn't support deferred loading then it'll be not an error.
+  try {
+    Expect.equals("scope_lib1 libVar", l1.libVar);
+  } catch (_) {}
+  try {
+    Expect.equals("scope_lib1 libGetter", l1.libGetter);
+  } catch (_) {}
+  try {
+    l1.libSetter = "x";
+  } catch (_) {}
+  try {
+    Expect.equals("scope_lib1 libFunc", l1.libFunc);
+  } catch (_) {}
+  try {
+    Expect.equals("scope_lib1 LibClass", l1.LibClass.id);
+  } catch (_) {}
+  try {
+    Expect.equals("scope_lib1 LibMixin", l1.LibMixin.id);
+  } catch (_) {}
+  try {
+    Expect.equals("scope_lib1 LibEnum", l1.LibEnum.id);
+  } catch (_) {}
+  try {
+    Expect.equals("scope_lib1 LibExt", l1.LibExt.id);
+  } catch (_) {}
+  try {
+    Expect.equals("scope_lib1 LibET", l1.LibET.id);
+  } catch (_) {}
 
   await l1.loadLibrary();
 

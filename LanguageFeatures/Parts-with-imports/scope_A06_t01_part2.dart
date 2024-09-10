@@ -30,7 +30,7 @@ testPart2() async {
   Expect.equals("scope_lib1 libVar", l.libVar);
   Expect.equals("scope_lib1 libGetter", l.libGetter);
   l.libSetter = "x";
-  Expect.equals("libSetter", l.log);
+  Expect.equals("scope_lib1 libSetter", l.log);
   Expect.equals("scope_lib1 libFunc", l.libFunc);
   Expect.equals("scope_lib1 LibClass", l.LibClass.id);
   Expect.equals("scope_lib1 LibMixin", l.LibMixin.id);

@@ -10,7 +10,7 @@
 ///   implicit `hide  loadLibrary` modifier.
 ///
 /// @description Check that if an import is deferred an extra `loadLibrary`
-/// member is added and it is a runtime error to access any of its members
+/// member is added and it can be a runtime error to access any of its members
 /// before `loadLibrary()` completes successfully. Test the case when
 /// `loadLibrary()` is called from another part file.
 /// @author sgrekhov22@gmail.com

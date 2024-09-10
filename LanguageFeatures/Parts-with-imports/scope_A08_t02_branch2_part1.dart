@@ -11,22 +11,9 @@
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-part 'scope_A08_t01_part1.dart';
-part 'scope_A08_t01_branch2_part1.dart';
+part of 'scope_A08_t01.dart';
 
-import 'scope_lib2.dart' as l1;
-import 'scope_lib2.dart' as l2;
-import 'scope_lib2.dart' as l3;
-import 'scope_lib2.dart' as l4;
-import 'scope_lib2.dart' as l5;
-import 'scope_lib2.dart' as l6;
-import 'scope_lib2.dart' as l7;
-import 'scope_lib2.dart' as l8;
-import 'scope_lib2.dart' as l9;
+part 'scope_A08_t01_branch2_part2.dart';
 
-main() {
-  testPart1();
-  testPart2();
-  testBranch2Part1();
-  testBranch2Part2();
+testBranch2Part1() {
 }
