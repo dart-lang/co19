@@ -23,8 +23,6 @@ part of 'scope_A03_t01_part1.dart';
 import 'scope_lib1.dart' as l3;
 import 'scope_lib2.dart' as l4;
 
-part 'scope_A03_t01_part2.dart';
-
 testPart2() {
   // From scope_lib1.dart
   Expect.equals("scope_lib1 libVar", l1.libVar);
