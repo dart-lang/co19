@@ -90,8 +90,6 @@ String testCast1(num x) {
   switch (x) {
     case var _ as int:
       return "match";
-    default:
-      return "no match";
   }
 }
 
@@ -99,8 +97,6 @@ String testCast2(num x) {
   switch (x) {
     case final _ as int:
       return "match";
-    default:
-      return "no match";
   }
 }
 
@@ -108,8 +104,6 @@ String testCast3(num x) {
   switch (x) {
     case num _ as int:
       return "match";
-    default:
-      return "no match";
   }
 }
 
@@ -117,8 +111,6 @@ String testCast4(num x) {
   switch (x) {
     case final int _ as int:
       return "match";
-    default:
-      return "no match";
   }
 }
 

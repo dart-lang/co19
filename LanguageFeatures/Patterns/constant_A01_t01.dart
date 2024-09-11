@@ -37,8 +37,6 @@ String testBool(bool value) {
       return "true";
     case false:
       return "false";
-    default:
-      return "default";
   }
 }
 

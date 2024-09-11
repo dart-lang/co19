@@ -53,8 +53,6 @@ void test(p.Color value) {
     case p.Color.black:
       Expect.equals(p.Color.black, value);
       break;
-    default:
-      Expect.fail("No such color found");
   }
 }
 
