@@ -19,7 +19,7 @@
 
 part of 'scope_A03_t03.dart';
 
-import 'scope_lib1.dart' deferred as d;
+import 'scope_lib1.dart' deferred as d hide LibExt;
 
 part 'scope_A03_t03_part2.dart';
 
