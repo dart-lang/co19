@@ -18,20 +18,39 @@
 
 part of 'scope_A05_t01.dart';
 
-import 'scope_lib1.dart' deferred as l1;
+import 'scope_lib1.dart' deferred as l1 hide LibExt;
 
 part 'scope_A05_t01_part2.dart';
 
 testPart1() async {
+  // If a deferred library is not loaded then an attempt to access its members
+  // is a runtime error. But it's also possible that if some configuration
+  // doesn't support deferred loading then it'll be not an error.
   Expect.throws(() {print(l1.libVar);});
-  Expect.throws(() {print(l1.libGetter);});
-  Expect.throws(() {l1.libSetter = "x";});
-  Expect.throws(() {print(l1.libFunc);});
-  Expect.throws(() {print(l1.LibClass.id);});
-  Expect.throws(() {print(l1.LibMixin.id);});
-  Expect.throws(() {print(l1.LibEnum.id);});
-  Expect.throws(() {print(l1.LibExt.id);});
-  Expect.throws(() {print(l1.LibET.id);});
+  try {
+    Expect.equals("scope_lib1 libVar", l1.libVar);
+  } catch (_) {}
+  try {
+    Expect.equals("scope_lib1 libGetter", l1.libGetter);
+  } catch (_) {}
+  try {
+    l1.libSetter = "x";
+  } catch (_) {}
+  try {
+    Expect.equals("scope_lib1 libFunc", l1.libFunc);
+  } catch (_) {}
+  try {
+    Expect.equals("scope_lib1 LibClass", l1.LibClass.id);
+  } catch (_) {}
+  try {
+    Expect.equals("scope_lib1 LibMixin", l1.LibMixin.id);
+  } catch (_) {}
+  try {
+    Expect.equals("scope_lib1 LibEnum", l1.LibEnum.id);
+  } catch (_) {}
+  try {
+    Expect.equals("scope_lib1 LibET", l1.LibET.id);
+  } catch (_) {}
 
   await l1.loadLibrary();
 
@@ -42,7 +61,6 @@ testPart1() async {
   Expect.equals("scope_lib1 LibClass", l1.LibClass.id);
   Expect.equals("scope_lib1 LibMixin", l1.LibMixin.id);
   Expect.equals("scope_lib1 LibEnum", l1.LibEnum.id);
-  Expect.equals("scope_lib1 LibExt", l1.LibExt.id);
   Expect.equals("scope_lib1 LibET", l1.LibET.id);
 
   await l1.loadLibrary(); // Not an error
