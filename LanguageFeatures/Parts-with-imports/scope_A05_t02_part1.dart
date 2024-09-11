@@ -19,6 +19,6 @@
 
 part of 'scope_A05_t02.dart';
 
-import 'scope_lib1.dart' deferred as l1;
+import 'scope_lib1.dart' deferred as l1 hide LibExt;
 
 part 'scope_A05_t02_part2.dart';

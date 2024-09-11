@@ -46,9 +46,6 @@ testPart2() async {
     Expect.equals("scope_lib1 LibEnum", l1.LibEnum.id);
   } catch (_) {}
   try {
-    Expect.equals("scope_lib1 LibExt", l1.LibExt.id);
-  } catch (_) {}
-  try {
     Expect.equals("scope_lib1 LibET", l1.LibET.id);
   } catch (_) {}
 
@@ -61,7 +58,6 @@ testPart2() async {
   Expect.equals("scope_lib1 LibClass", l1.LibClass.id);
   Expect.equals("scope_lib1 LibMixin", l1.LibMixin.id);
   Expect.equals("scope_lib1 LibEnum", l1.LibEnum.id);
-  Expect.equals("scope_lib1 LibExt", l1.LibExt.id);
   Expect.equals("scope_lib1 LibET", l1.LibET.id);
 
   await l1.loadLibrary(); // Not an error
