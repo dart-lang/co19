@@ -53,8 +53,6 @@ String testBool(bool value) {
       return "true";
     case C.False:
       return "false";
-    default:
-      return "default";
   }
 }
 

@@ -51,8 +51,6 @@ String testBool(bool value) {
       return "true";
     case False:
       return "false";
-    default:
-      return "default";
   }
 }
 

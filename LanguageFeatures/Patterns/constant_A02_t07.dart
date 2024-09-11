@@ -42,8 +42,6 @@ String testBool(bool value) {
       return "true";
     case p.False:
       return "false";
-    default:
-      return "default";
   }
 }
 
