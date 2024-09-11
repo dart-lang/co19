@@ -11,7 +11,7 @@
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-part of 'scope_A08_t01.dart';
+part of 'scope_A08_t02.dart';
 
 import 'scope_lib2.dart' as p1;
 import 'scope_lib2.dart' as p2;
@@ -23,7 +23,7 @@ import 'scope_lib2.dart' as p7;
 import 'scope_lib2.dart' as p8;
 import 'scope_lib2.dart' as p9;
 
-part 'scope_A08_t01_part2.dart';
+part 'scope_A08_t02_part2.dart';
 
 int l1 = 1;
 //  ^^

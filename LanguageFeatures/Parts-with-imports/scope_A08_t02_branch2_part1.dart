@@ -11,9 +11,9 @@
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-part of 'scope_A08_t01.dart';
+part of 'scope_A08_t02.dart';
 
-part 'scope_A08_t01_branch2_part2.dart';
+part 'scope_A08_t02_branch2_part2.dart';
 
 testBranch2Part1() {
 }
