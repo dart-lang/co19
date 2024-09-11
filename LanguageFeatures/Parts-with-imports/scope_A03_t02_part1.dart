@@ -28,7 +28,7 @@ import 'scope_lib2.dart' deferred as d;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-part 'scope_A03_t02_part2.dart'
+part 'scope_A03_t02_part2.dart';
 
 testPart1() {
   print("Part 1");
