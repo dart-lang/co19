@@ -19,7 +19,7 @@
 part of 'scope_A02_t03_part1.dart';
 
 import 'scope_lib1.dart';
-import 'parts_lib.dart';
+import 'scope_lib5.dart';
 
 testPart2() {
   // From scope_lib1.dart
@@ -34,6 +34,6 @@ testPart2() {
   Expect.equals("scope_lib1 LibET", LibET.id);
   // From scope_lib2.dart
   Expect.equals("scope_lib2", libId);
-  // From parts_lib.dart
-  Expect.equals(0, counter);
+  // From scope_lib5.dart
+  Expect.equals("scope_lib5 Lib5Class", Lib5Class.id);
 }
