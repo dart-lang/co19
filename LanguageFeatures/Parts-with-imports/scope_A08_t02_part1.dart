@@ -33,22 +33,6 @@ int get l2 => 2;
 //      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-void set l3(int _) {}
-//       ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-int l4() => 4;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-class l5 {}
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-mixin l6 {}
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 enum l7 {e0;}
 //   ^^
 // [analyzer] unspecified

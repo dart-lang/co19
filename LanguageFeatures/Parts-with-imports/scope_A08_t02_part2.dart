@@ -13,6 +13,23 @@
 
 part of 'scope_A08_t02_part1.dart';
 
+void set l3(int _) {}
+//       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+int l4() => 4;
+//  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+class l5 {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin l6 {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 int p1 = 1;
 //  ^^
 // [analyzer] unspecified
