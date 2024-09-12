@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -7,24 +7,31 @@
 /// part directives.
 /// A part directive specifies a URI where a Dart compilation unit that should
 /// be incorporated into the current library may be found.
-/// partDirective:
-///   metadata part uri ';'
-/// ;
-/// partHeader:
-///   metadata part of identifier (‘.’ identifier)* ‘;’
-/// ;
-/// partDeclaration:
-///   partHeader topLevelDefinition* EOF
-/// ;
-/// A part header begins with part of followed by the name of the library the
-/// part belongs to. A part declaration consists of a part header followed by a
-/// sequence of top-level declarations.
-/// @description Checks that part unit can not contain an import directive.
+///
+/// <partDirective> ::= <metadata> `part' <configurableUri> `;'
+/// <partHeader> ::= <metadata> `part' `of' <uri> `;'
+/// <partDeclaration> ::=
+///   <partHeader> <importOrExport>* <partDirective>* (<metadata>
+///   <topLevelDeclaration>)* <EOF>
+///
+/// @description Checks that `partDirective`, `partHeader` and `libraryName` may
+/// contain metadata.
 /// @author kaigorodov
-/// @issue 44990
 
-library Parts_test_lib.id;
-part "part_10.dart";
+import "../../../Utils/expect.dart";
+
+@Annot1.nn(1)
+part "syntax_t01_part1.dart";
+@Annot1()
+part "syntax_t01_part2.dart";
+
+class Annot1 {
+  final int n;
+  const Annot1() : n = 0;
+  const Annot1.nn(int this.n);
+}
 
 main() {
+  Expect.equals("foo", foo);
+  Expect.equals("bar", bar);
 }

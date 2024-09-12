@@ -7,16 +7,13 @@
 /// `s`. The top-level declarations at that URI are then compiled by the Dart
 /// compiler in the scope of the current library.
 ///
-/// @description Checks that it is a compile-time error when names in the
-/// included file conflict with top-level definitions in this library.
-/// @author rodionov
+/// @description Checks that more than one part can be included in a library
+/// without errors as long as there are no name conflicts.
 
-part "compilation_t01_part.dart";
+part of 'compilation_t04.dart';
 
-var foo;
+class A { }
 
-main() {
-  foo = 1;
-//    ^
-// [cfe] unspecified
-}
+get value { return _value; }
+set value(value) { _value = value; }
+var _value;

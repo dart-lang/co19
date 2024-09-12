@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -7,16 +7,15 @@
 /// `s`. The top-level declarations at that URI are then compiled by the Dart
 /// compiler in the scope of the current library.
 ///
-/// @description Checks that it is a compile-time error when names in the
-/// included file conflict with top-level definitions in this library.
-/// @author rodionov
+/// @description Checks that more than one part can be included in a library
+/// without errors as long as there are no name conflicts.
 
-part "compilation_t01_part.dart";
+@Annot()
+part of 'compilation_t04.dart';
 
-var foo;
-
-main() {
-  foo = 1;
-//    ^
-// [cfe] unspecified
+class Annot {
+  const Annot();
 }
+
+final foo = "foo";
+var bar = 1;
