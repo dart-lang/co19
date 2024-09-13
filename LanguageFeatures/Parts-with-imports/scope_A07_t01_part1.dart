@@ -16,7 +16,7 @@
 
 part of 'scope_A07_t01.dart';
 
-import 'scope_lib.dart';
+import 'scope_lib1.dart';
 import 'scope_lib2.dart' as l1;
 
 part 'scope_A07_t01_part2.dart';
