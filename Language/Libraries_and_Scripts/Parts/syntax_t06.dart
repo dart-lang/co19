@@ -11,8 +11,8 @@
 /// <partDirective> ::= <metadata> `part' <configurableUri> `;'
 /// <partHeader> ::= <metadata> `part' `of' <uri> `;'
 /// <partDeclaration> ::=
-///   <partHeader> <importOrExport>* <partDirective>* (<metadata>
-///   <topLevelDeclaration>)* <EOF>
+///   <partHeader> <importOrExport>* <partDirective>*
+///   (<metadata> <topLevelDeclaration>)* <EOF>
 ///
 /// @description Checks that it is a compile-time error when the resource
 /// specified by the URI does not exist.

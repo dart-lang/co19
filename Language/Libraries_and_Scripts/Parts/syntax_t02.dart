@@ -11,8 +11,8 @@
 /// <partDirective> ::= <metadata> `part' <configurableUri> `;'
 /// <partHeader> ::= <metadata> `part' `of' <uri> `;'
 /// <partDeclaration> ::=
-///   <partHeader> <importOrExport>* <partDirective>* (<metadata>
-///   <topLevelDeclaration>)* <EOF>
+///   <partHeader> <importOrExport>* <partDirective>*
+///   (<metadata> <topLevelDeclaration>)* <EOF>
 ///
 /// @description Checks that part directive must end with a semicolon.
 /// @author rodionov

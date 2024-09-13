@@ -11,13 +11,14 @@
 /// <partDirective> ::= <metadata> `part' <configurableUri> `;'
 /// <partHeader> ::= <metadata> `part' `of' <uri> `;'
 /// <partDeclaration> ::=
-///   <partHeader> <importOrExport>* <partDirective>* (<metadata>
-///   <topLevelDeclaration>)* <EOF>
+///   <partHeader> <importOrExport>* <partDirective>*
+///   (<metadata> <topLevelDeclaration>)* <EOF>
 ///
 /// @description Checks that `partDirective`, `partHeader` and `libraryName` may
 /// contain metadata.
 /// @author sgrekhov22@gmail.com
 
-part of 'syntax_t01.dart';
+@Annot1()
+part of 'syntax_t09.dart';
 
 String bar = "bar";
