@@ -77,7 +77,7 @@ String test3(num? x) {
 main() {
   Expect.equals("match", test1(0));
   Expect.equals("match", test1(1));
-  Expect.equals("match", test2(0));
+  Expect.equals("default", test2(0));
   Expect.equals("match", test2(1));
   Expect.equals("match", test3(0));
   Expect.equals("match", test3(1));
