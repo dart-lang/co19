@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -11,17 +11,15 @@
 /// <partDirective> ::= <metadata> `part' <configurableUri> `;'
 /// <partHeader> ::= <metadata> `part' `of' <uri> `;'
 /// <partDeclaration> ::=
+/// <partDeclaration> ::=
 ///   <partHeader> <importOrExport>* <partDirective>*
 ///   (<metadata> <topLevelDeclaration>)* <EOF>
 ///
-/// @description Checks that it is a compile-time error when the resource
-/// specified by the URI does not exist.
-/// @author rodionov
+/// @description Checks that `partDirective`, `partHeader` and `libraryName` may
+/// contain metadata.
+/// @author sgrekhov22@gmail.com
 
-part "IntentionallyMissingFile.dart";
-//   ^
-// [analyzer] unspecified
-// [cfe] unspecified
+@Annot1.nn(0)
+part of 'syntax_t09.dart';
 
-main() {
-}
+String foo = "foo";

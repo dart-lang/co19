@@ -11,12 +11,15 @@
 /// included file conflict with top-level definitions in this library.
 /// @author rodionov
 
-part "compilation_t01_part.dart";
+@Annot()
+part of "compilation_t01.dart";
 
-var foo;
-
-main() {
-  foo = 1;
-//    ^
-// [cfe] unspecified
+class Annot {
+  const Annot();
 }
+
+final foo = "foo";
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+var bar = 1;

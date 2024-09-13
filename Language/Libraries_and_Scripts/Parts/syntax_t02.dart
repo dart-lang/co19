@@ -7,25 +7,18 @@
 /// part directives.
 /// A part directive specifies a URI where a Dart compilation unit that should
 /// be incorporated into the current library may be found.
-/// partDirective:
-///   metadata part uri ';'
-/// ;
-/// partHeader:
-///   metadata part of identifier (‘.’ identifier)* ‘;’
-/// ;
-/// partDeclaration:
-///   partHeader topLevelDefinition* EOF
-/// ;
-/// A part header begins with part of followed by the name of the library the
-/// part belongs to. A part declaration consists of a part header followed by a
-/// sequence of top-level declarations.
+///
+/// <partDirective> ::= <metadata> `part' <configurableUri> `;'
+/// <partHeader> ::= <metadata> `part' `of' <uri> `;'
+/// <partDeclaration> ::=
+///   <partHeader> <importOrExport>* <partDirective>*
+///   (<metadata> <topLevelDeclaration>)* <EOF>
+///
 /// @description Checks that part directive must end with a semicolon.
 /// @author rodionov
 
-
-library Parts_test_lib;
-part "part_0.dart"
-//   ^
+part 'syntax_t02_part.dart'
+//                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

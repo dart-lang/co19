@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Compiling a part directive of the form part s; causes the Dart
-/// system to attempt to compile the contents of the URI that is the value of s.
-/// The top-level declarations at that URI are then compiled by the Dart compiler
-/// in the scope of the current library. It is a compile-time error if the
-/// contents of the URI are not a valid part declaration.
+/// @assertion Compiling a part directive of the form `part s;` causes the Dart
+/// system to attempt to compile the contents of the URI that is the value of
+/// `s`. The top-level declarations at that URI are then compiled by the Dart
+/// compiler in the scope of the current library.
+///
 /// @description Checks that the top level declarations at URI are compiled in
 /// the scope of the current library (including private declarations).
 /// @Issue 42393
 /// @author rodionov
 
-library Parts_test_lib;
 import "../../../Utils/expect.dart";
-part "part_2.dart";
+part "compilation_t03_part.dart";
 
 main() {
   //functions

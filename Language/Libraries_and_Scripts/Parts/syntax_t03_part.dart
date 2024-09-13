@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -14,14 +14,8 @@
 ///   <partHeader> <importOrExport>* <partDirective>*
 ///   (<metadata> <topLevelDeclaration>)* <EOF>
 ///
-/// @description Checks that it is a compile-time error when the resource
-/// specified by the URI does not exist.
-/// @author rodionov
+/// @description Checks that it is a compile-time error when the part's URI is
+/// not enclosed in quotes.
+/// @author sgrekhov22@gmail.com
 
-part "IntentionallyMissingFile.dart";
-//   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-main() {
-}
+part of 'syntax_t03.dart';
