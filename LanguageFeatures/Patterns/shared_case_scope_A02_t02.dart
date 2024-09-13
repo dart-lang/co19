@@ -53,7 +53,6 @@ String test1(num x) {
 String test2(num x) {
   switch (x) {
     case var a as int when a > 0:
-    case int a:
     case int a when a is Never:
       a.expectStaticType<Exactly<int>>();
       print(a);
