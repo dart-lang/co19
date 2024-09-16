@@ -30,6 +30,8 @@ main() {
     }
     asyncEnd();
   }).whenComplete(() {
-    file.deleteSync();
+    try {
+      file.deleteSync();
+    } catch (_) {}
   });
 }

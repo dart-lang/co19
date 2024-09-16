@@ -73,7 +73,9 @@ runMain() {
       asyncEnd();
       rf1.closeSync();
       rf2.closeSync();
-      file.deleteSync();
+      try {
+        file.deleteSync();
+      } catch (_) {}
     });
   });
 }

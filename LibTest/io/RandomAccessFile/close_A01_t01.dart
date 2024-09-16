@@ -32,7 +32,9 @@ main() {
       }
       asyncEnd();
     }).whenComplete(() {
-      file.delete();
+      try {
+        file.deleteSync();
+      } catch (_) {}
     });
   });
 }

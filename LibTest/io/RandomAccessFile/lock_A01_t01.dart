@@ -36,7 +36,9 @@ check(FileLock lock) {
   }).whenComplete(() {
     rf.unlockSync();
     rf.closeSync();
-    file.deleteSync();
+    try {
+      file.deleteSync();
+    } catch (_) {}
   });
 }
 

@@ -23,7 +23,9 @@ Future<Object?> inSandbox(Object? test(Directory sandbox),
     asyncStart();
     return await test(sandbox);
   } finally {
-    sandbox.deleteSync(recursive: true);
+    try {
+      sandbox.deleteSync(recursive: true);
+    } catch (_) {}
     asyncEnd();
   }
 }

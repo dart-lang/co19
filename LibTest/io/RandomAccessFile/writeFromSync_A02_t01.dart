@@ -36,7 +36,9 @@ void check(int start, int end) {
     }
     asyncEnd();
   }).whenComplete(() {
-    file.deleteSync();
+    try {
+      file.deleteSync();
+    } catch (_) {}
   });
 }
 
