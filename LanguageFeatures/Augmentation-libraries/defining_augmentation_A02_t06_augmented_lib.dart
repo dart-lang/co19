@@ -2,12 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Augmentations do not share an import scope with the main library
-/// or each other. The libraries one augmentation imports are visible only to
-/// that file.
+/// @assertion With that feature, a part file can now have its own import and
+/// export directives, and further nested part files, with part files inheriting
+/// the imports and prefixes of their parent (part or library) file.
 ///
-/// @description Checks that if the part has exports then  the enclosing library
-/// implicitly exports it.
+/// @description Checks that if the part has exports then the enclosing part
+/// implicitly exports them.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
