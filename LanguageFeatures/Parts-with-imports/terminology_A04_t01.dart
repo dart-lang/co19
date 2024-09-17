@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It’s a compile-time error if a part file is a sub-part of itself.
+/// That is, if the includes relation has a cycle.
 ///
 /// @description Check that it is a compile-time error if a part file is a
 /// sub-part of itself.
