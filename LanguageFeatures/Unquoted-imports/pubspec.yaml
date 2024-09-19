@@ -1,0 +1,12 @@
+name: co19_unquoted_imports
+description: co19 tests for Unquoted imports feature
+
+# This tests isn't intended for publishing on pub.dev.
+publish_to: none
+
+environment:
+  sdk: '>=3.6.0-255.0.dev <4.0.0'
+
+dependencies:
+  test_package:
+    path: ./test_package
