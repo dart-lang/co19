@@ -22,7 +22,7 @@ import 'dart:async';
 extension type ObjectET(Object _) implements Object {}
 extension type FutureIntET(Future<int> _) implements Future<int>, ObjectET {}
 
-test<X extends ObjectET>(X x) async {
+test<X extends ObjectET?>(X x) async {
   if (x is FutureIntET) {
     await x;
   }
