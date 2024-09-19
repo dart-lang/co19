@@ -2,11 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Library file to test built-in identifier `late`.
+/// @assertion We allow all reserved words and identifiers, including built-in
+/// identifiers and contextual keywords as path components.
 ///
 /// @description Library file to test built-in identifier `late`.
 /// @author sgrekhov22@gmail.com
-
-// SharedOptions=--enable-experiment=unquoted-imports
+/// @assertion We allow all reserved words and identifiers, including built-in
+/// identifiers and contextual keywords as path components.
 
 String libraryId = "late";
