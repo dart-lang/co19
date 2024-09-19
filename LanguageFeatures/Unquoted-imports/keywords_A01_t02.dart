@@ -12,29 +12,29 @@
 // SharedOptions=--enable-experiment=unquoted-imports
 
 import '../../Utils/expect.dart';
-import test_package/keywords/abstract as l01;
-import test_package/keywords/as as l02;
-import test_package/keywords/covariant as l03;
-import test_package/keywords/deferred as l04;
-import test_package/keywords/dynamic as l05;
-import test_package/keywords/export as l06;
-import test_package/keywords/extension as l07;
-import test_package/keywords/external as l08;
-import test_package/keywords/factory as l09;
-import test_package/keywords/Function as l10;
-import test_package/keywords/get as l11;
-import test_package/keywords/implements as l12;
-import test_package/keywords/import as l13;
-import test_package/keywords/interface as l14;
-import test_package/keywords/late as l15;
-import test_package/keywords/library as l16;
-import test_package/keywords/mixin as l17;
-import test_package/keywords/operator as l18;
-import test_package/keywords/part as l19;
-import test_package/keywords/required as l20;
-import test_package/keywords/set as l21;
-import test_package/keywords/static as l22;
-import test_package/keywords/typedef as l23;
+import test_package1/keywords/abstract as l01;
+import test_package1/keywords/as as l02;
+import test_package1/keywords/covariant as l03;
+import test_package1/keywords/deferred as l04;
+import test_package1/keywords/dynamic as l05;
+import test_package1/keywords/export as l06;
+import test_package1/keywords/extension as l07;
+import test_package1/keywords/external as l08;
+import test_package1/keywords/factory as l09;
+import test_package1/keywords/Function as l10;
+import test_package1/keywords/get as l11;
+import test_package1/keywords/implements as l12;
+import test_package1/keywords/import as l13;
+import test_package1/keywords/interface as l14;
+import test_package1/keywords/late as l15;
+import test_package1/keywords/library as l16;
+import test_package1/keywords/mixin as l17;
+import test_package1/keywords/operator as l18;
+import test_package1/keywords/part as l19;
+import test_package1/keywords/required as l20;
+import test_package1/keywords/set as l21;
+import test_package1/keywords/static as l22;
+import test_package1/keywords/typedef as l23;
 
 main() {
   Expect.equals("abstract", l01.libraryId);

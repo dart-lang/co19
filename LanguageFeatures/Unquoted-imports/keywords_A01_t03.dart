@@ -12,17 +12,17 @@
 // SharedOptions=--enable-experiment=unquoted-imports
 
 import '../../Utils/expect.dart';
-import test_package/keywords/async as l01;
-import test_package/keywords/augment as l02;
-import test_package/keywords/base as l03;
-import test_package/keywords/hide as l04;
-import test_package/keywords/of as l05;
-import test_package/keywords/on as l06;
-import test_package/keywords/sealed as l07;
-import test_package/keywords/show as l08;
-import test_package/keywords/sync as l09;
-import test_package/keywords/type as l10;
-import test_package/keywords/when as l11;
+import test_package1/keywords/async as l01;
+import test_package1/keywords/augment as l02;
+import test_package1/keywords/base as l03;
+import test_package1/keywords/hide as l04;
+import test_package1/keywords/of as l05;
+import test_package1/keywords/on as l06;
+import test_package1/keywords/sealed as l07;
+import test_package1/keywords/show as l08;
+import test_package1/keywords/sync as l09;
+import test_package1/keywords/type as l10;
+import test_package1/keywords/when as l11;
 
 main() {
   Expect.equals("async", l01.libraryId);
