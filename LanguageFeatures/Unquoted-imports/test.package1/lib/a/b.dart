@@ -5,4 +5,4 @@
 /// @description Library file for testing unquoted imports.
 /// @author sgrekhov22@gmail.com
 
-String libraryId = "dotted.name.dart";
+String libraryId = "b1";

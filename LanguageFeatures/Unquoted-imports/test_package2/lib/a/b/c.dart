@@ -5,4 +5,4 @@
 /// @description Library file for testing unquoted imports.
 /// @author sgrekhov22@gmail.com
 
-String libraryId = "c.dart";
+String libraryId = "c2";
