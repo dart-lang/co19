@@ -5,7 +5,7 @@
 /// @assertion We allow all reserved words and identifiers, including built-in
 /// identifiers and contextual keywords as path components.
 ///
-/// @description Library file to test identifier `augment`.
+/// @description Library file to test built-in identifier `augment`.
 /// @author sgrekhov22@gmail.com
 
 String libraryId = "augment";
