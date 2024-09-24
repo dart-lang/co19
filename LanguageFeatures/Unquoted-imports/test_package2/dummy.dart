@@ -8,4 +8,4 @@
 
 // SharedOptions=--enable-experiment=unquoted-imports
 
-Never libraryId = "dummy.dart" as dynamic;
+String libraryId = "Should not be used!";

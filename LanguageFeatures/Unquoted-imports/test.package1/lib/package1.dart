@@ -7,4 +7,4 @@
 
 // SharedOptions=--enable-experiment=unquoted-imports
 
-String libraryId = "package1.dart";
+String libraryId = "package1";

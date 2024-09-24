@@ -7,4 +7,4 @@
 
 // SharedOptions=--enable-experiment=unquoted-imports
 
-String libraryId = "dotted.name2.dart";
+String libraryId = "dotted.name2";
