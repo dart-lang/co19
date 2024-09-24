@@ -21,7 +21,7 @@
 /// The grammar change is small, mainly adding import, export and part
 /// directives to part files.
 ///
-/// @description Check that `part` directive may contain a '<configurableUri>'.
+/// @description Check that a `part` directive may contain a '<configurableUri>'
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts
