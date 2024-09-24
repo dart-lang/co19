@@ -40,7 +40,9 @@ void check(int fLen) {
     asyncEnd();
     rf.unlockSync();
     rf.closeSync();
-    file.deleteSync();
+    try {
+      file.deleteSync();
+    } catch (_) {}
   });
 }
 
