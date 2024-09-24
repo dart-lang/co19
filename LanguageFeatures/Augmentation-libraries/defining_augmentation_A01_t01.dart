@@ -6,8 +6,8 @@
 /// restrictions on where an augmenting declaration may occur relative to the
 /// declaration it augments.
 ///
-/// @description Checks that declarations in an augmenting part file are visible
-/// in the main library.
+/// @description Checks that declarations in a part file are visible in the main
+/// library.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

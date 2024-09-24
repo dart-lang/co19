@@ -6,8 +6,8 @@
 /// export directives, and further nested part files, with part files inheriting
 /// the imports and prefixes of their parent (part or library) file.
 ///
-/// @description Checks that imports in an augmenting part file are not visible
-/// in a main library.
+/// @description Checks that imports in a part file are not visible in the main
+/// library.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

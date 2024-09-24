@@ -6,8 +6,8 @@
 /// export directives, and further nested part files, with part files inheriting
 /// the imports and prefixes of their parent (part or library) file.
 ///
-/// @description Checks that imports defined in an augmentation part are not
-/// visible in another augmentation branch even if it exports them.
+/// @description Checks that imports defined in a part are not visible in
+/// another branch of a parts tree even if it exports them.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
