@@ -6,8 +6,8 @@
 /// restrictions on where an augmenting declaration may occur relative to the
 /// declaration it augments.
 ///
-/// @description Checks that declarations in a main library are visible in an
-/// augmentation.
+/// @description Checks that declarations in the main library are visible in an
+/// augmenting part file.
 /// @author sgrekhov22@gmail.com
 /// @issue 55103
 
