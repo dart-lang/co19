@@ -23,7 +23,9 @@ Future<Object?> inSandbox(Object? test(Directory sandbox),
     asyncStart();
     return await test(sandbox);
   } finally {
-    sandbox.deleteSync(recursive: true);
+    try {
+      sandbox.deleteSync(recursive: true);
+    } catch (_) {}
     asyncEnd();
   }
 }
@@ -135,28 +137,13 @@ Random rnd = new Random(new DateTime.now().microsecondsSinceEpoch);
 String getTempFileName({String? extension}) {
   extension = (extension == null
       ? ".tmp"
-      : (extension.startsWith(".") ? extension : "." + extension));
-  String name = rnd.nextInt(10000).toString() +
-      "-" +
-      rnd.nextInt(10000).toString() +
-      "-" +
-      rnd.nextInt(10000).toString() +
-      "-" +
-      rnd.nextInt(10000).toString() +
-      extension;
-  return name;
+      : (extension.startsWith(".") ? extension : ".$extension"));
+  return "$pid-${rnd.nextInt(10000)}-${rnd.nextInt(10000)}-"
+      "${rnd.nextInt(10000)}$extension";
 }
 
-String getTempDirectoryName() {
-  String name = rnd.nextInt(10000).toString() +
-      "-" +
-      rnd.nextInt(10000).toString() +
-      "-" +
-      rnd.nextInt(10000).toString() +
-      "-" +
-      rnd.nextInt(10000).toString();
-  return name;
-}
+String getTempDirectoryName() => "$pid-${rnd.nextInt(10000)}-"
+      "${rnd.nextInt(10000)}-${rnd.nextInt(10000)}-${rnd.nextInt(10000)}";
 
 String getPrefix() {
   String fileName =

@@ -48,7 +48,9 @@ void check(int fLen) {
       rf.unlockSync();
     }
     rf.closeSync();
-    file.deleteSync();
+    try {
+      file.deleteSync();
+    } catch (_) {}
   });
 }
 

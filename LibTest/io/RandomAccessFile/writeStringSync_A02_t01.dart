@@ -24,13 +24,15 @@ check(String s) {
     rf.closeSync();
     try {
       rf.writeStringSync(s);
-      Expect.fail("should not be here.");
+      Expect.fail("Should not be here.");
     } on Exception catch (e) {
       Expect.isTrue(e is FileSystemException);
     }
     asyncEnd();
   }).whenComplete(() {
-    file.deleteSync();
+    try {
+      file.deleteSync();
+    } catch (_) {}
   });
 }
 

@@ -40,7 +40,9 @@ check(int start, end) {
     asyncEnd();
     rf.closeSync();
   }).whenComplete(() {
-    file.deleteSync();
+    try {
+      file.deleteSync();
+    } catch (_) {}
   });
 }
 

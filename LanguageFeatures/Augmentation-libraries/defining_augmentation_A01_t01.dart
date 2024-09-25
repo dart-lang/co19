@@ -2,11 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Declarations in any library augmentation or the augmented library
-/// are visible to all of the others, including private ones.
+/// @assertion Augmentation declarations interact with part files mainly in
+/// restrictions on where an augmenting declaration may occur relative to the
+/// declaration it augments.
 ///
-/// @description Checks that declarations in an augmentation are visible in a
-/// main library
+/// @description Checks that declarations in a part file are visible in the main
+/// library.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
