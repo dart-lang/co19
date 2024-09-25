@@ -1,0 +1,8 @@
+name: of.parts.test
+description: Internal package used by co19 tests for Unquoted imports feature
+
+# This tests isn't intended for publishing on pub.dev.
+publish_to: none
+
+environment:
+  sdk: '>=3.6.0-255.0.dev'
