@@ -8,5 +8,7 @@ environment:
   sdk: '>=3.6.0-255.0.dev'
 
 dependencies:
+  test.package1:
+    path: ./test.package1
   test_package2:
     path: ./test_package2
