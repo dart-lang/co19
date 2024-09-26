@@ -1,0 +1,37 @@
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion If the first segment in segments is "dart":
+/// ...
+/// - Let path be the concatenation of the remaining segments, separated by `/`.
+/// - The URI is "dart:path". So `import dart/async;` imports the library
+///   "dart:async".
+///
+/// @description Checks that `import dart/path;` imports library "dart:path".
+/// @author sgrekhov22@gmail.com
+
+// SharedOptions=--enable-experiment=unquoted-imports
+
+import dart/async show Completer;
+import dart/collection as c hide HashMap;
+import dart/convert deferred as d hide AsciiCodec;
+
+main() async {
+  print(Completer); // From 'dart:async'
+  print(Stream); // From 'dart:async'
+//      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  print(c.HashSet); // From 'dart:collection'
+  print(c.HashMap); // From 'dart:collection'
+//        ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  await d.loadLibrary();
+  print(d.AsciiDecoder); // From 'dart:convert'
+  print(d.AsciiCodec); // From 'dart:convert'
+//        ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
