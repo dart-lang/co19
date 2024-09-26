@@ -14,9 +14,9 @@
 ///   "package:server.api/api.dart".
 ///
 /// @description Checks that `export test.package1.dart;` exports
-/// "package:test.package1/dart.dart".
+/// "package:test.package1.dart/dart.dart".
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=unquoted-imports
 
-export test.package1.dart; // exports package:test.package1/dart.dart
+export test.package1.dart; // exports package:test.package1.dart/dart.dart

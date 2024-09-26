@@ -2,10 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @description Library file for testing unquoted imports. Must be unavailable
-/// via `import 'package:...'` and its unquoted shortcut.
+/// @description Library file for testing unquoted imports.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=unquoted-imports
 
-String libraryId = "Should not be used!";
+String libraryId = "dart";

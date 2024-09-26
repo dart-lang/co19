@@ -12,3 +12,5 @@ dependencies:
     path: ./test.package1
   test_package2:
     path: ./test_package2
+  test.package1.dart:
+    path: ./test.package1.dart

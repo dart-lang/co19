@@ -14,13 +14,13 @@
 ///   "package:server.api/api.dart".
 ///
 /// @description Checks that `import test.package1.dart;` imports
-/// "package:test.package1/dart.dart".
+/// "package:test.package1.dart/dart.dart".
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=unquoted-imports
 
 import '../../Utils/expect.dart';
-import test.package1.dart; // imports package:test.package1/dart.dart
+import test.package1.dart; // imports package:test.package1.dart/dart.dart
 import test_package2.dart as l1;
 
 main() {
