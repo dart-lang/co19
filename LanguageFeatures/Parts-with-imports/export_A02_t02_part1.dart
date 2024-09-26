@@ -18,8 +18,5 @@
 part of 'export_A02_t02.dart';
 
 export 'parts_lib.dart';
-//      ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 part 'export_A02_t02_part2.dart';
