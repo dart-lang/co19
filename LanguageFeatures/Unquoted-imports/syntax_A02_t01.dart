@@ -13,8 +13,10 @@
 ///                     | BUILT_IN_IDENTIFIER
 ///                     | OTHER_IDENTIFIER
 ///
-/// @description Checks that it is a syntax error if a `segmentComponent` is
-/// empty.
+/// @description Checks that it is a syntax error if a `.` is encountered when a
+/// `packagePath` is expected. Ditto if a `;` is encountered when a
+/// `segmentComponent` is expected. Ditto if a `.` is encountered when a
+/// `pathSegment` is expected.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=unquoted-imports

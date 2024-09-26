@@ -13,8 +13,9 @@
 ///                     | BUILT_IN_IDENTIFIER
 ///                     | OTHER_IDENTIFIER
 ///
-/// @description Checks that it is a syntax error if a `pathSegment` starts or
-/// ends with a '/'.
+/// @description Checks that it is a syntax error if a `/` is encountered when
+/// a `packagePath` is expected, or a `;` is encountered when a `pathSegment`
+/// is expected.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=unquoted-imports
