@@ -14,37 +14,53 @@
 part of 'scope_A08_t02.dart';
 
 import 'scope_lib2.dart' as p1;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as p2;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as p3;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as p4;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as p5;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as p6;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as p7;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as p8;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as p9;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 part 'scope_A08_t02_part2.dart';
 
 int l1 = 1;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 int get l2 => 2;
-//      ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 enum l7 {e0;}
-//   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 extension l8 on A {}
-//        ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 extension type l9(int _) {}
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 testPart1() {
 }

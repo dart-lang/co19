@@ -88,52 +88,60 @@ import 'scope_lib2.dart' as p9;
 // [cfe] unspecified
 
 import 'scope_lib2.dart' as n1;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as n2;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as n3;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as n4;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as n5;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as n6;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as n7;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as n8;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as n9;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 int n1 = 1;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 int get n2 => 2;
-//      ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 void set n3(int _) {}
-//       ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 int n4() => 4;
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 class n5 {}
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 mixin n6 {}
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 enum n7 {e0;}
-//   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 extension n8 on A {}
-//        ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 extension type n9(int _) {}
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 
 testPart2() {
 }
