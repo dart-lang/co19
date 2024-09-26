@@ -12,20 +12,47 @@
 // SharedOptions=--enable-experiment=enhanced-parts
 
 import 'scope_lib2.dart' as l1;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as l2;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as l3;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as l4;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as l5;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as l6;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as l7;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as l8;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 import 'scope_lib2.dart' as l9;
+//                          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 part 'scope_A08_t02_part1.dart';
+
+class A {}
 
 main() {
   testPart1();
   testPart2();
-  testBranch2Part1();
-  testBranch2Part2();
 }
