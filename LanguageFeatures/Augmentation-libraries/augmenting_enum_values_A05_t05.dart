@@ -36,6 +36,6 @@ augment enum E2 {
 main() {
   Expect.equals("name1", E1.name);
   Expect.equals("e0", E1.e0.name);
-  Expect.equals("name2", E2.e0.name);
+  Expect.equals("name2", E2.name);
   Expect.equals("e0", E2.e0.name);
 }
