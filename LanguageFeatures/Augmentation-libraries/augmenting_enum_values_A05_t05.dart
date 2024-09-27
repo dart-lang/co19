@@ -7,7 +7,7 @@
 /// augmenting) has the name `values`, `index`, `hashCode`, or `==`.
 ///
 /// @description Checks that it is not an error to declare or augment `name`
-/// member or property.
+/// static member or property.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -20,41 +20,22 @@ enum E1 {
 
 augment enum E1 {
   augment e0;
-  String get name => "name";
+  static String get name => "name1";
 }
 
 enum E2 {
   e0;
-  String get name => "name1";
+  static String get name => "name";
 }
 
 augment enum E2 {
   augment e0;
-  augment String get name => "name2";
-}
-
-enum E3 {
-  e0;
-}
-
-augment enum E3 {
-  augment e0,
-  name;
-}
-
-enum E4 {
-  e0, name;
-}
-
-augment enum E4 {
-  augment name;
+  augment static String get name => "name2";
 }
 
 main() {
-  Expect.equals("name", E1.e0.name);
+  Expect.equals("name1", E1.name);
+  Expect.equals("e0", E1.e0.name);
   Expect.equals("name2", E2.e0.name);
-  Expect.equals("e0", EnumName(E1.e0).name);
-  Expect.equals("e0", EnumName(E2.e0).name);
-  Expect.equals("E3.name", E3.name);
-  Expect.equals("E4.name", E4.name);
+  Expect.equals("e0", E2.e0.name);
 }
