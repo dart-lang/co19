@@ -54,26 +54,26 @@ class MA = Object with M;
 main() {
   Expect.equals("abstractMethod", C().abstractMethod());
   Expect.equals("abstractGetter", C().abstractGetter);
-  C().abstractSetter = "a"
+  C().abstractSetter = "a";
   Expect.equals("abstractSetter = a", _log);
 
   Expect.equals("abstractMethod", MA().abstractMethod());
   Expect.equals("abstractGetter", MA().abstractGetter);
-  MA().abstractSetter = "b"
+  MA().abstractSetter = "b";
   Expect.equals("abstractSetter = b", _log);
 
   Expect.equals("abstractMethod", E.e0.abstractMethod());
   Expect.equals("abstractGetter", E.e0.abstractGetter);
-  E.e0.abstractSetter = "c"
+  E.e0.abstractSetter = "c";
   Expect.equals("abstractSetter = c", _log);
 
   Expect.equals("abstractMethod", A().abstractMethod());
   Expect.equals("abstractGetter", A().abstractGetter);
-  A().abstractSetter = "d"
+  A().abstractSetter = "d";
   Expect.equals("abstractSetter = d", _log);
 
   Expect.equals("abstractMethod", ET(0).abstractMethod());
   Expect.equals("abstractGetter", ET(0).abstractGetter);
-  ET(0).abstractSetter = "e"
+  ET(0).abstractSetter = "e";
   Expect.equals("abstractSetter = e", _log);
 }
