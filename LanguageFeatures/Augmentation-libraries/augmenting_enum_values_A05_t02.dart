@@ -2,37 +2,54 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Enum values can only be augmented by enum values, and the
-/// implicit getter introduced by them is not augmentable.
+/// @assertion Some enum members can not be augmented: It is a compile-time
+/// error if an augmenting declaration in an enum declaration (introductory or
+/// augmenting) has the name `values`, `index`, `hashCode`, or `==`.
 ///
 /// @description Checks that it is a compile-time error to augment enum's
-/// `values` getter.
+/// `index`, `hashCode` or `==` members.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-part of 'augmenting_enum_values_A01_t02.dart';
+enum E1 {
+  e0;
+}
 
 augment enum E1 {
   augment e0;
-  augment static List<E1> get values;
+  augment int get index => 0;
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
+
+enum E2 {
+  e0;
 }
 
 augment enum E2 {
   augment e0;
-  augment static List<E2> get values => [e0];
+  augment int get hashCode => 0;
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
+enum E3 {
+  e0;
+}
+
 augment enum E3 {
   augment e0;
-  augment static List<E3> get values => augmented;
+  augment bool operator ==(Object other) => true;
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
+
+main() {
+  print(E1);
+  print(E2);
+  print(E3);
 }
