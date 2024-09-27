@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It’s a compile-time error if a `part` directive denotes a file
-/// which is not a part file.
+/// @assertion It’s a compile-time error if a part file is a sub-part of itself.
+/// That is, if the includes relation has a cycle.
 ///
-/// @description Check that it is a compile-time error if a `part` directive
-/// denotes a file which is not a part file.
+/// @description Check that it is a compile-time error if a part file is a
+/// sub-part of itself.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts
