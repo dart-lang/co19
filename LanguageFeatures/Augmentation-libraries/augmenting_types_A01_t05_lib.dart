@@ -18,6 +18,6 @@
 part of 'augmenting_types_A01_t05.dart';
 
 augment class C = A with M;
-//             ^
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified

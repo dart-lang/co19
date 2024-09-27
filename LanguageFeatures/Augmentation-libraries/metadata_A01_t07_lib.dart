@@ -32,7 +32,7 @@ augment mixin M {
 augment enum E {
   augment e0;
   @Meta() augment static void staticMethod() {}
-  @Meta() augment void instanceMethod() {};
+  @Meta() augment void instanceMethod() {}
 }
 
 augment extension Ext {
