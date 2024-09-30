@@ -58,18 +58,13 @@
 /// duplicates a function type alias name.
 /// @author rodionov
 
-
 import "syntax_lib.dart" as prefix;
-//                          ^
+//                          ^^^^^^
+// [analyzer] unspecified
 // [cfe] unspecified
 
 typedef prefix(int);
-//      ^
-// [analyzer] unspecified
 
 main() {
   (int) {} is prefix;
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

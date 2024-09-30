@@ -59,16 +59,12 @@
 /// @author rodionov
 
 import "syntax_lib.dart" as prefix;
-//                          ^
+//                          ^^^^^^
+// [analyzer] unspecified
 // [cfe] unspecified
 
 class prefix {}
-//    ^
-// [analyzer] unspecified
 
 main() {
   new prefix();
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
