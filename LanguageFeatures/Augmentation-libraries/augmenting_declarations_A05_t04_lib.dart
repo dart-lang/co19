@@ -20,7 +20,9 @@ augment class C {}
 
 augment mixin M {}
 
-augment enum E {}
+augment enum E {
+  e1;
+}
 
 augment extension Ext {}
 
