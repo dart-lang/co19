@@ -30,6 +30,9 @@ class C {
   static void set m3(String _) {
     _log = "m3";
   }
+  static void set m4(String _) {
+    _log = "m4";
+  }
 }
 
 extension Ext on C {
@@ -40,6 +43,7 @@ extension Ext on C {
     _log = "Ext.m2";
   }
   String m3() => "Ext.m3";
+  String get m4 => "Ext.m4";
 }
 
 main() {
@@ -48,4 +52,5 @@ main() {
   C().m2 = "";
   Expect.equals("Ext.m2", _log);
   Expect.equals("Ext.m3", C().m3());
+  Expect.equals("Ext.m4", C().m4);
 }
