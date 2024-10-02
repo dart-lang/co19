@@ -27,8 +27,5 @@
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-/**/part of 'grammar_A04_t01.dart';
-/**/part of 'grammar_A04_t01_lib.dart';
-//  ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+part of 'grammar_A04_t01.dart';
+part of 'grammar_A04_t01_lib.dart';
