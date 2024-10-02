@@ -17,7 +17,7 @@
 ///   invocations (they can also not be declared as extension members).
 ///
 /// @description Check that an extension member with the basename `m` is
-/// applicable if on type has a static member with the same basename.
+/// applicable even if the on type has a static member with the same basename.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/expect.dart';
