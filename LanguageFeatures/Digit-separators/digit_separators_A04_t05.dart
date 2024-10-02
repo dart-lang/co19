@@ -11,46 +11,51 @@
 /// between two `0-9`, `a-f`, `A-F` digits in `HEX_NUMBER`.
 ///
 /// @description Check that it is a compile-time error if `_` follows or is
-/// followed by `+` or `-`.
+/// followed by `e` or `E`.
 /// @author sgrekhov22@gmail.com
 
-const pi1 = 0.0314e_+2;
+const _e = 0;
+const _E = 0;
+const e_ = 0;
+const E_ = 0;
+
+const pi1 = 0.0314_e+2;
 //          ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final pi2 = 314E_-2;
-//          ^^^^^^^
+final pi2 = 314_E-2;
+//          ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-const pi3 = 0.0314e__+2;
-//          ^^^^^^^^^^^
+const pi3 = 0.0314e_2;
+//          ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final pi4 = 314E___-2;
-//          ^^^^^^^^^
+final pi4 = 0.0314E_2;
+//          ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-const e1 = 0.0272e+_2;
+const e1 = 0.0272____e+2;
 //         ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final e2 = 272E-_2;
+final e2 = 272____E-2;
 //         ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-const e3 = 0.0272e+__2;
-//         ^^^^^^^^^^^^^
+const e3 = 0.0272e__2;
+//         ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final e4 = 272E-____2;
-//         ^^^^^^^^^^
+const e4 = 0.0272E___2;
+//         ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
