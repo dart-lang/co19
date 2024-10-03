@@ -31,6 +31,12 @@ extension on int? {
     }
     return null;
   }
+  int? operator -(int other) {
+    if (this != null) {
+      return this! - other;
+    }
+    return null;
+  }
 }
 
 main() {
@@ -40,7 +46,7 @@ main() {
     ? e + 1,
     ?(e) + 1
   ];
-  Expect.listEquals([2, 3], list);
+  Expect.listEquals([2, 2], list);
 
   var set = <int>{
     ? e + 1,
