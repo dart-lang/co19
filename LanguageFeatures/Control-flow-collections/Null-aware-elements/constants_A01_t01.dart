@@ -42,7 +42,7 @@ main() {
     ?e1: ?e2,
     ?null: e2,
     ?nil: e2,
-    1: ?e1
+    2: ?e1
   };
-  Expect.mapEquals({e1: 1, 1: e1}, map);
+  Expect.mapEquals({e1: 1, 2: e1}, map);
 }
