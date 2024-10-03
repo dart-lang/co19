@@ -29,9 +29,6 @@
 
 library grammar.a03.t01;
 part 'grammar_A03_t01_part1.dart';
-//    ^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 main() {
 }
