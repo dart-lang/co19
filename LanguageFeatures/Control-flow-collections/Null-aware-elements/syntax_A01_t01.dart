@@ -73,7 +73,7 @@ main() {
   };
 
   String? key = 2 > 1 ? "key" : null;
-  List<Map<String, int>? m = 2 > 1 ? ? [{"k": 0}] : null;
+  List<Map<String, int>>? m = 2 > 1 ? [{"k": 0}] : null;
   <String, int>{
     ?...m,
 //  ^

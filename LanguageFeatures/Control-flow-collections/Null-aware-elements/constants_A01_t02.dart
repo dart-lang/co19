@@ -14,6 +14,7 @@
 main() {
   const e1 = 1;
   const e2 = 2;
+  const e3 = 3;
 
   const {
     ?e1,
@@ -42,23 +43,23 @@ main() {
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    ?1: 2,
+    ?12: 2,
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    e1: ?1,
+    e2: ?1,
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    1: ?e1,
+    13: ?e1,
 //     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    ?e1: ?e2,
+    ?e3: ?e2,
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    ?1: ?2
+    ?14: ?2
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
