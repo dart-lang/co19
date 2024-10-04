@@ -14,6 +14,7 @@
 /// @description Check that if `element` has a null-aware value and `vv` is
 /// `null` then evaluation is stopped.
 /// @author sgrekhov22@gmail.com
+/// @issue 56848
 
 // SharedOptions=--enable-experiment=null-aware-elements
 
