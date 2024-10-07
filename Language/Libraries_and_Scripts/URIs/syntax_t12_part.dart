@@ -10,7 +10,7 @@
 /// is not a compile-time constant, or if x involves string interpolation.
 ///
 /// @description Checks that it is not an error to use a raw string literal
-/// as an URI in a part directive.
+/// as a URI in a part directive.
 /// @author sgrekhov22@gmail.com
 
 part of 'syntax_t12.dart';

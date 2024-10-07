@@ -10,7 +10,7 @@
 /// is not a compile-time constant, or if x involves string interpolation.
 ///
 /// @description Checks that it is not an error to use a multi-line string
-/// literal as an URI in a part directive.
+/// literal as a URI in a part directive.
 /// @author rodionov
 
 import '../../../Utils/expect.dart';
