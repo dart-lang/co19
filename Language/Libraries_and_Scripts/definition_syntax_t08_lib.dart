@@ -7,6 +7,6 @@ library Definition_Syntax_t08_lib;
 class A {}
 
 /**/import 'definition_syntax_t02_lib.dart';
-//^^^^^^
+//  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
