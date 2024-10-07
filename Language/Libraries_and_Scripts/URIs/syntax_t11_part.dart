@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -11,11 +11,8 @@
 ///
 /// @description Checks that it is not an error to use a multi-line string
 /// literal as an URI in a part directive.
-/// @author rodionov
+/// @author sgrekhov22@gmail.com
 
-import '../../../Utils/expect.dart';
-part """syntax_t11_part.dart""";
+part of 'syntax_t11.dart';
 
-main() {
-  Expect.equals("syntax_t11_part.dart", id);
-}
+String id = "syntax_t11_part.dart";

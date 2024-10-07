@@ -4,6 +4,7 @@
 
 /// @assertion It is a compile-time error if the specified URI does not refer
 /// to a library declaration.
+///
 /// @description Checks that it is a compile-time error when the resource
 /// specified by the URI refers to a part declaration which is not a library
 /// declaration
@@ -11,8 +12,6 @@
 
 // [error line 1, column 1]
 // [cfe] unspecified
-
-library my_lib;
 
 export "invalid_uri_t03_part.dart";
 //     ^

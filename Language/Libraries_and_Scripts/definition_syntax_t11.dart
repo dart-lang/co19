@@ -19,10 +19,10 @@
 /// library begins with the word library (possibly prefaced with any applicable
 /// metadata annotations), followed by a qualified identifier that gives the
 /// name of the library.
+///
 /// @description Checks that a library is parsed without errors if all allowed
 /// directives are present in permitted numbers and in the correct order.
 /// @author msyabro
-
 
 import "definition_syntax_t11_lib.dart";
 
