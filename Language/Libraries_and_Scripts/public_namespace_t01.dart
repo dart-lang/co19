@@ -6,11 +6,11 @@
 /// simple name of each public top level member m of L to m. The scope of a
 /// library L consists of the names introduced by all top level declarations
 /// declared in L, and the names added by L's imports.
+///
 /// @description Checks that the scope of a library L consist of the names
 /// introduced by all top level declaration in L, and the names added by L's
 /// import.
 /// @author vasya
-
 
 import "public_namespace_t01_lib.dart";
 

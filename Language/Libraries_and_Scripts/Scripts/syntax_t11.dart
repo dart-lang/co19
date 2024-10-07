@@ -9,13 +9,9 @@
 /// libraryDefinition:
 ///   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
 /// ;
-/// @description Checks that a script is parsed without errors
-/// if all allowed directives are present and in the correct order.
+/// @description Checks that a script is parsed without errors if all allowed
+/// directives are present and in the correct order.
 /// @author vasya
-
-
-
-library Library_with_all_directives;
 
 export "library1.dart";
 

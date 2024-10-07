@@ -19,6 +19,7 @@
 /// library begins with the word library (possibly prefaced with any applicable
 /// metadata annotations), followed by a qualified identifier that gives the
 /// name of the library.
+///
 /// @description Checks that it is a compile-error if a top-level definition
 /// comes before a part directive.
 /// @author msyabro

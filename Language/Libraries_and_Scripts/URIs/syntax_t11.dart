@@ -8,14 +8,14 @@
 /// ;
 /// It is a compile-time error if the string literal x that describes a URI
 /// is not a compile-time constant, or if x involves string interpolation.
+///
 /// @description Checks that it is not an error to use a multi-line string
 /// literal as a URI in a part directive.
 /// @author rodionov
 
-
-library SomeLibrary;
-part """part.dart""";
+import '../../../Utils/expect.dart';
+part """syntax_t11_part.dart""";
 
 main() {
-  new FooClass();
+  Expect.equals("syntax_t11_part.dart", id);
 }

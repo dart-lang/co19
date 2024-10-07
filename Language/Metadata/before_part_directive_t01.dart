@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Metadata can appear before  ...  part directive ...
+///
 /// @description Check that metadata is allowed before part directive
 /// @author sgrekhov@unipro.ru
 

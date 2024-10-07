@@ -2,8 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-part of main_in_a_part;
+part of 'top_level_main_t04.dart';
 
 main() {
-  print('it works');
+  print('It works!');
 }
