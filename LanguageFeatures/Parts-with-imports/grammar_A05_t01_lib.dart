@@ -29,7 +29,4 @@
 
 library;
 
-/**/part of 'grammar_A05_t01.dart';
-//  ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+part of 'grammar_A05_t01.dart';
