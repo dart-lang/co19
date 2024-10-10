@@ -29,4 +29,7 @@
 
 library;
 
+// This is a syntax error, but the tools will recognize `library` above and omit
+// all further analysis of this file, and hence the syntax error (and any other
+// errors in this file) will not be reported.
 part of 'grammar_A05_t01.dart';
