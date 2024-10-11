@@ -26,8 +26,8 @@
 /// If an error occurs, or if this stream ends without finding a match and with
 /// no orElse function provided, the returned future is completed with an error.
 ///
-/// @description Checks that non broadcast stream can not be listened after
-/// the first element is returned.
+/// @description Checks that listening to this stream is stopped after the first
+/// matching element received.
 /// @author a.semenov@unipro.ru
 
 library firstWhere_A04_t01;
@@ -35,17 +35,27 @@ library firstWhere_A04_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check(Stream s) {
-  asyncStart();
-  s.firstWhere((_) => true).then((_) {
-    if (!s.isBroadcast) {
-      Expect.throws(() => s.listen((_) {}));
+void check(Stream s, int max) {
+  int count = 0;
+  s = s.map((event) {
+    count++;
+    if (count > max) {
+      Expect.fail("Stream should be cancelled");
     }
-    asyncEnd();
+    return event;
+  });
+  asyncStart();
+  s.firstWhere((v) => v == 2).then((_) {
+    Expect.equals(count, max);
+    // Wait for some time to make sure that there is no more events
+    Future.delayed(Duration(seconds: 1), () {
+      Expect.equals(count, max);
+      asyncEnd();
+    });
   });
 }
 
 void test(CreateStreamFunction create) {
-  check(create([123]));
-  check(create([1, 2, 3]));
+  check(create([1, 2, 3, 4, 5]), 2);
+  check(create([0, 1, 2, 3, 4]), 3);
 }

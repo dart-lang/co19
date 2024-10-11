@@ -2,14 +2,25 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Stream.fromIterable(Iterable<T> data)
-/// If iterating data throws an error, the stream ends immediately with that
-/// error. No done event will be sent (iteration is not complete), but no
-/// further data events will be generated either, since iteration cannot
-/// continue.
-/// @description Checks that if iterating throws an error, onError callback
+/// @assertion Stream<T>.fromIterable( Iterable<T> elements )
+///
+/// Creates a stream that gets its data from `elements`.
+///
+/// The iterable is iterated when the stream receives a listener, and stops
+/// iterating if the listener cancels the subscription, or if the
+/// [Iterator.moveNext] method returns false or throws. Iteration is suspended
+/// while the stream subscription is paused.
+///
+/// If calling [Iterator.moveNext] on `elements.iterator` throws, the stream
+/// emits that error and then it closes. If reading [Iterator.current] on
+/// `elements.iterator` throws, the stream emits that error, but keeps iterating
+///
+/// Can be listened to more than once. Each listener iterates elements
+/// independently.
+///
+/// @description Checks that if iterating throws an error, `onError` callback
 /// is run with this error. Also checks that data events are neither further
-/// generated nor fired and onDone event does not happen.
+/// generated nor fired and `onDone` event does not happen.
 /// @author ilya
 
 import "dart:async";
