@@ -39,7 +39,6 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  asyncStart(2);
   var stream = Stream<int>.multi((controller) {
     for (var v in [1, 2, 3, 4, 5]) {
       controller.add(v);
