@@ -9,8 +9,8 @@
 /// This stream emits a single data event of value and then closes with a done
 /// event.
 ///
-/// @description Checks that `Stream.value()` constructor creates a stream which
-/// emits a single data event before closing.
+/// @description Checks that the `Stream.value()` constructor creates a stream
+/// which emits a single data event before closing.
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";

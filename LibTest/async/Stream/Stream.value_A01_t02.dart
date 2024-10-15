@@ -9,19 +9,22 @@
 /// This stream emits a single data event of value and then closes with a done
 /// event.
 ///
-/// @description Checks that `Stream.value()` constructor creates a stream which
-/// emits a single data event before closing.
+/// @description Checks that the `Stream.value()` constructor creates a stream
+/// which emits a single data event before closing.
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
+  int counter = 0;
   asyncStart();
   Stream stream = Stream.value("Stream.value");
   stream.listen((v) {
+    counter++;
     Expect.equals("Stream.value", v);
   }, onDone: () {
+    Expect.equals(1, counter);
     asyncEnd();
   });
 }

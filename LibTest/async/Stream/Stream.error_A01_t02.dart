@@ -10,7 +10,8 @@
 /// This stream emits a single error event of `error` and `stackTrace` and then
 /// completes with a done event.
 ///
-/// @description Checks that if `stackTrace` is specified.
+/// @description Checks that if `stackTrace` is specified it is available when a
+/// `catch` clause is executed to catch the error.
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";
@@ -23,6 +24,6 @@ main() async {
     var v = await stream.first;
     Expect.fail("Unexpected event $v");
   } catch (e, st) {
-    Expect.equals(stackTrace, st);
+    Expect.equals("My StackTrace", st.toString());
   }
 }

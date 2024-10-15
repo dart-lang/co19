@@ -10,21 +10,24 @@
 /// This stream emits a single error event of `error` and `stackTrace` and then
 /// completes with a done event.
 ///
-/// @description Checks that `Stream.error()` constructor creates a stream which
-/// emits a single error event and then calls 'onDone'.
+/// @description Checks that the `Stream.error()` constructor creates a stream
+/// which emits a single error event and then calls 'onDone'.
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
+  var onErrors = 0;
   asyncStart();
   Stream stream = Stream.error("Stream.error");
   stream.listen((v) {
     Expect.fail("Unexpected event $v");
   }, onError: (e) {
+    onErrors++;
     Expect.equals("Stream.error", e);
   }, onDone: () {
+    Expect.equals(onErrors, 1);
     asyncEnd();
   });
 }
