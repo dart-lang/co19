@@ -31,8 +31,8 @@
 /// like a single-subscription stream. If the stream emits the same events to
 /// all current listeners, it behaves like a broadcast stream.
 ///
-/// @description Checks that reading of [MultiStreamController.stream] is not
-/// supported.
+/// @description Checks that setting of [MultiStreamController.onListen] has no
+/// effect.
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";

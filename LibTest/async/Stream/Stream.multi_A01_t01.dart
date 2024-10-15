@@ -52,6 +52,7 @@ main() {
   stream.listen((v) {
     Expect.equals(v, i++);
   }, onDone: () {
+    Expect.equals(6, i);
     asyncEnd();
   });
 
@@ -59,6 +60,7 @@ main() {
   stream.listen((v) {
     Expect.equals(v, j++);
   }, onDone: () {
+    Expect.equals(6, j);
     asyncEnd();
   });
 }

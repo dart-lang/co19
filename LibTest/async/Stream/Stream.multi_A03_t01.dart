@@ -56,7 +56,5 @@ main() {
     });
   });
 
-  stream.listen((v) {}, onDone: () {
-    asyncEnd();
-  });
+  stream.listen((v) {}, onDone: asyncEnd);
 }

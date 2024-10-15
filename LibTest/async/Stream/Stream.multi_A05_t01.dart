@@ -47,18 +47,4 @@ main() {
     controller.close();
   }, isBroadcast: true);
   Expect.isTrue(stream.isBroadcast);
-
-  int i = 1;
-  stream.listen((v) {
-    Expect.equals(v, i++);
-  }, onDone: () {
-    asyncEnd();
-  });
-
-  int j = 1;
-  stream.listen((v) {
-    Expect.equals(v, j++);
-  }, onDone: () {
-    asyncEnd();
-  });
 }

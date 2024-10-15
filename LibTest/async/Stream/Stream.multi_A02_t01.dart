@@ -56,7 +56,7 @@ main() {
 
   stream.listen((v) {}, onDone: () {
     stream.listen((v) {}, onDone: () {
-      Expect.notEquals(c1, c2);
+      Expect.notIdentical(c1, c2);
       asyncEnd();
     });
   });
