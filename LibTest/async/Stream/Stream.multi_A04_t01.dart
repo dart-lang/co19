@@ -41,18 +41,13 @@ import "../../../Utils/expect.dart";
 main() {
   asyncStart();
   var stream = Stream<int>.multi((MultiStreamController<int> controller) {
-    print(controller.hasListener);
     controller.onListen = () {
       Expect.fail("MultiStreamController.onListen invoked");
     };
-    print(controller.hasListener);
     for (var v in [1, 2, 3, 4, 5]) {
       controller.add(v);
     }
     controller.close();
   });
-
-  stream.listen((v) {}, onDone: () {
-    asyncEnd();
-  });
+  stream.listen((v) {}, onDone: asyncEnd);
 }

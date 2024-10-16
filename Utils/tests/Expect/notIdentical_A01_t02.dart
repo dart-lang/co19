@@ -27,7 +27,8 @@ void check(var arg1, var arg2, [String reason = '']) {
 
 main() {
   int one = 1;
-  check("x", "x");
+  String x = "x";
+  check(x, x);
   check(const Object(), const Object());
   check(const C(42), const C(42));
   check(1, one);
