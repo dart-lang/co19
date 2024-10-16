@@ -54,6 +54,15 @@ class Expect {
     }
   }
 
+  /// Checks whether the expected and actual values are identical (using
+  /// `identical`).
+  static void notIdentical(var expected, var actual, [String reason = '']) {
+    if (_identical(expected, actual)) {
+      _fail('Expect.notIdentical(expected: <$expected>, '
+          'actual: <$actual>$reason) fails.');
+    }
+  }
+
   /// Unconditional failure.
   static void fail(String reason) {
     _fail('Expect.fail($reason)');
