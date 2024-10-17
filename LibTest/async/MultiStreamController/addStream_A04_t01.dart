@@ -47,9 +47,9 @@ main() {
 }
 
 void listen(Stream<int> stream) {
-  int eventsCounter = 1;
+  int eventsCounter = 0;
   stream.listen((v) {
-    Expect.equals(eventsCounter++, v);
+    Expect.equals(++eventsCounter, v);
     if (v == 3) {
       Future.delayed(Duration(milliseconds: 100), asyncEnd);
     }

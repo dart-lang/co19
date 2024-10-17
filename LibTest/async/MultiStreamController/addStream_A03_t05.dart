@@ -54,15 +54,15 @@ main() {
 }
 
 void listen(Stream<int> stream) {
-  int eventsCounter = 1;
+  int eventsCounter = 0;
   int errorsCounter = 0;
   stream.listen((v) {
-    Expect.equals(eventsCounter++, v);
+    Expect.equals(++eventsCounter, v);
   }, onError: (e) {
-    errorsCounter++;
+    --errorsCounter;
     Expect.equals(-1, e);
   }, onDone: () {
-    Expect.equals(4, eventsCounter);
-    Expect.equals(1, errorsCounter);
+    Expect.equals(3, eventsCounter);
+    Expect.equals(-1, errorsCounter);
   });
 }
