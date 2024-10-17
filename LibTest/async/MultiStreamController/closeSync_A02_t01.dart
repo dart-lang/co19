@@ -37,10 +37,7 @@ void listen(Stream<int> stream) {
   ss = stream.listen((v) {
     Expect.equals(++i, v);
     if (v == 1) {
-      ss.pause(Future.delayed(Duration(milliseconds: 100), () {
-
-        ss.resume();
-      }));
+      ss.pause(Future.delayed(Duration(milliseconds: 100)));
     }
   }, onDone: () {
     Expect.equals(3, i);

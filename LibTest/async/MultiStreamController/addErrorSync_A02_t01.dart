@@ -41,7 +41,5 @@ void listen(Stream<int> stream) {
     Expect.isTrue(delivered);
     asyncEnd();
   });
-  ss.pause(Future<void>.delayed(Duration(milliseconds: 100), () {
-    ss.resume();
-  }));
+  ss.pause(Future<void>.delayed(Duration(milliseconds: 100)));
 }
