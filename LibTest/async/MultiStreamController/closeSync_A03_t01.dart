@@ -31,6 +31,7 @@ main() {
     controller.add(3);
     Expect.isFalse(done);
     controller.closeSync();
+    Expect.isFalse(done);
   });
   listen(stream);
   listen(stream);

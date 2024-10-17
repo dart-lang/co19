@@ -23,26 +23,28 @@
 /// never resumes, the done event will not be sent and this future will never
 /// complete.
 ///
-/// @description Checks that the returned future is completed not earlier when
-/// all listeners are cancelled.
+/// @description Checks that the returned future is completed not earlier wnen
+/// its listener is cancelled.
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 var results = List<bool>.filled(4, false);
+var controllers = Map<MultiStreamController<int>, int>();
 
 main() {
   asyncStart(4);
+  int counter = 0;
   var stream = Stream<int>.multi((controller) {
+    controllers[controller] = counter++;
     controller.add(1);
     controller.add(2);
     controller.add(3);
+    controller.close();
     controller.close().then((_) {
-      for (int i = 0; i < results.length; ++i) {
-        Expect.isTrue(
-            results[i], " Listener number $i is not done or cancelled yet");
-      }
+      int i = controllers[controller]!;
+      Expect.isTrue(results[i], " Listener number $i is not cancelled yet");
       asyncEnd();
     });
   });

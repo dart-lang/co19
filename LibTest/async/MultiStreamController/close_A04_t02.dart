@@ -52,6 +52,6 @@ void listen(Stream<int> stream) {
     Expect.equals(1, v);
     ss.pause();
   }, onDone: () {
-    Expect.fail("");
+    Expect.fail("Unexpected onDone");
   });
 }

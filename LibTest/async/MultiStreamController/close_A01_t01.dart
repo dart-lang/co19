@@ -31,12 +31,13 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  asyncStart(2);
+  asyncStart(4);
   var stream = Stream<int>.multi((controller) {
     controller.add(1);
     controller.add(2);
     controller.add(3);
     controller.close().then((_) {
+      Expect.isFalse(controller.hasListener);
       Expect.throws(() {
         controller.add(4);
       });
@@ -65,5 +66,6 @@ void listen(Stream<int> stream) {
     Expect.equals(++i, v);
   }, onDone: () {
     Expect.equals(3, i);
+    asyncEnd();
   });
 }

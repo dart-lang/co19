@@ -33,12 +33,7 @@ import "../../../Utils/expect.dart";
 main() {
   asyncStart();
   Stream<int>.multi((controller) {
-    controller.add(1);
-    controller.add(2);
-    controller.add(3);
-    controller.close().then((_) {
-      Expect.fail("Future unexpectedly completed");
-    });
+    Expect.fail("Unexpected onListen");
   });
 
   // Wait for some time to make sure that the future is not completed
