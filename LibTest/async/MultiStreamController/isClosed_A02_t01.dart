@@ -30,7 +30,7 @@ main() {
       controller.add(4);
       controller.addSync(5);
       controller.addError(6);
-      controller.addSync(7);
+      controller.addErrorSync(7);
       controller.addStream(Stream.value(8));
       asyncEnd();
     });
