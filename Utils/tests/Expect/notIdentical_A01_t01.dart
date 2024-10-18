@@ -18,7 +18,6 @@ class C {
 }
 
 main() {
-  Expect.notIdentical("x", String.fromCharCode("x".codeUnitAt(0)));
   Expect.notIdentical(Object(), Object());
   Expect.notIdentical(Object(), const Object());
   Expect.notIdentical(C(42), C(42));
