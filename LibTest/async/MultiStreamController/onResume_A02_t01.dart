@@ -9,8 +9,10 @@
 ///
 /// Pause related callbacks are not supported on broadcast stream controllers.
 ///
-/// @description Checks that this callback is called when the stream is resumed.
+/// @description Checks that if this callback is set to `null`, then no callback
+/// happens.
 /// @author sgrekhov22@gmail.com
+/// @issue 56927
 
 import "dart:async";
 import "../../../Utils/expect.dart";
@@ -20,9 +22,9 @@ main() {
   var stream = Stream<int>.multi((controller) {
     Expect.isNull(controller.onResume);
     controller.onResume = () {
-      controller.close();
-      asyncEnd();
+      Expect.fail("Unexpected onResume");
     };
+    controller.onResume = null;
     controller.add(1);
     controller.add(2);
     controller.add(3);
@@ -40,6 +42,7 @@ void listen(Stream<int> stream) {
       ss.pause();
       Future.delayed(Duration(milliseconds: 100), () {
         ss.resume();
+        asyncEnd();
       });
     }
   });
