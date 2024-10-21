@@ -9,7 +9,8 @@
 ///
 /// Pause related callbacks are not supported on broadcast stream controllers.
 ///
-/// @description Checks that this callback is called when the stream is paused.
+/// @description Checks that if this property is set to `null` then no callback
+/// happens.
 /// @author sgrekhov22@gmail.com
 
 import "dart:async";

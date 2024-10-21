@@ -24,11 +24,12 @@ main() {
   asyncStart();
   var controllers = <MultiStreamController<int>>[];
   var stream = Stream<int>.multi((controller) {
+    controllers.add(controller);
     Expect.isFalse(controller.isPaused);
     controller.add(1);
     controller.add(2);
     controller.add(3);
-  });
+  }, isBroadcast: true);
   listen(stream);
   listen(stream);
   Future.delayed(Duration(milliseconds: 200), () {
