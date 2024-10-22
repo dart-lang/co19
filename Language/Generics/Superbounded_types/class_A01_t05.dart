@@ -29,7 +29,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  bool b3 = 1 is A<A<Object>>;
+  bool b4 = 1 is A<A<Object>>;
 //                 ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
