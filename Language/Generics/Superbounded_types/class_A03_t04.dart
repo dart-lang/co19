@@ -2,14 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion AIt is a compile-time error if a parameterized type [T] is
+/// @assertion It is a compile-time error if a parameterized type `T` is
 /// super-bounded when it is used in any of the following ways:
 ///   ...
-///   [T] is an immediate subterm of a redirecting factory constructor signature
-/// @description Checks that compile error is thrown when super-bounded type [T]
-/// is used in the redirecting factory constructor signature
+/// - `T` is an immediate subterm of a redirecting factory constructor signature
+///
+/// @description Checks that it is a compile-time error if a super-bounded type
+/// `T` is used in a redirecting factory constructor signature
 /// @author iarkh@unipro.ru
-
 
 class A<X extends A<X>> {
   A() {}

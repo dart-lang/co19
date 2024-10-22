@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if a parameterized type [T] is
+/// @assertion It is a compile-time error if a parameterized type `T` is
 /// super-bounded when it is used in any of the following ways:
-///   [T] is an immediate subterm of a new expression (16.15.1) or a constant
-///   object expression
-/// @description Checks that compile error is not thrown when parametrized type
-/// is used in the constant object expression with [as] constructions (see Issue
-/// 37033 for more details)
-/// @Issue 42415
+/// - `T` is an immediate subterm of a new expression or a constant object
+///   expression.
+///
+/// @description Checks that it is not an error if a parametrized super-bounded
+/// type is used in a constant `as` expression.
+/// @Issue 37033, 42415
 /// @author iarkh@unipro.ru
-
 
 class A<T extends A<T>> {
   const A();
@@ -31,4 +30,14 @@ const b9 = null as A<A<Never>>?;
 const b10 = null as A<A<void>>?;
 
 main() {
+  print(b1);
+  print(b2);
+  print(b3);
+  print(b4);
+  print(b5);
+  print(b6);
+  print(b7);
+  print(b8);
+  print(b9);
+  print(b10);
 }
