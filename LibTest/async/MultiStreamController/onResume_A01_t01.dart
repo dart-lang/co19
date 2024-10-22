@@ -20,7 +20,6 @@ main() {
   var stream = Stream<int>.multi((controller) {
     Expect.isNull(controller.onResume);
     controller.onResume = () {
-      controller.close();
       asyncEnd();
     };
     controller.add(1);
