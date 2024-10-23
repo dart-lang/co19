@@ -7,9 +7,8 @@
 ///   ...
 /// - `T` is an immediate subterm of a redirecting factory constructor signature
 ///
-/// @description Checks that compile error is thrown when a parameterized
-/// super-bounded type `T` is used in a redirecting factory constructor
-/// signature
+/// @description Checks that it is a compile-time error if a super-bounded type
+/// is an immediate subterm of a redirecting factory constructor signature
 /// @author iarkh@unipro.ru
 
 class A<X> {

@@ -7,8 +7,8 @@
 /// - `T` is an immediate subterm of a new expression or a constant object
 ///   expression.
 ///
-/// @description Checks that it is a compile-time error if a parameterized
-/// super-bounded type is used in a constant constructor invocation.
+/// @description Checks that it is a compile-time error if a super-bounded type
+/// is an immediate subterm of a constant object expression.
 /// @author iarkh@unipro.ru
 
 class A<T extends A<T>> {
@@ -16,39 +16,37 @@ class A<T extends A<T>> {
 }
 
 main() {
-  const a1 = A<dynamic>();
-//             ^^^^^^^
+  var a1 = const A<dynamic>();
+//                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const a2 = A<Object?>();
-//             ^^^^^^^
+  var a2 = const A<Object?>();
+//                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const a3 = A<void>();
-//             ^^^^
+  var a3 = const A<void>();
+//                 ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const a4 = A<Null>();
-//             ^^^^
+  var a4 = const A<Null>();
+//                 ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const a5 = A<Never>();
 
-  const a6 = A<A<dynamic>>();
-//             ^^^^^^^^^^
+  var a6 = const A<A<dynamic>>();
+//                 ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const a7 = A<A<Object?>>();
-//             ^^^^^^^^^^
+  var a7 = const A<A<Object?>>();
+//                 ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const a8 = A<A<void>>();
-//             ^^^^^^^
+  var a8 = const A<A<void>>();
+//                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const a9 = A<A<Null>>();
-//             ^^^^^^^
+  var a9 = const A<A<Null>>();
+//                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const a10 = A<A<Never>>();
 }
