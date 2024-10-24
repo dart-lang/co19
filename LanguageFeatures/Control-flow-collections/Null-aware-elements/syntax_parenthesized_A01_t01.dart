@@ -43,7 +43,7 @@ main() {
   var map = {
     ?(e1): 1,
     2: ?(e2),
-    ?(e1): ?(e1)
+    ?(e1): ?(e2)
   };
   Expect.mapEquals({e1: e1}, map);
 }

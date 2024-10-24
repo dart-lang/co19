@@ -18,10 +18,12 @@
 ///
 /// @description Check that an unary prefix expression in the form `++e` and
 /// `--e` can be used as an expression in a `nullAwareMapElement` or
-/// `nullAwareExpressionElement`. Static test.
+/// `nullAwareExpressionElement`. Run-time test.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=null-aware-elements
+
+import '../../../Utils/expect.dart';
 
 extension on int? {
   int? operator +(int? other) {
@@ -43,75 +45,38 @@ main() {
   int? e2 = 1 > 2 ? 1 : null; // null
 
   var list = [
-    ?++e1,
-//  ^
-// [analyzer] unspecified
-    ?++e2,
-//  ^
-// [analyzer] unspecified
-    ?--e1,
-//  ^
-// [analyzer] unspecified
-    ?--e2
-//  ^
-// [analyzer] unspecified
+    ?++e1, // ignore: invalid_null_aware_operator
+    ?++e2, // ignore: invalid_null_aware_operator
+    ?--e1, // ignore: invalid_null_aware_operator
+    ?--e2  // ignore: invalid_null_aware_operator
   ];
+  Expect.listEquals([2, 1], list);
 
   var set = {
-    ?++e1,
-//  ^
-// [analyzer] unspecified
-    ?++e2,
-//  ^
-// [analyzer] unspecified
-    ?--e1,
-//  ^
-// [analyzer] unspecified
-    ?--e2
-//  ^
-// [analyzer] unspecified
+    ?++e1, // ignore: invalid_null_aware_operator
+    ?++e2, // ignore: invalid_null_aware_operator
+    ?--e1, // ignore: invalid_null_aware_operator
+    ?--e2  // ignore: invalid_null_aware_operator
   };
+  Expect.setEquals({2, 1}, set);
 
   var map1 = {
-    ?++e1: 1,
-//  ^
-// [analyzer] unspecified
-    ?++e2: 2,
-//  ^
-// [analyzer] unspecified
-    ?--e1: 3,
-//  ^
-// [analyzer] unspecified
-    ?--e2: 4,
-//  ^
-// [analyzer] unspecified
-    5: ?++e1,
-//     ^
-// [analyzer] unspecified
-    6: ?++e2,
-//     ^
-// [analyzer] unspecified
-    7: ?--e1,
-//     ^
-// [analyzer] unspecified
-    8: ?--e2
-//     ^
-// [analyzer] unspecified
+    ?++e1: 1, // ignore: invalid_null_aware_operator
+    ?++e2: 2, // ignore: invalid_null_aware_operator
+    ?--e1: 3, // ignore: invalid_null_aware_operator
+    ?--e2: 4, // ignore: invalid_null_aware_operator
+    5: ?++e1, // ignore: invalid_null_aware_operator
+    6: ?++e2, // ignore: invalid_null_aware_operator
+    7: ?--e1, // ignore: invalid_null_aware_operator
+    8: ?--e2  // ignore: invalid_null_aware_operator
   };
+  Expect.mapEquals({2: 1, 1: 3, 5: 2, 7: 1}, map1);
 
   var map2 = {
-    ?++e1: ?++e1,
-//  ^
-// [analyzer] unspecified
-    ?++e2: ?++e2,
-//  ^
-// [analyzer] unspecified
-    ?--e1: ?--e1,
-//  ^
-// [analyzer] unspecified
-    ?--e2: ?--e2
-//  ^
-// [analyzer] unspecified
-
+    ?++e1: ?++e1, // ignore: invalid_null_aware_operator
+    ?++e2: ?++e2, // ignore: invalid_null_aware_operator
+    ?--e1: ?--e1, // ignore: invalid_null_aware_operator
+    ?--e2: ?--e2  // ignore: invalid_null_aware_operator
   };
+  Expect.mapEquals({2: 1}, map2);
 }
