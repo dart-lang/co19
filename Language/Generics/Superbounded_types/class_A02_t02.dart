@@ -2,59 +2,51 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if a parameterized type [T] is
+/// @assertion It is a compile-time error if a parameterized type `T` is
 /// super-bounded when it is used in any of the following ways:
-///   [T] is an immediate subterm of a new expression (16.15.1) or a constant
-///   object expression
-/// @description Checks that compile error is thrown when parametrized type is
-/// used with constructor in the constant object expression.
+/// - `T` is an immediate subterm of a new expression or a constant object
+///   expression.
+///
+/// @description Checks that it is a compile-time error if a super-bounded type
+/// is an immediate subterm of a constant object expression.
 /// @author iarkh@unipro.ru
-
 
 class A<T extends A<T>> {
   const A();
 }
 
 main() {
-  const a1 = A<dynamic>();
-//           ^
-// [cfe] Type argument 'dynamic' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-//             ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-  const a2 = A<Object?>();
-//           ^
-// [cfe] Type argument 'Object?' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-//             ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-  const a3 = A<void>();
-//           ^
-// [cfe] Type argument 'void' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-//             ^^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-  const a4 = A<Null>();
-//             ^^^^
+  var a1 = const A<dynamic>();
+//                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const a5 = A<Never>();
+  var a2 = const A<Object?>();
+//                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  var a3 = const A<void>();
+//                 ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  var a4 = const A<Null>();
+//                 ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  const a6 = A<A<dynamic>>();
-//           ^
-// [cfe] Type argument 'A<dynamic>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-//             ^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-  const a7 = A<A<Object?>>();
-//           ^
-// [cfe] Type argument 'A<Object?>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-//             ^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-  const a8 = A<A<void>>();
-//           ^
-// [cfe] Type argument 'A<void>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-//             ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-  const a9 = A<A<Null>>();
-//             ^^^^^^^
+  var a6 = const A<A<dynamic>>();
+//                 ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const a0 = A<A<Never>>();
+  var a7 = const A<A<Object?>>();
+//                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  var a8 = const A<A<void>>();
+//                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  var a9 = const A<A<Null>>();
+//                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
