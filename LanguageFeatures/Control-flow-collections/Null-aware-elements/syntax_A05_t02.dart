@@ -29,33 +29,45 @@ int? f(int? v) => v;
 main() {
   var list = [
     ? f(1) ?? null,
-    ? f(null) ?? 2,
+    ? f(null) ?? 2, // ignore: invalid_null_aware_operator
     ? f(null) ?? null
   ];
   Expect.listEquals([1, 2], list);
 
   var set = {
     ? f(1) ?? null,
-    ? f(null) ?? 2,
+    ? f(null) ?? 2, // ignore: invalid_null_aware_operator
     ? f(null) ?? null
   };
   Expect.setEquals({1, 2}, set);
 
   var map = {
-    ? f(1) ?? null: f(0) ?? null, // ?1: 0
-    ? f(null) ?? 2: f(0) ?? null, // ?2: 0
-    ? f(null) ?? 3: f(null) ?? null, // ?3: null
-    ? f(null) ?? null: f(0) ?? null, // ?null: 0
+    // ?1: 0
+    ? f(1) ?? null: f(0) ?? null,
+    // ?2: 0
+    ? f(null) ?? 2: f(0) ?? null,  // ignore: invalid_null_aware_operator
+    // ?3: null
+    ? f(null) ?? 3: f(null) ?? null,  // ignore: invalid_null_aware_operator
+    // ?null: 0
+    ? f(null) ?? null: f(0) ?? null,
 
-    f(4) ?? null: ? f(null) ?? null, // 4: ?null
-    f(5) ?? null: ? f(5) ?? null, // 5: ?5
-    f(null) ?? 6: ? f(null) ?? 6, // 6: ?6
-    f(null) ?? null: f(null) ?? 7, // null: ?7
+    // 4: ?null
+    f(4) ?? null: ? f(null) ?? null,
+    // 5: ?5
+    f(5) ?? null: ? f(5) ?? null,
+    // 6: ?6
+    f(null) ?? 6: ? f(null) ?? 6,  // ignore: invalid_null_aware_operator
+    // null: ?7
+    f(null) ?? null: f(null) ?? 7,
 
-    ?f(8) ?? null: ?f(null) ?? null, // ?8: ?null
-    ?f(9) ?? null: ?f(9) ?? null, // ?9: ?9
-    ?f(null) ?? 10: ?f(null) ?? 10, // ?null: ?10
-    ?f(null) ?? null: ?f(null) ?? 11, // ?null: ?null
+    // ?8: ?null
+    ?f(8) ?? null: ?f(null) ?? null,
+    // ?9: ?9
+    ?f(9) ?? null: ?f(9) ?? null,
+    // ?null: ?10
+    ?f(null) ?? 10: ?f(null) ?? 10, // ignore: invalid_null_aware_operator
+    // ?null: ?null
+    ?f(null) ?? null: ?f(null) ?? 11, // ignore: invalid_null_aware_operator
   };
   Expect.mapEquals({1: 0, 2: 0, 3: null, 5: 5, 6: 6, null: 7, 9: 9}, map);
 }

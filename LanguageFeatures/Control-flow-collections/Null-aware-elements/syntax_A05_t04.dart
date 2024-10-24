@@ -62,7 +62,7 @@ main() {
       ?b(false) ? null: f(8)?.abs() ?? null, // ?(true ? (8 ?? null): null): ?(false ? null : (8 ?? null)
     ?b(false) ? f(9)?.abs() ?? 1 : null:
       ?b(true) ? f(9)?.abs() ?? 1 : null, // ?(false ? (9 ?? 1): null): ?(true ? (9 ?? 1): null)
-    ?b(true) ? f(null)?.abs() ?? 10 : 11:
+    ?b(true) ? f(null)?.abs() ?? 10 : 11: // ignore: invalid_null_aware_operator
       ?b(true) ? f(null)?.abs() ?? null : 11 // ?(true ? (null ?? 10): 11): ?(true ? (null ?? null): 11)
   };
   Expect.mapEquals({1: 0, 2: 0, 5: 1, 6: 2, 7: 7, 8: 8}, map);

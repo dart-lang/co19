@@ -61,5 +61,7 @@ main() {
 
   <String, int>{
     contextType(ek)..expectStaticType<Exactly<String>>(): ?ev,
+//                                                        ^
+// [analyzer] unspecified
   };
 }
