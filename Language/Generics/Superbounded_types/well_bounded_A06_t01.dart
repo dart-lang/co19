@@ -6,7 +6,7 @@
 /// compile-time error.
 ///
 /// @description Checks that it is not an error if a well-bounded type is used
-/// as a right hand operand in an `is` expression.
+/// as the right hand operand in an `is` expression.
 /// @Issue 42415, 42429
 /// @author iarkh@unipro.ru
 

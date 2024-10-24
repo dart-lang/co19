@@ -5,8 +5,8 @@
 /// @assertion Any use of a type `T` which is not well-bounded is a
 /// compile-time error.
 ///
-/// @description Checks that it is a compile-time error if not a well-bounded
-/// type is used as a right hand operand in an `as` expression.
+/// @description Checks that it is a compile-time error if a malbounded type is
+/// used as the right hand operand in an `as` expression.
 /// @author iarkh@unipro.ru
 
 class A<T extends A<T>> {}

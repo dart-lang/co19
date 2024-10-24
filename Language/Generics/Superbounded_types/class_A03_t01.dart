@@ -11,48 +11,50 @@
 /// is an immediate subterm of a redirecting factory constructor signature
 /// @author iarkh@unipro.ru
 
-class A<X> {
+class A {
   A() {}
   factory A.foo1() = C<dynamic>;
-//                   ^^^^^^^^^^
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory A.foo2() = C<Object?>;
-//                   ^^^^^^^^^^
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory A.foo3() = C<void>;
-//                   ^^^^^^^
+//                     ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory A.foo4() = C<A<dynamic>>;
-//                   ^^^^^^^^^^^^^
+//                     ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory A.foo5() = C<A<Object?>>;
-//                   ^^^^^^^^^^^^^
+//                     ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory A.foo6() = C<A<void>>;
-//                   ^^^^^^^^^^
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory A.foo7() = C<A<A<dynamic>>>;
-//                   ^^^^^^^^^^^^^^^^
+//                     ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory A.foo8() = C<A<A<Object?>>>;
-//                   ^^^^^^^^^^^^^^^^
+//                     ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory A.foo9() = C<A<A<void>>>;
-//                   ^^^^^^^^^^^^^
+//                     ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C<X extends A<X>> extends A<X> {
+class C<X extends C<X>> extends A {
   C() {}
 }
 
-main() {}
+main() {
+  print(A);
+}

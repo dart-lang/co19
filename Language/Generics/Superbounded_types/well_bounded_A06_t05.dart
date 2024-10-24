@@ -5,8 +5,8 @@
 /// @assertion Any use of a type `T` which is not well-bounded is a
 /// compile-time error.
 ///
-/// @description Checks that it is not an error if a well-bounded  type is used
-/// as a right hand operand in an constant `is` expression.
+/// @description Checks that it is not an error if a well-bounded type is used
+/// as the right hand operand in a constant `is` expression.
 /// @Issue 37033, 42415
 /// @author iarkh@unipro.ru
 

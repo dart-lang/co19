@@ -12,25 +12,30 @@
 /// @Issue 34714,37037,41895
 /// @author iarkh@unipro.ru
 
-class A<X> {
+class A {
   A() {}
   factory A.foo1() = C;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   factory A.foo2() = C<A>;
-//                   ^^^^
+//                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory A.foo3() = C<A<A>>;
-//                   ^^^^^^^
+//                     ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory A.foo4() = C<A<A<A>>>;
-//                   ^^^^^^^^^^
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C<X> extends A<X> {
+class C<X extends C<X>> extends A {
   C() {}
 }
 
-main() {}
+main() {
+  print(A);
+}
