@@ -27,8 +27,8 @@ import '../../../Utils/expect.dart';
 main() {
   int? v1 = 2 > 1 ? 1 : null;
   int? v2 = 1 > 2 ? 2 : null;
-  String? key1 = 2 > 1 ? "key" : null;
-  String? key2 = 1 > 2 ? "key" : null;
+  String? key1 = 2 > 1 ? "key1" : null;
+  String? key2 = 1 > 2 ? "key2" : null;
 
   var l1 = [
     ? v1,
@@ -55,7 +55,7 @@ main() {
     ? key1: ?
             v1,
     ?
-    key2: ? v1
+    key2: ? v2
   };
   Expect.mapEquals({key1: v1}, m2);
 
@@ -64,5 +64,5 @@ main() {
     "key2": ?
           v2
   };
-  Expect.mapEquals({key1: v1, "key2": null}, m3);
+  Expect.mapEquals({key1: v1}, m3);
 }

@@ -69,5 +69,6 @@ main() {
     // ?null: ?null
     ?f(null) ?? null: ?f(null) ?? 11, // ignore: invalid_null_aware_operator
   };
-  Expect.mapEquals({1: 0, 2: 0, 3: null, 5: 5, 6: 6, null: 7, 9: 9}, map);
+  Expect.mapEquals(
+      {1: 0, 2: 0, 3: null, 5: 5, 6: 6, null: 7, 9: 9, 10: 10}, map);
 }
