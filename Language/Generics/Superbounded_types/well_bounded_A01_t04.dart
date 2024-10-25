@@ -16,10 +16,17 @@ class B1<X extends A<Object?>> {}
 class B2<X extends A<dynamic>> {}
 class B3<X extends A<void>> {}
 class B4<X extends A<Never>> {}
+class B5<X extends A<X>> {}
+
+mixin M<X extends A<X>> on A<X> {}
+extension type ET<X extends A<X>>(A<X> _) implements A<X> {}
 
 main() {
-  B1();
-  B2();
-  B3();
-  B4();
+  print(B1);
+  print(B2);
+  print(B3);
+  print(B4);
+  print(B5);
+  print(M);
+  print(ET);
 }

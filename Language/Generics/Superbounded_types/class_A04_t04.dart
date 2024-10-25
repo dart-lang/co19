@@ -1,4 +1,4 @@
-// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -11,48 +11,48 @@
 /// mixin.
 ///
 /// @description Checks that it is a compile-time error if a super-bounded type
-/// occurs as an immediate subterm of an `extends` clause.
-/// @author iarkh@unipro.ru
+/// occurs as an element in a type list of an `on` clause of a mixin.
+/// @author sgrekhov22@gmail.com
 
 class A<T extends A<T>> {}
 
-class B1 extends A {}
-//               ^
+mixin M1 on A {}
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class B2 extends A<dynamic> {}
-//                 ^^^^^^^
+mixin M2 on A<dynamic> {}
+//            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B3 extends A<Object?> {}
-//                 ^^^^^^^
+mixin M3 on A<Object?> {}
+//            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B4 extends A<void> {}
-//                 ^^^^
+mixin M4 on A<void> {}
+//            ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class B5 extends A<A<dynamic>> {}
-//                 ^^^^^^^^^^
+mixin M5 on A<A<dynamic>> {}
+//            ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B6 extends A<A<Object?>> {}
-//                 ^^^^^^^^^^
+mixin M6 on A<A<Object?>> {}
+//            ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B7 extends A<A<void>> {}
-//                 ^^^^^^^
+mixin M7 on A<A<void>> {}
+//            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  print(B1);
-  print(B2);
-  print(B3);
-  print(B4);
-  print(B5);
-  print(B6);
-  print(B7);
+  print(M1);
+  print(M2);
+  print(M3);
+  print(M4);
+  print(M5);
+  print(M6);
+  print(M7);
 }

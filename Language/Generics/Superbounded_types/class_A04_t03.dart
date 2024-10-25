@@ -21,43 +21,39 @@ class B1 extends C with A {}
 //                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B2<X extends A<X>> extends C with A<X> {}
 
-class B3 extends C with A<dynamic> {}
+class B2 extends C with A<dynamic> {}
 //                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B4 extends C with A<Object?> {}
+class B3 extends C with A<Object?> {}
 //                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B5 extends C with A<void> {}
-//                        ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-class B6 extends C with A<Null> {}
+class B4 extends C with A<void> {}
 //                        ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class B7 extends C with A<A<dynamic>> {}
+class B5 extends C with A<A<dynamic>> {}
 //                        ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B8 extends C with A<A<Object?>> {}
+class B6 extends C with A<A<Object?>> {}
 //                        ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B9 extends C with A<A<void>> {}
+class B7 extends C with A<A<void>> {}
 //                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B10 extends C with A<A<Null>> {}
-//                         ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
-class B11 extends C with A<Never> {}
-class B12 extends C with A<A<Never>> {}
-
-main() {}
+main() {
+  print(B1);
+  print(B2);
+  print(B3);
+  print(B4);
+  print(B5);
+  print(B6);
+  print(B7);
+}
