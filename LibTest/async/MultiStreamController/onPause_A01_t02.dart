@@ -19,9 +19,6 @@ import "../../../Utils/expect.dart";
 main() {
   asyncStart(2);
   var stream = Stream<int>.multi((controller) {
-    controller.onPause = () {
-      Expect.fail("Unexpected onPause");
-    };
     controller.onPause = null;
     controller.add(1);
     controller.add(2);

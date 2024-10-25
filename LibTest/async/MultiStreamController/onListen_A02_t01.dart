@@ -29,6 +29,5 @@ main() {
 }
 
 void listen(Stream<int> stream) {
-  stream.listen((v) {
-  }, onDone: asyncEnd);
+  stream.listen(null, onDone: asyncEnd);
 }
