@@ -15,11 +15,14 @@ class A<T extends A<T>> {}
 class B1<X extends A<Object?>> {}
 class B2<X extends A<dynamic>> {}
 class B3<X extends A<void>> {}
-class B4<X extends A<Never>> {}
+
+mixin M<X extends A<Object?>> on A<Never> {}
+extension type ET<X extends A<Object?>>(String _) implements Object {}
 
 main() {
-  B1();
-  B2();
-  B3();
-  B4();
+  print(B1);
+  print(B2);
+  print(B3);
+  print(M);
+  print(ET);
 }

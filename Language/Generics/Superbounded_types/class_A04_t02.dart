@@ -20,44 +20,39 @@ class B1 implements A {}
 //                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B2<X extends A<X>> implements A<X> {}
 
-class B3 implements A<dynamic> {}
+class B2 implements A<dynamic> {}
 //                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B4 implements A<Object?> {}
+class B3 implements A<Object?> {}
 //                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B5 implements A<void> {}
-//                    ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-class B6 implements A<Null> {}
+class B4 implements A<void> {}
 //                    ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class B7 implements A<A<dynamic>> {}
+class B5 implements A<A<dynamic>> {}
 //                    ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B8 implements A<A<Object?>> {}
+class B6 implements A<A<Object?>> {}
 //                    ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B9 implements A<A<void>> {}
+class B7 implements A<A<void>> {}
 //                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-class B10 implements A<A<Null>> {}
-//                     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
-class B11 implements A<Never> {}
-
-class B12 implements A<A<Never>> {}
-
-main() {}
+main() {
+  print(B1);
+  print(B2);
+  print(B3);
+  print(B4);
+  print(B5);
+  print(B6);
+  print(B7);
+}

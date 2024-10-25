@@ -33,4 +33,12 @@ main() {
 //  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  A<Null> a5;
+//  ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  A<A<Null>> a6;
+//  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
