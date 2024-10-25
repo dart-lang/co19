@@ -44,74 +44,33 @@ main() {
 
   var list = [
     ?++e1,
-//  ^
-// [analyzer] unspecified
     ?++e2,
-//  ^
-// [analyzer] unspecified
     ?--e1,
-//  ^
-// [analyzer] unspecified
     ?--e2
-//  ^
-// [analyzer] unspecified
   ];
 
   var set = {
     ?++e1,
-//  ^
-// [analyzer] unspecified
     ?++e2,
-//  ^
-// [analyzer] unspecified
     ?--e1,
-//  ^
-// [analyzer] unspecified
     ?--e2
-//  ^
-// [analyzer] unspecified
   };
 
   var map1 = {
     ?++e1: 1,
-//  ^
-// [analyzer] unspecified
     ?++e2: 2,
-//  ^
-// [analyzer] unspecified
     ?--e1: 3,
-//  ^
-// [analyzer] unspecified
     ?--e2: 4,
-//  ^
-// [analyzer] unspecified
     5: ?++e1,
-//     ^
-// [analyzer] unspecified
     6: ?++e2,
-//     ^
-// [analyzer] unspecified
     7: ?--e1,
-//     ^
-// [analyzer] unspecified
     8: ?--e2
-//     ^
-// [analyzer] unspecified
   };
 
   var map2 = {
     ?++e1: ?++e1,
-//  ^
-// [analyzer] unspecified
     ?++e2: ?++e2,
-//  ^
-// [analyzer] unspecified
     ?--e1: ?--e1,
-//  ^
-// [analyzer] unspecified
     ?--e2: ?--e2
-//  ^
-// [analyzer] unspecified
-
   };
 }

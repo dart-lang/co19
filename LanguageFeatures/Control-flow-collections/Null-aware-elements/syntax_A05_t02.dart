@@ -58,7 +58,7 @@ main() {
     // 6: ?6
     f(null) ?? 6: ? f(null) ?? 6,  // ignore: invalid_null_aware_operator
     // null: ?7
-    f(null) ?? null: f(null) ?? 7,
+    f(null) ?? null: ? f(null) ?? 7,
 
     // ?8: ?null
     ?f(8) ?? null: ?f(null) ?? null,
