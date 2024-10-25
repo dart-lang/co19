@@ -18,10 +18,12 @@
 ///
 /// @description Check that an unary prefix expression in the form `++e` and
 /// `--e` can be used as an expression in a `nullAwareMapElement` or
-/// `nullAwareExpressionElement`. Static test.
+/// `nullAwareExpressionElement`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=null-aware-elements
+
+import '../../../Utils/expect.dart';
 
 extension on int? {
   int? operator +(int? other) {
@@ -48,6 +50,7 @@ main() {
     ?--e1,
     ?--e2
   ];
+  Expect.listEquals([2, 1], list);
 
   var set = {
     ?++e1,
@@ -55,6 +58,7 @@ main() {
     ?--e1,
     ?--e2
   };
+  Expect.setEquals({2, 1}, set);
 
   var map1 = {
     ?++e1: 1,
@@ -66,6 +70,7 @@ main() {
     7: ?--e1,
     8: ?--e2
   };
+  Expect.mapEquals({2: 1, 1: 3, 5: 2, 7: 1}, map1);
 
   var map2 = {
     ?++e1: ?++e1,
@@ -73,4 +78,5 @@ main() {
     ?--e1: ?--e1,
     ?--e2: ?--e2
   };
+  Expect.mapEquals({2: 1}, map2);
 }
