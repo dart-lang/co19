@@ -31,7 +31,7 @@
 /// like a single-subscription stream. If the stream emits the same events to
 /// all current listeners, it behaves like a broadcast stream.
 ///
-/// @description Checks that `Stream.multi()` constructor creates a
+/// @description Checks that the `Stream.multi()` constructor creates a
 /// multi-subscription stream.
 /// @author sgrekhov22@gmail.com
 
