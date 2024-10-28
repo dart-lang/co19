@@ -81,7 +81,10 @@ augment abstract base mixin class C {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment mixin C {} // Ok
+augment mixin C {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 augment base mixin C {}
 //                 ^
