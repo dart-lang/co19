@@ -20,48 +20,38 @@ main() {
     ?e1,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
     ?42
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
   };
 
   const [
     ?e1,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
     ?42
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
   ];
 
   const {
     ?e1: 1,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
     ?12: 2,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
     e2: ?1,
 //      ^
 // [analyzer] unspecified
-// [cfe] unspecified
     13: ?e1,
 //     ^
 // [analyzer] unspecified
-// [cfe] unspecified
     ?e3: ?e2,
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
     ?14: ?2
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
   };
 }
