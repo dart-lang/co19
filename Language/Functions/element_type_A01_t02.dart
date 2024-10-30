@@ -17,6 +17,7 @@
 /// `T`, and `S` is of the form `Iterable<U>`, it is a compile-time error to
 /// yield an expression whose static type isn't assignable to `U`.
 /// @author sgrekhov22@gmail.com
+/// @issue 53054
 
 import "dart:async";
 
