@@ -95,7 +95,7 @@ augment enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
     () {
-      augmented + "b";
+      augmented + "f";
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -107,7 +107,7 @@ augment enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
     () {
-      augmented + "b";
+      augmented + "g";
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -122,7 +122,7 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
     () {
-      augmented + "b";
+      augmented + "h";
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -134,7 +134,34 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
     () {
-      augmented + "b";
+      augmented + "i";
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }();
+  }
+}
+
+augment extension type ET {
+  augment static void set staticSetter(String value) {
+    augmented + "j";
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+        () {
+      augmented + "j";
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }();
+  }
+  augment void set instanceSetter(String value) {
+    augmented + "k";
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+        () {
+      augmented + "k";
 //    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

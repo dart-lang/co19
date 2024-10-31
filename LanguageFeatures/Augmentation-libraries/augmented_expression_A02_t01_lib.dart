@@ -70,12 +70,25 @@ augment enum E {
 augment extension Ext {
   augment static void set staticSetter(String value) {
     augmented = "h";
-    Expect.equals("E.staticSetter: h", _log);
+    Expect.equals("Ext.staticSetter: h", _log);
     _log = "Augmented: $value";
   }
   augment void set instanceSetter(String value) {
     augmented = "i";
-    Expect.equals("E.instanceSetter: i", _log);
+    Expect.equals("Ext.instanceSetter: i", _log);
+    _log = "Augmented: $value";
+  }
+}
+
+augment extension type ET {
+  augment static void set staticSetter(String value) {
+    augmented = "j";
+    Expect.equals("ET.staticSetter: j", _log);
+    _log = "Augmented: $value";
+  }
+  augment void set instanceSetter(String value) {
+    augmented = "k";
+    Expect.equals("ET.instanceSetter: k", _log);
     _log = "Augmented: $value";
   }
 }

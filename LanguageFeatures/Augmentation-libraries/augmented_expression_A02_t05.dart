@@ -51,10 +51,17 @@ extension Ext on A {
   static String get augmented => "Ext.augmented, shouldn't be invoked";
 }
 
+extension type ET(int _) {
+  static void set staticSetter(String value) {}
+  void set instanceSetter(String value) {}
+  static String get augmented => "ET.augmented, shouldn't be invoked";
+}
+
 main() {
   topLevelSetter = "";
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

@@ -106,3 +106,22 @@ augment extension Ext {
     }
   }
 }
+
+augment extension type ET {
+  augment static void set staticSetter(String value) {
+    switch((1,)) {
+      case (var augmented,):
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+  augment void set instanceSetter(String value) {
+    switch((1,)) {
+      case (final augmented,):
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+}

@@ -141,3 +141,30 @@ augment extension Ext {
     };
   }
 }
+
+augment extension type ET {
+  augment static void set staticSetter(String value) {
+    var augmented = "x";
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = () {
+      String augmented = "y";
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
+  }
+  augment void set instanceSetter(String value) {
+    var augmented = "x";
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = () {
+      String augmented = "y";
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
+  }
+}

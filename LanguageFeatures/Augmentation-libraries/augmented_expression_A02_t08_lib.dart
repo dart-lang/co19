@@ -106,3 +106,22 @@ augment extension Ext {
     _log = "Augmented: $value";
   }
 }
+
+augment extension type ET {
+  augment static void set staticSetter(String value) {
+    var f = () {
+      augmented = "j";
+      return _log;
+    };
+    Expect.equals("E.staticSetter: j", f());
+    _log = "Augmented: $value";
+  }
+  augment void set instanceSetter(String value) {
+    var f = () {
+      augmented = "k";
+      return _log;
+    };
+    Expect.equals("E.instanceSetter: k", f());
+    _log = "Augmented: $value";
+  }
+}

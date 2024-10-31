@@ -46,10 +46,16 @@ extension Ext on A {
   void set instanceSetter(augmented value) {}
 }
 
+extension type ET(int _) {
+  static void set staticSetter(augmented value) {}
+  void set instanceSetter(augmented value) {}
+}
+
 main() {
   topLevelSetter = "";
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

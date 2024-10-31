@@ -87,3 +87,18 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension type ET {
+  augment static void set staticSetter(String value) {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment void set instanceSetter(String value) {
+    final {"key": augmented} = {"key": 42};
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}

@@ -78,3 +78,16 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension type ET {
+  augment static void set staticSetter(augmented value) {
+//                                     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment void set instanceSetter(augmented value) {
+//                                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}

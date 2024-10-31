@@ -84,6 +84,18 @@ extension Ext on A {
   }
 }
 
+extension type ET(int _) {
+  static void set staticSetter(String value) {
+    _log = "ET.staticSetter: $value";
+  }
+  void set instanceSetter(String value) {
+    _log = "ET.instanceSetter: $value";
+  }
+  void set augmented(String value) {
+    _log = "Setter ET.augmented = $value, shouldn't be invoked";
+  }
+}
+
 class MA = Object with M;
 
 main() {
@@ -96,4 +108,6 @@ main() {
   E.e1.instanceSetter = "7";
   Ext.staticSetter = "8";
   A().instanceSetter = "9";
+  ET.staticSetter = "10";
+  ET(0).instanceSetter = "11";
 }

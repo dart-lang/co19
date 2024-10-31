@@ -45,9 +45,16 @@ extension Ext on A {
   void set instanceSetter(String _) {}
 }
 
+extension type ET(int _) {
+  static void set staticSetter(String _) {}
+  void set instanceSetter(String _) {}
+}
+
 main() {
+  topLevelSetter = "";
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

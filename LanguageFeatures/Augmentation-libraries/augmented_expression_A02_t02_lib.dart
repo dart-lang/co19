@@ -69,3 +69,11 @@ augment extension Ext {
     _log = "Augmented: $value";
   }
 }
+
+augment extension type ET {
+  augment static void set staticVariable(String value) {
+    augmented = "h";
+    Expect.equals("h", staticVariable);
+    _log = "Augmented: $value";
+  }
+}
