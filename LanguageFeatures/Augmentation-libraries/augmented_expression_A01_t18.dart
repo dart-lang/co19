@@ -56,5 +56,6 @@ main() {
   print(C);
   print(M);
   print(E);
+  print(A);
   print(ET);
 }
