@@ -49,6 +49,11 @@ extension Ext on A {
   static void set augmented(String value) {}
 }
 
+extension type ET(int _) {
+  static String staticField = "Original";
+  static void set augmented(String value) {}
+}
+
 class MA = Object with M;
 
 main() {
@@ -57,4 +62,5 @@ main() {
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

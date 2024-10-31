@@ -17,7 +17,6 @@
 // SharedOptions=--enable-experiment=macros
 
 part of 'augmented_expression_A01_t23.dart';
-import '../../Utils/expect.dart';
 
 augment String get topLevelGetter {
   String local() => "Augmented: ${augmented}";
@@ -60,6 +59,17 @@ augment enum E {
 }
 
 augment extension Ext {
+  augment static String get staticGetter {
+    String local() => "Augmented: ${augmented}";
+    return local();
+  }
+  augment String get instanceGetter {
+    String local() => "Augmented: ${augmented}";
+    return local();
+  }
+}
+
+augment extension type ET {
   augment static String get staticGetter {
     String local() => "Augmented: ${augmented}";
     return local();

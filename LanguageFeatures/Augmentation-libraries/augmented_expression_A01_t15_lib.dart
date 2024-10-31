@@ -95,3 +95,20 @@ augment extension Ext {
     return "Augmented";
   }
 }
+
+augment extension type ET {
+  augment static String get staticGetter {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return "Augmented";
+  }
+  augment String get instanceGetter {
+    final {"key": augmented} = {"key": 42};
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return "Augmented";
+  }
+}

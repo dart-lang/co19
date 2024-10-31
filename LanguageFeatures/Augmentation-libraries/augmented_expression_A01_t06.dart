@@ -47,6 +47,11 @@ extension Ext on A {
   String get instanceGetter => "E.instanceGetter: $augmented";
 }
 
+extension type ET(int _) {
+  static String get staticGetter => "ET.staticGetter: $augmented";
+  String get instanceGetter => "ET.instanceGetter: $augmented";
+}
+
 class MA = Object with M;
 
 main() {
@@ -59,4 +64,6 @@ main() {
   Expect.equals("Augmented", E.e1.instanceGetter);
   Expect.equals("Augmented", Ext.staticGetter);
   Expect.equals("Augmented", A().instanceGetter);
+  Expect.equals("Augmented", ET.staticGetter);
+  Expect.equals("Augmented", ET(0).instanceGetter);
 }

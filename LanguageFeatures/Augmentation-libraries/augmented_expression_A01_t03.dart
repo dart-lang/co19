@@ -50,6 +50,12 @@ extension Ext on A {
   static String augmented() => "Ext.augmented(), shouldn't be invoked";
 }
 
+extension type ET(int _) {
+  static String get staticGetter => "Original";
+  String get instanceGetter => "Original";
+  static String augmented() => "ET.augmented(), shouldn't be invoked";
+}
+
 class MA = Object with M;
 
 main() {
@@ -58,4 +64,5 @@ main() {
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

@@ -96,3 +96,20 @@ augment extension Ext {
     return "Augmented";
   }
 }
+
+augment extension type ET {
+  augment static String get staticGetter {
+    var f = () {
+      return augmented;
+    };
+    Expect.equals("Original", f());
+    return "Augmented";
+  }
+  augment String get instanceGetter {
+    var f = () {
+      return augmented;
+    };
+    Expect.equals("Original", f());
+    return "Augmented";
+  }
+}

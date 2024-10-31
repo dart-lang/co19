@@ -167,3 +167,36 @@ augment extension Ext {
     return "Augmented";
   }
 }
+
+augment extension type ET {
+  augment static String get staticGetter {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return "Augmented";
+  }
+  augment String get instanceGetter {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return "Augmented";
+  }
+}

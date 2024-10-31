@@ -58,6 +58,14 @@ extension Ext2 on A {
   String get augmented => "Instance getter of an extension";
 }
 
+extension type ET1(int _) {
+  static String get augmented => "Static getter of an extension";
+}
+
+extension type ET2(int _) {
+  String get augmented => "Instance getter of an extension";
+}
+
 main() {
   print(augmented);
   print(C1);
@@ -67,4 +75,6 @@ main() {
   print(E1);
   print(E2);
   print(A);
+  print(ET1);
+  print(ET2);
 }

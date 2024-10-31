@@ -105,3 +105,22 @@ augment extension Ext {
     return A("Augmented");
   }
 }
+
+augment extension type ET {
+  augment static A get staticGetter {
+    Expect.equals("A(ET.staticGetter).call", augmented());
+    var f = () {
+      return augmented();
+    };
+    Expect.equals("A(ET.staticGetter).call", f());
+    return A("Augmented");
+  }
+  augment A get instanceGetter {
+    Expect.equals("A(ET.instanceGetter).call", augmented());
+    var f = () {
+      return augmented();
+    };
+    Expect.equals("A(ET.instanceGetter).call", f());
+    return A("Augmented");
+  }
+}

@@ -131,3 +131,28 @@ augment extension Ext {
     return "";
   }
 }
+
+augment extension type ET {
+  augment static String get staticGetter {
+    print(null as augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    print(null is augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return "";
+  }
+  augment String get instanceGetter {
+    print(null as augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    print(null is augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return "";
+  }
+}

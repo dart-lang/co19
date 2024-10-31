@@ -65,3 +65,10 @@ augment extension Ext {
     return "Augmented";
   }
 }
+
+augment extension type ET {
+  augment static String get staticField {
+    Expect.equals("Original", augmented);
+    return "Augmented";
+  }
+}

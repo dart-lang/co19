@@ -185,3 +185,40 @@ augment extension Ext {
     return "";
   }
 }
+
+augment extension type ET {
+  augment static String get staticGetter {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+    return "";
+  }
+  augment String get instanceGetter {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+    return "";
+  }
+}

@@ -69,3 +69,14 @@ augment extension Ext {
     return f();
   }
 }
+
+augment extension type ET {
+  augment static String get staticGetter {
+    var f = () => "Augmented: ${augmented}";
+    return f();
+  }
+  augment String get instanceGetter {
+    var f = () => "Augmented: ${augmented}";
+    return f();
+  }
+}

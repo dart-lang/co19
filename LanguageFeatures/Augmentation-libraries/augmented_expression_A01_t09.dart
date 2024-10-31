@@ -57,6 +57,12 @@ extension Ext on D {
   static String augmented() => "Ext.augmented(), shouldn't be invoked";
 }
 
+extension type ET(int _) {
+  static A get staticGetter => A("ET.staticGetter");
+  A get instanceGetter => A("ET.instanceGetter");
+  static String augmented() => "ET.augmented(), shouldn't be invoked";
+}
+
 class MA = Object with M;
 
 main() {
@@ -69,4 +75,6 @@ main() {
   Expect.equals("Augmented", E.e1.instanceGetter.id);
   Expect.equals("Augmented", Ext.staticGetter.id);
   Expect.equals("Augmented", D().instanceGetter.id);
+  Expect.equals("Augmented", ET.staticGetter.id);
+  Expect.equals("Augmented", ET(0).instanceGetter.id);
 }

@@ -51,6 +51,12 @@ extension Ext on A {
   static final bool augmented = false;
 }
 
+extension type ET(int _) {
+  static String get staticGetter => "Original:";
+  String get instanceGetter => "Original:";
+  static final bool augmented = false;
+}
+
 class MA = Object with M;
 
 main() {
@@ -63,4 +69,6 @@ main() {
   Expect.equals("Augmented", E.e1.instanceGetter);
   Expect.equals("Augmented", Ext.staticGetter);
   Expect.equals("Augmented", A().instanceGetter);
+  Expect.equals("Augmented", ET.staticGetter);
+  Expect.equals("Augmented", ET(0).instanceGetter);
 }

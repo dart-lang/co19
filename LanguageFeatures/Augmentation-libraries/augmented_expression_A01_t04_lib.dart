@@ -136,3 +136,19 @@ augment extension Ext {
     return "Augmented";
   }
 }
+
+augment extension type ET {
+  augment static String get staticField {
+    augmented = "x";
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = () {
+      augmented = "x";
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
+    return "Augmented";
+  }
+}
