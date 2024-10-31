@@ -75,8 +75,21 @@ augment extension Ext {
     _log = "Augmented2: $value";
   }
   augment void set instanceSetter(String value) {
-    augmented = "g";
-    Expect.equals("Augmented1: g", _log);
+    augmented = "i";
+    Expect.equals("Augmented1: i", _log);
+    _log = "Augmented2: $value";
+  }
+}
+
+augment extension type ET {
+  augment static void set staticSetter(String value) {
+    augmented = "j";
+    Expect.equals("Augmented1: j", _log);
+    _log = "Augmented2: $value";
+  }
+  augment void set instanceSetter(String value) {
+    augmented = "k";
+    Expect.equals("Augmented1: k", _log);
     _log = "Augmented2: $value";
   }
 }

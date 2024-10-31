@@ -61,6 +61,13 @@ extension Ext on A {
   }
 }
 
+extension type ET(int _) {
+  static String staticVariable = "";
+  static void set augmented(String value) {
+    _log = "Setter ET.augmented = $value, shouldn't be invoked";
+  }
+}
+
 class MA = Object with M;
 
 main() {
@@ -78,4 +85,6 @@ main() {
   Expect.equals("Augmented: 6", _log);
   Ext.staticVariable = "7";
   Expect.equals("Augmented: 7", _log);
+  ET.staticVariable = "8";
+  Expect.equals("Augmented: 8", _log);
 }

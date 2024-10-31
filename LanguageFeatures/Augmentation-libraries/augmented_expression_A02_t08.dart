@@ -83,6 +83,18 @@ extension Ext on A {
   }
 }
 
+extension type ET(int _) {
+  static void set staticSetter(String value) {
+    _log = "Ext.staticSetter: $value";
+  }
+  void set instanceSetter(String value) {
+    _log = "Ext.instanceSetter: $value";
+  }
+  static void set augmented(String value) {
+    _log = "Ext.augmented = $value, shouldn't be invoked";
+  }
+}
+
 class MA = Object with M;
 
 main() {
@@ -104,4 +116,8 @@ main() {
   Expect.equals("Augmented: 8", _log);
   A().instanceSetter = "9";
   Expect.equals("Augmented: 9", _log);
+  ET.staticSetter = "10";
+  Expect.equals("Augmented: 10", _log);
+  ET(0).instanceSetter = "11";
+  Expect.equals("Augmented: 11", _log);
 }

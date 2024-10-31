@@ -88,13 +88,30 @@ augment extension Ext {
       augmented = "h";
     }
     local();
-    Expect.equals("E.staticSetter: h", _log);
+    Expect.equals("Ext.staticSetter: h", _log);
   }
   augment void set instanceSetter(String value) {
     void local() {
       augmented = "i";
     }
     local();
-    Expect.equals("E.instanceSetter: i", _log);
+    Expect.equals("Ext.instanceSetter: i", _log);
+  }
+}
+
+augment extension type ET {
+  augment static void set staticSetter(String value) {
+    void local() {
+      augmented = "j";
+    }
+    local();
+    Expect.equals("ET.staticSetter: j", _log);
+  }
+  augment void set instanceSetter(String value) {
+    void local() {
+      augmented = "k";
+    }
+    local();
+    Expect.equals("ET.instanceSetter: k", _log);
   }
 }

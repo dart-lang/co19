@@ -57,6 +57,14 @@ extension Ext2 on A {
   void set augmented(String value) {}
 }
 
+extension type ET1(int _) {
+  static void set augmented(String value) {}
+}
+
+extension type ET2(int _) {
+  void set augmented(String value) {}
+}
+
 main() {
   augmented = "";
   print(C1);
@@ -66,4 +74,6 @@ main() {
   print(E1);
   print(E2);
   print(A);
+  print(ET1);
+  print(ET2);
 }

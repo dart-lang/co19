@@ -51,10 +51,17 @@ extension Ext on A {
   void augmented() {}
 }
 
+extension type ET(int _) {
+  static void set staticSetter(String value) {}
+  void set instanceSetter(String value) {}
+  void augmented() {}
+}
+
 main() {
   topLevelSetter = "";
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }
