@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A10_t21_lib.dart';
+part 'augmented_expression_A10_t21_lib.dart';
 
 void topLevelFunction() {}
 
@@ -32,4 +32,5 @@ main() {
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

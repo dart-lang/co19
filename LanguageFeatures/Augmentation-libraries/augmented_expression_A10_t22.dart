@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A10_t22_lib.dart';
+part 'augmented_expression_A10_t22_lib.dart';
 
 class C {}
 mixin M {}
@@ -25,9 +25,9 @@ extension Ext on A {}
 extension type ET(int _) {}
 
 main() {
-  print(topLevelFunction);
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

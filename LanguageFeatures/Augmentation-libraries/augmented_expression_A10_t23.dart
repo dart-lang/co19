@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import augment 'augmented_expression_A10_t23_lib.dart';
+part 'augmented_expression_A10_t23_lib.dart';
 
 void topLevelFunction() {}
 int get topLevelGetter => 0;

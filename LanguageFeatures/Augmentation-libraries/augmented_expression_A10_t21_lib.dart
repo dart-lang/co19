@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-augment library 'augmented_expression_A10_t21.dart';
+part of 'augmented_expression_A10_t21.dart';
 
 const augmented = 1;
 
@@ -454,7 +454,7 @@ augment extension Ext {
   }
 }
 
-extension type ET {
+augment extension type ET {
   void instanceMethod() {
     var list = [
       for (var augmented = 0; 1 > 2;) 0
