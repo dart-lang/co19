@@ -46,7 +46,7 @@ extension Ext on A {
   void set instanceSetter(String value) {}
 }
 
-extension type ET {
+extension type ET(int _) {
   static void set staticSetter(String value) {}
   void set instanceSetter(String value) {}
 }

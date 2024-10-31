@@ -160,7 +160,7 @@ augment extension Ext {
   }
 }
 
-augment extension Ext {
+augment extension type ET {
   augment static void set staticSetter(String value) {
     augmented? x;
 //  ^^^^^^^^^
