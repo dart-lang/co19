@@ -70,3 +70,14 @@ augment extension Ext {
     return local();
   }
 }
+
+augment extension type ET {
+  augment static String get staticGetter {
+    String local() => "1: ${augmented}, 2: " + augmented;
+    return local();
+  }
+  augment String get instanceGetter {
+    String local() => "1: ${augmented}, 2: " + augmented;
+    return local();
+  }
+}

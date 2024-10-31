@@ -45,10 +45,16 @@ extension Ext on A {
   String get instanceGetter => "Original";
 }
 
+extension type ET(int _) {
+  static String get staticGetter => "Original";
+  String get instanceGetter => "Original";
+}
+
 main() {
   print(topLevelGetter);
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

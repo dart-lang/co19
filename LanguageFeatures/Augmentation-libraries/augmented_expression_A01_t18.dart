@@ -46,10 +46,15 @@ extension Ext on A {
   augmented? get instanceGetter => null;
 }
 
+extension type ET(int _) {
+  static augmented? get staticGetter => null;
+  augmented? get instanceGetter => null;
+}
+
 main() {
   print(topLevelGetter);
   print(C);
   print(M);
   print(E);
-  print(A);
+  print(ET);
 }

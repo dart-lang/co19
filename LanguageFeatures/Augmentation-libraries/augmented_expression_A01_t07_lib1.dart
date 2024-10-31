@@ -70,3 +70,14 @@ augment extension Ext {
     return "Augmented1";
   }
 }
+
+augment extension type ET {
+  augment static String get staticGetter {
+    Expect.equals("Original", augmented);
+    return "Augmented1";
+  }
+  augment String get instanceGetter {
+    Expect.equals("Original", augmented);
+    return "Augmented1";
+  }
+}

@@ -68,7 +68,7 @@ augment mixin M {
   }
 }
 
-augment enum E1 {
+augment enum E {
   e1;
 
   augment static String get staticGetter {
@@ -90,7 +90,27 @@ augment enum E1 {
   }
 }
 
-augment extension Ext1 {
+augment extension Ext {
+  augment static String get staticGetter {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return "Augmented";
+  }
+
+  augment String get instanceGetter {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return "Augmented";
+  }
+}
+
+augment extension type ET {
   augment static String get staticGetter {
     foo(); // Ok
     foo(augmented: 1);

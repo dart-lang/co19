@@ -149,3 +149,32 @@ augment extension Ext {
     return "Augmented";
   }
 }
+
+augment extension type ET {
+  augment static String get staticGetter {
+    String augmented() => "x";
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = () {
+      String augmented() => "y";
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
+    return "Augmented";
+  }
+  augment String get instanceGetter {
+    String augmented() => "x";
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = () {
+      String augmented() => "y";
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
+    return "Augmented";
+  }
+}

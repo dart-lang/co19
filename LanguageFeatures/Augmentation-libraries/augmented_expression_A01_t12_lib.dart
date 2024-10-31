@@ -114,3 +114,24 @@ augment extension Ext {
     return "Augmented";
   }
 }
+
+augment extension type ET {
+  augment static String get staticGetter {
+    switch((1,)) {
+      case (var augmented,):
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+    return "Augmented";
+  }
+  augment String get instanceGetter {
+    switch((1,)) {
+      case (var augmented,):
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+    return "Augmented";
+  }
+}

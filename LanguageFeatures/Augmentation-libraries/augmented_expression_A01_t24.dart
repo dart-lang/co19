@@ -52,6 +52,11 @@ extension Ext on A {
   String get instanceGetter => "Original";
 }
 
+extension type ET(int _) {
+  static String get staticGetter => "Original";
+  String get instanceGetter => "Original";
+}
+
 class MA = Object with M;
 
 main() {
@@ -64,4 +69,6 @@ main() {
   Expect.equals("Augmented: Original", E.e1.instanceGetter);
   Expect.equals("Augmented: Original", Ext.staticGetter);
   Expect.equals("Augmented: Original", A().instanceGetter);
+  Expect.equals("Augmented: Original", ET.staticGetter);
+  Expect.equals("Augmented: Original", ET(0).instanceGetter);
 }

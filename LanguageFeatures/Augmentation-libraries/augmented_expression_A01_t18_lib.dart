@@ -72,3 +72,15 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  augment static augmented? get staticGetter => null;
+//               ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment augmented? get instanceGetter => null;
+//        ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
