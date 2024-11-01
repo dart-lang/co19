@@ -278,7 +278,7 @@ augment extension Ext {
   };
 }
 
-augment extension type ET(int _) {
+augment extension type ET {
   augment static var staticVariable = () {
     switch ("") {
       case augmented:

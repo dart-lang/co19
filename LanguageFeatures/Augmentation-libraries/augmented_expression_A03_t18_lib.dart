@@ -85,5 +85,5 @@ augment extension type ET {
 //              ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
+  };
 }
