@@ -52,3 +52,8 @@ augment extension Ext {
   augment static String staticVariable = augmented + " - augment";
   augment static final String finalStaticVariable = augmented + " - augment";
 }
+
+augment extension type ET {
+  augment static String staticVariable = augmented + " - augment";
+  augment static final String finalStaticVariable = augmented + " - augment";
+}

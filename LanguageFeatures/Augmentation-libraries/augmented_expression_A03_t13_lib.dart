@@ -84,3 +84,13 @@ augment extension Ext {
     return "Augmented";
   };
 }
+
+augment extension type ET {
+  augment static Function? staticVariable = () {
+    var augmented = 42;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  return "Augmented";
+  };
+}

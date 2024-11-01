@@ -96,3 +96,14 @@ augment extension Ext {
     return f();
   };
 }
+
+augment extension type ET {
+  augment static var staticVariable = () {
+    var f = () => "Augment: " + augmented();
+    return f();
+  };
+  augment static final finalStaticVariable = () {
+    var f = () => "Augment: " + augmented();
+    return f();
+  };
+}

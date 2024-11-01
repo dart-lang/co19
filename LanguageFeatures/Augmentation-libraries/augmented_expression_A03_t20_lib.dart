@@ -92,3 +92,14 @@ augment extension Ext {
     }
   };
 }
+
+augment extension type ET {
+  augment static Function? staticVariable = () {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  };
+}

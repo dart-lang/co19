@@ -51,6 +51,10 @@ extension Ext on A {
   static String augmented = "Static variable of an extension";
 }
 
+extension type ET(int _) {
+  static String augmented = "Static variable of an extension type";
+}
+
 main() {
   print(C1);
   print(C2);
@@ -58,4 +62,5 @@ main() {
   print(M2);
   print(E);
   print(A);
+  print(ET);
 }

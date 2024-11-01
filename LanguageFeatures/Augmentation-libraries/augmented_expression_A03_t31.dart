@@ -58,6 +58,11 @@ extension Ext on A {
   static final finalStaticVariable = foo;
 }
 
+extension type ET(int _) {
+  static var staticVariable = foo;
+  static final finalStaticVariable = foo;
+}
+
 main() {
   print(topLevelVariable);
   print(finalTopLevelVariable);
@@ -65,4 +70,5 @@ main() {
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

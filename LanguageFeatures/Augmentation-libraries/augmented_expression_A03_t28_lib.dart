@@ -96,3 +96,14 @@ augment extension Ext {
     return local();
   };
 }
+
+augment extension type ET {
+  augment static var staticVariable = () {
+    String local() => "Augment: " + augmented();
+    return local();
+  };
+  augment static final finalStaticVariable = () {
+    String local() => "Augment: " + augmented();
+    return local();
+  };
+}

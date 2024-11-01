@@ -60,6 +60,12 @@ extension Ext on A {
   static void set augmented(String _) {}
 }
 
+extension type ET(int _) {
+  static String staticVariable = "Original";
+  static final String finalStaticVariable = "Original";
+  static void set augmented(String _) {}
+}
+
 main() {
   print(topLevelVariable);
   print(finalTopLevelVariable);
@@ -67,4 +73,5 @@ main() {
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

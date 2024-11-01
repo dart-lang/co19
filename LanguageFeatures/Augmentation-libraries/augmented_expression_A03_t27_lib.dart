@@ -68,3 +68,10 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  augment static Record staticVariable = (augmented: 1);
+//                                        ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

@@ -61,6 +61,12 @@ extension Ext on A {
   static String augmented() => "Ext.augmented(), shouldn't be invoked";
 }
 
+extension type ET(int _) {
+  static String staticVariable = "Original";
+  static final String finalStaticVariable = "Original";
+  static String augmented() => "Ext.augmented(), shouldn't be invoked";
+}
+
 main() {
   print(topLevelVariable);
   print(finalTopLevelVariable);
@@ -68,4 +74,5 @@ main() {
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

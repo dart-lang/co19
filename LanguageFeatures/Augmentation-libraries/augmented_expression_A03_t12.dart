@@ -62,6 +62,12 @@ extension Ext on A {
   static String get augmented => "Ext.augmented, shouldn't be invoked";
 }
 
+extension type ET(int _) {
+  static late var staticVariable = foo;
+  static late final finalStaticVariable = foo;
+  static String get augmented => "ET.augmented, shouldn't be invoked";
+}
+
 class MA = Object with M;
 
 main() {
@@ -79,4 +85,6 @@ main() {
   Expect.equals("1: Original 23, 2: Original 24", E.finalStaticVariable);
   Expect.equals("1: Original 25, 2: Original 26", Ext.staticVariable);
   Expect.equals("1: Original 27, 2: Original 28", Ext.finalStaticVariable);
+  Expect.equals("1: Original 29, 2: Original 30", ET.staticVariable);
+  Expect.equals("1: Original 31, 2: Original 32", ET.finalStaticVariable);
 }

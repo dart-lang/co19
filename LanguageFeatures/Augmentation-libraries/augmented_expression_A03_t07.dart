@@ -52,10 +52,16 @@ extension Ext on A {
   static final augmented = "Ext.augmented, should not be used";
 }
 
+extension type ET(int _) {
+  static String? staticVariable;
+  static final augmented = "ET.augmented, should not be used";
+}
+
 main() {
   topLevelVariable;
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

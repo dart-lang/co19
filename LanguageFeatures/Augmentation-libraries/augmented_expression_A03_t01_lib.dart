@@ -52,3 +52,8 @@ augment extension Ext {
   augment static var staticVariable = "1: $augmented, 2: " + augmented;
   augment static final finalStaticVariable = "1: $augmented, 2: " + augmented;
 }
+
+augment extension type ET {
+  augment static var staticVariable = "1: $augmented, 2: " + augmented;
+  augment static final finalStaticVariable = "1: $augmented, 2: " + augmented;
+}

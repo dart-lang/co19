@@ -135,3 +135,20 @@ augment extension Ext {
 // [cfe] unspecified
   };
 }
+
+augment extension type ET {
+  augment static Function? staticVariable = () {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+}

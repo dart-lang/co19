@@ -48,10 +48,15 @@ extension Ext on A {
   static String staticVariable = "Static variable of an extension";
 }
 
+extension type ET(int _) {
+  static String staticVariable = "Static variable of an extension type";
+}
+
 main() {
   print(topLevelVariable);
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }
