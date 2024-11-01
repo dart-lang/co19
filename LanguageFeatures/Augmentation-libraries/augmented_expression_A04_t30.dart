@@ -52,6 +52,11 @@ extension Ext on A {
   String instanceMethod() => "Original";
 }
 
+extension type ET(int _) {
+  static String staticMethod() => "Original";
+  String instanceMethod() => "Original";
+}
+
 class MA = Object with M;
 
 main() {
@@ -64,4 +69,6 @@ main() {
   Expect.equals("Augmented: Original", E.e1.instanceMethod());
   Expect.equals("Augmented: Original", Ext.staticMethod());
   Expect.equals("Augmented: Original", A().instanceMethod());
+  Expect.equals("Augmented: Original", ET.staticMethod());
+  Expect.equals("Augmented: Original", ET(0).instanceMethod());
 }

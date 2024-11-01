@@ -58,6 +58,14 @@ extension Ext2 on A {
   void augmented() {}
 }
 
+extension type ET1(int _) {
+  static void augmented() {}
+}
+
+extension type ET2(int _) {
+  void augmented() {}
+}
+
 main() {
   print(augmented);
   print(C1);
@@ -67,4 +75,6 @@ main() {
   print(E1);
   print(E2);
   print(A);
+  print(ET1);
+  print(ET2);
 }

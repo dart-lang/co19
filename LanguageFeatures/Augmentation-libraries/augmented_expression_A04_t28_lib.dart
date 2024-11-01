@@ -190,3 +190,41 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  augment static String staticMethod1(String value) => augmented("a", "b");
+//                                                     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static String staticMethod2([String value]) => augmented(1);
+//                                                       ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static String staticMethod3({String value}) =>
+      augmented(value: "c", "d");
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static String staticMethod4({required String value}) =>
+      augmented("e");
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String instanceMethod1(String value) => augmented(1);
+//                                                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String instanceMethod2([String value]) => augmented(null);
+//                                                  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String instanceMethod3({String value}) => augmented(value: 1);
+//                                                  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String instanceMethod4({required String value}) =>
+      augmented(value: null);
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

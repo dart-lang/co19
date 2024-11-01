@@ -104,3 +104,22 @@ augment extension Ext {
     };
   }
 }
+
+augment extension type ET {
+  augment static void staticMethod() {
+    var f = () {
+      augmented.toString();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
+  }
+  augment void instanceMethod() {
+    var f = () {
+      augmented.toString();
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
+  }
+}

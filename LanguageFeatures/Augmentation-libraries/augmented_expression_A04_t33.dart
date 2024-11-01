@@ -45,10 +45,16 @@ extension Ext on A {
   void instanceMethod<T extends augmented>() {}
 }
 
+extension type ET(int _) {
+  static void staticMethod<T extends augmented>() {}
+  void instanceMethod<T extends augmented>() {}
+}
+
 main() {
   print(topLevelFunction);
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

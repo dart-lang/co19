@@ -125,3 +125,26 @@ augment extension Ext {
     return "Augmented 1";
   }
 }
+
+augment extension type ET {
+  augment static String staticMethod1([String value]) {
+    Expect.equals("default", value);
+    Expect.equals("default", augmented());
+    return "Augmented 1";
+  }
+  augment static String staticMethod2({String value}) {
+    Expect.equals("default", value);
+    Expect.equals("default", augmented());
+    return "Augmented 1";
+  }
+  augment String instanceMethod1([String value]) {
+    Expect.equals("default", value);
+    Expect.equals("default", augmented());
+    return "Augmented 1";
+  }
+  augment String instanceMethod2({String value}) {
+    Expect.equals("default", value);
+    Expect.equals("default", augmented());
+    return "Augmented 1";
+  }
+}

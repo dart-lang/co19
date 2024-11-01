@@ -49,3 +49,10 @@ augment extension Ext {
   augment String instanceMethod1([String v]) => "Augmented: $v";
   augment String instanceMethod2({String v}) => "Augmented: $v";
 }
+
+augment extension type ET {
+  augment static String staticMethod1([String v]) => "Augmented: $v";
+  augment static String staticMethod2({String v}) => "Augmented: $v";
+  augment String instanceMethod1([String v]) => "Augmented: $v";
+  augment String instanceMethod2({String v}) => "Augmented: $v";
+}

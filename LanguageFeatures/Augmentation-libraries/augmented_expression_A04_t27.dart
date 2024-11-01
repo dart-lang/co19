@@ -74,6 +74,17 @@ extension Ext on A {
   String instanceMethod4({required String value}) => value;
 }
 
+extension type ET(int _) {
+  static String staticMethod1(String value) => value;
+  static String staticMethod2([String value = "default"]) => value;
+  static String staticMethod3({String value = "default"}) => value;
+  static String staticMethod4({required String value}) => value;
+  String instanceMethod1(String value) => value;
+  String instanceMethod2([String value = "default"]) => value;
+  String instanceMethod3({String value = "default"}) => value;
+  String instanceMethod4({required String value}) => value;
+}
+
 class MA = Object with M;
 
 main() {
@@ -113,4 +124,12 @@ main() {
   Expect.equals("B", A().instanceMethod2("b"));
   Expect.equals("C", A().instanceMethod3(value: "c"));
   Expect.equals("D", A().instanceMethod4(value: "d"));
+  Expect.equals("A", ET.staticMethod1("a"));
+  Expect.equals("B", ET.staticMethod2("b"));
+  Expect.equals("C", ET.staticMethod3(value: "c"));
+  Expect.equals("D", ET.staticMethod4(value: "d"));
+  Expect.equals("A", ET(0).instanceMethod1("a"));
+  Expect.equals("B", ET(0).instanceMethod2("b"));
+  Expect.equals("C", ET(0).instanceMethod3(value: "c"));
+  Expect.equals("D", ET(0).instanceMethod4(value: "d"));
 }

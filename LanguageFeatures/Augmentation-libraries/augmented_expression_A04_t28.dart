@@ -74,6 +74,17 @@ extension Ext on A {
   String instanceMethod4({required String value}) => value;
 }
 
+extension type ET(int _) {
+  static String staticMethod1(String value) => value;
+  static String staticMethod2([String value = "default"]) => value;
+  static String staticMethod3({String value = "default"}) => value;
+  static String staticMethod4({required String value}) => value;
+  String instanceMethod1(String value) => value;
+  String instanceMethod2([String value = "default"]) => value;
+  String instanceMethod3({String value = "default"}) => value;
+  String instanceMethod4({required String value}) => value;
+}
+
 main() {
   print(topLevelFunction1("a"));
   print(topLevelFunction2("b"));
@@ -83,4 +94,5 @@ main() {
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

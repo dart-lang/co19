@@ -68,3 +68,14 @@ augment extension Ext {
     return local();
   }
 }
+
+augment extension type ET {
+  augment static String staticMethod(){
+    String local() => "Augmented:" + augmented();
+    return local();
+  }
+  augment String instanceMethod() {
+    String local() => "Augmented:" + augmented();
+    return local();
+  }
+}
