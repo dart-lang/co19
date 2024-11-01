@@ -47,10 +47,15 @@ extension Ext on A {
   static augmented? staticVariable = null;
 }
 
+extension type ET(int _) {
+  static augmented? staticVariable = null;
+}
+
 main() {
   print(topLevelVariable);
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

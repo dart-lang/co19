@@ -65,3 +65,10 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  augment static augmented? staticVariable = null;
+//               ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

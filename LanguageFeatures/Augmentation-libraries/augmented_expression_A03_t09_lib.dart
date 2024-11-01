@@ -64,3 +64,11 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+
+augment extension type ET {
+  augment static late String? staticVariable = "Augment: $augmented";
+//                                                        ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

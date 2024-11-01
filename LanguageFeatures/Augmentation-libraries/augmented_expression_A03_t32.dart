@@ -47,6 +47,10 @@ extension Ext on A {
   static late String? staticVariable = "Original";
 }
 
+extension type ET(int _) {
+  static late String? staticVariable = "Original";
+}
+
 class MA = Object with M;
 
 main() {
@@ -57,4 +61,5 @@ main() {
   Expect.equals("Augment: Original", MA().instanceVariable);
   Expect.equals("Augment: Original", E.staticVariable);
   Expect.equals("Augment: Original", Ext.staticVariable);
+  Expect.equals("Augment: Original", ET.staticVariable);
 }

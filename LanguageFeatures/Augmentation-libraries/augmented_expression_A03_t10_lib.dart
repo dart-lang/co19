@@ -35,7 +35,7 @@ augment class C {
 }
 
 augment enum E {
-  augment e1("x");
+  augment e1;
 
   augment final String finalInstanceVariable = "Augment: $augmented";
 //                                                        ^^^^^^^^^

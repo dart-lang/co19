@@ -39,7 +39,7 @@ augment class C {
 }
 
 augment enum E {
-  augment e1(foo);
+  augment e1;
   augment final Function finalInstanceVariable = () {
     return "Augment: $augmented";
 //                    ^^^^^^^^^

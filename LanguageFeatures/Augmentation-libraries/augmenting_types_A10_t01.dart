@@ -60,7 +60,7 @@ main() {
 
   Expect.equals("ET", ET(0).method());
   Expect.equals("get ET", ET(0).getter);
-  ET().setter = "set ET";
+  ET(0).setter = "set ET";
   Expect.equals("set ET", _log);
   Expect.equals(5, ET(42) + 5);
 }

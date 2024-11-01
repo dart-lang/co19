@@ -47,10 +47,15 @@ extension Ext on A {
   static Record staticVariable = ();
 }
 
+extension type ET(int _) {
+  static Record staticVariable = ();
+}
+
 main() {
   print(topLevelVariable);
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

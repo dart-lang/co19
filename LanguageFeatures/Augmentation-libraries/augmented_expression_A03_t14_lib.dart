@@ -77,3 +77,12 @@ augment extension Ext {
 // [cfe] unspecified
   };
 }
+
+augment extension type ET {
+  augment static Function? staticVariable = () {
+    int augmented() => 42;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+}

@@ -187,3 +187,26 @@ augment extension Ext {
 // [cfe] unspecified
   };
 }
+
+augment extension type ET {
+  augment static var staticVariable = () {
+    print(null as augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    print(null is augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+  augment static final finalStaticVariable = () {
+    print(null as augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    print(null is augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+}

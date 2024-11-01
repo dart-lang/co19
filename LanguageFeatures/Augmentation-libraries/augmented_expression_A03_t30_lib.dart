@@ -277,3 +277,38 @@ augment extension Ext {
     };
   };
 }
+
+augment extension type ET(int _) {
+  augment static var staticVariable = () {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  };
+  augment static final finalStaticVariable = () {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  };
+}

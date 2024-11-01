@@ -44,3 +44,7 @@ augment enum E {
 augment extension Ext {
   augment static String? staticVariable = "Augment: $augmented";
 }
+
+augment extension type ET {
+  augment static String? staticVariable = "Augment: $augmented";
+}

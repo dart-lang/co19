@@ -100,3 +100,15 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  augment static String staticVariable = "Augment: ${augmented = 'n'}";
+//                                                   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static final String finalStaticVariable =
+      "Augment: ${augmented = 'o'}";
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

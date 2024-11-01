@@ -47,10 +47,15 @@ extension Ext on A {
   static Function? staticVariable = () {};
 }
 
+extension type ET(int _) {
+  static Function? staticVariable = () {};
+}
+
 main() {
   print(topLevelVariable);
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

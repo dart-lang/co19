@@ -69,3 +69,11 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  augment static String augmented =
+//                      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      "Augmented static variable of an extension type";
+}

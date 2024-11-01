@@ -51,3 +51,8 @@ augment extension Ext {
   augment static String staticVariable = "Augment2: $augmented";
   augment static final String finalStaticVariable = "Augment2: $augmented";
 }
+
+augment extension type ET {
+  augment static String staticVariable = "Augment2: $augmented";
+  augment static final String finalStaticVariable = "Augment2: $augmented";
+}

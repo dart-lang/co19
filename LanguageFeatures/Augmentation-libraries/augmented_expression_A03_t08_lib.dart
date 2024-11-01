@@ -78,3 +78,12 @@ augment extension Ext {
 // [cfe] unspecified
   };
 }
+
+augment extension type ET {
+  augment static Function? staticVariable = () {
+    return "Augment: $augmented";
+//                    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+}

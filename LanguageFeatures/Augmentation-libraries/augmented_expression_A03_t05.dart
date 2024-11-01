@@ -62,6 +62,12 @@ extension Ext on A {
   static bool augmented = false;
 }
 
+extension type ET(int _) {
+  static String staticVariable = "Original";
+  static final String finalStaticVariable = "Original";
+  static bool augmented = false;
+}
+
 class MA = Object with M;
 
 main() {
@@ -80,4 +86,6 @@ main() {
   Expect.equals("Original - augment", E.e1.finalInstanceVariable);
   Expect.equals("Original - augment", Ext.staticVariable);
   Expect.equals("Original - augment", Ext.finalStaticVariable);
+  Expect.equals("Original - augment", ET.staticVariable);
+  Expect.equals("Original - augment", ET.finalStaticVariable);
 }
