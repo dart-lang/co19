@@ -69,3 +69,14 @@ augment extension Ext {
     return "Augmented";
   }
 }
+
+augment extension type ET {
+  augment static String staticMethod(){
+    Expect.equals("Original", augmented());
+    return "Augmented";
+  }
+  augment String instanceMethod() {
+    Expect.equals("Original", augmented());
+    return "Augmented";
+  }
+}

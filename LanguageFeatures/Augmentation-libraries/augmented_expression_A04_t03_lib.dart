@@ -86,3 +86,18 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension type ET {
+  augment static void staticMethod() {
+    int augmented() => 42;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment void instanceMethod() {
+    int augmented() => 42;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}

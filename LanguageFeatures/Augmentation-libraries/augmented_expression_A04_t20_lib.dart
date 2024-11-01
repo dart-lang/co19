@@ -158,3 +158,34 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension type ET {
+  augment static void staticMethod() {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment void instanceMethod() {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}

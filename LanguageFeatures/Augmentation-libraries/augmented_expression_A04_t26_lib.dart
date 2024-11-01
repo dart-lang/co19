@@ -50,3 +50,10 @@ augment extension Ext {
   augment String instanceMethod1([String value]) => augmented();
   augment String instanceMethod2({String value}) => augmented();
 }
+
+augment extension type ET {
+  augment static String staticMethod1([String value]) => augmented();
+  augment static String staticMethod2({String value}) => augmented();
+  augment String instanceMethod1([String value]) => augmented();
+  augment String instanceMethod2({String value}) => augmented();
+}

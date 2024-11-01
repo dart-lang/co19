@@ -104,3 +104,22 @@ augment extension Ext {
   augment String instanceMethod4({required String value}) =>
       augmented(value: value.toUpperCase());
 }
+
+augment extension type ET {
+  augment static String staticMethod1(String value) =>
+      augmented(value.toUpperCase());
+  augment static String staticMethod2([String value]) =>
+      augmented(value.toUpperCase());
+  augment static String staticMethod3({String value}) =>
+      augmented(value: value.toUpperCase());
+  augment static String staticMethod4({required String value}) =>
+      augmented(value: value.toUpperCase());
+  augment String instanceMethod1(String value) =>
+      augmented(value.toUpperCase());
+  augment String instanceMethod2([String value]) =>
+      augmented(value.toUpperCase());
+  augment String instanceMethod3({String value}) =>
+      augmented(value: value.toUpperCase());
+  augment String instanceMethod4({required String value}) =>
+      augmented(value: value.toUpperCase());
+}

@@ -68,3 +68,14 @@ augment extension Ext {
     return f();
   }
 }
+
+augment extension type ET {
+  augment static String staticMethod(){
+    var f = () => "Augmented:" + augmented();
+    return f();
+  }
+  augment String instanceMethod() {
+    var f = () => "Augmented:" + augmented();
+    return f();
+  }
+}

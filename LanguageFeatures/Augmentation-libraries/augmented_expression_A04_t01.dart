@@ -48,7 +48,11 @@ class A {}
 extension Ext on A {
   static void staticMethod() {}
   void instanceMethod() {}
-  final augmented = "Ext.augmented, should not be used";
+}
+
+extension type ET(int _) {
+  static void staticMethod() {}
+  void instanceMethod() {}
 }
 
 main() {
@@ -57,4 +61,5 @@ main() {
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

@@ -55,6 +55,13 @@ extension Ext on A {
   String instanceMethod2({String v = augmented}) => v;
 }
 
+extension type ET(int _) {
+  static String staticMethod1([String v = augmented]) => v;
+  static String staticMethod2({String v = augmented}) => v;
+  String instanceMethod1([String v = augmented]) => v;
+  String instanceMethod2({String v = augmented}) => v;
+}
+
 class MA = Object with M;
 
 main() {
@@ -76,4 +83,8 @@ main() {
   Expect.equals("Augmented: Const augmented", Ext.staticMethod2());
   Expect.equals("Augmented: Const augmented", A().instanceMethod1());
   Expect.equals("Augmented: Const augmented", A().instanceMethod2());
+  Expect.equals("Augmented: Const augmented", ET.staticMethod1());
+  Expect.equals("Augmented: Const augmented", ET.staticMethod2());
+  Expect.equals("Augmented: Const augmented", ET(0).instanceMethod1());
+  Expect.equals("Augmented: Const augmented", ET(0).instanceMethod2());
 }

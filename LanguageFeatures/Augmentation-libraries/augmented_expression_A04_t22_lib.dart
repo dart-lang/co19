@@ -82,3 +82,17 @@ augment extension Ext2 {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET1 {
+  augment static void augmented() {}
+//                    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+augment extension type ET2 {
+  augment void augmented() {}
+//             ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
