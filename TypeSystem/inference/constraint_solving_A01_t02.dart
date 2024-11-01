@@ -44,12 +44,11 @@ class C1 extends B1 {}
 class C2 extends B2 {}
 class D implements B1, B2 {}
 
-void f<X extends A1<X, Y>, Y extends A2<X, Y>>(X x, Y y) {}
+(Type, Type) f<X extends A1<X, Y>, Y extends A2<X, Y>>(X x, Y y) => (X, Y);
 
 void main() {
-  f<B1, B2>(B1(), B2());
-  f<B1, B2>(C1(), C2());
-
-  f(B1(), B2());
-  f(C1(), C2());
+  Expect.equals((B1, B2), f<B1, B2>(B1(), B2()));
+  Expect.equals((B1, B2), f<B1, B2>(C1(), C2()));
+  Expect.equals((B1, B2), f(B1(), B2()));
+  Expect.equals((B1, B2), f(C1(), C2()));
 }
