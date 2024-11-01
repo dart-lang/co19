@@ -2,20 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A function body of the form => e is equivalent to a body of
-/// the form {return e;} or the form async => e which is equivalent to a body
-/// of the form async {return e;}.
+/// @assertion A function body is either:
+/// ...
+/// - of the form `=> e` or the form `async => e`, which both return the value
+///   of the expression `e` as if by a `return e`.
 ///
-/// @description Checks that the function body of the form => e is equivalent
-/// to a body of the form {return e;}.
-///
+/// @description Checks that the function body of the form `=> e` is equivalent
+/// to a body of the form `{return e;}`.
 /// @author msyabro
 
 import "../../Utils/expect.dart";
 
 main() {
-  int x = 2;
-
   foo1() => 1;
   foo2() {return 1;}
   bar1(int val) => val * 2;
