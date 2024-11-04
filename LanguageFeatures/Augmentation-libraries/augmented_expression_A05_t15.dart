@@ -48,9 +48,16 @@ extension Ext on A {
   void operator []=(int index, String augmented) {}
 }
 
+extension type ET(int _) {
+  String operator +(Object augmented) => "ET +";
+  String operator [](int augmented) => "ET[]";
+  void operator []=(int index, String augmented) {}
+}
+
 main() {
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

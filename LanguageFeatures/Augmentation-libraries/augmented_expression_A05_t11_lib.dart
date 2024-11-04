@@ -56,3 +56,12 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension type ET {
+  augment String operator +(num other) {
+    return augmented - other;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}

@@ -80,3 +80,18 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  augment String operator +(augmented other) => "ET +";
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String operator [](augmented index) => "ET[]";
+//                           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void operator []=(int index, augmented value) {}
+//                                     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

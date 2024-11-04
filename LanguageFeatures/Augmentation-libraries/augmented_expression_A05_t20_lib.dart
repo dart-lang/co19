@@ -66,3 +66,14 @@ augment extension Ext {
     return local();
   }
 }
+
+augment extension type ET {
+  augment String operator +(Object? other) {
+    String local() => "Augmented: ${augmented(other)}";
+    return local();
+  }
+  augment String operator [](int index) {
+    String local() => "Augmented: ${augmented(index)}";
+    return local();
+  }
+}

@@ -51,6 +51,12 @@ extension Ext on A {
   }
 }
 
+extension type ET {
+  void operator []=(int index, Object? value) {
+    _log = "Original [$index]=$value";
+  }
+}
+
 class MA = Object with M;
 
 main() {
@@ -58,4 +64,5 @@ main() {
   Expect.equals("Augmented [3]=4", MA()[3] = 4);
   Expect.equals("Augmented [5]=6", E.e1[5] = 6);
   Expect.equals("Augmented [7]=8", A()[7] = 8);
+  Expect.equals("Augmented [9]=10", ET(0)[9] = 10);
 }

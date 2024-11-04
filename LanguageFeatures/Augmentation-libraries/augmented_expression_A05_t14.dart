@@ -54,6 +54,11 @@ extension Ext on A {
   void operator []=(int index, String value) {_log = "Ext[$index]=$value";}
 }
 
+extension type ET(int _) {
+  String operator [](int index) => "ET[$index]";
+  void operator []=(int index, String value) {_log = "ET[$index]=$value";}
+}
+
 class MA = Object with M;
 
 main() {
@@ -69,4 +74,7 @@ main() {
   Expect.equals("Ext: Augment2[1]", A()[1]);
   A()[2] = "d";
   Expect.equals("Ext: Augment2[2]=d", _log);
+  Expect.equals("ET: Augment2[1]", ET(0)[1]);
+  ET(0)[2] = "e";
+  Expect.equals("ET: Augment2[2]=e", _log);
 }

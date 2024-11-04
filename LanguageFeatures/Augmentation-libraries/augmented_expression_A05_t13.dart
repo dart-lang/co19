@@ -48,6 +48,11 @@ extension Ext on A {
   String operator +(Object other) => "Ext + $other";
 }
 
+extension type ET(int _) {
+  String operator +(Object other) => "ET + $other";
+  String get augmented => "ET.augmented, should not be used";
+}
+
 class MA = Object with M;
 
 main() {
@@ -55,4 +60,5 @@ main() {
   Expect.equals("M: Augment2 + 2", MA() + 2);
   Expect.equals("E: Augment2 + 3", E.e1 + 3);
   Expect.equals("Ext: Augment2 + 4", A() + 4);
+  Expect.equals("ET: Augment2 + 5", ET(0) + 5);
 }

@@ -61,3 +61,13 @@ augment extension Ext {
     return "Augmented";
   }
 }
+
+augment extension type ET {
+  augment String operator +(Object other) {
+    final {"key": augmented} = {"key": 42};
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return "Augmented";
+  }
+}

@@ -60,3 +60,13 @@ augment extension Ext {
     return "Augmented";
   }
 }
+
+augment extension type ET {
+  augment String operator +(Object other) {
+    String augmented() => "x";
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return "Augmented";
+  }
+}

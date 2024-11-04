@@ -49,3 +49,10 @@ augment extension Ext {
     return "Ext: Augment1 + $other";
   }
 }
+
+augment extension type ET {
+  augment String operator +(Object other) {
+    Expect.equals("ET + $other", augmented(other));
+    return "ET: Augment1 + $other";
+  }
+}

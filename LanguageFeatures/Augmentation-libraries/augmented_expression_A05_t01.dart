@@ -47,9 +47,15 @@ extension Ext on A {
   int operator +(Object other) => 42;
 }
 
+extension type ET(int _) {
+  int operator +(Object other) => 42;
+  String get augmented => "ET.augmented, should not be used";
+}
+
 main() {
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }
