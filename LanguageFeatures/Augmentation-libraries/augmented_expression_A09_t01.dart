@@ -23,6 +23,7 @@ enum E {e0;}
 
 class A {}
 extension Ext on A {}
+extension type ET(int _) {}
 
 main() {
   print(C1);
@@ -31,4 +32,5 @@ main() {
   print(M2);
   print(E);
   print(A);
+  print(ET);
 }

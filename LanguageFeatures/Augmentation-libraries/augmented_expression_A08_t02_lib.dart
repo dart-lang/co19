@@ -41,3 +41,8 @@ extension Ext on A {
   static String staticMethod() => augmented;
   String instanceMethod() => augmented;
 }
+
+extension type ET(int _) {
+  static String staticMethod() => augmented;
+  String instanceMethod() => augmented;
+}

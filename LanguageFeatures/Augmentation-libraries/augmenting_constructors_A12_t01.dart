@@ -27,6 +27,14 @@ class C {
   }
 }
 
+String log = "";
+
+extension type ET(int x) {
+  ET.foo(this.x, String s) {
+    log = s;
+  }
+}
+
 main() {
   C c1 = C("Original");
   Expect.equals("Augmented", c1.x);
@@ -34,4 +42,7 @@ main() {
   C c2 = C("Original", "Original");
   Expect.equals("Augmented", c2.x);
   Expect.equals("Augmented", c2.y);
+
+  ET et = ET.foo(42, "Original");
+  Expect.equals("Augmented", log);
 }

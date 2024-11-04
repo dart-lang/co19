@@ -42,3 +42,10 @@ augment extension Ext {
     return this;
   }
 }
+
+augment extension type ET {
+  augment ET test() {
+    Expect.identical(this, augmented());
+    return this;
+  }
+}

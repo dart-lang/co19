@@ -21,3 +21,16 @@ augment class C {
   augment C.foo(int x, {int y}): this(x, y);
   augment C.bar(int x, {required int y}): this.foo(x, y: y);
 }
+
+augment enum E {
+  augment e0;
+  augment const E.foo(int x, {int y}): this(x, y);
+  augment const E.bar(int x, {required int y}): this.foo(x, y: y);
+}
+
+augment extension type ET {
+  augment ET.foo(int x, int y): this(x);
+  augment ET.bar(int x, [int y]): this.foo(x, y);
+  augment ET.baz(int x, {int y}): this.foo(x, y);
+  augment ET.qux(int x, {required int y}): this.foo(x, y);
+}

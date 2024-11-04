@@ -104,3 +104,25 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  static void staticMethod1([String s = augmented]) {}
+//                                      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static void staticMethod2({String s = augmented}) {}
+//                                      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void instanceMethod1([String s = augmented]) {}
+//                                 ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void instanceMethod2({String s = augmented}) {}
+//                                 ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

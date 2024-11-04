@@ -24,3 +24,10 @@ augment class C {
     augmented();
   }
 }
+
+augment extension type ET(int x) {
+  augment ET.foo(this.x, String s) {
+    s = "Augmented";
+    augmented();
+  }
+}

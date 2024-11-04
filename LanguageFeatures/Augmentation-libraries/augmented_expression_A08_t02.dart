@@ -31,4 +31,6 @@ main() {
   Expect.equals("augmented", E.e1.instanceMethod());
   Expect.equals("augmented", Ext.staticMethod());
   Expect.equals("augmented", A().instanceMethod());
+  Expect.equals("augmented", ET.staticMethod());
+  Expect.equals("augmented", ET(0).instanceMethod());
 }

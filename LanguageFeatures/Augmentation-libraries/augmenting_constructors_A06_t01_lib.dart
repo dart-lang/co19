@@ -18,3 +18,12 @@ part of 'augmenting_constructors_A06_t01.dart';
 augment class C {
   augment C.foo(): x = 1;
 }
+
+augment enum E {
+  e2;
+  augment const E.foo(): x = 1;
+}
+
+augment extension type ET {
+  augment ET.foo(): id = 1;
+}

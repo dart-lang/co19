@@ -12,6 +12,7 @@
 /// @description Checks that when `augmented()` is called in the body of an
 /// augmenting constructor initializer lists are not re-run.
 /// @author sgrekhov22@gmail.com
+/// @issue 56493
 
 // SharedOptions=--enable-experiment=macros
 
@@ -27,5 +28,13 @@ augment class C {
     augmented();
     Expect.equals("x", x);
     Expect.equals("y", y);
+  }
+}
+
+augment extension type ET {
+  augment ET.foo(): x = "Augmented" {
+    Expect.equals("Augmented", x);
+    augmented();
+    Expect.equals("Augmented", x);
   }
 }

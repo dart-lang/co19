@@ -14,36 +14,22 @@
 
 // SharedOptions=--enable-experiment=macros
 
-part 'augmenting_constructors_A06_t01_lib.dart';
-
-class C {
+class A {
   int x;
-  C(this.x);
-  C.foo(): this(0);
-//^^^^^
+  A([this.x = 0]);
+}
+
+class C extends A {
+  C(): super();
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E {
-  e0(0), e1.foo();
-  final int x;
-  const E(this.x);
-  const E.foo(): this(0);
-//      ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET(int id) {
-  ET.foo(): this(0);
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+augment class C {
+  augment C(): super(1);
 }
 
 main() {
   print(C);
-  print(E);
-  print(ET);
 }
