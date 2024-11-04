@@ -138,3 +138,30 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  static ({int augmented})? staticVariable = null;
+//             ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static ({int augmented})? staticMethod() => null;
+//             ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static ({int augmented})? get staticGetter => null;
+//             ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  ({int augmented})? instanceMethod(int augmented) => null;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  ({int augmented})? get instanceGetter => null;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

@@ -32,6 +32,10 @@ extension Ext on A {
   A test() => this;
 }
 
+extension type ET(int _) {
+  ET test() => this;
+}
+
 class MA = Object with M;
 
 main() {
@@ -39,4 +43,5 @@ main() {
   MA().test();
   E.e0.test();
   A().test();
+  ET(0).test();
 }

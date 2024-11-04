@@ -72,3 +72,17 @@ augment extension Ext2 {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET1 {
+  static void set augmented(String _) {}
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+augment extension type ET2 {
+  void set augmented(String _) {}
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

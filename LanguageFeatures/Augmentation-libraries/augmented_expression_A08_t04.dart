@@ -43,4 +43,8 @@ main() {
   Expect.equals("augmented = Ext.staticMethod", _log);
   A().instanceMethod();
   Expect.equals("augmented = Ext.instanceMethod", _log);
+  ET.staticMethod();
+  Expect.equals("augmented = ET.staticMethod", _log);
+  ET(0).instanceMethod();
+  Expect.equals("augmented = ET.instanceMethod", _log);
 }

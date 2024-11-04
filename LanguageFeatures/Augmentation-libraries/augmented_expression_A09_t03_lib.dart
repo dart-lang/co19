@@ -72,3 +72,17 @@ augment extension Ext2 {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET1 {
+  static String augmented() => "static";
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+augment extension type ET2 {
+  String augmented() => "instance";
+//       ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

@@ -25,6 +25,8 @@ enum E2 {e0;}
 class A {}
 extension Ext1 on A {}
 extension Ext2 on A {}
+extension type ET1(int _) {}
+extension type ET2(int _) {}
 
 main() {
   print(C1);
@@ -34,4 +36,6 @@ main() {
   print(E1);
   print(E2);
   print(A);
+  print(ET1);
+  print(ET2);
 }

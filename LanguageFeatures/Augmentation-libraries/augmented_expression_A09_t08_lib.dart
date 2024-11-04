@@ -31,8 +31,8 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void staticSetter(int augmented) {}
-//                             ^^^^^^^^^
+  static void set staticSetter(int augmented) {}
+//                                 ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -51,8 +51,8 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void instanceSetter(int augmented) {}
-//                        ^^^^^^^^^
+  void set instanceSetter(int augmented) {}
+//                            ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -73,8 +73,8 @@ augment mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void staticSetter(int augmented) {}
-//                             ^^^^^^^^^
+  static void set staticSetter(int augmented) {}
+//                                 ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -93,8 +93,8 @@ augment mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void instanceSetter(int augmented) {}
-//                        ^^^^^^^^^
+  void set instanceSetter(int augmented) {}
+//                            ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -116,8 +116,8 @@ augment enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void staticSetter(int augmented) {}
-//                             ^^^^^^^^^
+  static void set staticSetter(int augmented) {}
+//                                 ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -136,8 +136,8 @@ augment enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void instanceSetter(int augmented) {}
-//                        ^^^^^^^^^
+  void set instanceSetter(int augmented) {}
+//                            ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -158,8 +158,8 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void staticSetter(int augmented) {}
-//                             ^^^^^^^^^
+  static void set staticSetter(int augmented) {}
+//                                 ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -178,8 +178,50 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void instanceSetter(int augmented) {}
-//                        ^^^^^^^^^
+  void set instanceSetter(int augmented) {}
+//                            ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+augment extension type ET {
+  static void staticMethod1(int augmented) {}
+//                             ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static void staticMethod2([int augmented = 0]) {}
+//                               ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static void staticMethod3({int augmented = 0}) {}
+//                               ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static void set staticSetter(int augmented) {}
+//                                 ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void instanceMethod1(int augmented) {}
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void instanceMethod2([int augmented = 0]) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void instanceMethod3({int augmented = 0}) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void set instanceSetter(int augmented) {}
+//                            ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
