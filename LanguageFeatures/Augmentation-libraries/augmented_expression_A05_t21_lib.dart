@@ -66,3 +66,14 @@ augment extension Ext {
     _log = "Augmented [$index]=$value";
   }
 }
+
+augment extension type ET {
+  augment void operator []=(int index, Object? value) {
+    void local() {
+      augmented(index, value);
+      Expect.equals("Original [$index]=$value", _log);
+    }
+    local();
+    _log = "Augmented [$index]=$value";
+  }
+}

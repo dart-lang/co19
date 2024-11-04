@@ -69,3 +69,15 @@ augment extension Ext {
     return "Augmented";
   }
 }
+
+augment extension type ET {
+  augment String operator +(Object other) {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+    return "Augmented";
+  }
+}

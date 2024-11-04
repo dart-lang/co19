@@ -41,9 +41,14 @@ extension Ext on A {
   String operator +(Object? other) => "Original + $other";
 }
 
+extension type ET(int _) {
+  String operator +(Object? other) => "Original + $other";
+}
+
 main() {
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

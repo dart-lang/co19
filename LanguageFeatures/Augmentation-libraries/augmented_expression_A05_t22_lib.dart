@@ -66,3 +66,14 @@ augment extension Ext {
     return f();
   }
 }
+
+augment extension type ET {
+  augment String operator +(Object? other) {
+    var f = () => "Augmented: ${augmented(other)}";
+    return f();
+  }
+  augment String operator [](int index) {
+    var f = () => "Augmented: ${augmented(index)}";
+    return f();
+  }
+}

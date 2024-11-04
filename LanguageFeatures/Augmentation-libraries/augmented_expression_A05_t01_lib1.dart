@@ -60,3 +60,13 @@ augment extension Ext {
     return 0;
   }
 }
+
+augment extension type ET {
+  augment int operator +(Object other) {
+    var f = augmented;
+//          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+}

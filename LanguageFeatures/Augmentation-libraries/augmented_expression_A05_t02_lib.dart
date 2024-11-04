@@ -97,3 +97,22 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension Ext {
+  augment String operator +(Object other) {
+    return augmented + other;
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment String operator [](int index) => augmented[index];
+//                                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void operator []=(int index, String value) {
+    augmented[index] = value;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}

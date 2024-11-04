@@ -46,9 +46,15 @@ extension Ext on A {
   augmented? operator [](int index) => null;
 }
 
+extension type ET(int _) {
+  augmented? operator +(Object? other) => null;
+  augmented? operator [](int index) => null;
+}
+
 main() {
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

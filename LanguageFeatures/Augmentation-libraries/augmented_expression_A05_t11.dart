@@ -50,9 +50,15 @@ extension Ext on A {
   int operator -(num other) => 2;
 }
 
+extension type ET(int _) {
+  int operator +(num other) => 1;
+  int operator -(num other) => 2;
+}
+
 main() {
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

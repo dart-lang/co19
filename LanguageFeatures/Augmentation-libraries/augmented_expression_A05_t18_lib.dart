@@ -89,3 +89,20 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension type ET {
+  augment int operator +(Object? other) => foo(augmented: 1);
+//                                             ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment int operator [](int index) => foo(augmented: 1);
+//                                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void operator []=(int index, int value) {
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}

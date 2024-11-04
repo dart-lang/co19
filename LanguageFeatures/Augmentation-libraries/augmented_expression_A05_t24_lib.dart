@@ -100,3 +100,23 @@ augment extension Ext {
     return "";
   }
 }
+
+augment extension Ext {
+  augment String operator +(Object? other) {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+    return "";
+  }
+}

@@ -64,3 +64,14 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  augment augmented? operator +(Object? other) => null;
+//        ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment augmented? operator [](int index) => null;
+//        ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

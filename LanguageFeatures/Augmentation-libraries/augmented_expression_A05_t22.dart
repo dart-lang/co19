@@ -45,6 +45,11 @@ extension Ext on A {
   String operator [](int index) => "Original [$index]";
 }
 
+extension type ET(int _) {
+  String operator +(Object? other) => "Original + $other";
+  String operator [](int index) => "Original [$index]";
+}
+
 class MA = Object with M;
 
 main() {
@@ -56,4 +61,6 @@ main() {
   Expect.equals("Augmented: Original [6]", E.e1[6]);
   Expect.equals("Augmented: Original + 7", A() + 7);
   Expect.equals("Augmented: Original [8]", A()[8]);
+  Expect.equals("Augmented: Original + 9", ET(0) + 9);
+  Expect.equals("Augmented: Original [10]", ET(0)[10]);
 }

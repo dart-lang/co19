@@ -38,7 +38,7 @@ enum E {
   e1;
   String operator [](int index) => "E[$index]";
   void operator []=(int index, String value) => "E[$index]=$value";
-  List<String> augmented = ["E.augmented", "should", "not", "be", "used"];
+  final List<String> augmented = ["E.augmented", "should", "not", "be", "used"];
 }
 
 class A {}
@@ -49,9 +49,16 @@ extension Ext on A {
   List<String> get augmented => ["Ext.augmented", "should", "not", "be", "used"];
 }
 
+extension type ET(int _) {
+  String operator [](int index) => "Ext[$index]";
+  void operator []=(int index, String value) => "Ext[$index]=$value";
+  List<String> get augmented => ["ET.augmented", "should", "not", "be", "used"];
+}
+
 main() {
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

@@ -76,3 +76,17 @@ augment extension Ext {
     return "";
   }
 }
+
+augment extension type ET {
+  augment String operator +(Object? other) {
+    print(null as augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    print(null is augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return "";
+  }
+}

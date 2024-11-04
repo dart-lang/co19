@@ -70,3 +70,15 @@ augment extension Ext {
     _log = "Ext: Augment2[$index]=$value";
   }
 }
+
+augment extension type ET {
+  augment String operator [](int index) {
+    Expect.equals("ET: Augment1[$index]", augmented(index));
+    return "ET: Augment2[$index]";
+  }
+  augment void operator []=(int index, String value) {
+    augmented(index, value);
+    Expect.equals("ET: Augment1[$index]=$value", _log);
+    _log = "ET: Augment2[$index]=$value";
+  }
+}

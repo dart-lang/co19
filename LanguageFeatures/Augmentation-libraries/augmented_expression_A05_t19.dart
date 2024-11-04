@@ -48,9 +48,16 @@ extension Ext on A {
   void operator []=(int index, int value) {}
 }
 
+extension type ET(int _) {
+  Record operator +(Object? other) => ();
+  Record operator [](int index) => ();
+  void operator []=(int index, int value) {}
+}
+
 main() {
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

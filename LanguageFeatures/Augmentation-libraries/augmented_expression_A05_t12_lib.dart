@@ -80,3 +80,18 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension type ET {
+  augment String operator [](int index) {
+    return augmented[index] = "Error";
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment void operator []=(int index, String value) {
+    return augmented[index];
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
