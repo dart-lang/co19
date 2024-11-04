@@ -51,7 +51,7 @@ extension Ext on A {
   }
 }
 
-extension type ET {
+extension type ET(int _) {
   void operator []=(int index, Object? value) {
     _log = "Original [$index]=$value";
   }
