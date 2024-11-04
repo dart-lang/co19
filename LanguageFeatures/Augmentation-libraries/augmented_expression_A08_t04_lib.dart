@@ -59,3 +59,12 @@ extension Ext on A {
     augmented = "Ext.instanceMethod";
   }
 }
+
+extension type ET(int _) {
+  static void staticMethod() {
+    augmented = "ET.staticMethod";
+  }
+  void instanceMethod() {
+    augmented = "ET.instanceMethod";
+  }
+}

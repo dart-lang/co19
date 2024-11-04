@@ -57,3 +57,10 @@ augment extension Ext {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  static String augmented = "static";
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
