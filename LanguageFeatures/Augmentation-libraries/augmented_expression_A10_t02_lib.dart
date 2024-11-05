@@ -21,7 +21,7 @@ augment class C {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -32,7 +32,7 @@ augment class C {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -43,7 +43,7 @@ augment class C {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -55,7 +55,7 @@ augment class C {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -66,7 +66,7 @@ augment class C {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -77,7 +77,7 @@ augment class C {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -88,7 +88,7 @@ augment class C {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -100,7 +100,7 @@ augment class C {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -113,7 +113,7 @@ augment mixin M {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -124,7 +124,7 @@ augment mixin M {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -135,7 +135,7 @@ augment mixin M {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -147,7 +147,7 @@ augment mixin M {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -158,7 +158,7 @@ augment mixin M {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -169,7 +169,7 @@ augment mixin M {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -180,7 +180,7 @@ augment mixin M {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -192,7 +192,7 @@ augment mixin M {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -207,7 +207,7 @@ augment enum E {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -218,7 +218,7 @@ augment enum E {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -229,7 +229,7 @@ augment enum E {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -241,7 +241,7 @@ augment enum E {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -252,7 +252,7 @@ augment enum E {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -263,7 +263,7 @@ augment enum E {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -275,7 +275,7 @@ augment enum E {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -288,7 +288,7 @@ augment extension Ext {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -299,7 +299,7 @@ augment extension Ext {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -310,7 +310,7 @@ augment extension Ext {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -322,7 +322,7 @@ augment extension Ext {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -333,7 +333,7 @@ augment extension Ext {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -344,7 +344,7 @@ augment extension Ext {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -356,7 +356,7 @@ augment extension Ext {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -369,7 +369,7 @@ augment extension type ET {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -380,7 +380,7 @@ augment extension type ET {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -391,7 +391,7 @@ augment extension type ET {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -403,7 +403,7 @@ augment extension type ET {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -414,7 +414,7 @@ augment extension type ET {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -425,7 +425,7 @@ augment extension type ET {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -437,7 +437,7 @@ augment extension type ET {
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    for (int augmented = 0; augmented < 0; augmented++) {}
+    for (int augmented = 0;;) {break;}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
