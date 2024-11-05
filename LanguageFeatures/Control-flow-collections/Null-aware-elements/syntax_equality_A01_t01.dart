@@ -22,8 +22,6 @@
 
 // SharedOptions=--enable-experiment=null-aware-elements
 
-// TODO(sgrekhov): replace unspecified by the actual lint name
-
 import '../../../Utils/expect.dart';
 
 class A {
@@ -39,12 +37,8 @@ class C extends A {
 
   void test(int? expected) {
     var list = [
-      ?super == expected,
-//    ^
-// [analyzer] unspecified
-      ?super != expected
-//    ^
-// [analyzer] unspecified
+      ?super == expected,     // ignore: invalid_null_aware_operator
+      ?super != expected      // ignore: invalid_null_aware_operator
     ];
     if (expected != null) {
       Expect.listEquals([true, false], list);
@@ -53,28 +47,16 @@ class C extends A {
     }
 
     var set = {
-      ?super == expected,
-//    ^
-// [analyzer] unspecified
-      ?super != expected
-//    ^
-// [analyzer] unspecified
+      ?super == expected,     // ignore: invalid_null_aware_operator
+      ?super != expected      // ignore: invalid_null_aware_operator
     };
     Expect.setEquals({false, true}, set);
 
     var map1 = {
-      ?super == expected: 1,
-//    ^
-// [analyzer] unspecified
-      ?super != expected: 2,
-//    ^
-// [analyzer] unspecified
-      3: ?super == expected,
-//       ^
-// [analyzer] unspecified
-      4: ?super != expected,
-//       ^
-// [analyzer] unspecified
+      ?super == expected: 1,    // ignore: invalid_null_aware_operator
+      ?super != expected: 2,    // ignore: invalid_null_aware_operator
+      3: ?super == expected,    // ignore: invalid_null_aware_operator
+      4: ?super != expected,    // ignore: invalid_null_aware_operator
     };
     if (expected != null) {
       Expect.mapEquals({true: 1, false: 2, 3: true, 4: false}, map1);
@@ -83,12 +65,8 @@ class C extends A {
     }
 
     var map2 = {
-      ?super == expected: ?super == expected,
-//    ^
-// [analyzer] unspecified
-      ?super != expected: ?super != expected
-//    ^
-// [analyzer] unspecified
+      ?super == expected: ?super == expected, // ignore: invalid_null_aware_operator
+      ?super != expected: ?super != expected  // ignore: invalid_null_aware_operator
     };
     Expect.mapEquals({true: true, false: false}, map2);
   }
@@ -99,28 +77,28 @@ main() {
   int? e2 = 1 > 2 ? 1 : null; // null
 
   var list = [
-    ?e1 == e2,
-    ?e2 != e1
+    ?e1 == e2,      // ignore: invalid_null_aware_operator
+    ?e2 != e1       // ignore: invalid_null_aware_operator
   ];
   Expect.listEquals([false, true], list);
 
   var set = {
-    ?e1 == e2,
-    ?e2 != e1
+    ?e1 == e2,      // ignore: invalid_null_aware_operator
+    ?e2 != e1       // ignore: invalid_null_aware_operator
   };
   Expect.setEquals({false, true}, set);
 
   var map1 = {
-    ?e1 == e2: 1,
-    ?e2 != e1: 2,
-    3: ?e1 == e2,
-    4: ?e2 != e1,
+    ?e1 == e2: 1,     // ignore: invalid_null_aware_operator
+    ?e2 != e1: 2,     // ignore: invalid_null_aware_operator
+    3: ?e1 == e2,     // ignore: invalid_null_aware_operator
+    4: ?e2 != e1,     // ignore: invalid_null_aware_operator
   };
   Expect.mapEquals({false: 1, true: 2, 3: false, 4: true}, map1);
 
   var map2 = {
-    ?e1 == e2: ?e1 == e2,
-    ?e2 != e1: ?e2 != e1
+    ?e1 == e2: ?e1 == e2,   // ignore: invalid_null_aware_operator
+    ?e2 != e1: ?e2 != e1    // ignore: invalid_null_aware_operator
   };
   Expect.mapEquals({false: false, true: true}, map2);
 

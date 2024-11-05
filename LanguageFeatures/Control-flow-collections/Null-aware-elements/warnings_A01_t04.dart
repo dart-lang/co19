@@ -13,8 +13,6 @@
 
 // SharedOptions=--enable-experiment=null-aware-elements
 
-// TODO(sgrekhov): replace unspecified by the actual lint name
-
 import '../../../Utils/expect.dart';
 
 int? f(int? v) => v;
@@ -23,55 +21,67 @@ main() {
   var list = <int>[
     ? f(1) ?? 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] invalid_null_aware_operator
     ? f(null) ?? 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] invalid_null_aware_operator
     ? 2 > 1 ? 3 : 4
 //  ^
-// [analyzer] unspecified
+// [analyzer] invalid_null_aware_operator
   ];
   Expect.listEquals([1, 2, 3], list);
 
   var set = <int>{
     ? f(1) ?? 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] invalid_null_aware_operator
     ? f(null) ?? 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] invalid_null_aware_operator
     ? 2 > 1 ? 3 : 4
 //  ^
-// [analyzer] unspecified
+// [analyzer] invalid_null_aware_operator
   };
   Expect.setEquals({1, 2, 3}, set);
 
   var map = <int, int>{
     ? f(1) ?? 2: 1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] invalid_null_aware_operator
     ? f(null) ?? 2: 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] invalid_null_aware_operator
     ? 2 > 1 ? 3 : 4: 3,
 //  ^
-// [analyzer] unspecified
+// [analyzer] invalid_null_aware_operator
     4: ? f(1) ?? 2,
 //     ^
-// [analyzer] unspecified
+// [analyzer] invalid_null_aware_operator
     5: ? f(null) ?? 2,
 //     ^
-// [analyzer] unspecified
+// [analyzer] invalid_null_aware_operator
     6: ? 2 > 1 ? 3 : 4
-//  ^
-// [analyzer] unspecified
+//     ^
+// [analyzer] invalid_null_aware_operator
   };
   Expect.mapEquals({
     ? f(1) ?? 2: 1,
+//  ^
+// [analyzer] invalid_null_aware_operator
     ? f(null) ?? 2: 2,
+//  ^
+// [analyzer] invalid_null_aware_operator
     ? 2 > 1 ? 3 : 4: 3,
+//  ^
+// [analyzer] invalid_null_aware_operator
     4: ? f(1) ?? 2,
+//     ^
+// [analyzer] invalid_null_aware_operator
     5: ? f(null) ?? 2,
+//     ^
+// [analyzer] invalid_null_aware_operator
     6: ? 2 > 1 ? 3 : 4
+//     ^
+// [analyzer] invalid_null_aware_operator
   }, map);
 }
