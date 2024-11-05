@@ -18,20 +18,18 @@ part 'augmented_expression_A10_t11_lib.dart';
 int foo({int augmented = 0}) => augmented + 42;
 
 class C {}
-
 mixin M {}
-
 enum E {
   e1;
 }
-
 class A {}
-
 extension Ext on A {}
+extension type ET(int _) {}
 
 main() {
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

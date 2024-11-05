@@ -16,20 +16,18 @@
 part 'augmented_expression_A10_t15_lib.dart';
 
 class C {}
-
 mixin M {}
-
 enum E {
   e1;
 }
-
 class A {}
-
 extension Ext on A {}
+extension type ET(int _) {}
 
 main() {
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }

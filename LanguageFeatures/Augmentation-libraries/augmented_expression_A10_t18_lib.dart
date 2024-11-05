@@ -365,3 +365,83 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension type ET {
+  static var staticVariable1 = null as augmented;
+//                                     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static var staticVariable2 = null is augmented;
+//                                     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static void staticMethod() {
+    print(null as augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    print(null is augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  static int get staticGetter {
+    print(null as augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    print(null is augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    print(null as augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    print(null is augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  void instanceMethod() {
+    print(null as augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    print(null is augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    print(null as augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    print(null is augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
+    print(null as augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    print(null is augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}

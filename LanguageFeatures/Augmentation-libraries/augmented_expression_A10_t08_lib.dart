@@ -301,3 +301,70 @@ augment extension Ext {
     }
   }
 }
+
+augment extension type ET {
+  static var staticVariable = () {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  };
+
+  static void staticMethod() {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+
+  static int get staticGetter {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+
+  void instanceMethod() {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+
+  int get instanceGetter {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
+    switch(1) {
+      case int(isEven: var augmented):
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+}

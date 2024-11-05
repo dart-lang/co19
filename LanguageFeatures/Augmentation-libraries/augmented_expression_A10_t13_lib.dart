@@ -541,3 +541,126 @@ augment extension Ext {
     };
   }
 }
+
+augment extension type ET {
+  static var staticVariable = () {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  };
+
+  static void staticMethod() {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  }
+
+  static int get staticGetter {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  }
+
+  void instanceMethod() {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  }
+
+  int get instanceGetter {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
+    switch ("") {
+      case augmented:
+//         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      default:
+    }
+    var x = switch("") {
+      augmented => 1,
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      _ => 0
+    };
+  }
+}

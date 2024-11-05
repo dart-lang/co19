@@ -482,3 +482,112 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension type ET {
+  static var staticVariable = () {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
+  static void staticMethod() {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  static int get staticGetter {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  void instanceMethod() {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
+    augmented? x;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var f = (augmented x) {};
+//           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    (augmented? x,) r = (null,);
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}

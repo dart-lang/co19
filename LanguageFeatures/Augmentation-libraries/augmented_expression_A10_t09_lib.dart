@@ -361,3 +361,84 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension type ET {
+  static var staticVariable = () {
+    int v = augmented;
+//          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
+  static void staticMethod() {
+    int v = augmented;
+//          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  static int get staticGetter {
+    int v = augmented;
+//          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    int v = augmented;
+//          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  void instanceMethod() {
+    int v = augmented;
+//          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    int v = augmented;
+//          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
+    int v = augmented;
+//          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    for (int i = augmented; i < 0; i++) {}
+//               ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}

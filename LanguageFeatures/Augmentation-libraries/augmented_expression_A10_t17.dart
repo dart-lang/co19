@@ -19,20 +19,18 @@ part 'augmented_expression_A10_t17_lib.dart';
 const augmented = "Should not be used";
 
 class C {}
-
 mixin M {}
-
 enum E {
   e1;
 }
-
 class A {}
-
 extension Ext on A {}
+extension type ET(int _) {}
 
 main() {
   print(C);
   print(M);
   print(E);
   print(A);
+  print(ET);
 }
