@@ -362,3 +362,84 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension type ET {
+  static var staticVariable = () {
+    void local1([String v = augmented]) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    void local2({String v = augmented}) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
+  static void staticMethod() {
+    void local1([String v = augmented]) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    void local2({String v = augmented}) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  static int get staticGetter {
+    void local1([String v = augmented]) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    void local2({String v = augmented}) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    void local1([String v = augmented]) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    void local2({String v = augmented}) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  void instanceMethod() {
+    void local1([String v = augmented]) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    void local2({String v = augmented}) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    void local1([String v = augmented]) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    void local2({String v = augmented}) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
+    void local1([String v = augmented]) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    void local2({String v = augmented}) {}
+//                          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}

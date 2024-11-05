@@ -241,3 +241,56 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension type ET {
+  static var staticVariable = () {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
+  static void staticMethod() {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  static int get staticGetter {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  void instanceMethod() {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}

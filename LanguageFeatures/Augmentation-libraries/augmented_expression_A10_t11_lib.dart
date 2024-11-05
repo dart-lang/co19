@@ -271,3 +271,63 @@ augment extension Ext {
 // [cfe] unspecified
   }
 }
+
+augment extension type ET {
+  static var staticVariable = () {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
+  static void staticMethod() {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  static int get staticGetter {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  static void set staticSetter(int _) {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  void instanceMethod() {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  int get instanceGetter {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 0;
+  }
+
+  void set instanceSetter(int _) {
+    foo(); // Ok
+    foo(augmented: 1);
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
