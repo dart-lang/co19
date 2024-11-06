@@ -81,7 +81,7 @@ main() {
     ?C(2) <= C(1),
     ?C(1) <= null
   };
-  Expect.setEquals({true, false}, set2);
+  Expect.setEquals({false}, set2);
 
   var map1 = {
     ?C(1) < C(0): 1,
