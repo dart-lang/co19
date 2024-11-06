@@ -25,7 +25,7 @@ augment class C {
   }
 }
 
-augment extension type ET(int x) {
+augment extension type ET {
   augment ET.foo(this.x, String s) {
     s = "Augmented";
     augmented();

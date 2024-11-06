@@ -20,7 +20,7 @@ augment class C {
   augment C.bar(int x): this.foo(x + 1);
 }
 
-augment enym E {
+augment enum E {
   augment e0;
   augment E.bar(int x): this.foo(x + 1);
 }
