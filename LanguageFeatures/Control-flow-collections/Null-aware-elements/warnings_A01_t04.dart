@@ -13,8 +13,6 @@
 
 // SharedOptions=--enable-experiment=null-aware-elements
 
-// TODO(sgrekhov): replace unspecified by the actual lint name
-
 import '../../../Utils/expect.dart';
 
 int? f(int? v) => v;
@@ -23,55 +21,67 @@ main() {
   var list = <int>[
     ? f(1) ?? 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ? f(null) ?? 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ? 2 > 1 ? 3 : 4
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   ];
   Expect.listEquals([1, 2, 3], list);
 
   var set = <int>{
     ? f(1) ?? 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ? f(null) ?? 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ? 2 > 1 ? 3 : 4
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.setEquals({1, 2, 3}, set);
 
   var map = <int, int>{
     ? f(1) ?? 2: 1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ? f(null) ?? 2: 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ? 2 > 1 ? 3 : 4: 3,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     4: ? f(1) ?? 2,
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     5: ? f(null) ?? 2,
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     6: ? 2 > 1 ? 3 : 4
-//  ^
-// [analyzer] unspecified
+//     ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({
     ? f(1) ?? 2: 1,
+//  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ? f(null) ?? 2: 2,
+//  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ? 2 > 1 ? 3 : 4: 3,
+//  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     4: ? f(1) ?? 2,
+//     ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     5: ? f(null) ?? 2,
+//     ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     6: ? 2 > 1 ? 3 : 4
+//     ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   }, map);
 }
