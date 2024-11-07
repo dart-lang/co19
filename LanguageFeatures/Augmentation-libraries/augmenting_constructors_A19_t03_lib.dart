@@ -24,7 +24,7 @@ augment class C {
   augment factory C.qux(int x, [int y]) = C;
 }
 
-extension type ET {
+augment extension type ET {
   augment factory ET.bar(int x) = ET.foo;
   augment factory ET.baz(int x) = ET;
 }
