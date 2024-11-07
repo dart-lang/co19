@@ -26,3 +26,14 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  augment factory ET.baz([int x = 0]) = ET;
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment factory ET.qux({int x = 0}) = ET.foo;
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

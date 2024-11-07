@@ -7,8 +7,8 @@
 /// It is a compile-time error if:
 /// - The augmented constructor has any initializers or a body.
 ///
-/// @description Checks that it is a compile-time error if a merged constructor
-/// is cyclic.
+/// @description Checks that it is a compile-time error if the merged
+/// constructor is cyclic.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -20,6 +20,18 @@ class C {
   C.foo();
 }
 
+enum E {
+  e0;
+  const E();
+  const E.foo();
+}
+
+extension type ET(int x) {
+  ET.foo(this.x);
+}
+
 main() {
   print(C);
+  print(E);
+  print(ET);
 }

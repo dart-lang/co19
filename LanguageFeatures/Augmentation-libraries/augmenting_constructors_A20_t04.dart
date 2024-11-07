@@ -24,6 +24,14 @@ class C {
   factory C.baz({int x = 0});
 }
 
+extension type ET(int x) {
+  ET.foo([this.x = 0]);
+  ET.bar({this.x = 0});
+  factory ET.baz([int x = 0]);
+  factory ET.qux({int x = 0});
+}
+
 main() {
   print(C);
+  print(ET);
 }

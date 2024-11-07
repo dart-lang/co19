@@ -23,3 +23,8 @@ augment class C {
   augment factory C.baz(int x, {int y}) = C.foo;
   augment factory C.qux(int x, [int y]) = D;
 }
+
+augment extension type ET {
+  augment factory ET.bar(int x) = ET;
+  augment factory ET.baz(int x) = ET.foo;
+}

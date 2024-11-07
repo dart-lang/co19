@@ -23,6 +23,21 @@ class C {
   C.bar({required this.y});
 }
 
+enum E {
+  e0(1, 2), e1.foo(3, y: 4), e2.bar(5, y: 6);
+  final int x, y;
+  const E(this.x, [this.y = 0]);
+  const E.foo(this.x, {this.y = 0});
+  const E.bar(this.x, {required this.y});
+}
+
+extension type ET(int x) {
+  ET.foo(this.x);
+  ET.bar({required this.x});
+}
+
 main() {
   print(C);
+  print(E);
+  print(ET);
 }

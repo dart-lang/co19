@@ -21,3 +21,10 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  augment ET.foo(int x): this(x);
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

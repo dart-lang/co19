@@ -23,6 +23,19 @@ class C {
   C.foo(int x);
 }
 
+enum E {
+  e0(0), e1.foo(1);
+  final int x;
+  const E(this.x);
+  const E.foo(int x);
+}
+
+extension type ET(int x) {
+  ET.foo(int x);
+}
+
 main() {
-  Expect.equals(2, C.foo(1));
+  Expect.equals(2, C.foo(1).x);
+  Expect.equals(2, E.e1.x);
+  Expect.equals(2, ET.foo(1).x);
 }

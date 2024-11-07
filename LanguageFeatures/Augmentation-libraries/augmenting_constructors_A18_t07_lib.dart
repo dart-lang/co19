@@ -29,3 +29,34 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment enum E {
+  augment e0;
+  augment const E(): this.foo();
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo(): this.bar();
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.bar(): this();
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+augment extension type ET {
+  augment ET.new(int x): this.foo(x);
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.foo(int x): this.bar(x);
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.bar(int x): this(x);
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

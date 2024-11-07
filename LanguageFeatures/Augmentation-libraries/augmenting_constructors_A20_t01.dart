@@ -28,7 +28,14 @@ class D extends C {
   D(super.x, [super.y = 0]);
 }
 
+extension type ET(int x) {
+  ET.foo(this.x);
+  factory ET.bar(int x) => ET(x);
+  factory ET.baz(int x) => ET.foo(x);
+}
+
 main() {
   print(C);
   print(D);
+  print(ET);
 }

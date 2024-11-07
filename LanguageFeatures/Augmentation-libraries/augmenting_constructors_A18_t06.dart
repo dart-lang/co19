@@ -20,6 +20,11 @@ class C {
   C.foo() {}
 }
 
+extension type ET(int x) {
+  ET.foo(int x) {}
+}
+
 main() {
   print(C);
+  print(ET);
 }

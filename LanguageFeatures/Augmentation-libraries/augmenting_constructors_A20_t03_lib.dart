@@ -29,3 +29,17 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment extension type ET {
+  augment factory ET(int x) = ET.bar;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment factory ET.foo(int x) = ET;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+ //                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

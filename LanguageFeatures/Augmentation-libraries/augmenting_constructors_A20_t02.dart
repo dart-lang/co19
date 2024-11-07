@@ -24,6 +24,11 @@ class C {
   factory C.qux({required int x});
 }
 
+extension type ET(int x) {
+  factory ET.foo(int x);
+}
+
 main() {
   print(C);
+  print(ET);
 }

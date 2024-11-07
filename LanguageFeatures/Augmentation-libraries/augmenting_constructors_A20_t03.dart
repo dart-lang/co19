@@ -21,6 +21,12 @@ class C {
   factory C.bar();
 }
 
+extension type ET(int x) {
+  factory ET.foo(int x);
+  factory ET.bar(int x);
+}
+
 main() {
   print(C);
+  print(ET);
 }
