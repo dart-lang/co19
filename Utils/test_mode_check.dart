@@ -17,7 +17,7 @@ bool checkResolvedExecutable(CheckFunction function) {
 
 /// Checks that application runs in dart precompiled runtime mode.
 bool get isDartkp =>
-    checkResolvedExecutable(((String s) => s == "dart_precompiled_runtime"));
+    checkResolvedExecutable(((String s) => s == "dartaotruntime"));
 
 /// Checks that application runs in AOT mode.
 bool get isAot => checkResolvedExecutable(((String str) => str != "dart"));
