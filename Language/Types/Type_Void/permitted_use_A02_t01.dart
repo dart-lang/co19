@@ -16,8 +16,14 @@
 /// `for (e1; e2; e3) ...` loop may have type `void`.
 /// @author sgrekhov22@gmail.com
 
+void foo() {}
+
 main() {
-  for (void i = 0;;) {
+  void v = 0;
+  for (v;;) {
+    break;
+  }
+  for (foo();;) {
     break;
   }
 }

@@ -16,5 +16,7 @@
 void foo() {}
 
 main() {
-  var e = foo();
+  void v = 0;
+  v;
+  foo();
 }

@@ -12,21 +12,19 @@
 ///
 /// @description Checks that if in a null coalescing expression `e1 ?? e2`, `e2`
 /// has type `void` then the static type of the whole expression is also `void`
-/// and it is a compile-time error to use it.
+/// and it is a compile-time error to use a value of this expression.
 /// @author sgrekhov22@gmail.com
 
 main() {
   void v = 0;
   int? e1 = (2 > 1) ? 1 : null;
-  var x1 = e1 ?? v;
-  print(x1);
-//      ^^
+  print(e1 ?? v);
+//      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   int? e2 = (2 > 1) ? null : 1;
-  var x2 = e2 ?? v;
-  print(x2);
-//      ^^
+  print(e2 ?? v);
+//      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

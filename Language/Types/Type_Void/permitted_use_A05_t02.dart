@@ -13,20 +13,18 @@
 ///
 /// @description Checks that if in a conditional expression `e ? e1 : e2`, `e1`
 /// or `e2` have type `void` then the static type of the whole expression is
-/// `void` and it is a compile-time error to use it.
+/// `void` and it is a compile-time error to use a value of this expression.
 /// @author sgrekhov22@gmail.com
 
 void foo() => 42;
 
 main() {
-  var e1 = (2 > 1) ? 1 : foo();
-  print(e1);
-//      ^^
+  print((2 > 1) ? 1 : foo());
+//      ^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  var e2 = (2 > 1) ? foo() : 1;
-  print(e2);
-//      ^^
+  print((2 > 1) ? foo() : 1);
+//      ^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -10,8 +10,9 @@
 /// ...
 /// - In a parenthesized expression `(e)`, `e` may have type `void`.
 ///
-/// @description Checks that in a parenthesized expression `(e)`, `e` may have
-/// type `void` but it is a compile-time error to use it.
+/// @description Checks that if in a parenthesized expression `(e)`, `e` has a
+/// type `void` then it is a compile-time error to use a value of this
+/// expression.
 /// @author sgrekhov22@gmail.com
 
 void foo() => 42;
