@@ -12,8 +12,8 @@
 ///   `void`.
 ///
 /// @description Checks that if in a conditional expression `e ? e1 : e2`, `e1`
-/// or `e2` have type `void` then the static type of the whole expression is
-/// `void` and it is a compile-time error to use a value of this expression.
+/// or `e2` has type `void` then the static type of the whole expression is
+/// `void` and it is a compile-time error to use the value of this expression.
 /// @author sgrekhov22@gmail.com
 
 void foo() => 42;
