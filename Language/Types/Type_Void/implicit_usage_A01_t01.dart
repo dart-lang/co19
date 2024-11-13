@@ -26,9 +26,4 @@ void main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  for (Null i in list) {
-//               ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
 }

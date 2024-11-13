@@ -26,9 +26,4 @@ void main() async {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  await for (Null i in stream) {
-//                     ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
 }

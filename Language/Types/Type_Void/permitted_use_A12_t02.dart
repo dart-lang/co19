@@ -20,7 +20,7 @@
 ///   if the static type of the second formal parameter is `void`, `e1` may have
 ///   type `void`.
 ///
-/// @description Checks that if in an expression of the form `.. S s = e1` where
+/// @description Checks that if in an expression ending in `.. S s = e1` where
 /// `s` has the form `[ e0 ]` and the static typeof the first formal parameter
 /// in the statically known declaration of operator `[]=` is `void`, then `e0`
 /// may have type `void`.

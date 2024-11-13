@@ -20,7 +20,7 @@
 ///   if the static type of the second formal parameter is `void`, `e1` may have
 ///   type `void`.
 ///
-/// @description Checks that if in an expression of the form `.. S s = e1` where
+/// @description Checks that if in an expression ending in `.. S s = e1` where
 /// `s` has the form `.id` or `?.id` and the static type of the identifier `id`
 /// is `void`, then `e1` may have type `void`.
 /// @author sgrekhov22@gmail.com
