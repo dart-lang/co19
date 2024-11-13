@@ -1,4 +1,4 @@
-// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -7,22 +7,24 @@
 ///
 /// @description Check that it is a compile-time error if the static type of the
 /// argument expression (expr) of an explicit extension invocation is `void`.
-/// @issue 39156
-/// @author sgrekhov@unipro.ru
+/// @author sgrekhov22@gmail.com
+/// @issue 57082
 
-class C {
-  String name = "My name is C";
+extension ExtVoid on void {
+  void checkme() {
+    print("I'm extension");
+  }
 }
-
-extension ExtendedC on C {
-  String checkme() => this.name;
-}
-
-void getC() => new C();
 
 main() {
-  ExtendedC(getC()).checkme();
-//          ^
+  void v = 42;
+  v.checkme();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  ExtVoid(print("print() returns void")).checkme();
+//        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
