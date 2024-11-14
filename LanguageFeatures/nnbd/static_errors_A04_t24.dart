@@ -3,22 +3,26 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is an error if a top level variable or static variable with a
-/// non-nullable type has no initializer expression unless the variable is marked
-/// with the `late` modifier.
+/// non-nullable type has no initializer expression unless the variable is
+/// marked with a `late` or `external` modifier.
 ///
-/// @description Check that it is not an error if a top level or static
-/// variable with potentially non-nullable type has no initializer expression
-/// but marked with a 'late' modifier. Test some class A
+/// @description Check that it is not an error if a top level or static variable
+/// with a non-nullable type has no initializer expression but is marked with a
+/// `late` or `external `modifier. Test some class.
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-strong
+
 class A {}
 
-late A x;
+late A x1;
+external A x2;
 
 class C {
   static late A x1;
   static late final A x2;
+  external static A x3;
+  external static final A x4;
 }
 
 main() {

@@ -3,14 +3,13 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is an error if a top level variable or static variable with a
-/// non-nullable type has no initializer expression unless the variable is marked
-/// with the `late` modifier.
+/// non-nullable type has no initializer expression unless the variable is
+/// marked with a `late` or `external` modifier.
 ///
-/// @description Check that it is an error if a top level variable or static
-/// variable with a non-nullable type has no initializer expression unless the
-/// variable is marked with the `late` modifier. Test FutureOr<Never>
+/// @description Check that it is an error if a top level or static variable
+/// with a non-nullable type has no initializer expression and is not marked
+/// with a `late` or `external `modifier. Test type `FutureOr<Never>`.
 /// @author sgrekhov@unipro.ru
-
 
 import "dart:async";
 
@@ -27,5 +26,5 @@ class C {
 }
 
 main() {
-  new C();
+  print(C);
 }
