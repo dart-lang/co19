@@ -5,7 +5,8 @@
 /// @assertion Redirecting generative constructors
 /// ...
 /// It is a compile-time error if:
-/// - The augmented constructor has any initializers or a body.
+/// - The augmented constructor has an initializer list or a body, or it has a
+///   redirection.
 ///
 /// @description Checks that it is a compile-time error to declare an augmenting
 /// redirecting generative constructor if the augmented constructor has a super
@@ -22,8 +23,8 @@ class A {
 }
 
 class C extends A {
-  C(): super(0);
-  C.foo(): super(0);
+  C() : super(0);
+  C.foo() : super(0);
 }
 
 main() {

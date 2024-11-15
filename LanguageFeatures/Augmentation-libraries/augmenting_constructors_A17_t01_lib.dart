@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion A redirecting generative constructor marked `augment` adds its
-/// redirecting initializer to the augmented constructors initializer list.
+/// redirection to the augmented constructor.
 ///
 /// This converts it into a redirecting generative constructor, removing the
 /// potentially non-redirecting property of the constructor.
@@ -18,6 +18,6 @@
 part of 'augmenting_constructors_A17_t01.dart';
 
 augment class C {
-  augment C.foo(int x, {int y}): this(x, y);
-  augment C.bar(int x, {required int y}): this.foo(x, y: y);
+  augment C.foo(int x, {int y}) : this(x, y);
+  augment C.bar(int x, {required int y}) : this.foo(x, y: y);
 }

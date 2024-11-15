@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion A redirecting factory constructor marked `augment` adds its
-/// factory redirection to the augmented constructor.
+/// factory redirection (e.g., `= C<int>.name`) to the augmented constructor.
 ///
 /// The result of applying the augmenting constructor is a redirecting factory
 /// constructor with the same target constructor designation as the augmenting

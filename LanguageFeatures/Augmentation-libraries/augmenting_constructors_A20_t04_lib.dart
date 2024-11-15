@@ -5,7 +5,7 @@
 /// @assertion Redirecting factory constructors
 /// ...
 /// It is a compile-time error if:
-/// - The augmented constructor has a body.
+/// - The augmented factory constructor has a body, or it is redirecting.
 ///
 /// @description Checks that it is a compile-time error to declare an augmenting
 /// redirecting factory constructor if an introductory constructor has any

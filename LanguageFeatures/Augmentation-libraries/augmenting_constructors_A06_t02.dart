@@ -9,13 +9,25 @@
 ///   etc).
 ///
 /// @description Checks that it is a compile-time error if the resulting
-/// constructor has a redirecting initializer and initializer list elements.
+/// constructor has multiple super initializers.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-part of 'augmenting_constructors_A06_t01.dart';
+part 'augmenting_constructors_A06_t02_lib.dart';
 
-augment class C {
-  augment C.foo() : x = 1;
+class A {
+  int x;
+  A(this.x);
+}
+
+class C extends A {
+  C() : super(0);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+main() {
+  print(C);
 }

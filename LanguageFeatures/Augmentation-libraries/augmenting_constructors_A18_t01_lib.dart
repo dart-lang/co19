@@ -5,7 +5,8 @@
 /// @assertion Redirecting generative constructors
 /// ...
 /// It is a compile-time error if:
-/// - The augmented constructor has any initializers or a body.
+/// - The augmented constructor has an initializer list or a body, or it has a
+///   redirection.
 ///
 /// @description Checks that it is a compile-time error to declare an augmenting
 /// redirecting generative constructor if the augmented constructor has
@@ -17,11 +18,11 @@
 part of 'augmenting_constructors_A18_t01.dart';
 
 augment class C {
-  augment C.foo(this.x, {this.y}): this(x);
+  augment C.foo(this.x, {this.y}) : this(x);
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C.bar({required this.y}): this.foo(0);
+  augment C.bar({required this.y}) : this.foo(0);
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -29,22 +30,22 @@ augment class C {
 
 augment enum E {
   augment e0;
-  augment const E.foo(this.x, {this.y}): this(x);
+  augment const E.foo(this.x, {this.y}) : this(x);
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment const E.bar(this.x, {required this.y}): this.foo(0);
+  augment const E.bar(this.x, {required this.y}) : this.foo(0);
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension type ET {
-  augment ET.foo(this.x): this(0);
+  augment ET.foo(this.x) : this(0);
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment ET.bar({required this.x}): this.new(1);
+  augment ET.bar({required this.x}) : this.new(1);
 //                ^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -5,11 +5,11 @@
 /// @assertion Redirecting generative constructors
 /// ...
 /// It is a compile-time error if:
-/// - The augmented constructor has any initializers or a body.
+/// - The augmented constructor has an initializer list or a body, or it has a
+///   redirection.
 ///
-/// @description Checks that it is not an error to declare an augmenting
-/// redirecting generative constructor more than once and the fully merged
-/// constructor has no errors.
+/// @description Checks that it is a compile-time error to declare an augmenting
+/// redirecting generative constructor more than once.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
