@@ -14,7 +14,7 @@
 ///   }
 /// }
 /// ```
-// This program is valid and assigns to the field, not the local.
+/// This program is valid and assigns to the field, not the local.
 ///
 /// @description Checks that a top-level function named `_` can be assigned to
 /// a local variable named `_`.

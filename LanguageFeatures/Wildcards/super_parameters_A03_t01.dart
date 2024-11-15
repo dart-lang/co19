@@ -2,8 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Similarly to `this._` a `super._` does not introduce any
-/// identifier into the scope of the initializer list.
+/// @assertion Similarly to `this._`, and unlike for example `super.x`, a
+/// `super._` does not introduce any identifier into the scope of the
+/// initializer list.
 ///
 /// @description Checks that a `super._`  does not introduce any identifier into
 /// the scope of the initializer list.
