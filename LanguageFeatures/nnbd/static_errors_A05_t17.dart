@@ -6,16 +6,16 @@
 /// variable with a potentially non-nullable type and no initializer expression,
 /// and the class has a generative constructor where the variable is not
 /// initialized via an initializing formal or an initializer list entry, unless
-/// the variable is marked with the late modifier.
+/// the variable is marked with a `late`, `abstract`, or `external` modifier.
 ///
-/// @description Check that it is an error if a class declaration declares an
-/// instance variable with a potentially non-nullable type and no initializer
-/// expression, and the class has a generative constructor where the variable is
-/// not initialized via an initializing formal or an initializer list entry,
-/// unless the variable is marked with the late modifier. Test <T extends Object>
+/// @description Check that it is no error if an instance variable with a
+/// potentially non-nullable type has no initializer expression but initialized
+/// in a constructor via an initializing formal or an initializer list entry.
+/// Test type `<T extends Object>`.
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-strong
+
 class A {}
 
 class C1<T extends Object> {

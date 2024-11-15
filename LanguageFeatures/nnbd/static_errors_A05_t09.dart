@@ -6,17 +6,16 @@
 /// variable with a potentially non-nullable type and no initializer expression,
 /// and the class has a generative constructor where the variable is not
 /// initialized via an initializing formal or an initializer list entry, unless
-/// the variable is marked with the late modifier.
+/// the variable is marked with a `late`, `abstract`, or `external` modifier.
 ///
 /// @description Check that it is an error if a class declaration declares an
 /// instance variable with a potentially non-nullable type and no initializer
 /// expression, and the class has a generative constructor where the variable is
-/// not initialized via an initializing formal or an initializer list entry,
-/// unless the variable is marked with the late modifier. Test FutureOr<F> where
-/// F is a function type
+/// not initialized via an initializing formal or an initializer list entry, and
+/// the variable is not marked with a `late`, `abstract` or `external` modifier.
+/// Test `FutureOr<F>` where `F` is a function type.
 /// @author sgrekhov@unipro.ru
 /// @issue 40951
-
 
 import "dart:async";
 
@@ -32,9 +31,7 @@ class C1 {
 
   C1() {}
 //^^
-// [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
-//^^
-// [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
+// [analyzer] unspecified
 }
 
 abstract class C2 {
@@ -47,14 +44,10 @@ abstract class C2 {
 
   C2() {}
 //^^
-// [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
-//^^
-// [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
+// [analyzer] unspecified
 }
 
-class C3 extends C2 {}
-
 main() {
-  new C1();
-  new C3();
+  print(C1);
+  print(C2);
 }

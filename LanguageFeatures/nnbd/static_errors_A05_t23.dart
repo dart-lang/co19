@@ -6,26 +6,36 @@
 /// variable with a potentially non-nullable type and no initializer expression,
 /// and the class has a generative constructor where the variable is not
 /// initialized via an initializing formal or an initializer list entry, unless
-/// the variable is marked with the late modifier.
+/// the variable is marked with a `late`, `abstract`, or `external` modifier.
 ///
-/// @description Check that it is not an error if a class declaration declares an
-/// instance variable with a potentially non-nullable type and no initializer
+/// @description Check that it is not an error if a class declaration declares
+/// an instance variable with a potentially non-nullable type and no initializer
 /// expression, and the class has a generative constructor where the variable is
 /// not initialized via an initializing formal or an initializer list entry, but
-/// the variable is marked with the 'late' modifier. Test function type
+/// the variable is marked with `late`, `abstract`, or `external` modifier. Test
+/// a function type.
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-strong
+
 typedef void Foo();
+
+abstract class A {
+  abstract Foo x1;
+  abstract final Foo x2;
+  abstract covariant Foo x3;
+}
 
 class C {
   late Foo x1;
   late final Foo x2;
   covariant late Foo x3;
 
-  C() {}
+  external Foo x4;
+  external final Foo x5;
 }
 
 main() {
+  print(A);
   new C();
 }

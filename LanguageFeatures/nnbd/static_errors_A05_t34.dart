@@ -6,28 +6,38 @@
 /// variable with a potentially non-nullable type and no initializer expression,
 /// and the class has a generative constructor where the variable is not
 /// initialized via an initializing formal or an initializer list entry, unless
-/// the variable is marked with the late modifier.
+/// the variable is marked with a `late`, `abstract`, or `external` modifier.
 ///
-/// @description Check that it is not an error if a class declaration declares an
-/// instance variable with a potentially non-nullable type and no initializer
+/// @description Check that it is not an error if a class declaration declares
+/// an instance variable with a potentially non-nullable type and no initializer
 /// expression, and the class has a generative constructor where the variable is
 /// not initialized via an initializing formal or an initializer list entry, but
-/// the variable is marked with the 'late' modifier. Test FutureOr<FutureOr<A>>
-/// where A is some class
+/// the variable is marked with `late`, `abstract`, or `external` modifier.
+/// Test `FutureOr<FutureOr<A>>` where `A` is some class.
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-strong
+
 import "dart:async";
+
 class A {}
+
+abstract class B {
+  abstract FutureOr<FutureOr<A>> x1;
+  abstract final FutureOr<FutureOr<A>> x2;
+  abstract covariant FutureOr<FutureOr<A>> x3;
+}
 
 class C {
   late FutureOr<FutureOr<A>> x1;
   late final FutureOr<FutureOr<A>> x2;
   covariant late FutureOr<FutureOr<A>> x3;
 
-  C() {}
+  external FutureOr<FutureOr<A>> x4;
+  external final FutureOr<FutureOr<A>> x5;
 }
 
 main() {
+  print(A);
   new C();
 }
