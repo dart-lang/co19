@@ -3,17 +3,17 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is an error if a mixin declaration or a class declaration with
-/// no generative constructors declares an instance variable with a potentially
-/// non-nullable type and no initializer expression unless the variable is marked
-/// with the late modifier.
+/// no generative constructors declares an instance variable without an
+/// initializing expression which is final or whose type is potentially
+/// non-nullable, unless the variable is marked with a `late`, `abstract`, or
+/// `external` modifier.
 ///
 /// @description Check that it is an error if a class declaration with no
 /// generative constructors declares an instance variable with a potentially
-/// non-nullable type and no initializer expression. Test some class X
+/// non-nullable type and no initializing expression. Test some class.
 /// @author sgrekhov@unipro.ru
 /// @issue 40677
 /// @issue 40940
-
 
 class X {}
 
@@ -31,5 +31,5 @@ class D implements C {
 }
 
 main() {
-  new C.f();
+  print(C);
 }
