@@ -30,5 +30,5 @@ class D<X extends Object?> implements C<X> {
 }
 
 main() {
-  print(C)l
+  print(C);
 }
