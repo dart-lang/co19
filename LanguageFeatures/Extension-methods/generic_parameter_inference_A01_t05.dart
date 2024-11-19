@@ -5,12 +5,13 @@
 /// @assertion If both the extension and the method is generic, then inference
 /// must infer the extension type parameters first, to figure out whether the
 /// extension applies, and only then start inferring method type parameters. As
-/// mentioned above, the inference is similar to other cases of chained inference.
-/// @description Check that two-step type inference forces correct type parameter
-/// choice and error is thrown if method parameter is of incorrect type.
+/// mentioned above, the inference is similar to other cases of chained
+/// inference.
+///
+/// @description Check that two-step type inference forces correct type
+/// parameter choice and error is reported if method parameter is of incorrect
+/// type.
 /// @author iarkh@unipro.ru
-
-
 
 extension SuperList<T> on List<T> {
   void checkme1<R>(R i) {}
@@ -23,7 +24,7 @@ main() {
   list.checkme1<int>(42);
   list.checkme2(42);
 //     ^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.COULD_NOT_INFER
+// [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
 // [cfe] Inferred type argument 'int' doesn't conform to the bound 'T' of the type variable 'R' on 'SuperList|checkme2'.
   list.checkme2<int>(42);
 //     ^
