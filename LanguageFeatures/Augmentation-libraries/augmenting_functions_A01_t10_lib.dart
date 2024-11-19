@@ -3,8 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion A top-level function, static method, instance method, or operator
-/// may be augmented to wrap the original code in additional code. The
-/// augmentation replaces the original function body with the augmenting code.
+/// may be augmented to wrap the original code in additional code.
+/// ...
+/// The augmentation replaces the augmented function’s body with the augmenting
+/// function’s body.
 ///
 /// @description Checks that an instance method may be augmented and the 
 /// original code is replaced by the augmentation. Test an extension.

@@ -5,7 +5,7 @@
 /// @assertion Redirecting generative constructors
 /// ...
 /// It is a compile-time error if:
-/// - The augmented constructor has any initializers or a body.
+/// - The augmented factory constructor has a body, or it is redirecting.
 ///
 /// @description Checks that it is not an error to declare an augmenting
 /// redirecting generative constructor more than once and the fully merged
