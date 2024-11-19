@@ -6,7 +6,7 @@
 /// expression is meaningless and intended to be discarded.
 ///
 /// @description Checks that it is a compile-time error to extend the type
-/// `void` or its alias (this is a syntax error, but there are semantics reasons
+/// `void` or its alias (this is a syntax error, but there are semantic reasons
 /// as well).
 /// @author iefremov
 
