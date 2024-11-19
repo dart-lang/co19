@@ -4,6 +4,7 @@
 
 /// @assertion A non-redirecting factory constructor marked `augment` works in
 /// the same way as a normal function augmentation.
+///
 /// If it has a body, it replaces the body of the augmented constructor
 /// (if present), and it may invoke the augmented body by calling
 /// `augmented(arguments)`.
