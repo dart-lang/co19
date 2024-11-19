@@ -5,7 +5,7 @@
 /// @assertion The special type `void` is used to indicate that the value of an
 /// expression is meaningless and intended to be discarded.
 ///
-/// @description Checks that  it is a compile-time error to pass a value with
+/// @description Checks that it is a compile-time error to pass a value with
 /// static type `void` to the function which expecting a non-void argument.
 /// @issue 30177
 /// @author sgrekhov@unipro.ru

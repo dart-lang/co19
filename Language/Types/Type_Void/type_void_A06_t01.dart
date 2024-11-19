@@ -5,8 +5,8 @@
 /// @assertion The special type `void` is used to indicate that the value of an
 /// expression is meaningless and intended to be discarded.
 ///
-/// @description Checks that using `void` as a declaration name is a
-/// compile-time error.
+/// @description Checks that using `void` as a declaration name is a syntax
+/// error.
 /// @author rodionov
 
 void void() {}

@@ -5,7 +5,7 @@
 /// @assertion The special type `void` is used to indicate that the value of an
 /// expression is meaningless and intended to be discarded.
 ///
-/// @description Checks that it is a compile-time error to declare a mixin named
+/// @description Checks that it is a syntax error to declare a mixin named
 /// `void`.
 /// @author sgrekhov22@gmail.com
 

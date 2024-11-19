@@ -6,7 +6,7 @@
 /// expression is meaningless and intended to be discarded.
 ///
 /// @description Checks that specifying `void` as a type parameter bound causes
-/// a compile-time error.
+/// a compile-time error (which is a syntax error).
 /// @author iefremov
 
 void f<T extends void>() {}

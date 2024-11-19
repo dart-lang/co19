@@ -6,7 +6,7 @@
 /// expression is meaningless and intended to be discarded.
 ///
 /// @description Checks that specifying `void` as a function's parameter type
-/// (without the parameter name) causes a compile-time error.
+/// (without the parameter name) causes a syntax error.
 /// @author iefremov
 
 main() {

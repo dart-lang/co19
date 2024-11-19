@@ -9,9 +9,7 @@
 /// expression results in a compile-time error.
 /// @author rodionov
 
-void foo() {
-  return;
-}
+void foo() {}
 
 main() {
   bool b = (foo() == 1);

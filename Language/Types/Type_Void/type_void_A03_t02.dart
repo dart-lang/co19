@@ -5,20 +5,37 @@
 /// @assertion The special type `void` is used to indicate that the value of an
 /// expression is meaningless and intended to be discarded.
 ///
-/// @description Checks that it is a compile-time error to implement `void`.
+/// @description Checks that it is a compile-time error to implement the type
+/// `void` or its alias (this is a syntax error, but there are semantics reasons
+/// as well).
 /// @author iefremov
+/// @issue 39552
+
+typedef Void = void;
 
 class A implements void {}
 //                 ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type ET(void _) implements void {}
-//                                   ^^^^
+class C implements Void {}
+//                 ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type ET1(void _) implements void {}
+//                                    ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type ET2(void _) implements Void {}
+//                                    ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
   print(A);
-  print(ET);
+  print(C);
+  print(ET1);
+  print(ET2);
 }

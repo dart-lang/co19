@@ -9,9 +9,7 @@
 /// a `void` method invocation to a variable whose declared type is not `void`
 /// @author sgrekhov@unipro.ru
 
-void foo() {
-  return;
-}
+void foo() {}
 
 main() {
   dynamic i = foo();

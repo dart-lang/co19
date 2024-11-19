@@ -6,7 +6,7 @@
 /// expression is meaningless and intended to be discarded.
 ///
 /// @description Checks that specifying `void` on the right side of an `is`
-/// expression causes a compile-time error.
+/// expression causes a syntax error.
 /// @author iefremov
 
 main() {

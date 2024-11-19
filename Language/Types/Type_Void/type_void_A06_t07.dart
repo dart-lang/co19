@@ -5,8 +5,8 @@
 /// @assertion The special type `void` is used to indicate that the value of an
 /// expression is meaningless and intended to be discarded.
 ///
-/// @description Checks that it is a compile-time error to declare an extension
-/// type named `void`.
+/// @description Checks that it is a syntax error to declare an extension type
+/// named `void`.
 /// @author sgrekhov22@gmail.com
 
 extension type void(int _) {}
