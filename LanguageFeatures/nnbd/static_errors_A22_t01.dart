@@ -11,9 +11,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39661
 
-
-import "dart:async";
-
 class C {
   static void sTest() async {
     late int i = await 42;

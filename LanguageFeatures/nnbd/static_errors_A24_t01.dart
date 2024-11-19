@@ -2,35 +2,34 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is not a compile time error to write to a final variable if
-/// that variable is declared late and does not have an initializer.
+/// @assertion It is not a compile time error to write to a `final` non-local or
+/// instance variable if that variable is declared `late` and does not have an
+/// initializer.
 ///
-/// @description Check that it is not a compile time error to write to a final
-/// variable if that variable is declared late and does not have an initializer.
+/// @description Check that it is not a compile time error to write to a
+/// non-local `final` variable if that variable is declared `late` and does not
+/// have an initializer.
 /// @author sgrekhov@unipro.ru
 /// @issue 39684
 
 // Requirements=nnbd-strong
-  import "../../Utils/expect.dart";
 
-  late final g;
+import "../../Utils/expect.dart";
 
-  class C {
-    static late final s;
-    late final v;
-  }
+late final g;
 
-  main() {
-    late final l;
+class C {
+  static late final s;
+  late final v;
+}
 
-    g = "Lily";
-    C.s = "was";
-    C c = new C();
-    c.v = "here";
-    l = "Run, Forrest, run";
+main() {
+  g = "Lily";
+  C.s = "was";
+  C c = new C();
+  c.v = "here";
 
-    Expect.equals("Lily", g);
-    Expect.equals("was", C.s);
-    Expect.equals("here", c.v);
-    Expect.equals("Run, Forrest, run", l);
-  }
+  Expect.equals("Lily", g);
+  Expect.equals("was", C.s);
+  Expect.equals("here", c.v);
+}

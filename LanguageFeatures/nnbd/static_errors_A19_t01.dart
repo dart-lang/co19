@@ -9,7 +9,6 @@
 /// expression throw e is not assignable to Object
 /// @author sgrekhov@unipro.ru
 
-
 class A {
 }
 
@@ -55,5 +54,21 @@ void test6<T extends Function?>(T x) {
 // [cfe] unspecified
 }
 
+extension type ET(Object? _) {}
+
+void test7(ET x) {
+  throw x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
+  print(test1);
+  print(test2);
+  print(test3);
+  print(test4);
+  print(test5);
+  print(test6);
+  print(test7);
 }
