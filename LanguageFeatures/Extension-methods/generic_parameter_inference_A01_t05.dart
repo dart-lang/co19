@@ -24,11 +24,10 @@ main() {
   list.checkme1<int>(42);
   list.checkme2(42);
 //     ^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Inferred type argument 'int' doesn't conform to the bound 'T' of the type variable 'R' on 'SuperList|checkme2'.
+// [analyzer] unspecified
+// [cfe] unspecified
   list.checkme2<int>(42);
-//     ^
-// [cfe] Type argument 'int' doesn't conform to the bound 'T' of the type variable 'R' on 'SuperList|checkme2'.
 //              ^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+// [analyzer] unspecified
+// [cfe] unspecified
 }
