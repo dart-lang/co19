@@ -30,16 +30,8 @@ main() {
   Expect.throws(() {a!;});
   Expect.throws(() {a!.foo();});
   Expect.throws(() {a![42];});
-  Expect.throws(() {a!?.foo();});
-//                    ^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                   ^
-// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
-  Expect.throws(() {a!?[42];});
-//                    ^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                   ^
-// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
+  Expect.throws(() {a!?.foo();}); // ignore: invalid_null_aware_operator
+  Expect.throws(() {a!?[42];});   // ignore: invalid_null_aware_operator
   Expect.throws(() {a!.s = "Lily was here";});
   Expect.throws(() {a![0] = "Lily was here";});
   A? a1 = new A();

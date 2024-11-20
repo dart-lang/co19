@@ -17,16 +17,8 @@ import "../../../Utils/expect.dart";
 
 class C {
   test() {
-    Expect.equals("Lily was here: 42", this!(42));
-//                                         ^
-// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
-//                                     ^
-// [cfe] Operand of null-aware operation '!' has type 'C' which excludes null.
-    Expect.equals("Lily was here: 42", this(42)!);
-//                                             ^
-// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
-//                                     ^
-// [cfe] Operand of null-aware operation '!' has type 'String' which excludes null.
+    Expect.equals("Lily was here: 42", this!(42)); // ignore: unnecessary_non_null_assertion
+    Expect.equals("Lily was here: 42", this(42)!); // ignore: unnecessary_non_null_assertion
   }
   String call(int v) => "Lily was here: $v";
 }

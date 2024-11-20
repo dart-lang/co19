@@ -18,8 +18,6 @@ void foo() {}
 main() {
   FutureOr<Function> f = foo;
   f!;
-//^
-// [cfe] Operand of null-aware operation '!' has type 'FutureOr<Function>' which excludes null.
 // ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }
