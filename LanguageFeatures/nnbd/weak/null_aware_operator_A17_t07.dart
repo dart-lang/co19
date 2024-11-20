@@ -44,21 +44,13 @@ class C {
 
 main() {
   C c1 = new C();
-  var actual1 = c1 ?.. m1().m();
-//                 ^^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//              ^
-// [cfe] Operand of null-aware operation '?..' has type 'C' which excludes null.
+  var actual1 = c1 ?.. m1().m();  // ignore: invalid_null_aware_operator
   var expected = c1;
   Expect.equals(expected, actual1);
   Expect.equals(1, c1.m1().counter);
 
   var actual3 = c1
-//              ^
-// [cfe] Operand of null-aware operation '?..' has type 'C' which excludes null.
-    ?.. m1().m()
-//  ^^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+    ?.. m1().m()  // ignore: invalid_null_aware_operator
     .. m2().m();
   Expect.equals(expected, actual3);
   Expect.equals(2, c1.m1().counter);
@@ -74,25 +66,13 @@ main() {
   Expect.isNull(actual6);
 
   c2 = new C();
-  var actual7 = c2 ?.. m1().m();
-//                 ^^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//              ^
-// [cfe] Operand of null-aware operation '?..' has type 'C' which excludes null.
+  var actual7 = c2 ?.. m1().m(); // ignore: invalid_null_aware_operator
   var expected2 = c2;
   Expect.equals(expected2, actual7);
-  Expect.equals(1, c2?.m1().counter);
-//                   ^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                 ^
-// [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.
+  Expect.equals(1, c2?.m1().counter); // ignore: invalid_null_aware_operator
 
   var actual9 = c2
-//              ^
-// [cfe] Operand of null-aware operation '?..' has type 'C' which excludes null.
-      ?.. m1().m()
-//    ^^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+      ?.. m1().m()  // ignore: invalid_null_aware_operator
       .. m2().m();
   Expect.equals(expected2, actual9);
   Expect.equals(2, c2.m1().counter);

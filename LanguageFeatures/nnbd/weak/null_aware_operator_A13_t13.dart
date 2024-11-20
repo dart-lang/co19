@@ -14,6 +14,7 @@
 /// @issue 40557
 
 // Requirements=nnbd-weak
+
 import "../../../Utils/expect.dart";
 
 class C {
@@ -38,18 +39,10 @@ class C {
 }
 
 void testShort(C? x, int index, dynamic value) {
-  var actual = x?[index] ??= value;
-//                           ^^^^^
-// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//               ^
-// [cfe] Operand of null-aware operation '??=' has type 'int' which excludes null.
+  var actual = x?[index] ??= value; // ignore: dead_null_aware_expression
   var n0 = x;
   x?.init();
-  var expected = n0 == null ? null : n0[index] ??= value;
-//                                                 ^^^^^
-// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-//                                     ^
-// [cfe] Operand of null-aware operation '??=' has type 'int' which excludes null.
+  var expected = n0 == null ? null : n0[index] ??= value; // ignore: dead_null_aware_expression
   Expect.equals(expected, actual);
 }
 
