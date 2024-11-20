@@ -12,7 +12,7 @@
 void f<T extends void>() {}
 //               ^^^^
 // [analyzer] unspecified
-// [cfe] unspecified>
+// [cfe] unspecified
 
 class A<T extends void> {}
 //                ^^^^
@@ -23,11 +23,11 @@ class B {
   static void foo<T extends void>() {}
 //                          ^^^^
 // [analyzer] unspecified
-// [cfe] unspecified>
+// [cfe] unspecified
   void bar<T extends void>() {}
 //                   ^^^^
 // [analyzer] unspecified
-// [cfe] unspecified>
+// [cfe] unspecified
 }
 
 mixin M<T extends void> {}
