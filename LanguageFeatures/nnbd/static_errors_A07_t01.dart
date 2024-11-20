@@ -7,9 +7,9 @@
 /// initializer expression unless the variable is marked with the `late`
 /// modifier.
 ///
-/// @description Check that it is an error to derive a mixin from a class
-/// declaration which contains an instance variable with a potentially
-/// non-nullable type and no initializer expression.
+/// @description Check that it is an error for a mixin class to contain an
+/// instance variable with a potentially non-nullable type and no initializer
+/// expression.
 /// @author sgrekhov22@gmail.com
 
 mixin class C {
@@ -19,12 +19,6 @@ mixin class C {
 // [cfe] unspecified
 }
 
-mixin M1 on C {
-}
-
-class M2 = Object with C;
-
 main() {
-  print(M1);
-  print(M2);
+  print(C);
 }
