@@ -5,7 +5,9 @@
 /// @assertion If a generic type is used but type arguments are not provided,
 /// the type arguments default to type `dynamic`.
 ///
-/// @description Checks that a type with `dynamic` as a bound is `dynamic`.
+/// @description Checks that a type with `dynamic` as a bound is treated the
+/// same as the type `dynamic`, and similarly for a bound which is a type alias
+/// of `dynamic`.
 /// @author sgrekhov22@gmail.com
 
 typedef Dynamic = dynamic;

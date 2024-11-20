@@ -5,14 +5,15 @@
 /// @assertion The special type `void` is used to indicate that the value of an
 /// expression is meaningless and intended to be discarded.
 ///
-/// @description Checks that a type with `void` bound is not `dynamic`.
+/// @description Checks that a type with `void` bound is not treated the same
+/// way as the type `dynamic`, by attempting to invoke a non-existing member.
 /// @author sgrekhov22@gmail.com
 
 typedef Void = void;
 
 void f<T extends Void>(T t) {
-  t.notDynamic;
-//  ^^^^^^^^^^
+  t.nonExistingMember;
+//  ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -22,8 +23,8 @@ class A<T extends Void> {
   A(this.t);
 
   test() {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -31,14 +32,14 @@ class A<T extends Void> {
 
 class B {
   static void foo<T extends Void>(T t) {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   void bar<T extends Void>(T t) {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -46,8 +47,8 @@ class B {
 
 mixin M<T extends Void> {
   test(T t) {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -56,8 +57,8 @@ mixin M<T extends Void> {
 enum E<T extends Void> {
   e0;
   test(T t) {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -67,8 +68,8 @@ class C {}
 
 extension Ext<T extends Void> on C {
   test(T t) {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -76,8 +77,8 @@ extension Ext<T extends Void> on C {
 
 extension type ET<T extends Void>(int _) {
   test(T t) {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

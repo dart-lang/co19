@@ -6,12 +6,13 @@
 /// the type arguments default to type `dynamic`.
 ///
 /// @description Checks that a static type of a type parameter with no bounds is
-/// not `dynamic`.
+/// not treated the same way as the type `dynamic`, by attempting to invoke a
+/// non-existing member.
 /// @author sgrekhov22@gmail.com
 
 void f<T>(T t) {
-  t.notDynamic;
-//  ^^^^^^^^^^
+  t.nonExistingMember;
+//  ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -21,8 +22,8 @@ class A<T> {
   A(this.t);
 
   test() {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -30,14 +31,14 @@ class A<T> {
 
 class B {
   static void foo<T>(T t) {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   void bar<T>(T t) {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -45,8 +46,8 @@ class B {
 
 mixin M<T> {
   test(T t) {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -55,8 +56,8 @@ mixin M<T> {
 enum E<T> {
   e0;
   test(T t) {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -66,8 +67,8 @@ class C {}
 
 extension Ext<T> on C {
   test(T t) {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -75,8 +76,8 @@ extension Ext<T> on C {
 
 extension type ET<T >(int _) {
   test(T t) {
-    t.notDynamic;
-//    ^^^^^^^^^^
+    t.nonExistingMember;
+//    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
