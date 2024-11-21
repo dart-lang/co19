@@ -4,8 +4,6 @@
 
 /// @assertion A non-redirecting generative constructor marked `augment` may:
 /// - Add or replace the body of the augmented constructor with a new body.
-///   - If the augmenting constructor has an explicit block body, then that body
-///     replaces any existing constructor body.
 ///
 /// @description Checks that an augmenting constructor may add a body to an
 /// augmented constructor.
