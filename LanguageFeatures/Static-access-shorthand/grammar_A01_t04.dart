@@ -19,6 +19,8 @@
 /// type can be accessed using the static access short syntax.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=enum-shorthands
+
 import '../../Utils/expect.dart';
 
 extension type ET1(int v) {

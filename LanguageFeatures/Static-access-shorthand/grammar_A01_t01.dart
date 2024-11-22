@@ -19,6 +19,8 @@
 /// accessed using the static access short syntax.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=enum-shorthands
+
 import '../../Utils/expect.dart';
 
 class C {
