@@ -12,8 +12,8 @@
 /// an instance variable with a potentially non-nullable type and no initializer
 /// expression, and the class has a generative constructor where the variable is
 /// not initialized via an initializing formal or an initializer list entry, but
-/// the variable is marked with `late`, `abstract`, or `external` modifier.
-/// Test `FutureOr<F>` where `F` is a function type
+/// the variable is marked with a `late` or `abstract` modifier. Test
+/// `FutureOr<F>` where `F` is a function type.
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-strong
@@ -36,12 +36,6 @@ class C {
   late FutureOr<Foo> x4;
   late final FutureOr<Foo> x5;
   covariant late FutureOr<Foo> x6;
-
-  external FutureOr<Function> x7;
-  external final FutureOr<Function> x8;
-
-  external FutureOr<Foo> x9;
-  external final FutureOr<Foo> x10;
 }
 
 main() {

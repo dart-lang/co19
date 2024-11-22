@@ -12,8 +12,8 @@
 /// an instance variable with a potentially non-nullable type and no initializer
 /// expression, and the class has a generative constructor where the variable is
 /// not initialized via an initializing formal or an initializer list entry, but
-/// the variable is marked with `late`, `abstract`, or `external` modifier. Test
-/// some class `A`.
+/// the variable is marked with a `late` or `abstract` modifier. Test some class
+/// `A`.
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-strong
@@ -30,9 +30,6 @@ class C {
   late A x1;
   late final A x2;
   covariant late A x3;
-
-  external A x4;
-  external final A x5;
 }
 
 main() {

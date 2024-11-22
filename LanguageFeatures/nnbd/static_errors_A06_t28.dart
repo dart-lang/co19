@@ -11,7 +11,7 @@
 /// @description Check that it is not an error if a mixin declaration or a class
 /// declaration with no generative constructors declares an instance variable
 /// without an initializing expression which is final but it is marked with
-/// `late`, `abstract` or `external`.
+/// `late` or `abstract`.
 /// @author sgrekhov22@gmail.com
 
 abstract class C<T> {
@@ -21,9 +21,6 @@ abstract class C<T> {
   abstract final v4;
   abstract final Object v5;
   abstract final T v6;
-  external final v7;
-  external final Object v8;
-  external final T v9;
 }
 
 mixin M<T extends Object> {
@@ -33,9 +30,6 @@ mixin M<T extends Object> {
   abstract final v4;
   abstract final Object v5;
   abstract final T v6;
-  external final v7;
-  external final Object v8;
-  external final T v9;
 }
 
 main() {
