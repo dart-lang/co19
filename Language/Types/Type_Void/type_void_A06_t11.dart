@@ -17,5 +17,5 @@ main() {
   ({int void}) r2 = (void: 2);
 //      ^^^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }
