@@ -8,7 +8,7 @@
 ///
 /// @description Check that it is not an error if a top level or static variable
 /// with a non-nullable type has no initializer expression but is marked with a
-/// `late` or `external `modifier. Test some class.
+/// `late` modifier. Test some class.
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-strong
@@ -16,13 +16,10 @@
 class A {}
 
 late A x1;
-external A x2;
 
 class C {
   static late A x1;
   static late final A x2;
-  external static A x3;
-  external static final A x4;
 }
 
 main() {

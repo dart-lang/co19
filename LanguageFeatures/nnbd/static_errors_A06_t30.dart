@@ -10,20 +10,22 @@
 ///
 /// @description Check that it is not an error if a mixin declaration or a class
 /// declaration with no generative constructors declares an instance variable
-/// without an initializing expression which is final but it is marked with
-/// `external`.
+/// without an initializing expression whose type is potentially non-nullable
+/// but it is marked with `late` or `abstract`.
 /// @author sgrekhov22@gmail.com
 
-class C<T> {
-  external final v1;
-  external final Object v2;
-  external final T v3;
+abstract class C<T extends Object?> {
+  late Object v1;
+  late T v2;
+  abstract Object v3;
+  abstract T v4;
 }
 
-mixin M<T extends Object> {
-  external final v1;
-  external final Object v2;
-  external final T v3;
+mixin M<T extends Object?> {
+  late Object v1;
+  late T v2;
+  abstract Object v3;
+  abstract T v4;
 }
 
 main() {

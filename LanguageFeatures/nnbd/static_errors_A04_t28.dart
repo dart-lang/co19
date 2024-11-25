@@ -8,7 +8,7 @@
 ///
 /// @description Check that it is not an error if a top level or static variable
 /// with a non-nullable type has no initializer expression but is marked with a
-/// `late` or `external `modifier. Test type `FutureOr<Never>`.
+/// `late` modifier. Test type `FutureOr<Never>`.
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-strong
@@ -16,13 +16,10 @@
 import "dart:async";
 
 late FutureOr<Never> x1;
-external FutureOr<Never> x2;
 
 class C {
   static late FutureOr<Never> x1;
   static late final FutureOr<Never> x2;
-  external static FutureOr<Never> x3;
-  external static final FutureOr<Never> x4;
 }
 
 main() {

@@ -1,4 +1,4 @@
-// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -7,17 +7,19 @@
 /// marked with a `late` or `external` modifier.
 ///
 /// @description Check that it is not an error if a top level or static variable
-/// with a non-nullable type has no initializer expression but is marked with a
-/// `late` modifier. Test type `Function`.
-/// @author sgrekhov@unipro.ru
+/// with a non-nullable type has no initializer expression but is marked with an
+/// `external` modifier. Test some class.
+/// @author sgrekhov22@gmail.com
 
 // Requirements=nnbd-strong
 
-late Function x1;
+class A {}
+
+external A x1;
 
 class C {
-  static late Function x1;
-  static late final Function x2;
+  external static A x1;
+  external static final A x2;
 }
 
 main() {

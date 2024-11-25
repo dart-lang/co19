@@ -8,7 +8,7 @@
 ///
 /// @description Check that it is not an error if a top level or static variable
 /// with a non-nullable type has no initializer expression but is marked with a
-/// `late` or `external `modifier. Test a function type.
+/// `late` modifier. Test a function type.
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-strong
@@ -16,13 +16,10 @@
 typedef void Foo();
 
 late Foo x1;
-external Foo x2;
 
 class C {
   static late Foo x1;
   static late final Foo x2;
-  external static Foo x3;
-  external static final Foo x4;
 }
 
 main() {

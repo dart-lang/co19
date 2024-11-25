@@ -1,4 +1,4 @@
-// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -12,27 +12,18 @@
 /// an instance variable with a potentially non-nullable type and no initializer
 /// expression, and the class has a generative constructor where the variable is
 /// not initialized via an initializing formal or an initializer list entry, but
-/// the variable is marked with a `late` or `abstract` modifier. Test
-/// `FutureOr<T>`, where `<T extends Object?>`.
-/// @author sgrekhov@unipro.ru
+/// the variable is marked with an `external` modifier. Test some class `A`.
+/// @author sgrekhov22@gmail.com
 
 // Requirements=nnbd-strong
 
-import "dart:async";
+class A {}
 
-abstract class A<T extends Object?> {
-  abstract FutureOr<T> x1;
-  abstract final FutureOr<T> x2;
-  abstract covariant FutureOr<T> x3;
-}
-
-class C<T extends Object?> {
-  late FutureOr<T> x1;
-  late final FutureOr<T> x2;
-  covariant late FutureOr<T> x3;
+class C {
+  external A x1;
+  external final A x2;
 }
 
 main() {
-  print(A);
-  new C();
+  C();
 }
