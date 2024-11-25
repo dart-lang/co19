@@ -17,8 +17,15 @@
 part of 'augmenting_constructors_A18_t06.dart';
 
 augment class C {
-  augment C.foo(): this();
-//                 ^
+  augment C.foo() : this();
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+augment extension type ET {
+  augment ET.foo(int x) : this(x);
+//                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

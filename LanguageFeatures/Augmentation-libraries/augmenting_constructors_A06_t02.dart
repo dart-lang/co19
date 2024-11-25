@@ -5,22 +5,25 @@
 /// @assertion It is a compile-time error if:
 /// ...
 /// - The resulting constructor is not valid (it has a redirection as well as
-///   some initializer list elements, or it has multiple `super` initializers,
+///   some initializer list elements, or it has multiple super initializers,
 ///   etc).
 ///
 /// @description Checks that it is a compile-time error if the resulting
-/// constructor has a redirecting initializer and initializer list elements.
+/// constructor has multiple super initializers.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-part 'augmenting_constructors_A06_t01_lib.dart';
+part 'augmenting_constructors_A06_t02_lib.dart';
 
-class C {
+class A {
   int x;
-  C(this.x);
-  C.foo() : this(0);
-//^^^^^
+  A(this.x);
+}
+
+class C extends A {
+  C() : super(0);
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

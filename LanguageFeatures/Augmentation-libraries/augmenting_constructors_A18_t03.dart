@@ -23,8 +23,8 @@ class A {
 }
 
 class C extends A {
-  C(): super(0);
-  C.foo(): super(0);
+  C() : super(0);
+  C.foo() : super(0);
 }
 
 main() {

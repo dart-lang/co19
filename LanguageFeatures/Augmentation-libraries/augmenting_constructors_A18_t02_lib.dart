@@ -18,12 +18,35 @@
 part of 'augmenting_constructors_A18_t02.dart';
 
 augment class C {
-  augment C.foo(int x, {int y = 0}): this(x);
-//                                   ^
+  augment C.foo(int x, {int y = 0}) : this(x);
+//                                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C.bar({required int x}): this.foo(x);
-//                                 ^
+  augment C.bar({required int x}) : this.foo(x);
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+augment enum E {
+  augment e0;
+  augment const E.foo(int x, {int y = 0}) : this(x);
+//                                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.bar({required int x}) : this.foo(x);
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+augment extension type ET {
+  augment ET.foo(int x) : this(x);
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.bar({required int x}) : this.new(x);
+//                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

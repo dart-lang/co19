@@ -22,6 +22,20 @@ class C {
   C.bar();
 }
 
+enum E {
+  e0;
+  const E();
+  const E.foo();
+  const E.bar();
+}
+
+extension type ET(int x) {
+  ET.foo(int x);
+  ET.bar(int x);
+}
+
 main() {
   print(C);
+  print(E);
+  print(ET);
 }

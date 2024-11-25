@@ -8,14 +8,12 @@
 /// - The augmented constructor has an initializer list or a body, or it has a
 ///   redirection.
 ///
-/// @description Checks that it is not an error to declare an augmenting
-/// redirecting generative constructor more than once and the fully merged
-/// constructor has no errors.
+/// @description Checks that it is a compile-time error to declare an augmenting
+/// redirecting generative constructor more than once.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-import '../../Utils/expect.dart';
 part 'augmenting_constructors_A18_t04_lib.dart';
 
 class C {
@@ -24,6 +22,19 @@ class C {
   C.foo(int x);
 }
 
+enum E {
+  e0(0), e1.foo(1);
+  final int x;
+  const E(this.x);
+  const E.foo(int x);
+}
+
+extension type ET(int x) {
+  ET.foo(int x);
+}
+
 main() {
-  Expect.equals(2, C.foo(1));
+  print(C);
+  print(E);
+  print(ET);
 }

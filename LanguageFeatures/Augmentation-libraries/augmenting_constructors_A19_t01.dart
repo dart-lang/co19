@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion A redirecting factory constructor marked `augment` adds its
-/// factory redirection to the augmented constructor.
+/// factory redirection (e.g., `= C<int>.name`) to the augmented constructor.
 ///
 /// The result of applying the augmenting constructor is a redirecting factory
 /// constructor with the same target constructor designation as the augmenting
@@ -32,6 +32,12 @@ class D extends C {
   D(super.x, [super.y = 0]);
 }
 
+extension type ET(int x) {
+  ET.foo(this.x);
+  factory ET.bar(int x);
+  factory ET.baz(int x);
+}
+
 main() {
   Expect.equals(1, C.bar(1).x);
   Expect.equals(0, C.bar(1).y);
@@ -47,4 +53,7 @@ main() {
   Expect.equals(0, C.qux(1).y);
   Expect.equals(1, C.qux(1, 2).x);
   Expect.equals(2, C.qux(1, 2).y);
+
+  Expect.equals(1, ET.bar(1).x);
+  Expect.equals(2, ET.baz(2).x);
 }

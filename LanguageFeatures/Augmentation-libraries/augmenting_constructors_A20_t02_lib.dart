@@ -5,7 +5,7 @@
 /// @assertion Redirecting factory constructors
 /// ...
 /// It is a compile-time error if:
-/// - The augmented constructor has a body.
+/// - The augmented factory constructor has a body, or it is redirecting.
 ///
 /// @description Checks that it is a compile-time error if the augmenting
 /// constructor references itself.
@@ -30,6 +30,14 @@ augment class C {
 // [cfe] unspecified
   augment factory C.qux({required int x}) = C.qux;
 //                                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+
+augment extension type ET {
+  augment factory ET(int x) = ET.foo;
+//                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

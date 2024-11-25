@@ -9,7 +9,7 @@
 ///   etc).
 ///
 /// @description Checks that it is a compile-time error if the resulting
-/// constructor has a redirecting initializer and other initializers.
+/// constructor has a redirecting initializer and initializer list elements.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -17,5 +17,5 @@
 part of 'augmenting_constructors_A06_t01.dart';
 
 augment class C {
-  augment C.foo(): x = 1;
+  augment C.foo() : x = 1;
 }
