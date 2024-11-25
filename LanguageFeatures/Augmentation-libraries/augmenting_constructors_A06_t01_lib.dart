@@ -5,7 +5,7 @@
 /// @assertion It is a compile-time error if:
 /// ...
 /// - The resulting constructor is not valid (it has a redirection as well as
-///   some initializer list elements, or it has multiple super initializers,
+///   some initializer list elements, or it has multiple `super` initializers,
 ///   etc).
 ///
 /// @description Checks that it is a compile-time error if the resulting
