@@ -9,7 +9,8 @@
 ///   redirection.
 ///
 /// @description Checks that it is a compile-time error to declare an augmenting
-/// redirecting generative constructor more than once.
+/// redirecting generative constructor if the augmented constructor has a super
+/// initializer.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

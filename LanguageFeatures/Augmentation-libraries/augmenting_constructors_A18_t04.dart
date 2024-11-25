@@ -14,7 +14,6 @@
 
 // SharedOptions=--enable-experiment=macros
 
-import '../../Utils/expect.dart';
 part 'augmenting_constructors_A18_t04_lib.dart';
 
 class C {
@@ -35,7 +34,7 @@ extension type ET(int x) {
 }
 
 main() {
-  Expect.equals(2, C.foo(1).x);
-  Expect.equals(2, E.e1.x);
-  Expect.equals(2, ET.foo(1).x);
+  print(C);
+  print(E);
+  print(ET);
 }
