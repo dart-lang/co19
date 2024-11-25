@@ -2,10 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Inside the augmentation body, a special `augmented()` expression
-/// may be used to execute the original function body. That expression takes an
-/// argument list matching the original function's parameter list and returns
-/// the function's return type.
+/// @assertion Inside the augmenting function’s body, a special `augmented(…)`
+/// expression may be used to execute the augmented function body. That
+/// expression takes an argument list matching the augmented function's
+/// parameter list, and it has the same return type as the enclosing function.
 ///
 /// @description Checks that inside an augmentation body of an instance method
 /// `augmented()` expression executes the original method body. Test an enum.
