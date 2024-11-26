@@ -40,7 +40,7 @@ main() {
   }
   o = C();
   if (o is CAlias) {
-    o = .id3int>;
+    o = .id3<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
     }
