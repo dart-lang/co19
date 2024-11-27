@@ -27,8 +27,6 @@ mixin class ContainsWildcardSetter {
 enum E1 {
   e0;
   static void set _(int v) {}
-//                ^
-// [cfe] unspecified
   static int _ = 1;
 //           ^
 // [analyzer] unspecified
@@ -66,6 +64,8 @@ enum E5 {
 // [analyzer] unspecified
 // [cfe] unspecified
   final int _ = 5;
+//          ^
+// [cfe] unspecified
 }
 
 enum E6 {
@@ -75,6 +75,8 @@ enum E6 {
 // [analyzer] unspecified
 // [cfe] unspecified
   int _() => 6;
+//    ^
+// [cfe] unspecified
 }
 
 enum E6With with ContainsWildcardMethod {
@@ -92,6 +94,8 @@ enum E7 {
 // [analyzer] unspecified
 // [cfe] unspecified
   int get _ => 7;
+//        ^
+// [cfe] unspecified
 }
 
 enum E7With with ContainsWildcardGetter {

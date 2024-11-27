@@ -4,15 +4,13 @@
 
 /// @assertion  It is a compile time error if a class declares a static setter
 /// named v= and also has a non-static member named v.
+///
 /// @description Checks that it is a compile time error if a class declares a
-/// static setter named v= and also has a non-static field named v.
+/// static setter named `v=` and also has a non-static field named `v`.
 /// @author kaigorodov
-
 
 class C {
   String foo = "Lily was here";
-//       ^
-// [cfe] unspecified
 
   static set foo(String s) {}
 //           ^
@@ -21,8 +19,5 @@ class C {
 }
 
 main() {
-  C.foo = "foo";
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  print(C);
 }

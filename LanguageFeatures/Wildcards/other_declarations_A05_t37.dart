@@ -27,8 +27,6 @@ class ContainsWildcardSetter {
 
 extension type ET1(int id) {
   void set _(int v) {}
-//         ^
-// [cfe] unspecified
   int _() => 6;
 //    ^
 // [analyzer] unspecified

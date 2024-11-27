@@ -53,8 +53,6 @@ extension type ET2Implements(ContainsWildcardGetter id)
 
 extension type ET3(int id) {
   int _() => 1;
-//    ^
-// [cfe] unspecified
   void set _(int v) {}
 //         ^
 // [analyzer] unspecified

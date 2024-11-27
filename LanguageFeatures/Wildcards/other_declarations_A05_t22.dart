@@ -54,8 +54,6 @@ enum E3 {
 enum E4 {
   e0;
   static int _ = 1;
-//           ^
-// [cfe] unspecified
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
@@ -113,7 +111,6 @@ enum E8 {
   static int _ = 1;
 //           ^
 // [analyzer] unspecified
-// [cfe] unspecified
   void set _(int v) {}
 //         ^
 // [cfe] unspecified

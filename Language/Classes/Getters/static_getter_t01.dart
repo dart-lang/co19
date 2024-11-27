@@ -4,24 +4,24 @@
 
 /// @assertion It is a compile error if a class declares a static getter named
 /// v and also has a non-static setter named v =.
+///
 /// @description Checks that a compile error is arisen if a class has an
 /// explicitly declared static getter and an explicitly declared instance
 /// setter with the same name.
 /// @author ngl@unipro.ru
 
 class C {
-  int n = 0;
-
   static get v => 5;
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   set v(int v1) {
-    n = v1;
+//    ^
+// [cfe] unspecified
   }
 }
 
 main() {
-  C.v;
+  print(C);
 }

@@ -4,8 +4,9 @@
 
 /// @assertion Let C be a class. It is a compile-time error if C declares a
 /// constructor named C.n and a static member with basename n.
-/// @description Check that it is a compile-time error if C declares a
-/// constructor named C.n and a static member with basename n
+///
+/// @description Check that it is a compile-time error if class `C` declares a
+/// constructor named `C.n` and a static member with basename `n`.
 /// @author sgrekhov@unipro.ru
 /// @issue 46814
 
@@ -13,7 +14,6 @@ class C {
   C.s1() {}
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
   static set s1(var value) {}
 //           ^
 // [cfe] unspecified
@@ -21,7 +21,6 @@ class C {
   C.s2() {}
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
   static void s2() {}
 //            ^
 // [cfe] unspecified
@@ -29,7 +28,6 @@ class C {
   C.s3() {}
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
   static int s3() => 1;
 //           ^
 // [cfe] unspecified
@@ -37,7 +35,6 @@ class C {
   C.s4() {}
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
   static int get s4 => 1;
 //           ^
 // [cfe] unspecified
@@ -45,16 +42,11 @@ class C {
   C.s5() {}
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified
   static int s5 = 1;
 //           ^
 // [cfe] unspecified
 }
 
 main() {
-  new C.s1();
-  new C.s2();
-  new C.s3();
-  new C.s4();
-  new C.s5();
+  print(C);
 }

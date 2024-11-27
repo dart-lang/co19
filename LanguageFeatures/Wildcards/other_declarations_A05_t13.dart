@@ -30,8 +30,6 @@ mixin class ContainsWildcardSetter {
 
 class C1 {
   void set _(int v) {}
-//         ^
-// [cfe] unspecified
   int _ = 5;
 //    ^
 // [analyzer] unspecified

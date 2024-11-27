@@ -6,9 +6,9 @@
 /// static member with basename n and the interface of C has an instance member
 /// with basename n
 ///
-/// @description Check that it is a compile-time error if C declares a static
-/// member with basename n and an instance member with basename n. Test instance
-/// setter
+/// @description Check that it is a compile-time error if class `C` declares a
+/// static member with basename `n` and an instance member with basename `n`.
+/// Test an instance setter.
 /// @author sgrekhov@unipro.ru
 /// @issue 46814
 
@@ -18,15 +18,12 @@ class C {
   set s3(int v) {}
   set s4(int v) {}
   set s5(int v) {}
-//    ^^
-// [cfe] unspecified
+
   set _s1(int v) {}
   set _s2(int v) {}
   set _s3(int v) {}
   set _s4(int v) {}
   set _s5(int v) {}
-//    ^^^
-// [cfe] unspecified
 
   static set s1(var value) {}
 //           ^^
@@ -72,5 +69,5 @@ class C {
 }
 
 main() {
-  new C();
+  print(C);
 }
