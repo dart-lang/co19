@@ -44,7 +44,7 @@ main() {
   CInt c4 = .id2<int>(4);
   Expect.equals(4, c4.t);
 
-  M<int> m1 = M.id1;
+  M<int> m1 = .id1;
   Expect.equals(1, m1.t);
 
   M<String> m2 = .id2("m2");
