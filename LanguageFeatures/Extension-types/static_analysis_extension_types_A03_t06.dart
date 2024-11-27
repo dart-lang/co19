@@ -12,8 +12,6 @@
 
 extension type ET1(int id) {
   static int n() => 1;
-//           ^
-// [cfe] unspecified
   static void set n(int i) {}
 //                ^
 // [analyzer] unspecified

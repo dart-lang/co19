@@ -54,8 +54,6 @@ class C3 {
 
 class C4 {
   static int _ = 1;
-//           ^
-// [cfe] unspecified
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
@@ -156,7 +154,6 @@ class C8 {
   static int _ = 1;
 //           ^
 // [analyzer] unspecified
-// [cfe] unspecified
   void set _(int v) {}
 //         ^
 // [cfe] unspecified

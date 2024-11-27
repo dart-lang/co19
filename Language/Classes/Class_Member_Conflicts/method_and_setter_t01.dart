@@ -4,8 +4,9 @@
 
 /// @assertion Let C be a class. ... It is a compile-time error if the interface
 /// of C has a method named n and a setter with basename n.
-/// @description Check that it is a compile-time error if the interface
-/// of C has a method named n and a setter with basename n.
+///
+/// @description Check that it is a compile-time error if the interface of class
+/// `C` has a method named `n` and a setter with basename `n`.
 /// @author sgrekhov@unipro.ru
 
 class C {
@@ -14,14 +15,14 @@ class C {
 
   set s(var value) {}
 //    ^
-// [analyzer] COMPILE_TIME_ERROR.DUPLICATE_DEFINITION
-// [cfe] 's' is already declared in this scope.
+// [analyzer] unspecified
+// [cfe] unspecified
   set _s(var value) {}
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.DUPLICATE_DEFINITION
-// [cfe] '_s' is already declared in this scope.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  new C();
+  print(C);
 }

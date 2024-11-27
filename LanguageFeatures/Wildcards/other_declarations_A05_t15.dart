@@ -132,6 +132,8 @@ mixin M8 {
 // [analyzer] unspecified
 // [cfe] unspecified
   void set _(int v) {}
+//         ^
+// [cfe] unspecified
 }
 
 mixin M8On on ContainsWildcardSetter {

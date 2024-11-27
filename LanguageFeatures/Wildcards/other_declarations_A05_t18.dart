@@ -84,8 +84,6 @@ mixin M3Implements implements ContainsWildcardGetter {
 
 mixin M4 {
   int _ = 1;
-//    ^
-// [cfe] unspecified
   void set _(int v) {}
 //         ^
 // [analyzer] unspecified

@@ -113,6 +113,8 @@ enum E8 {
 // [analyzer] unspecified
 // [cfe] unspecified
   void set _(int v) {}
+//         ^
+// [cfe] unspecified
 }
 
 enum E8With with ContainsWildcardSetter {

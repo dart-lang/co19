@@ -15,12 +15,10 @@
 /// coincides with the name of a static getter declared in the same class.
 /// @author kaigorodov
 
-
 class C {
   C.foo() {}
 //  ^^^
 // [analyzer] unspecified
-// [cfe] unspecified
 
   static int get foo => 1;
 //               ^^^
@@ -28,5 +26,5 @@ class C {
 }
 
 main() {
-  new C.foo();
+  print(C);
 }

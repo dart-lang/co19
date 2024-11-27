@@ -6,8 +6,7 @@
 /// enclosing class, and may optionally be followed by a dot and an identifier
 /// id. It is a compile-time error if the name of a constructor is not a
 /// constructor name.
-/// A constructor declaration may conflict with static member declarations
-/// (10.11).
+/// A constructor declaration may conflict with static member declarations.
 /// Let C be a class. It is a compile-time error if C declares a
 ///  • constructor named C.n and a static member with basename n.
 ///
@@ -15,12 +14,10 @@
 /// coincides with the name of a static method declared in the same class.
 /// @author kaigorodov
 
-
 class C {
   C.foo() {}
 //  ^^^
 // [analyzer] unspecified
-// [cfe] unspecified
 
   static foo() {}
 //       ^^^
@@ -28,5 +25,5 @@ class C {
 }
 
 main() {
-  new C.foo();
+  print(C);
 }

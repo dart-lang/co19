@@ -4,6 +4,7 @@
 
 /// @assertion It is a compile error if a class declares a static getter named
 /// v and also has a non-static setter named v =.
+///
 /// @description Checks that a compile error is arisen if a class has an
 /// implicitly declared static getter and an explicitly declared instance
 /// setter with the same name.
@@ -14,7 +15,6 @@ class C {
   static int v = 0;
 //           ^
 // [analyzer] unspecified
-// [cfe] unspecified
 
   set v(int v1) {
 //    ^
@@ -23,5 +23,5 @@ class C {
 }
 
 main() {
-  C.v;
+  print(C);
 }

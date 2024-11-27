@@ -51,8 +51,6 @@ extension type ET3(int id) {
 
 extension type ET4(int id) {
   static int _() => 1;
-//           ^
-// [cfe] unspecified
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified

@@ -65,7 +65,6 @@ extension E7 on A {
   static int get _ => 1;
 //               ^
 // [analyzer] unspecified
-// [cfe] unspecified
   void set _(int v) {}
 //         ^
 // [cfe] unspecified

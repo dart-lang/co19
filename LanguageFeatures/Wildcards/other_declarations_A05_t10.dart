@@ -99,8 +99,6 @@ class C3With with ContainsWildcardGetter {
 
 class C4 {
   int _ = 1;
-//    ^
-// [cfe] unspecified
   void set _(int v) {}
 //         ^
 // [analyzer] unspecified

@@ -153,6 +153,8 @@ class C8 {
 // [analyzer] unspecified
 // [cfe] unspecified
   void set _(int v) {}
+//         ^
+// [cfe] unspecified
 }
 
 class C8Extends extends ContainsWildcardSetter {
