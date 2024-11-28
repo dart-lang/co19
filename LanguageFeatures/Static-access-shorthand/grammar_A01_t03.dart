@@ -4,15 +4,17 @@
 
 /// @assertion We introduce grammar productions of the form:
 /// ```
-/// <primary> ::= ...                      -- all current productions
-///     | <staticMemberShorthand>
+/// <postfixExpression> ::= ...                      -- all current productions
+///   | <staticMemberShorthand>
 ///
 /// <constantPattern> ::=  ...             -- all current productions
-///     | <staticMemberShorthand>
+///   | <staticMemberShorthand>
 ///
-/// <staticMemberShorthand> ::=
-///       '.' (<identifier> | 'new')                      -- shorthand qualified name
-///     | 'const' '.' (<identifier> | 'new') <arguments>  -- shorthand object creation
+/// <staticMemberShorthand> ::= <staticMemberShorthandHead> <selector*>
+///
+/// <staticMemberShorthandHead> ::=
+///     '.' (<identifier> | 'new')                      -- shorthand qualified name
+///   | 'const' '.' (<identifier> | 'new') <arguments>  -- shorthand object creation
 ///  ```
 ///
 /// @description Checks that static members and values of an enum can be
