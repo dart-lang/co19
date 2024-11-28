@@ -19,3 +19,12 @@ part of 'augmenting_constructors_A17_t02.dart';
 augment class C {
   augment C.bar(int x) : this.foo(x + 1);
 }
+
+augment enum E {
+  augment e0;
+  augment E.bar(int x): this.foo(x + 1);
+}
+
+augment extension type ET {
+  augment ET.bar(int x): this.foo(x + 1);
+}

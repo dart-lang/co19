@@ -11,6 +11,7 @@
 /// @description Checks that it is a compile-time error if the resulting
 /// constructor has a redirecting initializer and initializer list elements.
 /// @author sgrekhov22@gmail.com
+/// @issue 57029
 
 // SharedOptions=--enable-experiment=macros
 
@@ -25,6 +26,25 @@ class C {
 // [cfe] unspecified
 }
 
+enum E {
+  e0(0), e1.foo();
+  final int x;
+  const E(this.x);
+  const E.foo(): this(0);
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET(int id) {
+  ET.foo(): this(0);
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(C);
+  print(E);
+  print(ET);
 }

@@ -18,3 +18,12 @@ part of 'augmenting_constructors_A08_t01.dart';
 augment class C {
   augment C.foo(): this(0);
 }
+
+augment enum E {
+  e1(1);
+  augment const E.foo(): this(0);
+}
+
+augment extension type ET {
+  augment ET.bar(): this(0);
+}

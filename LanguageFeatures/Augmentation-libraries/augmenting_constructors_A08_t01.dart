@@ -24,6 +24,26 @@ class C {
 // [cfe] unspecified
 }
 
+enum E {
+  e0(0);
+  final int x;
+  const E(this.x);
+  const E.foo(): x = 1;
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET(int x) {
+  ET.foo(this.x);
+  ET.bar(): x = 1;
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(C);
+  print(E);
+  print(ET);
 }
