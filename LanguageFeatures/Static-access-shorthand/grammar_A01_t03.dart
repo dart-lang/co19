@@ -43,6 +43,6 @@ main() {
   E e2 = .staticMethod();
   Expect.equals("v2", e2.value);
 
-  E e3 = E.values[1];
+  E e3 = .values[1];
   Expect.equals(E.v2, e3);
 }
