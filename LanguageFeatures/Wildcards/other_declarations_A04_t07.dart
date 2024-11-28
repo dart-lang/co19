@@ -9,6 +9,7 @@
 /// @description Checks that any top-level declaration named `_` is a
 /// compile-time error if there is an earlier declaration of an enum named `_`.
 /// @author sgrekhov22@gmail.com
+/// @issue 59623
 
 // SharedOptions=--enable-experiment=wildcard-variables
 
