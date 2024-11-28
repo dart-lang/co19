@@ -20,7 +20,7 @@
 /// `X` which denotes an accessible type alias for the greatest closure of the
 /// context type scheme of the following primary and selector chain.
 ///
-/// @description Checks that  the processing of the context type for shorthand
+/// @description Checks that the processing of the context type for shorthand
 /// of the form `.id<typeArgs>` includes a type alias expansion. Test prefixed
 /// import.
 /// @author sgrekhov22@gmail.com
