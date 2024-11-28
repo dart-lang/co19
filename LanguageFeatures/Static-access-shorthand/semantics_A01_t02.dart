@@ -20,10 +20,9 @@
 /// `X` which denotes an accessible type alias for the greatest closure of the
 /// context type scheme of the following primary and selector chain.
 ///
-/// @description Checks that expressions of the form `.id`, `.id(args)` and
-/// `.id<typeArgs>(args)` are treated as if they are prefixed by a fresh
-/// identifier `X` which denotes an accessible type alias. Test unprefixed
-/// import.
+/// @description Checks that  the processing of the context type for shorthand
+/// of the forms `.id`, `.id(args)` and `.id<typeArgs>(args)` includes a type
+/// alias expansion. Test unprefixed import.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
@@ -32,51 +31,27 @@ import '../../Utils/expect.dart';
 import 'shorthand_lib.dart';
 
 main() {
-  C<int> c1 = .id1;
+  CAlias<int> c1 = .id1;
   Expect.equals(1, c1.t);
 
-  C<String> c2 = .id2("c2");
-  Expect.equals("c2", c2.t);
+  CInt c2 = .id2<int>(2);
+  Expect.equals(2, c2.t);
 
-  CAlias<int> c3 = .id1;
-  Expect.equals(1, c3.t);
-
-  CInt c4 = .id2<int>(4);
-  Expect.equals(4, c4.t);
-
-  M<int> m1 = .id1;
+  MAlias<int> m1 = .id1;
   Expect.equals(1, m1.t);
 
-  M<String> m2 = .id2("m2");
-  Expect.equals("m2", m2.t);
+  MInt m2 = .id2<int>(2);
+  Expect.equals(2, m2.t);
 
-  MAlias<int> m3 = .id1;
-  Expect.equals(1, m3.t);
+  EInt e1 = .id1;
+  Expect.equals(1, e1.t);
 
-  MInt m4 = .id2<int>(4);
-  Expect.equals(4, m4.t);
+  EAlias<String> e2 = .id2();
+  Expect.equals("2", e2.t);
 
-  E<int> e1 = .id1;
-  Expect.equals(E.e0, e1);
-
-  E<String> e2 = .id2();
-  Expect.equals(E.e2, e2);
-
-  EInt e3 = .id1;
-  Expect.equals(1, e3.t);
-
-  EAlias<String> e4 = .id2();
-  Expect.equals("2", e4.t);
-
-  ET<int> et1 = .id1;
+  ETAlias<int> et1 = .id1;
   Expect.equals(1, et1.t);
 
-  ET<String> et2 = .id2("et2");
-  Expect.equals("et2", et2.t);
-
-  ETAlias<int> et3 = .id1;
-  Expect.equals(1, et3.t);
-
-  ETInt et4 = .id2<int>(4);
-  Expect.equals(4, et4.t);
+  ETInt et2 = .id2<int>(2);
+  Expect.equals(2, et2.t);
 }

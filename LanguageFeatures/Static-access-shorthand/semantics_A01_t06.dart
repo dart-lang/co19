@@ -20,9 +20,9 @@
 /// `X` which denotes an accessible type alias for the greatest closure of the
 /// context type scheme of the following primary and selector chain.
 ///
-/// @description Checks that expressions of the form `.id<typeArgs>` are treated
-/// as if they are prefixed by a fresh identifier `X` which denotes an
-/// accessible type alias. Test prefixed import.
+/// @description Checks that  the processing of the context type for shorthand
+/// of the form `.id<typeArgs>` includes a type alias expansion. Test prefixed
+/// import.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
@@ -54,7 +54,7 @@ main() {
     }
   }
   o = p.MA();
-  if (o is MAlias) {
+  if (o is p.MAlias) {
     o = .id3<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
@@ -62,7 +62,7 @@ main() {
   }
 
   o = p.E.e0;
-  if (o is E) {
+  if (o is p.E) {
     o = .id3<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
