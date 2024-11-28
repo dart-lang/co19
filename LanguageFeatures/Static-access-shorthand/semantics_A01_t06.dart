@@ -16,9 +16,9 @@
 /// `.id(args)`, `.id<typeArgs>(args)`, `.new` or `.new(args)`.
 /// ...
 /// The general rule is that any of the expression forms above, starting with
-/// `.id`, are treated exactly as if they were prefixed by a fresh identifier
-/// `X` which denotes an accessible type alias for the greatest closure of the
-/// context type scheme of the following primary and selector chain.
+/// `.id`, are treated exactly as if they were preceded by a fresh prefixed
+/// identifier `_p.C` which denotes the declaration of the type of the context
+/// type scheme of the entire `<staticMemberShorthand>`.
 ///
 /// @description Checks that the processing of the context type for shorthand
 /// of the form `.id<typeArgs>` includes a type alias expansion. Test prefixed
