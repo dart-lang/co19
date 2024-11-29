@@ -31,7 +31,7 @@ extension type ET1(int v) {
 
   static ET1 get staticGetter => ET1(1);
   static ET1 staticMethod() => ET1(2);
-  static ET1 instances = [ET1(0), ET1(1)];
+  static List<ET1> instances = [ET1(0), ET1(1)];
 }
 
 extension type ET2.baz(int v) {
