@@ -21,7 +21,7 @@ typedef CAlias<T> = C<T>;
 typedef CInt = C<int>;
 
 mixin M<T> on C<T> {
-  static M<int> get id1 => MC(1);
+  static M<int> get id1 => MC(2);
   static M<X> id2<X>(X x) => MC<X>(x);
   static X id3<X>(X x) => x;
 }
@@ -32,7 +32,7 @@ typedef MAlias<T> = M<T>;
 typedef MInt = M<int>;
 
 enum E<T> {
-  e1(1), e2("2");
+  e1(3), e2("3");
   final T t;
   const E(this.t);
 
@@ -45,10 +45,12 @@ typedef EAlias<T> = E<T>;
 typedef EInt = E<int>;
 
 extension type ET<T>(T t) {
-  static ET<int> get id1 => ET(1);
+  static ET<int> get id1 => ET(4);
   static ET<X> id2<X>(X x) => ET<X>(x);
   static X id3<X>(X x) => x;
 }
 
 typedef ETAlias<T> = ET<T>;
 typedef ETInt = ET<int>;
+
+List<int> foo(List<int> list) => list;

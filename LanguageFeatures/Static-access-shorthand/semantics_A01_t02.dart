@@ -34,24 +34,24 @@ main() {
   CAlias<int> c1 = .id1;
   Expect.equals(1, c1.t);
 
-  CInt c2 = .id2<int>(2);
-  Expect.equals(2, c2.t);
+  CInt c2 = .id2<int>(1);
+  Expect.equals(1, c2.t);
 
   MAlias<int> m1 = .id1;
-  Expect.equals(1, m1.t);
+  Expect.equals(2, m1.t);
 
   MInt m2 = .id2<int>(2);
   Expect.equals(2, m2.t);
 
   EInt e1 = .id1;
-  Expect.equals(1, e1.t);
+  Expect.equals(3, e1.t);
 
   EAlias<String> e2 = .id2();
-  Expect.equals("2", e2.t);
+  Expect.equals("3", e2.t);
 
   ETAlias<int> et1 = .id1;
-  Expect.equals(1, et1.t);
+  Expect.equals(4, et1.t);
 
-  ETInt et2 = .id2<int>(2);
-  Expect.equals(2, et2.t);
+  ETInt et2 = .id2<int>(4);
+  Expect.equals(4, et2.t);
 }

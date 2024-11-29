@@ -20,78 +20,69 @@
 /// identifier `_p.C` which denotes the declaration of the type of the context
 /// type scheme of the entire `<staticMemberShorthand>`.
 ///
-/// @description Checks that the processing of the context type for shorthand
-/// of the forms `.id`, `.id(args)` and `.id<typeArgs>(args)` includes a type
-/// alias expansion.
+/// @description Checks that it is still a compile-time error if the return type
+/// of the shorthand is not assignable to the type of the left hand expression.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
-import '../../Utils/expect.dart';
-
 class C<T> {
-  T t;
-  C(this.t);
+  T value;
+  C(this.value);
 
-  static C<int> get id1 => C(1);
-  static C<X> id2<X>(X x) => C<X>(x);
+  static C<int> get id1 => C<int>(0);
+  static C<Y> id2<Y>(Y y) => C<Y>(y);
 }
 
-typedef CAlias<T> = C<T>;
-typedef CInt = C<int>;
-
-mixin M<T> on C<T> {
-  static M<int> get id1 => MC(2);
-  static M<X> id2<X>(X x) => MC<X>(x);
+mixin M<X> on C<X> {
+  static M<int> get id1 => MC<int>(1);
+  static M<Y> id2<Y>(Y y) => MC<Y>(y);
 }
-
 class MC<T> = C<T> with M<T>;
 
-typedef MAlias<T> = M<T>;
-typedef MInt = M<int>;
+enum E<X> {
+  e0(2);
+  final X value;
+  const E(this.value);
 
-enum E<T> {
-  e1(3), e2("3");
-  final T t;
-  const E(this.t);
-
-  static E<int> get id1 => E.e1;
-  static E<String> id2() => E.e2;
+  static E<int> get id1 => E.e0;
 }
 
-typedef EAlias<T> = E<T>;
-typedef EInt = E<int>;
-
-extension type ET<T>(T t) {
-  static ET<int> get id1 => ET(4);
-  static ET<X> id2<X>(X x) => ET<X>(x);
+extension type ET<X>(X v) {
+  static ET<int> get id1 => ET<int>(3);
+  static ET<Y> id2<Y>(Y y) => ET<Y>(y);
 }
-
-typedef ETAlias<T> = ET<T>;
-typedef ETInt = ET<int>;
 
 main() {
-  CAlias<int> c1 = .id1;
-  Expect.equals(1, c1.t);
+  C<String> c1 = .id1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C<int> c2 = .id2<String>("c2");
+//                 ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  CInt c2 = .id2<int>(1);
-  Expect.equals(1, c2.t);
+  M<String> m1 = .id1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  M<int> m2 = .id2<String>("m2");
+//                 ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  MAlias<int> m1 = .id1;
-  Expect.equals(2, m1.t);
+  E<String> e1 = .id1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  MInt m2 = .id2<int>(2);
-  Expect.equals(2, m2.t);
-
-  EInt e1 = .id1;
-  Expect.equals(3, e1.t);
-
-  EAlias<String> e2 = .id2();
-  Expect.equals("3", e2.t);
-
-  ETAlias<int> et1 = .id1;
-  Expect.equals(4, et1.t);
-
-  ETInt et2 = .id2<int>(4);
-  Expect.equals(4, et2.t);
+  ET<String> et1 = .id1;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ET<int> et2 = .id2<String>("et2");
+//                   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

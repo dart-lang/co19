@@ -20,78 +20,24 @@
 /// identifier `_p.C` which denotes the declaration of the type of the context
 /// type scheme of the entire `<staticMemberShorthand>`.
 ///
-/// @description Checks that the processing of the context type for shorthand
-/// of the forms `.id`, `.id(args)` and `.id<typeArgs>(args)` includes a type
-/// alias expansion.
+/// @description Checks that the correct static member is accessed via the
+/// shorthand syntax even if name of that type is shadowed.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
 import '../../Utils/expect.dart';
+import 'semantics_lib.dart';
 
-class C<T> {
-  T t;
-  C(this.t);
-
-  static C<int> get id1 => C(1);
-  static C<X> id2<X>(X x) => C<X>(x);
-}
-
-typedef CAlias<T> = C<T>;
-typedef CInt = C<int>;
-
-mixin M<T> on C<T> {
-  static M<int> get id1 => MC(2);
-  static M<X> id2<X>(X x) => MC<X>(x);
-}
-
-class MC<T> = C<T> with M<T>;
-
-typedef MAlias<T> = M<T>;
-typedef MInt = M<int>;
-
-enum E<T> {
-  e1(3), e2("3");
-  final T t;
-  const E(this.t);
-
-  static E<int> get id1 => E.e1;
-  static E<String> id2() => E.e2;
-}
-
-typedef EAlias<T> = E<T>;
-typedef EInt = E<int>;
-
-extension type ET<T>(T t) {
-  static ET<int> get id1 => ET(4);
-  static ET<X> id2<X>(X x) => ET<X>(x);
-}
-
-typedef ETAlias<T> = ET<T>;
-typedef ETInt = ET<int>;
+class C {}
+mixin M {}
+enum E {e1;}
+extension type ET(int _) {}
 
 main() {
-  CAlias<int> c1 = .id1;
-  Expect.equals(1, c1.t);
-
-  CInt c2 = .id2<int>(1);
-  Expect.equals(1, c2.t);
-
-  MAlias<int> m1 = .id1;
-  Expect.equals(2, m1.t);
-
-  MInt m2 = .id2<int>(2);
-  Expect.equals(2, m2.t);
-
-  EInt e1 = .id1;
-  Expect.equals(3, e1.t);
-
-  EAlias<String> e2 = .id2();
-  Expect.equals("3", e2.t);
-
-  ETAlias<int> et1 = .id1;
-  Expect.equals(4, et1.t);
-
-  ETInt et2 = .id2<int>(4);
-  Expect.equals(4, et2.t);
+  // C<T> testClass<T>(C<T> c) => c; defined in semantics_lib.dart
+  Expect.equals(1, testClass<int>(.id1).t);
+  Expect.equals(2, testMixin<int>(.id1).t);
+  Expect.equals(3, testEnum<int>(.id1).t);
+  Expect.equals(4, testExtensionType<int>(.id1).t);
 }
