@@ -22,7 +22,7 @@
 ///
 /// @description Checks that it is a compile-time error if in a shorthand
 /// expression of the form `.id`, `.id()` or `.id<...>()` the type of the
-/// context doesn't declare member named `id`.
+/// context doesn't declare a member named `id`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
