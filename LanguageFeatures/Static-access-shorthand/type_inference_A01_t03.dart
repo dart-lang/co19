@@ -32,5 +32,4 @@ main() {
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 }
