@@ -18,26 +18,65 @@
 ///   `_`, then the type scheme does not denote any declaration or namespace.
 ///
 /// @description Checks that it is a compile-time error if a shorthand context
-/// doesn't denote any declaration.
+/// doesn't denote any declaration. Test type variables.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
-import 'shorthand_lib.dart';
+void topLevelFunction<T extends num>(T t) {
+  T answer = .parse("42");
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C<T extends num> {
+  T t;
+  C(this.t);
+
+  void test() {
+    T answer = .parse("42");
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+mixin M {
+  void test<T extends num>() {
+    T answer = .parse("42");
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+enum E<T extends num> {
+  e0(42);
+  final T t;
+  const E(this.t);
+
+  void test() {
+    T answer = .parse("42");
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+extension type ET<T extends num>(T t) {
+  void test() {
+    T answer = .parse("42");
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
 
 main() {
-  var v1 = .id1;
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  final v2 = .id2(2);
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  const v3 = .id3<int>(3);
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  print(topLevelFunction);
+  print(C);
+  print(M);
+  print(E);
+  print(ET);
 }

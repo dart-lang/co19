@@ -3,13 +3,13 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion When inferring types for a `const .id(arguments)` or
-/// `const .new(arguments)` with context type schema `C`, let `D` be the
-/// declaration denoted by the shorthand context assigned to the
-/// `<staticMemberShorthand>`. Then proceed with type inference as if `.id/.new`
-/// was preceded by an identifier `D` denoting the declaration `D`. It’s a
-/// compile-time error if the shorthand context does not denote a class, mixin,
-/// enum or extension type declaration, or if `D.id/D.new` does not denote a
-/// constant constructor.
+/// `const .new(arguments)` with context type scheme C, let D be the declaration
+/// denoted by the shorthand context assigned to the `<staticMemberShorthand>`,
+/// which may differ from C. Then proceed with type inference in the same way as
+/// if `.id`/`.new` was preceded by an identifier `D` denoting the declaration
+/// D. It’s a compile-time error if the shorthand context does not denote a
+/// declaration. It's a compile-time error if a static member lookup with base
+/// name `id`/`new` on this declaration does not find a constant constructor.
 ///
 /// @description Checks that if a shorthand context type schema has one of the
 /// forms `const .id(arguments)`, or `const .new(arguments)`, `D` is the
