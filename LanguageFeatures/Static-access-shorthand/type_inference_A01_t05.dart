@@ -24,7 +24,7 @@
 // SharedOptions=--enable-experiment=enum-shorthands
 
 void topLevelFunction<T>(T t) {
-  if (T is int) {
+  if (t is int) {
     T answer = .parse("42");
 //             ^
 // [analyzer] unspecified
@@ -37,9 +37,10 @@ class C<T> {
   C(this.t);
 
   void test() {
-    if (T is int) {
-      T answer = .parse("42");
-//               ^
+    var x = this.t; // Local variable of type `T`, promotable.
+    if (x is int) { // Promotes `t` to `T & int`
+      x = .parse("42"); // Error, context `T & int` does not denote a declaration.
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
     }
@@ -47,10 +48,10 @@ class C<T> {
 }
 
 mixin M {
-  void test<T>() {
-    if (T is int) {
-      T answer = .parse("42");
-//               ^
+  void test<T>(T t) {
+    if (t is int) { // Promotes `t` to `T & int`
+      t = .parse("42"); // Error, context `T & int` does not denote a declaration.
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
     }
@@ -63,9 +64,10 @@ enum E<T> {
   const E(this.t);
 
   void test() {
-    if (T is int) {
-      T answer = .parse("42");
-//               ^
+    var x = this.t;
+    if (x is int) {
+      x = .parse("42");
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
     }
@@ -74,9 +76,10 @@ enum E<T> {
 
 extension type ET<T>(T t) {
   void test() {
-    if (T is int) {
-      T answer = .parse("42");
-//               ^
+    var x = this.t;
+    if (x is int) {
+      x = .parse("42");
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
     }

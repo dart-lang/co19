@@ -33,11 +33,11 @@ class C<X> {
   X value;
   C(this.value);
 
-  static FutureOr<C<int>> id<Y>(Y y) => C<int>(0);
+  static FutureOr<C<int>> id<Y>() => C<int>(0);
 }
 
 mixin M<X> on C<X> {
-  static FutureOr<M<int>> id<Y>(Y y) => MC<int>(1);
+  static FutureOr<M<int>> id<Y>() => MC<int>(1);
 }
 class MC<T> = C<T> with M<T>;
 
@@ -50,7 +50,7 @@ enum E<X> {
 }
 
 extension type ET<X>(X v) {
-  static FutureOr<ET<int>> id<Y>(Y y) => ET<int>(3);
+  static FutureOr<ET<int>> id<Y>() => ET<int>(3);
 }
 
 main() async {

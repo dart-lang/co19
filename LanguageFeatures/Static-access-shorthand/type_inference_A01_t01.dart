@@ -31,11 +31,11 @@ class C<X> {
   X value;
   C(this.value);
 
-  static C<int> id<Y>(Y y) => C<int>(0);
+  static C<int> id<Y>() => C<int>(0);
 }
 
 mixin M<X> on C<X> {
-  static M<int> id<Y>(Y y) => MA<int>(1);
+  static M<int> id<Y>() => MA<int>(1);
 }
 class MA<T> = C<T> with M<T>;
 
@@ -48,7 +48,7 @@ enum E<X> {
 }
 
 extension type ET<X>(X v) {
-  static ET<int> id<Y>(Y y) => ET<int>(3);
+  static ET<int> id<Y>() => ET<int>(3);
 }
 
 main() {
@@ -76,10 +76,10 @@ main() {
   M? m3 = .id<String>();
   Expect.equals(1, m3.value);
 
-  M<int>? m4 = .id<String>("m4");
+  M<int>? m4 = .id<String>();
   Expect.equals(1, m4.value);
 
-  M<int?> m5 = .id<String>("m5");
+  M<int?> m5 = .id<String>();
   Expect.equals(1, m5.value);
 
   E e1 = .id<String>();

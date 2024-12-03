@@ -20,7 +20,7 @@
 /// identifier `_p.C` which denotes the declaration of the type of the context
 /// type scheme of the entire `<staticMemberShorthand>`.
 ///
-/// @description Checks that `staticMemberShorthand` invokes correct static
+/// @description Checks that `staticMemberShorthand` invokes the correct static
 /// member depending on the context type.
 /// @author sgrekhov22@gmail.com
 
