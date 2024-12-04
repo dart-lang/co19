@@ -2,12 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion If a shorthand context type schema has the form `C` or `C<...>`,
-/// and `C` is a type introduced by the type declaration `D`, then the shorthand
-/// context denotes the type declaration `D`. If a shorthand context `S` denotes
-/// a type declaration `D`, then so does a shorthand context of `S?` and
-/// `FutureOr<S>`. Otherwise, a shorthand context does not denote any
-/// declaration.
+/// @assertion Declaration denoted by a type scheme A context type scheme is
+/// said to denote a declaration in some cases. Not all context type schemes
+/// denote a declaration.
+/// If a type scheme `S`:
+/// - has the form `C` or `C<typeArgs>` where `C` is a type introduced by a
+///   declaration `D` which must therefore be a type-introducing declaration,
+///   which currently means a class, mixin, enum or extension type declaration,
+///   then `S` denotes the declaration `D`.
+/// - has the form `S?` or `FutureOr<S>`, and the type scheme S denotes a
+///   declaration D, then so does `S?/FutureOr<S>`. Only the "base type" of the
+///   union type is considered, ensuring that a type scheme denotes at most one
+///   declaration or static namespace.
+/// - has any other form, including type variables, promoted type variables and
+///   `_`, then the type scheme does not denote any declaration or namespace.
 ///
 /// @description Checks that if a shorthand context type schema has one of the
 /// forms `FutureOr<C>`, `FutureOr<C<...>>`, `FutureOr<C>?`,
@@ -25,11 +33,11 @@ class C<X> {
   X value;
   C(this.value);
 
-  static FutureOr<C<int>> id<Y>(Y y) => C<int>(0);
+  static FutureOr<C<int>> id<Y>() => C<int>(0);
 }
 
 mixin M<X> on C<X> {
-  static FutureOr<M<int>> id<Y>(Y y) => MC<int>(1);
+  static FutureOr<M<int>> id<Y>() => MC<int>(1);
 }
 class MC<T> = C<T> with M<T>;
 
@@ -42,7 +50,7 @@ enum E<X> {
 }
 
 extension type ET<X>(X v) {
-  static FutureOr<ET<int>> id<Y>(Y y) => ET<int>(3);
+  static FutureOr<ET<int>> id<Y>() => ET<int>(3);
 }
 
 main() async {
@@ -119,26 +127,26 @@ main() async {
   Expect.equals(E.e0, await e8);
 
   FutureOr<ET> et1 = .id<String>();
-  Expect.equals(3, (await c1).value);
+  Expect.equals(3, (await et1).v);
 
   FutureOr<ET<int>> et2 = .id<String>();
-  Expect.equals(3, (await c2).value);
+  Expect.equals(3, (await et2).v);
 
   FutureOr<ET>? et3 = .id<String>();
-  Expect.equals(3, (await et3).value);
+  Expect.equals(3, (await et3).v);
 
   FutureOr<ET<int>>? et4 = .id<String>();
-  Expect.equals(3, (await et4).value);
+  Expect.equals(3, (await et4).v);
 
   FutureOr<ET?> et5 = .id<String>();
-  Expect.equals(3, (await et5)?.value);
+  Expect.equals(3, (await et5)?.v);
 
   FutureOr<ET<int>?> et6 = .id<String>();
-  Expect.equals(3, (await et6)?.value);
+  Expect.equals(3, (await et6)?.v);
 
   FutureOr<ET?>? et7 = .id<String>();
-  Expect.equals(3, (await et7)?.value);
+  Expect.equals(3, (await et7)?.v);
 
   FutureOr<ET<int>?>? et8 = .id<String>();
-  Expect.equals(3, (await et8)?.value);
+  Expect.equals(3, (await et8)?.v);
 }

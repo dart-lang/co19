@@ -21,34 +21,49 @@
 ///     | 'const' '.' (<identifier> | 'new') <arguments>  -- shorthand for constant object creation
 ///  ```
 ///
-/// @description Checks that static members and values of an enum can be
-/// accessed using the static access short syntax.
+/// @description Checks that `<staticMemberShorthand>` can be used in a constant
+/// pattern.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
 import '../../Utils/expect.dart';
 
-enum E {
-  v1("v1"), v2("v2");
-
+class C {
   final String value;
-  const E(this.value);
+  const C(this.value);
+  const C.foo(this.value);
+}
 
-  static E get staticGetter => v1;
-  static E staticMethod() => v2;
+extension type const ET(int v) {
+  const ET.foo(this.v);
 }
 
 main() {
-  E e0 = .v1;
-  Expect.equals(E.v1, e0);
+  bool success = false;
+  var c1 = const <C>[.new("c1")];
+  if (c1 case const <C>[.new("c1")]) {
+    success = true;
+  }
+  Expect.isTrue(success);
 
-  E e1 = .staticGetter;
-  Expect.equals("v1", e1.value);
+  success = false;
+  var c2 = const <C>[.foo("c2")];
+  if (c2 case const <C>[const .foo("c2")]) {
+    success = true;
+  }
+  Expect.isTrue(success);
 
-  E e2 = .staticMethod();
-  Expect.equals("v2", e2.value);
+  var et1 = const <ET>[.new(1)];
+  if (et1 case const <ET>[const .new(1)]) {
+    success = true;
+  }
+  Expect.isTrue(success);
 
-  E e3 = .values[1];
-  Expect.equals(E.v2, e3);
+  success = false;
+  var et2 = const <ET>[.foo(2)];
+  if (et2 case const <ET>[.foo(2)]) {
+    success = true;
+  }
+  Expect.isTrue(success);
 }

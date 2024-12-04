@@ -4,17 +4,21 @@
 
 /// @assertion We introduce grammar productions of the form:
 /// ```
-/// <postfixExpression> ::= ...                      -- all current productions
-///   | <staticMemberShorthand>
+/// <postfixExpression> ::= ...            -- all current productions
+///     | <staticMemberShorthand>          -- added production
 ///
 /// <constantPattern> ::=  ...             -- all current productions
-///   | <staticMemberShorthand>
+///     | <staticMemberShorthandValue>     -- No selectors, no `.new`.
 ///
 /// <staticMemberShorthand> ::= <staticMemberShorthandHead> <selector*>
 ///
 /// <staticMemberShorthandHead> ::=
-///     '.' (<identifier> | 'new')                      -- shorthand qualified name
-///   | 'const' '.' (<identifier> | 'new') <arguments>  -- shorthand object creation
+///       <staticMemberShorthandValue>
+///     | '.' 'new'                                       -- shorthand unnamed constructor
+///
+/// <staticMemberShorthandValue> ::=                      -- something that can potentially create a value.
+///     | '.' <identifier>                                -- shorthand for qualified name
+///     | 'const' '.' (<identifier> | 'new') <arguments>  -- shorthand for constant object creation
 ///  ```
 ///
 /// @description Checks that static members and constructors of a class can be
