@@ -38,7 +38,7 @@ class C<T> {
 
   void test() {
     var x = this.t; // Local variable of type `T`, promotable.
-    if (x is int) { // Promotes `t` to `T & int`
+    if (x is int) { // Promotes `x` to `T & int`
       x = .parse("42"); // Error, context `T & int` does not denote a declaration.
 //        ^
 // [analyzer] unspecified
