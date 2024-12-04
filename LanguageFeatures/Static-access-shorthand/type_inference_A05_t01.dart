@@ -4,61 +4,47 @@
 
 /// @assertion Non-constant shorthand:
 /// ...
-/// It's a compile-time error if a static member lookup with base name
-/// `id`/`new` on that declaration does not find a static member.
+/// It's a compile-time error if that declaration does not have a static member
+/// with base name `id`, or an unnamed constructor for `.new`.
 ///
-/// @description Checks that it's a compile-time error if a static member lookup
-/// with base name `id`/`new` does not find a static member.
+/// @description Checks that it is a compile-time error if that declaration does
+/// not have a static member with base name `id`, or an unnamed constructor for
+/// `.new`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
-class C {
-  C.foo();
-  C get id => C.foo();
+class C<T> {
+  C();
+  C.id();
 }
 
-mixin M {
-  M? get id => null;
+typedef CConstructor<T> = C<T> Function();
+
+extension type ET<T>(T v) {
+  ET.id(this.v);
 }
 
-enum E {
-  e0;
-  E get id => E.e0;
-}
-
-extension type ET.foo(int _) {
-  ET get id => this;
-}
+typedef ETConstructor<T> = ET<T> Function(T t);
 
 main() {
-  C c1 = .new();
-//       ^
+  CConstructor c1 = .new;
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C c2 = .id;
-//       ^
+  CConstructor<int> c2 = .id;
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  M? m = .id;
-//       ^
+  ETConstructor<int> et1 = .new;
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  E e = .id;
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET et1 = .new();
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET et2 = .id;
-//         ^
+  ETConstructor et2 = .id;
+//                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

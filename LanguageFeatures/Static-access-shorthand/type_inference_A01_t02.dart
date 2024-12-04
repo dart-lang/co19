@@ -78,6 +78,9 @@ main() async {
   FutureOr<C<int>?>? c8 = .id<String>();
   Expect.equals(0, (await c8)?.value);
 
+  FutureOr<FutureOr<C>> c9 = .id<String>();
+  Expect.equals(0, (await (await c9)).value);
+
   FutureOr<M> m1 = .id<String>();
   Expect.equals(1, (await m1).value);
 
@@ -101,6 +104,9 @@ main() async {
 
   FutureOr<M<int>?>? m8 = .id<String>();
   Expect.equals(1, (await m8)?.value);
+
+  FutureOr<FutureOr<M>> m9 = .id<String>();
+  Expect.equals(1, (await (await m9)).value);
 
   FutureOr<E> e1 = .id<String>();
   Expect.equals(E.e0, await e1);
@@ -126,6 +132,9 @@ main() async {
   FutureOr<E<int>?>? e8 = .id<String>();
   Expect.equals(E.e0, await e8);
 
+  FutureOr<FutureOr<E>> e9 = .id<String>();
+  Expect.equals(E.e0, await (await e9));
+
   FutureOr<ET> et1 = .id<String>();
   Expect.equals(3, (await et1).v);
 
@@ -149,4 +158,7 @@ main() async {
 
   FutureOr<ET<int>?>? et8 = .id<String>();
   Expect.equals(3, (await et8)?.v);
+
+  FutureOr<FutureOr<ET>> et9 = .id<String>();
+  Expect.equals(3, (await (await et9)).value);
 }

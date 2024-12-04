@@ -2,49 +2,32 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Non-constant shorthand:
-/// ...
-/// It's a compile-time error if that declaration does not have a static member
-/// with base name `id`, or an unnamed constructor for `.new`.
+/// @assertion Expressions of the forms `.new<typeArgs>(args)` or
+/// `.new<typeArgs>` (as a prefix of a `<staticMemberShorthand> <selector>*`
+/// production, or the entire chain) are compile-time errors, just like the
+/// corresponding `T.new<typeArgs>(args)` and `T.new<typeArgs>` already are,
+/// whether used as instantiated tear-off or invoked.
 ///
-/// @description Checks that it is a compile-time error if that declaration does
-/// not have a static member with base name `id`, or an unnamed constructor for
-/// `.new`.
+/// @description Checks that it is a compile-time error to use a shorthand
+/// expression of the form `.new<typeArgs>(args)`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
 class C<T> {
   C();
-  C.id();
 }
 
-typedef CConstructor<T> = C<T> Function();
-
-extension type ET<T>(T v) {
-  ET.id(this.v);
-}
-
-typedef ETConstructor<T> = ET<T> Function(T t);
+extension type ET<T>(T v) {}
 
 main() {
-  CConstructor c1 = .new;
-//                  ^
+  C<int> c = .new<int>();
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  CConstructor<int> c2 = .id;
-//                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ETConstructor<int> et1 = .new;
-//                         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ETConstructor et2 = .id;
-//                    ^
+  ET<int> et = .new<int>(0);
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

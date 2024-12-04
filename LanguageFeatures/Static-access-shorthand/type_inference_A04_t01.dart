@@ -4,89 +4,61 @@
 
 /// @assertion Non-constant shorthand:
 /// ...
-/// It's a compile-time error if the shorthand context does not denote a
-/// declaration and static namespace.
+/// It's a compile-time error if a static member lookup with base name
+/// `id`/`new` on that declaration does not find a static member.
 ///
-/// @description Checks that it's a compile-time error if the shorthand context
-/// does not denote a declaration and static namespace.
+/// @description Checks that it's a compile-time error if a static member lookup
+/// with base name `id`/`new` does not find a static member.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
-dynamic getDynamic() {
-  if (DateTime.now().millisecond.isEven) {
-    return .new();
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  } else {
-    return .id;
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+class C {
+  C.foo();
+  C get id => C.foo();
 }
 
-void getVoid() {
-  if (DateTime.now().millisecond.isEven) {
-    return .new();
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  } else {
-    return .id;
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+mixin M {
+  M? get id => null;
 }
 
-Never getNever() {
-  if (DateTime.now().millisecond.isEven) {
-    return .new();
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  } else {
-    return .id;
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+enum E {
+  e0;
+  E get id => E.e0;
 }
 
-(int,) getRecord() {
-  if (DateTime.now().millisecond.isEven) {
-    return .new();
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  } else {
-    return .id;
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-}
-
-Function getFunction() {
-  if (DateTime.now().millisecond.isEven) {
-    return .new();
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  } else {
-    return .id;
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+extension type ET.foo(int _) {
+  ET get id => this;
 }
 
 main() {
-  print(getDynamic);
-  print(getVoid);
-  print(getNever);
-  print(getRecord);
-  print(getFunction);
+  C c1 = .new();
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C c2 = .id;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  M? m = .id;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  E e = .id;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  ET et1 = .new();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  ET et2 = .id;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

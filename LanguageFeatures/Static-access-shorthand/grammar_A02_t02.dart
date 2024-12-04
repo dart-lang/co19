@@ -21,49 +21,38 @@
 ///     | 'const' '.' (<identifier> | 'new') <arguments>  -- shorthand for constant object creation
 ///  ```
 ///
-/// @description Checks that `<staticMemberShorthand>` can be used in a constant
-/// pattern.
+/// @description Checks that it is a syntax error to use a shorthand syntax for
+/// factory constructors redirection.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
-import '../../Utils/expect.dart';
-
 class C {
-  final String value;
-  const C(this.value);
-  const C.foo(this.value);
+  C();
+  C.id();
+  factory C.f1() = .new;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory C.f2() = .id;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-extension type const ET(int v) {
-  const ET.foo(this.v);
+extension type ET(int v) {
+  ET.id(this.v);
+  factory ET.f1(int v) = .new;
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory ET.f2(int v) = .id;
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  bool success = false;
-  var c1 = const <C>[.new("c1")];
-  if (c1 case const <C>[.new("c1")]) {
-    success = true;
-  }
-  Expect.isTrue(success);
-
-  success = false;
-  var c2 = const <C>[.foo("c2")];
-  if (c2 case const <C>[const .foo("c2")]) {
-    success = true;
-  }
-  Expect.isTrue(success);
-
-  var et1 = const <ET>[.new(1)];
-  if (et1 case const <ET>[const .new(1)]) {
-    success = true;
-  }
-  Expect.isTrue(success);
-
-  success = false;
-  var et2 = const <ET>[.foo(2)];
-  if (et2 case const <ET>[.foo(2)]) {
-    success = true;
-  }
-  Expect.isTrue(success);
+  print(C);
+  print(ET);
 }
