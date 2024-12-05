@@ -104,7 +104,7 @@ main() {
     }
   }
   o = ET(1);
-  if (o is EAlias) {
+  if (o is ETAlias) {
     o = .id<int>;
     if (o is Function) {
       Expect.equals(42, o(42));

@@ -10,7 +10,7 @@
 /// <constantPattern> ::=  ...             -- all current productions
 ///     | <staticMemberShorthandValue>     -- No selectors, no `.new`.
 ///
-/// <staticMemberShorthand> ::= <staticMemberShorthandHead> <selector*>
+/// <staticMemberShorthand> ::= <staticMemberShorthandHead> <selector>*
 ///
 /// <staticMemberShorthandHead> ::=
 ///       <staticMemberShorthandValue>
