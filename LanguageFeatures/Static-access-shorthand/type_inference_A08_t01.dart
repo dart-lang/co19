@@ -8,8 +8,8 @@
 /// `int x = .tryParse(input) ?? 0;` which gives the first operand the context
 /// type `int?`.
 ///
-/// @description Checks that if shorthand expression is followed by `!` then its
-/// original context type is preserved.
+/// @description Checks that `!` selector propagates context type in case of
+/// shorthand expression.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
@@ -44,12 +44,24 @@ main() {
   C c = .id!;
   Expect.equals(0, c.value);
 
+  c = (.id)!;
+  Expect.equals(0, c.value);
+
   M m = .id!;
+  Expect.equals(1, m.value);
+
+  m = (.id)!;
   Expect.equals(1, m.value);
 
   E e = .id!;
   Expect.equals(2, e.value);
 
+  e = (.id)!;
+  Expect.equals(2, e.value);
+
   ET et = .id!;
+  Expect.equals(3, et.v);
+
+  et = (.id)!;
   Expect.equals(3, et.v);
 }

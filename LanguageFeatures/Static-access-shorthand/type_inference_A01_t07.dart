@@ -24,35 +24,19 @@
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
-class A {
-  int v;
-  A(this.v);
-  A.id(this.v);
-
-  static A get zero => A(0);
-}
-
-class C extends A {
-  int v;
-  C(int v) : super(v);
-  C.id(int v) : super.id(v);
-
-  static C get zero => C(0);
-}
-
 main() {
-  List<A> l = {
-    .zero,
-//  ^
+  int v1 = (.parse("42")).abs();
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    .new(1),
-//  ^
+
+  int v2 = .parse("42") + 1;
+//         ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    .id(2)
-//  ^
+
+  dynamic v3 = .parse("42");
+//             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }.toList();
 }

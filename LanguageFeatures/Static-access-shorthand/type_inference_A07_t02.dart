@@ -18,31 +18,20 @@
 /// because the context type will fill in the missing type variables, but if the
 /// construction is followed by more selectors, it loses that context type.
 ///
-/// @description Checks that it is a compile-time error to use a shorthand
-/// expression if additional selectors strip its context type.
+/// @description Checks that in case of a constructor invocation the type
+/// inference occurs as if the shorthand expression is preceded by the raw type
+/// and then a type inference infers the type arguments.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
+import '../../Utils/expect.dart';
+
 main() {
   List<String> l =
       .generate(10, (int i) => i + 1).map((x) => x.toRadixString(16)).toList();
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.listEquals(["1", "2", "3", "4", "5", "6", "7", "8", "9", "a"], l);
 
   num n = .parse("42").abs();
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  int i = (.parse("42")).abs();
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  int v = .parse("42") + 1;
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals(42, n);
 }

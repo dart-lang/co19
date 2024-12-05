@@ -8,8 +8,8 @@
 /// `int x = .tryParse(input) ?? 0;` which gives the first operand the context
 /// type `int?`.
 ///
-/// @description Checks that if shorthand expression is followed by `??` then
-/// its original context type is preserved.
+/// @description Checks that `??` operator propagates context type in case of
+/// shorthand expression.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
@@ -44,12 +44,24 @@ main() {
   C c = .id ?? C(-1);
   Expect.equals(0, c.value);
 
+  c = (.id) ?? C(-1);
+  Expect.equals(0, c.value);
+
   M m = .id ?? MC(-1);
+  Expect.equals(1, m.value);
+
+  m = (.id) ?? MC(-1);
   Expect.equals(1, m.value);
 
   E e = .id ?? E.e1;
   Expect.equals(2, e.value);
 
+  e = (.id) ?? E.e1;
+  Expect.equals(2, e.value);
+
   ET et = .id ?? ET(-1);
+  Expect.equals(3, et.v);
+
+  et = .id ?? ET(-1);
   Expect.equals(3, et.v);
 }
