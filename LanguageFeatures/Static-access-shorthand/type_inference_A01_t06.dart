@@ -55,4 +55,9 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   }.toList();
+
+  dynamic v = .parse("42");
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
