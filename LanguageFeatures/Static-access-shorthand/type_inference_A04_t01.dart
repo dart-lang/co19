@@ -8,7 +8,7 @@
 /// `id`/`new` on that declaration does not find a static member.
 ///
 /// @description Checks that it's a compile-time error if a static member lookup
-/// with base name `id`/`new` does not find a static member.
+/// with base name `id` does not find a static member.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
@@ -32,13 +32,8 @@ extension type ET.foo(int _) {
 }
 
 main() {
-  C c1 = .new();
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  C c2 = .id;
-//       ^
+  C c = .id;
+//      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -52,13 +47,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ET et1 = .new();
+  ET et = .id;
 //        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET et2 = .id;
-//         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

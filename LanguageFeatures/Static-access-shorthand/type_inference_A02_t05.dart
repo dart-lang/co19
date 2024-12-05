@@ -59,7 +59,7 @@ Never getNever() {
   }
 }
 
-(int,) getRecord() {
+(int,) getRecord1() {
   if (DateTime.now().millisecond.isEven) {
     return const .new();
 //               ^
@@ -73,7 +73,37 @@ Never getNever() {
   }
 }
 
-Function getFunction() {
+Record getRecord2() {
+  if (DateTime.now().millisecond.isEven) {
+    return const .new();
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  } else {
+    return const .id();
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+Function getFunction1() {
+  if (DateTime.now().millisecond.isEven) {
+    return const .new();
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  } else {
+    return const .id();
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+typedef Func = void Function();
+
+Func getFunction2() {
   if (DateTime.now().millisecond.isEven) {
     return const .new();
 //               ^
@@ -91,6 +121,8 @@ main() {
   print(getDynamic);
   print(getVoid);
   print(getNever);
-  print(getRecord);
-  print(getFunction);
+  print(getRecord1);
+  print(getRecord2);
+  print(getFunction1);
+  print(getFunction2);
 }
