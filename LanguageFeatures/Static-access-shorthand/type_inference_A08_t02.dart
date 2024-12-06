@@ -8,7 +8,7 @@
 /// `int x = .tryParse(input) ?? 0;` which gives the first operand the context
 /// type `int?`.
 ///
-/// @description Checks that `??` operator propagates context type in case of
+/// @description Checks that `??` operator propagates the context type in case of
 /// shorthand expression.
 /// @author sgrekhov22@gmail.com
 
