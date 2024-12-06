@@ -40,9 +40,25 @@ class C extends A {
 }
 
 void foo<X, Y, Z>(X x, Y y, Z z) {}
+void bar<X extends A, Y extends A, Z extends A>(X x, Y y, Z z) {}
 
 main() {
   foo(
+      .zero,
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      .new(1),
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      .id(2)
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  );
+
+  bar(
       .zero,
 //    ^
 // [analyzer] unspecified
