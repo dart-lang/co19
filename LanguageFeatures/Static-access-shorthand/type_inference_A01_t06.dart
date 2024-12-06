@@ -39,19 +39,37 @@ class C extends A {
   static C get zero => C(0);
 }
 
+void foo<X, Y, Z>(X x, Y y, Z z) {}
+void bar<X extends A, Y extends A, Z extends A>(X x, Y y, Z z) {}
+
 main() {
-  List<A> l = {
-    .zero,
-//  ^
+  foo(
+      .zero,
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    .new(1),
-//  ^
+      .new(1),
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    .id(2)
-//  ^
+      .id(2)
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }.toList();
+  );
+
+  bar(
+      .zero,
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      .new(1),
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      .id(2)
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  );
 }
