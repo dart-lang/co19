@@ -33,7 +33,6 @@ class A {
 }
 
 class C extends A {
-  int v;
   C(int v) : super(v);
   C.id(int v) : super.id(v);
 
