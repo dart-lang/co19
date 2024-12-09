@@ -12,6 +12,7 @@
 /// @description Checks that when `augmented()` is called in the body of an
 /// augmenting constructor initializer lists are not re-run.
 /// @author sgrekhov22@gmail.com
+/// @issue 56493
 
 // SharedOptions=--enable-experiment=macros
 
@@ -20,6 +21,10 @@ part 'augmenting_constructors_A11_t01_lib.dart';
 class C {
   String x, y;
   C(): x = "Original";
+}
+
+extension type ET(String x) {
+  ET.foo(): x = "Original";
 }
 
 main() {

@@ -24,6 +24,21 @@ class C {
   C.bar(int x) : this(x + 1);
 }
 
+enum E {
+  e0(0), e1.foo(1), e2.foo(2);
+  final int x;
+  const E(this.x);
+  const E.foo(int x): this(x + 1);
+  const E.bar(int x): this(x + 1);
+}
+
+extension type ET(int x) {
+  ET.foo(int x): this(x + 1);
+  ET.bar(int x): this(x + 1);
+}
+
 main() {
   Expect.equals(3, C.bar(1).x);
+  Expect.equals(3, E.e2.x);
+  Expect.equals(3, ET.bar(1).x);
 }
