@@ -6,9 +6,10 @@
 /// being augmented, but it generally follows the same rules as any normal
 /// identifier:
 /// ...
-/// - Augmenting functions: When augmenting a function, `augmented` refers to
-///   the augmented function. Tear offs are not allowed, so this function must
-///   immediately be invoked.
+/// - Augmenting functions: Inside an augmenting function body (including
+///   factory constructors but not generative constructors) `augmented` refers
+///   to the augmented function. Tear-offs are not allowed, and this function
+///   must immediately be invoked.
 ///
 /// @description Checks that within an augmenting function `augmented()` invokes
 /// the augmented function. Test different parameters.
