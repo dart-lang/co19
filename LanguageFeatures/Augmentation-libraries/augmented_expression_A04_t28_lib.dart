@@ -39,6 +39,22 @@ augment String topLevelFunction4({required String value}) =>
 // [cfe] unspecified
 
 augment class C {
+  augment factory C.f1(String value) => augmented("a", "b");
+//                                     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment factory C.f2([String value]) => augmented(1);
+//                                        ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment factory C.f3({String value}) => augmented(value: "c", "d");
+//                                        ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment factory C.f4({required String value}) => augmented("e");
+//                                                 ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment static String staticMethod1(String value) => augmented("a", "b");
 //                                                     ^^^^^^^^^
 // [analyzer] unspecified
@@ -193,6 +209,22 @@ augment extension Ext {
 }
 
 augment extension type ET {
+  augment factory ET.f1(String value) => augmented("a", "b");
+//                                       ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment factory ET.f2([String value]) => augmented(1);
+//                                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment factory ET.f3({String value}) => augmented(value: "c", "d");
+//                                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment factory ET.f4({required String value}) => augmented("e");
+//                                                  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment static String staticMethod1(String value) => augmented("a", "b");
 //                                                     ^^^^^^^^^
 // [analyzer] unspecified

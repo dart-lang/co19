@@ -29,7 +29,14 @@ augment String topLevelFunction4({required String value}) =>
     augmented(value: value.toUpperCase());
 
 augment class C {
-  augment  static String staticMethod1(String value) =>
+  augment factory C.f1(String value) => augmented(value.toUpperCase());
+  augment factory C.f2([String value = "default"]) =>
+      augmented(value.toUpperCase());
+  augment factory C.f3({String value = "default"}) =>
+      augmented(value: value.toUpperCase());
+  augment factory C.f4({required String value}) =>
+      augmented(value: value.toUpperCase());
+  augment static String staticMethod1(String value) =>
       augmented(value.toUpperCase());
   augment static String staticMethod2([String value]) =>
       augmented(value.toUpperCase());
@@ -107,6 +114,12 @@ augment extension Ext {
 }
 
 augment extension type ET {
+  augment factory ET.f1(String value) => augmented(value.toUpperCase());
+  augment factory ET.f2([String value]) => augmented(value.toUpperCase());
+  augment factory ET.f3({String value}) =>
+      augmented(value: value.toUpperCase());
+  augment factory ET.f4(required String value) =>
+      augmented(value: value.toUpperCase());
   augment static String staticMethod1(String value) =>
       augmented(value.toUpperCase());
   augment static String staticMethod2([String value]) =>
