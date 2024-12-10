@@ -29,6 +29,11 @@ class C2 {
   void augmented() {}
 }
 
+class C3 {
+  C3();
+  factory C3.augmented() => C3();
+}
+
 mixin M1 {
   static void augmented() {}
 }
@@ -67,10 +72,15 @@ extension type ET2(int _) {
   void augmented() {}
 }
 
+extension type ET3(int _) {
+  void augmented() {}
+}
+
 main() {
   print(augmented);
   print(C1);
   print(C2);
+  print(C3);
   print(M1);
   print(M2);
   print(E1);
@@ -78,4 +88,5 @@ main() {
   print(A);
   print(ET1);
   print(ET2);
+  print(ET3);
 }

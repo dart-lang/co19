@@ -30,6 +30,15 @@ augment void topLevelFunction() {
 }
 
 augment class C {
+  augment factory C.f() {
+    switch((1,)) {
+      case (var augmented,):
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+    return C();
+  }
   augment static void staticMethod() {
     switch((1,)) {
       case (var augmented,):
@@ -108,6 +117,15 @@ augment extension Ext {
 }
 
 augment extension type ET {
+  augment factory ET.f() {
+    switch((1,)) {
+      case (var augmented,):
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+    return ET(0);
+  }
   augment static void staticMethod() {
     switch((1,)) {
       case (var augmented,):

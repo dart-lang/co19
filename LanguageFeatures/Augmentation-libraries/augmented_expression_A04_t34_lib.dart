@@ -125,6 +125,17 @@ augment extension Ext {
 }
 
 augment extension type ET {
+  augment factory ET.f() {
+    print(null as augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    print(null is augmented);
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return ET(0);
+  }
   augment static void staticMethod() {
     print(null as augmented);
 //                ^^^^^^^^^

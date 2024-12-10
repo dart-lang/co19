@@ -26,6 +26,15 @@ String topLevelFunction1([String value = "default"]) => value;
 String topLevelFunction2({String value = "default"}) => value;
 
 class C {
+  String log = "";
+
+  C(this.log);
+  factory C.f1([String value = "default"]) {
+    return C(value);
+  }
+  factory C.f2({String value = "default"}) {
+    return C(value);
+  }
   static String staticMethod1([String value = "default"]) => value;
   static String staticMethod2({String value = "default"}) => value;
   String instanceMethod1([String value = "default"]) => value;
@@ -57,7 +66,13 @@ extension Ext on A {
   String instanceMethod2({String value = "default"}) => value;
 }
 
-extension type ET(int _) {
+extension type ET(String v) {
+  factory ET.f1([String value = "default"]) {
+    return ET(value);
+  }
+  factory ET.f2({String value = "default"}) {
+    return ET(value);
+  }
   static String staticMethod1([String value = "default"]) => value;
   static String staticMethod2({String value = "default"}) => value;
   String instanceMethod1([String value = "default"]) => value;
@@ -69,10 +84,12 @@ class MA = Object with M;
 main() {
   Expect.equals("default", topLevelFunction1());
   Expect.equals("default", topLevelFunction2());
+  Expect.equals("default", C.f1().log);
+  Expect.equals("default", C.f2().log);
   Expect.equals("default", C.staticMethod1());
   Expect.equals("default", C.staticMethod2());
-  Expect.equals("default", C().instanceMethod1());
-  Expect.equals("default", C().instanceMethod2());
+  Expect.equals("default", C("x").instanceMethod1());
+  Expect.equals("default", C("x").instanceMethod2());
   Expect.equals("default", M.staticMethod1());
   Expect.equals("default", M.staticMethod2());
   Expect.equals("default", MA().instanceMethod1());
@@ -87,6 +104,8 @@ main() {
   Expect.equals("default", A().instanceMethod2());
   Expect.equals("default", ET.staticMethod1());
   Expect.equals("default", ET.staticMethod2());
-  Expect.equals("default", ET(0).instanceMethod1());
-  Expect.equals("default", ET(0).instanceMethod2());
+  Expect.equals("default", ET.f1().v);
+  Expect.equals("default", ET.f2().v);
+  Expect.equals("default", ET("x").instanceMethod1());
+  Expect.equals("default", ET("x").instanceMethod2());
 }

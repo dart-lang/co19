@@ -20,28 +20,32 @@
 part of 'augmented_expression_A04_t29.dart';
 
 augment String topLevelFunction() {
-  String local() => "Augmented:" + augmented();
+  String local() => "Augmented: " + augmented();
   return local();
 }
 
 augment class C {
+  augment factory C.f() {
+    String local() => "Augmented: " + augmented();
+    return C(local());
+  }
   augment static String staticMethod(){
-    String local() => "Augmented:" + augmented();
+    String local() => "Augmented: " + augmented();
     return local();
   }
   augment String instanceMethod() {
-    String local() => "Augmented:" + augmented();
+    String local() => "Augmented: " + augmented();
     return local();
   }
 }
 
 augment mixin M {
   augment static String staticMethod(){
-    String local() => "Augmented:" + augmented();
+    String local() => "Augmented: " + augmented();
     return local();
   }
   augment String instanceMethod() {
-    String local() => "Augmented:" + augmented();
+    String local() => "Augmented: " + augmented();
     return local();
   }
 }
@@ -50,33 +54,37 @@ augment enum E {
   augment e1;
 
   augment static String staticMethod(){
-    String local() => "Augmented:" + augmented();
+    String local() => "Augmented: " + augmented();
     return local();
   }
   augment String instanceMethod() {
-    String local() => "Augmented:" + augmented();
+    String local() => "Augmented: " + augmented();
     return local();
   }
 }
 
 augment extension Ext {
   augment static String staticMethod(){
-    String local() => "Augmented:" + augmented();
+    String local() => "Augmented: " + augmented();
     return local();
   }
   augment String instanceMethod() {
-    String local() => "Augmented:" + augmented();
+    String local() => "Augmented: " + augmented();
     return local();
   }
 }
 
 augment extension type ET {
+  augment factory ET.f() {
+    String local() => "Augmented: " + augmented();
+    return ET(local());
+  }
   augment static String staticMethod(){
-    String local() => "Augmented:" + augmented();
+    String local() => "Augmented: " + augmented();
     return local();
   }
   augment String instanceMethod() {
-    String local() => "Augmented:" + augmented();
+    String local() => "Augmented: " + augmented();
     return local();
   }
 }

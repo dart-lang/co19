@@ -28,6 +28,10 @@ String topLevelFunction1([String value = "default"]) => value;
 String topLevelFunction2({String value = "default"}) => value;
 
 class C {
+  String log;
+  C(this.log);
+  factory C.f1([String value = "default"]) => C(value);
+  factory C.f2({String value = "default"}) => C(value);
   static String staticMethod1([String value = "default"]) => value;
   static String staticMethod2({String value = "default"}) => value;
   String instanceMethod1([String value = "default"]) => value;
@@ -59,7 +63,9 @@ extension Ext on A {
   String instanceMethod2({String value = "default"}) => value;
 }
 
-extension type ET(int _) {
+extension type ET(String v) {
+  factory ET.f1([String value = "default"]) => ET(value);
+  factory ET.f2({String value = "default"}) => ET(value);
   static String staticMethod1([String value = "default"]) => value;
   static String staticMethod2({String value = "default"}) => value;
   String instanceMethod1([String value = "default"]) => value;
@@ -71,6 +77,8 @@ class MA = Object with M;
 main() {
   Expect.equals("Augmented 2", topLevelFunction1());
   Expect.equals("Augmented 2", topLevelFunction2());
+  Expect.equals("Augmented 2", C.f1().log);
+  Expect.equals("Augmented 2", C.f2().log);
   Expect.equals("Augmented 2", C.staticMethod1());
   Expect.equals("Augmented 2", C.staticMethod2());
   Expect.equals("Augmented 2", C().instanceMethod1());
@@ -89,6 +97,6 @@ main() {
   Expect.equals("Augmented 2", A().instanceMethod2());
   Expect.equals("Augmented 2", ET.staticMethod1());
   Expect.equals("Augmented 2", ET.staticMethod2());
-  Expect.equals("Augmented 2", ET(0).instanceMethod1());
-  Expect.equals("Augmented 2", ET(0).instanceMethod2());
+  Expect.equals("Augmented 2", ET("x").instanceMethod1());
+  Expect.equals("Augmented 2", ET("x").instanceMethod2());
 }

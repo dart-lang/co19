@@ -24,6 +24,8 @@ class augmented {}
 void topLevelFunction(augmented x) {}
 
 class C {
+  C();
+  factory C.f(augmented x) => C();
   static void staticMethod(augmented x) {}
   void instanceMethod(augmented x) {}
 }
@@ -48,6 +50,7 @@ extension Ext on A {
 }
 
 extension type ET(int _) {
+  factory ET.f(augmented x) => ET(0);
   static void staticMethod(augmented x) {}
   void instanceMethod(augmented x) {}
 }

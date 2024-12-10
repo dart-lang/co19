@@ -25,6 +25,8 @@ const augmented = "Augmented constant, should not be used";
 void topLevelFunction() {}
 
 class C {
+  C();
+  factory C.f() => C();
   static void staticMethod() {}
   void instanceMethod() {}
   final augmented = "C.augmented, should not be used";
@@ -52,6 +54,7 @@ extension Ext on A {
 }
 
 extension type ET(int _) {
+  factory ET.f() => ET(0);
   static void staticMethod() {}
   void instanceMethod() {}
 }

@@ -23,6 +23,8 @@ augment String topLevelFunction1([String value]) => augmented();
 augment String topLevelFunction2({String value}) => augmented();
 
 augment class C {
+  augment factory C.f1([String value]) => augmented();
+  augment factory C.f2({String value}) => augmented();
   augment static String staticMethod1([String value]) => augmented();
   augment static String staticMethod2({String value}) => augmented();
   augment String instanceMethod1([String value]) => augmented();
@@ -53,6 +55,8 @@ augment extension Ext {
 }
 
 augment extension type ET {
+  augment factory ET.f1([String value]) => augmented();
+  augment factory ET.f2({String value}) => augmented();
   augment static String staticMethod1([String value]) => augmented();
   augment static String staticMethod2({String value}) => augmented();
   augment String instanceMethod1([String value]) => augmented();
