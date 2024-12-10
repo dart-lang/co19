@@ -118,7 +118,7 @@ augment extension type ET {
   augment factory ET.f2([String value]) => augmented(value.toUpperCase());
   augment factory ET.f3({String value}) =>
       augmented(value: value.toUpperCase());
-  augment factory ET.f4(required String value) =>
+  augment factory ET.f4({required String value}) =>
       augmented(value: value.toUpperCase());
   augment static String staticMethod1(String value) =>
       augmented(value.toUpperCase());
