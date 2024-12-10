@@ -40,7 +40,7 @@ augment String topLevelFunction4({required String value}) =>
 
 augment class C {
   augment factory C.f1(String value) => augmented("a", "b");
-//                                     ^^^^^^^^^
+//                                      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment factory C.f2([String value]) => augmented(1);

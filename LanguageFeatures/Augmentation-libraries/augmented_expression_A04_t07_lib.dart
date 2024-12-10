@@ -98,8 +98,8 @@ augment extension Ext {
 
 augment extension type ET {
   augment factory ET.f() {
-    var [augmented] = [42];
-//       ^^^^^^^^^
+    var {"key": augmented} = {"key": 42};
+//              ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     return ET(0);
