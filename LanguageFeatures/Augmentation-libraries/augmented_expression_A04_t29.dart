@@ -59,7 +59,7 @@ extension Ext on A {
 }
 
 extension type ET(String v) {
-  factory ET.f("Original");
+  factory ET.f() => ET("Original");
   static String staticMethod() => "Original";
   String instanceMethod() => "Original";
 }
