@@ -25,7 +25,7 @@ class C {
 
 augment class C {
   augment C();
-  augment C.id(int x);
+  augment C.id(this.v);
 }
 
 enum E {
@@ -48,7 +48,7 @@ extension type ET(int v) {
 
 augment extension type ET {
   augment ET(int v);
-  augment ET.foo(int v);
+  augment ET.foo(this.v);
 }
 
 main() {
