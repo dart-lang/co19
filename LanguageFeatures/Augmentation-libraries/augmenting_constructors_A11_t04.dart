@@ -2,13 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A non-redirecting generative constructor marked `augment` may:
+/// @assertion At a high level, a non-redirecting generative constructor marked
+/// `augment` may:
 /// ...
-/// - Add initializers to the initializer list. If the augmenting constructor
-///   has an initializer list then:
-///   - It's a compile-time error if the augmented constructor has
-///     super-initializer, and the augmenting constructor's initializer list
-///     also contains a super-initializer.
+///   - Add initializers (and/or asserts) to the initializer list, as well as a
+///     `super`  call at the end of the initializer list.
 ///
 /// @description Checks that it is a compile-time error if the augmented
 /// constructor has a super-initializer, and the augmenting constructor's
@@ -17,8 +15,6 @@
 
 // SharedOptions=--enable-experiment=macros
 
-part 'augmenting_constructors_A14_t01_lib.dart';
-
 class A {
   int x;
   A(this.x);
@@ -26,8 +22,15 @@ class A {
 
 class C extends A {
   int y;
-  int z = 0;
+  int z;
   C(int x, int y): this.y = y, super(x);
+}
+
+augment class C {
+  augment C(int x, int y): z = 1, super(x);
+//                                ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

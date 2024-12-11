@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A non-redirecting generative constructor marked `augment` may:
-/// - Add or replace the body of the augmented constructor with a new body.
+/// @assertion At a high level, a non-redirecting generative constructor marked
+/// `augment` may:
 /// ...
-///   - Initializer lists are not re-run, they have already executed and
-///     shouldn't be executed twice. The same goes for initializing formals and
-///     super parameters.
+///   - Add initializers (and/or asserts) to the initializer list, as well as a
+///     `super`  call at the end of the initializer list.
 ///
-/// @description Checks that when `augmented()` is called in the body of an
-/// augmenting constructor initializer lists are not re-run.
+/// @description Checks that augmenting constructor may add initializers to the
+/// initializer list.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -24,8 +23,14 @@ augment class C {
     Expect.equals("Augmented", y);
     x = "x";
     y = "y";
-    augmented();
-    Expect.equals("x", x);
-    Expect.equals("y", y);
   }
+}
+
+augment enum E {
+  augment e0;
+  augment const E(): y = "Augmented";
+}
+
+augment extension type ET {
+  augment ET.foo() : assert(v > 0);
 }

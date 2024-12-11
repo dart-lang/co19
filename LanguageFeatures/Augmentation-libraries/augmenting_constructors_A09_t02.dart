@@ -2,8 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A non-redirecting generative constructor marked `augment` may:
-/// - Add or replace the body of the augmented constructor with a new body.
+/// @assertion At a high level, a non-redirecting generative constructor marked
+/// `augment` may:
+/// - Augment the constructor with an additional constructor body (bodies are
+///   invoked in augmentation order, starting at the introductory declaration).
 ///
 /// @description Checks that an augmenting constructor may add a body to an
 /// augmented constructor.
@@ -14,7 +16,7 @@
 import '../../Utils/expect.dart';
 part 'augmenting_constructors_A09_t02_lib.dart';
 
-String _log = "";
+String log = "";
 
 class C1 {
   C1();
@@ -32,16 +34,20 @@ extension type ET(int id) {
   ET.foo(this.id);
 }
 
+void checkLog(String expected) {
+  Expect.equals(expected, log);
+  log = "";
+}
+
 main() {
   C1();
-  Expect.equals("Augmented", _log);
-  _log = "";
+  checkLog("Augmented");
   C2();
-  Expect.equals("Augmented", _log);
-  _log = "";
+  checkLog("Augmented");
   C3();
-  Expect.equals("Augmented", _log);
-  _log = "";
+  checkLog("Augmented");
   ET(0);
-  Expect.equals("Augmented", _log);
+  checkLog("Augmented");
+  ET.foo(0);
+  checkLog("Augmented");
 }

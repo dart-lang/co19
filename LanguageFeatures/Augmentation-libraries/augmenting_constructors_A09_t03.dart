@@ -2,8 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A non-redirecting generative constructor marked `augment` may:
-/// - Add or replace the body of the augmented constructor with a new body.
+/// @assertion At a high level, a non-redirecting generative constructor marked
+/// `augment` may:
+/// - Augment the constructor with an additional constructor body (bodies are
+///   invoked in augmentation order, starting at the introductory declaration).
 ///
 /// @description Checks that it is a compile-time error to augment a default
 /// unnamed constructor (that doesn't exist during augmentation).
