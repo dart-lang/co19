@@ -14,7 +14,7 @@
 // SharedOptions=--enable-experiment=macros
 
 part of 'augmenting_constructors_A09_t07.dart';
-part 'augmenting_constructors_A09_t07_lib2.dart'
+part 'augmenting_constructors_A09_t07_lib2.dart';
 
 augment class C {
   augment C() {

@@ -15,8 +15,8 @@
 
 // SharedOptions=--enable-experiment=macros
 
-part 'augmenting_constructors_A11_t03_lib.dart';
 import '../../Utils/expect.dart';
+part 'augmenting_constructors_A11_t03_lib.dart';
 
 class A {
   final String x;
