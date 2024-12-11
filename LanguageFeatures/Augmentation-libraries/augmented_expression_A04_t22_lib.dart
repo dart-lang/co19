@@ -38,6 +38,13 @@ augment class C2 {
 // [cfe] unspecified
 }
 
+augment class C3 {
+  augment factory C3.augmented() => C3();
+//                   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 augment mixin M1 {
   augment static void augmented() {}
 //                    ^^^^^^^^^
@@ -94,6 +101,13 @@ augment extension type ET1 {
 augment extension type ET2 {
   augment void augmented() {}
 //             ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+augment extension type ET3 {
+  augment factory C3.augmented() => C3();
+//                   ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

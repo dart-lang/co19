@@ -20,28 +20,32 @@
 part of 'augmented_expression_A04_t30.dart';
 
 augment String topLevelFunction() {
-  var f = () => "Augmented:" + augmented();
+  var f = () => "Augmented: " + augmented();
   return f();
 }
 
 augment class C {
+  augment factory C.f() {
+    var f = () => "Augmented: " + augmented();
+    return C(f());
+  }
   augment static String staticMethod(){
-    var f = () => "Augmented:" + augmented();
+    var f = () => "Augmented: " + augmented();
     return f();
   }
   augment String instanceMethod() {
-    var f = () => "Augmented:" + augmented();
+    var f = () => "Augmented: " + augmented();
     return f();
   }
 }
 
 augment mixin M {
   augment static String staticMethod(){
-    var f = () => "Augmented:" + augmented();
+    var f = () => "Augmented: " + augmented();
     return f();
   }
   augment String instanceMethod() {
-    var f = () => "Augmented:" + augmented();
+    var f = () => "Augmented: " + augmented();
     return f();
   }
 }
@@ -50,33 +54,37 @@ augment enum E {
   augment e1;
 
   augment static String staticMethod(){
-    var f = () => "Augmented:" + augmented();
+    var f = () => "Augmented: " + augmented();
     return f();
   }
   augment String instanceMethod() {
-    var f = () => "Augmented:" + augmented();
+    var f = () => "Augmented: " + augmented();
     return f();
   }
 }
 
 augment extension Ext {
   augment static String staticMethod(){
-    var f = () => "Augmented:" + augmented();
+    var f = () => "Augmented: " + augmented();
     return f();
   }
   augment String instanceMethod() {
-    var f = () => "Augmented:" + augmented();
+    var f = () => "Augmented: " + augmented();
     return f();
   }
 }
 
 augment extension type ET {
+  augment factory ET.f() {
+    var f = () => "Augmented: " + augmented();
+    ET(f());
+  }
   augment static String staticMethod(){
-    var f = () => "Augmented:" + augmented();
+    var f = () => "Augmented: " + augmented();
     return f();
   }
   augment String instanceMethod() {
-    var f = () => "Augmented:" + augmented();
+    var f = () => "Augmented: " + augmented();
     return f();
   }
 }

@@ -34,6 +34,16 @@ augment String topLevelFunction2({String value}) {
 }
 
 augment class C {
+  augment factory C.f1([String value]) {
+    Expect.equals("default", value);
+    Expect.equals("default", augmented().log);
+    return C("Augmented 1");
+  }
+  augment factory C.f2({String value}) {
+    Expect.equals("default", value);
+    Expect.equals("default", augmented().log);
+    return C("Augmented 1");
+  }
   augment static String staticMethod1([String value]) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());
@@ -128,6 +138,16 @@ augment extension Ext {
 }
 
 augment extension type ET {
+  augment factory ET.f1([String value]) {
+    Expect.equals("default", value);
+    Expect.equals("default", augmented().v);
+    return ET("Augmented 1");
+  }
+  augment factory C.f2({String value}) {
+    Expect.equals("default", value);
+    Expect.equals("default", augmented().v);
+    return ET("Augmented 1");
+  }
   augment static String staticMethod1([String value]) {
     Expect.equals("default", value);
     Expect.equals("default", augmented());

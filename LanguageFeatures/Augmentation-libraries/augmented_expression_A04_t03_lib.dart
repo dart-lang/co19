@@ -27,6 +27,13 @@ augment void topLevelFunction() {
 }
 
 augment class C {
+  augment factory C.f() {
+    int augmented() => 42;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return C();
+  }
   augment static void staticMethod() {
     int augmented() => 42;
 //      ^^^^^^^^^
@@ -89,6 +96,13 @@ augment extension Ext {
 }
 
 augment extension type ET {
+  augment factory ET.f() {
+    int augmented() => 42;
+//      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return ET(0);
+  }
   augment static void staticMethod() {
     int augmented() => 42;
 //      ^^^^^^^^^

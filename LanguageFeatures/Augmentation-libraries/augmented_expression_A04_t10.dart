@@ -22,6 +22,8 @@ part 'augmented_expression_A04_t10_lib.dart';
 void topLevelFunction(int augmented) {}
 
 class C {
+  C();
+  factory C.f(int augmented) => C();
   static void staticMethod(int augmented) {}
   void instanceMethod(int augmented) {}
 }
@@ -46,6 +48,7 @@ extension Ext on A {
 }
 
 extension type ET(int _) {
+  factory ET.f(int augmented) => ET(0);
   static void staticMethod(int augmented) {}
   void instanceMethod(int augmented) {}
 }

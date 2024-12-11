@@ -28,6 +28,13 @@ String topLevelFunction3({String value = "default"}) => value;
 String topLevelFunction4({required String value}) => value;
 
 class C {
+  String log = "";
+
+  C(this.log);
+  factory C.f1(String value) => C(value);
+  factory C.f2([String value = "default"]) => C(value);
+  factory C.f3({String value = "default"}) => C(value);
+  factory C.f4({required String value}) => C(value);
   static String staticMethod1(String value) => value;
   static String staticMethod2([String value = "default"]) => value;
   static String staticMethod3({String value = "default"}) => value;
@@ -75,7 +82,11 @@ extension Ext on A {
   String instanceMethod4({required String value}) => value;
 }
 
-extension type ET(int _) {
+extension type ET(String v) {
+  factory ET.f1(String value) => ET(value);
+  factory ET.f2([String value = "default"]) => ET(value);
+  factory ET.f3({String value = "default"}) => ET(value);
+  factory ET.f4({required String value}) => ET(value);
   static String staticMethod1(String value) => value;
   static String staticMethod2([String value = "default"]) => value;
   static String staticMethod3({String value = "default"}) => value;
@@ -93,14 +104,18 @@ main() {
   Expect.equals("B", topLevelFunction2("b"));
   Expect.equals("C", topLevelFunction3(value:"c"));
   Expect.equals("D", topLevelFunction4(value: "d"));
+  Expect.equals("A", C.f1("a").log);
+  Expect.equals("B", C.f2("b").log);
+  Expect.equals("C", C.f3(value: "c").log);
+  Expect.equals("D", C.f4(value: "d").log);
   Expect.equals("A", C.staticMethod1("a"));
   Expect.equals("B", C.staticMethod2("b"));
   Expect.equals("C", C.staticMethod3(value: "c"));
   Expect.equals("D", C.staticMethod4(value: "d"));
-  Expect.equals("A", C().instanceMethod1("a"));
-  Expect.equals("B", C().instanceMethod2("b"));
-  Expect.equals("C", C().instanceMethod3(value: "c"));
-  Expect.equals("D", C().instanceMethod4(value: "d"));
+  Expect.equals("A", C("x").instanceMethod1("a"));
+  Expect.equals("B", C("x").instanceMethod2("b"));
+  Expect.equals("C", C("x").instanceMethod3(value: "c"));
+  Expect.equals("D", C("x").instanceMethod4(value: "d"));
   Expect.equals("A", M.staticMethod1("a"));
   Expect.equals("B", M.staticMethod2("b"));
   Expect.equals("C", M.staticMethod3(value: "c"));
@@ -125,12 +140,16 @@ main() {
   Expect.equals("B", A().instanceMethod2("b"));
   Expect.equals("C", A().instanceMethod3(value: "c"));
   Expect.equals("D", A().instanceMethod4(value: "d"));
+  Expect.equals("A", ET.f1("a").v);
+  Expect.equals("B", ET.f2("b").v);
+  Expect.equals("C", ET.f3(value: "c").v);
+  Expect.equals("D", ET.f4(value: "d").v);
   Expect.equals("A", ET.staticMethod1("a"));
   Expect.equals("B", ET.staticMethod2("b"));
   Expect.equals("C", ET.staticMethod3(value: "c"));
   Expect.equals("D", ET.staticMethod4(value: "d"));
-  Expect.equals("A", ET(0).instanceMethod1("a"));
-  Expect.equals("B", ET(0).instanceMethod2("b"));
-  Expect.equals("C", ET(0).instanceMethod3(value: "c"));
-  Expect.equals("D", ET(0).instanceMethod4(value: "d"));
+  Expect.equals("A", ET("x").instanceMethod1("a"));
+  Expect.equals("B", ET("x").instanceMethod2("b"));
+  Expect.equals("C", ET("x").instanceMethod3(value: "c"));
+  Expect.equals("D", ET("x").instanceMethod4(value: "d"));
 }

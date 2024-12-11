@@ -28,6 +28,11 @@ String topLevelFunction3({String value = "default"}) => value;
 String topLevelFunction4({required String value}) => value;
 
 class C {
+  C();
+  factory C.f1(String value) => C(value);
+  factory C.f2([String value = "default"]) => C(value);
+  factory C.f3({String value = "default"}) => C(value);
+  factory C.f4({required String value}) => C(value);
   static String staticMethod1(String value) => value;
   static String staticMethod2([String value = "default"]) => value;
   static String staticMethod3({String value = "default"}) => value;
@@ -76,6 +81,10 @@ extension Ext on A {
 }
 
 extension type ET(int _) {
+  factory ET.f1(String value) => ET(value);
+  factory ET.f2([String value = "default"]) => ET(value);
+  factory ET.f3({String value = "default"}) => ET(value);
+  factory ET.f4({required String value}) => ET(value);
   static String staticMethod1(String value) => value;
   static String staticMethod2([String value = "default"]) => value;
   static String staticMethod3({String value = "default"}) => value;

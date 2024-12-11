@@ -25,6 +25,11 @@ String augmented() => "Global augmented() function, shouldn't be invoked";
 String topLevelFunction() => "Original";
 
 class C {
+  String log;
+  C(this.log);
+  factory C.f() {
+    return C("Original");
+  }
   static String staticMethod() => "Original";
   String instanceMethod() => "Original";
   String augmented() => "C.augmented(), shouldn't be invoked";
@@ -53,7 +58,8 @@ extension Ext on A {
   String instanceMethod() => "Original";
 }
 
-extension type ET(int _) {
+extension type ET(String v) {
+  factory ET.f() => ET("Original");
   static String staticMethod() => "Original";
   String instanceMethod() => "Original";
 }
@@ -62,14 +68,16 @@ class MA = Object with M;
 
 main() {
   Expect.equals("Augmented: Original", topLevelFunction());
+  Expect.equals("Augmented: Original", C.f().log);
   Expect.equals("Augmented: Original", C.staticMethod());
-  Expect.equals("Augmented: Original", C().instanceMethod());
+  Expect.equals("Augmented: Original", C("x").instanceMethod());
   Expect.equals("Augmented: Original", M.staticMethod());
   Expect.equals("Augmented: Original", MA().instanceMethod());
   Expect.equals("Augmented: Original", E.staticMethod());
   Expect.equals("Augmented: Original", E.e1.instanceMethod());
   Expect.equals("Augmented: Original", Ext.staticMethod());
   Expect.equals("Augmented: Original", A().instanceMethod());
+  Expect.equals("Augmented: Original", ET.f().v);
   Expect.equals("Augmented: Original", ET.staticMethod());
-  Expect.equals("Augmented: Original", ET(0).instanceMethod());
+  Expect.equals("Augmented: Original", ET("x").instanceMethod());
 }

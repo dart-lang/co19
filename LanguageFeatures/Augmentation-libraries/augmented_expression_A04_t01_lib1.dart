@@ -39,6 +39,13 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+  augment factory C.f() {
+    var f = augmented;
+//          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return C();
+  }
 }
 
 augment mixin M {
@@ -100,5 +107,12 @@ augment extension type ET {
 //          ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+  augment factory ET.f() {
+    var f = augmented;
+//          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return ET(0);
   }
 }

@@ -26,6 +26,12 @@ augment String topLevelFunction() {
 }
 
 augment class C {
+  augment factory C.f() {
+    var ag = augmented();
+    Expect.equals("Original", ag.log);
+    ag.log = "Augmented";
+    return ag;
+  }
   augment static String staticMethod(){
     Expect.equals("Original", augmented());
     return "Augmented";
@@ -72,6 +78,10 @@ augment extension Ext {
 }
 
 augment extension type ET {
+  augment factory ET.f() {
+    Expect.equals("Original", augmented().v);
+    return ET("Augmented");
+  }
   augment static String staticMethod(){
     Expect.equals("Original", augmented());
     return "Augmented";

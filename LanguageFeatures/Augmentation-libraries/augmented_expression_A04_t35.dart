@@ -26,6 +26,10 @@ String topLevelFunction1([String v = augmented]) => v;
 String topLevelFunction2({String v = augmented}) => v;
 
 class C {
+  String log;
+  C(this.log);
+  factory C.f1([String v = augmented]) => C(v);
+  factory C.f2({String v = augmented}) => C(v);
   static String staticMethod1([String v = augmented]) => v;
   static String staticMethod2({String v = augmented}) => v;
   String instanceMethod1([String v = augmented]) => v;
@@ -56,7 +60,9 @@ extension Ext on A {
   String instanceMethod2({String v = augmented}) => v;
 }
 
-extension type ET(int _) {
+extension type ET(String v) {
+  factory ET.f1([String v = augmented]) => ET(v);
+  factory ET.f2({String v = augmented}) => ET(v);
   static String staticMethod1([String v = augmented]) => v;
   static String staticMethod2({String v = augmented}) => v;
   String instanceMethod1([String v = augmented]) => v;
@@ -68,10 +74,12 @@ class MA = Object with M;
 main() {
   Expect.equals("Augmented: Const augmented", topLevelFunction1());
   Expect.equals("Augmented: Const augmented", topLevelFunction2());
+  Expect.equals("Augmented: Const augmented", C.f1().log);
+  Expect.equals("Augmented: Const augmented", C.f2().log);
   Expect.equals("Augmented: Const augmented", C.staticMethod1());
   Expect.equals("Augmented: Const augmented", C.staticMethod2());
-  Expect.equals("Augmented: Const augmented", C().instanceMethod1());
-  Expect.equals("Augmented: Const augmented", C().instanceMethod2());
+  Expect.equals("Augmented: Const augmented", C("x").instanceMethod1());
+  Expect.equals("Augmented: Const augmented", C("x").instanceMethod2());
   Expect.equals("Augmented: Const augmented", M.staticMethod1());
   Expect.equals("Augmented: Const augmented", M.staticMethod2());
   Expect.equals("Augmented: Const augmented", MA().instanceMethod1());
@@ -84,8 +92,10 @@ main() {
   Expect.equals("Augmented: Const augmented", Ext.staticMethod2());
   Expect.equals("Augmented: Const augmented", A().instanceMethod1());
   Expect.equals("Augmented: Const augmented", A().instanceMethod2());
+  Expect.equals("Augmented: Const augmented", ET.f1().v);
+  Expect.equals("Augmented: Const augmented", ET.f2().v);
   Expect.equals("Augmented: Const augmented", ET.staticMethod1());
   Expect.equals("Augmented: Const augmented", ET.staticMethod2());
-  Expect.equals("Augmented: Const augmented", ET(0).instanceMethod1());
-  Expect.equals("Augmented: Const augmented", ET(0).instanceMethod2());
+  Expect.equals("Augmented: Const augmented", ET("x").instanceMethod1());
+  Expect.equals("Augmented: Const augmented", ET("x").instanceMethod2());
 }
