@@ -2,13 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A non-redirecting generative constructor marked `augment` may:
-/// ...
-/// - If the augmenting constructor has an explicit block body, then that body
-///   replaces any existing constructor body.
+/// @assertion At a high level, a non-redirecting generative constructor marked
+/// `augment` may:
+/// - Augment the constructor with an additional constructor body (bodies are
+///   invoked in augmentation order, starting at the introductory declaration).
 ///
 /// @description Checks that if the augmenting constructor has an explicit block
-/// body, then that body replaces any existing constructor body.
+/// body, then that body is executed after the body of the introductory
+/// constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -16,42 +17,46 @@
 import '../../Utils/expect.dart';
 part 'augmenting_constructors_A09_t01_lib.dart';
 
-String _log = "";
+String log = "";
 
 class C1 {
   C1() {
-    _log += "Original";
+    log += "Original;";
   }
 }
 
 class C2 {
   C2() {
-    _log += "Original";
+    log += "Original;";
   }
 }
 
 class C3 {
   C3.new() {
-    _log += "Original";
+    log += "Original;";
   }
 }
 
 extension type ET(int id) {
   ET.foo(this.id) {
-    _log += "Original";
+    log += "Original;";
   }
+}
+
+void checkLog(String expected) {
+  Expect.equals(expected, log);
+  log = "";
 }
 
 main() {
   C1();
-  Expect.equals("Augmented", _log);
-  _log = "";
+  checkLog("Original;Augmented");
   C2();
-  Expect.equals("Augmented", _log);
-  _log = "";
+  checkLog("Original;Augmented");
   C3();
-  Expect.equals("Augmented", _log);
-  _log = "";
+  checkLog("Original;Augmented");
   ET(0);
-  Expect.equals("Augmented", _log);
+  checkLog("Augmented");
+  ET.foo(0);
+  checkLog("Original;Augmented");
 }

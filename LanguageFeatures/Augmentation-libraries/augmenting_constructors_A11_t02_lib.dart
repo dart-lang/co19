@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A non-redirecting generative constructor marked `augment` may:
-/// - Add or replace the body of the augmented constructor with a new body.
+/// @assertion At a high level, a non-redirecting generative constructor marked
+/// `augment` may:
 /// ...
-///   - Initializer lists are not re-run, they have already executed and
-///     shouldn't be executed twice. The same goes for initializing formals and
-///     super parameters.
+///   - Add initializers (and/or asserts) to the initializer list, as well as a
+///     `super`  call at the end of the initializer list.
 ///
-/// @description Checks that when `augmented()` is called in the body of an
-/// augmenting constructor initializing formals are not re-run (no attempt to
-/// reinitialize a final variable already initialized by initializing formals of
-/// augmenting constructor).
+/// @description Checks that when bodies of augmenting constructors are executed
+/// initializing formals are not re-run (no attempt to reinitialize a final
+/// variable already initialized by initializing formals of an introductory
+/// constructor).
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -23,13 +22,11 @@ import '../../Utils/expect.dart';
 augment class C {
   augment C(this.x) {
     Expect.equals("x", x);
-    augmented();
   }
 }
 
 augment extension type ET {
   augment ET.foo(this.id) {
-    Expect.equals("x", x);
-    augmented();
+    Expect.equals("x", id);
   }
 }

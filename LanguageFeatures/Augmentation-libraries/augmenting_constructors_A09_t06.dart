@@ -7,40 +7,54 @@
 /// - Augment the constructor with an additional constructor body (bodies are
 ///   invoked in augmentation order, starting at the introductory declaration).
 ///
-/// @description Checks that it is a compile-time error to augment a default
-/// unnamed constructor (that doesn't exist during augmentation).
+/// @description Checks that it is a compile-time error if an introductory
+/// constructor accesses local variables defined in an augmenting constructor
+/// and vice versa.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-part of 'augmenting_constructors_A09_t03.dart';
-
-augment class C1 {
-  augment C1();
-//        ^^
+class C {
+  C() {
+    int x = 0;
+    print(y);
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 }
 
-augment class C2 {
-  augment C2.new() {}
-//        ^^^^^^
+augment class C {
+  augment C() {
+    int y = 0;
+    print(x);
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 }
 
-augment enum E1 {
-  augment e0;
-  augment const E1();
-//              ^^
+extension type ET(int id) {
+  ET.foo(this.id) {
+    int x = 0;
+    print(y);
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 }
 
-augment enum E2 {
-  augment e0;
-  augment const E2.new();
-//              ^^^^^^
+augment extension type ET {
+  augment ET.foo(this.id) {
+    int y = 0;
+    print(x);
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+}
+
+main() {
+  print(C);
+  print(ET);
 }

@@ -7,37 +7,28 @@
 /// - Augment the constructor with an additional constructor body (bodies are
 ///   invoked in augmentation order, starting at the introductory declaration).
 ///
-/// @description Checks that an augmenting constructor may add a body to an
-/// augmented constructor.
+/// @description Checks that non-redirecting generative constructor bodies are
+/// invoked in augmentation order, starting at the introductory declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-part of 'augmenting_constructors_A09_t02.dart';
+part of 'augmenting_constructors_A09_t07_lib1.dart';
 
-augment class C1 {
-  augment C1() {
-    log += "Augmented";
+augment class C {
+  augment C() {
+    log += "Augment 4;";
   }
-}
-
-augment class C2 {
-  augment C2.new() {
-    log += "Augmented";
-  }
-}
-
-augment class C3 {
-  augment C3() {
-    log += "Augmented";
+  augment C.id() {
+    log += "Augment 4;";
   }
 }
 
 augment extension type ET {
   augment ET.new(int id) {
-    log += "Augmented";
+    log += "Augment 4;";
   }
   augment ET.foo(this.id) {
-    log += "Augmented";
+    log += "Augment 4;";
   }
 }
