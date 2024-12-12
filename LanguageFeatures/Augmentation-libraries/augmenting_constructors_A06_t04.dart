@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Redirecting generative constructors
+/// @assertion It is a compile-time error if:
 /// ...
-/// It is a compile-time error if:
-/// - The augmented constructor has an initializer list or a body, or it has a
-///   redirection.
+/// - The resulting constructor is not valid (it has a redirection as well as
+///   some initializer list elements, or it has multiple super initializers,
+///   etc).
 ///
 /// @description Checks that it is a compile-time error if a merged constructor
 /// is cyclic.
@@ -14,7 +14,7 @@
 
 // SharedOptions=--enable-experiment=macros
 
-part 'augmenting_constructors_A18_t07_lib.dart';
+part 'augmenting_constructors_A06_t04_lib.dart';
 
 class C {
   C();
