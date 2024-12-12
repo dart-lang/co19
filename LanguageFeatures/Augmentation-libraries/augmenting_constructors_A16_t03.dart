@@ -9,7 +9,7 @@
 /// (if present), and it may invoke the augmented body by calling
 /// `augmented(arguments)`.
 ///
-/// @description Checks that `augmented(arguments)` in the body of augmenting
+/// @description Checks that `augmented(arguments)` in the body of an augmenting
 /// non-redirecting factory constructor calls the introductory constructor with
 /// `arguments` as the actual arguments.
 /// @author sgrekhov22@gmail.com
