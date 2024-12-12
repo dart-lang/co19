@@ -13,7 +13,8 @@
 ///   declaration.
 ///
 /// @description Checks that it is a compile-time error to call an `augmented()`
-/// expression in the body of augmenting non-redirecting generative constructor.
+/// expression in the body of an augmenting non-redirecting generative
+/// constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

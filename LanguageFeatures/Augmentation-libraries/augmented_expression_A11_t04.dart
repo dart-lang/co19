@@ -13,7 +13,7 @@
 ///   declaration.
 ///
 /// @description Checks that it is a compile-time error to declare a local
-/// function named `augmented()` in the body of augmenting non-redirecting
+/// function named `augmented()` in the body of an augmenting non-redirecting
 /// generative constructor.
 /// @author sgrekhov22@gmail.com
 
