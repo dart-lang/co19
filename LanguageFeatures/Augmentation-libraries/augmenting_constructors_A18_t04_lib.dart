@@ -5,8 +5,8 @@
 /// @assertion Redirecting generative constructors
 /// ...
 /// It is a compile-time error if:
-/// - The augmented constructor has an initializer list or a body, or it has a
-///   redirection.
+/// ...
+/// - The augmented constructor has a redirection.
 ///
 /// @description Checks that it is a compile-time error to declare an augmenting
 /// redirecting generative constructor more than once.
