@@ -23,8 +23,8 @@ augment String topLevelFunction1([String v]) => "Augmented: $v";
 augment String topLevelFunction2({String v}) => "Augmented: $v";
 
 augment class C {
-  augment factory C.f1([String v = augmented]) => C("Augmented: $v");
-  augment factory C.f2({String v = augmented}) => C("Augmented: $v");
+  augment factory C.f1([String v]) => C("Augmented: $v");
+  augment factory C.f2({String v}) => C("Augmented: $v");
   augment static String staticMethod1([String v]) => "Augmented: $v";
   augment static String staticMethod2({String v}) => "Augmented: $v";
   augment String instanceMethod1([String v]) => "Augmented: $v";
@@ -54,8 +54,8 @@ augment extension Ext {
 }
 
 augment extension type ET {
-  augment factory ET.f1([String v = augmented]) => ET("Augmented: $v");
-  augment factory ET.f2({String v = augmented}) => ET("Augmented: $v");
+  augment factory ET.f1([String v]) => ET("Augmented: $v");
+  augment factory ET.f2({String v}) => ET("Augmented: $v");
   augment static String staticMethod1([String v]) => "Augmented: $v";
   augment static String staticMethod2({String v}) => "Augmented: $v";
   augment String instanceMethod1([String v]) => "Augmented: $v";

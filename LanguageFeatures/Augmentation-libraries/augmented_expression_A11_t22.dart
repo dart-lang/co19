@@ -12,72 +12,84 @@
 ///   these constructors, since they are within the scope of an augmenting
 ///   declaration.
 ///
-/// @description Checks that it is a compile-time error for an augmenting
-/// non-redirecting generative constructor to declare a named parameter with the
-/// name `augmented`.
+/// @description Checks that it is a compile-time error to augment a
+/// non-redirecting generative constructor whose name is `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
-class C {
-  C({int augmented = 0});
-  C.foo({int augmented = 0});
+class C1 {
+  C1.augmented();
 }
 
-augment class C {
-  augment C({int augmented}) {}
-//               ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C.foo({int augmented}) {}
-//                   ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  C.bar({int augmented = 0}) {}
+augment class C1 {
+  augment C1.augmented() {}
 //           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E {
-  a0(), a1.foo();
-  const E({int augmented = 0});
-  const E.foo({int augmented = 0});
+class C2 {}
+
+augment class C2 {
+  C2.augmented() {}
+//   ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-augment enum E {
-  a2.bar();
-  augment const E({int augmented});
-//                     ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment const E.foo({int augmented});
-//                         ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const E.bar({int augmented});
+enum E1 {
+  e0;
+  const E1();
+  const E1.augmented();
+}
+
+augment enum E1 {
+  e1;
+  augment const E1.augmented();
 //                 ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET(int augmented) {
-  ET.foo({this.augmented = 0});
+enum E2 {
+  e0;
+  const E2();
 }
 
-augment extension type ET {
-  augment ET.foo({this.augmented}) {}
-//                     ^^^^^^^^^
+augment enum E2 {
+  e1;
+  const E2.augmented();
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ET.bar({this.augmented = 0}) {}
-//             ^^^^^^^^^
+}
+
+extension type ET1(int id) {
+  ET1.augmented(this.id);
+}
+
+augment extension type ET1 {
+  augment ET1.augmented(this.id) {}
+//          ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET2(int id) {}
+
+augment extension type ET2 {
+  ET2.augmented(this.id) {}
+//    ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(C);
-  print(E);
-  print(ET);
+  print(C1);
+  print(C2);
+  print(E1);
+  print(E2);
+  print(ET1);
+  print(ET2);
 }
