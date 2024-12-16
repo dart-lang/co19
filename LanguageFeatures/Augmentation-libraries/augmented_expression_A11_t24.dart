@@ -12,76 +12,73 @@
 ///   these constructors, since they are within the scope of an augmenting
 ///   declaration.
 ///
-/// @description Checks that it is a compile-time error for an augmenting
-/// non-redirecting generative constructor to declare a positional parameter
-/// named `augmented`.
+/// @description Checks that it is a compile-time error to use a record with
+/// a named parameter whose name is `augmented` in a body of a non-redirecting
+/// generative constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
 
+int test({int augmented = 0}) => augmented + 42;
+
 class C {
-  C(int augmented);
-  C.foo(int augmented);
+  C() {
+    print((augmented: 1));
+  }
+  C.foo() {
+    print((augmented: 1));
+  }
 }
 
 augment class C {
-  augment C(int augmented) {}
-//              ^^^^^^^^^
+  augment C() {
+    print((augmented: 1));
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C.foo(int augmented) {}
-//                  ^^^^^^^^^
+  }
+  augment C.foo() {
+    print((augmented: 1));
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C.bar(int augmented) {}
-//          ^^^^^^^^^
+  }
+  C.bar() {
+    print((augmented: 1));
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 }
 
-enum E {
-  a0(0), a1.foo(1);
-  const E(int augmented);
-  const E.foo(int augmented);
-}
-
-augment enum E {
-  a2.bar(2);
-  augment const E(int augmented);
-//                    ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment const E.foo(int augmented);
-//                        ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const E.bar(int augmented);
-//                ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET(int augmented) {
-  ET.foo(this.augmented);
+extension type ET(int id) {
+  ET.foo(this.id) {
+    print((augmented: 1));
+  }
 }
 
 augment extension type ET {
-  augment ET(int augmented) {}
-//               ^^^^^^^^^
+  augment ET(int id) {
+    print((augmented: 1));
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment ET.foo(this.augmented) {}
-//                   ^^^^^^^^^
+  }
+  augment ET.foo(this.id) {
+    print((augmented: 1));
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ET.bar(this.augmented) {}
-//            ^^^^^^^^^
+  }
+  ET.bar(this.id) {
+    print((augmented: 1));
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 }
 
 main() {
   print(C);
-  print(E);
   print(ET);
 }

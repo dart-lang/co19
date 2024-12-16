@@ -12,7 +12,7 @@
 ///   must immediately be invoked.
 ///
 /// @description Checks that it is a compile-time error to use `augmented` as a
-/// constant value in a switch expressions and statements.
+/// constant value in switch expressions and statements.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros

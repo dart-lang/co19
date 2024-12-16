@@ -70,7 +70,7 @@ augment extension type ET {
 //               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment ET.foo(this.id, augmented id) {}
+  augment ET.foo(this.id, augmented x) {}
 //                        ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

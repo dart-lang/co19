@@ -78,5 +78,6 @@ augment extension type ET {
 
 main() {
   print(C);
+  print(E);
   print(ET);
 }
