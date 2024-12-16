@@ -19,4 +19,9 @@ extension type ET(int id) {}
 
 main() {
   Expect.equals(1, ET(1).id);
+  if (assertStatementsEnabled) {
+    Expect.throws(() {
+      ET(-1);
+    });
+  }
 }
