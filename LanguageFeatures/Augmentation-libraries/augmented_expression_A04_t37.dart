@@ -11,8 +11,8 @@
 ///   to the augmented function. Tear-offs are not allowed, and this function
 ///   must immediately be invoked.
 ///
-/// @description Checks that it is a compile-time error if an augmenting
-/// function has a metadata named `augmented`.
+/// @description Checks that it is a compile-time error if in an augmenting
+/// scope an augmenting function has a metadata named `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -33,6 +33,13 @@ class C {
   static void staticMethod1() {}
   @augmented
   void instanceMethod1() {}
+
+  @augmented
+  augment factory C.f1();
+  @augmented
+  augment static void staticMethod1();
+  @augmented
+  augment void instanceMethod1();
 }
 
 augment class C {
@@ -71,6 +78,11 @@ mixin M {
   static void staticMethod1() {}
   @augmented
   void instanceMethod1() {}
+
+  @augmented
+  augment static void staticMethod1();
+  @augmented
+  augment void instanceMethod1();
 }
 
 augment mixin M {
@@ -101,6 +113,11 @@ enum E {
   static void staticMethod1() {}
   @augmented
   void instanceMethod1() {}
+
+  @augmented
+  augment static void staticMethod1();
+  @augmented
+  augment void instanceMethod1();
 }
 
 augment enum E {
@@ -132,6 +149,11 @@ extension Ext on A {
   static void staticMethod1() {}
   @augmented
   void instanceMethod1() {}
+
+  @augmented
+  augment static void staticMethod1();
+  @augmented
+  augment void instanceMethod1();
 }
 
 augment extension Ext {
@@ -163,6 +185,11 @@ extension type ET(int _) {
   static void staticMethod1() {}
   @augmented
   void instanceMethod1() {}
+
+  @augmented
+  augment static void staticMethod1();
+  @augmented
+  augment void instanceMethod1();
 }
 
 augment extension type ET {

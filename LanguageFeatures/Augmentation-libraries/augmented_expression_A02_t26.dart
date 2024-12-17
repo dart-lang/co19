@@ -11,8 +11,8 @@
 ///   augmenting a variable with a setter, this will invoke the implicitly
 ///   induced setter from the augmented variable declaration.
 ///
-/// @description Checks that it is a compile-time error if an augmenting setter
-/// has a metadata named `augmented`.
+/// @description Checks that it is a compile-time error if in an augmenting
+/// scope an augmenting setter has a metadata named `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -30,6 +30,11 @@ class C {
   static void set staticSetter1(String value) {}
   @augmented
   void set instanceSetter1(String value) {}
+
+  @augmented
+  augment static void set staticSetter1(String value);
+  @augmented
+  augment void set instanceSetter1(String value);
 }
 
 augment class C {
@@ -56,6 +61,11 @@ mixin M {
   static void set staticSetter1(String value) {}
   @augmented
   void set instanceSetter1(String value) {}
+
+  @augmented
+  augment static void set staticSetter1(String value);
+  @augmented
+  augment void set instanceSetter1(String value);
 }
 
 augment mixin M {
@@ -84,6 +94,11 @@ enum E {
   static void set staticSetter1(String value) {}
   @augmented
   void set instanceSetter1(String value) {}
+
+  @augmented
+  augment static void set staticSetter1(String value);
+  @augmented
+  augment void set instanceSetter1(String value);
 }
 
 augment enum E {
@@ -114,6 +129,11 @@ extension Ext on A {
   static void set staticSetter1(String value) {}
   @augmented
   void set instanceSetter1(String value) {}
+
+  @augmented
+  augment static void set staticSetter1(String value);
+  @augmented
+  augment void set instanceSetter1(String value);
 }
 
 augment extension Ext {
@@ -140,6 +160,11 @@ extension type ET(int _) {
   static void set staticSetter1(String value) {}
   @augmented
   void set instanceSetter1(String value) {}
+
+  @augmented
+  augment static void set staticSetter1(String value);
+  @augmented
+  augment void set instanceSetter1(String value);
 }
 
 augment extension type ET {

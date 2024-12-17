@@ -12,8 +12,9 @@
 ///   these constructors, since they are within the scope of an augmenting
 ///   declaration.
 ///
-/// @description Checks that it is a compile-time error for an augmenting
-/// non-redirecting generative constructor to use a metadata named `augmented`.
+/// @description Checks that it is a compile-time error if in augmenting scope
+/// an augmenting non-redirecting generative constructor has a metadata named
+/// `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -28,6 +29,11 @@ class C {
   C(this.id);
   @augmented()
   C.foo(this.id);
+
+  @augmented()
+  augment C(this.id);
+  @augmented()
+  augment C.foo(this.id);
 }
 
 augment class C {
@@ -52,6 +58,11 @@ enum E {
   const E(this.id);
   @augmented()
   const E.foo(this.id);
+
+  @augmented()
+  augment const E(this.id);
+  @augmented()
+  augment const E.foo(this.id);
 }
 
 augment enum E {
@@ -73,6 +84,11 @@ augment enum E {
 extension type ET(int id) {
   @augmented()
   ET.foo(this.id);
+
+  @augmented()
+  augment ET.new(int id);
+  @augmented()
+  augment ET.foo(this.id);
 }
 
 augment extension type ET {

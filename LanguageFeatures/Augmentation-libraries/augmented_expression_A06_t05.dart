@@ -9,8 +9,8 @@
 /// - Augmenting enum values: When augmenting an enum value, `augmented` has no
 ///   meaning and is not allowed.
 ///
-/// @description Checks that it is a compile-time error if an augmenting
-/// enum value has a metadata named `augmented`.
+/// @description Checks that it is a compile-time error if in an augmenting
+/// scope an augmenting enum value has a metadata named `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -19,7 +19,9 @@ const augmented = 0;
 
 enum E {
   @augmented
-  e0;
+  e0,
+  @augmented
+  augment e0;
 }
 
 augment enum E {
@@ -34,5 +36,5 @@ augment enum E {
 }
 
 main() {
-  print(E1);
+  print(E);
 }

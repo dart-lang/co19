@@ -12,8 +12,8 @@
 ///   use `augmented(1)` to call the augmented operator, and when augmenting
 ///   `operator []=` you would use the `augmented(key, value)` syntax.
 ///
-/// @description Checks that it is a compile-time error if an augmenting
-/// operator has a metadata named `augmented`.
+/// @description Checks that it is a compile-time error if in an augmenting
+/// scope an augmenting operator has a metadata named `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -25,6 +25,9 @@ class augmented {
 class C {
   @augmented()
   String operator +(Object? other) => "Original + $other";
+
+  @augmented()
+  augment String operator +(Object? other);
 }
 
 augment class C {
@@ -41,6 +44,9 @@ augment class C {
 mixin M {
   @augmented()
   String operator +(Object? other) => "Original + $other";
+
+  @augmented()
+  augment String operator +(Object? other);
 }
 
 augment mixin M {
@@ -58,6 +64,9 @@ enum E {
   e0;
   @augmented()
   String operator +(Object? other) => "Original + $other";
+
+  @augmented()
+  augment String operator +(Object? other);
 }
 
 augment enum E {
@@ -77,6 +86,9 @@ class A {}
 extension Ext on A {
   @augmented()
   String operator +(Object? other) => "Original + $other";
+
+  @augmented()
+  augment String operator +(Object? other);
 }
 
 augment extension Ext {
@@ -93,6 +105,9 @@ augment extension Ext {
 extension type ET(int _) {
   @augmented()
   String operator +(Object? other) => "Original + $other";
+
+  @augmented()
+  augment String operator +(Object? other);
 }
 
 augment extension type ET {

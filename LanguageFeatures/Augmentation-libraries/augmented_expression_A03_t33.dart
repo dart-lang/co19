@@ -14,8 +14,8 @@
 /// initializer if the member being augmented is not a variable declaration with
 /// an initializing expression.
 ///
-/// @description Checks that it is a compile-time error if an augmenting field
-/// has a metadata named `augmented`.
+/// @description Checks that it is a compile-time error if in an augmenting
+/// scope an augmenting field has a metadata named `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -45,6 +45,15 @@ class C {
   var instanceVariable1 = "Original";
   @augmented()
   final finalInstanceVariable1 = "Original";
+
+  @augmented()
+  augment static var staticVariable1;
+  @augmented()
+  augment static final finalStaticVariable1;
+  @augmented()
+  augment var instanceVariable1;
+  @augmented()
+  augment final finalInstanceVariable1;
 }
 
 augment class C {
@@ -91,6 +100,15 @@ mixin M {
   var instanceVariable1 = "Original";
   @augmented()
   final finalInstanceVariable1 = "Original";
+
+  @augmented()
+  augment static var staticVariable1;
+  @augmented()
+  augment static final finalStaticVariable1;
+  @augmented()
+  augment var instanceVariable1;
+  @augmented()
+  augment final finalInstanceVariable1;
 }
 
 augment mixin M {
@@ -137,6 +155,13 @@ enum E {
   static final finalStaticVariable1 = "Original";
   @augmented()
   final finalInstanceVariable1 = "Original";
+
+  @augmented()
+  augment static var staticVariable1;
+  @augmented()
+  augment static final finalStaticVariable1;
+  @augmented()
+  augment final finalInstanceVariable1;
 }
 
 augment enum E {
@@ -175,6 +200,11 @@ extension Ext on A {
   static var staticVariable1 = "Original";
   @augmented()
   static final finalStaticVariable1 = "Original";
+
+  @augmented()
+  augment static var staticVariable1;
+  @augmented()
+  augment static final finalStaticVariable1;
 }
 
 augment extension Ext {
@@ -201,6 +231,11 @@ extension type ET(int _) {
   static var staticVariable1 = "Original";
   @augmented()
   static final finalStaticVariable1 = "Original";
+
+  @augmented()
+  augment static var staticVariable1;
+  @augmented()
+  augment static final finalStaticVariable1;
 }
 
 augment extension type ET {

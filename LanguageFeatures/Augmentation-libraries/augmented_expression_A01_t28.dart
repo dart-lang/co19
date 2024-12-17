@@ -10,8 +10,8 @@
 ///   variable with a getter, this will invoke the implicitly induced getter
 ///   from the augmented variable declaration.
 ///
-/// @description Checks that it is a compile-time error if an augmenting getter
-/// has a metadata named `augmented`.
+/// @description Checks that it is a compile-time error if in an augmenting
+/// scope an augmenting getter has a metadata named `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
@@ -31,6 +31,11 @@ class C {
   static String get staticGetter1 => "Original";
   @augmented()
   String get instanceGetter1 => "Original";
+
+  @augmented()
+  augment static String get staticGetter1;
+  @augmented()
+  augment String get instanceGetter1;
 }
 
 augment class C {
@@ -57,6 +62,11 @@ mixin M {
   static String get staticGetter1 => "Original";
   @augmented()
   String get instanceGetter1 => "Original";
+
+  @augmented()
+  augment static String get staticGetter1;
+  @augmented()
+  augment String get instanceGetter1;
 }
 
 augment mixin M {
@@ -85,6 +95,11 @@ enum E {
   static String get staticGetter1 => "Original";
   @augmented()
   String get instanceGetter1 => "Original";
+
+  @augmented()
+  augment static String get staticGetter1;
+  @augmented()
+  augment String get instanceGetter1;
 }
 
 augment enum E {
@@ -115,6 +130,11 @@ extension Ext on A {
   static String get staticGetter1 => "Original";
   @augmented()
   String get instanceGetter1 => "Original";
+
+  @augmented()
+  augment static String get staticGetter1;
+  @augmented()
+  augment String get instanceGetter1;
 }
 
 augment extension Ext {
@@ -141,6 +161,11 @@ extension type ET(int _) {
   static String get staticGetter1 => "Original";
   @augmented()
   String get instanceGetter1 => "Original";
+
+  @augmented()
+  augment static String get staticGetter1;
+  @augmented()
+  augment String get instanceGetter1;
 }
 
 augment extension type ET {
