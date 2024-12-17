@@ -22,10 +22,8 @@ const augmented = 0;
 @augmented
 void topLevelFunction() {}
 
-augment @augmented void topLevelFunction() {}
-//       ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+augment 
+@augmented void topLevelFunction() {}
 
 class C {
   C();
@@ -38,8 +36,8 @@ class C {
 }
 
 augment class C {
-  augment @augmented factory C.f1() => C();
-//         ^^^^^^^^^
+  @augmented augment factory C.f1() => C();
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented factory C.f2() => C();
@@ -47,13 +45,13 @@ augment class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment @augmented static void staticMethod1() {}
-//         ^^^^^^^^^
+  @augmented augment static void staticMethod1() {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment @augmented void instanceMethod1() {}
-//         ^^^^^^^^^
+  @augmented augment void instanceMethod1() {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -76,13 +74,13 @@ mixin M {
 }
 
 augment mixin M {
-  augment @augmented static void staticMethod1() {}
-//         ^^^^^^^^^
+  @augmented augment static void staticMethod1() {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment @augmented void instanceMethod1() {}
-//         ^^^^^^^^^
+  @augmented augment void instanceMethod1() {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -107,13 +105,13 @@ enum E {
 
 augment enum E {
   e1;
-  augment @augmented static void staticMethod1() {}
-//         ^^^^^^^^^
+  @augmented augment static void staticMethod1() {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment @augmented void instanceMethod1() {}
-//         ^^^^^^^^^
+  @augmented augment void instanceMethod1() {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -137,13 +135,13 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment @augmented static void staticMethod1() {}
-//         ^^^^^^^^^
+  @augmented augment static void staticMethod1() {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment @augmented void instanceMethod1() {}
-//         ^^^^^^^^^
+  @augmented augment void instanceMethod1() {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -168,8 +166,8 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  augment @augmented factory ET.f1() => ET(1);
-//         ^^^^^^^^^
+  @augmented augment factory ET.f1() => ET(1);
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented factory ET.f2() => ET(2);
@@ -177,13 +175,13 @@ augment extension type ET {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment @augmented static void staticMethod1() {}
-//         ^^^^^^^^^
+  @augmented augment static void staticMethod1() {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment @augmented void instanceMethod1() {}
-//         ^^^^^^^^^
+  @augmented augment void instanceMethod1() {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

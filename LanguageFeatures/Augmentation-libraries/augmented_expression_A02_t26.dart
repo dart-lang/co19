@@ -22,10 +22,8 @@ const augmented = 0;
 @augmented
 void set topLevelSetter(String value) {}
 
-augment @augmented void set topLevelSetter(String value) {}
-//       ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+@augmented 
+augment void set topLevelSetter(String value) {}
 
 class C {
   @augmented
@@ -35,16 +33,16 @@ class C {
 }
 
 augment class C {
-  augment @augmented static void set staticSetter1(String value) {}
-//         ^^^^^^^^^
+  @augmented augment static void set staticSetter1(String value) {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented static void set staticSetter2(String value) {}
 // ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented void set instanceSetter1(String value) {}
-//         ^^^^^^^^^
+  @augmented augment void set instanceSetter1(String value) {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented void set instanceSetter2(String value) {}
@@ -61,16 +59,16 @@ mixin M {
 }
 
 augment mixin M {
-  augment @augmented static void set staticSetter1(String value) {}
-//         ^^^^^^^^^
+  @augmented augment static void set staticSetter1(String value) {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented static void set staticSetter2(String value) {}
 // ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented void set instanceSetter1(String value) {}
-//         ^^^^^^^^^
+  @augmented augment void set instanceSetter1(String value) {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented void set instanceSetter2(String value) {}
@@ -91,16 +89,16 @@ enum E {
 augment enum E {
   e1;
 
-  augment @augmented static void set staticSetter1(String value) {}
-//         ^^^^^^^^^
+  @augmented augment static void set staticSetter1(String value) {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented static void set staticSetter2(String value) {}
 // ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented void set instanceSetter1(String value) {}
-//         ^^^^^^^^^
+  @augmented augment void set instanceSetter1(String value) {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented void set instanceSetter2(String value) {}
@@ -119,16 +117,16 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment @augmented static void set staticSetter1(String value) {}
-//         ^^^^^^^^^
+  @augmented augment static void set staticSetter1(String value) {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented static void set staticSetter2(String value) {}
 // ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented void set instanceSetter1(String value) {}
-//         ^^^^^^^^^
+  @augmented augment void set instanceSetter1(String value) {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented void set instanceSetter2(String value) {}
@@ -145,16 +143,16 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  augment @augmented static void set staticSetter1(String value) {}
-//         ^^^^^^^^^
+  @augmented augment static void set staticSetter1(String value) {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented static void set staticSetter2(String value) {}
 // ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented void set instanceSetter1(String value) {}
-//         ^^^^^^^^^
+  @augmented augment void set instanceSetter1(String value) {}
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented void set instanceSetter2(String value) {}

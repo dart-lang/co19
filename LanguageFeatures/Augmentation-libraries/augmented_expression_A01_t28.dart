@@ -23,10 +23,8 @@ class augmented {
 @augmented()
 String get topLevelGetter => "Original";
 
-augment @augmented() String get topLevelGetter;
-//       ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+@augmented()
+augment String get topLevelGetter;
 
 class C {
   @augmented()
@@ -36,16 +34,16 @@ class C {
 }
 
 augment class C {
-  augment @augmented() static String get staticGetter1;
-//         ^^^^^^^^^
+  @augmented() augment static String get staticGetter1;
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() static String get staticGetter2 => "Augmented";
 // ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() String get instanceGetter1;
-//         ^^^^^^^^^
+  @augmented() augment String get instanceGetter1;
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() String get instanceGetter2 => "Augmented";
@@ -62,16 +60,16 @@ mixin M {
 }
 
 augment mixin M {
-  augment @augmented() static String get staticGetter1;
-//         ^^^^^^^^^
+  @augmented() augment static String get staticGetter1;
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() static String get staticGetter2 => "Augmented";
 // ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() String get instanceGetter1;
-//         ^^^^^^^^^
+  @augmented() augment String get instanceGetter1;
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() String get instanceGetter2 => "Augmented";
@@ -92,16 +90,16 @@ enum E {
 augment enum E {
   e1;
 
-  augment @augmented() static String get staticGetter1;
-//         ^^^^^^^^^
+  @augmented() augment static String get staticGetter1;
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() static String get staticGetter2 => "Augmented";
 // ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() String get instanceGetter1;
-//         ^^^^^^^^^
+  @augmented() augment String get instanceGetter1;
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() String get instanceGetter2 => "Augmented";
@@ -120,16 +118,16 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment @augmented() static String get staticGetter1;
-//         ^^^^^^^^^
+  @augmented() augment static String get staticGetter1;
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() static String get staticGetter2 => "Augmented";
 // ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() String get instanceGetter1;
-//         ^^^^^^^^^
+  @augmented() augment String get instanceGetter1;
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() String get instanceGetter2 => "Augmented";
@@ -146,16 +144,16 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  augment @augmented() static String get staticGetter1;
-//         ^^^^^^^^^
+  @augmented() augment static String get staticGetter1;
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() static String get staticGetter2 => "Augmented";
 // ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() String get instanceGetter1;
-//         ^^^^^^^^^
+  @augmented() augment String get instanceGetter1;
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() String get instanceGetter2 => "Augmented";

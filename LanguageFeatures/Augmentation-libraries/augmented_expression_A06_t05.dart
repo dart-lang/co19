@@ -23,8 +23,8 @@ enum E {
 }
 
 augment enum E {
-  augment @augmented e0,
-//         ^^^^^^^^^
+  @augmented augment e0,
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented e1;

@@ -28,8 +28,8 @@ class C {
 }
 
 augment class C {
-  augment @augmented() String operator +(Object? other) => "Augment + $other";
-//         ^^^^^^^^^
+  @augmented() augment String operator +(Object? other) => "Augment + $other";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() String operator -(Object? other) => "Augment - $other";
@@ -44,8 +44,8 @@ mixin M {
 }
 
 augment mixin M {
-  augment @augmented() String operator +(Object? other) => "Augment + $other";
-//         ^^^^^^^^^
+  @augmented() augment String operator +(Object? other) => "Augment + $other";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() String operator -(Object? other) => "Augment - $other";
@@ -62,8 +62,8 @@ enum E {
 
 augment enum E {
   e1;
-  augment @augmented() String operator +(Object? other) => "Augment + $other";
-//         ^^^^^^^^^
+  @augmented() augment String operator +(Object? other) => "Augment + $other";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() String operator -(Object? other) => "Augment - $other";
@@ -80,8 +80,8 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment @augmented() String operator +(Object? other) => "Augment + $other";
-//         ^^^^^^^^^
+  @augmented() augment String operator +(Object? other) => "Augment + $other";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() String operator -(Object? other) => "Augment - $other";
@@ -96,8 +96,8 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  augment @augmented() String operator +(Object? other) => "Augment + $other";
-//         ^^^^^^^^^
+  @augmented() augment String operator +(Object? other) => "Augment + $other";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() String operator -(Object? other) => "Augment - $other";

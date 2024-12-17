@@ -29,14 +29,12 @@ var topLevelVariable = "Original";
 @augmented()
 final finalTopLevelVariable = "Original";
 
-augment @augmented() var topLevelVariable = "Augment";
-//       ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-augment @augmented() final finalTopLevelVariable = "Augment";
-//       ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+@augmented()
+augment var topLevelVariable = "Augment";
+
+@augmented()
+augment final finalTopLevelVariable = "Augment";
+
 
 class C {
   @augmented()
@@ -50,20 +48,20 @@ class C {
 }
 
 augment class C {
-  augment @augmented() static var staticVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment static var staticVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() static final finalStaticVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment static final finalStaticVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() var instanceVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment var instanceVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() final finalInstanceVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment final finalInstanceVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() static var staticVariable2 = "Augment";
@@ -96,20 +94,20 @@ mixin M {
 }
 
 augment mixin M {
-  augment @augmented() static var staticVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment static var staticVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() static final finalStaticVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment static final finalStaticVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() var instanceVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment var instanceVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() final finalInstanceVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment final finalInstanceVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() static var staticVariable2 = "Augment";
@@ -144,16 +142,16 @@ enum E {
 augment enum E {
   e1;
 
-  augment @augmented() static var staticVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment static var staticVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() static final finalStaticVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment static final finalStaticVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() final finalInstanceVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment final finalInstanceVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() static var staticVariable2 = "Augment";
@@ -180,12 +178,12 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment @augmented() static var staticVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment static var staticVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() static final finalStaticVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment static final finalStaticVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() static var staticVariable2 = "Augment";
@@ -199,17 +197,19 @@ augment extension Ext {
 }
 
 extension type ET(int _) {
+  @augmented()
   static var staticVariable1 = "Original";
+  @augmented()
   static final finalStaticVariable1 = "Original";
 }
 
 augment extension type ET {
-  augment @augmented() static var staticVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment static var staticVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment @augmented() static final finalStaticVariable1 = "Augment";
-//         ^^^^^^^^^
+  @augmented() augment static final finalStaticVariable1 = "Augment";
+// ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   @augmented() static var staticVariable2 = "Augment";
