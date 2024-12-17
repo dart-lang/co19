@@ -58,7 +58,7 @@ main() {
   var symbol = MirrorSystem .getSymbol("topLevelVariable");
   DeclarationMirror varMirror =
     libraryMirror.declarations[symbol] as DeclarationMirror;
-  Expect.equals('.Meta',
+  Expect.equals('metadata_A01_t01.Meta',
       MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
 
   testType(C);
@@ -75,7 +75,7 @@ void testType(Type t) {
     Symbol symbol = MirrorSystem .getSymbol(name);
     DeclarationMirror varMirror =
         classMirror.declarations[symbol] as DeclarationMirror;
-    Expect.equals('.Meta',
+    Expect.equals('metadata_A01_t01.Meta',
         MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
   }
 }

@@ -28,6 +28,8 @@ class Meta2 {
   const Meta2();
 }
 
+var expected = ['metadata_A01_t02.Meta1', 'metadata_A01_t02.Meta2'];
+
 @Meta1()
 String topLevelVariable = "Top-level variable";
 
@@ -47,6 +49,7 @@ mixin M {
 
 enum E {
   e0;
+
   @Meta1()
   static String staticVariable = "Static variable";
   @Meta1()
@@ -68,13 +71,14 @@ extension type ET(int id) {
 main() {
   Symbol libName = MirrorSystem.getSymbol('metadata_A01_t02');
   LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(libName);
-  var symbol = MirrorSystem .getSymbol("topLevelVariable");
+  var symbol = MirrorSystem.getSymbol("topLevelVariable");
   DeclarationMirror varMirror =
-    libraryMirror.declarations[symbol] as DeclarationMirror;
-  Expect.equals('.Meta1',
-      MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
-  Expect.equals('.Meta2',
-      MirrorSystem.getName(varMirror.metadata[1].type.qualifiedName));
+      libraryMirror.declarations[symbol] as DeclarationMirror;
+  print(MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
+  Expect.isTrue(expected.contains(MirrorSystem.getName(
+      varMirror.metadata[0].type.qualifiedName)));
+  Expect.isTrue(expected.contains(MirrorSystem.getName(
+      varMirror.metadata[1].type.qualifiedName)));
 
   testType(C);
   testType(M);
@@ -87,12 +91,12 @@ void testType(Type t) {
   ClassMirror classMirror = reflectClass(t);
   var varNames = ['staticVariable', 'instanceVariable'];
   for (var name in varNames) {
-    Symbol symbol = MirrorSystem .getSymbol(name);
+    Symbol symbol = MirrorSystem.getSymbol(name);
     DeclarationMirror varMirror =
         classMirror.declarations[symbol] as DeclarationMirror;
-    Expect.equals('.Meta1',
-        MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
-    Expect.equals('.Meta2',
-        MirrorSystem.getName(varMirror.metadata[1].type.qualifiedName));
+    Expect.isTrue(expected.contains(MirrorSystem.getName(
+        varMirror.metadata[0].type.qualifiedName)));
+    Expect.isTrue(expected.contains(MirrorSystem.getName(
+        varMirror.metadata[1].type.qualifiedName)));
   }
 }

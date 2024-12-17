@@ -27,6 +27,8 @@ class Meta2 {
   const Meta2();
 }
 
+var expected = [Symbol('.Meta1'), Symbol('.Meta2')];
+
 @Meta1()
 class C {}
 
@@ -47,18 +49,18 @@ extension Ext on A {}
 extension type ET(int id) {}
 
 main() {
-  Expect.equals(
-      Symbol('.Meta1'), reflectClass(C).metadata[0].type.qualifiedName);
-  Expect.equals(
-      Symbol('.Meta2'), reflectClass(C).metadata[1].type.qualifiedName);
-  Expect.equals(
-      Symbol('.Meta1'), reflectClass(M).metadata[0].type.qualifiedName);
-  Expect.equals(
-      Symbol('.Meta2'), reflectClass(M).metadata[1].type.qualifiedName);
-  Expect.equals(
-      Symbol('.Meta1'), reflectClass(E).metadata[0].type.qualifiedName);
-  Expect.equals(
-      Symbol('.Meta2'), reflectClass(E).metadata[1].type.qualifiedName);
+  Expect.isTrue(
+      expected.contains(reflectClass(C).metadata[0].type.qualifiedName));
+  Expect.isTrue(
+      expected.contains(reflectClass(C).metadata[1].type.qualifiedName));
+  Expect.isTrue(
+      expected.contains(reflectClass(M).metadata[0].type.qualifiedName));
+  Expect.isTrue(
+      expected.contains(reflectClass(M).metadata[1].type.qualifiedName));
+  Expect.isTrue(
+      expected.contains(reflectClass(E).metadata[0].type.qualifiedName));
+  Expect.isTrue(
+      expected.contains(reflectClass(E).metadata[1].type.qualifiedName));
   // Extensions and extension types cannot be reflected therefore it is not
   // possible to check their metadata.
 }

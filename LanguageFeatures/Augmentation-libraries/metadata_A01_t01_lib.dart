@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion /// @assertion All declarations can be augmented with metadata annotations
+/// @assertion All declarations can be augmented with metadata annotations
 /// and/or doc comments directly preceding an augmenting declaration.
 ///
 /// In both cases, these should be appended to existing metadata or doc

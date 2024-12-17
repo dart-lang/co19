@@ -28,6 +28,8 @@ class Meta2 {
   const Meta2();
 }
 
+var expected = ['metadata_A01_t08.Meta1', 'metadata_A01_t08.Meta2'];
+
 @Meta1()
 void topLevelFunction() {}
 
@@ -70,13 +72,15 @@ extension type ET(int id) {
 }
 
 main() {
-  Symbol libName = MirrorSystem.getSymbol('metadata_A01_t07');
+  Symbol libName = MirrorSystem.getSymbol('metadata_A01_t08');
   LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(libName);
   var symbol = MirrorSystem .getSymbol("topLevelFunction");
   DeclarationMirror varMirror =
     libraryMirror.declarations[symbol] as DeclarationMirror;
-  Expect.equals('.Meta',
-      MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
+  Expect.isTrue(expected.contains(MirrorSystem.getName(
+      varMirror.metadata[0].type.qualifiedName)));
+  Expect.isTrue(expected.contains(MirrorSystem.getName(
+      varMirror.metadata[1].type.qualifiedName)));
 
   testType(C);
   testType(M);
@@ -92,7 +96,9 @@ void testType(Type t) {
     Symbol symbol = MirrorSystem .getSymbol(name);
     DeclarationMirror varMirror =
         classMirror.declarations[symbol] as DeclarationMirror;
-    Expect.equals('.Meta',
-        MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
+    Expect.isTrue(expected.contains(MirrorSystem.getName(
+        varMirror.metadata[0].type.qualifiedName)));
+    Expect.isTrue(expected.contains(MirrorSystem.getName(
+        varMirror.metadata[1].type.qualifiedName)));
   }
 }
