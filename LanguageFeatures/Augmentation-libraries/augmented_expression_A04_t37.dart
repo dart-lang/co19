@@ -22,8 +22,8 @@ const augmented = 0;
 @augmented
 void topLevelFunction() {}
 
-augment 
-@augmented void topLevelFunction() {}
+@augmented
+augment void topLevelFunction() {}
 
 class C {
   C();
