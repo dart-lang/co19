@@ -2,8 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @description Check that WeakReference constructor rejects any object that is
-/// not supported as an Expando key. Test Strings.
+/// @description Library for work with Dart garbage collector tools.
 /// @author sgrekhov@unipro.ru
 library gc_utils_lib;
 

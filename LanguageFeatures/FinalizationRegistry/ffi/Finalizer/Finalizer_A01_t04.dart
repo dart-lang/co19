@@ -17,7 +17,7 @@ import '../../gc_utils_lib.dart';
 import '../../../../Utils/expect.dart';
 
 int called = 0;
-
+Object? liveObject;
 
 final Finalizer finalizer = Finalizer((token) {
   Expect.equals(123, token);
@@ -26,7 +26,6 @@ final Finalizer finalizer = Finalizer((token) {
 
 @pragma('vm:never-inline')
 attachToFinalizer() async {
-  Object? liveObject;
   Object object = Object();
   finalizer.attach(object, 123);
   await triggerGcWithDelay();
@@ -36,7 +35,6 @@ attachToFinalizer() async {
     await triggerGcWithDelay();
     Expect.equals(0, called);
   }();
-  print(liveObject);
 }
 
 main() async {
