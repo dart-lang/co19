@@ -13,34 +13,39 @@
 /// will never run if attached object is accessible.
 /// @author iarkh@unipro.ru
 
+import 'dart:async';
 import '../../gc_utils_lib.dart';
 import '../../../../Utils/expect.dart';
 
 int called = 0;
-
+Object? accessibleLink;
 
 final Finalizer finalizer = Finalizer((token) {
   Expect.equals(123, token);
   called++;
 });
 
+Completer<void> completer = Completer<void>();
+
 @pragma('vm:never-inline')
 attachToFinalizer() async {
-  Object? liveObject;
-  Object object = Object();
+  Object? object = Object();
   finalizer.attach(object, 123);
   await triggerGcWithDelay();
+  accessibleLink = object;
+  object = null;
   Expect.equals(0, called);
-  liveObject = object;
   () async {
     await triggerGcWithDelay();
     Expect.equals(0, called);
+    completer.complete();
   }();
-  print(liveObject);
 }
 
 main() async {
   await attachToFinalizer();
+  await completer.future;
+  accessibleLink = null;
   // Previous triggerGc move some objects to old space. Do multiple GCs to
   // force all objects to old space.
   await triggerGcWithDelay(repeat: 3);
