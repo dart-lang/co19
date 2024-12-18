@@ -40,7 +40,7 @@ augment enum E implements A<augmented> {e1;}
 extension type ET(A<B> _) {}
 
 augment extension type ET implements A<augmented> {}
-                                       ^^^^^^^^^
+//                                     ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
