@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import '../../Language/Expressions/Identifier_Reference/built_in_identifier_A12_t01.dart';
-
 /// @assertion Consider a non-augmenting member declaration Dm that occurs
 /// inside an augmenting type declaration Dt. A compile-time error occurs if the
 /// identifier `augmented` occurs in Dm.

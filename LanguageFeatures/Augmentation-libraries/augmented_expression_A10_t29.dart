@@ -7,7 +7,7 @@
 /// identifier `augmented` occurs in Dm.
 ///
 /// @description Checks that it is a compile-time error if an augmenting
-/// class-like declaration implements a type named `augmented`.
+/// class-like declaration implements a type that contains the name `augmented`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=macros
