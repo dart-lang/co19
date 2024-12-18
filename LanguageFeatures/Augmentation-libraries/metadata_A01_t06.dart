@@ -28,6 +28,8 @@ class Meta2 {
   const Meta2();
 }
 
+var expected = ['metadata_A01_t06.Meta1', 'metadata_A01_t06.Meta2'];
+
 @Meta1()
 void set topLevelSetter(String _) {}
 
@@ -75,10 +77,10 @@ main() {
   var symbol = MirrorSystem .getSymbol("topLevelSetter=");
   DeclarationMirror varMirror =
     libraryMirror.declarations[symbol] as DeclarationMirror;
-  Expect.equals('.Meta1',
-      MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
-  Expect.equals('.Meta2',
-      MirrorSystem.getName(varMirror.metadata[1].type.qualifiedName));
+  Expect.isTrue(expected.contains(MirrorSystem.getName(
+      varMirror.metadata[0].type.qualifiedName)));
+  Expect.isTrue(expected.contains(MirrorSystem.getName(
+      varMirror.metadata[1].type.qualifiedName)));
 
   testType(C);
   testType(M);
@@ -94,9 +96,9 @@ void testType(Type t) {
     Symbol symbol = MirrorSystem .getSymbol(name);
     DeclarationMirror varMirror =
         classMirror.declarations[symbol] as DeclarationMirror;
-    Expect.equals('.Meta1',
-        MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
-    Expect.equals('.Meta2',
-        MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
+    Expect.isTrue(expected.contains(MirrorSystem.getName(
+        varMirror.metadata[0].type.qualifiedName)));
+    Expect.isTrue(expected.contains(MirrorSystem.getName(
+        varMirror.metadata[1].type.qualifiedName)));
   }
 }

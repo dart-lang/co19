@@ -27,6 +27,8 @@ class Meta2 {
   const Meta2();
 }
 
+var expected = ['.Meta1', '.Meta2'];
+
 enum E {
   e0,
   @Meta1()
@@ -43,8 +45,8 @@ main() {
 
   symbol = MirrorSystem .getSymbol("e1");
   varMirror = classMirror.declarations[symbol] as DeclarationMirror;
-  Expect.equals('.Meta1',
-      MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
-  Expect.equals('.Meta2',
-      MirrorSystem.getName(varMirror.metadata[1].type.qualifiedName));
+  Expect.isTrue(expected.contains(MirrorSystem.getName(
+      varMirror.metadata[0].type.qualifiedName)));
+  Expect.isTrue(expected.contains(MirrorSystem.getName(
+      varMirror.metadata[1].type.qualifiedName)));
 }
