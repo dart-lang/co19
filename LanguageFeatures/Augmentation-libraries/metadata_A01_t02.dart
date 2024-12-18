@@ -74,7 +74,6 @@ main() {
   var symbol = MirrorSystem.getSymbol("topLevelVariable");
   DeclarationMirror varMirror =
       libraryMirror.declarations[symbol] as DeclarationMirror;
-  print(MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
   Expect.isTrue(expected.contains(MirrorSystem.getName(
       varMirror.metadata[0].type.qualifiedName)));
   Expect.isTrue(expected.contains(MirrorSystem.getName(
