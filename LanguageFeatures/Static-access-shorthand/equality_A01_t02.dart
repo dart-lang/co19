@@ -10,8 +10,8 @@
 /// inferring its static type the same way as above.
 ///
 /// @description Checks that if an expression has the form `e1 == e2` or
-/// `e1 != e2` and `e2` is a shorthand expression then it shorthand context from
-/// `e1`. Test a mixin.
+/// `e1 != e2` and `e2` is a shorthand expression then it has shorthand
+/// context from `e1`. Test a mixin.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
