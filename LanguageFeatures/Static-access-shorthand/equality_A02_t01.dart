@@ -14,7 +14,7 @@
 /// nor the parameter type of the first operand's `operator==`.)
 ///
 /// @description Checks that it is a compile-time error if the right operand of
-/// `==` operator isn not a precisely static member shorthand but a ternary
+/// `==` operator is not a precisely static member shorthand but a ternary
 /// operator. Test a class.
 /// @author sgrekhov22@gmail.com
 
