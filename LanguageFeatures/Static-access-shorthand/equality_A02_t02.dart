@@ -2,8 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion For ==, we special-case when the right operand is (precisely!) a
-/// static member shorthand.
+/// @assertion For `==`, we special-case when the right operand is (precisely!)
+/// a static member shorthand.
 /// ...
 /// This special-casing is only against an immediate static member shorthand. It
 /// does not change the context type of the second operand, so it would not work
@@ -14,8 +14,8 @@
 /// nor the parameter type of the first operand's `operator==`.)
 ///
 /// @description Checks that it is a compile-time error if the right operand of
-/// `==` operator is not a precisely static member shorthand but a ternary
-/// operator. Test a mixin.
+/// `==` or `!=` operators is not a precisely static member shorthand. Test a
+/// mixin.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
@@ -41,6 +41,8 @@ mixin M<T> on C<T> {
 
 class MC<T> = C<T> with M<T>;
 
+M<int> foo(M<int> m) => m;
+
 main() {
   bool condition = 2 > 1;
   M<int> m = MC<int>(0);
@@ -50,18 +52,28 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if (m == condition ? M.intOne : .intTwo()) {}
-//                                ^
+  if ([m] == [.intOne]) {}
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if (m != condition ? .intTwo() : M.values[0]) {}
-//                     ^
+  if ({m} != {.intTwo()}) {}
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if (m != condition ? .values[0] : M.intTwo()) {}
-//                     ^
+  if ({"key": m} != {"key": .values[0]}) {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  if (m != (.intTwo())) {}
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  if (m != foo(.values[0])) {}
+//             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

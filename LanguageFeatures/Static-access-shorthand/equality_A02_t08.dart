@@ -13,54 +13,38 @@
 /// the empty context `_`. (It's neither the static type of the first operand,
 /// nor the parameter type of the first operand's `operator==`.)
 ///
-/// @description Checks that it is a compile-time error if the right operand of
-/// `==` or `!=` operators is not a precisely static member shorthand. Test an
-/// enum.
+/// @description Checks that it is a compile-time error if a pattern has the
+/// form `== e2` or `!= e2` and `e2` is not a precisely shorthand expression.
+/// Test an extension type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
-enum E<T> {
-  e0(0), e1("1");
-  final T value;
-  const E(this.value);
+extension type const ET<T>(T value) {
+  const ET.id(this.value);
+  const factory ET.f(T value) = ET<T>.new;
 
-  static E<int> get staticGetter => E.e0;
-  static E staticMethod(int index) => E.values[index];
+  static const ET<int> one = ET(1);
 }
 
-E<int> foo(E<int> e) => e;
-
 main() {
-  bool condition = 2 > 1;
-
-  if (E.e0 == condition ? .e0 : E.e1) {}
-//                        ^
+  if ([ET(0)] == const [.new(0)]) {}
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ([E.e0] == [.staticGetter]) {}
-//               ^
+  if ({ET(0)} != const {.id(1)}) {}
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({E.e0} != {.staticMethod(0)}) {}
-//               ^
+  if ({"key": ET(0)} != const {"key": .f(2)}) {}
+//                                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({"key": E.e0} != {"key": .values[0]} {}
-//                             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  if (E.e0 == (.e0)) {}
-//             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  if (E.e0 == foo(.e0)) {}
-//                ^
+  if (ET(0) == (.one)) {}
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

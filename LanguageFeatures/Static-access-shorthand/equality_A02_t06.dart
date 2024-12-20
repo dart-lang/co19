@@ -13,54 +13,43 @@
 /// the empty context `_`. (It's neither the static type of the first operand,
 /// nor the parameter type of the first operand's `operator==`.)
 ///
-/// @description Checks that it is a compile-time error if the right operand of
-/// `==` or `!=` operators is not a precisely static member shorthand. Test an
-/// enum.
+/// @description Checks that it is a compile-time error if a pattern has the
+/// form `== e2` or `!= e2` and `e2` is not a precisely shorthand expression.
+/// Test a mixin.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
-enum E<T> {
-  e0(0), e1("1");
+class C<T> {
   final T value;
-  const E(this.value);
-
-  static E<int> get staticGetter => E.e0;
-  static E staticMethod(int index) => E.values[index];
+  const C(this.value);
 }
 
-E<int> foo(E<int> e) => e;
+mixin M<T> on C<T> {
+  static const M<int> instance = MC(0);
+}
+
+class MC<T> = C<T> with M<T>;
 
 main() {
-  bool condition = 2 > 1;
-
-  if (E.e0 == condition ? .e0 : E.e1) {}
-//                        ^
+  M<int> m = MC(0);
+  if ([m] == const [.instance]) {}
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ([E.e0] == [.staticGetter]) {}
-//               ^
+  if ({m} != const {.instance}) {}
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({E.e0} != {.staticMethod(0)}) {}
-//               ^
+  if ({"key": m} != const {"key": .instance}) {}
+//                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({"key": E.e0} != {"key": .values[0]} {}
-//                             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  if (E.e0 == (.e0)) {}
-//             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  if (E.e0 == foo(.e0)) {}
-//                ^
+  if (m == (.instance)) {}
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
