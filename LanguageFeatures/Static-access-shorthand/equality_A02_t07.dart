@@ -29,23 +29,23 @@ enum E<T> {
 }
 
 main() {
-  if ([E.e0] == const [.e0]) {}
-//                     ^
+  if ([E.e0] case == const [.e0]) {}
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({E.e0} != const {.instance}) {}
-//                     ^
+  if ({E.e0} case != const {.instance}) {}
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({"key": E.e0} != const {"key": .e0}) {}
-//                                   ^
+  if ({"key": E.e0} case != const {"key": .e0}) {}
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if (E.e0 == (.instance)) {}
-//             ^
+  if (E.e0 case == (.instance)) {}
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

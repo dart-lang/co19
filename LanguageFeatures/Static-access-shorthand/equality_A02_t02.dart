@@ -63,7 +63,7 @@ main() {
 // [cfe] unspecified
 
   if ({"key": m} != {"key": .values[0]}) {}
-//            ^
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

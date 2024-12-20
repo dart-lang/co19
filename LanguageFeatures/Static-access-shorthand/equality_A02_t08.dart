@@ -28,22 +28,22 @@ extension type const ET<T>(T value) {
 }
 
 main() {
-  if ([ET(0)] == const [.new(0)]) {}
+  if ([ET(0)] case == const [ET.new(0)]) {}
 //                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({ET(0)} != const {.id(1)}) {}
+  if ({ET(0)} case != const {ET.id(1)}) {}
 //                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({"key": ET(0)} != const {"key": .f(2)}) {}
+  if ({"key": ET(0)} case != const {"key": ET.f(2)}) {}
 //                                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if (ET(0) == (.one)) {}
+  if (ET(0) case == (ET.one)) {}
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified

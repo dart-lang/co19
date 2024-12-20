@@ -30,23 +30,23 @@ class C<T> {
 }
 
 main() {
-  if ([C(0)] == const [.new(1)]) {}
-//                     ^
+  if ([C(0)] case == const [.new(1)]) {}
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({C(0)} != const {.id(2)}) {}
-//                     ^
+  if ({C(0)} case != const {.id(2)}) {}
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({"key": C(0)} != const {"key": .f(3)}) {}
-//                                   ^
+  if ({"key": C(0)} case != const {"key": .f(3)}) {}
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if (C(0) == (.instance)) {}
-//             ^
+  if (C(0) case == (.instance)) {}
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

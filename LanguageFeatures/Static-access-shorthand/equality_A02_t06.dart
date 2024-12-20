@@ -33,23 +33,23 @@ class MC<T> = C<T> with M<T>;
 
 main() {
   M<int> m = MC(0);
-  if ([m] == const [.instance]) {}
-//                  ^
+  if ([m] case == const [.instance]) {}
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({m} != const {.instance}) {}
-//                  ^
+  if ({m} case != const {.instance}) {}
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({"key": m} != const {"key": .instance}) {}
-//                                ^
+  if ({"key": m} case != const {"key": .instance}) {}
+//                                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if (m == (.instance)) {}
-//          ^
+  if (m case == (.instance)) {}
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
