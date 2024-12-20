@@ -2,8 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion For ==, we special-case when the right operand is (precisely!) a
-/// static member shorthand.
+/// @assertion For `==`, we special-case when the right operand is (precisely!)
+/// a static member shorthand.
 /// ...
 /// This special-casing is only against an immediate static member shorthand. It
 /// does not change the context type of the second operand, so it would not work
@@ -14,8 +14,8 @@
 /// nor the parameter type of the first operand's `operator==`.)
 ///
 /// @description Checks that it is a compile-time error if the right operand of
-/// `==` operator is not a precisely static member shorthand but a ternary
-/// operator. Test an enum.
+/// `==` or `!=` operators is not a precisely static member shorthand. Test an
+/// enum.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
@@ -29,6 +29,8 @@ enum E<T> {
   static E staticMethod(int index) => E.values[index];
 }
 
+E<int> foo(E<int> e) => e;
+
 main() {
   bool condition = 2 > 1;
 
@@ -37,18 +39,28 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if (E.e0 == condition ? E.e0 : .staticGetter) {}
-//                               ^
+  if ([E.e0] == [.staticGetter]) {}
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if (E.e0 != condition ? .staticMethod(0) : E.values[1]) {}
-//                        ^
+  if ({E.e0} != {.staticMethod(0)}) {}
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if (E.e0 != condition ? .values[0] : E.e1) {}
-//                        ^
+  if ({"key": E.e0} != {"key": .values[0]}) {}
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  if (E.e0 == (.e0)) {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  if (E.e0 == foo(.e0)) {}
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

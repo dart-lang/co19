@@ -13,9 +13,9 @@
 /// the empty context `_`. (It's neither the static type of the first operand,
 /// nor the parameter type of the first operand's `operator==`.)
 ///
-/// @description Checks that it is a compile-time error if the right operand of
-/// `==` or `!=` operators is not a precisely static member shorthand. Test a
-/// class.
+/// @description Checks that it is a compile-time error if a pattern has the
+/// form `== e2` or `!= e2` and `e2` is not a precisely shorthand expression.
+/// Test a class.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
@@ -26,50 +26,27 @@ class C<T> {
   const C.id(this.value);
   const factory C.f(T t) = C;
 
-  static C<int> get intOne => C(1);
-  static C<int> intTwo() => C(2);
-  static List<C<int>> values = [C(3)];
-
-  @override
-  bool operator ==(Object other) {
-    if (other is C) {
-      return value == other.value;
-    }
-    return false;
-  }
+  static const C<int> instance = C(3);
 }
 
-C<int> foo(C<int> c) => c;
-
 main() {
-  bool condition = 2 > 1;
-  if (C(0) == condition ? .new(0) : C.id(1)) {}
-//                        ^
+  if ([C(0)] case == const [.new(1)]) {}
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ([C(0)] == [.id(1)]) {}
-//               ^
+  if ({C(0)} case != const {.id(2)}) {}
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({C(0)} != {.f(0)}) {}
-//               ^
+  if ({"key": C(0)} case != const {"key": .f(3)}) {}
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ({"key": C(0)} != {"key": .intOne}) {}
-//                             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  if (C(0) == (.intTwo())) {}
-//             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  if (C(0) == foo(.values[0])) {}
-//                ^
+  if (C(0) case == (.instance)) {}
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

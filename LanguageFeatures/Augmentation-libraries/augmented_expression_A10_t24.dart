@@ -15,7 +15,7 @@
 class C<augmented> {}
 
 augment class C<augmented> {}
-//             ^^^^^^^^^
+//              ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
