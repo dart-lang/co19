@@ -13,4 +13,4 @@ import 'shorthand_lib.dart';
 C<T> testClass<T>(C<T> c) => c;
 M<T> testMixin<T>(M<T> m) => m;
 E<T> testEnum<T>(E<T> e) => e;
-ET<T> testExtensionType<T>(ET<T> et) => et;
+ET<T> testExtensionType<T extends num>(ET<T> et) => et;

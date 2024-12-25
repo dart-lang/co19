@@ -31,14 +31,14 @@ import '../../Utils/expect.dart';
 import 'shorthand_lib.dart' as p;
 
 main() {
-  Object o = p.C();
+  Object o = p.C(0);
   if (o is p.C) {
     o = .id3<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
     }
   }
-  o = p.C();
+  o = p.C(0);
   if (o is p.CAlias) {
     o = .id3<int>;
     if (o is Function) {
@@ -46,14 +46,14 @@ main() {
     }
   }
 
-  o = p.MA();
+  o = p.MC(0);
   if (o is p.M) {
     o = .id3<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
     }
   }
-  o = p.MA();
+  o = p.MC(0);
   if (o is p.MAlias) {
     o = .id3<int>;
     if (o is Function) {
@@ -61,14 +61,14 @@ main() {
     }
   }
 
-  o = p.E.e0;
+  o = p.E.e1;
   if (o is p.E) {
     o = .id3<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
     }
   }
-  o = p.E.e0;
+  o = p.E.e1;
   if (o is p.EAlias) {
     o = .id3<int>;
     if (o is Function) {
