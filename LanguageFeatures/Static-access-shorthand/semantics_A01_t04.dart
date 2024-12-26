@@ -59,7 +59,7 @@ main() {
     }
   }
   o = C();
-  if (o is CAlias) {
+  if (o is CAlias) {        // ignore: unnecessary_type_check
     o = .id<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
@@ -74,7 +74,7 @@ main() {
     }
   }
   o = MA();
-  if (o is MAlias) {
+  if (o is MAlias) {        // ignore: unnecessary_type_check
     o = .id<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
@@ -89,7 +89,7 @@ main() {
     }
   }
   o = E.e0;
-  if (o is EAlias) {
+  if (o is EAlias) {        // ignore: unnecessary_type_check
     o = .id<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
@@ -104,7 +104,7 @@ main() {
     }
   }
   o = ET(1);
-  if (o is ETAlias) {
+  if (o is ETAlias) {     // ignore: unnecessary_type_check
     o = .id<int>;
     if (o is Function) {
       Expect.equals(42, o(42));

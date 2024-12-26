@@ -31,45 +31,45 @@ import '../../Utils/expect.dart';
 import 'shorthand_lib.dart' as p;
 
 main() {
-  Object o = p.C();
+  Object o = p.C(0);
   if (o is p.C) {
     o = .id3<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
     }
   }
-  o = p.C();
-  if (o is p.CAlias) {
+  o = p.C(0);
+  if (o is p.CAlias) {        // ignore: unnecessary_type_check
     o = .id3<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
     }
   }
 
-  o = p.MA();
+  o = p.MC(0);
   if (o is p.M) {
     o = .id3<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
     }
   }
-  o = p.MA();
-  if (o is p.MAlias) {
+  o = p.MC(0);
+  if (o is p.MAlias) {      // ignore: unnecessary_type_check
     o = .id3<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
     }
   }
 
-  o = p.E.e0;
+  o = p.E.e1;
   if (o is p.E) {
     o = .id3<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
     }
   }
-  o = p.E.e0;
-  if (o is p.EAlias) {
+  o = p.E.e1;
+  if (o is p.EAlias) {      // ignore: unnecessary_type_check
     o = .id3<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
@@ -84,7 +84,7 @@ main() {
     }
   }
   o = p.ET(1);
-  if (o is p.EAlias) {
+  if (o is p.EAlias) {      // ignore: unnecessary_type_check
     o = .id3<int>;
     if (o is Function) {
       Expect.equals(42, o(42));
