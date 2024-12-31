@@ -37,3 +37,4 @@ class MA extends A with M {
 
 main() {
   print(MA);
+}
