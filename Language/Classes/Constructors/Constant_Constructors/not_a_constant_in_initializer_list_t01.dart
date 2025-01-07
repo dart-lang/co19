@@ -11,10 +11,10 @@
 /// constant constructor were treated as compile-time constants that were
 /// guaranteed to evaluate to an integer, boolean or string value as required
 /// by their immediately enclosing superexpression.
+///
 /// @description Checks that it is a compile-time error when a constant
 /// constructor's initializer list contains non-constant list literal.
 /// @author iefremov
-
 
 class A {
   final x;
@@ -25,7 +25,5 @@ class A {
 }
 
 main() {
-  const A(1);
-//      ^
-// [analyzer] unspecified
+  print(A);
 }

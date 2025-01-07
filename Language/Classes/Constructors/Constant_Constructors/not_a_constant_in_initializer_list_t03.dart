@@ -11,23 +11,24 @@
 /// constant constructor were treated as compile-time constants that were
 /// guaranteed to evaluate to an integer, boolean or string value as required
 /// by their immediately enclosing superexpression.
+///
 /// @description Checks that it is a compile-time error when a constant
-/// constructor's initializer list contains a function call.
+/// constructor's initializer list contains an non-constant instance creation
+/// expression.
 /// @author iefremov
 
-
-f() {}
-
 class A {
+  const A();
+}
+
+class C {
   final x;
-  const A() : x = f();
-//                ^^^
+  const C() : x = new A();
+//                ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  const A();
-//      ^
-// [analyzer] unspecified
+  print(C);
 }
