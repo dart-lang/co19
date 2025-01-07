@@ -22,11 +22,11 @@ class C {
   const C.id(this.value);
   const factory C.f(String value) = C;
 
-  static const C instance = const C("C instance");
+  static const C? instance = const C("C instance");
 }
 
 mixin M on C {
-  static const M instance = const MC("M instance");
+  static const M? instance = const MC("M instance");
 }
 
 class MC extends C with M {
@@ -38,14 +38,14 @@ enum E {
   final String value;
   const E(this.value);
 
-  static const E instance = E.e0;
+  static const E? instance = E.e0;
 }
 
 extension type const ET(int value) {
   const ET.id(this.value);
   const factory ET.f(int value) = ET;
 
-  static const zero = const ET(0);
+  static const ET? zero = const ET(0);
 }
 
 main() {
@@ -58,16 +58,16 @@ main() {
   const C c3 = const .f("three")!; // ignore: unnecessary_non_null_assertion
   Expect.equals("three", c3.value);
 
-  const C c4 = .instance!; // ignore: unnecessary_non_null_assertion
+  const C c4 = .instance!;
   Expect.equals("C instance", c4.value);
 
-  const M m = .instance!; // ignore: unnecessary_non_null_assertion
+  const M m = .instance!;
   Expect.equals("M instance", m.value);
 
   const E e1 = .e0!; // ignore: unnecessary_non_null_assertion
   Expect.equals(e1, E.e0);
 
-  const E e2 = .instance!; // ignore: unnecessary_non_null_assertion
+  const E e2 = .instance!;
   Expect.equals("e0", e2.value);
 
   const ET et1 = const .new(1)!; // ignore: unnecessary_non_null_assertion
@@ -79,6 +79,6 @@ main() {
   const ET et3 = const .f(3)!; // ignore: unnecessary_non_null_assertion
   Expect.equals(3, et3.value);
 
-  const ET et4 = .zero!; // ignore: unnecessary_non_null_assertion
+  const ET et4 = .zero!;
   Expect.equals(0, et4.value);
 }

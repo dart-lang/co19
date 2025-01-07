@@ -31,20 +31,20 @@ extension type const ET<X, T>(int _) {
 }
 
 void foo<T>() {
-  C<int, T> c1 = const .new();
-//                     ^^^^
+  C<int, void Function<Y extends T>()> c1 = const .new();
+//                                                ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C<T, int> c2 = const .id();
-//                     ^^^
+  C<void Function<Y extends T>(), int> c2 = const .id();
+//                                                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ET<int, T> et1 = const .new(0);
-//                       ^^^^
+  ET<int, void Function<Y extends T>()> et1 = const .new(0);
+//                                                  ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ET<T, int> et2 = const .id(0);
-//                       ^^^
+  ET<void Function<Y extends T>(), int> et2 = const .id(0);
+//                                                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

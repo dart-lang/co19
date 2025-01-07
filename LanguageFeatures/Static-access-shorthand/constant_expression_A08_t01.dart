@@ -34,31 +34,37 @@ extension type const ET(int _) {
 }
 
 main() {
+  C nc1 = .id1; // Ok
   const C c1 = .id1;
-//             ^^^^
+//              ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  C nc2 = .id1();
   const C c2 = .id1();
 //             ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  C nc3 = .id2();
   const C c3 = .id2();
 //             ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  ET net1 = .id1;
   const ET et1 = .id1;
 //               ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  ET net2 = .id1();
   const ET et2 = .id1();
 //               ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  ET net3 = .id2();
   const ET et3 = .id2();
 //               ^^^^
 // [analyzer] unspecified

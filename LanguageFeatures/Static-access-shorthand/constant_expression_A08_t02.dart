@@ -31,11 +31,13 @@ extension type const ET(int _) {
 }
 
 main() {
+  C nc = .id<int>(); // Ok
   const C c = .id<int>();
 //            ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  ET net = .id<int>();
   const ET et = .id<int>();
 //              ^^^^^^^^
 // [analyzer] unspecified
