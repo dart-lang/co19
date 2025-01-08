@@ -58,6 +58,6 @@ main() {
   Expect.identical(const MC(1), m2);
   const e2 = (E.e1 as E?) ?? .one;
   Expect.identical(E.e1, e2);
-  const ET et2 = (ET(1) as ET?) ?? .one;
+  const et2 = (ET(1) as ET?) ?? .one;
   Expect.identical(const ET(1), et2);
 }
