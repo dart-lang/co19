@@ -51,4 +51,13 @@ main() {
   Expect.identical(E.e1, e);
   const ET et = .two ?? .one;
   Expect.identical(const ET(1), et);
+
+  const c2 = (C(1) as C?) ?? .one;
+  Expect.identical(const C(1), c2);
+  const m2 = (MC(1) as M?) ?? .one;
+  Expect.identical(const MC(1), m2);
+  const e2 = (E.e1 as E?) ?? .one;
+  Expect.identical(E.e1, e2);
+  const ET et2 = (ET(1) as ET?) ?? .one;
+  Expect.identical(const ET(1), et2);
 }

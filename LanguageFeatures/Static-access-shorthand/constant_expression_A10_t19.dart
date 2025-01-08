@@ -8,7 +8,7 @@
 /// constant expression if and only if it's a constant expression.
 ///
 /// @description Checks that it is a compile-time error if a non-constant static
-/// member shorthand expression can be used in a constant `e1 ?? e2` expression.
+/// member shorthand expression is used in a constant `e1 ?? e2` expression.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
