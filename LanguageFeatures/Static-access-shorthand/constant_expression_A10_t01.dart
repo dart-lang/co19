@@ -15,7 +15,7 @@
 // SharedOptions=--enable-experiment=enum-shorthands
 
 import '../../Utils/expect.dart';
-import 'shorthand_lib.dart'as p;
+import 'shorthand_lib.dart' as p;
 
 main() {
   const p.C c = .answer;
