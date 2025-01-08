@@ -14,8 +14,8 @@
 ///   a constant context too) is a constant expression, and inferred type
 ///   arguments, if any, are all constant types.
 ///
-/// @description Checks that an expression of the form `.id(arguments)` or
-/// `.new(arguments)` is not a constant expression if inferred type arguments
+/// @description Checks that an expression of the form `'.' id(arguments)` or
+/// `'.' new(arguments)` is not a constant expression if inferred type arguments
 /// are not constant types.
 /// @author sgrekhov22@gmail.com
 

@@ -13,8 +13,8 @@
 ///   in `arguments`, which are all in a constant context, is not a constant
 ///   expression.
 ///
-/// @description Checks that expressions of the form `const .id(arguments)` and
-/// `const .new(arguments)` are constant expressions.
+/// @description Checks that expressions of the form `const '.' id(arguments)`
+/// and `const '.' new(arguments)` are constant expressions.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands

@@ -15,7 +15,7 @@
 ///   identical, which is not inside a static namespace.
 ///
 /// @description Checks that an expression of the form
-/// `.id<typeArguments>(arguments)` is not a constant expression if `id` is a
+/// `'.' id<typeArguments>(arguments)` is not a constant expression if `id` is a
 /// static function declaration.
 /// @author sgrekhov22@gmail.com
 

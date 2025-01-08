@@ -12,7 +12,7 @@
 ///   declares a constant getter.
 ///
 /// @description Checks that it is a compile-time error to use an expressions of
-/// the form `'.'<identifier>` in a constant context if `<identifier>` is an
+/// the form `'.' <identifier>` in a constant context if `<identifier>` is an
 /// explicit getter declaration.
 /// @author sgrekhov22@gmail.com
 

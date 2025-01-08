@@ -14,8 +14,8 @@
 ///   non-instance function which can be invoked as a constant expression is
 ///   identical, which is not inside a static namespace.
 ///
-/// @description Checks that an expression of the form `.id(arguments)` is not a
-/// constant expression if `id` is a getter or static function declaration.
+/// @description Checks that an expression of the form `'.' id(arguments)` is
+/// not a constant expression if `id` is a getter or static function declaration
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
@@ -36,7 +36,7 @@ extension type const ET(int _) {
 main() {
   C nc1 = .id1; // Ok
   const C c1 = .id1;
-//              ^^^^
+//             ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

@@ -11,7 +11,7 @@
 /// - (An expression of the form `.new` followed by a `<typeArguments>` is still
 ///   a compile-time error.)
 ///
-/// @description Checks that an expression of the form `.new` followed by a
+/// @description Checks that an expression of the form `'.' new` followed by a
 /// `<typeArguments>` is still a compile-time error.
 /// @author sgrekhov22@gmail.com
 

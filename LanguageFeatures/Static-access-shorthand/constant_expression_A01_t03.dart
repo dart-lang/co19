@@ -14,8 +14,8 @@
 ///   expression.
 ///
 /// @description Checks that it's a compile-time error to use expressions of the
-/// form `const .id(arguments)` or `const .new(arguments)` if any expression in
-/// `arguments` is not a constant expression.
+/// form `const '.' id(arguments)` or `const '.' new(arguments)` if any
+/// expression in `arguments` is not a constant expression.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
