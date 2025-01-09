@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -11,21 +11,34 @@
 /// constant constructor were treated as compile-time constants that were
 /// guaranteed to evaluate to an integer, boolean or string value as required
 /// by their immediately enclosing superexpression.
+///
 /// @description Checks that it is a compile-time error when a constant
-/// constructor's initializer list contains an instance creation expression.
-/// @author iefremov
-
+/// constructor's initializer list contains a use of a non-constant.
+/// @author sgrekhov22@gmail.com
+/// @issue 59804
 
 class A {
-  final x;
-  const A() : x = new List.from([]);
-//                ^^^
+  final int id;
+  const A(this.id);
+  static A answer = const A(42);
+}
+
+final A zero = const A(0);
+
+class C {
+  final A a;
+  const C(this.a);
+  const C.fromAnswer() : a = A.answer;
+//                           ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const C.fromGlobal() : a = zero;
+//                           ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  const A();
-//      ^
-// [analyzer] unspecified
+  print(C);
 }
