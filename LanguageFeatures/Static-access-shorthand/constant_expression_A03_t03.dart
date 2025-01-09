@@ -15,8 +15,8 @@
 ///   to the method, or to the target class for a constructor, or the added type
 ///   arguments are constant types.
 ///
-/// @description Checks that an expression of the form `'.'<identifier>` that is
-/// not followed by an `<argumentPart>` is not a constant expression if the
+/// @description Checks that an expression of the form `'.' <identifier>` that
+/// is not followed by an `<argumentPart>` is not a constant expression if the
 /// type argument is not a constant expression.
 /// @author sgrekhov22@gmail.com
 
@@ -51,11 +51,30 @@ mixin M {
     return true;
   }
 }
-class MA = Object with M;
+class MO = Object with M;
+
+class A {
+  @override
+  bool operator ==(Object other) {
+    if (other is Function) {
+      Expect.equals("ET<String>", other());
+      Expect.equals(ET.foo<String>, other);
+      return identical(ET.foo<String>, other);
+    }
+    return true;
+  }
+}
+
+extension type ET(A _) implements A {
+  static String foo<X>() => "ET<$X>";
+}
 
 test<T>() {
-  Expect.isFalse(C() == .foo<T>);
-  Expect.isFalse((MA() as M) == .foo<T>);
+  // Just check that it works and doesn't crash. We don't check the result of
+  // `identical()` here because some compilers may canonicalize the torn-off
+  C() == .foo<T>;
+  (MO() as M) == .foo<T>;
+  ET(A()) == .foo<T>;
 }
 
 main() {

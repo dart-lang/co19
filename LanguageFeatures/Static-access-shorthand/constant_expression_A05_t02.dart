@@ -13,7 +13,7 @@
 ///   clauses are all constant type expressions, and S declares a corresponding
 ///   static function.
 ///
-/// @description Checks that an expression of the form `'.'id<typeArguments>`
+/// @description Checks that an expression of the form `'.' id<typeArguments>`
 /// not followed by an `<arguments>` selector is not a constant expression if
 /// S declares a corresponding static function but the type clauses are not all
 /// constant type expressions.
@@ -52,11 +52,30 @@ mixin M<T extends num> {
 }
 class MA<T extends num> = Object with M<T>;
 
+class A {
+  @override
+  bool operator ==(Object other) {
+    if (other is Function) {
+      Expect.equals("ET<int>", other());
+      return identical(ET.foo<String>, other);
+    }
+    return false;
+  }
+}
+
+extension type ET<T>(A _) implements A {
+  static String foo<X>() => "ET<$X>";
+}
+
 void test<T extends num>() {
-  Expect.isFalse(C() == .foo<T>);
-  Expect.isFalse(C<int>() == .foo<T>);
-  Expect.isFalse((MA() as M) == .foo<T>);
-  Expect.isFalse((MA<int>() as M<int>) == .foo<T>);
+  // Just check that it works and doesn't crash. We don't check the result of
+  // `identical()` here because some compilers may canonicalize the torn-off
+  C() == .foo<T>;
+  C<int>() == .foo<T>;
+  (MA() as M) == .foo<T>;
+  (MA<int>() as M<int>) == .foo<T>;
+  ET(A()) == .foo<T>;
+  ET<int>(A()) == .foo<T>;
 }
 
 main() {
