@@ -101,7 +101,7 @@ main() {
   }
   Expect.equals("ET Ok", res);
 
-  if ((x: ET(1)) case (x: .one,)) {
+  if ((x: ET(1)) case (x: .one)) {
     res = "ET Ok again";
   }
   Expect.equals("ET Ok again", res);

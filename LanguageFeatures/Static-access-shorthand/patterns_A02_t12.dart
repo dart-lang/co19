@@ -11,8 +11,8 @@
 /// other than for `==` and `!=`, will have the parameter type of the
 /// corresponding operator of the matched value type as context type.
 ///
-/// @description Checks that if a static member shorthand expression occurs in a
-/// object pattern it's treated as a normal constant expression, using the
+/// @description Checks that if a static member shorthand expression occurs in
+/// an object pattern it's treated as a normal constant expression, using the
 /// context type it's given.
 /// @author sgrekhov22@gmail.com
 
@@ -68,7 +68,7 @@ main() {
   }
   Expect.equals("C Ok", res);
 
-  if (c case Container(m: .one,)) {
+  if (c case Container(m: .one)) {
     res = "M Ok";
   }
   Expect.equals("M Ok", res);
@@ -78,12 +78,12 @@ main() {
   }
   Expect.equals("E Ok", res);
 
-  if (c case Container(e: .e1,)) {
+  if (c case Container(e: .e1)) {
     res = "E Ok again";
   }
   Expect.equals("E Ok again", res);
 
-  if (c case Container(et: .one,)) {
+  if (c case Container(et: .one)) {
     res = "ET Ok";
   }
   Expect.equals("ET Ok", res);

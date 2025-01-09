@@ -55,28 +55,28 @@ extension type const ET(int value) implements int {
 
 main() {
   String res = "";
-  if (C(1) case (C.one)) {
+  if (C(1) case (.one)) {
     res = "C Ok";
   }
   Expect.equals("C Ok", res);
 
   M m = MC(1);
-  if (m case (M.one)) {
+  if (m case (.one)) {
     res = "M Ok";
   }
   Expect.equals("M Ok", res);
 
-  if (E.e1 case (E.one)) {
+  if (E.e1 case (.one)) {
     res = "E Ok";
   }
   Expect.equals("E Ok", res);
 
-  if (E.e1 case (E.e1)) {
+  if (E.e1 case (.e1)) {
     res = "E Ok again";
   }
   Expect.equals("E Ok again", res);
 
-  if (ET(1) case (ET.one)) {
+  if (ET(1) case (.one)) {
     res = "ET Ok";
   }
   Expect.equals("ET Ok", res);
