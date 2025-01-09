@@ -21,8 +21,8 @@
 ///     | 'const' '.' (<identifier> | 'new') <arguments>  -- shorthand for constant object creation
 ///  ```
 ///
-/// @description Checks that the static access short syntax can be used with
-/// the `<` operator.
+/// @description Checks that the static access shorthand syntax can be used with
+/// the `|` and `|=` operators.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
@@ -35,13 +35,13 @@ class C {
   int value;
   C(this.value);
 
-  C operator <(C other) => C(value - other.value);
+  C operator |(C other) => C(value | other.value);
 }
 
 mixin M {
   static M two = MC(2);
 
-  M operator <(M other) => MC(0);
+  M operator |(M other) => MC((this as MC).value | (other as MC).value);
 }
 class MC with M {
   int value;
@@ -52,28 +52,38 @@ enum E {
   e0, e1, e2;
   static E two = E.e2;
 
-  E operator <(E other) => E.e0;
+  E operator |(E other) => E.e0;
 }
 
 extension type ET(int v) implements int {
   static ET two = ET(2);
 
-  ET operator <(ET other) => ET(this.v - other.v);
+  ET operator |(ET other) => ET(this.v | other.v);
 }
 
 main() {
-  C c = C(7) < .two;
-  Expect.equals(5, c.value);
+  C c = C(7) | .two;
+  Expect.equals(7, c.value);
+  c |= .two;
+  Expect.equals(7, c.value);
 
-  M m = MC(2) < .two;
-  Expect.equals(0, (m as MC).value);
+  M m = MC(7) | .two;
+  Expect.equals(7, (m as MC).value);
+  m |= .two;
+  Expect.equals(7, (m as MC).value);
 
-  E e1 = E.e2 < .two;
+  E e1 = E.e2 | .two;
+  Expect.equals(E.e0, e1);
+  e1 |= .two;
   Expect.equals(E.e0, e1);
 
-  E e2 = E.e2 < .e1;
+  E e2 = E.e2 | .e1;
+  Expect.equals(E.e0, e2);
+  e2 |= .e1;
   Expect.equals(E.e0, e2);
 
-  ET et = ET(8) < .two;
-  Expect.equals(6, et.v);
+  ET et = ET(8) | .two;
+  Expect.equals(10, et.v);
+  et |= .two;
+  Expect.equals(10, et.v);
 }

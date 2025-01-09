@@ -21,8 +21,8 @@
 ///     | 'const' '.' (<identifier> | 'new') <arguments>  -- shorthand for constant object creation
 ///  ```
 ///
-/// @description Checks that the static access short syntax can be used with
-/// the `~/` operator.
+/// @description Checks that the static access shorthand syntax can be used with
+/// the `~/` and `~/=` operators.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
@@ -41,10 +41,10 @@ class C {
 mixin M {
   static M two = MC(2);
 
-  M operator ~/(M other) => MC(0);
+  M operator ~/(M other) => MC((this as MC).value ~/ (other as MC).value);
 }
 class MC with M {
-  double value;
+  num value;
   MC(this.value);
 }
 
@@ -62,18 +62,28 @@ extension type ET(num v) implements num {
 }
 
 main() {
-  C c = C(2) ~/ .two;
+  C c = C(3) ~/ .two;
   Expect.equals(1, c.value);
+  c ~/= .two;
+  Expect.equals(0, c.value);
 
-  M m = MC(2) ~/ .two;
+  M m = MC(3) ~/ .two;
+  Expect.equals(1, (m as MC).value);
+  m ~/= .two;
   Expect.equals(0, (m as MC).value);
 
   E e1 = E.e2 ~/ .two;
   Expect.equals(E.e0, e1);
+  e1 ~/= E.two;
+  Expect.equals(E.e0, e1);
 
   E e2 = E.e2 ~/ .e1;
   Expect.equals(E.e0, e2);
+  e2 ~/= E.e1;
+  Expect.equals(E.e0, e2);
 
-  ET et = ET(3.1) ~/ .two;
+  ET et = ET(4.1) ~/ .two;
+  Expect.equals(2, et.v);
+  et ~/= .two;
   Expect.equals(1, et.v);
 }
