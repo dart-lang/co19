@@ -33,7 +33,7 @@ extension type const ET(String value) {
   const factory ET.f(String value, {String s}) = ET.id2;
 }
 
-main() {/*
+main() {
   String s = "Not a constant";
   const C c1 = const .new(s);
 //                        ^
@@ -94,5 +94,4 @@ main() {/*
 //                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
-*/
 }
