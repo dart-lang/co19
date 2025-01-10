@@ -15,6 +15,7 @@
 /// @description Checks that it is a compile-time error when a constant
 /// constructor's initializer list contains a function call.
 /// @author iefremov
+/// @issue 59804
 
 f1() {}
 int f2() => 2;

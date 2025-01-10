@@ -29,7 +29,8 @@ class C {
 
 extension type const ET(String value) {
   const ET.id(this.value, [String s = ""]);
-  const factory ET.f(String value, {String s = ""}) = ET;
+  const ET.id2(this.value, {String s = ""});
+  const factory ET.f(String value, {String s}) = ET.id2;
 }
 
 main() {
