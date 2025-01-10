@@ -57,84 +57,164 @@ extension type ET(int value) {
   static ET? three() => ET(3);
 }
 
-main() {
-  var l1 = <C>[
-      ?.id(0),
-//    ^
+void testConstructors() {
+  var l = <C>[
+      ?.id(0)
+//    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  ];
+
+  var s = <C>{
       ?.new(0),
-//    ^
+//    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      ?.one,
-//    ^
+  };
+
+  var m1 = <String, ET> {
+      "key": ?.id(0)
+//           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      ?.two,
-//    ^
+      ?.new(0): "value1",
+//    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      ?.three()
-//    ^
+  };
+
+  var m2 = <ET, String> {
+      ?.new(0): "value"
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+}
+
+void testVariables() {
+  var l = <C>[
+      ?.one
+//    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   ];
 
   var s = <M>{
-      ?.one,
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      ?.two,
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      ?.three()
-//    ^
+      ?.one
+//    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
 
-  var m = <String, E>{
-      "key0": ?.e1,
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      "key1": ?.one,
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      "key2": ?.two,
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      "key3": ?.three()
-//            ^
+  var m1 = <String, E>{
+      "key": ?.one,
+//           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   };
 
-  var l2 = <ET> [
-      ?.id(0),
-//    ^
+  var m2 = <ET, String> {
+      ?.one: "value"
+//    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      ?.new(0),
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      ?.one,
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      ?.two,
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      ?.three()
-//    ^
+  };
+}
+
+void testGetters() {
+  var l = <C>[
+      ?.two
+//    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   ];
+
+  var s = <M>{
+      ?.two
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
+  var m1 = <String, E>{
+      "key": ?.two,
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
+  var m2 = <ET, String> {
+      ?.two: "value"
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+}
+
+void testMethods() {
+  var l = <C>[
+      ?.three()
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ];
+
+  var s = <M>{
+      ?.three()
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
+  var m1 = <String, E>{
+      "key": ?.three(),
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
+  var m2 = <ET, String> {
+      ?.three(): "value"
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+}
+
+void testEnumValues() {
+  var l = <E>[
+      ?.e0
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ];
+
+  var s = <E>{
+      ?.e0
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
+  var m1 = <String, E>{
+      "key": ?.e0,
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+
+  var m2 = <E, String> {
+      ?.e0: "value"
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  };
+}
+
+main() {
+  testConstructors();
+  testVariables();
+  testGetters();
+  testMetods();
+  testEnumValues();
 }

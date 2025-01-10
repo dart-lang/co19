@@ -9,7 +9,7 @@
 /// different meanings, where the existing grammar didn’t allow the `?` token to
 /// be followed by `.` anywhere.
 ///
-/// @description Checks that spread collections  `... .id` is parsed as
+/// @description Checks that spread collections  `... .id` is treated as
 /// `... C.id`
 /// @author sgrekhov22@gmail.com
 

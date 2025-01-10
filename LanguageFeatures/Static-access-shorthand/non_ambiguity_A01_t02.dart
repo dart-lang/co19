@@ -29,10 +29,10 @@ extension on bool {
 main() {
   bool e1 = 2 > 1; // true
   var e2 = "value";
-  Object o = C(1);
-  if (o is C) {
+  Object o = <C>{C(1)};
+  if (o is Set<C>) {
     o = {e1? .id: e2};
-    Expect.isTrue(o is Set);
+    Expect.isTrue(o is Set);    // ignore: unnecessary_type_check
     Expect.setEquals({C.id}, o as Set);
   }
 }

@@ -67,29 +67,35 @@ main() {
       ? .two,
       ? .three()
   ];
-  Expect.listEquals([C(0), C(0), C(1), C(2), C(3)] ,l1);
+  Expect.listEquals([C(0), C(0), C(1), C(2), C(3)], l1);
 
   var s = <M>{
       ? .one,
       ? .two,
       ? .three()
   };
-  Expect.setEquals({MC(1), MC(2), MC(3)} ,s);
+  Expect.setEquals({MC(1), MC(2), MC(3)}, s);
 
-  var m = <String, E>{
+  var m1 = <String, E>{
       "key0": ? .e1,
       "key1": ? .one,
       "key2": ? .two,
       "key3": ? .three()
   };
-  Expect.mapEquals({"key0": E.e1, "key1": E.e1, "key2": E.e2, "key3":E.e3} ,m);
+  Expect.mapEquals({"key0": E.e1, "key1": E.e1, "key2": E.e2, "key3":E.e3}, m1);
 
-  var l2 = <ET> [
-      ? .id(0),
-      ? .new(0),
-      ? .one,
-      ? .two,
-      ? .three()
-  ];
-  Expect.listEquals([ET(0), ET(0), ET(1), ET(2), ET(3)] ,l2);
+  var m2 = <ET, String> {
+      ? .id(-1): "value0",
+      ? .new(0): "value1",
+      ? .one: "value2",
+      ? .two: "value3",
+      ? .three(): "value4"
+  };
+  Expect.mapEquals({
+      ET(-1): "value0",
+      ET(0): "value1",
+      ET(1): "value2",
+      ET(2): "value3",
+      ET(3): "value4"
+  }, m2);
 }

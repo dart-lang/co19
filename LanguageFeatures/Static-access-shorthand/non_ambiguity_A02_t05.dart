@@ -10,7 +10,7 @@
 /// be followed by `.` anywhere.
 ///
 /// @description Checks that spread collections  `...? .id` is parsed as
-/// `...? C.id`
+/// `...? .id`
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
