@@ -28,11 +28,12 @@ class C {
 }
 
 mixin M {
-  final String value;
-  static const M instance = MO("M instance");
+  static const M instance = MO();
 }
-
-class MO = Object with M;
+class MO with M {
+  final String value = "M instance";
+  const MO();
+}
 
 extension type const ET(String value) {
   static const instance = ET("ET instance");
@@ -41,6 +42,9 @@ extension type const ET(String value) {
 main() {
   const C c = .instance;
   Expect.equals("C instance", c.value);
+
+  const M m = .instance;
+  Expect.equals("M instance", (m as MO).value);
 
   const ET et = .instance;
   Expect.equals("ET instance", et.value);

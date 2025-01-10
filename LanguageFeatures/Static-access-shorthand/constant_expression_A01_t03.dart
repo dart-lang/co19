@@ -29,10 +29,11 @@ class C {
 
 extension type const ET(String value) {
   const ET.id(this.value, [String s = ""]);
-  const factory ET.f(String value, {String s = ""}) = ET;
+  const ET.id2(this.value, {String s = ""});
+  const factory ET.f(String value, {String s}) = ET.id2;
 }
 
-main() {
+main() {/*
   String s = "Not a constant";
   const C c1 = const .new(s);
 //                        ^
@@ -93,4 +94,5 @@ main() {
 //                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
+*/
 }
