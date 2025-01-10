@@ -22,7 +22,7 @@
 ///  ```
 ///
 /// @description Checks that it is a compile-time error to use the static access
-/// short syntax with the unary postfix `++` operator.
+/// shorthand syntax with the postfix `++` operator.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands

@@ -22,7 +22,7 @@
 ///  ```
 ///
 /// @description Checks that it is a compile-time error to use the static access
-/// short syntax in string literals.
+/// shorthand syntax in string literals.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
