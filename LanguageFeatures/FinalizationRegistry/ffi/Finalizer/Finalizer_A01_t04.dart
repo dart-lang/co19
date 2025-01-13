@@ -10,7 +10,7 @@
 /// and will run in that zone when called.
 ///
 /// @description Checks that finalizer object can be created and its callback
-/// will never run if attached object is accessible.
+/// will never run if attached object is accessed.
 /// @author iarkh@unipro.ru
 
 import 'dart:async';
@@ -18,7 +18,7 @@ import '../../gc_utils_lib.dart';
 import '../../../../Utils/expect.dart';
 
 int called = 0;
-Object? accessibleLink;
+Object? accessedLink;
 
 final Finalizer finalizer = Finalizer((token) {
   Expect.equals(123, token);
@@ -32,12 +32,15 @@ attachToFinalizer() async {
   Object? object = Object();
   finalizer.attach(object, 123);
   await triggerGcWithDelay();
-  accessibleLink = object;
+  accessedLink = object;
   object = null;
   Expect.equals(0, called);
   () async {
     await triggerGcWithDelay();
     Expect.equals(0, called);
+    // If accessedLink is never read the optimizer may kill the object after
+    // `object = null`. Read it here to avoid it.
+    print(accessedLink);
     completer.complete();
   }();
 }
@@ -45,7 +48,7 @@ attachToFinalizer() async {
 main() async {
   await attachToFinalizer();
   await completer.future;
-  accessibleLink = null;
+  accessedLink = null;
   // Previous triggerGc move some objects to old space. Do multiple GCs to
   // force all objects to old space.
   await triggerGcWithDelay(repeat: 3);
