@@ -20,8 +20,6 @@ class C {
 }
 
 enum E {
-//   ^
-// [cfe] unspecified
   a(1);
 //^
 // [cfe] unspecified

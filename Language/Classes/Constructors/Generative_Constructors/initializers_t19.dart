@@ -41,8 +41,6 @@ class C extends A {
 }
 
 enum E {
-//   ^
-// [cfe] unspecified
   e1;
 //^
 // [cfe] unspecified
