@@ -30,8 +30,6 @@ enum E1 {
 }
 
 enum E2<T> {
-//   ^^
-// [cfe] unspecified
   e1<int>(i),
 //        ^
 // [analyzer] unspecified

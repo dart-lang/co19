@@ -26,6 +26,8 @@ enum E1 {
   e3;
 
   void set e1(int v) {}
+//         ^^
+// [cfe] unspecified
 }
 
 enum E2<T> {
@@ -38,6 +40,8 @@ enum E2<T> {
 
   const E2(T t);
   void set e2(int v) {}
+//         ^^
+// [cfe] unspecified
 }
 
 enum E3 {
