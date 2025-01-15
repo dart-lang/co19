@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is an error if a named parameter that is part of a required
-/// group is not bound to an argument at a call site
+/// @assertion It is an error if a required named parameter is not bound to an
+/// argument at a call site.
 ///
-/// @description Check that it is an error if a named parameter that is part of a
-/// required group is not bound to an argument at a call site
+/// @description Check that it is an error if a required named parameter is not
+/// bound to an argument at a call site
 /// @author sgrekhov@unipro.ru
-
 
 class C {
   static void test1({required int x, String y = "", required String z}) {}
