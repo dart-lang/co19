@@ -54,16 +54,16 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const ET et1 = const (.new("new"),);
+  const ET et1 = const (.new("new"));
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const ET et2 = const (.id("id"),);
+  const ET et2 = const (.id("id"));
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const ET et3 = const (.f("f"),);
+  const ET et3 = const (.f("f"));
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified
