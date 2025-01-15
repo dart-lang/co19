@@ -56,4 +56,13 @@ main() {
 
   M m3 = .instances[0];
   Expect.equals("M: one", m3.value);
+
+  M m4 = (.staticGetter);
+  Expect.equals("M: static getter", m1.value);
+
+  M m5 = (.staticMethod());
+  Expect.equals("M: static method", m2.value);
+
+  M m6 = (.instances[0]);
+  Expect.equals("M: one", m3.value);
 }

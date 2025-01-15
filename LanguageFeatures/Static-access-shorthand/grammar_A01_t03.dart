@@ -51,4 +51,16 @@ main() {
 
   E e3 = .values[1];
   Expect.equals(E.v2, e3);
+
+  E e4 = (.v1);
+  Expect.equals(E.v1, e4);
+
+  E e5 = (.staticGetter);
+  Expect.equals("v1", e5.value);
+
+  E e6 = (.staticMethod());
+  Expect.equals("v2", e6.value);
+
+  E e7 = (.values[1]);
+  Expect.equals(E.v2, e7);
 }
