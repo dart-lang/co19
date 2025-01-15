@@ -32,6 +32,7 @@ import '../../Utils/expect.dart';
 extension type ET1(int v) {
   const ET1.foo(this.v);
   ET1.bar(this.v);
+  const factory ET1.baz(int v) = ET1.foo;
 
   static ET1 get staticGetter => ET1(1);
   static ET1 staticMethod() => ET1(2);
@@ -65,15 +66,46 @@ main() {
   ET1 et5 = .bar(5);
   Expect.equals(5, et5.v);
 
-  ET2 et6 = .baz(6);
+  ET1 et6 = .baz(6);
   Expect.equals(6, et6.v);
 
-  ET2 et7 = const .new(7);
+  ET1 et7 = const .baz(7);
   Expect.equals(7, et7.v);
 
-  ET3 et8 = const .qux(8);
+  ET2 et8 = .baz(8);
   Expect.equals(8, et8.v);
 
-  ET3 et9 = .new(9);
+  ET2 et9 = const .new(9);
   Expect.equals(9, et9.v);
+
+  ET3 et10 = const .qux(10);
+  Expect.equals(10, et10.v);
+
+  ET3 et11 = .new(11);
+  Expect.equals(11, et11.v);
+
+
+  ET1 et20 = (.instances[0]);
+  Expect.equals(0, et20.v);
+
+  ET1 et21 = (.staticGetter);
+  Expect.equals(1, et21.v);
+
+  ET1 et22 = (.staticMethod());
+  Expect.equals(2, et22.v);
+
+  ET1 et23 = (.new(23));
+  Expect.equals(23, et23.v);
+
+  ET1 et24 = (.bar(24));
+  Expect.equals(24, et24.v);
+
+  ET1 et25 = (.baz(25));
+  Expect.equals(25, et25.v);
+
+  ET2 et26 = (.baz(26));
+  Expect.equals(26, et26.v);
+
+  ET3 et27 = (.new(27));
+  Expect.equals(27, et27.v);
 }

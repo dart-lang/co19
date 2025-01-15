@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -21,46 +21,44 @@
 ///     | 'const' '.' (<identifier> | 'new') <arguments>  -- shorthand for constant object creation
 ///  ```
 ///
-/// @description Checks that static members and values of an enum can be
-/// accessed using the static access short syntax.
+/// @description Checks that expressions of the form
+/// `const '(' '.' id(arguments) ',' ')'` and
+/// `const '(' '.' new(arguments) ',' ')'` are records containing constant
+/// shorthand expressions.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
 import '../../Utils/expect.dart';
 
-enum E {
-  v1("v1"), v2("v2");
-
+class C {
   final String value;
-  const E(this.value);
+  const C(this.value);
+  const C.id(this.value);
+  const factory C.f(String value) = C;
+}
 
-  static E get staticGetter => v1;
-  static E staticMethod() => v2;
+extension type const ET(String value) {
+  const ET.id(this.value);
+  const factory ET.f(String value) = ET;
 }
 
 main() {
-  E e0 = .v1;
-  Expect.equals(E.v1, e0);
+  const (C,) c1 = const (.new("one"),);
+  Expect.equals("one", c1.$1.value);
 
-  E e1 = .staticGetter;
-  Expect.equals("v1", e1.value);
+  const (C,) c2 = const (.id("two"),);
+  Expect.equals("two", c2.$1.value);
 
-  E e2 = .staticMethod();
-  Expect.equals("v2", e2.value);
+  const (C,) c3 = const (.f("three"),);
+  Expect.equals("three", c3.$1.value);
 
-  E e3 = .values[1];
-  Expect.equals(E.v2, e3);
+  const (ET,) et1 = const (.new("new"),);
+  Expect.equals("new", et1.$1.value);
 
-  E e4 = (.v1);
-  Expect.equals(E.v1, e4);
+  const (ET,) et2 = const (.id("id"),);
+  Expect.equals("id", et2.$1.value);
 
-  E e5 = (.staticGetter);
-  Expect.equals("v1", e5.value);
-
-  E e6 = (.staticMethod());
-  Expect.equals("v2", e6.value);
-
-  E e7 = (.values[1]);
-  Expect.equals(E.v2, e7);
+  const (ET,) et3 = const (.f("f"),);
+  Expect.equals("f", et3.$1.value);
 }
