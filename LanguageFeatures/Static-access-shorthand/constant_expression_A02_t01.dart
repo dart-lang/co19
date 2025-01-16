@@ -11,7 +11,7 @@
 /// - An expression of the form `.<identifier>` is a constant expression if S
 ///   declares a corresponding static constant getter.
 ///
-/// @description Checks that expressions of the form `'.' <identifier>` is a
+/// @description Checks that an expression of the form `'.' <identifier>` is a
 /// constant expression if the appropriate declaration declares a constant
 /// getter with the name `<identifier>`.
 /// @author sgrekhov22@gmail.com

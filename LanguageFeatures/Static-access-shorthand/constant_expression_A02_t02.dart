@@ -11,9 +11,9 @@
 /// - An expression of the form `.<identifier>` is a constant expression if S
 ///   declares a corresponding static constant getter.
 ///
-/// @description Checks that it is a compile-time error to use an expressions of
+/// @description Checks that it is a compile-time error to use an expression of
 /// the form `'.' <identifier>` in a constant context if `<identifier>` is an
-/// explicit or implicit getter declaration.
+/// explicit or implicit non-constant getter declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
@@ -32,21 +32,25 @@ extension type const ET(String value) {
 }
 
 main() {
+  C nc1 = .instance1; // Ok
   const C c1 = .instance1;
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  C nc2 = .instance2;
   const C c2 = .instance2;
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  ET net1 = .instance1;
   const ET et1 = .instance1;
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  ET net2 = .instance2;
   const ET et2 = .instance2;
 //               ^
 // [analyzer] unspecified
