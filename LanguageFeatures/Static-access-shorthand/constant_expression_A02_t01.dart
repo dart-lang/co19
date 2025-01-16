@@ -9,7 +9,7 @@
 /// declaration S when looked up on D.
 /// ...
 /// - An expression of the form `.<identifier>` is a constant expression if S
-///   declares a constant getter.
+///   declares a corresponding static constant getter.
 ///
 /// @description Checks that expressions of the form `'.' <identifier>` is a
 /// constant expression if the appropriate declaration declares a constant
