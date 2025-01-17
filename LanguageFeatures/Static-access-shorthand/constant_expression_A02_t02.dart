@@ -9,34 +9,50 @@
 /// declaration S when looked up on D.
 /// ...
 /// - An expression of the form `.<identifier>` is a constant expression if S
-///   declares a constant getter.
+///   declares a corresponding static constant getter.
 ///
-/// @description Checks that it is a compile-time error to use an expressions of
+/// @description Checks that it is a compile-time error to use an expression of
 /// the form `'.' <identifier>` in a constant context if `<identifier>` is an
-/// explicit getter declaration.
+/// explicit or implicit non-constant getter declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enum-shorthands
 
 class C {
   final String value;
-  static C get instance => const C("C instance");
+  static C get instance1 => const C("C instance1");
+  static final C instance2 = const C("C instance2");
 
   const C(this.value);
 }
 
 extension type const ET(String value) {
-  static ET get instance => const ET("ET instance");
+  static ET get instance1 => const ET("ET instance1");
+  static final ET instance2 = const ET("ET instance2");
 }
 
 main() {
-  const C c = .instance;
-//            ^
+  C nc1 = .instance1; // Ok
+  const C c1 = .instance1;
+//             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const ET et = .instance;
-//              ^
+  C nc2 = .instance2;
+  const C c2 = .instance2;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  ET net1 = .instance1;
+  const ET et1 = .instance1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  ET net2 = .instance2;
+  const ET et2 = .instance2;
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -10,9 +10,10 @@
 /// ...
 /// - An expression of `.id(arguments)` or `.new(arguments)` is a constant
 ///   expression if (and only if) it occurs in a constant context, S declares a
-///   constant constructor, every expression in arguments (which then occurs in
-///   a constant context too) is a constant expression, and inferred type
-///   arguments, if any, are all constant types.
+///   corresponding constant constructor, every expression in `arguments` (which
+///   then occurs in a constant context too) is a constant expression, and
+///   inferred type arguments to the target class, if any, are all constant
+///   types.
 ///
 /// @description Checks that an expression of the form `'.' id(arguments)` or
 /// `'.' new(arguments)` is not a constant expression if inferred type arguments
