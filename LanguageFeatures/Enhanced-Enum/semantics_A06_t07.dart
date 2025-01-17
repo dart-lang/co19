@@ -36,8 +36,6 @@ String y = "s";
 double z = 3.14;
 
 enum E1 {
-//   ^^
-// [cfe] unspecified
   e1(x, "2"),
 //   ^
 // [analyzer] unspecified
@@ -54,8 +52,6 @@ enum E1 {
 }
 
 enum E2<T1 extends num, T2> {
-//   ^^
-// [cfe] unspecified
   e1<int, String>(x, "Lily was here"),
 //                ^
 // [analyzer] unspecified
