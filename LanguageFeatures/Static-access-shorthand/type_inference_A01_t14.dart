@@ -2,9 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Declaration denoted by a type scheme A context type scheme is
-/// said to denote a declaration in some cases. Not all context type schemes
-/// denote a declaration.
+/// @assertion A context type scheme is said to denote a declaration in some
+/// cases. Not all context type schemes denote a declaration.
 /// If a type scheme `S`:
 /// - has the form `C` or `C<typeArgs>` where `C` is a type introduced by a
 ///   declaration `D` which must therefore be a type-introducing declaration,
@@ -49,9 +48,18 @@ main() {
   ET<int>? et4 = .staticGetter;
   Expect.equals(4, et4.value);
 
-  ET<int>? et5 = .staticMethod<int>(5);
-  Expect.equals(5, et5.value);
+  ET? et5 = .staticGetter;
+  Expect.equals(4, et5.value);
 
-  ET<String>? et6 = ET.instance;
-  Expect.equals("one", et6.value);
+  ET<int>? et6 = .staticMethod<int>(6);
+  Expect.equals(6, et6.value);
+
+  ET? et7 = .staticMethod<int>(7);
+  Expect.equals(7, et7.value);
+
+  ET<String>? et8 = .instance;
+  Expect.equals("one", et8.value);
+
+  ET? et9 = .instance;
+  Expect.equals("one", et9.value);
 }

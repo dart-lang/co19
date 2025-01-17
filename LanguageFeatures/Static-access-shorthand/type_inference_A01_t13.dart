@@ -2,9 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Declaration denoted by a type scheme A context type scheme is
-/// said to denote a declaration in some cases. Not all context type schemes
-/// denote a declaration.
+/// @assertion A context type scheme is said to denote a declaration in some
+/// cases. Not all context type schemes denote a declaration.
 /// If a type scheme `S`:
 /// - has the form `C` or `C<typeArgs>` where `C` is a type introduced by a
 ///   declaration `D` which must therefore be a type-introducing declaration,
@@ -44,12 +43,24 @@ main() async {
   FutureOr<E<int>?>? e1 = .staticGetter;
   Expect.equals(E.e1, await e1);
 
-  FutureOr<E?>? e2 = .staticMethod();
-  Expect.equals(E.e2, await e2);
+  FutureOr<E?>? e2 = .staticGetter;
+  Expect.equals(E.e1, await e2);
 
-  FutureOr<E<String>?>? e3 = .instance;
-  Expect.equals(E.e3, await e3);
+  FutureOr<E?>? e3 = .staticMethod();
+  Expect.equals(E.e2, await e3);
 
-  E<String>? e4 = .e4;
-  Expect.equals(E.e4, await e4);
+  FutureOr<E<dynamic>?>? e4 = .staticMethod();
+  Expect.equals(E.e2, await e4);
+
+  FutureOr<E<String>?>? e5 = .instance;
+  Expect.equals(E.e3, await e5);
+
+  FutureOr<E?>? e6 = .instance;
+  Expect.equals(E.e3, await e6);
+
+  E<String>? e7 = .e4;
+  Expect.equals(E.e4, await e7);
+
+  E? e8 = .e4;
+  Expect.equals(E.e4, await e8);
 }

@@ -2,9 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Declaration denoted by a type scheme A context type scheme is
-/// said to denote a declaration in some cases. Not all context type schemes
-/// denote a declaration.
+/// @assertion A context type scheme is said to denote a declaration in some
+/// cases. Not all context type schemes denote a declaration.
 /// If a type scheme `S`:
 /// - has the form `C` or `C<typeArgs>` where `C` is a type introduced by a
 ///   declaration `D` which must therefore be a type-introducing declaration,
@@ -55,9 +54,18 @@ main() async {
   FutureOr<M<int>?>? m1 = .staticGetter;
   Expect.equals(MC(1), await m1);
 
-  FutureOr<M<int>?>? m2 = .staticMethod<int>(2);
-  Expect.equals(MC(2), await m2);
+  FutureOr<M?>? m2 = .staticGetter;
+  Expect.equals(MC(1), await m2);
 
-  FutureOr<M<String>?>? m3 = .instance;
-  Expect.equals(MC("one"), await m3);
+  FutureOr<M<int>?>? m3 = .staticMethod<int>(3);
+  Expect.equals(MC(3), await m3);
+
+  FutureOr<M?>? m4 = .staticMethod<int>(4);
+  Expect.equals(MC(4), await m4);
+
+  FutureOr<M<String>?>? m5 = .instance;
+  Expect.equals(MC("one"), await m5);
+
+  FutureOr<M?>? m6 = .instance;
+  Expect.equals(MC("one"), await m6);
 }
