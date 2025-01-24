@@ -18,20 +18,14 @@ const int? one = 2 > 1 ? one : null;
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-const int? two = 2 > 1 ? null : two;
-//         ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+const int? two = 2 > 1 ? null : two; // Ok
 
 class C {
   static const int? one = 2 > 1 ? one : null;
 //                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static const int? two = 2 > 1 ? null : two;
-//                  ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  static const int? two = 2 > 1 ? null : two; // Ok
 }
 
 mixin M {
@@ -40,9 +34,6 @@ mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
   static const int? two = 2 > 1 ? null : two;
-//                  ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 enum E {
@@ -52,9 +43,6 @@ enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
   static const int? two = 2 > 1 ? null : two;
-//                  ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 class A {}
@@ -65,9 +53,6 @@ extension Ext on A {
 // [analyzer] unspecified
 // [cfe] unspecified
   static const int? two = 2 > 1 ? null : two;
-//                  ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension type ET(int _) {
@@ -76,9 +61,6 @@ extension type ET(int _) {
 // [analyzer] unspecified
 // [cfe] unspecified
   static const int? two = 2 > 1 ? null : two;
-//                  ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
