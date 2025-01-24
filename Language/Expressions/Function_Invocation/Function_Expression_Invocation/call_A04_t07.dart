@@ -52,7 +52,7 @@ T expr<T>([Object? value, String? typeName]) {
 class BEC {}
 
 extension on BEC {
-  int Function(int) get call => bad;
+  int Function(int) get call => foo;
 }
 
 enum BEE {
@@ -60,22 +60,22 @@ enum BEE {
 }
 
 extension on BEE {
-  int Function(int) get call => bad;
+  int Function(int) get call => foo;
 }
 
 mixin BEM {}
 class BEMC = Object with BEM;
 
 extension on BEM {
-  int Function(int) get call => bad;
+  int Function(int) get call => foo;
 }
 
 extension type const BEET(Null _) {}
 
 extension on BEET {
-  int Function(int) get call => bad;
+  int Function(int) get call => foo;
 }
 
-int bad(int x) => 100 + x;
+int foo(int x) => x;
 
-({int Function(int) call}) rec = (call: bad);
+({int Function(int) call}) rec = (call: foo);

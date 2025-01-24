@@ -31,29 +31,29 @@ void main() {
   }, null, "BM as dynamic did not throw");
   Expect.throws(() {
     (BE.instance as dynamic)(42);
-  }, null, "BC as dynamic did not throw");
+  }, null, "BE as dynamic did not throw");
   Expect.throws(() {
     (rec as dynamic)(42);
   }, null, "Record as dynamic did not throw");
 }
 
-int bad(int x) => 100 + x;
+int foo(int x) => x;
 
 
 // "Bad" types, no `call` method, only a call getter.
 class BC {
-  int Function(int) get call => bad;
+  int Function(int) get call => foo;
 }
 
 mixin BM {
-  int Function(int) get call => bad;
+  int Function(int) get call => foo;
 }
 class BMC = Object with BM;
 
 enum BE {
   instance;
 
-  int Function(int) get call => bad;
+  int Function(int) get call => foo;
 }
 
-({int Function(int) call}) rec = (call: bad);
+({int Function(int) call}) rec = (call: foo);

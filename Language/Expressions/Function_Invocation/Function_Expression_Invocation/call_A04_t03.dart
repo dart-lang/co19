@@ -60,28 +60,28 @@ T expr<T>([Object? value, String? typeName]) {
   return value as T;
 }
 
-int bad(int x) => 100 + x;
+int foo(int x) => x;
 
-({int Function(int) call}) rec = (call: bad);
+({int Function(int) call}) rec = (call: foo);
 
 // "Bad" types, no `call` method, only a call getter.
 class BC {
-  int Function(int) get call => bad;
+  int Function(int) get call => foo;
 }
 
 mixin BM {
-  int Function(int) get call => bad;
+  int Function(int) get call => foo;
 }
 class BMC = Object with BM;
 
 enum BE {
   instance;
 
-  int Function(int) get call => bad;
+  int Function(int) get call => foo;
 }
 
 extension type BET(Null _) {
-  int Function(int) get call => bad;
+  int Function(int) get call => foo;
 }
 
 // Representation type getter is a getter.
@@ -90,29 +90,11 @@ extension type BERT(int Function(int) call) {}
 class BNSMC {
   // Should be NSM-forwarder.
   int Function(int) get call;
-  Object? noSuchMethod(Invocation i) {
-    if (i.memberName == #call) {
-      if (i.isMethod) {
-        return i.positionalArguments.first;
-      } else if (i.isGetter) {
-        return bad;
-      }
-    }
-    return super.noSuchMethod(i);
-  }
+  Object? noSuchMethod(Invocation i) => null;
 }
 
 class NSMD {
   const NSMD();
   // No `call` member declared at all, can only be invoked dynamically.
-  noSuchMethod(i) {
-    if (i.memberName == #call) {
-      if (i.isMethod) {
-        return i.positionalArguments.first;
-      } else if (i.isGetter) {
-        return bad;
-      }
-    }
-    return super.noSuchMethod(i);
-  }
+  Object? noSuchMethod(i) => null;
 }
