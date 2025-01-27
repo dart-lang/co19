@@ -24,10 +24,11 @@
 /// `B′ j = Bj,j ∈ 1..s`.
 /// @author sgrekhov22@gmail.com
 
+import '../../../../Utils/expect.dart';
 import '../../../../Utils/static_type_helper.dart';
 
-class C<X0 extends int, X1 extends num, X2 extends X1> {
-  X0 m(X1 r1, [X2? p1]) {
+class C {
+  X0 m<X0 extends int, X1 extends num, X2 extends X1>(X1 r1, [X2? p1]) {
     return (r1 + p1!) as X0;
   }
 }
@@ -35,5 +36,7 @@ class C<X0 extends int, X1 extends num, X2 extends X1> {
 main() {
   C o = C();
   final f = o.m;
-  f.expectStaticType<Exactly<int Function(num r1, [num? p1])>>();
+  f.expectStaticType<Exactly<X0 Function<X0 extends int, X1 extends num, X2 extends X1>(X1 r1, [X2? p1])>>();
+  Expect.equals(o.m<int, int, int>(1, 2), f(1, 2));
+  Expect.equals(o.m<int, num, int>(1, 3), f(1, 3));
 }
