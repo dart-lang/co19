@@ -9,9 +9,9 @@
 ///   of `id` is a late-initialized getter. This determines the semantics of an
 ///   invocation.
 ///
-/// @description Checks that it is not an error if during an evaluation of the
-/// initializing expression `id` is invoked and the type of the variable is not
-/// specified.
+/// @description Checks that it is a compile-time error if during an evaluation
+/// of the initializing expression `id` is invoked and the type of the variable
+/// is not specified.
 /// @author sgrekhov@unipro.ru
 /// @issue 46086
 
