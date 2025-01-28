@@ -27,6 +27,7 @@
 ///     (T1 p1, ..., Tn pn, [Tn+1 pn+1 = d1, ..., Tn+k pn+k = dk]) =>
 ///       u.m<X1, ..., Xs>(p1, ..., pn+k);
 /// ```
+/// Test a non-generic case.
 /// @author sgrekhov@unipro.ru
 
 import '../../../../Utils/expect.dart';

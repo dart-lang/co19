@@ -25,7 +25,7 @@
 ///     (T1 p1, ..., Tn pn, {Tn+1 pn+1 = d1, ..., Tn+k pn+k = dk}) =>
 ///       u.m<X1, ..., Xs>(p1, ..., pn, pn+1: pn+1, ..., pn+k: pn+k);
 /// ```
-/// Test the case when `m` calls another method.
+/// Test a non-generic case when `m` calls another method.
 /// @author sgrekhov@unipro.ru
 
 import '../../../../Utils/expect.dart';
@@ -50,7 +50,10 @@ main() {
     return o.m(r1, r2, r3, p1: p1, p2: p2, p3: p3);
   };
 
-  Expect.equals(f(1, 2, 3.2, p1: 4, p2: 5, p3: 6), f1(1, 2, 3.2, p1: 4, p2: 5, p3: 6));
+  Expect.equals(
+    f(1, 2, 3.2, p1: 4, p2: 5, p3: 6),
+    f1(1, 2, 3.2, p1: 4, p2: 5, p3: 6),
+  );
   Expect.equals(f(2, 3, 8.5), f1(2, 3, 8.5));
   Expect.equals(f(-1, 3, 9.1, p1: 4, p3: null), f1(-1, 3, 9.1, p1: 4));
   Expect.equals(f(-1, 3, 9.1, p2: 4, p3: null), f1(-1, 3, 9.1, p2: 4));
