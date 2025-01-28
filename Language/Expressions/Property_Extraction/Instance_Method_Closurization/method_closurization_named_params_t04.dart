@@ -37,7 +37,18 @@ main() {
   C<int> o = C<int>();
   final f = o.m;
   f.expectStaticType<
-      Exactly<X0 Function<X0 extends num, X1 extends int, X2 extends X1>(
-          X1 r1, {required X2 p1})>>();
+        Exactly<
+          X0 Function<X0 extends num, X1 extends int, X2 extends X1>(
+            X1 r1, {
+            required X2 p1,
+          })
+        >
+      >();
+  Expect.isTrue(
+    f is X0 Function<X0 extends num, X1 extends int, X2 extends X1>( // ignore: unnecessary_type_check
+          X1 r1, {
+          required X2 p1,
+        }),
+  );
   Expect.equals(o.m<int, int, int>(1, p1: 2), f(1, p1: 2));
 }
