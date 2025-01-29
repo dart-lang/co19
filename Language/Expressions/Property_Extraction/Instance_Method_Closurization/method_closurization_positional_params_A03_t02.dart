@@ -38,7 +38,7 @@ class C<X> {
 }
 
 main() {
-  C o = C();
+  C<Object?> o = C<Object?>();
   final f = o.m;
   f.expectStaticType<
         Exactly<

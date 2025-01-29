@@ -32,18 +32,18 @@ import '../../../../Utils/expect.dart';
 import '../../../../Utils/static_type_helper.dart';
 
 class C<X extends num> {
-  X m<Y extends String>(covariant X r1, covariant Y r2, [covariant int? p1]) {
+  X m<Y extends X>(covariant X r1, covariant Y r2, [covariant int? p1]) {
     return 42 as X;
   }
 }
 
 main() {
-  C o = C();
+  var o = C<num>();
   final f = o.m;
   f.expectStaticType<
-        Exactly<num Function<Y extends String>(num r1, Y r2, [int? p1])>
+        Exactly<num Function<Y extends num>(num r1, Y r2, [int? p1])>
       >();
 
   Expect.isTrue(
-    f is num Function<Y extends String>(Object? r1, Object? r2, [Object? p1]));
+    f is num Function<Y extends num>(Object? r1, Object? r2, [Object? p1]));
 }

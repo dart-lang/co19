@@ -37,7 +37,7 @@ class C<X> {
 }
 
 main() {
-  C o = C();
+  C<Object?> o = C<Object?>();
   final f = o.m;
   f.expectStaticType<
         Exactly<Object? Function<Y extends Object?>(Object? r1, Y r2, {required Object? p1})>
