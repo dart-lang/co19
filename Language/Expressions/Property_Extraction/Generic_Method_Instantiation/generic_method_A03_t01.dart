@@ -38,7 +38,7 @@ void main() {
   int Function(int)? f2 = c1?.foo;
   Expect.isTrue(f1 == f2);
 
-  C2? c2 = 2 > 1 ? C2(2) : null;
+  C2<num>? c2 = 2 > 1 ? C2(2) : null;
   int Function(int)? f3 = c2?.foo;
   int Function(int)? f4 = c2?.foo;
   Expect.isTrue(f3 == f4);

@@ -20,22 +20,13 @@
 
 import '../../../../Utils/expect.dart';
 
-class C1 {
-  X foo<X extends num>(X x) => x;
-}
-
-class C2<T extends num> {
+class C<T extends num> {
   X foo<X extends T>(X x) => x;
 }
 
 void main() {
-  C1 c1 = C1();
+  var c = C<num>();
   Expect.throws(() {
-    String Function(int) f1 = c1.foo as dynamic;
-  });
-
-  C2 c2 = C2();
-  Expect.throws(() {
-    int Function(num) f2 = c2.foo as dynamic;
+    int Function(num) f = c.foo as dynamic;
   });
 }

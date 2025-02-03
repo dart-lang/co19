@@ -37,7 +37,7 @@ void main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C2 c2 = C2();
+  var c2 = C2<int>();
   String Function(int) f3 = c2.foo;
 //                          ^^^^^^
 // [analyzer] unspecified
