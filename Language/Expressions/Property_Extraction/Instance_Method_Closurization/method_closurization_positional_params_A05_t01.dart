@@ -42,10 +42,10 @@ class C<Z extends String> {
   List<Y> m<X, Y extends num>(
     List<Z> r1,
     List<Y> r2,
-    List r3, [
+    r3, [
     List<X>? p1,
     List<int> p2 = const [],
-    List p3 = const [],
+    p3 = const [],
   ]) {
     return <Y>[];
   }
@@ -59,10 +59,10 @@ main() {
           List<Y> Function<X, Y extends num>(
             List<String> r1,
             List<Y> r2,
-            List<dynamic> r3, [
+            dynamic r3, [
             List<X>? p1,
             List<int> p2,
-            List<dynamic> p3,
+            dynamic p3,
           ])
         >
       >();
@@ -71,10 +71,10 @@ main() {
     f is List<Y> Function<X, Y extends num>( // ignore: unnecessary_type_check
         List<String> r1,
         List<Y> r2,
-        List<dynamic> r3, [
+        dynamic r3, [
         List<X>? p1,
         List<int> p2,
-        List<dynamic> p3,
+        dynamic p3,
         ])
   );
 }

@@ -35,14 +35,14 @@
 import '../../../../Utils/expect.dart';
 import '../../../../Utils/static_type_helper.dart';
 
-class C<Z extends String> {
-  Y m<X, Y extends num>(Z r1, Y r2, r3, {X? p1, int p2 = 0, p3}) {
+class C {
+  Y m<X, Y extends num>(String r1, Y r2, r3, {X? p1, int p2 = 0, p3}) {
     return 42 as Y;
   }
 }
 
 main() {
-  var o = C<String>();
+  var o = C();
   final f = o.m;
   f.expectStaticType<
         Exactly<
