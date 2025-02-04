@@ -25,8 +25,8 @@ class C<T extends num> {
 }
 
 void main() {
-  var c = C<num>();
+  C<num> c = C<int>();
   Expect.throws(() {
-    int Function(num) f = c.foo as dynamic;
+    num Function(num) f = c.foo;
   });
 }
