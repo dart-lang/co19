@@ -7,7 +7,7 @@
 /// application order.
 ///
 /// @description Checks that it is a syntax error if an enum augmentation
-/// contains no any values.
+/// contains an empty list of values.
 /// @author sgrekhov22@gmail.com
 /// @issue 56883
 
@@ -17,20 +17,23 @@ enum E1 {
   e0;
 }
 
-augment enum E1 {}
-//           ^^
+augment enum E1 {
+  ;
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
 enum E2 {
   e0;
 }
 
 augment enum E2 {
-  void foo() {}
-//^^^^
+  ;
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
+  void foo() {}
 }
 
 main() {
