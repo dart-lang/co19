@@ -7,16 +7,24 @@
 ///  enumType:
 ///  metadata enum id ‘{’ id [‘, ’ id]* [‘, ’] ‘}’
 ///  ;
+///
 /// @description Checks that it is compile-time error if enum does not declare
-/// any member
+/// any member.
 /// @author sgrekhov@unipro.ru
 
-
-enum E {}
-//      ^
+enum E1 {}
+//   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+enum E2 {
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ;
+}
+
 main() {
-  E e;
+  print(E1);
+  print(E2);
 }
