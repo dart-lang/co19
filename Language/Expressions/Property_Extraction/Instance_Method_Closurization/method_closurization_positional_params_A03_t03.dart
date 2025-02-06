@@ -58,7 +58,7 @@ main() {
         Exactly<num Function<Y extends num>(num r1, Y r2, [int? p1])>
       >();
   Expect.isTrue(
-    fc is num Function<Y extends num>(Object? r1, Object? r2, [Object? p1]));
+    fc is num Function<Y extends num>(Object? r1, Y r2, [Object? p1]));
 
   M<num> m = MO<num>();
   final fm = m.m;
@@ -66,12 +66,12 @@ main() {
       Exactly<num Function<Y extends num>(num r1, Y r2, [int? p1])>
   >();
   Expect.isTrue(
-      fm is num Function<Y extends num>(Object? r1, Object? r2, [Object? p1]));
+      fm is num Function<Y extends num>(Object? r1, Y r2, [Object? p1]));
 
   final fe = E.e0.m;
   fe.expectStaticType<
       Exactly<num Function<Y extends num>(num r1, Y r2, [int? p1])>
   >();
   Expect.isTrue(
-      fe is num Function<Y extends num>(Object? r1, Object? r2, [Object? p1]));
+      fe is num Function<Y extends num>(Object? r1, Y r2, [Object? p1]));
 }

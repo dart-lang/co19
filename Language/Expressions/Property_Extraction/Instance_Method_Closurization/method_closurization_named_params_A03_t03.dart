@@ -70,11 +70,7 @@ main() {
       >();
 
   Expect.isTrue(
-    fc is num Function<Y extends num>(
-          Object? r1,
-          Object? r2, {
-          required Object? p1,
-        }),
+    fc is num Function<Y extends num>(Object? r1, Y r2, {required Object? p1,}),
   );
 
   M<num> m = MO<num>();
@@ -97,10 +93,6 @@ main() {
   >();
 
   Expect.isTrue(
-    fe is num Function<Y extends num>(
-        Object? r1,
-        Object? r2, {
-        required Object? p1,
-        }),
+    fe is num Function<Y extends num>(Object? r1, Y r2, {required Object? p1}),
   );
 }
