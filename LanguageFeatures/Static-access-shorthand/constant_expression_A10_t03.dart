@@ -13,7 +13,7 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 59804
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 class A {
   int id;

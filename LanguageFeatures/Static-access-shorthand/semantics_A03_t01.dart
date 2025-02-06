@@ -24,7 +24,7 @@
 /// of the shorthand is not assignable to the type of the left hand expression.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 class C<T> {
   T value;

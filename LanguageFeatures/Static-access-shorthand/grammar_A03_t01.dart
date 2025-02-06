@@ -9,7 +9,7 @@
 /// @description Checks that numerical literal like `.42` is still not an error
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 main() {
   .123;

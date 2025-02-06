@@ -18,7 +18,7 @@
 /// type. Test an extension type.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 extension type ET(int v) {
   ET.id(this.v);

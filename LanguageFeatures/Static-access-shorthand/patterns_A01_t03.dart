@@ -19,7 +19,7 @@
 /// pattern the matched value type has no appropriate member.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 class C {
   final int value;

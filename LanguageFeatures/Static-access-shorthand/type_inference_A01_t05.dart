@@ -20,7 +20,7 @@
 /// doesn't denote any declaration. Test promoted type variables.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 void topLevelFunction<T>(T t) {
   if (t is int) {

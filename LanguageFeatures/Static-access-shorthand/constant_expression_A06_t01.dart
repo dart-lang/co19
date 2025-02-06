@@ -15,7 +15,7 @@
 /// `<typeArguments>` is still a compile-time error.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 class C<T> {
   const C();

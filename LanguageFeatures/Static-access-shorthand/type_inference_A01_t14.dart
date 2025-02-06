@@ -22,7 +22,7 @@
 /// declaration `D`. Test an extension type.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 import '../../Utils/expect.dart';
 

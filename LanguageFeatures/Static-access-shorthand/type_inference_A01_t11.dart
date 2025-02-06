@@ -24,7 +24,7 @@
 /// mixin.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 import 'dart:async';
 import '../../Utils/expect.dart';

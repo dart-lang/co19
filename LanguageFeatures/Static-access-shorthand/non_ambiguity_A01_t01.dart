@@ -12,7 +12,7 @@
 /// @description Checks that `{e1?.id:e2}` is parsed like a map literal.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 import '../../Utils/expect.dart';
 

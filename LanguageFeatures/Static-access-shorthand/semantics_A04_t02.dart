@@ -24,7 +24,7 @@
 /// shorthand syntax even if name of that type is shadowed.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 import '../../Utils/expect.dart';
 import 'semantics_lib.dart';

@@ -21,7 +21,7 @@
 /// in this case.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 main() {
   int v1 = (.parse("42")).abs();

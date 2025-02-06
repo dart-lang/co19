@@ -18,7 +18,7 @@
 /// type. Test a mixin.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 mixin M {
   static M get staticGetter => MC();
