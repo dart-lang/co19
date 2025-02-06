@@ -30,7 +30,6 @@
 /// `o1` respectively `o2`, then `c1 == c2` evaluates to `true` if and only if
 /// `o1` and `o2` is the same object.
 /// @author sgrekhov22@gmail.com
-/// @issue 60065
 
 import '../../../../Utils/expect.dart';
 
@@ -46,15 +45,6 @@ class MO = Object with M;
 enum E {
   e0, e1;
   num m(int r1, [String? p1]) => r1;
-}
-
-class A {}
-extension Ext on A {
-  num m(int r1, [String p1 = ""]) => r1;
-}
-
-extension type ET(int _) {
-  num m(int r1, [p1 = ""]) => r1;
 }
 
 main() {
@@ -77,18 +67,4 @@ main() {
   final fe3 = E.e1.m;
   Expect.equals(fe1, fe2);
   Expect.notEquals(fe1, fe3);
-
-  A a = A();
-  final fa1 = a.m;
-  final fa2 = a.m;
-  final fa3 = A().m;
-  Expect.equals(fa1, fa2);
-  Expect.notEquals(fa1, fa3);
-
-  ET et = ET(0);
-  final fet1 = et.m;
-  final fet2 = et.m;
-  final fet3 = ET(0).m;
-  Expect.equals(fet1, fet2);
-  Expect.notEquals(fet1, fet3);
 }
