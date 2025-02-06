@@ -20,7 +20,7 @@
 /// doesn't denote any declaration. Test type variables.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 void topLevelFunction<T extends num>(T t) {
   T answer = .parse("42");

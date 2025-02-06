@@ -25,7 +25,7 @@
 /// shorthand syntax in string literals.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 main() {
   String s = "${.fromCharCode(100)}";

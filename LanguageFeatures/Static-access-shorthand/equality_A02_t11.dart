@@ -18,7 +18,7 @@
 /// type. Test an enum.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 enum E {
   e0, e1;

@@ -26,7 +26,7 @@
 /// `const '(' '.' new(arguments) ')'` are still compile-time errors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 class C {
   final String value;

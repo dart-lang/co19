@@ -11,7 +11,7 @@
 /// with base name `id` does not find a static member.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 class C {
   C.foo();

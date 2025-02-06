@@ -18,7 +18,7 @@
 /// enum.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 enum E<T> {
   e0(0), e1("1");

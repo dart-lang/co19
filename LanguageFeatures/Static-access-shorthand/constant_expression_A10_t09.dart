@@ -11,7 +11,7 @@
 /// static member shorthand expression in a constant map literal.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 class C {
   static C answer = const C(42);

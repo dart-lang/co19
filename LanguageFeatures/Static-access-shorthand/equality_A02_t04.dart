@@ -18,7 +18,7 @@
 /// extension type.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 extension type ET<T>(T value) {
   ET.id(this.value);

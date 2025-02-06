@@ -25,7 +25,7 @@
 /// shorthand syntax with the prefix `--` operator.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=enum-shorthands
+// SharedOptions=--enable-experiment=dot-shorthands
 
 class C {
   static int get one => 1;
