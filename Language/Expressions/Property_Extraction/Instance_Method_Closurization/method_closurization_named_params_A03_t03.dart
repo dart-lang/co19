@@ -40,18 +40,67 @@ class C<X extends num> {
   }
 }
 
+mixin M<X extends num> {
+  X m<Y extends X>(
+      covariant X r1,
+      covariant Y r2, {
+        required covariant int p1,
+      }) {
+    return 42 as X;
+  }
+}
+class MO<X extends num> = Object with M<X>;
+
+enum E<X extends num> {
+  e0;
+  X m<Y extends X>(
+      covariant X r1,
+      covariant Y r2, {
+        required covariant int p1,
+      }) {
+    return 42 as X;
+  }
+}
+
 main() {
-  var o = C<num>();
-  final f = o.m;
-  f.expectStaticType<
+  var c = C<num>();
+  final fc = c.m;
+  fc.expectStaticType<
         Exactly<num Function<Y extends num>(num r1, Y r2, {required int p1})>
       >();
 
   Expect.isTrue(
-    f is num Function<Y extends num>(
+    fc is num Function<Y extends num>(
           Object? r1,
           Object? r2, {
           required Object? p1,
+        }),
+  );
+
+  M<num> m = MO<num>();
+  final fm = m.m;
+  fm.expectStaticType<
+      Exactly<num Function<Y extends num>(num r1, Y r2, {required int p1})>
+  >();
+
+  Expect.isTrue(
+    fm is num Function<Y extends num>(
+        Object? r1,
+        Object? r2, {
+        required Object? p1,
+        }),
+  );
+
+  final fe = E.e0.m;
+  fe.expectStaticType<
+      Exactly<num Function<Y extends num>(num r1, Y r2, {required int p1})>
+  >();
+
+  Expect.isTrue(
+    fe is num Function<Y extends num>(
+        Object? r1,
+        Object? r2, {
+        required Object? p1,
         }),
   );
 }

@@ -41,14 +41,52 @@ class C {
   }
 }
 
+mixin M {
+  num m<Y extends num>(
+      covariant int r1,
+      covariant Y r2, [
+        covariant int p1 = 0,
+      ]) {
+    return 42;
+  }
+}
+class MO = Object with M;
+
+enum E {
+  e0;
+  num m<Y extends num>(
+      covariant int r1,
+      covariant Y r2, [
+        covariant int p1 = 0,
+      ]) {
+    return 42;
+  }
+}
+
 main() {
-  C o = C();
-  final f = o.m;
-  f.expectStaticType<
+  C c = C();
+  final fc = c.m;
+  fc.expectStaticType<
         Exactly<num Function<Y extends num>(int r1, Y r2, [int p1])>
       >();
-
   Expect.isTrue(
-    f is num Function<Y extends num>(Object? r1, Object? r2, [Object? p1]),
+    fc is num Function<Y extends num>(Object? r1, Object? r2, [Object? p1]),
+  );
+
+  M m = MO();
+  final fm = m.m;
+  fm.expectStaticType<
+      Exactly<num Function<Y extends num>(int r1, Y r2, [int p1])>
+  >();
+  Expect.isTrue(
+    fm is num Function<Y extends num>(Object? r1, Object? r2, [Object? p1]),
+  );
+
+  final fe = E.e0.m;
+  fe.expectStaticType<
+      Exactly<num Function<Y extends num>(int r1, Y r2, [int p1])>
+  >();
+  Expect.isTrue(
+    fe is num Function<Y extends num>(Object? r1, Object? r2, [Object? p1]),
   );
 }
