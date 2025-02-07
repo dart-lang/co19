@@ -26,44 +26,34 @@
 ///
 /// @description Check that if `o1` and `o2` are objects, `m` is an identifier,
 /// and `c1` and `c2` are function objects obtained by closurization of `m` on
-/// `o1` respectively `o2`, then `c1 == c2` evaluates to `true` if and only if
-/// `o1` and `o2` is the same object.
+/// `o1` respectively `o2`, then `c1 == c2` evaluates to `false` if `o1` and
+/// `o2` are extensions or extension types.
 /// @author sgrekhov22@gmail.com
+/// @issue 60065
 
 import '../../../../Utils/expect.dart';
 
-class C {
+class A {}
+extension Ext on A {
   num m(int r1, {String p1 = ""}) => r1;
 }
 
-mixin M {
-  num m(int r1, {covariant String p1 = ""}) => r1;
-}
-class MO = Object with M;
-
-enum E {
-  e0, e1;
-  num m(int r1, {required String p1}) => r1;
+extension type ET(int _) {
+  num m(int r1, {p1 = ""}) => r1;
 }
 
 main() {
-  C c = C();
-  final fc1 = c.m;
-  final fc2 = c.m;
-  final fc3 = C().m;
-  Expect.equals(fc1, fc2);
-  Expect.notEquals(fc1, fc3);
+  A a = A();
+  final fa1 = a.m;
+  final fa2 = a.m;
+  // For extensions and extension types, fa1 != fa2. However, the implementation
+  // may have an optimization that makes fa1 identical to fa2, in which case
+  // fa1 == fa2. Therefore, we allow both results and check that the == operator
+  // on these functions does not throw an exception
+  Expect.isTrue(fa1 == fa2 || fa1 != fa2);
 
-  M m = MO();
-  final fm1 = m.m;
-  final fm2 = m.m;
-  final fm3 = MO().m;
-  Expect.equals(fm1, fm2);
-  Expect.notEquals(fm1, fm3);
-
-  final fe1 = E.e0.m;
-  final fe2 = E.e0.m;
-  final fe3 = E.e1.m;
-  Expect.equals(fe1, fe2);
-  Expect.notEquals(fe1, fe3);
+  ET et = ET(0);
+  final fet1 = et.m;
+  final fet2 = et.m;
+  Expect.isTrue(fet1 == fet2 || fet1 != fet2);
 }

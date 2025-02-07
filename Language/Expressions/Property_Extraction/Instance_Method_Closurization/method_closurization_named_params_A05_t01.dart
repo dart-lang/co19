@@ -50,10 +50,65 @@ class C<Z extends String> {
   }
 }
 
+mixin M<Z extends String> {
+  List<Y> m<X, Y extends num>(
+      List<Z> r1,
+      List<Y> r2,
+      r3, {
+        List<X>? p1,
+        List<int> p2 = const [],
+        p3 = const [],
+      }) {
+    return <Y>[];
+  }
+}
+class MO<Z extends String> = Object with M<Z>;
+
+enum E<Z extends String> {
+  e0;
+  List<Y> m<X, Y extends num>(
+      List<Z> r1,
+      List<Y> r2,
+      r3, {
+        List<X>? p1,
+        List<int> p2 = const [],
+        p3 = const [],
+      }) {
+    return <Y>[];
+  }
+}
+
+class A<Z extends String>{}
+extension Ext<Z extends String> on A<Z> {
+  List<Y> m<X, Y extends num>(
+      List<Z> r1,
+      List<Y> r2,
+      r3, {
+        List<X>? p1,
+        List<int> p2 = const [],
+        p3 = const [],
+      }) {
+    return <Y>[];
+  }
+}
+
+extension type ET<Z extends String>(int _) {
+  List<Y> m<X, Y extends num>(
+      List<Z> r1,
+      List<Y> r2,
+      r3, {
+        List<X>? p1,
+        List<int> p2 = const [],
+        p3 = const [],
+      }) {
+    return <Y>[];
+  }
+}
+
 main() {
-  var o = C<String>();
-  final f = o.m;
-  f.expectStaticType<
+  var c = C<String>();
+  final fc = c.m;
+  fc.expectStaticType<
         Exactly<
           List<Y> Function<X, Y extends num>(
             List<String> r1,
@@ -65,9 +120,8 @@ main() {
           })
         >
       >();
-
   Expect.isTrue(
-    f is List<Y> Function<X, Y extends num>( // ignore: unnecessary_type_check
+    fc is List<Y> Function<X, Y extends num>( // ignore: unnecessary_type_check
         List<String> r1,
         List<Y> r2,
         dynamic r3, {
@@ -75,5 +129,104 @@ main() {
         List<int> p2,
         dynamic p3,
         })
+  );
+
+  M<String> m = MO<String>();
+  final fm = m.m;
+  fc.expectStaticType<
+      Exactly<
+          List<Y> Function<X, Y extends num>(
+              List<String> r1,
+              List<Y> r2,
+              dynamic r3, {
+              List<X>? p1,
+              List<int> p2,
+              dynamic p3,
+              })
+      >
+  >();
+  Expect.isTrue(
+      fm is List<Y> Function<X, Y extends num>( // ignore: unnecessary_type_check
+          List<String> r1,
+          List<Y> r2,
+          dynamic r3, {
+          List<X>? p1,
+          List<int> p2,
+          dynamic p3,
+          })
+  );
+
+  final fe = E.e0.m;
+  fe.expectStaticType<
+      Exactly<
+          List<Y> Function<X, Y extends num>(
+              List<String> r1,
+              List<Y> r2,
+              dynamic r3, {
+              List<X>? p1,
+              List<int> p2,
+              dynamic p3,
+              })
+      >
+  >();
+  Expect.isTrue(
+      fe is List<Y> Function<X, Y extends num>( // ignore: unnecessary_type_check
+          List<String> r1,
+          List<Y> r2,
+          dynamic r3, {
+          List<X>? p1,
+          List<int> p2,
+          dynamic p3,
+          })
+  );
+
+  var a = A<String>();
+  final fa = a.m;
+  fa.expectStaticType<
+      Exactly<
+          List<Y> Function<X, Y extends num>(
+              List<String> r1,
+              List<Y> r2,
+              dynamic r3, {
+              List<X>? p1,
+              List<int> p2,
+              dynamic p3,
+              })
+      >
+  >();
+  Expect.isTrue(
+      fa is List<Y> Function<X, Y extends num>( // ignore: unnecessary_type_check
+          List<String> r1,
+          List<Y> r2,
+          dynamic r3, {
+          List<X>? p1,
+          List<int> p2,
+          dynamic p3,
+          })
+  );
+
+  var et = ET<String>(0);
+  final fet = et.m;
+  fet.expectStaticType<
+      Exactly<
+          List<Y> Function<X, Y extends num>(
+              List<String> r1,
+              List<Y> r2,
+              dynamic r3, {
+              List<X>? p1,
+              List<int> p2,
+              dynamic p3,
+              })
+      >
+  >();
+  Expect.isTrue(
+      fet is List<Y> Function<X, Y extends num>( // ignore: unnecessary_type_check
+          List<String> r1,
+          List<Y> r2,
+          dynamic r3, {
+          List<X>? p1,
+          List<int> p2,
+          dynamic p3,
+          })
   );
 }

@@ -41,10 +41,37 @@ class C {
   }
 }
 
+mixin M {
+  Y m<X, Y extends num>(String r1, Y r2, r3, {X? p1, int p2 = 0, p3}) {
+    return 42 as Y;
+  }
+}
+class MO = Object with M;
+
+enum E {
+  e0;
+  Y m<X, Y extends num>(String r1, Y r2, r3, {X? p1, int p2 = 0, p3}) {
+    return 42 as Y;
+  }
+}
+
+class A {}
+extension Ext on A {
+  Y m<X, Y extends num>(String r1, Y r2, r3, {X? p1, int p2 = 0, p3}) {
+    return 42 as Y;
+  }
+}
+
+extension type ET(int _) {
+  Y m<X, Y extends num>(String r1, Y r2, r3, {X? p1, int p2 = 0, p3}) {
+    return 42 as Y;
+  }
+}
+
 main() {
-  var o = C();
-  final f = o.m;
-  f.expectStaticType<
+  var c = C();
+  final fc = c.m;
+  fc.expectStaticType<
         Exactly<
           Y Function<X, Y extends num>(
             String r1,
@@ -56,9 +83,8 @@ main() {
           })
         >
       >();
-
   Expect.isTrue(
-    f is Y Function<X, Y extends num>( // ignore: unnecessary_type_check
+    fc is Y Function<X, Y extends num>( // ignore: unnecessary_type_check
           String r1,
           Y r2,
           dynamic r3, {
@@ -66,5 +92,104 @@ main() {
           int p2,
           dynamic p3,
         })
+  );
+
+  M m = MO();
+  final fm = m.m;
+  fm.expectStaticType<
+      Exactly<
+          Y Function<X, Y extends num>(
+              String r1,
+              Y r2,
+              dynamic r3, {
+              X? p1,
+              int p2,
+              dynamic p3,
+              })
+      >
+  >();
+  Expect.isTrue(
+      fm is Y Function<X, Y extends num>( // ignore: unnecessary_type_check
+          String r1,
+          Y r2,
+          dynamic r3, {
+          X? p1,
+          int p2,
+          dynamic p3,
+          })
+  );
+
+  final fe = E.e0.m;
+  fe.expectStaticType<
+      Exactly<
+          Y Function<X, Y extends num>(
+              String r1,
+              Y r2,
+              dynamic r3, {
+              X? p1,
+              int p2,
+              dynamic p3,
+              })
+      >
+  >();
+  Expect.isTrue(
+      fe is Y Function<X, Y extends num>( // ignore: unnecessary_type_check
+          String r1,
+          Y r2,
+          dynamic r3, {
+          X? p1,
+          int p2,
+          dynamic p3,
+          })
+  );
+
+  var a = A();
+  final fa = a.m;
+  fa.expectStaticType<
+      Exactly<
+          Y Function<X, Y extends num>(
+              String r1,
+              Y r2,
+              dynamic r3, {
+              X? p1,
+              int p2,
+              dynamic p3,
+              })
+      >
+  >();
+  Expect.isTrue(
+      fa is Y Function<X, Y extends num>( // ignore: unnecessary_type_check
+          String r1,
+          Y r2,
+          dynamic r3, {
+          X? p1,
+          int p2,
+          dynamic p3,
+          })
+  );
+
+  var et = ET(0);
+  final fet = et.m;
+  fet.expectStaticType<
+      Exactly<
+          Y Function<X, Y extends num>(
+              String r1,
+              Y r2,
+              dynamic r3, {
+              X? p1,
+              int p2,
+              dynamic p3,
+              })
+      >
+  >();
+  Expect.isTrue(
+      fet is Y Function<X, Y extends num>( // ignore: unnecessary_type_check
+          String r1,
+          Y r2,
+          dynamic r3, {
+          X? p1,
+          int p2,
+          dynamic p3,
+          })
   );
 }

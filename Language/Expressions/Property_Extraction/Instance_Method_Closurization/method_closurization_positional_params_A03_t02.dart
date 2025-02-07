@@ -37,16 +37,85 @@ class C<X> {
   }
 }
 
+mixin M<X> {
+  X m<Y extends X>(X r1, Y r2, [X? p1]) {
+    return 42 as X;
+  }
+}
+class MO<X> = Object with M<X>;
+
+enum E<X> {
+  e0;
+  X m<Y extends X>(X r1, Y r2, [X? p1]) {
+    return 42 as X;
+  }
+}
+
+class A<X> {}
+extension Ext<X> on A<X> {
+  X m<Y extends X>(X r1, Y r2, [X? p1]) {
+    return 42 as X;
+  }
+}
+
+extension type ET<X>(int _) {
+  X m<Y extends X>(X r1, Y r2, [X? p1]) {
+    return 42 as X;
+  }
+}
+
 main() {
-  C<Object?> o = C<Object?>();
-  final f = o.m;
-  f.expectStaticType<
+  C<Object?> c = C<Object?>();
+  final fc = c.m;
+  fc.expectStaticType<
         Exactly<
           Object? Function<Y extends Object?>(Object? r1, Y r2, [Object? p1])
         >
       >();
-
   Expect.isTrue(
-    f is Object? Function<Y extends Object?>(Object? r1, Y r2, [Object? p1]) // ignore: unnecessary_type_check
+    fc is Object? Function<Y extends Object?>(Object? r1, Y r2, [Object? p1]) // ignore: unnecessary_type_check
+  );
+
+  M<Object?> m = MO<Object?>();
+  final fm = m.m;
+  fm.expectStaticType<
+      Exactly<
+          Object? Function<Y extends Object?>(Object? r1, Y r2, [Object? p1])
+      >
+  >();
+  Expect.isTrue(
+      fm is Object? Function<Y extends Object?>(Object? r1, Y r2, [Object? p1]) // ignore: unnecessary_type_check
+  );
+
+  final fe = E.e0.m;
+  fe.expectStaticType<
+      Exactly<
+          Object? Function<Y extends Object?>(Object? r1, Y r2, [Object? p1])
+      >
+  >();
+  Expect.isTrue(
+      fe is Object? Function<Y extends Object?>(Object? r1, Y r2, [Object? p1]) // ignore: unnecessary_type_check
+  );
+
+  A<Object?> a = A<Object?>();
+  final fa = a.m;
+  fa.expectStaticType<
+      Exactly<
+          Object? Function<Y extends Object?>(Object? r1, Y r2, [Object? p1])
+      >
+  >();
+  Expect.isTrue(
+      fa is Object? Function<Y extends Object?>(Object? r1, Y r2, [Object? p1]) // ignore: unnecessary_type_check
+  );
+
+  ET<Object?> et = ET<Object?>(0);
+  final fet = et.m;
+  fet.expectStaticType<
+      Exactly<
+          Object? Function<Y extends Object?>(Object? r1, Y r2, [Object? p1])
+      >
+  >();
+  Expect.isTrue(
+      fet is Object? Function<Y extends Object?>(Object? r1, Y r2, [Object? p1]) // ignore: unnecessary_type_check
   );
 }

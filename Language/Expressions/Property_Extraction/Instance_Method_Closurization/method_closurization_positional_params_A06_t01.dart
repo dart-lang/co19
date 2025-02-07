@@ -37,13 +37,34 @@ class C {
   num m(int r1, [String p1 = ""]) => r1;
 }
 
-main() {
-  C o1 = C();
-  C o2 = C();
-  final f1 = o1.m;
-  final f2 = o1.m;
-  final f3 = o2.m;
+mixin M {
+  num m(int r1, [covariant String p1 = ""]) => r1;
+}
+class MO = Object with M;
 
-  Expect.equals(f1, f2);
-  Expect.notEquals(f1, f3);
+enum E {
+  e0, e1;
+  num m(int r1, [String? p1]) => r1;
+}
+
+main() {
+  C c = C();
+  final fc1 = c.m;
+  final fc2 = c.m;
+  final fc3 = C().m;
+  Expect.equals(fc1, fc2);
+  Expect.notEquals(fc1, fc3);
+
+  M m = MO();
+  final fm1 = m.m;
+  final fm2 = m.m;
+  final fm3 = MO().m;
+  Expect.equals(fm1, fm2);
+  Expect.notEquals(fm1, fm3);
+
+  final fe1 = E.e0.m;
+  final fe2 = E.e0.m;
+  final fe3 = E.e1.m;
+  Expect.equals(fe1, fe2);
+  Expect.notEquals(fe1, fe3);
 }
