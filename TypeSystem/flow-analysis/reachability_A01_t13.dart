@@ -25,7 +25,5 @@ void test<T extends Never?>(T n) {
 }
 
 main() {
-  try {
-    test(throw "Lily was here");
-  } catch (_) {}
+  test(null);
 }

@@ -25,7 +25,5 @@ void test(Never? n) {
 }
 
 main() {
-  try {
-    test(throw "Lily was here");
-  } catch (_) {}
+  test(null);
 }
