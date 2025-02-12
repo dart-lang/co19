@@ -21,7 +21,8 @@ void test1(Never n) {
   if (b) {
     <int, int>{
       for (n;;) // The code after this point is unreachable
-        1: i = 42 // Variable is initialized in a dead code. This leaves it definitely unassigned
+        1: i = 42, // Variable is initialized in a dead code.
+      i = 42: 2
     };
   }
   i; // It is an error to read a local late variable when it is definitely unassigned.
@@ -36,10 +37,11 @@ void test2(Never n) {
   if (b) {
     <int, int>{
       for (; n;) // The code after this point is unreachable
-        1: i = 42 // Variable is initialized in a dead code. This leaves it definitely unassigned
+        1: i = 42,
+      i = 42: 3
     };
   }
-  i; // It is an error to read a local late variable when it is definitely unassigned.
+  i;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -50,8 +52,9 @@ void test3(Never n) {
   bool b = (() => true)();
   if (b) {
     <int, int>{
-      for (;; n) // The code after this point is unreachable
-        1: i = 42 // Variable is initialized in a dead code. This leaves it definitely unassigned
+      for (;; n) // The code after this for statement is unreachable
+        1: i = 42,
+      i = 42: 2
     };
   }
   i; // It is an error to read a local late variable when it is definitely unassigned.
