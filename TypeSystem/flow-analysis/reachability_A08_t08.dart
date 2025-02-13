@@ -1,4 +1,4 @@
-// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -27,21 +27,19 @@
 /// `(int? x) => x == (x = null) ? true : x.isEven`, which tries to call
 /// `null.isEven` in the event of a non-null input).
 ///
-/// @description Checks that if `equivalentToNull(T1)` and
-/// `equivalentToNull(T2)`, then `true(N) = after(E2)` and
-/// `false(N) = unreachable(after(E2))`. Test getter of type `Null`.
-/// @author sgrekhov@unipro.ru
-/// @issue 41985
+/// @description Checks that if `stripParens(E2)` is a `null` literal, then
+/// `true(N) = after(E1)` and `false(N) = promoteToNonNull(E1, after(E2))`.
+/// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
-Null get n1 => null;
+test(int? n) {
+  if (n == (null)) {
+    n.isEven;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
 
 main() {
-  int i;
-  Null n2;
-  if (n1 == n2) {
-    i = 42; // condition is always true therefore `i` must be definitely assigned
-  }
-  i; // It's not an error to read local non-nullable variable if it is definitely assigned
+  print(test);
 }

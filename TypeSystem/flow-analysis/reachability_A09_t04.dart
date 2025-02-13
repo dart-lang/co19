@@ -2,33 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Variable or getter: If N is an expression of the form x where the
-/// type of x is T then:
+/// @assertion operator!= If `N` is an expression of the form `E1 != E2`, it is
+/// treated as equivalent to the expression `!(E1 == E2)`.
 ///
-/// If T <: Never then:
-///  Let null(N) = unreachable(before(N)).
-///  Let notNull(N) = unreachable(before(N)).
-/// Otherwise if T <: Null then:
-///  Let null(N) = before(N).
-///  Let notNull(N) = unreachable(before(N)).
-/// Otherwise if T is non-nullable then:
-///  Let null(N) = unreachable(before(N)).
-///  Let notNull(N) = before(N).
-///
-/// @description Checks reachability after variable or getter. Test non-nullable
-/// type
+/// @description Checks that an expression of the form `E1 != E2` is treated as
+/// equivalent to the expression `!(E1 == E2)`. Test `equivalentToNull(T2)` and
+/// `T1` is non-nullable case.
 /// @author sgrekhov@unipro.ru
 /// @issue 41985
+/// @issue 60114
 
 main() {
   int i;
   String s = "";
-  if (s != null) {
-    i = 42; // `i` is not definitely assigned because in a weak mode the
-            // condition may be false
+  if (s != null) { // ignore: unnecessary_null_comparison
+    i = 42; // `i` is definitely assigned here
   }
-  i; // It is an error to read a local non-nullable variable which is not definitely assigned
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // It is not an error to read a local non-nullable variable which is definitely assigned
 }
