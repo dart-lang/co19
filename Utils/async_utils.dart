@@ -119,13 +119,14 @@ class Sync2<T> {
 /// [test] is completed. [cleanup] is always called, regardless of test status.
 void asyncTest<T>(Future test(T? value), {required Future<T> setup(),
     required void cleanup(T? value)}) {
-  asyncStart();
+  asyncStart(2);
   Future<T?> setupFuture = setup();
   setupFuture.then((T? setupValue) {
     test(setupValue)
       .then((_) => asyncEnd())
       .whenComplete(() {
         cleanup(setupValue);
+        asyncEnd();
     });
   });
 }
