@@ -38,7 +38,7 @@ main() {
   Expect.equals("libGetter part1", libGetter);
   libSetter = "x";
   Expect.equals("libSetter part2", log);
-  Expect.equals("libFunc main", libFunc);
+  Expect.equals("libFunc main", libFunc());
   Expect.equals("LibClass part1", LibClass.id);
   Expect.equals("LibMixin main", LibMixin.id);
   Expect.equals("LibEnum part2", LibEnum.id);

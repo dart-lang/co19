@@ -48,7 +48,7 @@ testPart1() {
   Expect.equals("mainVar", _mainVar);
   Expect.equals("mainGetter", _mainGetter);
   _mainSetter = "x";
-  Expect.equals("mainFunc", _mainFunc);
+  Expect.equals("mainFunc", _mainFunc());
   Expect.equals("MainClass", _MainClass.id);
   Expect.equals("MainMixin", _MainMixin.id);
   Expect.equals("MainEnum", _MainEnum.id);
@@ -58,7 +58,7 @@ testPart1() {
   Expect.equals("part2Var", _part2Var);
   Expect.equals("part2Getter", _part2Getter);
   _part2Setter = "x";
-  Expect.equals("part2Func", _part2Func);
+  Expect.equals("part2Func", _part2Func());
   Expect.equals("Part2Class", _Part2Class.id);
   Expect.equals("Part2Mixin", _Part2Mixin.id);
   Expect.equals("Part2Enum", _Part2Enum.id);

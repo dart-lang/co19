@@ -49,7 +49,7 @@ testB2p2() {
   Expect.equals("b1p1Var", b1p1Var);
   Expect.equals("b1p1Getter", b1p1Getter);
   b1p1Setter = "x";
-  Expect.equals("b1p1Func", b1p1Func);
+  Expect.equals("b1p1Func", b1p1Func());
   Expect.equals("B1p1Class", B1p1Class.id);
   Expect.equals("B1p1Mixin", B1p1Mixin.id);
   Expect.equals("B1p1Enum", B1p1Enum.id);
@@ -60,7 +60,7 @@ testB2p2() {
   Expect.equals("b1p2Var", b1p2Var);
   Expect.equals("b1p2Getter", b1p2Getter);
   b1p2Setter = "x";
-  Expect.equals("b1p2Func", b1p2Func);
+  Expect.equals("b1p2Func", b1p2Func());
   Expect.equals("B1p2Class", B1p2Class.id);
   Expect.equals("B1p2Mixin", B1p2Mixin.id);
   Expect.equals("B1p2Enum", B1p2Enum.id);

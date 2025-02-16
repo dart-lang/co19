@@ -23,7 +23,7 @@ main() {
   Expect.equals("libVar", libVar);
   Expect.equals("libGetter", libGetter);
   libSetter = "x";
-  Expect.equals("libFunc", libFunc);
+  Expect.equals("libFunc", libFunc());
   Expect.equals("LibClass", LibClass.id);
   Expect.equals("LibMixin", LibMixin.id);
   Expect.equals("LibEnum", LibEnum.id);
