@@ -14,13 +14,13 @@
 /// the case `T` is `R?` and `Null <: S`.
 /// @author sgrekhov22@gmail.com
 
+import '../../Utils/static_type_helper.dart';
+
 main() {
   int? i = 2 > 1 ? null : 42;
   if (i is Null) {
-    Null n = i; // Ok
-    int j = i;
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
+    Null n = i;
+  } else {
+    i.expectStaticType<Exactly<int>>();
   }
 }

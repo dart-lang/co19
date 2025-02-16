@@ -22,13 +22,12 @@ class C {
 
 test(FutureOr<C> foc) async {
   if (foc is Future<C>) {
+  } else {
     foc.foo();
-//      ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 }
 
 main() {
-  print(test);
+  test(C());
+  test(Future<C>.value(C()));
 }
