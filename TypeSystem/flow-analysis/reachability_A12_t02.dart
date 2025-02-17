@@ -19,7 +19,7 @@ import '../../Utils/static_type_helper.dart';
 main() {
   int? i = 2 > 1 ? null : 42;
   if (i is int) {
-    int j = i;
+    i.expectStaticType<Exactly<int>>();
   } else {
     i.expectStaticType<Exactly<Null>>();
   }

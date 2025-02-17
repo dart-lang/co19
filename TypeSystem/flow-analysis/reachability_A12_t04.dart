@@ -17,12 +17,11 @@
 import 'dart:async';
 import '../../Utils/static_type_helper.dart';
 
-class C {
-  void foo() {}
-}
+class C {}
 
 test(FutureOr<C> foc) async {
   if (foc is C) {
+    foc.expectStaticType<Exactly<C>>();
   } else {
     foc.expectStaticType<Exactly<Future<C>>>();
   }

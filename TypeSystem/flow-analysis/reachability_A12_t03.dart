@@ -15,15 +15,15 @@
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
+import '../../Utils/static_type_helper.dart';
 
-class C {
-  void foo() {}
-}
+class C {}
 
 test(FutureOr<C> foc) async {
   if (foc is Future<C>) {
+    foc.expectStaticType<Exactly<Future<C>>>();
   } else {
-    foc.foo();
+    foc.expectStaticType<Exactly<C>>();
   }
 }
 
