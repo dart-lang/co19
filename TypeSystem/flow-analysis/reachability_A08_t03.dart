@@ -1,4 +1,4 @@
-// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -28,19 +28,18 @@
 /// `null.isEven` in the event of a non-null input).
 ///
 /// @description Checks that if `equivalentToNull(T1)` and `T2` is non-nullable,
-/// then `true(N) = unreachable(after(E2))` and `false(N) = after(E2)`.
-/// @author sgrekhov@unipro.ru
-/// @issue 41981
+/// or `equivalentToNull(T2)` and `T1` is non-nullable then
+/// `true(N) = unreachable(after(E2))` and `false(N) = after(E2)`.
+/// @author sgrekhov22@gmail.com
 /// @issue 60114
 
 // Requirements=nnbd-strong
 
-String get s => "Lily was here";
-
-main() {
+test1<T extends Null>(T t) {
   late int i;
   int j;
-  if (null == s) {  // ignore: unnecessary_null_comparison
+  String s = "";
+  if (s == t) {  // ignore: unnecessary_null_comparison
     i = 42; // `i` is definitely unassigned
   } else {
     j = 42;
@@ -50,4 +49,25 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   j; // Definitely assigned
+}
+
+test2<T extends Null>(T t) {
+  late int i;
+  int j;
+  String s = "";
+  if (t == s) {  // ignore: unnecessary_null_comparison
+    i = 42;
+  } else {
+    j = 42;
+  }
+  i;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+  j;
+}
+
+main() {
+  print(test1);
+  print(test2);
 }

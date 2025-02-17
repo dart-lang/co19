@@ -1,4 +1,4 @@
-// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -27,27 +27,21 @@
 /// `(int? x) => x == (x = null) ? true : x.isEven`, which tries to call
 /// `null.isEven` in the event of a non-null input).
 ///
-/// @description Checks that if `equivalentToNull(T1)` and `T2` is non-nullable,
-/// then `true(N) = unreachable(after(E2))` and `false(N) = after(E2)`.
-/// @author sgrekhov@unipro.ru
-/// @issue 41981
-/// @issue 60114
+/// @description Checks that if `stripParens(E1)` is a `null` literal, then
+/// `true(N) = after(E2)` and `false(N) = promoteToNonNull(E2, after(E2))`.
+/// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
-String get s => "Lily was here";
-
-main() {
-  late int i;
-  int j;
-  if (null == s) {  // ignore: unnecessary_null_comparison
-    i = 42; // `i` is definitely unassigned
-  } else {
-    j = 42;
-  }
-  i;
-//^
+test(int? n) {
+  if ((null) == n) {
+    n.isEven;
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  j; // Definitely assigned
+  } else {
+    n.isEven;
+  }
+}
+
+main() {
+  print(test);
 }
