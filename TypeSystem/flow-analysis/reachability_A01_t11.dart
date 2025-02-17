@@ -1,4 +1,4 @@
-// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -11,10 +11,10 @@
 ///   - Let `after(N) = before(N)`.
 ///
 /// @description Checks that the code is unreachable after a variable of type
-/// `Never`.
-/// @author sgrekhov@unipro.ru
+/// `T <: Never`.
+/// @author sgrekhov22@gmail.com
 
-void test(Never n) {
+void test<T extends Never>(T n) {
   late int i;
   bool b = (() => true)();
   if (b) {
