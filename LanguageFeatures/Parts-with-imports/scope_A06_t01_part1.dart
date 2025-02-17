@@ -33,7 +33,7 @@ testPart1() async {
   Expect.equals("libGetter", l.libGetter);
   l.libSetter = "x";
   Expect.equals("libSetter", l.log);
-  Expect.equals("libFunc", l.libFunc);
+  Expect.equals("libFunc", l.libFunc());
   Expect.equals("LibClass", l.LibClass.id);
   Expect.equals("LibMixin", l.LibMixin.id);
   Expect.equals("LibEnum", l.LibEnum.id);

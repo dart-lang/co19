@@ -28,7 +28,7 @@ testPart1() {
   Expect.equals("scope_lib1 libVar", libVar);
   Expect.equals("scope_lib1 libGetter", libGetter);
   libSetter = "x";
-  Expect.equals("scope_lib1 libFunc", libFunc);
+  Expect.equals("scope_lib1 libFunc", libFunc());
   Expect.equals("scope_lib1 LibClass", LibClass.id);
   Expect.equals("scope_lib1 LibMixin", LibMixin.id);
   Expect.equals("scope_lib1 LibEnum", LibEnum.id);

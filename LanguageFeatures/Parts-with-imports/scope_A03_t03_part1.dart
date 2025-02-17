@@ -25,5 +25,5 @@ part 'scope_A03_t03_part2.dart';
 
 testPart1() async {
   await d.loadLibrary();
-  Expect.equals("scope", d.scope);
+  Expect.equals("scope_lib1", d.scope);
 }

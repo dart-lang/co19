@@ -22,5 +22,5 @@ import 'parts_lib.dart';
 part 'import_inheritance_A01_t02_part2.dart';
 
 void testPart1() {
-  Expect.equals(0, counter);
+  Expect.equals(1, counter);
 }
