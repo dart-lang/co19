@@ -6,7 +6,7 @@
 /// - Let `before(E1) = before(N)`
 /// - Let `after(N) = unreachable(after(E1))`
 ///
-/// @description Checks that a code after throw expression is unreachable. Test
+/// @description Checks that code after a throw expression is unreachable. Test
 /// collection literals.
 /// @author sgrekhov22@gmail.com
 
