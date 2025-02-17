@@ -11,7 +11,7 @@
 ///   - Let `after(N) = before(N)`.
 ///
 /// @description Checks that the code is unreachable after a variable of type
-/// `Never`. Test an `if` statement in a set literal.
+/// `Never`. Test an `if` element in a set literal.
 /// @author sgrekhov22@gmail.com
 
 void test(Never n) {
@@ -19,7 +19,7 @@ void test(Never n) {
   bool b = (() => true)();
   if (b) {
     <Object>{
-      if (n is String) // The code after this point is unreachable
+      if (n is String) // ignore: unnecessary_type_check
         i = 42 // Variable is initialized in a dead code. This leaves it definitely unassigned
     };
   }

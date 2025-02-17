@@ -11,7 +11,7 @@
 ///   - Let `after(N) = before(N)`.
 ///
 /// @description Checks that the code is unreachable after a variable of type
-/// `Never`. Test a `for(;;)` statement in a set literal.
+/// `Never`. Test a `for(;;)` element in a set literal.
 /// @author sgrekhov22@gmail.com
 /// @issue 60089
 

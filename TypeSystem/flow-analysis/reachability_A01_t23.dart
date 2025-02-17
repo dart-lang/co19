@@ -11,7 +11,7 @@
 ///   - Let `after(N) = before(N)`.
 ///
 /// @description Checks that the code is unreachable after a variable of type
-/// `Never`. Test a `for(;;)` statement in a list literal.
+/// `Never`. Test a `for(;;)` element in a list literal.
 /// @author sgrekhov22@gmail.com
 /// @issue 60089
 
@@ -20,7 +20,7 @@ void test1(Never n) {
   bool b = (() => true)();
   if (b) {
     [
-      for (n;;)        // The code after this point is unreachable
+      for (n;;)  // The code after this point is unreachable
         i = 42,  // Variable is initialized in a dead code. This leaves it definitely unassigned
       i = 0
     ];

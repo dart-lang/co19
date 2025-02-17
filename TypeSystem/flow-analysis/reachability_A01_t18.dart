@@ -11,7 +11,7 @@
 ///   - Let `after(N) = before(N)`.
 ///
 /// @description Checks that the code is unreachable after a variable of type
-/// `Never`. Test a map literal.
+/// `Never`. Test a set literal.
 /// @author sgrekhov22@gmail.com
 
 void test(Never n) {
