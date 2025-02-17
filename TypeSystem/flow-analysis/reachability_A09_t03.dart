@@ -12,26 +12,34 @@
 
 test1<T extends Null>(T t) {
   late int i;
+  int j;
   Null n = null;
   if (n != t) {
     i = 42; // Variable is initialized in a dead code. This leaves it definitely unassigned
+  } else {
+    j = 42;
   }
   i;  // It is an error to read a local late variable when it is definitely unassigned.
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+  j; // Definitely assigned
 }
 
 test2<T extends Null>(T t) {
   late int i;
+  int j;
   Null n = null;
   if (t != n) {
     i = 42; // Variable is initialized in a dead code. This leaves it definitely unassigned
+  } else {
+    j = 42;
   }
   i;  // It is an error to read a local late variable when it is definitely unassigned.
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+  j;
 }
 
 main() {

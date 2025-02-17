@@ -14,9 +14,16 @@
 
 main() {
   int i;
+  late int j;
   String s = "";
   if (s != null) { // ignore: unnecessary_null_comparison
     i = 42; // `i` is definitely assigned here
+  } else {
+    j = 42;
   }
   i; // It is not an error to read a local non-nullable variable which is definitely assigned
+  j; // Still definitely unassigned
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

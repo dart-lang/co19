@@ -15,12 +15,16 @@ Null get n1 => null;
 
 main() {
   late int i;
+  int j;
   Null n2;
   if (n1 != n2) {
     i = 42; // Variable is initialized in a dead code. This leaves it definitely unassigned
+  } else {
+    j = 42;
   }
   i; // It is an error to read a local late variable when it is definitely unassigned.
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+  j; // Definitely assigned
 }

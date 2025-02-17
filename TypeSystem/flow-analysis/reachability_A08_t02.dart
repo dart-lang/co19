@@ -39,9 +39,16 @@ Null get n1 => null;
 
 main() {
   int i;
+  late int j;
   Null n2;
   if (n1 == n2) {
     i = 42; // condition is always true therefore `i` must be definitely assigned
+  } else {
+    j = 42;
   }
   i; // It's not an error to read local non-nullable variable if it is definitely assigned
+  j; // Still definitely unassigned
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

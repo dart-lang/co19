@@ -17,8 +17,15 @@ String get s => "Lily was here";
 
 main() {
   int i;
+  late int j;
   if (null != s) { // ignore: unnecessary_null_comparison
     i = 42; // `i` is definitely assigned here
+  } else {
+    j = 42;
   }
   i; // It is not an error to read a local non-nullable variable which is definitely assigned
+  j; // Still definitely unassigned
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

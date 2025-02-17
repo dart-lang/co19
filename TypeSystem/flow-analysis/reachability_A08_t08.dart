@@ -37,6 +37,8 @@ test(int? n) {
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  } else {
+    n.isEven;
   }
 }
 

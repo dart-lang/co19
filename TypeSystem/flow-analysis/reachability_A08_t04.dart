@@ -37,12 +37,16 @@
 
 main() {
   late int i;
+  int j;
   String s = "";
   if (s == null) {  // ignore: unnecessary_null_comparison
     i = 42; // `i` is definitely unassigned
+  } else {
+    j = 42;
   }
   i;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+  j;
 }

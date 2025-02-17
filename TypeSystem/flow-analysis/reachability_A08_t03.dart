@@ -37,26 +37,34 @@
 
 test1<T extends Null>(T t) {
   late int i;
+  int j;
   String s = "";
   if (s == t) {  // ignore: unnecessary_null_comparison
     i = 42; // `i` is definitely unassigned
+  } else {
+    j = 42;
   }
   i;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+  j; // Definitely assigned
 }
 
 test2<T extends Null>(T t) {
   late int i;
+  int j;
   String s = "";
   if (t == s) {  // ignore: unnecessary_null_comparison
     i = 42;
+  } else {
+    j = 42;
   }
   i;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+  j;
 }
 
 main() {

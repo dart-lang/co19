@@ -39,11 +39,15 @@ String get s => "Lily was here";
 
 main() {
   late int i;
+  int j;
   if (null == s) {  // ignore: unnecessary_null_comparison
     i = 42; // `i` is definitely unassigned
+  } else {
+    j = 42;
   }
   i;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+  j; // Definitely assigned
 }

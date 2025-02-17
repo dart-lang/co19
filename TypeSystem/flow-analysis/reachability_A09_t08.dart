@@ -13,10 +13,14 @@
 test(int? n) {
   if (n != (null)) {
     n.isEven;
+  } else {
+    n.isEven;
+//    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
-  test(1);
-  test(null);
+  print(test);
 }
