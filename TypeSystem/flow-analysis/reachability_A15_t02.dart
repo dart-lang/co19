@@ -14,7 +14,7 @@
 ///   - Let after(N) = merge(after(E2), split(after(E1))).
 ///
 /// @description Checks that if `E1` is not a local variable and is nullable,
-/// then `E2` is not a dead code.
+/// then `E2` is not dead code.
 /// @author sgrekhov22@gmail.com
 
 class C {

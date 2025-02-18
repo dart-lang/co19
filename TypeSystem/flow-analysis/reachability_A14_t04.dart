@@ -9,7 +9,7 @@
 /// - Let `M2 = split(promoteToNonNull(x, before(N)))`
 /// - Let `after(N) = merge(M1, M2)`
 ///
-/// @description Checks that if `x` is an equivalent to `Null` then `E1` is
+/// @description Checks that if `x` is a subtype of `Null` then `E1` is
 /// always executed.
 /// @author sgrekhov22@gmail.com
 

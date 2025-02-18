@@ -18,7 +18,7 @@
 
 void test(int x) {
   late int i;
-  x ?? (i = 42); // `i` is initialized in a dead code
+  x ?? (i = 42); // `i` is initialized in dead code
   i; // Definitely unassigned
 //^
 // [analyzer] unspecified

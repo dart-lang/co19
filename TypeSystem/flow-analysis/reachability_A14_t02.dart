@@ -9,12 +9,13 @@
 /// - Let `M2 = split(promoteToNonNull(x, before(N)))`
 /// - Let `after(N) = merge(M1, M2)`
 ///
-/// @description Checks that if `x` is non-nullable then `E1` is a dead code.
+/// @description Checks that if `x` is non-nullable then `E1` is dead code.
 /// @author sgrekhov22@gmail.com
+/// @issue 60114
 
 void test(int o) {
-  int i;
-  o ??= (i = 42); // `i` is initialized in a dead code
+  late int i;
+  o ??= (i = 42); // `i` is initialized in dead code
   i; // Definitely unassigned
 //^
 // [analyzer] unspecified

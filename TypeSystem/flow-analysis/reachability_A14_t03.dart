@@ -9,7 +9,7 @@
 /// - Let `M2 = split(promoteToNonNull(x, before(N)))`
 /// - Let `after(N) = merge(M1, M2)`
 ///
-/// @description Checks that if `x` is nullable then `E1` is not a dead code.
+/// @description Checks that if `x` is nullable then `E1` is not dead code.
 /// @author sgrekhov22@gmail.com
 
 void test(int? o) {

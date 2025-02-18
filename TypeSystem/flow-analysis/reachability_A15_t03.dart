@@ -14,7 +14,7 @@
 ///   - Let after(N) = merge(after(E2), split(after(E1))).
 ///
 /// @description Checks that if `E1` is not a local variable and is nullable,
-/// then flow analysis doesn't promote `E1`.
+/// then flow analysis doesn't affect static type of `E1`.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

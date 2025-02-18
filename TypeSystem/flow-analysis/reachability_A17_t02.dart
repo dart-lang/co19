@@ -12,13 +12,13 @@
 ///   - Let `before(E2) = split(after(E1))`.
 ///   - Let `after(N) = merge(after(E2), split(after(E1)))`.
 ///
-/// @description Checks that if `E1` is nullable then `E2` is not a dead code.
+/// @description Checks that if `E1` is nullable then `E2` is not dead code.
 /// @author sgrekhov22@gmail.com
 /// @issue 60114
 
 void test(int? x) {
   late int i;
-  x ?? (i = 42); // `i` is initialized in a dead code
+  x ?? (i = 42);
   try {
     i;
   } catch (_) {}

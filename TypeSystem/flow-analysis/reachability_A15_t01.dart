@@ -16,11 +16,12 @@
 /// @description Checks that if `E1` is not a local variable and is strictly
 /// non-nullable, then `before(E2) = unreachable(after(E1))`.
 /// @author sgrekhov22@gmail.com
+/// @issue 60114
 
 class C {
   int m = 0;
   test() {
-    int i;
+    late int i;
     m ??= (i = 42);
     i; // Definitely unassigned
 //  ^
@@ -32,7 +33,7 @@ class C {
 int n = 0;
 
 main() {
-  int i;
+  late int i;
   n ??= (i = 42);
   i;
 //^
