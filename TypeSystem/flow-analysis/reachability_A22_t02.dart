@@ -17,7 +17,7 @@
 /// @author sgrekhov22@gmail.com
 
 class C {
-  const C(int i);
+  C(int i);
   void foo(int j) {}
 }
 
@@ -31,7 +31,6 @@ void test<T extends Never>(T n) {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
-
 
 main() {
   print(test);
