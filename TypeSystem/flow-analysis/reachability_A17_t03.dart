@@ -12,7 +12,7 @@
 ///   - Let `before(E2) = split(after(E1))`.
 ///   - Let `after(N) = merge(after(E2), split(after(E1)))`.
 ///
-/// @description Checks that if `E1` is equivalent to `Null` then `E2` is always
+/// @description Checks that if `E1` is a subtype of `Null` then `E2` is always
 /// executed.
 /// @author sgrekhov22@gmail.com
 /// @issue 60114
