@@ -45,5 +45,5 @@ class A {
 }
 
 main() {
-  new A();
+  print(A);
 }
