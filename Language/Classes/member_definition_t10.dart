@@ -37,16 +37,13 @@
 /// member definition.
 /// @author msyabro
 
-
 class A {
-//    ^
-// [analyzer] unspecified
   do {} while (true);
-//             ^
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  new A();
+  print(A);
 }
