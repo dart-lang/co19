@@ -18,9 +18,12 @@
 
 class C<T extends Never> {
   T foo() => throw "";
+  Future<T> bar() async {
+    throw "";
+  }
 }
 
-void test() {
+void test1() {
   late int i;
   if (2 > 1) {
     C().foo();
@@ -32,6 +35,29 @@ void test() {
 // [cfe] unspecified
 }
 
+void test2() {
+  late int i;
+  if (2 > 1) {
+    C().bar(); // Return type is not `Never`
+    i = 42;
+  }
+  i; // Not definitely unassigned
+}
+
+void test3() async {
+  late int i;
+  if (2 > 1) {
+    await C().bar();
+    i = 42;
+  }
+  i; // Not definitely unassigned
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
-  print(test);
+  print(test1);
+  print(test2);
+  print(test3);
 }
