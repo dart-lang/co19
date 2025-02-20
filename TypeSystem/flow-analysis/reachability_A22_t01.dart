@@ -27,7 +27,6 @@ void test<T extends Never>(T n) {
 // [cfe] unspecified
 }
 
-
 main() {
   print(test);
 }
