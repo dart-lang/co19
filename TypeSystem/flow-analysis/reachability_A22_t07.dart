@@ -14,7 +14,7 @@
 ///
 /// @description Checks that for an expression of the form `E1.m1(E2)`
 /// `before(E2) = after(E1)`. Test that if `m1` is a getter returning type
-/// `Never` then `before(E2)` is also unreachable.
+/// `Never` then `before(E2)` is unreachable.
 /// @author sgrekhov22@gmail.com
 
 class C<T extends Never> {
