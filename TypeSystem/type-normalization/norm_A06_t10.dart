@@ -9,8 +9,6 @@
 /// NORM(Ti). Test FutureOr<T> == Future<T> where T <: Future<T>
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import 'dart:async';
 
 class A<X> {}

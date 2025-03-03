@@ -18,7 +18,6 @@
 /// @description Checks that if NORM(T) is Null then NORM(T?) = Null
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 class A<X> {}
 class B1<X> implements A<X> {}
 class B2<X> implements A<X?> {}

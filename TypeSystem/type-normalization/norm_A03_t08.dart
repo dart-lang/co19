@@ -18,8 +18,6 @@
 /// @description Checks that if NORM(T) is R? then NORM(T?) = R?
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class T {}
 class A<X> {}
 class B<X> implements A<X?> {}

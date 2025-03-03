@@ -9,8 +9,6 @@
 /// NORM(Ti). Test X extend Never == Never
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A<X> {}
 class B<X extends Never> implements A<C<X>> {}
 class C<X> {}
