@@ -22,8 +22,6 @@
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
 
-// Requirements=nnbd-strong
-
 class T1 {
   const T1();
 }

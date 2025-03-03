@@ -17,8 +17,6 @@
 /// of Object then T0 is not subtype of T1
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "dart:async";
 
 FutureOr<Null> t0Instance = null;

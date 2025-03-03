@@ -37,8 +37,6 @@
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
 
-// Requirements=nnbd-strong
-
 typedef void F0({required int i});
 typedef void F1({int i});
 
