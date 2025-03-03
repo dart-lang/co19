@@ -13,7 +13,8 @@
 ///   - Let `after(N) = after(E2)`.
 ///
 /// @description Checks that for an expression of the form `E1.m1(E2)`
-/// `before(E2) = after(E1)`.
+/// `before(E2) = after(E1)`. Test that if `after(E1)` is unreachable then
+/// `before(E2)` is also unreachable.
 /// @author sgrekhov22@gmail.com
 
 class C {

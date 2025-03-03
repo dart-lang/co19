@@ -15,14 +15,15 @@
 /// @description Checks that if the static type of the expression of the form
 /// `E1.m1(E2)` static type of `E1`is not `Never` then `after(N) = after(E2)`,
 /// which is tested by detecting that `i = 42` is considered to be guaranteed
-/// to have been executed when `i;` is executed.
+/// to have been executed when `i;` is executed. Test the case when `m1` is a
+/// getter returning a function type.
 /// @author sgrekhov22@gmail.com
 
 class C {
-  void foo(int x) {}
-  void bar([int x = 0]) {}
-  void baz({int x = 0}) {}
-  void qux({required int x}) {}
+  void Function(int) get foo => (int x) {};
+  void Function([int]) get bar => ([int x = 0]) {};
+  void Function({int x}) get baz => ({int x = 0}) {};
+  void Function({required int x}) get qux => ({required int x}) {};
 }
 
 void test1() {

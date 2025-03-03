@@ -12,22 +12,20 @@
 /// - Otherwise:
 ///   - Let `after(N) = after(E2)`.
 ///
-/// @description Checks that if the static type of the expression of the form
-/// `E1.m1(E2)` is `Never` `after(N) = unreachable(after(E2))`.
+/// @description Checks that for an expression of the form `E1.m1(E2)`
+/// `before(E2) = after(E1)`. Test that if `m1` is a getter returning type
+/// `Never` then `before(E2)` is also unreachable.
 /// @author sgrekhov22@gmail.com
 
 class C<T extends Never> {
-  T foo() => throw "";
-  Future<T> bar() async {
-    throw "";
-  }
+  Never get foo => throw "Never";
+  T get bar => throw "Never";
 }
 
 void test1() {
   late int i;
   if (2 > 1) {
-    C().foo();
-    i = 42;
+    C().foo(i = 42); // ignore: receiver_of_type_never
   }
   i; // Definitely unassigned
 //^
@@ -38,17 +36,7 @@ void test1() {
 void test2() {
   late int i;
   if (2 > 1) {
-    C().bar(); // Return type is not `Never`
-    i = 42;
-  }
-  i; // Not definitely unassigned
-}
-
-void test3() async {
-  late int i;
-  if (2 > 1) {
-    await C().bar();
-    i = 42;
+    C().bar(i = 42);  // ignore: receiver_of_type_never
   }
   i; // Definitely unassigned
 //^
@@ -59,5 +47,4 @@ void test3() async {
 main() {
   print(test1);
   print(test2);
-  print(test3);
 }
