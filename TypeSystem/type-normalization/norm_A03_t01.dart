@@ -18,8 +18,6 @@
 /// @description Checks that if NORM(T) is a top type then NORM(T?) = NORM(T)
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A<X> {}
 class B1<X> implements A<X> {}
 class B2<X> implements A<X?> {}

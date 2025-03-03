@@ -12,8 +12,6 @@
 /// R1 Function<X extends B1>(S1).
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A<X> {}
 class B<X> implements A<X> {}
 

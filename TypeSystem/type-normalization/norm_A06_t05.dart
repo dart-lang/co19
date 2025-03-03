@@ -9,8 +9,6 @@
 /// NORM(Ti). Test Null?, dynamic?, Never?
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A<X> {}
 class B<X> implements A<X> {}
 

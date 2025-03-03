@@ -10,8 +10,6 @@
 /// @description Checks that if Future<T> <: T then FutureOr<T> == T
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import 'dart:async';
 
 class A<X> {}

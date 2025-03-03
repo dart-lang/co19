@@ -10,8 +10,6 @@
 /// @description Checks that X extend Never == Never
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A<X> {}
 class B<X extends Never> implements A<X> {}
 

@@ -10,8 +10,6 @@
 /// @description Checks that Null? == Null
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A<X> {}
 class B<X> implements A<X> {}
 

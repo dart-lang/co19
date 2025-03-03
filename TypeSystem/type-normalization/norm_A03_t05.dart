@@ -19,8 +19,6 @@
 /// NORM(T?) = FutureOr<R>
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import 'dart:async';
 
 class A<X> {}

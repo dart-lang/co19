@@ -11,8 +11,6 @@
 /// @description Checks that if NORM(T) is Never then NORM(X extends T) = Never
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A<X> {}
 class B<X extends Never> implements A<X> {}
 

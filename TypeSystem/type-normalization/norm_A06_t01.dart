@@ -9,8 +9,6 @@
 /// NORM(Ti). Test T?? == T?
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class T {}
 class A<X> {}
 class B<X> implements A<C<X?>> {}

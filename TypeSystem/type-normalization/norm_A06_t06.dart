@@ -9,8 +9,6 @@
 /// NORM(Ti). Test void?
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A<X> {}
 class B<X> implements A<C<X?>> {}
 
