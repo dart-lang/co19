@@ -33,8 +33,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 60114
 
-// Requirements=nnbd-strong
-
 test1<T extends Null>(T t) {
   late int i;
   int j;

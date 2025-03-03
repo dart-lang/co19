@@ -18,8 +18,6 @@
 /// and a label. Outer loop is do-while
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 main() {

@@ -9,8 +9,6 @@
 /// @description Checks reachability after true literal
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 main() {
   int i;
   true ? i = 42 : "nothing";

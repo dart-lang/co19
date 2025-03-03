@@ -33,8 +33,6 @@
 /// @issue 41981
 /// @issue 60114
 
-// Requirements=nnbd-strong
-
 String get s => "Lily was here";
 
 main() {

@@ -17,8 +17,6 @@
 /// @description Checks reachability after continue statement. Test for loop
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 main() {

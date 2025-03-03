@@ -9,8 +9,6 @@
 /// @description Checks definite assignment and conditional assignment
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 main() {
   int n;
   int i = false ? 42 : (n = -42);

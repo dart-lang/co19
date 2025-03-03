@@ -9,8 +9,6 @@
 /// @description Checks definite assignment and for loop
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 main() {
   int n;
   for (;;) {

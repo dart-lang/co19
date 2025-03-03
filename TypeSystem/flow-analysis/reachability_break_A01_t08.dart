@@ -16,8 +16,6 @@
 /// a label. The outer loop is while
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 main() {

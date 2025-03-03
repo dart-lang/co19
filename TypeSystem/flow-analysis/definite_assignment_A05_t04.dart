@@ -9,8 +9,6 @@
 /// @description Checks definite assignment and while loop
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 main() {
   int n;
   while ((n = 42) < 1) {

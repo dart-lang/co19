@@ -9,8 +9,6 @@
 /// @description Checks definite assignment and switch statement
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 main() {
   int n;
   int i = 0;

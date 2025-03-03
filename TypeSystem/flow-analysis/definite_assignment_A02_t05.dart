@@ -9,8 +9,6 @@
 /// @description Checks definite assignment and if statement
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 main() {
   int n;
   if (false) {
