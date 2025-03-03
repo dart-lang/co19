@@ -25,8 +25,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 52928
 
-// Requirements=nnbd-strong
-
 typedef void F0({required int i});
 typedef void F1({int i});
 

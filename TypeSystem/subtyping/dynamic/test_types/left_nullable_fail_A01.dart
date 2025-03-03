@@ -10,8 +10,6 @@
 /// subtype T1 then T0 is not subtype of T1.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class T1 {
   const T1();
 }
