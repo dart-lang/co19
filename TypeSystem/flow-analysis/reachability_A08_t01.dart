@@ -33,8 +33,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 41985
 
-// Requirements=nnbd-strong
-
 main() {
   int i;
   late int j;

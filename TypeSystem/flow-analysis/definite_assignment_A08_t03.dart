@@ -9,8 +9,6 @@
 /// @description Checks definite assignment and try-catch statement
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 main() {
   int n;
   try {

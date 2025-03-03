@@ -33,8 +33,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 41985
 
-// Requirements=nnbd-strong
-
 Null get n1 => null;
 
 main() {

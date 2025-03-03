@@ -9,8 +9,6 @@
 /// @description Checks definite assignment via assignment
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 main() {
   int n;
   n = 42;

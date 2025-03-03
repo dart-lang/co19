@@ -15,8 +15,6 @@
 /// @description Checks reachability after break statement. Test for-in loop
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 main() {

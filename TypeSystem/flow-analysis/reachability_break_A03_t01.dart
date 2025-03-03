@@ -15,8 +15,6 @@
 /// @description Checks reachability after break statement. Test do loop
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 main() {

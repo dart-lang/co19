@@ -15,8 +15,6 @@
 /// requirements above are met. Test T <: S
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class S {}
 class T extends S {
   int foo() => 42;

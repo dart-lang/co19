@@ -18,8 +18,6 @@
 /// and a label. Outer loop is for-in
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 main() {

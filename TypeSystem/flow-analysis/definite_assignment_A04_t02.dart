@@ -9,10 +9,7 @@
 /// @description Checks definite assignment and for-in loop
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 main() {
-  var collection = [3, 1, 4, 1, 5];
   int n;
   for (var v in [n = 42]) {
   }

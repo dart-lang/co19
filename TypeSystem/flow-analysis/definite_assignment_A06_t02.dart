@@ -9,8 +9,6 @@
 /// @description Checks definite assignment and do-while loop
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 main() {
   int n;
   do {

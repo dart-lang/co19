@@ -15,8 +15,6 @@
 /// requirements above are met. Test S is X & R and T <: R
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class X {}
 class R extends X {}
 class T extends R {
