@@ -28,7 +28,7 @@ extension on bool {
 
 main() {
   bool e1 = 2 > 1; // true
-  var e2 = "value";
+  var e2 = C(2);
   Object o = <C>{C(1)};
   if (o is Set<C>) {
     o = {e1? .id: e2};
