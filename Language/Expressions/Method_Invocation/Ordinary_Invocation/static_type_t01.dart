@@ -12,7 +12,6 @@
 /// is being assigned to variables with various declared types.
 /// @author rodionov
 
-// Requirements=nnbd-strong
 import '../../../../Utils/expect.dart';
 
 void testme() {}

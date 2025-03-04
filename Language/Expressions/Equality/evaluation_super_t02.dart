@@ -13,7 +13,6 @@
 /// @author msyabro
 /// @issue https://github.com/dart-lang/co19/issues/871
 
-// Requirements=nnbd-strong
 import '../../../Utils/expect.dart';
 
 class S {
