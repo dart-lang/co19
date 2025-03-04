@@ -20,7 +20,6 @@
 ///
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 class C {}
 
 Future<num?>? test1() async {

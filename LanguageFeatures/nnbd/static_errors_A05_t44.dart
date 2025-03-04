@@ -16,8 +16,6 @@
 /// where `<T extends Object>`.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 import "dart:async";
 
 class C<T extends Object> {

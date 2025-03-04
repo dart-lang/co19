@@ -39,8 +39,6 @@
 /// when the future value type is a suitable future
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 Future<Future<int>> f1() async {
   return new Future<int>.value(42);
 }

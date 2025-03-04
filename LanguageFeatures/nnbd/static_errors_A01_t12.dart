@@ -13,7 +13,6 @@
 /// function type
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 typedef void Foo();

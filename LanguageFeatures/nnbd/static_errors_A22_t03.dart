@@ -11,7 +11,6 @@
 /// of another function expression
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "dart:async";
 
 class C {

@@ -11,7 +11,6 @@
 /// before it is definitely assigned. Test FutureOr<F> where F is a function type
 /// @author sgrekhov@unipro.ru
 
-
 import "dart:async";
 
 typedef void Foo();

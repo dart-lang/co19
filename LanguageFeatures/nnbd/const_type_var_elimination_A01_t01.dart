@@ -21,8 +21,6 @@
 /// @Issue 40977
 /// @author iarkh@unipro.ru
 
-// Requirements=nnbd-strong
-
 class G<T> {
   void foo() {
     const List<T> l1 = [];

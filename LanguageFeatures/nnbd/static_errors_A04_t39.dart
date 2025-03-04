@@ -11,8 +11,6 @@
 /// `external` modifier. Test type `FutureOr<Never>`.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 import "dart:async";
 
 external FutureOr<Never> x1;

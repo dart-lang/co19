@@ -14,7 +14,6 @@
 /// @issue 38715
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "dart:async";
 
 class A {

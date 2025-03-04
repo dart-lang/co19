@@ -11,7 +11,6 @@
 /// before it is definitely assigned. Test FutureOr<T>, where <T extends Object?>
 /// @author sgrekhov@unipro.ru
 
-
 import "dart:async";
 
 class C<T extends Object?> {

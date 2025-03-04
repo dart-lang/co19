@@ -16,7 +16,6 @@
 /// assigned to non-nullable type. Test function type
 /// @author sgrekhov@unipro.ru
 
-
 void foo() {}
 typedef void bar(int i);
 

@@ -18,7 +18,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40390
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 String _log = "";

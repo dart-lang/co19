@@ -9,7 +9,6 @@
 /// aliases
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 class C {}
 
 typedef CAlias = C?;

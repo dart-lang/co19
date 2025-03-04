@@ -14,8 +14,6 @@
 /// @description Check that null can be assigned to nullable type. Test dynamic
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 main() {
   dynamic d1 = null;
   dynamic d2 = "Lily was here";

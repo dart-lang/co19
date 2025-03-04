@@ -16,9 +16,7 @@
 ///
 /// @description Check that type of await expression match with expected
 /// [FutureOr<Null>] type statically and the expression cannot be non-null.
-///
 /// @author iarkh@unipro.ru
-
 
 import "dart:async";
 

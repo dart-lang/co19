@@ -15,7 +15,6 @@
 /// @issue 39876
 /// @issue 40943
 
-
 main() {
   late num x;
   x ??=

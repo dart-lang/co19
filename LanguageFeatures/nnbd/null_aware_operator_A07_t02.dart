@@ -9,7 +9,6 @@
 ///  PASSTHRU[F, fn[x] => x[EXP(e2)]]. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import '../../Utils/expect.dart';
 
 class C {

@@ -16,10 +16,8 @@
 ///
 /// @description Check that future flattening works correctly for
 /// [Future<Object>] type statically and the expression cannot be null.
-///
-/// @Issue 41339, 41340
 /// @author iarkh@unipro.ru
-
+/// @Issue 41339, 41340
 
 import "dart:async";
 

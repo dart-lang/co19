@@ -13,7 +13,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40392
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 Never willThrow() => throw "Lily was here";

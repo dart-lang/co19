@@ -8,7 +8,6 @@
 /// default value. Test both covariant and required modifiers
 /// @author sgrekhov@unipro.ru
 
-
 class A {
   const A();
 }

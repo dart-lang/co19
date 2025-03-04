@@ -11,7 +11,6 @@
 /// before it is definitely assigned. Test some type <X extends Object?>
 /// @author sgrekhov@unipro.ru
 
-
 class C<X extends Object?> {
   void test() {
     X x;

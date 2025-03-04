@@ -11,8 +11,6 @@
 /// `late` modifier. Test type `Never`.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 late Never n1;
 
 class C {

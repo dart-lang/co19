@@ -14,7 +14,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39876
 
-
 test1() {
   late int x;
   x;

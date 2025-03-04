@@ -10,7 +10,6 @@
 /// from an expression if this is a method or field on Object. Test some class A?
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 class A {}

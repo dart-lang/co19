@@ -11,7 +11,6 @@
 /// late. Test covariant formal parameters
 /// @author sgrekhov@unipro.ru
 
-
 class A {}
 
 class C {

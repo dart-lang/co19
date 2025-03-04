@@ -11,8 +11,6 @@
 /// `late` modifier. Test type `FutureOr<Never>`.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "dart:async";
 
 late FutureOr<Never> x1;

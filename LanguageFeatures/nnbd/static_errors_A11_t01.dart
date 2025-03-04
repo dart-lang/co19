@@ -8,7 +8,6 @@
 /// default value.
 /// @author sgrekhov@unipro.ru
 
-
 class C {
   static void test1({required int x = 0}) {}
 //                                  ^^^

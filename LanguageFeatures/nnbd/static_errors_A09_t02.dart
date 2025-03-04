@@ -13,7 +13,6 @@
 /// @issue 40396
 /// @issue 40948
 
-
 class C {
   static Function sTest() {}
 //                ^^^^^

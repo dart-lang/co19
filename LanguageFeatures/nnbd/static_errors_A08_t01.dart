@@ -12,8 +12,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40946
 
-
-
 class C {
   static void test() {
     Never n;

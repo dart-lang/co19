@@ -12,8 +12,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39866
 
-// Requirements=nnbd-strong
-
 Never foo() => throw Exception();
 
 main() {

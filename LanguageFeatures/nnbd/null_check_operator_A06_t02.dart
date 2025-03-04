@@ -14,7 +14,6 @@
 /// @issue 39758
 /// @issue 41193
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 class A<T> {

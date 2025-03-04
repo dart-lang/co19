@@ -9,10 +9,7 @@
 ///
 /// @description Checks statically that actual generic class type parameter is
 /// evaluated correctly for [Never] type argument.
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
 
 import "dart:async";
 

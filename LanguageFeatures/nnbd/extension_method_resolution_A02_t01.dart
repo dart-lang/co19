@@ -12,7 +12,6 @@
 /// nullable one
 /// @author sgrekhov@unipro.ru
 
-
 extension on int {
   bool get isEven => false;
 }

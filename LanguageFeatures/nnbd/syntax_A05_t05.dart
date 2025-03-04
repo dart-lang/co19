@@ -11,7 +11,6 @@
 /// misplaced
 /// @author sgrekhov@unipro.ru
 
-
 class A {}
 
 typedef String Foo1(required int x, {String z, required String y});

@@ -16,11 +16,8 @@
 ///
 /// @description Check that future flattening works correctly for [Future<Null>]
 /// type and the expression can be null.
-///
-/// Issue 41437
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
+/// Issue 41437
 
 import "dart:async";
 import "../../Utils/expect.dart";

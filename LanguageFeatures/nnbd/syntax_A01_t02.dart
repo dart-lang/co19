@@ -11,7 +11,6 @@
 /// @issue 40374
 /// @issue 39896
 
-// Requirements=nnbd-strong
 dynamic? foo(dynamic? d) => d;
 
 Null? test(Null? n) => n;

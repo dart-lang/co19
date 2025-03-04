@@ -12,8 +12,6 @@
 ///
 /// @author iarkh@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "const_evaluation_lib.dart";
 
 class N<X, Y, Z> { const N(); }

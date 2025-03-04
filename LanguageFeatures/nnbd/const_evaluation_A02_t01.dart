@@ -5,10 +5,7 @@
 /// @assertion CONST_CANONICAL_TYPE(T) = T if T is dynamic, void, Null
 ///
 /// @description Checks that CONST_CANONICAL_TYPE(dynamic) = dynamic
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";
 import "const_evaluation_lib.dart";

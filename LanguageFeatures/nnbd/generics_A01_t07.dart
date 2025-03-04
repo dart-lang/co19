@@ -14,8 +14,6 @@
 /// @Issue 40367
 /// @author iarkh@unipro.ru
 
- // Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 dynamic i = null;

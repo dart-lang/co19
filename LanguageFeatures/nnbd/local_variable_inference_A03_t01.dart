@@ -13,7 +13,6 @@
 ///
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 test<T extends num>(T t) {
   if (t is int) {
     var x = t;

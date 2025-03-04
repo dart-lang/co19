@@ -16,8 +16,6 @@
 /// `F` is a function type.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 import "dart:async";
 
 typedef void Foo();

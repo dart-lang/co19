@@ -12,7 +12,6 @@
 /// type alias
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 class A {
   void test() {}
   int operator[](int index) => 0;

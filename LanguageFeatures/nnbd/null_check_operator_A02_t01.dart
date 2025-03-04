@@ -12,7 +12,6 @@
 /// @issue 39724
 /// @issue 39758
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 Object? foo(int i) => null;

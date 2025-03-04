@@ -14,7 +14,6 @@
 /// Check that '?..' operator must be the first in the cascade sequence
 /// @author sgrekhov@unipro.ru
 
-
 class C {
   String test1 = "Let it be";
   String test2 = "Show must go on";

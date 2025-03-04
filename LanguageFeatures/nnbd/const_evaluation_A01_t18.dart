@@ -9,11 +9,8 @@
 ///
 /// @description Checks dynamically that actual generic class type parameter is
 /// evaluated correctly for [Never] type argument.
-///
-/// @issue 39678
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
+/// @issue 39678
 
 import "../../Utils/expect.dart";
 

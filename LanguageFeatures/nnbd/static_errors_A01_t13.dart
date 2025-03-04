@@ -12,7 +12,6 @@
 /// that methods of Object are allowed for the type <T extends Object?>
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 class C<T extends Object?> {

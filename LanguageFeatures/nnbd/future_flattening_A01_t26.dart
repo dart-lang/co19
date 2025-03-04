@@ -16,10 +16,7 @@
 ///
 /// @description Check that type of await expression match with expected
 /// [Never] type dynamically and the expression cannot be null.
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
 
 import "dart:async";
 import "../../Utils/expect.dart";

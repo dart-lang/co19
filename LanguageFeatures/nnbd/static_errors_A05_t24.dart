@@ -16,8 +16,6 @@
 /// `A`.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A {}
 
 abstract class B {

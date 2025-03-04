@@ -10,8 +10,6 @@
 /// getter or operator on an expression whose type is dynamic
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A {
   String m = "";
   void foo() {}

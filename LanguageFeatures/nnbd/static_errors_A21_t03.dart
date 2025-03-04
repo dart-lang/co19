@@ -11,7 +11,6 @@
 /// clause
 /// @author sgrekhov@unipro.ru
 
-
 void test() {}
 
 main() {

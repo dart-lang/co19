@@ -10,8 +10,6 @@
 /// initializing expression and then assigned with a prefix await.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 class C {

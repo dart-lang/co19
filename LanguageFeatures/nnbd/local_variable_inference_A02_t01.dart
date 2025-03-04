@@ -13,8 +13,6 @@
 ///
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class C {
   static void testStatic() {
     var x = 42;

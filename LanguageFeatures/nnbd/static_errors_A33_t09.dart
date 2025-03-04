@@ -10,7 +10,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39598
 
-
 import "dart:async";
 
 void foo() {}

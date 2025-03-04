@@ -10,8 +10,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39723
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 extension on int {

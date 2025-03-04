@@ -41,7 +41,6 @@
 /// is a subtype of the actual value of $T_v$
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 int f1() {

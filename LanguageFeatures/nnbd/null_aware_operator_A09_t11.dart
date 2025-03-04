@@ -11,7 +11,6 @@
 ///  SHORT[EXP(e1), fn[x] => x.f |= EXP(e2)]
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 class C {

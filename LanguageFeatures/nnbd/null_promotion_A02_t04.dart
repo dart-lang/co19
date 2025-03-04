@@ -11,8 +11,6 @@
 /// @author iarkh@unipro.ru
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A {
   foo() {}
 }

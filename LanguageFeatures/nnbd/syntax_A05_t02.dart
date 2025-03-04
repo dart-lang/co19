@@ -11,7 +11,6 @@
 /// the 'required' modifier. Test more than one named parameter
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 class A {}

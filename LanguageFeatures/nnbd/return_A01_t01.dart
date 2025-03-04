@@ -12,7 +12,6 @@
 /// dynamic value from void function
 /// @author sgrekhov@unipro.ru
 
-
 void foo() {
   return 42;
 //       ^^

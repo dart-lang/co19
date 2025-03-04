@@ -16,8 +16,6 @@
 /// `<X extends Object>`.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 class C<X extends Object> {
   external X x1;
   external final X x2;

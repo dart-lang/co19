@@ -13,7 +13,6 @@
 /// type is a function type
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 typedef int Foo();

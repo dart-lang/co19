@@ -16,7 +16,6 @@
 /// Language @issue https://github.com/dart-lang/language/issues/711
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 typedef void Foo();
 
 void foo() {}

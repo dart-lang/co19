@@ -7,11 +7,8 @@
 ///
 /// @description Checks that
 /// `CONST_CANONICAL_TYPE(FutureOr<Never>) = FutureOr<Never>*`
-/// @Issue 45067
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
+/// @Issue 45067
 
 import"dart:async";
 import "const_evaluation_lib.dart";

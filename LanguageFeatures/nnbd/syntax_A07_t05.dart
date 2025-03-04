@@ -13,7 +13,6 @@
 /// declaration
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 class A {}
 
 class C<T> {

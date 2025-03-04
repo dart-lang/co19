@@ -12,7 +12,6 @@
 /// expression in a regular function if the return type is Null
 /// @author sgrekhov@unipro.ru
 
-
 void g() {}
 
 Null foo() {

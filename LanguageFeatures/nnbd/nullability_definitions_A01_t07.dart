@@ -15,7 +15,6 @@
 /// FutureOr<S> for some S where S is nullable
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "dart:async";
 
 class C {}

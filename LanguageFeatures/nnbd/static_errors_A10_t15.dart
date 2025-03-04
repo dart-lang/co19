@@ -13,7 +13,6 @@
 /// @issue 40287
 /// @issue 40954
 
-// Requirements=nnbd-strong
 import "dart:async";
 
 typedef void Foo();

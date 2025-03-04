@@ -10,8 +10,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40805
 
-// Requirements=nnbd-strong
-
 class C {
   covariant late final int v1;
   covariant late final int? v2;

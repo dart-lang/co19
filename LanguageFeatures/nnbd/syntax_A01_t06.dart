@@ -9,7 +9,6 @@
 /// nullable version of that type. Test Never
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 Never? foo(Never? n) => n;
 
 main() {

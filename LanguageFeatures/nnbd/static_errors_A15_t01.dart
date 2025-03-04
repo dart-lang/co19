@@ -10,7 +10,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40949
 
-
 class A {}
 class B {}
 class C {}

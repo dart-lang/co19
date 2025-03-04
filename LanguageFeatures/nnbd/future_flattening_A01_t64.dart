@@ -16,11 +16,8 @@
 ///
 /// @description Check that future flattening works correctly for non-nullable
 /// [Future<int>] type dynamically and the expression cannot be null.
-///
-/// @Issue 41340,41437
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
+/// @Issue 41340,41437
 
 import "dart:async";
 import "../../Utils/expect.dart";

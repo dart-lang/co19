@@ -7,10 +7,7 @@
 ///
 /// @description Checks that
 /// `CONST_CANONICAL_TYPE(FutureOr<Never>) = FutureOr<Never>*`
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
 
 import"dart:async";
 import "../../Utils/expect.dart";

@@ -7,7 +7,6 @@
 /// @description Check that it is an error to call the default List constructor.
 /// @author sgrekhov@unipro.ru
 
-
 main() {
   new List(42);
 //    ^^^^^^^^

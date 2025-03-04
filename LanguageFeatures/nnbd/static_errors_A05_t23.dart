@@ -16,8 +16,6 @@
 /// type.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 typedef void Foo();
 
 abstract class A {

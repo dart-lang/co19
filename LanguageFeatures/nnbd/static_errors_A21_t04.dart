@@ -11,7 +11,6 @@
 /// variable binding section of a c-style for loop
 /// @author sgrekhov@unipro.ru
 
-
 main() {
   for (late int i = 0; i < 3; i++) {
 //     ^^^^

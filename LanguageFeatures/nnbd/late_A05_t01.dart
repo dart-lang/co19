@@ -17,7 +17,6 @@
 /// initializer expression is evaluated again
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 String _log = "";

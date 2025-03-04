@@ -12,8 +12,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39684
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 late final g;

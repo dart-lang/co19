@@ -7,7 +7,6 @@
 ///
 /// @description Checks that
 /// `CONST_CANONICAL_TYPE(FutureOr<Null>) = FutureOr<Null>*`
-///
 /// @author iarkh@unipro.ru
 
 import"dart:async";

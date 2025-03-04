@@ -9,7 +9,6 @@
 /// whose type is dynamic.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 int foo() => 42;

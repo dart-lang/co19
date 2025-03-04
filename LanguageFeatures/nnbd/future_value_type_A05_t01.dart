@@ -18,8 +18,6 @@
 ///
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 Object test1() async {
   Object? o = null;
   return o;

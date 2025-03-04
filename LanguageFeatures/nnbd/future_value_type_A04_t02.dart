@@ -18,8 +18,6 @@
 ///
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 foo() async {
   return new Future<dynamic>.value("Lily was here");
 }

@@ -12,8 +12,6 @@
 /// nullable type. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import '../../Utils/expect.dart';
 
 typedef IntAlias = int;

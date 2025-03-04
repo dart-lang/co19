@@ -14,8 +14,6 @@
 /// Test type `<T extends Object?>`.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A {}
 
 class C1<T extends Object?> {

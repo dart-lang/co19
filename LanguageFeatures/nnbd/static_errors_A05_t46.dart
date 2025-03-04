@@ -16,8 +16,6 @@
 /// `FutureOr<FutureOr<A>>` where `A` is some class.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 import "dart:async";
 
 class A {}
