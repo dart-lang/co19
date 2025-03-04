@@ -12,7 +12,6 @@
 /// @author msyabro
 /// @issue 27277
 
-// Requirements=nnbd-strong
 import '../../../../Utils/expect.dart';
 
 dynamic cond = null;

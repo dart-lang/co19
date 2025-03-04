@@ -9,7 +9,6 @@
 /// conversion
 /// @author rodionov
 
-// Requirements=nnbd-strong
 import '../../../Utils/expect.dart';
 import '../../../Utils/dynamic_check.dart';
 

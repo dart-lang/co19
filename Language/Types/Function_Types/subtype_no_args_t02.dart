@@ -14,7 +14,6 @@
 /// @author iefremov
 /// @issue 42648
 
-// Requirements=nnbd-strong
 import "../../../Utils/expect.dart";
 
 typedef t1();
