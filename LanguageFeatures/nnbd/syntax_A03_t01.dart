@@ -8,7 +8,6 @@
 /// @description Check that any expression can be suffixed with a !
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 class C {}

@@ -11,7 +11,6 @@
 /// misplaced
 /// @author sgrekhov@unipro.ru
 
-
 class A {}
 
 class C {

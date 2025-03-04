@@ -11,8 +11,8 @@
 /// Iterable<dynamic>
 /// @author sgrekhov@unipro.ru
 
-
 void init() {}
+
 main() {
   Object v1 = new Object();
   Object? v2 = new Object();

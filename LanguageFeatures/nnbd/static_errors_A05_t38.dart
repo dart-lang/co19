@@ -15,8 +15,6 @@
 /// the variable is marked with an `external` modifier. Test some class `A`.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 class A {}
 
 class C {

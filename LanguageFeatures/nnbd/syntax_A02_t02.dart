@@ -8,7 +8,6 @@
 /// @description Check new primitive type Never. Test type alias
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 typedef Neverland = Never;
 
 Neverland fail() {

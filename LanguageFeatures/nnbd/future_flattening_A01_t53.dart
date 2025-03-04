@@ -16,11 +16,8 @@
 ///
 /// @description Check that type of await expression match with expected
 /// [FutureOr<Never>] type dynamically and the expression cannot be non-null.
-///
-/// @Issue 41324,41437
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
+/// @Issue 41324,41437
 
 import "dart:async";
 import "../../Utils/expect.dart";

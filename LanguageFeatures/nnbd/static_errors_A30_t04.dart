@@ -22,8 +22,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40395
 
-// Requirements=nnbd-strong
-
 enum E {
   one,
   two,

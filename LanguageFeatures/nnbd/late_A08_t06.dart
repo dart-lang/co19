@@ -15,7 +15,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40375
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 const MAX = 10;

@@ -5,10 +5,7 @@
 /// @assertion CONST_CANONICAL_TYPE(X extends T) = X*
 ///
 /// @description Checks that `CONST_CANONICAL_TYPE(X extends T) = X*`
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
 
 import "const_evaluation_lib.dart";
 

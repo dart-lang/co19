@@ -39,7 +39,6 @@
 /// when the future value type is not a suitable future
 /// @author sgrekhov@unipro.ru
 
-
 Future<Future<int>> f1() async {
   return new Future<num>.value(42);
 //       ^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -21,8 +21,6 @@
 /// explicitly or via a default.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 enum E {
   one,
   two,

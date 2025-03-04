@@ -11,10 +11,7 @@
 ///
 /// @description Checks that
 /// `CONST_CANONICAL_TYPE(R Function<X extends B>(S)) = F*`
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";
 import "const_evaluation_lib.dart";

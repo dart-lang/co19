@@ -11,8 +11,6 @@
 /// `external` modifier. Test type `Function`.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 external Function x1;
 
 class C {

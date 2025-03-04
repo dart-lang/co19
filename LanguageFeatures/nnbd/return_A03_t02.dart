@@ -42,7 +42,6 @@
 /// functions
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 Future<int> f1() async {

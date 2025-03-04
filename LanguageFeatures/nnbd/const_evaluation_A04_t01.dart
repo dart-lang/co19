@@ -6,10 +6,7 @@
 /// CONST_CANONICAL_TYPE(T)
 ///
 /// @description Checks that `CONST_CANONICAL_TYPE(FutureOr) = FutureOr*`
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
 
 import"dart:async";
 import "../../Utils/expect.dart";

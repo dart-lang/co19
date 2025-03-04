@@ -12,7 +12,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40946
 
-
 class A {}
 
 class C {

@@ -12,7 +12,6 @@
 /// expression in a regular function if the return type is dynamic
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 void g() {}
 
 dynamic foo() {

@@ -10,8 +10,6 @@
 /// to declare variable of type Never
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class C {
   static late Never n1;
   late Never n2;

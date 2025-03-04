@@ -40,7 +40,6 @@
 /// type is not void, void*, dynamic, or Null if a short notation is used
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 class C {}
 
 Future<void> foo() async => 42;

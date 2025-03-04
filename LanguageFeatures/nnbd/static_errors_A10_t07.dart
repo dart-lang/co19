@@ -12,7 +12,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40954
 
-
 class C {
   static void test1<T extends Object?>(var v, [T t]) {}
 //                                               ^

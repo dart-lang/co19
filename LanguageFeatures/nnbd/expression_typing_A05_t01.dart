@@ -7,7 +7,6 @@
 /// @description Checks that the static type of a throw e expression is Never.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 main() {

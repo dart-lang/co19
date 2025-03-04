@@ -12,7 +12,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40954
 
-
 typedef void Foo();
 
 class C {

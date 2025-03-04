@@ -11,7 +11,6 @@
 /// @issue 39598
 /// @issue 40372
 
-
 class A {
   String s = "Show must go on";
   foo() {}

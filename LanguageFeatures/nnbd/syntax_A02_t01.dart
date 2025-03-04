@@ -8,7 +8,6 @@
 /// @description Check new primitive type Never
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 Never fail() {
   throw new Exception();
 }

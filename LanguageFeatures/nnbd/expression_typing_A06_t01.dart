@@ -15,8 +15,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 41283
 
-// Requirements=nnbd-strong
-
 class A {
   bool operator ==(covariant A other) => true;
 }

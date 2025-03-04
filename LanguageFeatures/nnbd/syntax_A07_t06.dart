@@ -13,7 +13,6 @@
 /// declaration. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 class A {}
 
 typedef AAlias1 = A?;

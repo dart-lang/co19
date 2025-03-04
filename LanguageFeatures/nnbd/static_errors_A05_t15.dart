@@ -14,8 +14,6 @@
 /// Test `Function` types
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 typedef void Foo();
 
 class A {

@@ -8,7 +8,6 @@
 /// default value.
 /// @author sgrekhov@unipro.ru
 
-
 class A {
   const A();
 }

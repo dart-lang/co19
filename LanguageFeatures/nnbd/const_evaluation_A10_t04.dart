@@ -15,7 +15,6 @@
 /// identical if they are equal according to the runtime type equality.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 testXExtendsT1<X extends Never>() {

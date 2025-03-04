@@ -16,7 +16,6 @@
 /// @issue 39141
 /// @issue 40959
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 class A {
   int counter = 0;

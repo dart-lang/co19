@@ -15,8 +15,6 @@
 /// the variable is marked with an `external` modifier. Test a function type.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 typedef void Foo();
 
 class C {

@@ -20,8 +20,6 @@
 /// does handle all enum cases explicitly.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 enum E {
   one,
   two,

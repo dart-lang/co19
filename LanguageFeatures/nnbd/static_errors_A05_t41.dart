@@ -16,8 +16,6 @@
 /// `FutureOr<Never>`.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 import "dart:async";
 
 class C {

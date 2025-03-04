@@ -12,8 +12,6 @@
 /// @issue 39723
 /// @issue 39758
 
-// Requirements=nnbd-strong
-
 Object? foo(int i) => "Lily was here";
 
 main() {

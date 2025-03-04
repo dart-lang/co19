@@ -10,8 +10,6 @@
 /// condition. Test [e == null] expression
 /// @author iarkh@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A {
   foo() {}
 }

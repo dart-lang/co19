@@ -16,8 +16,6 @@
 /// { (a as bool) ? - 3 : 3 } ant the same is true for { a is int ? - 3 : 3 }.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 main() {

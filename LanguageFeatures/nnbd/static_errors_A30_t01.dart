@@ -20,7 +20,6 @@
 /// instances of the same class.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 void foo() {}
 
 main() {

@@ -17,7 +17,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40951
 
-
 class C1 {
   Function f;
 //         ^

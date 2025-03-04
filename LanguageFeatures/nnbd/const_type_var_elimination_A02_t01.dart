@@ -14,9 +14,7 @@
 ///
 /// @description Check that compile error is thrown when free type variable is
 /// explicity used in the const generic instance.
-///
 /// @author iarkh@unipro.ru
-
 
 class G1<T> {
   void foo() {

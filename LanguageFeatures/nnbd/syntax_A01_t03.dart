@@ -9,7 +9,6 @@
 /// nullable version of that type. Test function types
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 typedef void foo();
 
 foo? bar(foo? v) => v;

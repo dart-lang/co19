@@ -10,7 +10,6 @@
 /// type
 /// @author sgrekhov@unipro.ru
 
-
 void foo() {}
 
 typedef void Foo();

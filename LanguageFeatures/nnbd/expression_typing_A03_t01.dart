@@ -10,8 +10,6 @@
 /// @issue 41273
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 void test(var x) {
   if (x is Never) {
     Never n1 = x.toString;

@@ -16,10 +16,7 @@
 ///
 /// @description Check that type of await expression match with expected
 /// [FutureOr<void>] type and the expression can be null.
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
 
 import "dart:async";
 import "../../Utils/expect.dart";

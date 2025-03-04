@@ -15,7 +15,6 @@
 /// Language @issue https://github.com/dart-lang/language/issues/711
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 main() {
   Null a = null;
   a?.toString();

@@ -9,10 +9,7 @@
 ///
 /// @description Checks dynamically that actual generic class type parameter is
 /// evaluated correctly for [int] type argument.
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";
 

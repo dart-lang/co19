@@ -16,8 +16,6 @@
 /// `Function`.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 abstract class A {
   abstract Function x1;
   abstract final Function x2;

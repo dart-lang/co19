@@ -13,7 +13,6 @@
 /// returned as the value of the read
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 String _log = "";

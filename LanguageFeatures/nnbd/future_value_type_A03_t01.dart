@@ -18,7 +18,6 @@
 ///
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 void g() {}
 
 void foo() async {

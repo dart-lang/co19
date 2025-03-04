@@ -12,7 +12,6 @@
 /// that methods of Object are allowed for the class Null
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 main() {

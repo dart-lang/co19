@@ -9,7 +9,6 @@
 /// nullable version of that type. Test different valid cases
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 int ? testInt(int ? i) => i == null ? i ?? 0 : i;

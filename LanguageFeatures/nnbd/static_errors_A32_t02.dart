@@ -9,7 +9,6 @@
 /// ??=, or ...?) are used on a nullable receiver.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 class A {
   test() {}
 }

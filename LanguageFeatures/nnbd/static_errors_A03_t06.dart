@@ -10,7 +10,6 @@
 /// F is a function type
 /// @author sgrekhov@unipro.ru
 
-
 test1<X extends Function?>(X x) {
   x();
 //^

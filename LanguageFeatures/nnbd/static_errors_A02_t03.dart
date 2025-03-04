@@ -10,7 +10,6 @@
 /// off a method from an expression whose type is dynamic
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 class A {
   final String s = "Lily was here";
   void foo() {}

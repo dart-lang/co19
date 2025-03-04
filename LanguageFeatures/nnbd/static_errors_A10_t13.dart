@@ -12,7 +12,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40954
 
-
 import "dart:async";
 
 class A {}

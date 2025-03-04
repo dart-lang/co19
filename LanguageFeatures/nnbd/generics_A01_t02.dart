@@ -10,8 +10,6 @@
 /// @Issue 40367, 40368
 /// @author iarkh@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 class A<T> {}

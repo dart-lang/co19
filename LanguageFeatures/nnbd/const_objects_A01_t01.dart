@@ -9,11 +9,9 @@
 /// @description Checks that an expression of the form 'e as T' is potentially
 /// constant if e is a potentially constant expression and T is a potentially
 /// constant type expression, and it is further constant if e is constant
-///
 /// @author sgrekhov@unipro.ru
 /// @issue 41286
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 const num three = 3;
 

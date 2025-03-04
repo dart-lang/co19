@@ -16,8 +16,6 @@
 /// `<X extends Object>`.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 abstract class A<X extends Object> {
   abstract X x1;
   abstract final X x2;

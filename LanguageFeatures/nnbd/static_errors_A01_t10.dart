@@ -11,7 +11,6 @@
 /// the case <T extends num?>
 /// @author sgrekhov@unipro.ru
 
-
 class C<T extends num?> {
   T t;
   C(this.t);

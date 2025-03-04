@@ -24,8 +24,6 @@
 /// @Issue 41266,41437,42236,42237
 /// @author iarkh@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "dart:async";
 import "../../Utils/expect.dart";
 

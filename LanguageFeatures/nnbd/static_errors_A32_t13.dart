@@ -11,8 +11,8 @@
 /// @issue 39598
 /// @issue 39714
 
-class A {
-}
+class A {}
+
 class C extends A {}
 
 test(var a, C c) {

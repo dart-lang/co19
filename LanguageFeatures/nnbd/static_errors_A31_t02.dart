@@ -14,7 +14,6 @@
 /// @issue 40333
 /// @issue 40945
 
-
 class C {
   void set test(int v) {}
   dynamic get test => 3.14;

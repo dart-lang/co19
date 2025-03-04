@@ -13,8 +13,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39866
 
-// Requirements=nnbd-strong
-
 typedef Neverland = Never;
 
 Neverland foo() => throw Exception();

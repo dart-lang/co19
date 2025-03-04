@@ -16,7 +16,6 @@
 /// assigned to non-nullable type. Test X & S where S is non-nullable
 /// @author sgrekhov@unipro.ru
 
-
 class A {}
 class S extends A {}
 

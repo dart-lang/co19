@@ -11,8 +11,6 @@
 /// `late` modifier. Test a function type.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 typedef void Foo();
 
 late Foo x1;

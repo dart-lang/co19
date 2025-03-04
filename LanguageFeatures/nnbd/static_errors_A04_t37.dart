@@ -11,8 +11,6 @@
 /// `external` modifier. Test a function type.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 typedef void Foo();
 
 external Foo x1;

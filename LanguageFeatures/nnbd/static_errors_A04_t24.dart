@@ -11,8 +11,6 @@
 /// `late` modifier. Test some class.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A {}
 
 late A x1;

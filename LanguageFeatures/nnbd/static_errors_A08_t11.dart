@@ -11,7 +11,6 @@
 /// before it is definitely assigned. Test FutureOr<A> where A is some class
 /// @author sgrekhov@unipro.ru
 
-
 import "dart:async";
 
 class A {}

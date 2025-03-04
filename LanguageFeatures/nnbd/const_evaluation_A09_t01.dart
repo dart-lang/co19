@@ -11,7 +11,6 @@
 ///
 /// @description Checks that
 /// `CONST_CANONICAL_TYPE(R Function<X extends B>(S)) = F*`
-///
 /// @author iarkh@unipro.ru
 
 import "const_evaluation_lib.dart";

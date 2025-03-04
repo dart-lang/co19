@@ -11,7 +11,6 @@
 /// local variable marked late and final when the variable is definitely assigned
 /// @author sgrekhov@unipro.ru
 
-
 class C {
   C operator +(int val) {
     return this;

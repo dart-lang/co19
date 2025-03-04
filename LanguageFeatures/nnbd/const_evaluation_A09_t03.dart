@@ -14,8 +14,6 @@
 ///
 /// @author iarkh@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "const_evaluation_lib.dart";
 
 typedef FUNC = int Function<X extends String>(double);

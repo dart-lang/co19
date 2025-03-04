@@ -11,7 +11,6 @@
 /// some class A?
 /// @author sgrekhov@unipro.ru
 
-
 class A {
   String m = "";
   void foo() {}

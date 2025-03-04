@@ -10,7 +10,6 @@
 /// Test [e is Null] expression
 /// @author sgrekhov@unipro.ru
 
-
 class A {
   foo() {}
 }

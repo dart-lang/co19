@@ -9,7 +9,6 @@
 ///
 /// @description Checks statically that actual generic class type parameter is
 /// evaluated correctly for [int?] type argument.
-///
 /// @author iarkh@unipro.ru
 
 import "dart:async";

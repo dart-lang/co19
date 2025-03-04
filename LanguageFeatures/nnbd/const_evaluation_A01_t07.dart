@@ -9,7 +9,6 @@
 ///
 /// @description Checks statically that actual generic class type parameter is
 /// evaluated correctly for [FutureOr] type argument.
-///
 /// @author iarkh@unipro.ru
 
 import "dart:async";

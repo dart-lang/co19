@@ -9,7 +9,6 @@
 /// or mixin the type Never
 /// @author sgrekhov@unipro.ru
 
-
 class A {}
 class B {}
 

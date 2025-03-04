@@ -14,8 +14,6 @@
 /// @description Check that null can be assigned to nullable type. Test void
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 void test() {}
 
 main() {

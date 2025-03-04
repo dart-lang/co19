@@ -40,7 +40,6 @@
 /// type is void, dynamic, or Null
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 void v1() {}
 dynamic d1() {
   return 42;

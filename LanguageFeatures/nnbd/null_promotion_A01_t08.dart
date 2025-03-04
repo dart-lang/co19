@@ -10,8 +10,6 @@
 /// condition. Test type aliases.
 /// @author iarkh@unipro.ru
 
-// Requirements=nnbd-strong
-
 class A {
   foo() {}
 }

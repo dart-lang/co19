@@ -16,8 +16,6 @@
 /// `Never`
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 abstract class A {
   abstract Never n1;
   abstract final Never n2;

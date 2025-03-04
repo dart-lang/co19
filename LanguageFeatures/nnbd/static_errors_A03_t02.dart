@@ -10,7 +10,6 @@
 /// method
 /// @author sgrekhov@unipro.ru
 
-
 extension on int {
   int call(int v) => this + v;
 }

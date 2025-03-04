@@ -11,7 +11,6 @@
 /// the case <T extends A?>
 /// @author sgrekhov@unipro.ru
 
-
 class A {
   String m = "";
   void foo() {}

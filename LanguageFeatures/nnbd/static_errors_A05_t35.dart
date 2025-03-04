@@ -15,8 +15,6 @@
 /// the variable is marked with an `external` modifier. Test type `Never`.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 class C {
   external Never n1;
   external final Never n2;

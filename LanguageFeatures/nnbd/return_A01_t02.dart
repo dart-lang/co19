@@ -12,7 +12,6 @@
 /// non dynamic value from void function in a short notation
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 void foo() => 42;
 
 main() {

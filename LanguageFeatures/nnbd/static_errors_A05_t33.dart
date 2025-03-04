@@ -16,8 +16,6 @@
 /// `FutureOr<T>`, where `<T extends Object?>`.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "dart:async";
 
 abstract class A<T extends Object?> {

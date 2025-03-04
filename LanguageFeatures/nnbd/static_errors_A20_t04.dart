@@ -9,8 +9,6 @@
 /// reference `this`.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 class A {

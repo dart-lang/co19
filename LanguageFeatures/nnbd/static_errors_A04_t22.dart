@@ -11,8 +11,6 @@
 /// `late` modifier. Test type `Function`.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 late Function x1;
 
 class C {

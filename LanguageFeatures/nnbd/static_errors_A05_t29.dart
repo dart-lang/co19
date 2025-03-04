@@ -16,8 +16,6 @@
 /// `FutureOr<F>` where `F` is a function type.
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "dart:async";
 
 typedef void Foo();

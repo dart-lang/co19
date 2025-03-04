@@ -17,9 +17,7 @@
 ///
 /// @description Check that [const List<T>] variable of a generic class [G<T>]
 /// cannot contain [null].
-///
 /// @author iarkh@unipro.ru
-
 
 class G<T> {
   void foo() {

@@ -16,7 +16,6 @@
 /// assigned to non-nullable type. Test interface type
 /// @author sgrekhov@unipro.ru
 
-
 abstract class A {
   void foo(int i);
 }

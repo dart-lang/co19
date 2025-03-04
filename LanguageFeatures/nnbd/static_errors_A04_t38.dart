@@ -11,8 +11,6 @@
 /// `external` modifier. Test some class.
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 class A {}
 
 external A x1;
