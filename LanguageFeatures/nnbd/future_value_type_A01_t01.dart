@@ -18,7 +18,6 @@
 /// return type futureValueType(Future<S>?) = S, for all S. Test that
 /// when return type of async function is Future<C>? then we cannot return C? from
 /// the function
-///
 /// @author sgrekhov@unipro.ru
 
 class C {}

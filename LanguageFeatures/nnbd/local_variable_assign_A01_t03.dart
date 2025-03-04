@@ -8,9 +8,7 @@
 ///
 /// @description Checks that it's a compile error to assign a value to a final,
 /// non-late local variable which is potentially assigned
-///
 /// @author sgrekhov@unipro.ru
-
 
 main() {
   final x1;

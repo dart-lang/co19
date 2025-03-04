@@ -11,10 +11,7 @@
 ///
 /// @description Check that result of [NNBD_TOP_MERGE(dynamic, dynamic)] is
 /// [dynamic].
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
 
 import "../../../Utils/expect.dart";
 

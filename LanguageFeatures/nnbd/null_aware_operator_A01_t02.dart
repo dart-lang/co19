@@ -9,7 +9,6 @@
 ///  SHORT[EXP(e), fn[x] => x.f]. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import '../../Utils/expect.dart';
 
 class C {

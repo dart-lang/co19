@@ -8,7 +8,6 @@
 ///
 /// @description Checks that it's not a compile time error to read a late
 /// nullable local variable when the variable is potentially unassigned
-///
 /// @author sgrekhov@unipro.ru
 
 import "../../Utils/expect.dart";

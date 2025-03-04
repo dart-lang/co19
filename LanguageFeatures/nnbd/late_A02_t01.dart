@@ -15,7 +15,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39801
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 class C {

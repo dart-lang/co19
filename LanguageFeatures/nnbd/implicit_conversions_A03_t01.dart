@@ -9,7 +9,6 @@
 /// objects of nullable type, regardless of the context type.
 /// @author sgrekhov@unipro.ru
 
-
 typedef int Foo();
 
 class C {

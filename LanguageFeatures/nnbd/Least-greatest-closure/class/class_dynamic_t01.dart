@@ -9,11 +9,8 @@
 /// @description Check that [Object?] type is substituted for [class C<X>].
 /// @note Read more about the least and greatest closure test template:
 /// https://github.com/dart-lang/co19/issues/575#issuecomment-613542349
-///
-/// @Issue 42579
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
+/// @Issue 42579
 
 import "../../../../Utils/expect.dart";
 

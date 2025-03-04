@@ -10,7 +10,6 @@
 /// and causes compile time error if [T] is not a compile-time constant type.
 /// @author iarkh@unipro.ru
 
-
 class A<E> {
   static const bool res = String is! E;
 //                                   ^

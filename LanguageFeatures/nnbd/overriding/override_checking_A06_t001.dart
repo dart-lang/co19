@@ -11,10 +11,7 @@
 ///
 /// @description Check that the result of NNBD_TOP_MERGE(Object, Object)] is
 /// [Object].
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
 
 import "../../../Utils/expect.dart";
 

@@ -11,11 +11,8 @@
 ///
 /// @description Check that result of [NNBD_TOP_MERGE(FutureOr, Object?)] is
 /// [FutureOr].
-///
-/// @Issue 40454,40541,41576
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
+/// @Issue 40454,40541,41576
 
 import "dart:async";
 import "../../../Utils/expect.dart";

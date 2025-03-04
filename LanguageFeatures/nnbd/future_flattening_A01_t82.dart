@@ -16,9 +16,7 @@
 ///
 /// @description Check that future flattening works correctly for [Future<Never>]
 /// type statically and the expression cannot be non-null.
-///
 /// @author iarkh@unipro.ru
-
 
 import "dart:async";
 

@@ -8,9 +8,7 @@
 ///
 /// @description Checks that it's a compile time error to read a late local
 /// variable when the variable is definitely unassigned
-///
 /// @author sgrekhov@unipro.ru
-
 
 main() {
   late int x1;

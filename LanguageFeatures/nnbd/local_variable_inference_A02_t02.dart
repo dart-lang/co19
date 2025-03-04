@@ -10,9 +10,7 @@
 /// @description Checks that local variables with no explicitly written type but
 /// with an initializer are given an inferred type equal to the type of their
 /// initializer
-///
 /// @author sgrekhov@unipro.ru
-
 
 main() {
   var x = 42;

@@ -8,7 +8,6 @@
 ///
 /// @description Checks that it is not a compile time error to assign to a
 /// potentially unassigned final, late local variable
-///
 /// @author sgrekhov@unipro.ru
 
 import "../../Utils/expect.dart";

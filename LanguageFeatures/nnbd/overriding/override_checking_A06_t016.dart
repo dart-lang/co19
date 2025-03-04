@@ -11,7 +11,6 @@
 ///
 /// @description Check that error occurs as a result of [NNBD_TOP_MERGE] of
 /// [int?] vs [int].
-///
 /// @author iarkh@unipro.ru
 
 class A<T> {}

@@ -10,10 +10,8 @@
 /// @description Checks that local variables with no explicitly written type but
 /// with an initializer of type Null are given an inferred type equal to the
 /// dynamic
-///
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 main() {

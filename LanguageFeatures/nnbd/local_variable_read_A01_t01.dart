@@ -7,7 +7,6 @@
 ///
 /// @description Checks that it's not an error to read definitely assigned local
 /// variable in the form var x;.
-///
 /// @author sgrekhov@unipro.ru
 
 import "../../Utils/expect.dart";

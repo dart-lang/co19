@@ -12,7 +12,6 @@
 ///
 /// See also co19 issue #530.
 /// @Issue 40367, 40368
-///
 /// @author iarkh@unipro.ru
 
 import "../../Utils/expect.dart";

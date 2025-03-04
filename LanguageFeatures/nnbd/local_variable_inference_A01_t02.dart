@@ -12,9 +12,7 @@
 /// @description Checks that if the local variable has an initializer (explicit
 /// or implicit) and is final, then the declaration is not treated as an
 /// assignment for the purposes of promotion.
-///
 /// @author sgrekhov@unipro.ru
-
 
 main() {
   final int? x = 42;

@@ -10,7 +10,6 @@
 ///
 /// @description Checks that if the type of initializer is X&T then the variable
 /// is treated as X & T
-///
 /// @author sgrekhov@unipro.ru
 
 test<T extends num>(T t) {

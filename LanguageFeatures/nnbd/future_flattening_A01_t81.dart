@@ -16,7 +16,6 @@
 ///
 /// @description Check that future flattening works correctly for [Future<void>]
 /// type and the expression can be [Future<void>].
-///
 /// @author iarkh@unipro.ru
 
 import "dart:async";

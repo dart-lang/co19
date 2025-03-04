@@ -9,7 +9,6 @@
 ///  PASSTHRU[F, fn[x] => x[EXP(e2)]]
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 class C {

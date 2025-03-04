@@ -9,8 +9,6 @@
 /// if [T] is a potential constant type.
 /// @author iarkh@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "../../../Utils/expect.dart";
 
 class MyClass<E> {

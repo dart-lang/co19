@@ -15,7 +15,6 @@
 ///  Otherwise, for all S, futureValueType(S) = Object?.
 ///
 /// @description Check that otherwise, for all S, futureValueType(S) = Object?
-///
 /// @author sgrekhov@unipro.ru
 
 Object test1() async {

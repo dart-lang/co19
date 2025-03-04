@@ -11,9 +11,7 @@
 ///
 /// @description Check that error occurs as a result of [NNBD_TOP_MERGE] of
 /// [dynamic] and [int], [int?], [Function], [Function?].
-///
 /// @author iarkh@unipro.ru
-
 
 class A<T> {}
 class B implements A<dynamic> {}

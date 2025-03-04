@@ -8,10 +8,7 @@
 /// @description Checks that it's not an error to read potentially assigned local
 /// variable in the form var x;. Test indirect read via triple shift compound
 /// assignment
-///
 /// @author sgrekhov@unipro.ru
-
-// Requirements=nnbd-strong
 
 import '../../Utils/expect.dart';
 

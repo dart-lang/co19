@@ -8,10 +8,8 @@
 ///
 /// @description Checks that it's not an error to read definitely unassigned
 /// local non-final non-late variable which has a nullable type
-///
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 main() {

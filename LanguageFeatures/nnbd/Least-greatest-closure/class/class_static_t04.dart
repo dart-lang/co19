@@ -13,10 +13,8 @@
 /// thrown for [f<X>(C<X> Function() g) => g()].
 /// @note Read more about the least and greatest closure test template:
 /// https://github.com/dart-lang/co19/issues/575#issuecomment-613542349
-///
-/// @Issue 44092, 44073
 /// @author iarkh@unipro.ru
-
+/// @Issue 44092, 44073
 
 abstract class C<X extends C<X>> {}
 

@@ -9,10 +9,8 @@
 /// @description Check that [Object?] type is substituted for [FutureOr<X>].
 /// @note Read more about the least and greatest closure test template:
 /// https://github.com/dart-lang/co19/issues/575#issuecomment-613542349
-///
-/// @Issue 44070
 /// @author iarkh@unipro.ru
-
+/// @Issue 44070
 
 import "../../../../Utils/expect.dart";
 import "dart:async";

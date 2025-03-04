@@ -7,9 +7,8 @@
 /// @description Check that default type parameter of the generic function type
 /// alias is treated as [Object?] statically. Typedef is in the form:
 ///    [typedef <type> <identifier> <formalParameterPart>].
-///
-/// @Issue 40367, 40368
 /// @author iarkh@unipro.ru
+/// @Issue 40367, 40368
 
 import "../../Utils/expect.dart";
 

@@ -7,7 +7,6 @@
 ///
 /// @description Checks that it's not a compile error to read definitely
 /// unassigned local variable in the form var x;.
-///
 /// @author sgrekhov@unipro.ru
 
 import "../../Utils/expect.dart";

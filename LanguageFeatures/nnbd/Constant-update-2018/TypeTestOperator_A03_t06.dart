@@ -10,7 +10,6 @@
 /// if [e] is not a constant
 /// @author iarkh@unipro.ru
 
-
 String anObject = "";
 
 class MyClass {

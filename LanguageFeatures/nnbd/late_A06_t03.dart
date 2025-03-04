@@ -12,7 +12,6 @@
 /// write attempt to this field or variable is not an error
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 class A {

@@ -18,7 +18,6 @@
 /// return type futureValueType(FutureOr<S>?) = S, for all S. Test that
 /// when return type of async function is FutureOr<C>? then we cannot return C?
 /// from the function
-///
 /// @author sgrekhov@unipro.ru
 
 import "dart:async";
