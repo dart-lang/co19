@@ -15,6 +15,9 @@
 /// @description Checks that for an expression of the form `E1..m1(E2)`
 /// `before(E2) = after(E1)`. Test that if `m1` is a getter returning type
 /// `Never` then `before(E2)` is unreachable.
+/// @note As of now (March 2025), cascade method invocation is still a TODO item
+/// in the flow analysis specification. That's why cascaded invocation tests are
+/// covered by this assertion, which does not mention cascades.
 /// @author sgrekhov22@gmail.com
 
 class C<T extends Never> {

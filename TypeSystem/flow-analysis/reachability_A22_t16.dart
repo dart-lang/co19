@@ -12,50 +12,49 @@
 /// - Otherwise:
 ///   - Let `after(N) = after(E2)`.
 ///
-/// @description Checks that if the static type of the expression of the form
-/// `E1..m1(E2)` is `Never` then `E2` is still reachable.
+/// @description Checks that for an expression of the form `E1..m1(E2)`, if the
+/// static type of `E1` is not `Never` then `after(N) = after(E2)`. This is
+/// tested by detecting that `i = 42` is considered to be guaranteed to have
+/// been executed when `i;` is executed.
 /// @note As of now (March 2025), cascade method invocation is still a TODO item
 /// in the flow analysis specification. That's why cascaded invocation tests are
 /// covered by this assertion, which does not mention cascades.
 /// @author sgrekhov22@gmail.com
 
-class C<T extends Never> {
-  T foo(int x) => throw "foo";
-  T bar([int x = 0]) => throw "bar";
-  T baz({int x = 0}) => throw "baz";
-  T qux({required int x}) => throw "qux";
+class C {
+  void foo(int x) {}
+  void bar([int x = 0]) {}
+  void baz({int x = 0}) {}
+  void qux({required int x}) {}
+  void quux(int _) {}
 }
 
 void test1() {
-  late int i;
-  try {
-    C()..foo(i = 42);
-  } catch (_) {}
-  i; // Not definitely unassigned
+  int i;
+  C()
+    ..foo(i = 42)
+    ..quux(i); // Definitely assigned
 }
 
 void test2() {
-  late int i;
-  try {
-    C()..bar(i = 42);
-  } catch (_) {}
-  i;
+  int i;
+  C()
+    ..bar(i = 42)
+    ..quux(i); // Definitely assigned
 }
 
 void test3() {
-  late int i;
-  try {
-    C()..baz(x: i = 42);
-  } catch (_) {}
-  i;
+  int i;
+  C()
+    ..baz(x: i = 42)
+    ..quux(i); // Definitely assigned
 }
 
 void test4() {
-  late int i;
-  try {
-    C()..qux(x: i = 42);
-  } catch (_) {}
-  i;
+  int i;
+  C()
+    ..qux(x: i = 42)
+    ..quux(i); // Definitely assigned
 }
 
 main() {

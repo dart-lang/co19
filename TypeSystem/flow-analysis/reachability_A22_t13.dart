@@ -16,6 +16,9 @@
 /// static type of `E1` is not `Never` then `after(N) = after(E2)`. This is
 /// tested by detecting that `i = 42` is considered to be guaranteed to have
 /// been executed when `i;` is executed.
+/// @note As of now (March 2025), cascade method invocation is still a TODO item
+/// in the flow analysis specification. That's why cascaded invocation tests are
+/// covered by this assertion, which does not mention cascades.
 /// @author sgrekhov22@gmail.com
 
 class C {

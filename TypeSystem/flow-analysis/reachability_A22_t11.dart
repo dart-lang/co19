@@ -14,6 +14,9 @@
 ///
 /// @description Checks that if in the expression of the form `E1..m1(E2)` the
 /// return type of `m1(...)` is `Never` then `after(N) = unreachable(after(E2))`
+/// @note As of now (March 2025), cascade method invocation is still a TODO item
+/// in the flow analysis specification. That's why cascaded invocation tests are
+/// covered by this assertion, which does not mention cascades.
 /// @author sgrekhov22@gmail.com
 
 class C<T extends Never> {
@@ -50,7 +53,7 @@ void test2() {
 void test3() async {
   late int i;
   if (2 > 1) {
-    await C()
+    await C() // This should be parsed as (await C())
       ..bar() // Return type is not `Never`
       ..qux(i = 42);
   }

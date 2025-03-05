@@ -15,6 +15,9 @@
 /// @description Checks that for an expression of the form `E1..m1(E2)`
 /// `before(E2) = after(E1)`. Test that if `after(E1)` is unreachable then
 /// `before(E2)` is also unreachable.
+/// @note As of now (March 2025), cascade method invocation is still a TODO item
+/// in the flow analysis specification. That's why cascaded invocation tests are
+/// covered by this assertion, which does not mention cascades.
 /// @author sgrekhov22@gmail.com
 
 void test<T extends Never>(T n) {
