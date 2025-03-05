@@ -15,9 +15,7 @@
 ///    [NNBD_TOP_MERGE(Never, FutureOr<int>)].
 ///    [NNBD_TOP_MERGE(Never, FutureOr<int?>)].
 ///    [NNBD_TOP_MERGE(Never, FutureOr<FutureOr>)].
-///
 /// @author iarkh@unipro.ru
-
 
 import "dart:async";
 

@@ -16,10 +16,8 @@
 ///
 /// @description Check that it is no error if type of return value is assignable
 /// to the future
-///
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 class C {}
 
 Future<num?> test1() async {

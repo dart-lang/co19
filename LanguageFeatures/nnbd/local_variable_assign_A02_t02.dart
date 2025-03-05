@@ -8,9 +8,7 @@
 ///
 /// @description Checks that it's a compile error to assign a value to a final,
 /// late local variable which is definitely assigned
-///
 /// @author sgrekhov@unipro.ru
-
 
 main() {
   late final x1 = 42;

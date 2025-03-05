@@ -15,10 +15,8 @@
 ///  Otherwise, for all S, futureValueType(S) = Object?.
 ///
 /// @description Check that futureValueType(void) = void
-///
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 void g() {}
 
 void foo() async {

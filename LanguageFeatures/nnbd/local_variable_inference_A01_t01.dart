@@ -12,7 +12,6 @@
 /// @description Checks that if the local variable has an initializer (explicit
 /// or implicit) and is not final, then the declaration is treated as an
 /// assignment for the purposes of promotion.
-///
 /// @author sgrekhov@unipro.ru
 
 import "../../Utils/expect.dart";

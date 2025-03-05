@@ -11,16 +11,13 @@
 ///
 /// @description Check that error occurs as a result of [NNBD_TOP_MERGE(FutureOr,
 /// Object)].
-///
 /// @author iarkh@unipro.ru
-
 
 import "dart:async";
 
 class A<T> {}
 class B extends A<FutureOr> {}
 class C extends A<Object  > {}
-
 
 class D1 extends C implements B {}
 //    ^^

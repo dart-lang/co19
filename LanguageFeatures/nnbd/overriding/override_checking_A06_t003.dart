@@ -11,9 +11,7 @@
 ///
 /// @description Check that error occurs as a result of [NNBD_TOP_MERGE(Object,
 /// Object?)] and [NNBD_TOP_MERGE(Object?, Object)].
-///
 /// @author iarkh@unipro.ru
-
 
 class A<T> {}
 class B implements A<Object> {}

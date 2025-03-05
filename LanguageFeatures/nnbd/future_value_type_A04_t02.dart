@@ -15,7 +15,6 @@
 ///  Otherwise, for all S, futureValueType(S) = Object?.
 ///
 /// @description Check that futureValueType(dynamic) = dynamic
-///
 /// @author sgrekhov@unipro.ru
 
 foo() async {

@@ -10,8 +10,6 @@
 /// when the variable is definitely unassigned
 /// @author sgrekhov@unipro.ru
 
-
-
 main() {
   int x1;
   x1 *= 2;

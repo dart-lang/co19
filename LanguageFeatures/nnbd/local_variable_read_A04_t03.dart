@@ -8,9 +8,7 @@
 ///
 /// @description Checks that it's a compile time error to read a local variable
 /// when the variable is definitely unassigned. Test triple shift
-///
 /// @author sgrekhov@unipro.ru
-
 
 main() {
   int x;

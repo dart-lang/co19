@@ -16,9 +16,7 @@
 ///
 /// @description Check that it is an error if type of return value is not
 /// assignable to the future
-///
 /// @author sgrekhov@unipro.ru
-
 
 Future<num?> foo() async {
   return new Future<dynamic>.value(42);

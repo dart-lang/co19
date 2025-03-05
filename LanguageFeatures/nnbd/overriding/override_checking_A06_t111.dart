@@ -11,9 +11,7 @@
 ///
 /// @description Check that error occurs as a result of [NNBD_TOP_MERGE} of
 /// [FutureOr] vs FutureOr<int>, FutureOr<int?>].
-///
 /// @author iarkh@unipro.ru
-
 
 import "dart:async";
 

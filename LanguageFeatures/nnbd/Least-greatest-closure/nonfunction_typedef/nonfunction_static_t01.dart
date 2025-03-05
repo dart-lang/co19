@@ -6,13 +6,13 @@
 /// safe libraries to substitute [Never] in positions where previously [Null
 /// would have been substituted, and [Object?] in positions where previously
 /// [Object] or [dynamic] would have been substituted.
+///
 /// @description Check that [Object?] type is substituted for [typedef C<X> =
 /// A<X>].
 /// @note Read more about the least and greatest closure test template:
 /// https://github.com/dart-lang/co19/issues/575#issuecomment-613542349
-///
-/// @Issue 42580
 /// @author iarkh@unipro.ru
+/// @Issue 42580
 
 import "../../../../Utils/expect.dart";
 

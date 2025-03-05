@@ -13,7 +13,6 @@
 /// attempt of write to it is a runtime error
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 class A {

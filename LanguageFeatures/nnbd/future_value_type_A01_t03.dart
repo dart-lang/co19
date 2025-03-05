@@ -17,7 +17,6 @@
 /// @description Check that for asynchronous non-generator function with declared
 /// return type futureValueType(FutureOr<S>?) = S, for all S. Check that it is no
 /// error if type of return value is assignable to the future
-///
 /// @author sgrekhov@unipro.ru
 
 class C {}

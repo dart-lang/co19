@@ -13,9 +13,8 @@
 ///   [typedef <typeIdentifier> <typeParameters> = <functionType>].
 ///
 /// See also co19 issue #530.
-/// @Issue 40367, 40368
-///
 /// @author iarkh@unipro.ru
+/// @Issue 40367, 40368
 
 import "../../Utils/expect.dart";
 

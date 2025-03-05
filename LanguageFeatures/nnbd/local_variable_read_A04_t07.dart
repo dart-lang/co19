@@ -10,7 +10,6 @@
 /// variable when the variable is definitely unassigned
 /// @author sgrekhov@unipro.ru
 
-
 main() {
   late int x1;
   x1 *= 2;

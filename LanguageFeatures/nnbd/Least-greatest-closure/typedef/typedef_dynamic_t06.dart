@@ -6,14 +6,12 @@
 /// safe libraries to substitute [Never] in positions where previously [Null
 /// would have been substituted, and [Object?] in positions where previously
 /// [Object] or [dynamic] would have been substituted.
+///
 /// @description Check that correct type is substituted for [void
 /// Function({required bool? x})] typedef.
 /// @note Read more about the least and greatest closure test template:
 /// https://github.com/dart-lang/co19/issues/575#issuecomment-613542349
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
 
 import "../../../../Utils/expect.dart";
 

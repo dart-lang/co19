@@ -8,9 +8,7 @@
 ///
 /// @description Checks that it's a compile time error to read a non-late and
 /// non-nullable local variable when the variable is potentially unassigned
-///
 /// @author sgrekhov@unipro.ru
-
 
 main() {
   bool b = (() => true)();

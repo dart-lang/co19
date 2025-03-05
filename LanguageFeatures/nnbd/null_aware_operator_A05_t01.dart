@@ -9,8 +9,6 @@
 ///  PASSTHRU[F, fn[x] => x(ARGS(args))]
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 typedef String Func();

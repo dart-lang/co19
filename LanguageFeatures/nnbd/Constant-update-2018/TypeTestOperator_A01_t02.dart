@@ -10,8 +10,6 @@
 /// [e] is potentially constant
 /// @author iarkh@unipro.ru
 
-// Requirements=nnbd-strong
-
 import "../../../Utils/expect.dart";
 
 class MyClass {

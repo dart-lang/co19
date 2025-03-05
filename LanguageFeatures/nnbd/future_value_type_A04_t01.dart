@@ -15,10 +15,7 @@
 ///  Otherwise, for all S, futureValueType(S) = Object?.
 ///
 /// @description Check that futureValueType(dynamic) = dynamic
-///
 /// @author sgrekhov@unipro.ru
-
-// Requirements=nnbd-strong
 
 dynamic foo() async {
   return 42;

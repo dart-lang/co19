@@ -9,9 +9,9 @@
 /// treated as [Object?] statically.
 /// Typedef is in the form:
 ///    [typedef <typeIdentifier> <typeParameters> = <functionType>].
-///
-/// @Issue 40367, 40368
 /// @author iarkh@unipro.ru
+/// @Issue 40367, 40368
+
 
 import "../../Utils/expect.dart";
 

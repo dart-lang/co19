@@ -11,9 +11,7 @@
 ///
 /// @description Check that error occurs as a result of [NNBD_TOP_MERGE(
 /// FutureOr<int?>, void)].
-///
 /// @author iarkh@unipro.ru
-
 
 import "dart:async";
 

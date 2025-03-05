@@ -6,9 +6,8 @@
 /// [Object?].
 /// @description Check that default generic class type parameter is treated as
 /// [Object?] statically.
-///
-/// @Issue 40367, 40368
 /// @author iarkh@unipro.ru
+/// @Issue 40367, 40368
 
 import "../../Utils/expect.dart";
 

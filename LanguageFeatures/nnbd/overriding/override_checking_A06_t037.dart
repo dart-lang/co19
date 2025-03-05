@@ -11,10 +11,7 @@
 ///
 /// @description Check that result of [NNBD_TOP_MERGE] of [Function] and
 /// [Function] is [Function].
-///
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
 
 import "../../../Utils/expect.dart";
 

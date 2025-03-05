@@ -12,9 +12,7 @@
 /// @description Check that overriding works correctly as a result of
 /// [NNBD_TOP_MERGE] of [FutureOr<FutureOr>]: ir's error to merge it with
 /// [Object] and it's not error to merge it with nullable [Object?].
-///
 /// @author iarkh@unipro.ru
-
 
 import "dart:async";
 

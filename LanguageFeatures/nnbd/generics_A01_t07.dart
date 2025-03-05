@@ -11,8 +11,8 @@
 /// clearly specified, it is treated as [dynamic] at runtime.
 ///
 /// See also co19 issue #530.
-/// @Issue 40367
 /// @author iarkh@unipro.ru
+/// @Issue 40367
 
 import "../../Utils/expect.dart";
 

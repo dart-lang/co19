@@ -8,9 +8,7 @@
 ///
 /// @description Checks that it's a compile time error to read a local final
 /// variable when the variable is definitely unassigned
-///
 /// @author sgrekhov@unipro.ru
-
 
 main() {
   final int x1;

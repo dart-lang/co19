@@ -30,10 +30,8 @@
 ///
 /// @note Read more about the least and greatest closure test template:
 /// https://github.com/dart-lang/co19/issues/575#issuecomment-613542349
-///
-/// @Issue 44073, 44092
 /// @author iarkh@unipro.ru
-
+/// @Issue 44073, 44092
 
 import "../../../../Utils/expect.dart";
 

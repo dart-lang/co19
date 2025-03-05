@@ -11,11 +11,8 @@
 ///
 /// @description Check that result of [NNBD_TOP_MERGE] of [int] and [int] is
 /// [int].
-///
-/// @Issue 40524
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
+/// @Issue 40524
 
 import "../../../Utils/expect.dart";
 

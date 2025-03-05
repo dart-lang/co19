@@ -14,9 +14,7 @@
 ///   [NNBD_TOP_MERGE(Never, int?)]
 ///   [NNBD_TOP_MERGE(Never, Function)]
 ///   [NNBD_TOP_MERGE(Never, Function?)]
-///
 /// @author iarkh@unipro.ru
-
 
 class A<T> {}
 class B implements A<Never> {}

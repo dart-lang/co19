@@ -11,11 +11,8 @@
 ///
 /// @description Check that the result of NNBD_TOP_MERGE(Never, Never)] is
 /// [Never].
-///
-/// @Issue 40554,41573
 /// @author iarkh@unipro.ru
-
-// Requirements=nnbd-strong
+/// @Issue 40554,41573
 
 import "../../../Utils/expect.dart";
 
