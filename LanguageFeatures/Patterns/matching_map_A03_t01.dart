@@ -47,8 +47,6 @@
 /// @description Checks that match succeeds if all entry subpatterns match
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
 

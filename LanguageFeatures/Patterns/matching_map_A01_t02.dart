@@ -59,8 +59,6 @@
 /// required type of `p` then the match fails and no any member of `v` is called
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
 

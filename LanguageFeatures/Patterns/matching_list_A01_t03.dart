@@ -54,7 +54,6 @@
 /// required type of `p` then the match fails and operator `[]` is never invoked
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
 import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
 

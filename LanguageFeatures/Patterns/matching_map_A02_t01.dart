@@ -50,8 +50,6 @@
 /// `v[k] == null` `containsKey(k)` is not called
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
 
