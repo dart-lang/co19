@@ -28,8 +28,6 @@
 /// parent keys are invoked
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 import "patterns_collections_lib.dart";
 

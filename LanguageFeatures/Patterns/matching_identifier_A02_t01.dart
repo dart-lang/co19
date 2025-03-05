@@ -24,8 +24,6 @@
 /// fails and a run-time error occurs
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 import "../../Utils/expect.dart";
 
 main() {

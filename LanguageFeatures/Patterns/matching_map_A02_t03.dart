@@ -50,8 +50,6 @@
 /// `v.containsKey(k)` is called
 /// @author sgrekhov22@gmail.com
 
-// Requirements=nnbd-strong
-
 import "patterns_collections_lib.dart";
 import "../../Utils/expect.dart";
 
