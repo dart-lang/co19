@@ -5,22 +5,18 @@
 /// @assertion - Binary operator: All binary operators other than `==`, `&&`,
 /// `||`, and `??` are handled as calls to the appropriate `operator` method.
 ///
-/// @description Checks that for an expression of the form `E1 + E2`
-/// `before(E2) = after(E1)`. Test that if `after(E1)` is unreachable then
-/// `before(E2)` is also unreachable.
+/// @description Checks that if the static type of the expression of the form
+/// `E1 * E2` is `Never` then `E2` is still reachable.
 /// @author sgrekhov22@gmail.com
 
-void test<T extends Never>(T n) {
-  late int i;
-  if (2 > 1) {
-    n + (i = 42);
-  }
-  i; // Definitely unassigned
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C<T extends Never> {
+  T operator *(int x) => throw "C";
 }
 
 main() {
-  print(test);
+  late int i;
+  try {
+    C() * (i = 42);
+  } catch (_) {}
+  i; // Not definitely unassigned
 }

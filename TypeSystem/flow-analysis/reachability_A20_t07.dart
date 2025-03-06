@@ -5,15 +5,21 @@
 /// @assertion - Binary operator: All binary operators other than `==`, `&&`,
 /// `||`, and `??` are handled as calls to the appropriate `operator` method.
 ///
-/// @description Checks that for an expression of the form `E1 + E2`
+/// @description Checks that for an expression of the form `E1 - E2`
 /// `before(E2) = after(E1)`. Test that if `after(E1)` is unreachable then
 /// `before(E2)` is also unreachable.
 /// @author sgrekhov22@gmail.com
 
+class C {
+  int i;
+  C(this.i);
+  int operator -(int other) => i - other;
+}
+
 void test<T extends Never>(T n) {
   late int i;
   if (2 > 1) {
-    n + (i = 42);
+    C(n) - (i = 42);
   }
   i; // Definitely unassigned
 //^
