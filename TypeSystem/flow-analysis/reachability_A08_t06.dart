@@ -10,9 +10,8 @@
 ///   - Let `true(N) = after(E2)`.
 ///   - Let `false(N) = unreachable(after(E2))`.
 /// - Otherwise, if `equivalentToNull(T1)` and `T2` is non-nullable, or
-/// `equivalentToNull(T2)` and `T1` is non-nullable, then:
-///   - Let `true(N) = unreachable(after(E2))`.
-///   - Let `false(N) = after(E2)`.
+///   `equivalentToNull(T2)` and `T1` is non-nullable, then:
+///   - Let `after(N) = after(E2)`.
 /// - Otherwise, if `stripParens(E1)` is a `null` literal, then:
 ///   - Let `true(N) = after(E2)`.
 ///   - Let `false(N) = promoteToNonNull(E2, after(E2))`.
@@ -29,7 +28,7 @@
 ///
 /// @description Checks that if `equivalentToNull(T1)` and `T2` is non-nullable,
 /// or `equivalentToNull(T2)` and `T1` is non-nullable then
-/// `true(N) = unreachable(after(E2))` and `false(N) = after(E2)`.
+/// `after(N) = after(E2)`.
 /// @author sgrekhov22@gmail.com
 /// @issue 60114
 
