@@ -1,4 +1,4 @@
-// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -7,11 +7,12 @@
 /// `assigned` is true, we say that the variable is definitely assigned at that
 /// point.
 ///
-/// @description Checks definite assignment via assignment
-/// @author sgrekhov@unipro.ru
+/// @description Checks definite assignment via map pattern assignment.
+/// @author sgrekhov22@gmail.com
 
 main() {
   int n;
-  n = 42;
-  n;  // It's not an error to read local non-nullable variable when it is definitely assigned
+
+  {"key": n} = {"key": 42};
+  n;  // Definitely assigned
 }
