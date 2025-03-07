@@ -6,7 +6,7 @@
 ///
 /// @description Checks that evaluation of an expression of the form `--e`
 /// results in invoking `operator-` on the result of `e` with the proper
-/// argument. Test nullabke types.
+/// argument. Test nullable types.
 /// @author sgrekhov22@gmail.com
 /// @issue 56963
 
