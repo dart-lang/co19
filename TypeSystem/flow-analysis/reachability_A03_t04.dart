@@ -9,8 +9,6 @@
 /// @description Checks reachability after `false` literal
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 main() {
   int i;
   false ? "nothing" : i = 42; // Variable is definitely assigned here

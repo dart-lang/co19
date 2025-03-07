@@ -9,8 +9,6 @@
 /// @description Checks reachability after `false` literal
 /// @author sgrekhov@unipro.ru
 
-// Requirements=nnbd-strong
-
 main() {
   int i;
   if (false) {
