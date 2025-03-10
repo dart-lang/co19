@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion True literal: If N is the literal true, then:
-///  Let true(N) = before(N).
-///  Let false(N) = unreachable(before(N)).
+/// @assertion True literal: If `N` is the literal `true`, then:
+///  Let `true(N) = before(N)`.
+///  Let `false(N) = unreachable(before(N))`.
 ///
-/// @description Checks reachability after true literal
+/// @description Checks reachability after `true` literal
 /// @author sgrekhov@unipro.ru
 
 main() {
