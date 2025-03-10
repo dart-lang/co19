@@ -10,7 +10,7 @@
 /// @author sgrekhov22@gmail.com
 
 void test1() {
-  late int i;
+  int i;
   [
     if (true)
       i = 42
@@ -19,7 +19,7 @@ void test1() {
 }
 
 void test2() {
-  late int i;
+  int i;
   <int>{
     if (true)
       i = 42
@@ -28,7 +28,7 @@ void test2() {
 }
 
 void test3() {
-  late int i;
+  int i;
   <int, int>{
     if (true)
       1: i = 42
