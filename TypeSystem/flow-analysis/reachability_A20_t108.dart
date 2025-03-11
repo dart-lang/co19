@@ -5,10 +5,10 @@
 /// @assertion - Binary operator: All binary operators other than `==`, `&&`,
 /// `||`, and `??` are handled as calls to the appropriate `operator` method.
 ///
-/// @description Checks that if the static type of the expression of the form
-/// `E1 >>= E2` static type of `E1`is not `Never` then `after(N) = after(E2)`.
-/// This is tested by detecting that `i = 42` is considered to be guaranteed to
-/// have been executed when `i;` is executed.
+/// @description Checks that for an expression of the form `E1 >>= E2` if the
+/// static type of `E1`is not `Never` then `after(N) = after(E2)`. This is
+/// tested by detecting that `i = 42` is considered to be guaranteed to have
+/// been executed when `i;` is executed.
 /// @author sgrekhov22@gmail.com
 
 class C {

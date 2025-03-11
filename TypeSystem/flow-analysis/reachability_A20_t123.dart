@@ -6,20 +6,18 @@
 /// `||`, and `??` are handled as calls to the appropriate `operator` method.
 ///
 /// @description Checks that if the static type of the expression of the form
-/// `E1 ^= E2` static type of `E1`is not `Never` then `after(N) = after(E2)`.
-/// This is tested by detecting that `i = 42` is considered to be guaranteed to
-/// have been executed when `i;` is executed.
+/// `E1 ^= E2` is `Never` then `E2` is still reachable.
 /// @author sgrekhov22@gmail.com
 
 class C {
-  num n;
-  C(this.n);
-  C operator ^(int other) => C(n - other);
+  Never operator ^(int x) => throw "C";
 }
 
 main() {
-  int i;
-  C c = C(1);
-  c ^= (i = 42);
-  i; // Definitely assigned
+  late int i;
+  try {
+    C c = C();
+    c ^= (i = 42);
+  } catch (_) {}
+  i; // Not definitely unassigned
 }
