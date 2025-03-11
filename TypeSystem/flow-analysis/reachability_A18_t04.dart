@@ -9,8 +9,9 @@
 /// - Let `true(N) = unsplit(true(E2))`.
 /// - Let `false(N) = merge(split(false(E1)), false(E2))`.
 ///
-/// @description Checks that in an expression of the form `E1 && E2` if `E1` is
-/// `false` then `E2` is never executed.
+/// @description Checks that in an expression of the form `E1 && E2`, if `E1` is
+/// `false` and the static type of `E2` is `Never`, then the code after
+/// `E1 && E2` is not considered dead code.
 /// @author sgrekhov22@gmail.com
 
 Never foo() => throw "Never";
