@@ -12,7 +12,7 @@
 ///  and T <: S and not S <: T
 ///  and T is a type of interest for x in tested
 ///
-/// @description Checks that if T is a type of interest for x in tested then
+/// @description Checks that if T is not a type of interest for x in tested then
 /// promotion via assignment is not performed
 /// @author sgrekhov@unipro.ru
 

@@ -23,9 +23,7 @@ class T extends S {
 
 main() {
   S x = new S();
-  if (x is T) {
-    // nothing
-  }
+  if (x is T) {}  // make `T` type of interest
   x = new T();
   x.foo();
 }
