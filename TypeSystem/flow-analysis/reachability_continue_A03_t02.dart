@@ -26,7 +26,7 @@ main() {
   do {
     do {
       continue outerLoop;
-      i = 42; // Variable is initialized in a dead code
+      i = 42; // Variable is initialized in dead code
     } while (false);
   } while (false);
   try {

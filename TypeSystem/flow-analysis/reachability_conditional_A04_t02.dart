@@ -17,9 +17,7 @@ Never foo() => throw "Never";
 
 main() {
   int i;
-  bool b = false;
-  print(b); // no assignment to `b`
-  if (b) {
+  if (1 > 2) {
     foo();
   } else {
     i = 42;

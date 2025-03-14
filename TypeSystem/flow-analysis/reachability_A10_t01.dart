@@ -13,7 +13,7 @@ main() {
   late int i;
   if ((() => false)()) {
     throw "Dead code after this point";
-    i = 42; // Variable is initialized in a dead code. This leaves it definitely unassigned
+    i = 42; // This is dead code, which leaves `i` definitely unassigned.
   }
   i;  // It is an error to read a local late variable when it is definitely unassigned.
 //^

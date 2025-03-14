@@ -9,9 +9,11 @@
 /// - Let `before(S2) = split(false(E))`.
 /// - Let `after(N) = merge(after(S1), after(S2))`.
 ///
-/// @description Checks that if `E` has the form `if-case` then even if all
-/// conditions are `true` then assignment in `then` branch is not treated as
-/// definite assignment.
+/// @description Checks that if `E` has the form `if-case` then the flow
+/// analysis will not conclude that a specific branch will definitely be taken,
+/// even in the case where the scrutinee is a boolean literal and the pattern
+/// is of the form `== b` where `b` is also a boolean literal. This is tested
+/// via the definite assignment status of a variable.
 /// @author sgrekhov22@gmail.com
 /// @issue 60269
 

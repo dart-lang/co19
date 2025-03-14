@@ -15,7 +15,7 @@ test1<T extends Null>(T t) {
   int j;
   Null n = null;
   if (n != t) {
-    i = 42; // Variable is initialized in a dead code. This leaves it definitely unassigned
+    i = 42; // This is dead code, which leaves `i` definitely unassigned.
   } else {
     j = 42;
   }
@@ -31,7 +31,7 @@ test2<T extends Null>(T t) {
   int j;
   Null n = null;
   if (t != n) {
-    i = 42; // Variable is initialized in a dead code. This leaves it definitely unassigned
+    i = 42; // This is dead code, which leaves `i` definitely unassigned.
   } else {
     j = 42;
   }

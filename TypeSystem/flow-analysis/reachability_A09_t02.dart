@@ -18,7 +18,7 @@ main() {
   int j;
   Null n2;
   if (n1 != n2) {
-    i = 42; // Variable is initialized in a dead code. This leaves it definitely unassigned
+    i = 42; // This is dead code, which leaves `i` definitely unassigned.
   } else {
     j = 42;
   }

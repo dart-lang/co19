@@ -16,7 +16,7 @@
 
 main() {
   late int i;
-  if (false case == false when (i = 42) > 0) {
+  if (false case == true when (i = 42) > 0) {
     print("Ok");
   }
   i; // Not definitely unassigned

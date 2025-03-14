@@ -20,7 +20,7 @@ void test1(Never n) {
   if (b) {
     <int, Object>{
       1: n,        // The code after this point is unreachable
-      2: i = 42};   // Variable is initialized in a dead code. This leaves it definitely unassigned
+      2: i = 42};   // This is dead code, which leaves `i` definitely unassigned.
   }
   i; // It is an error to read a local late variable when it is definitely unassigned.
 //^
@@ -34,7 +34,7 @@ void test2(Never n) {
   if (b) {
     <Object, int>{
       n:        // The code after this point is unreachable
-        i = 42  // Variable is initialized in a dead code. This leaves it definitely unassigned
+        i = 42  // This is dead code, which leaves `i` definitely unassigned.
     };
   }
   i; // It is an error to read a local late variable when it is definitely unassigned.

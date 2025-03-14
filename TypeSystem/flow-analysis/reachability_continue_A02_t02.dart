@@ -29,7 +29,7 @@ main() {
     int k = 0;
     while (k++ < 3) {
       continue outerLoop;
-      i = 42; // Variable is initialized in a dead code
+      i = 42; // Variable is initialized in dead code
     }
   }
   try {

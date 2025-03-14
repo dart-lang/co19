@@ -19,7 +19,7 @@ void test() {
   late int i;
   if (2 > 1) {
     if (foo()) {
-      i = 42; // Variable is initialized in a dead code. This leaves it definitely unassigned
+      i = 42; // This is dead code, which leaves `i` definitely unassigned.
     } else {
       i = 0;
     }

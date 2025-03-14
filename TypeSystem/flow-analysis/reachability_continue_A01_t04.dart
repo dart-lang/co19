@@ -28,7 +28,7 @@ main() {
   for (var j in collection1) {
     for (var k in collection2) {
       continue outerLoop;
-      i = 42; // Variable is initialized in a dead code
+      i = 42; // Variable is initialized in dead code
     }
   }
   try {
