@@ -20,7 +20,7 @@ void test(Never n) {
   if (b) {
     <int, int>{
       if (n is String) // ignore: unnecessary_type_check
-        1: i = 42 // Variable is initialized in a dead code. This leaves it definitely unassigned
+        1: i = 42 // This is dead code, which leaves `i` definitely unassigned.
     };
   }
   i; // It is an error to read a local late variable when it is definitely unassigned.

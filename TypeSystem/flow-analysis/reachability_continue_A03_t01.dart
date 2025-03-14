@@ -23,7 +23,7 @@ main() {
   late int i;
   do {
     continue;
-    i = 42; // Variable is initialized in a dead code
+    i = 42; // Variable is initialized in dead code
   } while (false);
   try {
     // 'i' is treated here by flow analysis as possibly assigned, so it is a

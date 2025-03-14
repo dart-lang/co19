@@ -2,11 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion assigned is a boolean value indicating whether the variable has
-/// definitely been assigned at the given point in the source code. When assigned
-/// is true, we say that the variable is definitely assigned at that point.
+/// @assertion `assigned` is a boolean value indicating whether the variable has
+/// definitely been assigned at the given point in the source code. When
+/// `assigned` is true, we say that the variable is definitely assigned at that
+/// point.
 ///
-/// @description Checks definite assignment and if statement
+/// @description Checks that if variable assigned in the `then` branch of `if`
+/// statement and the condition is the `true` literal then it is definitely
+/// assigned.
 /// @author sgrekhov@unipro.ru
 
 main() {

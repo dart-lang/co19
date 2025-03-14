@@ -26,7 +26,7 @@ main() {
   switch (j) {
     case 42:
       continue test;
-      i = 42; // Variable is initialized in a dead code
+      i = 42; // Variable is initialized in dead code
     test:
     case 43:
   }

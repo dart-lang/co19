@@ -21,7 +21,7 @@ void test1(Never n) {
   if (b) {
     [
       for (n;;)  // The code after this point is unreachable
-        i = 42,  // Variable is initialized in a dead code. This leaves it definitely unassigned
+        i = 42,  // This is dead code, which leaves `i` definitely unassigned.
       i = 0
     ];
   }
@@ -68,7 +68,7 @@ void test4(Never n) {
   bool b = (() => true)();
   if (b) {
     [
-      for (var j = 0; j < 0; n)  // Ok, not a dead code
+      for (var j = 0; j < 0; n)  // Ok, not dead code
         i = 42
     ];
   }

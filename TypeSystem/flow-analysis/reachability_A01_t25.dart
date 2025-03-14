@@ -21,7 +21,7 @@ void test1(Never n) {
   if (b) {
     <int, int>{
       for (n;;) // The code after this point is unreachable
-        1: i = 42, // Variable is initialized in a dead code.
+        1: i = 42, // Variable is initialized in dead code.
       i = 42: 2
     };
   }
@@ -68,7 +68,7 @@ void test4(Never n) {
   bool b = (() => true)();
   if (b) {
     <int, int>{
-      for (var j = 0; j < 0; n) // Ok, not a dead code
+      for (var j = 0; j < 0; n) // Ok, not dead code
         1: i = 42
     };
   }

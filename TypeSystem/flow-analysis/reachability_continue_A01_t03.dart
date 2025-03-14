@@ -26,7 +26,7 @@ main() {
   for (int j = 0; j < 3; j++) {
     for (;;) {
       continue outerLoop;
-      i = 42; // Variable is initialized in a dead code
+      i = 42; // Variable is initialized in dead code
     }
   }
   try {

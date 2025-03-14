@@ -22,7 +22,7 @@ main() {
   switch (j) {
     case 42:
       break;
-      i = 42; // Variable is initialized in a dead code. This leaves it definitely unassigned
+      i = 42; // This is dead code, which leaves `i` definitely unassigned.
     case 43:
   }
   i; // It is an error to read a local late variable when it is definitely unassigned.
