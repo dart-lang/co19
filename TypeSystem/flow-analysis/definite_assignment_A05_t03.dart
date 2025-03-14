@@ -11,6 +11,7 @@
 /// `false` literal, then an assignment in the body of the loop is treated by
 /// flow analysis as a definite unassignment.
 /// @author sgrekhov@unipro.ru
+/// @issue 60322
 
 main() {
   late int n;
