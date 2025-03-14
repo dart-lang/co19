@@ -8,7 +8,8 @@
 /// - Let `before(S) = split(true(E))`.
 /// - Let `after(N) = inheritTested(join(false(E), unsplit(break(S))), after(S))`
 ///
-/// @description Checks that if `S` throws then `after(N)` is dead code.
+/// @description Checks that if `join(false(E), unsplit(break(S)))` is
+/// unreachable and `false(E)` is unreachable then `after(N)` is dead code.
 /// @author sgrekhov22@gmail.com
 
 Never foo() => throw "Never";
@@ -18,8 +19,9 @@ main() {
   if (2 > 1) {
     while (true) {
       foo();
+      break;
     }
-    i = 42; // Assigned in a dead code
+    i = 42; // Assigned in dead code
   }
   i; // Definitely unassigned
 //^

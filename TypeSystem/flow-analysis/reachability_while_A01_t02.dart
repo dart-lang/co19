@@ -20,7 +20,7 @@ main() {
     while (foo()) {
       break;
     }
-    i = 42; // Assigned in a dead code
+    i = 42; // Assigned in dead code
   }
   i; // Definitely unassigned
 //^

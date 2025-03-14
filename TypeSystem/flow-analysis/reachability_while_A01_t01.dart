@@ -18,7 +18,7 @@ main() {
   late int i;
   if (2 > 1) {
     while (foo()) {
-      i = 42; // Assigned in a dead code
+      i = 42; // Assigned in dead code
     }
   }
   i; // Definitely unassigned

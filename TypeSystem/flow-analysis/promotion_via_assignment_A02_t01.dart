@@ -12,8 +12,8 @@
 ///  and T <: S and not S <: T
 ///  and T is a type of interest for x in tested
 ///
-/// @description Checks that if captured is true then promotion via assignment
-/// is not performed
+/// @description Checks that if `captured` is `true` then promotion via
+/// assignment is not performed
 /// @author sgrekhov@unipro.ru
 
 class S {}
@@ -29,7 +29,7 @@ main() {
     x = v;
   }
   f = bar;
-  if (x is T) {} // make `T` type of interest
+  if (x is T) {} // make `T` a type of interest
   x = new T();
   x.foo();
 //  ^^^

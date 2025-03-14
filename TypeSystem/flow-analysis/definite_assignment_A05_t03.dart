@@ -13,7 +13,7 @@
 /// @author sgrekhov@unipro.ru
 
 main() {
-  int n;
+  late int n;
   while (false) {
     n = 42;
   }
