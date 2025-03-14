@@ -12,8 +12,8 @@
 ///  and T <: S and not S <: T
 ///  and T is a type of interest for x in tested
 ///
-/// @description Checks that if T <: S and S <: T then promotion via assignment
-/// is not performed
+/// @description Checks that if `T <: S` and `S <: T` then promotion via
+/// assignment is not performed
 /// @author sgrekhov@unipro.ru
 
 import '../../Utils/expect.dart';
@@ -25,9 +25,7 @@ class T extends S {
 
 main() {
   dynamic x = new S();
-  if (x is T) {
-    // nothing
-  }
+  if (x is T) {} // make `T` a type of interest
   x = new T();
   x.foo();
   Expect.throws(() {

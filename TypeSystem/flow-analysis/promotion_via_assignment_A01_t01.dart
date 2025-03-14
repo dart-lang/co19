@@ -12,7 +12,7 @@
 ///  and T <: S and not S <: T
 ///  and T is a type of interest for x in tested
 ///
-/// @description Checks that a variable is promotable to the type T if all
+/// @description Checks that a variable is promotable to the type `T` if all
 /// requirements above are met.
 /// @author sgrekhov@unipro.ru
 
@@ -23,9 +23,7 @@ class T extends S {
 
 main() {
   S x = new S();
-  if (x is T) {
-    // nothing
-  }
+  if (x is T) {}  // make `T` a type of interest
   x = new T();
   x.foo();
 }
