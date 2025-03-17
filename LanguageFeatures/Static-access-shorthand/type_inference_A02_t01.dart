@@ -13,7 +13,7 @@
 ///
 /// @description Checks that if a shorthand context type schema has one of the
 /// forms `const .id(arguments)`, or `const .new(arguments)`, `D` is the
-/// declaration denoted by the shorthand context then then the shorthand context
+/// declaration denoted by the shorthand context then the shorthand context
 /// denotes the type declaration `D`. Test a class.
 /// @author sgrekhov22@gmail.com
 

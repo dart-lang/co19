@@ -10,8 +10,8 @@
 /// non-function type with a generic method named call), then e<typeArgs> is
 /// equivalent to the instantiated method-tear off e.call<typeArgs>.
 ///
-/// @description Checks that if e denotes a generic instance method then then
-/// e<typeArgs> performs an explicitly instantiated method tear-off
+/// @description Checks that if `e` denotes a generic instance method, then
+/// `e<typeArgs>` performs an explicitly instantiated method tear-off.
 /// @author sgrekhov@unipro.ru
 
 import "../../Utils/expect.dart";
