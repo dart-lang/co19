@@ -12,8 +12,8 @@
 /// the current implicitly instantiated method tear-off except that the types
 /// are provided instead of inferred.
 ///
-/// @description Checks that if e denotes a generic instance method then then
-/// e<typeArgs> performs an explicitly instantiated method tear-off
+/// @description Checks that if `e` denotes a generic instance method, then
+/// `e<typeArgs>` performs an explicitly instantiated method tear-off.
 /// @author sgrekhov@unipro.ru
 
 import "../../Utils/expect.dart";
