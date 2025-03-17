@@ -2,17 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion assigned is a boolean value indicating whether the variable has
-/// definitely been assigned at the given point in the source code. When assigned
-/// is true, we say that the variable is definitely assigned at that point.
+/// @assertion `assigned` is a boolean value indicating whether the variable has
+/// definitely been assigned at the given point in the source code. When
+/// `assigned` is true, we say that the variable is definitely assigned at that
+/// point.
 ///
-/// @description Checks definite assignment and for loop
+/// @description Checks that assignment in the first operand of `for(;;) loop is
+/// treated by the flow analysis as a definite assignment.
 /// @author sgrekhov@unipro.ru
-
 
 main() {
   int n;
-  for (n = 42; n < 1;) {
+  for (n = 42; false;) {
   }
   n;  // It's not an error to read local non-nullable variable when it is definitely assigned
 }
