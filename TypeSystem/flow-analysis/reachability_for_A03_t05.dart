@@ -11,8 +11,8 @@
 /// - Let `after(N) = inheritTested(join(false(C), unsplit(break(S))), after(U))`
 ///
 /// @description Checks that `before(U) = merge(after(S), continue(S))`. Test
-/// that if the static type of `D` is `Never`, then an assignment in `U` will
-/// never happen.
+/// that if `D`, `C` and `S` are empty then an assignment in `U` is a definite
+/// assignment.
 /// @author sgrekhov22@gmail.com
 /// @issue 60320
 

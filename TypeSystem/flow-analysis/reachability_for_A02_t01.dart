@@ -19,8 +19,10 @@ Never foo() => throw "Never";
 
 test1() {
   late int i;
-  for (; foo();) {
-    i = 42;
+  if (2 > 1) {
+    for (; foo();) {
+      i = 42;
+    }
   }
   i; // Definitely unassigned.
 //^
@@ -30,9 +32,11 @@ test1() {
 
 test2() {
   late int i;
-  [
-    for (; foo();) i = 42
-  ];
+  if (2 > 1) {
+    [
+      for (; foo();) i = 42
+    ];
+  }
   i; // Definitely unassigned.
 //^
 // [analyzer] unspecified
@@ -41,10 +45,12 @@ test2() {
 
 test3() {
   late int i;
-  <int, int>{
-    for (;foo();)
-      0: i = 42
-  };
+  if (2 > 1) {
+    <int, int>{
+      for (; foo();)
+        0: i = 42
+    };
+  }
   i; // Definitely unassigned.
 //^
 // [analyzer] unspecified
@@ -53,10 +59,12 @@ test3() {
 
 test4() {
   late int i;
-  <int, int>{
-    for (;foo();)
-      i = 42: 0
-  };
+  if (2 > 1) {
+    <int, int>{
+      for (; foo();)
+        i = 42: 0
+    };
+  }
   i; // Definitely unassigned.
 //^
 // [analyzer] unspecified

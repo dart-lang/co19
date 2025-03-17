@@ -21,7 +21,6 @@ test1() {
   if (2 > 1) {
     for (;; i = 42) {
       foo();
-      break;
     }
   }
   i; // Definitely unassigned.
@@ -57,8 +56,23 @@ test3() {
 // [cfe] unspecified
 }
 
+test4() {
+  late int i;
+  if (2 > 1) {
+    <int, int>{
+      for (;; i = 42)
+        foo(): 0
+    };
+  }
+  i; // Definitely unassigned.
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(test1);
   print(test2);
   print(test3);
+  print(test4);
 }
