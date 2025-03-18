@@ -17,7 +17,7 @@
 
 test1() {
   late int n;
-  for (n;; (n = 42) < 0) { // Definitely unassigned
+  for (n;; n = 42) { // Definitely unassigned
 //     ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -28,7 +28,7 @@ test1() {
 test2() {
   int n;
   [
-    for (n; ;(n = 42) < 0) 0
+    for (n; ;n = 42) 0
 //       ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -38,7 +38,7 @@ test2() {
 test3() {
   int n;
   <int, int>{
-    for (n; ;(n = 42) < 0) 0: 0
+    for (n; ;n = 42) 0: 0
 //       ^
 // [analyzer] unspecified
 // [cfe] unspecified

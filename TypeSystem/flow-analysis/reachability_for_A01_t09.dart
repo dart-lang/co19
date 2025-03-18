@@ -18,8 +18,8 @@
 int? x = (2 > 1) ? 1 : null;
 
 test1(int? n) {
-  if (n != null) {
-    for (() {n = x;}; n > 0;) {
+  if (n != null) { // n promoted to `int`
+    for (() {n = x;}; n > 0;) { // n demoted to `int?`
 //                      ^
 // [analyzer] unspecified
 // [cfe] unspecified

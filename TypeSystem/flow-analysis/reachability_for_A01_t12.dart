@@ -29,39 +29,39 @@ test1(int? n) {
 }
 
 test2(int? n) {
-  if (n != null) { // n promoted to `int`
+  if (n != null) {
     [
       for (;n > 0 ;)
 //            ^
 // [analyzer] unspecified
 // [cfe] unspecified
         () {
-          late int? v = (n = x); // n demoted to `int?`
+          late int? v = (n = x);
         }
     ];
   }
 }
 
 test3(int? n) {
-  if (n != null) { // n promoted to `int`
+  if (n != null) {
     <Object, Object>{
       for (; n > 0;)
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        () {late int? v = (n = x);}: 0 // n demoted to `int?`
+        () {late int? v = (n = x);}: 0
     };
   }
 }
 
 test4(int? n) {
-  if (n != null) { // n promoted to `int`
+  if (n != null) {
     <Object, Object>{
       for (; n > 0;)
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        0: () {late int? v = (n = x);} // n demoted to `int?`
+        0: () {late int? v = (n = x);}
     };
   }
 }
