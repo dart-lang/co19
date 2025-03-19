@@ -12,7 +12,8 @@
 ///
 /// @description Checks that
 /// `before(C) = conservativeJoin(after(D), assignedIn(N), capturedIn(N))`. Test
-/// that `assignedIn(D)` is detected by flow analysis.
+/// that if variable is assigned `after(D)` then it is definitely assigned
+/// `before(C)`.
 /// @author sgrekhov22@gmail.com
 
 test1() {
@@ -25,7 +26,7 @@ test1() {
 test2() {
   int n;
   [
-    for (n = 42; n < 0;)  // n definitely assigned
+    for (n = 42; n < 0;)
       0
   ];
 }
@@ -33,13 +34,13 @@ test2() {
 test3() {
   int n;
   <int, int>{
-    for (n = 42; n < 0;) // n definitely assigned
+    for (n = 42; n < 0;)
       0: 0
   };
 }
 
 main() {
-  print(test1);
-  print(test2);
-  print(test3);
+  test1();
+  test2();
+  test3();
 }

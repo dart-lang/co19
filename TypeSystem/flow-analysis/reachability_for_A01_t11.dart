@@ -15,11 +15,9 @@
 /// that `capturedIn(U)` is detected by flow analysis.
 /// @author sgrekhov22@gmail.com
 
-int? x = (2 > 1) ? 1 : null;
-
 test1(int? n) {
   if (n != null) { // n promoted to `int`
-    for (; n > 0; () {n = x;}) { // n demoted to `int?`
+    for (; n > 0; () {n = 42;}) { // n demoted to `int?`
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -30,7 +28,7 @@ test1(int? n) {
 test2(int? n) {
   if (n != null) {
     [
-      for (; n > 0; () {n = x;}) 0
+      for (; n > 0; () {n = 42;}) 0
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -41,7 +39,7 @@ test2(int? n) {
 test3(int? n) {
   if (n != null) {
     <int, int>{
-      for (; n > 0; () {n = x;}) 0: 0
+      for (; n > 0; () {n = 42;}) 0: 0
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -10,43 +10,17 @@
 /// - Let `before(U) = merge(after(S), continue(S))`.
 /// - Let `after(N) = inheritTested(join(false(C), unsplit(break(S))), after(U))`
 ///
-/// @description Checks that
-/// `before(C) = conservativeJoin(after(D), assignedIn(N), capturedIn(N))`. Test
-/// that an assignment in `C` doesn't affect value of `before(D)`.
+/// @description Checks that `before(U) = merge(after(S), continue(S))`. Test
+/// that if `D`, `C` are empty and variable is assigned in `S` after `continue`,
+/// then this variable is treated in `U` as 'possibly assigned`.
 /// @author sgrekhov22@gmail.com
 
-test1() {
-  late int n;
-  for (n; (n = 42) < 0;) { // Definitely unassigned
-//     ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    break;
-  }
-}
-
-test2() {
-  int n;
-  [
-    for (n; (n = 42) < 0;) 0
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
-}
-
-test3() {
-  int n;
-  <int, int>{
-    for (n; (n = 42) < 0;) 0: 0
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-}
-
 main() {
-  print(test1);
-  print(test2);
-  print(test3);
+  late int i;
+  try {
+    for (;; i) { // Possibly assigned. https://github.com/dart-lang/sdk/issues/42232#issuecomment-690681385
+      continue;
+      i = 42;
+    }
+  } catch (_) {}
 }

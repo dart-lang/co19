@@ -12,7 +12,8 @@
 ///
 /// @description Checks that
 /// `before(C) = conservativeJoin(after(D), assignedIn(N), capturedIn(N))`. Test
-/// that `capturedIn(D)` is detected by flow analysis.
+/// that if a value of `captured` is `true` in `after(D)` then it is `true` in
+/// `before(C)` as well.
 /// @author sgrekhov22@gmail.com
 
 int? x = (2 > 1) ? 1 : null;

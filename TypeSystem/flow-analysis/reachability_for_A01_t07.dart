@@ -12,7 +12,7 @@
 ///
 /// @description Checks that
 /// `before(C) = conservativeJoin(after(D), assignedIn(N), capturedIn(N))`. Test
-/// that `assignedIn(U)` doesn't affect `D`.
+/// that an assignment in `U` doesn't affect value of `before(D)`.
 /// @author sgrekhov22@gmail.com
 
 test1() {

@@ -15,33 +15,38 @@
 /// that `capturedIn(C)` is detected by flow analysis.
 /// @author sgrekhov22@gmail.com
 
-int? x = (2 > 1) ? 1 : null;
-
 test1(int? n) {
-  if (n != null) { // n promoted to `int`
-    for (; () {
-        late int? i = (n = x); // n demoted to `int?`
+  if (n != null) {
+    // n promoted to `int`
+    for (
+      ;
+      () {
+        late int? i = (n = 42); // n demoted to `int?`
         return false;
-      }();) {
-    }
+      }();
+    ) {}
     n.isEven;
-//    ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    //    ^^^^^^
+    // [analyzer] unspecified
+    // [cfe] unspecified
   }
 }
 
 test2(int? n) {
   if (n != null) {
     [
-      for (; () {
-        late int? i = (n = x);
-        return false;
-      }();) 0,
-      n.isEven
-//      ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+      for (
+        ;
+        () {
+          late int? i = (n = 42);
+          return false;
+        }();
+      )
+        0,
+      n.isEven,
+      //      ^^^^^^
+      // [analyzer] unspecified
+      // [cfe] unspecified
     ];
   }
 }
@@ -49,14 +54,18 @@ test2(int? n) {
 test3(int? n) {
   if (n != null) {
     <Object, int>{
-      for (; () {
-        late int? i = (n = x);
-        return false;
-      }();) 0: 0,
-      n.isEven: 0
-//      ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+      for (
+        ;
+        () {
+          late int? i = (n = 42);
+          return false;
+        }();
+      )
+        0: 0,
+      n.isEven: 0,
+      //      ^^^^^^
+      // [analyzer] unspecified
+      // [cfe] unspecified
     };
   }
 }
@@ -64,14 +73,18 @@ test3(int? n) {
 test4(int? n) {
   if (n != null) {
     <int, Object>{
-      for (; () {
-        late int? i = (n = x);
-        return false;
-      }();) 0: 0,
-      0: n.isEven
-//         ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+      for (
+        ;
+        () {
+          late int? i = (n = 42);
+          return false;
+        }();
+      )
+        0: 0,
+      0: n.isEven,
+      //         ^^^^^^
+      // [analyzer] unspecified
+      // [cfe] unspecified
     };
   }
 }

@@ -17,34 +17,49 @@
 
 test1() {
   late int n;
-  for (; () {
-    if (1 > 2) {
-      n; // possibly assigned
-    }
-    return true;}(); n = 42) {
-  }
+  for (
+    ;
+    () {
+      if (1 > 2) {
+        n; // possibly assigned
+      }
+      return true;
+    }();
+    n = 42
+  ) {}
 }
 
 test2() {
   late int n;
   [
-    for (; () {
-      if (1 > 2) {
-        n;
-      }
-      return true;}(); n = 42) 0
+    for (
+      ;
+      () {
+        if (1 > 2) {
+          n;
+        }
+        return true;
+      }();
+      n = 42
+    )
+      0,
   ];
 }
 
 test3() {
   late int n;
   <int, int>{
-    for (; () {
-      if (1 > 2) {
-        n;
-      }
-      return true;
-    }(); n = 42) 0: 0
+    for (
+      ;
+      () {
+        if (1 > 2) {
+          n;
+        }
+        return true;
+      }();
+      n = 42
+    )
+      0: 0,
   };
 }
 
