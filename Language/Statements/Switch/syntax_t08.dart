@@ -17,18 +17,17 @@
 /// bracket of the switch statement's body is missing.
 /// @author vasya
 
-
 switchTest(value) {
-//                ^
-// [cfe] unspecified
   var result;
 
   switch (value) {
+//               ^
+// [cfe] unspecified
     case 0: result = 0; break;
     default: result = -1;
   return result;
-}
+/**/}
+//  ^
+// [analyzer] unspecified
 
 main() {}
-// [error line 34, column 0]
-// [analyzer] unspecified

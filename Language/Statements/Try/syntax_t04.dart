@@ -22,14 +22,12 @@
 ///    implicitly) the type of exception object to be handled, one or two
 ///    exception parameters and a block statement.
 /// 2. A finally clause, which consists of a block statement.
+///
 /// @description Checks that it is a compile-time error if the try block is
 /// missing the closing curly braces.
 /// @author vasya
 
-
 main() {
-//     ^
-// [cfe] unspecified
   try {
 //^
 // [analyzer] unspecified
@@ -39,6 +37,6 @@ main() {
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-// [error line 44, column 0]
+/**/}
+//  ^
 // [analyzer] unspecified
