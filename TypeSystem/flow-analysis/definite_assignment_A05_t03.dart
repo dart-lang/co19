@@ -9,7 +9,7 @@
 ///
 /// @description Checks that if the condition of a `while` statement is the
 /// `false` literal, then an assignment in the body of the loop is treated by
-/// flow analysis as a definite unassignment.
+/// flow analysis as `possible assigned`.
 /// @author sgrekhov@unipro.ru
 /// @issue 60322
 
@@ -18,8 +18,5 @@ main() {
   while (false) {
     n = 42;
   }
-  n;  // It's an error to read local non-nullable variable when it is not definitely assigned
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  n;  // Possibly assigned. See https://github.com/dart-lang/sdk/issues/60322
 }
