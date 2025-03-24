@@ -9,8 +9,8 @@
 /// - Let `after(N) = join(false(E), break(S))`
 ///
 /// @description Checks that `after(N) = join(false(E), break(S))`. Test that if
-/// `S` has `continue  statement then an assignment in `S` before the `continue`
-/// is a definite assignment.
+/// a variable is assigned in `S` before the `continue` statement then in
+/// `after(N)` it is definitely assigned.
 /// @author sgrekhov22@gmail.com
 
 main() {

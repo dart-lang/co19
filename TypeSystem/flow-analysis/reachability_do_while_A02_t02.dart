@@ -10,7 +10,7 @@
 ///
 /// @description Checks that `before(E) = join(after(S), continue(N))`. Test
 /// that if `S` breaks then an assignment in `E` is treated as
-/// 'probably assigned'.
+/// 'possibly assigned'.
 /// @author sgrekhov22@gmail.com
 /// @issue 60361
 
@@ -18,6 +18,6 @@ main() {
   late int i;
   do {
     break;
-  } while ((i = 42) < 0); // Probably assigned. https://github.com/dart-lang/sdk/issues/42232#issuecomment-690681385
+  } while ((i = 42) < 0); // Possibly assigned. https://github.com/dart-lang/sdk/issues/42232#issuecomment-690681385
   i; // Not definitely unassigned
 }

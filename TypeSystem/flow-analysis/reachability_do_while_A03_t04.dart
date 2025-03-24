@@ -8,9 +8,9 @@
 /// - Let `before(E) = join(after(S), continue(N))`
 /// - Let `after(N) = join(false(E), break(S))`
 ///
-/// @description Checks that `after(N) = join(false(E), break(S))`. Test
-/// that if `S` breaks then an assignment in `S` before the `break` statement is
-/// a definite assignment.
+/// @description Checks that `after(N) = join(false(E), break(S))`. Test that if
+/// a variable is assigned in `S` before the `break` statement then in `after(N)`
+/// it is definitely assigned.
 /// @author sgrekhov22@gmail.com
 
 main() {

@@ -9,7 +9,7 @@
 /// - Let `after(N) = join(false(E), break(S))`
 ///
 /// @description Checks that `after(N) = join(false(E), break(S))`. Test that if
-/// `E` throws then an assignment in `S` is ignored by flow analysis.
+/// `E` throws then `after(N)` is unreachable.
 /// @author sgrekhov22@gmail.com
 /// @issue 60363
 

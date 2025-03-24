@@ -9,8 +9,8 @@
 /// - Let `after(N) = join(false(E), break(S))`
 ///
 /// @description Checks that `before(E) = join(after(S), continue(N))`. Test
-/// that if `S` has `continue  statement then an assignment in `E` is a
-/// definite assignment.
+/// that a `continue` statement in `S` does not prevent `E` from making `i`
+/// definitely assigned after the loop.
 /// @author sgrekhov22@gmail.com
 
 main() {
