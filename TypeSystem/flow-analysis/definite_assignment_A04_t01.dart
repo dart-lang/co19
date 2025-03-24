@@ -7,7 +7,7 @@
 /// `assigned` is true, we say that the variable is definitely assigned at that
 /// point.
 ///
-/// @description Checks that an assignment in a body of `for-in` loop is
+/// @description Checks that an assignment in the body of a `for-in` loop is
 /// detected by flow analysis.
 /// @author sgrekhov@unipro.ru
 

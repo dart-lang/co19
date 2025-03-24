@@ -15,8 +15,10 @@
 
 test1() {
   late int i;
-  for (Never n in <dynamic>[42]) {
-    i = 42;
+  if (2 > 1) {
+    for (Never n in <dynamic>[42]) {
+      i = 42;
+    }
   }
   i; // Definitely unassigned.
 //^
@@ -26,8 +28,10 @@ test1() {
 
 test2(Never n) {
   late int i;
-  for (n in <dynamic>[42]) {
-    i = 42;
+  if (2 > 1) {
+    for (n in <dynamic>[42]) {
+      i = 42;
+    }
   }
   i; // Definitely unassigned.
 //^
@@ -37,8 +41,10 @@ test2(Never n) {
 
 test3<T extends Never>(T n) {
   late int i;
-  for (n in <dynamic>[42]) {
-    i = 42;
+  if (2 > 1) {
+    for (n in <dynamic>[42]) {
+      i = 42;
+    }
   }
   i; // Definitely unassigned.
 //^

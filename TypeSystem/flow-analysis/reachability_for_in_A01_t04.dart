@@ -26,7 +26,9 @@ test1() {
 
 test2(Never n) {
   late int i;
-  for (i in [n]) {}
+  if (2 > 1) {
+    for (i in [n]) {}
+  }
   i; // Definitely unassigned.
 //^
 // [analyzer] unspecified

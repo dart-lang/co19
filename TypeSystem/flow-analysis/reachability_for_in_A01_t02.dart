@@ -28,8 +28,10 @@ test1() {
 
 test2(Never n) {
   late int i;
-  for (var j in n) {
-    i = 42;
+  if (2 > 1) {
+    for (var j in n) {
+      i = 42;
+    }
   }
   i; // Definitely unassigned.
 //^

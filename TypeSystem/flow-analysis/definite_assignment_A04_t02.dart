@@ -8,7 +8,7 @@
 /// point.
 ///
 /// @description Checks that an assignment in a `for-in` collection part is
-/// treated by flow analysis as definite assignment.
+/// treated by the flow analysis as a definite assignment.
 /// @author sgrekhov@unipro.ru
 
 main() {
