@@ -8,18 +8,17 @@
 /// - Let `before(S) = conservativeJoin(after(E), assignedIn(N), capturedIn(N))`
 /// - Let `after(N) = join(before(S), break(S))`
 ///
-/// @description Checks that if `X` has type `Never` then an assignment in `S`
-/// is unreachable.
+/// @description Checks that if `E` has type `Never` or `List<Never>` then an
+/// assignment in `X` or `S` is unreachable. Test use of a definitely unassigned
+/// variable in dead code.
 /// @author sgrekhov22@gmail.com
-/// @issue 60394
+/// @issue 60395
+
+Never foo() => throw "Never";
 
 test1() {
   late int i;
-  if (2 > 1) {
-    for (Never n in <dynamic>[42]) {
-      i = 42;
-    }
-  }
+  for (i in foo()) {}
   i; // Definitely unassigned.
 //^
 // [analyzer] unspecified
@@ -28,10 +27,8 @@ test1() {
 
 test2(Never n) {
   late int i;
-  if (2 > 1) {
-    for (n in <dynamic>[42]) {
-      i = 42;
-    }
+  for (var j in n) {
+    i = 42;
   }
   i; // Definitely unassigned.
 //^
@@ -39,13 +36,9 @@ test2(Never n) {
 // [cfe] unspecified
 }
 
-test3<T extends Never>(T n) {
+test3(Never n) {
   late int i;
-  if (2 > 1) {
-    for (n in <dynamic>[42]) {
-      i = 42;
-    }
-  }
+  for (i in [n]) {}
   i; // Definitely unassigned.
 //^
 // [analyzer] unspecified

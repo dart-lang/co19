@@ -11,11 +11,13 @@
 /// @description Checks that if `X` has type `Never` then an assignment in `E`
 /// is unreachable.
 /// @author sgrekhov22@gmail.com
-/// @issue 60265
+/// @issue 60394
 
 test1() {
   late int i;
-  for (Never n in <dynamic>[i = 42]) {}
+  if (2 > 1) {
+    for (Never n in <dynamic>[i = 42]) {}
+  }
   i; // Definitely unassigned.
 //^
 // [analyzer] unspecified
@@ -24,7 +26,9 @@ test1() {
 
 test2(Never n) {
   late int i;
-  for (n in <dynamic>[i = 42]) {}
+  if (2 > 1) {
+    for (n in <dynamic>[i = 42]) {}
+  }
   i; // Definitely unassigned.
 //^
 // [analyzer] unspecified
@@ -33,7 +37,9 @@ test2(Never n) {
 
 test3<T extends Never>(T n) {
   late int i;
-  for (n in <dynamic>[i = 42]) {}
+  if (2 > 1) {
+    for (n in <dynamic>[i = 42]) {}
+  }
   i; // Definitely unassigned.
 //^
 // [analyzer] unspecified

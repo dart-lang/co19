@@ -11,7 +11,7 @@
 /// @description Checks that if `X` has type `Never` then an assignment after
 /// `N` is unreachable.
 /// @author sgrekhov22@gmail.com
-/// @issue 60265
+/// @issue 60394
 
 test1() {
   late int i;

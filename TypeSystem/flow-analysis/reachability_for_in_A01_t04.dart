@@ -11,13 +11,15 @@
 /// @description Checks that if elements of `E` has type `Never` then an
 /// assignment in `X` is unreachable.
 /// @author sgrekhov22@gmail.com
-/// @issue 60265
+/// @issue 60393
 
 Never foo() => throw "Never";
 
 test1() {
   late int i;
-  for (i in [foo()]) {}
+  if (2 > 1) {
+    for (i in [foo()]) {}
+  }
   i; // Definitely unassigned.
 //^
 // [analyzer] unspecified
@@ -37,7 +39,9 @@ test2(Never n) {
 
 test3<T extends Never>(T n) {
   late int i;
-  for (i in [n]) {}
+  if (2 > 1) {
+    for (i in [n]) {}
+  }
   i; // Definitely unassigned.
 //^
 // [analyzer] unspecified
@@ -46,7 +50,9 @@ test3<T extends Never>(T n) {
 
 test4() {
   late int i;
-  for (i in <Never>[]) {}
+  if (2 > 1) {
+    for (i in <Never>[]) {}
+  }
   i; // Definitely unassigned.
 //^
 // [analyzer] unspecified
