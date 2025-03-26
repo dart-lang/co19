@@ -57,10 +57,7 @@ test4() {
     for (var j in <Never>[]) {}
     i = 42;
   }
-  i; // Definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Not definitely unassigned.
 }
 
 main() {

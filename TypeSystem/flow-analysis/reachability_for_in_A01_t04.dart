@@ -53,10 +53,7 @@ test4() {
   if (2 > 1) {
     for (i in <Never>[]) {}
   }
-  i; // Definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Not definitely unassigned.
 }
 
 main() {
