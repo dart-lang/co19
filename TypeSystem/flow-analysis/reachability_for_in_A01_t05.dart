@@ -61,10 +61,7 @@ test4() {
       i = 42;
     }
   }
-  i; // Definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Not definitely unassigned.
 }
 
 main() {
