@@ -9,8 +9,8 @@
 /// - Let `before(S2) = split(false(E))`.
 /// - Let `after(N) = merge(after(S1), after(S2))`.
 ///
-/// @description Checks that if `S1` or `S2` throws then the whole branch is
-/// unreachable.
+/// @description Checks that if `after(S1)` or `after(S2)` is unreachable then
+/// an assignment in the appropriate branch is omitted by the `join`.
 /// @author sgrekhov22@gmail.com
 
 Never foo() => throw "Never";

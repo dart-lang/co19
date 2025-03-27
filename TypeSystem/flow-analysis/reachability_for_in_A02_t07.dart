@@ -15,9 +15,9 @@
 /// @author sgrekhov22@gmail.com
 
 test(int? n) {
-  if (n != null) {
-    for (n in [42]) {
-      n.isEven;
+  if (n != null) { // n promoted to `int`
+    for (n in [42]) { // n is not promoted not demoted here
+      n.isEven; // n is still `int`
     }
     n.isEven;
   }
