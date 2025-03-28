@@ -19,10 +19,7 @@ test1() {
     for (Never n in <dynamic>[42]) {}
     i = 42;
   }
-  i; // Definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Possibly assigned. See https://github.com/dart-lang/sdk/issues/60394
 }
 
 test2(Never n) {
