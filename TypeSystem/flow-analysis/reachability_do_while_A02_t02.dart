@@ -14,10 +14,14 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 60361
 
-main() {
+test() {
   late int i;
   do {
     break;
   } while ((i = 42) < 0); // Possibly assigned. https://github.com/dart-lang/sdk/issues/42232#issuecomment-690681385
   i; // Not definitely unassigned
+}
+
+main() {
+  print(test);
 }

@@ -19,10 +19,7 @@ Never foo() => throw "Never";
 test1() {
   late int i;
   for (i in foo()) {}
-  i; // Definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Possibly assigned. See https://github.com/dart-lang/sdk/issues/60395
 }
 
 test2(Never n) {
@@ -30,19 +27,13 @@ test2(Never n) {
   for (var j in n) {
     i = 42;
   }
-  i; // Definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Possibly assigned.
 }
 
 test3(Never n) {
   late int i;
   for (i in [n]) {}
-  i; // Definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Possibly assigned.
 }
 
 main() {
