@@ -2,28 +2,24 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Null check operator: If N is an expression of the form E!, then:
-///  Let before(E) = before(N)
-///  Let null(N) = unreachable(null(E))
-///  Let nonNull(N) = nonNull(E)
+/// @assertion Null check operator: If `N` is an expression of the form `E!`,
+/// then:
+/// - Let `before(E) = before(N)`.
+/// - Let `after(E) = promoteToNonNull(E, after(E))`.
 ///
-/// @description Checks reachability after Null check operator
+/// @description Checks that `E!` is promoted to not null `after(E)`.
 /// @author sgrekhov@unipro.ru
 /// @issue 42021
-
-import "../../Utils/expect.dart";
+/// @issue 60114
 
 main () {
   late int i;
   var s = "" as String?;
-  if (s! == null) {
-    i = 42; // `i` is not definitely unassigned because in a weak mode the
-            // condition may be true
+  if (s! == null) { // ignore: unnecessary_null_comparison
+    i = 42;
   }
-  try {
-    i;
-    Expect.fail("Error expected");
-  } on Error catch(e) {
-    // Ok
-  }
+  i; // Definitely unassigned
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
