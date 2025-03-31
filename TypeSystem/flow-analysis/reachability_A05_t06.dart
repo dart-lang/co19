@@ -10,11 +10,13 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 41985
 
+// @dart = 3.7.0
+
 main() {
   int i;
   if (3.14 != null) {
-    i = 42; // `i` is not definitely assigned because in a weak mode the
-            // condition may be false
+    i = 42; // `i` is not definitely unassigned because in a weak mode a value
+            // of a non-nullable expression is considered to be possibly null
   }
   i; // It is an error to read a local non-nullable variable which is not definitely assigned
 //^

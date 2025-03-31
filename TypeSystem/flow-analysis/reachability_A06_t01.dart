@@ -11,14 +11,16 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 42021
 
+// @dart = 3.7.0
+
 import "../../Utils/expect.dart";
 
 main () {
   late int i;
   var s = "" as String?;
   if (s! == null) {
-    i = 42; // `i` is not definitely unassigned because in a weak mode the
-            // condition may be true
+    i = 42; // `i` is not definitely unassigned because in a weak mode a value
+            // of a non-nullable expression is considered to be possibly null
   }
   try {
     i;
