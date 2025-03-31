@@ -14,8 +14,8 @@
 ///
 /// @description Checks that if `C` is labelled then
 /// `before(S) = conservativeJoin(after(E), assignedIn(N), capturedIn(N))`. Test
-/// that if `C` is labeled and a promoted variable was captured in `E` then it
-/// is demoted in `S`.
+/// that if `C` is labeled or `default` and a promoted variable was captured in
+/// `E` then it is demoted in `S`.
 /// @author sgrekhov22@gmail.com
 
 void test(int? n) {
@@ -27,6 +27,10 @@ void test(int? n) {
 // [analyzer] unspecified
 // [cfe] unspecified
       default:
+        n.isEven;
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     }
   }
 }

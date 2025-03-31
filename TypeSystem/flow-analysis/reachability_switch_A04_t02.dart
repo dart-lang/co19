@@ -25,7 +25,7 @@ void test1() {
       i = 42;
     default:
   }
-  i; // Definitely assigned
+  i; // Definitely unassigned
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -39,7 +39,7 @@ void test2() {
       break;
       i = 42;
   }
-  i; // Definitely assigned
+  i; // Definitely unassigned
 //^
 // [analyzer] unspecified
 // [cfe] unspecified

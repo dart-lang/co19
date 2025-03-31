@@ -29,6 +29,7 @@ void test1(int? n) {
 // [analyzer] unspecified
 // [cfe] unspecified
       default:
+        n.isEven; // Ok
     }
   }
 }
@@ -42,8 +43,10 @@ void test2(int? n) {
 // [analyzer] unspecified
 // [cfe] unspecified
       case 2:
+        n.isEven; // Ok, still promoted
         () {n = 42;};
       default:
+        n.isEven; // Ok
     }
   }
 }
@@ -57,6 +60,7 @@ void test3(int? n) {
 // [analyzer] unspecified
 // [cfe] unspecified
       default:
+        n.isEven;
         () {n = 42;};
     }
   }
