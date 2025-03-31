@@ -17,8 +17,8 @@ import "../../Utils/expect.dart";
 main() {
   late int i;
   if ("Lily was here" == null) {
-    i = 42;   // `i` is not definitely unassigned because in a weak mode the
-              // condition may be true
+    i = 42;   // `i` is not definitely unassigned because in a weak mode a value
+              // of a non-nullable expression is considered to be possibly null
   }
   try {
     i;
