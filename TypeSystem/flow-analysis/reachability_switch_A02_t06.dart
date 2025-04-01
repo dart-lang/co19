@@ -12,16 +12,19 @@
 ///  - If the cases are exhaustive, then let `after(N) = break(N)` otherwise let
 ///    `after(N) = join(after(E), break(N))`.
 ///
-/// @description Checks that if `C` is labelled then
-/// `before(S) = conservativeJoin(after(E), assignedIn(N), capturedIn(N))`. Test
-/// that if `C` is labeled or `default` and a promoted variable was captured in
-/// `E` then it is demoted in `S`.
+/// @description Checks that if a promoted variable was captured in `E` then it
+/// is demoted in `S`.
 /// @author sgrekhov22@gmail.com
 
 void test(int? n) {
   if (n != null) {  // n promoted to int
     switch ((){n = 42;}) { // n demoted to int?
       label: case 1: // ignore: constant_pattern_never_matches_value_type
+        n.isEven;
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      case 2: // ignore: constant_pattern_never_matches_value_type
         n.isEven;
 //        ^^^^^^
 // [analyzer] unspecified
