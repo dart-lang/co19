@@ -57,7 +57,7 @@ main() {
   Expect.isTrue(m2 != .staticMethod<String>("two"));
   Expect.equals("MC<int>(2) == MC<String>(two)", m2.log);
 
-  MC<String> m3 = MC("one");
+  M<String> m3 = MC("one");
   Expect.isTrue(m3 == .instances[0]);
   Expect.equals("MC<String>(one) == MC<String>(one)", m3.log);
   Expect.isFalse(m3 != .instances[0]);

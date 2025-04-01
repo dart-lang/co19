@@ -37,8 +37,8 @@ class C {
   const C.foo(this.value);
 
   static FutureOr<C> get staticGetter => C("C: static getter");
-  static FutureOr<C> staticMethod() => C("C; static method");
-  static FutureOr<List<C>> instances = [C("one"), C("two")];
+  static FutureOr<C> staticMethod() => C("C: static method");
+  static List<FutureOr<C>> instances = [C("one"), C("two")];
 }
 
 mixin M on C {
@@ -61,7 +61,7 @@ enum E {
 extension type ET(int v) {
   static FutureOr<ET> get staticGetter => ET(1);
   static FutureOr<ET> staticMethod() => ET(2);
-  static FutureOr<List<ET>> instances = [ET(0), ET(1)];
+  static List<FutureOr<ET>> instances = [ET(0), ET(1)];
 }
 
 main() async {

@@ -159,5 +159,5 @@ main() async {
   Expect.equals(3, (await et8)?.v);
 
   FutureOr<FutureOr<ET>> et9 = .id<String>();
-  Expect.equals(3, (await (await et9)).value);
+  Expect.equals(3, (await (await et9)).v);
 }

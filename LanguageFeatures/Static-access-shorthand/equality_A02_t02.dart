@@ -72,8 +72,5 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if (m != foo(.values[0])) {}
-//             ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  if (m != foo(.values[0])) {} // Ok, foo provides the context type
 }

@@ -61,7 +61,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if ((C() as Object) == .new()) {}
+  if ((C() as Object) == .id()) {}
 //                       ^
 // [analyzer] unspecified
 // [cfe] unspecified

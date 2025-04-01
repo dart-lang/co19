@@ -21,7 +21,7 @@ class C {
 }
 
 mixin M on C {
-  static const M answer = const MC(42);
+  static M answer = const MC(42);
 }
 
 class MC extends C with M {
