@@ -12,7 +12,12 @@
 /// definitely unassigned in `S`.
 /// @author sgrekhov22@gmail.com
 
-main() {
+class C {
+  int v;
+  C(this.v);
+}
+
+test1() {
   late int i;
   do {
     if (1 > 2) {
@@ -20,4 +25,41 @@ main() {
     };
     i = 42;
   } while (false);
+}
+
+test2() {
+  late int i;
+  do {
+    if (1 > 2) {
+      i; // Not definitely unassigned
+    };
+    (i,) = (42,);
+  } while (false);
+}
+
+test3() {
+  late int i;
+  do {
+    if (1 > 2) {
+      i; // Not definitely unassigned
+    };
+    (x: i) = (x: 42);
+  } while (false);
+}
+
+test4() {
+  late int i;
+  do {
+    if (1 > 2) {
+      i; // Not definitely unassigned
+    };
+    C(v: i) = C(42);
+  } while (false);
+}
+
+main() {
+  test1();
+  test2();
+  test3();
+  test4();
 }

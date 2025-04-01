@@ -12,6 +12,11 @@
 /// detected by flow analysis of `S`.
 /// @author sgrekhov22@gmail.com
 
+class C {
+  int v;
+  C(this.v);
+}
+
 test1(int? n) {
   if (n != null) { // promoted to `int`
     do {
@@ -38,7 +43,52 @@ test2(int? n) {
   }
 }
 
+test3(int? n) {
+  if (n != null) { // promoted to `int`
+    do {
+      () {
+        (n,) = (42,); // demoted to `int?`
+      };
+      n.isEven;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    } while (false);
+  }
+}
+
+test4(int? n) {
+  if (n != null) { // promoted to `int`
+    do {
+      () {
+        (x: n) = (x: 42); // demoted to `int?`
+      };
+      n.isEven;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    } while (false);
+  }
+}
+
+test5(int? n) {
+  if (n != null) { // promoted to `int`
+    do {
+      () {
+        C(v: n) = C(42); // demoted to `int?`
+      };
+      n.isEven;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    } while (false);
+  }
+}
+
 main() {
   print(test1);
   print(test2);
+  print(test3);
+  print(test4);
+  print(test5);
 }

@@ -12,9 +12,42 @@
 /// definitely unassigned in `E`.
 /// @author sgrekhov22@gmail.com
 
-main() {
+class C {
+  int v;
+  C(this.v);
+}
+
+test1() {
   late int i;
   do {
     i = 42;
   } while (i < 0);
+}
+
+test2() {
+  late int i;
+  do {
+    (i,) = (42,);
+  } while (i < 0);
+}
+
+test3() {
+  late int i;
+  do {
+    (x: i) = (x: 42);
+  } while (i < 0);
+}
+
+test4() {
+  late int i;
+  do {
+    (i,) = (42,);
+  } while (i < 0);
+}
+
+main() {
+  test1();
+  test2();
+  test3();
+  test4();
 }

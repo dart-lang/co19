@@ -11,6 +11,11 @@
 /// @description Checks that `capturedIn(E)` is detected by flow analysis.
 /// @author sgrekhov22@gmail.com
 
+class C {
+  int v;
+  C(this.v);
+}
+
 test1(int? n) {
   if (n != null) { // n promoted to `int`
     do {
@@ -33,7 +38,43 @@ test2(int? n) {
   }
 }
 
+test3(int? n) {
+  if (n != null) { // n promoted to `int`
+    do {
+      n.isEven;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    } while (() {(n,) = (42,); return false;}()); // n demoted to `int?`
+  }
+}
+
+test4(int? n) {
+  if (n != null) { // n promoted to `int`
+    do {
+      n.isEven;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    } while (() {(x: n) = (x: 42); return false;}()); // n demoted to `int?`
+  }
+}
+
+test5(int? n) {
+  if (n != null) { // n promoted to `int`
+    do {
+      n.isEven;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    } while (() {C(v: n) = C(42); return false;}()); // n demoted to `int?`
+  }
+}
+
 main() {
   print(test1);
   print(test2);
+  print(test3);
+  print(test4);
+  print(test5);
 }
