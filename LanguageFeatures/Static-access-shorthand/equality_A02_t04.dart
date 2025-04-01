@@ -60,8 +60,5 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if (one != foo(.instances[0])) {}
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  if (one != foo(.instances[0])) {} // Ok, foo provides the context type
 }

@@ -215,6 +215,6 @@ main() {
   testConstructors();
   testVariables();
   testGetters();
-  testMetods();
+  testMethods();
   testEnumValues();
 }

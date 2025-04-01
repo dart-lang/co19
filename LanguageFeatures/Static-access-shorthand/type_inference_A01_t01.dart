@@ -82,7 +82,7 @@ main() {
   Expect.equals(1, m5.value);
 
   E e1 = .id<String>();
-  Expect.equals(E.e1, e1);
+  Expect.equals(E.e0, e1);
 
   E<int> e2 = .id<String>();
   Expect.equals(2, e2.value);
