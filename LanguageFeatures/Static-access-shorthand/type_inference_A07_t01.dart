@@ -46,7 +46,7 @@ main() {
   Expect.equals(1, c1.value);
 
   C<int> c2 = .id("String").toInt(2);
-  Expect.equals(1, c2.value);
+  Expect.equals(2, c2.value);
 
   ET<int> et1 = .new("String").toInt(3);
   Expect.equals(3, et1.v);
