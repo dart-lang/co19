@@ -41,7 +41,7 @@ test3() {
 test4() {
   late int i;
   do {
-    (i,) = (42,);
+    C(v: i) = C(42);
   } while (i < 0);
 }
 
