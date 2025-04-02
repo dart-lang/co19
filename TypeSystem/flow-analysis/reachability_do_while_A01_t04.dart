@@ -12,7 +12,12 @@
 /// detected by flow analysis of `E`.
 /// @author sgrekhov22@gmail.com
 
-test(int? n) {
+class C {
+  int v;
+  C(this.v);
+}
+
+test1(int? n) {
   if (n != null) { // promoted to `int`
     do {
       () {
@@ -25,6 +30,48 @@ test(int? n) {
   }
 }
 
+test2(int? n) {
+  if (n != null) { // promoted to `int`
+    do {
+      () {
+        (n,) = (42,); // demoted to `int?`
+      };
+    } while (n > 0);
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+test3(int? n) {
+  if (n != null) { // promoted to `int`
+    do {
+      () {
+        (x: n) = (x: 42); // demoted to `int?`
+      };
+    } while (n > 0);
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+test4(int? n) {
+  if (n != null) { // promoted to `int`
+    do {
+      () {
+        C(v: n) = C(42); // demoted to `int?`
+      };
+    } while (n > 0);
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
 main() {
-  print(test);
+  print(test1);
+  print(test2);
+  print(test3);
+  print(test4);
 }
