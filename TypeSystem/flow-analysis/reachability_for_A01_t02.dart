@@ -16,10 +16,14 @@
 /// `C` is a definite assignment.
 /// @author sgrekhov22@gmail.com
 
+class C {
+  int v;
+  C(this.v);
+}
+
 test1() {
   int i;
-  for (; (i = 42) < 0;) {
-  }
+  for (; (i = 42) < 0;) {}
   i; // Definitely assigned.
 }
 
@@ -28,7 +32,7 @@ test2() {
   [
     for (; (i = 42) < 0;) 0
   ];
-  i; // Definitely assigned.
+  i;
 }
 
 test3() {
@@ -36,11 +40,86 @@ test3() {
   <int, int>{
     for (; (i = 42) < 0;) 0: 0
   };
-  i; // Definitely assigned.
+  i;
+}
+
+test4() {
+  int i;
+  for (; ((i,) = (42,)) == 0;) {}
+  i;
+}
+
+test5() {
+  int i;
+  for (; ((x: i) = (x: 42)) == 0;) {}
+  i;
+}
+
+test6() {
+  int i;
+  for (; (C(v: i) = C(42)) == 0;) {}
+  i;
+}
+
+test7() {
+  int i;
+  [
+    for (; ((i,) = (42,)) == 0;) 0
+  ];
+  i;
+}
+
+test8() {
+  int i;
+  [
+    for (; ((x: i) = (x: 42)) == 0;) 0
+  ];
+  i;
+}
+
+test9() {
+  int i;
+  [
+    for (; (C(v: i) = C(42)) == 0;) 0
+  ];
+  i;
+}
+
+test10() {
+  int i;
+  <int, int>{
+    for (; ((i,) = (42,)) == 0;) 0: 0
+  };
+  i;
+}
+
+test11() {
+  int i;
+  <int, int>{
+    for (; ((x: i) = (x: 42)) == 0;) 0: 0
+  };
+  i;
+}
+
+test12() {
+  int i;
+  <int, int>{
+    for (; (C(v: i) = C(42)) == 0;) 0: 0
+  };
+  i;
 }
 
 main() {
   test1();
   test2();
   test3();
+  test4();
+  test5();
+  test6();
+  test7();
+  test8();
+  test9();
+  test10();
+  test11();
+  test12();
 }

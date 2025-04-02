@@ -15,6 +15,11 @@
 /// that `assignedIn(S)` is detected by flow analysis.
 /// @author sgrekhov22@gmail.com
 
+class C {
+  int v;
+  C(this.v);
+}
+
 test1() {
   late int n;
   for (
@@ -78,9 +83,77 @@ test4() {
   };
 }
 
+test5() {
+  late int n;
+  for (
+  ;
+      () {
+    if (1 > 2) {
+      n; // possibly assigned
+    }
+    return true;
+  }();
+  ) {
+    (n,) = (42,);
+  }
+}
+
+test6() {
+  late int n;
+  [
+    for (
+    ;
+        () {
+      if (1 > 2) {
+        n;
+      }
+      return true;
+    }();
+    )
+      (x: n) = (x: 42),
+  ];
+}
+
+test7() {
+  late int n;
+  <C, int>{
+    for (
+    ;
+        () {
+      if (1 > 2) {
+        n;
+      }
+      return true;
+    }();
+    )
+      (C(v: n) = C(42)): 0,
+  };
+}
+
+test8() {
+  late int n;
+  <int, C>{
+    for (
+    ;
+        () {
+      if (1 > 2) {
+        n;
+      }
+      return true;
+    }();
+    )
+      0: (C(v: n) = C(42)),
+  };
+}
+
+
 main() {
   print(test1);
   print(test2);
   print(test3);
   print(test4);
+  print(test5);
+  print(test6);
+  print(test7);
+  print(test8);
 }

@@ -15,6 +15,11 @@
 /// that `capturedIn(C)` is detected by flow analysis.
 /// @author sgrekhov22@gmail.com
 
+class C {
+  int v;
+  C(this.v);
+}
+
 test1(int? n) {
   if (n != null) {
     // n promoted to `int`
@@ -26,9 +31,9 @@ test1(int? n) {
       }();
     ) {}
     n.isEven;
-    //    ^^^^^^
-    // [analyzer] unspecified
-    // [cfe] unspecified
+//    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
@@ -44,9 +49,9 @@ test2(int? n) {
       )
         0,
       n.isEven,
-      //      ^^^^^^
-      // [analyzer] unspecified
-      // [cfe] unspecified
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     ];
   }
 }
@@ -63,9 +68,9 @@ test3(int? n) {
       )
         0: 0,
       n.isEven: 0,
-      //      ^^^^^^
-      // [analyzer] unspecified
-      // [cfe] unspecified
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     };
   }
 }
@@ -82,9 +87,64 @@ test4(int? n) {
       )
         0: 0,
       0: n.isEven,
-      //         ^^^^^^
-      // [analyzer] unspecified
-      // [cfe] unspecified
+//         ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
+  }
+}
+
+test5(int? n) {
+  if (n != null) {
+    // n promoted to `int`
+    for (
+    ;
+    () {
+      late (int?,) i = ((n,) = (42,));
+      return false;
+    }();
+    ) {}
+    n.isEven;
+//    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+test6(int? n) {
+  if (n != null) {
+    [
+      for (
+      ;
+      () {
+        late ({int? x}) i = ((x: n) = (x: 42));
+        return false;
+      }();
+      )
+        0,
+      n.isEven,
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ];
+  }
+}
+
+test7(int? n) {
+  if (n != null) {
+    <Object, int>{
+      for (
+      ;
+      () {
+        late C? i = (C(v: n) = C(42));
+        return false;
+      }();
+      )
+        0: 0,
+      n.isEven: 0,
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     };
   }
 }
@@ -94,4 +154,7 @@ main() {
   print(test2);
   print(test3);
   print(test4);
+  print(test5);
+  print(test6);
+  print(test7);
 }

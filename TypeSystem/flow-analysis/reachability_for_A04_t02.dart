@@ -15,11 +15,50 @@
 /// Test that if `S` contains a reachable `break` then `after(N)` is reachable.
 /// @author sgrekhov22@gmail.com
 
-main() {
+class C {
+  int v;
+  C(this.v);
+}
+
+test1() {
   int i;
   for (;;) {
     break;
   }
   i = 42;
   i; // Definitely assigned.
+}
+
+test2() {
+  int i;
+  for (;;) {
+    break;
+  }
+  (i,) = (42,);
+  i;
+}
+
+test3() {
+  int i;
+  for (;;) {
+    break;
+  }
+  (x: i) = (x: 42);
+  i;
+}
+
+test4() {
+  int i;
+  for (;;) {
+    break;
+  }
+  C(v: i) = C(42);
+  i;
+}
+
+main() {
+  test1();
+  test2();
+  test3();
+  test4();
 }

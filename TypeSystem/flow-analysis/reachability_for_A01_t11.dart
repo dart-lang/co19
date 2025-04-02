@@ -15,6 +15,11 @@
 /// that `capturedIn(U)` is detected by flow analysis.
 /// @author sgrekhov22@gmail.com
 
+class C {
+  int v;
+  C(this.v);
+}
+
 test1(int? n) {
   if (n != null) { // n promoted to `int`
     for (; n > 0; () {n = 42;}) { // n demoted to `int?`
@@ -47,8 +52,43 @@ test3(int? n) {
   }
 }
 
+test4(int? n) {
+  if (n != null) { // n promoted to `int`
+    for (; n > 0; () {(n,) = (42,);}) {
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+}
+
+test5(int? n) {
+  if (n != null) {
+    [
+      for (; n > 0; () {(x: n) = (x: 42);}) 0
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ];
+  }
+}
+
+test6(int? n) {
+  if (n != null) {
+    <int, int>{
+      for (; n > 0; () {C(v: n) = C(42);}) 0: 0
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
+  }
+}
+
 main() {
   print(test1);
   print(test2);
   print(test3);
+  print(test4);
+  print(test5);
+  print(test6);
 }
