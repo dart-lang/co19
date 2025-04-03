@@ -13,7 +13,12 @@
 /// analysis as possibly assigned.
 /// @author sgrekhov22@gmail.com
 
-main() {
+class C {
+  int v;
+  C(this.v);
+}
+
+test1() {
   late int i;
   if (2 > 1) {
     for (var j in [42]) {
@@ -22,4 +27,44 @@ main() {
     }
   }
   i; // Possibly assigned.
+}
+
+test2() {
+  late int i;
+  if (2 > 1) {
+    for (var j in [42]) {
+      (i,) = (42,);
+      continue;
+    }
+  }
+  i; // Possibly assigned.
+}
+
+test3() {
+  late int i;
+  if (2 > 1) {
+    for (var j in [42]) {
+      (x: i) = (x: 42);
+      continue;
+    }
+  }
+  i; // Possibly assigned.
+}
+
+test4() {
+  late int i;
+  if (2 > 1) {
+    for (var j in [42]) {
+      C(v: i) = C(42);
+      continue;
+    }
+  }
+  i; // Possibly assigned.
+}
+
+main() {
+  test1();
+  test2();
+  test3();
+  test4();
 }
