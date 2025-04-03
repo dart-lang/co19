@@ -21,38 +21,46 @@ class C {
 }
 
 test1() {
-  int i;
-  for (;;) {
-    break;
+  late int i;
+  if (2 > 1) {
+    for (;;) {
+      break;
+    }
+    i = 42;
   }
-  i = 42;
-  i; // Definitely assigned.
+  i; // Possibly assigned.
 }
 
 test2() {
-  int i;
-  for (;;) {
-    break;
+  late int i;
+  if (2 > 1) {
+    for (;;) {
+      break;
+    }
+    (i, ) = (42, );
   }
-  (i,) = (42,);
   i;
 }
 
 test3() {
-  int i;
-  for (;;) {
-    break;
+  late int i;
+  if (2 > 1) {
+    for (;;) {
+      break;
+    }
+    (x: i) = (x: 42);
   }
-  (x: i) = (x: 42);
   i;
 }
 
 test4() {
-  int i;
-  for (;;) {
-    break;
+  late int i;
+  if (2 > 1) {
+    for (;;) {
+      break;
+    }
+    C(v: i) = C(42);
   }
-  C(v: i) = C(42);
   i;
 }
 

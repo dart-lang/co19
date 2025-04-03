@@ -21,39 +21,47 @@ class C {
 }
 
 test1() {
-  int i;
-  for (;false;) {
-    return;
+  late int i;
+  if (2 > 1) {
+    for (;false;) {
+      return;
+    }
+    i = 42;
   }
-  i = 42;
-  i; // Definitely assigned.
+  i; // Possibly assigned.
 }
 
 test2() {
-  int i;
-  for (;false;) {
-    return;
+  late int i;
+  if (2 > 1) {
+    for (;false;) {
+      return;
+    }
+    (i,) = (42,);
   }
-  (i,) = (42,);
-  i; // Definitely assigned.
+  i;
 }
 
 test3() {
-  int i;
-  for (;false;) {
-    return;
+  late int i;
+  if (2 > 1) {
+    for (;false;) {
+      return;
+    }
+    (x: i) = (x: 42);
   }
-  (x: i) = (x: 42);
-  i; // Definitely assigned.
+  i;
 }
 
 test4() {
-  int i;
-  for (;false;) {
-    return;
+  late int i;
+  if (2 > 1) {
+    for (;false;) {
+      return;
+    }
+    C(v: i) = C(42);
   }
-  C(v: i) = C(42);
-  i; // Definitely assigned.
+  i;
 }
 
 main() {
