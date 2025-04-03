@@ -15,7 +15,12 @@
 /// Test that if `S` contains a `break` then `after(N)` is reachable.
 /// @author sgrekhov22@gmail.com
 
-main() {
+class C {
+  int v;
+  C(this.v);
+}
+
+test1() {
   late int i;
   if (2 > 1) {
     for (;;) {
@@ -26,4 +31,50 @@ main() {
     i = 42;
   }
   i; // Not definitely unassigned.
+}
+
+test2() {
+  late int i;
+  if (2 > 1) {
+    for (;;) {
+      if (2 > 1) {
+        break;
+      }
+    }
+    (i,) = (42,);
+  }
+  i; // Not definitely unassigned.
+}
+
+test3() {
+  late int i;
+  if (2 > 1) {
+    for (;;) {
+      if (2 > 1) {
+        break;
+      }
+    }
+    (x: i) = (x: 42);
+  }
+  i; // Not definitely unassigned.
+}
+
+test4() {
+  late int i;
+  if (2 > 1) {
+    for (;;) {
+      if (2 > 1) {
+        break;
+      }
+    }
+    C(v: i) = C(42);
+  }
+  i; // Not definitely unassigned.
+}
+
+main() {
+  test1();
+  test2();
+  test3();
+  test4();
 }

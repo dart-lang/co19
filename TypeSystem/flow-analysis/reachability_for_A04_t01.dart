@@ -15,11 +15,58 @@
 /// Test that if `C` is the `false` literal then `after(N)` is reachable.
 /// @author sgrekhov22@gmail.com
 
-main() {
-  int i;
-  for (;false;) {
-    return;
+class C {
+  int v;
+  C(this.v);
+}
+
+test1() {
+  late int i;
+  if (2 > 1) {
+    for (;false;) {
+      return;
+    }
+    i = 42;
   }
-  i = 42;
-  i; // Definitely assigned.
+  i; // Possibly assigned.
+}
+
+test2() {
+  late int i;
+  if (2 > 1) {
+    for (;false;) {
+      return;
+    }
+    (i,) = (42,);
+  }
+  i;
+}
+
+test3() {
+  late int i;
+  if (2 > 1) {
+    for (;false;) {
+      return;
+    }
+    (x: i) = (x: 42);
+  }
+  i;
+}
+
+test4() {
+  late int i;
+  if (2 > 1) {
+    for (;false;) {
+      return;
+    }
+    C(v: i) = C(42);
+  }
+  i;
+}
+
+main() {
+  test1();
+  test2();
+  test3();
+  test4();
 }

@@ -14,11 +14,47 @@
 /// `true` literal then assignment in `S` is a definite assignment.
 /// @author sgrekhov22@gmail.com
 
-main() {
+class C {
+  int v;
+  C(this.v);
+}
+
+test1() {
   int i;
   for (; true;) {
     i = 42;
     break;
   }
   i; // Definitely assigned.
+}
+
+test2() {
+  int i;
+  for (; true;) {
+    (i,) = (42,);
+    break;
+  }
+  i; // Definitely assigned.
+}
+
+test3() {
+  int i;
+  for (; true;) {
+    (x: i) = (x: 42);
+    break;
+  }
+  i; // Definitely assigned.
+}
+
+test4() {
+  int i;
+  for (; true;) {
+    C(v: i) = C(42);
+    break;
+  }
+  i; // Definitely assigned.
+}
+
+main() {
+  test1();
 }
