@@ -13,9 +13,42 @@
 /// that if a variable is assigned in `E` then it is definitely assigned in `S`.
 /// @author sgrekhov22@gmail.com
 
-main() {
+class C {
+  int v;
+  C(this.v);
+}
+
+test1() {
   int i;
   for (var j in [i = 42]) {
     i; // Definitely assigned
   }
+}
+
+test2() {
+  int i;
+  for (var j in [(i,) = (42,)]) {
+    i; // Definitely assigned
+  }
+}
+
+test3() {
+  int i;
+  for (var j in [(x: i) = (x: 42)]) {
+    i; // Definitely assigned
+  }
+}
+
+test4() {
+  int i;
+  for (var j in [C(v: i) = C(42)]) {
+    i; // Definitely assigned
+  }
+}
+
+main() {
+  test1();
+  test2();
+  test3();
+  test4();
 }

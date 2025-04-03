@@ -13,6 +13,11 @@
 /// `break` statement is treated by flow analysis as possibly assigned.
 /// @author sgrekhov22@gmail.com
 
+class C {
+  int v;
+  C(this.v);
+}
+
 test1() {
   late int i;
   if (2 > 1) {
@@ -27,15 +32,87 @@ test1() {
 test2() {
   late int i;
   if (2 > 1) {
+    for (var j in []) {
+      (i,) = (42,);
+      break;
+    }
+  }
+  i;
+}
+
+test3() {
+  late int i;
+  if (2 > 1) {
+    for (var j in []) {
+      (x: i) = (x: 42);
+      break;
+    }
+  }
+  i;
+}
+
+test4() {
+  late int i;
+  if (2 > 1) {
+    for (var j in []) {
+      C(v: i) = C(42);
+      break;
+    }
+  }
+  i;
+}
+
+test5() {
+  late int i;
+  if (2 > 1) {
     for (var j in {}) {
       i = 42;
       break;
     }
   }
-  i; // Possibly assigned.
+  i;
+}
+
+test6() {
+  late int i;
+  if (2 > 1) {
+    for (var j in {}) {
+      (i,) = (42,);
+      break;
+    }
+  }
+  i;
+}
+
+test7() {
+  late int i;
+  if (2 > 1) {
+    for (var j in {}) {
+      (x: i) = (x: 42);
+      break;
+    }
+  }
+  i;
+}
+
+test8() {
+  late int i;
+  if (2 > 1) {
+    for (var j in {}) {
+      C(v: i) = C(42);
+      break;
+    }
+  }
+  i;
 }
 
 main() {
   print(test1);
   print(test2);
+  print(test3);
+  print(test4);
+  print(test5);
+  print(test6);
+  print(test7);
+  print(test8);
 }

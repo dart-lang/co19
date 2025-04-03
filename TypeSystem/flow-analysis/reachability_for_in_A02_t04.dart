@@ -14,6 +14,11 @@
 /// analysis.
 /// @author sgrekhov22@gmail.com
 
+class C {
+  int v;
+  C(this.v);
+}
+
 test1(int? n) {
   if (n != null) { // n promoted to `int`
     for (var i in [() {n = 42;}]) { // n demoted to `int?`
@@ -26,8 +31,71 @@ test1(int? n) {
 }
 
 test2(int? n) {
-  if (n != null) { // n promoted to `int`
-    for (var i in [() {n = 42;}]) {} // n demoted to `int?`
+  if (n != null) {
+    for (var i in [() {(n,) = (42,);}]) {
+      n.isEven;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+}
+
+test3(int? n) {
+  if (n != null) {
+    for (var i in [() {(x: n) = (x: 42);}]) {
+      n.isEven;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+}
+
+test4(int? n) {
+  if (n != null) {
+    for (var i in [() {C(v: n) = C(42);}]) {
+      n.isEven;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+}
+
+test5(int? n) {
+  if (n != null) {
+    for (var i in [() {n = 42;}]) {}
+    n.isEven;
+//    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+test6(int? n) {
+  if (n != null) {
+    for (var i in [() {(n,) = (42,);}]) {}
+    n.isEven;
+//    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+test7(int? n) {
+  if (n != null) {
+    for (var i in [() {(x: n) = (x: 42);}]) {}
+    n.isEven;
+//    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+test8(int? n) {
+  if (n != null) {
+    for (var i in [() {C(v: n) = C(42);}]) {}
     n.isEven;
 //    ^^^^^^
 // [analyzer] unspecified
@@ -38,4 +106,10 @@ test2(int? n) {
 main() {
   print(test1);
   print(test2);
+  print(test3);
+  print(test4);
+  print(test5);
+  print(test6);
+  print(test7);
+  print(test8);
 }
