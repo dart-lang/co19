@@ -17,7 +17,7 @@
 
 main() {
   late int i;
-  for (;; i = 42) { // Possibly assigned. https://github.com/dart-lang/sdk/issues/42232#issuecomment-690681385
+  for (;; i = 42) { // Possibly assigned. https://github.com/dart-lang/sdk/issues/60320#issuecomment-2776599140
     break;
   }
   try {
