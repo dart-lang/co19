@@ -13,12 +13,13 @@
 ///   - Let `false(N) = promote(E1, factor(T, S), after(E1))`
 ///
 /// @description Checks that `T is a bottom type then
-/// `true(N) = unreachable(after(E1))`.
+/// `false(N) = promote(E1, factor(T, S), after(E1))`.
 /// @author sgrekhov22@gmail.com
 
 test(x) {
   late int i;
-  if (x is Never) {
+  if (x is! Never) {
+  } else {
     i = 42;
   }
   i; // Definitely unassigned.
