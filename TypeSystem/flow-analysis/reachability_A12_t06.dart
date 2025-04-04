@@ -12,26 +12,18 @@
 ///   - Let `true(N) = promote(E1, S, after(E1))`
 ///   - Let `false(N) = promote(E1, factor(T, S), after(E1))`
 ///
-/// @description Checks that for expression of the form `E1 is S`
-/// `true(N) = promote(E1, S, after(E1))` and
-/// `false(N) = promote(E1, factor(T, S), after(E1))`. Test `factor(T, S)` for
-/// the case `T` is `FutureOr<R>` and `R <: S`.
+/// @description Checks that `T is a bottom type then `false(N) = after(E1)`.
 /// @author sgrekhov22@gmail.com
 
-import 'dart:async';
-import '../../Utils/static_type_helper.dart';
-
-class C {}
-
-test(FutureOr<C> foc) async {
-  if (foc is C) {
-    foc.expectStaticType<Exactly<C>>();
+test(x) {
+  int i;
+  if (x is Never) {
   } else {
-    foc.expectStaticType<Exactly<Future<C>>>();
+    i = 42;
   }
+  i; // Definitely assigned.
 }
 
 main() {
-  test(C());
-  test(Future<C>.value(C()));
+  test(null);
 }

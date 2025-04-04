@@ -5,8 +5,12 @@
 /// @assertion instance check If `N` is an expression of the form `E1 is S`
 /// where the static type of `E1` is `T` then:
 /// - Let `before(E1) = before(N)`
-/// - Let `true(N) = promote(E1, S, after(E1))`
-/// - Let `false(N) = promote(E1, factor(T, S), after(E1))`
+/// - If `T` is a bottom type, then:
+///   - Let `true(N) = unreachable(after(E1))`.
+///   - Let `false(N) = after(E1)`.
+/// - Otherwise:
+///   - Let `true(N) = promote(E1, S, after(E1))`
+///   - Let `false(N) = promote(E1, factor(T, S), after(E1))`
 ///
 /// @description Checks that for expression of the form `E1 is S`
 /// `true(N) = promote(E1, S, after(E1))` and
