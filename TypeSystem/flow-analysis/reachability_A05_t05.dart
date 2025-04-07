@@ -10,7 +10,7 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 41985
 
-// @dart = 3.7.0
+// @dart = 3.7
 
 import "../../Utils/expect.dart";
 
