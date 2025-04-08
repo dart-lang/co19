@@ -12,8 +12,7 @@
 ///
 /// @description Checks that
 /// `before(Si) = conservativeJoin(before(N), assignedIn(B), capturedIn(B))`.
-/// Test that if some variable is assigned in `B` then it is "possibly assigned"
-/// in each `Si`.
+/// Test that if some variable is assigned in `Si` it doesn't affect other `Sj`.
 /// @author sgrekhov22@gmail.com
 
 class C {
