@@ -36,9 +36,9 @@ test2(int? n) {
   if (n != null) {
     try {
     } on Exception catch (_) {
-      () {(n,) = (42,);};
-    } catch (_) {
       n.isEven;
+    } catch (_) {
+      () {(n,) = (42,);};
     }
   }
 }
@@ -58,9 +58,9 @@ test4(int? n) {
   if (n != null) {
     try {
     } on Exception catch (_) {
-      () {C(v: n) = C(42);};
-    } catch (_) {
       n.isEven;
+    } catch (_) {
+      () {C(v: n) = C(42);};
     }
   }
 }

@@ -37,12 +37,12 @@ test2() {
   late int i;
   try {
   } on Exception catch (_) {
-    (i,) = (42,);
-  } catch (_) {
     i;
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  } catch (_) {
+    (i,) = (42,);
   }
 }
 
@@ -63,12 +63,12 @@ test4() {
   late int i;
   try {
   } on Exception catch (_) {
-    C(v: i) = C(42);
-  } catch (_) {
     i;
 //  ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  } catch (_) {
+    C(v: i) = C(42);
   }
 }
 
