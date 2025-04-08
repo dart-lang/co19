@@ -24,6 +24,4 @@ class C {
 
 main() {
   const C();
-//      ^
-// [cfe] unspecified
 }
