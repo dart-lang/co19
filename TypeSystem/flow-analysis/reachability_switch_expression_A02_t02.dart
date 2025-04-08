@@ -2,17 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion switch statement: If `N` is a switch statement of the form
+/// @assertion switch expression: If `N` is a switch expression of the form
 /// `switch (E) {alternatives}` then:
-/// - Let `before(E) = before(N)`.
-/// - For each `C` in `alternatives` with statement body `S`:
-///   - If `C` is labelled let
-///     `before(S) = conservativeJoin(after(E), assignedIn(N), capturedIn(N))`
-///     otherwise let `before(S) = after(E)`.
-///  - If the cases are exhaustive, then let `after(N) = break(N)` otherwise let
-///    `after(N) = join(after(E), break(N))`.
-/// TODO (sgrekhov): there is no switch expressions in the flow analysis spec
-/// yet (April 2025). Update the assertion after spec update.
+/// - Let `before(E) = split(before(N))`.
+/// - For each case `Cj` in `alternatives` with expression `Ej`, for `j` in
+///   `1 .. k`:
+///   - Let `before(Ej) = after(E)`.
+/// - Let `after(N) = join(after(E1), after(E2), .. after(Ek))`.
+/// TODO (sgrekhov): there is no switch expression in the flow analysis spec yet
+/// (April 2025). Update the assertion after spec update.
 ///
 /// @description Checks that `before(S) = after(E)`. Test that if a variable was
 /// assigned in `N` then it is definitely unassigned in all others `S`.
