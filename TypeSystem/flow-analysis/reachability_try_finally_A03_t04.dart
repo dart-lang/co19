@@ -30,7 +30,7 @@ test1() {
     foo();
     i = 42;
   }
-  i; // Definitely assigned
+  i; // Definitely assigned and dead code
 }
 
 test2(Never n) {
