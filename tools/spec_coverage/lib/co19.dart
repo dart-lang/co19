@@ -21,11 +21,16 @@ class Co19 {
 }
 
 class TestDir {
+  static final _filenamePattern = RegExp(r"_t[0-9]{2,3}.dart");
   final String path;
+  late final String name;
+  late final String comparableName;
   final List<TestDir> subDirs = [];
   final List<TestFile> tests = [];
 
   TestDir(Directory root) : path = resolvePath(root.path) {
+    name = _entityName(path);
+    comparableName = name.toLowerCase().replaceAll("-", "_");
     List<FileSystemEntity> entities = root.listSync();
     for (FileSystemEntity fse in entities) {
       if (_skip(fse)) {
@@ -35,9 +40,15 @@ class TestDir {
       if (fs.type == FileSystemEntityType.directory) {
         subDirs.add(TestDir(Directory(fse.path)));
       } else if (fs.type == FileSystemEntityType.file) {
+        if (!_filenamePattern.hasMatch(_entityName(fse.path))) {
+          continue;
+        }
         tests.add(TestFile(fse.path));
       }
     }
+    subDirs.sort(
+      (TestDir d1, TestDir d2) =>
+          d1.comparableName.compareTo(d2.comparableName));
   }
 
   static String resolvePath(String relativePath) {
@@ -47,8 +58,6 @@ class TestDir {
     return resolvedUri.toFilePath();
   }
 
-  String get name => _entityName(path);
-
   String _entityName(String p) =>
       p.substring(p.lastIndexOf(Platform.pathSeparator) + 1);
 
@@ -57,9 +66,11 @@ class TestDir {
     if (_entityName(fse.path).startsWith(RegExp(r"\.[a-zA-Z]+"))) {
       return true;
     }
-    var filenamePattern = RegExp(r"A[0-9]{2}_t[0-9]{2,3}.dart");
     return false;
   }
+
+  @override
+  String toString() => comparableName;
 }
 
 class TestFile {

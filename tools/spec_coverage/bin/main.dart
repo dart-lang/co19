@@ -15,7 +15,9 @@ void findSpecChapters(List<TestDir> testDirs, List<Chapter> chapters) {
   for (TestDir td in testDirs) {
     bool found = false;
     for(Chapter ch in chapters) {
-      if (td.name.toLowerCase() == ch.co19DirName.toLowerCase()) {
+      if (ch.comparableName.compareTo(td.comparableName) > 0) {
+        break;
+      } else if (td.comparableName == ch.comparableName) {
         print("Found spec for ${td.path}");
         findSpecChapters(td.subDirs, ch.subChapters);
         found = true;
@@ -25,7 +27,7 @@ void findSpecChapters(List<TestDir> testDirs, List<Chapter> chapters) {
     if (!found) {
       print("Not found spec for ${td.path}. Chapters are:");
       for (Chapter ch in chapters) {
-        print(ch.co19DirName);
+        print(ch.comparableName);
       }
     }
   }

@@ -26,9 +26,9 @@ class SpecParser {
       if (line.startsWith(pattern)) {
         if (ch != null) {
           if (level < 3) {
-            ch.subChapters = _parseLevel(ch, chLines, level + 1);
+            ch.subChapters = (_parseLevel(ch, chLines, level + 1));
           }
-          ch.lines = chLines;
+          ch.lines.addAll(chLines);
           chLines.clear();
         }
         ChapterNumber cn = _getChapterNumber(line);

@@ -10,18 +10,32 @@ class Specification {
     List<String> lines = file.readAsLinesSync();
     SpecParser sp = SpecParser();
     chapters.addAll(sp.parse(lines));
+    chapters.sort(
+      (Chapter ch1, Chapter ch2) =>
+          ch1.comparableName.compareTo(ch2.comparableName),
+    );
   }
 }
 
 class Chapter {
-  ChapterNumber number;
-  String header;
-  late String co19DirName;
-  List<Chapter> subChapters = [];
-  List<String> lines = [];
+  final ChapterNumber number;
+  final String header;
+  final String comparableName;
+  final List<Chapter> _subChapters = [];
+  final List<String> lines = [];
 
   Chapter({required this.number, required this.header})
-    : co19DirName = header.replaceAll(" ", "_");
+    : comparableName =
+          header.replaceAll(" ", "_").replaceAll("-", "_").toLowerCase();
+
+  List<Chapter> get subChapters => _subChapters;
+
+  void set subChapters(List<Chapter> val) {
+    _subChapters.addAll(val);
+    _subChapters.sort(
+          (Chapter ch1, Chapter ch2) =>
+          ch1.comparableName.compareTo(ch2.comparableName));
+  }
 
   @override
   String toString() => "$number $header";
