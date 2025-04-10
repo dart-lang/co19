@@ -8,10 +8,10 @@ main() {
   Configuration config = Configuration.fromJson(readConfig());
   Specification spec = Specification.fromTxt(config.specPath);
   Co19 co19 = Co19(config.co19Dir);
-  findSpecChapters(co19.language.subDirs, spec.chapters);
+  compareChaptersAndDirs(co19.language.subDirs, spec.chapters);
 }
 
-void findSpecChapters(List<TestDir> testDirs, List<Chapter> chapters) {
+void compareChaptersAndDirs(List<TestDir> testDirs, List<Chapter> chapters) {
   for (TestDir td in testDirs) {
     bool found = false;
     for(Chapter ch in chapters) {
@@ -19,7 +19,7 @@ void findSpecChapters(List<TestDir> testDirs, List<Chapter> chapters) {
         break;
       } else if (td.comparableName == ch.comparableName) {
         print("Found spec for ${td.path}");
-        findSpecChapters(td.subDirs, ch.subChapters);
+        compareChaptersAndDirs(td.subDirs, ch.subChapters);
         found = true;
         break;
       }
