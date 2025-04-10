@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:spec_coverage/spec_parser.dart';
 
-class Spec {
-  late final List<Chapter> chapters;
+class Specification {
+  final List<Chapter> chapters = [];
 
-  Spec.fromTxt(String path) {
+  Specification.fromTxt(String path) {
     File file = File(path);
     List<String> lines = file.readAsLinesSync();
     SpecParser sp = SpecParser();
-    chapters = sp.parse(lines);
+    chapters.addAll(sp.parse(lines));
   }
 }
 

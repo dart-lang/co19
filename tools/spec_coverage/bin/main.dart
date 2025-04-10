@@ -1,12 +1,12 @@
 import 'dart:convert' show jsonDecode;
 import 'dart:io';
 import 'package:spec_coverage/co19.dart';
-import 'package:spec_coverage/config.dart';
-import 'package:spec_coverage/spec.dart';
+import 'package:spec_coverage/configuration.dart';
+import 'package:spec_coverage/specification.dart';
 
-main(List<String> args) {
-  Config config = Config.fromJson(readConfig());
-  Spec spec = Spec.fromTxt(config.specPath);
+main() {
+  Configuration config = Configuration.fromJson(readConfig());
+  Specification spec = Specification.fromTxt(config.specPath);
   Co19 co19 = Co19(config.co19Dir);
   findSpecChapters(co19.language.subDirs, spec.chapters);
 }
@@ -32,7 +32,7 @@ void findSpecChapters(List<TestDir> testDirs, List<Chapter> chapters) {
 }
 
 Map<String, dynamic> readConfig() {
-  final configFile = File('config/config.json');
+  final configFile = File('configuration/configuration.json');
   if (configFile.existsSync()) {
     final contents = configFile.readAsStringSync();
     return jsonDecode(contents);

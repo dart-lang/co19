@@ -1,4 +1,4 @@
-import 'spec.dart';
+import 'specification.dart';
 
 class SpecParser {
   static const pchar = "§";

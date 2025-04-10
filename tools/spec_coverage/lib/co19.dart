@@ -8,7 +8,7 @@ class Co19 {
   Co19(String path) {
     Directory dir = Directory(path);
     if (!dir.existsSync()) {
-      throw Exception("Directory '$path' does not exists");
+      throw Exception("Directory '$path' does not exist");
     }
     root = TestDir(dir);
     for (TestDir td in root.subDirs) {
@@ -28,7 +28,7 @@ class TestDir {
   TestDir(Directory root) : path = resolvePath(root.path) {
     List<FileSystemEntity> entities = root.listSync();
     for (FileSystemEntity fse in entities) {
-      if (skip(fse)) {
+      if (_skip(fse)) {
         continue;
       }
       FileStat fs = fse.statSync();
@@ -52,11 +52,12 @@ class TestDir {
   String _entityName(String p) =>
       p.substring(p.lastIndexOf(Platform.pathSeparator) + 1);
 
-  bool skip(FileSystemEntity fse) {
+  bool _skip(FileSystemEntity fse) {
     // Skip directories like .git
     if (_entityName(fse.path).startsWith(RegExp(r"\.[a-zA-Z]+"))) {
       return true;
     }
+    var filenamePattern = RegExp(r"A[0-9]{2}_t[0-9]{2,3}.dart");
     return false;
   }
 }
