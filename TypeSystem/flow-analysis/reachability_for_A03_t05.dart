@@ -11,8 +11,8 @@
 /// - Let `after(N) = inheritTested(join(false(C), unsplit(break(S))), after(U))`
 ///
 /// @description Checks that `before(U) = merge(after(S), continue(S))`. Test
-/// that if `D`, `C` and `S` are empty then an assignment in `U` is a definite
-/// assignment.
+/// that if `D`, `C` and `S` are empty then an assignment in `U` is treated as a
+/// "possibly assigned".
 /// @author sgrekhov22@gmail.com
 /// @issue 60320
 
@@ -20,7 +20,10 @@ test1() {
   int i;
   for (;; i = 42) {
   }
-  i; // Dead code but definitely assigned.
+  i; // Possibly assigned. See https://github.com/dart-lang/sdk/issues/60320#issuecomment-2776599140
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 test2() {
@@ -28,7 +31,10 @@ test2() {
   [
     for (;; i = 42) 0
   ];
-  i; // Dead code but definitely assigned.
+  i;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 test3() {
@@ -37,7 +43,10 @@ test3() {
     for (;; i = 42)
       0: 0
   };
-  i; // Dead code but definitely assigned.
+  i;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
