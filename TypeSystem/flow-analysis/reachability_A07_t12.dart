@@ -1,4 +1,4 @@
-// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -12,26 +12,21 @@
 ///  - Otherwise:
 ///    - Let `after(N) = after(E2)`
 ///
-/// @description Checks reachability after method call. Test return type `Never`
-/// @author sgrekhov@unipro.ru
+/// @description Checks reachability after method invocation. Tests a static
+/// method with a non-nullable return type.
+/// @author sgrekhov22@gmail.com
 
 class C {
-  Never m1() => throw "Exception";
+  static String m1() => "Non-nullable";
 }
 
 main() {
-  C c = new C();
-  try {
-    late int i;
-    bool b = (() => true)();
-    if (b) {
-      c.m1();     // The code after this point is unreachable
-      i = 42;     // This is dead code, which leaves `i` definitely unassigned.
-    }
-    i; // It is an error to read a local late variable when it is definitely unassigned.
-//  ^
+  late int i;
+  if (C.m1() == null) { // ignore: unnecessary_null_comparison
+    i = 42;
+  }
+  i; // Definitely unassigned
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
-  } catch (_) {
-  }
 }
