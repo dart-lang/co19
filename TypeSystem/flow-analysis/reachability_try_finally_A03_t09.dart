@@ -9,66 +9,78 @@
 ///     conservativeJoin(before(N), assignedIn(B1), capturedIn(B1))))`
 /// - Let `after(N) = restrict(after(B1), after(B2), assignedIn(B2))`
 ///
-/// @description Checks that `before(B2) = split(join(drop(after(B1)),
-/// conservativeJoin(before(N), assignedIn(B1), capturedIn(B1))))`. Test that if
-/// some promoted variable is captured in `B1` then it is demoted in `B2`.
+/// @description Checks that
+/// `after(N) = restrict(after(B1), after(B2), assignedIn(B2))`. Test that if
+/// some variable is assigned in a catch part of `B1` and it throws then it is
+/// definitely unassigned in dead code `after(N)`.
 /// @author sgrekhov22@gmail.com
+/// @issue 60503
 
 class C {
   int v;
   C(this.v);
 }
 
-test1(int? n) {
-  if (n != null) { // `n` promoted to `int`
-    try {
-      () {n = 42;}; // `n` demoted to `int?`
-    } finally {
-      n.isEven;
-//      ^^^^^^
+Never foo() => throw "Never";
+
+test1() {
+  late int i;
+  try {
+    print("To avoid empty body");
+  } catch (_) {
+    foo();
+    i = 42;
+  } finally {
+  }
+  i; // Definitely unassigned and in dead code
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
-  }
 }
 
-test2(int? n) {
-  if (n != null) {
-    try {
-      () {(n,) = (42,);};
-    } finally {
-      n.isEven;
-//      ^^^^^^
+test2(Never n) {
+  late int i;
+  try {
+    print("To avoid empty body");
+  } catch (_) {
+    (i,) = (42,);
+    n;
+  } finally {
+  }
+  i;
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
-  }
 }
 
-test3(int? n) {
-  if (n != null) {
-    try {
-      () {(x: n) = (x: 42);};
-    } finally {
-      n.isEven;
-//      ^^^^^^
+test3<T extends Never>(T n) {
+  int i;
+  try {
+    print("To avoid empty body");
+  } catch (_) {
+    n;
+    (x: i) = (x: 42);
+  } finally {
+  }
+  i;
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
-  }
 }
 
-test4(int? n) {
-  if (n != null) {
-    try {
-      () {C(v: n) = C(42);};
-    } finally {
-      n.isEven;
-//      ^^^^^^
+test4() {
+  int i;
+  try {
+    print("To avoid empty body");
+  } catch (_) {
+    C(v: i) = C(42);
+    foo();
+  } finally {
+  }
+  i;
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
-  }
 }
 
 main() {

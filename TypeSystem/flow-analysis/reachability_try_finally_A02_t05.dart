@@ -11,7 +11,8 @@
 ///
 /// @description Checks that `before(B2) = split(join(drop(after(B1)),
 /// conservativeJoin(before(N), assignedIn(B1), capturedIn(B1))))`. Test that if
-/// some promoted variable is captured in `B1` then it is demoted in `B2`.
+/// some variable is assigned in a `catch` part of `B1` then it is
+/// "possibly assigned" in `B2`.
 /// @author sgrekhov22@gmail.com
 
 class C {
@@ -19,55 +20,53 @@ class C {
   C(this.v);
 }
 
-test1(int? n) {
-  if (n != null) { // `n` promoted to `int`
-    try {
-      () {n = 42;}; // `n` demoted to `int?`
-    } finally {
-      n.isEven;
-//      ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    }
+Never foo() => throw "Never";
+
+test1() {
+  late int i;
+  try {
+    print("To avoid empty body");
+  } catch (_) {
+    foo();
+    i = 42;
+  } finally {
+    i; // Possibly assigned
   }
 }
 
-test2(int? n) {
-  if (n != null) {
-    try {
-      () {(n,) = (42,);};
-    } finally {
-      n.isEven;
-//      ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    }
+test2(Never n) {
+  late int i;
+  try {
+    print("To avoid empty body");
+  } catch (_) {
+    n;
+    (i,) = (42,);
+  } finally {
+    i;
   }
 }
 
-test3(int? n) {
-  if (n != null) {
-    try {
-      () {(x: n) = (x: 42);};
-    } finally {
-      n.isEven;
-//      ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    }
+test3<T extends Never>(T n) {
+  late int i;
+  try {
+    print("To avoid empty body");
+  } catch (_) {
+    n;
+    (x: i) = (x: 42);
+  } finally {
+    i;
   }
 }
 
-test4(int? n) {
-  if (n != null) {
-    try {
-      () {C(v: n) = C(42);};
-    } finally {
-      n.isEven;
-//      ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    }
+test4() {
+  late int i;
+  try {
+    print("To avoid empty body");
+  } catch (_) {
+    foo();
+    C(v: i) = C(42);
+  } finally {
+    i;
   }
 }
 

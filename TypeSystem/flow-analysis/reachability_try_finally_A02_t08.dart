@@ -11,7 +11,8 @@
 ///
 /// @description Checks that `before(B2) = split(join(drop(after(B1)),
 /// conservativeJoin(before(N), assignedIn(B1), capturedIn(B1))))`. Test that if
-/// some promoted variable is captured in `B1` then it is demoted in `B2`.
+/// some promoted variable is captured in a `catch` part of `B1` then it is
+/// demoted in `B2`.
 /// @author sgrekhov22@gmail.com
 
 class C {
@@ -22,6 +23,8 @@ class C {
 test1(int? n) {
   if (n != null) { // `n` promoted to `int`
     try {
+      print("To avoid empty body");
+    } catch (_) {
       () {n = 42;}; // `n` demoted to `int?`
     } finally {
       n.isEven;
@@ -35,6 +38,8 @@ test1(int? n) {
 test2(int? n) {
   if (n != null) {
     try {
+      print("To avoid empty body");
+    } catch (_) {
       () {(n,) = (42,);};
     } finally {
       n.isEven;
@@ -48,6 +53,8 @@ test2(int? n) {
 test3(int? n) {
   if (n != null) {
     try {
+      print("To avoid empty body");
+    } catch (_) {
       () {(x: n) = (x: 42);};
     } finally {
       n.isEven;
@@ -61,6 +68,8 @@ test3(int? n) {
 test4(int? n) {
   if (n != null) {
     try {
+      print("To avoid empty body");
+    } catch (_) {
       () {C(v: n) = C(42);};
     } finally {
       n.isEven;

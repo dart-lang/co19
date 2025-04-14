@@ -11,7 +11,8 @@
 ///
 /// @description Checks that `before(B2) = split(join(drop(after(B1)),
 /// conservativeJoin(before(N), assignedIn(B1), capturedIn(B1))))`. Test that if
-/// some promoted variable is captured in `B1` then it is demoted in `B2`.
+/// some variable is assigned in a catch part of `B1` then it is
+/// "possibly assigned" in `B2`.
 /// @author sgrekhov22@gmail.com
 
 class C {
@@ -19,55 +20,59 @@ class C {
   C(this.v);
 }
 
-test1(int? n) {
-  if (n != null) { // `n` promoted to `int`
-    try {
-      () {n = 42;}; // `n` demoted to `int?`
-    } finally {
-      n.isEven;
-//      ^^^^^^
+test1() {
+  int i;
+  try {
+    print("To avoid empty body");
+  } catch (_) {
+    i = 42;
+  } finally {
+    i; // Possibly assigned
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
   }
 }
 
-test2(int? n) {
-  if (n != null) {
-    try {
-      () {(n,) = (42,);};
-    } finally {
-      n.isEven;
-//      ^^^^^^
+test2() {
+  int i;
+  try {
+    print("To avoid empty body");
+  } catch (_) {
+    (i,) = (42,);
+  } finally {
+    i;
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
   }
 }
 
-test3(int? n) {
-  if (n != null) {
-    try {
-      () {(x: n) = (x: 42);};
-    } finally {
-      n.isEven;
-//      ^^^^^^
+test3() {
+  int i;
+  try {
+    print("To avoid empty body");
+  } catch (_) {
+    (x: i) = (x: 42);
+  } finally {
+    i;
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
   }
 }
 
-test4(int? n) {
-  if (n != null) {
-    try {
-      () {C(v: n) = C(42);};
-    } finally {
-      n.isEven;
-//      ^^^^^^
+test4() {
+  int i;
+  try {
+    print("To avoid empty body");
+  } catch (_) {
+    C(v: i) = C(42);
+  } finally {
+    i;
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
   }
 }
 
