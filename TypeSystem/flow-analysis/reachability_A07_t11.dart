@@ -1,4 +1,4 @@
-// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -14,23 +14,21 @@
 ///
 /// @description Checks reachability after method invocation. Tests a method
 /// with a non-nullable return type.
-/// @author sgrekhov@unipro.ru
-/// @issue 41985
+/// @author sgrekhov22@gmail.com
 
-// @dart = 3.8
+// SharedOptions=--enable-experiment=sound-flow-analysis
 
 class C {
-  String m1() => "Lily was here";
+  String m1() => "Non-nullable";
 }
 
 main() {
   C c = new C();
-  int i;
-  if (c.m1() != null) {
-    i = 42;   // `i` is not definitely assigned because in a weak mode the
-              // condition may be `false` (Dart 3.8 and earlier)
+  late int i;
+  if (c.m1() == null) { // ignore: unnecessary_null_comparison
+    i = 42;
   }
-  i; // It is an error to read a local non-nullable variable which is not definitely assigned
+  i; // Definitely unassigned
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
