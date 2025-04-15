@@ -30,7 +30,7 @@ main() {
   late int i;
   if (c.m1() == null) {
     i = 42;   // `i` is not definitely unassigned because in a weak mode the
-              // condition may be true
+              // condition may be `true` (Dart 3.8 and earlier)
   }
   try {
     i;

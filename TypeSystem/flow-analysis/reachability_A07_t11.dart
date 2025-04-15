@@ -16,6 +16,8 @@
 /// with a non-nullable return type.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=sound-flow-analysis
+
 class C {
   String m1() => "Non-nullable";
 }

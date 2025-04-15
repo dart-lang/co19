@@ -27,7 +27,7 @@ main() {
   int i;
   if (C.m1() != null) {
     i = 42;   // `i` is not definitely assigned because in a weak mode the
-              // condition may be false
+              // condition may be `false` (Dart 3.8 and earlier)
   }
   i; // It is an error to read a local non-nullable variable which is not definitely assigned
 //^
