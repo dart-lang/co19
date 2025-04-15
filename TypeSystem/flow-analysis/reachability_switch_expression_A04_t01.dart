@@ -13,7 +13,7 @@
 /// (April 2025). Update the assertion after spec update.
 ///
 /// @description Checks that if a type `T` is made a type of interest in `E`
-/// then it can be promoted in `alternatives` and `after(N)`.
+/// for a variable `s` then `s` can be promoted in `alternatives` and `after(N)`
 /// @author sgrekhov22@gmail.com
 /// @issue 60479
 /// @issue 60539

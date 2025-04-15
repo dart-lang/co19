@@ -13,7 +13,7 @@
 ///    `after(N) = join(after(E), break(N))`.
 ///
 /// @description Checks that if a type `T` is made a type of interest in `E`
-/// then it can be promoted in `alternatives` and `after(N)`
+/// for a variable `s` then `s` can be promoted in `alternatives` and `after(N)`
 /// @author sgrekhov22@gmail.com
 /// @issue 60479
 /// @issue 60539
@@ -36,8 +36,28 @@ void test1() {
 
 void test2() {
   S s = S();
+  switch (s is T ? 1 : 2) { // Make `T` a type of interest
+    label: case 1:
+      s = T();
+      s.answer();
+    case 2:
+  }
+}
+
+void test3() {
+  S s = S();
   switch (s is T) {
     case true:
+    case false:
+  }
+  s = T();
+  s.answer();
+}
+
+void test4() {
+  S s = S();
+  switch (s is T) {
+    label: case true:
     case false:
   }
   s = T();
@@ -47,4 +67,6 @@ void test2() {
 main() {
   test1();
   test2();
+  test3();
+  test4();
 }

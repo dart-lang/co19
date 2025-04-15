@@ -12,8 +12,9 @@
 /// TODO (sgrekhov): there is no switch expression in the flow analysis spec yet
 /// (April 2025). Update the assertion after spec update.
 ///
-/// @description Checks that if a type `T` is made a type of interest in
-/// `alternatives` then it cannot be promoted in other `alternatives`.
+/// @description Checks that if a type `T` is made a type of interest for `s` in
+/// an alternative then there is no guarantee that `T` is a type of interest for
+/// `s` in any other alternative.
 /// @author sgrekhov22@gmail.com
 
 class S {}
@@ -29,14 +30,14 @@ test1() {
 //                   ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    _ =>  [s is T ? 1: 2] // Make `T` a type of interest
+    _ => [s is T ? 1: 2] // Make `T` a type of interest
   };
 }
 
 test2() {
   S s = S();
   var x = switch (42) {
-    1 =>  [s is T ? 1: 2], // Make `T` a type of interest
+    1 => [s is T ? 1: 2],
     _ => [s = T(), s.answer()],
 //                   ^^^^^^
 // [analyzer] unspecified

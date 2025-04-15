@@ -12,8 +12,8 @@
 ///  - If the cases are exhaustive, then let `after(N) = break(N)` otherwise let
 ///    `after(N) = join(after(E), break(N))`.
 ///
-/// @description Checks that if a type `T` is made a type of interest in
-/// `alternatives` then it cannot be promoted in other `alternatives`
+/// @description Checks that if a type `T` is made a type of interest in `E`
+/// for a variable `s` then `s` cannot be promoted in other `alternatives`.
 /// @author sgrekhov22@gmail.com
 
 class S {}
@@ -39,8 +39,36 @@ test1() {
 test2() {
   S s = S();
   switch (42) {
-    case 1:
+    label: case 1:
+      s = T();
+      s.answer();
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    case 2:
       if (s is T) {} // Make `T` a type of interest
+  }
+}
+
+test3() {
+  S s = S();
+  switch (42) {
+    case 1:
+      if (s is T) {}
+    case 2:
+      s = T();
+      s.answer();
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+test4() {
+  S s = S();
+  switch (42) {
+    label: case 1:
+      if (s is T) {}
     case 2:
       s = T();
       s.answer();
@@ -53,4 +81,6 @@ test2() {
 main() {
   print(test1);
   print(test2);
+  print(test3);
+  print(test4);
 }

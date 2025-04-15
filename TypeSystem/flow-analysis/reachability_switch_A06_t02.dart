@@ -12,8 +12,8 @@
 ///  - If the cases are exhaustive, then let `after(N) = break(N)` otherwise let
 ///    `after(N) = join(after(E), break(N))`.
 ///
-/// @description Checks that if a type `T` is made a type of interest in
-/// `alternatives` then it can be promoted in `alternatives` and `after(N)`
+/// @description Checks that if a type `T` is made a type of interest in `E`
+/// for a variable `s` then `s` can be promoted in `after(N)`.
 /// @author sgrekhov22@gmail.com
 /// @issue 60479
 /// @issue 60539
@@ -24,22 +24,21 @@ class T extends S {
   int answer() => 42;
 }
 
-void test1() {
-  S s = S();
-  switch (42) {
-    case 1:
-      if (s is T) {} // Make `T` a type of interest
-    case 2:
-      s = T();
-      s.answer();
-  }
-}
-
-void test2() {
+test1() {
   S s = S();
   switch (s is T) {
     case true:
     case false:
+  }
+  s = T();
+  s.answer();
+}
+
+test2() {
+  S s = S();
+  switch (s is T ? 1 : 2) {
+    label: case 1:
+    case 2:
   }
   s = T();
   s.answer();
