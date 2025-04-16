@@ -2,17 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion try finally: If `N` is a try/finally statement of the form
-/// `try B1 finally B2` then:
-/// - Let `before(B1) = split(before(N))`
-/// - Let `before(B2) = split(join(drop(after(B1)),
-///     conservativeJoin(before(N), assignedIn(B1), capturedIn(B1))))`
-/// - Let `after(N) = restrict(after(B1), after(B2), assignedIn(B2))`
+/// @assertion try catch finally: If `N` is a try/catch/finally statement of the
+/// form `try B1 alternatives finally F` then:
+/// - Let `before(B1) = before(N)`
+/// - Let `before(Si) = join(after(B1), conservativeJoin(before(N),
+///     assignedIn(B1), capturedIn(B1)))`, where `Si`
+///   is the body of the i'th alternative
+/// - Let
+///   `after(N) = join(attachFinally(after(B1), before(F), after(F)), M1 .. Mk)`
+///   where `Mj = attachFinally(after(Sj), before(F), after(F))`
 ///
-/// @description Checks that `before(B2) = split(join(drop(after(B1)),
-/// conservativeJoin(before(N), assignedIn(B1), capturedIn(B1))))`. Test that if
-/// some variable is assigned in a `catch` part of `B1` then it is
-/// "possibly assigned" in `B2`.
+/// @description Checks that  if some variable is assigned in `Si` then it is
+/// "possibly assigned" in `F`.
 /// @author sgrekhov22@gmail.com
 
 class C {
@@ -23,7 +24,6 @@ class C {
 test1() {
   late int i;
   try {
-    print("To avoid empty body");
   } catch (_) {
     if (false) {
       i = 42;
@@ -36,7 +36,6 @@ test1() {
 test2() {
   late int i;
   try {
-    print("To avoid empty body");
   } catch (_) {
     if (false) {
       (i, ) = (42, );
@@ -49,7 +48,6 @@ test2() {
 test3() {
   late int i;
   try {
-    print("To avoid empty body");
   } catch (_) {
     if (false) {
       (x: i) = (x: 42);
@@ -62,7 +60,6 @@ test3() {
 test4() {
   late int i;
   try {
-    print("To avoid empty body");
   } catch (_) {
     if (false) {
       C(v: i) = C(42);
