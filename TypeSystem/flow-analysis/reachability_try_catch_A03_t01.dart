@@ -20,6 +20,11 @@ class T extends S {
   int answer() => 42;
 }
 
+class C {
+  T v;
+  C(this.v);
+}
+
 test1() {
   S s = S();
   if (s is T) {} // make `T` a type of interest
@@ -35,7 +40,7 @@ test2() {
   if (s is T) {}
   try {
   } on Exception catch (_) {
-    s = T();
+    (s,) = (T(),);
     s.answer();
   }
 }
@@ -46,7 +51,7 @@ test3() {
   try {
   } catch (_) {
   }
-  s = T();
+  C(v: s) = C(T());
   s.answer();
 }
 

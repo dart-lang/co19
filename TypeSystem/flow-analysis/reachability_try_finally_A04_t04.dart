@@ -19,7 +19,12 @@ class T extends S {
   int answer() => 42;
 }
 
-main() {
+class C {
+  T v;
+  C(this.v);
+}
+
+test1() {
   S s = S();
   try {
   } finally {
@@ -27,4 +32,30 @@ main() {
   }
   s = T();
   s.answer();
+}
+
+test2() {
+  S s = S();
+  try {
+  } finally {
+    if (s is T) {}
+  }
+  (s,) = (T(),);
+  s.answer();
+}
+
+test3() {
+  S s = S();
+  try {
+  } finally {
+    if (s is T) {}
+  }
+  C(v: s) = C(T());
+  s.answer();
+}
+
+main() {
+  test1();
+  test2();
+  test3();
 }

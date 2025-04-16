@@ -19,6 +19,11 @@ class T extends S {
   int answer() => 42;
 }
 
+class C {
+  T v;
+  C(this.v);
+}
+
 test1() {
   S s = S();
   if (s is T) {} // Make `T` a type of interest
@@ -34,7 +39,7 @@ test2() {
   if (s is T) {}
   try {
   } finally {
-    s = T();
+    (s,) = (T(),);
     s.answer();
   }
 }
@@ -45,7 +50,7 @@ test3() {
   try {
   } finally {
   }
-  s = T();
+  C(v: s) = C(T());
   s.answer();
 }
 

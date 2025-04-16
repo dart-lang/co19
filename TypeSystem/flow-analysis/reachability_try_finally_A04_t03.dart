@@ -10,7 +10,7 @@
 /// - Let `after(N) = restrict(after(B1), after(B2), assignedIn(B2))`
 ///
 /// @description Checks that if a type `T` is made a type of interest in `B1`
-/// but in read code then it cannot be promoted in `B2` and `after(N)`.
+/// but in dead code then it cannot be promoted in `B2` and `after(N)`.
 /// @author sgrekhov22@gmail.com
 
 class S {}
