@@ -30,7 +30,7 @@ test1() {
     foo();
     i = 42;
   } finally {
-    i; // Possibly assigned
+    i; // Possibly assigned // TODO (sgrekhov) https://github.com/dart-lang/co19/pull/3145/files#r2044357821
   }
 }
 
