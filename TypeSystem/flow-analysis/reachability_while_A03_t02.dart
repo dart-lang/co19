@@ -18,7 +18,7 @@ main() {
     while (true) {
       continue;
     }
-    i = 42;
+    i = 42; // Dead code
   }
   i; // Definitely unassigned
 //^

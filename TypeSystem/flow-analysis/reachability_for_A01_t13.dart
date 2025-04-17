@@ -12,19 +12,22 @@
 ///
 /// @description Checks that
 /// `before(C) = conservativeJoin(after(D), assignedIn(N), capturedIn(N))`. Test
-/// that if there is an assignment in `S` (even after the `return` statement)
-/// then `after(N)` the variable is "possibly assigned".
+/// that an assignment in `S` after `return` is unreachable.
 /// @author sgrekhov22@gmail.com
 
 test() {
   late int i;
-  //if (2 < 1) {
+  if (2 < 1) {
     for (;;) {
       return;
       i = 42;
     }
-  //}
-  i; // Possibly assigned. See https://github.com/dart-lang/sdk/issues/42232#issuecomment-690681385
+    i; // Ok. `after(N)` is unreachable
+  }
+  i; // Definitely unassigned
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

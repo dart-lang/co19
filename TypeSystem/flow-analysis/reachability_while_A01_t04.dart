@@ -19,10 +19,11 @@ test() {
   if (1 > 2) {
     while (2 > 1) {
       return;
-      i = 42; // Initialization in dead code
+      i = 42;
     }
+    i; // Possibly assigned. See https://github.com/dart-lang/sdk/issues/42232#issuecomment-690681385
   }
-  i; // Possibly assigned. See https://github.com/dart-lang/sdk/issues/42232#issuecomment-690681385
+  i;
 }
 
 main() {
