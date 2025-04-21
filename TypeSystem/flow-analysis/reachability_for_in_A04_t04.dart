@@ -1,0 +1,62 @@
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion for each statement: If `N` is a for statement of the form
+/// `for (T X in E) S`, `for (var X in E) S`, or `for (X in E) S`, then:
+/// - Let `before(E) = before(N)`
+/// - Let `before(S) = conservativeJoin(after(E), assignedIn(N), capturedIn(N))`
+/// - Let `after(N) = join(before(S), break(S))`
+///
+/// @description Checks that if a type `T` is made a type of interest in
+/// `before(N)` then some variable can be promoted to `T` in `X`, `E`, `S` and
+/// `after(N)`. Test a map literal.
+/// @author sgrekhov22@gmail.com
+
+class S {}
+
+class T extends S {
+  int answer() => 42;
+}
+
+test1() {
+  S s = S();
+  if (s is T) {} // Make `T` a type of interest
+  <int, int>{
+    for (s in <T>[])
+      s.answer(): 0
+  };
+}
+
+test2() {
+  S s = S();
+  if (s is T) {}
+  <int, int>{
+    for (var j in [s = T(), s.answer()]) 0: 0
+  };
+}
+
+test3() {
+  S s = S();
+  if (s is T) {}
+  <int, List<Object>>{
+    for (var j in []) 0: [s = T(), s.answer()]
+  };
+}
+
+test4() {
+  S s = S();
+  if (s is T) {}
+  <int, int>{
+    for (var j in []) 0: 0
+  };
+  s = T();
+  s.answer();
+}
+
+main() {
+  test1();
+  test2();
+  test3();
+  test4();
+}
