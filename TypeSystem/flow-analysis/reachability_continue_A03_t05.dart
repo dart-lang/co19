@@ -26,7 +26,7 @@ main() {
   outerLoop:
   for (var v in collection) {
     do {
-      break outerLoop;
+      continue outerLoop;
       i = 42; // Variable is initialized in dead code
     } while (false);
   }
