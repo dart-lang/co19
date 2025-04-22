@@ -47,7 +47,7 @@ test2() {
 //      ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      continue;
+      continue L;
       if (s is T) {}
     }
   }
@@ -87,9 +87,27 @@ test4() {
   }
 }
 
+test5() {
+  S s = S();
+  switch (42) {
+    L: case 1:
+      break;
+    case 42:
+      s = T();
+      s.answer();
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      continue L;
+      if (s is T) {}
+  }
+}
+
+
 main() {
-  test1();
-  test2();
-  test3();
-  test4();
+  print(test1);
+  print(test2);
+  print(test3);
+  print(test4);
+  print(test5);
 }
