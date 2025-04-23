@@ -26,11 +26,31 @@ test1() {
     s is T ? 1 : 2;
     s = T();
     s.answer();
-  } else {
-  }
+  } else {}
 }
 
 test2() {
+  S s = S();
+  [
+    if (2 > 1) ...[s is T ? 1 : 2, s = T(), s.answer()] else 0,
+  ];
+}
+
+test3() {
+  S s = S();
+  <Object>{
+    if (2 > 1) ...[s is T ? 1 : 2, s = T(), s.answer()] else 0,
+  };
+}
+
+test4() {
+  S s = S();
+  <Object, Object>{
+    if (2 > 1) [s is T ? 1 : 2, s = T()]: s.answer() else 0: 0,
+  };
+}
+
+test5() {
   S s = S();
   if (1 > 2) {
   } else {
@@ -40,17 +60,58 @@ test2() {
   }
 }
 
-test3() {
+test6() {
+  S s = S();
+  [
+    if (1 > 2) 0 else ...[s is T ? 1 : 2, s = T(), s.answer()],
+  ];
+}
+
+test7() {
+  S s = S();
+  <Object>{
+    if (1 > 2) 0 else ...[s is T ? 1 : 2, s = T(), s.answer()],
+  };
+}
+
+test8() {
+  S s = S();
+  <Object, Object>{
+    if (1 > 2) 0: 0 else [s is T ? 1 : 2, s = T()]: s.answer(),
+  };
+}
+
+test9() {
   S s = S();
   if (2 > 1) {
     s is T ? 1 : 2;
-  } else {
-  }
+  } else {}
   s = T();
   s.answer();
 }
 
-test4() {
+test10() {
+  S s = S();
+  [if (2 > 1) s is T ? 1 : 2 else 0];
+  s = T();
+  s.answer();
+}
+
+test11() {
+  S s = S();
+  <int>{if (2 > 1) s is T ? 1 : 2 else 0};
+  s = T();
+  s.answer();
+}
+
+test12() {
+  S s = S();
+  <int, int>{if (2 > 1) s is T ? 1 : 2: 0 else 0: 0};
+  s = T();
+  s.answer();
+}
+
+test13() {
   S s = S();
   if (1 > 2) {
   } else {
@@ -60,9 +121,42 @@ test4() {
   s.answer();
 }
 
+test14() {
+  S s = S();
+  [if (1 > 2) 0 else s is T ? 1 : 2];
+  s = T();
+  s.answer();
+}
+
+test15() {
+  S s = S();
+  <int>{if (1 > 2) 0 else s is T ? 1 : 2};
+  s = T();
+  s.answer();
+}
+
+test16() {
+  S s = S();
+  <int, int>{if (1 > 2) 0: 0 else 0: s is T ? 1 : 2};
+  s = T();
+  s.answer();
+}
+
 main() {
   test1();
   test2();
   test3();
   test4();
+  test5();
+  test6();
+  test7();
+  test8();
+  test9();
+  test10();
+  test11();
+  test12();
+  test13();
+  test14();
+  test15();
+  test16();
 }

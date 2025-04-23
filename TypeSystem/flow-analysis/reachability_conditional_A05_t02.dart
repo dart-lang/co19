@@ -21,21 +21,59 @@ class T extends S {
 
 test1() {
   S s = S();
-  if ([s is T ? 1 : 2, s = T(), s.answer()] == []) {
-  }
+  if ([s is T ? 1 : 2, s = T(), s.answer()] == []) {}
 }
 
 test2() {
   S s = S();
-  if (s is T) {
-    s = T();
-    s.answer();
-  } else {
-  }
+  [
+    if ([s is T ? 1 : 2, s = T(), s.answer()] == []) 0,
+  ];
 }
 
 test3() {
   S s = S();
+  <Object>{
+    if ([s is T ? 1 : 2, s = T(), s.answer()] == []) 0,
+  };
+}
+
+test4() {
+  S s = S();
+  <Object, Object>{
+    if ([s is T ? 1 : 2, s = T(), s.answer()] == []) 0: 0,
+  };
+}
+
+test5() {
+  S s = S();
+  if (s is T) {
+    s = T();
+    s.answer();
+  } else {}
+}
+
+test6() {
+  S s = S();
+  [
+    if (s is T) ...[s = T(), s.answer()] else 0,
+  ];
+}
+
+test7() {
+  S s = S();
+  <Object>{
+    if (s is T) ...[s = T(), s.answer()] else 0,
+  };
+}
+
+test8() {
+  S s = S();
+  <Object, Object>{if (s is T) s = T(): s.answer() else 0: 0};
+}
+
+test9() {
+  S s = S();
   if (s is T) {
   } else {
     s = T();
@@ -43,13 +81,46 @@ test3() {
   }
 }
 
-test4() {
+test10() {
+  S s = S();
+  [
+    if (s is T) 0 else ...[s = T(), s.answer()],
+  ];
+}
+
+test11() {
+  S s = S();
+  <Object>{
+    if (s is T) 0 else ...[s = T(), s.answer()],
+  };
+}
+
+test12() {
+  S s = S();
+  <Object, Object>{if (s is T) 0: 0 else s = T(): s.answer()};
+}
+
+test13() {
   S s = S();
   if (s is T) {
-  } else {
-  }
+  } else {}
   s = T();
   s.answer();
+}
+
+test14() {
+  S s = S();
+  [if (s is T) 0 else 1, s = T(), s.answer()];
+}
+
+test15() {
+  S s = S();
+  <Object>{if (s is T) 0 else 1, s = T(), s.answer()};
+}
+
+test16() {
+  S s = S();
+  <Object, Object>{if (s is T) 0: 0 else 1: 1, s = T(): s.answer()};
 }
 
 main() {
@@ -57,4 +128,16 @@ main() {
   test2();
   test3();
   test4();
+  test5();
+  test6();
+  test7();
+  test8();
+  test9();
+  test10();
+  test11();
+  test12();
+  test13();
+  test14();
+  test15();
+  test16();
 }

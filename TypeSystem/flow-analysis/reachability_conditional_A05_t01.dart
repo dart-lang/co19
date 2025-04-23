@@ -23,23 +23,67 @@ class T extends S {
 test1() {
   S s = S();
   s is T ? 1 : 2; // Make `T` a type of interest
-  if ([s = T(), s.answer()] == []) {
-  }
+  if ([s = T(), s.answer()] == []) {}
 }
 
 test2() {
   S s = S();
   s is T ? 1 : 2;
-  if (2 > 1) {
-    s = T();
-    s.answer();
-  } else {
-  }
+  [
+    if ([s = T(), s.answer()] == []) 0,
+  ];
 }
 
 test3() {
   S s = S();
   s is T ? 1 : 2;
+  <int>{
+    if ([s = T(), s.answer()] == []) 0,
+  };
+}
+
+test4() {
+  S s = S();
+  s is T ? 1 : 2;
+  <int, int>{
+    if ([s = T(), s.answer()] == []) 0: 0,
+  };
+}
+
+test5() {
+  S s = S();
+  s is T ? 1 : 2;
+  if (2 > 1) {
+    s = T();
+    s.answer();
+  } else {}
+}
+
+test6() {
+  S s = S();
+  s is T ? 1 : 2;
+  [
+    if (2 > 1) ...[s = T(), s.answer()] else 2,
+  ];
+}
+
+test7() {
+  S s = S();
+  s is T ? 1 : 2;
+  <Object>{
+    if (2 > 1) ...[s = T(), s.answer()] else 2,
+  };
+}
+
+test8() {
+  S s = S();
+  s is T ? 1 : 2;
+  <Object, Object>{if (2 > 1) s = T(): s.answer() else 2: 2};
+}
+
+test9() {
+  S s = S();
+  s is T ? 1 : 2;
   if (1 > 2) {
   } else {
     s = T();
@@ -47,12 +91,33 @@ test3() {
   }
 }
 
-test4() {
+test10() {
+  S s = S();
+  s is T ? 1 : 2;
+  [
+    if (1 > 2) 0 else ...[s = T(), s.answer()],
+  ];
+}
+
+test11() {
+  S s = S();
+  s is T ? 1 : 2;
+  <Object>{
+    if (1 > 2) 0 else ...[s = T(), s.answer()],
+  };
+}
+
+test12() {
+  S s = S();
+  s is T ? 1 : 2;
+  <Object, Object>{if (1 > 2) 0: 0 else s = T(): s.answer()};
+}
+
+test13() {
   S s = S();
   s is T ? 1 : 2;
   if (1 > 2) {
-  } else {
-  }
+  } else {}
   s = T();
   s.answer();
 }
@@ -62,4 +127,13 @@ main() {
   test2();
   test3();
   test4();
+  test5();
+  test6();
+  test7();
+  test8();
+  test9();
+  test10();
+  test11();
+  test12();
+  test13();
 }
