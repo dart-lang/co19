@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -16,19 +16,24 @@
 ///   1. `e1` evaluates to true and `e2` is a constant expression, or
 ///   2. `e1` evaluates to false and `e3` is a constant expression.
 ///
-/// @description Checks that it is a compile-time error `e1` does not evaluate
-/// to boolean.
-/// @author ilya
+/// @description Checks that an expression of the form `e1?e2:e3` is not a
+/// constant if `e1` and `e2` are constants, `e1` evaluates to `true` but `e3`
+/// is not a potentially constant.
+/// @author sgrekhov22@gmail.com
 
-const y = null ? true : 1;
-//        ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C {
+  const C();
+
+  @override
+  String toString() {
+    return "Arbitrary code";
+  }
+}
 
 main() {
-  const t = "true" as dynamic;
-  const x = t ? 1 : 2;
-//          ^
+  var c = const C();
+  const x = 2 > 1 ? "" : "$c";
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
