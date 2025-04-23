@@ -9,8 +9,11 @@
 /// - Let `after(N) = join(before(S), break(S))`
 ///
 /// @description Checks that if a type `T` is made a type of interest in
-/// `before(N)` then some variable can be promoted to `T` in `X`, `E`, `S` and
+/// `before(N)` then the variable can be promoted to `T` in `X`, `E`, `S` and
 /// `after(N)`. Test a set literal.
+/// @note For now (April, 2025) the flow-analysis feature specification does not
+/// specify the analysis of for-in elements, but we extrapolate from the
+/// treatment of for-in statements.
 /// @author sgrekhov22@gmail.com
 
 class S {}

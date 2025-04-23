@@ -9,8 +9,11 @@
 /// - Let `after(N) = join(before(S), break(S))`
 ///
 /// @description Checks that if a type `T` is made a type of interest in
-/// `before(N)` then some variable can be promoted to `T` in `X`, `E`, `S` and
-/// `after(N)`. Test a set literal.
+/// `before(N)` then the variable can be promoted to `T` in `X`, `E`, `S` and
+/// `after(N)`. Test a list literal.
+/// @note For now (April, 2025) the flow-analysis feature specification does not
+/// specify the analysis of for-in elements, but we extrapolate from the
+/// treatment of for-in statements.
 /// @author sgrekhov22@gmail.com
 
 class S {}
@@ -22,34 +25,34 @@ class T extends S {
 test1() {
   S s = S();
   if (s is T) {} // Make `T` a type of interest
-  <int>{
+  [
     for (s in <T>[])
       s.answer()
-  };
+  ];
 }
 
 test2() {
   S s = S();
   if (s is T) {}
-  <int>{
+  [
     for (var j in [s = T(), s.answer()]) 0
-  };
+  ];
 }
 
 test3() {
   S s = S();
   if (s is T) {}
-  <List<Object>>{
+  [
     for (var j in []) [s = T(), s.answer()]
-  };
+  ];
 }
 
 test4() {
   S s = S();
   if (s is T) {}
-  <int>{
+  [
     for (var j in []) 0
-  };
+  ];
   s = T();
   s.answer();
 }
