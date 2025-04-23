@@ -11,7 +11,7 @@
 /// - Let `after(N) = inheritTested(join(false(C), unsplit(break(S))), after(U))`
 ///
 /// @description Checks that if a type `T` is made a type of interest in
-/// `before(N)` then some variable can be promoted to `T` in `D`, `C`, `U`, `S`
+/// `before(N)` then the variable can be promoted to `T` in `D`, `C`, `U`, `S`
 /// and `after(N)`.
 /// @author sgrekhov22@gmail.com
 

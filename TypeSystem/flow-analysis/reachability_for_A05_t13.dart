@@ -11,7 +11,10 @@
 /// - Let `after(N) = inheritTested(join(false(C), unsplit(break(S))), after(U))`
 ///
 /// @description Checks that if a type `T` is made a type of interest in `S`
-/// then some variable cannot be promoted to `T` in `D` and `C`.
+/// then the variable cannot be promoted to `T` in `D` and `C`.
+/// @note For now (April, 2025) the flow-analysis feature specification does not
+/// specify the analysis of for elements, but we extrapolate from the treatment
+/// of for statements.
 /// @author sgrekhov22@gmail.com
 
 class S {}
