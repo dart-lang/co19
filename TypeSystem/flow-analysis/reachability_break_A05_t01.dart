@@ -12,7 +12,7 @@
 /// - Let `after(N) = unreachable(before(N))`.
 ///
 /// @description Checks that is some type `T` is made a type of interest
-/// `before(N)` then some variable can be promoted to `T` in `after(N)`.
+/// `before(N)` then the variable can be promoted to `T` in `after(N)`.
 /// @author sgrekhov22@gmail.com
 
 class S {}
