@@ -10,8 +10,11 @@
 /// - Let `after(N) = merge(after(S1), after(S2))`.
 ///
 /// @description Checks that if a type `T` is made a type of interest in `S1` or
-/// `S2` then some variable cannot be promoted to `T` in `E` and appropriate
+/// `S2` then the variable cannot be promoted to `T` in `E` and appropriate
 /// `S2` or `S1`. Test a map literal.
+/// @note For now (April, 2025) the flow-analysis feature specification does not
+/// specify the analysis of if elements, but we extrapolate from the treatment
+/// of if statements.
 /// @author sgrekhov22@gmail.com
 
 class S {}

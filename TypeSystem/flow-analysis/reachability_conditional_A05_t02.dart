@@ -10,7 +10,10 @@
 /// - Let `after(N) = merge(after(S1), after(S2))`.
 ///
 /// @description Checks that if a type `T` is made a type of interest in `E`
-/// then some variable can be promoted to `T` in `E`, `S1`, `S2` and `after(N)`.
+/// then the variable can be promoted to `T` in `E`, `S1`, `S2` and `after(N)`.
+/// @note For now (April, 2025) the flow-analysis feature specification does not
+/// specify the analysis of if elements, but we extrapolate from the treatment
+/// of if statements.
 /// @author sgrekhov22@gmail.com
 
 class S {}

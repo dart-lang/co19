@@ -10,7 +10,7 @@
 /// - Let `after(N) = merge(after(S1), after(S2))`.
 ///
 /// @description Checks that if a type `T` is made a type of interest in `S1` or
-/// `S2` then some variable cannot be promoted to `T` in `E` and appropriate
+/// `S2` then the variable cannot be promoted to `T` in `E` and appropriate
 /// `S2` or `S1`.
 /// @author sgrekhov22@gmail.com
 
