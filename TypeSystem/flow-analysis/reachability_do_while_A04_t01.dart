@@ -9,7 +9,7 @@
 /// - Let `after(N) = join(false(E), break(S))`
 ///
 /// @description Checks that if a type `T` is made a type of interest in
-/// `before(S)` then some variable can be promoted to `T` in `S`, `E` and
+/// `before(S)` then the variable can be promoted to `T` in `S`, `E` and
 /// `after(N)`.
 /// @author sgrekhov22@gmail.com
 
