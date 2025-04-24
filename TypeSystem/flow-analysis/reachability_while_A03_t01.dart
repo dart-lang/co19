@@ -9,7 +9,7 @@
 /// - Let `after(N) = inheritTested(join(false(E), unsplit(break(S))), after(S))`
 ///
 /// @description Checks that if `E` is a boolean `true` literal and there is no
-/// reachable `break` or `return` in `S` then `after(N) is unreachable.
+/// reachable `break` in `S` then `after(N) is unreachable.
 /// @author sgrekhov22@gmail.com
 
 test1() {
@@ -36,7 +36,21 @@ test2() {
         return;
       }
     }
-    i = 42; // Initialization in dead code
+    i = 42;
+  }
+  i; // Definitely unassigned
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+test3() {
+  late int i;
+  if (1 > 2) {
+    while (true) {
+        return;
+    }
+    i = 42;
   }
   i; // Definitely unassigned
 //^
