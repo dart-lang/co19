@@ -8,51 +8,34 @@
 /// - Let `before(S) = split(true(E))`.
 /// - Let `after(N) = inheritTested(join(false(E), unsplit(break(S))), after(S))`
 ///
-/// @description Checks that if `E` is a boolean `true` literal and there is no
-/// reachable `break` in `S` then `after(N) is unreachable.
+/// @description Checks that
+/// `before(E) = conservativeJoin(before(N), assignedIn(N), capturedIn(N))`.
+/// Test if there is an assignment in `S` (even after the `return` statement)
+/// then `after(N)` the variable is "possibly assigned".
 /// @author sgrekhov22@gmail.com
 
 test1() {
   late int i;
   if (1 > 2) {
-    while (true) {
-      if (false) {
-        break;
-      }
+    while (2 > 1) {
+      return;
+      i = 42;
     }
-    i = 42; // Initialization in dead code
+    i; // Possibly assigned. See https://github.com/dart-lang/sdk/issues/42232#issuecomment-690681385
   }
-  i; // Definitely unassigned
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Possibly assigned.
 }
 
 test2() {
   late int i;
   if (1 > 2) {
     while (true) {
-      if (false) {
-        return;
-      }
-    }
-    i = 42;
-  }
-  i; // Definitely unassigned
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-test3() {
-  late int i;
-  if (1 > 2) {
-    while (true) {
       return;
+      i = 42;
     }
-    i = 42;
+    i; // Possibly assigned and dead code
   }
-  i; // Definitely unassigned
+  i; // Definitely unassigned.
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
