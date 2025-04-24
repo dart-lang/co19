@@ -12,7 +12,7 @@
 ///   - Let `true(N) = promote(E1, S, after(E1))`
 ///   - Let `false(N) = promote(E1, factor(T, S), after(E1))`
 ///
-/// @description Checks that if `T is a bottom type then `false(N) = after(E1)`.
+/// @description Checks that if `T` is a bottom type then `false(N) = after(E1)`.
 /// @author sgrekhov22@gmail.com
 
 test(x) {
