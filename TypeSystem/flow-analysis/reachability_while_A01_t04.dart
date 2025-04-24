@@ -14,7 +14,7 @@
 /// then `after(N)` the variable is "possibly assigned".
 /// @author sgrekhov22@gmail.com
 
-test() {
+test1() {
   late int i;
   if (1 > 2) {
     while (2 > 1) {
@@ -23,9 +23,25 @@ test() {
     }
     i; // Possibly assigned. See https://github.com/dart-lang/sdk/issues/42232#issuecomment-690681385
   }
-  i;
+  i; // Possibly assigned.
+}
+
+test2() {
+  late int i;
+  if (1 > 2) {
+    while (true) {
+      return;
+      i = 42;
+    }
+    i; // Possibly assigned and dead code
+  }
+  i; // Definitely unassigned.
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  print(test);
+  print(test1);
+  print(test2);
 }

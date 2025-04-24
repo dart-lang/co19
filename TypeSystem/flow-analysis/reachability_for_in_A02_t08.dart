@@ -23,7 +23,7 @@ test() {
     }
     i; // Possibly assigned. See https://github.com/dart-lang/sdk/issues/42232#issuecomment-690681385
   }
-  i;
+  i; // Possibly assigned
 }
 
 main() {

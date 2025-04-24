@@ -15,7 +15,7 @@
 /// that an assignment in `S` after `return` is unreachable.
 /// @author sgrekhov22@gmail.com
 
-test() {
+test1() {
   late int i;
   if (2 < 1) {
     for (;;) {
@@ -30,6 +30,19 @@ test() {
 // [cfe] unspecified
 }
 
+test2() {
+  late int i;
+  if (2 < 1) {
+    for (int j = 0; j < 1;) {
+      return;
+      i = 42;
+    }
+    i; // Ok. `after(N)` is unreachable
+  }
+  i; // Possibly assigned
+}
+
 main() {
-  print(test);
+  print(test1);
+  print(test2);
 }

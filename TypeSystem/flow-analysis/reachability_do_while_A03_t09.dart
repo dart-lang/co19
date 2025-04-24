@@ -18,7 +18,7 @@ main() {
     do {
       return;
       i = 42;
-    } while (true);
+    } while (false);
     i; // Ok. `after(N)` is unreachable
   }
   i; // Definitely unassigned
