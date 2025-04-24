@@ -48,7 +48,7 @@ test3() {
   late int i;
   if (1 > 2) {
     while (true) {
-        return;
+      return;
     }
     i = 42;
   }
