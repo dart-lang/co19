@@ -12,9 +12,9 @@
 ///   - Let `true(N) = promote(E1, factor(T, S), after(E1))`
 ///   - Let `false(N) = promote(E1, S, after(E1))`
 ///
-/// @description Checks that for expression of the form `E1 is! S`
-// /// true(N) = promote(E1, factor(T, S), after(E1))` and
-// /// `false(N) = promote(E1, S, after(E1))`. Test `factor(T, S)` for
+/// @description Checks that for expression of the form `E1 is! S`,
+/// true(N) = promote(E1, factor(T, S), after(E1))` and
+/// `false(N) = promote(E1, S, after(E1))`. Test `factor(T, S)` for
 /// the case `T` is `FutureOr<R>` and `R <: S`.
 /// @author sgrekhov22@gmail.com
 
