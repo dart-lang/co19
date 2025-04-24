@@ -15,7 +15,12 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 60376
 
-test(int? n) {
+class C {
+  int v;
+  C(this.v);
+}
+
+test1(int? n) {
   if (n != null) { // n promoted to `int`
     for (var i in <int>[42, n]) { // Ok, n is still `int` here.
       late int? x = (n = 42); // n demoted to `int?`
@@ -23,6 +28,33 @@ test(int? n) {
   }
 }
 
+test2(int? n) {
+  if (n != null) {
+    for (var i in <int>[42, n]) {
+      late (int?,) x = ((n,) = (42,));
+    }
+  }
+}
+
+test3(int? n) {
+  if (n != null) {
+    for (var i in <int>[42, n]) {
+      late ({int? x}) x = ((x: n) = (x: 42));
+    }
+  }
+}
+
+test4(int? n) {
+  if (n != null) {
+    for (var i in <int>[42, n]) {
+      late C x = (C(v: n) = C(42));
+    }
+  }
+}
+
 main() {
-  print(test);
+  print(test1);
+  print(test2);
+  print(test3);
+  print(test4);
 }

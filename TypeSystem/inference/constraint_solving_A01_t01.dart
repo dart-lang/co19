@@ -32,8 +32,6 @@
 /// the above.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=inference-using-bounds
-
 import '../../Utils/expect.dart';
 
 class A<X extends A<X>> {}

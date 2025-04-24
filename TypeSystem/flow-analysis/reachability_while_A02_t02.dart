@@ -12,7 +12,12 @@
 /// detects assignment in `S`.
 /// @author sgrekhov22@gmail.com
 
-main() {
+class C {
+  int v;
+  C(this.v);
+}
+
+test1() {
   try {
     late int i;
     while (1 > 2) {
@@ -22,4 +27,47 @@ main() {
     }
     i; // Not definitely unassigned
   } catch (_) {}
+}
+
+test2() {
+  try {
+    late int i;
+    while (1 > 2) {
+      () {
+        (i,) = (42,);
+      };
+    }
+    i; // Not definitely unassigned
+  } catch (_) {}
+}
+
+test3() {
+  try {
+    late int i;
+    while (1 > 2) {
+      () {
+        (x: i) = (x: 42);
+      };
+    }
+    i; // Not definitely unassigned
+  } catch (_) {}
+}
+
+test4() {
+  try {
+    late int i;
+    while (1 > 2) {
+      () {
+        C(v: i) = C(42);
+      };
+    }
+    i; // Not definitely unassigned
+  } catch (_) {}
+}
+
+main() {
+  test1();
+  test2();
+  test3();
+  test4();
 }

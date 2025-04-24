@@ -68,8 +68,5 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  if (C(0) == foo(.values[0])) {}
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  if (C(0) == foo(.values[0])) {} // Ok, foo provides the context type
 }

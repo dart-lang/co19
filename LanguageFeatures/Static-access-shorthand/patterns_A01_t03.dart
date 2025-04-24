@@ -47,7 +47,7 @@ main() {
     default:
   }
 
-  String res = switch (MC(1)) {
+  res = switch (MC(1)) {
     .one => "M one",
 //  ^
 // [analyzer] unspecified

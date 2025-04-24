@@ -45,14 +45,10 @@ main() {
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const M m = 2 < 1 ? .one : .two;
-//                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const E e = 2 > 1 ? .one : .two;
-//                           ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  const M m = 2 < 1 ? .one : .two; //`false ? variable : const` is a constant
+
+  const E e = 2 > 1 ? .one : .two; // `true ? const : variable` is a constant
+
   const ET et = 2 < 1 ? .one : .two;
 //                             ^
 // [analyzer] unspecified
