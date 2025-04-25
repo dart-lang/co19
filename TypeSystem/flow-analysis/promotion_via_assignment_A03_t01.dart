@@ -2,33 +2,32 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We say that a variable x is promotable via assignment of an
-/// expression of type T given variable model VM if
+/// @assertion We say that a variable `x` is promotable via assignment of an
+/// expression of type `T` given variable model `VM` if
+/// - `VM = VariableModel(declared, promoted, tested, assigned, unassigned,
+///     captured)`
+/// - and captured is false
+/// - and `S` is the current type of `x` in `VM`
+/// - and `T <: S` and not `S <: T`
+/// - and `T` is a type of interest for `x` in `tested`
 ///
-///  VM = VariableModel(declared, promoted, tested, assigned, unassigned,
-///  captured)
-///  and captured is false
-///  and S is the current type of x in VM
-///  and T <: S and not S <: T
-///  and T is a type of interest for x in tested
-///
-/// @description Checks that if `T <: S` and `S <: T` then promotion via
-/// assignment is not performed
+/// @description Checks that if `S <: T` then promotion via assignment is not
+/// performed
 /// @author sgrekhov@unipro.ru
 
-import '../../Utils/expect.dart';
+import '../../Utils/static_type_helper.dart';
 
-class S {}
+class S {
+  num answer() => 42.42;
+}
+
 class T extends S {
-  int foo() => 42;
+  @override
+  int answer() => 42;
 }
 
 main() {
-  dynamic x = new S();
-  if (x is T) {} // make `T` a type of interest
-  x = new T();
-  x.foo();
-  Expect.throws(() {
-    x.bar();
-  }, (e) => e is NoSuchMethodError);
+  T t = T();
+  if (t is S) {} // ignore: unnecessary_type_check
+  t.answer.expectStaticType<Exactly<int Function()>>();
 }

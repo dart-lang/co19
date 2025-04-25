@@ -1,4 +1,4 @@
-// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -11,24 +11,16 @@
 /// - and `T <: S` and not `S <: T`
 /// - and `T` is a type of interest for `x` in `tested`
 ///
-/// @description Checks that if `captured` is `true` then promotion via
-/// assignment is not performed
-/// @author sgrekhov@unipro.ru
-
-class S {}
-class T extends S {
-  int foo() => 42;
-}
+/// @description Checks that if `T` is not subtype of `S` then promotion via
+/// assignment cannot be performed
+/// @author sgrekhov22@gmail.com
 
 main() {
-  S x = new S();
-  void bar(var v) {
-    x = v;
-  }
-  if (x is T) {} // make `T` a type of interest
-  x = new T();
-  x.foo();
-//  ^^^
+  String s = "Some string";
+  if (s is int) {} // Make `int` a type of interest for `s`
+  s = 42 as dynamic;
+  s.isEven;
+//  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
