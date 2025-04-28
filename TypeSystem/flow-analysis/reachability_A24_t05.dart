@@ -6,7 +6,7 @@
 /// For now (April, 2025) the flow-analysis feature specification does not
 /// specify the analysis of Null-aware method invocation.
 ///
-/// @description Checks that
+/// @description Checks that code after type `Never` is unreachable.
 /// @author sgrekhov22@gmail.com
 /// @issue 54820
 
