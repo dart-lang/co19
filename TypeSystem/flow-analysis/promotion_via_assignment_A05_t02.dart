@@ -11,8 +11,9 @@
 /// - and `T <: S` and not `S <: T`
 /// - and `T` is a type of interest for `x` in `tested`
 ///
-/// @description Checks that if a type of variable is not specified and there is
-/// an initializer then its type is inferred from the initializing expression.
+/// @description Checks that if the type of a variable is not specified and
+/// there is an initializer then its type is inferred from the initializing
+/// expression.
 /// @author sgrekhov22@gmail.com
 
 class S {}
