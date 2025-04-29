@@ -2,17 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We say that a variable x is promotable via type test with type T
-/// given variable model VM if
+/// @assertion We say that a variable `x` is promotable via type test with type
+/// `T` given variable model `VM` if
+/// - `VM = VariableModel(declared, promoted, tested, assigned, unassigned,
+///     captured)`
+/// - and `captured` is `false`
+/// - and `S` is the current type of `x` in `VM`
+/// - and not `S <: T`
+/// - and `T <: S` or (`S` is `X extends R` and `T <: R`) or (`S` is `X & R` and
+///   `T <: R`)
 ///
-/// VM = VariableModel(declared, promoted, tested, assigned, unassigned, captured)
-///  and captured is false
-///  and S is the current type of x in VM
-///  and not S <: T
-///  and T <: S or (S is X extends R and T <: R) or (S is X & R and T <: R)
-///
-/// @description Checks that a variable is not promotable if T is not subtype of
-/// S
+/// @description Checks that a variable is not promotable if `T` is not subtype
+/// of `S`.
 /// @author sgrekhov@unipro.ru
 
 class X {}
