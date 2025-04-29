@@ -11,7 +11,7 @@
 /// - Update `continue(S) = join(continue(S), before(N))`.
 /// - Let `after(N) = unreachable(before(N))`.
 ///
-/// @description Checks that is some type `T` is made a type of interest
+/// @description Checks that if some type `T` is made a type of interest
 /// `before(N)` then the variable can be promoted to `T` in `after(N)`.
 /// @author sgrekhov22@gmail.com
 
