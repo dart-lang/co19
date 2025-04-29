@@ -41,9 +41,9 @@ test3() {
   S s = S();
   [
     for (var j in [s is T ? 1 : 2]) 0,
+    s = T(),
+    s.answer()
   ];
-  s = T();
-  s.answer();
 }
 
 main() {

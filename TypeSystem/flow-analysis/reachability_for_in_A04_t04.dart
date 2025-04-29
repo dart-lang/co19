@@ -50,11 +50,10 @@ test3() {
 test4() {
   S s = S();
   if (s is T) {}
-  <int, int>{
-    for (var j in []) 0: 0
+  <Object, Object>{
+    for (var j in []) 0: 0,
+    s = T(): s.answer()
   };
-  s = T();
-  s.answer();
 }
 
 main() {

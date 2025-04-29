@@ -51,10 +51,10 @@ test4() {
   S s = S();
   if (s is T) {}
   [
-    for (var j in []) 0
+    for (var j in []) 0,
+    s = T(),
+    s.answer()
   ];
-  s = T();
-  s.answer();
 }
 
 main() {
