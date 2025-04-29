@@ -11,11 +11,10 @@
 /// - and `T <: S` and not `S <: T`
 /// - and `T` is a type of interest for `x` in `tested`
 ///
-/// @description Checks that if a type of variable is not specified and there is
-/// no initializer then its type is `dynamic` in spite of assignment.
+/// @description Checks that if the type of a variable is not specified and
+/// there is no initializer or is `dynamic` then it can be promoted via
+/// assignment.
 /// @author sgrekhov22@gmail.com
-
-import "../../Utils/expect.dart";
 
 class S {}
 
@@ -23,14 +22,31 @@ class T extends S {
   int foo() => 42;
 }
 
-main() {
+test1() {
   var x;
   x = S();
   if (x is T) {} // Make `T` a type of interest
   x = T();
   x.foo();
-  Expect.throws(
-    () {x.bar();},  // Check that `x` is dynamic
-    (e) => e is NoSuchMethodError
-  );
+  x.bar(); // x is not `dynamic`
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+test2() {
+  dynamic x;
+  x = S();
+  if (x is T) {}
+  x = T();
+  x.foo();
+  x.bar();
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+main() {
+  print(test1);
+  print(test2);
 }

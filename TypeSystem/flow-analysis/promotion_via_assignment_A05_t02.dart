@@ -12,7 +12,7 @@
 /// - and `T` is a type of interest for `x` in `tested`
 ///
 /// @description Checks that if a type of variable is not specified and there is
-/// an initializer then its type is defined by the initializer.
+/// an initializer then its type is inferred from the initializing expression.
 /// @author sgrekhov22@gmail.com
 
 class S {}
@@ -26,7 +26,7 @@ main() {
   if (x is T) {} // Make `T` a type of interest
   x = T();
   x.foo();
-  x.bar();  // Check that `x` is not dynamic
+  x.bar();  // Check that `x` is not `dynamic`
 //  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
