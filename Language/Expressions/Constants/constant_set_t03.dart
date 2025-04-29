@@ -10,15 +10,11 @@
 /// The potentially constant expressions and constant expressions are the
 /// following:
 /// ...
-/// • A constant set literal, const <T>{e1, ..., en}, or <T>{e1, ..., en} that
-///   occurs in a constant context, is a potentially constant expression if T is
-///   a constant type expression, and e1, . . . , en are constant expressions.
-///   It is further a constant expression if the set literal evaluates to an
-///   object.
+/// - A constant set literal is a potentially constant and constant expression.
 ///
 /// @description Checks that it is a compile-time error if in a constant set
 /// literal of the form `const <T>{e1, ..., en}`, or `<T>{e1, ..., en}`, any of
-/// `ei` is not a constant expression
+/// `ei` is not a constant expression.
 /// @author sgrekhov22@gmail.com
 
 final nonconstant1 = 1;
