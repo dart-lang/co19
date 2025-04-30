@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We say that a variable x is promotable via assignment of an
-/// expression of type T given variable model VM if
-///
-///  VM = VariableModel(declared, promoted, tested, assigned, unassigned,
-///  captured)
-///  and captured is false
-///  and S is the current type of x in VM
-///  and T <: S and not S <: T
-///  and T is a type of interest for x in tested
+/// @assertion We say that a variable `x` is promotable via assignment of an
+/// expression of type `T` given variable model `VM` if
+/// - `VM = VariableModel(declared, promoted, tested, assigned, unassigned,
+///     captured)`
+/// - and captured is false
+/// - and `S` is the current type of `x` in `VM`
+/// - and `T <: S` and not `S <: T`
+/// - and `T` is a type of interest for `x` in `tested`
 ///
 /// @description Checks that a variable is promotable to the type `T` if all
 /// requirements above are met.

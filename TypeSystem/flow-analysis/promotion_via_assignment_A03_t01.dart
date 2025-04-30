@@ -2,33 +2,40 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We say that a variable x is promotable via assignment of an
-/// expression of type T given variable model VM if
-///
-///  VM = VariableModel(declared, promoted, tested, assigned, unassigned,
-///  captured)
-///  and captured is false
-///  and S is the current type of x in VM
-///  and T <: S and not S <: T
-///  and T is a type of interest for x in tested
+/// @assertion We say that a variable `x` is promotable via assignment of an
+/// expression of type `T` given variable model `VM` if
+/// - `VM = VariableModel(declared, promoted, tested, assigned, unassigned,
+///     captured)`
+/// - and captured is false
+/// - and `S` is the current type of `x` in `VM`
+/// - and `T <: S` and not `S <: T`
+/// - and `T` is a type of interest for `x` in `tested`
 ///
 /// @description Checks that if `T <: S` and `S <: T` then promotion via
-/// assignment is not performed
+/// assignment is not performed.
 /// @author sgrekhov@unipro.ru
 
-import '../../Utils/expect.dart';
+import 'dart:async';
+import '../../Utils/static_type_helper.dart';
 
-class S {}
-class T extends S {
-  int foo() => 42;
+test1(FutureOr<Object> v) {
+  if (v is Object) {} // ignore: unnecessary_type_check
+  v = Object();
+  // `Object` <: `FutureOr<Object>` and `FutureOr<Object>` <: `Object`.
+  // Therefore `v` is not promoted to `Object`.
+  v.expectStaticType<Exactly<FutureOr<Object>>>();
+}
+
+test2(FutureOr<Object?> v) {
+  if (v is Object?) {} // ignore: unnecessary_type_check
+  v = 1 > 2 ? null: Object();
+  // `Object?` <: `FutureOr<Object?>` and `FutureOr<Object?>` <: `Object?`.
+  // Therefore `v` is not promoted to `Object?`.
+  v.expectStaticType<Exactly<FutureOr<Object?>>>();
 }
 
 main() {
-  dynamic x = new S();
-  if (x is T) {} // make `T` a type of interest
-  x = new T();
-  x.foo();
-  Expect.throws(() {
-    x.bar();
-  }, (e) => e is NoSuchMethodError);
+  test1(Object());
+  test2(Object());
+  test2(null);
 }
