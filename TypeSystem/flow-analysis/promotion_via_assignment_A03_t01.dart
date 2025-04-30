@@ -11,23 +11,31 @@
 /// - and `T <: S` and not `S <: T`
 /// - and `T` is a type of interest for `x` in `tested`
 ///
-/// @description Checks that if `S <: T` then promotion via assignment is not
-/// performed
+/// @description Checks that if `T <: S` and `S <: T` then promotion via
+/// assignment is not performed.
 /// @author sgrekhov@unipro.ru
 
+import 'dart:async';
 import '../../Utils/static_type_helper.dart';
 
-class S {
-  num answer() => 42.42;
+test1(FutureOr<Object> v) {
+  if (v is Object) {} // ignore: unnecessary_type_check
+  v = Object();
+  // `Object` <: `FutureOr<Object>` and `FutureOr<Object>` <: `Object`.
+  // Therefore `v` is not promoted to `Object`.
+  v.expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-class T extends S {
-  @override
-  int answer() => 42;
+test2(FutureOr<Object?> v) {
+  if (v is Object?) {} // ignore: unnecessary_type_check
+  v = 1 > 2 ? null: Object();
+  // `Object?` <: `FutureOr<Object?>` and `FutureOr<Object?>` <: `Object?`.
+  // Therefore `v` is not promoted to `Object?`.
+  v.expectStaticType<Exactly<FutureOr<Object?>>>();
 }
 
 main() {
-  T t = T();
-  if (t is S) {} // ignore: unnecessary_type_check
-  t.answer.expectStaticType<Exactly<int Function()>>();
+  test1(Object());
+  test2(Object());
+  test2(null);
 }

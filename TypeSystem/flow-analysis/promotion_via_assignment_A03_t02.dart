@@ -12,15 +12,21 @@
 /// - and `T` is a type of interest for `x` in `tested`
 ///
 /// @description Checks that if `T` is not subtype of `S` then promotion via
-/// assignment cannot be performed
+/// assignment cannot be performed.
 /// @author sgrekhov22@gmail.com
+/// @issue 60646
 
 main() {
-  String s = "Some string";
-  if (s is int) {} // Make `int` a type of interest for `s`
-  s = 42 as dynamic;
+  Object? s = "Some string";
+  s as String;      // `s` promoted to `String`
+  if (s is int) {}  // Make `int` a type of interest for `s`.
+  s = 42;           // `s` demoted to `Object`
   s.isEven;
 //  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  s.substring(0);
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
