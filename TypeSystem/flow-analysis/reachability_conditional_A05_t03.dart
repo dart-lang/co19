@@ -126,23 +126,20 @@ test13() {
 
 test14() {
   S s = S();
-  [if (1 > 2) 0 else s is T ? 1 : 2];
-  s = T();
-  s.answer();
+  [if (1 > 2) 0 else s is T ? 1 : 2, s = T(), s.answer()];
 }
 
 test15() {
   S s = S();
-  <int>{if (1 > 2) 0 else s is T ? 1 : 2};
-  s = T();
-  s.answer();
+  <Object>{if (1 > 2) 0 else s is T ? 1 : 2, s = T(), s.answer()};
 }
 
 test16() {
   S s = S();
-  <int, int>{if (1 > 2) 0: 0 else 0: s is T ? 1 : 2};
-  s = T();
-  s.answer();
+  <Object, Object>{
+    if (1 > 2) 0: 0 else 0: s is T ? 1 : 2,
+    s = T(): s.answer()
+  };
 }
 
 main() {

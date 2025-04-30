@@ -11,7 +11,7 @@
 /// - Update `break(S) = join(break(S), before(N))`.
 /// - Let `after(N) = unreachable(before(N))`.
 ///
-/// @description Checks that is some type `T` is made a type of interest
+/// @description Checks that if some type `T` is made a type of interest
 /// `after(N)` then the variable cannot be promoted to `T` in `before(N)`.
 /// @author sgrekhov22@gmail.com
 
@@ -30,6 +30,7 @@ test1() {
 // [analyzer] unspecified
 // [cfe] unspecified
     break;
+    // Unreachable, but does support promotion.
     if (s is T) {} // Make `T` a type of interest
   }
 }
