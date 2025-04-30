@@ -18,7 +18,7 @@ class T extends S {
 
 test1() {
   S s = S();
-  s is! T;  // make `T` a type of interest
+  s is! T;  // Make `T` a type of interest
   s = T();
   s.foo();
 }
