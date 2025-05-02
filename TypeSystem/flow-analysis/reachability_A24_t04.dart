@@ -16,27 +16,25 @@ class C {
 }
 
 test1(C? c) {
-  try {
-    late int i;
-    if (c == null) {  // This doesn't promote `c` to `Null`
-      c?.m1();
-      i = 42;
-    }
-    i; // Possibly assigned
-  } catch (_) {
+  int i;
+  if (c == null) {  // This doesn't promote `c` to `Null`
+    c?.m1();
+    i = 42;
+  } else {
+    i = 42;
   }
+  i; // Definitely assigned
 }
 
 test2(C? c) {
-  try {
-    late int i;
-    if (c == null) {
-      c?..m1();
-      i = 42;
-    }
-    i;
-  } catch (_) {
+  late int i;
+  if (c == null) {
+    c?..m1();
+    i = 42;
+  } else {
+    i = 42;
   }
+  i;
 }
 
 main() {

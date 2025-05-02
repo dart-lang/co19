@@ -6,7 +6,7 @@
 /// For now (April, 2025) the flow-analysis feature specification does not
 /// specify the analysis of Null-aware method invocation.
 ///
-/// @description Checks that is come variable is promoted to non-nullable then
+/// @description Checks that if a variable is promoted to non-nullable then
 /// null-aware method invocation is treated as a regular invocation.
 /// @author sgrekhov22@gmail.com
 
