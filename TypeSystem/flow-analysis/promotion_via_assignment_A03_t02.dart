@@ -11,8 +11,9 @@
 /// - and `T <: S` and not `S <: T`
 /// - and `T` is a type of interest for `x` in `tested`
 ///
-/// @description Checks that if `T` is not subtype of `S` then promotion via
-/// assignment cannot be performed.
+/// @description Checks that if the declared type of a variable `x` is `S`,
+/// `T1 <: S` and `T2 <: S`, the current type of `x` is `T1` then assignment to
+/// `x` value of the type `T2` demotes `x` to `S` and promotes to `T2`.
 /// @author sgrekhov22@gmail.com
 /// @issue 60646
 
@@ -20,11 +21,8 @@ main() {
   Object? s = "Some string";
   s as String;      // `s` promoted to `String`
   if (s is int) {}  // Make `int` a type of interest for `s`.
-  s = 42;           // `s` demoted to `Object`
+  s = 42;           // `s` demoted to `Object?` and promoted to `int`
   s.isEven;
-//  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   s.substring(0);
 //  ^^^^^^^^^
 // [analyzer] unspecified
