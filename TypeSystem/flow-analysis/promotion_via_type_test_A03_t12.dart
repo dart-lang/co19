@@ -12,8 +12,8 @@
 /// - and `T <: S` or (`S` is `X extends R` and `T <: R`) or (`S` is `X & R` and
 ///   `T <: R`)
 ///
-/// @description Checks that a variable is promoted if `T` is a subtype of `S`.
-/// Test type `Never` as `T`.
+/// @description Checks that a variable is not promoted if the type `T` is
+/// `Never`.
 /// @author sgrekhov22@gmail.com
 /// @issue 60657
 
@@ -22,6 +22,6 @@ import '../../Utils/static_type_helper.dart';
 main() {
   String s = "a";
   if (s is Never) {
-    s.expectStaticType<Exactly<Never>>();
+    s.expectStaticType<Exactly<String>>();
   }
 }
