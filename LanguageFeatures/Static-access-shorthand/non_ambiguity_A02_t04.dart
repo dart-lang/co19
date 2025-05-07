@@ -57,7 +57,7 @@ extension type ET(int value) {
 
 main() {
   var l1 = <C>[
-      ... .one, // `...` has type `Iterable<C>` but it has no static member `one`
+      ... .one, // `...` yields the context `Iterable` which has no static member `one`
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
