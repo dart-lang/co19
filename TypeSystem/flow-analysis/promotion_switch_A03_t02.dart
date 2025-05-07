@@ -15,17 +15,18 @@ import '../../Utils/static_type_helper.dart';
 
 test1(Object? x) {
   switch (x) {
-    case Null n when x = 42 == 42:
-      x.expectStaticType<Exactly<Object>>();
+    case Null n when (x = 42) == 42:
+      x.expectStaticType<Exactly<Object>>(); // assignment in `when` promotes to `Object`
       n.expectStaticType<Exactly<Null>>();
     case _:
+      x.expectStaticType<Exactly<Object>>();
   }
 }
 
 test2(Object? x) {
   switch (x) {
-    case Null n when x = null == null:
-      x.expectStaticType<Exactly<Object?>>();
+    case Null n when (x = null) == null:
+      x.expectStaticType<Exactly<Null>>();
       n.expectStaticType<Exactly<Null>>();
     case _:
   }
@@ -33,7 +34,7 @@ test2(Object? x) {
 
 test3(Object? x) {
   var v = switch (x) {
-    Null n when x = 42 == 42 => [
+    Null n when (x = 42) == 42 => [
       x.expectStaticType<Exactly<Object>>(),
       n.expectStaticType<Exactly<Null>>()
     ],
@@ -43,8 +44,8 @@ test3(Object? x) {
 
 test4(Object? x) {
   var v = switch (x) {
-    Null n when x = null == null => [
-      x.expectStaticType<Exactly<Object?>>(),
+    Null n when (x = null) == null => [
+      x.expectStaticType<Exactly<Null>>(),
       n.expectStaticType<Exactly<Null>>()
     ],
     _ => x.expectStaticType<Exactly<Object>>(),

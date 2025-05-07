@@ -7,7 +7,7 @@
 /// TODO (sgrekhov): update when specified
 ///
 /// @description Checks that pattern match in switch statement and expression
-/// doesn't promotes the variable if it is captured in `when` part.
+/// doesn't promotes the variable if it is captured in the `when` part.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

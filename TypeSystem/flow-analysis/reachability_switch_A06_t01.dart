@@ -12,8 +12,9 @@
 ///  - If the cases are exhaustive, then let `after(N) = break(N)` otherwise let
 ///    `after(N) = join(after(E), break(N))`.
 ///
-/// @description Checks that if a variable is initialized in unreachable part of
-/// a switch statement then this variable is definitely unassigned.
+/// @description Checks that if a variable is initialized in a `case` statement
+/// with a variable pattern of the type which is not subtype of the type of the
+/// checked value then this variable is possibly assigned.
 /// @author sgrekhov22@gmail.com
 /// @issue 60677
 
@@ -24,10 +25,7 @@ void test1() {
       i = 42;
     default:
   }
-  i; // Definitely unassigned
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Possibly assigned, see https://github.com/dart-lang/sdk/issues/60677
 }
 
 void test2() {
@@ -38,9 +36,6 @@ void test2() {
     default:
   }
   i; // Definitely unassigned
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {

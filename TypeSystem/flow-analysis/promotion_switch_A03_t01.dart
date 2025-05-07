@@ -7,7 +7,7 @@
 /// TODO (sgrekhov): update when specified
 ///
 /// @description Checks promotion in the switch expression/statement in the case
-/// when the variable is assigned in `when` part.
+/// when the variable is assigned in the `when` part.
 /// @author sgrekhov22@gmail.com
 /// @issue 60674
 
@@ -15,8 +15,8 @@ import '../../Utils/static_type_helper.dart';
 
 test1(Object? x) {
   switch (x) {
-    case int v when x = 42 == 42:
-      x.expectStaticType<Exactly<Object>>();
+    case int v when (x = 42) == 42:
+      x.expectStaticType<Exactly<int>>();
     case _:
       x.expectStaticType<Exactly<Object?>>();
   }
@@ -24,7 +24,7 @@ test1(Object? x) {
 
 test2(Object? x) {
   switch (x) {
-    case null when x = null == null:
+    case null when (x = null) == null:
       x.expectStaticType<Exactly<Object?>>();
     case _:
       x.expectStaticType<Exactly<Object>>();
@@ -33,22 +33,22 @@ test2(Object? x) {
 
 test3(Object? x) {
   switch (x) {
-    case _ when x = 42 == 42:
+    case _ when (x = 42) == 42:
       x.expectStaticType<Exactly<Object>>();
   }
 }
 
 test4(Object? x) {
   var v = switch (x) {
-    int _ when x = 42 == 42 =>
-      x.expectStaticType<Exactly<Object>>(),
+    int _ when (x = 42) == 42 =>
+      x.expectStaticType<Exactly<int>>(),
     _ => x.expectStaticType<Exactly<Object?>>(),
   };
 }
 
 test5(Object? x) {
   var v = switch (x) {
-    null when x = null == null =>
+    null when (x = null) == null =>
       x.expectStaticType<Exactly<Object?>>(),
     _ => x.expectStaticType<Exactly<Object>>(),
   };
@@ -56,7 +56,7 @@ test5(Object? x) {
 
 test6(Object? x) {
   var v = switch (x) {
-    _ when x = 42 == 42 => x.expectStaticType<Exactly<Object>>(),
+    _ when (x = 42) == 42 => x.expectStaticType<Exactly<Object>>(),
     _ => x.expectStaticType<Exactly<Object>>(),
   };
 }
