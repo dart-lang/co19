@@ -15,8 +15,6 @@
 
 // SharedOptions=--enable-experiment=dot-shorthands
 
-import '../../Utils/expect.dart';
-
 class C {
   int value;
   C(this.value);
@@ -59,30 +57,62 @@ extension type ET(int value) {
 
 main() {
   var l1 = <C>[
-  ....one,
+  ....one, // `...` has type `Iterable<C>` but it has no static member `one`
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ....two,
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ....three()
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ];
-  Expect.listEquals([C(1), C(2), C(3)] ,l1);
 
   var s = <M>{
   ....one,
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ....two,
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ....three()
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   };
-  Expect.setEquals({MC(1), MC(2), MC(3)} ,s);
 
   var m = <String, E?>{
   ....one,
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ....two,
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ....three()
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   };
-  Expect.mapEquals({"key1": E.e1, "key2": E.e2, "key3":E.e3} ,m);
 
   var l2 = <ET> [
   ....one,
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ....two,
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ....three()
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ];
-  Expect.listEquals([ET(1), ET(2), ET(3)] ,l2);
 }
