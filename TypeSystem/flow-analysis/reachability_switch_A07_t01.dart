@@ -35,7 +35,7 @@ void test2() {
       i = 42;
     default:
   }
-  i; // Definitely unassigned
+  i; // Possibly assigned
 }
 
 main() {
