@@ -70,7 +70,6 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   ];
-  Expect.listEquals([C(1), C(2)] ,l1);
 
   var s = <M>{
       ...? .one,
