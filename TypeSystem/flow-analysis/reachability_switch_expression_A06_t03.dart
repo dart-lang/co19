@@ -13,8 +13,8 @@
 /// (May 2025). Update the assertion after spec update.
 ///
 /// @description Checks that if a variable is initialized in a `when` part of a
-/// `case` statement that will definitely match then this variable is definitely
-/// assigned.
+/// switch expression case that will definitely match then this variable is
+/// definitely assigned.
 /// @author sgrekhov22@gmail.com
 
 void test1() {

@@ -13,7 +13,7 @@
 /// (May 2025). Update the assertion after spec update.
 ///
 /// @description Checks that if a variable is initialized in a `when` part of a
-/// `case` statement then this variable is possibly assigned.
+/// switch expression case then this variable is possibly assigned.
 /// @author sgrekhov22@gmail.com
 
 void test() {

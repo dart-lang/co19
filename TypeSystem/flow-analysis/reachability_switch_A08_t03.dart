@@ -12,6 +12,10 @@
 ///  - If the cases are exhaustive, then let `after(N) = break(N)` otherwise let
 ///    `after(N) = join(after(E), break(N))`.
 ///
+/// @note As of May 2025 there is no corresponding spec paragraph about switch
+/// expressions or switch statements using patterns. Therefore the old version
+/// of the spec is used.
+///
 /// @description Checks that if a variable is initialized in a `when` part of a
 /// `case` statement that will definitely match then this variable is definitely
 /// assigned.

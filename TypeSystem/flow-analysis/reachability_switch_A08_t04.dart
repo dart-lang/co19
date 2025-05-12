@@ -12,6 +12,10 @@
 ///  - If the cases are exhaustive, then let `after(N) = break(N)` otherwise let
 ///    `after(N) = join(after(E), break(N))`.
 ///
+/// @note As of May 2025 there is no corresponding spec paragraph about switch
+/// expressions or switch statements using patterns. Therefore the old version
+/// of the spec is used.
+///
 /// @description Checks that if a variable is initialized in a `when` part of a
 /// `case` statement and the switch statement is labeled then this variable is
 /// not definitely assigned.
@@ -28,21 +32,6 @@ void test1() {
 // [cfe] unspecified
 }
 
-void test2() {
-  int i;
-  switch (42) {
-    label:
-    case String _:
-      break;
-    case _ when (i = 42) > 0:
-  }
-  i;
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
   print(test1);
-  print(test2);
 }
