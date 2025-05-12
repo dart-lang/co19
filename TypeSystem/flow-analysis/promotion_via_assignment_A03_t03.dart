@@ -16,8 +16,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 60620
 
-import '../../Utils/static_type_helper.dart';
-
 typedef Void = void;
 
 test1() {
@@ -38,7 +36,7 @@ test2() {
   v = 1 > 2 ? null : Object(); // can't assign `void`, let's assign subtype of `void`
   // `Object?` <: `void` and `void` <: `Object?`.
   // Therefore `v` is not promoted to `void`.
-  v.expectStaticType<Exactly<Object?>>();
+  v.hashCode;
 }
 
 test3() {

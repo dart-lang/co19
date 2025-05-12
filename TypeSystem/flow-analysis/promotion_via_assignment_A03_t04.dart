@@ -12,7 +12,7 @@
 /// - and `T` is a type of interest for `x` in `tested`
 ///
 /// @description Checks that if `T` is not subtype of `S` then promotion via
-/// assignment cannot be performed. Test type `dynamic`;
+/// assignment cannot be performed. Test type `dynamic` as `T`.
 /// @author sgrekhov22@gmail.com
 /// @issue 60620
 

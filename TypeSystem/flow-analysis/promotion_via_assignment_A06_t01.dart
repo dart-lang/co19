@@ -18,9 +18,21 @@
 
 import '../../Utils/static_type_helper.dart';
 
-main() {
+test1() {
+  Object? s = "a";
+  if (s is Pattern) {}
+  s = "";
+  s.expectStaticType<Exactly<Pattern>>();
+}
+
+test2() {
   String s = "a";
   if (s is Pattern) {}
   s = "";
   s.expectStaticType<Exactly<String>>();
+}
+
+main() {
+  test1();
+  test2();
 }

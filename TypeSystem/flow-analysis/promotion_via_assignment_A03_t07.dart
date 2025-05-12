@@ -11,15 +11,38 @@
 /// - and `T <: S` and not `S <: T`
 /// - and `T` is a type of interest for `x` in `tested`
 ///
-/// @description Checks that if `T` is not subtype of `S` then promotion via
-/// assignment cannot be performed. Test type `Null`;
+/// @description Checks promotion/demotion with type `Null` as a type of
+/// interest.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
 
-main() {
-  String s = "x";
+test1() {
+  Object? s = "x";
+  s as String;
+  if (s is Null) {} // ignore: unnecessary_type_check
+  s = null;
+  s.expectStaticType<Exactly<Null>>();
+}
+
+test2() {
+  Object? s = "x";
+  s as String;
+  if (s is Null) {} // ignore: unnecessary_type_check
+  s = 1 > 2 ? "y": null;
+  s.expectStaticType<Exactly<Object?>>();
+}
+
+test3() {
+  Object? s = "x";
+  s as String;
   if (s is Null) {} // ignore: unnecessary_type_check
   s = "y";
   s.expectStaticType<Exactly<String>>();
+}
+
+main() {
+  test1();
+  test2();
+  test3();
 }

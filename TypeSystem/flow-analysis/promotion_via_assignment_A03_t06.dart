@@ -12,15 +12,27 @@
 /// - and `T` is a type of interest for `x` in `tested`
 ///
 /// @description Checks that if `T` is not subtype of `S` then promotion via
-/// assignment cannot be performed. Test type `Object?`;
+/// assignment cannot be performed. Test type `Object?` as `T`.
 /// @author sgrekhov22@gmail.com
 /// @issue 60620
 
 import '../../Utils/static_type_helper.dart';
 
-main() {
+test1() {
+  Object? s = "x";
+  s as String;
+  if (s is Object?) {} // ignore: unnecessary_type_check
+  s = "y"; // Cannot assign `Object?`, let's assign `String <: Object?`
+  s.expectStaticType<Exactly<String>>();
+}
+
+test2() {
   String s = "x";
   if (s is Object?) {} // ignore: unnecessary_type_check
   s = "y"; // Cannot assign `Object?`, let's assign `String <: Object?`
   s.expectStaticType<Exactly<String>>();
+}
+
+main() {
+  test2();
 }
