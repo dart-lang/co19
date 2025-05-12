@@ -12,8 +12,8 @@
 /// - and `T <: S` or (`S` is `X extends R` and `T <: R`) or (`S` is `X & R` and
 ///   `T <: R`)
 ///
-/// @description Checks that a variable is promoted after the type test in one
-/// of the branches, then is is not promoted in another branch and after it.
+/// @description Checks that if a variable is promoted after the type test in
+/// one of the branches, then is is not promoted in another branch and after it.
 /// Test type `Null`.
 /// @author sgrekhov22@gmail.com
 

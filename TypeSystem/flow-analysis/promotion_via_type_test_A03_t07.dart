@@ -12,15 +12,18 @@
 /// - and `T <: S` or (`S` is `X extends R` and `T <: R`) or (`S` is `X & R` and
 ///   `T <: R`)
 ///
-/// @description Checks that a variable is promoted if `T` is a subtype of `S`.
-/// Test type `Object?` as `T`.
+/// @description Checks that a variable is not promoted if `T` is a not a proper
+/// subtype of `S`. Test type `Object?` as `T`.
 /// @author sgrekhov22@gmail.com
+/// @issue 60609, 60496, language#4368
 
 import '../../Utils/static_type_helper.dart';
 
 main() {
   dynamic d = "a";
   if (d is Object?) { // ignore: unnecessary_type_check
-    d.expectStaticType<Exactly<Object?>>();
+    if (1 > 2) {
+      d.testDynamic;
+    }
   }
 }

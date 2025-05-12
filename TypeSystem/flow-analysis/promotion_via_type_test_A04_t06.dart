@@ -12,8 +12,8 @@
 /// - and `T <: S` or (`S` is `X extends R` and `T <: R`) or (`S` is `X & R` and
 ///   `T <: R`)
 ///
-/// @description Checks that a variable is promoted after the type test in one
-/// of the branches, then is is not promoted in another branch and after it.
+/// @description Checks that if a variable is promoted after the type test in
+/// one of the branches, then is is not promoted in another branch and after it.
 /// Test type `Never`.
 /// @author sgrekhov22@gmail.com
 
@@ -22,6 +22,7 @@ import '../../Utils/static_type_helper.dart';
 test1() {
   String? s = 1 > 2 ? null : "a";
   if (s is Never) {
+    s.expectStaticType<Exactly<String?>>(); // Dead code and no promotion.
   } else {
     s.expectStaticType<Exactly<String?>>();
   }
@@ -33,6 +34,7 @@ test2() {
   if (s is! Never) {
     s.expectStaticType<Exactly<String?>>();
   } else {
+    s.expectStaticType<Exactly<String?>>(); // Dead code and no promotion.
   }
   s.expectStaticType<Exactly<String?>>();
 }

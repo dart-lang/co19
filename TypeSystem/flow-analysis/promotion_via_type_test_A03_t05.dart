@@ -12,29 +12,26 @@
 /// - and `T <: S` or (`S` is `X extends R` and `T <: R`) or (`S` is `X & R` and
 ///   `T <: R`)
 ///
-/// @description Checks that a variable is promoted if `T` is a subtype of `S`.
-/// Test type `void` as `T`.
+/// @description Checks that a variable is not promoted if `T` is not a proper
+/// subtype of `S`. Test type `void` as `T`.
 /// @author sgrekhov22@gmail.com
+/// @issue 60609, 60496, language#4368
+
+import '../../Utils/static_type_helper.dart';
 
 typedef Void = void;
 
 test1() {
   Object? o = 1 > 2 ? null : "a";
   if (o is Void) { // ignore: unnecessary_type_check
-    print(o); // `void` <: `Object?`, `o` promoted to `void` and cannot be used
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+    o.expectStaticType<Exactly<Object?>>();
   }
 }
 
 test2() {
   dynamic d = 42;
   if (d is Void) { // ignore: unnecessary_type_check
-    print(d);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+    d.isEven;
   }
 }
 

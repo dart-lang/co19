@@ -12,15 +12,16 @@
 /// - and `T <: S` or (`S` is `X extends R` and `T <: R`) or (`S` is `X & R` and
 ///   `T <: R`)
 ///
-/// @description Checks that a variable is promoted if `T` is a subtype of `S`.
-/// Test type `dynamic` as `T`.
+/// @description Checks that a variable is not promoted if `T` is not a proper
+/// subtype of `S`. Test type `dynamic` as `T`.
 /// @author sgrekhov22@gmail.com
 
 main() {
   Object? o = 1 > 2 ? null : "a";
   if (o is dynamic) { // ignore: unnecessary_type_check
-    try {
-      o.whatever;
-    } catch (_) {}
+    o.whatever;
+//    ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
