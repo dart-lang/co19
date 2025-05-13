@@ -17,6 +17,7 @@
 /// form `== e2` or `!= e2` and `e2` is not a precisely shorthand expression.
 /// Test a mixin.
 /// @author sgrekhov22@gmail.com
+/// @issue 59796
 
 // SharedOptions=--enable-experiment=dot-shorthands
 

@@ -31,6 +31,8 @@ class C {
 extension type const ET(int _) {
   static ET get id1 => const ET(0);
   static ET id2() => const ET(0);
+
+  ET call() => const ET(0);
 }
 
 main() {

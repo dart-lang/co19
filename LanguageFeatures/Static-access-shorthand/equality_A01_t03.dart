@@ -29,7 +29,7 @@ enum E<T> {
 
 main() {
   Expect.isTrue(E.e0 == .e0);
-  Expect.isFalse(E.e0 != .e1);
+  Expect.isFalse(E.e0 != .e0);
 
   Expect.isTrue(E.e0 == .staticGetter);
   Expect.isFalse(E.e0 != .staticGetter);
