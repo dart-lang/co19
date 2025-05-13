@@ -13,37 +13,38 @@
 ///   `T <: R`)
 ///
 /// @description Checks that a variable is not promotable if `T` is not subtype
-/// of `S`. Test type `void` as `T`.
+/// of `S`. Test type `FutureOr<void>`.
 /// @author sgrekhov22@gmail.com
+/// @issue 60718
 
 import 'dart:async';
 import '../../Utils/static_type_helper.dart';
 
 typedef Void = void;
 
-test1() {
-  String s = "a";
-  if (s is Void) { // ignore: unnecessary_type_check
-    s.expectStaticType<Exactly<String>>(); // No promotion should happen
+test1(FutureOr<void> s) {
+  if (s is Future<void>) { // ignore: unnecessary_type_check
+    s.expectStaticType<Exactly<Future<void>>>();
+  } else {
+    s.hashCode; // Type `void` cannot be used
+//    ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
-test2() {
-  String s = "a";
-  if (s is FutureOr<void>) { // ignore: unnecessary_type_check
-    s.expectStaticType<Exactly<String>>();
-  }
-}
-
-test3() {
-  Object? s = "a"; // Promoted to `Object`. `void` is not subtype of `Object`
+test2(FutureOr<void> s) {
   if (s is Void) { // ignore: unnecessary_type_check
-    s.expectStaticType<Exactly<Object>>();
+    s.hashCode; // Type `void` cannot be used
+//    ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  } else {
+    s.expectStaticType<Exactly<FutureOr<void>>>();
   }
 }
 
 main() {
-  test1();
-  test2();
-  test3();
+  test1(Future.value(0));
+  test2(Future.value(0));
 }
