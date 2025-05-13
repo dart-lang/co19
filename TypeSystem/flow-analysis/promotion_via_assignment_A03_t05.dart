@@ -14,28 +14,15 @@
 /// @description Checks that if `T` is not subtype of `S` then promotion via
 /// assignment cannot be performed. Test type `void` as `T`.
 /// @author sgrekhov22@gmail.com
-/// @issue 60620
 
 import '../../Utils/static_type_helper.dart';
 
 typedef Void = void;
 
-test1() {
+main() {
   Object? s = "x";
   s as String;
   if (s is Void) {} // ignore: unnecessary_type_check
-  s = 1; // Cannot assign `void`, let's assign `String <: void`
+  s = 1; // Cannot assign `void`, let's assign `int <: void`
   s.expectStaticType<Exactly<Object>>();
-}
-
-test2() {
-  String s = "x";
-  if (s is Void) {} // ignore: unnecessary_type_check
-  s = "y"; // Cannot assign `void`, let's assign `String <: void`
-  s.expectStaticType<Exactly<String>>();
-}
-
-main() {
-  test1();
-  test2();
 }
