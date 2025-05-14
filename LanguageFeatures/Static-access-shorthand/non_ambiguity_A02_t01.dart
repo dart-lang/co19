@@ -61,8 +61,8 @@ extension type ET(int value) {
 
 main() {
   var l1 = <C>[
-      ? .id(0),
-      ? .new(0),
+      ? .id(0),   // ignore: invalid_null_aware_operator
+      ? .new(0),  // ignore: invalid_null_aware_operator
       ? .one,
       ? .two,
       ? .three()
@@ -77,7 +77,7 @@ main() {
   Expect.setEquals({MC(1), MC(2), MC(3)}, s);
 
   var m1 = <String, E>{
-      "key0": ? .e1,
+      "key0": ? .e1,  // ignore: invalid_null_aware_operator
       "key1": ? .one,
       "key2": ? .two,
       "key3": ? .three()
