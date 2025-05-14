@@ -12,8 +12,8 @@
 /// - and `T <: S` or (`S` is `X extends R` and `T <: R`) or (`S` is `X & R` and
 ///   `T <: R`)
 ///
-/// @description Checks that a variable is not promotable if `T` is not subtype
-/// of `S`. Test extension types.
+/// @description Checks that a variable is not promotable if `T` is not a
+/// subtype of `S`. Test extension types.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

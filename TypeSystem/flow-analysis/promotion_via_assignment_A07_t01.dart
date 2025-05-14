@@ -11,8 +11,8 @@
 /// - and `T <: S` and not `S <: T`
 /// - and `T` is a type of interest for `x` in `tested`
 ///
-/// @description Checks that a variable is not promotable if `T` is not subtype
-/// of `S`. Test extension types.
+/// @description Checks that a variable is not promotable if `T` is not a
+/// subtype of `S`. Test extension types.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
