@@ -26,47 +26,43 @@
 /// `(int? x) => x == (x = null) ? true : x.isEven`, which tries to call
 /// `null.isEven` in the event of a non-null input).
 ///
-/// @description Checks that if an extension type which doesn't implement
+/// @description Checks that if a non-nullable extension type which implements
 /// `Object` is compared with the `null` literal, then a variable assigned in
-/// any true or false branch is not definitely assigned.
+/// true or false branch is definitely (un)assigned.
 /// @author sgrekhov22@gmail.com
 /// @issue 60114
 
-extension type ET(num v) {}
+extension type ET(num v) implements Object {}
 
 test1() {
-  int i;
   int j;
+  late int i;
   ET et = ET(0);
-  if (et != null) {
+
+  if (et == null) { // ignore: unnecessary_null_comparison
     i = 42;
   } else {
     j = 42;
   }
-  i; // Not definitely assigned
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-  j; // Not definitely assigned
+  j; // Definitely assigned
+  i; // Definitely unassigned
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 test2() {
-  int i;
   int j;
+  late int i;
   ET et = ET(0);
-  if (null != et) {
+
+  if (null == et) { // ignore: unnecessary_null_comparison
     i = 42;
   } else {
     j = 42;
   }
-  i;
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
   j;
+  i;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified

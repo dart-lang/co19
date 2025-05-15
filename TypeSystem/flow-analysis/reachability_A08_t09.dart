@@ -26,9 +26,9 @@
 /// `(int? x) => x == (x = null) ? true : x.isEven`, which tries to call
 /// `null.isEven` in the event of a non-null input).
 ///
-/// @description Checks that if `equivalentToNull(T1)` and `T2` is not
-/// non-nullable, or `equivalentToNull(T2)` and `T1` is not non-nullable, then
-/// `after(N) = after(E2)`.
+/// @description Checks that if an extension type which doesn't implement
+/// `Object` is compared with the `null` literal, then a variable assigned in
+/// any true or false branch is possibly assigned.
 /// @author sgrekhov22@gmail.com
 /// @issue 60114
 

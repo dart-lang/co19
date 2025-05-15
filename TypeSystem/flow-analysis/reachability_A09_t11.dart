@@ -5,38 +5,46 @@
 /// @assertion operator!= If `N` is an expression of the form `E1 != E2`, it is
 /// treated as equivalent to the expression `!(E1 == E2)`.
 ///
-/// @description Checks that if an extension type which doesn't implement
+/// @description Checks that if a non-nullable extension type which implements
 /// `Object` is compared with the `null` literal, then a variable assigned in
-/// any true or false branch is possibly assigned.
+/// true or false branch is definitely (un)assigned.
 /// @author sgrekhov22@gmail.com
 /// @issue 60114
 
-extension type ET(num v) {}
+extension type ET(num v) implements Object {}
 
 test1() {
+  int j;
   late int i;
-  late int j;
   ET et = ET(0);
-  if (et != null) {
+
+  if (et != null) { // ignore: unnecessary_null_comparison
     i = 42;
   } else {
     j = 42;
   }
-  i; // Possibly assigned
-  j; // Possibly assigned
+  i; // Definitely assigned
+  j; // Definitely unassigned
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 test2() {
+  int j;
   late int i;
-  late int j;
   ET et = ET(0);
-  if (null != et) {
+
+  if (null != et) { // ignore: unnecessary_null_comparison
     i = 42;
   } else {
     j = 42;
   }
   i;
   j;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
