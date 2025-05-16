@@ -12,8 +12,11 @@
 /// - and `T <: S` or (`S` is `X extends R` and `T <: R`) or (`S` is `X & R` and
 ///   `T <: R`)
 ///
-/// @description Checks that a variable is not promotable if `T` is not subtype
-/// of `S`. Test type `FutureOr<void>`.
+/// @description Checks that a variable can be promoted from `FutureOr<void>` to
+/// `Future<void>` yielding `void` in the `false` continuation. In the next
+/// test, `is Void` does not promote the variable in the `true` continuation, of
+/// `S`, but the `false` continuation promotes the variable to `void`. In both
+/// cases, `factor` determines the outcome.
 /// @author sgrekhov22@gmail.com
 /// @issue 60718
 
