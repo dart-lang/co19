@@ -22,7 +22,7 @@ test1() {
   s as String;
   if (s is Null) {} // ignore: unnecessary_type_check
   s = null;
-  s.expectStaticType<Exactly<Null>>();
+  s.expectStaticType<Exactly<Object?>>();
 }
 
 test2() {
