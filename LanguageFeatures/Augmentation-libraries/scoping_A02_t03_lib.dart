@@ -17,38 +17,30 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'scoping_A02_t01.dart';
+part of 'scoping_A02_t03.dart';
 
 augment class C {
-  String foo = "";
-  String get bar => "";
-  void set baz(String _) {}
-  String qux() => "";
+  static String get name1 => "Static member";
+  String get name2 => "Instance member";
 }
 
 augment mixin M {
-  String foo = "";
-  String get bar => "";
-  void set baz(String _) {}
-  String qux() => "";
+  static String get name1 => "Static member";
+  String get name2 => "Instance member";
 }
 
 augment enum E {
   augment e0;
-  final String foo = "";
-  String get bar => "";
-  void set baz(String _) {}
-  String qux() => "";
+  static String get name1 => "Static member";
+  String get name2 => "Instance member";
 }
 
 augment extension Ext {
-  String get bar => "";
-  void set baz(String _) {}
-  String qux() => "";
+  static String get name1 => "Static member";
+  String get name2 => "Instance member";
 }
 
 augment extension type ET {
-  String get bar => "";
-  void set baz(String _) {}
-  String qux() => "";
+  static String get name1 => "Static member";
+  String get name2 => "Instance member";
 }

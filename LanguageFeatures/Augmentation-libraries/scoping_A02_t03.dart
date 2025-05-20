@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -17,48 +17,51 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part 'scoping_A02_t02_lib.dart';
+import '../../Utils/expect.dart';
+part 'scoping_A02_t03_lib.dart';
+
+const name1 = "Top level 1";
+const name2 = "Top level 2";
 
 class C {
-  String foo = "";
-  String get bar => "";
-  void set baz(String _) {}
-  String qux() => "";
+  static String test1() => name1;
+  String test2() => name2;
 }
 
 mixin M {
-  String foo = "";
-  String get bar => "";
-  void set baz(String _) {}
-  String qux() => "";
+  static String test1() => name1;
+  String test2() => name2;
 }
+
+class MA = Object with M;
 
 enum E {
   e0;
-  final String foo = "";
-  String get bar => "";
-  void set baz(String _) {}
-  String qux() => "";
+  static String test1() => name1;
+  String test2() => name2;
 }
 
 class A {}
 
 extension Ext on A {
-  String get bar => "";
-  void set baz(String _) {}
-  String qux() => "";
+  static String test1() => name1;
+  String test2() => name2;
 }
 
 extension type ET(String id) {
-  String get bar => "";
-  void set baz(String _) {}
-  String qux() => "";
+  static String test1() => name1;
+  String test2() => name2;
 }
 
 main() {
-  print(C);
-  print(M);
-  print(E);
-  print(A);
-  print(ET);
+  Expect.equals("Static member", C.test1());
+  Expect.equals("Instance member", C().test2());
+  Expect.equals("Static member", M.test1());
+  Expect.equals("Instance member", MA().test2());
+  Expect.equals("Static member", E.test1());
+  Expect.equals("Instance member", E.e0.test2());
+  Expect.equals("Static member", Ext.test1());
+  Expect.equals("Instance member", A().test2());
+  Expect.equals("Static member", ET.test1());
+  Expect.equals("Instance member", ET("x").test2());
 }
