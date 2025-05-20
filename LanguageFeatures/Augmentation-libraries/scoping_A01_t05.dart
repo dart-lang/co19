@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion If a member declaration needs to reference a static or instance
-/// member declared in another introductory or augmenting declaration of the
-/// same type, it can use `this.name` for instance members an `TypeName.name`
-/// for static members to be absolutely sure. Or it can rely on the default if
-/// `name` is not in the lexical scope at all, in which case it’s interpreted as
-/// `this.name` if it occurs inside a scope where a `this` is available.
+/// @assertion The static and instance member namespaces for an augmented type
+/// or extension declaration include the declarations of all members in the
+/// introductory and augmenting declarations. Identifiers in the bodies of
+/// members are resolved against that complete merged namespace. In other words,
+/// augmentations are applied before identifiers inside members are resolved.
 ///
 /// @description Checks that `name` is interpreted as `this.name` if it occurs
 /// inside a scope where a `this` is available. Test a variable.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 import '../../Utils/expect.dart';
 part 'scoping_A01_t05_lib.dart';
@@ -26,10 +25,10 @@ class C {
   String bar = "bar";
 
   void testAugmenting() {
-    Expect.equals("Global foo", foo);
+    Expect.equals("foo", foo);
     Expect.equals("bar", bar);
-    Expect.equals("Global baz", baz);
-    Expect.equals("Global qux", qux);
+    Expect.equals("baz", baz);
+    Expect.equals("qux", qux);
   }
 }
 
@@ -38,10 +37,10 @@ mixin M {
   String bar = "bar";
 
   void testAugmenting() {
-    Expect.equals("Global foo", foo);
+    Expect.equals("foo", foo);
     Expect.equals("bar", bar);
-    Expect.equals("Global baz", baz);
-    Expect.equals("Global qux", qux);
+    Expect.equals("baz", baz);
+    Expect.equals("qux", qux);
   }
 }
 
@@ -51,10 +50,10 @@ enum E {
   final String bar = "bar";
 
   void testAugmenting() {
-    Expect.equals("Global foo", foo);
+    Expect.equals("foo", foo);
     Expect.equals("bar", bar);
-    Expect.equals("Global baz", baz);
-    Expect.equals("Global qux", qux);
+    Expect.equals("baz", baz);
+    Expect.equals("qux", qux);
   }
 }
 
@@ -64,9 +63,9 @@ extension Ext on A {
   static const foo = "foo";
 
   void testAugmenting() {
-    Expect.equals("Global foo", foo);
-    Expect.equals("Global baz", baz);
-    Expect.equals("Global qux", qux);
+    Expect.equals("foo", foo);
+    Expect.equals("baz", baz);
+    Expect.equals("qux", qux);
   }
 }
 
@@ -75,9 +74,9 @@ extension type ET(String id) {
 
   void testAugmenting() {
     Expect.equals("id", id);
-    Expect.equals("Global foo", foo);
-    Expect.equals("Global baz", baz);
-    Expect.equals("Global qux", qux);
+    Expect.equals("foo", foo);
+    Expect.equals("baz", baz);
+    Expect.equals("qux", qux);
   }
 }
 
