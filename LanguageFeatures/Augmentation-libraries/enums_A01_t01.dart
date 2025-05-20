@@ -32,7 +32,7 @@ enum E3 {}
 
 augment enum E3 {e0}
 
-augment enum E3 {e1,} // Trailing comma case
+augment enum E3 {e1,} // trailing comma case
 
 enum E4 {;}
 
