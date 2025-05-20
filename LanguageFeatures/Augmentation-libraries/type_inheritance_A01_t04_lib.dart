@@ -45,6 +45,7 @@ augment mixin M {
 }
 
 augment enum E {
+  ;
   augment static void staticMethod({final v});
 
   augment void instanceMethod([var v]){

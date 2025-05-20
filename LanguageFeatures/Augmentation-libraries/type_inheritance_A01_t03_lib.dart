@@ -49,6 +49,7 @@ augment mixin M {
 }
 
 augment enum E {
+  ;
   augment static void staticMethod(final v) {
     v.expectStaticType<Exactly<String>>();
     _log = "Augmented $v";

@@ -27,6 +27,7 @@ augment mixin M<T> {
 }
 
 augment enum E<T> {
+  ;
   augment static void staticMethod<X>(X _) {}
   augment void instanceMethod<X>(X _);
 }
