@@ -28,7 +28,17 @@ enum E2 {e0;}
 
 augment enum E2 {;}
 
+enum E3 {e0, e1}
+
+augment enum E3 {}
+
+enum E4 {e0, e1,} // trailing comma case
+
+augment enum E4 {;}
+
 main() {
   Expect.listEquals([E1.e0], E1.values);
   Expect.listEquals([E2.e0], E2.values);
+  Expect.listEquals([E3.e0, E3.e1], E3.values);
+  Expect.listEquals([E4.e0, E4.e1], E4.values);
 }

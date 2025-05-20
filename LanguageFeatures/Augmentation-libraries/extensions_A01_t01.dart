@@ -27,7 +27,7 @@ class C {
 extension Ext on C {
 }
 
-augment extension Ext on C {
+augment extension Ext {
   int zero() => 0;
 }
 

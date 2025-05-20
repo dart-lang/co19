@@ -27,8 +27,8 @@ extension on C {
   int zero() => 0;
 }
 
-augment extension on C {
-//                ^^
+augment extension {
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
   int one() => 1;
