@@ -33,7 +33,6 @@ augment mixin M {
 }
 
 augment enum E {
-  augment e0;
   augment static var staticVariable = "Augmented static variable";
   augment static final finalStaticVariable;
   augment final finalInstanceVariable;

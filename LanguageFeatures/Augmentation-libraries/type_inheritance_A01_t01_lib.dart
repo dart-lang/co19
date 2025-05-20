@@ -33,7 +33,6 @@ augment mixin M {
 }
 
 augment enum E {
-  augment e0;
   augment static get staticGetter;
   augment static staticMethod() => "Augmented static method";
   augment get instanceGetter => "Augmented instance getter";
