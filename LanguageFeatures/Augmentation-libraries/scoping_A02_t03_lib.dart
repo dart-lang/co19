@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -10,9 +10,8 @@
 /// declaration and an augmentation on that declaration, or the same static or
 /// instance name inside two augmentations of the same declaration.
 ///
-/// @description Checks that it is a compile time error for both a static and
-/// instance member of the same name to be defined on the same type, even if
-/// they live in different lexical scopes.
+/// @description Checks that members of a declaration are resolved after all
+/// part files and augmentations are applied.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
