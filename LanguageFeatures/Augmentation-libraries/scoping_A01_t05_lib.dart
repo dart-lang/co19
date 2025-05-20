@@ -26,10 +26,10 @@ augment class C {
   String qux = "qux";
 
   void testIntroductory() {
-    Expect.equals("Global baz", baz);
+    Expect.equals("baz", baz);
     Expect.equals("qux", qux);
-    Expect.equals("Global foo", foo);
-    Expect.equals("Global bar", bar);
+    Expect.equals("foo", foo);
+    Expect.equals("bar", bar);
   }
 }
 
@@ -38,10 +38,10 @@ augment mixin M {
   String qux = "qux";
 
   void testIntroductory() {
-    Expect.equals("Global baz", baz);
+    Expect.equals("baz", baz);
     Expect.equals("qux", qux);
-    Expect.equals("Global foo", foo);
-    Expect.equals("Global bar", bar);
+    Expect.equals("foo", foo);
+    Expect.equals("bar", bar);
   }
 }
 
@@ -51,10 +51,10 @@ augment enum E {
   final String qux = "qux";
 
   void testIntroductory() {
-    Expect.equals("Global baz", baz);
+    Expect.equals("baz", baz);
     Expect.equals("qux", qux);
-    Expect.equals("Global foo", foo);
-    Expect.equals("Global bar", bar);
+    Expect.equals("foo", foo);
+    Expect.equals("bar", bar);
   }
 }
 
@@ -62,9 +62,9 @@ augment extension Ext {
   static const baz = "baz";
 
   void testIntroductory() {
-    Expect.equals("Global baz", baz);
-    Expect.equals("Global foo", foo);
-    Expect.equals("Global bar", bar);
+    Expect.equals("baz", baz);
+    Expect.equals("foo", foo);
+    Expect.equals("bar", bar);
   }
 }
 
@@ -72,9 +72,9 @@ augment extension type ET {
   static const baz = "baz";
 
   void testIntroductory() {
-    Expect.equals("Global baz", baz);
-    Expect.equals("Global id", id);
-    Expect.equals("Global foo", foo);
-    Expect.equals("Global bar", bar);
+    Expect.equals("baz", baz);
+    Expect.equals("id", id);
+    Expect.equals("foo", foo);
+    Expect.equals("bar", bar);
   }
 }
