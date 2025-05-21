@@ -36,7 +36,7 @@ augment mixin M {
 }
 
 augment enum E {
-  augment e0;
+  e1;
   augment static NumAlias get staticGetter;
   augment static NumAlias staticMethod() => 1;
   augment NumAlias get instanceGetter => 1;

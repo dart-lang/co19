@@ -48,7 +48,7 @@ augment mixin M {
 }
 
 augment enum E {
-  augment e0;
+  e1;
   augment static void staticMethod();
 //               ^^^^
 // [analyzer] unspecified
