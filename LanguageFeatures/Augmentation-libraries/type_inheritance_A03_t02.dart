@@ -11,7 +11,7 @@
 /// the same type as the type in the corresponding declaration being augmented.
 ///
 /// @description Check that it is not an error if augmenting declaration
-/// specifies the same variable type as the augmented declaration does.
+/// specifies the same variable type as the introductory declaration does.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
