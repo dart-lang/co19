@@ -10,8 +10,9 @@
 /// compile-time error if the type denoted by the augmenting declaration is not
 /// the same type as the type in the corresponding declaration being augmented.
 ///
-/// @description Check that it is a compile-time error if augmenting declaration
-/// specifies a different variable type than the introductory declaration.
+/// @description Check that it is a compile-time error if an augmenting
+/// declaration specifies a different variable type than the introductory
+/// declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts

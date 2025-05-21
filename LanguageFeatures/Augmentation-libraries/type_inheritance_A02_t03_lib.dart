@@ -10,8 +10,8 @@
 /// compile-time error if the type denoted by the augmenting declaration is not
 /// the same type as the type in the corresponding declaration being augmented.
 ///
-/// @description Check that it is no error if augmenting declaration specifies
-/// the same return type as the introductory declaration.
+/// @description Check that it is no error if an augmenting declaration
+/// specifies the same return type as the introductory declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts

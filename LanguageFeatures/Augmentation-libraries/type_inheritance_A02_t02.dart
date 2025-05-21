@@ -10,8 +10,8 @@
 /// compile-time error if the type denoted by the augmenting declaration is not
 /// the same type as the type in the corresponding declaration being augmented.
 ///
-/// @description Check that it is no error if augmenting declaration specifies
-/// the same return type as the introductory declaration.
+/// @description Check that it is no error if an augmenting declaration
+/// specifies the same return type as the introductory declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
@@ -53,7 +53,7 @@ extension Ext on A {
   instanceMethod() => 0;
 }
 
-extension type ET(int id) {
+extension type ET(dynamic id) {
   static get staticGetter => 0;
   static staticMethod();
   get instanceGetter;
@@ -85,4 +85,5 @@ main() {
   Expect.equals(1, ET.staticMethod());
   Expect.equals(1, ET(0).instanceGetter);
   Expect.equals(0, ET(0).instanceMethod());
+  Expect.equals("42", ET("42").id);
 }

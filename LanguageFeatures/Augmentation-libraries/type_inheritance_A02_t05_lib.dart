@@ -10,9 +10,9 @@
 /// compile-time error if the type denoted by the augmenting declaration is not
 /// the same type as the type in the corresponding declaration being augmented.
 ///
-/// @description Check that it is a compile-time error if augmenting declaration
-/// specifies a different return type than the introductory declaration. Test a
-/// wrong top type.
+/// @description Check that it is a compile-time error if an augmenting
+/// declaration specifies a different return type than the introductory
+/// declaration. Test a wrong top type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
