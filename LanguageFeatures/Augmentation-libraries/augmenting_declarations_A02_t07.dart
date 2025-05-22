@@ -163,7 +163,7 @@ augment abstract class C {
   static void staticMethod() {}
   static int get staticGetter => 0;
   static void set staticSetter(int _) {}
-  abstract int instanceVariable = 0;
+  abstract int instanceVariable;
   void instanceMethod() {}
   int get instanceGetter => 0;
   void set instanceSetter(int _) {}
