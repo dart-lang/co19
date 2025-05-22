@@ -12,7 +12,7 @@
 /// declaration to apply it to.
 ///
 /// @description Checks that it is a compile-time error if an augmentation
-/// extension declaration augments member defined in an extended class.
+/// extension declaration augments a member defined in an extended class.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

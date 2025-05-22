@@ -12,7 +12,7 @@
 /// declaration to apply it to.
 ///
 /// @description Checks that it is a compile-time error if an augmentation
-/// declaration augments member defined in a superclass.
+/// declaration augments a member defined in a superclass.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

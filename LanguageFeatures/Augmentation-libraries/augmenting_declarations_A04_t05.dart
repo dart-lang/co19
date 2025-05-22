@@ -12,7 +12,7 @@
 /// declaration to apply it to.
 ///
 /// @description Checks that it is a compile-time error if an augmentation
-/// extension type declaration augments member defined in the representation
+/// extension type declaration augments a member defined in the representation
 /// type.
 /// @author sgrekhov22@gmail.com
 
