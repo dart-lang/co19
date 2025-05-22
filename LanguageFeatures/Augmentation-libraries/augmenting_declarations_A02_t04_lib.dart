@@ -2,59 +2,54 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion An augmentation declaration D is a declaration marked with the
-/// new built-in identifier `augment`, which makes D augment a declaration D1
-/// with the same name and in the same context as D. D1 is determined as being
-/// before D and after every other declaration with the same name and in the
-/// same context which is before D (that is, D1 is the greatest declaration
-/// which is smaller than D, according to the 'after' ordering). A compile-time
-/// error occurs if no declaration satisfies the requirements on D1.
+/// @assertion An augmentation declaration `D` is a declaration marked with the
+/// built-in identifier `augment`. We add `augment` as a built-in identifier as
+/// a language versioned change, to avoid breaking pre-feature code.
+///
+/// `D` augments a declaration `I` with the same name and in the same
+/// augmentation context as `D`. There may be multiple augmentations in the
+/// augmentation context of `D`. More precisely, `I` is the declaration before
+/// `D` and after every other declaration before `D`.
 ///
 /// @description Checks that it is a compile-time error if an augmenting
-/// declaration appears before non-augmenting one. Test augmented declaration in
-/// a main library
+/// declaration appears before the introductory one. Test augmenting declaration
+/// in a main library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 part of  'augmenting_declarations_A02_t04.dart';
 
-augment class C {
-  static int staticVariable = 0;
+augment abstract class C {
   static void staticMethod() {}
   static int get staticGetter => 0;
   static void set staticSetter(int _) {}
-  int instanceVariable = 0;
+  abstract int instanceVariable;
   void instanceMethod() {}
   int get instanceGetter => 0;
   void set instanceSetter(int _) {}
 }
 
 augment mixin M {
-  static int staticVariable = 0;
   static void staticMethod() {}
   static int get staticGetter => 0;
   static void set staticSetter(int _) {}
-  int instanceVariable = 0;
   void instanceMethod() {}
   int get instanceGetter => 0;
   void set instanceSetter(int _) {}
 }
 
 augment enum E {
-  augment e0;
-  static int staticVariable = 0;
+  e1;
   static void staticMethod() {}
   static int get staticGetter => 0;
   static void set staticSetter(int _) {}
-  final int instanceVariable = 0;
   void instanceMethod() {}
   int get instanceGetter => 0;
   void set instanceSetter(int _) {}
 }
 
 augment extension Etx {
-  static int staticVariable = 0;
   static void staticMethod() {}
   static int get staticGetter => 0;
   static void set staticSetter(int _) {}
@@ -64,7 +59,6 @@ augment extension Etx {
 }
 
 augment extension type ET {
-  static int staticVariable = 0;
   static void staticMethod() {}
   static int get staticGetter => 0;
   static void set staticSetter(int _) {}
