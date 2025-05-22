@@ -2,20 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion An augmentation declaration D is a declaration marked with the
-/// new built-in identifier `augment`, which makes D augment a declaration D1
-/// with the same name and in the same context as D. D1 is determined as being
-/// before D and after every other declaration with the same name and in the
-/// same context which is before D (that is, D1 is the greatest declaration
-/// which is smaller than D, according to the 'after' ordering). A compile-time
-/// error occurs if no declaration satisfies the requirements on D1.
+/// @assertion `D` augments a declaration `I` with the same name and in the same
+/// augmentation context as `D`. There may be multiple augmentations in the
+/// augmentation context of `D`. More precisely, `I` is the declaration before
+/// `D` and after every other declaration before `D`.
+///
+/// It's a compile-time error if there is no matching declaration `I`. In other
+/// words, it's an error to have a declaration marked `augment` with no
+/// declaration to apply it to.
 ///
 /// @description Checks that it is a compile-time error if an augmentation
 /// extension type declaration augments member defined in the representation
 /// type.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 class A {
   String method() => "Method";
@@ -27,19 +28,19 @@ class A {
 extension type ET(A id) implements A {}
 
 augment extension type ET {
-  augment String method() => "Method";
+  augment String method();
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get getter => "Getter";
+  augment String get getter;
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set setter(String _) {}
+  augment void set setter(String _);
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String operator +(Object? other) => "Operator";
+  augment String operator +(Object? other);
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
