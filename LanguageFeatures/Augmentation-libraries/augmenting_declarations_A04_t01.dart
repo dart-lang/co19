@@ -18,16 +18,16 @@
 // SharedOptions=--enable-experiment=augmentations
 
 abstract class A {
-  sbstract String variable;
+  abstract String variable;
   String method() => "Method";
   String get getter => "Getter";
   void set setter(String _) {}
   String operator +(Object? other) => "Operator";
 }
 
-class C extends A {}
+abstract class C extends A {}
 
-augment class C {
+augment abstract class C {
   augment abstract String variable;
 //^^^^^^^
 // [analyzer] unspecified
