@@ -2,88 +2,77 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion An augmentation declaration D is a declaration marked with the
-/// new built-in identifier `augment`, which makes D augment a declaration D1
-/// with the same name and in the same context as D. D1 is determined as being
-/// before D and after every other declaration with the same name and in the
-/// same context which is before D (that is, D1 is the greatest declaration
-/// which is smaller than D, according to the 'after' ordering). A compile-time
-/// error occurs if no declaration satisfies the requirements on D1.
+/// @assertion An augmentation declaration `D` is a declaration marked with the
+/// built-in identifier `augment`. We add `augment` as a built-in identifier as
+/// a language versioned change, to avoid breaking pre-feature code.
+///
+/// `D` augments a declaration `I` with the same name and in the same
+/// augmentation context as `D`. There may be multiple augmentations in the
+/// augmentation context of `D`. More precisely, `I` is the declaration before
+/// `D` and after every other declaration before `D`.
 ///
 /// @description Checks that it is a compile-time error if an augmenting
-/// declaration appears before non-augmenting one. Test augmented declaration in
-/// a main library
+/// declaration appears before the introductory one. Test augmenting declaration
+/// in a main library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 part 'augmenting_declarations_A02_t04_lib.dart';
 
-class C {
-  augment static int staticVariable = 0;
-//                   ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment static void staticMethod() {}
+abstract class C {
+  augment static void staticMethod();
 //                    ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static int get staticGetter => 0;
+  augment static int get staticGetter;
 //                       ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void set staticSetter(int _) {}
+  augment static void set staticSetter(int _);
 //                        ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int instanceVariable = 0;
-//            ^^^^^^^^^^^^^^^^
+  augment abstract int instanceVariable;
+//                     ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod() {}
+  augment void instanceMethod();
 //             ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get instanceGetter => 0;
+  augment int get instanceGetter;
 //                ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceSetter(int _) {}
+  augment void set instanceSetter(int _);
 //                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin M {
-  augment static int staticVariable = 0;
-//                   ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment static void staticMethod() {}
+  augment static void staticMethod();
 //                    ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static int get staticGetter => 0;
+  augment static int get staticGetter;
 //                       ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void set staticSetter(int _) {}
+  augment static void set staticSetter(int _);
 //                        ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int instanceVariable = 0;
-//            ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment void instanceMethod() {}
+  augment void instanceMethod();
 //             ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get instanceGetter => 0;
+  augment int get instanceGetter;
 //                ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceSetter(int _) {}
+  augment void set instanceSetter(int _);
 //                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -91,35 +80,27 @@ mixin M {
 
 enum E {
   e0;
-  augment static int staticVariable = 0;
-//                   ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment static void staticMethod() {}
+  augment static void staticMethod();
 //                    ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static int get staticGetter => 0;
+  augment static int get staticGetter;
 //                       ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void set staticSetter(int _) {}
+  augment static void set staticSetter(int _);
 //                        ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment final int instanceVariable = 0;
-//                  ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment void instanceMethod() {}
+  augment void instanceMethod();
 //             ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get instanceGetter => 0;
+  augment int get instanceGetter;
 //                ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceSetter(int _) {}
+  augment void set instanceSetter(int _);
 //                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -128,62 +109,54 @@ enum E {
 class A {}
 
 extension Etx on A {
-  augment static int staticVariable = 0;
-//                   ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment static void staticMethod() {}
+  augment static void staticMethod();
 //                    ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static int get staticGetter => 0;
+  augment static int get staticGetter;
 //                       ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void set staticSetter(int _) {}
+  augment static void set staticSetter(int _);
 //                        ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod() {}
+  augment void instanceMethod();
 //             ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get instanceGetter => 0;
+  augment int get instanceGetter;
 //                ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceSetter(int _) {}
+  augment void set instanceSetter(int _);
 //                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET(int _) {
-  augment static int staticVariable = 0;
-//                   ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment static void staticMethod() {}
+  augment static void staticMethod();
 //                    ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static int get staticGetter => 0;
+  augment static int get staticGetter;
 //                       ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void set staticSetter(int _) {}
+  augment static void set staticSetter(int _);
 //                        ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod() {}
+  augment void instanceMethod();
 //             ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get instanceGetter => 0;
+  augment int get instanceGetter;
 //                ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceSetter(int _) {}
+  augment void set instanceSetter(int _);
 //                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -2,62 +2,35 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion An augmentation declaration D is a declaration marked with the
-/// new built-in identifier `augment`, which makes D augment a declaration D1
-/// with the same name and in the same context as D. D1 is determined as being
-/// before D and after every other declaration with the same name and in the
-/// same context which is before D (that is, D1 is the greatest declaration
-/// which is smaller than D, according to the 'after' ordering). A compile-time
-/// error occurs if no declaration satisfies the requirements on D1.
+/// @assertion An augmentation declaration `D` is a declaration marked with the
+/// built-in identifier `augment`. We add `augment` as a built-in identifier as
+/// a language versioned change, to avoid breaking pre-feature code.
 ///
-/// @description Checks that it is a compile-time error if a base declaration is
-/// not above the augmentation declaration.
+/// `D` augments a declaration `I` with the same name and in the same
+/// augmentation context as `D`. There may be multiple augmentations in the
+/// augmentation context of `D`. More precisely, `I` is the declaration before
+/// `D` and after every other declaration before `D`.
+///
+/// @description Checks that it is a compile-time error if an introductory
+/// declaration is not before the augmenting declaration.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
-augment int variable = 0;
-//          ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment final finalVariable = 0;
-//            ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment late int lateVariable = 0;
-//               ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment late final lateFinalVariable = 0;
-//                 ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment void function() {}
+augment void function();
 //           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment int get getter => 0;
+augment int get getter;
 //              ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment void set setter(int _) {}
+augment void set setter(int _);
 //               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-int variable = 0;
-
-final finalVariable = 0;
-
-late int lateVariable = 0;
-
-late final lateFinalVariable = 0;
 
 void function() {}
 
@@ -66,10 +39,6 @@ int get getter => 0;
 void set setter(int _) {}
 
 main() {
-  print(variable);
-  print(finalVariable);
-  print(lateVariable);
-  print(lateFinalVariable);
   print(function);
   print(getter);
   setter = 0;

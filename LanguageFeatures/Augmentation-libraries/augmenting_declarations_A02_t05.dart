@@ -2,19 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion An augmentation declaration D is a declaration marked with the
-/// new built-in identifier `augment`, which makes D augment a declaration D1
-/// with the same name and in the same context as D. D1 is determined as being
-/// before D and after every other declaration with the same name and in the
-/// same context which is before D (that is, D1 is the greatest declaration
-/// which is smaller than D, according to the 'after' ordering). A compile-time
-/// error occurs if no declaration satisfies the requirements on D1.
+/// @assertion An augmentation declaration `D` is a declaration marked with the
+/// built-in identifier `augment`. We add `augment` as a built-in identifier as
+/// a language versioned change, to avoid breaking pre-feature code.
 ///
-/// @description Checks that it is a compile-time error if a base declaration is
-/// not above the augmentation declaration.
+/// `D` augments a declaration `I` with the same name and in the same
+/// augmentation context as `D`. There may be multiple augmentations in the
+/// augmentation context of `D`. More precisely, `I` is the declaration before
+/// `D` and after every other declaration before `D`.
+///
+/// @description Checks that it is a compile-time error if an introductory
+/// declaration is not before the augmenting declaration.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 augment class C {}
 //            ^
@@ -41,16 +42,6 @@ augment extension type ET {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment typedef StringAlias = String;
-//              ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment typedef void Foo();
-//                   ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 class C {}
 
 mixin M {}
@@ -62,16 +53,10 @@ extension Ext on A {}
 
 extension type ET(int _) {}
 
-typedef StringAlias = String;
-
-typedef void Foo();
-
 main() {
   print(C);
   print(M);
   print(E);
   print(A);
   print(ET);
-  print(StringAlias);
-  print(Foo);
 }
