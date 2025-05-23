@@ -2,16 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Because of augmentations, non-abstract class, mixin, mixin class,
-/// enum, extension type, and extension declarations are now allowed to contain
-/// abstract member declarations, as long as those members are equipped with a
-/// body by an augmentation declaration.
+/// @assertion Augmentations aren't allowed to replace code, so they mostly add
+/// entirely new declarations to the surrounding type. However, function and
+/// constructor augmentations can fill in a body for an augmented declaration
+/// that is lacks one.
 ///
 /// @description Checks that it is not an error if a body of an abstract static
 /// member is provided by an augmentation.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 import '../../Utils/expect.dart';
 part 'augmenting_declarations_A05_t02_lib.dart';
