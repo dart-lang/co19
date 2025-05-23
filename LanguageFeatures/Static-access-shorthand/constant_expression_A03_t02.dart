@@ -37,12 +37,12 @@ class C1<T> {
 }
 
 class C2<T extends num> {
-  static String foo<X>() => "C2<$X>";
+  static Type foo<X>() => X;
 
   @override
   bool operator ==(Object other) {
     if (other is Function) {
-      Expect.equals("C2<dynamic>", other());
+      Expect.equals(dynamic, other());
       return identical(C2.foo, other);
     }
     return false;
@@ -50,12 +50,12 @@ class C2<T extends num> {
 }
 
 class C3<T> {
-  static String foo<X extends num>() => "C3<$X>";
+  static Type foo<X extends num>() => C3<X>;
 
   @override
   bool operator ==(Object other) {
     if (other is Function) {
-      Expect.equals("C3<num>", other());
+      Expect.equals(C3<num>, other());
       return identical(C3.foo, other);
     }
     return false;
@@ -63,12 +63,12 @@ class C3<T> {
 }
 
 mixin M1<T extends num> {
-  static String foo<X>() => "M1<$X>";
+  static Type foo<X>() => X;
 
   @override
   bool operator ==(Object other) {
     if (other is Function) {
-      Expect.equals("M1<dynamic>", other());
+      Expect.equals(dynamic, other());
       return identical(M1.foo, other);
     }
     return false;
@@ -77,12 +77,12 @@ mixin M1<T extends num> {
 class MO1<T extends num> = Object with M1<T>;
 
 mixin M2<T> {
-  static String foo<X extends num>() => "M2<$X>";
+  static Type foo<X extends num>() => M2<X>;
 
   @override
   bool operator ==(Object other) {
     if (other is Function) {
-      Expect.equals("M2<num>", other());
+      Expect.equals(M2<num>, other());
       return identical(M2.foo, other);
     }
     return false;
@@ -101,7 +101,7 @@ class A2 {
   @override
   bool operator ==(Object other) {
     if (other is Function) {
-      Expect.equals("ET2<dynamic>", other());
+      Expect.equals(dynamic, other());
       return identical(ET2.foo, other);
     }
     return false;
@@ -109,14 +109,14 @@ class A2 {
 }
 
 extension type ET2<T extends num>(A2 _) implements A2 {
-  static String foo<X>() => "ET2<$X>";
+  static Type foo<X>() => X;
 }
 
 class A3 {
   @override
   bool operator ==(Object other) {
     if (other is Function) {
-      Expect.equals("ET3<num>", other());
+      Expect.equals(ET3<num>, other());
       return identical(ET3.foo, other);
     }
     return false;
@@ -124,7 +124,7 @@ class A3 {
 }
 
 extension type ET3<T>(A3 _) implements A3 {
-  static String foo<X extends num>() => "ET3<$X>";
+  static Type foo<X extends num>() => ET3<X>;
 }
 
 main() {
@@ -135,8 +135,8 @@ main() {
   Expect.isTrue(C3() == .foo);
   Expect.isTrue(C3<String>() == .foo);
 
-  Expect.isTrue((MO1() as M1) == .foo);
-  Expect.isTrue((MO1<int>() as M1<int>) == .foo);
+  Expect.isTrue((MO1() as M1) == M1.foo);
+  Expect.isTrue((MO1<int>() as M1<int>) == M1.foo);
   Expect.isTrue((MO2() as M2) == .foo);
   Expect.isTrue((MO2<String>() as M2<String>) == .foo);
 
