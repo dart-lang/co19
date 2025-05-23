@@ -135,8 +135,8 @@ main() {
   Expect.isTrue(C3() == .foo);
   Expect.isTrue(C3<String>() == .foo);
 
-  Expect.isTrue((MO1() as M1) == M1.foo);
-  Expect.isTrue((MO1<int>() as M1<int>) == M1.foo);
+  Expect.isTrue((MO1() as M1) == .foo);
+  Expect.isTrue((MO1<int>() as M1<int>) == .foo);
   Expect.isTrue((MO2() as M2) == .foo);
   Expect.isTrue((MO2<String>() as M2<String>) == .foo);
 
