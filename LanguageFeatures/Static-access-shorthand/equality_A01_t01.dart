@@ -39,43 +39,43 @@ class C<T> {
   }
 
   @override
-  String toString() => "C<$T>($value)";
+  String toString() => "${this.runtimeType}($value)";
 }
 
 main() {
   C<int> c1 = C(1);
   Expect.isTrue(c1 == .staticGetter);
-  Expect.equals("C<int>(1) == C<int>(1)", c1.log);
+  Expect.equals("$c1 == ${C(1)}", c1.log);
   Expect.isFalse(c1 != .staticGetter);
-  Expect.equals("C<int>(1) == C<int>(1)", c1.log);
+  Expect.equals("$c1 == ${C(1)}", c1.log);
 
   C<int> c2 = C(2);
   Expect.isFalse(c2 == .staticMethod<String>("two"));
-  Expect.equals("C<int>(2) == C<String>(two)", c2.log);
+  Expect.equals("$c2 == ${C<String>('two')}", c2.log);
   Expect.isTrue(c2 != .staticMethod<String>("two"));
-  Expect.equals("C<int>(2) == C<String>(two)", c2.log);
+  Expect.equals("$c2 == ${C<String>('two')}", c2.log);
 
   C<String> c3 = C("one");
   Expect.isTrue(c3 == .instances[0]);
-  Expect.equals("C<String>(one) == C<String>(one)", c3.log);
+  Expect.equals("$c3 == ${C<String>('one')}", c3.log);
   Expect.isFalse(c3 != .instances[0]);
-  Expect.equals("C<String>(one) == C<String>(one)", c3.log);
+  Expect.equals("$c3 == ${C<String>('one')}", c3.log);
 
   C<int> c4 = C(4);
   Expect.isTrue(c4 == .new(4));
-  Expect.equals("C<int>(4) == C<int>(4)", c4.log);
+  Expect.equals("$c4 == ${C<int>(4)}", c4.log);
   Expect.isFalse(c4 != .new(4));
-  Expect.equals("C<int>(4) == C<int>(4)", c4.log);
+  Expect.equals("$c4 == ${C<int>(4)}", c4.log);
 
   C<int> c5 = C(5);
   Expect.isTrue(c5 == .id(5));
-  Expect.equals("C<int>(5) == C<int>(5)", c5.log);
+  Expect.equals("$c5 == ${C<int>(5)}", c5.log);
   Expect.isFalse(c5 != .id(5));
-  Expect.equals("C<int>(5) == C<int>(5)", c5.log);
+  Expect.equals("$c5 == ${C<int>(5)}", c5.log);
 
   C<int> c6 = C(6);
   Expect.isTrue(c6 == .f(6));
-  Expect.equals("C<int>(6) == C<int>(6)", c6.log);
+  Expect.equals("$c6 == ${C<int>(6)}", c6.log);
   Expect.isFalse(c6 != .f(6));
-  Expect.equals("C<int>(6) == C<int>(6)", c6.log);
+  Expect.equals("$c6 == ${C<int>(6)}", c6.log);
 }

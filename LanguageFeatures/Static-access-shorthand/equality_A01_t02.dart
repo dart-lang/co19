@@ -47,19 +47,19 @@ class MC<T> = C<T> with M<T>;
 main() {
   M<int> m1 = MC(1);
   Expect.isTrue(m1 == .staticGetter);
-  Expect.equals("MC<int>(1) == MC<int>(1)", m1.log);
+  Expect.equals("$m1 == ${MC<int>(1)}", m1.log);
   Expect.isFalse(m1 != .staticGetter);
-  Expect.equals("MC<int>(1) == MC<int>(1)", m1.log);
+  Expect.equals("$m1 == ${MC<int>(1)}", m1.log);
 
   M<int> m2 = MC(2);
   Expect.isFalse(m2 == .staticMethod<String>("two"));
-  Expect.equals("MC<int>(2) == MC<String>(two)", m2.log);
+  Expect.equals("$m2 == ${MC<String>('two')}", m2.log);
   Expect.isTrue(m2 != .staticMethod<String>("two"));
-  Expect.equals("MC<int>(2) == MC<String>(two)", m2.log);
+  Expect.equals("$m2 == ${MC<String>('two')}", m2.log);
 
   M<String> m3 = MC("one");
   Expect.isTrue(m3 == .instances[0]);
-  Expect.equals("MC<String>(one) == MC<String>(one)", m3.log);
+  Expect.equals("$m3 == ${MC<String>('one')}", m3.log);
   Expect.isFalse(m3 != .instances[0]);
-  Expect.equals("MC<String>(one) == MC<String>(one)", m3.log);
+  Expect.equals("$m3 == ${MC<String>('one')}", m3.log);
 }

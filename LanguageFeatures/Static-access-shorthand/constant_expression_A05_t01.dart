@@ -24,12 +24,12 @@
 import '../../Utils/expect.dart';
 
 class C<T> {
-  static String foo<X>() => "C<$X>";
+  static Type foo<X>() => C<X>;
 
   @override
   bool operator ==(Object other) {
     if (other is Function) {
-      Expect.equals("C<String>", other());
+      Expect.equals(C<String>, other());
       return identical(C.foo<String>, other);
     }
     return false;
@@ -37,12 +37,12 @@ class C<T> {
 }
 
 mixin M<T extends num> {
-  static String foo<X>() => "M<$X>";
+  static Type foo<X>() => X;
 
   @override
   bool operator ==(Object other) {
     if (other is Function) {
-      Expect.equals("M<String>", other());
+      Expect.equals(String, other());
       return identical(M.foo<String>, other);
     }
     return false;
@@ -54,7 +54,7 @@ class A {
   @override
   bool operator ==(Object other) {
     if (other is Function) {
-      Expect.equals("ET<String>", other());
+      Expect.equals(ET<String>, other());
       return identical(ET.foo<String>, other);
     }
     return false;
@@ -62,7 +62,7 @@ class A {
 }
 
 extension type ET<T>(A _) implements A {
-  static String foo<X>() => "ET<$X>";
+  static Type foo<X>() => ET<X>;
 }
 
 main() {
