@@ -15,6 +15,7 @@
 /// @description Checks that a variable is not promoted if `T` is not a proper
 /// subtype of `S`. Test type `dynamic` as `T`.
 /// @author sgrekhov22@gmail.com
+/// @issue 60740
 
 main() {
   Object? o = 1 > 2 ? null : "a";
