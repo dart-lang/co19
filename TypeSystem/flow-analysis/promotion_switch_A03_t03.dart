@@ -3,7 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion For now (May, 2025) promotion in switch statement and
-/// expressions are not specified yet.
+/// expressions are not specified yet. Informal spec:
+/// https://github.com/dart-lang/co19/pull/3169#issuecomment-2885167786
 /// TODO (sgrekhov): update when specified
 ///
 /// @description Checks promotion in the switch expression/statement in the case
@@ -40,7 +41,7 @@ test3(Object? x) {
 }
 
 test4(Object? x) {
-  var v = switch (x) {
+  var y = switch (x) {
     var v when (x = 42) != 42 => [
       x.expectStaticType<Exactly<Object>>(),
       v.expectStaticType<Exactly<Object?>>(),

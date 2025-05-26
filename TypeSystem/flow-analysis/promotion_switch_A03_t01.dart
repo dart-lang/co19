@@ -3,7 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion For now (May, 2025) promotion in switch statement and
-/// expressions are not specified yet.
+/// expressions are not specified yet. Informal spec:
+/// https://github.com/dart-lang/co19/pull/3169#issuecomment-2885167786
 /// TODO (sgrekhov): update when specified
 ///
 /// @description Checks promotion in the switch expression/statement in the case
@@ -80,4 +81,6 @@ main() {
   test6(1);
   test6("one");
   test6(null);
+
+  test22("");
 }

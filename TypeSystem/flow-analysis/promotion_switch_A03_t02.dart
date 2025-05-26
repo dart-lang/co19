@@ -3,7 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion For now (May, 2025) promotion in switch statement and
-/// expressions are not specified yet.
+/// expressions are not specified yet. Informal spec:
+/// https://github.com/dart-lang/co19/pull/3169#issuecomment-2885167786
 /// TODO (sgrekhov): update when specified
 ///
 /// @description Checks promotion in the switch expression/statement in the case
@@ -29,6 +30,7 @@ test2(Object? x) {
       x.expectStaticType<Exactly<Null>>();
       n.expectStaticType<Exactly<Null>>();
     case _:
+      x.expectStaticType<Exactly<Object>>();
   }
 }
 
