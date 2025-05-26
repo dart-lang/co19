@@ -14,20 +14,22 @@
 import '../../Utils/static_type_helper.dart';
 
 test1(Object? x) {
-  switch (x) {
-    case int v:
-    case num _:
-      x.expectStaticType<Exactly<Object?>>();
-    case _:
-      x.expectStaticType<Exactly<Object?>>();
+  if (x is Object) {
+    switch (x) {
+      case int v:
+      case num _:
+        x.expectStaticType<Exactly<Object>>();
+      case _:
+        x.expectStaticType<Exactly<Object>>();
+    }
   }
 }
 
 test2(Object? x) {
   switch (x) {
-    case int v:
-    case num v:
-      x.expectStaticType<Exactly<Object?>>();
+    case num _ && int v:
+    case Object _ && int v: // ignore: unreachable_switch_case
+      x.expectStaticType<Exactly<int>>();
     case _:
       x.expectStaticType<Exactly<Object?>>();
   }
@@ -35,9 +37,9 @@ test2(Object? x) {
 
 test3(Object? x) {
   switch (x) {
-    case int _:
-    case num _:
-      x.expectStaticType<Exactly<Object?>>();
+    case num _ && int v:
+    case Object v && num _: // ignore: unreachable_switch_case
+      x.expectStaticType<Exactly<num>>();
     case _:
       x.expectStaticType<Exactly<Object?>>();
   }
