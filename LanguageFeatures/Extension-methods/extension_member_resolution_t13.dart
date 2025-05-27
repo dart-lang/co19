@@ -43,7 +43,7 @@ extension EET on ET? {
 }
 
 testC(C? c) {
-  Expect.equals("EC", c.foo());
+  Expect.equals("EC", c.foo()); // can be invoked without `?.`
   Expect.equals("EC.bar", c.bar);
   c.baz = "";
 }
