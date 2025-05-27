@@ -13,14 +13,6 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
-testTrue(JSAny? v) {
-  Expect.isTrue(v.isDefinedAndNotNull);
-}
-
-testFalse(JSAny? v) {
-  Expect.isFalse(v.isDefinedAndNotNull);
-}
-
 main() {
   eval(r'''
     var n = null;
@@ -28,8 +20,9 @@ main() {
     var s = "s";
   ''');
 
-  testFalse(globalContext["n"]);
-  testTrue(42.toJS);
-  testFalse(globalContext["u"]);
-  testTrue(globalContext["s"]);
+  Expect.isFalse(globalContext["n"].isDefinedAndNotNull);
+  Expect.isTrue(42.toJS.isDefinedAndNotNull);
+  Expect.isFalse(globalContext["u"].isDefinedAndNotNull);
+  Expect.isTrue(globalContext["s"].isDefinedAndNotNull);
+  Expect.isFalse(null.isDefinedAndNotNull);
 }
