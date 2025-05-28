@@ -11,8 +11,7 @@
 /// setter. (The introduced static declarations would have a conflict.)
 ///
 /// @description Check that it is a compile-time error to declare any member
-/// with the same basename as enum value which is not a static setter (or static
-/// setter has a wrong type)
+/// with the same basename as enum value which is not a static setter.
 /// @author sgrekhov@unipro.ru
 /// @issue 48293
 /// @issue 48295

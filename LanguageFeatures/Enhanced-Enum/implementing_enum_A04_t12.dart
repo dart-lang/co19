@@ -20,11 +20,9 @@
 ///
 /// @description Check that it's not an error if a mixin declaration has `Enum`
 /// as a superinterface, and it declares a non-abstract instance setter named
-/// `index`.
+/// `index=`.
 /// @author sgrekhov@unipro.ru
 /// @issue 48353
-
-import '../../Utils/expect.dart';
 
 mixin M1 on Enum {
   void set index(int v) {}

@@ -10,7 +10,7 @@
 /// declaration.
 ///
 /// @description Check that it's not an error if the enum declaration contains a
-/// static setter with the name `values`, and its argument is not a supertype of
+/// static setter with the name `values=`, and its argument is not a supertype of
 /// the generated member `values`.
 /// @author sgrekhov@unipro.ru
 /// @issue 48387

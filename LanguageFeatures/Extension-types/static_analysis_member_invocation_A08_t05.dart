@@ -12,7 +12,7 @@
 ///   a member signature m named n, and DV does not declare an instance member
 ///   that precludes m.
 ///
-/// @description Checks that a getter doesn't preclude setter and vice versa.
+/// @description Checks that a getter doesn't preclude a setter and vice versa.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/expect.dart';

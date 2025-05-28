@@ -20,7 +20,7 @@
 ///
 /// @description Check that it's not an error if an enum declaration has `Enum`
 /// as a superinterface, and it declares a non-abstract instance setter named
-/// `hashCode=`, but the setter/getter signature constraint does apply.
+/// `hashCode=`.
 /// @author sgrekhov@unipro.ru
 
 enum E1 {
