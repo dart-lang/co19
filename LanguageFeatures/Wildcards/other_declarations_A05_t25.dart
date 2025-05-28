@@ -62,7 +62,6 @@ enum E5 {
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
-// [cfe] unspecified
   final int _ = 5;
 //          ^
 // [cfe] unspecified
@@ -73,7 +72,6 @@ enum E6 {
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
-// [cfe] unspecified
   int _() => 6;
 //    ^
 // [cfe] unspecified
@@ -92,7 +90,6 @@ enum E7 {
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
-// [cfe] unspecified
   int get _ => 7;
 //        ^
 // [cfe] unspecified

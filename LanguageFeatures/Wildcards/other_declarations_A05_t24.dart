@@ -111,7 +111,6 @@ enum E8 {
   static int _() => 1;
 //           ^
 // [analyzer] unspecified
-// [cfe] unspecified
   void set _(int v) {}
 //         ^
 // [cfe] unspecified

@@ -14,7 +14,6 @@ class C {
   static get v => 5;
 //           ^
 // [analyzer] unspecified
-// [cfe] unspecified
 
   set v(int v1) {
 //    ^

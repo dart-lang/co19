@@ -130,7 +130,6 @@ mixin M8 {
   static int get _ => 1;
 //               ^
 // [analyzer] unspecified
-// [cfe] unspecified
   void set _(int v) {}
 //         ^
 // [cfe] unspecified
