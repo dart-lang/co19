@@ -12,9 +12,10 @@
 ///   a member signature m named n, and DV does not declare an instance member
 ///   that precludes m.
 ///
-/// @description Checks that a getter doesn't preclude setter and vice versa,
-/// and hence the `ET*` types have a getter/setter signature conflict.
+/// @description Checks that a getter doesn't preclude a setter and vice versa.
 /// @author sgrekhov22@gmail.com
+
+import '../../Utils/expect.dart';
 
 class C1 {
   String get n => "C1";
@@ -28,35 +29,34 @@ class C0 = C1 with C2;
 
 extension type ET1(C1 _) implements C1 {
   void set n(int v) {}
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension type ET2(C2 _) implements C2 {
   int get n => 2;
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension type ET3(C0 _) implements C1, C2 {
   int get n => 3;
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension type ET4(C0 _) implements C1, C2 {
   void set n(int v) {}
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
-  print(ET1);
-  print(ET2);
-  print(ET3);
-  print(ET4);
+  ET1 et1 = ET1(C1());
+  et1.n = 1;
+  Expect.equals("C1", et1.n);
+
+  ET2 et2 = ET2(C2());
+  et2.n = "2";
+  Expect.equals(2, et2.n);
+
+  ET3 et3 = ET3(C0());
+  et3.n = "3";
+  Expect.equals(3, et3.n);
+
+  ET4 et4 = ET4(C0());
+  et4.n = 4;
+  Expect.equals("C1", et4.n);
 }

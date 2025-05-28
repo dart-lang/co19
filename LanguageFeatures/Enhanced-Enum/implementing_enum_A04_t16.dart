@@ -18,8 +18,8 @@
 /// "primitive equality", and we want to ensure that enums can be used in
 /// switches.
 ///
-/// @description Check that it's not a compile-time error if a class declaration
-/// has Enum as a superinterface, and it declares a non-abstract instance member
+/// @description Check that it's a compile-time error if a class declaration has
+/// `Enum` as a superinterface, and it declares a non-abstract instance setter
 /// named `hashCode=`, but the setter/getter signature constraint does apply.
 /// @author sgrekhov@unipro.ru
 

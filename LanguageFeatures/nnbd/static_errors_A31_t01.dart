@@ -7,23 +7,22 @@
 /// type of the setter. Note that this error specifically requires subtyping and
 /// not assignability and hence makes no exception for dynamic.
 ///
-/// @description Check that it is an error if a class has a setter and a getter
-/// with the same basename where the return type of the getter is not a subtype
-/// of the argument type of the setter
+/// @description Check that it is not an error if a class has a setter and a
+/// getter with the same basename where the return type of the getter is not a
+/// subtype of the argument type of the setter.
 /// @author sgrekhov@unipro.ru
 /// @issue 40333
 /// @issue 40945
 
+import '../../Utils/expect.dart';
+
 class C {
   void set test(int v) {}
   num get test => 3.14;
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
-  C c = new C();
+  C c = C();
   c.test = 1;
-  c.test;
+  Expect.equals(3.14, c.test);
 }

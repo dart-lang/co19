@@ -18,11 +18,13 @@
 /// "primitive equality", and we want to ensure that enums can be used in
 /// switches.
 ///
-/// @description Check that it's a compile-time error if an enum declaration has
-/// Enum as a superinterface, and it declares a non-abstract instance member
-/// named `index`.
+/// @description Check that it's not an error if an enum declaration has `Enum`
+/// as a superinterface, and it declares a non-abstract instance setter named
+/// `index=`.
 /// @author sgrekhov@unipro.ru
 /// @issue 48353
+
+import '../../Utils/expect.dart';
 
 enum E1 {
   e1,
@@ -37,12 +39,16 @@ enum E2 {
 
   const E2(int i);
   void set index(List<E2> val) {}
-//         ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
-  print(E1);
-  print(E2);
+  E1.e1.index = 42;
+  Expect.equals(0, E1.e1.index);
+  E1.e2.index = 42;
+  Expect.equals(1, E1.e2.index);
+
+  E2.e1.index = <E2>[];
+  Expect.equals(0, E2.e1.index);
+  E2.e2.index = <E2>[];
+  Expect.equals(1, E2.e2.index);
 }
