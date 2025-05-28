@@ -2,10 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion  It is a compile error if a class has a setter named v= with
-/// argument type T and a getter named v with return type S, and S may not be
-/// assigned to T.
-/// TODO (sgrekhov) Assertion is obsolete and should be updated
+/// @assertion It is not an error if a class has a setter named `v=` with
+/// argument type `T` and a getter named `v` with return type `S`, and `S` may
+/// not be assigned to `T`.
 ///
 /// @description Checks that it is not an error if a class has a setter named
 /// `v=` with argument type T and a getter named `v` with return type `S`, and

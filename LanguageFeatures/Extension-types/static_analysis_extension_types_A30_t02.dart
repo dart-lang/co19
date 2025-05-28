@@ -2,12 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if an extension type has a getter
-/// named g with return type R and a setter named g= with parameter type S, and
-/// R is not a subtype of S.
-///
-/// This rule is applicable to instance getters and setters as well as static
-/// getters and setters.
+/// @assertion It is not an error if an extension type has an instance getter
+/// named `g` with return type `R` and a setter named `g=` with parameter type
+/// `S`, and `R` is not a subtype of `S`.
 ///
 /// @description Checks that it is not an error error if an extension type
 /// declares an instance setter with the same basename as the instance getter

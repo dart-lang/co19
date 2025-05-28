@@ -19,7 +19,7 @@
 /// switches.
 ///
 /// @description Check that it's not an error if a mixin declaration has `Enum`
-/// as a superinterface, and it declares a non-abstract instance member named
+/// as a superinterface, and it declares a non-abstract instance setter named
 /// `hashCode=`, but the setter/getter signature constraint does apply.
 /// @author sgrekhov@unipro.ru
 

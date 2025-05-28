@@ -19,7 +19,7 @@
 /// switches.
 ///
 /// @description Check that it's not an error if an enum declaration has `Enum`
-/// as a superinterface, and it declares a non-abstract instance member named
+/// as a superinterface, and it declares a non-abstract instance setter named
 /// `index`.
 /// @author sgrekhov@unipro.ru
 /// @issue 48353

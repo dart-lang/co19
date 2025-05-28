@@ -17,9 +17,6 @@ mixin M {
 
 class C with M {
   void set v(int val) {}
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
