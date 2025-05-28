@@ -84,7 +84,6 @@ mixin M6 {
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
-// [cfe] unspecified
   int _() => 6;
 //    ^
 // [cfe] unspecified
@@ -108,7 +107,6 @@ mixin M7 {
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
-// [cfe] unspecified
   int get _ => 7;
 //        ^
 // [cfe] unspecified

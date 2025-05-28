@@ -91,7 +91,6 @@ class C6 {
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
-// [cfe] unspecified
   int _() => 6;
 //    ^
 // [cfe] unspecified
@@ -122,7 +121,6 @@ class C7 {
   static void set _(int v) {}
 //                ^
 // [analyzer] unspecified
-// [cfe] unspecified
   int get _ => 7;
 //        ^
 // [cfe] unspecified

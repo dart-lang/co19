@@ -9,7 +9,6 @@
 /// an explicitly defined setter and an instance method with the same name.
 /// @author iefremov
 
-
 class C {
   var _foo;
   set foo(var v) {_foo = v;}
@@ -20,7 +19,5 @@ class C {
 }
 
 main() {
-  C c = new C();
-  c.foo(1);
-  c.foo = 1;
+  print(C);
 }

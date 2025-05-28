@@ -8,7 +8,6 @@
 /// and an instance getter with the same name
 /// @author kaigorodov
 
-
 class C {
   String get foo => "Lily was here";
 
@@ -19,5 +18,5 @@ class C {
 }
 
 main() {
-  C.foo = "foo";
+  print(C);
 }

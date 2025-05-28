@@ -19,5 +19,6 @@ class C {
 }
 
 main() {
-  C.foo = "foo";
+  print(C);
+
 }

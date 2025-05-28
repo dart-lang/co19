@@ -13,7 +13,6 @@
 /// an explicitly defined setter and a static method with the same name.
 /// @author iefremov
 
-
 class C {
   void set foo(var x) {}
   static foo(var z) {}
@@ -23,7 +22,5 @@ class C {
 }
 
 main() {
-  C c = new C();
-  C.foo(1);
-  c.foo = 1;
+  print(C);
 }
