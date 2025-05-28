@@ -15,14 +15,15 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 53489
 
+import '../../Utils/expect.dart';
+
 extension type ET(int id) {
-//                    ^^
-// [cfe] unspecified
   void set id(String i) {}
-//         ^^
-// [analyzer] unspecified
 }
 
 main() {
-  print(ET);
+  ET et = ET(42);
+  Expect.equals(42, et.id);
+  et.id = "42";
+  Expect.equals(42, et.id);
 }

@@ -18,11 +18,13 @@
 /// "primitive equality", and we want to ensure that enums can be used in
 /// switches.
 ///
-/// @description Check that it's a compile-time error if a mixin declaration has
-/// Enum as a superinterface, and it declares a non-abstract instance member
-/// named `index`.
+/// @description Check that it's not an error if a mixin declaration has `Enum`
+/// as a superinterface, and it declares a non-abstract instance member named
+/// `index`.
 /// @author sgrekhov@unipro.ru
 /// @issue 48353
+
+import '../../Utils/expect.dart';
 
 mixin M1 on Enum {
   void set index(int v) {}
@@ -30,9 +32,6 @@ mixin M1 on Enum {
 
 mixin M2 on Enum {
   void set index(List<String> val) {}
-//         ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {

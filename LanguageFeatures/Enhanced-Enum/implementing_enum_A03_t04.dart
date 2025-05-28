@@ -20,13 +20,11 @@
 ///
 /// @description Check that it's a compile-time error if a class has Enum as a
 /// superinterface and the interface of the declarations contains an instance
-/// member with the name values
+/// member with the name `values`.
 /// @author sgrekhov@unipro.ru
 /// @issue 48387
 
 enum E1 {
-//   ^^
-// [analyzer] unspecified
   e1,
   e2;
 

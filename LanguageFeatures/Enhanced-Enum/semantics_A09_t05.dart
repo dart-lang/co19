@@ -46,9 +46,6 @@ enum E2<T> {
 
 enum E3 {
   e1,
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
   e2,
   e3;
 

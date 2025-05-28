@@ -7,8 +7,8 @@
 /// parameter of the corresponding implicitly induced setter is considered to be
 /// covariant-by-declaration
 ///
-/// @description Checks that it is a compile-time error if implicitly induced
-/// getter of a covariant instance variable conflicts with type of a setter
+/// @description Checks that it is not an error if implicitly induced getter of
+/// a covariant instance variable conflicts with the type of a setter.
 /// @author sgrekhov22@gmail.com
 
 mixin M {
