@@ -18,11 +18,15 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 60677
 
-main() {
+test() {
   late int i;
   var x = switch (42) {
     String _ => i = 42,
     _ => 0
   };
   i; // Possibly assigned, see https://github.com/dart-lang/sdk/issues/60677
+}
+
+main() {
+  print(test);
 }

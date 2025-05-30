@@ -10,7 +10,7 @@
 /// declares a static setter with the same basename as the static getter but
 /// with an incompatible type
 /// @author sgrekhov22@gmail.com
-/// @issue 53489
+/// @issue 53489, 58579
 
 import '../../Utils/expect.dart';
 

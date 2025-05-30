@@ -81,6 +81,4 @@ main() {
   test6(1);
   test6("one");
   test6(null);
-
-  test22("");
 }

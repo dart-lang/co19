@@ -35,7 +35,7 @@ test3(Object? x) {
   switch (x) {
     case num v:
       x.expectStaticType<Exactly<num>>();
-    case int _:
+    case int _: // ignore: unreachable_switch_case
       x = 3.14;
       x.expectStaticType<Exactly<num>>();
     case _:
@@ -48,7 +48,7 @@ test3(Object? x) {
 test4(Object? x) {
   var y = switch (x) {
     num _ => x.expectStaticType<Exactly<num>>(),
-    int v when (x = 3.14) > 0 => x.expectStaticType<Exactly<num>>(),
+    int v when (x = 3.14) > 0 => x.expectStaticType<Exactly<num>>(), // ignore: unreachable_switch_case
     _ => x.expectStaticType<Exactly<Object?>>()
   };
   x.expectStaticType<Exactly<Object?>>();

@@ -13,6 +13,7 @@
 /// @description Checks that an instance getter doesn't preclude an instance
 /// setter and vice versa.
 /// @author sgrekhov22@gmail.com
+/// @issue 58579
 
 import '../../Utils/expect.dart';
 
