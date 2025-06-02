@@ -10,7 +10,7 @@
 /// declares an instance setter with the same basename as the representation
 /// variable but with a not compatible type
 /// @author sgrekhov22@gmail.com
-/// @issue 53489
+/// @issue 53489, 58579
 
 import '../../Utils/expect.dart';
 

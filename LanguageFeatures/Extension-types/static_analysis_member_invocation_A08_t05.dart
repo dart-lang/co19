@@ -14,6 +14,7 @@
 ///
 /// @description Checks that a getter doesn't preclude a setter and vice versa.
 /// @author sgrekhov22@gmail.com
+/// @issue 58579
 
 import '../../Utils/expect.dart';
 
