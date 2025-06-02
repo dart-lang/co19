@@ -18,7 +18,8 @@ test1(Object? x) {
   switch (x) {
     case int v when (x = 42) > 0:
     case int v:
-      x.expectStaticType<Exactly<int>>();
+      // See https://github.com/dart-lang/sdk/issues/60708#issuecomment-2887677566
+      x.expectStaticType<Exactly<Object?>>();
     case _:
       x.expectStaticType<Exactly<Object?>>();
   }
@@ -28,7 +29,7 @@ test2(Object? x) {
   switch (x) {
     case int _ when (x = 42) > 0:
     case int v:
-      x.expectStaticType<Exactly<int>>();
+      x.expectStaticType<Exactly<Object?>>();
     case _:
       x.expectStaticType<Exactly<Object?>>();
   }
@@ -38,7 +39,7 @@ test3(Object? x) {
   switch (x) {
     case int _ when (x = 42) > 0:
     case int _:
-      x.expectStaticType<Exactly<int>>();
+      x.expectStaticType<Exactly<Object?>>();
     case _:
       x.expectStaticType<Exactly<Object?>>();
   }
