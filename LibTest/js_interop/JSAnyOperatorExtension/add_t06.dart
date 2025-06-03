@@ -17,16 +17,16 @@ import '../js_utils.dart';
 test(JSAny? a) {
   eval("var object = $a;");
   eval(r'''
-                                  // If object == [1, 2] then:
-    var one = object + 1;         // String "1, 21"
-    var string = object + "s";    // String "1, 2s"
-    var a1 = object + [];         // String "1, 2"
-    var a2 = object + [1, 2];     // String "1, 21,2"
-    var o1 = object + {};         // String "1, 2[object Object]"
-    var o2 = object + {"a": "b"}; // String "1, 2[object Object]"
-    var n = object + null;        // String "1, 2null"
-    var b1 = object + true;       // String "1, 2true"
-    var b2 = object + false;      // String "1, 2false"
+                                  // If object == [1,2] then:
+    var one = object + 1;         // String "1,21"
+    var string = object + "s";    // String "1,2s"
+    var a1 = object + [];         // String "1,2"
+    var a2 = object + [1, 2];     // String "1,21,2"
+    var o1 = object + {};         // String "1,2[object Object]"
+    var o2 = object + {"a": "b"}; // String "1,2[object Object]"
+    var n = object + null;        // String "1,2null"
+    var b1 = object + true;       // String "1,2true"
+    var b2 = object + false;      // String "1,2false"
   ''');
 
   Expect.equals(globalContext["one"], a.add(1.toJS));
