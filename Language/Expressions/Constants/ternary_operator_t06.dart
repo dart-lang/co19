@@ -32,5 +32,5 @@ class C {
 
 main() {
   const c = const C();
-  const x = 1 > 2 ? "$c" : ""; // "$c" is potentially constant but not a constant
+  const x = 1 > 2 ? "$c" : ""; // "$c" is potentially constant but not constant
 }
