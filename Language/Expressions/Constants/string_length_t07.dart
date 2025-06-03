@@ -10,7 +10,7 @@
 ///   constant expression that evaluates to `null`, or it evaluates to an
 ///   instance of `String` and `length` denotes an instance getter invocation.
 ///
-/// @description Checks that `e?.length` is apotentially constant expression if
+/// @description Checks that `e?.length` is a potentially constant expression if
 /// `e` is a potentially constant expression.
 /// @author sgrekhov22@gmail.com
 
@@ -25,8 +25,8 @@ class C {
 
 const c = const C();
 
-// "$c" is a potentially constant but not a constant. `true ? e2 : e3` is a
-// constant only if `e2` is constant and `e3` is a potentially constant.
+// "$c" is potentially constant but not constant. `true ? e2 : e3` is a constant
+// only if `e2` is constant and `e3` is potentially constant.
 const int? c1 = true ? null : "$c"?.length;
 
 main() {

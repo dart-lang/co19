@@ -17,7 +17,7 @@
 
 const c = "c";
 
-const c1 = "$c"?.length;
+const c1 = "$c"?.length; // ignore: invalid_null_aware_operator
 const String? one = "1";
 const int? c2 = one?.length;
 const String? three = null;
