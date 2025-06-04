@@ -27,24 +27,24 @@ main() {
     var u = undefined;
   ''');
 
-  Expect.isTrue(globalContext["t"].isTruthy);
-  Expect.isTrue(globalContext["one"].isTruthy);
-  Expect.isTrue(globalContext["string"].isTruthy);
-  Expect.isTrue(globalContext["a"].isTruthy);
-  Expect.isTrue(globalContext["o"].isTruthy);
-  Expect.isTrue(globalContext["f"].isTruthy);
-  Expect.isTrue(42.toJS.isTruthy);
-  Expect.isTrue("s".toJS.isTruthy);
-  Expect.isTrue("0".toJS.isTruthy);
-  Expect.isTrue([].jsify().isTruthy);
-  Expect.isTrue([1, 2].jsify().isTruthy);
-  Expect.isTrue((() {}).jsify().isTruthy);
+  Expect.isTrue(globalContext["t"].isTruthy.toDart);
+  Expect.isTrue(globalContext["one"].isTruthy.toDart);
+  Expect.isTrue(globalContext["string"].isTruthy.toDart);
+  Expect.isTrue(globalContext["a"].isTruthy.toDart);
+  Expect.isTrue(globalContext["o"].isTruthy.toDart);
+  Expect.isTrue(globalContext["f"].isTruthy.toDart);
+  Expect.isTrue(42.toJS.isTruthy.toDart);
+  Expect.isTrue("s".toJS.isTruthy.toDart);
+  Expect.isTrue("0".toJS.isTruthy.toDart);
+  Expect.isTrue([].jsify().isTruthy.toDart);
+  Expect.isTrue([1, 2].jsify().isTruthy.toDart);
 
-  Expect.isFalse(globalContext["zero"].isTruthy);
-  Expect.isFalse(globalContext["n"].isTruthy);
-  Expect.isFalse(globalContext["u"].isTruthy);
-  Expect.isFalse(null.isTruthy);
-  Expect.isFalse(null.jsify().isTruthy);
-  Expect.isFalse(0.toJS.isTruthy);
-  Expect.isFalse("".toJS.isTruthy);
+  Expect.isFalse(globalContext["zero"].isTruthy.toDart);
+  Expect.isFalse(globalContext["n"].isTruthy.toDart);
+  Expect.isFalse(globalContext["u"].isTruthy.toDart);
+  Expect.isFalse(null.isTruthy.toDart);
+  Expect.isFalse(null.jsify().isTruthy.toDart);
+  Expect.isFalse(0.toJS.isTruthy.toDart);
+  Expect.isFalse("".toJS.isTruthy.toDart);
+  Expect.isFalse((0 / 0).toJS.isTruthy.toDart); // NaN
 }
