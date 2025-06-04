@@ -17,35 +17,26 @@ import '../js_utils.dart';
 main() {
   eval(r'''
     function foo() {}
+    
+    var one = foo + 1;         // String "function foo() {}1"
+    var string = foo + "s";    // String "function foo() {}s"
+    var a1 = foo + [1, 2];     // String "function foo() {}1,2"
+    var o1 = foo + {};         // String "function foo() {}[object Object]"
+    var o2 = foo + {"a": "b"}; // String "function foo() {}[object Object]"
+    var n = foo + null;        // String "function foo() {}null"
+    var b1 = foo + true;       // String "function foo() {}true"
+    var b2 = foo + false;      // String "function foo() {}false"
   ''');
 
   var f = globalContext["foo"];
 
-  // We cannot rely on the string representation of a JS function.
-  // Therefore let's check the end of the string only.
-
-  // String "function foo() {}1"
-  Expect.isTrue("${f.add(1.toJS)}".endsWith("1"));
-
-  // String "function foo() {}s"
-  Expect.isTrue("${f.add("s".toJS)}".endsWith("s"));
-
-  // String "function foo() {}1,2"
-  Expect.isTrue("${f.add([1, 2].jsify())}".endsWith("1,2"));
-
-  // String "function foo() {}[object Object]"
-  Expect.isTrue("${f.add(JSObject())}".endsWith("${JSObject()}"));
-
-  // String "function foo() {}[object Object]"
-  Expect.isTrue("${f.add({"a": "b"}.jsify())}".endsWith("${JSObject()}"));
-
-  // String "function foo() {}null"
-  Expect.isTrue("${f.add(null.jsify())}".endsWith("null"));
-  Expect.isTrue("${f.add(null)}".endsWith("null"));
-
-  // String "function foo() {}true"
-  Expect.isTrue("${f.add(true.toJS)}".endsWith("true"));
-
-  // String "function foo() {}false"
-  Expect.isTrue("${f.add(false.toJS)}".endsWith("false"));
+  Expect.equals(globalContext["one"], f.add(1.toJS));
+  Expect.equals(globalContext["string"], f.add("s".toJS));
+  Expect.equals(globalContext["a1"], f.add([1, 2].jsify()));
+  Expect.equals(globalContext["o1"], f.add(JSObject()));
+  Expect.equals(globalContext["o2"], f.add({"a": "b"}.jsify()));
+  Expect.equals(globalContext["n"], f.add(null.jsify()));
+  Expect.equals(globalContext["n"], f.add(null));
+  Expect.equals(globalContext["b1"], f.add(true.toJS));
+  Expect.equals(globalContext["b2"], f.add(false.toJS));
 }
