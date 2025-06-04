@@ -14,36 +14,37 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
-void foo() {}
-
 main() {
-  var f = foo.jsify();
+  eval(r'''
+    function foo() {}
+  ''');
+  var f = globalContext["foo"];
 
-  // We cannot rely on the string representation of a Dart function.
+  // We cannot rely on the string representation of a JS function.
   // Therefore let's check the beginning of the string only.
 
-  // String "[object Object]function() {}"
+  // String "[object Object]function foo() {}
   Expect.isTrue("${JSObject().add(f)}".startsWith("${JSObject()}"));
 
-  // String "42function() {}"
+  // String "42function foo() {}"
   Expect.isTrue("${42.toJS.add(f)}".startsWith("42"));
 
-  // String "xxxfunction() {}"
+  // String "xxxfunction foo() {}"
   Expect.isTrue("${"xxx".toJS.add(f)}".startsWith("xxx"));
 
-  // String "1,2function() {}"
+  // String "1,2function foo() {}"
   Expect.isTrue("${[1, 2].jsify().add(f)}".startsWith("1,2"));
 
-  // String "nullfunction() {}"
+  // String "nullfunction foo() {}"
   Expect.isTrue("${null.jsify().add(f)}".startsWith("null"));
   Expect.isTrue("${null.add(f)}".startsWith("null"));
 
-  // String "truefunction() {}"
+  // String "truefunction foo() {}"
   Expect.isTrue("${true.toJS.add(f)}".startsWith("true"));
 
-  // String "falsefunction() {}"
+  // String "falsefunction foo() {}"
   Expect.isTrue("${false.toJS.add(f)}".startsWith("false"));
 
-  // String "function() {}function() {}"
+  // String "function foo() {}function foo() {}"
   Expect.isTrue("${f.add(f)}".startsWith("${"".toJS.add(f)}"));
 }

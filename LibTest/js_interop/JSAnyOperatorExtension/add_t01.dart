@@ -28,14 +28,15 @@ main() {
     var b2 = object + false;      // String "[object Object]false"
   ''');
 
-  Expect.equals(globalContext["one"], JSObject().add(1.toJS));
-  Expect.equals(globalContext["string"], JSObject().add("s".toJS));
-  Expect.equals(globalContext["a1"], JSObject().add([].jsify()));
-  Expect.equals(globalContext["a2"], JSObject().add([1, 2].jsify()));
-  Expect.equals(globalContext["o1"], JSObject().add(JSObject()));
-  Expect.equals(globalContext["o2"], JSObject().add({"a": "b"}.jsify()));
-  Expect.equals(globalContext["n"], JSObject().add(null.jsify()));
-  Expect.equals(globalContext["n"], JSObject().add(null));
-  Expect.equals(globalContext["b1"], JSObject().add(true.toJS));
-  Expect.equals(globalContext["b2"], JSObject().add(false.toJS));
+  JSObject o = JSObject();
+  Expect.equals(globalContext["one"], o.add(1.toJS));
+  Expect.equals(globalContext["string"], o.add("s".toJS));
+  Expect.equals(globalContext["a1"], o.add([].jsify()));
+  Expect.equals(globalContext["a2"], o.add([1, 2].jsify()));
+  Expect.equals(globalContext["o1"], o.add(JSObject()));
+  Expect.equals(globalContext["o2"], o.add({"a": "b"}.jsify()));
+  Expect.equals(globalContext["n"], o.add(null.jsify()));
+  Expect.equals(globalContext["n"], o.add(null));
+  Expect.equals(globalContext["b1"], o.add(true.toJS));
+  Expect.equals(globalContext["b2"], o.add(false.toJS));
 }

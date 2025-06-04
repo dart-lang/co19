@@ -14,8 +14,8 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
-test(JSAny? a) {
-  eval("var object = $a;");
+test(JSAny? a, String s) {
+  eval("var object = $s;");
   eval(r'''
                                   // If object == [1,2] then:
     var one = object + 1;         // String "1,21"
@@ -42,6 +42,6 @@ test(JSAny? a) {
 }
 
 main() {
-  test([].jsify());
-  test([1, 2].jsify());
+  test([].jsify(), "[]");
+  test([1, 2].jsify(), "[1, 2]");
 }
