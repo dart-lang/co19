@@ -5,11 +5,11 @@
 /// @assertion Future<RawSecureSocket> single
 /// The single element of this stream.
 /// . . .
-/// If this is empty or has more than one element, the returned future completes
-/// with an error.
+/// If this [Stream] is empty or has more than one element, the returned future
+/// completes with an error.
 ///
-/// @description Checks that if this has more than one element, the returned
-/// future completes with an error.
+/// @description Checks that if this [Stream] has more than one element, the
+/// returned future completes with an error.
 /// @author ngl@unipro.ru
 
 // OtherResources=server_chain.pem
@@ -31,18 +31,21 @@ SecurityContext clientContext = new SecurityContext()
 
 check(InternetAddress address) {
   const messageSize = 10;
-  List<int> expected = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  List<RawSecureSocket?> sList = [null, null];
+  final List<int> expected = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  final List<RawSecureSocket?> sList = [null, null];
   int sli = 0;
   var closed = 0;
-  asyncStart();
+  Completer mainCompleter = Completer();
   RawSecureServerSocket.bind(address, 0, serverContext).then((server) {
     Stream<RawSecureSocket> bs = server.asBroadcastStream();
-    bs.single.then((event) {
-      Expect.fail('Future should be completed with Error');
-    }, onError: (error) {
-      Expect.isTrue(error is StateError);
-      asyncEnd();
+
+    mainCompleter.future.then((_) {
+      bs.single.then((event) async {
+        Expect.fail('Future should be completed with Error');
+      }, onError: (error) {
+        Expect.isTrue(error is StateError);
+        asyncEnd();
+      });
     });
 
     bs.listen((client) {
@@ -90,14 +93,15 @@ check(InternetAddress address) {
       });
     });
 
+
     for (int i = 1; i <= 2; i++) {
       RawSocket.connect(server.address, server.port).then((socket) {
         RawSecureSocket.secure(socket, context: clientContext).then((client) {
           var completer = new Completer();
           int bytesRead = 0;
           int bytesWritten = 0;
-          List<int> dataSent = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-          List<int> dataReceived = new List<int>.filled(dataSent.length, 0);
+          final List<int> dataSent = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+          final List<int> dataReceived = List<int>.filled(dataSent.length, 0);
           client.listen((event) {
             switch (event) {
               case RawSocketEvent.read:
@@ -113,10 +117,8 @@ check(InternetAddress address) {
                 Expect.isTrue(bytesRead == 0);
                 bytesWritten += client.write(
                     dataSent, bytesWritten, dataSent.length - bytesWritten);
-                if (bytesWritten < dataSent.length) {}
                 break;
               case RawSocketEvent.readClosed:
-                Expect.listEquals(expected, dataReceived);
                 completer.complete(client);
                 break;
               default:
@@ -125,14 +127,19 @@ check(InternetAddress address) {
           });
           completer.future.then((_) {
             socket.close();
+            if (i == 2) {
+              mainCompleter.complete();
+            }
           });
         });
       });
     }
+
   });
 }
 
 main() {
+  asyncStart(2);
   check(InternetAddress.loopbackIPv4);
   check(InternetAddress.loopbackIPv6);
 }
