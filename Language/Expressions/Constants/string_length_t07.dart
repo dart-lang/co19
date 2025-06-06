@@ -27,7 +27,7 @@ const c = const C();
 
 // "$c" is potentially constant but not constant. `true ? e2 : e3` is a constant
 // only if `e2` is constant and `e3` is potentially constant.
-const int? c1 = true ? null : "$c"?.length;
+const int? c1 = true ? null : "$c"?.length; //ignore: invalid_null_aware_operator
 
 main() {
   print(c1);
