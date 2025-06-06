@@ -36,7 +36,7 @@ check(InternetAddress address) {
   int sli = 0;
   var closed = 0;
   Completer mainCompleter = Completer();
-  RawSecureServerSocket.bind(address, 0, serverContext).then((server) async {
+  RawSecureServerSocket.bind(address, 0, serverContext).then((server) {
     Stream<RawSecureSocket> bs = server.asBroadcastStream();
 
     mainCompleter.future.then((_) {
