@@ -6,7 +6,7 @@
 /// The result of `this && any` in JavaScript.
 ///
 /// @description Check that `and` returns result of `this && any` in JavaScript.
-/// Test a `NaN` as `this`.
+/// Test `NaN` as `this`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -17,54 +17,70 @@ import '../js_utils.dart';
 main() {
   eval(r'''
     function foo() {}
+    var underTest = 0 / 0;
     
-    var o = 0 / 0;
-    var one = o && 1;         // NaN
-    var string = o && "s";    // NaN
-    var a1 = o && [];         // NaN
-    var a2 = o && [1, 2];     // NaN
-    var n = o && null;        // NaN
-    var b1 = o && true;       // NaN
-    var b2 = o && false;      // NaN
-    var nan = o && (0 / 0);   // NaN
-    var f = o && foo;         // NaN
+    var andNum = underTest && 2;               // NaN
+    var andStringNum = underTest && "2";       // NaN
+    var andStringText = underTest && "text";   // NaN
+    var andNull = underTest && null;           // NaN
+    var andZero = underTest && 0;              // NaN
+    var andNaN = underTest && (0 / 0);         // NaN
+    var andArrayEmpty = underTest && [];       // NaN
+    var andArrayNum = underTest && [1, 2];     // NaN
+    var andTrue = underTest && true;           // NaN
+    var andFalse = underTest && false;         // NaN
+    var andFunction = underTest && foo;        // NaN
   ''');
+  var underTest = (0 / 0).toJS;
 
-  var nan = (0 / 0);
-  Expect.equals(globalContext["one"].dartify(), nan.toJS.and(1.toJS).dartify());
   Expect.equals(
-    globalContext["string"].dartify(),
-    nan.toJS.and("s".toJS).dartify(),
+    globalContext["andNum"].dartify(),
+    underTest.and(2.toJS).dartify(),
   );
   Expect.equals(
-    globalContext["a1"].dartify(),
-    nan.toJS.and([].jsify()).dartify(),
+    globalContext["andStringNum"].dartify(),
+    underTest.and("2".toJS).dartify(),
   );
   Expect.equals(
-    globalContext["a2"].dartify(),
-    nan.toJS.and([1, 2].jsify()).dartify(),
+    globalContext["andStringText"].dartify(),
+    underTest.and("text".toJS).dartify(),
   );
   Expect.equals(
-    globalContext["n"].dartify(),
-    nan.toJS.and(null.jsify()).dartify(),
-  );
-  Expect.equals(globalContext["n"].dartify(), nan.toJS.and(null).dartify());
-  Expect.equals(
-    globalContext["b1"].dartify(),
-    nan.toJS.and(true.toJS).dartify(),
+    globalContext["andNull"].dartify(),
+    underTest.and(null.jsify()).dartify(),
   );
   Expect.equals(
-    globalContext["b2"].dartify(),
-    nan.toJS.and(false.toJS).dartify(),
+    globalContext["andNull"].dartify(),
+    underTest.and(null).dartify(),
   );
   Expect.equals(
-    globalContext["nan"].dartify(),
-    nan.toJS.and((0 / 0).toJS).dartify(),
+    globalContext["andZero"].dartify(),
+    underTest.and(0.toJS).dartify(),
   );
   Expect.equals(
-    globalContext["f"].dartify(),
-    nan.toJS.and(globalContext["foo"]).dartify(),
+    globalContext["andNaN"].dartify(),
+    underTest.and((0 / 0).toJS).dartify(),
+  );
+  Expect.equals(
+    globalContext["andArrayEmpty"].dartify(),
+    underTest.and([].jsify()).dartify(),
+  );
+  Expect.equals(
+    globalContext["andArrayNum"].dartify(),
+    underTest.and([1, 2].jsify()).dartify(),
+  );
+  Expect.equals(
+    globalContext["andTrue"].dartify(),
+    underTest.and(true.toJS).dartify(),
+  );
+  Expect.equals(
+    globalContext["andFalse"].dartify(),
+    underTest.and(false.toJS).dartify(),
+  );
+  Expect.equals(
+    globalContext["andFunction"].dartify(),
+    underTest.and(globalContext["foo"]).dartify(),
   );
   var dartObj = {"id": "I am an object in Dart"};
-  Expect.isTrue((nan.toJS.and(dartObj.jsify()).dartify() as num).isNaN);
+  Expect.isTrue((underTest.and(dartObj.jsify()).dartify() as num).isNaN);
 }

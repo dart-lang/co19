@@ -17,29 +17,70 @@ import '../js_utils.dart';
 main() {
   eval(r'''
     function foo() {}
-  
-    var o = 0;
-    var one = o && 1;         // 0
-    var string = o && "s";    // 0
-    var a1 = o && [];         // 0
-    var a2 = o && [1, 2];     // 0
-    var n = o && null;        // 0
-    var b1 = o && true;       // 0
-    var b2 = o && false;      // 0
-    var nan = o && (0 / 0);   // 0
-    var f = o && foo;         // 0
+    var underTest = 0;
+    
+    var andNum = underTest && 2;               // 0
+    var andStringNum = underTest && "2";       // 0
+    var andStringText = underTest && "text";   // 0
+    var andNull = underTest && null;           // 0
+    var andZero = underTest && 0;              // 0
+    var andNaN = underTest && (0 / 0);         // 0
+    var andArrayEmpty = underTest && [];       // 0
+    var andArrayNum = underTest && [1, 2];     // 0
+    var andTrue = underTest && true;           // 0
+    var andFalse = underTest && false;         // 0
+    var andFunction = underTest && foo;        // 0
   ''');
+  var underTest = 0.toJS;
 
-  Expect.equals(globalContext["one"], 0.toJS.and(1.toJS));
-  Expect.equals(globalContext["string"], 0.toJS.and("s".toJS));
-  Expect.equals(globalContext["a1"], 0.toJS.and([].jsify()));
-  Expect.equals(globalContext["a2"], 0.toJS.and([1, 2].jsify()));
-  Expect.equals(globalContext["n"], 0.toJS.and(null.jsify()));
-  Expect.equals(globalContext["n"], 0.toJS.and(null));
-  Expect.equals(globalContext["b1"], 0.toJS.and(true.toJS));
-  Expect.equals(globalContext["b2"], 0.toJS.and(false.toJS));
-  Expect.equals(globalContext["nan"], 0.toJS.and((0 / 0).toJS));
-  Expect.equals(globalContext["f"], 0.toJS.and(globalContext["foo"]));
+  Expect.equals(
+    globalContext["andNum"].dartify(),
+    underTest.and(2.toJS).dartify(),
+  );
+  Expect.equals(
+    globalContext["andStringNum"].dartify(),
+    underTest.and("2".toJS).dartify(),
+  );
+  Expect.equals(
+    globalContext["andStringText"].dartify(),
+    underTest.and("text".toJS).dartify(),
+  );
+  Expect.equals(
+    globalContext["andNull"].dartify(),
+    underTest.and(null.jsify()).dartify(),
+  );
+  Expect.equals(
+    globalContext["andNull"].dartify(),
+    underTest.and(null).dartify(),
+  );
+  Expect.equals(
+    globalContext["andZero"].dartify(),
+    underTest.and(0.toJS).dartify(),
+  );
+  Expect.equals(
+    globalContext["andNaN"].dartify(),
+    underTest.and((0 / 0).toJS).dartify(),
+  );
+  Expect.equals(
+    globalContext["andArrayEmpty"].dartify(),
+    underTest.and([].jsify()).dartify(),
+  );
+  Expect.equals(
+    globalContext["andArrayNum"].dartify(),
+    underTest.and([1, 2].jsify()).dartify(),
+  );
+  Expect.equals(
+    globalContext["andTrue"].dartify(),
+    underTest.and(true.toJS).dartify(),
+  );
+  Expect.equals(
+    globalContext["andFalse"].dartify(),
+    underTest.and(false.toJS).dartify(),
+  );
+  Expect.equals(
+    globalContext["andFunction"].dartify(),
+    underTest.and(globalContext["foo"]).dartify(),
+  );
   var dartObj = {"id": "I am an object in Dart"};
-  Expect.equals(0, 0.toJS.and(dartObj.jsify()).dartify());
+  Expect.equals(0, underTest.and(dartObj.jsify()).dartify());
 }
