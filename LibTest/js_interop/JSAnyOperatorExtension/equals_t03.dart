@@ -17,4 +17,8 @@ void main() {
   var underTest = 2.toJS;
   testEquals(underTest, "2");
   Expect.isTrue(underTest.equals(underTest).dartify());
+
+  underTest = (-2).toJS;
+  testEquals(underTest, "-2");
+  Expect.isTrue(underTest.equals(underTest).dartify());
 }
