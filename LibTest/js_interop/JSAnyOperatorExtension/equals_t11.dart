@@ -6,7 +6,7 @@
 /// The result of `this == other` in JavaScript.
 ///
 /// @description Check that `equals` returns result of `this == other` in
-/// JavaScript. Test a `NaN` as `this`.
+/// JavaScript. Test 'null' as `this`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -14,7 +14,11 @@ import '../../../Utils/expect.dart';
 import 'equals_lib.dart';
 
 void main() {
-  var underTest = (0 / 0).toJS;
-  testEquals(underTest, "0 / 0");
-  Expect.isFalse(underTest.equals(underTest).dartify());// Yes, it's false in JS
+  var underTest = null.jsify();
+  testEquals(underTest, "null");
+  Expect.isTrue(underTest.equals(underTest).dartify());
+
+  underTest = null;
+  testEquals(underTest, "null");
+  Expect.isTrue(underTest.equals(underTest).dartify());
 }

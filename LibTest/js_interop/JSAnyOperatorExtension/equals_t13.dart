@@ -6,7 +6,7 @@
 /// The result of `this == other` in JavaScript.
 ///
 /// @description Check that `equals` returns result of `this == other` in
-/// JavaScript. Test a non-empty array as `this`.
+/// JavaScript. Test an empty array as `this`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -14,7 +14,7 @@ import '../../../Utils/expect.dart';
 import 'equals_lib.dart';
 
 void main() {
-  var underTest = [1, 2].jsify();
-  testEquals(underTest, "[1, 2]");
+  var underTest = [].jsify();
+  testEquals(underTest, "[]");
   Expect.isTrue(underTest.equals(underTest).dartify());
 }

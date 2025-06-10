@@ -6,19 +6,21 @@
 /// The result of `this == other` in JavaScript.
 ///
 /// @description Check that `equals` returns result of `this == other` in
-/// JavaScript. Test a numeric string  as `this`.
+/// JavaScript. Test a function as `this`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
+import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import 'equals_lib.dart';
+import '../js_utils.dart';
 
 void main() {
-  var underTest = "2".toJS;
-  testEquals(underTest, "'2'");
-  Expect.isTrue(underTest.equals(underTest).dartify());
+  eval(r'''
+    function bar() {}
+  ''');
 
-  underTest = "-1".toJS;
-  testEquals(underTest, "'-1'");
+  var underTest = globalContext["bar"].jsify();
+  testEquals(underTest, "bar");
   Expect.isTrue(underTest.equals(underTest).dartify());
 }

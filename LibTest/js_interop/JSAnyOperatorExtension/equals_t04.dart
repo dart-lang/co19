@@ -17,4 +17,8 @@ void main() {
   var underTest = 3.14.toJS;
   testEquals(underTest, "3.14");
   Expect.isTrue(underTest.equals(underTest).dartify());
+
+  underTest = (-1.1).toJS;
+  testEquals(underTest, "-1.1");
+  Expect.isTrue(underTest.equals(underTest).dartify());
 }
