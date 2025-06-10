@@ -6,7 +6,7 @@
 /// The result of `this == other` in JavaScript.
 ///
 /// @description Check that `equals` returns result of `this == other` in
-/// JavaScript. Test an empty JS object as `this`.
+/// JavaScript
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
