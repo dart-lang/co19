@@ -401,7 +401,10 @@ final bool assertStatementsEnabled = (() {
 })();
 
 /// Is true iff js compiler is used
-final bool isJS = identical(1.0, 1);
+const bool isJS = bool.fromEnvironment('dart.tool.dart2js');
+
+/// Is true iff dart2wasm compiler is used
+const bool isWasm = bool.fromEnvironment('dart.tool.dart2wasm');
 
 /// Checks that objects are identical at the compile time
 class CheckIdentical {
