@@ -32,6 +32,9 @@ testEquals(JSAny? underTest) {
 }
 
 main() {
+  eval("globalThis.underTest = 2;");
+  testEquals(2.toJS);
+
   eval("globalThis.underTest = 42;");
   testEquals(42.toJS);
 
