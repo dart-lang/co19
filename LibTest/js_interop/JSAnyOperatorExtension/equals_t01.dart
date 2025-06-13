@@ -18,6 +18,7 @@ testEquals(JSAny? underTest) {
     var eqNum = underTest == 2; 
     var eqString = underTest == "text";
     var eqNull = underTest == null;
+    var eqUndefined = underTest == undefined;
     var eqNaN = underTest == (0 / 0);
     var eqArray = underTest == [1, 2];
     var eqTrue = underTest == true;
@@ -26,6 +27,7 @@ testEquals(JSAny? underTest) {
   jsExpectEquals(globalContext["eqNum"], underTest.equals(2.toJS));
   jsExpectEquals(globalContext["eqString"], underTest.equals("text".toJS));
   jsExpectEquals(globalContext["eqNull"], underTest.equals(null));
+  jsExpectEquals(globalContext["eqUndefined"], underTest.equals(null));
   jsExpectEquals(globalContext["eqNaN"], underTest.equals((0 / 0).toJS));
   jsExpectEquals(globalContext["eqArray"], underTest.equals([1, 2].jsify()));
   jsExpectEquals(globalContext["eqTrue"], underTest.equals(true.toJS));
@@ -42,6 +44,9 @@ main() {
   testEquals('Some text'.toJS);
 
   eval("globalThis.underTest = null;");
+  testEquals(null);
+
+  eval("globalThis.underTest = undefined;");
   testEquals(null);
 
   eval("globalThis.underTest = 0 / 0;");
