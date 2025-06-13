@@ -6,6 +6,23 @@
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
+import '../../Utils/expect.dart';
 
 @JS()
 external void eval(String code);
+
+void jsExpectEquals(JSAny? expected, JSAny? actual) {
+  if (isJS) {
+    Expect.equals(expected, actual);
+    return;
+  }
+  if (isWasm) {
+    Expect.equals(expected.dartify(), actual.dartify());
+    return;
+  }
+  throw Exception("Only dart2js and dart2wasm compilers supported");
+}
+
+void jsExpectArrayEquals(JSAny? expected, JSAny? actual) {
+    Expect.listEquals(expected.dartify(), actual.dartify());
+}
