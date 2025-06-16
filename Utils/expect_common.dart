@@ -400,8 +400,14 @@ final bool assertStatementsEnabled = (() {
   return result;
 })();
 
-/// Is true iff js compiler is used
-const bool isJS = identical(1.0, 1);
+/// Is true iff ddc compiler is used
+const bool isDDC = const bool.fromEnvironment('dart.library._ddc_only');
+
+/// Is true iff dart2js compiler is used
+const bool isDart2JS = const bool.fromEnvironment('dart.tool.dart2js');
+
+/// Is true iff JS compiler is used
+const bool isJS = isDart2JS || isDDC;
 
 /// Is true iff dart2wasm compiler is used
 const bool isWasm = bool.fromEnvironment('dart.tool.dart2wasm');
