@@ -15,6 +15,11 @@
 /// that `assignedIn(U)` is detected by flow analysis.
 /// @author sgrekhov22@gmail.com
 
+class C {
+  int v;
+  C(this.v);
+}
+
 test1() {
   late int n;
   for (
@@ -63,8 +68,59 @@ test3() {
   };
 }
 
+test4() {
+  late int n;
+  for (
+  ;
+      () {
+    if (1 > 2) {
+      n; // possibly assigned
+    }
+    return true;
+  }();
+  (n,) = (42,)
+  ) {}
+}
+
+test5() {
+  late int n;
+  [
+    for (
+    ;
+        () {
+      if (1 > 2) {
+        n;
+      }
+      return true;
+    }();
+    (x: n) = (x: 42)
+    )
+      0,
+  ];
+}
+
+test6() {
+  late int n;
+  <int, int>{
+    for (
+    ;
+        () {
+      if (1 > 2) {
+        n;
+      }
+      return true;
+    }();
+    C(v: n) = C(42)
+    )
+      0: 0,
+  };
+}
+
 main() {
   print(test1);
   print(test2);
   print(test3);
+  print(test4);
+  print(test5);
+  print(test6);
 }

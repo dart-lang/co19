@@ -15,7 +15,12 @@
 /// then this variable is treated in `U` as 'possibly assigned`.
 /// @author sgrekhov22@gmail.com
 
-main() {
+class C {
+  int v;
+  C(this.v);
+}
+
+test1() {
   late int i;
   try {
     for (;; i) { // Possibly assigned. https://github.com/dart-lang/sdk/issues/42232#issuecomment-690681385
@@ -23,4 +28,41 @@ main() {
       i = 42;
     }
   } catch (_) {}
+}
+
+test2() {
+  late int i;
+  try {
+    for (;; i) {
+      continue;
+      (i,) = (42,);
+    }
+  } catch (_) {}
+}
+
+test3() {
+  late int i;
+  try {
+    for (;; i) {
+      continue;
+      (x: i) = (x: 42);
+    }
+  } catch (_) {}
+}
+
+test4() {
+  late int i;
+  try {
+    for (;; i) {
+      continue;
+      C(v: i) = C(42);
+    }
+  } catch (_) {}
+}
+
+main() {
+  test1();
+  test2();
+  test3();
+  test4();
 }
