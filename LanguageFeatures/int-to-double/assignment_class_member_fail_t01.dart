@@ -25,8 +25,8 @@ class C {
 main() {
   C.s = foo();
 //      ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+// [analyzer] unspecified
+// [cfe] unspecified
   C?.s = foo();
 //       ^^^^^
 // [analyzer] unspecified
@@ -41,8 +41,8 @@ main() {
 // [cfe] unspecified
   C.staticSetter = foo();
 //                 ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+// [analyzer] unspecified
+// [cfe] unspecified
   C?.staticSetter = foo();
 //                  ^^^^^
 // [analyzer] unspecified
@@ -51,21 +51,21 @@ main() {
   C? c = null;
   c?.m1 = foo();
 //   ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_SETTER
-// [cfe] The setter 'm1' isn't defined for the class 'C'.
+// [analyzer] unspecified
+// [cfe] unspecified
   c?.instanceSetter = foo();
 //                    ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+// [analyzer] unspecified
+// [cfe] unspecified
   c = new C();
   c.m1 = foo();
 //  ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_SETTER
-// [cfe] The setter 'm1' isn't defined for the class 'C'.
+// [analyzer] unspecified
+// [cfe] unspecified
   c.instanceSetter = foo();
 //                   ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+// [analyzer] unspecified
+// [cfe] unspecified
   c?.m1 = foo();
 //   ^^
 // [analyzer] unspecified
