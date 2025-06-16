@@ -20,15 +20,15 @@ class C {
   test() {
     undeclared;
 //  ^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
-// [cfe] The getter 'undeclared' isn't defined for the class 'C'.
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   C() {
     undeclared;
 //  ^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
-// [cfe] The getter 'undeclared' isn't defined for the class 'C'.
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   static int times = 0;

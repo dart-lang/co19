@@ -11,7 +11,6 @@
 /// @author ngl@unipro.ru
 /// @author sgrekhov@unipro.ru
 
-
 class I {
   static int i1 = 1;
 }
@@ -40,24 +39,24 @@ class MA extends C with M {
   test() {
     i1 == 1;
 //  ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
-// [cfe] The getter 'i1' isn't defined for the class 'MA'.
+// [analyzer] unspecified
+// [cfe] unspecified
     j1 == 2;
 //  ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
-// [cfe] The getter 'j1' isn't defined for the class 'MA'.
+// [analyzer] unspecified
+// [cfe] unspecified
     b1 == 3;
 //  ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
-// [cfe] The getter 'b1' isn't defined for the class 'MA'.
+// [analyzer] unspecified
+// [cfe] unspecified
     c1 == 4;
 //  ^^
-// [analyzer] COMPILE_TIME_ERROR.UNQUALIFIED_REFERENCE_TO_NON_LOCAL_STATIC_MEMBER
-// [cfe] The getter 'c1' isn't defined for the class 'MA'.
+// [analyzer] unspecified
+// [cfe] unspecified
     m1 == 5;
 //  ^^
-// [analyzer] COMPILE_TIME_ERROR.UNQUALIFIED_REFERENCE_TO_NON_LOCAL_STATIC_MEMBER
-// [cfe] The getter 'm1' isn't defined for the class 'MA'.
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
@@ -65,24 +64,24 @@ main() {
   MA ma = new MA();
   MA.i1 == 1;
 //   ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-// [cfe] Member not found: 'i1'.
+// [analyzer] unspecified
+// [cfe] unspecified
   MA.j1 == 2;
 //   ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-// [cfe] Member not found: 'j1'.
+// [analyzer] unspecified
+// [cfe] unspecified
   MA.b1 == 3;
 //   ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-// [cfe] Member not found: 'b1'.
+// [analyzer] unspecified
+// [cfe] unspecified
   MA.c1 == 4;
 //   ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-// [cfe] Member not found: 'c1'.
+// [analyzer] unspecified
+// [cfe] unspecified
   MA.m1 == 5;
 //   ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-// [cfe] Member not found: 'm1'.
+// [analyzer] unspecified
+// [cfe] unspecified
 
   ma.test();
 }

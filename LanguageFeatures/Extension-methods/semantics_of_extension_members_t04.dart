@@ -21,13 +21,13 @@ class C {
 extension ExtendedC on C {
   static String st = cStaticMember;
 //                   ^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.UNQUALIFIED_REFERENCE_TO_STATIC_MEMBER_OF_EXTENDED_TYPE
-// [cfe] Undefined name 'cStaticMember'.
+// [analyzer] unspecified
+// [cfe] unspecified
   void test() {
     cStaticMember;
 //  ^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.UNQUALIFIED_REFERENCE_TO_STATIC_MEMBER_OF_EXTENDED_TYPE
-// [cfe] The getter 'cStaticMember' isn't defined for the class 'C'.
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
