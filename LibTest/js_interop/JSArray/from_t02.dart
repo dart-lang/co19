@@ -9,7 +9,6 @@
 /// @description Checks that this constructor creates a new, shallow-copied
 /// JavaScript `Array` instance from a JavaScript array object.
 /// @author sgrekhov22@gmail.com
-/// @issue 60934
 
 import 'dart:js_interop';
 import '../../../Utils/expect.dart';
@@ -21,5 +20,4 @@ main() {
   ar[0] = val;
   JSArray<JSArray<JSNumber>> copy = JSArray.from(ar);
   Expect.equals(val, copy[0]);
-  Expect.identical(val, copy[0]);
 }

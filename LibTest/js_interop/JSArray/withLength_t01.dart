@@ -31,5 +31,5 @@ main() {
     var v1 = a1[0];
     ''');
   Expect.isTrue((globalContext["b1"] as JSBoolean).toDart);
-  Expect.isNull(globalContext["v1"].dartify());
+  Expect.isNull(globalContext["v1"]);
 }
