@@ -42,7 +42,7 @@ main() {
 
   switch (n) {
     case int x when 1 > 2:
-    case num when 1 > 2:
+    case num _ when 1 > 2:
       print(x);
 //          ^
 // [analyzer] unspecified
@@ -64,7 +64,7 @@ main() {
 
   switch (n) {
     case int x when 1 > 2:
-    case num when 1 > 2:
+    case num _ when 1 > 2:
       print(x);
 //          ^
 // [analyzer] unspecified
