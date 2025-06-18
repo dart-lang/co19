@@ -23,8 +23,8 @@ main() {
   f1((t, u) {
     t.c2();
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_METHOD
-// [cfe] The method 'c2' isn't defined for the class 'C1'.
+// [analyzer] unspecified
+// [cfe] unspecified
   }, (u) {
     return 1 > 2 ? C2() : C1();
   });

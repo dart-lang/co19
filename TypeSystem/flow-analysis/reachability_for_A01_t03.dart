@@ -16,6 +16,11 @@
 /// `before(C)`.
 /// @author sgrekhov22@gmail.com
 
+class C {
+  int v;
+  C(this.v);
+}
+
 test1() {
   int n;
   for (n = 42; n > 0;) { // n definitely assigned
@@ -39,8 +44,86 @@ test3() {
   };
 }
 
+test4() {
+  int n;
+  for ((n,) = (42,); n > 0;) {
+    break;
+  }
+}
+
+test5() {
+  int n;
+  for ((x: n) = (x: 42); n > 0;) {
+    break;
+  }
+}
+
+test6() {
+  int n;
+  for (C(v: n) = C(42); n > 0;) {
+    break;
+  }
+}
+
+test7() {
+  int n;
+  [
+    for ((n,) = (42,); n < 0;)
+      0
+  ];
+}
+
+test8() {
+  int n;
+  [
+    for ((x: n) = (x: 42); n < 0;)
+      0
+  ];
+}
+
+test9() {
+  int n;
+  [
+    for (C(v: n) = C(42); n < 0;)
+      0
+  ];
+}
+
+test10() {
+  int n;
+  <int, int>{
+    for ((n,) = (42,); n < 0;)
+      0: 0
+  };
+}
+
+test11() {
+  int n;
+  <int, int>{
+    for ((x: n) = (x: 42); n < 0;)
+      0: 0
+  };
+}
+
+test12() {
+  int n;
+  <int, int>{
+    for (C(v: n) = C(42); n < 0;)
+      0: 0
+  };
+}
+
 main() {
   test1();
   test2();
   test3();
+  test4();
+  test5();
+  test6();
+  test7();
+  test8();
+  test9();
+  test10();
+  test11();
+  test12();
 }

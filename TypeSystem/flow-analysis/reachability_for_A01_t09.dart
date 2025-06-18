@@ -16,12 +16,15 @@
 /// `before(C)` as well.
 /// @author sgrekhov22@gmail.com
 
-int? x = (2 > 1) ? 1 : null;
+class C {
+  int v;
+  C(this.v);
+}
 
 test1(int? n) {
   if (n != null) { // n promoted to `int`
-    for (() {n = x;}; n > 0;) { // n demoted to `int?`
-//                      ^
+    for (() {n = 42;}; n > 0;) { // n demoted to `int?`
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
     }
@@ -31,8 +34,8 @@ test1(int? n) {
 test2(int? n) {
   if (n != null) {
     [
-      for (() {n = x;}; n > 0;) 0
-//                        ^
+      for (() {n = 42;}; n > 0;) 0
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
     ];
@@ -42,8 +45,40 @@ test2(int? n) {
 test3(int? n) {
   if (n != null) {
     <int, int>{
-      for (() {n = x;}; n > 0;) 0: 0
-//                        ^
+      for (() {n = 42;}; n > 0;) 0: 0
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    };
+  }
+}
+
+test4(int? n) {
+  if (n != null) { // n promoted to `int`
+    for (() {(n,) = (42,);}; n > 0;) { // n demoted to `int?`
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+}
+
+test5(int? n) {
+  if (n != null) {
+    [
+      for (() {(x: n) = (x: 42);}; n > 0;) 0
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ];
+  }
+}
+
+test6(int? n) {
+  if (n != null) {
+    <int, int>{
+      for (() {C(v: n) = C(42);}; n > 0;) 0: 0
+//                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
     };
@@ -54,4 +89,7 @@ main() {
   print(test1);
   print(test2);
   print(test3);
+  print(test4);
+  print(test5);
+  print(test6);
 }

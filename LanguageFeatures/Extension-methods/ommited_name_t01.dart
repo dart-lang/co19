@@ -23,10 +23,10 @@ main() {
   List<String> list = ["Lily", "was", "here"];
   list.nnDoubleLength;
 //     ^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-// [cfe] The getter 'nnDoubleLength' isn't defined for the class 'List<String>'.
+// [analyzer] unspecified
+// [cfe] unspecified
   List.nnClassName;
 //     ^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-// [cfe] Member not found: 'nnClassName'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -15,7 +15,10 @@
 /// that `capturedIn(S)` is detected by flow analysis.
 /// @author sgrekhov22@gmail.com
 
-int? x = (2 > 1) ? 1 : null;
+class C {
+  int v;
+  C(this.v);
+}
 
 test1(int? n) {
   if (n != null) { // n promoted to `int`
@@ -23,7 +26,7 @@ test1(int? n) {
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      late int? v = (n = x); // n demoted to `int?`
+      late int? v = (n = 42); // n demoted to `int?`
     }
   }
 }
@@ -36,7 +39,7 @@ test2(int? n) {
 // [analyzer] unspecified
 // [cfe] unspecified
         () {
-          late int? v = (n = x);
+          late int? v = (n = 42);
         }
     ];
   }
@@ -49,7 +52,7 @@ test3(int? n) {
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        () {late int? v = (n = x);}: 0
+        () {late int? v = (n = 42);}: 0
     };
   }
 }
@@ -61,7 +64,44 @@ test4(int? n) {
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-        0: () {late int? v = (n = x);}
+        0: () {late int? v = (n = 42);}
+    };
+  }
+}
+
+test5(int? n) {
+  if (n != null) { // n promoted to `int`
+    for (;n > 0 ;) {
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      late (int,) v = ((n,) = (42,));
+    }
+  }
+}
+
+test6(int? n) {
+  if (n != null) {
+    [
+      for (;n > 0 ;)
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+        () {
+          late ({int x}) v = ((x: n) = (x: 42));
+        }
+    ];
+  }
+}
+
+test7(int? n) {
+  if (n != null) {
+    <Object, Object>{
+      for (; n > 0;)
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+        () {late C? v = (C(v: n) = C(42));}: 0
     };
   }
 }
@@ -71,4 +111,7 @@ main() {
   print(test2);
   print(test3);
   print(test4);
+  print(test5);
+  print(test6);
+  print(test7);
 }

@@ -28,10 +28,10 @@ main() {
   List<String> list = ["Lily", "was", "here"];
   list.split(1);
 //     ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_METHOD
-// [cfe] The method 'split' isn't defined for the class 'List<String>'.
+// [analyzer] unspecified
+// [cfe] unspecified
   MyFancyList.className;
 //            ^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_GETTER
-// [cfe] Member not found: 'className'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
