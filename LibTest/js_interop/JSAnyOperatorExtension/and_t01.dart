@@ -15,12 +15,12 @@ import '../js_utils.dart';
 
 testAnd(JSAny? underTest) {
   eval(r'''
-    var andNum = underTest && 2; 
-    var andString = underTest && "text";
-    var andNull = underTest && null;
-    var andNaN = underTest && (0 / 0);
-    var andArray = underTest && [1, 2];
-    var andTrue = underTest && true;
+    globalThis.andNum = underTest && 2; 
+    globalThis.andString = underTest && "text";
+    globalThis.andNull = underTest && null;
+    globalThis.andNaN = underTest && (0 / 0);
+    globalThis.andArray = underTest && [1, 2];
+    globalThis.andTrue = underTest && true;
   ''');
 
   jsExpectEquals(globalContext["andNum"], underTest.and(2.toJS));

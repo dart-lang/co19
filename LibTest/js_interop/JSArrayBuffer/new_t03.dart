@@ -26,19 +26,19 @@ external JSObject get opt32;
 
 main() {
   eval(r'''
-    var opt0 = {'maxByteLength': 0};
-    var opt1 = {'maxByteLength': true};
-    var opt32 = {'maxByteLength': 32};
+    globalThis.opt0 = {'maxByteLength': 0};
+    globalThis.opt1 = {'maxByteLength': true};
+    globalThis.opt32 = {'maxByteLength': 32};
   ''');
   globalContext["a0"] = JSArrayBuffer(0, opt0);
-  eval("var length0 = a0.byteLength;");
-  Expect.equals(0, globalContext["length0"].dartify());
+  eval("globalThis.length0 = a0.byteLength;");
+  Expect.equals(0, (globalContext["length0"] as JSNumber).toDartInt);
 
   globalContext["a1"] = JSArrayBuffer(1, opt1);
-  eval("var length1 = a1.byteLength;");
-  Expect.equals(1, globalContext["length1"].dartify());
+  eval("globalThis.length1 = a1.byteLength;");
+  Expect.equals(1, (globalContext["length1"] as JSNumber).toDartInt);
 
   globalContext["a16"] = JSArrayBuffer(16, opt32);
-  eval("var length16 = a16.byteLength;");
-  Expect.equals(16, globalContext["length16"].dartify());
+  eval("globalThis.length16 = a16.byteLength;");
+  Expect.equals(16, (globalContext["length16"] as JSNumber).toDartInt);
 }

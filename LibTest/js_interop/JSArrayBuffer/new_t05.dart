@@ -23,8 +23,8 @@ external JSObject get optText;
 
 main() {
   eval(r'''
-    var optNaN = {'maxByteLength': 0 / 0};
-    var optText = {'maxByteLength': 'text'};
+    globalThis.optNaN = {'maxByteLength': 0 / 0};
+    globalThis.optText = {'maxByteLength': 'text'};
   ''');
   Expect.throws(() {
     JSArrayBuffer(1, optNaN);

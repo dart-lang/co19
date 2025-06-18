@@ -25,9 +25,9 @@ external JSObject get opt32;
 
 main() {
   eval(r'''
-    var opt0 = {'maxByteLength': 0};
-    var opt1 = {'maxByteLength': 1};
-    var opt32 = {'maxByteLength': 32};
+    globalThis.opt0 = {'maxByteLength': 0};
+    globalThis.opt1 = {'maxByteLength': 1};
+    globalThis.opt32 = {'maxByteLength': 32};
   ''');
   Expect.throws(() {
     JSArrayBuffer(1, opt0);

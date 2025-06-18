@@ -15,16 +15,16 @@ import '../js_utils.dart';
 
 main() {
   eval(r'''
-    var t = this;
-    var one = 1;
-    var string = "s";
-    var a = [];
-    var o = {};
-    var f = function() {};
+    globalThis.t = this;
+    globalThis.one = 1;
+    globalThis.string = "s";
+    globalThis.a = [];
+    globalThis.o = {};
+    globalThis.f = function() {};
     
-    var zero = 0;
-    var n = null;
-    var u = undefined;
+    globalThis.zero = 0;
+    globalThis.n = null;
+    globalThis.u = undefined;
   ''');
 
   Expect.isTrue(globalContext["t"].isTruthy.toDart);

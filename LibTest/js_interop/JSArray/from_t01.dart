@@ -23,8 +23,8 @@ main() {
   globalContext["a0"] = a0;
   globalContext["copy0"] = copy0;
   eval(r'''
-    var b0 = copy0.length === 0;
-    var eq0 = copy0 == a0;
+    globalThis.b0 = copy0.length === 0;
+    globalThis.eq0 = copy0 == a0;
     ''');
   Expect.isTrue((globalContext["b0"] as JSBoolean).toDart);
   Expect.isFalse((globalContext["eq0"] as JSBoolean).toDart);

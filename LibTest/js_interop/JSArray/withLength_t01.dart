@@ -19,7 +19,7 @@ main() {
   Expect.equals(0, a0.length);
   globalContext["a0"] = a0;
   eval(r'''
-    var b0 = a0.length === 0;
+    globalThis.b0 = a0.length === 0;
     ''');
   Expect.isTrue((globalContext["b0"] as JSBoolean).toDart);
 
@@ -27,8 +27,8 @@ main() {
   Expect.equals(1, a1.length);
   globalContext["a1"] = a1;
   eval(r'''
-    var b1 = a1.length === 1;
-    var v1 = a1[0];
+    globalThis.b1 = a1.length === 1;
+    globalThis.v1 = a1[0];
     ''');
   Expect.isTrue((globalContext["b1"] as JSBoolean).toDart);
   Expect.isNull(globalContext["v1"]);

@@ -20,7 +20,7 @@ main() {
   Expect.equals(maxArrayLength, a0.length);
   globalContext["a0"] = a0;
   eval(r'''
-    var b0 = a0.length === 4294967295;
+    globalThis.b0 = a0.length === 4294967295;
     ''');
   Expect.isTrue((globalContext["b0"] as JSBoolean).toDart);
 }

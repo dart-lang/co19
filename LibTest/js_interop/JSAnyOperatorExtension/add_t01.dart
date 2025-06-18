@@ -14,12 +14,12 @@ import '../js_utils.dart';
 
 testAdd(JSAny? underTest) {
   eval(r'''
-    var addNum = underTest + 2; 
-    var addString = underTest + "text";
-    var addNull = underTest + null;
-    var addNaN = underTest + (0 / 0);
-    var addArray = underTest + [1, 2];
-    var addTrue = underTest + true;
+    globalThis.addNum = underTest + 2; 
+    globalThis.addString = underTest + "text";
+    globalThis.addNull = underTest + null;
+    globalThis.addNaN = underTest + (0 / 0);
+    globalThis.addArray = underTest + [1, 2];
+    globalThis.addTrue = underTest + true;
   ''');
 
   jsExpectEquals(globalContext["addNum"], underTest.add(2.toJS));

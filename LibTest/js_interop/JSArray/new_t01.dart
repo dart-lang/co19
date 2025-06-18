@@ -19,6 +19,6 @@ main() {
   JSArray<JSString> a1 = JSArray<JSString>();
   Expect.equals(0, a1.length);
   globalContext["a1"] = a1;
-  eval("var b = a1.length === 0;");
+  eval("globalThis.b = a1.length === 0;");
   Expect.isTrue((globalContext["b"] as JSBoolean).toDart);
 }

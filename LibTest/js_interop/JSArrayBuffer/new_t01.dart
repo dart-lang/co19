@@ -17,14 +17,14 @@ import '../js_utils.dart';
 
 main() {
   globalContext["a0"] = JSArrayBuffer(0);
-  eval("var length0 = a0.byteLength;");
-  Expect.equals(0, globalContext["length0"].dartify());
+  eval("globalThis.length0 = a0.byteLength;");
+  Expect.equals(0, (globalContext["length0"] as JSNumber).toDartInt);
 
   globalContext["a1"] = JSArrayBuffer(1);
-  eval("var length1 = a1.byteLength;");
-  Expect.equals(1, globalContext["length1"].dartify());
+  eval("globalThis.length1 = a1.byteLength;");
+  Expect.equals(1, (globalContext["length1"] as JSNumber).toDartInt);
 
   globalContext["a16"] = JSArrayBuffer(16);
-  eval("var length16 = a16.byteLength;");
-  Expect.equals(16, globalContext["length16"].dartify());
+  eval("globalThis.length16 = a16.byteLength;");
+  Expect.equals(16, (globalContext["length16"] as JSNumber).toDartInt);
 }
