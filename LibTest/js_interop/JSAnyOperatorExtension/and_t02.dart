@@ -42,7 +42,7 @@ main() {
   testAnd(null);
 
   eval("globalThis.underTest = 0 / 0;");
-  testAnd((0 / 0).jsify());
+  testAnd((0 / 0).toJS);
 
   eval("globalThis.underTest = false;");
   testAnd(false.toJS);

@@ -42,10 +42,10 @@ main() {
   testDivide(null);
 
   eval("globalThis.underTest = 0 / 0;");
-  testDivide((0 / 0).jsify());
+  testDivide((0 / 0).toJS);
 
   eval("globalThis.underTest = [0];");
-  testDivide([].jsify());
+  testDivide(<JSAny?>[].toJS);
 
   eval("globalThis.underTest = false;");
   testDivide(false.toJS);
