@@ -15,12 +15,12 @@ import '../js_utils.dart';
 
 testExponentiate(JSAny? underTest) {
   eval(r'''
-    var expNum = underTest ** 2; 
-    var expString = underTest ** "text";
-    var expNull = underTest ** null;
-    var expNaN = underTest ** (0 / 0);
-    var expArray = underTest ** [1, 2];
-    var expTrue = underTest ** true;
+    globalThis.expNum = underTest ** 2; 
+    globalThis.expString = underTest ** "text";
+    globalThis.expNull = underTest ** null;
+    globalThis.expNaN = underTest ** (0 / 0);
+    globalThis.expArray = underTest ** [1, 2];
+    globalThis.expTrue = underTest ** true;
   ''');
 
   jsExpectEquals(globalContext["expNum"], underTest.exponentiate(2.toJS));

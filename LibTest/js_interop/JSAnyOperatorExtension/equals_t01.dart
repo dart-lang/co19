@@ -15,13 +15,13 @@ import '../js_utils.dart';
 
 testEquals(JSAny? underTest) {
   eval(r'''
-    var eqNum = underTest == 2; 
-    var eqString = underTest == "text";
-    var eqNull = underTest == null;
-    var eqUndefined = underTest == undefined;
-    var eqNaN = underTest == (0 / 0);
-    var eqArray = underTest == [1, 2];
-    var eqTrue = underTest == true;
+    globalThis.eqNum = underTest == 2; 
+    globalThis.eqString = underTest == "text";
+    globalThis.eqNull = underTest == null;
+    globalThis.eqUndefined = underTest == undefined;
+    globalThis.eqNaN = underTest == (0 / 0);
+    globalThis.eqArray = underTest == [1, 2];
+    globalThis.eqTrue = underTest == true;
   ''');
 
   jsExpectEquals(globalContext["eqNum"], underTest.equals(2.toJS));

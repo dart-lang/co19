@@ -15,21 +15,12 @@ import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
 main() {
-  JSArray<JSString> a0 = JSArray<JSString>.withLength(0);
-  Expect.equals(0, a0.length);
+  const maxArrayLength = 4294967295; // 2^32 - 1
+  JSArray<JSString> a0 = JSArray<JSString>.withLength(maxArrayLength);
+  Expect.equals(maxArrayLength, a0.length);
   globalContext["a0"] = a0;
   eval(r'''
-    globalThis.b0 = a0.length === 0;
+    globalThis.b0 = a0.length === 4294967295;
     ''');
   Expect.isTrue((globalContext["b0"] as JSBoolean).toDart);
-
-  JSArray<JSString> a1 = JSArray<JSString>.withLength(1);
-  Expect.equals(1, a1.length);
-  globalContext["a1"] = a1;
-  eval(r'''
-    globalThis.b1 = a1.length === 1;
-    globalThis.v1 = a1[0];
-    ''');
-  Expect.isTrue((globalContext["b1"] as JSBoolean).toDart);
-  Expect.isNull(globalContext["v1"]);
 }

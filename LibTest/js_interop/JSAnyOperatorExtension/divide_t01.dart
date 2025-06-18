@@ -15,12 +15,12 @@ import '../js_utils.dart';
 
 testDivide(JSAny? underTest) {
   eval(r'''
-    var divNum = underTest / 2; 
-    var divString = underTest / "text";
-    var divNull = underTest / null;
-    var divNaN = underTest / (0 / 0);
-    var divArray = underTest / [1, 2];
-    var divTrue = underTest / true;
+    globalThis.divNum = underTest / 2; 
+    globalThis.divString = underTest / "text";
+    globalThis.divNull = underTest / null;
+    globalThis.divNaN = underTest / (0 / 0);
+    globalThis.divArray = underTest / [1, 2];
+    globalThis.divTrue = underTest / true;
   ''');
 
   jsExpectEquals(globalContext["divNum"], underTest.divide(2.toJS));
