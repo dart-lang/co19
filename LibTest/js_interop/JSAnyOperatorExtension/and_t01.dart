@@ -39,7 +39,7 @@ main() {
   testAnd('Some text'.toJS);
 
   eval("globalThis.underTest = [];");
-  testAnd([].jsify());
+  testAnd(<JSAny?>[].toJS);
 
   eval("globalThis.underTest = true;");
   testAnd(true.toJS);

@@ -15,20 +15,32 @@ import '../js_utils.dart';
 
 testUnsignedRightShift(JSAny? underTest) {
   eval(r'''
-    var shNum = underTest >>> 2; 
-    var shString = underTest >>> "text";
-    var shNull = underTest >>> null;
-    var shNaN = underTest >>> (0 / 0);
-    var shArray = underTest >>> [1, 2];
-    var shTrue = underTest >>> true;
+    globalThis.shNum = underTest >>> 2; 
+    globalThis.shString = underTest >>> "text";
+    globalThis.shNull = underTest >>> null;
+    globalThis.shNaN = underTest >>> (0 / 0);
+    globalThis.shArray = underTest >>> [1, 2];
+    globalThis.shTrue = underTest >>> true;
   ''');
 
   jsExpectEquals(globalContext["shNum"], underTest.unsignedRightShift(2.toJS));
-  jsExpectEquals(globalContext["shString"], underTest.unsignedRightShift("text".toJS));
+  jsExpectEquals(
+    globalContext["shString"],
+    underTest.unsignedRightShift("text".toJS),
+  );
   jsExpectEquals(globalContext["shNull"], underTest.unsignedRightShift(null));
-  jsExpectEquals(globalContext["shNaN"], underTest.unsignedRightShift((0 / 0).toJS));
-  jsExpectEquals(globalContext["shArray"], underTest.unsignedRightShift([1, 2].jsify()));
-  jsExpectEquals(globalContext["shTrue"], underTest.unsignedRightShift(true.toJS));
+  jsExpectEquals(
+    globalContext["shNaN"],
+    underTest.unsignedRightShift((0 / 0).toJS),
+  );
+  jsExpectEquals(
+    globalContext["shArray"],
+    underTest.unsignedRightShift([1, 2].jsify()),
+  );
+  jsExpectEquals(
+    globalContext["shTrue"],
+    underTest.unsignedRightShift(true.toJS),
+  );
 }
 
 main() {
@@ -42,10 +54,10 @@ main() {
   testUnsignedRightShift(null);
 
   eval("globalThis.underTest = 0 / 0;");
-  testUnsignedRightShift((0 / 0).jsify());
+  testUnsignedRightShift((0 / 0).toJS);
 
   eval("globalThis.underTest = [];");
-  testUnsignedRightShift([].jsify());
+  testUnsignedRightShift(<JSAny?>[].toJS);
 
   eval("globalThis.underTest = false;");
   testUnsignedRightShift(false.toJS);

@@ -15,12 +15,12 @@ import '../js_utils.dart';
 
 testMultiply(JSAny? underTest) {
   eval(r'''
-    var mlNum = underTest * 2; 
-    var mlString = underTest * "text";
-    var mlNull = underTest * null;
-    var mlNaN = underTest * (0 / 0);
-    var mlArray = underTest * [1, 2];
-    var mlTrue = underTest * true;
+    globalThis.mlNum = underTest * 2; 
+    globalThis.mlString = underTest * "text";
+    globalThis.mlNull = underTest * null;
+    globalThis.mlNaN = underTest * (0 / 0);
+    globalThis.mlArray = underTest * [1, 2];
+    globalThis.mlTrue = underTest * true;
   ''');
 
   jsExpectEquals(globalContext["mlNum"], underTest.multiply(2.toJS));
@@ -42,10 +42,10 @@ main() {
   testMultiply(null);
 
   eval("globalThis.underTest = 0 / 0;");
-  testMultiply((0 / 0).jsify());
+  testMultiply((0 / 0).toJS);
 
   eval("globalThis.underTest = [0];");
-  testMultiply([].jsify());
+  testMultiply(<JSAny?>[].toJS);
 
   eval("globalThis.underTest = false;");
   testMultiply(false.toJS);

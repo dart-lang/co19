@@ -15,12 +15,12 @@ import '../js_utils.dart';
 
 testOr(JSAny? underTest) {
   eval(r'''
-    var orNum = underTest || 2; 
-    var orString = underTest || "text";
-    var orNull = underTest || null;
-    var orNaN = underTest || (0 / 0);
-    var orArray = underTest || [1, 2];
-    var orTrue = underTest || true;
+    globalThis.orNum = underTest || 2; 
+    globalThis.orString = underTest || "text";
+    globalThis.orNull = underTest || null;
+    globalThis.orNaN = underTest || (0 / 0);
+    globalThis.orArray = underTest || [1, 2];
+    globalThis.orTrue = underTest || true;
   ''');
 
   if (underTest.isA<JSArray>()) {
@@ -44,13 +44,13 @@ testOr(JSAny? underTest) {
 main() {
   eval("globalThis.underTest = 42;");
   testOr(42.toJS);
-/*
+
   eval("globalThis.underTest = 'Some text';");
   testOr('Some text'.toJS);
 
   eval("globalThis.underTest = [];");
-  testOr([].jsify());
+  testOr(<JSAny?>[].toJS);
 
   eval("globalThis.underTest = true;");
-  testOr(true.toJS);*/
+  testOr(true.toJS);
 }

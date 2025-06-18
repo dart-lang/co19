@@ -15,13 +15,13 @@ import '../js_utils.dart';
 
 testNotEquals(JSAny? underTest) {
   eval(r'''
-    var neNum = underTest != 2; 
-    var neString = underTest != "text";
-    var neNull = underTest != null;
-    var neUndefined = underTest != undefined;
-    var neNaN = underTest != (0 / 0);
-    var neArray = underTest != [1, 2];
-    var neTrue = underTest != true;
+    globalThis.neNum = underTest != 2; 
+    globalThis.neString = underTest != "text";
+    globalThis.neNull = underTest != null;
+    globalThis.neUndefined = underTest != undefined;
+    globalThis.neNaN = underTest != (0 / 0);
+    globalThis.neArray = underTest != [1, 2];
+    globalThis.neTrue = underTest != true;
   ''');
 
   jsExpectEquals(globalContext["neNum"], underTest.notEquals(2.toJS));
@@ -50,10 +50,10 @@ main() {
   testNotEquals(null);
 
   eval("globalThis.underTest = 0 / 0;");
-  testNotEquals((0 / 0).jsify());
+  testNotEquals((0 / 0).toJS);
 
   eval("globalThis.underTest = [0];");
-  testNotEquals([].jsify());
+  testNotEquals(<JSAny?>[].jsify());
 
   eval("globalThis.underTest = false;");
   testNotEquals(false.toJS);

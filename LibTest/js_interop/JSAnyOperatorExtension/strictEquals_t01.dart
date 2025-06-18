@@ -16,13 +16,13 @@ import '../js_utils.dart';
 
 testStrictEquals(JSAny? underTest) {
   eval(r'''
-    var eqNum = underTest === 2; 
-    var eqString = underTest === "text";
-    var eqNull = underTest === null;
-    var eqUndefined = underTest === undefined;
-    var eqNaN = underTest === (0 / 0);
-    var eqArray = underTest === [1, 2];
-    var eqTrue = underTest === true;
+    globalThis.eqNum = underTest === 2; 
+    globalThis.eqString = underTest === "text";
+    globalThis.eqNull = underTest === null;
+    globalThis.eqUndefined = underTest === undefined;
+    globalThis.eqNaN = underTest === (0 / 0);
+    globalThis.eqArray = underTest === [1, 2];
+    globalThis.eqTrue = underTest === true;
   ''');
 
   jsExpectEquals(globalContext["eqNum"], underTest.strictEquals(2.toJS));
@@ -69,10 +69,10 @@ main() {
   testStrictEquals(undefined);
 
   eval("globalThis.underTest = 0 / 0;");
-  testStrictEquals((0 / 0).jsify());
+  testStrictEquals((0 / 0).toJS);
 
   eval("globalThis.underTest = [0];");
-  testStrictEquals([].jsify());
+  testStrictEquals(<JSAny?>[].toJS);
 
   eval("globalThis.underTest = false;");
   testStrictEquals(false.toJS);

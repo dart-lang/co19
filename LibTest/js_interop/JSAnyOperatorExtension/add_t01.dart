@@ -41,10 +41,10 @@ main() {
   testAdd(null);
 
   eval("globalThis.underTest = 0 / 0;");
-  testAdd((0 / 0).jsify());
+  testAdd((0 / 0).toJS);
 
   eval("globalThis.underTest = [];");
-  testAdd([].jsify());
+  testAdd(<JSAny?>[].toJS);
 
   eval("globalThis.underTest = false;");
   testAdd(false.toJS);

@@ -48,10 +48,10 @@ main() {
   testExponentiate(null);
 
   eval("globalThis.underTest = 0 / 0;");
-  testExponentiate((0 / 0).jsify());
+  testExponentiate((0 / 0).toJS);
 
   eval("globalThis.underTest = [0];");
-  testExponentiate([].jsify());
+  testExponentiate(<JSAny?>[].toJS);
 
   eval("globalThis.underTest = false;");
   testExponentiate(false.toJS);

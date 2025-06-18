@@ -15,12 +15,12 @@ import '../js_utils.dart';
 
 testModulo(JSAny? underTest) {
   eval(r'''
-    var modNum = underTest % 2; 
-    var modString = underTest % "text";
-    var modNull = underTest % null;
-    var modNaN = underTest % (0 / 0);
-    var modArray = underTest % [1, 2];
-    var modTrue = underTest % true;
+    globalThis.modNum = underTest % 2; 
+    globalThis.modString = underTest % "text";
+    globalThis.modNull = underTest % null;
+    globalThis.modNaN = underTest % (0 / 0);
+    globalThis.modArray = underTest % [1, 2];
+    globalThis.modTrue = underTest % true;
   ''');
 
   jsExpectEquals(globalContext["modNum"], underTest.modulo(2.toJS));
@@ -42,10 +42,10 @@ main() {
   testModulo(null);
 
   eval("globalThis.underTest = 0 / 0;");
-  testModulo((0 / 0).jsify());
+  testModulo((0 / 0).toJS);
 
   eval("globalThis.underTest = [0];");
-  testModulo([].jsify());
+  testModulo(<JSAny?>[].toJS);
 
   eval("globalThis.underTest = false;");
   testModulo(false.toJS);

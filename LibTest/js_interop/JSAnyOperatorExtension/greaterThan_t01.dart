@@ -15,12 +15,12 @@ import '../js_utils.dart';
 
 testGreaterThan(JSAny? underTest) {
   eval(r'''
-    var gtNum = underTest > 2;
-    var gtString = underTest > "text";
-    var gtNull = underTest > null;
-    var gtNaN = underTest > (0 / 0);
-    var gtArray = underTest > [1, 2];
-    var gtTrue = underTest > true;
+    globalThis.gtNum = underTest > 2;
+    globalThis.gtString = underTest > "text";
+    globalThis.gtNull = underTest > null;
+    globalThis.gtNaN = underTest > (0 / 0);
+    globalThis.gtArray = underTest > [1, 2];
+    globalThis.gtTrue = underTest > true;
   ''');
 
   jsExpectEquals(globalContext["gtNum"], underTest.greaterThan(2.toJS));
@@ -51,10 +51,10 @@ main() {
   testGreaterThan(null);
 
   eval("globalThis.underTest = 0 / 0;");
-  testGreaterThan((0 / 0).jsify());
+  testGreaterThan((0 / 0).toJS);
 
   eval("globalThis.underTest = [0];");
-  testGreaterThan([].jsify());
+  testGreaterThan(<JSAny?>[].toJS);
 
   eval("globalThis.underTest = false;");
   testGreaterThan(false.toJS);

@@ -50,10 +50,10 @@ main() {
   testEquals(null);
 
   eval("globalThis.underTest = 0 / 0;");
-  testEquals((0 / 0).jsify());
+  testEquals((0 / 0).toJS);
 
   eval("globalThis.underTest = [0];");
-  testEquals([].jsify());
+  testEquals(<JSAny?>[].toJS);
 
   eval("globalThis.underTest = false;");
   testEquals(false.toJS);

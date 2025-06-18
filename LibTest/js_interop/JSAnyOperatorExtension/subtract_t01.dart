@@ -15,12 +15,12 @@ import '../js_utils.dart';
 
 testSubtract(JSAny? underTest) {
   eval(r'''
-    var subNum = underTest - 2; 
-    var subString = underTest - "text";
-    var subNull = underTest - null;
-    var subNaN = underTest - (0 / 0);
-    var subArray = underTest - [1, 2];
-    var subTrue = underTest - true;
+    globalThis.subNum = underTest - 2; 
+    globalThis.subString = underTest - "text";
+    globalThis.subNull = underTest - null;
+    globalThis.subNaN = underTest - (0 / 0);
+    globalThis.subArray = underTest - [1, 2];
+    globalThis.subTrue = underTest - true;
   ''');
 
   jsExpectEquals(globalContext["subNum"], underTest.subtract(2.toJS));
@@ -42,10 +42,10 @@ main() {
   testSubtract(null);
 
   eval("globalThis.underTest = 0 / 0;");
-  testSubtract((0 / 0).jsify());
+  testSubtract((0 / 0).toJS);
 
   eval("globalThis.underTest = [];");
-  testSubtract([].jsify());
+  testSubtract(<JSAny?>[].toJS);
 
   eval("globalThis.underTest = false;");
   testSubtract(false.toJS);

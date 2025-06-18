@@ -15,12 +15,12 @@ import '../js_utils.dart';
 
 testOr(JSAny? underTest) {
   eval(r'''
-    var orNum = underTest || 2; 
-    var orString = underTest || "text";
-    var orNull = underTest || null;
-    var orNaN = underTest || (0 / 0);
-    var orArray = underTest || [1, 2];
-    var orTrue = underTest || true;
+    globalThis.orNum = underTest || 2; 
+    globalThis.orString = underTest || "text";
+    globalThis.orNull = underTest || null;
+    globalThis.orNaN = underTest || (0 / 0);
+    globalThis.orArray = underTest || [1, 2];
+    globalThis.orTrue = underTest || true;
   ''');
 
   jsExpectEquals(globalContext["orNum"], underTest.or(2.toJS));
@@ -42,7 +42,7 @@ main() {
   testOr(null);
 
   eval("globalThis.underTest = 0 / 0;");
-  testOr((0 / 0).jsify());
+  testOr((0 / 0).toJS);
 
   eval("globalThis.underTest = false;");
   testOr(false.toJS);

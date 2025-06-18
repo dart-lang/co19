@@ -15,12 +15,12 @@ import '../js_utils.dart';
 
 testLessThan(JSAny? underTest) {
   eval(r'''
-    var ltNum = underTest < 2;
-    var ltString = underTest < "text";
-    var ltNull = underTest < null;
-    var ltNaN = underTest < (0 / 0);
-    var ltArray = underTest < [1, 2];
-    var ltTrue = underTest < true;
+    globalThis.ltNum = underTest < 2;
+    globalThis.ltString = underTest < "text";
+    globalThis.ltNull = underTest < null;
+    globalThis.ltNaN = underTest < (0 / 0);
+    globalThis.ltArray = underTest < [1, 2];
+    globalThis.ltTrue = underTest < true;
   ''');
 
   jsExpectEquals(globalContext["ltNum"], underTest.lessThan(2.toJS));
@@ -48,10 +48,10 @@ main() {
   testLessThan(null);
 
   eval("globalThis.underTest = 0 / 0;");
-  testLessThan((0 / 0).jsify());
+  testLessThan((0 / 0).toJS);
 
   eval("globalThis.underTest = [0];");
-  testLessThan([].jsify());
+  testLessThan(<JSAny?>[].toJS);
 
   eval("globalThis.underTest = false;");
   testLessThan(false.toJS);
