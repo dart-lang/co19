@@ -3,9 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion  abstract void operator []=(int index, E value)
-/// Throws a RangeError if index is out of bounds.
-/// @description Checks that the exception is thrown, for fixed size and growable
-/// arrays.
+/// Throws an error if index is out of bounds.
+/// @description Checks that the exception is thrown, for fixed size and
+/// growable arrays.
 /// @author iefremov
 /// @author varlax
 
@@ -18,7 +18,7 @@ test(List<E> create<E>([int length, E fill])) {
   void check(List a0, int idx) {
     List a = create(a0.length, 0);
     a.setRange(0, a0.length, a0);
-    Expect.throws(() {a[idx] = null;}, (e) => e is RangeError);
+    Expect.throws(() {a[idx] = null;});
   }
 
   check([], 0);

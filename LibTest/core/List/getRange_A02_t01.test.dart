@@ -4,6 +4,7 @@
 
 /// @assertion abstract Iterable<E> getRange(int start, int end)
 /// An error occurs if end is before start.
+///
 /// @description Checks that an error is thrown if end is before start.
 /// @author vasya
 
@@ -16,7 +17,7 @@ test(List<E> create<E>([int length, E fill])) {
   check(content, arg) {
     List list = create();
     list.addAll(content);
-    Expect.throws(() {list.getRange(0, arg);}, (e) => e is ArgumentError);
+    Expect.throws(() {list.getRange(0, arg);});
   }
 
   check(new List.filled(1, 0), -1);

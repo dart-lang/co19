@@ -30,5 +30,5 @@ extension type ET<T>(T i) {
 
 main() {
   ET<int>(0) + 42;
-  Expect.equals("+(int 42);", log);
+  Expect.equals("+(${int} 42);", log);
 }

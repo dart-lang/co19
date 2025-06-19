@@ -53,7 +53,9 @@ class C {
   @override
   noSuchMethod(Invocation invocation) {
     called = true;
-    Expect.equals(invocation.memberName, new Symbol("foo"));
+    if (!isMinified) {
+      Expect.equals(invocation.memberName, new Symbol("foo"));
+    }
   }
 }
 

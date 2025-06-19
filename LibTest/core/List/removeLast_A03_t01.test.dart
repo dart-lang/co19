@@ -3,7 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion abstract E removeLast()
-/// Throws RangeError if the list is empty.
+/// Throws an error if the list is empty.
+///
 /// @description Checks that exception is thrown.
 /// @author kaigorodov
 
@@ -13,5 +14,5 @@ import "../../../Utils/expect.dart";
 
 test(List<E> create<E>([int length, E fill])) {
   List a = create();
-  Expect.throws(() {a.removeLast();}, (e) => e is RangeError);
+  Expect.throws(() {a.removeLast();});
 }

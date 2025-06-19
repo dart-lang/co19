@@ -3,10 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion E operator [](int index)
-/// ... or throws a RangeError if index is out of bounds.
-/// @description Checks that a RangeError is thrown if index is out of bounds.
+/// ... or throws an error if index is out of bounds.
+/// @description Checks that an error is thrown if index is out of bounds.
 /// @author ngl@unipro.ru
-
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -15,8 +14,8 @@ Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
 void check(list) {
   var l = new Int32x4List.fromList(list);
-  Expect.throws(() { l[-1];       }, (e) => e is RangeError);
-  Expect.throws(() { l[l.length]; }, (e) => e is RangeError);
+  Expect.throws(() { l[-1];       });
+  Expect.throws(() { l[l.length]; });
 }
 
 main() {

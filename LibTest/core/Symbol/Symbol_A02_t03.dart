@@ -46,29 +46,31 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals(#~, new Symbol('~'));
-  Expect.equals(#==, new Symbol('=='));
-  Expect.equals(#[], new Symbol('[]'));
-  Expect.equals(#[]=, new Symbol('[]='));
+  if (!isMinified) {
+    Expect.equals(#~, new Symbol('~'));
+    Expect.equals(#==, new Symbol('=='));
+    Expect.equals(#[], new Symbol('[]'));
+    Expect.equals(#[]=, new Symbol('[]='));
 
-  Expect.equals(#*, new Symbol('*'));
-  Expect.equals(#/, new Symbol('/'));
-  Expect.equals(#%, new Symbol('%'));
-  Expect.equals(#~/, new Symbol('~/'));
+    Expect.equals(#*, new Symbol('*'));
+    Expect.equals(#/, new Symbol('/'));
+    Expect.equals(#%, new Symbol('%'));
+    Expect.equals(#~/, new Symbol('~/'));
 
-  Expect.equals(#+, new Symbol('+'));
-  Expect.equals(#-, new Symbol('-'));
+    Expect.equals(#+, new Symbol('+'));
+    Expect.equals(#-, new Symbol('-'));
 
-  Expect.equals(#<<, new Symbol('<<'));
-  Expect.equals(#>>, new Symbol('>>'));
-  Expect.equals(#>>>, new Symbol('>>>'));
+    Expect.equals(#<<, new Symbol('<<'));
+    Expect.equals(#>>, new Symbol('>>'));
+    Expect.equals(#>>>, new Symbol('>>>'));
 
-  Expect.equals(#<, new Symbol('<'));
-  Expect.equals(#<=, new Symbol('<='));
-  Expect.equals(#>, new Symbol('>'));
-  Expect.equals(#>=, new Symbol('>='));
+    Expect.equals(#<, new Symbol('<'));
+    Expect.equals(#<=, new Symbol('<='));
+    Expect.equals(#>, new Symbol('>'));
+    Expect.equals(#>=, new Symbol('>='));
 
-  Expect.equals(#&, new Symbol('&'));
-  Expect.equals(#^, new Symbol('^'));
-  Expect.equals(#|, new Symbol('|'));
+    Expect.equals(#&, new Symbol('&'));
+    Expect.equals(#^, new Symbol('^'));
+    Expect.equals(#|, new Symbol('|'));
+  }
 }

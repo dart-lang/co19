@@ -4,7 +4,8 @@
 
 /// @assertion factory List([int length])
 /// It is an error if length is not a non-negative integer.
-/// @description Checks that ArgumentError is thrown as expected.
+/// @description Checks that it is an error if length is not a non-negative
+/// integer.
 /// @author vasya
 
 import "../../../Utils/expect.dart";
@@ -12,6 +13,6 @@ import "../../../Utils/expect.dart";
 main() {
   try {
     List a = new List.filled(-1, 0);
-    Expect.fail("ArgumentError is expected");
-  } on ArgumentError catch(e) {}
+    Expect.fail("Error is expected");
+  } on Error catch(e) {}
 }

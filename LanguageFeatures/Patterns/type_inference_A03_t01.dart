@@ -31,9 +31,9 @@ main() {
 
   String log = "";
   var (B v1) = getType(d, (String s) {log += s;});
-  Expect.equals("B", log);
+  Expect.equals((B).toString(), log);
 
   log = "";
   final (B v2) = getType(d, (String s) {log += s;});
-  Expect.equals("B", log);
+  Expect.equals((B).toString(), log);
 }

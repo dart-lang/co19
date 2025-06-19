@@ -8,7 +8,6 @@
 /// @description Checks that the index must be non-negative and less than length.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

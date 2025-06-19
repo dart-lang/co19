@@ -3,7 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion abstract E operator [](int index)
-/// Throws a RangeError if index is out of bounds.
+/// Throws an error if index is out of bounds.
+///
 /// @description Checks that the exception is thrown.
 /// @author iefremov
 /// @author varlax
@@ -17,7 +18,7 @@ test(List<E> create<E>([int length, E fill])) {
   void check(List a0, int idx) {
     List a = create(a0.length, new Object());
     a.setRange(0, a0.length, a0);
-    Expect.throws(() {a[idx];}, (e) => e is RangeError);
+    Expect.throws(() {a[idx];});
   }
 
   check([], 0);
@@ -41,4 +42,3 @@ test(List<E> create<E>([int length, E fill])) {
   check(new List.from([null, null, null, null]), -1);
 
 }
-

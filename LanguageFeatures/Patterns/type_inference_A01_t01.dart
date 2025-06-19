@@ -30,11 +30,11 @@ main() {
   try {
     var ([A x1, x2] && [y1, B y2]) = getType([], (String s) {log += s;});
   } catch (_) {}
-  Expect.equals("List<B>", log);
+  Expect.equals((List<B>).toString(), log);
 
   log = "";
   try {
     var ([C x1, x2] && <B>[y1, A y2]) = getType([], (String s) {log += s;});
   } catch (_) {}
-  Expect.equals("List<C>", log);
+  Expect.equals((List<C>).toString(), log);
 }

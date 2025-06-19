@@ -61,5 +61,9 @@ typedef c = String;
 
 main() {
   int d = 4;
-  Expect.equals("a<int, String>(4), null",f(a<b, c>(d)));
+  if (isMinified) {
+    Expect.isTrue(f(a<b, c>(d)).startsWith("a<"));
+  } else {
+    Expect.equals("a<int, String>(4), null", f(a<b, c>(d)));
+  }
 }

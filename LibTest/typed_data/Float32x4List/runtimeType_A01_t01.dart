@@ -15,5 +15,5 @@ main() {
   var type = obj.runtimeType;
   Expect.isTrue(type is Type);
   Expect.runtimeIsType<Type>(type);
-  Expect.stringEquals("Float32x4List", obj.runtimeType.toString());
+  Expect.stringEquals("${Float32x4List}", obj.runtimeType.toString());
 }

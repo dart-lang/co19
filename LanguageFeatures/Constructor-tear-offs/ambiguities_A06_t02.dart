@@ -61,5 +61,9 @@ main() {
   var x = a<b, c>;
   Expect.isTrue(x is Function);
   Expect.runtimeIsType<Function>(x);
-  Expect.equals("a<int, String>(42)", x(42));
+  if (isMinified) {
+    Expect.isTrue(x(42).startsWith("a<"));
+  } else {
+    Expect.equals("a<int, String>(42)", x(42));
+  }
 }

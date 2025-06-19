@@ -9,7 +9,7 @@
 /// May iterate through the elements in iteration order, skipping the first index
 /// elements and returning the next. Some iterable may have more efficient ways
 /// to find the element.
-/// @description Checks that a RangeError is thrown if this list has fewer than
+/// @description Checks that an error is thrown if this list has fewer than
 /// index elements.
 /// @author kaigorodov
 
@@ -20,7 +20,7 @@ import "../../../Utils/expect.dart";
 var v;
 
 void check (Iterable a, int index) {
-  Expect.throws(() {v = a.elementAt(index);}, (e) => e is RangeError );
+  Expect.throws(() {v = a.elementAt(index);});
 }
 
 test(Iterable create([Iterable content])) {

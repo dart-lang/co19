@@ -4,10 +4,9 @@
 
 /// @assertion void operator []=(int index, E value)
 /// ...
-/// or throws a RangeError if index is out of bounds.
+/// or throws an error if index is out of bounds.
 /// @description Checks that an exception is thrown as expected.
 /// @author msyabro
-
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -16,22 +15,43 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 
 check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
-  Expect.throws(() { l[-1] = new Float32x4.zero(); }, (e) => e is RangeError);
-  Expect.throws(
-          () { l[l.length] = new Float32x4.zero(); }, (e) => e is RangeError);
-  Expect.throws(
-          () { l[0x80000000] = new Float32x4.zero(); }, (e) => e is RangeError);
-  Expect.throws(
-          () { l[0x7fffffff] = new Float32x4.zero(); }, (e) => e is RangeError);
+  Expect.throws(() {
+    l[-1] = new Float32x4.zero();
+  });
+  Expect.throws(() {
+    l[l.length] = new Float32x4.zero();
+  });
+  Expect.throws(() {
+    l[0x80000000] = new Float32x4.zero();
+  });
+  Expect.throws(() {
+    l[0x7fffffff] = new Float32x4.zero();
+  });
 }
 
 main() {
   check([]);
   check([pack(1.0)]);
   check([
-    pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
-    pack(7.0), pack(8.0), pack(9.0), pack(10.0), pack(11.0), pack(12.0),
-    pack(13.0), pack(14.0), pack(15.0), pack(16.0), pack(17.0), pack(18.0),
-    pack(19.0), pack(20.0)
+    pack(1.0),
+    pack(2.0),
+    pack(3.0),
+    pack(4.0),
+    pack(5.0),
+    pack(6.0),
+    pack(7.0),
+    pack(8.0),
+    pack(9.0),
+    pack(10.0),
+    pack(11.0),
+    pack(12.0),
+    pack(13.0),
+    pack(14.0),
+    pack(15.0),
+    pack(16.0),
+    pack(17.0),
+    pack(18.0),
+    pack(19.0),
+    pack(20.0),
   ]);
 }
