@@ -44,8 +44,8 @@
 /// operator. This leaves us open to allowing some of those operators as prefix 
 /// operators in the future, like we currently allow the - operator.
 ///
-/// @description Checks disambiguate by '.' token. Test that a<b, c>. is
-/// parsed as (a<b, c>). . Test constructor tear-off
+/// @description Checks disambiguate by '.' token. Test that `a<b, c>.` is
+/// parsed as `(a<b, c>).`. Test constructor tear-off
 /// @author sgrekhov@unipro.ru
 /// @issue 46887
 
@@ -65,5 +65,9 @@ typedef b = int;
 typedef c = String;
 
 main() {
-  Expect.equals("${a<b, c>}(42), null",f(a<b, c>.n(42)));
+  if (isMinified) {
+    Expect.isTrue(f(a<b, c>.n(42)).startsWith("a<"));
+  } else {
+    Expect.equals("${a<b, c>}(42), null", f(a<b, c>.n(42)));
+  }
 }

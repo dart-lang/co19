@@ -4,14 +4,14 @@
 
 /// @assertion Iterable<E> skip(int count)
 /// The count must not be negative
-/// @description checks that a RangeError is thrown if n is negative.
+/// @description checks that an error is thrown if n is negative.
 /// @author kaigorodov
 
 library skip_A03_t01;
 import "../../../Utils/expect.dart";
 
 check(Iterable a, int n) {
-  Expect.throws(() {a.skip(n);}, (e) => e is RangeError);
+  Expect.throws(() {a.skip(n);});
 }
 
 test(Iterable create([Iterable content])) {

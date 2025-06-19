@@ -50,19 +50,19 @@ main() {
   try {
     var <B>[A v1, B v2, v3] = getType([], (String s) {log += s;});
   } catch (_) {}
-  Expect.equals("List<B>", log);
+  Expect.equals("${List<B>}", log);
 
   log = "";
   try {
     final <C>[A v1, B v2, v3] = getType([], (String s) {log += s;});
   } catch (_) {}
-  Expect.equals("List<C>", log);
+  Expect.equals("${List<C>}", log);
 
   log = "";
   var <C>[] = getType(<C>[], (String s) {log += s;});
-  Expect.equals("List<C>", log);
+  Expect.equals("${List<C>}", log);
 
   log = "";
   final <B>[] = getType(<B>[], (String s) {log += s;});
-  Expect.equals("List<B>", log);
+  Expect.equals("${List<B>}", log);
 }

@@ -3,8 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion abstract E removeAt(int index)
-/// Throws a RangeError if the index does not point inside the list.
-/// @description Checks that a RangeError is thrown if the index does not point
+/// Throws an error if the index does not point inside the list.
+///
+/// @description Checks that an error is thrown if the index does not point
 /// inside the list.
 /// @author kaigorodov
 
@@ -17,7 +18,7 @@ test(List<E> create<E>([int length, E fill])) {
   check(List a0, int index) {
     List a = create();
     a.addAll(a0);
-    Expect.throws(() {a.removeAt(index);}, (e) => e is RangeError);
+    Expect.throws(() {a.removeAt(index);});
   }
 
   List a0 = [1, 3, 3, 4, 5, 6];

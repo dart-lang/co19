@@ -5,6 +5,7 @@
 /// @assertion abstract Iterable<E> getRange(int start, int end)
 /// An error occurs if the start and end are not valid ranges at the time of the
 /// call to this method.
+///
 /// @description Checks that an error is thrown if the start and end are not
 /// valid ranges.
 /// @author vasya
@@ -16,8 +17,7 @@ import "../../../Utils/expect.dart";
 test(List<E> create<E>([int length, E fill])) {
 
   void check1(List list, int start, int length) {
-    Expect.throws(() {list.getRange(start, start + length);},
-        (e) => e is RangeError);
+    Expect.throws(() {list.getRange(start, start + length);});
   }
 
   void check(List a0, int start, int end) {

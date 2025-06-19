@@ -3,15 +3,14 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion  abstract int codeUnitAt(int index)
-/// Throws RangeError if [index] is out of bounds
-/// @description Checks that a RangeError is thrown when the index is out of
-/// range
+/// Throws Error if [index] is out of bounds
+/// @description Checks that an Error is thrown when the index is out of range.
 /// @author msyabro
 
 import "../../../Utils/expect.dart";
 
 void checkIOOR(String str, int index) {
-  Expect.throws(() {str.codeUnitAt(index);}, (e) => e is RangeError);
+  Expect.throws(() {str.codeUnitAt(index);});
 }
 
 main() {

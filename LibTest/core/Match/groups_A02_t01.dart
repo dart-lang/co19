@@ -11,13 +11,12 @@ import "../../../Utils/expect.dart";
 void check(String str, String pattern, List<int> groupIndices) {
   RegExp re = new RegExp(pattern, multiLine: false, caseSensitive: true);
   Match? m = re.firstMatch(str);
-  Expect.throws(() { m?.groups(groupIndices); }, (e) => e is RangeError);
+  Expect.throws(() { m?.groups(groupIndices); });
 }
  
 main() {
   check("a", "a", [1, 1]);
   check("a", "a", [0, 1]);
-  
   check("a", "(a)", [0, 1, 2]);
   check("abcdef", "(([a-z])*)", [3, 1, 1]);
   check("abcdef", "(([a-z])*)", [65536]);

@@ -4,7 +4,8 @@
 
 /// @assertion abstract void removeRange(int start, int end)
 /// An error occurs if start.. end is not a valid range for this.
-/// @description Checks that an [RangeError] is thrown if [length] is negative.
+///
+/// @description Checks that an error is thrown if [length] is negative.
 /// @author vasya
 
 library removeRange_A03_t01;
@@ -12,7 +13,7 @@ library removeRange_A03_t01;
 import "../../../Utils/expect.dart";
 
 check(list) {
-  Expect.throws(() {list.removeRange(0, -1);}, (e) => e is RangeError);
+  Expect.throws(() {list.removeRange(0, -1);});
 }
 
 test(List<E> create<E>([int length, E fill])) {

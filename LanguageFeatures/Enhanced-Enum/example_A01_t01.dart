@@ -116,9 +116,15 @@ enum Complex<T extends Pattern> with EnumComparable<Complex> implements Pattern 
 }
 
 main() {
-  Expect.equals("Complex<RegExp>(\\s+)", Complex.whitespace.toString());
-  Expect.equals("Complex<RegExp>((\\w+))", Complex.alphanum.toString());
-  Expect.equals("Complex<RegExp>(.)", Complex.anychar.toString());
+  if (isMinified) {
+    Expect.isTrue(Complex.whitespace.toString().startsWith("Complex<"));
+    Expect.isTrue(Complex.alphanum.toString().startsWith("Complex<"));
+    Expect.isTrue(Complex.anychar.toString().startsWith("Complex<"));
+  } else {
+    Expect.equals("Complex<RegExp>(\\s+)", Complex.whitespace.toString());
+    Expect.equals("Complex<RegExp>((\\w+))", Complex.alphanum.toString());
+    Expect.equals("Complex<RegExp>(.)", Complex.anychar.toString());
+  }
   Expect.isNull(Complex.whitespace.matchAsPrefix("something"));
   Expect.isNotNull(Complex.alphanum.matchAsPrefix("something"));
   Expect.isNotNull(Complex.anychar.matchAsPrefix("Lily was here"));

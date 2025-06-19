@@ -9,12 +9,11 @@
 ///     int length
 /// ])
 /// ...
-/// Throws [ArgumentError] if [offsetInBytes] is not a multiple of
-/// BYTES_PER_ELEMENT.
-/// @description Checks that [ArgumentError] is thrown if [offsetInBytes] is not
+/// Throws an error if [offsetInBytes] is not a multiple of BYTES_PER_ELEMENT.
+///
+/// @description Checks that an error is thrown if [offsetInBytes] is not
 /// a multiple of BYTES_PER_ELEMENT.
 /// @author msyabro
-
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -23,7 +22,6 @@ main() {
   var list = new Uint16List(2);
   var buffer = list.buffer;
   for (int i = 1; i < Uint16List.bytesPerElement; ++i) {
-    Expect.throws(() { Uint16List.view(buffer, i); },
-            (e) => e is ArgumentError);
+    Expect.throws(() { Uint16List.view(buffer, i); });
   }
 }

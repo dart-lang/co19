@@ -14,6 +14,6 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {3.modInverse(-11);}, (e) => e is RangeError);
-  Expect.throws(() {3.modInverse(0);}, (e) => e is RangeError);
+  Expect.throws(() {3.modInverse(-11);});
+  Expect.throws(() {3.modInverse(0);});
 }

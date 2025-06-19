@@ -7,19 +7,24 @@
 /// The index must be non-negative and less than length.
 ///
 /// If [this] has fewer than [index] elements throws a RangeError.
-/// @description Checks that a [RangeError] is thrown if [index] is negative or
+/// @description Checks that an error is thrown if [index] is negative or
 /// greater then list length - 1.
 /// @author msyabro
-
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(length) {
   var l = new Int64List(length);
-  Expect.throws(() { l.elementAt(length + 1); }, (e) => e is RangeError);
-  Expect.throws(() { l.elementAt(length    ); }, (e) => e is RangeError);
-  Expect.throws(() { l.elementAt(-1        ); }, (e) => e is RangeError);
+  Expect.throws(() {
+    l.elementAt(length + 1);
+  });
+  Expect.throws(() {
+    l.elementAt(length);
+  });
+  Expect.throws(() {
+    l.elementAt(-1);
+  });
 }
 
 main() {

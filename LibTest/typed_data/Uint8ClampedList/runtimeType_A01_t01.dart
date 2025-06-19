@@ -7,7 +7,6 @@
 /// @description Checks that the correct [Type] is returned.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -15,5 +14,5 @@ main() {
   var obj = new Uint8ClampedList(0);
   var type = obj.runtimeType;
   Expect.isTrue(type is Type);
-  Expect.stringEquals("Uint8ClampedList", obj.runtimeType.toString());
+  Expect.stringEquals("${Uint8ClampedList}", obj.runtimeType.toString());
 }

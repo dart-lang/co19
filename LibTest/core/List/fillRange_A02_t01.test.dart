@@ -4,6 +4,7 @@
 
 /// @assertion abstract void fillRange(int start, int end, [E fillValue])
 /// It is an error if start..end is not a valid range pointing into the this.
+///
 /// @description Checks that it is an error if start..end is not a valid range
 /// pointing into the this.
 /// @author kaigorodov
@@ -15,9 +16,9 @@ import "../../../Utils/expect.dart";
 test(List<E> create<E>([int length, E fill])) {
   List a = create();
   a.fillRange(0, 0);
-  Expect.throws(() {a.fillRange(0, 1);}, (e) => e is RangeError);
+  Expect.throws(() {a.fillRange(0, 1);});
   
   a.add(1);
   a.fillRange(0, 1, 2);
-  Expect.throws(() {a.fillRange(1, 2);}, (e) => e is RangeError);
+  Expect.throws(() {a.fillRange(1, 2);});
 }

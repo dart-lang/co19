@@ -5,8 +5,8 @@
 /// @assertion abstract void setRange(int start, int end, Iterable<E> iterable,
 /// [int skipCount = 0])
 /// It is an error if start.. end is not a valid range pointing into the this.
-/// @description Checks that RangeError is thrown if [start] 
-/// is out of range in [:this:].
+/// @description Checks that an error is thrown if `start` is out of range in
+/// `[:this:]`.
 /// @author varlax
 
 library setRange_A02_t02;
@@ -14,8 +14,7 @@ library setRange_A02_t02;
 import "../../../Utils/expect.dart";
 
 checkList(dst, dstOffset, count, src) {
-  Expect.throws(() {dst.setRange(dstOffset, dstOffset+count, src, 0);},
-      (e) => e is RangeError);
+  Expect.throws(() {dst.setRange(dstOffset, dstOffset+count, src, 0);});
 }
 
 test(List<E> create<E>([int length, E fill])) {

@@ -4,6 +4,7 @@
 
 /// @assertion Type runtimeType
 /// A representation of the runtime type of the object.
+///
 /// @description Checks that the correct [Type] is returned.
 /// @author msyabro
 
@@ -15,5 +16,5 @@ main() {
   var type = obj.runtimeType;
   Expect.isTrue(type is Type);
   Expect.runtimeIsType<Type>(type);
-  Expect.stringEquals("Uint64List", obj.runtimeType.toString());
+  Expect.stringEquals("${Uint64List}", obj.runtimeType.toString());
 }

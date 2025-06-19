@@ -12,8 +12,10 @@ class Expect {
             (actual is double) &&
             (expected.isNaN) &&
             (actual.isNaN))) {
-      _fail('Expect.equals(expected: <$expected>, actual: <$actual>$reason) '
-          'fails.');
+      _fail(
+        'Expect.equals(expected: <$expected>, actual: <$actual>$reason) '
+        'fails.',
+      );
     }
   }
 
@@ -49,8 +51,10 @@ class Expect {
   /// `identical`).
   static void identical(var expected, var actual, [String reason = '']) {
     if (!_identical(expected, actual)) {
-      _fail('Expect.identical(expected: <$expected>, '
-          'actual: <$actual>$reason) fails.');
+      _fail(
+        'Expect.identical(expected: <$expected>, '
+        'actual: <$actual>$reason) fails.',
+      );
     }
   }
 
@@ -58,8 +62,10 @@ class Expect {
   /// `identical`).
   static void notIdentical(var expected, var actual, [String reason = '']) {
     if (_identical(expected, actual)) {
-      _fail('Expect.notIdentical(expected: <$expected>, '
-          'actual: <$actual>$reason) fails.');
+      _fail(
+        'Expect.notIdentical(expected: <$expected>, '
+        'actual: <$actual>$reason) fails.',
+      );
     }
   }
 
@@ -72,29 +78,40 @@ class Expect {
   /// the given tolerance. If no tolerance is given, tolerance is assumed to be
   /// a value of the 4 significant digits smaller than the value given for
   /// [expected].
-  static void approxEquals(num expected, num actual,
-      [num? tolerance, String reason = '']) {
+  static void approxEquals(
+    num expected,
+    num actual, [
+    num? tolerance,
+    String reason = '',
+  ]) {
     tolerance ??= (expected / 1e4).abs();
 
     // Note: use !( <= ) rather than > so we fail on NaNs
     if (!((expected - actual).abs() <= tolerance)) {
-      _fail('Expect.approxEquals(expected:<$expected>, actual:<$actual>, '
-          'tolerance:<$tolerance>$reason) fails');
+      _fail(
+        'Expect.approxEquals(expected:<$expected>, actual:<$actual>, '
+        'tolerance:<$tolerance>$reason) fails',
+      );
     }
   }
 
   /// Checks whether the expected and actual values are not equal.
   static void notEquals(unexpected, actual, [String reason = '']) {
     if (unexpected == actual) {
-      _fail('Expect.notEquals(unexpected: <$unexpected>, '
-          'actual:<$actual>$reason) fails.');
+      _fail(
+        'Expect.notEquals(unexpected: <$unexpected>, '
+        'actual:<$actual>$reason) fails.',
+      );
     }
   }
 
   /// Specialized equality test for strings. When the strings don't match,
   /// this method shows where the mismatch starts and ends.
-  static void stringEquals(String? expected, String? actual,
-      [String reason = '']) {
+  static void stringEquals(
+    String? expected,
+    String? actual, [
+    String reason = '',
+  ]) {
     String defaultMessage =
         'Expect.stringEquals(expected: <$expected>, <$actual>$reason) fails';
     if (expected == actual) return;
@@ -150,8 +167,11 @@ class Expect {
 
   /// Checks that every element of [expected] is also in [actual], and that
   /// every element of [actual] is also in [expected].
-  static void setEquals(Iterable<Object?> expected, Iterable<Object?> actual,
-      [String reason = '']) {
+  static void setEquals(
+    Iterable<Object?> expected,
+    Iterable<Object?> actual, [
+    String reason = '',
+  ]) {
     final missingSet = new Set.from(expected);
     missingSet.removeAll(actual);
     final extraSet = new Set.from(actual);
@@ -188,14 +208,19 @@ class Expect {
   /// exception you could write this:
   ///
   ///    Expect.throws(myThrowingFunction, (e) => e is MyException);
-  static void throws(void func(),
-      [_CheckExceptionFn? check, String reason = '']) {
+  static void throws(
+    void func(), [
+    _CheckExceptionFn? check,
+    String reason = '',
+  ]) {
     try {
       func();
     } catch (exception, str) {
       if (check != null && !check(exception)) {
-        _fail('Expect.throws($reason): '
-            'Unexpected ${exception.runtimeType}($exception)\n$str');
+        _fail(
+          'Expect.throws($reason): '
+          'Unexpected ${exception.runtimeType}($exception)\n$str',
+        );
       }
       return;
     }
@@ -209,14 +234,19 @@ class Expect {
   /// exception you could write this:
   ///
   ///    Expect.asyncThrows(myThrowingAsyncFunction, (e) => e is MyException);
-  static Future<void> asyncThrows(Future<void> func(),
-      [_CheckExceptionFn? check, String reason = '']) async {
+  static Future<void> asyncThrows(
+    Future<void> func(), [
+    _CheckExceptionFn? check,
+    String reason = '',
+  ]) async {
     try {
       await func();
     } catch (exception, str) {
       if (check != null && !check(exception)) {
-        _fail('Expect.throws($reason): '
-            'Unexpected ${exception.runtimeType}($exception)\n$str');
+        _fail(
+          'Expect.throws($reason): '
+          'Unexpected ${exception.runtimeType}($exception)\n$str',
+        );
       }
       return;
     }
@@ -266,11 +296,12 @@ class Expect {
         } else {
           // this pair is not yet investigated
           Expect.equals(
-              expected.length,
-              actual.length,
-              'Collection lengths are not equal: '
-              'expected length=${expected.length}, '
-              'actual length=${actual.length}');
+            expected.length,
+            actual.length,
+            'Collection lengths are not equal: '
+            'expected length=${expected.length}, '
+            'actual length=${actual.length}',
+          );
           planned[expected] = actual;
         }
       } else {
@@ -281,9 +312,9 @@ class Expect {
     void runPlanned(var expected, var actual) {
       if (expected is Map) {
         for (var key in expected.keys) {
-//        TODO check that key sets are equivalent.
-//        The following method does not work:
-//          Expect.isTrue(actual.keys.toSet().remove(key)");
+          //        TODO check that key sets are equivalent.
+          //        The following method does not work:
+          //          Expect.isTrue(actual.keys.toSet().remove(key)");
           plan2check(expected[key], actual[key]);
         }
       } else if (expected is List) {
@@ -310,7 +341,8 @@ class Expect {
       }
     } catch (error) {
       _fail(
-          'deepEquals($expected, $actual, $reason) fails\n   [cause: $error]');
+        'deepEquals($expected, $actual, $reason) fails\n   [cause: $error]',
+      );
     }
   }
 
@@ -335,7 +367,10 @@ class Expect {
   /// compiler may optimize `Expect.isTrue(c is C)` to `Expect_isTrue(true)`
   @pragma('dart2js:noInline')
   static void _checkType(
-      void Function(bool, Object?) checker, bool expected, Object? o) {
+    void Function(bool, Object?) checker,
+    bool expected,
+    Object? o,
+  ) {
     checker(expected, o);
   }
 
@@ -411,6 +446,11 @@ const bool isJS = isDart2JS || isDDC;
 
 /// Is true iff dart2wasm compiler is used
 const bool isWasm = bool.fromEnvironment('dart.tool.dart2wasm');
+
+/// Is true iff minified mode is on
+const bool isMinified =
+    bool.fromEnvironment('dart.tool.dart2js.minify') ||
+    bool.fromEnvironment('dart.tool.dart2wasm.minify');
 
 /// Checks that objects are identical at the compile time
 class CheckIdentical {
