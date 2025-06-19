@@ -43,21 +43,54 @@ class C {
 }
 
 @JS()
-external ExternalDartReference<C> getCfromJS();
+external ExternalDartReference<C> getCfromJS1();
+
+@JS()
+external ExternalDartReference<C?> getCfromJS2();
+
+@JS()
+external ExternalDartReference<C>? getCfromJS3();
+
+@JS()
+external ExternalDartReference<C?>? getCfromJS4();
 
 main() {
   eval(r'''
-    function getCfromJS() {
+    function getCfromJS1() {
+      return null;
+    }
+    function getCfromJS2() {
+      return null;
+    }
+    function getCfromJS3() {
+      return null;
+    }
+    function getCfromJS4() {
       return null;
     }
   ''');
   if (isWasm) {
-    ExternalDartReference<C> jsC = getCfromJS();
-    Expect.isNull(jsC);
+    ExternalDartReference<C> jsC1 = getCfromJS1();
+    Expect.isNull(jsC1); // jsC.toDartObject will throw
+
+    ExternalDartReference<C?> jsC2 = getCfromJS2();
+    Expect.isNull(jsC2);
+
+    ExternalDartReference<C>? jsC3 = getCfromJS3();
+    Expect.isNull(jsC3);
+
+    ExternalDartReference<C?>? jsC4 = getCfromJS4();
+    Expect.isNull(jsC4);
   }
   if (isJS) {
     Expect.throws(() {
-      ExternalDartReference<C> jsC = getCfromJS();
+      ExternalDartReference<C> jsC1 = getCfromJS1();
     });
+    ExternalDartReference<C?> jsC2 = getCfromJS2();
+    Expect.isNull(jsC2);
+    ExternalDartReference<C>? jsC3 = getCfromJS3();
+    Expect.isNull(jsC3);
+    ExternalDartReference<C?>? jsC4 = getCfromJS4();
+    Expect.isNull(jsC4);
   }
 }

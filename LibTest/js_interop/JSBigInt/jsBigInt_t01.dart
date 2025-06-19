@@ -4,7 +4,7 @@
 
 /// @assertion A JavaScript `BigInt`
 ///
-/// @description Check that `JSBigInt` can store big integer values (more that
+/// @description Check that `JSBigInt` can store big integer values (more than
 /// 2^53 - 1).
 /// @author sgrekhov22@gmail.com
 
