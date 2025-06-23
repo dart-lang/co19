@@ -10,7 +10,7 @@
 import "../../../Utils/expect.dart";
 
 void checkIOOR(String str, int index) {
-  Expect.throws(() {str.codeUnitAt(index);});
+  Expect.throws(() {str.codeUnitAt(index);}, (e) => e is RangeError);
 }
 
 main() {

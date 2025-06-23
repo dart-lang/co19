@@ -13,10 +13,18 @@ import "../../../Utils/expect.dart";
 
 check(List<int> list) {
   var l = new Uint16List.fromList(list);
-  Expect.throws(() { l[-1        ]; });
-  Expect.throws(() { l[l.length  ]; });
-  Expect.throws(() { l[0x80000000]; });
-  Expect.throws(() { l[0x7fffffff]; });
+  Expect.throws(() {
+    l[-1];
+  }, (e) => e is RangeError);
+  Expect.throws(() {
+    l[l.length];
+  }, (e) => e is RangeError);
+  Expect.throws(() {
+    l[0x80000000];
+  }, (e) => e is RangeError);
+  Expect.throws(() {
+    l[0x7fffffff];
+  }, (e) => e is RangeError);
 }
 
 main() {

@@ -11,7 +11,7 @@ import "../../../Utils/expect.dart";
 
 void check(List a0, int idx) {
   UnmodifiableListView a = new UnmodifiableListView(a0);
-  Expect.throws(() { a[idx]; });
+  Expect.throws(() { a[idx]; }, (e) => e is RangeError);
 }
 
 main() {

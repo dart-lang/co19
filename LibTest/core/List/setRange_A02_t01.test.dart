@@ -14,7 +14,9 @@ library setRange_A02_t01;
 import "../../../Utils/expect.dart";
 
 checkList(dst, dstOffset, count, src) {
-  Expect.throws(() {dst.setRange(dstOffset, dstOffset+count, src, 0);});
+  Expect.throws(() {
+    dst.setRange(dstOffset, dstOffset + count, src, 0);
+  }, (e) => e is RangeError);
 }
 
 test(List<E> create<E>([int length, E fill])) {
@@ -33,5 +35,5 @@ test(List<E> create<E>([int length, E fill])) {
   check(0, 1, 0, 1);
   check(41, 42, 0, 42);
   check(2, 2, 1, 2);
-  check(10, 10, 9, 10);    
+  check(10, 10, 9, 10);
 }

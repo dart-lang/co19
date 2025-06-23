@@ -24,5 +24,5 @@ void checkIndexOOR(String str, int index) {
   try {
     String foo = str[index];
     Expect.fail("An error is expected");
-  } on Error catch(e) {}
+  } on RangeError catch(e) {}
 }

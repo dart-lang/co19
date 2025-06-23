@@ -24,6 +24,6 @@ main() {
   for (int i = 1; i < Uint64List.bytesPerElement; ++i) {
     Expect.throws(() {
       Uint64List.view(buffer, i);
-    });
+    }, (e) => e is ArgumentError);
   }
 }

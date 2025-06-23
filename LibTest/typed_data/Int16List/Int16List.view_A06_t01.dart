@@ -23,6 +23,6 @@ main() {
   for (int i = 1; i < Int16List.bytesPerElement; ++i) {
     Expect.throws(() {
       Int16List.view(buffer, i);
-    });
+    }, (e) => e is ArgumentError);
   }
 }

@@ -14,5 +14,5 @@ main() {
   try {
     List a = new List.filled(-1, 0);
     Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  } on ArgumentError catch(e) {}
 }

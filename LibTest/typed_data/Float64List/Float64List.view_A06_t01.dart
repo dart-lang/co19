@@ -22,6 +22,8 @@ main() {
   var list = new Float64List(2);
   var buffer = list.buffer;
   for (int i = 1; i < Float64List.bytesPerElement; ++i) {
-    Expect.throws(() { Float64List.view(buffer, i); });
+    Expect.throws(() {
+      Float64List.view(buffer, i);
+    }, (e) => e is ArgumentError);
   }
 }

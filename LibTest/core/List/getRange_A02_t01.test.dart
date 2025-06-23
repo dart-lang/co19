@@ -17,7 +17,7 @@ test(List<E> create<E>([int length, E fill])) {
   check(content, arg) {
     List list = create();
     list.addAll(content);
-    Expect.throws(() {list.getRange(0, arg);});
+    Expect.throws(() {list.getRange(0, arg);}, (e) => e is ArgumentError);
   }
 
   check(new List.filled(1, 0), -1);

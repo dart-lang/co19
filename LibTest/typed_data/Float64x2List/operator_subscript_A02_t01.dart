@@ -17,10 +17,10 @@ check(List<Float64x2> list) {
   var l = new Float64x2List.fromList(list);
   Expect.throws(() {
     l[-1];
-  });
+  }, (e) => e is RangeError);
   Expect.throws(() {
     l[l.length];
-  });
+  }, (e) => e is RangeError);
 }
 
 main() {

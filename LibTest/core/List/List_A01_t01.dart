@@ -26,14 +26,14 @@ void check(List a, int size) {
   a[size>>1] = 6031769;
   Expect.isTrue(a[size>>1] == 6031769);
 
-  Expect.throws(() {a[-1] = 0;});
-  Expect.throws(() {a[size] = 0;});
+  Expect.throws(() {a[-1] = 0;}, (e) => e is RangeError );
+  Expect.throws(() {a[size] = 0;}, (e) => e is RangeError );
 }
 
 main() {
   List a = new List.filled(0, 0);
   Expect.isTrue(a.length == 0);
-  Expect.throws(() {a[0] = 1;});
+  Expect.throws(() {a[0] = 1;}, (e) => e is RangeError );
 
   check(new List.filled(1, 0), 1);
   check(new List.filled(42, 0), 42);

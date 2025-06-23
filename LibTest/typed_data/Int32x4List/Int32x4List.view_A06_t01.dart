@@ -27,7 +27,7 @@ void check(list, offset) {
   var buffer = l.buffer;
   Expect.throws(() {
     Int32x4List.view(buffer, offset);
-  });
+  }, (e) => e is ArgumentError);
 }
 
 main() {

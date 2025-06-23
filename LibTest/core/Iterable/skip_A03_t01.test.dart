@@ -11,7 +11,7 @@ library skip_A03_t01;
 import "../../../Utils/expect.dart";
 
 check(Iterable a, int n) {
-  Expect.throws(() {a.skip(n);});
+  Expect.throws(() {a.skip(n);}, (e) => e is RangeError);
 }
 
 test(Iterable create([Iterable content])) {

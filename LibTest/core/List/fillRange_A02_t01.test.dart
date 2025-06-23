@@ -16,9 +16,9 @@ import "../../../Utils/expect.dart";
 test(List<E> create<E>([int length, E fill])) {
   List a = create();
   a.fillRange(0, 0);
-  Expect.throws(() {a.fillRange(0, 1);});
+  Expect.throws(() {a.fillRange(0, 1);}, (e) => e is RangeError);
   
   a.add(1);
   a.fillRange(0, 1, 2);
-  Expect.throws(() {a.fillRange(1, 2);});
+  Expect.throws(() {a.fillRange(1, 2);}, (e) => e is RangeError);
 }

@@ -14,16 +14,16 @@ check(List<double> list) {
   var l = new Float32List.fromList(list);
   Expect.throws(() {
     l[-1];
-  });
+  }, (e) => e is RangeError);
   Expect.throws(() {
     l[l.length];
-  });
+  }, (e) => e is RangeError);
   Expect.throws(() {
     l[0x80000000];
-  });
+  }, (e) => e is RangeError);
   Expect.throws(() {
     l[0x7fffffff];
-  });
+  }, (e) => e is RangeError);
 }
 
 main() {

@@ -12,7 +12,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {3.modPow(-11, 4);});
-  Expect.throws(() {3.modPow(11, -4);});
-  Expect.throws(() {3.modPow(11, 0);});
+  Expect.throws(() {3.modPow(-11, 4);}, (e) => e is RangeError);
+  Expect.throws(() {3.modPow(11, -4);}, (e) => e is RangeError);
+  Expect.throws(() {3.modPow(11, 0);}, (e) => e is RangeError);
 }

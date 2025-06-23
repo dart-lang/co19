@@ -13,8 +13,8 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {"123".replaceRange(-1, 2, "abc");});
-  Expect.throws(() {"123".replaceRange(1, -2, "abc");});
-  Expect.throws(() {"123".replaceRange(2, 1, "abc");});
-  Expect.throws(() {"123".replaceRange(1, 10, "abc");});
+  Expect.throws(() {"123".replaceRange(-1, 2, "abc");}, (e) => e is RangeError);
+  Expect.throws(() {"123".replaceRange(1, -2, "abc");}, (e) => e is RangeError);
+  Expect.throws(() {"123".replaceRange(2, 1, "abc");}, (e) => e is RangeError);
+  Expect.throws(() {"123".replaceRange(1, 10, "abc");}, (e) => e is RangeError);
 }

@@ -12,7 +12,7 @@ import "../../../Utils/expect.dart";
 void check(String str, String pattern, int index) {
   RegExp re = new RegExp(pattern, multiLine: false, caseSensitive: true);
   Match? m = re.firstMatch(str);
-  Expect.throws(() { m?[index]; });
+  Expect.throws(() { m?[index]; }, (e) => e is RangeError);
 }
  
 main() {

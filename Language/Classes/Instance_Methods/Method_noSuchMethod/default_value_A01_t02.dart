@@ -25,7 +25,7 @@ class C {
       log += "${inv.positionalArguments[i]};";
     }
     for (int i = 0; i < inv.namedArguments.length; i++) {
-      log += "s=${inv.namedArguments[Symbol("s")]};";
+      log += "s=${inv.namedArguments[#s]};";
     }
     return 42;
   }
@@ -41,7 +41,7 @@ mixin M {
       log += "${inv.positionalArguments[i]};";
     }
     for (int i = 0; i < inv.namedArguments.length; i++) {
-      log += "s=${inv.namedArguments[Symbol("s")]};";
+      log += "s=${inv.namedArguments[#s]};";
     }
     return 42;
   }
@@ -60,7 +60,7 @@ enum E {
       log += "${inv.positionalArguments[i]};";
     }
     for (int i = 0; i < inv.namedArguments.length; i++) {
-      log += "s=${inv.namedArguments[Symbol("s")]};";
+      log += "s=${inv.namedArguments[#s]};";
     }
     return 42;
   }
@@ -71,31 +71,19 @@ main() {
   Expect.equals("1;s1;", log);
   log = "";
   C().m2(2);
-  if (isMinified) {
-    Expect.isTrue(log.startsWith("2;s="));
-  } else {
-    Expect.equals("2;s=s2;", log);
-  }
+  Expect.equals("2;s=s2;", log);
   log = "";
 
   MA().m1(1);
   Expect.equals("1;s1;", log);
   log = "";
   MA().m2(2);
-  if (isMinified) {
-    Expect.isTrue(log.startsWith("2;s="));
-  } else {
-    Expect.equals("2;s=s2;", log);
-  }
+  Expect.equals("2;s=s2;", log);
   log = "";
 
   E.e1.m1(1);
   Expect.equals("1;s1;", log);
   log = "";
   E.e2.m2(2);
-  if (isMinified) {
-    Expect.isTrue(log.startsWith("2;s="));
-  } else {
-    Expect.equals("2;s=s2;", log);
-  }
+  Expect.equals("2;s=s2;", log);
 }

@@ -54,9 +54,8 @@ main() {
     Expect.equals(#foo, new Symbol('foo'));
     Expect.equals(#foo.bar$, new Symbol(r'foo.bar$'));
     Expect.equals(#foo.bar$.baz_, new Symbol(r'foo.bar$.baz_'));
-
-    Expect.identical(#foo, const Symbol('foo'));
-    Expect.identical(#foo.bar$, const Symbol(r'foo.bar$'));
-    Expect.identical(#foo.bar$.baz_, const Symbol(r'foo.bar$.baz_'));
   }
+  Expect.identical(#foo, const Symbol('foo'));
+  Expect.identical(#foo.bar$, const Symbol(r'foo.bar$'));
+  Expect.identical(#foo.bar$.baz_, const Symbol(r'foo.bar$.baz_'));
 }

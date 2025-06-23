@@ -23,5 +23,5 @@ main() {
 }
 
 void check(String str, int start, int end) {
-  Expect.throws(() {str.substring(start, end);});
+  Expect.throws(() {str.substring(start, end);}, (e) => e is RangeError);
 }

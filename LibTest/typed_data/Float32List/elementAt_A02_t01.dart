@@ -17,13 +17,13 @@ check(int length) {
   var l = new Float32List(length);
   Expect.throws(() {
     l.elementAt(length + 1);
-  });
+  }, (e) => e is RangeError);
   Expect.throws(() {
     l.elementAt(length);
-  });
+  }, (e) => e is RangeError);
   Expect.throws(() {
     l.elementAt(-1);
-  });
+  }, (e) => e is RangeError);
 }
 
 main() {

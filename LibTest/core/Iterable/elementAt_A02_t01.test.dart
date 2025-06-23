@@ -20,7 +20,7 @@ import "../../../Utils/expect.dart";
 var v;
 
 void check (Iterable a, int index) {
-  Expect.throws(() {v = a.elementAt(index);});
+  Expect.throws(() {v = a.elementAt(index);}, (e) => e is RangeError);
 }
 
 test(Iterable create([Iterable content])) {

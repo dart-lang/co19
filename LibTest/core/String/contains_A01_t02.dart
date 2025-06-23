@@ -18,17 +18,17 @@ main() {
 
   Expect.throws(() {
     str.contains(pattern, -1);
-  });
+  }, (e) => e is RangeError);
 
   Expect.throws(() {
     str.contains(pattern, 0x7fffffff);
-  });
+  }, (e) => e is RangeError);
 
   Expect.throws(() {
     str.contains(pattern, 0x80000000);
-  });
+  }, (e) => e is RangeError);
 
   Expect.throws(() {
     str.contains(pattern, str.length + 1);
-  });
+  }, (e) => e is RangeError);
 }

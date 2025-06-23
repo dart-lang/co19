@@ -13,7 +13,7 @@ library removeRange_A03_t02;
 import "../../../Utils/expect.dart";
 
 checkList(l, start, end) {
-  Expect.throws(() {l.removeRange(start, end);});
+  Expect.throws(() {l.removeRange(start, end);}, (e) => e is RangeError);
 }
 
 test(List<E> create<E>([int length, E fill])) {

@@ -13,5 +13,5 @@ library length_A05_t01;
 import "../../../Utils/expect.dart";
 
 test(List<E> create<E>([int length, E fill])) {
-  Expect.throws(() {create().length = -1;});
+  Expect.throws(() {create().length = -1;}, (e) => e is RangeError);
 }

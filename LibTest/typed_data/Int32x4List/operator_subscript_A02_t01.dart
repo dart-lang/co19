@@ -14,15 +14,27 @@ Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
 void check(list) {
   var l = new Int32x4List.fromList(list);
-  Expect.throws(() { l[-1];       });
-  Expect.throws(() { l[l.length]; });
+  Expect.throws(() {
+    l[-1];
+  }, (e) => e is RangeError);
+  Expect.throws(() {
+    l[l.length];
+  }, (e) => e is RangeError);
 }
 
 main() {
   check([i32x4(1)]);
   check([i32x4(10), i32x4(11), i32x4(12), i32x4(13)]);
   check([
-    i32x4(0), i32x4(1), i32x4(2), i32x4(3), i32x4(4), i32x4(5), i32x4(6),
-    i32x4(7),i32x4(8), i32x4(9)
+    i32x4(0),
+    i32x4(1),
+    i32x4(2),
+    i32x4(3),
+    i32x4(4),
+    i32x4(5),
+    i32x4(6),
+    i32x4(7),
+    i32x4(8),
+    i32x4(9),
   ]);
 }

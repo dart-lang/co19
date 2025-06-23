@@ -18,7 +18,7 @@ test(List<E> create<E>([int length, E fill])) {
   check(List a0, int index) {
     List a = create();
     a.addAll(a0);
-    Expect.throws(() {a.removeAt(index);});
+    Expect.throws(() {a.removeAt(index);}, (e) => e is RangeError);
   }
 
   List a0 = [1, 3, 3, 4, 5, 6];

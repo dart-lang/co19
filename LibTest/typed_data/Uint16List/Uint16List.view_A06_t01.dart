@@ -22,6 +22,6 @@ main() {
   var list = new Uint16List(2);
   var buffer = list.buffer;
   for (int i = 1; i < Uint16List.bytesPerElement; ++i) {
-    Expect.throws(() { Uint16List.view(buffer, i); });
+    Expect.throws(() { Uint16List.view(buffer, i); }, (e) => e is ArgumentError);
   }
 }

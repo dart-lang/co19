@@ -22,6 +22,6 @@ main() {
   var list = new Int64List(2);
   var buffer = list.buffer;
   for (int i = 1; i < Int64List.bytesPerElement; ++i) {
-    Expect.throws(() { Int64List.view(buffer, i); });
+    Expect.throws(() { Int64List.view(buffer, i); }, (e) => e is ArgumentError);
   }
 }

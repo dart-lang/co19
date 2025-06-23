@@ -69,18 +69,16 @@ String test3(Symbol value) {
 }
 
 main() {
-  if (!isMinified) {
-    Expect.equals("+", test1(Symbol("+")));
-    Expect.equals("foo", test1(Symbol("foo")));
-    Expect.equals("-", test1(Symbol("unary-")));
-    Expect.equals("bar", test1(Symbol("bar")));
-    Expect.equals("+", test2(Symbol("+")));
-    Expect.equals("foo", test2(Symbol("foo")));
-    Expect.equals("-", test2(Symbol("unary-")));
-    Expect.equals("bar", test2(Symbol("bar")));
-    Expect.equals("+", test3(Symbol("+")));
-    Expect.equals("foo", test3(Symbol("foo")));
-    Expect.equals("-", test3(Symbol("unary-")));
-    Expect.equals("bar", test3(Symbol("bar")));
-  }
+  Expect.equals("+", test1(const Symbol("+")));
+  Expect.equals("foo", test1(const Symbol("foo")));
+  Expect.equals("-", test1(const Symbol("unary-")));
+  Expect.equals("bar", test1(const Symbol("bar")));
+  Expect.equals("+", test2(const Symbol("+")));
+  Expect.equals("foo", test2(const Symbol("foo")));
+  Expect.equals("-", test2(const Symbol("unary-")));
+  Expect.equals("bar", test2(const Symbol("bar")));
+  Expect.equals("+", test3(const Symbol("+")));
+  Expect.equals("foo", test3(const Symbol("foo")));
+  Expect.equals("-", test3(const Symbol("unary-")));
+  Expect.equals("bar", test3(const Symbol("bar")));
 }

@@ -65,9 +65,5 @@ typedef b = int;
 typedef c = String;
 
 main() {
-  if (isMinified) {
-    Expect.isTrue(f(a<b, c>.n(42)).startsWith("a<"));
-  } else {
-    Expect.equals("${a<b, c>}(42), null", f(a<b, c>.n(42)));
-  }
+  Expect.equals("a<${b}, ${c}>(42), null", f(a<b, c>.n(42)));
 }

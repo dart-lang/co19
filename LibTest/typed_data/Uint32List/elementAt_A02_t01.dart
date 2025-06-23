@@ -14,9 +14,15 @@ import "../../../Utils/expect.dart";
 
 check(length) {
   var l = new Uint32List(length);
-  Expect.throws(() { l.elementAt(length + 1); });
-  Expect.throws(() { l.elementAt(length    ); });
-  Expect.throws(() { l.elementAt(-1        ); });
+  Expect.throws(() {
+    l.elementAt(length + 1);
+  }, (e) => e is RangeError);
+  Expect.throws(() {
+    l.elementAt(length);
+  }, (e) => e is RangeError);
+  Expect.throws(() {
+    l.elementAt(-1);
+  }, (e) => e is RangeError);
 }
 
 main() {

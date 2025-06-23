@@ -15,7 +15,7 @@ library insertAll_A02_t01;
 import "../../../Utils/expect.dart";
 
 void check(List a, int index, Iterable elements) {
-  Expect.throws(() {a.insertAll(index, elements);});
+  Expect.throws(() {a.insertAll(index, elements);}, (e) => e is RangeError);
 }
 
 test(List<E> create<E>([int length, E fill])) {
