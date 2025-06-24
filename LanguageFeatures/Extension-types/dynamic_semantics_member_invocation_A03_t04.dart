@@ -49,14 +49,14 @@ main() {
   try {
     et1.testMe<int>();
   } catch (e, _st) {
-    Expect.equals("X is ${int}", e);
+    Expect.equals("X is $int", e);
     Expect.equals("$st", "$_st");
   }
 
   try {
     et1.testMe<double>();
   } catch (e, _st) {
-    Expect.equals("X is ${double}", e);
+    Expect.equals("X is $double", e);
     Expect.equals("$st", "$_st");
   }
 
@@ -64,7 +64,7 @@ main() {
   try {
     et2.testMe<int>();
   } catch (e, _st) {
-    Expect.equals("X is ${int}", e);
+    Expect.equals("X is $int", e);
     Expect.equals("$st", "$_st");
   }
 }

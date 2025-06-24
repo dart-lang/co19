@@ -18,7 +18,7 @@ test(List<E> create<E>([int length, E fill])) {
   void check(List a0, int idx) {
     List a = create(a0.length, 0);
     a.setRange(0, a0.length, a0);
-    Expect.throws(() {a[idx] = null;});
+    Expect.throws(() {a[idx] = null;}, (e) => e is RangeError);
   }
 
   check([], 0);

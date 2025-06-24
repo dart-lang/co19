@@ -65,5 +65,5 @@ typedef b = int;
 typedef c = String;
 
 main() {
-  Expect.equals("a<${b}, ${c}>(42), null", f(a<b, c>.n(42)));
+  Expect.equals("a<$b, $c>(42), null", f(a<b, c>.n(42)));
 }

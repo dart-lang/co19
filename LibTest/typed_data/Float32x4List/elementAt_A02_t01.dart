@@ -17,10 +17,10 @@ check(length) {
   var l = new Float32x4List(length);
   Expect.throws(() {
     l.elementAt(length + 1);
-  }, (e) => e is RangeError);
+  }, (e) => e is RangeError || e is IndexError);
   Expect.throws(() {
     l.elementAt(-1);
-  }, (e) => e is RangeError);
+  }, (e) => e is RangeError || e is IndexError);
 }
 
 main() {

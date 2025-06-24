@@ -27,17 +27,17 @@ main() {
 
   String log = "";
   var (v1) = getType(d, (String s) {log += s;});
-  Expect.equals("${Object}?", log);
+  Expect.equals("$Object?", log);
 
   log = "";
   var (B v2) = getType(d, (String s) {log += s;});
-  Expect.equals("${B}", log);
+  Expect.equals("$B", log);
 
   log = "";
   final (B v3) = getType(d, (String s) {log += s;});
-  Expect.equals("${B}", log);
+  Expect.equals("$B", log);
 
   log = "";
   final (v4) = getType(d, (String s) {log += s;});
-  Expect.equals("${Object}?", log);
+  Expect.equals("$Object?", log);
 }

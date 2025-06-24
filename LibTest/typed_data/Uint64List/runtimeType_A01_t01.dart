@@ -16,5 +16,5 @@ main() {
   var type = obj.runtimeType;
   Expect.isTrue(type is Type);
   Expect.runtimeIsType<Type>(type);
-  Expect.stringEquals("${Uint64List}", obj.runtimeType.toString());
+  Expect.stringEquals("$Uint64List", obj.runtimeType.toString());
 }

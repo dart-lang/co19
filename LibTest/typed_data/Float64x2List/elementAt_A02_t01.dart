@@ -18,10 +18,10 @@ void check(List<Float64x2> list) {
 
   Expect.throws(() {
     l.elementAt(-1);
-  }, (e) => e is RangeError);
+  }, (e) => e is RangeError || e is IndexError);
   Expect.throws(() {
     l.elementAt(l.length);
-  }, (e) => e is RangeError);
+  }, (e) => e is RangeError || e is IndexError);
 }
 
 main() {

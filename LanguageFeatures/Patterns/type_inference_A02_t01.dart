@@ -19,5 +19,5 @@ import "patterns_lib.dart";
 main() {
   String log = "";
   var (num v1!) = getType(42, (String s) {log += s;});
-  Expect.equals("${num}?", log);
+  Expect.equals("$num?", log);
 }

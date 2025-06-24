@@ -28,7 +28,7 @@ main() {
   Expect.equals("1", E.e2.t);
   Expect.equals(true, E.e3.t);
 
-  Expect.equals("${int}", E.e1.t.runtimeType.toString());
-  Expect.equals("${String}", E.e2.t.runtimeType.toString());
-  Expect.equals("${bool}", E.e3.t.runtimeType.toString());
+  Expect.equals("$int", E.e1.t.runtimeType.toString());
+  Expect.equals("$String", E.e2.t.runtimeType.toString());
+  Expect.equals("$bool", E.e3.t.runtimeType.toString());
 }
