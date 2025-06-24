@@ -10,27 +10,34 @@
 /// connection from client.
 /// @author a.semenov@unipro.ru
 
-import "dart:io";
-import "dart:convert";
 import "dart:async";
+import "dart:convert";
+import "dart:io";
 import "../../../Utils/expect.dart";
 import "../http_utils.dart";
 
-const Utf8Codec CODEC = const Utf8Codec();
-List<List<int>> BYTES = [
-  CODEC.encode("Hello"),
-  CODEC.encode(","),
-  CODEC.encode("World")
+const Utf8Codec codec = const Utf8Codec();
+List<List<int>> bytes = [
+  codec.encode("Hello"),
+  codec.encode(","),
+  codec.encode("World"),
 ];
 
 main() {
-  asyncTest<HttpServer>((HttpServer? server) async {
-    WebSocket ws = await WebSocket.connect(
-        "ws://${server?.address.address}:${server?.port}/");
-    await ws.addStream(new Stream.fromIterable(BYTES));
-    await ws.close();
-  },
-      setup: () =>
-          spawnWebSocketServer((WebSocket ws) => AsyncExpect.data(BYTES, ws)),
-      cleanup: (HttpServer? server) => server?.close());
+  Completer<void> checkCompleted = Completer<void>();
+  asyncTest<HttpServer>(
+    (HttpServer? server) async {
+      WebSocket ws = await WebSocket.connect(
+        "ws://${server?.address.address}:${server?.port}/",
+      );
+      await ws.addStream(new Stream.fromIterable(bytes));
+      await checkCompleted;
+      await ws.close();
+    },
+    setup: () => spawnWebSocketServer((WebSocket ws) async {
+      await AsyncExpect.data(bytes, ws);
+      checkCompleted.complete();
+    }),
+    cleanup: (HttpServer? server) => server?.close(),
+  );
 }

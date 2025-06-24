@@ -186,8 +186,8 @@ class AsyncExpect {
     );
   }
 
-  /// Checks whether the given stream contains expected data events.
-  /// Any error in the stream is unexpected and wil fail the test.
+  /// Checks whether the given stream contains the expected data events.
+  /// Any error in the stream is unexpected and will fail the test.
   static Future<bool> data<T>(
       List<T> data, Stream<T> stream, [String? reason]) {
     String msg = reason ?? StackTrace.current.toString();
