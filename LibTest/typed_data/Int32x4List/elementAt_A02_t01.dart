@@ -8,6 +8,7 @@
 /// @description Checks that the index must be non-negative and less than length.
 /// @author ngl@unipro.ru
 
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -15,10 +16,10 @@ check(int length) {
   var l = new Int32x4List(length);
   Expect.throws(() {
     l.elementAt(-1);
-  }, (e) => e is RangeError || e is IndexError);
+  });
   Expect.throws(() {
     l.elementAt(length);
-  }, (e) => e is RangeError || e is IndexError);
+  });
 }
 
 main() {

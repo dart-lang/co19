@@ -8,6 +8,7 @@
 /// @description Checks that the index must be non-negative and less than length.
 /// @author ngl@unipro.ru
 
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -16,12 +17,8 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 void check(List<Float64x2> list) {
   var l = new Float64x2List.fromList(list);
 
-  Expect.throws(() {
-    l.elementAt(-1);
-  }, (e) => e is RangeError || e is IndexError);
-  Expect.throws(() {
-    l.elementAt(l.length);
-  }, (e) => e is RangeError || e is IndexError);
+  Expect.throws(() { l.elementAt(-1);       }, (e) => e is RangeError);
+  Expect.throws(() { l.elementAt(l.length); }, (e) => e is RangeError);
 }
 
 main() {
@@ -29,18 +26,8 @@ main() {
   check([f64x2(1.0)]);
   check([f64x2(1.0), f64x2(1.0)]);
   check([
-    f64x2(5.0),
-    f64x2(6.0),
-    f64x2(7.0),
-    f64x2(8.0),
-    f64x2(9.0),
-    f64x2(10.0),
-    f64x2(11.0),
-    f64x2(12.0),
-    f64x2(13.0),
-    f64x2(14.0),
-    f64x2(15.0),
-    f64x2(16.0),
-    f64x2(17.0),
+    f64x2(5.0), f64x2(6.0), f64x2(7.0), f64x2(8.0), f64x2(9.0),
+    f64x2(10.0), f64x2(11.0), f64x2(12.0), f64x2(13.0), f64x2(14.0),
+    f64x2(15.0), f64x2(16.0), f64x2(17.0)
   ]);
 }

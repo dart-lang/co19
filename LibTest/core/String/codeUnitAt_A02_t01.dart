@@ -3,8 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion  abstract int codeUnitAt(int index)
-/// Throws Error if [index] is out of bounds
-/// @description Checks that an Error is thrown when the index is out of range.
+/// Throws RangeError if [index] is out of bounds
+/// @description Checks that a RangeError is thrown when the index is out of
+/// range
 /// @author msyabro
 
 import "../../../Utils/expect.dart";

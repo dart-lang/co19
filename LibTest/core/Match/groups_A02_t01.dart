@@ -17,6 +17,7 @@ void check(String str, String pattern, List<int> groupIndices) {
 main() {
   check("a", "a", [1, 1]);
   check("a", "a", [0, 1]);
+  
   check("a", "(a)", [0, 1, 2]);
   check("abcdef", "(([a-z])*)", [3, 1, 1]);
   check("abcdef", "(([a-z])*)", [65536]);

@@ -4,28 +4,20 @@
 
 /// @assertion int operator [](int index)
 /// ...
-/// or throws an error if index is out of bounds
-///
+/// or throws a [RangeError] if index is out of bounds
 /// @description Checks that an exception is thrown as expected.
 /// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(List<int> list) {
   var l = new Int32List.fromList(list);
-  Expect.throws(() {
-    l[-1];
-  }, (e) => e is RangeError);
-  Expect.throws(() {
-    l[l.length];
-  }, (e) => e is RangeError);
-  Expect.throws(() {
-    l[0x80000000];
-  }, (e) => e is RangeError);
-  Expect.throws(() {
-    l[0x7fffffff];
-  }, (e) => e is RangeError);
+  Expect.throws(() { l[-1];         }, (e) => e is RangeError);
+  Expect.throws(() { l[l.length];   }, (e) => e is RangeError);
+  Expect.throws(() { l[0x80000000]; }, (e) => e is RangeError);
+  Expect.throws(() { l[0x7fffffff]; }, (e) => e is RangeError);
 }
 
 main() {

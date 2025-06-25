@@ -4,8 +4,8 @@
 
 /// @assertion Throws RangeError if [startIndex] or [endIndex] is
 /// out of bounds.
-/// @description Checks that an exception is thrown when the arguments are out
-/// of bounds or in incorrect order.
+/// @description Checks that the correct exception is thrown when the arguments
+/// are out of bounds or in incorrect order.
 /// @author msyabro
 
 import "../../../Utils/expect.dart";

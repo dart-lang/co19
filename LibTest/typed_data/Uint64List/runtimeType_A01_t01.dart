@@ -4,7 +4,6 @@
 
 /// @assertion Type runtimeType
 /// A representation of the runtime type of the object.
-///
 /// @description Checks that the correct [Type] is returned.
 /// @author msyabro
 

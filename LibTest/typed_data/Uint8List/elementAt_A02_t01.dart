@@ -5,24 +5,19 @@
 /// @assertion E elementAt(int index)
 /// ...
 /// The index must be non-negative and less than length.
-/// @description Checks that an error is thrown if [index] is negative or
+/// @description Checks that a [RangeError] is thrown if [index] is negative or
 /// [index] is not less than length.
 /// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(length) {
   var l = new Uint8List(length);
-  Expect.throws(() {
-    l.elementAt(length + 1);
-  }, (e) => e is RangeError || e is IndexError);
-  Expect.throws(() {
-    l.elementAt(length);
-  }, (e) => e is RangeError || e is IndexError);
-  Expect.throws(() {
-    l.elementAt(-1);
-  }, (e) => e is RangeError || e is IndexError);
+  Expect.throws(() { l.elementAt(length + 1); }, (e) => e is RangeError);
+  Expect.throws(() { l.elementAt(length    ); }, (e) => e is RangeError);
+  Expect.throws(() { l.elementAt(-1        ); }, (e) => e is RangeError);
 }
 
 main() {

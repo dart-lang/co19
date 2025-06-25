@@ -4,7 +4,6 @@
 
 /// @assertion abstract Iterable<E> getRange(int start, int end)
 /// An error occurs if end is before start.
-///
 /// @description Checks that an error is thrown if end is before start.
 /// @author vasya
 

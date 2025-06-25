@@ -3,9 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion abstract E removeAt(int index)
-/// Throws an error if the index does not point inside the list.
-///
-/// @description Checks that an error is thrown if the index does not point
+/// Throws a RangeError if the index does not point inside the list.
+/// @description Checks that a RangeError is thrown if the index does not point
 /// inside the list.
 /// @author kaigorodov
 

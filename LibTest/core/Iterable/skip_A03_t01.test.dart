@@ -4,7 +4,7 @@
 
 /// @assertion Iterable<E> skip(int count)
 /// The count must not be negative
-/// @description checks that an error is thrown if n is negative.
+/// @description checks that a RangeError is thrown if n is negative.
 /// @author kaigorodov
 
 library skip_A03_t01;

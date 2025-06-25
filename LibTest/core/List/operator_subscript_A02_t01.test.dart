@@ -3,8 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion abstract E operator [](int index)
-/// Throws an error if index is out of bounds.
-///
+/// Throws a RangeError if index is out of bounds.
 /// @description Checks that the exception is thrown.
 /// @author iefremov
 /// @author varlax
@@ -40,4 +39,6 @@ test(List<E> create<E>([int length, E fill])) {
   check(new List.from([1]), 2);
   check(new List.from([null, null, null, null]), 5);
   check(new List.from([null, null, null, null]), -1);
+
 }
+

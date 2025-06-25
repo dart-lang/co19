@@ -6,8 +6,8 @@
 /// ...
 /// The start and end indices must specify a valid range of this string.
 /// That is 0 <= start <= end <= this.length
-/// @description Checks that the start and end indices must specify a valid
-/// range of this string
+/// @description Checks that the start and end indices must specify a valid range
+/// of this string
 /// @author sgrekhov@unipro.ru
 
 import "../../../Utils/expect.dart";

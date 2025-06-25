@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion abstract E removeAt(int index)
-/// Throws an error if index is not an int.
-/// @description Checks that an error is thrown if index is not an int.
+/// Throws an ArgumentError if index is not an int.
+/// @description Checks that an ArgumentError is thrown if index is not an int.
 /// @author kaigorodov
 
 library removeAt_A02_t01;
@@ -12,12 +12,12 @@ library removeAt_A02_t01;
 import "../../../Utils/expect.dart";
 
 test(List<E> create<E>([int length, E fill])) {
+
   check(List a0, var index) {
     List a = create();
     a.addAll(a0);
-    Expect.throws(() {
-      a.removeAt(index);
-    }, (e) => (e is ArgumentError) || (e is TypeError));
+    Expect.throws(() {a.removeAt(index);},
+        (e) => (e is ArgumentError) || (e is TypeError));
   }
 
   List a0 = [1, 3, 3, 4, 5, 6];

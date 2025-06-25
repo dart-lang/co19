@@ -3,9 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion abstract void insertAll(int index, Iterable<E> iterable)
-/// It is an error if the index does not point inside the list or at the
-/// position after the last element.
-///
+/// It is an error if the index does not point inside the list or at the position
+/// after the last element.
 /// @description Checks that it is an error if the index does not point at the
 /// position inside the list or after the last element.
 /// @author kaigorodov

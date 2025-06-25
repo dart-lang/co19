@@ -3,8 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion  abstract void set length(int newLength)
-/// Throws an error if the [length] is negative.
-///
+/// Throws [RangeError] if the [length] is negative.
 /// @description Checks that the exception is thrown as expected.
 /// @author kaigorodov
 

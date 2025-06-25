@@ -3,8 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion abstract E removeLast()
-/// Throws an error if the list is empty.
-///
+/// Throws RangeError if the list is empty.
 /// @description Checks that exception is thrown.
 /// @author kaigorodov
 

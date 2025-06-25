@@ -9,12 +9,13 @@
 ///     int length
 /// ])
 /// ...
-/// Throws an arror if [offsetInBytes] is not a multiple of BYTES_PER_ELEMENT.
-///
-/// @description Checks that an error is thrown if [offsetInBytes] is
+/// Throws [ArgumentError] if [offsetInBytes] is not a multiple of
+/// BYTES_PER_ELEMENT.
+/// @description Checks that [ArgumentError] is thrown if [offsetInBytes] is
 /// not a multiple of BYTES_PER_ELEMENT.
 /// @author msyabro
 /// @issue 43204
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

@@ -4,54 +4,26 @@
 
 /// @assertion void operator []=(int index, E value)
 /// ...
-/// Throws an error if index is out of bounds.
-///
+/// Throws an [RangeError] if index is out of bounds.
 /// @description Checks that an exception is thrown as expected.
 /// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(List<int> list) {
   var l = new Uint64List.fromList(list);
-  Expect.throws(() {
-    l[-1] = 1;
-  }, (e) => e is RangeError);
-  Expect.throws(() {
-    l[l.length] = 1;
-  }, (e) => e is RangeError);
-  Expect.throws(() {
-    l[0x80000000] = 1;
-  }, (e) => e is RangeError);
-  Expect.throws(() {
-    l[0x7fffffff] = 1;
-  }, (e) => e is RangeError);
+  Expect.throws(() { l[-1        ] = 1; }, (e) => e is RangeError);
+  Expect.throws(() { l[l.length  ] = 1; }, (e) => e is RangeError);
+  Expect.throws(() { l[0x80000000] = 1; }, (e) => e is RangeError);
+  Expect.throws(() { l[0x7fffffff] = 1; }, (e) => e is RangeError);
 }
 
 main() {
   check([]);
   check([1]);
   check([
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
   ]);
 }

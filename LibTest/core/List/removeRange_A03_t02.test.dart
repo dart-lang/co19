@@ -4,7 +4,7 @@
 
 /// @assertion abstract void removeRange(int start, int end)
 /// An error occurs if start.. end is not a valid range for this.
-/// @description Checks that an error is thrown
+/// @description Checks that an [RangeError] is thrown
 /// if [start] or [end] are out of range.
 /// @author vasya
 

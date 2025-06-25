@@ -5,8 +5,8 @@
 /// @assertion abstract void setRange(int start, int end, Iterable<E> iterable,
 /// [int skipCount = 0])
 /// It is an error if start.. end is not a valid range pointing into the this.
-///
-/// @description Checks that an error is thrown if there is no enough space.
+/// @description Checks that RangeError is thrown if there is lack of space in
+/// dst.
 /// @author iefremov
 
 library setRange_A02_t01;
@@ -14,9 +14,8 @@ library setRange_A02_t01;
 import "../../../Utils/expect.dart";
 
 checkList(dst, dstOffset, count, src) {
-  Expect.throws(() {
-    dst.setRange(dstOffset, dstOffset + count, src, 0);
-  }, (e) => e is RangeError);
+  Expect.throws(() {dst.setRange(dstOffset, dstOffset+count, src, 0);},
+      (e) => e is RangeError);
 }
 
 test(List<E> create<E>([int length, E fill])) {
@@ -35,5 +34,5 @@ test(List<E> create<E>([int length, E fill])) {
   check(0, 1, 0, 1);
   check(41, 42, 0, 42);
   check(2, 2, 1, 2);
-  check(10, 10, 9, 10);
+  check(10, 10, 9, 10);    
 }
