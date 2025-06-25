@@ -60,7 +60,7 @@ enum E {
       log += "${inv.positionalArguments[i]};";
     }
     for (int i = 0; i < inv.namedArguments.length; i++) {
-      log += "s=${inv.namedArguments[Symbol("s")]};";
+      log += "s=${inv.namedArguments[#s]};";
     }
     return 42;
   }

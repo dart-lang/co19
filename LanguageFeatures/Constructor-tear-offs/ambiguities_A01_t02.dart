@@ -61,5 +61,5 @@ typedef c = String;
 
 main() {
   int d = 4;
-  Expect.equals("a<int, String>(4), null",f(a<b, c>(d)));
+  Expect.equals("a<$int, $String>(4), null", f(a<b, c>(d)));
 }

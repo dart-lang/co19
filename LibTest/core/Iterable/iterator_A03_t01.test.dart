@@ -33,7 +33,7 @@ import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
   Iterable i = create();
-  if(!i.iterator.toString().contains("EmptyIterator")) {// EmpltyIterator is a constant, skip it
+  if(!i.isEmpty) {// EmpltyIterator is a constant, skip it
     Expect.notEquals(i.iterator, i.iterator);
   }
 }

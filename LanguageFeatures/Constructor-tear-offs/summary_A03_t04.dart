@@ -116,9 +116,6 @@ void main() {
   Expect.isTrue(f3 is Func);
   Expect.runtimeIsType<Func>(f3);
 
-  var typeName = (List<int>).toString();
-  Expect.equals("List<int>", typeName);
-
   var functionTypeName = local<int>.runtimeType.toString();
-  Expect.equals("(int) => int", functionTypeName);
+  Expect.equals("($int) => $int", functionTypeName);
 }

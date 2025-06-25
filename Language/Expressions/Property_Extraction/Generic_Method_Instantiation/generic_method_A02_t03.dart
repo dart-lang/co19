@@ -36,7 +36,7 @@ class C extends A {
 
   test() {
     String Function(int) f1 = super.foo;
-    Expect.equals("A:int", f1(42));
+    Expect.equals("A:$int", f1(42));
   }
 }
 

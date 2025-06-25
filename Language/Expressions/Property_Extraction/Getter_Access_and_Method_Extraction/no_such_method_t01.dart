@@ -26,7 +26,7 @@ class C {
   void noSuchMethod(Invocation i) {
     _called = true;
     Expect.isTrue(i.isGetter);
-    Expect.equals(new Symbol('someGetter'), i.memberName);
+    Expect.equals(#someGetter, i.memberName);
     Expect.listEquals([], i.positionalArguments);
     Expect.throws(() => i.positionalArguments.clear());
     Expect.mapEquals({}, i.namedArguments);

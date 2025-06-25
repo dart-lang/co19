@@ -15,5 +15,5 @@ main() {
   var type = obj.runtimeType;
   Expect.isTrue(type is Type);
   Expect.runtimeIsType<Type>(type);
-  Expect.stringEquals("Int8List", obj.runtimeType.toString());
+  Expect.stringEquals("$Int8List", obj.runtimeType.toString());
 }

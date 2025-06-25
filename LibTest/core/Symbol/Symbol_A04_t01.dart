@@ -48,19 +48,17 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals(Symbol.empty, new Symbol(''));
+  if (!isMinified) {
+    Expect.equals(Symbol.empty, new Symbol(''));
+    Expect.equals(Symbol.unaryMinus, new Symbol('unary-'));
+    Expect.equals(new Symbol('+++'), new Symbol('+++'));
+    Expect.equals(new Symbol('42isananswer'), new Symbol('42isananswer'));
+    Expect.equals(new Symbol('42'), new Symbol('42'));
+  }
   Expect.identical(Symbol.empty, const Symbol(''));
-
-  Expect.equals(Symbol.unaryMinus, new Symbol('unary-'));
   Expect.identical(Symbol.unaryMinus, const Symbol('unary-'));
-
-  Expect.equals(new Symbol('+++'), new Symbol('+++'));
   Expect.identical(const Symbol('+++'), const Symbol('+++'));
-
-  Expect.equals(new Symbol('42isananswer'), new Symbol('42isananswer'));
-  Expect.identical(const Symbol('42isananswer'), const Symbol('42isananswer'));
-
-  Expect.equals(new Symbol('42'), new Symbol('42'));
+  Expect.identical(
+      const Symbol('42isananswer'), const Symbol('42isananswer'));
   Expect.identical(const Symbol('42'), const Symbol('42'));
 }
-

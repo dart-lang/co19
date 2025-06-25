@@ -47,25 +47,25 @@ main() {
   Expect.equals(#m, A().m());
   Expect.equals(#g, A().g);
   A().s = "";
-  Expect.equals(Symbol("s="), log);
+  Expect.equals(const Symbol("s="), log);
 
   Expect.equals(#m, C1().m());
   Expect.equals(#g, C1().g);
   C1().s = "";
-  Expect.equals(Symbol("s="), log);
+  Expect.equals(const Symbol("s="), log);
 
   Expect.equals(#m, C2().m());
   Expect.equals(#g, C2().g);
   C2().s = "";
-  Expect.equals(Symbol("s="), log);
+  Expect.equals(const Symbol("s="), log);
 
   Expect.equals(#m, MA().m());
   Expect.equals(#g, MA().g);
   MA().s = "";
-  Expect.equals(Symbol("s="), log);
+  Expect.equals(const Symbol("s="), log);
 
   Expect.equals(#m, E.e1.m());
   Expect.equals(#g, E.e2.g);
   E.e1.s = "";
-  Expect.equals(Symbol("s="), log);
+  Expect.equals(const Symbol("s="), log);
 }

@@ -33,15 +33,15 @@ main() {
   B v1 = b;
   String log = "";
   (v1) = getType(d, (String s) {log += s;});
-  Expect.equals("B", log);
+  Expect.equals("$B", log);
 
   log = "";
   var v2 = c;
   (v2) = getType(d, (String s) {log += s;});
-  Expect.equals("C", log);
+  Expect.equals("$C", log);
 
   log = "";
   B v3 = c;
   (v3) = getType(d, (String s) {log += s;});
-  Expect.equals("B", log);
+  Expect.equals("$B", log);
 }

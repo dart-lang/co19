@@ -53,7 +53,7 @@ class C {
   @override
   noSuchMethod(Invocation invocation) {
     called = true;
-    Expect.equals(invocation.memberName, new Symbol("foo"));
+    Expect.equals(invocation.memberName, #foo);
   }
 }
 

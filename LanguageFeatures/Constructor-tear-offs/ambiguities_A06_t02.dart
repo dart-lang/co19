@@ -61,5 +61,5 @@ main() {
   var x = a<b, c>;
   Expect.isTrue(x is Function);
   Expect.runtimeIsType<Function>(x);
-  Expect.equals("a<int, String>(42)", x(42));
+  Expect.equals("a<$int, $String>(42)", x(42));
 }

@@ -269,8 +269,8 @@ class Expect {
               expected.length,
               actual.length,
               'Collection lengths are not equal: '
-              'expected length=${expected.length}, '
-              'actual length=${actual.length}');
+                  'expected length=${expected.length}, '
+                  'actual length=${actual.length}');
           planned[expected] = actual;
         }
       } else {
@@ -411,6 +411,11 @@ const bool isJS = isDart2JS || isDDC;
 
 /// Is true iff dart2wasm compiler is used
 const bool isWasm = bool.fromEnvironment('dart.tool.dart2wasm');
+
+/// Is true iff minified mode is on
+const bool isMinified =
+    bool.fromEnvironment('dart.tool.dart2js.minify') ||
+        bool.fromEnvironment('dart.tool.dart2wasm.minify');
 
 /// Checks that objects are identical at the compile time
 class CheckIdentical {
