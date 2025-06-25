@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion abstract E operator [](int index)
-/// @description Checks that an error occurs if [index] is out of bounds.
+/// @description Checks that [RangeError] is thrown if [index] is out of bounds.
 /// @author iarkh@unipro.ru
 
 import "dart:collection";
