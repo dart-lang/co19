@@ -9,7 +9,7 @@
 /// If no `buffer` is provided, creates an empty `Float32Array`.
 ///
 /// @description Checks that an object created by this constructor truncates
-/// values more that `3.4e38` or less than `-3.4e38`
+/// values more than `3.4e38` or less than `-3.4e38`
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
