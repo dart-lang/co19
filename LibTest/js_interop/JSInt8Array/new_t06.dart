@@ -9,7 +9,7 @@
 /// If no `buffer` is provided, creates an empty `Int8Array`.
 ///
 /// @description Checks that an object created by this constructor truncates
-/// values more than `32767` or less than `-32768`.
+/// values more than `127` or less than `-128`.
 /// @author sgrekhov22@gmail.com
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
@@ -18,7 +18,7 @@ import '../js_utils.dart';
 
 test(int bufferSize, int offset, int length, num value) {
   JSArrayBuffer buffer = JSArrayBuffer(bufferSize);
-  JSInt16Array ar = JSInt16Array(buffer, offset, length);
+  JSInt8Array ar = JSInt8Array(buffer, offset, length);
   globalContext["ar"] = ar;
   eval("ar[0] = $value;");
   Expect.throws(() {
@@ -27,8 +27,8 @@ test(int bufferSize, int offset, int length, num value) {
 }
 
 main() {
-  test(2, 0, 1, 32767 + 1);
-  test(2, 0, 1, -32768 - 1);
-  test(4, 2, 1, 32767 + 1);
-  test(4, 2, 1, -32768 - 1);
+  test(1, 0, 1, 127 + 1);
+  test(2, 0, 1, -128 - 1);
+  test(4, 1, 1, 127 + 1);
+  test(4, 1, 1, -128 - 1);
 }

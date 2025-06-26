@@ -2,12 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion JSInt16Array.withLength( int length )
+/// @assertion JSInt32Array.withLength( int length )
 /// Creates a JavaScript `Int16Array` of size `length` whose elements are
 /// initialized to `0`.
 ///
 /// @description Checks that this constructor creates a JavaScript
-/// `Int16Array` of size `length` whose elements are initialized to `0`.
+/// `Int32Array` of size `length` whose elements are initialized to `0`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -16,7 +16,7 @@ import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
 test(int length) {
-  JSInt16Array ar = JSInt16Array.withLength(length);
+  JSInt32Array ar = JSInt32Array.withLength(length);
   globalContext["ar"] = ar;
   eval(r'''
     globalThis.length = ar.length;

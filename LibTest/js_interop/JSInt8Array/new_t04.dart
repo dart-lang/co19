@@ -20,7 +20,7 @@ import '../js_utils.dart';
 
 test(int bufferSize, int offset, int length, int value) {
   JSArrayBuffer buffer = JSArrayBuffer(bufferSize);
-  JSInt16Array ar = JSInt16Array(buffer, offset, length);
+  JSInt8Array ar = JSInt8Array(buffer, offset, length);
   globalContext["ar"] = ar;
   globalContext["buffer"] = buffer;
   eval("ar[0] = $value;");
@@ -38,8 +38,8 @@ main() {
   test(4, 2, 1, 42);
   test(4, 2, 1, -42);
 
-  test(2, 0, 1, 32767);
-  test(2, 0, 1, -32768);
-  test(4, 2, 1, 32767);
-  test(4, 2, 1, -32768);
+  test(2, 0, 1, 127);
+  test(2, 0, 1, -128);
+  test(4, 2, 1, 127);
+  test(4, 2, 1, -128);
 }

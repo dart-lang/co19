@@ -18,12 +18,12 @@ import '../../../Utils/expect.dart';
 main() {
   JSArrayBuffer buffer = JSArrayBuffer(2);
   Expect.throws(() {
-    JSInt16Array(buffer, -1);
+    JSInt8Array(buffer, -1);
   });
   Expect.throws(() {
-    JSInt16Array(buffer, 0, -1);
+    JSInt8Array(buffer, 0, -1);
   });
   Expect.throws(() {
-    JSInt16Array(buffer, 1, -1);
+    JSInt8Array(buffer, 1, -1);
   });
 }
