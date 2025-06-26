@@ -18,7 +18,7 @@ import '../js_utils.dart';
 
 test(int bufferSize, int offset, int length, num value) {
   JSArrayBuffer buffer = JSArrayBuffer(bufferSize);
-  JSInt16Array ar = JSInt16Array(buffer, offset, length);
+  JSInt32Array ar = JSInt32Array(buffer, offset, length);
   globalContext["ar"] = ar;
   eval("ar[0] = $value;");
   Expect.throws(() {
