@@ -33,7 +33,7 @@ main() {
   jsExpectEquals('Lily was here'.toJS, globalContext["bar2Res"]);
 
   JSFunction baz = globalContext["baz"] as JSFunction;
-  globalContext["baz2"] = bar;
+  globalContext["baz2"] = baz;
   eval("globalThis.baz2Res = baz2();");
   jsExpectEquals(null, globalContext["baz2Res"]);
 }

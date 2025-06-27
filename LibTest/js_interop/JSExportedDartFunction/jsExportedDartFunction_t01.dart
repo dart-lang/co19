@@ -17,7 +17,7 @@ import '../js_utils.dart';
 int foo(int v) => v;
 
 @JS()
-String bar() => "I'm foo from Dart";
+String bar() => "I'm bar from Dart";
 
 main() {
   JSExportedDartFunction jsFoo = foo.toJS;

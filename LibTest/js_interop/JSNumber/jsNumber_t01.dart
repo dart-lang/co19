@@ -4,7 +4,7 @@
 
 /// @assertion A JavaScript number
 ///
-/// @description Check that `JSNumber` can store Dart `int` and `float` values.
+/// @description Check that `JSNumber` can store Dart `int` and `double` values.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
