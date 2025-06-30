@@ -20,5 +20,5 @@ main() {
   eval(r'''
     globalThis.keys = Object.keys(globalThis.o);
   ''');
-  jsExpectArrayEquals([].jsify(), globalContext["keys"]);
+  jsExpectArrayEquals(JSArray(), globalContext["keys"]);
 }

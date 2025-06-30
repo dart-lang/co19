@@ -4,11 +4,12 @@
 
 /// @assertion A JavaScript `Function` value.
 ///
-/// @description Check that `JSNumber` can store Dart `int` and `float` values.
+/// @description Check that `JSFunction` can store a JavaScript `Function` value
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
+import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
 main() {
@@ -24,16 +25,16 @@ main() {
 
   JSFunction foo = globalContext["foo"] as JSFunction;
   globalContext["foo2"] = foo;
-  eval("globalThis.foo2Res = foo2();");
-  jsExpectEquals(42.toJS, globalContext["foo2Res"]);
+  eval("globalThis.fooEquals = foo2 === foo;");
+  Expect.isTrue((globalContext["fooEquals"] as JSBoolean).toDart);
 
   JSFunction bar = globalContext["bar"] as JSFunction;
   globalContext["bar2"] = bar;
-  eval("globalThis.bar2Res = bar2('Lily was here');");
-  jsExpectEquals('Lily was here'.toJS, globalContext["bar2Res"]);
+  eval("globalThis.barEquals = bar2 === bar;");
+  Expect.isTrue((globalContext["barEquals"] as JSBoolean).toDart);
 
   JSFunction baz = globalContext["baz"] as JSFunction;
   globalContext["baz2"] = baz;
-  eval("globalThis.baz2Res = baz2();");
-  jsExpectEquals(null, globalContext["baz2Res"]);
+  eval("globalThis.bazEquals = baz2 === baz;");
+  Expect.isTrue((globalContext["bazEquals"] as JSBoolean).toDart);
 }

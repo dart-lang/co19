@@ -10,13 +10,10 @@
 
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
-import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
-@JS()
 int foo(int v) => v;
 
-@JS()
 String bar() => "I'm bar from Dart";
 
 main() {
