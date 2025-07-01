@@ -29,7 +29,7 @@ main() {
   JSPromise promise = globalContext["promise"] as JSPromise;
   asyncStart();
   promise.toDart.then((v) {
-    Expect.equals("Success", v);
+    jsExpectEquals("Success".toJS, v);
     asyncEnd();
   });
 }
