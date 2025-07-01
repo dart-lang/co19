@@ -11,15 +11,24 @@
 /// When converted to a `Future<T>`, there is a cast to ensure that the [Future]
 /// actually resolves to a `T` to ensure soundness.
 ///
-/// @description Checks that the [JSPromise] may not actually resolve to a `T`.
+/// @description Checks that the [JSPromise] may actually resolve to a type
+/// other than `T`.
 /// @author sgrekhov22@gmail.com
 
+import 'dart:async';
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
-main() {
+final completer = Completer<String>();
+
+void complete(String value) {
+  completer.complete(value);
+}
+
+main() async {
+  globalContext["complete"] = complete.toJS;
   eval(r'''
     globalThis.foo = function(resolve, reject) {
       resolve("Success");
@@ -30,13 +39,8 @@ main() {
   globalContext["promise"] = promise;
   eval(r'''
     globalThis.promise.then(function(v) {
-      globalThis.pRes = v;
+      globalThis.complete(v);
     });
   ''');
-  asyncStart();
-  // Wait for JS promise
-  Future.delayed(Duration(milliseconds: 1000), () {
-    Expect.equals("Success", (globalContext["pRes"] as JSString).toDart);
-    asyncEnd();
-  });
+  Expect.equals("Success", await completer.future);
 }
