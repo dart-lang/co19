@@ -35,7 +35,16 @@ enum E2 {
   e0;
 }
 
+@anonymous
+enum E3 {
+//   ^^
+// [analyzer] unspecified
+// [web] unspecified
+  e0;
+}
+
 main() {
   print(E1);
   print(E2);
+  print(E3);
 }

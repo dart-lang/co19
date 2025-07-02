@@ -33,7 +33,15 @@ mixin M2 {
 // [web] unspecified
 }
 
+@anonymous
+mixin M3 {
+//    ^^
+// [analyzer] unspecified
+// [web] unspecified
+}
+
 main() {
   print(M1);
   print(M2);
+  print(M3);
 }

@@ -10,8 +10,8 @@
 /// desugars to creating a JavaScript object literal with name-value pairs
 /// corresponding to the parameter names and values.
 ///
-/// @description Checks that it is a compile-time error if an extension type
-/// marked with [anonymous] has no unnamed factory constructor.
+/// @description Checks that it is a warning if an extension type is marked
+/// with [anonymous].
 /// @author sgrekhov22@gmail.com
 /// @issue 61018
 
@@ -44,8 +44,25 @@ extension type Ext3._(JSObject _) {
   external Ext3();
 }
 
+@anonymous
+extension type Ext4(JSObject id) {
+//             ^^^^
+// [analyzer] unspecified
+// [web] unspecified
+}
+
+@anonymous
+extension type Ext5.x(JSObject id) {
+//             ^^^^
+// [analyzer] unspecified
+// [web] unspecified
+  factory Ext5(JSObject id) = Ext5.x;
+}
+
 main() {
   print(Ext1);
   print(Ext2);
   print(Ext3);
+  print(Ext4);
+  print(Ext5);
 }
