@@ -34,9 +34,8 @@ main() {
       return spawnWebSocketServer((WebSocket ws) async {
         ws.addUtf8Text(utf8.encode("Hello"));
         ws.addUtf8Text(utf8.encode("client"));
-        AsyncExpect.data(["Hi", "server"], ws).then((_) {
-          asyncEnd();
-        });
+        await AsyncExpect.data(["Hi", "server"], ws);
+        asyncEnd();
         await ws.close();
       });
     },

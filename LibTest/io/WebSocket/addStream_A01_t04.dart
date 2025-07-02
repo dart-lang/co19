@@ -34,10 +34,9 @@ main() {
     },
     setup: () {
       asyncStart();
-      return spawnWebSocketServer((WebSocket ws) {
-        AsyncExpect.data(bytes, ws).then((_) {
-          asyncEnd();
-        });
+      return spawnWebSocketServer((WebSocket ws) async {
+        await AsyncExpect.data(bytes, ws);
+        asyncEnd();
       });
     },
     cleanup: (HttpServer? server) => server?.close(),
