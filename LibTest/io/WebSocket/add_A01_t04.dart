@@ -9,7 +9,6 @@
 /// connection from client.
 /// @author a.semenov@unipro.ru
 
-import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../http_utils.dart";
@@ -17,20 +16,22 @@ import "../http_utils.dart";
 const List<int> bytes = const [1, 2, 3];
 
 main() {
-  Completer<void> checkCompleted = Completer<void>();
   asyncTest<HttpServer>(
     (HttpServer? server) async {
       WebSocket ws = await WebSocket.connect(
         "ws://${server?.address.address}:${server?.port}/",
       );
       ws.add(bytes);
-      await checkCompleted;
       await ws.close();
     },
-    setup: () => spawnWebSocketServer((WebSocket ws) {
-      AsyncExpect.data([bytes], ws);
-      checkCompleted.complete();
-    }),
+    setup: () {
+      asyncStart();
+      return spawnWebSocketServer((WebSocket ws) {
+        AsyncExpect.data([bytes], ws).then((_) {
+          asyncEnd();
+        });
+      });
+    },
     cleanup: (HttpServer? server) => server?.close(),
   );
 }

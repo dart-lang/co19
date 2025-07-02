@@ -12,17 +12,27 @@
 
 import "dart:io";
 import "dart:async";
+import "../../../LanguageFeatures/Extension-types/syntax_A13_t04.dart";
 import "../../../Utils/expect.dart";
 import "../http_utils.dart";
 
 main() {
-  asyncTest<HttpServer>((HttpServer? server) async {
-    WebSocket ws = await WebSocket.connect(
-        "ws://${server?.address.address}:${server?.port}/");
-    await ws.addStream(new Stream.fromIterable(["Hello", ",", "World"]));
-    await ws.close();
-  },
-      setup: () => spawnWebSocketServer(
-          (WebSocket ws) => AsyncExpect.data(["Hello", ",", "World"], ws)),
-      cleanup: (HttpServer? server) => server?.close());
+  asyncTest<HttpServer>(
+    (HttpServer? server) async {
+      WebSocket ws = await WebSocket.connect(
+        "ws://${server?.address.address}:${server?.port}/",
+      );
+      await ws.addStream(new Stream.fromIterable(["Hello", ",", "World"]));
+      await ws.close();
+    },
+    setup: () {
+      asyncStart();
+      return spawnWebSocketServer((WebSocket ws) {
+        AsyncExpect.data(["Hello", ",", "World"], ws).then((_) {
+          asyncEnd();
+        });
+      });
+    },
+    cleanup: (HttpServer? server) => server?.close(),
+  );
 }
