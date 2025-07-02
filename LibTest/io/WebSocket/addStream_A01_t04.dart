@@ -24,20 +24,21 @@ List<List<int>> bytes = [
 ];
 
 main() {
-  Completer<void> checkCompleted = Completer<void>();
   asyncTest<HttpServer>(
     (HttpServer? server) async {
       WebSocket ws = await WebSocket.connect(
         "ws://${server?.address.address}:${server?.port}/",
       );
       await ws.addStream(new Stream.fromIterable(bytes));
-      await checkCompleted;
       await ws.close();
     },
-    setup: () => spawnWebSocketServer((WebSocket ws) async {
-      await AsyncExpect.data(bytes, ws);
-      checkCompleted.complete();
-    }),
+    setup: () {
+      asyncStart();
+      return spawnWebSocketServer((WebSocket ws) async {
+        await AsyncExpect.data(bytes, ws);
+        asyncEnd();
+      });
+    },
     cleanup: (HttpServer? server) => server?.close(),
   );
 }

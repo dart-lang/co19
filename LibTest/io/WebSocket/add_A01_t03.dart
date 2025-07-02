@@ -14,13 +14,21 @@ import "../../../Utils/expect.dart";
 import "../http_utils.dart";
 
 main() {
-  asyncTest<HttpServer>((HttpServer? server) async {
-    WebSocket ws = await WebSocket.connect(
-        "ws://${server?.address.address}:${server?.port}/");
-    ws.add("Hello");
-    await ws.close();
-  },
-      setup: () => spawnWebSocketServer(
-          (WebSocket ws) => AsyncExpect.data(["Hello"], ws)),
-      cleanup: (HttpServer? server) => server?.close());
+  asyncTest<HttpServer>(
+    (HttpServer? server) async {
+      WebSocket ws = await WebSocket.connect(
+        "ws://${server?.address.address}:${server?.port}/",
+      );
+      ws.add("Hello");
+      await ws.close();
+    },
+    setup: () {
+      asyncStart();
+      return spawnWebSocketServer((WebSocket ws) async {
+        await AsyncExpect.data(["Hello"], ws);
+        asyncEnd();
+      });
+    },
+    cleanup: (HttpServer? server) => server?.close(),
+  );
 }
