@@ -27,21 +27,22 @@ extension type Ext1(JSObject _) {
 
 @anonymous
 @JS()
-extension type Ext2(JSObject _) {
+extension type Ext2.x(JSObject _) {
 //             ^^^^
 // [analyzer] unspecified
 // [web] unspecified
 
-  external factory Ext2.f();
+  external factory Ext2({String id});
 }
 
 @anonymous
+@staticInterop
 @JS()
 extension type Ext3._(JSObject _) {
 //             ^^^^
 // [analyzer] unspecified
 // [web] unspecified
-  external Ext3();
+  external factory Ext3({String id});
 }
 
 @anonymous

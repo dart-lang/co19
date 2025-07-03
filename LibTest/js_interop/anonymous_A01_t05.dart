@@ -10,17 +10,15 @@
 /// desugars to creating a JavaScript object literal with name-value pairs
 /// corresponding to the parameter names and values.
 ///
-/// @description Checks that it is a compile-time error if a class marked with
-/// [anonymous] has no unnamed factory constructor. Test the case when an
-/// extension on the class is annotated with `@anonymous`.
+/// @description Checks that it is a compile-time error if an extension
+/// is annotated with `@anonymous`.
 /// @author sgrekhov22@gmail.com
-/// @issue 61016
 
 import 'dart:js_interop';
 
 class C1 {
-  C1.n();
-  factory C1() = C1.n;
+  C1.n({String id = ""});
+  factory C1({String id}) = C1.n;
 }
 
 @anonymous
@@ -34,7 +32,7 @@ extension Ext1 on C1 {
 @staticInterop
 @JS()
 class C2 {
-  external factory C2();
+  external factory C2({String id});
 }
 
 @anonymous
