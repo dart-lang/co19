@@ -19,9 +19,7 @@
 ///
 /// @description Checks that a typedef can't be defined in a body
 /// of a function of the form [functionSignature '=>' expression ';'].
-///
 /// @author msyabro
-
 
 f() => typedef void f();
 //                     ^
@@ -30,6 +28,4 @@ f() => typedef void f();
 
 main() {
   f();
-//^
-// [cfe] unspecified
 }

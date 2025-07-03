@@ -8,12 +8,13 @@
 /// available in scope S if d is in the namespace induced by S or if d is 
 /// available in the lexically enclosing scope of S. We say that a name or 
 /// declaration d is in scope if d is available in the current scope.
+///
 /// @description Checks that it is a compile-time error if the library scope 
 /// contains two typedef declarations with the same name.
 /// @author msyabro
 
-
 typedef conflictingName();
+
 typedef conflictingName(p1, p2);
 //      ^
 // [analyzer] unspecified
@@ -21,6 +22,4 @@ typedef conflictingName(p1, p2);
 
 main() {
   conflictingName func = () {};
-//^
-// [cfe] unspecified
 }
