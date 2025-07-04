@@ -26,13 +26,13 @@ test(num v1, num v2) {
 main() {
   test(0, 1);
   test(42, 123);
-  test(pow(2, 53) - 1 as int, 0);
+  test(pow(2, 53) - 1, 0);
   test(-42, 123);
-  test(-pow(2, 53) - 1 as int, -42);
+  test(-pow(2, 53) - 1, -42);
 
   test(0.0, -1.1);
   test(42.1, 123.123);
-  test(pow(2, 53) - 1 as double, -0.1);
+  test(pow(2.0, 53) - 1, -0.1);
   test(-42, 123);
-  test(-pow(2, 53) - 1 as double, -0.0);
+  test(-pow(2.0, 53) - 1, -0.0);
 }
