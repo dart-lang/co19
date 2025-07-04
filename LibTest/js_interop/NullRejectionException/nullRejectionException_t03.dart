@@ -5,8 +5,8 @@
 /// @assertion Exception for when the promise is rejected with a `null` or
 /// `undefined` value.
 ///
-/// @description Checks that this exception doesn't throw occurs when the
-/// promise is rejected with not a `null` or `undefined` value.
+/// @description Checks that this exception isn't thrown when the promise is
+/// rejected with a value which is not `null` or `undefined`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';

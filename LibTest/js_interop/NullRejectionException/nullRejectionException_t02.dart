@@ -5,8 +5,8 @@
 /// @assertion Exception for when the promise is rejected with a `null` or
 /// `undefined` value.
 ///
-/// @description Checks that this exception occurs when the promise is rejected
-/// with an `undefined` value.
+/// @description Checks that this exception is thrown when the promise is
+/// rejected with an `undefined` value.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -27,8 +27,10 @@ main() {
     Expect.fail("NullRejectionException expected");
   }).onError((e, st) {
     Expect.isTrue(e is NullRejectionException);
-    if (!isWasm) {
+    if (isJS) {
       Expect.isTrue((e as NullRejectionException).isUndefined);
+    } else if (isWasm) {
+      Expect.isFalse((e as NullRejectionException).isUndefined);
     }
     asyncEnd();
   });
