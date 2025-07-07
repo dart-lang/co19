@@ -10,8 +10,8 @@
 /// property for each of the class' instance members. When called, these
 /// properties forward to the instance's corresponding members.
 ///
-/// @description Checks that it is a compile-time error if a class annotated
-/// with `@JSExport()` doesn't contain any instance members.
+/// @description Checks that it is a compile-time error if a class or a mixin
+/// annotated with `@JSExport()` doesn't contain any instance members.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -37,7 +37,19 @@ class C2 {
   factory C2.f() = C2.x;
 }
 
+@JSExport()
+mixin M {
+//    ^
+// [analyzer] unspecified
+// [web] unspecified
+  static int variable = 42;
+  static String method(String v) => "method($v);";
+  static String get getter => "Some getter";
+  static void set setter(bool value) {}
+}
+
 void main() {
   print(C1);
   print(C2);
+  print(M);
 }
