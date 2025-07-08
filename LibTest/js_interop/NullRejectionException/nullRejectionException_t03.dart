@@ -5,8 +5,8 @@
 /// @assertion Exception for when the promise is rejected with a `null` or
 /// `undefined` value.
 ///
-/// @description Checks that this exception is thrown when the promise is
-/// rejected with an `undefined` value.
+/// @description Checks that this exception isn't thrown when the promise is
+/// rejected with a value which is not `null` or `undefined`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -15,19 +15,29 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
-main() {
+test(Object value, Object expected) {
+  eval("globalThis.rejectValue = $value;");
   eval(r'''
     globalThis.promise = new Promise(function(resolve, reject) {
-      reject(undefined);
+      reject(globalThis.rejectValue);
     });
   ''');
   JSPromise promise = globalContext["promise"] as JSPromise;
-  asyncStart();
   promise.toDart.then((v) {
-    Expect.fail("NullRejectionException expected");
+    Expect.fail("Exception expected");
   }).onError((e, st) {
-    Expect.isTrue(e is NullRejectionException);
-    Expect.isTrue((e as NullRejectionException).isUndefined);
+    Expect.isFalse(e is NullRejectionException);
+    Expect.equals(expected, (e as JSAny).dartify());
     asyncEnd();
   });
+}
+
+main() {
+  asyncStart(6);
+  test(42, 42);
+  test(0, 0);
+  test("''", "");
+  test(false, false);
+  test(true, true);
+  test("'Some string'", "Some string");
 }
