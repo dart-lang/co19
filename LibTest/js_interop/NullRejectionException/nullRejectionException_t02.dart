@@ -27,11 +27,7 @@ main() {
     Expect.fail("NullRejectionException expected");
   }).onError((e, st) {
     Expect.isTrue(e is NullRejectionException);
-    if (isJS) {
-      Expect.isTrue((e as NullRejectionException).isUndefined);
-    } else if (isWasm) {
-      Expect.isFalse((e as NullRejectionException).isUndefined);
-    }
+    Expect.isTrue((e as NullRejectionException).isUndefined);
     asyncEnd();
   });
 }
