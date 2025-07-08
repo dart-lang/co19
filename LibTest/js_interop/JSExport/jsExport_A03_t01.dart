@@ -44,15 +44,16 @@ void main() {
     globalThis.v4 = globalThis.jsC.annotatedVariable;
     globalThis.v5 = globalThis.jsC.annotatedMethod;
     globalThis.v6 = globalThis.jsC.annotatedGetter;
-    globalThis.v7 = globalThis.jsC.annotatedSetter;
   ''');
   Expect.equals(42, (globalContext["v1"] as JSNumber).toDartInt);
   Expect.equals("method(x);", (globalContext["v2"] as JSString).toDart);
   Expect.equals("Some getter", (globalContext["v3"] as JSString).toDart);
   Expect.equals("setter(false);", log);
 
+  log = "";
+  eval("globalThis.jsC.annotatedSetter = false;");
   Expect.isNull(globalContext["v4"]);
   Expect.isNull(globalContext["v5"]);
   Expect.isNull(globalContext["v6"]);
-  Expect.isNull(globalContext["v7"]);
+  Expect.equals("", log);
 }

@@ -10,10 +10,10 @@
 /// property for each of the class' instance members. When called, these
 /// properties forward to the instance's corresponding members.
 ///
-/// @description Checks that when an instance of an extension type is annotated
-/// with `@JSExport()` and passed to `createJSInteropWrapper`, the method
-/// returns a JS object that contains a property for each of the representation
-/// type's instance members.
+/// @description Checks that when an extension type is annotated with
+/// `@JSExport()` and passed to `createJSInteropWrapper`, the method returns a
+/// JS object that contains a property for each of the representation type's
+/// instance members.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -43,7 +43,7 @@ extension type ET(C c) implements C {
 }
 
 void main() {
-  var jsET = createJSInteropWrapper<C>(ET(C()));
+  var jsET = createJSInteropWrapper<ET>(ET(C()));
   globalContext["jsET"] = jsET;
   eval(r'''
     globalThis.v1 = globalThis.jsET.variable;

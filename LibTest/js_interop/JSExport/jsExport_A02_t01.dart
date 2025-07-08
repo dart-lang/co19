@@ -6,9 +6,9 @@
 /// those members or you can annotate the entire class, which will include all
 /// of its instance members.
 ///
-/// @description Checks that if a specific instance members are annotated with
+/// @description Checks that if specific instance members are annotated with
 /// `@JSExport()` and then the object is passed to `createJSInteropWrapper`,
-/// then the method returns a JS object that contains a property for that
+/// then the method returns a JS object that contains a property for those
 /// instance members only.
 /// @author sgrekhov22@gmail.com
 

@@ -7,8 +7,8 @@
 /// in the JS object by providing a `name` in the `@JSExport` annotation on the
 /// member.
 ///
-/// @description Checks that if a class is annotated with  a `@JSExport` then
-/// its instance members still can be annotated.
+/// @description Checks that if a class is annotated with `@JSExport` then its
+/// instance members can still be annotated.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

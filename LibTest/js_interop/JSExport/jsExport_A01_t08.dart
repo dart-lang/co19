@@ -10,11 +10,10 @@
 /// property for each of the class' instance members. When called, these
 /// properties forward to the instance's corresponding members.
 ///
-/// @description Checks that when an instance of an extension for a class `C` is
-/// annotated with `@JSExport()` and the an instance of 1C` passed to
-/// `createJSInteropWrapper`, the method returns a JS object that contains a
-/// property for each of the `C` instance members, but for those ones that were
-/// added by the extension.
+/// @description Checks that when an extension for a class `C` is annotated with
+/// `@JSExport()` and an instance of `C` passed to `createJSInteropWrapper`, the
+/// method returns a JS object that contains a property for each of the `C`
+/// instance members, but for those ones that were added by the extension.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

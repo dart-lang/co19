@@ -6,8 +6,8 @@
 /// those members or you can annotate the entire class, which will include all
 /// of its instance members.
 ///
-/// @description Checks that it is a compile-time error to annotate with
-/// `JSExport()` an extension type instance members.
+/// @description Checks that it is a compile-time error to annotate extension
+/// type instance members with `JSExport()`.
 /// @author sgrekhov22@gmail.com
 /// @issue 61076
 

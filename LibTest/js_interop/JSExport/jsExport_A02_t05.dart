@@ -6,8 +6,8 @@
 /// those members or you can annotate the entire class, which will include all
 /// of its instance members.
 ///
-/// @description Checks that it is a compile-time error to annotate with
-/// `JSExport()` an extension instance members.
+/// @description Checks that it is a compile-time error to annotate extension
+/// members with `JSExport()`.
 /// @author sgrekhov22@gmail.com
 /// @issue 61076
 
@@ -20,20 +20,20 @@ class C {
 
 extension Ext on C {
   @JSExport()
-  String etMethod(String v) => "etMethod($v);";
-//       ^^^^^^^^
+  String extMethod(String v) => "extMethod($v);";
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [web] unspecified
 
   @JSExport()
-  String get etGetter => "Some etGetter";
-//           ^^^^^^^^
+  String get extGetter => "extGetter";
+//           ^^^^^^^^^
 // [analyzer] unspecified
 // [web] unspecified
 
   @JSExport()
-  void set etSetter(bool value) {
-//         ^^^^^^^^
+  void set extSetter(bool value) {
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [web] unspecified
   }
