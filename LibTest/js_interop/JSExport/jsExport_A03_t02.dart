@@ -7,15 +7,18 @@
 /// in the JS object by providing a `name` in the `@JSExport` annotation on the
 /// member.
 ///
-/// @description Checks that the `createJSInteropWrapper` throws if an argument
-/// is a class annotated with  a `@JSExport` annotation with a specified `name`.
+/// @description Checks that if a class is annotated with  a `@JSExport`
+/// annotation with non empty `name`.
 /// @author sgrekhov22@gmail.com
+/// @issue 61084
 
 import 'dart:js_interop';
-import '../../../Utils/expect.dart';
 
 @JSExport("D")
 class C {
+//    ^
+// [analyzer] unspecified
+// [web] unspecified
   int variable = 42;
   String method(String v) => "method($v);";
   String get getter => "Some getter";
@@ -23,8 +26,5 @@ class C {
 }
 
 void main() {
-  var c = C();
-  Expect.throws(() {
-    createJSInteropWrapper<C>(c);
-  });
+  print(C);
 }
