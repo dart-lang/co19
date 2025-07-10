@@ -7,10 +7,10 @@
 /// annotated. If a superclass does not have an annotation anywhere, its members
 /// are not included.
 ///
-/// @description Checks that if a mixin is annotated with `@JSExport()` and
-/// specified as a type argument of `createJSInteropWrapper`, then the mixin's
-/// members are included in the corresponding JS object, but the members of the
-/// mixin application are not.
+/// @description Checks that if a superclass is annotated with `@JSExport()` and
+/// specified as a type argument of `createJSInteropWrapper`, then the
+/// superclass's members are included in the corresponding JS object, but the
+/// members of the subclass are not.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -21,16 +21,16 @@ import '../js_utils.dart';
 String log = "";
 
 @JSExport()
-mixin M {
-  int mVariable = 42;
-  String mMethod(String v) => "mMethod($v);";
-  String get mGetter => "mGetter";
-  void set mSetter(bool value) {
-    log = "mSetter($value);";
+class A {
+  int aVariable = 42;
+  String aMethod(String v) => "aMethod($v);";
+  String get aGetter => "aGetter";
+  void set aSetter(bool value) {
+    log = "aSetter($value);";
   }
 }
 
-class C1 with M {
+class C1 extends A {
   int cVariable = 0;
   String cMethod(String v) => "cMethod($v);";
   String get cGetter => "cGetter";
@@ -40,7 +40,7 @@ class C1 with M {
 }
 
 @JSExport()
-class C2 with M {
+class C2 extends A {
   int cVariable = 0;
   String cMethod(String v) => "cMethod($v);";
   String get cGetter => "cGetter";
@@ -49,24 +49,24 @@ class C2 with M {
   }
 }
 
-void test(M m) {
-  var jsM = createJSInteropWrapper<M>(m);
-  globalContext["jsM"] = jsM;
+void test(A a) {
+  var jsA = createJSInteropWrapper<A>(a);
+  globalContext["jsA"] = jsA;
   eval(r'''
-    globalThis.v1 = globalThis.jsM.mVariable;
-    globalThis.v2 = globalThis.jsM.mMethod('x');
-    globalThis.v3 = globalThis.jsM.mGetter;
-    globalThis.jsM.mSetter = false;
+    globalThis.v1 = globalThis.jsA.aVariable;
+    globalThis.v2 = globalThis.jsA.aMethod('x');
+    globalThis.v3 = globalThis.jsA.aGetter;
+    globalThis.jsA.aSetter = false;
 
-    globalThis.v4 = globalThis.jsM.cVariable;
-    globalThis.v5 = globalThis.jsM.cMethod;
-    globalThis.v6 = globalThis.jsM.cGetter;
-    globalThis.v7 = globalThis.jsM.cSetter;
+    globalThis.v4 = globalThis.jsA.cVariable;
+    globalThis.v5 = globalThis.jsA.cMethod;
+    globalThis.v6 = globalThis.jsA.cGetter;
+    globalThis.v7 = globalThis.jsA.cSetter;
   ''');
   Expect.equals(42, (globalContext["v1"] as JSNumber).toDartInt);
-  Expect.equals("mMethod(x);", (globalContext["v2"] as JSString).toDart);
-  Expect.equals("mGetter", (globalContext["v3"] as JSString).toDart);
-  Expect.equals("mSetter(false);", log);
+  Expect.equals("aMethod(x);", (globalContext["v2"] as JSString).toDart);
+  Expect.equals("aGetter", (globalContext["v3"] as JSString).toDart);
+  Expect.equals("aSetter(false);", log);
 
   Expect.isNull(globalContext["v4"]);
   Expect.isNull(globalContext["v5"]);

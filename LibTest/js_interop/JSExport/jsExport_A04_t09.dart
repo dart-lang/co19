@@ -7,22 +7,22 @@
 /// annotated. If a superclass does not have an annotation anywhere, its members
 /// are not included.
 ///
-/// @description Checks that it is a compile-time error if a superclass is
-/// annotated with `@JSExport` but the class itself is not and this class is
-/// passed to `createJSInteropWrapper` as a type argument.
+/// @description Checks that it is a compile-time error if a mixin is
+/// annotated with `@JSExport` but the mixin application class is not and this
+/// class is passed to `createJSInteropWrapper` as a type argument.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
 
 @JSExport()
-class A {
+mixin M {
   int aVariable = 42;
   String aMethod(String v) => "aMethod($v);";
   String get aGetter => "aGetter";
   void set aSetter(bool value) {}
 }
 
-class C extends A {
+class C with M {
 }
 
 void main() {

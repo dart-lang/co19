@@ -42,8 +42,7 @@ mixin M {
 class C with M {}
 
 void main() {
-  var m = C();
-  var jsM = createJSInteropWrapper<M>(m);
+  var jsM = createJSInteropWrapper<C>(C());
   globalContext["jsM"] = jsM;
   eval(r'''
     globalThis.v1 = globalThis.jsM.annotatedVariable;

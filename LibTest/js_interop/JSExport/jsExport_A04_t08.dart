@@ -7,8 +7,9 @@
 /// annotated. If a superclass does not have an annotation anywhere, its members
 /// are not included.
 ///
-/// @description Checks that if a mixin is annotated with `@JSExport` then its
-/// members are included in the corresponding JS object.
+/// @description Checks that if a mixin does not have `@JSExport()` annotation
+/// anywhere, its members are not included in the corresponding JS object,
+/// created for the mixin application class.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -18,7 +19,6 @@ import '../js_utils.dart';
 
 String log = "";
 
-@JSExport()
 mixin M {
   int mVariable = 42;
   String mMethod(String v) => "mMethod($v);";
@@ -29,19 +29,21 @@ mixin M {
 }
 
 @JSExport()
-class C with M {}
+class C with M {
+  int cVariable = 42;
+}
 
 void main() {
-  var jsM = createJSInteropWrapper<C>(C());
-  globalContext["jsM"] = jsM;
+  var jsC = createJSInteropWrapper<C>(C());
+  globalContext["jsC"] = jsC;
   eval(r'''
-    globalThis.v1 = globalThis.jsM.mVariable;
-    globalThis.v2 = globalThis.jsM.mMethod('x');
-    globalThis.v3 = globalThis.jsM.mGetter;
-    globalThis.jsM.mSetter = false;
+    globalThis.v1 = globalThis.jsC.mVariable;
+    globalThis.v2 = globalThis.jsC.mMethod;
+    globalThis.v3 = globalThis.jsC.mGetter;
+    globalThis.jsC.mSetter = false;
   ''');
-  Expect.equals(42, (globalContext["v1"] as JSNumber).toDartInt);
-  Expect.equals("mMethod(x);", (globalContext["v2"] as JSString).toDart);
-  Expect.equals("mGetter", (globalContext["v3"] as JSString).toDart);
-  Expect.equals("mSetter(false);", log);
+  Expect.isNull(globalContext["v1"]);
+  Expect.isNull(globalContext["v2"]);
+  Expect.isNull(globalContext["v3"]);
+  Expect.equals("", log);
 }
