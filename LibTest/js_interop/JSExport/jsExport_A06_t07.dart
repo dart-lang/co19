@@ -5,7 +5,7 @@
 /// @assertion Only concrete instance members can and will be wrapped, and it's
 /// an error to annotate other members with this annotation.
 ///
-/// @description Checks that it is a compile-time error an old-fashioned
+/// @description Checks that it is a compile-time error if an old-fashioned
 /// function type is annotated with `JSExport()`.
 /// @author sgrekhov22@gmail.com
 /// @issue 61093

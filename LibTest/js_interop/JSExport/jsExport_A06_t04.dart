@@ -5,7 +5,7 @@
 /// @assertion Only concrete instance members can and will be wrapped, and it's
 /// an error to annotate other members with this annotation.
 ///
-/// @description Checks that it is a compile-time error if a local variables or
+/// @description Checks that it is a compile-time error if local variables or
 /// functions are annotated with `JSExport()`.
 /// @author sgrekhov22@gmail.com
 /// @issue 61093

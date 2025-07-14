@@ -6,7 +6,8 @@
 /// wrapped as long as it or its class has this annotation.
 ///
 /// @description Checks that if members are overridden, only the overriding
-/// members are wrapped.
+/// members are wrapped. Test that invocation of wrapping JS object member
+/// invokes corresponding overridden member of the Dart object.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
