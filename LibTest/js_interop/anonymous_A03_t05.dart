@@ -13,22 +13,35 @@
 /// @description Checks that it is a compile-time error if not a type is marked
 /// with [anonymous].
 /// @author sgrekhov22@gmail.com
+/// @issue 61109
 
 import 'dart:js_interop';
 
 @anonymous
 void foo() {}
+//   ^^^
+// [analyzer] unspecified
+// [web] unspecified
 
 @anonymous
 @JS()
 int get bar => 42;
+//      ^^^
+// [analyzer] unspecified
+// [web] unspecified
 
 @anonymous
 @JS()
 String baz = "baz";
+//     ^^^
+// [analyzer] unspecified
+// [web] unspecified
 
 @anonymous
 void set qux(int _) {}
+//       ^^^
+// [analyzer] unspecified
+// [web] unspecified
 
 main() {
    print(foo);
