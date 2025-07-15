@@ -5,9 +5,9 @@
 /// @assertion Only concrete instance members can and will be wrapped, and it's
 /// an error to annotate other members with this annotation.
 ///
-/// @description Checks that it is a warning error if a class is not annotated
-/// with `@JSExport()`, but its type alias is, and that alias is passed as a
-/// type argument to `createJSInteropWrapper`.
+/// @description Checks that it is a warning or an error if a class is not
+/// annotated with `@JSExport()`, but its type alias is, and that alias is
+/// passed as a type argument to `createJSInteropWrapper`.
 /// @author sgrekhov22@gmail.com
 /// @issue 61116
 
