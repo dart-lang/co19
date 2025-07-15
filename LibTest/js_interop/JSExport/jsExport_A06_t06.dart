@@ -5,10 +5,11 @@
 /// @assertion Only concrete instance members can and will be wrapped, and it's
 /// an error to annotate other members with this annotation.
 ///
-/// @description Checks that it is a compile-time error if a class is not
-/// annotated with `@JSExport()`, but its type alias is, and that alias is
-/// passed as a type argument to `createJSInteropWrapper`.
+/// @description Checks that it is a warning error if a class is not annotated
+/// with `@JSExport()`, but its type alias is, and that alias is passed as a
+/// type argument to `createJSInteropWrapper`.
 /// @author sgrekhov22@gmail.com
+/// @issue 61116
 
 import 'dart:js_interop';
 
@@ -18,6 +19,9 @@ class C {
 
 @JSExport()
 typedef CAlias = C;
+//      ^^^^^^
+// [analyzer] unspecified
+// [web] unspecified
 
 void main() {
   createJSInteropWrapper<CAlias>(CAlias());

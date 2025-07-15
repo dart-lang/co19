@@ -5,14 +5,12 @@
 /// @assertion Only concrete instance members can and will be wrapped, and it's
 /// an error to annotate other members with this annotation.
 ///
-/// @description Checks that alias of a class annotated with `@JSExport()` also
-/// can be annotated with `@JSExport()`.
+/// @description Checks that it is a warning error if a type alias is  annotated
+/// with `@JSExport()`.
 /// @author sgrekhov22@gmail.com
+/// @issue 61116
 
 import 'dart:js_interop';
-import 'dart:js_interop_unsafe';
-import '../../../Utils/expect.dart';
-import '../js_utils.dart';
 
 String log = "";
 
@@ -28,19 +26,10 @@ class C {
 
 @JSExport()
 typedef CAlias = C;
+//      ^^^^^^
+// [analyzer] unspecified
+// [web] unspecified
 
 void main() {
-  var c = CAlias();
-  var jsC = createJSInteropWrapper<CAlias>(c);
-  globalContext["jsC"] = jsC;
-  eval(r'''
-    globalThis.v1 = globalThis.jsC.variable;
-    globalThis.v2 = globalThis.jsC.method('x');
-    globalThis.v3 = globalThis.jsC.getter;
-    globalThis.jsC.setter = false;
-  ''');
-  Expect.equals(42, (globalContext["v1"] as JSNumber).toDartInt);
-  Expect.equals("method(x);", (globalContext["v2"] as JSString).toDart);
-  Expect.equals("Some getter", (globalContext["v3"] as JSString).toDart);
-  Expect.equals("setter(false);", log);
+  print(CAlias);
 }
