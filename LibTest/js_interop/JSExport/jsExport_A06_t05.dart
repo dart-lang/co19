@@ -5,8 +5,8 @@
 /// @assertion Only concrete instance members can and will be wrapped, and it's
 /// an error to annotate other members with this annotation.
 ///
-/// @description Checks that it is a warning error if a type alias is  annotated
-/// with `@JSExport()`.
+/// @description Checks that it is a warning or an error if a type alias is
+/// annotated with `@JSExport()`.
 /// @author sgrekhov22@gmail.com
 /// @issue 61116
 
