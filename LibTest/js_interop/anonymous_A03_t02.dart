@@ -13,6 +13,7 @@
 /// @description Checks that it is a compile-time error if an enum is annotated
 /// with [anonymous].
 /// @author sgrekhov22@gmail.com
+/// @issue 61115
 
 import 'dart:js_interop';
 
@@ -36,7 +37,10 @@ enum E2 {
 }
 
 @anonymous
-enum E3 { // Ok, just no-op
+enum E3 {
+//   ^^
+// [analyzer] unspecified
+// [web] unspecified
   e0;
 }
 

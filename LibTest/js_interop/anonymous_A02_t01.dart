@@ -11,14 +11,15 @@
 /// corresponding to the parameter names and values.
 ///
 /// @description Checks that it is not an error if a class annotated with
-/// [anonymous] has no unnamed factory constructor.
+/// [anonymous] has no unnamed factory constructor. Creating an instance creates
+/// an empty JS object.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
+import 'dart:js_interop_unsafe';
+import 'js_utils.dart';
 
 @anonymous
-@staticInterop
-@JS()
 class C1 {
 }
 
@@ -29,6 +30,10 @@ abstract class C2 {
 }
 
 main() {
-  print(C1);
+  globalContext["o"] = C1().jsify();
+  eval(r'''
+    globalThis.keys = Object.keys(globalThis.o);
+  ''');
+  jsExpectArrayEquals(JSArray(), globalContext["keys"]);
   print(C2);
 }

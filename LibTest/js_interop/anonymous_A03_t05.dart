@@ -10,7 +10,7 @@
 /// desugars to creating a JavaScript object literal with name-value pairs
 /// corresponding to the parameter names and values.
 ///
-/// @description Checks that it is a compile-time error if not a type is marked
+/// @description Checks that it is a compile-time error if a non-type is marked
 /// with [anonymous].
 /// @author sgrekhov22@gmail.com
 /// @issue 61109

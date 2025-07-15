@@ -29,7 +29,7 @@ class C {
 
 main() {
   var c = C(s: "s value", n: 42, b: true);
-  globalContext["c"] = c.jsify();
+  globalContext["c"] = c as JSObject;
   eval(r'''
     globalThis.resS = globalThis.c.s;
     globalThis.resN = globalThis.c.n;
