@@ -9,30 +9,36 @@
 /// These classes should not contain any instance members, inherited or
 /// otherwise, and should instead use static extension members.
 ///
-/// @description Checks it is a compile-time error if an enum is annotated with
-/// `@staticInterop`.
+/// @description Checks that it is a compile-time error if an extension type
+/// annotated with `@staticInterop` declares generative constructors.
 /// @author sgrekhov22@gmail.com
+/// @issue 61124
 
 import 'dart:js_interop';
 
 @staticInterop
-enum E1 {
-//   ^^
+@JS()
+extension type ET1(JSObject e) {
+  external ET1.n(JSObject e);
+//         ^^^^^
 // [analyzer] unspecified
 // [web] unspecified
-  e0;
+
+  external factory ET1.f(JSObject e); // Factory constructors are allowed
 }
 
 @staticInterop
 @JS()
-enum E2 {
-//   ^^
+extension type ET2.n(JSObject e) implements JSObject {
+  external ET2(JSObject e);
+//         ^^^
 // [analyzer] unspecified
 // [web] unspecified
-  e0;
+
+  external factory ET2.f(JSObject e);
 }
 
 main() {
-  print(E1);
-  print(E2);
+  print(ET1);
+  print(ET2);
 }
