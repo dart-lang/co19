@@ -10,7 +10,7 @@
 /// otherwise, and should instead use static extension members.
 ///
 /// @description Checks that it is a compile-time error if an extension type
-/// annotated with `@staticInterop` declares generative constructors.
+/// annotated with `@staticInterop` declares external generative constructors.
 /// @author sgrekhov22@gmail.com
 /// @issue 61124
 
