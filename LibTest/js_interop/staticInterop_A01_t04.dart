@@ -9,36 +9,29 @@
 /// These classes should not contain any instance members, inherited or
 /// otherwise, and should instead use static extension members.
 ///
-/// @description Checks that it is a compile-time error if an extension type
-/// annotated with `@staticInterop` declares external generative constructors.
+/// @description Checks that it is a warning if a mixin is annotated with
+/// `@staticInterop`.
 /// @author sgrekhov22@gmail.com
 /// @issue 61124
 
 import 'dart:js_interop';
 
 @staticInterop
-@JS()
-extension type ET1(JSObject e) {
-  external ET1.n(JSObject e);
-//         ^^^^^
+mixin M1 {
+//    ^^
 // [analyzer] unspecified
 // [web] unspecified
-
-  external factory ET1.f(JSObject e); // Factory constructors are allowed
 }
 
 @staticInterop
 @JS()
-extension type ET2.n(JSObject e) implements JSObject {
-  external ET2(JSObject e);
-//         ^^^
+mixin M2 {
+//    ^^
 // [analyzer] unspecified
 // [web] unspecified
-
-  external factory ET2.f(JSObject e);
 }
 
 main() {
-  print(ET1);
-  print(ET2);
+  print(M1);
+  print(M2);
 }

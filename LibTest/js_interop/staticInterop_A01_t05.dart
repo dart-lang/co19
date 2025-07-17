@@ -9,51 +9,42 @@
 /// These classes should not contain any instance members, inherited or
 /// otherwise, and should instead use static extension members.
 ///
-/// @description Checks that it is a compile-time error if a mixin annotated
-/// with `@staticInterop` declares any instance members.
+/// @description Checks that it is a warning if an extension type is annotated
+/// with `@staticInterop`.
 /// @author sgrekhov22@gmail.com
+/// @issue 61124
 
 import 'dart:js_interop';
 
 @staticInterop
-@JS()
-mixin M1 {
-  int x = 0;
-//    ^
+extension type ET1(JSObject o) {}
+//             ^^^
 // [analyzer] unspecified
 // [web] unspecified
-}
 
 @staticInterop
 @JS()
-mixin M2 {
-  int get x => 0;
-//        ^
+extension type ET2(JSObject o) {}
+//             ^^^
 // [analyzer] unspecified
 // [web] unspecified
-}
+
+@staticInterop
+extension type ET3(JSObject o) implements JSObject {}
+//             ^^^
+// [analyzer] unspecified
+// [web] unspecified
 
 @staticInterop
 @JS()
-mixin M3 {
-  int x() => 0;
-//    ^
+extension type ET4(JSObject o) implements JSObject {}
+//             ^^^
 // [analyzer] unspecified
 // [web] unspecified
-}
-
-@staticInterop
-@JS()
-mixin M4 {
-  void set x(int _) {}
-//         ^
-// [analyzer] unspecified
-// [web] unspecified
-}
 
 main() {
-  print(M1);
-  print(M2);
-  print(M3);
-  print(M4);
+  print(ET1);
+  print(ET2);
+  print(ET3);
+  print(ET4);
 }

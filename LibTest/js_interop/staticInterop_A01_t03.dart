@@ -9,10 +9,10 @@
 /// These classes should not contain any instance members, inherited or
 /// otherwise, and should instead use static extension members.
 ///
-/// @description Checks that it is a compile-time error if an extension type is
+/// @description Checks that it is a compile-time error if an extension is
 /// annotated with `@staticInterop`.
 /// @author sgrekhov22@gmail.com
-/// @issue 61119
+/// @issue 61119, 61124
 
 import 'dart:js_interop';
 
