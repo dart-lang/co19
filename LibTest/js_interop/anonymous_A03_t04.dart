@@ -13,6 +13,7 @@
 /// @description Checks that it is a compile-time error if an extension
 /// is annotated with `@anonymous`.
 /// @author sgrekhov22@gmail.com
+/// @issue 61082
 
 import 'dart:js_interop';
 
