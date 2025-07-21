@@ -23,32 +23,22 @@
 ///   - The annotation should only be applied to non-mixin classes and no other
 ///     declarations.
 ///
-/// @description Checks that invoking the constructor desugars to creating a
-/// JavaScript object literal with name-value pairs corresponding to the
-/// parameter names and values.
+/// @description Checks that it is not an error if a class annotated with
+/// [anonymous] declares static members.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
-import 'dart:js_interop_unsafe';
-import '../../Utils/expect.dart';
-import 'js_utils.dart';
 
 @anonymous
 @staticInterop
 @JS()
 class C {
-  external factory C({String s, int n, bool b});
+  static String v = "v";
+  static String get g => "g";
+  static String m() => "m";
+  static void set s(String s) {}
 }
 
 main() {
-  var c = C(s: "s value", n: 42, b: true);
-  globalContext["c"] = c as JSObject;
-  eval(r'''
-    globalThis.resS = globalThis.c.s;
-    globalThis.resN = globalThis.c.n;
-    globalThis.resB = globalThis.c.b;
-  ''');
-  Expect.equals("s value", (globalContext["resS"] as JSString).toDart);
-  Expect.equals(42, (globalContext["resN"] as JSNumber).toDartInt);
-  Expect.equals(true, (globalContext["resB"] as JSBoolean).toDart);
+  print(C);
 }
