@@ -5,13 +5,29 @@
 /// @assertion `staticInterop` enables the JS annotated class to be treated as
 /// a "static" interop class.
 ///
-/// These classes allow interop with native types, like the ones in `dart:html`.
-/// These classes should not contain any instance members, inherited or
-/// otherwise, and should instead use static extension members.
+/// These classes implicitly all erase to the internal interceptor
+/// `JavaScriptObject`, so they can be freely casted to and from other
+/// [staticInterop] types, `dart:html` types, and `JSObject` from
+/// `dart:js_interop`. Non-[staticInterop] `package:js` types can be casted to
+/// [staticInterop] types, but the reverse can fail if the underlying value is a
+/// `@Native`-reserved type (like `dart:html` types).
+///
+/// [staticInterop] classes have the following restrictions:
+///  - They must contain a [JS] annotation, either from this library or from
+///    `dart:js_interop`.
+///  - They should not contain any instance members, inherited or otherwise, and
+///    should instead use static extension members, which can be external or
+///    non-external.
+///  - They can only contain factories and `static` members. They can be
+///    combined with [anonymous] to make external factories create new
+///    JavaScript object literals instead.
+///  - They should not implement, extend, or mixin non-[staticInterop] classes
+///    and vice-versa.
+///  - The annotation should only be applied to non-mixin classes and no other
+///    declarations.
 ///
 /// @description Checks that it is a compile-time error if a class without
-/// `@staticInterop` annotation extends, mixin or implements one with this
-/// annotation.
+/// `@staticInterop` annotation extends or implements one with this annotation.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -19,10 +35,6 @@ import 'dart:js_interop';
 @staticInterop
 @JS()
 class A {}
-
-@staticInterop
-@JS()
-mixin class M {}
 
 @staticInterop
 @JS()
@@ -35,13 +47,7 @@ class C1 extends A {}
 // [web] unspecified
 
 @JS()
-class C2 with M {}
-//    ^^
-// [analyzer] unspecified
-// [web] unspecified
-
-@JS()
-class C3 implements I {}
+class C2 implements I {}
 //    ^^
 // [analyzer] unspecified
 // [web] unspecified
@@ -49,5 +55,4 @@ class C3 implements I {}
 main() {
   print(C1);
   print(C2);
-  print(C3);
 }

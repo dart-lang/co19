@@ -26,42 +26,60 @@
 ///  - The annotation should only be applied to non-mixin classes and no other
 ///    declarations.
 ///
-/// @description Checks that it is a compile-time error if a class annotated
-/// with `@staticInterop` annotation extends, mixin or implements one without
-/// this annotation.
+/// @description Checks that it is a compile-time error if a mixin or mixin
+/// class is annotated with `@staticInterop`.
 /// @author sgrekhov22@gmail.com
+/// @issue 61125
 
 import 'dart:js_interop';
 
-class A {}
-
-mixin class M {}
-
-abstract interface class I {}
-
 @staticInterop
 @JS()
-class C1 extends A {}
+mixin M1 {}
 //    ^^
 // [analyzer] unspecified
 // [web] unspecified
 
 @staticInterop
 @JS()
-class C2 with M {}
-//    ^^
+base mixin M2 {}
+//         ^^
 // [analyzer] unspecified
 // [web] unspecified
 
 @staticInterop
 @JS()
-class C3 implements I {}
-//    ^^
+mixin class M3 {}
+//          ^^
+// [analyzer] unspecified
+// [web] unspecified
+
+@staticInterop
+@JS()
+abstract mixin class M4 {}
+//                   ^^
+// [analyzer] unspecified
+// [web] unspecified
+
+@staticInterop
+@JS()
+base mixin class M5 {}
+//               ^^
+// [analyzer] unspecified
+// [web] unspecified
+
+@staticInterop
+@JS()
+abstract base mixin class M6 {}
+//                        ^^
 // [analyzer] unspecified
 // [web] unspecified
 
 main() {
-  print(C1);
-  print(C2);
-  print(C3);
+  print(M1);
+  print(M2);
+  print(M3);
+  print(M4);
+  print(M5);
+  print(M6);
 }

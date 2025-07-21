@@ -5,12 +5,29 @@
 /// @assertion `staticInterop` enables the JS annotated class to be treated as
 /// a "static" interop class.
 ///
-/// These classes allow interop with native types, like the ones in `dart:html`.
-/// These classes should not contain any instance members, inherited or
-/// otherwise, and should instead use static extension members.
+/// These classes implicitly all erase to the internal interceptor
+/// `JavaScriptObject`, so they can be freely casted to and from other
+/// [staticInterop] types, `dart:html` types, and `JSObject` from
+/// `dart:js_interop`. Non-[staticInterop] `package:js` types can be casted to
+/// [staticInterop] types, but the reverse can fail if the underlying value is a
+/// `@Native`-reserved type (like `dart:html` types).
+///
+/// [staticInterop] classes have the following restrictions:
+///  - They must contain a [JS] annotation, either from this library or from
+///    `dart:js_interop`.
+///  - They should not contain any instance members, inherited or otherwise, and
+///    should instead use static extension members, which can be external or
+///    non-external.
+///  - They can only contain factories and `static` members. They can be
+///    combined with [anonymous] to make external factories create new
+///    JavaScript object literals instead.
+///  - They should not implement, extend, or mixin non-[staticInterop] classes
+///    and vice-versa.
+///  - The annotation should only be applied to non-mixin classes and no other
+///    declarations.
 ///
 /// @description Checks that a class annotated with `@staticInterop` can extend,
-/// mixin or implement another class/mixin annotated with `@staticInterop`.
+/// or implement another class/mixin annotated with `@staticInterop`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -20,7 +37,7 @@ import 'js_utils.dart';
 
 @staticInterop
 @JS()
-abstract mixin class A {}
+abstract class A {}
 
 extension Ext on A {
   external String getString();
@@ -37,10 +54,6 @@ class C1 extends A {
 @JS()
 class C2 implements A {
 }
-
-@staticInterop
-@JS()
-class C3 = Object with A;
 
 main() {
   eval(r'''
@@ -66,9 +79,4 @@ main() {
   Expect.equals("I'm JS String", c2.getString());
   Expect.equals(42, c2.getNumber());
   Expect.equals(true, c2.getBool());
-
-  C3 c3 = globalContext["obj"] as C3;
-  Expect.equals("I'm JS String", c3.getString());
-  Expect.equals(42, c3.getNumber());
-  Expect.equals(true, c3.getBool());
 }
