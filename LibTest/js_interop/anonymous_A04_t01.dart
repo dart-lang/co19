@@ -23,32 +23,34 @@
 ///   - The annotation should only be applied to non-mixin classes and no other
 ///     declarations.
 ///
-/// @description Checks that invoking the constructor desugars to creating a
-/// JavaScript object literal with name-value pairs corresponding to the
-/// parameter names and values.
+/// @description Checks that it is a compile-time error if an external factory
+/// constructor of a class annotated with [anonymous] contains any positional
+/// parameters.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
-import 'dart:js_interop_unsafe';
-import '../../Utils/expect.dart';
-import 'js_utils.dart';
 
 @anonymous
 @staticInterop
 @JS()
-class C {
-  external factory C({String s, int n, bool b});
+class C1 {
+  external factory C1(String s0, {String s, int n, bool b});
+//                           ^^
+// [analyzer] unspecified
+// [web] unspecified
+}
+
+@anonymous
+@staticInterop
+@JS()
+class C2 {
+  external factory C2.f(int n);
+//                          ^
+// [analyzer] unspecified
+// [web] unspecified
 }
 
 main() {
-  var c = C(s: "s value", n: 42, b: true);
-  globalContext["c"] = c as JSObject;
-  eval(r'''
-    globalThis.resS = globalThis.c.s;
-    globalThis.resN = globalThis.c.n;
-    globalThis.resB = globalThis.c.b;
-  ''');
-  Expect.equals("s value", (globalContext["resS"] as JSString).toDart);
-  Expect.equals(42, (globalContext["resN"] as JSNumber).toDartInt);
-  Expect.equals(true, (globalContext["resB"] as JSBoolean).toDart);
+  print(C1);
+  print(C2);
 }
