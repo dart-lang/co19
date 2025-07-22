@@ -19,8 +19,10 @@
 ///   and added to a new `[List]<Object?>`, which is then returned.
 /// - Otherwise, the conversion is undefined.
 ///
-/// @description Checks that `dartify()` converts JavaScript primitives to Dart
-/// types.
+/// @description Checks that `dartify()` converts a simple JS object to a
+/// `[Map]<Object?, Object?>` whose keys are the recursively converted keys
+/// obtained from `Object.keys` and its values are the associated values of the
+/// keys in the JS object.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -30,25 +32,25 @@ import '../js_utils.dart';
 
 main() {
   eval(r'''
-    globalThis.n1 = 1;
-    globalThis.n2 = -2;
-    globalThis.n3 = -2.2;
-    globalThis.n4 = 3.14;
-    globalThis.s1 = "JS String";
-    globalThis.s2 = "";
-    globalThis.b1 = true;
-    globalThis.b2 = false;
-    globalThis.n = null;
-    globalThis.u = undefined;
-    ''');
-  Expect.equals(1, globalContext["n1"].dartify());
-  Expect.equals(-2, globalContext["n2"].dartify());
-  Expect.equals(-2.2, globalContext["n3"].dartify());
-  Expect.equals(3.14, globalContext["n4"].dartify());
-  Expect.equals("JS String", globalContext["s1"].dartify());
-  Expect.equals("", globalContext["s2"].dartify());
-  Expect.isTrue(globalContext["b1"].dartify());
-  Expect.isFalse(globalContext["b2"].dartify());
-  Expect.isNull(globalContext["n"].dartify());
-  Expect.isNull(globalContext["u"].dartify());
+    globalThis.obj = {
+      id: 42,
+      name: "JS Object",
+      sub: {
+        id: 0,
+        name: "Check recursion",
+        data: [true, false]
+      }
+    };
+  ''');
+  var dartObj = globalContext["obj"].dartify();
+  Expect.isTrue(dartObj is Map<Object?, Object?>);
+  Expect.mapEquals({
+    "id": 42,
+    "name": "JS Object",
+    "sub": {
+      "id": 0,
+      "name": "Check recursion",
+      "data": [true, false],
+    },
+  }, dartObj);
 }
