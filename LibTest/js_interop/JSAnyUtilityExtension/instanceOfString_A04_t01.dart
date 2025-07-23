@@ -17,27 +17,40 @@
 ///
 /// @description Checks that `instanceOfString()` returns `true` if this
 /// `JSAny?` is is an `instanceof` the constructor that is defined by
-/// `constructorName`.
+/// `constructorName`. Test the case when `constructorName` contains '.'.
 /// @author sgrekhov22@gmail.com
 
+// OtherResources=module.js
+import 'dart:async';
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
+final completer = Completer<String>();
+
+void complete(String value) {
+  completer.complete(value);
+}
+
 main() {
+  globalContext["complete"] = complete.toJS;
   eval(r'''
-    function A(id, name) {
-      this.id = id;
-      this.name = name;
-    }
-    function B() {}
-    
-    globalThis.objA = new A(42, "A form JS");
-    globalThis.objB = new B();
+    var lib1;
+    (async () => { 
+      // This is path to the module on tryjobs. May not work locally.
+      lib1 = await import('/root_dart/tests/co19/src/LibTest/js_interop/JSAnyUtilityExtension/module.js');
+      globalThis.objA = new lib1.A(42, "A form JS");
+      globalThis.objB = new lib1.B();
+      console.log('initialized');
+    })().then(function(v) {
+      globalThis.complete("");
+    });
   ''');
-  Expect.isTrue(globalContext["objA"].instanceOfString("A"));
-  Expect.isTrue(globalContext["objB"].instanceOfString("B"));
-  Expect.isFalse(globalContext["objA"].instanceOfString("B"));
-  Expect.isFalse(globalContext["objB"].instanceOfString("A"));
+  asyncStart();
+  completer.future.then((_) {
+    Expect.isTrue(globalContext["objA"].instanceOfString("lib1.A"));
+    Expect.isTrue(globalContext["objB"].instanceOfString("lib1.B"));
+    asyncEnd();
+  });
 }
