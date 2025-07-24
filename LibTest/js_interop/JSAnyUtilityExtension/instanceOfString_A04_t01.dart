@@ -15,7 +15,7 @@
 /// If `constructorName` is empty or any of the parts or the constructor don't
 /// exist, returns `false`.
 ///
-/// @description Checks that `instanceOfString()` returns `true` if this
+/// @description Checks that `instanceOfString()` works as expected if this
 /// `JSAny?` is is an `instanceof` the constructor that is defined by
 /// `constructorName`. Test the case when `constructorName` contains '.'.
 /// @author sgrekhov22@gmail.com
@@ -51,6 +51,8 @@ main() {
   completer.future.then((_) {
     Expect.isTrue(globalContext["objA"].instanceOfString("lib1.A"));
     Expect.isTrue(globalContext["objB"].instanceOfString("lib1.B"));
+    Expect.isFalse(globalContext["objA"].instanceOfString("A"));
+    Expect.isFalse(globalContext["objB"].instanceOfString("B"));
     asyncEnd();
   });
 }
