@@ -29,6 +29,6 @@ main() {
 
 void test(JSAny? value) {
   Expect.isTrue(value.typeofEquals("function"));
-  // To check that `typeofEquals` doesn't always return `true`
+  // Check that `typeofEquals` doesn't always return `true`
   Expect.isFalse(value.typeofEquals("object"));
 }
