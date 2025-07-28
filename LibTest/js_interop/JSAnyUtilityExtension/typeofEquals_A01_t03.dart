@@ -5,8 +5,9 @@
 /// @assertion bool typeofEquals( String typeString )
 /// Whether the result of `typeof` on this `JSAny?` is `typeString`.
 ///
-/// @description Checks that this method returns if the result of JS `typeof` on
-/// this `JSAny?` is `typeString`. Test `function`.
+/// @description Checks that this method returns `true` if the result of JS
+/// `typeof` on this `JSAny?` is `typeString`, and `false` otherwise. Test
+/// `function`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
