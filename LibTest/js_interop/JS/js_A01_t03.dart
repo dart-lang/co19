@@ -8,7 +8,7 @@
 /// extension type as a JavaScript interop declaration.
 ///
 /// @description Check that it is a compile-time error to have a top-level
-/// external declaration without `@JS()` annotation.
+/// external declaration without a `@JS()` annotation.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

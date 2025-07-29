@@ -7,8 +7,8 @@
 /// This annotation defines a given library, top-level external declaration, or
 /// extension type as a JavaScript interop declaration.
 ///
-/// @description Check that an extension with and without `@JS()` annotation can
-/// be applied to JS iterop extension type.
+/// @description Check that an extension with and without a `@JS()` annotation
+/// can be applied to JS interop extension type.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

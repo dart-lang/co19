@@ -7,8 +7,8 @@
 /// This annotation defines a given library, top-level external declaration, or
 /// extension type as a JavaScript interop declaration.
 ///
-/// @description Check that it is a compile-time error if `@JS()` annotation is
-/// applied to a function with any named parameters.
+/// @description Check that it is a compile-time error if a `@JS()` annotation
+/// is applied to a function with any named parameters.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

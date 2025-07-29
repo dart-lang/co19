@@ -8,7 +8,7 @@
 /// extension type as a JavaScript interop declaration.
 ///
 /// @description Check that it is a compile-time error if a class is annotated
-/// with `@JS()` annotation without `@staticInterop` annotation.
+/// with a `@JS()` annotation without a `@staticInterop` annotation.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

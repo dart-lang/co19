@@ -7,8 +7,8 @@
 /// This annotation defines a given library, top-level external declaration, or
 /// extension type as a JavaScript interop declaration.
 ///
-/// @description Check that it is a compile-time error if an enum is annotated
-/// with `@JS()` annotation.
+/// @description Check that it is a compile-time error if an extension on non
+/// extension type is annotated with a `@JS()` annotation.
 /// @author sgrekhov22@gmail.com
 /// @issue 61208
 

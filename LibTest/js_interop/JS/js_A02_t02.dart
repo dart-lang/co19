@@ -8,7 +8,7 @@
 /// extension type as a JavaScript interop declaration.
 ///
 /// @description Check that an extension type with external members and without
-/// `@JS()` annotation can be used for JS interop.
+/// a `@JS()` annotation can be used for JS interop.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

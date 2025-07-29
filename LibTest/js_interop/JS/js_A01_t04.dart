@@ -8,7 +8,7 @@
 /// extension type as a JavaScript interop declaration.
 ///
 /// @description Check that it is a compile-time error to have a local
-/// declaration with the `@JS()` annotation.
+/// declaration with a `@JS()` annotation.
 /// @author sgrekhov22@gmail.com
 /// @issue 61205
 

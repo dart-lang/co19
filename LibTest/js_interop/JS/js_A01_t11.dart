@@ -8,7 +8,7 @@
 /// extension type as a JavaScript interop declaration.
 ///
 /// @description Check that it is a compile-time error if an old-fashioned
-/// function typ is annotated with `@JS()` annotation.
+/// function type is annotated with a `@JS()` annotation.
 /// @author sgrekhov22@gmail.com
 /// @issue 61208
 

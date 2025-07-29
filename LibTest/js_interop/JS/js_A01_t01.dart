@@ -7,7 +7,7 @@
 /// This annotation defines a given library, top-level external declaration, or
 /// extension type as a JavaScript interop declaration.
 ///
-/// @description Check that `@JS()` annotation defines a top-level external
+/// @description Check that the `@JS()` annotation defines a top-level external
 /// declaration as a JavaScript interop declaration.
 /// @author sgrekhov22@gmail.com
 
