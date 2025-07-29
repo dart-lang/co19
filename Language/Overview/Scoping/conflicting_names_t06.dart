@@ -16,14 +16,10 @@
 void conflictingName() {}
 
 class conflictingName {}
-//    ^
+//    ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  conflictingName();
-  new conflictingName();
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  print(conflictingName);
 }

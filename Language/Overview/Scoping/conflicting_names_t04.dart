@@ -16,15 +16,10 @@
 var conflictingName;
 
 typedef conflictingName();
-//      ^
+//      ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  conflictingName = 1;
-//                ^
-// [cfe] unspecified
-  conflictingName func = () {};
-//^
-// [analyzer] unspecified
+  print(conflictingName);
 }
