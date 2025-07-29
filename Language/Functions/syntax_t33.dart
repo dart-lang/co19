@@ -20,7 +20,6 @@
 /// @description Checks that returnType must be a valid identifier.
 /// @author kaigorodov
 
-
 class C {}
 
   C.B f1() {}
@@ -28,12 +27,7 @@ class C {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C.!B f2() {}
-//^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 main() {
-  f1();
-  f2();
+  print(C);
+  print(f1);
 }

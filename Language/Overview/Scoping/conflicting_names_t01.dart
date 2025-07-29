@@ -15,14 +15,11 @@
 
 var conflictingName;
 
-conflictingName(p1) {}
-//^
+/**/conflictingName(p1) {}
+//  ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  conflictingName = 1;
-//                ^
-// [cfe] unspecified
-  conflictingName(1);
+  print(conflictingName);
 }

@@ -69,8 +69,6 @@ extension type ET7(int id) {
 }
 
 extension type ET8(int id) {
-//                     ^^
-// [cfe] unspecified
   static void set id(int v) {}
 //                ^^
 // [analyzer] unspecified

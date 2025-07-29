@@ -17,6 +17,4 @@ var foo;
 
 main() {
   foo = 1;
-//    ^
-// [cfe] unspecified
 }

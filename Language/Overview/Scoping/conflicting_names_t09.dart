@@ -16,14 +16,10 @@
 class conflictingName {}
 
 typedef conflictingName();
-//      ^
+//      ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  new conflictingName();
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  conflictingName func = () {};
+  print(conflictingName);
 }

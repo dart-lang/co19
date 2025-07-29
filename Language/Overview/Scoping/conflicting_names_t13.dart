@@ -8,10 +8,10 @@
 /// available in scope S if d is in the namespace induced by S or if d is 
 /// available in the lexically enclosing scope of S. We say that a name or 
 /// declaration d is in scope if d is available in the current scope.
+///
 /// @description Checks that it is a compile-time error if the library scope 
 /// contains two classes with the same name.
 /// @author msyabro
-
 
 class conflictingName {}
 class conflictingName implements Map {}
@@ -20,7 +20,5 @@ class conflictingName implements Map {}
 // [cfe] unspecified
 
 main() {
-  new conflictingName();
-//    ^
-// [cfe] unspecified
+  print(conflictingName);
 }
