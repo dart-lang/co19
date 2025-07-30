@@ -8,7 +8,7 @@
 /// extension type as a JavaScript interop declaration.
 ///
 /// @description Check that JS interop extension type may have not-external
-/// members.
+/// members, which are then unrelated to JavaScript members with the same name.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

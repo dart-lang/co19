@@ -7,7 +7,7 @@
 /// This annotation defines a given library, top-level external declaration, or
 /// extension type as a JavaScript interop declaration.
 ///
-/// @description Check that JS interop extension type may have type parameter.
+/// @description Check that JS interop extension type may have a type parameter.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

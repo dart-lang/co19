@@ -21,12 +21,14 @@ extension type ET1(JSObject _) implements JSObject {
   external int f1();
   String f2(int v) => "f2($v)";
   static String f3() => "f3";
+  external static String f4();
 }
 
 extension type ET2(JSObject _) implements JSObject {
   external int g1();
   String g2(int v) => "g2($v)";
   static String g3() => "g3";
+  external static String g4();
 }
 
 main() {
@@ -35,12 +37,20 @@ main() {
       f1() {
         return 1;
       }
+      static f4() {
+        return "f4";
+      }
     }
     class ET2 {
       g1() {
         return 2;
       }
+      static g4() {
+        return "g4";
+      }
     }
+    globalThis.ET1 = ET1;
+    globalThis.ET2 = ET2;
     globalThis.et1 = new ET1();
     globalThis.et2 = new ET2();
   ''');
@@ -49,7 +59,9 @@ main() {
   Expect.equals(1, et1.f1());
   Expect.equals("f2(2)", et1.f2(2));
   Expect.equals("f3", ET1.f3());
+  Expect.equals("f4", ET1.f4());
   Expect.equals(2, et2.g1());
   Expect.equals("g2(2)", et2.g2(2));
   Expect.equals("g3", ET2.g3());
+  Expect.equals("g4", ET2.g4());
 }
