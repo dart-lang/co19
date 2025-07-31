@@ -4,3 +4,7 @@ export function A(id, name) {
 }
 
 export function B() {}
+
+export function answer() {
+  return 42;
+}
