@@ -33,6 +33,15 @@ void complete(String value) {
   completer.complete(value);
 }
 
+@JS("A")
+extension type ET1(JSObject o) implements JSObject {
+  external int id;
+  external String name;
+}
+
+@JS("B")
+extension type ET2(JSObject o) implements JSObject {}
+
 main() {
   globalContext["complete"] = complete.toJS;
   eval(r'''
@@ -48,10 +57,13 @@ main() {
   ''');
   asyncStart();
   completer.future.then((_) {
-    Expect.isTrue(globalContext["objA"].instanceOfString("lib1.A"));
-    Expect.isTrue(globalContext["objB"].instanceOfString("lib1.B"));
-    Expect.isFalse(globalContext["objA"].instanceOfString("A"));
-    Expect.isFalse(globalContext["objB"].instanceOfString("B"));
+    ET1 et1 = globalContext["objA"] as ET1;
+    Expect.isTrue(et1.instanceOfString("lib1.A"));
+    Expect.isFalse(et1.instanceOfString("ET1"));
+
+    ET2 et2 = globalContext["objB"] as ET2;
+    Expect.isTrue(et2.instanceOfString("lib1.B"));
+    Expect.isFalse(et2.instanceOfString("ET2"));
     asyncEnd();
   });
 }
