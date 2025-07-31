@@ -7,8 +7,8 @@
 /// This annotation defines a given library, top-level external declaration, or
 /// extension type as a JavaScript interop declaration.
 ///
-/// @description Check that it is a compile-time error if external member of JS
-/// interop extension type uses non-valid JS interop type.
+/// @description Check that it is a compile-time error if an external member of
+/// a JS interop extension type uses non-valid JS interop type.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
