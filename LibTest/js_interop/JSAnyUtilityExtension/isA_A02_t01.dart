@@ -9,7 +9,8 @@
 /// If `T` is a primitive JS type like [JSString], this uses a `typeof` check
 /// that corresponds to that primitive type like `typeofEquals('string')`.
 ///
-/// @description Checks that `isA` works as expected for JS primitive types.
+/// @description Checks that `isA` works as expected for JS non-nullable
+/// primitive types.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -23,6 +24,8 @@ main() {
     globalThis.b = false;
     globalThis.n1 = 42;
     globalThis.n2 = 3.14;
+    globalThis.bi = 123456789n;
+    globalThis.smb = Symbol();
   ''');
   Expect.isTrue(globalContext["s"].isA<JSString>());
   Expect.isTrue(globalContext["s"].isA<JSAny>());
@@ -55,4 +58,20 @@ main() {
   Expect.isFalse(globalContext["n2"].isA<JSString>());
   Expect.isFalse(globalContext["n2"].isA<JSSymbol>());
   Expect.isFalse(globalContext["n2"].isA<JSBigInt>());
+
+  Expect.isTrue(globalContext["bi"].isA<JSBigInt>());
+  Expect.isTrue(globalContext["bi"].isA<JSAny>());
+  Expect.isFalse(globalContext["bi"].isA<JSObject>());
+  Expect.isFalse(globalContext["bi"].isA<JSNumber>());
+  Expect.isFalse(globalContext["bi"].isA<JSBoolean>());
+  Expect.isFalse(globalContext["bi"].isA<JSSymbol>());
+  Expect.isFalse(globalContext["bi"].isA<JSString>());
+
+  Expect.isTrue(globalContext["smb"].isA<JSSymbol>());
+  Expect.isTrue(globalContext["smb"].isA<JSAny>());
+  Expect.isFalse(globalContext["smb"].isA<JSObject>());
+  Expect.isFalse(globalContext["smb"].isA<JSNumber>());
+  Expect.isFalse(globalContext["smb"].isA<JSBoolean>());
+  Expect.isFalse(globalContext["smb"].isA<JSBigInt>());
+  Expect.isFalse(globalContext["smb"].isA<JSString>());
 }
