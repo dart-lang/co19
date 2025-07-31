@@ -16,7 +16,6 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
-@JS()
 extension type ET(JSObject _) implements JSObject {
   external static int var1;
 
