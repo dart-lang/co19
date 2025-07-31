@@ -44,13 +44,5 @@ main() {
   Expect.equals(1, et1.f1().toDartInt);
 
   ET2<JSArray> et2 = globalContext["et2"] as ET2<JSArray>;
-  if (isWasm) {
-    var arr = et2.g1().toDart; // List<JSValue?>
-    Expect.equals(1, arr.length);
-    // JSValue cannot be converted to String on Wasm.
-    // Let's check its string representation
-    Expect.equals("two", arr[0].toString());
-  } else {
-    Expect.listEquals(["two"], et2.g1().toDart);
-  }
+  Expect.listEquals(["two"], et2.g1().dartify());
 }
