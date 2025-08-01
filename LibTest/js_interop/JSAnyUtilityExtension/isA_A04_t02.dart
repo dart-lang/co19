@@ -12,8 +12,8 @@
 /// library using the `@JS` annotation, this uses the rename in the instanceof
 /// check like `instanceOfString('library1.JSClass')`.
 ///
-/// @description Checks that `isA` works as expected for user-defined JS interop
-/// type.
+/// @description Checks that `isA` returns `true` for user-defined JS interop
+/// type if this type is set in `globalThis`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -33,15 +33,7 @@ main() {
       }
     }
     globalThis.et = new ET();
+    globalThis.ET = ET;
   ''');
-  var value = globalContext["et"] as ET;
-  Expect.isFalse(value.isA<ET>()); // globalThis.ET = ET; is not set
-  Expect.isTrue(value.isA<JSAny>());
-  Expect.isTrue(value.isA<JSObject>());
-  Expect.isFalse(value.isA<JSNumber>());
-  Expect.isFalse(value.isA<JSBoolean>());
-  Expect.isFalse(value.isA<JSBigInt>());
-  Expect.isFalse(value.isA<JSString>());
-  Expect.isFalse(value.isA<JSSymbol>());
-  Expect.isFalse(value.isA<JSArray>());
+  Expect.isTrue(globalContext["et"].isA<ET>());
 }
