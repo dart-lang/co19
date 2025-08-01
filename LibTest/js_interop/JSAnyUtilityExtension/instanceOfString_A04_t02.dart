@@ -20,7 +20,6 @@
 /// `constructorName`. Test the case when `constructorName` contains '.'.
 /// @author sgrekhov22@gmail.com
 
-// OtherResources=module.js
 import 'dart:async';
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
@@ -48,7 +47,7 @@ main() {
     var lib1;
     (async () => { 
       // This is path to the module on tryjobs. May not work locally.
-      lib1 = await import('/root_dart/tests/co19/src/LibTest/js_interop/JSAnyUtilityExtension/module.js');
+      lib1 = await import('/root_dart/tests/co19/src/LibTest/js_interop/module.js');
       globalThis.objA = new lib1.A(42, "A form JS");
       globalThis.objB = new lib1.B();
     })().then(function(v) {
