@@ -10,6 +10,7 @@
 /// @description Check that it is a warning error if an extension is annotated
 /// with a `@JS()` annotation.
 /// @author sgrekhov22@gmail.com
+/// @issue 61208
 
 import 'dart:js_interop';
 
