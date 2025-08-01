@@ -7,8 +7,8 @@
 /// This annotation defines a given library, top-level external declaration, or
 /// extension type as a JavaScript interop declaration.
 ///
-/// @description Check that it is a warning error if an extension is annotated
-/// with a `@JS()` annotation.
+/// @description Check that it is a warning if an extension is annotated with a
+/// `@JS()` annotation.
 /// @author sgrekhov22@gmail.com
 /// @issue 61208
 
