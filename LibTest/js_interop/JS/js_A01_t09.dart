@@ -7,8 +7,8 @@
 /// This annotation defines a given library, top-level external declaration, or
 /// extension type as a JavaScript interop declaration.
 ///
-/// @description Check that an extension with and without a `@JS()` annotation
-/// can be applied to JS interop extension type.
+/// @description Check that an extension without a `@JS()` annotation can be
+/// applied to JS interop extension type.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -20,19 +20,11 @@ extension type ET(JSObject o) implements JSObject {
   external int foo();
 }
 
-@JS()
 extension Ext1 on ET {
   external int bar();
 
   external String get id1;
   external void set id1(String _);
-}
-
-extension Ext2 on ET {
-  external int baz();
-
-  external String get id2;
-  external void set id2(String _);
 }
 
 main() {
@@ -48,20 +40,11 @@ main() {
       bar() {
         return 2;
       }
-      baz() {
-        return 3;
-      }
       get id1() {
         return this._id1;
       }
       set id1(v) {
         this._id1 = v;
-      }
-      get id2() {
-        return this._id2;
-      }
-      set id2(v) {
-        this._id2 = v;
       }
     }  
     globalThis.et = new ET();
@@ -70,9 +53,6 @@ main() {
   ET et = ET(globalContext["et"] as JSObject);
   Expect.equals(1, et.foo());
   Expect.equals(2, et.bar());
-  Expect.equals(3, et.baz());
   et.id1 = "id1";
-  et.id2 = "id2";
   Expect.equals("id1", et.id1);
-  Expect.equals("id2", et.id2);
 }
