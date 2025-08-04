@@ -8,7 +8,7 @@
 /// extension type as a JavaScript interop declaration.
 ///
 /// @description Check that a library directive can be annotated with a `@JS()`
-/// annotation.
+/// annotation. Test an extension type with rename.
 /// @author sgrekhov22@gmail.com
 
 @JS("lib1")
@@ -20,8 +20,13 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
-@JS()
-external int answer();
+@JS("C")
+extension type A(JSObject v) implements JSObject {
+  @JS("foo")
+  external String myFoo();
+  @JS("bar")
+  external static String myBar();
+}
 
 final completer = Completer<String>();
 
@@ -36,12 +41,15 @@ main() {
       globalThis.lib1 = 
         await import('/root_dart/tests/co19/src/LibTest/js_interop/module.js');
     })().then(function(v) {
+      globalThis.c = new globalThis.C();
       globalThis.complete("");
     });
   ''');
   asyncStart();
   completer.future.then((_) {
-    Expect.equals(42, answer()); // calls lib1.answer()
+    A c = A(globalContext["c"] as JSObject);
+    Expect.equals("C.foo() from module.js", c.myFoo());
+    Expect.equals("C.bar() from module.js", A.myBar());
     asyncEnd();
   });
 }
