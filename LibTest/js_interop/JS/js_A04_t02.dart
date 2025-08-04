@@ -15,7 +15,7 @@
 /// - Renaming external declarations by parameterizing the annotation on the
 ///   member with `name`.
 ///
-/// @description Check that `@JS(null)` is equivalent `@JS()`.
+/// @description Check that `@JS(null)` is equivalent to `@JS()`.
 /// @author sgrekhov22@gmail.com
 
 @JS(null)
