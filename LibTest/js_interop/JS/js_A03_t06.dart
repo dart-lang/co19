@@ -8,7 +8,7 @@
 /// extension type as a JavaScript interop declaration.
 ///
 /// @description Check that a library directive can be annotated with a `@JS()`
-/// annotation.
+/// annotation. Test renaming a top-level function.
 /// @author sgrekhov22@gmail.com
 
 @JS("lib1")
@@ -20,8 +20,8 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
-@JS()
-external int answer();
+@JS("answer")
+external int myAnswer();
 
 final completer = Completer<String>();
 
@@ -41,7 +41,7 @@ main() {
   ''');
   asyncStart();
   completer.future.then((_) {
-    Expect.equals(42, answer()); // calls lib1.answer()
+    Expect.equals(42, myAnswer()); // calls lib1.answer()
     asyncEnd();
   });
 }
