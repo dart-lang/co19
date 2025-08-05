@@ -12,32 +12,46 @@
 /// library using the `@JS` annotation, this uses the rename in the instanceof
 /// check like `instanceOfString('library1.JSClass')`.
 ///
-/// @description Checks that `isA<JSArray>` returns `true` for an extension type
-/// on `JSArray`. Test a library rename.
+/// @description Checks that `isA<>` returns `true` for an appropriate interop
+/// type from a library.
 /// @author sgrekhov22@gmail.com
 
 @JS("lib1")
 library;
 
+import 'dart:async';
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
-extension type MyArray(JSArray _) implements JSArray {}
+final completer = Completer<String>();
 
-main() {
-  eval(r'''
-    globalThis.ar1 = Array("");
-    globalThis.ar2 = ["one", "two", "three"];
-    globalThis.ar3 = [1, 2, 3];
-  ''');
-  test(globalContext["ar1"] as JSArray);
-  test(globalContext["ar2"] as JSArray);
-  test(globalContext["ar3"] as JSArray);
+void complete(String value) {
+  completer.complete(value);
 }
 
-test(JSArray v) {
-  Expect.isTrue(v.isA<JSArray>());
-  Expect.isFalse(MyArray(v).isA<MyArray>());
+@JS("A")
+extension type ET1(JSObject o) implements JSObject {
+  external int id;
+  external String name;
+}
+
+main() {
+  globalContext["complete"] = complete.toJS;
+  eval(r'''
+    (async () => { 
+      // This is path to the module on tryjobs. May not work locally.
+      globalThis.lib1 = await import('/root_dart/tests/co19/src/LibTest/js_interop/module.js');
+      globalThis.objA = new lib1.A(42, "A form JS");
+    })().then(function(v) {
+      globalThis.complete("");
+    });
+  ''');
+  asyncStart();
+  completer.future.then((_) {
+    ET1 et1 = globalContext["objA"] as ET1;
+    Expect.isTrue(et1.isA<ET1>()); // ET1 interops with lib1.A
+    asyncEnd();
+  });
 }
