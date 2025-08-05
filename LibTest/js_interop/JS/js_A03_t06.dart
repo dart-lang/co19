@@ -21,7 +21,7 @@ import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
 @JS("answer")
-external int myAswer();
+external int myAnswer();
 
 final completer = Completer<String>();
 
@@ -41,7 +41,7 @@ main() {
   ''');
   asyncStart();
   completer.future.then((_) {
-    Expect.equals(42, myAswer()); // calls lib1.answer()
+    Expect.equals(42, myAnswer()); // calls lib1.answer()
     asyncEnd();
   });
 }
