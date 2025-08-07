@@ -1,0 +1,64 @@
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool isA<T extends JSAny?>()
+/// Whether this [JSAny?] is an instance of the JavaScript type that is declared
+/// by `T`.
+/// ...
+/// Using this method with a `T` that wraps a primitive JS type will result in
+/// an error telling you to use the primitive JS type instead.
+///
+/// @description Checks that it is a compile-time error if an extension type on
+/// JS primitive types is used as a type argument of `isA`.
+/// @author sgrekhov22@gmail.com
+
+import 'dart:js_interop';
+
+extension type MyAny(JSAny _) implements JSAny {}
+
+extension type MyNumber(JSNumber _) implements JSNumber {}
+
+extension type MyString(JSString _) implements JSString {}
+
+extension type MyBoolean(JSBoolean _) implements JSBoolean {}
+
+extension type MyBigInt(JSBigInt _) implements JSBigInt {}
+
+extension type MySymbol(JSSymbol _) implements JSSymbol {}
+
+extension type MyObject(JSObject _) implements JSObject {}
+
+test(JSAny v) {
+  v.isA<MyAny>();
+  v.isA<MyObject>();
+  v.isA<JSNumber>();
+  v.isA<MyNumber>();
+//  ^^^
+// [analyzer] unspecified
+// [web] unspecified
+
+  v.isA<MyString>();
+//  ^^^
+// [analyzer] unspecified
+// [web] unspecified
+
+  v.isA<MyBoolean>();
+//  ^^^
+// [analyzer] unspecified
+// [web] unspecified
+
+  v.isA<MyBigInt>();
+//  ^^^
+// [analyzer] unspecified
+// [web] unspecified
+
+  v.isA<MySymbol>();
+//  ^^^
+// [analyzer] unspecified
+// [web] unspecified
+}
+
+main() {
+  print(test);
+}
