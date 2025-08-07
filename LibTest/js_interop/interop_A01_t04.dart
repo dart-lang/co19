@@ -8,8 +8,8 @@
 ///   create a new JS object whose constructor is defined by the name of the
 ///   extension type using `new`.
 ///
-/// @description Check that it is a compile-time error if a constructor of JS
-/// interop type contains both named and positional parameters.
+/// @description Check that it is a compile-time error if a constructor of a
+/// JS interop type contains both named and positional parameters.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
