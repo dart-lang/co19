@@ -10,7 +10,7 @@
 ///   order to do this, declare a constructor with only named parameters, where
 ///   the names of the parameters match the property names.
 ///
-/// @description Check that a constructor of JS interop type with named
+/// @description Check that a constructor of a JS interop type with named
 /// parameters creates a new JS object with all properties defined by the
 /// constructor.
 /// @author sgrekhov22@gmail.com
