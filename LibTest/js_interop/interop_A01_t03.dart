@@ -8,7 +8,7 @@
 ///   create a new JS object whose constructor is defined by the name of the
 ///   extension type using `new`.
 ///
-/// @description Check that it is not an error if a constructor of JS
+/// @description Check that it is not an error if a constructor of a JS
 /// interop type has no parameters.
 /// @author sgrekhov22@gmail.com
 
