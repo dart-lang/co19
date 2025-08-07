@@ -10,8 +10,8 @@
 ///   order to do this, declare a constructor with only named parameters, where
 ///   the names of the parameters match the property names.
 ///
-/// @description Check that invoking constructor of a JS interop type creates a
-/// new JS object.
+/// @description Check that invoking a constructor of a JS interop type creates
+/// a new JS object.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
