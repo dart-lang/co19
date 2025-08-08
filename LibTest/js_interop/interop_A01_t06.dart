@@ -8,7 +8,7 @@
 ///   create a new JS object whose constructor is defined by the name of the
 ///   extension type using `new`.
 ///
-/// @description Check that a constructor of JS interop type with positional
+/// @description Check that a constructor of a JS interop type with positional
 /// parameters when called creates a new JS object whose constructor is defined
 /// by the name of the extension type using `new`. Test redirecting constructor.
 /// @author sgrekhov22@gmail.com
