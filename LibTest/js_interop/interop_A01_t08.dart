@@ -9,7 +9,7 @@
 ///   extension type using `new`.
 ///
 /// @description Check that it is not an error if a JS interop type declares a
-/// constructor but appropriate interop object in JS doesn't declare a
+/// constructor but the appropriate interop object in JS doesn't declare a
 /// constructor.
 /// @author sgrekhov22@gmail.com
 
