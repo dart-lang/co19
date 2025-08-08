@@ -8,7 +8,7 @@
 ///   create a new JS object whose constructor is defined by the name of the
 ///   extension type using `new`.
 ///
-/// @description Check that a primary constructor of JS interop type is not
+/// @description Check that a primary constructor of a JS interop type is not
 /// external and therefore its invocation does not call a JS constructor.
 /// @author sgrekhov22@gmail.com
 
