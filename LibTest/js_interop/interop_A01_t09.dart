@@ -14,15 +14,17 @@
 
 import 'dart:js_interop';
 
-extension type ET._(JSObject _) implements JSObject {
+extension type ET._(JSObject v) implements JSObject {
   external ET(int id, String? name);
   external ET.fromId(int id);
+  ET.create(this.v);
 }
 
 @JS("ET")
-extension type ET2._(JSObject _) implements JSObject {
+extension type ET2.p(JSObject v) implements JSObject {
   external factory ET2(int id, String? name);
   external factory ET2.fromId(int id);
+  factory ET2.create(JSObject v) = ET2.p;
 }
 
 main() {
@@ -36,6 +38,9 @@ main() {
 // [analyzer] unspecified
 // [web] unspecified
 
+  var etPrimary1 = ET._; // Ok, not external constructor
+  var etPrimary2 = ET.create;
+
   var et2New = ET2.new;
 //             ^^^^^^^
 // [analyzer] unspecified
@@ -45,4 +50,7 @@ main() {
 //                ^^^^^^^^^^
 // [analyzer] unspecified
 // [web] unspecified
+
+  var et2Primary1 = ET2.p; // Ok, not external constructor
+  var et2Primary2 = ET2.create;
 }
