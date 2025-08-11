@@ -25,7 +25,21 @@ external int f2({required int v});
 // [analyzer] unspecified
 // [web] unspecified
 
+@JS()
+external int f3(int id, {int v});
+//                           ^
+// [analyzer] unspecified
+// [web] unspecified
+
+@JS("foo")
+external int f4(int id, {required int v});
+//                                    ^
+// [analyzer] unspecified
+// [web] unspecified
+
 main() {
   print(f1());
   print(f2(v: 1));
+  print(f3(3, v: 1));
+  print(f4(4, v: 1));
 }
