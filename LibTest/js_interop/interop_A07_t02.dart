@@ -10,7 +10,7 @@
 /// Unlike with non-external methods, optional arguments don't get replaced with
 /// their default value, but are instead omitted.
 ///
-/// @description Check that  default values of optional positioned parameters
+/// @description Check that default values of optional positional parameters
 /// are omitted.
 /// @author sgrekhov22@gmail.com
 

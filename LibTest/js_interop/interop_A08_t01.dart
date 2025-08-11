@@ -23,12 +23,18 @@ external int answer();
 @JS("answer")
 external int theAnswer();
 
+@JS()
+external int v;
+
 main() {
   eval(r'''
+    var v = 0;
     function answer() {
       return 42;
     }
   ''');
   Expect.equals(42, answer());
   Expect.equals(42, theAnswer());
+  v = 1;
+  Expect.equals(1, v);
 }
