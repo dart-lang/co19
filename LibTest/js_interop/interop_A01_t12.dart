@@ -17,7 +17,7 @@ import '../../Utils/expect.dart';
 import 'js_utils.dart';
 
 extension type ET._(JSObject _) implements JSObject {
-  external ET([int ?id = 0, String? name = "default"]);
+  external ET([int? id = 0, String? name = "default"]);
 
   external int? get id;
   external String? get name;
