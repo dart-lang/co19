@@ -41,9 +41,6 @@ extension Ext on C {
 //        ^^^
 // [analyzer] unspecified
 // [web] unspecified
-  external String getString();
-  external int getNumber();
-  external bool getBool();
 }
 
 main() {

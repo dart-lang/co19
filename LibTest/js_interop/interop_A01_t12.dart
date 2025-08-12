@@ -11,6 +11,7 @@
 /// @description Check that default values of an external constructor of a JS
 /// interop type are ignored.
 /// @author sgrekhov22@gmail.com
+/// @issue 61289
 
 import 'dart:js_interop';
 import '../../Utils/expect.dart';
