@@ -13,7 +13,7 @@
 /// `? C.id`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=dot-shorthands,null-aware-elements
+// SharedOptions=--enable-experiment=dot-shorthands
 
 import '../../Utils/expect.dart';
 

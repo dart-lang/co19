@@ -9,11 +9,12 @@
 /// different meanings, where the existing grammar didn’t allow the `?` token to
 /// be followed by `.` anywhere.
 ///
-/// @description Checks that `?.id` is parsed as `?. id` which is a compile-time
-/// error.
+/// @description Checks that `?.id` is parsed like `? .id`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=dot-shorthands,null-aware-elements
+// SharedOptions=--enable-experiment=dot-shorthands
+
+import '../../Utils/expect.dart';
 
 class C {
   int value;
@@ -57,164 +58,43 @@ extension type ET(int value) {
   static ET? three() => ET(3);
 }
 
-void testConstructors() {
-  var l = <C>[
-      ?.id(0)
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
-
-  var s = <C>{
-      ?.new(0),
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-
-  var m1 = <String, ET> {
-      "key": ?.id(0)
-//           ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      ?.new(0): "value1",
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-
-  var m2 = <ET, String> {
-      ?.new(0): "value"
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-}
-
-void testVariables() {
-  var l = <C>[
-      ?.one
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
-
-  var s = <M>{
-      ?.one
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-
-  var m1 = <String, E>{
-      "key": ?.one,
-//           ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-
-  var m2 = <ET, String> {
-      ?.one: "value"
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-}
-
-void testGetters() {
-  var l = <C>[
-      ?.two
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
-
-  var s = <M>{
-      ?.two
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-
-  var m1 = <String, E>{
-      "key": ?.two,
-//           ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-
-  var m2 = <ET, String> {
-      ?.two: "value"
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-}
-
-void testMethods() {
-  var l = <C>[
-      ?.three()
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
-
-  var s = <M>{
-      ?.three()
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-
-  var m1 = <String, E>{
-      "key": ?.three(),
-//           ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-
-  var m2 = <ET, String> {
-      ?.three(): "value"
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-}
-
-void testEnumValues() {
-  var l = <E>[
-      ?.e0
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ];
-
-  var s = <E>{
-      ?.e0
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-
-  var m1 = <String, E>{
-      "key": ?.e0,
-//           ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-
-  var m2 = <E, String> {
-      ?.e0: "value"
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-}
-
 main() {
-  testConstructors();
-  testVariables();
-  testGetters();
-  testMethods();
-  testEnumValues();
+  var l1 = <C>[
+    ?.id(0),   // ignore: invalid_null_aware_operator
+    ?.new(0),  // ignore: invalid_null_aware_operator
+    ?.one,
+    ?.two,
+    ?.three()
+  ];
+  Expect.listEquals([C(0), C(0), C(1), C(2), C(3)], l1);
+
+  var s = <M>{
+    ?.one,
+    ?.two,
+    ?.three()
+  };
+  Expect.setEquals({MC(1), MC(2), MC(3)}, s);
+
+  var m1 = <String, E>{
+    "key0": ?.e1,  // ignore: invalid_null_aware_operator
+    "key1": ?.one,
+    "key2": ?.two,
+    "key3": ?.three()
+  };
+  Expect.mapEquals({"key0": E.e1, "key1": E.e1, "key2": E.e2, "key3":E.e3}, m1);
+
+  var m2 = <ET, String> {
+    ?.id(-1): "value0",
+    ?.new(0): "value1",
+    ?.one: "value2",
+    ?.two: "value3",
+    ?.three(): "value4"
+  };
+  Expect.mapEquals({
+    ET(-1): "value0",
+    ET(0): "value1",
+    ET(1): "value2",
+    ET(2): "value3",
+    ET(3): "value4"
+  }, m2);
 }
