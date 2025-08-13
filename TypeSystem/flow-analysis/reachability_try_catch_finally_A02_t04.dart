@@ -2,16 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion try finally: If `N` is a try/finally statement of the form
-/// `try B1 finally B2` then:
-/// - Let `before(B1) = split(before(N))`
-/// - Let `before(B2) = split(join(drop(after(B1)),
-///     conservativeJoin(before(N), assignedIn(B1), capturedIn(B1))))`
-/// - Let `after(N) = restrict(after(B1), after(B2), assignedIn(B2))`
+/// @assertion try catch finally: If `N` is a try/catch/finally statement of the
+/// form `try B1 alternatives finally F` then:
+/// - Let `before(B1) = before(N)`
+/// - Let `before(Si) = join(after(B1), conservativeJoin(before(N),
+///     assignedIn(B1), capturedIn(B1)))`, where `Si`
+///   is the body of the i'th alternative
+/// - Let
+///   `after(N) = join(attachFinally(after(B1), before(F), after(F)), M1 .. Mk)`
+///   where `Mj = attachFinally(after(Sj), before(F), after(F))`
 ///
-/// @description Checks that `before(B2) = split(join(drop(after(B1)),
-/// conservativeJoin(before(N), assignedIn(B1), capturedIn(B1))))`. Test that if
-/// some promoted variable is captured in `B1` then it is demoted in `B2`.
+/// @description Checks that if some promoted variable is captured in `Si` then
+/// it is demoted `after(N)`.
 /// @author sgrekhov22@gmail.com
 
 class C {
@@ -20,54 +22,58 @@ class C {
 }
 
 test1(int? n) {
-  if (n != null) { // `n` promoted to `int`
+  if (n != null) {  // `n` promoted to `int`
     try {
+    } catch (_) {
       () {n = 42;}; // `n` demoted to `int?`
     } finally {
-      n.isEven;
-//      ^^^^^^
+    }
+    n.isEven;
+//    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
   }
 }
 
 test2(int? n) {
   if (n != null) {
     try {
+    } catch (_) {
       () {(n,) = (42,);};
     } finally {
-      n.isEven;
-//      ^^^^^^
+    }
+    n.isEven;
+//    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
   }
 }
 
 test3(int? n) {
   if (n != null) {
     try {
+    } catch (_) {
       () {(x: n) = (x: 42);};
     } finally {
-      n.isEven;
-//      ^^^^^^
+    }
+    n.isEven;
+//    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
   }
 }
 
 test4(int? n) {
   if (n != null) {
     try {
+    } catch (_) {
       () {C(v: n) = C(42);};
     } finally {
-      n.isEven;
-//      ^^^^^^
+    }
+    n.isEven;
+//    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    }
   }
 }
 
