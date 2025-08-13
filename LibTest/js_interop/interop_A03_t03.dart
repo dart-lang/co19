@@ -19,7 +19,7 @@ import 'js_utils.dart';
 extension type ET._(JSObject _) implements JSObject {
   external static int _variable;
   external static int get _getter;
-  external static String _method();
+  external static String _method(String _);
   external static void set _setter(int value);
 }
 
@@ -27,7 +27,7 @@ extension type ET._(JSObject _) implements JSObject {
 extension type ET2._(JSObject _) implements JSObject {
   external static int _variable;
   external static int get _getter;
-  external static String _method();
+  external static String _method(String _);
   external static void set _setter(int value);
 }
 
@@ -38,8 +38,8 @@ main() {
       static get _getter() {
         return ET._variable;
       }
-      static _method() {
-        return "static method";
+      static _method(v) {
+        return v;
       }
       static set _setter(value) {
         ET._variable = value;
@@ -49,12 +49,12 @@ main() {
   ''');
 
   Expect.equals(42, ET._variable);
-  Expect.equals("static method", ET._method());
+  Expect.equals("x", ET._method("x"));
   ET._setter = -1;
   Expect.equals(-1, ET._getter);
 
   Expect.equals(-1, ET2._variable);
-  Expect.equals("static method", ET2._method());
+  Expect.equals("y", ET2._method("y"));
   ET2._setter = 42;
   Expect.equals(42, ET2._getter);
 }

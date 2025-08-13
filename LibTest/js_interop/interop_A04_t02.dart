@@ -21,7 +21,7 @@ extension type ET._(JSObject _) implements JSObject {
   external ET();
   external int _variable;
   external int get _getter;
-  external String _method();
+  external String _method(String _);
   external void set _setter(int value);
 }
 
@@ -30,7 +30,7 @@ extension type ET2._(JSObject _) implements JSObject {
   external ET2();
   external int _variable;
   external int get _getter;
-  external String _method();
+  external String _method(String _);
   external void set _setter(int value);
 }
 
@@ -43,8 +43,8 @@ main() {
       get _getter() {
         return this._variable;
       }
-      _method() {
-        return "_method";
+      _method(v) {
+        return v;
       }
       set _setter(value) {
         this._variable = value;
@@ -57,5 +57,12 @@ main() {
   Expect.equals(0, et._getter);
   et._setter = 42;
   Expect.equals(42, et._getter);
-  Expect.equals("_method", et._method());
+  Expect.equals("x", et._method("x"));
+
+  ET2 et2 = ET2();
+  Expect.equals(0, et2._variable);
+  Expect.equals(0, et2._getter);
+  et2._setter = 42;
+  Expect.equals(42, et2._getter);
+  Expect.equals("y", et2._method("y"));
 }
