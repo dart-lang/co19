@@ -9,7 +9,7 @@
 /// different meanings, where the existing grammar didn’t allow the `?` token to
 /// be followed by `.` anywhere.
 ///
-/// @description Checks that `?.id` is parsed as `? C.id`.
+/// @description Checks that `?.id` is parsed like `? .id`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=dot-shorthands
