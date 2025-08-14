@@ -13,6 +13,7 @@
 /// @description Check that default values of optional positional parameters
 /// are omitted.
 /// @author sgrekhov22@gmail.com
+/// @issue 61289
 
 import 'dart:js_interop';
 import '../../Utils/expect.dart';

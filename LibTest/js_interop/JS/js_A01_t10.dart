@@ -15,16 +15,13 @@
 import 'dart:js_interop';
 
 class C {
-  external int f1();
 }
 
 mixin M {
-  external int f1();
 }
 
 enum E {
   e0;
-  external int f1();
 }
 
 @JS()
