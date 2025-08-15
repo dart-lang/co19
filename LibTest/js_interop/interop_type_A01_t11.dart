@@ -48,7 +48,7 @@ main() {
         return this.v;
       }
       bar(v) {
-        return this.v;
+        return v;
       }
     }
     globalThis.ET = ET;
@@ -63,8 +63,8 @@ main() {
   ET2<JSArray> et2 = ET2(arr);
   Expect.equals(42, (et2.foo()[0] as JSNumber).toDartInt);
 
-  ET3<JSArray> et3 = ET3(arr);
-  Expect.equals(42, (et3.foo()[0] as JSNumber).toDartInt);
-  var ar3 = et3.bar(arr);
-  Expect.equals(42, (ar3[0] as JSNumber).toDartInt);
+  ET3<JSNumber> et3 = ET3(42.toJS);
+  Expect.equals(42, (et3.foo() as JSNumber).toDartInt);
+  var v3 = et3.bar(1.toJS);
+  Expect.equals(1, (v3 as JSNumber).toDartInt);
 }

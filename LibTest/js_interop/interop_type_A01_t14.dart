@@ -7,30 +7,28 @@
 /// Interop types are either a "JS type" provided by Dart or an extension type
 /// wrapping an interop type.
 ///
-/// @description Check that it is a compile-time error to declare an external
-/// constructor on a JS interop extension type whose representation type is not
-/// a subtype of [JSObject]. Test [JSAny].
+/// @description Check that it is a compile-time error if a JS interop type
+/// member contains a type parameter that is a subtype of a `Null`.
 /// @author sgrekhov22@gmail.com
-/// @issue 61314
 
 import 'dart:js_interop';
 
-extension type MyAny1._(JSAny _) implements JSAny {
-  external MyAny1.fromDart(String value);
-//^
+extension type MyNull<T extends Null>._(JSObject _) implements JSObject {
+  external MyNull(T t);
+//                  ^
 // [analyzer] unspecified
 // [web] unspecified
-}
 
-@JS('Number')
-extension type MyAny2._(JSAny _) implements JSAny {
-  external MyAny2(num value);
-//^
+  external T foo();
+//         ^
+// [analyzer] unspecified
+// [web] unspecified
+  external void bar(T _);
+//                  ^
 // [analyzer] unspecified
 // [web] unspecified
 }
 
 main() {
-  print(MyAny1);
-  print(MyAny2);
+  print(MyNull);
 }

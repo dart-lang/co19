@@ -8,8 +8,8 @@
 /// wrapping an interop type.
 ///
 /// @description Check that it is a compile-time error to declare an external
-/// constructor on JS interop extension type whose representation type of is not
-/// subtype of [JSObject]. Test JS primitive types.
+/// constructor on a JS interop extension type whose representation type is not
+/// a subtype of [JSObject]. Test JS primitive types.
 /// @author sgrekhov22@gmail.com
 /// @issue 61314
 
