@@ -14,7 +14,7 @@
 /// namespace object.
 ///
 /// @description Check that returned [JSPromise] completes with an error if
-/// `moduleName` is not a valid path to a JS module.
+/// imported JS module contains a syntax error.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
