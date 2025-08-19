@@ -9,6 +9,10 @@ export function answer() {
   return 42;
 }
 
+function notExported() {
+  return "Not exported function";
+}
+
 export class C {
   foo() {
     return "C.foo() from module.js";
