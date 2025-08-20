@@ -26,8 +26,8 @@
 ///  - The annotation should only be applied to non-mixin classes and no other
 ///    declarations.
 ///
-/// @description Checks that it is not an error to tear-off non-external members
-/// of a `@staticInterop` class.
+/// @description Checks that it is not an error to tear off a non-external
+/// member of a `@staticInterop` class.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
