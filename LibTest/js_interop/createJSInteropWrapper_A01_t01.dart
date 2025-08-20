@@ -14,8 +14,9 @@
 /// See https://dart.dev/interop/js-interop/mock for more details on how to
 /// declare classes that can be used in this method.
 ///
-/// @description Check that it is a compile-time error argument of
-/// [createJSInteropWrapper] function does not contain `@JSExport` annotation.
+/// @description Check that it is a compile-time error if the type argument of
+/// the [createJSInteropWrapper] function does not contain a `@JSExport`
+/// annotation.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

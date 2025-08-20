@@ -14,8 +14,8 @@
 /// See https://dart.dev/interop/js-interop/mock for more details on how to
 /// declare classes that can be used in this method.
 ///
-/// @description Check that it is a JS error to invoke method of the Dart class
-/// which was not passed to [createJSInteropWrapper].
+/// @description Check that the [createJSInteropWrapper] doesn't wrap members of
+/// the `dartObject` recursively.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
