@@ -18,6 +18,7 @@
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
+import 'dart:js_interop_unsafe';
 import '../../Utils/expect.dart';
 
 extension type Module(JSObject _) implements JSObject {
@@ -34,6 +35,7 @@ main() {
     Expect.throws(() {
       m.notExported();
     });
+    Expect.isFalse(m.has('notExported'));
     asyncEnd();
   });
 }

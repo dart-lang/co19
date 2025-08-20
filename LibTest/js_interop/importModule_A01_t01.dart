@@ -25,11 +25,6 @@ extension type Module(JSObject _) implements JSObject {
   external int answer();
 }
 
-extension type A._(JSObject _) implements JSObject {
-  external A(id, name);
-  external get id;
-}
-
 extension type C(JSObject _) implements JSObject {
   external C.c();
   external String foo();
