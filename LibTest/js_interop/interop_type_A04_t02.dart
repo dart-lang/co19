@@ -7,7 +7,7 @@
 /// Interop types are either a "JS type" provided by Dart or an extension type
 /// wrapping an interop type.
 ///
-/// @description Check that it is a compile-time error to tear-off an external
+/// @description Check that it is a compile-time error to tear off an external
 /// member of JS interop type. Test methods of an extension.
 /// @author sgrekhov22@gmail.com
 
