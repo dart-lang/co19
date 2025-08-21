@@ -7,45 +7,42 @@
 /// Interop types are either a "JS type" provided by Dart or an extension type
 /// wrapping an interop type.
 ///
-/// @description Check that it is a compile-time error to tear off an external
-/// member of JS interop type.
+/// @description Check that it is a compile-time error to tear-off an external
+/// static member of JS interop type.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
 
 extension type ET._(JSObject _) implements JSObject {
   external ET.fromDart(num value);
-  external int foo();
-  external void bar();
+  external static int foo();
+  external static void bar();
 }
 
 @JS("ET")
 extension type ET2._(JSObject _) implements JSObject {
   external ET2.fromDart(num value);
-  external int foo();
-  external void bar();
-}
-
-test(ET et, ET2 et2) {
-  et.foo;
-//   ^^^
-// [analyzer] unspecified
-// [web] unspecified
-  et.bar;
-//   ^^^
-// [analyzer] unspecified
-// [web] unspecified
-
-  et2.foo;
-//    ^^^
-// [analyzer] unspecified
-// [web] unspecified
-  et2.bar;
-//    ^^^
-// [analyzer] unspecified
-// [web] unspecified
+  external static int foo();
+  external static void bar();
 }
 
 main() {
-  print(test);
+  ET.foo;
+//   ^^^
+// [analyzer] unspecified
+// [web] unspecified
+
+  ET.bar;
+//   ^^^
+// [analyzer] unspecified
+// [web] unspecified
+
+  ET2.foo;
+//    ^^^
+// [analyzer] unspecified
+// [web] unspecified
+  ET2.bar;
+//    ^^^
+// [analyzer] unspecified
+// [web] unspecified
 }
