@@ -47,6 +47,7 @@ main() {
     true.toJS,
     3.14.toJS,
   ]);
+  Expect.isTrue(et.instanceOfString("MyJsClass"));
   Expect.equals(1, et.a1);
   Expect.equals("two", et.a2);
   Expect.equals("three", et.a3);
