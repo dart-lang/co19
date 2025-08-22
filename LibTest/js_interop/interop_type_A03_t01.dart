@@ -60,6 +60,6 @@ main() {
   Expect.equals("three", et3.name);
 
   ET2 et4 = ET2.fromId(4);
-  Expect.equals(5, et4.id);
+  Expect.equals(4, et4.id);
   Expect.isNull(et4.name);
 }
