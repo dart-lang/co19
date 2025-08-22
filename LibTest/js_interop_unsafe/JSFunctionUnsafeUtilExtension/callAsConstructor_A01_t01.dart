@@ -9,7 +9,8 @@
 ///
 /// Returns the constructed object, which must be an `R`.
 ///
-/// @description Check that this function returns the constructed object.
+/// @description Check that this function returns the constructed object. Test a
+/// JS class.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

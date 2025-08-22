@@ -10,8 +10,7 @@
 /// Returns the constructed object, which must be an `R`.
 ///
 /// @description Check that this function returns the constructed object. Test
-/// the case when JS function doesn't have properties declared by the
-/// appropriate JS interop type.
+/// the case when JS function returns a primitive type.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -36,12 +35,15 @@ main() {
     globalThis.Foo = Foo;
   ''');
   var constructor = globalContext["Foo"] as JSFunction;
+
   ET et = constructor.callAsConstructor<ET>(
     1.toJS,
     "two".toJS,
     "three".toJS,
     true.toJS,
   );
+  Expect.isTrue(et.instanceOfString("Foo"));
+  Expect.isFalse(et.instanceOfString("String"));
   Expect.isNull(et.a1);
   Expect.isNull(et.a2);
   Expect.isNull(et.a3);

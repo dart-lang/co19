@@ -9,7 +9,8 @@
 ///
 /// Returns the constructed JSObject, which must be an `R`.
 ///
-/// @description Check that this function returns the constructed object.
+/// @description Check that this function returns the constructed object. Test
+/// regular JS function invoked as a constructor.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

@@ -10,7 +10,7 @@
 /// Returns the constructed object, which must be an `R`.
 ///
 /// @description Check that this function returns the constructed object. Test
-/// regular JS function invoked as a constructor.
+/// the case when JS function returns an object.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -18,34 +18,39 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../../js_interop/js_utils.dart';
 
-@JS("MyJsClass")
+@JS("Foo")
 extension type ET._(JSObject _) implements JSObject {
-  external int get a1;
-  external String get a2;
-  external String get a3;
-  external bool get a4;
+  external ET(int? a1, String? a2, String? a3, bool? a4);
+  external int? get a1;
+  external String? get a2;
+  external String? get a3;
+  external bool? get a4;
 }
 
 main() {
   eval(r'''
-    function MyJsClass(a1, a2, a3, a4) {
-      this.a1 = a1;
-      this.a2 = a2;
-      this.a3 = a3;
-      this.a4 = a4;
+    function Foo() {
+      var o = {
+        a1: 1,
+        a2: "two",
+        a3: "three",
+        a4: true
+      };
+      return o;
     }
-    globalThis.MyJsClass = MyJsClass;
+    globalThis.Foo = Foo;
   ''');
-  var constructor = globalContext["MyJsClass"] as JSFunction;
+  var constructor = globalContext["Foo"] as JSFunction;
+
   ET et = constructor.callAsConstructor<ET>(
     1.toJS,
     "two".toJS,
     "three".toJS,
     true.toJS,
   );
-  Expect.isTrue(et.instanceOfString("MyJsClass"));
+  Expect.isFalse(et.instanceOfString("Foo"));
   Expect.equals(1, et.a1);
   Expect.equals("two", et.a2);
   Expect.equals("three", et.a3);
-  Expect.equals(true, et.a4);
+  Expect.isTrue(et.a4);
 }

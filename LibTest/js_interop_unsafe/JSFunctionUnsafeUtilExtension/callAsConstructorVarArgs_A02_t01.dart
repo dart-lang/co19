@@ -10,8 +10,7 @@
 /// Returns the constructed JSObject, which must be an `R`.
 ///
 /// @description Check that this function returns the constructed object. Test
-/// the case when JS function doesn't have properties declared by the
-/// appropriate JS interop type.
+/// the case when JS function returns a primitive type.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -43,6 +42,8 @@ main() {
     true.toJS,
     3.14.toJS,
   ]);
+  Expect.isTrue(et.instanceOfString("Foo"));
+  Expect.isFalse(et.instanceOfString("String"));
   Expect.isNull(et.a1);
   Expect.isNull(et.a2);
   Expect.isNull(et.a3);
