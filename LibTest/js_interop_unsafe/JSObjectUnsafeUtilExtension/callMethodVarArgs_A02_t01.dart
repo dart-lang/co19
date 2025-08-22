@@ -27,6 +27,8 @@ main() {
     globalThis.object = new MyJsObject();
   ''');
   var obj = globalContext["object"] as JSObject;
+  Expect.equals("foo",
+      (obj.callMethodVarArgs<JSString>("foo".toJS) as JSString).toDart);
   Expect.throws(() {
     obj.callMethodVarArgs<JSString>("bar".toJS);
   });
