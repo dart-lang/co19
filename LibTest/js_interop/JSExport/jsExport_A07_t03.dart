@@ -10,27 +10,33 @@
 /// property for each of the class' instance members. When called, these
 /// properties forward to the instance's corresponding members.
 ///
-/// @description Check that it is a compile-time error if a class annotated with
-/// `@JSExport()` contains a non-JS interop compatible type.
+/// @description Check that it is not an error if a class member has a non-JS
+/// interop compatible type but it is not exported.
 /// @author sgrekhov22@gmail.com
-/// @issue 56792
 
 import 'dart:js_interop';
+import 'dart:js_interop_unsafe';
+import '../../../Utils/expect.dart';
+import '../js_utils.dart';
 
-@JSExport()
 class C {
   final D d;
-//      ^
-// [analyzer] unspecified
-// [web] unspecified
   C(this.d);
+  @JSExport()
+  String foo() => "foo();";
 }
 
-@JSExport()
 class D {
   int bar() => 42;
 }
 
 void main() {
-  print(C);
+  var jsC = createJSInteropWrapper<C>(C(D()));
+  globalContext["jsC"] = jsC;
+  eval(r'''
+    globalThis.v1 = globalThis.jsC.foo();
+    globalThis.v2 = globalThis.jsC.d;
+  ''');
+  Expect.equals("foo();", (globalContext["v1"] as JSString).toDart);
+  Expect.isNull(globalContext["v2"]);
 }

@@ -11,9 +11,9 @@
 /// properties forward to the instance's corresponding members.
 ///
 /// @description Check that it is a compile-time error if a class member
-/// annotated with `@JSExport()` has a non-primitive type.
+/// annotated with `@JSExport()` has a non-JS interop compatible type.
 /// @author sgrekhov22@gmail.com
-/// @issue 61379
+/// @issue 56792
 
 import 'dart:js_interop';
 
