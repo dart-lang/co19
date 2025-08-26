@@ -5,7 +5,8 @@
 /// @assertion JSBoolean delete( JSAny property )
 /// Deletes the property with key `property` from this [JSObject].
 ///
-/// @description Check that this function returns `true`.
+/// @description Check that this function returns `true` when the property is an
+/// own non-configurable property.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -28,11 +29,12 @@ main() {
         this.p2 = "2";
         this.p3 = function() {};
       }
-    };
+    }
     globalThis.ET = ET;
   ''');
   var et = ET();
   Expect.isTrue(et.delete("p1".toJS).toDart);
   Expect.isTrue(et.delete("p2".toJS).toDart);
   Expect.isTrue(et.delete("p3".toJS).toDart);
+  Expect.isTrue(et.delete("p4".toJS).toDart);
 }

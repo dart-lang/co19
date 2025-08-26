@@ -6,7 +6,7 @@
 /// Shorthand helper for [hasProperty] to check whether this [JSObject] contains
 /// the property key `property`, but takes and returns a Dart value.
 ///
-/// @description Check that this function returns 'true` if this [JSObject] has
+/// @description Check that this function returns `true` if this [JSObject] has
 /// property `property` and `false` otherwise.
 /// @author sgrekhov22@gmail.com
 

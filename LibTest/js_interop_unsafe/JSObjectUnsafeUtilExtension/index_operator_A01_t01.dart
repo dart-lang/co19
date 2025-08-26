@@ -45,7 +45,7 @@ main() {
 }
 
 test(JSObject obj) {
-  Expect.equals(1, obj["p1"].dartify());
-  Expect.equals("2", obj["p2"].dartify());
+  Expect.equals(1, (obj["p1"] as JSNumber).toDartInt);
+  Expect.equals("2", (obj["p2"] as JSString).toDart);
   Expect.isNotNull(obj["p3"]);
 }

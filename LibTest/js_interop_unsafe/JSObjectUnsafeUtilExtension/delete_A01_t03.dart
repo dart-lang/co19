@@ -27,12 +27,15 @@ main() {
   Expect.equals(1, et.p1);
   et.delete("p1".toJS);
   Expect.isNull(et.p1);
+  Expect.isFalse(et.has("p1"));
 
   Expect.equals("2", et.p2);
   et.delete("p2".toJS);
   Expect.isNull(et.p2);
+  Expect.isFalse(et.has("p1"));
 
   Expect.isTrue(et.p3);
   et.delete("p3".toJS);
   Expect.isNull(et.p3);
+  Expect.isFalse(et.has("p1"));
 }
