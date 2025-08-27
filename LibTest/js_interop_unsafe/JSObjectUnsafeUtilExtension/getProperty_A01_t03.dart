@@ -8,7 +8,7 @@
 /// @description Check that it is a run-time error if a returned value is not
 /// compatible with `R`.
 /// @author sgrekhov22@gmail.com
-/// @issue 61265
+/// @issue 54179
 
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
@@ -46,12 +46,12 @@ main() {
 
 test(JSObject obj) {
   Expect.throws(() {
-    obj.getProperty<JSString>("p1".toJS);
+    obj.getProperty<JSString>("p1".toJS).toDart;
   });
   Expect.throws(() {
-    obj.getProperty<JSNumber>("p2".toJS);
+    obj.getProperty<JSNumber>("p2".toJS).toDartInt;
   });
   Expect.throws(() {
-    obj.getProperty<JSNumber>("p3".toJS);
+    obj.getProperty<JSNumber>("p3".toJS).toDartDouble;
   });
 }
