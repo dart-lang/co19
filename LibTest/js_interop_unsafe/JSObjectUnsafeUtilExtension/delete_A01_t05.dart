@@ -5,8 +5,8 @@
 /// @assertion JSBoolean delete( JSAny property )
 /// Deletes the property with key `property` from this [JSObject].
 ///
-/// @description Check that this function returns `true` when the property is an
-/// own non-configurable property.
+/// @description Check that this function returns `true` when the property is
+/// not an own non-configurable property.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
