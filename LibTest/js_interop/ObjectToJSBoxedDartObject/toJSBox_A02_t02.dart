@@ -48,4 +48,9 @@ main() {
   Expect.throws(() {
     JSPromise(globalContext["foo"] as JSFunction).toJSBox;
   });
+
+  var boxedObject = Object().toJSBox;
+  Expect.throws(() {
+    boxedObject.toJSBox;
+  });
 }
