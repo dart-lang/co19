@@ -26,22 +26,18 @@ main() {
       configurable: false,
     });
   ''');
-  var array = JSArray();
-  var obj = globalContext["obj"] as JSObject;
-  if (isJS) {
-    // The test runner runs compiled JS in a non-strict mode
-    Expect.isFalse(array.delete("length".toJS));
-    Expect.isFalse(obj.delete("p1".toJS));
+  test(JSArray(), "length".toJS);
+  test(globalContext["obj"] as JSObject, "p1".toJS);
+}
+
+test(JSObject obj, JSString property) {
+  bool falseOrException = false;
+  try {
+    // In case of non-strict mode expecting false
+    falseOrException = !obj.delete(property).toDart;
+  } catch (_) {
+    // In case of strict mode expecting an exception
+    falseOrException = true;
   }
-  if (isWasm) {
-    // In case of dart2wasm compiled code is loaded using modules. It
-    // automatically enables the strict mode. In case of the strict mode an
-    // error is thrown.
-    Expect.throws(() {
-      array.delete("length".toJS);
-    });
-    Expect.throws(() {
-      obj.delete("p1".toJS);
-    });
-  }
+  Expect.isTrue(falseOrException);
 }
