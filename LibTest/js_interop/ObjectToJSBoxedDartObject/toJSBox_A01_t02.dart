@@ -15,8 +15,8 @@
 /// consistent across all platforms and interop members can be declared on
 /// [JSBoxedDartObjects].
 ///
-/// @description Checks that an [Exception] is thrown if this [Object] is a
-/// JavaScript value. Test Dart [List].
+/// @description Checks that this property returns a JavaScript object that
+/// wraps this [Object]. Test Dart [List].
 /// @author sgrekhov22@gmail.com
 /// @issue 61405, 56905
 
