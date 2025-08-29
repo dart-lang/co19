@@ -1,0 +1,56 @@
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A JavaScript object that wraps this [Object].
+///
+/// There are no usable members in the resulting [JSBoxedDartObject] and you may
+/// get a new [JSBoxedDartObject] when calling [toJSBox] on the same Dart
+/// [Object].
+///
+/// Throws an [Exception] if this [Object] is a JavaScript value.
+///
+/// Unlike [ObjectToExternalDartReference.toExternalReference], this returns a
+/// JavaScript value. Therefore, the representation is guaranteed to be
+/// consistent across all platforms and interop members can be declared on
+/// [JSBoxedDartObjects].
+///
+/// @description Checks that an [Exception] is thrown if this [Object] is a
+/// JavaScript value. Test non-primitive JS types.
+/// @author sgrekhov22@gmail.com
+
+import 'dart:js_interop';
+import 'dart:js_interop_unsafe';
+import '../../../Utils/expect.dart';
+import '../js_utils.dart';
+
+main() {
+  eval(r'''
+    globalThis.obj = {};
+  ''');
+  Expect.throws(() {
+    JSArray().toJSBox;
+  });
+
+  Expect.throws(() {
+    JSObject().toJSBox;
+  });
+
+  Expect.throws(() {
+    (globalContext["obj"] as JSObject).toJSBox;
+  });
+
+  eval(r'''
+    globalThis.foo = function(resolve, reject) {
+      resolve("Success");
+    };
+  ''');
+  Expect.throws(() {
+    JSPromise(globalContext["foo"] as JSFunction).toJSBox;
+  });
+
+  var boxedObject = Object().toJSBox;
+  Expect.throws(() {
+    boxedObject.toJSBox;
+  });
+}
