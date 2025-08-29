@@ -18,7 +18,8 @@
 
 void test(int x) {
   late int i;
-  x ?? (i = 42); // `i` is initialized in dead code
+  // `i` is initialized in dead code
+  x ?? (i = 42); // ignore: dead_null_aware_expression
   i; // Definitely unassigned
 //^
 // [analyzer] unspecified
@@ -29,7 +30,7 @@ int y = 0;
 
 main() {
   late int i;
-  y ?? (i = 42);
+  y ?? (i = 42); // ignore: dead_null_aware_expression
   i;
 //^
 // [analyzer] unspecified

@@ -9,6 +9,7 @@
 /// `before(E2) = after(E1)`. Test that if `after(E1)` is unreachable then
 /// `before(E2)` is also unreachable.
 /// @author sgrekhov22@gmail.com
+/// @issue 61427
 
 void test<T extends Never>(T n) {
   late int i;

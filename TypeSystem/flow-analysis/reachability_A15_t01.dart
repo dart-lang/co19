@@ -22,7 +22,7 @@ class C {
   int m = 0;
   test() {
     late int i;
-    m ??= (i = 42);
+    m ??= (i = 42); // ignore: dead_null_aware_expression
     i; // Definitely unassigned
 //  ^
 // [analyzer] unspecified
@@ -34,7 +34,7 @@ int n = 0;
 
 main() {
   late int i;
-  n ??= (i = 42);
+  n ??= (i = 42); // ignore: dead_null_aware_expression
   i;
 //^
 // [analyzer] unspecified
