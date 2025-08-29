@@ -16,7 +16,8 @@
 /// [JSBoxedDartObjects].
 ///
 /// @description Checks that this property returns a JavaScript object that
-/// wraps this [Object]. Test Dart [List].
+/// wraps this [Object] and the original Dart object can be unwrapped via `
+/// .toDart`. Test Dart [List].
 /// @author sgrekhov22@gmail.com
 /// @issue 61405, 56905
 
