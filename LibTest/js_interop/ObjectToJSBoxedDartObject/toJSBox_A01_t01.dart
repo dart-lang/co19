@@ -16,8 +16,8 @@
 /// [JSBoxedDartObjects].
 ///
 /// @description Checks that this property returns a JavaScript object that
-/// wraps this [Object] and the original Dart object can be unwrapped via `
-/// .toDart`.
+/// wraps this [Object] and the original Dart object can be unwrapped via
+/// `.toDart`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
