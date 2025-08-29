@@ -8,7 +8,7 @@
 ///
 /// @description Checks that code after type `Never` is unreachable.
 /// @author sgrekhov22@gmail.com
-/// @issue 54820
+/// @issue 54820, 61427
 
 // SharedOptions=--enable-experiment=sound-flow-analysis
 

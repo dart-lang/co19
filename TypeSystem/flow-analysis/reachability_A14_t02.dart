@@ -15,7 +15,8 @@
 
 void test(int o) {
   late int i;
-  o ??= (i = 42); // `i` is initialized in dead code
+  // `i` is initialized in dead code
+  o ??= (i = 42); // ignore: dead_null_aware_expression
   i; // Definitely unassigned
 //^
 // [analyzer] unspecified

@@ -23,7 +23,7 @@ void test1() {
   if (2 > 1) {
     var x = switch (foo()) {
       1 => (i = 42),
-      _ => (i = 42)
+      _ => (i = 42) // ignore: unreachable_switch_case
     };
   }
   i; // Definitely unassigned
@@ -37,7 +37,7 @@ void test2(Never n) {
   if (2 > 1) {
     var x = switch (n) {
       1 => (i = 42),
-      _ => (i = 42)
+      _ => (i = 42) // ignore: unreachable_switch_case
     };
   }
   i; // Definitely unassigned
@@ -51,7 +51,7 @@ void test3<T extends Never>(T n) {
   if (2 > 1) {
     var x = switch (n) {
       1 => (i = 42),
-      _ => (i = 42)
+      _ => (i = 42) // ignore: unreachable_switch_case
     };
   }
   i; // Definitely unassigned
