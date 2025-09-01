@@ -79,8 +79,8 @@
 ///     is a subtype of `T`, the precondition of assign is satisfied, namely
 ///     that the static type of `E1'` must be a subtype of `x`'s declared type.
 ///
-/// @description Checks that a variable is not promotable from the type
-/// `Object?` to the type `T` if `T` is an extension type.
+/// @description Checks that a variable can be promoted from the type `S` to
+/// the type `T` even if `T` is not a subtype of `S`. Test extension types.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
@@ -90,23 +90,26 @@ extension type ET2(int v) implements Object {}
 extension type ET3(int v) implements int {}
 
 test1(Object? o) {
+  if (o is ET2) {}
   if (o is ET1) {
     o = ET2(42);
-    o.expectStaticType<Exactly<Object>>();
+    o.expectStaticType<Exactly<ET2>>();
   }
 }
 
 test2(Object? o) {
+  if (o is ET3) {}
   if (o is ET2) {
     o = ET3(42);
-    o.expectStaticType<Exactly<Object>>();
+    o.expectStaticType<Exactly<ET3>>();
   }
 }
 
 test3(Object? o) {
+  if (o is ET1) {}
   if (o is ET3) {
     o = ET1(42);
-    o.expectStaticType<Exactly<Object?>>();
+    o.expectStaticType<Exactly<ET1>>();
   }
 }
 
