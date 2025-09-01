@@ -91,20 +91,20 @@ extension type ET3(int v) implements int {}
 
 test1(Object? o) {
   if (o is ET1) {}
-  o = 42;
+  o = ET2(42);
   o.expectStaticType<Exactly<Object>>();
 }
 
 test2(Object? o) {
   if (o is ET2) {}
-  o = 42;
+  o = ET3(42);
   o.expectStaticType<Exactly<Object>>();
 }
 
 test3(Object? o) {
   if (o is ET3) {}
-  o = 42;
-  o.expectStaticType<Exactly<Object>>();
+  o = ET1(42);
+  o.expectStaticType<Exactly<Object?>>();
 }
 
 main() {

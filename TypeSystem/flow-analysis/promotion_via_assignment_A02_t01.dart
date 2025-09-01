@@ -79,8 +79,8 @@
 ///     is a subtype of `T`, the precondition of assign is satisfied, namely
 ///     that the static type of `E1'` must be a subtype of `x`'s declared type.
 ///
-/// @description Checks that if the variable was assigned after it was made a
-/// type of interest then promotion via assignment is not performed.
+/// @description Checks that if the variable was assigned after it was write
+/// captured then promotion via assignment is not performed.
 /// @author sgrekhov@unipro.ru
 
 class S {}
