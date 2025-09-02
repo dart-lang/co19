@@ -7,7 +7,8 @@
 /// Calling this on the same [Function] again will always result in a new
 /// JavaScript function.
 ///
-/// @description Check that this property always return a new object.
+/// @description Check that this property returns a fresh object each time it is
+/// invoked.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

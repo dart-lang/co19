@@ -9,7 +9,7 @@
 /// See https://dart.dev/interop/js-interop/js-types#requirements-on-external-declarations-and-function-tojs
 /// for more details on what types are allowed.
 ///
-/// @description Check that it is a compile-time error if static type of the
+/// @description Check that it is a compile-time error if the static type of the
 /// [Function]  could not be determined or if the static type uses types that
 /// are disallowed.
 /// @author sgrekhov22@gmail.com
@@ -33,6 +33,8 @@ void baz(Map<String, int> s) {}
 
 dynamic qux() {}
 
+void quux(Symbol s) {}
+
 main() {
   test(test);
   foo.toJS;
@@ -49,6 +51,10 @@ main() {
 // [web] unspecified
   qux.toJS;
 //    ^^^^
+// [analyzer] unspecified
+// [web] unspecified
+  quux.toJS;
+//     ^^^^
 // [analyzer] unspecified
 // [web] unspecified
 }
