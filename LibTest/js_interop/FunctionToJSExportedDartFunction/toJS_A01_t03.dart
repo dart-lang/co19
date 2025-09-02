@@ -5,8 +5,8 @@
 /// @assertion JSExportedDartFunction get toJS
 /// A callable JavaScript function that wraps this [Function].
 ///
-/// @description Check that in case of a torn off constructor it is a run-time
-/// error to call it in JavaScript.
+/// @description Check that this property returns a JavaScript function that
+/// wraps this Dart [Function]. Test constructors.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -31,29 +31,13 @@ main() {
   globalContext["jsC2"] = ET.c2.toJS;
   globalContext["jsC3"] = ET.c3.toJS;
   eval(r'''
-    try {
-      globalThis.jsC0();
-    } catch(e) {
-      globalThis.thrown0 = true;
-    }
-    try {
-      globalThis.jsC1();
-    } catch(e) {
-      globalThis.thrown1 = true;
-    }
-    try {
-      globalThis.jsC2();
-    } catch(e) {
-      globalThis.thrown2 = true;
-    }
-    try {
-      globalThis.jsC3();
-    } catch(e) {
-      globalThis.thrown3 = true;
-    }
+    globalThis.v0 = globalThis.jsC0(0);
+    globalThis.v1 = globalThis.jsC1(1);
+    globalThis.v2 = globalThis.jsC2(2);
+    globalThis.v3 = globalThis.jsC3(3);
   ''');
-  Expect.isTrue((globalContext["thrown0"] as JSBoolean).toDart);
-  Expect.isTrue((globalContext["thrown1"] as JSBoolean).toDart);
-  Expect.isTrue((globalContext["thrown2"] as JSBoolean).toDart);
-  Expect.isTrue((globalContext["thrown3"] as JSBoolean).toDart);
+  Expect.equals(0, (globalContext["v0"] as ET).id.toDartInt);
+  Expect.equals(1, (globalContext["v1"] as ET).id.toDartInt);
+  Expect.equals(2, (globalContext["v2"] as ET).id.toDartInt);
+  Expect.equals(3, (globalContext["v3"] as ET).id.toDartInt);
 }
