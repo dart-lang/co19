@@ -7,8 +7,8 @@
 /// otherwise the return type `M<T1,..., Tn>` where `T1,...,Tn` are the type
 /// parameters of the enclosing class.
 ///
-/// @description Checks that return type of the factory constructor can be
-/// inferred.
+/// @description Checks that the redirectee type of the factory constructor can
+/// be inferred.
 /// @author sgrekhov22@gmail.com
 
 import 'inference_lib.dart';
