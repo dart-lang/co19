@@ -11,8 +11,8 @@
 /// Any [Function] that is converted with this member should take in an extra
 /// parameter at the beginning of the parameter list to handle this.
 ///
-/// @description Check that this property returns JavaScript function that wraps
-/// this [Function] and captures the `this` value when called.
+/// @description Check that this property returns a JavaScript function that
+/// wraps this [Function] and captures the `this` value when called.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

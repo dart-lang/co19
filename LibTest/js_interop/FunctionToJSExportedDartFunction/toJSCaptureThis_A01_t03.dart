@@ -11,8 +11,8 @@
 /// Any [Function] that is converted with this member should take in an extra
 /// parameter at the beginning of the parameter list to handle this.
 ///
-/// @description Check that if this getter is called on a torn off constructor
-/// it is a run-time error to call it in JavaScript.
+/// @description Check that this property returns a JavaScript function that
+/// wraps this Dart [Function]. Test constructors.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
