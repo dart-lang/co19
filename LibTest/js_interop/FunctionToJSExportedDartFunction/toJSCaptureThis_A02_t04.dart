@@ -20,32 +20,32 @@ import 'dart:js_interop';
 
 class A {}
 
-void foo<T>(T t) {}
+void foo<T>(JSObject pThis, T t) {}
 
-void bar<T extends A>() {}
+void bar<T extends A>(JSObject pThis) {}
 
-void baz<T extends JSNumber>() {}
+void baz<T extends JSNumber>(JSObject pThis) {}
 
-void qux<T extends num>() {}
+void qux<T extends num>(JSObject pThis) {}
 
 class C {
-  static void foo<T>(T t) {}
+  static void foo<T>(JSObject pThis, T t) {}
 
-  static void bar<T extends A>() {}
+  static void bar<T extends A>(JSObject pThis) {}
 
-  static void baz<T extends JSNumber>() {}
+  static void baz<T extends JSNumber>(JSObject pThis) {}
 
-  static void qux<T extends num>() {}
+  static void qux<T extends num>(JSObject pThis) {}
 }
 
 class D {
-  void foo<T>(T t) {}
+  void foo<T>(JSObject pThis, T t) {}
 
-  void bar<T extends A>() {}
+  void bar<T extends A>(JSObject pThis) {}
 
-  void baz<T extends JSNumber>() {}
+  void baz<T extends JSNumber>(JSObject pThis) {}
 
-  void qux<T extends num>() {}
+  void qux<T extends num>(JSObject pThis) {}
 }
 
 main() {

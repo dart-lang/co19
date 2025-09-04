@@ -19,13 +19,13 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
-int foo(pThis) {
+int foo(JSObject pThis) {
   Expect.equals(globalContext, pThis);
   return 42;
 }
 
 @JS()
-String bar(pThis, String v) {
+String bar(JSObject pThis, String v) {
   Expect.equals(globalContext, pThis);
   return v;
 }

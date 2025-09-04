@@ -18,9 +18,9 @@
 
 import 'dart:js_interop';
 
-int foo(pThis, {int v = 0}) => v;
+int foo(JSObject pThis, {int v = 0}) => v;
 
-int bar(pThis, {required int v}) => v;
+int bar(JSObject pThis, {required int v}) => v;
 
 main() {
   foo.toJSCaptureThis;

@@ -32,12 +32,12 @@ class C {
   String id() => _id;
 }
 
-ExternalDartReference<C> foo(pThis, ExternalDartReference<C> c) {
+ExternalDartReference<C> foo(JSObject pThis, ExternalDartReference<C> c) {
   Expect.equals(globalContext, pThis);
   return c;
 }
 
-ET bar(pThis, ET et) {
+ET bar(JSObject pThis, ET et) {
   Expect.equals(globalContext, pThis);
   return et;
 }

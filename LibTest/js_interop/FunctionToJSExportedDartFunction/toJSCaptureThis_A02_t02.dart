@@ -20,15 +20,15 @@ import 'dart:js_interop';
 
 class C {}
 
-C? foo(pThis) {return null;}
+C? foo(JSObject pThis) {return null;}
 
-void bar(pThis, C c) {}
+void bar(JSObject pThis, C c) {}
 
-void baz(pThis, Map<String, int> s) {}
+void baz(JSObject pThis, Map<String, int> s) {}
 
-dynamic qux(pThis) {}
+dynamic qux(JSObject pThis) {}
 
-void quux(pThis, Symbol s) {}
+void quux(JSObject pThis, Symbol s) {}
 
 main() {
   foo.toJSCaptureThis;

@@ -12,7 +12,7 @@
 /// parameter at the beginning of the parameter list to handle this.
 ///
 /// @description Check that this property returns a JavaScript function that
-/// wraps this Dart [Function]. Test constructors.
+/// wraps this Dart [Function]. Test [JSAny] and [JSObject] as arguments.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -20,25 +20,25 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
-@JS()
-extension type ET(JSNumber id) {
-  ET.c1(JSObject pThis, this.id) {
-    Expect.equals(globalContext, pThis);
-  }
-  ET.c2(JSObject pThis, JSNumber id): this(id);
-  factory ET.c3(JSObject pThis, JSNumber id) = ET.c1;
+JSAny foo(JSAny pThis, JSAny v) {
+  Expect.equals(globalContext, pThis);
+  return "foo($v)".toJS;
+}
+
+JSObject bar(JSObject pThis, JSObject v) {
+  Expect.equals(globalContext, pThis);
+  return v;
 }
 
 main() {
-  globalContext["jsC1"] = ET.c1.toJSCaptureThis;
-  globalContext["jsC2"] = ET.c2.toJSCaptureThis;
-  globalContext["jsC3"] = ET.c3.toJSCaptureThis;
-  eval(r'''
-    globalThis.v1 = globalThis.jsC1(1);
-    globalThis.v2 = globalThis.jsC2(2);
-    globalThis.v3 = globalThis.jsC3(3);
-  ''');
-  Expect.equals(1, (globalContext["v1"] as ET).id.toDartInt);
-  Expect.equals(2, (globalContext["v2"] as ET).id.toDartInt);
-  Expect.equals(3, (globalContext["v3"] as ET).id.toDartInt);
+  globalContext["jsFoo"] = foo.toJSCaptureThis;
+  eval("globalThis.res1 = globalThis.jsFoo('x');");
+  Expect.equals("foo(x)", (globalContext["res1"] as JSString).toDart);
+
+  globalContext["jsBar"] = bar.toJSCaptureThis;
+  eval("globalThis.res2 = globalThis.jsBar(['y']);");
+  Expect.equals(
+    "y",
+    ((globalContext["res2"] as JSArray).toDart[0] as JSString).toDart,
+  );
 }

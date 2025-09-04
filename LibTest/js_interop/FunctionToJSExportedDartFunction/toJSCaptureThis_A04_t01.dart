@@ -18,7 +18,7 @@
 import 'dart:js_interop';
 import '../../../Utils/expect.dart';
 
-int foo(pThis) => 42;
+int foo(JSObject pThis) => 42;
 
 main() {
   Expect.notIdentical(foo.toJSCaptureThis, foo.toJSCaptureThis);

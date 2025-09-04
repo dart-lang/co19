@@ -20,7 +20,7 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
-String foo(pThis, String s, bool b, num n, int i, double d) {
+String foo(JSObject pThis, String s, bool b, num n, int i, double d) {
   Expect.equals(globalContext, pThis);
   return "foo($s, $b, $n, $i, $d)";
 }

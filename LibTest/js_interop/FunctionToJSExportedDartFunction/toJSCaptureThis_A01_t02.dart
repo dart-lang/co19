@@ -34,7 +34,7 @@ class C {
     Expect.equals(globalContext, pThis);
     return a.id;
   }
-  static String bar(pThis, String v) {
+  static String bar(JSObject pThis, String v) {
     Expect.equals(globalContext, pThis);
     return v;
   }
