@@ -30,6 +30,8 @@ dynamic qux(JSObject pThis) {}
 
 void quux(JSObject pThis, Symbol s) {}
 
+void corge(pThis) {}
+
 main() {
   foo.toJSCaptureThis;
 //    ^
@@ -49,6 +51,10 @@ main() {
 // [web] unspecified
   quux.toJSCaptureThis;
 //     ^
+// [analyzer] unspecified
+// [web] unspecified
+  corge.toJSCaptureThis;
+//      ^
 // [analyzer] unspecified
 // [web] unspecified
 }
