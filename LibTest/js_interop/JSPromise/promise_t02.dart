@@ -28,7 +28,6 @@ main() {
   ''');
   JSFunction foo = globalContext["foo"] as JSFunction;
   JSPromise<JSString> promise = JSPromise<JSString>(foo);
-  globalContext["promise"] = promise;
   var fp = promise.toDart;
   Expect.isTrue(fp is Future<JSString>);
   asyncStart();
