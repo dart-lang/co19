@@ -25,6 +25,7 @@ main() {
   ''');
   JSPromise<JSString> promise = globalContext["promise"] as JSPromise<JSString>;
   Future<JSString> future = promise.toDart;
+  asyncStart();
   future.then(
     (v) {
       Expect.fail("The feature should be completed with an error");
