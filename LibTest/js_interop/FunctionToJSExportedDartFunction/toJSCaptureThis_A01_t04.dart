@@ -26,7 +26,7 @@ String foo(JSObject pThis, String s, bool b, num n, int i, double d) {
 }
 
 JSString bar(
-  pThis,
+  JSObject pThis,
   JSString s,
   JSBoolean b,
   JSNumber n,
