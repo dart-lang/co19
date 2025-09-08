@@ -27,19 +27,23 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../../js_interop/js_utils.dart';
 
+extension type ET._(JSObject _) implements JSObject {
+  external factory ET({JSString bar});
+}
+
 main() {
   eval(r'''
     globalThis.f1 = function(p1, p2, p3, p4) {
-      return `${p1}, ${p2}, ${p3}, ${p4}`;
+      return `${this.bar}, ${p1}, ${p2}, ${p3}, ${p4}`;
     };
   ''');
   JSFunction f1 = globalContext["f1"] as JSFunction;
   var res = f1.callAsFunction(
-    "this".toJS,
+    ET(bar: "BAR".toJS),
     1.toJS,
     "two".toJS,
     3.14.toJS,
     true.toJS,
   );
-  Expect.equals("1, two, 3.14, true", (res as JSString).toDart);
+  Expect.equals("BAR, 1, two, 3.14, true", (res as JSString).toDart);
 }
