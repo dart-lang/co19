@@ -22,7 +22,7 @@ import '../../../Utils/expect.dart';
 
 void foo(Object? pThis) {
   if (isJS) {
-    // Test runner runs `dart2js` tests in non-strick mode in this case
+    // Test runner runs `dart2js` tests in non-strict mode in this case
     // (see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call#parameters)
     // `null` is replaced by the global object.
     Expect.equals(globalContext, pThis);
