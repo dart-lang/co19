@@ -13,7 +13,7 @@
 ///
 /// @description Check that this property returns a JavaScript function that
 /// wraps this [Function] and captures the `this` value when called. Check that
-/// an arbitrary object can be passes as a value of `this`.
+/// an arbitrary object can be passed as the value of `this`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

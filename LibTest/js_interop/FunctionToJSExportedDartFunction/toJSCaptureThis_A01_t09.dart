@@ -13,24 +13,28 @@
 ///
 /// @description Check that this property returns a JavaScript function that
 /// wraps this [Function] and captures the `this` value when called. Check that
-/// a [JSString] can be passed as the value of `this`.
+/// `null` can be passed as the value of `this`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 
-extension type JSStringOrJSStringObject._(JSAny _) implements JSAny {
-  @JS('toString')
-  external String toStringJS();
-}
-
-void foo(Object pThis) {
-  Expect.equals("Value of this", pThis.toString());
+void foo(Object? pThis) {
+  if (isJS) {
+    // Test runner runs `dart2js` tests in non strick mode in this case
+    // (see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call#parameters)
+    // `null` is replaced by the global object.
+    Expect.equals(globalContext, pThis);
+  }
+  if (isWasm) {
+    // `dart2wasm` tests are run in the strict mode.
+    Expect.isNull(pThis);
+  }
 }
 
 main() {
   globalContext["jsFoo"] = foo.toJSCaptureThis;
   JSFunction jsFoo = globalContext["jsFoo"] as JSFunction;
-  jsFoo.callAsFunction("Value of this".toJS);
+  jsFoo.callAsFunction(null);
 }
