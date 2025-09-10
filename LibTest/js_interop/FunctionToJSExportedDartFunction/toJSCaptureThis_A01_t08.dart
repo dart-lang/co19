@@ -25,8 +25,8 @@ extension type InteropObject._(JSObject _) implements JSObject {
   external String get bar;
 }
 
-void foo(Object pThis) {
-  Expect.equals("BAR", (pThis as InteropObject).bar);
+void foo(InteropObject pThis) {
+  Expect.equals("BAR", pThis.bar);
 }
 
 main() {

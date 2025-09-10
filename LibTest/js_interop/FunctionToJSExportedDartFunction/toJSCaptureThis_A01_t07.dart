@@ -25,7 +25,7 @@ extension type JSStringOrJSStringObject._(JSAny _) implements JSAny {
   external String toStringJS();
 }
 
-void foo(Object pThis) {
+void foo(JSStringOrJSStringObject pThis) {
   Expect.equals("Value of this", pThis.toString());
 }
 
