@@ -20,35 +20,47 @@
 /// > unperformant.
 /// > Modifications to this [List] will affect the [JSArray] and vice versa.
 ///
-/// @description Check that this method converts this [List] to a [JSArray].
-/// Test an array instantiated in Dart.
+/// @description Check that this is a run-time error to call `toJS` on a custom
+/// list on `dart2js`.
 /// @author sgrekhov22@gmail.com
+/// @issue 61327
 
+import 'dart:collection';
 import 'dart:js_interop';
+
 import '../../../Utils/expect.dart';
 
-main() {
-  List<JSString> l1 = List<JSString>.empty();
-  JSArray<JSString> a1 = l1.toJSProxyOrRef;
-  Expect.equals(0, a1.length);
-  if (isJS) {
-    // Casting case. `toDart` returns the same object.
-    Expect.identical(l1, a1.toDart);
-  }
-  if (isWasm) {
-    // The `List` was instantiated in Dart. This is a case of proxy.
-    Expect.notIdentical(l1, a1.toDart);
+class MyList<E> extends ListBase<E> {
+  List<E> _data;
+
+  MyList.from(Iterable elements): _data = List.from(elements);
+
+  @override
+  int get length => _data.length;
+
+  @override
+  void set length(int newLength) {
+    _data.length = newLength;
   }
 
-  List<JSNumber> l2 = [1.toJS, 2.toJS, 3.toJS];
-  JSArray<JSNumber> a2 = l2.toJSProxyOrRef;
-  Expect.listEquals(l2, a2.toDart);
+  @override
+  E operator [](int index) => _data[index];
+
+  @override
+  void operator []=(int index, value) {
+    _data[index] = value;
+  }
+}
+
+main() {
+  MyList<JSNumber> l = MyList.from([1.toJS, 2.toJS, 3.toJS]);
   if (isJS) {
-    Expect.identical(l1, a1.toDart);
+    Expect.throws(() {
+      JSArray<JSNumber> a = l.toJSProxyOrRef;
+    });
   }
   if (isWasm) {
-    Expect.notIdentical(l1, a1.toDart);
+    JSArray<JSNumber> a = l.toJSProxyOrRef;
+    Expect.listEquals(l, a.toDart);
   }
-  l2.add(4.toJS);
-  Expect.listEquals(l2, a2.toDart);
 }

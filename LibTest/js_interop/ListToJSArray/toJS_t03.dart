@@ -19,31 +19,47 @@
 /// > Avoid assuming that modifications to this [List] will affect the
 /// > [JSArray] and vice versa unless it was instantiated in JavaScript.
 ///
-/// @description Check that this method converts this [List] to a [JSArray].
-/// Test an array instantiated in JS.
+/// @description Check that this is a run-time error to call `toJS` on a custom
+/// list on `dart2js`.
 /// @author sgrekhov22@gmail.com
 /// @issue 61327
 
+import 'dart:collection';
 import 'dart:js_interop';
-import 'dart:js_interop_unsafe';
+
 import '../../../Utils/expect.dart';
-import '../js_utils.dart';
+
+class MyList<E> extends ListBase<E> {
+  List<E> _data;
+
+  MyList.from(Iterable elements): _data = List.from(elements);
+
+  @override
+  int get length => _data.length;
+
+  @override
+  void set length(int newLength) {
+    _data.length = newLength;
+  }
+
+  @override
+  E operator [](int index) => _data[index];
+
+  @override
+  void operator []=(int index, value) {
+    _data[index] = value;
+  }
+}
 
 main() {
-  eval("globalThis.a = [1, 2, 3];");
-  List<JSNumber> l = (globalContext["a"] as JSArray<JSNumber>).toDart;
-  JSArray<JSNumber> a = l.toJS;
-  Expect.listEquals(l, a.toDart);
-
-  l.add(4.toJS);
+  MyList<JSNumber> l = MyList.from([1.toJS, 2.toJS, 3.toJS]);
   if (isJS) {
-    // Casting case. `toDart` returns the same object.
-    Expect.identical(l, a.toDart);
+    Expect.throws(() {
+      JSArray<JSNumber> a = l.toJS;
+    });
   }
   if (isWasm) {
-    // The `List` was instantiated in JS. This is a wrapping case. Unwrapping
-    // should return the same array but not the same object.
-    Expect.listEquals([1.toJS, 2.toJS, 3.toJS, 4.toJS], a.toDart);
-    Expect.notIdentical(l, a.toDart);
+    JSArray<JSNumber> a = l.toJS;
+    Expect.listEquals(l, a.toDart);
   }
 }
