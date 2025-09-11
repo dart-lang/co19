@@ -20,7 +20,7 @@ import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 
-void foo(Object? pThis) {
+void foo(JSAny? pThis) {
   if (isJS) {
     // Test runner runs `dart2js` tests in non-strict mode. In this case
     // (see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call#parameters)
