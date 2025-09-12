@@ -21,14 +21,14 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 
 void foo(JSAny? pThis) {
-  if (isJS) {
+  if (isDart2JS && !isDDC) {
     // Test runner runs `dart2js` tests in non-strict mode. In this case
     // (see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call#parameters)
     // `null` is replaced by the global object.
     Expect.equals(globalContext, pThis);
   }
-  if (isWasm) {
-    // `dart2wasm` tests are run in the strict mode.
+  if (isWasm || isDDC) {
+    // `dart2wasm` and ddc tests are run in the strict mode.
     Expect.isNull(pThis);
   }
 }
