@@ -12,7 +12,8 @@
 /// versa.
 ///
 /// @description Check that in case of `dart2js` this operation is a cast and
-/// therefore returns the same object.
+/// therefore returns the same object. In case of `dart2wasm` it is not the same
+/// object.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -22,13 +23,16 @@ import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
 main() {
-  if (isJS) {
-    eval(r'''
+  eval(r'''
       globalThis.ab = new ArrayBuffer(2);
       globalThis.dv = new DataView(globalThis.ab);
       globalThis.dv.setInt16(0, 42);
     ''');
-    JSDataView dv = globalContext["dv"] as JSDataView;
+  JSDataView dv = globalContext["dv"] as JSDataView;
+  if (isJS) {
     Expect.identical(dv, dv.toDart);
+  }
+  if (isWasm) {
+    Expect.notIdentical(dv, dv.toDart);
   }
 }

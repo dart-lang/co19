@@ -12,7 +12,8 @@
 /// versa.
 ///
 /// @description Check that this getter converts this [JSDataView] to a
-/// [ByteData]. Test [JSDataView] created in Dart.
+/// [ByteData] and the changes in [ByteData] object modify [JSDataView] as well.
+/// Test [JSDataView] created in Dart.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

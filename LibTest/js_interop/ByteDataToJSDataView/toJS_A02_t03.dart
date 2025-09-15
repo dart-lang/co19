@@ -20,8 +20,8 @@
 /// > [JSDataView] and vice versa unless it was instantiated in JavaScript.
 ///
 /// @description Check that on `dart2wasm` if [ByteData] was instantiated in
-/// Dart then this operations clones it and therefore changes in the original
-/// object not affect the cloned one.
+/// Dart then this operation clones. Hence, changes in the original object not
+/// affect the cloned one.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';

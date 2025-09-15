@@ -20,8 +20,8 @@
 /// > [JSDataView] and vice versa unless it was instantiated in JavaScript.
 ///
 /// @description Check that on `dart2wasm` if [ByteBuffer] was instantiated in
-/// JavaScript then this operations unwraps it and therefore changes in the
-/// original object affect the one returned by this operation.
+/// JavaScript then this operation unwraps it. Hence, changes in the original
+/// object affect the one returned by this operation.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
