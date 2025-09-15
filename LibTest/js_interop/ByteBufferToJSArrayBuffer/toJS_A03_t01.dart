@@ -34,5 +34,6 @@ main() {
   if (isJS) {
     ByteBuffer bb = Int8List.fromList([42]).buffer;
     Expect.identical(bb, bb.toJS);
+    Expect.identical(bb, bb.toJS.toDart);
   }
 }

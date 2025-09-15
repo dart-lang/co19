@@ -27,4 +27,5 @@ main() {
   Expect.listEquals([1.toJS], l);
 
   l.removeLast();
-  Expect.listEquals([], a.toDart);}
+  Expect.listEquals([], a.toDart);
+}
