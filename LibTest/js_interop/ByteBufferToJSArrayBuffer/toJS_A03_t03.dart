@@ -23,8 +23,8 @@
 /// > [JSArrayBuffer] and vice versa unless it was instantiated in JavaScript.
 ///
 /// @description Check that on `dart2wasm` if [ByteBuffer] was instantiated in
-/// Dart then this operations clones it and therefore changes in the original
-/// object not affect the cloned one.
+/// Dart then this operations clones it. Hence, changes in the original object
+/// do not affect the cloned one.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
