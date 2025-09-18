@@ -18,9 +18,10 @@
 
 import 'dart:js_interop';
 import '../../../Utils/expect.dart';
+import '../js_utils.dart';
 
 main() {
-  JSFloat64Array a = JSFloat64Array();
+  JSFloat64Array a = JSFloat64Array.withLength(1);
   if (isJS) {
     // This is a cast. Object is the same
     Expect.identical(a, a.toDart);
@@ -30,5 +31,6 @@ main() {
     // This is a wrapping/unwrapping. It's not the same object
     Expect.notIdentical(a, a.toDart);
     Expect.notIdentical(a, a.toDart.toJS);
+    jsExpectArrayEquals(a, a.toDart.toJS);
   }
 }
