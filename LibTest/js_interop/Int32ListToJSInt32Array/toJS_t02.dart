@@ -1,0 +1,54 @@
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion JSInt32Array get toJS
+/// Converts this [Int32List] to a [JSInt32Array] by either casting,
+/// unwrapping, or cloning the [Int32List].
+///
+/// > [!NOTE]
+/// > Depending on whether code is compiled to JavaScript or Wasm, this
+/// > conversion will have different semantics.
+/// > When compiling to JavaScript, all typed lists are the equivalent
+/// > JavaScript typed arrays, and therefore this method simply casts.
+/// > When compiling to Wasm, this [Int32List] may or may not be a wrapper
+/// > depending on if it was converted from JavaScript or instantiated in
+/// > Dart. If it's a wrapper, this method unwraps it. If it's instantiated in
+/// > Dart, this method clones this [Int32List]'s values into a new
+/// > [JSInt32Array].
+/// > Avoid assuming that modifications to this [Int32List] will affect the
+/// > [JSInt32Array] and vice versa unless it was instantiated in JavaScript.
+///
+/// @description Check that this operation converts this [Int32List] to a
+/// [JSInt32Array]. Test an array instantiated in JS.
+/// @author sgrekhov22@gmail.com
+
+import 'dart:js_interop';
+import 'dart:js_interop_unsafe';
+import 'dart:typed_data';
+import '../../../Utils/expect.dart';
+import '../js_utils.dart';
+
+main() {
+  eval(r'''
+    globalThis.a = new Int32Array(3);
+    globalThis.a[0] = 1;
+    globalThis.a[1] = -2;
+    globalThis.a[3] = 333333;
+  ''');
+  Int32List l = (globalContext["a"] as JSInt32Array).toDart;
+  JSInt32Array a = l.toJS;
+  Expect.listEquals(l.toList(), a.toDart.toList());
+
+  l[2] = 3;
+  if (isJS) {
+    // Casting case. `toDart` returns the same object.
+    Expect.identical(l, a.toDart);
+  }
+  if (isWasm) {
+    // The `Int32List` was instantiated in JS. This is a wrapping case.
+    // Unwrapping should return the same array but not the same object.
+    Expect.listEquals([1, -2, 3], a.toDart.toList());
+    Expect.notIdentical(l, a.toDart);
+  }
+}
