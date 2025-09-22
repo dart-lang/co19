@@ -13,24 +13,21 @@
 ///
 /// @description Check that when compiling to JavaScript this operation is a
 /// cast and returns the same object. When compiling to Wasm this operation is a
-/// wrapping and returns not the same object.
+/// wrapping but `a.toDart.toJS` returns the same object `a`.
 /// @author sgrekhov22@gmail.com
+/// @issue 61543
 
 import 'dart:js_interop';
 import '../../../Utils/expect.dart';
-import '../js_utils.dart';
 
 main() {
   JSFloat64Array a = JSFloat64Array.withLength(1);
   if (isJS) {
     // This is a cast. Object is the same
     Expect.identical(a, a.toDart);
-    Expect.identical(a, a.toDart.toJS);
   }
   if (isWasm) {
-    // This is a wrapping/unwrapping. It's not the same object
     Expect.notIdentical(a, a.toDart);
-    Expect.notIdentical(a, a.toDart.toJS);
-    jsExpectArrayEquals(a, a.toDart.toJS);
   }
+  Expect.identical(a, a.toDart.toJS);
 }
