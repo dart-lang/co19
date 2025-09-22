@@ -36,8 +36,7 @@ main() {
     Expect.identical(l, l.toJS.toDart);
   }
   if (isWasm) {
-    // This is a wrapping/unwrapping. It's not the same object
-    Expect.notIdentical(l, l.toJS);
+    // This is a wrapping/unwrapping. It can be not the same object.
     Expect.listEquals(l.toList(), l.toJS.toDart.toList());
   }
 }
