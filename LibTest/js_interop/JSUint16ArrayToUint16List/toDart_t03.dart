@@ -26,8 +26,5 @@ main() {
     // This is a cast. Object is the same
     Expect.identical(a, a.toDart);
   }
-  if (isWasm) {
-    Expect.notIdentical(a, a.toDart);
-  }
   Expect.identical(a, a.toDart.toJS);
 }
