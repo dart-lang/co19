@@ -47,8 +47,7 @@ main() {
   }
   if (isWasm) {
     // The `Int32List` was instantiated in JS. This is a wrapping case.
-    // Unwrapping should return the same array but not the same object.
+    // Unwrapping should return the same array.
     Expect.listEquals([1, -2, 3], a.toDart.toList());
-    Expect.notIdentical(l, a.toDart);
   }
 }

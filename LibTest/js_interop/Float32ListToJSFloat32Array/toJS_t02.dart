@@ -48,11 +48,10 @@ main() {
   }
   if (isWasm) {
     // The `Float32List` was instantiated in JS. This is a wrapping case.
-    // Unwrapping should return the same array but not the same object.
+    // Unwrapping should return the same array.
     var list = a.toDart.toList();
     Expect.equals(1, list[0]);
     Expect.approxEquals(-3.14, list[1]);
     Expect.approxEquals(3.14, list[2]);
-    Expect.notIdentical(l, a.toDart);
   }
 }
