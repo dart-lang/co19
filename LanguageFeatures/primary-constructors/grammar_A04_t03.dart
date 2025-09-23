@@ -18,7 +18,7 @@
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
-enum E1(final int v) {
+enum const E1(final int v) {
   e0(1);
 
   const this : assert(v > 0);
@@ -27,7 +27,7 @@ enum E1(final int v) {
 // [cfe] unspecified
 }
 
-enum E2.someName(final int v) {
+enum const E2.someName(final int v) {
   e0.someName(2);
 
   const this.someName : assert(v > 0);

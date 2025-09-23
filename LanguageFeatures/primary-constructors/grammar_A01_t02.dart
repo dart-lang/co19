@@ -16,8 +16,8 @@ enum E0();
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum E1(final int v);
-//   ^^
+enum const E1(final int v);
+//         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

@@ -16,7 +16,7 @@
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
-enum E1(final int v) {
+enum const E1(final int v) {
   e1(1);
 
   this();
@@ -25,7 +25,7 @@ enum E1(final int v) {
 // [cfe] unspecified
 }
 
-enum E2() {
+enum const E2() {
   e2;
 
   this();
@@ -34,7 +34,7 @@ enum E2() {
 // [cfe] unspecified
 }
 
-enum E3(final int v) {
+enum const E3(final int v) {
   e3(3);
 
   this(final int v);
@@ -43,7 +43,7 @@ enum E3(final int v) {
 // [cfe] unspecified
 }
 
-enum E4(final int v) {
+enum const E4(final int v) {
   e4(4);
 
   this(this.v);
@@ -52,7 +52,7 @@ enum E4(final int v) {
 // [cfe] unspecified
 }
 
-enum E5.someName(final int v) {
+enum const E5.someName(final int v) {
   e5.someName(5);
 
   this.someName(final int v);
