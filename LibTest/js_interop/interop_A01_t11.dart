@@ -14,8 +14,6 @@
 /// @issue 61274
 
 import 'dart:js_interop';
-import '../../Utils/expect.dart';
-import 'js_utils.dart';
 
 extension type ET._(JSObject _) implements JSObject {
   @JS("create")
