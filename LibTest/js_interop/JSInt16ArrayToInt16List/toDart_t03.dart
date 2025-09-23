@@ -13,7 +13,7 @@
 ///
 /// @description Check that when compiling to JavaScript this operation is a
 /// cast and returns the same object. When compiling to Wasm this operation is a
-/// wrapping but `a.toDart.toJS` returns the same object `a`.
+/// wrapping but `a.toDart.toJS` returns object equal to `a`.
 /// @author sgrekhov22@gmail.com
 /// @issue 61543
 
@@ -25,6 +25,7 @@ main() {
   if (isJS) {
     // This is a cast. Object is the same
     Expect.identical(a, a.toDart);
+    Expect.identical(a, a.toDart.toJS);
   }
-  Expect.identical(a, a.toDart.toJS);
+  Expect.equals(a, a.toDart.toJS);
 }
