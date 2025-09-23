@@ -5,29 +5,24 @@
 /// @assertion A class declaration whose class body is `;` is treated as a class
 /// declaration whose class body is `{}`.
 ///
-/// @description Check that an enum declaration whose body is `;` is treated as
-/// an enum declaration whose class body is `{}`.
+/// @description Check that an extension type declaration whose body is `;` is
+/// treated as an extension type declaration whose class body is `{}`.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
-enum E0();
-//   ^^
+extension type ET1;
+//             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum E1(final int v);
-//   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-enum E2;
-//   ^^
+extension type ET2();
+//             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  print(E0);
-  print(E1);
-  print(E2);
+  print(ET1);
+  print(ET2);
+
 }

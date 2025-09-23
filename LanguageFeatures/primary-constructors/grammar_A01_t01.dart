@@ -13,6 +13,8 @@
 
 import '../../Utils/expect.dart';
 
+class C;
+
 class C0();
 
 class C1(var int v);
@@ -30,6 +32,7 @@ sealed class C6(var int v);
 extension type ET(var int v);
 
 main() {
+  print(C);
   print(C0());
   Expect.equals(1, C1(1).v);
   Expect.equals(2, C2(2).v);
