@@ -13,9 +13,8 @@
 ///
 /// @description Check that this getter converts this [JSFloat32Array] to a
 /// [Float32List] and modifications to [JSFloat32Array] affect the [Float32List]
-/// and vice versa. Test [JSInt32Array] created in Dart.
+/// and vice versa. Test [JSFloat32Array] created in Dart.
 /// @author sgrekhov22@gmail.com
-/// @issue 61515
 
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';

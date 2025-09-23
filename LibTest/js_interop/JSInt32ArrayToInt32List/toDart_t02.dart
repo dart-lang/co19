@@ -15,7 +15,6 @@
 /// [Int32List] and modifications to [JSInt32Array] affect the [Int32List] and
 /// vice versa. Test [JSInt32Array] created in Dart.
 /// @author sgrekhov22@gmail.com
-/// @issue 61515
 
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';

@@ -11,9 +11,9 @@
 /// Modifications to this [JSUint16Array] will affect the [Uint16List] and
 /// vice versa.
 ///
-/// @description Check that this getter converts this [JSInt16Array] to a
-/// [Uint16List] and modifications to [JSInt16Array] affect the [Uint16List] and
-/// vice versa. Test [JSUint16Array] created in JavaScript.
+/// @description Check that this getter converts this [JSUint16Array] to a
+/// [Uint16List] and modifications to [JSUint16Array] affect the [Uint16List]
+/// and vice versa. Test [JSUint16Array] created in JavaScript.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
@@ -24,8 +24,8 @@ import '../js_utils.dart';
 
 main() {
   eval("globalThis.a = new Uint16Array([1, 2, 3]);");
-  JSInt16Array a = globalContext["a"] as JSInt16Array;
-  Int16List l = a.toDart;
+  JSUint16Array a = globalContext["a"] as JSUint16Array;
+  Uint16List l = a.toDart;
   Expect.listEquals([1, 2, 3], l.toList());
 
   a["2"] = 42.toJS;

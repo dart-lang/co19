@@ -11,11 +11,10 @@
 /// Modifications to this [JSUint16Array] will affect the [Uint16List] and
 /// vice versa.
 ///
-/// @description Check that this getter converts this [JSInt16Array] to a
-/// [Uint16List] and modifications to [JSInt16Array] affect the [Uint16List] and
-/// vice versa. Test [JSUint16Array] created in Dart.
+/// @description Check that this getter converts this [JSUint16Array] to a
+/// [Uint16List] and modifications to [JSUint16Array] affect the [Uint16List]
+/// and vice versa. Test [JSUint16Array] created in Dart.
 /// @author sgrekhov22@gmail.com
-/// @issue 61515
 
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';

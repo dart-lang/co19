@@ -12,10 +12,9 @@
 /// vice versa.
 ///
 /// @description Check that this getter converts this [JSUint32Array] to a
-/// [Uint32List] and modifications to [JSInt16Array] affect the [Uint32List] and
+/// [Uint32List] and modifications to [JSUint32Array] affect the [Uint32List] and
 /// vice versa. Test [JSUint32Array] created in Dart.
 /// @author sgrekhov22@gmail.com
-/// @issue 61515
 
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';

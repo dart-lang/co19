@@ -12,10 +12,9 @@
 /// versa.
 ///
 /// @description Check that this getter converts this [JSInt16Array] to a
-/// [Int16ist] and modifications to [JSInt16Array] affect the [Int16List] and
+/// [Int16List] and modifications to [JSInt16Array] affect the [Int16List] and
 /// vice versa. Test [JSInt16Array] created in Dart.
 /// @author sgrekhov22@gmail.com
-/// @issue 61515
 
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
