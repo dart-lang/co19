@@ -29,6 +29,8 @@ abstract class C7(var int v);
 
 sealed class C8(var int v);
 
+mixin class C9();
+
 extension type ET1(int v);
 
 class const C11;
@@ -43,9 +45,11 @@ final class const C15(final int v);
 
 mixin class const C16;
 
-abstract class C17(final int v);
+abstract class const C17(final int v);
 
-sealed class C18(final int v);
+sealed class const C18(final int v);
+
+mixin const class C19();
 
 extension type const ET2(int v);
 
@@ -58,6 +62,7 @@ main() {
   print(C6);
   print(C7);
   print(C8);
+  print(C9);
   Expect.equals(0, ET1(0).v);
 
   print(C11);
@@ -68,5 +73,6 @@ main() {
   print(C16);
   print(C17);
   print(C18);
+  print(C19);
   Expect.equals(0, ET2(0).v);
 }
