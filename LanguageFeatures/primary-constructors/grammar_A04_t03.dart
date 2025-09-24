@@ -27,7 +27,7 @@ enum const E1(final int v) {
 // [cfe] unspecified
 }
 
-enum const E2.someName(final int v) {
+enum E2.someName(final int v) {
   e0.someName(2);
 
   const this.someName : assert(v > 0);

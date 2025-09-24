@@ -25,7 +25,7 @@ enum const E1(final int v) {
 // [cfe] unspecified
 }
 
-enum const E2() {
+enum E2() {
   e2;
 
   this();
@@ -43,7 +43,7 @@ enum const E3(final int v) {
 // [cfe] unspecified
 }
 
-enum const E4(final int v) {
+enum E4(final int v) {
   e4(4);
 
   this(this.v);
@@ -56,7 +56,16 @@ enum const E5.someName(final int v) {
   e5.someName(5);
 
   this.someName(final int v);
-//    ^
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E6.someName(final int v) {
+  e6.someName(5);
+
+  this.anotherName(final int v);
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -67,4 +76,5 @@ main() {
   print(E3);
   print(E4);
   print(E5);
+  print(E6);
 }

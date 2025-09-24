@@ -51,10 +51,18 @@ class C5.someName(final int v) {
 // [cfe] unspecified
 }
 
+class C6.someName(final int v) {
+  this.anotherName(final int v);
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(C1);
   print(C2);
   print(C3);
   print(C4);
   print(C5);
+  print(C6);
 }

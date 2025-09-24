@@ -16,7 +16,7 @@
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
-extension type ET1(var int v) {
+extension type ET1(final int v) {
   this();
 //    ^
 // [analyzer] unspecified
@@ -47,6 +47,13 @@ extension type ET4(final int v) {
 extension type ET5.someName(final int v) {
   this.someName(final int v);
 //             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET6.someName(final int v) {
+  this.anotherName(final int v);
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
