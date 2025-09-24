@@ -40,8 +40,17 @@ class const C3.someName(final int v) {
 // [cfe] unspecified
 }
 
+class const C4() {
+  int? v;
+  const this.someName : v = 0;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(C1);
   print(C2);
   print(C3);
+  print(C4);
 }

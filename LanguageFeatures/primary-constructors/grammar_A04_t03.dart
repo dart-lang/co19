@@ -36,6 +36,18 @@ enum E2.someName(final int v) {
 // [cfe] unspecified
 }
 
+enum E3() {
+  e0;
+  final int v;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const this.someName : v = 0;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(E1);
   print(E2);
