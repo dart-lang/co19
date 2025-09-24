@@ -7,52 +7,43 @@
 /// it cannot be a `<mixinApplicationClass>`, because that kind of declaration
 /// does not support declaring constructors, that is a syntax error).
 ///
-/// @description Check that it is a compile-time error to declare a mixin with a
-/// primary constructor.
+/// @description Check that it is a syntax error to declare a mixin application
+/// class with a primary constructor.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
-mixin M1() {} // Ok, this declares a "trivial" constructor
+mixin M {}
 
-mixin M2; // Ok
-
-mixin const M3(final int v);
-//          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-mixin M4(var int v) {}
+class C1() = Object with M;
 //    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin M5 {
-  this();
-//^^^^
+class C2.someName() = Object with M;
+//    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-mixin M6 {
-  this.someName(var int v);
-//^^^^
+class const C3.someName(final int v) = Object with M;
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-mixin M7.someName() {
-//       ^^^^^^^^
+class C4.new(var int v) = Object with M;
+//    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
+
+class C5._() = Object with M;
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  print(M1);
-  print(M2);
-  print(M3);
-  print(M4);
-  print(M5);
-  print(M6);
-  print(M7);
+  print(C1);
+  print(C2);
+  print(C3);
+  print(C4);
+  print(C5);
 }
