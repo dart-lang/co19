@@ -12,16 +12,14 @@
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
 extension type ET1(int v) {
-  this(var int v, final String s);
-  this(var int v, {final String s = ""});
+  this.someName(final int v, final String s);
 //^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET2(int v) {
-  this(var int v, final String s);
-  const this(var int v, {final String s = ""});
+extension type ET2.someName(int v) {
+  const this(final int v, {final String s = ""});
 //      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -14,7 +14,7 @@
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
 enum E1(final int v, {required final String s = ""}) {
-//                                                ^
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
   e0(1, s: "");
@@ -23,13 +23,13 @@ enum E1(final int v, {required final String s = ""}) {
 enum E2 {
   e0(2, s: "");
   const this(final int v, {required String s = ""});
-//                                         ^
+//                                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E3(final int v, {required this.s = ""}) {
-//                                          ^
+//                                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
   e0(3, s: "");

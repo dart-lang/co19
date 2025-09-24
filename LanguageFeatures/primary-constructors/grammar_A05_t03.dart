@@ -15,8 +15,8 @@ enum E {
   e0(0, "");
 
   this(final int v, final String s);
-  const this(final int v, {final String s = ""});
-//      ^^^^
+  const this.someName(final int v, {final String s = ""});
+//      ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

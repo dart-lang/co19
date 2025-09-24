@@ -15,16 +15,15 @@
 
 extension type A(int v) implements Object {}
 
-extension type ET1(int v) {
-  this.someName(this.v, {required String s = ""});
-//                                         ^
+extension type ET1 {
+  this.someName(final int v, {required String s = ""});
+//                                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET2._(final A v) implements A {
-  const this(final this.v, {required final String s = ""});
-//                                                ^
+extension type ET2._(final A v, {required final String s = ""}) implements A {
+//                                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

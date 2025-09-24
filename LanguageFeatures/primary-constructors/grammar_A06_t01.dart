@@ -32,6 +32,7 @@ class C3({required super.v = 0}) extends A;
 //                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
 class C4 extends A {
   this({required super.v = 0});
 //                       ^

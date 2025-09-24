@@ -13,16 +13,16 @@
 
 class C1 {
   this(var int v, final String s);
-  this(var int v, {final String s = ""});
-//^^^^
+  this.someName(var int v, {final String s = ""});
+//^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class C2 {
   this(var int v, final String s);
-  const this(var int v, {final String s = ""});
-//      ^^^^
+  const this.someName(var int v, {final String s = ""});
+//      ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
