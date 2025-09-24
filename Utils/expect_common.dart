@@ -234,6 +234,26 @@ class Expect {
     }
   }
 
+  /// Checks that given lists are approximately equal.
+  static void listApproxEquals(var expected, var actual,
+      [num? tolerance, String reason = '']) {
+    if (expected is! List) {
+      Expect.fail('expected is not a List: $expected');
+    } else if (actual is! List) {
+      Expect.fail('actual is not a List: $expected');
+    } else {
+      Expect.equals(expected.length, actual.length, reason);
+      for (int i = 0; i < actual.length; i++) {
+        Expect.approxEquals(
+            expected[i],
+            actual[i],
+            tolerance,
+            "listApproxEquals($expected, $actual) fails"
+        );
+      }
+    }
+  }
+
   /// Checks that given maps are equal.
   static void mapEquals(var expected, var actual, [String reason = '']) {
     if ((expected is! Map) || (actual is! Map)) {
