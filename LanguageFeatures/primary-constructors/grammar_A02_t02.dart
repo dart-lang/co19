@@ -24,7 +24,7 @@ extension type ET1(final int v) {
 }
 
 extension type ET2() {
-  this();
+  this(final int v);
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified
