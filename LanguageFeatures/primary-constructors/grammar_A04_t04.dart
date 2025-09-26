@@ -39,7 +39,7 @@ extension type const ET1 {
   this(final int v);
 }
 
-extension type const  ET2 {
+extension type const ET2 {
 //             ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -52,7 +52,7 @@ enum const E1 {
 // [cfe] unspecified
   e0(1);
 
-  this(final int v);
+  const this(final int v);
 }
 
 enum const E2 {
@@ -61,7 +61,7 @@ enum const E2 {
 // [cfe] unspecified
   e0;
 
-  this.someName();
+  const this.someName();
 }
 
 main() {

@@ -14,31 +14,31 @@
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
 class C1(var int v) {
-  C1(this.v);
+  C1.someName(this.v);
+  C1(int v) : this.someName(v);
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C2 {
-  this(var int v);
-  C2(int v);
-//^^
+class C2(int v1) {
+  this(var int v2);
+//^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class const C3.someName(final int v) {
-  const C3.someName(this.v);
+  const C3(this.v);
+  const C3.someName(int v) : this(v);
 //      ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C4 {
-  this.someName(var int v);
-  C4.someName(int v);
-//^^^^^^^^^^^
+class C4.someName(int v1) {
+  this.someName(var int v2);
+//^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -21,8 +21,8 @@ extension type ET1(int v) {
 }
 
 extension type ET2 {
-  this(int v);
-  ET2(int v);
+  this(final int v);
+  ET2(this.v);
 //^^^
 // [analyzer] unspecified
 // [cfe] unspecified

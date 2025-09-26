@@ -16,17 +16,17 @@
 enum const E1(final int v) {
   e0(1);
 
-  const E1(this.v);
+  const E1.someName(this.v)
+  const E1(int v) : E1.someName(v);
 //      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E2 {
+enum const E2(final int v) {
   e0(2);
-  this(final int v);
-  const E2(this.v);
-//      ^^
+  const this(final int v);
+//      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -39,10 +39,10 @@ enum const E3.someName(final int v) {
 // [cfe] unspecified
 }
 
-enum E4 {
+enum const E4.someName(final int v) {
   e0(4);
-  const this.someName(final int v);
-  const E4.someName(this.v);
+  const E4(this.v);
+  const E4.someName(int v) : this(v);
 //      ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

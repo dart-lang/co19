@@ -18,16 +18,16 @@
 
 import '../../Utils/expect.dart';
 
-extension type const ET1 {
-  this(final int x, iny y, [String z = ""]);
+extension type ET1 {
+  const this(final int x, int y, [String z = ""]);
 }
 
-extension type const ET2 {
-  this.someName(int x, {String y = "", final int z = 0});
+extension type ET2 {
+  const this.someName(int x, {String y = "", final int z = 0});
 }
 
-extension type const ET3 {
-  this(int x, [String y = "", final int z = 0]);
+extension type ET3 {
+  const this(int x, [String y = "", final int z = 0]);
 }
 
 extension type ET4 {
