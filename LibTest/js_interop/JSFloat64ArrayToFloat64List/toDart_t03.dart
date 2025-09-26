@@ -6,9 +6,17 @@
 /// Converts this [JSFloat64Array] to a [Float64List] by either casting or
 /// wrapping it.
 ///
+/// > [!NOTE]
+/// > Depending on whether code is compiled to JavaScript or Wasm, this
+/// > conversion will have different semantics.
+///
 /// When compiling to JavaScript, [Float64List]s are [JSFloat64Array]s and
-/// this operation will be a cast. When compiling to Wasm, a wrapper is
-/// introduced. Modifications to this [JSFloat64Array] will affect the
+/// this getter will be a cast.
+///
+/// When compiling to Wasm, the [JSFloat64Array] is wrapped with a
+/// [Float64List] implementation and the wrapper is returned.
+///
+/// Modifications to this [JSFloat64Array] will affect the returned
 /// [Float64List] and vice versa.
 ///
 /// @description Check that when compiling to JavaScript this operation is a

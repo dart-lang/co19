@@ -6,10 +6,18 @@
 /// Converts this [JSDataView] to a [ByteData] by either casting or wrapping
 /// it.
 ///
+/// > [!NOTE]
+/// > Depending on whether code is compiled to JavaScript or Wasm, this
+/// > conversion will have different semantics.
+///
 /// When compiling to JavaScript, [ByteData]s are [JSDataView]s and this
-/// operation will be a cast. When compiling to Wasm, a wrapper is introduced.
-/// Modifications to this [JSDataView] will affect the [ByteData] and vice
-/// versa.
+/// operation will be a cast.
+///
+/// When compiling to Wasm, the [JSDataView] is wrapped with a [ByteData]
+/// implementation and the wrapper is returned.
+///
+/// Modifications to this [JSDataView] will affect the returned [ByteData] and
+/// vice versa.
 ///
 /// @description Check that in case of `dart2js` this operation is a cast and
 /// therefore returns the same object. In case of `dart2wasm` it is not the same

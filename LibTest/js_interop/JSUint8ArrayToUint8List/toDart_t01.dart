@@ -6,10 +6,18 @@
 /// Converts this [JSUint8Array] to a [Uint8List] by either casting or
 /// wrapping it.
 ///
+/// > [!NOTE]
+/// > Depending on whether code is compiled to JavaScript or Wasm, this
+/// > conversion will have different semantics.
+///
 /// When compiling to JavaScript, [Uint8List]s are [JSUint8Array]s and this
-/// operation will be a cast. When compiling to Wasm, a wrapper is introduced.
-/// Modifications to this [JSUint8Array] will affect the [Uint8List] and vice
-/// versa.
+/// operation will be a cast.
+///
+/// When compiling to Wasm, the [JSUint8Array] is wrapped with a [Uint8List]
+/// implementation and the wrapper is returned.
+///
+/// Modifications to this [JSUint8Array] will affect the returned [Uint8List]
+/// and vice versa.
 ///
 /// @description Check that this getter converts this [JSUint8Array] to a
 /// [Uint8List] and modifications to [JSUint8Array] affect the [Uint8List] and

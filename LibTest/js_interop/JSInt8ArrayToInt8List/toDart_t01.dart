@@ -6,10 +6,18 @@
 /// Converts this [JSInt8Array] to a [Int8List] by either casting or wrapping
 /// it.
 ///
+/// > [!NOTE]
+/// > Depending on whether code is compiled to JavaScript or Wasm, this
+/// > conversion will have different semantics.
+///
 /// When compiling to JavaScript, [Int8List]s are [JSInt8Array]s and this
-/// operation will be a cast. When compiling to Wasm, a wrapper is introduced.
-/// Modifications to this [JSInt8Array] will affect the [Int8List] and vice
-/// versa.
+/// operation will be a cast.
+///
+/// When compiling to Wasm, the [JSInt8Array] is wrapped with a [Int8List]
+/// implementation and the wrapper is returned.
+///
+/// Modifications to this [JSInt8Array] will affect the returned [Int8List]
+/// and vice versa.
 ///
 /// @description Check that this getter converts this [JSInt8Array] to a
 /// [Int8List] and modifications to [JSInt8Array] affect the [Int8List] and vice

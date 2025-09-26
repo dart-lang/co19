@@ -6,9 +6,17 @@
 /// Converts this [JSFloat32Array] to a [Float32List] by either casting or
 /// wrapping it.
 ///
+/// > [!NOTE]
+/// > Depending on whether code is compiled to JavaScript or Wasm, this
+/// > conversion will have different semantics.
+///
 /// When compiling to JavaScript, [Float32List]s are [JSFloat32Array]s and
-/// this operation will be a cast. When compiling to Wasm, a wrapper is
-/// introduced. Modifications to this [JSFloat32Array] will affect the
+/// this getter will be a cast.
+///
+/// When compiling to Wasm, the [JSFloat32Array] is wrapped with a
+/// [Float32List] implementation and the wrapper is returned.
+///
+/// Modifications to this [JSFloat32Array] will affect the returned
 /// [Float32List] and vice versa.
 ///
 /// @description Check that this getter converts this [JSFloat32Array] to a
