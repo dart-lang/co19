@@ -6,10 +6,18 @@
 /// Converts this [JSArrayBuffer] to a [ByteBuffer] by either casting or
 /// wrapping it.
 ///
+/// > [!NOTE]
+/// > Depending on whether code is compiled to JavaScript or Wasm, this
+/// > conversion will have different semantics.
+///
 /// When compiling to JavaScript, [ByteBuffer]s are [JSArrayBuffer]s and this
-/// operation will be a cast. When compiling to Wasm, a wrapper is introduced.
-/// Modifications to this [JSArrayBuffer] will affect the [ByteBuffer] and vice
-/// versa.
+/// operation will be a cast.
+///
+/// When compiling to Wasm, the [JSArrayBuffer] is wrapped with a [ByteBuffer]
+/// implementation and the wrapper is returned.
+///
+/// Modifications to this [JSArrayBuffer] will affect the returned
+/// [ByteBuffer] and vice versa.
 ///
 /// @description Check that this getter converts this [JSArrayBuffer] to a
 /// [ByteBuffer]. Test [JSArrayBuffer] created in JavaScript.

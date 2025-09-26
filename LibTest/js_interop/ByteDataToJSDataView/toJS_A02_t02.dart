@@ -9,15 +9,18 @@
 /// > [!NOTE]
 /// > Depending on whether code is compiled to JavaScript or Wasm, this
 /// > conversion will have different semantics.
-/// > When compiling to JavaScript, all typed lists are the equivalent
-/// > JavaScript typed arrays, and therefore this method simply casts.
-/// > When compiling to Wasm, this [ByteData] may or may not be a wrapper
-/// > depending on if it was converted from JavaScript or instantiated in
-/// > Dart. If it's a wrapper, this method unwraps it. If it's instantiated in
-/// > Dart, this method clones this [ByteData]'s values into a new
-/// > [JSDataView].
-/// > Avoid assuming that modifications to this [ByteData] will affect the
-/// > [JSDataView] and vice versa unless it was instantiated in JavaScript.
+///
+/// When compiling to JavaScript, all typed lists are the equivalent
+/// JavaScript typed arrays, and therefore this getter simply casts.
+///
+/// When compiling to Wasm, this [ByteData] is a wrapper around a `DataView`
+/// if it was converted via [JSDataViewToByteData.toDart]. If it is a wrapper,
+/// this getter unwraps it and returns the `DataView`. If it's instantiated in
+/// Dart, this getter clones this [ByteData]'s values into a new [JSDataView].
+///
+/// Avoid assuming that modifications to this [ByteData] will affect the
+/// returned [JSDataView] and vice versa on all compilers unless it was first
+/// converted via [JSDataViewToByteData.toDart].
 ///
 /// @description Check that on `dart2wasm` if [ByteBuffer] was instantiated in
 /// JavaScript then this operation unwraps it. Hence, changes in the original

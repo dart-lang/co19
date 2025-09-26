@@ -6,10 +6,18 @@
 /// Converts this [JSInt32Array] to a [Int32List] by either casting or
 /// wrapping it.
 ///
+/// > [!NOTE]
+/// > Depending on whether code is compiled to JavaScript or Wasm, this
+/// > conversion will have different semantics.
+///
 /// When compiling to JavaScript, [Int32List]s are [JSInt32Array]s and this
-/// operation will be a cast. When compiling to Wasm, a wrapper is introduced.
-/// Modifications to this [JSInt32Array] will affect the [Int32List] and vice
-/// versa.
+/// operation will be a cast.
+///
+/// When compiling to Wasm, the [JSInt32Array] is wrapped with a [Int32List]
+/// implementation and the wrapper is returned.
+///
+/// Modifications to this [JSInt32Array] will affect the returned [Int32List]
+/// and vice versa.
 ///
 /// @description Check that when compiling to JavaScript this operation is a
 /// cast and returns the same object. When compiling to Wasm this operation is a

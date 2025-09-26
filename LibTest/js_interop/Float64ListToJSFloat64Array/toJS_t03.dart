@@ -9,16 +9,20 @@
 /// > [!NOTE]
 /// > Depending on whether code is compiled to JavaScript or Wasm, this
 /// > conversion will have different semantics.
-/// > When compiling to JavaScript, all typed lists are the equivalent
-/// > JavaScript typed arrays, and therefore this method simply casts.
-/// > When compiling to Wasm, this [Float64List] may or may not be a wrapper
-/// > depending on if it was converted from JavaScript or instantiated in
-/// > Dart. If it's a wrapper, this method unwraps it. If it's instantiated in
-/// > Dart, this method clones this [Float64List]'s values into a new
-/// > [JSFloat64Array].
-/// > Avoid assuming that modifications to this [Float64List] will affect the
-/// > [JSFloat64Array] and vice versa unless it was instantiated in
-/// > JavaScript.
+///
+/// When compiling to JavaScript, all typed lists are the equivalent
+/// JavaScript typed arrays, and therefore this getter simply casts.
+///
+/// When compiling to Wasm, this [Float64List] is a wrapper around a
+/// `Float64Array` if it was converted via
+/// [JSFloat64ArrayToFloat64List.toDart]. If it is a wrapper, this getter
+/// unwraps it and returns the `Float64Array`. If it's instantiated in Dart,
+/// this getter clones this [Float64List]'s values into a new
+/// [JSFloat64Array].
+///
+/// Avoid assuming that modifications to this [Float64List] will affect the
+/// returned [JSFloat64Array] and vice versa on all compilers unless it was
+/// converted first via [JSFloat64ArrayToFloat64List.toDart].
 ///
 /// @description Check that when compiling to JavaScript this operation is a
 /// cast and returns the same object. When compiling to Wasm this operation is a

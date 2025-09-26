@@ -6,10 +6,18 @@
 /// Converts this [JSUint16Array] to a [Uint16List] by either casting or
 /// wrapping it.
 ///
+/// > [!NOTE]
+/// > Depending on whether code is compiled to JavaScript or Wasm, this
+/// > conversion will have different semantics.
+///
 /// When compiling to JavaScript, [Uint16List]s are [JSUint16Array]s and this
-/// operation will be a cast. When compiling to Wasm, a wrapper is introduced.
-/// Modifications to this [JSUint16Array] will affect the [Uint16List] and
-/// vice versa.
+/// operation will be a cast.
+///
+/// When compiling to Wasm, the [JSUint16Array] is wrapped with a [Uint16List]
+/// implementation and the wrapper is returned.
+///
+/// Modifications to this [JSUint16Array] will affect the returned
+/// [Uint16List] and vice versa.
 ///
 /// @description Check that when compiling to JavaScript this operation is a
 /// cast and returns the same object. When compiling to Wasm this operation is a

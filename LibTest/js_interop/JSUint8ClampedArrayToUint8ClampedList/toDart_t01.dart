@@ -6,10 +6,18 @@
 /// Converts this [JSUint8ClampedArray] to a [Uint8ClampedList] by either
 /// casting or wrapping it.
 ///
+/// > [!NOTE]
+/// > Depending on whether code is compiled to JavaScript or Wasm, this
+/// > conversion will have different semantics.
+///
 /// When compiling to JavaScript, [Uint8ClampedList]s are
-/// [JSUint8ClampedArray]s and this operation will be a cast. When compiling
-/// to Wasm, a wrapper is introduced. Modifications to this
-/// [JSUint8ClampedArray] will affect the [Uint8ClampedList] and vice versa.
+/// [JSUint8ClampedArray]s and this getter will be a cast.
+///
+/// When compiling to Wasm, the [JSUint8ClampedArray] is wrapped with a
+/// [Uint8ClampedList] implementation and the wrapper is returned.
+///
+/// Modifications to this [JSUint8ClampedArray] will affect the returned
+/// [Uint8ClampedList] and vice versa.
 ///
 /// @description Check that this getter converts this [JSUint8ClampedArray] to a
 /// [Uint8ClampedList] and modifications to [JSUint8ClampedArray] affect the

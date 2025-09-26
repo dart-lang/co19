@@ -9,15 +9,19 @@
 /// > [!NOTE]
 /// > Depending on whether code is compiled to JavaScript or Wasm, this
 /// > conversion will have different semantics.
-/// > When compiling to JavaScript, all typed lists are the equivalent
-/// > JavaScript typed arrays, and therefore this method simply casts.
-/// > When compiling to Wasm, this [Uint8List] may or may not be a wrapper
-/// > depending on if it was converted from JavaScript or instantiated in
-/// > Dart. If it's a wrapper, this method unwraps it. If it's instantiated in
-/// > Dart, this method clones this [Uint8List]'s values into a new
-/// > [JSUint8Array].
-/// > Avoid assuming that modifications to this [Uint8List] will affect the
-/// > [JSUint8Array] and vice versa unless it was instantiated in JavaScript.
+///
+/// When compiling to JavaScript, all typed lists are the equivalent
+/// JavaScript typed arrays, and therefore this getter simply casts.
+///
+/// When compiling to Wasm, this [Uint8List] is a wrapper around a
+/// `Uint8Array` if it was converted via [JSUint8ArrayToUint8List.toDart]. If
+/// it is a wrapper, this getter unwraps it and returns the `Uint8Array`. If
+/// it's instantiated in Dart, this getter clones this [Uint8List]'s values
+/// into a new [JSUint8Array].
+///
+/// Avoid assuming that modifications to this [Uint8List] will affect the
+/// returned [JSUint8Array] and vice versa on all compilers unless it was
+/// converted first via [JSUint8ArrayToUint8List.toDart].
 ///
 /// @description Check that this operation converts this [Uint8List] to a
 /// [JSUint8Array]. Test an array instantiated in Dart.

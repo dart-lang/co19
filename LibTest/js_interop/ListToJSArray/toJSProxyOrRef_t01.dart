@@ -9,16 +9,19 @@
 /// > [!NOTE]
 /// > Depending on whether code is compiled to JavaScript or Wasm, this
 /// > conversion will have different semantics.
-/// > When compiling to JavaScript, the core [List] is a JavaScript `Array`,
-/// > and therefore this method simply casts. User-defined [List]s are
-/// > currently unsupported when compiling to JavaScript.
-/// > When compiling to Wasm, this [List] may or may not be a wrapper
-/// > depending on if it was converted from JavaScript or instantiated in
-/// > Dart. If it's a wrapper, this method unwraps it. If it's instantiated in
-/// > Dart, this method proxies the [List] using a heavyweight `Array`
-/// > wrapper. Access to the original [List]'s elements may be very
-/// > unperformant.
-/// > Modifications to this [List] will affect the [JSArray] and vice versa.
+///
+/// When compiling to JavaScript, the core [List] is a JavaScript `Array`, and
+/// therefore this getter simply casts. If the [List] is not a core [List]
+/// e.g. a user-defined list, this getter throws with a cast error.
+///
+/// When compiling to Wasm, this [List] is a wrapper around an `Array` if it
+/// was converted via [JSArrayToList.toDart]. If it's a wrapper, this getter
+/// unwraps it and returns the `Array`. If it's instantiated in Dart, this
+/// getter proxies the [List] using a heavyweight `Array` wrapper. Access to
+/// the original [List]'s elements may be very unperformant.
+///
+/// Modifications to this [List] will affect the returned [JSArray] and vice
+/// versa.
 ///
 /// @description Check that this method converts this [List] to a [JSArray].
 /// Test an array instantiated in Dart.

@@ -9,16 +9,20 @@
 /// > [!NOTE]
 /// > Depending on whether code is compiled to JavaScript or Wasm, this
 /// > conversion will have different semantics.
-/// > When compiling to JavaScript, all typed lists are the equivalent
-/// > JavaScript typed arrays, and therefore this method simply casts.
-/// > When compiling to Wasm, this [Float32List] may or may not be a wrapper
-/// > depending on if it was converted from JavaScript or instantiated in
-/// > Dart. If it's a wrapper, this method unwraps it. If it's instantiated in
-/// > Dart, this method clones this [Float32List]'s values into a new
-/// > [JSFloat32Array].
-/// > Avoid assuming that modifications to this [Float32List] will affect the
-/// > [JSFloat32Array] and vice versa unless it was instantiated in
-/// > JavaScript.
+///
+/// When compiling to JavaScript, all typed lists are the equivalent
+/// JavaScript typed arrays, and therefore this getter simply casts.
+///
+/// When compiling to Wasm, this [Float32List] is a wrapper around a
+/// `Float32Array` if it was converted via
+/// [JSFloat32ArrayToFloat32List.toDart]. If it is a wrapper, this getter
+/// unwraps it and returns the `Float32Array`. If it's instantiated in Dart,
+/// this getter clones this [Float32List]'s values into a new
+/// [JSFloat32Array].
+///
+/// Avoid assuming that modifications to this [Float32List] will affect the
+/// returned [JSFloat32Array] and vice versa on all compilers unless it was
+/// converted first via [JSFloat32ArrayToFloat32List.toDart].
 ///
 /// @description Check that this operation converts this [Float32List] to a
 /// [JSFloat32Array]. Test an array instantiated in JS.

@@ -5,11 +5,21 @@
 /// @assertion List<T> get toDart
 /// Converts this [JSArray] to a [List] by either casting or wrapping it.
 ///
-/// When compiling to JavaScript, [List]s are [JSArray]s and this will be a cast.
-/// When compiling to Wasm, a wrapper is introduced. Modifications to this
-/// [JSArray] will affect the [List] and vice versa. In order to ensure type
-/// soundness, this method may introduce casts when accessing elements in order
-/// to ensure they are of type `T`.
+/// > [!NOTE]
+/// > Depending on whether code is compiled to JavaScript or Wasm, this
+/// > conversion will have different semantics.
+///
+/// When compiling to JavaScript, core [List]s are `Array`s and therefore, if
+/// the [JSArray] was already a `List<T>` converted via
+/// [ListToJSArray.toJS], this getter simply casts the `Array`. Otherwise, it
+/// wraps the `Array` with a [List] that casts the elements to [T] to ensure
+/// soundness.
+///
+/// When compiling to Wasm, the [JSArray] is wrapped with a [List]
+/// implementation and the wrapper is returned.
+///
+/// Modifications to this [JSArray] will affect the returned [List] and vice
+/// versa.
 ///
 /// @description Check that this getter converts this [JSArray] to a [List].
 /// Test [JSArray] created in JavaScript.
