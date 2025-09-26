@@ -16,7 +16,7 @@
 enum const E1(final int v) {
   e0(1);
 
-  const E1.someName(this.v)
+  const E1.someName(this.v);
   const E1(int v) : E1.someName(v);
 //      ^^
 // [analyzer] unspecified
