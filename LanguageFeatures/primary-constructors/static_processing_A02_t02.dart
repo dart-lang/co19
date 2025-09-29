@@ -8,7 +8,7 @@
 /// does not support declaring constructors, that is a syntax error).
 ///
 /// @description Check that it is a compile-time error to declare a mixin class
-/// with a non-trivial primary constructor.
+/// with a non-trivial declaring constructor.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
