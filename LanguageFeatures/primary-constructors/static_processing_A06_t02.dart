@@ -1,0 +1,84 @@
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The declaring parameter list of the declaring header constructor
+/// introduces a new scope, the primary initializer scope, whose enclosing scope
+/// is the body scope of `D`. Every primary parameter is entered into this scope.
+///
+/// The same parameter list also introduces the primary parameter scope, whose
+/// enclosing scope is also the body scope of the class. Every primary parameter
+/// which is not declaring, not initializing, and not a super parameter is
+/// entered into this scope.
+///
+/// The primary initializer scope is the current scope for the initializing
+/// expression, if any, of each non-late instance variable declaration. It is
+/// also the current scope for the initializer list in the body part of the
+/// declaring header constructor, if any.
+///
+/// The primary parameter scope is the current scope for the body of the body
+/// part of the declaring header constructor, if any.
+///
+/// @description Check that the primary initializer scope is the current scope
+/// for the initializing expression of non-late instance variable declaration
+/// and it is also the current scope for the initializer list in the body part
+/// of the declaring header constructor. Test extension types.
+/// @author sgrekhov22@gmail.com
+
+// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+
+import '../../Utils/expect.dart';
+
+extension type ET1(String x) {
+  String Function() captureAtDeclaration = () => x;
+  String Function() captureInInitializer;
+
+  this : captureInInitializer = (() => x);
+}
+
+extension type ET2([String x = "default"]) {
+  String Function() captureAtDeclaration = () => x;
+  String Function() captureInInitializer;
+
+  this : captureInInitializer = (() => x);
+}
+
+extension type ET3({String x = "default"}) {
+  String Function() captureAtDeclaration = () => x;
+  String Function() captureInInitializer;
+
+  this : captureInInitializer = (() => x);
+}
+
+extension type ET4({required String x}) {
+  String Function() captureAtDeclaration = () => x;
+  String Function() captureInInitializer;
+
+  this : captureInInitializer = (() => x);
+}
+
+main() {
+  var et1 = ET1("parameter");
+  Expect.equals("parameter", et1.captureAtDeclaration());
+  Expect.equals("parameter", et1.captureInInitializer());
+
+  var et2 = ET2("parameter");
+  Expect.equals("parameter", et2.captureAtDeclaration());
+  Expect.equals("parameter", et2.captureInInitializer());
+
+  et2 = ET2();
+  Expect.equals("default", et2.captureAtDeclaration());
+  Expect.equals("default", et2.captureInInitializer());
+
+  var et3 = ET3(x: "parameter");
+  Expect.equals("parameter", et3.captureAtDeclaration());
+  Expect.equals("parameter", et3.captureInInitializer());
+
+  et3 = ET3();
+  Expect.equals("default", et3.captureAtDeclaration());
+  Expect.equals("default", et3.captureInInitializer());
+
+  var et4 = ET4(x: "parameter");
+  Expect.equals("parameter", et4.captureAtDeclaration());
+  Expect.equals("parameter", et4.captureInInitializer());
+}

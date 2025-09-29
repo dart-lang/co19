@@ -15,6 +15,9 @@
 
 class C1(var int v) {
   C1.someName(this.v);
+//^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   C1(int v) : this.someName(v);
 //^^
 // [analyzer] unspecified
@@ -30,14 +33,21 @@ class C2(int v1) {
 
 class const C3.someName(final int v) {
   const C3(this.v);
+//      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   const C3.someName(int v) : this(v);
 //      ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C4.someName(int v1) {
-  this.someName(var int v2);
+class C4.someName(var String v1) {
+  C4(this.v1);
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  this.someName(int v2) : this(v2);
 //^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
