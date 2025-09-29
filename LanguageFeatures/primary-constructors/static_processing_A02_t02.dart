@@ -8,7 +8,7 @@
 /// does not support declaring constructors, that is a syntax error).
 ///
 /// @description Check that it is a compile-time error to declare a mixin class
-/// with a primary constructor.
+/// with a non-trivial primary constructor.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
@@ -28,10 +28,7 @@ base mixin M4(var int v) {}
 // [cfe] unspecified
 
 abstract mixin class M5 {
-  this();
-//^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  this(); // Ok, "trivial" constructor
 }
 
 abstract base mixin class M6 {
@@ -41,7 +38,7 @@ abstract base mixin class M6 {
 // [cfe] unspecified
 }
 
-base mixin M7.someName() {
+base mixin M7.someName() { // Constructor is "trivial" but it's not a "mixin class"
 //            ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

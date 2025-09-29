@@ -13,7 +13,7 @@
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
-enum const E1(final int v) {
+enum E1(final int v) {
   e0(1);
 
   const E1(this.v);
@@ -31,7 +31,7 @@ enum const E2(final int v) {
 // [cfe] unspecified
 }
 
-enum const E3.someName(final int v) {
+enum E3.someName(final int v) {
   e0.someName(3);
 
   const E3.someName();

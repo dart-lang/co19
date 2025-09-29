@@ -22,7 +22,7 @@ class C1(var int v) {
 }
 
 class C2.someName(final int v) {
-  C2(int v) {}
+  C2(int x) : v = 42;
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified

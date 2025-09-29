@@ -8,12 +8,15 @@
 /// does not support declaring constructors, that is a syntax error).
 ///
 /// @description Check that it is a compile-time error to declare a mixin with a
-/// primary constructor.
+/// declaring constructor.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
-mixin M1() {} // Ok, this declares a "trivial" constructor
+mixin M1() {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 mixin M2; // Ok
 

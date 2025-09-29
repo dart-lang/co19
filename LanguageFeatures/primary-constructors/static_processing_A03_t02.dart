@@ -26,7 +26,7 @@ enum const E1(final int v) {
 enum const E2.someName(final int v) {
   e0(2);
 
-  const E2(int v) {}
+  const E2(int x) : v = 42;
 //      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
