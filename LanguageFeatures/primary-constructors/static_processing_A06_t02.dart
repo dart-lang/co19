@@ -29,56 +29,64 @@
 
 import '../../Utils/expect.dart';
 
-extension type ET1(String x) {
-  String Function() captureAtDeclaration = () => x;
-  String Function() captureInInitializer;
+String log = "";
 
-  this : captureInInitializer = (() => x);
+extension type ET1(String x) {
+  this : assert("$log=$x".isNotEmpty);
 }
 
 extension type ET2([String x = "default"]) {
-  String Function() captureAtDeclaration = () => x;
-  String Function() captureInInitializer;
-
-  this : captureInInitializer = (() => x);
+  this : assert("$log=$x".isNotEmpty);
 }
 
 extension type ET3({String x = "default"}) {
-  String Function() captureAtDeclaration = () => x;
-  String Function() captureInInitializer;
-
-  this : captureInInitializer = (() => x);
+  this : assert("$log=$x".isNotEmpty);
 }
 
 extension type ET4({required String x}) {
-  String Function() captureAtDeclaration = () => x;
-  String Function() captureInInitializer;
-
-  this : captureInInitializer = (() => x);
+  this : assert("$log=$x".isNotEmpty);
 }
 
 main() {
   var et1 = ET1("parameter");
-  Expect.equals("parameter", et1.captureAtDeclaration());
-  Expect.equals("parameter", et1.captureInInitializer());
+  Expect.equals("parameter", et1.x);
+  if (log.isNotEmpty) {
+    Expect.equals("parameter", log);
+    log = "";
+  }
 
   var et2 = ET2("parameter");
-  Expect.equals("parameter", et2.captureAtDeclaration());
-  Expect.equals("parameter", et2.captureInInitializer());
+  Expect.equals("parameter", et2.x);
+  if (log.isNotEmpty) {
+    Expect.equals("parameter", log);
+    log = "";
+  }
 
   et2 = ET2();
-  Expect.equals("default", et2.captureAtDeclaration());
-  Expect.equals("default", et2.captureInInitializer());
+  Expect.equals("default", et2.x);
+  if (log.isNotEmpty) {
+    Expect.equals("parameter", log);
+    log = "";
+  }
 
   var et3 = ET3(x: "parameter");
-  Expect.equals("parameter", et3.captureAtDeclaration());
-  Expect.equals("parameter", et3.captureInInitializer());
+  Expect.equals("parameter", et3.x);
+  if (log.isNotEmpty) {
+    Expect.equals("parameter", log);
+    log = "";
+  }
 
   et3 = ET3();
-  Expect.equals("default", et3.captureAtDeclaration());
-  Expect.equals("default", et3.captureInInitializer());
+  Expect.equals("default", et3.x);
+  if (log.isNotEmpty) {
+    Expect.equals("parameter", log);
+    log = "";
+  }
 
   var et4 = ET4(x: "parameter");
-  Expect.equals("parameter", et4.captureAtDeclaration());
-  Expect.equals("parameter", et4.captureInInitializer());
+  Expect.equals("parameter", et4.x);
+  if (log.isNotEmpty) {
+    Expect.equals("parameter", log);
+    log = "";
+  }
 }

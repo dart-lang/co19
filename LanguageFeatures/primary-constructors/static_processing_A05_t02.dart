@@ -7,8 +7,8 @@
 /// the body.
 ///
 /// @description Check that it is a compile-time error if the name of the
-/// primary constructor is the same as the name of some constructor declared in
-/// the body. Test extension types.
+/// declaring constructor is the same as the name of some constructor declared
+/// in the body. Test extension types.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag

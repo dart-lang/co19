@@ -29,11 +29,11 @@
 
 import '../../Utils/expect.dart';
 
-enums const E1(final String x) {
+enum E1(final String x) {
   e0("parameter");
 
-  String Function() captureAtDeclaration = () => x;
-  String Function() captureInInitializer;
+  final String Function() captureAtDeclaration = () => x;
+  final String Function() captureInInitializer;
 
   this : captureInInitializer = (() => x);
 }
@@ -41,17 +41,17 @@ enums const E1(final String x) {
 enum const E2([final String x = "default"]) {
   e0, e1("parameter");
 
-  String Function() captureAtDeclaration = () => x;
-  String Function() captureInInitializer;
+  final String Function() captureAtDeclaration = () => x;
+  final String Function() captureInInitializer;
 
   this : captureInInitializer = (() => x);
 }
 
-enum const E3({final String x = "default"}) {
+enum E3({final String x = "default"}) {
   e0, e1(x: "parameter");
 
-  String Function() captureAtDeclaration = () => x;
-  String Function() captureInInitializer;
+  final String Function() captureAtDeclaration = () => x;
+  final String Function() captureInInitializer;
 
   this : captureInInitializer = (() => x);
 }
@@ -59,8 +59,8 @@ enum const E3({final String x = "default"}) {
 enum const E4({required final String x}) {
   e0(x: "parameter");
 
-  String Function() captureAtDeclaration = () => x;
-  String Function() captureInInitializer;
+  final String Function() captureAtDeclaration = () => x;
+  final String Function() captureInInitializer;
 
   this : captureInInitializer = (() => x);
 }

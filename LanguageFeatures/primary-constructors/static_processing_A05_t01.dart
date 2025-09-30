@@ -7,8 +7,8 @@
 /// the body.
 ///
 /// @description Check that it is a compile-time error if the name of the
-/// primary constructor is the same as the name of some constructor declared in
-/// the body. Test classes.
+/// declaring constructor is the same as the name of some constructor declared
+/// in the body. Test classes.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
@@ -42,17 +42,6 @@ class const C3.someName(final int v) {
 // [cfe] unspecified
 }
 
-class C4.someName(var String v1) {
-  C4(this.v1);
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  this.someName(int v2) : this(v2);
-//^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 class C5(var int v) {
   C5.someName(int v) : this(v);
   factory C5(int v) = C5.someName;
@@ -74,7 +63,6 @@ main() {
   print(C1);
   print(C2);
   print(C3);
-  print(C4);
   print(C5);
   print(C6);
 }

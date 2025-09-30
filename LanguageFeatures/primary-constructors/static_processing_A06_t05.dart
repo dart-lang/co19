@@ -32,7 +32,6 @@ class C1 {
     captureInBody = () => x;
   }
 
-  String Function() captureAtDeclaration = () => x;
   String Function() captureInInitializer;
   String Function()? captureInBody;
 }
@@ -42,7 +41,6 @@ class C2 {
     captureInBody = () => x;
   }
 
-  String Function() captureAtDeclaration = () => x;
   String Function() captureInInitializer;
   String Function()? captureInBody;
 }
@@ -50,19 +48,16 @@ class C2 {
 main() {
   var c1 = C1("parameter");
   c1.x = "updated";
-  Expect.equals("updated", c1.captureAtDeclaration());
-  Expect.equals("updated", c1.captureInInitializer());
+  Expect.equals("parameter", c1.captureInInitializer());
   Expect.equals("updated", c1.captureInBody!());
 
   var c2 = C2("parameter");
   c2.x = "updated";
-  Expect.equals("updated", c2.captureAtDeclaration());
-  Expect.equals("updated", c2.captureInInitializer());
+  Expect.equals("parameter", c2.captureInInitializer());
   Expect.equals("updated", c2.captureInBody!());
 
   c2 = C2();
   c2.x = "updated";
-  Expect.equals("updated", c2.captureAtDeclaration());
-  Expect.equals("updated", c2.captureInInitializer());
+  Expect.equals("parameter", c2.captureInInitializer());
   Expect.equals("updated", c2.captureInBody!());
 }
