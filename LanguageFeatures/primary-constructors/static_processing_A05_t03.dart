@@ -7,8 +7,8 @@
 /// the body.
 ///
 /// @description Check that it is a compile-time error if the name of the
-/// primary constructor is the same as the name of some constructor declared in
-/// the body. Test enums.
+/// declaring constructor is the same as the name of some constructor declared
+/// in the body. Test enums.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
@@ -17,6 +17,9 @@ enum const E1(final int v) {
   e0(1);
 
   const E1.someName(this.v);
+//      ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   const E1(int v) : E1.someName(v);
 //      ^^
 // [analyzer] unspecified
@@ -42,6 +45,9 @@ enum const E3.someName(final int v) {
 enum const E4.someName(final int v) {
   e0(4);
   const E4(this.v);
+//      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
   const E4.someName(int v) : this(v);
 //      ^^^^^^^^^^^
 // [analyzer] unspecified
