@@ -30,21 +30,30 @@
 import '../../Utils/expect.dart';
 
 String log = "";
+String bodyLog = "";
 
 extension type ET1(String x) {
-  this : assert("$log=$x".isNotEmpty);
+  this : assert("${log=x}".isNotEmpty) {
+    bodyLog = x;
+  }
 }
 
 extension type ET2([String x = "default"]) {
-  this : assert("$log=$x".isNotEmpty);
+  this : assert("${log=x}".isNotEmpty) {
+    bodyLog = x;
+  }
 }
 
 extension type ET3({String x = "default"}) {
-  this : assert("$log=$x".isNotEmpty);
+  this : assert("${log=x}".isNotEmpty) {
+    bodyLog = x;
+  }
 }
 
 extension type ET4({required String x}) {
-  this : assert("$log=$x".isNotEmpty);
+  this : assert("${log=x}".isNotEmpty) {
+    bodyLog = x;
+  }
 }
 
 main() {
@@ -54,6 +63,8 @@ main() {
     Expect.equals("parameter", log);
     log = "";
   }
+  Expect.equals("parameter", bodyLog);
+  bodyLog = "";
 
   var et2 = ET2("parameter");
   Expect.equals("parameter", et2.x);
@@ -61,6 +72,8 @@ main() {
     Expect.equals("parameter", log);
     log = "";
   }
+  Expect.equals("parameter", bodyLog);
+  bodyLog = "";
 
   et2 = ET2();
   Expect.equals("default", et2.x);
@@ -68,6 +81,8 @@ main() {
     Expect.equals("parameter", log);
     log = "";
   }
+  Expect.equals("parameter", bodyLog);
+  bodyLog = "";
 
   var et3 = ET3(x: "parameter");
   Expect.equals("parameter", et3.x);
@@ -75,6 +90,8 @@ main() {
     Expect.equals("parameter", log);
     log = "";
   }
+  Expect.equals("parameter", bodyLog);
+  bodyLog = "";
 
   et3 = ET3();
   Expect.equals("default", et3.x);
@@ -82,6 +99,8 @@ main() {
     Expect.equals("parameter", log);
     log = "";
   }
+  Expect.equals("parameter", bodyLog);
+  bodyLog = "";
 
   var et4 = ET4(x: "parameter");
   Expect.equals("parameter", et4.x);
@@ -89,4 +108,6 @@ main() {
     Expect.equals("parameter", log);
     log = "";
   }
+  Expect.equals("parameter", bodyLog);
+  bodyLog = "";
 }
