@@ -6,14 +6,15 @@
 /// constructor is the same as the name of a constructor (declaring or not) in
 /// the body.
 ///
-/// @description Check that it is a compile-time error if the name of the
+/// @description Check that it is a compile-time error if the name of an in-body
 /// declaring constructor is the same as the name of some constructor declared
 /// in the body. Test classes.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
-class C1(var int v) {
+class C1 {
+  this(var int v);
   C1.invalid(this.v);
 //^^^^^^^^^^
 // [analyzer] unspecified
@@ -24,94 +25,107 @@ class C1(var int v) {
 // [cfe] unspecified
 }
 
-class C2(int v1) {
+class C2 {
   this(var int v2);
-//^^^^
+  C2.invalid(this.v);
+//^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C2.new(int v) : this.invalid(v);
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class const C3.someName(final int v) {
-  const C3(this.v);
-//      ^^
+class C3 {
+  this.new(var int v);
+  C3.invalid(this.v);
+//^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const C3.someName(int v) : this(v);
-//      ^^^^^^^^^^^
+  C3(int v) : this.invalid(v);
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C5(var int v) {
-  C5.foo(int v) : this(v);
-  factory C5(int v) = C5.foo;
-//        ^^
+class C4 {
+  this.new(var int v);
+  C4.invalid(this.v);
+//^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C4(int v) : this.invalid(v);
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C5 {
+  this.new(var int v);
+  C5.invalid(this.v);
+//^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C5.new(int v) : this.invalid(v);
+//^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class C6 {
-  this.someName(final int v);
-  C6(this.v);
-  factory C6.someName(int v) => C6(v);
-//        ^^^^^^^^^^^
+  const this.someName(final int v);
+  const C6(this.v);
+//      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const C6.someName(int v) : this(v);
+//      ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C7.new(var int v) {
-  C7.invalid(this.v);
-//^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  C7(int v) : this.invalid(v);
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C8(var int v) {
-  C8.invalid(this.v);
-//^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  C8.new(int v) : this.invalid(v);
-//^^
+class C7 {
+  C7(var int v);
+  C7.foo(int v) : this(v);
+  factory C7(int v) = C7.foo;
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C9.new(var int v) {
-  C9.invalid(this.v);
-//^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  C9.new(int v) : this.invalid(v);
-//^^
+class C8 {
+  C8(var int v);
+  C8.foo(int v) : this(v);
+  factory C8.new(int v) = C8.foo;
+//        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C10.new(var int v) {
+class C9 {
+  C9.new(var int v);
+  C9.foo(int v) : this(v);
+  factory C9(int v) = C9.foo;
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C10 {
+  C10.new(var int v);
   C10.foo(int v) : this(v);
   factory C10(int v) = C10.foo;
-//        ^^^
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C11.new(var int v) {
-  C11.foo(int v) : this(v);
-  factory C11(int v) = C11.foo;
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C12.new(var int v) {
-  C12.foo(int v) : this(v);
-  factory C12.new(int v) = C12.foo;
-//        ^^^^^^^
+class C11 {
+  this.someName(final int v);
+  C11(this.v);
+  factory C11.someName(int v) => C11(v);
+//        ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -127,5 +141,4 @@ main() {
   print(C9);
   print(C10);
   print(C11);
-  print(C12);
 }
