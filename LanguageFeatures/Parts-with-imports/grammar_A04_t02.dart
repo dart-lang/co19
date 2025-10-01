@@ -21,15 +21,13 @@
 /// The grammar change is small, mainly adding import, export and part
 /// directives to part files.
 ///
-/// @description Checks that it is a compile-time error if a part file contains
-/// an unnamed library directive.
+/// @description Check that it is a compile-time error to use more than one
+/// <partHeader>.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-part 'grammar_A05_t01_lib.dart';
-//    ^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
+part 'grammar_A04_t02_lib.dart';
 
 main() {
 }
