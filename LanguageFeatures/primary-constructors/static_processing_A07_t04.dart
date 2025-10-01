@@ -11,8 +11,9 @@
 /// `this.v`, or `super.v` where `v` is an identifier, and `p` has the modifier
 /// `covariant`.
 ///
-/// @description Check that it is a compile-time error if `p` contains a term of
-/// the form `this.v` and `p` has the modifier `covariant`. Test enums.
+/// @description Check that it is a compile-time error if a formal parameter of
+/// a declaring constructor contains a term of the form `this.v` and has the
+/// modifier `covariant`. Test enums.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
