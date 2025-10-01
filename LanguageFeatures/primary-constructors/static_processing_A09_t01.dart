@@ -33,7 +33,7 @@ class C3({covariant String x = ""}) {}
 // [cfe] unspecified
 
 class C4({required covariant String x}) {}
-//        ^^^^^^^^
+//                 ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
