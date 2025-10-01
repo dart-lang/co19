@@ -28,6 +28,8 @@
 // SharedOptions=--enable-experiment=enhanced-parts
 
 part 'grammar_A04_t01_part1.dart';
+//   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [cfe] unspecified
 
 main() {
 }
