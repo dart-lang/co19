@@ -27,7 +27,7 @@
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-part 'grammar_A04_t02_lib.dart';
+part 'grammar_A04_t02_part.dart';
 
 main() {
 }
