@@ -15,11 +15,8 @@
 
 class C1 {
   this(var int v);
-  C1.invalid(this.v);
-//^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  C1(int v) : this.invalid(v);
+  C1.foo(this.v);
+  C1(int v) : this.foo(v);
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -27,11 +24,8 @@ class C1 {
 
 class C2 {
   this(var int v2);
-  C2.invalid(this.v);
-//^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  C2.new(int v) : this.invalid(v);
+  C2.foo(this.v);
+  C2.new(int v) : this.foo(v);
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -39,11 +33,8 @@ class C2 {
 
 class C3 {
   this.new(var int v);
-  C3.invalid(this.v);
-//^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  C3(int v) : this.invalid(v);
+  C3.foo(this.v);
+  C3(int v) : this.foo(v);
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -51,11 +42,8 @@ class C3 {
 
 class C4 {
   this.new(var int v);
-  C4.invalid(this.v);
-//^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  C4(int v) : this.invalid(v);
+  C4.foo(this.v);
+  C4(int v) : this.foo(v);
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -63,11 +51,8 @@ class C4 {
 
 class C5 {
   this.new(var int v);
-  C5.invalid(this.v);
-//^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  C5.new(int v) : this.invalid(v);
+  C5.foo(this.v);
+  C5.new(int v) : this.foo(v);
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -76,9 +61,6 @@ class C5 {
 class C6 {
   const this.someName(final int v);
   const C6(this.v);
-//      ^^
-// [analyzer] unspecified
-// [cfe] unspecified
   const C6.someName(int v) : this(v);
 //      ^^^^^^^^^^^
 // [analyzer] unspecified
@@ -115,8 +97,8 @@ class C9 {
 class C10 {
   C10.new(var int v);
   C10.foo(int v) : this(v);
-  factory C10(int v) = C10.foo;
-//        ^^
+  factory C10.new(int v) = C10.foo;
+//        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

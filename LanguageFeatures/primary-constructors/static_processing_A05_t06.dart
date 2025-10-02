@@ -17,11 +17,8 @@ enum E1 {
   e0(1);
 
   const this(final int v);
-  const E1.invalid(this.v);
-//      ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const E1(int v) : this.invalid(v);
+  const E1.foo(this.v);
+  const E1(int v) : this.foo(v);
 //      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -31,10 +28,7 @@ enum E2 {
   e0(2);
 
   const this.new(final int v);
-  const E1.invalid(this.v);
-//      ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  const E1.foo(this.v);
   const E2(int v) : this.invalid(v);
 //      ^^
 // [analyzer] unspecified
@@ -45,11 +39,8 @@ enum E3 {
   e0(3);
 
   const this(final int v);
-  const E3.invalid(this.v);
-//      ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const E3.new(int v) : this.invalid(v);
+  const E3.foo(this.v);
+  const E3.new(int v) : this.foo(v);
 //      ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -59,11 +50,8 @@ enum E4 {
   e0(4);
 
   const this.new(final int v);
-  const E4.invalid(this.v);
-//      ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const E4.new(int v) : this.invalid(v);
+  const E4.foo(this.v);
+  const E4.new(int v) : this.foo(v);
 //      ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -72,11 +60,8 @@ enum E4 {
 enum E5 {
   e0(5);
   const this.someName(final int v);
-  const E4.invalid(this.v);
-//      ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const E5.someName(int v) : this.invalid(v);
+  const E4.foo(this.v);
+  const E5.someName(int v) : this.foo(v);
 //      ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

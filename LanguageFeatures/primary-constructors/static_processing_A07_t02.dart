@@ -12,7 +12,7 @@
 /// `covariant`.
 ///
 /// @description Check that it is a compile-time error if a formal parameter of
-/// a declaring constructor contains a term of the form `this.v` and has the
+/// a declaring constructor contains a term of the form `super.v` and has the
 /// modifier `covariant`. Test classes.
 /// @author sgrekhov22@gmail.com
 
@@ -22,6 +22,7 @@ class A {
   String x;
   A(this.x);
 }
+
 class C1(covariant String super.x) extends A {
 //    ^^
 // [analyzer] unspecified

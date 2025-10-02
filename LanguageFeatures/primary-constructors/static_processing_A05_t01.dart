@@ -14,7 +14,7 @@
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
 class C1(var int v) {
-  C1.invalid(this.v);
+  C1.invalid(this.v); // Needed as redirection target for the constructor below
 //^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -100,10 +100,10 @@ class C10.new(var int v) {
 // [cfe] unspecified
 }
 
-class C11.new(var int v) {
+class C11(var int v) {
   C11.foo(int v) : this(v);
-  factory C11(int v) = C11.foo;
-//        ^^^
+  factory C11.new(int v) = C11.foo;
+//        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
