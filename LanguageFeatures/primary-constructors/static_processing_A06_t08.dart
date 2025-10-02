@@ -28,113 +28,90 @@
 import '../../Utils/expect.dart';
 
 final String x = "top level";
+String setterLog = "";
 
-class C1(var String x) {
-  String _setter = "";
+class C1(String x) {
+  String instance = x;
   String method() => x;
   String get getter => x;
   void set setter(String _) {
-    _setter = x;
+    setterLog = x;
   }
 }
 
-class C2([String var x = "default"]) {
-  String _setter = x;
+class C2([String x = "default"]) {
+  String instance = x;
   String method() => x;
   String get getter => x;
   void set setter(String _) {
-    _setter = x;
+    setterLog = x;
   }
 }
 
-class C3({final var String x = "default"}) {
-  String _setter = "";
+class C3({String x = "default"}) {
+  String instance = x;
   String method() => x;
   String get getter => x;
   void set setter(String _) {
-    instance = x;
+    setterLog = x;
   }
 }
 
-class C4({required var String x}) {
-  String _setter = x;
+class C4({required String x}) {
+  String instance = x;
   String method() => x;
   String get getter => x;
   void set setter(String _) {
-    instance = x;
+    setterLog = x;
   }
 }
 
 main() {
   var c1 = C1("parameter");
-  Expect.equals("parameter", c1.method());
-  Expect.equals("parameter", c1.getter);
+  Expect.equals("parameter", c1.instance);
+  Expect.equals("top level", c1.method());
+  Expect.equals("top level", c1.getter);
   c1.setter = "updated";
-  Expect.equals("parameter", c1._setter);
-  c1.x = "updated";
-  Expect.equals("parameter", c1._setter);
-  Expect.equals("updated", c1.method());
-  Expect.equals("updated", c1.getter);
-  c1.setter = "";
-  Expect.equals("updated", c1._setter);
+  Expect.equals("top level", setterLog);
+  setterLog = "";
 
   var c2 = C2("parameter");
-  Expect.equals("parameter", c2.method());
-  Expect.equals("parameter", c2.getter);
+  Expect.equals("parameter", c2.instance);
+  Expect.equals("top level", c2.method());
+  Expect.equals("top level", c2.getter);
   c2.setter = "updated";
-  Expect.equals("parameter", c2._setter);
-  c2.x = "updated";
-  Expect.equals("parameter", c2._setter);
-  Expect.equals("updated", c2.method());
-  Expect.equals("updated", c2.getter);
-  c2.setter = "";
-  Expect.equals("updated", c2._setter);
+  Expect.equals("top level", setterLog);
+  setterLog = "";
 
   c2 = C2();
-  Expect.equals("default", c2.method());
-  Expect.equals("default", c2.getter);
+  Expect.equals("default", c2.instance);
+  Expect.equals("top level", c2.method());
+  Expect.equals("top level", c2.getter);
   c2.setter = "updated";
-  Expect.equals("default", c2._setter);
-  c2.x = "updated";
-  Expect.equals("default", c2._setter);
-  Expect.equals("updated", c2.method());
-  Expect.equals("updated", c2.getter);
-  c2.setter = "";
-  Expect.equals("updated", c2._setter);
+  Expect.equals("top level", setterLog);
+  setterLog = "";
 
   var c3 = C3(x: "parameter");
-  Expect.equals("parameter", c3.method());
-  Expect.equals("parameter", c3.getter);
+  Expect.equals("parameter", c3.instance);
+  Expect.equals("top level", c3.method());
+  Expect.equals("top level", c3.getter);
   c3.setter = "updated";
-  Expect.equals("parameter", c3._setter);
-  c3.x = "updated";
-  Expect.equals("parameter", c3._setter);
-  Expect.equals("updated", c3.method());
-  Expect.equals("updated", c3.getter);
-  c3.setter = "";
-  Expect.equals("updated", c3._setter);
+  Expect.equals("top level", setterLog);
+  setterLog = "";
 
   c3 = C3();
-  Expect.equals("default", c3.method());
-  Expect.equals("default", c3.getter);
+  Expect.equals("default", c3.instance);
+  Expect.equals("top level", c3.method());
+  Expect.equals("top level", c3.getter);
   c3.setter = "updated";
-  Expect.equals("default", c3._setter);
-  c3.x = "updated";
-  Expect.equals("default", c3._setter);
-  Expect.equals("updated", c3.method());
-  Expect.equals("updated", c3.getter);
-  c3.setter = "";
-  Expect.equals("updated", c3._setter);
+  Expect.equals("top level", setterLog);
+  setterLog = "";
 
   var c4 = C4(x: "parameter");
-  Expect.equals("default", c4.method());
-  Expect.equals("default", c4.getter);
+  Expect.equals("parameter", c4.instance);
+  Expect.equals("top level", c4.method());
+  Expect.equals("top level", c4.getter);
   c4.setter = "updated";
-  Expect.equals("default", c4._setter);
-  c4.x = "updated";
-  Expect.equals("default", c4._setter);
-  Expect.equals("updated", c4.method());
-  Expect.equals("updated", c4.getter);
-  c4.setter = "";
-  Expect.equals("updated", c4._setter);
+  Expect.equals("top level", setterLog);
+  setterLog = "";
 }

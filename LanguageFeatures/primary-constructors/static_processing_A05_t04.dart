@@ -40,15 +40,6 @@ class C3 {
 // [cfe] unspecified
 }
 
-class C4 {
-  this.new(var int v);
-  C4.foo(this.v);
-  C4(int v) : this.foo(v);
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 class C5 {
   this.new(var int v);
   C5.foo(this.v);
