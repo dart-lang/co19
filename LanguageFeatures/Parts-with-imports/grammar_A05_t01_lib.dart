@@ -25,9 +25,11 @@
 /// an unnamed library directive.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=enhanced-parts
 
-library;
+/**/library;
+//  ^^^^^^^
+// [cfe] unspecified
 
 // This is a syntax error, but the tools will recognize `library` above and omit
 // all further analysis of this file, and hence the syntax error (and any other

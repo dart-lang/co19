@@ -9,7 +9,7 @@
 /// an entity which is not a library
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=enhanced-parts
 
 part 'terminology_A05_t04_lib1.dart';
 part 'terminology_A05_t04_lib2.dart';

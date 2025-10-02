@@ -25,13 +25,12 @@
 /// a normal library directive.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=enhanced-parts
 
 library grammar_A05_t02;
 part 'grammar_A05_t02_lib.dart';
-//    ^^^^^^^^^^^^^^^^^^^^^^^^
+//   ^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
 
 main() {
 }
