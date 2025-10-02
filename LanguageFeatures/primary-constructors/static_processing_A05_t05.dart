@@ -22,7 +22,7 @@ extension type ET1 {
 }
 
 extension type ET2 {
-  this(int v);
+  this(final int v);
   ET2.new(this.v);
 //^^^^^^^
 // [analyzer] unspecified
