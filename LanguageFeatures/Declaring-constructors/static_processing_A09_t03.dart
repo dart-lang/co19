@@ -46,35 +46,35 @@ enum E4({required covariant String x}) {
 }
 
 enum E5 {
+  e0("");
   this(covariant String x);
 //     ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e0("");
 }
 
 enum E6 {
+  e0();
   this([covariant String x = ""]);
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e0();
 }
 
 enum E7 {
+  e0();
   this({covariant String x = ""});
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e0();
 }
 
 enum E8 {
+  e0(x: "");
   this({required covariant String x});
 //               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e0(x: "");
 }
 
 main() {

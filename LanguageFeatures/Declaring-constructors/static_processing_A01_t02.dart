@@ -13,21 +13,21 @@
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
-extension type ET1(var int v) {
+extension type ET1(int v) {
   ET1(this.v);
 //^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET2(final int v) {
-  ET2.new(final int v);
+extension type ET2.new(final int v) {
+  ET2.new(this.v);
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET3.someName(var int v) {
+extension type ET3.someName(int v) {
   ET3.someName();
 //    ^^^^^^^^
 // [analyzer] unspecified

@@ -18,7 +18,10 @@ mixin M1() {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin M2; // Ok
+mixin M2;
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 mixin const M3(final int v);
 //          ^^

@@ -21,7 +21,7 @@
 class const C1() {
   final int v;
   const this : v = 0;
-//     ^
+//      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

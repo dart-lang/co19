@@ -21,7 +21,7 @@ class C1(var int v) {
 }
 
 class const C2.someName(final int v) {
-  factory const C2(int v) = C2.someName;
+  factory C2(int v) = C2.someName;
 }
 
 main() {

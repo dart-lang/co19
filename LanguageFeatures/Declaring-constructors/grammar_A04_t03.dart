@@ -51,4 +51,5 @@ enum E3() {
 main() {
   print(E1);
   print(E2);
+  print(E3);
 }
