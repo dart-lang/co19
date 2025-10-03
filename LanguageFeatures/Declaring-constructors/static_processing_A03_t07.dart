@@ -21,7 +21,7 @@ extension type ET1(int v) {
 }
 
 extension type const ET2.someName(final int v) {
-  factory ET2(int v) = ET2.someName;
+  const factory ET2(int v) = ET2.someName;
 }
 
 main() {
