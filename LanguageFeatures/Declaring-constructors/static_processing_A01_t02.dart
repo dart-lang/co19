@@ -20,7 +20,7 @@ extension type ET1(int v) {
 // [cfe] unspecified
 }
 
-extension type ET2.new(final int v) {
+extension type ET2(final int v) {
   ET2.new(this.v);
 //    ^^^
 // [analyzer] unspecified
