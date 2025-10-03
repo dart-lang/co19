@@ -15,8 +15,8 @@
 /// Where no processing is mentioned below, `D2` is identical to `D`. Changes
 /// occur as follows:
 ///
-/// Assume that `p` is an optional formal parameter in `D` which has the
-/// modifier `var` or the modifier `final` (that is, p is a declaring parameter).
+/// Assume that `p` is an formal parameter in `D` which has the modifier `var`
+/// or the modifier `final` (that is, p is a declaring parameter).
 ///
 /// Assume that the combined member signature for a getter with the same name as
 /// `p` from the superinterfaces of `D` exists, and has return type `T`. In that
@@ -33,23 +33,42 @@ import '../../Utils/static_type_helper.dart';
 
 class A1 {
   final num x = 0;
+  final num y = 0;
 }
 
 class A2 {
   num get x => 0;
+  num get y => 0;
 }
 
-class C1([var x = 1]) extends A1;
+class A3 {
+  num x = 0;
+  num y = 0;
+}
 
-class C2([final x = 2]) extends A2;
+class C1(var x, [var y = 1]) extends A1;
 
-class C3({final x = 1}) extends A1;
+class C2(final x, [final y = 2]) extends A2;
 
-class C4({var x = 2}) extends A2;
+class C3(var x, [var y = 3]) extends A3;
+
+class C4(final x, {final y = 1}) extends A1;
+
+class C5(var x, {var y = 2}) extends A2;
+
+class C6(final x, {final y = 3}) extends A3;
 
 main() {
   C1().x.expectStaticType<Exactly<num>>();
+  C1().y.expectStaticType<Exactly<num>>();
   C2().x.expectStaticType<Exactly<num>>();
+  C2().y.expectStaticType<Exactly<num>>();
   C3().x.expectStaticType<Exactly<num>>();
+  C3().y.expectStaticType<Exactly<num>>();
   C4().x.expectStaticType<Exactly<num>>();
+  C4().y.expectStaticType<Exactly<num>>();
+  C5().x.expectStaticType<Exactly<num>>();
+  C5().y.expectStaticType<Exactly<num>>();
+  C6().x.expectStaticType<Exactly<num>>();
+  C6().y.expectStaticType<Exactly<num>>();
 }

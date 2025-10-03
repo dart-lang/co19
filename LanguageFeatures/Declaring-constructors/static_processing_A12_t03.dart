@@ -15,8 +15,8 @@
 /// Where no processing is mentioned below, `D2` is identical to `D`. Changes
 /// occur as follows:
 ///
-/// Assume that `p` is an optional formal parameter in `D` which has the
-/// modifier `var` or the modifier `final` (that is, p is a declaring parameter).
+/// Assume that `p` is an formal parameter in `D` which has the modifier `var`
+/// or the modifier `final` (that is, p is a declaring parameter).
 /// ...
 /// Otherwise, assume that `p` does not have a declared type, but it does have a
 /// default value whose static type in the empty context is a type (not a type
@@ -33,17 +33,21 @@
 
 import '../../Utils/static_type_helper.dart';
 
-class C1([var x]);
+class C1(var x, [var y]);
 
-class C2([final x]);
+class C2(final x, [final y]);
 
-class C3({final x});
+class C3(final x, {final y});
 
-class C4({var x});
+class C4(var x, {var x});
 
 main() {
   C1().x.expectStaticType<Exactly<Object?>>();
+  C1().y.expectStaticType<Exactly<Object?>>();
   C2().x.expectStaticType<Exactly<Object?>>();
+  C2().y.expectStaticType<Exactly<Object?>>();
   C3().x.expectStaticType<Exactly<Object?>>();
+  C3().y.expectStaticType<Exactly<Object?>>();
   C4().x.expectStaticType<Exactly<Object?>>();
+  C4().y.expectStaticType<Exactly<Object?>>();
 }

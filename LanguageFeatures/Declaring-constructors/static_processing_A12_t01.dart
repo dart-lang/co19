@@ -15,8 +15,8 @@
 /// Where no processing is mentioned below, `D2` is identical to `D`. Changes
 /// occur as follows:
 ///
-/// Assume that `p` is an optional formal parameter in `D` which has the
-/// modifier `var` or the modifier `final` (that is, p is a declaring parameter).
+/// Assume that `p` is an formal parameter in `D` which has the modifier `var`
+/// or the modifier `final` (that is, p is a declaring parameter).
 /// ...
 /// Otherwise, assume that `p` does not have a declared type, but it does have a
 /// default value whose static type in the empty context is a type (not a type

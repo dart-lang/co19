@@ -32,17 +32,17 @@
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
-class C1([var x]);
+class C1(var x, [var y]);
 
-class C2([final x]);
+class C2(final x, [final y]);
 
 class C3([var x = null]);
 
 class C4([final x = null]);
 
-class C5({final x});
+class C5(final x, {final y});
 
-class C6({var x});
+class C6(var x, {var x});
 
 class C7({final x = null});
 
@@ -53,7 +53,15 @@ main() {
 //       ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  C1().y.checkDynamic;
+//       ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   C2().x.checkDynamic;
+//       ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C2().y.checkDynamic;
 //       ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -69,7 +77,15 @@ main() {
 //       ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  C5().y.checkDynamic;
+//       ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   C6().x.checkDynamic;
+//       ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C6().y.checkDynamic;
 //       ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

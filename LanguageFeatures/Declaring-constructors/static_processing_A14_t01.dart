@@ -31,7 +31,7 @@ import '../../Utils/expect.dart';
 class const C1(final int v);
 
 class C2 {
-  const (final int v);
+  const this(final int v);
 }
 
 extension type const ET1(int v);
