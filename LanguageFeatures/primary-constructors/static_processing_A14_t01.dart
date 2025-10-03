@@ -20,7 +20,7 @@
 ///
 /// @description Check that the declaring constructor is a constant constructor
 /// if the keyword `const` occurs  just before the name of `D` or before `this`.
-/// Foe an enum declaration the constructor is constant even without the
+/// For an enum declaration the constructor is constant even without the
 /// modifier `const`.
 /// @author sgrekhov22@gmail.com
 
