@@ -33,7 +33,7 @@ mixin class C9();
 
 extension type ET1(int v);
 
-class const C11;
+class C11;
 
 class const C12();
 
@@ -43,13 +43,13 @@ base class const C14(final int v);
 
 final class const C15(final int v);
 
-mixin class const C16;
+mixin class C16;
 
 abstract class const C17(final int v);
 
 sealed class const C18(final int v);
 
-mixin const class C19();
+mixin class C19();
 
 extension type const ET2(int v);
 

@@ -20,7 +20,7 @@ enum const E1(final int v) {
 //      ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const E1(int v) : E1.someName(v);
+  const E1(int v) : this.someName(v);
 //      ^^
 // [analyzer] unspecified
 // [cfe] unspecified

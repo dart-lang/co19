@@ -22,7 +22,7 @@ import '../../Utils/expect.dart';
 // default
 extension type ET1(int v);
 
-extension type const ET2 {
+extension type ET2 {
   this(final int v, int x, [int y = 0]);
 }
 
