@@ -59,7 +59,7 @@ class C6 {
 }
 
 class C7 {
-  C7(var int v);
+  this(var int v);
   C7.foo(int v) : this(v);
   factory C7(int v) = C7.foo;
 //        ^^
@@ -68,7 +68,7 @@ class C7 {
 }
 
 class C8 {
-  C8(var int v);
+  this(var int v);
   C8.foo(int v) : this(v);
   factory C8.new(int v) = C8.foo;
 //        ^^^^^^
@@ -77,7 +77,7 @@ class C8 {
 }
 
 class C9 {
-  C9.new(var int v);
+  this.new(var int v);
   C9.foo(int v) : this(v);
   factory C9(int v) = C9.foo;
 //        ^^
@@ -86,7 +86,7 @@ class C9 {
 }
 
 class C10 {
-  C10.new(var int v);
+  this.new(var int v);
   C10.foo(int v) : this(v);
   factory C10.new(int v) = C10.foo;
 //        ^^^^^^^

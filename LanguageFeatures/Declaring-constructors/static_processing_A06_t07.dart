@@ -31,22 +31,22 @@ String x = "top level";
 
 class C1(var String x) {
   String instance = x;
-  late static String staticLateVariable = x;
+  static late String staticLateVariable = x;
 }
 
 class C2([String x = "default"]) {
   String instance = x;
-  late static String staticLateVariable = x;
+  static late String staticLateVariable = x;
 }
 
 class C3({final String x = "default"}) {
   String instance = x;
-  late static String staticLateVariable = x;
+  static late String staticLateVariable = x;
 }
 
 class C4({required String x}) {
   String instance = x;
-  late static String staticLateVariable = x;
+  static late String staticLateVariable = x;
 }
 
 main() {
