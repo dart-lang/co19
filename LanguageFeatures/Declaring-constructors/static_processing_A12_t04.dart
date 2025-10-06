@@ -49,12 +49,12 @@ class C7({final x = null});
 class C8({var x = null});
 
 main() {
-  C1().x.checkDynamic;
-//       ^^^^^^^^^^^^
+  C1(1).x.checkDynamic;
+//        ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C1().y.checkDynamic;
-//       ^^^^^^^^^^^^
+  C1(1).y.checkDynamic;
+//        ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C2().x.checkDynamic;
@@ -73,20 +73,20 @@ main() {
 //       ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C5().x.checkDynamic;
-//       ^^^^^^^^^^^^
+  C5(5).x.checkDynamic;
+//        ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C5().y.checkDynamic;
-//       ^^^^^^^^^^^^
+  C5(5).y.checkDynamic;
+//        ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C6().x.checkDynamic;
-//       ^^^^^^^^^^^^
+  C6(6).x.checkDynamic;
+//        ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C6().y.checkDynamic;
-//       ^^^^^^^^^^^^
+  C6(6).y.checkDynamic;
+//        ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C7().x.checkDynamic;

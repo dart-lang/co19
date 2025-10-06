@@ -59,16 +59,16 @@ class C5(var x, {var y = 2}) extends A2;
 class C6(final x, {final y = 3}) extends A3;
 
 main() {
-  C1().x.expectStaticType<Exactly<num>>();
-  C1().y.expectStaticType<Exactly<num>>();
-  C2().x.expectStaticType<Exactly<num>>();
-  C2().y.expectStaticType<Exactly<num>>();
-  C3().x.expectStaticType<Exactly<num>>();
-  C3().y.expectStaticType<Exactly<num>>();
-  C4().x.expectStaticType<Exactly<num>>();
-  C4().y.expectStaticType<Exactly<num>>();
-  C5().x.expectStaticType<Exactly<num>>();
-  C5().y.expectStaticType<Exactly<num>>();
-  C6().x.expectStaticType<Exactly<num>>();
-  C6().y.expectStaticType<Exactly<num>>();
+  C1(1).x.expectStaticType<Exactly<num>>();
+  C1(1).y.expectStaticType<Exactly<num>>();
+  C2(2).x.expectStaticType<Exactly<num>>();
+  C2(2).y.expectStaticType<Exactly<num>>();
+  C3(3).x.expectStaticType<Exactly<num>>();
+  C3(3).y.expectStaticType<Exactly<num>>();
+  C4(4).x.expectStaticType<Exactly<num>>();
+  C4(4).y.expectStaticType<Exactly<num>>();
+  C5(5).x.expectStaticType<Exactly<num>>();
+  C5(5).y.expectStaticType<Exactly<num>>();
+  C6(6).x.expectStaticType<Exactly<num>>();
+  C6(6).y.expectStaticType<Exactly<num>>();
 }

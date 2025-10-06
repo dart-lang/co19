@@ -55,7 +55,7 @@ enum E3(final int v) {
 
 enum E4 {
   e0(4);
-  this(final int v);
+  const this(final int v);
 }
 
 main() {

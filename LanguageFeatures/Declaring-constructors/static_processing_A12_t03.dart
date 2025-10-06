@@ -42,12 +42,12 @@ class C3(final x, {final y});
 class C4(var x, {var x});
 
 main() {
-  C1().x.expectStaticType<Exactly<Object?>>();
-  C1().y.expectStaticType<Exactly<Object?>>();
-  C2().x.expectStaticType<Exactly<Object?>>();
-  C2().y.expectStaticType<Exactly<Object?>>();
-  C3().x.expectStaticType<Exactly<Object?>>();
-  C3().y.expectStaticType<Exactly<Object?>>();
-  C4().x.expectStaticType<Exactly<Object?>>();
-  C4().y.expectStaticType<Exactly<Object?>>();
+  C1(1).x.expectStaticType<Exactly<Object?>>();
+  C1(1).y.expectStaticType<Exactly<Object?>>();
+  C2(2).x.expectStaticType<Exactly<Object?>>();
+  C2(2).y.expectStaticType<Exactly<Object?>>();
+  C3(3).x.expectStaticType<Exactly<Object?>>();
+  C3(3).y.expectStaticType<Exactly<Object?>>();
+  C4(4).x.expectStaticType<Exactly<Object?>>();
+  C4(4).y.expectStaticType<Exactly<Object?>>();
 }
