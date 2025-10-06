@@ -11,8 +11,8 @@
 /// `var` nor `final`.
 ///
 /// @description Check that it is a compile-time error if a formal parameters of
-/// a declaring constructor has the modifier `covariant`, but neither `var` nor
-/// `final`. Test enums.
+/// a declaring constructor has the modifier `covariant`, but not `var`. Test
+/// enums.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
