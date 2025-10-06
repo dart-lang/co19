@@ -41,12 +41,12 @@ extension type ET2<T> {
 
 enum E1 {
   e0.id(1);
-  this.id(final int v)
+  const this.id(final int v)
 }
 
 enum E2<T> {
   e0.id(1);
-  this.id(final int v);
+  const this.id(final int v);
 }
 
 main() {
