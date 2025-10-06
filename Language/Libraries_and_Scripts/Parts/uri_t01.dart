@@ -14,6 +14,7 @@ part 'uri_t01_part.dart';
 part 'uri_t01_part.dart';
 //   ^
 // [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(uri_t01_part_var);

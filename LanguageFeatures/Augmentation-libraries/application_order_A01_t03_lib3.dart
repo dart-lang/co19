@@ -14,3 +14,6 @@
 part of 'application_order_A01_t03.dart';
 
 class C {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified

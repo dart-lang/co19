@@ -9,6 +9,6 @@
 /// refers to a Dart file which is not a library.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=enhanced-parts
 
 part 'terminology_A05_t01_lib1.dart';

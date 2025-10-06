@@ -20,7 +20,7 @@ import '../../Utils/expect.dart';
 
 extension type const ET1({final int v = 0});
 
-extension type const ET2 {
+extension type ET2 {
   this({final int v = 0});
 }
 
@@ -33,7 +33,7 @@ extension type ET4 {
 
 extension type const ET5._({required int v}); // It is allowed to omit `final` here
 
-extension type const ET6 {
+extension type ET6 {
   this._({required final int v});
 }
 

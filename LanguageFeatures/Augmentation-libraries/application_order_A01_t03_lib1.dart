@@ -15,6 +15,9 @@ part of 'application_order_A01_t03.dart';
 part 'application_order_A01_t03_lib2.dart';
 
 class A {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 augment class B {}
 //            ^

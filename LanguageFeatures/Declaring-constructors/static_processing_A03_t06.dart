@@ -9,22 +9,22 @@
 /// generative constructor, unless `D` is an extension type.
 ///
 /// @description Check that it is not an error if the body of `D` contains a
-/// factory constructor. Test an extension type.
+/// factory constructor. Test a class.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
 import '../../Utils/expect.dart';
 
-extension type ET1(int v) {
-  factory ET1.someName(int v) => ET1(v);
+class C1(var int v) {
+  factory C1.someName(int v) => C1(v);
 }
 
-extension type const ET2.someName(final int v) {
-  factory const ET2(int v) = ET2.someName;
+class const C2.someName(final int v) {
+  const factory C2(int v) = C2.someName;
 }
 
 main() {
-  Expect.equals(1, ET1(1).v);
-  Expect.equals(2, ET2(2).v);
+  Expect.equals(1, C1(1).v);
+  Expect.equals(2, C2(2).v);
 }

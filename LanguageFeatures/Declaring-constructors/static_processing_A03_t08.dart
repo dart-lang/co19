@@ -25,7 +25,7 @@ enum E1(int v) {
 enum const E2.someName(final int v) {
   e0(2);
 
-  factory E2(int v) => E2.e0;
+  const factory E2(int v) => E2.e0;
 }
 
 main() {
