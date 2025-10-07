@@ -13,8 +13,8 @@
 /// An initializing formal parameter (e.g., `T this.x`) is copied from `L` to
 /// `L2`, along with the default value, if any, and is otherwise unchanged.
 ///
-/// @description Check that initializing formal parameter of a declaring
-/// constructor initializes appropriate instance variable and preserves the
+/// @description Check that an initializing formal parameter of a declaring
+/// constructor initializes the appropriate instance variable and preserves the
 /// default value. Test required parameters.
 /// @author sgrekhov22@gmail.com
 
@@ -48,6 +48,7 @@ enum E1<T>(T this.v1) {
   e0<String>("v1");
   final T v1;
 }
+
 enum E2(this.v1) {
   e0("v1");
   final String v1;

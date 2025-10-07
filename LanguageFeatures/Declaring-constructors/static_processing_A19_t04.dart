@@ -13,9 +13,10 @@
 /// A super parameter is copied from `L` to `L2` along with the default value,
 /// if any, and is otherwise unchanged.
 ///
-/// @description Check that a super parameter of a declaring constructor
-/// initializes appropriate instance variable and preserves the default value.
-/// Test required named parameters.
+/// @description Check that a super parameter (which has a corresponding
+/// initializing formal parameter in the superconstructor) of a declaring
+/// constructor initializes the appropriate instance variable and preserves the
+/// default value. Test required named parameters.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag

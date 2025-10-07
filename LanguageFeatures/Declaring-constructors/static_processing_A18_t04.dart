@@ -13,8 +13,8 @@
 /// An initializing formal parameter (e.g., `T this.x`) is copied from `L` to
 /// `L2`, along with the default value, if any, and is otherwise unchanged.
 ///
-/// @description Check that initializing formal parameter of a declaring
-/// constructor initializes appropriate instance variable and preserves the
+/// @description Check that an initializing formal parameter of a declaring
+/// constructor initializes the appropriate instance variable and preserves the
 /// default value. Test required named parameters.
 /// @author sgrekhov22@gmail.com
 

@@ -19,9 +19,8 @@
 /// parameter remains optional; if it has a default value `d` in `L` then it has
 /// the default value `d` in `L2` as well.
 ///
-/// @description Check that the formal parameters in `L` and `L2` occur in the
-/// same order, and optional named parameters remain optional and preserve their
-/// names and default values.
+/// @description Check that optional named parameters in `L` and `L2` remain
+/// optional and preserve their names and default values.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
