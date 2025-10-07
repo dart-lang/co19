@@ -75,7 +75,7 @@ main() {
   Expect.equals(1, et1.v1);
 
   Expect.isTrue(ET2.new is ET2 Function(int, String, bool));
-  var et2 = ET2(1. "two", true);
+  var et2 = ET2(1, "two", true);
   Expect.equals("two", et2.v2);
   Expect.equals("v1=1;v3=true", log);
 

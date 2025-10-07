@@ -60,7 +60,7 @@ enum E3<T> {
   e0, e1<int>("E3", 2);
   final String v1;
   final T? v2;
-  const this([this.v1 = "v1", T? this.v2])
+  const this([this.v1 = "v1", T? this.v2]);
 }
 
 enum E4 {

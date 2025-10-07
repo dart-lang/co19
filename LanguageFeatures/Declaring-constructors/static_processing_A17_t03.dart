@@ -88,7 +88,7 @@ main() {
   et1 = ET1();
   Expect.equals(1, et1.v1);
 
-  Expect.isTrue(ET2.new is ET2 Function({v1: int, v2: String, v3: bool}));
+  Expect.isTrue(ET2.new is ET2 Function({int v1, String v2, bool v3}));
   var et2 = ET2(42, "2", false);
   Expect.equals("2", et2.v2);
   Expect.equals("v1=42;v3=false", log);
