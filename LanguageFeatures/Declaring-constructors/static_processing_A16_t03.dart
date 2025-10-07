@@ -1,0 +1,59 @@
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The semantics of the declaring constructor is found in the
+/// following steps, where `D` is the class, extension type, or enum declaration
+/// in the program that includes a declaring constructor `k`, and `D2` is the
+/// result of the derivation of the semantics of `D`. The derivation step will
+/// delete elements that amount to the declaring constructor. Semantically, it
+/// will add a new constructor `k2`, and it will add zero or more instance
+/// variable declarations.
+/// ...
+/// Otherwise, `D` is a declaring body constructor. If the reserved word `this`
+/// is followed by `.id` where `id` is an identifier then `k2` has the name
+/// `C.id`. If it is followed by `.new` then `k2` has the name `C`. If it is not
+/// followed by `.` then `k2` has the name `C`.
+///
+/// @description Check that if the reserved word `this` is not followed by `.`
+/// then the name of the constructor is `C`.
+/// @author sgrekhov22@gmail.com
+
+// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+
+import '../../Utils/expect.dart';
+
+class C1 {
+  this(var int v);
+}
+
+class C2<T> {
+  this(var int v);
+}
+
+extension type ET1 {
+  this(int v);
+}
+
+extension type ET2<T> {
+  this(int v);
+}
+
+enum E1 {
+  e0(1);
+  const this(final int v);
+}
+
+enum E2<T> {
+  e0(1);
+  const this(final int v);
+}
+
+main() {
+  // Only a constructor can be invoked with the `new` keyword. This proves that
+  // the name of the constructor is `C1`.
+  new C1(1);
+  new C2(2);
+  new ET1(1);
+  new ET2(2);
+}

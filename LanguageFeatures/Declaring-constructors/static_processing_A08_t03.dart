@@ -8,7 +8,8 @@
 /// declaration `D` named `C`:
 /// ...
 /// A compile-time error occurs if `p` has both of the modifiers `covariant` and
-/// `final`.
+/// `final`, also if the latter is implicitly induced (which can occur in a
+/// primary constructor of an extension type declaration).
 ///
 /// @description Check that it is a compile-time error if a formal parameters of
 /// a declaring constructor has both of the modifiers `covariant` and `final`.

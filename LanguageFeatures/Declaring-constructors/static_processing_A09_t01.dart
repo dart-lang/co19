@@ -7,12 +7,11 @@
 /// parameter of a declaring constructor in a class, enum, or extension type
 /// declaration `D` named `C`:
 /// ...
-/// A compile-time error occurs if `p` has the modifier `covariant`, but neither
-/// `var` nor `final`.
+/// A compile-time error occurs if p has the modifier covariant, but not `var`.
 ///
 /// @description Check that it is a compile-time error if a formal parameters of
-/// a declaring constructor has the modifier `covariant`, but neither `var` nor
-/// `final`. Test classes.
+/// a declaring constructor has the modifier `covariant`, but not `var`. Test
+/// classes.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
