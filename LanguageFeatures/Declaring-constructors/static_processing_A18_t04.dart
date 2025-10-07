@@ -60,14 +60,14 @@ enum E3<T> {
   e0<int>(v1: "E3", v2: 2);
   final String v1;
   final T v2;
-  const this([required this.v1, required T this.v2]);
+  const this({required this.v1, required T this.v2});
 }
 
 enum E4 {
   e0(v1: "E4", v2: 2);
   final String v1;
   final int v2;
-  const this([required String this.v1, required this.v2]);
+  const this({required String this.v1, required this.v2});
 }
 
 main() {
