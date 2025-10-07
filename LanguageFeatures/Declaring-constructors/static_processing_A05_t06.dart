@@ -6,56 +6,71 @@
 /// constructor is the same as the name of a constructor (declaring or not) in
 /// the body.
 ///
-/// @description Check that it is a compile-time error if the name of the
+/// @description Check that it is a compile-time error if the name of an in-body
 /// declaring constructor is the same as the name of some constructor declared
-/// in the body. Test extension types.
+/// in the body. Test enums.
 /// @author sgrekhov22@gmail.com
 
 // TODO (sgrekhov) Add `declaring-constructors` experimental flag
 
-extension type ET1(int v) {
-  ET1(this.v);
-//^^^
+enum E1 {
+  e0(1);
+
+  const this(final int v);
+  const E1.foo(this.v);
+  const E1(int v) : this.foo(v);
+//      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type const ET3.someName(final int v) {
-  const ET3.someName(this.v);
-//      ^^^^^^^^^^^^
+enum E2 {
+  e0(2);
+
+  const this.new(final int v);
+  const E1.foo(this.v);
+  const E2(int v) : this.invalid(v);
+//      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET4 {
-  this.someName(final int v);
-  ET4.someName(this.v);
-//^^^^^^^^^^^^
+enum E3 {
+  e0(3);
+
+  const this(final int v);
+  const E3.foo(this.v);
+  const E3.new(int v) : this.foo(v);
+//      ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET5(final int v) {
-  ET5.someName(int v) : this(v);
-  factory ET5(int v) = ET5.someName;
-//        ^^^
+enum E4 {
+  e0(4);
+
+  const this.new(final int v);
+  const E4.foo(this.v);
+  const E4.new(int v) : this.foo(v);
+//      ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET6 {
-  this.someName(final int v);
-  ET6(this.v);
-  factory ET6.someName(int v) => ET6(v);
-//        ^^^^^^^^^^^^
+enum E5 {
+  e0(5);
+  const this.someName(final int v);
+  const E4.foo(this.v);
+  const E5.someName(int v) : this.foo(v);
+//      ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(ET1);
-  print(ET3);
-  print(ET4);
-  print(ET5);
-  print(ET6);
+  print(E1);
+  print(E2);
+  print(E3);
+  print(E4);
+  print(E5);
 }
