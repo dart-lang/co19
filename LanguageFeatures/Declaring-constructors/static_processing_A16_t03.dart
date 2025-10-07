@@ -50,8 +50,10 @@ enum E2<T> {
 }
 
 main() {
-  Expect.isTrue(C1 is C1 Function(int v));
-  Expect.isTrue(C2 is C2 Function<T>(int v));
-  Expect.isTrue(ET1 is ET1 Function(int v));
-  Expect.isTrue(ET2 is ET2 Function<T>(int v));
+  // Only a constructor can be invoked with the `new` keyword. This proves that
+  // the name of the constructor is `C1`.
+  new C1(1);
+  new C2(2);
+  new ET1(1);
+  new ET2(2);
 }
