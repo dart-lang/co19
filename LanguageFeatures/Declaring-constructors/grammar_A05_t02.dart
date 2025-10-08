@@ -9,7 +9,7 @@
 /// contains more than one declaration of a declaring constructor.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 extension type ET1(int v) {
   this.someName(final int v, final String s);

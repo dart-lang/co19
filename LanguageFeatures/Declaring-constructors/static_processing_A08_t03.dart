@@ -16,7 +16,7 @@
 /// Test enums.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 enum E1(covariant final String x) {
 //                ^^^^^

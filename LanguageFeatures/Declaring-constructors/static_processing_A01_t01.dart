@@ -11,7 +11,7 @@
 /// body.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 class C1(var int v) {
   C1(this.v);

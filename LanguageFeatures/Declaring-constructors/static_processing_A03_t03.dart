@@ -12,7 +12,7 @@
 /// the body of `D` contains a non-redirecting generative constructor.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 import '../../Utils/expect.dart';
 

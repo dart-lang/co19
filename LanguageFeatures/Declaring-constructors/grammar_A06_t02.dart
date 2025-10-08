@@ -11,7 +11,7 @@
 /// default value. Test an extension type.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 extension type A(int v) implements Object {}
 

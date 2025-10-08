@@ -17,7 +17,7 @@
 /// types.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 extension type const ET1(final int v) {
   const this : assert(v > 0);

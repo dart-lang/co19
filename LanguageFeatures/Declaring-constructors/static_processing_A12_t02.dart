@@ -30,7 +30,7 @@
 /// type `Object?`.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 import '../../Utils/static_type_helper.dart';
 
