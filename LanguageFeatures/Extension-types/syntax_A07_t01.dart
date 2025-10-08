@@ -19,16 +19,16 @@
 ///
 /// <extensionTypeMemberDeclaration> ::= <classMemberDefinition>
 ///
-/// @description Checks that it is a compile-time error if an extension type
-/// declaration has no body
+/// @description Checks that it is not an error if an extension type declaration
+/// has no body
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Change it if a primary constructors proposal will be accepted
+// SharedOptions=--enable-experiment=declaring-constructors
+
+import '../../Utils/expect.dart';
+
 extension type ET(int id);
-//                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 main() {
-  print(ET);
+  Expect.equals(1, ET(1).id);
 }

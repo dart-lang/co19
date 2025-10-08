@@ -19,23 +19,19 @@
 ///
 /// <extensionTypeMemberDeclaration> ::= <classMemberDefinition>
 ///
-/// @description Checks that it is a compile-time error if `type` in
-/// `representationDeclaration` is `var` or `var type`.
+/// @description Checks that it is not an error if `type` in
+/// `representationDeclaration` is `final` or `final type`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
 
-extension type ET1(var id) {}
-//                 ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+import '../../Utils/expect.dart';
 
-extension type ET2.n1(var int id) {}
-//                    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+extension type ET1.someName(final id) {}
+
+extension type ET2(final int id) {}
 
 main() {
-  print(ET1);
-  print(ET2);
+  Expect.equals(1, ET1.someName(1).id);
+  Expect.equals(2, ET2(2).id);
 }
