@@ -11,7 +11,7 @@
 /// with a non-trivial declaring constructor.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 mixin class M1() {} // Ok, this declares a "trivial" constructor
 

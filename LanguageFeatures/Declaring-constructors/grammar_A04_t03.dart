@@ -16,7 +16,7 @@
 /// the part of the primary constructor that occurs in the body. Test enums.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 enum const E1(final int v) {
   e0(1);

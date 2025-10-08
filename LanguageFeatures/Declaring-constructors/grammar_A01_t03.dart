@@ -9,7 +9,7 @@
 /// treated as an extension type declaration whose class body is `{}`.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 extension type ET1;
 //             ^^^

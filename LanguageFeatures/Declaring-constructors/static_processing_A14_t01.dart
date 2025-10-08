@@ -24,7 +24,7 @@
 /// modifier `const`.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 import '../../Utils/expect.dart';
 

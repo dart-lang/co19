@@ -12,7 +12,7 @@
 /// contains a non-redirecting generative constructor. Test an enum.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 enum const E1(final int v) {
   e0(1);

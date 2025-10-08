@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+#3315. Add ex// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -9,7 +9,7 @@
 /// contains more than one declaration of a declaring constructor.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 extension type ET1(int v) {
   this.someName(final int v, final String s);

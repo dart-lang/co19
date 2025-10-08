@@ -30,7 +30,7 @@
 /// `dynamic`.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 class C1(var x, [var y]);
 

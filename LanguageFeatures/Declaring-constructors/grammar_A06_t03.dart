@@ -11,7 +11,7 @@
 /// default value. Test an enum.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 enum E1(final int v, {required final String s = ""}) {
 //                                            ^

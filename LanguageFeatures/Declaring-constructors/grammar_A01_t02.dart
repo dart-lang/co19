@@ -9,7 +9,7 @@
 /// an enum declaration whose class body is `{}`.
 /// @author sgrekhov22@gmail.com
 
-// TODO (sgrekhov) Add `declaring-constructors` experimental flag
+// SharedOptions=--enable-experiment=declaring-constructors
 
 enum E0();
 //   ^^
