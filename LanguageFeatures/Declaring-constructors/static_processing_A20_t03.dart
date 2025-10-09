@@ -14,8 +14,10 @@
 /// does not have the modifier `var` or the modifier `final` is copied unchanged
 /// from `L` to `L2` (this is a plain, non-declaring parameter).
 ///
-/// @description Check that a plain, non-declaring parameter is copied unchanged
-/// from `L` to `L2`. Test optional named parameters.
+/// @description Check that the value of an actual argument of a plain,
+/// non-declaring parameter is treated in a way that corresponds to the
+/// parameter declaration being the same in `k` and in `k2`. Test optional named
+/// parameters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
@@ -27,41 +29,37 @@ String log = "";
 class C1<T>({String v1 = "default", T? v2}) {
   String x1;
   T? x2;
-  this : this.x1 = v1, this.x2 = v2;
+  this : this.x1 = v1, x2 = v2;
 }
 
 class C2({String v1 = "default", int v2 = 2}) {
   String x1;
   int x2;
-  this : this.x1 = v1, this.x2 = v2;
+  this : this.x1 = v1, x2 = v2;
 }
 
 class C3<T> {
   String x1;
   T? x2;
-  this({String v1 = "default", T? v2}) : this.x1 = v1, this.x2 = v2;
+  this({String v1 = "default", T? v2}) : this.x1 = v1, x2 = v2;
 }
 
 class C4 {
   String x1;
   int x2;
-  this({String v1 = "default", T v2 = 2}) : this.x1 = v1, this.x2 = v2;
+  this({String v1 = "default", T v2 = 2}) : this.x1 = v1, x2 = v2;
 }
 
-extension type ET1<T>(final int v, {T? s}) {
-  this : log = "$s";
+extension type ET1<T> {
+  this(final int v, {T? t}) {
+    log = "$t";
+  }
 }
 
-extension type ET2(final int v, {String s = "default"}) {
-  this : log = s;
-}
-
-extension type ET3<T> {
-  this(final int v, {T? t}) : log = "$t";
-}
-
-extension type ET4 {
-  this(final int v, {String s = "default"}) : log = s;
+extension type ET2 {
+  this(final int v, {String s = "default"}) {
+    log = s;
+  }
 }
 
 enum E1<T>({T? t}) {
@@ -120,7 +118,7 @@ main() {
   var et1 = ET1<String>(1, t: "ET1");
   Expect.equals(1, et1.v);
   Expect.equals("ET1", log);
-  et1 = ET1<int>(2);
+  et1 = ET1<String>(2);
   Expect.equals(2, et1.v);
   Expect.equals("${null}", log);
 
@@ -129,20 +127,6 @@ main() {
   Expect.equals("ET2", log);
   et2 = ET2(2);
   Expect.equals(2, et2.v);
-  Expect.equals("default", log);
-
-  var et3 = ET3<String>(1, t: "ET3");
-  Expect.equals(1, et3.v);
-  Expect.equals("ET3", log);
-  et3 = ET3<String>(2);
-  Expect.equals(2, et3.v);
-  Expect.equals("${null}", log);
-
-  var et4 = ET4(1, s: "ET4");
-  Expect.equals(1, et4.v);
-  Expect.equals("ET4", log);
-  et4 = ET4(2);
-  Expect.equals(2, et4.v);
   Expect.equals("default", log);
 
   Expect.equals("E1", E1.e0.v);

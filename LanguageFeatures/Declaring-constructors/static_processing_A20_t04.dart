@@ -14,52 +14,52 @@
 /// does not have the modifier `var` or the modifier `final` is copied unchanged
 /// from `L` to `L2` (this is a plain, non-declaring parameter).
 ///
-/// @description Check that a plain, non-declaring parameter is copied unchanged
-/// from `L` to `L2`. Test required named parameters.
+/// @description Check that the value of an actual argument of a plain,
+/// non-declaring parameter is treated in a way that corresponds to the
+/// parameter declaration being the same in `k` and in `k2`. Test required named
+/// parameters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
 
 import '../../Utils/expect.dart';
 
+String log = "";
+
 class C1<T>({required String v1, required T v2}) {
   String x1;
   T x2;
-  this : this.x1 = v1, this.x2 = v2;
+  this : this.x1 = v1, x2 = v2;
 }
 
 class C2({required String v1, required int v2}) {
   String x1;
   int x2;
-  this : this.x1 = v1, this.x2 = v2;
+  this : this.x1 = v1, x2 = v2;
 }
 
 class C3<T> {
   String x1;
   T x2;
-  this({required String v1, required T v2}) : this.x1 = v1, this.x2 = v2;
+  this({required String v1, required T v2}) : this.x1 = v1, x2 = v2;
 }
 
 class C4 {
   String x1;
   int x2;
-  this({required String v1, T v2}) : this.x1 = v1, this.x2 = v2;
+  this({required String v1, required T v2}) : this.x1 = v1, x2 = v2;
 }
 
-extension type ET1<T>(final int v, {required T s}) {
-  this : log = "$s";
+extension type ET1<T> {
+  this(final int v, {required T t}) {
+    log = "$t";
+  }
 }
 
-extension type ET2(final int v, {required String s}) {
-  this : log = s;
-}
-
-extension type ET3<T> {
-  this(final int v, {required T t}) : log = "$t";
-}
-
-extension type ET4 {
-  this(final int v, {required String s}) : log = s;
+extension type ET2 {
+  this(final int v, {required String s}) {
+    log = s;
+  }
 }
 
 enum E1<T>({required T t}) {
@@ -110,14 +110,6 @@ main() {
   var et2 = ET2(2, s: "ET2");
   Expect.equals(2, et2.v);
   Expect.equals("ET2", log);
-
-  var et3 = ET3<String>(3, t: "ET3");
-  Expect.equals(3, et3.v);
-  Expect.equals("ET3", log);
-
-  var et4 = ET4(4, s: "ET4");
-  Expect.equals(4, et4.v);
-  Expect.equals("ET4", log);
 
   Expect.equals("E1", E1.e0.v);
   Expect.equals("E2", E2.e0.v);
