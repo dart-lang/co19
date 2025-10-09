@@ -45,13 +45,21 @@ class C4 {
 main() {
   var c1 = C1<int>(v: 1);
   Expect.equals(1, c1.v);
+  c1.v = 2;
+  Expect.equals(2, c1.v);
 
   var c2 = C2(v: 1);
   Expect.equals(1, c2.v);
+  c2.v = 2;
+  Expect.equals(2, c2.v);
 
   var c3 = C3<int>(v: 1);
   Expect.equals(1, c3.v);
+  c3.v = 2;
+  Expect.equals(2, c3.v);
 
   var c4 = C4(v: 1);
   Expect.equals(1, c4.v);
+  c4.v = 2;
+  Expect.equals(2, c4.v);
 }

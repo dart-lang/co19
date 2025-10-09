@@ -23,7 +23,7 @@
 /// @description Check that a formal parameter of the form `var T p` where `T`
 /// is a type and `p` is an identifier is replaced in `L2` by `this.p`
 /// and a semantic instance variable declaration corresponding to the syntax
-/// `T p;` (without `final`) is added to `D2`. Test required parameters.
+/// `T p;` (without `final`) is added to `D2`. Test mandatory parameters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors

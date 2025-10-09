@@ -44,7 +44,7 @@ extension type ET1<T>({required final T v});
 extension type ET2({required String v});
 
 extension type ET3<T> {
-  this({required T t});
+  this({required final T t});
 }
 
 extension type ET4 {

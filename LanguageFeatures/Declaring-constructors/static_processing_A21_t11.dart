@@ -44,7 +44,7 @@ extension type ET1<T>({final T? v});
 extension type ET2({String v = "default"});
 
 extension type ET3<T> {
-  this({T? t});
+  this({final T? t});
 }
 
 extension type ET4 {

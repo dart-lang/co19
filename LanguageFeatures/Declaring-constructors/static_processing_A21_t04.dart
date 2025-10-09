@@ -23,7 +23,7 @@
 /// @description Check that a formal parameter of the form `var T p` and
 /// `final T p` where `T` is a type and `p` is an identifier is replaced in `L2`
 /// by `this.p` and a semantic instance variable declaration corresponding to
-/// the syntax `T p;` or `final T p;` is added to `D2`. Test optional named
+/// the syntax `T p;` or `final T p;` is added to `D2`. Test required named
 /// parameters.
 /// @author sgrekhov22@gmail.com
 
@@ -48,7 +48,7 @@ extension type ET1<T>({required final T v});
 extension type ET2({required String v});
 
 extension type ET3<T> {
-  this({required T t});
+  this({required final T t});
 }
 
 extension type ET4 {

@@ -16,7 +16,7 @@
 /// @description Check that a super parameter (which has a corresponding
 /// initializing formal parameter in the superconstructor) of a declaring
 /// constructor initializes the appropriate instance variable and preserves the
-/// default value. Test optional positioned parameters.
+/// default value. Test optional positional parameters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors

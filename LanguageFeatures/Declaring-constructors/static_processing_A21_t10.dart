@@ -21,7 +21,7 @@
 /// is added to the instance variable declaration named `p`.
 ///
 /// @description Check that it is a compile time error to assign a value to a
-/// final instance variable introduced by a optional positioned parameter of a
+/// final instance variable introduced by a optional positional parameter of a
 /// declaring constructor.
 /// @author sgrekhov22@gmail.com
 
@@ -44,7 +44,7 @@ extension type ET1<T>([final T? v]);
 extension type ET2([String v = "default"]);
 
 extension type ET3<T> {
-  this([T? t]);
+  this([final T? t]);
 }
 
 extension type ET4 {
