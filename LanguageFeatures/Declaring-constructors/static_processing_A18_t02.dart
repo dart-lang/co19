@@ -15,7 +15,7 @@
 ///
 /// @description Check that an initializing formal parameter of a declaring
 /// constructor initializes the appropriate instance variable and preserves the
-/// default value. Test optional positioned parameters.
+/// default value. Test optional positional parameters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors

@@ -21,8 +21,6 @@
 
 // SharedOptions=--enable-experiment=declaring-constructors
 
-import '../../Utils/expect.dart';
-
 class C1 {
   this(var int v);
 }
