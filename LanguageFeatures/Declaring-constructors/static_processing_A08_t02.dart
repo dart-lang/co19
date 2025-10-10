@@ -40,7 +40,7 @@ extension type ET4({required covariant String x}) {}
 // [cfe] unspecified
 
 extension type ET5 {
-  this(covariant String x);
+  this(covariant final String x);
 //     ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -48,13 +48,13 @@ extension type ET5 {
 
 extension type ET6 {
   this([covariant final String x = ""]);
-//                ^^^^^
+//      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET7 {
-  this({covariant String x = ""});
+  this({covariant final String x = ""});
 //      ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -62,7 +62,7 @@ extension type ET7 {
 
 extension type ET8 {
   this({required covariant final String x});
-//                         ^^^^^
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
