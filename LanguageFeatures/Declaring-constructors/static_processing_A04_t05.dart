@@ -35,7 +35,7 @@ extension type ET3 {
 
 extension type ET4 {
   const this.someName();
-//            ^^^^^^^
+//           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

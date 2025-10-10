@@ -22,6 +22,7 @@
 ///
 /// @description Check that it is a compile-time error if a declaring
 /// constructor contains two formal parameters with the same name.
+/// Test declaring vs. declaring parameters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
