@@ -15,15 +15,13 @@
 /// Where no processing is mentioned below, `D2` is identical to `D`. Changes
 /// occur as follows:
 ///
-/// Assume that `p` is an formal parameter in `D` which has the modifier `var`
-/// or the modifier `final` (that is, p is a declaring parameter).
+/// Let `p` be a formal parameter in `k` which has the modifier `var` or the
+/// modifier `final` (that is, `p` is a declaring parameter).
+///
+/// Consider the situation where `p` has no type annotation:
 /// ...
-/// Otherwise, assume that `p` does not have a declared type, but it does have a
-/// default value whose static type in the empty context is a type (not a type
-/// schema) `T` which is not `Null`. In that case `p` is considered to have the
-/// declared type `T`. When `T` is `Null`, `p` is considered to have the
-/// declared type `Object?`. If `p` does not have a declared type nor a default
-/// value then `p` is considered to have the declared type `Object?`.
+/// - otherwise, if `p` does not have a default value then `p` has declared type
+///   `Object?`.
 ///
 /// @description Check that if `p` does not have a declared type nor a default
 /// value then `p` is considered to have the declared type `Object?`.
@@ -41,6 +39,10 @@ class C3(final x, {final y});
 
 class C4(var x, {var x});
 
+class C5(final x, {required final y});
+
+class C6(var x, {required var x});
+
 main() {
   C1(1).x.expectStaticType<Exactly<Object?>>();
   C1(1).y.expectStaticType<Exactly<Object?>>();
@@ -50,4 +52,8 @@ main() {
   C3(3).y.expectStaticType<Exactly<Object?>>();
   C4(4).x.expectStaticType<Exactly<Object?>>();
   C4(4).y.expectStaticType<Exactly<Object?>>();
+  C5(5, y: 5).x.expectStaticType<Exactly<Object?>>();
+  C5(5, y: 5).y.expectStaticType<Exactly<Object?>>();
+  C6(6, y: 6).x.expectStaticType<Exactly<Object?>>();
+  C6(6, y: 6).y.expectStaticType<Exactly<Object?>>();
 }
