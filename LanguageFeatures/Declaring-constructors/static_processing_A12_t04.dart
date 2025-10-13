@@ -15,15 +15,13 @@
 /// Where no processing is mentioned below, `D2` is identical to `D`. Changes
 /// occur as follows:
 ///
-/// Assume that `p` is an optional formal parameter in `D` which has the
-/// modifier `var` or the modifier `final` (that is, p is a declaring parameter).
+/// Let `p` be a formal parameter in `k` which has the modifier `var` or the
+/// modifier `final` (that is, `p` is a declaring parameter).
+///
+/// Consider the situation where `p` has no type annotation:
 /// ...
-/// Otherwise, assume that `p` does not have a declared type, but it does have a
-/// default value whose static type in the empty context is a type (not a type
-/// schema) `T` which is not `Null`. In that case `p` is considered to have the
-/// declared type `T`. When `T` is `Null`, `p` is considered to have the
-/// declared type `Object?`. If `p` does not have a declared type nor a default
-/// value then `p` is considered to have the declared type `Object?`.
+/// - otherwise, if `p` does not have a default value then `p` has declared type
+///   `Object?`.
 ///
 /// @description Check that if `p` does not have a declared type and its default
 /// value is `Null` or absent then the declared type of `p` is `Object?` not

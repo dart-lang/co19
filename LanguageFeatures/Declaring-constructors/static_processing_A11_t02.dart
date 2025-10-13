@@ -25,45 +25,32 @@
 ///   same basename exists, with a formal parameter whose type is `T`, the
 ///   parameter `p` has declared type `T`.
 ///
-/// @description Check that if the combined member signature for a getter with
-/// the same name as `p` from the superinterfaces of `D` exists, and has return
-/// type `T` then the parameter `p` has declared type `T` as well.
+/// @description Check that if the combined member signature for a setter with
+/// the same basename as `p` from the superinterfaces of `D` exists, and has a
+/// formal parameter type `T` then the parameter `p` has declared type `T` as
+/// well.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
 
 import '../../Utils/static_type_helper.dart';
 
-class A1 {
-  final num x = 0;
-  final num y = 0;
+class A {
+  void set x(num x) {}
+  void set y(num x) {}
 }
 
-class A2 {
-  num get x => 0;
-  num get y => 0;
-}
+class C1(var x, [var y = 1]) extends A;
 
-class A3 {
-  num x = 0;
-  num y = 0;
-}
+class C2(final x, [final y = 2]) extends A;
 
-class C1(var x, [var y = 1]) extends A1;
+class C3(final x, {final y = 1}) extends A;
 
-class C2(final x, [final y = 2]) extends A2;
+class C4(var x, {var y = 2}) extends A;
 
-class C3(var x, [var y = 3]) extends A3;
+class C5(final x, {required final y}) extends A;
 
-class C4(final x, {final y = 1}) extends A1;
-
-class C5(var x, {var y = 2}) extends A2;
-
-class C6(final x, {final y = 3}) extends A3;
-
-class C7(var x, {required var y}) extends A1;
-
-class C8(final x, {required final y}) extends A2;
+class C6(var x, {required var y}) extends A;
 
 main() {
   C1(1).x.expectStaticType<Exactly<num>>();
@@ -74,12 +61,8 @@ main() {
   C3(3).y.expectStaticType<Exactly<num>>();
   C4(4).x.expectStaticType<Exactly<num>>();
   C4(4).y.expectStaticType<Exactly<num>>();
-  C5(5).x.expectStaticType<Exactly<num>>();
-  C5(5).y.expectStaticType<Exactly<num>>();
-  C6(6).x.expectStaticType<Exactly<num>>();
-  C6(6).y.expectStaticType<Exactly<num>>();
-  C7(7, y: 7).x.expectStaticType<Exactly<num>>();
-  C7(7, y: 7).y.expectStaticType<Exactly<num>>();
-  C8(8, y: 8).x.expectStaticType<Exactly<num>>();
-  C8(8, y: 8).y.expectStaticType<Exactly<num>>();
+  C5(5, y: 5).x.expectStaticType<Exactly<num>>();
+  C5(5, y: 5).y.expectStaticType<Exactly<num>>();
+  C6(6, y: 6).x.expectStaticType<Exactly<num>>();
+  C6(6, y: 6).y.expectStaticType<Exactly<num>>();
 }
