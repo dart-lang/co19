@@ -39,7 +39,7 @@ extension type ET1._(int v) {
 
 extension type ET2._(int v) {
   factory ET2(int v) = new.someName;
-//        ^^^
+//                     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   ET2.someName(this.v);
