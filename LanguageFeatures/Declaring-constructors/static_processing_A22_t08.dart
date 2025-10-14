@@ -44,7 +44,7 @@ class C1<T>({required var int v1, required final T v2, required var bool v3}) {
 }
 
 class C2<T> {
-  this({required var int v1, required final T v2, required var bool v3});
+  this({required final int v1, required var T v2, required final bool v3});
   static int get v1 => 0;
 //               ^^
 // [analyzer] unspecified

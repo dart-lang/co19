@@ -44,7 +44,7 @@ class C1<T>({var String v1 = "", final T? v2, var bool v3 = true}) {
 }
 
 class C2<T> {
-  this({var String v1 = "", final T? v2, var bool v3 = true});
+  this({final String v1 = "", var T? v2, final bool v3 = true});
   static String get v1 => "";
 //                  ^^
 // [analyzer] unspecified
