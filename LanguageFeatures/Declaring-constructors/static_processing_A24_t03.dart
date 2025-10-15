@@ -14,8 +14,9 @@
 /// `k2` has an initializer list with the same elements in the same order.
 ///
 /// @description Check that it is a compile-time error if a parameter of a
-/// declaring constructor is initialized both in the constructor and in the
-/// initializer list. Test classes.
+/// declaring constructor is initialized both by an initializing formal or by a
+/// declaring formal parameter of a declaing constructor and in the initializer
+/// list. Test classes.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
@@ -48,8 +49,8 @@ class C3(this.x) {
 }
 
 class C4(super.z) extends A {
-  this: z = 0;
-//      ^
+  this: super(0);
+//      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -119,8 +120,8 @@ class C13 {
 }
 
 class C14 extends A {
-  this(super.z) : z = 0;
-//                ^
+  this(super.z) : super(0);
+//                ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

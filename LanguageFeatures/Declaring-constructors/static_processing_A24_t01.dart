@@ -23,11 +23,6 @@ import '../../Utils/expect.dart';
 
 class A(int z);
 
-class C1 extends A {
-  int x;
-  this: x = 1, super(-1);
-}
-
 class C2() extends A {
   int x;
   this: x = 2, super(-2);
@@ -48,12 +43,6 @@ class C5 extends A {
   this(int x) : x = 5, super(-5);
 }
 
-enum E1 {
-  e0();
-  final int x;
-  this : x = 1;
-}
-
 enum E2() {
   e0();
   final int x;
@@ -69,18 +58,16 @@ enum E3(int x) {
 enum E4 {
   e0();
   final int x;
-  this() : x = 4;
+  const this() : x = 4;
 }
 
 enum E5 {
   e0(5);
   final int x;
-  this(int x) : x = x;
+  const this(int x) : x = x;
 }
 
 main() {
-  Expect.equals(1, C1().x);
-  Expect.equals(-1, C1().z);
   Expect.equals(2, C2().x);
   Expect.equals(-2, C2().z);
   Expect.equals(3, C3(3).x);
@@ -90,7 +77,6 @@ main() {
   Expect.equals(5, C5(5).x);
   Expect.equals(-5, C5(5).z);
 
-  Expect.equals(1, E1.e0.x);
   Expect.equals(2, E2.e0.x);
   Expect.equals(3, E3.e0.x);
   Expect.equals(4, E4.e0.x);

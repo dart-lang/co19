@@ -22,14 +22,6 @@
 
 class A(int z);
 
-class C1 extends A {
-  int x;
-  this: super(-1), x = 1;
-//      ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 class C2() extends A {
   int x;
   this: super(-2), x = 2;
@@ -63,7 +55,6 @@ class C5 extends A {
 }
 
 main() {
-  print(C1);
   print(C2);
   print(C3);
   print(C4);
