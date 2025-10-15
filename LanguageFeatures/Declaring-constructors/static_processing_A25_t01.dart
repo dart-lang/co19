@@ -67,7 +67,7 @@ class C7 {
 
 class C8 {
   final int v;
-  new(int v) : v = v;
+  const new(int v) : v = v;
   const factory new.someName(int v) = C8;
 }
 

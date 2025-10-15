@@ -41,7 +41,7 @@ extension type ET5._(int v) {
 }
 
 extension type ET6._(int v) {
-  new(int v) : v = v;
+  const new(int v) : v = v;
   const factory new.someName(int v) = ET6;
 }
 
