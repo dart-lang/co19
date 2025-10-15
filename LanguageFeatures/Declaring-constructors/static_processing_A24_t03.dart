@@ -15,7 +15,7 @@
 ///
 /// @description Check that it is a compile-time error if a parameter of a
 /// declaring constructor is initialized both by an initializing formal or by a
-/// declaring formal parameter of a declaing constructor and in the initializer
+/// declaring formal parameter of a declaring constructor and in the initializer
 /// list. Test classes.
 /// @author sgrekhov22@gmail.com
 
