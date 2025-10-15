@@ -13,18 +13,13 @@
 /// If there is an initializer list following the formal parameter list `L` then
 /// `k2` has an initializer list with the same elements in the same order.
 ///
-/// @description Check that it is a compile-time error if a parameter of a
-/// declaring constructor is initialized both by an initializing formal or by a
-/// declaring formal parameter of a declaring constructor and in the initializer
-/// list. Test classes.
+/// @description Check that it is a compile-time error if an instance variable
+/// is initialized both by an initializing formal or by a declaring formal
+/// parameter of a declaring constructor and in the initializer list. Test
+/// classes.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
-
-class A {
-  int z;
-  A(this.z);
-}
 
 class C1(var int x) {
   this: x = 1;
@@ -44,13 +39,6 @@ class C3(this.x) {
   int x;
   this: x = x;
 //      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C4(super.z) extends A {
-  this: super(0);
-//      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -115,13 +103,6 @@ class C13 {
   int x;
   this(this.x) : x = x;
 //               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C14 extends A {
-  this(super.z) : super(0);
-//                ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

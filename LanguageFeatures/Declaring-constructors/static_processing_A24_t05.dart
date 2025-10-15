@@ -13,9 +13,9 @@
 /// If there is an initializer list following the formal parameter list `L` then
 /// `k2` has an initializer list with the same elements in the same order.
 ///
-/// @description Check that it is a compile-time error if a parameter of a
-/// declaring constructor is initialized both in the constructor and in the
-/// initializer list. Test enums.
+/// @description Check that it is a compile-time error if an instance variable
+/// is initialized both by an initializing formal or by a declaring formal
+/// parameter of a declaring constructor and in the initializer list. Test enums.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
