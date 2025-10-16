@@ -36,7 +36,7 @@ enum E2.someName(final int v) {
 // [cfe] unspecified
 }
 
-enum E3() {
+enum E3.someName() {
   e0;
   final int v;
 //          ^
