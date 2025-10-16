@@ -17,8 +17,6 @@ import '../../../../pkg/vm_service/test/common/service_test_common.dart';
 import '../../../../pkg/vm_service/test/common/test_helper.dart';
 import '../Utils/expect.dart';
 
-const String shortFile = 'digit_separators_t01.dart';
-
 void testeeMain() {
   var v1 = 1_000__000_000;
   var v2 = 0x4000_0000__0000_0000;
