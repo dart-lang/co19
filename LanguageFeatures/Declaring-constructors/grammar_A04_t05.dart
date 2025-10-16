@@ -11,39 +11,87 @@
 /// must be the location where all parts of the signature of that primary
 /// constructor are specified.
 ///
-/// @description Check that it is a compile-time error if the keyword `const` is
-/// specified in the class header when it contains a primary constructor, and in
-/// the part of the primary constructor that occurs in the body. Test classes.
+/// @description Check that it is a compile-time error if a class header
+/// contains a primary constructor and the keyword const is specified before its
+/// `this` part in the body.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
 
-class const C1() {
+class C1() {
   final int v;
   const this : v = 0;
-//      ^
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class const C2(final int v) {
+class C2(int v) {
   const this : assert(v > 0);
-//      ^
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class const C3.someName(final int v) {
+class C3.someName(final int v) {
   const this.someName : assert(v > 0);
-//      ^
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class const C4.someName() {
-  int? v;
+class C4.someName() {
+  int v;
   const this.someName : v = 0;
-//      ^
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET1(int v) {
+  const this: assert(v > 0);
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET2.someName(int v) {
+  const this.someName: assert(v > 0);
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E1() {
+  e0;
+  final int v;
+  const this : v = 0;
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E2(int v) {
+  e0(1);
+  const this : assert(v > 0);
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E3.someName(final int v) {
+  e0.someName(0);
+  const this.someName : assert(v > 0);
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E4.someName() {
+  e0.someName();
+  final int v;
+  const this.someName : v = 0;
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -53,4 +101,10 @@ main() {
   print(C2);
   print(C3);
   print(C4);
+  print(ET1);
+  print(ET2);
+  print(E1);
+  print(E2);
+  print(E3);
+  print(E4);
 }
