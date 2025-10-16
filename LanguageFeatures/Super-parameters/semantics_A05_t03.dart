@@ -26,7 +26,7 @@ class C1({super.n}) extends S {
 }
 
 class C2.someName({super.n}) extends S {
-  this.someName : super();
+  this.someName : super(n: 42);
 //                ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -47,7 +47,7 @@ class C4 extends S {
 }
 
 class C5.someName({super.n}) extends S {
-  this.someName : super();
+  this.someName : super(n: 42);
 //                ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
