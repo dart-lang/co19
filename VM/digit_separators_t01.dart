@@ -19,7 +19,7 @@ import '../Utils/expect.dart';
 
 void testeeMain() {
   var v1 = 1_000__000_000;
-  var v2 = 0x4000_0000__0000_0000;
+  var v2 = 0x4__000_0000;
   debugger();
 }
 
@@ -35,7 +35,7 @@ final tests = <IsolateTest>[
     Expect.equals('1000000000', response.valueAsString);
 
     response = await service.evaluateInFrame(isolateId, 0, 'v2') as InstanceRef;
-    Expect.equals(0x4000000000000000.toRadixString(10), response.valueAsString);
+    Expect.equals(0x40000000.toRadixString(10), response.valueAsString);
 
     response =
         await service.evaluateInFrame(isolateId, 0, 'v1 + 1_2__3')
@@ -45,7 +45,7 @@ final tests = <IsolateTest>[
     response =
         await service.evaluateInFrame(isolateId, 0, 'v2 + 0x1_2__3')
             as InstanceRef;
-    Expect.equals(0x4000000000000123.toRadixString(10), response.valueAsString);
+    Expect.equals(0x40000123.toRadixString(10), response.valueAsString);
   },
 ];
 
