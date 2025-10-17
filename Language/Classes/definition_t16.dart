@@ -28,6 +28,5 @@
 main() {
   new A();
 }
-// [error line 34, column 0]
-// [analyzer] unspecified
+// [error line 33, column 0]
 // [cfe] unspecified
