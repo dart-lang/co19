@@ -12,13 +12,15 @@
 /// Class body is not empty.
 /// @author rodionov
 
-
-class A (
-//      ^
+/**/class A (
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  var someMember;
-}
+    var someMember;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+/**/}
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -26,6 +28,6 @@ class A (
 main() {
   new A();
 }
-// [error line 31, column 0]
+// [error line 34, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
