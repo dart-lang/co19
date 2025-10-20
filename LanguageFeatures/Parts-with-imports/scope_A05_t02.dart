@@ -2,12 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Let P be a prefix scope containing all the import prefixes
-/// declared by the current file. The parent scope of P is I.
+/// @assertion Let `P`, the combined import scope of `F`, be a scope with `I` as
+/// enclosing scope and a namespace containing every import prefix declared by
+/// an import declaration of `F`.
 /// ...
-/// - If an import is `deferred`, its Pname is a deferred scope which
-///   has an extra `loadLibrary` member added, as usual, and the import has an
-///   implicit `hide  loadLibrary` modifier.
+/// - If an import is `deferred`, its `Pname` is a deferred scope which has an
+///   extra `loadLibrary` member added, and the import implicitly hides any
+///   member named loadLibrary in the (singular) imported library's export scope
+///   (as usual).
 ///
 /// @description Check that if an import is deferred an extra `loadLibrary`
 /// member is added and it can be a runtime error to access any of its members
