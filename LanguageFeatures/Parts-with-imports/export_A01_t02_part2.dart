@@ -3,10 +3,11 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Any Dart file can contain an `export` directive. It makes no
-/// difference which file an `export` is in, its declarations (filtered by any
-/// `hide` or `show` modifiers) are added to the library’s single export scope,
-/// along with those of any other `exports` in the library and the non-private
-/// declarations of the library itself.
+/// difference which file an `export` is in, its exported declarations (filtered
+/// by any `hide` or `show` combinators) are added to the library's single
+/// export scope, along with those of any other export directives in the library
+/// and all non-private declarations of the library itself. Conflicts are
+/// handled as usual (as a compile-time error if it's not the same declaration).
 ///
 /// @description Check that it is a compile-time error to access members of an
 /// exported library hidden by `show` and `hide`.
