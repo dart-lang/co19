@@ -28,7 +28,7 @@ import 'parts_lib.dart' as l;
 
 part 'scope_A06_t01_part2.dart';
 
-testPart1() async {
+testPart1() {
   // From parts_lib.dart
   Expect.equals("libVar", l.libVar);
   Expect.equals("libGetter", l.libGetter);
