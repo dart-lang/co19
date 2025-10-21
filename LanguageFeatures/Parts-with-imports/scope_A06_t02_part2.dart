@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -16,22 +16,26 @@
 ///   scope declarations, just like imports in the top-level import scope will
 ///   shadow top-level imports with the same name inherited from parent files.
 ///
-/// @description Check that a part file can use the same prefix as a prefix that
-/// it inherits. In this case it shadows inherited declarations.
+///   Deferred prefix scopes always correspond to a single import directive, in
+///   a single library, which can be loaded independently of any other import.
+///
+/// @description Check that a part file can use the same deferred import prefix
+/// as a prefix that it inherits. In this case it shadows inherited declarations
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-part of 'scope_A06_t01_part1.dart';
+part of 'scope_A06_t02_part1.dart';
 
-import 'scope_lib1.dart' as l;
+import 'scope_lib1.dart' deferred as l;
 
-testPart2() {
+testPart2() async {
+  await l.loadLibrary();
   // From scope_lib1.dart
   Expect.equals("scope_lib1 libVar", l.libVar);
   Expect.equals("scope_lib1 libGetter", l.libGetter);
   l.libSetter = "x";
-  Expect.equals("scope_lib1 libSetter", l.log);
+  Expect.equals("libSetter", l.log);
   Expect.equals("scope_lib1 libFunc", l.libFunc());
   Expect.equals("scope_lib1 LibClass", l.LibClass.id);
   Expect.equals("scope_lib1 LibMixin", l.LibMixin.id);
