@@ -15,7 +15,7 @@
 ///   import in its parent file.
 ///
 /// @description Check that an extension declared in a part file is available in
-/// its parent file.
+/// its parent file and vice versa.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts
@@ -24,5 +24,10 @@ part of 'resolving_extensions_A01_t01.dart';
 part 'resolving_extensions_A01_t01_part2.dart';
 
 extension on C {
-  String getId() => "extension from part";
+  String getId() => "extension from part1";
+}
+
+testPart1() {
+  Expect.equals("extension from root", A().id);
+  Expect.equals("extension from part2", C().getId2());
 }

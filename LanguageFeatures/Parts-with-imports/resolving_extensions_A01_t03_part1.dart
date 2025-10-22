@@ -14,12 +14,17 @@
 /// - That file is a part file and the extension is (recursively) available by
 ///   import in its parent file.
 ///
-/// @description Check that an extension declared in a part file is available in
-/// its parent file and it is a compile-time error if extensions conflict.
+/// @description Check that an extension available by import in a part file is
+/// available in its parts.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-part of 'resolving_extensions_A01_t02_part2.dart';
+part of 'resolving_extensions_A01_t03.dart';
+part 'resolving_extensions_A01_t03_part2.dart';
 
 import 'resolving_extensions_lib.dart';
+
+testPart1() {
+  Expect.equals("extension LibExt", C().id);
+}

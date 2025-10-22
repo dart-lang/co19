@@ -14,19 +14,21 @@
 /// - That file is a part file and the extension is (recursively) available by
 ///   import in its parent file.
 ///
-/// @description Check that an extension declared in a part file is available in
-/// its parent file and vice versa.
+/// @description Check that an extension available by import in a part file is
+/// not available in its parent.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-part of 'resolving_extensions_A01_t01_part1.dart';
+part 'resolving_extensions_A01_t04_part1.dart';
 
-extension on A {
-  String getId2() => "extension from part2";
-}
+class C {}
 
-testPart2() {
-  Expect.equals("extension from root", A().id);
-  Expect.equals("extension from part1", C().getId());
+main() {
+  C().id;
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  testPart1();
+  testPart2();
 }

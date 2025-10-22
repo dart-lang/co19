@@ -21,7 +21,6 @@
 // SharedOptions=--enable-experiment=enhanced-parts
 
 part of 'resolving_extensions_A01_t02.dart';
-part 'resolving_extensions_A01_t02_part2.dart';
 
 extension on C {
   String getId() => "extension from part";
