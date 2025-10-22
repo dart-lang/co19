@@ -21,9 +21,10 @@
 // SharedOptions=--enable-experiment=enhanced-parts
 
 part of 'resolving_extensions_A01_t03.dart';
-part 'resolving_extensions_A01_t03_part2.dart';
 
 import 'resolving_extensions_lib.dart';
+
+part 'resolving_extensions_A01_t03_part2.dart';
 
 testPart1() {
   Expect.equals("extension LibExt", C().id);

@@ -21,9 +21,10 @@
 // SharedOptions=--enable-experiment=enhanced-parts
 
 part of 'resolving_extensions_A01_t04.dart';
-part 'resolving_extensions_A01_t04_part2.dart';
 
 import 'resolving_extensions_lib.dart';
+
+part 'resolving_extensions_A01_t04_part2.dart';
 
 testPart1() {
   C().id; // Ok
