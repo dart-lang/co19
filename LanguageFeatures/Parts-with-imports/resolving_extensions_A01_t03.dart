@@ -26,10 +26,14 @@ part 'resolving_extensions_A01_t03_part1.dart';
 
 class C {}
 
+extension Ext on Object {
+  String get id => "Extension Ext";
+}
+
 main() {
-  Expect.throws(() {
-    (C() as dynamic).id;
-  });
   testPart1();
   testPart2();
+  // If there is no conflict with the LibExt extension imported in _part1, that
+  // means LibExt is not available here.
+  Expect.equals("Extension Ext", C().id);
 }
