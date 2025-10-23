@@ -33,13 +33,13 @@ extension type ET2._(String _p) {
   this({required final String _p});
 }
 
-enum E1(final String _p = "_p") {
+enum E1({final String _p = "_p"}) {
   e0, e1(p: "E1");
 }
 
 enum E2 {
   e0(p: "E2");
-  const this(required final String _p);
+  const this({required final String _p});
 }
 
 main() {
