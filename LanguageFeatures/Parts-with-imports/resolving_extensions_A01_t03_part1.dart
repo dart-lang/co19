@@ -17,6 +17,7 @@
 /// @description Check that an extension available by import in a part file is
 /// available in its parts.
 /// @author sgrekhov22@gmail.com
+/// @issue 61805
 
 // SharedOptions=--enable-experiment=enhanced-parts
 

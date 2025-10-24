@@ -27,7 +27,7 @@
 
 part of 'scope_A06_t03_part1.dart';
 
-import 'scope_lib1.dart' deferred as l;
+import 'scope_lib1.dart' deferred as l hide LibExt;
 
 testPart2() async {
   // From scope_lib1.dart

@@ -22,12 +22,13 @@
 /// @description Check that a part file can use the same deferred import prefix
 /// as a prefix that it inherits. In this case it shadows inherited declarations
 /// @author sgrekhov22@gmail.com
+/// @issue 61806
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
 part of 'scope_A06_t02_part1.dart';
 
-import 'scope_lib1.dart' deferred as l;
+import 'scope_lib1.dart' deferred as l hide LibExt;
 
 testPart2() async {
   await l.loadLibrary();
@@ -40,7 +41,6 @@ testPart2() async {
   Expect.equals("scope_lib1 LibClass", l.LibClass.id);
   Expect.equals("scope_lib1 LibMixin", l.LibMixin.id);
   Expect.equals("scope_lib1 LibEnum", l.LibEnum.id);
-  Expect.equals("scope_lib1 LibExt", l.LibExt.id);
   Expect.equals("scope_lib1 LibET", l.LibET.id);
   // From parts_lib.dart
   Expect.equals(0, l.counter);
