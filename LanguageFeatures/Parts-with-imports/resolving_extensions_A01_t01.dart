@@ -17,6 +17,7 @@
 /// @description Check that an extension declared in a part file is available in
 /// its parent file and vice versa.
 /// @author sgrekhov22@gmail.com
+/// @issue 61804
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
