@@ -17,12 +17,11 @@
 /// @description Check that an extension available by import in a part file is
 /// available in its parts.
 /// @author sgrekhov22@gmail.com
-/// @issue 61805
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
 part of 'resolving_extensions_A01_t03_part1.dart';
 
 testPart2() {
-  Expect.equals("extension LibExt", C().id);
+  Expect.equals("extension LibExt", LibExt(C()).id);
 }

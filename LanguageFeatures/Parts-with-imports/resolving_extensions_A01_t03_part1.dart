@@ -17,7 +17,6 @@
 /// @description Check that an extension available by import in a part file is
 /// available in its parts.
 /// @author sgrekhov22@gmail.com
-/// @issue 61805
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
@@ -28,5 +27,5 @@ import 'resolving_extensions_lib.dart';
 part 'resolving_extensions_A01_t03_part2.dart';
 
 testPart1() {
-  Expect.equals("extension LibExt", C().id);
+  Expect.equals("extension LibExt", LibExt(C()).id);
 }
