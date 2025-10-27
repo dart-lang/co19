@@ -22,6 +22,7 @@
 /// @description Check that a part file can use the same deferred import prefix
 /// as a prefix that it inherits. In this case it shadows inherited declarations
 /// @author sgrekhov22@gmail.com
+/// @issue 61806
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
