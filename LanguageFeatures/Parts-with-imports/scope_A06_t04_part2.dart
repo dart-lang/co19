@@ -20,22 +20,20 @@
 ///   a single library, which can be loaded independently of any other import.
 ///
 /// @description Check that a part file can use the same deferred import prefix
-/// as a prefix that it inherits. In this case it shadows inherited declarations
+/// as one it inherits. In this case, it shadows the inherited declarations, and
+/// it is a compile-time error to access the shadowed declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=enhanced-parts
 
-part of 'scope_A06_t03_part1.dart';
+part of 'scope_A06_t04_part1.dart';
 
 import 'scope_lib1.dart' deferred as l hide LibExt;
 
 testPart2() async {
-  // From scope_lib1.dart
-  Expect.throws(() {
-    l.libVar; // l is not loaded
-  });
   await l.loadLibrary();
-  // `libVar` is also defined in parts_lib.dart imported in `_part1` as `l`. But
-  // it is shadowed by the import in this part.
-  Expect.equals("scope_lib1 libVar", l.libVar);
+  l.counter; // From parts_lib.dart
+//  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

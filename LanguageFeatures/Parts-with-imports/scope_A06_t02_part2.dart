@@ -42,6 +42,4 @@ testPart2() async {
   Expect.equals("scope_lib1 LibMixin", l.LibMixin.id);
   Expect.equals("scope_lib1 LibEnum", l.LibEnum.id);
   Expect.equals("scope_lib1 LibET", l.LibET.id);
-  // From parts_lib.dart
-  Expect.equals(0, l.counter);
 }
