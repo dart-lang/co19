@@ -7,8 +7,8 @@
 /// - If `p` has no corresponding public name `n`, then compile-time error.
 ///
 /// @description Check that it is a compile-time error if a named formal
-/// parameter of a declaring constructor with private name has no corresponding
-/// public name.
+/// parameter of a declaring constructor has a private name with no
+/// corresponding public name.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=private-named-parameters,declaring-constructors

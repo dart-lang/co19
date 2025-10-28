@@ -19,8 +19,8 @@
 class C {
   String _p;
   String p;
-  C({this._p = "", int? _p}) : p = "";
-//                      ^^
+  C(int? _p, {this._p = "", }) : p = "";
+//                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -31,8 +31,8 @@ class C {
 }
 
 extension type ET._(String _p) {
-  ET({this._p = "", int _p = 0});
-//                      ^^
+  ET(int _p = 0, {this._p = "", });
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -43,12 +43,12 @@ extension type ET._(String _p) {
 }
 
 enum E {
-  e0;
+  e0(1);
 
   final String _p;
   final int? p;
-  const E({this._p = "", int? _p});
-//                            ^^
+  const E(int? _p, {this._p = ""});
+//                       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

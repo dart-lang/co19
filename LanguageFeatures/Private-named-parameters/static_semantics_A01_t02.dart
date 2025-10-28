@@ -7,7 +7,7 @@
 /// - If `p` has no corresponding public name `n`, then compile-time error.
 ///
 /// @description Check that it is a compile-time error if a named initializing
-/// formal parameter with private name has no corresponding public name.
+/// formal parameter has a private name that has no corresponding public name.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=private-named-parameters
