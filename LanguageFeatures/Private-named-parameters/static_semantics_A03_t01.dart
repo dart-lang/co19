@@ -13,7 +13,7 @@
 ///   only the public name.
 ///
 /// @description Check that the name of the parameter in the constructor
-/// signature is a corresponding public name `n`.
+/// signature is the corresponding public name `n`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=private-named-parameters

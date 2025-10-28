@@ -10,8 +10,9 @@
 /// - The instance variable initialized by the parameter (and declared by it, if
 ///   the parameter is a field parameter), has the private name `p`.
 ///
-/// @description Check that it is a compile-time error to use a corresponding
-/// public name `n` to access an instance variable with the private name `p`.
+/// @description For an instance variable with a private name `p` which is
+/// introduced by a declaring parameter, check that it is a compile-time error
+/// to use the corresponding public name `n` to access the instance variable.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=private-named-parameters

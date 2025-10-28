@@ -10,7 +10,7 @@
 /// - The local variable introduced by the parameter, accessible only in the
 ///   initializer list, still has the private name `p`.
 ///
-/// @description Check that it is a compile-time error to use a corresponding
+/// @description Check that it is a compile-time error to use the corresponding
 /// public name `n` in the initializer list.
 /// @author sgrekhov22@gmail.com
 

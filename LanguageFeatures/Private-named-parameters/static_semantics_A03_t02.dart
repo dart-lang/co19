@@ -13,7 +13,7 @@
 ///   only the public name.
 ///
 /// @description Check that the name of the parameter in the constructor
-/// signature is a corresponding public name `n`. Test declaring constructors.
+/// signature is the corresponding public name `n`. Test declaring constructors.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=private-named-parameters,declaring-constructors
@@ -21,7 +21,7 @@
 import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
 
-class C1({var String?_p});
+class C1({var String? _p});
 
 class C2 {
   this({required final String _p});

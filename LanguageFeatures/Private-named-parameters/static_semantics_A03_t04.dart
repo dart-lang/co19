@@ -13,13 +13,13 @@
 ///   only the public name.
 ///
 /// @description Check that it is a compile-time error to use a private name `p`
-/// as the name of the parameter in the constructor signature. Test declaring
+/// as the name of the parameter in the constructor invocation. Test declaring
 /// constructors.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=private-named-parameters,declaring-constructors
 
-class C1({var String?_p});
+class C1({var String? _p});
 
 class C2 {
   this({required final String _p});
