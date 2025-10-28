@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=private-named-parameters,declaring-constructors
 
-class C1(int? _p, {var String _p = "", }) {
+class C1(int? _p, {var String _p = ""}) {
 //                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -30,8 +30,8 @@ class C2 {
 }
 
 extension type ET1 {
-  this(int _p = 0, {final String _p = ""});
-//                                ^^
+  this(int _p, {final String _p = ""});
+//                           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -31,8 +31,8 @@ class C {
 }
 
 extension type ET._(String _p) {
-  ET(int _p = 0, {this._p = "", });
-//                     ^^
+  ET(int _p, {this._p = ""});
+//                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
