@@ -41,10 +41,16 @@ class C4 {
 
 extension type ET1 {
   this({final String __p = ""});
+//                   ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET2 {
   this({final String _1 = ""});
+//                   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E1({required final String __p}) {
