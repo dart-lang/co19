@@ -13,7 +13,7 @@
 // SharedOptions=--enable-experiment=private-named-parameters
 
 class C {
-  String _p;
+  String __p;
   C({this.__p = ""});
 //        ^^^
 // [analyzer] unspecified
@@ -25,7 +25,7 @@ class C {
 // [cfe] unspecified
 }
 
-extension type ET._(String _p) {
+extension type ET._(String __p) {
   ET({this.__p = ""});
 //         ^^^
 // [analyzer] unspecified
@@ -40,7 +40,7 @@ extension type ET._(String _p) {
 enum E {
   e0;
 
-  final String _p;
+  final String __p;
   const E({this.__p = ""});
 //              ^^
 // [analyzer] unspecified

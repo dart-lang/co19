@@ -19,7 +19,7 @@
 class C {
   String _p;
   String p;
-  C(int? _p, {this._p = "", }) : p = "";
+  C(int? _p, {this._p = ""}) : p = "";
 //                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
