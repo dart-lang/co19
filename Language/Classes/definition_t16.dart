@@ -21,12 +21,12 @@
 // [analyzer] unspecified
 // [cfe] unspecified
 /**/}
-//^
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  new A();
+  A(42);
 }
 // [error line 33, column 0]
 // [cfe] unspecified
