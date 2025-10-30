@@ -37,8 +37,8 @@ extension type ET1 {
 }
 
 extension type ET2 {
-  this(int p = 0, {final String _p = ""});
-//                              ^^
+  this(int p, {final String _p = ""});
+//                          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
