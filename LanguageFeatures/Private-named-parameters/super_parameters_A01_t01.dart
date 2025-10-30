@@ -36,9 +36,23 @@ class C2 extends A2 {
   C2.named({required super.p});
 }
 
+class C3 extends A1 {
+  C3(String p) : super(p: p);
+  C3.named(String p) : super(p: p);
+}
+
+class C4 extends A2 {
+  C4(String p) : super(p: p);
+  C4.named(String p) : super(p: p);
+}
+
 main() {
   Expect.equals("a", C1(p: "a")._p);
   Expect.equals("b", C1.named(p: "b")._p);
   Expect.equals("c", C2(p: "c")._p);
   Expect.equals("d", C2.named(p: "d")._p);
+  Expect.equals("e", C3("e")._p);
+  Expect.equals("f", C3.named("f")._p);
+  Expect.equals("g", C4("g")._p);
+  Expect.equals("h", C4.named("h")._p);
 }

@@ -11,7 +11,7 @@
 ///   compile-time error.
 ///
 /// @description Check that it is a compile-time error if any other parameter in
-/// `C` has declared name `p` or `n`.
+/// `C` has declared name `p` or `n`. Test declaring parameters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=private-named-parameters,declaring-constructors
