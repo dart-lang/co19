@@ -27,6 +27,8 @@
 
 main() {
   A(42);
+//  ^^
+// [analyzer] unspecified
 }
 // [error line 33, column 0]
 // [cfe] unspecified
