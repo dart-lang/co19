@@ -13,20 +13,20 @@
 ///
 /// @description Checks that that it is a compile-time error to declare a
 /// factory constructor in an extension declaration that has no on-declaration.
-/// Test extension on type `dynamic`.
+/// Test extension on type `Never`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
 
 class C {}
 
-extension Ext on dynamic {
-  factory dynamic.foo() => C();
+extension Ext on Never {
+  factory Never.foo() => C();
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  factory dynamic.bar() = C.new;
+  factory Never.bar() = C.new;
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
