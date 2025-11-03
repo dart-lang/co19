@@ -20,13 +20,15 @@
 
 class C {}
 
+typedef Void = void;
+
 extension Ext on void {
-  factory void.foo() => 42;
+  factory Void.foo() => 42;
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  factory void.bar() = C.new;
+  factory Void.bar() = C.new;
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
