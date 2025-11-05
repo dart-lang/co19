@@ -11,8 +11,7 @@
 /// Assume that it is an extension `E` that declares a static member named `m`.
 /// The invocation is then treated as `E.m()`.
 ///
-/// @description Check that declaring constructors invocation and declaration
-/// can be debugged.
+/// @description Check that `C.m()` is treated as `E.m()`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
