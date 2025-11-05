@@ -8,9 +8,9 @@
 /// of this expression is the same as in Dart before the introduction of this
 /// feature.
 ///
-/// @description Checks that if `C` contains static member with the basename `m`
-/// then it is not an error for extensions to declare a static members with the
-/// same basename. Invocation of `m` will invoke the appropriate member.
+/// @description Checks that if `C` contains a static member with the basename
+/// `m` then it is not an error for extensions to declare a static member with
+/// the same basename. Invocation of `m` will invoke the `on` declaration member
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
