@@ -21,33 +21,33 @@
 
 // SharedOptions=--enable-experiment=static-extensions
 
-class A {
-  static int foo = 42;
-}
+class A {}
+
+class B {}
 
 class C extends A {}
 
 mixin M {}
 
-extension type ET(int _) {}
+extension type ET(B _) implements B {}
 
 enum E {
   e0;
 }
 
-extension ExtC on C {
-  static int foo = 42;
+extension ExtA on A {
+  static final int foo = 42;
 }
 
-extension ExtM on M {
-  static void bar() {}
+extension ExtM on Object {
+  static int bar() => 42;
 }
 
-extension ExtET on ET {
+extension ExtB on B {
   static int get baz => 42;
 }
 
-extension ExtE on E {
+extension ExtE on Enum {
   static void set qux(int v) {}
 }
 
