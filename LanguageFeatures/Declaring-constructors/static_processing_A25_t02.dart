@@ -17,44 +17,31 @@ import '../../Utils/expect.dart';
 
 extension type ET1._(int v) {
   const new(this.v);
-  new.someName(this.v);
 }
 
 extension type ET2._(int v) {
   new() : v = 2;
-  const new.someName() : v = -2;
 }
 
 extension type ET3._(int v) {
   const new([int v = 0]) : v = v;
-  new.someName([int v = 0]) : v = v;
 }
 
 extension type ET4._(int v) {
   new({int v = 0}) : v = v;
-  const new.someName({int v = 0}) : v = v;
 }
 
 extension type ET5._(int v) {
   const new({required int v}) : v = v;
-  new.someName({required int v}) : v = v;
 }
 
 main() {
   Expect.equals(1, ET1(1).v);
-  Expect.equals(1, C1.someName(1).v);
   Expect.equals(2, ET2().v);
-  Expect.equals(-2, ET2.someName().v);
   Expect.equals(3, ET3(3).v);
-  Expect.equals(3, ET3.someName(3).v);
   Expect.equals(0, ET3().v);
-  Expect.equals(0, ET3.someName().v);
   Expect.equals(4, ET4(v: 4).v);
-  Expect.equals(4, ET4.someName(v: 4).v);
   Expect.equals(0, ET4().v);
-  Expect.equals(0, ET4.someName().v);
   Expect.equals(5, ET5(v: 5).v);
-  Expect.equals(5, ET5.someName(v: 5).v);
   Expect.equals(0, ET5().v);
-  Expect.equals(0, ET5.someName().v);
 }

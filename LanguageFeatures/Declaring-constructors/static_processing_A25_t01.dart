@@ -18,23 +18,18 @@ import '../../Utils/expect.dart';
 class C1 {
   int? v;
   new() {
-    v = 1;
-  }
-  new.someName() {
-    v = -1;
-  }
+  v = 1;
+}
 }
 
 class C2 {
   final int v;
   const new(int v) : v = v;
-  new.someName(int v) : v = v;
 }
 
 class C3 {
   final int v;
   new(this.v);
-  const new.someName(this.v);
 }
 
 class A {
@@ -44,44 +39,31 @@ class A {
 
 class C4 extends A {
   new(super.v);
-  new.someName() : this(0);
 }
 
 class C5 {
   final int v;
   new([int v = 0]) : v = v;
-  const new.someName([int v = 0]) : v = v;
 }
 
 class C6 {
   final int v;
   const new({int v = 0}) : v = v;
-  new.someName({int v = 0}) : v = v;
 }
 
 class C7 {
   final int v;
   new({required int v}) : v = v;
-  new.someName({required int v}) : v = v;
 }
 
 main() {
   Expect.equals(1, C1().v);
-  Expect.equals(-1, C1.someName().v);
   Expect.equals(2, C2(2).v);
-  Expect.equals(2, C2.someName(2).v);
   Expect.equals(3, C3(3).v);
-  Expect.equals(3, C3.someName(3).v);
   Expect.equals(4, C4(4).v);
-  Expect.equals(0, C4.someName().v);
   Expect.equals(0, C5().v);
   Expect.equals(5, C5(5).v);
-  Expect.equals(0, C5.someName().v);
-  Expect.equals(5, C5.someName(5).v);
   Expect.equals(0, C6().v);
   Expect.equals(6, C6(v: 6).v);
-  Expect.equals(0, C6.someName().v);
-  Expect.equals(6, C6.someName(v: 6).v);
   Expect.equals(7, C7(v: 7).v);
-  Expect.equals(7, C7.someName(v: 7).v);
 }

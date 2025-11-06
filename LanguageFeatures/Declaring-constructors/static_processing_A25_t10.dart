@@ -7,43 +7,46 @@
 /// The static analysis and meaning of such constructors is identical to the
 /// form that uses the class name.
 ///
-/// @description Check that it is a compile-time error to declare a
-/// `factory new` constructor.
+/// @description Check that it is a compile-time error to use `new` instead of
+/// the class name in declarations of named constructors.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
 
 class C1 {
-  final int v;
-  const C1.create(int v) : v = v;
-  const factory new(int v) = C1.create;
-//              ^^^
+  new.someName();
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class C2 {
   final int v;
-  C2.someName(this.v);
-  factory new(int v) => C2.someName(v);
-//        ^^^
+  const new.someName(int v) : v = v;
+//      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 }
 
 extension type ET1._(int v) {
-  const ET1.create(int v) : v = v;
-  const factory new(int v) = ET1.create;
-//              ^^^
+  new.someName(this.v);
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET2._(int v) {
-  ET2.create(this.v);
-  factory new(int v) => ET2.create(v);
-//        ^^^
+  const new.someName() : v = -2;
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E {
+  e0;
+  const E0();
+  const new.someName();
+//      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -51,4 +54,7 @@ extension type ET2._(int v) {
 main() {
   print(C1);
   print(C2);
+  print(ET1);
+  print(ET2);
+  print(E);
 }

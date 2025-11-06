@@ -20,7 +20,6 @@ class C1 {
   C1.create(this.v);
 
   factory() => C1.create(1);
-  factory.someName(int v) = C1.create;
 }
 
 class C2 {
@@ -28,27 +27,19 @@ class C2 {
   const C2.create(this.v);
 
   const factory(int v) = C2.create;
-  const factory.someName(int v) = C2.create;
 }
 
 extension type ET1.create(int v) {
   factory() => ET1.create(1);
-  factory.someName(int v) = ET1.create;
 }
 
 extension type const ET2.create(int v) {
   const factory ET2 (int v) = ET2.create;
-  const factory ET2.someName(int v) = ET2.create;
 }
 
 main() {
   Expect.equals(1, C1().v);
-  Expect.equals(-1, C1.someName(-1).v);
   Expect.equals(2, C2(2).v);
-  Expect.equals(-2, C2.someName(-2).v);
-
   Expect.equals(1, ET1().v);
-  Expect.equals(-1, ET1.someName(-1).v);
   Expect.equals(2, ET2(2).v);
-  Expect.equals(-2, ET2.someName(-2).v);
 }
