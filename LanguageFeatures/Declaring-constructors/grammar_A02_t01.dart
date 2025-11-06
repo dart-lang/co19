@@ -4,12 +4,12 @@
 
 /// @assertion Let `D` be a class, extension type, or enum declaration.
 ///
-/// A compile-time error occurs if `D` includes a `<classNamePart>` that
-/// contains a `<primaryConstructorNoConst>`, and the body of `D` contains a
+/// A compile-time error occurs if `D` includes a `<classNameMaybePrimary>` that
+/// contains a `<primaryConstructor>`, and the body of `D` contains a
 /// `<declaringConstructorSignature>` that contains a `<declaringParameterList>`.
 ///
 /// @description Check that it is a compile-time error if `D` includes a
-/// `<classNamePart>` that contains a `<primaryConstructorNoConst>`, and the
+/// `<classNameMaybePrimary>` that contains a `<primaryConstructor>`, and the
 /// body of `D` contains a `<declaringConstructorSignature>` that contains a
 /// `<declaringParameterList>`. Test a class.
 /// @author sgrekhov22@gmail.com

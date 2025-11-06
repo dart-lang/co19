@@ -65,18 +65,6 @@ class C7 {
   new.someName({required int v}) : v = v;
 }
 
-class C8 {
-  final int v;
-  const new(int v) : v = v;
-  const factory new.someName(int v) = C8;
-}
-
-class C9 {
-  final int v;
-  factory new(int v) => C9.someName(v);
-  new.someName(this.v);
-}
-
 main() {
   Expect.equals(1, C1().v);
   Expect.equals(-1, C1.someName().v);
@@ -96,6 +84,4 @@ main() {
   Expect.equals(6, C6.someName(v: 6).v);
   Expect.equals(7, C7(v: 7).v);
   Expect.equals(7, C7.someName(v: 7).v);
-  Expect.equals(8, C8.someName(8).v);
-  Expect.equals(9, C9(9).v);
 }

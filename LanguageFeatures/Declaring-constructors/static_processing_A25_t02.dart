@@ -40,16 +40,6 @@ extension type ET5._(int v) {
   new.someName({required int v}) : v = v;
 }
 
-extension type ET6._(int v) {
-  const new(int v) : v = v;
-  const factory new.someName(int v) = ET6;
-}
-
-extension type ET7._(int v) {
-  factory new(int v) => ET7.someName(v);
-  new.someName(this.v);
-}
-
 main() {
   Expect.equals(1, ET1(1).v);
   Expect.equals(1, C1.someName(1).v);
@@ -67,8 +57,4 @@ main() {
   Expect.equals(5, ET5.someName(v: 5).v);
   Expect.equals(0, ET5().v);
   Expect.equals(0, ET5.someName().v);
-  Expect.equals(6, ET6(6).v);
-  Expect.equals(6, ET6.someName(6).v);
-  Expect.equals(7, ET7(7).v);
-  Expect.equals(7, ET7.someName(7).v);
 }
