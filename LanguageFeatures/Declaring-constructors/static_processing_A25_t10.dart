@@ -44,7 +44,7 @@ extension type ET2._(int v) {
 
 enum E {
   e0;
-  const E0();
+  const E();
   const new.someName();
 //      ^^^
 // [analyzer] unspecified
