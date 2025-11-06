@@ -28,6 +28,8 @@
 import '../../Utils/expect.dart';
 part 'scope_A06_t03_part1.dart';
 
-main() {
-  testPart2();
+Future<void> main() async {
+  asyncStart();
+  await testPart2();
+  asyncEnd();
 }
