@@ -16,8 +16,8 @@
 /// ...
 /// An error occurs if `M` is empty, or `M` contains more than one member.
 ///
-/// @description Checks that that it is a compile-time error to invoke `m` if
-/// `M` contains more than one member. Test a method as `m`.
+/// @description Checks that it is a compile-time error to invoke `m` if `M`
+/// contains more than one member. Test a method as `m`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
