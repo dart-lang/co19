@@ -20,52 +20,52 @@
 // SharedOptions=--enable-experiment=static-extensions
 
 class C {
-  static final int foo = 42;
+  static void set foo(int _) {}
 }
 
 mixin M {
-  static int foo() => 42;
+  static void set foo(int _) {}
 }
 
 extension type ET(int _) {
-  static int get foo => 42;
+  static void set foo(int _) {}
 }
 
 enum E {
   e0;
-  static int foo() => 42;
+  static void set foo(int _) {}
 }
 
 extension ExtC on C {
-  static void set foo(int _) {}
+  static final int foo = 42;
 }
 
 extension ExtM on M {
-  static void set foo(int _) {}
+  static int foo() => 42;
 }
 
 extension ExtET on ET {
-  static void set foo(int _) {}
+  static int get foo => 42;
 }
 
 extension ExtE on E {
-  static void set foo(int _) {}
+  static int get foo => 42;
 }
 
 main() {
-  C.foo = 42;
+  C.foo;
 //  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  M.foo = 42;
+  M.foo();
 //  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ET.foo = 42;
+  ET.foo;
 //   ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  E.foo = 42;
+  E.foo;
 //  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
