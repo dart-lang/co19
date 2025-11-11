@@ -3,24 +3,24 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if:
-/// - The signature of the constructor augmentation does not match the original
-///   constructor. It must have the same number of positional parameters, the
-///   same named parameters, and matching parameters must have the same type,
-///   optionality, and any required modifiers must match. Any initializing
-///   formals and super parameters must also be the same in both constructors.
+/// - The signature of the augmenting function does not match the signature of
+///   the augmented function.
 ///
 /// @description Checks that it is not an error if a constructor augmentation
 /// reorders named parameters of the original constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
-part 'augmenting_constructors_A01_t09_lib.dart';
 
 class C {
   int x, y;
   C({this.x = 0, this.y = 0});
+}
+
+augment class C {
+  augment C({int y, int x});
 }
 
 enum E {
@@ -29,8 +29,16 @@ enum E {
   const E({this.x = 0, this.y = 0});
 }
 
+augment enum E {
+  augment const E({int y, int x});
+}
+
 extension type ET(int x) {
   ET.foo({this.x = 0, int y = 0});
+}
+
+augment extension type ET {
+  augment ET.foo({int y, int x});
 }
 
 main() {
