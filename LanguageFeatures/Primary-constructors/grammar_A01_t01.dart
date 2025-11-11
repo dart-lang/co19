@@ -2,11 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A class declaration whose class body is `;` is treated as a class
-/// declaration whose class body is `{}`.
+/// @assertion A class, mixin class, or extension type declaration whose body is
+/// `;` is treated as the corresponding declaration whose body is `{}` and
+/// otherwise the same. This rule is not applicable to a
+/// `<mixinApplicationClass>` (for instance, `class B = A with M;`).
 ///
-/// @description Check that a class or an extension type declaration whose body
-/// is `;` is treated as a class declaration whose class body is `{}`.
+/// @description Check that a class, mixin, or extension type declaration whose
+/// body is `;` is treated as a declaration whose body is `{}`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
@@ -29,27 +31,19 @@ abstract class C7(var int v);
 
 sealed class C8(var int v);
 
-mixin class C9();
-
 extension type ET1(int v);
 
-class C11;
+class const C11();
 
-class const C12();
+class const C12(final int v);
 
-class const C13(final int v);
+base class const C13(final int v);
 
-base class const C14(final int v);
+final class const C14(final int v);
 
-final class const C15(final int v);
+abstract class const C15(final int v);
 
-mixin class C16;
-
-abstract class const C17(final int v);
-
-sealed class const C18(final int v);
-
-mixin class C19();
+sealed class const C16(final int v);
 
 extension type const ET2(int v);
 
@@ -62,17 +56,13 @@ main() {
   print(C6);
   print(C7);
   print(C8);
-  print(C9);
   Expect.equals(0, ET1(0).v);
 
   print(C11);
-  print(C12());
-  Expect.equals(1, C13(1).v);
-  Expect.equals(2, C14(2).v);
-  Expect.equals(3, C15(3).v);
+  Expect.equals(1, C12(1).v);
+  Expect.equals(2, C13(2).v);
+  Expect.equals(3, C14(3).v);
+  Expect.equals(4, C15(4).v);
   print(C16);
-  print(C17);
-  print(C18);
-  print(C19);
   Expect.equals(0, ET2(0).v);
 }
