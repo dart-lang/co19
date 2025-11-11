@@ -49,6 +49,7 @@ enum E {
 }
 
 augment enum E {
+  ;
   augment const E([int? x]);
 //                      ^
 // [analyzer] unspecified

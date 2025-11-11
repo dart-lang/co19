@@ -26,17 +26,11 @@ augment class C {
 
 enum E {
   e0;
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
   const E({int x = 0});
 }
 
 augment enum E {
-  augment e0;
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  ;
   augment const E({int y});
 //              ^
 // [analyzer] unspecified

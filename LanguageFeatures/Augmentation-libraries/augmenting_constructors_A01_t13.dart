@@ -62,7 +62,7 @@ enum E {
 }
 
 augment enum E {
-  augment e0(1);
+  ;
   augment const E(dynamic this.x, [dynamic this.y]);
   augment const E.foo({required dynamic this.x, dynamic this.y});
   augment const E.bar(dynamic x, [dynamic y]) : x = x, y = y;

@@ -54,7 +54,7 @@ enum E {
 }
 
 augment enum E {
-  augment e0(1);
+  ;
   augment const E(var this.x, [var this.y]);
   augment const E.foo({required var this.x, var this.y});
   augment const E.bar(var x, [var y]);

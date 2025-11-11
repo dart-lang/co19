@@ -30,6 +30,7 @@ enum E {
 }
 
 augment enum E {
+  ;
   augment const E({int y, int x});
 }
 

@@ -54,6 +54,7 @@ enum E {
 }
 
 augment enum E {
+  ;
   augment const E(x, [final y]);
   augment const E.foo({required x, final y});
   augment const E.bar(x, [final y]);

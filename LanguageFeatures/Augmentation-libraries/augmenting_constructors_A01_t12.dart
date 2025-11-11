@@ -55,7 +55,7 @@ enum E {
 }
 
 augment enum E {
-  augment e0(1);
+  ;
   augment const E(int this.x, [int this.y = 0]);
   augment const E.foo({required int this.x, int this.y = 0});
   augment const E.bar(int x, [int y = 0]) : x = x, y = y;
