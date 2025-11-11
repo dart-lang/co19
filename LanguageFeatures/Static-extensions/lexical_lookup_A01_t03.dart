@@ -9,8 +9,8 @@
 /// extension.
 ///
 /// @description Checks that a static member of an extension can be invoked if
-/// an expression in an extension declaration resolves to an invocation of a
-/// static member of the enclosing extension. Test a static method invocation.
+/// an expression in the extension declaration resolves to an invocation of it.
+/// Test a static method invocation.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
