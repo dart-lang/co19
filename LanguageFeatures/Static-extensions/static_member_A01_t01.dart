@@ -16,7 +16,7 @@
 /// ...
 /// An error occurs if `M` is empty, or `M` contains more than one member.
 ///
-/// @description Checks that that it is a compile-time error if `M` is empty.
+/// @description Checks that it is a compile-time error if `M` is empty.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
