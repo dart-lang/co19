@@ -19,8 +19,8 @@ String _log = "";
 
 class C {
   var x, y;
-  C(var x, [var y]);
-  C.foo({required var x, var y});
+  C(x, [y]);
+  C.foo({required x, y});
   C.bar(x, [y]);
   C.baz({required x, y});
 }
@@ -55,8 +55,8 @@ augment class C {
 enum E {
   e0(1), e1.foo(x: 1), e2.bar(1), e3.baz(x: 1);
   final x, y;
-  const E(var x, [var y]);
-  const E.foo({required var x, var y});
+  const E(x, [y]);
+  const E.foo({required x, y});
   const E.bar(x, [y]);
   const E.baz({required x, y}): x = x, y = y;
 }

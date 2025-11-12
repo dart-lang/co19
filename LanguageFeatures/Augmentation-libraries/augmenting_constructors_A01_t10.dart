@@ -19,26 +19,26 @@ String _log = "";
 
 class C {
   var x, y;
-  C(int x, [final int y = 0]);
-  C.foo({required int x, final int y = 0});
-  C.bar(int x, [final int y = 0]);
-  C.baz({required int x, final int y = 0});
+  C(int x, [int y = 0]);
+  C.foo({required int x, int y = 0});
+  C.bar(int x, [int y = 0]);
+  C.baz({required int x, int y = 0});
 }
 
 augment class C {
-  augment C(this.x, [final this.y]) {
+  augment C(this.x, [this.y]) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
   }
-  augment C.foo({required this.x, final this.y}) {
+  augment C.foo({required this.x, this.y}) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
   }
-  augment C.bar(x, [final y]) : x = x, y = y {
+  augment C.bar(x, [y]) : x = x, y = y {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
   }
-  augment C.baz({required x, final y}) : x = x, y = y {
+  augment C.baz({required x, y}) : x = x, y = y {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
   }
@@ -47,45 +47,45 @@ augment class C {
 enum E {
   e0(1), e1.foo(x: 1), e2.bar(1), e3.baz(x: 1);
   final x, y;
-  const E(int this.x, [final int this.y = 0]);
-  const E.foo({required int this.x, final int this.y = 0});
-  const E.bar(int x, [final int y = 0]): x = x, y = y;
-  const E.baz({required int x, final int y = 0}): x = x, y = y;
+  const E(int this.x, [int this.y = 0]);
+  const E.foo({required int this.x, int this.y = 0});
+  const E.bar(int x, [int y = 0]): x = x, y = y;
+  const E.baz({required int x, int y = 0}): x = x, y = y;
 }
 
 augment enum E {
   ;
-  augment const E(x, [final y]);
-  augment const E.foo({required x, final y});
-  augment const E.bar(x, [final y]);
-  augment const E.baz({required x, final y});
+  augment const E(x, [y]);
+  augment const E.foo({required x, y});
+  augment const E.bar(x, [y]);
+  augment const E.baz({required x, y});
 }
 
 
 extension type ET(int x) {
-  ET.foo(int x, [final int y = 0]);
-  ET.bar({required int x, final int y = 0});
-  ET.baz(int x, [final int y = 0]);
-  ET.qux({required int x, final int y = 0});
+  ET.foo(int x, [int y = 0]);
+  ET.bar({required int x, int y = 0});
+  ET.baz(int x, [int y = 0]);
+  ET.qux({required int x, int y = 0});
 }
 
 augment extension type ET {
-  augment ET.foo(this.x, [final y]) {
+  augment ET.foo(this.x, [y]) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment ET.bar({required this.x, final y}) {
+  augment ET.bar({required this.x, y}) {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment ET.baz(x, [final y]) : x = x {
+  augment ET.baz(x, [y]) : x = x {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
   }
-  augment ET.qux({required x, final y}) : x = x {
+  augment ET.qux({required x, y}) : x = x {
     x.expectStaticType<Exactly<int>>();
     y.expectStaticType<Exactly<int>>();
     _log = "Augmented: $x, $y";
