@@ -42,7 +42,7 @@ enum E1 {
 
 enum E2 {
   e0;
-  finat int v;
+  final int v;
   this: v = 0;
 //^^^^
 // [analyzer] unspecified
