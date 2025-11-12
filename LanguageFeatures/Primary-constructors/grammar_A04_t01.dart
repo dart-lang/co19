@@ -8,27 +8,38 @@
 ///
 /// @description Check that it is a compile-time error if a
 /// `<defaultDeclaringNamedParameter>` has the modifier `required` as well as a
-/// default value. Test an extension type.
+/// default value. Test a class.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
 
-extension type A(int v) implements Object {}
+class A(var int v);
 
-extension type ET1 {
-  this.someName(final int v, {required String s = ""});
-//                                              ^
+class C1({required var int v = 0}) {}
+//                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-extension type ET2._(final A v, {required final String s = ""}) implements A {
-//                                                       ^
+class C2.someName({required final int v = 0}) {}
+//                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+class C3({required this.v = 0}) {
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  int v;
 }
+
+class C4._({required super.v = 0}) extends A;
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  print(ET1);
-  print(ET2);
+  print(C1);
+  print(C2);
+  print(C3);
+  print(C4);
 }
