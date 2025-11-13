@@ -2,9 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if a class, enum, or extension type
-/// has a primary constructor whose name is also the name of a constructor
-/// declared in the body.
+/// @assertion A compile-time error occurs if a class, mixin class, enum, or
+/// extension type has a primary constructor whose name is also the name of a
+/// constructor declared in the body, or if it declares a primary constructor
+/// whose name is `C.n`, and the body declares a static member whose basename is
+/// `n`.
 ///
 /// @description Check that it is a compile-time error if an enum has a primary
 /// constructor whose name is also the name of a constructor declared in the
@@ -34,7 +36,7 @@ enum const E2(final int v) {
 enum E3.someName(final int v) {
   e0.someName(3);
 
-  const E3.someName();
+  const E3.someName(this.v);
 //         ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
