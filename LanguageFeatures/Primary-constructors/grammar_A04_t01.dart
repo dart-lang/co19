@@ -15,30 +15,27 @@
 
 class A(var int v);
 
-class C1({required var int v = 0}) {
+class C1({required var int v = 0}) {}
 //                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+class C2.someName({required final int v = 0}) {}
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class C3({required this.v = 0}) {
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  int v;
 }
 
-class C2 {
-  this({required final int v = 0});
+class C4._({required super.v = 0}) extends A;
 //                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-class C3({required super.v = 0}) extends A;
-//                         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-class C4 extends A {
-  this({required super.v = 0});
-//                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
 
 main() {
   print(C1);

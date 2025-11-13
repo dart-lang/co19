@@ -13,20 +13,16 @@
 
 // SharedOptions=--enable-experiment=declaring-constructors
 
-extension type A(int v) implements Object {}
 
-extension type ET1 {
-  this.someName(final int v, {required String s = ""});
-//                                              ^
+extension type ET1({required final String s = ""}) {}
+//                                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-extension type ET2._(final A v, {required final String s = ""}) implements A {
-//                                                       ^
+extension type ET2(final int v, {required String s = ""}) {}
+//                                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
 main() {
   print(ET1);

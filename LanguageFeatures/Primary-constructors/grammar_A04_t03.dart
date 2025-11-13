@@ -13,36 +13,27 @@
 
 // SharedOptions=--enable-experiment=declaring-constructors
 
-enum E1(final int v, {required final String s = ""}) {
-//                                            ^
+enum E1({required final String s = ""}) {
+//                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e0(1, s: "");
+  e0(s: "1");
 }
 
-enum E2 {
-  e0(2, s: "");
-  const this(final int v, {required String s = ""});
-//                                           ^
+enum E2({required this.s = ""}) {
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-enum E3(final int v, {required this.s = ""}) {
-//                                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  e0(3, s: "");
+  e0(s: "2");
   final String s;
 }
 
-enum E4 {
-  e0(4, s: "");
-
-  const this(final int v, {required this.s = ""});
-//                                         ^
+enum E3({required String s = ""}) {
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  e0(s: "3");
+
   final String s;
 }
 
@@ -50,5 +41,4 @@ main() {
   print(E1);
   print(E2);
   print(E3);
-  print(E4);
 }
