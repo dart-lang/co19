@@ -20,7 +20,7 @@ extension type ET1({required final String s = ""}) {}
 // [cfe] unspecified
 
 extension type ET2(final int v, {required String s = ""}) {}
-//                                               ^
+//                                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

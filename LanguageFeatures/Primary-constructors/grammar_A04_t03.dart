@@ -29,7 +29,7 @@ enum E2({required this.s = ""}) {
 }
 
 enum E3({required String s = ""}) {
-//                       ^
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
   e0(s: "3");
