@@ -2,10 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Consider a class, enum, or extension type declaration `D` with a
-/// declaring header constructor, also known as a primary constructor (note that
-/// it cannot be a `<mixinApplicationClass>`, because that kind of declaration
-/// does not support declaring constructors, that is a syntax error).
+/// @assertion Consider a class, mixin class, enum, or extension type
+/// declaration `D` with a primary constructor (note that it cannot be a
+/// `<mixinApplicationClass>`, because that kind of declaration does not
+/// syntactically support primary constructors).
 ///
 /// @description Check that it is a compile-time error to declare a mixin class
 /// with a non-trivial declaring constructor.
@@ -27,22 +27,17 @@ base mixin M4(var int v) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-abstract mixin class M5 {
-  this(); // Ok, "trivial" constructor
-}
+abstract mixin class M5(); // Ok, "trivial" constructor
 
-abstract base mixin class M6 {
-  this.someName(var int v);
-//^^^^
+abstract base mixin class M6.someName(final int v) {}
+//                        ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-base mixin M7.someName() { // Constructor is "trivial" but it's not a "mixin class"
+base mixin M7.someName(); // Constructor is "trivial" but it's not a "mixin class"
 //            ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
 main() {
   print(M1);
