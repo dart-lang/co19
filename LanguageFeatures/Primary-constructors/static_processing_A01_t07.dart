@@ -15,7 +15,7 @@
 
 class C {
   int v;
-  C.create(this.v);
+  const C.create(this.v);
 
   const factory C() => C.create(1);
 //^^^^^

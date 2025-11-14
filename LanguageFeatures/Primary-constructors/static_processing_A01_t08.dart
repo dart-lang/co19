@@ -7,8 +7,8 @@
 /// purely syntactic. The static analysis and meaning of such constructors is
 /// identical to the form that uses the class name.
 ///
-/// @description Check that it is a compile-time error to declare a
-/// `factory new` constructor.
+/// @description Check that it is a syntax error to declare a `factory new`
+/// constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors

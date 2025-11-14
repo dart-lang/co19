@@ -34,7 +34,7 @@ extension type ET1.create(int v) {
 }
 
 extension type const ET2.create(int v) {
-  const factory ET2 (int v) = ET2.create;
+  const factory ET2(int v) = ET2.create;
 }
 
 main() {

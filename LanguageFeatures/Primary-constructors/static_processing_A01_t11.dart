@@ -7,8 +7,8 @@
 /// purely syntactic. The static analysis and meaning of such constructors is
 /// identical to the form that uses the class name.
 ///
-/// @description Check that it is a compile-time error to use `factory` instead
-/// of the class name in declarations of named constructors.
+/// @description Check that it is a syntax error to use `factory` instead of the
+/// class name in declarations of named constructors.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
