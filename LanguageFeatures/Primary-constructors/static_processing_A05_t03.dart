@@ -17,52 +17,52 @@
 // SharedOptions=--enable-experiment=declaring-constructors
 
 extension type const ET1();
-//                   ^^^
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 extension type ET2.someName();
-//                 ^^^^^^^^
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 extension type ET3(int v1, final int _);
-//             ^^^
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 extension type const ET4.someName(final int v1, final int v2);
-//                       ^^^^^^^^
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 extension type ET5(int v1, [int v2 = 0]);
-//             ^^^
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 extension type const ET6.someName([final int v1 = 1, final int _ = 2]);
-//                       ^^^^^^^^
+//                                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 extension type ET7(int v1, {int v2 = 0});
-//             ^^^
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 extension type const ET8.someName({final int v1 = 1, final int v2 = 2});
-//                       ^^^^^^^^
+//                                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 extension type ET9({required int v1, required int v2});
-//             ^^^
+//                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 extension type const ET10.someName(int v1, {required final int v2 = 2});
-//                        ^^^^^^^^
+//                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
