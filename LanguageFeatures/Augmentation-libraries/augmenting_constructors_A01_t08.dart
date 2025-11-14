@@ -3,19 +3,14 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if:
-/// - The signature of the constructor augmentation does not match the original
-///   constructor. It must have the same number of positional parameters, the
-///   same named parameters, and matching parameters must have the same type,
-///   optionality, and any required modifiers must match. Any initializing
-///   formals and super parameters must also be the same in both constructors.
+/// - The signature of the augmenting function does not match the signature of
+///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if super parameters
-/// of the constructor augmentation does not match the original constructor.
+/// @description Checks that it is a compile-time error if parameter names of
+/// the constructor augmentation does not match the original constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-part 'augmenting_constructors_A01_t08_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 class A1 {
   A1(int x, int y);
@@ -26,13 +21,35 @@ class C1 extends A1 {
   C1.foo([super.x = 1, super.y = 1]);
 }
 
+augment class C1 {
+  augment C1(int y, int x);
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C1.foo([int y, int x]);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 class A2 {
-  A2({int x = 0, int y = 0});
+  A2({int x = 0});
 }
 
 class C2 extends A2 {
-  C2({super.x = 1, super.y = 1});
-  C2.foo({required super.x, required super.y});
+  C2({super.x = 1});
+  C2.foo({required super.x});
+}
+
+augment class C2 {
+  augment C2({int y});
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C2.foo({int y});
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
