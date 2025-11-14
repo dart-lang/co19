@@ -14,44 +14,42 @@
 ///
 /// @description Check that in case of a factory constructor declaration of the
 /// form `factory C(...` the declaration declares a constructor whose name is
-/// `C`. Test a mixin class.
+/// `C`. Test an extension type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,declaring-constructors
 
-import '../../Utils/static_type_helper.dart';
+import '../../Utils/expect.dart';
 
-mixin class C1 {
-  const C1.foo();
-  const factory C1() = C1.foo;
+extension type const ET1.foo(int v) {
+  const factory ET1(int v) = ET1.foo;
 }
 
-mixin class C2 {
-  C2.foo();
-  factory C2() => C2.foo();
+extension type ET2.foo(int v) {
+  factory ET2(int v) => ET2.foo(v + 1);
 }
 
-mixin class C3 {
-  const C3.foo();
-  const factory C3();
+extension type const ET3._(int v) {
+  const ET3.foo(this.v);
+  const factory ET3(int v);
 
-  augment const factory C3() = C3.foo;
+  augment const factory ET3(int v) = ET3.foo;
 }
 
-mixin class C4 {
-  C4.foo();
-  factory C4();
+extension type ET4._(int v) {
+  ET4.foo(this.v);
+  factory ET4(int v);
 
-  augment factory C4() => C4.foo();
+  augment factory ET4(int v) => ET4.foo(v + 1);
 }
 
 main() {
-  var c1 = C1.new;
-  c1.expectStaticType<Exactly<C1 Function()>>();
-  var c2 = C2.new;
-  c2.expectStaticType<Exactly<C2 Function()>>();
-  var c3 = C3.new;
-  c3.expectStaticType<Exactly<C3 Function()>>();
-  var c4 = C4.new;
-  c4.expectStaticType<Exactly<C4 Function()>>();
+  var et1 = ET1.new;
+  Expect.equals(1, et1(1).v);
+  var et2 = ET2.new;
+  Expect.equals(2, et2(1).v);
+  var et3 = ET3.new;
+  Expect.equals(1, et3(1).v);
+  var et4 = ET4.new;
+  Expect.equals(2, et4(1).v);
 }

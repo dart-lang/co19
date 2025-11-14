@@ -20,7 +20,6 @@
 // SharedOptions=--enable-experiment=augmentations,declaring-constructors
 
 import '../../Utils/expect.dart';
-import '../../Utils/static_type_helper.dart';
 
 class C1 {
   final int v;
@@ -50,14 +49,6 @@ class C4 {
   augment factory C4(int v) => C4.foo(v + 1);
 }
 
-class C5 {
-  external factory C5();
-}
-
-class C6 {
-  external const factory C6();
-}
-
 main() {
   var c1 = C1.new;
   Expect.equals(1, c1(1).v);
@@ -67,8 +58,4 @@ main() {
   Expect.equals(1, c3(1).v);
   var c4 = C4.new;
   Expect.equals(2, c4(1).v);
-  var c5 = C5.new;
-  c5.expectStaticType<Exactly<C5 Function()>>();
-  var c6 = C6.new;
-  c6.expectStaticType<Exactly<C6 Function()>>();
 }

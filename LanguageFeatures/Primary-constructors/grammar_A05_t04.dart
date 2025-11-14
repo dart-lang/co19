@@ -14,44 +14,24 @@
 ///
 /// @description Check that in case of a factory constructor declaration of the
 /// form `factory C(...` the declaration declares a constructor whose name is
-/// `C`. Test an enum.
+/// `C`. Test a mixin class and external constructors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,declaring-constructors
+// SharedOptions=--enable-experiment=declaring-constructors
 
-import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
 
-enum E1 {
-  e0.foo(1);
-
-  final int v;
-  const E1.foo(this.v);
-  factory E1() => E1.e0;
+mixin class C1 {
+  external factory C1();
 }
 
-enum E2 {
-  e0.foo(2);
-
-  final int v;
-  const E2.foo(this.v);
-  factory E2();
-  augment factory E2() => E2.e0;
-}
-
-enum E3 {
-  e0.foo(3);
-
-  final int v;
-  const E3.foo(this.v);
-  external factory E3();
+mixin class C2 {
+  external const factory C2();
 }
 
 main() {
-  var e1 = E1.new;
-  Expect.equals(1, e1().v);
-  var e2 = E2.new;
-  Expect.equals(2, e2().v);
-  var e3 = E3.new;
-  e3.expectStaticType<Exactly<E3 Function()>>();
+  var c1 = C1.new;
+  c1.expectStaticType<Exactly<C1 Function()>>();
+  var c2 = C2.new;
+  c2.expectStaticType<Exactly<C2 Function()>>();
 }
