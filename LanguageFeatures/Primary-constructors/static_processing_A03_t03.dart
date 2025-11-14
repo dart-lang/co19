@@ -2,10 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Consider a class, enum, or extension type declaration `D` with a
-/// declaring header constructor, also known as a primary constructor (note that
-/// it cannot be a `<mixinApplicationClass>`, because that kind of declaration
-/// does not support declaring constructors, that is a syntax error).
+/// @assertion Consider a class, mixin class, enum, or extension type
+/// declaration `D` with a primary constructor (note that it cannot be a
+/// `<mixinApplicationClass>`, because that kind of declaration does not
+/// syntactically support primary constructors).
 ///
 /// @description Check that it is a syntax error to declare a mixin application
 /// class with a primary constructor.

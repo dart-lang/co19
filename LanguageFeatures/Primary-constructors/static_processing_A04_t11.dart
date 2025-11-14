@@ -2,9 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Consider a class, enum, or extension type declaration `D` with a
-/// declaring header constructor, also known as a primary constructor).
-/// ...
+/// @assertion Consider a class, mixin class, enum, or extension type
+/// declaration `D` with a primary constructor (note that it cannot be a
+/// `<mixinApplicationClass>`, because that kind of declaration does not
+/// syntactically support primary constructors). This declaration is treated as
+/// a class, mixin class, enum, respectively extension type declaration without
+/// a primary constructor which is obtained as described in the following. This
+/// determines the dynamic semantics of a primary constructor.
+///
 /// A compile-time error occurs if the body of `D` contains a non-redirecting
 /// generative constructor, unless `D` is an extension type.
 ///
@@ -16,16 +21,14 @@
 
 import '../../Utils/expect.dart';
 
-enum E1(int v) {
+enum E1(final int v) {
   e0(1);
-
-  factory ET1.someName(int v) => E1.e0;
+  factory E1.someName(int v) => E1.e0;
 }
 
 enum const E2.someName(final int v) {
   e0(2);
-
-  const factory E2(int v) => E2.e0;
+  factory E2(int v) => E2.e0;
 }
 
 main() {
