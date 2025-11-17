@@ -30,7 +30,7 @@ enum const E1(final int v) {
 
 enum const E2(final int v) {
   e0(2);
-  const new(final int v);
+  const new(int v);
 //      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
