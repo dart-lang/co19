@@ -27,7 +27,7 @@ class C1(var int v) {
 }
 
 class C2(int v1) {
-  new(var int v2);
+  new(int v1);
 //^^^
 // [analyzer] unspecified
 // [cfe] unspecified
