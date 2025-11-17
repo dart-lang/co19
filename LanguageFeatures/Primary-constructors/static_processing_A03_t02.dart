@@ -8,7 +8,7 @@
 /// syntactically support primary constructors).
 ///
 /// @description Check that it is a compile-time error to declare a mixin class
-/// with a non-trivial declaring constructor.
+/// with a non-trivial primary constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
@@ -39,6 +39,11 @@ base mixin M7.someName(); // Constructor is "trivial" but it's not a "mixin clas
 // [analyzer] unspecified
 // [cfe] unspecified
 
+mixin class M8.someName() { // Ok
+  int x;
+  this: x = 0;
+}
+
 main() {
   print(M1);
   print(M2);
@@ -47,4 +52,5 @@ main() {
   print(M5);
   print(M6);
   print(M7);
+  print(M8);
 }

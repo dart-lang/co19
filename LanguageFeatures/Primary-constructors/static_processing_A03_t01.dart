@@ -8,7 +8,7 @@
 /// syntactically support primary constructors).
 ///
 /// @description Check that it is a compile-time error to declare a mixin with a
-/// declaring constructor.
+/// primary constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
@@ -33,9 +33,16 @@ mixin M4(var int v) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+mixin M5.someName() {
+//       ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(M1);
   print(M2);
   print(M3);
   print(M4);
+  print(M5);
 }
