@@ -2,27 +2,30 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion The declaring parameter list of the declaring header constructor
+/// @assertion The declaring parameter list of the primary constructor
 /// introduces a new scope, the primary initializer scope, whose enclosing scope
-/// is the body scope of `D`. Every primary parameter is entered into this scope.
+/// is the body scope of D. Each of the parameters in said parameter list is
+/// introduced into this scope.
 ///
 /// The same parameter list also introduces the primary parameter scope, whose
 /// enclosing scope is also the body scope of the class. Every primary parameter
 /// which is not declaring, not initializing, and not a super parameter is
-/// entered into this scope.
+/// introduced into this scope.
 ///
 /// The primary initializer scope is the current scope for the initializing
 /// expression, if any, of each non-late instance variable declaration. It is
 /// also the current scope for the initializer list in the body part of the
-/// declaring header constructor, if any.
+/// primary constructor, if any.
 ///
 /// The primary parameter scope is the current scope for the body of the body
-/// part of the declaring header constructor, if any.
+/// part of the primary constructor, if any.
 ///
 /// @description Check that the primary initializer scope is the current scope
 /// for the initializing expression of non-late instance variable declaration
 /// and it is also the current scope for the initializer list in the body part
-/// of the declaring header constructor. Test enums.
+/// of the primary constructor. Also check that the primary parameter scope is
+/// the current scope for the initializer list in the body part of the primary
+/// constructor. Test enums.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
