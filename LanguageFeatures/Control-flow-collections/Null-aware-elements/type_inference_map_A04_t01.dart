@@ -51,8 +51,6 @@
 /// expression `ev` in an unknown context.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=null-aware-elements
-
 import '../../../Utils/static_type_helper.dart';
 
 main() {

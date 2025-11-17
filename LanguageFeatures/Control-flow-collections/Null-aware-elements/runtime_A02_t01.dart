@@ -15,8 +15,6 @@
 /// then evaluation is stopped.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=null-aware-elements
-
 import '../../../Utils/expect.dart';
 
 String _log = "";

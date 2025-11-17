@@ -51,8 +51,6 @@
 /// of the expression `ev` the context `Pv?`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=null-aware-elements
-
 import '../../../Utils/static_type_helper.dart';
 
 main() {

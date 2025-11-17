@@ -22,8 +22,6 @@
 /// `expressionElement` or `nullAwareExpressionElement` elements.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=null-aware-elements
-
 main() {
   String? key = null, v = null;
   if (2 > 1) {
