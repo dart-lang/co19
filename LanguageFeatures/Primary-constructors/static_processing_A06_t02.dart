@@ -36,9 +36,9 @@ String log = "";
 String bodyLog = "";
 
 extension type ET1(String x) {
-  this : assert(("${log=x}".isNotEmpty) {
+  this : assert("${log=x}".isNotEmpty) {
     bodyLog = x;
-  }());
+  }
 }
 
 extension type ET2([String x = "default"]) {
