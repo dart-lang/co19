@@ -21,8 +21,6 @@
 /// `nullAwareExpressionElement`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=null-aware-elements
-
 // TODO(sgrekhov): replace unspecified by the actual lint name
 
 class C {

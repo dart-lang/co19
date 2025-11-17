@@ -51,8 +51,6 @@
 /// of the expression `ek` the context `Pk`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=null-aware-elements
-
 import '../../../Utils/static_type_helper.dart';
 
 main() {

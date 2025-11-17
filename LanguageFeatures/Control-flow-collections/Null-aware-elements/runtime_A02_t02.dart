@@ -16,8 +16,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 56848
 
-// SharedOptions=--enable-experiment=null-aware-elements
-
 import '../../../Utils/expect.dart';
 
 String _log = "";

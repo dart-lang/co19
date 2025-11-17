@@ -20,8 +20,6 @@
 /// `nullAwareExpressionElement` is used in an expression
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=null-aware-elements
-
 main() {
   int? e = 2 > 1 ? 1 : null;
 
