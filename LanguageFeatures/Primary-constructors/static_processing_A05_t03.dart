@@ -2,12 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Consider a class, enum, or extension type declaration `D` with a
-/// declaring header constructor, also known as a primary constructor.
+/// @assertion Consider a class, mixin class, enum, or extension type
+/// declaration `D` with a primary constructor (note that it cannot be a
+/// `<mixinApplicationClass>`, because that kind of declaration does not
+/// syntactically support primary constructors). This declaration is treated as
+/// a class, mixin class, enum, respectively extension type declaration without
+/// a primary constructor which is obtained as described in the following. This
+/// determines the dynamic semantics of a primary constructor.
 /// ...
-/// If `D` is an extension type, it is a compile-time error if `D`
-/// does not contain a declaring constructor that has exactly one declaring
-/// parameter which is `final`.
+/// If `D` is an extension type, it is a compile-time error if the primary
+/// constructor that `D` contains does not have exactly one parameter.
 ///
 /// @description Check that it is a compile-time error if an extension type does
 /// not contain a declaring constructor that has exactly one declaring parameter

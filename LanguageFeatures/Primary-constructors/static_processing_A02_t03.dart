@@ -43,9 +43,28 @@ extension type ET4._() {
 // [cfe] unspecified
 }
 
+extension type ET5(final int v) {
+  ET5.someName(int v) : this(v);
+  factory ET5(int v) = ET5.someName;
+//        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET6.someName(int v) {
+  ET6(this.v);
+  factory ET6.someName(int v) => ET6(v);
+//        ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+
 main() {
   print(ET1);
   print(ET2);
   print(ET3);
   print(ET4);
+  print(ET5);
+  print(ET6);
 }
