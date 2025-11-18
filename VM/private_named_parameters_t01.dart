@@ -9,7 +9,7 @@
 /// @description Check that private named parameters can be debugged.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors,private-named-parameters
+// SharedOptions=--enable-experiment=primary-constructors,private-named-parameters
 
 import 'dart:developer';
 import 'package:vm_service/vm_service.dart';
