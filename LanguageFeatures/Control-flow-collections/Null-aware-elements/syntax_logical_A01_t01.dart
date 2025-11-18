@@ -20,45 +20,43 @@
 /// as an expression in a `nullAwareMapElement` or `nullAwareExpressionElement`.
 /// @author sgrekhov22@gmail.com
 
-// TODO(sgrekhov): replace unspecified by the actual lint name
-
 import '../../../Utils/expect.dart';
 
 main() {
   var list = [
     ?true || false,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?true && false
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   ];
   Expect.listEquals([true, false], list);
 
   var set = {
     ?true || false,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?true && false
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.setEquals({true, false}, set);
 
   var map1 = {
     ?true || false: true,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     false: ?false && true
 //         ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({true: true, false: false}, map1);
 
   var map2 = {
     ?true || false: ?true && true
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({true: true}, map2);
 }

@@ -21,8 +21,6 @@
 /// `nullAwareExpressionElement`.
 /// @author sgrekhov22@gmail.com
 
-// TODO(sgrekhov): replace unspecified by the actual lint name
-
 import '../../../Utils/expect.dart';
 
 class C {}
@@ -31,101 +29,101 @@ main() {
   var list = [
     ?C.new,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() {},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() async {},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() => 1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() async => 1
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   ];
   // We can't use Expect.listEquals() to verify the outcome. () {} != () {}
-  Expect.isTrue(list is List<Function>);
+  Expect.isTrue(list is List<Function>); // ignore: unnecessary_type_check
   Expect.equals(5, list.length);
 
   var set = {
     ?C.new,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() {},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() async {},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() => 1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() async => 1
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
-  Expect.isTrue(set is Set<Function>);
+  Expect.isTrue(set is Set<Function>); // ignore: unnecessary_type_check
   Expect.equals(5, set.length);
 
   var map1 = {
     ?C.new: 1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() {}: 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() async {}: 3,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() => 1: 4,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() async => 1: 5
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
-  Expect.isTrue(map1 is Map<Function, int>);
+  Expect.isTrue(map1 is Map<Function, int>); // ignore: unnecessary_type_check
   Expect.equals(5, map1.keys.length);
 
   var map2 = {
     1: ?C.new,
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     2: ?() {},
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     3: ?() async {},
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     4: ?() => 1,
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     5: ?() async => 1
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
-  Expect.isTrue(map2 is Map<int, Function>);
+  Expect.isTrue(map2 is Map<int, Function>); // ignore: unnecessary_type_check
   Expect.equals(5, map2.values.length);
 
   var map3 = {
     ?C.new: ?C.new,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() {}: ?() {},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() async {}: ?() async {},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() => 1: ?() => 1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() async => 1: ?() async => 1
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
-  Expect.isTrue(map3 is Map<Function, Function>);
+  Expect.isTrue(map3 is Map<Function, Function>); // ignore: unnecessary_type_check
   Expect.equals(5, map3.keys.length);
 }

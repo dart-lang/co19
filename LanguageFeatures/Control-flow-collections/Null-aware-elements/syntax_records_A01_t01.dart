@@ -20,24 +20,22 @@
 /// expression in a `nullAwareMapElement` or `nullAwareExpressionElement`.
 /// @author sgrekhov22@gmail.com
 
-// TODO(sgrekhov): replace unspecified by the actual lint name
-
 import '../../../Utils/expect.dart';
 
 main() {
   var list = [
     ?(1, name: 2),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(null, name: null),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?const (3, name: 4),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?const (null, name: null),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   ];
   Expect.listEquals([
     (1, name: 2),
@@ -49,16 +47,16 @@ main() {
   var set = {
     ?(1, name: 2),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(null, name: null),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?const (3, name: 4),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?const (null, name: null),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.setEquals({
     (1, name: 2),
@@ -69,28 +67,28 @@ main() {
   var map1 = {
     ?(1, name: 2): 1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(null, name: null): 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?const (3, name: 4): 3,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?const (null, name: null): 4,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     5: ?(1, name: 2),
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     6: ?(null, name: null),
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     7: ?const (3, name: 4),
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     8: ?const (null, name: null)
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({
     (1, name: 2): 1,
@@ -105,16 +103,16 @@ main() {
   var map2 = {
     ?(1, name: 2): ?(1, name: 2),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(null, name: null): ?(null, name: null),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?const (3, name: 4): ?const (3, name: 4),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?const (null, name: null): ?const (null, name: null)
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({
     (1, name: 2): (1, name: 2),

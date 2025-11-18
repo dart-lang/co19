@@ -22,8 +22,6 @@
 /// parenthesized and record patterns assignment.
 /// @author sgrekhov22@gmail.com
 
-// TODO(sgrekhov): replace unspecified by the actual lint name
-
 import '../../../Utils/expect.dart';
 
 main() {
@@ -32,20 +30,20 @@ main() {
   var list = [
     ?(a) = 1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(b,) = (2,),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(name: c) = (name: 3),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(d) = null,
     ?(e,) = (null,),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(name: f) = (name: null)
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   ];
   Expect.listEquals([1, (2,), (name: 3), (null,), (name: null)], list);
   Expect.equals(1, a);
@@ -58,20 +56,20 @@ main() {
   var set = {
     ?(a) = 1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(b,) = (2,),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(name: c) = (name: 3),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(d) = null,
     ?(e,) = (null,),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(name: f) = (name: null)
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.setEquals({1, (2,), (name: 3), (null,), (name: null)}, set);
   Expect.equals(1, a);
@@ -84,20 +82,20 @@ main() {
   var map1 = {
     ?(a) = 1 : 1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(b,) = (2,): 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(name: c) = (name: 3): 3,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(d) = null: 4,
     ?(e,) = (null,): 5,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(name: f) = (name: null): 6
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals(
       {1: 1, (2,): 2, (name: 3): 3, (null,): 5, (name: null): 6}, map1);
@@ -111,20 +109,20 @@ main() {
   var map2 = {
     1: ?(a) = 1,
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     2: ?(b,) = (2,),
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     3: ?(name: c) = (name: 3),
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     4: ?(d) = null,
     5: ?(e,) = (null,),
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     6: ?(name: f) = (name: null)
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals(
       {1: 1, 2: (2,), 3: (name: 3), 5: (null,), 6: (name: null)}, map2);
@@ -138,20 +136,20 @@ main() {
   var map3 = {
     ?(a) = 1: ?(a) = 1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(b,) = (2,): ?(b,) = (2,),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(name: c) = (name: 3): ?(name: c) = (name: 3),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(d) = null: ?(d) = null,
     ?(e,) = (null,): ?(e,) = (null,),
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(name: f) = (name: null): ?(name: f) = (name: null)
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({
     1: 1,
