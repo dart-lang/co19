@@ -19,7 +19,7 @@
 /// default value. Test required parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 import '../../Utils/expect.dart';
 

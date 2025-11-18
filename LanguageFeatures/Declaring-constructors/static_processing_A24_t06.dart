@@ -17,7 +17,7 @@
 /// is initialized in the initializer list more than once.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 class C1(int v) {
   int x;

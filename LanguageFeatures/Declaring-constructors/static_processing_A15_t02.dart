@@ -23,7 +23,7 @@
 /// followed by `.new` then the name of the constructor is `C`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 class C1.new(var int v);
 

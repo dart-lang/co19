@@ -13,7 +13,7 @@
 /// member whose basename is `n`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 extension type ET1.someName(int _) {
   static int someName = 0;

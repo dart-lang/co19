@@ -23,7 +23,7 @@
 /// `representationDeclaration` is `final` or `final type`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 import '../../Utils/expect.dart';
 

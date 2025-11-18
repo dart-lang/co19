@@ -30,7 +30,7 @@
 /// type `T` then the parameter `p` has declared type `T` as well.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 import '../../Utils/static_type_helper.dart';
 

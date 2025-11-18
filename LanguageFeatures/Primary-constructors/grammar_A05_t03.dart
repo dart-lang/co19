@@ -17,7 +17,7 @@
 /// `C`. Test a mixin class.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,declaring-constructors
+// SharedOptions=--enable-experiment=augmentations,primary-constructors
 
 import '../../Utils/static_type_helper.dart';
 

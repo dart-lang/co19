@@ -13,7 +13,7 @@
 /// in the body.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 extension type ET1(int v) {
   ET1(this.v);

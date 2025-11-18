@@ -13,7 +13,7 @@
 /// basename is `n`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 class C1.someName(var int v) {
   static int someName = 0;

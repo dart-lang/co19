@@ -26,7 +26,7 @@
 /// member named `p`. Test required named parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 class C1<T>({required var int v1, required final T v2, required var bool v3}) {
   int get v1 => 0;

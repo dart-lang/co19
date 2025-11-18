@@ -26,7 +26,7 @@
 /// `T p;` (without `final`) is added to `D2`. Test mandatory parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 import '../../Utils/expect.dart';
 

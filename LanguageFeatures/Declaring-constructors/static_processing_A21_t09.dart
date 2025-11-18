@@ -25,7 +25,7 @@
 /// constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 class C1<T>(final T v);
 

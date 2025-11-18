@@ -17,7 +17,7 @@
 /// contains a non-redirecting generative constructor. Test a mixin class.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 mixin class C1() {
   C1.someName();

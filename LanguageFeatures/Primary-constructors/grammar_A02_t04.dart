@@ -18,7 +18,7 @@
 /// named `factory` with an implicitly inferred return type.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 class C1 {
   C1.create();
