@@ -2,13 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if the name of the primary
-/// constructor is the same as the name of a constructor (declaring or not) in
-/// the body.
+/// @assertion A compile-time error occurs if a class, mixin class, enum, or
+/// extension type has a primary constructor whose name is also the name of a
+/// constructor declared in the body, or if it declares a primary constructor
+/// whose name is `C.n`, and the body declares a static member whose basename is
+/// `n`.
 ///
 /// @description Check that it is a compile-time error if the name of the
-/// declaring constructor is the same as the name of some constructor declared
-/// in the body. Test classes.
+/// primary constructor is the same as the name of some constructor declared in
+/// the body. Test classes.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=declaring-constructors
@@ -25,8 +27,8 @@ class C1(var int v) {
 }
 
 class C2(int v1) {
-  this(var int v2);
-//^^^^
+  new(int v1);
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -46,15 +48,6 @@ class C5(var int v) {
   C5.foo(int v) : this(v);
   factory C5(int v) = C5.foo;
 //        ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C6 {
-  this.someName(final int v);
-  C6(this.v);
-  factory C6.someName(int v) => C6(v);
-//        ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -121,7 +114,6 @@ main() {
   print(C2);
   print(C3);
   print(C5);
-  print(C6);
   print(C7);
   print(C8);
   print(C9);
