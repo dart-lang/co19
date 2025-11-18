@@ -187,10 +187,10 @@ void collectionsShapeEquals(Iterable expected, Iterable actual) {
   while (expIterator.moveNext()) {
     Expect.isTrue(actIterator.moveNext());
     if (expIterator.current is Iterable) {
-      Expect.isTrue(actIterator.current is Iterable, "${actIterator.current }");
+      Expect.isTrue(actIterator.current is Iterable, "${actIterator.current}");
       collectionsShapeEquals(expIterator.current , actIterator.current);
     } else if (expIterator.current is Map) {
-      Expect.isTrue(actIterator.current is Map, "${actIterator.current }");
+      Expect.isTrue(actIterator.current is Map, "${actIterator.current}");
       Expect.mapEquals(expIterator.current, actIterator.current);
     } else {
       Expect.equals(expIterator.current, actIterator.current);
