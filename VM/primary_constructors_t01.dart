@@ -2,15 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A declaring constructor declaration is a declaration that
-/// contains a `<declaringConstructorSignature>` with a
-/// `<declaringParameterList>`, or a declaration that contains a
-/// `<declaringConstantConstructorSignature>`, or it is a
-/// `<primaryConstructorNoConst>` in the header of a class, enum, or extension
-/// type declaration, together with a declaration in the body that contains a
-/// `<declaringConstructorSignature>`.
+/// @assertion A primary constructor declaration consists of a
+/// `<primaryConstructor>` in the declaration header plus optionally a member
+/// declaration in the body that starts with a
+/// `<primaryConstructorBodySignature>`.
 ///
-/// @description Check that declaring constructors invocation and declaration
+/// @description Check that primary constructors invocation and declaration
 /// can be debugged.
 /// @author sgrekhov22@gmail.com
 
@@ -67,7 +64,7 @@ const List<String> expected = [
 final tests = <IsolateTest>[
   hasStoppedAtBreakpoint,
 
-  // Test interaction of expression evaluation with declaring constructors invocation
+  // Test interaction of expression evaluation with invocation of primary constructors
   (VmService service, IsolateRef isolateRef) async {
     final isolateId = isolateRef.id!;
 
@@ -82,7 +79,7 @@ final tests = <IsolateTest>[
     Expect.equals('3', response.valueAsString);
   },
 
-  // Test interaction of breakpoints with declaring constructors.
+  // Test interaction of breakpoints with primary constructors.
   (VmService service, IsolateRef isolateRef) async {
     final isolateId = isolateRef.id!;
     final isolate = await service.getIsolate(isolateId);
@@ -104,7 +101,7 @@ final tests = <IsolateTest>[
     await service.removeBreakpoint(isolateId, breakpoint.id!);
   },
 
-  // Test interaction of single-stepping with declaring constructors.
+  // Test interaction of single-stepping with primary constructors.
   runStepIntoThroughProgramRecordingStops(stops),
   checkRecordedStops(stops, expected),
 ];
