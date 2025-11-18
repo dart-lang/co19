@@ -22,8 +22,6 @@
 /// and object patterns assignment.
 /// @author sgrekhov22@gmail.com
 
-// TODO(sgrekhov): replace unspecified by the actual lint name
-
 import '../../../Utils/expect.dart';
 
 class C {
@@ -53,22 +51,22 @@ main() {
   var list = [
     ?[a] = l1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{"key1": b} = m1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?C(v: c) = c1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?[d] = l2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{"key2": e} = m2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?C(v: f) = c2
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   ];
   Expect.listEquals([l1, m1, c1, l2, m2, c2], list);
   Expect.equals(1, a);
@@ -81,22 +79,22 @@ main() {
   var set = {
     ?[a] = l1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{"key1": b} = m1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?C(v: c) = c1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?[d] = l2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{"key2": e} = m2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?C(v: f) = c2
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.setEquals({l1, m1, c1, l2, m2, c2}, set);
   Expect.equals(1, a);
@@ -109,22 +107,22 @@ main() {
   var map1 = {
     ?[a] = l1: 1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{"key1": b} = m1: 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?C(v: c) = c1: 3,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?[d] = l2: 4,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{"key2": e} = m2: 5,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?C(v: f) = c2: 6
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({l1: 1, m1: 2, c1: 3, l2: 4, m2: 5, c2: 6}, map1);
   Expect.equals(1, a);
@@ -137,22 +135,22 @@ main() {
   var map2 = {
     1: ?[a] = l1,
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     2: ?{"key1": b} = m1,
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     3: ?C(v: c) = c1,
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     4: ?[d] = l2,
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     5: ?{"key2": e} = m2,
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     6: ?C(v: f) = c2
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({1: l1, 2: m1, 3: c1, 4: l2, 5: m2, 6: c2}, map2);
   Expect.equals(1, a);
@@ -165,22 +163,22 @@ main() {
   var map3 = {
     ?[a] = l1: ?[a] = l1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{"key1": b} = m1: ?{"key1": b} = m1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?C(v: c) = c1: ?C(v: c) = c1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?[d] = l2: ?[d] = l2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{"key2": e} = m2: ?{"key2": e} = m2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?C(v: f) = c2: ?C(v: f) = c2
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({l1: l1, m1: m1, c1: c1, l2: l2, m2: m2, c2: c2}, map3);
   Expect.equals(1, a);

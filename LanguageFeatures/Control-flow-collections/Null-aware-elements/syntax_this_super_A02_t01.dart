@@ -20,32 +20,30 @@
 /// `nullAwareMapElement` and a `nullAwareExpressionElement`.
 /// @author sgrekhov22@gmail.com
 
-// TODO(sgrekhov): replace unspecified by the actual lint name
-
 import '../../../Utils/expect.dart';
 
 class C {
   void test() {
     var l = [?this];
 //           ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     Expect.listEquals([this], l);
 
     var s = {?this};
 //           ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     Expect.setEquals({this}, s);
 
     var m = {
       ?this: 1,
 //    ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
       2: ?this,
 //       ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
       ?this: ?this,
 //    ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     };
     Expect.mapEquals({
       this: 1,

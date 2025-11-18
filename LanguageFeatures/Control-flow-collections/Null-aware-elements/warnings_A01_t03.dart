@@ -11,8 +11,6 @@
 /// null-aware elements are not potentially nullable. Test collection literals
 /// @author sgrekhov22@gmail.com
 
-// TODO(sgrekhov): replace unspecified by the actual lint name
-
 import '../../../Utils/expect.dart';
 
 main() {
@@ -21,38 +19,38 @@ main() {
   var set = <Object>{
     ?[],
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?[?e],
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?<int?>[?e, null],
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{?e},
 //  ^
-// [analyzer] unspecified
-    ?{},
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+    ?<int?>{},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?<int?>{?e, null},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{?e: 1},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{2: ?e},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?<int?, int?>{e: e},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
-  Expect.setEquals({
+  collectionsShapeEquals({
     [],
     [e],
     <int?>[e, null],
     {e},
-    {},
+    <int?>{},
     <int?>{e, null},
     {e: 1},
     {2: e},
@@ -62,33 +60,33 @@ main() {
   var list = <Object>[
     ?[],
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?[?e],
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?<int?>[?e, null],
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{?e},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?<int?>{?e, null},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{?e: 1},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{2: ?e},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?<int?, int?>{e: e},
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   ];
-  Expect.listEquals([
+  collectionsShapeEquals([
     [],
     [e],
     <int?>[e, null],
@@ -103,33 +101,33 @@ main() {
   var map1 = <Object, int>{
     ?[]: 1,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?[?e]: 2,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?<int?>[?e, null]: 3,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{?e}: 4,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{}: 5,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?<int?>{?e, null}: 6,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{?e: 1}: 7,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{2: ?e}: 8,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?<int?, int?>{e: e}: 9,
 //  ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
-  Expect.mapEquals({
+  collectionsShapeEquals({
     []: 1,
     [e]: 2,
     <int?>[e, null]: 3,
@@ -139,38 +137,38 @@ main() {
     {e: 1}: 7,
     {2: e}: 8,
     <int?, int?>{e: e}: 9,
-  }, map1);
+  }.keys, map1.keys);
 
   var map2 = <int, Object>{
     1: ?[],
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     2: ?[?e],
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     3: ?<int?>[?e, null],
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     4: ?{?e},
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     5: ?{},
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     6: ?<int?>{?e, null},
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     7: ?{?e: 1},
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     8: ?{2: ?e},
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     9: ?<int?, int?>{e: e},
 //     ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
-  Expect.mapEquals({
+  collectionsShapeEquals({
     1: [],
     2: [?e],
     3: <int?>[?e, null],
@@ -180,5 +178,23 @@ main() {
     7: {?e: 1},
     8: {2: ?e},
     9: <int?, int?>{e: e},
-  }, map2);
+  }.values, map2.values);
+}
+
+void collectionsShapeEquals(Iterable expected, Iterable actual) {
+  Iterator expIterator = expected.iterator;
+  Iterator actIterator = actual.iterator;
+  while (expIterator.moveNext()) {
+    Expect.isTrue(actIterator.moveNext());
+    if (expIterator.current is Iterable) {
+      Expect.isTrue(actIterator.current is Iterable, "${actIterator.current}");
+      collectionsShapeEquals(expIterator.current , actIterator.current);
+    } else if (expIterator.current is Map) {
+      Expect.isTrue(actIterator.current is Map, "${actIterator.current}");
+      Expect.mapEquals(expIterator.current, actIterator.current);
+    } else {
+      Expect.equals(expIterator.current, actIterator.current);
+    }
+  }
+  Expect.isFalse(actIterator.moveNext());
 }

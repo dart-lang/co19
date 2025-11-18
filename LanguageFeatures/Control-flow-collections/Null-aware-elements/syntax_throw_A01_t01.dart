@@ -21,42 +21,40 @@
 /// `nullAwareExpressionElement`.
 /// @author sgrekhov22@gmail.com
 
-// TODO(sgrekhov): replace unspecified by the actual lint name
-
 main() {
   if (1 > 2) {
     <Never>[
       ?throw "Never"
 //    ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ];
   }
   if (1 > 2) {
     <Never>{
       ?throw "Never"
 //    ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     };
   }
   if (1 > 2) {
     <Never, int>{
       ?throw "key": 1
 //    ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     };
   }
   if (1 > 2) {
     <int, Never>{
       1: ?throw "value"
 //       ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     };
   }
   if (1 > 2) {
     <Never, Never>{
       ?throw "key": ?throw "value"
 //    ^
-// [analyzer] unspecified
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     };
   }
 }
