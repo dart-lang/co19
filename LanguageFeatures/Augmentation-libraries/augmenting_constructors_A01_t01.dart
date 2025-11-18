@@ -3,23 +3,30 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if:
-/// - The signature of the constructor augmentation does not match the original
-///   constructor. It must have the same number of positional parameters, the
-///   same named parameters, and matching parameters must have the same type,
-///   optionality, and any required modifiers must match. Any initializing
-///   formals and super parameters must also be the same in both constructors.
+/// - The signature of the augmenting function does not match the signature of
+///   the augmented function.
 ///
 /// @description Checks that it is a compile-time error if the signature of the
 /// constructor augmentation does not match the original constructor. Test wrong
 /// number of positional parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-part 'augmenting_constructors_A01_t01_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 class C {
   C(int x);
+}
+
+augment class C {
+  augment C();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment C(int x, int y);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {
@@ -27,8 +34,32 @@ enum E {
   const E(int x);
 }
 
+augment enum E {
+  ;
+  augment const E();
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment const E(int x, int y);
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 extension type ET(int id) {
   ET.foo(this.id);
+}
+
+augment extension type ET {
+  augment ET.foo();
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.foo(int id, int y);
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

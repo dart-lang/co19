@@ -3,75 +3,106 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if:
-/// - The signature of the constructor augmentation does not match the original
-///   constructor. It must have the same number of positional parameters, the
-///   same named parameters, and matching parameters must have the same type,
-///   optionality, and any required modifiers must match. Any initializing
-///   formals and super parameters must also be the same in both constructors.
+/// - The signature of the augmenting function does not match the signature of
+///   the augmented function.
 ///
-/// @description Checks that it is not an error if a constructor augmentation
-/// specifies a type of formal parameter which were not explicitly specified in
-/// the introductory constructor.
+/// @description Checks that it is a compile-time error if a constructor
+/// augmentation specifies a type of formal parameter which were not explicitly
+/// specified in the introductory constructor and this type is not `dynamic`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-import '../../Utils/expect.dart';
-part 'augmenting_constructors_A01_t12_lib.dart';
-
-String _log = "";
+// SharedOptions=--enable-experiment=augmentations
 
 class C {
-  int x, y;
-  C(this.x, [this.y = 0]);
-  C.foo({required this.x, this.y = 0});
-  C.bar(x, [y = 0]): x = x, y = y;
-  C.baz({required x, y = 0}): x = x, y = y;
+  int x;
+  C(x);
+  C.foo({x});
+  C.bar([x]);
+  C.baz({required x});
+}
+
+augment class C {
+  augment C(int this.x);
+//          ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment C.foo({this.x = 0});
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment C.bar([int x = 0]) : x = x;
+//               ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment C.baz({required int x}) : x = x;
+//                        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {
   e0(1), e1.foo(x: 1), e2.bar(1), e3.baz(x: 1);
-  final int x, y;
-  const E(this.x, [this.y = 0]);
-  const E.foo({required this.x, this.y = 0});
-  const E.bar(x, [y = 0]): x = x, y = y;
-  const E.baz({required x, y = 0}): x = x, y = y;
+  final int x;
+  const E(x);
+  const E.foo({x});
+  const E.bar([x]);
+  const E.baz({required x});
+}
+
+augment enum E {
+  ;
+  augment const E(int this.x);
+//                ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo({this.x = 0});
+//                     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.bar([int x = 0]) : x = x;
+//                     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.baz({required int x}) : x = x;
+//                              ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET(int x) {
-  ET.foo(this.x);
-  ET.bar({required this.x});
-  ET.baz(x, [y = 0]): x = x;
-  ET.qux({required x, y = 0}): x = x;
+  ET.foo(x);
+  ET.bar({x});
+  ET.baz([x]);
+  ET.qux({required x});
+}
+
+augment extension type ET {
+  augment ET.foo(int this.x);
+//               ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment ET.bar({this.x = 0});
+//                ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment ET.baz([int x = 0]) : x = x;
+//                ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment ET.qux({required int x}) : x = x;
+//                         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  Expect.equals(1, C(1).x);
-  Expect.equals(0, C(1).y);
-  Expect.equals("Augmented: 1, 0", _log);
-  Expect.equals(1, C.foo(x: 1).x);
-  Expect.equals(0, C.foo(x: 1).y);
-  Expect.equals("Augmented: 1, 0", _log);
-  Expect.equals(1, C.bar(1).x);
-  Expect.equals(0, C.bar(1).y);
-  Expect.equals("Augmented: 1, 0", _log);
-  Expect.equals(1, C.baz(x: 1).x);
-  Expect.equals(0, C.baz(x: 1).y);
-  Expect.equals("Augmented: 1, 0", _log);
-
-  Expect.equals(1, E.e0.x);
-  Expect.equals(0, E.e0.y);
-  Expect.equals(1, E.e1.x);
-  Expect.equals(0, E.e1.y);
-  Expect.equals(1, E.e2.x);
-  Expect.equals(0, E.e2.y);
-  Expect.equals(1, E.e3.x);
-  Expect.equals(0, E.e3.y);
-
-  Expect.equals(1, ET.foo(1).x);
-  Expect.equals("Augmented: 1, 0", _log);
-  Expect.equals(1, ET.bar(x: 1).x);
-  Expect.equals("Augmented: 1, 0", _log);
-  Expect.equals(1, ET.baz(1));
-  Expect.equals("Augmented: 1, 0", _log);
+  print(C);
+  print(E);
+  print(ET);
 }
