@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion The following errors apply to formal parameters of a declaring
-/// constructor, be it in the header or in the body. Let `p` be a formal
-/// parameter of a declaring constructor in a class, enum, or extension type
-/// declaration `D` named `C`:
+/// @assertion The following errors apply to formal parameters of a primary
+/// constructor. Let `p` be a formal parameter of a primary constructor in a
+/// class, mixin class, enum, or extension type declaration `D` named `C`:
 ///
 /// A compile-time error occurs if `p` contains a term of the form
 /// `this.v`, or `super.v` where `v` is an identifier, and `p` has the modifier
 /// `covariant`.
 ///
 /// @description Check that it is a compile-time error if a formal parameter of
-/// a declaring constructor contains a term of the form `super.v` and has the
+/// a primary constructor contains a term of the form `super.v` and has the
 /// modifier `covariant`. Test classes.
 /// @author sgrekhov22@gmail.com
 
@@ -51,45 +50,9 @@ class C4({required covariant String super.x}) extends A {
   String x;
 }
 
-class C5 extends A {
-  String x;
-  this(covariant String super.x);
-//^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C6 extends A {
-  String x;
-  this([covariant super.x = ""]);
-//^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C7 extends A {
-  String x;
-  this({covariant String super.x = ""});
-//^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C8 extends A {
-  String x;
-  this({required covariant String super.x});
-//^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
   print(C1);
   print(C2);
   print(C3);
   print(C4);
-  print(C5);
-  print(C6);
-  print(C7);
-  print(C8);
 }
