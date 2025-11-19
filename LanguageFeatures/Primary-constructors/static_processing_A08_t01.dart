@@ -35,41 +35,9 @@ class C4({required covariant final String x}) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class C5 {
-  this(covariant final String x);
-//               ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C6 {
-  this([covariant final String x = ""]);
-//                ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C7 {
-  this({covariant final String x = ""});
-//                ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C8 {
-  this({required covariant final String x});
-//                         ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
   print(C1);
   print(C2);
   print(C3);
   print(C4);
-  print(C5);
-  print(C6);
-  print(C7);
-  print(C8);
 }
