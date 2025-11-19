@@ -11,7 +11,7 @@
 /// an enum declaration whose body is `{}`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 enum E0();
 //   ^^

@@ -17,7 +17,7 @@
 /// constructors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=private-named-parameters,declaring-constructors
+// SharedOptions=--enable-experiment=private-named-parameters,primary-constructors
 
 class C1({var String? _p});
 

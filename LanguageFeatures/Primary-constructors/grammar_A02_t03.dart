@@ -18,7 +18,7 @@
 /// an implicitly inferred return type.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,declaring-constructors
+// SharedOptions=--enable-experiment=augmentations,primary-constructors
 
 class C1 {
   C1.create();

@@ -11,7 +11,7 @@
 /// super-constructor invocation with a named argument with name `n`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 class S {
   int? n;

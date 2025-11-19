@@ -17,7 +17,7 @@
 /// `C`. Test an extension type and external constructors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';

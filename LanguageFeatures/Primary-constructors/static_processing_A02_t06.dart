@@ -13,7 +13,7 @@
 /// member whose basename is `n`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 mixin class C1.someName() {
   static int someName = 0;

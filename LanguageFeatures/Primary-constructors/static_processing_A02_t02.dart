@@ -13,7 +13,7 @@
 /// the body.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 mixin class C1() {
   C1();

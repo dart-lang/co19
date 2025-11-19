@@ -11,7 +11,7 @@
 /// treated as an extension type declaration whose body is `{}`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 extension type ET1;
 //             ^^^

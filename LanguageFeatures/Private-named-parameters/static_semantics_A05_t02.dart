@@ -15,7 +15,7 @@
 /// constructors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=private-named-parameters,declaring-constructors
+// SharedOptions=--enable-experiment=private-named-parameters,primary-constructors
 
 import '../../Utils/expect.dart';
 

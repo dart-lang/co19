@@ -26,7 +26,7 @@
 /// member named `p`. Test optional named parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 class C1<T>({var String v1 = "", final T? v2, var bool v3 = true}) {
   String get v1 => "";

@@ -11,7 +11,7 @@
 /// with a non-trivial primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 mixin class M1() {} // Ok, this declares a "trivial" constructor
 

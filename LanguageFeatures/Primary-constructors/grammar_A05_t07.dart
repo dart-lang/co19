@@ -17,7 +17,7 @@
 /// `C`. Test an enum.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,declaring-constructors
+// SharedOptions=--enable-experiment=augmentations,primary-constructors
 
 import '../../Utils/expect.dart';
 

@@ -17,7 +17,7 @@
 /// then `k2` has an initializer list with the same elements.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 import '../../Utils/expect.dart';
 

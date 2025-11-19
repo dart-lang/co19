@@ -13,7 +13,7 @@
 /// the body. Test classes.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 class C1(var int v) {
   C1.invalid(this.v); // Needed as redirection target for the constructor below

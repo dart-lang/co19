@@ -25,7 +25,7 @@
 /// Test declaring vs. plain non-declaring parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 class C1<T>(var T v, T v);
 //                     ^

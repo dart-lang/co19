@@ -11,7 +11,7 @@
 /// used as a constructor name in the initializer list.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 class C1 {
   C1();

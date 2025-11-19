@@ -23,7 +23,7 @@
 /// same order, and mandatory positional parameters remain mandatory.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=declaring-constructors
+// SharedOptions=--enable-experiment=primary-constructors
 
 import '../../Utils/expect.dart';
 
