@@ -38,7 +38,7 @@ class C4([final x = null]);
 
 class C5(final x, {final y});
 
-class C6(var x, {var x});
+class C6(var x, {var y});
 
 class C7({final x = null});
 

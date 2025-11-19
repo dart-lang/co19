@@ -35,11 +35,11 @@ class C2(final x, [final y]);
 
 class C3(final x, {final y});
 
-class C4(var x, {var x});
+class C4(var x, {var y});
 
 class C5(final x, {required final y});
 
-class C6(var x, {required var x});
+class C6(var x, {required var y});
 
 extension type ET1([final x]);
 
