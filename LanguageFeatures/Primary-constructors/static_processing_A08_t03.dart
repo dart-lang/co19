@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion The following errors apply to formal parameters of a declaring
-/// constructor, be it in the header or in the body. Let `p` be a formal
-/// parameter of a declaring constructor in a class, enum, or extension type
-/// declaration `D` named `C`:
+/// @assertion The following errors apply to formal parameters of a primary
+/// constructor. Let `p` be a formal parameter of a primary constructor in a
+/// class, mixin class, enum, or extension type declaration `D` named `C`:
 /// ...
 /// A compile-time error occurs if `p` has both of the modifiers `covariant` and
 /// `final`, also if the latter is implicitly induced (which can occur in a
 /// primary constructor of an extension type declaration).
 ///
 /// @description Check that it is a compile-time error if a formal parameters of
-/// a declaring constructor has both of the modifiers `covariant` and `final`.
+/// a primary constructor has both of the modifiers `covariant` and `final`.
 /// Test enums.
 /// @author sgrekhov22@gmail.com
 
@@ -46,45 +45,9 @@ enum E4({required covariant final String x}) {
   e0(x: "");
 }
 
-enum E5 {
-  e0("");
-  this(covariant final String x);
-//               ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-enum E6 {
-  e0();
-  this([covariant final String x = ""]);
-//                ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-enum E7 {
-  e0();
-  this({covariant final String x = ""});
-//                ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-enum E8 {
-  e0(x: "");
-  this({required covariant final String x});
-//                         ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
   print(E1);
   print(E2);
   print(E3);
   print(E4);
-  print(E5);
-  print(E6);
-  print(E7);
-  print(E8);
 }
