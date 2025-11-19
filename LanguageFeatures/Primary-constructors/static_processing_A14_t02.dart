@@ -13,35 +13,29 @@
 /// Next, `k` has the modifier `const` iff the keyword `const` occurs just
 /// before the name of `D` or before `this`, or if `D` is an enum declaration.
 ///
-/// @description Check that the primary constructor is a constant constructor
-/// if the keyword `const` occurs  just before the name of `D`. For an enum
-/// declaration the constructor is constant even without the modifier `const`.
+/// @description Check that the primary constructor is not a constant
+/// constructor if there is no `const` keyword  just before the name of `D`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
 
-import '../../Utils/expect.dart';
+class C(final int v);
 
-class const C(final int v);
+mixin class M();
 
-mixin class const M();
-
-extension type const ET(int v);
-
-enum const E1(final int v) {
-  e0(1);
-}
-
-enum E2(final int v) {
-  e0(2);
-}
+extension type ET(int v);
 
 main() {
-  Expect.equals(1, const C(1).v);
-  Expect.equals(1, const ET(1).v);
-  const m = M();
-  const c1 = E1.e0;
-  const c2 = E2.e0;
-  Expect.equals(1, c1.v);
-  Expect.equals(2, c2.v);
+  const C(1);
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const ET(1);
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const M();
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
