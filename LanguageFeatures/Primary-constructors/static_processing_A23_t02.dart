@@ -41,8 +41,8 @@ class C1<T>(@override var T? v, super.v) extends A<T>;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class C2 extends A<String>(@override final String v, [super.v = ""]);
-//                                                          ^
+class C2(@override final String v, [super.v = ""]) extends A<String>;
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -51,8 +51,8 @@ class C3<T>(final T? v, {super.v}) extends A<T>;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class C4 extends A<String>(final String v, {required super.v});
-//                                                         ^
+class C4(final String v, {required super.v}) extends A<String>;
+//                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
