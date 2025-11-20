@@ -62,7 +62,7 @@ extension type ET4({required String x}) {
 main() {
   var et1 = ET1("parameter");
   Expect.equals("parameter", et1.x);
-  if (log.isNotEmpty) {
+  if (assertStatementsEnabled()) {
     Expect.equals("parameter", log);
     log = "";
   }
@@ -71,7 +71,7 @@ main() {
 
   var et2 = ET2("parameter");
   Expect.equals("parameter", et2.x);
-  if (log.isNotEmpty) {
+  if (assertStatementsEnabled()) {
     Expect.equals("parameter", log);
     log = "";
   }
@@ -80,7 +80,7 @@ main() {
 
   et2 = ET2();
   Expect.equals("default", et2.x);
-  if (log.isNotEmpty) {
+  if (assertStatementsEnabled()) {
     Expect.equals("parameter", log);
     log = "";
   }
@@ -89,7 +89,7 @@ main() {
 
   var et3 = ET3(x: "parameter");
   Expect.equals("parameter", et3.x);
-  if (log.isNotEmpty) {
+  if (assertStatementsEnabled()) {
     Expect.equals("parameter", log);
     log = "";
   }
@@ -98,7 +98,7 @@ main() {
 
   et3 = ET3();
   Expect.equals("default", et3.x);
-  if (log.isNotEmpty) {
+  if (assertStatementsEnabled()) {
     Expect.equals("parameter", log);
     log = "";
   }
@@ -107,7 +107,7 @@ main() {
 
   var et4 = ET4(x: "parameter");
   Expect.equals("parameter", et4.x);
-  if (log.isNotEmpty) {
+  if (assertStatementsEnabled()) {
     Expect.equals("parameter", log);
     log = "";
   }
