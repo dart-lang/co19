@@ -35,12 +35,12 @@ class C2(String this.v1, int this.v2) {
   int v2;
 }
 
-enum E<T>(T this.v1) {
+enum E1<T>(T this.v1) {
   e0<String>("v1");
   final T v1;
 }
 
-enum E(this.v1) {
+enum E2(this.v1) {
   e0("v1");
   final String v1;
 }
