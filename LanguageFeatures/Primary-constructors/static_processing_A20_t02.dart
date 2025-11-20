@@ -2,13 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion The semantics of the declaring constructor is found in the
-/// following steps, where `D` is the class, extension type, or enum declaration
-/// in the program that includes a declaring constructor `k`, and `D2` is the
-/// result of the derivation of the semantics of `D`. The derivation step will
-/// delete elements that amount to the declaring constructor. Semantically, it
-/// will add a new constructor `k2`, and it will add zero or more instance
-/// variable declarations.
+/// @assertion The semantics of the primary constructor is found in the
+/// following steps, where `D` is the class, mixin class, extension type, or
+/// enum declaration in the program that includes a primary constructor `k`, and
+/// `D2` is the result of the derivation of the semantics of `D`. The derivation
+/// step will delete elements that amount to the primary constructor.
+/// Semantically, it will add a new constructor `k2`, and it will add zero or
+/// more instance variable declarations.
+/// ...
+/// The formal parameter list `L2` of `k2` is identical to `L`, except that each
+/// formal parameter is processed as follows.
 /// ...
 /// A formal parameter which is not covered by the previous two cases and which
 /// does not have the modifier `var` or the modifier `final` is copied unchanged
@@ -24,8 +27,6 @@
 
 import '../../Utils/expect.dart';
 
-String log = "";
-
 class C1<T>([String v1 = "default", T? v2]) {
   String x1;
   T? x2;
@@ -38,30 +39,6 @@ class C2([String v1 = "default", int v2 = 2]) {
   this : this.x1 = v1, x2 = v2;
 }
 
-class C3<T> {
-  String x1;
-  T? x2;
-  this([String v1 = "default", T? v2]) : this.x1 = v1, x2 = v2;
-}
-
-class C4 {
-  String x1;
-  int x2;
-  this([String v1 = "default", T v2 = 2]) : this.x1 = v1, x2 = v2;
-}
-
-extension type ET1<T> {
-  this(final int v, [T? t]) {
-    log = "$t";
-  }
-}
-
-extension type ET2 {
-  this(final int v, [String s = "default"]) {
-    log = s;
-  }
-}
-
 enum E1<T>([T? t]) {
   e0<String>("E1"), e1;
   final T? v;
@@ -72,18 +49,6 @@ enum E2([String s = "default"]) {
   e0("E2"), e1;
   final String v;
   this : v = s;
-}
-
-enum E3<T> {
-  e0<String>("E3"), e1;
-  final T? v;
-  const this([T? t]) : v = t;
-}
-
-enum E4 {
-  e0("E4"), e1;
-  final String v;
-  const this([String s = "default"]) : v = s;
 }
 
 main() {
@@ -99,42 +64,10 @@ main() {
   Expect.equals(-2, c2.x2);
   c2 = C2();
   Expect.equals("default", c2.x1);
-  Expect.isNull(c2.x2);
-
-  var c3 = C3<int>("v1", -2);
-  Expect.equals("v1", c3.x1);
-  Expect.equals(-2, c3.x2);
-  c3 = C3<int>();
-  Expect.equals("default", c3.x1);
-  Expect.isNull(c3.x2);
-
-  var c4 = C4("v1", -2);
-  Expect.equals("v1", c4.x1);
-  Expect.equals(-2, c4.x2);
-  c4 = C4();
-  Expect.equals("default", c4.x1);
-  Expect.isNull(c4.x2);
-
-  var et1 = ET1<String>(1, "ET1");
-  Expect.equals(1, et1.v);
-  Expect.equals("ET1", log);
-  et1 = ET1<String>(2);
-  Expect.equals(2, et1.v);
-  Expect.equals("${null}", log);
-
-  var et2 = ET2(1, "ET2");
-  Expect.equals(1, et2.v);
-  Expect.equals("ET2", log);
-  et2 = ET2(2);
-  Expect.equals(2, et2.v);
-  Expect.equals("default", log);
+  Expect.equals(2, c2.x2);
 
   Expect.equals("E1", E1.e0.v);
-  Expect.equals("default", E1.e1.v);
+  Expect.isNull(E1.e1.v);
   Expect.equals("E2", E2.e0.v);
   Expect.equals("default", E2.e1.v);
-  Expect.equals("E3", E3.e0.v);
-  Expect.equals("default", E3.e1.v);
-  Expect.equals("E4", E4.e0.v);
-  Expect.equals("default", E4.e1.v);
 }
