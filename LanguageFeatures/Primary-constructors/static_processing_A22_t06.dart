@@ -61,8 +61,8 @@ extension type ET2([String v = ""]) {
 // [cfe] unspecified
 }
 
-enum E1<T>([final T? v1, final String v2 = "", final bool v3 = true]) {
-  e0<int>(1, "E1", true);
+enum E<T>([final T? v1, final String v2 = "", final bool v3 = true]) {
+  e0<int>(1, "E", true);
 
   static final T v1;
 //               ^^
