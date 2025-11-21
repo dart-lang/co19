@@ -44,6 +44,8 @@ class C {
       ?this: ?this,
 //    ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//           ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     };
     Expect.mapEquals({
       this: 1,

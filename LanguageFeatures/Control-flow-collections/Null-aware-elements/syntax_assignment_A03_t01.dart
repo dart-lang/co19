@@ -137,18 +137,28 @@ main() {
     ?(a) = 1: ?(a) = 1,
 //  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//            ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(b,) = (2,): ?(b,) = (2,),
 //  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(name: c) = (name: 3): ?(name: c) = (name: 3),
 //  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                          ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(d) = null: ?(d) = null,
     ?(e,) = (null,): ?(e,) = (null,),
 //  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                   ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(name: f) = (name: null): ?(name: f) = (name: null)
 //  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                             ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({

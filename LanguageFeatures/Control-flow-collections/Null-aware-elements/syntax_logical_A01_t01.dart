@@ -57,6 +57,8 @@ main() {
     ?true || false: ?true && true
 //  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({true: true}, map2);
 }

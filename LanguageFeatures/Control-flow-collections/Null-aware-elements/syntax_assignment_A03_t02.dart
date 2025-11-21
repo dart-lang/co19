@@ -164,20 +164,32 @@ main() {
     ?[a] = l1: ?[a] = l1,
 //  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//             ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{"key1": b} = m1: ?{"key1": b} = m1,
 //  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                     ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?C(v: c) = c1: ?C(v: c) = c1,
 //  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                 ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?[d] = l2: ?[d] = l2,
 //  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//             ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?{"key2": e} = m2: ?{"key2": e} = m2,
 //  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                     ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?C(v: f) = c2: ?C(v: f) = c2
 //  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                 ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({l1: l1, m1: m1, c1: c1, l2: l2, m2: m2, c2: c2}, map3);

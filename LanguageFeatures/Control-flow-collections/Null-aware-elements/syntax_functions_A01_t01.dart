@@ -111,17 +111,27 @@ main() {
     ?C.new: ?C.new,
 //  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//          ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() {}: ?() {},
 //  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//          ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() async {}: ?() async {},
 //  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() => 1: ?() => 1,
 //  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//            ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?() async => 1: ?() async => 1
 //  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.isTrue(map3 is Map<Function, Function>); // ignore: unnecessary_type_check
