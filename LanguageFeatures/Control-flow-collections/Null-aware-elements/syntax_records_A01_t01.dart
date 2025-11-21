@@ -104,14 +104,22 @@ main() {
     ?(1, name: 2): ?(1, name: 2),
 //  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                 ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?(null, name: null): ?(null, name: null),
 //  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                       ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?const (3, name: 4): ?const (3, name: 4),
 //  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                       ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?const (null, name: null): ?const (null, name: null)
 //  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                             ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({

@@ -64,8 +64,12 @@ main() {
     ?1 is String: ?1 is String,
 //  ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     ?2 is! String: ?2 is! String,
 //  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                 ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
   };
   Expect.mapEquals({false: false, true: true}, map2);

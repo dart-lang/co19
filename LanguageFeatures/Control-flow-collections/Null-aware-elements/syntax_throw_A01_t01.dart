@@ -55,6 +55,8 @@ main() {
       ?throw "key": ?throw "value"
 //    ^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
     };
   }
 }
