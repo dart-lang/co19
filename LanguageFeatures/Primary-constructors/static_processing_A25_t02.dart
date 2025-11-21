@@ -14,7 +14,7 @@
 ///
 /// @description Check that if a `<primaryConstructorBodySignature>` contains a
 /// body, this body is executed after execution of the initializer list (if
-/// any). This the case when the primary constructor is named.
+/// any). Test the case when the primary constructor is named.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
