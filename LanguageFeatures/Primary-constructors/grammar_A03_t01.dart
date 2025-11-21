@@ -31,6 +31,16 @@ class C2 {
 // [cfe] unspecified
 }
 
+class C3 {
+  int? v;
+  this {
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    v = 0;
+  }
+}
+
 enum E1 {
   e0;
 
