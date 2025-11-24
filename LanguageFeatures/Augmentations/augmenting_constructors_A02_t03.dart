@@ -8,16 +8,20 @@
 ///   value for the same optional parameter. This is an error even in the case
 ///   where all of them are identical.
 ///
-/// @description Checks that it is a compile-time error when both the augmenting
-/// constructor parameters and the introductory declaration specify default
-/// values.
+/// @description Checks that it is a compile-time error when more than one
+/// augmenting constructor declaration specify default values.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 class C {
-  C([int x = 0]);
-  C.c1({int x = 0});
+  C([int x]);
+  C.c1({int x});
+}
+
+augment class C {
+  augment C([int x = 0]);
+  augment C.c1({int x = 0});
 }
 
 augment class C {
@@ -34,8 +38,13 @@ augment class C {
 
 enum E {
   e0, e1.c1();
-  const E([int x = 0]);
-  const E.c1({int x = 0});
+  const E([int x]);
+  const E.c1({int x});
+}
+
+augment enum E {
+  augment const E([int x = 0]);
+  augment const E.c1({int x = 0});
 }
 
 augment enum E {
@@ -51,8 +60,13 @@ augment enum E {
 }
 
 extension type ET(int id) {
-  ET.c1(this.id, [int x = 0]);
-  ET.c2(this.id, {int x = 0});
+  ET.c1(this.id, [int x]);
+  ET.c2(this.id, {int x});
+}
+
+augment extension type ET {
+  augment ET.c1(this.id, [int x = 0]);
+  augment ET.c2(this.id, {int x = 0});
 }
 
 augment extension type ET {
