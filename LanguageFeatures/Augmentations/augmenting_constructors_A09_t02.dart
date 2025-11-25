@@ -9,7 +9,7 @@
 /// extra rules to handle features unique to constructors like redirections and
 /// initializer lists.
 ///
-/// @description Checks that if the augmenting constructor may provide a body.
+/// @description Checks that the augmenting constructor may provide a body.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -48,7 +48,8 @@ augment class C3 {
   }
 }
 
-extension type ET1(int id) {
+extension type ET1._(int id) {
+  ET1(this.id);
   ET1.foo(this.id);
 }
 
@@ -61,7 +62,9 @@ augment extension type ET1 {
   }
 }
 
-extension type ET2(int _) {}
+extension type ET2._(int id) {
+  ET2(this.id);
+}
 
 augment extension type ET2 {
   augment ET2.new(int _) {
@@ -69,10 +72,12 @@ augment extension type ET2 {
   }
 }
 
-extension type ET3.new(int _) {}
+extension type ET3._(int _) {
+  ET3.new(this.id);
+}
 
 augment extension type ET3 {
-  augment ET3.new(int _) {
+  augment ET3(int _) {
     log += "Augmented body";
   }
 }

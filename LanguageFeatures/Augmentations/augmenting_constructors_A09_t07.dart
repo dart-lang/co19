@@ -40,7 +40,8 @@ augment class C {
 // [cfe] unspecified
 }
 
-extension type ET(int id) {
+extension type ET._(int id) {
+  ET(this.id) {}
   ET.foo(this.id) {}
 
   augment ET(int id) {}
