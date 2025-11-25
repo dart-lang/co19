@@ -2,33 +2,36 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion At a high level, a non-redirecting generative constructor marked
-/// `augment` may:
-/// - Augment the constructor with an additional constructor body (bodies are
-///   invoked in augmentation order, starting at the introductory declaration).
+/// @assertion It's a compile-time error if an augmentation is complete and any
+/// declaration before it in the augmentation chain is also complete.
 ///
-/// @description Checks that non-redirecting generative constructor bodies are
-/// invoked in augmentation order, starting at the introductory declaration.
+/// @description Checks that it is a compile-time error if augmentation adds a
+/// body to an already completed declaration. Test declarations in different
+/// part files.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 part of 'augmenting_constructors_A09_t07.dart';
 
 augment class C {
-  augment C() {
-    log += "Augment 5;";
-  }
-  augment C.id() {
-    log += "Augment 5;";
-  }
+  augment C() {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C.id() {}
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment extension type ET {
-  augment ET(int id) {
-    log += "Augment 5;";
-  }
-  augment ET.foo(this.id) {
-    log += "Augment 5;";
-  }
+  augment ET.new(int id) {}
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.foo(this.id) {}
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

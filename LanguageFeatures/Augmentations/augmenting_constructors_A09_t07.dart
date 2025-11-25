@@ -2,83 +2,69 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion At a high level, a non-redirecting generative constructor marked
-/// `augment` may:
-/// - Augment the constructor with an additional constructor body (bodies are
-///   invoked in augmentation order, starting at the introductory declaration).
+/// @assertion It's a compile-time error if an augmentation is complete and any
+/// declaration before it in the augmentation chain is also complete.
 ///
-/// @description Checks that non-redirecting generative constructor bodies are
-/// invoked in augmentation order, starting at the introductory declaration.
+/// @description Checks that it is a compile-time error if augmentation adds a
+/// body to an already completed declaration. Test declarations in different
+/// part files.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
-import '../../Utils/expect.dart';
 part 'augmenting_constructors_A09_t07_lib1.dart';
 part 'augmenting_constructors_A09_t07_lib3.dart';
 
-String log = "";
-
 class C {
-  C() {
-    log += "Introductory;";
-  }
-  C.id() {
-    log += "Introductory;";
-  }
+  C() {}
+  C.id() {}
 
-  augment C() {
-    log += "Augment 1;";
-  }
-  augment C.id() {
-    log += "Augment 1;";
-  }
+  augment C() {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C.id() {}
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment class C {
-  augment C() {
-    log += "Augment 2;";
-  }
-  augment C.id() {
-    log += "Augment 2;";
-  }
+  augment C() {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C.id() {}
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET(int id) {
-  ET.foo(this.id) {
-    log += "Introductory;";
-  }
+  ET.foo(this.id) {}
 
-  augment ET(int id) {
-    log += "Augment 1;";
-  }
-  augment ET.foo(this.id) {
-    log += "Augment 1;";
-  }
+  augment ET(int id) {}
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.foo(this.id) {}
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment extension type ET {
-  augment ET.new(int id) {
-    log += "Augment 2;";
-  }
-  augment ET.foo(this.id) {
-    log += "Augment 2;";
-  }
-}
-
-void checkLog(String expected) {
-  Expect.equals(expected, log);
-  log = "";
+  augment ET.new(int id) {}
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.foo(this.id) {}
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  C();
-  checkLog("Introductory;Augment 1;Augment 2;Augment 3;Augment 4;Augment 5;");
-  C.id();
-  checkLog("Introductory;Augment 1;Augment 2;Augment 3;Augment 4;Augment 5;");
-
-  ET(0);
-  checkLog("Augment 1;Augment 2;Augment 3;Augment 4;Augment 5;");
-  ET.foo(0);
-  checkLog("Introductory;Augment 1;Augment 2;Augment 3;Augment 4;Augment 5;");
+  print(C);
+  print(ET);
 }

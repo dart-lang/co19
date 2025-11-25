@@ -2,16 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion At a high level, a non-redirecting generative constructor marked
-/// `augment` may:
-/// - Augment the constructor with an additional constructor body (bodies are
-///   invoked in augmentation order, starting at the introductory declaration).
+/// @assertion It's a compile-time error if an augmentation is complete and any
+/// declaration before it in the augmentation chain is also complete.
 ///
 /// @description Checks that it is not an error if an augmenting constructor has
 /// no body.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
 
