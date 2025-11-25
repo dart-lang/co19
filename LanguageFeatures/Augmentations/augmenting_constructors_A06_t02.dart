@@ -2,19 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if:
-/// ...
-/// - The resulting constructor is not valid (it has a redirection as well as
-///   some initializer list elements, or it has multiple super initializers,
-///   etc).
+/// @assertion It's a compile-time error if an augmentation is complete and any
+/// declaration before it in the augmentation chain is also complete.
 ///
-/// @description Checks that it is a compile-time error if the resulting
-/// constructor has multiple super initializers.
+/// @description Checks that it is a compile-time error if the introductory and
+/// augmenting constructors have multiple super initializers.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-part 'augmenting_constructors_A06_t02_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 class A {
   int x;
@@ -23,10 +18,15 @@ class A {
 
 class C extends A {
   C() : super(0);
-//^
+}
+
+augment class C {
+  augment C() : super(1);
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
 
 main() {
   print(C);

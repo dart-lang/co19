@@ -2,29 +2,56 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if:
-/// ...
-/// - The resulting constructor is not valid (it has a redirection as well as
-///   some initializer list elements, or it has multiple `super` initializers,
-///   etc).
+/// @assertion It's a compile-time error if an augmentation is complete and any
+/// declaration before it in the augmentation chain is also complete.
 ///
-/// @description Checks that it is a compile-time error if the resulting
-/// constructor has a redirecting initializer and initializer list elements.
+/// @description Checks that it is a compile-time error if the introductory
+/// constructor has a redirecting initializer and the augmenting has initializer
+/// list elements.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-part 'augmenting_constructors_A06_t01_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 class C {
   int x;
   C(this.x);
   C.foo() : this(0);
-//^^^^^
+}
+
+augment class C {
+  augment C.foo() : x = 1;
+//        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E {
+  e0.foo();
+  final int x;
+  const E(this.x);
+  const E.foo() : this(0);
+}
+
+augment enum E {
+  augment const E.foo() : x = 1;
+//              ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET(int v) {
+  ET.foo() : this(0);
+}
+
+augment extension type ET {
+  augment ET.foo() : x = 1;
+//        ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
   print(C);
+  print(E);
+  print(ET);
 }

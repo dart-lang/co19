@@ -2,23 +2,32 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if:
-/// ...
-/// - The resulting constructor is not valid (it has a redirection as well as
-///   some initializer list elements, or it has multiple super initializers,
-///   etc).
+/// @assertion The general rule is that compile-time errors apply to semantic
+/// definitions whenever possible. In other words, if the library is
+/// syntactically well-formed enough that augmentations can be applied, then
+/// they should be. And if doing so eliminates what would otherwise be a
+/// compile-time error, then that error should not be reported.
 ///
 /// @description Checks that it is a compile-time error if a merged constructor
 /// is cyclic.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-part 'augmenting_constructors_A06_t03_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 class C {
   C();
   C.foo();
+}
+
+augment class C {
+  augment C() : this();
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C.foo() : this.foo();
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {
@@ -27,8 +36,31 @@ enum E {
   const E.foo();
 }
 
+augment enum E {
+  augment e0;
+  augment const E() : this();
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo() : this.foo();
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 extension type ET(int v) {
   ET.foo(int v);
+}
+
+augment extension type ET {
+  augment ET(int v) : this.foo(v);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.foo(int v) : this(v);
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
