@@ -11,18 +11,30 @@
 /// constructor is marked `factory` and the augmenting constructor is not.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-part 'augmenting_constructors_A04_t01_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 class C {
   C();
   factory C.foo() = C;
 }
 
+augment class C {
+  augment C.foo();
+//        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 extension type ET(int id) {
   ET.foo(this.id);
   factory ET.bar(int id) = ET.foo;
+}
+
+augment extension type ET {
+  augment ET.bar(int id);
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

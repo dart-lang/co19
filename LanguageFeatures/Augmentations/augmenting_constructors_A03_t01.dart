@@ -11,16 +11,28 @@
 /// constructor is `const` and the augmenting constructor is not.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-part 'augmenting_constructors_A03_t01_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 class C {
   const C();
 }
 
+augment class C {
+  augment C();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 extension type ET(int id) {
   const ET.foo(this.id);
+}
+
+augment extension type ET {
+  augment ET.foo(this.id);
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
