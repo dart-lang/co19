@@ -2,34 +2,52 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion At a high level, a non-redirecting generative constructor marked
-/// `augment` may:
-/// ...
-///   - Add initializers (and/or asserts) to the initializer list, as well as a
-///     `super`  call at the end of the initializer list.
+/// @assertion An incomplete constructor can be completed by adding an
+/// initializer list and/or a body, or by adding a redirection.
 ///
-/// @description Checks that augmenting constructor may add initializers to the
-/// initializer list.
+/// @description Checks that augmenting constructor may add initializer list and
+/// the body.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
-part 'augmenting_constructors_A11_t01_lib.dart';
 
 class C {
-  String x, y;
-  C(): x = "Original";
+  String x = "Original", y;
+  C();
+}
+
+augment class C {
+  augment C(): y = "Augmented" {
+    Expect.equals("Original", x);
+    Expect.equals("Augmented", y);
+    x = "x";
+    y = "y";
+  }
 }
 
 enum E {
   e0;
-  final String x, y;
-  const E(): x = "Original";
+  final String x = "Original", y;
+  const E();
 }
 
+augment enum E {
+  augment const E(): y = "Augmented";
+}
+
+bool executed = false;
+
 extension type ET(int v) {
-  ET.foo() : v = 0;
+  ET.foo();
+}
+
+augment extension type ET {
+  augment ET.foo() : v = 0 {
+    Expect.equals(0, v);
+    executed = true;
+  }
 }
 
 main() {
@@ -39,9 +57,7 @@ main() {
 
   Expect.equals("Original", E.e0.x);
   Expect.equals("Augmented", E.e0.y);
-  if (assertStatementsEnabled) {
-    Expect.throws(() {
-      ET.foo();
-    });
-  }
+
+  Expect.equals(0, ET.foo().v);
+  Expect.isTrue(executed);
 }

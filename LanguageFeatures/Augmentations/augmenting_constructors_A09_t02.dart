@@ -2,12 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A top-level function, static method, instance method, operator,
-/// getter, or setter may be augmented to provide a body or add metadata.
-/// ...
-/// Augmenting constructors works similar to augmenting a function, with some
-/// extra rules to handle features unique to constructors like redirections and
-/// initializer lists.
+/// @assertion An incomplete constructor can be completed by adding an
+/// initializer list and/or a body, or by adding a redirection.
 ///
 /// @description Checks that the augmenting constructor may provide a body.
 /// @author sgrekhov22@gmail.com
