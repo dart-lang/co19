@@ -12,8 +12,7 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-part of 'augmenting_constructors_A09_t07.dart';
-part 'augmenting_constructors_A09_t07_lib2.dart';
+part of 'complete_declarations_A01_t10.dart';
 
 augment class C {
   augment C() {}
@@ -27,8 +26,8 @@ augment class C {
 }
 
 augment extension type ET {
-  augment ET(int id) {}
-//                   ^
+  augment ET.new(int id) {}
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment ET.foo(this.id) {}

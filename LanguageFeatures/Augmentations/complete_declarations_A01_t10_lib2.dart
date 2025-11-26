@@ -12,22 +12,7 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-part 'augmenting_constructors_A09_t07_lib1.dart';
-part 'augmenting_constructors_A09_t07_lib3.dart';
-
-class C {
-  C() {}
-  C.id() {}
-
-  augment C() {}
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C.id() {}
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
+part of 'complete_declarations_A01_t10_lib1.dart';
 
 augment class C {
   augment C() {}
@@ -36,20 +21,6 @@ augment class C {
 // [cfe] unspecified
   augment C.id() {}
 //               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET._(int id) {
-  ET(this.id) {}
-  ET.foo(this.id) {}
-
-  augment ET(int id) {}
-//                   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.foo(this.id) {}
-//                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -63,9 +34,4 @@ augment extension type ET {
 //                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-main() {
-  print(C);
-  print(ET);
 }
