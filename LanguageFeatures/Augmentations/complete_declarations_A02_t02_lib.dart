@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of  'augmenting_declarations_A05_t02.dart';
+part of  'complete_declarations_A02_t02.dart';
 
 String _log = "";
 

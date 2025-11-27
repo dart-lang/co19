@@ -16,7 +16,7 @@
 /// in a main library.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 part of  'augmenting_declarations_A02_t03.dart';
 
