@@ -23,11 +23,11 @@ class C {
 }
 
 augment class C {
-  augment C.foo(this.x, {this.y}) : this(x);
-//              ^
+  augment C.foo(int x, {int y}) : this(x);
+//                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C.bar({required this.y}) : this.foo(0);
+  augment C.bar({required int y}) : this.foo(0);
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -43,11 +43,11 @@ enum E {
 
 augment enum E {
   augment e0;
-  augment const E.foo(this.x, {this.y}) : this(x);
+  augment const E.foo(int x, {int y}) : this(x);
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment const E.bar(this.x, {required this.y}) : this.foo(0);
+  augment const E.bar(int x, {required int y}) : this.foo(0);
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -59,12 +59,12 @@ extension type ET(int x) {
 }
 
 augment extension type ET {
-  augment ET.foo(this.x) : this(0);
-//               ^
+  augment ET.foo(int x) : this(0);
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment ET.bar({required this.x}) : this.new(1);
-//                ^
+  augment ET.bar({required int x}) : this.new(1);
+//                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

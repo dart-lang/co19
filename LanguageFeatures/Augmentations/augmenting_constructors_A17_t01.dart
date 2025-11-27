@@ -6,8 +6,7 @@
 /// initializer list and/or a body, or by adding a redirection.
 ///
 /// @description Checks that an augmenting redirecting generative constructor
-/// may add redirecting initializer to the augmented constructors initializer
-/// list.
+/// may add a redirection to the augmented constructors initializer list.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
