@@ -14,7 +14,7 @@
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 import '../../Utils/expect.dart';
-part 'augmenting_declarations_A05_t01_lib.dart';
+part 'complete_declarations_A02_t01_lib.dart';
 
 class C {
   String abstractMethod();

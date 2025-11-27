@@ -9,16 +9,19 @@
 ///
 /// @description Checks that it is still a compile-time error if a body of an
 /// abstract member of a non-abstract class is not provided by an augmentation.
+/// Test static members.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of  'augmenting_declarations_A05_t03.dart';
+part of  'complete_declarations_A02_t04.dart';
 
 augment class C {}
 
+augment mixin M {}
+
 augment enum E {
-  augment e0;
+  e1;
 }
 
 augment extension Ext {}
