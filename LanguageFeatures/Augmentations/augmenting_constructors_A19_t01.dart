@@ -2,19 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A redirecting factory constructor marked `augment` adds its
-/// factory redirection (e.g., `= C<int>.name`) to the augmented constructor.
-///
-/// The result of applying the augmenting constructor is a redirecting factory
-/// constructor with the same target constructor designation as the augmenting
-/// constructor. This removes the potentially non-redirecting property of the
-/// constructor.
+/// @assertion An incomplete constructor can be completed by adding an
+/// initializer list and/or a body, or by adding a redirection.
 ///
 /// @description Checks that a redirecting factory constructor marked `augment`
 /// adds its factory redirection to the augmented constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
 part 'augmenting_constructors_A19_t01_lib.dart';
@@ -32,10 +27,21 @@ class D extends C {
   D(super.x, [super.y = 0]);
 }
 
+augment class C {
+  augment factory C.bar(int x, [int y]) = C;
+  augment factory C.baz(int x, {int y}) = C.foo;
+  augment factory C.qux(int x, [int y]) = D;
+}
+
 extension type ET(int x) {
   ET.foo(this.x);
   factory ET.bar(int x);
   factory ET.baz(int x);
+}
+
+augment extension type ET {
+  augment factory ET.bar(int x) = ET;
+  augment factory ET.baz(int x) = ET.foo;
 }
 
 main() {

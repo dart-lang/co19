@@ -2,18 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Redirecting factory constructors
-/// ...
-/// It is a compile-time error if:
-/// - The augmented factory constructor has a body, or it is redirecting.
+/// @assertion It's a compile-time error if an augmentation is complete and any
+/// declaration before it in the augmentation chain is also complete.
 ///
 /// @description Checks that it is a compile-time error if the augmented
 /// constructor has a body.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-part 'augmenting_constructors_A20_t01_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 class C {
   int x, y;
@@ -28,10 +24,36 @@ class D extends C {
   D(super.x, [super.y = 0]);
 }
 
+augment class C {
+  augment factory C.bar(int x, [int y]) = C;
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment factory C.baz(int x, {int y}) = C.foo;
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment factory C.qux(int x, [int y]) = D;
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 extension type ET(int x) {
   ET.foo(this.x);
   factory ET.bar(int x) => ET(x);
   factory ET.baz(int x) => ET.foo(x);
+}
+
+augment extension type ET {
+  augment factory ET.bar(int x) = ET;
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment factory ET.baz(int x) = ET.foo;
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
