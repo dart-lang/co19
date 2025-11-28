@@ -2,8 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion New enum values may be defined in an augmenting enum, and they
-/// will be appended to the current values of the declaration in augmentation
+/// @assertion An augmentation of an enum type can add new members to the enum,
+/// including new enum values. Enum values are appended in augmentation
 /// application order.
 ///
 /// @description Checks that new enum values defined by augmentation are
@@ -11,11 +11,10 @@
 /// application order.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 part of 'augmenting_enum_values_A03_t01.dart';
 
 augment enum E {
-  augment e0,
   e2;
 }
