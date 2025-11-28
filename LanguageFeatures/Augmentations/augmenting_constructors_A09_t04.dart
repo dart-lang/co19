@@ -5,8 +5,8 @@
 /// @assertion An incomplete constructor can be completed by adding an
 /// initializer list and/or a body, or by adding a redirection.
 ///
-/// @description Checks that an incomplete constructor can be completed by the
-/// augmenting constructor with the initializing formals.
+/// @description Checks that an incomplete constructor can be completed by an
+/// augmenting constructor with initializing formals.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
