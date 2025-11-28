@@ -49,6 +49,7 @@ augment extension type ET {
 //                ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment factory ET.bar(int x) = ET.foo;
 //                ^
 // [analyzer] unspecified
 // [cfe] unspecified
