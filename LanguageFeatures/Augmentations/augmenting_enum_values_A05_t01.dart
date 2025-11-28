@@ -17,6 +17,7 @@ enum E1 {
 }
 
 augment enum E1 {
+  ;
   augment static List<E1> get values;
 //^^^^^^^
 // [analyzer] unspecified
@@ -28,6 +29,7 @@ enum E2 {
 }
 
 augment enum E2 {
+  ;
   augment static List<E2> get values => [e0];
 //^^^^^^^
 // [analyzer] unspecified

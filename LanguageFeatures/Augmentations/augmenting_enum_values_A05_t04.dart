@@ -19,7 +19,7 @@ enum E1 {
 }
 
 augment enum E1 {
-  augment e0;
+  ;
   String get name => "name";
 }
 
@@ -29,6 +29,7 @@ enum E2 {
 }
 
 augment enum E2 {
+  ;
   augment String get name => "name2";
 }
 

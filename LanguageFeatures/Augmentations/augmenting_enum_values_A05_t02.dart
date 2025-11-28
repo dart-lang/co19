@@ -17,6 +17,7 @@ enum E1 {
 }
 
 augment enum E1 {
+  ;
   augment int get index => 0;
 //                ^^^^^
 // [analyzer] unspecified
@@ -28,6 +29,7 @@ enum E2 {
 }
 
 augment enum E2 {
+  ;
   augment int get hashCode => 0;
 //                ^^^^^^^^
 // [analyzer] unspecified

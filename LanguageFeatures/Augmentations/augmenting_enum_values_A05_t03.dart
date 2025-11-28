@@ -17,7 +17,7 @@ enum E1 {
 }
 
 augment enum E1 {
-  augment e0;
+  ;
   int get index => 0;
 //        ^^^^^
 // [analyzer] unspecified
@@ -29,7 +29,7 @@ enum E2 {
 }
 
 augment enum E2 {
-  augment e0;
+  ;
   int get hashCode => 0;
 //        ^^^^^^^^
 // [analyzer] unspecified
@@ -41,7 +41,7 @@ enum E3 {
 }
 
 augment enum E3 {
-  augment e0;
+  ;
   bool operator ==(Object other) => true;
 //              ^^
 // [analyzer] unspecified

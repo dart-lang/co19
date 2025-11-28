@@ -26,6 +26,7 @@ enum E2 {
 }
 
 augment enum E2 {
+  ;
   void foo() {}
 }
 
