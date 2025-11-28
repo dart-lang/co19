@@ -2,18 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion When augmenting an enum value, no constructor invocation should
-/// be provided. The original value is always used, and the explicit constructor
-/// invocation (if present) should not be copied.
+/// @assertion Enum values themselves can't be augmented since they are
+/// essentially constant variables and constant variables can't be augmented.
 ///
-/// @description Checks that when an augmentation of an enum value omits the
-/// constructor invocation then the original value is used.
+/// @description Checks that it is a compile-time error to augment an enum value
+/// without constructor invocation.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-import '../../Utils/expect.dart';
-part 'augmenting_enum_values_A02_t03_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 enum E {
   e0(0),
@@ -26,8 +22,21 @@ enum E {
   const E.bar([this.x = 2]);
 }
 
+augment enum E {
+  augment e0,
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment e1,
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment e2;
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
-  Expect.equals(0, E.e0.x);
-  Expect.equals(10, E.e1.x);
-  Expect.equals(20, E.e2.x);
+  print(E);
 }

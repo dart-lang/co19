@@ -7,8 +7,8 @@
 /// useful if the introductory declaration wants to let the augmentation fill in
 /// all values, or if the augmentation wants to add members but no values.
 ///
-/// @description Checks that it is not an error if an enum augmentation
-/// contains an empty list of values before `;`.
+/// @description Checks that it is a compile-time error if an enum augmentation
+/// has no `;` before non-empty `<memberDeclaration>`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -19,6 +19,7 @@ enum E1 {
 
 augment enum E1 {
   ;
+  void foo() {}
 }
 
 enum E2 {
@@ -27,20 +28,11 @@ enum E2 {
 
 augment enum E2 {
   ;
-  void foo() {}
-}
-
-enum E3 {
-  e0;
-}
-
-augment enum E3 {
-  ;
-  // Some comment
+  static void foo() {}
 }
 
 main() {
-  print(E1);
-  print(E2);
-  print(E3);
+  Expect.listEquals([E1.e0], E1.values);
+  Expect.listEquals([E2.e0], E2.values);
+  E2.e0.foo();
 }
