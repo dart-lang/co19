@@ -2,73 +2,65 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Inside the augmenting function’s body, a special `augmented(…)`
-/// expression may be used to execute the augmented function body. That
-/// expression takes an argument list matching the augmented function's
-/// parameter list, and it has the same return type as the enclosing function.
+/// @assertion More precisely, a function or constructor declaration
+/// (introductory or augmenting) is incomplete if all of:
+/// - It has no body. That means no `{ ... }` or `=> ...;` but only `;`.
+/// - The function is not marked external. An external function is considered to
+///   have a body, just not one that is visible as Dart code.
+/// - There is no redirection, initializer list, initializing formals, field
+///   parameters, or super parameters. Obviously, this only applies to
+///   constructor declarations.
 ///
-/// @description Checks that inside an augmentation body of a top-level function
-/// `augmented()` expression executes the original function body.
+/// If a declaration is not incomplete then it is complete.
+///
+/// It's a compile-time error if an augmentation is complete and any declaration
+/// before it in the augmentation chain is also complete.
+///
+/// @description Checks that it is a compile-time error to add a body to already
+/// completed top level function.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
-import '../../Utils/expect.dart';
-part 'augmenting_functions_A02_t01_lib.dart';
+void topLevelFunction1() {}
 
-String _log = "";
+augment void topLevelFunction1() {}
+//                               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-void clearLog() {
-  _log = "";
-}
+void topLevelFunction2(String v) {}
 
-String topLevelFunction1() {
-  _log += "topLevelFunction1();";
-  return "Original;";
-}
+augment void topLevelFunction2(String v) {}
+//                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-String topLevelFunction2(String v) {
-  _log += "topLevelFunction2($v);";
-  return "Original v=$v;";
-}
+void topLevelFunction3(String v1, [String v2 = "v2 def"]) {}
 
-String topLevelFunction3(String v1, [String v2 = "v2 def"]) {
-  _log += "topLevelFunction3($v1, [$v2]);";
-  return "Original v1=$v1, [v2=$v2];";
-}
+augment void topLevelFunction3(String v1, [String v2 = "v2 def"]) {}
+//                                                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-String topLevelFunction4(String v1, {String v2 = "v2 def"}) {
-  _log += "topLevelFunction4($v1, {$v2});";
-  return "Original v1=$v1, {v2=$v2};";
-}
+void topLevelFunction4(String v1, {String v2 = "v2 def"}) {}
 
-String topLevelFunction5(String v1, {required String v2}) {
-  _log += "topLevelFunction5($v1, {required $v2});";
-  return "Original v1=$v1, {required v2=$v2};";
-}
+augment void topLevelFunction4(String v1, {String v2 = "v2 def"}) {}
+//                                                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void topLevelFunction5(String v1, {required String v2}) {}
+
+augment void topLevelFunction5(String v1, {required String v2}) {}
+//                                                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  Expect.equals("augment;", topLevelFunction1());
-  Expect.equals("topLevelFunction1();Original;augmented;", _log);
-  clearLog();
-
-  Expect.equals("augment v=A;", topLevelFunction2("A"));
-  Expect.equals("topLevelFunction2(A);Original v=A;augmented;", _log);
-  clearLog();
-
-  Expect.equals("augment v1=B, [v2=C]", topLevelFunction3("B", "C"));
-  Expect.equals("topLevelFunction3(B, [C]);Original v1=B, [v2=C];augmented;",
-      _log);
-  clearLog();
-
-  Expect.equals("augment v1=D, {v2=E}", topLevelFunction4("D", v2: "E"));
-  Expect.equals("topLevelFunction4(D, {E});Original v1=D, {v2=E};augmented;",
-      _log);
-  clearLog();
-
-  Expect.equals("augment v1=F, {required v2=G}",
-      topLevelFunction5("F", v2: "G"));
-  Expect.equals(
-      "topLevelFunction5(F, {required G});Original v1=F, {required v2=G};" +
-          "augmented;", _log);
+  print(topLevelFunction1);
+  print(topLevelFunction2);
+  print(topLevelFunction3);
+  print(topLevelFunction4);
+  print(topLevelFunction5);
 }
