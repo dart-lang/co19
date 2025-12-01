@@ -2,70 +2,49 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A top-level function, static method, instance method, or operator
-/// may be augmented to wrap the original code in additional code.
-/// ...
-/// The augmentation replaces the augmented function’s body with the augmenting
-/// function’s body.
+/// @assertion A top-level function, static method, instance method, operator,
+/// getter, or setter may be augmented to provide a body or add metadata.
 ///
-/// @description Checks that a top-level function may be augmented and the
-/// original code is replaced by the augmentation
+/// @description Checks that an incomplete top-level function may be augmented,
+/// and that its body can be added by the augmentation.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
-part 'augmenting_functions_A01_t01_lib.dart';
 
-String _log = "";
+String topLevelFunction1();
 
-void clearLog() {
-  _log = "";
+augment String topLevelFunction1() {
+  return "augmented";
 }
 
-String topLevelFunction1() {
-  _log += "Original topLevelFunction1;";
-  return "Original";
+String topLevelFunction2(String v);
+
+augment String topLevelFunction2(String v) => v;
+
+String topLevelFunction3(String v1, [String v2 = "v2 def"]);
+
+augment String topLevelFunction3(String v1, [String v2]) {
+  return "$v1;$v2";
 }
 
-String topLevelFunction2(String v) {
-  _log += "Original topLevelFunction2($v);";
-  return "Original v=$v";
+augment String topLevelFunction4(String v1, {String v2 = "v2 def"});
+
+String topLevelFunction4(String v1, {String v2}) {
+  return "$v1;$v2";
 }
 
-String topLevelFunction3(String v1, [String v2 = "v2 def"]) {
-  _log += "Original topLevelFunction3($v1, [$v2]);";
-  return "Original v1=$v1, [v2=$v2]";
-}
+String topLevelFunction5(String v1, {required String v2});
 
-String topLevelFunction4(String v1, {String v2 = "v2 def"}) {
-  _log += "Original topLevelFunction4($v1, {$v2});";
-  return "Original v1=$v1, {v2=$v2}";
-}
-
-String topLevelFunction5(String v1, {required String v2}) {
-  _log += "Original topLevelFunction5($v1, {required $v2});";
-  return "Original v1=$v1, {required v2=$v2}";
-}
+augment String topLevelFunction5(String v1, {required String v2}) => "$v1;$v2";
 
 main() {
-  Expect.equals("augment", topLevelFunction1());
-  Expect.equals("augment topLevelFunction1();", _log);
-  clearLog();
-
-  Expect.equals("augment v=A", topLevelFunction2("A"));
-  Expect.equals("augment topLevelFunction2(A);", _log);
-  clearLog();
-
-  Expect.equals("augment v1=B, [v2=C]", topLevelFunction3("B", "C"));
-  Expect.equals("augment topLevelFunction3(B, [C]);", _log);
-  clearLog();
-
-  Expect.equals("augment v1=D, {v2=E}", topLevelFunction4("D", v2: "E"));
-  Expect.equals("augment topLevelFunction4(D, {E});", _log);
-  clearLog();
-
-  Expect.equals("augment v1=F, {required v2=G}",
-      topLevelFunction5("F", v2: "G"));
-  Expect.equals("augment topLevelFunction5(F, {required G});", _log);
+  Expect.equals("augmented", topLevelFunction1());
+  Expect.equals("A", topLevelFunction2("A"));
+  Expect.equals("B;v2 def", topLevelFunction3("B"));
+  Expect.equals("B;C", topLevelFunction3("B", "C"));
+  Expect.equals("D;v2 def", topLevelFunction4("D", v2: "E"));
+  Expect.equals("D;E", topLevelFunction4("D", v2: "E"));
+  Expect.equals("F,G", topLevelFunction5("F", v2: "G"));
 }

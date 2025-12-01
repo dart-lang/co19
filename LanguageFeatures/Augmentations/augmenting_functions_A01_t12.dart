@@ -2,74 +2,78 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A top-level function, static method, instance method, or operator
-/// may be augmented to wrap the original code in additional code.
-/// ...
-/// The augmentation replaces the augmented function’s body with the augmenting
-/// function’s body.
+/// @assertion A top-level function, static method, instance method, operator,
+/// getter, or setter may be augmented to provide a body or add metadata.
 ///
-/// @description Checks that an operator may be augmented and the original code
-/// is replaced by the augmentation.
+/// @description Checks that an incomplete operator may be augmented, and that
+/// its body can be added by the augmentation.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
-part 'augmenting_functions_A01_t12_lib.dart';
-
-String _log = "";
-
-void clearLog() {
-  _log = "";
-}
 
 class A {}
 
 class C {
-  String operator +(String other) {
-    _log += "C: original operator +($other);";
-    return "C: original other=$other";
+  String operator +(String other);
+}
+
+augment class C {
+  augment String operator +(String other) {
+    return "C:$other";
   }
 }
 
 mixin M {
-  String operator +(String other) {
-    _log += "M: original operator +($other);";
-    return "M: original other=$other";
+  String operator +(String other);
+}
+
+augment mixin M {
+  augment String operator +(String other) {
+    return "M:$other";
   }
 }
 
 enum E {
   e1;
 
-  String operator +(String other) {
-    _log += "E: original operator +($other);";
-    return "E: original other=$other";
+  String operator +(String other);
+}
+
+augment enum E {
+  ;
+  augment String operator +(String other) {
+    return "E:$other";
   }
 }
 
 extension Ext on A {
-  String operator +(String other) {
-    _log += "Ext: original operator +($other);";
-    return "Ext: original other=$other";
+  String operator +(String other);
+}
+
+augment extension Ext {
+  augment String operator +(String other) {
+    return "Ext:$other";
+  }
+}
+
+extension type ET(String v) {
+  String operator +(String other);
+}
+
+augment extension type ET {
+  augment String operator +(String other) {
+    return "ET:$other";
   }
 }
 
 class MA = Object with M;
 
 main() {
-  Expect.equals("C: augment other=A", C() + "A");
-  Expect.equals("C: augment operator +(A);", _log);
-  clearLog();
-
-  Expect.equals("M: augment other=B", MA() + "B");
-  Expect.equals("M: augment operator +(B);", _log);
-  clearLog();
-
-  Expect.equals("E: augment other=C", E.e1 + "C");
-  Expect.equals("E: augment operator +(C);", _log);
-  clearLog();
-
-  Expect.equals("Ext: augment other=D", A() + "D");
-  Expect.equals("Ext: augment operator +(D);", _log);
+  Expect.equals("C:A", C() + "A");
+  Expect.equals("M:B", MA() + "B");
+  Expect.equals("E:C", E.e1 + "C");
+  Expect.equals("Ext:D", A() + "D");
+  Expect.equals("ET:E", ET(0) + "E");
 }

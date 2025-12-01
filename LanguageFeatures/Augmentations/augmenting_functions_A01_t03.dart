@@ -2,71 +2,50 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A top-level function, static method, instance method, or operator
-/// may be augmented to wrap the original code in additional code.
-/// ...
-/// The augmentation replaces the augmented function’s body with the augmenting
-/// function’s body.
+/// @assertion A top-level function, static method, instance method, operator,
+/// getter, or setter may be augmented to provide a body or add metadata.
 ///
-/// @description Checks that a static method may be augmented and the original
-/// code is replaced by the augmentation. Test a mixin.
+/// @description Checks that an incomplete static method may be augmented, and
+/// that its body can be added by the augmentation. Test a mixin.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
-part 'augmenting_functions_A01_t03_lib.dart';
-
-String _log = "";
-
-void clearLog() {
-  _log = "";
-}
 
 mixin M {
-  static String staticMethod1() {
-    _log += "Original staticMethod1;";
-    return "Original";
+  static String staticMethod1();
+  static String staticMethod2(String v);
+  static String staticMethod3(String v1, [String v2 = "v2 def"]);
+  static String staticMethod4(String v1, {String v2 = "v2 def"});
+  static String staticMethod5(String v1, {required String v2});
+}
+
+augment mixin M {
+  augment static String staticMethod1() {
+    return "augmented";
   }
 
-  static String staticMethod2(String v) {
-    _log += "Original staticMethod2($v);";
-    return "Original v=$v";
+  augment static String staticMethod2(String v) => v;
+
+  augment static String staticMethod3(String v1, [String v2 = "v2 def"]) =>
+      "$v1,$v2";
+
+  augment static String staticMethod4(String v1, {String v2 = "v2 def"}) {
+    return "$v1,$v2";
   }
 
-  static String staticMethod3(String v1, [String v2 = "v2 def"]) {
-    _log += "Original staticMethod3($v1, [$v2]);";
-    return "Original v1=$v1, [v2=$v2]";
-  }
-
-  static String staticMethod4(String v1, {String v2 = "v2 def"}) {
-    _log += "Original staticMethod4($v1, {$v2});";
-    return "Original v1=$v1, {v2=$v2}";
-  }
-
-  static String staticMethod5(String v1, {required String v2}) {
-    _log += "Original staticMethod5($v1, {required $v2});";
-    return "Original v1=$v1, {required v2=$v2}";
+  augment static String staticMethod5(String v1, {required String v2}) {
+    return "$v1,$v2";
   }
 }
 
 main() {
-  Expect.equals("augment", M.staticMethod1());
-  Expect.equals("augment staticMethod1();", _log);
-  clearLog();
-
-  Expect.equals("augment v=A", M.staticMethod2("A"));
-  Expect.equals("augment staticMethod2(A);", _log);
-  clearLog();
-
-  Expect.equals("augment v1=B, [v2=C]", M.staticMethod3("B", "C"));
-  Expect.equals("augment staticMethod3(B, [C]);", _log);
-  clearLog();
-
-  Expect.equals("augment v1=D, {v2=E}", M.staticMethod4("D", v2: "E"));
-  Expect.equals("augment staticMethod4(D, {E});", _log);
-  clearLog();
-
-  Expect.equals("augment v1=F, {required v2=G}", M.staticMethod5("F", v2: "G"));
-  Expect.equals("augment staticMethod5(F, {required G});", _log);
+  Expect.equals("augmented", M.staticMethod1());
+  Expect.equals("A;v2 def", M.staticMethod2("A"));
+  Expect.equals("B,v2 def", M.staticMethod3("B"));
+  Expect.equals("B,C", M.staticMethod3("B", "C"));
+  Expect.equals("D;v2 def", M.staticMethod4("D"));
+  Expect.equals("D;E", M.staticMethod4("D", v2: "E"));
+  Expect.equals("F;G", M.staticMethod5("F", v2: "G"));
 }
