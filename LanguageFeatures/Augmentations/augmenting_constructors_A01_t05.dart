@@ -39,7 +39,6 @@ augment class C {
 // [cfe] unspecified
 }
 
-
 enum E {
   e0(0);
   const E(int? x);

@@ -34,6 +34,7 @@ enum E {
 }
 
 augment enum E {
+  ;
   augment const E(): y = "Augmented";
 }
 

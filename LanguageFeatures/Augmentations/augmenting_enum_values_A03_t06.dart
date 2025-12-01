@@ -18,8 +18,10 @@ enum E1 {
 }
 
 augment enum E1 {
-  ;
   void foo() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E2 {
@@ -27,12 +29,13 @@ enum E2 {
 }
 
 augment enum E2 {
-  ;
   static void foo() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  Expect.listEquals([E1.e0], E1.values);
-  Expect.listEquals([E2.e0], E2.values);
-  E2.e0.foo();
+  print(E1);
+  print(E2);
 }

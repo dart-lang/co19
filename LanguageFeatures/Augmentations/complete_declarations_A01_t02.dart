@@ -44,6 +44,7 @@ enum E {
 }
 
 augment enum E {
+  ;
   augment const E.foo() : x = 1;
 //              ^^^^^
 // [analyzer] unspecified
