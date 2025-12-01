@@ -44,7 +44,7 @@ enum E {
 }
 
 augment enum E {
-  augment e0;
+  ;
   augment const E.foo(int x) : this(x + 1);
   augment const E.foo(int x) : this(x + 2);
 //                             ^

@@ -34,7 +34,7 @@ augment mixin M {
 }
 
 augment enum E {
-  augment e0;
+  ;
   augment String abstractMethod() => "abstractMethod";
   augment String get abstractGetter => "abstractGetter";
   augment void set abstractSetter(String v) {

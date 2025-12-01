@@ -36,6 +36,7 @@ enum E {
 }
 
 augment enum E {
+  ;
   augment const E([int x = 1]) : x = x;
   augment const E.c1({int x = 2}) : x = x;
 }

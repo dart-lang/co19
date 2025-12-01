@@ -34,6 +34,7 @@ enum E {
 }
 
 augment enum E {
+  ;
   augment const E.foo(int x, {int y}) : this(x, y);
   augment const E.bar(int x, {required int y}) : this.foo(x, y: y);
 }

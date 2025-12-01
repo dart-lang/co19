@@ -42,7 +42,7 @@ enum E {
 }
 
 augment enum E {
-  augment e0;
+  ;
   augment const E.foo(int x, {int y}) : this(x);
 //                    ^
 // [analyzer] unspecified

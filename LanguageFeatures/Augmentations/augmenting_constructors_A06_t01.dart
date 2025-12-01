@@ -76,6 +76,7 @@ enum E {
 }
 
 augment enum E {
+  ;
   augment const E.c1([int x]) {}
   augment const E.c2({int x}) {}
   augment const E.c3([int x]);

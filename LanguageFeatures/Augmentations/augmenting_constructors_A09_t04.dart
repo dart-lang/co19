@@ -38,6 +38,7 @@ enum E {
 }
 
 augment enum E {
+  ;
   augment const E(this.x);
   augment const E.foo([this.x = 1]);
   augment const E.bar({this.x = 2});

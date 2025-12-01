@@ -18,7 +18,7 @@ part of  'complete_declarations_A02_t03.dart';
 augment class C {}
 
 augment enum E {
-  augment e0;
+  ;
 }
 
 augment extension Ext {}
