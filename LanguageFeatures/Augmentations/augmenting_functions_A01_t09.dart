@@ -43,7 +43,6 @@ augment enum E {
   }
 }
 
-
 main() {
   Expect.equals("augmented", E.e1.instanceMethod1());
   Expect.equals("A;v2 def", E.e1.instanceMethod2("A"));

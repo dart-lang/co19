@@ -21,7 +21,7 @@ extension type ET(int _) {
   String instanceMethod5(String v1, {required String v2});
 }
 
-extension type ET {
+augment extension type ET {
   augment String instanceMethod1() {
     return "augmented";
   }
