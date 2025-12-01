@@ -29,9 +29,9 @@ augment String topLevelFunction3(String v1, [String v2]) {
   return "$v1;$v2";
 }
 
-augment String topLevelFunction4(String v1, {String v2 = "v2 def"});
+String topLevelFunction4(String v1, {String v2 = "v2 def"});
 
-String topLevelFunction4(String v1, {String v2}) {
+augment String topLevelFunction4(String v1, {String v2}) {
   return "$v1;$v2";
 }
 
