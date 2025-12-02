@@ -2,86 +2,110 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if:
-/// - The function signature of the augmenting function does not exactly match
-///   the function signature of the augmented function. This means that any
-///   provided return types must be the same type; there must be same number or
-///   required and optional positional parameters, all with the same types (when
-///   provided), the same number of named parameters, each pairwise with the
-///   same name, same type (when provided) and same `required` and `covariant`
-///   modifiers, and any type parameters and their bounds (when provided) must
-///   be the same (like for type declarations).
+/// @assertion We say that an augmenting function or constructor's signature
+/// matches if:
+/// - It has the same number of type parameters with the same type parameter
+///   names (same identifiers) and bounds (after type annotation inheritance),
+///   if any (same types, even if they may not be written exactly the same in
+///   case one of the declarations needs to refer to a type using an import
+///   prefix).
+/// - The return type (if not omitted) is the same as the augmented
+///   declaration's return type.
+/// - It has the same number of positional and optional parameters as the
+///   augmented declaration.
+/// - It has the same set of named parameter names as the augmented declaration.
+/// - For all corresponding pairs of parameters:
+///   - They have the same type (if not omitted in the augmenting declaration).
+///   - They have the same `required` and `covariant` modifiers.
+/// - For all positional parameters:
+///   - The augmenting function's parameter name is `_`, or
+///   - The augmenting function's parameter name is the same as the name of the
+///     corresponding positional parameter in every preceding declaration that
+///     doesn't have `_` as its name.
+/// ...
+/// It's a compile-time error if:
+/// - The signature of the augmenting function does not match the signature of
+///   the augmented function.
 ///
 /// @description Checks that it is not an error if a `required` modifier of
 /// named parameters of an augmentation exactly matches the original function.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
-part 'augmenting_functions_A04_t20_lib.dart';
 
-String _log = "";
+int topLevelFunction({required int i}) => i;
 
-void topLevelFunction({required int i}) {}
+augment int topLevelFunction({required int i});
 
 class C {
-  static void staticMethod({required int i}) {}
-  void instanceMethod({required int i}) {}
+  static int staticMethod({required int i}) => i;
+  int instanceMethod({required int i}) => i;
 }
 
+augment class C {
+  augment static int staticMethod({required int i});
+  augment int instanceMethod({required int i});
+}
+
+
 mixin M {
-  static void staticMethod({required int i}) {}
-  void instanceMethod({required int i}) {}
+  static int staticMethod({required int i}) => i;
+  int instanceMethod({required int i}) => i;
+}
+
+augment mixin M {
+  augment static int staticMethod({required int i});
+  augment int instanceMethod({required int i});
 }
 
 enum E {
   e1;
+  static int staticMethod({required int i}) => i;
+  int instanceMethod({required int i}) => i;
+}
 
-  static void staticMethod({required int i}) {}
-  void instanceMethod({required int i}) {}
+augment enum E {
+  ;
+  static int staticMethod({required int i});
+  int instanceMethod({required int i});
 }
 
 class A {}
 
 extension Ext on A {
-  static void staticMethod({required int i}) {}
-  void instanceMethod({required int i}) {}
+  static int staticMethod({required int i}) => i;
+  int instanceMethod({required int i}) => i;
+}
+
+augment extension Ext {
+  augment static int staticMethod({required int i});
+  augment int instanceMethod({required int i});
 }
 
 extension type ET(int _) {
-  static void staticMethod({required int i}) {}
-  void instanceMethod({required int i}) {}
+  static int staticMethod({required int i}) => i;
+  int instanceMethod({required int i}) => i;
+}
+
+augment extension type ET {
+  augment static int staticMethod({required int i});
+  augment int instanceMethod({required int i});
 }
 
 class MA = Object with M;
 
 main() {
-  topLevelFunction(i: 1);
-  Expect.equals("i=1", _log);
-
-  C.staticMethod(i: 2);
-  Expect.equals("i=2", _log);
-  C().instanceMethod(i: 3);
-  Expect.equals("i=3", _log);
-
-  M.staticMethod(i: 4);
-  Expect.equals("i=4", _log);
-  MA().instanceMethod(i: 5);
-  Expect.equals("i=5", _log);
-
-  E.staticMethod(i: 6);
-  Expect.equals("i=6", _log);
-  E.e1.instanceMethod(i: 7);
-  Expect.equals("i=7", _log);
-
-  Ext.staticMethod(i: 8);
-  Expect.equals("i=8", _log);
-  A().instanceMethod(i: 9);
-  Expect.equals("i=9", _log);
-
-  ET.staticMethod(i: 10);
-  Expect.equals("i=10", _log);
-  ET(0).instanceMethod(i: 11);
-  Expect.equals("i=11", _log);
+  Expect.equals(1, topLevelFunction(i: 1));
+  Expect.equals(2, C.staticMethod(i: 2));
+  Expect.equals(3, C().instanceMethod(i: 3));
+  Expect.equals(4, M.staticMethod(i: 4));
+  Expect.equals(5, MA().instanceMethod(i: 5));
+  Expect.equals(6, E.staticMethod(i: 6));
+  Expect.equals(7, E.e1.instanceMethod(i: 7));
+  Expect.equals(8, Ext.staticMethod(i: 8));
+  Expect.equals(9, A().instanceMethod(i: 9));
+  Expect.equals(10, ET.staticMethod(i: 10));
+  Expect.equals(11, ET(0).instanceMethod(i: 11));
 }
