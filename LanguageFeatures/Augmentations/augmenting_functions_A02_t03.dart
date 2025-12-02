@@ -16,8 +16,8 @@
 /// It's a compile-time error if an augmentation is complete and any declaration
 /// before it in the augmentation chain is also complete.
 ///
-/// @description Checks that it is a compile-time error to add a body to already
-/// completed static method.
+/// @description Checks that it is a compile-time error to add a body to an
+/// already complete instance method.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
