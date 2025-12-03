@@ -2,15 +2,30 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if:
-/// - The function signature of the augmenting function does not exactly match
-///   the function signature of the augmented function. This means that any
-///   provided return types must be the same type; there must be same number or
-///   required and optional positional parameters, all with the same types (when
-///   provided), the same number of named parameters, each pairwise with the
-///   same name, same type (when provided) and same `required` and `covariant`
-///   modifiers, and any type parameters and their bounds (when provided) must
-///   be the same (like for type declarations).
+/// @assertion We say that an augmenting function or constructor's signature
+/// matches if:
+/// - It has the same number of type parameters with the same type parameter
+///   names (same identifiers) and bounds (after type annotation inheritance),
+///   if any (same types, even if they may not be written exactly the same in
+///   case one of the declarations needs to refer to a type using an import
+///   prefix).
+/// - The return type (if not omitted) is the same as the augmented
+///   declaration's return type.
+/// - It has the same number of positional and optional parameters as the
+///   augmented declaration.
+/// - It has the same set of named parameter names as the augmented declaration.
+/// - For all corresponding pairs of parameters:
+///   - They have the same type (if not omitted in the augmenting declaration).
+///   - They have the same `required` and `covariant` modifiers.
+/// - For all positional parameters:
+///   - The augmenting function's parameter name is `_`, or
+///   - The augmenting function's parameter name is the same as the name of the
+///     corresponding positional parameter in every preceding declaration that
+///     doesn't have `_` as its name.
+/// ...
+/// It's a compile-time error if:
+/// - The signature of the augmenting function does not match the signature of
+///   the augmented function.
 ///
 /// @description Checks that it is a compile-time error if a `covariant`
 /// modifier of parameters of an augmentation doesn't exactly match the original
@@ -18,15 +33,32 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 55478
 
-// SharedOptions=--enable-experiment=macros
-
-part 'augmenting_functions_A04_t17_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 class C {
   void instanceMethod1(num i) {}
   void instanceMethod2([num i = 1]) {}
   void instanceMethod3({num i = 1}) {}
   void instanceMethod4({required num i}) {}
+}
+
+augment class C {
+  augment void instanceMethod1(covariant num i);
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod2([covariant num i]);
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod3({covariant num i});
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod4({required covariant num i});
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M {
@@ -36,13 +68,51 @@ mixin M {
   void instanceMethod4({required num i}) {}
 }
 
+augment mixin M {
+  augment void instanceMethod1(covariant num i);
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod2([covariant num i]);
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod3({covariant num i});
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod4({required covariant num i});
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 enum E {
   e1;
-
   void instanceMethod1(num i) {}
   void instanceMethod2([num i = 1]) {}
   void instanceMethod3({num i = 1}) {}
   void instanceMethod4({required num i}) {}
+}
+
+augment enum E {
+  ;
+  augment void instanceMethod1(covariant num i);
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod2([covariant num i]);
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod3({covariant num i});
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment void instanceMethod4({required covariant num i});
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
