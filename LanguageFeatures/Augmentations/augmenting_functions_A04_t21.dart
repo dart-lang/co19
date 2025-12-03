@@ -51,7 +51,6 @@ augment class C {
   augment T instanceMethod5<T>({required covariant T i});
 }
 
-
 mixin M {
   num instanceMethod1(covariant num i) => i;
   num instanceMethod2([covariant num i = 1]) => i;

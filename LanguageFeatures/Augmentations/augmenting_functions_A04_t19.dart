@@ -27,8 +27,8 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is not an error if type parameters of an
-/// augmentation exactly matches the original function.
+/// @description Checks that it is not an error if the type parameters of an
+/// augmentation exactly match the original function.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

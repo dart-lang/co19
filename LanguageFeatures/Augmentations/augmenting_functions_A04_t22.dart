@@ -27,9 +27,9 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is not an error if return type and  parameters
-/// of an augmentation exactly matches the original function. Test implicit
-/// `dynamic`.
+/// @description Checks that it is not an error if the return type and
+/// parameters of an augmentation exactly match the original function. Test
+/// implicit `dynamic`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -37,115 +37,93 @@
 import '../../Utils/expect.dart';
 
 topLevelFunction1() => "A";
-String topLevelFunction2(var s) => "B";
-String topLevelFunction3(v) => "C";
+String topLevelFunction2(v) => "B";
 
 augment dynamic topLevelFunction1();
-augment String topLevelFunction2(dynamic s);
-augment String topLevelFunction3(dynamic v);
+augment String topLevelFunction2(dynamic v);
 
 class C {
   static staticMethod1() => "A";
-  static String staticMethod2(var s) => "B";
-  static String staticMethod3(v) => "C";
+  static String staticMethod2(v) => "B";
 
-  instanceMethod1() => "D";
-  String instanceMethod2(var s) => "E";
-  String instanceMethod3(v) => "F";
+  instanceMethod1() => "C";
+  String instanceMethod2(v) => "D";
 }
 
 augment class C {
   augment static dynamic staticMethod1();
-  augment static String staticMethod2(dynamic s);
-  augment static String staticMethod3(dynamic v);
+  augment static String staticMethod2(dynamic v);
 
   augment dynamic instanceMethod1();
-  augment String instanceMethod2(dynamic s);
-  augment String instanceMethod3(dynamic v);
+  augment String instanceMethod2(dynamic v);
 }
 
 mixin M {
   static staticMethod1() => "A";
-  static String staticMethod2(var s) => "B";
-  static String staticMethod3(v) => "C";
+  static String staticMethod2(v) => "B";
 
-  instanceMethod1() => "D";
-  String instanceMethod2(var s) => "E";
-  String instanceMethod3(v) => "F";
+  instanceMethod1() => "C";
+  String instanceMethod2(v) => "D";
 }
 
 augment mixin M {
   augment static dynamic staticMethod1();
-  augment static String staticMethod2(dynamic s);
-  augment static String staticMethod3(dynamic v);
+  augment static String staticMethod2(dynamic v);
 
   augment dynamic instanceMethod1();
-  augment String instanceMethod2(dynamic s);
-  augment String instanceMethod3(dynamic v);
+  augment String instanceMethod2(dynamic v);
 }
 
 enum E {
   e1;
   static staticMethod1() => "A";
-  static String staticMethod2(var s) => "B";
-  static String staticMethod3(v) => "C";
+  static String staticMethod2(v) => "B";
 
-  instanceMethod1() => "D";
-  String instanceMethod2(var s) => "E";
-  String instanceMethod3(v) => "F";
+  instanceMethod1() => "C";
+  String instanceMethod2(v) => "D";
 }
 
 augment enum E {
   ;
   augment static dynamic staticMethod1();
-  augment static String staticMethod2(dynamic s);
-  augment static String staticMethod3(dynamic v);
+  augment static String staticMethod2(dynamic v);
 
   augment dynamic instanceMethod1();
-  augment String instanceMethod2(dynamic s);
-  augment String instanceMethod3(dynamic v);
+  augment String instanceMethod2(dynamic v);
 }
 
 class A {}
 
 extension Ext on A {
   static staticMethod1() => "A";
-  static String staticMethod2(var s) => "B";
-  static String staticMethod3(v) => "C";
+  static String staticMethod2(v) => "B";
 
-  instanceMethod1() => "D";
-  String instanceMethod2(var s) => "E";
-  String instanceMethod3(v) => "F";
+  instanceMethod1() => "C";
+  String instanceMethod2(v) => "D";
 }
 
 augment extension Ext {
   augment static dynamic staticMethod1();
-  augment static String staticMethod2(dynamic s);
-  augment static String staticMethod3(dynamic v);
+  augment static String staticMethod2(dynamic v);
 
   augment dynamic instanceMethod1();
-  augment String instanceMethod2(dynamic s);
-  augment String instanceMethod3(dynamic v);
+  augment String instanceMethod2(dynamic v);
 }
 
 extension type ET(int _) {
   static staticMethod1() => "A";
-  static String staticMethod2(var s) => "B";
-  static String staticMethod3(v) => "C";
+  static String staticMethod2(v) => "B";
 
-  instanceMethod1() => "D";
-  String instanceMethod2(var s) => "E";
-  String instanceMethod3(v) => "F";
+  instanceMethod1() => "C";
+  String instanceMethod2(v) => "D";
 }
 
 augment extension type ET {
   augment static dynamic staticMethod1();
-  augment static String staticMethod2(dynamic s);
-  augment static String staticMethod3(dynamic v);
+  augment static String staticMethod2(dynamic v);
 
   augment dynamic instanceMethod1();
-  augment String instanceMethod2(dynamic s);
-  augment String instanceMethod3(dynamic v);
+  augment String instanceMethod2(dynamic v);
 }
 
 class MA = Object with M;
@@ -153,40 +131,29 @@ class MA = Object with M;
 main() {
   Expect.equals("A", topLevelFunction1());
   Expect.equals("B", topLevelFunction2(42));
-  Expect.equals("C", topLevelFunction3(true));
 
   Expect.equals("A", C.staticMethod1());
   Expect.equals("B", C.staticMethod2(42));
-  Expect.equals("C", C.staticMethod3(""));
-  Expect.equals("D", C().instanceMethod1());
-  Expect.equals("E", C().instanceMethod2(3.14));
-  Expect.equals("F", C().instanceMethod3(true));
+  Expect.equals("C", C().instanceMethod1());
+  Expect.equals("D", C().instanceMethod2(true));
 
   Expect.equals("A", M.staticMethod1());
   Expect.equals("B", M.staticMethod2(42));
-  Expect.equals("C", M.staticMethod3(""));
-  Expect.equals("D", MA().instanceMethod1());
-  Expect.equals("E", MA().instanceMethod2(3.14));
-  Expect.equals("F", MA().instanceMethod3(true));
+  Expect.equals("C", MA().instanceMethod1());
+  Expect.equals("D", MA().instanceMethod2(true));
 
   Expect.equals("A", E.staticMethod1());
   Expect.equals("B", E.staticMethod2(42));
-  Expect.equals("C", E.staticMethod3(""));
-  Expect.equals("D", E.e1.instanceMethod1());
-  Expect.equals("E", E.e1.instanceMethod2(3.14));
-  Expect.equals("F", E.e1.instanceMethod3(true));
+  Expect.equals("C", E.e1.instanceMethod1());
+  Expect.equals("D", E.e1.instanceMethod2(true));
 
   Expect.equals("A", Ext.staticMethod1());
   Expect.equals("B", Ext.staticMethod2(42));
-  Expect.equals("C", Ext.staticMethod3(""));
-  Expect.equals("D", A().instanceMethod1());
-  Expect.equals("E", A().instanceMethod2(3.14));
-  Expect.equals("F", A().instanceMethod3(true));
+  Expect.equals("C", A().instanceMethod1());
+  Expect.equals("D", A().instanceMethod2(true));
 
   Expect.equals("A", ET.staticMethod1());
   Expect.equals("B", ET.staticMethod2(42));
-  Expect.equals("C", ET.staticMethod3(""));
-  Expect.equals("D", ET(0).instanceMethod1());
-  Expect.equals("E", ET(0).instanceMethod2(3.14));
-  Expect.equals("F", ET(0).instanceMethod3(true));
+  Expect.equals("C", ET(0).instanceMethod1());
+  Expect.equals("D", ET(0).instanceMethod2(true));
 }

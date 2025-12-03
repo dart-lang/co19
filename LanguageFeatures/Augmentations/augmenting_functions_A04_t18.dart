@@ -27,8 +27,8 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is not an error if return type and parameters of
-/// an augmentation exactly matches the original function.
+/// @description Checks that it is not an error if the return type and
+/// parameters of an augmentation exactly matches the original function.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -70,14 +70,14 @@ class C {
 }
 
 augment class C {
-  augment static Object staticMethod1();
-  augment static String staticMethod2(String s);
+  augment static String staticMethod1();
+  augment static Object staticMethod2(String s);
   augment static int staticMethod3([int i]);
   augment static int? staticMethod4({int? i});
   augment static T staticMethod5<T extends num>(T t);
 
-  augment Object instanceMethod1();
-  augment String instanceMethod2(String s);
+  augment String instanceMethod1();
+  augment Object instanceMethod2(String s);
   augment int instanceMethod3([int i]);
   augment int? instanceMethod4({int? i});
   augment T instanceMethod5<T extends num>(T t);
@@ -98,14 +98,14 @@ mixin M {
 }
 
 augment mixin M {
-  augment static Object staticMethod1();
-  augment static String staticMethod2(String s);
+  augment static String staticMethod1();
+  augment static Object staticMethod2(String s);
   augment static int staticMethod3([int i]);
   augment static int? staticMethod4({int? i});
   augment static T staticMethod5<T extends num>(T t);
 
-  augment Object instanceMethod1();
-  augment String instanceMethod2(String s);
+  augment String instanceMethod1();
+  augment Object instanceMethod2(String s);
   augment int instanceMethod3([int i]);
   augment int? instanceMethod4({int? i});
   augment T instanceMethod5<T extends num>(T t);
@@ -128,14 +128,14 @@ enum E {
 
 augment enum E {
   ;
-  augment static Object staticMethod1();
-  augment static String staticMethod2(String s);
+  augment static String staticMethod1();
+  augment static Object staticMethod2(String s);
   augment static int staticMethod3([int i]);
   augment static int? staticMethod4({int? i});
   augment static T staticMethod5<T extends num>(T t);
 
-  augment Object instanceMethod1();
-  augment String instanceMethod2(String s);
+  augment String instanceMethod1();
+  augment Object instanceMethod2(String s);
   augment int instanceMethod3([int i]);
   augment int? instanceMethod4({int? i});
   augment T instanceMethod5<T extends num>(T t);
@@ -158,14 +158,14 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment static Object staticMethod1();
-  augment static String staticMethod2(String s);
+  augment static String staticMethod1();
+  augment static Object staticMethod2(String s);
   augment static int staticMethod3([int i]);
   augment static int? staticMethod4({int? i});
   augment static T staticMethod5<T extends num>(T t);
 
-  augment Object instanceMethod1();
-  augment String instanceMethod2(String s);
+  augment String instanceMethod1();
+  augment Object instanceMethod2(String s);
   augment int instanceMethod3([int i]);
   augment int? instanceMethod4({int? i});
   augment T instanceMethod5<T extends num>(T t);
@@ -186,14 +186,14 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  augment static Object staticMethod1();
-  augment static String staticMethod2(String s);
+  augment static String staticMethod1();
+  augment static Object staticMethod2(String s);
   augment static int staticMethod3([int i]);
   augment static int? staticMethod4({int? i});
   augment static T staticMethod5<T extends num>(T t);
 
-  augment Object instanceMethod1();
-  augment String instanceMethod2(String s);
+  augment String instanceMethod1();
+  augment Object instanceMethod2(String s);
   augment int instanceMethod3([int i]);
   augment int? instanceMethod4({int? i});
   augment T instanceMethod5<T extends num>(T t);

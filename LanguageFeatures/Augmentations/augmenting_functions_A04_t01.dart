@@ -27,7 +27,7 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if return type of an
+/// @description Checks that it is a compile-time error if the return type of an
 /// augmentation doesn't exactly match the original function. Test not the same
 /// return types.
 /// @author sgrekhov22@gmail.com
