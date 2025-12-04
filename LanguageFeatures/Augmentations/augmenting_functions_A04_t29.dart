@@ -27,7 +27,7 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it the name of a positional parameter was augmented
+/// @description Checks that if the name of a positional parameter was augmented
 /// to `_` then it is a compile-time error to use an old name.
 /// @author sgrekhov22@gmail.com
 
