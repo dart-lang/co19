@@ -13,32 +13,21 @@
 /// @description For an instance variable with a private name `p` which is
 /// introduced by a declaring parameter, check that it is a compile-time error
 /// to use the corresponding public name `n` to access the instance variable.
-/// Test declaring constructors.
+/// Test primary constructors.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=private-named-parameters,primary-constructors
 
 class C1({var String _p = "_p"});
 
-class C2 {
-  this({required final String _p});
-}
-
-extension type ET1._(String _p) {
-  this({final String _p = "_p"});
-}
-
-extension type ET2._(String _p) {
-  this({required final String _p});
-}
+class C2({required final String _p});
 
 enum E1({final String _p = "_p"}) {
   e0, e1(p: "E1");
 }
 
-enum E2 {
+enum E2({required final String _p}) {
   e0(p: "E2");
-  const this({required final String _p});
 }
 
 main() {
@@ -52,19 +41,6 @@ main() {
 // [cfe] unspecified
   C2(p: "two").p;
 //             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET1().p;
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ET1(p: "one").p;
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ET2(p: "two").p;
-//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

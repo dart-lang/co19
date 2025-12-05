@@ -11,7 +11,7 @@
 ///   the parameter is a field parameter), has the private name `p`.
 ///
 /// @description Check that the instance variable initialized by the
-/// initializing formal parameter has the private name `p`. Test declaring
+/// initializing formal parameter has the private name `p`. Test primary
 /// constructors.
 /// @author sgrekhov22@gmail.com
 
@@ -21,35 +21,20 @@ import '../../Utils/expect.dart';
 
 class C1({var String _p = "_p"});
 
-class C2 {
-  this({required final String _p});
-}
-
-extension type ET1._(String _p) {
-  this({final String _p = "_p"});
-}
-
-extension type ET2._(String _p) {
-  this({required final String _p});
-}
+class C2({required final String _p});
 
 enum E1({final String _p = "_p"}) {
   e0, e1(p: "E1");
 }
 
-enum E2 {
+enum E2this({required final String _p}) {
   e0(p: "E2");
-  const this({required final String _p});
 }
 
 main() {
   Expect.equals("_p", C1()._p);
   Expect.equals("one", C1(p: "one")._p);
   Expect.equals("two", C2(p: "two")._p);
-
-  Expect.equals("_p", ET1()._p);
-  Expect.equals("one", ET1(p: "one")._p);
-  Expect.equals("two", ET2(p: "two")._p);
 
   Expect.equals("_p", E1.e0._p);
   Expect.equals("E1", E1.e1._p);
