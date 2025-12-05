@@ -26,7 +26,7 @@ class C {
   C.named({required this._p1}) : p2 = _p1;
 }
 
-String log = "";
+String? log = "";
 
 extension type ET._(String? _p) {
   ET({this._p}) : assert(() {log = _p; return true;}());
@@ -34,7 +34,7 @@ extension type ET._(String? _p) {
 }
 
 enum E {
-  e0(p: "0"), e1.named(p: "1");
+  e0(p1: "0"), e1.named(p1: "1");
 
   final String? _p1;
   final String? p2;
@@ -47,12 +47,12 @@ main() {
   Expect.equals("one", C(p1: "one").p2);
   Expect.equals("two", C.named(p1: "two").p2);
   ET(p: "one");
-  if (log.isNotEmpty) {
+  if (assertStatementsEnabled) {
     Expect.equals("one", log);
     log = "";
   }
   ET.named(p: "two");
-  if (log.isNotEmpty) {
+  if (assertStatementsEnabled) {
     Expect.equals("two", log);
   }
   Expect.equals("0", E.e0.p2);
