@@ -60,7 +60,7 @@ main() {
   Expect.equals(-2, C2(2).z);
 
   ET(1);
-  if (assertStatementsEnabled()) {
+  if (assertStatementsEnabled) {
     Expect.equals("1", log);
   }
   Expect.equals(1, E1.e0.x);

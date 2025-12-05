@@ -59,7 +59,7 @@ extension type ET2(int v) {
     log = "initializer list";
     return true;
   }()) {
-    if (assertStatementsEnabled()) {
+    if (assertStatementsEnabled) {
       Expect.equals("initializer list", log);
     }
     log = "$v";
