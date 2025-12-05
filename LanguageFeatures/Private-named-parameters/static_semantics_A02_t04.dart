@@ -28,7 +28,7 @@ class C2(int p, {final String _p = ""});
 // [cfe] unspecified
 
 enum E(int p, {final String _p = ""}) {
-//                           ^^
+//                          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   e0(1);
