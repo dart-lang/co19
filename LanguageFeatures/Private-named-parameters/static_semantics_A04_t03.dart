@@ -42,7 +42,7 @@ extension type ET._(String? _p) {
 }
 
 enum E {
-  e0(p: "0"), e1.named(p: "1");
+  e0(p1: "0"), e1.named(p1: "1");
 
   final String? _p1;
   final String? p2;
