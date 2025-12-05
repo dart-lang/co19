@@ -65,11 +65,11 @@ main() {
   Expect.equals(1, E.e0.x);
   Expect.equals(2, E.e1.x);
   ET.c1(0);
-  if (assertStatementsEnabled()) {
+  if (assertStatementsEnabled) {
     Expect.equals("1", log);
   }
   ET.c2(0);
-  if (assertStatementsEnabled()) {
+  if (assertStatementsEnabled) {
     Expect.equals("2", log);
   }
 }
