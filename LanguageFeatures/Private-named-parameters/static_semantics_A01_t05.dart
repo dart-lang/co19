@@ -7,7 +7,7 @@
 /// - If `p` has no corresponding public name `n`, then compile-time error.
 ///
 /// @description Check that it is a compile-time error if a declaring named
-/// formal parameter of a declaring constructor has a private name with no
+/// formal parameter of a primary constructor has a private name with no
 /// corresponding public name.
 /// @author sgrekhov22@gmail.com
 
@@ -25,34 +25,6 @@ class C2({required final String _}) {
 // [cfe] unspecified
 }
 
-class C3 {
-  this({required final String _});
-//                            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C4 {
-  this({var String __ = ""});
-//                 ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET1 {
-  this({final String __ = ""});
-//                   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET2 {
-  this({final String _ = ""});
-//                   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 enum E1({required final String __}) {
 //                             ^^
 // [analyzer] unspecified
@@ -63,22 +35,16 @@ enum E1({required final String __}) {
 // [cfe] unspecified
 }
 
-enum E2 {
-  e0;
-
-  const this({final String _ = ""});
-//                         ^
+enum E2({final String _ = ""}) {
+//                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  e0;
 }
 
 main() {
   print(C1);
   print(C2);
-  print(C3);
-  print(C4);
-  print(ET1);
-  print(ET2);
   print(E1);
   print(E2);
 }

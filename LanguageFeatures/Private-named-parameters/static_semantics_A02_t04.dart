@@ -22,48 +22,20 @@ class C1(int p, {var String _p = ""}) {
 // [cfe] unspecified
 }
 
-class C2 {
-  this(int p, {final String _p = "", });
-//                          ^^
+class C2(int p, {final String _p = ""});
+//                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-extension type ET1 {
-  this(int p, {final String _p = ""});
+enum E(int p, {final String _p = ""}) {
 //                          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET2 {
-  this(int p, {final String _p = ""});
-//                          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-enum E1(int p, {final String _p = ""}) {
-//                           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   e0(1);
 }
 
-enum E2 {
-  e0(2);
-
-  const this(int? p, {final String _p = ""});
-//                                 ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
   print(C1);
   print(C2);
-  print(ET1);
-  print(ET2);
-  print(E1);
-  print(E2);
+  print(E);
 }

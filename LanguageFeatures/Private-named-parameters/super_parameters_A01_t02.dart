@@ -9,10 +9,10 @@
 /// names.
 ///
 /// @description Check that private super parameter can be invoked using its
-/// public name. Test declaring constructors.
+/// public name. Test primary constructors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=private-named-parameters
+// SharedOptions=--enable-experiment=private-named-parameters,primary-constructors
 
 import '../../Utils/expect.dart';
 
@@ -28,9 +28,7 @@ class A2 {
 
 class C1({super.p}) extends A1;
 
-class C2 extends A2 {
-  this({required super.p});
-}
+class C2({required super.p}) extends A2;
 
 main() {
   Expect.equals("a", C1(p: "a")._p);

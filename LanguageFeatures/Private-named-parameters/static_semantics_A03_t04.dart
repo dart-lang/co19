@@ -13,7 +13,7 @@
 ///   only the public name.
 ///
 /// @description Check that it is a compile-time error to use a private name `p`
-/// as the name of the parameter in the constructor invocation. Test declaring
+/// as the name of the parameter in the constructor invocation. Test primary
 /// constructors.
 /// @author sgrekhov22@gmail.com
 
@@ -21,17 +21,7 @@
 
 class C1({var String? _p});
 
-class C2 {
-  this({required final String _p});
-}
-
-extension type ET1 {
-  this({final String? _p});
-}
-
-extension type ET2 {
-  this({required final String _p});
-}
+class C2({required final String _p});
 
 enum E1({final String? _p}) {
   e0(_p: "E1");
@@ -40,13 +30,11 @@ enum E1({final String? _p}) {
 // [cfe] unspecified
 }
 
-enum E2 {
+enum E2({required final String _p}) {
   e0(_p: "E2");
 //   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  const this({required final String _p});
 }
 
 main() {
@@ -60,13 +48,6 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ET1(_p: "");
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  ET2(_p: "");
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  print(E1);
+  print(E2);
 }
