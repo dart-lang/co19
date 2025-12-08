@@ -27,53 +27,45 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if parameter names of
-/// the constructor augmentation does not match the original constructor.
+/// @description Checks that it is not an error if the name of a positional
+/// parameter of an augmenting constructor is `_` and the name of this parameter
+/// in the original constructor is not `_`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-class A1 {
-  A1(int x, int y);
-}
+part of 'augmenting_constructors_A01_t16.dart';
 
-class C1 extends A1 {
-  C1(super.x, super.y);
-  C1.foo([super.x = 1, super.y = 1]);
-}
-
-augment class C1 {
-  augment C1(int y, int x);
-//               ^
+augment class C {
+  augment C(int? _x);
+//               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C1.foo([int y, int x]);
-//                    ^
+  augment C.foo([this._x]);
+//                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class A2 {
-  A2({int x = 0});
-}
-
-class C2 extends A2 {
-  C2({super.x = 1});
-  C2.foo({required super.x});
-}
-
-augment class C2 {
-  augment C2({int y});
-//                ^
+augment enum E {
+  ;
+  augment const E(this._x);
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C2.foo({int y});
-//                    ^
+  augment const E.foo([int? _x]);
+//                          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-main() {
-  print(C1);
-  print(C2);
+augment extension type ET {
+  augment ET.foo(this._x);
+//                    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.bar([int? _x]);
+//                     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
