@@ -6,9 +6,7 @@
 /// constructor. Let `p` be a formal parameter of a primary constructor in a
 /// class, mixin class, enum, or extension type declaration `D` named `C`:
 /// ...
-/// A compile-time error occurs if `p` has both of the modifiers `covariant` and
-/// `final`, also if the latter is implicitly induced (which can occur in a
-/// primary constructor of an extension type declaration).
+/// A compile-time error occurs if `p` has the modifier covariant, but not `var`.
 ///
 /// @description Check that it is a compile-time error if a formal parameters of
 /// a primary constructor has both of the modifiers `covariant` and `final`.
