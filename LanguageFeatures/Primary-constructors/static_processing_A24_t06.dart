@@ -10,8 +10,10 @@
 /// Semantically, it will add a new constructor `k2`, and it will add zero or
 /// more instance variable declarations.
 /// ...
-/// If there is an initializer list following the formal parameter list `L` then
-/// `k2` has an initializer list with the same elements in the same order.
+/// If there is a primary constructor body part that contains an initializer
+/// list then `k2` has an initializer list with the same elements in the same
+/// order. If that body part has a function body then `k2` has the same function
+/// body.
 ///
 /// @description Check that it is a compile-time error if an instance variable
 /// is initialized in the initializer list more than once.
