@@ -13,7 +13,7 @@
 /// If there is an initializer list following the formal parameter list `L` then
 /// `k2` has an initializer list with the same elements in the same order.
 ///
-/// @description Check that if a declaring constructor has an initializer list
+/// @description Check that if a primary constructor has an initializer list
 /// then `k2` has an initializer list with the same elements.
 /// @author sgrekhov22@gmail.com
 

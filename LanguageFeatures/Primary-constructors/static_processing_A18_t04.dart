@@ -13,8 +13,8 @@
 /// The formal parameter list `L2` of `k2` is identical to `L`, except that each
 /// formal parameter is processed as follows.
 /// ...
-/// An initializing formal parameter (e.g., `T this.x`) is copied from `L` to
-/// `L2`, along with the default value, if any, and is otherwise unchanged.
+/// - An initializing formal parameter (e.g., `T this.x`) is copied from `L` to
+///   `L2`, with no changes.
 ///
 /// @description Check that an initializing formal parameter of a primary
 /// constructor initializes the appropriate instance variable and preserves the

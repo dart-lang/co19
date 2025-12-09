@@ -11,7 +11,7 @@
 /// existing allowlist of places where `covariant` can occur.
 ///
 /// @description Check that it is not an error if a formal parameters of a
-/// declaring constructor has the modifier `covariant`.
+/// primary constructor has the modifier `covariant`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors

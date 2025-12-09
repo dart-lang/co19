@@ -13,8 +13,7 @@
 /// The formal parameter list `L2` of `k2` is identical to `L`, except that each
 /// formal parameter is processed as follows.
 /// ...
-/// A super parameter is copied from `L` to `L2` along with the default value,
-/// if any, and is otherwise unchanged.
+/// - A super parameter is copied from `L` to `L2`, with no changes.
 ///
 /// @description Check that a super parameter (which has a corresponding
 /// initializing formal parameter in the superconstructor) of a primary

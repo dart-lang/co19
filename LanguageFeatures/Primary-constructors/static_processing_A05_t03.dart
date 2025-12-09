@@ -14,7 +14,7 @@
 /// constructor that `D` contains does not have exactly one parameter.
 ///
 /// @description Check that it is a compile-time error if an extension type does
-/// not contain a declaring constructor that has exactly one declaring parameter
+/// not contain a primary constructor that has exactly one declaring parameter
 /// which is `final`.
 /// @author sgrekhov22@gmail.com
 

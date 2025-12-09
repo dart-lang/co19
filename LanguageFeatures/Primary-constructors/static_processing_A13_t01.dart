@@ -10,7 +10,7 @@
 /// Semantically, it will add a new constructor `k2`, and it will add zero or
 /// more instance variable declarations.
 /// ...
-/// The current scope of the formal parameter list of the declaring constructor
+/// The current scope of the formal parameter list of the primary constructor
 /// in `D` is the body scope of the class.
 ///
 /// @description Check that the current scope of the formal parameter list of
