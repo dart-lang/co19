@@ -33,7 +33,7 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 55478
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 part of 'augmenting_functions_A04_t23.dart';
 

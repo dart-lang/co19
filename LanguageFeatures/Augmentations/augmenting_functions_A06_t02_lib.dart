@@ -13,7 +13,7 @@
 /// optional parameter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 part of 'augmenting_functions_A06_t02.dart';
 

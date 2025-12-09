@@ -11,7 +11,7 @@
 /// by an augmentation by adding a body.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 import '../../Utils/expect.dart';
 part 'augmenting_functions_A08_t02_lib.dart';
