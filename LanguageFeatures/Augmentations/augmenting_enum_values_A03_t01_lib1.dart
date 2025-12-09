@@ -11,7 +11,7 @@
 /// application order.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 part of 'augmenting_enum_values_A03_t01.dart';
 
