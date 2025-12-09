@@ -5,11 +5,13 @@
 /// @description Common library for augmentation tests.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 library augmentation_libraries_lib;
 
-class AL {}
+class AL {
+  const AL();
+}
 
 final class FinalClass {}
 
