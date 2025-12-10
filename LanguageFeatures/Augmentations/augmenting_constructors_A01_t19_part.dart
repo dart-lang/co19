@@ -28,7 +28,7 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is not an error if an augmentation uses a
-/// parameter name with a library prefix.
+/// parameter name with an import prefix.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
