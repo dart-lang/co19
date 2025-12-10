@@ -29,7 +29,7 @@
 ///
 /// @description Checks that it is a compile-time error if the name of a
 /// positional parameter in an augmenting constructor is not `_` and not equal
-/// the name this parameter in the original constructor.
+/// to the name of this parameter in the original constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
