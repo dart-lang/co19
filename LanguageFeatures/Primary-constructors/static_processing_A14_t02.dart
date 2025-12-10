@@ -10,8 +10,9 @@
 /// Semantically, it will add a new constructor `k2`, and it will add zero or
 /// more instance variable declarations.
 /// ...
-/// Next, `k` has the modifier `const` iff the keyword `const` occurs just
-/// before the name of `D` or before `this`, or if `D` is an enum declaration.
+/// Next, `k2` has the modifier `const` if and only if the keyword `const`
+/// occurs just before the name of `D` or `D` is an `enum` declaration. In any
+/// case, such an occurrence of `const` in the header of `D` is omitted in `D2`.
 ///
 /// @description Check that the primary constructor is not a constant
 /// constructor if there is no `const` keyword  just before the name of `D`.
