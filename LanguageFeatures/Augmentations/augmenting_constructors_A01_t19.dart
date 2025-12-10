@@ -27,42 +27,74 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is not an error if the name of a positional
-/// parameter of an augmenting constructor is `_` and the name of this parameter
-/// in the original constructor is not `_`.
+/// @description Checks that it is not an error if a positional parameter whose
+/// name is not `_` is accessed in the body even if any of prior augmentations
+/// use `_` as its name.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../Utils/expect.dart';
+import '../../utils/expect.dart';
+
+String log = "";
 
 class C {
-  int? x;
-  C(int? x);
-  C.foo([this.x]);
+  C(int _);
+  C.foo([int? _]);
 }
 
 augment class C {
-  augment C(int? _);
+  augment C(int x);
+  augment C.foo([int? x]);
+}
+
+augment class C {
+  augment C(int _);
   augment C.foo([int? _]);
 }
 
+augment class C {
+  augment C(int x) {
+    log = "$_x";
+  }
+  augment C.foo([int? x]) {
+    log = "$_x";
+  }
+}
+
 enum E {
-  e0(1), e1.foo();
-  final int x;
-  const E(this.x);
-  const E.foo([this.x = 0]);
+  e0(1), e1.foo(1);
+
+  const E(int _);
+  const E.foo([int _]);
 }
 
 augment enum E {
   ;
-  augment const E(int _);
+  augment const E(int x);
+  augment const E.foo([int x = 0]);
+}
+
+augment enum E {
+  ;
+  augment const E(int? _);
   augment const E.foo([int _]);
 }
 
-extension type ET(int x) {
-  ET.foo(this.x);
-  ET.bar([this.x = 0]);
+augment enum E {
+  ;
+  augment const E(int x) : assert(_x != null);
+  augment const E.foo([int x]) : assert(_x != null);
+}
+
+extension type ET(int? v) {
+  ET.foo(int _);
+  ET.bar([int _]);
+}
+
+augment extension type ET {
+  augment ET.foo(int x);
+  augment ET.bar([int x = 0]);
 }
 
 augment extension type ET {
@@ -70,11 +102,30 @@ augment extension type ET {
   augment ET.bar([int _]);
 }
 
+extension type ET(int? v) {
+  ET.foo(int _x) : v = 0 {
+    log = "$_x";
+  }
+  ET.bar([int _x]) : v = 0 {
+    log = "$_x";
+  }
+}
+
+checkLog(String expected) {
+  Expect.equals(expected, log);
+  log = "";
+}
+
 main() {
-  Expect.equals(1, C(1).x);
-  Expect.isNull(C.foo().x);
-  Expect.equals(1, E.e0.x);
-  Expect.equals(0, E.e1.x);
-  Expect.equals(1, ET.foo(1).x);
-  Expect.isNull(0, ET.bar().x);
+  C(1);
+  checkLog("1");
+  C.foo(2);
+  checkLog("2");
+
+  ET.foo(1);
+  checkLog("1");
+  ET.bar(2);
+  checkLog("2");
+
+  print(E);
 }

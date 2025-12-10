@@ -28,8 +28,8 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is a compile-time error if the name of a
-/// positional parameter in an augmenting constructor is not `_` and the name of
-/// the parameter with all prior augmentations applied is `_`.
+/// positional parameter in an augmenting constructor is not `_` and not equal
+/// the name this parameter in the original constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -50,25 +50,25 @@ augment class C {
 enum E {
   e0(1), e1.foo(1);
 
-  final int? _x;
+  final int _x;
   const E(this._x);
-  const E.foo([this._x]);
+  const E.foo([this._x = 0]);
 }
 
 augment enum E {
   ;
-  augment const E(int? _);
-  augment const E.foo([int? _]);
+  augment const E(int _);
+  augment const E.foo([int _]);
 }
 
-extension type ET(int? _x) {
+extension type ET(int _x) {
   ET.foo(this._x);
-  ET.bar([this._x]);
+  ET.bar([this._x = 0]);
 }
 
 augment extension type ET {
-  augment ET.foo(int? _);
-  augment ET.bar([int? _]);
+  augment ET.foo(int _);
+  augment ET.bar([int _]);
 }
 
 main() {

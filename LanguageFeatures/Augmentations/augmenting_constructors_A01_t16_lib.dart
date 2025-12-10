@@ -28,8 +28,8 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is a compile-time error if the name of a
-/// positional parameter in an augmenting constructor is not `_` and the name of
-/// the parameter with all prior augmentations applied is `_`.
+/// positional parameter in an augmenting constructor is not `_` and not equal
+/// the name this parameter in the original constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -37,11 +37,11 @@
 part of 'augmenting_constructors_A01_t16.dart';
 
 augment class C {
-  augment C(int? _x);
+  augment C(int? _y);
 //               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C.foo([this._x]);
+  augment C.foo([this._y]);
 //                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -49,22 +49,22 @@ augment class C {
 
 augment enum E {
   ;
-  augment const E(this._x);
+  augment const E(this._y);
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment const E.foo([int? _x]);
-//                          ^^
+  augment const E.foo([int _y]);
+//                         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension type ET {
-  augment ET.foo(this._x);
+  augment ET.foo(this._y);
 //                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment ET.bar([int? _x]);
+  augment ET.bar([int _y]);
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified

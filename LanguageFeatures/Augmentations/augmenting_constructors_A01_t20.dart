@@ -27,54 +27,45 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is not an error if the name of a positional
-/// parameter of an augmenting constructor is `_` and the name of this parameter
-/// in the original constructor is not `_`.
+/// @description Checks that it is not an error if an augmentation with a
+/// wildcard introduces a default value for optional positional parameter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../Utils/expect.dart';
+import '../../utils/expect.dart';
 
 class C {
-  int? x;
-  C(int? x);
-  C.foo([this.x]);
+  int x;
+  C([this.x]);
 }
 
 augment class C {
-  augment C(int? _);
-  augment C.foo([int? _]);
+  augment C([int _ = 1]);
 }
 
 enum E {
-  e0(1), e1.foo();
+  e0();
+
   final int x;
-  const E(this.x);
-  const E.foo([this.x = 0]);
+  const E([this.x]);
 }
 
 augment enum E {
   ;
-  augment const E(int _);
-  augment const E.foo([int _]);
+  augment const E([int _ = 2]);
 }
 
 extension type ET(int x) {
-  ET.foo(this.x);
-  ET.bar([this.x = 0]);
+  ET.foo([this.x]);
 }
 
 augment extension type ET {
-  augment ET.foo(int _);
-  augment ET.bar([int _]);
+  augment ET.foo([int _ = 3]);
 }
 
 main() {
-  Expect.equals(1, C(1).x);
-  Expect.isNull(C.foo().x);
-  Expect.equals(1, E.e0.x);
-  Expect.equals(0, E.e1.x);
-  Expect.equals(1, ET.foo(1).x);
-  Expect.isNull(0, ET.bar().x);
+  Expect.equals(1, C().x);
+  Expect.equals(2, E.e0.x);
+  Expect.equals(3, ET.foo().x);
 }

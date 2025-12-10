@@ -28,7 +28,8 @@
 ///   the augmented function.
 ///
 /// @description Checks that if the name of a positional parameter was augmented
-/// to `_` then it is a compile-time error to use an old name.
+/// to `_` then it is a compile-time error to use an old name in the augmenting
+/// body.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -56,35 +57,35 @@ augment class C {
 enum E {
   e0(1), e1.foo(1);
 
-  const E(int? x);
-  const E.foo([int? x]);
+  const E(int x);
+  const E.foo([int x = 0]);
 }
 
 augment enum E {
   ;
-  augment const E(int? _) : assert(x != null);
-//                                 ^
+  augment const E(int _) : assert(x != null);
+//                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment const E.foo([int? _]) : assert(x != null);
-//                                       ^
+  augment const E.foo([int _]) : assert(x != null);
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET(int? v) {
-  ET.foo(int? x);
-  ET.bar([int? x]);
+extension type ET(int v) {
+  ET.foo(int x);
+  ET.bar([int x = 0]);
 }
 
 augment extension type ET {
-  augment ET.foo(int? _) {
+  augment ET.foo(int _) {
     print(x);
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment ET.bar([int? _]) {
+  augment ET.bar([int _]) {
     print(x);
 //        ^
 // [analyzer] unspecified

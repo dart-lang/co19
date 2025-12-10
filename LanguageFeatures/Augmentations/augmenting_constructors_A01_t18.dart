@@ -28,8 +28,8 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is not an error if a positional parameter whose
-/// name is not `_` is accessed in the body even if an augmentation changes its
-/// name to `_`.
+/// name is not `_` is accessed in the body even if there is an augmentation in
+/// the chain that use wildcard as its name.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

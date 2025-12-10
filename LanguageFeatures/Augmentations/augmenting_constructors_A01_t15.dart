@@ -72,7 +72,7 @@ augment enum E {
 }
 
 extension type ET(int? x) {
-  ET.foo(int? _);
+  ET.foo(int? _) : x = 1;
   ET.bar([int? _]): x = 1;
 }
 
