@@ -6,7 +6,7 @@
 /// getter, or setter may be augmented to provide a body or add metadata.
 ///
 /// @description Checks that it is not an error if an augmentation uses a
-/// parameter name with an import prefix.
+/// parameter whose type annotation uses an import prefix.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
