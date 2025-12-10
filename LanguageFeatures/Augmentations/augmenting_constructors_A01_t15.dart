@@ -54,9 +54,9 @@ augment class C {
 enum E {
   e0(1), e1.foo(1);
 
-  final int? x;
-  const E(int? _);
-  const E.foo([int? _]);
+  final int x;
+  const E(int _);
+  const E.foo([int _]) : x = 1;
 }
 
 augment enum E {
@@ -65,15 +65,15 @@ augment enum E {
 //                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment const E.foo([int? x]);
-//                          ^
+  augment const E.foo([int x]);
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET(int? x) {
   ET.foo(int? _);
-  ET.bar([int? _]);
+  ET.bar([int? _]): x = 1;
 }
 
 augment extension type ET {

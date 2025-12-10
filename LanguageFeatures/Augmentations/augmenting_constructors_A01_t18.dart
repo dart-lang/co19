@@ -27,24 +27,23 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that if the name of a positional parameter was augmented
-/// to `_` then it is a compile-time error to use an old name.
+/// @description Checks that it is not an error if a positional parameter whose
+/// name is not `_` is accessed in the body even if an augmentation changes its
+/// name to `_`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
+import '../../utils/expect.dart';
+
+String log = "";
+
 class C {
   C(int _x) {
-    print(_x);
-//        ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    log = "$_x";
   }
   C.foo([int? _x]) {
-    print(_x);
-//        ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    log = "$_x";
   }
 }
 
@@ -57,13 +56,7 @@ enum E {
   e0(1), e1.foo(1);
 
   const E(int? _x) : assert(_x != null);
-//                          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const E.foo([int? x]) : assert(_x != null);
-//                               ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  const E.foo([int? _x]) : assert(_x != null);
 }
 
 augment enum E {
@@ -73,17 +66,11 @@ augment enum E {
 }
 
 extension type ET(int? v) {
-  ET.foo(int? _x) {
-    print(_x);
-//        ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  ET.foo(int? _x) : v = 0 {
+    log = "$_x";
   }
-  ET.bar([int? _x]) {
-    print(_x);
-//        ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  ET.bar([int? _x]) : v = 0 {
+    log = "$_x";
   }
 }
 
@@ -92,8 +79,21 @@ augment extension type ET {
   augment ET.bar([int? _]);
 }
 
+checkLog(String expected) {
+  Expect.equals(expected, log);
+  log = "";
+}
+
 main() {
-  print(C);
+  C(1);
+  checkLog("1");
+  C.foo(2);
+  checkLog("2");
+
+  ET.foo(1);
+  checkLog("1");
+  ET.bar(2);
+  checkLog("2");
+
   print(E);
-  print(ET);
 }
