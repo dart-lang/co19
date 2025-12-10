@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -27,53 +27,105 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if parameter names of
-/// the constructor augmentation does not match the original constructor.
+/// @description Checks that it is not an error if a positional parameter whose
+/// name is not `_` is accessed in the body even if any of prior augmentations
+/// use `_` as its name.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-class A1 {
-  A1(int x, int y);
+import '../../utils/expect.dart';
+
+String log = "";
+
+class C {
+  C(int _);
+  C.foo([int? _]);
 }
 
-class C1 extends A1 {
-  C1(super.x, super.y);
-  C1.foo([super.x = 1, super.y = 1]);
+augment class C {
+  augment C(int x);
+  augment C.foo([int? x]);
 }
 
-augment class C1 {
-  augment C1(int y, int x);
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C1.foo([int y, int x]);
-//                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+augment class C {
+  augment C(int _);
+  augment C.foo([int? _]);
 }
 
-class A2 {
-  A2({int x = 0});
+augment class C {
+  augment C(int x) {
+    log = "$_x";
+  }
+  augment C.foo([int? x]) {
+    log = "$_x";
+  }
 }
 
-class C2 extends A2 {
-  C2({super.x = 1});
-  C2.foo({required super.x});
+enum E {
+  e0(1), e1.foo(1);
+
+  const E(int _);
+  const E.foo([int _]);
 }
 
-augment class C2 {
-  augment C2({int y});
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C2.foo({int y});
-//                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+augment enum E {
+  ;
+  augment const E(int x);
+  augment const E.foo([int x = 0]);
+}
+
+augment enum E {
+  ;
+  augment const E(int? _);
+  augment const E.foo([int _]);
+}
+
+augment enum E {
+  ;
+  augment const E(int x) : assert(_x != null);
+  augment const E.foo([int x]) : assert(_x != null);
+}
+
+extension type ET(int? v) {
+  ET.foo(int _);
+  ET.bar([int _]);
+}
+
+augment extension type ET {
+  augment ET.foo(int x);
+  augment ET.bar([int x = 0]);
+}
+
+augment extension type ET {
+  augment ET.foo(int _);
+  augment ET.bar([int _]);
+}
+
+extension type ET(int? v) {
+  ET.foo(int _x) : v = 0 {
+    log = "$_x";
+  }
+  ET.bar([int _x]) : v = 0 {
+    log = "$_x";
+  }
+}
+
+checkLog(String expected) {
+  Expect.equals(expected, log);
+  log = "";
 }
 
 main() {
-  print(C1);
-  print(C2);
+  C(1);
+  checkLog("1");
+  C.foo(2);
+  checkLog("2");
+
+  ET.foo(1);
+  checkLog("1");
+  ET.bar(2);
+  checkLog("2");
+
+  print(E);
 }

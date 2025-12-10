@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -27,53 +27,45 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if parameter names of
-/// the constructor augmentation does not match the original constructor.
+/// @description Checks that it is not an error if an augmentation with a
+/// wildcard introduces a default value for optional positional parameter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-class A1 {
-  A1(int x, int y);
+import '../../utils/expect.dart';
+
+class C {
+  int x;
+  C([this.x]);
 }
 
-class C1 extends A1 {
-  C1(super.x, super.y);
-  C1.foo([super.x = 1, super.y = 1]);
+augment class C {
+  augment C([int _ = 1]);
 }
 
-augment class C1 {
-  augment C1(int y, int x);
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C1.foo([int y, int x]);
-//                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+enum E {
+  e0();
+
+  final int x;
+  const E([this.x]);
 }
 
-class A2 {
-  A2({int x = 0});
+augment enum E {
+  ;
+  augment const E([int _ = 2]);
 }
 
-class C2 extends A2 {
-  C2({super.x = 1});
-  C2.foo({required super.x});
+extension type ET(int x) {
+  ET.foo([this.x]);
 }
 
-augment class C2 {
-  augment C2({int y});
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C2.foo({int y});
-//                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+augment extension type ET {
+  augment ET.foo([int _ = 3]);
 }
 
 main() {
-  print(C1);
-  print(C2);
+  Expect.equals(1, C().x);
+  Expect.equals(2, E.e0.x);
+  Expect.equals(3, ET.foo().x);
 }

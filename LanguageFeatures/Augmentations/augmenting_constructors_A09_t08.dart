@@ -12,7 +12,6 @@
 // SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
-part 'augmenting_constructors_A19_t01_lib.dart';
 
 class C {
   int x, y;

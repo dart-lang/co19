@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -27,53 +27,74 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if parameter names of
-/// the constructor augmentation does not match the original constructor.
+/// @description Checks that if the name of a positional parameter was augmented
+/// to `_` then it is a compile-time error to use an old name in the augmenting
+/// body.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-class A1 {
-  A1(int x, int y);
+class C {
+  C(int? x);
+  C.foo([int? x]);
 }
 
-class C1 extends A1 {
-  C1(super.x, super.y);
-  C1.foo([super.x = 1, super.y = 1]);
-}
-
-augment class C1 {
-  augment C1(int y, int x);
-//               ^
+augment class C {
+  augment C(int? _) {
+    print(x);
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C1.foo([int y, int x]);
-//                    ^
+  }
+  augment C.foo([int? _]) {
+    print(x);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+enum E {
+  e0(1), e1.foo(1);
+
+  const E(int x);
+  const E.foo([int x = 0]);
+}
+
+augment enum E {
+  ;
+  augment const E(int _) : assert(x != null);
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo([int _]) : assert(x != null);
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class A2 {
-  A2({int x = 0});
+extension type ET(int v) {
+  ET.foo(int x);
+  ET.bar([int x = 0]);
 }
 
-class C2 extends A2 {
-  C2({super.x = 1});
-  C2.foo({required super.x});
-}
-
-augment class C2 {
-  augment C2({int y});
-//                ^
+augment extension type ET {
+  augment ET.foo(int _) {
+    print(x);
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C2.foo({int y});
-//                    ^
+  }
+  augment ET.bar([int _]) {
+    print(x);
+//        ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 }
 
 main() {
-  print(C1);
-  print(C2);
+  print(C);
+  print(E);
+  print(ET);
 }
