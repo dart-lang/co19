@@ -27,45 +27,105 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is not an error if an augmentation with a
-/// wildcard introduces a default value for optional positional parameter.
+/// @description Checks that it is not an error if a positional parameter whose
+/// name is not `_` is accessed in the body even if any of prior augmentations
+/// use `_` as its name.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 import '../../utils/expect.dart';
 
+String log = "";
+
 class C {
-  int x;
-  C([this.x]);
+  C(int _);
+  C.foo([int? _]);
 }
 
 augment class C {
-  augment C([int _ = 1]);
+  augment C(int x);
+  augment C.foo([int? x]);
+}
+
+augment class C {
+  augment C(int _);
+  augment C.foo([int? _]);
+}
+
+augment class C {
+  augment C(int x) {
+    log = "$_x";
+  }
+  augment C.foo([int? x]) {
+    log = "$_x";
+  }
 }
 
 enum E {
-  e0();
+  e0(1), e1.foo(1);
 
-  final int x;
-  const E([this.x]);
+  const E(int _);
+  const E.foo([int _]);
 }
 
 augment enum E {
   ;
-  augment const E([int _ = 2]);
+  augment const E(int x);
+  augment const E.foo([int x = 0]);
 }
 
-extension type ET(int x) {
-  ET.foo([this.x]);
+augment enum E {
+  ;
+  augment const E(int? _);
+  augment const E.foo([int _]);
+}
+
+augment enum E {
+  ;
+  augment const E(int x) : assert(_x != null);
+  augment const E.foo([int x]) : assert(_x != null);
+}
+
+extension type ET(int? v) {
+  ET.foo(int _);
+  ET.bar([int _]);
 }
 
 augment extension type ET {
-  augment ET.foo([int _ = 3]);
+  augment ET.foo(int x);
+  augment ET.bar([int x = 0]);
+}
+
+augment extension type ET {
+  augment ET.foo(int _);
+  augment ET.bar([int _]);
+}
+
+extension type ET(int? v) {
+  ET.foo(int _x) : v = 0 {
+    log = "$_x";
+  }
+  ET.bar([int _x]) : v = 0 {
+    log = "$_x";
+  }
+}
+
+checkLog(String expected) {
+  Expect.equals(expected, log);
+  log = "";
 }
 
 main() {
-  Expect.equals(1, C().x);
-  Expect.equals(2, E.e0.x);
-  Expect.equals(3, ET.foo().x);
+  C(1);
+  checkLog("1");
+  C.foo(2);
+  checkLog("2");
+
+  ET.foo(1);
+  checkLog("1");
+  ET.bar(2);
+  checkLog("2");
+
+  print(E);
 }
