@@ -97,7 +97,6 @@ class MA = Object with M;
 
 main() {
   Expect.equals(0, topLevelFunction());
-
   Expect.equals(0, C.staticMethod());
   Expect.equals(0, C().instanceMethod());
   Expect.equals(0, M.staticMethod());
