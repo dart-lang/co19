@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -44,28 +44,28 @@ class C {
   static void staticMethod1(int _x) {}
   static void staticMethod2([int x = 2]) {}
   void instanceMethod1(int x) {}
-  void instanceMethod2([int _x]) {}
+  void instanceMethod2([int _x = 2]) {}
 }
 
 augment class C {
   augment static void staticMethod1(int _);
   augment static void staticMethod2([int _]);
   augment void instanceMethod1(int _);
-  augment void instanceMethod2([int _ = 2]);
+  augment void instanceMethod2([int _]);
 }
 
 mixin M {
   static void staticMethod1(int _x) {}
   static void staticMethod2([int x = 2]) {}
   void instanceMethod1(int x) {}
-  void instanceMethod2([int _x]) {}
+  void instanceMethod2([int _x = 2]) {}
 }
 
 augment mixin M {
   augment static void staticMethod1(int _);
   augment static void staticMethod2([int _]);
   augment void instanceMethod1(int _);
-  augment void instanceMethod2([int _ = 2]);
+  augment void instanceMethod2([int _]);
 }
 
 enum E {
@@ -73,7 +73,7 @@ enum E {
   static void staticMethod1(int _x) {}
   static void staticMethod2([int x = 2]) {}
   void instanceMethod1(int x) {}
-  void instanceMethod2([int _x]) {}
+  void instanceMethod2([int _x = 2]) {}
 }
 
 augment enum E {
@@ -81,7 +81,7 @@ augment enum E {
   augment static void staticMethod1(int _);
   augment static void staticMethod2([int _]);
   augment void instanceMethod1(int _);
-  augment void instanceMethod2([int _ = 2]);
+  augment void instanceMethod2([int _]);
 }
 
 class A {}
@@ -90,28 +90,28 @@ extension Ext on A {
   static void staticMethod1(int _x) {}
   static void staticMethod2([int x = 2]) {}
   void instanceMethod1(int x) {}
-  void instanceMethod2([int _x]) {}
+  void instanceMethod2([int _x = 2]) {}
 }
 
 augment extension Ext {
   augment static void staticMethod1(int _);
   augment static void staticMethod2([int _]);
   augment void instanceMethod1(int _);
-  augment void instanceMethod2([int _ = 2]);
+  augment void instanceMethod2([int _]);
 }
 
 extension type ET(int _) {
   static void staticMethod1(int _x) {}
   static void staticMethod2([int x = 2]) {}
   void instanceMethod1(int x) {}
-  void instanceMethod2([int _x]) {}
+  void instanceMethod2([int _x = 2]) {}
 }
 
 augment extension type ET {
   augment static void staticMethod1(int _);
   augment static void staticMethod2([int _]);
   augment void instanceMethod1(int _);
-  augment void instanceMethod2([int _ = 2]);
+  augment void instanceMethod2([int _]);
 }
 
 class MA = Object with M;

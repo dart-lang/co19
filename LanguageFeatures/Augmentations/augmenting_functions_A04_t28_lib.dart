@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -36,48 +36,48 @@
 
 part of 'augmenting_functions_A04_t28.dart';
 
-augment void topLevelFunction1(int x);
+augment void topLevelFunction1(int y);
 //                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-augment void topLevelFunction2([int _x]);
+augment void topLevelFunction2([int _y]);
 //                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 augment class C {
-  augment static void staticMethod1(int _x);
+  augment static void staticMethod1(int _y);
 //                                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void staticMethod2([int x]);
+  augment static void staticMethod2([int y]);
 //                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod1(int x);
+  augment void instanceMethod1(int y);
 //                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod2([int _x]);
+  augment void instanceMethod2([int _y]);
 //                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment mixin M {
-  augment static void staticMethod1(int _x);
+  augment static void staticMethod1(int _y);
 //                                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void staticMethod2([int x]);
+  augment static void staticMethod2([int y]);
 //                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod1(int x);
+  augment void instanceMethod1(int y);
 //                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod2([int _x]);
+  augment void instanceMethod2([int _y]);
 //                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -85,57 +85,57 @@ augment mixin M {
 
 augment enum E {
   ;
-  augment static void staticMethod1(int _x);
+  augment static void staticMethod1(int _y);
 //                                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void staticMethod2([int x]);
+  augment static void staticMethod2([int y]);
 //                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod1(int x);
+  augment void instanceMethod1(int y);
 //                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod2([int _x]);
+  augment void instanceMethod2([int _y]);
 //                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension Ext {
-  augment static void staticMethod1(int _x);
+  augment static void staticMethod1(int _y);
 //                                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void staticMethod2([int x]);
+  augment static void staticMethod2([int y]);
 //                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod1(int x);
+  augment void instanceMethod1(int y);
 //                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod2([int _x]);
+  augment void instanceMethod2([int _y]);
 //                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment extension type ET {
-  augment static void staticMethod1(int _x);
+  augment static void staticMethod1(int _y);
 //                                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void staticMethod2([int x]);
+  augment static void staticMethod2([int y]);
 //                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod1(int x);
+  augment void instanceMethod1(int y);
 //                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void instanceMethod2([int _x]);
+  augment void instanceMethod2([int _y]);
 //                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified

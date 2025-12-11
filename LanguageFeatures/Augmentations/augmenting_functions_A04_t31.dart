@@ -28,25 +28,38 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is not an error if a positional parameter whose
-/// name is not `_` is accessed in the body even if there is an augmentation in
-/// the chain that use wildcard as its name.
+/// name is not `_` is accessed in the body even if any of prior augmentations
+/// use `_` as its name.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
 
-int topLevelFunction1(int x) => x;
-int topLevelFunction2([int _x = 2]) => _x;
+int topLevelFunction1(int _);
+int topLevelFunction2([int _]);
+
+augment int topLevelFunction1(int x);
+augment int topLevelFunction2([int _x = 2]);
 
 augment int topLevelFunction1(int _);
 augment int topLevelFunction2([int _]);
 
+augment int topLevelFunction1(int x) => x;
+augment int topLevelFunction2([int _x]) => _x;
+
 class C {
-  static int staticMethod1(int _x) => _x;
-  static int staticMethod2([int x = 2]) => x;
-  int instanceMethod1(int x) => x;
-  int instanceMethod2([int _x = 2]) => _x;
+  static int staticMethod1(int _);
+  static int staticMethod2([int _]);
+  int instanceMethod1(int _);
+  int instanceMethod2([int _]);
+}
+
+augment class C {
+  augment static int staticMethod1(int _x);
+  augment static int staticMethod2([int x = 2]);
+  augment int instanceMethod1(int x);
+  augment int instanceMethod2([int _x = 2]);
 }
 
 augment class C {
@@ -56,11 +69,25 @@ augment class C {
   augment int instanceMethod2([int _]);
 }
 
+augment class C {
+  augment static int staticMethod1(int _x) => _x;
+  augment static int staticMethod2([int x]) => x;
+  augment int instanceMethod1(int x) => x;
+  augment int instanceMethod2([int _x]) => _x;
+}
+
 mixin M {
-  static int staticMethod1(int _x) => _x;
-  static int staticMethod2([int x = 2]) => x;
-  int instanceMethod1(int x) => x;
-  int instanceMethod2([int _x = 2]) => _x;
+  static int staticMethod1(int _);
+  static int staticMethod2([int _]);
+  int instanceMethod1(int _);
+  int instanceMethod2([int _]);
+}
+
+augment mixin M {
+  augment static int staticMethod1(int _x);
+  augment static int staticMethod2([int x = 2]);
+  augment int instanceMethod1(int x);
+  augment int instanceMethod2([int _x = 2]);
 }
 
 augment mixin M {
@@ -70,12 +97,27 @@ augment mixin M {
   augment int instanceMethod2([int _]);
 }
 
+augment mixin M {
+  augment static int staticMethod1(int _x) => _x;
+  augment static int staticMethod2([int x]) => x;
+  augment int instanceMethod1(int x) => x;
+  augment int instanceMethod2([int _x]) => _x;
+}
+
 enum E {
-  e1;
-  static int staticMethod1(int _x) => _x;
-  static int staticMethod2([int x = 2]) => x;
-  int instanceMethod1(int x) => x;
-  int instanceMethod2([int _x = 2]) => _x;
+  e0;
+  static int staticMethod1(int _);
+  static int staticMethod2([int _]);
+  int instanceMethod1(int _);
+  int instanceMethod2([int _]);
+}
+
+augment enum E {
+  ;
+  augment static int staticMethod1(int _x);
+  augment static int staticMethod2([int x = 2]);
+  augment int instanceMethod1(int x);
+  augment int instanceMethod2([int _x = 2]);
 }
 
 augment enum E {
@@ -86,13 +128,28 @@ augment enum E {
   augment int instanceMethod2([int _]);
 }
 
+augment enum E {
+  ;
+  augment static int staticMethod1(int _x) => _x;
+  augment static int staticMethod2([int x]) => x;
+  augment int instanceMethod1(int x) => x;
+  augment int instanceMethod2([int _x]) => _x;
+}
+
 class A {}
 
 extension Ext on A {
-  static int staticMethod1(int _x) => _x;
-  static int staticMethod2([int x = 2]) => x;
-  int instanceMethod1(int x) => x;
-  int instanceMethod2([int _x = 2]) => _x;
+  static int staticMethod1(int _);
+  static int staticMethod2([int _]);
+  int instanceMethod1(int _);
+  int instanceMethod2([int _]);
+}
+
+augment extension Ext {
+  augment static int staticMethod1(int _x);
+  augment static int staticMethod2([int x = 2]);
+  augment int instanceMethod1(int x);
+  augment int instanceMethod2([int _x = 2]);
 }
 
 augment extension Ext {
@@ -102,11 +159,25 @@ augment extension Ext {
   augment int instanceMethod2([int _]);
 }
 
+augment extension Ext {
+  augment static int staticMethod1(int _x) => _x;
+  augment static int staticMethod2([int x]) => x;
+  augment int instanceMethod1(int x) => x;
+  augment int instanceMethod2([int _x]) => _x;
+}
+
 extension type ET(int _) {
-  static int staticMethod1(int _x) => _x;
-  static int staticMethod2([int x = 2]) => x;
-  int instanceMethod1(int x) => x;
-  int instanceMethod2([int _x = 2]) => _x;
+  static int staticMethod1(int _);
+  static int staticMethod2([int _]);
+  int instanceMethod1(int _);
+  int instanceMethod2([int _]);
+}
+
+augment extension type ET {
+  augment static int staticMethod1(int _x);
+  augment static int staticMethod2([int x = 2]);
+  augment int instanceMethod1(int x);
+  augment int instanceMethod2([int _x = 2]);
 }
 
 augment extension type ET {
@@ -114,6 +185,13 @@ augment extension type ET {
   augment static int staticMethod2([int _]);
   augment int instanceMethod1(int _);
   augment int instanceMethod2([int _]);
+}
+
+augment extension type ET {
+  augment static int staticMethod1(int _x) => _x;
+  augment static int staticMethod2([int x]) => x;
+  augment int instanceMethod1(int x) => x;
+  augment int instanceMethod2([int _x]) => _x;
 }
 
 class MA = Object with M;
@@ -134,8 +212,8 @@ main() {
 
   Expect.equals(1, E.staticMethod1(1));
   Expect.equals(2, E.staticMethod2());
-  Expect.equals(1, E.e1.instanceMethod1(1));
-  Expect.equals(2, E.e1.instanceMethod2());
+  Expect.equals(1, E.e0.instanceMethod1(1));
+  Expect.equals(2, E.e0.instanceMethod2());
 
   Expect.equals(1, Ext.staticMethod1(1));
   Expect.equals(2, Ext.staticMethod2());
