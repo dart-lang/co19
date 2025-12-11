@@ -35,7 +35,7 @@ class C {
 
 augment class C {
   augment static String get staticGetter => "x";
-  augment get instanceGetter => "x";
+  augment String get instanceGetter => "x";
 }
 
 mixin M {
@@ -45,7 +45,7 @@ mixin M {
 
 augment mixin M {
   augment static String get staticGetter => "x";
-  augment get instanceGetter => "x";
+  augment String get instanceGetter => "x";
 }
 
 enum E {
@@ -57,7 +57,7 @@ enum E {
 augment enum E {
   ;
   augment static String get staticGetter => "x";
-  augment get instanceGetter => "x";
+  augment String get instanceGetter => "x";
 }
 
 class A {}
@@ -69,7 +69,7 @@ extension Ext on A {
 
 augment extension Ext {
   augment static String get staticGetter => "x";
-  augment get instanceGetter => "x";
+  augment String get instanceGetter => "x";
 }
 
 extension type ET(int _) {
@@ -79,7 +79,7 @@ extension type ET(int _) {
 
 augment extension type ET {
   augment static String get staticGetter => "x";
-  augment get instanceGetter => "x";
+  augment String get instanceGetter => "x";
 }
 
 class MA = Object with M;

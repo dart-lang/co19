@@ -35,7 +35,7 @@ class C {
 
 augment class C {
   augment static String get staticVariable;
-  augment get instanceVariable;
+  augment String get instanceVariable;
 }
 
 mixin M {
@@ -45,7 +45,7 @@ mixin M {
 
 augment mixin M {
   augment static String get staticVariable;
-  augment get instanceVariable;
+  augment String get instanceVariable;
 }
 
 enum E {
@@ -57,7 +57,7 @@ enum E {
 augment enum E {
   ;
   augment static String get staticVariable;
-  augment get instanceVariable;
+  augment String get instanceVariable;
 }
 
 class A {}
