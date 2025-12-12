@@ -18,7 +18,7 @@
 /// explicitly declared or implicitly declared using a variable declaration.
 ///
 /// @description Checks that it's not an error if an implicit augmenting getter
-/// omits type annotation.
+/// omits a type annotation.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

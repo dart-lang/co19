@@ -17,7 +17,7 @@
 /// augmented by a setter. This is true whether the getter or setter is
 /// explicitly declared or implicitly declared using a variable declaration.
 ///
-/// @description Checks that it's not an error if an augmenting getter omits
+/// @description Checks that it's not an error if an augmenting getter omits a
 /// type annotation.
 /// @author sgrekhov22@gmail.com
 
