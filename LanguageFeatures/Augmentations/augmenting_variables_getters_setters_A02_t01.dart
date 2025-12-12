@@ -24,8 +24,8 @@
 ///     doesn't have `_` as its name.
 /// ...
 /// It's a compile-time error if:
-/// - The signature of the augmenting function does not match the signature of
-///   the augmented function.
+/// - The signature of the augmenting getter or setter does not match the
+///   signature of the augmented getter or setter.
 ///
 /// @description Checks that it is a compile-time error if the return type of an
 /// augmentation doesn't exactly match the original getter.
