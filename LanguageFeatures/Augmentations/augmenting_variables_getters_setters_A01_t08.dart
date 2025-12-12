@@ -39,7 +39,7 @@ class C {
 }
 
 augment class C {
-  augment static var staticGetter1 => "x";
+  augment static var staticGetter1 = "x";
   augment static final staticGetter2;
   augment var instanceGetter1 = "x";
   augment final instanceGetter2;
@@ -53,7 +53,7 @@ mixin M {
 }
 
 augment mixin M {
-  augment static var staticGetter1 => "x";
+  augment static var staticGetter1 = "x";
   augment static final staticGetter2;
   augment var instanceGetter1 = "x";
   augment final instanceGetter2;
@@ -69,7 +69,7 @@ enum E {
 
 augment enum E {
   ;
-  augment static var staticGetter1 => "x";
+  augment static var staticGetter1 = "x";
   augment static final staticGetter2;
   augment var instanceGetter1 = "x";
   augment final instanceGetter2;
@@ -85,7 +85,7 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment static var staticGetter1 => "x";
+  augment static var staticGetter1 = "x";
   augment static final staticGetter2;
   augment var instanceGetter1 = "x";
   augment final instanceGetter2;
@@ -99,7 +99,7 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  augment static var staticGetter1 => "x";
+  augment static var staticGetter1 = "x";
   augment static final staticGetter2;
   augment var instanceGetter1 = "x";
   augment final instanceGetter2;
