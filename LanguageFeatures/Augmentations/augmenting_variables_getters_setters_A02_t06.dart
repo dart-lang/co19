@@ -161,7 +161,7 @@ extension type ET(int _) {
 // [cfe] unspecified
 
   static void set staticSetter2(v);
-  augment void get staticSetter2(Object? v) {}
+  augment void set staticSetter2(Object? v) {}
 //                               ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
