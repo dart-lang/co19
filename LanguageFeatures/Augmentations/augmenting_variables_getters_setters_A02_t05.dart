@@ -34,38 +34,38 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-var topLevelGetter1 = 42;
+var topLevelGetter1;
 augment int get topLevelGetter1;
 //      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final topLevelGetter2 = 42;
+var topLevelGetter2;
 augment Object get topLevelGetter2;
 //      ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 class C {
-  static var staticGetter1 = 42;
+  static var staticGetter1;
   augment int get staticGetter1;
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final staticGetter2 = 42;
+  static var staticGetter2;
   augment Object get staticGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var instanceGetter1 = 42;
+  var instanceGetter1;
   augment int get instanceGetter1;
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final instanceGetter2 = 42;
+  var instanceGetter2;
   augment Object get instanceGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
@@ -73,25 +73,25 @@ class C {
 }
 
 mixin M {
-  static var staticGetter1 = 42;
+  static var staticGetter1;
   augment int get staticGetter1;
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final staticGetter2 = 42;
+  static var staticGetter2;
   augment Object get staticGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var instanceGetter1 = 42;
+  var instanceGetter1;
   augment int get instanceGetter1;
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final instanceGetter2 = 42;
+  var instanceGetter2;
   augment Object get instanceGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
@@ -100,25 +100,25 @@ mixin M {
 
 enum E {
   e0;
-  static var staticGetter1 = 42;
+  static var staticGetter1;
   augment int get staticGetter1;
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final staticGetter2 = 42;
+  static var staticGetter2;
   augment Object get staticGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var instanceGetter1 = 42;
+  var instanceGetter1;
   augment int get instanceGetter1;
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final instanceGetter2 = 42;
+  var instanceGetter2;
   augment Object get instanceGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
@@ -128,25 +128,25 @@ enum E {
 class A {}
 
 extension Ext on A {
-  static var staticGetter1 = 42;
+  static var staticGetter1;
   augment int get staticGetter1;
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final staticGetter2 = 42;
+  static var staticGetter2;
   augment Object get staticGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var instanceGetter1 = 42;
+  var instanceGetter1;
   augment int get instanceGetter1;
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final instanceGetter2 = 42;
+  var instanceGetter2;
   augment Object get instanceGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
@@ -154,25 +154,25 @@ extension Ext on A {
 }
 
 extension type ET(int _) {
-  static var staticGetter1 = 42;
+  static var staticGetter1;
   augment int get staticGetter1;
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final staticGetter2 = 42;
+  static var staticGetter2;
   augment Object get staticGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var instanceGetter1 = 42;
+  var instanceGetter1;
   augment int get instanceGetter1;
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final instanceGetter2 = 42;
+  var instanceGetter2;
   augment Object get instanceGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
