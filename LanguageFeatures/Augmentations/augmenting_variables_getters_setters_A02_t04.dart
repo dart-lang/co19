@@ -41,8 +41,8 @@ augment int get topLevelGetter1;
 // [cfe] unspecified
 
 get topLevelGetter2 => 42;
-augment Object get topLevelGetter2;
-//      ^^^^^^
+augment Object? get topLevelGetter2;
+//      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -54,8 +54,8 @@ class C {
 // [cfe] unspecified
 
   static get staticGetter2 => 42;
-  augment Object get topLevelGetter2;
-//        ^^^^^^
+  augment Object? get topLevelGetter2;
+//        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -66,8 +66,8 @@ class C {
 // [cfe] unspecified
 
   get instanceGetter2 => 42;
-  augment Object get instanceGetter2;
-//        ^^^^^^
+  augment Object? get instanceGetter2;
+//        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -92,8 +92,8 @@ mixin M {
 // [cfe] unspecified
 
   get instanceGetter2 => 42;
-  augment Object get instanceGetter2;
-//        ^^^^^^
+  augment Object? get instanceGetter2;
+//        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -107,8 +107,8 @@ enum E {
 // [cfe] unspecified
 
   static get staticGetter2 => 42;
-  augment Object get topLevelGetter2;
-//        ^^^^^^
+  augment Object? get topLevelGetter2;
+//        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -119,8 +119,8 @@ enum E {
 // [cfe] unspecified
 
   get instanceGetter2 => 42;
-  augment Object get instanceGetter2;
-//        ^^^^^^
+  augment Object? get instanceGetter2;
+//        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -135,8 +135,8 @@ extension Ext on A {
 // [cfe] unspecified
 
   static get staticGetter2 => 42;
-  augment Object get topLevelGetter2;
-//        ^^^^^^
+  augment Object? get topLevelGetter2;
+//        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -147,8 +147,8 @@ extension Ext on A {
 // [cfe] unspecified
 
   get instanceGetter2 => 42;
-  augment Object get instanceGetter2;
-//        ^^^^^^
+  augment Object? get instanceGetter2;
+//        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -161,8 +161,8 @@ extension type ET(int _) {
 // [cfe] unspecified
 
   static get staticGetter2 => 42;
-  augment Object get topLevelGetter2;
-//        ^^^^^^
+  augment Object? get topLevelGetter2;
+//        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -173,8 +173,8 @@ extension type ET(int _) {
 // [cfe] unspecified
 
   get instanceGetter2 => 42;
-  augment Object get instanceGetter2;
-//        ^^^^^^
+  augment Object? get instanceGetter2;
+//        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
