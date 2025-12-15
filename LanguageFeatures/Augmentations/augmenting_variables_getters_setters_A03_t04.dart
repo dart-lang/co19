@@ -17,58 +17,94 @@
 /// augmented by a setter. This is true whether the getter or setter is
 /// explicitly declared or implicitly declared using a variable declaration.
 ///
-/// @description Checks that an incomplete implicit getter (abstract variable)
-/// may be augmented by an augmenting getter.
+/// @description Checks that a setter may be augmented by an implicitly defined
+/// augmenting setter (abstract variable).
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
 
-abstract String topLevelVariable;
-augment String get topLevelVariable => "x";
-augment void set topLevelVariable(String _) {} // We need a setter to complete the declaration
+String log = "";
+
+void set topLevelSetter(String s) {
+  log = s;
+}
+
+augment abstract String topLevelSetter;
 
 class C {
-  abstract String instanceVariable;
-  augment String get instanceVariable => "x";
-  augment void set instanceVariable(String _) {}
+  void set instanceSetter(String s) {
+    log = s;
+  }
+}
+
+augment class C {
+  augment abstract String instanceSetter;
 }
 
 mixin M {
-  abstract String instanceVariable;
-  augment String get instanceVariable => "x";
-  augment void set instanceVariable(String _) {}
+  void set instanceSetter(String s) {
+    log = s;
+  }
+}
+
+augment mixin M {
+  augment abstract String instanceSetter;
 }
 
 enum E {
   e0;
-  abstract String instanceVariable;
-  augment String get instanceVariable => "x";
-  augment void set instanceVariable(String _) {}
+  void set instanceSetter(String s) {
+    log = s;
+  }
+}
+
+augment enum E {
+  ;
+  augment abstract String instanceSetter;
 }
 
 class A {}
 
 extension Ext on A {
-  abstract String instanceVariable;
-  augment String get instanceVariable => "x";
-  augment void set instanceVariable(String _) {}
+  void set instanceSetter(String s) {
+    log = s;
+  }
+}
+
+augment extension Ext {
+  augment abstract String instanceSetter;
 }
 
 extension type ET(int _) {
-  abstract String instanceVariable;
-  augment String get instanceVariable => "x";
-  augment void set instanceVariable(String _) {}
+  void set instanceSetter(String s) {
+    log = s;
+  }
+}
+
+augment extension type ET {
+  augment abstract String instanceSetter;
 }
 
 class MA = Object with M;
 
+void checkLog(String expected) {
+  Expect.equals(expected, log);
+  log = "";
+}
+
 main() {
-  Expect.equals("x", topLevelVariable);
-  Expect.equals("x", C().instanceVariable);
-  Expect.equals("x", MA().instanceVariable);
-  Expect.equals("x", E.e0.instanceVariable);
-  Expect.equals("x", A().instanceVariable);
-  Expect.equals("x", ET(0).instanceVariable);
+  topLevelSetter = "a";
+  checkLog("a");
+  C().instanceSetter = "c";
+  checkLog("c");
+  MA().instanceSetter = "e";
+  checkLog("e");
+  E.e0.instanceSetter = "g";
+  checkLog("g");
+  A().instanceSetter = "i";
+  checkLog("i");
+  ET(0).instanceSetter = "k";
+  checkLog("k");
 }
