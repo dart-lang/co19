@@ -54,7 +54,7 @@ class C {
 // [cfe] unspecified
 
   static final staticGetter2 = 42;
-  augment Object get topLevelGetter2;
+  augment Object get staticGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -80,7 +80,7 @@ mixin M {
 // [cfe] unspecified
 
   static final staticGetter2 = 42;
-  augment Object get topLevelGetter2;
+  augment Object get staticGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -107,7 +107,7 @@ enum E {
 // [cfe] unspecified
 
   static final staticGetter2 = 42;
-  augment Object get topLevelGetter2;
+  augment Object get staticGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -135,7 +135,7 @@ extension Ext on A {
 // [cfe] unspecified
 
   static final staticGetter2 = 42;
-  augment Object get topLevelGetter2;
+  augment Object get staticGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -161,7 +161,7 @@ extension type ET(int _) {
 // [cfe] unspecified
 
   static final staticGetter2 = 42;
-  augment Object get topLevelGetter2;
+  augment Object get staticGetter2;
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
