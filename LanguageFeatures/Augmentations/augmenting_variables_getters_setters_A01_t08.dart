@@ -26,6 +26,7 @@
 import '../../Utils/expect.dart';
 
 String get topLevelGetter1;
+void set topLevelGetter1(String _); // Avoid an error at the augmenting declaration
 augment var topLevelGetter1 = "x";
 
 String get topLevelGetter2 => "x";
@@ -33,9 +34,13 @@ augment final topLevelGetter2;
 
 class C {
   static String get staticGetter1;
+  static void set staticGetter1(String _);
   static String get staticGetter2 => "x";
+  static void set staticGetter2(String _);
   String get instanceGetter1;
+  void set instanceGetter1(String _);
   String get instanceGetter2 => "x";
+  void set instanceGetter2(String _);
 }
 
 augment class C {
@@ -47,9 +52,13 @@ augment class C {
 
 mixin M {
   static String get staticGetter1;
+  static void set staticGetter1(String _);
   static String get staticGetter2 => "x";
+  static void set staticGetter2(String _);
   String get instanceGetter1;
+  void set instanceGetter1(String _);
   String get instanceGetter2 => "x";
+  void set instanceGetter2(String _);
 }
 
 augment mixin M {
@@ -62,9 +71,13 @@ augment mixin M {
 enum E {
   e0;
   static String get staticGetter1;
+  static void set staticGetter1(String _);
   static String get staticGetter2 => "x";
+  static void set staticGetter2(String _);
   String get instanceGetter1;
+  void set instanceGetter1(String _);
   String get instanceGetter2 => "x";
+  void set instanceGetter2(String _);
 }
 
 augment enum E {
@@ -79,9 +92,13 @@ class A {}
 
 extension Ext on A {
   static String get staticGetter1;
+  static void set staticGetter1(String _);
   static String get staticGetter2 => "x";
+  static void set staticGetter2(String _);
   String get instanceGetter1;
+  void set instanceGetter1(String _);
   String get instanceGetter2 => "x";
+  void set instanceGetter2(String _);
 }
 
 augment extension Ext {
@@ -93,9 +110,13 @@ augment extension Ext {
 
 extension type ET(int _) {
   static String get staticGetter1;
+  static void set staticGetter1(String _);
   static String get staticGetter2 => "x";
+  static void set staticGetter2(String _);
   String get instanceGetter1;
+  void set instanceGetter1(String _);
   String get instanceGetter2 => "x";
+  void set instanceGetter2(String _);
 }
 
 augment extension type ET {

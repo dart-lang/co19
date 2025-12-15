@@ -179,10 +179,33 @@ extension type ET(int _) {
 // [cfe] unspecified
 }
 
+testStaticType([C? c, M? m, A? a, ET? et]) {
+  topLevelGetter1.testDynamic;
+  topLevelGetter2.testDynamic;
+  C.staticGetter1.testDynamic;
+  C.staticGetter2.testDynamic;
+  c!.instanceGetter1.testDynamic;
+  c.instanceGetter2.testDynamic;
+  M.staticGetter1.testDynamic;
+  M.staticGetter2.testDynamic;
+  m!.instanceGetter1.testDynamic;
+  m.instanceGetter2.testDynamic;
+  E.staticGetter1.testDynamic;
+  E.staticGetter2.testDynamic;
+  E.e0.instanceGetter1.testDynamic;
+  E.e0.instanceGetter2.testDynamic;
+  Ext.staticGetter1.testDynamic;
+  Ext.staticGetter2.testDynamic;
+  a!.instanceGetter1.testDynamic;
+  a.instanceGetter2.testDynamic;
+  ET.staticGetter1.testDynamic;
+  ET.staticGetter2.testDynamic;
+  et!.instanceGetter1.testDynamic;
+  et.instanceGetter2.testDynamic;
+}
+
 main() {
-  print(C);
-  print(M);
-  print(E);
-  print(A);
-  print(ET);
+  if (1 > 2) {
+    test();
+  }
 }
