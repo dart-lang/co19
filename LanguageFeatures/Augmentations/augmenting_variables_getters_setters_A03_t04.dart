@@ -30,13 +30,14 @@ String log = "";
 void set topLevelSetter(String s) {
   log = s;
 }
-
+String get topLevelSetter; // Avoid an error at the augmenting declaration.
 augment abstract String topLevelSetter;
 
 class C {
   void set instanceSetter(String s) {
     log = s;
   }
+  String get instanceSetter;
 }
 
 augment class C {
@@ -47,6 +48,7 @@ mixin M {
   void set instanceSetter(String s) {
     log = s;
   }
+  String get instanceSetter;
 }
 
 augment mixin M {
@@ -58,6 +60,7 @@ enum E {
   void set instanceSetter(String s) {
     log = s;
   }
+  String get instanceSetter;
 }
 
 augment enum E {
@@ -71,6 +74,7 @@ extension Ext on A {
   void set instanceSetter(String s) {
     log = s;
   }
+  String get instanceSetter;
 }
 
 augment extension Ext {
@@ -81,6 +85,7 @@ extension type ET(int _) {
   void set instanceSetter(String s) {
     log = s;
   }
+  String get instanceSetter;
 }
 
 augment extension type ET {

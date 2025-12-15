@@ -26,6 +26,7 @@
 import '../../Utils/expect.dart';
 
 void set topLevelSetter(String _);
+String get topLevelSetter; // Avoid an error at the augmenting declaration.
 augment var topLevelSetter = "x";
 
 class C {

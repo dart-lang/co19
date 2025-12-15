@@ -39,10 +39,10 @@ class C {
 }
 
 augment class C {
-  augment static void set staticSetter(String v) {
+  augment static void set staticSetter(v) {
     log = v;
   }
-  augment void set instanceSetter(String v) {
+  augment void set instanceSetter(v) {
     log = v;
   }
 }
@@ -53,10 +53,10 @@ mixin M {
 }
 
 augment mixin M {
-  augment static void set staticSetter(String v) {
+  augment static void set staticSetter(v) {
     log = v;
   }
-  augment void set instanceSetter(String v) {
+  augment void set instanceSetter(v) {
     log = v;
   }
 }
@@ -69,10 +69,10 @@ enum E {
 
 augment enum E {
   ;
-  augment static void set staticSetter(String v) {
+  augment static void set staticSetter(v) {
     log = v;
   }
-  augment void set instanceSetter(String v) {
+  augment void set instanceSetter(v) {
     log = v;
   }
 }
@@ -85,10 +85,10 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment static void set staticSetter(String v) {
+  augment static void set staticSetter(v) {
     log = v;
   }
-  augment void set instanceSetter(String v) {
+  augment void set instanceSetter(v) {
     log = v;
   }
 }
@@ -99,10 +99,10 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  augment static void set staticSetter(String v) {
+  augment static void set staticSetter(v) {
     log = v;
   }
-  augment void set instanceSetter(String v) {
+  augment void set instanceSetter(v) {
     log = v;
   }
 }

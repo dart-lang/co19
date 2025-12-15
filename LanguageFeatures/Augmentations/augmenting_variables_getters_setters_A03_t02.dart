@@ -26,12 +26,14 @@
 import '../../Utils/expect.dart';
 
 void set topLevelSetter(String v);
-
+String get topLevelSetter; // Avoid an error at the augmenting declaration.
 augment String topLevelSetter = "x";
 
 class C {
   static void set staticSetter(String _);
+  static String get staticSetter;
   void set instanceSetter(String v);
+  static String get instanceSetter;
 }
 
 augment class C {
@@ -40,8 +42,10 @@ augment class C {
 }
 
 mixin M {
-  static void set staticSetter(String v);
-  void set instanceSetter(String _);
+  static void set staticSetter(String _);
+  static String get staticSetter;
+  void set instanceSetter(String v);
+  static String get instanceSetter;
 }
 
 augment mixin M {
@@ -52,7 +56,9 @@ augment mixin M {
 enum E {
   e0;
   static void set staticSetter(String _);
+  static String get staticSetter;
   void set instanceSetter(String v);
+  static String get instanceSetter;
 }
 
 augment enum E {
@@ -64,8 +70,10 @@ augment enum E {
 class A {}
 
 extension Ext on A {
-  static void set staticSetter(String v);
-  void set instanceSetter(String _);
+  static void set staticSetter(String _);
+  static String get staticSetter;
+  void set instanceSetter(String v);
+  static String get instanceSetter;
 }
 
 augment extension Ext {
@@ -74,8 +82,10 @@ augment extension Ext {
 }
 
 extension type ET(int _) {
-  static void set staticSetter(String v);
-  void set instanceSetter(String _);
+  static void set staticSetter(String _);
+  static String get staticSetter;
+  void set instanceSetter(String v);
+  static String get instanceSetter;
 }
 
 augment extension type ET {
