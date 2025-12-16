@@ -113,7 +113,7 @@ augment extension type ET {
 }
 
 main() {
-  print(topLevelVariable);
+  topLevelVariable = "";
   print(C);
   print(M);
   print(E);

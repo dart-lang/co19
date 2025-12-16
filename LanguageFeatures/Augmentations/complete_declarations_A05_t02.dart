@@ -63,7 +63,6 @@ augment mixin M {
 enum E {
   e0;
   static String staticVariable = "x";
-  String instanceVariable = "x";
 }
 
 augment enum E {
@@ -72,17 +71,12 @@ augment enum E {
 //                                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceVariable(String _) {}
-//                                            ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 class A {}
 
 extension Ext on A {
   static String staticVariable = "x";
-  String instanceVariable = "x";
 }
 
 augment extension Ext {
@@ -90,15 +84,10 @@ augment extension Ext {
 //                                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceVariable(String _) {}
-//                                            ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension type ET(int _) {
   static String staticVariable = "x";
-  String instanceVariable = "x";
 }
 
 augment extension type ET {
@@ -106,14 +95,10 @@ augment extension type ET {
 //                                                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceVariable(String _) {}
-//                                            ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
-  topLevelGetter;
+  print(topLevelVariable);
   print(C);
   print(M);
   print(E);
