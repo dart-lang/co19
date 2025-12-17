@@ -35,7 +35,7 @@ class C {
 }
 
 augment class C {
-  augment static external String staticSetter;
+  augment external static String staticSetter;
   augment external String instanceSetter;
 }
 
@@ -47,7 +47,7 @@ mixin M {
 }
 
 augment mixin M {
-  augment static external String staticSetter;
+  augment external static String staticSetter;
   augment external String instanceSetter;
 }
 
@@ -61,7 +61,7 @@ enum E {
 
 augment enum E {
   ;
-  augment static external String staticSetter;
+  augment external static String staticSetter;
   augment external String instanceSetter;
 }
 
@@ -75,7 +75,7 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment static external String staticSetter;
+augment external static String staticSetter;
   augment external String instanceSetter;
 }
 
@@ -87,7 +87,7 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  augment static external String staticSetter;
+  augment external static String staticSetter;
   augment external String instanceSetter;
 }
 
