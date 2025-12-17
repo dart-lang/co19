@@ -17,56 +17,66 @@
 /// augmented by a setter. This is true whether the getter or setter is
 /// explicitly declared or implicitly declared using a variable declaration.
 ///
-/// @description Checks that a getter may be augmented by an implicitly defined
-/// augmenting getter (abstract variable).
+/// @description Checks that it is a compile-time error if an incomplete
+/// implicit getter (abstract variable) is augmented by a getter with no setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../Utils/expect.dart';
-
-String get topLevelGetter => "x";
-augment abstract String topLevelGetter;
-
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
+abstract String topLevelVariable;
+//              ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+augment String get topLevelVariable => "";
 
 class C {
-  String get instanceGetter => "x";
-  augment abstract String instanceGetter;
+  abstract String instanceVariable;
+//                ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String get instanceVariable => "";
 }
 
 mixin M {
-  String get instanceGetter => "x";
-  augment abstract String instanceGetter;
+  abstract String instanceVariable;
+//                ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String get instanceVariable => "";
 }
 
 enum E {
   e0;
-  String get instanceGetter => "x";
-  augment abstract String instanceGetter;
+  abstract String instanceVariable;
+//                ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String get instanceVariable => "";
 }
 
 class A {}
 
 extension Ext on A {
-  String get instanceGetter => "x";
-  augment abstract String instanceGetter;
+  abstract String instanceVariable;
+//                ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String get instanceVariable => "";
 }
 
 extension type ET(int _) {
-  String get instanceGetter => "x";
-  augment abstract String instanceGetter;
+  abstract String instanceVariable;
+//                ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment String get instanceVariable => "";
 }
 
-class MA = Object with M;
-
 main() {
-  Expect.equals("x", topLevelGetter);
-  Expect.equals("x", C().instanceGetter);
-  Expect.equals("x", MA().instanceGetter);
-  Expect.equals("x", E.e0.instanceGetter);
-  Expect.equals("x", A().instanceGetter);
-  Expect.equals("x", ET(0).instanceGetter);
+  print(topLevelVariable);
+  print(C);
+  print(M);
+  print(E);
+  print(A);
+  print(ET);
 }
