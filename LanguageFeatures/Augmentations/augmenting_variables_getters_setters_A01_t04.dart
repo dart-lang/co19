@@ -28,9 +28,9 @@ import '../../Utils/expect.dart';
 String get topLevelGetter => "x";
 augment abstract String topLevelGetter;
 
-/// TODO (sgrekhov) This test does not include static abstract variable
-/// declarations because the grammar doesn't derive them. See
-/// https://github.com/dart-lang/language/issues/4592
+// TODO (sgrekhov) This test does not include static abstract variable
+// declarations because the grammar doesn't derive them. See
+// https://github.com/dart-lang/language/issues/4592
 
 class C {
   String get instanceGetter => "x";
