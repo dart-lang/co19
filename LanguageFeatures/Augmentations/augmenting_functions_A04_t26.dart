@@ -29,7 +29,7 @@
 ///
 /// @description Checks that it is not an error if the name of a positional
 /// parameter of an augmenting function is `_` and the name of this parameter in
-/// the original function is also `_`.
+/// the introductory declaration is also `_`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

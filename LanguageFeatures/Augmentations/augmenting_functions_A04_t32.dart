@@ -28,7 +28,7 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is not an error if an augmentation with a
-/// wildcard introduces a default value for optional positional parameter.
+/// wildcard introduces a default value for an optional positional parameter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

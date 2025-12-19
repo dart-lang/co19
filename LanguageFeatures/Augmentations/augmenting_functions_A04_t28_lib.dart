@@ -27,9 +27,10 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if the name of a
-/// positional parameter is `_` and the name of this parameter in an augmenting
-/// function is not `_`.
+/// @description Checks that it is a compile-time error if the augmenting
+/// function's parameter name is not the same as the name of the corresponding
+/// positional parameter in every preceding declaration that doesn't have `_` as
+/// its name.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
