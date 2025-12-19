@@ -7,8 +7,8 @@
 /// declaration to apply it to.
 ///
 /// @description Checks that it is a compile-time error if a setter is
-/// augmenting a non-existent setter (`late final` variable with the
-/// initializer).
+/// augmenting a non-existent setter (a `late final` variable with an
+/// initializing expression doesn't have a setter).
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

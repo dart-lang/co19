@@ -17,7 +17,8 @@
 /// augmented by a setter. This is true whether the getter or setter is
 /// explicitly declared or implicitly declared using a variable declaration.
 ///
-/// @description Checks that a `late` variable may be augmented by a setter.
+/// @description Checks that a `late` but not `final` variable may be augmented
+/// by a setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

@@ -17,7 +17,7 @@
 /// augmented by a setter. This is true whether the getter or setter is
 /// explicitly declared or implicitly declared using a variable declaration.
 ///
-/// @description Checks that a variable is not `abstract` then it is complete
+/// @description Checks that if a variable is not `abstract` then it is complete,
 /// and it is a compile-time error to augment it with another complete variable.
 /// @author sgrekhov22@gmail.com
 

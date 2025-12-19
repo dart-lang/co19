@@ -18,7 +18,7 @@
 /// explicitly declared or implicitly declared using a variable declaration.
 ///
 /// @description Checks that an incomplete getter may be augmented by a
-/// `late final` variable;
+/// `late final` variable with an initializing expression.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -30,7 +30,7 @@ augment late final int topLevelGetter = 1;
 
 class C {
   static int get staticGetter;
-  int get instanceSetter;
+  int get instanceGetter;
 }
 
 augment class C {
@@ -40,7 +40,7 @@ augment class C {
 
 mixin M {
   static int get staticGetter;
-  int get instanceSetter;
+  int get instanceGetter;
 }
 
 augment mixin M {
@@ -51,7 +51,7 @@ augment mixin M {
 enum E {
   e0;
   static int get staticGetter;
-  int get instanceSetter;
+  int get instanceGetter;
 }
 
 augment enum E {
@@ -64,7 +64,7 @@ class A {}
 
 extension Ext on A {
   static int get staticGetter;
-  int get instanceSetter;
+  int get instanceGetter;
 }
 
 augment extension Ext {
@@ -74,7 +74,7 @@ augment extension Ext {
 
 extension type ET(int _) {
   static int get staticGetter;
-  int get instanceSetter;
+  int get instanceGetter;
 }
 
 augment extension type ET {
