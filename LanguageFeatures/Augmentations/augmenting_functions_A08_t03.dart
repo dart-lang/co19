@@ -7,7 +7,7 @@
 /// - A function is not complete after all augmentations are applied, unless
 ///   it's an instance member and the surrounding class is abstract.
 ///
-/// @description Checks that it is not an error if a function is make complete
+/// @description Checks that it is not an error if a function is made complete
 /// by an augmentation by adding an `external` modifier.
 /// @author sgrekhov22@gmail.com
 
