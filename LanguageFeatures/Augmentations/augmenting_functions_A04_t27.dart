@@ -119,7 +119,7 @@ class MA = Object with M;
 
 main() {
   topLevelFunction1(1);
-  topLevelFunction2());
+  topLevelFunction2();
   C.staticMethod1(1);
   C.staticMethod2();
   C().instanceMethod1(1);
@@ -127,7 +127,7 @@ main() {
   M.staticMethod1(1);
   M.staticMethod2();
   MA().instanceMethod1(1);
-  MA().instanceMethod2()
+  MA().instanceMethod2();
   E.staticMethod1(1);
   E.staticMethod2();
   E.e1.instanceMethod1(1);
