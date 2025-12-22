@@ -2,18 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It's a compile-time error if a library contains two top-level
-/// declarations with the same name, and:
-/// - Neither is an augmenting declaration, or
-/// - one of the declarations is a class-like declarations and the other is not
-///   of the same kind, meaning that at either one is a class, mixin, enum,
-///   extension or extension type declaration, and the other is not the same
-///   kind of declaration.
+/// @assertion It's a compile-time error if an augmentation doesn't have the
+/// same kind as the introductory declaration. For example, augmenting a `class`
+/// with a `mixin`, an `enum` with a function, a method with a getter, etc.
 ///
 /// @description Checks that `augment class C = ...` is a syntax error.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 part of 'augmenting_types_A01_t05.dart';
 
