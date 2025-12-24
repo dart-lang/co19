@@ -10,36 +10,36 @@
 /// and the corresponding type are not the same kind.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 part of 'augmenting_types_A01_t01.dart';
 
-augment class M {}
-//            ^
+augment class M1 {}
+//            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment mixin E {}
-//            ^
+augment mixin E1 {}
+//            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum Ext {augment e1;}
-//           ^^^
+augment enum Ext1 {e1;}
+//           ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension ET {}
-//                ^^
+augment extension ET1 {}
+//                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension type F(int _) {}
-//                     ^
+augment extension type F1(int _) {}
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment typedef void C();
-//                   ^
+augment typedef void C1();
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified

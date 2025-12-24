@@ -12,8 +12,6 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-part 'augmenting_types_A01_t03_lib.dart';
-
 class C {}
 
 mixin M {}
@@ -21,6 +19,28 @@ mixin M {}
 enum E {e1;}
 
 extension type ET(int _) {}
+
+class A {}
+
+augment typedef C = A;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment typedef M = A;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment typedef E = A;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment typedef ET = A;
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(C);

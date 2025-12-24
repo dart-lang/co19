@@ -10,26 +10,26 @@
 /// declaration is a type alias and an augmenting declaration is not
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 part of 'augmenting_types_A01_t02.dart';
 
-augment extension type CAlias(int _) {}
-//                     ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment extension type MAlias(int _) {}
-//                     ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment extension type EAlias(int _) {}
-//                     ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment extension type ETAlias(int _) {}
+augment extension type CAlias4(int _) {}
 //                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment extension type MAlias4(int _) {}
+//                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment extension type EAlias4(int _) {}
+//                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment extension type ETAlias4(int _) {}
+//                     ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -10,26 +10,26 @@
 /// declaration is a type alias and an augmenting declaration is not
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 part of 'augmenting_types_A01_t02.dart';
 
-augment enum CAlias {e2;}
-//           ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment enum MAlias {e2;}
-//           ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment enum EAlias {augment e1;}
-//           ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment enum ETAlias {augment e1;}
+augment enum CAlias3 {e1;}
 //           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment enum MAlias3 {e2;}
+//           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment enum EAlias3 {e3;}
+//           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment enum ETAlias3 {e4;}
+//           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
