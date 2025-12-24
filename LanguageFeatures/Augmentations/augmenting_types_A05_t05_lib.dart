@@ -16,7 +16,7 @@
 /// case when the bound name has a library prefix.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 part of 'augmenting_types_A05_t05.dart';
 import 'augmentation_libraries_lib.dart' as p;
@@ -26,7 +26,7 @@ augment class C<T extends p.AL> {}
 augment mixin M<T extends p.AL> {}
 
 augment enum E<T extends p.AL> {
-  augment e0;
+  ;
 }
 
 augment extension Ext<T extends p.AL> {
