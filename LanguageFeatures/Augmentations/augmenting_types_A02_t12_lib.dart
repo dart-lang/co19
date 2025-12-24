@@ -13,7 +13,7 @@
 /// a `abstract mixin class`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 part of 'augmenting_types_A02_t12.dart';
 
