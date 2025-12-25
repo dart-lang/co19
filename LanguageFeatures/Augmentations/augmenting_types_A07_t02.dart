@@ -3,21 +3,18 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion A class, enum, extension type, mixin, or mixin class augmentation
-/// may specify `extends`, `implements` and `with` clauses (when generally
+/// may specify `extends`, `implements` and `with` clauses (when otherwise
 /// supported). The types in these clauses are appended to the introductory
-/// declarations’ clauses of the same kind, and if that clause did not exist
-/// previously, then it is added with the new types. All regular rules apply
-/// after this appending process, so you cannot have multiple `extends` on a
-/// class, or an `on` clause on an enum, etc.
+/// declarations' clauses of the same kind, and if that clause did not exist
+/// previously, then it is added with the new types.
 ///
 /// @description Checks that a class, mixin, enum and extension type
 /// augmentation may specify additional elements for the `implements` clause.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
-part 'augmenting_types_A07_t02_lib.dart';
 
 abstract class I0 {
   String get id0;
@@ -37,9 +34,17 @@ class C implements I1 {
   String get id1 => "C";
 }
 
+augment class C implements I2 {
+  String get id2 => "I2 from C";
+}
+
 mixin M implements I1 {
   String get id0 => "M";
   String get id1 => "M";
+}
+
+augment mixin M implements I2 {
+  String get id2 => "I2 from M";
 }
 
 enum E implements I1 {
@@ -48,9 +53,18 @@ enum E implements I1 {
   String get id1 => "E";
 }
 
+augment enum E implements I2 {
+  ;
+  String get id2 => "I2 from E";
+}
+
 extension type ET(I2 v) implements I1 {
   String get id0 => "ET";
   String get id1 => "ET";
+}
+
+augment extension type ET implements I2 {
+  String get id2 => "I2 from ET";
 }
 
 class MA = Object with M;
