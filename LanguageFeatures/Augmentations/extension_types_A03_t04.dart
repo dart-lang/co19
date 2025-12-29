@@ -8,6 +8,7 @@
 /// @description Checks that it is not an error if an augmentations adds a
 /// setter with the same basename as the representation variable.
 /// @author sgrekhov22@gmail.com
+/// @issue 62329
 
 // SharedOptions=--enable-experiment=augmentations
 
