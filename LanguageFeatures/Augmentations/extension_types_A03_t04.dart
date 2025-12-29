@@ -8,7 +8,6 @@
 /// @description Checks that it is not an error if an augmentations adds a
 /// setter with the same basename as the representation variable.
 /// @author sgrekhov22@gmail.com
-/// @issue 62329
 
 // SharedOptions=--enable-experiment=augmentations
 
@@ -29,7 +28,8 @@ augment extension type ET1 {
 extension type ET2(int id) {}
 
 augment extension type ET2 {
-  augment @meta void set id(int v) {
+  @meta
+  augment void set id(int v) {
     log = "$v";
   }
 }

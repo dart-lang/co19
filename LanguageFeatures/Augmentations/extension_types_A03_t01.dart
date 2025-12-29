@@ -8,7 +8,6 @@
 /// @description Checks that a getter for the representation variable can be
 /// augmented by an incomplete getter declaration.
 /// @author sgrekhov22@gmail.com
-/// @issue 62329
 
 // SharedOptions=--enable-experiment=augmentations
 
@@ -19,13 +18,15 @@ const meta = 0;
 extension type ET1(int id) {}
 
 augment extension type ET1 {
-  augment @meta abstract final int id;
+  @meta
+  augment abstract final int id;
 }
 
 extension type ET2(int id) {}
 
 augment extension type ET2 {
-  augment @meta int get id;
+  @meta
+  augment int get id;
 }
 
 main() {
