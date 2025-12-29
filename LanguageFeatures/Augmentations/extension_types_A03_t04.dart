@@ -5,29 +5,27 @@
 /// @assertion The extension also introduces a complete getter for the
 /// representation variable.
 ///
-/// @description Checks that a getter for the representation variable can be
-/// augmented by an incomplete getter declaration.
+/// @description Checks that it is not an error if an augmentations adds a
+/// setter with the same basename as the representation variable.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
 
-const meta = 0;
+String log = "";
 
-extension type ET1(int id) {}
+extension type ET(int id) {}
 
-augment extension type ET1 {
-  augment @meta abstract final int id;
-}
-
-extension type ET2(int id) {}
-
-augment extension type ET2 {
-  augment int get id;
+augment extension type ET {
+  augment void set id(int v) {
+    log = "$v";
+  }
 }
 
 main() {
-  Expect.equals(1, ET1(1).id);
-  Expect.equals(2, ET1(2).id);
+  var et = ET(1);
+  et.id = 2;
+  Expect.equals(1, et.id);
+  Expect.equals("2", log);
 }
