@@ -25,7 +25,7 @@ augment extension type ET1 {
 extension type ET2(int id) {}
 
 augment extension type ET2 {
-  augment int get id;
+  augment @meta int get id;
 }
 
 main() {

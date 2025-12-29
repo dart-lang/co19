@@ -13,19 +13,34 @@
 
 import '../../Utils/expect.dart';
 
+const meta = 1;
+
 String log = "";
 
-extension type ET(int id) {}
+extension type ET1(int id) {}
 
-augment extension type ET {
+augment extension type ET1 {
   augment void set id(int v) {
     log = "$v";
   }
 }
 
+extension type ET2(int id) {}
+
+augment extension type ET2 {
+  augment @meta void set id(int v) {
+    log = "$v";
+  }
+}
+
 main() {
-  var et = ET(1);
-  et.id = 2;
-  Expect.equals(1, et.id);
+  var et1 = ET1(1);
+  et1.id = 2;
+  Expect.equals(1, et1.id);
   Expect.equals("2", log);
+
+  var et2 = ET2(2);
+  et2.id = 3;
+  Expect.equals(2, et2.id);
+  Expect.equals("3", log);
 }
