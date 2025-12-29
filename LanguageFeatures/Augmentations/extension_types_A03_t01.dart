@@ -8,6 +8,7 @@
 /// @description Checks that a getter for the representation variable can be
 /// augmented by an incomplete getter declaration.
 /// @author sgrekhov22@gmail.com
+/// @issue 62329
 
 // SharedOptions=--enable-experiment=augmentations
 

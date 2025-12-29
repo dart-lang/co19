@@ -8,27 +8,43 @@
 /// from the parameter to the representation field, and an empty body. This
 /// constructor is complete.
 ///
-/// @description Checks that a constructor whose name is `ET` can be augmented
-/// by `ET.new` and vice versa.
+/// @description Checks that it is a compile-time error if an augmentation of a
+/// primary constructor of an extension type adds a metadata.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../Utils/expect.dart';
+const meta = 0;
 
 extension type ET1(int id) {}
 
 augment extension type ET1 {
-  augment ET1.new(int id);
+  augment @meta ET1(int id);
+//        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-extension type ET2.new(int id) {}
+extension type ET2.foo(int id) {}
 
 augment extension type ET2 {
-  augment ET2(int id);
+  augment @meta ET2.foo(int id);
+//        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET3.new(int id) {}
+
+augment extension type ET3 {
+  augment @meta ET3.new(int id);
+//        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  Expect.equals(1, ET1(1).id);
-  Expect.equals(2, ET2(2).id);
+  print(ET1);
+  print(ET2);
+  print(ET3);
 }
