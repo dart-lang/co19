@@ -2,45 +2,51 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion All declarations can be augmented with metadata annotations
-/// and/or doc comments directly preceding an augmenting declaration.
-///
-/// In both cases, these should be appended to existing metadata or doc
-/// comments. For metadata annotations, these may trigger additional macro
-/// applications.
+/// @assertion An augmenting declaration can have metadata attached to it.
 ///
 /// @description Check that augmenting metadata is appended to the introductory
 /// declaration (not replaces it). Test functions.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 part of 'metadata_A01_t08.dart';
 
-@Meta2() augment void topLevelFunction() {}
+@Meta2()
+augment void topLevelFunction() {}
 
 augment class C {
-  @Meta2() augment static void staticMethod() {}
-  @Meta2() augment void instanceMethod() {}
+  @Meta2()
+  augment static void staticMethod() {}
+  @Meta2()
+  augment void instanceMethod() {}
 }
 
 augment mixin M {
-  @Meta2() augment static void staticMethod() {}
-  @Meta2() augment void instanceMethod() {}
+  @Meta2()
+  augment static void staticMethod() {}
+  @Meta2()
+  augment void instanceMethod() {}
 }
 
 augment enum E {
-  augment e0;
-  @Meta2() augment static void staticMethod() {}
-  @Meta2() augment void instanceMethod() {}
+  ;
+  @Meta2()
+  augment static void staticMethod() {}
+  @Meta2()
+  augment void instanceMethod() {}
 }
 
 augment extension Ext {
-  @Meta2() augment static void staticMethod() {}
-  @Meta2() augment void instanceMethod() {}
+  @Meta2()
+  augment static void staticMethod() {}
+  @Meta2()
+  augment void instanceMethod() {}
 }
 
 augment extension type ET {
-  @Meta2() augment static void staticMethod() {}
-  @Meta2() augment void instanceMethod() {}
+  @Meta2()
+  augment static void staticMethod() {}
+  @Meta2()
+  augment void instanceMethod() {}
 }
