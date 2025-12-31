@@ -19,7 +19,7 @@
 class C {
   void instanceMethod() {}
   int get instanceGetter => 0;
-  void int set instanceSetter(int v) {}
+  void set instanceSetter(int v) {}
 }
 
 augment class C {
@@ -31,8 +31,8 @@ augment class C {
 //                       ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void int set instanceSetter(int v);
-//                            ^^^^^^^^^^^^^^
+  augment static void set instanceSetter(int v);
+//                        ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -40,7 +40,7 @@ augment class C {
 mixin M {
   void instanceMethod() {}
   int get instanceGetter => 0;
-  void int set instanceSetter(int v) {}
+  void set instanceSetter(int v) {}
 }
 
 augment mixin M {
@@ -52,8 +52,8 @@ augment mixin M {
 //                       ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void int set instanceSetter(int v);
-//                            ^^^^^^^^^^^^^^
+  augment static void set instanceSetter(int v);
+//                        ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -62,7 +62,7 @@ enum E {
   e1;
   void instanceMethod() {}
   int get instanceGetter => 0;
-  void int set instanceSetter(int v) {}
+  void set instanceSetter(int v) {}
 }
 
 augment enum E {
@@ -75,8 +75,8 @@ augment enum E {
 //                       ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void int set instanceSetter(int v);
-//                            ^^^^^^^^^^^^^^
+  augment static void set instanceSetter(int v);
+//                        ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -86,7 +86,7 @@ class A {}
 extension Ext on A {
   void instanceMethod() {}
   int get instanceGetter => 0;
-  void int set instanceSetter(int v) {}
+  void set instanceSetter(int v) {}
 }
 
 augment extension Ext {
@@ -98,8 +98,8 @@ augment extension Ext {
 //                       ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void int set instanceSetter(int v);
-//                            ^^^^^^^^^^^^^^
+  augment static void set instanceSetter(int v);
+//                        ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -107,7 +107,7 @@ augment extension Ext {
 extension type ET(int _) {
   void instanceMethod() {}
   int get instanceGetter => 0;
-  void int set instanceSetter(int v) {}
+  void set instanceSetter(int v) {}
 }
 
 augment extension type ET {
@@ -119,8 +119,8 @@ augment extension type ET {
 //                       ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void int set instanceSetter(int v);
-//                            ^^^^^^^^^^^^^^
+  augment static void set instanceSetter(int v);
+//                        ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
