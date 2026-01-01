@@ -11,6 +11,10 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
+// TODO (sgrekhov) This test does not include static abstract variable
+// declarations because the grammar doesn't derive them. See
+// https://github.com/dart-lang/language/issues/4592
+
 int get topLevel => 42;
 
 void set topLevel(String v) {}
@@ -21,17 +25,11 @@ augment abstract var topLevel;
 // [cfe] unspecified
 
 class C {
-  static int get staticVariable => 42;
-  static void set staticVariable(String v) {}
   int get instanceVariable => 42;
   void set instanceVariable(String v) {}
 }
 
 augment class C {
-  augment static abstract var staticVariable;
-//                            ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment static abstract var instanceVariable;
 //                            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -39,59 +37,13 @@ augment class C {
 }
 
 mixin M {
-  static int get staticVariable => 42;
-  static void set staticVariable(String v) {}
   int get instanceVariable => 42;
   void set instanceVariable(String v) {}
 }
 
 augment mixin M {
-  augment static abstract var staticVariable;
-//                            ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment static abstract var instanceVariable;
 //                            ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-enum E {
-  e0;
-  static int get staticVariable => 42;
-  static void set staticVariable(String v) {}
-}
-
-augment enum E {
-  ;
-  augment static abstract var staticVariable;
-//                            ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class A {}
-
-extension Ext on A {
-  static int get staticVariable => 42;
-  static void set staticVariable(String v) {}
-}
-
-augment extension Ext on A {
-  augment static abstract var staticVariable;
-//                            ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET(int v) {
-  static int get staticVariable => 42;
-  static void set staticVariable(String v) {}
-}
-
-extension type ET {
-  augment static abstract var staticVariable;
-//                            ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -100,7 +52,4 @@ main() {
   print(topLevel);
   print(C);
   print(M);
-  print(E);
-  print(A);
-  print(ET);
 }
