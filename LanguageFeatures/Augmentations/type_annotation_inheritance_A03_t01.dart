@@ -31,7 +31,7 @@ class C {
 
 augment class C {
   augment abstract var instanceVariable;
-//                            ^^^^^^^^^^^^^^^^
+//                     ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -43,7 +43,7 @@ mixin M {
 
 augment mixin M {
   augment abstract var instanceVariable;
-//                            ^^^^^^^^^^^^^^^^
+//                     ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
