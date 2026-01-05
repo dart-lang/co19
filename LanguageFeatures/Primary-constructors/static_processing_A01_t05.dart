@@ -56,11 +56,11 @@ enum E1 {
 enum E2 {
   e0;
 
-  const ET2() : new.someName();
-//              ^^^
+  const E2() : new.someName();
+//             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const ET2.someName();
+  const E2.someName();
 }
 
 main() {
