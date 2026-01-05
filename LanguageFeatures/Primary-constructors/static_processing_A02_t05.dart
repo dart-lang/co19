@@ -16,31 +16,31 @@
 // SharedOptions=--enable-experiment=primary-constructors
 
 class C1.someName(var int v) {
-  static int someName = 0;
-//           ^^^^^^^^
+//       ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  static int someName = 0;
 }
 
 class C2.someName(final int v) {
-  static int get someName => 0;
-//               ^^^^^^^^
+//       ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  static int get someName => 0;
 }
 
 class C3._someName(var int v) {
-  static void _someName(int _) {}
-//            ^^^^^^^^^
+//       ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  static void _someName(int _) {}
 }
 
 class C4.someName(final int v) {
-  static void set someName(int _) {}
-//                ^^^^^^^^
+//       ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  static void set someName(int _) {}
 }
 
 main() {

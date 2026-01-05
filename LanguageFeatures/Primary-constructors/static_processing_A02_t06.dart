@@ -16,31 +16,31 @@
 // SharedOptions=--enable-experiment=primary-constructors
 
 mixin class C1.someName() {
-  static int someName = 0;
-//           ^^^^^^^^
+//             ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  static int someName = 0;
 }
 
 mixin class C2.someName() {
-  static int get someName => 0;
-//               ^^^^^^^^
+//             ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  static int get someName => 0;
 }
 
 mixin class C3._someName() {
-  static void _someName() {}
-//            ^^^^^^^^^
+//             ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  static void _someName() {}
 }
 
 mixin class C4.someName() {
-  static void set someName(int _) {}
-//                ^^^^^^^^
+//             ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  static void set someName(int _) {}
 }
 
 main() {
