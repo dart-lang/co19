@@ -23,11 +23,11 @@
 class C {
   const C.create();
 
-  const factory() => C.create();
+  const factory() = C.create;
 }
 
 extension type const ET.create(int _) {
-  const factory() => ET.create(0);
+  const factory(int v) = ET.create;
 }
 
 main() {
