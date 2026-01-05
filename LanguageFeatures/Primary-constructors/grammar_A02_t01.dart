@@ -37,7 +37,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ET(0); //Ok
+  ET(); //Ok
   ET.create(0).factory();
 //             ^^^^^^^
 // [analyzer] unspecified
