@@ -15,10 +15,9 @@
 /// the same number of type parameters with the same names and bounds.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
-part 'augmenting_types_A05_t04_lib.dart';
 
 class A {}
 typedef AAlias = A;
@@ -27,24 +26,109 @@ class B extends A {}
 class C1<T extends A> {}
 class C2<T extends AAlias> {}
 
+augment class C1<T extends A> {
+  String get name1 => 'C1<$T>';
+}
+
+augment class C1<T extends AAlias> {
+  String name2() => 'C1<$T>';
+}
+
+augment class C2<T extends A> {
+  String get name1 => 'C2<$T>';
+}
+
+augment class C2<T extends AAlias> {
+  String name2() => 'C2<$T>';
+}
+
 mixin M1<T extends A> {}
 mixin M2<T extends AAlias> {}
+
+augment mixin M1<T extends A> {
+  String get name1 => 'M1<$T>';
+}
+
+augment mixin M1<T extends AAlias> {
+  String name2() => 'M1<$T>';
+}
+
+augment mixin M2<T extends A> {
+  String get name1 => 'M2<$T>';
+}
+
+augment mixin M2<T extends AAlias> {
+  String name2() => 'M2<$T>';
+}
 
 enum E1<T extends A> {
   e1<B>(),
   e2<AAlias>();
 }
+
 enum E2<T extends AAlias>{
   e1<B>(),
   e2<AAlias>();
+}
+
+augment enum E1<T extends A> {
+  ;
+  String get name1 => 'E1<$T>';
+}
+
+augment enum E1<T extends AAlias> {
+  ;
+  String name2() => 'E1<$T>';
+}
+
+augment enum E2<T extends A> {
+  ;
+  String get name1 => 'E2<$T>';
+}
+
+augment enum E2<T extends AAlias> {
+  ;
+  String name2() => 'E2<$T>';
 }
 
 class D<T extends A> {}
 extension Ext1<T extends A> on D<T> {}
 extension Ext2<T extends AAlias> on D<T> {}
 
+augment extension Ext1<T extends A> {
+  String get name1 => 'Ext1<$T>';
+}
+
+augment extension Ext1<T extends AAlias> {
+  String name2() => 'Ext1<$T>';
+}
+
+augment extension Ext2<T extends A> {
+  String get name3 => 'Ext2<$T>';
+}
+
+augment extension Ext2<T extends AAlias> {
+  String name4() => 'Ext2<$T>';
+}
+
 extension type ET1<T extends A>(int _) {}
 extension type ET2<T extends AAlias>(int _) {}
+
+augment extension type ET1<T extends A> {
+  String get name1 => 'ET1<$T>';
+}
+
+augment extension type ET1<T extends AAlias> {
+  String name2() => 'ET1<$T>';
+}
+
+augment extension type ET2<T extends A> {
+  String get name3 => 'ET2<$T>';
+}
+
+augment extension type ET2<T extends AAlias> {
+  String name4() => 'ET2<$T>';
+}
 
 class MA1<T extends A> = Object with M1<T>;
 class MA2<T extends AAlias> = Object with M2<T>;

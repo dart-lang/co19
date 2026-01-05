@@ -16,11 +16,12 @@
 /// case when bound name has a library prefix.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-import 'augmentation_libraries_lib.dart';
 import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
+import 'augmentation_libraries_lib.dart';
+
 part 'augmenting_types_A05_t05_lib.dart';
 
 class C<T extends AL> {}
