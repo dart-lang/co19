@@ -65,6 +65,7 @@ enum E1<T extends A> {
   e1<B>(),
   e2<AAlias>();
 }
+
 enum E2<T extends AAlias>{
   e1<B>(),
   e2<AAlias>();
