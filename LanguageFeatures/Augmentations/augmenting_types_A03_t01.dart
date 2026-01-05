@@ -3,24 +3,39 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if:
-/// ...
-/// - The augmenting declaration declares an `extends` clause for a `class`
-///   declaration, but one was already present (or the `class` was a
-///   `mixin class` declaration, which does not allow `extends` clauses).
+/// - An augmenting class declaration has an `extends` clause and any prior
+///   declaration for the same class also has an `extends` clause.
 ///
 /// @description Checks that it is a compile-time error if an augmenting type
-/// declares an extends clause, but one was already present
+/// declares an extends clause, but one was already present.
 /// @author sgrekhov22@gmail.com
-/// @issue 55454
 
-// SharedOptions=--enable-experiment=macros
-
-part 'augmenting_types_A03_t01_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 class A {}
 class B extends A {}
-class C extends B {}
+class D extends B {}
+class C1 extends B {}
+class C2 extends B {}
+class C3 extends B {}
+
+augment class C1 extends B {}
+//               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment class C2 extends A {}
+//               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment class C3 extends D {}
+//               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  print(C);
+  print(C1);
+  print(C2);
+  print(C3);
 }
