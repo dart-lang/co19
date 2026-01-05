@@ -37,7 +37,7 @@ extension type ET3.someName(int v) {
 }
 
 extension type ET4._(int v) {
-  ET4._(int v);
+  ET4._(this.v);
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified
