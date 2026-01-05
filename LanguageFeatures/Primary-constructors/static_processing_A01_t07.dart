@@ -14,7 +14,7 @@
 // SharedOptions=--enable-experiment=primary-constructors
 
 class C {
-  int v;
+  final int v;
   const C.create(this.v);
 
   const factory C() => C.create(1);
