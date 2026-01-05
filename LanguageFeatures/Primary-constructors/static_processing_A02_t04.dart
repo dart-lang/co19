@@ -43,9 +43,9 @@ enum E3.someName(final int v) {
 }
 
 enum const E4._() {
-  e0._(4);
+  e0._();
 
-  const E4._(int v);
+  const E4._();
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified
