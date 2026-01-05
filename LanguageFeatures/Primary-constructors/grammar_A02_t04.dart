@@ -53,13 +53,13 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ET1(0); // Ok
+  ET1(); // Ok
   ET1.create(0).factory();
 //              ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  ET2(0); // Ok
+  ET2(); // Ok
   ET2.create(0).factory();
 //              ^^^^^^^
 // [analyzer] unspecified
