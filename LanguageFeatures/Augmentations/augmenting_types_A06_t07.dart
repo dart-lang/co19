@@ -3,22 +3,17 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion A class, enum, extension type, mixin, or mixin class augmentation
-/// may specify `extends`, `implements` and `with` clauses (when generally
+/// may specify `extends`, `implements` and `with` clauses (when otherwise
 /// supported). The types in these clauses are appended to the introductory
-/// declarations’ clauses of the same kind, and if that clause did not exist
-/// previously, then it is added with the new types. All regular rules apply
-/// after this appending process, so you cannot have multiple `extends` on a
-/// class, or an `on` clause on an enum, etc.
+/// declarations' clauses of the same kind, and if that clause did not exist
+/// previously, then it is added with the new types.
 ///
-/// @description Checks that it is a compile-time error if an augment adds a
-/// superclass in an `extends` statement which is incompatible with existing
-/// class members
+/// @description Checks that it is a compile-time error if an augmentation adds
+/// a superclass in an `extends` statement that is incompatible with the
+/// existing class members.
 /// @author sgrekhov22@gmail.com
-/// @issue 55472
 
-// SharedOptions=--enable-experiment=macros
-
-part 'augmenting_types_A06_t07_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 abstract class A {
   int foo();
@@ -37,6 +32,10 @@ abstract class C2 {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+augment class C1 extends A {}
+
+augment abstract class C2 extends A {}
 
 main() {
   print(C1);
