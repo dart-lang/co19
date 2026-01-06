@@ -20,7 +20,7 @@ abstract interface class I {
 }
 
 class A {
-  void set foo(String v) {}
+  void foo(String v) {}
 }
 
 class C1 implements I {
