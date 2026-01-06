@@ -31,7 +31,7 @@ augment int topLevelVariable;
 
 class C {
   static late int staticVariable;
-  late int get instanceVariable;
+  late int instanceVariable;
 }
 
 augment class C {
@@ -47,7 +47,7 @@ augment class C {
 
 mixin M {
   static late int staticVariable;
-  late int get instanceVariable;
+  late int instanceVariable;
 }
 
 augment mixin M {

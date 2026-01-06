@@ -46,7 +46,8 @@ mixin M {
   augment void set instanceGetter(String _);
 //                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
+}
 
 enum E {
   e0;
