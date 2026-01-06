@@ -32,26 +32,8 @@ class C1(this.i1, super.s2, int i) extends S {
 class C2.someName(this.i1, super.s2, int i) extends S {
   int i1;
   int i2;
-  this.someName : this.i2 = i, super.n(i);
-//                             ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C3 extends S {
-  int i1;
-  int i2;
-  this(this.i1, super.s2, int i) : this.i2 = i, super.n(i);
-//                                              ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C4 extends S {
-  int i1;
-  int i2;
-  this.someName(this.i1, super.s2, int i) : this.i2 = i, super.n(i);
-//                                                       ^^^^^
+  this: this.i2 = i, super.n(i);
+//                   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -59,6 +41,4 @@ class C4 extends S {
 main() {
   print(C1);
   print(C2);
-  print(C3);
-  print(C4);
 }

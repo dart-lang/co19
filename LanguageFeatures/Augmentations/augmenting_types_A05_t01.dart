@@ -15,28 +15,96 @@
 /// declares wrong number of type parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
-part 'augmenting_types_A05_t01_lib.dart';
+class C1<T> {}
 
-class C<T> {}
+augment class C1 {}
+//            ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-mixin M<T> {}
+class C2<T> {}
 
-enum E<T> {
+augment class C2<T, X> {}
+//            ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+mixin M1<T> {}
+
+augment mixin M1 {}
+//            ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+mixin M2<T> {}
+
+augment mixin M2<T, X> {}
+//            ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+enum E1<T> {
   e1;
+}
+
+augment enum E1 {
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ;
+}
+
+enum E2<T> {
+  e1;
+}
+
+augment enum E2<T, X> {
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ;
 }
 
 class A {}
 
-extension Ext<T> on A {}
+extension Ext1<T> on A {}
 
-extension type ET<T>(int _) {}
+augment extension Ext1 {}
+//                ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension Ext2<T> on A {}
+
+augment extension Ext2<T, X> {}
+//                ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type ET1<T>(int _) {}
+
+augment extension type ET1 {}
+//                     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type ET2<T>(int _) {}
+
+augment extension type ET2<T, X> {}
+//                     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  print(C);
-  print(M);
-  print(E);
+  print(C1);
+  print(C2);
+  print(M1);
+  print(M2);
+  print(E1);
+  print(E2);
   print(A);
-  print(ET);
+  print(ET1);
+  print(ET2);
 }

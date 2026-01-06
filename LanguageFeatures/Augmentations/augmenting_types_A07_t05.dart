@@ -3,27 +3,30 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion A class, enum, extension type, mixin, or mixin class augmentation
-/// may specify `extends`, `implements` and `with` clauses (when generally
+/// may specify `extends`, `implements` and `with` clauses (when otherwise
 /// supported). The types in these clauses are appended to the introductory
-/// declarations’ clauses of the same kind, and if that clause did not exist
-/// previously, then it is added with the new types. All regular rules apply
-/// after this appending process, so you cannot have multiple `extends` on a
-/// class, or an `on` clause on an enum, etc.
+/// declarations' clauses of the same kind, and if that clause did not exist
+/// previously, then it is added with the new types.
 ///
-/// @description Checks that an augment of an extension type may specify a base,
-/// final or sealed class in an `implements` clause
+/// @description Checks that an augmentation of an extension type may specify a
+/// base, final or sealed class in an `implements` clause
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import 'augmentation_libraries_lib.dart';
-part 'augmenting_types_A07_t05_lib.dart';
 
 extension type ET1(FinalClass _) {}
 
+augment extension type ET1 implements FinalClass {}
+
 extension type ET2(BaseClass _) {}
 
+augment extension type ET2 implements BaseClass {}
+
 extension type ET3(SealedClass _) {}
+
+augment extension type ET3 implements SealedClass {}
 
 main() {
   FinalClass fc = ET1(FinalClass());

@@ -45,5 +45,5 @@ main() {
   Expect.equals(4, ET4(v: 4).v);
   Expect.equals(0, ET4().v);
   Expect.equals(5, ET5(v: 5).v);
-  Expect.equals(0, ET5().v);
+  Expect.equals(0, ET5(v: 0).v);
 }

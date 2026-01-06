@@ -17,9 +17,7 @@
 
 import '../../Utils/expect.dart';
 
-extension type ET1.someName(int v) {
-  int someName = 0;
-}
+extension type ET1.someName(int someName) {}
 
 extension type ET2.someName(int v) {
   int get someName => v;
@@ -38,7 +36,7 @@ extension type ET4.someName(int v) {
 }
 
 main() {
-  Expect.equals(0, ET1.someName(1).someName);
+  Expect.equals(1, ET1.someName(1).someName);
   Expect.equals(2, ET2.someName(2).someName);
   Expect.equals(3, ET3._someName(3)._someName());
   var c4 = ET4.someName(0);

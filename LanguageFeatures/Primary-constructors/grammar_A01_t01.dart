@@ -62,7 +62,7 @@ main() {
   Expect.equals(1, C12(1).v);
   Expect.equals(2, C13(2).v);
   Expect.equals(3, C14(3).v);
-  Expect.equals(4, C15(4).v);
+  print(C15);
   print(C16);
   Expect.equals(0, ET2(0).v);
 }

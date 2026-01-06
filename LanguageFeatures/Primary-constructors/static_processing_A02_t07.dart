@@ -16,31 +16,31 @@
 // SharedOptions=--enable-experiment=primary-constructors
 
 extension type ET1.someName(int _) {
-  static int someName = 0;
-//           ^^^^^^^^
+//                 ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  static int someName = 0;
 }
 
 extension type ET2.someName(int _) {
-  static int get someName => 0;
-//               ^^^^^^^^
+//                 ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  static int get someName => 0;
 }
 
 extension type ET3._someName(int _) {
-  static void _someName(int _) {}
-//            ^^^^^^^^^
+//                 ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  static void _someName(int _) {}
 }
 
 extension type ET4.someName(int _) {
-  static void set someName(int _) {}
-//                ^^^^^^^^
+//                 ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  static void set someName(int _) {}
 }
 
 main() {
