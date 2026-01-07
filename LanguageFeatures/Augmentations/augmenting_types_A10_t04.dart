@@ -9,7 +9,7 @@
 ///
 /// @description Checks that static members defined in the body of an
 /// augmentation of a class, mixin, extension, enum or extension type are added
-/// to a static namespace of the corresponding introductory declaration.
+/// to the static namespace of the corresponding introductory declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
