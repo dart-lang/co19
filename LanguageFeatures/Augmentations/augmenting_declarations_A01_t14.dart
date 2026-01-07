@@ -7,7 +7,7 @@
 /// declaration to apply it to.
 ///
 /// @description Checks that it is a compile-time error to augment an instance
-/// member that doesn't exists.
+/// member that doesn't exist.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
