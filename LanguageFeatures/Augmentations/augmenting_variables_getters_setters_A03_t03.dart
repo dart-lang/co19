@@ -17,65 +17,83 @@
 /// augmented by a setter. This is true whether the getter or setter is
 /// explicitly declared or implicitly declared using a variable declaration.
 ///
-/// @description Checks that an incomplete implicit getter (abstract variable)
-/// may be augmented by another incomplete implicit getter.
+/// @description Checks that a non-abstract variable may be augmented by an
+/// augmenting setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
 
-abstract String topLevelVariable;
-augment abstract String topLevelVariable;
-// Now add complete getter and setter to complete the declaration
-augment String get topLevelVariable => "x";
-augment void set topLevelVariable(String _) {}
+String topLevelVariable = "x";
+augment void set topLevelVariable(String _);
 
 class C {
-  abstract String instanceVariable;
-  augment abstract String instanceVariable;
-  augment String get instanceVariable => "x";
-  augment void set instanceVariable(String _) {}
+  static String staticVariable = "x";
+  String instanceVariable = "x";
+}
+
+augment class C {
+  augment static void set staticVariable(String _);
+  augment void set instanceVariable(String v);
 }
 
 mixin M {
-  abstract String instanceVariable;
-  augment abstract String instanceVariable;
-  augment String get instanceVariable => "x";
-  augment void set instanceVariable(String _) {}
+  static String staticVariable = "x";
+  String instanceVariable = "x";
+}
+
+augment mixin M {
+  augment static void set staticVariable(String v);
+  augment void set instanceVariable(String _);
 }
 
 enum E {
   e0;
-  abstract String instanceVariable;
-  augment abstract String instanceVariable;
-  augment String get instanceVariable => "x";
-  augment void set instanceVariable(String _) {}
+  static String staticVariable = "x";
+  String instanceVariable = "x";
+}
+
+augment enum E {
+  ;
+  augment static void set staticVariable(String _);
+  augment void set instanceVariable(String v);
 }
 
 class A {}
 
 extension Ext on A {
-  abstract String instanceVariable;
-  augment abstract String instanceVariable;
-  augment String get instanceVariable => "x";
-  augment void set instanceVariable(String _) {}
+  static String staticVariable = "x";
+  String instanceVariable = "x";
+}
+
+augment extension Ext {
+  augment static void set staticVariable(String v);
+  augment void set instanceVariable(String _);
 }
 
 extension type ET(int _) {
-  abstract String instanceVariable;
-  augment abstract String instanceVariable;
-  augment String get instanceVariable => "x";
-  augment void set instanceVariable(String _) {}
+  static String staticVariable = "x";
+  String instanceVariable = "x";
+}
+
+augment extension type ET {
+  augment static void set staticVariable(String _);
+  augment void set instanceVariable(String v);
 }
 
 class MA = Object with M;
 
 main() {
   Expect.equals("x", topLevelVariable);
+  Expect.equals("x", C.staticVariable);
   Expect.equals("x", C().instanceVariable);
+  Expect.equals("x", M.staticVariable);
   Expect.equals("x", MA().instanceVariable);
+  Expect.equals("x", E.staticVariable);
   Expect.equals("x", E.e0.instanceVariable);
+  Expect.equals("x", Ext.staticVariable);
   Expect.equals("x", A().instanceVariable);
+  Expect.equals("x", ET.staticVariable);
   Expect.equals("x", ET(0).instanceVariable);
 }

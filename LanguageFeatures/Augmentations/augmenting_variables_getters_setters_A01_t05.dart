@@ -27,6 +27,7 @@ import '../../Utils/expect.dart';
 
 abstract String topLevelVariable;
 augment String get topLevelVariable => "x";
+augment void set topLevelVariable(String _) {} // We need a setter to complete the declaration
 
 // TODO (sgrekhov) This test does not include static abstract variable
 // declarations because the grammar doesn't derive them. See
@@ -35,17 +36,20 @@ augment String get topLevelVariable => "x";
 class C {
   abstract String instanceVariable;
   augment String get instanceVariable => "x";
+  augment void set instanceVariable(String _) {}
 }
 
 mixin M {
   abstract String instanceVariable;
   augment String get instanceVariable => "x";
+  augment void set instanceVariable(String _) {}
 }
 
 enum E {
   e0;
   abstract String instanceVariable;
   augment String get instanceVariable => "x";
+  augment void set instanceVariable(String _) {}
 }
 
 class A {}
@@ -53,11 +57,13 @@ class A {}
 extension Ext on A {
   abstract String instanceVariable;
   augment String get instanceVariable => "x";
+  augment void set instanceVariable(String _) {}
 }
 
 extension type ET(int _) {
   abstract String instanceVariable;
   augment String get instanceVariable => "x";
+  augment void set instanceVariable(String _) {}
 }
 
 class MA = Object with M;
