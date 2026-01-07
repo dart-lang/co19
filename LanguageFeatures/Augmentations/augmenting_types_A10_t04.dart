@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Instance or static members defined in the body of the type,
-/// including enum values, are added to the instance or static namespace of the
-/// corresponding type in the augmented library. In other words, the
-/// augmentation can add new members to an existing type.
+/// @assertion Instance or static members defined in the body of the augmenting
+/// type, including enum values, are added to the instance or static namespace
+/// of the corresponding type in the introductory declaration. In other words,
+/// the augmentation can add new members to an existing type.
 ///
-/// @description Checks that static members defined in the body of an augment of
-/// a class, mixin, extension, enum or extension type are added to a static
-/// namespace of the corresponding type in the augmented library.
+/// @description Checks that static members defined in the body of an
+/// augmentation of a class, mixin, extension, enum or extension type are added
+/// to the static namespace of the corresponding introductory declaration.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
-part 'augmenting_types_A10_t04_lib.dart';
 
 String _log = "";
 
@@ -23,13 +22,54 @@ class A {}
 
 class C {}
 
+augment class C {
+  static String method() => "C";
+  static String get getter => "get C";
+  static void set setter(String v) {
+    _log = "set C";
+  }
+}
+
 mixin M {}
+
+augment mixin M {
+  static String method() => "M";
+  static String get getter => "get M";
+  static void set setter(String v) {
+    _log = "set M";
+  }
+}
 
 enum E {e1;}
 
+augment enum E {
+  ;
+  static String method() => "E";
+  static String get getter => "get E";
+  static void set setter(String v) {
+    _log = "set E";
+  }
+}
+
 extension ExtA on A {}
 
+augment extension ExtA {
+  static String method() => "ExtA";
+  static String get getter => "get ExtA";
+  static void set setter(String v) {
+    _log = "set ExtA";
+  }
+}
+
 extension type ET(int id) {}
+
+augment extension type ET {
+  static String method() => "ET";
+  static String get getter => "get ET";
+  static void set setter(String v) {
+    _log = "set ET";
+  }
+}
 
 main() {
   Expect.equals("C", C.method());

@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Instance or static members defined in the body of the type,
-/// including enum values, are added to the instance or static namespace of the
-/// corresponding type in the augmented library. In other words, the
-/// augmentation can add new members to an existing type.
+/// @assertion Instance or static members defined in the body of the augmenting
+/// type, including enum values, are added to the instance or static namespace
+/// of the corresponding type in the introductory declaration. In other words,
+/// the augmentation can add new members to an existing type.
 ///
-/// @description Checks that instance members defined in the body of an augment
-/// of a class, mixin, extension, enum or extension type are added to the
-/// interface of the corresponding type in the augmented library.
+/// @description Checks that instance members defined in the body of an
+/// augmentation of a class, mixin, extension, enum or extension type are added
+/// to the corresponding introductory declaration.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
-part 'augmenting_types_A10_t01_lib.dart';
 
 String _log = "";
 
@@ -23,13 +22,59 @@ class A {}
 
 class C {}
 
+augment class C {
+  String method() => "C";
+  String get getter => "get C";
+  void set setter(String v) {
+    _log = v;
+  }
+  int operator +(int other) => other;
+}
+
 mixin M {}
+
+augment mixin M {
+  String method() => "M";
+  String get getter => "get M";
+  void set setter(String v) {
+    _log = v;
+  }
+  int operator +(int other) => other;
+}
 
 enum E {e1;}
 
+augment enum E {
+  ;
+  String method() => "E";
+  String get getter => "get E";
+  void set setter(String v) {
+    _log = v;
+  }
+  int operator +(int other) => other;
+}
+
 extension ExtA on A {}
 
+augment extension ExtA {
+  String method() => "ExtA";
+  String get getter => "get ExtA";
+  void set setter(String v) {
+    _log = v;
+  }
+  int operator +(int other) => other;
+}
+
 extension type ET(int id) {}
+
+augment extension type ET {
+  String method() => "ET";
+  String get getter => "get ET";
+  void set setter(String v) {
+    _log = v;
+  }
+  int operator +(int other) => other;
+}
 
 class MA = Object with M;
 
