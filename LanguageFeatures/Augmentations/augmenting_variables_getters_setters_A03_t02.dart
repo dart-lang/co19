@@ -33,7 +33,7 @@ class C {
   static void set staticSetter(String _);
   static String get staticSetter;
   void set instanceSetter(String v);
-  static String get instanceSetter;
+  String get instanceSetter;
 }
 
 augment class C {
@@ -45,7 +45,7 @@ mixin M {
   static void set staticSetter(String _);
   static String get staticSetter;
   void set instanceSetter(String v);
-  static String get instanceSetter;
+  String get instanceSetter;
 }
 
 augment mixin M {
@@ -58,7 +58,7 @@ enum E {
   static void set staticSetter(String _);
   static String get staticSetter;
   void set instanceSetter(String v);
-  static String get instanceSetter;
+  String get instanceSetter;
 }
 
 augment enum E {
@@ -73,7 +73,7 @@ extension Ext on A {
   static void set staticSetter(String _);
   static String get staticSetter;
   void set instanceSetter(String v);
-  static String get instanceSetter;
+  String get instanceSetter;
 }
 
 augment extension Ext {
@@ -85,7 +85,7 @@ extension type ET(int _) {
   static void set staticSetter(String _);
   static String get staticSetter;
   void set instanceSetter(String v);
-  static String get instanceSetter;
+  String get instanceSetter;
 }
 
 augment extension type ET {
