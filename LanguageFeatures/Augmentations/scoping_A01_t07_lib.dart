@@ -65,7 +65,7 @@ augment mixin M {
 }
 
 augment enum E {
-  augment e0;
+  ;
   static void set baz(String _) {
     _log = "baz";
   }

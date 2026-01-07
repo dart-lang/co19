@@ -34,7 +34,7 @@ augment mixin M {
 }
 
 augment enum E {
-  augment e0;
+  ;
   final String foo = "";
   String get bar => "";
   void set baz(String _) {}

@@ -58,7 +58,7 @@ augment mixin M {
 }
 
 augment enum E {
-  augment e0;
+  ;
   static final String foo = "";
 //                    ^^^
 // [analyzer] unspecified

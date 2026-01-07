@@ -42,7 +42,7 @@ augment mixin M {
 }
 
 augment enum E {
-  augment e0;
+  ;
   static String get baz => "baz";
   String get qux => "qux";
 

@@ -42,7 +42,7 @@ augment mixin M {
 }
 
 augment enum E {
-  augment e0;
+  ;
   static const baz = "baz";
   final String qux = "qux";
 
