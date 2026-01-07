@@ -2,22 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion All declarations can be augmented with metadata annotations
-/// and/or doc comments directly preceding an augmenting declaration.
-///
-/// In both cases, these should be appended to existing metadata or doc
-/// comments. For metadata annotations, these may trigger additional macro
-/// applications.
+/// @assertion An augmenting declaration can have metadata attached to it.
 ///
 /// @description Check that augmenting metadata is appended to the introductory
-/// declaration. Test classes, mixins, etc.
+/// declaration. Test class-like declarations.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import 'dart:mirrors';
 import '../../Utils/expect.dart';
-part 'metadata_A01_t09_lib.dart';
 
 class Meta {
   const Meta();
@@ -25,17 +19,34 @@ class Meta {
 
 class C {}
 
+@Meta()
+augment class C {}
+
 mixin M {}
+
+@Meta()
+augment mixin M {}
 
 enum E {
   e0;
+}
+
+@Meta()
+augment enum E {
+  ;
 }
 
 class A {}
 
 extension Ext on A {}
 
+@Meta()
+augment extension Ext {}
+
 extension type ET(int id) {}
+
+@Meta()
+augment extension type ET {}
 
 main() {
   Expect.equals(
