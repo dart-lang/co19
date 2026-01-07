@@ -45,12 +45,12 @@ augment class C3 {
 }
 
 extension type ET1._(int id) {
-  ET1(this.id);
-  ET1.foo(this.id);
+  ET1(int id);
+  ET1.foo(int id);
 }
 
 augment extension type ET1 {
-  augment ET1(int id) {
+  augment ET1(this.id) {
     log += "Augmented body";
   }
   augment ET1.foo(this.id) {
@@ -59,21 +59,21 @@ augment extension type ET1 {
 }
 
 extension type ET2._(int id) {
-  ET2(this.id);
+  ET2(int id);
 }
 
 augment extension type ET2 {
-  augment ET2.new(int _) {
+  augment ET2.new(this.id) {
     log += "Augmented body";
   }
 }
 
 extension type ET3._(int _) {
-  ET3.new(this.id);
+  ET3.new(int _);
 }
 
 augment extension type ET3 {
-  augment ET3(int _) {
+  augment ET3(this.id) {
     log += "Augmented body";
   }
 }
@@ -93,5 +93,9 @@ main() {
   ET1(0);
   checkLog("Augmented body");
   ET1.foo(0);
+  checkLog("Augmented body");
+  ET2(0);
+  checkLog("Augmented body");
+  ET3(0);
   checkLog("Augmented body");
 }
