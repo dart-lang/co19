@@ -6,7 +6,7 @@
 /// In other words, it's an error to have a declaration marked augment with no
 /// declaration to apply it to.
 ///
-/// @description Checks that it is a compile-time error to augment an instance
+/// @description Checks that it is a compile-time error to augment a static
 /// member that doesn't exists.
 /// @author sgrekhov22@gmail.com
 
@@ -17,66 +17,66 @@
 // https://github.com/dart-lang/language/issues/4592
 
 class C {
-  static void staticMethod() {}
-  static int get staticGetter => 0;
-  static void set staticSetter(int v) {}
+  void instanceMethod() {}
+  int get instanceGetter => 0;
+  void set instanceSetter(int v) {}
 }
 
 augment class C {
-  augment void staticMethod();
-//             ^^^^^^^^^^^^
+  augment static void instanceMethod();
+//                    ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get staticGetter;
-//                ^^^^^^^^^^^^
+  augment static int get instanceGetter;
+//                       ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set staticSetter(int v);
-//                 ^^^^^^^^^^^^
+  augment static void set instanceSetter(int v);
+//                        ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin M {
-  static void staticMethod() {}
-  static int get staticGetter => 0;
-  static void set staticSetter(int v) {}
+  void instanceMethod() {}
+  int get instanceGetter => 0;
+  void set instanceSetter(int v) {}
 }
 
 augment mixin M {
-  augment void staticMethod();
-//             ^^^^^^^^^^^^
+  augment static void instanceMethod();
+//                    ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get staticGetter;
-//                ^^^^^^^^^^^^
+  augment static int get instanceGetter;
+//                       ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set staticSetter(int v);
-//                 ^^^^^^^^^^^^
+  augment static void set instanceSetter(int v);
+//                        ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E {
   e1;
-  static void staticMethod() {}
-  static int get staticGetter => 0;
-  static void set staticSetter(int v) {}
+  void instanceMethod() {}
+  int get instanceGetter => 0;
+  void set instanceSetter(int v) {}
 }
 
 augment enum E {
   ;
-  augment void staticMethod();
-//             ^^^^^^^^^^^^
+  augment static void instanceMethod();
+//                    ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get staticGetter;
-//                ^^^^^^^^^^^^
+  augment static int get instanceGetter;
+//                       ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set staticSetter(int v);
-//                 ^^^^^^^^^^^^
+  augment static void set instanceSetter(int v);
+//                        ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -84,43 +84,43 @@ augment enum E {
 class A {}
 
 extension Ext on A {
-  static void staticMethod() {}
-  static int get staticGetter => 0;
-  static void set staticSetter(int v) {}
+  void instanceMethod() {}
+  int get instanceGetter => 0;
+  void set instanceSetter(int v) {}
 }
 
 augment extension Ext {
-  augment void staticMethod();
-//             ^^^^^^^^^^^^
+  augment static void instanceMethod();
+//                    ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get staticGetter;
-//                ^^^^^^^^^^^^
+  augment static int get instanceGetter;
+//                       ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set staticSetter(int v);
-//                 ^^^^^^^^^^^^
+  augment static void set instanceSetter(int v);
+//                        ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET(int _) {
-  static void staticMethod() {}
-  static int get staticGetter => 0;
-  static void set staticSetter(int v) {}
+  void instanceMethod() {}
+  int get instanceGetter => 0;
+  void set instanceSetter(int v) {}
 }
 
 augment extension type ET {
-  augment void staticMethod();
-//             ^^^^^^^^^^^^
+  augment static void instanceMethod();
+//                    ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment int get staticGetter;
-//                ^^^^^^^^^^^^
+  augment static int get instanceGetter;
+//                       ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set staticSetter(int v);
-//                 ^^^^^^^^^^^^
+  augment static void set instanceSetter(int v);
+//                        ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
