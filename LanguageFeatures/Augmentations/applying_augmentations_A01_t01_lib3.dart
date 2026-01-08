@@ -12,34 +12,34 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'augmenting_types_A01_t01.dart';
+part of 'applying_augmentations_A01_t01.dart';
 
-augment class ET4 {}
+augment class Ext3 {}
+//            ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+augment mixin ET3 {}
 //            ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment mixin F4 {}
-//            ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment enum C4 {e4;}
+augment enum F3 {e3;}
 //           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension M4 {}
+augment extension C3 {}
 //                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension type E4(int _) {}
+augment extension type M3(int _) {}
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment typedef void Ext4();
-//                   ^^^^
+augment typedef void E3();
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified

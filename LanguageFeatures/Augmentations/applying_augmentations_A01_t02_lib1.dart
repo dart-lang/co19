@@ -12,24 +12,24 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'augmenting_types_A01_t02.dart';
+part of 'applying_augmentations_A01_t02.dart';
 
-augment enum CAlias3 {e1;}
-//           ^^^^^^^
+augment class CAlias1 {}
+//            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum MAlias3 {e2;}
-//           ^^^^^^^
+augment class MAlias1 {}
+//            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum EAlias3 {e3;}
-//           ^^^^^^^
+augment class EAlias1 {}
+//            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum ETAlias3 {e4;}
-//           ^^^^^^^^
+augment class ETAlias1 {}
+//            ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

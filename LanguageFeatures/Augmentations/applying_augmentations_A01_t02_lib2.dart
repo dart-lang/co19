@@ -12,24 +12,24 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'augmenting_types_A01_t02.dart';
+part of 'applying_augmentations_A01_t02.dart';
 
-augment class CAlias1 {}
+augment mixin CAlias2 {}
 //            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment class MAlias1 {}
+augment mixin MAlias2 {}
 //            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment class EAlias1 {}
+augment mixin EAlias2 {}
 //            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment class ETAlias1 {}
+augment mixin ETAlias2 {}
 //            ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
