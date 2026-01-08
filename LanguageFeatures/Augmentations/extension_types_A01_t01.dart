@@ -2,23 +2,38 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion The representation field clause must be present on the
-/// declaration which introduces the extension type, and must be omitted from
-/// all augmentations of the extension type.
+/// @assertion When augmenting an extension type declaration, the parenthesized
+/// clause where the representation type is specified is treated as a
+/// constructor that has a single positional parameter, a single initializer
+/// from the parameter to the representation field, and an empty body. This
+/// constructor is complete.
 ///
 /// @description Checks that it is a compile-time error to specify the
 /// representation declaration in an augmenting declaration.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-part 'extension_types_A01_t01_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 extension type ET1(int id) {}
 
+augment extension type ET1(int id) {}
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 extension type ET2.foo(int id) {}
 
+augment extension type ET2.foo(int id) {}
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 extension type ET3.new(int id) {}
+
+augment extension type ET3.new(int id) {}
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(ET1);

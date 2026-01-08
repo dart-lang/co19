@@ -2,32 +2,47 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion An augmentation can add a body to an extension type's implicit
-/// constructor, which isn't otherwise possible. This is done by augmenting the
-/// constructor in the body of the extension type.
+/// @assertion When augmenting an extension type declaration, the parenthesized
+/// clause where the representation type is specified is treated as a
+/// constructor that has a single positional parameter, a single initializer
+/// from the parameter to the representation field, and an empty body. This
+/// constructor is complete.
 ///
-/// @description Checks that an augmentation can add a body to an extension
-/// type's implicit constructor.
+/// @description Checks that it is a compile-time error if an augmentation adds
+/// a body to an extension type's implicit constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-import '../../Utils/expect.dart';
-part 'extension_types_A02_t01_lib.dart';
-
-String _log = "";
+// SharedOptions=--enable-experiment=augmentations
 
 extension type ET1(int id) {}
 
+augment extension type ET1 {
+  augment ET1(this.id) {}
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 extension type ET2.foo(int id) {}
+
+augment extension type ET2 {
+  augment ET2.foo(this.id) {}
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
 
 extension type ET3.new(int id) {}
 
+augment extension type ET3 {
+  augment ET3.new(this.id) {}
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
-  ET1(1);
-  Expect.equals("ET1(1)", _log);
-  ET2.foo(2);
-  Expect.equals("ET2.foo(2)", _log);
-  ET3.new(3);
-  Expect.equals("ET3.new(3)", _log);
+  print(ET1);
+  print(ET2);
+  print(ET3);
 }
