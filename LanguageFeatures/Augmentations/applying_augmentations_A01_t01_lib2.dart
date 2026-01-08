@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'augmenting_types_A01_t01.dart';
+part of 'applying_augmentations_A01_t01.dart';
 
 augment class E2 {}
 //            ^^

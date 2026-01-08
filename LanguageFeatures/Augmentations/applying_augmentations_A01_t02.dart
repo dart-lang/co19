@@ -12,10 +12,10 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part 'augmenting_types_A01_t02_lib1.dart';
-part 'augmenting_types_A01_t02_lib2.dart';
-part 'augmenting_types_A01_t02_lib3.dart';
-part 'augmenting_types_A01_t02_lib4.dart';
+part 'applying_augmentations_A01_t02_lib1.dart';
+part 'applying_augmentations_A01_t02_lib2.dart';
+part 'applying_augmentations_A01_t02_lib3.dart';
+part 'applying_augmentations_A01_t02_lib4.dart';
 
 class C {}
 

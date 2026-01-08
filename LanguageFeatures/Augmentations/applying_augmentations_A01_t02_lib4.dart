@@ -6,40 +6,30 @@
 /// same kind as the introductory declaration. For example, augmenting a `class`
 /// with a `mixin`, an `enum` with a function, a method with a getter, etc.
 ///
-/// @description Checks that it is a compile-time error if an augmenting type
-/// and the corresponding type are not the same kind.
+/// @description Checks that it is a compile-time error if an augmented
+/// declaration is a type alias and an augmenting declaration is not
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'augmenting_types_A01_t01.dart';
+part of 'applying_augmentations_A01_t02.dart';
 
-augment class Ext3 {}
-//            ^^^^
+augment extension type CAlias4(int _) {}
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment mixin ET3 {}
-//            ^^^
+augment extension type MAlias4(int _) {}
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum F3 {e3;}
-//           ^^
+augment extension type EAlias4(int _) {}
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment extension C3 {}
-//                ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment extension type M3(int _) {}
-//                     ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment typedef void E3();
-//                   ^^
+augment extension type ETAlias4(int _) {}
+//                     ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
