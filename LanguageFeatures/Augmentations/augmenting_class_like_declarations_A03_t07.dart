@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part 'augmenting_types_A02_t07_lib.dart';
+part 'augmenting_class_like_declarations_A03_t07_lib.dart';
 
 abstract base class C1 {}
 

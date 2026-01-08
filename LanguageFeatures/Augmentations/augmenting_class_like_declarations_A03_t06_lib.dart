@@ -10,12 +10,12 @@
 ///
 /// @description Checks that it is a compile-time error if an augmenting type
 /// and the corresponding type do not have identical modifiers. Test augmenting
-/// a `sealed class`.
+/// an `abstract class`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'augmenting_types_A02_t05.dart';
+part of 'augmenting_class_like_declarations_A03_t06.dart';
 
 augment class C1 {}
 //            ^
@@ -37,12 +37,12 @@ augment final class C4 {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment sealed class C5 {} // Ok
-
-augment abstract class C6 {}
-//                     ^
+augment sealed class C5 {}
+//                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+augment abstract class C6 {} // Ok
 
 augment abstract base class C7 {}
 //                          ^

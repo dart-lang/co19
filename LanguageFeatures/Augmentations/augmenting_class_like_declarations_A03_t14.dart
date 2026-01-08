@@ -10,42 +10,42 @@
 ///
 /// @description Checks that it is a compile-time error if an augmenting type
 /// and the corresponding type do not have identical modifiers. Test augmenting
-/// a `mixin class`.
+/// a `mixin`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part 'augmenting_types_A02_t10_lib.dart';
+part 'augmenting_class_like_declarations_A03_t14_lib.dart';
 
-mixin class C1 {}
+mixin C1 {}
 
-mixin class C2 {}
+mixin C2 {}
 
-mixin class C3 {}
+mixin C3 {}
 
-mixin class C4 {}
+mixin C4 {}
 
-mixin class C5 {}
+mixin C5 {}
 
-mixin class C6 {}
+mixin C6 {}
 
-mixin class C7 {}
+mixin C7 {}
 
-mixin class C8 {}
+mixin C8 {}
 
-mixin class C9 {}
+mixin C9 {}
 
-mixin class C10 {}
+mixin C10 {}
 
-mixin class C11 {}
+mixin C11 {}
 
-mixin class C12 {}
+mixin C12 {}
 
-mixin class C13 {}
+mixin C13 {}
 
-mixin class C14 {}
+mixin C14 {}
 
-mixin class C15 {}
+mixin C15 {}
 
 main() {
   print(C1);

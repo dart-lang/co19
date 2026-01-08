@@ -10,42 +10,42 @@
 ///
 /// @description Checks that it is a compile-time error if an augmenting type
 /// and the corresponding type do not have identical modifiers. Test augmenting
-/// a `class`.
+/// an `abstract interface class`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part 'augmenting_types_A02_t01_lib.dart';
+part 'augmenting_class_like_declarations_A03_t08_lib.dart';
 
-class C1 {}
+abstract interface class C1 {}
 
-class C2 {}
+abstract interface class C2 {}
 
-class C3 {}
+abstract interface class C3 {}
 
-class C4 {}
+abstract interface class C4 {}
 
-class C5 {}
+abstract interface class C5 {}
 
-class C6 {}
+abstract interface class C6 {}
 
-class C7 {}
+abstract interface class C7 {}
 
-class C8 {}
+abstract interface class C8 {}
 
-class C9 {}
+abstract interface class C9 {}
 
-class C10 {}
+abstract interface class C10 {}
 
-class C11 {}
+abstract interface class C11 {}
 
-class C12 {}
+abstract interface class C12 {}
 
-class C13 {}
+abstract interface class C13 {}
 
-class C14 {}
+abstract interface class C14 {}
 
-class C15 {}
+abstract interface class C15 {}
 
 main() {
   print(C1);

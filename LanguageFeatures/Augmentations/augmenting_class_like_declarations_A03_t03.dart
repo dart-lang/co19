@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part 'augmenting_types_A02_t03_lib.dart';
+part 'augmenting_class_like_declarations_A03_t03_lib.dart';
 
 interface class C1 {}
 
