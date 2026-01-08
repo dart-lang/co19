@@ -203,6 +203,9 @@ main() {
   topLevelSetter3 = null;
   topLevelSetter4 = null;
   topLevelSetter5 = null;
+  // topLevelSetter6 cannot be tested.
+  // - passing an argument whose static type is Never proves nothing
+  // - a setter cannot be torn-off to check its static type
 
   C.staticSetter1 = 42;
   C.staticSetter2 = null;

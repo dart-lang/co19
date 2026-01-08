@@ -12,7 +12,7 @@
 /// annotation or type parameter bound in the declaration being augmented.
 ///
 /// @description Checks that it not an error if an augmentation omits the bounds
-/// type parameters of an augmenting function.
+/// the type parameters of an augmenting function.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
