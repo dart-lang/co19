@@ -4,19 +4,18 @@
 
 /// @assertion Mixin application classes can't be augmented.
 ///
-/// @description Checks that it is a compile-time error to augment a mixin
-/// application class.
+/// @description Checks that `augment class C = ...` is a syntax error.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 class A {}
 
-mixin M {}
+mixin M on A {}
 
 class C = A with M;
 
-augment class C {}
+augment class C = A with M;
 //            ^
 // [analyzer] unspecified
 // [cfe] unspecified

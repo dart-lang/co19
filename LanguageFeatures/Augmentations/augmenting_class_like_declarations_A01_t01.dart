@@ -2,49 +2,25 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It's a compile-time error if an augmentation doesn't have the
-/// same kind as the introductory declaration. For example, augmenting a `class`
-/// with a `mixin`, an `enum` with a function, a method with a getter, etc.
+/// @assertion Mixin application classes can't be augmented.
 ///
-/// @description Checks that it is a compile-time error if an augmenting
-/// declaration is a type alias and an augmented one is not
+/// @description Checks that it is a compile-time error to augment a mixin
+/// application class.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-class C {}
+class A {}
 
 mixin M {}
 
-enum E {e1;}
+class C = A with M;
 
-extension type ET(int _) {}
-
-class A {}
-
-augment typedef C = A;
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment typedef M = A;
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment typedef E = A;
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment typedef ET = A;
-//              ^^
+augment class C {}
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
   print(C);
-  print(M);
-  print(E);
-  print(ET);
 }

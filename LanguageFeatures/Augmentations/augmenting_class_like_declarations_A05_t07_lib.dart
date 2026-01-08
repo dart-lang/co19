@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'augmenting_class_like_declarations_A03_t07.dart';
+part of 'augmenting_class_like_declarations_A05_t07.dart';
 
 augment class C1 {}
 //            ^

@@ -10,22 +10,19 @@
 ///
 /// @description Checks that it is a compile-time error if an augmenting type
 /// and the corresponding type do not have identical modifiers. Test augmenting
-/// a `mixin`.
+/// a `base class`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'augmenting_class_like_declarations_A03_t14.dart';
+part of 'augmenting_class_like_declarations_A05_t02.dart';
 
 augment class C1 {}
 //            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment base class C2 {}
-//                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
+augment base class C2 {} // Ok
 
 augment interface class C3 {}
 //                      ^
