@@ -6,7 +6,7 @@
 /// getter and setter that don't have a combined signature.
 ///
 /// @description Checks that it not an error if an augmentation omits the bounds
-/// type parameters of a class-like declaration.
+/// of the type parameters of a class-like declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
