@@ -10,42 +10,42 @@
 ///
 /// @description Checks that it is a compile-time error if an augmenting type
 /// and the corresponding type do not have identical modifiers. Test augmenting
-/// an `interface class`.
+/// a `sealed class`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part 'augmenting_types_A02_t03_lib.dart';
+part 'augmenting_class_like_declarations_A05_t05_lib.dart';
 
-interface class C1 {}
+sealed class C1 {}
 
-interface class C2 {}
+sealed class C2 {}
 
-interface class C3 {}
+sealed class C3 {}
 
-interface class C4 {}
+sealed class C4 {}
 
-interface class C5 {}
+sealed class C5 {}
 
-interface class C6 {}
+sealed class C6 {}
 
-interface class C7 {}
+sealed class C7 {}
 
-interface class C8 {}
+sealed class C8 {}
 
-interface class C9 {}
+sealed class C9 {}
 
-interface class C10 {}
+sealed class C10 {}
 
-interface class C11 {}
+sealed class C11 {}
 
-interface class C12 {}
+sealed class C12 {}
 
-interface class C13 {}
+sealed class C13 {}
 
-interface class C14 {}
+sealed class C14 {}
 
-interface class C15 {}
+sealed class C15 {}
 
 main() {
   print(C1);

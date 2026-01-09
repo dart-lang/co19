@@ -10,42 +10,42 @@
 ///
 /// @description Checks that it is a compile-time error if an augmenting type
 /// and the corresponding type do not have identical modifiers. Test augmenting
-/// an `abstract base class`.
+/// a `final class`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part 'augmenting_types_A02_t07_lib.dart';
+part 'augmenting_class_like_declarations_A05_t04_lib.dart';
 
-abstract base class C1 {}
+final class C1 {}
 
-abstract base class C2 {}
+final class C2 {}
 
-abstract base class C3 {}
+final class C3 {}
 
-abstract base class C4 {}
+final class C4 {}
 
-abstract base class C5 {}
+final class C5 {}
 
-abstract base class C6 {}
+final class C6 {}
 
-abstract base class C7 {}
+final class C7 {}
 
-abstract base class C8 {}
+final class C8 {}
 
-abstract base class C9 {}
+final class C9 {}
 
-abstract base class C10 {}
+final class C10 {}
 
-abstract base class C11 {}
+final class C11 {}
 
-abstract base class C12 {}
+final class C12 {}
 
-abstract base class C13 {}
+final class C13 {}
 
-abstract base class C14 {}
+final class C14 {}
 
-abstract base class C15 {}
+final class C15 {}
 
 main() {
   print(C1);
