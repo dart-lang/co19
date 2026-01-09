@@ -15,7 +15,6 @@
 // SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
-part 'augmenting_types_A09_t02_lib.dart';
 
 mixin M1 {
   String get id1 => "M1";
