@@ -13,36 +13,24 @@
 ///
 /// @description Checks that it is not an error if an augmenting type declares
 /// the same number of type parameters with the same names and bounds. Test the
-/// case when bound name has a library prefix.
+/// case when the bound name has a library prefix.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-import '../../Utils/expect.dart';
-import '../../Utils/static_type_helper.dart';
-import 'augmentation_libraries_lib.dart';
+part of 'augmenting_class_like_declarations_A07_t02.dart';
+import 'augmentation_libraries_lib.dart' as p;
 
-part 'augmenting_types_A05_t05_lib.dart';
+augment class C<T extends p.AL> {}
 
-class C<T extends AL> {}
+augment mixin M<T extends p.AL> {}
 
-mixin M<T extends AL> {}
-
-enum E<T extends AL> {
-  e0;
+augment enum E<T extends p.AL> {
+  ;
 }
 
-class A{}
-extension Ext<T extends AL> on A {}
-
-extension type ET<T extends AL>(int _) {}
-
-class MA<T extends AL> = Object with M<T>;
-
-main() {
-  C().expectStaticType<Exactly<C<AL>>>();
-  MA().expectStaticType<Exactly<MA<AL>>>();
-  E.e0.expectStaticType<Exactly<E<AL>>>();
-  Expect.equals(AL, A().type);
-  ET(0).expectStaticType<Exactly<ET<AL>>>();
+augment extension Ext<T extends p.AL> {
+  Type get type => T;
 }
+
+augment extension type ET<T extends p.AL> {}
