@@ -18,29 +18,33 @@
 class C1.someName(var int v) {
 //       ^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   static int someName = 0;
+//           ^^^^^^^^
+// [cfe] unspecified
 }
 
 class C2.someName(final int v) {
 //       ^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   static int get someName => 0;
+//           ^^^^^^^^
+// [cfe] unspecified
 }
 
 class C3._someName(var int v) {
 //       ^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   static void _someName(int _) {}
+//            ^^^^^^^^^
+// [cfe] unspecified
 }
 
 class C4.someName(final int v) {
 //       ^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   static void set someName(int _) {}
+//                ^^^^^^^^
+// [cfe] unspecified
 }
 
 main() {

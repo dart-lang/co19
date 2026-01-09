@@ -18,29 +18,33 @@
 mixin class C1.someName() {
 //             ^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   static int someName = 0;
+//           ^^^^^^^^
+// [cfe] unspecified
 }
 
 mixin class C2.someName() {
 //             ^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   static int get someName => 0;
+//               ^^^^^^^^
+// [cfe] unspecified
 }
 
 mixin class C3._someName() {
 //             ^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   static void _someName() {}
+//            ^^^^^^^^^
+// [cfe] unspecified
 }
 
 mixin class C4.someName() {
 //             ^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   static void set someName(int _) {}
+//                ^^^^^^^^
+// [cfe] unspecified
 }
 
 main() {
