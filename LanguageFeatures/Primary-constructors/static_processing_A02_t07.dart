@@ -18,29 +18,33 @@
 extension type ET1.someName(int _) {
 //                 ^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   static int someName = 0;
+//           ^^^^^^^^
+// [cfe] unspecified
 }
 
 extension type ET2.someName(int _) {
 //                 ^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   static int get someName => 0;
+//           ^^^^^^^^
+// [cfe] unspecified
 }
 
 extension type ET3._someName(int _) {
 //                 ^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   static void _someName(int _) {}
+//            ^^^^^^^^^
+// [cfe] unspecified
 }
 
 extension type ET4.someName(int _) {
 //                 ^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   static void set someName(int _) {}
+//                ^^^^^^^^
+// [cfe] unspecified
 }
 
 main() {
