@@ -43,10 +43,10 @@ main() {
   Expect.equals("v1", c1.v1);
   Expect.isNull(c1.v2);
 
-  var c2 = C2<int>("C2", 2);
+  var c2 = C2("C2", 2);
   Expect.equals("C2", c2.v1);
   Expect.equals(2, c2.v2);
-  c2 = C2<int>();
+  c2 = C2();
   Expect.equals("v1", c2.v1);
   Expect.isNull(c2.v2);
 }
