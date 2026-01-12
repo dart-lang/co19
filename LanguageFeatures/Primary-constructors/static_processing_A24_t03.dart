@@ -90,7 +90,6 @@ main() {
   print(C1);
   print(C2);
   print(C3);
-  print(C4);
   print(C5);
   print(C6);
   print(C7);
