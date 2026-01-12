@@ -28,7 +28,7 @@ import '../../Utils/expect.dart';
 class A<T> {
   String v1;
   T v2;
-  A(this.v1, this.v2);
+  A({required this.v1, required this.v2});
 }
 
 class C1<T>({required super.v1, required T super.v2}) extends A<T>;
@@ -40,7 +40,7 @@ main() {
   Expect.equals("C1", c1.v1);
   Expect.equals(2, c1.v2);
 
-  var c2 = C2<int>(v1: "C2", v2: 2);
+  var c2 = C2(v1: "C2", v2: 2);
   Expect.equals("C2", c2.v1);
   Expect.equals(2, c2.v2);
 }
