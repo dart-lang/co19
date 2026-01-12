@@ -23,7 +23,7 @@
 
 import '../../Utils/expect.dart';
 
-class A(int z);
+class A(final int z);
 
 String log = "";
 
@@ -40,6 +40,7 @@ class C2(int x) extends A {
 extension type ET(int v) {
   this: assert(() {
     log = "$v";
+    return true;
   }());
 }
 
