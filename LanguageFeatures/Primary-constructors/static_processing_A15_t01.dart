@@ -35,8 +35,6 @@ mixin class M1.id();
 
 mixin class M2<T>.id();
 
-class C2<T>.id(final int v);
-
 extension type ET1.id(int v);
 
 extension type ET2<T>.id(int v);
