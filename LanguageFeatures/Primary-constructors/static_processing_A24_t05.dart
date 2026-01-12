@@ -42,8 +42,10 @@ enum E2([final int x = 0]) {
 // [cfe] unspecified
 }
 
-enum E3({int x = 0}) {
+enum E3({final int x = 0}) {
   e0(x: 0);
+//^^^^^^^^
+// [analyzer] unspecified
   this: x = 5;
 //      ^
 // [analyzer] unspecified
