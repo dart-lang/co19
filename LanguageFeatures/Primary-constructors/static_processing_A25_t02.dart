@@ -67,19 +67,19 @@ extension type ET2.someName(int v) {
 }
 
 enum E.someName(int v) {
-  e0(0);
+  e0.someName(0);
   final int v;
   this: v = v;
 }
 
 main() {
-  Expect.equals(1, C1().v);
-  Expect.equals(2, C2().v);
-  Expect.equals(3, C3(2).v);
-  ET1(1);
+  Expect.equals(1, C1.someName().v);
+  Expect.equals(2, C2.someName().v);
+  Expect.equals(3, C3.someName(2).v);
+  ET1.someName(1);
   Expect.equals("1", log);
   log = "";
-  ET2(2);
+  ET2.someName(2);
   Expect.equals("2", log);
   Expect.equals(0, E.e0.v);
 }
