@@ -40,13 +40,13 @@ class C2({required String v1, required int v2}) {
 }
 
 enum E1<T>({required T t}) {
-  e0<String>(t: "E1"), e1;
+  e0<String>(t: "E1");
   final T v;
   this: v = t;
 }
 
 enum E2({required String s}) {
-  e0(s: "E2"), e1;
+  e0(s: "E2");
   final String v;
   this : v = s;
 }
