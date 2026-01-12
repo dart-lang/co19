@@ -62,6 +62,8 @@ enum E1<T>(final T v, final T v) {
 // [analyzer] unspecified
 // [cfe] unspecified
   e0<int>(1, 2);
+//^^^^^^^^^^^^^
+// [analyzer] unspecified
 }
 
 enum E2(final String v, [final String v = ""]) {
@@ -69,6 +71,8 @@ enum E2(final String v, [final String v = ""]) {
 // [analyzer] unspecified
 // [cfe] unspecified
   e0("1", "2");
+//^^^^^^^^^^^^
+// [analyzer] unspecified
 }
 
 enum E3<T>(final T? v, {final T? v}) {
@@ -76,6 +80,8 @@ enum E3<T>(final T? v, {final T? v}) {
 // [analyzer] unspecified
 // [cfe] unspecified
   e0<int>(1);
+//^^^^^^^^^^
+// [analyzer] unspecified
 }
 
 enum E4(final String v, {required final String v}) {
@@ -83,6 +89,8 @@ enum E4(final String v, {required final String v}) {
 // [analyzer] unspecified
 // [cfe] unspecified
   e0("1", v: "2");
+//^^^^^^^^^^^^^^^
+// [analyzer] unspecified
 }
 
 main() {
