@@ -24,7 +24,7 @@ enum E1(covariant String this.x) {
 }
 
 enum E2([covariant this.x = ""]) {
-//    ^^
+//   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   e0("");
@@ -32,18 +32,18 @@ enum E2([covariant this.x = ""]) {
 }
 
 enum E3({covariant String this.x = ""}) {
-//    ^^
+//   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e0("");
+  e0(x: "");
   final String x;
 }
 
 enum E4({required covariant String this.x}) {
-//    ^^
+//   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e0("");
+  e0(x: "");
   final String x;
 }
 
