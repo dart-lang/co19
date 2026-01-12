@@ -24,6 +24,8 @@
 
 enum E1(final int x) {
   e0(0);
+//^^^^^
+// [analyzer] unspecified
   this: x = 1;
 //      ^
 // [analyzer] unspecified
@@ -32,14 +34,18 @@ enum E1(final int x) {
 
 enum E2([final int x = 0]) {
   e0(0);
+//^^^^^
+// [analyzer] unspecified
   this: x = 2;
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E3({int x = 0}) {
-  e(x: 0);
+enum E3({final int x = 0}) {
+  e0(x: 0);
+//^^^^^^^^
+// [analyzer] unspecified
   this: x = 5;
 //      ^
 // [analyzer] unspecified
@@ -47,7 +53,9 @@ enum E3({int x = 0}) {
 }
 
 enum E4({required final int x}) {
-  e(x: 0);
+  e0(x: 0);
+//^^^^^^^^
+// [analyzer] unspecified
   this: x = 4;
 //      ^
 // [analyzer] unspecified
@@ -56,6 +64,8 @@ enum E4({required final int x}) {
 
 enum E5(this.x) {
   e0(0);
+//^^^^^
+// [analyzer] unspecified
   final int x;
   this: x = 1;
 //      ^
@@ -65,6 +75,8 @@ enum E5(this.x) {
 
 enum E6([this.x = 0]) {
   e0(0);
+//^^^^^
+// [analyzer] unspecified
   final int x;
   this: x = 1;
 //      ^
@@ -74,6 +86,8 @@ enum E6([this.x = 0]) {
 
 enum E7({this.x = 0}) {
   e0(x: 0);
+//^^^^^^^^
+// [analyzer] unspecified
   final int x;
   this: x = 1;
 //      ^
@@ -83,6 +97,8 @@ enum E7({this.x = 0}) {
 
 enum E8({required this.x}) {
   e0(x: 0);
+//^^^^^^^^
+// [analyzer] unspecified
   final int x;
   this: x = 1;
 //      ^
