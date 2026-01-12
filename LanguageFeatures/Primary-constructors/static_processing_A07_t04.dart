@@ -35,7 +35,7 @@ enum E3({covariant String this.x = ""}) {
 //    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e0("");
+  e0(x: "");
   final String x;
 }
 
@@ -43,7 +43,7 @@ enum E4({required covariant String this.x}) {
 //    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e0("");
+  e0(x: "");
   final String x;
 }
 
