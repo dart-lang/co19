@@ -24,13 +24,13 @@ import '../../Utils/expect.dart';
 enum E1(final int v) {
   e0(1), e1.someName(2);
 
-  E1.someName(int v) : this(v);
+  const E1.someName(int v) : this(v);
 }
 
 enum const E2.someName(final int v) {
   e0.someName(1), e1(2);
 
-  const C2(int v) : this.someName(v);
+  const E2(int v) : this.someName(v);
 }
 
 main() {
