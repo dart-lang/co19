@@ -45,15 +45,15 @@ class C2([final String x = "default"]) {
 }
 
 class C3({var String x = "default"}) {
-String instance = x;
-static late String staticLateVariable = x;
+  String instance = x;
+  static late String staticLateVariable = x;
 //                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class C4({required final String x}) {
-String instance = x;
+  String instance = x;
   static late String staticLateVariable = x;
 //                                        ^
 // [analyzer] unspecified
