@@ -2,10 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if an extension type declaration `DV`
-/// has two extension type superinterfaces `V1` and `V2`, and both `V1` and `V2`
-/// has an extension type member named `m` that is not precluded by `DV`, and
-/// the two members have distinct declarations.
+/// @assertion It is a compile-time error if `DV` is an extension type
+/// declaration, and `DV` has a non-extension type member named `m` which is not
+/// precluded by `DV` as well as an extension type member named `m` which is not
+/// precluded by `DV`, for any `m`. In case of conflicts, `DV` must declare a
+/// member named `m` to resolve the conflict.
 ///
 /// @description Checks that it is not an error if an extension type implements
 /// conflicting interfaces but declares its own member which resolves the
@@ -17,27 +18,25 @@ import "../../Utils/expect.dart";
 
 String log = "";
 
-class A {}
-
-extension type V1(A a) {
+class A {
   void m() {}
 }
 
-extension type V2(A a) {
+extension type ET(A a) {
   void set m(int v) {
     log = "ET";
   }
 }
 
-extension type ET1(A a) implements V1, V2 {
+extension type ET1(A id) implements A, ET {
   int get m => 1;
 }
 
-extension type ET2(A a) implements V1, V2 {
+extension type ET2(A id) implements A, ET {
   int m() => 2;
 }
 
-extension type ET3(A a) implements V1, V2 {
+extension type ET3(A id) implements A, ET {
   void set m(int _) {
     log = "ET3";
   }

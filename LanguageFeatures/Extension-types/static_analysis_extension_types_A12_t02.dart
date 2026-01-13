@@ -10,7 +10,7 @@
 ///
 /// @description Checks that it is a compile-time error if an extension type
 /// declaration has a non-extension type member named `m` as well as an
-/// extension type member named `m`.
+/// extension type member named `m`. Test a method.
 /// @author sgrekhov22@gmail.com
 
 extension type ET1(int id) {

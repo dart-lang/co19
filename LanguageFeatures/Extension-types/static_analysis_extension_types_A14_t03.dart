@@ -13,7 +13,7 @@
 /// @author sgrekhov22@gmail.com
 
 extension type ET1(int i) {
-  void set m(Object o) {}
+  void set m(int i) {}
 }
 
 extension type ET2(int i) {

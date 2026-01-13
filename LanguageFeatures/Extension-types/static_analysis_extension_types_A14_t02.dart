@@ -17,7 +17,7 @@ extension type ET1(int i) {
 }
 
 extension type ET2(int i) {
-  int m(int i) => 0;
+  int m() => 0;
 }
 
 extension type ET3(int i) implements ET1, ET2 {

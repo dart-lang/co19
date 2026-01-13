@@ -17,7 +17,7 @@ extension type ET1(int i) {
 }
 
 extension type ET2(int i) {
-  String get m => "0";
+  int get m => 0;
 }
 
 extension type ET3(int i) implements ET1, ET2 {
