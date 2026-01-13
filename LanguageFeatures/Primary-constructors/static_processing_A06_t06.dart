@@ -26,107 +26,107 @@
 
 // SharedOptions=--enable-experiment=primary-constructors
 
-import '../../Utils/expect.dart';
-
 String x = "top level";
 
 class C1(var String x) {
   String instance = x;
   static late String staticLateVariable = x;
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-class C2([String x = "default"]) {
+class C2([final String x = "default"]) {
   String instance = x;
   static late String staticLateVariable = x;
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-class C3({final String x = "default"}) {
+class C3({var String x = "default"}) {
   String instance = x;
   static late String staticLateVariable = x;
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-class C4({required String x}) {
+class C4({required final String x}) {
   String instance = x;
   static late String staticLateVariable = x;
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET1(String x) {
-  static late String staticVariable = x;
+  static late String staticLateVariable = x;
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET2([String x = "default"]) {
-  static late String staticVariable = x;
+  static late String staticLateVariable = x;
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET3({final String x = "default"}) {
-  static late String staticVariable = x;
+  static late String staticLateVariable = x;
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET4({required String x}) {
-  static late String staticVariable = x;
+  static late String staticLateVariable = x;
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-enum const E1(String x) {
+enum const E1(final String x) {
   e0("E1");
-  static late String staticVariable = x;
+  static late String staticLateVariable = x;
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-enum const E2([String x = "default"]) {
+enum const E2([final String x = "default"]) {
   e0("E2");
-  static late String staticVariable = x;
+  static late String staticLateVariable = x;
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum const E3({final String x = "default"}) {
   e0(x: "E3");
-  static late String staticVariable = x;
+  static late String staticLateVariable = x;
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-enum const E4({required String x}) {
+enum const E4({required final String x}) {
   e0(x: "E4");
-  static late String staticVariable = x;
+  static late String staticLateVariable = x;
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  var c1 = C1("parameter");
-  Expect.equals("parameter", c1.instance);
-  Expect.equals("top level", C1.staticLateVariable);
-
-  var c2 = C2("parameter");
-  Expect.equals("parameter", c2.instance);
-  Expect.equals("top level", C2.staticLateVariable);
-  c2 = C2();
-  Expect.equals("default", c2.instance);
-  Expect.equals("top level", C2.staticLateVariable);
-
-  var c3 = C3(x: "parameter");
-  Expect.equals("parameter", c3.instance);
-  Expect.equals("top level", C3.staticLateVariable);
-  c3 = C3();
-  Expect.equals("default", c3.instance);
-  Expect.equals("top level", C3.staticVariable);
-
-  var c4 = C4(x: "parameter");
-  Expect.equals("parameter", c4.instance);
-  Expect.equals("top level", C4.staticLateVariable);
-
-  var et1 = ET1("parameter");
-  Expect.equals("top level", ET1.staticVariable);
-
-  var et2 = ET2("parameter");
-  Expect.equals("top level", ET2.staticVariable);
-  et2 = ET2();
-  Expect.equals("top level", ET2.staticVariable);
-
-  var et3 = ET3(x: "parameter");
-  Expect.equals("top level", ET3.staticVariable);
-  et3 = ET3();
-  Expect.equals("top level", ET3.staticVariable);
-
-  var et4 = ET4(x: "parameter");
-  Expect.equals("top level", ET4.staticVariable);
-
-  Expect.equals("top level", E1.staticVariable);
-  Expect.equals("top level", E2.staticVariable);
-  Expect.equals("top level", E3.staticVariable);
-  Expect.equals("top level", E4.staticVariable);
+  print(C1);
+  print(C2);
+  print(C3);
+  print(C4);
+  print(E1);
+  print(E2);
+  print(E3);
+  print(E4);
 }
