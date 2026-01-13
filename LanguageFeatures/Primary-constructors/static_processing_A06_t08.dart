@@ -52,24 +52,24 @@ class C4({required String x}) {
 
 main() {
   var c1 = C1("parameter");
-  Expect.equals("top level", c1.instance);
+  Expect.equals("parameter", c1.instance);
   Expect.equals("top level", c1.lateInstance);
 
   var c2 = C2("parameter");
-  Expect.equals("top level", c2.instance);
+  Expect.equals("parameter", c2.instance);
   Expect.equals("top level", c2.lateInstance);
   c2 = C2();
-  Expect.equals("top level", c2.instance);
+  Expect.equals("default", c2.instance);
   Expect.equals("top level", c2.lateInstance);
 
   var c3 = C3(x: "parameter");
-  Expect.equals("top level", c3.instance);
+  Expect.equals("parameter", c3.instance);
   Expect.equals("top level", c3.lateInstance);
   c3 = C3();
-  Expect.equals("top level", c3.instance);
+  Expect.equals("default", c3.instance);
   Expect.equals("top level", c3.lateInstance);
 
   var c4 = C4(x: "parameter");
-  Expect.equals("top level", c4.instance);
+  Expect.equals("parameter", c4.instance);
   Expect.equals("top level", c4.lateInstance);
 }
