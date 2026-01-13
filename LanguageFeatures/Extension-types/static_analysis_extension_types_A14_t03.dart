@@ -2,10 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if an extension type declaration DV
-/// has two extension type superinterfaces V1 and V2, and both V1 and V2 has an
-/// extension type member named m, and the two members have distinct
-/// declarations.
+/// @assertion A compile-time error occurs if an extension type declaration `DV`
+/// has two extension type superinterfaces `V1` and `V2`, and both `V1` and `V2`
+/// has an extension type member named `m` that is not precluded by `DV`, and
+/// the two members have distinct declarations.
 ///
 /// @description Checks that it is a compile-time error if an extension type
 /// declaration has a two extension type superinterfaces with a type member
@@ -13,7 +13,7 @@
 /// @author sgrekhov22@gmail.com
 
 extension type ET1(int i) {
-  void set m(Object o) {}
+  void set m(int i) {}
 }
 
 extension type ET2(int i) {
