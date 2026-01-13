@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -20,7 +20,7 @@
 /// The primary parameter scope is the current scope for the body of the body
 /// part of the primary constructor, if any.
 ///
-/// @description Check that the primary initializer scope is not the current
+/// @description Check that the primary parameter scope is not the current
 /// scope for the initializing expression of late instance variable declaration.
 /// @author sgrekhov22@gmail.com
 
@@ -30,46 +30,46 @@ import '../../Utils/expect.dart';
 
 String x = "top level";
 
-class C1(var String x) {
+class C1(String x) {
   String instance = x;
   late String lateInstance = x;
 }
 
-class C2([final String x = "default"]) {
+class C2([String x = "default"]) {
   String instance = x;
   late String lateInstance = x;
 }
 
-class C3({var String x = "default"}) {
+class C3({String x = "default"}) {
   String instance = x;
   late String lateInstance = x;
 }
 
-class C4({required final String x}) {
+class C4({required String x}) {
   String instance = x;
   late String lateInstance = x;
 }
 
 main() {
   var c1 = C1("parameter");
-  Expect.equals("parameter", c1.instance);
+  Expect.equals("top level", c1.instance);
   Expect.equals("top level", c1.lateInstance);
 
   var c2 = C2("parameter");
-  Expect.equals("parameter", c2.instance);
+  Expect.equals("top level", c2.instance);
   Expect.equals("top level", c2.lateInstance);
   c2 = C2();
-  Expect.equals("default", c2.instance);
+  Expect.equals("top level", c2.instance);
   Expect.equals("top level", c2.lateInstance);
 
   var c3 = C3(x: "parameter");
-  Expect.equals("parameter", c3.instance);
+  Expect.equals("top level", c3.instance);
   Expect.equals("top level", c3.lateInstance);
   c3 = C3();
-  Expect.equals("default", c3.instance);
+  Expect.equals("top level", c3.instance);
   Expect.equals("top level", c3.lateInstance);
 
   var c4 = C4(x: "parameter");
-  Expect.equals("parameter", c4.instance);
+  Expect.equals("top level", c4.instance);
   Expect.equals("top level", c4.lateInstance);
 }
