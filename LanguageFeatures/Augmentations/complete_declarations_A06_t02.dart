@@ -24,8 +24,8 @@
 // SharedOptions=--enable-experiment=augmentations
 
 late int topLevelVariable;
-augment int topLevelVariable;
-//          ^^^^^^^^^^^^^^^^
+augment late int topLevelVariable = 0;
+//               ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
