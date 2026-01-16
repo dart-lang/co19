@@ -12,52 +12,52 @@
 ///
 /// @description Check that it is a compile-time error if an augmenting
 /// declaration specifies a different return type than the introductory
-/// declaration.
+/// declaration. Test a wrong top type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part 'type_inheritance_A02_t01_lib.dart';
+part 'type_annotation_inheritance_A04_t04_lib.dart';
 
-num get topLevelGetter => 0;
-num topLevelFunction() => 0;
+get topLevelGetter;
+topLevelFunction() => 0;
 
 class C {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static get staticGetter;
+  static staticMethod() => 0;
+  get instanceGetter => 0;
+  instanceMethod();
 }
 
 mixin M {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static get staticGetter;
+  static staticMethod() => 0;
+  get instanceGetter => 0;
+  instanceMethod();
 }
 
 enum E {
   e0;
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static get staticGetter;
+  static staticMethod() => 0;
+  get instanceGetter => 0;
+  instanceMethod();
 }
 
 class A {}
 
 extension Ext on A {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+  static get staticGetter;
+  static staticMethod() => 0;
+  get instanceGetter => 0;
+  instanceMethod();
 }
 
-extension type ET(num id) {
-  static num get staticGetter => 0;
-  static num staticMethod() => 0;
-  num get instanceGetter => 0;
-  num instanceMethod() => 0;
+extension type ET(int id) {
+  static get staticGetter;
+  static staticMethod() => 0;
+  get instanceGetter => 0;
+  instanceMethod();
 }
 
 main() {

@@ -17,47 +17,49 @@
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 import '../../Utils/expect.dart';
-part 'type_inheritance_A02_t02_lib.dart';
+part 'type_annotation_inheritance_A04_t03_lib.dart';
 
-get topLevelGetter;
-topLevelFunction() => 0;
+typedef NumAlias = num;
+
+num get topLevelGetter;
+num topLevelFunction() => 0;
 
 class C {
-  static get staticGetter => 0;
-  static staticMethod();
-  get instanceGetter;
-  instanceMethod() => 0;
+  static num get staticGetter => 0;
+  static num staticMethod();
+  num get instanceGetter;
+  num instanceMethod() => 0;
 }
 
 mixin M {
-  static get staticGetter => 0;
-  static staticMethod();
-  get instanceGetter;
-  instanceMethod() => 0;
+  static num get staticGetter => 0;
+  static num staticMethod();
+  num get instanceGetter;
+  num instanceMethod() => 0;
 }
 
 enum E {
   e0;
-  static get staticGetter => 0;
-  static staticMethod();
-  get instanceGetter;
-  instanceMethod() => 0;
+  static num get staticGetter => 0;
+  static num staticMethod();
+  num get instanceGetter;
+  num instanceMethod() => 0;
 }
 
 class A {}
 
 extension Ext on A {
-  static get staticGetter => 0;
-  static staticMethod();
-  get instanceGetter;
-  instanceMethod() => 0;
+  static num get staticGetter => 0;
+  static num staticMethod();
+  num get instanceGetter;
+  num instanceMethod() => 0;
 }
 
-extension type ET(dynamic id) {
-  static get staticGetter => 0;
-  static staticMethod();
-  get instanceGetter;
-  instanceMethod() => 0;
+extension type ET(num id) {
+  static num get staticGetter => 0;
+  static num staticMethod();
+  num get instanceGetter;
+  num instanceMethod() => 0;
 }
 
 class MA = Object with M;
@@ -85,5 +87,5 @@ main() {
   Expect.equals(1, ET.staticMethod());
   Expect.equals(1, ET(0).instanceGetter);
   Expect.equals(0, ET(0).instanceMethod());
-  Expect.equals("42", ET("42").id);
+  Expect.equals(42, ET(42).id);
 }
