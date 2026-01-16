@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'type_inheritance_A02_t01.dart';
+part of 'type_annotation_inheritance_A04_t01.dart';
 
 augment int get topLevelGetter;
 //      ^^^

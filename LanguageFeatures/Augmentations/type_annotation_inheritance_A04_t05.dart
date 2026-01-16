@@ -17,7 +17,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part 'type_inheritance_A02_t05_lib.dart';
+part 'type_annotation_inheritance_A04_t05_lib.dart';
 
 topLevelFunction() {}
 

@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'type_inheritance_A02_t02.dart';
+part of 'type_annotation_inheritance_A04_t02.dart';
 
 augment dynamic get topLevelGetter => 1;
 augment dynamic topLevelFunction();

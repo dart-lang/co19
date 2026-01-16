@@ -16,7 +16,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'type_inheritance_A02_t03.dart';
+part of 'type_annotation_inheritance_A04_t03.dart';
 
 augment NumAlias get topLevelGetter => 1;
 augment NumAlias topLevelFunction();
