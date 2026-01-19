@@ -28,7 +28,7 @@ import '../../Utils/expect.dart';
 class A<T> {
   String v1;
   T? v2;
-  A({this.v1, this.v2});
+  A({this.v1 = "", this.v2});
 }
 
 class C1<T>({super.v1 = "v1", T? super.v2}) extends A<T>;
