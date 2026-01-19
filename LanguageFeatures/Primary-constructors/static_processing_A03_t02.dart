@@ -39,7 +39,10 @@ base mixin M7.someName(); // Constructor is "trivial" but it's not a "mixin clas
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin class M8.someName() { // Ok
+mixin class M8.someName() { // Constructor is "non-trivial", it has in-body initializer list
+//             ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   int x;
   this: x = 0;
 }
