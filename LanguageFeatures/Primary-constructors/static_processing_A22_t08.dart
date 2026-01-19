@@ -71,7 +71,7 @@ enum E<T>({
     required final T v1,
     required final String v2,
     required final bool v3}) {
-  e0<int>();
+  e0<int>(v1: 1, v2: "v2", v3: true);
 
   static final T v1;
 //               ^^
