@@ -43,8 +43,8 @@ class C<T>([var String v1 = "", final T? v2, var bool v3 = true]) {
 //           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  T v2;
-//  ^^
+  T? v2;
+//   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   void v3() {}
@@ -70,8 +70,8 @@ extension type ET2([String v = ""]) {
 enum E<T>([final T? v1, final String v2 = "", final bool v3 = true]) {
   e0<int>(1, "E1", true);
 
-  final T v1;
-//        ^^
+  final T? v1;
+//         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   String get v2 => "";
