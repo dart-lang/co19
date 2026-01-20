@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -14,66 +14,85 @@
 /// specifies the same type bound as the introductory declaration.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/static_type_helper.dart';
-part 'type_inheritance_A05_t02_lib.dart';
 
 typedef NumAlias = num;
 
 void topLevelFunction<T extends num>(T v) {}
+augment void topLevelFunction<T extends NumAlias>(T v);
 
-class C<T extends num> {
+class C {
   static void staticMethod<X extends num>(X _);
   void instanceMethod<X extends num>(X _) {}
 }
 
-mixin M<T extends num> {
-  static void staticMethod<X extends num>(X _) {}
-  void instanceMethod<X extends num>(X _);
+augment class C {
+  augment static void staticMethod<X extends NumAlias>(X _) {}
+  augment void instanceMethod<X extends NumAlias>(X _);
 }
 
-enum E<T extends num> {
+mixin M {
+  static void staticMethod<X extends num>(X _);
+  void instanceMethod<X extends num>(X _) {}
+}
+
+augment mixin M {
+  augment static void staticMethod<X extends NumAlias>(X _) {}
+  augment void instanceMethod<X extends NumAlias>(X _);
+}
+
+enum E {
   e0;
   static void staticMethod<X extends num>(X _);
   void instanceMethod<X extends num>(X _) {}
 }
 
-class A {}
-
-extension Ext<T extends num> on A {
-  static void staticMethod<X extends num>(X _) {}
-  void instanceMethod<X extends num>(X _);
-  void typeCheck(T t) {}
+augment enum E {
+  ;
+  augment static void staticMethod<X extends NumAlias>(X _) {}
+  augment void instanceMethod<X extends NumAlias>(X _);
 }
 
-extension type ET<T extends num>(int id) {
+class A {}
+
+extension Ext on A {
   static void staticMethod<X extends num>(X _);
   void instanceMethod<X extends num>(X _) {}
+}
+
+augment extension Ext {
+  augment static void staticMethod<X extends NumAlias>(X _) {}
+  augment void instanceMethod<X extends NumAlias>(X _);
+}
+
+extension type ET(int id) {
+  static void staticMethod<X extends num>(X _);
+  void instanceMethod<X extends num>(X _) {}
+}
+
+augment extension type ET {
+  augment static void staticMethod<X extends NumAlias>(X _) {}
+  augment void instanceMethod<X extends NumAlias>(X _);
 }
 
 class MA = Object with M;
 
 main() {
   topLevelFunction.expectStaticType<Exactly<void Function<T extends num>(T)>>();
-  C().expectStaticType<Exactly<C<num>>>();
   C.staticMethod.expectStaticType<Exactly<void Function<T extends num>(T)>>();
   C().instanceMethod
       .expectStaticType<Exactly<void Function<T extends num>(T)>>();
-  MA().expectStaticType<SubtypeOf<M<num>>>();
   M.staticMethod.expectStaticType<Exactly<void Function<T extends num>(T)>>();
   MA().instanceMethod
       .expectStaticType<Exactly<void Function<T extends num>(T)>>();
-  E.e0.expectStaticType<Exactly<E<num>>>();
   E.staticMethod.expectStaticType<Exactly<void Function<T extends num>(T)>>();
   E.e0.instanceMethod
       .expectStaticType<Exactly<void Function<T extends num>(T)>>();
-  A().typeCheck.expectStaticType<Exactly<void Function(num)>>();
   Ext.staticMethod.expectStaticType<Exactly<void Function<T extends num>(T)>>();
   A().instanceMethod
       .expectStaticType<Exactly<void Function<T extends num>(T)>>();
-
-  ET(0).expectStaticType<Exactly<ET<num>>>();
   ET.staticMethod.expectStaticType<Exactly<void Function<T extends num>(T)>>();
   ET(0).instanceMethod
       .expectStaticType<Exactly<void Function<T extends num>(T)>>();

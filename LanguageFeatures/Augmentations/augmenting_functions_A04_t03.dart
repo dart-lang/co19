@@ -35,8 +35,6 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-part 'augmenting_functions_A04_t03_lib.dart';
-
 void topLevelFunction1() {}
 
 augment void topLevelFunction1([int? i]);
