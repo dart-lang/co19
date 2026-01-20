@@ -5,8 +5,8 @@
 /// @assertion It's a compile-time error if an abstract variable augments a
 /// getter and setter that don't have a combined signature.
 ///
-/// @description Checks that it not an error if an augmentation omits the bounds
-/// of the type parameters of a class-like declaration.
+/// @description Checks that it's a compile-time error if an abstract variable
+/// augments a getter and setter that don't have a combined signature.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
