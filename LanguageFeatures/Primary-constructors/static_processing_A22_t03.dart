@@ -70,7 +70,7 @@ extension type ET2({String v = ""}) {
 enum E<T>({final T? v1, final String v2 = "", final bool v3 = true}) {
   e0<int>();
 
-  final T? v1;
+  final T? v1 = null;
 //         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
