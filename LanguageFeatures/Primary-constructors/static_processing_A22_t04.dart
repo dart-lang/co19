@@ -73,7 +73,7 @@ enum E<T>({
     required final bool v3}) {
   e0<int>(v1: 1, v2: "v2", v3: true);
 
-  final T? v1;
+  final T? v1 = null;
 //         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
