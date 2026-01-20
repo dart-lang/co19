@@ -7,9 +7,9 @@
 /// [f<T1, . . . , Tl>(...)], where the static type of [f] is a generic function
 /// type with formal type parameters [X1 extends B1], . . . , [Xm extends Bm].
 /// It is a compile-time error if [m <> l].
+///
 /// @description checks that error appears if number of type parameters is
 /// @author iarkh@unipro.ru
-
 
 void testme1<T>() {}
 T1? testme2<T1, T2>(T2 t) {}
