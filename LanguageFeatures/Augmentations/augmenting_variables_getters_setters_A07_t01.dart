@@ -110,8 +110,8 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment static get Function staticVariable;
-//                   ^^^^^^^^
+  augment static Function get staticVariable;
+//               ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment static set staticVariable(Function _);
@@ -125,8 +125,8 @@ extension type ET(void Function() instanceVariable) {
 }
 
 augment extension type ET {
-  augment static get Function staticVariable;
-//                   ^^^^^^^^
+  augment static Function get staticVariable;
+//               ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment static set staticVariable(Function _);

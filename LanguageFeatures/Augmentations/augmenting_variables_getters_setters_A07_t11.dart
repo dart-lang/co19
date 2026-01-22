@@ -41,7 +41,7 @@ import '../../utils/static_type_helper.dart';
 
 abstract Null Function(Null _) topLevelVariable;
 
-augment topLevelVariable = (v) {
+augment var topLevelVariable = (v) {
   v.expectStaticType<Exactly<Object?>>();
 };
 
@@ -50,7 +50,7 @@ class C {
 }
 
 augment class C {
-  augment instanceVariable = (v) {
+  augment var instanceVariable = (v) {
     v.expectStaticType<Exactly<Object?>>();
   };
 }
@@ -60,7 +60,7 @@ mixin M {
 }
 
 augment mixin M {
-  augment instanceVariable = (v) {
+  augment var instanceVariable = (v) {
     v.expectStaticType<Exactly<Object?>>();
   };
 }

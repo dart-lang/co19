@@ -40,7 +40,7 @@ dynamic foo() => 42;
 
 dynamic Function() topLevelVariable = foo;
 
-abstract augment Function() topLevelVariable;
+augment abstract Function() topLevelVariable;
 
 class C {
   static dynamic Function() staticVariable = foo;
