@@ -11,9 +11,9 @@
 /// declaration, it is inferred to be the same as the corresponding type
 /// annotation or type parameter bound in the declaration being augmented.
 ///
-/// @description Check that augmenting declaration may have no type annotations
-/// for a formal parameter type. Test function with optional positioned and
-/// named parameters.
+/// @description Check that an augmenting declaration may have no type
+/// annotations for a formal parameter types. Test function with optional
+/// positional and named parameters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
