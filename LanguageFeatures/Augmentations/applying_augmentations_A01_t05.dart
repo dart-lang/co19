@@ -28,15 +28,15 @@ augment int f2() => 42;
 
 Null f3();
 
-augment var f3 = () {};
-//          ^^
+augment final f3 = () {};
+//            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 int f4() => 42;
 
-augment abstract int Function() f4;
-//                              ^^
+augment abstract final int Function() f4;
+//                                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
