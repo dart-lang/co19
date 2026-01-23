@@ -17,9 +17,9 @@ void f1();
 
 void f2() {}
 
-main() {
+class C {
   augment void f1() {}
-//             ^^^^^^^^
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -27,4 +27,10 @@ main() {
 //             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
+
+main() {
+  print(f1);
+  print(f2);
+  print(C);
 }
