@@ -13,11 +13,24 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-void function() {}
+void f1();
 
-main() {
-  augment void function() {}
-//             ^^^^^^^^
+void f2() {}
+
+class C {
+  augment void f1() {}
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  augment void f2();
+//             ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+main() {
+  print(f1);
+  print(f2);
+  print(C);
 }
