@@ -18,36 +18,27 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part 'augmenting_declarations_A02_t01_lib.dart';
+part 'applying_augmentations_A02_t03_lib.dart';
 
-augment class C {}
-//            ^
+augment void function();
+//           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment mixin M {}
-//            ^
+augment int get getter;
+//              ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment enum E {e1;}
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment extension Ext {}
-//                ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment extension type ET {}
-//                     ^^
+augment void set setter(int _);
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  print(C);
-  print(M);
-  print(E);
-  print(ET);
+  void function() {}
+
+  print(function);
+  print(getter);
+  setter = 0;
 }

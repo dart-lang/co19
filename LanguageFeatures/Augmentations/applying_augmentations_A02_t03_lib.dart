@@ -13,35 +13,24 @@
 ///
 /// @description Checks that it is a compile-time error if an augmenting
 /// declaration appears before the introductory one. Test augmenting declaration
-/// in a part file.
+/// in a main library.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'augmenting_declarations_A02_t02_lib1.dart';
+part of 'applying_augmentations_A02_t03.dart';
 
-class C {}
-//    ^
+void function() {}
+//   ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin M {}
-//    ^
+int get getter => 0;
+//      ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum E {e0;}
-//   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-class A {}
-extension Ext on A {}
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-extension type ET(int _) {}
-//             ^^
+void set setter(int _) {}
+//       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

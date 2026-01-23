@@ -18,30 +18,12 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'augmenting_declarations_A02_t02.dart';
-part 'augmenting_declarations_A02_t02_lib2.dart';
+part 'applying_augmentations_A02_t02_lib1.dart';
 
-augment class C {}
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment mixin M {}
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment enum E {e1;}
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment extension Ext {}
-//                ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-augment extension type ET {}
-//                     ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+main() {
+  print(C);
+  print(M);
+  print(E);
+  print(A);
+  print(ET);
+}

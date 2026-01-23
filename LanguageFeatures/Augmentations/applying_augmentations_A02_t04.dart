@@ -18,7 +18,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part 'augmenting_declarations_A02_t04_lib.dart';
+part 'applying_augmentations_A02_t04_lib.dart';
 
 abstract class C {
   augment static void staticMethod();
