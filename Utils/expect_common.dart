@@ -6,7 +6,7 @@ part of 'expect.dart';
 
 class Expect {
   /// Checks whether the expected and actual values are equal using `==`.
-  static void equals(var expected, var actual, [String reason = '']) {
+  static void equals(expected, actual, [String reason = '']) {
     if ((expected != actual) &&
         !((expected is double) &&
             (actual is double) &&
@@ -18,14 +18,14 @@ class Expect {
   }
 
   /// Checks whether the actual value is [bool] and its value is [true].
-  static void isTrue(var actual, [String reason = '']) {
+  static void isTrue(actual, [String reason = '']) {
     if (!_identical(actual, true)) {
       _fail('Expect.isTrue($actual$reason) fails.');
     }
   }
 
   /// Checks whether the actual value is [bool] and its value is [false].
-  static void isFalse(var actual, [String reason = '']) {
+  static void isFalse(actual, [String reason = '']) {
     if (!_identical(actual, false)) {
       _fail('Expect.isFalse($actual$reason) fails.');
     }
@@ -47,7 +47,7 @@ class Expect {
 
   /// Checks whether the expected and actual values are identical (using
   /// `identical`).
-  static void identical(var expected, var actual, [String reason = '']) {
+  static void identical(expected, actual, [String reason = '']) {
     if (!_identical(expected, actual)) {
       _fail('Expect.identical(expected: <$expected>, '
           'actual: <$actual>$reason) fails.');
@@ -56,7 +56,7 @@ class Expect {
 
   /// Checks whether the expected and actual values are identical (using
   /// `identical`).
-  static void notIdentical(var expected, var actual, [String reason = '']) {
+  static void notIdentical(expected, actual, [String reason = '']) {
     if (_identical(expected, actual)) {
       _fail('Expect.notIdentical(expected: <$expected>, '
           'actual: <$actual>$reason) fails.');
@@ -224,7 +224,7 @@ class Expect {
   }
 
   /// Checks that given lists are equal.
-  static void listEquals(var expected, var actual, [String reason = '']) {
+  static void listEquals(expected, actual, [String reason = '']) {
     if (expected is! List) {
       Expect.fail('expected is not a List:$expected');
     } else if (actual is! List) {
@@ -235,7 +235,7 @@ class Expect {
   }
 
   /// Checks that given lists are approximately equal.
-  static void listApproxEquals(var expected, var actual,
+  static void listApproxEquals(expected, actual,
       [num? tolerance, String reason = '']) {
     if (expected is! List) {
       Expect.fail('expected is not a List: $expected');
@@ -255,7 +255,7 @@ class Expect {
   }
 
   /// Checks that given maps are equal.
-  static void mapEquals(var expected, var actual, [String reason = '']) {
+  static void mapEquals(expected, actual, [String reason = '']) {
     if ((expected is! Map) || (actual is! Map)) {
       Expect.fail('not a Map');
     } else {
@@ -266,11 +266,11 @@ class Expect {
   /// Checks that both collections have identical topology and equal primitive
   /// elements. Useful to check cyclic collections passed through ports and
   /// streams.
-  static void deepEquals(var expected, var actual, [String reason = '']) {
+  static void deepEquals(expected, actual, [String reason = '']) {
     Map planned = Map();
     Map processed = Map();
 
-    void plan2check(var expected, var actual) {
+    void plan2check(expected, actual) {
       if (expected == null) {
         Expect.isNull(actual);
       }
@@ -298,7 +298,7 @@ class Expect {
       }
     }
 
-    void runPlanned(var expected, var actual) {
+    void runPlanned(expected, actual) {
       if (expected is Map) {
         for (var key in expected.keys) {
 //        TODO check that key sets are equivalent.
