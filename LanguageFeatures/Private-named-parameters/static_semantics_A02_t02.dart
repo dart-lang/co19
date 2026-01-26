@@ -31,7 +31,7 @@ enum E1(int? _p, {final String _p = ""}) {
 //                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e0;
+  e0(0);
 }
 
 enum E2({final String _p = "", final int? p}) {
