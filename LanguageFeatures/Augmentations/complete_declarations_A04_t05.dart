@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -17,20 +17,26 @@
 /// before it in the augmentation chain is also complete.
 ///
 /// @description Checks that it is a compile-time error to add a body to an
-/// already complete getter.
+/// external getter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-String get topLevelGetter => "x";
-augment String get topLevelGetter => "y";
+external String get topLevelGetter1;
+augment String get topLevelGetter1 => "y";
 //                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+external String get topLevelGetter2;
+augment external String get topLevelGetter2;
+//                          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 class C {
-  static String get staticGetter => "x";
-  String get instanceGetter => "x";
+  external static String get staticGetter;
+  external String get instanceGetter;
 }
 
 augment class C {
@@ -38,32 +44,32 @@ augment class C {
 //                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceGetter => "y";
-//                                  ^
+  augment external String get instanceGetter;
+//                            ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin M {
-  static String get staticGetter => "x";
-  String get instanceGetter => "x";
+  external static String get staticGetter;
+  external String get instanceGetter;
 }
 
 augment mixin M {
-  augment static String get staticGetter => "y";
-//                                       ^
+  augment external static String get staticGetter;
+//                                   ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment String get instanceGetter => "y";
-//                                  ^
+//                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E {
   e0;
-  static String get staticGetter => "x";
-  String get instanceGetter => "x";
+  external static String get staticGetter;
+  external String get instanceGetter;
 }
 
 augment enum E {
@@ -72,8 +78,8 @@ augment enum E {
 //                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceGetter => "y";
-//                                  ^
+  augment external String get instanceGetter;
+//                            ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -81,8 +87,8 @@ augment enum E {
 class A {}
 
 extension Ext on A {
-  static String get staticGetter => "x";
-  String get instanceGetter => "x";
+  external static String get staticGetter;
+  external String get instanceGetter;
 }
 
 augment extension Ext {
@@ -90,15 +96,15 @@ augment extension Ext {
 //                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceGetter => "y";
-//                                  ^
+  augment external String get instanceGetter;
+//                            ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET(int _) {
-  static String get staticGetter => "x";
-  String get instanceGetter => "x";
+  external static String get staticGetter;
+  external String get instanceGetter;
 }
 
 augment extension type ET {
@@ -106,14 +112,15 @@ augment extension type ET {
 //                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceGetter => "y";
-//                                  ^
+  augment external String get instanceGetter;
+//                            ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  topLevelGetter;
+  topLevelGetter1;
+  topLevelGetter2;
   print(C);
   print(M);
   print(E);

@@ -5,8 +5,8 @@
 /// @assertion It's a compile-time error if an augmentation is complete and any
 /// declaration before it in the augmentation chain is also complete.
 ///
-/// @description Checks that it is a compile-time error if the augmented
-/// constructor has a body.
+/// @description Checks that it is a compile-time error if both augmented and
+/// augmenting constructors have a body.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

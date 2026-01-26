@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -17,20 +17,26 @@
 /// before it in the augmentation chain is also complete.
 ///
 /// @description Checks that it is a compile-time error to add a body to an
-/// already complete setter.
+/// external complete setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-void set topLevelSetter(String _) {}
-augment void set topLevelSetter(String _) {}
-//                                        ^
+external void set topLevelSetter1(String _);
+augment void set topLevelSetter1(String _) {}
+//                                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+external void set topLevelSetter2(String _);
+augment external void set topLevelSetter2(String _);
+//                        ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 class C {
-  static void set staticSetter(String _) {}
-  void set instanceSetter(String _) {}
+  external static void set staticSetter(String _);
+  external void set instanceSetter(String _);
 }
 
 augment class C {
@@ -38,15 +44,15 @@ augment class C {
 //                                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceSetter(String _) {}
-//                                          ^
+  augment external void set instanceSetter(String _);
+//                          ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin M {
-  static void set staticSetter(String _) {}
-  void set instanceSetter(String _) {}
+  external static void set staticSetter(String _);
+  external void set instanceSetter(String _);
 }
 
 augment mixin M {
@@ -54,16 +60,16 @@ augment mixin M {
 //                                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceSetter(String _) {}
-//                                          ^
+  augment external void set instanceSetter(String _);
+//                          ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E {
   e0;
-  static void set staticSetter(String _) {}
-  void set instanceSetter(String _) {}
+  external static void set staticSetter(String _);
+  external void set instanceSetter(String _);
 }
 
 augment enum E {
@@ -72,8 +78,8 @@ augment enum E {
 //                                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceSetter(String _) {}
-//                                          ^
+  augment external void set instanceSetter(String _);
+//                          ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -81,8 +87,8 @@ augment enum E {
 class A {}
 
 extension Ext on A {
-  static void set staticSetter(String _) {}
-  void set instanceSetter(String _) {}
+  external static void set staticSetter(String _);
+  external void set instanceSetter(String _);
 }
 
 augment extension Ext {
@@ -90,15 +96,15 @@ augment extension Ext {
 //                                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceSetter(String _) {}
-//                                          ^
+  augment external void set instanceSetter(String _);
+//                          ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET(int _) {
-  static void set staticSetter(String _) {}
-  void set instanceSetter(String _) {}
+  external static void set staticSetter(String _);
+  external void set instanceSetter(String _);
 }
 
 augment extension type ET {
@@ -106,14 +112,15 @@ augment extension type ET {
 //                                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set instanceSetter(String _) {}
-//                                          ^
+  augment external void set instanceSetter(String _);
+//                          ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  topLevelSetter = "";
+  topLevelSetter1 = "";
+  topLevelSetter2 = "";
   print(C);
   print(M);
   print(E);

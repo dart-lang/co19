@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -16,21 +16,27 @@
 /// It's a compile-time error if an augmentation is complete and any declaration
 /// before it in the augmentation chain is also complete.
 ///
-/// @description Checks that it is a compile-time error to augment an already
-/// complete implicit getter by another complete getter.
+/// @description Checks that it is a compile-time error to augment an external
+/// implicit getter by another complete getter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-String topLevelVariable = "x";
-augment String get topLevelVariable => "y";
-//                                  ^
+external final String topLevelVariable1;
+augment String get topLevelVariable1 => "y";
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+external final String topLevelVariable2;
+augment external String get topLevelVariable2;
+//                          ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 class C {
-  static String staticVariable = "x";
-  String instanceVariable = "x";
+  external static final String staticVariable;
+  external final String instanceVariable;
 }
 
 augment class C {
@@ -38,32 +44,32 @@ augment class C {
 //                                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceVariable => "y";
-//                                    ^
+  augment external String get instanceVariable;
+//                            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin M {
-  static String staticVariable = "x";
-  String instanceVariable = "x";
+  external static final String staticVariable;
+  external final String instanceVariable;
 }
 
 augment mixin M {
-  augment static String get staticVariable => "y";
-//                                         ^
+  augment external static String get staticVariable;
+//                                   ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment String get instanceVariable => "y";
-//                                    ^
+//                                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E {
   e0;
-  static String staticVariable = "x";
-  final String instanceVariable = "x";
+  external static final String staticVariable;
+  external final String instanceVariable;
 }
 
 augment enum E {
@@ -72,8 +78,8 @@ augment enum E {
 //                                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceVariable => "y";
-//                                    ^
+  augment external String get instanceVariable;
+//                            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -81,29 +87,40 @@ augment enum E {
 class A {}
 
 extension Ext on A {
-  static String staticVariable = "x";
+  external static final String staticVariable1;
+  external static final String staticVariable2;
 }
 
 augment extension Ext {
-  augment static String get staticVariable => "y";
+  augment static String get staticVariable1 => "y";
 //                                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment external static String get staticVariable2;
+//                                   ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET(int _) {
-  static String staticVariable = "x";
+  external static final String staticVariable1;
+  external static final String staticVariable2;
 }
 
 augment extension type ET {
-  augment static String get staticVariable => "y";
+  augment static String get staticVariable1 => "y";
 //                                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment external static String get staticVariable2;
+//                                   ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  topLevelVariable;
+  topLevelVariable1;
+  topLevelVariable2;
   print(C);
   print(M);
   print(E);

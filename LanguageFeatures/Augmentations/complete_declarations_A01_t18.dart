@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -16,66 +16,50 @@
 /// It's a compile-time error if an augmentation is complete and any declaration
 /// before it in the augmentation chain is also complete.
 ///
-/// @description Checks that it is a compile-time error if an incomplete
-/// implicit getter (abstract variable) is augmented by a getter with no setter.
+/// @description Checks that it is a compile-time error to add a body to an
+/// `external` constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-abstract String topLevelVariable;
-//              ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-augment String get topLevelVariable => "";
-
 class C {
-  abstract String instanceVariable;
-//                ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment String get instanceVariable => "";
+  external C.external();
 }
 
-mixin M {
-  abstract String instanceVariable;
-//                ^^^^^^^^^^^^^^^^
+augment class C {
+  augment C.external() {}
+//                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceVariable => "";
 }
 
 enum E {
-  e0;
-  abstract String instanceVariable;
-//                ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment String get instanceVariable => "";
+  e0.external();
+  const E();
+  external const E.external();
 }
 
-class A {}
-
-extension Ext on A {
-  abstract String instanceVariable;
-//                ^^^^^^^^^^^^^^^^
+augment enum E {
+  ;
+  augment const E.external() : this();
+//                             ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceVariable => "";
 }
 
 extension type ET(int _) {
-  abstract String instanceVariable;
-//                ^^^^^^^^^^^^^^^^
+  external ET.external();
+}
+
+augment extension type ET {
+  augment ET.external() {}
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceVariable => "";
 }
 
 main() {
-  print(topLevelVariable);
   print(C);
-  print(M);
   print(E);
-  print(A);
   print(ET);
 }

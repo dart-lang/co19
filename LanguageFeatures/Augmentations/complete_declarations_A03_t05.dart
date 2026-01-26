@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -17,74 +17,26 @@
 /// before it in the augmentation chain is also complete.
 ///
 /// @description Checks that it is a compile-time error to add a body to an
-/// already complete instance method.
+/// external top level function.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-class C {
-  void instanceMethod() {}
-}
+external void topLevelFunction1();
 
-augment class C {
-  augment void instanceMethod() {}
-//                              ^
+external void topLevelFunction2();
+
+augment void topLevelFunction1() {}
+//                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-mixin M {
-  void instanceMethod() {}
-}
-
-augment mixin M {
-  augment void instanceMethod() {}
-//                              ^
+augment external void topLevelFunction2();
+//                    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-enum E {
-  e0;
-  void instanceMethod() {}
-}
-
-augment enum E {
-  ;
-  static void instanceMethod() {}
-//                             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class A {}
-
-extension Ext on A {
-  void instanceMethod() {}
-}
-
-augment extension Ext {
-  augment void instanceMethod() {}
-//                              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET(int _) {
-  void instanceMethod() {}
-}
-
-augment extension type ET {
-  augment void instanceMethod() {}
-//                              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
 
 main() {
-  print(C);
-  print(M);
-  print(E);
-  print(A);
-  print(ET);
+  print(topLevelFunction1);
+  print(topLevelFunction2);
 }
