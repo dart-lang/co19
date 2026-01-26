@@ -27,7 +27,7 @@ enum E1({final String _p = "_p"}) {
   e0, e1(p: "E1");
 }
 
-enum E2this({required final String _p}) {
+enum E2({required final String _p}) {
   e0(p: "E2");
 }
 
