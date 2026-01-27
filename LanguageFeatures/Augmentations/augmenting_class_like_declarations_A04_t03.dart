@@ -13,7 +13,6 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-
 typedef ObjectAlias = Object;
 
 class C1 extends Object {}
