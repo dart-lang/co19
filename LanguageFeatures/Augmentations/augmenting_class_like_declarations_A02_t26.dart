@@ -17,32 +17,55 @@
 import '../../Utils/expect.dart';
 part 'augmenting_class_like_declarations_A02_t26_lib.dart';
 
-mixin M0 {
-  int get foo => 0;
+String log = "";
+
+class A {
+  void foo() {
+    log += "A;";
+  }
 }
 
-mixin M1 {
-  int get foo => 1;
+mixin M1 on A {
+  void foo() {
+    super.foo();
+    log += "M1;";
+  }
 }
 
-mixin M2 {
-  int get foo => 2;
+mixin M2 on A {
+  void foo() {
+    super.foo();
+    log += "M2;";
+  }
 }
 
-class C1 {}
-class C2 with M0 {}
-class C3 {}
+mixin M3 on A {
+  void foo() {
+    super.foo();
+    log += "M3;";
+  }
+}
+
+class C1 extends A {}
+class C2 extends A with M1 {}
+class C3 extends A {}
 
 augment class C1 with M1 {}
 augment class C1 with M2 {}
 
 augment class C2 with M2 {}
-augment class C2 with M1 {}
+augment class C2 with M3 {}
 
+augment class C3 with M3 {}
 augment class C3 with M2 {}
 
 main() {
-  Expect.equals(2, C1().foo);
-  Expect.equals(1, C2().foo);
-  Expect.equals(1, C3().foo);
+  C1().foo();
+  Expect.equals("A;M1;M2;", log);
+  log = "";
+  C2().foo();
+  Expect.equals("A;M1;M2;M3;", log);
+  log = "";
+  C3().foo();
+  Expect.equals("A;M3;M2;M1;", log);
 }
