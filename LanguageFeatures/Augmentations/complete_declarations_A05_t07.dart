@@ -23,7 +23,8 @@
 // SharedOptions=--enable-experiment=augmentations
 
 external void set topLevelSetter1(String _);
-String get topLevelSetter1; // Need getter, otherwise augmenting variable augments non-existing getter
+// Getter is needed, otherwise augmenting variable augments non-existing getter
+String get topLevelSetter1;
 augment String topLevelSetter1 = "";
 //             ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -31,6 +32,7 @@ augment String topLevelSetter1 = "";
 
 external void set topLevelSetter2(String _);
 String get topLevelSetter2;
+// An external setter is considered to have a body
 augment external String topLevelSetter2;
 //                      ^^^^^^^^^^^^^^^
 // [analyzer] unspecified

@@ -28,12 +28,14 @@ class C {
 }
 
 augment class C {
-  static void externalStaticMethod1() {}
-//                                    ^
+  augment static void externalStaticMethod1() {}
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void externalStaticMethod2();
-//                    ^^^^^^^^^^^^^^^^^^^^^
+
+  // An external function is considered to have a body
+  augment external static void externalStaticMethod2();
+//                             ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -44,12 +46,12 @@ mixin M {
 }
 
 augment mixin M {
-  static void externalStaticMethod1() {}
-//                                    ^
+  augment static void externalStaticMethod1() {}
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void externalStaticMethod2();
-//                    ^^^^^^^^^^^^^^^^^^^^^
+  augment external static void externalStaticMethod2();
+//                             ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -62,12 +64,12 @@ enum E {
 
 augment enum E {
   ;
-  static void externalStaticMethod1() {}
-//                                    ^
+  augment static void externalStaticMethod1() {}
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void externalStaticMethod2();
-//                    ^^^^^^^^^^^^^^^^^^^^^
+  augment external static void externalStaticMethod2();
+//                             ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -80,12 +82,12 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  static void externalStaticMethod1() {}
-//                                    ^
+  augment static void externalStaticMethod1() {}
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void externalStaticMethod2();
-//                    ^^^^^^^^^^^^^^^^^^^^^
+  augment external static void externalStaticMethod2();
+//                             ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -96,12 +98,12 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  static void externalStaticMethod1() {}
-//                                    ^
+  augment static void externalStaticMethod1() {}
+//                                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static void externalStaticMethod2();
-//                    ^^^^^^^^^^^^^^^^^^^^^
+  augment external static void externalStaticMethod2();
+//                             ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

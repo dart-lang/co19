@@ -29,6 +29,7 @@ augment final String topLevelGetter1 = "y";
 // [cfe] unspecified
 
 external String get topLevelGetter2;
+// An external getter is considered to have a body
 augment external final String topLevelGetter2;
 //                            ^^^^^^^^^^^^^^^
 // [analyzer] unspecified

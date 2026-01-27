@@ -31,6 +31,7 @@ augment void topLevelFunction1() {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+// An external function is considered to have a body
 augment external void topLevelFunction2();
 //                    ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

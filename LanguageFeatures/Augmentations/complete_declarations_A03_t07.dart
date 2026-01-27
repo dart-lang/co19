@@ -32,6 +32,8 @@ augment class C {
 //                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  // An external function is considered to have a body
   augment external void externalInstanceMethod2();
 //                      ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -84,7 +86,7 @@ augment extension Ext {
 //                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-augment external void externalInstanceMethod2();
+  augment external void externalInstanceMethod2();
 //                      ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

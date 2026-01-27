@@ -34,6 +34,8 @@ augment class C {
 //                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  // An external operator is considered to have a body
   augment external void operator -(String other);
 //                               ^
 // [analyzer] unspecified

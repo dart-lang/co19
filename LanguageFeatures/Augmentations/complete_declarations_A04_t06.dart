@@ -29,6 +29,7 @@ augment String get topLevelVariable1 => "y";
 // [cfe] unspecified
 
 external final String topLevelVariable2;
+// An external getter is considered to have a body
 augment external String get topLevelVariable2;
 //                          ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

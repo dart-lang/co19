@@ -29,6 +29,7 @@ augment void set topLevelSetter1(String _) {}
 // [cfe] unspecified
 
 external void set topLevelSetter2(String _);
+// An external setter is considered to have a body
 augment external void set topLevelSetter2(String _);
 //                        ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
