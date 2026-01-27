@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion For purposes of augmentation, a variable declaration is treated
-/// as implicitly defining a getter whose return type is the type of the
-/// variable. If the variable is not final, or is late without an initializer,
-/// then the variable declaration also implicitly defines a setter with a
-/// parameter named `_` whose type is the type of the variable.
+/// @assertion More precisely, a function or constructor declaration
+/// (introductory or augmenting) is incomplete if all of:
+/// - It has no body. That means no `{ ... }` or `=> ...;` but only `;`.
+/// - The function is not marked external. An external function is considered to
+///   have a body, just not one that is visible as Dart code.
+/// - There is no redirection, initializer list, initializing formals, field
+///   parameters, or super parameters. Obviously, this only applies to
+///   constructor declarations.
 ///
-/// If the variable is abstract, then the getter and setter are incomplete,
-/// otherwise they are complete. For non-abstract variables, the compiler
-/// synthesizes a getter that accesses the backing storage and a setter that
-/// updates it, so these members have bodies.
+/// If a declaration is not incomplete then it is complete.
 ///
-/// A getter can be augmented by another getter, and likewise a setter can be
-/// augmented by a setter. This is true whether the getter or setter is
-/// explicitly declared or implicitly declared using a variable declaration.
+/// It's a compile-time error if an augmentation is complete and any declaration
+/// before it in the augmentation chain is also complete.
 ///
 /// @description Checks that it is a compile-time error if an incomplete
 /// implicit getter (abstract variable) is augmented by a setter with no getter.

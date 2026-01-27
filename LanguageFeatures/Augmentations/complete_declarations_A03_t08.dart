@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -17,103 +17,98 @@
 /// before it in the augmentation chain is also complete.
 ///
 /// @description Checks that it is a compile-time error to add a body to an
-/// already complete getter.
+/// external operator.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-String get topLevelGetter => "x";
-augment String get topLevelGetter => "y";
-//                                ^
-// [analyzer] unspecified
-// [cfe] unspecified
+class A {}
 
 class C {
-  static String get staticGetter => "x";
-  String get instanceGetter => "x";
+  external void operator +(String other);
+  external void operator -(String other);
 }
 
 augment class C {
-  augment static String get staticGetter => "y";
-//                                       ^
+  augment void operator +(String other) {}
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceGetter => "y";
-//                                  ^
+
+  // An external operator is considered to have a body
+  augment external void operator -(String other);
+//                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin M {
-  static String get staticGetter => "x";
-  String get instanceGetter => "x";
+  external void operator +(String other);
+  external void operator -(String other);
 }
 
 augment mixin M {
-  augment static String get staticGetter => "y";
-//                                       ^
+  augment void operator +(String other) {}
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceGetter => "y";
-//                                  ^
+  augment external void operator -(String other);
+//                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E {
-  e0;
-  static String get staticGetter => "x";
-  String get instanceGetter => "x";
+  e1;
+  external void operator +(String other);
+  external void operator -(String other);
 }
 
 augment enum E {
   ;
-  augment static String get staticGetter => "y";
-//                                       ^
+  augment void operator +(String other) {}
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceGetter => "y";
-//                                  ^
+  augment external void operator -(String other);
+//                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class A {}
-
 extension Ext on A {
-  static String get staticGetter => "x";
-  String get instanceGetter => "x";
+  external void operator +(String other);
+  external void operator -(String other);
 }
 
 augment extension Ext {
-  augment static String get staticGetter => "y";
-//                                       ^
+  augment void operator +(String other) {}
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceGetter => "y";
-//                                  ^
+  augment external void operator -(String other);
+//                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET(int _) {
-  static String get staticGetter => "x";
-  String get instanceGetter => "x";
+  external void operator +(String other);
+  external void operator -(String other);
 }
 
 augment extension type ET {
-  augment static String get staticGetter => "y";
-//                                       ^
+  augment void operator +(String other) {}
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get instanceGetter => "y";
-//                                  ^
+  augment external void operator -(String other);
+//                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  topLevelGetter;
   print(C);
   print(M);
   print(E);
