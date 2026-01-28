@@ -2,20 +2,27 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion An augmentation can add a body to an extension type's implicit
-/// constructor, which isn't otherwise possible. This is done by augmenting the
-/// constructor in the body of the extension type.
+/// @assertion When augmenting an extension type declaration, the parenthesized
+/// clause where the representation type is specified is treated as a
+/// constructor that has a single positional parameter, a single initializer
+/// from the parameter to the representation field, and an empty body. This
+/// constructor is complete.
 ///
 /// @description Checks that that it is a compile-time error if an augmentation
 /// of an extension type's implicit constructor adds a redirection.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-part 'extension_types_A02_t07_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 extension type ET(int id) {
   ET.foo(this.id);
+}
+
+augment extension type ET {
+  augment ET(int id): this.foo(id);
+//                    ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
