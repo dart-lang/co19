@@ -21,7 +21,7 @@ abstract class C {
   void instanceMethod2({int v});
 }
 
-augment class C {
+augment abstract class C {
   augment void instanceMethod1([int v]);
   augment void instanceMethod2({int v});
 }

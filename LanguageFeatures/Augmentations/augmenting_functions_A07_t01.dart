@@ -21,24 +21,24 @@ void topLevelFunction1([int v]) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void topLevelFunction2({int v}) {}
+void topLevelFunction2({int v});
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 augment void topLevelFunction1([int v]);
-augment void topLevelFunction2({int v});
+augment void topLevelFunction2({int v}) {}
 
 class C {
   static void staticMethod1([int v]) {}
 //                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void staticMethod2({int v}) {}
+  static void staticMethod2({int v});
 //                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  void instanceMethod1([int v]) {}
+  void instanceMethod1([int v]);
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -50,8 +50,8 @@ class C {
 
 augment class C {
   augment static void staticMethod1([int v]);
-  augment static void staticMethod2({int v});
-  augment void instanceMethod1([int v]);
+  augment static void staticMethod2({int v}) {}
+  augment void instanceMethod1([int v]) {}
   augment void instanceMethod2({int v});
 }
 
@@ -60,11 +60,11 @@ mixin M {
 //                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void staticMethod2({int v}) {}
+  static void staticMethod2({int v});
 //                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  void instanceMethod1([int v]) {}
+  void instanceMethod1([int v]);
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -76,8 +76,8 @@ mixin M {
 
 augment mixin M {
   augment static void staticMethod1([int v]);
-  augment static void staticMethod2({int v});
-  augment void instanceMethod1([int v]);
+  augment static void staticMethod2({int v}) {}
+  augment void instanceMethod1([int v]) {}
   augment void instanceMethod2({int v});
 }
 
@@ -87,11 +87,11 @@ enum E {
 //                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void staticMethod2({int v}) {}
+  static void staticMethod2({int v});
 //                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  void instanceMethod1([int v]) {}
+  void instanceMethod1([int v]);
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -103,22 +103,10 @@ enum E {
 
 augment enum E {
   ;
-  static void staticMethod1([int v]) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  static void staticMethod2({int v}) {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod1([int v]) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  void instanceMethod2({int v}) {}
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment static void staticMethod1([int v]);
+  augment static void staticMethod2({int v}) {}
+  augment void instanceMethod1([int v]) {}
+  augment void instanceMethod2({int v});
 }
 
 class A {}
@@ -128,11 +116,11 @@ extension Ext on A {
 //                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void staticMethod2({int v}) {}
+  static void staticMethod2({int v});
 //                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  void instanceMethod1([int v]) {}
+  void instanceMethod1([int v]);
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -144,8 +132,8 @@ extension Ext on A {
 
 augment extension Ext {
   augment static void staticMethod1([int v]);
-  augment static void staticMethod2({int v});
-  augment void instanceMethod1([int v]);
+  augment static void staticMethod2({int v}) {}
+  augment void instanceMethod1([int v]) {}
   augment void instanceMethod2({int v});
 }
 
@@ -154,11 +142,11 @@ extension type ET(int _) {
 //                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static void staticMethod2({int v}) {}
+  static void staticMethod2({int v});
 //                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  void instanceMethod1([int v]) {}
+  void instanceMethod1([int v]);
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -170,8 +158,8 @@ extension type ET(int _) {
 
 augment extension type ET {
   augment static void staticMethod1([int v]);
-  augment static void staticMethod2({int v});
-  augment void instanceMethod1([int v]);
+  augment static void staticMethod2({int v}) {}
+  augment void instanceMethod1([int v]) {}
   augment void instanceMethod2({int v});
 }
 
