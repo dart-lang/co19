@@ -19,9 +19,9 @@ external String topLevelFunction1();
 external String topLevelFunction2([int v]);
 external String topLevelFunction3({int v});
 
-augment @Meta topLevelFunction1();
-augment @Meta String topLevelFunction2([v]);
-augment @Meta topLevelFunction3({int v = 0});
+@Meta augment topLevelFunction1();
+@Meta augment String topLevelFunction2([v]);
+@Meta augment topLevelFunction3({int v = 0});
 
 class C {
   external static String staticMethod1();
@@ -34,13 +34,13 @@ class C {
 }
 
 augment class C {
-  augment @Meta staticMethod1();
-  augment @Meta String staticMethod2([v]);
-  augment @Meta staticMethod3({int v = 0});
+  @Meta augment staticMethod1();
+  @Meta augment String staticMethod2([v]);
+  @Meta augment staticMethod3({int v = 0});
 
-  augment @Meta instanceMethod1();
-  augment @Meta String instanceMethod2([v = 0]);
-  augment @Meta instanceMethod3({int v});
+  @Meta augment instanceMethod1();
+  @Meta augment String instanceMethod2([v = 0]);
+  @Meta augment instanceMethod3({int v});
 }
 
 mixin M {
@@ -54,13 +54,13 @@ mixin M {
 }
 
 augment mixin M {
-  augment @Meta staticMethod1();
-  augment @Meta String staticMethod2([v]);
-  augment @Meta staticMethod3({int v = 0});
+  @Meta augment staticMethod1();
+  @Meta augment String staticMethod2([v]);
+  @Meta augment staticMethod3({int v = 0});
 
-  augment @Meta instanceMethod1();
-  augment @Meta String instanceMethod2([v = 0]);
-  augment @Meta instanceMethod3({int v});
+  @Meta augment instanceMethod1();
+  @Meta augment String instanceMethod2([v = 0]);
+  @Meta augment instanceMethod3({int v});
 }
 
 enum E {
@@ -76,13 +76,13 @@ enum E {
 
 augment enum E {
   ;
-  augment @Meta staticMethod1();
-  augment @Meta String staticMethod2([v]);
-  augment @Meta staticMethod3({int v = 0});
+  @Meta augment staticMethod1();
+  @Meta augment String staticMethod2([v]);
+  @Meta augment staticMethod3({int v = 0});
 
-  augment @Meta instanceMethod1();
-  augment @Meta String instanceMethod2([v = 0]);
-  augment @Meta instanceMethod3({int v});
+  @Meta augment instanceMethod1();
+  @Meta augment String instanceMethod2([v = 0]);
+  @Meta augment instanceMethod3({int v});
 }
 
 class A {}
@@ -98,13 +98,13 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment @Meta staticMethod1();
-  augment @Meta String staticMethod2([v]);
-  augment @Meta staticMethod3({int v = 0});
+  @Meta augment staticMethod1();
+  @Meta augment String staticMethod2([v]);
+  @Meta augment staticMethod3({int v = 0});
 
-  augment @Meta instanceMethod1();
-  augment @Meta String instanceMethod2([v = 0]);
-  augment @Meta instanceMethod3({int v});
+  @Meta augment instanceMethod1();
+  @Meta augment String instanceMethod2([v = 0]);
+  @Meta augment instanceMethod3({int v});
 }
 
 extension type ET(int _) {
@@ -118,13 +118,13 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  augment @Meta staticMethod1();
-  augment @Meta String staticMethod2([v]);
-  augment @Meta staticMethod3({int v = 0});
+  @Meta augment staticMethod1();
+  @Meta augment String staticMethod2([v]);
+  @Meta augment staticMethod3({int v = 0});
 
-  augment @Meta instanceMethod1();
-  augment @Meta String instanceMethod2([v = 0]);
-  augment @Meta instanceMethod3({int v});
+  @Meta augment instanceMethod1();
+  @Meta augment String instanceMethod2([v = 0]);
+  @Meta augment instanceMethod3({int v});
 }
 
 class MA = Object with M;
