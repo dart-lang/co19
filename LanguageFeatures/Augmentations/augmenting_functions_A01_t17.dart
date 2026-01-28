@@ -5,8 +5,9 @@
 /// @assertion A top-level function, static method, instance method, operator,
 /// getter, or setter may be augmented to provide a body or add metadata.
 ///
-/// @description Checks that an incomplete function may be augmented by `sync*`
-/// function and that its body can be added by the augmentation.
+/// @description Checks that an incomplete function may be augmented by a
+/// function with `sync*` modifier and that its body can be added by the
+/// augmentation.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

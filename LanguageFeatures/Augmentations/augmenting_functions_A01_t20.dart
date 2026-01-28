@@ -7,8 +7,8 @@
 /// It is allowed to augment a complete declaration as long as the augmentation
 /// itself is incomplete. This can be useful for an augmentation to add metadata.
 ///
-/// @description Checks that a complete `async*` function may be augmented by an
-/// incomplete (abstract) function declaration.
+/// @description Checks that a complete async function with `async*` modifier
+/// may be augmented by an incomplete (abstract) function declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
