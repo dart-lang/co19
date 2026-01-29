@@ -41,6 +41,7 @@ enum E3 {
 }
 
 augment enum E3 {
+  ;
   augment bool operator ==(Object other) => true;
 //                      ^^
 // [analyzer] unspecified
