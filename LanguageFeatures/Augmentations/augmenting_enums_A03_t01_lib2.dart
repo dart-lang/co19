@@ -13,18 +13,8 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-import '../../Utils/expect.dart';
-part 'augmenting_enum_values_A03_t01_lib1.dart';
-part 'augmenting_enum_values_A03_t01_lib2.dart';
-
-enum E {
-  e0;
-}
+part of 'augmenting_enums_A03_t01.dart';
 
 augment enum E {
-  e1;
-}
-
-main() {
-  Expect.listEquals([E.e0, E.e1, E.e2, E.e3], E.values);
+  e3;
 }
