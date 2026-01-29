@@ -39,7 +39,7 @@ augment int get topLevelVariable1;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-num get topLevelVariable2 = 42;
+num topLevelVariable2 = 42;
 augment Object get topLevelVariable2;
 //      ^^^^^^
 // [analyzer] unspecified
@@ -111,13 +111,13 @@ enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final num instanceVariable1 => 42;
+  final num instanceVariable1 = 42;
   augment int get instanceVariable1;
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final num instanceVariable2 => 42;
+  final num instanceVariable2 = 42;
   augment Object get instanceVariable2;
 //        ^^^^^^
 // [analyzer] unspecified
