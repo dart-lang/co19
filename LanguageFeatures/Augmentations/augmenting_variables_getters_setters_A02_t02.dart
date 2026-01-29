@@ -47,14 +47,14 @@ augment Object get topLevelVariable2;
 
 class C {
   static num staticVariable1 = 42;
-  augment int get staticVariable1;
-//        ^^^
+  augment static int get staticVariable1;
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static num staticVariable2 = 42;
-  augment Object get staticVariable2;
-//        ^^^^^^
+  augment static Object get staticVariable2;
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -73,14 +73,14 @@ class C {
 
 mixin M {
   static num staticVariable1 = 42;
-  augment int get staticVariable1;
-//        ^^^
+  augment static int get staticVariable1;
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static num staticVariable2 = 42;
-  augment Object get staticVariable2;
-//        ^^^^^^
+  augment static Object get staticVariable2;
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -100,14 +100,14 @@ mixin M {
 enum E {
   e0;
   static num staticVariable1 = 42;
-  augment int get staticVariable1;
-//        ^^^
+  augment static int get staticVariable1;
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static num staticVariable2 = 42;
-  augment Object get staticVariable2;
-//        ^^^^^^
+  augment static Object get staticVariable2;
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -128,28 +128,28 @@ class A {}
 
 extension Ext on A {
   static num staticVariable1 = 42;
-  augment int get staticVariable1;
-//        ^^^
+  augment static int get staticVariable1;
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static num staticVariable2 = 42;
-  augment Object get staticVariable2;
-//        ^^^^^^
+  augment static Object get staticVariable2;
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET(int _) {
   static num staticVariable1 = 42;
-  augment int get staticVariable1;
-//        ^^^
+  augment static int get staticVariable1;
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static num staticVariable2 = 42;
-  augment Object get staticVariable2;
-//        ^^^^^^
+  augment static Object get staticVariable2;
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

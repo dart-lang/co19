@@ -48,14 +48,14 @@ augment void set topLevelSetter2(Object? v) {}
 
 class C {
   static void set staticSetter1(v);
-  augment void set staticSetter1(int v) {}
-//                               ^^^
+  augment static void set staticSetter1(int v) {}
+//                                      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static void set staticSetter2(v);
-  augment void set staticSetter2(Object? v) {}
-//                               ^^^^^^^
+  augment static void set staticSetter2(Object? v) {}
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -74,14 +74,14 @@ class C {
 
 mixin M {
   static void set staticSetter1(v);
-  augment void set staticSetter1(int v) {}
-//                               ^^^
+  augment static void set staticSetter1(int v) {}
+//                                      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static void set staticSetter2(v);
-  augment void set staticSetter2(Object? v) {}
-//                               ^^^^^^^
+  augment static void set staticSetter2(Object? v) {}
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -101,14 +101,14 @@ mixin M {
 enum E {
   e0;
   static void set staticSetter1(v);
-  augment void set staticSetter1(int v) {}
-//                               ^^^
+  augment static void set staticSetter1(int v) {}
+//                                      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static void set staticSetter2(v);
-  augment void set staticSetter2(Object? v) {}
-//                               ^^^^^^^
+  augment static void set staticSetter2(Object? v) {}
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -129,14 +129,14 @@ class A {}
 
 extension Ext on A {
   static void set staticSetter1(v);
-  augment void set staticSetter1(int v) {}
-//                               ^^^
+  augment static void set staticSetter1(int v) {}
+//                                      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static void set staticSetter2(v);
-  augment void set staticSetter2(Object? v) {}
-//                               ^^^^^^^
+  augment static void set staticSetter2(Object? v) {}
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -155,14 +155,14 @@ extension Ext on A {
 
 extension type ET(int _) {
   static void set staticSetter1(v);
-  augment void set staticSetter1(int v) {}
-//                               ^^^
+  augment static void set staticSetter1(int v) {}
+//                                      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static void set staticSetter2(v);
-  augment void set staticSetter2(Object? v) {}
-//                               ^^^^^^^
+  augment static void set staticSetter2(Object? v) {}
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
