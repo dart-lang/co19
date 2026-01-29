@@ -31,8 +31,7 @@ class C(int v) {
 
 enum E(int v) {
   e0(0);
-//^^^^^
-// [analyzer] unspecified
+
   final int x;
   this : x = 1, x = v;
 //              ^
