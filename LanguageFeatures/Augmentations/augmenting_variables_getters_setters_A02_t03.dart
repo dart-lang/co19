@@ -39,7 +39,7 @@ augment int topLevelVariable1;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-num get topLevelVariable2 = 42;
+num topLevelVariable2 = 42;
 augment Object topLevelVariable2;
 //      ^^^^^^
 // [analyzer] unspecified
