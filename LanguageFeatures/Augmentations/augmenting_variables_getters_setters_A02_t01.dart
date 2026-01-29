@@ -47,14 +47,14 @@ augment Object get topLevelGetter2;
 
 class C {
   static num get staticGetter1 => 42;
-  augment int get staticGetter1;
-//        ^^^
+  augment static int get staticGetter1;
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static num get staticGetter2 => 42;
-  augment Object get topLevelGetter2;
-//        ^^^^^^
+  augment static Object get staticGetter2;
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -73,14 +73,14 @@ class C {
 
 mixin M {
   static num get staticGetter1 => 42;
-  augment int get staticGetter1;
-//        ^^^
+  augment static int get staticGetter1;
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static num get staticGetter2 => 42;
-  augment Object get topLevelGetter2;
-//        ^^^^^^
+  augment static Object get staticGetter2;
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -100,14 +100,14 @@ mixin M {
 enum E {
   e0;
   static num get staticGetter1 => 42;
-  augment int get staticGetter1;
-//        ^^^
+  augment static int get staticGetter1;
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static num get staticGetter2 => 42;
-  augment Object get topLevelGetter2;
-//        ^^^^^^
+  augment static Object get staticGetter2;
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -128,17 +128,16 @@ class A {}
 
 extension Ext on A {
   static num get staticGetter1 => 42;
-  augment int get staticGetter1;
-//        ^^^
+  augment static int get staticGetter1;
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static num get staticGetter2 => 42;
-  augment Object get topLevelGetter2;
-//        ^^^^^^
+  augment static Object get staticGetter2;
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 
   num get instanceGetter1 => 42;
   augment int get instanceGetter1;
@@ -155,14 +154,14 @@ extension Ext on A {
 
 extension type ET(int _) {
   static num get staticGetter1 => 42;
-  augment int get staticGetter1;
-//        ^^^
+  augment static int get staticGetter1;
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static num get staticGetter2 => 42;
-  augment Object get topLevelGetter2;
-//        ^^^^^^
+  augment static Object get staticGetter2;
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

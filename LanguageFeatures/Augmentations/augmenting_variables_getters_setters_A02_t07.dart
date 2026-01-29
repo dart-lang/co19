@@ -48,14 +48,14 @@ augment void set topLevelSetter1(Object? _);
 
 class C {
   static var staticSetter1;
-  augment void set staticSetter1(int _);
-//                               ^^^
+  augment static void set staticSetter1(int _);
+//                                      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static var staticGetter2;
-  augment void set staticSetter1(Object? _);
-//                               ^^^^^^^
+  augment static void set staticSetter1(Object? _);
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -74,14 +74,14 @@ class C {
 
 mixin M {
   static var staticSetter1;
-  augment void set staticSetter1(int _);
-//                               ^^^
+  augment static void set staticSetter1(int _);
+//                                      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static var staticGetter2;
-  augment void set staticSetter1(Object? _);
-//                               ^^^^^^^
+  augment static void set staticSetter1(Object? _);
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -101,14 +101,14 @@ mixin M {
 enum E {
   e0;
   static var staticSetter1;
-  augment void set staticSetter1(int _);
-//                               ^^^
+  augment static void set staticSetter1(int _);
+//                                      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static var staticGetter2;
-  augment void set staticSetter1(Object? _);
-//                               ^^^^^^^
+  augment static void set staticSetter1(Object? _);
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -129,14 +129,14 @@ class A {}
 
 extension Ext on A {
   static var staticSetter1;
-  augment void set staticSetter1(int _);
-//                               ^^^
+  augment static void set staticSetter1(int _);
+//                                      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static var staticGetter2;
-  augment void set staticSetter1(Object? _);
-//                               ^^^^^^^
+  augment static void set staticSetter1(Object? _);
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -155,14 +155,14 @@ extension Ext on A {
 
 extension type ET(int _) {
   static var staticSetter1;
-  augment void set staticSetter1(int _);
-//                               ^^^
+  augment static void set staticSetter1(int _);
+//                                      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static var staticGetter2;
-  augment void set staticSetter1(Object? _);
-//                               ^^^^^^^
+  augment static void set staticSetter1(Object? _);
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
