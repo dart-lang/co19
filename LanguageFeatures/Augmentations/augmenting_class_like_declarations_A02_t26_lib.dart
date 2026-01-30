@@ -14,6 +14,6 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'augmenting_class_like_declarations_A02_t26_lib.dart';
+part of 'augmenting_class_like_declarations_A02_t26.dart';
 
 augment class C3 with M1 {}
