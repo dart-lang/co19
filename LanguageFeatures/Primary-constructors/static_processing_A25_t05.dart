@@ -44,7 +44,7 @@ class const C4(this.x) {
 // [cfe] unspecified
 }
 
-class A(final int x);
+class const A(final int x);
 
 class const C5(super.x) extends A {
   this {}
@@ -76,7 +76,7 @@ enum E1(final int v) {
 }
 
 enum const E2.someName(this.v) {
-  e0(0);
+  e0.someName(0);
   final int v;
   this {}
 //     ^
@@ -98,5 +98,7 @@ main() {
   print(C2);
   print(ET1);
   print(ET2);
-  print(E);
+  print(E1);
+  print(E2);
+  print(E3);
 }
