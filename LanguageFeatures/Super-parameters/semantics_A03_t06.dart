@@ -19,10 +19,10 @@ class S {
 }
 
 class C1(super.s) extends S {
-  this : super(0);
 //       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  this : super(0);
 }
 
 class C2.someName(super.s) extends S {
