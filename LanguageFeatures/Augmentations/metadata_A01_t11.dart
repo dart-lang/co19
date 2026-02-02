@@ -29,13 +29,13 @@ augment enum E {
 
 main() {
   ClassMirror classMirror = reflectClass(E);
-  Symbol symbol = MirrorSystem .getSymbol("e0");
+  Symbol symbol = MirrorSystem.getSymbol("e0");
   DeclarationMirror varMirror =
       classMirror.declarations[symbol] as DeclarationMirror;
   Expect.equals('.Meta',
       MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
 
-  symbol = MirrorSystem .getSymbol("e1");
+  symbol = MirrorSystem.getSymbol("e1");
   varMirror = classMirror.declarations[symbol] as DeclarationMirror;
   Expect.equals('.Meta',
       MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));

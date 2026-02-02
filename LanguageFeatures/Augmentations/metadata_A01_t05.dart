@@ -34,6 +34,7 @@ mixin M {
 
 enum E {
   e0;
+
   static void set staticSetter(String _) {}
   void set instanceSetter(String _) {}
 }
@@ -51,13 +52,16 @@ extension type ET(int id) {
 }
 
 main() {
-  Symbol libName = MirrorSystem.getSymbol('metadata_A01_t05');
-  LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(libName);
-  var symbol = MirrorSystem .getSymbol("topLevelSetter=");
+  LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(
+    #metadata_A01_t05,
+  );
+  var symbol = MirrorSystem.getSymbol("topLevelSetter=");
   DeclarationMirror varMirror =
-    libraryMirror.declarations[symbol] as DeclarationMirror;
-  Expect.equals('metadata_A01_t05.Meta',
-      MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
+      libraryMirror.declarations[symbol] as DeclarationMirror;
+  Expect.equals(
+    'metadata_A01_t05.Meta',
+    MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName),
+  );
 
   testType(C);
   testType(M);
@@ -70,10 +74,12 @@ void testType(Type t) {
   ClassMirror classMirror = reflectClass(t);
   var varNames = ['staticSetter=', 'instanceSetter='];
   for (var name in varNames) {
-    Symbol symbol = MirrorSystem .getSymbol(name);
+    Symbol symbol = MirrorSystem.getSymbol(name);
     DeclarationMirror varMirror =
         classMirror.declarations[symbol] as DeclarationMirror;
-    Expect.equals('metadata_A01_t05.Meta',
-        MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
+    Expect.equals(
+      'metadata_A01_t05.Meta',
+      MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName),
+    );
   }
 }
