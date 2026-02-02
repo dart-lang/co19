@@ -18,37 +18,13 @@ class S {
   S(this.s);
 }
 
-class C1(super.s) extends S {
-//       ^^^^^
+class C(super.s) extends S {
+//      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   this : super(0);
 }
 
-class C2.someName(super.s) extends S {
-  this.someName : super(0);
-//                ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C3 extends S {
-  this(super.s) : super(0);
-//                ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C4 extends S {
-  this.someName(super.s) : super(0);
-//                         ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
-  print(C1);
-  print(C2);
-  print(C3);
-  print(C4);
+  print(C);
 }
