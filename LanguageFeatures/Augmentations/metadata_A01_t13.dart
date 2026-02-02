@@ -117,7 +117,7 @@ void testType(Type t) {
     '$t._private',
     '$t.redirect',
     '$t.factory1',
-    //if ('$t' != '$E') '$t.factory2',
+    if ('$t' != '$E') '$t.factory2',
   ];
   for (var name in names) {
     var symbol = MirrorSystem.getSymbol(name, libraryMirror);
