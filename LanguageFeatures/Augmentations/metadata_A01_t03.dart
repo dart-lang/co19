@@ -52,8 +52,9 @@ extension type ET(int id) {
 }
 
 main() {
-  Symbol libName = MirrorSystem.getSymbol('metadata_A01_t03');
-  LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(libName);
+  LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(
+    #metadata_A01_t03,
+  );
   var symbol = MirrorSystem.getSymbol("topLevelGetter");
   DeclarationMirror varMirror =
       libraryMirror.declarations[symbol] as DeclarationMirror;

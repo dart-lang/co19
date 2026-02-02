@@ -50,8 +50,9 @@ extension type ET(int instanceVariable) {
 }
 
 main() {
-  Symbol libName = MirrorSystem.getSymbol('metadata_A01_t01');
-  LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(libName);
+  LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(
+    #metadata_A01_t01,
+  );
   var symbol = MirrorSystem.getSymbol("topLevelVariable");
   DeclarationMirror varMirror =
       libraryMirror.declarations[symbol] as DeclarationMirror;

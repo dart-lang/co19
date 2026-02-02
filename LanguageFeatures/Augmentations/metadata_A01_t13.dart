@@ -108,8 +108,9 @@ main() {
 }
 
 void testType(Type t) {
-  Symbol libName = MirrorSystem.getSymbol('metadata_A01_t13');
-  LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(libName);
+  LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(
+      #metadata_A01_t13
+  );
   ClassMirror classMirror = reflectClass(t);
   var names = [
     '$t',
