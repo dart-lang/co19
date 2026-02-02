@@ -136,6 +136,6 @@ main() {
   Expect.equals("Augmented: 1, 0", _log);
   Expect.equals(1, ET.bar(x: 1).x);
   Expect.equals("Augmented: 1, 0", _log);
-  Expect.equals(1, ET.baz(1));
+  Expect.equals(1, ET.baz(1).x);
   Expect.equals("Augmented: 1, 0", _log);
 }

@@ -53,7 +53,7 @@ augment extension type ET {
     log = "$x";
     return true;
   }());
-  augment ET.c2(this.id, {int x = 2})  assert(() {
+  augment ET.c2(this.id, {int x = 2}) : assert(() {
     log = "$x";
     return true;
   }());
