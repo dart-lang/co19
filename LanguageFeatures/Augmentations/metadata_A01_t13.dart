@@ -8,7 +8,7 @@
 /// declaration (does not replace it). Test constructors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts
+// SharedOptions=--enable-experiment=augmentations
 
 library metadata_A01_t13;
 
