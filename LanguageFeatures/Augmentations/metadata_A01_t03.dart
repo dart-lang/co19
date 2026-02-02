@@ -34,6 +34,7 @@ mixin M {
 
 enum E {
   e0;
+
   static String get staticGetter => "Static getter";
   String get instanceGetter => "Instance getter";
 }
@@ -53,11 +54,13 @@ extension type ET(int id) {
 main() {
   Symbol libName = MirrorSystem.getSymbol('metadata_A01_t03');
   LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(libName);
-  var symbol = MirrorSystem .getSymbol("topLevelGetter");
+  var symbol = MirrorSystem.getSymbol("topLevelGetter");
   DeclarationMirror varMirror =
-    libraryMirror.declarations[symbol] as DeclarationMirror;
-  Expect.equals('metadata_A01_t03.Meta',
-      MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
+      libraryMirror.declarations[symbol] as DeclarationMirror;
+  Expect.equals(
+    'metadata_A01_t03.Meta',
+    MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName),
+  );
 
   testType(C);
   testType(M);
@@ -70,10 +73,12 @@ void testType(Type t) {
   ClassMirror classMirror = reflectClass(t);
   var varNames = ['staticGetter', 'instanceGetter'];
   for (var name in varNames) {
-    Symbol symbol = MirrorSystem .getSymbol(name);
+    Symbol symbol = MirrorSystem.getSymbol(name);
     DeclarationMirror varMirror =
         classMirror.declarations[symbol] as DeclarationMirror;
-    Expect.equals('metadata_A01_t03.Meta',
-        MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
+    Expect.equals(
+      'metadata_A01_t03.Meta',
+      MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName),
+    );
   }
 }

@@ -5,7 +5,7 @@
 /// @assertion An augmenting declaration can have metadata attached to it.
 ///
 /// @description Check that augmenting metadata is appended to the introductory
-/// declaration (not replaces it). Test getters.
+/// declaration (does not replace it). Test getters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
@@ -25,7 +25,7 @@ augment mixin M {
 }
 
 augment enum E {
-  augment e0;
+  ;
   @Meta2() augment static String get staticGetter;
   @Meta2() augment String get instanceGetter;
 }

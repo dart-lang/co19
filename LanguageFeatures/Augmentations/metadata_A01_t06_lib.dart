@@ -5,7 +5,7 @@
 /// @assertion An augmenting declaration can have metadata attached to it.
 ///
 /// @description Check that augmenting metadata is appended to the introductory
-/// declaration (not replaces it). Test setters.
+/// declaration (does not replace it). Test setters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts

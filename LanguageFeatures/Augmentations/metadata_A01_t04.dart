@@ -5,7 +5,7 @@
 /// @assertion An augmenting declaration can have metadata attached to it.
 ///
 /// @description Check that augmenting metadata is appended to the introductory
-/// declaration (not replaces it). Test getters.
+/// declaration (does not replace it). Test getters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
@@ -45,6 +45,7 @@ mixin M {
 
 enum E {
   e0;
+
   @Meta1()
   static String get staticGetter => "Static getter";
   @Meta1()
@@ -70,13 +71,19 @@ extension type ET(int id) {
 main() {
   Symbol libName = MirrorSystem.getSymbol('metadata_A01_t04');
   LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(libName);
-  var symbol = MirrorSystem .getSymbol("topLevelGetter");
+  var symbol = MirrorSystem.getSymbol("topLevelGetter");
   DeclarationMirror varMirror =
-    libraryMirror.declarations[symbol] as DeclarationMirror;
-  Expect.isTrue(expected.contains(MirrorSystem.getName(
-      varMirror.metadata[0].type.qualifiedName)));
-  Expect.isTrue(expected.contains(MirrorSystem.getName(
-      varMirror.metadata[1].type.qualifiedName)));
+      libraryMirror.declarations[symbol] as DeclarationMirror;
+  Expect.isTrue(
+    expected.contains(
+      MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName),
+    ),
+  );
+  Expect.isTrue(
+    expected.contains(
+      MirrorSystem.getName(varMirror.metadata[1].type.qualifiedName),
+    ),
+  );
 
   testType(C);
   testType(M);
@@ -89,12 +96,18 @@ void testType(Type t) {
   ClassMirror classMirror = reflectClass(t);
   var varNames = ['staticGetter', 'instanceGetter'];
   for (var name in varNames) {
-    Symbol symbol = MirrorSystem .getSymbol(name);
+    Symbol symbol = MirrorSystem.getSymbol(name);
     DeclarationMirror varMirror =
         classMirror.declarations[symbol] as DeclarationMirror;
-    Expect.isTrue(expected.contains(
-        MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName)));
-    Expect.isTrue(expected.contains(
-        MirrorSystem.getName(varMirror.metadata[1].type.qualifiedName)));
+    Expect.isTrue(
+      expected.contains(
+        MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName),
+      ),
+    );
+    Expect.isTrue(
+      expected.contains(
+        MirrorSystem.getName(varMirror.metadata[1].type.qualifiedName),
+      ),
+    );
   }
 }

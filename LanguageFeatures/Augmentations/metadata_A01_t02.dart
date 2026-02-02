@@ -5,7 +5,7 @@
 /// @assertion An augmenting declaration can have metadata attached to it.
 ///
 /// @description Check that augmenting metadata is appended to the introductory
-/// declaration (not replaces it). Test variables.
+/// declaration (does not replace it). Test variables.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
@@ -70,10 +70,16 @@ main() {
   var symbol = MirrorSystem.getSymbol("topLevelVariable");
   DeclarationMirror varMirror =
       libraryMirror.declarations[symbol] as DeclarationMirror;
-  Expect.isTrue(expected.contains(MirrorSystem.getName(
-      varMirror.metadata[0].type.qualifiedName)));
-  Expect.isTrue(expected.contains(MirrorSystem.getName(
-      varMirror.metadata[1].type.qualifiedName)));
+  Expect.isTrue(
+    expected.contains(
+      MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName),
+    ),
+  );
+  Expect.isTrue(
+    expected.contains(
+      MirrorSystem.getName(varMirror.metadata[1].type.qualifiedName),
+    ),
+  );
 
   testType(C);
   testType(M);
@@ -89,9 +95,15 @@ void testType(Type t) {
     Symbol symbol = MirrorSystem.getSymbol(name);
     DeclarationMirror varMirror =
         classMirror.declarations[symbol] as DeclarationMirror;
-    Expect.isTrue(expected.contains(MirrorSystem.getName(
-        varMirror.metadata[0].type.qualifiedName)));
-    Expect.isTrue(expected.contains(MirrorSystem.getName(
-        varMirror.metadata[1].type.qualifiedName)));
+    Expect.isTrue(
+      expected.contains(
+        MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName),
+      ),
+    );
+    Expect.isTrue(
+      expected.contains(
+        MirrorSystem.getName(varMirror.metadata[1].type.qualifiedName),
+      ),
+    );
   }
 }
