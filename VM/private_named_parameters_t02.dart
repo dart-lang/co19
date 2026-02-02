@@ -20,7 +20,7 @@ import '../../../../pkg/vm_service/test/common/service_test_common.dart';
 import '../../../../pkg/vm_service/test/common/test_helper.dart';
 import '../Utils/expect.dart';
 
-class C1({var String _x});
+class C1({var String? _x});
 
 class C2 {
   String _x;
