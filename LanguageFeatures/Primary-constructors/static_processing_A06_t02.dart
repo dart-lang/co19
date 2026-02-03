@@ -81,10 +81,10 @@ main() {
   et2 = ET2();
   Expect.equals("default", et2.x);
   if (assertStatementsEnabled) {
-    Expect.equals("parameter", log);
+    Expect.equals("default", log);
     log = "";
   }
-  Expect.equals("parameter", bodyLog);
+  Expect.equals("default", bodyLog);
   bodyLog = "";
 
   var et3 = ET3(x: "parameter");
@@ -99,10 +99,10 @@ main() {
   et3 = ET3();
   Expect.equals("default", et3.x);
   if (assertStatementsEnabled) {
-    Expect.equals("parameter", log);
+    Expect.equals("default", log);
     log = "";
   }
-  Expect.equals("parameter", bodyLog);
+  Expect.equals("default", bodyLog);
   bodyLog = "";
 
   var et4 = ET4(x: "parameter");
