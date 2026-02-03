@@ -48,5 +48,5 @@ main() {
   Expect.equals(2, c2.v2);
   c2 = C2();
   Expect.equals("v1", c2.v1);
-  Expect.isNull(c2.v2);
+  Expect.equals(2, c2.v2);
 }
