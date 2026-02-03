@@ -16,7 +16,8 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-// TODO (sgrekhov) Updated this test (if needed) after
+// TODO (sgrekhov) Update this test (if needed) after
+// https://github.com/dart-lang/language/issues/4542
 // https://github.com/dart-lang/language/issues/4014
 // https://github.com/dart-lang/language/issues/3201
 
