@@ -69,6 +69,6 @@ main() {
 
   Expect.equals("v1", E2.e0.v1);
   Expect.equals(-2, E2.e0.v2);
-  Expect.equals("E1", E2.e1.v1);
+  Expect.equals("E2", E2.e1.v1);
   Expect.equals(2, E2.e1.v2);
 }
