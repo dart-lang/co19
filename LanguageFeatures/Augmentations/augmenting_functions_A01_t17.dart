@@ -6,7 +6,7 @@
 /// getter, or setter may be augmented to provide a body or add metadata.
 ///
 /// @description Checks that an incomplete function may be augmented by a
-/// function with `sync*` modifier and that its body can be added by the
+/// function with a `sync*` modifier, and its body can be added by the
 /// augmentation.
 /// @author sgrekhov22@gmail.com
 
