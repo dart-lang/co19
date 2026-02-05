@@ -20,39 +20,43 @@
 /// forms `.id`, `.id<typeArgs>`, `.id(args)`, `.id<typeArgs>(args)`, `.new` or
 /// `.new(args)` try access an unavailable class.
 /// @author sgrekhov22@gmail.com
+/// @issue 62504
 
 // SharedOptions=--enable-experiment=dot-shorthands
 
 import 'type_inference_A09_lib.dart';
 
 main() {
-  PublicC c = cInstance;
-  c = .new(1);
-//    ^
+  cPublicContextProvider(.new(1));
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c = .foo(2);
-//    ^
+  cPublicContextProvider(.foo(2));
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c = .bar(3);
-//    ^
+  cPublicContextProvider(.bar(3));
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c = .baz(4);
-//    ^
+  cPublicContextProvider(.baz(4));
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c = .staticGetter;
-//    ^
+  cPublicContextProvider(.staticGetter);
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c = .staticMethod();
-//    ^
+  cPublicContextProvider(.staticMethod());
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c = .instances[0];
-//    ^
+  cPublicContextProvider(.staticMethod<int>());
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  cPublicContextProvider(.instances[0]);
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

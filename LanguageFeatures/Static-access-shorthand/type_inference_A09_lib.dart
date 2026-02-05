@@ -46,12 +46,17 @@ extension type _ET<T extends num>._(int value) {
 
 class _MA = Object with _M;
 
-_C get cInstance => _C(0);
-_M get mInstance => _MA();
-_E get eInstance => _E.e0;
-_ET get etInstance => _ET(0);
+void cContextProvider(_C _) {}
+void mContextProvider(_M _) {}
+void eContextProvider(_E _) {}
+void etContextProvider(_ET _) {}
 
 typedef PublicC = _C;
 typedef PublicM = _M;
 typedef PublicE = _E;
 typedef PublicET = _ET;
+
+void cPublicContextProvider(PublicC _) {}
+void mPublicContextProvider(PublicM _) {}
+void ePublicContextProvider(PublicE _) {}
+void etPublicContextProvider(PublicET _) {}

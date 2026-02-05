@@ -20,31 +20,31 @@
 /// forms `.id`, `.id(args)`, `.id<typeArgs>(args)` or `.new(args)` tries to
 /// access an unavailable enum.
 /// @author sgrekhov22@gmail.com
+/// @issue 62504
 
 // SharedOptions=--enable-experiment=dot-shorthands
 
 import 'type_inference_A09_lib.dart';
 
 main() {
-  PublicE e = eInstance;
-  e = .e0;
-//    ^
+  ePublicContextProvider(.e0);
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e = .staticGetter;
-//    ^
+  ePublicContextProvider(.staticGetter);
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e = .staticMethod();
-//    ^
+  ePublicContextProvider(.staticMethod());
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e = .staticMethod<int>();
-//    ^
+  ePublicContextProvider(.staticMethod<int>());
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e = .instances[0];
-//    ^
+  ePublicContextProvider(.instances[0]);
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

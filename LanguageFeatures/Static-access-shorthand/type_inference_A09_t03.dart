@@ -20,27 +20,27 @@
 /// forms `.id`, `.id(args)`, `.id<typeArgs>(args)` or `.new(args)` tries to
 /// access an unavailable mixin.
 /// @author sgrekhov22@gmail.com
+/// @issue 62504
 
 // SharedOptions=--enable-experiment=dot-shorthands
 
 import 'type_inference_A09_lib.dart';
 
 main() {
-  var m = mInstance;
-  m = .staticGetter;
-//    ^
+  mContextProvider(.staticGetter);
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  m = .staticMethod();
-//    ^
+  mContextProvider(.staticMethod());
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  m = .staticMethod<int>();
-//    ^
+  mContextProvider(.staticMethod<int>());
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  m = .instances[0];
-//    ^
+  mContextProvider(.instances[0]);
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

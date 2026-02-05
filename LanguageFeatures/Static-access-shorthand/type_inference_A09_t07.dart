@@ -20,43 +20,43 @@
 /// forms `.id`, `.id(args)`, `.id<typeArgs>(args)` or `.new(args)` tries to
 /// access an unavailable extension type.
 /// @author sgrekhov22@gmail.com
+/// @issue 62504
 
 // SharedOptions=--enable-experiment=dot-shorthands
 
 import 'type_inference_A09_lib.dart';
 
 main() {
-  var et = etInstance;
-  et = .new(1);
-//     ^
+  etContextProvider(.new(1));
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  et = .foo(2);
-//     ^
+  etContextProvider(.foo(2));
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  et = .bar(3);
-//     ^
+  etContextProvider(.bar(3));
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  et = .baz(4);
-//     ^
+  etContextProvider(.baz(4));
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  et = .staticGetter;
-//     ^
+  etContextProvider(.staticGetter);
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  et = .staticMethod();
-//     ^
+  etContextProvider(.staticMethod());
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  et = .staticMethod<int>();
-//     ^
+  etContextProvider(.staticMethod<int>());
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  et = .instances[0];
-//     ^
+  etContextProvider(.instances[0]);
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

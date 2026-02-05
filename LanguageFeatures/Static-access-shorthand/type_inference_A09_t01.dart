@@ -20,43 +20,43 @@
 /// forms `.id`, `.id(args)`, `.id<typeArgs>(args)` or `.new(args)` tries to
 /// access an unavailable class.
 /// @author sgrekhov22@gmail.com
+/// @issue 62504
 
 // SharedOptions=--enable-experiment=dot-shorthands
 
 import 'type_inference_A09_lib.dart';
 
 main() {
-  var c = cInstance;
-  c = .new(1);
-//    ^
+  cContextProvider(.new(1));
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c = .foo(2);
-//    ^
+  cContextProvider(.foo(2));
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c = .bar(3);
-//    ^
+  cContextProvider(.bar(3));
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c = .baz(4);
-//    ^
+  cContextProvider(.baz(4));
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c = .staticGetter;
-//    ^
+  cContextProvider(.staticGetter);
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c = .staticMethod();
-//    ^
+  cContextProvider(.staticMethod());
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c = .staticMethod<int>();
-//    ^
+  cContextProvider(.staticMethod<int>());
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c = .instances[0];
-//    ^
+  cContextProvider(.instances[0]);
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
