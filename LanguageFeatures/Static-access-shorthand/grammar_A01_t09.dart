@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -21,8 +21,8 @@
 ///     | 'const' '.' (<identifier> | 'new') <arguments>  -- shorthand for constant object creation
 ///  ```
 ///
-/// @description Checks that static members of a mixin can be accessed using the
-/// static access short syntax.
+/// @description Checks that private static members and constructors of a class
+/// can be accessed using the static access short syntax.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=dot-shorthands
@@ -30,38 +30,42 @@
 import '../../Utils/expect.dart';
 
 class C {
+  static C get _staticGetter => C._foo("Static getter");
+  static C _staticMethod() => C._foo("Static method");
+  static List<C> _instances = [C._foo("one"), C._foo("two")];
   final String value;
-  C(this.value);
 
-  static C get staticGetter => C("C: static getter");
-  static C staticMethod() => C("C: static method");
-  static List<C> instances = [C("one"), C("two")];
+  C._(this.value);
+  const C._foo(this.value);
+  factory C._bar(String v) = C._;
+  const factory C._baz(String v) = C._foo;
 }
-
-mixin M on C {
-  static M get staticGetter => CM("M: static getter");
-  static M staticMethod() => CM("M: static method");
-  static List<M> instances = [CM("M: one"), CM("M: two")];
-}
-
-class CM = C with M;
 
 main() {
-  M m1 = .staticGetter;
-  Expect.equals("M: static getter", m1.value);
+  C c1 = ._staticGetter;
+  Expect.equals("Static getter", c1.value);
 
-  M m2 = .staticMethod();
-  Expect.equals("M: static method", m2.value);
+  C c2 = ._staticMethod();
+  Expect.equals("Static method", c2.value);
 
-  M m3 = .instances[0];
-  Expect.equals("M: one", m3.value);
+  C c3 = ._instances[0];
+  Expect.equals("one", c3.value);
 
-  M m4 = (.staticGetter);
-  Expect.equals("M: static getter", m1.value);
+  C c4 = ._("new");
+  Expect.equals("new", c4.value);
 
-  M m5 = (.staticMethod());
-  Expect.equals("M: static method", m2.value);
+  C c5 = ._foo("foo");
+  Expect.equals("foo", c5.value);
 
-  M m6 = (.instances[0]);
-  Expect.equals("M: one", m3.value);
+  C c6 = const ._foo("const foo");
+  Expect.equals("const foo", c6.value);
+
+  C c7 = ._bar("bar");
+  Expect.equals("bar", c7.value);
+
+  C c8 = ._baz("baz");
+  Expect.equals("baz", c8.value);
+
+  C c9 = const ._baz("const baz");
+  Expect.equals("const baz", c9.value);
 }
