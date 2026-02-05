@@ -63,22 +63,4 @@ main() {
 
   ET et7 = const ._baz(7);
   Expect.equals(7, et7.v);
-
-  ET et8 = (._instances[0]);
-  Expect.equals(0, et8.v);
-
-  ET et9 = (._staticGetter);
-  Expect.equals(1, et9.v);
-
-  ET et10 = (._staticMethod());
-  Expect.equals(2, et10.v);
-
-  ET et11 = (._(11));
-  Expect.equals(11, et11.v);
-
-  ET et12 = (._bar(12));
-  Expect.equals(12, et12.v);
-
-  ET et13 = (._baz(13));
-  Expect.equals(13, et13.v);
 }

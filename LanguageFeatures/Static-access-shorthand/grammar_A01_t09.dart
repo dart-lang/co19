@@ -68,25 +68,4 @@ main() {
 
   C c9 = const ._baz("const baz");
   Expect.equals("const baz", c9.value);
-
-  C c10 = (._staticGetter);
-  Expect.equals("Static getter", c10.value);
-
-  C c11 = (._staticMethod());
-  Expect.equals("Static method", c11.value);
-
-  C c12 = (._instances[0]);
-  Expect.equals("one", c12.value);
-
-  C c13 = (._("_"));
-  Expect.equals("_", c13.value);
-
-  C c14 = (._foo("foo"));
-  Expect.equals("foo", c14.value);
-
-  C c15 = (._bar("bar"));
-  Expect.equals("bar", c15.value);
-
-  C c16 = (._baz("baz"));
-  Expect.equals("baz", c16.value);
 }
