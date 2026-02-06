@@ -61,7 +61,7 @@ extension type ET(int v) {
   this : assert(v > 0);
 }
 
-extension type ET {
+augment extension type ET {
   this : assert(v != 0);
 //^^^^
 // [analyzer] unspecified
