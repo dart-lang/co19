@@ -2,26 +2,27 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion An augmentation can add a body to an extension type's implicit
-/// constructor, which isn't otherwise possible. This is done by augmenting the
-/// constructor in the body of the extension type.
+/// @assertion When augmenting an extension type declaration, the parenthesized
+/// clause where the representation type is specified is treated as a
+/// constructor that has a single positional parameter, a single initializer
+/// from the parameter to the representation field, and an empty body. This
+/// constructor is complete.
 ///
-/// @description Checks that an augmentation of an extension type's implicit
-/// constructor may have an initializer list.
+/// @description Checks that it is a compile-time error when an augmentation of
+/// an extension type's primary constructor has an initializer list.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
-
-import '../../Utils/expect.dart';
-part 'extension_types_A02_t06_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 extension type ET(int id) {}
 
+augment extension type ET {
+  augment ET(this.id): assert(id > 0);
+//                     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
-  Expect.equals(1, ET(1).id);
-  if (assertStatementsEnabled) {
-    Expect.throws(() {
-      ET(-1);
-    });
-  }
+  print(ET);
 }
