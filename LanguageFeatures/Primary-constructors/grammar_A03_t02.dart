@@ -10,9 +10,8 @@
 /// compile-time error occurs if the body of `D` contains two or more member
 /// declarations starting with a `<primaryConstructorBodySignature>`.
 ///
-/// @description Check that it is a compile-time error if `D` includes a
-/// `<classNameMaybePrimary>` that does not contain a `<primaryConstructor>`,
-/// and the body of `D` contains a member declaration that starts with a
+/// @description Check that it is a compile-time error if the body of `D`
+/// contains two or more member declarations starting with a
 /// `<primaryConstructorBodySignature>`.
 /// @author sgrekhov22@gmail.com
 
