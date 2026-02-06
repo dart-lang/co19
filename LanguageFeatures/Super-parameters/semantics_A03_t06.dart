@@ -21,8 +21,9 @@ class S {
 class C(super.s) extends S {
 //      ^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
   this : super(0);
+//^^^^
+// [cfe] unspecified
 }
 
 main() {
