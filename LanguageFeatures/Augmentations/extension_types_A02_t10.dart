@@ -9,7 +9,7 @@
 /// constructor is complete.
 ///
 /// @description Checks that it is not an error if an augmentation of a primary
-/// constructor of an extension type has a metadata.
+/// constructor of an extension type has metadata.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

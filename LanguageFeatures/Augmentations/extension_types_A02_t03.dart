@@ -8,9 +8,9 @@
 /// from the parameter to the representation field, and an empty body. This
 /// constructor is complete.
 ///
-/// @description Checks that it is a compile-time error if an augmentation of an
-/// extension type's implicit constructor has a signature which doesn't exactly
-/// match the introductory constructor.
+/// @description Checks that it is a compile-time error when an augmentation of
+/// an extension type's primary constructor has a signature which doesn't
+/// exactly match the introductory constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -76,8 +76,12 @@ augment extension type ET7 {
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
-  augment ET7(int id);
+extension type ET8(num id) {}
+
+augment extension type ET8 {
+  augment ET8(int id);
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

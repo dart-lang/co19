@@ -9,7 +9,7 @@
 /// constructor is complete.
 ///
 /// @description Checks that it is a compile-time error if an augmentation adds
-/// a body to an extension type's implicit constructor.
+/// a body to an extension type's primary constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

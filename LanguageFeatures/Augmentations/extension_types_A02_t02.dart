@@ -16,9 +16,12 @@
 
 import '../../Utils/expect.dart';
 
+const Meta = 1;
+
 extension type ET1(int id) {}
 
 augment extension type ET1 {
+  @Meta
   augment ET1.new(int id);
 }
 

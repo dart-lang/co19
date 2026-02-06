@@ -8,7 +8,7 @@
 /// from the parameter to the representation field, and an empty body. This
 /// constructor is complete.
 ///
-/// @description Checks that an implicit constructor of an extension type may be
+/// @description Checks that an primary constructor of an extension type may be
 /// augmented by an incomplete augmenting declaration.
 /// @author sgrekhov22@gmail.com
 

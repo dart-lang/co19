@@ -8,8 +8,9 @@
 /// from the parameter to the representation field, and an empty body. This
 /// constructor is complete.
 ///
-/// @description Checks that that it is a compile-time error if an augmentation
-/// of an extension type's implicit constructor is a `factory` constructor.
+/// @description Checks that that it is a compile-time error when an
+/// augmentation of an extension type's primary constructor is a `factory`
+/// constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

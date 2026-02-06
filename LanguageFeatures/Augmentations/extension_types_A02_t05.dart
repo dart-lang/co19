@@ -8,8 +8,8 @@
 /// from the parameter to the representation field, and an empty body. This
 /// constructor is complete.
 ///
-/// @description Checks that it is a compile-time error if an augmentation of an
-/// extension type's implicit constructor has initializing formals.
+/// @description Checks that it is a compile-time error when an augmentation of
+/// an extension type's primary constructor has initializing formals.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
