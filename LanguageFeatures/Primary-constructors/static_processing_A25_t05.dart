@@ -8,13 +8,12 @@
 /// `<primaryConstructorBodySignature>`.
 ///
 /// @description Check that it is a compile-time error if a
-/// `<primaryConstructorBodySignature>` contains a body but the
-/// `<primaryConstructor>` is a constant.
+/// `<primaryConstructorBodySignature>` contains a body.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
 
-class const C1() {
+class C1() {
   this {}
 //     ^
 // [analyzer] unspecified
@@ -29,7 +28,7 @@ class const C2(int x) {
 // [cfe] unspecified
 }
 
-class const C3(final int x) {
+class C3(final int x) {
   this {}
 //     ^
 // [analyzer] unspecified
@@ -44,16 +43,16 @@ class const C4(this.x) {
 // [cfe] unspecified
 }
 
-class const A(final int x);
+class A(final int x);
 
-class const C5(super.x) extends A {
+class C5(super.x) extends A {
   this {}
 //     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type const ET1(int v) {
+extension type ET1(int v) {
   this {}
 //     ^
 // [analyzer] unspecified
@@ -69,14 +68,16 @@ extension type const ET2.someName(int v) {
 
 enum E1(final int v) {
   e0(0);
+
   this {}
 //     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum const E2.someName(this.v) {
+enum E2.someName(this.v) {
   e0.someName(0);
+
   final int v;
   this {}
 //     ^
@@ -86,6 +87,7 @@ enum const E2.someName(this.v) {
 
 enum const E3(int v) {
   e0(0);
+
   final int v;
   this: v = v {}
 //            ^
