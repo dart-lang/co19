@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -16,46 +16,53 @@
 /// `<primaryConstructorBodySignature>`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
+// SharedOptions=--enable-experiment=primary-constructors,augmentations
 
-class C1 {
+class C1() {
+  int v1, v2;
+  this : v1 = 1;
+}
+
+augment class C1 {
+  this : v2 = 2;
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C2(var int v1) {
+  int v2;
   this;
+}
+
+augment class C2 {
+  this: v2 = 3;
 //^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C2 {
-  int v;
-  this: v = 0;
-//^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
+enum E(final int v1) {
+  e0(0);
 
-class C3 {
-  int? v;
-  this {
-//^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    v = 0;
-  }
-}
-
-enum E1 {
-  e0;
-
+  final int v2;
   this;
+}
+
+augment enum E {
+  ;
+  this: v2 = 2;
 //^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E2 {
-  e0;
-  final int v;
-  this: v = 0;
+extension type ET(int v) {
+  this : assert(v > 0);
+}
+
+extension type ET {
+  this : assert(v != 0);
 //^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -64,6 +71,6 @@ enum E2 {
 main() {
   print(C1);
   print(C2);
-  print(E1);
-  print(E2);
+  print(E);
+  print(ET);
 }

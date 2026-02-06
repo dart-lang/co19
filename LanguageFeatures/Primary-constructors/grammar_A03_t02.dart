@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -18,44 +18,71 @@
 
 // SharedOptions=--enable-experiment=primary-constructors
 
-class C1 {
+class C1() {
+  int v1, v2;
+  this : v1 = 1;
+  this : v2 = 2;
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C2(var int v1) {
+  int v2;
   this;
+  this: v2 = 3;
 //^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C2 {
-  int v;
-  this: v = 0;
+class A {
+  int x = 0;
+}
+
+class C3(var int v1) extends A {
+  int v2;
+  this: v = 2;
+  this: super(3);
 //^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C3 {
-  int? v;
-  this {
-//^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    v = 0;
-  }
-}
+enum E1(final int v1) {
+  e0(0);
 
-enum E1 {
-  e0;
-
+  final int v2;
   this;
+  this: v2 = 2;
 //^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E2 {
-  e0;
-  final int v;
-  this: v = 0;
+enum E2(final int v1) {
+  e0(0);
+
+  final int v2;
+  E2.foo(this.v2) : this(0);
+  this: v2 = 0;
+  this: this.foo(2);
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET1(int v) {
+  this : assert(v > 0);
+  this : assert(v != 0);
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET2(int v) {
+  this;
+  this : assert(v >= 0);
 //^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -66,4 +93,6 @@ main() {
   print(C2);
   print(E1);
   print(E2);
+  print(ET1);
+  print(ET2);
 }
