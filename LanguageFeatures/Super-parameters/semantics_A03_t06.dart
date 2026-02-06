@@ -22,7 +22,7 @@ class C(super.s) extends S {
 //      ^^^^^
 // [analyzer] unspecified
   this : super(0);
-//^^^^^
+//^^^^
 // [cfe] unspecified
 }
 
