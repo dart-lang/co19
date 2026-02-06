@@ -64,9 +64,8 @@ enum E2(final int v1) {
   e0(0);
 
   final int v2;
-  E2.foo(this.v2) : this(0);
   this: v2 = 0;
-  this: this.foo(2);
+  this;
 //^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
