@@ -17,7 +17,7 @@
 extension type ET1(int id) {}
 
 augment extension type ET1 {
-  augment ET1(this.id) {}
+  augment ET1(int id) {}
 //                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -26,7 +26,7 @@ augment extension type ET1 {
 extension type ET2.foo(int id) {}
 
 augment extension type ET2 {
-  augment ET2.foo(this.id) {}
+  augment ET2.foo(id) {}
 //                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -35,7 +35,7 @@ augment extension type ET2 {
 extension type ET3.new(int id) {}
 
 augment extension type ET3 {
-  augment ET3.new(this.id) {}
+  augment ET3.new(int id) {}
 //                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
