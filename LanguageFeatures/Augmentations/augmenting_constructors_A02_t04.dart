@@ -63,10 +63,7 @@ enum E2({final int x}) {
 }
 
 augment enum E2 {
-  augment const E2({int x = 0});
-}
-
-augment enum E2 {
+  ;
   augment const E2({int x = 0});
 //                        ^
 // [analyzer] unspecified
