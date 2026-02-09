@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -28,7 +28,8 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is a compile-time error if parameter names of
-/// the constructor augmentation does not match the original constructor.
+/// the constructor augmentation does not match the original constructor. Test
+/// super parameters of a primary constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -37,38 +38,50 @@ class A1 {
   A1(int x, int y);
 }
 
-class C1 extends A1 {
-  C1(super.x, super.y);
-  C1.foo([super.x = 1, super.y = 1]);
-}
+class C1(super.x, super.y) extends A1 {}
 
 augment class C1 {
   augment C1(int y, int x);
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C1.foo([int y, int x]);
-//                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 class A2 {
-  A2({int x = 0});
+  A2([int x = 1, int y = 2]);
 }
 
-class C2 extends A2 {
-  C2({super.x});
-  C2.foo({required super.x});
-}
+class C2([super.x, super.y]) extends A2 {}
 
 augment class C2 {
-  augment C2({int y});
+  augment C2([int y, int x]);
 //                ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C2.foo({required int y});
-//                             ^
+}
+
+class A3 {
+  A3({int x = 0});
+}
+
+class C3({super.x = 1}) extends A3 {}
+
+augment class C3 {
+  augment C3({int y});
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class A4 {
+  A4({required int x});
+}
+
+class C4({required super.x}) extends A4 {}
+
+augment class C4 {
+  augment C4({required int y});
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -76,4 +89,6 @@ augment class C2 {
 main() {
   print(C1);
   print(C2);
+  print(C3);
+  print(C4);
 }

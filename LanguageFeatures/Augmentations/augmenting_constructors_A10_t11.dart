@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -33,42 +33,53 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-class A1 {
-  A1(int x, int y);
-}
-
-class C1 extends A1 {
-  C1(super.x, super.y);
-  C1.foo([super.x = 1, super.y = 1]);
-}
+class C1(int x, int y) {}
 
 augment class C1 {
   augment C1(int y, int x);
 //               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C1.foo([int y, int x]);
-//                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
-class A2 {
-  A2({int x = 0});
-}
-
-class C2 extends A2 {
-  C2({super.x});
-  C2.foo({required super.x});
-}
+class C2([int x = 1, int y = 2]) {}
 
 augment class C2 {
-  augment C2({int y});
+  augment C2([int y, int x]);
 //                ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C2.foo({required int y});
-//                             ^
+}
+
+enum E1(int x, int y) {
+  e0(0, 1);
+}
+
+augment enum E1 {
+  ;
+  augment const E1(int y, int x);
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E2([int x = 1, int y = 2]) {
+  e0(0, 1);
+}
+
+augment enum E2 {
+  ;
+  augment const E2([int y, int x]);
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET(int x) {}
+
+augment extension type ET {
+  augment ET(int y);
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -76,4 +87,7 @@ augment class C2 {
 main() {
   print(C1);
   print(C2);
+  print(E1);
+  print(E2);
+  print(ET);
 }
