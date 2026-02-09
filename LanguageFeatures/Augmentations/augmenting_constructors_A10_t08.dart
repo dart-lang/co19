@@ -55,7 +55,7 @@ augment class C2 {
 class C3({var num x = 0}) {}
 
 augment class C3 {
-  augment C3({Object x}]);
+  augment C3({Object x});
 //            ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -64,7 +64,7 @@ augment class C3 {
 class C4({final required num x}) {}
 
 augment class C4 {
-  augment C4({required int x}]);
+  augment C4({required int x});
 //                     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -108,7 +108,8 @@ enum E3({final num x = 0}) {
 }
 
 augment enum E3 {
-  augment const E3({Object x}]);
+  ;
+  augment const E3({Object x});
 //                  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -120,7 +121,7 @@ enum E4({final required num x}) {
 
 augment enum E4 {
   ;
-  augment const E4({required int x}]);
+  augment const E4({required int x});
 //                           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

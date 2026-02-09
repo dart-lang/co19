@@ -107,6 +107,7 @@ augment enum E3 {
 enum E4({final int x = 0}) {}
 
 augment enum E4 {
+  ;
   augment const E4({int x, int y});
 //              ^^
 // [analyzer] unspecified

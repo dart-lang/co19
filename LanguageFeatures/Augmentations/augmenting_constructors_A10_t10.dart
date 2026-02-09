@@ -116,7 +116,7 @@ augment class C9 {
 // [cfe] unspecified
 }
 
-class C10({final required int x}) {}
+class C10({required final int x}) {}
 
 augment class C10 {
   augment C10(int x);
@@ -125,7 +125,7 @@ augment class C10 {
 // [cfe] unspecified
 }
 
-class C11({var required int x}) {}
+class C11({required var int x}) {}
 
 augment class C11 {
   augment C11([int x = 0]);
@@ -134,7 +134,7 @@ augment class C11 {
 // [cfe] unspecified
 }
 
-class C12({final required int x}) {}
+class C12({required final int x}) {}
 
 augment class C12 {
   augment C12({int x = 0});
@@ -251,7 +251,7 @@ augment enum E9 {
 // [cfe] unspecified
 }
 
-enum E10({final required int x}) {
+enum E10({required final int x}) {
   e0(x: 0);
 }
 
@@ -263,7 +263,7 @@ augment enum E10 {
 // [cfe] unspecified
 }
 
-enum E11({final required int x}) {
+enum E11({required final int x}) {
   e0(x: 0);
 }
 
@@ -275,7 +275,7 @@ augment enum E11 {
 // [cfe] unspecified
 }
 
-enum E12({final required int x}) {
+enum E12({required final int x}) {
   e0(x: 0);
 }
 
