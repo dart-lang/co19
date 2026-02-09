@@ -61,7 +61,7 @@ augment class C3 {
 // [cfe] unspecified
 }
 
-class C4({final required num x}) {}
+class C4({required final num x}) {}
 
 augment class C4 {
   augment C4({required int x});
@@ -115,7 +115,7 @@ augment enum E3 {
 // [cfe] unspecified
 }
 
-enum E4({final required num x}) {
+enum E4({required final num x}) {
   e0(x: 0);
 }
 
