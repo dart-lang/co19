@@ -28,8 +28,8 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is a compile-time error if the signature of the
-/// constructor augmentation does not match the original constructor. Test wrong
-/// number of positional parameters of a primary constructor.
+/// constructor augmentation does not match the original constructor. Test an
+/// incorrect number of positional parameters of a primary constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
@@ -43,7 +43,7 @@ augment class C1 {
 // [cfe] unspecified
 }
 
-class C2(var int x);
+class C2(int x);
 
 augment class C2 {
   augment C2(int x, int y);

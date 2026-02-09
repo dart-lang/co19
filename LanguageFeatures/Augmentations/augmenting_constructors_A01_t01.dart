@@ -28,8 +28,8 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is a compile-time error if the signature of the
-/// constructor augmentation does not match the original constructor. Test wrong
-/// number of positional parameters.
+/// constructor augmentation does not match the original constructor. Test an
+/// incorrect number of positional parameters.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

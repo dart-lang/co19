@@ -28,8 +28,9 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is a compile-time error if the signature of the
-/// constructor augmentation does not match the original constructor. Test wrong
-/// type of parameters in an augmentation of a declaring primary constructor .
+/// constructor augmentation does not match the original constructor. Test an
+/// incorrect type of declaring parameters in an augmentation of a primary
+/// constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
