@@ -19,13 +19,13 @@ import '../../Utils/expect.dart';
 class C1([var int x]);
 
 augment class C1 {
-  augment C1([var int x = 1]);
+  augment C1([int x = 1]);
 }
 
 class C2({var int x});
 
 augment class C2 {
-  augment C2({var int x = 1});
+  augment C2({int x = 1});
 }
 
 enum E1([var int x]) {
@@ -34,7 +34,7 @@ enum E1([var int x]) {
 
 augment enum E1 {
   ;
-  augment const E1([var int x = 1]);
+  augment const E1([int x = 1]);
 }
 
 enum E2({var int x}) {
@@ -43,7 +43,7 @@ enum E2({var int x}) {
 
 augment enum E2 {
   ;
-  augment const E2({var int x = 1});
+  augment const E2({int x = 1});
 }
 
 main() {
