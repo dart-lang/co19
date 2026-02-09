@@ -58,7 +58,7 @@ class A2 {
 }
 
 class C2 extends A2 {
-  C2({super.x = 1});
+  C2({super.x});
   C2.foo({required super.x});
 }
 
@@ -67,8 +67,8 @@ augment class C2 {
 //                ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C2.foo({int y});
-//                    ^
+  augment C2.foo({required int y});
+//                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

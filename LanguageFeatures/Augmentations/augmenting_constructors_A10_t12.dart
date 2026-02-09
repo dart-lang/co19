@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -27,101 +27,68 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if the signature of the
-/// constructor augmentation does not match the original constructor. Test an
-/// incorrect number of optional positional parameters.
+/// @description Checks that it is a compile-time error if parameter names of
+/// the constructor augmentation does not match the original constructor. Test
+/// declaring parameters of a primary constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-class C {
-  C([int x = 0]);
-  C.n({int x = 0});
-}
+class C1(var int x, var int y) {}
 
-augment class C {
-  augment C();
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment C([int x, int y]);
-//        ^
+augment class C1 {
+  augment C1(int y, int x);
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment class C {
-  augment C.n();
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C2([final int x = 1, final int y = 2]) {}
 
-  augment C.n({int x, int y});
-//        ^^^
+augment class C2 {
+  augment C2([int y, int x]);
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E {
-  e0(0);
-  const E([int x = 0]);
-  const E.n({int x = 0});
+enum E1(final int x, final int y) {
+  e0(0, 1);
 }
 
-augment enum E {
+augment enum E1 {
   ;
-  augment const E();
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment const E([int x, int y]);
-//              ^
+  augment const E1(int y, int x);
+//                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment enum E {
-  augment e0;
-  augment const E.n();
-//              ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+enum E2([final int x = 1, final int y = 2]) {
+  e0(0, 1);
+}
 
-  augment const E.n({int x, int y});
-//              ^^^
+augment enum E2 {
+  ;
+  augment const E2([int y, int x]);
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET(int id) {
-  ET.foo([int x = 0]): this.id = 0;
-  ET.baz({int x = 0}): this.id = 0;
-}
+extension type ET(final int x) {}
 
 augment extension type ET {
-  augment ET.foo();
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.foo([int x, int y = 0]);
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment ET.baz();
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.baz({int x, int y = 0});
-//        ^^^^^^
+  augment ET(int y);
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(C);
-  print(E);
+  print(C1);
+  print(C2);
+  print(E1);
+  print(E2);
   print(ET);
 }

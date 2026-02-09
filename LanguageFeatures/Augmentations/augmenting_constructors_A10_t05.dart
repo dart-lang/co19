@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -28,94 +28,29 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is a compile-time error if the signature of the
-/// constructor augmentation does not match the original constructor. Test an
-/// incorrect number of optional positional parameters.
+/// constructor augmentation does not match the original constructor. Test
+/// incorrect names of named parameters of a primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,primary-constructors
 
-class C {
-  C([int x = 0]);
-  C.n({int x = 0});
-}
+class C({int x = 0}) {}
 
 augment class C {
-  augment C();
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment C([int x, int y]);
+  augment C({int y});
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment class C {
-  augment C.n();
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment C.n({int x, int y});
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-enum E {
-  e0(0);
-  const E([int x = 0]);
-  const E.n({int x = 0});
+enum E({int x = 0}) {
+  e0;
 }
 
 augment enum E {
   ;
-  augment const E();
+  augment const E({int y});
 //              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment const E([int x, int y]);
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-augment enum E {
-  augment e0;
-  augment const E.n();
-//              ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment const E.n({int x, int y});
-//              ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET(int id) {
-  ET.foo([int x = 0]): this.id = 0;
-  ET.baz({int x = 0}): this.id = 0;
-}
-
-augment extension type ET {
-  augment ET.foo();
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.foo([int x, int y = 0]);
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment ET.baz();
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.baz({int x, int y = 0});
-//        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -123,5 +58,4 @@ augment extension type ET {
 main() {
   print(C);
   print(E);
-  print(ET);
 }
