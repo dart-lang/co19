@@ -109,7 +109,7 @@ enum E3({num x = 0}) {
 
 augment enum E3 {
   ;
-  augment const E3({Object x}]);
+  augment const E3({Object x});
 //                  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -121,7 +121,7 @@ enum E4({required num x}) {
 
 augment enum E4 {
   ;
-  augment const E4({required int x}]);
+  augment const E4({required int x});
 //                           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
