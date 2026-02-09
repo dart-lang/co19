@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
 
-class C1([var int v]);
+class C1([var int x]);
 
 augment class C1 {
   augment C([int x = 0]);
@@ -28,7 +28,7 @@ augment class C1 {
 // [cfe] unspecified
 }
 
-class C2({var int v});
+class C2({var int x});
 
 augment class C2 {
   augment C2({int x = 0});
@@ -60,6 +60,14 @@ augment enum E1 {
 
 enum E2({final int x}) {
   e0;
+}
+
+augment enum E2 {
+  ;
+  augment const E2({int x = 0});
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment enum E2 {

@@ -26,7 +26,7 @@ augment class C {
 extension type const ET(int id);
 
 augment extension type ET {
-  augment ET(this.id);
+  augment ET(int id);
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified

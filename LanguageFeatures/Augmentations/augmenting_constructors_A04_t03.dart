@@ -7,9 +7,8 @@
 /// - The introductory constructor is marked `factory` and the augmenting
 /// constructor is not, or vice versa.
 ///
-/// @description Checks that it is a compile-time error if the introductory
-/// constructor is marked `factory` and the augmenting constructor is not. Test
-/// primary constructors.
+/// @description Checks that it is a compile-time error if a primary
+/// introductory constructor is augmented by a `factory` constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors

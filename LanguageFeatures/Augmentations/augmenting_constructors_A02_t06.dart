@@ -8,7 +8,7 @@
 ///   value for the same optional parameter. This is an error even in the case
 ///   where all of them are identical.
 ///
-/// @description Checks that it is not an error if augmenting constructor
+/// @description Checks that it is not an error if an augmenting constructor
 /// specifies default values for optional parameters. Test primary constructors.
 /// @author sgrekhov22@gmail.com
 

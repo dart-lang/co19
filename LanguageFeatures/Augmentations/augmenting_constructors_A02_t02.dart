@@ -15,7 +15,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
 
-class C1([var int v = 0]);
+class C1([var int x = 0]);
 
 augment class C1 {
   augment C([int x = 0]);
@@ -24,7 +24,7 @@ augment class C1 {
 // [cfe] unspecified
 }
 
-class C2({var int v = 0});
+class C2({var int x = 0});
 
 augment class C2 {
   augment C2({int x = 0});
