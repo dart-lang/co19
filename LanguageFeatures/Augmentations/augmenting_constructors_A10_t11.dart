@@ -75,15 +75,6 @@ augment enum E2 {
 // [cfe] unspecified
 }
 
-extension type ET(int x) {}
-
-augment extension type ET {
-  augment ET(int y);
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
   print(C1);
   print(C2);

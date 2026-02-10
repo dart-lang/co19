@@ -287,7 +287,7 @@ augment enum E12 {
 // [cfe] unspecified
 }
 
-extension type ET1(final int x) {}
+extension type ET1(int x) {}
 
 augment extension type ET1 {
   augment ET1([int x = 0]);
@@ -305,7 +305,7 @@ augment extension type ET2 {
 // [cfe] unspecified
 }
 
-extension type ET3(final int x) {}
+extension type ET3(int x) {}
 
 augment extension type ET3 {
   augment ET3({required int x});
