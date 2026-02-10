@@ -18,6 +18,7 @@
 /// is constant but initializer list in its body part initializes a variable by
 /// a non-constant value.
 /// @author sgrekhov22@gmail.com
+/// @issue 62627
 
 // SharedOptions=--enable-experiment=primary-constructors
 
