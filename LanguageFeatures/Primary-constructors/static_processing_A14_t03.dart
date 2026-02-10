@@ -14,9 +14,9 @@
 /// occurs just before the name of `D` or `D` is an `enum` declaration. In any
 /// case, such an occurrence of `const` in the header of `D` is omitted in `D2`.
 ///
-/// @description Check that it is a compile-time error is a primary constructor
-/// is constant but initializer list in its body part initializes a variable by
-/// a non-constant value.
+/// @description Check that it is a compile-time error if a primary constructor
+/// is constant, but the initializer list in its body part initializes a
+/// variable with a non-constant value.
 /// @author sgrekhov22@gmail.com
 /// @issue 62627
 
