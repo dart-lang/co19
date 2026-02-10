@@ -27,6 +27,9 @@ class C2 {
 // [analyzer] unspecified
 // [cfe] unspecified
   C2.someName();
+//^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET1(int v) {
@@ -55,12 +58,17 @@ enum E1 {
 
 enum E2 {
   e0;
+//^^
+// [cfe] unspecified
 
   const E2() : new.someName();
 //             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const E2.someName();
+//      ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
