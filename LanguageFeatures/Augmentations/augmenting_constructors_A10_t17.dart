@@ -57,7 +57,7 @@ augment enum E1 {
   augment E1(x, [y]);
 }
 
-enum E2({final required int x, final int y = 0}) {
+enum E2({required final int x, final int y = 0}) {
   e0(x: 1), e1(x: 1, y: 2);
 }
 
@@ -68,7 +68,7 @@ augment enum E2 {
 
 extension type ET(int x) {}
 
-augment extension type ET(int x) {
+augment extension type ET {
   augment ET(x);
 }
 
@@ -94,6 +94,5 @@ main() {
   Expect.equals(0, E2.e0.y);
   Expect.equals(1, E2.e1.x);
   Expect.equals(2, E2.e1.y);
-
   Expect.equals(1, ET(1).x);
 }
