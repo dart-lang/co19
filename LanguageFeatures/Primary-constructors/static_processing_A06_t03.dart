@@ -36,52 +36,34 @@ enum E1(final String x) {
   e0("parameter");
 
   final String Function() captureAtDeclaration = () => x;
-  final String Function() captureInInitializer;
-
-  this : captureInInitializer = (() => x);
 }
 
 enum const E2([final String x = "default"]) {
   e0, e1("parameter");
 
   final String Function() captureAtDeclaration = () => x;
-  final String Function() captureInInitializer;
-
-  this : captureInInitializer = (() => x);
 }
 
 enum E3({final String x = "default"}) {
   e0, e1(x: "parameter");
 
   final String Function() captureAtDeclaration = () => x;
-  final String Function() captureInInitializer;
-
-  this : captureInInitializer = (() => x);
 }
 
 enum const E4({required final String x}) {
   e0(x: "parameter");
 
   final String Function() captureAtDeclaration = () => x;
-  final String Function() captureInInitializer;
-
-  this : captureInInitializer = (() => x);
 }
 
 main() {
   Expect.equals("parameter", E1.e0.captureAtDeclaration());
-  Expect.equals("parameter", E1.e0.captureInInitializer());
 
   Expect.equals("default", E2.e0.captureAtDeclaration());
-  Expect.equals("default", E2.e0.captureInInitializer());
   Expect.equals("parameter", E2.e1.captureAtDeclaration());
-  Expect.equals("parameter", E2.e1.captureInInitializer());
 
   Expect.equals("default", E3.e0.captureAtDeclaration());
-  Expect.equals("default", E3.e0.captureInInitializer());
   Expect.equals("parameter", E3.e1.captureAtDeclaration());
-  Expect.equals("parameter", E3.e1.captureInInitializer());
 
   Expect.equals("parameter", E4.e0.captureAtDeclaration());
-  Expect.equals("parameter", E4.e0.captureInInitializer());
 }

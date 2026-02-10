@@ -24,28 +24,24 @@ class C1(covariant String super.x) extends A {
 //    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String x;
 }
 
 class C2([covariant super.x = ""]) extends A {
 //    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String x;
 }
 
 class C3({covariant String super.x = ""}) extends A {
 //    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String x;
 }
 
 class C4({required covariant String super.x}) extends A {
 //    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  String x;
 }
 
 main() {
