@@ -76,29 +76,9 @@ augment enum E2 {
 // [cfe] unspecified
 }
 
-extension type ET1(int id);
-
-augment extension type ET1 {
-  augment ET1.new();
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET2(int id);
-
-augment extension type ET2 {
-  augment ET2.new(int id, int y);
-//        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
   print(C1);
   print(C2);
   print(E1);
   print(E2);
-  print(ET1);
-  print(ET2);
 }

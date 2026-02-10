@@ -85,7 +85,7 @@ augment extension type ET1 {
 // [cfe] unspecified
 }
 
-extension type ET2(final int id);
+extension type ET2(int id);
 
 augment extension type ET2 {
   augment ET2.new(int id, int y);

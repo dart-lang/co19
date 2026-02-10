@@ -287,33 +287,6 @@ augment enum E12 {
 // [cfe] unspecified
 }
 
-extension type ET1(int x) {}
-
-augment extension type ET1 {
-  augment ET1([int x = 0]);
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET2(int x) {}
-
-augment extension type ET2 {
-  augment ET2({int x = 0});
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET3(int x) {}
-
-augment extension type ET3 {
-  augment ET3({required int x});
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
   print(C1);
   print(C2);
@@ -339,7 +312,4 @@ main() {
   print(E10);
   print(E11);
   print(E12);
-  print(ET1);
-  print(ET2);
-  print(ET3);
 }

@@ -140,7 +140,7 @@ augment enum E5 {
 // [cfe] unspecified
 }
 
-extension type ET1(final num id) {}
+extension type ET1(num id) {}
 
 augment extension type ET1 {
   augment ET1(int x);
@@ -158,7 +158,7 @@ augment extension type ET2 {
 // [cfe] unspecified
 }
 
-extension type ET3(final num id) {}
+extension type ET3(num id) {}
 
 augment extension type ET3 {
   augment ET3(num? x);

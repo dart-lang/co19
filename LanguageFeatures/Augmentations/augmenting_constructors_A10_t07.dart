@@ -139,33 +139,6 @@ augment enum E5 {
 // [cfe] unspecified
 }
 
-extension type ET1(num id) {}
-
-augment extension type ET1 {
-  augment ET1(int x);
-//            ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET2(num id) {}
-
-augment extension type ET2 {
-  augment ET2(Object x);
-//            ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET3(num id) {}
-
-augment extension type ET3 {
-  augment ET3(num? x);
-//            ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
   print(C1);
   print(C2);
@@ -177,7 +150,4 @@ main() {
   print(E3);
   print(E4);
   print(E5);
-  print(ET1);
-  print(ET2);
-  print(ET3);
 }
