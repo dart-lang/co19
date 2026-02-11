@@ -13,22 +13,43 @@
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
 
-class C();
+class C1();
 
-augment class C {
-  augment factory C();
+augment class C1 {
+  augment factory C1();
 //        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E.foo() {
+class C2(var int x);
+
+augment class C2 {
+  augment factory C2(int x);
+//        ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E1.foo() {
   e0.foo();
 }
 
-augment enum E {
+augment enum E1 {
   ;
-  augment factory E.foo();
+  augment factory E1.foo();
+//        ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E2(final int x) {
+  e0(0);
+}
+
+augment enum E2 {
+  ;
+  augment factory E2(int x);
 //        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -44,7 +65,9 @@ augment extension type ET {
 }
 
 main() {
-  print(C);
-  print(E);
+  print(C1);
+  print(C2);
+  print(E1);
+  print(E2);
   print(ET);
 }
