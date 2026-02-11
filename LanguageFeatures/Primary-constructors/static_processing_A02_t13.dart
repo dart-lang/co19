@@ -46,6 +46,8 @@ class const C3.someName(final int v) {
 
 class C5(var int v) {
   C5.foo(int v) : this(v);
+//^^^^^^^
+// [cfe] unspecified
   factory C5(int v) = C5.foo;
 //        ^^
 // [analyzer] unspecified
@@ -87,6 +89,8 @@ class C9.new(var int v) {
 
 class C10.new(var int v) {
   C10.foo(int v) : this(v);
+//^^^^^^^
+// [cfe] unspecified
   factory C10(int v) = C10.foo;
 //        ^^^
 // [analyzer] unspecified
@@ -95,6 +99,8 @@ class C10.new(var int v) {
 
 class C11(var int v) {
   C11.foo(int v) : this(v);
+//^^^^^^^
+// [cfe] unspecified
   factory C11.new(int v) = C11.foo;
 //        ^^^^^^^
 // [analyzer] unspecified
@@ -103,6 +109,8 @@ class C11(var int v) {
 
 class C12.new(var int v) {
   C12.foo(int v) : this(v);
+//^^^^^^^
+// [cfe] unspecified
   factory C12.new(int v) = C12.foo;
 //        ^^^^^^^
 // [analyzer] unspecified

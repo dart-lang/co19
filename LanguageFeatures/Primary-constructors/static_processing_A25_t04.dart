@@ -15,18 +15,20 @@
 // SharedOptions=--enable-experiment=primary-constructors
 
 mixin class M1() {
+//          ^^
+// [cfe] unspecified
   this {}
 //     ^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 mixin class M2() {
+//          ^^
+// [cfe] unspecified
   int v;
   this: v = 0;
 //      ^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
