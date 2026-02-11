@@ -21,7 +21,7 @@ main() {
       y.expectStaticType<Exactly<int>>;
     case TO z:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       x.expectStaticType<Exactly<TO>>;
       z.expectStaticType<Exactly<TO>>;
   }
@@ -31,7 +31,7 @@ main() {
       y.expectStaticType<Exactly<ET>>;
     case TO z:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       x.expectStaticType<Exactly<ET>>;
       z.expectStaticType<Exactly<TO>>;
   }

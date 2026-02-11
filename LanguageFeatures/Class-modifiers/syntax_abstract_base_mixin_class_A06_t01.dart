@@ -23,7 +23,7 @@ String test1(_M c) => switch (c) {
       ImplementsM _ => "ImplementsM",
       WithM _ => "WithM"
 //            ^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
     };
 
 String test2(AbstractBaseMixinClass c) => switch (c) {
@@ -34,7 +34,7 @@ String test2(AbstractBaseMixinClass c) => switch (c) {
       ImplementsAbstractBaseMixinClass _ => "ImplementsAbstractBaseMixinClass",
       WithAbstractBaseMixinClass _ => "WithAbstractBaseMixinClass"
 //                                 ^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
     };
 
 main() {

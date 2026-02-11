@@ -46,7 +46,7 @@ main() {
     case final a:
     case int a:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       print(a);
 //          ^
 // [analyzer] unspecified

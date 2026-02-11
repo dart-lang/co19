@@ -39,13 +39,13 @@ String test(int value) {
       return "constant-1";
     case 30:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return "constant-2";
     case (40):
       return "parenthesized-1";
     case (40):
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return "parenthesized-2";
     default:
       return "default";
@@ -58,7 +58,7 @@ String testCast(num value) {
       return "cast-1";
     case var c2 as double:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return "cast-2";
     default:
       return "default";
@@ -71,7 +71,7 @@ String testNullCheck(int? value) {
       return "null-check-1";
     case var a2?:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return "null-check-2";
     default:
       return "default";
@@ -84,7 +84,7 @@ String testNullAssert(int? value) {
       return "null-assert-1";
     case var a2!:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return "null-assert-2";
     default:
       return "default";
@@ -97,7 +97,7 @@ String testVariable(int value) {
       return "variable-1";
     case var a2:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return "variable-2";
     default:
       return "default";
@@ -114,7 +114,7 @@ String testList(List<int> list) {
       return "list-3";
     case [1, 2, 3]:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return "list-4";
     default:
       return "default";
@@ -159,7 +159,7 @@ String testObject(Shape shape) {
       return "object-3";
     case Circle(sizeAsInt: 1):
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return "object-4";
     default:
       return "default";

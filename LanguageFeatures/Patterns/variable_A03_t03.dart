@@ -41,7 +41,7 @@ void test1(List l) {
       break;
     case [final int c, final String d]:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       c = 1;
 //    ^
 // [analyzer] unspecified
@@ -53,7 +53,7 @@ void test1(List l) {
     break;
     case [final int? e, final String? f]:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       e = 1;
 //    ^
 // [analyzer] unspecified
