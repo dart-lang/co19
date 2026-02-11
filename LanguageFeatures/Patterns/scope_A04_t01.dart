@@ -27,7 +27,7 @@ void test1() {
       break;
     case 0:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       print(v);
 //          ^
 // [analyzer] unspecified

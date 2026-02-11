@@ -39,15 +39,15 @@ test(value) {
       return 3;
     case 1:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return 4;
     case 1:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return 5;
     case 2:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return 6;
     case 4:
     case 5:

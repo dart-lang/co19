@@ -62,7 +62,7 @@ main() {
     case var a as num:
     case var a as int:
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       print(a);
 //          ^
 // [analyzer] unspecified

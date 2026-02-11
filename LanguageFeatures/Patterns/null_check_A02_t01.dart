@@ -23,7 +23,7 @@ String test1(int? x) {
 //             ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
 //  ^^^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return "match-2";
     default:
       return "no match";
@@ -53,7 +53,7 @@ String test3(int? x) =>
 //        ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
 //          ^^
-// [analyzer] WARNING.UNREACHABLE_SWITCH_CASE
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
     _ => "no match"
   };
 
