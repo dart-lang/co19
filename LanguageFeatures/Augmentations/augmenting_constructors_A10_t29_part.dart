@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -27,52 +27,52 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if the name of a
-/// positional parameter in an augmenting constructor is not `_` and not equal
-/// to the name of this parameter in the original constructor.
+/// @description Checks that it is not an error if an augmentation of a primary
+/// constructor uses a parameter whose type annotation uses an import prefix.
+/// Test declaring parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts,primary-constructors
 
-part 'augmenting_constructors_A01_t16_lib.dart';
+part of 'augmenting_constructors_A10_t29.dart';
+import 'augmentation_libraries_lib.dart' as l;
 
-class C {
-  int? _x;
-  C(int? _x);
-  C.foo([this._x]);
+augment class C1 {
+  augment C1(l.AL? a);
 }
 
-augment class C {
-  augment C(int? _);
-  augment C.foo([int? _]);
+augment class C2 {
+  augment C2([l.AL? a]);
 }
 
-enum E {
-  e0(1), e1.foo(1);
-
-  final int _x;
-  const E(this._x);
-  const E.foo([this._x = 0]);
+augment class C3 {
+  augment C3({l.AL? a});
 }
 
-augment enum E {
+augment class C4 {
+  augment C4({required l.AL? a});
+}
+
+augment enum E1 {
   ;
-  augment const E(int _);
-  augment const E.foo([int _]);
+  augment const E1(l.AL? a);
 }
 
-extension type ET(int _x) {
-  ET.foo(this._x);
-  ET.bar([this._x = 0]);
+augment enum E2 {
+  ;
+  augment const E2([l.AL? a]);
+}
+
+augment enum E3 {
+  ;
+  augment const E3({l.AL? a});
+}
+
+augment enum E4 {
+  ;
+  augment const E4({required l.AL? a});
 }
 
 augment extension type ET {
-  augment ET.foo(int _);
-  augment ET.bar([int _]);
-}
-
-main() {
-  print(C);
-  print(E);
-  print(ET);
+  augment ET(l.AL? a);
 }

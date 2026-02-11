@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -27,52 +27,76 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if the name of a
-/// positional parameter in an augmenting constructor is not `_` and not equal
-/// to the name of this parameter in the original constructor.
+/// @description Checks that it is not an error if a positional parameter whose
+/// name is not `_` is accessed in the body of a primary constructor even if
+/// there is an augmentation in the chain that use wildcard as its name.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts
+// SharedOptions=--enable-experiment=augmentations,primary-constructors
 
-part 'augmenting_constructors_A01_t16_lib.dart';
+import '../../utils/expect.dart';
 
-class C {
-  int? _x;
-  C(int? _x);
-  C.foo([this._x]);
+String log = "";
+
+class C1(int _x) {
+  this {
+    log = "$_x";
+  }
 }
 
-augment class C {
-  augment C(int? _);
-  augment C.foo([int? _]);
+augment class C1 {
+  augment C1(int _);
 }
 
-enum E {
-  e0(1), e1.foo(1);
-
-  final int _x;
-  const E(this._x);
-  const E.foo([this._x = 0]);
+class C2([int _x = 0]) {
+  this {
+    log = "$_x";
+  }
 }
 
-augment enum E {
+augment class C2 {
+  augment C2([int _]);
+}
+
+enum E1(int? _x) {
+  e0(1);
+
+  this : assert(_x != null);
+}
+
+augment enum E1 {
   ;
-  augment const E(int _);
-  augment const E.foo([int _]);
+  augment const E(int? _);
+}
+
+enum E2([int? _x]) {
+  e0(1);
+
+  this : assert(_x != null);
+}
+
+augment enum E2 {
+  ;
+  augment const E([int? _]);
 }
 
 extension type ET(int _x) {
-  ET.foo(this._x);
-  ET.bar([this._x = 0]);
+  this {
+    log = "$_x";
+  }
 }
 
-augment extension type ET {
-  augment ET.foo(int _);
-  augment ET.bar([int _]);
+checkLog(String expected) {
+  Expect.equals(expected, log);
+  log = "";
 }
 
 main() {
-  print(C);
-  print(E);
-  print(ET);
+  C1(1);
+  checkLog("1");
+  C2(2);
+  checkLog("2");
+
+  print(E1);
+  print(E2);
 }
