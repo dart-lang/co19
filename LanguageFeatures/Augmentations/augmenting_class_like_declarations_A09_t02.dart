@@ -5,26 +5,31 @@
 /// @assertion We allow augment before class, extension type, and mixin
 /// declarations. (Enums and extensions are discussed in subsequent sections.)
 ///
-/// @description Checks that augmentation of a class, mixin or extension type
-/// may have no body.
+/// @description Checks that it is still an error if an augmentation of an enum
+/// or an extension has no body.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
 
-class C {}
+enum E {
+  e0;
+}
 
-augment class C;
+augment enum E;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-mixin M {}
+class A {}
 
-augment mixin M;
+extension Ext on A {}
 
-extension type ET(int _) {}
-
-augment extension type ET;
+augment extension Ext;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  print(C);
-  print(M);
-  print(ET);
+  print(E);
+  print(Ext);
 }
