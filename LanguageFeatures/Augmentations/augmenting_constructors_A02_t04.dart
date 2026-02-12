@@ -28,7 +28,7 @@ augment class C1 {
 // [cfe] unspecified
 }
 
-class C2({var int x});
+class C2({int x});
 
 augment class C2 {
   augment C2({int x = 0});
@@ -41,7 +41,7 @@ augment class C2 {
 // [cfe] unspecified
 }
 
-enum E1([final int x]) {
+enum E1([int x]) {
   e0;
 }
 

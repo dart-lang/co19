@@ -22,14 +22,20 @@ augment class C1 {
   augment C1([int x = 1]);
 }
 
-class C2({var int x});
+class C2({int x}) {
+  int x;
+  this: x = x;
+}
 
 augment class C2 {
   augment C2({int x = 1});
 }
 
-enum E1([var int x]) {
+enum E1([int x]) {
   e0;
+
+  final int x;
+  this: x = x;
 }
 
 augment enum E1 {
@@ -37,7 +43,7 @@ augment enum E1 {
   augment const E1([int x = 1]);
 }
 
-enum E2({var int x}) {
+enum E2({final int x}) {
  e0;
 }
 
