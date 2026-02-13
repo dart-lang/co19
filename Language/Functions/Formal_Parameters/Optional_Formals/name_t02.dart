@@ -9,6 +9,8 @@
 /// optional parameter begins with an '_' character.
 /// @author rodionov
 
+// @dart=3.11
+
 class A {
   var _p;
   A({this._p = ""}) {
