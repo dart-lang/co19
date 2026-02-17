@@ -6,7 +6,8 @@
 /// getter, or setter may be augmented to provide a body or add metadata.
 ///
 /// @description Checks that an external js interop variable can be augmented by
-/// augmenting setter.
+/// an augmenting setter. Test the case when an introductory declaration is
+/// complete.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -21,7 +22,6 @@ external int topLevelVariable;
 @JS()
 augment set topLevelVariable(int value);
 
-@JS()
 extension type ET(JSObject _) implements JSObject {
   external static int staticVariable;
   external int instanceVariable;
