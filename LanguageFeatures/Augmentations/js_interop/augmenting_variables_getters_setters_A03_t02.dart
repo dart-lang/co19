@@ -18,17 +18,19 @@ import '../../../LibTest/js_interop/js_utils.dart';
 import '../../../Utils/expect.dart';
 
 @JS()
-int topLevelVariable;
+abstract int topLevelVariable;
 
 augment external int topLevelVariable;
 
+// TODO (sgrekhov) This test does not include static abstract variable
+// declarations because the grammar doesn't derive them. See
+// https://github.com/dart-lang/language/issues/4592
+
 extension type ET(JSObject _) implements JSObject {
-  static int staticVariable;
-  int instanceVariable;
+  abstract int instanceVariable;
 }
 
 augment extension type ET {
-  augment external static int staticVariable;
   augment external int instanceVariable;
 }
 
@@ -37,7 +39,6 @@ main() {
     globalThis.topLevelVariable = 1;
     
     class ET {
-      static staticVariable = 2;
       constructor() {
         this.instanceVariable = 3;
       }
@@ -51,9 +52,6 @@ main() {
   Expect.equals(42, topLevelVariable);
 
   ET et = ET(globalContext["et"] as JSObject);
-  Expect.equals(2, ET.staticVariable);
-  ET.staticVariable = 22;
-  Expect.equals(22, ET.staticVariable);
   Expect.equals(3, et.instanceVariable);
   et.instanceVariable = 33;
   Expect.equals(33, et.instanceVariable);

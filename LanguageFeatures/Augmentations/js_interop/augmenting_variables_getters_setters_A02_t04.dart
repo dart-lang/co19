@@ -51,7 +51,7 @@ main() {
       set instanceSetter(v) {
         this._instanceVal = v;
       }
-      static get instanceSetter() {
+      get instanceSetter() {
         return this._instanceVal;
       }
     }
