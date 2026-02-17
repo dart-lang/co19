@@ -28,7 +28,7 @@ extension Ext on ET {
 
 augment extension Ext {
   @JS("name")
-  String? get getName;
+  augment String? get getName;
   @JS("answer")
   external int getAnswer();
 }

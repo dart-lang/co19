@@ -38,8 +38,8 @@ void main() {
   globalContext["jsE0"] = jsE0;
   globalContext["jsE1"] = jsE1;
   eval(r'''
-    globalThis.v0 = globalThis.jsE0.id;
-    globalThis.v1 = globalThis.jsE1.id;
+    globalThis.v0 = globalThis.jsE0.v;
+    globalThis.v1 = globalThis.jsE1.v;
     globalThis.id0 = globalThis.jsE0.id();
     globalThis.id1 = globalThis.jsE1.id();
   ''');

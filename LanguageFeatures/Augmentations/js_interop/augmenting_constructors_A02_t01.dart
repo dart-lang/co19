@@ -32,7 +32,7 @@ augment extension type ET {
 main() {
   eval(r'''
     class ET {
-      constructor(vs) {
+      constructor(v) {
         this.id = v;
       }
     }
