@@ -28,6 +28,7 @@ enum E {
 
 @JSExport()
 augment enum E {
+  ;
   augment const E(int v);
 }
 
