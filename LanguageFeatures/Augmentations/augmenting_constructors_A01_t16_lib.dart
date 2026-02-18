@@ -41,7 +41,7 @@ augment class C {
 //               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C.foo([this._y]);
+  augment C.foo([int? _y]);
 //                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -49,8 +49,8 @@ augment class C {
 
 augment enum E {
   ;
-  augment const E(this._y);
-//                     ^^
+  augment const E(int _y);
+//                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment const E.foo([int _y]);
@@ -60,12 +60,12 @@ augment enum E {
 }
 
 augment extension type ET {
-  augment ET.foo(this._y);
-//                    ^^
+  augment ET.foo(int _y);
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment ET.bar([int _y]);
-//                     ^^
+//                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
