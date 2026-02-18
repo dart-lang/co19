@@ -28,8 +28,8 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is a compile-time error if the name of a
-/// positional parameter in an augmenting constructor is not `_` and not equal
-/// to the name of this parameter in the original primary constructor.
+/// positional parameter in an augmenting constructor is not equal to the name
+/// of this parameter in the original primary constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors

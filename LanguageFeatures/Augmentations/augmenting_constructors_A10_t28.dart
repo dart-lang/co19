@@ -34,7 +34,6 @@
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts,primary-constructors
 
 import 'augmentation_libraries_lib.dart';
-
 part 'augmenting_constructors_A10_t28_part.dart';
 
 class C1(AL? a) {}

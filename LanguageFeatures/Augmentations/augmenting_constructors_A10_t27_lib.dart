@@ -28,17 +28,17 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is a compile-time error if the name of a
-/// declaring positional parameter in an augmenting constructor is not `_` and
-/// not equal to the name of this parameter in the original primary constructor.
+/// declaring positional parameter in an augmenting constructor is not equal to
+/// the name of this parameter in the original primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts,primary-constructors
+// SharedOptions=--enable-experiment=augmentations,primary-constructors
 
 part of 'augmenting_constructors_A10_t27.dart';
 
 augment class C1 {
   augment C1(int? _y);
-//               ^^
+//                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

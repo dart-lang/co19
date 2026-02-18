@@ -36,26 +36,20 @@
 
 import '../../utils/expect.dart';
 
-class C1([int x]) {
-  int x;
-  this: x = x;
-}
+class C1([int _]) {}
 
 augment class C1 {
   augment C1([int _ = 1]);
 }
 
-class C2([var int x]) {}
+class C2([var int _]) {}
 
 augment class C2 {
   augment C2([int _ = 1]);
 }
 
-enum E1([int x]) {
+enum E1([int _]) {
   e0;
-
-  final int x;
-  this: x = x;
 }
 
 augment enum E1 {
@@ -63,7 +57,7 @@ augment enum E1 {
   augment const E1([int _ = 2]);
 }
 
-enum E2([final int x]) {
+enum E2([final int _]) {
   e0;
 }
 
@@ -71,9 +65,10 @@ augment enum E2 {
   ;
   augment const E2([int _ = 2]);
 }
+
 main() {
-  Expect.equals(1, C1().x);
-  Expect.equals(1, C2().x);
-  Expect.equals(2, E1.e0.x);
-  Expect.equals(2, E2.e0.x);
+  C1(1);
+  Expect.equals(1, C2()._);
+  E1.e0;
+  Expect.equals(2, E2.e0._);
 }
