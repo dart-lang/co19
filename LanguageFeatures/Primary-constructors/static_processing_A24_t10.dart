@@ -15,9 +15,9 @@
 /// order. If that body part has a function body then `k2` has the same function
 /// body.
 ///
-/// @description Check that it is not an error if a declaring parameter of a
-/// primary constructor with the name `_` is accessed in the body of the
-/// constructor.
+/// @description Check that it is not an error if an instance variable which
+/// is implicitly induced by a declaring parameter with the name `_` is accessed
+/// in the body of the primary constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
