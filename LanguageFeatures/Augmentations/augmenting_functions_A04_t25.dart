@@ -182,7 +182,7 @@ augment extension type ET {
 
 main() {
   print(topLevelFunction1);
-  print(topLevelFunction2;
+  print(topLevelFunction2);
 
   print(C);
   print(M);
