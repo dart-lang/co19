@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -11,43 +11,63 @@
 /// words, it's an error to have a declaration marked `augment` with no
 /// declaration to apply it to.
 ///
-/// @description Checks that it is a compile-time error if an augmenting
-/// declaration augments a member defined in a mixin.
+/// @description Checks that it is a compile-time error to augment a body-part
+/// of a primary constructor which doesn't exists in an introductory declaration
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,primary-constructors
 
-mixin M {
-  String method() => "Method";
-  String get getter => "Getter";
-  void set setter(String _) {}
-  String operator +(Object? other) => "Operator";
+class C1();
+
+augment class C1 {
+  augment this;
+//        ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-enum E with M {
+class C2(var int v) {}
+
+augment class C2 {
+  augment this;
+//        ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E1() {
   e0;
 }
 
-augment enum E with M {
-  e1;
-  augment String method();
-//^^^^^^^
+augment enum E1 {
+  ;
+  augment this;
+//        ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment String get getter;
-//^^^^^^^
+}
+
+enum E2(var int v) {
+  e0(1);
+}
+
+augment enum E2 {
+  ;
+  augment this;
+//        ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment void set setter(String _);
-//^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment String operator +(Object? other);
-//^^^^^^^
+}
+
+extension type ET(int v) {}
+
+augment extension type ET {
+  augment this;
+//        ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(E);
+  print(ET);
 }
