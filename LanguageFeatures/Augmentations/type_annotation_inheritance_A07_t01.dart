@@ -44,9 +44,9 @@ augment class C {
 
 augment class C {
   augment get foo => 1;
-  augment final bar => 2;
+  augment final bar = 2;
   augment get baz => 3;
-  augment final qux => 4;
+  augment final qux = 4;
 }
 
 main() {

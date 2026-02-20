@@ -37,9 +37,9 @@ class C implements A {
 
 augment class C {
   augment int get foo => 1;
-  augment final int bar => 2;
+  augment final int bar = 2;
   augment int get baz => 3;
-  augment final int qux => 4;
+  augment final int qux = 4;
 }
 
 main() {
