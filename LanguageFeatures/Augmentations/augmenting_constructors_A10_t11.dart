@@ -31,7 +31,7 @@
 /// a constructor augmentation does not match the original primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,primary-constructors
 
 class C1(int x, int y) {}
 

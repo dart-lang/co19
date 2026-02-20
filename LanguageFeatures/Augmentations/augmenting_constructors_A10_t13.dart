@@ -32,7 +32,7 @@
 /// super parameters of a primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,primary-constructors
 
 class A1 {
   A1(int x, int y);
