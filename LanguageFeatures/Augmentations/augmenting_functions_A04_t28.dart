@@ -39,7 +39,7 @@ part 'augmenting_functions_A04_t28_lib.dart';
 void topLevelFunction1(int x) {}
 void topLevelFunction2([int _x = 2]) {}
 
-augment void topLevelFunction1(int _x);
+augment void topLevelFunction1(int x);
 augment void topLevelFunction2([int _x]);
 
 class C {
