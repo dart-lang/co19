@@ -36,8 +36,8 @@
 import '../../utils/expect.dart';
 
 class C {
-  int x;
-  C([this.x]);
+  int _;
+  C([this._]);
 }
 
 augment class C {
@@ -47,8 +47,8 @@ augment class C {
 enum E {
   e0();
 
-  final int x;
-  const E([this.x]);
+  final int _;
+  const E([this._]);
 }
 
 augment enum E {
@@ -56,8 +56,8 @@ augment enum E {
   augment const E([int _ = 2]);
 }
 
-extension type ET(int x) {
-  ET.foo([this.x]);
+extension type ET(int _) {
+  ET.foo([this._]);
 }
 
 augment extension type ET {
@@ -65,7 +65,7 @@ augment extension type ET {
 }
 
 main() {
-  Expect.equals(1, C().x);
-  Expect.equals(2, E.e0.x);
-  Expect.equals(3, ET.foo().x);
+  Expect.equals(1, C()._);
+  Expect.equals(2, E.e0._);
+  Expect.equals(3, ET.foo()._);
 }

@@ -27,54 +27,67 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is not an error if the name of a positional
-/// parameter of an augmenting constructor is `_` and the name of this parameter
-/// in the original constructor is not `_`.
+/// @description Checks that it is a compile-time error if the name of a
+/// positional parameter of an augmenting constructor is not the same as the
+/// name of the corresponding positional parameter in an introductory
+/// declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../Utils/expect.dart';
-
 class C {
   int? x;
-  C(int? x);
+  C(int? _);
   C.foo([this.x]);
 }
 
 augment class C {
-  augment C(int? _);
+  augment C(int? x);
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment C.foo([int? _]);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {
   e0(1), e1.foo();
-  final int x;
-  const E(this.x);
-  const E.foo([this.x = 0]);
+  const E(int x);
+  const E.foo([int _ = 0]);
 }
 
 augment enum E {
   ;
   augment const E(int _);
-  augment const E.foo([int _]);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo([int x]);
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET(int x) {
   ET.foo(this.x);
-  ET.bar([this.x = 0]);
+  ET.bar(this.x, [int _ = 0]);
 }
 
 augment extension type ET {
   augment ET.foo(int _);
-  augment ET.bar([int _]);
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.bar(int x, [int y]);
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  Expect.equals(1, C(1).x);
-  Expect.isNull(C.foo().x);
-  Expect.equals(1, E.e0.x);
-  Expect.equals(0, E.e1.x);
-  Expect.equals(1, ET.foo(1).x);
-  Expect.isNull(0, ET.bar().x);
+  print(C);
+  print(E);
+  print(ET);
 }
