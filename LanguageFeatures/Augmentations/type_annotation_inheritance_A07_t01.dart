@@ -12,7 +12,8 @@
 /// annotation or type parameter bound in the declaration being augmented.
 ///
 /// @description Checks that it is not an error if an augmentation omits the
-/// bounds of the type parameters of a class-like declaration.
+/// type of an augmenting getter/variable. Test the case when the type is
+/// obtained via override inference.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -20,42 +21,41 @@
 import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
 
-class C<T extends num> {}
-
-augment class C<T> {}
-
-mixin M<T extends num> {
-  getType() => T;
+abstract class A {
+  int get foo;
+  int get bar;
+  abstract final int baz;
+  abstract final int qux;
 }
 
-augment mixin M<T> {}
-
-enum E<T extends num> {
-  e1;
+class C implements A {
+  get foo;
+  get bar;
+  abstract final baz;
+  abstract final qux;
 }
 
-augment enum E<T> {
-  ;
+augment class C {
+  augment get foo;
+  augment final bar;
+  augment get baz;
+  augment final qux;
 }
 
-class A {}
-
-extension Ext<T extends num> on A {
-  getType() => T;
+augment class C {
+  augment get foo => 1;
+  augment final bar = 2;
+  augment get baz => 3;
+  augment final qux = 4;
 }
-
-augment extension Ext<T> {}
-
-extension type ET<T extends num>(int _) {}
-
-augment extension type ET<T> {}
-
-class MA = Object with M;
 
 main() {
-  C().expectStaticType<Exactly<C<num>>>();
-  Expect.isTrue(MA().getType() is num);
-  E.e1.expectStaticType<Exactly<E<num>>>();
-  Expect.isTrue(A().getType() is num);
-  ET(0).expectStaticType<Exactly<ET<num>>>();
+  C().foo.expectStaticType<Exactly<int>>();
+  C().bar.expectStaticType<Exactly<int>>();
+  C().baz.expectStaticType<Exactly<int>>();
+  C().qux.expectStaticType<Exactly<int>>();
+  Expect.equals(1, C().foo);
+  Expect.equals(2, C().bar);
+  Expect.equals(3, C().baz);
+  Expect.equals(4, C().qux);
 }

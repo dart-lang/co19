@@ -32,7 +32,7 @@
 /// declaring parameters of a primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,primary-constructors
 
 class C1(var int x, var int y) {}
 

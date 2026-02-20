@@ -11,51 +11,25 @@
 /// declaration, it is inferred to be the same as the corresponding type
 /// annotation or type parameter bound in the declaration being augmented.
 ///
-/// @description Checks that it is not an error if an augmentation omits the
-/// bounds of the type parameters of a class-like declaration.
+/// @description Checks that it is not an error if an introductory declaration
+/// gets the type of a setter via override inference but an augmentation
+/// specifies it explicitly.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../Utils/expect.dart';
-import '../../Utils/static_type_helper.dart';
-
-class C<T extends num> {}
-
-augment class C<T> {}
-
-mixin M<T extends num> {
-  getType() => T;
+abstract class A {
+  abstract int foo;
 }
 
-augment mixin M<T> {}
-
-enum E<T extends num> {
-  e1;
+class C implements A {
+  set foo(_);
 }
 
-augment enum E<T> {
-  ;
+augment class C {
+  augment set foo(int _) {}
 }
-
-class A {}
-
-extension Ext<T extends num> on A {
-  getType() => T;
-}
-
-augment extension Ext<T> {}
-
-extension type ET<T extends num>(int _) {}
-
-augment extension type ET<T> {}
-
-class MA = Object with M;
 
 main() {
-  C().expectStaticType<Exactly<C<num>>>();
-  Expect.isTrue(MA().getType() is num);
-  E.e1.expectStaticType<Exactly<E<num>>>();
-  Expect.isTrue(A().getType() is num);
-  ET(0).expectStaticType<Exactly<ET<num>>>();
+  C().foo = 42;
 }
