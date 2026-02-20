@@ -71,8 +71,8 @@ augment enum E {
 
 augment enum E {
   ;
-  augment const E(int? x);
-//                     ^
+  augment const E(int x);
+//                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment const E.foo([int _]);
