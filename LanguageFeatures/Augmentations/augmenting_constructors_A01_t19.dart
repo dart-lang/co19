@@ -33,7 +33,6 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-import '../../Utils/expect.dart';
 import 'augmentation_libraries_lib.dart';
 
 part 'augmenting_constructors_A01_t19_part.dart';

@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -28,51 +28,57 @@
 ///   the augmented function.
 ///
 /// @description Checks that it is a compile-time error if the name of a
-/// positional parameter in an augmenting constructor is not `_` and not equal
-/// to the name of this parameter in the original constructor.
+/// positional formal parameter of an augmenting primary constructor is not the
+/// same as the name of the corresponding positional parameter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts
+// SharedOptions=--enable-experiment=augmentations,primary-constructors
 
-part 'augmenting_constructors_A01_t16_lib.dart';
+class C1(int? x) {}
 
-class C {
-  int? _x;
-  C(int? _x);
-  C.foo([this._x]);
+augment class C1 {
+  augment C1(int? _);
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-augment class C {
-  augment C(int? _);
-  augment C.foo([int? _]);
+class C2([int? _]) {}
+
+augment class C2 {
+  augment C2([int? x]);
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-enum E {
-  e0(1), e1.foo(1);
-
-  final int _x;
-  const E(this._x);
-  const E.foo([this._x = 0]);
+enum E1(int _) {
+  e0(0);
 }
 
-augment enum E {
+augment enum E1 {
   ;
-  augment const E(int _);
-  augment const E.foo([int _]);
+  augment const E1(int x);
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-extension type ET(int _x) {
-  ET.foo(this._x);
-  ET.bar([this._x = 0]);
+enum E2([int? x]) {
+  e0;
 }
 
-augment extension type ET {
-  augment ET.foo(int _);
-  augment ET.bar([int _]);
+augment enum E2 {
+  ;
+  augment const E2([int? _]);
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  print(C);
-  print(E);
-  print(ET);
+  print(C1);
+  print(C2);
+  print(E1);
+  print(E2);
 }

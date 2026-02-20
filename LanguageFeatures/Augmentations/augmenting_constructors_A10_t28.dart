@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -27,52 +27,44 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if the name of a
-/// positional parameter in an augmenting constructor is not `_` and not equal
-/// to the name of this parameter in the original constructor.
+/// @description Checks that it is not an error if an augmentation of a primary
+/// constructor uses a parameter whose type annotation uses an import prefix.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts,primary-constructors
 
-part 'augmenting_constructors_A01_t16_lib.dart';
+import 'augmentation_libraries_lib.dart';
+part 'augmenting_constructors_A10_t28_part.dart';
 
-class C {
-  int? _x;
-  C(int? _x);
-  C.foo([this._x]);
+class C1(AL? a) {}
+class C2([AL? a]) {}
+class C3({AL? a}) {}
+class C4({required AL? a}) {}
+
+enum E1(AL? a) {
+  e0(null);
 }
 
-augment class C {
-  augment C(int? _);
-  augment C.foo([int? _]);
+enum E2([AL? a]) {
+  e0;
 }
 
-enum E {
-  e0(1), e1.foo(1);
-
-  final int _x;
-  const E(this._x);
-  const E.foo([this._x = 0]);
+enum E3({AL? a}) {
+  e0;
 }
 
-augment enum E {
-  ;
-  augment const E(int _);
-  augment const E.foo([int _]);
-}
-
-extension type ET(int _x) {
-  ET.foo(this._x);
-  ET.bar([this._x = 0]);
-}
-
-augment extension type ET {
-  augment ET.foo(int _);
-  augment ET.bar([int _]);
+enum E4({required AL? a}) {
+  e0(a: null);
 }
 
 main() {
-  print(C);
-  print(E);
-  print(ET);
+  C1(AL());
+  C2(AL());
+  C3(a: AL());
+  C4(a: AL());
+
+  print(E1);
+  print(E2);
+  print(E3);
+  print(E4);
 }
