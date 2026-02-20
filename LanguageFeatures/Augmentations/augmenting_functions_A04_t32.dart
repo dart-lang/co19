@@ -33,36 +33,33 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../Utils/expect.dart';
-
-int topLevelFunction([int x]) => x;
-
-augment int topLevelFunction([int _ = 0]);
+void topLevelFunction([int _]) {}
+augment void topLevelFunction([int _ = 0]);
 
 class C {
-  static int staticMethod([int x]) => x;
-  int instanceMethod([int x]) => x;
+  static void staticMethod([int _]) {}
+  void instanceMethod([int _]) {}
 }
 
 augment class C {
-  augment static int staticMethod([int _ = 0]);
-  augment int instanceMethod([int _ = 0]);
+  augment static void staticMethod([int _ = 0]);
+  augment void instanceMethod([int _ = 0]);
 }
 
 mixin M {
-  static int staticMethod([int x]) => x;
-  int instanceMethod([int x]) => x;
+  static void staticMethod([int _]) {}
+  void instanceMethod([int _]) {}
 }
 
 augment mixin M {
-  augment static int staticMethod([int _ = 0]);
-  augment int instanceMethod([int _ = 0]);
+  augment static void staticMethod([int _ = 0]);
+  augment void instanceMethod([int _ = 0]);
 }
 
 enum E {
   e0;
-  static int staticMethod([int x]) => x;
-  int instanceMethod([int x]) => x;
+  static void staticMethod([int _]) {}
+  void instanceMethod([int _]) {}
 }
 
 augment enum E {
@@ -74,8 +71,8 @@ augment enum E {
 class A {}
 
 extension Ext on A {
-  static int staticMethod([int x]) => x;
-  int instanceMethod([int x]) => x;
+  static void staticMethod([int _]) {}
+  void instanceMethod([int _]) {}
 }
 
 augment extension Ext {
@@ -84,8 +81,8 @@ augment extension Ext {
 }
 
 extension type ET(int _) {
-  static int staticMethod([int x]) => x;
-  int instanceMethod([int x]) => x;
+  static void staticMethod([int _]) {}
+  void instanceMethod([int _]) {}
 }
 
 augment extension type ET {
@@ -96,15 +93,15 @@ augment extension type ET {
 class MA = Object with M;
 
 main() {
-  Expect.equals(0, topLevelFunction());
-  Expect.equals(0, C.staticMethod());
-  Expect.equals(0, C().instanceMethod());
-  Expect.equals(0, M.staticMethod());
-  Expect.equals(0, MA().instanceMethod());
-  Expect.equals(0, E.staticMethod());
-  Expect.equals(0, E.e0.instanceMethod());
-  Expect.equals(0, Ext.staticMethod());
-  Expect.equals(0, A().instanceMethod());
-  Expect.equals(0, ET.staticMethod());
-  Expect.equals(0, ET(42).instanceMethod());
+  topLevelFunction();
+  C.staticMethod();
+  C().instanceMethod();
+  M.staticMethod();
+  MA().instanceMethod();
+  E.staticMethod();
+  E.e0.instanceMethod();
+  Ext.staticMethod();
+  A().instanceMethod();
+  ET.staticMethod();
+  ET(42).instanceMethod();
 }

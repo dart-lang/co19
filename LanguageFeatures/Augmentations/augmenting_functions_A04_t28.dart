@@ -29,8 +29,7 @@
 ///
 /// @description Checks that it is a compile-time error if the augmenting
 /// function's parameter name is not the same as the name of the corresponding
-/// positional parameter in every preceding declaration that doesn't have `_` as
-/// its name.
+/// positional parameter in every preceding declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -40,8 +39,8 @@ part 'augmenting_functions_A04_t28_lib.dart';
 void topLevelFunction1(int x) {}
 void topLevelFunction2([int _x = 2]) {}
 
-augment void topLevelFunction1(int _);
-augment void topLevelFunction2([int _]);
+augment void topLevelFunction1(int x);
+augment void topLevelFunction2([int _x]);
 
 class C {
   static void staticMethod1(int _x) {}
@@ -51,10 +50,10 @@ class C {
 }
 
 augment class C {
-  augment static void staticMethod1(int _);
-  augment static void staticMethod2([int _]);
-  augment void instanceMethod1(int _);
-  augment void instanceMethod2([int _ = 2]);
+  augment static void staticMethod1(int _x);
+  augment static void staticMethod2([int x]);
+  augment void instanceMethod1(int x);
+  augment void instanceMethod2([int _x = 2]);
 }
 
 mixin M {
@@ -65,10 +64,10 @@ mixin M {
 }
 
 augment mixin M {
-  augment static void staticMethod1(int _);
-  augment static void staticMethod2([int _]);
-  augment void instanceMethod1(int _);
-  augment void instanceMethod2([int _ = 2]);
+  augment static void staticMethod1(int _x);
+  augment static void staticMethod2([int x]);
+  augment void instanceMethod1(int x);
+  augment void instanceMethod2([int _x = 2]);
 }
 
 enum E {
@@ -81,10 +80,10 @@ enum E {
 
 augment enum E {
   ;
-  augment static void staticMethod1(int _);
-  augment static void staticMethod2([int _]);
-  augment void instanceMethod1(int _);
-  augment void instanceMethod2([int _ = 2]);
+  augment static void staticMethod1(int _x);
+  augment static void staticMethod2([int x]);
+  augment void instanceMethod1(int x);
+  augment void instanceMethod2([int _x = 2]);
 }
 
 class A {}
@@ -97,10 +96,10 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment static void staticMethod1(int _);
-  augment static void staticMethod2([int _]);
-  augment void instanceMethod1(int _);
-  augment void instanceMethod2([int _ = 2]);
+  augment static void staticMethod1(int _x);
+  augment static void staticMethod2([int x]);
+  augment void instanceMethod1(int x);
+  augment void instanceMethod2([int _x = 2]);
 }
 
 extension type ET(int _) {
@@ -111,10 +110,10 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  augment static void staticMethod1(int _);
-  augment static void staticMethod2([int _]);
-  augment void instanceMethod1(int _);
-  augment void instanceMethod2([int _ = 2]);
+  augment static void staticMethod1(int _x);
+  augment static void staticMethod2([int x]);
+  augment void instanceMethod1(int x);
+  augment void instanceMethod2([int _x = 2]);
 }
 
 main() {

@@ -27,9 +27,9 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is not an error if the name of a positional
-/// parameter of an augmenting function is `_` and the name of this parameter in
-/// the introductory declaration is not `_`.
+/// @description Checks that it is a compile-time error if the name of a
+/// positional parameter of an augmenting function is not the same as the name
+/// of the corresponding positional parameter in an introductory declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -38,7 +38,13 @@ void topLevelFunction1(int x) {}
 void topLevelFunction2([int _x = 2]) {}
 
 augment void topLevelFunction1(int _);
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 augment void topLevelFunction2([int _]);
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class C {
   static void staticMethod1(int _x) {}
@@ -49,9 +55,21 @@ class C {
 
 augment class C {
   augment static void staticMethod1(int _);
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment static void staticMethod2([int _]);
+//                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod1(int _);
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod2([int _]);
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M {
@@ -63,9 +81,21 @@ mixin M {
 
 augment mixin M {
   augment static void staticMethod1(int _);
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment static void staticMethod2([int _]);
+//                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod1(int _);
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod2([int _]);
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {
@@ -79,9 +109,21 @@ enum E {
 augment enum E {
   ;
   augment static void staticMethod1(int _);
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment static void staticMethod2([int _]);
+//                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod1(int _);
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod2([int _]);
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A {}
@@ -95,9 +137,21 @@ extension Ext on A {
 
 augment extension Ext {
   augment static void staticMethod1(int _);
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment static void staticMethod2([int _]);
+//                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod1(int _);
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod2([int _]);
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET(int _) {
@@ -109,39 +163,30 @@ extension type ET(int _) {
 
 augment extension type ET {
   augment static void staticMethod1(int _);
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment static void staticMethod2([int _]);
+//                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod1(int _);
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod2([int _]);
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-class MA = Object with M;
-
 main() {
-  topLevelFunction1(1);
-  topLevelFunction2(1);
+  print(topLevelFunction1);
+  print(topLevelFunction2);
 
-  C.staticMethod1(1);
-  C.staticMethod2();
-  C().instanceMethod1(1);
-  C().instanceMethod2();
-
-  M.staticMethod1(1);
-  M.staticMethod2();
-  MA().instanceMethod1(1);
-  MA().instanceMethod2();
-
-  E.staticMethod1(1);
-  E.staticMethod2();
-  E.e1.instanceMethod1(1);
-  E.e1.instanceMethod2();
-
-  Ext.staticMethod1(1);
-  Ext.staticMethod2();
-  A().instanceMethod1(1);
-  A().instanceMethod2();
-
-  ET.staticMethod1(1);
-  ET.staticMethod2();
-  ET(0).instanceMethod1(1);
-  ET(0).instanceMethod2();
+  print(C);
+  print(M);
+  print(E);
+  print(A);
+  print(ET);
 }
