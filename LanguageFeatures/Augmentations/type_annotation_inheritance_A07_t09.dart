@@ -20,7 +20,7 @@
 
 abstract class A {
   void set foo(int _);
-  int get foo();
+  int get foo;
 }
 
 class C implements A {
