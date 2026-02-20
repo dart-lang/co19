@@ -11,9 +11,9 @@
 /// declaration, it is inferred to be the same as the corresponding type
 /// annotation or type parameter bound in the declaration being augmented.
 ///
-/// @description Checks that it not an error if an introductory declaration
-/// gets the type of a setter via override inference but an augmentating
-/// variable specifies it explicitly.
+/// @description Checks that it is not an error if an introductory declaration
+/// gets the type of a setter via override inference but an augmenting variable
+/// specifies it explicitly.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations

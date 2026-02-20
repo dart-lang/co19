@@ -11,8 +11,8 @@
 /// declaration, it is inferred to be the same as the corresponding type
 /// annotation or type parameter bound in the declaration being augmented.
 ///
-/// @description Checks that it not an error if an augmentation omits the type
-/// of an augmenting setter. Test the case when the type is obtained via
+/// @description Checks that it is not an error if an augmentation omits the
+/// type of an augmenting setter. Test the case when the type is obtained via
 /// override inference.
 /// @author sgrekhov22@gmail.com
 

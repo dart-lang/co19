@@ -11,8 +11,8 @@
 /// declaration, it is inferred to be the same as the corresponding type
 /// annotation or type parameter bound in the declaration being augmented.
 ///
-/// @description Checks that it not an error if an augmentation omits the bounds
-/// the type parameters of an augmenting function.
+/// @description Checks that it is not an error if an augmentation omits the
+/// bounds the type parameters of an augmenting function.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
