@@ -36,8 +36,10 @@ extension type ET2(int _) {
 }
 
 main() {
-  print(C1);
-  print(C2);
-  print(ET1);
-  print(ET2);
+  if (1 > 2) {
+    C1().factory();
+    C2.factory();
+    ET1(1).factory();
+    ET2.factory();
+  }
 }
