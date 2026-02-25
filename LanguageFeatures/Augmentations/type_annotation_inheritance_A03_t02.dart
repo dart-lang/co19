@@ -19,7 +19,7 @@ abstract class C implements A {
   void set instanceVariable(String _);
 }
 
-augment class C {
+augment abstract class C {
   augment abstract var instanceVariable;
 //                     ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
