@@ -17,51 +17,93 @@
 /// before it in the augmentation chain is also complete.
 ///
 /// @description Checks that it is a compile-time error if an augmentation of a
-/// primary constructor has an initializer list.
+/// complete primary constructor has an initializer list.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
 
-class C1(var int x) {}
+class C1() { // The constructor is complete because has a body
+  this {}
+}
 
 augment class C1 {
-  int y;
-  augment C1(int x) : y = 0;
+  int v;
+  augment C1() : v = 0;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C2(var int v) {} // Complete because has a declaring parameter
+
+augment class C2 {
+  augment C2(int v) : assert(v > 0);
 //                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C2.foo(int v);
+class C3(int v) { // Complete because has an initializer list
+  int v;
+  this : v = v;
+}
 
-augment class C2 {
-  augment C2.foo(int v) : assert(v > 0);
-//                      ^
+augment class C3 {
+  augment C3(int v) : assert(v > 0);
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E1(final int x) {
+class C4(this.v) { // Complete because has initializing formals
+  int v;
+}
+
+augment class C4 {
+  augment C4(int v) : assert(v > 0);
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E1(final int x) { // Declaring parameter
   e0(0);
 }
 
 augment enum E1 {
   ;
   final int y;
-  augment E1(int x) : y = 0;
-//                  ^
+  augment const E1(int x) : y = 0;
+//                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E2.foo(int v) {
+enum E2.foo(int v) { // Initializer list
   e0(0);
+
+  final int v;
+  this : v = v;
 }
 
 augment enum E2 {
   ;
-  augment E2.foo(int v) : assert(v > 0);
-//                      ^
+  augment const E2.foo(int v) : assert(v > 0);
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E3(this.v) { // Initializing formals
+  e0(0);
+
+  final int v;
+}
+
+augment enum E3 {
+  ;
+  augment const E3(int v) : assert(v > 0);
+//                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

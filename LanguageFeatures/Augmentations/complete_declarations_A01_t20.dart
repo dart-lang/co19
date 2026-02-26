@@ -17,12 +17,14 @@
 /// before it in the augmentation chain is also complete.
 ///
 /// @description Checks that it is a compile-time error if an augmentation adds
-/// a body to a primary constructor.
+/// a body to an already complete primary constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
 
-class C1() {}
+class C1() { // The constructor is complete because has a body
+  this {}
+}
 
 augment class C1 {
   augment C1() {}
@@ -31,22 +33,34 @@ augment class C1 {
 // [cfe] unspecified
 }
 
-class C2(var int v) {
-  this;
-}
+class C2(var int v) {} // Complete because has a declaring parameter
 
 augment class C2 {
-  augment this {}
-//             ^^
+  augment C2(int v) {}
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C3.foo(int v);
+class C3(int v) { // Complete because has an initializer list
+  int v;
+  this : v = v;
+}
 
 augment class C3 {
-  augment C3.foo(int v) {}
-//                      ^^
+  augment C3(int v) {}
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C4(this.v) { // Complete because has initializing formals
+  int v;
+}
+
+augment class C4 {
+  augment C4(int v) {}
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -64,21 +78,10 @@ augment extension type ET1 {
 // [cfe] unspecified
 }
 
-extension type ET2.foo(int id) {
-  this;
-}
+extension type ET2.new(int id) {}
 
 augment extension type ET2 {
-  augment this {}
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET3.new(int id) {}
-
-augment extension type ET3 {
-  augment ET3.new(int id) {}
+  augment ET2.new(int id) {}
 //                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -87,8 +90,6 @@ augment extension type ET3 {
 main() {
   print(C1);
   print(C2);
-  print(C3);
   print(ET1);
   print(ET2);
-  print(ET3);
 }

@@ -17,37 +17,93 @@
 /// before it in the augmentation chain is also complete.
 ///
 /// @description Checks that it is a compile-time error if an augmentation of a
-/// primary constructor has an initializing formals.
+/// complete primary constructor has an initializing formals.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
 
-class C1(var int v) {}
+class C1(int v) { // The constructor is complete because has a body
+  this {}
+}
 
 augment class C1 {
+  int v;
   augment C1(this.v);
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C2.foo(final int v);
+class C2(var int v) {} // Complete because has a declaring parameter
 
 augment class C2 {
-  augment C2.foo(this.v);
-//        ^^^^^^
+  augment C2(this.v);
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E(final int v) {
+class C3(int v) { // Complete because has an initializer list
+  int v;
+  this : v = v;
+}
+
+augment class C3 {
+  augment C3(this.v);
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C4(this.v) { // Complete because has initializing formals
+  int v;
+}
+
+augment class C4 {
+  augment C4(this.v)
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+
+enum E1(final int v) { // Declaring parameter
   e0(0);
 }
 
-augment enum E {
+augment enum E1 {
   ;
-  augment E(this.v);
-//        ^^
+  augment const E1(this.v);
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E2(int v) { // Initializer list
+  e0(0);
+
+  final int v;
+  this : v = v;
+}
+
+augment enum E2 {
+  ;
+  augment const E2(this.v);
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E3(this.v) { // Initializing formals
+  e0(0);
+
+  final int v;
+}
+
+augment enum E3 {
+  ;
+  augment const E3(this.v);
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
