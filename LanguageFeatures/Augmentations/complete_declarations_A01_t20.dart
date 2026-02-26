@@ -90,6 +90,8 @@ augment extension type ET2 {
 main() {
   print(C1);
   print(C2);
+  print(C3);
+  print(C4);
   print(ET1);
   print(ET2);
 }

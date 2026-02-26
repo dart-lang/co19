@@ -120,6 +120,10 @@ augment extension type ET {
 main() {
   print(C1);
   print(C2);
-  print(E);
+  print(C3);
+  print(C4);
+  print(E1);
+  print(E2);
+  print(E3);
   print(ET);
 }
