@@ -63,7 +63,7 @@ enum E1(int x, [int y = 0]) {
 
 augment enum E1 {
   ;
-  augment E1(x, [y]);
+  augment const E1(x, [y]);
 }
 
 enum E2({required int x, int y = 0}) {
@@ -75,7 +75,7 @@ enum E2({required int x, int y = 0}) {
 
 augment enum E2 {
   ;
-  augment E2({required x, y});
+  augment const E2({required x, y});
 }
 
 main() {
