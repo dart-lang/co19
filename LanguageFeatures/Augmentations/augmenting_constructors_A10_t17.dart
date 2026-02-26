@@ -54,7 +54,7 @@ enum E1(final int x, [final int y = 0]) {
 
 augment enum E1 {
   ;
-  augment E1(x, [y]);
+  augment const E1(x, [y]);
 }
 
 enum E2({required final int x, final int y = 0}) {
@@ -63,7 +63,7 @@ enum E2({required final int x, final int y = 0}) {
 
 augment enum E2 {
   ;
-  augment E2({required x, y});
+  augment const E2({required x, y});
 }
 
 extension type ET(int x) {}
