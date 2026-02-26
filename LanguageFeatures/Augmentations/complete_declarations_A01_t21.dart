@@ -60,7 +60,7 @@ class C4(this.v) { // Complete because has initializing formals
 }
 
 augment class C4 {
-  augment C4(this.v)
+  augment C4(this.v);
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
