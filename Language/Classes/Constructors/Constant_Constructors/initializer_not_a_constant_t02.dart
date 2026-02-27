@@ -4,22 +4,22 @@
 
 /// @assertion It is a compile-time error if a constant constructor is declared
 /// by a class C if any instance variable declared in C is initialized with an
-/// expression that is not a constant expression
-/// @description Checks that compile error is produced if class declares a
-/// constant constructor and has instance variable which is initialised by
-/// non-constant expression. Even there are also instance variables initialised
-/// by constant expressions
+/// expression that is not a constant expression.
+///
+/// @description Checks that a compile error is produced if a class declares a
+/// `const` constructor and has an instance variable initialized by a
+/// non-constant expression (even if there are also instance variables
+/// initialized by constant expressions).
 /// @author sgrekhov@unipro.ru
 
-
-class A {
-}
+class A {}
 
 class C {
   final y = 3;
   final x = new A();
-//          ^^^
+//          ^^^^^^^
 // [cfe] unspecified
+// [analyzer] unspecified
 
   const C();
 //^^^^^
