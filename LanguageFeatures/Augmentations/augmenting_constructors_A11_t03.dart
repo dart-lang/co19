@@ -30,6 +30,7 @@ enum E {
 }
 
 augment enum E {
+  ;
   augment new(this.v);
 }
 

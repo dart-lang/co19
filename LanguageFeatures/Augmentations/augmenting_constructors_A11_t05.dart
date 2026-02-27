@@ -50,7 +50,7 @@ augment extension type ET1 {
 
 extension type ET2._(int v) {
   ET2.someName(this.v);
-  factory ET2(int v) = new.someName;
+  factory ET2(int v);
 }
 
 augment extension type ET2 {
