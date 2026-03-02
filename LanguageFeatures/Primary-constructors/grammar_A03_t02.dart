@@ -18,6 +18,8 @@
 // SharedOptions=--enable-experiment=primary-constructors
 
 class C1() {
+//    ^^
+// [analyzer] unspecified
   int v1, v2;
   this : v1 = 1;
   this : v2 = 2;
@@ -27,6 +29,8 @@ class C1() {
 }
 
 class C2(var int v1) {
+//    ^^
+// [analyzer] unspecified
   int v2;
   this;
   this: v2 = 3;
@@ -40,8 +44,10 @@ class A {
 }
 
 class C3(var int v1) extends A {
+//    ^^
+// [analyzer] unspecified
   int v2;
-  this: v = 2;
+  this: v2 = 2;
   this: super(3);
 //^^^^
 // [analyzer] unspecified
@@ -49,6 +55,8 @@ class C3(var int v1) extends A {
 }
 
 enum E1(final int v1) {
+//   ^^^
+// [analyzer] unspecified
   e0(0);
 
   final int v2;
