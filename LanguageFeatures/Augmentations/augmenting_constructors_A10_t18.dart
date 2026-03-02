@@ -74,8 +74,8 @@ enum E1(x) {
 
 augment enum E1 {
   ;
-  augment E1(int x);
-//           ^^^
+  augment const E1(int x);
+//                 ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -86,8 +86,8 @@ enum E2([x]) {
 
 augment enum E2 {
   ;
-  augment E2([Object? x]);
-//            ^^^^^^^
+  augment const E2([Object? x]);
+//                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -98,8 +98,8 @@ enum E3({x}) {
 
 augment enum E3 {
   ;
-  augment E3({int x});
-//            ^^^
+  augment const E3({int x});
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -110,8 +110,8 @@ enum E4({required x}) {
 
 augment enum E4 {
   ;
-  augment E4({required Object? x});
-//                     ^^^^^^^
+  augment const E4({required Object? x});
+//                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
