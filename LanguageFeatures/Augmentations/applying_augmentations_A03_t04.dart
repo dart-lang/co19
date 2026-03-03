@@ -11,7 +11,7 @@
 /// words, it's an error to have a declaration marked `augment` with no
 /// declaration to apply it to.
 ///
-/// @description Checks that it is a compile-time error if an augmentation
+/// @description Checks that it is a compile-time error if an augmenting
 /// extension declaration augments a member defined in an extended class.
 /// @author sgrekhov22@gmail.com
 
