@@ -17,10 +17,6 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 num topLevelVariable = 1;
 augment abstract int topLevelVariable;
 //               ^^^
@@ -34,11 +30,22 @@ augment final Object finalTopLevelVariable = 2;
 // [cfe] unspecified
 
 class C {
+  static num staticVariable = 1;
+  static abstract final num finalStaticVariable;
+
   num instanceVariable = 1;
   abstract final num finalInstanceVariable;
 }
 
 augment class C {
+  augment static abstract Object staticVariable;
+//                        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static abstract final int finalStaticVariable = 2;
+//                              ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment abstract Object instanceVariable;
 //                 ^^^^^^
 // [analyzer] unspecified
@@ -50,11 +57,22 @@ augment class C {
 }
 
 mixin M {
+  static abstract num staticVariable;
+  static final num finalStaticVariable = 2;
+
   abstract num instanceVariable;
   final num finalInstanceVariable = 2;
 }
 
 augment mixin M {
+  augment static Object staticVariable = 1;
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static abstract final int finalStaticVariable;
+//                              ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment Object instanceVariable = 1;
 //        ^^^^^^
 // [analyzer] unspecified
@@ -67,12 +85,22 @@ augment mixin M {
 
 enum E {
   e0;
+  static num staticVariable = 1;
+  static abstract final num finalStaticVariable;
   final num finalInstanceVariable1 = 1;
   abstract final num finalInstanceVariable2;
 }
 
 augment enum E {
   ;
+  augment static abstract Object staticVariable;
+//                        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static abstract final int finalStaticVariable = 2;
+//                              ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment abstract final Object finalInstanceVariable1;
 //                       ^^^^^^
 // [analyzer] unspecified
@@ -83,8 +111,44 @@ augment enum E {
 // [cfe] unspecified
 }
 
+class A {}
+
+extension Ext on A {
+  static abstract num staticVariable;
+  static final num finalStaticVariable = 2;
+}
+
+augment extension Ext {
+  augment static Object staticVariable = 1;
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static abstract final int finalStaticVariable;
+//                              ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET(int _) {
+  static num staticVariable = 1;
+  static abstract final num finalStaticVariable;
+}
+
+augment extension type ET {
+  augment static abstract Object staticVariable;
+//                        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static abstract final int finalStaticVariable = 2;
+//                              ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(C);
   print(M);
   print(E);
+  print(A);
+  print(ET);
 }

@@ -12,33 +12,88 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-// TODO(sgrekhov): This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 import '../../Utils/expect.dart';
 
 class C {
+  static int get staticVariable => 42;
+  static void set staticVariable(String v) {}
+
   int get instanceVariable => 42;
   void set instanceVariable(String v) {}
 }
 
 augment class C {
+  augment static abstract final staticVariable;
   augment abstract final instanceVariable;
 }
 
 mixin M {
+  static int get staticVariable => 42;
+  static void set staticVariable(String v) {}
+
   int get instanceVariable => 42;
   void set instanceVariable(String v) {}
 }
 
 augment mixin M {
+  augment static abstract final staticVariable;
+  augment abstract final instanceVariable;
+}
+
+enum E {
+  e0;
+  static int get staticVariable => 42;
+  static void set staticVariable(String v) {}
+
+  int get instanceVariable => 42;
+  void set instanceVariable(String v) {}
+}
+
+augment enum E {
+  ;
+  augment static abstract final staticVariable;
+  augment abstract final instanceVariable;
+}
+
+class A {}
+
+extension Ext on A {
+  static int get staticVariable => 42;
+  static void set staticVariable(String v) {}
+
+  int get instanceVariable => 42;
+  void set instanceVariable(String v) {}
+}
+
+augment extension Ext {
+  augment static abstract final staticVariable;
+  augment abstract final instanceVariable;
+}
+
+extension type ET(int v) {
+  static int get staticVariable => 42;
+  static void set staticVariable(String v) {}
+
+  int get instanceVariable => 42;
+  void set instanceVariable(String v) {}
+}
+
+augment extension type ET {
+  augment static abstract final staticVariable;
   augment abstract final instanceVariable;
 }
 
 class MA = Object with M;
 
 main() {
+  Expect.equals(42, C.staticVariable);
   Expect.equals(42, C().instanceVariable);
+  Expect.equals(42, M.staticVariable);
   Expect.equals(42, MA().instanceVariable);
+  Expect.equals(42, E.staticVariable);
+  Expect.equals(42, E.e0.instanceVariable);
+  Expect.equals(42, Ext.staticVariable);
+  Expect.equals(42, A().instanceVariable);
+  Expect.equals(42, ET.staticVariable);
+  Expect.equals(42, ET(0).instanceVariable);
 }

@@ -28,24 +28,52 @@ import '../../Utils/expect.dart';
 abstract int topLevelVariable;
 augment late int topLevelVariable;
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 class C {
+  static abstract int staticVariable;
   abstract int instanceVariable;
 }
 
 augment class C {
+  augment static late int staticVariable;
   augment late int instanceVariable;
 }
 
 mixin M {
+  static abstract int staticVariable;
   abstract int instanceVariable;
 }
 
 augment mixin M {
+  augment static late int staticVariable;
   augment late int instanceVariable;
+}
+
+enum E {
+  e0;
+  static abstract int staticVariable;
+}
+
+augment enum E {
+  ;
+  augment static late int staticVariable;
+}
+
+class A {}
+
+extension Ext on A {
+  static abstract int staticVariable;
+}
+
+augment extension Ext {
+  augment static late int staticVariable;
+}
+
+extension type ET(int v) {
+  static abstract int staticVariable;
+}
+
+augment extension type ET {
+  augment static late int staticVariable;
 }
 
 class MA = Object with M;
@@ -54,11 +82,24 @@ main() {
   topLevelVariable = 1;
   Expect.equals(1, topLevelVariable);
 
+  C.staticVariable = 1;
+  Expect.equals(1, C.staticVariable);
   var c = C();
   c.instanceVariable = 1;
   Expect.equals(1, c.instanceVariable);
 
+  M.staticVariable = 1;
+  Expect.equals(1, M.staticVariable);
   var m = MA();
   m.instanceVariable = 1;
   Expect.equals(1, m.instanceVariable);
+
+  E.staticVariable = 1;
+  Expect.equals(1, E.staticVariable);
+
+  Ext.staticVariable = 1;
+  Expect.equals(1, Ext.staticVariable);
+
+  ET.staticVariable = 1;
+  Expect.equals(1, ET.staticVariable);
 }

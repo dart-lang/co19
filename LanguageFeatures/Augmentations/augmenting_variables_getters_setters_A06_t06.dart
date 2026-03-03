@@ -35,16 +35,22 @@ augment Object topLevelVariable2 = 0;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 class C {
+  static num staticVariable1 = 0;
+  static abstract num staticVariable2;
   num instanceVariable1 = 0;
   abstract num instanceVariable2;
 }
 
 augment class C {
+  augment static abstract int staticVariable1;
+//                            ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static Object staticVariable2 = 0;
+//                      ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment abstract int instanceVariable1;
 //                     ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -56,11 +62,21 @@ augment class C {
 }
 
 mixin M {
+  static num staticVariable1 = 0;
+  static abstract num staticVariable2;
   num instanceVariable1 = 0;
   abstract num instanceVariable2;
 }
 
 augment mixin M {
+  augment static abstract int staticVariable1;
+//                            ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static Object staticVariable2 = 0;
+//                      ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment abstract int instanceVariable1;
 //                     ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -73,11 +89,22 @@ augment mixin M {
 
 enum E {
   e0;
+  static num staticVariable1 = 0;
+  static abstract num staticVariable2;
   final num instanceVariable1 = 0;
   abstract final num instanceVariable2;
 }
 
-augment class C {
+augment enum E {
+  ;
+  augment static abstract int staticVariable1;
+//                            ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static Object staticVariable2 = 0;
+//                      ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment abstract final int instanceVariable1;
 //                           ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -88,9 +115,38 @@ augment class C {
 // [cfe] unspecified
 }
 
-extension type ET1(int instanceVariable) {}
+class A {}
+
+extension Ext on A {
+  static num staticVariable1 = 0;
+  static abstract num staticVariable2;
+}
+
+augment extension Ext {
+  augment static abstract int staticVariable1;
+//                            ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static Object staticVariable2 = 0;
+//                      ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET1(int instanceVariable) {
+  static num staticVariable1 = 0;
+  static abstract num staticVariable2;
+}
 
 augment extension type ET1 {
+  augment static abstract int staticVariable1;
+//                            ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static Object staticVariable2 = 0;
+//                      ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment abstract final num instanceVariable;
 //                           ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

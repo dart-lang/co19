@@ -23,49 +23,72 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
+import '../../Utils/expect.dart';
+
 int topLevelVariable = 0;
 augment abstract int topLevelVariable;
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 class C {
+  static int staticVariable = 0;
   int instanceVariable = 0;
 }
 
 augment class C {
+  augment static abstract int staticVariable;
   augment abstract int instanceVariable;
 }
 
 mixin M {
+  static int staticVariable = 0;
   int instanceVariable = 0;
 }
 
 augment mixin M {
+  augment static abstract int staticVariable;
   augment abstract int instanceVariable;
 }
 
 enum E {
   e0;
+  static int staticVariable = 0;
   final int instanceVariable = 0;
 }
 
 augment enum E {
   ;
+  augment static abstract int staticVariable;
   augment abstract final int instanceVariable;
 }
 
-extension type ET(int instanceVariable) {}
+class A {}
+
+extension Ext on A {
+  static int staticVariable = 0;
+}
+
+augment extension Ext {
+  augment static abstract int staticVariable;
+}
+
+extension type ET(int instanceVariable) {
+  static int staticVariable = 0;
+}
 
 augment extension type ET {
+  augment static abstract int staticVariable;
   augment abstract final int instanceVariable;
 }
 
+class MA = Object with M;
+
 main() {
-  print(topLevelVariable);
-  print(C);
-  print(M);
-  print(E);
-  print(ET);
+  Expect.equals(0, topLevelVariable);
+  Expect.equals(0, C.staticVariable);
+  Expect.equals(0, C().instanceVariable);
+  Expect.equals(0, M.staticVariable);
+  Expect.equals(0, MA().instanceVariable);
+  Expect.equals(0, E.staticVariable);
+  Expect.equals(0, Ext.staticVariable);
+  Expect.equals(0, ET.staticVariable);
+  Expect.equals(0, ET(0).instanceVariable);
 }
