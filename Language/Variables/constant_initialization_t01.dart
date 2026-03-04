@@ -14,6 +14,4 @@ const foo;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-main() {
-
-}
+main() {}
