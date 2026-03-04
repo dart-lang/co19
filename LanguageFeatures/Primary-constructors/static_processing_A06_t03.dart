@@ -21,11 +21,8 @@
 /// part of the primary constructor, if any.
 ///
 /// @description Check that the primary initializer scope is the current scope
-/// for the initializing expression of non-late instance variable declaration
-/// and it is also the current scope for the initializer list in the body part
-/// of the primary constructor. Also check that the primary parameter scope is
-/// the current scope for the initializer list in the body part of the primary
-/// constructor. Test enums.
+/// for the initializing expression of non-late instance variable declaration.
+/// Test enums.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
@@ -35,35 +32,35 @@ import '../../Utils/expect.dart';
 enum E1(final String x) {
   e0("parameter");
 
-  final String Function() captureAtDeclaration = () => x;
+  final String captureAtDeclaration = x;
 }
 
 enum const E2([final String x = "default"]) {
   e0, e1("parameter");
 
-  final String Function() captureAtDeclaration = () => x;
+  final String captureAtDeclaration = x;
 }
 
 enum E3({final String x = "default"}) {
   e0, e1(x: "parameter");
 
-  final String Function() captureAtDeclaration = () => x;
+  final String captureAtDeclaration = x;
 }
 
 enum const E4({required final String x}) {
   e0(x: "parameter");
 
-  final String Function() captureAtDeclaration = () => x;
+  final String captureAtDeclaration = x;
 }
 
 main() {
-  Expect.equals("parameter", E1.e0.captureAtDeclaration());
+  Expect.equals("parameter", E1.e0.captureAtDeclaration);
 
-  Expect.equals("default", E2.e0.captureAtDeclaration());
-  Expect.equals("parameter", E2.e1.captureAtDeclaration());
+  Expect.equals("default", E2.e0.captureAtDeclaration);
+  Expect.equals("parameter", E2.e1.captureAtDeclaration);
 
-  Expect.equals("default", E3.e0.captureAtDeclaration());
-  Expect.equals("parameter", E3.e1.captureAtDeclaration());
+  Expect.equals("default", E3.e0.captureAtDeclaration);
+  Expect.equals("parameter", E3.e1.captureAtDeclaration);
 
-  Expect.equals("parameter", E4.e0.captureAtDeclaration());
+  Expect.equals("parameter", E4.e0.captureAtDeclaration);
 }
