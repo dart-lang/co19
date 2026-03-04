@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -9,49 +9,39 @@
 /// @note There is no this statement in the specification, it is defined by the
 /// grammar.
 ///
-/// @description Checks that it is not an error if a library or static late
+/// @description Checks that it is not an error if an external library or static
 /// final variable is not initialized in its declaration.
-/// @author rodionov
-/// @issue #27510
+/// @author sgrekhov22@gmail.com
 
-import '../../Utils/expect.dart';
-
-late final int v;
+external final int v;
 
 class C {
-  static late final int v;
+  external static final int v;
 }
 
 mixin M {
-  static late final int v;
+  external static final int v;
 }
 
 enum E {
   e0;
-  static late final int v;
+  external static final int v;
 }
 
 class A {}
 
 extension Ext on A {
-  static late final int v;
+  external static final int v;
 }
 
 extension type ET(int _) {
-  static late final int v;
+  external static final int v;
 }
 
 main() {
-  v = 0;
-  C.v = 1;
-  M.v = 2;
-  E.v = 3;
-  Ext.v = 4;
-  ET.v = 5;
-  Expect.equals(0, v);
-  Expect.equals(1, C.v);
-  Expect.equals(2, M.v);
-  Expect.equals(3, E.v);
-  Expect.equals(4, Ext.v);
-  Expect.equals(5, ET.v);
+  print(C);
+  print(M);
+  print(E);
+  print(A);
+  print(ET);
 }

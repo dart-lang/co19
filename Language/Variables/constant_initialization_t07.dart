@@ -1,98 +1,93 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if a final static or library variable
-/// has no initializing expression, unless the variable declaration has the
-/// modifier `late` or the modifier `external`.
+/// @assertion A constant variable must be initialized to a compile-time 
+/// constant or a compile-time error occurs.
 ///
-/// @note There is no this statement in the specification, it is defined by the
-/// grammar.
-///
-/// @description Checks that it is a compile error if a `final static` variable
+/// @description Checks that it is a compile error if a static constant variable
 /// is not initialized in its declaration.
-/// @author rodionov
-/// @issue #27510
+/// @author sgrekhov22@gmail.com
 
 class C {
-  static final v1;
+  static const v1;
 //             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final int v2;
+  static const int v2;
 //                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final int? v3;
+  static const int? v3;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Null v4;
+  static const Null v4;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final void v5;
+  static const void v5;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Object? v6;
+  static const Object? v6;
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final dynamic v7;
+  static const dynamic v7;
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Never v8;
+  static const Never v8;
 //                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin M {
-  static final v1;
+  static const v1;
 //             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final int v2;
+  static const int v2;
 //                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final int? v3;
+  static const int? v3;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Null v4;
+  static const Null v4;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final void v5;
+  static const void v5;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Object? v6;
+  static const Object? v6;
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final dynamic v7;
+  static const dynamic v7;
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Never v8;
+  static const Never v8;
 //                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -100,42 +95,42 @@ mixin M {
 
 enum E {
   e0;
-  static final v1;
+  static const v1;
 //             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final int v2;
+  static const int v2;
 //                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final int? v3;
+  static const int? v3;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Null v4;
+  static const Null v4;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final void v5;
+  static const void v5;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Object? v6;
+  static const Object? v6;
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final dynamic v7;
+  static const dynamic v7;
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Never v8;
+  static const Never v8;
 //                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -144,79 +139,79 @@ enum E {
 class A {}
 
 extension Ext on A {
-  static final v1;
+  static const v1;
 //             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final int v2;
+  static const int v2;
 //                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final int? v3;
+  static const int? v3;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Null v4;
+  static const Null v4;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final void v5;
+  static const void v5;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Object? v6;
+  static const Object? v6;
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final dynamic v7;
+  static const dynamic v7;
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Never v8;
+  static const Never v8;
 //                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET(int _) {
-  static final v1;
+  static const v1;
 //             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final int v2;
+  static const int v2;
 //                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final int? v3;
+  static const int? v3;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Null v4;
+  static const Null v4;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final void v5;
+  static const void v5;
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final Object? v6;
+  static const Object? v6;
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static final dynamic v7;
+  static const dynamic v7;
 //                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
