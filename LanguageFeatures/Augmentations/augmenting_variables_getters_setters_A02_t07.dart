@@ -23,7 +23,7 @@
 /// ...
 /// It's a compile-time error if:
 /// - The signature of the augmenting getter or setter does not match the
-///   signature of the augmented getter or setter.
+///   signature of the corresponding introductory getter or setter.
 ///
 /// @description Checks that it is a compile-time error if the return type of an
 /// augmentation doesn't exactly match the original implicit setter. Test
