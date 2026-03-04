@@ -30,19 +30,15 @@ augment dynamic topLevelVariable3 = 3;
 final finalTopLevelVariable1 = 1;
 augment abstract final int finalTopLevelVariable1;
 
-final finalTopLevelVariable2;
-augment abstract final dynamic finalTopLevelVariable2;
-
-abstract final finalTopLevelVariable3;
-augment final dynamic finalTopLevelVariable3 = 3;
+abstract final finalTopLevelVariable2;
+augment final dynamic finalTopLevelVariable2 = 2;
 
 class C {
   static var staticVariable1 = 1;
   static var staticVariable2;
   static abstract var staticVariable3;
   static final finalStaticVariable1 = 1;
-  static final finalStaticVariable2;
-  static abstract final finalStaticVariable3;
+  static abstract final finalStaticVariable2;
 
   var instanceVariable1 = 1;
   var instanceVariable2;
@@ -57,8 +53,7 @@ augment class C {
   augment static abstract dynamic staticVariable2;
   augment static dynamic staticVariable3 = 3;
   augment static abstract final int finalStaticVariable1;
-  augment static abstract final dynamic finalStaticVariable2;
-  augment static final dynamic finalStaticVariable3 = 3;
+  augment static final dynamic finalStaticVariable2 = 2;
 
   augment abstract int instanceVariable1;
   augment abstract dynamic instanceVariable2;
@@ -73,8 +68,7 @@ mixin M {
   static var staticVariable2;
   static abstract var staticVariable3;
   static final finalStaticVariable1 = 1;
-  static final finalStaticVariable2;
-  static abstract final finalStaticVariable3;
+  static abstract final finalStaticVariable2;
 
   var instanceVariable1 = 1;
   var instanceVariable2;
@@ -89,8 +83,7 @@ augment mixin M {
   augment static abstract dynamic staticVariable2;
   augment static dynamic staticVariable3 = 3;
   augment static abstract final int finalStaticVariable1;
-  augment static abstract final dynamic finalStaticVariable2;
-  augment static final dynamic finalStaticVariable3 = 3;
+  augment static final dynamic finalStaticVariable2 = 2;
 
   augment abstract int instanceVariable1;
   augment abstract dynamic instanceVariable2;
@@ -106,8 +99,7 @@ enum E {
   static var staticVariable2;
   static abstract var staticVariable3;
   static final finalStaticVariable1 = 1;
-  static final finalStaticVariable2;
-  static abstract final finalStaticVariable3;
+  static abstract final finalStaticVariable2;
 
   final finalInstanceVariable1 = 1;
   final finalInstanceVariable2;
@@ -120,8 +112,7 @@ augment enum E {
   augment static abstract dynamic staticVariable2;
   augment static dynamic staticVariable3 = 3;
   augment static abstract final int finalStaticVariable1;
-  augment static abstract final dynamic finalStaticVariable2;
-  augment static final dynamic finalStaticVariable3 = 3;
+  augment static final dynamic finalStaticVariable2 = 2;
 
   augment abstract final int finalInstanceVariable1;
   augment abstract final dynamic finalInstanceVariable2;
@@ -135,8 +126,7 @@ extension Ext on A {
   static var staticVariable2;
   static abstract var staticVariable3;
   static final finalStaticVariable1 = 1;
-  static final finalStaticVariable2;
-  static abstract final finalStaticVariable3;
+  static abstract final finalStaticVariable2;
 }
 
 augment extension Ext {
@@ -144,8 +134,7 @@ augment extension Ext {
   augment static abstract dynamic staticVariable2;
   augment static dynamic staticVariable3 = 3;
   augment static abstract final int finalStaticVariable1;
-  augment static abstract final dynamic finalStaticVariable2;
-  augment static final dynamic finalStaticVariable3 = 3;
+  augment static final dynamic finalStaticVariable2 = 2;
 }
 
 extension type ET(int _) {
@@ -153,8 +142,7 @@ extension type ET(int _) {
   static var staticVariable2;
   static abstract var staticVariable3;
   static final finalStaticVariable1 = 1;
-  static final finalStaticVariable2;
-  static abstract final finalStaticVariable3;
+  static abstract final finalStaticVariable2;
 }
 
 augment extension type ET {
@@ -162,8 +150,7 @@ augment extension type ET {
   augment static abstract dynamic staticVariable2;
   augment static dynamic staticVariable3 = 3;
   augment static abstract final int finalStaticVariable1;
-  augment static abstract final dynamic finalStaticVariable2;
-  augment static final dynamic finalStaticVariable3 = 3;
+  augment static final dynamic finalStaticVariable2 = 2;
 }
 
 class MA = Object with M;
@@ -173,15 +160,13 @@ main() {
   Expect.isNull(topLevelVariable2);
   Expect.equals(3, topLevelVariable3);
   Expect.equals(1, finalTopLevelVariable1);
-  Expect.isNull(finalTopLevelVariable2);
-  Expect.equals(3, finalTopLevelVariable3);
+  Expect.equals(2, finalTopLevelVariable2);
 
   Expect.equals(1, C.staticVariable1);
   Expect.isNull(C.staticVariable2);
   Expect.equals(3, C.staticVariable3);
   Expect.equals(1, C.finalStaticVariable1);
-  Expect.isNull(C.finalStaticVariable2);
-  Expect.equals(3, C.finalStaticVariable3);
+  Expect.equals(2, C.finalStaticVariable2);
   Expect.equals(1, C().instanceVariable1);
   Expect.isNull(C().instanceVariable2);
   Expect.equals(3, C().instanceVariable3);
@@ -193,8 +178,7 @@ main() {
   Expect.isNull(M.staticVariable2);
   Expect.equals(3, M.staticVariable3);
   Expect.equals(1, M.finalStaticVariable1);
-  Expect.isNull(M.finalStaticVariable2);
-  Expect.equals(3, M.finalStaticVariable3);
+  Expect.equals(2, M.finalStaticVariable2);
   Expect.equals(1, MA().instanceVariable1);
   Expect.isNull(MA().instanceVariable2);
   Expect.equals(3, MA().instanceVariable3);
@@ -206,8 +190,7 @@ main() {
   Expect.isNull(E.staticVariable2);
   Expect.equals(3, E.staticVariable3);
   Expect.equals(1, E.finalStaticVariable1);
-  Expect.isNull(E.finalStaticVariable2);
-  Expect.equals(3, E.finalStaticVariable3);
+  Expect.equals(2, E.finalStaticVariable2);
   Expect.equals(1, E.e0.finalInstanceVariable1);
   Expect.isNull(E.e0.finalInstanceVariable2);
   Expect.equals(3, E.e0.finalInstanceVariable3);
@@ -216,13 +199,11 @@ main() {
   Expect.isNull(Ext.staticVariable2);
   Expect.equals(3, Ext.staticVariable3);
   Expect.equals(1, Ext.finalStaticVariable1);
-  Expect.isNull(Ext.finalStaticVariable2);
-  Expect.equals(3, Ext.finalStaticVariable3);
+  Expect.equals(2, Ext.finalStaticVariable2);
 
   Expect.equals(1, ET.staticVariable1);
   Expect.isNull(ET.staticVariable2);
   Expect.equals(3, ET.staticVariable3);
   Expect.equals(1, ET.finalStaticVariable1);
-  Expect.isNull(ET.finalStaticVariable2);
-  Expect.equals(3, ET.finalStaticVariable3);
+  Expect.equals(2, ET.finalStaticVariable2);
 }
