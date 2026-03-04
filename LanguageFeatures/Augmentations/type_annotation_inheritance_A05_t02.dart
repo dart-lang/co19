@@ -35,7 +35,7 @@ class C {
 
 augment class C {
   augment static abstract NumAlias staticVariable;
-  augment staic final NumAlias finalStaticVariable = 2;
+  augment static final NumAlias finalStaticVariable = 2;
   augment abstract NumAlias instanceVariable;
   augment final NumAlias finalInstanceVariable = 2;
 }
@@ -65,7 +65,7 @@ enum E {
 augment enum E {
   ;
   augment static abstract NumAlias staticVariable;
-  augment staic final NumAlias finalStaticVariable = 2;
+  augment static final NumAlias finalStaticVariable = 2;
   augment abstract final NumAlias finalInstanceVariable1;
   augment final NumAlias finalInstanceVariable2 = 2;
 }
@@ -89,7 +89,7 @@ extension type ET(int _) {
 
 augment extension type ET {
   augment static abstract NumAlias staticVariable;
-  augment staic final NumAlias finalStaticVariable = 2;
+  augment static final NumAlias finalStaticVariable = 2;
 }
 
 class MA = Object with M;
