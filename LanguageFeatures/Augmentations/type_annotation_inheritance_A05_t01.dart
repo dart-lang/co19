@@ -42,8 +42,8 @@ augment class C {
 //                        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static abstract final int finalStaticVariable = 2;
-//                              ^^^
+  augment static final int finalStaticVariable = 2;
+//                     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment abstract Object instanceVariable;
@@ -97,8 +97,8 @@ augment enum E {
 //                        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static abstract final int finalStaticVariable = 2;
-//                              ^^^
+  augment static final int finalStaticVariable = 2;
+//                     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment abstract final Object finalInstanceVariable1;
@@ -139,8 +139,8 @@ augment extension type ET {
 //                        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment static abstract final int finalStaticVariable = 2;
-//                              ^^^
+  augment static final int finalStaticVariable = 2;
+//                     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
