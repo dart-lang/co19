@@ -4,6 +4,7 @@
 
 /// @assertion A constant variable must be initialized to a compile-time 
 /// constant or a compile-time error occurs.
+///
 /// @description Checks that constant variables should be initialized to
 /// a compile-time constant.
 /// @author msyabro

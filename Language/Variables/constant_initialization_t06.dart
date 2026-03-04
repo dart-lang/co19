@@ -1,55 +1,50 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A compile-time error occurs if a final static or library variable
-/// has no initializing expression, unless the variable declaration has the
-/// modifier `late` or the modifier `external`.
+/// @assertion A constant variable must be initialized to a compile-time 
+/// constant or a compile-time error occurs.
 ///
-/// @note There is no this statement in the specification, it is defined by the
-/// grammar.
-///
-/// @description Checks that it is a compile error when a `final` library
-/// variable is not initialized in its declaration. 
-/// @author rodionov
-/// @issue #27510
+/// @description Checks that it is a compile error if a constant library
+/// variable is not initialized in its declaration.
+/// @author sgrekhov22@gmail.com
 
-final int v1;
+const int v1;
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final int? v2;
+const int? v2;
 //         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final v3;
+const v3;
 //    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final Null v4;
+const Null v4;
 //         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final void v5;
+const void v5;
 //         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final Object? v6;
+const Object? v6;
 //            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final dynamic v7;
+const dynamic v7;
 //            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-final Never v8;
+const Never v8;
 //          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
