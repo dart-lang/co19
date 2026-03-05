@@ -31,13 +31,16 @@ augment mixin M implements I<String> {}
 enum E implements I<int> {
   e0;
 }
-augment enum E implements I{;}
+augment enum E implements I {;}
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 extension type ET(I<int> _) implements I<num> {}
 augment extension type ET implements I<Object> {}
+//                     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class MA = Object with M;
 

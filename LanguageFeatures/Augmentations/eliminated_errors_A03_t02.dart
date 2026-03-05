@@ -10,7 +10,7 @@
 ///   the same type.
 ///
 /// @description Checks that it is not an error if an `implements` clause of a
-/// mixin declaration contains the same type as `on` clause.
+/// mixin declaration contains the same type as the `on` clause.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
