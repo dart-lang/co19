@@ -23,10 +23,6 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 import '../../Utils/expect.dart';
 
 String log = "";
@@ -38,6 +34,12 @@ augment void set topLevelVariable(String v) {
 augment String get topLevelVariable => ""; // We also need a getter to complete the declaration
 
 class C {
+  static abstract String staticVariable;
+  augment static void set staticVariable(String v) {
+    log = v;
+  }
+  augment static String get staticVariable => "";
+
   abstract String instanceVariable;
   augment void set instanceVariable(String v) {
     log = v;
@@ -46,6 +48,12 @@ class C {
 }
 
 mixin M {
+  static abstract String staticVariable;
+  augment static void set staticVariable(String v) {
+    log = v;
+  }
+  augment static String get staticVariable => "";
+
   abstract String instanceVariable;
   augment void set instanceVariable(String v) {
     log = v;
@@ -55,6 +63,12 @@ mixin M {
 
 enum E {
   e0;
+  static abstract String staticVariable;
+  augment static void set staticVariable(String v) {
+    log = v;
+  }
+  augment static String get staticVariable => "";
+
   abstract String instanceVariable;
   augment void set instanceVariable(String v) {
     log = v;
@@ -65,6 +79,12 @@ enum E {
 class A {}
 
 extension Ext on A {
+  static abstract String staticVariable;
+  augment static void set staticVariable(String v) {
+    log = v;
+  }
+  augment static String get staticVariable => "";
+
   abstract String instanceVariable;
   augment void set instanceVariable(String v) {
     log = v;
@@ -73,6 +93,12 @@ extension Ext on A {
 }
 
 extension type ET(int _) {
+  static abstract String staticVariable;
+  augment static void set staticVariable(String v) {
+    log = v;
+  }
+  augment static String get staticVariable => "";
+
   abstract String instanceVariable;
   augment void set instanceVariable(String v) {
     log = v;
@@ -90,14 +116,24 @@ void checkLog(String expected) {
 main() {
   topLevelVariable = "a";
   checkLog("a");
+  C.staticVariable = "b";
+  checkLog("b");
   C().instanceVariable = "c";
   checkLog("c");
+  M.staticVariable = "d";
+  checkLog("d");
   MA().instanceVariable = "e";
   checkLog("e");
+  E.staticVariable = "f";
+  checkLog("f");
   E.e0.instanceVariable = "g";
   checkLog("g");
+  Ext.staticVariable = "h";
+  checkLog("h");
   A().instanceVariable = "i";
   checkLog("i");
+  ET.staticVariable = "j";
+  checkLog("j");
   ET(0).instanceVariable = "k";
   checkLog("k");
 }

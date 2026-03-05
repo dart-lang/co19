@@ -20,11 +20,13 @@ abstract final int topLevelVariable;
 // [cfe] unspecified
 augment int get topLevelVariable;
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 class C {
+  static abstract final int staticVariable;
+//                          ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static int get staticVariable;
+
   abstract final int instanceVariable;
 //                   ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -33,6 +35,12 @@ class C {
 }
 
 mixin M {
+  static abstract final int staticVariable;
+//                          ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static int get staticVariable;
+
   abstract final int instanceVariable;
 //                   ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -42,6 +50,12 @@ mixin M {
 
 enum E {
   e0;
+  static abstract final int staticVariable;
+//                          ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static int get staticVariable;
+
   abstract final int instanceVariable;
 //                   ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -52,6 +66,12 @@ enum E {
 class A {}
 
 extension Ext on A {
+  static abstract final int staticVariable;
+//                          ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static int get staticVariable;
+
   abstract final int instanceVariable;
 //                   ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -60,6 +80,12 @@ extension Ext on A {
 }
 
 extension type ET(int _) {
+  static abstract final int staticVariable;
+//                          ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static int get staticVariable;
+
   abstract final int instanceVariable;
 //                   ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

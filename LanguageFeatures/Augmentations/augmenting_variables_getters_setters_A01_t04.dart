@@ -28,22 +28,27 @@ import '../../Utils/expect.dart';
 String get topLevelGetter => "x";
 augment abstract String topLevelGetter;
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 class C {
+  static String get staticGetter => "x";
+  augment static abstract String staticGetter;
+
   String get instanceGetter => "x";
   augment abstract String instanceGetter;
 }
 
 mixin M {
+  static String get staticGetter => "x";
+  augment static abstract String staticGetter;
+
   String get instanceGetter => "x";
   augment abstract String instanceGetter;
 }
 
 enum E {
   e0;
+  static String get staticGetter => "x";
+  augment static abstract String staticGetter;
+
   String get instanceGetter => "x";
   augment abstract String instanceGetter;
 }
@@ -51,11 +56,17 @@ enum E {
 class A {}
 
 extension Ext on A {
+  static String get staticGetter => "x";
+  augment static abstract String staticGetter;
+
   String get instanceGetter => "x";
   augment abstract String instanceGetter;
 }
 
 extension type ET(int _) {
+  static String get staticGetter => "x";
+  augment static abstract String staticGetter;
+
   String get instanceGetter => "x";
   augment abstract String instanceGetter;
 }
@@ -64,9 +75,14 @@ class MA = Object with M;
 
 main() {
   Expect.equals("x", topLevelGetter);
+  Expect.equals("x", C.staticGetter);
   Expect.equals("x", C().instanceGetter);
+  Expect.equals("x", M.staticGetter);
   Expect.equals("x", MA().instanceGetter);
+  Expect.equals("x", E.staticGetter);
   Expect.equals("x", E.e0.instanceGetter);
+  Expect.equals("x", Ext.staticGetter);
   Expect.equals("x", A().instanceGetter);
+  Expect.equals("x", ET.staticGetter);
   Expect.equals("x", ET(0).instanceGetter);
 }

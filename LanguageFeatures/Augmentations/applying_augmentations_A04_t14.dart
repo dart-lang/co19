@@ -12,14 +12,11 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 class C {
   static void staticMethod() {}
   static int get staticGetter => 0;
   static void set staticSetter(int v) {}
+  static int staticVariable = 0;
 }
 
 augment class C {
@@ -35,12 +32,17 @@ augment class C {
 //                 ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment abstract int staticVariable;
+//                     ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M {
   static void staticMethod() {}
   static int get staticGetter => 0;
   static void set staticSetter(int v) {}
+  static int staticVariable = 0;
 }
 
 augment mixin M {
@@ -56,6 +58,10 @@ augment mixin M {
 //                 ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment abstract int staticVariable;
+//                     ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {
@@ -63,6 +69,7 @@ enum E {
   static void staticMethod() {}
   static int get staticGetter => 0;
   static void set staticSetter(int v) {}
+  static int staticVariable = 0;
 }
 
 augment enum E {
@@ -77,6 +84,10 @@ augment enum E {
 // [cfe] unspecified
   augment void set staticSetter(int v);
 //                 ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment abstract int staticVariable;
+//                     ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

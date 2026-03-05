@@ -19,10 +19,6 @@ augment String topLevelSetter = ""; // There is no getter to augment
 // [analyzer] unspecified
 // [cfe] unspecified
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 class C {
   static void set staticSetter(String _);
   void set instanceSetter(String _);

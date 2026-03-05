@@ -21,11 +21,14 @@ abstract int topLevelVariable;
 augment abstract int topLevelVariable;
 augment int get topLevelVariable => 0;
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 class C {
+  static abstract int staticVariable;
+//                    ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static abstract int staticVariable;
+  augment static int get staticVariable => 0;
+
   abstract int instanceVariable;
 //             ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -35,6 +38,13 @@ class C {
 }
 
 mixin M {
+  static abstract int staticVariable;
+//                    ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static abstract int staticVariable;
+  augment static int get staticVariable => 0;
+
   abstract int instanceVariable;
 //             ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -45,6 +55,13 @@ mixin M {
 
 enum E {
   e0;
+  static abstract int staticVariable;
+//                    ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static abstract int staticVariable;
+  augment static int get staticVariable => 0;
+
   abstract int instanceVariable;
 //             ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -56,6 +73,13 @@ enum E {
 class A {}
 
 extension Ext on A {
+  static abstract int staticVariable;
+//                    ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static abstract int staticVariable;
+  augment static int get staticVariable => 0;
+
   abstract int instanceVariable;
 //             ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -65,6 +89,13 @@ extension Ext on A {
 }
 
 extension type ET(int _) {
+  static abstract int staticVariable;
+//                    ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static abstract int staticVariable;
+  augment static int get staticVariable => 0;
+
   abstract int instanceVariable;
 //             ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified

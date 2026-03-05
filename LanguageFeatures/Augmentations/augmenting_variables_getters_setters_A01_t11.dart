@@ -26,51 +26,57 @@
 abstract final String topLevelVariable;
 augment external String get topLevelVariable;
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 class C {
+  static abstract final String staticVariable;
   abstract final String instanceVariable;
 }
 
 augment class C {
+  augment external static final String staticVariable;
   augment external String get instanceVariable;
 }
 
 mixin M {
+  static abstract final String staticVariable;
   abstract final String instanceVariable;
 }
 
 augment mixin M {
+  augment external static final String staticVariable;
   augment external String get instanceVariable;
 }
 
 enum E {
   e0;
+  static abstract final String staticVariable;
   abstract final String instanceVariable;
 }
 
 augment enum E {
   ;
+  augment external static final String staticVariable;
   augment external String get instanceVariable;
 }
 
 class A {}
 
 extension Ext on A {
+  static abstract final String staticVariable;
   abstract final String instanceVariable;
 }
 
 augment extension Ext {
+  augment external static final String staticVariable;
   augment external String get instanceVariable;
 }
 
 extension type ET(int _) {
+  static abstract final String staticVariable;
   abstract final String instanceVariable;
 }
 
 augment extension type ET {
+  augment external static final String staticVariable;
   augment external String get instanceVariable;
 }
 

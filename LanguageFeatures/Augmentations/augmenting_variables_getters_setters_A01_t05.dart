@@ -29,17 +29,21 @@ abstract String topLevelVariable;
 augment String get topLevelVariable => "x";
 augment void set topLevelVariable(String _) {} // We need a setter to complete the declaration
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 class C {
+  static abstract String staticVariable;
+  augment static String get staticVariable => "x";
+  augment static void set staticVariable(String _) {}
+
   abstract String instanceVariable;
   augment String get instanceVariable => "x";
   augment void set instanceVariable(String _) {}
 }
 
 mixin M {
+  static abstract String staticVariable;
+  augment static String get staticVariable => "x";
+  augment static void set staticVariable(String _) {}
+
   abstract String instanceVariable;
   augment String get instanceVariable => "x";
   augment void set instanceVariable(String _) {}
@@ -47,6 +51,10 @@ mixin M {
 
 enum E {
   e0;
+  static abstract String staticVariable;
+  augment static String get staticVariable => "x";
+  augment static void set staticVariable(String _) {}
+
   abstract String instanceVariable;
   augment String get instanceVariable => "x";
   augment void set instanceVariable(String _) {}
@@ -55,12 +63,20 @@ enum E {
 class A {}
 
 extension Ext on A {
+  static abstract String staticVariable;
+  augment static String get staticVariable => "x";
+  augment static void set staticVariable(String _) {}
+
   abstract String instanceVariable;
   augment String get instanceVariable => "x";
   augment void set instanceVariable(String _) {}
 }
 
 extension type ET(int _) {
+  static abstract String staticVariable;
+  augment static String get staticVariable => "x";
+  augment static void set staticVariable(String _) {}
+
   abstract String instanceVariable;
   augment String get instanceVariable => "x";
   augment void set instanceVariable(String _) {}
@@ -70,9 +86,14 @@ class MA = Object with M;
 
 main() {
   Expect.equals("x", topLevelVariable);
+  Expect.equals("x", C.staticVariable);
   Expect.equals("x", C().instanceVariable);
+  Expect.equals("x", M.staticVariable);
   Expect.equals("x", MA().instanceVariable);
+  Expect.equals("x", E.staticVariable);
   Expect.equals("x", E.e0.instanceVariable);
+  Expect.equals("x", Ext.staticVariable);
   Expect.equals("x", A().instanceVariable);
+  Expect.equals("x", ET.staticVariable);
   Expect.equals("x", ET(0).instanceVariable);
 }

@@ -12,14 +12,11 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 class C {
   void instanceMethod() {}
   int get instanceGetter => 0;
   void set instanceSetter(int v) {}
+  int instanceVariable = 0;
 }
 
 augment class C {
@@ -35,12 +32,17 @@ augment class C {
 //                        ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment static abstract int instanceVariable;
+//                            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M {
   void instanceMethod() {}
   int get instanceGetter => 0;
   void set instanceSetter(int v) {}
+  int instanceVariable = 0;
 }
 
 augment mixin M {
@@ -56,6 +58,10 @@ augment mixin M {
 //                        ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment static abstract int instanceVariable;
+//                            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {
@@ -63,6 +69,7 @@ enum E {
   void instanceMethod() {}
   int get instanceGetter => 0;
   void set instanceSetter(int v) {}
+  final int instanceVariable = 0;
 }
 
 augment enum E {
@@ -77,6 +84,10 @@ augment enum E {
 // [cfe] unspecified
   augment static void set instanceSetter(int v);
 //                        ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static abstract int instanceVariable;
+//                            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -102,9 +113,13 @@ augment extension Ext {
 //                        ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment static abstract int instanceVariable;
+//                            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-extension type ET(int _) {
+extension type ET(int instanceVariable) {
   void instanceMethod() {}
   int get instanceGetter => 0;
   void set instanceSetter(int v) {}
@@ -121,6 +136,10 @@ augment extension type ET {
 // [cfe] unspecified
   augment static void set instanceSetter(int v);
 //                        ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment static abstract int instanceVariable;
+//                            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

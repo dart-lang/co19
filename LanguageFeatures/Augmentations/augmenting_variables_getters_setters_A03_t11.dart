@@ -27,35 +27,40 @@ abstract String topLevelVariable;
 augment external String get topLevelVariable;
 augment external void set topLevelVariable(String _);
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 class C {
+  static abstract String staticVariable;
   abstract String instanceVariable;
 }
 
 augment class C {
+  augment external String get staticVariable;
+  augment external void set staticVariable(String _);
   augment external String get instanceVariable;
   augment external void set instanceVariable(String _);
 }
 
 mixin M {
+  static abstract String staticVariable;
   abstract String instanceVariable;
 }
 
 augment mixin M {
+  augment external String get staticVariable;
+  augment external void set staticVariable(String _);
   augment external String get instanceVariable;
   augment external void set instanceVariable(String _);
 }
 
 enum E {
   e0;
+  static abstract String staticVariable;
   abstract String instanceVariable;
 }
 
 augment enum E {
   ;
+  augment external String get staticVariable;
+  augment external void set staticVariable(String _);
   augment external String get instanceVariable;
   augment external void set instanceVariable(String _);
 }
@@ -63,19 +68,25 @@ augment enum E {
 class A {}
 
 extension Ext on A {
+  static abstract String staticVariable;
   abstract String instanceVariable;
 }
 
 augment extension Ext {
+  augment external String get staticVariable;
+  augment external void set staticVariable(String _);
   augment external String get instanceVariable;
   augment external void set instanceVariable(String _);
 }
 
 extension type ET(int _) {
+  static abstract String staticVariable;
   abstract String instanceVariable;
 }
 
 augment extension type ET {
+  augment external String get staticVariable;
+  augment external void set staticVariable(String _);
   augment external String get instanceVariable;
   augment external void set instanceVariable(String _);
 }
