@@ -2,12 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if the superclass of a class C is
-/// specified as a superinterface of C.
+/// @assertion It is a compile-time error if the superclass of a class `C` is
+/// one of the elements of the type list of the `implements` clause of `C`.
 ///
 /// @description Test checks that it is a compile-time error when a class has
 /// the same class as superclass and interface.
 /// @author hlodvig
+
+// @dart=3.12
 
 abstract class A {}
 
@@ -17,5 +19,5 @@ class C extends A implements A {}
 // [cfe] unspecified
 
 main () {
-  new C();
+  print(C);
 }
