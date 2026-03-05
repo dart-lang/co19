@@ -25,7 +25,7 @@ class C {
 //                          ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static augment abstract final int staticVariable;
+  augment static abstract final int staticVariable;
 
   abstract final int instanceVariable;
 //                   ^^^^^^^^^^^^^^^^
@@ -39,7 +39,7 @@ mixin M {
 //                          ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static augment abstract final int staticVariable;
+  augment static abstract final int staticVariable;
 
   abstract final int instanceVariable;
 //                   ^^^^^^^^^^^^^^^^
@@ -54,7 +54,7 @@ enum E {
 //                          ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static augment abstract final int staticVariable;
+  augment static abstract final int staticVariable;
 
   abstract final int instanceVariable;
 //                   ^^^^^^^^^^^^^^^^
@@ -70,7 +70,7 @@ extension Ext on A {
 //                          ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static augment abstract final int staticVariable;
+  augment static abstract final int staticVariable;
 
   abstract final int instanceVariable;
 //                   ^^^^^^^^^^^^^^^^
@@ -84,7 +84,7 @@ extension type ET(int _) {
 //                          ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static augment abstract final int staticVariable;
+  augment static abstract final int staticVariable;
 
   abstract final int instanceVariable;
 //                   ^^^^^^^^^^^^^^^^
