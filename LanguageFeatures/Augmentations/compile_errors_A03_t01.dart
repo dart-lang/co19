@@ -8,9 +8,9 @@
 /// they should be. And if doing so eliminates what would otherwise be a
 /// compile-time error, then that error should not be reported.
 ///
-/// @description Checks that it is a compile-time error if a library or static
-/// variable with a non-nillable type has no initializer after all augmentations
-/// are applied.
+/// @description Checks that it is a compile-time error if a mutual library or
+/// static variable with a non-nillable type has no initializer after all
+/// augmentations are applied.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -92,7 +92,7 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  static abstractint staticVariable1;
+  static abstrac tint staticVariable1;
   static int staticVariable2;
 }
 
@@ -108,7 +108,7 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  static abstractint staticVariable1;
+  static abstract int staticVariable1;
   static int staticVariable2;
 }
 

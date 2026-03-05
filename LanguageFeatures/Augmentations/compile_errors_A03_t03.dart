@@ -8,8 +8,8 @@
 /// they should be. And if doing so eliminates what would otherwise be a
 /// compile-time error, then that error should not be reported.
 ///
-/// @description Checks that it is a compile-time error if a final library or
-/// static variable has no initializer after all augmentations are applied.
+/// @description Checks that it is a syntax error if a final library or static
+/// variable has no initializer.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -20,12 +20,12 @@ final int? topLevelVariable1;
 // [cfe] unspecified
 
 abstract final int? topLevelVariable2;
-//                  ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 augment abstract final int? topLevelVariable1;
 augment final int? topLevelVariable2;
+//                 ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class C {
   static final int? staticVariable1;
@@ -33,14 +33,14 @@ class C {
 // [analyzer] unspecified
 // [cfe] unspecified
   static abstract final int? staticVariable2;
-//                           ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment class C {
   augment static abstract final int? staticVariable1;
   augment static final int? staticVariable2;
+//                          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M {
@@ -49,14 +49,14 @@ mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
   static abstract final int? staticVariable2;
-//                           ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment mixin M {
   augment static abstract final int? staticVariable1;
   augment static final int? staticVariable2;
+//                          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {
@@ -66,15 +66,15 @@ enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
   static abstract final int? staticVariable2;
-//                           ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment enum E {
   ;
   augment static abstract final int? staticVariable1;
   augment static final int? staticVariable2;
+//                          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A {}
@@ -85,14 +85,14 @@ extension Ext on A {
 // [analyzer] unspecified
 // [cfe] unspecified
   static abstract final int? staticVariable2;
-//                           ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment extension Ext {
   augment static abstract final int? staticVariable1;
   augment static final int? staticVariable2;
+//                          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET(int _) {
@@ -101,14 +101,14 @@ extension type ET(int _) {
 // [analyzer] unspecified
 // [cfe] unspecified
   static abstract final int? staticVariable2;
-//                           ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment extension type ET {
   augment static abstract final int? staticVariable1;
   augment static final int? staticVariable2;
+//                          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
