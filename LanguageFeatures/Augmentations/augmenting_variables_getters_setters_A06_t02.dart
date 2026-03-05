@@ -28,34 +28,54 @@ import '../../Utils/expect.dart';
 abstract int topLevelVariable;
 augment int topLevelVariable = 0;
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 class C {
+  static abstract int staticVariable;
   abstract int instanceVariable;
 }
 
 augment class C {
+  augment static int staticVariable = 0;
   augment int instanceVariable = 0;
 }
 
 mixin M {
+  static abstract int staticVariable;
   abstract int instanceVariable;
 }
 
 augment mixin M {
+  augment static int staticVariable = 0;
   augment int instanceVariable = 0;
 }
 
 enum E {
   e0;
+  static abstract int staticVariable;
   abstract final int instanceVariable;
 }
 
 augment enum E {
   ;
+  augment static int staticVariable = 0;
   augment final int instanceVariable = 0;
+}
+
+class A {}
+
+extension Ext on A {
+  static abstract int staticVariable;
+}
+
+augment extension Ext {
+  augment static int staticVariable = 0;
+}
+
+extension type ET(int v) {
+  static abstract int staticVariable;
+}
+
+augment extension type ET {
+  augment static int staticVariable = 0;
 }
 
 class MA = Object with M;
@@ -65,15 +85,32 @@ main() {
   topLevelVariable = 1;
   Expect.equals(1, topLevelVariable);
 
+  Expect.equals(0, C.staticVariable);
+  C.staticVariable = 1;
+  Expect.equals(1, C.staticVariable);
   var c = C();
   Expect.equals(0, c.instanceVariable);
   c.instanceVariable = 1;
   Expect.equals(1, c.instanceVariable);
 
+  Expect.equals(0, M.staticVariable);
+  M.staticVariable = 1;
+  Expect.equals(1, M.staticVariable);
   var m = MA();
   Expect.equals(0, m.instanceVariable);
   m.instanceVariable = 1;
   Expect.equals(1, m.instanceVariable);
 
+  Expect.equals(0, E.staticVariable);
+  E.staticVariable = 1;
+  Expect.equals(1, E.staticVariable);
   Expect.equals(0, E.e0.instanceVariable);
+
+  Expect.equals(0, Ext.staticVariable);
+  Ext.staticVariable = 1;
+  Expect.equals(1, Ext.staticVariable);
+
+  Expect.equals(0, ET.staticVariable);
+  ET.staticVariable = 1;
+  Expect.equals(1, ET.staticVariable);
 }
