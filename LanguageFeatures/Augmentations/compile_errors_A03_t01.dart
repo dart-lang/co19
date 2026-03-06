@@ -8,7 +8,7 @@
 /// they should be. And if doing so eliminates what would otherwise be a
 /// compile-time error, then that error should not be reported.
 ///
-/// @description Checks that it is a compile-time error if a mutual library or
+/// @description Checks that it is a compile-time error if a mutable library or
 /// static variable with a non-nillable type has no initializer after all
 /// augmentations are applied.
 /// @author sgrekhov22@gmail.com
@@ -92,7 +92,7 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  static abstrac tint staticVariable1;
+  static abstract int staticVariable1;
   static int staticVariable2;
 }
 
