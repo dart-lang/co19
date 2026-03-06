@@ -28,12 +28,12 @@ import '../../../Utils/expect.dart';
 
 void getVoid(Object? o) => o;
 
+class C<T> {
+  int operator [](T other) => 42;
+  void operator []=(T op1, T op2) {}
+}
 void main() {
-  var m = <void, int>{};
-  void zero = getVoid(0);
-  void one = getVoid(1);
-  m[zero] = 0;
-  m[one] = 1;
-  Expect.equals(0, m[zero]);
-  Expect.equals(1, m[one]);
+  var c = C<void>();
+  c[getVoid(0)];
+  c[getVoid(1)] = getVoid(2);
 }
