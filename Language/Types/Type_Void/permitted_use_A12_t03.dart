@@ -6,7 +6,7 @@
 /// static type `void` should be discarded, such objects can only be used in
 /// specific situations: The occurrence of an expression of type `void` is a
 /// compile-time error unless it is permitted according to one of the following
-/// rules.
+/// rules. In the rules, every type under consideration is a static type.
 /// ...
 /// - Let `e` be an expression ending in a `⟨cascadeSection⟩` of the form
 ///   `.. S s = e1`, where `S` is of the form

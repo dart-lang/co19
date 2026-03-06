@@ -8,26 +8,18 @@
 /// compile-time error unless it is permitted according to one of the following
 /// rules. In the rules, every type under consideration is a static type.
 /// ...
-/// - An actual parameter expression corresponding to a formal parameter whose
-///   statically known type annotation is `void` may have type `void`.
+/// - In a list or set literal `C` whose actual type argument is `void`, an
+///   element at the top level in `C` may have element type `void`. In a map
+///   literal `M` whose first actual type argument is `void`, an element at the
+///   top level in `M` may have key type `void`. In a map literal `M` whose
+///   second actual type argument is `void`, an element at the top level in `M`
+///   may have value type `void`.
 ///
-/// @description Checks that an actual parameter expression corresponding to a
-/// formal parameter whose statically known type annotation is `void` may have
-/// type `void`. Test an extension.
+/// @description Checks that in a map literal whose second actual type argument
+/// is `void` an element at the top level may have element type `void`.
 /// @author sgrekhov22@gmail.com
 
-import '../../../Utils/expect.dart';
-
-class C<T> {
-}
-
-extension Ext<X> on C<X> {
-  Object? foo(X x) => x;
-  static Object? bar<T>(T t) => t;
-}
-
-void main() {
+main() {
   void v = 42;
-  Expect.equals(42, C<void>().foo(v));
-  Expect.equals(42, Ext.bar<void>(v));
+  <int, void>{0: v, 1: print("x")};
 }
