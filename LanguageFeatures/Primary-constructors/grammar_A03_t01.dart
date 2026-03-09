@@ -27,6 +27,8 @@ class C1 {
 
 class C2 {
   int v;
+//    ^
+// [cfe] unspecified
   this: v = 0;
 //^^^^
 // [analyzer] unspecified
@@ -55,6 +57,8 @@ enum E1 {
 enum E2 {
   e0;
   final int v;
+//          ^
+// [cfe] unspecified
   this: v = 0;
 //^^^^
 // [analyzer] unspecified
