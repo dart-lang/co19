@@ -16,7 +16,7 @@
 ///   may have value type `void`.
 ///
 /// @description Checks that in a map literal whose first actual type argument
-/// is `void` an element at the top level may have element type `void`.
+/// is `void`, an element at the top level may have key type `void`.
 /// @author sgrekhov22@gmail.com
 
 import '../../../Utils/expect.dart';
