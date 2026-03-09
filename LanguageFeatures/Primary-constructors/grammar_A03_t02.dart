@@ -44,8 +44,6 @@ class A {
 }
 
 class C3(var int v1) extends A {
-//    ^^
-// [analyzer] unspecified
   int v2;
   this: v2 = 2;
   this: super(3);
