@@ -19,28 +19,24 @@ extension type ET1(covariant String this.x) {
 //             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ET1.someName(String x);
 }
 
 extension type ET2([covariant String this.x = ""]) {
 //             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ET2.someName(String x);
 }
 
 extension type ET3({covariant String this.x = ""}) {
 //             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ET3.someName(String x);
 }
 
 extension type ET4({required covariant String this.x}) {
 //             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ET4.someName(String x);
 }
 
 main() {

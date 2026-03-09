@@ -45,8 +45,6 @@ extension type ET4._(int v) {
 
 extension type ET5(final int v) {
   ET5.someName(int v) : this(v);
-//    ^^^^^^^^
-// [cfe] unspecified
   factory ET5(int v) = ET5.someName;
 //        ^^^
 // [analyzer] unspecified
