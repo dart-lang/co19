@@ -37,15 +37,25 @@
 /// type.
 /// @author sgrekhov22@gmail.com
 
+List<void>? init() => [print("")];
+Map<void, int>? initMap1() => <void, int>{print(""): 1};
+Map<int, void>? initMap2() => <int, void>{1: print("")};
+
 main() {
-  void v = 42;
-  var e1 = <void>[v, print("")];
-  <void>[...?e1]; // ignore: invalid_null_aware_operator
-  <void>{...?e1}; // ignore: invalid_null_aware_operator
+  List<void>? e1 = null;
+  List<void>? e2 = init();
+  <void>[...?e1];
+  <void>[...?e2];
+  <void>{...?e1};
+  <void>{...?e2};
 
-  var e2 = <void, int>{v: 1, print(""): 2};
-  <void, int>{...?e2}; // ignore: invalid_null_aware_operator
+  Map<void, int>? e3 = null;
+  Map<void, int>? e4 = initMap1();
+  <void, int>{...?e3};
+  <void, int>{...?e4};
 
-  var e3 = <int, void>{1: v, 2: print("")};
-  <int, void>{...?e3}; // ignore: invalid_null_aware_operator
+  Map<int, void>? e5 = null;
+  Map<int, void>? e6 = initMap2();
+  <int, void>{...?e5};
+  <int, void>{...?e6};
 }

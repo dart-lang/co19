@@ -32,9 +32,9 @@
 ///   the expression has type `void`.
 ///
 /// @description Check that it is a compile-time error if in a `⟨spreadElement⟩`
-/// of the form `...e` or `...?e` `e` has type `void.
+/// of the form `...e` or `...?e`, `e` has type `void.
 /// @author sgrekhov22@gmail.com
-/*
+
 main() {
   void e1 = <void>[];
   <void>[...e1];
@@ -73,13 +73,4 @@ main() {
 //                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-*/
-
-main() {
-  void e = <void>[];
-  <void>[...e]; // Two errors here.
-                 // A nullable expression can't be used in a spread. Try checking that the value isn't 'null' before using it in a spread, or use a null-aware spread.
-                 // Spread elements in list or set literals must implement 'Iterable'. • not_iterable_spread
-  <void>[...?e]; //Spread elements in list or set literals must implement 'Iterable'. • not_iterable_spread
 }
