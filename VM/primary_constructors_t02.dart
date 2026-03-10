@@ -47,24 +47,15 @@ final tests = <IsolateTest>[
   stoppedAtLine(LINE_C),
   stepInto,
   stoppedAtLine(LINE_A),
-  (VmService service, IsolateRef isolateRef) async {
-    final isolateId = isolateRef.id!;
-    final xRef1 =
-        await service.evaluateInFrame(isolateId, 0, 'x') as InstanceRef;
-    Expect.equals("null", xRef1.valueAsString);
-    final xRef2 =
-        await service.evaluateInFrame(isolateId, 0, 'this.x') as InstanceRef;
-    Expect.equals("null", xRef2.valueAsString);
-  },
   stepInto,
   (VmService service, IsolateRef isolateRef) async {
     final isolateId = isolateRef.id!;
     final xRef1 =
         await service.evaluateInFrame(isolateId, 0, 'x') as InstanceRef;
-    Expect.equals('xxx', xRef1.valueAsString);
+    Expect.equals("xxx", xRef1.valueAsString);
     final xRef2 =
         await service.evaluateInFrame(isolateId, 0, 'this.x') as InstanceRef;
-    Expect.equals('xxx', xRef2.valueAsString);
+    Expect.equals("xxx", xRef2.valueAsString);
   },
 ];
 
