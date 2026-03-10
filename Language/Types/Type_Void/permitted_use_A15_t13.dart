@@ -31,23 +31,55 @@
 ///   element kinds will use the expression value, and hence it is an error if
 ///   the expression has type `void`.
 ///
-/// @description Checks that it is a compile-time error if in a
-/// `⟨nullAwareMapElement⟩` of the form `?e1: e2`, `e1` has type `void`.
+/// @description Check that it is a compile-time error if in a `⟨spreadElement⟩`
+/// of the form `...e` or `...?e` `e` has type `void.
 /// @author sgrekhov22@gmail.com
-/// @issue 62858
+/*
+main() {
+  void e1 = <void>[];
+  <void>[...e1];
+//          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  <void>[...?e1];
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  <void>{...e1};
+//          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  <void>{...?e1};
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef Void = void;
+  void e2 = <void, int>{};
+  <void, int>{...e2};
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  <void, int>{...?e2};
+//                ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void e3 = <int, void>{};
+  <int, void>{...e3};
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  <int, void>{...?e3};
+//                ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+*/
 
 main() {
-  void v1 = null;
-  <void, int>{?v1: 0};
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Void v2 = null;
-  <Void, int>{?v2: 0};
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  void e = <void>[];
+  <void>[...e]; // Two errors here.
+                 // A nullable expression can't be used in a spread. Try checking that the value isn't 'null' before using it in a spread, or use a null-aware spread.
+                 // Spread elements in list or set literals must implement 'Iterable'. • not_iterable_spread
+  <void>[...?e]; //Spread elements in list or set literals must implement 'Iterable'. • not_iterable_spread
 }

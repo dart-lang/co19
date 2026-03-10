@@ -31,23 +31,20 @@
 ///   element kinds will use the expression value, and hence it is an error if
 ///   the expression has type `void`.
 ///
-/// @description Checks that it is a compile-time error if in a
-/// `⟨nullAwareMapElement⟩` of the form `?e1: e2`, `e1` has type `void`.
+/// @description Checks that in a `⟨spreadElement⟩` `S` of the form `...e` and a
+/// static type that implements `Iterable<T>`, `Map<T, S>`, or `Map<S, T>` where
+/// `T` is `void`, `S` will have `void` as its element, key, and value type.
 /// @author sgrekhov22@gmail.com
-/// @issue 62858
-
-typedef Void = void;
 
 main() {
-  void v1 = null;
-  <void, int>{?v1: 0};
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  void v = 42;
+  var e1 = <void>[v, print("")];
+  <void>[...e1];
+  <void>{...e1};
 
-  Void v2 = null;
-  <Void, int>{?v2: 0};
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  var e2 = <void, int>{v: 1, print(""): 2};
+  <void, int>{...e2};
+
+  var e3 = <int, void>{1: v, 2: print("")};
+  <int, void>{...e3};
 }

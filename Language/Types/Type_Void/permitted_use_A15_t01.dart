@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -19,7 +19,7 @@
 ///   form `if (c) e1` or `if (c) e1 else e2`, `e1` may have element type, key
 ///   type, or value type `void`, and so may `e2`. In a `⟨forElement⟩` `F` of
 ///   the form `for (forLoopParts) e`, `e` can have element type, key type, or
-///   value type void. Consider a `⟨spreadElement⟩` `S` of the form `...e` or
+///   value type `void`. Consider a `⟨spreadElement⟩` `S` of the form `...e` or
 ///   `...?e`. Assume that `e` has a static type that implements `Iterable<T>`,
 ///   `Map<T, S>`, or `Map<S, T>` for some types `S` and `T`. In the case where
 ///   `T` is `void`, `S` will have `void` as its element, key, or value type.
