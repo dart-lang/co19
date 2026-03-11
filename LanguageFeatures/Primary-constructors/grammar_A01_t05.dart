@@ -15,6 +15,9 @@
 
 mixin M;
 
+class MA = Object with M;
+
 main() {
   print(M);
+  MA();
 }

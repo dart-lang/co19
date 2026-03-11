@@ -20,5 +20,5 @@ extension Ext on C;
 extension on C;
 
 main() {
-  print(C);
+  C();
 }
