@@ -7,17 +7,17 @@
 /// otherwise the same. This rule is not applicable to a
 /// `<mixinApplicationClass>` (for instance, `class B = A with M;`).
 ///
-/// @description Check that it is a compile-time error to declare a mixin whose
-/// body is `;`.
+/// @description Check that a mixin declaration whose body is `;` is treated as
+/// a mixin declaration whose body is `{}`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
 
 mixin M;
-//     ^
-// [analyzer] unspecified
-// [cfe] unspecified
+
+class MA = Object with M;
 
 main() {
   print(M);
+  MA();
 }

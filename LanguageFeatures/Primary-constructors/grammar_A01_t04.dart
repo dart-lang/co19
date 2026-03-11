@@ -7,8 +7,8 @@
 /// otherwise the same. This rule is not applicable to a
 /// `<mixinApplicationClass>` (for instance, `class B = A with M;`).
 ///
-/// @description Check that it is a compile-time error to declare an extension
-/// whose body is `;`.
+/// @description Check that an extension declaration whose body is `;` is
+/// treated as an extension declaration whose body is `{}`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
@@ -16,15 +16,9 @@
 class C {}
 
 extension Ext on C;
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 extension on C;
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 main() {
-  print(C);
+  C();
 }

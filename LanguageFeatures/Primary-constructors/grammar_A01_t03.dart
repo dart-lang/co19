@@ -8,7 +8,8 @@
 /// `<mixinApplicationClass>` (for instance, `class B = A with M;`).
 ///
 /// @description Check that an extension type declaration whose body is `;` is
-/// treated as an extension type declaration whose body is `{}`.
+/// treated as an extension type declaration whose body is `{}` and this is a
+/// compile-time error if this declaration has no representation type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
