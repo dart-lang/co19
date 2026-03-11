@@ -8,7 +8,8 @@
 /// `<mixinApplicationClass>` (for instance, `class B = A with M;`).
 ///
 /// @description Check that an enum declaration whose body is `;` is treated as
-/// an enum declaration whose body is `{}`.
+/// an enum declaration whose body is `{}` and this is still a compile-time
+/// error because an enum must have at least one constant.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors

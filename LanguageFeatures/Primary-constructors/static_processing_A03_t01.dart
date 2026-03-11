@@ -18,11 +18,6 @@ mixin M1() {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin M2;
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 mixin const M3(final int v);
 //          ^^
 // [analyzer] unspecified
@@ -41,7 +36,6 @@ mixin M5.someName() {
 
 main() {
   print(M1);
-  print(M2);
   print(M3);
   print(M4);
   print(M5);
