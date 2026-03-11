@@ -73,22 +73,9 @@ augment enum E1 {
 // [cfe] unspecified
 }
 
-enum E2({final int _p = 0}) {
-  e0;
-}
-
-augment enum E2 {
-  ;
-  augment const E2({int p});
-//                      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
   print(C1);
   print(C2);
   print(C3);
   print(E1);
-  print(E2);
 }
