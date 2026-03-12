@@ -7,7 +7,7 @@
 /// declaration in the body that starts with a
 /// `<primaryConstructorBodySignature>`.
 ///
-/// @description Check that in-body part of a primary initializer scope can be
+/// @description Check that in-body part of a primary constructor can be
 /// debugged.
 /// @author sgrekhov22@gmail.com
 /// @issue 62053
