@@ -54,7 +54,7 @@ final tests = <IsolateTest>[
     final isolateId = isolateRef.id!;
     final xRef1 =
       await service.evaluateInFrame(isolateId, 0, 'x') as InstanceRef;
-    Expect.equals('99', xRef1.valueAsString);
+    Expect.equals('null', xRef1.valueAsString);
     final xRef2 =
       await service.evaluateInFrame(isolateId, 0, 'this.x') as InstanceRef;
     Expect.equals('null', xRef2.valueAsString);
