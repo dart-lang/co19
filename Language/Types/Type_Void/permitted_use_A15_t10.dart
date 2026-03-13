@@ -31,23 +31,23 @@
 ///   element kinds will use the expression value, and hence it is an error if
 ///   the expression has type `void`.
 ///
-/// @description Checks that it is a compile-time error if in a
-/// `⟨nullAwareMapElement⟩` of the form `?e1: e2`, `e1` has type `void`.
+/// @description Checks that in a `⟨forElement⟩` of the form
+/// `for (forLoopParts) e`, `e` can have element type, key type, and value type
+/// `void`.
 /// @author sgrekhov22@gmail.com
-/// @issue 62858
 
-typedef Void = void;
-
-main() {
-  void v1 = null;
-  <void, int>{?v1: 0};
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Void v2 = null;
-  <Void, int>{?v2: 0};
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+main() async {
+  void v = 42;
+  <void>[
+    await for (var i in Stream.fromIterable([0])) v,
+  ];
+  <void>{
+    await for (var i in Stream.fromIterable([0])) v,
+  };
+  <void, int>{
+    await for (var i in Stream.fromIterable([0])) v: 1,
+  };
+  <int, void>{
+    await for (var i in Stream.fromIterable([0])) 1: v,
+  };
 }

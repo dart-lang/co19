@@ -31,23 +31,31 @@
 ///   element kinds will use the expression value, and hence it is an error if
 ///   the expression has type `void`.
 ///
-/// @description Checks that it is a compile-time error if in a
-/// `⟨nullAwareMapElement⟩` of the form `?e1: e2`, `e1` has type `void`.
+/// @description Checks that in a `⟨spreadElement⟩` `S` of the form `...?e` and
+/// a static type that implements `Iterable<T>`, `Map<T, S>`, or `Map<S, T>`
+/// where `T` is `void`, `S` will have `void` as its element, key, and value
+/// type.
 /// @author sgrekhov22@gmail.com
-/// @issue 62858
 
-typedef Void = void;
+List<void>? init() => [print("")];
+Map<void, int>? initMap1() => <void, int>{print(""): 1};
+Map<int, void>? initMap2() => <int, void>{1: print("")};
 
 main() {
-  void v1 = null;
-  <void, int>{?v1: 0};
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  List<void>? e1 = null;
+  List<void>? e2 = init();
+  <void>[...?e1];
+  <void>[...?e2];
+  <void>{...?e1};
+  <void>{...?e2};
 
-  Void v2 = null;
-  <Void, int>{?v2: 0};
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Map<void, int>? e3 = null;
+  Map<void, int>? e4 = initMap1();
+  <void, int>{...?e3};
+  <void, int>{...?e4};
+
+  Map<int, void>? e5 = null;
+  Map<int, void>? e6 = initMap2();
+  <int, void>{...?e5};
+  <int, void>{...?e6};
 }
