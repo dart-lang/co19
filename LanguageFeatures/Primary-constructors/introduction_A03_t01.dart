@@ -13,24 +13,24 @@
 
 import '../../Utils/static_type_helper.dart';
 
-const Integer = 0;
-const Num = 1 as num;
-const Str = "x";
-const Bool = false;
+const anInt = 0;
+const aNum = 1 as num;
+const aString = "x";
+const aBool = false;
 
-class C1([var v = Integer]);
+class C1([var v = anInt]);
 
-class C2([final v = Num]);
+class C2([final v = aNum]);
 
-class C3({var v = Str});
+class C3({var v = aString});
 
-class C4({final v = Bool});
+class C4({final v = aBool});
 
-enum E1([final v = Integer]) {
+enum E1([final v = anInt]) {
   e0;
 }
 
-enum E2({final v = Num}) {
+enum E2({final v = aNum}) {
   e0;
 }
 
