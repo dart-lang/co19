@@ -6,13 +6,13 @@
 /// static type `void` should be discarded, such objects can only be used in
 /// specific situations: The occurrence of an expression of type `void` is a
 /// compile-time error unless it is permitted according to one of the following
-/// rules.
+/// rules. In the rules, every type under consideration is a static type.
 /// ...
 /// - In the initialization and increment expressions of a for-loop,
-/// `for (e1; e2; e3) ...`, `e1` may have type `void`, and each of the
-/// expressions in the expression list `e3` may have type `void`.
+///   `for (e1; e2; e3) ...`, `e1` may have type `void`, and each of the
+///   expressions in the expression list `e3` may have type `void`.
 ///
-/// @description Checks that initialization expression of a
+/// @description Checks that initialization expression ('e1') of a
 /// `for (e1; e2; e3) ...` loop may have type `void`.
 /// @author sgrekhov22@gmail.com
 

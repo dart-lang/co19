@@ -6,10 +6,10 @@
 /// static type `void` should be discarded, such objects can only be used in
 /// specific situations: The occurrence of an expression of type `void` is a
 /// compile-time error unless it is permitted according to one of the following
-/// rules.
+/// rules. In the rules, every type under consideration is a static type.
 /// ...
 /// - In an arrow function body `=> e`, the returned expression `e` may have
-/// type `void` in a number of situations.
+///   type `void` in a number of situations.
 ///
 /// @description Checks that in arrow function body `=> e`, the returned
 /// expression `e` may have type `void`.

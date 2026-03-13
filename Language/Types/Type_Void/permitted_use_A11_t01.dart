@@ -6,7 +6,7 @@
 /// static type `void` should be discarded, such objects can only be used in
 /// specific situations: The occurrence of an expression of type `void` is a
 /// compile-time error unless it is permitted according to one of the following
-/// rules.
+/// rules. In the rules, every type under consideration is a static type.
 /// ...
 /// - In an expression of the form `e1 = e2` where `e1` is an
 ///   `⟨assignableExpression⟩` denoting a variable or formal parameter of type
