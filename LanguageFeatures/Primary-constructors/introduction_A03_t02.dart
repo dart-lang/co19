@@ -11,9 +11,13 @@
 
 // SharedOptions=--enable-experiment=primary-constructors
 
-class C1([v = 42]) : assert(v.checkDynamic);
+class C1([v = 42]) {
+  this : assert(v.checkDynamic);
+}
 
-class C2({v = '42'}) : assert(v.checkDynamic);
+class C2({v = '42'}) {
+  this : assert(v.checkDynamic);
+}
 
 main() {
   print(C1);
