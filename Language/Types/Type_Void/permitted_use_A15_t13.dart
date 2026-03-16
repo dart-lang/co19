@@ -32,7 +32,7 @@
 ///   the expression has type `void`.
 ///
 /// @description Check that it is a compile-time error if in a `⟨spreadElement⟩`
-/// of the form `...e` or `...?e`, `e` has type `void.
+/// of the form `...e` or `...?e`, `e` has type `void`.
 /// @author sgrekhov22@gmail.com
 
 main() {

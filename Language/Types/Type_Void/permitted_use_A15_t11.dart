@@ -31,9 +31,8 @@
 ///   element kinds will use the expression value, and hence it is an error if
 ///   the expression has type `void`.
 ///
-/// @description Checks that in a `⟨spreadElement⟩` `S` of the form `...e` and a
-/// static type that implements `Iterable<T>`, `Map<T, S>`, or `Map<S, T>` where
-/// `T` is `void`, `S` will have `void` as its element, key, and value type.
+/// @description Check that it is not an error when the element, key, or value
+/// type in a `⟨spreadElement⟩` of the form `...e` is `void`.
 /// @author sgrekhov22@gmail.com
 
 main() {
