@@ -11,11 +11,11 @@
 /// @author vasya
 
 class A {
-  f(var x) { return x; }
+  f(int x) { return x; }
 }
 
 class C extends A {
-  f(var x, var y) { return x + y; }
+  f(int x, int y) { return x + y; }
 //^
 // [analyzer] unspecified
 // [cfe] unspecified

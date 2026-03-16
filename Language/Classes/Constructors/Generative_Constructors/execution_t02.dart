@@ -31,7 +31,7 @@
 import "../../../../Utils/expect.dart";
 
 var log;
-writeLog(var v) {
+writeLog(v) {
   log = '$log$v';
 }
 

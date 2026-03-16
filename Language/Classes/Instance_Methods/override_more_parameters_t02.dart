@@ -15,7 +15,7 @@ class A {
 }
 
 class C extends A {
-  f(var x) { }
+  f(int x) { }
 //^
 // [analyzer] unspecified
 // [cfe] unspecified

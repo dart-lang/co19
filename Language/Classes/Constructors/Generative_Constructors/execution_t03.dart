@@ -24,6 +24,7 @@
 /// parameters of the immediately enclosing class bound to a set of actual type
 /// arguments V1, ..., Vm and the formal parameter bindings determined by the
 /// argument list of the superinitializer of k.
+///
 /// @description Checks that superconstructor initializers and superconstructor
 /// body are executed in the correct order and before the body of this class's
 /// constructor.
@@ -33,7 +34,7 @@ import "../../../../Utils/expect.dart";
 
 var log;
 
-writeLog(var x) {
+writeLog(String x) {
   log = '$log$x';
 }
 

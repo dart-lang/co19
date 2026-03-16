@@ -26,7 +26,7 @@ class C {
   int _s4 = 1;
   int _s5 = 1;
 
-  static set s1(var value) {}
+  static set s1(int value) {}
 //           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -52,7 +52,7 @@ class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static set _s1(var value) {}
+  static set _s1(int value) {}
 //           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

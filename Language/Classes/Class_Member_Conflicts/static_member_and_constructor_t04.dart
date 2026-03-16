@@ -16,7 +16,7 @@ class C {
   factory C.s1() = C;
 //          ^^
 // [analyzer] unspecified
-  static set s1(var value) {}
+  static set s1(int value) {}
 //           ^^
 // [cfe] unspecified
 
@@ -53,7 +53,7 @@ extension type ET(int n) {
   factory ET.s1(int n) = ET;
 //           ^^
 // [analyzer] unspecified
-  static set s1(var _) {}
+  static set s1(int _) {}
 //           ^^
 // [cfe] unspecified
 

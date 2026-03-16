@@ -24,13 +24,11 @@
 /// parameters of the immediately enclosing class bound to a set of actual type
 /// arguments V1, ..., Vm and the formal parameter bindings determined by the
 /// argument list of the superinitializer of k.
+///
 /// @description Checks that 'this' can be freely used in the constructor body.
 /// @author iefremov
 
-
-g(var x) {
-
-}
+g(x) {}
 
 class C {
   C() {
