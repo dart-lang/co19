@@ -9,28 +9,28 @@
 /// The body of a function introduces a new scope known as the function's body
 /// scope. The body scope of a function f is enclosed in the scope introduced by
 /// the formal parameter scope of f.
+///
 /// @description Trivially checks that the function scopes are indeed nested
 /// in the described order.
 /// @author rodionov
 
 import "../../../Utils/expect.dart";
 
-
 class C {
   static const foo = 1;
 
   void test() {
-    f(var foo) {
+    f(foo) {
       Expect.equals(2, foo);
     }
     f(foo + 1);
 
-    g([var foo = foo + 10]) {
+    g([foo = foo + 10]) {
       Expect.equals(11, foo);
     }
     g();
 
-    h({var foo = foo + 10}) {
+    h({foo = foo + 10}) {
       Expect.equals(11, foo);
     }
     h();

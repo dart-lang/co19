@@ -6,7 +6,7 @@
 library overriding_t04_lib;
 
 class S {
-  _foo(var arg) { return 'A'; }
+  _foo(int arg) { return 'A'; }
   _bar([x]) {return "barx";}
   get _g {return "super-g";}
 }

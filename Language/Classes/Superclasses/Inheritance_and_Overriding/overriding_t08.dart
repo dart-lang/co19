@@ -18,7 +18,7 @@ import "overriding_t04_lib.dart";
 typedef SAlias = S;
 
 class C extends SAlias {
-  _foo(var arg) { return 'B'; }
+  _foo(int arg) { return 'B'; }
   _bar([y]) {return "bary";}
   _g() {return "g";}
 }

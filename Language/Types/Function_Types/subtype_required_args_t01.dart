@@ -9,6 +9,7 @@
 ///    • S is void, or
 ///    • T <=> S.
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+///
 /// @description Checks that this statement is true for function types with a
 /// single formal parameter (class, generic, function, Dynamic).
 /// @author iefremov
@@ -24,7 +25,7 @@ class D extends C {}
 typedef t1(B b);
 typedef t2(C c);
 typedef t3(int i);
-typedef t4(var v);
+typedef t4(v);
 typedef t5(Map m);
 typedef t6(Map<int, num> m);
 typedef t7(t1 f);
@@ -40,26 +41,26 @@ f2(B a) {}
 f3(C a) {}
 f4(D a) {}
 f5(Object a) {}
-f6(var a) {}
+f6(a) {}
 
 f10(A a) {}
 f11(B a) {}
 f12(C a) {}
 f13(D a) {}
 f14(Object a) {}
-f15(var a) {}
+f15(a) {}
 
 f20(num n) {}
 f21(int i) {}
 f22(Object a) {}
-f23(var a) {}
+f23(a) {}
 
 f30(A a) {}
 f31(B a) {}
 f32(C a) {}
 f33(D a) {}
 f34(Object a) {}
-f35(var a) {}
+f35(a) {}
 f36(num n) {}
 f37(int i) {}
 f38(Map a) {}
@@ -71,7 +72,7 @@ f42(t7 a) {}
 f50(Map m) {}
 f51(Map<List, t8> m) {}
 f52(Object m) {}
-f53(var m) {}
+f53(m) {}
 f54(Map<List, List> m) {}
 f55(Map<int, t8> m) {}
 
@@ -79,7 +80,7 @@ f61(Map<num, num> m) {}
 f62(Map<int, int> m) {}
 f63(Map m) {}
 f64(Object m) {}
-f65(var m) {}
+f65(m) {}
 
 f71(okWithF1_1 g) {}
 f72(okWithF1_2 g) {}
@@ -91,7 +92,7 @@ f82(B a) {}
 f83(C a) {}
 f84(D a) {}
 f85(Object a) {}
-f86(var a) {}
+f86(a) {}
 f87(num n) {}
 f88(int i) {}
 f89(Map a) {}

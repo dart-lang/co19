@@ -26,10 +26,8 @@
 /// ;
 /// @description Checks that the parameter list may end with a comma.
 /// @author iefremov
-/// @reviewer kaigorodov
 
-
-void f(var p1, ) {}
+void f(int p1, ) {}
 
 main () {
   f(1);

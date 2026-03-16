@@ -10,6 +10,7 @@
 /// otherwise it is public.
 /// A declaration m is accessible to library L if m is declared in L or if m is
 /// public.
+///
 /// @description Checks that function parameter names can begin with an
 /// underscore and are still accessible in the appropriate scope.
 /// @author iefremov
@@ -28,8 +29,7 @@ class A {
   void set _setter(_x) {__ = _x;}
 }
 
-
-foo(var _x, int _) {
+foo(_x, int _) {
   return _x + _;
 }
 

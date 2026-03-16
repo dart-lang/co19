@@ -28,9 +28,8 @@
 /// optional positional parameters are present in one function declaration.
 /// @author rodionov
 
-
-void f(var a, {var b}, [var c]) {}
-//                   ^
+void f(int a, {b}, [c]) {}
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
