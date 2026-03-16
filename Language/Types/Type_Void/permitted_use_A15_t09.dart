@@ -31,23 +31,27 @@
 ///   element kinds will use the expression value, and hence it is an error if
 ///   the expression has type `void`.
 ///
-/// @description Checks that it is a compile-time error if in a
-/// `⟨nullAwareMapElement⟩` of the form `?e1: e2`, `e1` has type `void`.
+/// @description Checks that in a `⟨forElement⟩` of the form
+/// `for (forLoopParts) e`, `e` can have element type, key type, and value type
+/// `void`.
 /// @author sgrekhov22@gmail.com
-/// @issue 62858
-
-typedef Void = void;
 
 main() {
-  void v1 = null;
-  <void, int>{?v1: 0};
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Void v2 = null;
-  <Void, int>{?v2: 0};
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  void v = 42;
+  <void>[
+    for (var i = 0; i < 1; i++) v,
+    for (var i in [0]) v,
+  ];
+  <void>{
+    for (var i = 0; i < 1; i++) v,
+    for (var i in [0]) v,
+  };
+  <void, int>{
+    for (var i = 0; i < 1; i++) v: 1,
+    for (var i in [0]) v: 2,
+  };
+  <int, void>{
+    for (var i = 0; i < 1; i++) 1: v,
+    for (var i in [0]) 2: v,
+  };
 }
