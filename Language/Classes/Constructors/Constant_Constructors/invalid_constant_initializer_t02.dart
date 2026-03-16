@@ -6,15 +6,15 @@
 /// constructor must throw an exception if any of its actual parameters is a
 /// value that would prevent one of the potentially constant expressions within
 /// it from being a valid compile-time constant.
+///
 /// @description Checks that compile-time error is produced if actual parameters
 /// passed to the constructor make the constant initializer invalid. Note: this
 /// mechanism is described in Classes.Constructors.Constant_Constructors.
 /// @author iefremov
 
-
 class A {
   final x;
-  const A(var p) : x = p + 42;
+  const A(p) : x = p + 42;
 }
 
 class IntPair {
@@ -25,8 +25,8 @@ class IntPair {
 }
 
 main() {
-  var a = const A(const IntPair(1, 2)); // parameter does not evaluate to int/bool/String, despite implementing the plus operator
-//              ^
+  var a = const A(const IntPair(1, 2)); // parameter does not evaluate to num or String despite implementing the plus operator
+//                ^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

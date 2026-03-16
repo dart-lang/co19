@@ -4,44 +4,45 @@
 
 /// @assertion It is a compile-time error if a class declares two members of
 /// the same name.
-/// @assertion The name of a setter is obtained by appending the string ‘=’ to
+/// ...
+/// The name of a setter is obtained by appending the string ‘=’ to
 /// the identifier given in its signature.
 /// Hence, a setter name can never conflict with, override or be overridden by
 /// a getter or method.
+///
 /// @description Checks that a class can declare a getter and a setter of the
 /// same name provided both are instance members (abstract or not) or both are
 /// static members.
 /// @author msyabro
 
-
 abstract class A {
   static var _sVal;
   static get sVal {}
-  static set sVal(var value) {}
+  static set sVal(value) {}
 
   var _val;
   get val {}
-  set val(var value) {}
+  set val(value) {}
 
   get aVal;
-  set aVal(var val);
+  set aVal(val);
 
   get bVal {}
-  set bVal(var val);
+  set bVal(val);
 
   get cVal;
-  void set cVal(var val) {}
+  void set cVal(val) {}
 }
 
 class B extends A {
   get aVal {}
-  set aVal(var val) {}
-  set bVal(var val) {}
+  set aVal(val) {}
+  set bVal(val) {}
   get cVal {}
 }
 
 main() {
-  A a = new B();
+  A a = B();
   var x = a.bVal;
   a.bVal = x;
   x = a.aVal;

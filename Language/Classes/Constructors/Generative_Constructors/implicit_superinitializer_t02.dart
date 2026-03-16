@@ -5,6 +5,7 @@
 /// @assertion Let k be a generative constructor. If no superinitializer is
 /// provided, an implicit superinitializer of the form super() is added at the
 /// end of k's initializer list, unless the enclosing class is class Object.
+///
 /// @description Checks that implicit super constructor is invoked after all of
 /// k's initializers.
 /// @author iefremov
@@ -18,12 +19,12 @@ class A {
 }
 
 class C extends A {
-  C(var f) : y = f();
+  C(f) : y = f();
   var y;
 }
 
 main() {
-  var c = new C(() {global = "${global}C";});
+  C(() {global = "${global}C";});
   Expect.equals("CA", global,
       "implicit superinitializer was called before initializers!");
 }

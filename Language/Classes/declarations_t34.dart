@@ -37,7 +37,6 @@
 /// class can be instantiated. 
 /// @author kaigorodov
 
-
 class A {
   @B(1) const A(): this.anotherConstructor();
   @A() const A.anotherConstructor();
@@ -88,7 +87,7 @@ abstract class Abstract {
   @B(1) funcWithOptionalParams([p1 = 1, p2 = 2]);
   @B(1) funcWithNamedParams({p1 = 1, p2 = 2});
   @A() get val;
-  @B(1) set val(var v);
+  @B(1) set val(v);
   @A() operator ==(dynamic other);
 
   @B(1) var _val;

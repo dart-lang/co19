@@ -25,7 +25,6 @@
 /// be instantiated. 
 /// @author msyabro
 
-
 class A {
   @B(1) factory A.f() {
     return new C();
@@ -36,7 +35,7 @@ class A {
 
   @A() static fun() {}
   @B(1) get x {}
-  @A() set x(var v) {}
+  @A() set x(v) {}
   @B(1) operator ==(dynamic other) => true;
 
   @A() final _x;

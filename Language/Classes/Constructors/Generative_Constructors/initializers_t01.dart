@@ -30,7 +30,7 @@ void foo() {}
 
 class S {
   S() {}
-  S.named(var x, var y, {var z, var $, var o});
+  S.named(x, y, {z, $, o});
 }
 
 class C extends S {

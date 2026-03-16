@@ -36,8 +36,6 @@
 /// according to this syntax do not cause any errors and such class can be
 /// instantiated.
 /// @author kaigorodov
-/// @reviewer rodionov
-
 
 class A {
   const A(): this.anotherConstructor();
@@ -90,7 +88,7 @@ abstract class Abstract {
   funcWithOptionalParams([p1 = 1, p2 = 2]);
   funcWithOptionalParams2({p1 = 1, p2 = 2});
   get val;
-  set val(var v);
+  set val(v);
   operator ==(dynamic other);
 
   var _val;
@@ -102,7 +100,7 @@ class Concrete extends Abstract {
   funcWithOptionalParams([p1 = 1, p2 = 2]) {}
   funcWithOptionalParams2({p1 = 1, p2 = 2}) {}
   get val => _val;
-  set val(var v) {_val = v;}
+  set val(v) {_val = v;}
   operator ==(dynamic other) {return identical(this, other);}
 }
 

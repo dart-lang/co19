@@ -24,16 +24,15 @@
 /// has a setter without an implementation
 /// @author msyabro
 
-
 class A {
 //    ^
 // [cfe] unspecified
-  set val(var v);
+  set val(int v);
 //^
 // [analyzer] unspecified
   var _val;
 }
 
 main() {
-  new A();
+  print(A);
 }

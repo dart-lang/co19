@@ -25,7 +25,6 @@
 /// be instantiated. 
 /// @author msyabro
 
-
 abstract class I  {
   factory I() = A;
 }
@@ -37,7 +36,7 @@ class A implements I {
 
   static f() {}
   get x {}
-  set x(var v) {}
+  set x(v) {}
   operator ==(dynamic other) => true;
 
   var _x;

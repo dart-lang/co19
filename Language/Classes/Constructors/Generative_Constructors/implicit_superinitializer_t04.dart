@@ -5,6 +5,7 @@
 /// @assertion Let k be a generative constructor. If no superinitializer is
 /// provided, an implicit superinitializer of the form super() is added at the
 /// end of k's initializer list, unless the enclosing class is class Object.
+///
 /// @description Checks that implicit super constructor is invoked after all of
 /// k's initializers. Test type aliases
 /// @author sgrekhov@unipro.ru
@@ -19,7 +20,7 @@ class A {
 typedef AAlias = A;
 
 class C extends AAlias {
-  C(var f) : y = f();
+  C(f) : y = f();
   var y;
 }
 

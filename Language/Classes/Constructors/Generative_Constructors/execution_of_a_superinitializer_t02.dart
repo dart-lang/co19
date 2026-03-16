@@ -30,13 +30,13 @@ f(var entry) {
 }
 
 class S<T, U> {
-  S(var x, var y, [var o]) : this.s1 = x("s1${1 is T}"),
+  S(x, y, [o]) : this.s1 = x("s1${1 is T}"),
       this.s2 = y("s2${"1" is U}"), this.s3 = x(1 is U),
       this.s4 = x(1.5 is T) {
 
     s1("ok");
   }
-  S.named(var x, var y, {var o}) : this.s1 = x("s1${1 is T}"),
+  S.named(x, y, {o}) : this.s1 = x("s1${1 is T}"),
       this.s2 = y("s2${"1" is U}"),  this.s3 = x(1 is U),
       this.s4 = x(1.5 is T) {
 
