@@ -13,12 +13,12 @@
 /// @author sgrekhov@unipro.ru
 
 abstract class A {
-  foo(var a, [x, y]);
+  foo(int a, [x, y]);
 }
 typedef AAlias = A;
 
 class C extends AAlias {
-  foo(var a, [x]) {}
+  foo(int a, [x]) {}
 //^^^
 // [analyzer] unspecified
 // [cfe] unspecified

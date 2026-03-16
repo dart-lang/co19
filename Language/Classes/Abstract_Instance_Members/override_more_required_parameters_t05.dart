@@ -6,18 +6,19 @@
 /// to methods apply to abstract methods.
 /// It is a static warning if an instance method m1 overrides an instance member
 /// m2 and m1 has a greater number of required parameters than m2.
+///
 /// @description Checks that a compile error is produced when an abstract
 /// method overrides a non-abstract instance method with the same name and
 /// greater number of required parameters. Test type aliases
 /// @author sgrekhov@unipro.ru
 
 class A {
-  f(var x) {}
+  f(int x) {}
 }
 typedef AAlias = A;
 
 abstract class C extends AAlias {
-  f(var x, var y);
+  f(int x, int y);
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -25,11 +26,10 @@ abstract class C extends AAlias {
 typedef CAlias = C;
 
 class D extends CAlias {
-  f(var x, var y) {}
+  f(int x, int y) {}
 }
 
 main() {
   new A().f(2);
   new D().f(2, 2);
 }
-

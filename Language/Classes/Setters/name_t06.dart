@@ -14,14 +14,13 @@
 /// superclass with the same name.
 /// @author iefremov
 
-
 class A {
   foo(value) {}
 }
 
 class C extends A {
   var _foo;
-  set foo(var v) {_foo = v;}
+  set foo(v) {_foo = v;}
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified

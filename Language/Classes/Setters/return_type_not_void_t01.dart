@@ -3,20 +3,20 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile error if a setter declares a return type other
-/// than void
+/// than `void`.
+///
 /// @description Checks that it is a compile error if a setter declares a return
-/// type other than void
+/// type other than `void`.
 /// @author vasya
 /// @issue 42179
 
-
 class C {
-  int set foo(var x) => 42;
+  int set foo(int x) => 42;
 //^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  new C().foo = 1;
+  print(C);
 }
