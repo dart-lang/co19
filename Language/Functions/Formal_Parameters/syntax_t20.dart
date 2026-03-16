@@ -28,8 +28,7 @@
 /// of named parameters is present in one function declaration.
 /// @author rodionov
 
-
-void f(var a, {var b}, {var c}) {}
+void f(int a, {int b}, {int c}) {}
 //                   ^
 // [analyzer] unspecified
 // [cfe] unspecified

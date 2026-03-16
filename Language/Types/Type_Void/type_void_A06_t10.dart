@@ -9,14 +9,14 @@
 /// error.
 /// @author rodionov
 
-int foo(var void) => 42;
-//      ^^^
+int foo(int void) => 42;
+//          ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  (var p1, var void) => p1;
-//         ^^^
+  (var p1, int void) => p1;
+//             ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   print(foo);

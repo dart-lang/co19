@@ -27,8 +27,7 @@
 /// @description Checks that parameter declarations must be separated by comma.
 /// @author msyabro
 
-
-void f(var p1 {var p2}) {}
+void f(int p1 {int p2}) {}
 //            ^
 // [analyzer] unspecified
 // [cfe] unspecified

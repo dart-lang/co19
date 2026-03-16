@@ -11,7 +11,7 @@
 /// @author ilya
 
 abstract class I {
-  foo(var x);
+  foo(int x);
 }
 
 class C implements I { 

@@ -9,6 +9,7 @@
 ///    • S is void, or
 ///    • T <=> S.
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+///
 /// @description Checks that this statement is true for function types with
 /// several formal parameters (class, generic, function, Dynamic).
 /// @author iefremov
@@ -26,9 +27,9 @@ class G<T, S, U, W> {}
 
 typedef classesFunc(A a, B b, C c, D d);
 typedef genericsFunc(Map<num, int> m, List<List<B>> l, G<A, B, C, D> g);
-typedef dynamicFunc(var x, var y, var z, var v);
+typedef dynamicFunc(x, y, z, v);
 typedef funcFunc(classesFunc f1, genericsFunc f2, dynamicFunc f3);
-typedef mixFunc(var x, B b, G<A, B, C, D> g, funcFunc);
+typedef mixFunc(x, B b, G<A, B, C, D> g, funcFunc);
 
 typedef okWithClassesFunc_1(A a, A1 b, A1 c, A1 d);
 typedef okWithClassesFunc_2(D a, D b, D c, D d);
@@ -36,7 +37,7 @@ typedef okWithClassesFunc_2(D a, D b, D c, D d);
 typedef okWithGenericsFunc_1(Map<num, num> m, List<List<A1>> l, G<A, A1, A1, A1> g);
 typedef okWithGenericsFunc_2(Map<int, int> m, List<List<D>> l, G<D, D, D, D> g);
 
-typedef okWithDynamicFunc_1(A x, G g, mixFunc f, var z);
+typedef okWithDynamicFunc_1(A x, G g, mixFunc f, z);
 typedef okWithDynamicFunc_2(int x, bool g, List<Map> f, classesFunc z);
 
 f1(D d, B b, C c, A a) {}
@@ -44,15 +45,15 @@ f2(A d, A b, A c, A a) {}
 f3(D d, A1 b, A1 c, A1 a) {}
 f4(D d, A2 b, A2 c, A2 a) {}
 f5(D d, D b, D c, D a) {}
-f6(var d, var b, var c, var a) {}
+f6(d, b, c, a) {}
 f7(Object d, Object b, Object c, Object a) {}
 
 f11(Map<num, num> m, List<List<A1>> l, G<A, A1, A1, A1> g) {}
 f12(Map<int, int> m, List<List<D>> l, G<D, D, D, D> g) {}
-f13(var m, var l, var g) {}
+f13(m, l, g) {}
 f14(Object m, Object l, Object g) {}
 
-f21(A x, G g, mixFunc d, var z) {}
+f21(A x, G g, mixFunc d, z) {}
 f22(int x, bool g, List<Map> d, classesFunc z) {}
 
 f31(okWithClassesFunc_1 a, okWithGenericsFunc_1 b, okWithDynamicFunc_1 c) {}

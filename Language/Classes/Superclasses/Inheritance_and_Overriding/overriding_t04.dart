@@ -15,7 +15,7 @@ import "../../../../Utils/expect.dart";
 import "overriding_t04_lib.dart";
 
 class C extends S {
-  _foo(var arg) { return 'B'; }
+  _foo(int arg) { return 'B'; }
   _bar([y]) {return "bary";}
   _g() {return "g";}
 }
