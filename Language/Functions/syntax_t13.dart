@@ -18,12 +18,10 @@
 /// ;
 /// @description Checks that the variable declaration statement can't be
 /// a body of a function of the form [functionSignature '=>' expression ';'].
-///
 /// @author msyabro
 
-
-f(var y) => int x;
-//              ^
+f(y) => int x;
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

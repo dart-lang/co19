@@ -36,9 +36,8 @@
 /// declaration does not end with a semicolon.
 /// @author msyabro
 
-
 class A {
-  set val(var v)
+  set val(int v)
   var _val;
 //^
 // [analyzer] unspecified
@@ -46,5 +45,5 @@ class A {
 }
 
 main() {
-  new A();
+  print(A);
 }

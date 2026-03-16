@@ -16,6 +16,7 @@
 /// the argument list, with this bound to the current binding of this, and the
 /// type parameters (if any) of class S bound to the current bindings of
 /// U1,...,Um.
+///
 /// @description Checks that the execution order as well as type parameters
 /// binding for both named and unnamed superinitializers are correct.
 /// @author iefremov
@@ -24,19 +25,19 @@
 import "../../../../Utils/expect.dart";
 
 var log;
-f(var entry) {
+f(entry) {
   log.add(entry.toString());
   return f;
 }
 
 class S<T, U> {
-  S(var x, var y, [var o]) : this.s1 = x("s1${1 is T}"),
+  S(x, y, [o]) : this.s1 = x("s1${1 is T}"),
       this.s2 = y("s2${"1" is U}"), this.s3 = x("1" is U),
       this.s4 = x(1.5 is T) {
 
     s1("ok");
   }
-  S.named(var x, var y, {var o}) : this.s1 = x("s1${1 is T}"),
+  S.named(x, y, {o}) : this.s1 = x("s1${1 is T}"),
       this.s2 = y("s2${"1" is U}"),  this.s3 = x("1" is U),
       this.s4 = x(1.5 is T) {
 

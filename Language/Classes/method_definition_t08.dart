@@ -24,12 +24,11 @@
 /// method definition does not include a body.
 /// @author msyabro
 
-
 class A {
 //    ^
 // [cfe] unspecified
-  static set val(var v);
-//                     ^
+  static set val(v);
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
   static var _val;

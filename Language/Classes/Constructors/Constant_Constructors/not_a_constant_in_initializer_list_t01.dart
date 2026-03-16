@@ -18,8 +18,8 @@
 
 class A {
   final x;
-  const A(var p) : x = [p];
-//                     ^^^
+  const A(p) : x = [p];
+//                 ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

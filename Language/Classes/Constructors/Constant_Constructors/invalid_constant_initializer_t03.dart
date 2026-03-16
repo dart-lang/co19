@@ -6,6 +6,7 @@
 /// constructor must throw an exception if any of its actual parameters is a
 /// value that would prevent one of the potentially constant expressions within
 /// it from being a valid compile-time constant.
+///
 /// @description Checks that compile-time error is produced if actual parameters
 /// passed to the constructor make the constant initializer invalid. Note: this
 /// mechanism is described in chapter Classes.Constructors.Constant_Constructors.
@@ -13,14 +14,13 @@
 /// variable initialization expression.
 /// @author iefremov
 
-
 class A {
   final x;
-  const A(var p) : x = p + 42;
+  const A(int  p) : x = p + 42;
 }
 
 var a = const A(new DateTime.now().millisecondsSinceEpoch);
-//            ^
+//              ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

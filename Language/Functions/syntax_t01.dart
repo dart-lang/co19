@@ -19,7 +19,6 @@
 /// @description Checks different variants of functions
 /// @author msyabro
 
-
 void func() {}
 void f(void f()) {}
 x() => f(func);
@@ -29,7 +28,7 @@ class A {
   A.x() {}
 
   int f(int x) { throw ''; }
-  A? func(var x) {}
+  A? func(x) {}
   Object? obj() => null;
 
   int? _val;
@@ -44,5 +43,5 @@ class A {
 main() {
   f(g(h())) {}
   int func([int? x = null, int? y = null, int? z = null]) => 3;
-  int foo(Object x, var y) => func(1, 2, 3);
+  int foo(Object x, y) => func(1, 2, 3);
 }
