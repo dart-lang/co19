@@ -6,7 +6,8 @@
 /// initializer list and/or a body, or by adding a redirection.
 ///
 /// @description Check that an incomplete constructor can be augmented by adding
-/// initializing formals. Test the case when `new` is used as a constructor name
+/// initializing formals. Test the case when the constructor is declared using
+/// the keyword `new`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
@@ -26,7 +27,7 @@ enum E {
   e0(0);
 
   final int v;
-  new(int v);
+  const new(int v);
 }
 
 augment enum E {
@@ -35,7 +36,7 @@ augment enum E {
 }
 
 extension type ET._(int v) {
-  new(int v);
+  const new(int v);
 }
 
 augment extension type ET {

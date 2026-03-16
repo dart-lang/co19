@@ -6,7 +6,8 @@
 /// initializer list and/or a body, or by adding a redirection.
 ///
 /// @description Check that an incomplete constructor can be augmented by adding
-/// a body. Test the case when `new` is used as a constructor name.
+/// a body. Test the case when the constructor is declared using the keyword
+/// `new`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors

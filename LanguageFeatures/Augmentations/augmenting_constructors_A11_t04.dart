@@ -6,7 +6,7 @@
 /// initializer list and/or a body, or by adding a redirection.
 ///
 /// @description Check that an incomplete factory constructor can be completed.
-/// Test the case when `factory` is used instead of the class name.
+/// Test the case when the constructor is declared using the keyword `factory`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors

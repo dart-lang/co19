@@ -33,7 +33,30 @@ augment class C2 {
 //                       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C2.someName();
+}
+
+class C3 {
+  const C3();
+  const factory C3.someName();
+}
+
+augment class C3 {
+  augment const factory C3.someName() = new;
+//                                      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C4 {
+  const C4.someName();
+  const factory C4();
+}
+
+augment class C4 {
+  const augment factory C4() = new.someName;
+//                             ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET1._(int v) {
@@ -60,9 +83,43 @@ augment extension type ET2 {
 // [cfe] unspecified
 }
 
+extension type ET3._(int v) {
+  const ET3(this.v);
+  const factory ET3.someName(int v);
+}
+
+augment extension type ET3 {
+  augment const factory ET3.someName(int v) = new;
+//                                            ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET4._(int v) {
+  const ET4.someName(this.v);
+  const factory ET4(int v);
+}
+
+augment extension type ET4 {
+  augment const factory ET4(int v) = new.someName;
+//                                   ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E {
+  e0;
+  const E();
+  factory E.f1() = E;
+}
+
 main() {
   print(C1);
   print(C2);
+  print(C3);
+  print(C4);
   print(ET1);
   print(ET2);
+  print(ET3);
+  print(ET4);
 }
