@@ -11,7 +11,7 @@
 /// @author vasya
 
 class C {
-  get getter(var value) { throw new C(); }
+  get getter(value) { throw new C(); }
 //          ^
 // [analyzer] unspecified
 // [cfe] unspecified

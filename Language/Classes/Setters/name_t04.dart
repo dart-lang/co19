@@ -5,14 +5,14 @@
 /// @assertion The name of a setter is obtained by appending the string ‘=’
 /// to the identifier given in its signature. Hence, a setter name can never
 /// conflict with, override or be overridden by a getter or method.
+///
 /// @description Checks that there is a compile-time error if a class has
 /// an explicitly defined abstract setter inherited from a superclass and
 /// an instance method with the same name.
 /// @author iefremov
 
-
 abstract class A {
-  void set foo(var x);
+  void set foo(x);
 }
 
 abstract class C extends A {
@@ -28,7 +28,7 @@ abstract class C extends A {
 
 class D extends C {
   D():super.c();
-  void set foo(var x) {}
+  void set foo(x) {}
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -11,22 +11,22 @@
 /// @author sgrekhov@unipro.ru
 
 abstract class A<U, V> {
-  void set s2(var x) {}
-  set s4(var x) {}
+  void set s2(x) {}
+  set s4(x) {}
 
-  void set s5(var x);
-  set s6(var x);
+  void set s5(x);
+  set s6(x);
 
   void set s7(U x) {}
   set s8(V x) {}
 }
 
 class C<U, V> extends A<U, V> {
-  static void set s1(var x) {}
-  static set s3(var x) {}
+  static void set s1(x) {}
+  static set s3(x) {}
 
-  void set s5(var x) {}
-  set s6(var x) {}
+  void set s5(x) {}
+  set s6(x) {}
 }
 
 typedef CAlias<U, V> = C<U, V>;

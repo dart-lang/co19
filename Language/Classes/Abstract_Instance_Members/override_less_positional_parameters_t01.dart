@@ -13,11 +13,11 @@
 /// @author iefremov
 
 abstract class A {
-  foo(var a, [x, y]);
+  foo(int a, [x, y]);
 }
 
 class C extends A {
-  foo(var a, [x]) {}
+  foo(int a, [x]) {}
 //^^^
 // [analyzer] unspecified
 // [cfe] unspecified

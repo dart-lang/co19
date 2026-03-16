@@ -14,8 +14,8 @@
 /// @author iefremov
 
 class C {
-  void set foo(var x) {}
-  static foo(var z) {}
+  void set foo(int x) {}
+  static foo(int z) {}
 //       ^
 // [analyzer] unspecified
 // [cfe] unspecified
