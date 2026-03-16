@@ -16,10 +16,6 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 import '../../Utils/expect.dart';
 
 typedef NumAlias = num;
@@ -31,35 +27,69 @@ abstract final num finalTopLevelVariable;
 augment final NumAlias finalTopLevelVariable = 2;
 
 class C {
+  static num staticVariable = 1;
+  static abstract final num finalStaticVariable;
   num instanceVariable = 1;
   abstract final num finalInstanceVariable;
 }
 
 augment class C {
+  augment static abstract NumAlias staticVariable;
+  augment static final NumAlias finalStaticVariable = 2;
   augment abstract NumAlias instanceVariable;
   augment final NumAlias finalInstanceVariable = 2;
 }
 
 mixin M {
+  static abstract num staticVariable;
+  static final num finalStaticVariable = 2;
   abstract num instanceVariable;
   final num finalInstanceVariable = 2;
 }
 
 augment mixin M {
+  augment static NumAlias staticVariable = 1;
+  augment static abstract final NumAlias finalStaticVariable;
   augment NumAlias instanceVariable = 1;
   augment abstract final NumAlias finalInstanceVariable;
 }
 
 enum E {
   e0;
+  static num staticVariable = 1;
+  static abstract final num finalStaticVariable;
   final num finalInstanceVariable1 = 1;
   abstract final num finalInstanceVariable2;
 }
 
 augment enum E {
   ;
+  augment static abstract NumAlias staticVariable;
+  augment static final NumAlias finalStaticVariable = 2;
   augment abstract final NumAlias finalInstanceVariable1;
   augment final NumAlias finalInstanceVariable2 = 2;
+}
+
+class A {}
+
+extension Ext on A {
+  static abstract num staticVariable;
+  static final num finalStaticVariable = 2;
+}
+
+augment extension Ext {
+  augment static NumAlias staticVariable = 1;
+  augment static abstract final NumAlias finalStaticVariable;
+}
+
+extension type ET(int _) {
+  static num staticVariable = 1;
+  static abstract final num finalStaticVariable;
+}
+
+augment extension type ET {
+  augment static abstract NumAlias staticVariable;
+  augment static final NumAlias finalStaticVariable = 2;
 }
 
 class MA = Object with M;
@@ -67,10 +97,21 @@ class MA = Object with M;
 main() {
   Expect.equals(1, topLevelVariable);
   Expect.equals(2, finalTopLevelVariable);
+  Expect.equals(1, C.staticVariable);
+  Expect.equals(2, C.finalStaticVariable);
   Expect.equals(1, C().instanceVariable);
   Expect.equals(2, C().finalInstanceVariable);
+  Expect.equals(1, M.staticVariable);
+  Expect.equals(2, M.finalStaticVariable);
   Expect.equals(1, MA().instanceVariable);
   Expect.equals(2, MA().finalInstanceVariable);
+  Expect.equals(1, E.staticVariable);
+  Expect.equals(2, E.finalStaticVariable);
   Expect.equals(1, E.e0.finalInstanceVariable1);
   Expect.equals(2, E.e0.finalInstanceVariable2);
+  Expect.equals(1, Ext.staticVariable);
+  Expect.equals(2, Ext.finalStaticVariable);
+  Expect.equals(1, ET.staticVariable);
+  Expect.equals(2, ET.finalStaticVariable);
+
 }
