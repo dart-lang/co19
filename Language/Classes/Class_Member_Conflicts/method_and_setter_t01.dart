@@ -13,11 +13,11 @@ class C {
   void s() {}
   void _s() {}
 
-  set s(var value) {}
+  set s(int value) {}
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  set _s(var value) {}
+  set _s(int value) {}
 //    ^^
 // [analyzer] unspecified
 // [cfe] unspecified

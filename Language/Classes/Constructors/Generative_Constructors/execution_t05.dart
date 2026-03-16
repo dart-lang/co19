@@ -24,12 +24,12 @@
 /// parameters of the immediately enclosing class bound to a set of actual type
 /// arguments V1, ..., Vm and the formal parameter bindings determined by the
 /// argument list of the superinitializer of k.
+///
 /// @description Checks that 'this' is not accessible in initializers: it is a
 /// compile-error if 'this' is passed to an external function as a parameter.
 /// @author iefremov
 
-
-f(var x) {
+f(x) {
   throw x;
 }
 

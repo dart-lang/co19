@@ -13,10 +13,9 @@
 /// instance method named n and declares a setter named n=.
 /// @author kaigorodov
 
-
 class C {
   foo() {}
-  set foo(var a) {}
+  set foo(int a) {}
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified

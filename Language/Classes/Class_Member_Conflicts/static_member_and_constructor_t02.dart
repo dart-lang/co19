@@ -14,7 +14,7 @@ class C {
   const C.s1();
 //        ^^
 // [analyzer] unspecified
-  static set s1(var value) {}
+  static set s1(int value) {}
 //           ^^
 // [cfe] unspecified
 
@@ -53,7 +53,7 @@ enum E {
   const E.s1();
 //        ^^
 // [analyzer] unspecified
-  static set s1(var value) {}
+  static set s1(int value) {}
 //           ^^
 // [cfe] unspecified
 
@@ -90,7 +90,7 @@ extension type ET(int _) {
   const ET.s1(this._);
 //         ^^
 // [analyzer] unspecified
-  static set s1(var _) {}
+  static set s1(int _) {}
 //           ^^
 // [cfe] unspecified
 

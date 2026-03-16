@@ -24,7 +24,7 @@
 import "../../../../Utils/expect.dart";
 
 class C {
-  int operator(var v) => 42;
+  int operator(int v) => 42;
 }
 
 main() {

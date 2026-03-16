@@ -17,7 +17,7 @@ class A {
 typedef AAlias = A;
 
 class C extends AAlias {
-  f(var x) { }
+  f(int x) { }
 //^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -31,7 +31,7 @@ class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void set x(var v) {
+  void set x(v) {
     throw v;
   }
 }

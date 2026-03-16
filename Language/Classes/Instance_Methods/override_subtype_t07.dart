@@ -10,12 +10,12 @@
 /// @author sgrekhov@unipro.ru
 
 class A {
-  int foo(var x) => 42;
+  int foo(int x) => 42;
 }
 typedef AAlias = A;
 
 class C extends AAlias {
-  String foo(var x) {
+  String foo(int x) {
 //       ^
 // [analyzer] unspecified
 // [cfe] unspecified
