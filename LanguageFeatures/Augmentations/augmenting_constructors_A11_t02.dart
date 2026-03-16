@@ -32,11 +32,11 @@ enum E {
 
 augment enum E {
   ;
-  augment new() : v = 1;
+  augment const new() : v = 1;
 }
 
 extension type ET._(int v) {
-  const new(int v);
+  new(int v);
 }
 
 augment extension type ET {
