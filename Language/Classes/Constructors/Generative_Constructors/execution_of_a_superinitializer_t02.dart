@@ -24,7 +24,7 @@
 import "../../../../Utils/expect.dart";
 
 var log;
-f(var entry) {
+f(entry) {
   log.add(entry.toString());
   return f;
 }
