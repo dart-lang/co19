@@ -19,6 +19,7 @@
 ///   values as {xn+1: on+1, ..., xn+k: on+k}.
 /// Then the method noSuchMethod() is looked up in vo and invoked with argument
 /// im, and the result of this invocation is the result of evaluating i.
+///
 /// @description Checks that noSuchMethod() is invoked if the method and getter
 /// lookup has failed.
 /// @author msyabro
@@ -31,7 +32,7 @@ class TestException {
 
 class C {
   var te = const TestException();
-  noSuchMethod(var im) {
+  noSuchMethod(Invocation im) {
     throw te;
   }
 }

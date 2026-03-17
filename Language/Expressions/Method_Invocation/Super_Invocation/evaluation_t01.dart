@@ -19,6 +19,7 @@
 /// the bindings that resulted from the evaluation of the argument list, and
 /// with this bound to the current value of this. The value of i is the value
 /// returned after f is executed.
+///
 /// @description Checks that the body of f is executed with respect to the
 /// bindings that resulted from the evaluation of the argument list.
 /// @author msyabro
@@ -28,19 +29,19 @@ import '../../../../Utils/expect.dart';
 class TestException {}
 
 class S {
-  f(var exception) {
+  f(exception) {
     throw exception;
   }
 }
 
 class A extends S {
   test() {
-    Expect.throws(() {  super.f(new TestException()); }, (e) => e is TestException);
+    Expect.throws(() {
+      super.f(new TestException());
+    }, (e) => e is TestException);
   }
 }
 
 main() {
-  new A().test();
+  A().test();
 }
-
-

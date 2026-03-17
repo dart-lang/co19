@@ -22,6 +22,7 @@
 /// the bindings that resulted from the evaluation of the argument list, and
 /// with this bound to vo. The value of i is the value returned after f is
 /// executed.
+///
 /// @description Checks that first the expression o is evaluated and then
 /// expressions in the argument list in order from left to right.
 /// @author msyabro
@@ -58,7 +59,7 @@ class O {
     buffer.write(1);
     return new O();
   }
-  method(var a, var b, {var c = null, var d = null}) {}
+  method(a, b, {c = null, d = null}) {}
 }
 
 main() {

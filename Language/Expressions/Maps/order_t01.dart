@@ -5,6 +5,7 @@
 /// @assertion A map literal is ordered: iterating over the keys and/or values
 /// of the maps always happens in the order the keys appeared in the source
 /// code.
+///
 /// @description Checks that a map literal is ordered.
 /// @author msyabro
 
@@ -13,7 +14,7 @@ import '../../../Utils/expect.dart';
 var orderKeys;
 var orderValues;
 
-func(var k, var v) {
+func(k, v) {
   orderKeys = '$orderKeys$k';
   orderValues = '$orderValues$v';
 }

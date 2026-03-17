@@ -6,6 +6,7 @@
 /// (if any) of R bound to the actual type arguments V1, ..., Vm and the formal
 /// parameter bindings that resulted from the evaluation of the argument list.
 /// The result of the evaluation of e is i.
+///
 /// @description Checks the order of a new expression with named constructor
 /// evaluation taking into account the evaluation of the super constructor
 /// which is a redirecting one.
@@ -15,7 +16,7 @@ import '../../../../Utils/expect.dart';
 
 var evalOrder = '';
 
-log(var s) {
+log(String s) {
   evalOrder = '$evalOrder$s';
 }
 

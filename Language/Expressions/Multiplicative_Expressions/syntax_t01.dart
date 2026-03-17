@@ -17,25 +17,25 @@
 /// A multiplicative expression is either a unary expression, or an invocation
 /// of a multiplicative operator on either super or an expression e1, with
 /// argument e2.
+///
 /// @description  Checks that various expressions that fit into this grammar
 /// don't cause compile-time errors.
 /// @author msyabro
-
 
 topLevelFunction() {}
 
 class S {
   const S();
-  operator *(var x) {}
-  operator /(var x) {}
-  operator %(var x) {}
-  operator ~/(var x) {}
+  operator *(x) {}
+  operator /(x) {}
+  operator %(x) {}
+  operator ~/(x) {}
 }
 
 class A extends S {
   method() {}
   get id {}
-  set id(var v) {}
+  set id(v) {}
 
   test() {
     //super

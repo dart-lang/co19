@@ -13,6 +13,7 @@
 /// • If the variable v is accessed by a closure in e2 then the variable v is not
 ///   potentially mutated anywhere in the scope of v.
 /// then the type of v is known to be T in e2.
+///
 /// @description Checks that if v is local variable or formal parameter, either
 /// e1 or e2 shows that v has type T, but v is mutated in e2, then b does not
 /// show that v has any promoted type. Local variable case.
@@ -28,9 +29,8 @@ class D extends C {
 
 skyIsBlue(_) => true;
 
-f(var y) {
+f(y) {
   var x = y;
-
   x is D && skyIsBlue(x = new C()) ? x.f() : null;
 }
 
