@@ -18,12 +18,12 @@ class A {
 
   const A(v) : value = v;
 
-  operator +(var v) {
+  operator +(int v) {
     logStr = "${logStr}+";
     return new A(value + v);
   }
 
-  operator -(var v) {
+  operator -(int v) {
     logStr = "${logStr}-";
     return new A(v - value);
   }
