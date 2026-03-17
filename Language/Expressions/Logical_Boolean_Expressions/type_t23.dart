@@ -13,12 +13,12 @@
 /// • If the variable v is accessed by a closure in e2 then the variable v is not
 ///   potentially mutated anywhere in the scope of v.
 /// then the type of v is known to be T in e2.
+///
 /// @description Checks that if v is local variable or formal parameter,
 /// e1 shows that v has type T, v is not mutated anywhere in its scope,
 /// then the type of v is known to be T in e2, regardless of whether there are
 /// closures capturing v.
 /// @author ilya
-
 
 class C {}
 
@@ -29,19 +29,19 @@ class D extends C {
 skyIsBlue(_) => true;
 
 // formal parameter
-f1(var x) {
+f1(x) {
   x is D && x.f() == null;
   (x is D && x.f() == null) && x.f() == null;
 }
 
 // formal parameter & closures
-f2(var x) {
+f2(x) {
   x is D && skyIsBlue([x.f() == null, (() => x)()]);
   (x is D && skyIsBlue([x.f() == null, (() => x)()])) && x.f() == null;
 }
 
 // local variable
-f3(var y) {
+f3(y) {
   C x = y;
 
   x is D && x.f() == null;
@@ -49,7 +49,7 @@ f3(var y) {
 }
 
 // local variable & closures
-f4(var y) {
+f4(y) {
   C x = y;
   x is D && skyIsBlue([x.f() == null, (() => x)()]);
   (x is D && skyIsBlue([x.f() == null, (() => x)()])) && x.f() == null;

@@ -16,7 +16,7 @@
 
 import '../../../Utils/expect.dart';
 
-func(var a, [var b = 1]) => () => a * b;
+func(num a, [num b = 1]) => () => a * b;
 
 main() {
   Expect.equals(1, func(1)());

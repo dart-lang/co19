@@ -4,6 +4,7 @@
 
 /// @assertion A multiplicative expression of the form super op e2
 /// is equivalent to the method invocation super.op(e2).
+///
 /// @description Checks that an expression of the form super op e2
 /// is equivalent to the method invocation super.op(e2).
 /// @author kaigorodov
@@ -20,29 +21,29 @@ class S {
      }
   }
 
-  operator *(var v) {
+  operator *(num v) {
     trace[0] += 1;
     return val * v;
   }
 
-  operator /(var v) {
+  operator /(num v) {
     trace[1] += 1;
     return val / v;
   }
 
-  operator %(var v) {
+  operator %(num v) {
     trace[2] += 1;
     return val % v;
   }
 
-  operator ~/(var v) {
+  operator ~/(num v) {
     trace[3] += 1;
     return val ~/ v;
   }
 }
 
 class A extends S {
-  A(var val) : super(val) {}
+  A(val) : super(val) {}
 
   test() {
     super * 1;
