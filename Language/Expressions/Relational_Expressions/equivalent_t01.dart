@@ -4,6 +4,7 @@
 
 /// @assertion A relational expression of the form e1 op e2 is equivalent to
 /// the method invocation e1.op(e2).
+///
 /// @description Checks that a relational expression of the form e1 < e2
 /// is equivalent to the method invocation e1.operator<(e2).
 /// @author kaigorodov
@@ -13,19 +14,19 @@ import '../../../Utils/expect.dart';
 var logStr = "";
 
 class A {
-  operator <(var v) {
+  operator <(num v) {
     logStr = "${logStr}<";
     return true;
   }
-  operator >(var v) {
+  operator >(num v) {
     logStr = "${logStr}>";
     return true;
   }
-  operator <=(var v) {
+  operator <=(num v) {
     logStr = "${logStr}<=";
     return true;
   }
-  operator >=(var v) {
+  operator >=(num v) {
     logStr = "${logStr}>=";
     return true;
   }

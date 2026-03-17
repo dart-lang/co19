@@ -11,13 +11,14 @@
 ///      – Both c1 and c2 are −0.0.
 ///      – Both c1 and c2 represent a NaN value with the same underlying bit
 ///        pattern.
+///
 /// @description Checks that two non-zero and non-NaN doubles representing the
 /// same value are identical.
 /// @author kaigorodov
 
 import "../../../Utils/expect.dart";
 
-mul(var d1, var d2) {
+mul(num d1, num d2) {
   return d1 * d2;
 }
 

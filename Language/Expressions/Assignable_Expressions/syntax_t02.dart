@@ -22,14 +22,14 @@
 /// • An invocation (possibly conditional) of a getter or list access operator
 ///   on an expression e.
 /// • An invocation of a getter or list access operator on super.
+///
 /// @description Checks that super with an unconditionalAssignableSelector
 /// can be used in the left hand side of an assignment.
 /// @author msyabro
 
-
 class S {
-  operator [](var index) {}
-  operator []=(var index, var value) {}
+  operator [](index) {}
+  operator []=(index, int? value) {}
   var prop;
 }
 class A extends S {

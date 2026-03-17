@@ -27,15 +27,15 @@
 /// A unary expression is either a postfix expression, an await expression or
 /// an invocation of a prefix operator on an expression or an invocation of a
 /// unary operator on either super or an expression e.
+///
 /// @description Checks that unary expressions of the form
 /// [incrementOperator assignableExpression] don't cause compile-time errors.
 /// @author msyabro
 
-
 class S {
   S() : x = 1;
-  operator [](var ind) {return x;}
-  operator []=(var ind, var val) {x = val;}
+  operator [](int ind) {return x;}
+  operator []=(int ind, num val) {x = val;}
   var x;
 }
 

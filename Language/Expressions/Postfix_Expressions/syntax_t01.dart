@@ -20,17 +20,17 @@
 /// ;
 /// A postfix expression is either a primary expression, a function, method or
 /// getter invocation, or an invocation of a postfix operator on an expression e.
+///
 /// @description Checks that any assignableExpression can be used with
 /// postfixOperator.
 /// See tests 10_27_Assignable_Expressions_A01_t0[1-3].dart
 /// @author msyabro
 /// @issue 2709
 
-
 class S {
   S() : x = 1;
-  operator [](var ind) {return x;}
-  operator []=(var ind, var val) {x = val;}
+  operator [](int ind) {return x;}
+  operator []=(int ind, int val) {x = val;}
   var x;
 }
 

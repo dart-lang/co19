@@ -11,13 +11,14 @@
 ///      – Both c1 and c2 are −0.0.
 ///      – Both c1 and c2 represent a NaN value with the same underlying bit
 ///        pattern.
+///
 /// @description Checks that two NaNs are identical.
 /// @author kaigorodov
 /// @issue 42224
 
 import "../../../Utils/expect.dart";
 
-div(var a, var b) {
+div(num a, num b) {
   return a / b;
 }
 

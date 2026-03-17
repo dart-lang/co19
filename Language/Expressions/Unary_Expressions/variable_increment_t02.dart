@@ -17,7 +17,7 @@ class A {
 
   A(this.value);
 
-  operator +(var other) {
+  operator +(other) {
     plusInvoked = true;
     return new A("${value}+${other}");
   }

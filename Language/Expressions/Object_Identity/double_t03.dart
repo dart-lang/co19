@@ -11,17 +11,18 @@
 ///      – Both c1 and c2 are −0.0.
 ///      – Both c1 and c2 represent a NaN value with the same underlying bit
 ///        pattern.
+///
 /// @description Checks identity if positive and negative zero double instances.
 /// @author ngl@unipro.ru
 /// @issue 42223
 
 import "../../../Utils/expect.dart";
 
-div(var a, var b) {
+div(num a, num b) {
   return a / b;
 }
 
-mul(var a, var b) {
+mul(num a, num b) {
   return a * b;
 }
 

@@ -14,25 +14,25 @@
 /// ;
 /// A shift expression is either an additive expression, or an invocation
 /// of a shift operator on either super or an expression e1, with argument e2.
+///
 /// @description Checks that various expressions fitted into this grammar
 /// don't cause compile-time errors.
 /// @Issue #36343
 /// @author msyabro
 
-
 topLevelFunction() {}
 
 class S {
   const S();
-  operator <<(var v) {}
-  operator >>(var v) {}
-  operator >>>(var v) {}
+  operator <<(v) {}
+  operator >>(v) {}
+  operator >>>(v) {}
 }
 
 class A extends S {
   method() {}
   get id {}
-  set id(var v) {}
+  set id(v) {}
 
   test() {
     //super
