@@ -13,33 +13,33 @@
 /// @issue 40954
 
 class C {
-  static void test1(var v, [Never n]) {}
+  static void test1(int v, [Never n]) {}
 //                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void test2(var v, {Never n}) {}
+  static void test2(int v, {Never n}) {}
 //                                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test11(var v, [Never n]) {}
+  void test11(int v, [Never n]) {}
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test22(var v, {Never n}) {}
+  void test22(int v, {Never n}) {}
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test1(var v, [Never n]) {}
+void test1(int v, [Never n]) {}
 //                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void test2(var v, {Never n}) {}
+void test2(int v, {Never n}) {}
 //                       ^
 // [analyzer] unspecified
 // [cfe] unspecified

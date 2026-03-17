@@ -7,8 +7,8 @@
 /// It is a compile-time error if D declares more than two required positional
 /// parameters, or if there are any required named parameters.
 ///
-/// @description Checks that main function can have 'var args' argument.
+/// @description Checks that main function can have 'dynamic args' argument.
 /// @author iarkh@unipro.ru
 
-void main(var args) {
+void main(dynamic args) {
 }

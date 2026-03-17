@@ -13,7 +13,7 @@
 
 class A {}
 
-test(var a) {
+test(int a) {
   if (a is Object) {
     a!;
 //   ^

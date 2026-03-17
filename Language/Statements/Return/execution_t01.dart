@@ -14,7 +14,6 @@
 /// @description Checks that the return statement returns a value received after
 /// evaluating the return expression and if this evaluation results in a runtime
 /// exception the control is transferred to the appropriate handler.
-///
 /// @author vasya
 
 import '../../../Utils/expect.dart';
@@ -23,7 +22,7 @@ foo(x, y) {
   return (x + y);
 }
 
-bar(var x) {
+bar(x) {
   return x.run();
 }
 

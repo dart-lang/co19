@@ -12,7 +12,7 @@
 
 typedef Neverland = Never;
 
-void test(var x) {
+void test(x) {
   if (x is Neverland) {
     x();
     x(1);

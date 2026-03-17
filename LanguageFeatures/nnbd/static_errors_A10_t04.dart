@@ -15,33 +15,33 @@
 class A {}
 
 class C {
-  static void test1(var v, [A a]) {}
+  static void test1(int v, [A a]) {}
 //                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void test2(var v, {A a}) {}
+  static void test2(int v, {A a}) {}
 //                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test11(var v, [A a]) {}
+  void test11(int v, [A a]) {}
 //                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test22(var v, {A a}) {}
+  void test22(int v, {A a}) {}
 //                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test1(var v, [A a]) {}
+void test1(int v, [A a]) {}
 //                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void test2(var v, {A a}) {}
+void test2(int v, {A a}) {}
 //                   ^
 // [analyzer] unspecified
 // [cfe] unspecified

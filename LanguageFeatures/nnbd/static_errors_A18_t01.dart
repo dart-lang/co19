@@ -10,7 +10,7 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39866
 
-void test(var x) {
+void test(int x) {
   if (x is Never) {
     x();
     x(1);

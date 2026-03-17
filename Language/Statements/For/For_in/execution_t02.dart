@@ -9,18 +9,20 @@
 ///     finalConstVarOrType? id = n0.current;
 ///     s
 ///   }
-/// where n0 is an identifier that does not occur anywhere in the program, except
-/// that for purposes of static typechecking, it is checked under the assumption
-/// that n0 is declared to be of type T, where T is the static type of e.iterator.
-/// @description Checks that a [TypeError] is thrown if the type of e
-/// does not implement [Iterable].
+/// where n0 is an identifier that does not occur anywhere in the program,
+/// except that for purposes of static typechecking, it is checked under the
+/// assumption that n0 is declared to be of type T, where T is the static type
+/// of e.iterator.
+///
+/// @description Checks that a [TypeError] is thrown if the type of `e` does not
+/// implement [Iterable].
 /// @author vasya
 
 import '../../../../Utils/expect.dart';
 
 class A {}
 
-void check(var e) {
+void check(e) {
   Expect.throws(() { for (var id in e); }, (e) => e is TypeError);
 
   Expect.throws(() { for (dynamic id in e); }, (e) => e is TypeError);
