@@ -4,10 +4,10 @@
 
 /// @assertion An additive expression of the form e1 op e2 is equivalent
 /// to the method invocation e1.op(e2).
+///
 /// @description Checks that an additive expression of the form e1 op e2 is
 /// equivalent to the method invocation e1.op(e2).
 /// @author kaigorodov
-
 
 import '../../../Utils/expect.dart';
 
@@ -16,13 +16,14 @@ var logStr = "";
 class A {
   final int value;
 
-  const A(var v) : value = v;
+  const A(v) : value = v;
 
-  operator +(var v) {
+  operator +(int v) {
     logStr = "${logStr}+";
-    return new A(value+v);
+    return new A(value + v);
   }
-  operator -(var v) {
+
+  operator -(int v) {
     logStr = "${logStr}-";
     return new A(v - value);
   }

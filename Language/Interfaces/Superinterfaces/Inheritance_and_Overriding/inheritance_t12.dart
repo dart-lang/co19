@@ -23,16 +23,17 @@
 /// Then I has a method named n, with r required parameters of type dynamic,
 /// h positional parameters of type dynamic, named parameters s of type dynamic
 /// and return type dynamic.
+///
 /// @description Checks that there's a compile error if methods with the same
 /// name but differing sets of named parameters are inherited. Test type aliases
 /// @author sgrekhov@unipro.ru
 
 abstract class SI1 {
-  void foo(var v, {int foo, int bar});
+  void foo(int v, {int foo, int bar});
 }
 
 abstract class SI2 {
-  void foo(var v, {int? foo, int? b4r});
+  void foo(int v, {int? foo, int? b4r});
 }
 
 typedef SIAlias1 = SI1;

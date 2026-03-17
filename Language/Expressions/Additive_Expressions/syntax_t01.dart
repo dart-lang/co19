@@ -14,25 +14,25 @@
 /// An additive expression is either a multiplicative expression, or an
 /// invocation of an additive operator on either super or an expression e1, with
 /// argument e2.
+///
 /// @description Checks that various expressions fitted into this grammar don't
 /// cause compile-time errors.
 /// @author msyabro
-
 
 topLevelFunction() {}
 
 class S {
   const S();
-  operator +(var x){}
-  operator -(var x) {}
-  operator [](var idx) {}
+  operator +(int? x){}
+  operator -(int? x) {}
+  operator [](int? idx) {}
   final foo = 1;
 }
 
 class A extends S {
   method() {}
   get id {}
-  set id(var v) {}
+  set id(int v) {}
 
   test() {
     //super is a primary

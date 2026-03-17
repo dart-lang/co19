@@ -4,23 +4,22 @@
 
 /// @assertion A bitwise expression of the form super op e2 is
 /// equivalent to the method invocation super.op(e2).
+///
 /// @description Checks that an expression of the form super | e2
 /// is equivalent to the method invocation super.operator|(e2).
 /// @author msyabro
-/// @reviewer kaigorodov
-
 
 import '../../../Utils/expect.dart';
 
 class S {
   var val;
-  operator | (var arg) {
+  operator |(int arg) {
     val = arg;
   }
 }
 
 class A extends S {
-  test(var arg) {
+  test(int arg) {
     super | arg;
   }
 }

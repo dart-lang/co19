@@ -11,16 +11,13 @@
 /// ['=>' expression ';']
 /// @author kaigorodov
 
-
-f(var func) {
+f(func) {
   return func();
 }
 
 main() {
-  try {
-    f(void func() =>);
-//                  ^
+  f(void func() =>);
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  } catch (x) {}
 }

@@ -23,27 +23,25 @@
 /// Then I has a method named n, with r required parameters of type dynamic,
 /// h positional parameters of type dynamic, named parameters s of type dynamic
 /// and return type dynamic.
-/// @description Checks that there's no static warning if non-abstract class
-/// implements two interfaces with same named methods that have different named
-/// formal parameters and defines method from its implicit interface. In this
-/// case the implicit interface of non-abstract class has method with one
-/// required parameter of type dynamic and a set of all named optional
+///
+/// @description Checks that no error occurs when a non-abstract class
+/// implements two interfaces with methods of the same name but different named
+/// parameters; the resulting interface includes the union of all named optional
 /// parameters.
 /// @author ngl@unipro.ru
 
-
 abstract class SI1 {
-  void foo(var v, {int foo, int bar});
+  void foo(int v, {int foo, int bar});
 }
 
 abstract class SI2 {
-  void foo(var v, {int foo, int b4r});
+  void foo(int v, {int foo, int b4r});
 }
 
 class I implements SI1, SI2 {
-  void foo(dynamic v, {dynamic foo, dynamic b4r, dynamic bar}) {}
+  void foo(int v, {int foo = 0, int b4r = 0, int bar = 0}) {}
 }
 
 main() {
-  I? i = null;
+  I().foo(1, foo: 2, bar: 3, b4r: 4);
 }

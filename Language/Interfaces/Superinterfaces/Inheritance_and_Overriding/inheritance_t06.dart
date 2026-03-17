@@ -23,19 +23,19 @@
 /// Then I has a method named n, with r required parameters of type dynamic,
 /// h positional parameters of type dynamic, named parameters s of type dynamic
 /// and return type dynamic.
+///
 /// @description Checks that there's no static warning if class implements two
 /// interfaces with same named methods and different number of required formal
 /// parameters and defines method with minimum number of required parameters
 /// and maximum number of positional parameters.
 /// @author ngl@unipro.ru
 
-
 abstract class SI1 {
-  void foo(var v);
+  void foo(v);
 }
 
 abstract class SI2 {
-  void foo(var v, var vv);
+  void foo(v, vv);
 }
 
 class I implements SI1, SI2 {
@@ -46,5 +46,5 @@ class I implements SI1, SI2 {
 main() {
   I i = new I();
   i.foo(1);
-  i.foo(1,2);
+  i.foo(1, 2);
 }

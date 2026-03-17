@@ -8,17 +8,17 @@
 /// conversion producing an object r. If r is true, then the value of c is the
 /// result of evaluating the expression e2. Otherwise the value of c is the
 /// result of evaluating the expression e3.
+///
 /// @description Checks that o1 is subjected to boolean conversion.
 /// @author kaigorodov
 
-
 import '../../../Utils/expect.dart';
 
-bool checkTrue(var e1) {
+bool checkTrue(e1) {
   return e1 ? true : false;
 }
 
-bool checkFalse(var e1) {
+bool checkFalse(e1) {
   return e1 ? false : true;
 }
 

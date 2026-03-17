@@ -23,6 +23,7 @@
 /// Then I has a method named n, with r required parameters of type dynamic,
 /// h positional parameters of type dynamic, named parameters s of type dynamic
 /// and return type dynamic.
+///
 /// @description Checks that there's no static warning if class implements two
 /// interfaces with same named methods and different number of required formal
 /// parameters and defines method with minimum number of required parameters
@@ -30,19 +31,19 @@
 /// @author sgrekhov@unipro.ru
 
 abstract class SI1 {
-  void foo(var v);
+  void foo(v);
 }
 
 abstract class SI2 {
-  void foo(var v, var vv);
+  void foo(v, int vv);
 }
 
 typedef SIAlias1 = SI1;
 typedef SIAlias2 = SI2;
 
 class I implements SIAlias1, SIAlias2 {
-  // It is expected that I inherits void foo(dynamic v1, [dynamic a])
-  void foo(dynamic v, [dynamic a]) {}
+  // It is expected that I inherits void foo(dynamic v1, [int a])
+  void foo(dynamic v, [int a = 0]) {}
 }
 
 main() {
