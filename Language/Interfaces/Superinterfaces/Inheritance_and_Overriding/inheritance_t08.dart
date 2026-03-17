@@ -27,7 +27,7 @@
 /// @description Checks that no error occurs when a non-abstract class
 /// implements two interfaces with methods of the same name but different named
 /// parameters; the resulting interface includes the union of all named optional
-/// parameters and these parameters have type `dynamic`
+/// parameters.
 /// @author ngl@unipro.ru
 
 abstract class SI1 {
