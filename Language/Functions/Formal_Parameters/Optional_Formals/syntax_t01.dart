@@ -14,28 +14,27 @@
 /// values
 /// @author msyabro
 
-
 void f([bool b = true, int x = 1]) {}
-void g(var x, [var y = 1]) {}
-void h([var x, var y = true, var z]) {}
-void i([var a = const [const []]]) {}
+void g(x, [int y = 1]) {}
+void h([x, bool y = true, z]) {}
+void i([List a = const [const []]]) {}
 void j([
-  var m = const {"foo": "bar", "boo": const [], "zoo": const{"x": "y"}}
+  Map m = const {"foo": "bar", "boo": const [], "zoo": const {"x": "y"}}
 ]) {}
 void k([func([int p, int v, int a])? = null]) {}
 
 void f2({bool b = true, int x = 1}) {}
-void g2(var x, {var y = 1}) {}
-void h2({var x, var y = true, var z}) {}
+void g2(x, {int y = 1}) {}
+void h2({x, y = true, z}) {}
 void i2({a = const [const []]}) {}
-void j2({m = const {"foo": "bar", "boo": const [], "zoo": const{"x": "y"}}}) {}
+void j2({m = const {"foo": "bar", "boo": const [], "zoo": const {"x": "y"}}}) {}
 void k2({func([int p, int v, int a])? = null}) {}
 
-void f_func([void func(var p)? = null]) {}
-void f_undeclared([var u = 1]) {}
+void f_func([void func(p)? = null]) {}
+void f_undeclared([int u = 1]) {}
 
-void f_func2({void func(var p)? = null}) {}
-void f_undeclared2({var u = 1}) {}
+void f_func2({void func(p)? = null}) {}
+void f_undeclared2({int u = 1}) {}
 
 main() {
   f();
