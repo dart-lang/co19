@@ -15,7 +15,7 @@ class A {}
 
 class C extends A {}
 
-test(var a, C c) {
+test(a, C c) {
   if (a is Object) {
     a?.toString();
 //   ^^

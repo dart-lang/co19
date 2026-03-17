@@ -26,7 +26,7 @@ enum E1 {
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const E1(var v);
+  const E1(v);
 }
 
 enum E2<T> {

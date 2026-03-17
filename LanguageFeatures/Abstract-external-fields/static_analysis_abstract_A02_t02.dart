@@ -10,13 +10,12 @@
 /// defaulted to dynamic). The parameter of the setter, if present, has the
 /// modifier covariant if and only if D has the modifier covariant
 ///
-/// @description Checks that declaration
-///  abstract var x;
-/// desugared as
+/// @description Checks that declaration `abstract var x;` is desugared as
+///  ```
 ///  dynamic get x;
 ///  void set x(dynamic _);
+///  ```
 /// @author sgrekhov@unipro.ru
-
 
 abstract class A {
   abstract var x;
@@ -26,7 +25,7 @@ class C1 extends A { // missing getter
 //    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  void set x(var _) {}
+  void set x(_) {}
 }
 
 class C2 extends A { // missing setter

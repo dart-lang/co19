@@ -13,33 +13,33 @@
 /// @issue 40954
 
 class C {
-  static void test1(var v, [Function f]) {}
+  static void test1(int v, [Function f]) {}
 //                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void test2(var v, {Function f}) {}
+  static void test2(int v, {Function f}) {}
 //                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test11(var v, [Function f]) {}
+  void test11(int v, [Function f]) {}
 //                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test22(var v, {Function f}) {}
+  void test22(int v, {Function f}) {}
 //                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test1(var v, [Function f]) {}
+void test1(int v, [Function f]) {}
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void test2(var v, {Function f}) {}
+void test2(int v, {Function f}) {}
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified

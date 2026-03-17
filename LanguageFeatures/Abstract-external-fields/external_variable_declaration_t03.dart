@@ -16,49 +16,31 @@ test1(external int i) {
 // [cfe] unspecified
 }
 
-test2(final external int i) {
-//          ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 class C {
   test3(external int i) {
 //      ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-
-  test4(final external int i) {
-//            ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
 }
 
 mixin M on C {
-  test5(external var e) {
+  test5(external e) {
 //      ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-
-  test6(final external e) {
-//            ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 }
 
 extension on C {
-   foo1(external var e) {
+   foo1(external e) {
 //     ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
    }
 
-   foo2(final external int e) {
-//            ^^^^^^^^
+   foo2(external int e) {
+//      ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
    }

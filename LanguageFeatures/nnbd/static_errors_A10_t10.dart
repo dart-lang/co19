@@ -17,33 +17,33 @@ import "dart:async";
 typedef void Foo();
 
 class C {
-  static void test1(var v, [FutureOr<Foo> fo]) {}
+  static void test1(int v, [FutureOr<Foo> fo]) {}
 //                                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void test2(var v, {FutureOr<Foo> fo}) {}
+  static void test2(int v, {FutureOr<Foo> fo}) {}
 //                                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test11(var v, [FutureOr<Foo> fo]) {}
+  void test11(int v, [FutureOr<Foo> fo]) {}
 //                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test22(var v, {FutureOr<Foo> fo}) {}
+  void test22(int v, {FutureOr<Foo> fo}) {}
 //                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test1(var v, [FutureOr<Foo> fo]) {}
+void test1(int v, [FutureOr<Foo> fo]) {}
 //                               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void test2(var v, {FutureOr<Foo> fo}) {}
+void test2(int v, {FutureOr<Foo> fo}) {}
 //                               ^^
 // [analyzer] unspecified
 // [cfe] unspecified

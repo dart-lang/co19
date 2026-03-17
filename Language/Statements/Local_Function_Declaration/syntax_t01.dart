@@ -23,7 +23,6 @@
 /// @description Checks that various correct function definitions are accepted.
 /// @author kaigorodov
 
-
 main() {
   void func() {}
   void f(void func()) { f(func); }
@@ -32,14 +31,14 @@ main() {
   int? funktion(args) { f(func); func(); }
 
   int f2(int x) { throw ''; }
-  func1(var x) {}
-  int func2(var x, [var y = 0]) { return x + y; }
-  int func3(var x, {var y = 1}) { return x * y; }
+  func1(x) {}
+  int func2(x, [y = 0]) { return x + y; }
+  int func3(dynamic x, {dynamic y = 1}) { return x * y; }
   Object? obj() => null;
 
   fgh(g(h())) {}
   int func4([int x = 0, int y = 0, int z = 0]) {
     return func2(x, y) + func3(y, y: z);
   }
-  int foo(Object x, var y) => func4(1, 2, 3);
+  int foo(Object x, int y) => func4(1, 2, 3);
 }

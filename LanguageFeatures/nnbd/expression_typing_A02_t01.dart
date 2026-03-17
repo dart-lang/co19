@@ -12,7 +12,7 @@
 /// @issue 41273
 /// @author sgrekhov@unipro.ru
 
-void test(var x) {
+void test(x) {
   if (x is Never) {
     Never n1 = x.toString();
 //               ^^^^^^^^^^

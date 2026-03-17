@@ -9,7 +9,7 @@
 /// position of a function call produces a result of type Never.
 /// @author sgrekhov@unipro.ru
 
-void test(var x) {
+void test(x) {
   if (x is Never) {
     Never n1 = x();
     Never n2 = x(42);

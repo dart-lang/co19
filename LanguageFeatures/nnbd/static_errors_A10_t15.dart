@@ -20,38 +20,38 @@ typedef void Foo();
 class X {}
 
 abstract class C {
-  void test1(var v, [Never n]);
-  void test2(var v, {Never n});
+  void test1(int v, [Never n]);
+  void test2(int v, {Never n});
 
-  void test3(var v, [Function f]);
-  void test4(var v, {Function f});
+  void test3(int v, [Function f]);
+  void test4(int v, {Function f});
 
-  void test5(var v, [Foo f]);
-  void test6(var v, {Foo f});
+  void test5(int v, [Foo f]);
+  void test6(int v, {Foo f});
 
-  void test7(var v, [X x]);
-  void test8(var v, {X x});
+  void test7(int v, [X x]);
+  void test8(int v, {X x});
 
-  void test11<T extends Object>(var v, [T t]);
-  void test12<T extends Object>(var v, {T t});
+  void test11<T extends Object>(int v, [T t]);
+  void test12<T extends Object>(int v, {T t});
 
-  void test13<T extends Object?>(var v, [T t]);
-  void test14<T extends Object?>(var v, {T t});
+  void test13<T extends Object?>(int v, [T t]);
+  void test14<T extends Object?>(int v, {T t});
 
-  void test15(var v, [FutureOr<Never> n]);
-  void test16(var v, {FutureOr<Never> n});
+  void test15(int v, [FutureOr<Never> n]);
+  void test16(int v, {FutureOr<Never> n});
 
-  void test17(var v, [FutureOr<Function> f]);
-  void test18(var v, {FutureOr<Function> f});
+  void test17(int v, [FutureOr<Function> f]);
+  void test18(int v, {FutureOr<Function> f});
 
-  void test19(var v, [FutureOr<Foo> f]);
-  void test20(var v, {FutureOr<Foo> f});
+  void test19(int v, [FutureOr<Foo> f]);
+  void test20(int v, {FutureOr<Foo> f});
 
-  void test21(var v, [FutureOr<X> x]);
-  void test22(var v, {FutureOr<X> x});
+  void test21(int v, [FutureOr<X> x]);
+  void test22(int v, {FutureOr<X> x});
 
-  void test25(var v, [FutureOr<FutureOr<X>> x]);
-  void test26(var v, {FutureOr<FutureOr<X>> x});
+  void test25(int v, [FutureOr<FutureOr<X>> x]);
+  void test26(int v, {FutureOr<FutureOr<X>> x});
 }
 
 main() {}

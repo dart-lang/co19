@@ -15,33 +15,33 @@
 typedef void Foo();
 
 class C {
-  static void test1(var v, [Foo f]) {}
+  static void test1(int v, [Foo f]) {}
 //                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void test2(var v, {Foo f}) {}
+  static void test2(int v, {Foo f}) {}
 //                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test11(var v, [Foo f]) {}
+  void test11(int v, [Foo f]) {}
 //                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test22(var v, {Foo f}) {}
+  void test22(int v, {Foo f}) {}
 //                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test1(var v, [Foo f]) {}
+void test1(int v, [Foo f]) {}
 //                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void test2(var v, {Foo f}) {}
+void test2(int v, {Foo f}) {}
 //                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
