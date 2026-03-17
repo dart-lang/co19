@@ -27,13 +27,12 @@
 /// @description Checks correct syntax for specifying optional parameters.
 /// @author msyabro
 
-
-void f(var a, var b, [var c]) {}
-void g([var a, var b]) {}
-void h([var a]) {}
-void f2(var a, var b, {var c}) {}
-void g2({var a, var b}) {}
-void h2({var a}) {}
+void f(int a, int b, [int? c]) {}
+void g([int? a, int? b]) {}
+void h([int? a]) {}
+void f2(int a, int b, {int? c}) {}
+void g2({int? a, int? b}) {}
+void h2({int? a}) {}
 
 main() {
   f(1, 1, 1);
