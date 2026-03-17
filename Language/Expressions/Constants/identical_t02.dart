@@ -9,11 +9,12 @@
 /// • An expression of the form identical(e1, e2) where e1 and e2 are constant
 ///   expressions and identical is statically bound to the predefined dart
 ///   function identical() discussed above.
+///
 /// @description Checks that if identical() is redefined, its invocation is not
 /// a constant expressions.
 /// @author kaigorodov
 
-bool identical(var a, var b) {
+bool identical(a, b) {
   return a.equals(b);
 }
 

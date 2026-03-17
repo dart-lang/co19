@@ -13,11 +13,11 @@
 /// Otherwise, If a occurs inside a top level or static function (be it function,
 /// method, getter, or setter) or variable initializer, evaluation of a causes e
 /// to be evaluated, after which a NoSuchMethodError is thrown.
+///
 /// @description Checks that if an assignment a is inside a top level setter
 /// then evaluation of a causes e to be evaluated, after which
 /// a NoSuchMethodError is thrown.
 /// @author sgrekhov@unipro.ru
-
 
 import '../../../Utils/expect.dart';
 
@@ -28,7 +28,7 @@ int e() {
   return 0;
 }
 
-set f(var val) {
+set f(val) {
   dynamic x = new Object();
   Expect.throws(() {x.v = e();}, (e) => e is NoSuchMethodError);
 }

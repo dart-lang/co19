@@ -9,10 +9,10 @@
 /// • If the variable v is accessed by a closure in e2 then the variable v is
 ///   not potentially mutated anywhere in the scope of v .
 /// then the type of v is known to be T in e2.
+///
 /// @description Checks that if e1 shows that v has type T, but v2 is potentially
 /// mutated in e2, then the type of v is not known to be T in e2.
 /// @author ilya
-
 
 import '../../../Utils/expect.dart';
 
@@ -21,7 +21,7 @@ class D extends C {
   f() {}
 }
 
-f(var x) {
+f(x) {
   x is D ? [x = new C(), x.f() /*throws*/] : null;
 }
 

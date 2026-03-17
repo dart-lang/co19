@@ -6,12 +6,12 @@
 /// equivalent to the evaluation of the expression
 /// ((x) => x == null ? super.v = e : x)(super.v) where x is a fresh variable
 /// that is not used in e.
+///
 /// @description Checks that a compound assignment of the form super.v ??= e is
 /// equivalent to the evaluation of the expression
 /// ((x) => x == null ? super.v = e : x)(super.v) where x is a fresh variable
 /// that is not used in e.
 /// @author sgrekhov@unipro.ru
-
 
 import '../../../../Utils/expect.dart';
 
@@ -38,7 +38,7 @@ class A {
 class C extends A {
   C(val) : super(val);
 
-  void test(var val, expected, setterInvCount) {
+  void test(int val, expected, setterInvCount) {
     var res = (super.v ??= val);
     Expect.equals(1, getterInvocation);
     Expect.equals(setterInvCount, setterInvocation);

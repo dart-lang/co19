@@ -23,16 +23,17 @@
 /// Then I has a method named n, with r required parameters of type dynamic,
 /// h positional parameters of type dynamic, named parameters s of type dynamic
 /// and return type dynamic.
-/// @description Checks that there's a compile-error if two members with the same
-/// name but different number of arguments are inherited
+///
+/// @description Checks that there's a compile-error if two members with the
+/// same name but different number of arguments are inherited
 /// @author rodionov
 
 abstract class SI1 {
-  void foo(var v);
+  void foo(v);
 }
 
 abstract class SI2 {
-  void foo(var v, var vv);
+  void foo(v, vv);
 }
 
 typedef SIAlias1 = SI1;

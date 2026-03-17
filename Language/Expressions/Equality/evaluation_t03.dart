@@ -9,11 +9,11 @@
 /// •  If either o1 or o2 is null, then ee evaluates to true if both o1 and o2
 ///    are null and to false otherwise. Otherwise,
 /// •  ee is equivalent to the method invocation o1.==(o2).
+///
 /// @description Checks that iff one or both of operands is null, the result of
 /// an equality expression is evaluated as identical(o1, o2) and the .== method
 /// of whichever operand is not null never gets invoked.
 /// @author kaigorodov
-
 
 import '../../../Utils/expect.dart';
 
@@ -23,12 +23,12 @@ class C {
   }
 }
 
-void check(var o1, var o2) {
+void check(o1, o2) {
   Expect.equals(o1 == o2, identical(o1, o2));
 }
 
 main() {
-  var foo=1;
+  var foo = 1;
 
   check(null, null);
   check(null, "null");
