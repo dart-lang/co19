@@ -4,15 +4,15 @@
 
 /// @assertion An equality expression of the form e1 != e2 is equivalent to the
 /// expression !(e1 == e2).
+///
 /// @description Checks that expression of the form e1 != e2 is equivalent to the
 /// expression !(e1 == e2).
 /// @author msyabro
 
-
 import '../../../Utils/expect.dart';
 
 class A{
-  operator ==(var val) {
+  operator ==(val) {
     return identical(this, val);
   }
 }

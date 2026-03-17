@@ -7,11 +7,11 @@
 /// spawn() defined in the dart:isolate library.
 /// However, such calls have the semantic effect of creating a new isolate
 /// with its own memory and thread of control.
+///
 /// @description Checks that a new isolate created with spawn() has its own
 /// memory which is not shared with other isolates, using a top-level variable
 /// to showcase it.
 /// @author rodionov
-/// @reviewer kaigorodov
 
 import 'dart:isolate';
 import '../../../Utils/expect.dart';
@@ -24,7 +24,7 @@ void iMain(SendPort replyPort) {
 
 var receivePort = new ReceivePort();
 
-void receiveHandler(var message) {
+void receiveHandler(message) {
   Expect.equals(expectedMessage, message);
   receivePort.close();
   asyncEnd();

@@ -5,6 +5,7 @@
 /// @assertion Let v be a local variable or a formal parameter. An is-expression
 /// of the form v is T shows that v has type T iff T is more specific than the
 /// type S of the expression v and both T != dynamic and S != dynamic.
+///
 /// @description Checks that if T is dynamic, is-expression does not show that
 /// v has type dynamic. Formal parameter case.
 /// @author ilya
@@ -13,7 +14,7 @@ import '../../../Utils/expect.dart';
 
 class C {}
 
-f(var x) {
+f(x) {
   Expect.isTrue(x is dynamic);
 }
 

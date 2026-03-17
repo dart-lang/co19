@@ -6,14 +6,14 @@
 /// identical(c1, c2) iff:
 /// . . .
 ///  • c1 and c2 are instances of int and c1 == c2.
+///
 /// @description Checks that two large ints representing the same value are
 /// identical.
 /// @author kaigorodov
-/// @note renamed from 1_Object_Identity_A01_t03.dart
 
 import "../../../Utils/expect.dart";
 
-mul(var i1, var i2) {
+mul(num i1, num i2) {
   return i1 * i2;
 }
 

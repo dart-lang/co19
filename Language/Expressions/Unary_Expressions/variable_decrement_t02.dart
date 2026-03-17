@@ -17,7 +17,7 @@ class A {
 
   A(this.value);
 
-  operator -(var other) {
+  operator -(other) {
     minusInvoked = true;
     return new A("${value}-${other}");
   }

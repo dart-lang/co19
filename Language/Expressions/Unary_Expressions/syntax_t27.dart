@@ -27,16 +27,16 @@
 /// A unary expression is either a postfix expression, an await expression or
 /// an invocation of a prefix operator on an expression or an invocation of a
 /// unary operator on either super or an expression e.
+///
 /// @description Checks that expressions with a prefix operator which fit into
 /// this production don't cause compile-time errors.
 /// @author msyabro
 
-
 class S {
-  var x = 1;
+  int x = 1;
   operator -() {return -x;}
-  operator [](var ind) {return x;}
-  operator []=(var ind, var val) {x = val;}
+  operator [](int ind) {return x;}
+  operator []=(int ind, int val) {x = val;}
 }
 
 class A extends S {
