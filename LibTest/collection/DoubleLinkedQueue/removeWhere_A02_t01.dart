@@ -12,7 +12,7 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-bool testThrow(var element) {
+bool testThrow(element) {
   if(element < 8) {
     return true;
   } else {

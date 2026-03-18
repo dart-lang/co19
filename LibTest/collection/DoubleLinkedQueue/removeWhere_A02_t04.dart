@@ -21,17 +21,17 @@ import "../../../Utils/expect.dart";
 List list = [1, 3, 3, 4, 5, 6];
 DoubleLinkedQueue? queue;
 
-bool test(var element) {
-  queue?.removeWhere((var element) => element > 5);
+bool test(element) {
+  queue?.removeWhere((element) => element > 5);
   return element == 3;
 }
 
-check(bool test(var element), List list, List expected) {
+check(bool test(dynamic element), List list, List expected) {
   queue = new DoubleLinkedQueue.from(list);
   queue?.removeWhere(test);
   Expect.equals(expected.length, queue?.length);
   int i = 0;
-  queue?.forEach((var element) {
+  queue?.forEach((element) {
     Expect.equals(expected[i++], element);
   });
 }

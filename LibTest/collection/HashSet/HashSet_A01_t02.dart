@@ -24,8 +24,8 @@ check(HashSet set, List list1, List list2, List list3) {
 
 main() {
   HashSet set = new HashSet(
-      equals: (var key1, var key2) => key1 % 3 == key2 % 3,
-      hashCode: (var e) => e % 3);
+      equals: (key1, key2) => key1 % 3 == key2 % 3,
+      hashCode: (e) => e % 3);
 
   set.add(0);
   check(set, [0, 3, 6, 9], [1, 2, 4, 5, 7, 8], [0]);

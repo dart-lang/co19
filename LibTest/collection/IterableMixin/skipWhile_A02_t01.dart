@@ -4,6 +4,7 @@
 
 /// @assertion Iterable<E> skipWhile(bool test(E value))
 /// The filtering happens lazily.
+///
 /// @description Checks that the [test] method is not called when [skipWhile] is
 /// executed.
 /// @author iarkh@unipro.ru
@@ -20,7 +21,7 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-bool test(var value) {
+bool test(value) {
   Expect.fail("test($value) called");
   return false;
 }

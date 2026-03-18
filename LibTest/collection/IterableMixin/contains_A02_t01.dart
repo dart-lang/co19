@@ -7,6 +7,7 @@
 /// For example, a [Set] may have a custom equality (see [Set.identical]) that
 /// its [contains] uses. Likewise the [Iterable] returned by a [Map.keys] call
 /// should use the same equality that the [Map] uses for keys.
+///
 /// @description Checks that [true] is returned if collection contains [element]
 /// and [false] is returned otherwise for set.
 /// @author iarkh@unipro.ru
@@ -31,8 +32,8 @@ check(HashSet set, List list1, List list2) {
 
 main() {
   HashSet set = new HashSet(
-      equals: (var key1, var key2) => key1 % 3 == key2 % 3,
-      hashCode: (var e) => e % 3);
+      equals: (key1, key2) => key1 % 3 == key2 % 3,
+      hashCode: (e) => e % 3);
 
   set.add(0);
   check(set, [0], [1, 2, 4, 5, 7, 8]);

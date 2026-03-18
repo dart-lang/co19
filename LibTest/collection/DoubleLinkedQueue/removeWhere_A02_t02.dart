@@ -20,32 +20,32 @@ import "../../../Utils/expect.dart";
 
 DoubleLinkedQueue? queue;
 
-bool testRemoveFirst1(var element) {
+bool testRemoveFirst1(element) {
   queue?.removeFirst();
   return false;
 }
 
-bool testRemoveFirst2(var element) {
+bool testRemoveFirst2(element) {
   queue?.removeFirst();
   return true;
 }
 
-bool testRemove(var element) {
+bool testRemove(element) {
   queue?.remove(4);
   return element >= 3;
 }
 
-bool testRemove1(var element) {
+bool testRemove1(element) {
   queue?.remove(1);
   return element > 3;
 }
 
-bool testRemoveUnexistent(var element) {
+bool testRemoveUnexistent(element) {
   queue?.remove(18);
   return element <= 4;
 }
 
-check(bool test(var element), List list, List expected, bool expectError) {
+check(bool test(dynamic element), List list, List expected, bool expectError) {
   queue = new DoubleLinkedQueue.from(list);
   if (expectError) {
     Expect.throws(() {
@@ -55,7 +55,7 @@ check(bool test(var element), List list, List expected, bool expectError) {
     queue?.removeWhere(test);
     Expect.equals(expected.length, queue?.length);
     int i = 0;
-    queue?.forEach((var element) {
+    queue?.forEach((element) {
       Expect.equals(expected[i++], element);
     });
   }

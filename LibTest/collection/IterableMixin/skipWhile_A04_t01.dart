@@ -8,6 +8,7 @@
 /// all elements satisfy [test] the resulting iterable is empty, otherwise it
 /// iterates the remaining elements in their original order, starting with the
 /// first element for which [test(element)] returns [false].
+///
 /// @description Checks that once an element does not satisfy the [test],
 /// the iterator stops testing and uses every element unconditionally.
 /// @author iarkh@unipro.ru
@@ -24,10 +25,10 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-void check(List list, bool test(var element)) {
+void check(List list, bool test(dynamic element)) {
   IterableMixin iterable = new MyIterable(list);
   bool? testPassed = null;
-  bool test1(var element) {
+  bool test1(element) {
     Expect.isTrue(testPassed == null || testPassed!,
         "testPassed=$testPassed for element=$element");
     return testPassed =! test(element);
@@ -39,10 +40,10 @@ void check(List list, bool test(var element)) {
 
 main() {
   List list = [1, 3, 7, 4, 5, 6];
-  check(list, (var element) => element == 1);
-  check(list, (var element) => true);
-  check(list, (var element) => false);
-  check(list, (var element) => element > 4);
-  check(list, (var element) => element < 4);
-  check(list, (var element) => element == 4);
+  check(list, (element) => element == 1);
+  check(list, (element) => true);
+  check(list, (element) => false);
+  check(list, (element) => element > 4);
+  check(list, (element) => element < 4);
+  check(list, (element) => element == 4);
 }

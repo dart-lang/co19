@@ -5,6 +5,7 @@
 /// @assertion Iterable<E> takeWhile(bool test(E value))
 /// Every new iterator of the returned iterable starts iterating over the
 /// elements of this.
+///
 /// @description Checks that every new iterator starts iterating over the
 /// elements of this.
 /// @author kaigorodov
@@ -12,10 +13,10 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-void check(List a0, bool test0(var element)) {
+void check(List a0, bool test0(dynamic element)) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a0);
   var el;
-  bool test(var element) {
+  bool test(element) {
     bool res = test0(element);
     if (res) {
       el = element;
@@ -38,10 +39,10 @@ void check(List a0, bool test0(var element)) {
 
 main() {
   List a0 = [1, 3, 7, 4, 5, 6];
-  check(a0, (var element) => element == 1);
-  check(a0, (var element) => true);
-  check(a0, (var element) => false);
-  check(a0, (var element) => element > 4);
-  check(a0, (var element) => element < 4);
-  check(a0, (var element) => element == 4);
+  check(a0, (element) => element == 1);
+  check(a0, (element) => true);
+  check(a0, (element) => false);
+  check(a0, (element) => element > 4);
+  check(a0, (element) => element < 4);
+  check(a0, (element) => element == 4);
 }
