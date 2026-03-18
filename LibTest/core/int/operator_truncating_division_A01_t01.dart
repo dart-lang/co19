@@ -9,12 +9,13 @@
 /// a ~/ b is equivalent to (a / b).truncate().toInt().
 /// If both operands are ints then a ~/ b performs the truncating integer
 /// division.
+///
 /// @description Checks that this operator returns correct value.
 /// @author vasya
 
 import "../../../Utils/expect.dart";
 
-void check(var expected, var actual) {
+void check(num expected, num actual) {
   Expect.equals(expected, actual);
   Expect.isTrue(actual is int);
 } 
@@ -32,4 +33,3 @@ main() {
   check(-4503599627370495, 9007199254740991 ~/ -2);
   check(2, 9007199254740991 ~/ 4503599627370495);
 }
-

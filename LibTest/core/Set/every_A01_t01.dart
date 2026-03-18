@@ -5,6 +5,7 @@
 /// @assertion bool every(bool f(T element))
 /// Returns true if every element of the collection satisfies the predicate [f].
 /// Returns false otherwise.
+///
 /// @description Checks that this method works as specified with a collection of
 /// integers and a simple predicate (numerical comparison).
 /// @author pagolubev
@@ -14,7 +15,7 @@ import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 test(Set create([Set content])) {
-  bool foo(var x) { return x > 0; }
+  bool foo(x) => x > 0;
 
   Set s = create();
   Expect.isTrue(s.every(foo));

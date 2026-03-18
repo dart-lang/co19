@@ -6,6 +6,7 @@
 /// The transformed elements will not be cached. Iterating multiple times over
 /// the returned Iterable will invoke the supplied function f multiple times on
 /// the same element.
+///
 /// @description Checks that iterating multiple times over the returned
 /// Iterable will invoke the supplied function f multiple times on the same
 /// element.
@@ -16,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 List<int> visited = new List<int>.filled(200, 0);
 
-f(var element) {
+f(element) {
   int index;
   if (element is double) {
     index = element.floor();

@@ -6,6 +6,7 @@
 /// Checks whether any element of this iterable satisfies test.
 /// Checks every element in iteration order, and returns true if any of them make
 /// test return true, otherwise returns false.
+///
 /// @description Checks that method is called for each element until the first
 /// true result
 /// @author pagolubev
@@ -15,7 +16,7 @@ library any_A01_t05;
 import "../../../Utils/expect.dart";
 
 //Checks that [some] calls [tst] a [count] number of times
-check(Iterable a, bool tst(var e), int count) {
+check(Iterable a, bool tst(e), int count) {
   int actualCount = 0;
   a.any((var e) {
     actualCount++;
@@ -27,19 +28,12 @@ check(Iterable a, bool tst(var e), int count) {
 test(Iterable create([Iterable content])) {
   Iterable s = create([1, 2, 3, 4, 5]);
 
-  bool allTrue(var e) {
-    return true;
-  }
+  bool allTrue(e) => true;
   check(s, allTrue, 1);
 
-  bool allFalse(var e) {
-    return false;
-  }
+  bool allFalse(e) => false;
   check(s, allFalse, 5);
 
-  bool greaterThan3(var e) {
-    return e > 3;
-  }
+  bool greaterThan3(e) => e > 3;
   check(s, greaterThan3, 4);
 }
-

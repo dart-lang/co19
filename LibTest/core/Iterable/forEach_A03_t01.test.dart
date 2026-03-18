@@ -4,17 +4,18 @@
 
 /// @assertion abstract void forEach(void f(E element))
 /// Any error in the function [f] breaks the cycle.
+///
 /// @description Checks that predicate exception goes through to the caller
 /// @author varlax
 
 library forEach_A03_t01;
 import "../../../Utils/expect.dart";
 
-check(Iterable a, predicate(var e), exc) {
+check(Iterable a, predicate(e), exc) {
   int actualCount = 0;
   Expect.throws(
     () {
-      a.forEach((var e) {
+      a.forEach((e) {
         actualCount++;
         return predicate(e);
       });
@@ -24,17 +25,17 @@ check(Iterable a, predicate(var e), exc) {
 }
 
 test(Iterable create([Iterable content])) {
-  allTrue(var e) {
+  allTrue(e) {
     throw true;
   }
   check(create([1, 2, 3, 4, 5]), allTrue, true);
   
-  allFalse(var e) {
+  allFalse(e) {
     throw false;
   }
   check(create([1, 2, 3, 4, 5]), allFalse, false);
   
-  lessThan3(var e) {
+  lessThan3(e) {
     throw 3;
   }
   check(create([1, 2, 3, 4, 5]), lessThan3, 3);

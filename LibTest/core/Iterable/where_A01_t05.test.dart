@@ -4,6 +4,7 @@
 
 /// @assertion Iterable<E> where(bool f(E element))
 /// Returns a lazy Iterable with all elements that satisfy the predicate f.
+///
 /// @description Checks that predicate exception goes through to the caller when
 /// the result of this method is iterated over and the target collection is not
 /// empty.
@@ -13,9 +14,9 @@ library where_A01_t05;
  
 import "../../../Utils/expect.dart";
 
-check(Iterable a, bool predicate(var e), exc) {
+check(Iterable a, bool predicate(e), exc) {
   int actualCount = 0;
-  Iterable ret = a.where((var e) {
+  Iterable ret = a.where((e) {
     actualCount++;
     return predicate(e);
   });
@@ -27,17 +28,17 @@ check(Iterable a, bool predicate(var e), exc) {
 test(Iterable create([Iterable content]), {bool isSet = false}) {
   Iterable collection = create([1, 2, 3, 4, 5]);
 
-  bool allTrue(var e) {
+  bool allTrue(e) {
     throw true;
   }
   check(collection, allTrue, true);
   
-  bool allFalse(var e) {
+  bool allFalse(e) {
     throw false;
   }
   check(collection, allFalse, false);
   
-  bool lessThan3(var e) {
+  bool lessThan3(e) {
     throw 3;
   }
   check(collection, lessThan3, 3);

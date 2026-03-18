@@ -4,6 +4,7 @@
 
 /// @assertion  abstract void forEach(void f(K key, V value))
 /// Applies f to each {key, value} pair of the map.
+///
 /// @description Tries to pass function that returns something.
 /// @author msyabro
 
@@ -15,7 +16,7 @@ test(Map create([Map content])) {
   map["1"] = 3;
   map["2"] = 5;
   
-  int f(var x, var y) {
+  int f(x, y) {
     return 1;
   }
   

@@ -6,6 +6,7 @@
 /// Checks whether every element of this iterable satisfies test.
 /// Checks every element in iteration order, and returns false if any of them
 /// make test return false, otherwise returns true.
+///
 /// @description Check that true is returned only if every element of the list
 /// satisfies the predicate [f].
 /// @author vasya
@@ -20,7 +21,7 @@ test(Iterable create([Iterable content])) {
   Expect.isFalse(a.every((var e) { return (e < 0); } ));
 
   a = create([1, 2, 3]);
-  bool f (var e) { return (e > 0); }
+  bool f(e) => e > 0;
   Expect.isTrue(a.every(f));
 
   a = create([-1, -2, -3, 1, 2, 3]);

@@ -8,13 +8,11 @@
 /// values and name argument
 /// @author sgrekhov@unipro.ru
 
-
 import "../../../Utils/expect.dart";
 
-class C {
-}
+class C {}
 
-void check(var value, String? name) {
+void check(value, String? name) {
   ArgumentError err = new ArgumentError.value(value, name);
   Expect.equals(value, err.invalidValue);
   Expect.equals(name, err.name);

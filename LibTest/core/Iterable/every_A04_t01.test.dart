@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
 
-  check(List a0, bool predicate(var e), exc) {
+  check(List a0, bool predicate(e), exc) {
     Iterable a = create(a0);
     int actualCount = 0;
     Expect.throws(
@@ -30,17 +30,17 @@ test(Iterable create([Iterable content])) {
     Expect.equals(1, actualCount);
   }
 
-  bool allTrue(var e) {
+  bool allTrue(e) {
     throw 1;
   }
   check([1, 2, 3, 4, 5], allTrue, 1);
   
-  bool allFalse(var e) {
+  bool allFalse(e) {
     throw false;
   }
   check([1, 2, 3, 4, 5], allFalse, false);
   
-  bool lessThan3(var e) {
+  bool lessThan3(e) {
     throw 3;
   }
   check([1, 2, 3, 4, 5], lessThan3, 3);

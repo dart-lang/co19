@@ -6,6 +6,7 @@
 /// ...
 /// The matching elements have the same order in the returned iterable as they
 /// have in iterator.
+///
 /// @description Checks that all elements of the returned have the same order as
 /// they have in iterator
 /// @author sgrekhov@unipro.ru
@@ -25,7 +26,7 @@ test(Iterable create([Iterable content])) {
     Expect.iterableEquals(create(expected), ret);
   }
 
-  bool f(var e) { return (e >= 0); }
+  bool f(e) => e >= 0;
   check([-1, 0, 1, 2, 3, 4], f, [0, 1, 2, 3, 4]);
   check([-1, 0, 1, -2, 3, 4], f, [0, 1, 3, 4]);
   check([1, 0, -1, 2, -3, 4], f, [1, 0, 2, 4]);

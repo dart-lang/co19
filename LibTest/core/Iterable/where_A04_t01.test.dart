@@ -7,15 +7,19 @@
 /// Iterating will not cache results, and thus iterating multiple times over the
 /// returned Iterable will invoke the supplied function test multiple times on
 /// the same element.
+///
+/// @description Checks that iterating multiple times over the returned
+/// `Iterable` will invoke the supplied function test multiple times on the same
+/// element.
 /// @author sgrekhov@unipro.ru
 
 library where_A04_t01;
 
 import "../../../Utils/expect.dart"	;
 
-void check(Iterable a0, bool test0(var element)) {
+void check(Iterable a0, bool test0(element)) {
   List copy = new List.empty(growable: true);
-  bool tst(var el) {
+  bool tst(el) {
     copy.add(el);
     return test0(el);
   }
@@ -24,8 +28,7 @@ void check(Iterable a0, bool test0(var element)) {
   for (int k = 0; k < 5; k++) {
     Expect.equals(0, copy.length);
     Iterator it = itbl.iterator;
-    while (it.moveNext()) {
-    }
+    while (it.moveNext()) {}
     Expect.iterableEquals(a0, copy);
     copy = [];
   }
@@ -33,10 +36,10 @@ void check(Iterable a0, bool test0(var element)) {
 
 test(Iterable create([Iterable content])) {
   Iterable a0 = create([1, 3, 7, 4, 5, 6]);
-  check(a0, (var element) => element == 1);
-  check(a0, (var element) => true);
-  check(a0, (var element) => false);
-  check(a0, (var element) => element > 4);
-  check(a0, (var element) => element < 4);
-  check(a0, (var element) => element == 4);
+  check(a0, (element) => element == 1);
+  check(a0, (element) => true);
+  check(a0, (element) => false);
+  check(a0, (element) => element > 4);
+  check(a0, (element) => element < 4);
+  check(a0, (element) => element == 4);
 }

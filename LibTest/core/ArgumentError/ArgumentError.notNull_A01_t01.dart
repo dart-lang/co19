@@ -4,14 +4,14 @@
 
 /// @assertion ArgumentError.notNull([String name])
 /// Create an argument error for a null argument that must not be null.
+///
 /// @description Checks that this constructor executes without error for various
 /// strings and null.
 /// @author sgrekhov@unipro.ru
 
-
 import "../../../Utils/expect.dart";
  
-void check(var name) {
+void check(name) {
   ArgumentError err = new ArgumentError.notNull(name);
   Expect.equals(name, err.name);
   Expect.equals("Must not be null", err.message);

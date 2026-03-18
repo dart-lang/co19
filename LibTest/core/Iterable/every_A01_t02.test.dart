@@ -6,6 +6,7 @@
 /// Checks whether every element of this iterable satisfies test.
 /// Checks every element in iteration order, and returns false if any of them
 /// make test return false, otherwise returns true.
+///
 /// @description Checks that the predicate method is called for each element
 /// until the first false result.
 /// @author vasya
@@ -18,7 +19,7 @@ import "../../../Utils/expect.dart";
 test(Iterable create([Iterable content])) {
 
   //Checks that [every] calls [predicate] a [count] number of times
-  check(List a0, bool predicate(var e), int count) {
+  check(List a0, bool predicate(e), int count) {
     Iterable a = create(a0);
     int actualCount = 0;
     a.every((var e) {
@@ -28,19 +29,13 @@ test(Iterable create([Iterable content])) {
     Expect.equals(count, actualCount);
   }
 
-  bool allTrue(var e) {
-    return true;
-  }
+  bool allTrue(e) => true;
   check([1, 2, 3, 4, 5], allTrue, 5);
   
-  bool allFalse(var e) {
-    return false;
-  }
+  bool allFalse(e) => false;
   check([1, 2, 3, 4, 5], allFalse, 1);
   
-  bool lessThan3(var e) {
-    return e < 3;
-  }
+  bool lessThan3(e) => e < 3;
   check([1, 2, 3, 4, 5], lessThan3, 3);
   check(const [1, 2, 3, 4, 5], lessThan3, 3);
   check(new List.from([1, 2, 3, 4, 5]), lessThan3, 3);

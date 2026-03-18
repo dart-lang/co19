@@ -4,6 +4,7 @@
 
 /// @assertion Iterable<E> where(bool f(E element))
 /// Returns a lazy Iterable with all elements that satisfy the predicate f.
+///
 /// @description Checks that all elements of the returned Iterable satisfy the
 /// predicate [f].
 /// @author vasya
@@ -23,14 +24,14 @@ test(Iterable create([Iterable content])) {
     Expect.iterableEquals(expected, ret);
   }
 
-  bool f(var e) { return (e > 1); }
+  bool f(e) => e > 1;
   check([-1, 0, 1, 2, 3, 4], f, [2, 3, 4]);
 
-  bool f2(var e) { return (e == -123); }
+  bool f2(e) => e == -123;
   List l = new List.filled(100, 0);
   l[99] = -123;
   check(l, f2, [-123]);
   
-  bool f3(var e) { return (e < 0); }
+  bool f3(e) => e < 0;
   check([1, 2, 3], f3, []);
 }

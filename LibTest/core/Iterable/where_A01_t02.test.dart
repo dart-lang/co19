@@ -4,6 +4,7 @@
 
 /// @assertion Iterable<E> where(bool f(E element))
 /// Returns a lazy Iterable with all elements that satisfy the predicate f.
+///
 /// @description Checks that the predicate method is called for all elements of
 /// the list as long as the resulting iterable is iterated over to the end.
 /// @author sgrekhov@unipro.ru
@@ -12,13 +13,12 @@ library where_A01_t02;
  
 import "../../../Utils/expect.dart";
 
-check(Iterable a, bool f(var e)) {
+check(Iterable a, bool f(e)) {
   List copy = new List.empty(growable: true);
-  bool tst(var e) {
+  bool tst(e) {
     copy.add(e);
     return f(e);
   }
-
   Iterable ret = a.where(tst);
   Iterator it = ret.iterator;
   while(it.moveNext()) {}

@@ -6,6 +6,7 @@
 /// Checks whether any element of this iterable satisfies test.
 /// Checks every element in iteration order, and returns true if any of them make
 /// test return true, otherwise returns false.
+///
 /// @description Checks that this method works as specified.
 /// @author pagolubev
 /// @author sgrekhov@unipro.ru
@@ -19,6 +20,6 @@ test(Iterable create([Iterable content])) {
   Expect.isTrue(create([null]).any((var e) { return true; } ));
   Expect.isFalse(create([null]).any((var e) { return false; } ));
 
-  bool f1(var e) { return (e > 1); }
+  bool f1(e) => e > 1;
   Expect.isTrue(create([1, 2, 3, 4]).any(f1));
 }
