@@ -6,6 +6,7 @@
 /// bool isValidKey(potentialKey)])
 /// Keys of the map are compared using the [compare] function passed in the
 /// constructor, both for ordering and for equality.
+///
 /// @description Checks that [compare] function works as expected.
 /// @author sgrekhov@unipro.ru
 
@@ -17,7 +18,7 @@ class C {
   C(this.value);
 }
 
-int compare(var key1, var key2) {
+int compare(key1, key2) {
   return key1.value - key2.value;
 }
 

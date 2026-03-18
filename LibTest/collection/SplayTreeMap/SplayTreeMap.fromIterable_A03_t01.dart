@@ -7,6 +7,7 @@
 /// bool isValidKey(potentialKey)})
 /// For each element of the [iterable] this constructor computes a key/value
 /// pair, by applying [key] and [value] respectively.
+///
 /// @description Checks that for each element of the iterable this constructor
 /// computes a key/value pair, by applying [key] and [value] respectively
 /// @author sgrekhov@unipro.ru
@@ -22,8 +23,8 @@ check(Iterable expectedKeys, Iterable expectedValues, Map m2) {
   }
 }
 
-int getKey(var element) => element * 2;
-String getValue(var element) => "value=" + element.toString();
+int getKey(element) => element * 2;
+String getValue(element) => "value=" + element.toString();
 
 main() {
   SplayTreeMap map = new SplayTreeMap.fromIterable([],

@@ -4,6 +4,7 @@
 
 /// @assertion void retainWhere(bool test(E element))
 /// Removes all elements not matched by [test] from the queue.
+///
 /// @description Checks that all elements that satisfy [test] are left, and
 /// elements that do not are removed.
 /// @author sgrekhov@unipro.ru
@@ -16,7 +17,7 @@ import "dart:collection";
 test(Queue create([Iterable content])) {
   List source = [1, 3, 3, 4, 5, 6];
   
-  void check(bool testFunc(var element)) {
+  void check(bool testFunc(element)) {
     Queue a = create(source);
     a.retainWhere(testFunc);
     int k = 0;

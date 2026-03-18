@@ -12,7 +12,7 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-check(var value) {
+check(value) {
   Future future = new Future(() => value);
   Stream stream = future.asStream();
   Future f2 = stream.single;

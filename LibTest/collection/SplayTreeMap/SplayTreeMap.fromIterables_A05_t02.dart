@@ -4,6 +4,7 @@
 
 /// @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
 /// [int compare(K key1, K key2), bool isValidKey(potentialKey)])
+///
 /// @description Checks that if [isValidKey] function is supplied and returns
 /// [false] then element is assumed not to be in a map
 /// @author sgrekhov@unipro.ru
@@ -16,11 +17,11 @@ class C {
   C(this.value);
 }
 
-int compare(var key1, var key2) {
+int compare(key1, key2) {
   return key1.value - key2.value;
 }
 
-bool isValidKey(var potentialKey) => potentialKey.value != 3;
+bool isValidKey(potentialKey) => potentialKey.value != 3;
 
 main() {
   C c1 = new C(1);

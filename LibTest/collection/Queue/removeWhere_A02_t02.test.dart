@@ -5,6 +5,7 @@
 /// @assertion void removeWhere(bool test(E element))
 /// ...
 /// The [test] function must not throw or modify the queue.
+///
 /// @description Checks that if [test] function modifies the queue the exception
 /// is thrown and operation stops
 /// @issue 26587
@@ -18,7 +19,7 @@ import "../../../Utils/expect.dart";
 test(Queue create([Iterable content])) {
   Queue queue = create([-3, -2, -1, 0, 1, 2, 3, -1]);
 
-  bool throwFunction(var element) {
+  bool throwFunction(element) {
     queue.remove(element);
     return false;
   }

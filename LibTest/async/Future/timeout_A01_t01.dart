@@ -15,7 +15,7 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-check(var value) {
+check(value) {
   asyncStart();
   Future future = new Future.value(value);
   future.timeout(new Duration(milliseconds: 1)).then((v) {
