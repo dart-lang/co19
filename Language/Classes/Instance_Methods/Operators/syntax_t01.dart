@@ -23,13 +23,13 @@
 typedef int Foo(double d);
 
 class C<T> {
-  int operator +(var v) => 42;
-  List operator [](var v) => [];
+  int operator +(v) => 42;
+  List operator [](v) => [];
   operator -() {}
-  operator -(var v) {}
-  operator []=(var v, var v2) {}
+  operator -(v) {}
+  operator []=(v, v2) {}
   dynamic operator ~() {}
-  Foo operator *(var v) => (double s) => 42;
+  Foo operator *(v) => (double s) => 42;
   T operator >(T t) => t;
 }
 

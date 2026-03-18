@@ -11,7 +11,7 @@
 /// @author rodionov
 
 class C {
-  operator []=(var x, var y, [var o]) {}
+  operator []=(x, y, [o]) {}
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified

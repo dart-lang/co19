@@ -17,7 +17,7 @@ bool isValidKey(potentialKey) {
   return potentialKey is String;
 }
 
-int compare(var key1, var key2) {
+int compare(key1, key2) {
   return 1;
 }
 

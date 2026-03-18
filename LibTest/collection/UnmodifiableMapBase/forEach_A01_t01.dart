@@ -4,6 +4,7 @@
 
 /// @assertion  void forEach(void action(K key, V value))
 /// Applies [f] to each key-value pair of the map.
+///
 /// @description Checks that all mappings are iterated exactly once.
 /// @author iarkh@unipro.ru
 
@@ -16,7 +17,7 @@ main() {
   keys[0] = 0;
   keys[1] = 0;
   List values = new List.filled(2, "");
-  void f(var i, Object? value) {
+  void f(i, Object? value) {
     keys[i] += 1;
     values[i] = value;
   }

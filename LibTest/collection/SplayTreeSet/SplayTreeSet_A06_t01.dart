@@ -7,6 +7,7 @@
 /// ...
 /// If the isValidKey function returns false for an object, it is assumed to not
 /// be in the set.
+///
 /// @description Checks that if the isValidKey function returns false for an
 /// object, it is assumed to not be in the set
 /// @author sgrekhov@unipro.ru
@@ -18,7 +19,7 @@ bool isValidKey(potentialKey) {
   return potentialKey is String;
 }
 
-int compare(var key1, var key2) {
+int compare(key1, key2) {
   return 1;
 }
 

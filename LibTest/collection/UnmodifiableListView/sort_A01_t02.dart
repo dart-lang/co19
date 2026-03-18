@@ -4,13 +4,14 @@
 
 /// @assertion void sort([Comparator compare ])
 /// This operation is not supported by an unmodifiable list.
+///
 /// @description Checks that [sort] method is not supported.
 /// @author iarkh@unipro.ru
 
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-int c(var a, var b) {
+int c(a, b) {
   return a < b ? -1 : (a == b ? 0 : 1);
 }
 

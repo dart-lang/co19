@@ -11,6 +11,7 @@
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si .
 /// 3. k ≥ m and yi ∈ {x1, ..., xk }, i ∈ 1..m.
 /// 4. For all yi ∈ {y1, ..., ym }, yi = xj ⇒ Tj ⇐⇒ Si.
+///
 /// @description Checks that this statement is true even if the subtype function
 /// type has more named optional parameters than the supertype as long it's a
 /// superset of the supertype's named optional parameters.
@@ -35,9 +36,9 @@ class G<T, S, U, W> {}
 
 typedef classesFunc(A aa, {A? a, B? b, C? c, D? d});
 typedef genericsFunc({Map<num, int>? m, List<List<B>>? l, G<A, B, C, D>? g});
-typedef dynamicFunc({var x, var y, var z, var v});
+typedef dynamicFunc({dynamic x, dynamic y, dynamic z, dynamic v});
 typedef funcFunc({classesFunc? f1, genericsFunc? f2, dynamicFunc? f3});
-typedef mixFunc({var x, B? b, G<A, B, C, D>? g, funcFunc? f});
+typedef mixFunc({dynamic x, B? b, G<A, B, C, D>? g, funcFunc? f});
 
 typedef okWithClassesFunc(A aa, {D? a, D? b, D? c, D? d});
 typedef okWithGenericsFunc(
@@ -45,10 +46,10 @@ typedef okWithGenericsFunc(
 typedef okWithDynamicFunc({int? x, bool? y, List<Map>? z, classesFunc? v});
 
 main() {
-  Expect.isTrue((var vv, {A? a, B? b, C? c, D? d, Map? xxx, Object? xxxx}) {}
+  Expect.isTrue((dynamic vv, {A? a, B? b, C? c, D? d, Map? xxx, Object? xxxx}) {}
       is classesFunc);
   Expect.runtimeIsType<classesFunc>(
-      (var vv, {A? a, B? b, C? c, D? d, Map? xxx, Object? xxxx}) {});
+      (dynamic vv, {A? a, B? b, C? c, D? d, Map? xxx, Object? xxxx}) {});
 
   Expect.isTrue(({Map<num, int>? m, List<List<B>>? l, G<A, B, C, D>? g}) {}
       is genericsFunc);
@@ -59,7 +60,7 @@ main() {
       {A? x,
       G? y,
       mixFunc? z,
-      var v,
+        dynamic v,
       Object? xx,
       List<Map<int, mixFunc>>? xxx,
       mixFunc? xxxx}) {} is dynamicFunc);
@@ -67,7 +68,7 @@ main() {
       {A? x,
         G? y,
         mixFunc? z,
-        var v,
+        dynamic v,
         Object? xx,
         List<Map<int, mixFunc>>? xxx,
         mixFunc? xxxx}) {});

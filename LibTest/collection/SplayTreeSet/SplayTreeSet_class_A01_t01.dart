@@ -5,13 +5,14 @@
 /// @assertion class SplayTreeSet<E>
 /// A Set of objects that can be ordered relative to each other.
 /// Mixes-in IterableMixin<E> SetMixin<E>
+///
 /// @description Checks that all inherited methods are implemented.
 /// @author sgrekhov@unipro.ru
 
 import "dart:collection";
 import "inherited_tests.lib.dart" as inherited_tests;
 
-int compare(var key1, var key2) {
+int compare(key1, key2) {
   if (key1 is Comparable && key2 is Comparable) {
     return key1.compareTo(key2);
   } else {

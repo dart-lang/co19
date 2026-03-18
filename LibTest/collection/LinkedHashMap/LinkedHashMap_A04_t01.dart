@@ -11,6 +11,7 @@
 /// argument that may not be a [K] instance, and if the call returns [false], the
 /// key is assumed to not be in the set. The [isValidKey] function defaults to
 /// just testing if the object is a [K] instance.
+///
 /// @description Checks that if methods operator[], [remove] and [containsKey]
 /// together with a custom equality and hashcode are used and an extra
 /// [isValidKey] function is supplied then this function is called before calling
@@ -23,7 +24,7 @@ import "dart:collection";
 bool checkDone = false;
 bool isValidKeyCalled = false;
 
-bool myEquals(var key1, var key2) {
+bool myEquals(key1, key2) {
   if (!checkDone) {
     Expect.isTrue(isValidKeyCalled);
     checkDone = true;
@@ -31,7 +32,7 @@ bool myEquals(var key1, var key2) {
   return key1 == key2;
 }
 
-int myHashCode(var key) {
+int myHashCode(key) {
   if (!checkDone) {
     Expect.isTrue(isValidKeyCalled);
     checkDone = true;
@@ -39,7 +40,7 @@ int myHashCode(var key) {
   return key.hashCode;
 }
 
-bool isValidKey(var potentialKey) {
+bool isValidKey(potentialKey) {
   isValidKeyCalled = true;
   return potentialKey is int;
 }

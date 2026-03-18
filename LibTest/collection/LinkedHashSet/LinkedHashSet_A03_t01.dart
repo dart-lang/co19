@@ -7,6 +7,7 @@
 /// Create an insertion-ordered hash set using the provided [equals] and
 /// [hashCode]. The provided [equals] must define a stable equivalence relation,
 /// and [hashCode] must be consistent with [equals]
+///
 /// @description Checks that if consistent [equals] and [hashCode] are provided,
 /// they are used to compare the keys and produce hash value for keys
 /// @author sgrekhov@unipro.ru
@@ -14,9 +15,9 @@
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-bool myEquals(var key1, var key2) =>
+bool myEquals(key1, key2) =>
     key1 > 0 && key2 > 0 || key1 <= 0 && key2 <= 0;
-int myHashCode(var key) => key > 0 ? 1 : -1;
+int myHashCode(key) => key > 0 ? 1 : -1;
 
 check(LinkedHashSet set, List expected) {
   Expect.equals(expected.length, set.length);

@@ -9,6 +9,7 @@
 ///    • S is void, or
 ///    • T <=> S.
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+///
 /// @description Checks that this statement is true even if the subtype function
 /// type has more positional optional parameters than the supertype as long as the
 /// supertype's positional optional parameters match the beginning of the list of
@@ -33,9 +34,9 @@ class G<T, S, U, W> {}
 
 typedef classesFunc(A aa, [A? a, B? b, C? c, D? d]);
 typedef genericsFunc([Map<num, int>? m, List<List<B>>? l, G<A, B, C, D>? g]);
-typedef dynamicFunc([var x, var y, var z, var v]);
+typedef dynamicFunc([dynamic x, dynamic y, dynamic z, dynamic v]);
 typedef funcFunc([classesFunc? f1, genericsFunc? f2, dynamicFunc? f3]);
-typedef mixFunc([var x, B? b, G<A, B, C, D>? g, funcFunc? f]);
+typedef mixFunc([dynamic x, B? b, G<A, B, C, D>? g, funcFunc? f]);
 
 typedef okWithClassesFunc_1(A aa, [A? a, A1? b, A1? c, A1? d]);
 typedef okWithClassesFunc_2(A aa, [D? a, D? b, D? c, D? d]);
@@ -45,32 +46,32 @@ typedef okWithGenericsFunc_1(
 typedef okWithGenericsFunc_2(
     [Map<int, int>? m, List<List<D>>? l, G<D, D, D, D>? g]);
 
-typedef okWithDynamicFunc_1([A? x, G? y, mixFunc z, var v]);
+typedef okWithDynamicFunc_1([A? x, G? y, mixFunc z, dynamic v]);
 typedef okWithDynamicFunc_2([int? x, bool? y, List<Map>? z, classesFunc? v]);
 
 main() {
-  Expect.isFalse((var vv,
+  Expect.isFalse((dynamic vv,
       [D? a,
       B? b,
       C? c,
       A? d,
-      var xx,
+      dynamic xx,
       Map? xxx,
       Object? xxxx]) {} is classesFunc);
   Expect.runtimeIsNotType<classesFunc>(
-      (var vv, [A? a, C? c, B? b, D? d, Map? xxx, Object? xxxx]) {});
+      (dynamic vv, [A? a, C? c, B? b, D? d, Map? xxx, Object? xxxx]) {});
 
   Expect.isTrue(
-      ([var m, var l, var g, var xx, var xxx, var xxxx]) {} is genericsFunc);
+      ([m, l, g, xx, xxx, xxxx]) {} is genericsFunc);
   Expect.runtimeIsType<genericsFunc>(
-      ([var m, var l, var g, var xx, var xxx, var xxxx]) {});
+      ([m, l, g, xx, xxx, xxxx]) {});
   Expect.runtimeIsType<genericsFunc>(
-      ([var m, var l, var g, var xx, var xxx, var xxxx]) {});
+      ([m, l, g, xx, xxx, xxxx]) {});
   Expect.isFalse((
       [A? x,
       G? y,
       mixFunc? z,
-      var v,
+      dynamic v,
       Object? xx,
       List<Map<int, mixFunc>>? xxx,
       mixFunc? xxxx]) {} is dynamicFunc);
@@ -78,7 +79,7 @@ main() {
       [A? x,
       G? y,
       mixFunc? z,
-      var v,
+      dynamic v,
       Object? xx,
       List<Map<int, mixFunc>>? xxx,
       mixFunc? xxxx]) {});
