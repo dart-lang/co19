@@ -28,11 +28,11 @@ void check(Set source, bool test(element)) {
 
 test(Set create([Iterable content])) {
   Set set = create([1, 3, 3, 4, 5, 6]);
-  check(set, (var element) => true);
-  check(set, (var element) => false);
-  check(set, (var element) => element > 4);
-  check(set, (var element)=> element < 4);
-  check(set, (var element)=> element == 4);
+  check(set, (element) => true);
+  check(set, (element) => false);
+  check(set, (element) => element > 4);
+  check(set, (element)=> element < 4);
+  check(set, (element)=> element == 4);
 }
 
 main() {

@@ -15,10 +15,10 @@ library any_A01_t04;
 import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
-  Expect.isTrue(create([0, 1, 2, 3]).any((var e) { return (e > 1 && e < 3); } ));
-  Expect.isFalse(create([1, 2, 3]).any((var e) { return (e < 0); } ));
-  Expect.isTrue(create([null]).any((var e) { return true; } ));
-  Expect.isFalse(create([null]).any((var e) { return false; } ));
+  Expect.isTrue(create([0, 1, 2, 3]).any((e) => e > 1 && e < 3));
+  Expect.isFalse(create([1, 2, 3]).any((e) => e < 0));
+  Expect.isTrue(create([null]).any((e) => true));
+  Expect.isFalse(create([null]).any((e) => false));
 
   bool f1(e) => e > 1;
   Expect.isTrue(create([1, 2, 3, 4]).any(f1));

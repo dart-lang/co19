@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 //Checks that [some] calls [tst] a [count] number of times
 check(Iterable a, bool tst(e), int count) {
   int actualCount = 0;
-  a.any((var e) {
+  a.any((e) {
     actualCount++;
     return tst(e);
   });

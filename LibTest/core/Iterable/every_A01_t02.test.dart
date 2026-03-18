@@ -22,7 +22,7 @@ test(Iterable create([Iterable content])) {
   check(List a0, bool predicate(e), int count) {
     Iterable a = create(a0);
     int actualCount = 0;
-    a.every((var e) {
+    a.every((e) {
       actualCount++;
       return predicate(e);
     });
