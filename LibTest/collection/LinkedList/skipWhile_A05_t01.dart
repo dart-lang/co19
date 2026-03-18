@@ -4,6 +4,7 @@
 
 /// @assertion Iterable<E> skipWhile(bool test(E value))
 /// If all elements satisfy [test] the resulting iterable is empty.
+///
 /// @description Checks that if all elements satisfy the [test] than result
 /// [Iterable] is empty.
 /// @author iarkh@unipro.ru
@@ -12,7 +13,7 @@ import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
-void check(LinkedList<MyLinkedListEntry<int>> a0, bool test(var element)) {
+void check(LinkedList<MyLinkedListEntry<int>> a0, bool test(dynamic element)) {
   bool test2(MyLinkedListEntry<int> entry) => test(entry.value);
   Iterable res = a0.skipWhile(test2);
   Expect.isTrue(res.isEmpty);
@@ -20,6 +21,6 @@ void check(LinkedList<MyLinkedListEntry<int>> a0, bool test(var element)) {
 
 main() {
   LinkedList<MyLinkedListEntry<int>> a0 = toLinkedList([1, 3, 7, 4, 5, 6]);
-  check(a0, (var element) => element > 0);
-  check(a0, (var element) => true);
+  check(a0, (element) => element > 0);
+  check(a0, (element) => true);
 }

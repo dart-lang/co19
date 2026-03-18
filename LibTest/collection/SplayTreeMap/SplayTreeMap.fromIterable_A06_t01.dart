@@ -5,6 +5,7 @@
 /// @assertion SplayTreeMap.fromIterable(Iterable iterable,
 /// {K key(element), V value(element), int compare(K key1, K key2),
 /// bool isValidKey(potentialKey)})
+///
 /// @description Checks that if [isValidKey] function is specified, then it is
 /// called before the [compare] call
 /// @author sgrekhov@unipro.ru
@@ -20,7 +21,7 @@ class C {
   C(this.value);
 }
 
-int compare(var key1, var key2) {
+int compare(key1, key2) {
   if (startTesting) {
     Expect.isTrue(isValidKeyCalled);
   }

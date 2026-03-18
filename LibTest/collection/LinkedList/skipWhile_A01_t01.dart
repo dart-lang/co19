@@ -7,6 +7,7 @@
 /// ...
 /// It iterates the remaining elements in their original order, starting with the
 /// first element for which [test(element)] returns [false].
+///
 /// @description Checks that all first elements which satisfy [test] are removed,
 /// and elements after that are retained.
 /// @author kaigorodov
@@ -15,7 +16,7 @@ import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
-void check(LinkedList<MyLinkedListEntry<int>> a0, bool test(var element)) {
+void check(LinkedList<MyLinkedListEntry<int>> a0, bool test(dynamic element)) {
   bool test2(MyLinkedListEntry<int> entry) => test(entry.value);
   
   Iterator<MyLinkedListEntry<int>> it0 = a0.iterator;
@@ -43,10 +44,10 @@ void check(LinkedList<MyLinkedListEntry<int>> a0, bool test(var element)) {
 
 main() {
   LinkedList<MyLinkedListEntry<int>> a0 = toLinkedList([1, 3, 7, 4, 5, 6]);
-  check(a0, (var element) => element == 1);
-  check(a0, (var element) => true);
-  check(a0, (var element) => false);
-  check(a0, (var element) => element > 4);
-  check(a0, (var element) => element < 4);
-  check(a0, (var element) => element == 4);
+  check(a0, (element) => element == 1);
+  check(a0, (element) => true);
+  check(a0, (element) => false);
+  check(a0, (element) => element > 4);
+  check(a0, (element) => element < 4);
+  check(a0, (element) => element == 4);
 }

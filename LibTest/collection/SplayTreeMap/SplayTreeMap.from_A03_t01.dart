@@ -20,7 +20,7 @@ class C {
   C(this.value);
 }
 
-int compare(var key1, var key2) {
+int compare(key1, key2) {
   if (startTesting) {
     Expect.isTrue(isValidKeyCalled);
   }

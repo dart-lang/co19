@@ -4,6 +4,7 @@
 
 /// @assertion Iterable<E> skipWhile(bool test(E value))
 /// The filtering happens lazily.
+///
 /// @description Checks that the [test] method is not called when the [skipWhile]
 /// is executed.
 /// @author kaigorodov
@@ -11,7 +12,7 @@
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
-bool test(var value) {
+bool test(value) {
   Expect.fail("test($value) called");
   return false;
 }

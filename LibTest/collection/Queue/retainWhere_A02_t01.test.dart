@@ -5,6 +5,7 @@
 /// @assertion void retainWhere(bool test(E element))
 /// ...
 /// The [test] function must not throw or modify the queue.
+///
 /// @description Checks that if [test] function throws an exception then
 /// operation stops
 /// @author sgrekhov@unipro.ru
@@ -14,7 +15,7 @@ library retainWhere_A02_t01;
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-bool throwFunction(var element) {
+bool throwFunction(element) {
   if (element < 0) {
     return true;
   } else {

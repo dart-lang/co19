@@ -7,6 +7,7 @@
 /// If the [compare] function is omitted, the objects are assumed to be
 /// [Comparable], and are compared using their [Comparable.compareTo] method.
 /// Non-comparable objects (including [null]) will not work as keys in that case.
+///
 /// @description Checks that if [compare] method is specified then
 /// [Comparable.compareTo] is ignored during the comparison in [SplayTreeMap].
 /// @author iarkh@unipro.ru
@@ -14,7 +15,7 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-int compare(var key1, var key2) {
+int compare(key1, key2) {
   return -1;
 }
 

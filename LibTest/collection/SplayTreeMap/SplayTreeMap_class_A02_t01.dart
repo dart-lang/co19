@@ -6,9 +6,9 @@
 /// bool isValidKey(potentialKey)])
 /// Keys of the map are compared using the [compare] function passed in the
 /// constructor, both for ordering and for equality.
+///
 /// @description Checks that [compare] function is really called when comparing
 /// or ordering the keys.
-/// .
 /// @author iarkh@unipro.ru
 
 import "dart:collection";
@@ -21,7 +21,7 @@ class C {
 
 bool compared = false;
 
-int compare(var key1, var key2) {
+int compare(key1, key2) {
   compared = true;
   return key1.value - key2.value;
 }

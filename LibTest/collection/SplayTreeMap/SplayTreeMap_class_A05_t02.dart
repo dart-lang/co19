@@ -8,6 +8,7 @@
 /// not supported by the [compare] function, an extra [isValidKey] predicate
 /// function can be supplied. This function is tested before using the [compare]
 /// function on an argument value that may not be a [K] value.
+///
 /// @description Checks that if [isValidKey] supplied and returns [false] then
 /// element is assumed not to be in a map
 /// @author sgrekhov@unipro.ru
@@ -20,11 +21,11 @@ class C {
   C(this.value);
 }
 
-int compare(var key1, var key2) {
+int compare(key1, key2) {
   return key1.value - key2.value;
 }
 
-bool isValidKey(var potentialKey) => potentialKey.value != 3;
+bool isValidKey(potentialKey) => potentialKey.value != 3;
 
 main() {
   SplayTreeMap map = new SplayTreeMap(compare, isValidKey);

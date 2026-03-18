@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion bool every(bool f(E element))
+///
 /// @description Checks that method always returns [true] on an empty list.
 /// @author kaigorodov
 
@@ -11,5 +12,5 @@ import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 main() {
-  Expect.isTrue(new LinkedList<MyLinkedListEntry>().every((var v) => true));
+  Expect.isTrue(new LinkedList<MyLinkedListEntry>().every((v) => true));
 }

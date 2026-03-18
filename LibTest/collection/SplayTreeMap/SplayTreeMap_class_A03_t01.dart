@@ -8,6 +8,7 @@
 /// If the map contains only the key [a], then [map.containsKey(b)] will return
 /// [true] if and only if [compare(a, b) == 0], and the value of [a == b] is not
 /// even checked.
+///
 /// @description Checks that if [compare(a, b) == 0] then [map.containsKey(b)]
 /// returns [true]
 /// @author sgrekhov@unipro.ru
@@ -20,7 +21,7 @@ class C {
   C(this.value);
 }
 
-int compare(var key1, var key2) {
+int compare(key1, key2) {
   return key1.value - key2.value;
 }
 

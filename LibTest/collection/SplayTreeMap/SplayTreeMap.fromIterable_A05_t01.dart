@@ -5,6 +5,7 @@
 /// @assertion SplayTreeMap.fromIterable(Iterable iterable,
 /// {K key(element), V value(element), int compare(K key1, K key2),
 /// bool isValidKey(potentialKey)})
+///
 /// @description Checks that if [compare] function specified, then it is used for
 /// the keys comparison
 /// @author sgrekhov@unipro.ru
@@ -19,7 +20,7 @@ class C {
   C(this.value);
 }
 
-int compare(var key1, var key2) {
+int compare(key1, key2) {
   compareCalled = true;
   return key1.value - key2.value;
 }
