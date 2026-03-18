@@ -16,7 +16,7 @@ import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
-void check(LinkedList<MyLinkedListEntry<int>> a0, bool test(element)) {
+void check(LinkedList<MyLinkedListEntry<int>> a0, bool test(dynamic element)) {
   bool test2(MyLinkedListEntry<int> entry) => test(entry.value);
   
   Iterator<MyLinkedListEntry<int>> it0 = a0.iterator;

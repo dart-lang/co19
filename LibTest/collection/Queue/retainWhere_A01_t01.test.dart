@@ -17,7 +17,7 @@ import "dart:collection";
 test(Queue create([Iterable content])) {
   List source = [1, 3, 3, 4, 5, 6];
   
-  void check(bool testFunc(element)) {
+  void check(bool testFunc(dynamic element)) {
     Queue a = create(source);
     a.retainWhere(testFunc);
     int k = 0;
@@ -30,9 +30,9 @@ test(Queue create([Iterable content])) {
     Expect.equals(a.length, k, "a.length=${a.length} k=$k");
   }
   
-  check((var element) => true);
-  check((var element) => false);
-  check((var element) => element > 4);
-  check((var element) => element < 4);
-  check((var element) => element == 4);
+  check((element) => true);
+  check((element) => false);
+  check((element) => element > 4);
+  check((element) => element < 4);
+  check((element) => element == 4);
 }

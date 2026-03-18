@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 //Checks that [every] calls [predicate] a [count] number of times
-check(LinkedList<MyLinkedListEntry> a, bool predicate(e), int count) {
+check(LinkedList<MyLinkedListEntry> a, bool predicate(dynamic e), int count) {
   int actualCount = 0;
   a.every((MyLinkedListEntry e) {
     actualCount++;
