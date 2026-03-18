@@ -17,22 +17,17 @@ import "../../Utils/expect.dart";
 test<T>(T t) {}
 
 class C<T> {
-  C(final f, var v, int i, T t) {
-    test<int>(f);
+  C(v, int i, T t) {
     test<int>(v);
     test<int>(i);
     test<T>(t);
 
-    Expect.isTrue(f is int);
-    Expect.isFalse(f is String);
     Expect.isTrue(v is int);
     Expect.isFalse(v is String);
     Expect.isTrue(i is int);
     Expect.isFalse(i is String);
     Expect.isTrue(t is int);
     Expect.isFalse(t is String);
-    Expect.runtimeIsType<int>(f);
-    Expect.runtimeIsNotType<String>(f);
     Expect.runtimeIsType<int>(v);
     Expect.runtimeIsNotType<String>(v);
     Expect.runtimeIsType<int>(i);
@@ -43,5 +38,5 @@ class C<T> {
 }
 
 main() {
-  C(1, 2, 3, 4);
+  C(1, 2, 3);
 }

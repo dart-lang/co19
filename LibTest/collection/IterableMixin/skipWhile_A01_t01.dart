@@ -20,7 +20,7 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-void check(List list, bool test(var element)) {
+void check(List list, bool test(dynamic element)) {
   IterableMixin iterable = new MyIterable(list);
   Iterator it0 = iterable.iterator;
   Iterator it = iterable.skipWhile(test).iterator;
@@ -49,10 +49,10 @@ void check(List list, bool test(var element)) {
 
 main() {
   List list = [1, 3, 7, 4, 5, 6];
-  check(list, (var element) => element == 1);
-  check(list, (var element) => true);
-  check(list, (var element) => false);
-  check(list, (var element) => element > 4);
-  check(list, (var element) => element < 4);
-  check(list, (var element) => element == 4);
+  check(list, (element) => element == 1);
+  check(list, (element) => true);
+  check(list, (element) => false);
+  check(list, (element) => element > 4);
+  check(list, (element) => element < 4);
+  check(list, (element) => element == 4);
 }

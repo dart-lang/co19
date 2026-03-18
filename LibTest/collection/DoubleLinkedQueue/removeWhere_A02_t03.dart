@@ -20,22 +20,22 @@ import "../../../Utils/expect.dart";
 List list = [1, 3, 3, 4, 5, 6];
 DoubleLinkedQueue? queue;
 
-bool testClear1(var element) {
+bool testClear1(element) {
   queue?.clear();
   return element == 1;
 }
 
-bool testClear2(var element) {
+bool testClear2(element) {
   queue?.clear();
   return false;
 }
 
-bool testClear3(var element) {
+bool testClear3(element) {
   queue?.clear();
   return true;
 }
 
-check(bool test(var element), List list) {
+check(bool test(dynamic element), List list) {
   queue = new DoubleLinkedQueue.from(list);
   Expect.throws(() {queue?.removeWhere(test);});
 }

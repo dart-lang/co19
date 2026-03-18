@@ -15,8 +15,7 @@
 test<T>(T t) {}
 
 class C<T> {
-  C(final f, var v, int i, T t) {
-    test<String>(f);
+  C(v, int i, T t) {
     test<String>(v);
     test<String>(i);
 //               ^
@@ -30,5 +29,5 @@ class C<T> {
 }
 
 main() {
-  C(1, 2, 3, 4);
+  C(1, 2, 3);
 }

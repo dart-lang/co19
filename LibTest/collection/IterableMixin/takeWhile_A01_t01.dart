@@ -7,6 +7,7 @@
 /// The elements can be computed by stepping through iterator until an element is
 /// found where [test(element)] is [false]. At that point, the returned iterable
 /// stops (its [moveNext()] returns [false]).
+///
 /// @description Checks that all first elements that satisfy [test] are retained,
 /// and elements after are skipped.
 /// @author iarkh@unipro.ru
@@ -23,7 +24,7 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-void check(List list, bool test(var element)) {
+void check(List list, bool test(dynamic element)) {
   IterableMixin iterable = new MyIterable(list);
   Iterator it = list.iterator;
   Iterable res = iterable.takeWhile(test);
@@ -39,19 +40,18 @@ void check(List list, bool test(var element)) {
   if(it.moveNext()) {
     Expect.isFalse(test(it.current));
   }
-
 }
 
 main() {
   List list = [1, 3, 7, 4, 5, 6, 3, 4, 1];
-  check(list, (var element) => element == 1);
-  check(list, (var element) => true);
-  check(list, (var element) => false);
-  check(list, (var element) => element > 4);
-  check(list, (var element) => element < 4);
-  check(list, (var element) => element == 4);
-  check(list, (var element) => element < 0);
-  check(list, (var element) => element > 10);
-  check([], (var element) => true);
-  check([], (var element) => false);
+  check(list, (element) => element == 1);
+  check(list, (element) => true);
+  check(list, (element) => false);
+  check(list, (element) => element > 4);
+  check(list, (element) => element < 4);
+  check(list, (element) => element == 4);
+  check(list, (element) => element < 0);
+  check(list, (element) => element > 10);
+  check([], (element) => true);
+  check([], (element) => false);
 }

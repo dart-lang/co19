@@ -4,15 +4,15 @@
 
 /// @assertion void retainWhere(bool test(E element))
 /// The [test] function must not throw or modify the queue.
+///
 /// @description Checks case when test function throws exception
 /// @author iarkh@unipro.ru
 /// @issue 27920
 
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-bool testThrow(var element) {
+bool testThrow(element) {
   if(element < 8) {
     return true;
   } else {

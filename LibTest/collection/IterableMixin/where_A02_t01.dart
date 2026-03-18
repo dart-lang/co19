@@ -5,6 +5,7 @@
 /// @assertion Iterable<E> where(bool f(E element))
 /// As long as the returned [Iterable] is not iterated over, the supplied
 /// function [test] will not be invoked.
+///
 /// @description Checks that filtering happens lazily.
 /// @author iarkh@unipro.ru
 
@@ -20,7 +21,7 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-bool test(var value) {
+bool test(value) {
   Expect.fail("test($value) called");
   return true;
 }
@@ -30,4 +31,3 @@ main() {
   new MyIterable([]).where(test);
   new MyIterable(const[null, 2, -5, -6, 100]).where(test);
 }
-

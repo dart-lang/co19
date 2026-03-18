@@ -5,6 +5,7 @@
 /// @assertion  Iterable map(dynamic f(E element))
 /// Iterating multiple times over the returned [Iterable] will invoke the
 /// supplied function [f] multiple times on the same element.
+///
 /// @description Checks that iterating multiple times over the returned
 /// [Iterable] will invoke the supplied function [f] multiple times on the same
 /// element.
@@ -24,7 +25,7 @@ class MyIterable<int> extends Object with IterableMixin {
 
 List<int> visited = new List<int>.filled(200, 0);
 
-int f(var element) {
+int f(element) {
   visited[element]++;
   return element;
 }

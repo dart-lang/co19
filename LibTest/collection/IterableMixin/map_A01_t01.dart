@@ -6,6 +6,7 @@
 /// Returns a new lazy [Iterable] with elements that are created by calling [f]
 /// on each element of this [Iterable] in iteration order.
 /// This method returns a view of the mapped elements.
+/// 
 /// @description Checks that the resulting [Iterable] contains all the results of
 /// [f(e)].
 /// @author iarkh@unipro.ru
@@ -22,7 +23,7 @@ class MyIterable extends Object with IterableMixin {
   }
 }
 
-f(var element) {
+f(element) {
   return [element];
 }
 

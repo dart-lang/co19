@@ -5,6 +5,7 @@
 /// @assertion abstract Iterable map(f(E element))
 /// Returns a new lazy Iterable with elements that are created by calling f on
 /// each element of this Iterable in iteration order.
+///
 /// @description Checks that the resulting [Iterable] contains all the results of
 /// [f(e)].
 /// @author kaigorodov
@@ -12,7 +13,7 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-f(var element) {
+f(element) {
   return [element];
 }
     

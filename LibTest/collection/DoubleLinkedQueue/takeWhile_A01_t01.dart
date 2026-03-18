@@ -4,6 +4,7 @@
 
 /// @assertion Iterable<E> takeWhile(bool test(E value))
 /// Returns a lazy iterable of the leading elements satisfying [test].
+///
 /// @description Checks that all first elements that satisfy [test] are retained,
 /// and elements after are skipped.
 /// @author kaigorodov
@@ -11,7 +12,7 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-void check(List a0, bool test(var element)) {
+void check(List a0, bool test(dynamic element)) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a0);
   Iterator it0 = a0.iterator;
   Iterable a = queue.takeWhile(test);
@@ -42,10 +43,10 @@ void check(List a0, bool test(var element)) {
 
 main() {
   List a0=[1, 3, 7, 4, 5, 6];
-  check(a0, (var element) => element == 1);
-  check(a0, (var element) => true);
-  check(a0, (var element) => false);
-  check(a0, (var element) => element > 4);
-  check(a0, (var element) => element < 4);
-  check(a0, (var element) => element == 4);
+  check(a0, (element) => element == 1);
+  check(a0, (element) => true);
+  check(a0, (element) => false);
+  check(a0, (element) => element > 4);
+  check(a0, (element) => element < 4);
+  check(a0, (element) => element == 4);
 }

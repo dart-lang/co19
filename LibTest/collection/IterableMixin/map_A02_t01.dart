@@ -5,8 +5,9 @@
 /// @assertion  Iterable map(dynamic f(E element))
 /// As long as the returned [Iterable] is not iterated over, the supplied
 /// function [f] will not be invoked.
-/// @description Checks that the supplied function [f] will not be invoked if the
-/// returned [Iterable] is not iterated over.
+///
+/// @description Checks that the supplied function [f] will not be invoked if
+/// the returned [Iterable] is not iterated over.
 /// @author iarkh@unipro.ru
 
 import "dart:collection";
@@ -23,7 +24,7 @@ class MyIterable extends Object with IterableMixin {
 
 bool invoked = false;
 
-f(var element) {
+f(element) {
   invoked = true;
   return element;
 }

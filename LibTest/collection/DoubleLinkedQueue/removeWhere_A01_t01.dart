@@ -4,6 +4,7 @@
 
 /// @assertion void removeWhere(bool test(E element))
 /// Removes all elements matched by [test] from the queue.
+///
 /// @description Checks that all elements that satisfy test are removed, and
 /// elements that does not are left.
 /// @author kaigorodov
@@ -11,7 +12,7 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-void check(List a0, bool test(var element)) {
+void check(List a0, bool test(dynamic element)) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a0);
   queue.removeWhere(test);
   int k = 0;
@@ -26,9 +27,9 @@ void check(List a0, bool test(var element)) {
 
 main() {
   List a0 = [1, 3, 3, 4, 5, 6];
-  check(a0, (var element) => true);
-  check(a0, (var element) => false);
-  check(a0, (var element) => element > 4);
-  check(a0, (var element) => element < 4);
-  check(a0, (var element) => element == 4);
+  check(a0, (element) => true);
+  check(a0, (element) => false);
+  check(a0, (element) => element > 4);
+  check(a0, (element) => element < 4);
+  check(a0, (element) => element == 4);
 }

@@ -8,6 +8,7 @@
 /// The matching elements have the same order in the returned iterable as they
 /// have in [iterator].
 /// This method returns a view of the mapped elements.
+///
 /// @description Checks that all elements that satisfy [test] are retained, and
 /// elements that do not, are skipped.
 /// @author kaigorodov
@@ -15,7 +16,7 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-void check(DoubleLinkedQueue queue, bool test(var element)) {
+void check(DoubleLinkedQueue queue, bool test(dynamic element)) {
   Iterator it0 = queue.iterator;
   Iterator it = queue.where(test).iterator;
 
@@ -30,10 +31,10 @@ void check(DoubleLinkedQueue queue, bool test(var element)) {
 
 main() {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from([1, 3, 7, 4, 5, 6]);
-  check(queue, (var element) => element == 1);
-  check(queue, (var element) => true);
-  check(queue, (var element) => false);
-  check(queue, (var element) => element > 4);
-  check(queue, (var element) => element < 4);
-  check(queue, (var element) => element == 4);
+  check(queue, (element) => element == 1);
+  check(queue, (element) => true);
+  check(queue, (element) => false);
+  check(queue, (element) => element > 4);
+  check(queue, (element) => element < 4);
+  check(queue, (element) => element == 4);
 }

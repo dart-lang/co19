@@ -4,6 +4,7 @@
 
 /// @assertion E firstWhere(bool test(E value), { E orElse() })
 /// Iterates through elements and returns the first to satisfy [test].
+///
 /// @description Checks that all the iterable elements are processed in correct
 /// order while one does not meet the [test] conditions.
 /// @author iarkh@unipro.ru
@@ -22,22 +23,22 @@ class MyIterable extends Object with IterableMixin {
 
 List iterated = [];
 
-bool test1(var value) {
+bool test1(value) {
   iterated.add(value);
   return value > 1;
 }
 
-bool test2(var value) {
+bool test2(value) {
   iterated.add(value);
   return value == 0;
 }
 
-bool test3(var value) {
+bool test3(value) {
   iterated.add(value);
   return value == 1254;
 }
 
-check(List list, bool test(value), List expected) {
+check(List list, bool test(dynamic value), List expected) {
   iterated.clear();
   MyIterable iterable = new MyIterable(list);
   iterable.firstWhere(test);

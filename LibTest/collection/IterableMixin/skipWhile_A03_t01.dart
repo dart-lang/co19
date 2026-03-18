@@ -3,8 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Iterable<E> skipWhile(bool test(E value))
-/// Every new [Iterator] of the returned [Iterable[ iterates over all elements of
-/// this.
+/// Every new [Iterator] of the returned [Iterable[ iterates over all elements
+/// of this.
+///
 /// @description Checks that for every new iterator, all elements either are
 /// tested and satisfy the test, or are returned by the iterator.
 /// @author iarkh@unipro.ru
@@ -21,10 +22,10 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-void check(List list, bool test(var element)) {
+void check(List list, bool test(dynamic element)) {
   IterableMixin iterable = new MyIterable(list);
   List all = [];
-  bool test1(var element) {
+  bool test1(element) {
     bool res = test(element);
     if (res) {
       all.add(element);
@@ -45,10 +46,10 @@ void check(List list, bool test(var element)) {
 
 main() {
   List list = [1, 3, 7, 4, 5, 6];
-  check(list, (var element) => element == 1);
-  check(list, (var element) => true);
-  check(list, (var element) => false);
-  check(list, (var element) => element > 4);
-  check(list, (var element) => element < 4);
-  check(list, (var element) => element == 4);
+  check(list, (element) => element == 1);
+  check(list, (element) => true);
+  check(list, (element) => false);
+  check(list, (element) => element > 4);
+  check(list, (element) => element < 4);
+  check(list, (element) => element == 4);
 }
