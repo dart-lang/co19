@@ -4,6 +4,7 @@
 
 /// @assertion void retainWhere(bool test(E element))
 /// Removes all elements of this set that fail to satisfy test.
+///
 /// @description Checks that all elements that satisfy test are retained, and
 /// elements that don't satisfy not
 /// @author sgrekhov@unipro.ru
@@ -12,7 +13,7 @@ library retainWhere_A01_t01;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-void check(Set source, bool test(var element)) {
+void check(Set source, bool test(element)) {
   Set copy = create(source);
   copy.retainWhere(test);
   int j = 0;
@@ -27,11 +28,11 @@ void check(Set source, bool test(var element)) {
 
 test(Set create([Iterable content])) {
   Set set = create([1, 3, 3, 4, 5, 6]);
-  check(set, (var element) => true);
-  check(set, (var element) => false);
-  check(set, (var element) => element > 4);
-  check(set, (var element)=> element < 4);
-  check(set, (var element)=> element == 4);
+  check(set, (element) => true);
+  check(set, (element) => false);
+  check(set, (element) => element > 4);
+  check(set, (element)=> element < 4);
+  check(set, (element)=> element == 4);
 }
 
 main() {

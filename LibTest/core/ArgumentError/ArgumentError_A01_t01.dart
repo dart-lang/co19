@@ -3,15 +3,15 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion new ArgumentError([message])
-/// The message describes the erroneous argument. 
+/// The message describes the erroneous argument.
+///
 /// @description Checks that this constructor executes without error for various
 /// strings and null.
 /// @author kaigorodov
 
-
 import "../../../Utils/expect.dart";
  
-void check(var message) {
+void check(message) {
   ArgumentError err = new ArgumentError(message);
   Expect.equals(message, err.message);
 }

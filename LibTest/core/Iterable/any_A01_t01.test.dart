@@ -6,6 +6,7 @@
 /// Checks whether any element of this iterable satisfies test.
 /// Checks every element in iteration order, and returns true if any of them make
 /// test return true, otherwise returns false.
+///
 /// @description Checks that this method returns true if any of the elements of
 /// this Iteratable make test return true, otherwise returns false.
 /// @author pagolubev
@@ -15,7 +16,7 @@ library any_A01_t01;
 import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
-  bool foo(var x) { return x > 0; }
+  bool foo(x) => x > 0;
 
   Expect.isFalse(create().any(foo));
   Expect.isFalse(create([-1, -3, -11]).any (foo));

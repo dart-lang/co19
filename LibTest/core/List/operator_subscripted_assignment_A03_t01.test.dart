@@ -4,8 +4,9 @@
 
 /// @assertion  abstract void operator []=(int index, E value)
 /// Throws an [Error] if [index] is [:null:] or invalid.
-/// @description Checks that the exception is thrown, for fixed size and growable
-/// arrays.
+///
+/// @description Checks that the exception is thrown, for fixed size and
+/// growable arrays.
 /// @author kaigorodov
 
 library operator_subscripted_assignment_A03_t01;
@@ -15,7 +16,7 @@ import "../../../Utils/expect.dart";
 test(List<E> create<E>([int length, E fill])) {
   List a = create(1, 0);
 
-  void check(var idx) {
+  void check(idx) {
     Expect.throws(() {a[idx] = new Object();}, (e) => e is Error);
   }
 

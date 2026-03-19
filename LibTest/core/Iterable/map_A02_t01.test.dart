@@ -6,6 +6,7 @@
 /// ...
 /// As long as the returned Iterable is not iterated over, the supplied function
 /// f will not be invoked.
+///
 /// @description Checks that the supplied function f will not be invoked if
 /// the returned Iterable is not iterated over.
 /// @author kaigorodov
@@ -15,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 bool invoked = false;
 
-f(var element) {
+f(element) {
   invoked = true;
   return element;
 }

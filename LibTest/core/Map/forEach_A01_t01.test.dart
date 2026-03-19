@@ -4,6 +4,7 @@
 
 /// @assertion  abstract void forEach(void f(K key, V value))
 /// Applies f to each {key, value} pair of the map.
+///
 /// @description Checks that all mappings are iterated exactly once.
 /// @author varlax
 
@@ -15,7 +16,7 @@ test(Map create([Map content])) {
   
   List keys = new List.filled(2, 0);
   List values = new List.filled(2, 0);
-  void f(var i, var value) {
+  void f(i, value) {
     keys[i] += 1;
     values[i] = value;
   }

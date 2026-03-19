@@ -4,17 +4,16 @@
 
 /// @assertion ArgumentError.value(value, [ String name, String message ])
 /// Creates error containing the invalid value.
+///
 /// @description Checks that this constructor executes without error for various
 /// values
 /// @author sgrekhov@unipro.ru
 
-
 import "../../../Utils/expect.dart";
 
-class C {
-}
+class C {}
 
-void check(var value) {
+void check(value) {
   ArgumentError err = new ArgumentError.value(value);
   Expect.equals(value, err.invalidValue);
   Expect.equals(null, err.name);

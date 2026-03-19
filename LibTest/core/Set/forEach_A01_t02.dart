@@ -4,6 +4,7 @@
 
 /// @assertion void forEach(void f(T element))
 /// Applies the function [f] to each element of the collection.
+///
 /// @description Checks that forEach() can be invoked on an empty set without any
 /// errors.
 /// @author pagolubev
@@ -16,7 +17,7 @@ test(Set create([Set content])) {
   Set s = create();
 
   int i = 0;
-  void foo(var x) {
+  void foo(x) {
     i++;
   }
   s.forEach(foo);
