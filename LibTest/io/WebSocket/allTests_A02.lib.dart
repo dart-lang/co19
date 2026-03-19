@@ -13,6 +13,6 @@ library allTests_A02;
 
 import "last_A03_t01.test.dart" as last_A03_t01;
 
-void test(var create) {
+void test(create) {
   last_A03_t01.test(create);
 }

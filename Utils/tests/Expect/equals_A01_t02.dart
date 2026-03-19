@@ -9,7 +9,6 @@
 /// [ExpectException] being thrown. Arguments being tested include null,
 /// boolean, numeric and [Object], along with empty and non-empty reason
 /// arguments.
-///
 /// @author rodionov
 
 import "../../../Utils/expect.dart";
@@ -30,7 +29,7 @@ main() {
   check(null, false);
 }
 
-void check(var arg1, var arg2, [String reason = '']) {
+void check(arg1, arg2, [String reason = '']) {
   try {
     Expect.equals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");

@@ -14,7 +14,7 @@ const eventType = 'keydown';
 main() {
   var request = new HttpRequest();
   asyncStart();
-  request.addEventListener(eventType, (var e) {
+  request.addEventListener(eventType, (e) {
     Expect.equals(eventType, e.type);
     asyncEnd();
   });

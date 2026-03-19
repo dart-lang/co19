@@ -4,6 +4,7 @@
 
 /// @assertion static void equals(var expected, var actual, [String reason = ''])
 /// Descriptive error message is provided in case of failure.
+///
 /// @description Checks that message of thrown [ExpectException] includes
 /// representation of the expected and actual values, as well as the reason.
 /// @author varlax
@@ -26,7 +27,7 @@ main() {
   check(null, false);
 }
 
-void check(var arg1, var arg2, [String reason = '']) {
+void check(arg1, arg2, [String reason = '']) {
   try {
     Expect.equals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");

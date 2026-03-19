@@ -5,7 +5,8 @@
 /// @assertion static void stringEquals(
 ///   String expected, String actual, [String reason = ''])
 /// When the strings don't match,
-/// this method shows where the mismatch starts and ends. 
+/// this method shows where the mismatch starts and ends.
+///
 /// @description Checks that message of thrown ExpectException includes 
 /// representation of the mismatched region, as well as the reason.
 /// @author varlax
@@ -23,7 +24,7 @@ main() {
   check("", null, "null", null, "not empty");
 }
 
-void check(var exp, var act, var arg1, [var arg2 = null, String reason = '']) {
+void check(exp, act, arg1, [arg2 = null, String reason = '']) {
   try {
     Expect.stringEquals(exp, act, reason);
     throw new Exception("ExpectException expected");

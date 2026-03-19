@@ -5,13 +5,14 @@
 /// @assertion static void identical(
 ///     var expected, var actual, [String reason = ''])
 /// Checks whether the expected and actual values are identical.
+///
 /// @description Checks that equality operator is not used.
 /// @author varlax
 
 import "../../../Utils/expect.dart";
 
 class A {
-  operator ==(var b) {
+  operator ==(b) {
     return true;
   }
 }

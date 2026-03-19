@@ -5,6 +5,7 @@
 /// @assertion static void notEquals(
 ///   var unexpected, var actual, [String reason = ''])
 /// Checks whether the unexpected and actual values are not equal (using [:!=:]).
+///
 /// @description Checks that object equality is checked with == operator (on
 /// unexpected value).
 /// @author varlax
@@ -12,21 +13,21 @@
 import "../../../Utils/expect.dart";
 
 class A {
-  operator ==(var b) {
+  operator ==(b) {
     return true;
   }
 }
 
 class B {
   var checked;
-  operator ==(var b) {
+  operator ==(b) {
     checked = b;
     return b is B;
   }
 }
 
 class C {
-  operator ==(var b) {
+  operator ==(b) {
     return false;
   }
 }

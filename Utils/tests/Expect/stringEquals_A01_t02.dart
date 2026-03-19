@@ -4,7 +4,8 @@
 
 /// @assertion static void stringEquals(
 ///   String expected, String actual, [String reason = ''])
-/// Specialized equality test for strings. 
+/// Specialized equality test for strings.
+///
 /// @description Checks that using non-equal string arguments results in
 /// [ExpectException] being thrown, regardless of reason (the last argument).
 /// @author rodionov
@@ -27,7 +28,7 @@ main() {
   check("1", "1.0");
 }
 
-void check(var arg1, var arg2, [String reason = '']) {
+void check(arg1, arg2, [String reason = '']) {
   try {
     Expect.stringEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");

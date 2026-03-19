@@ -10,7 +10,7 @@
 library last_A01_t01;
 import "../../../Utils/expect.dart";
 
-void test(var create) {
+void test(create) {
   dynamic expected = "123";
   dynamic data = ["123"];
   AsyncExpect.value(expected, create(data).then((Stream s) => s.last));

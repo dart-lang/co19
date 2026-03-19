@@ -40,13 +40,13 @@ void setCommand() {
   }
 }
 
-Future testEmpty(var stream) {
+Future testEmpty(stream) {
   return stream.toList().then((List errList) {
     Expect.equals(0, errList.length);
   });
 }
 
-Future testNotEmpty(var stream) {
+Future testNotEmpty(stream) {
   return stream.toList().then((List outList) {
     Utf8Decoder decoder = new Utf8Decoder();
     String decoded = decoder.convert(outList[0]);

@@ -44,14 +44,14 @@ void setCommand() {
   }
 }
 
-Future testEmpty(var stream) {
+Future testEmpty(stream) {
   return stream.toList().then((List errList) {
     Expect.equals(0, errList.length);
   });
 
 }
 
-Future testNotEmpty(var stream) {
+Future testNotEmpty(stream) {
   return stream.transform(utf8.decoder).transform(const LineSplitter()).
       toList().then((List outList) {
     Expect.isTrue(outList[0].length > 0);

@@ -4,6 +4,7 @@
 
 /// @assertion static void isNull(var actual, [String reason = ''])
 /// Checks whether [actual] is null.
+///
 /// @description Checks that using non-null argument results in
 /// [ExpectException] being thrown. Arguments being tested include boolean,
 /// numeric and [Object], along with empty and non-empty reason arguments.
@@ -29,7 +30,7 @@ main() {
   check(new Object(), "not empty");
 }
 
-void check(var arg, [String reason = '']) {
+void check(arg, [String reason = '']) {
   try {
     Expect.isNull(arg, reason);
     throw new Exception("ExpectException expected");

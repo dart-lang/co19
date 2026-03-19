@@ -15,7 +15,7 @@ List<List<int>> BYTES = new List.generate(
     (int i) => new List.generate(i, (int k) => k * 2)
 );
 
-void test(var create) {
+void test(create) {
   dynamic expected = 0;
   dynamic data = [];
   AsyncExpect.value(expected, create(data).then((s) => s.length));

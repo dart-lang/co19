@@ -5,6 +5,7 @@
 /// @assertion static void notEquals(
 ///   var unexpected, var actual, [String reason = ''])
 /// Checks whether the unexpected and actual values are not equal (using [:!=:]).
+///
 /// @description Checks that using equal arguments results in ExpectException
 /// being thrown. Arguments being tested include boolean, numeric and Object,
 /// along with empty and non-empty reason arguments.
@@ -33,7 +34,7 @@ main() {
   check("", "", "bla");
 }
 
-void check(var arg1, var arg2, [String reason = '']) {
+void check(arg1, arg2, [String reason = '']) {
   try {
     Expect.notEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");

@@ -29,9 +29,7 @@
 ///  present, the parameter message is set to the initial message.
 ///
 /// @description Checks spawning 3 isolates from a single source.
-///
 /// @author kaigorodov
-
 
 import "dart:isolate";
 import "../../../Utils/expect.dart";
@@ -54,7 +52,7 @@ class Connection {
     );
   }
   
-  void receiveHandler(var message) {
+  void receiveHandler(message) {
     Expect.equals(expectedMessage, message);
     receivePort.close();
     asyncEnd();

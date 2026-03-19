@@ -5,6 +5,7 @@
 /// @assertion static void identical(
 ///   var expected, var actual, [String reason = ''])
 /// Checks whether the expected and actual values are identical.
+///
 /// @description Checks that using non-identical arguments results in
 /// [ExpectException] being thrown. Arguments being tested include null, boolean,
 /// String, numeric and Object, along with empty and non-empty reason arguments.
@@ -42,7 +43,7 @@ main() {
   check(new Object(), new Object(), "not empty");
 }
 
-void check(var arg1, var arg2, [String reason = '']) {
+void check(arg1, arg2, [String reason = '']) {
   try {
     Expect.identical(arg1, arg2, reason);
     throw new Exception("ExpectException expected");

@@ -13,7 +13,7 @@
 library last_A03_t01;
 import "../../../Utils/expect.dart";
 
-void test(var create) {
+void test(create) {
   AsyncExpect.error(
     "error",
     create(["a", "b", "error", "c", "d"], isError: (e) => e == "error").then((s) => s.last)
