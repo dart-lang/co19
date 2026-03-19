@@ -19,7 +19,6 @@
 /// isolate.
 /// @author kaigorodov
 
-
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 
@@ -31,7 +30,7 @@ class Connection {
 
   Connection([this.replyPort]);
 
-  void receiveHandler(var message) {
+  void receiveHandler(message) {
     Expect.equals(expectedMessage, message);
     receivePort.close();
     if (replyPort != null) {

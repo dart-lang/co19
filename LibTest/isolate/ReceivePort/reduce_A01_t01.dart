@@ -4,6 +4,7 @@
 
 /// @assertion Future<T> reduce(T combine(T previous, T element))
 /// Reduces a sequence of values by repeatedly applying combine.
+///
 /// @description Checks that the result is correct.
 /// @author kaigorodov
 
@@ -11,7 +12,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-void check(Iterable data, combine(var previous, var element), var expected) {
+void check(Iterable data, combine(previous, element), expected) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   Future f = s.reduce(combine);
@@ -22,6 +23,6 @@ void check(Iterable data, combine(var previous, var element), var expected) {
 }
 
 main() {
-  check([1, 2, 3, 4], (var previous, var element) => previous + element, 10);
-  check([1, 2, 3, 4], (var previous, var element) => previous * element, 24);
+  check([1, 2, 3, 4], (previous, element) => previous + element, 10);
+  check([1, 2, 3, 4], (previous, element) => previous * element, 24);
 }

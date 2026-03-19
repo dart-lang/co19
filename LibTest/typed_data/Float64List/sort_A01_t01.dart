@@ -4,16 +4,16 @@
 
 /// @assertion void sort([int compare(E a, E b)])
 /// Sorts the list according to the order specified by the compare function.
+///
 /// @description Checks that sorting is correct.
 /// @author msyabro
-
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(List<double> list, List<double> expected) {
   var actual = new Float64List.fromList(list);
-  int c(var a, var b) {
+  int c(a, b) {
     return a < b ? -1 : (a == b ? 0 : 1);
   }
   actual.sort(c);

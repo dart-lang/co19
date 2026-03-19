@@ -3,7 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion factory ReceivePort.fromRawReceivePort(RawReceivePort rawPort)
-/// The handler of the given rawPort is overwritten during the construction of the result.
+/// The handler of the given rawPort is overwritten during the construction of
+/// the result.
+///
 /// @description Checks that the handler of the given rawPort is overwritten
 /// during the construction of the result
 /// @author kaigorodov
@@ -13,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 var counter = 10;
 
-void receiveHandler(var message) {
+void receiveHandler(message) {
   Expect.fail("not overwritten");
 }
 

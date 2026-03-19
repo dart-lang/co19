@@ -30,25 +30,22 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable data, bool test(var element), int expected) {
+check(Iterable data, bool test(element), int expected) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   Future f = s.lastWhere(test, orElse: () => expected);
-  f.then((var actual) {
+  f.then((actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
 }
 
 main() {
-  check([], (var element) => true, 1);
-  check([1, 2, 3], (var element) => element == null, 0);
-  check(new Iterable.generate(0, (int index) => index), (var element) => false,
-      0);
-  check(
-      new Iterable.generate(0, (int index) => index), (var element) => true, 0);
-  check(new Iterable.generate(10, (int index) => index), (var element) => false,
-      22);
-  check(new Iterable.generate(10, (int index) => index * 5),
-      (var element) => element < 0, 33);
+  check([], (element) => true, 1);
+  check([1, 2, 3], (element) => element == null, 0);
+  check(Iterable.generate(0, (int index) => index), (element) => false, 0);
+  check(Iterable.generate(0, (int index) => index), (element) => true, 0);
+  check(Iterable.generate(10, (int index) => index), (element) => false, 22);
+  check(Iterable.generate(10, (int index) => index * 5),
+          (element) => element < 0, 33);
 }

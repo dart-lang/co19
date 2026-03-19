@@ -16,7 +16,7 @@ import "../../Utils/expect.dart";
 class C<T> {
   var x;
   T t;
-  C(var v, this.x, this.t) {
+  C(v, this.x, this.t) {
     Expect.throws(() {
       testType(v);
     });
@@ -25,7 +25,7 @@ class C<T> {
 
 testType(String s) {}
 
-test(var v) {
+test(v) {
   var c = C(v, v, v);
   Expect.throws(() {
     testType(c.x);

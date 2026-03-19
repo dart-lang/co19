@@ -4,8 +4,9 @@
 
 /// @assertion abstract void close()
 /// Closes this.
-/// If the stream has not been canceled yet, adds a close-event to the event queue
-/// and discards any further incoming messages.
+/// If the stream has not been canceled yet, adds a close-event to the event
+/// queue and discards any further incoming messages.
+///
 /// @description Checks that messages are not processed when the port is closed.
 /// @author kaigorodov
 /// @author a.semenov@unipro.ru
@@ -16,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 List receivedMessages = [];
 
-void receiveHandler(var message) {
+void receiveHandler(message) {
   receivedMessages.add(message);
 }
 

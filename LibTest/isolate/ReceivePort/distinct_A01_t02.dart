@@ -7,22 +7,24 @@
 /// The returned stream provides the same events as this stream,
 /// except that it never provides two consequtive data events that are equal.
 /// Equality is determined by the provided equals method.
-/// If that is omitted, the '==' operator on the last provided data element is used.
-/// @description Checks that if parameter is present, returned stream filters events
-/// according to the supplied function.
+/// If that is omitted, the '==' operator on the last provided data element is
+/// used.
+///
+/// @description Checks that if parameter is present, returned stream filters
+/// events according to the supplied function.
 /// @author kaigorodov
 
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable<int> data, bool equals(var previous, var next)) {
+check(Iterable<int> data, bool equals(dynamic previous, dynamic next)) {
   Stream s = IsolateStream.fromIterable(data);
   Stream d = s.distinct(equals);
   bool first = true;
   var previous;
   asyncStart();
-  d.listen((var event) {
+  d.listen((event) {
     if (first) {
       first = false;
     } else {
@@ -39,10 +41,10 @@ int abs(x) => x < 0 ? -x : x;
 int sign(x) => (x < 0) ? -1 : (x == 0 ? 0 : 1);
 
 main() {
-  check([1, 2, 2, 3], (var previous, var next) => previous == next);
-  check([2, 4, 3, 1], (var previous, var next) => previous % 2 == next % 2);
+  check([1, 2, 2, 3], (previous, next) => previous == next);
+  check([2, 4, 3, 1], (previous, next) => previous % 2 == next % 2);
   check(new Iterable.generate(10, (int index) => index),
-      (var previous, var next) => abs(previous - next) <= 1);
+      (previous, next) => abs(previous - next) <= 1);
   check(new Iterable.generate(10, (int index) => -5 + index),
-      (var previous, var next) => sign(previous) == sign(next));
+      (previous, next) => sign(previous) == sign(next));
 }

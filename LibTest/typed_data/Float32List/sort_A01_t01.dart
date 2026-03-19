@@ -7,17 +7,17 @@
 /// The compare function must act as a Comparator.
 /// The default List implementations use Comparable.compare if compare is
 /// omitted.
+///
 /// @description Checks sorting Float32List with specified compare functions and
 /// with omitted.
 /// @author msyabro
-
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(List<double> list, List<double>  expected) {
   var actual = new Float32List.fromList(list);
-  int c(var a, var b) {
+  int c(a, b) {
     return a < b ? -1 : (a == b ? 0 : 1);
   }
   actual.sort(c);
@@ -26,7 +26,7 @@ void check(List<double> list, List<double>  expected) {
 
 void check1(List<double> list, List<double>  expected) {
   var actual = new Float32List.fromList(list);
-  int c(var a, var b) {
+  int c(a, b) {
     return a < b ? 1 : (a == b ? 0 : -1);
   }
   actual.sort(c);

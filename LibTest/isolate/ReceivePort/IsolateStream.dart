@@ -11,10 +11,10 @@ void iMain(List data) {
   ReceivePort receivePort = new ReceivePort();
   ReceivePort receivePort2 = new ReceivePort();
   replyPort2.send([receivePort.sendPort, receivePort2.sendPort]);
-  receivePort.listen((var element) {
+  receivePort.listen((element) {
     replyPort.send(element);
   });
-  receivePort2.listen((var element) {
+  receivePort2.listen((element) {
     replyPort2.send(null);
     receivePort.close();
     receivePort2.close();

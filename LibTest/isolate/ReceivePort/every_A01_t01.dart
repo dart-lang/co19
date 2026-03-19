@@ -5,6 +5,7 @@
 /// @assertion Future<bool> every(bool test(T element))
 /// Checks whether test accepts all elements provided by this stream.
 /// Completes the Future when the answer is known.
+///
 /// @description Checks that correct answer is passed to the future.
 /// @author kaigorodov
 
@@ -12,7 +13,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable<int?> data, bool test(var element), bool expected) {
+check(Iterable<int?> data, bool test(element), bool expected) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   s.every(test).then((bool actual) {

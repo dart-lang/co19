@@ -6,10 +6,10 @@
 /// ...
 /// Every new iterator of the returned iterable starts iterating over the
 /// elements of [this].
+///
 /// @description Checks that every new [Iterator] of the returned [Iterable]
 /// iterates over all elements of [this].
 /// @author msyabro
-
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 main() {
   int count = 0;
 
-  bool test(var e) {
+  bool test(e) {
     ++count;
     return e < 3.0;
   }

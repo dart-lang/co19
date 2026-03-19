@@ -5,7 +5,9 @@
 /// @assertion abstract void sort([int compare(E a, E b)])
 /// Sorts the list according to the order specified by the compare function.
 /// The compare function must act as a Comparator.
-/// The default List implementations use Comparable.compare if compare is omitted.
+/// The default List implementations use Comparable.compare if compare is
+/// omitted.
+///
 /// @description Checks sorting long integer arrays (length: 32768).
 /// @author sgrekhov@unipro.ru
 
@@ -15,11 +17,11 @@ import "../../../Utils/expect.dart";
 
 test(List<E> create<E>([int length, E fill])) {
 
-  int c(var a, var b) {
+  int c(a, b) {
     return a < b ? -1 : (a == b ? 0 : 1);
   }
 
-  void check(var actual0, var expected) {
+  void check(actual0, expected) {
     List actual = create();
     actual.addAll(actual0);
     actual.sort(c);

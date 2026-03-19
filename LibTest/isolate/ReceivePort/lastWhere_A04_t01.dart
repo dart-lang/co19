@@ -29,7 +29,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable data, bool test(var element)) {
+check(Iterable data, bool test(element)) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   s.lastWhere(test).then((data) {
@@ -41,14 +41,13 @@ check(Iterable data, bool test(var element)) {
 }
 
 main() {
-  check([], (var element) => true);
-  check([1, 2, 3], (var element) => element == null);
-  check([null, null], (var element) => element != null);
-  check(new Iterable.generate(0, (int index) => index), (var element) => false);
-  check(
-      new Iterable.generate(10, (int index) => index), (var element) => false);
+  check([], (element) => true);
+  check([1, 2, 3], (element) => element == null);
+  check([null, null], (element) => element != null);
+  check(Iterable.generate(0, (int index) => index), (element) => false);
+  check(Iterable.generate(10, (int index) => index), (element) => false);
+  check(Iterable.generate(10, (int index) => index * 5),
+      (element) => element < 0);
   check(new Iterable.generate(10, (int index) => index * 5),
-      (var element) => element < 0);
-  check(new Iterable.generate(10, (int index) => index * 5),
-      (var element) => element == 300);
+      (element) => element == 300);
 }

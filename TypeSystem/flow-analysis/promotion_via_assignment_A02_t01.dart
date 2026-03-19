@@ -90,7 +90,7 @@ class T extends S {
 
 main() {
   S x = new S();
-  void bar(var v) {
+  void bar(v) {
     x = v;
   }
   if (x is T) {} // make `T` a type of interest

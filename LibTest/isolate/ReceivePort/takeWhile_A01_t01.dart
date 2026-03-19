@@ -6,18 +6,19 @@
 /// Forwards data events while test is successful.
 /// The returned stream provides the same events as this stream as long as test
 /// returns true for the event data.
-/// The stream is done when either this stream is done, or when this stream first
-/// provides a value that test doesn't accept.
-/// @description Checks that only first elements that passed the test are returned.
+/// The stream is done when either this stream is done, or when this stream
+/// first provides a value that test doesn't accept.
+///
+/// @description Checks that only first elements that passed the test are
+/// returned.
 /// @author kaigorodov
 
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-/** index - first position in the stream where test() returns false
- */
-void check(List data, bool test(var element), int index) {
+/// [index] is the first position in the stream where [test()] returns `false`
+void check(List data, bool test(element), int index) {
   Stream s = IsolateStream.fromIterable(data);
   Stream t = s.takeWhile(test);
   asyncStart();

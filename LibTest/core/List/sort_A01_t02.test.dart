@@ -15,7 +15,7 @@ library sort_A01_t02;
 import "../../../Utils/expect.dart";
 
 test(List<E> create<E>([int length, E fill])) {
-  int c(var a, var b) {
+  int c(a, b) {
     return a < b ? -1 : (a == b ? 0 : 1);
   }
 

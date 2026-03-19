@@ -18,7 +18,6 @@
 /// @description Checks that sending multiple messages works fine.
 /// @author iefremov
 
-
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 
@@ -41,7 +40,7 @@ main() {
   var receivePort = new ReceivePort();
   var requestPort;
 
-  void receiveHandler(var message) {
+  void receiveHandler(message) {
     if (message is SendPort) {
       requestPort=message;
       asyncStart();
