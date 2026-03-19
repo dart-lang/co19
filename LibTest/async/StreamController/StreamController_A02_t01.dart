@@ -22,7 +22,7 @@ main() {
   Stream s = controller.stream;
   bool onDataCalled = false;
   asyncStart();
-  s.listen((var event) {
+  s.listen((event) {
     onDataCalled = true;
     asyncEnd();
   });

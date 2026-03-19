@@ -4,10 +4,10 @@
 
 /// @assertion List<int> rawAddress
 /// Get the raw address of this [InternetAddress].
+///
 /// @description Checks that result list for IPv6 unspecified address is 16 byte
 /// long and contains expected values (all zeros)
 /// @author iarkh@unipro.ru
-
 
 import "../../../Utils/expect.dart";
 import "dart:io";
@@ -15,7 +15,7 @@ import "dart:io";
 check(List expected, List actual) {
   Expect.equals(expected.length, actual.length);
   int i = 0;
-  actual.forEach((var element) {
+  actual.forEach((element) {
     Expect.equals(expected[i++], element);
   });
 }
