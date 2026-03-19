@@ -5,6 +5,7 @@
 /// @assertion Future<bool> any(bool test(T element))
 /// Checks whether test accepts any element provided by this stream.
 /// Completes the Future when the answer is known.
+///
 /// @description Checks that correct answer is passed to the future.
 /// @author kaigorodov
 
@@ -12,7 +13,7 @@ import "dart:isolate";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable<int?> data, bool test(var element), bool expected) {
+check(Iterable<int?> data, bool test(dynamic element), bool expected) {
   ReceivePort s = IsolateStream.fromIterable(data);
   asyncStart();
   s.any(test).then((bool actual) {

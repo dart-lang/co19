@@ -7,7 +7,6 @@
 /// @description Checks sorting various integer arrays.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -27,7 +26,7 @@ listEquals(expected, actual) {
 
 void check(List<Float32x4> list, List expected) {
   var actual = new Float32x4List.fromList(list);
-  int c(var a, var b) {
+  int c(a, b) {
     return a.x < b.x ? -1 : (a.x == b.x ? 0 : 1);
   }
   actual.sort(c);

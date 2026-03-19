@@ -6,7 +6,6 @@
 /// Returns a SendPort that sends to this raw receive port.
 ///
 /// @description Checks that the getter returns functional SendPort
-///
 /// @author kaigorodov
 
 import "dart:isolate";
@@ -24,7 +23,7 @@ void receiveHandler(int message) {
   }
 }
 
-void iMain(var replyPort) {
+void iMain(replyPort) {
   for (int k = expectedMessage; k >= 0; k--) {
     replyPort.send(k);
   }

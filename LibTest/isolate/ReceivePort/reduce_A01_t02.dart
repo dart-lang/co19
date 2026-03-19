@@ -4,8 +4,9 @@
 
 /// @assertion Future<T> reduce(T combine(T previous, T element))
 /// Reduces a sequence of values by repeatedly applying combine.
-/// @description Checks that if the stream contains single element, the combine method
-/// is not called and that element is the result of the future.
+///
+/// @description Checks that if the stream contains single element, the combine
+/// method is not called and that element is the result of the future.
 /// @note undocumented
 /// @author kaigorodov
 
@@ -13,11 +14,11 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-void check(Iterable data, combine(previous, var element), var expected) {
+void check(Iterable data, combine(previous, element), expected) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   Future f = s.reduce(combine);
-  f.then((var actual) {
+  f.then((actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });

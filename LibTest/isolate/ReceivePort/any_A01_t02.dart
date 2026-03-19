@@ -5,6 +5,7 @@
 /// @assertion Future<bool> any(bool test(T element))
 /// Checks whether test accepts any element provided by this stream.
 /// Completes the Future when the answer is known.
+///
 /// @description Checks that Future completes when the first matching element
 /// is encountered.
 /// @author ilya
@@ -18,7 +19,7 @@ main() {
   int count = 0;
   int first = 0;
   bool encountered = false;
-  bool test(var element) {
+  bool test(element) {
     bool res = element % 10 == 0;
     if (res && !encountered) {
       encountered = true;

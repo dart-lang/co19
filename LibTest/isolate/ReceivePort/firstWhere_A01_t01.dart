@@ -34,7 +34,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-void check1(Iterable data, bool test(var element), var expected) {
+void check1(Iterable data, bool test(element), expected) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   Future f = s.firstWhere(test);
@@ -44,7 +44,7 @@ void check1(Iterable data, bool test(var element), var expected) {
   });
 }
 
-void check2(Iterable data, bool test(var element), var expected) {
+void check2(Iterable data, bool test(element), expected) {
   Stream s = new Stream.fromIterable(data);
   asyncStart();
   Future f = s.firstWhere(test, orElse: () {
@@ -56,18 +56,18 @@ void check2(Iterable data, bool test(var element), var expected) {
   });
 }
 
-void check(Iterable data, bool test(var element), var expected) {
+void check(Iterable data, bool test(element), expected) {
   check1(data, test, expected);
   check2(data, test, expected);
 }
 
 main() {
-  check([1, 2, 3], (var element) => true, 1);
-  check([1, 2, 3], (var element) => element != null, 1);
-  check([1, 2, 3, null], (var element) => element == null, null);
-  check([1, 2, 3], (var element) => element > 2, 3);
+  check([1, 2, 3], (element) => true, 1);
+  check([1, 2, 3], (element) => element != null, 1);
+  check([1, 2, 3, null], (element) => element == null, null);
+  check([1, 2, 3], (element) => element > 2, 3);
   check(new Iterable.generate(10, (int index) => index * 5),
-      (var element) => element != 30, 0);
+      (element) => element != 30, 0);
   check(new Iterable.generate(10, (int index) => index * 5),
-      (var element) => element == 30, 30);
+      (element) => element == 30, 30);
 }

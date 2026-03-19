@@ -20,7 +20,6 @@
 ///
 /// @author a.semenov@unipro.ru
 
-
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 
@@ -28,7 +27,7 @@ var expectedMessage="message";
 
 var receivePort = new ReceivePort();
 
-void receiveHandler(var message) {
+void receiveHandler(message) {
   Expect.equals(expectedMessage, message);
   receivePort.close();
   asyncEnd();

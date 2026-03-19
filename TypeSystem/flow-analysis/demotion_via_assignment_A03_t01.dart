@@ -28,7 +28,7 @@ main() {
   if (x is B) {
     if (x is T) {
       x.foo();
-      void func(var v) {
+      void func(v) {
         x = v;
       }
       f = func;

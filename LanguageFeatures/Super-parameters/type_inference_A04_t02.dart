@@ -25,7 +25,7 @@ class C<T> extends S<T> {
 
 testType(String s) {}
 
-test(var v) {
+test(v) {
   var c = C(v, v);
   Expect.throws(() {
     testType(c.x);

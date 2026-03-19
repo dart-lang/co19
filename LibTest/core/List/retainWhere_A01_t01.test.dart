@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 test(List<E> create<E>([int length, E fill])) {
 
-  void check(List a0, bool test(var element)) {
+  void check(List a0, bool test(element)) {
     List a = create();
     a.addAll(a0);
     a.retainWhere(test);
@@ -30,9 +30,9 @@ test(List<E> create<E>([int length, E fill])) {
   }
 
   List a0 = [1, 3, 3, 4, 5, 6];
-  check(a0, (var element) => true);
-  check(a0, (var element) => false);
-  check(a0, (var element) => element > 4);
-  check(a0, (var element) => element < 4);
-  check(a0, (var element) => element == 4);
+  check(a0, (element) => true);
+  check(a0, (element) => false);
+  check(a0, (element) => element > 4);
+  check(a0, (element) => element < 4);
+  check(a0, (element) => element == 4);
 }

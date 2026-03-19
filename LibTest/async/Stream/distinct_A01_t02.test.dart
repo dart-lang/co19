@@ -8,6 +8,7 @@
 /// never provides two consecutive data events that are equal.
 ///    Equality is determined by the provided equals method. If that is omitted,
 /// the '==' operator on the last provided data element is used.
+///
 /// @description Checks that if parameter is present, returned stream filters
 /// events according to the supplied function.
 /// @author kaigorodov
@@ -40,7 +41,7 @@ void test(CreateStreamFunction create) {
   check<int>(
       create([2, 4, 3, 1]), (previous, next) => previous % 2 == next % 2);
   check<int>(create(new Iterable.generate(10, (int index) => index)),
-      (var previous, var next) => abs(previous - next) <= 1);
+      (previous, next) => abs(previous - next) <= 1);
   check(create(new Iterable.generate(10, (int index) => -5 + index)),
-      (var previous, var next) => sign(previous) == sign(next));
+      (previous, next) => sign(previous) == sign(next));
 }

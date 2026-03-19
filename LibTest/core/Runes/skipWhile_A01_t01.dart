@@ -4,6 +4,7 @@
 
 /// @assertion Iterable<E> skipWhile(bool test(E element))
 /// Returns an [Iterable] that skips elements while [test] is satisfied.
+///
 /// @description Checks that all first elements that satisfy test are
 /// removed, and elements after that are retained.
 /// @author msyabro
@@ -38,10 +39,10 @@ void check(string, bool test(int element)) {
 
 main() {
   var a0='\x01\x03\x07\x04\x05\x06';
-  check(a0, (var element) => element == 1);
-  check(a0, (var element) => true);
-  check(a0, (var element) => false);
-  check(a0, (var element) => element > 4);
-  check(a0, (var element) => element < 4);
-  check(a0, (var element) => element == 4);
+  check(a0, (element) => element == 1);
+  check(a0, (element) => true);
+  check(a0, (element) => false);
+  check(a0, (element) => element > 4);
+  check(a0, (element) => element < 4);
+  check(a0, (element) => element == 4);
 }

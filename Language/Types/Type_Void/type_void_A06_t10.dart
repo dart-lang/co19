@@ -15,8 +15,8 @@ int foo(int void) => 42;
 // [cfe] unspecified
 
 main() {
-  (var p1, int void) => p1;
-//             ^^^^
+  (p1, int void) => p1;
+//         ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   print(foo);

@@ -21,7 +21,7 @@ class T extends S {
   int foo() => 42;
 }
 
-test(var v) {
+test(v) {
   S x = new T();
   if (x is T) {
     x = v;
