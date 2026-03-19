@@ -5,6 +5,7 @@
 /// @assertion bool every(bool f(T element))
 /// Returns true if every element of the collection satisfies the predicate [f].
 /// Returns false otherwise.
+///
 /// @description Checks that nested invocations of every() on the same set do not
 /// cause any errors.
 /// @author pagolubev
@@ -18,10 +19,10 @@ test(Set create([Set content])) {
   s.addAll([1, -3, 10, 17]);
 
   Set outer = create();
-  s.every((var x) {
+  s.every((x) {
     outer.add(x);
     Set inner = create();
-    s.every((var y) {
+    s.every((y) {
       inner.add(y);
       return true;
     });

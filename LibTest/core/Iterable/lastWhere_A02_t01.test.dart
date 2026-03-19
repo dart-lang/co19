@@ -4,6 +4,7 @@
 
 /// @assertion E lastWhere(bool test(E value), {E orElse()})
 /// If none matches, the result of invoking the orElse function is returned.
+///
 /// @description Checks that If none matches, the result of invoking the orElse
 /// function is returned.
 /// @author kaigorodov
@@ -16,7 +17,7 @@ var noneMatches = new Object();
 
 void check(Iterable a, var element) {
   Expect.identical(noneMatches,
-      a.lastWhere((var value) => value == element, orElse: () => noneMatches));
+      a.lastWhere((value) => value == element, orElse: () => noneMatches));
 }
 
 test(Iterable create([Iterable content])) {

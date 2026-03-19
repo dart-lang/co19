@@ -6,6 +6,7 @@
 /// If the call to action returns a Future, f2, then completion of f is delayed
 /// until f2 completes. If f2 completes with an error, that will be the result
 /// of f too.
+///
 /// @description Checks that if the call to action returns a Future, f2, then
 /// completion of f is delayed until f2 completes. Checks that if f2 completes
 /// with an error, that will be the result of f too.
@@ -26,7 +27,7 @@ main() {
   });
 
   asyncStart();
-  f.then((var v) {
+  f.then((v) {
     Expect.fail("Returned future should complete with error");
   }, onError: (Object e) {
     Expect.equals(value, e);
@@ -34,6 +35,5 @@ main() {
   });
 
   completer.complete(1);
-
   completer2.completeError(value);
 }

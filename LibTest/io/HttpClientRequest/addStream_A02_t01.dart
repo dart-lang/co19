@@ -7,6 +7,7 @@
 ///
 /// Returns a Future that completes when all elements of the given stream are
 /// added to this.
+///
 /// @description Checks that the [stream] can be added is another stream has been
 /// already added.
 /// @author sgrekhov@unipro.ru
@@ -37,12 +38,12 @@ test(String method) async {
   });
 
   HttpClient client = new HttpClient();
-  client.open(method, localhost, server.port, "").then((var request) {
+  client.open(method, localhost, server.port, "").then((request) {
     request.contentLength = -1;
-    request.addStream(stream1).then((var request) {
-      request.addStream(stream2).then((var request) {
+    request.addStream(stream1).then((request) {
+      request.addStream(stream2).then((request) {
         return request.close();
-      }).then((var response) {
+      }).then((response) {
         response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
         asyncEnd();
       });

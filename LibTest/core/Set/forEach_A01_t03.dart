@@ -4,6 +4,7 @@
 
 /// @assertion void forEach(void f(T element))
 /// Applies the function [f] to each element of the collection.
+///
 /// @description Passes a function that modifies the set as argument to forEach().
 /// @author pagolubev
 
@@ -25,7 +26,7 @@ test(Set create([Set content])) {
   Set s = create();
   s.addAll([new A(1), new A(-1)]);
 
-  s.forEach((var a) {
+  s.forEach((a) {
     a.x *= 2;
   });
 

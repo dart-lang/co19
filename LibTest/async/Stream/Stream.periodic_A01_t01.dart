@@ -31,7 +31,7 @@ void check(int periodMs) {
   asyncStart();
   Stream s = new Stream.periodic(period);
   late StreamSubscription ss;
-  ss = s.listen((var event) {
+  ss = s.listen((event) {
     count++;
     Expect.isNull(event);
     Duration expected = period * count;

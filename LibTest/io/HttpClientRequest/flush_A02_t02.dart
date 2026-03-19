@@ -10,6 +10,7 @@
 ///
 /// NOTE: This is not necessarily the same as the data being flushed by the
 /// operating system.
+///
 /// @description Checks that this method can be called when an addStream is
 /// complete.
 /// @author sgrekhov@unipro.ru
@@ -41,10 +42,10 @@ test(String method) async {
   client.open(method, localhost, server.port, "")
       .then((HttpClientRequest request) {
     request.contentLength = 9;
-    request.addStream(stream).then((var request) {
+    request.addStream(stream).then((request) {
       request.flush();
       return request.close();
-    }).then((var response) {
+    }).then((response) {
       response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
       asyncEnd();
     });

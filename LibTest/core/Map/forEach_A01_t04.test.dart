@@ -4,6 +4,7 @@
 
 /// @assertion  abstract void forEach(void f(K key, V value))
 /// Applies f to each {key, value} pair of the map.
+///
 /// @description Checks that an exception thrown by the argument
 /// function breaks iteration and is passed through to the caller.
 /// @author varlax
@@ -21,7 +22,7 @@ test(Map create([Map content])) {
   
   int count = 0;
   try {
-    map.forEach((var key, var value) {
+    map.forEach((key, value) {
       if (count++ > 0) throw "stop";
     });
     Expect.fail("Exception expected");

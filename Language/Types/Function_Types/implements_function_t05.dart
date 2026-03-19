@@ -2,15 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A function is always an instance of some class that implements the
-/// class Function and implements a call method with the same signature as the
-/// function. All function types are subtypes of Function.
+/// @assertion A function is always an instance of some class that implements
+/// the class Function and implements a call method with the same signature as
+/// the function. All function types are subtypes of Function.
 ///
 /// @description Checks that various functions are also Objects, courtesy of the
 /// transitive << relation that subtype relation is based on.
 /// @author iefremov
 
 import "../../../Utils/expect.dart";
+
 class C {
   if1() {}
   Object if2(x, int z, [Object? o, int v = 1]) => new Object();
@@ -32,11 +33,14 @@ main() {
 
   Expect.isTrue(() {} is Object);
   Expect.runtimeIsType<Object>(() {});
-  Expect.isTrue((var x) {} is Object);
-  Expect.runtimeIsType<Object>((var x) {});
+  Expect.isTrue((x) {} is Object);
+  Expect.runtimeIsType<Object>((x) {});
   Expect.isTrue(
-      ((var x, int z, [Object? o, var v = 1]) => x + z + o + v) is Object);
-  Expect.runtimeIsType<Object>(((var x, int z, [Object? o, var v = 1]) => x + z + o + v));
+    ((x, int z, [Object? o, v = 1]) => x + z + o + v) is Object,
+  );
+  Expect.runtimeIsType<Object>(
+    ((x, int z, [Object? o, v = 1]) => x + z + o + v),
+  );
 
   Expect.isTrue(lf1 is Object);
   Expect.isTrue(lf2 is Object);

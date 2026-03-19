@@ -8,6 +8,7 @@
 /// element of this, in iteration order.
 /// The returned Iterable is lazy, and calls f for each element of this every
 /// time it's iterated.
+///
 /// @description Checks that the returned Iterable is lazy. Function f is not
 /// called if returned Iterable has no elements
 /// @author kaigorodov
@@ -16,7 +17,7 @@
 library expand_A02_t01;
 
 void check(Iterable a) {
-  a.expand((var element) {
+  a.expand((element) {
     throw new Exception("Should not be called");
   });
 }

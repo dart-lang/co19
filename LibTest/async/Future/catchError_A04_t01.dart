@@ -4,6 +4,7 @@
 
 /// @assertion Future catchError(Function onError, {bool test(Object error)})
 ///    If test is omitted, it defaults to a function that always returns true.
+///
 /// @description Checks that [onError] is called if [test] is omitted and the
 /// returned future completes with value returned by [onError] call
 /// @author a.semenov@unipro.ru
@@ -18,7 +19,7 @@ main() {
   f.catchError((Object error) {
     Expect.equals("!", error);
     return "@";
-  }).then((var value) {
+  }).then((value) {
     Expect.equals("@", value);
     asyncEnd();
   });

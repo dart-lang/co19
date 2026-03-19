@@ -4,6 +4,7 @@
 
 /// @assertion Iterable<E> where(bool f(E element))
 /// Returns a lazy Iterable with all elements that satisfy the predicate f.
+///
 /// @description Checks that nested invocations of where() on the same collection
 /// does not cause any errors.
 /// @author pagolubev
@@ -16,10 +17,10 @@ test(Iterable create([Iterable content])) {
   Iterable l = create([1, -3, 10, 17]);
 
   List l1 = new List.empty(growable: true);
-  Iterable outer = l.where((var x) {
+  Iterable outer = l.where((x) {
     l1.add(x);
     List l2 = new List.empty(growable: true);
-    Iterable inner = l.where((var y) {
+    Iterable inner = l.where((y) {
       l2.add(y);
       return true;
     });

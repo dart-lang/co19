@@ -4,6 +4,7 @@
 
 /// @assertion  abstract void forEach(void f(K key, V value))
 /// It is an error to add or remove keys from the map during iteration.
+///
 /// @description Tries to remove or add entries in [f] while iterating over the
 /// map, expects a ConcurrentModificationError every time regardless of whether
 /// or not it is the current key that's being removed.
@@ -20,20 +21,20 @@ test(Map create([Map content])) {
   map["2"] = 5;
 
   Expect.throws(() {
-      map.forEach((var key, var value) {
+      map.forEach((key, value) {
         map["3"] = key;
       });
     }, (e)=> e is ConcurrentModificationError
   );
   
   Expect.throws(() {
-      map.forEach((var key, var value) {
+      map.forEach((key, value) {
         map.remove("2");
       });
     }, (e)=> e is ConcurrentModificationError
   );
   Expect.throws(() {
-      map.forEach((var key, var value) {
+      map.forEach((key, value) {
         map.remove(key);
       });
     }, (e)=> e is ConcurrentModificationError
@@ -42,7 +43,7 @@ test(Map create([Map content])) {
   map["1"] = 1;
   map["2"] = 2;
   Expect.throws(() {
-      map.forEach((var key, var value) {
+      map.forEach((key, value) {
         map.clear();
       });
     }, (e)=> e is ConcurrentModificationError

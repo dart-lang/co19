@@ -5,6 +5,7 @@
 /// @assertion Future catchError(Function onError, {bool test(Object error)})
 /// The test function should not throw, but if it does, it is handled as if
 /// the onError function had thrown.
+///
 /// @description Checks that if [test] function throws an error, then returned
 /// future is completed with this error.
 /// @author a.semenov@unipro.ru
@@ -19,7 +20,7 @@ main() {
   }, test: (Object error) {
     Expect.equals("!", error);
     throw "@";
-  }).then((var value) {
+  }).then((value) {
     Expect.fail("returned future should complete with error");
   }, onError: (Object error) {
     Expect.equals("@", error);

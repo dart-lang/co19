@@ -4,6 +4,7 @@
 
 /// @assertion void forEach(void f(T element))
 /// Applies the function [f] to each element of the collection.
+///
 /// @description Checks that invoking forEach() doesn't change the set by itself.
 /// @author msyabro
 
@@ -16,7 +17,7 @@ test(Set create([Set content])) {
   s.addAll([1, 2, 3, 4, 5]);
 
   int i = 0;
-  s.forEach((var x) {
+  s.forEach((x) {
     i++;
   });
 

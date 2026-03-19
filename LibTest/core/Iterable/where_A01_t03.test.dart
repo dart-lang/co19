@@ -4,6 +4,7 @@
 
 /// @assertion Iterable<E> where(bool f(E element))
 /// Returns a lazy Iterable with all elements that satisfy the predicate f.
+///
 /// @description Checks that the given function is not executed and an empty
 /// collection is returned if this Iterable is empty.
 /// @author iefremov
@@ -13,14 +14,12 @@ library where_A01_t03;
 import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
-  Iterable a = create([]).where((var v) {
-    return true;
-  });
+  Iterable a = create([]).where((v) => true);
   Iterator it = a.iterator;
   while (it.moveNext()) {}
   Expect.isTrue(a.isEmpty);
 
-  a = create([]).where((var v) {
+  a = create([]).where((v) {
     Expect.fail("Should not be executed");
     return false;
   });
