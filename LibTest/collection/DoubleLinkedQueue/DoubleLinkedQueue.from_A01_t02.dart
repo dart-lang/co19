@@ -6,6 +6,7 @@
 /// Creates a double-linked queue containing all elements.
 /// The element order in the queue is as if the elements were added using
 /// addLast in the order provided by elements.iterator.
+///
 /// @description Checks constructor with custom Iterable.
 /// @author kaigorodov
 
@@ -54,7 +55,7 @@ class IterableClass extends IterableBase {
 
 void check(DoubleLinkedQueue l, Iterable c) {
   Expect.equals(l.length, c.length);
-  c.forEach((var element) {
+  c.forEach((element) {
     Expect.equals(l.removeFirst(), element);
   });
 }

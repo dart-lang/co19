@@ -5,6 +5,7 @@
 /// @assertion Stream map(convert(T event))
 /// Creates a new stream that converts each element of this stream to a new value
 /// using the convert function.
+///
 /// @description Checks that each element of this stream is processed.
 /// @author kaigorodov
 
@@ -16,8 +17,8 @@ void check(List data) {
   Stream s1 = IsolateStream.fromIterable(data);
   List sink = [];
   asyncStart();
-  Stream s2 = s1.map((var event) => event);
-  s2.listen((var event) {
+  Stream s2 = s1.map((event) => event);
+  s2.listen((event) {
     sink.add(event);
   }, onDone: () {
     Expect.listEquals(data, sink);

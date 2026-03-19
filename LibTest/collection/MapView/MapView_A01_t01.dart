@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion const MapView(Map<K, V> map)
+///
 /// @description Checks that default constructor creates a [MapView].
 /// @author sgrekhov@unipro.ru
 
@@ -15,7 +16,7 @@ check(Map map) {
   Expect.equals(map.isEmpty, view.isEmpty);
   Expect.equals(map.length, view.length);
 
-  map.forEach ((var key, var value) {
+  map.forEach ((key, value) {
     Expect.identical(view[key], value);
   });
 

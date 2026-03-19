@@ -29,7 +29,6 @@
 ///  present, the parameter message is set to the initial message.
 ///
 /// @description Checks that sending multiple messages works fine.
-///
 /// @author kaigorodov
 
 import "dart:isolate";
@@ -41,7 +40,7 @@ void main0() {
   int n = 10;
 
   asyncStart();
-  receivePort.listen((var message) {
+  receivePort.listen((message) {
     if (message is SendPort) {
       sendPort = message;
     } else {
@@ -65,7 +64,7 @@ void main(List args, SendPort? replyPort) {
     return;
   }
   var receivePort = new ReceivePort();
-  receivePort.listen((var message) {
+  receivePort.listen((message) {
     replyPort.send(message);
     if (message == 0) {
       receivePort.close();

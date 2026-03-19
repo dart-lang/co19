@@ -4,6 +4,7 @@
 
 /// @assertion void addAll(Iterable<E> entries)
 /// Add [entries] to the end of the list.
+///
 /// @description Checks that all elements of the [collection] are added to the
 /// end of list.
 /// @author kaigorodov
@@ -28,7 +29,7 @@ main() {
   a = new LinkedList<MyLinkedListEntry>();
   Set<MyLinkedListEntry> set = new Set<MyLinkedListEntry>();
   set.addAll(
-      [1, 2, 3, 4, 5].map((var element) => new MyLinkedListEntry(element)));
+      [1, 2, 3, 4, 5].map((element) => new MyLinkedListEntry(element)));
   a.addAll(set);
   contentEquals(set.map((MyLinkedListEntry entry) => entry.value), a);
   

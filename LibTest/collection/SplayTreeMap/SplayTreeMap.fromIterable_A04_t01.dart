@@ -7,6 +7,7 @@
 /// bool isValidKey(potentialKey)})
 /// If no functions are specified for [key] and [value] the default is to use the
 /// [iterable] value itself.
+///
 /// @description Checks that if no functions for keys and values specified then
 /// [iterable] values are used
 /// @author sgrekhov@unipro.ru
@@ -16,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 check(Iterable source, Map m2) {
   Expect.equals(source.length, m2.length);
-  source.forEach((var element) {
+  source.forEach((element) {
     Expect.isTrue(m2.containsKey(element));
     Expect.equals(element, m2[element]);
   });

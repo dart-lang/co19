@@ -4,6 +4,7 @@
 
 /// @assertion void forEach(void action(K key, V value))
 /// Applies [f] to each key-value pair of the map.
+///
 /// @description Checks nested [forEach].
 /// @author iarkh@unipro.ru
 
@@ -14,9 +15,9 @@ main() {
   UnmodifiableMapView view = new UnmodifiableMapView({1 : 3, "2" : 5});
 
   int count = 0;
-  view.forEach((var key1, Object? value1) {
-    view.forEach((var key2, Object? value2) {
-      view.forEach((var key3, Object? value3) {
+  view.forEach((key1, Object? value1) {
+    view.forEach((key2, Object? value2) {
+      view.forEach((key3, Object? value3) {
         count++;
       });
     });

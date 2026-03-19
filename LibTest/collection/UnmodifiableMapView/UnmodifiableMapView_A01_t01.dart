@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion UnmodifiableMapView(Map<K, V> map)
+///
 /// @description Checks that default constructor creates an [UnmodifiableMapView].
 /// @author iarkh@unipro.ru
 
@@ -15,7 +16,7 @@ check(Map map) {
   Expect.equals(map.isEmpty, view.isEmpty);
   Expect.equals(map.length, view.length);
 
-  map.forEach ((var key, var value) {
+  map.forEach ((key, value) {
     Expect.identical(view[key], value);
   });
 

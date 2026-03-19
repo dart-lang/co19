@@ -4,6 +4,7 @@
 
 /// @assertion void forEach(void action(E entry))
 /// Call [action] with each entry in the list.
+///
 /// @description Checks that no exception is thrown if the list is empty.
 /// @author kaigorodov
 
@@ -11,5 +12,5 @@ import "dart:collection";
 import "LinkedList.lib.dart";
 
 main() {
-  new LinkedList<MyLinkedListEntry>().forEach((var v){});
+  new LinkedList<MyLinkedListEntry>().forEach((v){});
 }

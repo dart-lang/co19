@@ -6,6 +6,7 @@
 /// Checks whether every element of this iterable satisfies test.
 /// ... returns [false] if any of them make [test] return [false], otherwise
 /// returns [true].
+///
 /// @description Checks that [true] is always returned for empty iterable.
 /// @author iarkh@unipro.ru
 
@@ -23,9 +24,9 @@ class MyIterable extends Object with IterableMixin {
 
 main() {
   MyIterable iterable = new MyIterable([]);
-  Expect.isTrue(iterable.every((var element) { return true; }));
-  Expect.isTrue(iterable.every((var element) { return element > 0; }));
-  Expect.isTrue(iterable.every((var element) { return false; }));
-  Expect.isTrue(iterable.every((var element) { return element < 0; }));
-  Expect.isTrue(iterable.every((var element) { return element > 4; }));
+  Expect.isTrue(iterable.every((element) { return true; }));
+  Expect.isTrue(iterable.every((element) { return element > 0; }));
+  Expect.isTrue(iterable.every((element) { return false; }));
+  Expect.isTrue(iterable.every((element) { return element < 0; }));
+  Expect.isTrue(iterable.every((element) { return element > 4; }));
 }

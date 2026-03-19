@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion void forEachEntry(void f(DoubleLinkedQueueEntry<E> element))
+///
 /// @description Checks [forEachEntry()] on empty list.
 /// @author kaigorodov
 
@@ -13,7 +14,7 @@ main() {
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
   
   int count = 0;
-  queue.forEachEntry((var entry) {
+  queue.forEachEntry((entry) {
     var element = entry.element;
     count++;
   });

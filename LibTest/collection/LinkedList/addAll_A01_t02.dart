@@ -4,6 +4,7 @@
 
 /// @assertion void addAll(Iterable<E> entries)
 /// Add [entries] to the end of the list.
+///
 /// @description Checks that method does not affect the previous content of the
 /// list
 /// @author kaigorodov
@@ -16,6 +17,6 @@ main() {
   contentEquals(["1", "2", "3"], a);
 
   a.addAll([null, 0, false, "0"]
-      .map((var element) => new MyLinkedListEntry(element)));
+      .map((element) => new MyLinkedListEntry(element)));
   contentEquals(["1", "2", "3", null, 0, false, "0"], a);
 }

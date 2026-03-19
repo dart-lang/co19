@@ -4,6 +4,7 @@
 
 /// @assertion void addFirst(E value)
 /// Adds [value] at the beginning of the queue.
+///
 /// @description Checks that method does not affect other content of the queue
 /// @author kaigorodov
 
@@ -13,7 +14,7 @@ import "dart:collection";
 check(List expected, DoubleLinkedQueue actual) {
   Expect.equals(expected.length, actual.length);
   int i = 0;
-  actual.forEach((var element) {
+  actual.forEach((element) {
     Expect.equals(expected[i++], element);
   });
 }

@@ -4,6 +4,7 @@
 
 /// @assertion void forEach(void f(E element))
 /// Applies the function [f] to each element of this collection.
+///
 /// @description Checks that exception thrown in [f] breaks the iteration.
 /// @author kaigorodov
 
@@ -12,13 +13,11 @@ import "dart:collection";
 
 main() {
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
-  
   queue.addLast(1);
   queue.addLast(2);
-  
   int count = 0;
   try {
-    queue.forEach((var element) {
+    queue.forEach((element) {
       throw ++count;
     });
   } on Object catch(e) {

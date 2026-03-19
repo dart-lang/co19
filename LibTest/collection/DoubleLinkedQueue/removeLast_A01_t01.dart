@@ -4,6 +4,7 @@
 
 /// @assertion E removeLast()
 /// Removes and returns the last element of the queue.
+///
 /// @description Checks that exactly the last element is removed and returned.
 /// @author kaigorodov
 
@@ -17,7 +18,7 @@ check(List list) {
     Expect.equals(queue.length, list.length - 1);
     list.removeLast();
     int i = 0;
-    queue.forEach((var element) {
+    queue.forEach((element) {
       Expect.equals(list[i++], element);
     });
   }

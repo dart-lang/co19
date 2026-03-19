@@ -5,6 +5,7 @@
 /// @assertion  void forEach(void f(E element))
 /// Applies the function [f] to each element of this collection in iteration
 /// order.
+///
 /// @description Checks that exception thrown in [f] breaks the iteration.
 
 import "dart:collection";
@@ -30,7 +31,7 @@ main() {
 
   int count = 0;
   try {
-    iterable.forEach((var element) {
+    iterable.forEach((element) {
       throw ++count;
     });
   } on Object catch(e) {

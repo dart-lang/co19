@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Gets the current element in the iteration.
+///
 /// @description Checks that the current element in the iteration is returned.
 /// @author kaigorodov
 
@@ -11,7 +12,7 @@ import "dart:collection";
 
 void checkNext(DoubleLinkedQueue q) {
   Iterator it = q.iterator;
-  q.forEach((var element) {
+  q.forEach((element) {
     Expect.isTrue(it.moveNext());
     Expect.equals(element, it.current);
     Expect.identical(it.current, it.current);

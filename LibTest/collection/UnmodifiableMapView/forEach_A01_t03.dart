@@ -4,6 +4,7 @@
 
 /// @assertion  void forEach(void action(K key, V value))
 /// Applies [f] to each key-value pair of the map.
+///
 /// @description Checks that an exception thrown by the argument
 /// function breaks iteration and is passed through to the caller.
 /// @author iarkh@unipro.ru
@@ -12,13 +13,10 @@ import "dart:collection";
 import "../../../Utils/expect.dart";
 
 main() {
-
-  UnmodifiableMapView view =
-      new UnmodifiableMapView({"1" : 3, "2" : 5, "3" : 8});
-  
+  var view = new UnmodifiableMapView({"1" : 3, "2" : 5, "3" : 8});
   int count = 0;
   try {
-    view.forEach((var key, Object? value) {
+    view.forEach((key, Object? value) {
       if (count++ > 0) throw "stop";
     });
     Expect.fail("Exception expected");

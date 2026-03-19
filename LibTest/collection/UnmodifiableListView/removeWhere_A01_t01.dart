@@ -4,18 +4,17 @@
 
 /// @assertion void removeWhere(bool test(E element))
 /// This operation is not supported by an unmodifiable list.
+///
 /// @description Checks that [removeWhere] method is not supported.
 /// @author iarkh@unipro.ru
 
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-
-
 main() {
   UnmodifiableListView l = new UnmodifiableListView([1, 2, 3, 4, 5]);
-  Expect.throws(() { l.removeWhere((var element) => true); },
+  Expect.throws(() { l.removeWhere((element) => true); },
       (e) => e is UnsupportedError);
-  Expect.throws(() { l.removeWhere((var element) => element > 2); },
+  Expect.throws(() { l.removeWhere((element) => element > 2); },
       (e) => e is UnsupportedError);
 }

@@ -4,6 +4,7 @@
 
 /// @assertion final _DoubleLinkedQueueIterator<E> iterator
 /// Returns an Iterator that iterates over this Iterable object.
+///
 /// @description Checks that [Iterator] iterates over all elements from the list.
 /// @author iarkh@unipro.ru
 
@@ -12,7 +13,7 @@ import "dart:collection";
 
 void checkIterator(DoubleLinkedQueue list) {
   Iterator it = list.iterator;
-  list.forEach((var element) {
+  list.forEach((element) {
     it.moveNext();
     Expect.equals(element, it.current);
   });

@@ -4,6 +4,7 @@
 
 /// @assertion Future<Set<T>> toSet()
 /// Collects the data of this stream in a Set.
+///
 /// @description Checks that returned set contains all elements of the stream.
 /// @author kaigorodov
 
@@ -15,7 +16,7 @@ void check(List data) {
   Stream s = IsolateStream.fromIterable(data);
   Future f = s.toSet();
   asyncStart();
-  f.then((var value) {
+  f.then((value) {
     Expect.setEquals(data, value);
     asyncEnd();
   });

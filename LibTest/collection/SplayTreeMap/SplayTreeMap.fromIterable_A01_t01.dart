@@ -7,6 +7,7 @@
 /// bool isValidKey(potentialKey)})
 /// Creates a [SplayTreeMap] where the keys and values are computed from the
 /// [iterable].
+///
 /// @description Checks that this constructor creates a [SplayTreeMap] that
 /// contains all elements of the [iterable]
 /// @author sgrekhov@unipro.ru
@@ -16,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 check(Iterable source, Map m2) {
   Expect.equals(source.length, m2.length);
-  source.forEach((var element) {
+  source.forEach((element) {
     Expect.isTrue(m2.containsKey(element));
     Expect.equals(element, m2[element]);
   });
