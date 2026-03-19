@@ -60,7 +60,7 @@ main() {
       {A? x,
       G? y,
       mixFunc? z,
-        dynamic v,
+      dynamic v,
       Object? xx,
       List<Map<int, mixFunc>>? xxx,
       mixFunc? xxxx}) {} is dynamicFunc);
