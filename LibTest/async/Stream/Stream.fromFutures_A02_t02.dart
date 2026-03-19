@@ -35,7 +35,7 @@ main() {
   List<int> events = [];
   asyncStart();
 
-  s.listen((var event) {
+  s.listen((event) {
     events.add(event);
   }, onError: (_) {
     Expect.fail("onError called unexpectedly");

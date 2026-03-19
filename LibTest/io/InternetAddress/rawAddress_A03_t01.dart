@@ -5,10 +5,10 @@
 /// @assertion List<int> rawAddress
 /// The returned list is a copy, making it possible to change the list without
 /// modifying the [InternetAddress].
+///
 /// @description Checks that for IPv4 result [List] is a copy, i.e. its elements
 /// can be modified without the original [InternetAddress] row list update.
 /// @author iarkh@unipro.ru
-
 
 import "../../../Utils/expect.dart";
 import "dart:io";
@@ -16,7 +16,7 @@ import "dart:io";
 check(List expected, List actual) {
   Expect.equals(expected.length, actual.length);
   int i = 0;
-  actual.forEach((var element) {
+  actual.forEach((element) {
     Expect.equals(expected[i++], element);
   });
 }
