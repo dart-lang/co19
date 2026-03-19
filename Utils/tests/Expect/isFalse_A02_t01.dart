@@ -4,6 +4,7 @@
 
 /// @assertion static void isFalse(var actual, [String reason = ''])
 /// Descriptive error message is provided in case of failure.
+///
 /// @description Checks that message of thrown ExpectException includes 
 /// representation of the actual value, as well as the reason.
 /// @author varlax
@@ -28,7 +29,7 @@ main() {
   check(new Object(), "not empty");
 }
 
-void check(var arg, [String reason = '']) {
+void check(arg, [String reason = '']) {
   try {
     Expect.isFalse(arg, reason);
     throw new Exception("ExpectException expected");

@@ -7,31 +7,29 @@
 ///
 /// @description Checks that object equality is checked with == operator (on
 /// expected value).
-///
 /// @author varlax
 
 import "../../../Utils/expect.dart";
 
 class A {
-  operator ==(var b) {
+  operator ==(b) {
     return true;
   }
 }
 
 class B {
   var checked;
-  operator ==(var b) {
+  operator ==(b) {
     checked = b;
     return b is B || b is A;
   }
 }
 
 class C {
-  operator ==(var b) {
+  operator ==(b) {
     return false;
   }
 }
-
 
 main() {
   B b = new B();

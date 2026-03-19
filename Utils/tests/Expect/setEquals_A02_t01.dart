@@ -5,6 +5,7 @@
 /// @assertion static void setEquals(
 ///   Iterable expected, Iterable actual, [String reason = ''])
 /// Passing null as either expected or actual results in [Error].
+///
 /// @description Checks that Error is thrown if any of the required arguments
 /// are null.
 /// @author rodionov
@@ -25,7 +26,7 @@ main() {
   check(null, null, "not empty");
 }
 
-void check(var arg1, var arg2, [String reason = '']) {
+void check(arg1, arg2, [String reason = '']) {
   try {
     Expect.setEquals(arg1, arg2, reason);
     Expect.fail("Error expected");

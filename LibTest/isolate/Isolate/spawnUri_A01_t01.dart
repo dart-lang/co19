@@ -30,7 +30,6 @@
 ///
 /// @description Checks that the function spawns the isolate that executes the
 /// main(args, message) function.
-///
 /// @author kaigorodov
 
 import "dart:isolate";
@@ -40,7 +39,7 @@ var expectedMessage = "spawnUri_A01_t01";
 
 var receivePort = new ReceivePort();
 
-void receiveHandler(var message) {
+void receiveHandler(message) {
   Expect.equals(expectedMessage, message);
   receivePort.close();
   asyncEnd();

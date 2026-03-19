@@ -5,6 +5,7 @@
 /// @assertion double atan2(num a, num b)
 /// A variant of atan.
 /// Converts both arguments to doubles.
+///
 /// @description Checks that an Error is thrown when argument is a null (not a
 /// number).
 /// @author msyabro
@@ -12,7 +13,7 @@
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
-void checkNPE(var arg1, var arg2) {
+void checkNPE(arg1, arg2) {
   Expect.throws(() {
     Math.atan2(arg1, arg2);
   });

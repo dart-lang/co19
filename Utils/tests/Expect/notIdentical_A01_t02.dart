@@ -17,7 +17,7 @@ class C {
   const C(this.value);
 }
 
-void check(var arg1, var arg2, [String reason = '']) {
+void check(arg1, arg2, [String reason = '']) {
   try {
     Expect.notIdentical(arg1, arg2, reason);
     throw new Exception("ExpectException expected");

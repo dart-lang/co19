@@ -5,24 +5,25 @@
 /// @assertion static void listEquals(
 ///   List expected, List actual, [String reason = ''])
 /// Checks that all elements in [expected] and [actual] are equal [:==:].
+///
 /// @description Checks that operator == on elements is used for checking.
 /// @author varlax
 
 import "../../../Utils/expect.dart";
 class A {
-  operator ==(var b) {
+  operator ==(b) {
     return true;
   }
 }
 
 class B {
-  operator ==(var b) {
+  operator ==(b) {
     return b is B || b is A;
   }
 }
 
 class C {
-  operator ==(var b) {
+  operator ==(b) {
     return false;
   }
 }

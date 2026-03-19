@@ -4,6 +4,7 @@
 
 /// @assertion static void isNotNull(var actual, [String reason = ''])
 /// Descriptive error message is provided in case of failure.
+///
 /// @description Checks that message of thrown [ExpectException] includes
 /// representation of the actual value, as well as the reason.
 /// @author varlax
@@ -16,7 +17,7 @@ main() {
   check(null, "not empty");
 }
 
-void check(var arg, [String reason = '']) {
+void check(arg, [String reason = '']) {
   try {
     Expect.isNotNull(arg, reason);
     throw new Exception("ExpectException expected");

@@ -30,7 +30,6 @@
 ///
 /// @description Checks that an isolate can be spawned from a newly spawned
 /// isolate.
-///
 /// @author kaigorodov
 
 import "dart:isolate";
@@ -40,7 +39,7 @@ var expectedMessage = "spawnUri_A01_t03";
 
 var receivePort = new ReceivePort();
 
-void receiveHandler(var message) {
+void receiveHandler(message) {
   Expect.equals(expectedMessage, message);
   receivePort.close();
   asyncEnd();

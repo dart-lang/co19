@@ -4,6 +4,7 @@
 
 /// @assertion static void notEquals(var unexpected, var actual, [String reason = ''])
 /// Descriptive error message is provided in case of failure.
+///
 /// @description Checks that message of thrown ExpectException includes 
 /// representation of the unexpected and actual values, as well as the reason.
 /// @author varlax
@@ -31,7 +32,7 @@ main() {
   check("", "", "bla");
 }
 
-void check(var arg1, var arg2, [String reason = '']) {
+void check(arg1, arg2, [String reason = '']) {
   try {
     Expect.notEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
