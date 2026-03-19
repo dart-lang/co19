@@ -23,21 +23,26 @@ check(Iterable<int?> data, bool test(element), bool expected) {
 }
 
 main() {
-  check([], (var element) => true, true);
-  check([1, 2, 3], (var element) => element != null, true);
-  check([1, 2, 3, null], (var element) => element == null, false);
-  check(new Iterable.generate(0, (int index) => index), (var element) => false,
-      true);
-  check(new Iterable.generate(10, (int index) => index), (var element) => false,
-      false);
-  check(new Iterable.generate(0, (int index) => index), (var element) => true,
-      true);
-  check(new Iterable.generate(2, (int index) => index), (var element) => true,
-      true);
-  check(new Iterable.generate(10, (int index) => index * 5),
-      (var element) => element == 30, false);
-  check(new Iterable.generate(10, (int index) => index * 5),
-      (var element) => element != 30, false);
-  check(new Iterable.generate(10, (int index) => index * 5),
-      (var element) => element >= 0, true);
+  check([], (element) => true, true);
+  check([1, 2, 3], (element) => element != null, true);
+  check([1, 2, 3, null], (element) => element == null, false);
+  check(Iterable.generate(0, (int index) => index), (element) => false, true);
+  check(Iterable.generate(10, (int index) => index), (element) => false, false);
+  check(Iterable.generate(0, (int index) => index), (element) => true, true);
+  check(Iterable.generate(2, (int index) => index), (element) => true, true);
+  check(
+    Iterable.generate(10, (int index) => index * 5),
+    (element) => element == 30,
+    false,
+  );
+  check(
+    Iterable.generate(10, (int index) => index * 5),
+    (element) => element != 30,
+    false,
+  );
+  check(
+    Iterable.generate(10, (int index) => index * 5),
+    (element) => element >= 0,
+    true,
+  );
 }
