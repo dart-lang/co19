@@ -9,6 +9,7 @@
 /// keys that the functions are applied to. Any key for which [isValidKey]
 /// returns false is automatically assumed to not be in the set when asking
 /// [contains].
+///
 /// @description Checks that [isValidKey] is called before calling [equals] or
 /// [hashCode]
 /// @author sgrekhov@unipro.ru
@@ -19,7 +20,7 @@ import "dart:collection";
 bool checkDone = false;
 bool isValidKeyCalled = false;
 
-bool myEquals(var key1, var key2) {
+bool myEquals(key1, key2) {
   if (!checkDone) {
     Expect.isTrue(isValidKeyCalled);
     checkDone = true;
@@ -27,7 +28,7 @@ bool myEquals(var key1, var key2) {
   return key1 == key2;
 }
 
-int myHashCode(var key) {
+int myHashCode(key) {
   if (!checkDone) {
     Expect.isTrue(isValidKeyCalled);
     checkDone = true;
@@ -35,7 +36,7 @@ int myHashCode(var key) {
   return key.hashCode;
 }
 
-bool isValidKey(var potentialKey) {
+bool isValidKey(potentialKey) {
   isValidKeyCalled = true;
   return potentialKey is int;
 }

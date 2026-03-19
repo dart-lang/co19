@@ -9,6 +9,7 @@
 /// keys that the functions are applied to. Any key for which [isValidKey]
 /// returns false is automatically assumed to not be in the set when asking
 /// [contains].
+///
 /// @description Checks that if [isValidKey] returns [false] then value is
 /// assumed to not be in the set when asking [contains]
 /// @author sgrekhov@unipro.ru
@@ -16,11 +17,11 @@
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-bool myEquals(var key1, var key2) => key1 == key2;
+bool myEquals(key1, key2) => key1 == key2;
 
-int myHashCode(var key) => key.hashCode;
+int myHashCode(key) => key.hashCode;
 
-bool isValidKey(var potentialKey) {
+bool isValidKey(potentialKey) {
   return (potentialKey is int) && potentialKey < 100;
 }
 

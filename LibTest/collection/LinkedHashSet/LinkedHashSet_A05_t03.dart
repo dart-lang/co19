@@ -9,6 +9,7 @@
 /// keys that the functions are applied to. Any key for which [isValidKey]
 /// returns false is automatically assumed to not be in the set when asking
 /// [contains].
+///
 /// @description Checks that [isValidKey] is ignored if [equals] and [hashCode]
 /// are omitted
 /// @author sgrekhov@unipro.ru
@@ -16,7 +17,7 @@
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-bool isValidKey(var potentialKey) => potentialKey < 100;
+bool isValidKey(potentialKey) => potentialKey < 100;
 
 main() {
   LinkedHashSet<int> set = new LinkedHashSet<int>(isValidKey: isValidKey);

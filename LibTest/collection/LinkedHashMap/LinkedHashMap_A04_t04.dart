@@ -11,6 +11,7 @@
 /// argument that may not be a [K] instance, and if the call returns [false], the
 /// key is assumed to not be in the set. The [isValidKey] function defaults to
 /// just testing if the object is a [K] instance.
+///
 /// @description Checks that [isValidKey] is not ignored if [equals] and
 /// [hashCode] are not specified. Test [LinkedHashMap<int>]
 /// @author sgrekhov@unipro.ru
@@ -20,7 +21,7 @@ import "dart:collection";
 
 bool called = false;
 
-bool isValidKey(var potentialKey) {
+bool isValidKey(potentialKey) {
   called = true;
   return (potentialKey is int) && potentialKey < 100;
 }

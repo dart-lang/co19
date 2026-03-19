@@ -11,7 +11,7 @@
 /// @author vasya
 
 class C {
-  operator ==(var val, var val2) => true;
+  operator ==(val, val2) => true;
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified

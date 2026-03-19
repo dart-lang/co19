@@ -9,6 +9,7 @@
 /// keys that the functions are applied to. Any key for which [isValidKey]
 /// returns false is automatically assumed to not be in the set when asking
 /// [contains].
+///
 /// @description Checks that if [isValidKey] returns [false] then value is in set
 /// in spite of [contains] returns [false]
 /// @author sgrekhov@unipro.ru
@@ -16,7 +17,7 @@
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-bool isValidKey(var potentialKey) {
+bool isValidKey(potentialKey) {
   return potentialKey < 100;
 }
 

@@ -10,7 +10,7 @@
 /// @author iefremov
 
 class C {
-  operator []=(var index) {}
+  operator []=(index) {}
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified

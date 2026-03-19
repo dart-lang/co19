@@ -11,6 +11,7 @@
 /// argument that may not be a [K] instance, and if the call returns [false], the
 /// key is assumed to not be in the set. The [isValidKey] function defaults to
 /// just testing if the object is a [K] instance.
+///
 /// @description Checks that if [isValidKey] returns [false] then the key is
 /// assumed to not be in the set
 /// @author sgrekhov@unipro.ru
@@ -18,15 +19,15 @@
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-bool myEquals(var key1, var key2) {
+bool myEquals(key1, key2) {
   return key1 == key2;
 }
 
-int myHashCode(var key) {
+int myHashCode(key) {
   return key.hashCode;
 }
 
-bool isValidKey(var potentialKey) {
+bool isValidKey(potentialKey) {
   return (potentialKey is int) && potentialKey < 100;
 }
 

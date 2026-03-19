@@ -4,6 +4,7 @@
 
 /// @assertion  void forEach(void action(K key, V value))
 /// Applies [f] to each key-value pair of the map.
+///
 /// @description Tries to pass function that returns something.
 /// @author iarkh@unipro.ru
 
@@ -13,7 +14,7 @@ import "unmodifiablemapbase.lib.dart";
 main() {
   UnmodifiableMapBase base = new UnmodifiableMapBaseImpl({1 : 3, "2" : 5});
 
-  int f(var x, Object? y) {
+  int f(x, Object? y) {
     return 1;
   }
   

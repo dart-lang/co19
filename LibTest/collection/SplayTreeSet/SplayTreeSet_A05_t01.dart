@@ -10,6 +10,7 @@
 /// objects before handing them to the compare function.
 /// If isValidKey is provided, only values satisfying isValidKey(other) are
 /// compared using the compare method in the methods mentioned above
+///
 /// @description Checks that if isValidKey function is provided then it called
 /// before contains, remove, lookup, removeAll or retainAll
 /// @author sgrekhov@unipro.ru
@@ -28,7 +29,7 @@ bool isValidKey(potentialKey) {
   return potentialKey is String;
 }
 
-int compare(var key1, var key2) {
+int compare(key1, key2) {
   if (startTesting) {
     Expect.isTrue(isValidkeyCalled);
   }
