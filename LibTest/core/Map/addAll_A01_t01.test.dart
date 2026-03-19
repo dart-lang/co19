@@ -17,18 +17,18 @@ test(Map create([Map content])) {
   Map other = {1: 0, 2: 2, 3.0: null};
   
   map.addAll(other);
-  map.forEach ((var key, var value) {
+  map.forEach ((key, value) {
     Expect.identical(other[key], value);
   });
-  other.forEach ((var key, var value) {
+  other.forEach ((key, value) {
     Expect.identical(map[key], value);
   });
 
   map.addAll(other);
-  map.forEach ((var key, var value) {
+  map.forEach ((key, value) {
     Expect.identical(other[key], value);
   });
-  other.forEach ((var key, var value) {
+  other.forEach ((key, value) {
     Expect.identical(map[key], value);
   });
 }

@@ -4,6 +4,7 @@
 
 /// @assertion E lastWhere(bool test(E element), {E orElse()})
 /// Returns the last element that satisfies the given predicate test
+///
 /// @description Checks that the last element that satisfies the given predicate
 /// test is returned
 /// @author sgrekhov@unipro.ru
@@ -22,7 +23,7 @@ test(Iterable create([Iterable content]), {bool isSet = false}) {
   C c2 = new C(42);
 
   Iterable a = create([c1, c2]);
-  C found = a.lastWhere((var value) {
+  C found = a.lastWhere((value) {
     if (value is C) {
       return value.val == 42;
     }

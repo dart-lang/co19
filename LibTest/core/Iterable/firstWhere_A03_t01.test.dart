@@ -4,9 +4,10 @@
 
 /// @assertion E firstWhere(bool test(E element), {E orElse()})
 /// Returns the first element that satisfies the given predicate test.
-/// Iterates through elements and returns the first to satsify test.
+/// Iterates through elements and returns the first to satisfy test.
 /// If no element satisfies test, the result of invoking the orElse function
 /// is returned. If orElse is omitted, it defaults to throwing a StateError.
+///
 /// @description Checks that a StateError is thrown when orElse is null and
 /// none matches.
 /// @author kaigorodov
@@ -16,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 check(Iterable list) {
     Expect.throws(() {
-      list.firstWhere((var value) => false);
+      list.firstWhere((value) => false);
     }, (e) => e is StateError
   );
 }

@@ -7,6 +7,7 @@
 ///
 /// Returns a Future that completes when all elements of the given stream are
 /// added to this.
+///
 /// @description Checks that this method adds all elements of the given stream to
 /// this.
 /// @author sgrekhov@unipro.ru
@@ -38,9 +39,9 @@ test(String method) async {
   client.open(method, localhost, server.port, "")
       .then((HttpClientRequest request) {
     request.contentLength = 9;
-    request.addStream(stream).then((var request) {
+    request.addStream(stream).then((request) {
       return request.close();
-    }).then((var response) {
+    }).then((response) {
       response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
       asyncEnd();
     });

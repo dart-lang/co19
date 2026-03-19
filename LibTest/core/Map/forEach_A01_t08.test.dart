@@ -4,7 +4,8 @@
 
 /// @assertion  abstract void forEach(void f(K key, V value))
 /// Applies f to each {key, value} pair of the map.
-/// @description Nested forEach.
+///
+/// @description Check that `forEach` calls can be nested.
 /// @author msyabro
 
 library forEach_A01_t08;
@@ -13,14 +14,16 @@ import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
   Map map = create();
-  
+
   map["1"] = 3;
   map["2"] = 5;
-  
+
   int count = 0;
-  map.forEach((var key1, var value1) {
-    map.forEach((var key2, var value2) {
-      map.forEach((var key3, var value3) {count++;});
+  map.forEach((key1, value1) {
+    map.forEach((key2, value2) {
+      map.forEach((key3, value3) {
+        count++;
+      });
     });
   });
   Expect.isTrue(count == 8);

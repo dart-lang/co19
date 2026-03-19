@@ -4,6 +4,7 @@
 
 /// @assertion  abstract void forEach(void f(K key, V value))
 /// Applies f to each {key, value} pair of the map.
+///
 /// @description Checks that keys and values can be changed in [f].
 /// @author msyabro
 
@@ -17,7 +18,7 @@ test(Map create([Map content])) {
   map["1"] = 3;
   map["2"] = 5;
   
-  map.forEach((var key, var value) {
+  map.forEach((key, value) {
     map[key] = value + 1;
   });
   

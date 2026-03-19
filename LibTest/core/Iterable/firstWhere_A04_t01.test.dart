@@ -4,11 +4,12 @@
 
 /// @assertion E firstWhere(bool test(E element), {E orElse()})
 /// Returns the first element that satisfies the given predicate test.
-/// Iterates through elements and returns the first to satsify test.
+/// Iterates through elements and returns the first to satisfy test.
 /// If no element satisfies test, the result of invoking the orElse function
 /// is returned. If orElse is omitted, it defaults to throwing a StateError.
-/// @description Checks that the first element that satisfies the given predicate
-/// test is returned
+///
+/// @description Checks that the first element that satisfies the given
+/// predicate test is returned
 /// @author sgrekhov@unipro.ru
 
 library firstWhere_A04_t01;
@@ -25,7 +26,7 @@ test(Iterable create([Iterable content]), {bool isSet = false}) {
   C c2 = new C(42);
 
   Iterable a = create([c1, c2]);
-  C found = a.firstWhere((var value) {
+  C found = a.firstWhere((value) {
     if (value is C) {
       return value.val == 42;
     }

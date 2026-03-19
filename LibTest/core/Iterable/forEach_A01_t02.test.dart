@@ -4,11 +4,12 @@
 
 /// @assertion void forEach(void f(E element))
 /// Applies the function f to each element of this collection in iteration order.
+///
 /// @description Checks that no exception is thrown if the list is empty.
 /// @author iefremov
 
 library forEach_A01_t02;
 
 test(Iterable create([Iterable content])) {
-  create([]).forEach((var v){});
+  create([]).forEach((v){});
 }

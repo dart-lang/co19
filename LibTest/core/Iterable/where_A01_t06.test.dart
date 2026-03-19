@@ -4,6 +4,7 @@
 
 /// @assertion Iterable<E> where(bool f(E element))
 /// Returns a lazy Iterable with all elements that satisfy the predicate f.
+///
 /// @description Checks that if predicate function always returns true then
 /// resulting collection equals to the initial one
 /// @author msyabro
@@ -14,15 +15,10 @@ import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
   List list = new List.empty(growable: true);
-  
   for(int i = 0; i < 100; i++) {
     list.add(i);
   }
-  
-  Iterable res = create(list).where((var element) {
-    return true;
-  });
-  
+  Iterable res = create(list).where((element) => true);
   Expect.isTrue(res.length == 100);
   int i = 0;
   Iterator it = res.iterator;

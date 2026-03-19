@@ -6,6 +6,7 @@
 /// Returns the last element that satisfies the given predicate f.
 /// If none matches, the result of invoking the orElse function is returned.
 /// By default, when orElse is null, a StateError is thrown.
+///
 /// @description Checks that the correct value is returned, if the element is
 /// present in the list.
 /// @author kaigorodov
@@ -14,8 +15,8 @@ library lastWhere_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-void check(Iterable a, var element) {
-  Expect.equals(element, a.lastWhere((var value) => value == element));
+void check(Iterable a, element) {
+  Expect.equals(element, a.lastWhere((value) => value == element));
 }
 
 test(Iterable create([Iterable content])) {

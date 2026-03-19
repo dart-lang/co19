@@ -6,6 +6,7 @@
 /// Checks whether every element of this iterable satisfies test.
 /// Checks every element in iteration order, and returns false if any of them
 /// make test return false, otherwise returns true.
+///
 /// @description Checks that [f] is not called if list is empty
 /// @author kaigorodov
 
@@ -16,7 +17,7 @@ import "../../../Utils/expect.dart";
 test(Iterable create([Iterable content])) {
   Iterable a = create();
   int actualCount = 0;
-  a.every((var e) {
+  a.every((e) {
     actualCount++;
     return e;
   });

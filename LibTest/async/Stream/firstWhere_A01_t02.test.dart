@@ -42,7 +42,7 @@ void check(Stream<int?> s, bool test(int? element), Object? expected) {
     orElseUsed = true;
     return 42;
   });
-  f.then((var actual) {
+  f.then((actual) {
     Expect.equals(expected, actual);
     Expect.isFalse(orElseUsed);
     asyncEnd();

@@ -4,6 +4,7 @@
 
 /// @assertion void forEach(void f(T element))
 /// Applies the function [f] to each element of the collection.
+///
 /// @description Checks that nested invocations of forEach() do not cause any
 /// errors.
 /// @author pagolubev
@@ -17,10 +18,10 @@ test(Set create([Set content])) {
   s.addAll([1, -3, 10, 17]);
 
   Set outer = create();
-  s.forEach((var x) {
+  s.forEach((x) {
     outer.add(x);
     Set inner = create();
-    s.forEach((var y) {
+    s.forEach((y) {
       inner.add(y);
     });
     Expect.isTrue(inner.containsAll(s));

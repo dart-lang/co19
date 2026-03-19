@@ -5,6 +5,7 @@
 /// @assertion abstract Stream<T> asStream()
 /// The stream will produce single data or error event containing the completion
 /// result of this future, and then it will close with a done event.
+///
 /// @description Checks that the stream is closed after the completion value is
 /// send.
 /// @author kaigorodov
@@ -21,7 +22,7 @@ main() {
   int count = 1;
 
   asyncStart();
-  stream.listen((var event) {
+  stream.listen((event) {
     // should be invoked first
     count = count + 1;
   }, onDone: () {

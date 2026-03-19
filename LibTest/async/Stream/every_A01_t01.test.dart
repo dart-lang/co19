@@ -5,6 +5,7 @@
 /// @assertion Future<bool> every(bool test(T element))
 /// Checks whether test accepts all elements provided by this stream.
 /// Completes the Future when the answer is known.
+///
 /// @description Checks that correct answer is passed to the future.
 /// @author kaigorodov
 
@@ -13,7 +14,7 @@ library every_A01_t01;
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
-  AsyncExpect.value(true, create([]).every((var element) => true));
+  AsyncExpect.value(true, create([]).every((element) => true));
   AsyncExpect.value(true, create([1, 2, 3]).every((int? e) => e != null));
   AsyncExpect.value(
       false, create([1, 2, 3, null]).every((int? e) => e == null));

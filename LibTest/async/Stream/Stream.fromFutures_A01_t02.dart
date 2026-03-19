@@ -27,20 +27,20 @@ main() {
     completers[k] = new Completer();
     futures[k] = completers[k].future;
   }
-
   Stream s = new Stream.fromFutures(futures);
-
   asyncStart();
-
-  s.listen((var event) {
-    Expect.equals(f2c[num++], event);
-  }, onError: (_) {
-    Expect.fail("onError called unexpectedly");
-  }, onDone: () {
-    Expect.equals(N, num, "onDone");
-    asyncEnd();
-  });
-
+  s.listen(
+    (event) {
+      Expect.equals(f2c[num++], event);
+    },
+    onError: (_) {
+      Expect.fail("onError called unexpectedly");
+    },
+    onDone: () {
+      Expect.equals(N, num, "onDone");
+      asyncEnd();
+    },
+  );
   for (int k = 0; k < N; k++) {
     completers[f2c[k]].complete(f2c[k]);
   }

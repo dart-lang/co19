@@ -4,6 +4,7 @@
 
 /// @assertion void forEach(void f(T element))
 /// Applies the function [f] to each element of the collection.
+///
 /// @description Checks that forEach() browses every element of the set.
 /// @author pagolubev
 
@@ -18,7 +19,7 @@ test(Set create([Set content])) {
   List<int> a = new List.filled(s.length, 0);
   int i = 0;
 
-  s.forEach((var x) {
+  s.forEach((x) {
     a[i] = x;
     i++;
   });
