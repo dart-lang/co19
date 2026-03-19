@@ -6,6 +6,7 @@
 /// Creates a double-linked queue containing all elements.
 /// The element order in the queue is as if the elements were added using
 /// addLast in the order provided by elements.iterator.
+///
 /// @description Checks that created list contains all elements of [elements]
 /// collection.
 /// @author kaigorodov
@@ -15,7 +16,7 @@ import "dart:collection";
 
 void check(DoubleLinkedQueue l, Iterable c) {
   Expect.isTrue(l.length == c.length);
-  c.forEach((var element) {
+  c.forEach((element) {
     Expect.isTrue(l.removeFirst() == element);
   });
 }

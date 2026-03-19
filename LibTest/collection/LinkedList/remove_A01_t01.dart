@@ -4,6 +4,7 @@
 
 /// @assertion bool remove(E entry)
 /// Remove [entry] from the linked list.
+///
 /// @description Checks that [remove] removes element from the linked list.
 /// @author kaigorodov
 
@@ -19,7 +20,7 @@ check(LinkedList<MyLinkedListEntry> llist,
   llist.remove(entry);
   Expect.equals(length - 1, llist.length);
   Expect.isFalse(llist.contains(entry));
-  initial.forEach((var entry) {
+  initial.forEach((entry) {
     Expect.isTrue(initial.contains(entry));
   });
 }

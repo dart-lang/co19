@@ -5,6 +5,7 @@
 /// @assertion void addAll(Iterable<E> iterable)
 /// Adds all elements of [collection] at the end of the queue.
 /// The length of the queue is extended by the length of [iterable].
+///
 /// @description Checks that method appends new elements and does not affect 
 /// the existing elements of the queue.
 /// @author kaigorodov
@@ -15,7 +16,7 @@ import "dart:collection";
 check(List expected, DoubleLinkedQueue actual) {
   Expect.equals(expected.length, actual.length);
   int i = 0;
-  actual.forEach((var element) {
+  actual.forEach((element) {
     Expect.equals(expected[i++], element);
   });
 }

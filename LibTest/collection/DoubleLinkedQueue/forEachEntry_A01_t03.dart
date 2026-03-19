@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion void forEachEntry(void f(DoubleLinkedQueueEntry<E> element))
+///
 /// @description Checks that exception thrown in [f] breaks the iteration.
 /// @author kaigorodov
 
@@ -17,7 +18,7 @@ main() {
   
   int count = 0;
   try {
-    queue.forEachEntry((var entry) {
+    queue.forEachEntry((entry) {
       throw ++count;
     });
   } on Object catch(e) {

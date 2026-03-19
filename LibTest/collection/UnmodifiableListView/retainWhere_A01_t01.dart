@@ -4,6 +4,7 @@
 
 /// @assertion void retainWhere(bool test(E element))
 /// This operation is not supported by an unmodifiable list.
+///
 /// @description Checks that [retainWhere] method is not supported.
 /// @author iarkh@unipro.ru
 
@@ -12,8 +13,8 @@ import "../../../Utils/expect.dart";
 
 main() {
   UnmodifiableListView l = new UnmodifiableListView([1, 2, 3, 4, 5]);
-  Expect.throws(() { l.retainWhere((var element) => true); },
+  Expect.throws(() { l.retainWhere((element) => true); },
       (e) => e is UnsupportedError);
-  Expect.throws(() { l.retainWhere((var element) => element > 7); },
+  Expect.throws(() { l.retainWhere((element) => element > 7); },
       (e) => e is UnsupportedError);
 }

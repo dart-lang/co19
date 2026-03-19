@@ -4,6 +4,7 @@
 
 /// @assertion bool every(bool f(E element))
 /// Checks every [element] in iteration order
+///
 /// @description Checks that elements get checked in the iteration order.
 /// @author iarkh@unipro.ru
 
@@ -24,21 +25,21 @@ main() {
   List res = [];
   MyIterable iterable = new MyIterable(original);
 
-  iterable.every((var element) {
+  iterable.every((element) {
       res.add(element);
       return true;
     });
   Expect.listEquals(original, res);
 
   res.clear();
-  iterable.every((var element) {
+  iterable.every((element) {
     res.add(element);
     return element > 0;
   });
   Expect.listEquals(res, [1, 2, 7, -5]);
 
   res.clear();
-  iterable.every((var element) {
+  iterable.every((element) {
     res.add(element);
     return element < 10;
   });

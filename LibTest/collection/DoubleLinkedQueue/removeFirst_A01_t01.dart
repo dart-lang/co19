@@ -4,6 +4,7 @@
 
 /// @assertion E removeFirst()
 /// Removes and returns the first element of this queue.
+///
 /// @description Checks that exactly the first element is removed and returned.
 /// @author kaigorodov
 
@@ -17,7 +18,7 @@ check(List list) {
     Expect.equals(queue.length, list.length - 1);
     list.removeAt(0);
     int i = 0;
-      queue.forEach((var element) {
+      queue.forEach((element) {
       Expect.equals(list[i++], element);
     });
   }

@@ -5,6 +5,7 @@
 /// @assertion void forEach(void f(E element))
 /// Applies the function [f] to each element of this collection in iteration
 /// order.
+///
 /// @description Checks that [forEach()] iterates over each element of the queue.
 /// @author kaigorodov
 
@@ -13,17 +14,14 @@ import "../../../Utils/expect.dart";
 
 main() {
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
-  
   for(int i = 0; i < 100; i++) {
     queue.addLast(i);
   }
-  
   List a = new List.filled(100, 0);
   
-  queue.forEach((var element) {
+  queue.forEach((element) {
     a[element] = element;
   });
-  
   for(int i = 0; i < 100; i++) {
     Expect.isTrue(a[i] == i);
   }

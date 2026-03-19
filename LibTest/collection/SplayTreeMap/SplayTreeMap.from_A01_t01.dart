@@ -5,6 +5,7 @@
 /// @assertion SplayTreeMap.from(Map other, [int compare(K key1, K key2),
 /// bool isValidKey(potentialKey)])
 /// Creates a [SplayTreeMap] that contains all key/value pairs of [other].
+///
 /// @description Checks that this constructor creates a [SplayTreeMap] that
 /// contains all elements of [other]
 /// @author sgrekhov@unipro.ru
@@ -14,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 check(Map m1, Map m2) {
   Expect.equals(m1.length, m2.length);
-  m1.forEach((var key, var value) {
+  m1.forEach((key, value) {
     Expect.isTrue(m2.containsKey(key));
     Expect.equals(value, m2[key]);
   });

@@ -5,6 +5,7 @@
 /// @assertion  void forEach(void f(E element))
 /// Applies the function [f] to each element of this collection in iteration
 /// order.
+///
 /// @description Checks [forEach()] on empty iterable.
 
 import "dart:collection";
@@ -29,7 +30,7 @@ main() {
   IterableMixin iterable = new MyIterable([]);
 
   int count = 0;
-  iterable.forEach((var element) {
+  iterable.forEach((element) {
     count++;
   });
 

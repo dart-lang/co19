@@ -6,6 +6,7 @@
 /// Create a [ListQueue] containing all [elements].
 /// The elements are added to the queue, as by [addLast], in the order given by
 /// [elements.iterator].
+///
 /// @description Checks constructor with a custom [Iterable].
 /// @author kaigorodov
 
@@ -52,10 +53,9 @@ class IterableClass extends IterableBase {
   }
 }
 
-
 void check(ListQueue l, Iterable c) {
   Expect.equals(l.length, c.length);
-  c.forEach((var element) {
+  c.forEach((element) {
     Expect.equals(l.removeFirst(), element);
   });
 }

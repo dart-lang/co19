@@ -5,6 +5,7 @@
 /// @assertion IterableMixin<E> abstract class
 /// This [Iterable] mixin implements all [Iterable] members except [iterator].
 /// All other methods are implemented in terms of [iterator].
+///
 /// @description Checks that this class implements all methods of [Iterable]
 /// except [Iterable.iterator]
 /// @author kaigorodov
@@ -61,7 +62,7 @@ void check0(MyIterable myIterable) {
 
   Expect.isTrue(myIterable.every((element) => true));
 
-  Iterable expanded = myIterable.expand((var element) => [element]);
+  Iterable expanded = myIterable.expand((element) => [element]);
   Expect.isTrue(expanded.isEmpty);
 
   Expect.throws(() {
@@ -135,7 +136,7 @@ void check1(MyIterable myIterable) {
 
   Expect.isTrue(myIterable.every((element) => true));
 
-  Iterable expanded = myIterable.expand((var element) => [element]);
+  Iterable expanded = myIterable.expand((element) => [element]);
   Expect.equals(1, expanded.length);
 
   Expect.equals(1, myIterable.firstWhere((element) => true));
@@ -202,7 +203,7 @@ void check2(MyIterable myIterable) {
 
   Expect.isTrue(myIterable.every((element) => true));
 
-  Iterable expanded = myIterable.expand((var element) => [element]);
+  Iterable expanded = myIterable.expand((element) => [element]);
   Expect.equals(2, expanded.length);
 
   Expect.equals(1, myIterable.firstWhere((element) => true));

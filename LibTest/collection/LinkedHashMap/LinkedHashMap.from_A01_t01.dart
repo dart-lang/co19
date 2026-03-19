@@ -4,6 +4,7 @@
 
 /// @assertion LinkedHashMap.from(Map other)
 /// Creates a [LinkedHashMap<K,V>] that contains all key value pairs of [other].
+///
 /// @description Checks that created hash map contains all elements of [other].
 /// Both empty and non-empty argument maps are tested.
 /// @author msyabro
@@ -13,7 +14,7 @@ import "dart:collection";
 
 check(Map m1, Map m2) {
   Expect.equals(m1.length, m2.length);
-  m1.forEach((var key, var value) {
+  m1.forEach((key, value) {
     Expect.isTrue(m2.containsKey(key));
     Expect.equals(value, m2[key]);
   });

@@ -5,6 +5,7 @@
 /// @assertionIterable expand(Iterable f(E element))
 /// The returned [Iterable] is lazy, and calls [f] for each element of this every
 /// time it's iterated.
+///
 /// @description Checks that the returned [Iterable] is lazy.
 /// @author kaigorodov
 
@@ -13,7 +14,7 @@ import "LinkedList.lib.dart";
 
 void check(List a0) {
   LinkedList<MyLinkedListEntry> a = toLinkedList(a0);
-  a.expand((var element) {
+  a.expand((element) {
     throw new Exception("should not be called");
   });
 }

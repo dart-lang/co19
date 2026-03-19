@@ -6,6 +6,7 @@
 /// Create a [ListQueue] containing all [elements].
 /// The elements are added to the queue, as by [addLast], in the order given by
 /// [elements.iterator].
+///
 /// @description Checks that created list contains all [elements] in correct
 /// order.
 /// @author kaigorodov
@@ -15,7 +16,7 @@ import "dart:collection";
 
 void check(ListQueue l, Iterable c) {
   Expect.isTrue(l.length == c.length);
-  c.forEach((var element) {
+  c.forEach((element) {
     Expect.isTrue(l.removeFirst() == element);
   });
 }

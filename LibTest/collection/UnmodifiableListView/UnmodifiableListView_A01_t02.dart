@@ -6,10 +6,10 @@
 /// Creates an unmodifiable list backed by [source].
 /// The [source] of the elements may be a [List] or any [Iterable] with efficient
 /// [Iterable.length] and [Iterable.elementAt].
+///
 /// @description Checks that proper unmodifiable list with correct element order
 /// is created from the custom iterable [source]
 /// @author iarkh@unipro.ru
-
 
 import "dart:collection";
 import "../../../Utils/expect.dart";
@@ -26,7 +26,7 @@ class MyIterable extends Object with IterableMixin {
 check(Iterable iterable) {
   int i = 0;
   UnmodifiableListView l = new UnmodifiableListView(iterable);
-  l.forEach((var element) {
+  l.forEach((element) {
     Expect.equals(l[i++], element);
   });
 }

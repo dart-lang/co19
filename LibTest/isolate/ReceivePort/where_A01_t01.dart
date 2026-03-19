@@ -4,8 +4,9 @@
 
 /// @assertion Stream<T> where(bool test(T event))
 /// Creates a new stream from this stream that discards some data events.
-/// The new stream sends the same error and done events as this stream, but it only
-/// sends the data events that satisfy the test. 
+/// The new stream sends the same error and done events as this stream, but it
+/// only sends the data events that satisfy the test.
+///
 /// @description Checks that all stream events are checked by the test.
 /// Checks that the stream sends only the data events that satisfy the test.
 /// @author kaigorodov
@@ -25,10 +26,9 @@ void check(Iterable data, bool test(int element)) {
       return false;
     }
   }
-
   asyncStart();
   Stream sw = s.where(_test);
-  sw.listen((var value) {
+  sw.listen((value) {
     Expect.isTrue(test(value));
     collected.add(value);
   }, onDone: () {

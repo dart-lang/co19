@@ -7,9 +7,11 @@
 /// The returned stream provides the same events as this stream,
 /// except that it never provides two consequtive data events that are equal.
 /// Equality is determined by the provided equals method.
-/// If that is omitted, the '==' operator on the last provided data element is used.
-/// @description Checks that if parameter is omitted, returned stream does not contain
-/// consecutive equal elements in terms of operator ==. 
+/// If that is omitted, the '==' operator on the last provided data element is
+/// used.
+///
+/// @description Checks that if parameter is omitted, returned stream does not
+/// contain consecutive equal elements in terms of operator ==.
 /// @author kaigorodov
 
 import "dart:async";
@@ -22,7 +24,7 @@ check(Iterable<int?> data) {
   bool first = true;
   var previous;
   asyncStart();
-  d.listen((var event) {
+  d.listen((event) {
     if (first) {
       first = false;
     } else {

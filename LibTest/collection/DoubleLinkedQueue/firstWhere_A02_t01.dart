@@ -4,10 +4,10 @@
 
 /// @assertion dynamic firstWhere(bool test(E value), {Object orElse()})
 /// If none matches, the result of invoking the [orElse] function is returned.
+///
 /// @description Checks that the result of invoking the orElse function is
 /// returned when none matches.
 /// @author kaigorodov
-
 
 import "dart:collection";
 import "../../../Utils/expect.dart";
@@ -17,7 +17,7 @@ class TestException {}
 check(List list) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
   Expect.throws(() {
-      queue.firstWhere((var value) => false, orElse: () {
+      queue.firstWhere((value) => false, orElse: () {
         throw new TestException();
       });
     },

@@ -5,6 +5,7 @@
 /// @assertion  void forEach(void f(E element))
 /// Applies the function [f] to each element of this collection in iteration
 /// order.
+///
 /// @description Checks that [forEach()] iterates elements in correct iteration
 /// order.
 /// @author iarkh@unipro.ru
@@ -36,9 +37,8 @@ main() {
   IterableMixin iterable = new MyIterable(list);
 
   int i = 0;
-  iterable.forEach((var element) {
+  iterable.forEach((element) {
     result[i++] = element;
   });
-
   Expect.listEquals(list, result);
 }

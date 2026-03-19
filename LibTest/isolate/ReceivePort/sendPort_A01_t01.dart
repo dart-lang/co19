@@ -4,7 +4,9 @@
 
 /// @assertion final SendPort sendPort
 /// Returns a SendPort that sends to this receive port.
-/// @description Checks that a new SendPort that sends to this receive port is returned.
+///
+/// @description Checks that a new SendPort that sends to this receive port is
+/// returned.
 /// @author msyabro
 
 import "dart:isolate";
@@ -17,7 +19,7 @@ void main() {
   Expect.runtimeIsType<SendPort>(sPort);
 
   asyncStart();
-  rPort.listen((var message) {
+  rPort.listen((message) {
     rPort.close();
     asyncEnd();
   });

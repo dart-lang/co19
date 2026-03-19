@@ -5,6 +5,7 @@
 /// @assertion void forEach(void f(E element))
 /// Applies the function [f] to each element of this collection in iteration
 /// order.
+///
 /// @description Checks [forEach()] on empty list.
 /// @author kaigorodov
 
@@ -15,9 +16,8 @@ main() {
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
   
   int count = 0;
-  queue.forEach((var element) {
+  queue.forEach((element) {
     count++;
   });
-  
   Expect.isTrue(count == 0);
 }

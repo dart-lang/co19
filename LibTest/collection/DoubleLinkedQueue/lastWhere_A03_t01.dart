@@ -3,9 +3,19 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
-/// If [orElse] is omitted, it defaults to throwing a [StateError].
-/// @description Checks that [StateError] is thrown when [orElse] is null and
-/// none matches.
+/// The last element that satisfies the given predicate `test`.
+///
+/// An iterable that can access its elements directly may check its elements in
+/// any order (for example a list starts by checking the last element and then
+/// moves towards the start of the list). The default implementation iterates
+/// elements in iteration order, checks `test(element)` for each, and finally
+/// returns that last one that matched.
+///
+/// If no element satisfies `test`, the result of invoking the `orElse` function
+/// is returned. If `orElse` is omitted, it defaults to throwing a [StateError].
+///
+/// @description Check that if no element satisfies `test` and `orElse` is
+/// omitted then a [StateError] is thrown.
 /// @author kaigorodov
 
 import "dart:collection";
@@ -13,7 +23,7 @@ import "../../../Utils/expect.dart";
 
 check(List list) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
-  Expect.throws(() { queue.lastWhere((var value) => false); },
+  Expect.throws(() { queue.lastWhere((value) => false); },
     (e) => e is StateError);
 }
 

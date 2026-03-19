@@ -4,6 +4,7 @@
 
 /// @assertion void forEach(void f(E element))
 /// Applies the function [f] to each element of this collection.
+///
 /// @description Checks that exception thrown in [f] breaks the iteration.
 /// @author iarkh@unipro.ru
 
@@ -19,11 +20,9 @@ main() {
     list.add(i);
     queue.add(i);
   }
-
   int i = 0;
-  queue.forEach((var element) {
+  queue.forEach((element) {
     result[i++] = element;
   });
-
   Expect.listEquals(list, result);
 }

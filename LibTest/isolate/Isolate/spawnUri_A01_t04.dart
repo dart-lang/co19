@@ -29,7 +29,6 @@
 ///  present, the parameter message is set to the initial message.
 ///
 /// @description Checks that chained spawning of 10 isolates works properly.
-///
 /// @author kaigorodov
 
 import "dart:isolate";
@@ -49,7 +48,7 @@ void main(List<String> args, SendPort? replyPort) {
     if (n == 10) {
       asyncStart();
     }
-    receivePort.listen((var message) {
+    receivePort.listen((message) {
       receivePort.close();
       Expect.equals(n - 1, message);
       reply();

@@ -5,6 +5,7 @@
 /// @assertion Stream transform(StreamTransformer<T, dynamic> streamTransformer)
 /// Chains this stream as the input of the provided StreamTransformer.
 /// Returns the result of streamTransformer.bind itself.
+///
 /// @description Checks that the new stream sends the same error and done events
 /// as this stream.
 /// @author kaigorodov
@@ -31,7 +32,7 @@ void check(Iterable data) {
   });
 
   asyncStart();
-  s.listen((var value){},
+  s.listen((value){},
     onError: (error) {
       sync.put1(error);
     },
@@ -40,7 +41,7 @@ void check(Iterable data) {
     }
   );
   asyncStart();
-  s2.listen((var value){},
+  s2.listen((value){},
     onError: (error) {
       sync.put1(error);
     },

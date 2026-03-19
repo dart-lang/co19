@@ -4,9 +4,11 @@
 
 /// @assertion Stream<T> where(bool test(T event))
 /// Creates a new stream from this stream that discards some data events.
-/// The new stream sends the same error and done events as this stream, but it only
-/// sends the data events that satisfy the test. 
-/// @description Checks that the new stream sends the same error and done events as this stream.
+/// The new stream sends the same error and done events as this stream, but it
+/// only sends the data events that satisfy the test.
+///
+/// @description Checks that the new stream sends the same error and done events
+/// as this stream.
 /// @author kaigorodov
 
 import "dart:async";
@@ -23,13 +25,13 @@ void check(Iterable data, bool test(event)) {
   });
 
   asyncStart();
-  s.listen((var value) {}, onError: (error) {
+  s.listen((value) {}, onError: (error) {
     sync.put1(error);
   }, onDone: () {
     asyncEnd();
   });
   asyncStart();
-  s.where(test).listen((var value) {}, onError: (error) {
+  s.where(test).listen((value) {}, onError: (error) {
     sync.put1(error);
   }, onDone: () {
     asyncEnd();

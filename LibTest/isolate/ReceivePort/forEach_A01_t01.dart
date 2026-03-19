@@ -4,10 +4,12 @@
 
 /// @assertion Future forEach(void action(T element))
 /// Executes action on each data event of the stream.
-/// Completes the returned Future when all events of the stream have been processed.
-/// @description Checks that all actions on each data event of the stream are executed.
+/// Completes the returned Future when all events of the stream have been
+/// processed.
+///
+/// @description Checks that all actions on each data event of the stream are
+/// executed.
 /// @author kaigorodov
-
 
 import "dart:async";
 import "../../../Utils/expect.dart";
@@ -17,10 +19,10 @@ void check(List data) {
   Stream s = IsolateStream.fromIterable(data);
   List sink = [];
   asyncStart();
-  Future f = s.forEach((var element){
+  Future f = s.forEach((element){
     sink.add(element);
   });
-  f.then((var actual){
+  f.then((actual){
     Expect.listEquals(data, sink);
     asyncEnd();
   });

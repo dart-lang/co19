@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion void forEachEntry(void f(DoubleLinkedQueueEntry<E> element))
+///
 /// @description Checks that [forEachEntry()] iterates over each element of the
 /// queue.
 /// @author kaigorodov
@@ -19,7 +20,7 @@ main() {
   
   List a = new List.filled(100, 0);
   
-  queue.forEachEntry((var entry) {
+  queue.forEachEntry((entry) {
     var element = entry.element;
     a[element] = element;
   });

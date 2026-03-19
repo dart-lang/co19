@@ -6,6 +6,7 @@
 /// Checks whether every element of this iterable satisfies [test].
 /// Checks every element in iteration order, and returns [false] if any of them
 /// make [test] return [false], otherwise returns [true].
+///
 /// @description Checks that the method iterates over each element of the list
 /// @author kaigorodov
 
@@ -18,13 +19,12 @@ main() {
   for(int i = 0; i < 100; i++) {
     list.addLast(i);
   }
-  
   List a = new List.filled(100, 0);
-  list.every((var element) {
+
+  list.every((element) {
     a[element] = element;
     return true;
   });
-  
   for(int i = 0; i < 100; i++) {
     Expect.isTrue(a[i] == i);
   }

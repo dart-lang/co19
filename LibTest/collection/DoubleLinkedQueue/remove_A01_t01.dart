@@ -4,6 +4,7 @@
 
 /// @assertion bool remove(Object o)
 /// Remove a single instance of [value] from the queue.
+///
 /// @description Checks that only single instance of value gets removed from the
 /// queue and it does not affect another elements
 /// @author iarkh@unipro.ru
@@ -20,7 +21,7 @@ check(List list, Object value, int num) {
     l1--;
     cnt++;
     int i = 0;
-    queue.forEach((var element) {
+    queue.forEach((element) {
       if(list[i] == value && list[i] != element) {
         list.removeAt(i);
       }

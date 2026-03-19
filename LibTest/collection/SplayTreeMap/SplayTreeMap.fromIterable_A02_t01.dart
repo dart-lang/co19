@@ -7,6 +7,7 @@
 /// bool isValidKey(potentialKey)})
 /// The keys of the key/value pairs do not need to be unique. The last occurrence
 /// of a [key] will simply overwrite any previous value.
+///
 /// @description Checks that this constructor creates an [SplayTreeMap] that
 /// contains all elements of the [iterable]
 /// @author sgrekhov@unipro.ru
@@ -16,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 check(Iterable expected, Map m2) {
   Expect.equals(expected.length, m2.length);
-  expected.forEach((var element) {
+  expected.forEach((element) {
     Expect.isTrue(m2.containsKey(element));
     Expect.equals(element, m2[element]);
   });
