@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 void check(
-    Iterable data, initialValue, combine(previous, element), var expected) {
+    Iterable data, initialValue, combine(previous, element), expected) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   Future f = s.fold(initialValue, combine);
