@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 var noneMatches = new Object();
 
-void check(Iterable a, var element) {
+void check(Iterable a, element) {
   Expect.identical(noneMatches,
       a.lastWhere((value) => value == element, orElse: () => noneMatches));
 }

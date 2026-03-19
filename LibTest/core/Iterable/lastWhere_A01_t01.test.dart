@@ -15,7 +15,7 @@ library lastWhere_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-void check(Iterable a, var element) {
+void check(Iterable a, element) {
   Expect.equals(element, a.lastWhere((value) => value == element));
 }
 

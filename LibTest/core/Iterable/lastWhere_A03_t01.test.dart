@@ -13,7 +13,7 @@ library lastWhere_A03_t01;
 
 import "../../../Utils/expect.dart";
 
-void check(Iterable a, var element) {
+void check(Iterable a, element) {
   Expect.throws(() {a.lastWhere((value) => value == element);},
       (e) => e is StateError);
 }
