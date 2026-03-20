@@ -13,7 +13,7 @@
 import '../../../Utils/expect.dart';
 
 class A {
-  static set bar(var x) {
+  static set bar(x) {
     dynamic o = "";
     try {
       x == o.undeclared;

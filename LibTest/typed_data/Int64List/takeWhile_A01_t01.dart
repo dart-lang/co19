@@ -3,13 +3,18 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Iterable<E> takeWhile(bool test(E value))
-/// Returns a lazy [Iterable]  of the leading elements satisfying test.
+/// Creates a lazy iterable of the leading elements satisfying `test`.
 ///
-/// that stops once [test] is not satisfied anymore.
-/// @description Checks that all first elements that satisfy test are retained,
+/// The filtering happens lazily. Every new iterator of the returned iterable
+/// starts iterating over the elements of this.
+///
+/// The elements can be computed by stepping through [iterator] until an element
+/// is found where `test(element)` is false. At that point, the returned
+/// iterable stops (its `moveNext()` returns `false`).
+///
+/// @description Checks that all first elements that satisfy `test` are retained,
 /// and elements after that are skipped.
 /// @author msyabro
-
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -45,10 +50,10 @@ void check(List<int> list, bool test(int element)) {
 
 main() {
   var a0 = [1, 3, 7, 4, 5, 6];
-  check(a0, (var element) => element == 1);
-  check(a0, (var element) => true);
-  check(a0, (var element) => false);
-  check(a0, (var element) => element > 4);
-  check(a0, (var element) => element < 4);
-  check(a0, (var element) => element == 4);
+  check(a0, (element) => element == 1);
+  check(a0, (element) => true);
+  check(a0, (element) => false);
+  check(a0, (element) => element > 4);
+  check(a0, (element) => element < 4);
+  check(a0, (element) => element == 4);
 }

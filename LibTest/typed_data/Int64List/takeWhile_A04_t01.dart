@@ -2,15 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Iterable<E> skipWhile(bool test(E value))
-/// ...
-/// The elements can be computed by stepping through iterator until an element is
-/// found where test(element) is false. At that point, the returned iterable
-/// stops (its moveNext() returns false).
+/// @assertion Iterable<E> takeWhile(bool test(E value))
+/// Creates a lazy iterable of the leading elements satisfying `test`.
+///
+/// The filtering happens lazily. Every new iterator of the returned iterable
+/// starts iterating over the elements of this.
+///
+/// The elements can be computed by stepping through [iterator] until an element
+/// is found where `test(element)` is false. At that point, the returned
+/// iterable stops (its `moveNext()` returns `false`).
+///
 /// @description Checks that once an element does not satisfy the [test] every
 /// later element is skipped.
 /// @author msyabro
-
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
