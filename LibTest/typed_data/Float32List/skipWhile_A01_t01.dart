@@ -4,10 +4,10 @@
 
 /// @assertion Iterable<E> skipWhile(bool test(E value))
 /// Returns an [Iterable] that skips leading elements while [test] is satisfied.
+///
 /// @description Checks that all first elements that satisfy test are skipped,
 /// and elements after that are retained.
 /// @author msyabro
-
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
@@ -40,10 +40,10 @@ void check(List<double> list, bool test(double element)) {
 
 main() {
   var a0 = [1.0, 3.0, 7.0, 4.0, 5.0, 6.0];
-  check(a0, (var element) => element == 1.0);
-  check(a0, (var element) => true);
-  check(a0, (var element) => false);
-  check(a0, (var element) => element > 4.0);
-  check(a0, (var element) => element < 4.0);
-  check(a0, (var element) => element == 4.0);
+  check(a0, (element) => element == 1.0);
+  check(a0, (element) => true);
+  check(a0, (element) => false);
+  check(a0, (element) => element > 4.0);
+  check(a0, (element) => element < 4.0);
+  check(a0, (element) => element == 4.0);
 }
