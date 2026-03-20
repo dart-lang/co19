@@ -10,7 +10,7 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39866
 
-void test(int x) {
+void test(x) {
   if (x is Never) {
     x();
     x(1);

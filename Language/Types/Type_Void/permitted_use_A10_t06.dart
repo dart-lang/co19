@@ -24,8 +24,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 62844
 
-import '../../../Utils/expect.dart';
-
 void getVoid(Object? o) => o;
 
 class C<T> {
