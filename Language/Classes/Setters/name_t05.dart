@@ -28,6 +28,4 @@ main() {
   C c = new C();
   c.foo(1);
   c.foo = 1;
-//        ^
-// [cfe] unspecified
 }

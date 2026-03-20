@@ -13,7 +13,7 @@
 
 class A {}
 
-test(int a) {
+test(a) {
   if (a is Object) {
     a!;
 //   ^
