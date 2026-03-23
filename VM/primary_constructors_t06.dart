@@ -64,13 +64,13 @@ final tests = <IsolateTest>[
     var (_, (line, column)) = await breakpoint.getLocation(service, isolateRef);
     Expect.isTrue(breakpoint.enabled);
     Expect.equals(LINE_A, line);
-    Expect.equals(9, column); // on 'assert'
+    Expect.equals(18, column); // on '>'
 
     breakpoint = await service.addBreakpoint(isolateId, scriptId, LINE_B);
     (_, (line, column)) = await breakpoint.getLocation(service, isolateRef);
     Expect.isTrue(breakpoint.enabled);
     Expect.equals(LINE_B, line);
-    Expect.equals(44, column); // on 'print'
+    Expect.equals(5, column); // on 'print'
 
     await service.removeBreakpoint(isolateId, breakpoint.id!);
   },
