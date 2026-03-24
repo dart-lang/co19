@@ -2,8 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion In the second and last step, if no error occurred, proceed as
-/// described in the first applicable case from the following list:
+/// @assertion Consider the situation where a name `n` has basename `id` where
+/// `id` is an identifier, and a lexical lookup of `n` is performed from a given
+/// location `ℓ`.
+/// ...
+/// Let `S` be the innermost lexical scope containing `ℓ` which has a
+/// declaration with basename `id`. In the case where `S` has a declaration
+/// named `id` as well as a declaration named `id=`, let `D` be the declaration
+/// named `n`. In the situation where `S` has exactly one declaration with
+/// basename `id`, let `D` be that declaration.
+/// ...
+/// In the second and last step, if no error occurred, proceed as described in
+/// the first applicable case from the following list:
 /// ...
 /// - Consider the case where `D` is a formal type parameter declaration of a
 ///   class or a mixin. It is a compile-time error if `ℓ` occurs inside a static

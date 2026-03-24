@@ -14,56 +14,27 @@
 /// ...
 /// In the second and last step, if no error occurred, proceed as described in
 /// the first applicable case from the following list:
-/// - When `D` does not exist, the lexical lookup yields nothing.
+/// ...
+/// - Consider the case where `D` is an instance member declaration in a class
+///   or mixin `A`. The lexical lookup then yields nothing.
 ///
-/// @description Checks that when `D` does not exist, the lexical lookup yields
-/// nothing. Test the case when `this.n` doesn't exists and this is a
-/// compile-time error.
+/// @description Checks that when `D` is an instance member declaration then
+/// lexical lookup yields nothing. Test the case when `this.n` exists (declared
+/// in a mixin) and it is not an error.
 /// @author sgrekhov22@gmail.com
 
-class A {
-  static int get foo => 1;
+import '../../../Utils/expect.dart';
+
+mixin M {
+  int get foo => 1;
 }
 
-class C extends A {
+class C with M {
   test() {
-    print(foo);
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-}
-
-mixin M on A {
-  test() {
-    print(foo);
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-}
-
-extension Ext on A {
-  test() {
-    print(foo);
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-}
-
-extension type ET(A _) implements A {
-  test() {
-    print(foo);
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    Expect.equals(1, foo);
   }
 }
 
 main() {
-  print(A);
-  print(C);
-  print(M);
-  print(ET);
+  C().test();
 }
