@@ -12,7 +12,7 @@
 /// @author iefremov
 
 class A {
-  f({var x, var y}) {
+  f({x, y}) {
     return x + y;
   }
 }
@@ -24,7 +24,7 @@ class A2 extends A1 {}
 class A3 extends A2 {}
 
 class C extends A3 {
-  f({var y, var x}) {
+  f({y, x}) {
     return x + y;
   }
 }

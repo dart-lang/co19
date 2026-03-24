@@ -11,13 +11,13 @@
 /// @author iefremov
 
 class A {
-  f({var x, var y}) {
+  f({x, y}) {
     return x + y;
   }
 }
 
 class C extends A {
-  f({var y, var x}) {
+  f({y, x}) {
     return x + y;
   }
 }

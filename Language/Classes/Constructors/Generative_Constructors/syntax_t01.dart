@@ -5,16 +5,15 @@
 /// @assertion constructorSignature:
 ///   identifier (‘.’ identifier)? formalParameterList
 /// ;
+///
 /// @description Checks valid constructor declarations.
 /// @author vasya
 
-
 class C {
-  C(String s, var x, [Object? o, var z = const []]);
+  C(String s, x, [Object? o, z = const []]);
   C.c1();
-  C.c2(String s, var x, [Object? o, var z = const []]) {}
+  C.c2(String s, x, [Object? o, z = const []]) {}
 }
-
 
 main() {
   new C("", null, 1);

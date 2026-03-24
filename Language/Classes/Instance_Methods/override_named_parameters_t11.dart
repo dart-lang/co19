@@ -13,7 +13,7 @@
 /// @author sgrekhov@unipro.ru
 
 class A {
-  f({var x, var y}) { return x + y; }
+  f({x, y}) => x + y;
 }
 typedef AAlias = A;
 
@@ -25,7 +25,7 @@ class A3 extends A2Alias{}
 typedef A3Alias = A3;
 
 class C extends A3Alias {
-  f({var y, var x}) { return x + y; }
+  f({y, x}) => x + y;
 }
 
 main() {

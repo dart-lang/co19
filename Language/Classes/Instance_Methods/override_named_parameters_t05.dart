@@ -12,17 +12,16 @@
 /// @author rodionov
 
 class A {
-  f({var x, var y, var z}) {}
+  f({x, y, z}) {}
 }
 
 class C extends A {
-  f({var x, var y, var zz}) {}
+  f({x, y, zz}) {}
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  new A().f(x:"Nothing", y:"endures", z:"but");
-  new C().f(x:"Nothing", y:"endures", zz:"but");
+  print(C);
 }

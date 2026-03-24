@@ -7,20 +7,18 @@
 /// id is the name of an instance variable of the immediately enclosing class.
 /// It is a compile-time error if id is not the name of an instance variable of
 /// the immediately enclosing class.
+///
 /// @description Checks that it is a compile-time error if formal parameter of
 /// a constructor is declared as a constant variable.
 /// @author msyabro
 
-
 class C {
-  C.formal(p1, var p2, int p3, final p4, const p5, $()) {}
-//                                       ^^^^^
+  C.formal(p1, int p2, const p3, $()) {}
+//                     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-dynamic testme() => null;
-
 main() {
-  new C.formal(1, 2, 3, 4, 5, testme);
+  print(C);
 }

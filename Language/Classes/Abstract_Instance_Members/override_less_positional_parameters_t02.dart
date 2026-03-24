@@ -13,16 +13,16 @@
 /// @author iefremov
 
 abstract class A {
-  f([var x, var y, var z]);
+  f([x, y, z]);
 }
 
 class C extends A {
-  f([var x, var y]) {}
+  f([x, y]) {}
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  new C().f(1, 2);
+  print(C);
 }
