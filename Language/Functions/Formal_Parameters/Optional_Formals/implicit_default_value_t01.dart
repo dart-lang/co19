@@ -4,18 +4,19 @@
 
 /// @assertion If no default is explicitly specified for an optional parameter,
 /// an implicit default of null is provided.
+///
 /// @description Checks that an implicit default value of null is provided
 /// if default value is not specified explicitly.
 /// @author msyabro
 
 import "../../../../Utils/expect.dart";
 
-f([var x, var y]) {
+f([x, y]) {
   Expect.equals(null, x);
   Expect.equals(null, y);
 }
 
-f2({var x, var y}) {
+f2({x, y}) {
   Expect.equals(null, x);
   Expect.equals(null, y);
 }
@@ -23,7 +24,6 @@ f2({var x, var y}) {
 main() {
   f();
   f(null);
-
   f2();
   f2(y: null);
   f2(x: null);

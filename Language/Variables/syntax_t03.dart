@@ -30,10 +30,9 @@
 /// variable declaration.
 /// @author kaigorodov
 
-
 main() {
   var x, var y;
-//       ^
+//       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -9,6 +9,7 @@
 ///    • S is void, or
 ///    • T <=> S.
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+///
 /// @description Checks that function type t1 is not a subtype of function type
 /// t2 even if just one of its required parameters has a type that is not
 /// mutually assignable with the type of the corresponding formal parameter of t2.
@@ -19,14 +20,50 @@ import "../../../Utils/expect.dart";
 class B {}
 
 typedef B func(Object o);
-typedef B t1(int i, B b, Map<int, num> m, var x, [var ox, B? ob, List<num>? ol, bool? obool]);
 
-B f1(double i, B b, Map<int, num> m, var x, [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
-//    ^^^ double <=/=> int
-B f2(int i, func b, Map<int, num> m, var x, [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
-//          ^^^ func <=/=> B
-B f3(int i, B b, Map<int, func> m, var x, [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
-//                        ^^^ func <=/=> num
+typedef B t1(
+  int i,
+  B b,
+  Map<int, num> m,
+  x, [
+  ox,
+  B? ob,
+  List<num>? ol,
+  bool? obool,
+]);
+
+B f1(
+  double i, // Not int
+  B b,
+  Map<int, num> m,
+  x, [
+  ox,
+  B? ob,
+  List<num>? ol,
+  bool? obool,
+]) => B();
+
+B f2(
+  int i,
+  func b, // Not B
+  Map<int, num> m,
+  x, [
+  ox,
+  B? ob,
+  List<num>? ol,
+  bool? obool,
+]) => B();
+
+B f3(
+  int i,
+  B b,
+  Map<int, func> m, // Not Map<int, num>
+  x, [
+  ox,
+  B? ob,
+  List<num>? ol,
+  bool? obool,
+]) => B();
 
 main() {
   Expect.isFalse(f1 is t1);

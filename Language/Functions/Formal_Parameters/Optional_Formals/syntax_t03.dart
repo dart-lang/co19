@@ -15,13 +15,13 @@
 
 import "../../../../Utils/expect.dart";
 
-void func(int z, [var x = 1, var y = 2]) {
+void func(int z, [int x = 1, int y = 2]) {
   Expect.equals(7, z);
   Expect.equals(1, x);
   Expect.equals(2, y);
 }
 
-void func2(int z, {var x = 1, var y = 2}) {
+void func2(int z, {int x = 1, int y = 2}) {
   Expect.equals(7, z);
   Expect.equals(1, x);
   Expect.equals(2, y);

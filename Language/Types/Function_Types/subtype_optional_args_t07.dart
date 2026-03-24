@@ -9,6 +9,7 @@
 ///    • S is void, or
 ///    • T <=> S.
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+///
 /// @description Checks that function type t1 is not a subtype of function type
 /// t2 if it has fewer positional optional parameters and none of them has
 /// required parameters.
@@ -24,8 +25,8 @@ main() {
   Expect.isFalse(() {} is t1);
 
   Expect.isFalse(([int x = 42]) {} is t2);
-  Expect.isFalse(([var x]) {} is t2);
+  Expect.isFalse(([x]) {} is t2);
 
   Expect.isFalse(([int x = 0, int y = 0]) {} is t3);
-  Expect.isFalse(([var x, var y]) {} is t3);
+  Expect.isFalse(([x, y]) {} is t3);
 }

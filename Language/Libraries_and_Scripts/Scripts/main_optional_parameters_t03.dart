@@ -11,5 +11,5 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 43584
 
-main([List<String> args = const [], var i, String s = ""]) {
+main([List<String> args = const [], i, String s = ""]) {
 }

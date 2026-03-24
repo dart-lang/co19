@@ -62,7 +62,6 @@
 /// @author rodionov
 
 import "../../../Utils/expect.dart";
-
 import "namespace_changes_lib_reexport.dart";
 
 class JJ extends J {
@@ -74,7 +73,7 @@ class JJ extends J {
 main() {
   Expect.equals("A_FOO", aFoo);
   Expect.equals('aFunc', aFunc());
-  aTypeAlias ff = (var b, var s) {};
+  aTypeAlias ff = (b, s) {};
 
   A a = new A();
   J j = new JJ();

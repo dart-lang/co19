@@ -28,15 +28,11 @@
 /// parameters.
 /// @author msyabro
 
-
-f({var a}, var b) {}
-//       ^
+f({a}, b) {}
+//   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  f(1, 1);
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  print(f);
 }

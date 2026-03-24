@@ -11,6 +11,7 @@
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si .
 /// 3. k ≥ m and yi ∈ {x1, ..., xk }, i ∈ 1..m.
 /// 4. For all yi ∈ {y1, ..., ym }, yi = xj ⇒ Tj ⇐⇒ Si.
+///
 /// @description Checks that this statement is true for functions with several
 /// named optional parameters (class, generic, function, Dynamic).
 /// @author rodionov
@@ -33,9 +34,9 @@ class G<T, S, U, W> {}
 
 typedef classesFunc({A? a, B? b, C? c, D? d});
 typedef genericsFunc({Map<num, int>? m, List<List<B>>? l, G<A, B, C, D>? g});
-typedef dynamicFunc({var x, var y, var z, var v});
+typedef dynamicFunc({x, y, z, v});
 typedef funcFunc({classesFunc? f1, genericsFunc? f2, dynamicFunc? f3});
-typedef mixFunc({var x, B? b, G<A, B, C, D>? g, funcFunc? f});
+typedef mixFunc({x, B? b, G<A, B, C, D>? g, funcFunc? f});
 
 typedef okWithClassesFunc_1({A? a, A1? b, A1? c, A1? d});
 typedef okWithClassesFunc_2({D? a, D? b, D? c, D? d});
@@ -45,7 +46,7 @@ typedef okWithGenericsFunc_1(
 typedef okWithGenericsFunc_2(
     {Map<int, int>? m, List<List<D>>? l, G<D, D, D, D>? g});
 
-typedef okWithDynamicFunc_1({A? x, G? y, mixFunc z, var v});
+typedef okWithDynamicFunc_1({A? x, G? y, mixFunc z, v});
 typedef okWithDynamicFunc_2({int? x, bool y, List<Map>? z, classesFunc? v});
 
 main() {
@@ -54,7 +55,7 @@ main() {
   Expect.isFalse(({D? a, A1? b, A1? c, A1? d}) {} is classesFunc);
   Expect.isFalse(({D? a, A2? b, A2? c, A2? d}) {} is classesFunc);
   Expect.isFalse(({D? a, D? b, D? c, D? d}) {} is classesFunc);
-  Expect.isTrue(({var a, var b, var c, var d}) {} is classesFunc);
+  Expect.isTrue(({a, b, c, d}) {} is classesFunc);
   Expect.isTrue(
       ({Object? a, Object? b, Object? c, Object? d}) {} is classesFunc);
   Expect.runtimeIsNotType<classesFunc>(({D? a, B? b, C? c, A? d}) {});
@@ -62,7 +63,7 @@ main() {
   Expect.runtimeIsNotType<classesFunc>(({D? a, A1? b, A1? c, A1? d}) {});
   Expect.runtimeIsNotType<classesFunc>(({D? a, A2? b, A2? c, A2? d}) {});
   Expect.runtimeIsNotType<classesFunc>(({D? a, D? b, D? c, D? d}) {});
-  Expect.runtimeIsType<classesFunc>(({var a, var b, var c, var d}) {});
+  Expect.runtimeIsType<classesFunc>(({a, b, c, d}) {});
   Expect.runtimeIsType<classesFunc>(
       ({Object? a, Object? b, Object? c, Object? d}) {});
 
@@ -70,19 +71,19 @@ main() {
       is genericsFunc);
   Expect.isFalse(({Map<int, int>? m, List<List<D>>? l, G<D, D, D, D>? g}) {}
       is genericsFunc);
-  Expect.isTrue(({var m, var l, var g}) {} is genericsFunc);
+  Expect.isTrue(({m, l, g}) {} is genericsFunc);
   Expect.isTrue(({Object? m, Object? l, Object? g}) {} is genericsFunc);
   Expect.runtimeIsType<genericsFunc>(
       ({Map<num, num>? m, List<List<A1>>? l, G<A, A1, A1, A1>? g}) {});
   Expect.runtimeIsNotType<genericsFunc>(
       ({Map<int, int>? m, List<List<D>>? l, G<D, D, D, D>? g}) {});
-  Expect.runtimeIsType<genericsFunc>(({var m, var l, var g}) {});
+  Expect.runtimeIsType<genericsFunc>(({m, l, g}) {});
   Expect.runtimeIsType<genericsFunc>(({Object? m, Object? l, Object? g}) {});
 
-  Expect.isFalse(({A? x, G? y, mixFunc? z, var v}) {} is dynamicFunc);
+  Expect.isFalse(({A? x, G? y, mixFunc? z, v}) {} is dynamicFunc);
   Expect.isFalse(
       ({int? x, bool? y, List<Map>? z, classesFunc? v}) {} is dynamicFunc);
-  Expect.runtimeIsNotType<dynamicFunc>(({A? x, G? y, mixFunc? z, var v}) {});
+  Expect.runtimeIsNotType<dynamicFunc>(({A? x, G? y, mixFunc? z, v}) {});
   Expect.runtimeIsNotType<dynamicFunc>(
       ({int? x, bool? y, List<Map>? z, classesFunc? v}) {});
 

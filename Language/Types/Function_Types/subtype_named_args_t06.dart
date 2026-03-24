@@ -11,6 +11,7 @@
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si .
 /// 3. k ≥ m and yi ∈ {x1, ..., xk }, i ∈ 1..m.
 /// 4. For all yi ∈ {y1, ..., ym }, yi = xj ⇒ Tj ⇐⇒ Si.
+///
 /// @description Checks that function type t1 is not a subtype of function type
 /// t2 if they have different number of required parameters.
 /// @author rodionov
@@ -22,10 +23,10 @@ typedef t2(int x, int y);
 
 main() {
   Expect.isFalse(() {} is t1);
-  Expect.isFalse((int x, var y) {} is t1);
+  Expect.isFalse((int x, y) {} is t1);
   Expect.isFalse((int x, int y) {} is t1);
   Expect.isFalse(({required int x}) {} is t1);
-  Expect.isFalse(({required var x}) {} is t1);
+  Expect.isFalse(({required x}) {} is t1);
 
   Expect.isFalse(() {} is t2);
   Expect.isFalse((int x) {} is t2);

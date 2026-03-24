@@ -21,30 +21,51 @@
 /// . . .
 /// An interface type T may be assigned to a type S, written T <=> S, if either
 /// T <: S or S <: T.
+///
 /// @description Checks that a function type t1 is not assignable to a function
 /// type t2 only if t1 <: t2
 /// @author sgrekhov@unipro.ru
 
-
 class A {}
+
 class A1 {}
+
 class A2 {}
+
 class B implements A, A1, A2 {}
+
 class C implements B {}
+
 class D implements C {}
 
 typedef B func(Object o);
-typedef A f1(int i, D d, Map<int, num> m, var x,
-             [var ox, D od, List<num> ol, bool obool]);
+typedef A f1(
+  int i,
+  D d,
+  Map<int, num> m,
+  x, [
+  ox,
+  D od,
+  List<num> ol,
+  bool obool,
+]);
 
-B f01(int i, B b, Map<int, num> m, var x,
-      [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
+B f01(
+  int i,
+  B b,
+  Map<int, num> m,
+  x, [
+  ox,
+  B? ob,
+  List<num>? ol,
+  bool? obool,
+]) => B();
 
-C f11(num i, A b, Map<Object, Object> m, var x) => new C();
+C f11(num i, A b, Map<Object, Object> m, x) => C();
 
 main() {
   f1 fvar = f11;
-//          ^
+//          ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
