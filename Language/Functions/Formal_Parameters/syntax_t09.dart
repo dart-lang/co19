@@ -29,7 +29,7 @@
 /// @author rodionov
 
 f([a], b) {}
-//       ^
+//   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
