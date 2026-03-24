@@ -12,29 +12,29 @@
 /// named `n`. In the situation where `S` has exactly one declaration with
 /// basename `id`, let `D` be that declaration.
 /// ...
-/// Case ⟨`D` exists⟩. In this case, at least one declaration with basename `id`
-/// is in scope at the location `ℓ`. It is a compile-time error if the name of
-/// `D` is not `n`, unless `D` is an instance member or a local variable.
+/// In the second and last step, if no error occurred, proceed as described in
+/// the first applicable case from the following list:
 /// ...
-/// If `D` is an instance member, it is a compile-time error if `ℓ` does not
-/// have access to `this`.
+/// - Consider the case where `D` is an instance member declaration in a class
+///   or mixin `A`. The lexical lookup then yields nothing.
 ///
-/// @description Checks that it is not an error if `D` exists and the name of
-/// `D` is not `n`, but `D` is a local variable declaration.
+/// @description Checks that when `D` is an instance member declaration then
+/// lexical lookup yields nothing. Test the case when `this.n` exists (declared
+/// in a mixin) and it is not an error.
 /// @author sgrekhov22@gmail.com
 
 import '../../../Utils/expect.dart';
 
-void set foo(int v) {}
+mixin M {
+  int get foo => 1;
+}
+
+class C with M {
+  test() {
+    Expect.equals(1, foo);
+  }
+}
 
 main() {
-  var foo = 0;
-  foo = 42;
-  Expect.equals(42, foo);
-
-  var f = () {
-    foo = 1;
-  };
-  f();
-  Expect.equals(1, foo);
+  C().test();
 }

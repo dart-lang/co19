@@ -12,29 +12,53 @@
 /// named `n`. In the situation where `S` has exactly one declaration with
 /// basename `id`, let `D` be that declaration.
 /// ...
-/// Case ⟨`D` exists⟩. In this case, at least one declaration with basename `id`
-/// is in scope at the location `ℓ`. It is a compile-time error if the name of
-/// `D` is not `n`, unless `D` is an instance member or a local variable.
-/// ...
-/// If `D` is an instance member, it is a compile-time error if `ℓ` does not
-/// have access to `this`.
+/// Case ⟨`D` does not exist⟩. It is a compile-time error if `ℓ` does not have
+/// access to `this`.
 ///
-/// @description Checks that it is not an error if `D` exists and the name of
-/// `D` is not `n`, but `D` is a local variable declaration.
+/// @description Checks that it is not an error if the name of `D` exists.
 /// @author sgrekhov22@gmail.com
 
 import '../../../Utils/expect.dart';
 
-void set foo(int v) {}
+final int foo = 0;
+
+class A {
+  int get foo => 1;
+}
+
+class C extends A {
+  test() {
+    Expect.equals(0, foo);
+    Expect.equals(1, this.foo);
+  }
+}
+
+mixin M on A {
+  test() {
+    Expect.equals(0, foo);
+    Expect.equals(1, this.foo);
+  }
+}
+
+extension Ext on A {
+  test() {
+    Expect.equals(0, foo);
+    Expect.equals(1, this.foo);
+  }
+}
+
+extension type ET(A _) implements A {
+  test() {
+    Expect.equals(0, foo);
+    Expect.equals(1, this.foo);
+  }
+}
+
+class MA = A with M;
 
 main() {
-  var foo = 0;
-  foo = 42;
-  Expect.equals(42, foo);
-
-  var f = () {
-    foo = 1;
-  };
-  f();
-  Expect.equals(1, foo);
+  C().test();
+  MA().test();
+  A().test();
+  ET(A()).test();
 }
