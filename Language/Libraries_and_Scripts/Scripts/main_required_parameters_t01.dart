@@ -12,7 +12,7 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 43551
 
-void main(List<String> args, var i, var j) {
+void main(List<String> args, i, j) {
 //   ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -21,6 +21,7 @@
 /// . . .
 /// An interface type T may be assigned to a type S, written T <=> S, if either
 /// T <: S or S <: T.
+///
 /// @description Checks that a function type t1 is assignable (no static
 /// warnings) to a function type t2 only if t1 <: t2 where t1 and t2 are
 /// quite complex: non-dynamic return type plus a bunch of formal and optional
@@ -28,46 +29,148 @@
 /// (Types/Function Types).
 /// @author iefremov
 
-
 class A {}
+
 class A1 {}
+
 class A2 {}
+
 class B implements A, A1, A2 {}
+
 class C implements B {}
+
 class D implements C {}
 
 typedef B func(Object o);
-typedef A f1(int i, D d, Map<int, num> m, var x,
-             [var ox, D od, List<num> ol, bool obool]);
+typedef A f1(
+  int i,
+  D d,
+  Map<int, num> m,
+  x, [
+  ox,
+  D od,
+  List<num> ol,
+  bool obool,
+]);
 
 //fewer optional parameters
-typedef B f1_1(int i, B b, Map<int, num> m, var x,
-               [var ox, B ob, List<num> ol]);
-typedef B f1_2(int i, B b, Map<int, num> m, var x, [var ox, B ob]);
-typedef B f1_3(int i, B b, Map<int, num> m, var x, [var ox]);
-typedef B f1_4(int i, B b, Map<int, num> m, var x);
+typedef B f1_1(int i, B b, Map<int, num> m, x, [ox, B ob, List<num> ol]);
+typedef B f1_2(int i, B b, Map<int, num> m, x, [ox, B ob]);
+typedef B f1_3(int i, B b, Map<int, num> m, x, [ox]);
+typedef B f1_4(int i, B b, Map<int, num> m, x);
 
-B f01(int i, B b, Map<int, num> m, var x,
-      [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
-D f02(int i, D b, Map<num, num> m, var x,
-      [var ox, D? ob, List<Object>? ol, bool? obool]) => new D();
-C f03(num i, A b, Map<Object, Object> m, var x,
-      [var ox, A2? ob, List? ol, Object? obool]) => new C();
-A f04(num i, A b, Map<Object, Object> m, var x,
-      [var ox, A2? ob, List? ol, Object? obool]) => new A();
-A f05(num i, A b, Map<Object, Object> m, var x,
-      [var ox, A2? ob, List? ol, Object? obool, var more1]) => new A();
-A f06(num i, A b, Map<Object, Object> m, var x,
-      [var ox, A2? ob, List? ol, Object? obool, var more1, int? more2]) => new A();
+B f01(
+  int i,
+  B b,
+  Map<int, num> m,
+  x, [
+  ox,
+  B? ob,
+  List<num>? ol,
+  bool? obool,
+]) => B();
 
-B f21(int i, B b, Map<int, num> m, var x,
-      [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
-B f22(int i, B b, Map<int, num> m, var x,
-      [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
-B f23(int i, B b, Map<int, num> m, var x,
-      [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
-B f24(int i, B b, Map<int, num> m, var x,
-      [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
+D f02(
+  int i,
+  D b,
+  Map<num, num> m,
+  x, [
+  ox,
+  D? ob,
+  List<Object>? ol,
+  bool? obool,
+]) => D();
+
+C f03(
+  num i,
+  A b,
+  Map<Object, Object> m,
+  x, [
+  ox,
+  A2? ob,
+  List? ol,
+  Object? obool,
+]) => C();
+
+A f04(
+  num i,
+  A b,
+  Map<Object, Object> m,
+  x, [
+  ox,
+  A2? ob,
+  List? ol,
+  Object? obool,
+]) => A();
+
+A f05(
+  num i,
+  A b,
+  Map<Object, Object> m,
+  x, [
+  ox,
+  A2? ob,
+  List? ol,
+  Object? obool,
+  more1,
+]) => A();
+
+A f06(
+  num i,
+  A b,
+  Map<Object, Object> m,
+  x, [
+  ox,
+  A2? ob,
+  List? ol,
+  Object? obool,
+  more1,
+  int? more2,
+]) => A();
+
+B f21(
+  int i,
+  B b,
+  Map<int, num> m,
+  x, [
+  ox,
+  B? ob,
+  List<num>? ol,
+  bool? obool,
+]) => B();
+
+B f22(
+  int i,
+  B b,
+  Map<int, num> m,
+  x, [
+  ox,
+  B? ob,
+  List<num>? ol,
+  bool? obool,
+]) => B();
+
+B f23(
+  int i,
+  B b,
+  Map<int, num> m,
+  x, [
+  ox,
+  B? ob,
+  List<num>? ol,
+  bool? obool,
+]) => B();
+
+B f24(
+  int i,
+  B b,
+  Map<int, num> m,
+  x, [
+  ox,
+  B? ob,
+  List<num>? ol,
+  bool? obool,
+]) => B();
 
 main() {
   //functions on the right are subtypes of f1

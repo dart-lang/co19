@@ -14,8 +14,7 @@
 /// character is used in an optional positional parameter declaration.
 /// @author rodionov
 
-
-foo([var a = 1, var b: 2]) {
+foo([int a = 1, int b: 2]) {
 //                   ^
 // [analyzer] unspecified
 // [cfe] unspecified

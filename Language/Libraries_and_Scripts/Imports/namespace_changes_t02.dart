@@ -60,13 +60,12 @@
 /// @author vasya
 
 import "../../../Utils/expect.dart";
-
 import "namespace_changes_lib.dart" as P;
 
 main() {
   Expect.equals("A_FOO", P.aFoo);
   Expect.equals('aFunc', P.aFunc());
-  P.aTypeAlias ff = (var b, var s) {};
+  P.aTypeAlias ff = (b, s) {};
 
   P.A a = new P.A();
   P.J j = new P.J();

@@ -9,6 +9,7 @@
 ///    • S is void, or
 ///    • T <=> S.
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+///
 /// @description Checks that function type t1 is not a subtype of function type
 /// t2 even if just one of its formal parameters has a type that is not mutually
 /// assignable with the type of the corresponding formal parameter of t2.
@@ -19,14 +20,11 @@ import "../../../Utils/expect.dart";
 abstract class B {}
 
 typedef B func(Object o);
-typedef B t1(int i, B b, Map<int, num> m, var x);
+typedef B t1(int i, B b, Map<int, num> m, x);
 
-B? f1(double i, B b, Map<int, num> m, var x) {}
-//    ^^^ double <=/=> int
-B? f2(int i, func b, Map<int, num> m, var x) {}
-//           ^^^ func <=/=> B
-B? f3(int i, B b, Map<int, func> m, var x) {}
-//                         ^^^ func <=/=> num
+B? f1(double i, B b, Map<int, num> m, x) {}
+B? f2(int i, func b, Map<int, num> m, x) {}
+B? f3(int i, B b, Map<int, func> m, x) {}
 
 main() {
   Expect.isFalse(f1 is t1);

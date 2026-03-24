@@ -9,5 +9,5 @@
 /// @description Checks that function 'main' may have optional named arguments
 /// @author sgrekhov@unipro.ru
 
-main(List<String> args, var i, {String s = "Lily was here"}) {
+main(List<String> args, i, {String s = "Lily was here"}) {
 }

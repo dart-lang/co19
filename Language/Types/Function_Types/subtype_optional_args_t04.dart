@@ -9,6 +9,7 @@
 ///    • S is void, or
 ///    • T <=> S.
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+///
 /// @description Checks that this statement is true for quite complex function
 /// types: non-dynamic return type and a bunch of required and positional optional
 /// parameters.
@@ -17,20 +18,78 @@
 import "../../../Utils/expect.dart";
 
 class A {}
+
 class A1 {}
+
 class A2 {}
+
 class B implements A, A1, A2 {}
+
 class C implements B {}
+
 class D implements C {}
 
 typedef B func(Object o);
-typedef B t1(int i, B b, Map<int, num> m, var x, [var ox, B? ob, List<num>? ol, bool? obool]);
 
-B f1(int i, B b, Map<int, num> m, var x, [var ox, D? ob, List<num>? ol, bool? obool]) => new B();
-D f2(int i, D b, Map<int, int> m, func x, [func? ox, D? ob, List<int>? ol, bool? obool]) => new D();
-C f3(num i, A b, Map<Object, Object> m, var x, [var ox, A2? ob, List? ol, Object? obool]) => new C();
-C f4(num i, A b, Map<Object, Object> m, var x, [var ox, A2? ob, List? ol, bool? obool, A? xx, B? yy]) => new C();
-A f5(num i, A b, Map<Object, Object> m, var x, [var ox, A2? ob, List? ol, Object? obool]) => new A();
+typedef B t1(
+  int i,
+  B b,
+  Map<int, num> m,
+  x, [
+  ox,
+  B? ob,
+  List<num>? ol,
+  bool? obool,
+]);
+
+B f1(int i, B b, Map<int, num> m, x, [ox, D? ob, List<num>? ol, bool? obool]) =>
+    B();
+
+D f2(
+  int i,
+  D b,
+  Map<int, int> m,
+  func x, [
+  func? ox,
+  D? ob,
+  List<int>? ol,
+  bool? obool,
+]) => D();
+
+C f3(
+  num i,
+  A b,
+  Map<Object, Object> m,
+  x, [
+  ox,
+  A2? ob,
+  List? ol,
+  Object? obool,
+]) => C();
+
+C f4(
+  num i,
+  A b,
+  Map<Object, Object> m,
+  x, [
+  ox,
+  A2? ob,
+  List? ol,
+  bool? obool,
+  A? xx,
+  B? yy,
+]) => C();
+
+A f5(
+  num i,
+  A b,
+  Map<Object, Object> m,
+  x, [
+  ox,
+  A2? ob,
+  List? ol,
+  Object? obool,
+]) => A();
 
 main() {
   Expect.isFalse(f1 is t1);

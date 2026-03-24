@@ -10,5 +10,5 @@
 /// argument
 /// @author sgrekhov@unipro.ru
 
-main([List<String>? args, var i]) {
+main([List<String>? args, i]) {
 }
