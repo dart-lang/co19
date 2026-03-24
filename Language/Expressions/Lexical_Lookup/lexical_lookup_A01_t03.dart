@@ -20,7 +20,7 @@
 /// have access to `this`.
 ///
 /// @description Checks that it is not an error if `D` exists and the name of
-/// `D` is `n`.
+/// `D` is not `n`, but `D` is a local variable declaration.
 /// @author sgrekhov22@gmail.com
 
 import '../../../Utils/expect.dart';
