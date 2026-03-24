@@ -19,7 +19,7 @@
 ///   or mixin `A`. The lexical lookup then yields nothing.
 ///
 /// @description Checks that when `D` is an instance member declaration then
-/// lexical lookup yields nothing.
+/// lexical lookup yields nothing and the analysis proceeds with `this.n`.
 /// @author sgrekhov22@gmail.com
 
 import '../../../Utils/expect.dart';
