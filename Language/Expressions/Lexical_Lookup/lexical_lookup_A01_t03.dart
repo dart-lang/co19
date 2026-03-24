@@ -19,19 +19,16 @@
 /// If `D` is an instance member, it is a compile-time error if `ℓ` does not
 /// have access to `this`.
 ///
-/// @description Checks that it is a compile-error if the name of `D` is not `n`
+/// @description Checks that it is not an error if `D` exists and the name of
+/// `D` is `n`.
 /// @author sgrekhov22@gmail.com
+
+import '../../../Utils/expect.dart';
 
 void set foo(int v) {}
 
-test() {
-  final foo = 0;
-  foo = 42;
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
-  print(test);
+  var foo = 0;
+  foo = 42;
+  Expect.equals(42, foo);
 }

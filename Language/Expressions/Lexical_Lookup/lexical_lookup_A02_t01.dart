@@ -67,23 +67,8 @@ extension type ET(int etInstanceMember) {
 }
 
 main() {
-  print(cInstanceMember);
-//      ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  print(mInstanceMember);
-//      ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  print(eInstanceMember);
-//      ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  print(etInstanceMember);
-//      ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  print(C);
+  print(M);
+  print(E);
+  print(ET);
 }
