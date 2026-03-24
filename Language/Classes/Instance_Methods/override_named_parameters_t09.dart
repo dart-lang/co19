@@ -11,14 +11,14 @@
 /// @author sgrekhov@unipro.ru
 
 class A {
-  f({var x, var y}) {
+  f({x, y}) {
     return x + y;
   }
 }
 typedef AAlias = A;
 
 class C extends AAlias {
-  f({var y, var x}) {
+  f({y, x}) {
     return x + y;
   }
 }

@@ -6,26 +6,24 @@
 /// to methods apply to abstract methods.
 /// It is a compile error if an instance method m1 overrides an instance member
 /// m2 and m1 does not declare all the named parameters declared by m2.
+///
 /// @description Checks that a compile error is produced when the overriding
 /// non-abstract instance method has fewer named parameters than the abstract
 /// method being overridden.
 /// @author rodionov
 
-
 abstract class A {
-  f({var x, var y, var z});
+  f({x, y, z});
 }
 
 class C extends A {
-  f({var x, var z}) {}
+  f({x, z}) {}
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  A c = new C();
-  c.f(x: 1, z: 2);
-
-  c.f(x: 1, y: 2, z: 3);
+  print(A);
+  print(C);
 }

@@ -11,7 +11,7 @@
 /// @author vasya
 
 class C {
-  operator [](var index, var val) {}
+  operator [](index, val) {}
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified

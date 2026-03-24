@@ -11,7 +11,7 @@
 /// @author iefremov
 
 class C {
-  operator |(var val, var val2) {}
+  operator |(val, val2) {}
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified

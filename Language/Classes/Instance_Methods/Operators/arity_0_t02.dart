@@ -10,7 +10,7 @@
 /// @author vasya
 
 class C {
-  operator ~(var v) {}
+  operator ~(v) {}
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified

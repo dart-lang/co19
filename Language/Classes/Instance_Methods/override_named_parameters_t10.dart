@@ -12,19 +12,18 @@
 /// @author sgrekhov@unipro.ru
 
 class A {
-  f({var x, var y, var z}) {}
+  f({x, y, z}) {}
 }
 
 typedef AAlias = A;
 
 class C extends AAlias {
-  f({var x, var y, var zz}) {}
+  f({x, y, zz}) {}
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  new A().f(x: "Lily", y: "was", z: "here");
-  new C().f(x:"Lily", y:"was", zz:"here");
+  print(C);
 }

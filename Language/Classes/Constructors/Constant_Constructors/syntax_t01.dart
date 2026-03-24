@@ -9,12 +9,11 @@
 /// @description Checks various correct constant constructor signatures.
 /// @author iefremov
 
-
 class A<T> {
   const A();
   const A.$();
   const A.abyrvalg();
-  const A.abrakadabra(T t, var x, [String o = "", var p]);
+  const A.abrakadabra(T t, x, [String o = "", p]);
 }
 
 main() {
