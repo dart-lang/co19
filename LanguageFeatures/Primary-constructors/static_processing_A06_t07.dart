@@ -193,45 +193,45 @@ main() {
   setterLog = "";
 
   var et1 = ET1("parameter");
-  Expect.equals("top level", et1.method());
-  Expect.equals("top level", et1.getter);
+  Expect.equals("parameter", et1.method());
+  Expect.equals("parameter", et1.getter);
   et1.setter = "updated";
-  Expect.equals("top level", setterLog);
+  Expect.equals("parameter", setterLog);
   setterLog = "";
 
   var et2 = ET2("parameter");
-  Expect.equals("top level", et2.method());
-  Expect.equals("top level", et2.getter);
+  Expect.equals("parameter", et2.method());
+  Expect.equals("parameter", et2.getter);
   et2.setter = "updated";
-  Expect.equals("top level", setterLog);
+  Expect.equals("parameter", setterLog);
   setterLog = "";
 
   et2 = ET2();
-  Expect.equals("top level", et2.method());
-  Expect.equals("top level", et2.getter);
+  Expect.equals("default", et2.method());
+  Expect.equals("default", et2.getter);
   et2.setter = "updated";
-  Expect.equals("top level", setterLog);
+  Expect.equals("default", setterLog);
   setterLog = "";
 
   var et3 = ET3(x: "parameter");
-  Expect.equals("top level", et3.method());
-  Expect.equals("top level", et3.getter);
+  Expect.equals("parameter", et3.method());
+  Expect.equals("parameter", et3.getter);
   et3.setter = "updated";
-  Expect.equals("top level", setterLog);
+  Expect.equals("parameter", setterLog);
   setterLog = "";
 
   et3 = ET3();
-  Expect.equals("top level", et3.method());
-  Expect.equals("top level", et3.getter);
+  Expect.equals("default", et3.method());
+  Expect.equals("default", et3.getter);
   et3.setter = "updated";
-  Expect.equals("top level", setterLog);
+  Expect.equals("default", setterLog);
   setterLog = "";
 
   var et4 = ET4(x: "parameter");
-  Expect.equals("top level", et4.method());
-  Expect.equals("top level", et4.getter);
+  Expect.equals("parameter", et4.method());
+  Expect.equals("parameter", et4.getter);
   et4.setter = "updated";
-  Expect.equals("top level", setterLog);
+  Expect.equals("parameter", setterLog);
   setterLog = "";
 
   Expect.equals("E1", E1.e0.instance);
