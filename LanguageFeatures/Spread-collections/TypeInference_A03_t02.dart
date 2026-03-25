@@ -18,7 +18,7 @@ class A2 {}
 class B2 extends A2 {}
 class C2 extends B2 {}
 
-Map<K, V> getAMap<K, V>(var a, var b) { return <K, V>{a: b}; }
+Map<K, V> getAMap<K, V>(a, b) => <K, V>{a: b};
 
 main() {
   var int_map = getAMap<int, int>(1, 2);

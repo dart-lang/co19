@@ -45,7 +45,7 @@ dynamic toEncodable(object) {
   return "Another encoded by toEncodable";
 }
 
-check(JsonEncoder encoder, var object, var expected) {
+check(JsonEncoder encoder, object, expected) {
   String encoded = encoder.convert(object);
   Expect.equals(expected, encoded);
 }

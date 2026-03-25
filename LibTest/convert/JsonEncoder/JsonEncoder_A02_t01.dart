@@ -8,6 +8,7 @@
 /// directly.
 /// Any other object is attempted converted by toEncodable to an object that is
 /// of one of the convertible types.
+///
 /// @description Checks that this constructor, called with toEncodable parameter,
 /// handles numbers, strings, booleans, null, lists and maps
 /// @author sgrekhov@unipro.ru
@@ -33,7 +34,7 @@ dynamic toEncodable(object) {
   return "Another encoded by toEncodable";
 }
 
-check(JsonEncoder encoder, var object, var expected) {
+check(JsonEncoder encoder, object, expected) {
   String encoded = encoder.convert(object);
   Expect.equals(expected, encoded);
 }

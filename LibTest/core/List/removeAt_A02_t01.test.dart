@@ -4,6 +4,7 @@
 
 /// @assertion abstract E removeAt(int index)
 /// Throws an ArgumentError if index is not an int.
+///
 /// @description Checks that an ArgumentError is thrown if index is not an int.
 /// @author kaigorodov
 
@@ -13,7 +14,7 @@ import "../../../Utils/expect.dart";
 
 test(List<E> create<E>([int length, E fill])) {
 
-  check(List a0, var index) {
+  check(List a0, index) {
     List a = create();
     a.addAll(a0);
     Expect.throws(() {a.removeAt(index);},

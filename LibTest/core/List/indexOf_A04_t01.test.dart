@@ -3,6 +3,14 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion abstract int indexOf(E element, [int start = 0])
+/// The first index of element in this list.
+///
+/// Searches the list from index `start` to the end of the list. The first time
+/// an object `o` is encountered so that `o == element`, the index of `o` is
+/// returned.
+///
+/// Returns `-1` if element is not found.
+///
 /// @description Checks that if [start] is not specified, searches the entire
 /// list.
 /// @author varlax
@@ -11,7 +19,7 @@ library indexOf_A04_t01;
 
 import "../../../Utils/expect.dart";
 
-checkList(List list, var elem, int expected) {
+checkList(List list, elem, int expected) {
   Expect.equals(expected, list.indexOf(elem));
 }
 

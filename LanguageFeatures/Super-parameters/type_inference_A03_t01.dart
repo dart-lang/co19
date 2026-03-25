@@ -23,7 +23,7 @@ class S<T> {
   var v1;
   int i1;
   T t1;
-  S(this.f1, this.v1, this.i1, this.t1, var x) {
+  S(this.f1, this.v1, this.i1, this.t1, x) {
     test<int>(x);
   }
 }

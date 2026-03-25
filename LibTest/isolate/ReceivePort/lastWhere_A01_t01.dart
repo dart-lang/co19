@@ -28,7 +28,7 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check1(Iterable data, bool test(element), var expected) {
+void check1(Iterable data, bool test(element), expected) {
   Stream s = new Stream.fromIterable(data);
   asyncStart();
   Future f = s.lastWhere(test);
@@ -38,7 +38,7 @@ void check1(Iterable data, bool test(element), var expected) {
   });
 }
 
-void check2(Iterable data, bool test(element), var expected) {
+void check2(Iterable data, bool test(element), expected) {
   Stream s = new Stream.fromIterable(data);
   asyncStart();
   Future f = s.lastWhere(test, orElse: () {
@@ -50,7 +50,7 @@ void check2(Iterable data, bool test(element), var expected) {
   });
 }
 
-void check(Iterable data, bool test(element), var expected) {
+void check(Iterable data, bool test(element), expected) {
   check1(data, test, expected);
   check2(data, test, expected);
 }

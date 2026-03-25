@@ -4,6 +4,7 @@
 
 /// @assertion Future<S> fold<S>(S initialValue, S combine(S previous, T element))
 /// Reduces a sequence of values by repeatedly applying combine.
+///
 /// @description Checks that if the stream contains no elements, the combine
 /// method is not called and the future returns initialValue.
 /// @note undocumented
@@ -14,11 +15,10 @@ library fold_A01_t02;
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
-  Object? combine(Object? p, var c) {
+  Object? combine(Object? p, c) {
     Expect.fail("should not be called");
     return 0;
   }
-
   AsyncExpect.value(null, create([]).fold(null, combine));
   AsyncExpect.value(777, create([]).fold(777, combine));
   AsyncExpect.value("", create([]).fold("", combine));

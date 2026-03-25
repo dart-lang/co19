@@ -5,6 +5,7 @@
 /// @assertion abstract void insert(int index, E element)
 /// It is an error if the index does not point inside the list or at the position
 /// after the last element.
+///
 /// @description Checks that it is an error if the index does not point inside
 /// the list or at the position after the last element.
 /// @author kaigorodov
@@ -13,7 +14,7 @@ library insert_A02_t01;
 
 import "../../../Utils/expect.dart";
 
-void check(List a, int index, var element) {
+void check(List a, int index, element) {
   Expect.throws(() {a.insert(index, element);});
 }
 

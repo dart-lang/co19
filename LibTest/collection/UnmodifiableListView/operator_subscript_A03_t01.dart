@@ -3,13 +3,14 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion abstract E operator [](int index)
+///
 /// @description Checks that [Error] is thrown if [index] is of invalid type.
 /// @author iarkh@unipro.ru
 
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-void check(List a0, var idx) {
+void check(List a0, idx) {
   UnmodifiableListView a = new UnmodifiableListView(a0);
   Expect.throws(() { a[idx]; }, (e) => e is Error);
 }

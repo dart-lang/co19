@@ -11,13 +11,14 @@
 /// If it is true (and not overridden at the method invocation) decode and the
 /// decoder replace invalid (or unterminated) octet sequences with the Unicode
 /// Replacement character U+FFFD (�). Otherwise they throw a FormatException.
+///
 /// @description Checks that this constructor creates valid Utf8Codec
 /// @author sgrekhov@unipro.ru
 
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-check(Utf8Codec codec, String toEncode, var expected) {
+check(Utf8Codec codec, String toEncode, expected) {
   var encoded = codec.encode(toEncode);
   Expect.deepEquals(expected, encoded);
   Expect.equals(toEncode, codec.decode(encoded));

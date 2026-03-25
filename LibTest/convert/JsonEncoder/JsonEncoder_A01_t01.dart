@@ -6,6 +6,7 @@
 /// Creates a JSON encoder.
 /// ...
 /// If toEncodable is omitted, it defaults to calling .toJson() on the object.
+///
 /// @description Checks that this constructor, called without parameters,
 /// creates object with default toEncodable
 /// @author sgrekhov@unipro.ru
@@ -21,7 +22,7 @@ class C {
   String toJson() => "C: this is JSON";
 }
 
-check(JsonEncoder encoder, var object, var expected) {
+check(JsonEncoder encoder, object, expected) {
   var encoded = encoder.convert(object);
   Expect.equals(expected.toString(), encoded.toString());
 }

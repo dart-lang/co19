@@ -15,6 +15,7 @@
 /// is possible to cause an infinite recursive regress in this way, by
 /// effectively creating an infinite data structure through repeated call to
 /// toEncodable.
+///
 /// @description Checks that this constructor, called with toEncodable parameter,
 /// creates object with toEncodable function which is used during encoding
 /// @author sgrekhov@unipro.ru
@@ -40,7 +41,7 @@ dynamic toEncodable(object) {
   return "Another encoded by toEncodable";
 }
 
-checkEncodable(JsonCodec codec, var object, var expected) {
+checkEncodable(JsonCodec codec, object, expected) {
   String encoded = codec.encode(object);
   Expect.equals(expected, encoded);
 }

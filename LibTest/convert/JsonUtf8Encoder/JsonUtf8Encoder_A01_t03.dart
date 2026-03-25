@@ -28,6 +28,7 @@
 /// of one of the convertible types.
 ///
 /// If toEncodable is omitted, it defaults to calling .toJson() on the object.
+///
 /// @description Checks that this constructor, called with toEncodable parameter,
 /// creates object with specified toEncodable
 /// @author sgrekhov@unipro.ru
@@ -53,7 +54,7 @@ import "../../../Utils/expect.dart";
    return "Another encoded by toEncodable";
  }
 
- check(JsonUtf8Encoder encoder, var object, var expected) {
+ check(JsonUtf8Encoder encoder, object, expected) {
    List<int> encoded = encoder.convert(object);
    Expect.listEquals(utf8.encode(expected), encoded);
  }
