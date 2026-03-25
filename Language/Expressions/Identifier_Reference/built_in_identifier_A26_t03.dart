@@ -10,7 +10,7 @@
 /// `augment` is used as the declared name of a type alias.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 typedef int augment();
 //          ^^^^^^^
