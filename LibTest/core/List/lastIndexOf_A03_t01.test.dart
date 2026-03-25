@@ -2,13 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion abstract int lastIndexOf(E element, [int start])
-/// There is no restriction on the value of [start]. 
-/// If it is negative, it has the same effect as if it were zero: -1 is returned.
-/// If it is greater than the [:length:] of this list, it has the same effect 
-/// as if it were equal to the [:length:]: this entire list may be searched.
-/// @note undocumented
-/// @description Checks that [startIndex] can be out of bounds
+/// @assertion abstract int lastIndexOf(E element, [int? start])
+/// The last index of element in this list.
+///
+/// Searches the list backwards from index `start` to `0`.
+///
+/// The first time an object `o` is encountered so that `o == element`, the
+/// index of `o` is returned.
+///
+/// If `start` is not provided, this method searches from the end of the list.
+///
+/// Returns `-1` if `element` is not found.
+///
+/// @description Checks that [start] can be out of bounds
 /// @author iefremov
 /// @author varlax
 
@@ -16,7 +22,7 @@ library lastIndexOf_A03_t01;
 
 import "../../../Utils/expect.dart";
 
-checkList(List list, var elem, int idx, int expected) {
+checkList(List list, elem, int idx, int expected) {
   Expect.equals(expected, list.lastIndexOf(elem, idx));
 }
 

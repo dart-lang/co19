@@ -12,67 +12,67 @@
 
 // SharedOptions=--enable-experiment=wildcard-variables
 
-void topLevelFunction1(_, int _, var _) {}
-void topLevelFunction2(_, int _, var _, [_, int _ = 0, var _ = ""]) {}
+void topLevelFunction1(_, int _, _) {}
+void topLevelFunction2(_, int _, _, [_, int _ = 0, _ = ""]) {}
 void topLevelFunction3<T>(T _, T _, [T? _, T? _]) {}
 
 class C {
-  static void staticMethod1(_, int _, var _) {}
-  static void staticMethod2(_, int _, var _, [_, int _ = 0, var _ = ""]) {}
+  static void staticMethod1(_, int _, _) {}
+  static void staticMethod2(_, int _, _, [_, int _ = 0, _ = ""]) {}
   static void staticMethod3<T>(T _, T _, [T? _, T? _]) {}
-  void instanceMethod1(_, int _, var _) {}
-  void instanceMethod2(_, int _, var _, [_, int _ = 0, var _ = ""]) {}
+  void instanceMethod1(_, int _, _) {}
+  void instanceMethod2(_, int _, _, [_, int _ = 0, _ = ""]) {}
   void instanceMethod3<T>(T _, T _, [T? _, T? _]) {}
 }
 
 mixin M {
-  static void staticMethod1(_, int _, var _) {}
-  static void staticMethod2(_, int _, var _, [_, int _ = 0, var _ = ""]) {}
+  static void staticMethod1(_, int _, _) {}
+  static void staticMethod2(_, int _, _, [_, int _ = 0, _ = ""]) {}
   static void staticMethod3<T>(T _, T _, [T? _, T? _]) {}
-  void instanceMethod1(_, int _, var _) {}
-  void instanceMethod2(_, int _, var _, [_, int _ = 0, var _ = ""]) {}
+  void instanceMethod1(_, int _, _) {}
+  void instanceMethod2(_, int _, _, [_, int _ = 0, _ = ""]) {}
   void instanceMethod3<T>(T _, T _, [T? _, T? _]) {}
 }
 
 enum E {
   e1;
-  static void staticMethod1(_, int _, var _) {}
-  static void staticMethod2(_, int _, var _, [_, int _ = 0, var _ = ""]) {}
+  static void staticMethod1(_, int _, _) {}
+  static void staticMethod2(_, int _, _, [_, int _ = 0, _ = ""]) {}
   static void staticMethod3<T>(T _, T _, [T? _, T? _]) {}
-  void instanceMethod1(_, int _, var _) {}
-  void instanceMethod2(_, int _, var _, [_, int _ = 0, var _ = ""]) {}
+  void instanceMethod1(_, int _, _) {}
+  void instanceMethod2(_, int _, _, [_, int _ = 0, _ = ""]) {}
   void instanceMethod3<T>(T _, T _, [T? _, T? _]) {}
 }
 
 extension type ET(int id) {
-  static void staticMethod1(_, int _, var _) {}
-  static void staticMethod2(_, int _, var _, [_, int _ = 0, var _ = ""]) {}
+  static void staticMethod1(_, int _, _) {}
+  static void staticMethod2(_, int _, _, [_, int _ = 0, _ = ""]) {}
   static void staticMethod3<T>(T _, T _, [T? _, T? _]) {}
-  void instanceMethod1(_, int _, var _) {}
-  void instanceMethod2(_, int _, var _, [_, int _ = 0, var _ = ""]) {}
+  void instanceMethod1(_, int _, _) {}
+  void instanceMethod2(_, int _, _, [_, int _ = 0, _ = ""]) {}
   void instanceMethod3<T>(T _, T _, [T? _, T? _]) {}
 }
 
 class A {}
 
 extension Ext on A {
-  static void staticMethod1(_, int _, var _) {}
-  static void staticMethod2(_, int _, var _, [_, int _ = 0, var _ = ""]) {}
+  static void staticMethod1(_, int _, _) {}
+  static void staticMethod2(_, int _, _, [_, int _ = 0, _ = ""]) {}
   static void staticMethod3<T>(T _, T _, [T? _, T? _]) {}
-  void instanceMethod1(_, int _, var _) {}
-  void instanceMethod2(_, int _, var _, [_, int _ = 0, var _ = ""]) {}
+  void instanceMethod1(_, int _, _) {}
+  void instanceMethod2(_, int _, _, [_, int _ = 0, _ = ""]) {}
   void instanceMethod3<T>(T _, T _, [T? _, T? _]) {}
 }
 
 class MA = Object with M;
 
 main() {
-  void localFunction1(_, int _, var _) {}
-  void localFunction2(_, int _, var _, [_, int _ = 0, var _ = ""]) {}
+  void localFunction1(_, int _, _) {}
+  void localFunction2(_, int _, _, [_, int _ = 0, _ = ""]) {}
   void localFunction3<T>(T _, T _, [T? _, T? _]) {}
 
-  var f1 = (_, int _, var _) {};
-  var f2 = (_, int _, var _, [_, int _ = 0, var _ = ""]) {};
+  var f1 = (_, int _, _) {};
+  var f2 = (_, int _, _, [_, int _ = 0, _ = ""]) {};
   var f3 = <T>(T _, T _, [T? _, T? _]) {};
 
   topLevelFunction1("1", 2, 3);

@@ -28,6 +28,7 @@
 /// of one of the convertible types.
 ///
 /// If toEncodable is omitted, it defaults to calling .toJson() on the object.
+///
 /// @description Checks that this constructor, called without parameters,
 /// creates object with default parameters
 /// @author sgrekhov@unipro.ru
@@ -43,7 +44,7 @@ class C {
   String toJson() => "C: this is JSON";
 }
 
-check(JsonUtf8Encoder encoder, var object, var expected) {
+check(JsonUtf8Encoder encoder, object, expected) {
   var encoded = encoder.convert(object);
   Expect.listEquals(utf8.encode(expected.toString()), encoded);
 }

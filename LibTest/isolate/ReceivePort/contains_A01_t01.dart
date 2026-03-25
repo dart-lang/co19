@@ -4,6 +4,7 @@
 
 /// @assertion Future<bool> contains(Object needle)
 /// Checks whether needle occurs in the elements provided by this stream.
+///
 /// @description Checks that the method correctly checks whether match
 /// occurs in the elements provided by this stream.
 /// @author kaigorodov
@@ -12,7 +13,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(List l, var match, bool expected) {
+check(List l, match, bool expected) {
   Stream s = IsolateStream.fromIterable(l);
   Future<bool> fu = s.contains(match);
   asyncStart();

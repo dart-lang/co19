@@ -4,6 +4,7 @@
 
 /// @assertion List<int> convert(Object object)
 /// Convert object into UTF-8 encoded JSON.
+///
 /// @description Checks that objects are converted into UTF-8 encoded JSON by
 /// calling their toEncodable
 /// @author sgrekhov@unipro.ru
@@ -30,7 +31,7 @@ dynamic toEncodable(object) {
   return "Another encoded by toEncodable";
 }
 
-check(JsonUtf8Encoder encoder, var object, var expected) {
+check(JsonUtf8Encoder encoder, object, expected) {
   List<int> encoded = encoder.convert(object);
   Expect.listEquals(utf8.encode(expected), encoded);
 }

@@ -10,6 +10,7 @@
 /// It is an error if start.. end is not a valid range pointing into the this.
 /// It is an error if the iterable does not have enough elements after skipping
 /// skipCount elements.
+///
 /// @description Checks that all needed elements are copied.
 /// @author iefremov
 
@@ -17,7 +18,7 @@ library setRange_A01_t02;
 
 import "../../../Utils/expect.dart";
 
-check(List dst, var def) {
+check(List dst, def) {
   List src = [dst, null];
   src[1] = src;
 

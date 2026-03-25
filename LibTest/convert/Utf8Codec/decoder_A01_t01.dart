@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Utf8Decoder decoder
+///
 /// @description Checks that this property returns Utf8Decoder which works as
 /// expected
 /// @author sgrekhov@unipro.ru
@@ -10,7 +11,7 @@
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-check(Utf8Decoder decoder, List<int> toDecode, var expected) {
+check(Utf8Decoder decoder, List<int> toDecode, expected) {
   var decoded = decoder.convert(toDecode);
   Expect.equals(expected, decoded);
 }

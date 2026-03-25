@@ -10,6 +10,7 @@
 /// ...
 /// If toEncodable is omitted, it defaults to a function that returns the result
 /// of calling .toJson() on the unencodable object.
+///
 /// @description Checks that this constructor, called without parameters,
 /// created object with default reviver and toEncodable
 /// @author sgrekhov@unipro.ru
@@ -25,12 +26,12 @@ class C {
   String toJson() => "C: this is JSON";
 }
 
-checkReviver(JsonCodec codec, String toDecode, var expected) {
+checkReviver(JsonCodec codec, String toDecode, expected) {
   var decoded = codec.decode(toDecode);
   Expect.deepEquals(expected, decoded);
 }
 
-checkEncodable(JsonCodec codec, var object, var expected) {
+checkEncodable(JsonCodec codec, object, expected) {
   var encoded = codec.encode(object);
   Expect.equals(expected.toString(), encoded.toString());
 }

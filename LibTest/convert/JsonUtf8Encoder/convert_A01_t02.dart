@@ -4,6 +4,7 @@
 
 /// @assertion List<int> convert(Object object)
 /// Convert object into UTF-8 encoded JSON.
+///
 /// @description Checks that objects are converted into UTF-8 encoded JSON by
 /// calling their toJson() method
 /// @author sgrekhov@unipro.ru
@@ -20,7 +21,7 @@ class C {
   String toJson() => "C: this is JSON";
 }
 
-check(JsonUtf8Encoder encoder, var object, var expected) {
+check(JsonUtf8Encoder encoder, object, expected) {
   var encoded = encoder.convert(object);
   Expect.listEquals(utf8.encode(expected.toString()), encoded);
 }

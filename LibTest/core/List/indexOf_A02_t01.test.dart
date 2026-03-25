@@ -3,12 +3,15 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion abstract int indexOf(E element, [int start = 0])
-/// There is no restriction on the value of [startIndex]. 
-/// If it is negative, it has the same effect as if it were zero: this entire list may be searched. 
-/// If it is greater than the [:length:] of this list, it has the same effect 
-/// as if it were equal to the [:length:]: -1 is returned.
-/// @note undocumented
-/// @description Checks that [startIndex] can be out of bounds.
+/// The first index of element in this list.
+///
+/// Searches the list from index `start` to the end of the list. The first time
+/// an object `o` is encountered so that `o == element`, the index of `o` is
+/// returned.
+///
+/// Returns `-1` if element is not found.
+///
+/// @description Checks that [start] can be out of bounds.
 /// @author iefremov
 /// @author varlax
 
@@ -16,7 +19,7 @@ library indexOf_A02_t01;
 
 import "../../../Utils/expect.dart";
 
-checkList(List list, var elem, int idx, int expected) {
+checkList(List list, elem, int idx, int expected) {
   Expect.equals(expected, list.indexOf(elem, idx));
 }
 

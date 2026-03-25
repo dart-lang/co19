@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Base64Decoder decoder
+///
 /// @description Checks that this property returns Base64Decoder which works as
 /// expected
 /// @author sgrekhov@unipro.ru
@@ -10,7 +11,7 @@
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-check(Base64Decoder decoder, String toDecode, var expected) {
+check(Base64Decoder decoder, String toDecode, expected) {
   List<int> decoded = decoder.convert(toDecode);
   Expect.listEquals(expected, decoded);
 }

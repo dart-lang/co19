@@ -4,6 +4,7 @@
 
 /// @assertion abstract E operator [](int index)
 /// Throws [Error] if [index] is of invalid type.
+///
 /// @description Checks that the exception is thrown as expected.
 /// @author varlax
 
@@ -13,7 +14,7 @@ import "../../../Utils/expect.dart";
 
 test(List<E> create<E>([int length, E fill])) {
 
-  void check(List a0, var idx) {
+  void check(List a0, idx) {
     List a = create(a0.length, new Object());
     a.setRange(0, a0.length, a0);
     Expect.throws(() {a[idx];}, (e) => e is Error);

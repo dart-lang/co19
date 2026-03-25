@@ -5,10 +5,10 @@
 /// @assertion If a map literal has a downwards inference type of [Map<K, V>] for
 /// some [K] and [V], then the downwards inference context type of a spread
 /// element in that map is [Map<K, V>].
+///
 /// @description Checks that a spread element inference context type is [K, V] in
 /// the map literal
 /// @author iarkh@unipro.ru
-
 
 import "../../Utils/expect.dart";
 
@@ -20,7 +20,7 @@ class A2 {}
 class B2 extends A2 {}
 class C2 extends B2 {}
 
-Map<K, V> getAMap<K, V>(var a, var b) { return <K, V>{a: b}; }
+Map<K, V> getAMap<K, V>(a, b) => <K, V>{a: b};
 
 main() {
   dynamic int_map = getAMap<int, int>(1, 2);

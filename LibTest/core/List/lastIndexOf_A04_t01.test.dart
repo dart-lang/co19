@@ -2,16 +2,26 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion abstract int lastIndexOf(E element, [int start])
-/// If start is not provided, it defaults to this.length - 1.
-/// @description Checks searching w/o start.
+/// @assertion abstract int lastIndexOf(E element, [int? start])
+/// The last index of element in this list.
+///
+/// Searches the list backwards from index `start` to `0`.
+///
+/// The first time an object `o` is encountered so that `o == element`, the
+/// index of `o` is returned.
+///
+/// If `start` is not provided, this method searches from the end of the list.
+///
+/// Returns `-1` if `element` is not found.
+///
+/// @description Checks searching w/o `start`.
 /// @author varlax
 
 library lastIndexOf_A04_t01;
 
 import "../../../Utils/expect.dart";
 
-checkList(List list, var elem, int expected) {
+checkList(List list, elem, int expected) {
   Expect.equals(expected, list.lastIndexOf(elem));
 }
 

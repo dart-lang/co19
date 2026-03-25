@@ -35,7 +35,7 @@ class C {
   String toJson() => "C: this is JSON";
 }
 
-check(JsonEncoder encoder, var object, var expected) {
+check(JsonEncoder encoder, object, expected) {
   var encoded = encoder.convert(object);
   Expect.equals(expected.toString(), encoded.toString());
 }

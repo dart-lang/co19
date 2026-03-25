@@ -4,6 +4,7 @@
 
 /// @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
 /// If [orElse] is omitted, it defaults to throwing a [StateError].
+///
 /// @description Checks that if none matches and [orElse] is [null], a
 /// [StateError] is thrown.
 /// @author kaigorodov
@@ -14,7 +15,7 @@ import "LinkedList.lib.dart";
 
 var noneMatches=new Object();
 
-void check(LinkedList a, var element) {
+void check(LinkedList a, element) {
   Expect.throws(() {
       a.lastWhere((entry) => (entry as MyLinkedListEntry).value == element);
     },

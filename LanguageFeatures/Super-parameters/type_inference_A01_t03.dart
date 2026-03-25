@@ -21,7 +21,7 @@ class S<T extends num> {
   var v;
   num n;
   T t;
-  S(this.f, this.v, this.n, this.t, var i) {
+  S(this.f, this.v, this.n, this.t, i) {
     test<int>(f);
     test<int>(v);
     test<num>(n);

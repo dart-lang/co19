@@ -13,21 +13,21 @@
 // SharedOptions=--enable-experiment=wildcard-variables
 
 class C<T> {
-  C.constructor1(_, int _, var _) {}
-  C.constructor2(_, int _, var _, [_, int _ = 0, var _ = ""]) {}
+  C.constructor1(_, int _, _) {}
+  C.constructor2(_, int _, _, [_, int _ = 0, _ = ""]) {}
   C.constructor3(T _, T _, [T? _, T? _]) {}
 
-  const C.constConstructor1(_, int _, var _);
-  const C.constConstructor2(_, int _, var _, [_, int _ = 0, var _ = ""]);
+  const C.constConstructor1(_, int _, _);
+  const C.constConstructor2(_, int _, _, [_, int _ = 0, _ = ""]);
   const C.constConstructor3(T _, T _, [T? _, T? _]);
 
-  factory C.factoryConstructor1(_, int _, var _) = C.constructor1;
-  factory C.factoryConstructor2(_, int _, var _, [_, int _, var _])
+  factory C.factoryConstructor1(_, int _, _) = C.constructor1;
+  factory C.factoryConstructor2(_, int _, _, [_, int _, _])
       = C.constructor2;
   factory C.factoryConstructor3(T _, T _, [T? _, T? _]) = C.constructor3;
 
-  C.redirectingConstructor1(_, int _, var _) : this.constConstructor1(1, 2, 3);
-  C.redirectingConstructor2(_, int _, var _, [_, int _ = 0, var _ = ""])
+  C.redirectingConstructor1(_, int _, _) : this.constConstructor1(1, 2, 3);
+  C.redirectingConstructor2(_, int _, _, [_, int _ = 0, _ = ""])
       : this.constConstructor1(1, 2, 3);
   C.redirectingConstructor3(T _, T _, [T? _, T? _])
       : this.constructor1(1, 2, 3);
@@ -41,33 +41,33 @@ enum E<T> {
   e5.redirectingConstructor2(1, 2, 3, 4, 5),
   e6<int>.redirectingConstructor3(1, 2, 3);
 
-  const E.constructor1(_, int _, var _);
-  const E.constructor2(_, int _, var _, [_, int _ = 0, var _ = ""]);
+  const E.constructor1(_, int _, _);
+  const E.constructor2(_, int _, _, [_, int _ = 0, _ = ""]);
   const E.constructor3(T _, T _, [T? _, T? _]);
 
-  const E.redirectingConstructor1(_, int _, var _) : this.constructor1(1, 2, 3);
-  const E.redirectingConstructor2(_, int _, var _, [_, int _ = 0, var _ = ""])
+  const E.redirectingConstructor1(_, int _, _) : this.constructor1(1, 2, 3);
+  const E.redirectingConstructor2(_, int _, _, [_, int _ = 0, _ = ""])
       : this.constructor1(1, 2, 3);
   const E.redirectingConstructor3(T _, T _, [T? _, T? _])
       : this.constructor1(1, 2, 3);
 }
 
 extension type ET<T>(int id) {
-  ET.constructor1(this.id, int _, var _) {}
-  ET.constructor2(this.id, int _, var _, [_, int _ = 0, var _ = ""]) {}
+  ET.constructor1(this.id, int _, _) {}
+  ET.constructor2(this.id, int _, _, [_, int _ = 0, _ = ""]) {}
   ET.constructor3(this.id, T _, [T? _, T? _]) {}
 
-  const ET.constConstructor1(this.id, int _, var _);
-  const ET.constConstructor2(this.id, int _, var _, [_, int _ = 0, var _ = ""]);
+  const ET.constConstructor1(this.id, int _, _);
+  const ET.constConstructor2(this.id, int _, _, [_, int _ = 0, _ = ""]);
   const ET.constConstructor3(this.id, T _, [T? _, T? _]);
 
-  factory ET.factoryConstructor1(int _, int _, var _) = ET.constructor1;
+  factory ET.factoryConstructor1(int _, int _, _) = ET.constructor1;
   factory ET.factoryConstructor2(
-      int _, int _, var _, [_, int _, var _]) = ET.constructor2;
+      int _, int _, _, [_, int _, _]) = ET.constructor2;
   factory ET.factoryConstructor3(int _, T _, [T? _, T? _]) = ET.constructor3;
 
-  ET.redirectingConstructor1(_, int _, var _) : this.constConstructor1(1, 2, 3);
-  ET.redirectingConstructor2(_, int _, var _, [_, int _ = 0, var _ = ""])
+  ET.redirectingConstructor1(_, int _, _) : this.constConstructor1(1, 2, 3);
+  ET.redirectingConstructor2(_, int _, _, [_, int _ = 0, _ = ""])
       : this.constConstructor1(1, 2, 3);
   ET.redirectingConstructor3(T _, T _, [T? _, T? _])
       : this.constructor1(1, 2, 3);

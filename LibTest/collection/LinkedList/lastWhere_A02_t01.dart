@@ -5,6 +5,7 @@
 /// @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
 /// If no element satisfies [test], the result of invoking the [orElse] function
 /// is returned.
+///
 /// @description Checks that if none matches, the result of invoking the [orElse]
 /// function is returned.
 /// @author kaigorodov
@@ -15,7 +16,7 @@ import "LinkedList.lib.dart";
 
 var noneMatches = new MyLinkedListEntry(new Object());
 
-void check(LinkedList a, var element) {
+void check(LinkedList a, element) {
   Expect.identical(noneMatches,
     a.lastWhere(
       (entry) => (entry as MyLinkedListEntry).value == element,
