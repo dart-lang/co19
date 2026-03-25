@@ -10,7 +10,7 @@
 /// `augment` is used as the name, type parameter or alias of an extension type
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 extension type augment(int _) {}
 //             ^^^^^^^

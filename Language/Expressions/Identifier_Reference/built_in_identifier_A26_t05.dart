@@ -10,7 +10,7 @@
 /// `augment` is used as the name of an extension.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 extension augment on int {}
 //        ^^^^^^^

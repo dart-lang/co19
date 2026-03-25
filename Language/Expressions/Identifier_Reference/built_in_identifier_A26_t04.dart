@@ -10,7 +10,7 @@
 /// `augment` is used as the declared name of a prefix.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=macros
+// SharedOptions=--enable-experiment=augmentations
 
 import "../lib.dart" as augment;
 //                      ^^^^^^^
