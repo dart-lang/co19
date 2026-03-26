@@ -9,17 +9,23 @@
 ///   if any (same types, even if they may not be written exactly the same in
 ///   case one of the declarations needs to refer to a type using an import
 ///   prefix).
-/// - The return type (if not omitted) is the same as the augmented
+/// - The return type (if not omitted) is the same as the introductory
 ///   declaration's return type.
 /// - It has the same number of positional parameters as the introductory
 ///   declaration, and the same number of those are optional.
-/// - It has the same set of named parameter names as the augmented declaration.
+/// - It has the same set of named parameter names as the introductory
+///   declaration.
 /// - For each corresponding pair of parameters:
 ///   - They have the same name. This is trivial for named parameters, but may
 ///     fail to hold for positional parameters.
 ///   - They have the same type (or the augmenting declaration omits the type).
 ///   - They both have the modifier `covariant`, or none of them have it.
-///   - They both have the modifier `required`. or none of them have it.
+///   - They both have the modifier `required`, or none of them have it.
+/// - For all positional parameters:
+///   - The augmenting function's parameter name is `_`, or
+///   - The augmenting function's parameter name is the same as the name of the
+///     corresponding positional parameter in every preceding declaration that
+///     doesn't have `_` as its name.
 /// ...
 /// It's a compile-time error if:
 /// - The signature of the augmenting function does not match the signature of

@@ -21,10 +21,15 @@
 ///   - They have the same type (or the augmenting declaration omits the type).
 ///   - They both have the modifier `covariant`, or none of them have it.
 ///   - They both have the modifier `required`, or none of them have it.
+/// - For all positional parameters:
+///   - The augmenting function's parameter name is `_`, or
+///   - The augmenting function's parameter name is the same as the name of the
+///     corresponding positional parameter in every preceding declaration that
+///     doesn't have `_` as its name.
 /// ...
 /// It is a compile-time error if:
-/// - The signature of the augmenting constructor does not match the signature
-///   of the corresponding introductory constructor.
+/// - The signature of the augmenting function does not match the signature of
+///   the augmented function.
 ///
 /// @description Checks that it is not an error if an augmentation with a
 /// wildcard introduces a default value for optional positional parameter.
@@ -35,8 +40,8 @@
 import '../../utils/expect.dart';
 
 class C {
-  int _;
-  C([this._]);
+  int x;
+  C([this.x]);
 }
 
 augment class C {
@@ -46,8 +51,8 @@ augment class C {
 enum E {
   e0();
 
-  final int _;
-  const E([this._]);
+  final int x;
+  const E([this.x]);
 }
 
 augment enum E {
@@ -55,8 +60,8 @@ augment enum E {
   augment const E([int _ = 2]);
 }
 
-extension type ET(int _) {
-  ET.foo([this._]);
+extension type ET(int x) {
+  ET.foo([this.x]);
 }
 
 augment extension type ET {
@@ -64,7 +69,7 @@ augment extension type ET {
 }
 
 main() {
-  Expect.equals(1, C()._);
-  Expect.equals(2, E.e0._);
-  Expect.equals(3, ET.foo()._);
+  Expect.equals(1, C().x);
+  Expect.equals(2, E.e0.x);
+  Expect.equals(3, ET.foo().x);
 }
