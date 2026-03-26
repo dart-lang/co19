@@ -69,7 +69,7 @@ augment extension type ET {
 // [analyzer] unspecified
 // [cfe] unspecified
   augment ET.bar([int _y]);
-//                     ^^
+//                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

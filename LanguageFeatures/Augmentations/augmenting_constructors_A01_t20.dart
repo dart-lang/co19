@@ -49,7 +49,7 @@ class C {
 
 augment class C {
   augment C(int x);
-  augment C.foo([int? x]);
+  augment C.foo([int? _x]);
 }
 
 augment class C {
@@ -59,9 +59,9 @@ augment class C {
 
 augment class C {
   augment C(int x) {
-    log = "$_x";
+    log = "$x";
   }
-  augment C.foo([int? x]) {
+  augment C.foo([int? _x]) {
     log = "$_x";
   }
 }
@@ -98,7 +98,7 @@ extension type ET(int? v) {
 
 augment extension type ET {
   augment ET.foo(int x);
-  augment ET.bar([int x = 0]);
+  augment ET.bar([int _x = 0]);
 }
 
 augment extension type ET {
@@ -106,9 +106,9 @@ augment extension type ET {
   augment ET.bar([int _]);
 }
 
-extension type ET(int? v) {
-  ET.foo(int _x) : v = 0 {
-    log = "$_x";
+augment extension type ET {
+  ET.foo(int x) : v = 0 {
+    log = "$x";
   }
   ET.bar([int _x]) : v = 0 {
     log = "$_x";
