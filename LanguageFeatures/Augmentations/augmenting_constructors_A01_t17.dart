@@ -31,48 +31,70 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if the name of a
-/// positional parameter in an augmenting constructor is not `_` and not equal
-/// to the name of this parameter in the original constructor.
+/// @description Checks that if the name of a positional parameter was augmented
+/// to `_` then it is a compile-time error to use an old name in the augmenting
+/// body.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts
-
-part 'augmenting_constructors_A01_t16_lib.dart';
+// SharedOptions=--enable-experiment=augmentations
 
 class C {
-  int? _x;
-  C(int? _x);
-  C.foo([this._x]);
+  C(int? x);
+  C.foo([int? x]);
 }
 
 augment class C {
-  augment C(int? _);
-  augment C.foo([int? _]);
+  augment C(int? _) {
+    print(x);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment C.foo([int? _]) {
+    print(x);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
 enum E {
   e0(1), e1.foo(1);
 
-  final int _x;
-  const E(this._x);
-  const E.foo([this._x = 0]);
+  const E(int x);
+  const E.foo([int x = 0]);
 }
 
 augment enum E {
   ;
-  augment const E(int _);
-  augment const E.foo([int _]);
+  augment const E(int _) : assert(x != null);
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo([int _]) : assert(x != null);
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-extension type ET(int _x) {
-  ET.foo(this._x);
-  ET.bar([this._x = 0]);
+extension type ET(int v) {
+  ET.foo(int x);
+  ET.bar([int x = 0]);
 }
 
 augment extension type ET {
-  augment ET.foo(int _);
-  augment ET.bar([int _]);
+  augment ET.foo(int _) {
+    print(x);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment ET.bar([int _]) {
+    print(x);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
 main() {

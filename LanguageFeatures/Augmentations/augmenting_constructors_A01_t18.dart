@@ -31,52 +31,73 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if the name of a
-/// positional parameter in an augmenting constructor is not `_` and not equal
-/// to the name of this parameter in the original constructor.
+/// @description Checks that it is not an error if a positional parameter whose
+/// name is not `_` is accessed in the body even if there is an augmentation in
+/// the chain that use wildcard as its name.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts
+// SharedOptions=--enable-experiment=augmentations
 
-part 'augmenting_constructors_A01_t16_lib.dart';
+import '../../utils/expect.dart';
+
+String log = "";
 
 class C {
-  int? _x;
-  C(int? _x);
-  C.foo([this._x]);
+  C(int _x) {
+    log = "$_x";
+  }
+  C.foo([int? _x]) {
+    log = "$_x";
+  }
 }
 
 augment class C {
-  augment C(int? _);
+  augment C(int _);
   augment C.foo([int? _]);
 }
 
 enum E {
   e0(1), e1.foo(1);
 
-  final int _x;
-  const E(this._x);
-  const E.foo([this._x = 0]);
+  const E(int? _x) : assert(_x != null);
+  const E.foo([int? _x]) : assert(_x != null);
 }
 
 augment enum E {
   ;
-  augment const E(int _);
-  augment const E.foo([int _]);
+  augment const E(int? _);
+  augment const E.foo([int? _]);
 }
 
-extension type ET(int _x) {
-  ET.foo(this._x);
-  ET.bar([this._x = 0]);
+extension type ET(int? v) {
+  ET.foo(int? _x) : v = 0 {
+    log = "$_x";
+  }
+  ET.bar([int? _x]) : v = 0 {
+    log = "$_x";
+  }
 }
 
 augment extension type ET {
-  augment ET.foo(int _);
-  augment ET.bar([int _]);
+  augment ET.foo(int? _);
+  augment ET.bar([int? _]);
+}
+
+checkLog(String expected) {
+  Expect.equals(expected, log);
+  log = "";
 }
 
 main() {
-  print(C);
+  C(1);
+  checkLog("1");
+  C.foo(2);
+  checkLog("2");
+
+  ET.foo(1);
+  checkLog("1");
+  ET.bar(2);
+  checkLog("2");
+
   print(E);
-  print(ET);
 }
