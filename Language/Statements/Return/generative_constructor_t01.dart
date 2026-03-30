@@ -3,19 +3,44 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if a return statement of the form
-/// return e; appears in a generative constructor.
+/// `return e;` appears in a generative constructor.
+///
 /// @description Checks that a compile-time error occurs if a return statement
-/// of the form return e; appears in a generative constructor.
+/// of the form `return e;` appears in a generative constructor.
 /// @author vasya
 
-
 class C {
-  C() { return this; }
-//             ^
+  C() {
+    return this;
+//         ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+
+  C.foo() {
+    return this;
+//         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+extemsion type ET._(int x) {
+  ET(this.x) {
+    return this;
+//         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  ET.foo(this.x) {
+    return this;
+//         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
 main() {
-  new C();
+  print(C);
+  print(ET);
 }
