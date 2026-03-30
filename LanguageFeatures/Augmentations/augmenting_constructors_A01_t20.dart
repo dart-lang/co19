@@ -87,8 +87,8 @@ augment enum E {
 
 augment enum E {
   ;
-  augment const E(int x) : assert(_x != null);
-  augment const E.foo([int x]) : assert(_x != null);
+  augment const E(int x) : assert(x != null);
+  augment const E.foo([int x]) : assert(x != null);
 }
 
 extension type ET(int? v) {
