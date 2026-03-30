@@ -31,7 +31,7 @@
 ///   signature of the corresponding introductory getter or setter.
 ///
 /// @description Checks that it is a compile-time error if the parameter name of
-/// an augmenting setter doesn't exactly match the original implicit setter.
+/// an augmenting setter doesn't exactly match the original setter.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
