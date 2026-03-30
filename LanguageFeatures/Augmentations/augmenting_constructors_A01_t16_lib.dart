@@ -21,10 +21,15 @@
 ///   - They have the same type (or the augmenting declaration omits the type).
 ///   - They both have the modifier `covariant`, or none of them have it.
 ///   - They both have the modifier `required`, or none of them have it.
+/// - For all positional parameters:
+///   - The augmenting function's parameter name is `_`, or
+///   - The augmenting function's parameter name is the same as the name of the
+///     corresponding positional parameter in every preceding declaration that
+///     doesn't have `_` as its name.
 /// ...
 /// It is a compile-time error if:
-/// - The signature of the augmenting constructor does not match the signature
-///   of the corresponding introductory constructor.
+/// - The signature of the augmenting function does not match the signature of
+///   the augmented function.
 ///
 /// @description Checks that it is a compile-time error if the name of a
 /// positional parameter in an augmenting constructor is not `_` and not equal

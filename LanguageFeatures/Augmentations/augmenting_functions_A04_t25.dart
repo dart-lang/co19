@@ -9,25 +9,31 @@
 ///   if any (same types, even if they may not be written exactly the same in
 ///   case one of the declarations needs to refer to a type using an import
 ///   prefix).
-/// - The return type (if not omitted) is the same as the augmented
+/// - The return type (if not omitted) is the same as the introductory
 ///   declaration's return type.
 /// - It has the same number of positional parameters as the introductory
 ///   declaration, and the same number of those are optional.
-/// - It has the same set of named parameter names as the augmented declaration.
+/// - It has the same set of named parameter names as the introductory
+///   declaration.
 /// - For each corresponding pair of parameters:
 ///   - They have the same name. This is trivial for named parameters, but may
 ///     fail to hold for positional parameters.
 ///   - They have the same type (or the augmenting declaration omits the type).
 ///   - They both have the modifier `covariant`, or none of them have it.
-///   - They both have the modifier `required`. or none of them have it.
+///   - They both have the modifier `required`, or none of them have it.
+/// - For all positional parameters:
+///   - The augmenting function's parameter name is `_`, or
+///   - The augmenting function's parameter name is the same as the name of the
+///     corresponding positional parameter in every preceding declaration that
+///     doesn't have `_` as its name.
 /// ...
 /// It's a compile-time error if:
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if the name of a
-/// positional parameter of an augmenting function is not the same as the name
-/// of the corresponding positional parameter in an introductory declaration.
+/// @description Checks that it is not an error if the name of a positional
+/// parameter of an augmenting function is `_` and the name of this parameter in
+/// the introductory declaration is not `_`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -36,13 +42,7 @@ void topLevelFunction1(int x) {}
 void topLevelFunction2([int _x = 2]) {}
 
 augment void topLevelFunction1(int _);
-//                                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
 augment void topLevelFunction2([int _]);
-//                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 class C {
   static void staticMethod1(int _x) {}
@@ -53,21 +53,9 @@ class C {
 
 augment class C {
   augment static void staticMethod1(int _);
-//                                      ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment static void staticMethod2([int _]);
-//                                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod1(int _);
-//                                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod2([int _]);
-//                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 mixin M {
@@ -79,21 +67,9 @@ mixin M {
 
 augment mixin M {
   augment static void staticMethod1(int _);
-//                                      ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment static void staticMethod2([int _]);
-//                                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod1(int _);
-//                                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod2([int _]);
-//                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 enum E {
@@ -107,21 +83,9 @@ enum E {
 augment enum E {
   ;
   augment static void staticMethod1(int _);
-//                                      ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment static void staticMethod2([int _]);
-//                                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod1(int _);
-//                                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod2([int _]);
-//                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 class A {}
@@ -135,21 +99,9 @@ extension Ext on A {
 
 augment extension Ext {
   augment static void staticMethod1(int _);
-//                                      ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment static void staticMethod2([int _]);
-//                                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod1(int _);
-//                                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod2([int _]);
-//                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension type ET(int _) {
@@ -161,30 +113,39 @@ extension type ET(int _) {
 
 augment extension type ET {
   augment static void staticMethod1(int _);
-//                                      ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment static void staticMethod2([int _]);
-//                                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod1(int _);
-//                                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod2([int _]);
-//                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
-main() {
-  print(topLevelFunction1);
-  print(topLevelFunction2);
+class MA = Object with M;
 
-  print(C);
-  print(M);
-  print(E);
-  print(A);
-  print(ET);
+main() {
+  topLevelFunction1(1);
+  topLevelFunction2(1);
+
+  C.staticMethod1(1);
+  C.staticMethod2();
+  C().instanceMethod1(1);
+  C().instanceMethod2();
+
+  M.staticMethod1(1);
+  M.staticMethod2();
+  MA().instanceMethod1(1);
+  MA().instanceMethod2();
+
+  E.staticMethod1(1);
+  E.staticMethod2();
+  E.e1.instanceMethod1(1);
+  E.e1.instanceMethod2();
+
+  Ext.staticMethod1(1);
+  Ext.staticMethod2();
+  A().instanceMethod1(1);
+  A().instanceMethod2();
+
+  ET.staticMethod1(1);
+  ET.staticMethod2();
+  ET(0).instanceMethod1(1);
+  ET(0).instanceMethod2();
 }

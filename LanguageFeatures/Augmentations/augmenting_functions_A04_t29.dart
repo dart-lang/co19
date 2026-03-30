@@ -9,17 +9,23 @@
 ///   if any (same types, even if they may not be written exactly the same in
 ///   case one of the declarations needs to refer to a type using an import
 ///   prefix).
-/// - The return type (if not omitted) is the same as the augmented
+/// - The return type (if not omitted) is the same as the introductory
 ///   declaration's return type.
 /// - It has the same number of positional parameters as the introductory
 ///   declaration, and the same number of those are optional.
-/// - It has the same set of named parameter names as the augmented declaration.
+/// - It has the same set of named parameter names as the introductory
+///   declaration.
 /// - For each corresponding pair of parameters:
 ///   - They have the same name. This is trivial for named parameters, but may
 ///     fail to hold for positional parameters.
 ///   - They have the same type (or the augmenting declaration omits the type).
 ///   - They both have the modifier `covariant`, or none of them have it.
-///   - They both have the modifier `required`. or none of them have it.
+///   - They both have the modifier `required`, or none of them have it.
+/// - For all positional parameters:
+///   - The augmenting function's parameter name is `_`, or
+///   - The augmenting function's parameter name is the same as the name of the
+///     corresponding positional parameter in every preceding declaration that
+///     doesn't have `_` as its name.
 /// ...
 /// It's a compile-time error if:
 /// - The signature of the augmenting function does not match the signature of
@@ -27,91 +33,91 @@
 ///
 /// @description Checks that it is a compile-time error to access a positional
 /// parameter in the body of an augmenting function if the name of this
-/// parameter is a wildcard.
+/// parameter in this function is a wildcard.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-void topLevelFunction1(int _);
-void topLevelFunction2([int _ = 2]);
+void topLevelFunction1(int x);
+void topLevelFunction2([int _x = 2]);
 
 augment void topLevelFunction1(int _) {
-  print(_);
+  print(x);
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 augment void topLevelFunction2([int _]) {
-  print(_);
-//      ^
+  print(_x);
+//      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class C {
-  static void staticMethod1(int _);
-  static void staticMethod2([int _ = 2]);
-  void instanceMethod1(int _);
-  void instanceMethod2([int _]);
+  static void staticMethod1(int _x);
+  static void staticMethod2([int x = 2]);
+  void instanceMethod1(int x);
+  void instanceMethod2([int _x]);
 }
 
 augment class C {
   augment static void staticMethod1(int _) {
-    print(_);
-//        ^
+    print(_x);
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment static void staticMethod2([int _]) {
-    print(_);
+    print(x);
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod1(int _) {
-    print(_);
+    print(x);
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod2([int _ = 2]) {
-    print(_);
-//        ^
+    print(_x);
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 }
 
 mixin M {
-  static void staticMethod1(int _);
-  static void staticMethod2([int _ = 2]);
-  void instanceMethod1(int _);
-  void instanceMethod2([int _]);
+  static void staticMethod1(int _x);
+  static void staticMethod2([int x = 2]);
+  void instanceMethod1(int x);
+  void instanceMethod2([int _x]);
 }
 
 augment mixin M {
   augment static void staticMethod1(int _) {
-    print(_);
-//        ^
+    print(_x);
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment static void staticMethod2([int _]) {
-    print(_);
+    print(x);
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod1(int _) {
-    print(_);
+    print(x);
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod2([int _ = 2]) {
-    print(_);
-//        ^
+    print(_x);
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -119,35 +125,35 @@ augment mixin M {
 
 enum E {
   e1;
-  static void staticMethod1(int _);
-  static void staticMethod2([int _ = 2]);
-  void instanceMethod1(int _);
-  void instanceMethod2([int _]);
+  static void staticMethod1(int _x);
+  static void staticMethod2([int x = 2]);
+  void instanceMethod1(int x);
+  void instanceMethod2([int _x]);
 }
 
 augment enum E {
   ;
   augment static void staticMethod1(int _) {
-    print(_);
-//        ^
+    print(_x);
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment static void staticMethod2([int _]) {
-    print(_);
+    print(x);
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod1(int _) {
-    print(_);
+    print(x);
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod2([int _ = 2]) {
-    print(_);
-//        ^
+    print(_x);
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -156,68 +162,68 @@ augment enum E {
 class A {}
 
 extension Ext on A {
-  static void staticMethod1(int _);
-  static void staticMethod2([int _ = 2]);
-  void instanceMethod1(int _);
-  void instanceMethod2([int _]);
+  static void staticMethod1(int _x);
+  static void staticMethod2([int x = 2]);
+  void instanceMethod1(int x);
+  void instanceMethod2([int _x]);
 }
 
 augment extension Ext {
   augment static void staticMethod1(int _) {
-    print(_);
-//        ^
+    print(_x);
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment static void staticMethod2([int _]) {
-    print(_);
+    print(x);
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
+  }
   augment void instanceMethod1(int _) {
-    print(_);
+    print(x);
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod2([int _ = 2]) {
-    print(_);
-//        ^
+    print(_x);
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 }
 
 extension type ET(int _) {
-  static void staticMethod1(int _);
-  static void staticMethod2([int _ = 2]);
-  void instanceMethod1(int _);
-  void instanceMethod2([int _]);
+  static void staticMethod1(int _x);
+  static void staticMethod2([int x = 2]);
+  void instanceMethod1(int x);
+  void instanceMethod2([int _x]);
 }
 
 augment extension type ET {
   augment static void staticMethod1(int _) {
-    print(_);
-//        ^
+    print(_x);
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment static void staticMethod2([int _]) {
-    print(_);
+    print(x);
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod1(int _) {
-    print(_);
+    print(x);
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
   augment void instanceMethod2([int _ = 2]) {
-    print(_);
-//        ^
+    print(_x);
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

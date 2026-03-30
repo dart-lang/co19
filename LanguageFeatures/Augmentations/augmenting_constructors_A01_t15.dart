@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import '../Extension-types/syntax_A13_t03.dart';
+
 /// @assertion We say that an augmenting function or constructor's signature
 /// matches an introductory signature if:
 /// - It has the same number of type parameters with the same type parameter
@@ -31,52 +33,58 @@
 /// - The signature of the augmenting function does not match the signature of
 ///   the augmented function.
 ///
-/// @description Checks that it is a compile-time error if the name of a
-/// positional parameter in an augmenting constructor is not `_` and not equal
-/// to the name of this parameter in the original constructor.
+/// @description Checks that it is not an error if the name of a positional
+/// parameter in the original constructor is `_` and the name of this parameter
+/// in an augmenting constructor is not `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts
+// SharedOptions=--enable-experiment=augmentations
 
-part 'augmenting_constructors_A01_t16_lib.dart';
+import '../../Utils/expect.dart';
 
 class C {
-  int? _x;
-  C(int? _x);
-  C.foo([this._x]);
+  int? x;
+  C(int? _);
+  C.foo([int? _]);
 }
 
 augment class C {
-  augment C(int? _);
-  augment C.foo([int? _]);
+  augment C(this.x);
+  augment C.foo([int? x]) : x = x;
 }
 
 enum E {
-  e0(1), e1.foo(1);
+  e0(0), e1.foo(), e2.foo(2);
 
-  final int _x;
-  const E(this._x);
-  const E.foo([this._x = 0]);
+  final int x;
+  const E(int _);
+  const E.foo([int _]) : x = 1;
 }
 
 augment enum E {
   ;
-  augment const E(int _);
-  augment const E.foo([int _]);
+  augment const E(this.x);
+  augment const E.foo([int x]);
 }
 
-extension type ET(int _x) {
-  ET.foo(this._x);
-  ET.bar([this._x = 0]);
+extension type ET(int? x) {
+  ET.foo(int? _) : x = 1;
+  ET.bar([int? _]);
 }
 
 augment extension type ET {
-  augment ET.foo(int _);
-  augment ET.bar([int _]);
+  augment ET.foo(this.x);
+  augment ET.bar([int? x]) : x = x;
 }
 
 main() {
-  print(C);
-  print(E);
-  print(ET);
+  Expect.equals(0, C(0).x);
+  Expect.isNull(C.foo().x);
+  Expect.equals(0, C.foo(0).x);
+  Expect.equals(0, E.e0.x);
+  Expect.equals(1, E.e1.x);
+  Expect.equals(2, E.e2.x);
+  Expect.equals(1, ET.foo(0).x);
+  Expect.isNull(ET.bar().x);
+  Expect.equals(0, ET.bar(0).x);
 }
