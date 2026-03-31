@@ -43,7 +43,7 @@ main() {
   Expect.equals("foobar", foo("foo", "bar"));
 
   try {
-    Expect.equals(100, bar(new A())); // can't be true, can it?
+    bar(new A());
     Expect.fail("Exception expected when evaluating a return statement!");
   } on int catch (ok) {}
 }
