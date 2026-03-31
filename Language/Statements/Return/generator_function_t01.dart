@@ -3,17 +3,15 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if a return statement of the form
-/// return e; appears in a generator function.
+/// `return e;` appears in a generator function.
 ///
-/// @description Check that statement 'return e' cause a compiler error in
-/// synchronous generator function
-///
+/// @description Check that it is a compile-time error if a return statement of
+/// the form `return e;` appears in a generator synchronous function.
 /// @author a.semenov@unipro.ru
-
 
 Iterable test() sync* {
   return 1;
-//^
+//^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

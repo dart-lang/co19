@@ -3,24 +3,66 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if a return statement of the form
-/// return e; appears in a generator function.
+/// `return e;` appears in a generator function.
 ///
-/// @description Check that statement 'return e' cause a compiler error in
-/// asynchronous generator static method
-///
+/// @description Check that it is a compile-time error if a return statement of
+/// the form `return e;` appears in a asynchronous generator static method.
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
 
-class A {
+class C {
   static Stream test() async* {
     return 1;
-//  ^
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+mixin M {
+  static Stream test() async* {
+    return 1;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+enum E {
+  e0;
+  static Stream test() async* {
+    return 1;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+class A {}
+
+extension Ext on A {
+  static Stream test() async* {
+    return 1;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+extension type ET(int _) {
+  static Stream test() async* {
+    return 1;
+//  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 }
 
 main() {
-  A.test().isEmpty;
+  print(C);
+  print(M);
+  print(E);
+  print(A);
+  print(ET);
 }
