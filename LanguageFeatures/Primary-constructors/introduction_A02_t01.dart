@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=primary-constructors
 
-int nonConstant = 0;
+final int nonConstant = 0;
 
 class C1([var int v = nonConstant]);
 //                    ^^^^^^^^^^^
