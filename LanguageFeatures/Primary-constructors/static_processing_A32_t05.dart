@@ -7,43 +7,65 @@
 /// any of the modifiers `async`, `async*`, or `sync*`, or if it uses `=>`
 /// rather than a block.
 ///
-/// @description Check that it is a compile-time error if a primary constructor
-/// has a body part that includes `sync*`.
+/// @description Check that it is a syntax error if a primary constructor of an
+/// enum has a body part that includes `async`, `async*`, or `sync*`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
 
-class C1(var int x) {
-  this sync* {}
+enum E1(final int x) {
+  e0(0);
+  this async;
 //     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C2(var int x) {
-  this: assert(x > 0) sync* {}
+enum E2(final int x) {
+  e0(0);
+  this: assert(x > 0) async;
 //                    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET1(int x) {
-  this sync* {}
+enum E3(final int x) {
+  e0(0);
+  this async*;
+//     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E4(final int x) {
+  e0(0);
+  this: assert(x > 0) async*;
+//                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E5(final int x) {
+  e0(0);
+  this sync*;
 //     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET2(int x) {
-  this: assert(x > 0)  sync* {}
-//                     ^^^^^
+enum E6(final int x) {
+  e0(0);
+  this: assert(x > 0) sync*;
+//                    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(C1);
-  print(C2);
-  print(ET1);
-  print(ET2);
+  print(E1);
+  print(E2);
+  print(E3);
+  print(E4);
+  print(E5);
+  print(E6);
 }

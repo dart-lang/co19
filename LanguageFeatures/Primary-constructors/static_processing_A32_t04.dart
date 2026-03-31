@@ -27,32 +27,16 @@ class C2(var int x) {
 // [cfe] unspecified
 }
 
-mixin class M1(var int x) {
-  this => this;
-//     ^^
+class C3(var int x) {
+  this async => this;
+//     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-mixin class M2(var int x) {
-  this: assert(x > 0) => this;
-//                    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-enum E1(final int x) {
-  e0(0);
-  this => e0;
-//     ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-enum E2(final int x) {
-  e0(0);
-  this: assert(x > 0) => e0;
-//                    ^^
+class C4(var int x) {
+  this: assert(x > 0) async => this;
+//                    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -71,11 +55,27 @@ extension type ET2(int x) {
 // [cfe] unspecified
 }
 
+extension type ET3(int x) {
+  this async => this;
+//     ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET4(int x) {
+  this: assert(x > 0) async => this;
+//                    ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(C1);
   print(C2);
-  print(M1);
-  print(M2);
+  print(C3);
+  print(C4);
   print(ET1);
   print(ET2);
+  print(ET3);
+  print(ET4);
 }

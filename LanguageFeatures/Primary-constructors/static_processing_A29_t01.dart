@@ -25,7 +25,7 @@ class const C(final int x) {
 // [cfe] unspecified
 }
 
-mixin class const M(final int x) {
+mixin class const M() {
   final int v;
   this : v = nonConstant;
 //           ^^^^^^^^^^^

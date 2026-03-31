@@ -22,11 +22,6 @@ class const C(final int x, int y) {
   this : v = y;
 }
 
-mixin class const M(final int x, int y) {
-  final int v;
-  this : v = y;
-}
-
 enum E(final int x, int y) {
   e0(nonConstant, 1),
 //   ^^^^^^^^^^^
@@ -51,14 +46,7 @@ main() {
 //           ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const M(nonConstant, 1);
-//        ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const M(1, nonConstant);
-//           ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
   const ET(nonConstant);
 //         ^^^^^^^^^^^
 // [analyzer] unspecified

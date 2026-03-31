@@ -7,36 +7,64 @@
 /// any of the modifiers `async`, `async*`, or `sync*`, or if it uses `=>`
 /// rather than a block.
 ///
-/// @description Check that it is a compile-time error if a primary constructor
-/// has a body part that includes `sync*`.
+/// @description Check that it is a syntax error if a primary constructor has a
+/// body part that uses `async* =>` or `sync* =>` syntax.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
 
 class C1(var int x) {
-  this sync* {}
-//     ^^^^^
+  this async* => this;
+//     ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class C2(var int x) {
-  this: assert(x > 0) sync* {}
+this: assert(x > 0) async* => this;
+//                  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C3(var int x) {
+  this sync* => this;
+//     ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C4(var int x) {
+  this: assert(x > 0) sync* => this;
 //                    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET1(int x) {
-  this sync* {}
-//     ^^^^^
+  this async* => this;
+//     ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET2(int x) {
-  this: assert(x > 0)  sync* {}
-//                     ^^^^^
+  this: assert(x > 0) async* => this;
+//                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET3(int x) {
+  this sync* => this;
+//     ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET4(int x) {
+  this: assert(x > 0) sync* => this;
+//                    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -44,6 +72,10 @@ extension type ET2(int x) {
 main() {
   print(C1);
   print(C2);
+  print(C3);
+  print(C4);
   print(ET1);
   print(ET2);
+  print(ET3);
+  print(ET4);
 }

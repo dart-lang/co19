@@ -20,14 +20,6 @@ class const C(final int x) {
 // [cfe] unspecified
 }
 
-mixin class const M(final int x) {
-  final int v;
-  this : v = 0 {}
-//             ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 enum E(final int x) {
   e0(0);
   final int v;
@@ -46,7 +38,6 @@ extension type const ET(int v) {
 
 main() {
   print(C);
-  print(M);
   print(E);
   print(ET);
 }

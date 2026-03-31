@@ -7,43 +7,36 @@
 /// any of the modifiers `async`, `async*`, or `sync*`, or if it uses `=>`
 /// rather than a block.
 ///
-/// @description Check that it is a compile-time error if a primary constructor
-/// has a body part that includes `sync*`.
+/// @description Check that it is a syntax error if a primary constructor of a
+/// mixin class has a body part that includes `async`, `async*`, or `sync*`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
 
-class C1(var int x) {
-  this sync* {}
+mixin class M1() {
+  this async;
 //     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C2(var int x) {
-  this: assert(x > 0) sync* {}
-//                    ^^^^^
+mixin class M2() {
+  this async*;
+//     ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type ET1(int x) {
-  this sync* {}
+
+mixin class M3() {
+  this sync*;
 //     ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET2(int x) {
-  this: assert(x > 0)  sync* {}
-//                     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(C1);
-  print(C2);
-  print(ET1);
-  print(ET2);
+  print(M1);
+  print(M2);
+  print(M3);
 }
