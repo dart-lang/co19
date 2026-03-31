@@ -27,7 +27,7 @@ mixin class M3({var int x = 0}) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin class M4({var required int x});
+mixin class M4({required var int x});
 //          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -47,7 +47,7 @@ mixin class M7({final int x = 0}) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin class M8({final required int x});
+mixin class M8({required final int x});
 //          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
