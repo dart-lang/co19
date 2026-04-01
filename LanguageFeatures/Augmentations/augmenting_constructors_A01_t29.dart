@@ -37,9 +37,7 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../utils/expect.dart';
-
-int x = 42;
+String x = 'x';
 int y = 0;
 
 class C {
@@ -47,12 +45,18 @@ class C {
   C(int x);
   C._([int _]) {
     v = x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 augment class C {
   augment C(int _) {
     v = x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   augment C._([int x = 0]);
 }
@@ -60,6 +64,9 @@ augment class C {
 extension type ET._(int z) {
   ET(int _) : z = 0 {
     y = x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   ET.foo(int x);
 }
@@ -68,16 +75,13 @@ augment extension type ET {
   augment ET(int x);
   augment ET.foo(int _) : z = 0 {
     y = x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
-  Expect.equals(42, C(1).v);
-  Expect.equals(42, C._().v);
-  Expect.equals(42, C._(1).v);
-  ET(1);
-  Expect.equals(42, y);
-  y = 0;
-  ET.foo(2);
-  Expect.equals(42, y);
+  print(C);
+  print(ET);
 }

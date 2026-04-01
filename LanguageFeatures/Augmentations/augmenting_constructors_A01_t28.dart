@@ -37,47 +37,63 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../utils/expect.dart';
-
-int x = 42;
-int y = 0;
+String x = 'x';
 
 class C {
-  int? v;
+  int v;
   C(int x);
-  C._([int _]) {
-    v = x;
-  }
+  C._([int _]) : v = x;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment class C {
-  augment C(int _) {
-    v = x;
-  }
+  augment C(int _) : v = x;
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment C._([int x = 0]);
 }
 
-extension type ET._(int z) {
-  ET(int _) : z = 0 {
-    y = x;
-  }
+enum E {
+  e0(0), e1._(), e2._(2);
+
+  final int v;
+  const E(int x);
+  const E._([int _]) : v = x;
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+augment enum E {
+  ;
+  augment E(int _) : v = x;
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment E.([int x = 0]);
+}
+
+extension type ET(int v) {
   ET.foo(int x);
+  ET.bar([int _]) : v = x;
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment extension type ET {
-  augment ET(int x);
-  augment ET.foo(int _) : z = 0 {
-    y = x;
-  }
+  augment ET.foo(int _) : v = x;
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment E.bar([int x = 0]);
 }
 
 main() {
-  Expect.equals(42, C(1).v);
-  Expect.equals(42, C._().v);
-  Expect.equals(42, C._(1).v);
-  ET(1);
-  Expect.equals(42, y);
-  y = 0;
-  ET.foo(2);
-  Expect.equals(42, y);
+  print(C);
+  print(E);
+  print(ET);
 }
