@@ -20,7 +20,7 @@
 class C1() {
 //    ^^
 // [analyzer] unspecified
-  int v1, v2;
+  int? v1, v2;
   this : v1 = 1;
   this : v2 = 2;
 //^^^^
@@ -32,6 +32,8 @@ class C2(var int v1) {
 //    ^^
 // [analyzer] unspecified
   int v2;
+//    ^^
+// [cfe] unspecified
   this;
   this: v2 = 3;
 //^^^^
@@ -58,6 +60,8 @@ enum E1(final int v1) {
   e0(0);
 
   final int v2;
+//          ^^
+// [cfe] unspecified
   this;
   this: v2 = 2;
 //^^^^
