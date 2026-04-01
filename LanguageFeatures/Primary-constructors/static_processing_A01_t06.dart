@@ -15,10 +15,13 @@
 
 import '../../Utils/expect.dart';
 
+const metadata = 1;
+
 class C1 {
   int v;
   C1.create(this.v);
 
+  @metadata
   factory() => C1.create(1);
 }
 
@@ -26,14 +29,17 @@ class C2 {
   final int v;
   const C2.create(this.v);
 
+  @metadata
   const factory(int v) = C2.create;
 }
 
 extension type ET1.create(int v) {
+  @metadata
   factory() => ET1.create(1);
 }
 
 extension type const ET2.create(int v) {
+  @metadata
   const factory ET2(int v) = ET2.create;
 }
 
