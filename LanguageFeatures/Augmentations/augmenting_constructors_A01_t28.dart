@@ -73,7 +73,7 @@ augment enum E {
 //                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment E.([int x = 0]);
+  augment E._([int x = 0]);
 }
 
 extension type ET(int v) {

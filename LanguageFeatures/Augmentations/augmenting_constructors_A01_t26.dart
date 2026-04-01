@@ -63,7 +63,7 @@ enum E {
 augment enum E {
   ;
   augment E(int _) : v = x;
-  augment E.([int x = 0]);
+  augment E._([int x = 0]);
 }
 
 extension type ET(int v) {
