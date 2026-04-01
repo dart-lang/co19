@@ -63,7 +63,10 @@ enum E({@meta required final int x, @meta required int y}) {
   e0(x: 0, y: 0);
 }
 
+extension type ET({@meta required int x});
+
 main() {
   Expect.equals(1, C(x: 1, y: 2).x);
   Expect.equals(0, E.e0.x);
+  Expect.equals(1, ET(x: 1).x);
 }
