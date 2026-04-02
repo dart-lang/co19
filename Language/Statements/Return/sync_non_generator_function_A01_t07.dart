@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -10,28 +10,43 @@
 /// synchronous non-generator function. It is a compile-time error if `s` is
 /// `return;`, unless `T` is `void`, `dynamic`, or `Null`.
 ///
-/// @description Checks that it is a compile-time error if a statement of the
-/// form `return;` is used in a method whose declared return type is `Object?`
-/// or `Never`.
-/// @author rodionov
-/// @issue 42459
+/// @description Checks that there's no compile error if a statement of the
+/// form `return;` is used in a method whose return type is `Null`.
+/// @author sgrekhov22@gmail.com
+
+import '../../../Utils/expect.dart';
+
+Null foo() {
+  return;
+}
+
+Null get bar {
+  return;
+}
 
 class C {
-  static Object? staticMethod() {
+  static Null sm() {
     return;
-//  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 
-  Never instanceMethod() {
+  static Null get sg {
     return;
-//  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  }
+
+  Null m() {
+    return;
+  }
+
+  Null get g {
+    return;
   }
 }
 
 main() {
-  print(C);
+  Expect.isNull(foo());
+  Expect.isNull(bar);
+  Expect.isNull(C.sm());
+  Expect.isNull(C.sg);
+  Expect.isNull(C().m());
+  Expect.isNull(C().g);
 }

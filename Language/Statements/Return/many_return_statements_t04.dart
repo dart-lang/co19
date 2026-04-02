@@ -2,23 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is no static warning if a function contains both one or more
-/// return statements of the form return; and one or more return statements of
-/// the form return e;.
+/// @assertion Executing a return statement with no expression, `return;`
+/// returns without an object.
 ///
-/// @description Checks that it is not a warning if a function literal has
+/// @description Checks that it is not an error if a function literal has
 /// explicit and implicit return statements of different kind.
-///
-/// @note implicit returns do not count, see 14764
-/// https://github.com/dart-lang/sdk/issues/39476
 /// @author ilya
-/// @issue 42581
-
+/// @issue 14764, 39476, 42581
 
 main() {
   (x) {
-    if (x)
+    if (x) {
       return 1;
+    }
     // implicit return;
   } (true);
 }
