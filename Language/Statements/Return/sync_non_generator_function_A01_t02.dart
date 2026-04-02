@@ -11,12 +11,20 @@
 /// `return;`, unless `T` is `void`, `dynamic`, or `Null`.
 ///
 /// @description Checks that a compile error occurs if a statement of the form
-/// `return;` is used in a getter method whose declared return type is `bool`.
-/// @Issue 42459
+/// `return;` is used in a getter whose declared return type is `Object?` or
+/// `Never`.
 /// @author vasya
+/// @issue 42459
 
 class C {
-  bool get foo {
+  Object? get foo {
+    return;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  Never get bar {
     return;
 //  ^^^^^^
 // [analyzer] unspecified

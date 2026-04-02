@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -9,25 +9,22 @@
 /// Case ⟨Synchronous non-generator functions⟩. Consider the case where `f` is a
 /// synchronous non-generator function.
 /// ...
-/// It is a compile-time error if `s` is `return e;`, `T` is `void`, and `S` is
-/// neither `void`, `dynamic`, nor `Null`.
+/// It is a compile-time error if `s` is `return e;`, `T` is neither
+/// `void` nor `dynamic`, and `S` is `void`.
 ///
-/// @description Checks that it is not an error to return `null` or `dynamic`
-/// from a function whose return type is `void`.
-/// @author rodionov
+/// @description Check that it is no compile-time error to return `void` from a
+/// function whose return type is `dynamic`.
+/// @author sgrekhov@unipro.ru
 
-void foo() {
-  return null;
+void g() {}
+
+dynamic foo() {
+  return g();
 }
 
-void bar(dynamic v) {
-  return v;
-}
-
-void baz() {}
+bar() => g();
 
 main() {
   foo();
-  bar(1);
-  baz();
+  bar();
 }
