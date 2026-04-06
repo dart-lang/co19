@@ -16,8 +16,8 @@
 ///
 /// @description Check that if s has been canceled then its cancellation future
 /// is completed with current exception x as an error.
-///
 /// @author a.semenov@unipro.ru
+/// @issue 63122
 
 import 'dart:async';
 import '../../../Utils/expect.dart';

@@ -4,19 +4,19 @@
 
 /// @assertion It is a compile-time error if the value of a compile-time
 /// constant expression depends on itself.
+///
 /// @description Checks that it is a compile-time error if a final instance
 /// field depends on a const constructor and vice versa.
 /// @author iefremov
 
-
 class A {
   const A();
-  final m = const A();
 //      ^
 // [analyzer] unspecified
+  final m = const A();
+//      ^
 // [cfe] unspecified
 }
-
 
 main() {
   try {

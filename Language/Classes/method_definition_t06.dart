@@ -22,11 +22,9 @@
 /// ;
 /// @description Checks that there is a compile-time error if a concrete class
 /// has an abstract operator definition without an implementation
-///
+/// @author msyabro
 /// @issue 27508
 /// @issue 42199
-/// @author msyabro
-
 
 class A {
 //    ^

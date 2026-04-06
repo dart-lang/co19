@@ -24,6 +24,7 @@
 /// parameter declaration and `ℓ` occurs inside a static method, static getter,
 /// or static setter, or inside a static variable initializer.
 /// @author sgrekhov22@gmail.com
+/// @issue 62989
 
 class C<T> {
   static void method() {

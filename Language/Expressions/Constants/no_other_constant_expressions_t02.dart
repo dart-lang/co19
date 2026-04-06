@@ -6,6 +6,7 @@
 ///
 /// @description Checks that a closure cannot be used in a constant expression.
 /// @author sgrekhov22@gmail.com
+/// @issue 62855
 
 const one = () {};
 //          ^^^^^

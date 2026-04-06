@@ -30,11 +30,7 @@ enum E {
   e1(1), e2(2);
 
   final x;
-
   const E(this.x);
-//             ^
-// [analyzer] unspecified
-
   factory E.f() : x = 0 {
 //        ^
 // [analyzer] unspecified
