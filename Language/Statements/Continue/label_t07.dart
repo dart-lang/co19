@@ -8,12 +8,12 @@
 /// be the innermost do, for or while statement enclosing sc.
 /// It is a compile-time error if no such statement or case clause sE exists
 /// within the innermost function in which sc occurs.
-/// @description Checks that it is a compile-time error if a 'continue L;'
-/// statement occurs in a case clause of switch statement with label L and there
-/// is no another enclosing statement with label L.
+///
+/// @description Checks that it is a compile-time error if a `continue L;`
+/// statement occurs in a `case` clause of `switch` statement with label `L` and
+/// there is no `case` statement with label `L`.
 /// @author vasya
 /// @issue 42593
-
 
 main() {
   var x = 1;
@@ -22,10 +22,9 @@ main() {
     case 1:
       x = 0;
       continue L;
-  //           ^
-  // [analyzer] COMPILE_TIME_ERROR.CONTINUE_LABEL_INVALID
-  //  ^^^^^^^^
-  // [cfe] A 'continue' label must be on a loop or a switch member.
+  //  ^^^^^^^^^^^
+  // [analyzer] unspecified
+  // [cfe] unspecified
     default:
       x = 2;
   }
