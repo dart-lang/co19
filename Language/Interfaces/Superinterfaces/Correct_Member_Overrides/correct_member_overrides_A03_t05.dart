@@ -14,6 +14,7 @@
 /// methods and function type `m` is not a subtype of `m′`. Test `implements`
 /// clause
 /// @author sgrekhov22@gmail.com
+/// @issue 63130
 
 interface class I1 {
   void m1(int v1) {}

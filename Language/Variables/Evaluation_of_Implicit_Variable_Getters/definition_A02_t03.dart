@@ -19,14 +19,20 @@ const one = 2 > 1 ? one : null;
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-const two = 2 > 1 ? null : two; // Ok
+const two = 2 > 1 ? null : two; // Circularity during type inference
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class C {
   static const one = 2 > 1 ? one : null;
 //             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  static const two = 2 > 1 ? null : two; // Ok
+  static const two = 2 > 1 ? null : two;
+//             ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M {
@@ -35,6 +41,9 @@ mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
   static const two = 2 > 1 ? null : two;
+//             ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {
@@ -44,6 +53,9 @@ enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
   static const two = 2 > 1 ? null : two;
+//             ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A {}
@@ -54,6 +66,9 @@ extension Ext on A {
 // [analyzer] unspecified
 // [cfe] unspecified
   static const two = 2 > 1 ? null : two;
+//             ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET(int _) {
@@ -62,6 +77,9 @@ extension type ET(int _) {
 // [analyzer] unspecified
 // [cfe] unspecified
   static const two = 2 > 1 ? null : two;
+//             ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

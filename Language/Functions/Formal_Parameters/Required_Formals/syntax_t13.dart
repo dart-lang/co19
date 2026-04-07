@@ -23,10 +23,10 @@
 /// fieldFormalParameter:
 ///   metadata finalConstVarOrType? this '.' identifier formalParameterList?
 /// ;
+///
 /// @description Checks that initializing formals of function type are not
 /// allowed in local functions.
 /// @author ilya
-
 
 main() {
   f(this.x(y)) {}
@@ -35,6 +35,4 @@ main() {
 // [cfe] unspecified
 
   f((x) {});
-//  ^
-// [analyzer] unspecified
 }

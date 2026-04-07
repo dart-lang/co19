@@ -10,3 +10,6 @@
 part of class;
 //      ^^^^^
 // [cfe] unspecified
+
+// [error line 16, column 1]
+// [cfe] unspecified
