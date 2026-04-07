@@ -5,8 +5,8 @@
 /// @assertion Executing a return statement with no expression, `return;`
 /// returns without an object.
 ///
-/// @description Checks that it is not an error if a function has explicit
-/// and implicit return statements of different kind.
+/// @description Checks that it is not an error if a function returning
+/// `dynamic` has explicit and implicit return statements of different kind.
 /// @author ilya
 /// @issue 14764, 39476
 

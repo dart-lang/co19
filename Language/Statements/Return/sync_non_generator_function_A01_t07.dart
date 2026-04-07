@@ -10,7 +10,7 @@
 /// synchronous non-generator function. It is a compile-time error if `s` is
 /// `return;`, unless `T` is `void`, `dynamic`, or `Null`.
 ///
-/// @description Checks that there's no compile error if a statement of the
+/// @description Checks that there's no compile-time error if a statement of the
 /// form `return;` is used in a method whose return type is `Null`.
 /// @author sgrekhov22@gmail.com
 

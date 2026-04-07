@@ -12,8 +12,8 @@
 /// It is a compile-time error if `s` is `return e;`, `T` is `void`, and `S` is
 /// neither `void`, `dynamic`, nor `Null`.
 ///
-/// @description Checks that it is not an error to return `void` from a function
-/// whose return type is `void`.
+/// @description Checks that it is not an error to return an expression of the
+/// type `void` from a function whose return type is `void`.
 /// @author rodionov
 
 void foo() {}

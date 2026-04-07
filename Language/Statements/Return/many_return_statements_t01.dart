@@ -5,8 +5,8 @@
 /// @assertion Executing a return statement with no expression, `return;`
 /// returns without an object.
 ///
-/// @description Checks that it is not an error if a function has both `return;`
-/// and `return e;` statements.
+/// @description Checks that if return type of the function is omitted then it
+/// is not an error if a function has both `return;` and `return e;` statements.
 /// @author ilya
 /// @issue 39476
 
@@ -44,6 +44,7 @@ class C {
       return;
     }
   }
+
   instanceF(bool x) {
     if (x) {
       return 1;

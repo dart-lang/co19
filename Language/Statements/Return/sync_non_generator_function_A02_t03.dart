@@ -12,8 +12,9 @@
 /// It is a compile-time error if `s` is `return e;`, `T` is `void`, and `S` is
 /// neither `void`, `dynamic`, nor `Null`.
 ///
-/// @description Checks that if is a compile-time error to return a non `void`,
-/// `dynamic` or `Null` value from a function with return type `void`.
+/// @description Checks that if is a compile-time error to return an expression
+/// whose type is not `void`, `dynamic`, nor `Null`, value from a function with
+/// return type `void`.
 /// @author rodionov
 
 void foo(Object? v) {
