@@ -12,11 +12,18 @@
 ///
 /// @description Checks that a compile time error occurs if a statement of the
 /// form `return;` is used in a top-level method whose declared return type is
-/// `int`.
-/// @Issue 42459
+/// `Object?` or `Never`.
 /// @author vasya
+/// @issue 42459
 
-int bar() {
+Object? bar() {
+  return;
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+Never foo() {
   return;
 //^^^^^^
 // [analyzer] unspecified
@@ -24,5 +31,6 @@ int bar() {
 }
 
 main() {
-  bar();
+  print(bar);
+  print(foo);
 }

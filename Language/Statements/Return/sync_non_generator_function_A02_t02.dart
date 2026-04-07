@@ -12,8 +12,8 @@
 /// It is a compile-time error if `s` is `return e;`, `T` is `void`, and `S` is
 /// neither `void`, `dynamic`, nor `Null`.
 ///
-/// @description Checks that returning `null` or a value with static type
-/// `dynamic` from within a `void` method does not result in a warning or error.
+/// @description Checks that it is not an error to return `null` or an
+/// expression of type `dynamic` from a function whose return type is `void`.
 /// @author rodionov
 
 void foo() {
@@ -24,7 +24,10 @@ void bar(dynamic v) {
   return v;
 }
 
+void baz() {}
+
 main() {
   foo();
   bar(1);
+  baz();
 }

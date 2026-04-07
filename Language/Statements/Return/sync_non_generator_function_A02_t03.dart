@@ -12,21 +12,21 @@
 /// It is a compile-time error if `s` is `return e;`, `T` is `void`, and `S` is
 /// neither `void`, `dynamic`, nor `Null`.
 ///
-/// @description Checks that returning a non-null value with non-dynamic static
-/// type from within a `void` method produces a compile error.
+/// @description Checks that if is a compile-time error to return an expression
+/// whose type is not `void`, `dynamic`, nor `Null`, value from a function with
+/// return type `void`.
 /// @author rodionov
 
-void foo() {
-  String s = "foo";
-  return s;
+void foo(Object? v) {
+  return v;
 //       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 void bar() {
-  Object? o = null;
-  return o;
+  Object? v = null;
+  return v;
 //       ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -41,8 +41,16 @@ void baz() {
 // [cfe] unspecified
 }
 
+void qux() {
+  return throw 42; // Never
+//       ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
-  foo();
-  bar();
-  baz();
+  print(foo);
+  print(bar);
+  print(baz);
+  print(qux);
 }

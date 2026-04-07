@@ -11,16 +11,26 @@
 /// `return;`, unless `T` is `void`, `dynamic`, or `Null`.
 ///
 /// @description Checks that a compile error occurs if a statement of the form
-/// `return;` is used in a method whose declared return type cannot be assigned
-/// to `void`.
-/// @Issue 42459
+/// `return;` is used in a method whose declared return type is `Object?` or
+/// `Never`.
 /// @author rodionov
+/// @issue 42459
 
 class C {
-  C() { }
-  int foo() {
-    if (true) {
+  Object? foo() {
+    if (2 > 1) {
       return 1;
+    } else {
+      return;
+//    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    }
+  }
+
+  Never bar() {
+    if (2 > 1) {
+      return throw 1;
     } else {
       return;
 //    ^^^^^^
