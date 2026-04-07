@@ -26,9 +26,5 @@
 // [cfe] unspecified
 
 main() {
-  A(42);
-//  ^^
-// [analyzer] unspecified
+  print(A);
 }
-// [error line 33, column 0]
-// [cfe] unspecified

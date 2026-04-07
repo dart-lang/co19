@@ -16,9 +16,8 @@
 ///
 /// @description Check that s is closed if current exception is defined and s
 /// has been canceled.
-///
-/// @issue 25967
 /// @author a.semenov@unipro.ru
+/// @issue 25967, 63123
 
 import 'dart:async';
 import '../../../Utils/expect.dart';
@@ -41,7 +40,7 @@ test1() {
   stream.listen(
       (v) { },
       onDone: () {
-        // Should not het here! See Issue #25967 evaluation for more details.
+        // Should not get here! See issue #25967 for more details.
         Expect.fail('Unexpected onDone event produced by generator1');
       }
   ).cancel().then(
@@ -59,7 +58,7 @@ test2() {
   stream.listen(
       (v) {},
       onDone: () {
-        // Should not het here! See Issue #25967 evaluation for more details.
+        // Should not get here! See issue #25967 for more details.
         Expect.fail('Unexpected onDone event produced by generator2');
       }
   ).cancel().then(

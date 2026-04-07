@@ -14,7 +14,7 @@
 /// `.call()` method on a type which has a `call` getter only.
 /// @author sgrekhov22@gmail.com
 /// @author lrhn
-/// @issue 59965
+/// @issue 59965, 63121
 
 // See https://github.com/dart-lang/sdk/issues/55803#issuecomment-2124182059
 

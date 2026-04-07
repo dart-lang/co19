@@ -21,8 +21,8 @@
 /// As a special disambiguation rule, an ⟨initializerExpression⟩ can not derive
 /// a ⟨functionExpression⟩
 ///
-/// @description Checks that it is a compile-time error when the initializer
-/// list is not prefixed with a colon.
+/// @description Checks that it is a syntax error when the initializer list is
+/// not prefixed with a colon.
 /// @author iefremov
 
 class C {
@@ -31,12 +31,12 @@ class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var x;
-//    ^
+  int? x;
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  new C();
+  print(C);
 }
