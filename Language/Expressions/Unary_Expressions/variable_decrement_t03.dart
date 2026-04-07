@@ -51,9 +51,9 @@ main() {
   Expect.equals(-1, x.value);
 
   int? i = 2 > 1 ? 42 : null;
-  var y = --i ?? -1;
+  var y = --i ?? -1;      // ignore: dead_null_aware_expression
   Expect.equals(41, y);
   i = 2 > 3 ? 42 : null;
-  y = --i ?? -1;
+  y = --i ?? -1;          // ignore: dead_null_aware_expression
   Expect.equals(-1, y);
 }

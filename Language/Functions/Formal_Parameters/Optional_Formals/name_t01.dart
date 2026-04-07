@@ -8,6 +8,7 @@
 /// @description Checks that it is a compile-time error if the name of a named
 /// optional parameter begins with an `_` character.
 /// @author rodionov
+/// @issue 63128
 
 void f1({int _ = 0}) {}
 //           ^
@@ -15,8 +16,8 @@ void f1({int _ = 0}) {}
 // [cfe] unspecified
 
 main() {
-  void f2({var _x}) {}
-//             ^^
+  void f2({int? _x}) {}
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

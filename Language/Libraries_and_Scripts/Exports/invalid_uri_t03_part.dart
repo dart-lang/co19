@@ -10,6 +10,9 @@
 /// declaration
 /// @author ilya
 
+// [error line 1, column 1]
+// [cfe] unspecified
+
 part of 'invalid_uri_t03.dart';
 
 var foo = 'foo';

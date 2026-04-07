@@ -34,6 +34,7 @@
 /// @description Checks that in a `⟨nullAwareMapElement⟩` of the form `?e1: e2`,
 /// `e2` may have type `void`.
 /// @author sgrekhov22@gmail.com
+/// @issue 62858
 
 main() {
   int? k1 = 1 > 2 ? null : 0;

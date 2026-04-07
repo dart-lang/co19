@@ -10,9 +10,6 @@
 /// declaration
 /// @author ilya
 
-// [error line 1, column 1]
-// [cfe] unspecified
-
 export "invalid_uri_t03_part.dart";
 //     ^
 // [analyzer] unspecified

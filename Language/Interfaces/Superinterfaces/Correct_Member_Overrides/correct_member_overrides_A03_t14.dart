@@ -14,6 +14,7 @@
 /// methods and function type `m` is not a subtype of `m′`. Test `extends` and
 /// `on` clauses
 /// @author sgrekhov22@gmail.com
+/// @issue 63130
 
 mixin class I {
   void m1(int v1) {}
