@@ -28,8 +28,7 @@
 /// with a comma.
 /// @author rodionov
 
-
-void f([var p1, ]) {}
+void f([int? p1, ]) {}
 
 main () {
   f(1);

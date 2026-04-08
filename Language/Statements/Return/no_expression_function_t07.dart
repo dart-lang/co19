@@ -2,21 +2,29 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Consider a return statement s of the form return e?;
+/// @assertion Consider a return statement `s` of the form `return e?;`. Let `S`
+/// be the static type of `e`, if `e` is present, let `f` be the immediately
+/// enclosing function, and let `T` be the declared return type of `f`.
 /// ...
-/// It is a compile-time error if s is
-///  return;, unless T is void, dynamic, or Null
+/// Case ⟨Asynchronous non-generator functions⟩. Consider the case where `f` is
+/// an asynchronous non-generator function. It is a compile-time error if `s` is
+/// `return;`, unless `flatten(T)` is `void`, `dynamic`, or `Null`.
 ///
-/// @description Checks that a compile error occurs if a statement of the form
-/// "return;" is used in a top-level asynchronous function whose declared return
-/// type is Future<int>.
-///
-/// @Issue 42459
+/// @description Checks that it is a compile-time error if a statement of the
+/// form `return;` is used in a top-level asynchronous function whose declared
+/// return type is `Future<Object?>` or `Future<Never>`.
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
 
-Future<int> bar() {
+Future<Object?> foo() async {
+  return;
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+Future<Never> bar() async {
   return;
 //^^^^^^
 // [analyzer] unspecified
@@ -24,5 +32,6 @@ Future<int> bar() {
 }
 
 main() {
-  bar();
+  print(foo);
+  print(bar);
 }

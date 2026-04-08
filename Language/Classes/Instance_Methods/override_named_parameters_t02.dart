@@ -11,7 +11,7 @@
 /// @author iefremov
 
 class A {
-  f({var x}) {}
+  f({int? x}) {}
 }
 
 class C extends A {
@@ -22,6 +22,6 @@ class C extends A {
 }
 
 main() {
-  new A().f(x: 1);
-  new C().f();
+  print(A);
+  print(C);
 }

@@ -9,6 +9,7 @@
 ///    • S is void, or
 ///    • T <=> S.
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+///
 /// @description Checks that this statement is true for functions with a single
 /// positional optional parameter (class, generic, function, Dynamic).
 /// @author iefremov
@@ -23,7 +24,7 @@ class D implements C {}
 typedef t1([B? a]);
 typedef t2([C? c]);
 typedef t3([int? i]);
-typedef t4([var v]);
+typedef t4([v]);
 typedef t5([Map? m]);
 typedef t6([Map<int, num>? m]);
 typedef t7([t1? f]);
@@ -40,42 +41,42 @@ main() {
   Expect.isFalse(([C? a]) {} is t1);
   Expect.isFalse(([D? a]) {} is t1);
   Expect.isTrue(([Object? a]) {} is t1);
-  Expect.isTrue(([var a]) {} is t1);
+  Expect.isTrue(([a]) {} is t1);
   Expect.runtimeIsType<t1>(([A? a]) {});
   Expect.runtimeIsType<t1>(([B? a]) {});
   Expect.runtimeIsNotType<t1>(([C? a]) {});
   Expect.runtimeIsNotType<t1>(([D? a]) {});
   Expect.runtimeIsType<t1>(([Object? a]) {});
-  Expect.runtimeIsType<t1>(([var a]) {});
+  Expect.runtimeIsType<t1>(([a]) {});
 
   Expect.isTrue(([A? c]) {} is t2);
   Expect.isTrue(([B? c]) {} is t2);
   Expect.isTrue(([C? c]) {} is t2);
   Expect.isFalse(([D? c]) {} is t2);
   Expect.isTrue(([Object? c]) {} is t2);
-  Expect.isTrue(([var c]) {} is t2);
+  Expect.isTrue(([c]) {} is t2);
   Expect.runtimeIsType<t2>(([A? a]) {});
   Expect.runtimeIsType<t2>(([B? a]) {});
   Expect.runtimeIsType<t2>(([C? a]) {});
   Expect.runtimeIsNotType<t2>(([D? a]) {});
   Expect.runtimeIsType<t2>(([Object? a]) {});
-  Expect.runtimeIsType<t2>(([var a]) {});
+  Expect.runtimeIsType<t2>(([a]) {});
 
   Expect.isTrue(([num? i]) {} is t3);
   Expect.isTrue(([int? i]) {} is t3);
   Expect.isTrue(([Object? i]) {} is t3);
-  Expect.isTrue(([var i]) {} is t3);
+  Expect.isTrue(([i]) {} is t3);
   Expect.runtimeIsType<t3>(([num? a]) {});
   Expect.runtimeIsType<t3>(([int? a]) {});
   Expect.runtimeIsType<t3>(([Object? a]) {});
-  Expect.runtimeIsType<t3>(([var a]) {});
+  Expect.runtimeIsType<t3>(([a]) {});
 
   Expect.isFalse(([A? v]) {} is t4);
   Expect.isFalse(([B? v]) {} is t4);
   Expect.isFalse(([C? v]) {} is t4);
   Expect.isFalse(([D? v]) {} is t4);
   Expect.isTrue(([Object? v]) {} is t4);
-  Expect.isTrue(([var v]) {} is t4);
+  Expect.isTrue(([v]) {} is t4);
   Expect.isFalse(([num? v]) {} is t4);
   Expect.isFalse(([int? v]) {} is t4);
   Expect.isFalse(([Map? v]) {} is t4);
@@ -88,7 +89,7 @@ main() {
   Expect.runtimeIsNotType<t4>(([C? a]) {});
   Expect.runtimeIsNotType<t4>(([D? a]) {});
   Expect.runtimeIsType<t4>(([Object? a]) {});
-  Expect.runtimeIsType<t4>(([var a]) {});
+  Expect.runtimeIsType<t4>(([a]) {});
   Expect.runtimeIsNotType<t4>(([num? a]) {});
   Expect.runtimeIsNotType<t4>(([int? a]) {});
   Expect.runtimeIsNotType<t4>(([Map? a]) {});
@@ -100,13 +101,13 @@ main() {
   Expect.isTrue(([Map? m]) {} is t5);
   Expect.isFalse(([Map<List, t8>? m]) {} is t5);
   Expect.isTrue(([Object? m]) {} is t5);
-  Expect.isTrue(([var m]) {} is t5);
+  Expect.isTrue(([m]) {} is t5);
   Expect.isFalse(([Map<List, List>? m]) {} is t5);
   Expect.isFalse(([Map<int, t8>? m]) {} is t5);
   Expect.runtimeIsType<t5>(([Map? a]) {});
   Expect.runtimeIsNotType<t5>(([Map<List, t8>? a]) {});
   Expect.runtimeIsType<t5>(([Object? a]) {});
-  Expect.runtimeIsType<t5>(([var a]) {});
+  Expect.runtimeIsType<t5>(([a]) {});
   Expect.runtimeIsNotType<t5>(([Map<List, List>? a]) {});
   Expect.runtimeIsNotType<t5>(([Map<int, t8>? a]) {});
 
@@ -114,7 +115,7 @@ main() {
   Expect.isFalse(([Map<int, int>? m]) {} is t6);
   Expect.isTrue(([Map? m]) {} is t6);
   Expect.isTrue(([Object? m]) {} is t6);
-  Expect.isTrue(([var m]) {} is t6);
+  Expect.isTrue(([m]) {} is t6);
 
   Expect.isFalse(([okWithT1_1? f]) {} is t7);
   Expect.isTrue(([okWithT1_2? f]) {} is t7);
@@ -126,7 +127,7 @@ main() {
   Expect.isFalse(([C? a]) {} is t8);
   Expect.isFalse(([D? a]) {} is t8);
   Expect.isTrue(([Object? a]) {} is t8);
-  Expect.isTrue(([var a]) {} is t8);
+  Expect.isTrue(([a]) {} is t8);
   Expect.isFalse(([num? a]) {} is t8);
   Expect.isFalse(([int? a]) {} is t8);
   Expect.isFalse(([Map? a]) {} is t8);
@@ -137,7 +138,7 @@ main() {
   Expect.runtimeIsNotType<t8>(([C? a]) {});
   Expect.runtimeIsNotType<t8>(([D? a]) {});
   Expect.runtimeIsType<t8>(([Object? a]) {});
-  Expect.runtimeIsType<t8>(([var a]) {});
+  Expect.runtimeIsType<t8>(([a]) {});
   Expect.runtimeIsNotType<t8>(([num? a]) {});
   Expect.runtimeIsNotType<t8>(([int? a]) {});
   Expect.runtimeIsNotType<t8>(([Map? a]) {});

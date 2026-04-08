@@ -4,13 +4,13 @@
 
 /// @assertion It is a compile-time error if any default values are specified in
 /// the signature of function type alias.
+///
 /// @description Checks that a compile error is produced when a default value is
 /// specified for an optional named argument in a function type alias.
 /// @author iefremov, sgrekhov@unipro.ru
 
-
-typedef F({var a: null});
-//              ^
+typedef F({int? a = null});
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

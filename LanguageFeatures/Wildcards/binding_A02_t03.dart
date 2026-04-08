@@ -25,10 +25,10 @@ typedef F6<T> = int Function(T _, T _, [T? _, T? _]);
 main() {
   // Let's check that type aliases above work as intended
   F1 f1 = (_, int _) => 1;
-  F2 f2 = (var _, int _, [var _, int _ = 0]) => 2;
+  F2 f2 = (_, int _, [dynamic _, int _ = 0]) => 2;
   F3<int> f3 = (int _, int _, [int? _, int? _]) => 3;
   F4 f4 = (_, int _) => 4;
-  F5 f5 = (var _, int _, [var _, int _ = 0]) => 5;
+  F5 f5 = (dynamic _, int _, [_, int _ = 0]) => 5;
   F6<int> f6 = (int _, int _, [int? _, int? _]) => 6;
 
   Expect.equals(1, f1(1, 2));

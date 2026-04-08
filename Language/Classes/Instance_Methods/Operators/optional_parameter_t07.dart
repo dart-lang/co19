@@ -10,13 +10,12 @@
 /// @author ilya
 
 class C {
-  operator []=({var v}) {}
+  operator []=({int? v}) {}
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  C c = new C();
-  c[1] = new C();
+  print(C);
 }

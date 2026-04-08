@@ -9,6 +9,7 @@
 ///    • S is void, or
 ///    • T <=> S.
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+///
 /// @description Assertion means that as long function type t1 has no more
 /// required parameters and no less total positional parameters than function
 /// type t2, types of extra positional parameters of t1 do not matter for subtype
@@ -26,12 +27,12 @@ class Whatever {}
 
 main() {
   Expect.isTrue(([int x = 0, Whatever? w]) {} is t1);
-  Expect.isTrue(([var x, Whatever? w, Whatever? w2]) {} is t1);
+  Expect.isTrue(([x, Whatever? w, Whatever? w2]) {} is t1);
   Expect.isTrue((int x, [int y = 0, Whatever? w]) {} is t2);
   Expect.isTrue((int x, [int y = 0, Whatever? w, Whatever? w2]) {} is t2);
   Expect.isTrue(([int x = 42, int y = 0, Whatever? w, Whatever? w2]) {} is t2);
   Expect.runtimeIsType<t1>(([int x = 0, Whatever? w]) {});
-  Expect.runtimeIsType<t1>(([var x, Whatever? w, Whatever? w2]) {});
+  Expect.runtimeIsType<t1>(([x, Whatever? w, Whatever? w2]) {});
   Expect.runtimeIsType<t1>((int x, [int y = 0, Whatever? w]) {});
   Expect.runtimeIsType<t1>((int x, [int y = 0, Whatever? w, Whatever? w2]) {});
   Expect.runtimeIsType<t1>(

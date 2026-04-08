@@ -16,17 +16,17 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  external g([var x]);
+  external g([int? x]);
 //^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  external h({var x});
+  external h({int? x});
 //^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  external m({required var x});
+  external m({required int x});
 //^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
