@@ -10,8 +10,8 @@
 /// an asynchronous non-generator function. It is a compile-time error if `s` is
 /// `return;`, unless `flatten(T)` is `void`, `dynamic`, or `Null`.
 ///
-/// @description Checks that there's no compile error when a statement of the
-/// form `return;` is used in an asynchronous function whose return type is
+/// @description Checks that there's no compile-time error when a statement of
+/// the form `return;` is used in an asynchronous function whose return type is
 /// `void` or `Future<void>`.
 /// @author sgrekhov22@gmail.com
 
