@@ -4,15 +4,15 @@
 
 /// @assertion It is a compile-time error if the default value of an optional
 /// parameter is not a compile-time constant.
+///
 /// @description Checks that it is a compile-time error if the default value
 /// of an optional parameter is not a compile-time constant.
 /// @author rodionov
 
-
 main() {
-  int x = 1;
-  void func({var y: x}) {}
-//                  ^
+  final int x = 1;
+  void func({int y = x}) {}
+//                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

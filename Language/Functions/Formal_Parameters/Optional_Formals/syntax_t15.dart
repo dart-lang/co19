@@ -4,23 +4,23 @@
 
 /// @assertion Optional parameters may be specified and provided with default
 /// values.
-/// defaultFormalParameter:
-///   normalFormalParameter ('=' expression)?
+/// ⟨defaultFormalParameter⟩ ::= ⟨normalFormalParameter⟩ (‘=’ ⟨expression⟩)?
+///
+/// ⟨defaultNamedParameter⟩ ::=
+///         ⟨metadata⟩ required? ⟨normalFormalParameterNoMetadata⟩
+///         (‘=’ ⟨expression⟩)?
 /// ;
-/// defaultNamedParameter:
-///   normalFormalParameter (':' expression)?
-/// ;
-/// @description Checks that it is a compile-time error when the ':'
-/// character is used in an optional positional parameter declaration.
+///
+/// @description Checks that it is a syntax error when the ':' character is used
+/// in an optional positional parameter declaration.
 /// @author rodionov
 
 foo([int a = 1, int b: 2]) {
 //                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  return a;
 }
 
 main() {
-  foo();
+  print(foo);
 }

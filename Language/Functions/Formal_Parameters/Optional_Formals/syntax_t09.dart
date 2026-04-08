@@ -4,22 +4,22 @@
 
 /// @assertion Optional parameters may be specified and provided with default
 /// values.
-/// defaultFormalParameter:
-///   normalFormalParameter ('=' expression)?
+/// ⟨defaultFormalParameter⟩ ::= ⟨normalFormalParameter⟩ (‘=’ ⟨expression⟩)?
+///
+/// ⟨defaultNamedParameter⟩ ::=
+///         ⟨metadata⟩ required? ⟨normalFormalParameterNoMetadata⟩
+///         (‘=’ ⟨expression⟩)?
 /// ;
-/// defaultNamedParameter:
-///   normalFormalParameter (':' expression)?
-/// ;
-/// @description Checks that a declaration cannot be used instead of expression
-/// in an optional named parameter declaration.
+///
+/// @description Checks that it is a syntax error to use `var` instead of a type
+/// for a named optional parameter of a function.
 /// @author rodionov
 
-
-f({var x: var z}) {}
-//        ^
+f({var x = 0}) {}
+// ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  f();
+  print(f);
 }

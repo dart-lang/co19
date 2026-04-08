@@ -4,19 +4,18 @@
 
 /// @assertion Optional parameters may be specified and provided with default
 /// values.
-/// defaultFormalParameter:
-///   normalFormalParameter ('=' expression)?
+/// ⟨defaultFormalParameter⟩ ::= ⟨normalFormalParameter⟩ (‘=’ ⟨expression⟩)?
+///
+/// ⟨defaultNamedParameter⟩ ::=
+///         ⟨metadata⟩ required? ⟨normalFormalParameterNoMetadata⟩
+///         (‘=’ ⟨expression⟩)?
 /// ;
-/// defaultNamedParameter:
-///   normalFormalParameter (':' expression)?
-/// ;
-/// @description Checks that it is not a compile-time error if the name of a
-/// positional optional parameter begins with an '_' character.
+///
+/// @description Checks that it is not an error if the name of a positional
+/// optional parameter name starts with an '_' character.
 /// @author msyabro
-/// @note renamed from 2_Optional_Formals_A03_t01
-
 
 main() {
-  void func([var _x]) {}
+  void func([int? _x]) {}
   func(1);
 }
