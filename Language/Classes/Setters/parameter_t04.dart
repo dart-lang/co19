@@ -4,19 +4,19 @@
 
 /// @assertion It is a compile-time error if a setter's formal parameter list
 /// does not consist of exactly one required formal parameter p.
+///
 /// @description Checks that a compile-time error is produced if a setter's
 /// formal parameter list contains a single optional parameter with a default
 /// value.
 /// @author iefremov
 
-
 class C {
-  void set setter([var x = null]) { }
+  void set setter([int? x]) { }
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  (new C()).setter = null;
+  print(C);
 }

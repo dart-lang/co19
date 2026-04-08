@@ -11,12 +11,12 @@
 /// @author rodionov
 
 class C {
-  operator [](var r, [var o]) {}
+  operator [](int r, [int? o]) {}
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  new C()[1];
+  print(C);
 }

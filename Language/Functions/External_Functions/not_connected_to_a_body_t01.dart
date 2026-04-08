@@ -18,13 +18,13 @@
 import '../../../Utils/expect.dart';
 
 external f();
-external g([var x]);
-external h({var x});
-external m({required var x});
+external g([int? x]);
+external h({int? x});
+external m({required int x});
 
 main() {
   Expect.throws(() { f(); }, (e) => e is NoSuchMethodError);
   Expect.throws(() { g(); }, (e) => e is NoSuchMethodError);
   Expect.throws(() { h(); }, (e) => e is NoSuchMethodError);
-  Expect.throws(() { m(x: ""); }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { m(x: 0); }, (e) => e is NoSuchMethodError);
 }

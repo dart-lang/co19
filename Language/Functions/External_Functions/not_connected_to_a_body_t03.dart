@@ -18,14 +18,14 @@ import '../../../Utils/expect.dart';
 
 mixin M {
   external static int s1();
-  external static int s2([var x]);
-  external static int s3({var x});
-  external static int s4({required var x});
+  external static int s2([int? x]);
+  external static int s3({int? x});
+  external static int s4({required int x});
 
   external int m1();
-  external int m2([var x]);
-  external int m3({var x});
-  external int m4({required var x});
+  external int m2([int? x]);
+  external int m3({int? x});
+  external int m4({required int x});
 }
 
 class C = Object with M;

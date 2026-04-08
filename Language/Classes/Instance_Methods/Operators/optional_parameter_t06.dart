@@ -11,7 +11,7 @@
 /// @author ilya
 
 class C {
-  operator [](var r, {var o}) {}
+  operator [](int r, {int o = 0}) {}
 //         ^^
 // [analyzer] unspecified
 // [cfe] unspecified

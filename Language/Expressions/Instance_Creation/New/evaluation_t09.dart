@@ -15,13 +15,13 @@
 /// thrown. If q has less than n positional parameters or more than n required
 /// parameters, or if q lacks any of the keyword parameters
 /// {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
+///
 /// @description Checks that it is a compile error if the actual constructor
 /// lacks a named parameter used in the new expression.
 /// @author kaigorodov
 
-
 class C {
-   C({var y = 1}) {}
+   C({int y = 1}) {}
 }
 
 main() {

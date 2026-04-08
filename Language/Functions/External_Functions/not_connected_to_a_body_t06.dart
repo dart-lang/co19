@@ -18,17 +18,17 @@ import '../../../Utils/expect.dart';
 
 class C {
   external C();
-  external C.n1([var x]);
-  external C.n2({var x});
-  external C.n3({required var x});
+  external C.n1([int? x]);
+  external C.n2({int? x});
+  external C.n3({required int x});
   external factory C.f1();
-  external factory C.f2([var x]);
-  external factory C.f3({var x});
-  external factory C.f4({required var x});
+  external factory C.f2([int? x]);
+  external factory C.f3({int? x});
+  external factory C.f4({required int x});
   external const C.c1();
-  external const C.c2([var x]);
-  external const C.c3({var x});
-  external const C.c4({required var x});
+  external const C.c2([int? x]);
+  external const C.c3({int? x});
+  external const C.c4({required int x});
 }
 
 main() {

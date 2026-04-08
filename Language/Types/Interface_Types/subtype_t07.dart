@@ -21,13 +21,14 @@
 /// . . .
 /// An interface type T may be assigned to a type S, written T <=> S, if either
 /// T <: S or S <: T.
+///
 /// @description Checks that any type (interface type, function type, generic)
 /// is (more specific than) dynamic.
 /// @author iefremov
 
 import "../../../Utils/expect.dart";
 
-List<Map<List, Map>> f1(num n, Object o, [var x, List? y]) => [];
+List<Map<List, Map>> f1(num n, Object o, [x, List? y]) => [];
 
 main() {
   Expect.isTrue(new Object() is dynamic);
@@ -48,8 +49,8 @@ main() {
   Expect.runtimeIsType<dynamic>(new List<Map<List, List<int>>>.empty());
   Expect.isTrue(() {} is dynamic);
   Expect.runtimeIsType<dynamic>(() {});
-  Expect.isTrue((num n, Object o, [var x, List? y]) {} is dynamic);
-  Expect.runtimeIsType<dynamic>((num n, Object o, [var x, List? y]) {});
+  Expect.isTrue((num n, Object o, [x, List? y]) {} is dynamic);
+  Expect.runtimeIsType<dynamic>((num n, Object o, [x, List? y]) {});
   Expect.isTrue(f1 is dynamic);
   Expect.runtimeIsType<dynamic>(f1);
 }
