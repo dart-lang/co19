@@ -16,7 +16,7 @@
 /// @author rodionov
 
 foo([int p = 1}) {
-//             ^
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
