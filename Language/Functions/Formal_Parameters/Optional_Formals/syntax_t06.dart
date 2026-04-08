@@ -4,24 +4,23 @@
 
 /// @assertion Optional parameters may be specified and provided with default
 /// values.
-/// defaultFormalParameter:
-///   normalFormalParameter ('=' expression)?
+/// ⟨defaultFormalParameter⟩ ::= ⟨normalFormalParameter⟩ (‘=’ ⟨expression⟩)?
+///
+/// ⟨defaultNamedParameter⟩ ::=
+///         ⟨metadata⟩ required? ⟨normalFormalParameterNoMetadata⟩
+///         (‘=’ ⟨expression⟩)?
 /// ;
-/// defaultNamedParameter:
-///   normalFormalParameter (':' expression)?
-/// ;
-/// @description Checks that reassigning a final optional parameter inside the
-/// function produces a compile error
+///
+/// @description Checks that it is a syntax error to use `final` instead of a
+/// type for an optional parameter of a function.
 /// @author iefremov
 
-
 foo([final p = 1]) {
-  p = 1;
-//^
+//   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  foo();
+  print(foo);
 }

@@ -4,24 +4,23 @@
 
 /// @assertion Optional parameters may be specified and provided with default
 /// values.
-/// defaultFormalParameter:
-///   normalFormalParameter ('=' expression)?
+/// ⟨defaultFormalParameter⟩ ::= ⟨normalFormalParameter⟩ (‘=’ ⟨expression⟩)?
+///
+/// ⟨defaultNamedParameter⟩ ::=
+///         ⟨metadata⟩ required? ⟨normalFormalParameterNoMetadata⟩
+///         (‘=’ ⟨expression⟩)?
 /// ;
-/// defaultNamedParameter:
-///   normalFormalParameter (':' expression)?
-/// ;
-/// @description Checks that it is a compile-time error when the two kinds of
-/// brackets are mixed in an optional parameters declaration.
+///
+/// @description Checks that it is a syntax error when the two kinds of brackets
+/// are mixed in an optional parameters declaration.
 /// @author rodionov
 
-
 foo([int p = 1}) {
-//             ^
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  p = 1;
 }
 
 main() {
-  foo();
+  print(foo);
 }

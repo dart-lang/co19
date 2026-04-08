@@ -4,18 +4,18 @@
 
 /// @assertion Optional parameters may be specified and provided with default
 /// values.
-/// defaultFormalParameter:
-///   normalFormalParameter ('=' expression)?
+/// ⟨defaultFormalParameter⟩ ::= ⟨normalFormalParameter⟩ (‘=’ ⟨expression⟩)?
+///
+/// ⟨defaultNamedParameter⟩ ::=
+///         ⟨metadata⟩ required? ⟨normalFormalParameterNoMetadata⟩
+///         (‘=’ ⟨expression⟩)?
 /// ;
-/// defaultNamedParameter:
-///   normalFormalParameter (':' expression)?
-/// ;
+///
 /// @description Checks that the '=' character in an optional positional
 /// parameter declaration must be followed by an expression.
 /// @author iefremov
 
-
-f([var x = ]) {}
+f([int x = ]) {}
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified

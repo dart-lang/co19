@@ -4,12 +4,13 @@
 
 /// @assertion Optional parameters may be specified and provided with default
 /// values.
-/// defaultFormalParameter:
-///   normalFormalParameter ('=' expression)?
+/// ⟨defaultFormalParameter⟩ ::= ⟨normalFormalParameter⟩ (‘=’ ⟨expression⟩)?
+///
+/// ⟨defaultNamedParameter⟩ ::=
+///         ⟨metadata⟩ required? ⟨normalFormalParameterNoMetadata⟩
+///         (‘=’ ⟨expression⟩)?
 /// ;
-/// defaultNamedParameter:
-///   normalFormalParameter (':' expression)?
-/// ;
+///
 /// @description Checks that it is no error when the '=' character is used in
 /// an optional named parameter declaration.
 /// @author rodionov
