@@ -14,7 +14,7 @@ class A {}
 class B extends A {}
 class C extends B {}
 
-List<T> getAList<T>(var a) { return <T>[a]; }
+List<T> getAList<T>(a) => <T>[a];
 
 main() {
   var a_list   = getAList<A>(new A());
