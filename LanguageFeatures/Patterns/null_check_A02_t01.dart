@@ -20,8 +20,6 @@ String test1(int? x) {
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
       return "match-1";
     case int v2?:
-//             ^
-// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
 //  ^^^^
 // [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return "match-2";
@@ -37,8 +35,6 @@ String test2(int? x) {
     return "match-2";
   }
   if (x case int v2?) {
-//                 ^
-// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
     return "match-2";
   }
   return "no match";
@@ -50,8 +46,6 @@ String test3(int? x) =>
 //                                         ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
     int v2? => "match-2",
-//        ^
-// [analyzer] STATIC_WARNING.UNNECESSARY_NULL_CHECK_PATTERN
 //          ^^
 // [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
     _ => "no match"

@@ -62,7 +62,7 @@ int test5(S s) {
 // [analyzer] unspecified
 // [cfe] unspecified
     case M _: return 1;
-    case F _: return 2;
+    case F _: return 2;     // ignore: unreachable_switch_case
   }
 }
 

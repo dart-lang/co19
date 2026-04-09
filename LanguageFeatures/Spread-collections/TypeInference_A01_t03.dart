@@ -37,9 +37,5 @@ main() {
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //                                                                ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                  ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<B>' which excludes null.
-//                                                                    ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
       ...str_list, ...int_list, null, 1499, []];
 }
