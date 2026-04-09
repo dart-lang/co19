@@ -22,18 +22,18 @@
 /// ;
 /// A bitwise expression is either a shift expression, or an invocation of a
 /// bitwise operator on either super or an expression e1, with argument e2.
+///
 /// @description Checks that various bitwise expression which are valid
 /// according to this grammar don't cause compile-time errors.
 /// @author msyabro
-
 
 topLevelFunction() {}
 
 class S {
   const S();
-  operator |(var val) {return this;}
-  operator &(var val) {return this;}
-  operator ^(var val) {return this;}
+  operator |(val) {return this;}
+  operator &(val) {return this;}
+  operator ^(val) {return this;}
 }
 
 class A extends S {

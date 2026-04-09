@@ -22,16 +22,13 @@
 /// ;
 /// A bitwise expression is either a shift expression, or an invocation of a
 /// bitwise operator on either super or an expression e1, with argument e2.
+///
 /// @description Checks that two operators | can't placed one after another.
 /// @author msyabro
 
-
 main() {
-  try {
-    1 | | 2;
-//      ^
+  1 | | 2;
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  } catch (e) {}
 }
-

@@ -22,14 +22,13 @@
 /// ;
 /// A bitwise expression is either a shift expression, or an invocation of a
 /// bitwise operator on either super or an expression e1, with argument e2.
-/// @description Checks that super can be used only as the first operand in a
+///
+/// @description Checks that `super` can be used only as the first operand in a
 /// bitwise expression.
 /// @author msyabro
 
-
 class S {
-  operator |(var val) {return this;}
-}
+  operator |(val) => this;
 
 class A extends S {
   test() {
@@ -43,6 +42,5 @@ class A extends S {
 }
 
 main() {
-  new A().test();
+  print(A);
 }
-
