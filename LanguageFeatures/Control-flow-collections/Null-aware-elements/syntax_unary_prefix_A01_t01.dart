@@ -43,38 +43,38 @@ main() {
   int? e2 = 1 > 2 ? 1 : null; // null
 
   var list = [
-    ?++e1,
-    ?++e2,
-    ?--e1,
-    ?--e2
+    ?++e1,    // ignore: invalid_null_aware_operator
+    ?++e2,    // ignore: invalid_null_aware_operator
+    ?--e1,    // ignore: invalid_null_aware_operator
+    ?--e2     // ignore: invalid_null_aware_operator
   ];
   Expect.listEquals([2, 1], list);
 
   var set = {
-    ?++e1,
-    ?++e2,
-    ?--e1,
-    ?--e2
+    ?++e1,    // ignore: invalid_null_aware_operator
+    ?++e2,    // ignore: invalid_null_aware_operator
+    ?--e1,    // ignore: invalid_null_aware_operator
+    ?--e2     // ignore: invalid_null_aware_operator
   };
   Expect.setEquals({2, 1}, set);
 
   var map1 = {
-    ?++e1: 1,
-    ?++e2: 2,
-    ?--e1: 3,
-    ?--e2: 4,
-    5: ?++e1,
-    6: ?++e2,
-    7: ?--e1,
-    8: ?--e2
+    ?++e1: 1,     // ignore: invalid_null_aware_operator
+    ?++e2: 2,     // ignore: invalid_null_aware_operator
+    ?--e1: 3,     // ignore: invalid_null_aware_operator
+    ?--e2: 4,     // ignore: invalid_null_aware_operator
+    5: ?++e1,     // ignore: invalid_null_aware_operator
+    6: ?++e2,     // ignore: invalid_null_aware_operator
+    7: ?--e1,     // ignore: invalid_null_aware_operator
+    8: ?--e2      // ignore: invalid_null_aware_operator
   };
   Expect.mapEquals({2: 1, 1: 3, 5: 2, 7: 1}, map1);
 
   var map2 = {
-    ?++e1: ?++e1,
-    ?++e2: ?++e2,
-    ?--e1: ?--e1,
-    ?--e2: ?--e2
+    ?++e1: ?++e1,   // ignore: invalid_null_aware_operator
+    ?++e2: ?++e2,   // ignore: invalid_null_aware_operator
+    ?--e1: ?--e1,   // ignore: invalid_null_aware_operator
+    ?--e2: ?--e2    // ignore: invalid_null_aware_operator
   };
   Expect.mapEquals({2: 1}, map2);
 }

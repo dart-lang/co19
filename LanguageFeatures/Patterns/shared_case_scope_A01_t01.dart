@@ -51,6 +51,8 @@ main() {
 // [cfe] unspecified
       break;
     case final a when a == -1:
+//  ^^^^
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       print(a);
       break;
   }
@@ -68,6 +70,8 @@ main() {
 // [cfe] unspecified
       break;
     case final a when a == -1:
+//  ^^^^
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       print(a);
       break;
   }
@@ -87,6 +91,8 @@ main() {
 // [cfe] unspecified
       break;
     case final a when a == -1:
+//  ^^^^
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       print(a);
       break;
   }

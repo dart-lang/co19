@@ -14,7 +14,7 @@ class A {}
 class B extends A {}
 class C extends B {}
 
-List<T> getAList<T>(var a) { return <T>[a]; }
+List<T> getAList<T>(a) => <T>[a];
 
 main() {
   var a_list   = getAList<A>(new A());
@@ -37,9 +37,5 @@ main() {
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //                                                                ^^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                                  ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<B>' which excludes null.
-//                                                                    ^
-// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
       ...str_list, ...int_list, null, 1499, []];
 }

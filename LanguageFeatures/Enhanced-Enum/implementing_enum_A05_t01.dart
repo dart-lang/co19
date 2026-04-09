@@ -7,6 +7,7 @@
 ///
 /// @description Check that it is a compile-time error to mixin an enum
 /// @author sgrekhov22@gmail.com
+/// @issue 63138
 
 abstract class M1 with Enum {}
 //                     ^^^^

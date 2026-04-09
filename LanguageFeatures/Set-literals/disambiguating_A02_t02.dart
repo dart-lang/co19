@@ -14,8 +14,8 @@
 /// typeArguments and static context type C, then if S is a subtype of
 /// Iterable<Object> and S is not a subtype of Map<Object, Object>, then e is a
 /// set literal
-/// @issue 36209
 /// @author sgrekhov@unipro.ru
+/// @issue 36209
 
 class C<T extends Iterable<Object>>  {
   T t = {};
@@ -25,5 +25,5 @@ class C<T extends Iterable<Object>>  {
 }
 
 main() {
-  new C<Set<Object>>();
+  print(C);
 }

@@ -48,8 +48,6 @@ String test2() {
 // [analyzer] unspecified
 // [cfe] unspecified
     _ => "default"
-//    ^^
-// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
   };
 }
 

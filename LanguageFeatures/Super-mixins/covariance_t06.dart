@@ -13,8 +13,8 @@
 /// @description Checks that it is a runtime error if mixin is applied to the
 /// class which doesn't implement required interface by covariant. See
 /// https://github.com/dart-lang/sdk/issues/35111#issuecomment-437291038
-/// @issue 35111
 /// @author sgrekhov@unipro.ru
+/// @issue 35111, 63148
 
 import "../../Utils/expect.dart";
 

@@ -21,9 +21,8 @@
 /// value
 /// @author sgrekhov@unipro.ru
 
-enum E1 {
-}
-//^
+enum E1 {}
+//   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

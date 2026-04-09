@@ -61,6 +61,8 @@ String testCast(num value) {
 // [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
       return "cast-2";
     default:
+//  ^^^^^^^
+// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_DEFAULT
       return "default";
   }
 }

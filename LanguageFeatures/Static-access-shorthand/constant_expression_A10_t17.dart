@@ -10,6 +10,7 @@
 /// @description Checks that it is a compile-time error if a non-constant static
 /// member shorthand expression is used in a constant `e1 ? e2 : e3` expression.
 /// @author sgrekhov22@gmail.com
+/// @issue 63144
 
 // SharedOptions=--enable-experiment=dot-shorthands
 

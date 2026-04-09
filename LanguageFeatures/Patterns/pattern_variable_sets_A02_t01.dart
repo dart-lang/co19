@@ -160,8 +160,6 @@ String test3(Object x) =>
 // [analyzer] unspecified
 // [cfe] unspecified
     _ => "default"
-//    ^^
-// [analyzer] STATIC_WARNING.UNREACHABLE_SWITCH_CASE
   };
 
 main () {
