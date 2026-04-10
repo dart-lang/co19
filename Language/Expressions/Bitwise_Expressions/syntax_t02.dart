@@ -29,15 +29,14 @@
 
 class S {
   operator |(val) => this;
+}
 
 class A extends S {
   test() {
-    try {
-      1 | super;
-//        ^
+    1 | super;
+//      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    } catch (e) {}
   }
 }
 
