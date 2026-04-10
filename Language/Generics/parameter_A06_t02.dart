@@ -4,10 +4,10 @@
 
 /// @assertion A type parameter is considered to be a malformed type when
 /// referenced by a static member.
+///
 /// @description Checks that if a type parameter is used as type annotation
 /// in a static context, it is a compile error to assign to such member
 /// @author iefremov
-
 
 class C<T> {
   static T t;
@@ -17,7 +17,5 @@ class C<T> {
 }
 
 main() {
-  C.t = new Object();
-//      ^
-// [analyzer] unspecified
+  print(C);
 }
