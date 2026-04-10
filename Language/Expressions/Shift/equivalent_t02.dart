@@ -4,17 +4,17 @@
 
 /// @assertion A shift expression of the form e1 op e2 is equivalent
 /// to the method invocation e1.op(e2).
-/// @description Checks that an expressions of the form e1 << e2
-/// is equivalent to the method invocation e1.operator<<(e2).
+///
+/// @description Checks that an expressions of the form `e1 >>> e2` is
+/// equivalent to the method invocation `e1.operator>>>(e2)`.
 /// @author iarkh@unipro.ru
-
 
 import '../../../Utils/expect.dart';
 
 var logStr = "";
 
 class A {
-  operator >>>(var v) {
+  operator >>>(int v) {
     logStr = "${logStr}>>>";
     return true;
   }

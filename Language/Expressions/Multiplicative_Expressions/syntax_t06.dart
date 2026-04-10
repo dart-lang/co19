@@ -26,7 +26,7 @@ class S {
   operator *(v) {}
 }
 
-class A extends S{
+class A extends S {
   test() {
     super *;
 //         ^
@@ -36,5 +36,5 @@ class A extends S{
 }
 
 main() {
-  A();
+  print(A);
 }

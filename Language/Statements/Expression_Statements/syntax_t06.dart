@@ -11,16 +11,16 @@
 /// Execution of an expression statement e; proceeds by evaluating e.
 /// It is a compile-time error if a non-constant map literal that has no explicit
 /// type arguments appears in a place where a statement is expected.
+///
 /// @description Checks that any expression except a map literal can form a
 /// statement.
 /// @author iefremov
-
 
 var v;
 get g {}
 
 class D {
-  operator [](var x) {}
+  operator [](x) {}
   check() {}
 }
 

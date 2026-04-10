@@ -8,41 +8,44 @@
 ///
 /// @description Check that it is a compile-time error if an optional parameter
 /// (named or otherwise) with no default value has a potentially non-nullable
-/// type. Test <T extends Object?>
+/// type. Test `<T extends Object?>`.
 /// @author sgrekhov@unipro.ru
 /// @issue 40954
 
 class C {
-  static void test1<T extends Object?>(var v, [T t]) {}
+  static void test1<T extends Object?>(int v, [T t]) {}
 //                                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void test2<T extends Object?>(var v, {T t}) {}
+  static void test2<T extends Object?>(int v, {T t}) {}
 //                                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test11<T extends Object?>(var v, [T t]) {}
+  void test11<T extends Object?>(int v, [T t]) {}
 //                                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test22<T extends Object?>(var v, {T t}) {}
+  void test22<T extends Object?>(int v, {T t}) {}
 //                                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test1<T extends Object?>(var v, [T t]) {}
+void test1<T extends Object?>(int v, [T t]) {}
 //                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void test2<T extends Object?>(var v, {T t}) {}
+void test2<T extends Object?>(int v, {T t}) {}
 //                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
+  print(C);
+  print(test1);
+  print(test2);
 }
