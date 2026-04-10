@@ -18,7 +18,7 @@
 ///
 /// @description Checks that an expression of the form `e1 ? e2 : e3` is a
 /// constant if `e1` and `e2` are constants, `e1` evaluates to `true` and `e3`
-/// is a potentially constant.
+/// is potentially constant.
 /// @author sgrekhov22@gmail.com
 
 class C {
