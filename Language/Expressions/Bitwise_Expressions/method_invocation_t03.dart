@@ -4,16 +4,16 @@
 
 /// @assertion A bitwise expression of the form e1 op e2
 /// is equivalent to the method invocation e1.op(e2).
+///
 /// @description Checks that an expression of the form e1 & e2
 /// is equivalent to the method invocation e1.operator&(e2).
 /// @author msyabro
-
 
 import '../../../Utils/expect.dart';
 
 class A {
   var val;
-  operator &(var arg) {
+  operator &(int arg) {
     val = arg;
   }
 }

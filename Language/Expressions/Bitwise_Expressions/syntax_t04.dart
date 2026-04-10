@@ -24,15 +24,10 @@
 /// bitwise operator on either super or an expression e1, with argument e2.
 /// @description Checks that an expression can't start with operator ^
 /// @author msyabro
-/// @reviewer kaigorodov
-
 
 main() {
-  try {
-    ^ true;
-//  ^
+  ^ true;
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
-  } catch (e) {}
 }
-
