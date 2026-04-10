@@ -5,6 +5,7 @@
 /// @assertion If a list or set literal has a downwards inference type of
 /// [Iterable<T>] for some [T], then the downwards inference context type of a
 /// spread element in that list is [Iterable<T>].
+///
 /// @description Checks that a spread element inference context type is [T] in
 /// the set literal
 /// @author iarkh@unipro.ru
@@ -15,7 +16,7 @@ class A {}
 class B extends A {}
 class C extends B {}
 
-List<T> getAList<T>(var a) { return <T>[a]; }
+List<T> getAList<T>(a) => <T>[a];
 
 main() {
   dynamic a_list   = getAList<A>(new A());

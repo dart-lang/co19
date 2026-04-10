@@ -17,16 +17,16 @@
 /// A multiplicative expression is either a unary expression, or an invocation
 /// of a multiplicative operator on either super or an expression e1, with
 /// argument e2.
+///
 /// @description  Checks that expression of the form
 /// [super ('%' unaryExpression)+] must have at least two operands
 /// @author msyabro
 
-
 class S {
-  operator %(var v) {}
+  operator %(v) {}
 }
 
-class A extends S{
+class A extends S {
   test() {
     super %;
 //         ^
@@ -36,5 +36,5 @@ class A extends S{
 }
 
 main() {
-  A();
+  print(A);
 }

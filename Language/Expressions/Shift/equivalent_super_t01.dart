@@ -4,8 +4,9 @@
 
 /// @assertion A shift expression of the form super op e2 is equivalent
 /// to the method invocation super.op(e2).
-/// @description Checks that an expressions of the form super << e2
-/// is equivalent to the method invocation super.operator<<(e2).
+///
+/// @description Checks that an expressions of the form `super << e2` is
+/// equivalent to the method invocation `super.operator<<(e2)`.
 /// @author kaigorodov
 
 import '../../../Utils/expect.dart';
@@ -13,11 +14,11 @@ import '../../../Utils/expect.dart';
 var logStr = "";
 
 class S {
-  operator <<(var v) {
+  operator <<(int v) {
     logStr = "${logStr}<<";
     return true;
   }
-  operator >>(var v) {
+  operator >>(int v) {
     logStr = "${logStr}>>";
     return true;
   }

@@ -4,6 +4,7 @@
 
 /// @assertion An assignable expression of the form e1[e2] is evaluated as a
 /// method invocation of the operator method [] on e1 with argument e2.
+///
 /// @description Checks that an assignable expression of the form e1[e2] is
 /// evaluated as a method invocation of the operator method [] on e1 with
 /// argument e2.
@@ -12,9 +13,8 @@
 
 import '../../../Utils/expect.dart';
 
-
 class A {
-  operator [](var ind) {return ind * 2;}
+  operator [](int ind) {return ind * 2;}
 }
 
 main() {

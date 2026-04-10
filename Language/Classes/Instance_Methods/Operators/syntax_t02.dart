@@ -21,7 +21,7 @@
 /// @author iefremov
 
 class C {
-  int ~/(var v) => 42;
+  int ~/(v) => 42;
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified
