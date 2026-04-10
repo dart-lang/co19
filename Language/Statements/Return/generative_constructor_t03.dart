@@ -18,7 +18,7 @@ class C {
   }
 }
 
-extension type ET(int v) {
+extension type ET._(int v) {
   ET(this.v) {
     return null;
 //         ^^^^

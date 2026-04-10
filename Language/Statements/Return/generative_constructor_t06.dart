@@ -9,6 +9,8 @@
 /// the form `return;` appears in the body part of a primary constructor.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=primary-constructors
+
 import '../../../Utils/expect.dart';
 
 class C(var int? v) {
@@ -30,7 +32,7 @@ extension type ET(int v) {
 }
 
 main() {
-  Expect.equals(0, C().v);
+  Expect.equals(0, C(0).v);
   ET(0);
   Expect.equals('before', log);
 }
