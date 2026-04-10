@@ -16,9 +16,9 @@
 ///   1. `e1` evaluates to true and `e2` is a constant expression, or
 ///   2. `e1` evaluates to false and `e3` is a constant expression.
 ///
-/// @description Checks that an expression of the form `e1?e2:e3` is a constant
-/// if `e1` and `e3` are constants, `e1` evaluates to `false` and `e2` is a
-/// potentially constant.
+/// @description Checks that an expression of the form `e1 ? e2 : e3` is a
+/// constant if `e1` and `e3` are constants, `e1` evaluates to `false` and `e2`
+/// is a potentially constant.
 /// @author sgrekhov22@gmail.com
 
 class C {

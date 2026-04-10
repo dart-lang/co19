@@ -16,7 +16,7 @@
 ///   1. `e1` evaluates to true and `e2` is a constant expression, or
 ///   2. `e1` evaluates to false and `e3` is a constant expression.
 ///
-/// @description Checks that an expression of the form `e1?e2:e3` is not a
+/// @description Checks that an expression of the form `e1 ? e2 : e3` is not a
 /// constant if `e1` is not a constant.
 /// @author sgrekhov22@gmail.com
 
