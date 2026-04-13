@@ -5,16 +5,17 @@
 /// @assertion
 /// Iterator<E> iterator
 /// Provides an iterator that iterates over the elements in insertion order.
+///
 /// @description Checks that [Iterator] iterates over all elements from the set
 /// in insertion mode.
 /// @author iarkh@unipro.ru
 
-import "../../../Utils/expect.dart";
 import "dart:collection";
+import "../../../Utils/expect.dart";
 
 void checkIterator(LinkedHashSet set, List list) {
   Iterator it = set.iterator;
-  list.forEach((var element) {
+  list.forEach((element) {
     it.moveNext();
     Expect.equals(element, it.current);
   });

@@ -15,12 +15,12 @@
 /// @author iarkh@unipro.ru
 
 class A() {}
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 class C<T> {}
+
 @A()  typedef CAlias<T> = C<T>;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+
 main() {}

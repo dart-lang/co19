@@ -18,10 +18,10 @@ class A {}
 
 class C {
   static String staticTest1(int i, {String y = "", required String x}) => x;
-  static String staticTest2(int i, {String y = "", required final x}) => x;
+  static String staticTest2(int i, {String y = "", required x}) => x;
   String instanceTest1(int i, {String y = "", required String x}) => x;
   A instanceTest2(int i, {String y = "", required covariant A x}) => x;
-  String instanceTest3(int i, {String y = "", required final x}) => x;
+  String instanceTest3(int i, {String y = "", required x}) => x;
 }
 
 String test1(int i, {String y = "", required String x}) => x;
@@ -32,7 +32,7 @@ Foo test2 = (int i, {String y = "", required String x}) => x;
 
 Function test3 = (int i, {String y = "", required String x}) => x;
 
-String test4(int i, {String y = "", required final x}) => x;
+String test4(int i, {String y = "", required x}) => x;
 
 main() {
   A a = new A();

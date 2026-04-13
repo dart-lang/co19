@@ -18,6 +18,8 @@
 /// unrelated class available in the same scope.
 /// @author iefremov
 
+// @dart=3.12
+
 class Z {}
 
 class C {

@@ -18,6 +18,8 @@
 /// type alias.
 /// @author sgrekhov@unipro.ru
 
+// @dart=3.12
+
 class S {}
 typedef SAlias = S;
 

@@ -18,6 +18,8 @@
 /// a superinterface of the enclosing class.
 /// @author rodionov
 
+// @dart=3.12
+
 class S {}
 
 class C extends S {
