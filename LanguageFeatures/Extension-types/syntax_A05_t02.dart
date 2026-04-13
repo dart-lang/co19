@@ -23,6 +23,8 @@
 /// `representationDeclaration` declares any optional or named variables
 /// @author sgrekhov22@gmail.com
 
+// @dart=3.12
+
 extension type ET1([int id = 0]) {}
 //                 ^
 // [analyzer] unspecified

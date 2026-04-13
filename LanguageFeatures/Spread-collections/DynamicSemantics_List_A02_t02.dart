@@ -20,7 +20,6 @@
 /// result list in correct order.
 /// @author iarkh@unipro.ru
 
-
 import "dart:collection";
 import "../../Utils/expect.dart";
 
@@ -51,7 +50,7 @@ List myLists = [[1, 2, 3, 4, 5],
   []];
 
 main() {
-  myLists.forEach((var list) {
+  myLists.forEach((list) {
     MyIterable it = new MyIterable(list);
     Expect.listEquals(list, [...it]);
     Expect.isFalse(it.getIterator().moveNext());

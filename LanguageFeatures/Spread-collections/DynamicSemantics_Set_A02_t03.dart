@@ -14,6 +14,7 @@
 ///             b. Evaluate set.add(iterator.current).
 ///       iii. Else:
 ///           a. Evaluate [set.add(value)].
+///
 /// @description Checks that elements in the null-aware spread element are added
 /// to the result set in correct order if this spread element is not [null].
 /// @author iarkh@unipro.ru
@@ -49,7 +50,7 @@ List mySets = [{1, 2, 3, 4, 5},
     {1, 2, 3, 4, 5, 6, 7, 8, 9}];
 
 main() {
-  mySets.forEach((var set) {
+  mySets.forEach((set) {
     var it = new MyIterable(set) as MyIterable?;
     Expect.setEquals(set, {...?it});
     Expect.isFalse((it as MyIterable).getIterator().moveNext());

@@ -18,10 +18,10 @@
 ///       a. Evaluate [e1] to a value key.
 ///       b. Evaluate [e2] to a value value.
 ///       c. Call map[key] = value.
+///
 /// @description Checks that elements in the spread element are added to the
 /// result map
 /// @author iarkh@unipro.ru
-
 
 import "dart:collection";
 import "../../Utils/expect.dart";
@@ -45,7 +45,7 @@ List myMaps = <Map>[{1: 1, 2: 2, 3: 3, 4: 4, 5: 5},
   {}];
 
 main() {
-  myMaps.forEach((var m) {
+  myMaps.forEach((m) {
     Map map = new MapBaseImpl.from(m);
     Expect.mapEquals(m, {...map});
   });

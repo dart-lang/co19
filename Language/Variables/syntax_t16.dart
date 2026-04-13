@@ -26,10 +26,10 @@
 ///   initializedIdentifierList:
 ///     initializedIdentifier (‘, ’ initializedIdentifier)*
 ///   ;
+///
 /// @description Checks that a variable declaration cannot contain the 
 /// 'factory' keyword.
 /// @author kaigorodov
-
 
 class C {
   factory var x = 1;
@@ -39,7 +39,5 @@ class C {
 }
 
 main() {
-  new C();
-//    ^
-// [cfe] unspecified
+  print(C);
 }

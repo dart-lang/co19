@@ -18,6 +18,8 @@
 /// function type alias available in the same scope.
 /// @author rodionov
 
+// @dart=3.12
+
 typedef foo();
 
 class C {

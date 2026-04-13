@@ -18,6 +18,8 @@
 /// keyword is followed by a name that is not a constructor name.
 /// @author rodionov
 
+// @dart=3.12
+
 class C {
   C();
   factory WrongClass() => C();

@@ -14,10 +14,10 @@
 ///             b. Evaluate set.add(iterator.current).
 ///       iii. Else:
 ///           a. Evaluate [set.add(value)].
+///
 /// @description Checks that elements in the spread element are added to the
 /// result set in correct order.
 /// @author iarkh@unipro.ru
-
 
 import "dart:collection";
 import "../../Utils/expect.dart";
@@ -51,7 +51,7 @@ List mySets = [{1, 2, 3, 4, 5},
   ];
 
 main() {
-  mySets.forEach((var set) {
+  mySets.forEach((set) {
     MyIterable it = new MyIterable(set);
     Expect.setEquals(set, {...it});
     Expect.isFalse(it.getIterator().moveNext());

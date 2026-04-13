@@ -18,6 +18,8 @@
 /// type alias.
 /// @author sgrekhov@unipro.ru
 
+// @dart=3.12
+
 class C {
   factory CAlias() => throw "Should not reach here";
 //        ^^^^^^

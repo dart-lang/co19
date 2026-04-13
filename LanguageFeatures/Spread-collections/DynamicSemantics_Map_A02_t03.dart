@@ -18,6 +18,7 @@
 ///       a. Evaluate [e1] to a value key.
 ///       b. Evaluate [e2] to a value value.
 ///       c. Call map[key] = value.
+///
 /// @description Checks that elements in the null-aware spread element are added
 /// to the result map if the element is not [null]
 /// @author iarkh@unipro.ru
@@ -44,7 +45,7 @@ List myMaps = <Map>[{1: 1, 2: 2, 3: 3, 4: 4, 5: 5},
   {}];
 
 main() {
-  myMaps.forEach((var m) {
+  myMaps.forEach((m) {
     var map = new MapBaseImpl.from(m) as Map?;
     Expect.mapEquals(m, {...?map});
   });
