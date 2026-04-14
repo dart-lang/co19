@@ -15,6 +15,8 @@
 /// name `type`. Test record type
 /// @author sgrekhov22@gmail.com
 
+// @dart=3.12
+
 extension type on (int i,) {}
 //                      ^
 // [analyzer] unspecified
