@@ -5,12 +5,10 @@
 /// @assertion TODO(sgrekhov): Add an assertion after updating the specification
 ///
 /// @description Check that it is allowed to omit `const` keyword when declaring
-/// constructor of an enum.
+/// a generative constructor of an enum.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
-
-import '../../Utils/expect.dart';
 
 enum E1 {
   e0(1);

@@ -11,8 +11,10 @@
 /// Such a declaration introduces its name (the identifier) into the surrounding
 /// scope
 ///
-/// @description Check that it is a compile-time error if an extension has the
-/// name `type`. Test record type
+/// @description Check that it is a compile-time error if an extension type has
+/// the name `on` and trailing comma after representation field (to ensure that
+/// it is not parsed as an extension with the name `type` on the record type
+/// `(int i,)`).
 /// @author sgrekhov22@gmail.com
 
 // @dart=3.12
