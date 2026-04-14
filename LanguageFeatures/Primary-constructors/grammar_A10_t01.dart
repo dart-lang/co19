@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion TODO(sgrekhov): Add assertion after update of the spec
+/// @assertion TODO(sgrekhov): Add an assertion after updating the specification
 ///
 /// @description Check that it is allowed to omit `const` keyword when declaring
 /// constructor of an enum.
