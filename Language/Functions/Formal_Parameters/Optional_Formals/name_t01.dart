@@ -23,7 +23,6 @@ main() {
 
   f1(_: 1);
 //   ^
-// [analyzer] unspecified
 // [cfe] unspecified
   f2();
 }

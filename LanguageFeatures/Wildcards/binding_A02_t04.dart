@@ -12,8 +12,6 @@
 
 // SharedOptions=--enable-experiment=wildcard-variables
 
-import '../../Utils/expect.dart';
-
 test1() {
   var _ = 1;
   String _ = "2";

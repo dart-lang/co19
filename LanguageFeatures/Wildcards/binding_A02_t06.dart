@@ -12,8 +12,6 @@
 
 // SharedOptions=--enable-experiment=wildcard-variables
 
-import '../../Utils/expect.dart';
-
 main() {
   for (var _ = 1, _ = 2;;) {
     break;
