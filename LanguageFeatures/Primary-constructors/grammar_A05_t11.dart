@@ -48,7 +48,7 @@ extension type ET1._(int v) {
 
 extension type const ET2(int v) {
   const factory fET2(int v) = ET2.new;
-  autment const factory fET2(int v);
+  augment const factory fET2(int v);
 }
 
 main() {
