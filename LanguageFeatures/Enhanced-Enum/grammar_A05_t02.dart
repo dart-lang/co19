@@ -13,6 +13,8 @@
 /// contains any generative constructor which is not const
 /// @author sgrekhov@unipro.ru
 
+// @dart=3.12
+
 enum E {
   e1,
   e2,
