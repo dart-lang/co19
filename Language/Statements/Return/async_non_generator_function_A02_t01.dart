@@ -15,81 +15,409 @@
 /// @description Checks that it is a compile-time error if a statement of the
 /// form `return e;` occurs in an asynchronous function whose return type is
 /// `void`, `Future<void>`, `FutureOr<void>`, `Future<void>?`, or
-/// `FutureOr<void>?` and the static type of `e` is `Future<Object?>` or
-/// `Future<Never>`.
+/// `FutureOr<void>?` and `flatten(S)` where `S` is the static type of `e` is
+/// neither `void`, `dynamic`, `Null`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
 
-void f1(Future<Object?> v) async {
-  return v;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
+class MySubtypeFutureObject implements Future<Object?> {
+  @override
+  Stream<Object?> asStream() => Stream.fromIterable([]);
+
+  @override
+  Future<Object?> catchError(
+    Function onError, {
+    bool Function(Object error)? test,
+  }) => Future<Object?>.value(null);
+
+  @override
+  Future<R> then<R>(
+    FutureOr<R> Function(Object? value) onValue, {
+    Function? onError,
+  }) => Future<R>.value(null);
+
+  @override
+  Future<Object?> timeout(
+    Duration timeLimit, {
+    FutureOr<Object?> Function()? onTimeout,
+  }) => Future<Object?>.value(null);
+
+  @override
+  Future<Object?> whenComplete(FutureOr<void> Function() action) =>
+      Future<Object?>.value(null);
 }
 
-Future<void> f2(Future<Object?> v) async {
-  return v;
-//       ^
+void f1<X extends Object?>(
+  Object? v1,
+  Future<Object?> v2,
+  MySubtypeFutureObject v3,
+  FutureOr<Object?> v4,
+  X v5,
+  Future<Object?>? v6,
+  FutureOr<Object?>? v7,
+  Future<Object>? v8,
+  FutureOr<Object>? v9,
+  Future<Never> v10
+) async {
+  if (1 > 2) {
+    return v1;
+//         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v2;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v3;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v4;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v5;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v6;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v7;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v8;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v9;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v10;
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
-FutureOr<void> f3(Future<Object?> v) async {
-  return v;
-//       ^
+Future<void> f2<X extends Object?>(
+    Object? v1,
+    Future<Object?> v2,
+    MySubtypeFutureObject v3,
+    FutureOr<Object?> v4,
+    X v5,
+    Future<Object?>? v6,
+    FutureOr<Object?>? v7,
+    Future<Object>? v8,
+    FutureOr<Object>? v9,
+    Future<Never> v10
+    ) async {
+  if (1 > 2) {
+    return v1;
+//         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v2;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v3;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v4;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v5;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v6;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v7;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v8;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v9;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v10;
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
-Future<void>? f4(Future<Object?> v) async {
-  return v;
-//       ^
+FutureOr<void> f3<X extends Object?>(
+    Object? v1,
+    Future<Object?> v2,
+    MySubtypeFutureObject v3,
+    FutureOr<Object?> v4,
+    X v5,
+    Future<Object?>? v6,
+    FutureOr<Object?>? v7,
+    Future<Object>? v8,
+    FutureOr<Object>? v9,
+    Future<Never> v10
+    ) async {
+  if (1 > 2) {
+    return v1;
+//         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v2;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v3;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v4;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v5;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v6;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v7;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v8;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v9;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v10;
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
-FutureOr<void>? f5(Future<Object?> v) async {
-  return v;
-//       ^
+Future<void>? f4<X extends Object?>(
+    Object? v1,
+    Future<Object?> v2,
+    MySubtypeFutureObject v3,
+    FutureOr<Object?> v4,
+    X v5,
+    Future<Object?>? v6,
+    FutureOr<Object?>? v7,
+    Future<Object>? v8,
+    FutureOr<Object>? v9,
+    Future<Never> v10
+    ) async {
+  if (1 > 2) {
+    return v1;
+//         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v2;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v3;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v4;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v5;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v6;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v7;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v8;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v9;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v10;
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
-void f6(Future<Never> v) async {
-  return v;
-//       ^
+FutureOr<void>? f5<X extends Object?>(
+    Object? v1,
+    Future<Object?> v2,
+    MySubtypeFutureObject v3,
+    FutureOr<Object?> v4,
+    X v5,
+    Future<Object?>? v6,
+    FutureOr<Object?>? v7,
+    Future<Object>? v8,
+    FutureOr<Object>? v9,
+    Future<Never> v10
+    ) async {
+  if (1 > 2) {
+    return v1;
+//         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v2;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v3;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v4;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v5;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v6;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v7;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v8;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v9;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  if (1 > 2) {
+    return v10;
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
-Future<void> f7(Future<Never> v) async {
-  return v;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-FutureOr<void> f8(Future<Never> v) async {
-  return v;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-Future<void>? f9(Future<Never> v) async {
-  return v;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-FutureOr<void>? f10(Future<Never> v) async {
-  return v;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
 
 main() {
   print(f1);
@@ -97,9 +425,4 @@ main() {
   print(f3);
   print(f4);
   print(f5);
-  print(f6);
-  print(f7);
-  print(f8);
-  print(f9);
-  print(f10);
 }

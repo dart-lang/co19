@@ -14,9 +14,9 @@
 ///
 /// @description Checks that it is a compile-time error if a statement of the
 /// form `return e;` occurs in an asynchronous function whose return type is
-/// `Object?`, `Future<Object?>`, `FutureOr<Object?>`, `Future<Object?>?`, or
-/// `FutureOr<Object?>?` and the static type of `e` is `void`, `Future<void>`,
-/// `FutureOr<void>`, `Future<void>?`, or `FutureOr<void>?`.
+/// `Future<Never>`, `FutureOr<Never>`, `Future<Never>?`, or `FutureOr<Never>?`
+/// and the static type of `e` is `void`, `Future<void>`, `FutureOr<void>`,
+/// `Future<void>?`, or `FutureOr<void>?`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -27,7 +27,7 @@ final FutureOr<void> futureOrVoid = futureVoid;
 final Future<void>? nFutureVoid = 2 > 1 ? futureVoid : null;
 final FutureOr<void>? nFutureOrVoid = 2 > 1 ? futureVoid : null;
 
-Object? f1() async { // ignore: body_might_complete_normally_nullable
+Future<Never> f1() async {
   if (1 > 2) {
     return getVoid();
 //         ^^^^^^^^^
@@ -58,9 +58,10 @@ Object? f1() async { // ignore: body_might_complete_normally_nullable
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+  throw "Needs to throw something to match the return type";
 }
 
-Future<Object?> f2() async { // ignore: body_might_complete_normally_nullable
+FutureOr<Never> f2() async {
   if (1 > 2) {
     return getVoid();
 //         ^^^^^^^^^
@@ -91,9 +92,10 @@ Future<Object?> f2() async { // ignore: body_might_complete_normally_nullable
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+  throw "Needs to throw something to match the return type";
 }
 
-FutureOr<Object?> f3() async { // ignore: body_might_complete_normally_nullable
+Future<Never>? f3() async {
   if (1 > 2) {
     return getVoid();
 //         ^^^^^^^^^
@@ -124,9 +126,10 @@ FutureOr<Object?> f3() async { // ignore: body_might_complete_normally_nullable
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+  throw "Needs to throw something to match the return type";
 }
 
-Future<Object?>? f4() async { // ignore: body_might_complete_normally_nullable
+FutureOr<Never>? f4() async {
   if (1 > 2) {
     return getVoid();
 //         ^^^^^^^^^
@@ -157,46 +160,12 @@ Future<Object?>? f4() async { // ignore: body_might_complete_normally_nullable
 // [analyzer] unspecified
 // [cfe] unspecified
   }
+  throw "Needs to throw something to match the return type";
 }
-
-FutureOr<Object?>? f5() async { // ignore: body_might_complete_normally_nullable
-  if (1 > 2) {
-    return getVoid();
-//         ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (1 > 2) {
-    return futureVoid;
-//         ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (1 > 2) {
-    return futureOrVoid;
-//         ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (1 > 2) {
-    return nFutureVoid;
-//         ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (1 > 2) {
-    return nFutureOrVoid;
-//         ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-}
-
 
 main() {
   print(f1);
   print(f2);
   print(f3);
   print(f4);
-  print(f5);
 }
