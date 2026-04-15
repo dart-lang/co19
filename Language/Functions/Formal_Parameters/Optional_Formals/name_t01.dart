@@ -8,7 +8,7 @@
 /// @description Checks that it is a compile-time error if the name of a named
 /// optional parameter begins with an `_` character.
 /// @author rodionov
-/// @issue 63128
+/// @issue 63128, 63170
 
 void f1({int _ = 0}) {}
 //           ^
@@ -22,7 +22,5 @@ main() {
 // [cfe] unspecified
 
   f1(_: 1);
-//   ^
-// [cfe] unspecified
   f2();
 }
