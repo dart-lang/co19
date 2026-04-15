@@ -15,8 +15,8 @@
 /// @description Checks that it is a compile-time error if a statement of the
 /// form `return e;` occurs in an asynchronous function whose return type is
 /// `void`, `Future<void>`, `FutureOr<void>`, `Future<void>?`, or
-/// `FutureOr<void>?` and `flatten(S)` where `S` is the static type of `e` is
-/// neither `void`, `dynamic`, `Null`.
+/// `FutureOr<void>?` and `flatten(S)` is neither `void`, `dynamic`, nor `Null`,
+/// where `S` is the static type of `e`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';

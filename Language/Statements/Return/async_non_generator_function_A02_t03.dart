@@ -15,8 +15,10 @@
 /// @description Checks that it is not an error if a statement of the form
 /// `return e;` occurs in an asynchronous function whose return type is `void`,
 /// `Future<void>`, `FutureOr<void>`, `Future<void>?`, or `FutureOr<void>?` and
-/// the static type of `e` is `dynamic`, `Future<dynamic>`, `FutureOr<dynamic>`,
-/// `Future<dynamic>?`, or `FutureOr<dynamic>?`.
+/// the static type of `e` is `dynamic`, `Future<dynamic>`, `FutureOr<dynamic>`
+/// (`Future<dynamic>?` and `FutureOr<dynamic>?` cases are omitted intentionally
+/// because normalization of `dynamic?` to `dynamic` is specified vaguely and
+/// it is Ok if tools don't report an errors in these cases).
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -33,91 +35,51 @@ void f3(FutureOr<dynamic> v) async {
   return v;
 }
 
-void f4(Future<dynamic>? v) async {
-  return v;
-}
-
-void f5(FutureOr<dynamic>? v) async {
-  return v;
-}
-
-Future<void> f6() async {
+Future<void> f4() async {
   return 1 as dynamic;
 }
 
-Future<void> f7(Future<dynamic> v) async {
+Future<void> f5(Future<dynamic> v) async {
   return v;
 }
 
-Future<void> f8(FutureOr<dynamic> v) async {
+Future<void> f6(FutureOr<dynamic> v) async {
   return v;
 }
 
-Future<void> f9(Future<dynamic>? v) async {
-  return v;
-}
-
-Future<void> f10(FutureOr<dynamic>? v) async {
-  return v;
-}
-
-FutureOr<void> f11() async {
+FutureOr<void> f7() async {
   return 1 as dynamic;
 }
 
-FutureOr<void> f12(Future<dynamic> v) async {
+FutureOr<void> f8(Future<dynamic> v) async {
   return v;
 }
 
-FutureOr<void> f13(FutureOr<dynamic> v) async {
+FutureOr<void> f9(FutureOr<dynamic> v) async {
   return v;
 }
 
-FutureOr<void> f14(Future<dynamic>? v) async {
-  return v;
-}
-
-FutureOr<void> f15(FutureOr<dynamic>? v) async {
-  return v;
-}
-
-Future<void>? f16() async {
+Future<void>? f10() async {
   return 1 as dynamic;
 }
 
-Future<void>? f17(Future<dynamic> v) async {
+Future<void>? f11(Future<dynamic> v) async {
   return v;
 }
 
-Future<void>? f18(FutureOr<dynamic> v) async {
+Future<void>? f12(FutureOr<dynamic> v) async {
   return v;
 }
 
-Future<void>? f19(Future<dynamic>? v) async {
-  return v;
-}
-
-Future<void>? f20(FutureOr<dynamic>? v) async {
-  return v;
-}
-
-FutureOr<void>? f21() async {
+FutureOr<void>? f13() async {
   return 1 as dynamic;
 }
 
-FutureOr<void>? f22(Future<dynamic> v) async {
+FutureOr<void>? f14(Future<dynamic> v) async {
   return v;
 }
 
-FutureOr<void>? f23(FutureOr<dynamic> v) async {
-  return v;
-}
-
-FutureOr<void>? f24(Future<dynamic>? v) async {
-  return v;
-}
-
-FutureOr<void>? f25(FutureOr<dynamic>? v) async {
+FutureOr<void>? f15(FutureOr<dynamic> v) async {
   return v;
 }
 
@@ -126,26 +88,16 @@ main() {
   f1();
   f2(future);
   f3(future);
-  f4(future);
+  f4();
   f5(future);
-  f6();
-  f7(future);
+  f6(future);
+  f7();
   f8(future);
   f9(future);
-  f10(future);
-  f11();
+  f10();
+  f11(future);
   f12(future);
-  f13(future);
+  f13();
   f14(future);
   f15(future);
-  f16();
-  f17(future);
-  f18(future);
-  f19(future);
-  f20(future);
-  f21();
-  f22(future);
-  f23(future);
-  f24(future);
-  f25(future);
 }

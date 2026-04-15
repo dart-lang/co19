@@ -15,8 +15,9 @@
 /// @description Checks that it is not an error if a statement of the form
 /// `return e;` occurs in an asynchronous function whose return type is `void`,
 /// `Future<void>`, `FutureOr<void>`, `Future<void>?`, or `FutureOr<void>?` and
-/// the static type of `e` is `void`, `Future<void>`, `FutureOr<void>`,
-/// `Future<void>?`, or `FutureOr<void>?`.
+/// the static type of `e` is `void`, `Future<void>`, `FutureOr<void>` (cases
+/// `Future<void>?` and `FutureOr<void>?` are omitted intentionally because we
+/// don't want to test `void?` to `void` normalization here).
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -24,8 +25,6 @@ import 'dart:async';
 void getVoid() {}
 final Future<void> futureVoid = Future<void>.new(() {});
 final FutureOr<void> futureOrVoid = futureVoid;
-final Future<void>? nFutureVoid = 2 > 1 ? futureVoid : null;
-final FutureOr<void>? nFutureOrVoid = 2 > 1 ? futureVoid : null;
 
 void f1() async {
   return getVoid();
@@ -39,92 +38,52 @@ void f3() async {
   return futureOrVoid;
 }
 
-void f4() async {
-  return nFutureVoid;
+Future<void> f4() async {
+  return getVoid();
 }
 
-void f5() async {
-  return nFutureOrVoid;
+Future<void> f5() async {
+  return futureVoid;
 }
 
 Future<void> f6() async {
-  return getVoid();
-}
-
-Future<void> f7() async {
-  return futureVoid;
-}
-
-Future<void> f8() async {
   return futureOrVoid;
 }
 
-Future<void> f9() async {
-  return nFutureVoid;
-}
-
-Future<void> f10() async {
-  return nFutureOrVoid;
-}
-
-FutureOr<void> f11() async {
+FutureOr<void> f7() async {
   return getVoid();
 }
 
-FutureOr<void> f12() async {
+FutureOr<void> f8() async {
   return futureVoid;
 }
 
-FutureOr<void> f13() async {
+FutureOr<void> f9() async {
   return futureOrVoid;
 }
 
-FutureOr<void> f14() async {
-  return nFutureVoid;
-}
-
-FutureOr<void> f15() async {
-  return nFutureOrVoid;
-}
-
-Future<void>? f16() async {
+Future<void>? f10() async {
   return getVoid();
 }
 
-Future<void>? f17() async {
+Future<void>? f11() async {
   return futureVoid;
 }
 
-Future<void>? f18() async {
+Future<void>? f12() async {
   return futureOrVoid;
 }
 
-Future<void>? f19() async {
-  return nFutureVoid;
-}
-
-Future<void>? f20() async {
-  return nFutureOrVoid;
-}
-
-FutureOr<void>? f21() async {
+FutureOr<void>? f13() async {
   return getVoid();
 }
 
-FutureOr<void>? f22() async {
+FutureOr<void>? f14() async {
   return futureVoid;
 }
 
-FutureOr<void>? f23() async {
+FutureOr<void>? f15() async {
   return futureOrVoid;
-}
-
-FutureOr<void>? f24() async {
-  return nFutureVoid;
-}
-
-FutureOr<void>? f25() async {
-  return nFutureOrVoid;
 }
 
 main() {
@@ -143,14 +102,4 @@ main() {
   f13();
   f14();
   f15();
-  f16();
-  f17();
-  f18();
-  f19();
-  f20();
-  f21();
-  f22();
-  f23();
-  f24();
-  f25();
 }
