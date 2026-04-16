@@ -6,7 +6,7 @@
 /// parameter begins with an `_` character.
 ///
 /// @description Checks that it is a compile-time error if the name of a named
-/// optional parameter begins with an `_` character.
+/// parameter begins with an `_` character.
 /// @author rodionov
 /// @issue 63128, 63170
 
@@ -15,12 +15,24 @@ void f1({int _ = 0}) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+void f2({required int _p}) {}
+//                    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
-  void f2({int? _x}) {}
+  void f3({int? _x}) {}
 //              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  void f4({required int _}) {}
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   f1(_: 1);
-  f2();
+  f2(_p: 2);
+  f3(_x: 3);
+  f4(_: 4);
 }

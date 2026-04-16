@@ -6,20 +6,33 @@
 /// parameter begins with an `_` character.
 ///
 /// @description Checks that it is a compile-time error if the name of a named
-/// optional parameter begins with an '_' character.
+/// parameter of a constructor begins with an '_' character.
 /// @author rodionov
 /// @issue 63128
 
 // @dart=3.11
 
 class A {
-  var _p;
-  A({this._p = ""}) {
+  String _p;
+  A({this._p = ""});
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    print(_p);
-  }
+
+  A.foo({String _p = ""}) : _p = _p;
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A.bar({required this._p});
+//                     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A.baz({required String _p}) : _p = _p;
+//                       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C {
@@ -28,12 +41,30 @@ class C {
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  C.foo({String _ = ""});
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C.bar({required this._});
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C.baz({required String _});
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  new A(_p: "Optional parameter names must not begin with an underscore!");
-  new C(_: "Optional parameter names must not begin with an underscore!");
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  A(_p: "Optional parameter names must not begin with an underscore!");
+  A.foo(_p: "Optional parameter names must not begin with an underscore!");
+  A.bar(_p: "Optional parameter names must not begin with an underscore!");
+  A.baz(_p: "Optional parameter names must not begin with an underscore!");
+  C(_: "Optional parameter names must not begin with an underscore!");
+  C.foo(_: "Optional parameter names must not begin with an underscore!");
+  C.bar(_: "Optional parameter names must not begin with an underscore!");
+  C.baz(_: "Optional parameter names must not begin with an underscore!");
 }
