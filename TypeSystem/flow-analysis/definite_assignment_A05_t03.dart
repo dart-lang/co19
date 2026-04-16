@@ -13,10 +13,16 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 60322
 
-main() {
+test() {
   late int n;
   while (false) {
     n = 42;
   }
-  n;  // Possibly assigned. See https://github.com/dart-lang/sdk/issues/60322
+  n; // Possibly assigned. See https://github.com/dart-lang/sdk/issues/60322
+}
+
+main() {
+  try {
+    test();
+  } on Error {} // Ok. LateInitializationError expected
 }

@@ -14,10 +14,16 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 60269
 
-main() {
+test() {
   late int i;
   if (false case == true when (i = 42) > 0) {
     print("Ok");
   }
   i; // Not definitely unassigned
+}
+
+main() {
+  try {
+    test();
+  } on Error {} // Ok. LateInitializationError expected
 }
