@@ -11,15 +11,16 @@
 /// [dynamic]. The associated type of [D], call it [F], is, respectively:
 ///   T
 /// ...
-/// @description Checks that exception is thrown if generic metadata is incorrect
+/// @description Checks that exception is thrown if generic metadata is
+/// incorrect (non-constant).
 /// @author iarkh@unipro.ru
 
-class A() {}
+class A {}
 
 class C<T> {}
 
-@A()  typedef CAlias<T> = C<T>;
-//^
+@A() typedef CAlias<T> = C<T>;
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
