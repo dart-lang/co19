@@ -47,7 +47,7 @@ extension type const ET2(int v) {
 
 main() {
   Expect.equals(1, C1.fC1(1).v);
-  Expect.equals(2, (const C1.fC1(1)).v);
+  Expect.equals(1, (const C1.fC1(1)).v);
   Expect.equals(2, C2.fC2(1).v);
   Expect.equals(E1.e0, E1.fE1());
   Expect.equals(0, ET1.fET1().v);
