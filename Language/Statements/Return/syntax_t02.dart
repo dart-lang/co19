@@ -4,14 +4,12 @@
 
 /// @assertion The return statement returns a result to the caller of a
 /// synchronous function, completes the future associated with an asynchronous
-/// function or terminates the stream or iterable associated with a generator.
-/// returnStatement:
-///   return expression? ';'
-/// ;
-/// @description Check that statement 'return;' is accepted as valid.
+/// function, or terminates the stream or iterable associated with a generator.
 ///
+/// ⟨returnStatement⟩ ::= return ⟨expression⟩? ‘;’
+///
+/// @description Check that statement 'return;' is accepted as valid.
 /// @author a.semenov@unipro.ru
-
 
 void test() {
   return;
