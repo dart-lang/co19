@@ -6,7 +6,8 @@
 /// returns without an object.
 ///
 /// @description Checks that a return statement of the form `return;` in a
-/// generative constructor returns without an object.
+/// generative constructor will complete the execution of the body such that
+/// subsequent code (like `x = 1;`) will not be executed.
 /// @author vasya
 
 import '../../../Utils/expect.dart';
