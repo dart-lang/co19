@@ -10,7 +10,6 @@
 /// of these. List and maps are also allowed to be cyclic.
 ///
 /// @description Checks that various primitive values are sent properly.
-///
 /// @author kaigorodov
 
 import "dart:isolate";
@@ -28,7 +27,7 @@ main() {
   var receivePort = new ReceivePort();
   int i = 0;
   receivePort.listen((message) {
-    Expect.equals(messagesList[i], message);
+    Expect.equalsOrNaN(messagesList[i], message);
     i++;
     if (i == messagesList.length) {
       receivePort.close();

@@ -7,6 +7,15 @@ part of 'expect.dart';
 class Expect {
   /// Checks whether the expected and actual values are equal using `==`.
   static void equals(expected, actual, [String reason = '']) {
+    if (expected != actual) {
+      _fail('Expect.equals(expected: <$expected>, actual: <$actual>$reason) '
+          'fails.');
+    }
+  }
+
+  /// Checks whether the expected and actual values are equal using `==`.
+  /// Two `nan` values are assumed to be equal.
+  static void equalsOrNaN(expected, actual, [String reason = '']) {
     if ((expected != actual) &&
         !((expected is double) &&
             (actual is double) &&
@@ -20,14 +29,14 @@ class Expect {
   /// Checks whether the actual value is [bool] and its value is [true].
   static void isTrue(actual, [String reason = '']) {
     if (!_identical(actual, true)) {
-      _fail('Expect.isTrue($actual$reason) fails.');
+      _fail('Expect.isTrue(<$actual>$reason) fails.');
     }
   }
 
   /// Checks whether the actual value is [bool] and its value is [false].
   static void isFalse(actual, [String reason = '']) {
     if (!_identical(actual, false)) {
-      _fail('Expect.isFalse($actual$reason) fails.');
+      _fail('Expect.isFalse(<$actual>$reason) fails.');
     }
   }
 
@@ -279,13 +288,13 @@ class Expect {
         var savedActual = planned[expected];
         if (savedActual != null) {
           // this pair is planned to investigate
-          Expect.equals(savedActual, actual);
+          Expect.equalsOrNaN(savedActual, actual);
         } else if ((savedActual = processed[expected]) != null) {
           // this pair is checked already
-          Expect.equals(savedActual, actual);
+          Expect.equalsOrNaN(savedActual, actual);
         } else {
           // this pair is not yet investigated
-          Expect.equals(
+          Expect.equalsOrNaN(
               expected.length,
               actual.length,
               'Collection lengths are not equal: '
@@ -294,7 +303,7 @@ class Expect {
           planned[expected] = actual;
         }
       } else {
-        Expect.equals(expected, actual, reason);
+        Expect.equalsOrNaN(expected, actual, reason);
       }
     }
 

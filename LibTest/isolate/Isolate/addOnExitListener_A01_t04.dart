@@ -13,7 +13,6 @@
 ///
 /// @description Check that isolate sends given response value on responsePort,
 /// when it terminates with error.
-///
 /// @author a.semenov@unipro.ru
 
 import "dart:isolate";
@@ -27,7 +26,7 @@ Future test(Object? value) async {
   onExit.listen(
     (data) {
       onExit.close();
-      Expect.equals(value, data);
+      Expect.equalsOrNaN(value, data);
     }
   );
   server.isolate.addOnExitListener(onExit.sendPort, response:value);
