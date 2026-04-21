@@ -13,7 +13,6 @@
 /// @description Check that isolate sends single event on responsePort,
 /// which is supplied several times to addOnExitListener() of the same isolate.
 /// Always the same value for parameter response is specified.
-///
 /// @author a.semenov@unipro.ru
 
 import "dart:isolate";

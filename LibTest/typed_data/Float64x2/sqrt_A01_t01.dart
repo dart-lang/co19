@@ -4,9 +4,9 @@
 
 /// @assertion  Float64x2 sqrt()
 /// Returns the lane-wise square root of this.
+///
 /// @description Checks that the returned value is correct.
 /// @author ngl@unipro.ru
-
 
 import "dart:typed_data";
 import "dart:math";
@@ -14,8 +14,8 @@ import "../../../Utils/expect.dart";
 
 check(obj) {
   var res = obj.sqrt();
-  Expect.equals(sqrt(obj.x), res.x);
-  Expect.equals(sqrt(obj.y), res.y);
+  Expect.equalsOrNaN(sqrt(obj.x), res.x);
+  Expect.equalsOrNaN(sqrt(obj.y), res.y);
 }
 
 main() {

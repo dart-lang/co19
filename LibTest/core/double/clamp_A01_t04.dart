@@ -6,6 +6,7 @@
 /// Returns this num clamped to be in the range lowerLimit-upperLimit.
 /// The comparison is done using compareTo and therefore takes -0.0 into account.
 /// This also implies that double.nan is treated as the maximal double value.
+///
 /// @description Checks that returns num clamped to be in the range
 /// lowerLimit-upperLimit, where one of the limits is double.nan
 /// @author sgrekhov@unipro.ru
@@ -13,7 +14,7 @@
 import "../../../Utils/expect.dart";
 
 check(num expected, num lowerLimit, num upperLimit, num value) {
-  Expect.equals(expected, value.clamp(lowerLimit, upperLimit));
+  Expect.equalsOrNaN(expected, value.clamp(lowerLimit, upperLimit));
 }
 
 main() {
