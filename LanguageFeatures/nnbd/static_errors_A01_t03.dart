@@ -67,7 +67,7 @@ main() {
   e.baz = 2;
   e + e;
 
-  if (1 > 2) {
+  if (1 > 2) { // The runtime type of et is `int`, so it doesn't have members of ET.
     et.foo();
     et.bar;
     et.baz = 2;
