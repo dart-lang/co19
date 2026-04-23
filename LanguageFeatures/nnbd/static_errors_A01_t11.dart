@@ -2,13 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is an error to call a method, setter, getter or operator on
-/// an expression whose type is potentially nullable and not dynamic, except for
-/// the methods, setters, getters, and operators on Object.
+/// @assertion It is an error to call a method, setter, getter or operator on an
+/// expression whose type is potentially nullable and not `dynamic`, except for
+/// the methods, setters, getters, and operators on `Object`, and except when
+/// said member is an extension member or the receiver type is an extension type
 ///
 /// @description Check that it is a compile-time error to call a method, setter,
 /// getter or operator on an expression whose type is potentially nullable. Test
-/// the case <T extends A?>
+/// the case `<T extends A?>`.
 /// @author sgrekhov@unipro.ru
 
 class A {

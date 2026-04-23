@@ -2,14 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is an error to call a method, setter, getter or operator on
-/// an expression whose type is potentially nullable and not dynamic, except for
-/// the methods, setters, getters, and operators on Object.
+/// @assertion It is an error to call a method, setter, getter or operator on an
+/// expression whose type is potentially nullable and not `dynamic`, except for
+/// the methods, setters, getters, and operators on `Object`, and except when
+/// said member is an extension member or the receiver type is an extension type
 ///
 /// @description Check that it is no compile-time error to call a method, setter,
 /// getter or operator on an expression whose type is potentially nullable if
-/// they are methods, setters, getters, and operators on Object. Test
-/// that methods of Object are allowed for the class FutureOr
+/// they are methods, setters, getters, and operators on `Object`. Test that
+/// methods of `Object` are allowed for the class `FutureOr`.
 /// @author sgrekhov@unipro.ru
 
 import "dart:async";
@@ -41,10 +42,4 @@ main() {
   Expect.isNotNull(x4.toString());
   Expect.isNotNull(x4.runtimeType);
   Expect.isFalse(x4 == new Object());
-
-  var x6 = new C();
-  Expect.isNotNull(x6.hashCode);
-  Expect.isNotNull(x6.toString());
-  Expect.isNotNull(x6.runtimeType);
-  Expect.isFalse(x6 == new Object());
 }
