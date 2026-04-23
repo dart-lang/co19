@@ -13,30 +13,17 @@
 
 import "../../Utils/expect.dart";
 
-extension type ET1(Object? v) {
+extension type ET(Object? v) {
   int foo() => 1;
   int get bar => 2;
   void set baz(int i) {}
-  ET1 operator +(ET1 other) => other;
-}
-
-extension type ET2(Object v) implements Object {
-  int foo() => 1;
-  int get bar => 2;
-  void set baz(int i) {}
-  ET2 operator +(ET2 other) => other;
+  ET operator +(ET other) => other;
 }
 
 main() {
-  final et1 = ET1(null);
-  Expect.equals(1, et1.foo());
-  Expect.equals(2, et1.bar);
-  et1.baz = 3;
-  et1 + et1;
-
-  final et2 = ET2(0);
-  Expect.equals(1, et2.foo());
-  Expect.equals(2, et2.bar);
-  et2.baz = 3;
-  et2 + et2;
+  final et = ET(null);
+  Expect.equals(1, et.foo());
+  Expect.equals(2, et.bar);
+  et.baz = 3;
+  et + et;
 }

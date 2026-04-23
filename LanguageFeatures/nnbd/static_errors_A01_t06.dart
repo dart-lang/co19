@@ -21,4 +21,7 @@ main() {
   Expect.isNotNull(x.toString());
   Expect.isNotNull(x.runtimeType);
   Expect.isFalse(x == new Object());
+  Expect.throws((){
+    x.noSuchMethod(Invocation.method(Symbol('foo'), []));
+  });
 }

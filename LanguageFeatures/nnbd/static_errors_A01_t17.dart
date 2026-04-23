@@ -17,14 +17,14 @@ import "../../Utils/expect.dart";
 
 extension type ET(int v) {}
 
-extension on ET? {
+extension on ET {
   int foo() => 1;
   int get bar => 2;
   void set baz(int i) {}
   ET? operator +(ET? other) => other;
 }
 
-class A<T extends ET?> {
+class A<T extends ET> {
   T t;
   A(this.t);
 
@@ -37,11 +37,11 @@ class A<T extends ET?> {
 }
 
 main() {
-  ET? et = 2 > 1 ? ET(0) : null;
+  ET et = ET(0);
   Expect.equals(1, et.foo());
   Expect.equals(2, et.bar);
   et.baz = 3;
   et + et;
 
-  A(null).test();
+  A(ET(0)).test();
 }

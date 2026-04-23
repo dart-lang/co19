@@ -19,27 +19,58 @@ import "../../Utils/expect.dart";
 class C {}
 
 main() {
-  FutureOr x1 = new Object();
+  final inv = Invocation.method(Symbol('foo'), []);
+  FutureOr<dynamic> x1 = new Object();
   Expect.isNotNull(x1.hashCode);
   Expect.isNotNull(x1.toString());
   Expect.isNotNull(x1.runtimeType);
   Expect.isFalse(x1 == new Object());
+  Expect.throws((){
+    x1.noSuchMethod(inv);
+  });
 
   FutureOr<void> x2 = new Object();
   Expect.isNotNull(x2.hashCode);
   Expect.isNotNull(x2.toString());
   Expect.isNotNull(x2.runtimeType);
   Expect.isFalse(x2 == new Object());
+  Expect.throws((){
+    x2.noSuchMethod(inv);
+  });
 
   FutureOr<Null> x3 = null;
   Expect.isNotNull(x3.hashCode);
   Expect.isNotNull(x3.toString());
   Expect.isNotNull(x3.runtimeType);
   Expect.isFalse(x3 == new Object());
+  Expect.throws((){
+    x3.noSuchMethod(inv);
+  });
 
   FutureOr<C?> x4 = new C();
   Expect.isNotNull(x4.hashCode);
   Expect.isNotNull(x4.toString());
   Expect.isNotNull(x4.runtimeType);
   Expect.isFalse(x4 == new Object());
+  Expect.throws((){
+    x4.noSuchMethod(inv);
+  });
+
+  FutureOr<Object?> x5 = new Object();
+  Expect.isNotNull(x5.hashCode);
+  Expect.isNotNull(x5.toString());
+  Expect.isNotNull(x5.runtimeType);
+  Expect.isFalse(x5 == new Object());
+  Expect.throws((){
+    x5.noSuchMethod(inv);
+  });
+
+  FutureOr<Object> x6 = new Object();
+  Expect.isNotNull(x6.hashCode);
+  Expect.isNotNull(x6.toString());
+  Expect.isNotNull(x6.runtimeType);
+  Expect.isFalse(x6 == new Object());
+  Expect.throws((){
+    x6.noSuchMethod(inv);
+  });
 }

@@ -31,27 +31,40 @@ typedef EAlias = E?;
 typedef ETAlias = ET?;
 
 main() {
+  final inv = Invocation.method(Symbol('foo'), []);
   AAlias a = A();
   Expect.isNotNull(a.hashCode);
   Expect.isNotNull(a.toString());
   Expect.isNotNull(a.runtimeType);
   Expect.isFalse(a == A());
+  Expect.throws((){
+    a.noSuchMethod(inv);
+  });
 
   MAlias m = M();
   Expect.isNotNull(m.hashCode);
   Expect.isNotNull(m.toString());
   Expect.isNotNull(m.runtimeType);
   Expect.isFalse(m == M());
+  Expect.throws((){
+    m.noSuchMethod(inv);
+  });
 
   EAlias e = E.e0;
   Expect.isNotNull(e.hashCode);
   Expect.isNotNull(e.toString());
   Expect.isNotNull(e.runtimeType);
   Expect.isTrue(e == E.e0);
+  Expect.throws((){
+    e.noSuchMethod(inv);
+  });
 
   ETAlias et = ET(0);
   Expect.isNotNull(et.hashCode);
   Expect.isNotNull(et.toString());
   Expect.isNotNull(et.runtimeType);
   Expect.isTrue(et == 0);
+  Expect.throws((){
+    et.noSuchMethod(inv);
+  });
 }

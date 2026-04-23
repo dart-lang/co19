@@ -29,24 +29,37 @@ main() {
   M? m = 2 > 1 ? M() : null;
   E? e = 2 > 1 ? E.e0 : null;
   ET? et = 2 > 1 ? ET(0) : null;
+  final inv = Invocation.method(Symbol('foo'), []);
 
   Expect.isNotNull(a.hashCode);
   Expect.isNotNull(a.toString());
   Expect.isNotNull(a.runtimeType);
   Expect.isFalse(a == A());
+  Expect.throws((){
+    a.noSuchMethod(inv);
+  });
 
   Expect.isNotNull(m.hashCode);
   Expect.isNotNull(m.toString());
   Expect.isNotNull(m.runtimeType);
   Expect.isFalse(m == M());
+  Expect.throws((){
+    m.noSuchMethod(inv);
+  });
 
   Expect.isNotNull(e.hashCode);
   Expect.isNotNull(e.toString());
   Expect.isNotNull(e.runtimeType);
   Expect.isTrue(e == E.e0);
+  Expect.throws((){
+    e.noSuchMethod(inv);
+  });
 
   Expect.isNotNull(et.hashCode);
   Expect.isNotNull(et.toString());
   Expect.isNotNull(et.runtimeType);
   Expect.isTrue(et == ET(0));
+  Expect.throws((){
+    et.noSuchMethod(inv);
+  });
 }

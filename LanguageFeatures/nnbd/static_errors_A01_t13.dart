@@ -24,6 +24,9 @@ class C<T extends Object?> {
     Expect.isNotNull(a.toString());
     Expect.isNotNull(a.runtimeType);
     Expect.isFalse(a == new Object());
+    Expect.throws((){
+      a.noSuchMethod(Invocation.method(Symbol('foo'), []));
+    });
   }
 }
 
