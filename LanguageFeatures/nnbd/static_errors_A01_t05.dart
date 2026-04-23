@@ -2,27 +2,69 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is an error to call a method, setter, getter or operator on
-/// an expression whose type is potentially nullable and not dynamic, except for
-/// the methods, setters, getters, and operators on Object.
+/// @assertion It is an error to call a method, setter, getter or operator on an
+/// expression whose type is potentially nullable and not `dynamic`, except for
+/// the methods, setters, getters, and operators on `Object`, and except when
+/// said member is an extension member or the receiver type is an extension type
 ///
 /// @description Check that it is no compile-time error to call a method, setter,
 /// getter or operator on an expression whose type is potentially nullable if
-/// they are methods, setters, getters, and operators on Object. Test type
-/// aliases
+/// they are methods, setters, getters, and operators on `Object`. Test type
+/// aliases.
 /// @author sgrekhov@unipro.ru
 
 import '../../Utils/expect.dart';
 
-class A {
+class A {}
+
+mixin class M {}
+
+enum E {
+  e0;
 }
 
+extension type ET(int _) {}
+
 typedef AAlias = A?;
+typedef MAlias = M?;
+typedef EAlias = E?;
+typedef ETAlias = ET?;
 
 main() {
-  AAlias x = A();
-  Expect.isNotNull(x.hashCode);
-  Expect.isNotNull(x.toString());
-  Expect.isNotNull(x.runtimeType);
-  Expect.isFalse(x == A());
+  final inv = Invocation.method(Symbol('foo'), []);
+  AAlias a = A();
+  Expect.isNotNull(a.hashCode);
+  Expect.isNotNull(a.toString());
+  Expect.isNotNull(a.runtimeType);
+  Expect.isFalse(a == A());
+  Expect.throws((){
+    a.noSuchMethod(inv);
+  });
+
+  MAlias m = M();
+  Expect.isNotNull(m.hashCode);
+  Expect.isNotNull(m.toString());
+  Expect.isNotNull(m.runtimeType);
+  Expect.isFalse(m == M());
+  Expect.throws((){
+    m.noSuchMethod(inv);
+  });
+
+  EAlias e = E.e0;
+  Expect.isNotNull(e.hashCode);
+  Expect.isNotNull(e.toString());
+  Expect.isNotNull(e.runtimeType);
+  Expect.isTrue(e == E.e0);
+  Expect.throws((){
+    e.noSuchMethod(inv);
+  });
+
+  ETAlias et = ET(0);
+  Expect.isNotNull(et.hashCode);
+  Expect.isNotNull(et.toString());
+  Expect.isNotNull(et.runtimeType);
+  Expect.isTrue(et == 0);
+  Expect.throws((){
+    et.noSuchMethod(inv);
+  });
 }
