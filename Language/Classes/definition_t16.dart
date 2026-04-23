@@ -12,14 +12,14 @@
 /// Class body is not empty.
 /// @author rodionov
 
+// SharedOptions=--enable-experiment=primary-constructors
+
 /**/class A (
 //        ^
-// [analyzer] unspecified
 // [cfe] unspecified
     var someMember;
 //                ^
 // [analyzer] unspecified
-// [cfe] unspecified
 /**/}
 //  ^
 // [analyzer] unspecified
