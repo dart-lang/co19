@@ -25,7 +25,9 @@ class C {
 }
 
 main() {
-  dynamic c = C();
-  Expect.equals(1, c.whatever(name: '_', _: 1));
-  Expect.equals(2, c.whatever(name: '_p', _p: 2));
+  if (!isMinified) {
+    dynamic c = C();
+    Expect.equals(1, c.whatever(name: '_', _: 1));
+    Expect.equals(2, c.whatever(name: '_p', _p: 2));
+  }
 }
