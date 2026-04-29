@@ -21,8 +21,19 @@ class A {
 
 int getme() => 0;
 
-typedef WAlias1<T> = A() Function(T);                 //# 01: syntax error
-typedef WAlias2<T, T2, T3> = A.callme() Function(T);  //# 02: syntax error
-typedef WAlias5<T> = getme() Function(T, int, [int]); //# 03: syntax error
+typedef WAlias1<T> = A() Function(T);
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef WAlias2<T, T2, T3> = A.callme() Function(T);
+//                           ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef WAlias5<T> = getme() Function(T, int, [int]);
+//                   ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

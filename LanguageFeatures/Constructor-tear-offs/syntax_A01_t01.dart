@@ -23,22 +23,38 @@ class C<T> {
 
 main() {
   var v1 = C<int>.new;
-  var v2 = (C<int>).new;            //#01: syntax error
+  var v2 = (C<int>).new;
+//                  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   var v3 = (C.new)<int>;
 
   var v4 = C<Never>.constr1;
-  var v5 = (C<Never>).constr1;      //# 02: syntax error
+  var v5 = (C<Never>).constr1;
+//                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   var v6 = (C.constr1)<Never>;
 
   var v7 = C<Null>.constr2;
-  var v8 = (C<Null>).constr2;       //# 03: syntax error
+  var v8 = (C<Null>).constr2;
+//                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   var v9 = (C.constr2)<Null>;
 
   var v10 = C<List>.constr3;
-  var v11 = (C<List>).constr3;      //# 04: syntax error
+  var v11 = (C<List>).constr3;
+//                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   var v12 = (C.constr3)<List>;
 
   var v13 = C<Object?>.constr4;
-  var v14 = (C<Object?>).constr4;   //# 05: syntax error
+  var v14 = (C<Object?>).constr4;
+//                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   var v15 = (C.constr4)<Object?>;
 }
