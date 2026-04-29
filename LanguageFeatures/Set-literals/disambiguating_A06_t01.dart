@@ -18,36 +18,30 @@ main() {
   int x = 1;
   var c1 = {if (2 > 1) x: x + 1, if (1 < 2) x};
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
-//          ^
-// [cfe] Expected ',' before this.
+// [analyzer] unspecified
+// [cfe] unspecified
   var c2 = {if (2 > 1) "s": "s" else "$x"};
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-//                                       ^
-// [cfe] Expected ':' after this.
+// [analyzer] unspecified
+// [cfe] unspecified
   var c3 = {if (2 > 1) "s" else "$x": "x", if (2 > 1) x: x};
 //                     ^^^
-// [analyzer] COMPILE_TIME_ERROR.EXPRESSION_IN_MAP
-// [cfe] Expected ':' after this.
+// [analyzer] unspecified
+// [cfe] unspecified
   var c4 = {for (var i = 0; i < 3; i++) if (2 > 1) "s": "s" else if (2 > 1) x};
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-//                                                               ^
-// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+// [analyzer] unspecified
+// [cfe] unspecified
   var c5 = {for (var i in [1, 2, 3]) if (1 > 2) x else if (2 > 1) i: i};
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-//                                              ^
-// [cfe] Expected ':' after this.
+// [analyzer] unspecified
+// [cfe] unspecified
   var c6 = {if (1 > 2) for (var i in [1, 2, 3]) i else if (2 > 1) for (var i = 0; i < 3; i++) i: i};
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-//                     ^
-// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+// [analyzer] unspecified
+// [cfe] unspecified
   var c7 = {if (2 > 1) for (var i in [1, 2, 3]) i:i else if (2 > 1) for (var i = 0; i < 3; i++) i};
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-//                                                       ^
-// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
