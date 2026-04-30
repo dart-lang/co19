@@ -18,49 +18,44 @@ class A {
   const A();
 }
 
-class B {
-  final A? a;
-  const B(this.a);
-}
-
 class const C1(final A a) {
-  final B b;
-  this : b = const B(a);
+  final A b;
+  this : b = a;
 }
 
 class const C2(A a) {
-  final B b;
-  this : b = const B(a);
+  final A b;
+  this : b = a;
 }
 
 class const C3([final A? a]) {
-  final B b;
-  this : b = const B(a);
+  final A? b;
+  this : b = a;
 }
 
 class const C4([A? a]) {
-  final B b;
-  this : b = const B(a);
+  final A? b;
+  this : b = a;
 }
 
 class const C5({final A? a}) {
-  final B b;
-  this : b = const B(a);
+  final A? b;
+  this : b = a;
 }
 
 class const C6({A? a}) {
-  final B b;
-  this : b = const B(a);
+  final A? b;
+  this : b = a;
 }
 
 class const C7({required final A a}) {
-  final B b;
-  this : b = const B(a);
+  final A b;
+  this : b = a;
 }
 
 class const C8({required A a}) {
-  final B b;
-  this : b = const B(a);
+  final A b;
+  this : b = a;
 }
 
 main() {

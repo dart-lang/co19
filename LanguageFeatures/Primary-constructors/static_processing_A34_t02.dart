@@ -18,65 +18,60 @@ class A {
   const A();
 }
 
-class B {
-  final A? a;
-  const B(this.a);
-}
-
 enum const E1(final A a) {
   e0(A());
 
-  final B b;
-  this : b = const B(a);
+  final A b;
+  this : b = a;
 }
 
 enum const E2(A a) {
   e0(A());
 
-  final B b;
-  this : b = const B(a);
+  final A b;
+  this : b = a;
 }
 
 enum const E3([final A? a]) {
   e0(A());
 
-  final B b;
-  this : b = const B(a);
+  final A? b;
+  this : b = a;
 }
 
 enum const E4([A? a]) {
   e0(A());
 
-  final B b;
-  this : b = const B(a);
+  final A? b;
+  this : b = a;
 }
 
 enum const E5({final A? a}) {
   e0(a: A());
 
-  final B b;
-  this : b = const B(a);
+  final A? b;
+  this : b = a;
 }
 
 enum const E6({A? a}) {
   e0(a: A());
 
-  final B b;
-  this : b = const B(a);
+  final A? b;
+  this : b = a;
 }
 
 enum const E7({required final A a}) {
   e0(a: A());
 
-  final B b;
-  this : b = const B(a);
+  final A b;
+  this : b = a;
 }
 
 enum const E8({required A a}) {
   e0(a: A());
 
-  final B b;
-  this : b = const B(a);
+  final A b;
+  this : b = a;
 }
 
 main() {
