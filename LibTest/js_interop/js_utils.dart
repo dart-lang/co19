@@ -17,7 +17,7 @@ void jsExpectEquals(JSAny? expected, JSAny? actual) {
     return;
   }
   if (isWasm) {
-    Expect.equals(expected.dartify(), actual.dartify());
+    Expect.equalsOrNaN(expected.dartify(), actual.dartify());
     return;
   }
   throw Exception("Only dart2js and dart2wasm compilers supported");
