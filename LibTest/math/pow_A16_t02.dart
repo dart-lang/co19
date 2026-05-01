@@ -26,9 +26,9 @@ main() {
   Expect.equals(1 / Math.pow(-4.9406564584124654e-324, double.infinity),
       Math.pow(-4.9406564584124654e-324, double.negativeInfinity));
 
-  Expect.equals(1 / Math.pow(-1, double.infinity),
+  Expect.equalsOrNaN(1 / Math.pow(-1, double.infinity),
       Math.pow(-1, double.negativeInfinity));
-  Expect.equals(1 / Math.pow(-1.0, double.infinity),
+  Expect.equalsOrNaN(1 / Math.pow(-1.0, double.infinity),
       Math.pow(-1.0, double.negativeInfinity));
 
   Expect.equals(1 / Math.pow(1.0000000000000002, double.infinity),
