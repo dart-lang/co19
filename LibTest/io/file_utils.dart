@@ -97,6 +97,13 @@ Future<Directory> getTempDirectory({Directory? parent, String? name}) async {
   return dir.create();
 }
 
+/// Returns a new [Link] in the directory [parent], with the name [name] and the
+/// target [target].
+///
+/// If [parent] is not specified, [Directory.systemTemp] is used.
+/// If [target] is not specified, a temporary directory is created and used as
+/// the link target.
+/// If [name] is not specified, a temporary name is generated.
 Link getTempLinkSync({Directory? parent, String? target, String? name}) {
   parent ??= Directory.systemTemp;
   target ??= getTempDirectorySync(parent: parent).path;
@@ -151,6 +158,13 @@ String getPrefix() {
   return "co19-" + fileName.substring(0, fileName.indexOf(".")) + "_";
 }
 
+/// Synchronously returns the path to a temporary file without actually creating
+/// the file.
+///
+/// If [parent] is specified, the returned path will be in that directory.
+/// Otherwise, [Directory.systemTemp] is used.
+/// If [name] is specified, that file name is used. Otherwise, the result of
+/// [getTempFileName] is used.
 String getTempFilePath({Directory? parent, String? name}) {
   parent ??= Directory.systemTemp;
   name ??= getPrefix() + getTempFileName();
