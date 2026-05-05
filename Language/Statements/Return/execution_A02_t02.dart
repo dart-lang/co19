@@ -18,7 +18,7 @@
 /// of `Tv`. Then the return statement `s` completes returning `r`.
 ///
 /// @description Checks that if the run-time type of `o` is a not a subtype of
-/// `Future<Tv>` then dynamic error occurs.
+/// `Future<Tv>` and not a subtype of `Tv` then dynamic error occurs.
 /// @author sgrekhov22@gmail.com
 
 import '../../../Utils/expect.dart';
@@ -30,20 +30,25 @@ Future<int> foo() async {
 }
 
 Future<int> bar() async {
-  return (2 as num) as dynamic;
+  return 3.14 as dynamic;
 }
 
 main() async {
+  var success = false;
   asyncStart(2);
   foo().then((_) {
-    Expect.fail('Run-time error expected');
+    success = true;
   }).onError((_, _) {
     asyncEnd();
+  }).whenComplete(() {
+    Expect.isFalse(success);
   });
 
   bar().then((_) {
-    Expect.fail('Run-time error expected');
+    success = true;
   }).onError((_, _) {
     asyncEnd();
+  }).whenComplete(() {
+    Expect.isFalse(success);
   });
 }

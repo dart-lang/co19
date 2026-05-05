@@ -11,7 +11,7 @@
 ///
 /// The expression `e` is evaluated to an object `o`. A dynamic error occurs
 /// unless the dynamic type of `o` is a subtype of the actual return type of `f`.
-/// Then the return statement s completes returning `o`.
+/// Then the return statement `s` completes returning `o`.
 ///
 /// @description Checks that no error occurs if the run-time type of `e` is a
 /// subtype of the actual return type of `f`.
@@ -37,7 +37,7 @@ FutureOr<num> f4() {
 }
 
 FutureOr<num> f5() {
-  return Future.value(5);
+  return Future<num>.value(5);
 }
 
 int f6(v) {

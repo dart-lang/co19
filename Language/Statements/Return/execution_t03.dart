@@ -11,7 +11,7 @@
 ///
 /// The expression `e` is evaluated to an object `o`. A dynamic error occurs
 /// unless the dynamic type of `o` is a subtype of the actual return type of `f`.
-/// Then the return statement s completes returning `o`.
+/// Then the return statement `s` completes returning `o`.
 ///
 /// @description Checks that a finally statement is executed if the control
 /// is transferred from a try block using a return statement.

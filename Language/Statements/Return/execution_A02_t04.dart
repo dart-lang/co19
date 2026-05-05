@@ -20,6 +20,7 @@
 /// @description Checks that if the run-time type of `o` is a not a subtype of
 /// `Future<Tv>` then dynamic error occurs.
 /// @author sgrekhov22@gmail.com
+/// @issue 44395
 
 import '../../../Utils/expect.dart';
 

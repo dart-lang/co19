@@ -42,13 +42,19 @@ FutureOr<num> qux() async {
   return 4;
 }
 
+FutureOr<Object> quux() async {
+  return r<Object>(5);
+}
+
 main() async {
-  Expect.notEquals(await r(1), foo());
+  Expect.notEquals(await r(1), foo()); // The expected values are directly based on the specified behavior
   Expect.equals(await r(1), await foo());
   Expect.notEquals(await r(2), bar());
   Expect.equals(await r(2), await bar());
-  Expect.notEquals(await r(3), baz());
-  Expect.equals(await r(3), await baz());
-  Expect.notEquals(await r(4), qux());
-  Expect.equals(await r(4), await qux());
+  Expect.notEquals(3, baz());
+  Expect.equals(3, await baz());
+  Expect.notEquals(4, qux());
+  Expect.equals(4, await qux());
+  Expect.notEquals(await r(5), quux());
+  Expect.equals(await r(5), await quux());
 }

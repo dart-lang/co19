@@ -11,7 +11,7 @@
 ///
 /// The expression `e` is evaluated to an object `o`. A dynamic error occurs
 /// unless the dynamic type of `o` is a subtype of the actual return type of `f`.
-/// Then the return statement s completes returning `o`.
+/// Then the return statement `s` completes returning `o`.
 ///
 /// @description Checks that the return statement returns a value received after
 /// evaluating the return expression and if this evaluation results in a runtime
