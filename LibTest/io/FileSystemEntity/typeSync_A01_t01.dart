@@ -33,6 +33,6 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  final path = getTempFilePath(parent: sandbox);
+  final path = getTempFilePath(parent: sandbox); // No actual file created
   Expect.equals(FileSystemEntityType.notFound, FileSystemEntity.typeSync(path));
 }

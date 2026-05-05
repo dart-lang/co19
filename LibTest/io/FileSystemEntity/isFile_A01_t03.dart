@@ -19,6 +19,8 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
+  // dirLink will be a link to a temp directory in the sandbox because no target
+  // is passed
   final dirLink = getTempLinkSync(parent: sandbox);
   Expect.isFalse(await FileSystemEntity.isFile(dirLink.path));
   final type1 = await FileSystemEntity.type(dirLink.path);
@@ -30,6 +32,7 @@ void _main(Directory sandbox) async {
   final type2 = await FileSystemEntity.type(fileLink.path);
   Expect.equals(FileSystemEntityType.file, type2);
 
+  // notExisting will be a path to a non-existing file in the sandbox
   final notExisting = getTempFilePath(parent: sandbox);
   final brokenLink = getTempLinkSync(parent: sandbox, target: notExisting);
   Expect.isFalse(await FileSystemEntity.isFile(brokenLink.path));
