@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -13,20 +13,22 @@
 /// unless the dynamic type of `o` is a subtype of the actual return type of `f`.
 /// Then the return statement `s` completes returning `o`.
 ///
-/// @description Checks that a finally statement is executed if the control
-/// is transferred from a try block using a return statement.
-/// @author iefremov
+/// @description Checks that it is dynamic error if the run-time type of `e` is
+/// not a subtype of the actual return type of `f`.
+/// @author sgrekhov22@gmail.com
 
+import 'dart:async';
 import '../../../Utils/expect.dart';
 
-foo() {
-  try {
-    return 1;
-  } finally {
-    return 2;
-  }
+int foo(v) {
+  return v;
 }
 
-main() {
-  Expect.equals(2, foo(), "A finally clause was not executed correctly!");
+main() async {
+  Expect.throws(() {
+    foo(3.14);
+  });
+  Expect.throws(() {
+    foo(null);
+  });
 }
