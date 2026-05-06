@@ -33,32 +33,13 @@
 ///   ‘a’ .. ‘z’ |
 ///   ‘A’ ..‘Z’
 /// ;
-/// @description Checks that identifier can't contain non-ascii characters.
+/// @description Checks that identifier can't contain letters
+/// from the cyrillic alphabet.
 /// @author msyabro
 
 main() {
-  if (1 > 2) {
-    int? а;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (1 > 2) {
-    String б = "It's wrong!";
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (1> 2) {
-    var в1;
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (1 > 2) {
-    final д2;
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  int? а;                     //# 01: syntax error
+  String б = "It's wrong!";   //# 02: syntax error
+  var в1;                     //# 03: syntax error
+  д2;                         //# 04: syntax error
 }

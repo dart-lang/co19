@@ -33,33 +33,12 @@
 ///   ‘a’ .. ‘z’ |
 ///   ‘A’ ..‘Z’
 /// ;
-/// @description Checks that an identifier can't start with a digit.
+/// @description Checks that identifier can't start with digit.
 /// @author msyabro
 
 main() {
-  if (1 > 2) {
-    int? 1a;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (1 > 2) {
-    String 2b = "It's wrong!";
-//  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  if (1 > 2) {
-    var 3c;
-//      ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  }
-  if (1 > 2) {
-    final 4d = 0;
-//        ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  int? 1a;                    //# 01: syntax error
+  String 2b = "It's wrong!";  //# 02: syntax error
+  var 3c;                     //# 03: syntax error
+  4d;                         //# 04: syntax error
 }

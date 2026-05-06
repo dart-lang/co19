@@ -18,17 +18,7 @@ class A {
  static void callme<T>() { return null; }
 }
 
-typedef W2<T> = 5;
-//            ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+typedef W2<T> = 5;                          //# 01: syntax error
+typedef W3<T> = A.callme<T1 extends T>();   //# 02: syntax error
 
-typedef W3<T> = A.callme<T1 extends T>();
-//              ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-main() {
- print(W2);
- print(W3);
-}
+main() {}
