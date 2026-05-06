@@ -8,8 +8,8 @@
 /// instance variable declaration, is potentially constant.
 ///
 /// @description Check that it is a compile-time error if a parameter of a
-/// constant primary constructor occurs in an constant initializing expression
-/// of a non-late instance variable declaration. Test enums.
+/// constant primary constructor occurs in a constant initializing expression of
+/// a non-late instance variable declaration. Test enums.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
@@ -32,7 +32,7 @@ enum const E1(final A a) {
 // [cfe] unspecified
 }
 
-enum const E2(A a) {
+enum E2(A a) {
   e0(A());
 
   final B b = const B(a);
@@ -41,7 +41,7 @@ enum const E2(A a) {
 // [cfe] unspecified
 }
 
-enum const E3([final A? a]) {
+enum E3([final A? a]) {
   e0(A());
 
   final B? b = const B(a);
@@ -68,7 +68,7 @@ enum const E5({final A? a}) {
 // [cfe] unspecified
 }
 
-enum const E6({A? a}) {
+enum E6({A? a}) {
   e0(a: A());
 
   final B? b = const B(a);
@@ -77,7 +77,7 @@ enum const E6({A? a}) {
 // [cfe] unspecified
 }
 
-enum const E7({required final A a}) {
+enum E7({required final A a}) {
   e0(a: A());
 
   final B b = const B(a);

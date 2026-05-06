@@ -8,8 +8,8 @@
 /// instance variable declaration, is potentially constant.
 ///
 /// @description Check that it is a compile-time error if a parameter of a
-/// constant primary constructor that occurs in the initializer list of the body
-/// part of the primary constructor in a constant expression. Test classes.
+/// constant primary constructor occurs in the initializer list of the body part
+/// of the primary constructor in a constant expression. Test classes.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors

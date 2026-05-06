@@ -8,8 +8,8 @@
 /// instance variable declaration, is potentially constant.
 ///
 /// @description Check that it is a compile-time error if a parameter of a
-/// constant primary constructor occurs in an constant initializing expression
-/// of a non-late instance variable declaration. Test classes.
+/// constant primary constructor occurs in a constant initializing expression of
+/// a non-late instance variable declaration. Test classes.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
