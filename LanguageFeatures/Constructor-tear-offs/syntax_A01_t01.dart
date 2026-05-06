@@ -6,8 +6,8 @@
 /// the same as the static type of the corresponding constructor function
 /// tear-off.
 ///
-/// @description Checks that the static types of the constructor tear off
-/// expressions are the same - test generic class
+/// @description Checks that it is a compile-time error to attempt to tear-off
+/// a constructor using `(C<T>).constructorName` syntax.
 /// @author iarkh@unipro.ru
 
 class C<T> {
