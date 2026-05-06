@@ -46,10 +46,6 @@ void testList() {
 
 void testC() {
   C<int>.new;
-  (C<int>).new;
-//         ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   (C.new)<int>;
 
   C.new<int>;
@@ -58,10 +54,6 @@ void testC() {
 // [cfe] unspecified
 
   C<int>.new();
-  (C<int>).new();
-//         ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   (C.new)<int>();
 
   C.new<int>();

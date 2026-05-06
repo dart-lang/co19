@@ -22,39 +22,34 @@ class C<T> {
 }
 
 main() {
-  var v1 = C<int>.new;
-  var v2 = (C<int>).new;
-//                  ^^^
+  C<int>.new;
+  (C.new)<int>;
+
+  C<Never>.constr1;
+  (C<Never>).constr1;
+//           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  (C.constr1)<Never>;
 
-  var v3 = (C.new)<int>;
-
-  var v4 = C<Never>.constr1;
-  var v5 = (C<Never>).constr1;
-//                    ^^^^^^^
+  C<Null>.constr2;
+  (C<Null>).constr2;
+//          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  var v6 = (C.constr1)<Never>;
+  (C.constr2)<Null>;
 
-  var v7 = C<Null>.constr2;
-  var v8 = (C<Null>).constr2;
-//                   ^^^^^^^
+  C<List>.constr3;
+  (C<List>).constr3;
+//          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  var v9 = (C.constr2)<Null>;
+  (C.constr3)<List>;
 
-  var v10 = C<List>.constr3;
-  var v11 = (C<List>).constr3;
-//                    ^^^^^^^
+  C<Object?>.constr4;
+  (C<Object?>).constr4;
+//             ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  var v12 = (C.constr3)<List>;
-
-  var v13 = C<Object?>.constr4;
-  var v14 = (C<Object?>).constr4;
-//                       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  var v15 = (C.constr4)<Object?>;
+  (C.constr4)<Object?>;
 }
