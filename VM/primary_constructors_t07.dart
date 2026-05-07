@@ -59,6 +59,7 @@ final tests = <IsolateTest>[
     Expect.equals('null', xRef2.valueAsString);
   },
   stepInto,
+  stoppedAtLine(LINE_A),
   (VmService srv, IsolateRef isolateRef) async {
     final islId = isolateRef.id!;
     final xRef1 = await srv.evaluateInFrame(islId, 0, 'x') as InstanceRef;
