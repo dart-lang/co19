@@ -6,8 +6,8 @@
 /// the same as the static type of the corresponding constructor function
 /// tear-off.
 ///
-/// @description Checks that the static types of the constructor tear off
-/// expressions are the same - test generic class
+/// @description Checks that it is a compile-time error to attempt to tear-off
+/// a constructor using `(C<T>).constructorName` syntax.
 /// @author iarkh@unipro.ru
 
 class C<T> {
@@ -22,23 +22,34 @@ class C<T> {
 }
 
 main() {
-  var v1 = C<int>.new;
-  var v2 = (C<int>).new;            //#01: syntax error
-  var v3 = (C.new)<int>;
+  C<int>.new;
+  (C.new)<int>;
 
-  var v4 = C<Never>.constr1;
-  var v5 = (C<Never>).constr1;      //# 02: syntax error
-  var v6 = (C.constr1)<Never>;
+  C<Never>.constr1;
+  (C<Never>).constr1;
+//           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (C.constr1)<Never>;
 
-  var v7 = C<Null>.constr2;
-  var v8 = (C<Null>).constr2;       //# 03: syntax error
-  var v9 = (C.constr2)<Null>;
+  C<Null>.constr2;
+  (C<Null>).constr2;
+//          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (C.constr2)<Null>;
 
-  var v10 = C<List>.constr3;
-  var v11 = (C<List>).constr3;      //# 04: syntax error
-  var v12 = (C.constr3)<List>;
+  C<List>.constr3;
+  (C<List>).constr3;
+//          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (C.constr3)<List>;
 
-  var v13 = C<Object?>.constr4;
-  var v14 = (C<Object?>).constr4;   //# 05: syntax error
-  var v15 = (C.constr4)<Object?>;
+  C<Object?>.constr4;
+  (C<Object?>).constr4;
+//             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (C.constr4)<Object?>;
 }
