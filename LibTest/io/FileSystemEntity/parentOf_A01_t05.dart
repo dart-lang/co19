@@ -29,6 +29,7 @@ main() {
   test(r'\\server_name' + ps, r'\\server_name' + ps);
   test(r'\\server_name' + '${ps}a', r'\\server_name'  + ps);
   test(r'\\server_name' + '${ps}a${ps}b', r'\\server_name'  + '${ps}a');
+  test(r'//', r'/');
 }
 
 void test(String path, String expected) {

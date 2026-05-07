@@ -18,7 +18,6 @@
 /// @description Checks that the root component of a Windows path, like "C:\" or
 /// "\\server_name\" are not removed.
 /// @author sgrekhov22@gmail.com
-/// @issue 63339
 
 import 'dart:io';
 import '../../../Utils/expect.dart';
@@ -28,7 +27,6 @@ main() {
 
   test(r'C:\', r'C:\');
   test(r'C:\a' + '${ps}a${ps}b', r'C:\a' + '${ps}a');
-  test(r'"C:\"', r'"C:\"');
 }
 
 void test(String path, String expected) {

@@ -37,6 +37,7 @@ main() {
   test('a b/file,with comma.txt', 'a b');
   test('a b/dir,with comma/file.txt', 'a b/dir,with comma');
   test('a b:c,d#e;f?g/a b:c,d#e;f?g/', 'a b:c,d#e;f?g');
+  test("a'b/c'd", "a'b");
   test('./a', '.');
   test('./', '.');
   test('C:', '.');

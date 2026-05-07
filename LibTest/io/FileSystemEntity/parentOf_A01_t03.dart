@@ -24,8 +24,14 @@ import 'dart:io';
 import '../../../Utils/expect.dart';
 
 main() {
-  test('"a/b/c"', '"a/b"');
-  test("'a/b/c'", "'a/b'");
+  // Quote is allowed to be part of a file path. Therefore below we have
+  // directories with names `'a`,`b` and `c'`.
+  test("'a/b/c'", "'a/b");
+  // Double quote is allowed to be part of a file path on Linux and Mac.
+  // Forbidden on Windows. But `FileSystemEntity.parentOf()` shouldn't validate
+  // the path, so we expect similar result as the above.
+  test('"a/b/c"', '"a/b');
+
 }
 
 void test(String path, String expected) {
