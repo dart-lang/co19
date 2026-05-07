@@ -24,9 +24,14 @@ import '../../../Utils/expect.dart';
 
 main() {
   final ps = Platform.pathSeparator;
-
-  test(r'C:\', r'C:\');
-  test(r'C:\a' + '${ps}a${ps}b', r'C:\a' + '${ps}a');
+  if (Platform.isWindows) {
+    test(r'C:\', r'C:\');
+    test(r'C:\a\b', r'C:\a');
+  } else {
+    test(r'C:\', '.');
+    test(r'C:\a\b', '.');
+    test(r'C:\a' + '${ps}b', r'C:\a');
+  }
 }
 
 void test(String path, String expected) {

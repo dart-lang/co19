@@ -23,13 +23,22 @@ import '../../../Utils/expect.dart';
 
 main() {
   final ps = Platform.pathSeparator;
-
-  test(r'\\', r'\\');
-  test(r'\\server_name', r'\\server_name');
-  test(r'\\server_name' + ps, r'\\server_name' + ps);
-  test(r'\\server_name' + '${ps}a', r'\\server_name'  + ps);
-  test(r'\\server_name' + '${ps}a${ps}b', r'\\server_name'  + '${ps}a');
-  test(r'//', r'/');
+  if (Platform.isWindows) {
+    test(r'\\', r'\\');
+    test(r'\\server_name', r'\\server_name');
+    test(r'\\server_name\', r'\\server_name\');
+    test(r'\\server_name\a', r'\\server_name\');
+    test(r'\\server_name\a\b', r'\\server_name\a');
+    test(r'//', r'/');
+  } else {
+    test(r'\\', '.');
+    test(r'\\server_name', '.');
+    test(r'\\server_name\', '.');
+    test(r'\\server_name' + ps, '.');
+    test(r'\\server_name' + '${ps}a', r'\\server_name');
+    test(r'\\server_name' + '${ps}a${ps}b', r'\\server_name' + '${ps}a');
+    test(r'//', r'/');
+  }
 }
 
 void test(String path, String expected) {
