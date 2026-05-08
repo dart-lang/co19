@@ -29,6 +29,7 @@ main() {
     test(r'\\server_name\', r'\\server_name\');
     test(r'\\server_name\a', r'\\server_name\');
     test(r'\\server_name\a\b', r'\\server_name\a');
+    test(r'\\server_name/', r'\\server_name/');
     test(r'//', r'/');
   } else {
     test(r'\\', '.');

@@ -31,7 +31,6 @@ main() {
   // Forbidden on Windows. But `FileSystemEntity.parentOf()` shouldn't validate
   // the path, so we expect similar result as the above.
   test('"a/b/c"', '"a/b');
-
 }
 
 void test(String path, String expected) {
