@@ -19,6 +19,8 @@
 /// expected.
 /// @author sgrekhov22@gmail.com
 
+import '../../Utils/static_type_helper.dart';
+
 class A {}
 class B extends A {}
 class D implements A {}
@@ -27,6 +29,8 @@ class C1 extends D implements B {}
 class C2 extends D implements B {}
 
 main() {
-  B b1 = (1 > 2) ? C1() : C2();
-  print(b1);
+  B b = (1 > 2) ? C1() : C2();
+  D d = (1 > 2) ? C1() : C2();
+  var x = (1 > 2) ? C1() : C2();
+  x.expectStaticType<Exactly<A>>();
 }
