@@ -12,8 +12,9 @@
 /// - Otherwise, if `T1 <: S` and `T2 <: S`, then the type of `E` is `S`
 /// - Otherwise, the type of `E` is `T`
 ///
-/// @description Check that static type of conditional expressions is calculated
-/// taking into account the context type.
+/// @description Check that static type of `switch` expressions is calculated
+/// using the same rules as for conditional expression (the context type is
+/// taken into account).
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
@@ -26,8 +27,17 @@ class C1 extends D implements B {}
 class C2 extends D implements B {}
 
 main() {
-  B b = (1 > 2) ? C1() : C2();
-  D d = (1 > 2) ? C1() : C2();
-  var x = (1 > 2) ? C1() : C2();
+  B b = switch(1 + 2) {
+    1 => C1(),
+    _ => C2()
+  };
+  D d = switch(1 + 2) {
+    2 => C1(),
+    _ => C2()
+  };
+  var x = switch(1 + 2) {
+    3 => C1(),
+    _ => C2()
+  };
   x.expectStaticType<Exactly<A>>();
 }
