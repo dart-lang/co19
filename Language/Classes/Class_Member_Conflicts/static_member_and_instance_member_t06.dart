@@ -1,4 +1,4 @@
-// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -7,45 +7,41 @@
 /// It is a compile-time error if `C` declares a static member with basename `n`
 /// and the interface of `C` has an instance member with basename `n`.
 ///
-/// @description Check that it is a compile-time error if class `C` declares a
-/// static member with basename `n` and an instance member with basename `n`.
-/// Test an instance variable.
-/// @author sgrekhov@unipro.ru
+/// @description Check that it is a compile-time error if `C` declares a static
+/// member with basename `n` and an instance member with basename `n`. Test
+/// implemented instance method.
+/// @author sgrekhov22@gmail.com
 
-class C {
-  int s1 = 1;
-  int s2 = 1;
-  int s3 = 1;
-  int s4 = 1;
-  int s5 = 1;
+class A {
+  void s1() {}
+  void s2() {}
+  void s3() {}
+  void s4() {}
+  void s5() {}
+  void _s1() {}
+  void _s2() {}
+  void _s3() {}
+  void _s4() {}
+  void _s5() {}
+}
 
-  int _s1 = 1;
-  int _s2 = 1;
-  int _s3 = 1;
-  int _s4 = 1;
-  int _s5 = 1;
-
+abstract class C implements A {
   static set s1(int value) {}
 //           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
- static void s2() {}
+  static void s2() {}
 //            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-
   static int s3() => 1;
 //           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
   static int get s4 => 1;
 //               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
   static int s5 = 1;
 //           ^^
 // [analyzer] unspecified
@@ -55,62 +51,41 @@ class C {
 //           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
   static void _s2() {}
 //            ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
   static int _s3() => 1;
 //           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
   static int get _s4 => 1;
 //               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
   static int _s5 = 1;
 //           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-mixin M {
-  int s1 = 1;
-  int s2 = 1;
-  int s3 = 1;
-  int s4 = 1;
-  int s5 = 1;
-
-  int _s1 = 1;
-  int _s2 = 1;
-  int _s3 = 1;
-  int _s4 = 1;
-  int _s5 = 1;
-
+extension type ET(A _) implements A {
   static set s1(int value) {}
 //           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
   static void s2() {}
 //            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-
   static int s3() => 1;
 //           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
   static int get s4 => 1;
 //               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
   static int s5 = 1;
 //           ^^
 // [analyzer] unspecified
@@ -120,89 +95,18 @@ mixin M {
 //           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
   static void _s2() {}
 //            ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
   static int _s3() => 1;
 //           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
   static int get _s4 => 1;
 //               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  static int _s5 = 1;
-//           ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-enum E {
-  e0;
-
-  final int s1 = 1;
-  final int s2 = 1;
-  final int s3 = 1;
-  final int s4 = 1;
-  final int s5 = 1;
-
-  final int _s1 = 1;
-  final int _s2 = 1;
-  final int _s3 = 1;
-  final int _s4 = 1;
-  final int _s5 = 1;
-
-  static set s1(int value) {}
-//           ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  static void s2() {}
-//            ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-
-  static int s3() => 1;
-//           ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  static int get s4 => 1;
-//               ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  static int s5 = 1;
-//           ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  static set _s1(int value) {}
-//           ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  static void _s2() {}
-//            ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  static int _s3() => 1;
-//           ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  static int get _s4 => 1;
-//               ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   static int _s5 = 1;
 //           ^^^
 // [analyzer] unspecified
@@ -213,4 +117,6 @@ main() {
   print(C);
   print(M);
   print(E);
+  print(A);
+  print(ET);
 }
