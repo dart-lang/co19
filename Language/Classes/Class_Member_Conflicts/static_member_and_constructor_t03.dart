@@ -128,5 +128,6 @@ extension type ET(int n) {
 
 main() {
   print(C);
+  print(E);
   print(ET);
 }
