@@ -23,7 +23,7 @@
 ///
 /// Completes the future with a FileSystemException if the operation fails.
 ///
-/// @description Checks that if a link with the name of to-be-created file
+/// @description Checks that if a link with the name of the to-be-created file
 /// already exists, then a [FileSystemException] is thrown. Test a link pointing
 /// to a directory.
 /// @author sgrekhov22@gmail.com
@@ -38,8 +38,8 @@ main() async {
 
 _test(
   Directory sandbox, {
-  bool recursive = false,
-  bool exclusive = false,
+  required bool recursive,
+  required bool exclusive,
 }) async {
   Directory target = createTempDirectorySync(parent: sandbox);
   Link link = createTempLinkSync(parent: sandbox, target: target.path);

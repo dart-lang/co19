@@ -24,9 +24,9 @@
 ///
 /// Throws a [FileSystemException] if the operation fails.
 ///
-/// @description Checks that if a link with the name of to-be-created file
-/// already exists, then a [FileSystemException] is thrown. Test a link pointing
-/// to a directory.
+/// @description Synchronously checks that if a link with the name of the
+/// to-be-created file already exists, then a [FileSystemException] is thrown.
+/// Test a link pointing to a directory.
 /// @author sgrekhov22@gmail.com
 
 import "dart:io";
@@ -37,7 +37,7 @@ main() async {
   await inSandbox(_main);
 }
 
-_test(Directory sandbox, {bool recursive = false, bool exclusive = false}) {
+_test(Directory sandbox, {required bool recursive, required bool exclusive}) {
   Directory target = createTempDirectorySync(parent: sandbox);
   Link link = createTempLinkSync(parent: sandbox, target: target.path);
   File file = File(link.path);

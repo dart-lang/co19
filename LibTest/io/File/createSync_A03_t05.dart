@@ -24,8 +24,8 @@
 ///
 /// Throws a [FileSystemException] if the operation fails.
 ///
-/// @description Checks that if a directory with the name of to-be-created file
-/// already exists, then a [FileSystemException] is thrown.
+/// @description Synchronously checks that if a directory with the name of the
+/// to-be-created file already exists, then a [FileSystemException] is thrown.
 /// @author sgrekhov22@gmail.com
 
 import "dart:io";
@@ -38,8 +38,8 @@ main() {
 
 _test(
   Directory sandbox, {
-  bool recursive = false,
-  bool exclusive = false,
+  required bool recursive,
+  required bool exclusive,
 }) async {
   Directory dir = createTempDirectorySync(parent: sandbox);
   File file = new File(dir.path);
