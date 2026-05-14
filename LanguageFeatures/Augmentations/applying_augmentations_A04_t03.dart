@@ -14,6 +14,9 @@
 // SharedOptions=--enable-experiment=augmentations
 
 void f1();
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 void f2() {}
 
