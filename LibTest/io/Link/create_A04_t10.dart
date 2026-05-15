@@ -48,7 +48,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File target1 = getTempFileSync(parent: sandbox);
+  File target1 = createTempFileSync(parent: sandbox);
   Link link = Link(getTempFilePath(parent: sandbox));
   asyncStart();
   await link.create(target1.path).then((Link created) {
@@ -70,7 +70,7 @@ void _main(Directory sandbox) async {
     target2.deleteSync();
 
     Link target3 = Link(target1.path);
-    Directory linkTarget = getTempDirectorySync();
+    Directory linkTarget = createTempDirectorySync();
     target3.createSync(linkTarget.path);
     if (Platform.isWindows) {
       Expect.equals(FileSystemEntityType.notFound,

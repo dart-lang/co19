@@ -21,7 +21,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
 
   final eventCompleter = new Completer<FileSystemEvent?>();
   StreamSubscription? subscription;

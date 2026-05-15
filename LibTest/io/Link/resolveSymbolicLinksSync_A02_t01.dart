@@ -39,7 +39,7 @@ main() async {
 
 void _main(Directory sandbox) {
   Directory target = new Directory(getTempDirectoryPath(parent: sandbox));
-  Link link1 = getTempLinkSync(target: target.path, parent: sandbox);
+  Link link1 = createTempLinkSync(target: target.path, parent: sandbox);
   Expect.throws(() {
     link1.resolveSymbolicLinksSync();
   }, (e) => e is FileSystemException);

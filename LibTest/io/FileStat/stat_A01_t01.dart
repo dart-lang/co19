@@ -21,7 +21,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   asyncStart();
   await FileStat.stat(file.path).then((FileStat fs) {
     Expect.equals(FileSystemEntityType.file, fs.type);

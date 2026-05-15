@@ -19,7 +19,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsBytesSync([1, 2, 3, 4, 127]);
   file.deleteSync();
   Expect.throws(() {

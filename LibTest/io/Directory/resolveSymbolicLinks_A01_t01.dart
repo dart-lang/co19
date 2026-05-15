@@ -31,25 +31,25 @@ main() async {
 
 void _main(Directory sandbox) async {
   // create 2 Directories
-  Directory dir1 = getTempDirectorySync(parent: sandbox, name: "dir1");
-  Directory dir2 = getTempDirectorySync(parent: sandbox, name: "dir2");
+  Directory dir1 = createTempDirectorySync(parent: sandbox, name: "dir1");
+  Directory dir2 = createTempDirectorySync(parent: sandbox, name: "dir2");
   String dir2Name = getEntityName(dir2);
 
   // create a directory in dir2
-  Directory dir3 = getTempDirectorySync(parent: dir2, name: "dir3");
+  Directory dir3 = createTempDirectorySync(parent: dir2, name: "dir3");
 
   // create link to the directory dir1
-  Link link1 = getTempLinkSync(
+  Link link1 = createTempLinkSync(
       parent: sandbox,
       target: dir1.path,
       name: "link1.lnk");
   // in dir1 create link to dir1
-  Link link2 = getTempLinkSync(
+  Link link2 = createTempLinkSync(
       parent: dir1,
       target: ".",
       name: "link2.lnk");
   // in dir1 create link to dir2
-  Link link3 = getTempLinkSync(
+  Link link3 = createTempLinkSync(
       parent: dir1,
       target: ".." + Platform.pathSeparator + dir2Name,
       name: "link3.lnk");

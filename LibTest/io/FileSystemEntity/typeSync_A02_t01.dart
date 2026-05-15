@@ -33,7 +33,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  final file = getTempFileSync(parent: sandbox);
+  final file = createTempFileSync(parent: sandbox);
   Expect.equals(
     FileSystemEntityType.file,
     FileSystemEntity.typeSync(file.path),

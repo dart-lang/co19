@@ -20,7 +20,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   await new Future.delayed(new Duration(seconds: 1));
   asyncStart();
   await FileStat.stat(file.path).then((FileStat fs) async {

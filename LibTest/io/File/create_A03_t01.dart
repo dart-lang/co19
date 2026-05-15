@@ -36,7 +36,7 @@ main() async {
 }
 
 _test(Directory sandbox, {bool recursive = false}) async {
-  File tmp = getTempFileSync(parent: sandbox);
+  File tmp = createTempFileSync(parent: sandbox);
   tmp.writeAsStringSync("Existing file content");
   File file = new File(tmp.path);
   await file.create(recursive: recursive).then((File created) {

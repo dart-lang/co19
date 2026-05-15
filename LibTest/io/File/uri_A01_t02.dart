@@ -21,7 +21,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File tmp = getTempFileSync(parent: sandbox);
+  File tmp = createTempFileSync(parent: sandbox);
   String path = tmp.path;
   File file = new File(path);
   if (Platform.isWindows) {

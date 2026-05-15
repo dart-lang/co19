@@ -24,7 +24,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   Link link = new Link(dir.path);
   asyncStart();
   await link.stat().then((FileStat fs) {

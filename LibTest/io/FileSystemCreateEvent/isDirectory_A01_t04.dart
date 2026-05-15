@@ -23,7 +23,7 @@ void _main(Directory sandbox) async {
 
   await testFileSystemEvent<FileSystemCreateEvent>(sandbox,
       createEvent: () async {
-        await getTempFileSync(parent: sandbox);
+        await createTempFileSync(parent: sandbox);
       }, test: (FileSystemEvent? event) {
         Expect.isFalse(event?.isDirectory);
       });

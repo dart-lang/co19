@@ -35,10 +35,10 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Link link = getTempLinkSync(parent: sandbox);
-  File linkFile = getTempFileSync(parent: sandbox);
-  Link link1 = getTempLinkSync(parent: sandbox, target: linkFile.path);
-  Link link2 = getTempLinkSync(parent: sandbox, target: link1.path);
+  Link link = createTempLinkSync(parent: sandbox);
+  File linkFile = createTempFileSync(parent: sandbox);
+  Link link1 = createTempLinkSync(parent: sandbox, target: linkFile.path);
+  Link link2 = createTempLinkSync(parent: sandbox, target: link1.path);
   String oldTarget = link.targetSync();
 
   asyncStart();

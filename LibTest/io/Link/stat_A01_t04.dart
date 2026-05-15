@@ -23,7 +23,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   Link link = new Link(file.path);
   asyncStart();
   await link.stat().then((FileStat fs) {

@@ -49,7 +49,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Link target = getTempLinkSync(
+  Link target = createTempLinkSync(
       parent: sandbox, target: getTempFilePath(parent: sandbox));
   Link link = Link(getTempFilePath(parent: sandbox));
   asyncStart();

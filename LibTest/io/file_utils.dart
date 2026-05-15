@@ -14,10 +14,12 @@ import "../../Utils/expect.dart";
 
 final int eventsTimeout = 45;
 
-Future<Object?> inSandbox(Object? test(Directory sandbox),
-    {Directory? sandbox}) async {
+Future<Object?> inSandbox(
+  Object? test(Directory sandbox), {
+  Directory? sandbox,
+}) async {
   if (sandbox == null) {
-    sandbox = getTempDirectorySync();
+    sandbox = createTempDirectorySync();
   }
   try {
     asyncStart();
@@ -30,11 +32,13 @@ Future<Object?> inSandbox(Object? test(Directory sandbox),
   }
 }
 
-Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory root,
-    {required Future<void> createEvent(),
-    required void test(FileSystemEvent? event),
-    bool failIfNoEvent = true,
-    bool ignoreRootEvents = true}) async {
+Future<void> testFileSystemEvent<T extends FileSystemEvent>(
+  Directory root, {
+  required Future<void> createEvent(),
+  required void test(FileSystemEvent? event),
+  bool failIfNoEvent = true,
+  bool ignoreRootEvents = true,
+}) async {
   final eventCompleter = new Completer<FileSystemEvent?>();
   bool first = true;
   StreamSubscription? subscription;
@@ -50,21 +54,27 @@ Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory root,
     }
   });
   await createEvent();
-  final event = await eventCompleter.future
-      .timeout(Duration(seconds: eventsTimeout), onTimeout: () async {
-    await subscription?.cancel();
-    if (failIfNoEvent) {
-      Expect.fail("No event was fired for $eventsTimeout seconds");
-    }
-    return null;
-  });
+  final event = await eventCompleter.future.timeout(
+    Duration(seconds: eventsTimeout),
+    onTimeout: () async {
+      await subscription?.cancel();
+      if (failIfNoEvent) {
+        Expect.fail("No event was fired for $eventsTimeout seconds");
+      }
+      return null;
+    },
+  );
   test(event);
 }
 
-/**
- * Creates temporary file in a parent directory
- */
-File getTempFileSync({Directory? parent, String? name}) {
+/// Synchronously creates a temporary file.
+///
+/// If `parent` is specified, the file is created in that directory; otherwise,
+/// `Directory.systemTemp` is used.
+///
+/// If `name` is specified, the file will have that name. Otherwise, a random
+/// temporary name is generated.
+File createTempFileSync({Directory? parent, String? name}) {
   parent ??= Directory.systemTemp;
   name ??= getPrefix() + getTempFileName();
   File file = new File(parent.path + Platform.pathSeparator + name);
@@ -72,13 +82,27 @@ File getTempFileSync({Directory? parent, String? name}) {
   return file;
 }
 
-Future<File> getTempFile({Directory? parent, String? name}) async {
+/// Creates a temporary file.
+///
+/// If `parent` is specified, the file is created in that directory; otherwise,
+/// `Directory.systemTemp` is used.
+///
+/// If `name` is specified, the file will have that name. Otherwise, a random
+/// temporary name is generated.
+Future<File> createTempFile({Directory? parent, String? name}) async {
   parent ??= Directory.systemTemp;
   name ??= getPrefix() + getTempFileName();
   return new File(parent.path + Platform.pathSeparator + name).create();
 }
 
-Directory getTempDirectorySync({Directory? parent, String? name}) {
+/// Synchronously creates a temporary directory.
+///
+/// If `parent` is specified, the directory is created in that directory;
+/// otherwise, `Directory.systemTemp` is used.
+///
+/// If `name` is specified, the directory will have that name. Otherwise, a
+/// random temporary name is generated.
+Directory createTempDirectorySync({Directory? parent, String? name}) {
   parent ??= Directory.systemTemp;
   if (name == null) {
     return parent.createTempSync(getPrefix());
@@ -88,7 +112,14 @@ Directory getTempDirectorySync({Directory? parent, String? name}) {
   return dir;
 }
 
-Future<Directory> getTempDirectory({Directory? parent, String? name}) async {
+/// Creates a temporary directory.
+///
+/// If `parent` is specified, the directory is created in that directory;
+/// otherwise, `Directory.systemTemp` is used.
+///
+/// If `name` is specified, the directory will have that name. Otherwise, a
+/// random temporary name is generated.
+Future<Directory> createTempDirectory({Directory? parent, String? name}) async {
   parent ??= Directory.systemTemp;
   if (name == null) {
     return parent.createTemp(getPrefix());
@@ -104,18 +135,25 @@ Future<Directory> getTempDirectory({Directory? parent, String? name}) async {
 /// If [target] is not specified, a temporary directory is created and used as
 /// the link target.
 /// If [name] is not specified, a temporary name is generated.
-Link getTempLinkSync({Directory? parent, String? target, String? name}) {
+Link createTempLinkSync({Directory? parent, String? target, String? name}) {
   parent ??= Directory.systemTemp;
-  target ??= getTempDirectorySync(parent: parent).path;
+  target ??= createTempDirectorySync(parent: parent).path;
   name ??= getPrefix() + getTempFileName(extension: ".lnk");
   Link link = new Link(parent.path + Platform.pathSeparator + name);
   link.createSync(target);
   return link;
 }
 
-Future<Link> getTempLink({Directory? parent, String? target, String? name}) {
+/// Returns a new [Link] in the directory [parent], with the name [name] and the
+/// target [target].
+///
+/// If [parent] is not specified, [Directory.systemTemp] is used.
+/// If [target] is not specified, a temporary directory is created and used as
+/// the link target.
+/// If [name] is not specified, a temporary name is generated.
+Future<Link> createTempLink({Directory? parent, String? target, String? name}) {
   parent ??= Directory.systemTemp;
-  target ??= getTempDirectorySync(parent: parent).path;
+  target ??= createTempDirectorySync(parent: parent).path;
   name ??= getPrefix() + getTempFileName();
   Link link = new Link(parent.path + Platform.pathSeparator + name);
   return link.create(target);
@@ -149,8 +187,9 @@ String getTempFileName({String? extension}) {
       "${rnd.nextInt(10000)}$extension";
 }
 
-String getTempDirectoryName() => "$pid-${rnd.nextInt(10000)}-"
-      "${rnd.nextInt(10000)}-${rnd.nextInt(10000)}-${rnd.nextInt(10000)}";
+String getTempDirectoryName() =>
+    "$pid-${rnd.nextInt(10000)}-"
+    "${rnd.nextInt(10000)}-${rnd.nextInt(10000)}-${rnd.nextInt(10000)}";
 
 String getPrefix() {
   String fileName =

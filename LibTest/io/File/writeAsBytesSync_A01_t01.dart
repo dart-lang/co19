@@ -31,7 +31,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsBytesSync([3, 1, 4, 1, 5]);
   Expect.listEquals([3, 1, 4, 1, 5], file.readAsBytesSync());
 }

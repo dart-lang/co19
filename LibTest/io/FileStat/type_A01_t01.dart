@@ -18,8 +18,8 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   FileStat fs = FileStat.statSync(file.path);
   Expect.equals(FileSystemEntityType.file, fs.type);
 

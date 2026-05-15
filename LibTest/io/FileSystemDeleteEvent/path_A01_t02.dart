@@ -19,7 +19,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File f = getTempFileSync(parent: sandbox);
+  File f = createTempFileSync(parent: sandbox);
   asyncStart();
 
   String? path;

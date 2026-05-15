@@ -19,8 +19,8 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File tmp = getTempFileSync(parent: sandbox);
-  Directory tmpDir = getTempDirectorySync(parent: sandbox);
+  File tmp = createTempFileSync(parent: sandbox);
+  Directory tmpDir = createTempDirectorySync(parent: sandbox);
   Uri uri = new Uri.file(tmp.path);
   File file = new File.fromUri(uri);
   Expect.equals(tmp.path, file.path);

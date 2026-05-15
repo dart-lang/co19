@@ -24,7 +24,7 @@ runMain() {
   if (Platform.isWindows) {
     return;
   }
-  File file = getTempFileSync();
+  File file = createTempFileSync();
   var rf = file.openSync(mode: FileMode.write);
   rf.writeFromSync(new List.filled(30, 0));
   asyncStart();

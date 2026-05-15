@@ -21,7 +21,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsStringSync("Line 1\nLine 2\rLine3");
   Expect.equals("Line 1\nLine 2\rLine3", file.readAsStringSync());
 }

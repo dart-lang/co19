@@ -42,7 +42,7 @@ main() {
 }
 
 void _main(Directory sandbox) {
-  File target1 = getTempFileSync(parent: sandbox);
+  File target1 = createTempFileSync(parent: sandbox);
   Link link = Link(getTempFilePath(parent: sandbox));
   link.createSync(target1.path);
   Expect.equals(
@@ -62,7 +62,7 @@ void _main(Directory sandbox) {
   target2.deleteSync();
 
   Link target3 = Link(target1.path);
-  Directory linkTarget = getTempDirectorySync();
+  Directory linkTarget = createTempDirectorySync();
   target3.createSync(linkTarget.path);
   if (Platform.isWindows) {
     Expect.equals(

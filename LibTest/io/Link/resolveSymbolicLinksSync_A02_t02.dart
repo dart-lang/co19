@@ -39,8 +39,8 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Directory target = getTempDirectorySync(parent: sandbox);
-  Link link1 = getTempLinkSync(target: target.path, parent: sandbox);
+  Directory target = createTempDirectorySync(parent: sandbox);
+  Link link1 = createTempLinkSync(target: target.path, parent: sandbox);
   target.deleteSync();
 
   Expect.throws(() {

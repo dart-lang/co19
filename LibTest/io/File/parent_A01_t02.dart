@@ -17,8 +17,8 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Directory parent = getTempDirectorySync(parent: sandbox);
-  File file = getTempFileSync(parent: parent);
+  Directory parent = createTempDirectorySync(parent: sandbox);
+  File file = createTempFileSync(parent: parent);
   Expect.equals(parent.path, file.parent.path);
 
   file = new File(parent.path + Platform.pathSeparator + "NotExisting");

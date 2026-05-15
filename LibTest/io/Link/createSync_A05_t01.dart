@@ -43,7 +43,7 @@ main() async {
 
 void _main(Directory sandbox) {
   if (Platform.isWindows) {
-    Directory dir = getTempDirectorySync(parent: sandbox);
+    Directory dir = createTempDirectorySync(parent: sandbox);
     String dirName = getTempDirectoryName();
     Directory target =
         new Directory(dir.path + Platform.pathSeparator + dirName);

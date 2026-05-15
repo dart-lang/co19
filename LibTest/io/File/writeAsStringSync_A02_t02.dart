@@ -35,7 +35,7 @@ main() async {
 
 void _main(Directory sandbox) {
   Encoding? encoding = Encoding.getByName("iso-8859-1");
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   String toWrite = "â\nã";
   file.writeAsStringSync(toWrite, encoding: encoding!);
   Expect.equals(toWrite, file.readAsStringSync(encoding: encoding));

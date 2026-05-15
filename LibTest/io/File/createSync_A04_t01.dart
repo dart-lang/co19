@@ -34,7 +34,7 @@ main() {
 }
 
 _test(Directory sandbox, {bool recursive = false, bool exclusive = false}) {
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   File file = new File(dir.path);
   Expect.throws(() {
     file.createSync();

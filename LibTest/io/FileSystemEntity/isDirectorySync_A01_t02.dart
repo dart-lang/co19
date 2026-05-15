@@ -19,7 +19,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   Expect.isTrue(FileSystemEntity.isDirectorySync(dir.path));
   Expect.equals(FileSystemEntityType.directory,
       FileSystemEntity.typeSync(dir.path));

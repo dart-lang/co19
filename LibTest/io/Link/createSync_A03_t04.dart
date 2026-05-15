@@ -41,8 +41,8 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File target1 = getTempFileSync(parent: sandbox);
-  File target2 = getTempFileSync(parent: sandbox);
-  Link link = getTempLinkSync(parent: sandbox, target: target1.path);
+  File target1 = createTempFileSync(parent: sandbox);
+  File target2 = createTempFileSync(parent: sandbox);
+  Link link = createTempLinkSync(parent: sandbox, target: target1.path);
   Expect.throws(() {link.createSync(target2.path);});
 }

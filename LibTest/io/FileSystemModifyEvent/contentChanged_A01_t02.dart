@@ -19,8 +19,8 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
-  File f = getTempFileSync(parent: dir);
+  Directory dir = createTempDirectorySync(parent: sandbox);
+  File f = createTempFileSync(parent: dir);
   asyncStart();
   await testFileSystemEvent<FileSystemModifyEvent>(dir,
       createEvent: () async {

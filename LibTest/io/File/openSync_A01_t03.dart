@@ -22,7 +22,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsStringSync("Lily was here");
   String path = "!" + file.absolute.path;
   File f = new File(path);

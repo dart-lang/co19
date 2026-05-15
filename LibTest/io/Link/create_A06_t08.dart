@@ -61,7 +61,7 @@ void _main(Directory sandbox) async {
     // Now create a directory and into it another directory with the name as
     // link's target. Then move the link into the first directory. Its relative
     // target should point to the second directory after it
-    Directory dir1 = getTempDirectorySync(parent: sandbox);
+    Directory dir1 = createTempDirectorySync(parent: sandbox);
     Directory dir2 = Directory(dir1.path + Platform.pathSeparator + target);
     dir2.createSync();
     Link moved =

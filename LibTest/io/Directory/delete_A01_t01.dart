@@ -31,7 +31,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   asyncStart();
   await dir.delete().then((deleted) {
     Expect.isFalse(dir.existsSync());

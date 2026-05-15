@@ -29,7 +29,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file1 = getTempFileSync(parent: sandbox);
+  File file1 = createTempFileSync(parent: sandbox);
   File file2 = new File(file1.path);
   var result = await FileSystemEntity.identical(file1.path, file2.path);
   Expect.isTrue(result);

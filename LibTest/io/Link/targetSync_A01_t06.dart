@@ -31,9 +31,9 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Directory parent = getTempDirectorySync(parent: sandbox);
-  Directory dir = getTempDirectorySync(parent: parent);
-  Link target = getTempLinkSync(parent: parent);
+  Directory parent = createTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: parent);
+  Link target = createTempLinkSync(parent: parent);
   String targetFileName = getEntityName(target);
   Link link = new Link(
       dir.path + Platform.pathSeparator + getTempFileName(extension: "lnk"));

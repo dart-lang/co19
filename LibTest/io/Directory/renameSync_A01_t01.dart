@@ -35,7 +35,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   Directory renamed = dir.renameSync(getTempDirectoryPath(parent: sandbox));
   Expect.isTrue(renamed.existsSync());
   Expect.isFalse(dir.existsSync());

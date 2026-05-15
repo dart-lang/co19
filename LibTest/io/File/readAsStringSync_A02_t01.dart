@@ -22,7 +22,7 @@ main() async {
 
 void _main(Directory sandbox) async {
   Encoding? encoding = Encoding.getByName("iso-8859-1");
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
 
   IOSink sink = file.openWrite(encoding: encoding!);
   sink.writeCharCode(0xe2);

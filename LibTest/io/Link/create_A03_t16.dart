@@ -48,7 +48,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Link link = getTempLinkSync(parent: sandbox, target: sandbox.path);
+  Link link = createTempLinkSync(parent: sandbox, target: sandbox.path);
   asyncStart();
   await link.create(sandbox.path).then((Link created) {
     Expect.fail("Link create() should fail");

@@ -32,7 +32,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   asyncStart();
   await file.writeAsBytes([0, 1, 2, 255], mode: FileMode.read).then((f) {
     Expect.fail("FileSystemException is expected");

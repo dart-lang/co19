@@ -20,13 +20,13 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
-  Directory target = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
+  Directory target = createTempDirectorySync(parent: sandbox);
   asyncStart();
 
   await testFileSystemEvent<FileSystemCreateEvent>(dir,
       createEvent: () async {
-        await getTempLink(parent: dir, target: target.path);
+        await createTempLink(parent: dir, target: target.path);
       }, test: (FileSystemEvent? event) {
         Expect.isFalse(event?.isDirectory);
       });
