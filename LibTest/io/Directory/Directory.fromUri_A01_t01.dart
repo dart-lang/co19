@@ -19,7 +19,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Directory tmp = getTempDirectorySync(parent: sandbox);
+  Directory tmp = createTempDirectorySync(parent: sandbox);
   // test existing Directory
   Uri uri = new Uri.directory(tmp.path);
   Directory dir = new Directory.fromUri(uri);
@@ -38,7 +38,7 @@ void _main(Directory sandbox) {
       dir.path);
 
   // test file
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   uri = new Uri.file(file.path);
   dir = new Directory.fromUri(uri);
   Expect.equals(file.path, dir.path);

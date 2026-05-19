@@ -28,7 +28,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   Directory sub = dir.createTempSync();
   dir.deleteSync(recursive: true);
 

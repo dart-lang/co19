@@ -31,7 +31,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Link link = getTempLinkSync(parent: sandbox);
+  Link link = createTempLinkSync(parent: sandbox);
   FileStat fs = link.statSync();
   FileStat fs2 = FileStat.statSync(link.path);
   Expect.equals(fs2.type, fs.type);

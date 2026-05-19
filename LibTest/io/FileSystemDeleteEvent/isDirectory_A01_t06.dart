@@ -23,7 +23,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Link l = getTempLinkSync(parent: sandbox);
+  Link l = createTempLinkSync(parent: sandbox);
   asyncStart();
 
   await testFileSystemEvent<FileSystemDeleteEvent>(sandbox,

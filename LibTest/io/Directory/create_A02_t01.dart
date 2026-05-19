@@ -25,7 +25,7 @@ main() async {
 
 void _main(Directory sandbox) async {
   asyncStart();
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   await dir.create().then((created) {
     Expect.equals(dir, created);
     asyncEnd();

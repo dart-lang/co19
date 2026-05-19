@@ -35,8 +35,8 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory srcDir = getTempDirectorySync(parent: sandbox);
-  Directory targetDir = getTempDirectorySync(parent: sandbox);
+  Directory srcDir = createTempDirectorySync(parent: sandbox);
+  Directory targetDir = createTempDirectorySync(parent: sandbox);
   Directory d = targetDir.createTempSync();
   asyncStart();
   await srcDir.rename(targetDir.path).then((renamed) {

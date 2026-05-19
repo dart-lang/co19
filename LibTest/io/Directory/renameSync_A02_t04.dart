@@ -42,8 +42,8 @@ void _main(Directory sandbox) {
       Platform.isLinux ||
       Platform.isFuchsia;
   if (isPosix) {
-    Directory srcDir = getTempDirectorySync(parent: sandbox);
-    Directory targetDir = getTempDirectorySync(parent: sandbox);
+    Directory srcDir = createTempDirectorySync(parent: sandbox);
+    Directory targetDir = createTempDirectorySync(parent: sandbox);
 
     Directory renamed = srcDir.renameSync(targetDir.path);
     Expect.equals(targetDir.path, renamed.path);

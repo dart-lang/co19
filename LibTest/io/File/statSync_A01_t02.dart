@@ -23,7 +23,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   FileStat fs = file.statSync();
   FileStat fs2 = FileStat.statSync(file.path);
   Expect.equals(fs2.type, fs.type);

@@ -50,7 +50,7 @@ main() async {
 void _main(Directory sandbox) async {
   String target1 = getTempFilePath(parent: sandbox);
   String target2 = getTempFilePath(parent: sandbox);
-  Link tmp = getTempLinkSync(parent: sandbox, target: target1);
+  Link tmp = createTempLinkSync(parent: sandbox, target: target1);
   Link link = Link(tmp.path);
   asyncStart();
   await link.create(target2).then((Link created) {

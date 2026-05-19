@@ -33,7 +33,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsStringSync("Old content");
   file.writeAsStringSync("New content", mode: FileMode.write);
   Expect.equals("New content", file.readAsStringSync());

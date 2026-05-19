@@ -15,7 +15,7 @@ run_main(FutureOr<void> run(Process _), String expected) async {
   final String eScript = Platform.script.toString();
   int called = 0;
 
-  final sandbox = getTempDirectorySync();
+  final sandbox = createTempDirectorySync();
   final filename = getTempFilePath(parent: sandbox);
 
   try {

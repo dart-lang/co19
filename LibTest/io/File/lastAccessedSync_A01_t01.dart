@@ -22,7 +22,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   DateTime date = file.lastAccessedSync();
   Expect.isNotNull(date);
   Expect.isTrue(date.difference(new DateTime.now()).inSeconds <= 1);

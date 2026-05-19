@@ -28,7 +28,7 @@ main() async {
 
 void _main(Directory sandbox) async {
   final path = getTempFilePath(parent: sandbox); // File is not created
-  final link = getTempLinkSync(parent: sandbox, target: path);
+  final link = createTempLinkSync(parent: sandbox, target: path);
   Expect.equals(
     FileSystemEntityType.notFound,
     await FileSystemEntity.type(link.path),

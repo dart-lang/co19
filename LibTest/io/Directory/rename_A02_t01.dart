@@ -35,9 +35,9 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory srcDir = getTempDirectorySync(parent: sandbox);
-  Directory targetDir = getTempDirectorySync(parent: sandbox);
-  File f = getTempFileSync(parent: targetDir);
+  Directory srcDir = createTempDirectorySync(parent: sandbox);
+  Directory targetDir = createTempDirectorySync(parent: sandbox);
+  File f = createTempFileSync(parent: targetDir);
   asyncStart();
   await srcDir.rename(targetDir.path).then((renamed) {
     Expect.fail("FileSystemException expected");

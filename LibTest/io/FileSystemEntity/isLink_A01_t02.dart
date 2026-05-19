@@ -18,7 +18,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   asyncStart();
   await FileSystemEntity.isLink(dir.path).then((result) async {
     Expect.isFalse(result);

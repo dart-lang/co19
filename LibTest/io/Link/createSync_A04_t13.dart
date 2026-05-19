@@ -42,8 +42,8 @@ main() {
 }
 
 void _main(Directory sandbox) {
-  File linkTarget = getTempFileSync(parent: sandbox);
-  Link target1 = getTempLinkSync(parent: sandbox, target: linkTarget.path);
+  File linkTarget = createTempFileSync(parent: sandbox);
+  Link target1 = createTempLinkSync(parent: sandbox, target: linkTarget.path);
   Link link = Link(getTempFilePath(parent: sandbox));
   link.createSync(target1.path);
   Expect.equals(
@@ -58,7 +58,7 @@ void _main(Directory sandbox) {
   target2.deleteSync();
 
   Link target3 = Link(target1.path);
-  File linkTarget3 = getTempFileSync();
+  File linkTarget3 = createTempFileSync();
   target3.createSync(linkTarget3.path);
   Expect.equals(FileSystemEntityType.file,
       FileSystemEntity.typeSync(link.path));

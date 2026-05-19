@@ -34,7 +34,7 @@ main() {
 }
 
 _test(Directory sandbox, {bool recursive = false}) async {
-  File tmp = getTempFileSync(parent: sandbox);
+  File tmp = createTempFileSync(parent: sandbox);
   File file = new File(tmp.path);
   Expect.throws(() {
     file.createSync(exclusive: true, recursive: recursive);

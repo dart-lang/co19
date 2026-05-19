@@ -25,7 +25,7 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() async {
-  Directory sandbox = getTempDirectorySync(parent: Directory.current);
+  Directory sandbox = createTempDirectorySync(parent: Directory.current);
   await inSandbox(_main, sandbox: sandbox);
 }
 

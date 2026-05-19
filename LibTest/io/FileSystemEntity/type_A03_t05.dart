@@ -28,8 +28,8 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  final dir = getTempDirectorySync(parent: sandbox);
-  final link = getTempLinkSync(parent: sandbox, target: dir.path);
+  final dir = createTempDirectorySync(parent: sandbox);
+  final link = createTempLinkSync(parent: sandbox, target: dir.path);
   Expect.equals(
     FileSystemEntityType.link,
     await FileSystemEntity.type(link.path, followLinks: false),

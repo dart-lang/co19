@@ -33,7 +33,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   String toWrite = "File content: Кириллица прекрасна";
   asyncStart();
   await file.writeAsString(toWrite).then((f) {

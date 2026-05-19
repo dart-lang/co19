@@ -21,12 +21,12 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
-  Directory target = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
+  Directory target = createTempDirectorySync(parent: sandbox);
   asyncStart();
 
   await testFileSystemEvent<FileSystemCreateEvent>(dir, createEvent: () async {
-    await getTempLinkSync(parent: dir, target: target.path);
+    await createTempLinkSync(parent: dir, target: target.path);
   }, test: (FileSystemEvent? event) {
     /* On Mac this check sometimes fails. See
     https://github.com/dart-lang/co19/issues/186#issuecomment-443188150 and

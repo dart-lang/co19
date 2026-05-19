@@ -28,7 +28,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsBytesSync([0, 1, 2, 3, 4]);
   asyncStart();
   await file.open(mode: FileMode.read).then((RandomAccessFile raFile) {

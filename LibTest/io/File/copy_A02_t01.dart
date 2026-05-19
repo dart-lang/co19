@@ -22,8 +22,8 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file1 = getTempFileSync(parent: sandbox);
-  File file2 = getTempFileSync(parent: sandbox);
+  File file1 = createTempFileSync(parent: sandbox);
+  File file2 = createTempFileSync(parent: sandbox);
   file2.writeAsStringSync("Existing file content");
   asyncStart();
   await file1.copy(file2.path).then((File copied) {

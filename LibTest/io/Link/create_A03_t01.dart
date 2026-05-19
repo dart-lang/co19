@@ -48,7 +48,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Link tmp = getTempLinkSync(parent: sandbox);
+  Link tmp = createTempLinkSync(parent: sandbox);
   Link link = new Link(tmp.path);
   asyncStart();
   await link.create(tmp.targetSync()).then((Link created) {

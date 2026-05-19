@@ -42,7 +42,7 @@ main() {
 }
 
 void _main(Directory sandbox) {
-  Link target = getTempLinkSync(
+  Link target = createTempLinkSync(
       parent: sandbox, target: getTempFilePath(parent: sandbox));
   Link link = Link(getTempFilePath(parent: sandbox));
   link.createSync(target.path);

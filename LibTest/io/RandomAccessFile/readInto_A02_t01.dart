@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 check(int number) {
-  File file = getTempFileSync();
+  File file = createTempFileSync();
   asyncStart();
   Future<RandomAccessFile> raFile = file.open(mode: FileMode.write);
   raFile.then((RandomAccessFile rf) {

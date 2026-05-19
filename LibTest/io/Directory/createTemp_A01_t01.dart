@@ -23,7 +23,7 @@ main() async {
 
 void _main(Directory sandbox) async {
   asyncStart();
-  Directory parent = getTempDirectorySync(parent: sandbox);
+  Directory parent = createTempDirectorySync(parent: sandbox);
   await parent.createTemp().then((dir) {
     Expect.equals(parent.path, dir.parent.path);
     Expect.isTrue(dir.existsSync());

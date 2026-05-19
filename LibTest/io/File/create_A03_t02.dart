@@ -37,7 +37,7 @@ main() async {
 }
 
 _test(Directory sandbox, {bool recursive = false}) async {
-  File tmp = getTempFileSync(parent: sandbox);
+  File tmp = createTempFileSync(parent: sandbox);
   File file = new File(tmp.path);
   await file.create(exclusive: true, recursive: recursive).then((File created) {
     Expect.fail("PathExistsException is expected");

@@ -42,8 +42,8 @@ void _main(Directory sandbox) async {
       Platform.isLinux ||
       Platform.isFuchsia;
   if (isPosix) {
-    Directory srcDir = getTempDirectorySync(parent: sandbox);
-    Directory targetDir = getTempDirectorySync(parent: sandbox);
+    Directory srcDir = createTempDirectorySync(parent: sandbox);
+    Directory targetDir = createTempDirectorySync(parent: sandbox);
     asyncStart();
     await srcDir.rename(targetDir.path).then((renamed) {
       Expect.equals(targetDir.path, renamed.path);

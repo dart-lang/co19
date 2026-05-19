@@ -24,7 +24,7 @@ void _main(Directory sandbox) {
   Directory dir = new Directory(getTempDirectoryName());
   Expect.isFalse(dir.isAbsolute);
 
-  Directory tmp = getTempDirectorySync(parent: sandbox);
+  Directory tmp = createTempDirectorySync(parent: sandbox);
   Directory dir2 = new Directory(tmp.path);
   Expect.isTrue(dir2.isAbsolute);
 }

@@ -36,8 +36,8 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Link link = getTempLinkSync(parent: sandbox, target: getTempFileName());
-  Link target = getTempLinkSync(parent: sandbox, target: sandbox.path);
+  Link link = createTempLinkSync(parent: sandbox, target: getTempFileName());
+  Link target = createTempLinkSync(parent: sandbox, target: sandbox.path);
   String oldTarget = link.targetSync();
 
   asyncStart();

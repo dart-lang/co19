@@ -38,7 +38,7 @@ main() async {
 _test(Directory sandbox, {bool recursive = false}) async {
   File target = File(getTempFilePath(parent: sandbox));
   Expect.isFalse(target.existsSync());
-  Link link = getTempLinkSync(parent: sandbox, target: target.path);
+  Link link = createTempLinkSync(parent: sandbox, target: target.path);
   File file = File(link.path);
   await file.create(recursive: recursive).then((File created) {
     Expect.isTrue(created.existsSync());

@@ -19,8 +19,8 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
-  Link link = getTempLinkSync(parent: dir);
+  Directory dir = createTempDirectorySync(parent: sandbox);
+  Link link = createTempLinkSync(parent: dir);
   Link? renamed = null;
 
   asyncStart();

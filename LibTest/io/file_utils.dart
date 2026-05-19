@@ -19,7 +19,7 @@ Future<Object?> inSandbox(
   Directory? sandbox,
 }) async {
   if (sandbox == null) {
-    sandbox = getTempDirectorySync();
+    sandbox = createTempDirectorySync();
   }
   try {
     asyncStart();
@@ -74,14 +74,7 @@ Future<void> testFileSystemEvent<T extends FileSystemEvent>(
 ///
 /// If `name` is specified, the file will have that name. Otherwise, a random
 /// temporary name is generated.
-File createTempFileSync({Directory? parent, String? name}) =>
-    getTempFileSync(parent: parent, name: name);
-
-/// TODO(sgrekhov): Replace by createTempFileSync
-/**
- * Creates temporary file in a parent directory
- */
-File getTempFileSync({Directory? parent, String? name}) {
+File createTempFileSync({Directory? parent, String? name}) {
   parent ??= Directory.systemTemp;
   name ??= getPrefix() + getTempFileName();
   File file = new File(parent.path + Platform.pathSeparator + name);
@@ -89,7 +82,14 @@ File getTempFileSync({Directory? parent, String? name}) {
   return file;
 }
 
-Future<File> getTempFile({Directory? parent, String? name}) async {
+/// Creates a temporary file.
+///
+/// If `parent` is specified, the file is created in that directory; otherwise,
+/// `Directory.systemTemp` is used.
+///
+/// If `name` is specified, the file will have that name. Otherwise, a random
+/// temporary name is generated.
+Future<File> createTempFile({Directory? parent, String? name}) async {
   parent ??= Directory.systemTemp;
   name ??= getPrefix() + getTempFileName();
   return new File(parent.path + Platform.pathSeparator + name).create();
@@ -102,11 +102,7 @@ Future<File> getTempFile({Directory? parent, String? name}) async {
 ///
 /// If `name` is specified, the directory will have that name. Otherwise, a
 /// random temporary name is generated.
-Directory createTempDirectorySync({Directory? parent, String? name}) =>
-    getTempDirectorySync(parent: parent, name: name);
-
-/// TODO(sgrekhov): Replace by createTempDirectorySync
-Directory getTempDirectorySync({Directory? parent, String? name}) {
+Directory createTempDirectorySync({Directory? parent, String? name}) {
   parent ??= Directory.systemTemp;
   if (name == null) {
     return parent.createTempSync(getPrefix());
@@ -116,7 +112,14 @@ Directory getTempDirectorySync({Directory? parent, String? name}) {
   return dir;
 }
 
-Future<Directory> getTempDirectory({Directory? parent, String? name}) async {
+/// Creates a temporary directory.
+///
+/// If `parent` is specified, the directory is created in that directory;
+/// otherwise, `Directory.systemTemp` is used.
+///
+/// If `name` is specified, the directory will have that name. Otherwise, a
+/// random temporary name is generated.
+Future<Directory> createTempDirectory({Directory? parent, String? name}) async {
   parent ??= Directory.systemTemp;
   if (name == null) {
     return parent.createTemp(getPrefix());
@@ -132,22 +135,25 @@ Future<Directory> getTempDirectory({Directory? parent, String? name}) async {
 /// If [target] is not specified, a temporary directory is created and used as
 /// the link target.
 /// If [name] is not specified, a temporary name is generated.
-Link createTempLinkSync({Directory? parent, String? target, String? name}) =>
-  getTempLinkSync(parent: parent, target: target, name: name);
-
-/// TODO(sgrekhov): Replace by createTempLinkSync
-Link getTempLinkSync({Directory? parent, String? target, String? name}) {
+Link createTempLinkSync({Directory? parent, String? target, String? name}) {
   parent ??= Directory.systemTemp;
-  target ??= getTempDirectorySync(parent: parent).path;
+  target ??= createTempDirectorySync(parent: parent).path;
   name ??= getPrefix() + getTempFileName(extension: ".lnk");
   Link link = new Link(parent.path + Platform.pathSeparator + name);
   link.createSync(target);
   return link;
 }
 
-Future<Link> getTempLink({Directory? parent, String? target, String? name}) {
+/// Returns a new [Link] in the directory [parent], with the name [name] and the
+/// target [target].
+///
+/// If [parent] is not specified, [Directory.systemTemp] is used.
+/// If [target] is not specified, a temporary directory is created and used as
+/// the link target.
+/// If [name] is not specified, a temporary name is generated.
+Future<Link> createTempLink({Directory? parent, String? target, String? name}) {
   parent ??= Directory.systemTemp;
-  target ??= getTempDirectorySync(parent: parent).path;
+  target ??= createTempDirectorySync(parent: parent).path;
   name ??= getPrefix() + getTempFileName();
   Link link = new Link(parent.path + Platform.pathSeparator + name);
   return link.create(target);

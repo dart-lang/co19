@@ -29,8 +29,8 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Directory target = getTempDirectorySync(parent: sandbox);
-  Link link = getTempLinkSync(target: target.path, parent: sandbox);
+  Directory target = createTempDirectorySync(parent: sandbox);
+  Link link = createTempLinkSync(target: target.path, parent: sandbox);
   File file = new File(link.path);
   file.deleteSync(recursive: true);
   Expect.isFalse(link.existsSync());

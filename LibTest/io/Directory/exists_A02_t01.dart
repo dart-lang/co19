@@ -25,7 +25,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   Directory dir = new Directory(file.path);
   asyncStart();
 

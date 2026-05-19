@@ -35,8 +35,8 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Directory srcDir = getTempDirectorySync(parent: sandbox);
-  Link link = getTempLinkSync(parent: sandbox, target: getTempFileName());
+  Directory srcDir = createTempDirectorySync(parent: sandbox);
+  Link link = createTempLinkSync(parent: sandbox, target: getTempFileName());
 
   Expect.throws(() {
     srcDir.renameSync(link.path);

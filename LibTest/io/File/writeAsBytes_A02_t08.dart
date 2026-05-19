@@ -32,7 +32,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsBytesSync([1, 1, 1, 2]);
   asyncStart();
   await file.writeAsBytes([0, 1, 2, 255]).then((f) {

@@ -22,7 +22,7 @@ import "../file_utils.dart";
 import "lock_check_1_lib.dart";
 
 void check(int fLen) {
-  File file = getTempFileSync();
+  File file = createTempFileSync();
   file.writeAsBytesSync(new List.filled(fLen, 1));
   var rf = file.openSync(mode: FileMode.read);
 

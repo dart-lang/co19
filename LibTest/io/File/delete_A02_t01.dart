@@ -29,7 +29,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   asyncStart();
   await file.delete(recursive: true).then((deleted) {
     Expect.isFalse(file.existsSync());

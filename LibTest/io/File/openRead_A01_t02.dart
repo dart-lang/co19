@@ -26,7 +26,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsBytesSync([1, 2, 3, 4]);
   asyncStart();
   await file.openRead(1).toList().then((data) {

@@ -37,9 +37,9 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory target = getTempDirectorySync(parent: sandbox);
-  File file = getTempFileSync(parent: target);
-  Link link = getTempLinkSync(target: target.path, parent: sandbox);
+  Directory target = createTempDirectorySync(parent: sandbox);
+  File file = createTempFileSync(parent: target);
+  Link link = createTempLinkSync(target: target.path, parent: sandbox);
 
   asyncStart();
   await link.delete(recursive: true).then((deleted) {

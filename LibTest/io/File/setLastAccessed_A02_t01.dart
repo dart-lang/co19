@@ -19,7 +19,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   DateTime oldDate = file.lastAccessedSync();
   DateTime newDate = oldDate.add(new Duration(days: -1));
 

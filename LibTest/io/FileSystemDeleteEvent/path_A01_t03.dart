@@ -19,7 +19,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Link link = getTempLinkSync(parent: sandbox);
+  Link link = createTempLinkSync(parent: sandbox);
   String path = link.path;
   asyncStart();
 

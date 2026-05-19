@@ -29,7 +29,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsStringSync("UTF-8: кириллица прекрасна");
   Expect.throws(() {
     file.openWrite(mode: FileMode.read);

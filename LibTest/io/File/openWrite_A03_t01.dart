@@ -24,7 +24,7 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 test(Directory sandbox, FileMode mode) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsStringSync("Lily was here");
   String path = "!" + file.absolute.path;
   File f = new File(path);

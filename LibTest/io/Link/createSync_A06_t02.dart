@@ -53,7 +53,7 @@ void _main(Directory sandbox) {
       FileSystemEntityType.file, FileSystemEntity.typeSync(link.path));
   // Now create a directory and move the link into it. Its relative target
   // should point to a not existing entity after it
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   Link moved = link.renameSync(dir.path + Platform.pathSeparator + "moved.lnk");
   Expect.equals(fileName, moved.targetSync());
   Expect.equals(

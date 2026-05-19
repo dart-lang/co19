@@ -50,7 +50,7 @@ main() async {
 
 void _main(Directory sandbox) async {
   String linkName = getTempFileName();
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   Link target = Link(sandbox.path + Platform.pathSeparator + linkName);
   target.createSync(file.path);
   Link link = Link(sandbox.path +
@@ -63,7 +63,7 @@ void _main(Directory sandbox) async {
         FileSystemEntityType.file, FileSystemEntity.typeSync(created.path));
     // Now create a directory and move the link into it. Its relative target
     // should point to a not existing entity after it
-    Directory dir = getTempDirectorySync(parent: sandbox);
+    Directory dir = createTempDirectorySync(parent: sandbox);
     Link moved =
         created.renameSync(dir.path + Platform.pathSeparator + "moved.lnk");
     Expect.equals(linkName, moved.targetSync());

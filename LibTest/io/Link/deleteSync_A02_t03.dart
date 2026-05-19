@@ -29,7 +29,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   Link link = new Link(file.path);
   link.deleteSync(recursive: true);
   Expect.isFalse(file.existsSync());

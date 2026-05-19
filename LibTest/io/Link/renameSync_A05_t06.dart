@@ -36,8 +36,8 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Link link1 = getTempLinkSync(target: getTempFileName(), parent: sandbox);
-  Link link2 = getTempLinkSync(target: getTempFileName(), parent: sandbox);
+  Link link1 = createTempLinkSync(target: getTempFileName(), parent: sandbox);
+  Link link2 = createTempLinkSync(target: getTempFileName(), parent: sandbox);
 
   Link renamed = link1.renameSync(link2.path);
   Expect.equals(link2.path, renamed.path);
