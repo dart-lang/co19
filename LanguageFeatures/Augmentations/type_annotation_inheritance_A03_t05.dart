@@ -7,42 +7,38 @@
 ///
 /// @description Checks that it's not an error if an abstract variable augments
 /// a setter declaration and there is a getter with the same name in the
-/// superinterface and they don't have a combined signature.
+/// superinterface and they don't have a combined signature. Test a mixin.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
 
-abstract mixin class A {
+abstract class A1 {
   int get instanceVariable;
 }
 
-abstract class C1 implements A {
+abstract class A2 {
   void set instanceVariable(String _);
 }
 
-abstract class C2 extends A {
+mixin M1 implements A1 {
   void set instanceVariable(String _);
 }
 
-abstract class C3 with A {
-  void set instanceVariable(String _);
+mixin M2 implements A2 {
+  int get instanceVariable;
 }
 
-augment abstract class C1 {
+augment mixin M1 {
   augment abstract var instanceVariable;
 }
 
-augment abstract class C2 {
+augment mixin M2 {
   augment abstract var instanceVariable;
 }
 
-augment abstract class C3 {
-  augment abstract var instanceVariable;
-}
-
-class D1 extends C1 {
+class C1 with M1 {
   String x = '';
   int get instanceVariable => 1;
   void set instanceVariable(String v) {
@@ -50,7 +46,7 @@ class D1 extends C1 {
   }
 }
 
-class D2 extends C2 {
+class C2 with M2 {
   String x = '';
   int get instanceVariable => 2;
   void set instanceVariable(String v) {
@@ -58,25 +54,13 @@ class D2 extends C2 {
   }
 }
 
-class D3 extends C3 {
-  String x = '';
-  int get instanceVariable => 3;
-  void set instanceVariable(String v) {
-    x = v;
-  }
-}
-
 main() {
-  final d1 = D1();
-  Expect.equals(1, d1.instanceVariable);
-  d1.instanceVariable = '1';
-  Expect.equals('1', d1.x);
-  final d2 = D2();
-  Expect.equals(2, d2.instanceVariable);
-  d2.instanceVariable = '2';
-  Expect.equals('2', d2.x);
-  final d3 = D3();
-  Expect.equals(3, d3.instanceVariable);
-  d3.instanceVariable = '3';
-  Expect.equals('3', d3.x);
+  final c1 = C1();
+  Expect.equals(1, c1.instanceVariable);
+  c1.instanceVariable = '1';
+  Expect.equals('1', c1.x);
+  final c2 = C2();
+  Expect.equals(2, c2.instanceVariable);
+  c2.instanceVariable = '2';
+  Expect.equals('2', c2.x);
 }

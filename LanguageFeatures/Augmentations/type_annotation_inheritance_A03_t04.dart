@@ -6,7 +6,7 @@
 /// getter and setter that don't have a combined signature.
 ///
 /// @description Checks that it's not an error if an abstract variable augments
-/// a setter declaration and there is a getter with the same name in the
+/// a getter declaration and there is a setter with the same name in the
 /// superinterface and they don't have a combined signature.
 /// @author sgrekhov22@gmail.com
 
@@ -15,19 +15,19 @@
 import '../../Utils/expect.dart';
 
 abstract mixin class A {
-  int get instanceVariable;
+  void set instanceVariable(String _);
 }
 
 abstract class C1 implements A {
-  void set instanceVariable(String _);
+  int get instanceVariable;
 }
 
 abstract class C2 extends A {
-  void set instanceVariable(String _);
+  int get instanceVariable;
 }
 
 abstract class C3 with A {
-  void set instanceVariable(String _);
+  int get instanceVariable;
 }
 
 augment abstract class C1 {
