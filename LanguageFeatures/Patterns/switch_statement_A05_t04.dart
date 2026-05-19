@@ -22,9 +22,9 @@
 /// some more complex expressions are valid constant expressions but not valid
 /// constant patterns.
 ///
-/// @description Checks that pure `bitwiseOrExpression` constant expressions are
-/// not valid in a `guardedPattern` and produce a compile-time error. Test
-/// library prefix.
+/// @description Check that binary operator expressions derived from
+/// `bitwiseOrExpression` are not valid in a `guardedPattern` and produce a
+/// compile-time error. Test a library prefix.
 /// @author sgrekhov22@gmail.com
 /// @issue 63356
 

@@ -7,9 +7,9 @@
 /// ifStatement ::= ifCondition statement ('else' statement)?
 /// ifCondition :== 'if' '(' expression ( 'case' guardedPattern )? ')'
 /// ```
-/// @description Checks that pure `bitwiseOrExpression` constant expressions are
-/// not valid in a `guardedPattern` and produce a compile-time error. Test a
-/// library prefix.
+/// @description Check that binary operator expressions derived from
+/// `bitwiseOrExpression` are not valid in a `guardedPattern` and produce a
+/// compile-time error.
 /// @author sgrekhov22@gmail.com
 /// @issue 63356
 

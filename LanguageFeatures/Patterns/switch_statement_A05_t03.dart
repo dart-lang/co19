@@ -22,8 +22,9 @@
 /// some more complex expressions are valid constant expressions but not valid
 /// constant patterns.
 ///
-/// @description Checks that pure `bitwiseOrExpression` constant expressions are
-/// allowed in a switch case statements in a language version before 3.0.
+/// @description Check that binary operator expressions derived from
+/// `bitwiseOrExpression` are allowed in switch case statements in a language
+/// version before 3.0.
 /// @author sgrekhov22@gmail.com
 
 // @dart=2.19

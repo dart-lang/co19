@@ -36,7 +36,7 @@ String test(Object value) {
     const (1 + 2) => "case =3",
     const (2 - 1) => "case =1",
     const (2 * 2) => "case =4",
-    const (2 / 1) => "case =2",
+    const (6 / 1) => "case =6",
     const (30 ^ 2) => "case =28",
     const (1 | 4) => "case =5",
     const (1 & 4) => "case =0",
@@ -80,7 +80,7 @@ main() {
   Expect.equals("case =3", test(3));
   Expect.equals("case =1", test(1));
   Expect.equals("case =4", test(4));
-  Expect.equals("case =2", test(2));
+  Expect.equals("case =6", test(6));
   Expect.equals("case =28", test(28));
   Expect.equals("case =5", test(5));
   Expect.equals("case =0", test(0));
