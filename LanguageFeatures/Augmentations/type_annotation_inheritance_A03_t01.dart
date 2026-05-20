@@ -63,12 +63,18 @@ enum E {
   e0;
   static int get staticVariable => 42;
   static void set staticVariable(String v) {}
+  int get instanceVariable => 42;
+  void set instanceVariable(String v) {}
 }
 
 augment enum E {
   ;
   augment static abstract var staticVariable;
 //                            ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment abstract var instanceVariable;
+//                     ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -78,6 +84,8 @@ class A {}
 extension Ext on A {
   static int get staticVariable => 42;
   static void set staticVariable(String v) {}
+  int get instanceVariable => 42;
+  void set instanceVariable(String v) {}
 }
 
 augment extension Ext {
@@ -85,16 +93,26 @@ augment extension Ext {
 //                            ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  augment abstract var instanceVariable;
+//                     ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET(int _) {
   static int get staticVariable => 42;
   static void set staticVariable(String v) {}
+  int get instanceVariable => 42;
+  void set instanceVariable(String v) {}
 }
 
 augment extension type ET {
   augment static abstract var staticVariable;
 //                            ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment abstract var instanceVariable;
+//                     ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
