@@ -13,7 +13,6 @@
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
-import '../../js_interop/js_utils.dart';
 
 extension type ET._(JSObject _) implements JSObject {
   external factory ET({int p1, String p2, bool p3});

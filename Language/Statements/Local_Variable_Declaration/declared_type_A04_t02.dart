@@ -13,8 +13,6 @@
 /// type of `e`. Check that `v` is not erroneously promoted
 /// @author sgrekhov22@gmail.com
 
-import '../../../Utils/static_type_helper.dart';
-
 test<T>(T t) {
   if (t is int) {
   }

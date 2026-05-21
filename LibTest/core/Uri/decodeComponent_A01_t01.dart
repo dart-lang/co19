@@ -4,6 +4,7 @@
 
 /// @assertion String decodeComponent(String encodedComponent)
 /// Decodes the percent-encoding in encodedComponent.
+///
 /// @description Checks expected results on unreserved characters and
 /// basic and extended unicode characters on manually and library
 /// encoded strings.
@@ -11,7 +12,6 @@
 
 import 'dart:convert';
 import "../../../Utils/expect.dart";
-import "UriDataEncoder.lib.dart";
 
 String unreserved = "0123456789"
                     "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

@@ -7,15 +7,13 @@
 /// If path is not empty, and it doesn't end in a directory separator, then a
 /// slash is added to the returned URI's path. In all other cases, the result is
 /// the same as returned by Uri.file
+///
 /// @description Checks that forward slash is interpreted as path separator and
 /// backward slash is not interpreted as path separator for non-Windows
 /// semantics. Also checks that returned URI is always ends with a slash
-/// @issue 28660
 /// @author sgrekhov@unipro.ru
 
-import "dart:convert";
 import "../../../Utils/expect.dart";
-import "UriDataEncoder.lib.dart";
 
 check(String path) {
   Uri uri = new Uri.directory(path, windows: false);

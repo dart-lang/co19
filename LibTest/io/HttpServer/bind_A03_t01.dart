@@ -15,13 +15,13 @@
 /// (IPv6) only, use v6Only to set version 6 only.
 /// However, if the address is InternetAddress.loopbackIPv6, only IP version 6 
 /// (IPv6) connections will be accepted.
+///
 /// @description Checks that if the address is InternetAddress.loopbackIPv6, then 
 /// IP version 4 (IPv4) connections are not accepted
 /// @author sgrekhov@unipro.ru
 /// @issue 31111
 
 import "dart:io";
-import "dart:convert";
 import "../../../Utils/expect.dart";
 
 test() async {

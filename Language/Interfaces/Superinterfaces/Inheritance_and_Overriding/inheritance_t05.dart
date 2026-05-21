@@ -23,14 +23,13 @@
 /// Then I has a method named n, with r required parameters of type dynamic,
 /// h positional parameters of type dynamic, named parameters s of type dynamic
 /// and return type dynamic.
+///
 /// @description Checks that there's no static warning produced when the
 /// subinterface member being accessed is actually inherited. Members tested
 /// include variables, methods, getters, setters and operators. There's no way
 /// to check whether the resulting inherited method signature is actually as
 /// described above, but we can check that it's inherited at all.
 /// @author rodionov
-
-import '../../../../Utils/expect.dart';
 
 class C {}
 class D extends C {}

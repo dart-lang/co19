@@ -17,8 +17,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 60609, 60496, language#4368
 
-import '../../Utils/static_type_helper.dart';
-
 main() {
   dynamic d = "a";
   if (d is Object?) { // ignore: unnecessary_type_check

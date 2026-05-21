@@ -17,7 +17,6 @@
 /// not a subtype of the actual return type of `f`.
 /// @author sgrekhov22@gmail.com
 
-import 'dart:async';
 import '../../../Utils/expect.dart';
 
 int foo(v) {
