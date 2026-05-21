@@ -16,7 +16,6 @@
 
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../file_utils.dart";
 
 main() {
   Uri uri = new Uri(path: "tmp.tmp");

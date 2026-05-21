@@ -11,8 +11,6 @@
 /// external declaration without a `@JS()` annotation.
 /// @author sgrekhov22@gmail.com
 
-import 'dart:js_interop';
-
 external int var1;
 //           ^^^^
 // [analyzer] unspecified

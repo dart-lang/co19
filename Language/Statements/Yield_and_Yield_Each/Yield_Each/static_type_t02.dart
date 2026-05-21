@@ -11,12 +11,9 @@
 /// @description Check that compile error is issued, if the body of f is marked
 /// async* and the type T may not be assigned to the declared return
 /// type of f.
-///
-/// @issue #25634
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
-import '../../../../Utils/expect.dart';
 
 Stream<String> generator() async* {
   yield* 1;
@@ -25,4 +22,6 @@ Stream<String> generator() async* {
 // [cfe] unspecified
 }
 
-main() {}
+main() {
+  print(generator);
+}

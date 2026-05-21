@@ -17,8 +17,6 @@
 /// method with return type `T`, with a short syntax and `flatten(T)` is `void`.
 /// @author sgrekhov22@qmail.com
 
-import 'dart:async';
-
 class C {
   static void staticMethod() async => 1;
   void instanceMethod() async => 1;

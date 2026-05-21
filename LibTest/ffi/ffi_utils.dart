@@ -5,7 +5,6 @@
 /// @description Utils for co19 ffi tests
 /// @author sgrekhov@unipro.ru
 
-import 'dart:ffi';
 import 'dart:io' show Platform;
 
 const TEST_DYNAMIC_LIB = "ffi_test_dynamic_library";

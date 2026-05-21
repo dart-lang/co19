@@ -26,7 +26,6 @@
 
 import "dart:ffi";
 import "package:ffi/ffi.dart";
-import "../../../Utils/expect.dart";
 
 final class MyStruct1 extends Struct {
   @Array(1, 2, 3)

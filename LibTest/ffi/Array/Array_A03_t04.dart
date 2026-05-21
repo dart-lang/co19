@@ -28,8 +28,6 @@
 
 import 'dart:ffi';
 
-import 'package:ffi/ffi.dart';
-
 final class MyStruct extends Struct {
   @Array(16)
   external Array<Void> a1;

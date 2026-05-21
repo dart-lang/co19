@@ -8,11 +8,11 @@
 /// The uri must have scheme data and no authority or fragment, and the path
 /// (concatenated with the query, if there is one) must be valid as data URI
 /// content with the same rules as parse.
+///
 /// @description Checks that this constructor creates an expected UriData. Test
 /// Uri, which is not valid for data Uri
 /// @author sgrekhov@unipro.ru
 
-import "dart:convert";
 import "../../../Utils/expect.dart";
 
 main() {

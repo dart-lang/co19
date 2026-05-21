@@ -14,13 +14,13 @@
 /// If the content is not Base64 encoded, it will first have percent-escapes
 /// converted to bytes and then the character codes and byte values are decoded
 /// using encoding
+///
 /// @description Checks that this method returns a string created from the
 /// content of the data URI. Test not Base64 encoded content
 /// @author sgrekhov@unipro.ru
 
 import "dart:convert";
 import "../../../Utils/expect.dart";
-import "../Uri/UriDataEncoder.lib.dart";
 
 check(String content, [Encoding? encoding]) {
   UriData uriData = new UriData.fromString(content, encoding: encoding);

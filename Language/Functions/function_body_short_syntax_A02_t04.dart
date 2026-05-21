@@ -14,8 +14,6 @@
 /// short syntax contains `sync*` modifier.
 /// @author sgrekhov22@qmail.com
 
-import 'dart:async';
-
 class C {
   static Iterable<int> staticMethod() sync* => 1;
 //                                          ^^

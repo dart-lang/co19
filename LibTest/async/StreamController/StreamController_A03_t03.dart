@@ -9,11 +9,10 @@
 ///
 /// @description Checks that the controller will buffer all incoming data and
 /// errors until the subscriber is registered.
-/// @issue #29461
 /// @author a.semenov@unipro.ru
+/// @issue #29461
 
 import "dart:async";
-import "../../../Utils/expect.dart";
 
 void check(List source) {
   StreamController controller = new StreamController();

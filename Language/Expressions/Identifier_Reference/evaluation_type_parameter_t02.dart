@@ -12,13 +12,12 @@
 ///   type argument corresponding to T that was passed to the generative
 ///   constructor that created the current binding of this. If, however, e occurs
 ///   inside a static member, a compile-time error occurs.
-/// @description Checks that there is a compile-time error if identifier
+///
+/// @description Checks that there is a compile-time error if an identifier
 /// expression in a return statement refers to a type parameter inside a static
 /// method.
-/// @issue 27491
 /// @author ngl@unipro.ru
-
-import '../../../Utils/expect.dart';
+/// @issue 27491
 
 class A<T> {
   static Type func() => T;
@@ -28,5 +27,5 @@ class A<T> {
 }
 
 main() {
-  A();
+  print(A);
 }

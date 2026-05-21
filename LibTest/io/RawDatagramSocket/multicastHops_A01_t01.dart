@@ -17,7 +17,6 @@
 /// @author ngl@unipro.ru
 
 import "dart:io";
-import "dart:async";
 import "../../../Utils/expect.dart";
 
 check(InternetAddress address) {

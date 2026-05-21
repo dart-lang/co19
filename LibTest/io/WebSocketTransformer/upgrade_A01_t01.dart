@@ -12,10 +12,10 @@
 /// valid WebSocket upgrade request an HTTP response with status code 500 will
 /// be returned. Otherwise the returned future will complete with the WebSocket
 /// when the upgrade process is complete.
+///
 /// @description Checks that the method [upgrade] returns Future<WebSocket>.
 /// @author ngl@unipro.ru
 
-import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
 

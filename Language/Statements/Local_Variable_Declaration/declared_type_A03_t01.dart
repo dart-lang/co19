@@ -15,8 +15,6 @@
 /// promoted to `X & T`
 /// @author sgrekhov22@gmail.com
 
-import '../../../Utils/static_type_helper.dart';
-
 test1<T>(T t) {
   if (t is int) {
     var v = t;
