@@ -115,8 +115,6 @@ extension type ET(A _) implements A {
 
 main() {
   print(C);
-  print(M);
-  print(E);
   print(A);
   print(ET);
 }
