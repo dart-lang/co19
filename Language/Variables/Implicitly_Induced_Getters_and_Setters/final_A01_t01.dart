@@ -14,13 +14,22 @@
 
 class C {
   final v = 1;
-  
   C() : v = 2 {}
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
+enum E {
+  e0;
+  final v = 1;
+  const E() : v = 2;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
-  new C();
+  print(C);
+  print(E);
 }

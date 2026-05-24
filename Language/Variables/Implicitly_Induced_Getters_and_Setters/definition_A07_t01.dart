@@ -22,7 +22,7 @@ class A {
 class C extends A {
   void set v1(x) {
     try {
-      x.whatever;
+      x.checkDynamic;
     } catch(_) {}
   }
 }
