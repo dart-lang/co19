@@ -8,8 +8,8 @@
 /// necessarily a compile-time error. For example, a setter named `id=` could be
 /// found by lexical lookup.
 ///
-/// @description Checks that it is not an error to assign to a `final` variable
-/// if there is a setter with the same name in the scope.
+/// @description Checks that it is not an error to "assign to a `final`
+/// variable" if there is a setter with the same name in the scope.
 /// @author sgrekhov22@gmail.com
 /// @issue 63440
 
