@@ -23,113 +23,54 @@
 /// constant patterns.
 ///
 /// @description Check that binary operator expressions derived from
-/// `bitwiseOrExpression` are not valid in a `guardedPattern` and produce a
-/// compile-time error.
+/// `bitwiseOrExpression` are allowed in switch case statements in a language
+/// version before 3.0.
 /// @author sgrekhov22@gmail.com
 
-String test(Object value) {
+// @dart=2.19
+
+int test(Object value) {
   switch (value) {
     case 1 + 2:
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =3";
+      return 1;
     case 2 - 1:
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =1";
+      return 2;
     case 2 * 2:
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    case 2 / 2:
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case 2/2";
+      return 3;
     case 30 ^ 2:
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =28";
+      return 4;
     case 1 | 4:
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =5";
+      return 5;
     case 1 & 4:
-//         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =0";
+      return 6;
     case 15 % 8:
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =7";
+      return 7;
     case 19 ~/ 8:
-//          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =2";
+      return 8;
     case 19 >> 1:
-//          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =9";
+      return 9;
     case 87 >>> 1:
-//          ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =43";
+      return 10;
     case 19 << 1:
-//          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =38";
+      return 11;
     case -1 > 2:
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =false";
+      return 12;
     case -1 < 2:
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =true";
+      return 13;
     case 1 >= 2:    // ignore: unreachable_switch_case
-//         ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =false2";
+      return 14;
     case -1 <= 2:   // ignore: unreachable_switch_case
-//          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =true2";
+      return 15;
     case 1 == -2:   // ignore: unreachable_switch_case
-//         ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =false3";
+      return 16;
     case 1 != 2:    // ignore: unreachable_switch_case
-//         ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =true3";
+      return 17;
     case "Lily" + " " "was" " " + "here":
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case String";
+      return 18;
     case List<int>:
-//       ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =type";
+      return 19;
     default:
-      return "default";
+      return 0;
   }
 }
 

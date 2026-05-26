@@ -1,4 +1,4 @@
-// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -24,115 +24,109 @@
 ///
 /// @description Check that binary operator expressions derived from
 /// `bitwiseOrExpression` are not valid in a `guardedPattern` and produce a
-/// compile-time error.
+/// compile-time error. Test a library prefix.
 /// @author sgrekhov22@gmail.com
+/// @issue 63356
 
-String test(Object value) {
+import 'switch_statement_A05_t04_lib.dart' as p;
+
+int test(Object value) {
   switch (value) {
-    case 1 + 2:
-//         ^
+    case p.a + p.b:
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =3";
-    case 2 - 1:
-//         ^
+      return 1;
+    case p.a - p.b:
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =1";
-    case 2 * 2:
-//         ^
+      return 2;
+    case p.a * p.b:
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case 2 / 2:
-//         ^
+      return 3;
+    case p.a / p.b:
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case 2/2";
-    case 30 ^ 2:
-//          ^
+      return 4;
+    case p.a ^ p.b:     // ignore: unreachable_switch_case
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =28";
-    case 1 | 4:
-//         ^
+      return 5;
+    case p.a | p.b:     // ignore: unreachable_switch_case
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =5";
-    case 1 & 4:
-//         ^
+      return 6;
+    case p.a & p.b:
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =0";
-    case 15 % 8:
-//          ^
+      return 7;
+    case p.a % p.b:
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =7";
-    case 19 ~/ 8:
-//          ^^
+      return 8;
+    case p.a ~/ p.b:    // ignore: unreachable_switch_case
+//           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =2";
-    case 19 >> 1:
-//          ^^
+      return 9;
+    case p.a >> p.b:    // ignore: unreachable_switch_case
+//           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =9";
-    case 87 >>> 1:
-//          ^^^
+      return 10;
+    case p.a >>> p.b:   // ignore: unreachable_switch_case
+//           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =43";
-    case 19 << 1:
-//          ^^
+      return 11;
+    case p.a << p.b:
+//           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =38";
-    case -1 > 2:
-//          ^
+      return 12;
+    case p.a > p.b:
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =false";
-    case -1 < 2:
-//          ^
+      return 13;
+    case p.a < p.b:
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =true";
-    case 1 >= 2:    // ignore: unreachable_switch_case
-//         ^^
+      return 14;
+    case p.a >= p.b:    // ignore: unreachable_switch_case
+//           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =false2";
-    case -1 <= 2:   // ignore: unreachable_switch_case
-//          ^^
+      return 15;
+    case p.a <= p.b:   // ignore: unreachable_switch_case
+//           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =true2";
-    case 1 == -2:   // ignore: unreachable_switch_case
-//         ^^
+      return 16;
+    case p.a == p.b:   // ignore: unreachable_switch_case
+//           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =false3";
-    case 1 != 2:    // ignore: unreachable_switch_case
-//         ^^
+      return 17;
+    case p.a != p.b:    // ignore: unreachable_switch_case
+//           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =true3";
-    case "Lily" + " " "was" " " + "here":
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case String";
-    case List<int>:
-//       ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-      return "case =type";
+      return 18;
     default:
-      return "default";
+      return 0;
   }
 }
 
 main() {
-  test(42);
+  print(test);
 }

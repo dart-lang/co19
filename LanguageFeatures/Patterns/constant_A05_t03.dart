@@ -1,4 +1,4 @@
-// Copyright (c) 2022, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -20,94 +20,67 @@
 /// ambiguity while supporting terse forms of the most common constant
 /// expressions like so:
 /// ...
-/// Other constant expressions must be marked const and surrounded by
+/// Other  must be marked const and surrounded by
 /// parentheses. This avoids ambiguity with null-assert, logical-or, and
 /// logical-and patterns. It also makes future extensions to patterns and
 /// expressions less likely to collide.
 ///
-/// @description Check const constructors calls in constant patterns. Test
-/// if-case pattern
+/// @description Check constant expressions in constant patterns. Test switch
+/// expressions.
 /// @author sgrekhov22@gmail.com
 
 import "../../Utils/expect.dart";
 
 String test(Object value) {
-  if (value case const (1 + 2)) {
-    return "case =3";
-  }
-  if (value case const (2 - 1)) {
-    return "case =1";
-  }
-  if (value case const (2 * 2)) {
-    return "case =4";
-  }
-  if (value case const (2 / 1)) {
-    return "case =2";
-  }
-  if (value case const (30 ^ 2)) {
-    return "case =28";
-  }
-  if (value case const (1 | 4)) {
-    return "case =5";
-  }
-  if (value case const (1 & 4)) {
-    return "case =0";
-  }
-  if (value case const (15 % 8)) {
-    return "case =7";
-  }
-  if (value case const (19 ~/ 8)) {
-    return "case =2";
-  }
-  if (value case const (19 >> 1)) {
-    return "case =9";
-  }
-  if (value case const (87 >>> 1)) {
-    return "case =43";
-  }
-  if (value case const (19 << 1)) {
-    return "case =38";
-  }
-  if (value case const (-1 > 2)) {
-    return "case =false";
-  }
-  if (value case const (-1 < 2)) {
-    return "case =true";
-  }
-  if (value case const ("Lily" + " " "was" " " + "here")) {
-    return "case String";
-  } else {
-    return "default";
-  }
+  final x = switch (value) {
+    const (1 + 2) => "case =3",
+    const (2 - 1) => "case =1",
+    const (2 * 2) => "case =4",
+    const (6 / 1) => "case =6",
+    const (30 ^ 2) => "case =28",
+    const (1 | 4) => "case =5",
+    const (1 & 4) => "case =0",
+    const (15 % 8) => "case =7",
+    const (19 ~/ 8) => "case =2",
+    const (19 >> 1) => "case =9",
+    const (87 >>> 1) => "case =43",
+    const (19 << 1) => "case =38",
+    const (-1 > 2) => "case =false",
+    const (-1 < 2) => "case =true",
+    const ("Lily" +
+        " "
+            "was"
+            " " +
+        "here") =>
+      "case String",
+    _ => "default",
+  };
+  return x;
 }
 
 String test2(Object value) {
-  if (value case const (-1 >= 2)) {
-    return "case =false";
-  }
-  if (value case const (1 <= 2)) {
-    return "case =true";
-  } else {
-    return "default";
-  }
+  final x = switch (value) {
+    const (1 >= 2) => "case =false",
+    const (-1 <= 2) => "case =true",
+    _ => "default",
+  };
+  return x;
 }
 
 String test3(Object value) {
-  if (value case const (1 == -2)) {
-    return "case =false";
-  }
-  if (value case const (1 != 2)) {
-    return "case =true";
-  } else {
-    return "default";
-  }
+  final x = switch (value) {
+    const (1 == -2) => "case =false",
+    const (1 != 2) => "case =true",
+    _ => "default",
+  };
+  return x;
 }
 
 main() {
   Expect.equals("case =3", test(3));
   Expect.equals("case =1", test(1));
   Expect.equals("case =4", test(4));
-  Expect.equals("case =2", test(2));
+  Expect.equals("case =6", test(6));
   Expect.equals("case =28", test(28));
   Expect.equals("case =5", test(5));
   Expect.equals("case =0", test(0));
