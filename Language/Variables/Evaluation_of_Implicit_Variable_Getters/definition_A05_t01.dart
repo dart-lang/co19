@@ -17,8 +17,8 @@
 /// the implicitly induced getter of `id` is a late-initialized getter. This
 /// determines the semantics of an invocation.
 ///
-/// @description Checks the implicit getter of an initialized instance variable
-/// is late-initialized and evaluated only once.
+/// @description Checks the implicit getter of an initialized late instance
+/// variable is late-initialized and evaluated only once.
 /// @author sgrekhov22@gmail.com
 
 import "../../../Utils/expect.dart";

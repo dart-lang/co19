@@ -17,8 +17,8 @@
 /// the implicitly induced getter of `id` is a late-initialized getter. This
 /// determines the semantics of an invocation.
 ///
-/// @description Checks that it is not an error if during an evaluation of the
-/// initializing expression `id` is invoked.
+/// @description Checks that it is not an error if `id` is invoked during an
+/// evaluation of the initializing expression .
 /// @author sgrekhov22@gmail.com
 
 import "../../../Utils/expect.dart";

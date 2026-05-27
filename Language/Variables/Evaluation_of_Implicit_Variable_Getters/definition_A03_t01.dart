@@ -58,7 +58,7 @@ extension type ET(int _) {
 void main() {
   Expect.throws(() {
     v = (() {
-        print(v);
+      print(v);
       return 42;
     })();
   });
