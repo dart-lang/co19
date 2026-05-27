@@ -2,8 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A constant variable is a variable whose declaration includes the 
-/// modifier const. A constant variable is always implicitly final.
+/// @assertion A constant variable is a variable whose declaration includes the
+/// modifier `const`.
+///
 /// @description Checks that, if a new value is assigned to a constant local 
 /// variable after it is initialized at declaration, then compile error occurs.
 /// @author msyabro
@@ -11,7 +12,7 @@
 main() {
   const foo = "foo";
   foo = "bar";
-//^
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
