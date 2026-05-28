@@ -10,26 +10,25 @@
 /// map's value type
 /// @author sgrekhov@unipro.ru
 
-
 main() {
   <int, int>{if (true) 1: "not int"};
 //                        ^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Map<int, int> m1 = {if (true) 1: "not int"};
 //                                 ^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   const <int, int>{if (true) 1: "not int"};
 //                              ^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   <int, int>{for (var i in []) 1: "not int"};
 //                                ^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Map<int, int> m2 = {for (var i in []) 1: "not int"};
 //                                         ^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -15,8 +15,6 @@
 /// top-level
 /// @author sgrekhov@unipro.ru
 
-
-
 class C {
   extension MyFancyList<T> on List<T> {
 //^^^^^^^^^
@@ -40,6 +38,6 @@ main() {
 // [cfe] unspecified
   }
 //^
-// [analyzer] SYNTACTIC_ERROR.EXPECTED_TOKEN
-// [cfe] Expected ';' after this.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

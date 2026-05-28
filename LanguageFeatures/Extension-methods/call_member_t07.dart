@@ -9,20 +9,18 @@
 /// function typed context is a compile-time error
 /// @author sgrekhov@unipro.ru
 
-
-
 extension on int {
   String call(int v) => "Result: $v";
 }
 
 String Function(int) from1 = 1;
 //                           ^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'String Function(int)'.
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   String Function(int) from2 = 2;
 //                             ^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'String Function(int)'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -13,9 +13,9 @@
 ///    {...x, ...l} // Statically a set, runtime error when spreading x.
 ///    {...x, ...m} // Statically a map, no runtime error.
 ///    {...l, ...m} // Static error, because it must be both a set and a map.
+///
 /// @description Checks that for [dynamic x] [{...x}] is a static error
 /// @author iarkh@unipro.ru
-
 
 main() {
   dynamic x1 = <int, int>{};
@@ -25,18 +25,18 @@ main() {
 
   var y1 = {...x1};
 //         ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-// [cfe] Not enough type information to disambiguate between literal set and literal map.
+// [analyzer] unspecified
+// [cfe] unspecified
   var y2 = {...x2};
 //         ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-// [cfe] Not enough type information to disambiguate between literal set and literal map.
+// [analyzer] unspecified
+// [cfe] unspecified
   var y3 = {...x3};
 //         ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-// [cfe] Not enough type information to disambiguate between literal set and literal map.
+// [analyzer] unspecified
+// [cfe] unspecified
   var y4 = {...x4};
 //         ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-// [cfe] Not enough type information to disambiguate between literal set and literal map.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

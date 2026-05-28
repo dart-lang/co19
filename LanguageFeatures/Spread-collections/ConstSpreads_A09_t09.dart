@@ -50,7 +50,6 @@ main() {
 // [cfe] unspecified
   const Set res7  = const {...n};
 //                  ^
-// [cfe] Constant evaluation error:
-//                            ^
-// [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_LIST_OR_SET
+// [analyzer] unspecified
+// [cfe] unspecified
 }

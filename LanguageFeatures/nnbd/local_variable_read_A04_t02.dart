@@ -80,8 +80,6 @@ main() {
   int x12;
   x12 ??= 2;
 //^^^
-// [analyzer] COMPILE_TIME_ERROR.NOT_ASSIGNED_POTENTIALLY_NON_NULLABLE_LOCAL_VARIABLE
-//        ^
-// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+// [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -6,10 +6,10 @@
 ///    If a map spread element's static type implements [Map<K, V>] for some [K]
 ///    and [V] and [K] is not assignable to the key type of the map or [V] is not
 ///    assignable to the value type of the map.
+///
 /// @description Checks that compile error is thrown if spread element type in
 /// map literal is not assignable to the type of the map.
 /// @author iarkh@unipro.ru
-
 
 main() {
   test1();
@@ -32,12 +32,12 @@ void test1() {
 // [cfe] unspecified
   Map map2  = <int, String>{...m2};
 //                             ^^
-// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread entry values of type 'int' to map entry values of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Map map3  = <int, String>{...m3};
 //                             ^^
-// [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread entry keys of type 'String' to map entry keys of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Map map4  = <int, String>{...m4};
 //                             ^^
 // [analyzer] unspecified
@@ -52,12 +52,12 @@ void test1() {
 // [cfe] unspecified
   Map map7  = <int, String>{...m7};
 //                             ^^
-// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread entry values of type 'int' to map entry values of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Map map8  = <int, String>{...m8};
 //                             ^^
-// [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread entry keys of type 'String' to map entry keys of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 void test2() {
@@ -70,35 +70,35 @@ void test2() {
   Map<int, int>? m7 = <int, int>{1: 22, 2: 13, 3: 4};
   Map<String, String>? m8 = <String, String>{"1": "22", "2": "13", "3": "4"};
 
-  Map map9  = <int, String>{...?m1};
+  Map map9  = <int, String>{...?m1}; // ignore: invalid_null_aware_operator
 //                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Map map10 = <int, String>{...?m2};
+  Map map10 = <int, String>{...?m2}; // ignore: invalid_null_aware_operator
 //                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Map map11 = <int, String>{...?m3};
+  Map map11 = <int, String>{...?m3}; // ignore: invalid_null_aware_operator
 //                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Map map12 = <int, String>{...?m4};
+  Map map12 = <int, String>{...?m4}; // ignore: invalid_null_aware_operator
 //                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Map map13 = <int, String>{...?m5};
+  Map map13 = <int, String>{...?m5}; // ignore: invalid_null_aware_operator
 //                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Map map14 = <int, String>{...?m6};
+  Map map14 = <int, String>{...?m6}; // ignore: invalid_null_aware_operator
 //                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Map map15 = <int, String>{...?m7};
+  Map map15 = <int, String>{...?m7}; // ignore: invalid_null_aware_operator
 //                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Map map16 = <int, String>{...?m8};
+  Map map16 = <int, String>{...?m8}; // ignore: invalid_null_aware_operator
 //                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified

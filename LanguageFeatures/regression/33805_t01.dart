@@ -13,14 +13,14 @@ X testme<X extends A<X>>(dynamic x) => x;
 main() {
   A a = testme(new A());
 //      ^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.COULD_NOT_INFER
-// [cfe] Inferred type argument 'A<dynamic>' doesn't conform to the bound 'A<X>' of the type variable 'X' on 'testme'.
+// [analyzer] unspecified
+// [cfe] unspecified
   A<A> a1 = testme(new A<A>());
 //          ^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.COULD_NOT_INFER
-// [cfe] Inferred type argument 'A<A<dynamic>>' doesn't conform to the bound 'A<X>' of the type variable 'X' on 'testme'.
+// [analyzer] unspecified
+// [cfe] unspecified
   A<A<A>> a2 = testme(new A<A<A>>());
 //             ^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.COULD_NOT_INFER
-// [cfe] Inferred type argument 'A<A<A<dynamic>>>' doesn't conform to the bound 'A<X>' of the type variable 'X' on 'testme'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

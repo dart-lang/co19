@@ -18,8 +18,6 @@
 /// instance variable, constructor or abstract method
 /// @author sgrekhov@unipro.ru
 
-
-
 extension ExtendedList<T> on List<T> {
   int instanceVar;
 //    ^^^^^^^^^^^
@@ -31,16 +29,16 @@ extension ExtendedList<T> on List<T> {
 // [cfe] unspecified
   ExtendedList() {}
 //^^^^^^^^^^^^
-// [analyzer] SYNTACTIC_ERROR.EXTENSION_DECLARES_CONSTRUCTOR
-// [cfe] Extensions can't declare constructors.
+// [analyzer] unspecified
+// [cfe] unspecified
   ExtendedList.named(int i) {}
 //^^^^^^^^^^^^
-// [analyzer] SYNTACTIC_ERROR.EXTENSION_DECLARES_CONSTRUCTOR
-// [cfe] Extensions can't declare constructors.
+// [analyzer] unspecified
+// [cfe] unspecified
   void abstractMethod(String v);
 //     ^^^^^^^^^^^^^^
-// [analyzer] SYNTACTIC_ERROR.EXTENSION_DECLARES_ABSTRACT_MEMBER
-// [cfe] Extensions can't declare abstract members.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

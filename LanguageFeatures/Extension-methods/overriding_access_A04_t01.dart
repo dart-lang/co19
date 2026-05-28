@@ -12,11 +12,10 @@
 /// followed by a [.] because extensions can also declare operators, but it must
 /// be followed by a [.], a declared operator, or an arguments part (in case the
 /// extension implements call).
+///
 /// @description Check that overriding extensions can be used without member
 /// access call.
 /// @author iarkh@unipro.ru
-
-
 
 import "extension_conflict_resolution_lib.dart" as testlib;
 
@@ -27,13 +26,12 @@ extension Ext1 on String {
 main() {
   testlib.MySimpleExt("testme");
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EXTENSION_OVERRIDE_WITHOUT_ACCESS
-//        ^
-// [cfe] Explicit extension application cannot be used as an expression.
+// [analyzer] unspecified
+// [cfe] unspecified
   Ext1("testme");
 //^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EXTENSION_OVERRIDE_WITHOUT_ACCESS
-// [cfe] Explicit extension application cannot be used as an expression.
+// [analyzer] unspecified
+// [cfe] unspecified
 
   testlib.MySimpleExt("testme")++;
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

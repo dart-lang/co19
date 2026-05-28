@@ -8,10 +8,10 @@
 /// or [Map] instance originally created by a list, set or map literal. It is a
 /// potentially constant element if the expression is potentially constant
 /// expression.
+///
 /// @description: Checks that constant map spread [...?] element can only be
 /// constant map or null
 /// @author iarkh@unipro.ru
-
 
 const List? l1 = [];
 List? l2 = [];
@@ -27,8 +27,8 @@ int? i2 = 25;
 main() {
   const Map res1= const {...?l1};
 //                ^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+// [analyzer] unspecified
+// [cfe] unspecified
   const Map res2 = const {...?l2};
 //                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified

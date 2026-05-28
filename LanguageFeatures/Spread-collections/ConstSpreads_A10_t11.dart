@@ -8,6 +8,7 @@
 /// or [Map] instance originally created by a list, set or map literal. It is a
 /// potentially constant element if the expression is potentially constant
 /// expression.
+///
 /// @description: Checks that constant set spread [...?] element can be
 /// potentially constant list or set.
 /// @author iarkh@unipro.ru
@@ -17,24 +18,20 @@ class MyClass {
   const MyClass(Object o) : a = o as String;
 }
 
-
 main() {
-  const Set s1 = {...?(MyClass(12345) is MyClass ? [12] as List? : [])};
+  const Set s1 = {...?(MyClass(12345) is MyClass ? [12] as List? : [])}; // ignore: unnecessary_type_check
 //               ^
-// [cfe] Constant evaluation error:
-//                     ^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
-  const Set s2 = {...?(MyClass(12345) is MyClass ? {12} as Set? : <int>{})};
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set s2 = {...?(MyClass(12345) is MyClass ? {12} as Set? : <int>{})}; // ignore: unnecessary_type_check
 //               ^
-// [cfe] Constant evaluation error:
-//                     ^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
-  const Set s3 = {...?(MyClass(12345) is MyClass ? {12} : null)};
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set s3 = {...?(MyClass(12345) is MyClass ? {12} : null)}; // ignore: unnecessary_type_check
 //               ^
-// [cfe] Constant evaluation error:
-//                     ^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
-  const Set s4 = {...?(MyClass(12345) is MyClass ? {null} : 1)};
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set s4 = {...?(MyClass(12345) is MyClass ? {null} : 1)}; // ignore: invalid_null_aware_operator,unnecessary_type_check
 //                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

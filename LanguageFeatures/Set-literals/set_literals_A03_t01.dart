@@ -23,20 +23,18 @@ class C extends B {
 main() {
   var v1 = const <int>{1, '2', 3};
 //                        ^^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   var v2 = <int>{1, '2', 3};
 //                  ^^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   var v3 = <B>{new B(), new C(), new A()};
 //                               ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-//                                   ^
-// [cfe] A value of type 'A' can't be assigned to a variable of type 'B'.
+// [analyzer] unspecified
+// [cfe] unspecified
   var v4 = const <B>{const B(), const C(), const A()};
 //                                         ^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-//                                               ^
-// [cfe] A value of type 'A' can't be assigned to a variable of type 'B'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

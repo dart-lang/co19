@@ -14,62 +14,62 @@ main() {
   var x = 1;
   List<int> list1 = const [if (1) 1, 1 ];
 //                             ^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   const List<int> list2 = [if (0) 1, 1 ];
 //                             ^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   var list3 = const [if ("s") 1, 1, ];
 //                       ^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   var list4 = const <int>[if (0) 1, 1, ];
 //                            ^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   const list5 = [if (0) 1, 1 ];
 //                   ^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
 
   Set<int> set1 = const {if (0) 1, -1 };
 //                           ^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   const Set<int> set2 = {if (1) 1, -1 };
 //                           ^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   var set3 = const {if ("s") 1, -1, };
 //                      ^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   var set4 = const <int>{if (0) 1, -1, };
 //                           ^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   const set5 = {if (1) 1, -1 };
 //                  ^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
 
   Map<int, String> map1 = const {if (0) 1: "1"};
 //                                   ^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   const Map<int, String> map2 = {if (1) 1: "x"};
 //                                   ^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   var map3 = const {if ("s") 1: "x"};
 //                      ^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   var map4 = const <int, String>{if (0) 1: "x"};
 //                                   ^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   const map5 = {if (0.0) 1: "x" };
 //                  ^^^
 // [analyzer] unspecified

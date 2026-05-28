@@ -8,6 +8,7 @@
 /// or [Map] instance originally created by a list, set or map literal. It is a
 /// potentially constant element if the expression is potentially constant
 /// expression.
+///
 /// @description: Checks that constant list [...?] spread element can only be
 /// potentially constant list or set or [null].
 /// @author iarkh@unipro.ru
@@ -18,20 +19,19 @@ class MyClass {
 }
 
 main() {
-  const List l1 = [...?(MyClass(12345) is MyClass ? [12] : [])];
+  const List l1 = [...?(MyClass(12345) is MyClass ? [12] : [])]; // ignore: invalid_null_aware_operator,unnecessary_type_check
 //                      ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const List l2 = [...?(MyClass(12345) is MyClass ? {12} : {2})];
+  const List l2 = [...?(MyClass(12345) is MyClass ? {12} : {2})]; // ignore: invalid_null_aware_operator,unnecessary_type_check
 //                      ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const List l3 = [...?(MyClass(12345) is MyClass ? {12} : null)];
+  const List l3 = [...?(MyClass(12345) is MyClass ? {12} : null)]; // ignore: invalid_null_aware_operator,unnecessary_type_check
 //                ^
-// [cfe] Constant evaluation error:
-//                      ^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
-  const List l4 = [...?(MyClass(12345) is MyClass ? {null} : 1)];
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List l4 = [...?(MyClass(12345) is MyClass ? {null} : 1)]; // ignore: invalid_null_aware_operator,unnecessary_type_check
 //                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

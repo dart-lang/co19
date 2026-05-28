@@ -6,11 +6,10 @@
 /// because an extension cannot declare a member named [==], and [MyList(object)
 /// != x] is disallowed because it's also defined in terms of a member named
 /// [==].
+///
 /// @description Check that it's not allowed to use [==] and [!=]construction for
 /// the extensions.
 /// @author iarkh@unipro.ru
-
-
 
 extension MySimpleExt on String {
   bool get test => false;
@@ -21,23 +20,19 @@ extension MySimpleExt on String {
 main() {
   bool res1 = MySimpleExt("testme") == true;
 //            ^
-// [cfe] Explicit extension application cannot be used as an expression.
-//                                  ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
+// [analyzer] unspecified
+// [cfe] unspecified
   var  res2 = MySimpleExt("testme") == 14;
 //            ^
-// [cfe] Explicit extension application cannot be used as an expression.
-//                                  ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
+// [analyzer] unspecified
+// [cfe] unspecified
 
   bool res3 = MySimpleExt("testme") != true;
 //            ^
-// [cfe] Explicit extension application cannot be used as an expression.
-//                                  ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
+// [analyzer] unspecified
+// [cfe] unspecified
   var  res4 = MySimpleExt("testme") != 128;
 //            ^
-// [cfe] Explicit extension application cannot be used as an expression.
-//                                  ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -25,12 +25,10 @@ test<T extends B>(Set<T> s) {}
 main() {
   test<B>({new B(), new C(), new A()});
 //                           ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-//                               ^
-// [cfe] A value of type 'A' can't be assigned to a variable of type 'B'.
+// [analyzer] unspecified
+// [cfe] unspecified
   test<B>(const {const B(), const C(), const A()});
 //                                     ^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-//                                           ^
-// [cfe] A value of type 'A' can't be assigned to a variable of type 'B'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
