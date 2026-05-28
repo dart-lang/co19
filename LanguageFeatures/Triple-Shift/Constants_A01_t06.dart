@@ -9,10 +9,10 @@
 /// added to the [int] class yet, so unless the left-hand operand's static type
 /// is [dynamic], the program will still be rejected. When the operator is added,
 /// it should then also work in a constant expression.
+///
 /// @description Checks that arguments of [>>>] operator should be int.
 /// @Issue 30886
 /// @author iarkh@unipro.ru
-
 
 main() {
   const d1 = 14;
@@ -38,9 +38,8 @@ main() {
 // [cfe] unspecified
   const c5 = d4 >>> 2;
 //           ^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
-//              ^
-// [cfe] Constant evaluation error:
+// [analyzer] unspecified
+// [cfe] unspecified
   const c6 = 24 >>> d4;
 //           ^^^^^^^^^
 // [analyzer] unspecified

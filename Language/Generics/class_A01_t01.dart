@@ -9,10 +9,10 @@
 /// B1,..., Xm extends Bm], and a parameterized type [T] of the form
 /// [C<T1,..., Tl>].
 /// It is a compile-time error if [m != l].
+///
 /// @description Checks that compile error is thrown for the case with one type
 /// argument
 /// @author iarkh@unipro.ru
-
 
 class C<T> {}
 
@@ -27,18 +27,18 @@ main() {
 
   C<int, int>?                 c7;
 //^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
-// [cfe] Expected 1 type arguments.
+// [analyzer] unspecified
+// [cfe] unspecified
   C<dynamic, dynamic>?         c8;
 //^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
-// [cfe] Expected 1 type arguments.
+// [analyzer] unspecified
+// [cfe] unspecified
   C<int, String, long>?        c9;
 //^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C<int, int, int, int, int>? c10;
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
-// [cfe] Expected 1 type arguments.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

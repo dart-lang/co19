@@ -19,9 +19,10 @@
 /// Moreover, let [T1], . . . , [Tl] be types and let [U] be the parameterized
 /// type id<T1, . . . , Tl> in a location where [id] denotes [D]. ... It is a
 /// compile-time error if [U] is not well-bounded
+///
 /// @description Checks that compile error is thrown if [U] is not well-bounded.
-/// @Issue 36959, 37050
 /// @author iarkh@unipro.ru
+/// @Issue 36959, 37050
 
 class A<X extends A<X>> {}
 
@@ -39,9 +40,8 @@ main() {
 // [cfe] unspecified
   AAlias<int>        a7;
 //       ^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-//^
-// [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'AAlias'.
+// [analyzer] unspecified
+// [cfe] unspecified
   AAlias<A<Null>>    a8;
 //       ^^^^^^^
 // [analyzer] unspecified

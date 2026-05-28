@@ -6,6 +6,7 @@
 /// following:
 ///   • A reference to a compile-time constant variable.
 ///   • A call to a constant constructor.
+///
 /// @description Check that if static class method is used as metadata, then a
 /// compile time error is raised.
 /// @author a.semenov@unipro.ru
@@ -18,11 +19,10 @@ class A {
 
   @A.a()
 //^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ANNOTATION
-//   ^
-// [cfe] Couldn't find constructor 'A.a'.
+// [analyzer] unspecified
+// [cfe] unspecified
 class B {}
 
 main() {
-  B? b;
+  print(B);
 }

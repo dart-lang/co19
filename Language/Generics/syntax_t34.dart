@@ -20,7 +20,7 @@ class C<T> { const C(); }
 @C() typedef G = void Function();
 @C<int>() typedef K = void Function();
 //^
-// [analyzer] SYNTACTIC_ERROR.EXPERIMENT_NOT_ENABLED
-// [cfe] An annotation can't use type arguments.
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

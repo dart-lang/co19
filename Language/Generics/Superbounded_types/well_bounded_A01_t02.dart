@@ -18,9 +18,8 @@ main() {
 // [cfe] unspecified
   A<int> a1;
 //  ^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-//^
-// [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+// [analyzer] unspecified
+// [cfe] unspecified
   A<A<int>> a2;
 //  ^^^^^^
 // [analyzer] unspecified

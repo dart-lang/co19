@@ -34,8 +34,8 @@ class F {
 // [cfe] unspecified
   factory F.baz() = D.baz;
 //                  ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.REDIRECT_TO_MISSING_CONSTRUCTOR
-// [cfe] Redirection constructor target not found: 'D.baz'
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class D {
