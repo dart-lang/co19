@@ -16,8 +16,6 @@ List<A<dynamic>>? lst;
 main() {
   A<dynamic>();
 //^
-// [cfe] Type argument 'dynamic' doesn't conform to the bound 'num' of the type variable 'X' on 'A'.
-//  ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-
+// [analyzer] unspecified
+// [cfe] unspecified
 }

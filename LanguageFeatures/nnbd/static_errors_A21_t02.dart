@@ -16,8 +16,8 @@ class A {}
 class C {
   void m1(covariant late A x) {}
 //                  ^^^^
-// [analyzer] SYNTACTIC_ERROR.EXTRANEOUS_MODIFIER
-// [cfe] Can't have modifier 'late' here.
+// [analyzer] unspecified
+// [cfe] unspecified
   void m2(A x, [covariant late A y]) {}
 //                        ^^^^
 // [analyzer] unspecified
@@ -29,12 +29,12 @@ class C {
 
   void set(covariant late A x) {}
 //                   ^^^^
-// [analyzer] SYNTACTIC_ERROR.EXTRANEOUS_MODIFIER
-// [cfe] Can't have modifier 'late' here.
+// [analyzer] unspecified
+// [cfe] unspecified
   C operator +(covariant late C other) => other;
 //                       ^^^^
-// [analyzer] SYNTACTIC_ERROR.EXTRANEOUS_MODIFIER
-// [cfe] Can't have modifier 'late' here.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

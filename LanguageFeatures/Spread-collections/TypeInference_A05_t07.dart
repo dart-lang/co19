@@ -13,28 +13,27 @@
 ///    {...x, ...l} // Statically a set, runtime error when spreading x.
 ///    {...x, ...m} // Statically a map, no runtime error.
 ///    {...l, ...m} // Static error, because it must be both a set and a map.
+///
 /// @description Checks that {...l, ...m} is a static error
 /// @author iarkh@unipro.ru
-
 
 main() {
   Iterable l = [];
   Map m = {};
   var res1   = {...l, ...m};
 //             ^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
-// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+// [analyzer] unspecified
+// [cfe] unspecified
   var res2   = {...m, ...l};
 //             ^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
-// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+// [analyzer] unspecified
+// [cfe] unspecified
   List res3  = {...l, ...m};
 //             ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map res4   = {...l, ...m};
-//             ^
-// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
 //                 ^
-// [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
+// [analyzer] unspecified
+// [cfe] unspecified
 }

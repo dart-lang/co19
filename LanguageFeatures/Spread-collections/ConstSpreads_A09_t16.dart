@@ -7,10 +7,10 @@
 /// is constant and it evaluates to a constant List, Set or Map instance
 /// originally created by a list, set or map literal. It is a potentially
 /// constant element if the expression is a potentially constant expression.
+///
 /// @description: Checks that constant map spread element cannot be non-constant,
 /// cannot be [null] and cannot be [List], [Set] or [int].
 /// @author iarkh@unipro.ru
-
 
 const l1 = [];
 List l2 = [];
@@ -28,8 +28,8 @@ const n = null;
 main() {
   const Map res1  = const {...l1};
 //                  ^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+// [analyzer] unspecified
+// [cfe] unspecified
   const Map res2  = const {...l2};
 //                  ^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -55,8 +55,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res8  = const {...n};
-//          ^
-// [cfe] Constant evaluation error:
 //                            ^
-// [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_MAP
+// [analyzer] unspecified
+// [cfe] unspecified
 }

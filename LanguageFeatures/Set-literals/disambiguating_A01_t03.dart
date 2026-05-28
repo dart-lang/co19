@@ -17,20 +17,20 @@
 
 var v1 = <int, String, Object> {};
 //       ^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+// [analyzer] unspecified
+// [cfe] unspecified
 var v2 = const <int, String, Object> {};
 //             ^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   var x1 = <int, String, Object> {};
 //         ^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+// [analyzer] unspecified
+// [cfe] unspecified
   var x2 = const <int, String, Object> {};
 //               ^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

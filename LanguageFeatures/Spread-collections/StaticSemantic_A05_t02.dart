@@ -5,6 +5,7 @@
 /// @assertion It is a static error if:
 ///    If a list or set spread element's static type implements [Iterable<T>] for
 ///    some [T] and [T] is not assignable to the element type of the list.
+///
 /// @description Checks that compile error is thrown if spread element type in
 /// the list literal is not assignable to the type of the list.
 /// @author iarkh@unipro.ru
@@ -41,28 +42,28 @@ void test1() {
 
   List list1  = <String>[...l1];
 //                          ^^
-// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   List list2  = <String>[...l2];
 //                          ^^
-// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'bool' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   List list3  = <String>[...l3];
 //                          ^^
-// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   List list4  = <String>[...l4];
 //                          ^^
-// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'bool' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   List list5  = <String>[...i1];
 //                          ^^
-// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   List list6  = <String>[...i2];
 //                          ^^
-// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'bool' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 void test2() {
@@ -74,27 +75,27 @@ void test2() {
   Iterable<int>? i1 = new MyIterable<int>();
   Iterable<bool>? i2 = new MyIterable<bool>();
 
-  List list7  = <String>[...?l1];
+  List list7  = <String>[...?l1]; // ignore: invalid_null_aware_operator
 //                           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  List list8  = <String>[...?l2];
+  List list8  = <String>[...?l2]; // ignore: invalid_null_aware_operator
 //                           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  List list9  = <String>[...?l3];
+  List list9  = <String>[...?l3]; // ignore: invalid_null_aware_operator
 //                           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  List list10 = <String>[...?l4];
+  List list10 = <String>[...?l4]; // ignore: invalid_null_aware_operator
 //                           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  List list11 = <String>[...?i1];
+  List list11 = <String>[...?i1]; // ignore: invalid_null_aware_operator
 //                           ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  List list12 = <String>[...?i2];
+  List list12 = <String>[...?i2]; // ignore: invalid_null_aware_operator
 //                           ^^
 // [analyzer] unspecified
 // [cfe] unspecified

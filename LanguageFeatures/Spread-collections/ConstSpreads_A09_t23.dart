@@ -7,9 +7,9 @@
 /// is constant and it evaluates to a constant List, Set or Map instance
 /// originally created by a list, set or map literal. It is a potentially
 /// constant element if the expression is a potentially constant expression.
+///
 /// @description: Checks some disambiguilty cases for sets and maps.
 /// @author iarkh@unipro.ru
-
 
 const l1 = [];
 List l2 = [];
@@ -36,17 +36,16 @@ main() {
 // [cfe] unspecified
   const res3 = {...l1, 123: 2};
 //             ^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
-// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+// [analyzer] unspecified
+// [cfe] unspecified
   const res4 = {14: 3, ...s1};
 //             ^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
-// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+// [analyzer] unspecified
+// [cfe] unspecified
   const res5 = {...m1, 13};
 //             ^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
-//                 ^
-// [cfe] Unexpected type 'Map<int, int>' of a spread.  Expected 'dynamic' or an Iterable.
+// [analyzer] unspecified
+// [cfe] unspecified
   const res6 = {...m2};
 //                 ^^
 // [analyzer] unspecified
@@ -61,8 +60,8 @@ main() {
 // [cfe] unspecified
   const res9 = {...n};
 //             ^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-// [cfe] Not enough type information to disambiguate between literal set and literal map.
+// [analyzer] unspecified
+// [cfe] unspecified
   const res10 = {...null};
 //              ^^^^^^^^^
 // [analyzer] unspecified

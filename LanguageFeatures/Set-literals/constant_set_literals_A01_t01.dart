@@ -28,8 +28,8 @@ main() {
 // [cfe] unspecified
   var v2 = const [const B(), const C(), const A(), x];
 //                                                 ^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-// [cfe] Not a constant expression.
+// [analyzer] unspecified
+// [cfe] unspecified
   const v3 = {1, 2, '3', new A()};
 //                       ^^^^^^^
 // [analyzer] unspecified

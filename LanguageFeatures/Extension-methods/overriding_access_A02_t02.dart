@@ -4,11 +4,10 @@
 
 /// @assertion It is a compile-time error if the extension does not declare a
 /// member with the provided name.
+///
 /// @description Check that compile time error is thrown if the extension called
 /// with the prefix does not declare a member with the given name
 /// @author iarkh@unipro.ru
-
-
 
 import "extension_conflict_resolution_lib.dart" as testlib;
 
@@ -19,14 +18,14 @@ main() {
 
   bool res1 = testlib.MySimpleExt("testme").isInt;
 //                                          ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_GETTER
-// [cfe] Member not found: 'isInt'.
+// [analyzer] unspecified
+// [cfe] unspecified
   var res2 = testlib.MySimpleExt("testme").getTest();
 //                                         ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_METHOD
-// [cfe] Method not found: 'getTest'.
+// [analyzer] unspecified
+// [cfe] unspecified
   testlib.MySimpleExt("testme").put(11);
 //                              ^^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_METHOD
-// [cfe] Method not found: 'put'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

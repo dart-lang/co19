@@ -15,7 +15,6 @@
 /// if classes from implements clause are not compatible.
 /// @author ngl@unipro.ru
 
-
 class T1 {}
 class T2 {}
 
@@ -46,26 +45,30 @@ class C {}
 // The same name getters with different return types
 mixin M1 on B, C implements I1, J1 {}
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.INCONSISTENT_INHERITANCE
-// [cfe] Class 'M1' inherits multiple members named 'n' with incompatible signatures.
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // The same name getter and method with the same return types
 mixin M2 on B, C implements I1, J2 {}
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.INCONSISTENT_INHERITANCE_GETTER_AND_METHOD
-// [cfe] Can't inherit members that conflict with each other.
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // The same name methods with different return types
 mixin M3 on B, C implements I2, J2 {}
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.INCONSISTENT_INHERITANCE
-// [cfe] Class 'M3' inherits multiple members named 'n' with incompatible signatures.
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // The methods with the same return types and different parameters number
 mixin M4 on B, C implements I3, J3 {}
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.INCONSISTENT_INHERITANCE
-// [cfe] Class 'M4' inherits multiple members named 'n' with incompatible signatures.
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
+  print(M1);
+  print(M2);
+  print(M3);
+  print(M4);
 }

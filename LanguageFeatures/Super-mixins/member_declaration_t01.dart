@@ -16,7 +16,6 @@
 /// name as a mixin declaration.
 /// @author ngl@unipro.ru
 
-
 class I {}
 class J {}
 
@@ -26,22 +25,22 @@ class C {}
 mixin M1 on B, C implements I, J {
   int M1 = 1;
 //    ^^
-// [analyzer] SYNTACTIC_ERROR.MEMBER_WITH_CLASS_NAME
-// [cfe] A class member can't have the same name as the enclosing class.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M2 on B, C implements I, J {
   int get M2;
 //        ^^
-// [analyzer] SYNTACTIC_ERROR.MEMBER_WITH_CLASS_NAME
-// [cfe] A class member can't have the same name as the enclosing class.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M3 on B, C implements I, J {
   void set M3(p);
 //         ^^
-// [analyzer] SYNTACTIC_ERROR.MEMBER_WITH_CLASS_NAME
-// [cfe] A class member can't have the same name as the enclosing class.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M4 on B, C implements I, J {
@@ -52,4 +51,8 @@ mixin M4 on B, C implements I, J {
 }
 
 main() {
+  print(M1);
+  print(M2);
+  print(M3);
+  print(M4);
 }

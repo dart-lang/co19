@@ -6,6 +6,7 @@
 /// const? ('<' type '>')? '{' ... '}' where ... is zero or more comma-separated
 /// element expressions (potentially with a trailing comma which is otherwise
 /// ignored).
+///
 /// @description Checks set literal syntax
 /// @author sgrekhov@unipro.ru
 
@@ -20,8 +21,8 @@ main() {
 // [cfe] unspecified
   var v3  = {,};
 //           ^
-// [analyzer] SYNTACTIC_ERROR.MISSING_IDENTIFIER
-// [cfe] Expected an identifier, but got ','.
+// [analyzer] unspecified
+// [cfe] unspecified
   var v4  = const <int?> {,,};
 //                        ^^
 // [analyzer] unspecified

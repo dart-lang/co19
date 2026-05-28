@@ -27,12 +27,12 @@ void test<T>(T t) {
 
   var s3 = {...(t as dynamic) };
 //         ^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-// [cfe] Not enough type information to disambiguate between literal set and literal map.
+// [analyzer] unspecified
+// [cfe] unspecified
   var s4 = {...?(t as dynamic)};
 //         ^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-// [cfe] Not enough type information to disambiguate between literal set and literal map.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

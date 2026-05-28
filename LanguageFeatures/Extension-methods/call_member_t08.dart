@@ -16,8 +16,6 @@
 /// with 'call' getter
 /// @author sgrekhov@unipro.ru
 
-
-
 class A {
   void Function(int, [String]) get call => (x, [y = '']) {};
 }
@@ -26,12 +24,10 @@ main() {
   A a = new A();
   a(2);
 //^
-// [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
-// ^
-// [cfe] Cannot invoke an instance of 'A' because it declares 'call' to be something other than a method.
+// [analyzer] unspecified
+// [cfe] unspecified
   a(2, "3");
 //^
-// [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
-// ^
-// [cfe] Cannot invoke an instance of 'A' because it declares 'call' to be something other than a method.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

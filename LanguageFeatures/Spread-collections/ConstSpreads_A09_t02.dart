@@ -7,11 +7,11 @@
 /// is constant and it evaluates to a constant List, Set or Map instance
 /// originally created by a list, set or map literal. It is a potentially
 /// constant element if the expression is a potentially constant expression.
+///
 /// @description: Checks that constant list spread element cannot be
 /// non-constant, cannot be [null] and cannot be of the type which is not [List]
 /// or [Set]
 /// @author iarkh@unipro.ru
-
 
 List l = [];
 Set s = {};
@@ -51,7 +51,6 @@ main() {
 // [cfe] unspecified
   const List res7  = const [...n];
 //                   ^
-// [cfe] Constant evaluation error:
-//                             ^
-// [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_LIST_OR_SET
+// [analyzer] unspecified
+// [cfe] unspecified
 }

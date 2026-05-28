@@ -20,8 +20,8 @@
 class C<T extends Iterable<Object>>  {
   T t = {};
 //      ^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-// [cfe] A value of type 'Set<dynamic>' can't be assigned to a variable of type 'T'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

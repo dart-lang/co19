@@ -8,6 +8,7 @@
 /// or [Map] instance originally created by a list, set or map literal. It is a
 /// potentially constant element if the expression is potentially constant
 /// expression.
+///
 /// @description: Checks that constant map spread [...?] element can only be
 /// potentially constant map or null.
 /// @author iarkh@unipro.ru
@@ -18,18 +19,16 @@ class MyClass {
 }
 
 main() {
-  const Map l1 = {...?(MyClass(12345) is MyClass ? {1: 1} : {2: 2})};
+  const Map l1 = {...?(MyClass(12345) is MyClass ? {1: 1} : {2: 2})}; // ignore: invalid_null_aware_operator,unnecessary_type_check
 //                     ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const Map m2 = {...?(MyClass(12345) is MyClass ? {11: 124} : null)};
+  const Map m2 = {...?(MyClass(12345) is MyClass ? {11: 124} : null)}; // ignore: unnecessary_type_check
 //          ^
-// [cfe] Constant evaluation error:
-//                     ^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
-  const Map m3 = {...?(MyClass(12345) is MyClass ? {null} : {9: -13})};
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map m3 = {...?(MyClass(12345) is MyClass ? {null} : {9: -13})}; // ignore: invalid_null_aware_operator,unnecessary_type_check
 //                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 }

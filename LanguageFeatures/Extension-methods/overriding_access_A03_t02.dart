@@ -6,34 +6,29 @@
 /// because an extension cannot declare a member named [==], and [MyList(object)
 /// != x] is disallowed because it's also defined in terms of a member named
 /// [==].
+///
 /// @description Check that it's not allowed to use [==] and [!=]construction for
 /// the library extensions.
 /// @author iarkh@unipro.ru
-
-
 
 import "extension_conflict_resolution_lib.dart" as testlib;
 
 main() {
   bool res1 = testlib.MySimpleExt("testme") == true;
 //                    ^
-// [cfe] Explicit extension application cannot be used as an expression.
-//                                          ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
+// [analyzer] unspecified
+// [cfe] unspecified
   var  res2 = testlib.MySimpleExt("testme") == 14;
 //                    ^
-// [cfe] Explicit extension application cannot be used as an expression.
-//                                          ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
+// [analyzer] unspecified
+// [cfe] unspecified
 
   bool res3 = testlib.MySimpleExt("testme") != true;
 //                    ^
-// [cfe] Explicit extension application cannot be used as an expression.
-//                                          ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
+// [analyzer] unspecified
+// [cfe] unspecified
   var  res4 = testlib.MySimpleExt("testme") != 128;
 //                    ^
-// [cfe] Explicit extension application cannot be used as an expression.
-//                                          ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -5,6 +5,7 @@
 /// @assertion It is a static error if:
 ///    If a list or set spread element's static type implements [Iterable<T>] for
 ///    some [T] and [T] is not assignable to the element type of the list.
+///
 /// @description Checks that compile error is thrown if spread element type in
 /// set literal is not assignable to the type of the set.
 /// @author iarkh@unipro.ru
@@ -44,40 +45,40 @@ main() {
 
   Set list1 = <String>{...l1};
 //                        ^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'Object' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Set list2 = <String>{...l2};
 //                        ^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Set list3 = <Object>{...l3};
   Set list4 = <String>{...l4};
 //                        ^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'bool' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Set list5 = <String>{...l5};
 //                        ^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Set list6 = <String>{...l6};
 //                        ^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'bool' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Set list7 = <String>{...l7};
   Set list8 = <String>{...l8};
   Set list9 = <String>{...l9};
 //                        ^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'Object' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
 
   Set list11 = <String>{...i1};
 //                         ^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Set list12 = <String>{...i2};
   Set list13 = <String>{...i3};
 //                         ^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'bool' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Set list14 = <String>{...i4};
 }

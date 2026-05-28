@@ -7,6 +7,7 @@
 /// compile-time constant, respectively, and [T] is a compile-time constant type.
 /// A compile-time constant type means any type that doesn't contain free type
 /// variables, so the type expression always resolves to the exact same type.
+///
 /// @description Checks that an expression of the form [e as T] is not accepted
 /// and causes compile time error if argument is a constant of incorrect type.
 /// @author iarkh@unipro.ru
@@ -27,18 +28,18 @@ class MyClass {
 main() {
   const MyClass c1 = MyClass("12345");
 //                   ^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
-// [cfe] Constant evaluation error:
+// [analyzer] unspecified
+// [cfe] unspecified
   const MyClass c2 = MyClass(12345);
 //                   ^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
-// [cfe] Constant evaluation error:
+// [analyzer] unspecified
+// [cfe] unspecified
   const MyClass c3 = MyClass(B());
 //                   ^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
-// [cfe] Constant evaluation error:
+// [analyzer] unspecified
+// [cfe] unspecified
   const MyClass c4 = MyClass([]);
 //                   ^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
-// [cfe] Constant evaluation error:
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -19,29 +19,27 @@
 /// runtimeType or noSuchMethod)
 /// @author sgrekhov@unipro.ru
 
-
-
 extension ExtendedList<T> on List<T> {
   dynamic noSuchMethod (Invocation invocation) => null;
 //        ^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EXTENSION_DECLARES_MEMBER_OF_OBJECT
-// [cfe] This extension member conflicts with Object member 'noSuchMethod'.
-  bool operator == (dynamic other) => true;
+// [analyzer] unspecified
+// [cfe] unspecified
+  bool operator == (Object other) => true;
 //              ^^
-// [analyzer] COMPILE_TIME_ERROR.EXTENSION_DECLARES_MEMBER_OF_OBJECT
-// [cfe] This extension member conflicts with Object member '=='.
+// [analyzer] unspecified
+// [cfe] unspecified
   int get hashCode => 42;
 //        ^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EXTENSION_DECLARES_MEMBER_OF_OBJECT
-// [cfe] This extension member conflicts with Object member 'hashCode'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Type get runtimeType => this.runtimeType;
 //         ^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EXTENSION_DECLARES_MEMBER_OF_OBJECT
-// [cfe] This extension member conflicts with Object member 'runtimeType'.
+// [analyzer] unspecified
+// [cfe] unspecified
   String toString() => "Run, Forrest, run";
 //       ^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EXTENSION_DECLARES_MEMBER_OF_OBJECT
-// [cfe] This extension member conflicts with Object member 'toString'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

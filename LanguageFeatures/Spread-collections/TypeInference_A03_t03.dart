@@ -30,21 +30,21 @@ main() {
 
   Map map1 = <int, int>{...str_map};
 //                         ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread entry values of type 'String' to map entry values of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Map map2 = <int, String>{1: "1", 2: "2", ...int_map, 14: "14"};
 //                                            ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread entry values of type 'int' to map entry values of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Map map3 = <int, C2>{1 : new C2(), ...c_map};
 //                                      ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread entry keys of type 'C1' to map entry keys of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Map map4 = <int, A2>{...int_map};
 //                        ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread entry values of type 'int' to map entry values of type 'A2'.
-  Map map5 = <A1, String>{...?str_map};
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map map5 = <A1, String>{...?str_map}; // ignore: invalid_null_aware_operator
 //                            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

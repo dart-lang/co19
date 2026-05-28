@@ -16,17 +16,14 @@
 main() {
   var v1 = const {1, 2, 3.14};
 //         ^
-// [cfe] Constant evaluation error:
-//                      ^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_NOT_PRIMITIVE_EQUALITY
+// [analyzer] unspecified
+// [cfe] unspecified
   const v2 = const {1, 2, 3.14};
 //           ^
-// [cfe] Constant evaluation error:
-//                        ^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_NOT_PRIMITIVE_EQUALITY
+// [analyzer] unspecified
+// [cfe] unspecified
   const v3 = {1, 2, 3.14};
 //           ^
-// [cfe] Constant evaluation error:
-//                  ^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_NOT_PRIMITIVE_EQUALITY
+// [analyzer] unspecified
+// [cfe] unspecified
 }

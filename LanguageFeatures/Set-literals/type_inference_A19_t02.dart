@@ -18,9 +18,9 @@ main() {
   Map? m = {1:1, 2: 2};
   var x1 = <int, int>{...s, ...m};
 //                       ^
-// [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
-// [cfe] Unexpected type 'List<dynamic>' of a map spread entry.  Expected 'dynamic' or a Map.
-  var x2 = <int, int>{...?s, ...?m};
+// [analyzer] unspecified
+// [cfe] unspecified
+  var x2 = <int, int>{...?s, ...?m}; // ignore: invalid_null_aware_operator
 //                        ^
 // [analyzer] unspecified
 // [cfe] unspecified

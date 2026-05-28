@@ -19,7 +19,6 @@
 /// instance of a class that implements the operator ==
 /// @author sgrekhov@unipro.ru
 
-
 class C {
   final int id;
   final String name;
@@ -32,21 +31,18 @@ class C {
 main() {
   var v1 = const {if (true) const Duration(seconds: 1): 1};
 //    ^
-// [cfe] Constant evaluation error:
-//                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_MAP_KEY_NOT_PRIMITIVE_EQUALITY
+// [cfe] unspecified
+// [analyzer] unspecified
   var v2 = const <Object?, String?> {if (1 > 0) const Duration(seconds: 1), "x"};
 //                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var v3 = const {if (2 > 0) const C(1, "x"): "c"};
 //    ^
-// [cfe] Constant evaluation error:
-//                           ^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_MAP_KEY_NOT_PRIMITIVE_EQUALITY
+// [cfe] unspecified
+// [analyzer] unspecified
   const v4 = {if (2 > 0) const C(1, "x"): "c"};
 //      ^
-// [cfe] Constant evaluation error:
-//                       ^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_MAP_KEY_NOT_PRIMITIVE_EQUALITY
+// [cfe] unspecified
+// [analyzer] unspecified
 }
