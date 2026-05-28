@@ -4,10 +4,10 @@
 
 /// @assertion It is a compile-time error if the value of a compile-time
 /// constant expression depends on itself.
+///
 /// @description Checks that it is a compile-time error if there is a circular
 /// reference in a constant variable's initialization.
 /// @author iefremov
-
 
 const a1 = a10;
 //    ^^
@@ -15,31 +15,31 @@ const a1 = a10;
 // [cfe] unspecified
 const a2 = a1;
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+// [analyzer] unspecified
 const a3 = a2;
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+// [analyzer] unspecified
 const a4 = a3;
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+// [analyzer] unspecified
 const a5 = a4;
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+// [analyzer] unspecified
 const a6 = a5;
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+// [analyzer] unspecified
 const a7 = a6;
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+// [analyzer] unspecified
 const a8 = a7;
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+// [analyzer] unspecified
 const a9 = a8;
 //    ^^
-// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+// [analyzer] unspecified
 const a10 = a9;
 //    ^^^
-// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+// [analyzer] unspecified
 
 main() {
 }

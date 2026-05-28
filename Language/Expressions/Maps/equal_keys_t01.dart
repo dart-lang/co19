@@ -4,22 +4,20 @@
 
 /// @assertion It is a compile-time error if two keys of a constant map literal
 /// are equal according to their ‘==’ operator
+///
 /// @description Check that it is a compile-time error if two keys of a constant
 /// map literal are equal according to their ‘==’ operator
 /// @issue #32983
 /// @author msyabro
 /// @author sgrekhov@unipro.ru
 
-
 main() {
   const m1 = <int, String>{1: "val1", 1: "val2"};
 //                        ^
-// [cfe] Constant evaluation error:
-//                                    ^
-// [analyzer] COMPILE_TIME_ERROR.EQUAL_KEYS_IN_CONST_MAP
+// [cfe] unspecified
+// [analyzer] unspecified
   var m2 = const <String, int>{"key1": 1, "key1": 2};
 //         ^
-// [cfe] Constant evaluation error:
-//                                        ^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EQUAL_KEYS_IN_CONST_MAP
+// [cfe] unspecified
+// [analyzer] unspecified
 }

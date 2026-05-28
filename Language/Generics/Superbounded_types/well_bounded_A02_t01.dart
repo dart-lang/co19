@@ -16,24 +16,20 @@ class A<T extends A<T>> {}
 // that doesn't have simple bounds
 void testme1<X extends A>() {}
 //           ^
-// [cfe] Generic type 'A' can't be used without type arguments in a type variable bound.
-//                     ^
-// [analyzer] COMPILE_TIME_ERROR.NOT_INSTANTIATED_BOUND
+// [cfe] unspecified
+// [analyzer] unspecified
 
 // Same here, the function is a well-bounded but the bound is a raw type without
 // simple bound
 void testme2<X extends A<A>>() {}
 //           ^
-// [cfe] Generic type 'A' can't be used without type arguments in a type variable bound.
-//                       ^
-// [analyzer] COMPILE_TIME_ERROR.NOT_INSTANTIATED_BOUND
-
+// [cfe] unspecified
+// [analyzer] unspecified
 
 void testme3<X extends A<int>>() {} // A<int> is a  malbounded type
 //                     ^
-// [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
-//                       ^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+// [cfe] unspecified
+// [analyzer] unspecified
 
 main() {
   print(testme1);

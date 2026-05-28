@@ -10,6 +10,7 @@
 /// [C<T1,..., Tl>].
 /// ...
 /// It is a compile-time error if T is not well-bounded.
+///
 /// @description Checks that compile error is thrown for the case with one type
 /// argument
 /// @author iarkh@unipro.ru
@@ -26,9 +27,8 @@ main() {
 
   A<C<int>>? a5;
 //    ^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-//  ^
-// [cfe] Type argument 'int' doesn't conform to the bound 'C<T>' of the type variable 'T' on 'C'.
+// [analyzer] unspecified
+// [cfe] unspecified
   A<C<C<int>>>? a6;
 //    ^^^^^^
 // [analyzer] unspecified

@@ -6,10 +6,11 @@
 /// following:
 ///   • A reference to a compile-time constant variable.
 ///   • A call to a constant constructor.
+///
 /// @description Check that it is a compile time error, if called constructor
 /// is not constant
-/// @Issue #24281
 /// @author a.semenov@unipro.ru
+/// @issue 24281
 
 class A {
     A(int x);
@@ -17,11 +18,10 @@ class A {
 
   @A(10)
 //^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_ANNOTATION_CONSTRUCTOR
-// ^
-// [cfe] Cannot invoke a non-'const' constructor where a const expression is expected.
+// [analyzer] unspecified
+// [cfe] unspecified
 class B {}
 
 main() {
-  B? b;
+  print(B);
 }

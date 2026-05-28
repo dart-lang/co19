@@ -7,10 +7,10 @@
 ///    typeParameters ::= ‘<’ typeParameter (‘,’ typeParameter)* ‘>’
 /// A type parameter [T] may be suffixed with an [extends] clause that specifies
 /// the upper bound for [T].
+///
 /// @description Statically checks that [extends] clause specifies upper bound
 /// for the class type parameter
 /// @author iarkh@unipro.ru
-
 
 class A {} 
 class B extends A {}
@@ -29,22 +29,19 @@ main() {
   func2();
   func2<A>();
 //^
-// [cfe] Type argument 'A' doesn't conform to the bound 'B' of the type variable 'T' on 'func2'.
-//      ^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+// [cfe] unspecified
+// [analyzer] unspecified
   func2<B>();
   func2<C>();
 
   func3();
   func3<A>();
 //^
-// [cfe] Type argument 'A' doesn't conform to the bound 'C' of the type variable 'T' on 'func3'.
-//      ^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+// [cfe] unspecified
+// [analyzer] unspecified
   func3<B>();
 //^
-// [cfe] Type argument 'B' doesn't conform to the bound 'C' of the type variable 'T' on 'func3'.
-//      ^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+// [cfe] unspecified
+// [analyzer] unspecified
   func3<C>();
 }

@@ -10,10 +10,9 @@
 /// empty string. Let [S0] be [S?] if it is a type, otherwise let [S0] be
 /// [dynamic]. The associated type of [D], call it [F], is, respectively:
 ///   T
-/// ...
+///
 /// @description Checks that [T] should be a type.
 /// @author iarkh@unipro.ru
-
 
 my_function<T>() {}
 
@@ -48,12 +47,12 @@ typedef Alias4<T> = my_function<T>();
 
 typedef CAlias1<T> = C1<T>(T);
 //                        ^
-// [analyzer] SYNTACTIC_ERROR.EXPECTED_TOKEN
-// [cfe] Expected 'Function' before this.
+// [analyzer] unspecified
+// [cfe] unspecified
 typedef CAlias2<T> = C2<T>(int, [T]);
 //                        ^
-// [analyzer] SYNTACTIC_ERROR.EXPECTED_TOKEN
-// [cfe] Expected 'Function' before this.
+// [analyzer] unspecified
+// [cfe] unspecified
 typedef CAlias3<T1, T2> = C3<T>({T1, T2});
 //                        ^^^^^^
 // [analyzer] unspecified

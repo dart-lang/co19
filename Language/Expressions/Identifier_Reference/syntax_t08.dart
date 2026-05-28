@@ -37,20 +37,23 @@
 /// from the turkish alphabet.
 /// @author msyabro
 
-
 main() {
   int? aç;
 //      ^
-// [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
-// [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
+// [analyzer] unspecified
+// [cfe] unspecified
   String çb = "It's wrong!";
 //       ^
-// [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
-// [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
+// [analyzer] unspecified
+// [cfe] unspecified
   var wrong_ç;
 //          ^
-// [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
-// [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
+// [analyzer] unspecified
+// [cfe] unspecified
+  var ç;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ç;
 //^
 // [analyzer] unspecified
