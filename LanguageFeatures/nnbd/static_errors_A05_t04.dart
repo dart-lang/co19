@@ -29,7 +29,6 @@ class C1 {
   C1() {}
 //^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 abstract class C2 {
@@ -42,7 +41,6 @@ abstract class C2 {
   C2() {}
 //^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
