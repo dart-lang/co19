@@ -98,7 +98,7 @@ extension type ET(int _) {
 }
 
 main() {
-  topLevelSetter = "";
+  print(topLevelGetter);
   print(C);
   print(M);
   print(E);

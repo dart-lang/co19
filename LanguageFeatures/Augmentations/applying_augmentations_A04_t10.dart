@@ -91,7 +91,7 @@ extension type ET(String instanceVariable) {
 }
 
 main() {
-  topLevelSetter = "";
+  print(topLevelVariable);
   print(C);
   print(M);
   print(E);
