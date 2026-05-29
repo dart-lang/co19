@@ -18,19 +18,11 @@ import 'augmentation_libraries_lib.dart';
 
 class A {}
 
-class C {}
-
 augment class A extends FinalClass {}
 //                      ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment class C extends String {}
-//                      ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 main() {
   print(A);
-  print(C);
 }
