@@ -81,7 +81,7 @@ extension type ET(String _) {
 }
 
 main() {
-  topLevelSetter = "";
+  print(topLevelVariable);
   print(C);
   print(M);
   print(E);
