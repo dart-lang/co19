@@ -18,8 +18,8 @@ class A {}
 extension Ext on A {
   static String staticMethod1();
   static String staticMethod2(String v);
-  static String staticMethod3(String v1, [String v2 = "v2 def"]);
-  static String staticMethod4(String v1, {String v2 = "v2 def"});
+  static String staticMethod3(String v1, [String v2]);
+  static String staticMethod4(String v1, {String v2});
   static String staticMethod5(String v1, {required String v2});
 }
 
@@ -43,11 +43,11 @@ augment extension Ext {
 }
 
 main() {
-  Expect.equals("augmented", E.staticMethod1());
-  Expect.equals("A;v2 def", E.staticMethod2("A"));
-  Expect.equals("B,v2 def", E.staticMethod3("B"));
-  Expect.equals("B,C", E.staticMethod3("B", "C"));
-  Expect.equals("D;v2 def", E.staticMethod4("D"));
-  Expect.equals("D;E", E.staticMethod4("D", v2: "E"));
-  Expect.equals("F;G", E.staticMethod5("F", v2: "G"));
+  Expect.equals("augmented", Ext.staticMethod1());
+  Expect.equals("A,v2 def", Ext.staticMethod2("A"));
+  Expect.equals("B,v2 def", Ext.staticMethod3("B"));
+  Expect.equals("B,C", Ext.staticMethod3("B", "C"));
+  Expect.equals("D,v2 def", Ext.staticMethod4("D"));
+  Expect.equals("D,E", Ext.staticMethod4("D", v2: "E"));
+  Expect.equals("F,G", Ext.staticMethod5("F", v2: "G"));
 }

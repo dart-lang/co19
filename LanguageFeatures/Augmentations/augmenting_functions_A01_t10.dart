@@ -18,8 +18,8 @@ class A {}
 extension Ext on A {
   String instanceMethod1();
   String instanceMethod2(String v);
-  String instanceMethod3(String v1, [String v2 = "v2 def"]);
-  String instanceMethod4(String v1, {String v2 = "v2 def"});
+  String instanceMethod3(String v1, [String v2]);
+  String instanceMethod4(String v1, {String v2});
   String instanceMethod5(String v1, {required String v2});
 }
 
@@ -45,10 +45,10 @@ augment extension Ext {
 main() {
   A a = A();
   Expect.equals("augmented", a.instanceMethod1());
-  Expect.equals("A;v2 def", a.instanceMethod2("A"));
+  Expect.equals("A,v2 def", a.instanceMethod2("A"));
   Expect.equals("B,v2 def", a.instanceMethod3("B"));
   Expect.equals("B,C", a.instanceMethod3("B", "C"));
-  Expect.equals("D;v2 def", a.instanceMethod4("D"));
-  Expect.equals("D;E", a.instanceMethod4("D", v2: "E"));
-  Expect.equals("F;G", a.instanceMethod5("F", v2: "G"));
+  Expect.equals("D,v2 def", a.instanceMethod4("D"));
+  Expect.equals("D,E", a.instanceMethod4("D", v2: "E"));
+  Expect.equals("F,G", a.instanceMethod5("F", v2: "G"));
 }
