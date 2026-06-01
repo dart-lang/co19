@@ -30,10 +30,10 @@ augment enum E {
 
   augment static String staticMethod2(String v) => v;
 
-  augment static String staticMethod3(String v1, [String v2 = "v2 def"]) =>
+  augment static String staticMethod3(String v1, [String v2]) =>
       "$v1,$v2";
 
-  augment static String staticMethod4(String v1, {String v2 = "v2 def"}) {
+  augment static String staticMethod4(String v1, {String v2}) {
     return "$v1,$v2";
   }
 
@@ -44,10 +44,10 @@ augment enum E {
 
 main() {
   Expect.equals("augmented", E.staticMethod1());
-  Expect.equals("A;v2 def", E.staticMethod2("A"));
+  Expect.equals("A,v2 def", E.staticMethod2("A"));
   Expect.equals("B,v2 def", E.staticMethod3("B"));
   Expect.equals("B,C", E.staticMethod3("B", "C"));
-  Expect.equals("D;v2 def", E.staticMethod4("D"));
-  Expect.equals("D;E", E.staticMethod4("D", v2: "E"));
-  Expect.equals("F;G", E.staticMethod5("F", v2: "G"));
+  Expect.equals("D,v2 def", E.staticMethod4("D"));
+  Expect.equals("D,E", E.staticMethod4("D", v2: "E"));
+  Expect.equals("F,G", E.staticMethod5("F", v2: "G"));
 }

@@ -16,8 +16,8 @@ import '../../Utils/expect.dart';
 mixin M {
   static String staticMethod1();
   static String staticMethod2(String v);
-  static String staticMethod3(String v1, [String v2 = "v2 def"]);
-  static String staticMethod4(String v1, {String v2 = "v2 def"});
+  static String staticMethod3(String v1, [String v2]);
+  static String staticMethod4(String v1, {String v2});
   static String staticMethod5(String v1, {required String v2});
 }
 
@@ -42,10 +42,10 @@ augment mixin M {
 
 main() {
   Expect.equals("augmented", M.staticMethod1());
-  Expect.equals("A;v2 def", M.staticMethod2("A"));
+  Expect.equals("A,v2 def", M.staticMethod2("A"));
   Expect.equals("B,v2 def", M.staticMethod3("B"));
   Expect.equals("B,C", M.staticMethod3("B", "C"));
-  Expect.equals("D;v2 def", M.staticMethod4("D"));
-  Expect.equals("D;E", M.staticMethod4("D", v2: "E"));
-  Expect.equals("F;G", M.staticMethod5("F", v2: "G"));
+  Expect.equals("D,v2 def", M.staticMethod4("D"));
+  Expect.equals("D,E", M.staticMethod4("D", v2: "E"));
+  Expect.equals("F,G", M.staticMethod5("F", v2: "G"));
 }
