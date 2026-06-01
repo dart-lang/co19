@@ -22,6 +22,8 @@ class const C(final int x) {
 
 enum E(final int x) {
   e0(0);
+//^^
+// [cfe] unspecified
   final int v;
   this : v = 0 {}
 //             ^^
