@@ -30,8 +30,8 @@
 ///   modifier is removed from the parameter in `L2`, and it is added to the
 ///   instance variable declaration named `p`.
 ///
-/// @description Check that it is a compile time error if a primary constructor
-/// of an enum declares non final variable.
+/// @description Check that it is a compile time error if the primary
+/// constructor of an enum declares a non-final variable.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
