@@ -22,7 +22,8 @@
 ///   `Object?`.
 ///
 /// @description Checks that, in an extension type, if `p` does not have a
-/// declared type, its type is `Object?` because of it implicit `final` modifier.
+/// declared type, its type is `Object?` because of the implicit `final`
+/// modifier.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
