@@ -21,8 +21,8 @@
 /// - otherwise, if `p` does not have a default value then `p` has declared type
 ///   `Object?`.
 ///
-/// @description Check that if `p` does not have nor a declared type nor a `var`
-/// or `final` then its static type is `dynamic`. Test classes.
+/// @description Check that if p has neither a declared type nor a `var` or
+/// `final` modifier, then its static type is `dynamic`. Test classes.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors

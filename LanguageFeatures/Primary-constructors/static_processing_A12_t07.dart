@@ -21,9 +21,9 @@
 /// - otherwise, if `p` does not have a default value then `p` has declared type
 ///   `Object?`.
 ///
-/// @description Check that in case of extension type if `p` does not have a
-/// declared type then it has an implicit `final` and therefore its type is
-/// `Object?`, not `dynamic`.
+/// @description Checks that, in an extension type, if `p` does not have a
+/// declared type, its type is `Object?` not `dynamic` because of it implicit
+/// `final` modifier.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
