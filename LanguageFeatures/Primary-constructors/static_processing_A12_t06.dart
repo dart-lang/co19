@@ -32,39 +32,29 @@ import '../../Utils/static_type_helper.dart';
 
 extension type ET1(x) {
   this {
-    try {
-      x.expectStaticType<Exactly<Object?>>();
-    } catch (_) {}
+    x.expectStaticType<Exactly<Object?>>();
   }
 }
 
 extension type ET2([x]) {
   this {
-    try {
-      x.expectStaticType<Exactly<Object?>>();
-    } catch (_) {}
+    x.expectStaticType<Exactly<Object?>>();
   }
 }
 
 extension type ET3({x}) {
   this {
-    try {
-      x.expectStaticType<Exactly<Object?>>();
-    } catch (_) {}
+    x.expectStaticType<Exactly<Object?>>();
   }
 }
 
 extension type ET4({required x}) {
   this {
-    try {
-      x.expectStaticType<Exactly<Object?>>();
-    } catch (_) {}
+    x.expectStaticType<Exactly<Object?>>();
   }
 }
 
 main() {
-  dynamic v;
-  v.expectStaticType<Exactly<Object?>>();
   ET1(1);
   ET2(2);
   ET3(x: 3);

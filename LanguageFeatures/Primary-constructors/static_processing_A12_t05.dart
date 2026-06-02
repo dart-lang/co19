@@ -27,40 +27,55 @@
 
 // SharedOptions=--enable-experiment=primary-constructors
 
+import '../../Utils/expect.dart';
+
 class C1(x) {
+  bool didThrow = false;
   this {
     try {
       x.checkDynamic;
-    } catch (_) {}
+    } catch (_) {
+      didThrow = true;
+    }
   }
 }
 
 class C2([x]) {
+  bool didThrow = false;
   this {
     try {
       x.checkDynamic;
-    } catch (_) {}
+    } catch (_) {
+      didThrow = true;
+    }
   }
 }
 
 class C3({x}) {
+  bool didThrow = false;
   this {
     try {
       x.checkDynamic;
-    } catch (_) {}
+    } catch (_) {
+      didThrow = true;
+    }
   }
 }
 
 class C4({required x}) {
+  bool didThrow = false;
   this {
     try {
       x.checkDynamic;
-    } catch (_) {}
+    } catch (_) {
+      didThrow = true;
+    }
   }
 }
+
 main() {
-  C1(1);
-  C2(2);
-  C3(x: 3);
-  C4(x: 4);
+  Expect.isTrue(C1(1).didThrow);
+  Expect.isTrue(C2(2).didThrow);
+  Expect.isTrue(C3(x: 3).didThrow);
+  Expect.isTrue(C4(x: 4).didThrow);
 }
