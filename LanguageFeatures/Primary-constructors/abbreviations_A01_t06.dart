@@ -7,7 +7,7 @@
 /// constructor).
 ///
 /// @description Check that it is a compile-time error to declare both a
-/// constructor named `name` and a constructor named `new name`.
+/// constructor named `name` and a constructor declared using the `new name`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors

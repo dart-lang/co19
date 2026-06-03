@@ -6,8 +6,8 @@
 /// keyword `new` (in a generative constructor) or simply removed (in a factory
 /// constructor).
 ///
-/// @description Check that the class name and the period can be replaced with
-/// the keyword `new`. Test the `const new` case.
+/// @description Check that a constant named constructor `name` can be declared
+/// using the `const new name` syntax.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors

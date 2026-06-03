@@ -7,7 +7,8 @@
 /// constructor).
 ///
 /// @description Check that it is a compile-time error to declare both the
-/// primary constructor named after the class and a constructor named `new`.
+/// primary constructor named after the class and a constructor declared using
+/// the `new` keyword.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
