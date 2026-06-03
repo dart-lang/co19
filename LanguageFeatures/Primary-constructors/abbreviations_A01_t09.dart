@@ -34,8 +34,8 @@ class C3 {
 }
 
 class C4 {
-  static new = C4();
-//       ^^^
+  static C4 new = C4();
+//          ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -62,8 +62,8 @@ mixin class M3 {
 }
 
 mixin class M4 {
-  static new = M4();
-//       ^^^
+  static M4 new = M4();
+//          ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -98,8 +98,8 @@ enum E3 {
 enum E4 {
   e0;
 
-  static new = E4.e0;
-//       ^^^
+  static E4 new = E4.e0;
+//          ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -126,8 +126,8 @@ extension type ET3._(int _) {
 }
 
 extension type ET4._(int _) {
-  static new = ET4._(0);
-//       ^^^
+  static ET4 new = ET4._(0);
+//           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
