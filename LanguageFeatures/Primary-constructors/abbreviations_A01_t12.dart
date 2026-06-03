@@ -7,7 +7,7 @@
 /// constructor).
 ///
 /// @description Check that a named constructor `name` can be declared using the
-/// `new name` syntax. Test a redirecting constructors.
+/// `new name` syntax. Test a redirecting constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
