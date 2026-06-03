@@ -6,8 +6,8 @@
 /// keyword `new` (in a generative constructor) or simply removed (in a factory
 /// constructor).
 ///
-/// @description Check that the class name and the period can be replaced by the
-/// keyword `new`.
+/// @description Check that the class name and the period can be replaced with
+/// the keyword `new`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors

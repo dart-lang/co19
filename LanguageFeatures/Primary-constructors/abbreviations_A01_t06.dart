@@ -6,8 +6,8 @@
 /// keyword `new` (in a generative constructor) or simply removed (in a factory
 /// constructor).
 ///
-/// @description Check that it is a compile-time error to declare the
-/// constructor named `name` and the one named `new name`.
+/// @description Check that it is a compile-time error to declare both a
+/// constructor named `name` and a constructor named `new name`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors

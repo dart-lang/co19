@@ -6,8 +6,8 @@
 /// keyword `new` (in a generative constructor) or simply removed (in a factory
 /// constructor).
 ///
-/// @description Check that the class name can be replaced by the keyword `new`.
-/// Test `const new` case.
+/// @description Check that the class name can be replaced with the keyword
+/// `new`. Test the `const new` case.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
