@@ -6,7 +6,7 @@
 /// keyword `new` (in a generative constructor) or simply removed (in a factory
 /// constructor).
 ///
-/// @description Check that multiple constructor can be declared using keywords
+/// @description Check that multiple constructors can be declared using keywords
 /// `new` and `factory`.
 /// @author sgrekhov22@gmail.com
 
