@@ -6,33 +6,49 @@
 /// keyword `new` (in a generative constructor) or simply removed (in a factory
 /// constructor).
 ///
-/// @description Check that a redirecting factory constructor can be declared
-/// using the keyword `factory`.
+/// @description Check that multiple constructor can be declared using keywords
+/// `new` and `factory`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
 
-import '../../Utils/expect.dart';
-
 class C {
-  String flag = '';
-  C.other() {
-    flag = 'called';
-  }
-  factory() = C.other;
+  new();
+  new _();
+  new name() : this._();
+  factory __() => C();
+  factory other() = C.new;
 }
 
 mixin class M {
-  M.other();
-  factory() = M.other;
+  new();
+  new _();
+  new name();
+  factory __() => M();
+  factory other() = M.new;
 }
 
-extension type ET.other(int v) {
-  factory(int v) = ET.other;
+enum E {
+  e0, e1._(), e2.name();
+
+  const new();
+  new _();
+  new name() : this._();
+  factory __() => E.e0;
+  factory other() => E.e0;
 }
 
 main() {
-  Expect.equals('called', C().flag);
+  C();
+  C._();
+  C.name();
+  C.__();
+  C.other();
   M();
-  Expect.equals(42, ET(42).v);
+  M._();
+  M.name();
+  M.__();
+  M.other();
+  E.__();
+  E.other();
 }

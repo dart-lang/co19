@@ -22,11 +22,17 @@ class C {
   factory name() = C.new;
 }
 
+mixin class M {
+  M();
+  factory name() = M.new;
+}
+
 extension type ET(int v) {
   factory name(int v) = ET.new;
 }
 
 main() {
   Expect.equals('called', C.name().flag);
+  M.name();
   Expect.equals(42, ET.name(42).v);
 }

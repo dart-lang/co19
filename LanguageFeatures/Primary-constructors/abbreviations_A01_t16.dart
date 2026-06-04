@@ -6,74 +6,82 @@
 /// keyword `new` (in a generative constructor) or simply removed (in a factory
 /// constructor).
 ///
-/// @description Check that it is still a compile-time error if a constant
-/// factory constructor is not redirecting.
+/// @description Check that it is a compile-time error to declare both the `new`
+/// and the `factory` constructors.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
 
 class C1 {
-  const C1();
-  const factory name() => const C1();
-//^^^^^
+  new _();
+  new();
+  factory() => C1._();
+//^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class C2 {
-  const C2.name();
-  const factory() => const C2.name();
-//^^^^^
+  new _();
+  factory() => C2._();
+  new();
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin class M1 {
-  const M1();
-  const factory name() => const M1();
-//^^^^^
+  new _();
+  new();
+  factory() => M1._();
+//^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin class M2 {
-  const M2.name();
-  const factory() => const M2.name();
-//^^^^^
+  new _();
+  factory() => M2._();
+  new();
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E1 {
-  e0;
+  e0._();
 
-  const E1();
-  const factory name() => E1.e0;
-//^^^^^
+  const new _();
+  const new();
+  factory() => E1.e0;
+//^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E2 {
-  e0.name();
+  e0._();
 
-  const E2.name();
-  const factory() => E2.e0;
-//^^^^^
+  const new _();
+  factory() => E2.e0;
+  const new();
+//      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type const ET1(int _) {
-  const factory name() => const ET1(0);
-//^^^^^
+extension type ET1._(int v) {
+  new(this.v);
+  factory(int x) => ET1._(x);
+//^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type const ET2.name(int _) {
-  const factory() => const ET2.name(0);
-//^^^^^
+extension type ET2._(int v) {
+  factory(int x) => ET2._(x);
+  new(this.v);
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

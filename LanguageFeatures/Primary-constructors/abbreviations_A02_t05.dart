@@ -20,11 +20,17 @@ class C {
   const factory() = C.other;
 }
 
+mixin class M {
+  const M.other();
+  const factory() = M.other;
+}
+
 extension type const ET.other(int v) {
   const factory(int v) = ET.other;
 }
 
 main() {
   Expect.equals('called', const C().flag);
+  const M();
   Expect.equals(42, const ET(42).v);
 }
