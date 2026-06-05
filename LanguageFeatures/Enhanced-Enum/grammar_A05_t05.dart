@@ -21,8 +21,8 @@ enum E {
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  E.name() : this()  {}
-//                   ^
+  E.name() : this() {}
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
