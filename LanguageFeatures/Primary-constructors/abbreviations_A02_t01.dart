@@ -22,8 +22,14 @@ class C {
   factory() => C.other();
 }
 
+mixin class M {
+  M.other();
+  factory() => M.other();
+}
+
 enum E {
   e0.other();
+
   const E.other();
   factory() => E.e0;
 }
@@ -34,6 +40,7 @@ extension type ET.other(int v) {
 
 main() {
   Expect.equals('called', C().flag);
+  M();
   Expect.equals(E.e0, E());
   Expect.equals(42, ET().v);
 }

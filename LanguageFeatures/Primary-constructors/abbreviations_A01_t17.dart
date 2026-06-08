@@ -6,74 +6,82 @@
 /// keyword `new` (in a generative constructor) or simply removed (in a factory
 /// constructor).
 ///
-/// @description Check that it is still a compile-time error if a constant
-/// factory constructor is not redirecting.
+/// @description Check that it is a compile-time error to declare both a
+/// `new name` and a `factory name` constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=primary-constructors
 
 class C1 {
-  const C1();
-  const factory name() => const C1();
-//^^^^^
+  new();
+  new name();
+  factory name() => C1();
+//^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class C2 {
-  const C2.name();
-  const factory() => const C2.name();
-//^^^^^
+  new();
+  factory name() => C2();
+  new name();
+//^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin class M1 {
-  const M1();
-  const factory name() => const M1();
-//^^^^^
+  new();
+  new name();
+  factory name() => M1();
+//^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin class M2 {
-  const M2.name();
-  const factory() => const M2.name();
-//^^^^^
+  new();
+  factory name() => M2();
+  new name();
+//^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E1 {
-  e0;
+  e0();
 
-  const E1();
-  const factory name() => E1.e0;
-//^^^^^
+  const new();
+  const new name();
+  factory name() => E1.e0;
+//^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E2 {
-  e0.name();
+  e0();
 
-  const E2.name();
-  const factory() => E2.e0;
-//^^^^^
+  const new();
+  factory name() => E2.e0;
+  const new name();
+//      ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type const ET1(int _) {
-  const factory name() => const ET1(0);
-//^^^^^
+extension type ET1(int v) {
+  new name(this.v);
+  factory name(int x) => ET1(x);
+//^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension type const ET2.name(int _) {
-  const factory() => const ET2.name(0);
-//^^^^^
+extension type ET2(int v) {
+  factory name(int x) => ET2(x);
+  new name(this.v);
+//^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
