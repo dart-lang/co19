@@ -49,6 +49,8 @@ mixin M {
 }
 
 enum E {
+//   ^
+// [cfe] unspecified
   e0;
   static var late x;
 //           ^^^^

@@ -49,6 +49,8 @@ mixin M {
 }
 
 enum E {
+//   ^
+// [cfe] unspecified
   e0;
   static int late x = 0;
 //           ^^^^

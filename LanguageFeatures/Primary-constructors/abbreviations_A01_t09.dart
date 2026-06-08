@@ -70,6 +70,8 @@ mixin class M4 {
 
 enum E1 {
   e0;
+//^^
+// [cfe] unspecified
 
   static new() {}
 //^^^^^^

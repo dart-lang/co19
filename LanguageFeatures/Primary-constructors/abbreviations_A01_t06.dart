@@ -45,7 +45,7 @@ mixin class M2 {
 }
 
 enum E1 {
-  e0;
+  e0.name();
 
   const E1.name();
   const new name();
@@ -55,7 +55,7 @@ enum E1 {
 }
 
 enum E2 {
-  e0;
+  e0.name();
 
   const new name();
   const E2.name();
