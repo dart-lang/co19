@@ -38,7 +38,6 @@ extension type ET.name(int v) {
 
 main() {
   print(C);
-  print(M);
   print(E);
   print(ET);
 }

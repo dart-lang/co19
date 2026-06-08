@@ -40,6 +40,8 @@ enum E1 {
 
 enum E2 {
   e0;
+//^^
+// [cfe] unspecified
 
   const E2.name();
   const E2() : new name();

@@ -96,7 +96,11 @@ enum E3 {
 }
 
 enum E4 {
+//   ^^
+// [cfe] unspecified
   e0;
+//^^
+// [cfe] unspecified
 
   E4 new = E4.e0;
 //   ^^^
