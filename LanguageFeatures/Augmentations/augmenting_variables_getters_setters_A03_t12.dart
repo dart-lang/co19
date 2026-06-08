@@ -35,7 +35,7 @@ class C {
 
 augment class C {
   augment static void set staticVariable(int _);
-  augment void set instanceVariable(String _);
+  augment void set instanceVariable(int _);
 }
 
 mixin M {
@@ -45,7 +45,7 @@ mixin M {
 
 augment mixin M {
   augment static void set staticVariable(int _);
-  augment void set instanceVariable(String _);
+  augment void set instanceVariable(int _);
 }
 
 enum E {
