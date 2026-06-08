@@ -9,8 +9,6 @@
 /// extension method
 /// @author sgrekhov@unipro.ru
 
-
-
 class A {
   String get a => "a";
 }
@@ -22,18 +20,18 @@ class C extends A {
 extension ExtendedC on C {
   String m() => super.a;
 //              ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.SUPER_IN_EXTENSION
-// [cfe] Expected identifier, but got 'super'.
+// [analyzer] unspecified
+// [cfe] unspecified
   String get getter => super.a;
 //                     ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.SUPER_IN_EXTENSION
-// [cfe] Expected identifier, but got 'super'.
+// [analyzer] unspecified
+// [cfe] unspecified
   String operator-() => super.a;
 //                      ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.SUPER_IN_EXTENSION
-// [cfe] Expected identifier, but got 'super'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  new C();
+  print(C);
 }

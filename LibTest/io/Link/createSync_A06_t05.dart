@@ -44,7 +44,7 @@ main() {
 void _main(Directory sandbox) {
   String notExisting = getTempFileName();
   String target = getTempFileName(extension: "lnk");
-  getTempLinkSync(parent: sandbox, target: notExisting, name: target);
+  createTempLinkSync(parent: sandbox, target: notExisting, name: target);
   Link link = Link(sandbox.path +
       Platform.pathSeparator +
       getTempFileName(extension: "lnk"));
@@ -55,7 +55,7 @@ void _main(Directory sandbox) {
   // Now create a directory and into it the file with the name as link's
   // target. Then move the link into the directory. Its relative target should
   // point to that file after it
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   File file = File(dir.path + Platform.pathSeparator + target);
   file.createSync();
   Link moved = link.renameSync(dir.path + Platform.pathSeparator + "moved.lnk");

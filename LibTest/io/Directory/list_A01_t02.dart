@@ -44,7 +44,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   List<String> expected = ["a", "b", "c", "d"];
   expected = setUp(dir, expected);
 

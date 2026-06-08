@@ -11,7 +11,6 @@
 
 import "dart:convert";
 import "../../../Utils/expect.dart";
-import "../JsonDecoder/table1.lib.dart";
 
 class A {
   Object toJson() => 42;

@@ -23,7 +23,7 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 check(FileLock lock) {
-  File file = getTempFileSync();
+  File file = createTempFileSync();
   var rf = file.openSync(mode: FileMode.write);
   file.writeAsBytesSync(new List.filled(10, 0));
   asyncStart();

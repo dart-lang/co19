@@ -53,7 +53,7 @@ void _main(Directory sandbox) {
   // Now create a directory and into it the file with the name as link's
   // target. Then move the link into the directory. Its relative target should
   // point to that file after it
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   File file = File(dir.path + Platform.pathSeparator + target);
   file.createSync();
   Link moved = link.renameSync(dir.path + Platform.pathSeparator + "moved.lnk");

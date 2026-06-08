@@ -31,9 +31,9 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory target = getTempDirectorySync(parent: sandbox);
-  Link link = getTempLinkSync(target: target.path, parent: sandbox);
-  File newTarget = getTempFileSync(parent: sandbox);
+  Directory target = createTempDirectorySync(parent: sandbox);
+  Link link = createTempLinkSync(target: target.path, parent: sandbox);
+  File newTarget = createTempFileSync(parent: sandbox);
 
   asyncStart();
   await link.update(newTarget.path).then((Link l) {

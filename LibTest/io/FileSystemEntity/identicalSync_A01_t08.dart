@@ -25,13 +25,13 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() async {
-  Directory sandbox = getTempDirectorySync(parent: Directory.current);
+  Directory sandbox = createTempDirectorySync(parent: Directory.current);
   await inSandbox(_main, sandbox: sandbox);
 }
 
 void _main(Directory sandbox) {
   String linkName = getTempFileName();
-  File target = getTempFileSync(parent: sandbox);
+  File target = createTempFileSync(parent: sandbox);
   Link link = new Link(sandbox.path + Platform.pathSeparator + linkName);
   link.createSync(target.path);
   Expect.isTrue(FileSystemEntity.identicalSync(

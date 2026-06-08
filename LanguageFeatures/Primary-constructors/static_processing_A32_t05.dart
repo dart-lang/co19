@@ -23,6 +23,9 @@ enum E1(final int x) {
 
 enum E2(final int x) {
   e0(0);
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   this: assert(x > 0) async;
 //                    ^^^^^
 // [analyzer] unspecified
@@ -39,6 +42,9 @@ enum E3(final int x) {
 
 enum E4(final int x) {
   e0(0);
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   this: assert(x > 0) async*;
 //                    ^^^^^^
 // [analyzer] unspecified
@@ -55,6 +61,9 @@ enum E5(final int x) {
 
 enum E6(final int x) {
   e0(0);
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   this: assert(x > 0) sync*;
 //                    ^^^^^
 // [analyzer] unspecified

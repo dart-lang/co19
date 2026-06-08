@@ -23,7 +23,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File tmp = getTempFileSync(parent: sandbox);
+  File tmp = createTempFileSync(parent: sandbox);
   File file = new File(tmp.path);
   Expect.equals(tmp.path, file.absolute.path);
 }

@@ -15,7 +15,6 @@
 /// @description Checks that [setOrMapLiteral] has one type argument, it's a set.
 /// @author iarkh@unipro.ru
 
-
 main() {
   Set? aSet   = {1, 2, 3};
   List? aList = [1, 2, 3];
@@ -75,16 +74,16 @@ main() {
 
   var res13 = <int, int, int>{...aMap};
 //            ^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+// [analyzer] unspecified
+// [cfe] unspecified
   var res14 = <int, int, int, int>{...aMap};
 //            ^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+// [analyzer] unspecified
+// [cfe] unspecified
   var res15 = <int, int, int, int, int>{...aMap};
 //            ^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+// [analyzer] unspecified
+// [cfe] unspecified
 
   var res16 = <int, int, int>{...?aMap};
 //            ^^^^^^^^^^^^^^^

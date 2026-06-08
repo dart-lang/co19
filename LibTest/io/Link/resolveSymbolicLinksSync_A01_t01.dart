@@ -42,27 +42,27 @@ main() async {
 
 void _main(Directory sandbox) {
   // create 2 Directories
-  Directory dir1 = getTempDirectorySync(parent: sandbox);
-  Directory dir2 = getTempDirectorySync(parent: sandbox);
+  Directory dir1 = createTempDirectorySync(parent: sandbox);
+  Directory dir2 = createTempDirectorySync(parent: sandbox);
   String dir2Name = getEntityName(dir2);
 
   var rnd = new Random(new DateTime.now().microsecondsSinceEpoch);
   // create link to the directory dir1
-  Link link1 = getTempLinkSync(
+  Link link1 = createTempLinkSync(
       parent: sandbox,
       target: dir1.path,
       name: "resolveSymbolicLinksSync_A01_t01_1_" +
           rnd.nextInt(10000).toString() +
           ".lnk");
   // in dir1 create link to dir1
-  Link link2 = getTempLinkSync(
+  Link link2 = createTempLinkSync(
       parent: dir1,
       target: ".",
       name: "resolveSymbolicLinksSync_A01_t01_2_" +
           rnd.nextInt(10000).toString() +
           ".lnk");
   // in dir1 create link to dir2
-  Link link3 = getTempLinkSync(
+  Link link3 = createTempLinkSync(
       parent: dir1,
       target: ".." + Platform.pathSeparator + dir2Name,
       name: "resolveSymbolicLinksSync_A01_t01_3_" +

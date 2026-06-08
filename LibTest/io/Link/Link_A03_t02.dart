@@ -26,20 +26,20 @@ main() async {
 
 void _main(Directory sandbox) {
   // create 2 Directories
-  Directory dir1 = getTempDirectorySync(parent: sandbox);
-  Directory dir2 = getTempDirectorySync(parent: sandbox);
+  Directory dir1 = createTempDirectorySync(parent: sandbox);
+  Directory dir2 = createTempDirectorySync(parent: sandbox);
   String dir2Name = getEntityName(dir2);
 
   // create file in dir2
   String fileName = getTempFileName();
-  File file = getTempFileSync(parent: dir2, name: fileName);
+  File file = createTempFileSync(parent: dir2, name: fileName);
   // create link to the directory dir 1
-  Link link1 = getTempLinkSync(target: dir1.path, parent: sandbox);
+  Link link1 = createTempLinkSync(target: dir1.path, parent: sandbox);
   // in dir1 create link to dir1
-  Link link2 = getTempLinkSync(parent: dir1, target: ".");
+  Link link2 = createTempLinkSync(parent: dir1, target: ".");
 
   // in dir1 create link to dir2
-  Link link3 = getTempLinkSync(
+  Link link3 = createTempLinkSync(
       parent: dir1, target: ".." + Platform.pathSeparator + dir2Name);
 
   // try to access the file

@@ -28,10 +28,10 @@ augment class C {
 
   augment static String staticMethod2(String v) => v;
 
-  augment static String staticMethod3(String v1, [String v2 = "v2 def"]) =>
+  augment static String staticMethod3(String v1, [String v2]) =>
       "$v1,$v2";
 
-  augment static String staticMethod4(String v1, {String v2 = "v2 def"}) {
+  augment static String staticMethod4(String v1, {String v2}) {
     return "$v1,$v2";
   }
 
@@ -42,10 +42,10 @@ augment class C {
 
 main() {
   Expect.equals("augmented", C.staticMethod1());
-  Expect.equals("A;v2 def", C.staticMethod2("A"));
+  Expect.equals("A,v2 def", C.staticMethod2("A"));
   Expect.equals("B,v2 def", C.staticMethod3("B"));
   Expect.equals("B,C", C.staticMethod3("B", "C"));
-  Expect.equals("D;v2 def", C.staticMethod4("D"));
-  Expect.equals("D;E", C.staticMethod4("D", v2: "E"));
-  Expect.equals("F;G", C.staticMethod5("F", v2: "G"));
+  Expect.equals("D,v2 def", C.staticMethod4("D"));
+  Expect.equals("D,E", C.staticMethod4("D", v2: "E"));
+  Expect.equals("F,G", C.staticMethod5("F", v2: "G"));
 }

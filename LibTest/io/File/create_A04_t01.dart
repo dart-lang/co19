@@ -38,7 +38,7 @@ main() async {
 
 _test(Directory sandbox,
     {bool recursive = false, bool exclusive = false}) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   File file = new File(dir.path);
   await file.create(recursive: recursive, exclusive: exclusive).then(
       (File created) {

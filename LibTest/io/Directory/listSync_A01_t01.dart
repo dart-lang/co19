@@ -34,7 +34,7 @@ main() async {
 
 void _main(Directory sandbox) {
   Directory dir = sandbox;
-  File file = getTempFileSync(parent: dir);
+  File file = createTempFileSync(parent: dir);
   bool found = false;
   dir.listSync().forEach((entity) {
     if (entity.path == file.path) {

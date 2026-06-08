@@ -3,11 +3,11 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile time error to read a local variable when the
-/// variable is definitely unassigned unless the variable is non-final, and
-/// non-late, and has nullable type.
+/// variable is definitely unassigned unless the variable is non-`final`, and
+/// non-`late`, and has nullable type.
 ///
 /// @description Checks that it's a compile time error to read a local variable
-/// when the variable is definitely unassigned. Test triple shift
+/// when the variable is definitely unassigned. Test the triple shift operator.
 /// @author sgrekhov@unipro.ru
 
 main() {

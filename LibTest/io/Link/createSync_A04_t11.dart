@@ -42,8 +42,8 @@ main() {
 }
 
 void _main(Directory sandbox) {
-  Directory linkTarget = getTempDirectorySync(parent: sandbox);
-  Link target1 = getTempLinkSync(parent: sandbox, target: linkTarget.path);
+  Directory linkTarget = createTempDirectorySync(parent: sandbox);
+  Link target1 = createTempLinkSync(parent: sandbox, target: linkTarget.path);
   Link link = Link(getTempFilePath(parent: sandbox));
   link.createSync(target1.path);
   Expect.equals(

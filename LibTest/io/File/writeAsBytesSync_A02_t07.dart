@@ -32,7 +32,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsBytesSync([1, 1, 1, 1, 1]);
   file.writeAsBytesSync([3, 1, 4, 1, 5], mode: FileMode.writeOnlyAppend);
   Expect.listEquals([1, 1, 1, 1, 1, 3, 1, 4, 1, 5], file.readAsBytesSync());

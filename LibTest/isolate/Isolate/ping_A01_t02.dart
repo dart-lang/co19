@@ -13,7 +13,6 @@
 ///
 /// @description Check various values for response argument in ping().
 /// The isolate is continuously running. Priority is default.
-///
 /// @author a.semenov@unipro.ru
 
 import "dart:isolate";
@@ -41,7 +40,7 @@ Future test(List<Object?> values) async {
   for (Object? value in values) {
     ReceivePort pingPort = new ReceivePort();
     isolate.ping(pingPort.sendPort, response:value);
-    Expect.equals(value, await pingPort.first);
+    Expect.equalsOrNaN(value, await pingPort.first);
   }
   // clean up
   isolate.kill(priority:Isolate.immediate);

@@ -41,6 +41,9 @@ String test(Object value) {
   if (value case const (2 * 2)) {
     return "case =4";
   }
+  if (value case const (2 / 1)) {
+    return "case =2";
+  }
   if (value case const (30 ^ 2)) {
     return "case =28";
   }
@@ -104,6 +107,7 @@ main() {
   Expect.equals("case =3", test(3));
   Expect.equals("case =1", test(1));
   Expect.equals("case =4", test(4));
+  Expect.equals("case =2", test(2));
   Expect.equals("case =28", test(28));
   Expect.equals("case =5", test(5));
   Expect.equals("case =0", test(0));

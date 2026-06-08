@@ -22,8 +22,9 @@
 /// some more complex expressions are valid constant expressions but not valid
 /// constant patterns.
 ///
-/// @description Checks that old-style constant expressions are not valid
-/// constant patterns now and produce a compile-time error
+/// @description Check that binary operator expressions derived from
+/// `bitwiseOrExpression` are not valid in a `guardedPattern` and produce a
+/// compile-time error.
 /// @author sgrekhov22@gmail.com
 
 String test(Object value) {
@@ -42,7 +43,11 @@ String test(Object value) {
 //         ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      return "case =4";
+    case 2 / 2:
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      return "case 2/2";
     case 30 ^ 2:
 //          ^
 // [analyzer] unspecified
@@ -93,22 +98,22 @@ String test(Object value) {
 // [analyzer] unspecified
 // [cfe] unspecified
       return "case =true";
-    case 1 >= 2:
+    case 1 >= 2:    // ignore: unreachable_switch_case
 //         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "case =false2";
-    case -1 <= 2:
+    case -1 <= 2:   // ignore: unreachable_switch_case
 //          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "case =true2";
-    case 1 == -2:
+    case 1 == -2:   // ignore: unreachable_switch_case
 //         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
       return "case =false3";
-    case 1 != 2:
+    case 1 != 2:    // ignore: unreachable_switch_case
 //         ^^
 // [analyzer] unspecified
 // [cfe] unspecified

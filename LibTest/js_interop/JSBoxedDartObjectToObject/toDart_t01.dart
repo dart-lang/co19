@@ -13,9 +13,7 @@
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
-import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
-import '../js_utils.dart';
 
 class C {
   int id;

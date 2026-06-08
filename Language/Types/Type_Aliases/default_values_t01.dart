@@ -4,27 +4,27 @@
 
 /// @assertion It is a compile-time error if any default values are specified in
 /// the signature of a function type in a type alias
+///
 /// @description Checks that it is a compile-time error if any default values are
 /// specified in the signature of a function type in a type alias
 /// @author sgrekhov@unipro.ru
 
-
 typedef void F1(String s = "");
 //                       ^
-// [analyzer] SYNTACTIC_ERROR.NAMED_PARAMETER_OUTSIDE_GROUP
-// [cfe] Non-optional parameters can't have a default value.
+// [analyzer] unspecified
+// [cfe] unspecified
 typedef String F2(String s, int i = -1);
 //                                ^
-// [analyzer] SYNTACTIC_ERROR.NAMED_PARAMETER_OUTSIDE_GROUP
-// [cfe] Non-optional parameters can't have a default value.
+// [analyzer] unspecified
+// [cfe] unspecified
 typedef int F3(String s, [int i = -1]);
 //                              ^
-// [analyzer] SYNTACTIC_ERROR.DEFAULT_VALUE_IN_FUNCTION_TYPE
-// [cfe] Can't have a default value in a function type.
+// [analyzer] unspecified
+// [cfe] unspecified
 typedef F4(String s, {int i = -1});
 //                          ^
-// [analyzer] SYNTACTIC_ERROR.DEFAULT_VALUE_IN_FUNCTION_TYPE
-// [cfe] Can't have a default value in a function type.
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

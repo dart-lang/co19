@@ -13,7 +13,6 @@
 ///
 /// @description Check that isolate sends event on responsePort,
 /// when it terminates with error. Parameter response is not specified.
-///
 /// @author a.semenov@unipro.ru
 
 import "dart:isolate";

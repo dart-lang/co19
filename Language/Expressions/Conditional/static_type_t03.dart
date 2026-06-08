@@ -4,19 +4,16 @@
 
 /// @assertion The static type of c is the least upper bound
 /// of the static type of e2 and the static type of e3.
+///
 /// @description Checks that the static type of a conditional expression is
 /// an upper bound of the static type of e2 and the static type of e3.
 /// @author msyabro
 
-
-import '../../../Utils/dynamic_check.dart';
+import '../../../Utils/static_type_helper.dart';
 
 main() {
-  num i = (true ? 1 : 0.5); // int <=> num
-
-  double d = (true ? 1.0 : 0); // double <=> num
-
-  Object b = (false ? true : []); // bool <=> Object
-
-  Object l = (false ? true : []); // List <=> Object
+  (true ? 1 : 0.5).expectStaticType<Exactly<num>>(); // int <=> num
+  (true ? 1.0 : 0).expectStaticType<Exactly<num>>(); // double <=> num
+  (false ? true : []).expectStaticType<Exactly<Object>>(); // bool <=> Object
+  (false ? true : []).expectStaticType<Exactly<Object>>(); // List <=> Object
 }

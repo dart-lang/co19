@@ -9,22 +9,21 @@
 /// expression in an if element may not be assigned to bool
 /// @author sgrekhov@unipro.ru
 
-
 main() {
   [if ("not bool") 1];
 //     ^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   <int>[if ("not bool") 1];
 //          ^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   const [if ("not bool") 1];
 //           ^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
   const <int>[if ("not bool") 1];
 //                ^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

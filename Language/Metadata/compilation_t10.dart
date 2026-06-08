@@ -6,10 +6,11 @@
 /// following:
 ///   • A reference to a compile-time constant variable.
 ///   • A call to a constant constructor.
+///
 /// @description Check that it is a compile time error, if mandatory arguments
 /// are missing
-/// @Issue #24281
 /// @author a.semenov@unipro.ru
+/// @issue 24281
 
 class A {
     const A(int x);
@@ -17,11 +18,10 @@ class A {
 
   @A
 //^^
-// [analyzer] COMPILE_TIME_ERROR.NO_ANNOTATION_CONSTRUCTOR_ARGUMENTS
-// ^
-// [cfe] This can't be used as an annotation; an annotation should be a reference to a compile-time constant variable, or a call to a constant constructor.
+// [analyzer] unspecified
+// [cfe] unspecified
 class B {}
 
 main() {
-  B? b;
+  print(B);
 }

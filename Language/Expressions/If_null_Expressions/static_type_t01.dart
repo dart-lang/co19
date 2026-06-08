@@ -8,7 +8,6 @@
 ///
 /// @description Check that static type of expression e1??e2 match with
 /// static type (int) in assignment.
-///
 /// @author a.semenov@unipro.ru
 
 main() {
@@ -18,25 +17,21 @@ main() {
   var s = "Lily was here" as String?;
   x = d ?? 1;
 //    ^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-//      ^
-// [cfe] A value of type 'num' can't be assigned to a variable of type 'int?'.
+// [analyzer] unspecified
+// [cfe] unspecified
   x = null ?? 1;
   x = null ?? null;
   x = x ?? 'aaa';
 //    ^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-//      ^
-// [cfe] A value of type 'Object' can't be assigned to a variable of type 'int?'.
+// [analyzer] unspecified
+// [cfe] unspecified
   x = s ?? 1;
 //    ^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-//      ^
-// [cfe] A value of type 'Object' can't be assigned to a variable of type 'int?'.
+// [analyzer] unspecified
+// [cfe] unspecified
   x = s ?? true;
 //    ^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-//      ^
-// [cfe] A value of type 'Object' can't be assigned to a variable of type 'int?'.
+// [analyzer] unspecified
+// [cfe] unspecified
   return x;
 }

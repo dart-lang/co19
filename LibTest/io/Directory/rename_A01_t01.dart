@@ -35,7 +35,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   String oldName = dir.path;
   String newName = getTempDirectoryPath(parent: sandbox);
 

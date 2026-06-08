@@ -25,7 +25,7 @@ import "../file_utils.dart";
 
 void check(List<int> list) {
   int len = list.length;
-  File file = getTempFileSync();
+  File file = createTempFileSync();
   asyncStart();
   Future<RandomAccessFile> raFile = file.open(mode: FileMode.write);
   raFile.then((RandomAccessFile rf) {

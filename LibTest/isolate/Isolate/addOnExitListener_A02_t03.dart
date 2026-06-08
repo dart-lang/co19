@@ -14,7 +14,6 @@
 /// which is supplied several times to addOnExitListener() of the same isolate.
 /// Different values for parameter response are specified. Check that only last
 /// used value is used.
-///
 /// @author a.semenov@unipro.ru
 
 import "dart:isolate";

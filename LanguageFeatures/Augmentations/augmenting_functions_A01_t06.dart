@@ -16,8 +16,8 @@ import '../../Utils/expect.dart';
 extension type ET(int _) {
   static String staticMethod1();
   static String staticMethod2(String v);
-  static String staticMethod3(String v1, [String v2 = "v2 def"]);
-  static String staticMethod4(String v1, {String v2 = "v2 def"});
+  static String staticMethod3(String v1, [String v2]);
+  static String staticMethod4(String v1, {String v2});
   static String staticMethod5(String v1, {required String v2});
 }
 
@@ -42,10 +42,10 @@ augment extension type ET {
 
 main() {
   Expect.equals("augmented", ET.staticMethod1());
-  Expect.equals("A;v2 def", ET.staticMethod2("A"));
+  Expect.equals("A,v2 def", ET.staticMethod2("A"));
   Expect.equals("B,v2 def", ET.staticMethod3("B"));
   Expect.equals("B,C", ET.staticMethod3("B", "C"));
-  Expect.equals("D;v2 def", ET.staticMethod4("D"));
-  Expect.equals("D;E", ET.staticMethod4("D", v2: "E"));
-  Expect.equals("F;G", ET.staticMethod5("F", v2: "G"));
+  Expect.equals("D,v2 def", ET.staticMethod4("D"));
+  Expect.equals("D,E", ET.staticMethod4("D", v2: "E"));
+  Expect.equals("F,G", ET.staticMethod5("F", v2: "G"));
 }

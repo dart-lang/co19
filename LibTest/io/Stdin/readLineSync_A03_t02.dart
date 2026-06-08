@@ -8,6 +8,7 @@
 ///   })
 /// The argument [encoding] can be used to changed how the input should be
 /// decoded.
+///
 /// @description Checks that Latin-1 encoding can be used correctly.
 /// correctly.
 /// @author iarkh@unipro.ru
@@ -15,7 +16,6 @@
 import "dart:convert";
 import "dart:io";
 import "test.lib.dart";
-import "../file_utils.dart";
 
 List<int> expected = [1, 2, 3, 128, 129, 200, 254, 255];
 String str = latin1.decode(expected);

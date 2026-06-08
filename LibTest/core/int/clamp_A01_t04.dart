@@ -13,7 +13,7 @@
 import "../../../Utils/expect.dart";
 
 check(num expected, num lowerLimit, num upperLimit, num value) {
-  Expect.equals(expected, value.clamp(lowerLimit, upperLimit));
+  Expect.equalsOrNaN(expected, value.clamp(lowerLimit, upperLimit));
 }
 
 main() {

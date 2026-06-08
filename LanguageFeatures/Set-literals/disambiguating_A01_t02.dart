@@ -36,8 +36,8 @@ var v4 = const <int?, String?> {'s', null};
 // [cfe] unspecified
 var v5 = <String, int> {...set1};
 //                         ^^^^
-// [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
-// [cfe] Unexpected type 'Set<dynamic>' of a map spread entry.  Expected 'dynamic' or a Map.
+// [analyzer] unspecified
+// [cfe] unspecified
 var v6 = const <int, String> {...set2};
 //                               ^^^^
 // [analyzer] unspecified
@@ -62,8 +62,8 @@ main() {
 // [cfe] unspecified
   var x5 = <String, int> {...set1};
 //                           ^^^^
-// [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
-// [cfe] Unexpected type 'Set<dynamic>' of a map spread entry.  Expected 'dynamic' or a Map.
+// [analyzer] unspecified
+// [cfe] unspecified
   var x6 = const <int, String> {...set2};
 //                                 ^^^^
 // [analyzer] unspecified

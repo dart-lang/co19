@@ -19,7 +19,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   Directory d = dir.createTempSync();
   String path = d.path;
   asyncStart();

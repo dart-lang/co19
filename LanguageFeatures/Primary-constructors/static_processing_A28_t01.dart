@@ -17,24 +17,27 @@
 final int nonConstant = 0;
 
 class const C(final int x) {
+//    ^^^^^
+// [analyzer] unspecified
   final int v = nonConstant;
 //              ^^^^^^^^^^^
-// [analyzer] unspecified
 // [cfe] unspecified
 }
 
 mixin class const M() {
+//          ^^^^^
+// [analyzer] unspecified
   final int v = nonConstant;
 //              ^^^^^^^^^^^
-// [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E(final int x) {
+//   ^
+// [analyzer] unspecified
   e0(0);
   final int v = nonConstant;
 //              ^^^^^^^^^^^
-// [analyzer] unspecified
 // [cfe] unspecified
 }
 

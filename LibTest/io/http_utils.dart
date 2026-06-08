@@ -9,7 +9,6 @@ library http_utils;
 
 import "dart:io";
 import "dart:async";
-import "../../Utils/expect.dart";
 
 /**
  * Spawns an HttpServer instance

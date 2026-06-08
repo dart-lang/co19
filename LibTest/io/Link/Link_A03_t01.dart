@@ -26,12 +26,12 @@ main() async {
 
 void _main(Directory sandbox) {
   // create Directory
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   // create file in this directory
   String fileName = getTempFileName();
-  getTempFileSync(parent: dir, name: fileName);
+  createTempFileSync(parent: dir, name: fileName);
   // create link to the directory
-  Link link = getTempLinkSync(target: dir.path, parent: sandbox);
+  Link link = createTempLinkSync(target: dir.path, parent: sandbox);
 
   // try to access the file
   String path = link.path + Platform.pathSeparator + fileName;

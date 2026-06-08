@@ -36,14 +36,14 @@ import '../../Utils/expect.dart';
 class C {
   num instanceMethod1(covariant num i) => i;
   num instanceMethod2([covariant num i = 1]) => i;
-  num instanceMethod3({covariant num i = 1}) => i;
+  num instanceMethod3({covariant num i}) => i;
   num instanceMethod4({required covariant num i}) => i;
   T instanceMethod5<T>({required covariant T i}) => i;
 }
 
 augment class C {
   augment num instanceMethod1(covariant num i);
-  augment num instanceMethod2([covariant num i = 1]);
+  augment num instanceMethod2([covariant num i]);
   augment num instanceMethod3({covariant num i = 1});
   augment num instanceMethod4({required covariant num i});
   augment T instanceMethod5<T>({required covariant T i});
@@ -52,14 +52,14 @@ augment class C {
 mixin M {
   num instanceMethod1(covariant num i) => i;
   num instanceMethod2([covariant num i = 1]) => i;
-  num instanceMethod3({covariant num i = 1}) => i;
+  num instanceMethod3({covariant num i}) => i;
   num instanceMethod4({required covariant num i}) => i;
   T instanceMethod5<T>({required covariant T i}) => i;
 }
 
 augment mixin M {
   augment num instanceMethod1(covariant num i);
-  augment num instanceMethod2([covariant num i = 1]);
+  augment num instanceMethod2([covariant num i]);
   augment num instanceMethod3({covariant num i = 1});
   augment num instanceMethod4({required covariant num i});
   augment T instanceMethod5<T>({required covariant T i});
@@ -68,7 +68,7 @@ augment mixin M {
 enum E {
   e1;
   num instanceMethod1(covariant num i) => i;
-  num instanceMethod2([covariant num i = 1]) => i;
+  num instanceMethod2([covariant num i]) => i;
   num instanceMethod3({covariant num i = 1}) => i;
   num instanceMethod4({required covariant num i}) => i;
   T instanceMethod5<T>({required covariant T i}) => i;
@@ -78,7 +78,7 @@ augment enum E {
   ;
   augment num instanceMethod1(covariant num i);
   augment num instanceMethod2([covariant num i = 1]);
-  augment num instanceMethod3({covariant num i = 1});
+  augment num instanceMethod3({covariant num i});
   augment num instanceMethod4({required covariant num i});
   augment T instanceMethod5<T>({required covariant T i});
 }

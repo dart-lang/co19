@@ -41,7 +41,7 @@ main() {
 }
 
 void _main(Directory sandbox) {
-  File target = getTempFileSync(parent: sandbox);
+  File target = createTempFileSync(parent: sandbox);
   Link link = Link(getTempFilePath(parent: sandbox));
   link.createSync(target.path);
   Expect.equals(

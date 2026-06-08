@@ -20,7 +20,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsStringSync("Line 1\nLine 2\rLine3");
   file.deleteSync();
   asyncStart();

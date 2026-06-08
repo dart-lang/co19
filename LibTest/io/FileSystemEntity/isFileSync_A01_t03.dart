@@ -3,10 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion bool isFileSync(String path)
-/// Synchronously checks if typeSync(path) returns FileSystemEntityType.file.
+/// Synchronously checks if `typeSync(path)` returns [FileSystemEntityType.file]
 ///
-/// @description Checks that this property Synchronously checks if typeSync(path)
-/// returns FileSystemEntityType.file. Test Directory
+/// @description Checks that this property synchronously checks if
+/// `typeSync(path)` returns [FileSystemEntityType.file]. Test a [Link].
 /// @issue 24821, 30410
 /// @author sgrekhov@unipro.ru
 
@@ -19,8 +19,23 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Link link = getTempLinkSync(parent: sandbox);
-  Expect.isFalse(FileSystemEntity.isFileSync(link.path));
-  Expect.equals(FileSystemEntityType.link,
-      FileSystemEntity.typeSync(link.path));
+  // dirLink will be a link to a temp directory in the sandbox because no target
+  // is passed
+  final dirLink = createTempLinkSync(parent: sandbox);
+  Expect.isFalse(FileSystemEntity.isFileSync(dirLink.path));
+  Expect.equals(FileSystemEntityType.directory,
+      FileSystemEntity.typeSync(dirLink.path));
+
+  final target = createTempFileSync(parent: sandbox);
+  final fileLink = createTempLinkSync(parent: sandbox, target: target.path);
+  Expect.isTrue(FileSystemEntity.isFileSync(fileLink.path));
+  Expect.equals(FileSystemEntityType.file,
+      FileSystemEntity.typeSync(fileLink.path));
+
+  // notExisting will be a path to a non-existing file in the sandbox
+  final notExisting = getTempFilePath(parent: sandbox);
+  final brokenLink = createTempLinkSync(parent: sandbox, target: notExisting);
+  Expect.isFalse(FileSystemEntity.isFileSync(brokenLink.path));
+  Expect.equals(FileSystemEntityType.notFound,
+      FileSystemEntity.typeSync(brokenLink.path));
 }

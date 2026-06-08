@@ -4,10 +4,10 @@
 
 /// @assertion A generic type is a type which is introduced by a generic class
 /// declaration or a generic type alias, or it is the type [FutureOr].
+///
 /// @description Checks that exception is thrown when try to use non-generic
 /// typedef with type parameter.
 /// @author iarkh@unipro.ru
-
 
 typedef Alias1 = void Function(int);
 typedef Alias2 = void Function<String>(int);
@@ -16,25 +16,24 @@ main() {
   Alias1 a1;
   Alias1<int> a2;
 //^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
-// [cfe] Expected 0 type arguments.
+// [analyzer] unspecified
+// [cfe] unspecified
   Alias1<dynamic> a3;
 //^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
-// [cfe] Expected 0 type arguments.
+// [analyzer] unspecified
+// [cfe] unspecified
 
   Alias2 a4;
   Alias2<int> a5;
 //^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
-// [cfe] Expected 0 type arguments.
+// [analyzer] unspecified
+// [cfe] unspecified
   Alias2<String> a6;
 //^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
-// [cfe] Expected 0 type arguments.
+// [analyzer] unspecified
+// [cfe] unspecified
   Alias2<dynamic> a7;
 //^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
-// [cfe] Expected 0 type arguments.
-
+// [analyzer] unspecified
+// [cfe] unspecified
 }

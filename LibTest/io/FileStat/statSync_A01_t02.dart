@@ -21,7 +21,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsBytesSync([3, 1, 4, 1, 5, 9, 2, 6]);
   FileStat fs = FileStat.statSync(file.path);
   Expect.equals(FileSystemEntityType.file, fs.type);

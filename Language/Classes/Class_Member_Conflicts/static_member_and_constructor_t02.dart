@@ -47,6 +47,43 @@ class C {
 // [cfe] unspecified
 }
 
+mixin class M {
+  const M.s1();
+//        ^^
+// [analyzer] unspecified
+  static set s1(int value) {}
+//           ^^
+// [cfe] unspecified
+
+  const M.s2();
+//        ^^
+// [analyzer] unspecified
+  static void s2() {}
+//            ^^
+// [cfe] unspecified
+
+  const M.s3();
+//        ^^
+// [analyzer] unspecified
+  static int s3() => 1;
+//           ^^
+// [cfe] unspecified
+
+  const M.s4();
+//        ^^
+// [analyzer] unspecified
+  static int get s4 => 1;
+//               ^^
+// [cfe] unspecified
+
+  const M.s5();
+//        ^^
+// [analyzer] unspecified
+  static int s5 = 1;
+//           ^^
+// [cfe] unspecified
+}
+
 enum E {
   e0.s1();
 

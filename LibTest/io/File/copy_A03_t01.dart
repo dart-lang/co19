@@ -22,8 +22,8 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   asyncStart();
   await file.copy(dir.path).then((File copied) {
     file.delete();

@@ -6,25 +6,25 @@
 /// invocation of noSuchMethod exactly as if the declaration did not exist,
 /// unless a suitable member a is available in a superclass, in which case a is
 /// invoked.
+///
 /// @description Checks that invoking an abstract method, getter or setter
 /// results in a compile error.
 /// @author kaigorodov, sgrekhov@unipro.ru
 
-
 class C {
 //    ^
-// [cfe] The non-abstract class 'C' is missing implementations for these members:
+// [cfe] unspecified
   void m();
 //^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONCRETE_CLASS_WITH_ABSTRACT_MEMBER
+// [analyzer] unspecified
   int get g;
 //^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONCRETE_CLASS_WITH_ABSTRACT_MEMBER
+// [analyzer] unspecified
   set g(int v);
 //^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.CONCRETE_CLASS_WITH_ABSTRACT_MEMBER
+// [analyzer] unspecified
 }
 
 main() {
-  new C();
+  print(C);
 }

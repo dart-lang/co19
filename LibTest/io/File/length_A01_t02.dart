@@ -19,7 +19,7 @@ main() async {
 
 void _main(Directory sandbox) async {
   List<int> bytes = [1, 2, 3, 17, 255];
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   file.writeAsBytesSync(bytes);
   asyncStart();
   await file.length().then((int length) {

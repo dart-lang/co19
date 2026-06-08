@@ -47,6 +47,43 @@ class C {
 // [cfe] unspecified
 }
 
+mixin class M {
+  M.s1();
+//  ^^
+// [analyzer] unspecified
+  static set s1(int value) {}
+//           ^^
+// [cfe] unspecified
+
+  M.s2();
+//  ^^
+// [analyzer] unspecified
+  static void s2() {}
+//            ^^
+// [cfe] unspecified
+
+  M.s3();
+//  ^^
+// [analyzer] unspecified
+  static int s3() => 1;
+//           ^^
+// [cfe] unspecified
+
+  M.s4();
+//  ^^
+// [analyzer] unspecified
+  static int get s4 => 1;
+//               ^^
+// [cfe] unspecified
+
+  M.s5();
+//  ^^
+// [analyzer] unspecified
+  static int s5 = 1;
+//           ^^
+// [cfe] unspecified
+}
+
 extension type ET(int _) {
   ET.s1(this._) {}
 //   ^^
@@ -86,5 +123,6 @@ extension type ET(int _) {
 
 main() {
   print(C);
+  print(M);
   print(ET);
 }

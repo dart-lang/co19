@@ -16,8 +16,6 @@
 /// with 'call' getter
 /// @author sgrekhov@unipro.ru
 
-
-
 class A {
   String get call => "My name is A";
 }
@@ -30,28 +28,23 @@ extension on num {
   String get call => "My name is num";
 }
 
-
 main() {
   1(10);
 //^
-// [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
-// ^
-// [cfe] 'call' isn't a function or method and can't be invoked.
+// [analyzer] unspecified
+// [cfe] unspecified
   1("10");
 //^
-// [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
-// ^
-// [cfe] 'call' isn't a function or method and can't be invoked.
+// [analyzer] unspecified
+// [cfe] unspecified
   1.0(10);
 //^^^
-// [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
-//   ^
-// [cfe] 'call' isn't a function or method and can't be invoked.
+// [analyzer] unspecified
+// [cfe] unspecified
   1.0("10");
 //^^^
-// [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
-//   ^
-// [cfe] 'call' isn't a function or method and can't be invoked.
+// [analyzer] unspecified
+// [cfe] unspecified
   A a = new A();
   a(2);
 //^

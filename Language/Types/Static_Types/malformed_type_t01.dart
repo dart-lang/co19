@@ -12,6 +12,7 @@
 /// Any use of a malformed type gives rise to a static warning. A malformed type
 /// is then interpreted as dynamic by the static type checker and the runtime
 /// unless explicitly specified otherwise.
+///
 /// @description Checks that it is a compile error if a malformed type is
 /// used in a subtype test.
 /// @author kaigorodov
@@ -23,8 +24,8 @@ class BoundedInt<T extends int> {}
 main() {
   null is UnknownType;
 //        ^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_TEST_WITH_UNDEFINED_NAME
-// [cfe] 'UnknownType' isn't a type.
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // C<int, double, UnknownType> is not malformed, see
 // (Types/Parameterized Types)
@@ -37,24 +38,22 @@ main() {
 // [cfe] unspecified
   null is C<int, double, UnknownType>;
 //                       ^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_TYPE_AS_TYPE_ARGUMENT
-// [cfe] 'UnknownType' isn't a type.
+// [analyzer] unspecified
+// [cfe] unspecified
   Bounded<String> x2 = new Bounded();
 //        ^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-//^
-// [cfe] Type argument 'String' doesn't conform to the bound 'num' of the type variable 'T' on 'Bounded'.
+// [analyzer] unspecified
+// [cfe] unspecified
   BoundedInt<num> x3 = new BoundedInt();
 //           ^^^
-// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
-//^
-// [cfe] Type argument 'num' doesn't conform to the bound 'int' of the type variable 'T' on 'BoundedInt'.
+// [analyzer] unspecified
+// [cfe] unspecified
   C<Bounded<String>, C, C> x4 = new C();
 //          ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C<C<UnknownType, int, int>, C, C> x5 = new C();
 //    ^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.NON_TYPE_AS_TYPE_ARGUMENT
-// [cfe] 'UnknownType' isn't a type.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

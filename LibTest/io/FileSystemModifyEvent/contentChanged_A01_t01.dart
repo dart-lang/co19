@@ -4,12 +4,13 @@
 
 /// @assertion bool contentChanged
 ///  final
-/// If the content was changed and not only the attributes, contentChanged is
-/// true.
-/// @description Checks that this property returns false if the content was not
-/// changed
-/// @issue 35112
+/// If the content was changed and not only the attributes, `contentChanged` is
+/// `true`.
+///
+/// @description Checks that this property returns `false` if the content was
+/// not changed, or no event is fired.
 /// @author sgrekhov@unipro.ru
+/// @issue 35112
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -20,14 +21,20 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
-  File f = getTempFileSync(parent: dir);
+  final dir = createTempDirectorySync(parent: sandbox);
+  final f = createTempFileSync(parent: dir);
   asyncStart();
-  await testFileSystemEvent<FileSystemModifyEvent>(dir,
-      createEvent: () async {
-        f.setLastAccessedSync(new DateTime.now());
-      }, test: (FileSystemEvent? event) {
+  await testFileSystemEvent<FileSystemModifyEvent>(
+    dir,
+    createEvent: () async {
+      f.setLastAccessedSync(DateTime.now());
+    },
+    test: (FileSystemEvent? event) {
+      if (event != null) {
         Expect.isFalse((event as FileSystemModifyEvent).contentChanged);
-      });
+      }
+    },
+    failIfNoEvent: false,
+  );
   asyncEnd();
 }

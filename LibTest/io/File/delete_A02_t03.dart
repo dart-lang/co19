@@ -31,8 +31,8 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory target = getTempDirectorySync(parent: sandbox);
-  Link link = getTempLinkSync(target: target.path, parent: sandbox);
+  Directory target = createTempDirectorySync(parent: sandbox);
+  Link link = createTempLinkSync(target: target.path, parent: sandbox);
   File file = new File(link.path);
 
   asyncStart();

@@ -28,21 +28,21 @@ main() {
 
   Set set1  = <int>{...str_list};
 //                     ^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'String' to collection elements of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Set set2  = <int>{1, 2, ...a_list, 14};
 //                           ^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'A' to collection elements of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Set set3 = <int>{1, 14, 0, ...c_list};
 //                              ^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'C' to collection elements of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   Set set4 = <A>{...int_list};
 //                  ^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'int' to collection elements of type 'A'.
-  Set set5 = <A>{...?str_list};
+// [analyzer] unspecified
+// [cfe] unspecified
+  Set set5 = <A>{...?str_list}; // ignore: invalid_null_aware_operator
 //                   ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

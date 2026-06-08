@@ -5,10 +5,10 @@
 /// @assertion void reset()
 /// ...
 /// This method does not stop or start the Stopwatch.
+///
 /// @description Checks that this method does not stop the Stopwatch.
 /// @author sgrekhov@unipro.ru
 
-import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {

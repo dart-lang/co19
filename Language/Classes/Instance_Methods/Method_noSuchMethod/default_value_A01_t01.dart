@@ -17,42 +17,6 @@ String log = "";
 
 class C {
   int m1(int v, [String s = "s1"]);
-
-  int m2(int v, {String s = "s2"});
-
-  dynamic noSuchMethod(Invocation inv) {
-    for (int i = 0; i < inv.positionalArguments.length; i++) {
-      log += "${inv.positionalArguments[i]};";
-    }
-    for (int i = 0; i < inv.namedArguments.length; i++) {
-      log += "s=${inv.namedArguments[Symbol("s")]};";
-    }
-    return 42;
-  }
-}
-
-mixin M {
-  int m1(int v, [String s = "s1"]);
-
-  int m2(int v, {String s = "s2"});
-
-  dynamic noSuchMethod(Invocation inv) {
-    for (int i = 0; i < inv.positionalArguments.length; i++) {
-      log += "${inv.positionalArguments[i]};";
-    }
-    for (int i = 0; i < inv.namedArguments.length; i++) {
-      log += "s=${inv.namedArguments[Symbol("s")]};";
-    }
-    return 42;
-  }
-}
-
-class MA = Object with M;
-
-enum E {
-  e1, e2;
-  int m1(int v, [String s = "s1"]);
-
   int m2(int v, {String s = "s2"});
 
   dynamic noSuchMethod(Invocation inv) {
@@ -66,24 +30,57 @@ enum E {
   }
 }
 
+mixin M {
+  int m1(int v, [String s = "s1"]);
+  int m2(int v, {String s = "s2"});
+
+  dynamic noSuchMethod(Invocation inv) {
+    for (int i = 0; i < inv.positionalArguments.length; i++) {
+      log += "${inv.positionalArguments[i]};";
+    }
+    for (int i = 0; i < inv.namedArguments.length; i++) {
+      log += "s=${inv.namedArguments[#s]};";
+    }
+    return 42;
+  }
+}
+
+class MA = Object with M;
+
+enum E {
+  e1, e2;
+  int m1(int v, [String s = "s1"]);
+  int m2(int v, {String s = "s2"});
+
+  dynamic noSuchMethod(Invocation inv) {
+    for (int i = 0; i < inv.positionalArguments.length; i++) {
+      log += "${inv.positionalArguments[i]};";
+    }
+    for (int i = 0; i < inv.namedArguments.length; i++) {
+      log += "s=${inv.namedArguments[#s]};";
+    }
+    return 42;
+  }
+}
+
+void checkLog(String expected) {
+  Expect.equals(expected, log);
+  log = '';
+}
+
 main() {
   C().m1(1);
-  Expect.equals("1;s1;", log);
-  log = "";
+  checkLog("1;s1;");
   C().m2(2);
-  Expect.equals("2;s=s2;", log);
-  log = "";
+  checkLog("2;s=s2;");
 
   MA().m1(1);
-  Expect.equals("1;s1;", log);
-  log = "";
+  checkLog("1;s1;");
   MA().m2(2);
-  Expect.equals("2;s=s2;", log);
-  log = "";
+  checkLog("2;s=s2;");
 
   E.e1.m1(1);
-  Expect.equals("1;s1;", log);
-  log = "";
+  checkLog("1;s1;");
   E.e2.m2(2);
-  Expect.equals("2;s=s2;", log);
+  checkLog("2;s=s2;");
 }

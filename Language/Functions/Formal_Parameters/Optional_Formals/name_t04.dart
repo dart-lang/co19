@@ -14,7 +14,7 @@ import '../../../../Utils/expect.dart';
 class C {
   noSuchMethod(Invocation invocation) {
     final namedArgs = invocation.namedArguments;
-    final name = Symbol('name');
+    final name = #name;
     if (namedArgs.keys.contains(name)) {
       final paramName = Symbol(namedArgs[name]);
       if (namedArgs.keys.contains(paramName)) {

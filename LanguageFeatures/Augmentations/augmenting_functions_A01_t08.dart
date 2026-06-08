@@ -16,8 +16,8 @@ import '../../Utils/expect.dart';
 mixin M {
   String instanceMethod1();
   String instanceMethod2(String v);
-  String instanceMethod3(String v1, [String v2 = "v2 def"]);
-  String instanceMethod4(String v1, {String v2 = "v2 def"});
+  String instanceMethod3(String v1, [String v2]);
+  String instanceMethod4(String v1, {String v2});
   String instanceMethod5(String v1, {required String v2});
 }
 
@@ -45,10 +45,10 @@ class MA = Object with M;
 main() {
   MA m = MA();
   Expect.equals("augmented", m.instanceMethod1());
-  Expect.equals("A;v2 def", m.instanceMethod2("A"));
+  Expect.equals("A,v2 def", m.instanceMethod2("A"));
   Expect.equals("B,v2 def", m.instanceMethod3("B"));
   Expect.equals("B,C", m.instanceMethod3("B", "C"));
-  Expect.equals("D;v2 def", m.instanceMethod4("D"));
-  Expect.equals("D;E", m.instanceMethod4("D", v2: "E"));
-  Expect.equals("F;G", m.instanceMethod5("F", v2: "G"));
+  Expect.equals("D,v2 def", m.instanceMethod4("D"));
+  Expect.equals("D,E", m.instanceMethod4("D", v2: "E"));
+  Expect.equals("F,G", m.instanceMethod5("F", v2: "G"));
 }

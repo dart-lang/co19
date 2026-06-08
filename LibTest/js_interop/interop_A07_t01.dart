@@ -15,8 +15,6 @@
 /// @author sgrekhov22@gmail.com
 
 import 'dart:js_interop';
-import '../../Utils/expect.dart';
-import 'js_utils.dart';
 
 extension type ET._(JSObject _) implements JSObject {
   external ET(int id, String? name);

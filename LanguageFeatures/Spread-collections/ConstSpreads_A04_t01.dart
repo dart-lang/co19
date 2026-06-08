@@ -12,7 +12,6 @@
 /// @description Checks that elements cannot be duplicated in the constant set.
 /// @author iarkh@unipro.ru
 
-
 const List list1 = [2, 7, 9];
 const List list2 = [2, 12, 33];
 const List list3 = [2, 12, 4, 12, 11, 0, 3];
@@ -20,27 +19,24 @@ const List list3 = [2, 12, 4, 12, 11, 0, 3];
 main() {
   const res1 = {...list1, ...list2};
 //             ^
-// [cfe] Constant evaluation error:
-//                           ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+// [analyzer] unspecified
+// [cfe] unspecified
   const res2 = {1, 14, ...?list1, 99, ...list2};
 //                                       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res3 = {...list2, ...list1};
 //             ^
-// [cfe] Constant evaluation error:
-//                           ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+// [analyzer] unspecified
+// [cfe] unspecified
   const res4 = {...?list3};
 //                  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res5 = {...list3};
 //             ^
-// [cfe] Constant evaluation error:
-//                 ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+// [analyzer] unspecified
+// [cfe] unspecified
   const res6 = {2, 4, ...?list1, 14};
 //                        ^^^^^
 // [analyzer] unspecified

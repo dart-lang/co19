@@ -21,7 +21,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   FileStat fs = FileStat.statSync(file.path);
   if (Platform.isWindows) {
     Expect.equals("rw-rw-rw-", fs.modeString());

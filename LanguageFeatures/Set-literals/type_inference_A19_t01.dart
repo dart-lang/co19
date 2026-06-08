@@ -17,8 +17,8 @@ main() {
   String? s = "Let it be";
   var x1 = <int, String>{...s};
 //                          ^
-// [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
-// [cfe] Unexpected type 'String' of a map spread entry.  Expected 'dynamic' or a Map.
+// [analyzer] unspecified
+// [cfe] unspecified
   var x2 = <int, String>{...?s};
 //                           ^
 // [analyzer] unspecified

@@ -43,7 +43,7 @@ main() async {
 void _main(Directory sandbox) {
   String dirPath = getTempDirectoryPath(parent: sandbox);
   Directory dir = new Directory(dirPath);
-  Directory target = getTempDirectorySync(parent: sandbox);
+  Directory target = createTempDirectorySync(parent: sandbox);
   String linkPath =
       dirPath + Platform.pathSeparator + getTempFileName(extension: "lnk");
   Link link = new Link(linkPath);

@@ -41,8 +41,8 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory target = getTempDirectorySync(parent: sandbox);
-  Link link = getTempLinkSync(target: target.path, parent: sandbox);
+  Directory target = createTempDirectorySync(parent: sandbox);
+  Link link = createTempLinkSync(target: target.path, parent: sandbox);
   asyncStart();
   await link.delete().then((deleted) {
     Expect.isFalse(link.existsSync());

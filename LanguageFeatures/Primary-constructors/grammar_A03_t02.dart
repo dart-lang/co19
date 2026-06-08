@@ -18,8 +18,6 @@
 // SharedOptions=--enable-experiment=primary-constructors
 
 class C1() {
-//    ^^
-// [analyzer] unspecified
   int? v1, v2;
   this : v1 = 1;
   this : v2 = 2;

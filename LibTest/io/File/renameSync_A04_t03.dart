@@ -47,10 +47,10 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
-  File linkFile = getTempFileSync(parent: sandbox);
-  Link link1 = getTempLinkSync(parent: sandbox, target: linkFile.path);
-  Link link2 = getTempLinkSync(parent: sandbox, target: link1.path);
+  File file = createTempFileSync(parent: sandbox);
+  File linkFile = createTempFileSync(parent: sandbox);
+  Link link1 = createTempLinkSync(parent: sandbox, target: linkFile.path);
+  Link link2 = createTempLinkSync(parent: sandbox, target: link1.path);
   file.writeAsStringSync("Source");
 
   File renamed = file.renameSync(link2.path);

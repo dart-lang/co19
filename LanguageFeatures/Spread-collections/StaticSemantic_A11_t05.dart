@@ -5,10 +5,10 @@
 /// @assertion It is a compile-time error if:
 /// A spread element in a map literal has a static type that is not [dynamic] and
 /// not a subtype of [Map<Object, Object>].
+///
 /// @description Checks that compile error is thrown if spread element in the
 /// constant map is not assignable to [Map]
 /// @author iarkh@unipro.ru
-
 
 main() {
   const x1 = [];
@@ -19,8 +19,8 @@ main() {
 
   const Map m1 = {...x1};
 //               ^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-// [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+// [analyzer] unspecified
+// [cfe] unspecified
   const Map m2 = {...x2};
 //               ^^^^^^^
 // [analyzer] unspecified
@@ -35,7 +35,6 @@ main() {
 // [cfe] unspecified
   const Map m5 = {...x5};
 //          ^
-// [cfe] Constant evaluation error:
-//                   ^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_MAP
+// [analyzer] unspecified
+// [cfe] unspecified
 }

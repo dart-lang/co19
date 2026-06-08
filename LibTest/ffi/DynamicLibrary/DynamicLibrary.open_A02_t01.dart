@@ -16,7 +16,6 @@
 /// @author sgrekhov@unipro.ru
 
 import "dart:ffi";
-import "../ffi_utils.dart";
 import "../../../Utils/expect.dart";
 
 void main() {

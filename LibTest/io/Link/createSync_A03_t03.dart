@@ -40,8 +40,13 @@ main() async {
   await inSandbox(_main);
 }
 
+void test(Directory sandbox, {required bool recursive}) {
+  File target = createTempFileSync(parent: sandbox);
+  Link link = createTempLinkSync(parent: sandbox, target: target.path);
+  Expect.throws(() {link.createSync(link.targetSync(), recursive: recursive);});
+}
+
 void _main(Directory sandbox) {
-  File target = getTempFileSync(parent: sandbox);
-  Link link = getTempLinkSync(parent: sandbox, target: target.path);
-  Expect.throws(() {link.createSync(link.targetSync());});
+  test(sandbox, recursive: false);
+  test(sandbox, recursive: true);
 }

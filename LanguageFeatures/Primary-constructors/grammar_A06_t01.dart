@@ -41,6 +41,9 @@ enum @meta E(final int v) {
 // [analyzer] unspecified
 // [cfe] unspecified
   e0(0);
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type @meta ET(int _) {}

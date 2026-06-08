@@ -20,6 +20,9 @@ augment Null f1();
 // [cfe] unspecified
 
 abstract int Function() f2;
+//                      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 augment int f2() => 42;
 //          ^^
@@ -27,6 +30,9 @@ augment int f2() => 42;
 // [cfe] unspecified
 
 Null f3();
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 augment final f3 = () {};
 //            ^^

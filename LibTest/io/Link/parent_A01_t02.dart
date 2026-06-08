@@ -25,9 +25,9 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Directory parent = getTempDirectorySync(parent: sandbox);
+  Directory parent = createTempDirectorySync(parent: sandbox);
 
-  Link link = getTempLinkSync(parent: parent);
+  Link link = createTempLinkSync(parent: parent);
   Expect.equals(parent.path, link.parent.path);
 
   link = new Link(parent.path + Platform.pathSeparator + "NotExisting");

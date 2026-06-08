@@ -14,20 +14,20 @@ main() {
   var x = 1;
   List<int> list1 = const [if (x > 0) 1, 1 ];
 //                             ^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-// [cfe] Not a constant expression.
+// [analyzer] unspecified
+// [cfe] unspecified
   const List<int> list2 = [if (x > 0) 1, 1 ];
 //                             ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var list3 = const [if (x > 0) 1, 1, ];
 //                       ^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-// [cfe] Not a constant expression.
+// [analyzer] unspecified
+// [cfe] unspecified
   var list4 = const <int>[if (x > 0) 1, 1, ];
 //                            ^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
-// [cfe] Not a constant expression.
+// [analyzer] unspecified
+// [cfe] unspecified
   const list5 = [if (x > 0) 1, 1 ];
 //                   ^^^^^
 // [analyzer] unspecified
@@ -35,20 +35,20 @@ main() {
 
   Set<int> set1 = const {if (x > 0) 1, -1 };
 //                           ^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
-// [cfe] Not a constant expression.
+// [analyzer] unspecified
+// [cfe] unspecified
   const Set<int> set2 = {if (x > 0) 1, -1 };
 //                           ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var set3 = const {if (x > 0) 1, -1, };
 //                      ^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
-// [cfe] Not a constant expression.
+// [analyzer] unspecified
+// [cfe] unspecified
   var set4 = const <int>{if (x > 0) 1, -1, };
 //                           ^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
-// [cfe] Not a constant expression.
+// [analyzer] unspecified
+// [cfe] unspecified
   const set5 = {if (x > 0) 1, -1 };
 //                  ^^^^^
 // [analyzer] unspecified
@@ -56,20 +56,20 @@ main() {
 
   Map<int, String> map1 = const {if (x > 0) 1: "1"};
 //                                   ^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_MAP_ELEMENT
-// [cfe] Not a constant expression.
+// [analyzer] unspecified
+// [cfe] unspecified
   const Map<int, String> map2 = {if (x > 0) 1: "x"};
 //                                   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var map3 = const {if (x > 0) 1: "x"};
 //                      ^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_MAP_ELEMENT
-// [cfe] Not a constant expression.
+// [analyzer] unspecified
+// [cfe] unspecified
   var map4 = const <int, String>{if (x > 0) 1: "x"};
 //                                   ^
-// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_MAP_ELEMENT
-// [cfe] Not a constant expression.
+// [analyzer] unspecified
+// [cfe] unspecified
   const map5 = {if (x > 0) 1: "x" };
 //                  ^^^^^
 // [analyzer] unspecified

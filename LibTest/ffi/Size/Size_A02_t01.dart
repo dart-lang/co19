@@ -13,7 +13,6 @@
 /// @author sgrekhov22@gmail.com
 
 import "dart:ffi";
-import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 void main() {

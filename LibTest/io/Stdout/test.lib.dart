@@ -29,8 +29,8 @@ run_main(Encoding? enc, List<int> expected) async {
   String script = Platform.script.toString();
   int called = 0;
 
-  Directory sandbox = getTempDirectorySync();
-  File f = getTempFileSync(parent: sandbox);
+  Directory sandbox = createTempDirectorySync();
+  File f = createTempFileSync(parent: sandbox);
   String filename = f.path;
 
   await (Platform.isWindows

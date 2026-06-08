@@ -56,16 +56,16 @@ class C {
 
 main() {
   try {
-    x1.whatever;
+    x1.checkDynamic;
   } catch (_) {}
   try {
-    x2.whatever;
+    x2.checkDynamic;
   } catch (_) {}
   x3.expectStaticType<Exactly<int>>();
   x4.expectStaticType<Exactly<int>>();
 
   try {
-    x5.whatever;
+    x5.checkDynamic;
   } catch (_) {}
   x6.expectStaticType<Exactly<int>>();
   x7.expectStaticType<Exactly<int>>();
@@ -73,16 +73,16 @@ main() {
 
   C c = C();
   try {
-    C.v1.whatever;
+    C.v1.checkDynamic;
   } catch (_) {}
   try {
-    c.v2.whatever;
+    c.v2.checkDynamic;
   } catch (_) {}
   try {
-    c.v3.whatever;
+    c.v3.checkDynamic;
   } catch (_) {}
   try {
-    C.v4.whatever;
+    C.v4.checkDynamic;
   } catch (_) {}
   C.v5.expectStaticType<Exactly<int>>();
   C.v6.expectStaticType<Exactly<int>>();
@@ -90,10 +90,10 @@ main() {
   c.v8.expectStaticType<Exactly<int>>();
 
   try {
-    C.v10.whatever;
+    C.v10.checkDynamic;
   } catch (_) {}
   try {
-    c.v11.whatever;
+    c.v11.checkDynamic;
   } catch (_) {}
   C.v12.expectStaticType<Exactly<int>>();
   C.v13.expectStaticType<Exactly<int>>();

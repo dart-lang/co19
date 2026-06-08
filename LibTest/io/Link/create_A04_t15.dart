@@ -61,7 +61,7 @@ void _main(Directory sandbox) async {
     target2.deleteSync();
 
     Link target3 = Link(linkTarget);
-    File _linkTarget = getTempFileSync();
+    File _linkTarget = createTempFileSync();
     target3.createSync(_linkTarget.path);
     Expect.equals(
         FileSystemEntityType.file, FileSystemEntity.typeSync(created.path));

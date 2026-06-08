@@ -8,7 +8,6 @@
 /// @author vasya
 
 import "../../../Utils/expect.dart";
-import "dart:math" as Math;
 
 main() {
   Expect.equals(1.0,  1 / 1);

@@ -25,7 +25,7 @@ class C1 {
 // [cfe] unspecified
   C1() {}
 //^^
-// [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
+// [analyzer] unspecified
 }
 
 abstract class C2 {
@@ -34,12 +34,13 @@ abstract class C2 {
 // [cfe] unspecified
   C2() {}
 //^^
-// [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
+// [analyzer] unspecified
 }
 
 class C3 extends C2 {}
 
 main() {
-  new C1();
-  new C3();
+  print(C1);
+  print(C2);
+  print(C3);
 }

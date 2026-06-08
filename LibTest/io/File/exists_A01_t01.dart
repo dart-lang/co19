@@ -25,7 +25,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   asyncStart();
   await file.exists().then((result) {
     Expect.isTrue(result);

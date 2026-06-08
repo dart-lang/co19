@@ -3,8 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion static void equals(var expected, var actual, [String reason = ''])
-/// Checks whether the expected and actual values are equal (using [:==:]).
-/// @description NaNs considered equals
+/// Checks whether the expected and actual values are equal (using `==`).
+///
+/// @description NaNs considered not equals
 /// @author varlax
 
 import "../../../Utils/expect.dart";
@@ -22,7 +23,7 @@ main() {
    Expect.throws((){
       Expect.equals(double.nan, double.infinity);
    }, null, "Infinity");
-   Expect.equals(double.nan, double.nan);
-   Expect.equals(0.0/0.0, 0.0/0.0);
-   Expect.equals(double.nan, 0.0/0.0);
+   Expect.notEquals(double.nan, double.nan);
+   Expect.notEquals(0.0/0.0, 0.0/0.0);
+   Expect.notEquals(double.nan, 0.0/0.0);
 }

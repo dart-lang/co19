@@ -28,7 +28,7 @@ abstract class A {
 class C(final foo) implements A {}
 
 augment class C {
-  augment final int foo;
+  augment abstract final int foo;
 }
 
 main() {

@@ -21,7 +21,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  File file = getTempFileSync(parent: sandbox);
-  Directory dir = getTempDirectorySync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
+  Directory dir = createTempDirectorySync(parent: sandbox);
   Expect.throws(() {file.copySync(dir.path);});
 }

@@ -19,16 +19,16 @@ class C {
   test() {
     this.m1 = foo();
 //            ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
+// [analyzer] unspecified
+// [cfe] unspecified
     this?.m1 = foo();
 //             ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     this.m1 ??= foo();
 //              ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
+// [analyzer] unspecified
+// [cfe] unspecified
     this?.m1 ??= foo();
 //               ^^^^^
 // [analyzer] unspecified
@@ -36,8 +36,8 @@ class C {
 
     this.instanceSetter = foo();
 //                        ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+// [analyzer] unspecified
+// [cfe] unspecified
     this?.instanceSetter = foo();
 //                         ^^^^^
 // [analyzer] unspecified

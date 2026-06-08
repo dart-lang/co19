@@ -13,11 +13,11 @@ external void eval(String code);
 
 void jsExpectEquals(JSAny? expected, JSAny? actual) {
   if (isJS) {
-    Expect.equals(expected, actual);
+    Expect.equalsOrNaN(expected, actual);
     return;
   }
   if (isWasm) {
-    Expect.equals(expected.dartify(), actual.dartify());
+    Expect.equalsOrNaN(expected.dartify(), actual.dartify());
     return;
   }
   throw Exception("Only dart2js and dart2wasm compilers supported");

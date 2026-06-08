@@ -47,16 +47,25 @@ main() async {
   await inSandbox(_main);
 }
 
-void _main(Directory sandbox) async {
-  Link target1 = getTempLinkSync(parent: sandbox);
-  Link target2 = getTempLinkSync(parent: sandbox);
-  Link tmp = getTempLinkSync(parent: sandbox, target: target1.path);
+Future<void> test(Directory sandbox, {required bool recursive}) async {
+  Link target1 = createTempLinkSync(parent: sandbox);
+  Link target2 = createTempLinkSync(parent: sandbox);
+  Link tmp = createTempLinkSync(parent: sandbox, target: target1.path);
   Link link = Link(tmp.path);
-  asyncStart();
-  await link.create(target2.path).then((Link created) {
-    Expect.fail("Link create() should fail");
-    asyncEnd();
-  }, onError: (_) {
-    asyncEnd();
-  });
+  await link
+      .create(target2.path, recursive: recursive)
+      .then(
+        (Link created) {
+          Expect.fail("Link create() should fail");
+        },
+        onError: (_) {
+          asyncEnd();
+        },
+      );
+}
+
+void _main(Directory sandbox) async {
+  asyncStart(2);
+  await test(sandbox, recursive: false);
+  await test(sandbox, recursive: true);
 }

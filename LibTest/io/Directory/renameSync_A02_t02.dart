@@ -36,8 +36,8 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Directory srcDir = getTempDirectorySync(parent: sandbox);
-  Directory targetDir = getTempDirectorySync(parent: sandbox);
+  Directory srcDir = createTempDirectorySync(parent: sandbox);
+  Directory targetDir = createTempDirectorySync(parent: sandbox);
   Directory d = targetDir.createTempSync();
 
   Expect.throws(() {

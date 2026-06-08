@@ -10,21 +10,19 @@
 /// must be a map or vice versa.
 /// @author sgrekhov@unipro.ru
 
-
 main() {
   var i = 1;
   var v1 = {if (i > 0) "" else "": "",};
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-//                     ^
-// [cfe] Expected ':' after this.
+// [analyzer] unspecified
+// [cfe] unspecified
 
   List? x = [1, 2, 3];
   Map? y = {1: "1", 2: "2", 3: "3"};
   var v2 = {"", if (i < 0) ...x else ...y,};
 //                                      ^
-// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-// [cfe] Unexpected type 'Map<dynamic, dynamic>' of a spread.  Expected 'dynamic' or an Iterable.
+// [analyzer] unspecified
+// [cfe] unspecified
 
   var v3 = {"", if (i < 0) ...?x else ...?y,};
 //                                        ^

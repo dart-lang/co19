@@ -16,32 +16,26 @@
 main() {
   var v1 = const {1, 2, 1};
 //         ^
-// [cfe] Constant evaluation error:
-//                      ^
-// [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+// [analyzer] unspecified
+// [cfe] unspecified
   const v2 = const {1, 2, 1};
 //           ^
-// [cfe] Constant evaluation error:
-//                        ^
-// [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+// [analyzer] unspecified
+// [cfe] unspecified
   const v3 = {1, 2, 1};
 //           ^
-// [cfe] Constant evaluation error:
-//                  ^
-// [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+// [analyzer] unspecified
+// [cfe] unspecified
   var v4 = const {1, null, null};
 //         ^
-// [cfe] Constant evaluation error:
-//                         ^^^^
-// [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+// [analyzer] unspecified
+// [cfe] unspecified
   const v5 = const {'a', 'b', 'c', 'a'};
 //           ^
-// [cfe] Constant evaluation error:
-//                                 ^^^
-// [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+// [analyzer] unspecified
+// [cfe] unspecified
   const v6 = {'a', 'b', 'c', 'a'};
 //           ^
-// [cfe] Constant evaluation error:
-//                           ^^^
-// [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+// [analyzer] unspecified
+// [cfe] unspecified
 }

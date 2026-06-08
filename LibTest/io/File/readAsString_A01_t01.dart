@@ -20,7 +20,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  File file = getTempFileSync(parent: sandbox);
+  File file = createTempFileSync(parent: sandbox);
   asyncStart();
   await file.readAsString().then((data) {
     Expect.equals("", data);

@@ -21,7 +21,7 @@ main() async {
 }
 
 void _main(Directory sandbox) {
-  Directory newTarget = getTempDirectorySync(parent: sandbox);
+  Directory newTarget = createTempDirectorySync(parent: sandbox);
   Link link = new Link(getTempFilePath(parent: sandbox));
   bool thrown = false;
   try {

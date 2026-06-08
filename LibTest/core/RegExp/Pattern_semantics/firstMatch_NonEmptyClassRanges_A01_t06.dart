@@ -34,8 +34,6 @@
 /// cause an error.
 /// @author rodionov
 /// @note issue 1299
-
-import "../../../../Utils/expect.dart";
  
 main() {
   checkNeg(r"(a)[\1]*", "aa");

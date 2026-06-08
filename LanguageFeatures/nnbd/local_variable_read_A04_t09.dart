@@ -3,11 +3,11 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile time error to read a local variable when the
-/// variable is definitely unassigned unless the variable is non-final, and
-/// non-late, and has nullable type.
+/// variable is definitely unassigned unless the variable is non-`final`, and
+/// non-`late`, and has nullable type.
 ///
 /// @description Checks that it's not an error to read definitely unassigned
-/// local non-final non-late variable which has a nullable type
+/// local non-`final` non-`late` variable which has a nullable type.
 /// @author sgrekhov@unipro.ru
 
 import "../../Utils/expect.dart";

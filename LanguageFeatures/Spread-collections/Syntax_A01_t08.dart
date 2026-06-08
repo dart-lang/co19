@@ -26,9 +26,9 @@
 /// allowed. Each element in a list is either a normal expression or a spread
 /// element. If the spread element starts with [...?], it's a null-aware spread
 /// element.
+///
 /// @description Checks that spreadable element can have type argument
 /// @author iarkh@unipro.ru
-
 
 main() {
   List<int> list1 = [1, 2, 3];
@@ -37,26 +37,26 @@ main() {
 
   <String>[...list1];
 //            ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   <String>["123", ...list1];
 //                   ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   <String>[...list1, "123"];
 //            ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+// [analyzer] unspecified
+// [cfe] unspecified
   <int>[...list1, "123"];
 //                ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   <int>["123", list1];
 //      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   <int>[...list1, ...list2, ...list3];
 //                   ^^^^^
-// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] Can't assign spread elements of type 'String' to collection elements of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

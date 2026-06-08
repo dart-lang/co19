@@ -2,11 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Let C be a class. ... It is a compile-time error if the interface
-/// of C has a method named n and a setter with basename n.
+/// @assertion Let `C` be a class.
+/// ...
+/// It is a compile-time error if the interface of C has a method named `n` and
+/// a setter with basename `n`.
 ///
-/// @description Check that it is a compile-time error if the interface of class
-/// `C` has a method named `n` and a setter with basename `n`.
+/// @description Check that it is a compile-time error if an interface has a
+/// method named `n` and a setter with basename `n`.
 /// @author sgrekhov@unipro.ru
 
 class C {
@@ -23,6 +25,70 @@ class C {
 // [cfe] unspecified
 }
 
+mixin M {
+  void s() {}
+  void _s() {}
+
+  set s(int value) {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  set _s(int value) {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E {
+  e0;
+
+  void s() {}
+  void _s() {}
+
+  set s(int value) {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  set _s(int value) {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class A {}
+
+extension Ext on A {
+  void s() {}
+  void _s() {}
+
+  set s(int value) {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  set _s(int value) {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET(int _) {
+  void s() {}
+  void _s() {}
+
+  set s(int value) {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  set _s(int value) {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(C);
+  print(M);
+  print(E);
+  print(A);
+  print(ET);
 }

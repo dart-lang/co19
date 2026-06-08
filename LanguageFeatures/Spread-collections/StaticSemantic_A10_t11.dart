@@ -5,10 +5,10 @@
 /// @assertion It is a compile-time error if:
 /// A spread element in a list or set literal has a static type that is not
 /// dynamic and not a subtype of Iterable<Object>.
+///
 /// @description Checks that compile error is thrown if spread element in the
 /// constant set is not dynamic and is not assignable to [Iterable]
 /// @author iarkh@unipro.ru
-
 
 main() {
   const Map x1 = {1: 1};
@@ -30,7 +30,6 @@ main() {
 // [cfe] unspecified
   const Set s4 = {...x4};
 //               ^
-// [cfe] Constant evaluation error:
-//                   ^^
-// [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_LIST_OR_SET
+// [analyzer] unspecified
+// [cfe] unspecified
 }

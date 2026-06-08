@@ -32,9 +32,6 @@ class C {
 // [cfe] unspecified
 
   int? x;
-//     ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {

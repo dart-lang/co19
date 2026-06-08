@@ -4,10 +4,10 @@
 
 /// @assertion A getter definition that is prefixed with the static modifier 
 /// defines a static getter
+///
 /// @description Checks that non-static getter cannot be called as static one.
 /// Compile error occurs
 /// @author sgrekhov@unipro.ru
-
 
 class C1 {
   int get g1 => 0;
@@ -21,22 +21,22 @@ class C2 extends C1 {
 main() {
   C1.g1;
 //   ^^
-// [analyzer] COMPILE_TIME_ERROR.STATIC_ACCESS_TO_INSTANCE_MEMBER
-// [cfe] Member not found: 'g1'.
+// [analyzer] unspecified
+// [cfe] unspecified
   C1.g2;
 //   ^^
-// [analyzer] COMPILE_TIME_ERROR.STATIC_ACCESS_TO_INSTANCE_MEMBER
-// [cfe] Member not found: 'g2'.
+// [analyzer] unspecified
+// [cfe] unspecified
   C2.g1;
 //   ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-// [cfe] Member not found: 'g1'.
+// [analyzer] unspecified
+// [cfe] unspecified
   C2.g2;
 //   ^^
-// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-// [cfe] Member not found: 'g2'.
+// [analyzer] unspecified
+// [cfe] unspecified
   C2.g3;
 //   ^^
-// [analyzer] COMPILE_TIME_ERROR.STATIC_ACCESS_TO_INSTANCE_MEMBER
-// [cfe] Member not found: 'g3'.
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -22,11 +22,11 @@ main() {
 // [cfe] unspecified
     if (!b) {1},
 //          ^^^
-// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] A value of type 'Set<int>' can't be assigned to a variable of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
     for (int i = 5; i < 10; i++) {i}
 //                               ^^^
-// [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
-// [cfe] A value of type 'Set<int>' can't be assigned to a variable of type 'int'.
+// [analyzer] unspecified
+// [cfe] unspecified
   ];
 }

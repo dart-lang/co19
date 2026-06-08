@@ -13,7 +13,6 @@
 ///
 /// @description Check that several listeners can be added and each receive
 /// given response when isolate terminates.
-///
 /// @author a.semenov@unipro.ru
 
 import "dart:isolate";

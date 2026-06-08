@@ -35,8 +35,8 @@ main() async {
 }
 
 _test(Directory sandbox, {bool recursive = false, bool exclusive = false}) {
-  Directory target = getTempDirectorySync(parent: sandbox);
-  Link link = getTempLinkSync(parent: sandbox, target: target.path);
+  Directory target = createTempDirectorySync(parent: sandbox);
+  Link link = createTempLinkSync(parent: sandbox, target: target.path);
   File file = new File(link.path);
   Expect.throws(() {
     file.createSync();

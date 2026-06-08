@@ -24,7 +24,7 @@ main() async {
 }
 
 void _main(Directory sandbox) async {
-  Directory d = getTempDirectorySync(parent: sandbox);
+  Directory d = createTempDirectorySync(parent: sandbox);
   asyncStart();
 
   await testFileSystemEvent<FileSystemDeleteEvent>(sandbox,

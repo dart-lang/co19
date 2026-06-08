@@ -18,9 +18,9 @@ main() {
   Map? m = {1:1, 2: 2};
   var x1 = <int>{...s, ...m};
 //                        ^
-// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-// [cfe] Unexpected type 'Map<dynamic, dynamic>' of a spread.  Expected 'dynamic' or an Iterable.
-  var x2 = <int>{...?s, ...?m};
+// [analyzer] unspecified
+// [cfe] unspecified
+  var x2 = <int>{...?s, ...?m}; // ignore: invalid_null_aware_operator
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified

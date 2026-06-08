@@ -3,11 +3,11 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile time error to read a local variable when the
-/// variable is definitely unassigned unless the variable is non-final, and
-/// non-late, and has nullable type.
+/// variable is definitely unassigned unless the variable is non-`final`, and
+/// non-`late`, and has nullable type.
 ///
-/// @description Checks that it's a compile time error to read a local late
-/// variable when the variable is definitely unassigned
+/// @description Checks that it's a compile time error to read a local `late`
+/// variable when the variable is definitely unassigned.
 /// @author sgrekhov@unipro.ru
 
 main() {
@@ -80,8 +80,6 @@ main() {
   late int x12;
   x12 ??= 2;
 //^^^
-// [analyzer] COMPILE_TIME_ERROR.DEFINITELY_UNASSIGNED_LATE_LOCAL_VARIABLE
-//        ^
-// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+// [analyzer] unspecified
 // [cfe] unspecified
 }
