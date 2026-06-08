@@ -7,10 +7,9 @@
 /// declaration in the body that starts with a
 /// `<primaryConstructorBodySignature>`.
 ///
-/// @description Check that members initialized in primary initializer scope can
-/// be debugged.
+/// @description Check that parameter of the primary constructor has correct
+/// values in an initializing expression.
 /// @author sgrekhov22@gmail.com
-/// @issue 62053
 
 // SharedOptions=--enable-experiment=primary-constructors
 
@@ -21,7 +20,7 @@ import '../../../../pkg/vm_service/test/common/service_test_common.dart';
 import '../Utils/expect.dart';
 
 void main([args = const <String>[]]) =>
-    IsolateTestHarness('primary_constructors_t02_lib.dart', args)
+    IsolateTestHarness('primary_constructors_t07_lib.dart', args)
         .hasStoppedAtBreakpoint()
         .stoppedAtLine('LINE_B')
         .stepInto()
@@ -32,18 +31,17 @@ void main([args = const <String>[]]) =>
           final islId = isolateRef.id!;
           final xRef1 = await srv.evaluateInFrame(islId, 0, 'x') as InstanceRef;
           Expect.equals('null', xRef1.valueAsString);
-          final xRef2 =
-              await srv.evaluateInFrame(islId, 0, 'this.x') as InstanceRef;
+          final xRef2 = await srv.evaluateInFrame(islId, 0, 'y') as InstanceRef;
           Expect.equals('null', xRef2.valueAsString);
         })
         .stepInto()
+        .stoppedAtLine('LINE_A')
         .addCustomTest((VmService srv, IsolateRef isolateRef) async {
           final islId = isolateRef.id!;
           final xRef1 = await srv.evaluateInFrame(islId, 0, 'x') as InstanceRef;
-          Expect.equals('xxx', xRef1.valueAsString);
-          final xRef2 =
-              await srv.evaluateInFrame(islId, 0, 'this.x') as InstanceRef;
-          Expect.equals('xxx', xRef2.valueAsString);
+          Expect.equals('c1', xRef1.valueAsString);
+          final xRef2 = await srv.evaluateInFrame(islId, 0, 'y') as InstanceRef;
+          Expect.equals('c1', xRef2.valueAsString);
         })
         .run(
           pauseOnExit: true,

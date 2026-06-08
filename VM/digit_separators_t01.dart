@@ -9,50 +9,37 @@
 /// evaluation.
 /// @author sgrekhov22@gmail.com
 
-import 'dart:developer';
-
 import 'package:vm_service/vm_service.dart';
 
 import '../../../../pkg/vm_service/test/common/service_test_common.dart';
-import '../../../../pkg/vm_service/test/common/test_helper.dart';
 import '../Utils/expect.dart';
 
-void testeeMain() {
-  var v1 = 1_000__000_000;
-  var v2 = 0x4__000_0000;
-  debugger();
-}
+void main([args = const <String>[]]) =>
+    IsolateTestHarness('digit_separators_t01_lib.dart', args)
+        .hasStoppedAtBreakpoint()
+        .addCustomTest((VmService service, IsolateRef isolateRef) async {
+          final isolateId = isolateRef.id!;
 
-final tests = <IsolateTest>[
-  hasStoppedAtBreakpoint,
+          InstanceRef response =
+              await service.evaluateInFrame(isolateId, 0, 'v1') as InstanceRef;
+          Expect.equals('1000000000', response.valueAsString);
 
-  // Test interaction of expression evaluation with digit separators.
-  (VmService service, IsolateRef isolateRef) async {
-    final isolateId = isolateRef.id!;
+          response =
+              await service.evaluateInFrame(isolateId, 0, 'v2') as InstanceRef;
+          Expect.equals(0x40000000.toRadixString(10), response.valueAsString);
 
-    InstanceRef response =
-        await service.evaluateInFrame(isolateId, 0, 'v1') as InstanceRef;
-    Expect.equals('1000000000', response.valueAsString);
+          response = await service.evaluateInFrame(
+            isolateId,
+            0,
+            'v1 + 1_2__3',
+          ) as InstanceRef;
+          Expect.equals('1000000123', response.valueAsString);
 
-    response = await service.evaluateInFrame(isolateId, 0, 'v2') as InstanceRef;
-    Expect.equals(0x40000000.toRadixString(10), response.valueAsString);
-
-    response =
-        await service.evaluateInFrame(isolateId, 0, 'v1 + 1_2__3')
-            as InstanceRef;
-    Expect.equals('1000000123', response.valueAsString);
-
-    response =
-        await service.evaluateInFrame(isolateId, 0, 'v2 + 0x1_2__3')
-            as InstanceRef;
-    Expect.equals(0x40000123.toRadixString(10), response.valueAsString);
-  },
-];
-
-void main([args = const <String>[]]) => runIsolateTests(
-  args,
-  tests,
-  'digit_separators_t01.dart',
-  pauseOnExit: true,
-  testeeConcurrent: testeeMain,
-);
+          response = await service.evaluateInFrame(
+            isolateId,
+            0,
+            'v2 + 0x1_2__3',
+          ) as InstanceRef;
+          Expect.equals(0x40000123.toRadixString(10), response.valueAsString);
+        })
+        .run(pauseOnExit: true);
