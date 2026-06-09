@@ -54,10 +54,7 @@ class C1 extends A implements B {
 // [cfe] unspecified
 }
 
-class C2 extends A with B {
-//                      ^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C2 with A implements B {
   m1() => 0;
 //^^
 // [analyzer] unspecified
@@ -80,10 +77,7 @@ class C2 extends A with B {
 // [cfe] unspecified
 }
 
-mixin M on A, B {
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+mixin M on A implements B {
   m1() => '0';
 //^^
 // [analyzer] unspecified
@@ -131,10 +125,7 @@ enum E1 implements A, B {
 // [cfe] unspecified
 }
 
-enum E2 with A, B {
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
+enum E2 with A implements B {
   e0;
 
   m1() => '0';
