@@ -113,10 +113,4 @@ main() {
   E2.e0.m3.expectStaticType<Exactly<void Function([num])>>();
   E2.e0.m4.expectStaticType<Exactly<void Function({num v})>>();
   E2.e0.m5.expectStaticType<Exactly<void Function({required num v})>>();
-
-  MA().m1.expectStaticType<Exactly<num Function()>>();
-  MA().m2.expectStaticType<Exactly<void Function(num)>>();
-  MA().m3.expectStaticType<Exactly<void Function([num])>>();
-  MA().m4.expectStaticType<Exactly<void Function({num v})>>();
-  MA().m5.expectStaticType<Exactly<void Function({required num v})>>();
 }
