@@ -9,8 +9,8 @@
 /// corresponding type from the combined member signature `s` of `m` in the
 /// direct superinterfaces of `C`.
 ///
-/// @description Checks that in case of extension missing components of a method
-/// signature are not inferred form a superinterface.
+/// @description Checks that with an extension, missing components of a method
+/// signature are not inferred form the on-type.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
