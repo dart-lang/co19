@@ -17,53 +17,42 @@ import 'dart:developer';
 import 'package:vm_service/vm_service.dart';
 
 import '../../../../pkg/vm_service/test/common/service_test_common.dart';
-import '../../../../pkg/vm_service/test/common/test_helper.dart';
 import '../Utils/expect.dart';
 
-class C1({var String? _x});
+void main([
+  args = const <String>[],
+]) => IsolateTestHarness('private_named_parameters_t02_lib.dart', args)
+    .hasStoppedAtBreakpoint()
+    // Test interaction of expression evaluation with private named parameters.
+    .addCustomTest((VmService service, IsolateRef isolateRef) async {
+      final isolateId = isolateRef.id!;
 
-class C2 {
-  String _x;
-  C2({required this._x});
-}
+      InstanceRef response =
+          await service.evaluateInFrame(isolateId, 0, 'c1._x') as InstanceRef;
+      Expect.equals('one', response.valueAsString);
 
-void testeeMain() {
-  final c1 = C1(x: "one");
-  final c2 = C2(x: "two");
-  debugger();
-}
+      response =
+          await service.evaluateInFrame(isolateId, 0, 'c2._x') as InstanceRef;
+      Expect.equals('two', response.valueAsString);
 
-final tests = <IsolateTest>[
-  hasStoppedAtBreakpoint,
+      response = await service.evaluateInFrame(
+        isolateId,
+        0,
+        'C1(x: "zero")._x',
+      ) as InstanceRef;
+      Expect.equals('zero', response.valueAsString);
 
-  // Test interaction of expression evaluation with private named parameters.
-  (VmService service, IsolateRef isolateRef) async {
-    final isolateId = isolateRef.id!;
-
-    InstanceRef response =
-       await service.evaluateInFrame(isolateId, 0, 'c1._x') as InstanceRef;
-    Expect.equals('one', response.valueAsString);
-
-    response =
-        await service.evaluateInFrame(isolateId, 0, 'c2._x') as InstanceRef;
-    Expect.equals('two', response.valueAsString);
-
-    response =
-        await service.evaluateInFrame(isolateId, 0, 'C1(x: "zero")._x')
-            as InstanceRef;
-    Expect.equals('zero', response.valueAsString);
-
-    response =
-        await service.evaluateInFrame(isolateId, 0, 'C2(x: "0")._x')
-            as InstanceRef;
-    Expect.equals('0', response.valueAsString);
-  },
-];
-
-void main([args = const <String>[]]) => runIsolateTests(
-  args,
-  tests,
-  'private_named_parameters_t02.dart',
-  pauseOnExit: true,
-  testeeConcurrent: testeeMain,
-);
+      response = await service.evaluateInFrame(
+        isolateId,
+        0,
+        'C2(x: "0")._x',
+      ) as InstanceRef;
+      Expect.equals('0', response.valueAsString);
+    })
+    .run(
+      pauseOnExit: true,
+      extraArgs: [
+        '--enable-experiment=primary-constructors',
+        '--enable-experiment=private-named-parameters',
+      ],
+    );

@@ -1,0 +1,23 @@
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// SharedOptions=--enable-experiment=primary-constructors
+
+import 'dart:developer';
+import '../../../../pkg/vm_service/test/common/test_helper.dart';
+
+final String x = 'Global';
+
+class C1(var String x) /* LINE_A */ {
+  String y = x;
+}
+
+void testeeMain() {
+  debugger(); // LINE_B
+  C1('c1'); // LINE_C
+}
+
+void main() {
+  startServiceTest(testeeConcurrent: testeeMain);
+}
