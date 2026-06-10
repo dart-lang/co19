@@ -100,6 +100,29 @@ mixin M on A implements B {
 // [cfe] unspecified
 }
 
+mixin class MC implements A, B {
+  m1() => '0';
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void m2(v) {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void m3([v]) {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void m4({v}) {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void m5({required v}) {}
+//     ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 enum E1 implements A, B {
   e0;
 
@@ -154,6 +177,7 @@ main() {
   print(C1);
   print(C2);
   print(M);
+  print(MC);
   print(E1);
   print(E2);
 }

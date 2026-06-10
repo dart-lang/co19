@@ -28,7 +28,15 @@ class C3 with A {
   void m({v = 0}) {}
 }
 
-mixin M on A {
+mixin M1 on A {
+  void m({v = 0}) {}
+}
+
+mixin M2 implements A {
+  void m({v = 0}) {}
+}
+
+mixin class MC implements A {
   void m({v = 0}) {}
 }
 
@@ -44,13 +52,16 @@ enum E2 with A {
   void m({v = 0}) {}
 }
 
-class MA = A with M;
+class MA1 = A with M1;
+class MA2 = Object with M2;
 
 main() {
   C1().m.expectStaticType<Exactly<void Function({num v})>>();
   C2().m.expectStaticType<Exactly<void Function({num v})>>();
   C3().m.expectStaticType<Exactly<void Function({num v})>>();
-  MA().m.expectStaticType<Exactly<void Function({num v})>>();
+  MA1().m.expectStaticType<Exactly<void Function({num v})>>();
+  MA2().m.expectStaticType<Exactly<void Function({num v})>>();
+  MC().m.expectStaticType<Exactly<void Function({num v})>>();
   E1.e0.m.expectStaticType<Exactly<void Function({num v})>>();
   E2.e0.m.expectStaticType<Exactly<void Function({num v})>>();
 }

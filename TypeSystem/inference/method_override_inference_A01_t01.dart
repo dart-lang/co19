@@ -63,8 +63,13 @@ mixin M2 implements A {
   void m5({required v}) {}
 }
 
-class MA1 = A with M1;
-class MA2 = Object with M2;
+mixin class MC implements A {
+  m1() => 0;
+  void m2(v) {}
+  void m3([v = 1]) {}
+  void m4({v = 1}) {}
+  void m5({required v}) {}
+}
 
 enum E1 implements A {
   e0;
@@ -85,6 +90,9 @@ enum E2 with A {
   void m4({v = 1}) {}
   void m5({required v}) {}
 }
+
+class MA1 = A with M1;
+class MA2 = Object with M2;
 
 main() {
   C1().m1.expectStaticType<Exactly<num Function()>>();
@@ -116,6 +124,12 @@ main() {
   MA2().m3.expectStaticType<Exactly<void Function([num])>>();
   MA2().m4.expectStaticType<Exactly<void Function({num v})>>();
   MA2().m5.expectStaticType<Exactly<void Function({required num v})>>();
+
+  MC().m1.expectStaticType<Exactly<num Function()>>();
+  MC().m2.expectStaticType<Exactly<void Function(num)>>();
+  MC().m3.expectStaticType<Exactly<void Function([num])>>();
+  MC().m4.expectStaticType<Exactly<void Function({num v})>>();
+  MC().m5.expectStaticType<Exactly<void Function({required num v})>>();
 
   E1.e0.m1.expectStaticType<Exactly<num Function()>>();
   E1.e0.m2.expectStaticType<Exactly<void Function(num)>>();

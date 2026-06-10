@@ -9,7 +9,7 @@
 /// corresponding type from the combined member signature `s` of `m` in the
 /// direct superinterfaces of `C`.
 ///
-/// @description Checks that with ab extension type, missing components of a
+/// @description Checks that with an extension type, missing components of a
 /// method signature are not inferred from a superinterface.
 /// @author sgrekhov22@gmail.com
 
