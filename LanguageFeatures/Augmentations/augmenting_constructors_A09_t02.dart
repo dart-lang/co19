@@ -68,7 +68,7 @@ augment extension type ET2 {
   }
 }
 
-extension type ET3._(int _) {
+extension type ET3._(int id) {
   ET3.new(int _);
 }
 
