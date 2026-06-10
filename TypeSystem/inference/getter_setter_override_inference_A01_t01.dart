@@ -21,7 +21,7 @@ mixin class A {
 
 class C1 extends A {
   get m1 => 0;
-  num get m2 => 3.14;
+  get m2 => 3.14;
   void set m2(v) {
     v.expectStaticType<Exactly<num>>();
   }
