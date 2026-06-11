@@ -14,8 +14,14 @@
 
 enum E {
   e1,
+//^^
+// [cfe] unspecified
   e2,
+//^^
+// [cfe] unspecified
   e3.name();
+//   ^
+// [cfe] unspecified
 
   E() {}
 //    ^
