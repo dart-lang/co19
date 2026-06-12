@@ -64,7 +64,7 @@ class C4 with B implements A {
   void set m3(_) {}
 }
 
-mixin M implements A, B {
+mixin M1 implements A, B {
   get m1 => 0;
   void set m1(_) {}
   void set m2(v) {
@@ -72,6 +72,18 @@ mixin M implements A, B {
   }
   final m3 = 0;
   void set m3(_) {}
+}
+
+mixin M2 on A, B {
+  get m1 => 0;
+  void set m2(v) {
+    v.expectStaticType<Exactly<num>>();
+  }
+  final m3 = 0;
+  test() {
+    m1.expectStaticType<Exactly<num>>();
+    m3.expectStaticType<Exactly<num>>();
+  }
 }
 
 mixin class MC implements A, B {
@@ -96,7 +108,7 @@ enum E1 implements A, B {
   void set m3(_) {}
 }
 
-class MA = Object with M;
+class MA = Object with M1;
 
 main() {
   C1().m1.expectStaticType<Exactly<num>>();
