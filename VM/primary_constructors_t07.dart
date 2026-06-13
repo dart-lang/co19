@@ -18,6 +18,7 @@ import 'package:vm_service/vm_service.dart';
 
 import '../../../../pkg/vm_service/test/common/service_test_common.dart';
 import '../Utils/expect.dart';
+import 'primary_constructors_t07_lib.dart' as testee_lib;
 
 void main([args = const <String>[]]) =>
     IsolateTestHarness('primary_constructors_t07_lib.dart', args)
@@ -46,4 +47,5 @@ void main([args = const <String>[]]) =>
         .run(
           pauseOnExit: true,
           extraArgs: ['--enable-experiment=primary-constructors'],
+          testeeMain: testee_lib.main,
         );

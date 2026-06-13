@@ -13,6 +13,7 @@ import 'package:vm_service/vm_service.dart';
 
 import '../../../../pkg/vm_service/test/common/service_test_common.dart';
 import '../Utils/expect.dart';
+import 'digit_separators_t01_lib.dart' as testee_lib;
 
 void main([args = const <String>[]]) =>
     IsolateTestHarness('digit_separators_t01_lib.dart', args)
@@ -42,4 +43,4 @@ void main([args = const <String>[]]) =>
           ) as InstanceRef;
           Expect.equals(0x40000123.toRadixString(10), response.valueAsString);
         })
-        .run(pauseOnExit: true);
+        .run(pauseOnExit: true, testeeMain: testee_lib.main);

@@ -23,6 +23,5 @@ void testeeMain() {
   ET2(2);
 }
 
-void main() {
-  startServiceTest(testeeConcurrent: testeeMain);
-}
+Future<void> main([args = const <String>[]]) =>
+    startServiceTest(testeeConcurrent: testeeMain);
