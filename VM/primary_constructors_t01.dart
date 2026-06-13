@@ -17,6 +17,7 @@ import 'package:vm_service/vm_service.dart';
 
 import '../../../../pkg/vm_service/test/common/service_test_common.dart';
 import '../Utils/expect.dart';
+import 'primary_constructors_t01_lib.dart' as testee_lib;
 
 void main([
   args = const <String>[],
@@ -55,8 +56,12 @@ void main([
     ) async {
       final isolateId = isolateRef.id!;
       final isolate = await service.getIsolate(isolateId);
-      final lib =
-          (await service.getObject(isolateId, isolate.rootLib!.id!)) as Library;
+      final lib = (await service.getObject(
+        isolateId,
+        isolate.libraries!.firstWhere(
+          (l) => l.uri!.contains('primary_constructors_t01_lib'),
+        ).id!,
+      )) as Library;
       final scriptId = lib.scripts!.first.id!;
 
       var breakpoint = await service.addBreakpoint(
@@ -100,4 +105,5 @@ void main([
     .run(
       pauseOnExit: true,
       extraArgs: ['--enable-experiment=primary-constructors'],
+      testeeMain: testee_lib.main,
     );

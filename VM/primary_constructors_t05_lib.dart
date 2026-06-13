@@ -34,6 +34,5 @@ void testeeMain() {
   ET3(3); // LINE_M
 } // LINE_N
 
-void main() {
-  startServiceTest(testeeConcurrent: testeeMain);
-}
+Future<void> main([args = const <String>[]]) =>
+    startServiceTest(testeeConcurrent: testeeMain);
