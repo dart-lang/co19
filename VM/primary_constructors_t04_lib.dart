@@ -29,6 +29,5 @@ void testeeMain() {
   var c3 = C3(5, 6);
 }
 
-void main() {
-  startServiceTest(testeeConcurrent: testeeMain);
-}
+Future<void> main([args = const <String>[]]) =>
+    startServiceTest(testeeConcurrent: testeeMain);

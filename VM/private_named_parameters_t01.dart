@@ -17,6 +17,7 @@ import 'package:vm_service/vm_service.dart';
 import '../../../../pkg/vm_service/test/common/service_test_common.dart';
 import '../../../../pkg/vm_service/test/common/test_helper.dart';
 import '../Utils/expect.dart';
+import 'private_named_parameters_t01_lib.dart' as testee_lib;
 
 void main([
   args = const <String>[],
@@ -152,4 +153,5 @@ void main([
         '--enable-experiment=primary-constructors',
         '--enable-experiment=private-named-parameters',
       ],
+      testeeMain: testee_lib.main,
     );
