@@ -9,21 +9,21 @@
 ///
 /// @description Checks that the return type of a getter/field or parameter type
 /// of a setter is inferred as a combined member signature of said getters in
-/// the direct superinterface.
+/// the direct superinterface. Test generics.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
 
-mixin class A {
-  num get m1 => 3.14;
-  num get m2 => 3.14;
-  num get m3 => 3.14;
+abstract mixin class A<T extends num> {
+  T get m1;
+  T get m2;
+  T get m3;
 }
 
-mixin class B {
-  int get m1 => 42;
-  int get m2 => 42;
-  int get m3 => 42;
+abstract mixin class B<T extends int> {
+  T get m1;
+  T get m2;
+  T get m3;
 }
 
 class C1 extends A implements B {
@@ -55,6 +55,7 @@ class C3 with A implements B {
 
 class C4 with B implements A {
   get m1 => 0;
+  get m2 => 0;
   void set m2(v) {
     v.expectStaticType<Exactly<int>>();
   }
@@ -120,5 +121,4 @@ main() {
   MC().m3.expectStaticType<Exactly<int>>();
   E1.e0.m1.expectStaticType<Exactly<int>>();
   E1.e0.m3.expectStaticType<Exactly<int>>();
-  print(M2);
 }
