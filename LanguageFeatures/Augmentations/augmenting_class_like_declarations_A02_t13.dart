@@ -24,11 +24,11 @@ class A<T> {
 }
 
 class C extends A<String> {}
-
-augment class C implements I<num> {}
-//                         ^
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+augment class C implements I<num> {}
 
 main() {
   print(C);
