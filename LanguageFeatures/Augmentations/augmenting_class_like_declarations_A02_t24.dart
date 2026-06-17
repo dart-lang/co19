@@ -31,11 +31,12 @@ abstract class C implements I {}
 augment abstract class C with M {}
 
 enum E implements I {
-//   ^
+  e1;
+
+  String foo() => "E";
+//       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e1;
-  String foo() => "E";
 }
 
 augment enum E with M {
