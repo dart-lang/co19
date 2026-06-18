@@ -83,13 +83,13 @@ extension type ET(int v) {
 }
 
 augment extension type ET {
-  augment ET.foo(int _) {
+  augment ET.foo(int _) : v = 0 {
     print(x);
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  augment ET.bar([int _]) {
+  augment ET.bar([int _]) : v = 0 {
     print(x);
 //        ^
 // [analyzer] unspecified
