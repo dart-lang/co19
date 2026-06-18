@@ -1,0 +1,56 @@
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The return type of a getter which overrides/implements both a
+/// setter and a getter is inferred to be the return type of the combined member
+/// signature of said getter in the direct superinterfaces.
+///
+/// @description Check that the return type of a getter which overrides both a
+/// setter and a getter is inferred to be the return type of said getter in the
+/// direct superinterface. Test generics.
+/// @author sgrekhov22@gmail.com
+
+import '../../Utils/static_type_helper.dart';
+
+abstract mixin class A<X, Y> {
+  void set m1(String _) {}
+  X get m1;
+  void set m2(String _) {}
+  Y get m2;
+}
+
+class C1 extends A<num, int> {
+  get m1 => 0;
+  get m2 => 0;
+}
+
+class C2 with A<num, int> {
+  get m1 => 0;
+  get m2 => 0;
+}
+
+mixin M on A<num, int> {
+  get m1 => 0;
+  get m2 => 0;
+}
+
+enum E with A<num, int> {
+  e0;
+
+  get m1 => 0;
+  get m2 => 0;
+}
+
+class MA = A<num, int> with M;
+
+main() {
+  C1().m1.expectStaticType<Exactly<num>>();
+  C1().m2.expectStaticType<Exactly<int>>();
+  C2().m1.expectStaticType<Exactly<num>>();
+  C2().m2.expectStaticType<Exactly<int>>();
+  MA().m1.expectStaticType<Exactly<num>>();
+  MA().m2.expectStaticType<Exactly<int>>();
+  E.e0.m1.expectStaticType<Exactly<num>>();
+  E.e0.m2.expectStaticType<Exactly<int>>();
+}
