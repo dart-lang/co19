@@ -80,5 +80,5 @@ main() {
   Expect.equals(1, E.e0.x);
   Expect.equals(0, E.e1.x);
   Expect.equals(1, ET.foo(1).x);
-  Expect.isNull(0, ET.bar().x);
+  Expect.equals(0, ET.bar().x);
 }
