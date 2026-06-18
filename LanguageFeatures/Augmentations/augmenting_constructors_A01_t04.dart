@@ -62,7 +62,7 @@ augment class C {
 }
 
 enum E {
-  e0(0), e1.foo(1);
+  e0(0), e1.foo(1, y: 2);
 
   const E(num x, [num y = 0]);
   const E.foo(num x, {required num y, num z = 0});
