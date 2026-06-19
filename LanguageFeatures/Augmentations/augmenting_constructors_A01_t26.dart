@@ -39,7 +39,7 @@
 
 import '../../utils/expect.dart';
 
-int x = 42;
+const int x = 42;
 
 class C {
   int v;
@@ -73,7 +73,7 @@ extension type ET(int v) {
 
 augment extension type ET {
   augment ET.foo(int _) : v = x;
-  augment E.bar([int x = 0]);
+  augment ET.bar([int x = 0]);
 }
 
 main() {
