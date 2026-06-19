@@ -67,17 +67,17 @@ extension type ET(int id) {
 }
 
 augment extension type ET {
-  augment ET.c1(this.id, [int x = 0]);
-  augment ET.c2(this.id, {int x = 0});
+  augment ET.c1(int id, [int x = 0]);
+  augment ET.c2(int id, {int x = 0});
 }
 
 augment extension type ET {
-  augment ET.c1(this.id, [int x = 0]);
+  augment ET.c1(int id, [int x = 0]);
 //                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment ET.c2(this.id, {int x = 0});
+  augment ET.c2(int id, {int x = 0});
 //                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
