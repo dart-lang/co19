@@ -39,8 +39,8 @@ class C {
 }
 
 augment class C {
-  augment C({int p});
-//               ^
+  augment C({int _p});
+//               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -54,8 +54,8 @@ enum E {
 
 augment enum E {
   ;
-  augment const E({int p});
-//                     ^
+  augment const E({int _p});
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -65,8 +65,8 @@ extension type ET(int _p) {
 }
 
 augment extension type ET {
-  augment ET.foo({int p});
-//                    ^
+  augment ET.foo({int _p});
+//                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
