@@ -39,27 +39,19 @@ class C1({this._p}) {
 }
 
 augment class C1 {
-  augment C1({int _p = 0});
+  augment C1({int p = 0});
 }
 
-class C2({int _p}) {
-  int _p;
-}
+class C2({var int _p});
 
 augment class C2 {
-  augment C2({this._p = 0});
+  augment C2({int p = 0});
 }
 
-class C3({var int _p});
+class C3({final int _p});
 
 augment class C3 {
-  augment C3({int _p = 0});
-}
-
-class C4({final int _p});
-
-augment class C4 {
-  augment C4({int _p = 0});
+  augment C3({int p = 0});
 }
 
 enum E1({this._p}) {
@@ -69,34 +61,22 @@ enum E1({this._p}) {
 
 augment enum E1 {
   ;
-  augment const E1({int _p = 0});
+  augment const E1({int p = 0});
 }
 
-enum E2({int _p}) {
+enum E2({final int _p}) {
   e0;
-  final int _p;
 }
 
 augment enum E2 {
   ;
-  augment const E2({this._p = 0});
-}
-
-enum E3({final int _p}) {
-  e0;
-}
-
-augment enum E3 {
-  ;
-  augment const E3({int _p = 0});
+  augment const E2({int p = 0});
 }
 
 main() {
   Expect.equals(0, C1()._p);
   Expect.equals(0, C2()._p);
   Expect.equals(0, C3()._p);
-  Expect.equals(0, C4()._p);
   Expect.equals(0, E1.e0._p);
   Expect.equals(0, E2.e0._p);
-  Expect.equals(0, E3.e0._p);
 }
