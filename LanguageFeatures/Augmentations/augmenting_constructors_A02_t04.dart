@@ -18,11 +18,11 @@
 class C1([var int x]);
 
 augment class C1 {
-  augment C([int x = 0]);
+  augment C1([int x = 0]);
 }
 
 augment class C1 {
-  augment C([int x = 0]);
+  augment C1([int x = 0]);
 //                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
