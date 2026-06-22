@@ -40,12 +40,12 @@ class C1 {
 }
 
 augment class C1 {
-  augment C1({int _p = 0});
+  augment C1({int p = 0});
 }
 
 class C2 {
   int _p;
-  C2({int _p});
+  C2({int p});
 }
 
 augment class C2 {
@@ -61,14 +61,14 @@ enum E1 {
 
 augment enum E1 {
   ;
-  augment const E1({int _p = 0});
+  augment const E1({int p = 0});
 }
 
 enum E2 {
   e0;
 
   final int _p;
-  const E2({int _p});
+  const E2({int p});
 }
 
 augment enum E2 {
@@ -81,11 +81,11 @@ extension type ET1(int _p) {
 }
 
 augment extension type ET1 {
-  augment ET1.foo({int _p = 0});
+  augment ET1.foo({int p = 0});
 }
 
 extension type ET2(int _p) {
-  ET2.foo({int _p});
+  ET2.foo({int p});
 }
 
 augment extension type ET2 {
