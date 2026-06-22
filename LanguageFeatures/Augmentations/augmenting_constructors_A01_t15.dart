@@ -71,7 +71,7 @@ extension type ET(int? x) {
 }
 
 augment extension type ET {
-  augment ET.foo(int x);
+  augment ET.foo(int? x);
   augment ET.bar([int? x]) : x = x;
 }
 
