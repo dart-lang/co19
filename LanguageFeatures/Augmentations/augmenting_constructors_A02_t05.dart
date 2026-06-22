@@ -44,8 +44,8 @@ augment enum E {
 String log = "";
 
 extension type ET(int id) {
-  ET.c1(this.id, [int x]);
-  ET.c2(this.id, {int x});
+  ET.c1(int id, [int x]);
+  ET.c2(int id, {int x});
 }
 
 augment extension type ET {
