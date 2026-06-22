@@ -52,15 +52,6 @@ augment class C2 {
 // [cfe] unspecified
 }
 
-class C3({int _p = 0});
-
-augment class C3 {
-  augment C3({int p});
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 enum E1({final int _p = 0}) {
   e0;
 }
@@ -76,6 +67,5 @@ augment enum E1 {
 main() {
   print(C1);
   print(C2);
-  print(C3);
   print(E1);
 }
