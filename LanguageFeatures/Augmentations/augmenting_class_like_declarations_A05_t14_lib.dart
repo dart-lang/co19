@@ -82,10 +82,7 @@ augment abstract base mixin class C13 {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment mixin C14 {}
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
+augment mixin C14 {} // Ok
 
 augment base mixin C15 {}
 //                 ^
