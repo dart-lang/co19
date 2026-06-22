@@ -92,8 +92,8 @@ main() {
   ExtA.setter = "set ExtA";
   Expect.equals("set ExtA", _log);
 
-  Expect.equals("ET", ET(0).method());
-  Expect.equals("get ET", ET(0).getter);
-  ExtA.setter = "set ET";
+  Expect.equals("ET", ET.method());
+  Expect.equals("get ET", ET.getter);
+  ET.setter = "set ET";
   Expect.equals("set ET", _log);
 }
