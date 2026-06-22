@@ -78,7 +78,7 @@ enum E {
   const E(x, [y]);
   const E.foo({required x, y});
   const E.bar(x, [y]);
-  const E.baz({required x, y}): x = x, y = y;
+  const E.baz({required x, y});
 }
 
 augment enum E {
