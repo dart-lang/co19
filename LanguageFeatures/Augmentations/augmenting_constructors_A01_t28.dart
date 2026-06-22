@@ -37,7 +37,7 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-String x = 'x';
+const String x = 'x';
 
 class C {
   int v;
@@ -89,7 +89,7 @@ augment extension type ET {
 //                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment E.bar([int x = 0]);
+  augment ET.bar([int x = 0]);
 }
 
 main() {
