@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import '../Extension-types/syntax_A13_t03.dart';
-
 /// @assertion We say that an augmenting function or constructor's signature
 /// matches an introductory signature if:
 /// - It has the same number of type parameters with the same type parameter
@@ -64,7 +62,7 @@ enum E {
 augment enum E {
   ;
   augment const E(this.x);
-  augment const E.foo([int x]);
+  augment const E.foo([int x = 0]);
 }
 
 extension type ET(int? x) {
@@ -73,7 +71,7 @@ extension type ET(int? x) {
 }
 
 augment extension type ET {
-  augment ET.foo(this.x);
+  augment ET.foo(int? x);
   augment ET.bar([int? x]) : x = x;
 }
 
