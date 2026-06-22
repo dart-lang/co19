@@ -104,7 +104,6 @@ augment extension Ext3<Y extends A, X> {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-
 extension type ET<X extends A, Y>(int _) {}
 
 main() {
@@ -118,7 +117,5 @@ main() {
   print(E2);
   print(E3);
   print(B);
-  print(ET1);
-  print(ET2);
-  print(ET3);
+  print(ET);
 }
