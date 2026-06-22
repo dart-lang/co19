@@ -42,7 +42,7 @@ extension type ET(int id) {
 }
 
 augment extension type ET {
-  augment ET.foo(this.id);
+  augment ET.foo(int id);
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
