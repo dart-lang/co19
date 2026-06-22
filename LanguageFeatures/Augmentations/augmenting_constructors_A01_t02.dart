@@ -82,7 +82,7 @@ augment enum E {
 }
 
 augment enum E {
-  augment e0;
+  ;
   augment const E.n();
 //              ^^^
 // [analyzer] unspecified
