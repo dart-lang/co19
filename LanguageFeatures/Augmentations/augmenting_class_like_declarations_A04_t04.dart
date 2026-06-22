@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-mixin class C1 {}
+mixin class C1 extends Object {}
 mixin class C2 {}
 
 class A {}
@@ -22,8 +22,8 @@ augment mixin class C1 extends Object {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-augment class C2 extends A {}
-//               ^^^^^^^
+augment mixin class C2 extends A {}
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
