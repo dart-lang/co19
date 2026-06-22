@@ -12,7 +12,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'application_order_A01_t02.dart';
+part of 'application_order_A01_t02_lib1.dart';
 
 augment enum E {
   e4;
