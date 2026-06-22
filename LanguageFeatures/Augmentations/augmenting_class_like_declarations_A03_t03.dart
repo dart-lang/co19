@@ -23,26 +23,26 @@ class C {}
 
 augment class C {
   static int foo() => 42;
+//           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment class C {
   int foo() => 42;
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 mixin M {}
 
 augment mixin M {
   static int foo() => 42;
+//           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment mixin M {
   int get foo => 42;
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 enum E {
@@ -52,14 +52,14 @@ enum E {
 augment enum E {
   ;
   static int foo() => 42;
+//           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment enum E {
   ;
   void set foo(String _) {}
-//         ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension ExtA on A {}
@@ -68,26 +68,26 @@ augment extension ExtA {
   static int get foo => 42; // No error, no conflict with A().foo()
 
   static void set bar(String _) {}
+//                ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment extension ExtA {
    void bar() {}
-//      ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension type ET(int id) {}
 
 augment extension type ET {
   static int get foo => 42;
+//               ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment extension type ET {
   int get foo => 42;
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
