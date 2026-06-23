@@ -2,20 +2,37 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A mixin declaration defines an interface. The interface for this
-/// mixin declaration is equivalent to the interface of the class declared as:
-///  abstract class A<X extends S, Y extends T> extends A$super<X, Y>
-///    implements D, E { body' }
-/// where body' contains abstract declarations corresponding to the instance
-/// members of body of the mixin A.
-/// It is a compile time error for the mixin declaration if this class
-/// declarations would not be valid.
+/// @assertion Let `MS` be the interface declared by the class declaration
+/// ```
+/// abstract class Msuper<P1, ..., Pm> implements T1, ..., Tn {}
+/// ```
+/// where `Msuper` is a fresh name. It is a compile-time error for the mixin
+/// declaration if the `MS` class declaration would cause a compile-time error,
+/// that is, if any member is declared by more than one declared superinterface,
+/// and there is not a most specific signature for that member among the super
+/// interfaces. The interface `MS` is called the superinvocation interface of
+/// the mixin declaration `M`. If the mixin declaration `M` has only one
+/// declared superinterface, `T1`, then the superinvocation interface `MS` has
+/// exactly the same members as the interface `T1`.
 ///
-/// @description Checks that a mixin declaration in form
+/// Let `MI` be the interface that would be defined by the class declaration
+/// ```
+/// abstract class N<X1extendsB1, ..., Xs extends Bs>
+///       implements T1, ..., Tn, I1, ..., Ik { members′ }
+/// ```
+/// ...
+/// The interface introduced by the mixin declaration `M` has the same member
+/// signatures and superinterfaces as `MI`.
+///
+/// @description Checks that a mixin declaration in the form
+/// ```
 /// mixin A<X extends S, Y extends T> on B, C implements D, E { body }
-/// is equivalent to the interface of the class declared as
-/// abstract class A<X extends S, Y extends T> extends A$super<X, Y>
-///   implements D, E { body' }
+/// ```
+/// has the same member signatures and superinterfaces as
+/// ```
+/// abstract class A<X extends S, Y extends T> extends MS<X, Y>
+///       implements D, E { body' }
+/// ```
 /// @author sgrekhov@unipro.ru
 
 abstract class B {
@@ -79,8 +96,8 @@ class AI4 implements A {
 }
 
 main() {
-  new AI1();
-  new AI2();
-  new AI3();
-  new AI4();
+  print(AI1);
+  print(AI2);
+  print(AI3);
+  print(AI4);
 }
