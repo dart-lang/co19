@@ -38,10 +38,7 @@ enum E1() {
 
 augment enum E1 {
   ;
-  augment E1();
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment E1(); // Ok. `const` may be omitted from enum constructors.
 }
 
 enum E2(final int x) {
@@ -51,9 +48,6 @@ enum E2(final int x) {
 augment enum E2 {
   ;
   augment E2(int x);
-//        ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension type const ET(int id);
