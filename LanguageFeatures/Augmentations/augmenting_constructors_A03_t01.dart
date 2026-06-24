@@ -31,7 +31,7 @@ enum E {
 
 augment enum E {
   ;
-  augment E(); // Ok. `const` may be omitted from enum constructors.
+  augment E(); // Ok. `const` can be inferred for generative enum constructors.
 }
 
 extension type ET(int id) {
