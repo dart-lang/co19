@@ -31,10 +31,7 @@ enum E {
 
 augment enum E {
   ;
-  augment E();
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment E(); // Ok. `const` may be omitted from enum constructors.
 }
 
 extension type ET(int id) {
