@@ -38,7 +38,7 @@ enum E1() {
 
 augment enum E1 {
   ;
-  augment E1(); // Ok. `const` may be omitted from enum constructors.
+  augment E1(); // Ok. `const` can be inferred for generative enum constructors.
 }
 
 enum E2(final int x) {
