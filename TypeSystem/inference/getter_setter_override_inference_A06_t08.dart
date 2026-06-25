@@ -9,9 +9,9 @@
 /// direct superinterfaces. If the types are not the same then inference fails
 /// with an error.
 ///
-/// @description Check that it is a compile-time error if combined member
-/// signature of getter and setter in the direct superinterfaces are not the
-/// same.
+/// @description Check that it is a compile-time error if the combined member
+/// signature of the getter and the setter in the direct superinterfaces are not
+/// the same.
 /// @author sgrekhov22@gmail.com
 
 class A {

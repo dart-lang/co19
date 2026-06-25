@@ -11,7 +11,8 @@
 ///
 /// @description Check that the type of a non-final field which overrides both a
 /// setter and a getter is inferred to be the parameter type of the combined
-/// member signature of said setter in the direct superinterfaces.
+/// member signature of said setter in the direct superinterfaces. Test the case
+/// where the combined member signature computation is non-trivial.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
