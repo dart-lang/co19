@@ -18,20 +18,20 @@ import '../../../LibTest/js_interop/js_utils.dart';
 import '../../../Utils/expect.dart';
 
 external set topLevelSetter(int value);
+external int get topLevelSetter; // We need to define a getter too
 
 @JS()
 augment abstract int topLevelSetter;
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 extension type ET(JSObject _) implements JSObject {
+  external static set staticSetter(int value);
+  external static int get staticSetter;
   external set instanceSetter(int value);
   external int get instanceSetter;
 }
 
 augment extension type ET {
+  augment static abstract int staticSetter;
   augment abstract int instanceSetter;
 }
 
@@ -43,6 +43,12 @@ main() {
     });
     
     class ET {
+      static set staticSetter(v) {
+        ET._staticVal = v;
+      }
+      static get staticSetter() {
+        return ET._staticVal;
+      }
       set instanceSetter(v) {
         this._instanceVal = v;
       }
@@ -57,6 +63,8 @@ main() {
   topLevelSetter = 1;
   Expect.equals(1, (globalContext["topLevelValue"] as JSNumber).toDartInt);
   ET et = ET(globalContext["et"] as JSObject);
+  ET.staticSetter = 2;
+  Expect.equals(2, ET.staticSetter);
   et.instanceSetter = 3;
   Expect.equals(3, et.instanceSetter);
 }

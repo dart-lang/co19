@@ -21,19 +21,18 @@ import '../../../Utils/expect.dart';
 abstract int topLevelVariable;
 
 augment external set topLevelVariable(int value);
-// We also need aa external getter, otherwise the declaration will be incomplete
+// We also need an external getter, otherwise the declaration will be incomplete
 // after applying of all augmentations
 augment external get topLevelVariable;
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 extension type ET(JSObject _) implements JSObject {
+  static abstract int staticVariable;
   abstract int instanceVariable;
 }
 
 augment extension type ET {
+  augment external static set staticVariable(int value);
+  augment external static get staticVariable;
   augment external set instanceVariable(int value);
   augment external get instanceVariable;
 }
@@ -43,6 +42,7 @@ main() {
     globalThis.topLevelVariable = 0;
     
     class ET {
+    static staticVariable = 0;
       constructor() {
         this.instanceVariable = 0;
       }
@@ -53,6 +53,10 @@ main() {
 
   topLevelVariable = 1;
   Expect.equals(1, (globalContext["topLevelVariable"] as JSNumber).toDartInt);
+
+  ET.staticVariable = 2;
+  eval("globalThis.staticValue = globalThis.ET.staticVariable");
+  Expect.equals(2, (globalContext["staticValue"] as JSNumber).toDartInt);
 
   ET et = ET(globalContext["et"] as JSObject);
   et.instanceVariable = 3;
