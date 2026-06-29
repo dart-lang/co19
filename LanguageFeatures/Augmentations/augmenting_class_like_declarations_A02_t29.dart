@@ -19,9 +19,9 @@ import '../../Utils/expect.dart';
 StringBuffer log = StringBuffer();
 
 class A {
-  String v = 'M1';
-  String get g => 'M1';
-  String m() => 'M1';
+  String v = 'A';
+  String get g => 'A';
+  String m() => 'A';
   void set s(String v) {
     log.write('$v;');
   }
@@ -41,9 +41,9 @@ class C extends A {}
 augment class C with M2 {}
 
 main() {
-  Expect.equals('M1 and M2', C().v);
-  Expect.equals('M1 and M2', C().g);
-  Expect.equals('M1 and M2', C().m());
-  C().s = 'M1';
-  Expect.equals('M1;M1 and M2', log.toString());
+  Expect.equals('A and M2', C().v);
+  Expect.equals('A and M2', C().g);
+  Expect.equals('A and M2', C().m());
+  C().s = 'A';
+  Expect.equals('A;A and M2', log.toString());
 }
