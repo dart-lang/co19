@@ -10,7 +10,7 @@
 /// direct superinterfaces of `C`.
 ///
 /// @description Checks that missing components of a method signature can be
-/// inferred form an abstract method in a superinterface.
+/// inferred from an abstract method in a superinterface.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

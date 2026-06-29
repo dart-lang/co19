@@ -8,7 +8,7 @@
 /// the direct superinterfaces.
 ///
 /// @description Checks that with an extension, the return type of a
-/// getter/field or parameter type of a setter are not inferred form the on-type
+/// getter/field or parameter type of a setter are not inferred from the on-type
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/expect.dart';

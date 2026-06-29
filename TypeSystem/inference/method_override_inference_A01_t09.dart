@@ -10,20 +10,21 @@
 /// direct superinterfaces of `C`.
 ///
 /// @description Checks that missing components of a method signature can be
-/// inferred from an external method in a superinterface.
+/// inferred from a direct superinterface. Test a type parameter instantiated
+/// explicitly in the superinterface.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
 
-abstract mixin class A {
-  external num m1();
-  external void m2(num v);
-  external void m3([num v = 0]);
-  external void m4({num v = 0});
-  external void m5({required num v});
+abstract mixin class A<T> {
+  T m1();
+  void m2(T v) {}
+  void m3([T? v]) {}
+  void m4({T? v}) {}
+  void m5({required T v}) {}
 }
 
-class C1 extends A {
+class C1 extends A<num> {
   m1() => 0;
   void m2(v) {}
   void m3([v = 1]) {}
@@ -31,7 +32,7 @@ class C1 extends A {
   void m5({required v}) {}
 }
 
-class C2 implements A {
+class C2 implements A<num> {
   m1() => 0;
   void m2(v) {}
   void m3([v = 1]) {}
@@ -39,7 +40,7 @@ class C2 implements A {
   void m5({required v}) {}
 }
 
-class C3 with A {
+class C3 with A<num> {
   m1() => 0;
   void m2(v) {}
   void m3([v = 1]) {}
@@ -47,7 +48,7 @@ class C3 with A {
   void m5({required v}) {}
 }
 
-mixin M1 on A {
+mixin M1 on A<num> {
   m1() => 0;
   void m2(v) {}
   void m3([v = 1]) {}
@@ -55,7 +56,7 @@ mixin M1 on A {
   void m5({required v}) {}
 }
 
-mixin M2 implements A {
+mixin M2 implements A<num> {
   m1() => 0;
   void m2(v) {}
   void m3([v = 1]) {}
@@ -63,7 +64,7 @@ mixin M2 implements A {
   void m5({required v}) {}
 }
 
-mixin class MC implements A {
+mixin class MC implements A<num> {
   m1() => 0;
   void m2(v) {}
   void m3([v = 1]) {}
@@ -71,7 +72,7 @@ mixin class MC implements A {
   void m5({required v}) {}
 }
 
-enum E1 implements A {
+enum E1 implements A<num> {
   e0;
 
   m1() => 0;
@@ -81,7 +82,7 @@ enum E1 implements A {
   void m5({required v}) {}
 }
 
-enum E2 with A {
+enum E2 with A<num> {
   e0;
 
   m1() => 0;
@@ -91,55 +92,55 @@ enum E2 with A {
   void m5({required v}) {}
 }
 
-class MA1 = A with M1;
+class MA1 = A<num> with M1;
 class MA2 = Object with M2;
 
 main() {
   C1().m1.expectStaticType<Exactly<num Function()>>();
   C1().m2.expectStaticType<Exactly<void Function(num)>>();
-  C1().m3.expectStaticType<Exactly<void Function([num])>>();
-  C1().m4.expectStaticType<Exactly<void Function({num v})>>();
+  C1().m3.expectStaticType<Exactly<void Function([num?])>>();
+  C1().m4.expectStaticType<Exactly<void Function({num? v})>>();
   C1().m5.expectStaticType<Exactly<void Function({required num v})>>();
 
   C2().m1.expectStaticType<Exactly<num Function()>>();
   C2().m2.expectStaticType<Exactly<void Function(num)>>();
-  C2().m3.expectStaticType<Exactly<void Function([num])>>();
-  C2().m4.expectStaticType<Exactly<void Function({num v})>>();
+  C2().m3.expectStaticType<Exactly<void Function([num?])>>();
+  C2().m4.expectStaticType<Exactly<void Function({num? v})>>();
   C2().m5.expectStaticType<Exactly<void Function({required num v})>>();
 
   C3().m1.expectStaticType<Exactly<num Function()>>();
   C3().m2.expectStaticType<Exactly<void Function(num)>>();
-  C3().m3.expectStaticType<Exactly<void Function([num])>>();
-  C3().m4.expectStaticType<Exactly<void Function({num v})>>();
+  C3().m3.expectStaticType<Exactly<void Function([num?])>>();
+  C3().m4.expectStaticType<Exactly<void Function({num? v})>>();
   C3().m5.expectStaticType<Exactly<void Function({required num v})>>();
 
   MA1().m1.expectStaticType<Exactly<num Function()>>();
   MA1().m2.expectStaticType<Exactly<void Function(num)>>();
-  MA1().m3.expectStaticType<Exactly<void Function([num])>>();
-  MA1().m4.expectStaticType<Exactly<void Function({num v})>>();
+  MA1().m3.expectStaticType<Exactly<void Function([num?])>>();
+  MA1().m4.expectStaticType<Exactly<void Function({num? v})>>();
   MA1().m5.expectStaticType<Exactly<void Function({required num v})>>();
 
   MA2().m1.expectStaticType<Exactly<num Function()>>();
   MA2().m2.expectStaticType<Exactly<void Function(num)>>();
-  MA2().m3.expectStaticType<Exactly<void Function([num])>>();
-  MA2().m4.expectStaticType<Exactly<void Function({num v})>>();
+  MA2().m3.expectStaticType<Exactly<void Function([num?])>>();
+  MA2().m4.expectStaticType<Exactly<void Function({num? v})>>();
   MA2().m5.expectStaticType<Exactly<void Function({required num v})>>();
 
   MC().m1.expectStaticType<Exactly<num Function()>>();
   MC().m2.expectStaticType<Exactly<void Function(num)>>();
-  MC().m3.expectStaticType<Exactly<void Function([num])>>();
-  MC().m4.expectStaticType<Exactly<void Function({num v})>>();
+  MC().m3.expectStaticType<Exactly<void Function([num?])>>();
+  MC().m4.expectStaticType<Exactly<void Function({num? v})>>();
   MC().m5.expectStaticType<Exactly<void Function({required num v})>>();
 
   E1.e0.m1.expectStaticType<Exactly<num Function()>>();
   E1.e0.m2.expectStaticType<Exactly<void Function(num)>>();
-  E1.e0.m3.expectStaticType<Exactly<void Function([num])>>();
-  E1.e0.m4.expectStaticType<Exactly<void Function({num v})>>();
+  E1.e0.m3.expectStaticType<Exactly<void Function([num?])>>();
+  E1.e0.m4.expectStaticType<Exactly<void Function({num? v})>>();
   E1.e0.m5.expectStaticType<Exactly<void Function({required num v})>>();
 
   E2.e0.m1.expectStaticType<Exactly<num Function()>>();
   E2.e0.m2.expectStaticType<Exactly<void Function(num)>>();
-  E2.e0.m3.expectStaticType<Exactly<void Function([num])>>();
-  E2.e0.m4.expectStaticType<Exactly<void Function({num v})>>();
+  E2.e0.m3.expectStaticType<Exactly<void Function([num?])>>();
+  E2.e0.m4.expectStaticType<Exactly<void Function({num? v})>>();
   E2.e0.m5.expectStaticType<Exactly<void Function({required num v})>>();
 }

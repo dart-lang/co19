@@ -8,7 +8,7 @@
 /// the direct superinterfaces.
 ///
 /// @description Checks that with an extension type, the return type of a
-/// getter/field or parameter type of a setter are not inferred form a
+/// getter/field or parameter type of a setter are not inferred from a
 /// superinterface.
 /// @author sgrekhov22@gmail.com
 
