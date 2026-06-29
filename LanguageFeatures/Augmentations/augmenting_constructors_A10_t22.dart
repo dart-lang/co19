@@ -57,8 +57,8 @@ enum E1(int _x) {
 
 augment enum E1 {
   ;
-  augment const E1(int _x);
-//                     ^^
+  augment const E1(int x);
+//                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -69,7 +69,7 @@ enum E2([int? x]) {
 
 augment enum E2 {
   ;
-  augment const E2([int? _X]);
+  augment const E2([int? _x]);
 //                       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
