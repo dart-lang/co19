@@ -111,8 +111,8 @@ extension type ET(int x) {
 }
 
 augment extension type ET {
-  augment ET.c1([this.x]) {}
-  augment ET.c2({this.x}) {}
+  augment ET.c1([int x]);
+  augment ET.c2({int x});
   augment ET.c3([int x]);
   augment ET.c4({int x});
   augment factory ET.c5([int x]);
