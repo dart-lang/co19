@@ -10,8 +10,8 @@
 /// direct superinterfaces of `C`.
 ///
 /// @description Checks that missing components of a method signature can be
-/// inferred form a direct superinterface. Test the case when a border type is
-/// used as a type.
+/// inferred from a direct superinterface. Test a type parameter instantiated
+/// implicitly to the bound in the superinterface.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

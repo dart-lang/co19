@@ -8,7 +8,7 @@
 /// explicitly if needed.
 ///
 /// @description Check that missing components of a method signature are
-/// inferred as a combined member signature form a direct superinterface. Test
+/// inferred as a combined member signature from a direct superinterface. Test
 /// generics.
 /// @author sgrekhov22@gmail.com
 

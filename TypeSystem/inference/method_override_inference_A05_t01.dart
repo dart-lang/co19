@@ -8,7 +8,7 @@
 /// explicitly if needed.
 ///
 /// @description Check that missing components of a method signature are
-/// inferred as a combined member signature form a direct superinterface.
+/// inferred as a combined member signature from a direct superinterface.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

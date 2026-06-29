@@ -10,7 +10,7 @@
 /// direct superinterfaces of `C`.
 ///
 /// @description Checks that missing components of a method signature can be
-/// inferred form a direct superinterface. Test generic methods.
+/// inferred from a direct superinterface. Test generic methods.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
