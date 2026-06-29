@@ -25,7 +25,7 @@ augment class C {
 }
 
 enum E {
-  e0;
+  e0(0, 0);
   final int x, y;
   const E(this.x, this.y);
   const E.foo(int x, [int y]);
