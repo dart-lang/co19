@@ -22,15 +22,13 @@ external int get topLevelGetter;
 @JS()
 augment abstract final int topLevelGetter;
 
-// TODO (sgrekhov) This test does not include static abstract variable
-// declarations because the grammar doesn't derive them. See
-// https://github.com/dart-lang/language/issues/4592
-
 extension type ET(JSObject _) implements JSObject {
+  external static int get staticGetter;
   external int get instanceGetter;
 }
 
 augment extension type ET {
+  augment static abstract final int staticGetter;
   augment abstract final int instanceGetter;
 }
 
@@ -39,8 +37,11 @@ main() {
     globalThis.topLevelGetter = 1;
     
     class ET {
-      get instanceGetter() {
+      static get staticGetter() {
         return 2;
+      }
+      get instanceGetter() {
+        return 3;
       }
     }
     globalThis.ET = ET;
@@ -48,5 +49,6 @@ main() {
   ''');
   Expect.equals(1, topLevelGetter);
   ET et = ET(globalContext["et"] as JSObject);
+  Expect.equals(2, ET.staticGetter);
   Expect.equals(3, et.instanceGetter);
 }
