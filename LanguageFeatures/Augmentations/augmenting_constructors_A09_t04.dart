@@ -45,14 +45,14 @@ augment enum E {
   augment const E.baz({required this.x});
 }
 
-extension type ET {
+extension type ET._(int x) {
   ET(int x);
   ET.foo([int x = 1]);
   ET.bar({int x = 2});
   ET.baz({required int x});
 }
 
-augment extension type ET._(int x) {
+augment extension type ET {
   augment ET(this.x);
   augment ET.foo([this.x]);
   augment ET.bar({this.x});
