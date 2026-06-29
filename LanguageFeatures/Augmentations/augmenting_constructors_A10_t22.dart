@@ -36,13 +36,13 @@
 class C1(int? x) {}
 
 augment class C1 {
-  augment C1(int? _);
-//                ^
+  augment C1(int? _x);
+//                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C2([int? _]) {}
+class C2([int? _x]) {}
 
 augment class C2 {
   augment C2([int? x]);
@@ -51,7 +51,7 @@ augment class C2 {
 // [cfe] unspecified
 }
 
-enum E1(int _) {
+enum E1(int _x) {
   e0(0);
 }
 
@@ -69,8 +69,8 @@ enum E2([int? x]) {
 
 augment enum E2 {
   ;
-  augment const E2([int? _]);
-//                       ^
+  augment const E2([int? _x]);
+//                       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
