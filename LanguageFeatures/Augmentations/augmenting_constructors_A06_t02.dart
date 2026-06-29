@@ -50,7 +50,7 @@ enum E2({int x}) {
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  e0(0);
+  e0(x: 0);
 }
 
 augment enum E2 {
