@@ -9,7 +9,8 @@
 ///
 /// @description Checks that the return type of a getter/field or parameter type
 /// of a setter is inferred as a combined member signature of said getters in
-/// the direct superinterface. Test generics.
+/// the direct superinterface. Test a type parameter which is instantiated
+/// explicitly.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

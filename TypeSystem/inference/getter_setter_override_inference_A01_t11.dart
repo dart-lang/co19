@@ -9,7 +9,7 @@
 ///
 /// @description Checks that the return type of a getter/field or parameter type
 /// of a setter can be inferred from a getter in the direct superinterface. Test
-/// generics.
+/// a type parameter which is instantiated by instantiation to bound.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
@@ -22,7 +22,7 @@ abstract mixin class A<T extends num> {
 
 class C1 extends A {
   get m1 => 0;
-  get m2 => 3.14;
+  get m2 => 3.14; // We need to implement a getter as well
   void set m2(v) {
     v.expectStaticType<Exactly<num>>();
   }
@@ -31,7 +31,7 @@ class C1 extends A {
 
 class C2 implements A {
   get m1 => 0;
-  get m2 => 0; // We need to implement a getter as well
+  get m2 => 0;
   void set m2(v) {
     v.expectStaticType<Exactly<num>>();
   }
