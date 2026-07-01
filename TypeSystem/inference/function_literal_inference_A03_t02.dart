@@ -14,8 +14,8 @@
 /// - If the enclosing function is not marked `sync*` or `async*`: For each
 ///   `return;` statement in the block, update `T` to be `UP(Null, T)`.
 ///
-/// @description Check that return type of a function marked `async` with the
-/// only `return;` or with no `return` statement is `Future<Null>`.
+/// @description Check that the return type of a function marked `async` with
+/// a single `return;` or with no `return` statement is `Future<Null>`.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
