@@ -24,21 +24,20 @@ import '../../Utils/static_type_helper.dart';
 var f1 = () {
   return 0;
 };
-
 var f2 = () {
   return 0 as num;
 };
-
 var f3 = () {
   return 0 as dynamic;
 };
-
 var f4 = () {
   return 0 as Never;
 };
-
 var f5 = () {
   return null;
+};
+var f6 = () {
+  return Future.value(0);
 };
 
 class C {
@@ -57,6 +56,9 @@ class C {
   static var sf5 = () {
     return null;
   };
+  static var sf6 = () {
+    return Future.value(0);
+  };
 
   var f1 = () {
     return 0;
@@ -72,6 +74,9 @@ class C {
   };
   var f5 = () {
     return null;
+  };
+  var f6 = () {
+    return Future.value(0);
   };
 }
 
@@ -91,6 +96,9 @@ mixin M {
   static var sf5 = () {
     return null;
   };
+  static var sf6 = () {
+    return Future.value(0);
+  };
 
   var f1 = () {
     return 0;
@@ -106,6 +114,9 @@ mixin M {
   };
   var f5 = () {
     return null;
+  };
+  var f6 = () {
+    return Future.value(0);
   };
 }
 
@@ -125,6 +136,9 @@ mixin class MC {
   static var sf5 = () {
     return null;
   };
+  static var sf6 = () {
+    return Future.value(0);
+  };
 
   var f1 = () {
     return 0;
@@ -140,6 +154,9 @@ mixin class MC {
   };
   var f5 = () {
     return null;
+  };
+  var f6 = () {
+    return Future.value(0);
   };
 }
 
@@ -161,6 +178,9 @@ enum E {
   static var sf5 = () {
     return null;
   };
+  static var sf6 = () {
+    return Future.value(0);
+  };
 }
 
 class A {}
@@ -181,6 +201,9 @@ extension Ext on A {
   static var sf5 = () {
     return null;
   };
+  static var sf6 = () {
+    return Future.value(0);
+  };
 }
 
 extension type ET(int _) {
@@ -199,6 +222,9 @@ extension type ET(int _) {
   static var sf5 = () {
     return null;
   };
+  static var sf6 = () {
+    return Future.value(0);
+  };
 }
 
 class MA = Object with M;
@@ -209,55 +235,65 @@ main() {
   f3.expectStaticType<Exactly<dynamic Function()>>();
   f4.expectStaticType<Exactly<Never Function()>>();
   f5.expectStaticType<Exactly<Null Function()>>();
+  f6.expectStaticType<Exactly<Future<int> Function()>>();
 
   C.sf1.expectStaticType<Exactly<int Function()>>();
   C.sf2.expectStaticType<Exactly<num Function()>>();
   C.sf3.expectStaticType<Exactly<dynamic Function()>>();
   C.sf4.expectStaticType<Exactly<Never Function()>>();
   C.sf5.expectStaticType<Exactly<Null Function()>>();
+  C.sf6.expectStaticType<Exactly<Future<int> Function()>>();
   C().f1.expectStaticType<Exactly<int Function()>>();
   C().f2.expectStaticType<Exactly<num Function()>>();
   C().f3.expectStaticType<Exactly<dynamic Function()>>();
   C().f4.expectStaticType<Exactly<Never Function()>>();
   C().f5.expectStaticType<Exactly<Null Function()>>();
+  C().f6.expectStaticType<Exactly<Future<int> Function()>>();
 
   M.sf1.expectStaticType<Exactly<int Function()>>();
   M.sf2.expectStaticType<Exactly<num Function()>>();
   M.sf3.expectStaticType<Exactly<dynamic Function()>>();
   M.sf4.expectStaticType<Exactly<Never Function()>>();
   M.sf5.expectStaticType<Exactly<Null Function()>>();
+  M.sf6.expectStaticType<Exactly<Future<int> Function()>>();
   MA().f1.expectStaticType<Exactly<int Function()>>();
   MA().f2.expectStaticType<Exactly<num Function()>>();
   MA().f3.expectStaticType<Exactly<dynamic Function()>>();
   MA().f4.expectStaticType<Exactly<Never Function()>>();
   MA().f5.expectStaticType<Exactly<Null Function()>>();
+  MA().f6.expectStaticType<Exactly<Future<int> Function()>>();
 
   MC.sf1.expectStaticType<Exactly<int Function()>>();
   MC.sf2.expectStaticType<Exactly<num Function()>>();
   MC.sf3.expectStaticType<Exactly<dynamic Function()>>();
   MC.sf4.expectStaticType<Exactly<Never Function()>>();
   MC.sf5.expectStaticType<Exactly<Null Function()>>();
+  MC.sf6.expectStaticType<Exactly<Future<int> Function()>>();
   MC().f1.expectStaticType<Exactly<int Function()>>();
   MC().f2.expectStaticType<Exactly<num Function()>>();
   MC().f3.expectStaticType<Exactly<dynamic Function()>>();
   MC().f4.expectStaticType<Exactly<Never Function()>>();
   MC().f5.expectStaticType<Exactly<Null Function()>>();
+  MC().f6.expectStaticType<Exactly<Future<int> Function()>>();
 
   E.sf1.expectStaticType<Exactly<int Function()>>();
   E.sf2.expectStaticType<Exactly<num Function()>>();
   E.sf3.expectStaticType<Exactly<dynamic Function()>>();
   E.sf4.expectStaticType<Exactly<Never Function()>>();
   E.sf5.expectStaticType<Exactly<Null Function()>>();
+  E.sf6.expectStaticType<Exactly<Future<int> Function()>>();
 
   Ext.sf1.expectStaticType<Exactly<int Function()>>();
   Ext.sf2.expectStaticType<Exactly<num Function()>>();
   Ext.sf3.expectStaticType<Exactly<dynamic Function()>>();
   Ext.sf4.expectStaticType<Exactly<Never Function()>>();
   Ext.sf5.expectStaticType<Exactly<Null Function()>>();
+  Ext.sf6.expectStaticType<Exactly<Future<int> Function()>>();
 
   ET.sf1.expectStaticType<Exactly<int Function()>>();
   ET.sf2.expectStaticType<Exactly<num Function()>>();
   ET.sf3.expectStaticType<Exactly<dynamic Function()>>();
   ET.sf4.expectStaticType<Exactly<Never Function()>>();
   ET.sf5.expectStaticType<Exactly<Null Function()>>();
+  ET.sf6.expectStaticType<Exactly<Future<int> Function()>>();
 }

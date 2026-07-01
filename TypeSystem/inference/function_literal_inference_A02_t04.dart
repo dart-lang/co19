@@ -22,73 +22,113 @@
 
 import '../../Utils/static_type_helper.dart';
 
-var f = () async {
+var f1 = () async {
   return 2 > 1 ? 0 : (1 as num?);
+};
+var f2 = () async {
+  return 2 > 1 ? Future.value(0) : Future.value(3.14);
 };
 
 class C {
-  static var sf = () async {
+  static var sf1 = () async {
     return 2 > 1 ? 0 : (1 as num?);
   };
+  static var sf2 = () async {
+    return 2 > 1 ? Future.value(0) : Future.value(3.14);
+  };
 
-  var f = () async {
+  var f1 = () async {
     return 2 > 1 ? 0 : (1 as num?);
+  };
+  var f2 = () async {
+    return 2 > 1 ? Future.value(0) : Future.value(3.14);
   };
 }
 
 mixin M {
-  static var sf = () async {
+  static var sf1 = () async {
     return 2 > 1 ? 0 : (1 as num?);
   };
+  static var sf2 = () async {
+    return 2 > 1 ? Future.value(0) : Future.value(3.14);
+  };
 
-  var f = () async {
+  var f1 = () async {
     return 2 > 1 ? 0 : (1 as num?);
+  };
+  var f2 = () async {
+    return 2 > 1 ? Future.value(0) : Future.value(3.14);
   };
 }
 
 mixin class MC {
-  static var sf = () async {
+  static var sf1 = () async {
     return 2 > 1 ? 0 : (1 as num?);
   };
+  static var sf2 = () async {
+    return 2 > 1 ? Future.value(0) : Future.value(3.14);
+  };
 
-  var f = () async {
+  var f1 = () async {
     return 2 > 1 ? 0 : (1 as num?);
+  };
+  var f2 = () async {
+    return 2 > 1 ? Future.value(0) : Future.value(3.14);
   };
 }
 
 enum E {
   e0;
 
-  static var sf = () async {
+  static var sf1 = () async {
     return 2 > 1 ? 0 : (1 as num?);
+  };
+  static var sf2 = () async {
+    return 2 > 1 ? Future.value(0) : Future.value(3.14);
   };
 }
 
 class A {}
 
 extension Ext on A {
-  static var sf = () async {
+  static var sf1 = () async {
     return 2 > 1 ? 0 : (1 as num?);
+  };
+  static var sf2 = () async {
+    return 2 > 1 ? Future.value(0) : Future.value(3.14);
   };
 }
 
 extension type ET(int _) {
-  static var sf = () async {
+  static var sf1 = () async {
     return 2 > 1 ? 0 : (1 as num?);
+  };
+  static var sf2 = () async {
+    return 2 > 1 ? Future.value(0) : Future.value(3.14);
   };
 }
 
 class MA = Object with M;
 
 main() {
-  f.expectStaticType<Exactly<Future<num?> Function()>>();
-  C.sf.expectStaticType<Exactly<Future<num?> Function()>>();
-  C().f.expectStaticType<Exactly<Future<num?> Function()>>();
-  M.sf.expectStaticType<Exactly<Future<num?> Function()>>();
-  MA().f.expectStaticType<Exactly<Future<num?> Function()>>();
-  MC.sf.expectStaticType<Exactly<Future<num?> Function()>>();
-  MC().f.expectStaticType<Exactly<Future<num?> Function()>>();
-  Ext.sf.expectStaticType<Exactly<Future<num?> Function()>>();
-  E.sf.expectStaticType<Exactly<Future<num?> Function()>>();
-  ET.sf.expectStaticType<Exactly<Future<num?> Function()>>();
+  f1.expectStaticType<Exactly<Future<num?> Function()>>();
+  f2.expectStaticType<Exactly<Future<num> Function()>>();
+  C.sf1.expectStaticType<Exactly<Future<num?> Function()>>();
+  C.sf2.expectStaticType<Exactly<Future<num> Function()>>();
+  C().f1.expectStaticType<Exactly<Future<num?> Function()>>();
+  C().f2.expectStaticType<Exactly<Future<num> Function()>>();
+  M.sf1.expectStaticType<Exactly<Future<num?> Function()>>();
+  M.sf2.expectStaticType<Exactly<Future<num> Function()>>();
+  MA().f1.expectStaticType<Exactly<Future<num?> Function()>>();
+  MA().f2.expectStaticType<Exactly<Future<num> Function()>>();
+  MC.sf1.expectStaticType<Exactly<Future<num?> Function()>>();
+  MC.sf2.expectStaticType<Exactly<Future<num> Function()>>();
+  MC().f1.expectStaticType<Exactly<Future<num?> Function()>>();
+  MC().f2.expectStaticType<Exactly<Future<num> Function()>>();
+  Ext.sf1.expectStaticType<Exactly<Future<num?> Function()>>();
+  Ext.sf2.expectStaticType<Exactly<Future<num> Function()>>();
+  E.sf1.expectStaticType<Exactly<Future<num?> Function()>>();
+  E.sf2.expectStaticType<Exactly<Future<num> Function()>>();
+  ET.sf1.expectStaticType<Exactly<Future<num?> Function()>>();
+  ET.sf2.expectStaticType<Exactly<Future<num> Function()>>();
 }

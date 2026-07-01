@@ -24,15 +24,12 @@ import '../../Utils/static_type_helper.dart';
 void Function(Null) f1 = (n) {
   n.expectStaticType<Exactly<Object?>>();
 };
-
 void Function([Null]) f2 = ([n]) {
   n.expectStaticType<Exactly<Object?>>();
 };
-
 void Function({Null n}) f3 = ({n}) {
   n.expectStaticType<Exactly<Object?>>();
 };
-
 void Function({required Null n}) f4 = ({required n}) {
   n.expectStaticType<Exactly<Object?>>();
 };
