@@ -15,8 +15,8 @@
 ///   typing context `K`, and update `T` to be `UP(flatten(S), T)` if the
 ///   enclosing function is `async`, or `UP(S, T)` otherwise.
 ///
-/// @description Check that return type of a function with the only `return e;`
-/// statement is `UP(S, Never)`, where `S` is inferred type of `e`.
+/// @description Check that the return type of a function with a single
+/// `return e;` statement is `UP(S, Never)`, where `S` is inferred type of `e`.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
