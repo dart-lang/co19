@@ -15,7 +15,7 @@
 ///   typing context `K`, and update `T` to be `UP(flatten(S), T)` if the
 ///   enclosing function is `async`, or `UP(S, T)` otherwise.
 ///
-/// @description Check that return type of an async function with the only
+/// @description Check that the return type of an async function with a single
 /// `return e;` statement is `UP(flatten(S), Never)`, where `S` is inferred
 /// using the local type inference algorithm.
 /// @author sgrekhov22@gmail.com
