@@ -4,16 +4,16 @@
 
 /// @assertion Note that free type variables which are explicitly used as type
 /// arguments in const generic instances are still considered erroneous.
-///
+/// ```
 ///   class G<T> {
 ///    void foo() {
 ///    const List<T> c = <T>[]; // Error
 ///    const List<T> d = [];    // The list literal is inferred as <Never>[]
 ///    }
 ///   }
-///
+/// ```
 /// @description Check that compile error is thrown when free type variable is
-/// explicity used in the const generic instance.
+/// explicitly used in the const generic instance.
 /// @author iarkh@unipro.ru
 
 class G1<T> {
@@ -33,12 +33,12 @@ class G1<T> {
 class G2<T extends int> {
   void foo() {
     const List<T> l1 = <T>[];
-//                     ^
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
     const List l2 = <T>[];
-//                     ^
+//                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
