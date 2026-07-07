@@ -10,7 +10,9 @@
 /// result in an inference failure.
 ///
 /// @description Checks that the omitted return type of a non-local function is
-/// inferred to be `dynamic`.
+/// inferred to be `dynamic` when no other kind of type inference applies. In
+/// that case, the rule "If a function declaration does not declare a return
+/// type explicitly, its return type is dynamic" is applied.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
