@@ -17,11 +17,11 @@
 
 import '../../Utils/static_type_helper.dart';
 
-test(int x, int y) {
+test <X extends int>(X x, Never y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<int>>();
+  v.expectStaticType<Exactly<X>>();
 }
 
 main() {
-  test(1, 2);
+  print(test);
 }
