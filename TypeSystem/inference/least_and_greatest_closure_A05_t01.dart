@@ -21,9 +21,9 @@ import '../../Utils/static_type_helper.dart';
 
 class C<X> {}
 
-test<X extends C<X>, Y extends C<Y>>(X? x, Y? y) {
+test<X extends C<X?>, Y extends C<Y?>>(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<C<Object?>?>>();
+  v.expectStaticType<Exactly<C<Object?>>>();
 }
 
 main() {

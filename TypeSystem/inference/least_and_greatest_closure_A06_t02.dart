@@ -19,7 +19,7 @@
 
 import '../../Utils/static_type_helper.dart';
 
-test(void Function(num?) x, void Function(int?) y) {
+test<X extends void Function(num?), Y extends void Function(int?)>(X x, Y y) {
   var v = 1 > 2 ? x : y;
   v.expectStaticType<Exactly<void Function(int?)>>();
 }

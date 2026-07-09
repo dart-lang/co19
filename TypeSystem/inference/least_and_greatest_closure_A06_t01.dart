@@ -19,14 +19,11 @@
 
 import '../../Utils/static_type_helper.dart';
 
-class C<X> {}
-
-test<X extends C<X>, Y extends C<Y>>(void Function(X?) x, void Function(Y?) y) {
+test<X extends void Function(X?), Y extends void Function(Y?)>(X x, Y y) {
   var v = 1 > 2 ? x : y;
   v.expectStaticType<Exactly<void Function(Never?)>>();
 }
 
 main() {
-  void Function(C<Never>?) c = (C<Never>? _) {};
-  test<C<Never>, C<Never>>(c, c);
+  print(test);
 }
