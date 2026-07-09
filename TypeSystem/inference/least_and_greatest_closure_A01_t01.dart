@@ -18,12 +18,12 @@ import '../../Utils/static_type_helper.dart';
 
 class C<X> {}
 
-test<X extends C<X>>(X x, Never y) {
+test<X extends C<X>, Y extends C<Y>>(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<X>>();
+  v.expectStaticType<Exactly<C<Object?>>>();
 }
 
 main() {
   C<Never> c = C<Never>();
-  print(test);
+  test(c, c);
 }
