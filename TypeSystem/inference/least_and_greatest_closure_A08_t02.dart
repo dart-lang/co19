@@ -41,7 +41,16 @@ test3<
   Y extends void Function(Future<num>)
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<void Function(int)>>();
+  v.expectStaticType<Exactly<void Function(Future<int>)>>();
+  print(v);
+}
+
+test4<
+  X extends void Function(Future<int?>),
+  Y extends void Function(Future<num?>)
+>(X x, Y y) {
+  var v = 1 > 2 ? x : y;
+  v.expectStaticType<Exactly<void Function(Future<int?>)>>();
   print(v);
 }
 
@@ -49,4 +58,5 @@ main() {
   test1((Future<int> _) {}, (Future<num> _) {});
   test2((Future<int?> _) {}, (Future<num?> _) {});
   test3((Future<int?> _) {}, (Future<num> _) {});
+  test4((Future<int?> _) {}, (Future<num?> _) {});
 }

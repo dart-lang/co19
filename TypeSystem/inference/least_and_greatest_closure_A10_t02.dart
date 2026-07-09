@@ -19,6 +19,7 @@
 /// @issue https://github.com/dart-lang/language/issues/4720
 
 import 'dart:async';
+
 import '../../Utils/static_type_helper.dart';
 
 test1<
@@ -47,8 +48,8 @@ test3<
 }
 
 test4<
-X extends void Function(FutureOr<int?>),
-Y extends void Function(FutureOr<num?>)
+  X extends void Function(FutureOr<int?>),
+  Y extends void Function(FutureOr<num?>)
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
   v.expectStaticType<Exactly<void Function(FutureOr<int?>)>>();

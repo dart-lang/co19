@@ -18,6 +18,7 @@
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
+
 import '../../Utils/static_type_helper.dart';
 
 test1<X extends FutureOr<int>, Y extends FutureOr<num>>(X x, Y y) {
