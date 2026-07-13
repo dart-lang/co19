@@ -25,15 +25,12 @@ import '../../Utils/static_type_helper.dart';
 void Function(num) f1 = (n) {
   n.expectStaticType<Exactly<num>>();
 };
-
 void Function([num]) f2 = ([n = 0]) {
   n.expectStaticType<Exactly<num>>();
 };
-
 void Function({num n}) f3 = ({n = 0}) {
   n.expectStaticType<Exactly<num>>();
 };
-
 void Function({required num n}) f4 = ({required n}) {
   n.expectStaticType<Exactly<num>>();
 };
@@ -42,15 +39,12 @@ class C {
   static void Function(num) sf1 = (n) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function([num]) sf2 = ([n = 0]) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function({num n}) sf3 = ({n = 0}) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function({required num n}) sf4 = ({required n}) {
     n.expectStaticType<Exactly<num>>();
   };
@@ -58,15 +52,12 @@ class C {
   void Function(num) f1 = (n) {
     n.expectStaticType<Exactly<num>>();
   };
-
   void Function([num]) f2 = ([n = 0]) {
     n.expectStaticType<Exactly<num>>();
   };
-
   void Function({num n}) f3 = ({n = 0}) {
     n.expectStaticType<Exactly<num>>();
   };
-
   void Function({required num n}) f4 = ({required n}) {
     n.expectStaticType<Exactly<num>>();
   };
@@ -76,15 +67,12 @@ mixin M {
   static void Function(num) sf1 = (n) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function([num]) sf2 = ([n = 0]) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function({num n}) sf3 = ({n = 0}) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function({required num n}) sf4 = ({required n}) {
     n.expectStaticType<Exactly<num>>();
   };
@@ -92,15 +80,12 @@ mixin M {
   void Function(num) f1 = (n) {
     n.expectStaticType<Exactly<num>>();
   };
-
   void Function([num]) f2 = ([n = 0]) {
     n.expectStaticType<Exactly<num>>();
   };
-
   void Function({num n}) f3 = ({n = 0}) {
     n.expectStaticType<Exactly<num>>();
   };
-
   void Function({required num n}) f4 = ({required n}) {
     n.expectStaticType<Exactly<num>>();
   };
@@ -110,15 +95,12 @@ mixin class MC {
   static void Function(num) sf1 = (n) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function([num]) sf2 = ([n = 0]) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function({num n}) sf3 = ({n = 0}) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function({required num n}) sf4 = ({required n}) {
     n.expectStaticType<Exactly<num>>();
   };
@@ -126,15 +108,12 @@ mixin class MC {
   void Function(num) f1 = (n) {
     n.expectStaticType<Exactly<num>>();
   };
-
   void Function([num]) f2 = ([n = 0]) {
     n.expectStaticType<Exactly<num>>();
   };
-
   void Function({num n}) f3 = ({n = 0}) {
     n.expectStaticType<Exactly<num>>();
   };
-
   void Function({required num n}) f4 = ({required n}) {
     n.expectStaticType<Exactly<num>>();
   };
@@ -142,18 +121,16 @@ mixin class MC {
 
 enum E {
   e0;
+
   static void Function(num) sf1 = (n) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function([num]) sf2 = ([n = 0]) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function({num n}) sf3 = ({n = 0}) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function({required num n}) sf4 = ({required n}) {
     n.expectStaticType<Exactly<num>>();
   };
@@ -165,15 +142,12 @@ extension Ext on A {
   static void Function(num) sf1 = (n) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function([num]) sf2 = ([n = 0]) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function({num n}) sf3 = ({n = 0}) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function({required num n}) sf4 = ({required n}) {
     n.expectStaticType<Exactly<num>>();
   };
@@ -183,15 +157,12 @@ extension type ET(int _) {
   static void Function(num) sf1 = (n) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function([num]) sf2 = ([n = 0]) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function({num n}) sf3 = ({n = 0}) {
     n.expectStaticType<Exactly<num>>();
   };
-
   static void Function({required num n}) sf4 = ({required n}) {
     n.expectStaticType<Exactly<num>>();
   };
