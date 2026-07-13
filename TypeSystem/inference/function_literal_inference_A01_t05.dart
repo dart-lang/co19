@@ -18,7 +18,7 @@
 /// @description Check that if there is no corresponding parameter in the
 /// context type schema, the variable is treated as having type `dynamic`. Test
 /// the case when the type parameter of a function literal is eliminated by a
-/// generic function instantiation algorithm.
+/// generic function instantiation.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/expect.dart';

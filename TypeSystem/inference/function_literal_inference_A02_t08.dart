@@ -22,57 +22,57 @@
 
 import '../../Utils/static_type_helper.dart';
 
-var f1 = <T>(T t) async {
-  return 2 > 1 ? t : (1 as num?);
+var f1 = <T>(Future<T> t) async {
+  return 2 > 1 ? t : Future<num?>.value(1);
 };
-var f2 = <T extends num>(T t) async {
+var f2 = <T extends num>(Future<T> t) async {
   return 2 > 1 ? Future.value(t) : Future.value(3.14);
 };
 
 class C {
-  static var sf1 = <T>(T t) async {
-    return 2 > 1 ? t : (1 as num?);
+  static var sf1 = <T>(Future<T> t) async {
+    return 2 > 1 ? t : Future<num?>.value(1);
   };
-  static var sf2 = <T extends num>(T t) async {
+  static var sf2 = <T extends num>(Future<T> t) async {
     return 2 > 1 ? Future.value(t) : Future.value(3.14);
   };
 
-  var f1 = <T>(T t) async {
-    return 2 > 1 ? t : (1 as num?);
+  var f1 = <T>(Future<T> t) async {
+    return 2 > 1 ? t : Future<num?>.value(1);
   };
-  var f2 = <T extends num>(T t) async {
+  var f2 = <T extends num>(Future<T> t) async {
     return 2 > 1 ? Future.value(t) : Future.value(3.14);
   };
 }
 
 mixin M {
-  static var sf1 = <T>(T t) async {
-    return 2 > 1 ? t : (1 as num?);
+  static var sf1 = <T>(Future<T> t) async {
+    return 2 > 1 ? t : Future<num?>.value(1);
   };
-  static var sf2 = <T extends num>(T t) async {
+  static var sf2 = <T extends num>(Future<T> t) async {
     return 2 > 1 ? Future.value(t) : Future.value(3.14);
   };
 
-  var f1 = <T>(T t) async {
-    return 2 > 1 ? t : (1 as num?);
+  var f1 = <T>(Future<T> t) async {
+    return 2 > 1 ? t : Future<num?>.value(1);
   };
-  var f2 = <T extends num>(T t) async {
+  var f2 = <T extends num>(Future<T> t) async {
     return 2 > 1 ? Future.value(t) : Future.value(3.14);
   };
 }
 
 mixin class MC {
-  static var sf1 = <T>(T t) async {
-    return 2 > 1 ? t : (1 as num?);
+  static var sf1 = <T>(Future<T> t) async {
+    return 2 > 1 ? t : Future<num?>.value(1);
   };
-  static var sf2 = <T extends num>(T t) async {
+  static var sf2 = <T extends num>(Future<T> t) async {
     return 2 > 1 ? Future.value(t) : Future.value(3.14);
   };
 
-  var f1 = <T>(T t) async {
-    return 2 > 1 ? t : (1 as num?);
+  var f1 = <T>(Future<T> t) async {
+    return 2 > 1 ? t : Future<num?>.value(1);
   };
-  var f2 = <T extends num>(T t) async {
+  var f2 = <T extends num>(Future<T> t) async {
     return 2 > 1 ? Future.value(t) : Future.value(3.14);
   };
 }
@@ -80,10 +80,10 @@ mixin class MC {
 enum E {
   e0;
 
-  static var sf1 = <T>(T t) async {
-    return 2 > 1 ? t : (1 as num?);
+  static var sf1 = <T>(Future<T> t) async {
+    return 2 > 1 ? t : Future<num?>.value(1);
   };
-  static var sf2 = <T extends num>(T t) async {
+  static var sf2 = <T extends num>(Future<T> t) async {
     return 2 > 1 ? Future.value(t) : Future.value(3.14);
   };
 }
@@ -91,19 +91,19 @@ enum E {
 class A {}
 
 extension Ext on A {
-  static var sf1 = <T>(T t) async {
-    return 2 > 1 ? t : (1 as num?);
+  static var sf1 = <T>(Future<T> t) async {
+    return 2 > 1 ? t : Future<num?>.value(1);
   };
-  static var sf2 = <T extends num>(T t) async {
+  static var sf2 = <T extends num>(Future<T> t) async {
     return 2 > 1 ? Future.value(t) : Future.value(3.14);
   };
 }
 
 extension type ET(int _) {
-  static var sf1 = <T>(T t) async {
-    return 2 > 1 ? t : (1 as num?);
+  static var sf1 = <T>(Future<T> t) async {
+    return 2 > 1 ? t : Future<num?>.value(1);
   };
-  static var sf2 = <T extends num>(T t) async {
+  static var sf2 = <T extends num>(Future<T> t) async {
     return 2 > 1 ? Future.value(t) : Future.value(3.14);
   };
 }
@@ -111,24 +111,54 @@ extension type ET(int _) {
 class MA = Object with M;
 
 main() {
-  f1.expectStaticType<Exactly<Future<Object?> Function<T>(T)>>();
-  f2.expectStaticType<Exactly<Future<num> Function<T extends num>(T)>>();
-  C.sf1.expectStaticType<Exactly<Future<Object?> Function<T>(T)>>();
-  C.sf2.expectStaticType<Exactly<Future<num> Function<T extends num>(T)>>();
-  C().f1.expectStaticType<Exactly<Future<Object?> Function<T>(T)>>();
-  C().f2.expectStaticType<Exactly<Future<num> Function<T extends num>(T)>>();
-  M.sf1.expectStaticType<Exactly<Future<Object?> Function<T>(T)>>();
-  M.sf2.expectStaticType<Exactly<Future<num> Function<T extends num>(T)>>();
-  MA().f1.expectStaticType<Exactly<Future<Object?> Function<T>(T)>>();
-  MA().f2.expectStaticType<Exactly<Future<num> Function<T extends num>(T)>>();
-  MC.sf1.expectStaticType<Exactly<Future<Object?> Function<T>(T)>>();
-  MC.sf2.expectStaticType<Exactly<Future<num> Function<T extends num>(T)>>();
-  MC().f1.expectStaticType<Exactly<Future<Object?> Function<T>(T)>>();
-  MC().f2.expectStaticType<Exactly<Future<num> Function<T extends num>(T)>>();
-  Ext.sf1.expectStaticType<Exactly<Future<Object?> Function<T>(T)>>();
-  Ext.sf2.expectStaticType<Exactly<Future<num> Function<T extends num>(T)>>();
-  E.sf1.expectStaticType<Exactly<Future<Object?> Function<T>(T)>>();
-  E.sf2.expectStaticType<Exactly<Future<num> Function<T extends num>(T)>>();
-  ET.sf1.expectStaticType<Exactly<Future<Object?> Function<T>(T)>>();
-  ET.sf2.expectStaticType<Exactly<Future<num> Function<T extends num>(T)>>();
+  f1.expectStaticType<Exactly<Future<Object?> Function<T>(Future<T>)>>();
+  f2
+      .expectStaticType<
+        Exactly<Future<num> Function<T extends num>(Future<T>)>
+      >();
+  C.sf1.expectStaticType<Exactly<Future<Object?> Function<T>(Future<T>)>>();
+  C.sf2
+      .expectStaticType<
+        Exactly<Future<num> Function<T extends num>(Future<T>)>
+      >();
+  C().f1.expectStaticType<Exactly<Future<Object?> Function<T>(Future<T>)>>();
+  C().f2
+      .expectStaticType<
+        Exactly<Future<num> Function<T extends num>(Future<T>)>
+      >();
+  M.sf1.expectStaticType<Exactly<Future<Object?> Function<T>(Future<T>)>>();
+  M.sf2
+      .expectStaticType<
+        Exactly<Future<num> Function<T extends num>(Future<T>)>
+      >();
+  MA().f1.expectStaticType<Exactly<Future<Object?> Function<T>(Future<T>)>>();
+  MA().f2
+      .expectStaticType<
+        Exactly<Future<num> Function<T extends num>(Future<T>)>
+      >();
+  MC.sf1.expectStaticType<Exactly<Future<Object?> Function<T>(Future<T>)>>();
+  MC.sf2
+      .expectStaticType<
+        Exactly<Future<num> Function<T extends num>(Future<T>)>
+      >();
+  MC().f1.expectStaticType<Exactly<Future<Object?> Function<T>(Future<T>)>>();
+  MC().f2
+      .expectStaticType<
+        Exactly<Future<num> Function<T extends num>(Future<T>)>
+      >();
+  Ext.sf1.expectStaticType<Exactly<Future<Object?> Function<T>(Future<T>)>>();
+  Ext.sf2
+      .expectStaticType<
+        Exactly<Future<num> Function<T extends num>(Future<T>)>
+      >();
+  E.sf1.expectStaticType<Exactly<Future<Object?> Function<T>(Future<T>)>>();
+  E.sf2
+      .expectStaticType<
+        Exactly<Future<num> Function<T extends num>(Future<T>)>
+      >();
+  ET.sf1.expectStaticType<Exactly<Future<Object?> Function<T>(Future<T>)>>();
+  ET.sf2
+      .expectStaticType<
+        Exactly<Future<num> Function<T extends num>(Future<T>)>
+      >();
 }
