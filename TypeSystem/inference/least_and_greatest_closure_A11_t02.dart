@@ -21,23 +21,23 @@ import '../../Utils/static_type_helper.dart';
 
 class C<X, Y> {}
 
-test1<X extends C<int, List<num>>, Y extends C<num, List<int>>>(X x, Y y) {
+test1<X extends C<int, List<num>>, Y extends C<int, List<num>>>(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<C<num, List<num>>>>();
+  v.expectStaticType<Exactly<C<int, List<num>>>>();
 }
 
-test2<X extends C<int?, List<num>>, Y extends C<num, List<int>>>(X x, Y y) {
+test2<X extends C<int?, List<num>>, Y extends C<int?, List<num>>>(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<C<num?, List<num>>>>();
+  v.expectStaticType<Exactly<C<int?, List<num>>>>();
 }
 
-test3<X extends C<int, List<num>>, Y extends C<num, List<int?>>>(X x, Y y) {
+test3<X extends C<num, List<int?>>, Y extends C<num, List<int?>>>(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<C<num, List<num?>>>>();
+  v.expectStaticType<Exactly<C<num, List<int?>>>>();
 }
 
 main() {
-  test1(C<int, List<num>>(), C<num, List<int>>());
-  test2(C<int?, List<num>>(), C<num, List<int>>());
-  test3(C<int, List<num>>(), C<num, List<int?>>());
+  test1(C<int, List<num>>(), C<int, List<int>>());
+  test2(C<int?, List<num>>(), C<int?, List<int>>());
+  test3(C<int, List<int?>>(), C<num, List<int?>>());
 }

@@ -22,52 +22,52 @@ import '../../Utils/static_type_helper.dart';
 class C<X, Y> {}
 
 test1<
-  X extends void Function(C<num, List<num>>),
-  Y extends Function(C<int, List<int>>)
+  X extends void Function(C<int, List<num>>),
+  Y extends Function(C<int, List<num>>)
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<void Function(C<int, List<int>>)>>();
+  v.expectStaticType<Exactly<void Function(C<int, List<num>>)>>();
 }
 
 test2<
-X extends void Function(C<num?, List<num?>>),
-Y extends Function(C<int, List<int>>)
+  X extends void Function(C<int?, List<num>>),
+  Y extends Function(C<int?, List<num>>)
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<void Function(C<int, List<int>>)>>();
+  v.expectStaticType<Exactly<void Function(C<int?, List<num>>)>>();
 }
 
 test3<
-X extends void Function(C<num?, List<num>>),
-Y extends Function(C<int?, List<int?>>)
+  X extends void Function(C<num?, List<num?>>),
+  Y extends Function(C<num?, List<num?>>)
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<void Function(Never)>>(); // DOWN(C<num?, List<num>>, C<int?, List<int?>>) is Never.
+  v.expectStaticType<Exactly<void Function(C<num?, List<num?>>)>>();
 }
 
 test4<
-X extends void Function(C<num?, List<num?>>),
-Y extends Function(C<int?, List<int?>>)
+  X extends void Function(C<int?, List<num?>>),
+  Y extends Function(C<int?, List<num?>>)
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<void Function(C<int?, List<int?>>)>>();
+  v.expectStaticType<Exactly<void Function(C<int?, List<num?>>)>>();
 }
 
 main() {
-  test1<void Function(C<num, List<num>>), void Function(C<int, List<int>>)>(
-    (C<num, List<num>> _) {},
-    (C<int, List<int>> _) {},
+  test1<void Function(C<int, List<num>>), void Function(C<int, List<num>>)>(
+    (C<int, List<num>> _) {},
+    (C<int, List<num>> _) {},
   );
-  test2<void Function(C<num?, List<num?>>), void Function(C<int, List<int>>)>(
-        (C<num?, List<num?>> _) {},
-        (C<int, List<int>> _) {},
+  test2<void Function(C<int?, List<num>>), void Function(C<int?, List<num>>)>(
+    (C<int?, List<num>> _) {},
+    (C<int?, List<num>> _) {},
   );
-  test3<void Function(C<num?, List<num>>), void Function(C<int?, List<int?>>)>(
-        (C<num?, List<num>> _) {},
-        (C<int?, List<int?>> _) {},
+  test3<void Function(C<num?, List<num?>>), void Function(C<num?, List<num?>>)>(
+    (C<num?, List<num?>> _) {},
+    (C<num?, List<num?>> _) {},
   );
-  test4<void Function(C<num?, List<num?>>), void Function(C<int?, List<int?>>)>(
-        (C<num?, List<num?>> _) {},
-        (C<int?, List<int?>> _) {},
+  test4<void Function(C<int?, List<num?>>), void Function(C<int?, List<num?>>)>(
+    (C<int?, List<num?>> _) {},
+    (C<int?, List<num?>> _) {},
   );
 }
