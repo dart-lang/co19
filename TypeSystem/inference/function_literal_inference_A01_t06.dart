@@ -16,104 +16,111 @@
 /// variable is treated as having type `dynamic`.
 ///
 /// @description Check that if the greatest closure of `K` is `S` and `S` is a
-/// subtype of `Null`, then `T` is `Object?`.
+/// subtype of `Null`, then `T` is `Object?`. Test generic function literal.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
 
-void Function(Null) f1 = (n) {
+void Function<X extends Null>(X) f1 = <X extends Null>(n) {
   n.expectStaticType<Exactly<Object?>>();
 };
-void Function([Null]) f2 = ([n]) {
+void Function<X extends Null>([X]) f2 = <X extends Null>([n]) {
   n.expectStaticType<Exactly<Object?>>();
 };
-void Function({Null n}) f3 = ({n}) {
+void Function<X extends Null>({X n}) f3 = <X extends Null>({n}) {
   n.expectStaticType<Exactly<Object?>>();
 };
-void Function({required Null n}) f4 = ({required n}) {
-  n.expectStaticType<Exactly<Object?>>();
-};
+void Function<X extends Null>({required X n}) f4 =
+    <X extends Null>({required n}) {
+      n.expectStaticType<Exactly<Object?>>();
+    };
 
 class C {
-  static void Function(Null) sf1 = (n) {
+  static void Function<X extends Null>(X) sf1 = <X extends Null>(n) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function([Null]) sf2 = ([n]) {
+  static void Function<X extends Null>([X]) sf2 = <X extends Null>([n]) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function({Null n}) sf3 = ({n}) {
+  static void Function<X extends Null>({X n}) sf3 = <X extends Null>({n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function({required Null n}) sf4 = ({required n}) {
-    n.expectStaticType<Exactly<Object?>>();
-  };
+  static void Function<X extends Null>({required X n}) sf4 =
+      <X extends Null>({required n}) {
+        n.expectStaticType<Exactly<Object?>>();
+      };
 
-  void Function(Null) f1 = (n) {
+  void Function<X extends Null>(X) f1 = <X extends Null>(n) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  void Function([Null]) f2 = ([n]) {
+  void Function<X extends Null>([X]) f2 = <X extends Null>([n]) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  void Function({Null n}) f3 = ({n}) {
+  void Function<X extends Null>({X n}) f3 = <X extends Null>({n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  void Function({required Null n}) f4 = ({required n}) {
-    n.expectStaticType<Exactly<Object?>>();
-  };
+  void Function<X extends Null>({required X n}) f4 =
+      <X extends Null>({required n}) {
+        n.expectStaticType<Exactly<Object?>>();
+      };
 }
 
 mixin M {
-  static void Function(Null) sf1 = (n) {
+  static void Function<X extends Null>(X) sf1 = <X extends Null>(n) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function([Null]) sf2 = ([n]) {
+  static void Function<X extends Null>([X]) sf2 = <X extends Null>([n]) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function({Null n}) sf3 = ({n}) {
+  static void Function<X extends Null>({X n}) sf3 = <X extends Null>({n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function({required Null n}) sf4 = ({required n}) {
+  static void Function<X extends Null>({required X n}) sf4 =
+  <X extends Null>({required n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
 
-  void Function(Null) f1 = (n) {
+  void Function<X extends Null>(X) f1 = <X extends Null>(n) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  void Function([Null]) f2 = ([n]) {
+  void Function<X extends Null>([X]) f2 = <X extends Null>([n]) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  void Function({Null n}) f3 = ({n}) {
+  void Function<X extends Null>({X n}) f3 = <X extends Null>({n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  void Function({required Null n}) f4 = ({required n}) {
+  void Function<X extends Null>({required X n}) f4 =
+  <X extends Null>({required n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
 }
 
 mixin class MC {
-  static void Function(Null) sf1 = (n) {
+  static void Function<X extends Null>(X) sf1 = <X extends Null>(n) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function([Null]) sf2 = ([n]) {
+  static void Function<X extends Null>([X]) sf2 = <X extends Null>([n]) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function({Null n}) sf3 = ({n}) {
+  static void Function<X extends Null>({X n}) sf3 = <X extends Null>({n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function({required Null n}) sf4 = ({required n}) {
+  static void Function<X extends Null>({required X n}) sf4 =
+  <X extends Null>({required n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
 
-  void Function(Null) f1 = (n) {
+  void Function<X extends Null>(X) f1 = <X extends Null>(n) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  void Function([Null]) f2 = ([n]) {
+  void Function<X extends Null>([X]) f2 = <X extends Null>([n]) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  void Function({Null n}) f3 = ({n}) {
+  void Function<X extends Null>({X n}) f3 = <X extends Null>({n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  void Function({required Null n}) f4 = ({required n}) {
+  void Function<X extends Null>({required X n}) f4 =
+  <X extends Null>({required n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
 }
@@ -121,16 +128,17 @@ mixin class MC {
 enum E {
   e0;
 
-  static void Function(Null) sf1 = (n) {
+  static void Function<X extends Null>(X) sf1 = <X extends Null>(n) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function([Null]) sf2 = ([n]) {
+  static void Function<X extends Null>([X]) sf2 = <X extends Null>([n]) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function({Null n}) sf3 = ({n}) {
+  static void Function<X extends Null>({X n}) sf3 = <X extends Null>({n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function({required Null n}) sf4 = ({required n}) {
+  static void Function<X extends Null>({required X n}) sf4 =
+  <X extends Null>({required n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
 }
@@ -138,31 +146,33 @@ enum E {
 class A {}
 
 extension Ext on A {
-  static void Function(Null) sf1 = (n) {
+  static void Function<X extends Null>(X) sf1 = <X extends Null>(n) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function([Null]) sf2 = ([n]) {
+  static void Function<X extends Null>([X]) sf2 = <X extends Null>([n]) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function({Null n}) sf3 = ({n}) {
+  static void Function<X extends Null>({X n}) sf3 = <X extends Null>({n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function({required Null n}) sf4 = ({required n}) {
+  static void Function<X extends Null>({required X n}) sf4 =
+  <X extends Null>({required n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
 }
 
 extension type ET(int _) {
-  static void Function(Null) sf1 = (n) {
+  static void Function<X extends Null>(X) sf1 = <X extends Null>(n) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function([Null]) sf2 = ([n]) {
+  static void Function<X extends Null>([X]) sf2 = <X extends Null>([n]) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function({Null n}) sf3 = ({n}) {
+  static void Function<X extends Null>({X n}) sf3 = <X extends Null>({n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
-  static void Function({required Null n}) sf4 = ({required n}) {
+  static void Function<X extends Null>({required X n}) sf4 =
+  <X extends Null>({required n}) {
     n.expectStaticType<Exactly<Object?>>();
   };
 }

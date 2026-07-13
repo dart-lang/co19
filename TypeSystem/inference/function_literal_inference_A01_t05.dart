@@ -16,164 +16,97 @@
 /// variable is treated as having type `dynamic`.
 ///
 /// @description Check that if there is no corresponding parameter in the
-/// context type schema, the variable is treated as having type `dynamic`.
+/// context type schema, the variable is treated as having type `dynamic`. Test
+/// the case when the type parameter of a function literal is eliminated by a
+/// generic function instantiation algorithm.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/expect.dart';
 
-void Function() f1 = ([v]) {
-  Expect.throws(() {
-    v.testDynamic;
-  });
-};
-void Function() f2 = ({v}) {
-  Expect.throws(() {
-    v.testDynamic;
-  });
-};
-
-class C {
-  static void Function() sf1 = ([v]) {
+class C<X> {
+  void Function(X) f1 = <X>(v) {
     Expect.throws(() {
       v.testDynamic;
     });
   };
-  static void Function() sf2 = ({v}) {
+  void Function([X]) f2 = <X>([v]) {
     Expect.throws(() {
       v.testDynamic;
     });
   };
-
-  void Function() f1 = ([v]) {
+  void Function({X v}) f3 = <X>({v}) {
     Expect.throws(() {
       v.testDynamic;
     });
   };
-  void Function() f2 = ({v}) {
+  void Function({required X v}) f4 = <X>({required v}) {
     Expect.throws(() {
       v.testDynamic;
     });
   };
 }
 
-mixin M {
-  static void Function() sf1 = ([v]) {
+mixin M<X> {
+  void Function(X) f1 = <X>(v) {
     Expect.throws(() {
       v.testDynamic;
     });
   };
-  static void Function() sf2 = ({v}) {
+  void Function([X]) f2 = <X>([v]) {
     Expect.throws(() {
       v.testDynamic;
     });
   };
-
-  void Function() f1 = ([v]) {
+  void Function({X v}) f3 = <X>({v}) {
     Expect.throws(() {
       v.testDynamic;
     });
   };
-  void Function() f2 = ({v}) {
-    Expect.throws(() {
-      v.testDynamic;
-    });
-  };
-}
-
-mixin class MC {
-  static void Function() sf1 = ([v]) {
-    Expect.throws(() {
-      v.testDynamic;
-    });
-  };
-  static void Function() sf2 = ({v}) {
-    Expect.throws(() {
-      v.testDynamic;
-    });
-  };
-
-  void Function() f1 = ([v]) {
-    Expect.throws(() {
-      v.testDynamic;
-    });
-  };
-  void Function() f2 = ({v}) {
+  void Function({required X v}) f4 = <X>({required v}) {
     Expect.throws(() {
       v.testDynamic;
     });
   };
 }
 
-enum E {
-  e0;
-
-  static void Function() sf1 = ([v]) {
+mixin class MC<X> {
+  void Function(X) f1 = <X>(v) {
     Expect.throws(() {
       v.testDynamic;
     });
   };
-  static void Function() sf2 = ({v}) {
+  void Function([X]) f2 = <X>([v]) {
     Expect.throws(() {
       v.testDynamic;
     });
   };
-}
-
-class A {}
-
-extension Ext on A {
-  static void Function() sf1 = ([v]) {
+  void Function({X v}) f3 = <X>({v}) {
     Expect.throws(() {
       v.testDynamic;
     });
   };
-
-  static void Function() sf2 = ({v}) {
+  void Function({required X v}) f4 = <X>({required v}) {
     Expect.throws(() {
       v.testDynamic;
     });
   };
 }
 
-extension type ET(int _) {
-  static void Function() sf1 = ([v]) {
-    Expect.throws(() {
-      v.testDynamic;
-    });
-  };
-
-  static void Function() sf2 = ({v}) {
-    Expect.throws(() {
-      v.testDynamic;
-    });
-  };
-}
-
-class MA = Object with M;
+class MA<X> = Object with M<X>;
 
 main() {
-  f1();
-  f2();
+  C<int>().f1(1);
+  C<int>().f2(2);
+  C<int>().f3(v: 3);
+  C<int>().f4(v: 4);
 
-  C.sf1();
-  C.sf2();
-  C().f1();
-  C().f2();
+  MA<int>().f1(1);
+  MA<int>().f2(2);
+  MA<int>().f3(v: 3);
+  MA<int>().f4(v: 4);
 
-  M.sf1();
-  M.sf2();
-  MA().f1();
-  MA().f2();
-
-  MC.sf1();
-  MC.sf2();
-  MC().f1();
-  MC().f2();
-
-  E.sf1();
-  E.sf2();
-  Ext.sf1();
-  Ext.sf2();
-  ET.sf1();
-  ET.sf2();
+  MC<int>().f1(1);
+  MC<int>().f2(2);
+  MC<int>().f3(v: 3);
+  MC<int>().f4(v: 4);
 }
