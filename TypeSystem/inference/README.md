@@ -6,9 +6,8 @@ functions. However, we need to be careful because these functions may return a t
 that was not produced by the least/greatest closure computation itself.
 
 The least and greatest closure of type is [defined](https://github.com/dart-lang/language/blob/main/resources/type-system/inference.md#type-variable-elimination-least-and-greatest-closure-of-a-type)
-with respect to a set of type variables. Therefore, each test that verifies this 
-behavior must involve at least two type variables. However, the definitions of 
-`UP` and `DOWN` include the following rules:
+with respect to a set of type variables. The definitions of `UP` and `DOWN` include 
+the following rules:
 
 - `UP(T1, T2) = T2` if `T1 <: T2`
 - `UP(T1, T2) = T1` if `T2 <: T1`
