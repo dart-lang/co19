@@ -79,5 +79,4 @@ main() {
   print(C2);
   print(E1);
   print(E2);
-  print(ET);
 }
