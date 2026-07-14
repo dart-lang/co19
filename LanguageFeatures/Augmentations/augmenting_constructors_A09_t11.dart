@@ -37,7 +37,7 @@ augment enum E1 {
 }
 
 enum E2.foo(int v) {
-  e0.foo(0);
+  e0.foo(1);
 }
 
 augment enum E2 {
