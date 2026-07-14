@@ -84,7 +84,8 @@ augment enum E1 {
 enum E2([int x = 0]) {}
 
 augment enum E2 {
-  ;
+  e0;
+
   augment const E2([int x, int y]);
 //              ^^
 // [analyzer] unspecified
@@ -103,7 +104,9 @@ augment enum E3 {
 // [cfe] unspecified
 }
 
-enum E4({int x = 0}) {}
+enum E4({int x = 0}) {
+  e0;
+}
 
 augment enum E4 {
   ;
