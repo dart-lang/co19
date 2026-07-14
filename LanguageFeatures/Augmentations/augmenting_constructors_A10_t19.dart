@@ -29,7 +29,7 @@
 /// @description Checks that it is a compile-time error if a primary constructor
 /// augmentation specifies a type of declaring parameter which were not
 /// explicitly specified in the introductory constructor and this type is not
-/// `dynamic`.
+/// `Object?`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
@@ -38,7 +38,7 @@ class C1(var x) {}
 
 augment class C1 {
   augment C1(int x);
-//          ^^^
+//           ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -46,7 +46,7 @@ augment class C1 {
 class C2([final x]) {}
 
 augment class C2 {
-  augment C2([Object? x]);
+  augment C2([dynamic x]);
 //            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -64,7 +64,7 @@ augment class C3 {
 class C4({required final x}) {}
 
 augment class C4 {
-  augment C4({required Object? x});
+  augment C4({required dynamic x});
 //                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -88,7 +88,7 @@ enum E2([final x]) {
 
 augment enum E2 {
   ;
-  augment const E2([Object? x]);
+  augment const E2([dynamic x]);
 //                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -112,7 +112,7 @@ enum E4({required final x}) {
 
 augment enum E4 {
   ;
-  augment const E4({required Object? x});
+  augment const E4({required dynamic x});
 //                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -121,7 +121,7 @@ augment enum E4 {
 extension type ET(final x) {}
 
 augment extension type ET {
-  augment ET(Object? x);
+  augment ET(dynamic x);
 //           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
