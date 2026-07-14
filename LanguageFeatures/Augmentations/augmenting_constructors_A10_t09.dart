@@ -54,7 +54,7 @@ augment class C2 {
 
 class C3(int x) {}
 
-augment class E3 {
+augment class C3 {
   augment C3({required int x});
 //           ^
 // [analyzer] unspecified
@@ -74,7 +74,7 @@ class C5([int x = 0]) {}
 
 augment class C5 {
   augment C5({int x});
-//               ^
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -101,7 +101,7 @@ class C8({int x = 0}) {}
 
 augment class C8 {
   augment C8([int x]);
-//               ^
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -128,7 +128,7 @@ class C11({required int x}) {}
 
 augment class C11 {
   augment C11([int x = 0]);
-//                ^
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -137,7 +137,7 @@ class C12({required int x}) {}
 
 augment class C12 {
   augment C12({int x = 0});
-//                ^
+//                 ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -149,7 +149,7 @@ enum E1(int x) {
 augment enum E1 {
   ;
   augment const E1([int x = 0]);
-//                  ^
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -161,7 +161,7 @@ enum E2(int x) {
 augment enum E2 {
   ;
   augment const E2({int x = 0});
-//                  ^
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -185,7 +185,7 @@ enum E4([int x = 0]) {
 augment enum E4 {
   ;
   augment const E4(int x);
-//                      ^
+//                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -221,7 +221,7 @@ enum E7({int x = 0}) {
 augment enum E7 {
   ;
   augment const E7(int x);
-//                      ^
+//                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
