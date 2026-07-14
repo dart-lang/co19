@@ -2,20 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion With null safety, local function body inference is changed so
-/// that the local function name is not considered available for inference while
-/// performing inference on the body. As a result, any recursive calls to the
-/// function for which the result type is required for inference to complete
-/// will no longer be treated as having return type `dynamic`, but will instead
-/// result in an inference failure.
+/// @assertion If a function declaration does not declare a return type
+/// explicitly, its return type is `dynamic`, unless it is a constructor, in
+/// which case it is not considered to have a return type, or it is a setter or
+/// operator `[]=`, in which case its return type is `void`.
 ///
-/// @description Checks that the omitted return type of a non-local function is
-/// inferred to be `dynamic` when no other kind of type inference applies. In
-/// that case, the rule "If a function declaration does not declare a return
-/// type explicitly, its return type is dynamic" is applied.
+/// @description Checks if a non-local function declaration does not declare a
+/// return type explicitly, its return type is `dynamic`.
 /// @author sgrekhov22@gmail.com
 
-import '../../Utils/static_type_helper.dart';
+import '../../../Utils/static_type_helper.dart';
 
 f1() {
   if (1 > 2) {
