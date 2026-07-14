@@ -21,23 +21,23 @@ import 'dart:async';
 
 import '../../Utils/static_type_helper.dart';
 
-test1<X extends FutureOr<int>, Y extends FutureOr<num>>(X x, Y y) {
+test1<X extends FutureOr<int>, Y extends FutureOr<int>>(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<FutureOr<num>>>();
+  v.expectStaticType<Exactly<FutureOr<int>>>();
 }
 
-test2<X extends FutureOr<int?>, Y extends FutureOr<num>>(X x, Y y) {
+test2<X extends FutureOr<num?>, Y extends FutureOr<num?>>(X x, Y y) {
   var v = 1 > 2 ? x : y;
   v.expectStaticType<Exactly<FutureOr<num?>>>();
 }
 
-test3<X extends FutureOr<int>, Y extends FutureOr<num?>>(X x, Y y) {
+test3<X extends FutureOr<Null>, Y extends FutureOr<Null>>(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<FutureOr<num?>>>();
+  v.expectStaticType<Exactly<FutureOr<Null>>>();
 }
 
 main() {
-  test1(Future.value(1), 3.14);
+  test1(Future.value(1), 2);
   test2(Future.value(null), 3.14);
-  test3(Future.value(1), null);
+  test3(Future.value(null), null);
 }

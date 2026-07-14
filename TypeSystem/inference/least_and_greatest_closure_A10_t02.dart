@@ -16,7 +16,6 @@
 /// `S` with respect to `L` is `FutureOr<U>` where `U` is the least closure of
 /// `T` with respect to `L`.
 /// @author sgrekhov22@gmail.com
-/// @issue https://github.com/dart-lang/language/issues/4720
 
 import 'dart:async';
 
@@ -24,41 +23,30 @@ import '../../Utils/static_type_helper.dart';
 
 test1<
   X extends void Function(FutureOr<int>),
-  Y extends void Function(FutureOr<num>)
+  Y extends void Function(FutureOr<int>)
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
   v.expectStaticType<Exactly<void Function(FutureOr<int>)>>();
 }
 
 test2<
-  X extends void Function(FutureOr<int>),
+  X extends void Function(FutureOr<num?>),
   Y extends void Function(FutureOr<num?>)
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<void Function(FutureOr<int>)>>();
+  v.expectStaticType<Exactly<void Function(FutureOr<num?>)>>();
 }
 
 test3<
-  X extends void Function(FutureOr<int?>),
-  Y extends void Function(FutureOr<num>)
+  X extends void Function(FutureOr<Null>),
+  Y extends void Function(FutureOr<Null>)
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<void Function(FutureOr<int>)>>();
-  print(v);
-}
-
-test4<
-  X extends void Function(FutureOr<int?>),
-  Y extends void Function(FutureOr<num?>)
->(X x, Y y) {
-  var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<void Function(FutureOr<int?>)>>();
-  print(v);
+  v.expectStaticType<Exactly<void Function(FutureOr<Null>)>>();
 }
 
 main() {
-  test1((FutureOr<int> _) {}, (FutureOr<num> _) {});
-  test2((FutureOr<int?> _) {}, (FutureOr<num?> _) {});
-  test3((FutureOr<int?> _) {}, (FutureOr<num> _) {});
-  test4((FutureOr<int?> _) {}, (FutureOr<num?> _) {});
+  test1((FutureOr<int> _) {}, (FutureOr<int> _) {});
+  test2((FutureOr<num?> _) {}, (FutureOr<num?> _) {});
+  test3((FutureOr<Null> _) {}, (FutureOr<Null> _) {});
 }

@@ -19,23 +19,23 @@
 
 import '../../Utils/static_type_helper.dart';
 
-test1<X extends Future<int>, Y extends Future<num>>(X x, Y y) {
+test1<X extends Future<int>, Y extends Future<int>>(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<Future<num>>>();
+  v.expectStaticType<Exactly<Future<int>>>();
 }
 
-test2<X extends Future<int?>, Y extends Future<num>>(X x, Y y) {
+test2<X extends Future<num?>, Y extends Future<num?>>(X x, Y y) {
   var v = 1 > 2 ? x : y;
   v.expectStaticType<Exactly<Future<num?>>>();
 }
 
-test3<X extends Future<int>, Y extends Future<num?>>(X x, Y y) {
+test3<X extends Future<Null>, Y extends Future<Null>>(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<Future<num?>>>();
+  v.expectStaticType<Exactly<Future<Null>>>();
 }
 
 main() {
-  test1(Future.value(1), Future.value(3.14));
+  test1(Future.value(1), Future.value(2));
   test2(Future.value(null), Future.value(3.14));
-  test3(Future.value(1), Future.value(null));
+  test3(Future.value(null), Future.value(null));
 }

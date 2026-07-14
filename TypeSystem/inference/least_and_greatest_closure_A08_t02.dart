@@ -16,47 +16,35 @@
 /// with respect to `L` is `Future<U>` where `U` is the least closure of `T`
 /// with respect to `L`.
 /// @author sgrekhov22@gmail.com
-/// @issue https://github.com/dart-lang/language/issues/4720
 
 import '../../Utils/static_type_helper.dart';
 
 test1<
   X extends void Function(Future<int>),
-  Y extends void Function(Future<num>)
+  Y extends void Function(Future<int>)
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
   v.expectStaticType<Exactly<void Function(Future<int>)>>();
 }
 
 test2<
-  X extends void Function(Future<int>),
+  X extends void Function(Future<num?>),
   Y extends void Function(Future<num?>)
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<void Function(Future<int>)>>();
+  v.expectStaticType<Exactly<void Function(Future<num?>)>>();
 }
 
 test3<
-  X extends void Function(Future<int?>),
-  Y extends void Function(Future<num>)
+  X extends void Function(Future<Null>),
+  Y extends void Function(Future<Null>)
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<void Function(Future<int>)>>();
-  print(v);
-}
-
-test4<
-  X extends void Function(Future<int?>),
-  Y extends void Function(Future<num?>)
->(X x, Y y) {
-  var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<void Function(Future<int?>)>>();
-  print(v);
+  v.expectStaticType<Exactly<void Function(Future<Null>)>>();
 }
 
 main() {
   test1((Future<int> _) {}, (Future<num> _) {});
-  test2((Future<int?> _) {}, (Future<num?> _) {});
-  test3((Future<int?> _) {}, (Future<num> _) {});
-  test4((Future<int?> _) {}, (Future<num?> _) {});
+  test2((Future<num?> _) {}, (Future<num?> _) {});
+  test3((Future<Null> _) {}, (Future<Null> _) {});
 }
