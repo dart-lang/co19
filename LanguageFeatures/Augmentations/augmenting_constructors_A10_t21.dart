@@ -27,7 +27,7 @@
 ///   of the corresponding introductory constructor.
 ///
 /// @description Checks that it is not an error if primary constructor declaring
-/// parameters implicitly have type `dynamic` and the augmenting constructor
+/// parameters implicitly have type `Object?` and the augmenting constructor
 /// specifies it explicitly.
 /// @author sgrekhov22@gmail.com
 
@@ -38,41 +38,25 @@ import '../../Utils/expect.dart';
 class C1(var x) {}
 
 augment class C1 {
-  augment C1(dynamic x) {
-    if (1 > 2) {
-      x.checkDynamic;
-    }
-  }
+  augment C1(Object? x);
 }
 
 class C2([final x]) {}
 
 augment class C2 {
-  augment C2([dynamic x]) {
-    if (1 > 2) {
-      x.checkDynamic;
-    }
-  }
+  augment C2([Object? x]);
 }
 
 class C3({var x}) {}
 
 augment class C3 {
-  augment C3({dynamic x}) {
-    if (1 > 2) {
-      x.checkDynamic;
-    }
-  }
+  augment C3({Object? x});
 }
 
 class C4({required final x}) {}
 
 augment class C4 {
-  augment C4({required dynamic x}) {
-    if (1 > 2) {
-      x.checkDynamic;
-    }
-  }
+  augment C4({required Object? x});
 }
 
 enum E1(final x) {
@@ -81,7 +65,7 @@ enum E1(final x) {
 
 augment enum E1 {
   ;
-  augment const E1(dynamic x);
+  augment const E1(Object? x);
 }
 
 enum E2([final x]) {
@@ -90,7 +74,7 @@ enum E2([final x]) {
 
 augment enum E2 {
   ;
-  augment const E2([dynamic x]);
+  augment const E2([Object? x]);
 }
 
 enum E3({final x}) {
@@ -99,7 +83,7 @@ enum E3({final x}) {
 
 augment enum E3 {
   ;
-  augment const E3({dynamic x});
+  augment const E3({Object? x});
 }
 
 enum E4({required final x}) {
@@ -108,17 +92,13 @@ enum E4({required final x}) {
 
 augment enum E4 {
   ;
-  augment const E4({required dynamic x});
+  augment const E4({required Object? x});
 }
 
 extension type ET(final x) {}
 
 augment extension type ET {
-  augment ET(dynamic x) {
-    if (1 > 2) {
-      x.checkDynamic;
-    }
-  }
+  augment ET(Object? x);
 }
 
 main() {
