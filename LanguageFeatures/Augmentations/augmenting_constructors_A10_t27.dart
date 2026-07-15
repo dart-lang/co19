@@ -53,7 +53,7 @@ enum E1(final int? _x) {
 
 augment enum E1 {
   ;
-  augment const E1(int _);
+  augment const E1(int? _);
 }
 
 enum E2([final int? _x]) {
