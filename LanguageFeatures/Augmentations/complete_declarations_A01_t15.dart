@@ -25,6 +25,9 @@
 class C {
   C() {}
   C.foo() {}
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment class C {
@@ -36,6 +39,9 @@ augment class C {
 
 extension type ET(int x) {
   ET.foo(int x) {}
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment extension type ET {
