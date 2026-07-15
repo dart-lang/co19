@@ -90,36 +90,28 @@ extension Ext on A {
   static int staticMethod1([int i]) => i;
   static int staticMethod2({int i}) => i;
   int instanceMethod1([int i]) => i;
-  int instanceMethod2([covariant int i]) => i;
-  int instanceMethod3({int i}) => i;
-  int instanceMethod4({covariant int i}) => i;
+  int instanceMethod2({int i}) => i;
 }
 
 augment extension Ext {
   augment static int staticMethod1([int i = 1]);
   augment static int staticMethod2({int i = 2});
   augment int instanceMethod1([int i = 3]);
-  augment int instanceMethod2([covariant int i = 4]);
-  augment int instanceMethod3({int i = 5});
-  augment int instanceMethod4({covariant int i = 6});
+  augment int instanceMethod2({int i = 5});
 }
 
 extension type ET(int _) {
   static int staticMethod1([int i]) => i;
   static int staticMethod2({int i}) => i;
   int instanceMethod1([int i]) => i;
-  int instanceMethod2([covariant int i]) => i;
-  int instanceMethod3({int i}) => i;
-  int instanceMethod4({covariant int i}) => i;
+  int instanceMethod2({int i}) => i;
 }
 
 augment extension type ET {
   augment static int staticMethod1([int i = 1]);
   augment static int staticMethod2({int i = 2});
   augment int instanceMethod1([int i = 3]);
-  augment int instanceMethod2([covariant int i = 4]);
-  augment int instanceMethod3({int i = 5});
-  augment int instanceMethod4({covariant int i = 6});
+  augment int instanceMethod2({int i = 5});
 }
 
 class MA = Object with M;
@@ -151,15 +143,11 @@ main() {
 
   Expect.equals(1, Ext.staticMethod1());
   Expect.equals(2, Ext.staticMethod2());
-  Expect.equals(3, A().e1.instanceMethod1());
-  Expect.equals(4, A().e1.instanceMethod2());
-  Expect.equals(5, A().e1.instanceMethod3());
-  Expect.equals(6, A().e1.instanceMethod4());
+  Expect.equals(3, A().instanceMethod1());
+  Expect.equals(4, A().instanceMethod2());
 
   Expect.equals(1, ET.staticMethod1());
   Expect.equals(2, ET.staticMethod2());
-  Expect.equals(3, ET(0).e1.instanceMethod1());
-  Expect.equals(4, ET(0).e1.instanceMethod2());
-  Expect.equals(5, ET(0).e1.instanceMethod3());
-  Expect.equals(6, ET(0).e1.instanceMethod4());
+  Expect.equals(3, ET(0).instanceMethod1());
+  Expect.equals(5, ET(0).instanceMethod2());
 }
