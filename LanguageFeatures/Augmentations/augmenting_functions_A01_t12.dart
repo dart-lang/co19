@@ -75,5 +75,5 @@ main() {
   Expect.equals("M:B", MA() + "B");
   Expect.equals("E:C", E.e1 + "C");
   Expect.equals("Ext:D", A() + "D");
-  Expect.equals("ET:E", ET(0) + "E");
+  Expect.equals("ET:E", ET("X") + "E");
 }
