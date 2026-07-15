@@ -11,9 +11,9 @@
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-import 'augmentation_libraries_lib.dart' as l;
-
 part of 'augmenting_functions_A01_t13.dart';
+
+import 'augmentation_libraries_lib.dart' as l;
 
 augment void topLevelFunction1(l.AL a) {}
 augment void topLevelFunction2([l.AL? a]) {}
