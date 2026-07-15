@@ -30,7 +30,7 @@ enum E2 {
 
 augment enum E2 {
   ;
-  augment String get name => "name2";
+  augment String get name;
 }
 
 enum E3 {
@@ -43,7 +43,7 @@ augment enum E3 {
 
 main() {
   Expect.equals("name", E1.e0.name);
-  Expect.equals("name2", E2.e0.name);
+  Expect.equals("name1", E2.e0.name);
   Expect.equals("e0", EnumName(E1.e0).name);
   Expect.equals("e0", EnumName(E2.e0).name);
   Expect.equals("E3.name", E3.name.toString());
