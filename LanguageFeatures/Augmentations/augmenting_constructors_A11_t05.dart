@@ -53,7 +53,7 @@ class C4 {
 }
 
 augment class C4 {
-  const augment factory C4() = new.someName;
+  augment const factory C4() = new.someName;
 //                             ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -105,12 +105,6 @@ augment extension type ET4 {
 //                                   ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-enum E {
-  e0;
-  const E();
-  factory E.f1() = E;
 }
 
 main() {
