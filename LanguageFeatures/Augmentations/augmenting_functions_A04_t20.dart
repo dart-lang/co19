@@ -66,8 +66,8 @@ enum E {
 
 augment enum E {
   ;
-  static int staticMethod({required int i});
-  int instanceMethod({required int i});
+  augment static int staticMethod({required int i});
+  augment int instanceMethod({required int i});
 }
 
 class A {}
