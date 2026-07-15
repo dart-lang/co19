@@ -34,9 +34,9 @@ class C {
 }
 
 augment class C {
-  @Meta augment staticMethod1();
-  @Meta augment String staticMethod2([v]);
-  @Meta augment staticMethod3({int v = 0});
+  @Meta augment static staticMethod1();
+  @Meta augment static String staticMethod2([v]);
+  @Meta augment static staticMethod3({int v = 0});
 
   @Meta augment instanceMethod1();
   @Meta augment String instanceMethod2([v = 0]);
@@ -54,9 +54,9 @@ mixin M {
 }
 
 augment mixin M {
-  @Meta augment staticMethod1();
-  @Meta augment String staticMethod2([v]);
-  @Meta augment staticMethod3({int v = 0});
+  @Meta augment static staticMethod1();
+  @Meta augment static String staticMethod2([v]);
+  @Meta augment static staticMethod3({int v = 0});
 
   @Meta augment instanceMethod1();
   @Meta augment String instanceMethod2([v = 0]);
@@ -76,9 +76,9 @@ enum E {
 
 augment enum E {
   ;
-  @Meta augment staticMethod1();
-  @Meta augment String staticMethod2([v]);
-  @Meta augment staticMethod3({int v = 0});
+  @Meta augment static staticMethod1();
+  @Meta augment static String staticMethod2([v]);
+  @Meta augment static staticMethod3({int v = 0});
 
   @Meta augment instanceMethod1();
   @Meta augment String instanceMethod2([v = 0]);
@@ -98,9 +98,9 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  @Meta augment staticMethod1();
-  @Meta augment String staticMethod2([v]);
-  @Meta augment staticMethod3({int v = 0});
+  @Meta augment static staticMethod1();
+  @Meta augment static String staticMethod2([v]);
+  @Meta augment static staticMethod3({int v = 0});
 
   @Meta augment instanceMethod1();
   @Meta augment String instanceMethod2([v = 0]);
@@ -118,9 +118,9 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  @Meta augment staticMethod1();
-  @Meta augment String staticMethod2([v]);
-  @Meta augment staticMethod3({int v = 0});
+  @Meta augment static staticMethod1();
+  @Meta augment static String staticMethod2([v]);
+  @Meta augment static staticMethod3({int v = 0});
 
   @Meta augment instanceMethod1();
   @Meta augment String instanceMethod2([v = 0]);
