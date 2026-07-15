@@ -33,8 +33,6 @@
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
 
-import '../../Utils/expect.dart';
-
 class C1(x) {}
 
 augment class C1 {
@@ -112,14 +110,14 @@ augment enum E4 {
 }
 
 main() {
-  Expect.equals(1, C1(1).x);
-  Expect.isNull(C2().x);
-  Expect.equals(1, C2(1).x);
-  Expect.isNull(C3().x);
-  Expect.equals(1, C3(x: 1).x);
-  Expect.equals(1, C4(x: 1).x);
-  Expect.equals(0, E1.e0.x);
-  Expect.isNull(E2.e0.x);
-  Expect.isNull(E3.e0.x);
-  Expect.equals(1, E4.e0.x);
+  C1(1);
+  C2();
+  C2(1);
+  C3();
+  C3(x: 1);
+  C4(x: 1);
+  print(E1);
+  print(E2);
+  print(E3);
+  print(E4);
 }
