@@ -30,12 +30,12 @@ enum E2 {
 
 augment enum E2 {
   ;
-  augment static String get name => "name2";
+  augment static String get name;
 }
 
 main() {
   Expect.equals("name1", E1.name);
   Expect.equals("e0", E1.e0.name);
-  Expect.equals("name2", E2.name);
+  Expect.equals("name", E2.name);
   Expect.equals("e0", E2.e0.name);
 }
