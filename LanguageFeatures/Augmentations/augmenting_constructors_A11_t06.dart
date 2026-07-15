@@ -25,6 +25,9 @@ augment class C {
 
 extension type ET(int v) {
   ET.someName();
+//^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment extension type ET {
