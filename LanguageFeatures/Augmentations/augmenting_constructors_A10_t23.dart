@@ -26,29 +26,24 @@
 /// - The signature of the augmenting constructor does not match the signature
 ///   of the corresponding introductory constructor.
 ///
-/// @description Checks that it is a compile-time error if the name of a
-/// declaring positional parameter of an augmenting primary constructor is not
-/// the same as the name of the corresponding positional parameter.
+/// @description Checks that it is not an error if the name of a declaring
+/// positional parameter of an augmenting primary constructor is `_`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
+
+import '../../Utils/expect.dart';
 
 class C1(var int? x) {}
 
 augment class C1 {
   augment C1(int? _);
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 class C2([final int? _]) {}
 
 augment class C2 {
   augment C2([int? x]);
-//                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 enum E1(final int _) {
@@ -58,9 +53,6 @@ enum E1(final int _) {
 augment enum E1 {
   ;
   augment const E1(int x);
-//                     ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 enum E2([final int? x]) {
@@ -70,34 +62,26 @@ enum E2([final int? x]) {
 augment enum E2 {
   ;
   augment const E2([int? _]);
-//                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension type ET1(int x) {}
 
 augment extension type ET1 {
   augment ET1(int _);
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension type ET2(int _) {}
 
 augment extension type ET2 {
   augment ET2(int x);
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
-  print(C1);
-  print(C2);
-  print(E1);
-  print(E2);
-  print(ET1);
-  print(ET2);
+  Expect.equals(1, C1(1).x);
+  Expect.equals(2, C2(2).x);
+  Expect.equals(0, E1.e0.x);
+  Expect.isNull(E2.e0.x);
+  Expect.equals(1, E2.e1.x);
+  Expect.equals(1, ET1(1).x);
+  Expect.equals(2, ET2(2).x);
 }
