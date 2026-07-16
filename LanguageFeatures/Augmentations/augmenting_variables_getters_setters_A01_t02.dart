@@ -34,7 +34,7 @@ class C {
 }
 
 augment class C {
-  augment static String staticGetter = "x";
+  augment static final String staticGetter = "x";
   augment final instanceGetter = "x";
 }
 
@@ -45,7 +45,7 @@ mixin M {
 
 augment mixin M {
   augment static final String staticGetter = "x";
-  augment instanceGetter = "x";
+  augment final instanceGetter = "x";
 }
 
 enum E {
