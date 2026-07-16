@@ -26,7 +26,7 @@
 import '../../Utils/expect.dart';
 
 String get topLevelGetter1;
-void set topLevelGetter1(String _) {} // Avoid an error at the augmenting declaration
+void set topLevelGetter1(String _); // Avoid an error at the augmenting declaration
 augment var topLevelGetter1 = "x";
 
 String get topLevelGetter2 => "x";
