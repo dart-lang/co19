@@ -16,7 +16,7 @@
 import '../../Utils/static_type_helper.dart';
 
 String topLevelFunction1();
-String topLevelFunction2([int v]);
+String topLevelFunction2([int v = 0]);
 String topLevelFunction3({int v});
 
 augment external topLevelFunction1();
@@ -25,18 +25,18 @@ augment external topLevelFunction3({int v = 0});
 
 class C {
   static String staticMethod1();
-  static String staticMethod2([int v]);
+  static String staticMethod2([int v = 0]);
   static String staticMethod3({int v});
 
   String instanceMethod1();
-  String instanceMethod2([int v]);
+  String instanceMethod2([int v = 0]);
   String instanceMethod3({int v});
 }
 
 augment class C {
-  augment external staticMethod1();
-  augment external String staticMethod2([v]);
-  augment external staticMethod3({int v = 0});
+  augment external static staticMethod1();
+  augment external static String staticMethod2([v]);
+  augment external static staticMethod3({int v = 0});
 
   augment external instanceMethod1();
   augment external String instanceMethod2([v]);
@@ -45,18 +45,18 @@ augment class C {
 
 mixin M {
   static String staticMethod1();
-  static String staticMethod2([int v]);
+  static String staticMethod2([int v = 0]);
   static String staticMethod3({int v});
 
   String instanceMethod1();
-  String instanceMethod2([int v]);
+  String instanceMethod2([int v = 0]);
   String instanceMethod3({int v});
 }
 
 augment mixin M {
-  augment external staticMethod1();
-  augment external String staticMethod2([v]);
-  augment external staticMethod3({int v = 0});
+  augment external static staticMethod1();
+  augment external static String staticMethod2([v]);
+  augment external static staticMethod3({int v = 0});
 
   augment external instanceMethod1();
   augment external String instanceMethod2([v]);
@@ -66,19 +66,19 @@ augment mixin M {
 enum E {
   e1;
   static String staticMethod1();
-  static String staticMethod2([int v]);
+  static String staticMethod2([int v = 0]);
   static String staticMethod3({int v});
 
   String instanceMethod1();
-  String instanceMethod2([int v]);
+  String instanceMethod2([int v = 0]);
   String instanceMethod3({int v});
 }
 
 augment enum E {
   ;
-  augment external staticMethod1();
-  augment external String staticMethod2([v]);
-  augment external staticMethod3({int v = 0});
+  augment external static staticMethod1();
+  augment external static String staticMethod2([v]);
+  augment external static staticMethod3({int v = 0});
 
   augment external instanceMethod1();
   augment external String instanceMethod2([v]);
@@ -89,18 +89,18 @@ class A {}
 
 extension Ext on A {
   static String staticMethod1();
-  static String staticMethod2([int v]);
+  static String staticMethod2([int v = 0]);
   static String staticMethod3({int v});
 
   String instanceMethod1();
-  String instanceMethod2([int v]);
+  String instanceMethod2([int v = 0]);
   String instanceMethod3({int v});
 }
 
 augment extension Ext {
-  augment external staticMethod1();
-  augment external String staticMethod2([v]);
-  augment external staticMethod3({int v = 0});
+  augment external static staticMethod1();
+  augment external static String staticMethod2([v]);
+  augment external static staticMethod3({int v = 0});
 
   augment external instanceMethod1();
   augment external String instanceMethod2([v]);
@@ -109,18 +109,18 @@ augment extension Ext {
 
 extension type ET(int _) {
   static String staticMethod1();
-  static String staticMethod2([int v]);
+  static String staticMethod2([int v = 0]);
   static String staticMethod3({int v});
 
   String instanceMethod1();
-  String instanceMethod2([int v]);
+  String instanceMethod2([int v = 0]);
   String instanceMethod3({int v});
 }
 
 augment extension type ET {
-  augment external staticMethod1();
-  augment external String staticMethod2([v]);
-  augment external staticMethod3({int v = 0});
+  augment external static staticMethod1();
+  augment external static String staticMethod2([v]);
+  augment external static staticMethod3({int v = 0});
 
   augment external instanceMethod1();
   augment external String instanceMethod2([v]);
