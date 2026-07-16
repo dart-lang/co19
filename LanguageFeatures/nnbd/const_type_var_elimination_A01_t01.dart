@@ -19,11 +19,13 @@
 /// is initialized by `const` literal of type `List<Never>`.
 /// @author iarkh@unipro.ru
 
+import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
 
 class G<T> {
   void foo() {
-    const List<T> l1 = []; // `[]` has type List<Never> but it cannot be checked
+    const List<T> l1 = []; // `[]` has type List<Never>
+    Expect.isTrue(l1 is List<Never>);
     l1.expectStaticType<Exactly<List<T>>>(); // l1 is still List<T>
   }
 }
