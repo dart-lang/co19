@@ -94,8 +94,17 @@ augment mixin M {
   augment static void staticMethod3({int v = 0});
 
   augment void instanceMethod1();
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod2([int v = 0]);
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod3({int v = 0});
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {
@@ -134,8 +143,17 @@ augment enum E {
   augment static void staticMethod3({int v = 0});
 
   augment void instanceMethod1();
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod2([int v = 0]);
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod3({int v = 0});
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A {}
@@ -174,8 +192,17 @@ augment extension Ext {
   augment static void staticMethod3({int v = 0});
 
   augment void instanceMethod1();
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod2([int v = 0]);
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod3({int v = 0});
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET(int _) {
@@ -212,8 +239,17 @@ augment extension type ET {
   augment static void staticMethod3({int v = 0});
 
   augment void instanceMethod1();
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod2([int v = 0]);
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment void instanceMethod3({int v = 0});
+//             ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
