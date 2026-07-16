@@ -37,22 +37,22 @@ class C {
 }
 
 augment class C {
-  augment String staticMethod1() => "Body";
-  augment String staticMethod2([int v]) => "Body. v=$v";
-  augment String staticMethod3({int v}) {
+  augment static String staticMethod1() => "Body";
+  augment static String staticMethod2([int v]) => "Body. v=$v";
+  augment static String staticMethod3({int v = 0}) {
     return "Body. v=$v";
   }
   augment String instanceMethod1() => "Body";
-  augment String instanceMethod2([int v]) => "Body. v=$v";
+  augment String instanceMethod2([int v = 0]) => "Body. v=$v";
   augment String instanceMethod3({int v}) {
     return "Body. v=$v";
   }
 }
 
 mixin M {
-  static String staticMethod1();
-  static String staticMethod2([int v]);
-  static String staticMethod3({int v});
+  static static String staticMethod1();
+  static static String staticMethod2([int v]);
+  static static String staticMethod3({int v});
 
   String instanceMethod1();
   String instanceMethod2([int v]);
@@ -60,13 +60,13 @@ mixin M {
 }
 
 augment mixin M {
-  augment String staticMethod1() => "Body";
-  augment String staticMethod2([int v]) => "Body. v=$v";
-  augment String staticMethod3({int v}) {
+  augment static String staticMethod1() => "Body";
+  augment static String staticMethod2([int v]) => "Body. v=$v";
+  augment static String staticMethod3({int v = 0}) {
     return "Body. v=$v";
   }
   augment String instanceMethod1() => "Body";
-  augment String instanceMethod2([int v]) => "Body. v=$v";
+  augment String instanceMethod2([int v = 0]) => "Body. v=$v";
   augment String instanceMethod3({int v}) {
     return "Body. v=$v";
   }
@@ -85,13 +85,13 @@ enum E {
 
 augment enum E {
   ;
-  augment String staticMethod1() => "Body";
-  augment String staticMethod2([int v]) => "Body. v=$v";
-  augment String staticMethod3({int v}) {
+  augment static String staticMethod1() => "Body";
+  augment static String staticMethod2([int v]) => "Body. v=$v";
+  augment static String staticMethod3({int v = 0}) {
     return "Body. v=$v";
   }
   augment String instanceMethod1() => "Body";
-  augment String instanceMethod2([int v]) => "Body. v=$v";
+  augment String instanceMethod2([int v = 0]) => "Body. v=$v";
   augment String instanceMethod3({int v}) {
     return "Body. v=$v";
   }
@@ -110,13 +110,13 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment String staticMethod1() => "Body";
-  augment String staticMethod2([int v]) => "Body. v=$v";
-  augment String staticMethod3({int v}) {
+  augment static String staticMethod1() => "Body";
+  augment static String staticMethod2([int v]) => "Body. v=$v";
+  augment static String staticMethod3({int v = 0}) {
     return "Body. v=$v";
   }
   augment String instanceMethod1() => "Body";
-  augment String instanceMethod2([int v]) => "Body. v=$v";
+  augment String instanceMethod2([int v = 0]) => "Body. v=$v";
   augment String instanceMethod3({int v}) {
     return "Body. v=$v";
   }
@@ -133,13 +133,13 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  augment String staticMethod1() => "Body";
-  augment String staticMethod2([int v]) => "Body. v=$v";
-  augment String staticMethod3({int v}) {
+  augment static String staticMethod1() => "Body";
+  augment static String staticMethod2([int v]) => "Body. v=$v";
+  augment static String staticMethod3({int v = 0}) {
     return "Body. v=$v";
   }
   augment String instanceMethod1() => "Body";
-  augment String instanceMethod2([int v]) => "Body. v=$v";
+  augment String instanceMethod2([int v = 0]) => "Body. v=$v";
   augment String instanceMethod3({int v}) {
     return "Body. v=$v";
   }
