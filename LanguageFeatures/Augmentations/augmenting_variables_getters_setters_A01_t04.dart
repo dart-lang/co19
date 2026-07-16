@@ -26,49 +26,49 @@
 import '../../Utils/expect.dart';
 
 String get topLevelGetter => "x";
-augment abstract String topLevelGetter;
+augment abstract final String topLevelGetter;
 
 class C {
   static String get staticGetter => "x";
-  augment static abstract String staticGetter;
+  augment static abstract final String staticGetter;
 
   String get instanceGetter => "x";
-  augment abstract String instanceGetter;
+  augment abstract final String instanceGetter;
 }
 
 mixin M {
   static String get staticGetter => "x";
-  augment static abstract String staticGetter;
+  augment static abstract final String staticGetter;
 
   String get instanceGetter => "x";
-  augment abstract String instanceGetter;
+  augment abstract String final instanceGetter;
 }
 
 enum E {
   e0;
   static String get staticGetter => "x";
-  augment static abstract String staticGetter;
+  augment static abstract final String staticGetter;
 
   String get instanceGetter => "x";
-  augment abstract String instanceGetter;
+  augment abstract String final instanceGetter;
 }
 
 class A {}
 
 extension Ext on A {
   static String get staticGetter => "x";
-  augment static abstract String staticGetter;
+  augment static abstract final String staticGetter;
 
   String get instanceGetter => "x";
-  augment abstract String instanceGetter;
+  augment abstract final String instanceGetter;
 }
 
 extension type ET(int _) {
   static String get staticGetter => "x";
-  augment static abstract String staticGetter;
+  augment static abstract final String staticGetter;
 
   String get instanceGetter => "x";
-  augment abstract String instanceGetter;
+  augment abstract final String instanceGetter;
 }
 
 class MA = Object with M;
