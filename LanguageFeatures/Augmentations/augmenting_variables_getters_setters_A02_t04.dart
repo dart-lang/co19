@@ -204,6 +204,6 @@ testStaticType([C? c, M? m, A? a, ET? et]) {
 
 main() {
   if (1 > 2) {
-    test();
+    testStaticType();
   }
 }
