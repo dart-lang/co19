@@ -19,13 +19,13 @@
 ///   `Iterable<S>`.
 /// - Otherwise, the inferred return type is `S`.
 ///
-/// @description Check that if actual return type is `void` and the function
-/// literal is marked `async`, then the inferred return type of the function
-/// literal is `Future<void>`.
+/// @description Check that if actual return type is `Future<void>` and the 
+/// function literal is marked `async`, then the inferred return type of the 
+/// function literal is `Future<void>`.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
-import 'function_literal_inference_A06_lib2.dart';
+import 'function_literal_inference_A06_lib3.dart';
 
 main() {
   f1.expectStaticType<Exactly<Future<void> Function()>>();

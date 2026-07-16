@@ -19,178 +19,179 @@
 ///   `Iterable<S>`.
 /// - Otherwise, the inferred return type is `S`.
 ///
-/// @description Check that if actual return type is `void`, then the inferred
-/// return type of the function literal is `void`. It is a compile-time error to
-/// use this value.
+/// @description Check that if actual return type is `Future<void>` and the
+/// function literal is marked `async`, then the inferred return type of the
+/// function literal is `Future<void>`. It is a compile-time error to await and
+/// then use this value.
 /// @author sgrekhov22@gmail.com
 
-import 'function_literal_inference_A06_lib1.dart';
+import 'function_literal_inference_A06_lib3.dart';
 
-main() {
-  Object? _ = f1();
-//            ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = f2();
-//            ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = f3();
-//            ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = f4();
-//            ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Object? _ = C.sf1();
-//            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = C.sf2();
-//            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = C.sf3();
-//            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = C.sf4();
-//            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = C().f1();
-//            ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = C().f2();
-//            ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = C().sf3();
-//            ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = C().sf4();
-//            ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Object? _ = M.sf1();
-//            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = M.sf2();
-//            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = M.sf3();
-//            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = M.sf4();
-//            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = MA().f1();
-//            ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = MA().f2();
-//            ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = MA().sf3();
+main() async {
+  Object? _ = await f1();
 //            ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = MA().sf4();
+  Object? _ = await f2();
+//            ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await f3();
+//            ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await f4();
 //            ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  Object? _ = MC.sf1();
-//            ^^^^^^^^
+  Object? _ = await C.sf1();
+//            ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = MC.sf2();
-//            ^^^^^^^^
+  Object? _ = await C.sf2();
+//            ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = MC.sf3();
-//            ^^^^^^^^
+  Object? _ = await C.sf3();
+//            ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = MC.sf4();
-//            ^^^^^^^^
+  Object? _ = await C.sf4();
+//            ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = MC().f1();
-//            ^^^^^^^^^
+  Object? _ = await C().f1();
+//            ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = MC().f2();
-//            ^^^^^^^^^
+  Object? _ = await C().f2();
+//            ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = MC().sf3();
-//            ^^^^^^^^^^
+  Object? _ = await C().sf3();
+//            ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = MC().sf4();
-//            ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Object? _ = E.sf1();
-//            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = E.sf2();
-//            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = E.sf3();
-//            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  Object? _ = E.sf4();
-//            ^^^^^^^
+  Object? _ = await C().sf4();
+//            ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  Object? _ = Ext.sf1();
-//            ^^^^^^^^^
+  Object? _ = await M.sf1();
+//            ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = Ext.sf2();
-//            ^^^^^^^^^
+  Object? _ = await M.sf2();
+//            ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = Ext.sf3();
-//            ^^^^^^^^^
+  Object? _ = await M.sf3();
+//            ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = Ext.sf4();
-//            ^^^^^^^^^
+  Object? _ = await M.sf4();
+//            ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await MA().f1();
+//            ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await MA().f2();
+//            ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await MA().sf3();
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await MA().sf4();
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  Object? _ = ET.sf1();
-//            ^^^^^^^^
+  Object? _ = await MC.sf1();
+//            ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = ET.sf2();
-//            ^^^^^^^^
+  Object? _ = await MC.sf2();
+//            ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = ET.sf3();
-//            ^^^^^^^^
+  Object? _ = await MC.sf3();
+//            ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Object? _ = ET.sf4();
-//            ^^^^^^^^
+  Object? _ = await MC.sf4();
+//            ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await MC().f1();
+//            ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await MC().f2();
+//            ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await MC().sf3();
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await MC().sf4();
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Object? _ = await E.sf1();
+//            ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await E.sf2();
+//            ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await E.sf3();
+//            ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await E.sf4();
+//            ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Object? _ = await Ext.sf1();
+//            ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await Ext.sf2();
+//            ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await Ext.sf3();
+//            ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await Ext.sf4();
+//            ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Object? _ = await ET.sf1();
+//            ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await ET.sf2();
+//            ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await ET.sf3();
+//            ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? _ = await ET.sf4();
+//            ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
