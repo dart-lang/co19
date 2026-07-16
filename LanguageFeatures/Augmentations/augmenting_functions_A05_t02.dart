@@ -116,11 +116,9 @@ extension Ext on A {
   static staticMethod3([i]) => i;
   static staticMethod4({i}) => i;
   int? instanceMethod1([int? i]) => i;
-  int? instanceMethod2([covariant int? i]) => i;
-  int? instanceMethod3({int? i}) => i;
-  int? instanceMethod4({covariant int? i}) => i;
-  instanceMethod5([i]) => i;
-  instanceMethod6({i}) => i;
+  int? instanceMethod2({int? i}) => i;
+  instanceMethod3([i]) => i;
+  instanceMethod4({i}) => i;
 }
 
 augment extension Ext {
@@ -129,11 +127,9 @@ augment extension Ext {
   augment static staticMethod3([i]);
   augment static staticMethod4({i});
   augment int? instanceMethod1([int? i]);
-  augment int? instanceMethod2([covariant int? i]);
-  augment int? instanceMethod3({int? i});
-  augment int? instanceMethod4({covariant int? i});
-  augment instanceMethod5([i]);
-  augment instanceMethod6({i});
+  augment int? instanceMethod2({int? i});
+  augment instanceMethod3([i]);
+  augment instanceMethod4({i});
 }
 
 extension type ET(int _) {
@@ -142,11 +138,9 @@ extension type ET(int _) {
   static staticMethod3([i]) => i;
   static staticMethod4({i}) => i;
   int? instanceMethod1([int? i]) => i;
-  int? instanceMethod2([covariant int? i]) => i;
-  int? instanceMethod3({int? i}) => i;
-  int? instanceMethod4({covariant int? i}) => i;
-  instanceMethod5([i]) => i;
-  instanceMethod6({i}) => i;
+  int? instanceMethod2({int? i}) => i;
+  instanceMethod3([i]) => i;
+  instanceMethod4({i}) => i;
 }
 
 augment extension type ET {
@@ -155,11 +149,9 @@ augment extension type ET {
   augment static staticMethod3([i]);
   augment static staticMethod4({i});
   augment int? instanceMethod1([int? i]);
-  augment int? instanceMethod2([covariant int? i]);
-  augment int? instanceMethod3({int? i});
-  augment int? instanceMethod4({covariant int? i});
-  augment instanceMethod5([i]);
-  augment instanceMethod6({i});
+  augment int? instanceMethod2({int? i});
+  augment instanceMethod3([i]);
+  augment instanceMethod4({i});
 }
 
 class MA = Object with M;
@@ -211,8 +203,6 @@ main() {
   Expect.isNull(A().instanceMethod2());
   Expect.isNull(A().instanceMethod3());
   Expect.isNull(A().instanceMethod4());
-  Expect.isNull(A().instanceMethod5());
-  Expect.isNull(A().instanceMethod6());
 
   Expect.isNull(ET.staticMethod1());
   Expect.isNull(ET.staticMethod2());
@@ -222,6 +212,4 @@ main() {
   Expect.isNull(ET(0).instanceMethod2());
   Expect.isNull(ET(0).instanceMethod3());
   Expect.isNull(ET(0).instanceMethod4());
-  Expect.isNull(ET(0).instanceMethod5());
-  Expect.isNull(ET(0).instanceMethod6());
 }
