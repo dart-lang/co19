@@ -41,7 +41,7 @@ mixin M {
   augment static abstract final String staticGetter;
 
   String get instanceGetter => "x";
-  augment abstract String final instanceGetter;
+  augment abstract final String instanceGetter;
 }
 
 enum E {
@@ -50,7 +50,7 @@ enum E {
   augment static abstract final String staticGetter;
 
   String get instanceGetter => "x";
-  augment abstract String final instanceGetter;
+  augment abstract final String instanceGetter;
 }
 
 class A {}
