@@ -26,46 +26,46 @@
 import '../../Utils/expect.dart';
 
 String get topLevelGetter1;
-void set topLevelGetter1(String _); // Avoid an error at the augmenting declaration
+void set topLevelGetter1(String _) {} // Avoid an error at the augmenting declaration
 augment var topLevelGetter1 = "x";
 
 String get topLevelGetter2 => "x";
-augment final topLevelGetter2;
+augment abstract final topLevelGetter2;
 
 class C {
   static String get staticGetter1;
   static void set staticGetter1(String _);
   static String get staticGetter2 => "x";
-  static void set staticGetter2(String _);
+  static void set staticGetter2(String _) {}
   String get instanceGetter1;
   void set instanceGetter1(String _);
   String get instanceGetter2 => "x";
-  void set instanceGetter2(String _);
+  void set instanceGetter2(String _) {}
 }
 
 augment class C {
   augment static var staticGetter1 = "x";
-  augment static final staticGetter2;
+  augment static abstract final staticGetter2;
   augment var instanceGetter1 = "x";
-  augment final instanceGetter2;
+  augment abstract final instanceGetter2;
 }
 
 mixin M {
   static String get staticGetter1;
   static void set staticGetter1(String _);
   static String get staticGetter2 => "x";
-  static void set staticGetter2(String _);
+  static void set staticGetter2(String _) {}
   String get instanceGetter1;
   void set instanceGetter1(String _);
   String get instanceGetter2 => "x";
-  void set instanceGetter2(String _);
+  void set instanceGetter2(String _) {}
 }
 
 augment mixin M {
   augment static var staticGetter1 = "x";
-  augment static final staticGetter2;
+  augment static abstract final staticGetter2;
   augment var instanceGetter1 = "x";
-  augment final instanceGetter2;
+  augment abstract final instanceGetter2;
 }
 
 enum E {
@@ -73,19 +73,19 @@ enum E {
   static String get staticGetter1;
   static void set staticGetter1(String _);
   static String get staticGetter2 => "x";
-  static void set staticGetter2(String _);
+  static void set staticGetter2(String _) {}
   String get instanceGetter1;
   void set instanceGetter1(String _);
   String get instanceGetter2 => "x";
-  void set instanceGetter2(String _);
+  void set instanceGetter2(String _) {}
 }
 
 augment enum E {
   ;
   augment static var staticGetter1 = "x";
-  augment static final staticGetter2;
+  augment static abstract final staticGetter2;
   augment var instanceGetter1 = "x";
-  augment final instanceGetter2;
+  augment abstract final instanceGetter2;
 }
 
 class A {}
@@ -94,36 +94,36 @@ extension Ext on A {
   static String get staticGetter1;
   static void set staticGetter1(String _);
   static String get staticGetter2 => "x";
-  static void set staticGetter2(String _);
+  static void set staticGetter2(String _) {}
   String get instanceGetter1;
   void set instanceGetter1(String _);
   String get instanceGetter2 => "x";
-  void set instanceGetter2(String _);
+  void set instanceGetter2(String _) {}
 }
 
 augment extension Ext {
   augment static var staticGetter1 = "x";
-  augment static final staticGetter2;
+  augment static abstract final staticGetter2;
   augment var instanceGetter1 = "x";
-  augment final instanceGetter2;
+  augment abstract final instanceGetter2;
 }
 
 extension type ET(int _) {
   static String get staticGetter1;
   static void set staticGetter1(String _);
   static String get staticGetter2 => "x";
-  static void set staticGetter2(String _);
+  static void set staticGetter2(String _) {}
   String get instanceGetter1;
   void set instanceGetter1(String _);
   String get instanceGetter2 => "x";
-  void set instanceGetter2(String _);
+  void set instanceGetter2(String _) {}
 }
 
 augment extension type ET {
   augment static var staticGetter1 = "x";
-  augment static final staticGetter2;
+  augment static abstract final staticGetter2;
   augment var instanceGetter1 = "x";
-  augment final instanceGetter2;
+  augment abstract final instanceGetter2;
 }
 
 class MA = Object with M;
