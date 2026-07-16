@@ -50,9 +50,9 @@ augment class C {
 }
 
 mixin M {
-  static static String staticMethod1();
-  static static String staticMethod2([int v]);
-  static static String staticMethod3({int v});
+  static String staticMethod1();
+  static String staticMethod2([int v]);
+  static String staticMethod3({int v});
 
   String instanceMethod1();
   String instanceMethod2([int v]);
