@@ -59,13 +59,13 @@ class C {
 }
 
 augment class C {
-  augment String staticMethod1();
-  augment String staticMethod2([int v = 0]);
-  augment String staticMethod3({int v = 0});
+  augment static void staticMethod1();
+  augment static void staticMethod2([int v = 0]);
+  augment static void staticMethod3({int v = 0});
 
-  augment String instanceMethod1();
-  augment String instanceMethod2([int v = 0]);
-  augment String instanceMethod3({int v = 0});
+  augment void instanceMethod1();
+  augment void instanceMethod2([int v = 0]);
+  augment void instanceMethod3({int v = 0});
 }
 
 mixin M {
@@ -82,28 +82,20 @@ mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  // No errors below. Mixins are allowed to declare abstract instance methods
   void instanceMethod1();
-//     ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   void instanceMethod2([int v]);
-//     ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   void instanceMethod3({int v});
-//     ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment mixin M {
-  augment String staticMethod1();
-  augment String staticMethod2([int v = 0]);
-  augment String staticMethod3({int v = 0});
+  augment static void staticMethod1();
+  augment static void staticMethod2([int v = 0]);
+  augment static void staticMethod3({int v = 0});
 
-  augment String instanceMethod1();
-  augment String instanceMethod2([int v = 0]);
-  augment String instanceMethod3({int v = 0});
+  augment void instanceMethod1();
+  augment void instanceMethod2([int v = 0]);
+  augment void instanceMethod3({int v = 0});
 }
 
 enum E {
@@ -137,13 +129,13 @@ enum E {
 
 augment enum E {
   ;
-  augment String staticMethod1();
-  augment String staticMethod2([int v = 0]);
-  augment String staticMethod3({int v = 0});
+  augment static void staticMethod1();
+  augment static void staticMethod2([int v = 0]);
+  augment static void staticMethod3({int v = 0});
 
-  augment String instanceMethod1();
-  augment String instanceMethod2([int v = 0]);
-  augment String instanceMethod3({int v = 0});
+  augment void instanceMethod1();
+  augment void instanceMethod2([int v = 0]);
+  augment void instanceMethod3({int v = 0});
 }
 
 class A {}
@@ -177,13 +169,13 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment String staticMethod1();
-  augment String staticMethod2([int v = 0]);
-  augment String staticMethod3({int v = 0});
+  augment static void staticMethod1();
+  augment static void staticMethod2([int v = 0]);
+  augment static void staticMethod3({int v = 0});
 
-  augment String instanceMethod1();
-  augment String instanceMethod2([int v = 0]);
-  augment String instanceMethod3({int v = 0});
+  augment void instanceMethod1();
+  augment void instanceMethod2([int v = 0]);
+  augment void instanceMethod3({int v = 0});
 }
 
 extension type ET(int _) {
@@ -215,13 +207,13 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  augment String staticMethod1();
-  augment String staticMethod2([int v = 0]);
-  augment String staticMethod3({int v = 0});
+  augment static void staticMethod1();
+  augment static void staticMethod2([int v = 0]);
+  augment static void staticMethod3({int v = 0});
 
-  augment String instanceMethod1();
-  augment String instanceMethod2([int v = 0]);
-  augment String instanceMethod3({int v = 0});
+  augment void instanceMethod1();
+  augment void instanceMethod2([int v = 0]);
+  augment void instanceMethod3({int v = 0});
 }
 
 main() {
