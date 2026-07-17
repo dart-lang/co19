@@ -109,18 +109,6 @@ enum E {
 //               ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  var instanceGetter1;
-  augment int get instanceGetter1;
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var instanceGetter2;
-  augment Object? get instanceGetter2;
-//        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 class A {}
@@ -137,18 +125,6 @@ extension Ext on A {
 //               ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  var instanceGetter1;
-  augment int get instanceGetter1;
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var instanceGetter2;
-  augment Object? get instanceGetter2;
-//        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension type ET(int _) {
@@ -161,18 +137,6 @@ extension type ET(int _) {
   static var staticGetter2;
   augment static Object? get staticGetter2;
 //               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var instanceGetter1;
-  augment int get instanceGetter1;
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var instanceGetter2;
-  augment Object? get instanceGetter2;
-//        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -204,6 +168,6 @@ testStaticType([C? c, M? m, A? a, ET? et]) {
 
 main() {
   if (1 > 2) {
-    test();
+    testStaticType();
   }
 }
