@@ -48,9 +48,9 @@ augment void set topLevelSetter1(int _);
 augment void set topLevelSetter1(int x);
 
 void set topLevelSetter2(int _) {}
-augment void set topLevelSetter1(int _x);
-augment void set topLevelSetter1(int _);
-augment void set topLevelSetter1(int _x);
+augment void set topLevelSetter2(int _x);
+augment void set topLevelSetter2(int _);
+augment void set topLevelSetter2(int _x);
 
 class C {
   static void set staticSetter1(int _);
