@@ -39,7 +39,7 @@ augment void set topLevelSetter1(int _);
 // [cfe] unspecified
 
 var topLevelSetter2;
-augment void set topLevelSetter1(Object? _);
+augment void set topLevelSetter2(Object? _);
 //                               ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -51,8 +51,8 @@ class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static var staticGetter2;
-  augment static void set staticSetter1(Object? _);
+  static var staticSetter2;
+  augment static void set staticSetter2(Object? _);
 //                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -63,7 +63,7 @@ class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var instanceGetter2;
+  var instanceSetter2;
   augment void set instanceSetter2(Object? _);
 //                                 ^^^^^^^
 // [analyzer] unspecified
@@ -77,8 +77,8 @@ mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static var staticGetter2;
-  augment static void set staticSetter1(Object? _);
+  static var staticSetter2;
+  augment static void set staticSetter2(Object? _);
 //                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -89,7 +89,7 @@ mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var instanceGetter2;
+  var instanceSetter2;
   augment void set instanceSetter2(Object? _);
 //                                 ^^^^^^^
 // [analyzer] unspecified
@@ -104,21 +104,9 @@ enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static var staticGetter2;
-  augment static void set staticSetter1(Object? _);
+  static var staticSetter2;
+  augment static void set staticSetter2(Object? _);
 //                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var instanceSetter1;
-  augment void set instanceSetter1(int _);
-//                                 ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var instanceGetter2;
-  augment void set instanceSetter2(Object? _);
-//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -132,21 +120,9 @@ extension Ext on A {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static var staticGetter2;
-  augment static void set staticSetter1(Object? _);
+  static var staticSetter2;
+  augment static void set staticSetter2(Object? _);
 //                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var instanceSetter1;
-  augment void set instanceSetter1(int _);
-//                                 ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var instanceGetter2;
-  augment void set instanceSetter2(Object? _);
-//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -158,21 +134,9 @@ extension type ET(int _) {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static var staticGetter2;
-  augment static void set staticSetter1(Object? _);
+  static var staticSetter2;
+  augment static void set staticSetter2(Object? _);
 //                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var instanceSetter1;
-  augment void set instanceSetter1(int _);
-//                                 ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var instanceGetter2;
-  augment void set instanceSetter2(Object? _);
-//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
