@@ -57,14 +57,11 @@ enum E {
   e0;
   static void set staticSetter(int _);
   static int get staticSetter;
-  void set instanceSetter(int _);
-  int get instanceSetter;
 }
 
 augment enum E {
   ;
   augment static late final int staticSetter;
-  augment late final int instanceSetter;
 }
 
 class A {}
@@ -72,25 +69,19 @@ class A {}
 extension Ext on A {
   static void set staticSetter(int _);
   static int get staticSetter;
-  void set instanceSetter(int _);
-  int get instanceSetter;
 }
 
 augment extension Ext {
   augment static late final int staticSetter;
-  augment late final int instanceSetter;
 }
 
 extension type ET(int _) {
   static void set staticSetter(int _);
   static int get staticSetter;
-  void set instanceSetter(int _);
-  int get instanceSetter;
 }
 
 augment extension type ET {
   augment static late final int staticSetter;
-  augment late final int instanceSetter;
 }
 
 class MA = Object with M;
