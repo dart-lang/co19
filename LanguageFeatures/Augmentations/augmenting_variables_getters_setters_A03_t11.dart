@@ -33,8 +33,8 @@ class C {
 }
 
 augment class C {
-  augment external String get staticVariable;
-  augment external void set staticVariable(String _);
+  augment external static String get staticVariable;
+  augment external static void set staticVariable(String _);
   augment external String get instanceVariable;
   augment external void set instanceVariable(String _);
 }
@@ -45,8 +45,8 @@ mixin M {
 }
 
 augment mixin M {
-  augment external String get staticVariable;
-  augment external void set staticVariable(String _);
+  augment external static String get staticVariable;
+  augment external static void set staticVariable(String _);
   augment external String get instanceVariable;
   augment external void set instanceVariable(String _);
 }
@@ -59,8 +59,8 @@ enum E {
 
 augment enum E {
   ;
-  augment external String get staticVariable;
-  augment external void set staticVariable(String _);
+  augment external static String get staticVariable;
+  augment external static void set staticVariable(String _);
   augment external String get instanceVariable;
   augment external void set instanceVariable(String _);
 }
@@ -73,8 +73,8 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  augment external String get staticVariable;
-  augment external void set staticVariable(String _);
+  augment external static String get staticVariable;
+  augment external static void set staticVariable(String _);
   augment external String get instanceVariable;
   augment external void set instanceVariable(String _);
 }
@@ -85,15 +85,15 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  augment external String get staticVariable;
-  augment external void set staticVariable(String _);
+  augment external static String get staticVariable;
+  augment external static void set staticVariable(String _);
   augment external String get instanceVariable;
   augment external void set instanceVariable(String _);
 }
 
 main() {
   if (1 > 2) {
-    topLevelSetter = "";
+    topLevelVariable = "";
   }
   print(C);
   print(M);
