@@ -45,10 +45,8 @@ mixin M {
   augment static abstract int staticVariable;
   augment static int get staticVariable => 0;
 
-  abstract int instanceVariable;
-//             ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  abstract int instanceVariable; // Not an error. Abstract setters are allowed in mixins
+
   augment abstract int instanceVariable;
   augment int get instanceVariable => 0;
 }
