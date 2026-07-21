@@ -37,7 +37,7 @@ class C {
 }
 
 mixin M {
-  abstract String instanceVariable; // Not an error. Abstract getters are allowed in mixins
+  abstract String instanceVariable; // Not an error. Abstract setters are allowed in mixins
   augment String get instanceVariable => "";
 }
 
