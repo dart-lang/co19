@@ -72,8 +72,8 @@ main() {
   A().abstractSetter = "d";
   Expect.equals("abstractSetter = d", _log);
 
-  Expect.equals("abstractMethod", ET(0).abstractMethod());
-  Expect.equals("abstractGetter", ET(0).abstractGetter);
-  ET(0).abstractSetter = "e";
+  Expect.equals("abstractMethod", ET("").abstractMethod());
+  Expect.equals("abstractGetter", ET("").abstractGetter);
+  ET("").abstractSetter = "e";
   Expect.equals("abstractSetter = e", _log);
 }
