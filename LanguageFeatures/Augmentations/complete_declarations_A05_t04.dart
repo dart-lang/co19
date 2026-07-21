@@ -37,10 +37,7 @@ class C {
 }
 
 mixin M {
-  abstract String instanceVariable;
-//                ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  abstract String instanceVariable; // Not an error. Abstract setters are allowed in mixins
   augment String get instanceVariable => "";
 }
 
