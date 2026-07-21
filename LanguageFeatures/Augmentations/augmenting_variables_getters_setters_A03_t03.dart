@@ -51,35 +51,29 @@ augment mixin M {
 enum E {
   e0;
   static String staticVariable = "x";
-  String instanceVariable = "x";
 }
 
 augment enum E {
   ;
   augment static void set staticVariable(String _);
-  augment void set instanceVariable(String v);
 }
 
 class A {}
 
 extension Ext on A {
   static String staticVariable = "x";
-  String instanceVariable = "x";
 }
 
 augment extension Ext {
   augment static void set staticVariable(String v);
-  augment void set instanceVariable(String _);
 }
 
 extension type ET(int _) {
   static String staticVariable = "x";
-  String instanceVariable = "x";
 }
 
 augment extension type ET {
   augment static void set staticVariable(String _);
-  augment void set instanceVariable(String v);
 }
 
 class MA = Object with M;
@@ -91,9 +85,6 @@ main() {
   Expect.equals("x", M.staticVariable);
   Expect.equals("x", MA().instanceVariable);
   Expect.equals("x", E.staticVariable);
-  Expect.equals("x", E.e0.instanceVariable);
   Expect.equals("x", Ext.staticVariable);
-  Expect.equals("x", A().instanceVariable);
   Expect.equals("x", ET.staticVariable);
-  Expect.equals("x", ET(0).instanceVariable);
 }
