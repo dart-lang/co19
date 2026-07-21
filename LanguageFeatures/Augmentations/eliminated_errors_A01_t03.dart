@@ -17,30 +17,30 @@
 class I<T> {}
 
 class C implements I {}
-augment class C implements I<String> {}
-//            ^
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
+augment class C implements I<String> {}
 
 mixin M implements I<int> {}
-augment mixin M implements I<String> {}
-//            ^
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
+augment mixin M implements I<String> {}
 
 enum E implements I<int> {
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   e0;
 }
 augment enum E implements I {;}
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 extension type ET(I<int> _) implements I<num> {}
-augment extension type ET implements I<Object> {}
-//                     ^^
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+augment extension type ET implements I<Object> {}
 
 class MA = Object with M;
 
