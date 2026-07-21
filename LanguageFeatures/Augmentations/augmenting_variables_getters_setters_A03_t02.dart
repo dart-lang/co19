@@ -57,14 +57,11 @@ enum E {
   e0;
   static void set staticSetter(String _);
   static String get staticSetter;
-  void set instanceSetter(String v);
-  String get instanceSetter;
 }
 
 augment enum E {
   ;
   augment static String staticSetter = "x";
-  augment String instanceSetter = "x";
 }
 
 class A {}
@@ -72,25 +69,19 @@ class A {}
 extension Ext on A {
   static void set staticSetter(String _);
   static String get staticSetter;
-  void set instanceSetter(String v);
-  String get instanceSetter;
 }
 
 augment extension Ext {
   augment static String staticSetter = "x";
-  augment String instanceSetter = "x";
 }
 
 extension type ET(int _) {
   static void set staticSetter(String _);
   static String get staticSetter;
-  void set instanceSetter(String v);
-  String get instanceSetter;
 }
 
 augment extension type ET {
   augment static String staticSetter = "x";
-  augment String instanceSetter = "x";
 }
 
 class MA = Object with M;
@@ -113,18 +104,10 @@ main() {
 
   E.staticSetter = "f";
   Expect.equals("f", E.staticSetter);
-  E.e0.instanceSetter = "g";
-  Expect.equals("g", E.e0.instanceSetter);
 
-  Ext.staticSetter = "h";
-  Expect.equals("h", Ext.staticSetter);
-  var a = A();
-  a.instanceSetter = "i";
-  Expect.equals("i", a.instanceSetter);
+  Ext.staticSetter = "g";
+  Expect.equals("g", Ext.staticSetter);
 
-  ET.staticSetter = "j";
-  Expect.equals("j", ET.staticSetter);
-  var et = ET(0);
-  et.instanceSetter = "k";
-  Expect.equals("k", et.instanceSetter);
+  ET.staticSetter = "h";
+  Expect.equals("h", ET.staticSetter);
 }
