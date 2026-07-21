@@ -21,7 +21,7 @@
 /// part files.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 part 'complete_declarations_A01_t10_lib1.dart';
 part 'complete_declarations_A01_t10_lib3.dart';
