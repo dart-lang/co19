@@ -64,7 +64,7 @@ augment mixin M {
 enum E {
   e0;
   static int? staticVariable;
-  final int? instanceVariable;
+  final int? instanceVariable = 0;
 }
 
 augment enum E {
