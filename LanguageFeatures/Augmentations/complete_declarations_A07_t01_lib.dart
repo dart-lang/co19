@@ -28,6 +28,6 @@ augment abstract class A {
   augment abstractMethod();
   augment get abstractGetter;
   augment set abstractSetter(String _);
-  abstract String abstractVariable;
+  augment abstract String abstractVariable;
   augment String operator +(String other);
 }
