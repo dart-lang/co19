@@ -19,6 +19,10 @@ augment const int topLevelConstant1;
 // [cfe] unspecified
 
 const int topLevelConstant2;
+//        ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 augment const int topLevelConstant2 = 0;
 //                ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -31,6 +35,10 @@ class C {
 // [analyzer] unspecified
 // [cfe] unspecified
   static const int staticConstant2;
+//                 ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   augment static const int staticConstant2 = 0;
 //                         ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -44,6 +52,10 @@ mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
   static const int staticConstant2;
+//                 ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   augment static const int staticConstant2 = 0;
 //                         ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -58,6 +70,10 @@ enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
   static const int staticConstant2;
+//                 ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   augment static const int staticConstant2 = 0;
 //                         ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -73,6 +89,10 @@ extension Ext on A {
 // [analyzer] unspecified
 // [cfe] unspecified
   static const int staticConstant2;
+//                 ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   augment static const int staticConstant2 = 0;
 //                         ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -86,6 +106,9 @@ extension type ET(int _) {
 // [analyzer] unspecified
 // [cfe] unspecified
   static const int staticConstant2;
+//                 ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   augment static const int staticConstant2 = 0;
 //                         ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
