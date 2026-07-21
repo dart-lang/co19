@@ -23,7 +23,7 @@
 // SharedOptions=--enable-experiment=augmentations
 
 class C {
-  int x;
+  int? x;
   C(this.x);
   C.foo([this.x]);
   C.bar({this.x});
@@ -35,11 +35,11 @@ augment class C {
 //        ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C.foo([this.x = 0]);
+  augment C.foo([this.x]);
 //        ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment C.bar({this.x = 0});
+  augment C.bar({this.x});
 //        ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -52,11 +52,11 @@ augment class C {
 enum E {
   e0(0);
 
-  final int x;
-  const C(this.x);
-  const C.foo([this.x]);
-  const C.bar({this.x});
-  const C.baz({required this.x});
+  final int? x;
+  const E(this.x);
+  const E.foo([this.x]);
+  const E.bar({this.x});
+  const E.baz({required this.x});
 }
 
 augment enum E {
@@ -65,11 +65,11 @@ augment enum E {
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment const E.foo([this.x = 0]);
+  augment const E.foo([this.x]);
 //              ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment const E.bar({this.x = 0});
+  augment const E.bar({this.x});
 //              ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -79,7 +79,7 @@ augment enum E {
 // [cfe] unspecified
 }
 
-extension type ET._(int x) {
+extension type ET._(int? x) {
   ET(this.x);
   ET.foo([this.x]);
   ET.bar({this.x});
@@ -91,11 +91,11 @@ augment extension type ET {
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment ET.foo([this.x = 0]);
+  augment ET.foo([this.x]);
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment ET.bar({this.x = 0});
+  augment ET.bar({this.x});
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
