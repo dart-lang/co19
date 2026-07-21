@@ -18,13 +18,12 @@ mixin M1 {}
 
 mixin M2 on C {}
 
-augment mixin M1 on Object {
+augment mixin M1 on Object {}
 //                  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-augment mixin M2 on C {
+augment mixin M2 on C {}
 //                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
