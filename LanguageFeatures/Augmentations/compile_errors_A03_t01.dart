@@ -21,12 +21,12 @@ int topLevelVariable1;
 // [cfe] unspecified
 
 abstract int topLevelVariable2;
-//           ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 augment abstract int topLevelVariable1;
 augment int topLevelVariable2;
+//          ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class C {
   static int staticVariable1;
@@ -34,14 +34,14 @@ class C {
 // [analyzer] unspecified
 // [cfe] unspecified
   static abstract int staticVariable2;
-//                    ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment class C {
   augment static abstract int staticVariable1;
   augment static int staticVariable2;
+//                   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M {
@@ -50,14 +50,14 @@ mixin M {
 // [analyzer] unspecified
 // [cfe] unspecified
   static abstract int staticVariable2;
-//                    ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment mixin M {
   augment static abstract int staticVariable1;
   augment static int staticVariable2;
+//                   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {
@@ -67,15 +67,15 @@ enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
   static abstract int staticVariable2;
-//                    ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment enum E {
   ;
   augment static abstract int staticVariable1;
   augment static int staticVariable2;
+//                   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A {}
@@ -86,14 +86,14 @@ extension Ext on A {
 // [analyzer] unspecified
 // [cfe] unspecified
   static abstract int staticVariable2;
-//                    ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment extension Ext {
-  static abstract int staticVariable1;
-  static int staticVariable2;
+  augment static abstract int staticVariable1;
+  augment static int staticVariable2;
+//                   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET(int _) {
@@ -102,14 +102,14 @@ extension type ET(int _) {
 // [analyzer] unspecified
 // [cfe] unspecified
   static abstract int staticVariable2;
-//                    ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment extension type ET {
-  static abstract int staticVariable1;
-  static int staticVariable2;
+  augment static abstract int staticVariable1;
+  augment static int staticVariable2;
+//                   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
