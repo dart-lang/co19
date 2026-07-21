@@ -39,10 +39,7 @@ mixin M {
 //               ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  int get instanceGetter;
-//        ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  int get instanceGetter; // Not an error. An abstract getter is allowed in a mixin
 
   augment static int get staticGetter;
   augment int get instanceGetter;
