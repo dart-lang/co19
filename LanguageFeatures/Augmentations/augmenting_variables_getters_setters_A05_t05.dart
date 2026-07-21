@@ -45,10 +45,8 @@ mixin M {
   augment static int get staticVariable => 0;
   augment static void set staticVariable(int _);
 
-  abstract int instanceVariable;
-//             ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  abstract int instanceVariable; // Not an error. Abstract setters are allowed in mixins
+
   augment int get instanceVariable => 0;
   augment void set instanceVariable(int _);
 }
@@ -62,8 +60,8 @@ enum E {
   augment static int get staticVariable => 0;
   augment static void set staticVariable(int _);
 
-  abstract final int instanceVariable;
-//                   ^^^^^^^^^^^^^^^^
+  abstract int instanceVariable;
+//             ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   augment int get instanceVariable => 0;
