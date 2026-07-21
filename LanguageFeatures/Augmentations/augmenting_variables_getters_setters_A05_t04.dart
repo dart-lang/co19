@@ -30,7 +30,7 @@ class C {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment void set staticSetter(int _);
+  augment static void set staticSetter(int _);
   augment void set instanceSetter(int _);
 }
 
@@ -39,12 +39,9 @@ mixin M {
 //                ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  void set instanceSetter(int _);
-//         ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  void set instanceSetter(int _); // Not an error. Abstract setters are allowed in mixins
 
-  augment void set staticSetter(int _);
+  augment static void set staticSetter(int _);
   augment void set instanceSetter(int _);
 }
 
@@ -59,7 +56,7 @@ enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment void set staticSetter(int _);
+  augment static void set staticSetter(int _);
   augment void set instanceSetter(int _);
 }
 
@@ -75,7 +72,7 @@ extension Ext on A {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment void set staticSetter(int _);
+  augment static void set staticSetter(int _);
   augment void set instanceSetter(int _);
 }
 
@@ -89,7 +86,7 @@ extension type ET(int _) {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  augment void set staticSetter(int _);
+  augment static void set staticSetter(int _);
   augment void set instanceSetter(int _);
 }
 
