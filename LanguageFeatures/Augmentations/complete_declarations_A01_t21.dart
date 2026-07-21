@@ -46,6 +46,9 @@ augment class C2 {
 class C3(int v) { // Complete because has an initializer list
   int v;
   this : v = v;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment class C3 {
@@ -84,6 +87,9 @@ enum E2(int v) { // Initializer list
 
   final int v;
   this : v = v;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment enum E2 {
