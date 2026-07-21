@@ -9,46 +9,44 @@
 /// compile-time error, then that error should not be reported.
 ///
 /// @description Checks that it is a compile-time error if the augmenting
-/// factory constructor references itself.
+/// redirecting factory constructor introduce default values.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 class C {
   int x;
-  C(this.x);
-  factory C.foo(int x);
-  factory C.bar([int? x]);
-  factory C.baz({int? x});
-  factory C.qux({required int x});
+  C([this.x = 0]);
+  C.n({this.x = 0});
+  factory C.foo([int x]);
+  factory C.bar({int x});
 }
 
 augment class C {
-  augment factory C.foo(int x) = C.foo;
-//                               ^
+  augment factory C.foo([int x = 0]) = C.new;
+//                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment factory C.bar([int? x]) = C.bar;
-//                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment factory C.baz({int? x}) = C.baz;
-//                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment factory C.qux({required int x}) = C.qux;
-//                                          ^
+  augment factory C.bar({int x = 0}) = C.n;
+//                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET(int x) {
-  factory ET.foo(int x);
+  factory ET.foo([int? x]) => ET.new(0);
+  factory ET.bar({int? x}) => ET.new(0);
+  factory ET.baz([int? x]) = ET.foo;
+  factory ET.qux({int? x}) = ET.bar;
 }
 
 augment extension type ET {
-  augment factory ET.foo(int x) = ET.foo;
-//                                ^
+  augment factory ET.baz([int? x = 0]);
+//                               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment factory ET.qux({int? x = 0});
+//                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
