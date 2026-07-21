@@ -31,7 +31,9 @@ augment var topLevelSetter = "x";
 
 class C {
   static void set staticSetter(String _);
+  static String get staticSetter;
   void set instanceSetter(String v);
+  String get instanceSetter;
 }
 
 augment class C {
@@ -40,8 +42,10 @@ augment class C {
 }
 
 mixin M {
-  static void set staticSetter(String v);
-  void set instanceSetter(String _);
+  static void set staticSetter(String _);
+  static String get staticSetter;
+  void set instanceSetter(String v);
+  String get instanceSetter;
 }
 
 augment mixin M {
@@ -52,35 +56,32 @@ augment mixin M {
 enum E {
   e0;
   static void set staticSetter(String _);
-  void set instanceSetter(String v);
+  static String get staticSetter;
 }
 
 augment enum E {
   ;
   augment static var staticSetter = "x";
-  augment var instanceSetter = "x";
 }
 
 class A {}
 
 extension Ext on A {
   static void set staticSetter(String v);
-  void set instanceSetter(String _);
+  static String get staticSetter;
 }
 
 augment extension Ext {
   augment static var staticSetter = "x";
-  augment var instanceSetter = "x";
 }
 
 extension type ET(int _) {
   static void set staticSetter(String _);
-  void set instanceSetter(String v);
+  static String get staticSetter;
 }
 
 augment extension type ET {
   augment static var staticSetter = "x";
-  augment var instanceSetter = "x";
 }
 
 class MA = Object with M;
@@ -92,9 +93,6 @@ main() {
   Expect.equals("x", M.staticSetter);
   Expect.equals("x", MA().instanceSetter);
   Expect.equals("x", E.staticSetter);
-  Expect.equals("x", E.e0.instanceSetter);
   Expect.equals("x", Ext.staticSetter);
-  Expect.equals("x", A().instanceSetter);
   Expect.equals("x", ET.staticSetter);
-  Expect.equals("x", ET(0).instanceSetter);
 }
