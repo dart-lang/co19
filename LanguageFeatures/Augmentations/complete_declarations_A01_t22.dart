@@ -80,7 +80,7 @@ augment enum E1 {
 }
 
 enum E2.foo(int v) { // Initializer list
-  e0(0);
+  e0.foo(0);
 
   final int v;
   this : v = v;
@@ -88,7 +88,7 @@ enum E2.foo(int v) { // Initializer list
 
 augment enum E2 {
   ;
-  augment const E2.foo(int v) : assert(v > 0);
+  augment const E2.foo(int v) : assert(v >= 0);
 //                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -102,7 +102,7 @@ enum E3(this.v) { // Initializing formals
 
 augment enum E3 {
   ;
-  augment const E3(int v) : assert(v > 0);
+  augment const E3(int v) : assert(v >= 0);
 //                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
