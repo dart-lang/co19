@@ -41,10 +41,7 @@ mixin M {
 // [cfe] unspecified
   augment static int get staticVariable;
 
-  abstract final int instanceVariable;
-//                   ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  abstract final int instanceVariable; // Not an error. Abstract getters are allowed in mixins
   augment int get instanceVariable;
 }
 
