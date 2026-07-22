@@ -45,7 +45,7 @@ extension Ext on A {
   static String staticVariable = "Static variable";
 }
 
-extension type ET(int instanceVariable) {
+extension type ET(String instanceVariable) {
   static String staticVariable = "Static variable";
 }
 

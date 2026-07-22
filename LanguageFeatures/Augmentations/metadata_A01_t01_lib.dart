@@ -39,7 +39,7 @@ augment enum E {
 
 augment extension Ext {
   @Meta()
-  augment static String staticVariable;
+  augment static abstract String staticVariable;
 }
 
 augment extension type ET {
