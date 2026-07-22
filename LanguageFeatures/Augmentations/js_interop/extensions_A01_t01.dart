@@ -7,6 +7,8 @@
 /// @description Checks that an js interop extension can be augmented.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=augmentations
+
 import 'dart:js_interop';
 import '../../../LibTest/js_interop/js_utils.dart';
 import '../../../Utils/expect.dart';
