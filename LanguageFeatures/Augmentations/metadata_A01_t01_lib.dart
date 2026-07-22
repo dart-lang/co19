@@ -13,28 +13,28 @@
 part of 'metadata_A01_t01.dart';
 
 @Meta()
-augment String topLevelVariable;
+augment abstract String topLevelVariable;
 
 augment class C {
   @Meta()
-  augment static String staticVariable;
+  augment static abstract String staticVariable;
   @Meta()
-  augment String instanceVariable;
+  augment abstract String instanceVariable;
 }
 
 augment mixin M {
   @Meta()
-  augment static String staticVariable;
+  augment static abstract String staticVariable;
   @Meta()
-  augment String instanceVariable;
+  augment abstract String instanceVariable;
 }
 
 augment enum E {
   ;
   @Meta()
-  augment static String staticVariable;
+  augment static abstract String staticVariable;
   @Meta()
-  augment final String instanceVariable;
+  augment abstract final String instanceVariable;
 }
 
 augment extension Ext {
@@ -44,7 +44,7 @@ augment extension Ext {
 
 augment extension type ET {
   @Meta()
-  augment static String staticVariable;
+  augment static abstract String staticVariable;
   @Meta()
-  augment final String instanceVariable;
+  augment abstract final String instanceVariable;
 }
