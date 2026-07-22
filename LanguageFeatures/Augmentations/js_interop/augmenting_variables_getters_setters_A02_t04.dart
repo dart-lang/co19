@@ -20,6 +20,10 @@ import '../../../Utils/expect.dart';
 @JS()
 set topLevelSetter(int value);
 
+// We also need to define a getter to avoid an error in the augmenting declaration
+@JS()
+int get topLevelSetter;
+
 augment external int topLevelSetter;
 
 extension type ET(JSObject _) implements JSObject {
