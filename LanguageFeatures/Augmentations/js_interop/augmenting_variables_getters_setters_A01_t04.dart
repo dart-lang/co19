@@ -28,7 +28,7 @@ extension type ET(JSObject _) implements JSObject {
 }
 
 augment extension type ET {
-  augment external final int staticGetter;
+  augment external static final int staticGetter;
   augment external final int instanceGetter;
 }
 
