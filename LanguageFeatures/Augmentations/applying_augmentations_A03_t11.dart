@@ -127,7 +127,7 @@ extension type ET(int _) {
   static void set setter(int _) {}
 }
 
-augment class C {
+augment extension type ET {
   augment void method();
 //             ^^^^^^^
 // [analyzer] unspecified
