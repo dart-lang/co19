@@ -9,6 +9,8 @@
 /// allowed and work as expected.
 /// @author sgrekhov22@gmail.com
 
+// SharedOptions=--enable-experiment=augmentations
+
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
 import '../../../LibTest/js_interop/js_utils.dart';
