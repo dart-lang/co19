@@ -20,7 +20,7 @@ String log = "";
 extension type ET1(int id) {}
 
 augment extension type ET1 {
-  augment void set id(int v) {
+  void set id(int v) {
     log = "$v";
   }
 }
@@ -29,7 +29,7 @@ extension type ET2(int id) {}
 
 augment extension type ET2 {
   @meta
-  augment void set id(int v) {
+  void set id(int v) {
     log = "$v";
   }
 }
