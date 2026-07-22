@@ -28,6 +28,7 @@ extension type ET(JSObject _) implements JSObject {
 }
 
 augment extension type ET {
+  augment external static final int staticVariable;
   augment external int get instanceVariable;
 }
 
