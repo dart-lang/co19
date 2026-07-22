@@ -32,43 +32,38 @@ main() {
   var c1 = {
 //         ^
 // [analyzer] unspecified
+// [cfe] unspecified
     ?v,
     "mapEntry": 1
-//            ^
-// [cfe] unspecified
   };
   var c2 = {
 //         ^
 // [analyzer] unspecified
+// [cfe] unspecified
     ?v,
     "nullAwareMapEntry": ?v
-//                     ^
-// [cfe] unspecified
   };
   var c3 = {
 //         ^
 // [analyzer] unspecified
+// [cfe] unspecified
     ?v,
     ?key: "nullAwareMapEntry"
-//      ^
-// [cfe] unspecified
   };
   var c4 = {
 //         ^
 // [analyzer] unspecified
+// [cfe] unspecified
     ?v,
     ?key: ?v
-//      ^
-// [cfe] unspecified
   };
 
   Map m = {};
   var c5 = {
 //         ^
 // [analyzer] unspecified
+// [cfe] unspecified
     ?v,
     ...m
-//     ^
-// [cfe] unspecified
   };
 }

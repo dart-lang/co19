@@ -31,49 +31,43 @@ main() {
   var c1 = {
 //         ^
 // [analyzer] unspecified
-    ?key: "nullAwareMapEntry",
-//      ^
 // [cfe] unspecified
+    ?key: "nullAwareMapEntry",
     "expressionElement"
   };
   var c2 = {
 //         ^
 // [analyzer] unspecified
-    "nullAwareMapEntry": ?v,
-//                     ^
 // [cfe] unspecified
+    "nullAwareMapEntry": ?v,
     "expressionElement"
   };
   var c3 = {
 //         ^
 // [analyzer] unspecified
-    ?key: ?v,
-//      ^
 // [cfe] unspecified
+    ?key: ?v,
     "expressionElement"
   };
   var c4 = {
 //         ^
 // [analyzer] unspecified
-    ?key: "nullAwareMapEntry",
-//      ^
 // [cfe] unspecified
+    ?key: "nullAwareMapEntry",
     ?v
   };
   var c5 = {
 //         ^
 // [analyzer] unspecified
-    "nullAwareMapEntry": ?v,
-//                     ^
 // [cfe] unspecified
+    "nullAwareMapEntry": ?v,
     ?v
   };
   var c6 = {
 //         ^
 // [analyzer] unspecified
-    ?key: ?v,
-//      ^
 // [cfe] unspecified
+    ?key: ?v,
     ?v
   };
 
