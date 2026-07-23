@@ -29,7 +29,7 @@ void topLevelFunction6(Never v) {}
 augment void topLevelFunction1(v);
 augment void topLevelFunction2([_]);
 augment void topLevelFunction3({v});
-augment void topLevelFunction4({required _});
+augment void topLevelFunction4({required v});
 augment void topLevelFunction5(v);
 augment void topLevelFunction6(_);
 
@@ -41,25 +41,25 @@ class C {
   static void staticMethod5(void v) {}
   static void staticMethod6(Never v) {}
 
-  void instanceMethod1(int v) {}
-  void instanceMethod2([Object? v]) {}
-  void instanceMethod3({dynamic v}) {}
-  void instanceMethod4({required Null v}) {}
-  void instanceMethod5(void v) {}
-  void instanceMethod6(Never v) {}
+  void instanceMethod1(int v);
+  void instanceMethod2([Object? v]);
+  void instanceMethod3({dynamic v});
+  void instanceMethod4({required Null v});
+  void instanceMethod5(void v);
+  void instanceMethod6(Never v);
 }
 
 augment class C {
   augment static void staticMethod1(v);
   augment static void staticMethod2([_]);
   augment static void staticMethod3({v});
-  augment static void staticMethod4({required _});
+  augment static void staticMethod4({required v});
   augment static void staticMethod5(v);
   augment static void staticMethod6(_);
 
   augment void instanceMethod1(_) {}
   augment void instanceMethod2([v]) {}
-  augment void instanceMethod3({_}) {}
+  augment void instanceMethod3({v}) {}
   augment void instanceMethod4({required v}) {}
   augment void instanceMethod5(_) {}
   augment void instanceMethod6(v) {}
@@ -73,25 +73,25 @@ mixin M {
   static void staticMethod5(void v) {}
   static void staticMethod6(Never v) {}
 
-  void instanceMethod1(int v) {}
-  void instanceMethod2([Object? v]) {}
-  void instanceMethod3({dynamic v}) {}
-  void instanceMethod4({required Null v}) {}
-  void instanceMethod5(void v) {}
-  void instanceMethod6(Never v) {}
+  void instanceMethod1(int v);
+  void instanceMethod2([Object? v]);
+  void instanceMethod3({dynamic v});
+  void instanceMethod4({required Null v});
+  void instanceMethod5(void v);
+  void instanceMethod6(Never v);
 }
 
 augment mixin M {
   augment static void staticMethod1(v);
   augment static void staticMethod2([_]);
   augment static void staticMethod3({v});
-  augment static void staticMethod4({required _});
+  augment static void staticMethod4({required v});
   augment static void staticMethod5(v);
   augment static void staticMethod6(_);
 
   augment void instanceMethod1(_) {}
   augment void instanceMethod2([v]) {}
-  augment void instanceMethod3({_}) {}
+  augment void instanceMethod3({v}) {}
   augment void instanceMethod4({required v}) {}
   augment void instanceMethod5(_) {}
   augment void instanceMethod6(v) {}
@@ -106,12 +106,12 @@ enum E {
   static void staticMethod5(void v) {}
   static void staticMethod6(Never v) {}
 
-  void instanceMethod1(int v) {}
-  void instanceMethod2([Object? v]) {}
-  void instanceMethod3({dynamic v}) {}
-  void instanceMethod4({required Null v}) {}
-  void instanceMethod5(void v) {}
-  void instanceMethod6(Never v) {}
+  void instanceMethod1(int v);
+  void instanceMethod2([Object? v]);
+  void instanceMethod3({dynamic v});
+  void instanceMethod4({required Null v});
+  void instanceMethod5(void v);
+  void instanceMethod6(Never v);
 }
 
 augment enum E {
@@ -119,13 +119,13 @@ augment enum E {
   augment static void staticMethod1(v);
   augment static void staticMethod2([_]);
   augment static void staticMethod3({v});
-  augment static void staticMethod4({required _});
+  augment static void staticMethod4({required v});
   augment static void staticMethod5(v);
   augment static void staticMethod6(_);
 
   augment void instanceMethod1(_) {}
   augment void instanceMethod2([v]) {}
-  augment void instanceMethod3({_}) {}
+  augment void instanceMethod3({v}) {}
   augment void instanceMethod4({required v}) {}
   augment void instanceMethod5(_) {}
   augment void instanceMethod6(v) {}
@@ -141,25 +141,25 @@ extension Ext on A {
   static void staticMethod5(void v) {}
   static void staticMethod6(Never v) {}
 
-  void instanceMethod1(int v) {}
-  void instanceMethod2([Object? v]) {}
-  void instanceMethod3({dynamic v}) {}
-  void instanceMethod4({required Null v}) {}
-  void instanceMethod5(void v) {}
-  void instanceMethod6(Never v) {}
+  void instanceMethod1(int v);
+  void instanceMethod2([Object? v]);
+  void instanceMethod3({dynamic v});
+  void instanceMethod4({required Null v});
+  void instanceMethod5(void v);
+  void instanceMethod6(Never v);
 }
 
 augment extension Ext {
   augment static void staticMethod1(v);
   augment static void staticMethod2([_]);
   augment static void staticMethod3({v});
-  augment static void staticMethod4({required _});
+  augment static void staticMethod4({required v});
   augment static void staticMethod5(v);
   augment static void staticMethod6(_);
 
   augment void instanceMethod1(_) {}
   augment void instanceMethod2([v]) {}
-  augment void instanceMethod3({_}) {}
+  augment void instanceMethod3({v}) {}
   augment void instanceMethod4({required v}) {}
   augment void instanceMethod5(_) {}
   augment void instanceMethod6(v) {}
@@ -173,25 +173,25 @@ extension type ET(int _) {
   static void staticMethod5(void v) {}
   static void staticMethod6(Never v) {}
 
-  void instanceMethod1(int v) {}
-  void instanceMethod2([Object? v]) {}
-  void instanceMethod3({dynamic v}) {}
-  void instanceMethod4({required Null v}) {}
-  void instanceMethod5(void v) {}
-  void instanceMethod6(Never v) {}
+  void instanceMethod1(int v);
+  void instanceMethod2([Object? v]);
+  void instanceMethod3({dynamic v});
+  void instanceMethod4({required Null v});
+  void instanceMethod5(void v);
+  void instanceMethod6(Never v);
 }
 
 augment extension type ET {
   augment static void staticMethod1(v);
   augment static void staticMethod2([_]);
   augment static void staticMethod3({v});
-  augment static void staticMethod4({required _});
+  augment static void staticMethod4({required v});
   augment static void staticMethod5(v);
   augment static void staticMethod6(_);
 
   augment void instanceMethod1(_) {}
   augment void instanceMethod2([v]) {}
-  augment void instanceMethod3({_}) {}
+  augment void instanceMethod3({v}) {}
   augment void instanceMethod4({required v}) {}
   augment void instanceMethod5(_) {}
   augment void instanceMethod6(v) {}
