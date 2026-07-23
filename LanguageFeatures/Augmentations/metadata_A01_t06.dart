@@ -32,14 +32,14 @@ class C {
   @Meta1()
   static void set staticSetter(String _) {}
   @Meta1()
-  void set instanceSetter(String _) {}
+  void set instanceSetter(String _);
 }
 
 mixin M {
   @Meta1()
   static void set staticSetter(String _) {}
   @Meta1()
-  void set instanceSetter(String _) {}
+  void set instanceSetter(String _);
 }
 
 enum E {
@@ -48,7 +48,7 @@ enum E {
   @Meta1()
   static void set staticSetter(String _) {}
   @Meta1()
-  void set instanceSetter(String _) {}
+  void set instanceSetter(String _);
 }
 
 class A {}
@@ -57,14 +57,14 @@ extension Ext on A {
   @Meta1()
   static void set staticSetter(String _) {}
   @Meta1()
-  void set instanceSetter(String _) {}
+  void set instanceSetter(String _);
 }
 
 extension type ET(int id) {
   @Meta1()
   static void set staticSetter(String _) {}
   @Meta1()
-  void set instanceSetter(String _) {}
+  void set instanceSetter(String _);
 }
 
 main() {
