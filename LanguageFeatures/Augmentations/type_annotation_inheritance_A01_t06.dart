@@ -51,8 +51,8 @@ enum E {
 
 augment enum E {
   ;
-  static void staticMethod(v) {}
-  void instanceMethod(v);
+  augment static void staticMethod(v) {}
+  augment void instanceMethod(v);
 }
 
 class A {}
@@ -63,8 +63,8 @@ extension Ext on A {
 }
 
 augment extension Ext {
-  static void staticMethod(v) {}
-  void instanceMethod(v);
+  augment static void staticMethod(v) {}
+  augment void instanceMethod(v);
 }
 
 extension type ET(int _) {
@@ -73,8 +73,8 @@ extension type ET(int _) {
 }
 
 augment extension type ET {
-  static void staticMethod(v) {}
-  void instanceMethod(v);
+  augment static void staticMethod(v) {}
+  augment void instanceMethod(v);
 }
 
 class MA = Object with M;
