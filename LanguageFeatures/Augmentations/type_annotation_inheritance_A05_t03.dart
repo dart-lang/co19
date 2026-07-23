@@ -44,7 +44,7 @@ class C {
   var instanceVariable2;
   abstract var instanceVariable3;
   final finalInstanceVariable1 = 1;
-  final finalInstanceVariable2;
+  final finalInstanceVariable2 = 2;
   abstract final finalInstanceVariable3;
 }
 
@@ -74,7 +74,7 @@ mixin M {
   var instanceVariable2;
   abstract var instanceVariable3;
   final finalInstanceVariable1 = 1;
-  final finalInstanceVariable2;
+  final finalInstanceVariable2 = 2;
   abstract final finalInstanceVariable3;
 }
 
@@ -102,7 +102,7 @@ enum E {
   static abstract final finalStaticVariable2;
 
   final finalInstanceVariable1 = 1;
-  final finalInstanceVariable2;
+  final finalInstanceVariable2 = 2;
   abstract final finalInstanceVariable3;
 }
 
