@@ -35,7 +35,7 @@ class C {
 
 augment class C {
   augment static var staticVariable = "Augmented static variable";
-  augment static final finalStaticVariable;
+  augment static abstract final finalStaticVariable;
   augment var instanceVariable = "Augmented instance variable";
   augment abstract final finalInstanceVariable;
 }
@@ -49,7 +49,7 @@ mixin M {
 
 augment mixin M {
   augment static var staticVariable = "Augmented static variable";
-  augment static final finalStaticVariable;
+  augment static abstract final finalStaticVariable;
   augment var instanceVariable = "Augmented instance variable";
   augment abstract final finalInstanceVariable;
 }
@@ -64,7 +64,7 @@ enum E {
 augment enum E {
   ;
   augment static var staticVariable = "Augmented static variable";
-  augment static final finalStaticVariable;
+  augment static abstract final finalStaticVariable;
   augment abstract final finalInstanceVariable;
 }
 
