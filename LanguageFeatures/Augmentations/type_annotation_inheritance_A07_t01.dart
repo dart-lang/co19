@@ -37,9 +37,9 @@ class C implements A {
 
 augment class C {
   augment get foo;
-  augment final bar;
+  augment abstract final bar;
   augment get baz;
-  augment final qux;
+  augment abstract final qux;
 }
 
 augment class C {
