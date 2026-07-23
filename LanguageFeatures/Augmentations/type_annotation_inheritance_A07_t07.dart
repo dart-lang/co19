@@ -27,6 +27,7 @@ class C implements A {
 }
 
 augment class C {
+  int get foo => 0;
   augment set foo(_);
 }
 
