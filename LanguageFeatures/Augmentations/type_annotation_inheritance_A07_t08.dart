@@ -23,6 +23,7 @@ abstract class A {
 }
 
 class C implements A {
+  get foo => 0;
   set foo(_);
 }
 
