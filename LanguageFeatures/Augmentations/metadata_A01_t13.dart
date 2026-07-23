@@ -69,7 +69,7 @@ augment enum E {
   @Meta2()
   augment const E._private();
   @Meta2()
-  augment const E.redirect() : this();
+  augment const E.redirect();
   @Meta2()
   augment factory E.factory1();
 }
@@ -89,9 +89,9 @@ extension type ET._(int id) {
 
 augment extension type ET {
   @Meta2()
-  augment ET(this.id);
+  augment ET(int id);
   @Meta2()
-  augment ET._private(this.id);
+  augment ET._private(int id);
   @Meta2()
   augment ET.redirect();
   @Meta2()
