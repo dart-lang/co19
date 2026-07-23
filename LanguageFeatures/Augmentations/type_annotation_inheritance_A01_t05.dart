@@ -24,7 +24,7 @@ abstract String topLevelVariable;
 final String finalTopLevelVariable = "Final top-level variable";
 
 augment var topLevelVariable = "Augmented top-level variable";
-augment final finalTopLevelVariable;
+augment abstract final finalTopLevelVariable;
 
 class C {
   static abstract String staticVariable;
@@ -37,7 +37,7 @@ augment class C {
   augment static var staticVariable = "Augmented static variable";
   augment static final finalStaticVariable;
   augment var instanceVariable = "Augmented instance variable";
-  augment final finalInstanceVariable;
+  augment abstract final finalInstanceVariable;
 }
 
 mixin M {
@@ -51,7 +51,7 @@ augment mixin M {
   augment static var staticVariable = "Augmented static variable";
   augment static final finalStaticVariable;
   augment var instanceVariable = "Augmented instance variable";
-  augment final finalInstanceVariable;
+  augment abstract final finalInstanceVariable;
 }
 
 enum E {
