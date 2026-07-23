@@ -20,16 +20,16 @@
 import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
 
-String topLevelVariable;
+abstract String topLevelVariable;
 final String finalTopLevelVariable = "Final top-level variable";
 
 augment var topLevelVariable = "Augmented top-level variable";
 augment final finalTopLevelVariable;
 
 class C {
-  static String staticVariable;
+  static abstract String staticVariable;
   static final String finalStaticVariable = "Final static variable";
-  String instanceVariable;
+  abstract String instanceVariable;
   final String finalInstanceVariable = "Final instance variable";
 }
 
@@ -41,9 +41,9 @@ augment class C {
 }
 
 mixin M {
-  static String staticVariable;
+  static abstract String staticVariable;
   static final String finalStaticVariable = "Final static variable";
-  String instanceVariable;
+  abstract String instanceVariable;
   final String finalInstanceVariable = "Final instance variable";
 }
 
@@ -56,7 +56,7 @@ augment mixin M {
 
 enum E {
   e0;
-  static String staticVariable;
+  static abstract String staticVariable;
   static final String finalStaticVariable = "Final static variable";
   final String finalInstanceVariable = "Final instance variable";
 }
@@ -65,30 +65,30 @@ augment enum E {
   ;
   augment static var staticVariable = "Augmented static variable";
   augment static final finalStaticVariable;
-  augment final finalInstanceVariable;
+  augment abstract final finalInstanceVariable;
 }
 
 class A {}
 
 extension Ext on A {
-  static String staticVariable;
+  static abstract String staticVariable;
   static final String finalStaticVariable = "Final static variable";
 }
 
 augment extension Ext {
   augment static var staticVariable = "Augmented static variable";
-  augment static final finalStaticVariable;
+  augment static abstract final finalStaticVariable;
 }
 
 extension type ET(int id) {
-  static String staticVariable;
+  static abstract String staticVariable;
   static final String finalStaticVariable = "Final static variable";
 }
 
 augment extension type ET {
   augment static var staticVariable = "Augmented static variable";
-  augment static final finalStaticVariable;
-  augment final id;
+  augment static abstract final finalStaticVariable;
+  augment abstract final id;
 }
 
 class MA = Object with M;
