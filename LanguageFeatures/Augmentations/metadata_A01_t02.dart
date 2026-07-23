@@ -59,7 +59,7 @@ extension Ext on A {
   static String staticVariable = "Static variable";
 }
 
-extension type ET(int instanceVariable) {
+extension type ET(String instanceVariable) {
   @Meta1()
   static String staticVariable = "Static variable";
 }
