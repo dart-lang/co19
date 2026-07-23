@@ -13,18 +13,18 @@
 part of 'metadata_A01_t08.dart';
 
 @Meta2()
-augment void topLevelFunction() {}
+augment void topLevelFunction();
 
 augment class C {
   @Meta2()
-  augment static void staticMethod() {}
+  augment static void staticMethod();
   @Meta2()
   augment void instanceMethod() {}
 }
 
 augment mixin M {
   @Meta2()
-  augment static void staticMethod() {}
+  augment static void staticMethod();
   @Meta2()
   augment void instanceMethod() {}
 }
@@ -32,21 +32,21 @@ augment mixin M {
 augment enum E {
   ;
   @Meta2()
-  augment static void staticMethod() {}
+  augment static void staticMethod();
   @Meta2()
   augment void instanceMethod() {}
 }
 
 augment extension Ext {
   @Meta2()
-  augment static void staticMethod() {}
+  augment static void staticMethod();
   @Meta2()
   augment void instanceMethod() {}
 }
 
 augment extension type ET {
   @Meta2()
-  augment static void staticMethod() {}
+  augment static void staticMethod();
   @Meta2()
   augment void instanceMethod() {}
 }

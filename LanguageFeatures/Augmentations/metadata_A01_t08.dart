@@ -33,14 +33,14 @@ class C {
   @Meta1()
   static void staticMethod() {}
   @Meta1()
-  void instanceMethod() {}
+  void instanceMethod();
 }
 
 mixin M {
   @Meta1()
   static void staticMethod() {}
   @Meta1()
-  void instanceMethod() {}
+  void instanceMethod();
 }
 
 enum E {
@@ -49,7 +49,7 @@ enum E {
   @Meta1()
   static void staticMethod() {}
   @Meta1()
-  void instanceMethod() {}
+  void instanceMethod();
 }
 
 class A {}
@@ -58,14 +58,14 @@ extension Ext on A {
   @Meta1()
   static void staticMethod() {}
   @Meta1()
-  void instanceMethod() {}
+  void instanceMethod();
 }
 
 extension type ET(int id) {
   @Meta1()
   static void staticMethod() {}
   @Meta1()
-  void instanceMethod() {}
+  void instanceMethod();
 }
 
 main() {
