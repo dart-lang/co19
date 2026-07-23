@@ -24,31 +24,31 @@ void topLevelFunction() {}
 
 class C {
   static void staticMethod() {}
-  void instanceMethod() {}
+  void instanceMethod();
 }
 
 mixin M {
   static void staticMethod() {}
-  void instanceMethod() {}
+  void instanceMethod();
 }
 
 enum E {
   e0;
 
   static void staticMethod() {}
-  void instanceMethod() {}
+  void instanceMethod();
 }
 
 class A {}
 
 extension Ext on A {
   static void staticMethod() {}
-  void instanceMethod() {}
+  void instanceMethod();
 }
 
 extension type ET(int id) {
   static void staticMethod() {}
-  void instanceMethod() {}
+  void instanceMethod();
 }
 
 main() {
