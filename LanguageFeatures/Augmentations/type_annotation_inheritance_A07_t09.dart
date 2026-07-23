@@ -28,10 +28,11 @@ class C implements A {
 }
 
 augment class C {
-  augment var foo;
+  augment abstract var foo;
 }
 
 augment class C {
+  augment get foo => 0;
   augment set foo(_) {}
 }
 
