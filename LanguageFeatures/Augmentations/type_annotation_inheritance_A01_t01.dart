@@ -215,11 +215,11 @@ main() {
   C.staticMethod6.expectStaticType<Exactly<Never Function()>>();
   var c = C();
   c.instanceMethod1.expectStaticType<Exactly<int Function()>>();
-  c.instanceMethod1.expectStaticType<Exactly<Object? Function()>>();
-  c.instanceMethod1.expectStaticType<Exactly<void Function()>>();
-  c.instanceMethod1.expectStaticType<Exactly<Null Function()>>();
-  c.instanceMethod1.expectStaticType<Exactly<dynamic Function()>>();
-  c.instanceMethod1.expectStaticType<Exactly<Never Function()>>();
+  c.instanceMethod2.expectStaticType<Exactly<Object? Function()>>();
+  c.instanceMethod3.expectStaticType<Exactly<void Function()>>();
+  c.instanceMethod4.expectStaticType<Exactly<Null Function()>>();
+  c.instanceMethod5.expectStaticType<Exactly<dynamic Function()>>();
+  c.instanceMethod6.expectStaticType<Exactly<Never Function()>>();
 
   M.staticMethod1.expectStaticType<Exactly<int Function()>>();
   M.staticMethod2.expectStaticType<Exactly<Object? Function()>>();
@@ -229,11 +229,11 @@ main() {
   M.staticMethod6.expectStaticType<Exactly<Never Function()>>();
   var m = MA();
   m.instanceMethod1.expectStaticType<Exactly<int Function()>>();
-  m.instanceMethod1.expectStaticType<Exactly<Object? Function()>>();
-  m.instanceMethod1.expectStaticType<Exactly<void Function()>>();
-  m.instanceMethod1.expectStaticType<Exactly<Null Function()>>();
-  m.instanceMethod1.expectStaticType<Exactly<dynamic Function()>>();
-  m.instanceMethod1.expectStaticType<Exactly<Never Function()>>();
+  m.instanceMethod2.expectStaticType<Exactly<Object? Function()>>();
+  m.instanceMethod3.expectStaticType<Exactly<void Function()>>();
+  m.instanceMethod4.expectStaticType<Exactly<Null Function()>>();
+  m.instanceMethod5.expectStaticType<Exactly<dynamic Function()>>();
+  m.instanceMethod6.expectStaticType<Exactly<Never Function()>>();
 
   E.staticMethod1.expectStaticType<Exactly<int Function()>>();
   E.staticMethod2.expectStaticType<Exactly<Object? Function()>>();
@@ -243,11 +243,11 @@ main() {
   E.staticMethod6.expectStaticType<Exactly<Never Function()>>();
 
   E.e1.instanceMethod1.expectStaticType<Exactly<int Function()>>();
-  E.e1.instanceMethod1.expectStaticType<Exactly<Object? Function()>>();
-  E.e1.instanceMethod1.expectStaticType<Exactly<void Function()>>();
-  E.e1.instanceMethod1.expectStaticType<Exactly<Null Function()>>();
-  E.e1.instanceMethod1.expectStaticType<Exactly<dynamic Function()>>();
-  E.e1.instanceMethod1.expectStaticType<Exactly<Never Function()>>();
+  E.e1.instanceMethod2.expectStaticType<Exactly<Object? Function()>>();
+  E.e1.instanceMethod3.expectStaticType<Exactly<void Function()>>();
+  E.e1.instanceMethod4.expectStaticType<Exactly<Null Function()>>();
+  E.e1.instanceMethod5.expectStaticType<Exactly<dynamic Function()>>();
+  E.e1.instanceMethod6.expectStaticType<Exactly<Never Function()>>();
 
   Ext.staticMethod1.expectStaticType<Exactly<int Function()>>();
   Ext.staticMethod2.expectStaticType<Exactly<Object? Function()>>();
@@ -257,11 +257,11 @@ main() {
   Ext.staticMethod6.expectStaticType<Exactly<Never Function()>>();
   var a = A();
   a.instanceMethod1.expectStaticType<Exactly<int Function()>>();
-  a.instanceMethod1.expectStaticType<Exactly<Object? Function()>>();
-  a.instanceMethod1.expectStaticType<Exactly<void Function()>>();
-  a.instanceMethod1.expectStaticType<Exactly<Null Function()>>();
-  a.instanceMethod1.expectStaticType<Exactly<dynamic Function()>>();
-  a.instanceMethod1.expectStaticType<Exactly<Never Function()>>();
+  a.instanceMethod2.expectStaticType<Exactly<Object? Function()>>();
+  a.instanceMethod3.expectStaticType<Exactly<void Function()>>();
+  a.instanceMethod4.expectStaticType<Exactly<Null Function()>>();
+  a.instanceMethod5.expectStaticType<Exactly<dynamic Function()>>();
+  a.instanceMethod6.expectStaticType<Exactly<Never Function()>>();
 
   ET.staticMethod1.expectStaticType<Exactly<int Function()>>();
   ET.staticMethod2.expectStaticType<Exactly<Object? Function()>>();
@@ -271,9 +271,9 @@ main() {
   ET.staticMethod6.expectStaticType<Exactly<Never Function()>>();
   var et = ET(0);
   et.instanceMethod1.expectStaticType<Exactly<int Function()>>();
-  et.instanceMethod1.expectStaticType<Exactly<Object? Function()>>();
-  et.instanceMethod1.expectStaticType<Exactly<void Function()>>();
-  et.instanceMethod1.expectStaticType<Exactly<Null Function()>>();
-  et.instanceMethod1.expectStaticType<Exactly<dynamic Function()>>();
-  et.instanceMethod1.expectStaticType<Exactly<Never Function()>>();
+  et.instanceMethod2.expectStaticType<Exactly<Object? Function()>>();
+  et.instanceMethod3.expectStaticType<Exactly<void Function()>>();
+  et.instanceMethod4.expectStaticType<Exactly<Null Function()>>();
+  et.instanceMethod5.expectStaticType<Exactly<dynamic Function()>>();
+  et.instanceMethod6.expectStaticType<Exactly<Never Function()>>();
 }
