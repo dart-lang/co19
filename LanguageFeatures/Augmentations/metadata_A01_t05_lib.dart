@@ -13,18 +13,18 @@
 part of 'metadata_A01_t05.dart';
 
 @Meta()
-augment void set topLevelSetter(String _) {}
+augment void set topLevelSetter(String _);
 
 augment class C {
   @Meta()
-  augment static void set staticSetter(String _) {}
+  augment static void set staticSetter(String _);
   @Meta()
   augment void set instanceSetter(String _) {}
 }
 
 augment mixin M {
   @Meta()
-  augment static void set staticSetter(String _) {}
+  augment static void set staticSetter(String _);
   @Meta()
   augment void set instanceSetter(String _) {}
 }
@@ -32,21 +32,21 @@ augment mixin M {
 augment enum E {
   ;
   @Meta()
-  augment static void set staticSetter(String _) {}
+  augment static void set staticSetter(String _);
   @Meta()
   augment void set instanceSetter(String _) {}
 }
 
 augment extension Ext {
   @Meta()
-  augment static void set staticSetter(String _) {}
+  augment static void set staticSetter(String _);
   @Meta()
   augment void set instanceSetter(String _) {}
 }
 
 augment extension type ET {
   @Meta()
-  augment static void set staticSetter(String _) {}
+  augment static void set staticSetter(String _);
   @Meta()
   augment void set instanceSetter(String _) {}
 }

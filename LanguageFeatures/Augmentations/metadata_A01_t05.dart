@@ -24,31 +24,31 @@ void set topLevelSetter(String _) {}
 
 class C {
   static void set staticSetter(String _) {}
-  void set instanceSetter(String _) {}
+  void set instanceSetter(String _);
 }
 
 mixin M {
   static void set staticSetter(String _) {}
-  void set instanceSetter(String _) {}
+  void set instanceSetter(String _);
 }
 
 enum E {
   e0;
 
   static void set staticSetter(String _) {}
-  void set instanceSetter(String _) {}
+  void set instanceSetter(String _);
 }
 
 class A {}
 
 extension Ext on A {
   static void set staticSetter(String _) {}
-  void set instanceSetter(String _) {}
+  void set instanceSetter(String _);
 }
 
 extension type ET(int id) {
   static void set staticSetter(String _) {}
-  void set instanceSetter(String _) {}
+  void set instanceSetter(String _);
 }
 
 main() {
