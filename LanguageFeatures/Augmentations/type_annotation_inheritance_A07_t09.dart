@@ -20,7 +20,7 @@
 
 abstract class A {
   void set foo(int _);
-  int get foo => 0;
+  int get foo;
 }
 
 class C implements A {
@@ -32,6 +32,7 @@ augment class C {
 }
 
 augment class C {
+  augment get foo => 0;
   augment set foo(_) {}
 }
 
