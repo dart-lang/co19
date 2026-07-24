@@ -27,7 +27,7 @@ test1<
   Y extends void Function(void Function<T extends Y>(int, {num n}))
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<Function(Never)>>();
+  v.expectStaticType<Exactly<void Function(Never)>>();
 }
 
 test2<
@@ -39,7 +39,7 @@ test2<
   )
 >(X x, Y y) {
   var v = 1 > 2 ? x : y;
-  v.expectStaticType<Exactly<Function(Never)>>();
+  v.expectStaticType<Exactly<void Function(Never)>>();
 }
 
 main() {
