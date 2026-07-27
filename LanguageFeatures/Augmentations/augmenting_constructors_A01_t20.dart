@@ -69,13 +69,13 @@ augment class C {
 enum E {
   e0(1), e1.foo(1);
 
-  const E(int _);
+  const E(int? _);
   const E.foo([int _]);
 }
 
 augment enum E {
   ;
-  augment const E(int x);
+  augment const E(int? x);
   augment const E.foo([int x = 0]);
 }
 
@@ -107,10 +107,10 @@ augment extension type ET {
 }
 
 augment extension type ET {
-  ET.foo(int x) : v = 0 {
+  augment ET.foo(int x) : v = 0 {
     log = "$x";
   }
-  ET.bar([int _x]) : v = 0 {
+  augment ET.bar([int _x]) : v = 0 {
     log = "$_x";
   }
 }
