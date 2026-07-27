@@ -15,6 +15,7 @@
 /// @description Check that if `S` is `T?` then the greatest closure of `S` with
 /// respect to `L` is `U?` where `U` is the greatest closure of `T` with respect
 /// to `L`.
+/// @note README.md
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

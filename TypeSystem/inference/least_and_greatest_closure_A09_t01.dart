@@ -15,6 +15,7 @@
 /// @description Check that if `S` is `FutureOr<T>` then the greatest closure of
 /// `S` with respect to `L` is `FutureOr<U>` where `U` is the greatest closure
 /// of `T` with respect to `L`.
+/// @note README.md
 /// @author sgrekhov22@gmail.com
 /// @issue 63783
 

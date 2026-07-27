@@ -30,6 +30,7 @@
 /// `L` is `U Function<X0 extends B0, ..., Xk extends Bk>(U0 x0, ..., Un1 xn,
 /// {Un+1 xn+1, ..., Um xm})` where `U` is the least closure of `T` and `Ui`
 /// is the greatest closure of `Ti`.
+/// @note README.md
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

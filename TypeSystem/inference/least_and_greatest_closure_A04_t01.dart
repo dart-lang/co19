@@ -13,6 +13,7 @@
 ///
 /// @description Check that if `S` is a base type then the least closure of `S`
 /// is `S`.
+/// @note README.md
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

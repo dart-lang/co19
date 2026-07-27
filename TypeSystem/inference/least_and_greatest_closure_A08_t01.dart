@@ -15,6 +15,7 @@
 /// @description Check that if `S` is `Future<T>` then the least closure of `S`
 /// with respect to `L` is `Future<U>` where `U` is the least closure of `T`
 /// with respect to `L`.
+/// @note README.md
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

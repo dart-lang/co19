@@ -18,6 +18,7 @@
 /// {Tn+1 xn+1, ..., Tm xm})` and `L` contains any free type variables from any
 /// of the `Bi` then the greatest closure of `S` with respect to `L` is
 /// `Function`.
+/// @note README.md
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
