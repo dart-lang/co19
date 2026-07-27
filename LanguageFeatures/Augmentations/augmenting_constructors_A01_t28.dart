@@ -58,6 +58,9 @@ augment class C {
 
 enum E {
   e0(0), e1._(), e2._(2);
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   final int v;
   const E(int x);
