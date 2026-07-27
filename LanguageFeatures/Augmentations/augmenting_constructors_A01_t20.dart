@@ -38,7 +38,7 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../utils/expect.dart';
+import '../../Utils/expect.dart';
 
 String log = "";
 
@@ -87,7 +87,7 @@ augment enum E {
 
 augment enum E {
   ;
-  augment const E(int x) : assert(x != null);
+  augment const E(int? x) : assert(x != null);
   augment const E.foo([int x]) : assert(x != null);
 }
 
