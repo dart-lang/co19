@@ -18,6 +18,7 @@
 /// `(T0 x0, ..., Tn xn,  {Tn+1 xn+1, ..., Tm xm})` then the greatest closure of
 /// `S` with respect to `L` is `(U0 x0, ..., Un1 xn, {Un+1 xn+1, ..., Um xm})`
 /// where `Ui` is the greatest closure of `Ti` with respect to `L`.
+/// @note README.md
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

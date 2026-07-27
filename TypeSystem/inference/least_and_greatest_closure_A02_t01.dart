@@ -12,6 +12,7 @@
 ///
 /// @description Check that the least closure of `S` with respect to `L` is
 /// `Never`.
+/// @note README.md
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

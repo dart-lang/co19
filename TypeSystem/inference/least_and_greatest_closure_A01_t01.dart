@@ -12,6 +12,7 @@
 ///
 /// @description Check that if `S` is `X` where `X` is in `L`, then the greatest
 /// closure of `S` with respect to `L` is `Object?`.
+/// @note README.md
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
