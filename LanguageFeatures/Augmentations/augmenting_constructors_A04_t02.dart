@@ -28,6 +28,9 @@ augment class C {
 extension type ET(int id) {
   ET.foo(this.id);
   ET.bar(int id);
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment extension type ET {
