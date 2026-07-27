@@ -17,6 +17,9 @@
 import 'augmentation_libraries_lib.dart';
 
 class C {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 augment class C implements BaseClass {}
 //                         ^^^^^^^^^
@@ -24,6 +27,9 @@ augment class C implements BaseClass {}
 // [cfe] unspecified
 
 mixin M {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 augment mixin M implements BaseClass {}
 //                         ^^^^^^^^^
