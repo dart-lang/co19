@@ -65,9 +65,6 @@ enum E2({final int x}) {
 augment enum E2 {
   ;
   augment const E2({int x = 0});
-//                        ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment enum E2 {
