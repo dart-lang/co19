@@ -19,36 +19,36 @@ class C {
   C([this.x = 0]);
   C.foo({this.x = 0});
   factory C.bar([int x = 0]);
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   factory C.baz({int x = 0});
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment class C {
   augment factory C.bar([int x]) = C;
-//                           ^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment factory C.baz({int x}) = C.foo;
-//                           ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 extension type ET(int x) {
   ET.foo([this.x = 0]);
   ET.bar({this.x = 0});
   factory ET.baz([int x = 0]);
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   factory ET.qux({int x = 0});
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment extension type ET {
-  augment factory ET.baz([int x]) = ET;
-//                            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment factory ET.qux({int x}) = ET.foo;
-//                            ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment factory ET.baz([int x]) = ET.foo;
+  augment factory ET.qux({int x}) = ET.bar;
 }
 
 main() {
