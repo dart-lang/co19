@@ -20,54 +20,52 @@ augment String topLevelFunction2([int v = 2]);
 augment String topLevelFunction3({int v = 3});
 
 augment class C {
-  augment String staticMethod1();
-  augment String staticMethod2([int v = 2]);
-  augment String staticMethod3({int v = 3});
+  augment static String staticMethod1();
+  augment static String staticMethod2([int v = 2]);
+  augment static String staticMethod3({int v});
 
   augment String instanceMethod1();
-  augment String instanceMethod2([int v = 2]);
+  augment String instanceMethod2([int v]);
   augment String instanceMethod3({int v = 3});
 }
 
 augment mixin M {
-  augment String staticMethod1();
-  augment String staticMethod2([int v = 2]);
-  augment String staticMethod3({int v = 3});
+  augment static String staticMethod1();
+  augment static String staticMethod2([int v = 2]);
+  augment static String staticMethod3({int v});
 
   augment String instanceMethod1();
-  augment String instanceMethod2([int v = 2]);
+  augment String instanceMethod2([int v]);
   augment String instanceMethod3({int v = 3});
 }
 
 augment enum E {
   ;
-  augment String staticMethod1();
-  augment String staticMethod2([int v = 2]);
-  augment String staticMethod3({int v = 3});
+  augment static String staticMethod1();
+  augment static String staticMethod2([int v = 2]);
+  augment static String staticMethod3({int v});
 
   augment String instanceMethod1();
-  augment String instanceMethod2([int v = 2]);
+  augment String instanceMethod2([int v]);
   augment String instanceMethod3({int v = 3});
 }
 
-class A {}
-
 augment extension Ext {
-  augment String staticMethod1();
-  augment String staticMethod2([int v = 2]);
-  augment String staticMethod3({int v = 3});
+  augment static String staticMethod1();
+  augment static String staticMethod2([int v = 2]);
+  augment static String staticMethod3({int v});
 
   augment String instanceMethod1();
-  augment String instanceMethod2([int v = 2]);
+  augment String instanceMethod2([int v]);
   augment String instanceMethod3({int v = 3});
 }
 
 augment extension type ET {
-  augment String staticMethod1();
-  augment String staticMethod2([int v = 2]);
-  augment String staticMethod3({int v = 3});
+  augment static String staticMethod1();
+  augment static String staticMethod2([int v = 2]);
+  augment static String staticMethod3({int v});
 
   augment String instanceMethod1();
-  augment String instanceMethod2([int v = 2]);
+  augment String instanceMethod2([int v]);
   augment String instanceMethod3({int v = 3});
 }
