@@ -74,8 +74,6 @@ enum E {
   static void set staticGetter1(String _);
   static String get staticGetter2 => "x";
   static void set staticGetter2(String _) {}
-  String get instanceGetter1;
-  void set instanceGetter1(String _);
   String get instanceGetter2 => "x";
   void set instanceGetter2(String _) {}
 }
@@ -84,7 +82,6 @@ augment enum E {
   ;
   augment static var staticGetter1 = "x";
   augment static abstract final staticGetter2;
-  augment var instanceGetter1 = "x";
   augment abstract final instanceGetter2;
 }
 
@@ -95,8 +92,6 @@ extension Ext on A {
   static void set staticGetter1(String _);
   static String get staticGetter2 => "x";
   static void set staticGetter2(String _) {}
-  String get instanceGetter1;
-  void set instanceGetter1(String _);
   String get instanceGetter2 => "x";
   void set instanceGetter2(String _) {}
 }
@@ -104,7 +99,6 @@ extension Ext on A {
 augment extension Ext {
   augment static var staticGetter1 = "x";
   augment static abstract final staticGetter2;
-  augment var instanceGetter1 = "x";
   augment abstract final instanceGetter2;
 }
 
@@ -113,8 +107,6 @@ extension type ET(int _) {
   static void set staticGetter1(String _);
   static String get staticGetter2 => "x";
   static void set staticGetter2(String _) {}
-  String get instanceGetter1;
-  void set instanceGetter1(String _);
   String get instanceGetter2 => "x";
   void set instanceGetter2(String _) {}
 }
@@ -122,7 +114,6 @@ extension type ET(int _) {
 augment extension type ET {
   augment static var staticGetter1 = "x";
   augment static abstract final staticGetter2;
-  augment var instanceGetter1 = "x";
   augment abstract final instanceGetter2;
 }
 
@@ -141,14 +132,11 @@ main() {
   Expect.equals("x", MA().instanceGetter2);
   Expect.equals("x", E.staticGetter1);
   Expect.equals("x", E.staticGetter2);
-  Expect.equals("x", E.e0.instanceGetter1);
   Expect.equals("x", E.e0.instanceGetter2);
   Expect.equals("x", Ext.staticGetter1);
   Expect.equals("x", Ext.staticGetter2);
-  Expect.equals("x", A().instanceGetter1);
   Expect.equals("x", A().instanceGetter2);
   Expect.equals("x", ET.staticGetter1);
   Expect.equals("x", ET.staticGetter2);
-  Expect.equals("x", ET(0).instanceGetter1);
   Expect.equals("x", ET(0).instanceGetter2);
 }
