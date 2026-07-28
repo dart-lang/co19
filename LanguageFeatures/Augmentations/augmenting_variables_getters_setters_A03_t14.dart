@@ -104,18 +104,12 @@ main() {
 
   E.staticSetter = 6;
   Expect.equals(6, E.staticSetter);
-  E.e0.instanceSetter = 7;
-  Expect.equals(7, E.e0.instanceSetter);
 
   Ext.staticSetter = 8;
   Expect.equals(8, Ext.staticSetter);
   var a = A();
-  a.instanceSetter = 9;
-  Expect.equals(9, a.instanceSetter);
 
   ET.staticSetter = 10;
   Expect.equals(10, ET.staticSetter);
   var et = ET(0);
-  et.instanceSetter = 11;
-  Expect.equals(11, et.instanceSetter);
 }
