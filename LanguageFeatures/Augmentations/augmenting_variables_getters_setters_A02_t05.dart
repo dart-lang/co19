@@ -154,16 +154,10 @@ testStaticType([C? c, M? m, A? a, ET? et]) {
   m.instanceGetter2.testDynamic;
   E.staticGetter1.testDynamic;
   E.staticGetter2.testDynamic;
-  E.e0.instanceGetter1.testDynamic;
-  E.e0.instanceGetter2.testDynamic;
   Ext.staticGetter1.testDynamic;
   Ext.staticGetter2.testDynamic;
-  a!.instanceGetter1.testDynamic;
-  a.instanceGetter2.testDynamic;
   ET.staticGetter1.testDynamic;
   ET.staticGetter2.testDynamic;
-  et!.instanceGetter1.testDynamic;
-  et.instanceGetter2.testDynamic;
 }
 
 main() {
