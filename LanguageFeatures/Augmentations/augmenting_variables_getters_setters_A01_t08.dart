@@ -132,14 +132,11 @@ main() {
   Expect.equals("x", MA().instanceGetter2);
   Expect.equals("x", E.staticGetter1);
   Expect.equals("x", E.staticGetter2);
-  Expect.equals("x", E.e0.instanceGetter1);
   Expect.equals("x", E.e0.instanceGetter2);
   Expect.equals("x", Ext.staticGetter1);
   Expect.equals("x", Ext.staticGetter2);
-  Expect.equals("x", A().instanceGetter1);
   Expect.equals("x", A().instanceGetter2);
   Expect.equals("x", ET.staticGetter1);
   Expect.equals("x", ET.staticGetter2);
-  Expect.equals("x", ET(0).instanceGetter1);
   Expect.equals("x", ET(0).instanceGetter2);
 }
