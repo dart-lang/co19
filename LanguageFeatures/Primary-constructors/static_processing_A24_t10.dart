@@ -24,19 +24,47 @@
 
 import '../../Utils/expect.dart';
 
-class C(var int _) {
+class C1(var int _) {
   this {
     _++;
   }
 }
 
-extension type ET(int _) {
+class C2(final int _) {
   this {
     assert(_ > 0);
   }
 }
 
+class C3([var int _ = 0]) {
+  this {
+    _++;
+  }
+}
+
+class C4(final int? _) {
+  this {
+    assert(_ != null);
+  }
+}
+
+extension type ET1(int _) {
+  this {
+    assert(_ > 0);
+  }
+}
+
+extension type ET2([int? _]) {
+  this {
+    assert(_ != null);
+  }
+}
+
 main() {
-  Expect.equals(1, C(0)._);
-  ET(1);
+  Expect.equals(1, C1(0)._);
+  Expect.equals(2, C2(2)._);
+  Expect.equals(4, C3(3)._);
+  Expect.equals(4, C4(4)._);
+  Expect.equals(1, ET1(1)._);
+  Expect.equals(2, ET2(2)._);
 }
