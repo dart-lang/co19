@@ -14,6 +14,9 @@
 ///
 /// @description Check that the subtyping algorithm takes the least/greatest
 /// closure into account.
+/// @note We can't systematically test `UP` and `DOWN` on type schemas, but here
+/// is an example from the feature specification that illustrates that it can
+/// occur.
 /// @author sgrekhov22@gmail.com
 /// @issue 63883
 
