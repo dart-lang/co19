@@ -59,7 +59,7 @@ augment class C {
   augment abstract dynamic instanceVariable2;
   augment dynamic instanceVariable3 = 3;
   augment abstract final int finalInstanceVariable1;
-  augment abstract final dynamic finalInstanceVariable2;
+  augment abstract final finalInstanceVariable2;
   augment final dynamic finalInstanceVariable3 = 3;
 }
 
@@ -89,7 +89,7 @@ augment mixin M {
   augment abstract dynamic instanceVariable2;
   augment dynamic instanceVariable3 = 3;
   augment abstract final int finalInstanceVariable1;
-  augment abstract final dynamic finalInstanceVariable2;
+  augment abstract final finalInstanceVariable2;
   augment final dynamic finalInstanceVariable3 = 3;
 }
 
@@ -115,7 +115,7 @@ augment enum E {
   augment static final dynamic finalStaticVariable2 = 2;
 
   augment abstract final int finalInstanceVariable1;
-  augment abstract final dynamic finalInstanceVariable2;
+  augment abstract final finalInstanceVariable2;
   augment final dynamic finalInstanceVariable3 = 3;
 }
 
