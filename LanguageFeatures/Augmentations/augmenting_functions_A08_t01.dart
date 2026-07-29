@@ -64,17 +64,8 @@ augment class C {
   augment static void staticMethod3({int v = 0});
 
   augment void instanceMethod1();
-//             ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod2([int v = 0]);
-//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod3({int v = 0});
-//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 mixin M {
@@ -143,17 +134,8 @@ augment enum E {
   augment static void staticMethod3({int v = 0});
 
   augment void instanceMethod1();
-//             ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod2([int v = 0]);
-//             ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   augment void instanceMethod3({int v = 0});
-//             ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 class A {}
