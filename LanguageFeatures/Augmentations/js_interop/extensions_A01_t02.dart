@@ -32,7 +32,7 @@ augment extension Ext {
   @JS("name")
   augment String? get getName;
   @JS("answer")
-  external int getAnswer();
+  augment external int getAnswer();
 }
 
 main() {
