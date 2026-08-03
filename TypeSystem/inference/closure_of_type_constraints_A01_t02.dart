@@ -31,7 +31,7 @@
 import '../../Utils/static_type_helper.dart';
 
 class C<T> {
-  C(List<X> Function<X>(T x));
+  C(List<X> Function<X>(T) _);
 }
 
 List<Y> foo<Y>(Y y) => [y];
