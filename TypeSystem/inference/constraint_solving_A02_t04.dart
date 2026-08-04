@@ -15,14 +15,14 @@
 /// Note that the constraint solution is a type schema, and hence may contain
 /// occurrences of the unknown type.
 ///
-/// @description Check that if `Mb` is known and `Mt` is unknown then the
-/// solution is `Mb`.
+/// @description Check that if `Mb` is unknown and `Mt` is known then the
+/// solution is `Mt`.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
 
-X f<X>(X x) => x;
+List<X> f<X extends num>() => <Never>[];
 
 void main() {
-  f(1).expectStaticType<Exactly<int>>(); // int <: X <: _
+  f().expectStaticType<Exactly<List<num>>>; // _ <: X <: num
 }
