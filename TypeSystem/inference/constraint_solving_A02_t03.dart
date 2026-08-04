@@ -24,5 +24,5 @@ import '../../Utils/static_type_helper.dart';
 X f<X extends num>(X x) => x;
 
 void main() {
-  f(1 as dynamic).expectStaticType<Exactly<num>>(); // num <: X <: _
+  f(1 as dynamic).expectStaticType<Exactly<num>>(); // dynamic <: X <: _
 }
