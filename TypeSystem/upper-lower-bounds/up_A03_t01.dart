@@ -7,7 +7,8 @@
 /// ...
 /// - UP(`T1`, `T2`) = `T1` if TOP(`T1`)
 ///
-/// @description Check that UP(`T1`, `T2`) = `T1` if TOP(`T1`). Test `void`.
+/// @description Check that UP(`T1`, `T2`) = `T1` if TOP(`T1`) and
+/// TOP(`T2`) == `false`. Test `void`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
