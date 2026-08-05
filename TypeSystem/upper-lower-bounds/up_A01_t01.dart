@@ -13,18 +13,7 @@ import 'dart:async';
 
 import '../../Utils/expect.dart' show Expect;
 import '../../Utils/static_type_helper.dart';
-
-class C {}
-
-class D<T0, T1> {}
-
-enum E { e0 }
-
-extension type ET(int _) {}
-
-typedef FPositional = int Function<X extends num>(X s, [int i]);
-typedef FNamed = int Function<X extends num>(X s, {int i});
-typedef Rec = (int, String, {bool b});
+import 'up_lib.dart';
 
 void f1<X extends num, Y extends num>(X x, Y y) {
   var v = (1 > 2) ? x : y;
