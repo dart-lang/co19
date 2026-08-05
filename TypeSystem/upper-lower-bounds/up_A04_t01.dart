@@ -5,17 +5,17 @@
 /// @assertion We define the upper bound of two types `T1` and `T2` to be
 /// UP(`T1`,`T2`) as follows.
 /// ...
-/// - UP(`T1`, `T2`) = `T1` if TOP(`T1`)
+/// - UP(`T1`, `T2`) = `T2` if TOP(`T2`)
 ///
-/// @description Check that UP(`T1`, `T2`) = `T1` if TOP(`T1`) and
-/// TOP(`T2`) == `false` (which implies `T1 != T2`). Test `void`.
+/// @description Check that UP(`T1`, `T2`) = `T2` if TOP(`T2`) and
+/// TOP(`T1`) == `false` (which implies `T1 != T2`). Test `void`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
 import 'up_lib.dart';
 
 void f1(num n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v); // Type void cannot be used
 //      ^
 // [analyzer] unspecified
@@ -23,7 +23,7 @@ void f1(num n) {
 }
 
 void f2(num n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -31,7 +31,7 @@ void f2(num n) async {
 }
 
 void f3<X extends num>(X n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -39,7 +39,7 @@ void f3<X extends num>(X n) {
 }
 
 void f4<X extends num>(X n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -47,7 +47,7 @@ void f4<X extends num>(X n) async {
 }
 
 void f5() {
-  var v = (1 > 2) ? getVoid() : null;
+  var v = (1 > 2) ? null : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -55,7 +55,7 @@ void f5() {
 }
 
 void f6() async {
-  var v = (1 > 2) ? getFutureOrVoid() : null;
+  var v = (1 > 2) ? null : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -63,7 +63,7 @@ void f6() async {
 }
 
 void f7(Never n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -71,7 +71,7 @@ void f7(Never n) {
 }
 
 void f8(Never n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -79,7 +79,7 @@ void f8(Never n) async {
 }
 
 void f9(Function n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -87,7 +87,7 @@ void f9(Function n) {
 }
 
 void f10(Function n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -95,7 +95,7 @@ void f10(Function n) async {
 }
 
 void f11(Record n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -103,7 +103,7 @@ void f11(Record n) {
 }
 
 void f12(Record n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -111,7 +111,7 @@ void f12(Record n) async {
 }
 
 void f13(FutureOr<int> n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -119,7 +119,7 @@ void f13(FutureOr<int> n) {
 }
 
 void f14(FutureOr<int> n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -127,7 +127,7 @@ void f14(FutureOr<int> n) async {
 }
 
 void f15(String? n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -135,7 +135,7 @@ void f15(String? n) {
 }
 
 void f16(String? n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -143,7 +143,7 @@ void f16(String? n) async {
 }
 
 void f17(C n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -151,7 +151,7 @@ void f17(C n) {
 }
 
 void f18(C n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -159,7 +159,7 @@ void f18(C n) async {
 }
 
 void f19(D<int, String> n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -167,7 +167,7 @@ void f19(D<int, String> n) {
 }
 
 void f20(D<int, String> n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -175,7 +175,7 @@ void f20(D<int, String> n) async {
 }
 
 void f21(FPositional n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -183,7 +183,7 @@ void f21(FPositional n) {
 }
 
 void f22(FPositional n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -191,7 +191,7 @@ void f22(FPositional n) async {
 }
 
 void f23(FNamed n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -199,7 +199,7 @@ void f23(FNamed n) {
 }
 
 void f24(FNamed n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -207,7 +207,7 @@ void f24(FNamed n) async {
 }
 
 void f25(Rec n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -215,7 +215,7 @@ void f25(Rec n) {
 }
 
 void f26(Rec n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -223,7 +223,7 @@ void f26(Rec n) async {
 }
 
 void f27(E n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -231,7 +231,7 @@ void f27(E n) {
 }
 
 void f28(E n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified
@@ -239,7 +239,7 @@ void f28(E n) async {
 }
 
 void f29(ET n) {
-  var v = (1 > 2) ? getVoid() : n;
+  var v = (1 > 2) ? n : getVoid();
   print(v);
 //      ^
 // [analyzer] unspecified
@@ -247,7 +247,7 @@ void f29(ET n) {
 }
 
 void f30(ET n) async {
-  var v = (1 > 2) ? getFutureOrVoid() : n;
+  var v = (1 > 2) ? n : getFutureOrVoid();
   print(await v);
 //      ^^^^^^^
 // [analyzer] unspecified

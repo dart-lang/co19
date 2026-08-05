@@ -5,10 +5,10 @@
 /// @assertion We define the upper bound of two types `T1` and `T2` to be
 /// UP(`T1`,`T2`) as follows.
 /// ...
-/// - UP(`T1`, `T2`) = `T1` if TOP(`T1`)
+/// - UP(`T1`, `T2`) = `T2` if TOP(`T2`)
 ///
-/// @description Check that UP(`T1`, `T2`) = `T1` if TOP(`T1`) and
-/// TOP(`T2`) == `false` (which implies `T1 != T2`).
+/// @description Check that UP(`T1`, `T2`) = `T2` if TOP(`T2`) and
+/// TOP(`T1`) == `false` (which implies `T1 != T2`). Test `FutureOr<dynamic>`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -17,7 +17,7 @@ import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
 void f1(FutureOr<dynamic> d, num n) async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -25,7 +25,7 @@ void f1(FutureOr<dynamic> d, num n) async {
 }
 
 void f2<X extends num>(FutureOr<dynamic> d, X n) async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -33,7 +33,7 @@ void f2<X extends num>(FutureOr<dynamic> d, X n) async {
 }
 
 void f3(FutureOr<dynamic> d) async {
-  var v = (1 > 2) ? d : null;
+  var v = (1 > 2) ? null : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -41,7 +41,7 @@ void f3(FutureOr<dynamic> d) async {
 }
 
 void f4(FutureOr<dynamic> d, Never n) async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -49,7 +49,7 @@ void f4(FutureOr<dynamic> d, Never n) async {
 }
 
 void f5(FutureOr<dynamic> d, Function n) async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -57,7 +57,7 @@ void f5(FutureOr<dynamic> d, Function n) async {
 }
 
 void f6(FutureOr<dynamic> d, Record n) async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -65,7 +65,7 @@ void f6(FutureOr<dynamic> d, Record n) async {
 }
 
 void f7(FutureOr<dynamic> d, FutureOr<int> n) async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -73,7 +73,7 @@ void f7(FutureOr<dynamic> d, FutureOr<int> n) async {
 }
 
 void f8(FutureOr<dynamic> d, String? n) async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -81,7 +81,7 @@ void f8(FutureOr<dynamic> d, String? n) async {
 }
 
 void f9(FutureOr<dynamic> d, C n) async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -89,7 +89,7 @@ void f9(FutureOr<dynamic> d, C n) async {
 }
 
 void f10(FutureOr<dynamic> d, D<int, String> n)  async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -97,7 +97,7 @@ void f10(FutureOr<dynamic> d, D<int, String> n)  async {
 }
 
 void f11(FutureOr<dynamic> d, FPositional n) async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -105,7 +105,7 @@ void f11(FutureOr<dynamic> d, FPositional n) async {
 }
 
 void f12(FutureOr<dynamic> d, FNamed n) async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -113,7 +113,7 @@ void f12(FutureOr<dynamic> d, FNamed n) async {
 }
 
 void f13(FutureOr<dynamic> d, Rec n) async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -121,7 +121,7 @@ void f13(FutureOr<dynamic> d, Rec n) async {
 }
 
 void f14(FutureOr<dynamic> d, E n) async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;
@@ -129,7 +129,7 @@ void f14(FutureOr<dynamic> d, E n) async {
 }
 
 void f15(FutureOr<dynamic> d, ET n) async {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
   if (1 > 2) {
     (await v).checkDynamic;

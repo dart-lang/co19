@@ -9,8 +9,9 @@
 ///   - `T1` if MORETOP(`T1`, `T2`)
 ///   - `T2` otherwise
 ///
-/// @description Check that UP(`T1`, `T2`) = `T2` if TOP(`T1`) and TOP(`T2`) and
-/// MORETOP(`T1`, `T2`) == false. Test that `dynamic` is more top than `Object?`
+/// @description Check that UP(`T1`, `T2`) = `T2` if `T1 != T2` and TOP(`T1`)
+/// and TOP(`T2`) and MORETOP(`T1`, `T2`) == false. Test that `dynamic` is more
+/// top than `Object?`
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';

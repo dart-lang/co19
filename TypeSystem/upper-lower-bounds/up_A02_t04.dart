@@ -9,8 +9,9 @@
 ///   - `T1` if MORETOP(`T1`, `T2`)
 ///   - `T2` otherwise
 ///
-/// @description Check that UP(`T1`, `T2`) = `T1` if TOP(`T1`) and TOP(`T2`) and
-/// MORETOP(`T1`, `T2`)` and `T2` otherwise. Test `FutureOr<void>`.
+/// @description Check that UP(`T1`, `T2`) = `T1` if `T1 != T2` and TOP(`T1`)
+/// and TOP(`T2`) and MORETOP(`T1`, `T2`) or `T2` otherwise. Test type
+/// `FutureOr<void>`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';

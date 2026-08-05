@@ -5,115 +5,115 @@
 /// @assertion We define the upper bound of two types `T1` and `T2` to be
 /// UP(`T1`,`T2`) as follows.
 /// ...
-/// - UP(`T1`, `T2`) = `T1` if TOP(`T1`)
+/// - UP(`T1`, `T2`) = `T2` if TOP(`T2`)
 ///
-/// @description Check that UP(`T1`, `T2`) = `T1` if TOP(`T1`) and
-/// TOP(`T2`) == `false` (which implies `T1 != T2`).
+/// @description Check that UP(`T1`, `T2`) = `T2` if TOP(`T2`) and
+/// TOP(`T1`) == `false` (which implies `T1 != T2`). Test `dynamic`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
 import 'up_lib.dart';
 
 void f1(dynamic d, num n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f2<X extends num>(dynamic d, X n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f3(dynamic d) {
-  var v = (1 > 2) ? d : null;
+  var v = (1 > 2) ? null : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f4(dynamic d, Never n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f5(dynamic d, Function n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f6(dynamic d, Record n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f7(dynamic d, FutureOr<int> n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f8(dynamic d, String? n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f9(dynamic d, C n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f10(dynamic d, D<int, String> n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f11(dynamic d, FPositional n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f12(dynamic d, FNamed n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f13(dynamic d, Rec n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f14(dynamic d, E n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
 }
 
 void f15(dynamic d, ET n) {
-  var v = (1 > 2) ? d : n;
+  var v = (1 > 2) ? n : d;
   if (1 > 2) {
     v.checkDynamic;
   }
