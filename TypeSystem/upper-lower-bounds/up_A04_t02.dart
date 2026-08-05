@@ -8,7 +8,7 @@
 /// - UP(`T1`, `T2`) = `T2` if TOP(`T2`)
 ///
 /// @description Check that UP(`T1`, `T2`) = `T2` if TOP(`T2`) and
-/// TOP(`T1`) == `false`. Test `Object?`.
+/// TOP(`T1`) == `false` (which implies `T1 != T2`). Test `Object?`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
