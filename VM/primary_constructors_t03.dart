@@ -32,18 +32,18 @@ void main([
     .stoppedAtLine('LINE_A')
     .addCustomTest((VmService service, IsolateRef isolateRef) async {
       final islId = isolateRef.id!;
-      final xRef1 = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
-      Expect.equals('xxx', xRef1.valueAsString);
-      final xRef2 = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
-      Expect.equals('null', xRef2.valueAsString);
+      final xRef = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
+      Expect.equals('xxx', xRef.valueAsString);
+      final yRef = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
+      Expect.equals('null', yRef.valueAsString);
     })
     .stepInto()
     .addCustomTest((VmService service, IsolateRef isolateRef) async {
       final islId = isolateRef.id!;
-      final xRef1 = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
-      Expect.equals('xxx', xRef1.valueAsString);
-      final xRef2 = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
-      Expect.equals('yyy', xRef2.valueAsString);
+      final xRef = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
+      Expect.equals('xxx', xRef.valueAsString);
+      final yRef = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
+      Expect.equals('yyy', yRef.valueAsString);
     })
     .stepInto()
     .stoppedAtLine('LINE_L')
@@ -51,28 +51,28 @@ void main([
     .stoppedAtLine('LINE_C')
     .addCustomTest((VmService service, IsolateRef isolateRef) async {
       final islId = isolateRef.id!;
-      final xRef1 = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
-      Expect.equals('xxx', xRef1.valueAsString);
-      final xRef2 = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
-      Expect.equals('null', xRef2.valueAsString);
+      final xRef = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
+      Expect.equals('xxx', xRef.valueAsString);
+      final yRef = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
+      Expect.equals('null', yRef.valueAsString);
     })
     .stepInto()
     .stoppedAtLine('LINE_D')
     .addCustomTest((VmService service, IsolateRef isolateRef) async {
       final islId = isolateRef.id!;
-      final xRef1 = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
-      Expect.equals('xxx', xRef1.valueAsString);
-      final xRef2 = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
-      Expect.equals('null', xRef2.valueAsString);
+      final xRef = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
+      Expect.equals('xxx', xRef.valueAsString);
+      final yRef = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
+      Expect.equals('null', yRef.valueAsString);
     })
     .stepInto()
     .stoppedAtLine('LINE_E')
     .addCustomTest((VmService service, IsolateRef isolateRef) async {
       final islId = isolateRef.id!;
-      final xRef1 = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
-      Expect.equals('xxx', xRef1.valueAsString);
-      final xRef2 = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
-      Expect.equals('yyy', xRef2.valueAsString);
+      final xRef = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
+      Expect.equals('xxx', xRef.valueAsString);
+      final yRef = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
+      Expect.equals('yyy', yRef.valueAsString);
     })
     .stepInto()
     .stoppedAtLine('LINE_M')
@@ -80,45 +80,45 @@ void main([
     .stoppedAtLine('LINE_F')
     .addCustomTest((VmService service, IsolateRef isolateRef) async {
       final islId = isolateRef.id!;
-      final xRef1 = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
-      Expect.equals('42', xRef1.valueAsString);
-      final xRef2 = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
-      Expect.equals('42', xRef2.valueAsString);
-      final xRef3 = await service.evaluateInFrame(islId, 0, 'z') as InstanceRef;
-      Expect.equals('42', xRef3.valueAsString);
+      final xRef = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
+      Expect.equals('42', xRef.valueAsString);
+      final yRef = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
+      Expect.equals('42', yRef.valueAsString);
+      final zRef = await service.evaluateInFrame(islId, 0, 'z') as InstanceRef;
+      Expect.equals('42', zRef.valueAsString);
     })
     .stepInto()
     .stoppedAtLine('LINE_G')
     .addCustomTest((VmService service, IsolateRef isolateRef) async {
       final islId = isolateRef.id!;
-      final xRef1 = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
-      Expect.equals('xxx', xRef1.valueAsString);
-      final xRef2 = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
-      Expect.equals('xxx', xRef2.valueAsString);
-      final xRef3 = await service.evaluateInFrame(islId, 0, 'z') as InstanceRef;
-      Expect.equals('null', xRef3.valueAsString);
+      final xRef = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
+      Expect.equals('xxx', xRef.valueAsString);
+      final yRef = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
+      Expect.equals('xxx', yRef.valueAsString);
+      final zRef = await service.evaluateInFrame(islId, 0, 'z') as InstanceRef;
+      Expect.equals('null', zRef.valueAsString);
     })
     .stepInto()
     .stoppedAtLine('LINE_H')
     .addCustomTest((VmService service, IsolateRef isolateRef) async {
       final islId = isolateRef.id!;
-      final xRef1 = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
-      Expect.equals('xxx', xRef1.valueAsString);
-      final xRef2 = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
-      Expect.equals('xxx', xRef2.valueAsString);
-      final xRef3 = await service.evaluateInFrame(islId, 0, 'z') as InstanceRef;
-      Expect.equals('null', xRef3.valueAsString);
+      final xRef = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
+      Expect.equals('xxx', xRef.valueAsString);
+      final yRef = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
+      Expect.equals('xxx', yRef.valueAsString);
+      final zRef = await service.evaluateInFrame(islId, 0, 'z') as InstanceRef;
+      Expect.equals('null', zRef.valueAsString);
     })
     .stepInto()
     .stoppedAtLine('LINE_I')
     .addCustomTest((VmService service, IsolateRef isolateRef) async {
       final islId = isolateRef.id!;
-      final xRef1 = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
-      Expect.equals('xxx', xRef1.valueAsString);
-      final xRef2 = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
-      Expect.equals('xxx', xRef2.valueAsString);
-      final xRef3 = await service.evaluateInFrame(islId, 0, 'z') as InstanceRef;
-      Expect.equals('zzz', xRef3.valueAsString);
+      final xRef = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
+      Expect.equals('xxx', xRef.valueAsString);
+      final yRef = await service.evaluateInFrame(islId, 0, 'y') as InstanceRef;
+      Expect.equals('xxx', yRef.valueAsString);
+      final zRef = await service.evaluateInFrame(islId, 0, 'z') as InstanceRef;
+      Expect.equals('zzz', zRef.valueAsString);
     })
     .stepInto()
     .stoppedAtLine('LINE_N')
