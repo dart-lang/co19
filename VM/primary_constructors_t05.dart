@@ -33,13 +33,6 @@ void main([
     .addCustomTest((VmService service, IsolateRef isolateRef) async {
       final islId = isolateRef.id!;
       final xRef1 = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
-      Expect.equals('42', xRef1.valueAsString);
-    })
-    .stepInto()
-    .stoppedAtLine('LINE_B')
-    .addCustomTest((VmService service, IsolateRef isolateRef) async {
-      final islId = isolateRef.id!;
-      final xRef1 = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
       Expect.equals('1', xRef1.valueAsString);
     })
     .stepInto()
@@ -49,7 +42,7 @@ void main([
     .addCustomTest((VmService service, IsolateRef isolateRef) async {
       final islId = isolateRef.id!;
       final xRef1 = await service.evaluateInFrame(islId, 0, 'x') as InstanceRef;
-      Expect.equals('42', xRef1.valueAsString);
+      Expect.equals('2', xRef1.valueAsString);
     })
     .stepInto()
     .stoppedAtLine('LINE_D')

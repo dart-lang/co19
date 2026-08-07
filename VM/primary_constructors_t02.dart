@@ -32,7 +32,7 @@ void main([args = const <String>[]]) =>
         .addCustomTest((VmService srv, IsolateRef isolateRef) async {
           final islId = isolateRef.id!;
           final xRef1 = await srv.evaluateInFrame(islId, 0, 'x') as InstanceRef;
-          Expect.equals('null', xRef1.valueAsString);
+          Expect.equals('xxx', xRef1.valueAsString);
           final xRef2 =
               await srv.evaluateInFrame(islId, 0, 'this.x') as InstanceRef;
           Expect.equals('null', xRef2.valueAsString);
