@@ -9,9 +9,10 @@
 /// - Let `after(N) = join(before(S), break(S))`
 ///
 /// @description Checks that if `X` has type `Never` then an assignment in `S`
-/// is not unreachable.
+/// is not considered unreachable. (Technically it _is_ unreachable, but flow
+/// analysis does not detect unrechability in this scenario.)
 /// @author sgrekhov22@gmail.com
-/// @issue 60394, 61429
+/// @issue 60394, 61429, 60424
 
 test1() {
   late int i;
@@ -20,7 +21,7 @@ test1() {
       i = 42;
     }
   }
-  i; // Possibly assigned. See https://github.com/dart-lang/sdk/issues/60394
+  i; // Possibly assigned.
 }
 
 test2(Never n) {
@@ -30,7 +31,7 @@ test2(Never n) {
       i = 42;
     }
   }
-  i; // Possibly assigned. https://github.com/dart-lang/sdk/issues/60424
+  i; // Possibly assigned.
 }
 
 test3<T extends Never>(T n) {
@@ -40,7 +41,7 @@ test3<T extends Never>(T n) {
       i = 42;
     }
   }
-  i; // Possibly assigned. https://github.com/dart-lang/sdk/issues/60424
+  i; // Possibly assigned.
 }
 
 main() {

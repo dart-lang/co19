@@ -18,7 +18,7 @@ test1() {
   if (2 > 1) {
     for (Never n in <dynamic>[i = 42]) {}
   }
-  i; // Possibly assigned. See https://github.com/dart-lang/sdk/issues/60394
+  i; // Possibly assigned.
 }
 
 test2(Never n) {
