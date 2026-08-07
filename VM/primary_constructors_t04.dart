@@ -31,8 +31,12 @@ void main([
     ) async {
       final isolateId = isolateRef.id!;
       final isolate = await service.getIsolate(isolateId);
-      final lib =
-          (await service.getObject(isolateId, isolate.rootLib!.id!)) as Library;
+      final lib = (await service.getObject(
+        isolateId,
+        isolate.libraries!.firstWhere(
+              (l) => l.uri!.contains('primary_constructors_t04_lib'),
+        ).id!,
+      )) as Library;
       final scriptId = lib.scripts!.first.id!;
 
       var breakpoint = await service.addBreakpoint(
@@ -46,7 +50,7 @@ void main([
       );
       Expect.isTrue(breakpoint.enabled);
       Expect.equals(parser.lineForTag('LINE_A'), line);
-      Expect.equals(9, column); // on '('
+      Expect.equals(32, column); // on 'v2'
 
       breakpoint = await service.addBreakpoint(
         isolateId,
@@ -56,7 +60,7 @@ void main([
       (_, (line, column)) = await breakpoint.getLocation(service, isolateRef);
       Expect.isTrue(breakpoint.enabled);
       Expect.equals(parser.lineForTag('LINE_B'), line);
-      Expect.equals(9, column); // on '('
+      Expect.equals(22, column); // on 'v2'
 
       breakpoint = await service.addBreakpoint(
         isolateId,
@@ -66,7 +70,7 @@ void main([
       (_, (line, column)) = await breakpoint.getLocation(service, isolateRef);
       Expect.isTrue(breakpoint.enabled);
       Expect.equals(parser.lineForTag('LINE_C'), line);
-      Expect.equals(9, column); // on '('
+      Expect.equals(26, column); // on 'v2'
 
       breakpoint = await service.addBreakpoint(
         isolateId,

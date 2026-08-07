@@ -33,8 +33,12 @@ void main([
     ) async {
       final isolateId = isolateRef.id!;
       final isolate = await service.getIsolate(isolateId);
-      final lib =
-          (await service.getObject(isolateId, isolate.rootLib!.id!)) as Library;
+      final lib = (await service.getObject(
+        isolateId,
+        isolate.libraries!.firstWhere(
+              (l) => l.uri!.contains('primary_constructors_t06_lib'),
+        ).id!,
+      )) as Library;
       final scriptId = lib.scripts!.first.id!;
 
       var breakpoint = await service.addBreakpoint(
