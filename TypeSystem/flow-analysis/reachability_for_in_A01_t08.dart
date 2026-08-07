@@ -9,7 +9,7 @@
 /// - Let `after(N) = join(before(S), break(S))`
 ///
 /// @description Checks that if `X` has type `Never` then an assignment in `S`
-/// is unreachable.
+/// is not unreachable.
 /// @author sgrekhov22@gmail.com
 /// @issue 60394, 61429
 
@@ -30,10 +30,7 @@ test2(Never n) {
       i = 42;
     }
   }
-  i; // Definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Possibly assigned. https://github.com/dart-lang/sdk/issues/60424
 }
 
 test3<T extends Never>(T n) {
@@ -43,10 +40,7 @@ test3<T extends Never>(T n) {
       i = 42;
     }
   }
-  i; // Definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Possibly assigned. https://github.com/dart-lang/sdk/issues/60424
 }
 
 main() {

@@ -9,7 +9,7 @@
 /// - Let `after(N) = join(before(S), break(S))`
 ///
 /// @description Checks that if `X` has type `Never` then an assignment in `E`
-/// is unreachable.
+/// is not unreachable.
 /// @author sgrekhov22@gmail.com
 /// @issue 60394, 61429
 
@@ -26,10 +26,7 @@ test2(Never n) {
   if (2 > 1) {
     for (n in <dynamic>[i = 42]) {}
   }
-  i; // Definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Possibly assigned.
 }
 
 test3<T extends Never>(T n) {
@@ -37,10 +34,7 @@ test3<T extends Never>(T n) {
   if (2 > 1) {
     for (n in <dynamic>[i = 42]) {}
   }
-  i; // Definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Possibly assigned.
 }
 
 main() {

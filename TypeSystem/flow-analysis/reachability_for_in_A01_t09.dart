@@ -9,9 +9,11 @@
 /// - Let `after(N) = join(before(S), break(S))`
 ///
 /// @description Checks that if `X` has type `Never` then an assignment after
-/// `N` is unreachable.
+/// `N` is not unreachable.
 /// @author sgrekhov22@gmail.com
 /// @issue 60394, 61429
+
+import '../../Utils/expect.dart';
 
 test1() {
   late int i;
@@ -28,10 +30,7 @@ test2(Never n) {
     for (n in <dynamic>[42]) {}
     i = 42;
   }
-  i; // Definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Possibly unassigned.
 }
 
 test3<T extends Never>(T n) {
@@ -40,14 +39,22 @@ test3<T extends Never>(T n) {
     for (n in <dynamic>[42]) {}
     i = 42;
   }
-  i; // Definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i; // Possibly unassigned.
+}
+
+String log = '';
+
+test4() {
+  for (Never n in []) {
+    log = 'loop body';
+  }
+  log = 'after loop';
 }
 
 main() {
   print(test1);
   print(test2);
   print(test3);
+  test4();
+  Expect.equals('after loop', log);
 }
