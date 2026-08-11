@@ -22,6 +22,8 @@ import 'dart:js_interop_unsafe';
 import '../../../Utils/expect.dart';
 import '../js_utils.dart';
 
+const isJSBackend = const bool.fromEnvironment('dart.library.html');
+
 final completer = Completer<String>();
 
 void complete(String value) {
@@ -54,9 +56,14 @@ main() {
   ''');
   asyncStart();
   completer.future.then((_) {
-    Error error = globalContext["error"] as Error;
-    Expect.equals("The error", error.error.toDart);
-    Expect.equals("Stack trace", error.stack);
+    if (isJSBackend) {
+      final error = globalContext["error"] as JSString;
+      Expect.equals('The error', error.toDart);
+    } else {
+      Error error = globalContext["error"] as Error;
+      Expect.equals("The error", error.error.toDart);
+      Expect.equals("Stack trace", error.stack);
+    }
     asyncEnd();
   });
 }
