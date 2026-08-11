@@ -33,7 +33,7 @@
 
 // SharedOptions=--enable-experiment=augmentations,primary-constructors
 
-import '../../utils/expect.dart';
+import '../../Utils/expect.dart';
 
 class C1([int _]) {}
 
