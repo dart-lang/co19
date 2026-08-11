@@ -10,7 +10,8 @@
 ///   - `T1` otherwise
 ///
 /// @description Check that UP(`T1`, `T2`) = `T1` if BOTTOM(`T1`) and
-/// BOTTOM(`T2`) and MOREBOTTOM(`T1`, `T2`) == false.
+/// BOTTOM(`T2`) and MOREBOTTOM(`T1`, `T2`) == false and the earlier conditions
+/// listed in  README.md are not met.
 /// @author sgrekhov22@gmail.com
 
 // ignore_for_file: dead_code, unused_local_variable

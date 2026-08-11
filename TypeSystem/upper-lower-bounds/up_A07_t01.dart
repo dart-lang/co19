@@ -7,7 +7,8 @@
 /// ...
 /// - UP(`T1`, `T2`) = `T1` if BOTTOM(`T2`)
 ///
-/// @description Check that UP(`T1`, `T2`) = `T1` if BOTTOM(`T2`)
+/// @description Check that UP(`T1`, `T2`) = `T1` if BOTTOM(`T2`) and the
+/// earlier conditions listed in README.md are not met.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';

@@ -7,8 +7,8 @@
 /// ...
 /// - UP(`T1`, `T2`) = `T1` if BOTTOM(`T2`)
 ///
-/// @description Check that UP(`T1`, `T2`) = `T1` if BOTTOM(`T2`). Test type
-/// `void` as `T1`.
+/// @description Check that UP(`T1`, `T2`) = `T1` if BOTTOM(`T2`) and the
+/// earlier conditions listed in README.md are not met. Test type `void` as `T1`
 /// @author sgrekhov22@gmail.com
 
 void f1(Never n1, void n2) {
