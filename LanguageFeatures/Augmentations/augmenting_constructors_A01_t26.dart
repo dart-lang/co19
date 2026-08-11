@@ -37,7 +37,7 @@
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../utils/expect.dart';
+import '../../Utils/expect.dart';
 
 const int x = 42;
 
