@@ -9,9 +9,8 @@
 ///   - `T2` if MOREBOTTOM(`T1`, `T2`)
 ///   - `T1` otherwise
 ///
-/// @description Check that UP(`T1`, `T2`) = `T2` if BOTTOM(`T1`) and
-/// BOTTOM(`T2`) and MOREBOTTOM(`T1`, `T2`) and the earlier conditions listed in
-/// README.md are not met.
+/// @description Check that UP(`T1`, `T2`) = `T2` if BOTTOM(`T1`), BOTTOM(`T2`),
+/// `T1 != T2` and MOREBOTTOM(`T1`, `T2`).
 /// @author sgrekhov22@gmail.com
 
 // ignore_for_file: dead_code, unused_local_variable
@@ -19,10 +18,13 @@
 void f1<X extends Never>(Never n1, X n2) {
   var v = (1 > 2) ? n1 : n2; // MOREBOTTOM(Never, X) = true
   // It's not possible to check that `v` is `X` rather than `Never`. We just
-  // check that it is subtype of `Never` (i.e., it is assignable to both
+  // check that it is a subtype of `Never` (i.e., it is assignable to both
   // `String` and `int` and is not `dynamic`).
   int i = v;
   String s = v;
+  // If `v` has type `dynamic` then `v2` will have type `dynamic` as well. It
+  // has type `Object?` if `v` has any non-top type (including the bottom type
+  // that we expect it to have).
   var v2 = (1 > 2) ? v : 42 as Object?;
   v2.proofNotDynamic;
 //   ^^^^^^^^^^^^^^^

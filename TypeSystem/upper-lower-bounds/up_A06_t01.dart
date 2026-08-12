@@ -7,8 +7,8 @@
 /// ...
 /// - UP(`T1`, `T2`) = `T2` if BOTTOM(`T1`)
 ///
-/// @description Check that UP(`T1`, `T2`) = `T2` if BOTTOM(`T1`) and the
-/// earlier conditions listed in README.md are not met.
+/// @description Check that UP(`T1`, `T2`) = `T2` if BOTTOM(`T1`), `T1 != T2`
+/// and TOP(`T2`) == false.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -33,20 +33,6 @@ void f3(Never n1, Object n2) {
 void f4<X extends Never>(X n1, Object n2) {
   var v = (1 > 2) ? n1 : n2;
   v.expectStaticType<Exactly<Object>>();
-}
-
-void f5(Never n1, dynamic n2) {
-  var v = (1 > 2) ? n1 : n2;
-  if (1 > 2) {
-    v.checkDynamic;
-  }
-}
-
-void f6<X extends Never>(X n1, dynamic n2) {
-  var v = (1 > 2) ? n1 : n2;
-  if (1 > 2) {
-    v.checkDynamic;
-  }
 }
 
 void f7(Never n1) {
@@ -178,8 +164,6 @@ void main() {
   print(f2);
   print(f3);
   print(f4);
-  print(f5);
-  print(f6);
   print(f7);
   print(f8);
   print(f9);
