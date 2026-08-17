@@ -38,97 +38,87 @@ void f2<X2 extends A, T1 extends X2>(T1 t1, X2 x2) {
   }
 }
 
-void f3(int t1, num x2) {
-  if (x2 is B2) { // `x2` promoted to `num & B2`.
-    var v = (1 > 2) ? t1 : x2; // UP(int, num & B2) = num because int <: num
-    v.expectStaticType<Exactly<num>>();
+void f3<X2 extends num, T1 extends X2>(T1 t1, X2 x2) {
+  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
+    v.expectStaticType<Exactly<X2>>();
   }
 }
 
-void f4(String? t1, Null x2) {
-  if (x2 is B2) { // `x2` promoted to `Null & B2`.
-    var v = (1 > 2) ? t1 : x2;
-    // UP(String?, Null & B2) = String? because String? <: Null
-    v.expectStaticType<Exactly<String?>>();
+void f4<X2 extends Null, T1 extends X2>(T1 t1, X2 x2) {
+  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
+    v.expectStaticType<Exactly<X2>>();
   }
 }
 
-void f5(FPositional t1, Function x2) {
-  if (x2 is B2) { // `x2` promoted to `Function & B2`.
-    var v = (1 > 2) ? t1 : x2;
-    // UP(FPositional, Function & B2) = Function because FPositional <: Function
-    v.expectStaticType<Exactly<Function>>();
+void f5<X2 extends Function, T1 extends X2>(T1 t1, X2 x2) {
+  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
+    v.expectStaticType<Exactly<X2>>();
   }
 }
 
-void f6((int,) t1, Record x2) {
-  if (x2 is B2) { // `x2` promoted to `Record & B2`.
-    var v = (1 > 2) ? t1 : x2;
-    // UP((int,), Record & B2) = Record because (int,) <: Record
-    v.expectStaticType<Exactly<Record>>();
+void f6<X2 extends Record, T1 extends X2>(T1 t1, X2 x2) {
+  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
+    v.expectStaticType<Exactly<X2>>();
   }
 }
 
-void f7(FutureOr<int> t1, FutureOr<num> x2) {
-  if (x2 is B2) { // `x2` promoted to `FutureOr<num> & B2`.
-    var v = (1 > 2) ? t1 : x2;
-    // UP(FutureOr<int>, FutureOr<num> & B2) = FutureOr<num> because FutureOr<int> <: FutureOr<num>
-    v.expectStaticType<Exactly<FutureOr<num>>>();
+void f7<X2 extends FutureOr<num>, T1 extends X2>(T1 t1, X2 x2) {
+  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
+    v.expectStaticType<Exactly<X2>>();
   }
 }
 
-void f8(int? t1, num? x2) {
-  if (x2 is B2) { // `x2` promoted to `num? & B2`.
-    var v = (1 > 2) ? t1 : x2; // UP(int?, num? & B2) = num? because int? <: num?
-    v.expectStaticType<Exactly<num?>>();
+void f8<X2 extends num?, T1 extends X2>(T1 t1, X2 x2) {
+  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
+    v.expectStaticType<Exactly<X2>>();
   }
 }
 
-void f9(D<int, String> t1, D<num, Object> x2) {
-  if (x2 is B2) { // `x2` promoted to `D<num, Object> & B2`.
-    var v = (1 > 2) ? t1 : x2;
-    // UP(D<int, String>, D<num, Object> & B2) = FutureOr<num> because D<int, String> <: D<num, Object>
-    v.expectStaticType<Exactly<D<num, Object>>>();
+void f9<X2 extends D<num, Object>, T1 extends X2>(T1 t1, X2 x2) {
+  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
+    v.expectStaticType<Exactly<X2>>();
   }
 }
 
-void f10(FPositional2 t1, FPositional x2) {
-  if (x2 is B2) { // `x2` promoted to `FPositional & B2`.
-    var v = (1 > 2) ? t1 : x2;
-    // UP(FPositional2, FPositional & B2) = FPositional because FPositional2 <: FPositional
-    v.expectStaticType<Exactly<FPositional>>();
+void f10<X2 extends FPositional, T1 extends X2>(T1 t1, X2 x2) {
+  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
+    v.expectStaticType<Exactly<X2>>();
   }
 }
 
-void f11(FNamed2 t1, FNamed x2) {
-  if (x2 is B2) { // `x2` promoted to `FNamed & B2`.
-    var v = (1 > 2) ? t1 : x2;
-    // UP(FNamed2, FNamed & B2) = FNamed because FNamed2 <: FNamed
-    v.expectStaticType<Exactly<FNamed>>();
+void f11<X2 extends FNamed, T1 extends X2>(T1 t1, X2 x2) {
+  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
+    v.expectStaticType<Exactly<X2>>();
   }
 }
 
-void f12(Rec2 t1, Rec x2) {
-  if (x2 is B2) { // `x2` promoted to `Rec & B2`.
-    var v = (1 > 2) ? t1 : x2;
-    // UP(Rec2, Rec & B2) = Rec because Rec2 <: Rec
-    v.expectStaticType<Exactly<Rec>>();
+void f12<X2 extends Rec, T1 extends X2>(T1 t1, X2 x2) {
+  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
+    v.expectStaticType<Exactly<X2>>();
   }
 }
 
-void f13(E t1, Enum x2) {
-  if (x2 is B2) { // `x2` promoted to `Enum & B2`.
-    var v = (1 > 2) ? t1 : x2;
-    // UP(E, Enum & B2) = Rec because E <: Enum
-    v.expectStaticType<Exactly<Enum>>();
+void f13<X2 extends Enum, T1 extends X2>(T1 t1, X2 x2) {
+  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
+    v.expectStaticType<Exactly<X2>>();
   }
 }
 
-void f14(ET2 t1, ET x2) {
-  if (x2 is B2) { // `x2` promoted to `ET & B2`.
-    var v = (1 > 2) ? t1 : x2;
-    // UP(ET2, ET & B2) = ET because ET2 <: ET
-    v.expectStaticType<Exactly<ET>>();
+void f14<X2 extends ET, T1 extends X2>(T1 t1, X2 x2) {
+  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
+    v.expectStaticType<Exactly<X2>>();
   }
 }
 
@@ -136,15 +126,15 @@ void main() {
   f1<num, int>(1, 2);
   f2<A, B2>(B2(), A());
   f3(1, 2);
-  f4('t1', null);
-  f5(fPositional, () {});
-  f6((1,), (x: 2));
-  f7(1, Future.value(2));
-  f8(1, null);
+  f4<Null, Null>(null, null);
+  f5<FPositional, FPositional>(fPositional, fPositional);
+  f6<Rec, Rec>((1, '2', b: true), (1, '2', b: true));
+  f7<FutureOr<num>, FutureOr<num>>(1, Future.value(2));
+  f8<num?, num?>(1, null);
   f9(D<int, String>(), D<num, Object>());
   f10(fPositional2, fPositional);
   f11(fNamed2, fNamed);
   f12((1, 's', b: false), (1 as num, 's' as Pattern, b: true));
-  f13(E.e0, E2.e0);
+  f13<E, E>(E.e0, E.e0);
   f14(ET2(ET(1)), ET(2));
 }
