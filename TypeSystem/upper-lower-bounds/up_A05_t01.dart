@@ -10,7 +10,7 @@
 ///   - `T1` otherwise
 ///
 /// @description Check that UP(`T1`, `T2`) = `T2` if BOTTOM(`T1`), BOTTOM(`T2`),
-/// `T1 != T2` and MOREBOTTOM(`T1`, `T2`).
+/// `T1 != T2`, not TOP(`T1`), not TOP(`T2`)`, and MOREBOTTOM(`T1`, `T2`).
 /// @author sgrekhov22@gmail.com
 
 // ignore_for_file: dead_code, unused_local_variable
