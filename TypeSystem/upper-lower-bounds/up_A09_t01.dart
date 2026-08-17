@@ -12,7 +12,7 @@
 ///     with respect to `X2`, as defined in inference.md.
 ///
 /// @description Check that UP(`T1`, `X2 & B2`) = `X2` if `T1 != X2 & B2`,
-/// TOP(`T1`) `== false`, BOTTOM(`T1`) `== false` and `T1 <: X2`.
+/// not TOP(`T1`), not BOTTOM(`T1`) and `T1 <: X2`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';

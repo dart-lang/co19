@@ -13,8 +13,8 @@
 ///
 /// @description Check that UP(`T1`, `X2 & B2`) = UP(`T1`, `B2a`) where `B2a` is
 /// the greatest closure of `B2` with respect to `X2` if the first two
-/// conditions are not met and also `T1 != X2 & B2`, TOP(`T1`) `== false`,
-/// BOTTOM(`T1`) `== false`.
+/// conditions are not met and also `T1 != X2 & B2`, not TOP(`T1`) and not
+/// BOTTOM(`T1`).
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
