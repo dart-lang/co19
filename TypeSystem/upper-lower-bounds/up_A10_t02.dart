@@ -11,7 +11,7 @@
 ///
 /// @description Check that UP(`T1`, `T2`) = `T1` if `T1 != T2`, `T1` and `T2`
 /// are both not a TOP, BOTTOM or intersection types and NULL(`T1`), NULL(`T2`)
-/// and MOREBOTTOM(`T1`, `T2`) == false.
+/// and not MOREBOTTOM(`T1`, `T2`).
 /// @author sgrekhov22@gmail.com
 /// @issue 63908
 

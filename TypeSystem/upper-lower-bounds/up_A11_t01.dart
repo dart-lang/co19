@@ -12,8 +12,8 @@
 ///   - `T2?` otherwise
 ///
 /// @description Check that UP(`T1`, `T2`) = `T2` if `T1 != T2`, `T1` and `T2`
-/// are both not a TOP, BOTTOM or intersection types, NULL(`T1`) is `true`,
-/// NULL(`T2`) is `false` and `T2` is nullable.
+/// are both not a TOP, BOTTOM or intersection types, NULL(`T1`) is `true`, not
+/// NULL(`T2`) and `T2` is nullable.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
