@@ -8,7 +8,7 @@
 /// - UP(`T1`, `T2`) = `T1` if BOTTOM(`T2`)
 ///
 /// @description Check that UP(`T1`, `T2`) = `T1` if BOTTOM(`T2`), `T1 != T2`
-/// and TOP(`T1`) == false.
+/// and not TOP(`T1`) nor TOP(`T2`).
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
