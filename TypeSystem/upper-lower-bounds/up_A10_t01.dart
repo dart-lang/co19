@@ -10,24 +10,16 @@
 ///   - `T1` otherwise
 ///
 /// @description Check that UP(`T1`, `T2`) = `T2` if `T1 != T2`, `T1` and `T2`
-/// are both not a TOP, BOTTOM or intersection types and NULL(`T1`), NULL(`T2`)
+/// are both not a TOP, BOTTOM, or intersection type, if NULL(`T1`), NULL(`T2`)
 /// and MOREBOTTOM(`T1`, `T2`).
 /// @author sgrekhov22@gmail.com
 /// @issue 63908
 
+import '../../Utils/static_type_helper.dart';
+
 // ignore_for_file: unused_local_variable
 
-void f1(Never n) {
-  var v = (1 > 2) ? n : null;
-  // UP(Never, Null) = Null, because MOREBOTTOM(Never, T) = true
-  // Let's check that `v` is not assignable to a non-nullable variable
-  int i = v;
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-void f2(Never? n) {
+void f1(Never? n) {
   var v = (1 > 2) ? null : n;
   // UP(Null, Never?) = Never?, because MOREBOTTOM(Null, T) = true
   // It's not possible to check that `v` is `Never?`. Let's check that it is
@@ -44,7 +36,7 @@ void f2(Never? n) {
 // [cfe] unspecified
 }
 
-void f3(Null? n) { // ignore: unnecessary_question_mark
+void f2(Null? n) { // ignore: unnecessary_question_mark
   // UP(Null, Null?) = dynamic for historical reasons though MOREBOTTOM(Null, Null?) = true
   var v = (1 > 2) ? null : n;
   if (1 > 2) {
@@ -55,5 +47,4 @@ void f3(Null? n) { // ignore: unnecessary_question_mark
 void main() {
   print(f1);
   print(f2);
-  print(f3);
 }

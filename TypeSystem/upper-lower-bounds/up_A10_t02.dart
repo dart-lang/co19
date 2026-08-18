@@ -10,21 +10,20 @@
 ///   - `T1` otherwise
 ///
 /// @description Check that UP(`T1`, `T2`) = `T1` if `T1 != T2`, `T1` and `T2`
-/// are both not a TOP, BOTTOM or intersection types and NULL(`T1`), NULL(`T2`)
+/// are both not a TOP, BOTTOM, or intersection type, if NULL(`T1`), NULL(`T2`)
 /// and not MOREBOTTOM(`T1`, `T2`).
 /// @author sgrekhov22@gmail.com
 /// @issue 63908
 
+import '../../Utils/static_type_helper.dart';
+
 // ignore_for_file: unused_local_variable
 
-void f1(Never n) {
-  var v = (1 > 2) ? null : n;
-  // UP(Null, Never) = Null, because MOREBOTTOM(T, Never) = false
+void f1<X extends Never>(X? n) {
+  var v = (1 > 2) ? n : null;
+  // UP(X?, Null) = X?, because MOREBOTTOM(X?, Null) == false
   // Let's check that `v` is not assignable to a non-nullable variable
-  int i = v;
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  v.expectStaticType<Exactly<X?>>();
 }
 
 void f2(Never? n) {

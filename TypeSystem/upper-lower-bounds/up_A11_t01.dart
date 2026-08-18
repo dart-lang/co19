@@ -7,13 +7,11 @@
 /// ...
 /// - UP(`T1`, `T2`) where NULL(`T1`) =
 ///   - `T2` if `T2` is nullable
-///   - `T2*` if `Null <: T2` or `T1 <: Object` (that is, `T1` or `T2` is
-///     legacy)
 ///   - `T2?` otherwise
 ///
 /// @description Check that UP(`T1`, `T2`) = `T2` if `T1 != T2`, `T1` and `T2`
-/// are both not a TOP, BOTTOM or intersection types, NULL(`T1`) is `true`, not
-/// NULL(`T2`) and `T2` is nullable.
+/// are both not a TOP, BOTTOM or intersection type, if NULL(`T1`), not
+/// NULL(`T2`), and `T2` is nullable.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
