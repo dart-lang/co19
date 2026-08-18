@@ -10,7 +10,7 @@
 ///   - `T2?` otherwise
 ///
 /// @description Check that UP(`T1`, `T2`) = `T2?` if `T1 != T2`, `T1` and `T2`
-/// are neither TOP, BOTTOM, NULL, nor intersection types, OBJECT(`T2`), not
+/// are neither TOP, BOTTOM, NULL, nor intersection type, if OBJECT(`T2`), not
 /// OBJECT(`T1`) and `T1` is not non-nullable.
 /// @author sgrekhov22@gmail.com
 
