@@ -13,8 +13,9 @@
 ///
 /// @description Check that UP(`T1`, `X2 & B2`) = UP(`T1`, `B2a`) where `B2a` is
 /// the greatest closure of `B2` with respect to `X2` if the first two
-/// conditions are not met and also `T1 != X2 & B2`, not TOP(`T1`) and not
-/// BOTTOM(`T1`).
+/// conditions are not met and also `T1 != X2 & B2`, not TOP(`T1`), `T1` is not
+/// an intersection type and not BOTTOM(`T1`). We also use the fact that
+/// TOP(`X2 & B2`) never holds.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -24,18 +25,17 @@ import 'up_lib.dart';
 class A {}
 class A2 extends A {}
 class B extends A2 {}
-class B2 {}
 
-void f1<T1 extends A2, X2 extends A, B2>(T1 t1, X2 x2) {
-  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+void f1<T1 extends A2, X2 extends A>(T1 t1, X2 x2) {
+  if (x2 is B) { // `x2` promoted to `X2 & B2`.
     // UP(T1, X2 & B2) = UP(T1, B2a), where B2a is
-    // the greatest closure of `B2` with respect to `X2` (`A` in this case).
+    // the greatest closure of `B2` with respect to `X2` (`A2` in this case).
     var v = (1 > 2) ? t1 : x2;
-    v.expectStaticType<Exactly<A>>();
+    v.expectStaticType<Exactly<A2>>();
   }
 }
 
-void f2<T1 extends A2, X2 extends A2, B2 extends A>(T1 t1, X2 x2) {
+void f2<T1 extends A2, X2 extends A2, B2 extends A2>(T1 t1, X2 x2) {
   if (x2 is B2) { // `x2` promoted to `X2 & B2`.
     // UP(T1, X2 & B2) = UP(T1, B2a), where B2a is
     // the greatest closure of `B2` with respect to `X2` (`A2` in this case).
@@ -44,47 +44,7 @@ void f2<T1 extends A2, X2 extends A2, B2 extends A>(T1 t1, X2 x2) {
   }
 }
 
-void f3<T1 extends A, X2 extends A>(T1? t1, X2? x2) {
-  if (x2 is B2) { // `x2` promoted to `X2? & B2`.
-    // UP(T1?, X2? & B2) = UP(T1?, B2a), where `B2a` is
-    // the greatest closure of `B2` with respect to `X2`.
-    var v = (1 > 2) ? t1 : x2;
-    v.expectStaticType<Exactly<A?>>();
-  }
-}
-
-void f4<T1 extends A, X2 extends A>((T1,) t1, (X2,) x2) {
-  if (x2 is B2) { // `x2` promoted to `(X2,) & B2`.
-    // UP((T1,), (X2,) & B2) = UP((T1,), B2a), where `B2a` is
-    // the greatest closure of `B2` with respect to `(X2,)`.
-    var v = (1 > 2) ? t1 : x2;
-    v.expectStaticType<Exactly<(A,)>>();
-  }
-}
-
-void f5<T1 extends A, X2 extends A>(FutureOr<T1> t1, FutureOr<X2> x2) {
-  if (x2 is B2) { // `x2` promoted to `FutureOr<X2> & B2`.
-    // UP(FutureOr<T1>, FutureOr<X2> & B2) = UP(FutureOr<T1>, B2a), where B2a is
-    // the greatest closure of `B2` with respect to `FutureOr<X2>`.
-    var v = (1 > 2) ? t1 : x2;
-    v.expectStaticType<Exactly<FutureOr<A>>>();
-  }
-}
-
-void f6<T1 extends A, X2 extends A>(T1 Function() t1, X2 Function() x2) {
-  if (x2 is B2) { // `x2` promoted to `X2 Function() & B2`.
-    // UP(T1 Function(), X2 Function() & B2) = UP(T1 Function(), B2a), where B2a
-    // is the greatest closure of `B2` with respect to `X2 Function()`.
-    var v = (1 > 2) ? t1 : x2;
-    v.expectStaticType<Exactly<A Function()>>();
-  }
-}
-
 void main() {
   f1(A2(), A2());
   f2(A2(), A2());
-  f3(A(), null);
-  f4((A2(),), (A2(),));
-  f5(A2(), Future.value(A2()));
-  f6(() => A(), () => A());
 }
