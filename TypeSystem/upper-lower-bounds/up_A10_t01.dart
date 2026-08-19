@@ -17,7 +17,7 @@
 
 import '../../Utils/static_type_helper.dart';
 
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, unnecessary_question_mark
 
 void f1(Never? n) {
   var v = (1 > 2) ? null : n;
@@ -36,7 +36,7 @@ void f1(Never? n) {
 // [cfe] unspecified
 }
 
-void f2(Null? n) { // ignore: unnecessary_question_mark
+void f2(Null? n) {
   // UP(Null, Null?) = dynamic for historical reasons though MOREBOTTOM(Null, Null?) = true
   var v = (1 > 2) ? null : n;
   if (1 > 2) {
@@ -44,7 +44,34 @@ void f2(Null? n) { // ignore: unnecessary_question_mark
   }
 }
 
+void f3<X extends Never>(X? n) {
+  var v = (1 > 2) ? null : n;
+  // UP(Null, X?) = X?, because MOREBOTTOM(Null, X?) = true
+  v.expectStaticType<Exactly<X?>>();
+}
+
+void f4<X extends Never>(Null? n1, X? n2) {
+  var v = (1 > 2) ? n1 : n2;
+  // UP(Null?, X?) = X?, because MOREBOTTOM(Null?, X?) = true
+  v.expectStaticType<Exactly<X?>>();
+}
+
+void f5(Never? n1, Null? n2) {
+  // UP(Never?, Null?) = Null?, because MOREBOTTOM(Never?, Null?) = true
+  var v = (1 > 2) ? n1 : n2;
+  v.expectStaticType<Exactly<Null>>();
+  // Let's check that `v` is not assignable to a non-nullable variable (that
+  // proofs that `v` is not `dynamic`).
+  int x = v;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 void main() {
   print(f1);
   print(f2);
+  print(f3);
+  print(f4);
+  print(f5);
 }

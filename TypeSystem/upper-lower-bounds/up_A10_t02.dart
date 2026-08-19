@@ -17,16 +17,9 @@
 
 import '../../Utils/static_type_helper.dart';
 
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, unnecessary_question_mark
 
-void f1<X extends Never>(X? n) {
-  var v = (1 > 2) ? n : null;
-  // UP(X?, Null) = X?, because MOREBOTTOM(X?, Null) == false
-  // Let's check that `v` is not assignable to a non-nullable variable
-  v.expectStaticType<Exactly<X?>>();
-}
-
-void f2(Never? n) {
+void f1(Never? n) {
   var v = (1 > 2) ? n : null;
   // UP(Never?, Null) = Never?, because MOREBOTTOM(T, Null) = false
   // It's not possible to check that `v` is `Never?`. Let's check that it is
@@ -43,7 +36,7 @@ void f2(Never? n) {
 // [cfe] unspecified
 }
 
-void f3(Null? n) { // ignore: unnecessary_question_mark
+void f2(Null? n) {
   // UP(Null?, Null) = dynamic for historical reasons though MOREBOTTOM(Null?, Null) = false
   var v = (1 > 2) ? n : null;
   if (1 > 2) {
@@ -51,8 +44,46 @@ void f3(Null? n) { // ignore: unnecessary_question_mark
   }
 }
 
+void f3<X extends Never>(X? n) {
+  var v = (1 > 2) ? n : null;
+  // UP(X?, Null) = X?, because MOREBOTTOM(X?, Null) = false
+  v.expectStaticType<Exactly<X?>>();
+  // Let's check that `v` is not assignable to a non-nullable variable (that
+  // proofs that `v` is not `dynamic`).
+  int x = v;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void f4<X extends Never>(X? n1, Null? n2) {
+  var v = (1 > 2) ? n1 : n2;
+  // UP(X?, Null) = X?, because MOREBOTTOM(X?, Null?) = false
+  v.expectStaticType<Exactly<X?>>();
+  // Let's check that `v` is not assignable to a non-nullable variable (that
+  // proofs that `v` is not `dynamic`).
+  int x = v;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void f5(Null? n1, Never? n2) {
+  // UP(Null?, Never?) = Null?, because MOREBOTTOM(Null?, Never?) = false
+  var v = (1 > 2) ? n1 : n2;
+  v.expectStaticType<Exactly<Null>>();
+  // Let's check that `v` is not assignable to a non-nullable variable (that
+  // proofs that `v` is not `dynamic`.
+  int x = v;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 void main() {
   print(f1);
   print(f2);
   print(f3);
+  print(f4);
+  print(f5);
 }
