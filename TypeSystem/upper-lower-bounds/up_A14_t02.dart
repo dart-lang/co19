@@ -11,7 +11,9 @@
 ///
 /// @description Check that UP(`T1`, `T2`) = `T1?` if `T1 != T2`, `T1` and `T2`
 /// are neither TOP, BOTTOM, NULL, nor intersection type, if OBJECT(`T1`), not
-/// OBJECT(`T2`) and `T2` is not non-nullable.
+/// OBJECT(`T2`) and `T2` is not non-nullable. Note that none of TOP(`T`),
+/// BOTTOM(`T`), or NULL(`T`) holds when OBJECT(`T`), and `T` is not an
+/// intersection type.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -20,134 +22,190 @@ import 'up_lib.dart';
 
 void f1(Object o, num? n) {
   var v = (1 > 2) ? o : n; // UP(Object, num?) = Object?
-  v.expectStaticType<Exactly<Object?>>();
+  v.expectStaticType<Exactly<Object?>>(); // Check that v is not `Object`
+  // `Object` and `FutureOr<Object> `are subtypes of each other, which means
+  // that we can't see the difference using `expectStaticType()` function.
+  // `v.expectStaticType<Exactly<FutureOr<Object?>>>();` also succeeds. Let's
+  // check that `v` is not `FutureOr<Object?>`
+  v = checkObject();
+  expectObject();
 }
 
 void f2(FutureOr<Object> o, num? n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, num?) = FutureOr<Object>?
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void f3<X extends num>(Object o, X? n) {
   var v = (1 > 2) ? o : n; // UP(Object, X?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = checkObject();
+  expectObject();
 }
 
 void f4<X extends num>(FutureOr<Object> o, X? n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, X?) = FutureOr<Object>?
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void f5(Object o, Function? n) {
   var v = (1 > 2) ? o : n; // UP(Object, Function?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = checkObject();
+  expectObject();
 }
 
 void f6(FutureOr<Object> o, Function? n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, Function?) = FutureOr<Object>?
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void f7(Object o, Record? n) {
   var v = (1 > 2) ? o : n; // UP(Object, Record?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = checkObject();
+  expectObject();
 }
 
 void f8(FutureOr<Object> o, Record? n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, Record?) = FutureOr<Object>?
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void f9(Object o, FutureOr<int>? n) {
   var v = (1 > 2) ? o : n; // UP(Object, FutureOr<int>?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = checkObject();
+  expectObject();
 }
 
 void f10(FutureOr<Object> o, FutureOr<int>? n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, FutureOr<int>?) = FutureOr<Object>?
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void f11(Object o, C? n) {
   var v = (1 > 2) ? o : n; // UP(Object, C?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = checkObject();
+  expectObject();
 }
 
 void f12(FutureOr<Object> o, C? n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, C?) = FutureOr<Object>?
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void f13(Object o, D<int, String>? n) {
   var v = (1 > 2) ? o : n; // UP(Object, D<int, String>?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = checkObject();
+  expectObject();
 }
 
 void f14(FutureOr<Object> o, D<int, String>? n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, D<int, String>?) = FutureOr<Object>?
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void f15(Object o, FPositional? n) {
   var v = (1 > 2) ? o : n; // UP(Object, FPositional?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = checkObject();
+  expectObject();
 }
 
 void f16(FutureOr<Object> o, FPositional? n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, FPositional?) = FutureOr<Object>?
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void f17(Object o, FNamed? n) {
   var v = (1 > 2) ? o : n; // UP(Object, FNamed?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = checkObject();
+  expectObject();
 }
 
 void f18(FutureOr<Object> o, FNamed? n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, FNamed?) = FutureOr<Object>?
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void f19(Object o, Rec? n) {
   var v = (1 > 2) ? o : n; // UP(Object, Rec?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = checkObject();
+  expectObject();
 }
 
 void f20(FutureOr<Object> o, Rec? n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, Rec?) = FutureOr<Object>?
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void f21(Object o, E? n) {
   var v = (1 > 2) ? o : n; // UP(Object, E?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = checkObject();
+  expectObject();
 }
 
 void f22(FutureOr<Object> o, E? n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, E?) = FutureOr<Object>?
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void f23(Object o, ET? n) {
   var v = (1 > 2) ? o : n; // UP(Object, ET?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = checkObject();
+  expectObject();
 }
 
 void f24(FutureOr<Object> o, ET? n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, ET?) = FutureOr<Object>?
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void f25(Object o, ET n) {
   // `ET` is neither non-nullable (`ET <: Object` is false) nor nullable
   var v = (1 > 2) ? o : n; // UP(Object, ET) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = checkObject();
+  expectObject();
 }
 
 void f26(FutureOr<Object> o, ET n) {
   // `ET` is neither non-nullable (`ET <: Object` is false) nor nullable
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, ET) = FutureOr<Object>?
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void main() {

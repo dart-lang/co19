@@ -11,27 +11,37 @@
 ///
 /// @description Check that UP(`T1`, `T2`) = `T2` if `T1 != T2` and OBJECT(`T1`)
 /// and OBJECT(`T2`) and not MORETOP(`T1`, `T2`). Test that `Object` is more top
-/// than `FutureOr<Object>`.
+/// than `FutureOr<Object>`. Note that none of TOP(`T`), BOTTOM(`T`), or
+/// NULL(`T`) holds when OBJECT(`T`), and `T` is not an intersection type.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
 import '../../Utils/static_type_helper.dart';
+import 'up_lib.dart';
 
 void f1(FutureOr<Object> x, Object y) {
   var v = (1 > 2) ? x : y; // MORETOP(FutureOr<Object>, Object) = false
-  v.expectStaticType<Exactly<Object>>();
+  // Object and FutureOr<Object> are subtypes of each other, which means that we
+  // can't see the difference using `expectStaticType()` function.
+  v.expectStaticType<Exactly<Object>>(); // Check that `v` is not `Object?`
+  v = checkObject();
+  expectObject(); // Check that `v` is not `FutureOr<Object>`
 }
 
 void f2(FutureOr<FutureOr<Object>> x, Object y) {
   var v = (1 > 2) ? x : y; // MORETOP(FutureOr<FutureOr<Object>>, Object) = false
   v.expectStaticType<Exactly<Object>>();
+  v = checkObject();
+  expectObject();
 }
 
 void f3(FutureOr<FutureOr<Object>> x, FutureOr<Object> y) {
   // MORETOP(FutureOr<FutureOr<Object>>, FutureOr<Object>) =
   // MORETOP(FutureOr<Object>, Object) = false
   var v = (1 > 2) ? x : y;
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
+  v.expectStaticType<Exactly<FutureOr<Object>>>(); // Check that `v` is not `FutureOr<Object?>`
+  v = checkObject();
+  expectFutureOrObject();
 }
 
 void main() {
