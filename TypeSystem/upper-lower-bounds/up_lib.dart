@@ -38,23 +38,43 @@ typedef Rec = (int, String, {bool b});
 ///   Object o1 = 42;
 ///   FutureOr<Object> o2 = 42;
 ///
-///   o1 = f(); // Prints 'dynamic'.
-///   o2 = f(); // Prints 'Object'.
+///   o1 = confirmObjectContext(); // Throws if `o1` is `FutureOr<Object>`
+///   o2 = confirmFutureOrObjectContext(); // Throws if `o2` is `Object`
 /// }
 ///```
-Future<X> checkObject<X>() {
-  checkObjectLog = '$X';
-  return Future<X>.value(0 as dynamic);
+Future<X> confirmObjectContext<X>() {
+  // Confirm that `X` is a top type.
+  if (<Object?>[] is List<X>) {
+    return Future<X>.value(0 as dynamic);
+  }
+  Expect.fail('The context is not a top type');
+  return Future<X>.value(null); // We need to return something
 }
 
-String checkObjectLog = '';
-
-void expectObject() {
-  Expect.equals('dynamic', checkObjectLog);
-  checkObjectLog = '';
-}
-
-void expectFutureOrObject() {
-  Expect.equals('Object', checkObjectLog);
-  checkObjectLog = '';
+/// Object and FutureOr< Object > are subtypes of each other, which means that
+/// we can't see the difference using `expectStaticType()` function. The
+/// following code makes the distinction:
+/// ```
+/// import 'dart:async';
+///
+/// Future<X> f<X>() {
+///   print(X);
+///   return Future<Never>.error(0);
+/// }
+///
+/// void main() {
+///   Object o1 = 42;
+///   FutureOr<Object> o2 = 42;
+///
+///   o1 = confirmObjectContext(); // Throws if `o1` is `FutureOr<Object>`
+///   o2 = confirmFutureOrObjectContext(); // Throws if `o2` is `Object`
+/// }
+///```
+Future<X> confirmFutureOrObjectContext<X>() {
+  // Confirm that `X` is `Object`.
+  if (X == Object) {
+    return Future<X>.value(0 as dynamic);
+  }
+  Expect.fail('The context is not `Object`');
+  return Future<X>.value(null);
 }

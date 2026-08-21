@@ -24,15 +24,13 @@ void f1(Object x, FutureOr<Object> y) {
   // Object and FutureOr<Object> are subtypes of each other, which means that we
   // can't see the difference using `expectStaticType()` function.
   v.expectStaticType<Exactly<Object>>(); // Check that `v` is not `Object?`
-  v = checkObject();
-  expectObject(); // Check that `v` is not `FutureOr<Object>`
+  v = confirmObjectContext(); // Check that `v` is not `FutureOr<Object>`
 }
 
 void f2(Object x, FutureOr<FutureOr<Object>> y) {
   var v = (1 > 2) ? x : y; // MORETOP(Object, FutureOr<FutureOr<Object>>) = true
   v.expectStaticType<Exactly<Object>>();
-  v = checkObject();
-  expectObject();
+  v = confirmObjectContext();
 }
 
 void f3(FutureOr<Object> x, FutureOr<FutureOr<Object>> y) {
@@ -40,8 +38,7 @@ void f3(FutureOr<Object> x, FutureOr<FutureOr<Object>> y) {
   // MORETOP(Object, FutureOr<Object>) = true
   var v = (1 > 2) ? x : y;
   v.expectStaticType<Exactly<FutureOr<Object>>>(); // Check that `v` is not `FutureOr<Object?>`
-  v = checkObject();
-  expectFutureOrObject();
+  v = confirmFutureOrObjectContext();;
 }
 
 void main() {
