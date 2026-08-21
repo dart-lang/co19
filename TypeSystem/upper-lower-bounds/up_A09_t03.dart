@@ -18,18 +18,17 @@
 /// TOP(`X2 & B2`) never holds.
 /// @author sgrekhov22@gmail.com
 
-import 'dart:async';
 import '../../Utils/static_type_helper.dart';
-import 'up_lib.dart';
 
 class A {}
 class A2 extends A {}
-class B extends A2 {}
+class B2 extends A2 {}
 
 void f1<T1 extends A2, X2 extends A>(T1 t1, X2 x2) {
-  if (x2 is B) { // `x2` promoted to `X2 & B2`.
-    // UP(T1, X2 & B2) = UP(T1, B2a), where B2a is
-    // the greatest closure of `B2` with respect to `X2` (`A2` in this case).
+  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
+    // UP(T1, X2 & B2) = UP(T1, B2a), where B2a is the greatest closure of `B2`
+    // with respect to `X2` (`B2` in this case with respect to anything) and
+    // UP(`T1`, `B2a`) == UP(`T1`, `B2`) = `A2`.
     var v = (1 > 2) ? t1 : x2;
     v.expectStaticType<Exactly<A2>>();
   }
