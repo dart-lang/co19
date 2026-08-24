@@ -19,76 +19,68 @@ import 'up_lib.dart';
 void f1(num t1, int Function() t2) {
   var v = (1 > 2) ? t1 : t2; // UP(num, int Function()) = UP(num, Object) = Object
   v.expectStaticType<Exactly<Object>>();
-  v = checkObject(); // Check that `v` is not `FutureOr<Object>`
-  expectObject();
+  v = confirmObjectContext(); // Check that `v` is not `FutureOr<Object>`
 }
 
 void f2(String t1, void Function(int) t2) {
   var v = (1 > 2) ? t1 : t2;
   // UP(String, void Function(int)) = UP(String, Object) = Object
   v.expectStaticType<Exactly<Object>>();
-  v = checkObject();
-  expectObject();
+  v = confirmObjectContext();
 }
 
 void f3(C t1, FPositional t2) {
   var v = (1 > 2) ? t1 : t2; // UP(C, FPositional) = UP(C, Object) = Object
   v.expectStaticType<Exactly<Object>>();
-  v = checkObject();
-  expectObject();
+  v = confirmObjectContext();
 }
 
 void f4(D<int, String> t1, FNamed t2) {
   var v = (1 > 2) ? t1 : t2;
   // UP(D<int, String>, FNamed) = UP(D<int, String>, Object) = Object
   v.expectStaticType<Exactly<Object>>();
-  v = checkObject();
-  expectObject();
+  v = confirmObjectContext();
 }
 
 void f5(Record t1, int Function([int]) t2) {
   var v = (1 > 2) ? t1 : t2;
   // UP(Record, int Function([int])) = UP(Record, Object) = Object
   v.expectStaticType<Exactly<Object>>();
-  v = checkObject();
-  expectObject();
+  v = confirmObjectContext();
 }
 
 void f6(Rec t1, int Function({int i}) t2) {
   var v = (1 > 2) ? t1 : t2;
   // UP(Rec, int Function({int i})) = UP(Rec, Object) = Object
   v.expectStaticType<Exactly<Object>>();
-  v = checkObject();
-  expectObject();
+  v = confirmObjectContext();
 }
 
 void f7(E t1, void Function<X extends num>(X) t2) {
   var v = (1 > 2) ? t1 : t2;
   // UP(E, void Function<X extends num>(X)) = UP(E, Object) = Object
   v.expectStaticType<Exactly<Object>>();
-  v = checkObject();
-  expectObject();
+  v = confirmObjectContext();
 }
 
 void f8(FutureOr<int> t1, FPositional t2) {
   var v = (1 > 2) ? t1 : t2;
   // UP(FutureOr<int>, FPositional) = UP(FutureOr<int>, Object) = Object
   v.expectStaticType<Exactly<Object>>();
-  v = checkObject();
-  expectObject();
+  v = confirmObjectContext();
 }
 
 void f9<X extends num>(X t1, int Function(X) t2) {
   var v = (1 > 2) ? t1 : t2; // UP(X, int Function(X)) = UP(X, Object) = Object
   v.expectStaticType<Exactly<Object>>();
-  v = checkObject();
-  expectObject();
+  v = confirmObjectContext();
 }
 
 void f10(ET t1, void Function<X extends num>(X) t2) {
   var v = (1 > 2) ? t1 : t2;
   // UP(ET, void Function<X extends num>(X)) = UP(ET, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = confirmObjectContext();
 }
 
 void main() {
