@@ -38,8 +38,8 @@ typedef Rec = (int, String, {bool b});
 ///   Object o1 = 42;
 ///   FutureOr<Object> o2 = 42;
 ///
-///   o1 = confirmObjectContext(); // Throws if `o1` is `FutureOr<Object>`
-///   o2 = confirmFutureOrObjectContext(); // Throws if `o2` is `Object`
+///   o1 = confirmObjectContext(); // Throws if the static type of `o1` is `FutureOr<Object>`
+///   o2 = confirmFutureOrObjectContext(); // Throws if the static type of `o2` is `Object`
 /// }
 ///```
 Future<X> confirmObjectContext<X>() {
@@ -66,8 +66,8 @@ Future<X> confirmObjectContext<X>() {
 ///   Object o1 = 42;
 ///   FutureOr<Object> o2 = 42;
 ///
-///   o1 = confirmObjectContext(); // Throws if `o1` is `FutureOr<Object>`
-///   o2 = confirmFutureOrObjectContext(); // Throws if `o2` is `Object`
+///   o1 = confirmObjectContext(); // Throws if the static type of `o1` is `FutureOr<Object>`
+///   o2 = confirmFutureOrObjectContext(); // Throws if the static type of `o2` is `Object`
 /// }
 ///```
 Future<X> confirmFutureOrObjectContext<X>() {
