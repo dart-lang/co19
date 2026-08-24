@@ -37,7 +37,7 @@ void f1<T1 extends A2, X2 extends A>(T1 t1, X2 x2) {
 void f2<T1 extends A2, X2 extends A2, B2 extends A2>(T1 t1, X2 x2) {
   if (x2 is B2) { // `x2` promoted to `X2 & B2`.
     // UP(T1, X2 & B2) = UP(T1, B2a), where B2a is
-    // the greatest closure of `B2` with respect to `X2` (`A2` in this case).
+    // the greatest closure of `B2` with respect to `X2` (which is again `B2`).
     var v = (1 > 2) ? t1 : x2;
     v.expectStaticType<Exactly<A2>>();
   }
