@@ -44,6 +44,10 @@ void f2(Null? n) {
   // `dynamic` for historical reasons. Though MOREBOTTOM(Null?, Null) = false
   // and the expression should has type `Null`.
   ((1 > 2) ? n : null).expectStaticType<Exactly<Null>>();
+  ((1 > 2) ? n : null).proofNotDynamic;
+//                     ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 void f3<X extends Never>(X? n) {
