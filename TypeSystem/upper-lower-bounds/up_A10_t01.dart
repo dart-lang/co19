@@ -23,7 +23,10 @@ void f1(Never? n) {
   var v = (1 > 2) ? null : n;
   // UP(Null, Never?) = Never?, because MOREBOTTOM(Null, T) = true
   // It's not possible to check that `v` is `Never?`. Let's check that it is
-  // assignable to both `String` and `int` and is not `dynamic`
+  // assignable to both `String` and `int` and is not `dynamic`.
+  if (v == null) {
+    return; // Never? is not assignable to `int` or `String`. Let's strip `?`.
+  }
   int i = v;
   String s = v;
   // If `v` has type `dynamic` then `v2` will have type `dynamic` as well. It
@@ -37,11 +40,10 @@ void f1(Never? n) {
 }
 
 void f2(Null? n) {
-  // UP(Null, Null?) = dynamic for historical reasons though MOREBOTTOM(Null, Null?) = true
-  var v = (1 > 2) ? null : n;
-  if (1 > 2) {
-    v.checkDynamic;
-  }
+  // In the case var v = (1 > 2) ? null : n; the inferred type of `v` is
+  // `dynamic` for historical reasons. Though MOREBOTTOM(Null, Null?) = true and
+  // the expression should has type `Null`.
+  ((1 > 2) ? null : n).expectStaticType<Exactly<Null>>();
 }
 
 void f3<X extends Never>(X? n) {
