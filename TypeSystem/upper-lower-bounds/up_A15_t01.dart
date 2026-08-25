@@ -26,15 +26,14 @@ void f1(num n, Object o) {
   var v = (1 > 2) ? n : o; // UP(num, Object) = Object
   // Object and FutureOr<Object> are subtypes of each other, which means that we
   // can't see the difference using `expectStaticType()` function.
-  v.expectStaticType<Exactly<Object>>(); // Check that `v` is not `Object?`
-  v = confirmObjectContext(); // Check that `v` is not `FutureOr<Object>`
+  v.expectStaticType<Exactly<Object>>(); // Check that `v`'s type is `OBJECT`.
+  v = confirmObjectContext(); // Check that `v`'s type is `Object`.
 }
 
 void f2(num n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(num, FutureOr<Object>) = FutureOr<Object>
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = confirmFutureOrObjectContext(); // Check that `v`'s type is `FutureOr<Object>`.
 }
 
 void f3<X extends num>(X n, Object o) {
@@ -45,7 +44,6 @@ void f3<X extends num>(X n, Object o) {
 
 void f4<X extends num>(X n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(X, FutureOr<Object>) = FutureOr<Object>
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
   v.expectStaticType<Exactly<Object>>();
   v = confirmFutureOrObjectContext();
 }
@@ -58,7 +56,6 @@ void f5(Function n, Object o) {
 
 void f6(Function n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(Function, FutureOr<Object>) = FutureOr<Object>
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
   v.expectStaticType<Exactly<Object>>();
   v = confirmFutureOrObjectContext();
 }
@@ -71,7 +68,6 @@ void f7(Record n, Object o) {
 
 void f8(Record n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(Record, FutureOr<Object>) = FutureOr<Object>
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
   v.expectStaticType<Exactly<Object>>();
   v = confirmFutureOrObjectContext();
 }
@@ -84,7 +80,6 @@ void f9(FutureOr<int> n, Object o) {
 
 void f10(FutureOr<int> n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(FutureOr<int>, FutureOr<Object>) = FutureOr<Object>
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
   v.expectStaticType<Exactly<Object>>();
   v = confirmFutureOrObjectContext();
 }
@@ -97,7 +92,6 @@ void f11(C n, Object o) {
 
 void f12(C n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(C, FutureOr<Object>) = FutureOr<Object>
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
   v.expectStaticType<Exactly<Object>>();
   v = confirmFutureOrObjectContext();
 }
@@ -110,7 +104,6 @@ void f13(D<int, String> n, Object o) {
 
 void f14(D<int, String> n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(D<int, String>, FutureOr<Object>) = FutureOr<Object>
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
   v.expectStaticType<Exactly<Object>>();
   v = confirmFutureOrObjectContext();
 }
@@ -123,7 +116,6 @@ void f15(FPositional n, Object o) {
 
 void f16(FPositional n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(FPositional, FutureOr<Object>) = FutureOr<Object>
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
   v.expectStaticType<Exactly<Object>>();
   v = confirmFutureOrObjectContext();
 }
@@ -136,7 +128,6 @@ void f17(FNamed n, Object o) {
 
 void f18(FNamed n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(FNamed, FutureOr<Object>) = FutureOr<Object>
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
   v.expectStaticType<Exactly<Object>>();
   v = confirmFutureOrObjectContext();
 }
@@ -149,7 +140,6 @@ void f19(Rec n, Object o) {
 
 void f20(Rec n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(Rec, FutureOr<Object>) = FutureOr<Object>
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
   v.expectStaticType<Exactly<Object>>();
   v = confirmFutureOrObjectContext();
 }
@@ -162,7 +152,6 @@ void f21(E n, Object o) {
 
 void f22(E n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(E, FutureOr<Object>) = FutureOr<Object>
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
   v.expectStaticType<Exactly<Object>>();
   v = confirmFutureOrObjectContext();
 }
