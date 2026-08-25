@@ -6,6 +6,7 @@
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
+import '../../Utils/expect.dart';
 
 void getVoid() {}
 FutureOr<void> getFutureOrVoid() {}
@@ -31,3 +32,59 @@ num fPositional<X extends num>(X x, [int i = 0]) => x + i;
 int fPositional2<X extends num>(X x, [num i = 0]) => (x + i).toInt();
 num fNamed<X extends num>(X x, {int i = 0}) => x + i;
 int fNamed2<X extends num>(X x, {num i = 0}) => (x + i).toInt();
+
+/// Object and FutureOr< Object > are subtypes of each other, which means that
+/// we can't see the difference using `expectStaticType()` function. The
+/// following code makes the distinction:
+/// ```
+/// import 'dart:async';
+///
+/// Future<X> f<X>() {
+///   print(X);
+///   return Future<Never>.error(0);
+/// }
+///
+/// void main() {
+///   Object o1 = 42;
+///   FutureOr<Object> o2 = 42;
+///
+///   o1 = confirmObjectContext(); // Throws if the static type of `o1` is `FutureOr<Object>`
+///   o2 = confirmFutureOrObjectContext(); // Throws if the static type of `o2` is `Object`
+/// }
+///```
+Future<X> confirmObjectContext<X>() {
+  // Confirm that `X` is a top type.
+  if (<Object?>[] is List<X>) {
+    return Future<X>.value(0 as dynamic);
+  }
+  Expect.fail('The context is not a top type');
+  return Future<X>.value(null); // We need to return something
+}
+
+/// Object and FutureOr< Object > are subtypes of each other, which means that
+/// we can't see the difference using `expectStaticType()` function. The
+/// following code makes the distinction:
+/// ```
+/// import 'dart:async';
+///
+/// Future<X> f<X>() {
+///   print(X);
+///   return Future<Never>.error(0);
+/// }
+///
+/// void main() {
+///   Object o1 = 42;
+///   FutureOr<Object> o2 = 42;
+///
+///   o1 = confirmObjectContext(); // Throws if the static type of `o1` is `FutureOr<Object>`
+///   o2 = confirmFutureOrObjectContext(); // Throws if the static type of `o2` is `Object`
+/// }
+///```
+Future<X> confirmFutureOrObjectContext<X>() {
+  // Confirm that `X` is `Object`.
+  if (X == Object) {
+    return Future<X>.value(0 as dynamic);
+  }
+  Expect.fail('The context is not `Object`');
+  return Future<X>.value(null);
+}
