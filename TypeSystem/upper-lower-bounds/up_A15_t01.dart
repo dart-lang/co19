@@ -19,7 +19,6 @@
 // ignore_for_file: unused_local_variable
 
 import 'dart:async';
-import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
@@ -157,29 +156,6 @@ void f22(E n, FutureOr<Object> o) {
   v = confirmFutureOrObjectContext();
 }
 
-void f23(ET n, Object o) {
-  // `ET` is neither non-nullable (`ET <: Object` is false) nor nullable
-  var v = (1 > 2) ? n : o; // UP(ET, Object) = Object?
-  v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
-}
-
-void f24(ET n, FutureOr<Object> o) {
-  // `ET` is neither non-nullable (`ET <: Object` is false) nor nullable
-  var v = (1 > 2) ? n : o; // UP(ET, FutureOr<Object>) = FutureOr<Object>?
-  v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
-}
-
-
 void main() {
   f1(1, 1);
   f2(1, 1);
@@ -203,6 +179,4 @@ void main() {
   f20((1, 'two', b: true), 1);
   f21(E.e0, 1);
   f22(E.e0, 1);
-  f23(ET(0), 1);
-  f24(ET(0), 1);
 }
