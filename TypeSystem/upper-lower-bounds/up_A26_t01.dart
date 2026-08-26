@@ -10,9 +10,12 @@
 /// @description Check that UP(`T Function<...>(...)`, `T2`) = UP(`Object`,`T2`)
 /// where `T2` is not a function type and also neither TOP, BOTTOM, NULL,
 /// OBJECT nor intersection type.
+/// Note that `Function` and a function type are not TOP, OBJECT, NULL, or
+/// BOTTOM, and they are not intersection types, or of the form `T?`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
+import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
@@ -80,6 +83,10 @@ void f10(void Function<X extends num>(X) t1, ET t2) {
   var v = (1 > 2) ? t1 : t2;
   // UP(void Function<X extends num>(X), ET) = UP(Object, ET) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  if (v != null) { // Strip ?
+    Expect.fail('The actual value must be non-null for the test to complete.');
+    return;
+  }
   v = confirmObjectContext();
 }
 

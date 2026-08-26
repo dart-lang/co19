@@ -18,6 +18,8 @@
 /// @description Check a representative case of
 /// UP(`T Function<X extends B>(P0, [P01])`, `S Function<X extends B>(P1, [P11])`) =
 /// UP(`T`, `S`) Function<X extends B>(DOWN(`P0`, `P1`), [DOWN(`P01`, `P11`)]).
+/// Note that `Function` and a function type are not TOP, OBJECT, NULL, or
+/// BOTTOM, and they are not intersection types, or of the form `T?`.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

@@ -8,6 +8,8 @@
 /// - UP(`Function`, `T Function<...>(...)`) = `Function`
 ///
 /// @description Check that UP(`Function`, `T Function<...>(...)`) = `Function`.
+/// Note that `Function` and a function type are not TOP, OBJECT, NULL, or
+/// BOTTOM, and they are not intersection types, or of the form `T?`.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
