@@ -8,8 +8,11 @@
 /// - UP(`(...)`, `T2`) = UP(`Object`, `T2`)
 ///
 /// @description Check that UP(`(...)`, `T2`) = UP(`Object`, `T2`) = `Object`
-/// if `T2` is non-nullable and is neither a record type, TOP, BOTTOM, NULL,
-/// OBJECT, function type nor an intersection type.
+/// if `T2` is not `T?` and is neither a record type, TOP, BOTTOM, NULL, OBJECT,
+/// function type nor an intersection type.
+/// Note that no earlier rule applies because record types are never TOP, OBJECT,
+/// NULL, BOTTOM, intersection types, types of the form `T?`, type variables,
+/// function types, or `Function`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';

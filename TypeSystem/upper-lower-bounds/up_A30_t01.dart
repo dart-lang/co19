@@ -14,6 +14,9 @@
 /// @description Check that UP of two record types with the same shape is a
 /// record type of that shape where each field type is UP of the corresponding
 /// field types.
+/// Note that no earlier rule applies because record types are never TOP, OBJECT,
+/// NULL, BOTTOM, intersection types, types of the form `T?`, type variables,
+/// function types, or `Function`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';

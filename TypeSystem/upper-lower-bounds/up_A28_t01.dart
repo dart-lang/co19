@@ -8,6 +8,9 @@
 /// - UP(`(...)`, `Record`) = `Record`
 ///
 /// @description Check that UP(`(...)`, `Record`) = `Record`.
+/// Note that no earlier rule applies because record types and `Record` are
+/// never TOP, OBJECT, NULL, BOTTOM, intersection types, types of the form `T?`,
+/// type variables, function types, or `Function`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
