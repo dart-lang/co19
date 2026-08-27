@@ -12,8 +12,8 @@
 ///     with respect to `X1`, as defined in inference.md.
 ///
 /// @description Check that UP(`X1 extends B1`, `T2`) = `T2` if `X1 != T2`, none
-/// of `X1` and `T2` is TOP, BOTTOM, NULL, OBJECT, nullable or an intersection
-/// type and `X1 <: T2`.
+/// of `X1` and `T2` is TOP, BOTTOM, NULL, OBJECT, `T?` or an intersection type
+/// and `X1 <: T2`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -90,6 +90,11 @@ void f14<X1 extends FutureOr<int>>(X1 x1, FutureOr<num> t2) {
   v.expectStaticType<Exactly<FutureOr<num>>>();
 }
 
+void f15<X1 extends FutureOr<int?>>(X1 x1, FutureOr<num?> t2) {
+  var v = (1 > 2) ? x1 : t2; // UP(X1 extends FutureOr<int?>, FutureOr<num?>) = FutureOr<num?>
+  v.expectStaticType<Exactly<FutureOr<num?>>>();
+}
+
 void main() {
   f1(1, 1);
   f2(1, 1);
@@ -105,4 +110,5 @@ void main() {
   f12(E.e0, E2.e0);
   f13(ET2(ET(0)), ET(0));
   f14(1, 1);
+  f15(1, 1);
 }

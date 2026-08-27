@@ -13,8 +13,8 @@
 ///
 /// @description Check that UP(`X1 extends B1`, `T2`) = UP(`B1a`, `T2`) where
 /// `B1a` is the greatest closure of `B1` with respect to `X1`if `X1 != T2`,
-/// none of `X1` and `T2` is TOP, BOTTOM, NULL, OBJECT, nullable or an
-/// intersection type and `X1 <: T2` and `T2 <: X1` are both false.
+/// none of `X1` and `T2` is TOP, BOTTOM, NULL, OBJECT, `T?` or an intersection
+/// type and `X1 <: T2` and `T2 <: X1` are both false.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';

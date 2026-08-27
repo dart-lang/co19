@@ -12,8 +12,8 @@
 ///     with respect to `X2`, as defined in inference.md.
 ///
 /// @description Check that UP(`T1`, `X2 extends B2`) = `X2` if `T1 != X2`, none
-/// of `T1` and `X2` is TOP, BOTTOM, NULL, OBJECT, nullable or an intersection
-/// type and `T1 <: X2`.
+/// of `T1` and `X2` is TOP, BOTTOM, NULL, OBJECT, `T?` or an intersection type
+/// and `T1 <: X2`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
