@@ -2,17 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Mixin application semantics is mostly unchanged, except that it's
-/// a compile-time error to apply a mixin to a class that doesn't implement all
-/// the 'on' type requirements of the mixin declaration, or apply a mixin
-/// containing super-invocations to a class that doesn't have a concrete
-/// implementation of the super-invoked members compatible with the
-/// super-constraint interface.
+/// @assertion Let `S` be a class, `M` be a mixin with required superinterfaces
+/// `T1, ..., Tn`, combined superinterface `MS`, implemented interfaces
+/// `I1, ..., Ik` and members as member declarations, and let `N` be a name.
 ///
-/// @description Checks that there is no compile error if a mixin is applied to a
-/// class that implements all the 'on' type requirements of the mixin
-/// declaration. Test 'extends' implementation of 'on' clause interfaces and
-/// 'implements' part of the mixin
+/// It is a compile-time error to apply `M` to `S` if `S` does not implement,
+/// directly or indirectly, all of `T1, ..., Tn`.
+///
+/// @description Check that it is not an error if a mixin is applied to a class
+/// that implements all of the on-type requirements of the mixin declaration.
+/// Test 'extends' implementation of 'on' clause interfaces and 'implements'
+/// part of the mixin.
 /// @author sgrekhov@unipro.ru
 
 import "../../Utils/expect.dart";
@@ -27,6 +27,7 @@ class I {
   String i3() => "I.i3";
   String operator ~() => i1.substring(0, 2);
 }
+
 abstract class J {
   String get j1;
   void set j2(String v);
@@ -42,12 +43,14 @@ class A {
   String a3() => "A.a3";
   String operator +(A v) => v.a1.substring(0, 1);
 }
+
 abstract class B extends A {
   String get b1;
   void set b2(String v);
   String b3();
   String operator -(B v);
 }
+
 class C extends B implements J {
   String get b1 => "C.b1";
   void set b2(String v) {
@@ -79,8 +82,7 @@ mixin M on A, B implements I, J {
   String operator ~() => i1.substring(0, 1);
 }
 
-class MA extends C with M {
-}
+class MA extends C with M {}
 
 main() {
   MA ma = new MA();
