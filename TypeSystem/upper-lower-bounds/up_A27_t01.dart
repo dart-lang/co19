@@ -83,7 +83,7 @@ void f10(ET t1, void Function<X extends num>(X) t2) {
   var v = (1 > 2) ? t1 : t2;
   // UP(ET, void Function<X extends num>(X)) = UP(ET, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v != null) { // Strip ?
+  if (v == null) { // Strip ?
     Expect.fail('The actual value must be non-null for the test to complete.');
     return;
   }
