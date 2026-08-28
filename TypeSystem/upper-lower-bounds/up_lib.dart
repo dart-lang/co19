@@ -27,6 +27,7 @@ typedef FNamed = num Function<X extends num>(X x, {int i});
 typedef FNamed2 = int Function<X extends num>(X x, {num i});
 typedef Rec = (num, Pattern, {bool b});
 typedef Rec2 = (int, String, {bool b});
+typedef NullableObject = Object?;
 
 num fPositional<X extends num>(X x, [int i = 0]) => x + i;
 int fPositional2<X extends num>(X x, [num i = 0]) => (x + i).toInt();
@@ -38,11 +39,6 @@ int fNamed2<X extends num>(X x, {num i = 0}) => (x + i).toInt();
 /// following code makes the distinction:
 /// ```
 /// import 'dart:async';
-///
-/// Future<X> f<X>() {
-///   print(X);
-///   return Future<Never>.error(0);
-/// }
 ///
 /// void main() {
 ///   Object o1 = 42;
@@ -67,11 +63,6 @@ Future<X> confirmObjectContext<X>() {
 /// ```
 /// import 'dart:async';
 ///
-/// Future<X> f<X>() {
-///   print(X);
-///   return Future<Never>.error(0);
-/// }
-///
 /// void main() {
 ///   Object o1 = 42;
 ///   FutureOr<Object> o2 = 42;
@@ -86,5 +77,28 @@ Future<X> confirmFutureOrObjectContext<X>() {
     return Future<X>.value(0 as dynamic);
   }
   Expect.fail('The context is not `Object`');
+  return Future<X>.value(null);
+}
+
+/// Object? and FutureOr< Object? > are subtypes of each other, which means that
+/// we can't see the difference using `expectStaticType()` function. The
+/// following code makes the distinction:
+/// ```
+/// import 'dart:async';
+///
+/// void main() {
+///   Object? o1 = 42;
+///   FutureOr<Object?> o2 = 42;
+///
+///   o1 = confirmFutureOrNullableObjectContext(); // Throws
+///   o2 = confirmFutureOrNullableObjectContext(); // Ok
+/// }
+///```
+Future<X> confirmFutureOrNullableObjectContext<X>() {
+  // Confirm that `X` is `Object`.
+  if (X == NullableObject) {
+    return Future<X>.value(0 as dynamic);
+  }
+  Expect.fail('The context is not `Object?`');
   return Future<X>.value(null);
 }

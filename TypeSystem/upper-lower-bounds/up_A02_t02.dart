@@ -29,16 +29,30 @@ void f1(dynamic y) {
 void f2(Object? y) {
   var v = (1 > 2) ? getFutureOrVoid() : y; // MORETOP(FutureOr<void>, Object?) = true
   v.expectStaticType<Exactly<FutureOr<void>>>();
+  // v.expectStaticType<Exactly<Object?>>(); also succeeds.
+  // Let's check that the type `void` cannot be used.
+  print(await v);
+//      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-void f3(FutureOr<dynamic> y) {
+void f3(FutureOr<dynamic> y) async {
   var v = (1 > 2) ? getFutureOrVoid() : y; // MORETOP(FutureOr<void>, FutureOr<dynamic>) = true
   v.expectStaticType<Exactly<FutureOr<void>>>();
+  print(await v);
+//      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-void f4(FutureOr<Object?> y) {
+void f4(FutureOr<Object?> y) async {
   var v = (1 > 2) ? getFutureOrVoid() : y; // MORETOP(FutureOr<void>, FutureOr<Object?>) = true
   v.expectStaticType<Exactly<FutureOr<void>>>();
+  print(await v);
+//      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 void main() {

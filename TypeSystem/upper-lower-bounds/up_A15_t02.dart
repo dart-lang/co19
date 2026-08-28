@@ -307,6 +307,28 @@ void f28(ET n, FutureOr<Object> o) {
   v = confirmFutureOrObjectContext();
 }
 
+void f29(FutureOr<ET> t1, Object t2) {
+  // `FutureOr<ET>` is neither non-nullable (`ET <: Object` is false) nor nullable
+  // UP(FutureOr<ET>, Object) = Object?;
+  var v = (1 > 2) ? t1 : t2;
+  v.expectStaticType<Exactly<Object?>>();
+  if (v == null) { // Strip `?`
+    Expect.fail('The actual value must be non-null for the test to complete.');
+  }
+  v = confirmObjectContext();
+}
+
+void f30(FutureOr<ET> t1, FutureOr<Object> t2) {
+  // `FutureOr<ET>` is neither non-nullable (`ET <: Object` is false) nor nullable
+  // UP(FutureOr<ET>, FutureOr<Object>) = FutureOr<Object>?;
+  var v = (1 > 2) ? t1 : t2;
+  v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  if (v == null) { // Strip `?`
+    Expect.fail('The actual value must be non-null for the test to complete.');
+  }
+  v = confirmFutureOrObjectContext();
+}
+
 void main() {
   f1(1, 1);
   f2(1, 1);
@@ -336,4 +358,6 @@ void main() {
   f26(ET(0), 1);
   f27(ET(0), 1);
   f28(ET(0), 1);
+  f29(ET(0), 1);
+  f30(ET(0), 1);
 }

@@ -8,7 +8,7 @@
 /// - UP(`T1`, `T2`) = `T1` if TOP(`T1`)
 ///
 /// @description Check that UP(`T1`, `T2`) = `T1` if TOP(`T1`) and
-/// TOP(`T2`) == `false` (which implies `T1 != T2`).
+/// TOP(`T2`) == `false` (which implies `T1 != T2`). Test `FutureOr<dynamic>`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -136,6 +136,13 @@ void f15(FutureOr<dynamic> d, ET n) async {
   }
 }
 
+void f16(FutureOr<dynamic> d, Future<Object?> n) async {
+  var v = (1 > 2) ? n : d;
+  if (1 > 2) {
+    (await v).checkDynamic;
+  }
+}
+
 void main() {
   f1('1', 2);
   f2('2', 2);
@@ -152,4 +159,5 @@ void main() {
   f13('13', (1, 'two', b: true));
   f14('14', E.e0);
   f15('15', ET(0));
+  f16('16', Future.value(42));
 }
