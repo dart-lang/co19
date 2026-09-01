@@ -16,9 +16,7 @@
 /// `X2 <: T1`. We also use the fact that TOP(`X2 & B2`) never holds.
 /// @author sgrekhov22@gmail.com
 
-import 'dart:async';
 import '../../Utils/static_type_helper.dart';
-import 'up_lib.dart';
 
 // ignore_for_file: dead_code
 
