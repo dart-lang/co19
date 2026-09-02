@@ -31,7 +31,7 @@ void f1a(Object? o, num n) {
 
 void f1b(FutureOr<Object?> o, num n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -60,7 +60,7 @@ void f2a<X extends num>(Object? o, X n) {
 
 void f2b<X extends num>(FutureOr<Object?> o, X n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -89,7 +89,7 @@ void f3a(Object? o) {
 
 void f3b(FutureOr<Object?> o) async {
   var v = (1 > 2) ? null : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -118,7 +118,7 @@ void f4a(Object? o, Never n) {
 
 void f4b(FutureOr<Object?> o, Never n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -147,7 +147,7 @@ void f5a(Object? o, Function n) {
 
 void f5b(FutureOr<Object?> o, Function n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -176,7 +176,7 @@ void f6a(Object? o, Record n) {
 
 void f6b(FutureOr<Object?> o, Record n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -205,7 +205,7 @@ void f7a(Object? o, FutureOr<int> n) {
 
 void f7b(FutureOr<Object?> o, FutureOr<int> n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -234,7 +234,7 @@ void f8a(Object? o, String? n) {
 
 void f8b(FutureOr<Object?> o, String? n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -263,7 +263,7 @@ void f9a(Object? o, C n) {
 
 void f9b(FutureOr<Object?> o, C n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -292,7 +292,7 @@ void f10a(Object? o, D<int, String> n) {
 
 void f10b(FutureOr<Object?> o, D<int, String> n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -321,7 +321,7 @@ void f11a(Object? o, FPositional n) {
 
 void f11b(FutureOr<Object?> o, FPositional n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -350,7 +350,7 @@ void f12a(Object? o, FNamed n) {
 
 void f12b(FutureOr<Object?> o, FNamed n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -379,7 +379,7 @@ void f13a(Object? o, Rec n) {
 
 void f13b(FutureOr<Object?> o, Rec n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -408,7 +408,7 @@ void f14a(Object? o, E n) {
 
 void f14b(FutureOr<Object?> o, E n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -437,7 +437,7 @@ void f15a(Object? o, ET n) {
 
 void f15b(FutureOr<Object?> o, ET n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -466,7 +466,7 @@ void f16a(Object? o, Future<dynamic> n) async {
 
 void f16b(FutureOr<Object?> o, Future<dynamic> n) async {
   var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
