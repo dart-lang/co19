@@ -26,7 +26,7 @@ void f1(Object o, num? n) {
   v.expectStaticType<Exactly<Object?>>(); // Check that v's type is TOP.
   // `Object` and `FutureOr<Object> `are subtypes of each other, which means
   // that we can't see the difference using `expectStaticType()` function.
-  // `v.expectStaticType<Exactly<FutureOr<Object?>>>();` also succeeds. Let's
+  // `v.expectStaticType<Exactly<Object?>>();` also succeeds. Let's
   // check that `v` is not `FutureOr<Object?>`
   if (v == null) { // Strip the `?`
     Expect.fail('The actual value must be non-null for the test to complete.');
