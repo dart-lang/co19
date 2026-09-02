@@ -7,8 +7,8 @@
 /// ...
 /// - UP(`T1`, `T2`) = `T1` if TOP(`T1`)
 ///
-/// @description Check that UP(`T1`, `T2`) = `T1` if TOP(`T1`) and
-/// TOP(`T2`) == `false` (which implies `T1 != T2`). Test `FutureOr<dynamic>`.
+/// @description Check that UP(`T1`, `T2`) = `T1` if TOP(`T1`) and not TOP(`T2`)
+/// (which implies `T1 != T2`). Test `FutureOr<dynamic>`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';

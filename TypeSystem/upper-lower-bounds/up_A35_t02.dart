@@ -9,7 +9,11 @@
 ///   `T2`)
 ///
 /// @description Check that UP(`Future<T1>`, `FutureOr<T2>`) = `FutureOr<T3>`
-/// where `T3` = UP(`T1`, `T2`). Test `Future<void>`.
+/// where `T3` = UP(`T1`, `T2`), when further:
+/// `FutureOr<T1> != FutureOr<T2>` and neither `FutureOr<T1>` nor `FutureOr<T2>`
+/// is TOP or OBJECT. Note that `FutureOr<...>` is never BOTTOM, NULL, an
+/// intersection type, a type of the form `U?`, a type variable, `Function`, a
+/// function type, `Record`, or a record type. Test `Future<void>`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';

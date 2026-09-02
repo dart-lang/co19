@@ -80,25 +80,15 @@ Future<X> confirmFutureOrObjectContext<X>() {
   return Future<X>.value(null);
 }
 
-/// Object? and FutureOr< Object? > are subtypes of each other, which means that
-/// we can't see the difference using `expectStaticType()` function. The
-/// following code makes the distinction:
+/// A helper function used to distinguish between the types `Object?` and
+/// `FutureOr<Object?>`.
+///
+/// Usage:
 /// ```
-/// import 'dart:async';
-///
 /// void main() {
-///   Object? o1 = 42;
-///   FutureOr<Object?> o2 = 42;
-///
-///   o1 = confirmFutureOrNullableObjectContext(); // Throws
-///   o2 = confirmFutureOrNullableObjectContext(); // Ok
+///   T v = 1 as dynamic; // Prevent immediate promotion of `v`.
+///   var v1 = nonNull(v);
+///   Object _ = v1; // Compile-time error if `T` is `FutureOr<Object?>`
 /// }
-///```
-Future<X> confirmFutureOrNullableObjectContext<X>() {
-  // Confirm that `X` is `Object`.
-  if (X == NullableObject) {
-    return Future<X>.value(0 as dynamic);
-  }
-  Expect.fail('The context is not `Object?`');
-  return Future<X>.value(null);
-}
+/// ```
+X nonNull<X>(X? x) => x as X;
