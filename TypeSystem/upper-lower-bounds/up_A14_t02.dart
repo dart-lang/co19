@@ -26,7 +26,7 @@ void f1(Object o, num? n) {
   v.expectStaticType<Exactly<Object?>>(); // Check that v's type is TOP.
   // `Object` and `FutureOr<Object> `are subtypes of each other, which means
   // that we can't see the difference using `expectStaticType()` function.
-  // `v.expectStaticType<Exactly<FutureOr<Object?>>>();` also succeeds. Let's
+  // `v.expectStaticType<Exactly<Object?>>();` also succeeds. Let's
   // check that `v` is not `FutureOr<Object?>`
   if (v == null) { // Strip the `?`
     Expect.fail('The actual value must be non-null for the test to complete.');
@@ -307,6 +307,28 @@ void f28(FutureOr<Object> o, ET n) {
   v = confirmFutureOrObjectContext();
 }
 
+void f29(Object t1, FutureOr<ET> t2) {
+  // `FutureOr<ET>` is neither non-nullable (`ET <: Object` is false) nor nullable
+  // UP(Object, FutureOr<ET>) = Object?;
+  var v = (1 > 2) ? t1 : t2;
+  v.expectStaticType<Exactly<Object?>>();
+  if (v == null) { // Strip `?`
+    Expect.fail('The actual value must be non-null for the test to complete.');
+  }
+  v = confirmObjectContext();
+}
+
+void f30(FutureOr<Object> t1, FutureOr<ET> t2) {
+  // `FutureOr<ET>` is neither non-nullable (`ET <: Object` is false) nor nullable
+  // UP(FutureOr<Object>, FutureOr<ET>) = FutureOr<Object>?;
+  var v = (1 > 2) ? t1 : t2;
+  v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  if (v == null) { // Strip `?`
+    Expect.fail('The actual value must be non-null for the test to complete.');
+  }
+  v = confirmFutureOrObjectContext();
+}
+
 void main() {
   f1(1, 1);
   f2(1, 1);
@@ -336,4 +358,6 @@ void main() {
   f26(1, ET(0));
   f27(1, ET(0));
   f28(1, ET(0));
+  f29(1, ET(0));
+  f30(1, ET(0));
 }

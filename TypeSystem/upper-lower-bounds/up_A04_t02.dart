@@ -7,313 +7,510 @@
 /// ...
 /// - UP(`T1`, `T2`) = `T2` if TOP(`T2`)
 ///
-/// @description Check that UP(`T1`, `T2`) = `T2` if TOP(`T2`) and
-/// TOP(`T1`) == `false` (which implies `T1 != T2`). Test `Object?`.
+/// @description Check that UP(`T1`, `T2`) = `T2` if TOP(`T2`) and not TOP(`T1`)
+/// (which implies `T1 != T2`). Test types `Object?` and `FutureOr<Object?>`.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
+
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
-void f1(Object? o, num n) {
+void f1a(Object? o, num n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f1b(FutureOr<Object?> o, num n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f2(FutureOr<Object?> o, num n) async {
+void f2a<X extends num>(Object? o, X n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f2b<X extends num>(FutureOr<Object?> o, X n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f3<X extends num>(Object? o, X n) {
-  var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-void f4<X extends num>(FutureOr<Object?> o, X n) async {
-  var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-void f5(Object? o) {
+void f3a(Object? o) {
   var v = (1 > 2) ? null : o;
   v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
 }
 
-void f6(FutureOr<Object?> o) async {
+void f3b(FutureOr<Object?> o) async {
   var v = (1 > 2) ? null : o;
   v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f7(Object? o, Never n) {
+void f4a(Object? o, Never n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f4b(FutureOr<Object?> o, Never n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f8(FutureOr<Object?> o, Never n) async {
+void f5a(Object? o, Function n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f5b(FutureOr<Object?> o, Function n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f9(Object? o, Function n) {
+void f6a(Object? o, Record n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f6b(FutureOr<Object?> o, Record n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f10(FutureOr<Object?> o, Function n) async {
+void f7a(Object? o, FutureOr<int> n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f7b(FutureOr<Object?> o, FutureOr<int> n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f11(Object? o, Record n) {
+void f8a(Object? o, String? n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f8b(FutureOr<Object?> o, String? n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f12(FutureOr<Object?> o, Record n) async {
+void f9a(Object? o, C n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f9b(FutureOr<Object?> o, C n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f13(Object? o, FutureOr<int> n) {
+void f10a(Object? o, D<int, String> n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f10b(FutureOr<Object?> o, D<int, String> n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f14(FutureOr<Object?> o, FutureOr<int> n) async {
+void f11a(Object? o, FPositional n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f11b(FutureOr<Object?> o, FPositional n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f15(Object? o, String? n) {
+void f12a(Object? o, FNamed n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f12b(FutureOr<Object?> o, FNamed n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f16(FutureOr<Object?> o, String? n) async {
+void f13a(Object? o, Rec n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f13b(FutureOr<Object?> o, Rec n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f17(Object? o, C n) {
+void f14a(Object? o, E n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f14b(FutureOr<Object?> o, E n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f18(FutureOr<Object?> o, C n) async {
+void f15a(Object? o, ET n) {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
+}
+
+void f15b(FutureOr<Object?> o, ET n) async {
+  var v = (1 > 2) ? n : o;
+  v.expectStaticType<Exactly<Object?>>();
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void f19(Object? o, D<int, String> n) {
+void f16a(Object? o, Future<dynamic> n) async {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  // Check that the type of `v` is not `FutureOr<Object?>`
+  var x = nonNull(v);
+  Object _ = x;
 }
 
-void f20(FutureOr<Object?> o, D<int, String> n) async {
+void f16b(FutureOr<Object?> o, Future<dynamic> n) async {
   var v = (1 > 2) ? n : o;
   v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
+  (await v).checkNotDynamic;
+//          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-void f21(Object? o, FPositional n) {
-  var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-void f22(FutureOr<Object?> o, FPositional n) async {
-  var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-void f23(Object? o, FNamed n) {
-  var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-void f24(FutureOr<Object?> o, FNamed n) async {
-  var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-void f25(Object? o, Rec n) {
-  var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-void f26(FutureOr<Object?> o, Rec n) async {
-  var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-void f27(Object? o, E n) {
-  var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-void f28(FutureOr<Object?> o, E n) async {
-  var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-void f29(Object? o, ET n) {
-  var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<Object?>>();
-  v?.checkNotDynamic;
-//   ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-void f30(FutureOr<Object?> o, ET n) async {
-  var v = (1 > 2) ? n : o;
-  v.expectStaticType<Exactly<Object?>>();
-  (await v)?.checkNotDynamic;
-//           ^^^^^^^^^^^^^^^
+  // Check that the type of `v` is not `Object?`
+  var x = nonNull(v);
+  Object _ = x;
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 void main() {
-  print(f1);
-  print(f2);
-  print(f3);
-  print(f4);
-  print(f5);
-  print(f6);
-  print(f7);
-  print(f8);
-  print(f9);
-  print(f10);
-  print(f11);
-  print(f12);
-  print(f13);
-  print(f14);
-  print(f15);
-  print(f16);
-  print(f17);
-  print(f18);
-  print(f19);
-  print(f20);
-  print(f21);
-  print(f22);
-  print(f23);
-  print(f24);
-  print(f25);
-  print(f26);
-  print(f27);
-  print(f28);
-  print(f29);
-  print(f30);
+  print(f1a);
+  print(f1b);
+  print(f2a);
+  print(f2b);
+  print(f3a);
+  print(f3b);
+  print(f4a);
+  print(f4b);
+  print(f5a);
+  print(f5b);
+  print(f6a);
+  print(f6b);
+  print(f7a);
+  print(f7b);
+  print(f8a);
+  print(f8b);
+  print(f9a);
+  print(f9b);
+  print(f10a);
+  print(f10b);
+  print(f11a);
+  print(f11b);
+  print(f12a);
+  print(f12b);
+  print(f13a);
+  print(f13b);
+  print(f14a);
+  print(f14b);
+  print(f15a);
+  print(f15b);
+  print(f16a);
+  print(f16b);
 }

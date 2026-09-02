@@ -27,6 +27,7 @@ typedef FNamed = num Function<X extends num>(X x, {int i});
 typedef FNamed2 = int Function<X extends num>(X x, {num i});
 typedef Rec = (num, Pattern, {bool b});
 typedef Rec2 = (int, String, {bool b});
+typedef NullableObject = Object?;
 
 num fPositional<X extends num>(X x, [int i = 0]) => x + i;
 int fPositional2<X extends num>(X x, [num i = 0]) => (x + i).toInt();
@@ -38,11 +39,6 @@ int fNamed2<X extends num>(X x, {num i = 0}) => (x + i).toInt();
 /// following code makes the distinction:
 /// ```
 /// import 'dart:async';
-///
-/// Future<X> f<X>() {
-///   print(X);
-///   return Future<Never>.error(0);
-/// }
 ///
 /// void main() {
 ///   Object o1 = 42;
@@ -67,11 +63,6 @@ Future<X> confirmObjectContext<X>() {
 /// ```
 /// import 'dart:async';
 ///
-/// Future<X> f<X>() {
-///   print(X);
-///   return Future<Never>.error(0);
-/// }
-///
 /// void main() {
 ///   Object o1 = 42;
 ///   FutureOr<Object> o2 = 42;
@@ -88,3 +79,16 @@ Future<X> confirmFutureOrObjectContext<X>() {
   Expect.fail('The context is not `Object`');
   return Future<X>.value(null);
 }
+
+/// A helper function used to distinguish between the types `Object?` and
+/// `FutureOr<Object?>`.
+///
+/// Usage:
+/// ```
+/// void main() {
+///   T v = 1 as dynamic; // Prevent immediate promotion of `v`.
+///   var v1 = nonNull(v);
+///   Object _ = v1; // Compile-time error if `T` is `FutureOr<Object?>`
+/// }
+/// ```
+X nonNull<X>(X? x) => x as X;
