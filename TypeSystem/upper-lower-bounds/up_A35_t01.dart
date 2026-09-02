@@ -72,7 +72,7 @@ void f4a(Future<E> t1, FutureOr<int> t2) {
 
 void f4b(Future<int> t1, FutureOr<E> t2) {
   var v = (1 > 2) ? t1 : t2; // FutureOr<UP(int, E)> = FutureOr<Object>
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
+  v.expectStaticType<Exactly<Object>>();
   v = confirmFutureOrObjectContext();
 }
 
