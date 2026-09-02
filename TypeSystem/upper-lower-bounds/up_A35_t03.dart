@@ -23,7 +23,7 @@ import 'up_lib.dart';
 void f1(Future<Object?> t1, FutureOr<int> t2) async {
   // FutureOr<UP(Object?, int)> = FutureOr<Object?>
   var v = (1 > 2) ? t1 : t2;
-  v.expectStaticType<Exactly<FutureOr<Object?>>>();
+  v.expectStaticType<Exactly<Object?>>();
   (await v).checkNotDynamic;
 //          ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
