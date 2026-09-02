@@ -33,7 +33,7 @@ augment enum E1([int? _]) {;}
 augment enum E1([int? _]) {;}
 
 main() {
-Expect.equals(1, C1(1)._);
-Expect.equals(2, C2(2)._);
-Expect.equals(1, E.e0._);
+  Expect.equals(1, C1(1)._);
+  Expect.equals(2, C2(2)._);
+  Expect.equals(1, E.e0._);
 }
