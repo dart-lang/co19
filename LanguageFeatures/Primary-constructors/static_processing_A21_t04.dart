@@ -37,8 +37,6 @@
 /// parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 class C1<T>({required var String v1, required final T v2});

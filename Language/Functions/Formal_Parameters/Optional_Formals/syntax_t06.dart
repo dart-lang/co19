@@ -15,8 +15,6 @@
 /// type for an optional parameter of a function.
 /// @author iefremov
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 foo([final p = 1]) {
 //   ^^^^^
 // [analyzer] unspecified

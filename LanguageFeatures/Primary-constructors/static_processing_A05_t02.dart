@@ -17,8 +17,6 @@
 /// a primary constructor that has exactly one parameter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 extension type const ET1(final int v);

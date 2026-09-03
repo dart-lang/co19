@@ -19,8 +19,6 @@
 /// primary constructor with the name `_` is accessed in the initializer list.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C(int _) {
   this : assert(_ > 0);
 //              ^

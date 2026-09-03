@@ -9,8 +9,6 @@
 /// the form `return;` appears in the body part of a primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../../Utils/expect.dart';
 
 class C(var int? v) {

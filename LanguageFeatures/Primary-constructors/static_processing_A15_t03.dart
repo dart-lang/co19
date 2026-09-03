@@ -23,8 +23,6 @@
 /// followed by `.` then the name of the constructor is `C`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1(var int v);
 
 class C2<T>(var int v);

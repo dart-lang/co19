@@ -16,8 +16,6 @@
 /// a `var` as a formal parameter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 void set topLevel(var v) {}
 //                ^^^
 // [analyzer] unspecified

@@ -20,8 +20,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 62627
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 int nonConstant = 42;
 
 class const C() {

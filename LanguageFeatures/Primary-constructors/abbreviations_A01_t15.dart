@@ -10,8 +10,6 @@
 /// `new` as a redirection target.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1 {
   C1();
   C1.other() : new();

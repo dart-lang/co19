@@ -22,8 +22,6 @@
 /// declaration contains any metadata.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 const meta = 1;
 
 class @meta C(var int v);

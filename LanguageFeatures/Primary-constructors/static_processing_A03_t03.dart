@@ -11,8 +11,6 @@
 /// class with a primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 mixin M {}
 
 class C1() = Object with M;

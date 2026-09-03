@@ -10,8 +10,6 @@
 /// constructor of an enum is used as a target of a factory redirection.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 enum E1 {
   e0;
 

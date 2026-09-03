@@ -10,8 +10,6 @@
 /// constructor named `name` and a constructor declared using the `new name`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1 {
   C1.name();
   new name();

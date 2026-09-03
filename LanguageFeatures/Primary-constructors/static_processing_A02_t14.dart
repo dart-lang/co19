@@ -13,8 +13,6 @@
 /// the body. Test enums.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 enum const E1(final int v) {
   e0(1);
 

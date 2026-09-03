@@ -11,8 +11,6 @@
 /// initializer list.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 mixin class M1() {
   this : assert(2 > 1);
 //     ^

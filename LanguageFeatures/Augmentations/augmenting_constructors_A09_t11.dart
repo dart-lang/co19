@@ -9,7 +9,7 @@
 /// constructor of a class or an enum may have an initializer list.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
 

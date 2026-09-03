@@ -18,8 +18,6 @@
 /// constructor if there is no `const` keyword  just before the name of `D`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C(final int v);
 
 mixin class M();

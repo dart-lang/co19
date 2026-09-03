@@ -12,8 +12,6 @@
 /// instance variable.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C(var int a, var int b) {
   int x = (a = 1);
 //         ^

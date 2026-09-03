@@ -9,7 +9,7 @@
 /// constructor of a class or an enum may add a metadata.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 const Meta = 1;
 

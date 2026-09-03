@@ -10,8 +10,6 @@
 /// `new` and `factory`. Test primary constructors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C.primary() {
   new() : this.primary();
   new _() : this();

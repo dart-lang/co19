@@ -23,8 +23,6 @@
 /// required and preserve their names and default values.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 class C({required this.v1, required var String v2, required final bool v3}) {

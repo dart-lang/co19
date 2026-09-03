@@ -10,8 +10,6 @@
 /// keyword `new`. Test a redirecting constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 class C {

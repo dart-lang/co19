@@ -10,8 +10,6 @@
 /// declaration has a primary constructor which has a body part that has a body.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 mixin class M() {
   this {}
 //     ^

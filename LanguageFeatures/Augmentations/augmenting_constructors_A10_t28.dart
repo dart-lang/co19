@@ -30,7 +30,7 @@
 /// constructor uses a parameter whose type annotation uses an import prefix.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts,primary-constructors
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 import 'augmentation_libraries_lib.dart';
 part 'augmenting_constructors_A10_t28_part.dart';

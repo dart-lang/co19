@@ -13,8 +13,6 @@
 /// Test enums.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 enum E1(covariant final String x) {
 //                ^^^^^
 // [analyzer] unspecified

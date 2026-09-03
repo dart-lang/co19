@@ -13,8 +13,6 @@
 /// basename is `n`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 enum E1.someName(int _) {
 //      ^^^^^^^^
 // [analyzer] unspecified

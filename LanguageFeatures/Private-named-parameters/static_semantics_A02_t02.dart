@@ -14,7 +14,7 @@
 /// `C` has declared name `p` or `n`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=private-named-parameters,primary-constructors
+// SharedOptions=--enable-experiment=private-named-parameters
 
 class C1(int? _p, {var String _p = ""}) {
 //                            ^^

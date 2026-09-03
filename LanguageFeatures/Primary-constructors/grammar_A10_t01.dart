@@ -8,8 +8,6 @@
 /// a generative constructor of an enum.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 enum E1 {
   e0(1);
   final int x;

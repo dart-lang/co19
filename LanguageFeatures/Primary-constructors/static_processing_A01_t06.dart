@@ -11,8 +11,6 @@
 /// declarations of ordinary constructors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 const metadata = 1;

@@ -18,8 +18,6 @@
 /// which is `final`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 extension type const ET1(var int v) {}
 //                       ^^^
 // [analyzer] unspecified

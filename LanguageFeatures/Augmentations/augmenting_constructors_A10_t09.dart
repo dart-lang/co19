@@ -32,7 +32,7 @@
 /// augmenting declaration.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 class C1(int x) {}
 

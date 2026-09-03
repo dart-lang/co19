@@ -20,8 +20,6 @@
 /// the list.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class A(int z);
 
 class C1() extends A {

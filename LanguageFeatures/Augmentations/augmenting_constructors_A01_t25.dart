@@ -30,7 +30,7 @@
 /// can be augmented.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,private-named-parameters,primary-constructors
+// SharedOptions=--enable-experiment=augmentations,private-named-parameters
 
 import '../../Utils/expect.dart';
 

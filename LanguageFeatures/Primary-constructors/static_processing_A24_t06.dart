@@ -19,8 +19,6 @@
 /// is initialized in the initializer list more than once.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C(int v) {
   int x;
   this : x = 1, x = v;

@@ -16,8 +16,6 @@
 /// with a `var` formal parameter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1 {
   bool operator ==(var other) => true;
 //                 ^^^

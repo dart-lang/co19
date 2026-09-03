@@ -24,8 +24,6 @@
 /// scope for a body of an instance method/getter/setter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 final String x = "top level";

@@ -9,8 +9,6 @@
 /// default value is inferred from the default value.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/static_type_helper.dart';
 
 const anInt = 0;

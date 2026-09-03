@@ -17,8 +17,6 @@
 /// contains a non-redirecting generative constructor. Test a class.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1(var int v) {
   C1.someName(this.v);
 //   ^^^^^^^^

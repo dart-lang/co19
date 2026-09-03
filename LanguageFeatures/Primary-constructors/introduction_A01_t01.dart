@@ -9,8 +9,6 @@
 /// `var` on the representation variable.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 extension type ET1(var int v) {}
 //                 ^^^
 // [analyzer] unspecified

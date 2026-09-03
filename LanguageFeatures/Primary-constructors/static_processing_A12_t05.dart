@@ -25,8 +25,6 @@
 /// `final` modifier, then its static type is `dynamic`. Test classes.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 class C1(x) {

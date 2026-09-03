@@ -10,8 +10,6 @@
 /// trivial primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 mixin class C1() {

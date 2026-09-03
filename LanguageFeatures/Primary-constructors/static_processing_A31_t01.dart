@@ -13,8 +13,6 @@
 /// arguments.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 final int nonConstant = 0;
 
 class const C(final int x, int y) {

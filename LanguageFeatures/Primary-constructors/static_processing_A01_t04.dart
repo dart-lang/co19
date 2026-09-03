@@ -11,8 +11,6 @@
 /// used as a constructor name in the factory constructor redirection.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1 {
   C1();
   factory C1.someName() = new;

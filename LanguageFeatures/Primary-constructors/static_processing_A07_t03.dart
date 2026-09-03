@@ -13,8 +13,6 @@
 /// modifier `covariant`. Test extension types.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 extension type ET1(covariant String this.x) {
 //             ^^^
 // [analyzer] unspecified

@@ -20,8 +20,6 @@
 /// list.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C(var int _) {
   this : assert(_ > 0);
 //              ^

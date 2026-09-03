@@ -16,8 +16,6 @@
 /// `external` constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1 {
   final int v;
   const C1.foo(this.v);

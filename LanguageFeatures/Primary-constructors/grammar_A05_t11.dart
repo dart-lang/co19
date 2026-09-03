@@ -16,7 +16,7 @@
 /// augmenting constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors,augmentations
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
 

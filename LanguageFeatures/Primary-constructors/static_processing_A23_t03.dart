@@ -35,8 +35,6 @@
 /// declaring parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1<T>(var T v, var T v);
 //                         ^
 // [analyzer] unspecified

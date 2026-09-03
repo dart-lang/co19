@@ -11,8 +11,6 @@
 /// a mixin declaration whose body is `{}`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 mixin M;
 
 class MA = Object with M;

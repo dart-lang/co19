@@ -15,8 +15,6 @@
 /// @description Check that a factory constructor may omit the class name.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 class C1 {

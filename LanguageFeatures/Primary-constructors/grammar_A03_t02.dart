@@ -15,8 +15,6 @@
 /// `<primaryConstructorBodySignature>`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1() {
   int? v1, v2;
   this : v1 = 1;

@@ -26,8 +26,6 @@
 /// implicit `final` modifier.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 extension type ET1(x) {
   this {
     x.testDynamic;

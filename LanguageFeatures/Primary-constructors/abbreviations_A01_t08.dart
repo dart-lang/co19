@@ -11,8 +11,6 @@
 /// `new name` syntax.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C.name() {
   new name() : this.name();
 //^^^^^^^^

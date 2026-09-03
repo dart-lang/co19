@@ -23,8 +23,6 @@
 /// followed by `.id` then the name of the constructor is `C.id`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 class C1.id(var int v);

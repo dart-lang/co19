@@ -13,8 +13,6 @@
 /// member whose basename is `n`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 mixin class C1.someName() {
 //             ^^^^^^^^
 // [analyzer] unspecified

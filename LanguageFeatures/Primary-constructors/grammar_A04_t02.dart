@@ -11,8 +11,6 @@
 /// default value. Test an extension type.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 
 extension type ET1({required final String s = ""}) {}
 //                                          ^

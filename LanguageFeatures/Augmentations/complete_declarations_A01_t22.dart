@@ -20,7 +20,7 @@
 /// complete primary constructor has an initializer list.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 class C1() { // The constructor is complete because has a body
   this {}

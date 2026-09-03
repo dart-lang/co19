@@ -16,8 +16,6 @@
 /// with a `final` formal parameter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1 {
   bool operator ==(final other) => true;
 //                 ^^^^^

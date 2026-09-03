@@ -12,8 +12,6 @@
 /// error because an enum must have at least one constant.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 enum E0();
 //   ^^
 // [analyzer] unspecified

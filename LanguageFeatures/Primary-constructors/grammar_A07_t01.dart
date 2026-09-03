@@ -17,8 +17,6 @@
 /// metadata.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 const meta = 1;
 
 class C(var int v) {

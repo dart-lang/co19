@@ -31,7 +31,7 @@
 /// incorrect names of named parameters of a primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 class C({int x = 0}) {}
 

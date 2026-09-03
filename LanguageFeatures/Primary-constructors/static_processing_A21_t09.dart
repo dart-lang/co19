@@ -35,8 +35,6 @@
 /// constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1<T>(final T v);
 
 class C2(final String v);

@@ -31,7 +31,7 @@
 /// Test declaring parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts,primary-constructors
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
 import 'augmentation_libraries_lib.dart';
 part 'augmenting_constructors_A10_t29_part.dart';

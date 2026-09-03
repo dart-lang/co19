@@ -13,8 +13,6 @@
 /// whose basename is `n`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 enum E1.someName(final int v) {

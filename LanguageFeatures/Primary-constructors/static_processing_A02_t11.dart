@@ -13,8 +13,6 @@
 /// member whose basename is `n`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 extension type ET1.someName(int someName) {}

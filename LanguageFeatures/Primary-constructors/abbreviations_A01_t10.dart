@@ -10,8 +10,6 @@
 /// instance member with the basename `new`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1 {
   C1 new() => C1();
 //   ^^^

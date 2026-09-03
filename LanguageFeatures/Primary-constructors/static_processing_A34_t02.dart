@@ -12,8 +12,6 @@
 /// part of the primary constructor is potentially constant. Test enums.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class A {
   const A();
 }

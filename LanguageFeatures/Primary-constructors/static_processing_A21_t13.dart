@@ -34,8 +34,6 @@
 /// constructor of an enum declares a non-final variable.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 enum E1(var int x) {
 //      ^^^
 // [analyzer] unspecified
