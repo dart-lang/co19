@@ -11,8 +11,8 @@
 /// For ordering purposes, these implicit declarations are before any members
 /// declared in the declaration.
 ///
-/// @description Checks that it is a compile-time error if augmentations of
-/// enum's `index`, `hashCode` or `==` members are complete.
+/// @description Checks that it is a compile-time error if augmentation attempts
+/// to adds enum's `index`, `hashCode`, `==` or `values` members.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -53,8 +53,21 @@ augment enum E3 {
 // [cfe] unspecified
 }
 
+enum E4 {
+  e0;
+}
+
+augment enum E4 {
+  ;
+  static List<E4> get values => [e0];
+//                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(E1);
   print(E2);
   print(E3);
+  print(E4);
 }

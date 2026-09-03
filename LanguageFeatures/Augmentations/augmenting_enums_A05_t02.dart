@@ -12,7 +12,7 @@
 /// declared in the declaration.
 ///
 /// @description Checks that it is a compile-time error if augmentations of
-/// enum's `index`, `hashCode` or `==` members are complete.
+/// enum's `index`, `hashCode`, `==` or `values` members are complete.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -53,8 +53,21 @@ augment enum E3 {
 // [cfe] unspecified
 }
 
+enum E4 {
+  e0;
+}
+
+augment enum E4 {
+  ;
+  augment static List<E4> get values => [e0];
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(E1);
   print(E2);
   print(E3);
+  print(E4);
 }

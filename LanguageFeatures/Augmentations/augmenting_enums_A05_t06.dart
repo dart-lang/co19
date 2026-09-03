@@ -12,7 +12,7 @@
 /// declared in the declaration.
 ///
 /// @description Checks that it is not an error to augment enum's `index`,
-/// `hashCode` or `==` members by an incomplete declaration.
+/// `hashCode`, `==` or `values` members by an incomplete declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -44,8 +44,18 @@ augment enum E3 {
   augment bool operator ==(Object other);
 }
 
+enum E4 {
+  e0;
+}
+
+augment enum E4 {
+  ;
+  augment static List<E4> get values;
+}
+
 main() {
   print(E1.e0.index);
   print(E2.e0.hashCode);
   print(E3.e0 == E3.e0);
+  print(E4.values);
 }

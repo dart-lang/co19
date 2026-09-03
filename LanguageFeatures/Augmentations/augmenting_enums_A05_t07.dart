@@ -12,7 +12,7 @@
 /// declared in the declaration.
 ///
 /// @description Checks that it is a compile-time error if an augmentation adds
-/// an instance member named `values`.
+/// an instance member or an enum value named `values`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
