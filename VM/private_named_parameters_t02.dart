@@ -10,8 +10,6 @@
 /// expression evaluation.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors,private-named-parameters
-
 import 'dart:developer';
 
 import 'package:vm_service/vm_service.dart';
@@ -52,9 +50,5 @@ void main([
     })
     .run(
       pauseOnExit: true,
-      extraArgs: [
-        '--enable-experiment=primary-constructors',
-        '--enable-experiment=private-named-parameters',
-      ],
       testeeMain: testee_lib.main,
     );

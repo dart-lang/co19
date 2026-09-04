@@ -10,9 +10,7 @@
 /// @description Check that in-body part of a primary constructor can be
 /// debugged. Test extension types.
 /// @author sgrekhov22@gmail.com
-/// @issue 62053
-
-// SharedOptions=--enable-experiment=primary-constructors
+/// @issue 63980
 
 import 'dart:developer';
 import 'package:vm_service/vm_service.dart';
@@ -105,6 +103,5 @@ void main([
     .stoppedAtLine('LINE_N')
     .run(
       pauseOnExit: true,
-      extraArgs: ['--enable-experiment=primary-constructors'],
       testeeMain: testee_lib.main,
     );

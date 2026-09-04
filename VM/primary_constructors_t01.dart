@@ -11,8 +11,6 @@
 /// can be debugged.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import 'package:vm_service/vm_service.dart';
 
 import '../../../../pkg/vm_service/test/common/service_test_common.dart';
@@ -104,6 +102,5 @@ void main([
     .checkRecordedStops()
     .run(
       pauseOnExit: true,
-      extraArgs: ['--enable-experiment=primary-constructors'],
       testeeMain: testee_lib.main,
     );

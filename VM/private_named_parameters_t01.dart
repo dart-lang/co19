@@ -9,8 +9,6 @@
 /// @description Check that private named parameters can be debugged.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors,private-named-parameters
-
 import 'dart:developer';
 import 'package:vm_service/vm_service.dart';
 
@@ -32,10 +30,10 @@ void main([
       final isolateId = isolateRef.id!;
       final xRef1 =
           await service.evaluateInFrame(isolateId, 0, '_x') as InstanceRef;
-      Expect.equals("null", xRef1.valueAsString);
+      Expect.equals('xxx', xRef1.valueAsString);
       final xRef2 =
           await service.evaluateInFrame(isolateId, 0, 'this._x') as InstanceRef;
-      Expect.equals("null", xRef2.valueAsString);
+      Expect.equals('null', xRef2.valueAsString);
     })
     .stepInto()
     .addCustomTest((VmService service, IsolateRef isolateRef) async {
@@ -46,8 +44,8 @@ void main([
       final xRef2 =
           await service.evaluateInFrame(isolateId, 0, 'this._x') as InstanceRef;
       Expect.equals('xxx', xRef2.valueAsString);
-      final xRef3 = await service.evaluateInFrame(isolateId, 0, 'x');
-      Expect.isTrue(xRef3 is ErrorRef);
+      final xRef3 = await service.evaluateInFrame(isolateId, 0, 'x') as InstanceRef;
+      Expect.equals('xxx', xRef3.valueAsString);
       final xRef4 = await service.evaluateInFrame(isolateId, 0, 'this.x');
       Expect.isTrue(xRef4 is ErrorRef);
     })
@@ -59,7 +57,7 @@ void main([
       final isolateId = isolateRef.id!;
       final xRef1 =
           await service.evaluateInFrame(isolateId, 0, '_x') as InstanceRef;
-      Expect.equals("null", xRef1.valueAsString);
+      Expect.equals('yyy', xRef1.valueAsString);
       final xRef2 =
           await service.evaluateInFrame(isolateId, 0, 'this._x') as InstanceRef;
       Expect.equals("null", xRef2.valueAsString);
@@ -73,8 +71,9 @@ void main([
       final xRef2 =
           await service.evaluateInFrame(isolateId, 0, 'this._x') as InstanceRef;
       Expect.equals('yyy', xRef2.valueAsString);
-      final xRef3 = await service.evaluateInFrame(isolateId, 0, 'x');
-      Expect.isTrue(xRef3 is ErrorRef);
+      final xRef3 =
+          await service.evaluateInFrame(isolateId, 0, 'x') as InstanceRef;
+      Expect.equals('yyy', xRef3.valueAsString);
       final xRef4 = await service.evaluateInFrame(isolateId, 0, 'this.x');
       Expect.isTrue(xRef4 is ErrorRef);
     })
@@ -86,7 +85,7 @@ void main([
       final isolateId = isolateRef.id!;
       final xRef1 =
           await service.evaluateInFrame(isolateId, 0, '_x') as InstanceRef;
-      Expect.equals("null", xRef1.valueAsString);
+      Expect.equals('1', xRef1.valueAsString);
       final xRef2 =
           await service.evaluateInFrame(isolateId, 0, 'this._x') as InstanceRef;
       Expect.equals("null", xRef2.valueAsString);
@@ -113,8 +112,9 @@ void main([
           await service.evaluateInFrame(isolateId, 0, 'this._y') as InstanceRef;
       Expect.equals('null', xRef3.valueAsString);
 
-      final xRef5 = await service.evaluateInFrame(isolateId, 0, 'x');
-      Expect.isTrue(xRef5 is ErrorRef);
+      final xRef5 =
+          await service.evaluateInFrame(isolateId, 0, 'x') as InstanceRef;
+      Expect.equals('1', xRef5.valueAsString);
       final xRef6 = await service.evaluateInFrame(isolateId, 0, 'this.x');
       Expect.isTrue(xRef6 is ErrorRef);
       final xRef7 = await service.evaluateInFrame(isolateId, 0, 'y');
@@ -138,8 +138,9 @@ void main([
           await service.evaluateInFrame(isolateId, 0, 'this._y') as InstanceRef;
       Expect.equals('2', xRef3.valueAsString);
 
-      final xRef5 = await service.evaluateInFrame(isolateId, 0, 'x');
-      Expect.isTrue(xRef5 is ErrorRef);
+      final xRef5 =
+          await service.evaluateInFrame(isolateId, 0, 'x') as InstanceRef;
+      Expect.equals('1', xRef5.valueAsString);
       final xRef6 = await service.evaluateInFrame(isolateId, 0, 'this.x');
       Expect.isTrue(xRef6 is ErrorRef);
       final xRef7 = await service.evaluateInFrame(isolateId, 0, 'y');
@@ -149,9 +150,5 @@ void main([
     })
     .run(
       pauseOnExit: true,
-      extraArgs: [
-        '--enable-experiment=primary-constructors',
-        '--enable-experiment=private-named-parameters',
-      ],
       testeeMain: testee_lib.main,
     );
