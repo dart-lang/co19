@@ -12,8 +12,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 62053
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import 'dart:developer';
 import 'package:vm_service/vm_service.dart';
 
@@ -68,6 +66,5 @@ void main([
     })
     .run(
       pauseOnExit: true,
-      extraArgs: ['--enable-experiment=primary-constructors'],
       testeeMain: testee_lib.main,
     );
