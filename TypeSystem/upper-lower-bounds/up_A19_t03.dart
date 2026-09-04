@@ -81,6 +81,11 @@ void f10<X1 extends FutureOr<int>>(X1 x1, num t2) {
   v.expectStaticType<Exactly<FutureOr<num>>>();
 }
 
+void f11<X extends num, Y extends num>(X x, Y y) {
+  var v = (1 > 2) ? x : y;
+  v.expectStaticType<Exactly<num>>();
+}
+
 void main() {
   f1(1, 's');
   f2(C(), 's');
@@ -92,4 +97,6 @@ void main() {
   f8((int i) => i, () => 1);
   f9(1, 's');
   f10(1, 1);
+  f11(1, 2);
+  f11<num, int>(1, 2);
 }
