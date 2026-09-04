@@ -2,12 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It's a compile-time error if:
-/// - A declaration inside an augmenting enum declaration has the name `values`,
-///   `index`, `hashCode`, or `==`.
+/// @assertion An introductory `enum` declaration introduces implicit
+/// introductory and complete declarations of:
+/// - `int get index`
+/// - `int get hashCode`
+/// - `bool operator ==(Object)`
+/// - `static const List<E> values;` where `E` is the enum type.
+/// For ordering purposes, these implicit declarations are before any members
+/// declared in the declaration.
 ///
-/// @description Checks that it is a compile-time error if an enum's
-/// augmentation declares `index`, `hashCode` or `==` members.
+/// @description Checks that it is a compile-time error if augmentation attempts
+/// to adds enum's `index`, `hashCode`, `==` or `values` members.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -48,8 +53,21 @@ augment enum E3 {
 // [cfe] unspecified
 }
 
+enum E4 {
+  e0;
+}
+
+augment enum E4 {
+  ;
+  static List<E4> get values => [e0];
+//                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   print(E1);
   print(E2);
   print(E3);
+  print(E4);
 }

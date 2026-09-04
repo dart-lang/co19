@@ -11,13 +11,11 @@
 /// For ordering purposes, these implicit declarations are before any members
 /// declared in the declaration.
 ///
-/// @description Checks that it is not an error to declare or augment `name`
-/// static member or property.
+/// @description Checks that it is not an error to augment enum's `index`,
+/// `hashCode`, `==` or `values` members by an incomplete declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
-
-import '../../Utils/expect.dart';
 
 enum E1 {
   e0;
@@ -25,22 +23,39 @@ enum E1 {
 
 augment enum E1 {
   ;
-  static String get name => "name1";
+  augment int get index;
 }
 
 enum E2 {
   e0;
-  static String get name => "name";
 }
 
 augment enum E2 {
   ;
-  augment static String get name;
+  augment int get hashCode;
+}
+
+enum E3 {
+  e0;
+}
+
+augment enum E3 {
+  ;
+  augment bool operator ==(Object other);
+}
+
+enum E4 {
+  e0;
+}
+
+augment enum E4 {
+  ;
+  augment static List<E4> get values;
 }
 
 main() {
-  Expect.equals("name1", E1.name);
-  Expect.equals("e0", E1.e0.name);
-  Expect.equals("name", E2.name);
-  Expect.equals("e0", E2.e0.name);
+  print(E1.e0.index);
+  print(E2.e0.hashCode);
+  print(E3.e0 == E3.e0);
+  print(E4.values);
 }

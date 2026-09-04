@@ -11,36 +11,75 @@
 /// For ordering purposes, these implicit declarations are before any members
 /// declared in the declaration.
 ///
-/// @description Checks that it is not an error to declare or augment `name`
-/// static member or property.
+/// @description Checks that it is a compile-time error if an augmentation adds
+/// an instance member or an enum value named `values`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
-
-import '../../Utils/expect.dart';
 
 enum E1 {
   e0;
 }
 
 augment enum E1 {
-  ;
-  static String get name => "name1";
+  values;
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E2 {
   e0;
-  static String get name => "name";
 }
 
 augment enum E2 {
   ;
-  augment static String get name;
+  List<E2> get values => [e0];
+//             ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E3 {
+  e0;
+}
+
+augment enum E3 {
+  ;
+  void values() {}
+//     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E4 {
+  e0;
+}
+
+augment enum E4 {
+  ;
+  final int values = 0;
+//          ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E5 {
+  e0;
+}
+
+augment enum E5 {
+  ;
+  void set values(int _) {}
+//         ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  Expect.equals("name1", E1.name);
-  Expect.equals("e0", E1.e0.name);
-  Expect.equals("name", E2.name);
-  Expect.equals("e0", E2.e0.name);
+  print(E1);
+  print(E2);
+  print(E3);
+  print(E4);
+  print(E5);
 }
