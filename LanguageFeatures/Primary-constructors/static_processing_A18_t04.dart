@@ -21,8 +21,6 @@
 /// default value. Test required named parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 class C1<T>({required this.v1, required T? this.v2}) {

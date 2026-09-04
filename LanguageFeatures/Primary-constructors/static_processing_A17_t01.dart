@@ -23,8 +23,6 @@
 /// same order, and mandatory positional parameters remain mandatory.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 class C(this.v1, var String v2, final bool v3) {

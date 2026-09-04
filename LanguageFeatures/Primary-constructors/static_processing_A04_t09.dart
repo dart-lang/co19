@@ -17,8 +17,6 @@
 /// factory constructor. Test a mixin class.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 mixin class C1() {
   factory C1.someName() => C1();
 }

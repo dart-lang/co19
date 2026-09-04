@@ -17,8 +17,6 @@
 /// `C`. Test a mixin class and external constructors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/static_type_helper.dart';
 
 mixin class C1 {

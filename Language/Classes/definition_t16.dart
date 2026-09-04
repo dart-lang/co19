@@ -12,8 +12,6 @@
 /// Class body is not empty.
 /// @author rodionov
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 /**/class A (
 //        ^
 // [cfe] unspecified

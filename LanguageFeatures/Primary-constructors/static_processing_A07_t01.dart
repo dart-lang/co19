@@ -13,8 +13,6 @@
 /// modifier `covariant`. Test classes.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1(covariant String this.x) {
 //    ^^
 // [analyzer] unspecified

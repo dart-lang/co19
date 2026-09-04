@@ -11,8 +11,6 @@
 /// treated as an extension declaration whose body is `{}`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C {}
 
 extension Ext on C;

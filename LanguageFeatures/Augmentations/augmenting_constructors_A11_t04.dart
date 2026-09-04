@@ -9,7 +9,7 @@
 /// Test the case when the constructor is declared using the keyword `factory`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
 

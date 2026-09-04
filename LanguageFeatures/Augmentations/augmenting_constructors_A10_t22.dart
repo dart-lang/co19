@@ -31,7 +31,7 @@
 /// same as the name of the corresponding positional parameter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 class C1(int? x) {}
 

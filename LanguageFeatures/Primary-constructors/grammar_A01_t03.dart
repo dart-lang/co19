@@ -12,8 +12,6 @@
 /// compile-time error if this declaration has no representation type.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 extension type ET1;
 //             ^^^
 // [analyzer] unspecified

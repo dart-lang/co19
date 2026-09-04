@@ -13,8 +13,6 @@
 /// enums.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 enum E1(covariant String x) {
 //      ^^^^^^^^^
 // [analyzer] unspecified

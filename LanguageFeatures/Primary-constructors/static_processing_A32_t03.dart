@@ -11,8 +11,6 @@
 /// has a body part that includes `sync*`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1(var int x) {
   this sync* {}
 //     ^^^^^

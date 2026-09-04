@@ -16,7 +16,7 @@
 /// `<primaryConstructorBodySignature>`. Test augmentations.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors,augmentations
+// SharedOptions=--enable-experiment=augmentations
 
 class C1() {
   int v1, v2;

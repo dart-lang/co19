@@ -26,8 +26,6 @@
 /// modifier.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/static_type_helper.dart';
 
 extension type ET1(x) {

@@ -27,8 +27,6 @@
 /// has the declared type `T`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/static_type_helper.dart';
 
 class C1([var x = 1]);

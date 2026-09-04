@@ -16,8 +16,6 @@
 /// `<primaryConstructorBodySignature>`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1 {
   this;
 //^^^^

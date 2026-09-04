@@ -16,8 +16,6 @@
 /// a `covariant var` formal parameter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C {
   void instanceMethod1(covariant var v) {}
 //                               ^^^

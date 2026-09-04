@@ -20,8 +20,6 @@
 /// in the body of the primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 class C1(var int _) {

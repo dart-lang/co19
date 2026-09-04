@@ -11,8 +11,6 @@
 /// constructors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C(this.v) {
   final int v;
   this : v = 1;

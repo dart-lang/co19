@@ -11,8 +11,6 @@
 /// a primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C(this.v) {
 //           ^
 // [analyzer] unspecified

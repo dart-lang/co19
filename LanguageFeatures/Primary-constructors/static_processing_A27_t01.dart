@@ -13,8 +13,6 @@
 /// element in the initializer list of the body part.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C(var int x) {
   int y = 0;
   this: y = 1;

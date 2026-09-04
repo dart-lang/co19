@@ -30,7 +30,7 @@
 /// constructor omits types of declaring parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';

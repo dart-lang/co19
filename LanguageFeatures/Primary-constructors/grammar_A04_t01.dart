@@ -11,8 +11,6 @@
 /// default value. Test a class.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class A(var int v);
 
 class C1({required var int v = 0}) {}

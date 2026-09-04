@@ -10,8 +10,6 @@
 /// constant.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 final int nonConstant = 0;
 
 class C1([var int v = nonConstant]);

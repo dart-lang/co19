@@ -31,7 +31,7 @@
 /// the name of this parameter in the original primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 part of 'augmenting_constructors_A10_t27.dart';
 

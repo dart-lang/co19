@@ -9,8 +9,6 @@
 /// the form `return e;` appears in a body part of a primary constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C(var int v) {
   this {
     return this;

@@ -20,7 +20,7 @@
 /// complete primary constructor has an initializing formal.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 class C1(int v) { // The constructor is complete because has a body
   this {}

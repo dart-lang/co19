@@ -20,8 +20,6 @@
 /// parameter of a primary constructor and in the initializer list. Test classes.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1(var int x) {
   this: x = 1;
 //      ^

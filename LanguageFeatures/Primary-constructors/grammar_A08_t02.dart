@@ -51,8 +51,6 @@
 /// have metadata.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 const meta = 1;

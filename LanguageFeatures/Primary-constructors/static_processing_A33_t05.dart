@@ -10,8 +10,6 @@
 /// a trivial primary constructor which has an empty body part.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 mixin class M1();

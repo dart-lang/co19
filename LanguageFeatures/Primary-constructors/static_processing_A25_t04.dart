@@ -12,8 +12,6 @@
 /// the enclosing class is a mixin class.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 mixin class M1() {
   this {}
 //     ^

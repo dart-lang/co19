@@ -12,8 +12,6 @@
 /// non-late instance variable declaration is potentially constant. Test classes
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class A {
   const A();
 }

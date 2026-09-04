@@ -35,7 +35,6 @@
 /// initializing formals.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
 
 class C1<T>(var T v, this.v);
 //                        ^

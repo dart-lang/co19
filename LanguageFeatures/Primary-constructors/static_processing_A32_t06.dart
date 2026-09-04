@@ -11,8 +11,6 @@
 /// mixin class has a body part that includes `async`, `async*`, or `sync*`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 mixin class M1() {
   this async;
 //     ^^^^^

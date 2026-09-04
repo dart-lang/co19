@@ -11,7 +11,7 @@
 /// introductory constructor is augmented by a `factory` constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 class C1();
 

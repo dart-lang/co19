@@ -12,8 +12,6 @@
 /// argument.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class S {
   int s1;
   int s2 = 0;

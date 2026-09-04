@@ -15,7 +15,7 @@
 /// of a primary constructor (even if it exists in an introductory declaration).
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 class C1();
 

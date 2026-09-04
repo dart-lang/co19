@@ -15,8 +15,6 @@
 /// for an optional parameter of a function.
 /// @author iefremov
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 f([var x = 0]) {}
 // ^^^
 // [analyzer] unspecified

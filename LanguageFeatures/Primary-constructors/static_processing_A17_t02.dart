@@ -24,8 +24,6 @@
 /// their order and default values.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 class C([this.v1 = 1, var String v2 = "two", final bool v3 = true]) {

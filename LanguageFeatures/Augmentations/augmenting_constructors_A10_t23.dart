@@ -30,7 +30,7 @@
 /// positional parameter of an augmenting primary constructor is `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
 

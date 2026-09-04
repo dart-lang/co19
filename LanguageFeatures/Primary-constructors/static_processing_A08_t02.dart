@@ -13,8 +13,6 @@
 /// Test extension types.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 extension type ET1(covariant final String x) {}
 //                           ^^^^^
 // [analyzer] unspecified

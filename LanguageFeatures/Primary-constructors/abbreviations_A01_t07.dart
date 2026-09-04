@@ -11,8 +11,6 @@
 /// the `new` keyword.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C() {
   new() : this();
 //^^^

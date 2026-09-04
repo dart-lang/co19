@@ -20,8 +20,6 @@
 /// variable which is not a field in the enclosing class.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 int y = 0;
 
 class C1(var int _) {

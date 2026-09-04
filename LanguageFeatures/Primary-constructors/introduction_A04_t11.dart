@@ -16,8 +16,6 @@
 /// a `covariant final` formal parameter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C {
   void instanceMethod1(covariant final v) {}
 //                               ^^^^^

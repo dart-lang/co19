@@ -35,8 +35,6 @@
 /// parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class A<T> {
   final T? v;
   A(this.v);

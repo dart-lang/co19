@@ -24,8 +24,6 @@
 /// scope for the initializing expression of late instance variable declaration.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 String x = "top level";

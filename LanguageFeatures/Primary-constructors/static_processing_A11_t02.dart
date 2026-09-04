@@ -31,8 +31,6 @@
 /// well.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/static_type_helper.dart';
 
 class A {

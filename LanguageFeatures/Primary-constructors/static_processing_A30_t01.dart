@@ -10,8 +10,6 @@
 /// constructor has body part that has a body.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class const C(final int x) {
   this {}
 //     ^^

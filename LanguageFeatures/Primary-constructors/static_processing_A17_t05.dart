@@ -24,8 +24,6 @@
 /// missing parameter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C(final int v1, var String v2, this.v3) {
   bool v3;
 }

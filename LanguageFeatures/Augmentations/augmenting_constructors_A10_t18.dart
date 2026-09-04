@@ -31,7 +31,7 @@
 /// specified in the introductory constructor and this type is not `dynamic`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 class C1(x) {}
 

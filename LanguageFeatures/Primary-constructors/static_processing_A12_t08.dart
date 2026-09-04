@@ -25,8 +25,6 @@
 /// neither the type nor `final` is specified
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 enum E1(x) {
   e0(0), e1(null), e2('2');
 }

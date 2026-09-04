@@ -11,8 +11,6 @@
 /// used to declare a constant non-redirecting constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C {
   final int v;
   const C.create(this.v);

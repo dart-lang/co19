@@ -10,8 +10,6 @@
 /// and a `factory` constructors with the same name.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1 {
   new _();
   new();

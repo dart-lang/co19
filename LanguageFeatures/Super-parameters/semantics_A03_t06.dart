@@ -11,8 +11,6 @@
 /// invocation at the end of its initializer list has a positional argument.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class S {
   int s;
   S(this.s);

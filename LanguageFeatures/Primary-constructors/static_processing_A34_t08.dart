@@ -12,8 +12,6 @@
 /// a non-late instance variable declaration. Test enums.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class A {
   const A();
 }

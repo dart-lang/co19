@@ -17,8 +17,6 @@
 /// the body of `D` contains a non-redirecting generative constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 extension type ET1(int v) {

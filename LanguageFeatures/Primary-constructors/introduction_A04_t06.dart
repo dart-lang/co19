@@ -16,8 +16,6 @@
 /// a `var` as an optional parameter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 void topLevel([var v]) {}
 //             ^^^
 // [analyzer] unspecified

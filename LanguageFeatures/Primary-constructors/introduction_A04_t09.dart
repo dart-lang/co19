@@ -16,8 +16,6 @@
 /// a `final` required named parameter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 void topLevel1({required final v}) {}
 //                       ^^^^^
 // [analyzer] unspecified

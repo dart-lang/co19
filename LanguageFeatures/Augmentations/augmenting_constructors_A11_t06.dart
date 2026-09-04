@@ -9,7 +9,7 @@
 /// used as a constructor name in the initializer list.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,primary-constructors
+// SharedOptions=--enable-experiment=augmentations
 
 class C {
   C();

@@ -36,8 +36,6 @@
 /// optional positional parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C<T>([var String v1 = "", final T? v2, var bool v3 = true]) {
   static String get v1 => "";
 //                  ^^

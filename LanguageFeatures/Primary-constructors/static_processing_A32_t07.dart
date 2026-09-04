@@ -11,8 +11,6 @@
 /// body part that uses `async* =>` or `sync* =>` syntax.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1(var int x) {
   this async* => this;
 //     ^^^^^^

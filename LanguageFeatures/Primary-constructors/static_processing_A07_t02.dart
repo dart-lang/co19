@@ -13,8 +13,6 @@
 /// modifier `covariant`. Test classes.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class A {
   String x;
   A(this.x);

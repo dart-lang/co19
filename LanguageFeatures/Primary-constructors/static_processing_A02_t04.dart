@@ -13,8 +13,6 @@
 /// body.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 enum E1(final int v) {
   e0(1);
 

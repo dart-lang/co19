@@ -10,8 +10,6 @@
 /// of a mixin class is not a trivial.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 mixin class C1(var int v);
 //          ^^
 // [analyzer] unspecified

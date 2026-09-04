@@ -13,8 +13,6 @@
 /// element in the initializer list of the body part.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C(this.x) {
   int x;
   this: x = 1;

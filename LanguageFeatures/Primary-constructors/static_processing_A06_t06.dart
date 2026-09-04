@@ -24,8 +24,6 @@
 /// scope for the initializing expression of a late static variable declaration.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 String x = "top level";
 
 class C1(var String x) {

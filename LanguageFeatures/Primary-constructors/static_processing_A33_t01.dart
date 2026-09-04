@@ -10,8 +10,6 @@
 /// declaration has a primary constructor which declares parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 mixin class M1(int x) {}
 //          ^^
 // [analyzer] unspecified

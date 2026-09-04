@@ -9,8 +9,6 @@
 /// parameter of a primary constructor with a default value is `dynamic`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1([v = 42]) {
   this : assert(v.checkDynamic);
 }

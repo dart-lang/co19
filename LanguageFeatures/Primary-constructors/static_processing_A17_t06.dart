@@ -24,8 +24,6 @@
 /// required parameter.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C({required this.v1, required var String v2, required final bool v3}) {
   int v1;
 }

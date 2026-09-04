@@ -10,8 +10,6 @@
 /// factory constructor is not redirecting.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 class C1 {
   const C1();
   const factory name() => const C1();

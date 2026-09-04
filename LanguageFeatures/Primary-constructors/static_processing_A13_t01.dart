@@ -17,8 +17,6 @@
 /// the primary constructor is the body scope of the class.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=primary-constructors
-
 import '../../Utils/expect.dart';
 
 class C1([@m final int v = m]) {
