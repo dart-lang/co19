@@ -57,7 +57,8 @@ void f3(void Function(FutureOr<Object?>) v1, void Function(dynamic) v2) {
   // because MORETOP(dynamic, FutureOr<Object?>) = true
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<Object?>)>>();
-  v = (o) {
+  v = (o) async {
+    (await o).expectStaticType<Exactly<Object?>>();
     var x = nonNull(o);
     Object y = x; // ignore: unused_local_variable
 //             ^
@@ -74,7 +75,8 @@ void f4(
   // because MORETOP(FutureOr<dynamic>, FutureOr<Object?>) = true
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<Object?>)>>();
-  v = (o) {
+  v = (o) async {
+    (await o).expectStaticType<Exactly<Object?>>();
     var x = nonNull(o);
     Object y = x; // ignore: unused_local_variable
 //             ^

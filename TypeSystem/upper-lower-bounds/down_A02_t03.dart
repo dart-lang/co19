@@ -59,7 +59,8 @@ void f4(void Function(void) v1, void Function(FutureOr<Object?>) v2) {
   // because MORETOP(FutureOr<Object?>, void) = false
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<Object?>)>>();
-  v = (o) {
+  v = (o) async {
+    (await o).expectStaticType<Exactly<Object?>>();
     var x = nonNull(o);
     Object y = x; // ignore: unused_local_variable
 //             ^

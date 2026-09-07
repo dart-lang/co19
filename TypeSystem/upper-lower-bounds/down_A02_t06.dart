@@ -25,11 +25,11 @@ void f1(void Function(dynamic) v1, void Function(Object?) v2) {
   v = (o) async {
     var x = nonNull(o);
     Object y = x; // ignore: unused_local_variable
-    v.checkNotDynamic;
+    o.checkNotDynamic;
 //    ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    (await v).checkNotFutureOrDynamic;
+    (await o).checkNotFutureOrDynamic;
 //            ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -44,11 +44,11 @@ void f2(void Function(FutureOr<dynamic>) v1, void Function(Object?) v2) {
   v = (o) async {
     var x = nonNull(o);
     Object y = x; // ignore: unused_local_variable
-    v.checkNotDynamic;
+    o.checkNotDynamic;
 //    ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    (await v).checkNotFutureOrDynamic;
+    (await o).checkNotFutureOrDynamic;
 //            ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -66,11 +66,11 @@ void f3(void Function(dynamic) v1, void Function(FutureOr<Object?>) v2) {
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    v.checkNotDynamic;
+    o.checkNotDynamic;
 //    ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    (await v).checkNotFutureOrDynamic;
+    (await o).checkNotFutureOrDynamic;
 //            ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -91,11 +91,11 @@ void f4(
 //             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    v.checkNotDynamic;
+    o.checkNotDynamic;
 //    ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    (await v).checkNotFutureOrDynamic;
+    (await o).checkNotFutureOrDynamic;
 //            ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
