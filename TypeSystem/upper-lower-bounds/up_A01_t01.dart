@@ -15,9 +15,9 @@ import '../../Utils/expect.dart' show Expect;
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
-void f1<X extends num, Y extends num>(X x, Y y) {
-  var v = (1 > 2) ? x : y;
-  v.expectStaticType<Exactly<num>>();
+void f1<X extends num>(X x1, X x2) {
+  var v = (1 > 2) ? x1 : x2;
+  v.expectStaticType<Exactly<X>>();
 }
 
 void f2(Object x, Object y) {
@@ -41,6 +41,7 @@ void f4(void x, void y) {
 
 void f5() {
   var v = (1 > 2) ? null : null;
+  // For historical reasons type of `v` inferred as `dynamic`
   if (1 > 2) {
     v.checkDynamic;
   }
@@ -108,7 +109,7 @@ void f17(ET x, ET y) {
 
 void main() {
   f1(1, 2);
-  f1<num, int>(1, 2);
+  f1<int>(1, 2);
   f2(1, 2);
   f3(1, 2);
   f4(1, 2);

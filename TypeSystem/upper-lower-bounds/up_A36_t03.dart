@@ -15,6 +15,7 @@
 /// intersection type, a type of the form `U?`, a type variable, `Function`, a
 /// function type, `Record`, or a record type.
 /// @author sgrekhov22@gmail.com
+/// @issue 64205
 
 import 'dart:async';
 import '../../Utils/static_type_helper.dart';
