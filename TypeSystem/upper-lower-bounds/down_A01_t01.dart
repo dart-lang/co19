@@ -104,6 +104,11 @@ void f17(void Function(ET x) v1, void Function(ET y) v2) {
   v.expectStaticType<Exactly<void Function(ET)>>();
 }
 
+void f18<X extends num>(void Function(X x) v1, void Function(X y) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(X)>>();
+}
+
 void main() {
   f1((Object o) {}, (Object o) {});
   f2((o) {}, (o) {});
@@ -122,4 +127,6 @@ void main() {
   f15((Enum o) {}, (Enum o) {});
   f16((E o) {}, (E o) {});
   f17((ET o) {}, (ET o) {});
+  f18((num o) {}, (num o) {});
+  f18<int>((int o) {}, (int o) {});
 }

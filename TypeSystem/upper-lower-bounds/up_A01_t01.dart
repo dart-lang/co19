@@ -15,6 +15,11 @@ import '../../Utils/expect.dart' show Expect;
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
+void f1<X extends num>(X x1, X x2) {
+  var v = (1 > 2) ? x1 : x2;
+  v.expectStaticType<Exactly<X>>();
+}
+
 void f2(Object x, Object y) {
   var v = (1 > 2) ? x : y;
   v.expectStaticType<Exactly<Object>>();
@@ -103,6 +108,8 @@ void f17(ET x, ET y) {
 }
 
 void main() {
+  f1(1, 2);
+  f1<int>(1, 2);
   f2(1, 2);
   f3(1, 2);
   f4(1, 2);
