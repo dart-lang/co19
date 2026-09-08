@@ -18,149 +18,161 @@ import 'dart:async';
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
-void f1(num n) {
+void f1a(num n) {
   var v = (1 > 2) ? null : n; // UP(Null, num) = num?
   v.expectStaticType<Exactly<num?>>();
 }
 
-void f2(Never? t1, num n) {
+void f1b(Never? t1, num n) {
   var v = (1 > 2) ? t1 : n; // UP(Never?, num) = num?
   v.expectStaticType<Exactly<num?>>();
 }
 
-void f3<X extends num>(X n) {
+void f2a<X extends num>(X n) {
   var v = (1 > 2) ? null : n; // UP(Null, X) = X?
   v.expectStaticType<Exactly<X?>>();
 }
 
-void f4<X extends num>(Never? t1, X n) {
+void f2b<X extends num>(Never? t1, X n) {
   var v = (1 > 2) ? t1 : n; // UP(Never?, X) = X?
   v.expectStaticType<Exactly<X?>>();
 }
 
-void f5(Function n) {
+void f3a(Function n) {
   var v = (1 > 2) ? null : n; // UP(Null, Function) = Function?
   v.expectStaticType<Exactly<Function?>>();
 }
 
-void f6(Never? t1, Function n) {
+void f3b(Never? t1, Function n) {
   var v = (1 > 2) ? t1 : n; // UP(Never?, Function) = Function?
   v.expectStaticType<Exactly<Function?>>();
 }
 
-void f7(Record n) {
+void f4a(Record n) {
   var v = (1 > 2) ? null : n; // UP(Null, Record) = Record?
   v.expectStaticType<Exactly<Record?>>();
 }
 
-void f8(Never? t1, Record n) {
+void f4b(Never? t1, Record n) {
   var v = (1 > 2) ? t1 : n; // UP(Never?, Record) = Record?
   v.expectStaticType<Exactly<Record?>>();
 }
 
-void f9(FutureOr<int> n) {
+void f5a(FutureOr<int> n) {
   var v = (1 > 2) ? null : n; // UP(Null, FutureOr<int>) = FutureOr<int>?
   v.expectStaticType<Exactly<FutureOr<int>?>>();
 }
 
-void f10(Never? t1, FutureOr<int> n) {
+void f5b(Never? t1, FutureOr<int> n) {
   var v = (1 > 2) ? t1 : n; // UP(Never?, FutureOr<int>) = FutureOr<int>?
   v.expectStaticType<Exactly<FutureOr<int>?>>();
 }
 
-void f11(C n) {
+void f6a(C n) {
   var v = (1 > 2) ? null : n; // UP(Null, C) = C?
   v.expectStaticType<Exactly<C?>>();
 }
 
-void f12(Never? t1, C n) {
+void f6b(Never? t1, C n) {
   var v = (1 > 2) ? t1 : n; // UP(Never?, C) = C?
   v.expectStaticType<Exactly<C?>>();
 }
 
-void f13(D<int, String> n) {
+void f7a(D<int, String> n) {
   var v = (1 > 2) ? null : n; // UP(Null, D<int, String>) = D<int, String>?
   v.expectStaticType<Exactly<D<int, String>?>>();
 }
 
-void f14(Never? t1, D<int, String> n) {
+void f7b(Never? t1, D<int, String> n) {
   var v = (1 > 2) ? t1 : n; // UP(Never?, D<int, String>) = D<int, String>?
   v.expectStaticType<Exactly<D<int, String>?>>();
 }
 
-void f15(FPositional n) {
+void f8a(FPositional n) {
   var v = (1 > 2) ? null : n; // UP(Null, FPositional) = FPositional?
   v.expectStaticType<Exactly<FPositional?>>();
 }
 
-void f16(Never? t1, FPositional n) {
+void f8b(Never? t1, FPositional n) {
   var v = (1 > 2) ? t1 : n; // UP(Never?, FPositional) = FPositional?
   v.expectStaticType<Exactly<FPositional?>>();
 }
 
-void f17(FNamed n) {
+void f9a(FNamed n) {
   var v = (1 > 2) ? null : n; // UP(Null, FNamed) = FNamed?
   v.expectStaticType<Exactly<FNamed?>>();
 }
 
-void f18(Never? t1, FNamed n) {
+void f9b(Never? t1, FNamed n) {
   var v = (1 > 2) ? t1 : n; // UP(Never?, FNamed) = FNamed?
   v.expectStaticType<Exactly<FNamed?>>();
 }
 
-void f19(Rec n) {
+void f10a(Rec n) {
   var v = (1 > 2) ? null : n; // UP(Null, Rec) = Rec?
   v.expectStaticType<Exactly<Rec?>>();
 }
 
-void f20(Never? t1, Rec n) {
+void f10b(Never? t1, Rec n) {
   var v = (1 > 2) ? t1 : n; // UP(Never?, Rec) = Rec?
   v.expectStaticType<Exactly<Rec?>>();
 }
 
-void f21(E n) {
+void f11a(E n) {
   var v = (1 > 2) ? null : n; // UP(Null, E) = E?
   v.expectStaticType<Exactly<E?>>();
 }
 
-void f22(Never? t1, E n) {
+void f11b(Never? t1, E n) {
   var v = (1 > 2) ? t1 : n; // UP(Never?, E) = E?
   v.expectStaticType<Exactly<E?>>();
 }
 
-void f23(ET n) {
+void f12a(ET n) {
   var v = (1 > 2) ? null : n; // UP(Null, ET) = ET?
   v.expectStaticType<Exactly<ET?>>();
 }
 
-void f24(Never? t1, ET n) {
+void f12b(Never? t1, ET n) {
   var v = (1 > 2) ? t1 : n; // UP(Never?, ET) = ET?
   v.expectStaticType<Exactly<ET?>>();
 }
 
+void f13a(FutureOr<Never> n) {
+  var v = (1 > 2) ? null : n; // UP(Null, FutureOr<Never>) = FutureOr<Never>?
+  v.expectStaticType<Exactly<FutureOr<Never>?>>();
+}
+
+void f13b(Never? t1, FutureOr<Never> n) {
+  var v = (1 > 2) ? t1 : n; // UP(Never?, FutureOr<Never>) = FutureOr<Never>?
+  v.expectStaticType<Exactly<FutureOr<Never>?>>();
+}
+
 void main() {
-  f1(1);
-  f2(null, 1);
-  f3(1);
-  f4(null, 1);
-  f5(() {});
-  f6(null, () {});
-  f7((1,));
-  f8(null, (1,));
-  f9(1);
-  f10(null, 1);
-  f11(C());
-  f12(null, C());
-  f13(D<int, String>());
-  f14(null, D<int, String>());
-  f15(<X extends num>(X x, [int i = 0]) => 0);
-  f16(null, <X extends num>(X x, [int i = 0]) => 0);
-  f17(<X extends num>(X x, {int i = 0}) => 0);
-  f18(null, <X extends num>(X x, {int i = 0}) => 0);
-  f19((1, 'two', b: true));
-  f20(null, (1, 'two', b: true));
-  f21(E.e0);
-  f22(null, E.e0);
-  f23(ET(0));
-  f24(null, ET(0));
+  f1a(1);
+  f1b(null, 1);
+  f2a(1);
+  f2b(null, 1);
+  f3a(() {});
+  f3b(null, () {});
+  f4a((1,));
+  f4b(null, (1,));
+  f5a(1);
+  f5b(null, 1);
+  f6a(C());
+  f6b(null, C());
+  f7a(D<int, String>());
+  f7b(null, D<int, String>());
+  f8a(<X extends num>(X x, [int i = 0]) => 0);
+  f8b(null, <X extends num>(X x, [int i = 0]) => 0);
+  f9a(<X extends num>(X x, {int i = 0}) => 0);
+  f9b(null, <X extends num>(X x, {int i = 0}) => 0);
+  f10a((1, 'two', b: true));
+  f10b(null, (1, 'two', b: true));
+  f11a(E.e0);
+  f11b(null, E.e0);
+  f12a(ET(0));
+  f12b(null, ET(0));
+  print(f13a);
+  print(f13b);
 }
