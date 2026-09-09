@@ -23,5 +23,5 @@ void f1<X extends Never>(void Function(X) v1, void Function(Never) v2) {
 }
 
 void main() {
-  print(f1);
+  f1((_) {}, (Never _) {});
 }
