@@ -314,6 +314,7 @@ void f29(FutureOr<ET> t1, Object t2) {
   v.expectStaticType<Exactly<Object?>>();
   if (v == null) { // Strip `?`
     Expect.fail('The actual value must be non-null for the test to complete.');
+    return;
   }
   v = confirmObjectContext();
 }
@@ -325,6 +326,7 @@ void f30(FutureOr<ET> t1, FutureOr<Object> t2) {
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
   if (v == null) { // Strip `?`
     Expect.fail('The actual value must be non-null for the test to complete.');
+    return;
   }
   v = confirmFutureOrObjectContext();
 }

@@ -74,7 +74,7 @@ void f3(void Function(dynamic) v1, void Function(FutureOr<Object?>) v2) {
     // Check that `o`'s type is of the form `FutureOr<T?>` where `OBJECT(T)`.
     var x2 = await o;
     var x3 = nonNull(x2);
-    x3.expectStaticOBJECT;
+    x3.expectStaticOBJECT();
 
     o.checkNotDynamic;
 //    ^^^^^^^^^^^^^^^
@@ -109,7 +109,7 @@ void f4(
     // Check that `o`'s type is of the form `FutureOr<T?>` where `OBJECT(T)`.
     var x2 = await o;
     var x3 = nonNull(x2);
-    x3.expectStaticOBJECT;
+    x3.expectStaticOBJECT();
 
     o.checkNotDynamic;
 //    ^^^^^^^^^^^^^^^
