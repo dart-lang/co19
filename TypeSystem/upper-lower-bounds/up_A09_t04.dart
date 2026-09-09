@@ -12,32 +12,33 @@
 ///     with respect to `X2`, as defined in inference.md.
 ///
 /// @description Check that UP(`T1`, `X2 & B2`) = `X2` if `T1 != X2 & B2`,
-/// not TOP(`T1`), `T1` is not  an intersection type, not BOTTOM(`T1`) and
+/// not TOP(`T1`), `T1` is not an intersection type, not BOTTOM(`T1`) and
 /// `T1 <: X2`. We also use the fact that TOP(`X2 & B2`) never holds.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
 
-// ignore_for_file: dead_code
-
-class A {}
-class B2 extends A {}
-
-void f1<X2, T1 extends X2>(T1 t1, X2 x2) {
-  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
-    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
-    v.expectStaticType<Exactly<X2>>();
+void test1<T1 extends num, T2 extends T1>(
+  T2 Function(T2 x) f1,
+  T1 Function(T1 x) f2,
+) {
+  if (f2 is T2 Function(T1 x)) {
+    var v1 = (1 > 2) ? f1 : f2;
+    v1.expectStaticType<Exactly<T2 Function(T2 x)>>();
   }
 }
 
-void f2<X2 extends A, T1 extends X2>(T1 t1, X2 x2) {
-  if (x2 is B2) { // `x2` promoted to `X2 & B2`.
-    var v = (1 > 2) ? t1 : x2; // UP(T1, X2 & B2) = X2 because T1 <: X2
-    v.expectStaticType<Exactly<X2>>();
+void test2<T1 extends num, T2 extends T1>(
+    T2 Function({T2 x}) f1,
+    T1 Function({T1 x}) f2,
+    ) {
+  if (f2 is T2 Function({T1 x})) {
+    var v1 = (1 > 2) ? f1 : f2;
+    v1.expectStaticType<Exactly<T2 Function({T2 x})>>();
   }
 }
 
-void main() {
-  f1<num, int>(1, 2);
-  f2<A, B2>(B2(), A());
+main() {
+  test1((x) => 1, (x) => 2);
+  test2(({x}) => 1, ({x}) => 2);
 }

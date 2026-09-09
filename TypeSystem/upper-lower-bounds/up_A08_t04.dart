@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -18,26 +18,27 @@
 
 import '../../Utils/static_type_helper.dart';
 
-// ignore_for_file: dead_code
-
-class A {}
-class B1 extends A {}
-
-void f1<T2, X1 extends T2>(X1 x1, T2 t2) {
-  if (x1 is B1) { // `x1` promoted to `X1 & B1`.
-    var v = (1 > 2) ? x1 : t2; // UP(X1 & B1, T2) = T2 because X1 <: T2
-    v.expectStaticType<Exactly<T2>>();
+void test1<T1 extends num, T2 extends T1>(
+  T1 Function(T1 x) f1,
+  T2 Function(T2 x) f2,
+) {
+  if (f1 is T2 Function(T1 x)) {
+    var v1 = (1 > 2) ? f1 : f2;
+    v1.expectStaticType<Exactly<T2 Function(T2 x)>>();
   }
 }
 
-void f2<T2 extends A, X1 extends T2>(X1 x1, T2 t2) {
-  if (x1 is B1) { // `x1` promoted to `X1 & B1`.
-    var v = (1 > 2) ? x1 : t2; // UP(X1 & B1, T2) = T2 because X1 <: T2
-    v.expectStaticType<Exactly<T2>>();
+void test2<T1 extends num, T2 extends T1>(
+    T1 Function({T1 x}) f1,
+    T2 Function({T2 x}) f2,
+    ) {
+  if (f1 is T2 Function({T1 x})) {
+    var v1 = (1 > 2) ? f1 : f2;
+    v1.expectStaticType<Exactly<T2 Function({T2 x})>>();
   }
 }
 
-void main() {
-  f1<num, int>(1, 2);
-  f2<A, B1>(B1(), A());
+main() {
+  test1((x) => 1, (x) => 2);
+  test2(({x}) => 1, ({x}) => 2);
 }

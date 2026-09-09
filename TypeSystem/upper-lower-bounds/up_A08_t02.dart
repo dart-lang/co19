@@ -11,27 +11,33 @@
 ///   - otherwise UP(`B1a`, `T2`) where `B1a` is the greatest closure of `B1`
 ///     with respect to `X1`, as defined in inference.md.
 ///
-/// @description Check that upper bound of intersection types is calculated as
-/// expected
+/// @description Check that UP(`X1 & B1`, `T2`) = `X1` if `T2 != X1 & B1`,
+/// not TOP(`T2`), `T2` is not an intersection type, not BOTTOM(`T2`) and
+/// `T2` <: `X1`. We also use the fact that TOP(`X1 & B1`) never holds.
 /// @author sgrekhov22@gmail.com
 
-import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
 
-int? foo() => DateTime.now().millisecondsSinceEpoch.isEven? null : 1;
+// ignore_for_file: dead_code
 
-void f<X extends num>(X x) {
-  if (x is int) { // `x` promoted to `X & int`.
-    var y1 = 2 > 1 ? x : null;
-    Expect.isTrue(y1?.isEven);
-    y1.expectStaticType<Exactly<int?>>();
+class A {}
+class B1 extends A {}
 
-    var y2 = 1 > 2 ? foo() : x;
-    Expect.isTrue(y2?.isEven);
-    y2.expectStaticType<Exactly<int?>>();
+void f1<X1, T2 extends X1>(X1 x1, T2 t2) {
+  if (x1 is B1) { // `x1` promoted to `X1 & B1`.
+    var v = (1 > 2) ? x1 : t2; // UP(X1 & B1, T2) = X1 because T2 <: X1
+    v.expectStaticType<Exactly<X1>>();
+  }
+}
+
+void f2<X1 extends A, T2 extends X1>(X1 x1, T2 t2) {
+  if (x1 is B1) { // `x1` promoted to `X1 & B1`.
+    var v = (1 > 2) ? x1 : t2; // UP(X1 & B1, T2) = X1 because T2 <: X1
+    v.expectStaticType<Exactly<X1>>();
   }
 }
 
 void main() {
-  f<num>(42);
+  f1<num, int>(1, 2);
+  f2<A, B1>(A(), B1());
 }
