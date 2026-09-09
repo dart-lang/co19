@@ -61,11 +61,21 @@ void f3(void Function(dynamic) v1, void Function(FutureOr<Object?>) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<Object?>)>>();
   v = (o) async {
-    var x = nonNull(o);
-    Object y = x; // ignore: unused_local_variable
-//             ^
-// [analyzer] unspecified
-// [cfe] unspecified
+    // Now check that `o` is really `FutureOr<Object?>` not, say, `Object?`.
+    // Object? and FutureOr<Object?> cannot be distinguished using `expectStaticType`.
+
+    // Confirm TOP type
+    o.expectStaticTOP();
+
+    // Check that `o`'s type is not of the form `T?`.
+    var x1 = nonNull(o);
+    x1.expectStaticTOP();
+
+    // Check that `o`'s type is of the form `FutureOr<T?>` where `OBJECT(T)`.
+    var x2 = await o;
+    var x3 = nonNull(x2);
+    x3.expectStaticOBJECT;
+
     o.checkNotDynamic;
 //    ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
@@ -86,11 +96,21 @@ void f4(
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<Object?>)>>();
   v = (o) async {
-    var x = nonNull(o);
-    Object y = x; // ignore: unused_local_variable
-//             ^
-// [analyzer] unspecified
-// [cfe] unspecified
+    // Now check that `o` is really `FutureOr<Object?>` not, say, `Object?`.
+    // Object? and FutureOr<Object?> cannot be distinguished using `expectStaticType`.
+
+    // Confirm TOP type
+    o.expectStaticTOP();
+
+    // Check that `o`'s type is not of the form `T?`.
+    var x1 = nonNull(o);
+    x1.expectStaticTOP();
+
+    // Check that `o`'s type is of the form `FutureOr<T?>` where `OBJECT(T)`.
+    var x2 = await o;
+    var x3 = nonNull(x2);
+    x3.expectStaticOBJECT;
+
     o.checkNotDynamic;
 //    ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
