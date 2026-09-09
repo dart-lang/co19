@@ -18,7 +18,7 @@
 
 part of 'static_type_helper.dart';
 
-/// Support `e.expectStaticTop()` if the static type of `e` is TOP.
+/// Support `e.expectStaticTOP()` if the static type of `e` is TOP.
 /// A compile-time error occurs in all other cases except extension types and
 /// type variable.
 /// ```
