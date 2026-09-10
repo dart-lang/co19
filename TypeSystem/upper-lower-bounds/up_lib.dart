@@ -92,3 +92,65 @@ Future<X> confirmFutureOrObjectContext<X>() {
 /// }
 /// ```
 X nonNull<X>(X? x) => x as X;
+
+/// A helper function used to distinguish between the types `Object` and
+/// `FutureOr<Object>` statically.
+///
+/// - `Object` context imposes no constraints on `X`, so `X` is `dynamic`;
+/// - the `FutureOr<Object>` context is decomposed into
+///   `Future<X> <: Future<Object>`, which gives `X <: Object`, so `X` is
+///   `Object`.
+/// The difference between `dynamic` and `Object` can be seen statically.
+Future<X> probeFuture<X>() => Future<X>.value(0 as dynamic);
+
+/// A helper function used to distinguish between the types `Object?` and
+/// `FutureOr<Object?>` statically.
+///
+/// - the `Object?` context is decomposed into `FutureOr<X> <: Object`, which
+///   gives `X <: Object`, so `X` is `Object`;
+/// - the `FutureOr<Object?>` context is decomposed into `X <: Object?`, so `X`
+///   is `Object?`.
+/// The difference can be seen statically because `FutureOr<Object>` is not a
+/// top type, unlike `FutureOr<Object?>`.
+///
+/// Note that a `dynamic` context imposes no constraints on `X` either, and
+/// `FutureOr<dynamic>` and `FutureOr<Object?>` are mutual subtypes, so this
+/// probe does not distinguish `dynamic` from `FutureOr<Object?>`. Use
+/// [probeFutureOr2] for that.
+FutureOr<X> probeFutureOr<X>() => 0 as dynamic;
+
+/// A helper function used to distinguish between the types `FutureOr<Object>`
+/// and `FutureOr<FutureOr<Object>>` statically. [probeFuture] cannot do it,
+/// because it infers `X` as `Object` in the former case and as
+/// `FutureOr<Object>` in the latter, and these two types are mutual subtypes.
+///
+/// - the `FutureOr<Object>` context is decomposed into
+///   `Future<Future<X>> <: Future<Object>`, that is, `Future<X> <: Object`,
+///   which imposes no constraints on `X`, so `X` is `dynamic`;
+/// - the `FutureOr<FutureOr<Object>>` context is decomposed into
+///   `Future<X> <: FutureOr<Object>` and then into `X <: Object`, so `X` is
+///   `Object`.
+/// The difference between `dynamic` and `Object` can be seen statically.
+///
+/// In general, a probe with `k` nested `Future`s infers `X` as `Object` if and
+/// only if the context type has at least `k` nested `FutureOr`s.
+Future<Future<X>> probeFuture2<X>() =>
+    Future<Future<X>>.value(Future<X>.value(0 as dynamic));
+
+/// A helper function used to distinguish `FutureOr<Object?>` from both
+/// `FutureOr<FutureOr<Object?>>` and `dynamic` statically. Neither
+/// [probeFutureOr], which cannot tell `FutureOr<Object?>` from `dynamic`, nor
+/// [probeFuture2], which sees no nullability at all, is able to do it.
+///
+/// - the `FutureOr<Object?>` context is decomposed into
+///   `FutureOr<X> <: Object?` and then into `FutureOr<X> <: Object`, which
+///   gives `X <: Object`, so `X` is `Object`;
+/// - the `FutureOr<FutureOr<Object?>>` context is decomposed into
+///   `FutureOr<X> <: FutureOr<Object?>`, which gives `X <: Object?`, so `X` is
+///   `Object?`;
+/// - the `dynamic` context imposes no constraints on `X`, so `X` is `dynamic`.
+///   `FutureOr<Object>` is not a top type, unlike `FutureOr<Object?>` and
+///   `FutureOr<dynamic>`, so the difference can be seen statically. The last
+///   two contexts, however, produce mutual subtypes, so `checkDynamic` remains
+///   the only check that separates `FutureOr<FutureOr<Object?>>` from `dynamic`.
+Future<FutureOr<X>> probeFutureOr2<X>() => Future<FutureOr<X>>.value(0 as dynamic);
