@@ -14,6 +14,8 @@
 /// OBJECT(`T2`) and `T2` is non-nullable. Note that none of TOP(`T`),
 /// BOTTOM(`T`), or NULL(`T`) holds when OBJECT(`T`), and `T` is not an
 /// intersection type.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 // ignore_for_file: unused_local_variable
@@ -22,161 +24,194 @@ import 'dart:async';
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
-void f1(Object o, num n) {
+void f1a(Object o, num n) {
   var v = (1 > 2) ? o : n; // UP(Object, num) = Object
   // Object and FutureOr<Object> are subtypes of each other, which means that we
   // can't see the difference using `expectStaticType()` function.
-  v.expectStaticType<Exactly<Object>>(); // Check that `v`'s type is `OBJECT`.
-  v = confirmObjectContext(); // Check that `v`'s type is `Object`.
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
-void f2(FutureOr<Object> o, num n) {
+void f1b(FutureOr<Object> o, num n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, num) = FutureOr<Object>
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext(); // Check that `v`'s type is `FutureOr<Object>`.
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f3<X extends num>(Object o, X n) {
+void f2a<X extends num>(Object o, X n) {
   var v = (1 > 2) ? o : n; // UP(Object, X) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
-void f4<X extends num>(FutureOr<Object> o, X n) {
+void f2b<X extends num>(FutureOr<Object> o, X n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, X) = FutureOr<Object>
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f5(Object o, Function n) {
+void f3a(Object o, Function n) {
   var v = (1 > 2) ? o : n; // UP(Object, Function) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
-void f6(FutureOr<Object> o, Function n) {
+void f3b(FutureOr<Object> o, Function n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, Function) = FutureOr<Object>
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f7(Object o, Record n) {
+void f4a(Object o, Record n) {
   var v = (1 > 2) ? o : n; // UP(Object, Record) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
-void f8(FutureOr<Object> o, Record n) {
+void f4b(FutureOr<Object> o, Record n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, Record) = FutureOr<Object>
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f9(Object o, FutureOr<int> n) {
+void f5a(Object o, FutureOr<int> n) {
   var v = (1 > 2) ? o : n; // UP(Object, FutureOr<int>) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
-void f10(FutureOr<Object> o, FutureOr<int> n) {
+void f5b(FutureOr<Object> o, FutureOr<int> n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, FutureOr<int>) = FutureOr<Object>
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f11(Object o, C n) {
+void f6a(Object o, C n) {
   var v = (1 > 2) ? o : n; // UP(Object, C) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
-void f12(FutureOr<Object> o, C n) {
+void f6b(FutureOr<Object> o, C n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, C) = FutureOr<Object>
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f13(Object o, D<int, String> n) {
+void f7a(Object o, D<int, String> n) {
   var v = (1 > 2) ? o : n; // UP(Object, D<int, String>) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
-void f14(FutureOr<Object> o, D<int, String> n) {
+void f7b(FutureOr<Object> o, D<int, String> n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, D<int, String>) = FutureOr<Object>
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f15(Object o, FPositional n) {
+void f8a(Object o, FPositional n) {
   var v = (1 > 2) ? o : n; // UP(Object, FPositional) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
-void f16(FutureOr<Object> o, FPositional n) {
+void f8b(FutureOr<Object> o, FPositional n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, FPositional) = FutureOr<Object>
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f17(Object o, FNamed n) {
+void f9a(Object o, FNamed n) {
   var v = (1 > 2) ? o : n; // UP(Object, FNamed) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
-void f18(FutureOr<Object> o, FNamed n) {
+void f9b(FutureOr<Object> o, FNamed n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, FNamed) = FutureOr<Object>
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f19(Object o, Rec n) {
+void f10a(Object o, Rec n) {
   var v = (1 > 2) ? o : n; // UP(Object, Rec) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
-void f20(FutureOr<Object> o, Rec n) {
+void f10b(FutureOr<Object> o, Rec n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, Rec) = FutureOr<Object>
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f21(Object o, E n) {
+void f11a(Object o, E n) {
   var v = (1 > 2) ? o : n; // UP(Object, E) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
-void f22(FutureOr<Object> o, E n) {
+void f11b(FutureOr<Object> o, E n) {
   var v = (1 > 2) ? o : n; // UP(FutureOr<Object>, E) = FutureOr<Object>
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
 void main() {
-  f1(1, 1);
-  f2(1, 1);
-  f3(1, 1);
-  f4(1, 1);
-  f5(1, () {});
-  f6(1, () {});
-  f7(1, (1,));
-  f8(1, (1,));
-  f9(1, 1);
-  f10(1, 1);
-  f11(1, C());
-  f12(1, C());
-  f13(1, D<int, String>());
-  f14(1, D<int, String>());
-  f15(1, <X extends num>(X x, [int i = 0]) => 0);
-  f16(1, <X extends num>(X x, [int i = 0]) => 0);
-  f17(1, <X extends num>(X x, {int i = 0}) => 0);
-  f18(1, <X extends num>(X x, {int i = 0}) => 0);
-  f19(1, (1, 'two', b: true));
-  f20(1, (1, 'two', b: true));
-  f21(1, E.e0);
-  f22(1, E.e0);
+  f1a(1, 1);
+  f1b(1, 1);
+  f2a(1, 1);
+  f2b(1, 1);
+  f3a(1, () {});
+  f3b(1, () {});
+  f4a(1, (1,));
+  f4b(1, (1,));
+  f5a(1, 1);
+  f5b(1, 1);
+  f6a(1, C());
+  f6b(1, C());
+  f7a(1, D<int, String>());
+  f7b(1, D<int, String>());
+  f8a(1, <X extends num>(X x, [int i = 0]) => 0);
+  f8b(1, <X extends num>(X x, [int i = 0]) => 0);
+  f9a(1, <X extends num>(X x, {int i = 0}) => 0);
+  f9b(1, <X extends num>(X x, {int i = 0}) => 0);
+  f10a(1, (1, 'two', b: true));
+  f10b(1, (1, 'two', b: true));
+  f11a(1, E.e0);
+  f11b(1, E.e0);
 }
