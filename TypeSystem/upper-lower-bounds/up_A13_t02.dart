@@ -13,6 +13,8 @@
 /// and OBJECT(`T2`) and not MORETOP(`T1`, `T2`). Test that `Object` is more top
 /// than `FutureOr<Object>`. Note that none of TOP(`T`), BOTTOM(`T`), or
 /// NULL(`T`) holds when OBJECT(`T`), and `T` is not an intersection type.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -21,24 +23,34 @@ import 'up_lib.dart';
 
 void f1(FutureOr<Object> x, Object y) {
   var v = (1 > 2) ? x : y; // MORETOP(FutureOr<Object>, Object) = false
-  // Object and FutureOr<Object> are subtypes of each other, which means that we
-  // can't see the difference using `expectStaticType()` function.
-  v.expectStaticType<Exactly<Object>>(); // Check that `v`'s type is `OBJECT`.
-  v = confirmObjectContext(); // Check that `v` is not `FutureOr<Object>`.
+  // Check that static type of `v` is really `Object`, not `FutureOr<Object>`.
+  // See the table in README.md for more details.
+  v.expectStaticType<Exactly<Object>>(); // Check that `v`'s type is `OBJECT`
+  // Check that `v` is not `FutureOr<Object>`.
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f2(FutureOr<FutureOr<Object>> x, Object y) {
   var v = (1 > 2) ? x : y; // MORETOP(FutureOr<FutureOr<Object>>, Object) = false
-  v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  // Check that static type of `v` is really `Object`, not `FutureOr<Object>`.
+  // See the table in README.md for more details.
+  v.expectStaticType<Exactly<Object>>(); // Check that `v`'s type is `OBJECT`
+  // Check that `v` is not `FutureOr<Object>`.
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f3(FutureOr<FutureOr<Object>> x, FutureOr<Object> y) {
   // MORETOP(FutureOr<FutureOr<Object>>, FutureOr<Object>) =
   // MORETOP(FutureOr<Object>, Object) = false
   var v = (1 > 2) ? x : y;
-  v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  // Check that static type of `v` is really `FutureOr<Object>`, neither
+  // `Object` nor `FutureOr<FutureOr<Object>>`.
+  // See the table in README.md for more details.
+  v.expectStaticType<Exactly<Object>>(); // Check that `v`'s type is `OBJECT`
+  // Check that `v` is not `Object`.
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  // Check that `v` is not `FutureOr<FutureOr<Object>>`.
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
 void main() {

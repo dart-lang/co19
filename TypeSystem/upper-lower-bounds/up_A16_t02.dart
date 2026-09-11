@@ -12,6 +12,8 @@
 /// TOP, BOTTOM, NULL, OBJECT, or an intersection type. Test that if `T1` and
 /// `T2` are not subtypes of each other then `S` is the least upper bound of
 /// `T1` and `T2`.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -20,42 +22,62 @@ import 'up_lib.dart';
 
 void f1(int? t1, String? t2) {
   var v = (1 > 2) ? t1 : t2; // UP(int?, String?) = UP(int, String)? = Object?
+  // `Object?`, `FutureOr<Object>?` and `FutureOr<Object?>` are subtypes of each
+  // other, which means that we can't see the difference using
+  // `expectStaticType()` function. See the table in README.md for more details.
   v.expectStaticType<Exactly<Object?>>();
+  // Check that `v` is neither `FutureOr<Object>?` nor `FutureOr<Object?>`.
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
 void f2(String? t1, int? t2) {
   var v = (1 > 2) ? t1 : t2; // UP(String?, int?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
 void f3(C? t1, String? t2) {
   var v = (1 > 2) ? t1 : t2; // UP(C?, String?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
 void f4(String? t1, C? t2) {
   var v = (1 > 2) ? t1 : t2; // UP(String?, C?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
 void f5(C? t1, D? t2) {
   var v = (1 > 2) ? t1 : t2; // UP(A?, B?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
 void f6(D? t1, C? t2) {
   var v = (1 > 2) ? t1 : t2; // UP(B?, A?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
 void f7(Function? t1, Record? t2) {
   var v = (1 > 2) ? t1 : t2; // UP(Function?, Record?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
 void f8(Record? t1, Function? t2) {
   var v = (1 > 2) ? t1 : t2; // UP(Record?, Function?) = Object?
   v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
 void f9(List<int>? t1, List<String>? t2) {
@@ -129,12 +151,18 @@ void f21(FutureOr<int>? t1, String? t2) {
   // UP(FutureOr<int>?, String?) = FutureOr<Object>?
   var v = (1 > 2) ? t1 : t2;
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  // Check that `v` is neither `Object?` nor `FutureOr<FutureOr<Object>>?`.
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
 void f22(String? t1, FutureOr<int>? t2) {
   // UP(String?, FutureOr<int>?) = FutureOr<Object>?
   var v = (1 > 2) ? t1 : t2;
   v.expectStaticType<Exactly<FutureOr<Object>?>>();
+  // Check that `v` is not `Object?`, `FutureOr<Object?>`, `FutureOr<FutureOr<Object>>?`.
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
 void f23(FutureOr<int>? t1, num? t2) {

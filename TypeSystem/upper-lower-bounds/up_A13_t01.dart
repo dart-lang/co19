@@ -13,6 +13,8 @@
 /// and OBJECT(`T2`) and MORETOP(`T1`, `T2`). Test that `Object` is more top
 /// than `FutureOr<Object>`. Note that none of TOP(`T`), BOTTOM(`T`), or
 /// NULL(`T`) holds when OBJECT(`T`), and `T` is not an intersection type.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';

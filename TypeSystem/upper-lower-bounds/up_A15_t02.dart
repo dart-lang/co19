@@ -14,352 +14,264 @@
 /// OBJECT(`T1`) and `T1` is not non-nullable. Note that none of TOP(`T`),
 /// BOTTOM(`T`), or NULL(`T`) holds when OBJECT(`T`), and `T` is not an
 /// intersection type.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
+// ignore_for_file: unused_local_variable
+
 import 'dart:async';
-import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
-void f1(num? n, Object o) {
+void f1a(num? n, Object o) {
   var v = (1 > 2) ? n : o; // UP(num?, Object) = Object?
-  v.expectStaticType<Exactly<Object?>>(); // Check that v's type is TOP.
-  // `Object` and `FutureOr<Object> `are subtypes of each other, which means
-  // that we can't see the difference using `expectStaticType()` function.
-  // `v.expectStaticType<Exactly<FutureOr<Object?>>>();` also succeeds. Let's
-  // check that `v` is not `FutureOr<Object?>`
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext(); // Check that `v`'s type is `Object`.
+  // `Object?`, `FutureOr<Object>?` and `FutureOr<Object?>` are subtypes of each
+  // other, which means that we can't see the difference using
+  // `expectStaticType()` function. See the table in README.md for more details.
+  v.expectStaticType<Exactly<Object?>>(); // Check that `v`'s type is TOP.
+  // Check that `v` is neither `FutureOr<Object>?` nor `FutureOr<Object?>`.
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f2(num? n, FutureOr<Object> o) {
+void f1b(num? n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(num?, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext(); // Check that `v`'s type is `FutureOr<Object>`.
+  // Check that `v` is neither `Object?` nor `FutureOr<FutureOr<Object>>?`.
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f3<X extends num>(X? n, Object o) {
+void f2a<X extends num>(X? n, Object o) {
   var v = (1 > 2) ? n : o; // UP(X?, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f4<X extends num>(X? n, FutureOr<Object> o) {
+void f2b<X extends num>(X? n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(X?, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f5<X extends num?>(X n, Object o) {
+void f3a<X extends num?>(X n, Object o) {
   var v = (1 > 2) ? n : o; // UP(X?, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f6<X extends num?>(X n, FutureOr<Object> o) {
+void f3b<X extends num?>(X n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(X?, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f7(Function? n, Object o) {
+void f4a(Function? n, Object o) {
   var v = (1 > 2) ? n : o; // UP(Function?, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f8(Function? n, FutureOr<Object> o) {
+void f4b(Function? n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(Function?, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f9(Record? n, Object o) {
+void f5a(Record? n, Object o) {
   var v = (1 > 2) ? n : o; // UP(Record?, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f10(Record? n, FutureOr<Object> o) {
+void f5b(Record? n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(Record?, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f11(FutureOr<int>? n, Object o) {
+void f6a(FutureOr<int>? n, Object o) {
   var v = (1 > 2) ? n : o; // UP(FutureOr<int>?, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f12(FutureOr<int>? n, FutureOr<Object> o) {
+void f6b(FutureOr<int>? n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(FutureOr<int>?, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f13(C? n, Object o) {
+void f7a(C? n, Object o) {
   var v = (1 > 2) ? n : o; // UP(C?, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f14(C? n, FutureOr<Object> o) {
+void f7b(C? n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(C?, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f15(D<int, String>? n, Object o) {
+void f8a(D<int, String>? n, Object o) {
   var v = (1 > 2) ? n : o; // UP(D<int, String>?, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f16(D<int, String>? n, FutureOr<Object> o) {
+void f8b(D<int, String>? n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(D<int, String>?, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f17(FPositional? n, Object o) {
+void f9a(FPositional? n, Object o) {
   var v = (1 > 2) ? n : o; // UP(FPositional?, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f18(FPositional? n, FutureOr<Object> o) {
+void f9b(FPositional? n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(FPositional?, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f19(FNamed? n, Object o) {
+void f10a(FNamed? n, Object o) {
   var v = (1 > 2) ? n : o; // UP(FNamed?, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f20(FNamed? n, FutureOr<Object> o) {
+void f10b(FNamed? n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(FNamed?, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f21(Rec? n, Object o) {
+void f11a(Rec? n, Object o) {
   var v = (1 > 2) ? n : o; // UP(Rec?, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f22(Rec? n, FutureOr<Object> o) {
+void f11b(Rec? n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(Rec?, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f23(E? n, Object o) {
+void f12a(E? n, Object o) {
   var v = (1 > 2) ? n : o; // UP(E?, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f24(E? n, FutureOr<Object> o) {
+void f12b(E? n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(E?, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f25(ET? n, Object o) {
+void f13a(ET? n, Object o) {
   var v = (1 > 2) ? n : o; // UP(ET?, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f26(ET? n, FutureOr<Object> o) {
+void f13b(ET? n, FutureOr<Object> o) {
   var v = (1 > 2) ? n : o; // UP(ET?, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f27(ET n, Object o) {
+void f14a(ET n, Object o) {
   // `ET` is neither non-nullable (`ET <: Object` is false) nor nullable
   var v = (1 > 2) ? n : o; // UP(ET, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f28(ET n, FutureOr<Object> o) {
+void f14b(ET n, FutureOr<Object> o) {
   // `ET` is neither non-nullable (`ET <: Object` is false) nor nullable
   var v = (1 > 2) ? n : o; // UP(ET, FutureOr<Object>) = FutureOr<Object>?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip the `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
-void f29(FutureOr<ET> t1, Object t2) {
+void f15a(FutureOr<ET> t1, Object t2) {
   // `FutureOr<ET>` is neither non-nullable (`ET <: Object` is false) nor nullable
-  // UP(FutureOr<ET>, Object) = Object?;
-  var v = (1 > 2) ? t1 : t2;
+  var v = (1 > 2) ? t1 : t2; // UP(FutureOr<ET>, Object) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
-void f30(FutureOr<ET> t1, FutureOr<Object> t2) {
+void f15b(FutureOr<ET> t1, FutureOr<Object> t2) {
   // `FutureOr<ET>` is neither non-nullable (`ET <: Object` is false) nor nullable
-  // UP(FutureOr<ET>, FutureOr<Object>) = FutureOr<Object>?;
-  var v = (1 > 2) ? t1 : t2;
-  v.expectStaticType<Exactly<FutureOr<Object>?>>();
-  if (v == null) { // Strip `?`
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmFutureOrObjectContext();
+  var v = (1 > 2) ? t1 : t2; // UP(FutureOr<ET>, FutureOr<Object>) = FutureOr<Object>?
+  v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
 void main() {
-  f1(1, 1);
-  f2(1, 1);
-  f3(1, 1);
-  f4(1, 1);
-  f5(1, 1);
-  f6(1, 1);
-  f7(() {}, 1);
-  f8(() {}, 1);
-  f9((1,), 1);
-  f10((1,), 1);
-  f11(1, 1);
-  f12(1, 1);
-  f13(C(), 1);
-  f14(C(), 1);
-  f15(D<int, String>(), 1);
-  f16(D<int, String>(), 1);
-  f17(<X extends num>(X x, [int i = 0]) => 0, 1);
-  f18(<X extends num>(X x, [int i = 0]) => 0, 1);
-  f19(<X extends num>(X x, {int i = 0}) => 0, 1);
-  f20(<X extends num>(X x, {int i = 0}) => 0, 1);
-  f21((1, 'two', b: true), 1);
-  f22((1, 'two', b: true), 1);
-  f23(E.e0, 1);
-  f24(E.e0, 1);
-  f25(ET(0), 1);
-  f26(ET(0), 1);
-  f27(ET(0), 1);
-  f28(ET(0), 1);
-  f29(ET(0), 1);
-  f30(ET(0), 1);
+  f1a(1, 1);
+  f1b(1, 1);
+  f2a(1, 1);
+  f2b(1, 1);
+  f3a(1, 1);
+  f3b(1, 1);
+  f4a(() {}, 1);
+  f4b(() {}, 1);
+  f5a((1,), 1);
+  f5b((1,), 1);
+  f6a(1, 1);
+  f6b(1, 1);
+  f7a(C(), 1);
+  f7b(C(), 1);
+  f8a(D<int, String>(), 1);
+  f8b(D<int, String>(), 1);
+  f9a(<X extends num>(X x, [int i = 0]) => 0, 1);
+  f9b(<X extends num>(X x, [int i = 0]) => 0, 1);
+  f10a(<X extends num>(X x, {int i = 0}) => 0, 1);
+  f10b(<X extends num>(X x, {int i = 0}) => 0, 1);
+  f11a((1, 'two', b: true), 1);
+  f11b((1, 'two', b: true), 1);
+  f12a(E.e0, 1);
+  f12b(E.e0, 1);
+  f13a(ET(0), 1);
+  f13b(ET(0), 1);
+  f14a(ET(0), 1);
+  f14b(ET(0), 1);
+  f15a(ET(0), 1);
+  f15b(ET(0), 1);
 }
