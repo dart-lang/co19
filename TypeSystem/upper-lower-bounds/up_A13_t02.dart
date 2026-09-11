@@ -24,18 +24,16 @@ import 'up_lib.dart';
 void f1(FutureOr<Object> x, Object y) {
   var v = (1 > 2) ? x : y; // MORETOP(FutureOr<Object>, Object) = false
   // Check that static type of `v` is really `Object`, not `FutureOr<Object>`.
-  // See the table in README.md for more details.
-  v.expectStaticType<Exactly<Object>>(); // Check that `v`'s type is `OBJECT`
-  // Check that `v` is not `FutureOr<Object>`.
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object>>();
   v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f2(FutureOr<FutureOr<Object>> x, Object y) {
   var v = (1 > 2) ? x : y; // MORETOP(FutureOr<FutureOr<Object>>, Object) = false
   // Check that static type of `v` is really `Object`, not `FutureOr<Object>`.
-  // See the table in README.md for more details.
-  v.expectStaticType<Exactly<Object>>(); // Check that `v`'s type is `OBJECT`
-  // Check that `v` is not `FutureOr<Object>`.
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object>>();
   v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
@@ -45,11 +43,9 @@ void f3(FutureOr<FutureOr<Object>> x, FutureOr<Object> y) {
   var v = (1 > 2) ? x : y;
   // Check that static type of `v` is really `FutureOr<Object>`, neither
   // `Object` nor `FutureOr<FutureOr<Object>>`.
-  // See the table in README.md for more details.
-  v.expectStaticType<Exactly<Object>>(); // Check that `v`'s type is `OBJECT`
-  // Check that `v` is not `Object`.
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object>>();
   v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
-  // Check that `v` is not `FutureOr<FutureOr<Object>>`.
   v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
