@@ -13,8 +13,6 @@
 /// of each other then `S` is the least upper bound of `T1` and `T2`.
 /// @note README.md contains a detailed explanation of why and how we are
 /// checking the type of TOP and OBJECT.
-/// @note README.md contains a detailed explanation of why and how we are
-/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
