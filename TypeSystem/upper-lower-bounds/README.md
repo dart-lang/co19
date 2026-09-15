@@ -96,8 +96,9 @@ print(v); // Type `void` cannot be used.
 -----------------------
 
 ```dart
+print(v); // Rejects `void`
 print(await v); // Type `void` cannot be used.
-//          ^
+//    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 ```
@@ -106,18 +107,23 @@ print(await v); // Type `void` cannot be used.
 ----------------
 
 ```dart
-if (1 > 2) {
   v.checkDynamic;
-}
+  v = 1; // Rejects `Never`
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 ```
 
 `v` is `FutureOr<dynamic>`
 --------------------------
 
 ```dart
-if (1 > 2) {
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified  
   (await v).checkDynamic;
-}
+  v = 1; // Rejects `FutureOr<Never>`
 ```
 
 `v` is `Object?`
