@@ -10,8 +10,6 @@
 /// formal parameter has a private name that has no corresponding public name.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=private-named-parameters
-
 class C {
   String _;
   C({this._ = ""});

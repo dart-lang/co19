@@ -14,8 +14,6 @@
 /// public name `n` in the initializer list.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=private-named-parameters
-
 class C {
   String? _p1;
   String? p2;

@@ -15,8 +15,6 @@
 /// to use the corresponding public name `n` to access the instance variable.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=private-named-parameters
-
 class C {
   String _p;
 

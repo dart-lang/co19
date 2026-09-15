@@ -12,8 +12,6 @@
 /// public name.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=private-named-parameters
-
 import '../../Utils/expect.dart';
 
 class A1 {

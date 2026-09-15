@@ -16,8 +16,6 @@
 /// as the name of the parameter in the constructor signature.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=private-named-parameters
-
 class C {
   String? _p;
 

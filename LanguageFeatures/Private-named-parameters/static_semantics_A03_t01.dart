@@ -16,8 +16,6 @@
 /// signature is the corresponding public name `n`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=private-named-parameters
-
 import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
 
