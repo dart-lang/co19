@@ -31,7 +31,7 @@
 /// introductory constructor. Test private named parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,private-named-parameters
+// SharedOptions=--enable-experiment=augmentations
 
 class C {
   int _p;

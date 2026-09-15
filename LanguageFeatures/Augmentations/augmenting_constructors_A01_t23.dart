@@ -32,7 +32,7 @@
 /// constructors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,private-named-parameters
+// SharedOptions=--enable-experiment=augmentations
 
 class C1({var int _p = 0});
 

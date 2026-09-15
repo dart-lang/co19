@@ -14,8 +14,6 @@
 /// `C` has declared name `p` or `n`. Test declaring parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=private-named-parameters
-
 class C1(int p, {var String _p = ""}) {
 //                          ^^
 // [analyzer] unspecified
