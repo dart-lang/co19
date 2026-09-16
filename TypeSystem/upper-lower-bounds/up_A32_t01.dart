@@ -13,91 +13,103 @@
 /// Note that no earlier rule applies because record types are never TOP, OBJECT,
 /// NULL, BOTTOM, intersection types, types of the form `T?`, type variables,
 /// function types, or `Function`.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
-import '../../Utils/expect.dart';
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
 void f1(() t1, num t2) {
   var v = (1 > 2) ? t1 : t2; // UP((), num) = UP(Object, num) = Object
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext(); // Check that `v` is not `FutureOr<Object>`
+  // Check that `v` is `Object`, not `FutureOr<Object>`.
+  // See README.md for an explanation of each step in the checks below.
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f2((int,) t1, String t2) {
   var v = (1 > 2) ? t1 : t2; // UP((int,), String) = UP(Object, String) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f3((dynamic, String) t1, C t2) {
   var v = (1 > 2) ? t1 : t2; // UP((dynamic, String), C) = UP(Object, C) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f4((void, {String s}) t1, D<int, String> t2) {
   // UP((void, {String s}), D<int, String>) = UP(Object, D<int, String>) = Object
   var v = (1 > 2) ? t1 : t2;
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f5(({Object? i, String s}) t1, E t2) {
   var v = (1 > 2) ? t1 : t2; // UP(({Object? i, String s}), E) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f6(Rec t1, FutureOr<int> t2) {
   // UP(Rec, FutureOr<int>) = UP(Object, FutureOr<int>) = Object
   var v = (1 > 2) ? t1 : t2;
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f7((E,) t1, int t2) {
   // UP((E,), int) = UP(Object, int) = Object
   var v = (1 > 2) ? t1 : t2;
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f8((FutureOr<int>,) t1, bool t2) {
   // UP((FutureOr<int>,), bool) = UP(Object, bool) = Object
   var v = (1 > 2) ? t1 : t2;
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f9((Function,) t1, C t2) {
   var v = (1 > 2) ? t1 : t2; // UP((Function,), C) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f10((ET,) t1, num t2) {
   var v = (1 > 2) ? t1 : t2; // UP((ET,), num) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f11((Never,) t1, String t2) {
   var v = (1 > 2) ? t1 : t2; // UP((Never,), String) = Object
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f12((int,) t1, ET t2) {
   var v = (1 > 2) ? t1 : t2; // UP((int,), ET) = UP(Object, ET) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip ?
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  // Check that `v` is neither `FutureOr<Object>?` nor `FutureOr<Object?>`.
+  // See README.md for an explanation of each step in the checks below.
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
 void main() {

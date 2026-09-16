@@ -14,6 +14,8 @@
 /// is TOP or OBJECT. Note that `FutureOr<...>` is never BOTTOM, NULL, an
 /// intersection type, a type of the form `U?`, a type variable, `Function`, a
 /// function type, `Record`, or a record type.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -29,20 +31,20 @@ void f1(FutureOr<int> t1, FutureOr<num> t2) {
 void f2(FutureOr<String> t1, FutureOr<int> t2) {
   // UP(FutureOr<String>, FutureOr<int>) = FutureOr<Object>
   var v = (1 > 2) ? t1 : t2;
-  // `expectStaticType` cannot distinguish between `Object` and
-  // `FutureOr<Object>`. Therefore, here and below we check that the type of `v`
-  // is `Object`.
   v.expectStaticType<Exactly<Object>>();
-  // Object and FutureOr<Object> are subtypes of each other, which means that we
-  // can't see the difference using `expectStaticType()` function.
-  v = confirmFutureOrObjectContext(); // Check that `v`'s type is `FutureOr<Object>`.
+  // Check that `v` is neither `Object` nor `FutureOr<FutureOr<Object>>`.
+  // See README.md for an explanation of each step in the checks below.
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
 void f3(FutureOr<C> t1, FutureOr<FutureOr<D<num, String>>> t2) {
-  // FutureOr<UP(C, FutureOr<D<num, String>>)> = FutureOr<Object>
+  // FutureOr<UP(C, FutureOr<D<num, String>>)> = FutureOr<FutureOr<Object>>
   var v = (1 > 2) ? t1 : t2;
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<Object>>>>();
 }
 
 void f4(FutureOr<D<num, String>> t1, FutureOr<D<int, Object>> t2) {
@@ -53,8 +55,10 @@ void f4(FutureOr<D<num, String>> t1, FutureOr<D<int, Object>> t2) {
 
 void f5(FutureOr<E> t1, FutureOr<int> t2) {
   var v = (1 > 2) ? t1 : t2; // FutureOr<UP(E, int)> = FutureOr<Object>
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
 void f6(FutureOr<int?> t1, FutureOr<num> t2) {
@@ -90,8 +94,10 @@ void f10(FutureOr<int Function()> t1, FutureOr<Function> t2) {
 void f11(FutureOr<()> t1, FutureOr<num> t2) {
   // FutureOr<UP((), num)> = FutureOr<Object>
   var v = (1 > 2) ? t1 : t2;
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = confirmFutureOrObjectContext();
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
 void f12<X extends num>(FutureOr<X> t1, FutureOr<int> t2) {
