@@ -1,6 +1,6 @@
 Some tests in this directory need to tell apart types that are mutual subtypes, such
-as `Object` and `FutureOr<Object>`, or `dynamic`, `Object?`, `FutureOr<Object?>` and
-`FutureOr<Object>?`. No subtype-based check can do this: `expectStaticType<Exactly<T>>()`,
+as `Object` and `FutureOr<Object>`, or `dynamic`, `Object?`, `FutureOr<dynamic>`,
+`FutureOr<Object?>` and `FutureOr<Object>?`. No subtype-based check can do this: `expectStaticType<Exactly<T>>()`,
 assignability and type parameter bounds are all defined in terms of subtyping, and
 [NORM](https://github.com/dart-lang/language/blob/main/resources/type-system/normalization.md)
 treats `FutureOr<Object>` and `Object` as the same type. The following probes make the
@@ -42,7 +42,7 @@ A single probe only looks at the outermost `FutureOr` of the context type, so a 
 one level of nesting cannot tell `FutureOr<Object>` from `FutureOr<FutureOr<Object>>`: it
 infers `X` as `Object` in the first case and as `FutureOr<Object>` in the second, and
 those two solutions are again mutual subtypes. Probes with two levels of nesting shift the
-inference variable one `FutureOr` deeper, and each of the ten types below then gets a
+inference variable one `FutureOr` deeper, and each of the eleven types below then gets a
 distinct signature of static checks:
 
 | Static type of `v`            | `v.checkDynamic` | `v.expectStaticType` | `probeFuture()`             | `probeFuture2()`          | `probeFutureOr()`             | `probeFutureOr2()`          |
@@ -57,6 +57,7 @@ distinct signature of static checks:
 | `FutureOr<FutureOr<Object>?>` | error            | `Exactly<Object?>`   | `Future<FutureOr<Object>?>` | `Future<Future<Object>>`  | `FutureOr<FutureOr<Object>?>` | `Future<FutureOr<Object>>`  |
 | `FutureOr<FutureOr<Object>>?` | error            | `Exactly<Object?>`   | `Future<FutureOr<Object>>`  | `Future<Future<Object>>`  | `FutureOr<FutureOr<Object>>`  | `Future<FutureOr<Object>>`  |
 | `dynamic`                     | compiles         | not applicable       | `Future<dynamic>`           | `Future<Future<dynamic>>` | `FutureOr<dynamic>`           | `Future<FutureOr<dynamic>>` |
+| `FutureOr<dynamic>`           | error            | `Exactly<Object?>`   | `Future<dynamic>`           | `Future<Future<dynamic>>` | `FutureOr<dynamic>`           | `Future<FutureOr<dynamic>>` |
 
 The four probe columns list the types that are actually inferred; any equivalent spelling
 passes the corresponding assertion just as well. This is what makes some of the cells
