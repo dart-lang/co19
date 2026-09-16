@@ -1,6 +1,6 @@
 Some tests in this directory need to tell apart types that are mutual subtypes, such
-as `Object` and `FutureOr<Object>`, or `dynamic`, `Object?`, `FutureOr<Object?>` and
-`FutureOr<Object>?`. No subtype-based check can do this: `expectStaticType<Exactly<T>>()`,
+as `Object` and `FutureOr<Object>`, or `dynamic`, `Object?`, `FutureOr<dynamic>`,
+`FutureOr<Object?>` and `FutureOr<Object>?`. No subtype-based check can do this: `expectStaticType<Exactly<T>>()`,
 assignability and type parameter bounds are all defined in terms of subtyping, and
 [NORM](https://github.com/dart-lang/language/blob/main/resources/type-system/normalization.md)
 treats `FutureOr<Object>` and `Object` as the same type. The following probes make the
@@ -42,7 +42,7 @@ A single probe only looks at the outermost `FutureOr` of the context type, so a 
 one level of nesting cannot tell `FutureOr<Object>` from `FutureOr<FutureOr<Object>>`: it
 infers `X` as `Object` in the first case and as `FutureOr<Object>` in the second, and
 those two solutions are again mutual subtypes. Probes with two levels of nesting shift the
-inference variable one `FutureOr` deeper, and each of the ten types below then gets a
+inference variable one `FutureOr` deeper, and each of the eleven types below then gets a
 distinct signature of static checks:
 
 | Static type of `v`            | `v.checkDynamic` | `v.expectStaticType` | `probeFuture()`             | `probeFuture2()`          | `probeFutureOr()`             | `probeFutureOr2()`          |
@@ -57,6 +57,7 @@ distinct signature of static checks:
 | `FutureOr<FutureOr<Object>?>` | error            | `Exactly<Object?>`   | `Future<FutureOr<Object>?>` | `Future<Future<Object>>`  | `FutureOr<FutureOr<Object>?>` | `Future<FutureOr<Object>>`  |
 | `FutureOr<FutureOr<Object>>?` | error            | `Exactly<Object?>`   | `Future<FutureOr<Object>>`  | `Future<Future<Object>>`  | `FutureOr<FutureOr<Object>>`  | `Future<FutureOr<Object>>`  |
 | `dynamic`                     | compiles         | not applicable       | `Future<dynamic>`           | `Future<Future<dynamic>>` | `FutureOr<dynamic>`           | `Future<FutureOr<dynamic>>` |
+| `FutureOr<dynamic>`           | error            | `Exactly<Object?>`   | `Future<dynamic>`           | `Future<Future<dynamic>>` | `FutureOr<dynamic>`           | `Future<FutureOr<dynamic>>` |
 
 The four probe columns list the types that are actually inferred; any equivalent spelling
 passes the corresponding assertion just as well. This is what makes some of the cells
@@ -74,3 +75,128 @@ Note that extension members cannot be invoked on a `dynamic` receiver: for a `dy
 `v` the call `v.expectStaticType<Exactly<Object?>>()` is a dynamic invocation which
 checks nothing statically (and fails at run time), which is why the second column is not
 applicable to the last row.
+
+Required checks for every TOP and OBJECT type
+=============================================
+
+The snippets below are the checks that a test should include once it has concluded that
+the static type of `v` is a particular TOP or OBJECT type. Each step rules out some of
+the remaining mutual subtypes; comments list what is still possible after that step.
+
+`v` is `void`
+-------------
+
+```dart
+print(v); // Type `void` cannot be used.
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+```
+
+`v` is `FutureOr<void>`
+-----------------------
+
+```dart
+print(v); // Rejects `void`
+print(await v); // Type `void` cannot be used.
+//    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+```
+
+`v` is `dynamic`
+----------------
+
+```dart
+  v.checkDynamic;
+  v = 1; // Rejects `Never`
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+```
+
+`v` is `FutureOr<dynamic>`
+--------------------------
+
+```dart
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified  
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
+```
+
+`v` is `Object?`
+----------------
+
+```dart
+v.expectStaticType<Exactly<Object?>>();
+// Remaining: `dynamic`, `Object?`, `FutureOr<dynamic>`, `FutureOr<Object?>`,
+// `FutureOr<Object>?`, `FutureOr<FutureOr<Object?>>`, ...
+v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>(); // Compile-time error if `v` is `FutureOr<Object>?`.
+v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>(); // Remaining: `Object?`.
+```
+
+`v` is `FutureOr<Object?>`
+--------------------------
+
+```dart
+v.expectStaticType<Exactly<Object?>>();
+// Remaining: `dynamic`, `Object?`, `FutureOr<dynamic>`, `FutureOr<Object>?`,
+// `FutureOr<Object?>`, `FutureOr<FutureOr<Object?>>`,
+// `FutureOr<FutureOr<Object>?>?`, ...
+v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object?>>>();
+// Remaining: `dynamic`, `FutureOr<dynamic>`, `FutureOr<Object?>`,
+// `FutureOr<FutureOr<Object?>>`, `FutureOr<FutureOr<Object>?>?`, ...
+v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>(); // Compile-time error if `v` is `FutureOr<FutureOr<Object>?>?`.
+v = probeFutureOr2()..expectStaticType<Exactly<Future<FutureOr<Object>>>>(); // Remaining: `FutureOr<Object?>`.
+```
+
+`v` is `Object`
+---------------
+
+```dart
+v.expectStaticType<Exactly<Object>>();
+// Remaining: `Object`, `FutureOr<Object>`, `FutureOr<FutureOr<Object>>`, ...
+v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>(); // Remaining: `Object`.
+```
+
+If `v` is `dynamic`, `v.expectStaticType<Exactly<Object>>()` is a dynamic invocation: it
+checks nothing statically and fails at run time. To reject `dynamic` at compile time,
+add:
+
+```dart
+if (1 > 2) {
+  v.checkNotDynamic;
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+```
+
+`v` is `FutureOr<Object>`
+-------------------------
+
+```dart
+v.expectStaticType<Exactly<Object>>();
+// Remaining: `dynamic`, `Object`, `FutureOr<Object>`,
+// `FutureOr<FutureOr<Object>>`, ...
+v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+// Remaining: `FutureOr<Object>`, `FutureOr<FutureOr<Object>>`, ...
+v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
+// Remaining: `FutureOr<Object>`.
+```
+
+`v` is `FutureOr<Object>?`
+--------------------------
+
+```dart
+v.expectStaticType<Exactly<Object?>>();
+// Remaining: `dynamic`, `Object?`, `FutureOr<dynamic>`, `FutureOr<Object>?`,
+// `FutureOr<Object?>`, `FutureOr<FutureOr<Object?>>`, ...
+v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+// Remaining: `FutureOr<Object>?`, `FutureOr<FutureOr<Object>>?`, ...
+v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
+// Remaining: `FutureOr<Object>?`.
+```
