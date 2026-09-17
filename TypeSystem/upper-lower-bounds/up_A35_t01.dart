@@ -251,6 +251,8 @@ void f18(Future<Object?> t1, FutureOr<int> t2) async {
   // See README.md for an explanation of each step in the checks below.
   v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object?>>>();
   v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
+  v = probeFutureOr2()..expectStaticType<Exactly<Future<FutureOr<Object>>>>();
+
 }
 
 void main() {

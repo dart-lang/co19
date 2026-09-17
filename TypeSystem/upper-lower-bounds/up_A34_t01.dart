@@ -43,7 +43,7 @@ void f3(FutureOr<C> t1, FutureOr<FutureOr<D<num, String>>> t2) {
   var v = (1 > 2) ? t1 : t2;
   // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
-  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<FutureOr<Object>>>>();
   v = probeFuture2()..expectStaticType<Exactly<Future<Future<Object>>>>();
 }
 

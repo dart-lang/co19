@@ -188,6 +188,19 @@ v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 // Remaining: `FutureOr<Object>`.
 ```
 
+`v` is `FutureOr<FutureOr<Object>>`
+----------------------------------
+
+```dart
+v.expectStaticType<Exactly<Object>>();
+// Remaining: `dynamic`, `Object`, `FutureOr<Object>`,
+// `FutureOr<FutureOr<Object>>`, ...
+v = probeFuture()..expectStaticType<Exactly<Future<FutureOr<Object>>>>();
+// Remaining: `FutureOr<Object>`, `FutureOr<FutureOr<Object>>`, ...
+v = probeFuture2()..expectStaticType<Exactly<Future<Future<Object>>>>();
+// Remaining: `FutureOr<FutureOr<Object>>`.
+```
+
 `v` is `FutureOr<Object>?`
 --------------------------
 
