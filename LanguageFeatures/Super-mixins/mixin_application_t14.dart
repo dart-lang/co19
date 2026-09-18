@@ -2,16 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Mixin application semantics is mostly unchanged, except that it's
-/// a compile-time error to apply a mixin to a class that doesn't implement all
-/// the 'on' type requirements of the mixin declaration, or apply a mixin
-/// containing super-invocations to a class that doesn't have a concrete
-/// implementation of the super-invoked members compatible with the
-/// super-constraint interface.
+/// @assertion Let `S` be a class, `M` be a mixin with required superinterfaces
+/// `T1, ..., Tn`, combined superinterface `MS`, implemented interfaces
+/// `I1, ..., Ik` and members as member declarations, and let `N` be a name.
+///
+/// It is a compile-time error to apply `M` to `S` if `S` does not implement,
+/// directly or indirectly, all of `T1, ..., Tn`.
 ///
 /// @description Checks that it is a compile error if a mixin is applied to a
 /// class that does not implement all the 'on' type requirements of the mixin
-/// declaration. Test omitted 'on'
+/// declaration. Test omitted 'on'.
 /// @author sgrekhov@unipro.ru
 
 class I {}
@@ -24,9 +24,8 @@ mixin M on B, C implements I, J {}
 class MA with M {}
 //            ^
 // [analyzer] unspecified
-//    ^
 // [cfe] unspecified
 
 main() {
-  new MA();
+  print(MA);
 }

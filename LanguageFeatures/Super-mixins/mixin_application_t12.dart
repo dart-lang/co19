@@ -2,17 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Mixin application semantics is mostly unchanged, except that it's
-/// a compile-time error to apply a mixin to a class that doesn't implement all
-/// the 'on' type requirements of the mixin declaration, or apply a mixin
-/// containing super-invocations to a class that doesn't have a concrete
-/// implementation of the super-invoked members compatible with the
-/// super-constraint interface.
+/// @assertion Let `S` be a class, `M` be a mixin with required superinterfaces
+/// `T1, ..., Tn`, combined superinterface `MS`, implemented interfaces
+/// `I1, ..., Ik` and members as member declarations, and let `N` be a name.
 ///
-/// @description Checks that there is no compile error if a mixin is applied to a
-/// class that implements all the 'on' type requirements of the mixin
-/// declaration. Test 'mixin' implementation of 'on' clause interfaces and
-/// 'implements' part of the mixin
+/// It is a compile-time error to apply `M` to `S` if `S` does not implement,
+/// directly or indirectly, all of `T1, ..., Tn`.
+///
+/// @description Check that it is not an error if a mixin is applied to a class
+/// that implements all of the on-type requirements of the mixin declaration.
+/// Test 'mixin' implementation of 'on' clause interfaces and 'implements' part
+/// of the mixin.
 /// @author sgrekhov@unipro.ru
 
 import "../../Utils/expect.dart";
@@ -86,8 +86,7 @@ mixin M<X extends S, Y extends T> on A<X>, B<X> implements I<X>, J<Y> {
   String operator ~() => i1.substring(0, 3);
 }
 
-class MA extends C<X, Y> with M<X, Y> {
-}
+class MA extends C<X, Y> with M<X, Y> {}
 
 main() {
   MA ma = new MA();
