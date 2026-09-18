@@ -51,7 +51,7 @@ void f3(ET1 et1, ET2 et2) {
 
 void f4(E1 e1, E2 e2) {
   var v = (1 > 2) ? e1 : e2;
-  v.expectStaticType<Exactly<A>>();
+  v.expectStaticType<Exactly<Object>>(); // https://github.com/dart-lang/sdk/issues/64309#issuecomment-5729541864
 }
 
 void main() {
