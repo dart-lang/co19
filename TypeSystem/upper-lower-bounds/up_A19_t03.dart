@@ -15,6 +15,8 @@
 /// `B1a` is the greatest closure of `B1` with respect to `X1`if `X1 != T2`,
 /// none of `X1` and `T2` is TOP, BOTTOM, NULL, OBJECT, `T?` or an intersection
 /// type and `X1 <: T2` and `T2 <: X1` are both false.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -24,13 +26,18 @@ import 'up_lib.dart';
 void f1<X1 extends num>(X1 x1, String t2) {
   // B1a = num; UP(num, String) = Object.
   var v = (1 > 2) ? x1 : t2;
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
+  // Check that `v` is `Object`, not `FutureOr<Object>`.
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f2<X1 extends C>(X1 x1, String t2) {
   // B1a = C; UP(C, String) = Object.
   var v = (1 > 2) ? x1 : t2;
+  // See README.md for an explanation of each step in the checks below.
   v.expectStaticType<Exactly<Object>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f3<X1 extends D<int, String>>(X1 x1, D<String, int> t2) {
@@ -72,7 +79,11 @@ void f8<X1 extends int Function(int)>(X1 x1, int Function() t2) {
 void f9<X1 extends FutureOr<int>>(X1 x1, String t2) {
   // B1a = FutureOr<int>; UP(FutureOr<int>, String) = FutureOr<Object>.
   var v = (1 > 2) ? x1 : t2;
-  v.expectStaticType<Exactly<FutureOr<Object>>>();
+  v.expectStaticType<Exactly<Object>>();
+  // Check that `v` is neither `Object` nor `FutureOr<FutureOr<Object>>`.
+  // See README.md for an explanation of each step in the checks below.
+  v = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
 void f10<X1 extends FutureOr<int>>(X1 x1, num t2) {

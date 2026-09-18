@@ -14,28 +14,24 @@
 /// is TOP or OBJECT. Note that `FutureOr<...>` is never BOTTOM, NULL, an
 /// intersection type, a type of the form `U?`, a type variable, `Function`, a
 /// function type, `Record`, or a record type.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
-/// @issue 64205
 
 import 'dart:async';
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
-void f1(FutureOr<int> t1, Future<Object?> t2) {
-  // FutureOr<UP(int, Object?)> = FutureOr<Object?>
+void f1(FutureOr<int> t1, Future<dynamic> t2) async {
+  // FutureOr<UP(int, dynamic)> = FutureOr<dynamic>
   var v = (1 > 2) ? t1 : t2;
-  v.expectStaticType<Exactly<Object?>>();
-  (await v).checkNotDynamic;
-//          ^^^^^^^^^^^^^^^
+  // See README.md for an explanation of each step in the checks below.
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  // Check that the type of `v` is not `Object?`
-  var x = nonNull(v);
-  Object _ = x;
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void main() {

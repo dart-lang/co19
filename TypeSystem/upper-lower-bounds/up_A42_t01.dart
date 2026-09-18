@@ -13,9 +13,11 @@
 /// BOTTOM, intersection types, types of the form `T?`, type variables, function
 /// types, or `Function`, record types, `Future` or `FutureOr` types and not
 /// subtypes of each other.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
-import '../../Utils/expect.dart';
+import 'dart:async';
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
@@ -28,17 +30,17 @@ class C4 with A {}
 void f1(num t1, String t2) {
   var v = (1 > 2) ? t1 : t2; // UP(num, String) = Object
   v.expectStaticType<Exactly<Object>>();
-  v = confirmObjectContext(); // Confirm that `v` is not `FutureOr<Object>`
+  // Check that `v` is `Object`, not `FutureOr<Object>`.
+  // See README.md for an explanation of each step in the checks below.
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
 }
 
 void f2(ET t1, String t2) {
   var v = (1 > 2) ? t1 : t2; // UP(ET, String) = Object?
   v.expectStaticType<Exactly<Object?>>();
-  if (v == null) { // Strip ?
-    Expect.fail('The actual value must be non-null for the test to complete.');
-    return;
-  }
-  v = confirmObjectContext();
+  // See README.md for an explanation of each step in the checks below.
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
 void f3(int t1, double t2) {
