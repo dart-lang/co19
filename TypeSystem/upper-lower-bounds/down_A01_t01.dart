@@ -7,11 +7,12 @@
 /// - DOWN(`T`, `T`) = `T`
 ///
 /// @description Check that DOWN(`T`, `T`) = `T`.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
 
-import '../../Utils/expect.dart' show Expect;
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
@@ -19,16 +20,34 @@ void f1(void Function(Object x) v1, void Function(Object y) v2) {
   var v = (1 > 2) ? v1 : v2;
   // Type of `v` is `UP(void, void) Function(DOWN(Object, Object))`
   v.expectStaticType<Exactly<void Function(Object)>>();
+  v = (o) {
+    // See README.md for an explanation of each step in the checks below.
+    o.expectStaticType<Exactly<Object>>();
+    o = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  };
 }
 
 void f2(void Function(dynamic x) v1, void Function(dynamic y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(dynamic)>>();
+  // See README.md for an explanation of each step in the checks below.
+  v = (o) {
+    if (1 > 2) {
+      o.checkDynamic;
+    }
+    o = 1;
+  };
 }
 
-void f3(void Function(void x) v1, void Function(void y) v2) {
+void f3(void Function(Object? x) v1, void Function(Object? y) v2) {
   var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(void)>>();
+  v.expectStaticType<Exactly<void Function(Object?)>>();
+  v = (o) {
+    // See README.md for an explanation of each step in the checks below.
+    o.expectStaticType<Exactly<Object?>>();
+    o = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+    o = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
+  };
 }
 
 void f4(void Function(Null x) v1, void Function(Null y) v2) {
@@ -109,10 +128,38 @@ void f18<X extends num>(void Function(X x) v1, void Function(X y) v2) {
   v.expectStaticType<Exactly<void Function(X)>>();
 }
 
+void f19<X>(void Function(X x) v1, void Function(X y) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(X)>>();
+}
+
+void f20(void Function(FutureOr<Object?> x) v1, void Function(FutureOr<Object?> y) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(FutureOr<Object?>)>>();
+  v = (o) {
+    // See README.md for an explanation of each step in the checks below.
+    o.expectStaticType<Exactly<Object?>>();
+    o = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object?>>>();
+    o = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
+    o = probeFutureOr2()..expectStaticType<Exactly<Future<FutureOr<Object>>>>();
+  };
+}
+
+void f21(void Function(FutureOr<Object> x) v1, void Function(FutureOr<Object> y) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(FutureOr<Object>)>>();
+  v = (o) {
+    // See README.md for an explanation of each step in the checks below.
+    o.expectStaticType<Exactly<Object>>();
+    o = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+    o = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
+  };
+}
+
 void main() {
   f1((Object o) {}, (Object o) {});
   f2((o) {}, (o) {});
-  f3((void o) {}, (void o) {});
+  f3((o) {}, (o) {});
   f4((Null o) {}, (Null o) {});
   f5((Null o) {}, (Null o) {});
   f6((Function o) {}, (Function o) {});
@@ -129,4 +176,7 @@ void main() {
   f17((ET o) {}, (ET o) {});
   f18((num o) {}, (num o) {});
   f18<int>((int o) {}, (int o) {});
+  f19<int>((int o) {}, (int o) {});
+  f20((o) {}, (o) {});
+  f21((o) {}, (o) {});
 }
