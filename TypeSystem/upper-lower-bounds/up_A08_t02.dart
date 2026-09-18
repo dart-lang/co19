@@ -37,7 +37,16 @@ void f2<X1 extends A, T2 extends X1>(X1 x1, T2 t2) {
   }
 }
 
+void f3<X>(X x1, X x2) {
+  if (x1 is int && x2 is num) {
+    // UP(X & int, X & num) = X, because X & num <: X and not X <: X & num
+    var v = 1 > 2 ? x1 : x2;
+    v.expectStaticType<Exactly<X>>();
+  }
+}
+
 void main() {
   f1<num, int>(1, 2);
   f2<A, B1>(A(), B1());
+  f3(1, 2);
 }
