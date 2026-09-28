@@ -11,7 +11,7 @@
 ///
 /// @description Check that UP(`T1`, `T2`) = `T1` if `T1 != T2` and TOP(`T1`)
 /// and TOP(`T2`) and MORETOP(`T1`, `T2`) or `T2` otherwise. Test that `dynamic`
-/// is more top than `Object?`.
+/// and `FutureOr<dynamic>` are more top than `Object?`.
 /// @note README.md contains a detailed explanation of why and how we are
 /// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com

@@ -11,8 +11,6 @@
 /// (which implies `T1 != T2`). Test `void`.
 /// @note README.md contains a detailed explanation of why and how we are
 /// checking the type of TOP and OBJECT.
-/// @note README.md contains a detailed explanation of why and how we are
-/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
