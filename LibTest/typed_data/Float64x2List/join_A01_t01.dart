@@ -20,45 +20,36 @@ import "../../../Utils/expect.dart";
 
 Float64x2 f64x2(v) => new Float64x2.splat(v);
 
-void check(List<Float64x2> list, String separator, String expected) {
+void check(List<Float64x2> list, String separator) {
   var l = new Float64x2List.fromList(list);
-  var res = l.join(separator);
-  Expect.equals(expected, res);
+  var actual = l.join(separator);
+  var expected = "";
+  for (var v in list) {
+    expected += "$v$separator";
+  }
+  if (expected.length >= separator.length) {
+    expected = expected.substring(0, expected.length - separator.length);
+  }
+  Expect.equals(expected, actual);
 }
 
 main() {
-  check([], "", "");
-  check([], ", ", "");
-  check([f64x2(1.123456)], "", "${f64x2(1.123456)}");
-  check([f64x2(1.123456)], ", ", "${f64x2(1.123456)}");
-  check(
-    [
-      f64x2(1.123456),
-      f64x2(2.123456),
-      f64x2(3.123456),
-      f64x2(4.123456),
-      f64x2(5.123456),
-    ],
-    "",
-    "${f64x2(1.123456)}"
-        "${f64x2(2.123456)}"
-        "${f64x2(3.123456)}"
-        "${f64x2(4.123456)}"
-        "${f64x2(5.123456)}",
-  );
-  check(
-    [
-      f64x2(1.123456),
-      f64x2(2.123456),
-      f64x2(3.123456),
-      f64x2(4.123456),
-      f64x2(5.123456),
-    ],
-    " ",
-    "${f64x2(1.123456)} "
-        "${f64x2(2.123456)} "
-        "${f64x2(3.123456)} "
-        "${f64x2(4.123456)} "
-        "${f64x2(5.123456)}",
-  );
+  check([], "");
+  check([], ", ");
+  check([f64x2(1.123456)], "");
+  check([f64x2(1.123456)], ", ");
+  check([
+    f64x2(1.123456),
+    f64x2(2.123456),
+    f64x2(3.123456),
+    f64x2(4.123456),
+    f64x2(5.123456),
+  ], "");
+  check([
+    f64x2(1.123456),
+    f64x2(2.123456),
+    f64x2(3.123456),
+    f64x2(4.123456),
+    f64x2(5.123456),
+  ], " ");
 }

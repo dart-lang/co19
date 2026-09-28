@@ -22,21 +22,21 @@ Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
 equal(o1, o2) => o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
 
-check(List<Int32x4> list, String separator, String expected) {
+check(List<Int32x4> list, String separator) {
   var l = new Int32x4List.fromList(list);
-  var res = l.join(separator);
-  Expect.equals(expected, res);
+  var actual = l.join(separator);
+  var expected = "";
+  for (var v in list) {
+    expected += "$v$separator";
+  }
+  if (expected.length >= separator.length) {
+    expected = expected.substring(0, expected.length - separator.length);
+  }
+  Expect.equals(expected, actual);
 }
 
 main() {
-  check([], "", "");
-  check([], ", ", "");
-  check(
-    [i32x4(0), i32x4(1), i32x4(2), i32x4(3)],
-    ", ",
-    "${i32x4(0)}, "
-        "${i32x4(1)}, "
-        "${i32x4(2)}, "
-        "${i32x4(3)}",
-  );
+  check([], "");
+  check([], ", ");
+  check([i32x4(0), i32x4(1), i32x4(2), i32x4(3)], ", ");
 }

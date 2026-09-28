@@ -21,39 +21,28 @@ import "../../../Utils/expect.dart";
 
 Float32x4 pack(v) => new Float32x4.splat(v);
 
-check(List<Float32x4> list, String expectedString) {
+check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
-  var s = l.join();
-  Expect.stringEquals(expectedString, s);
+  var actual = l.join();
+  var expected = "";
+  for (var v in list) {
+    expected += "$v";
+  }
+  Expect.equals(expected, actual);
 }
 
 main() {
-  check([], "");
-  check(
-    [pack(.25), pack(1.625)],
-    "${pack(.25)}"
-    "${pack(1.625)}",
-  );
-  check(
-    [
-      pack(1.123456),
-      pack(2.123456),
-      pack(3.123456),
-      pack(4.123456),
-      pack(5.123456),
-      pack(6.123456),
-      pack(7.123456),
-      pack(8.123456),
-      pack(9.123456),
-    ],
-    "${pack(1.123456)}"
-    "${pack(2.123456)}"
-    "${pack(3.123456)}"
-    "${pack(4.123456)}"
-    "${pack(5.123456)}"
-    "${pack(6.123456)}"
-    "${pack(7.123456)}"
-    "${pack(8.123456)}"
-    "${pack(9.123456)}",
-  );
+  check([]);
+  check([pack(.25), pack(1.625)]);
+  check([
+    pack(1.123456),
+    pack(2.123456),
+    pack(3.123456),
+    pack(4.123456),
+    pack(5.123456),
+    pack(6.123456),
+    pack(7.123456),
+    pack(8.123456),
+    pack(9.123456),
+  ]);
 }

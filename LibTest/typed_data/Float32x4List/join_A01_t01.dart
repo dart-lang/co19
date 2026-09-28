@@ -21,37 +21,32 @@ import "../../../Utils/expect.dart";
 
 Float32x4 pack(v) => new Float32x4.splat(v);
 
-check(List<Float32x4> list, String separator, String expectedString) {
+check(List<Float32x4> list, String separator) {
   var l = new Float32x4List.fromList(list);
-  var s = l.join(separator);
-  Expect.stringEquals(expectedString, s);
+  var actual = l.join(separator);
+  var expected = "";
+  for (var v in list) {
+    expected += "$v$separator";
+  }
+  if (expected.length >= separator.length) {
+    expected = expected.substring(0, expected.length - separator.length);
+  }
+  Expect.equals(expected, actual);
 }
 
 main() {
-  check([], "", "");
-  check([], ", ", "");
-  check([pack(1.25)], ", ", "${pack(1.25)}");
-  check(
-    [
-      pack(1.25),
-      pack(2.25),
-      pack(3.25),
-      pack(4.25),
-      pack(5.25),
-      pack(6.25),
-      pack(7.25),
-      pack(8.25),
-      pack(9.25),
-    ],
-    "  ",
-    "${Float32x4.splat(1.25).toString()}  "
-        "${pack(2.25)}  "
-        "${pack(3.25)}  "
-        "${pack(4.25)}  "
-        "${pack(5.25)}  "
-        "${pack(6.25)}  "
-        "${pack(7.25)}  "
-        "${pack(8.25)}  "
-        "${pack(9.25)}",
-  );
+  check([], "");
+  check([], ", ");
+  check([pack(1.25)], ", ");
+  check([
+    pack(1.25),
+    pack(2.25),
+    pack(3.25),
+    pack(4.25),
+    pack(5.25),
+    pack(6.25),
+    pack(7.25),
+    pack(8.25),
+    pack(9.25),
+  ], "  ");
 }
