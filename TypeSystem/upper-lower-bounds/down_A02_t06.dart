@@ -50,17 +50,12 @@ void f3(void Function(dynamic) v1, void Function(FutureOr<Object?>) v2) {
   // because MORETOP(FutureOr<Object?>, dynamic) = false
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<Object?>)>>();
-  // See README.md for an explanation of each step in the checks below.
   v = (o) {
+    // See README.md for an explanation of each step in the checks below.
     o.expectStaticType<Exactly<Object?>>();
-    // Remaining: `dynamic`, `Object?`, `FutureOr<dynamic>`, `FutureOr<Object>?`,
-    // `FutureOr<Object?>`, `FutureOr<FutureOr<Object?>>`,
-    // `FutureOr<FutureOr<Object>?>?`, ...
     o = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object?>>>();
-    // Remaining: `dynamic`, `FutureOr<dynamic>`, `FutureOr<Object?>`,
-    // `FutureOr<FutureOr<Object?>>`, `FutureOr<FutureOr<Object>?>?`, ...
-    o = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>(); // Compile-time error if `o` is `FutureOr<FutureOr<Object>?>?`.
-    o = probeFutureOr2()..expectStaticType<Exactly<Future<FutureOr<Object>>>>(); // Remaining: `FutureOr<Object?>`.
+    o = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
+    o = probeFutureOr2()..expectStaticType<Exactly<Future<FutureOr<Object>>>>();
   };
 }
 
@@ -72,17 +67,12 @@ void f4(
   // because MORETOP(FutureOr<Object?>, FutureOr<dynamic>) = false
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<Object?>)>>();
-  // See README.md for an explanation of each step in the checks below.
   v = (o) {
+    // See README.md for an explanation of each step in the checks below.
     o.expectStaticType<Exactly<Object?>>();
-    // Remaining: `dynamic`, `Object?`, `FutureOr<dynamic>`, `FutureOr<Object>?`,
-    // `FutureOr<Object?>`, `FutureOr<FutureOr<Object?>>`,
-    // `FutureOr<FutureOr<Object>?>?`, ...
     o = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object?>>>();
-    // Remaining: `dynamic`, `FutureOr<dynamic>`, `FutureOr<Object?>`,
-    // `FutureOr<FutureOr<Object?>>`, `FutureOr<FutureOr<Object>?>?`, ...
-    o = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>(); // Compile-time error if `o` is `FutureOr<FutureOr<Object>?>?`.
-    o = probeFutureOr2()..expectStaticType<Exactly<Future<FutureOr<Object>>>>(); // Remaining: `FutureOr<Object?>`.
+    o = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
+    o = probeFutureOr2()..expectStaticType<Exactly<Future<FutureOr<Object>>>>();
   };
 }
 
