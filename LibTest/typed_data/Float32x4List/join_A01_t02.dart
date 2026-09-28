@@ -17,32 +17,24 @@
 
 import "dart:typed_data";
 
-import "../../../Utils/expect.dart";
+import "../typed_data_lib.dart";
 
 Float32x4 pack(v) => new Float32x4.splat(v);
 
-check(List<Float32x4> list) {
-  var l = new Float32x4List.fromList(list);
-  var actual = l.join();
-  var expected = "";
-  for (var v in list) {
-    expected += "$v";
-  }
-  Expect.equals(expected, actual);
-}
-
 main() {
-  check([]);
-  check([pack(.25), pack(1.625)]);
-  check([
-    pack(1.123456),
-    pack(2.123456),
-    pack(3.123456),
-    pack(4.123456),
-    pack(5.123456),
-    pack(6.123456),
-    pack(7.123456),
-    pack(8.123456),
-    pack(9.123456),
-  ]);
+  check<Float32x4>(Float32x4List.fromList([]));
+  check<Float32x4>(Float32x4List.fromList([pack(.25), pack(1.625)]));
+  check<Float32x4>(
+    Float32x4List.fromList([
+      pack(1.123456),
+      pack(2.123456),
+      pack(3.123456),
+      pack(4.123456),
+      pack(5.123456),
+      pack(6.123456),
+      pack(7.123456),
+      pack(8.123456),
+      pack(9.123456),
+    ]),
+  );
 }

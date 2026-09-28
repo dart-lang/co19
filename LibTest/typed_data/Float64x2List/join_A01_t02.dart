@@ -16,28 +16,18 @@
 
 import "dart:typed_data";
 
-import "../../../Utils/expect.dart";
+import "../typed_data_lib.dart";
 
 Float64x2 f64x2(v) => new Float64x2.splat(v);
 
-void check(List<Float64x2> list) {
-  var l = new Float64x2List.fromList(list);
-  var actual = l.join();
-  var expected = "";
-  for (var v in list) {
-    expected += "$v";
-  }
-  Expect.equals(expected, actual);
-}
-
 main() {
-  check([]);
-  check([f64x2(1.123456)]);
-  check([
+  check<Float64x2>(Float64x2List.fromList([]));
+  check<Float64x2>(Float64x2List.fromList([f64x2(1.123456)]));
+  check<Float64x2>(Float64x2List.fromList([
     f64x2(1.123456),
     f64x2(2.123456),
     f64x2(3.123456),
     f64x2(4.123456),
     f64x2(5.123456),
-  ]);
+  ]));
 }
