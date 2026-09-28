@@ -32,9 +32,9 @@ main() {
   check([], "");
   check(
     [i32x4(0), i32x4(1), i32x4(2), i32x4(3)],
-    "${Int32x4.splat(0)}"
-    "${Int32x4.splat(1)}"
-    "${Int32x4.splat(2)}"
-    "${Int32x4.splat(3)}",
+    "${Int32x4.splat(0).toString()}"
+    "${Int32x4.splat(1).toString()}"
+    "${Int32x4.splat(2).toString()}"
+    "${Int32x4.splat(3).toString()}",
   );
 }
