@@ -108,11 +108,10 @@ print(await v); // Type `void` cannot be used.
 ----------------
 
 ```dart
-  v.checkDynamic;
-  v = 1; // Rejects `Never`
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+if (1 > 2) {
+    v.checkDynamic;
+}
+v = 1; // Rejects `Never`
 ```
 
 `v` is `FutureOr<dynamic>`

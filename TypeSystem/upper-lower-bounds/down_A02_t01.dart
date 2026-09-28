@@ -12,6 +12,8 @@
 /// @description Check that DOWN(`T1`, `T2`) = `T1` if `T1 != T2` and TOP(`T1`)
 /// and TOP(`T2`) and MORETOP(`T2`, `T1`). Test that `void` is more top type
 /// than others, so the lower bound is the other type.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -23,21 +25,24 @@ void f1(void Function(dynamic) v1, void Function(void) v2) {
   // DOWN(dynamic, void) = dynamic because MORETOP(void, dynamic) = true
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(dynamic)>>();
-  if (1 > 2) {
-    v = (o) {
+  // See README.md for an explanation of each step in the checks below.
+  v = (o) {
+    if (1 > 2) {
       o.checkDynamic;
-    };
-  }
+    }
+    o = 1;
+  };
 }
 
 void f2(void Function(Object?) v1, void Function(void) v2) {
   // DOWN(Object?, void) = Object? because MORETOP(void, Object?) = true
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(Object?)>>();
-  // Check that v is really `Object?` and not, say `FutureOr<Object?>`
   v = (o) {
-    var x = nonNull(o);
-    Object y = x; // ignore: unused_local_variable
+    // See README.md for an explanation of each step in the checks below.
+    o.expectStaticType<Exactly<Object?>>();
+    o = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+    o = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
   };
 }
 
@@ -46,15 +51,15 @@ void f3(void Function(FutureOr<dynamic>) v1, void Function(void) v2) {
   // because MORETOP(void, FutureOr<dynamic>) = true
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<dynamic>)>>();
-  if (1 > 2) {
-    v = (o) async {
-      o.checkNotDynamic;
-//      ^^^^^^^^^^^^^^^
+  v = (o) async {
+    // See README.md for an explanation of each step in the checks below.
+    o.checkNotDynamic;
+//    ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-      (await o).checkDynamic;
-    };
-  }
+    (await o).checkDynamic;
+    o = 1;
+  };
 }
 
 void f4(void Function(FutureOr<Object?>) v1, void Function(void) v2) {
@@ -63,11 +68,11 @@ void f4(void Function(FutureOr<Object?>) v1, void Function(void) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<Object?>)>>();
   v = (o) {
-    var x = nonNull(o);
-    Object y = x; // ignore: unused_local_variable
-//             ^
-// [analyzer] unspecified
-// [cfe] unspecified
+    // See README.md for an explanation of each step in the checks below.
+    o.expectStaticType<Exactly<Object?>>();
+    o = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object?>>>();
+    o = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
+    o = probeFutureOr2()..expectStaticType<Exactly<Future<FutureOr<Object>>>>();
   };
 }
 
@@ -76,10 +81,10 @@ void f5(void Function(FutureOr<void>) v1, void Function(void) v2) {
   // because MORETOP(void, FutureOr<void>) = true
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<void>)>>();
-  // Check that the type of argument of the function is `FutureOr<void>`, not `void`
   v = (o) async {
-    print(o); // Type `FutureOr<void>` can be used
-    print(await o); // Type `void` cannot be used
+    // See README.md for an explanation of each step in the checks below.
+    print(o);
+    print(await o);
 //        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
