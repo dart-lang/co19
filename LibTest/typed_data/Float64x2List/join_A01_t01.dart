@@ -29,8 +29,8 @@ void check(List<Float64x2> list, String separator, String expected) {
 main() {
   check([], "", "");
   check([], ", ", "");
-  check([f64x2(1.123456)], "", "${Float64x2.splat(1.123456).toString()}");
-  check([f64x2(1.123456)], ", ", "${Float64x2.splat(1.123456).toString()}");
+  check([f64x2(1.123456)], "", "${f64x2(1.123456)}");
+  check([f64x2(1.123456)], ", ", "${f64x2(1.123456)}");
   check(
     [
       f64x2(1.123456),
@@ -40,11 +40,11 @@ main() {
       f64x2(5.123456),
     ],
     "",
-    "${Float64x2.splat(1.123456).toString()}"
-        "${Float64x2.splat(2.123456).toString()}"
-        "${Float64x2.splat(3.123456).toString()}"
-        "${Float64x2.splat(4.123456).toString()}"
-        "${Float64x2.splat(5.123456).toString()}",
+    "${f64x2(1.123456)}"
+        "${f64x2(2.123456)}"
+        "${f64x2(3.123456)}"
+        "${f64x2(4.123456)}"
+        "${f64x2(5.123456)}",
   );
   check(
     [
@@ -55,10 +55,10 @@ main() {
       f64x2(5.123456),
     ],
     " ",
-    "${Float64x2.splat(1.123456).toString()} "
-        "${Float64x2.splat(2.123456).toString()} "
-        "${Float64x2.splat(3.123456).toString()} "
-        "${Float64x2.splat(4.123456).toString()} "
-        "${Float64x2.splat(5.123456).toString()}",
+    "${f64x2(1.123456)} "
+        "${f64x2(2.123456)} "
+        "${f64x2(3.123456)} "
+        "${f64x2(4.123456)} "
+        "${f64x2(5.123456)}",
   );
 }

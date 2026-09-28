@@ -31,8 +31,8 @@ main() {
   check([], "");
   check(
     [pack(.25), pack(1.625)],
-    "${Float32x4.splat(.25).toString()}"
-    "${Float32x4.splat(1.625).toString()}",
+    "${pack(.25)}"
+    "${pack(1.625)}",
   );
   check(
     [
@@ -46,14 +46,14 @@ main() {
       pack(8.123456),
       pack(9.123456),
     ],
-    "${Float32x4.splat(1.123456).toString()}"
-    "${Float32x4.splat(2.123456).toString()}"
-    "${Float32x4.splat(3.123456).toString()}"
-    "${Float32x4.splat(4.123456).toString()}"
-    "${Float32x4.splat(5.123456).toString()}"
-    "${Float32x4.splat(6.123456).toString()}"
-    "${Float32x4.splat(7.123456).toString()}"
-    "${Float32x4.splat(8.123456).toString()}"
-    "${Float32x4.splat(9.123456).toString()}",
+    "${pack(1.123456)}"
+    "${pack(2.123456)}"
+    "${pack(3.123456)}"
+    "${pack(4.123456)}"
+    "${pack(5.123456)}"
+    "${pack(6.123456)}"
+    "${pack(7.123456)}"
+    "${pack(8.123456)}"
+    "${pack(9.123456)}",
   );
 }

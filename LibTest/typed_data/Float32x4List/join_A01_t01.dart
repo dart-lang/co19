@@ -30,7 +30,7 @@ check(List<Float32x4> list, String separator, String expectedString) {
 main() {
   check([], "", "");
   check([], ", ", "");
-  check([pack(1.25)], ", ", "${Float32x4.splat(1.25).toString()}");
+  check([pack(1.25)], ", ", "${pack(1.25)}");
   check(
     [
       pack(1.25),
@@ -45,13 +45,13 @@ main() {
     ],
     "  ",
     "${Float32x4.splat(1.25).toString()}  "
-        "${Float32x4.splat(2.25).toString()}  "
-        "${Float32x4.splat(3.25).toString()}  "
-        "${Float32x4.splat(4.25).toString()}  "
-        "${Float32x4.splat(5.25).toString()}  "
-        "${Float32x4.splat(6.25).toString()}  "
-        "${Float32x4.splat(7.25).toString()}  "
-        "${Float32x4.splat(8.25).toString()}  "
-        "${Float32x4.splat(9.25).toString()}",
+        "${pack(2.25)}  "
+        "${pack(3.25)}  "
+        "${pack(4.25)}  "
+        "${pack(5.25)}  "
+        "${pack(6.25)}  "
+        "${pack(7.25)}  "
+        "${pack(8.25)}  "
+        "${pack(9.25)}",
   );
 }
