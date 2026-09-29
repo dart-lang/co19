@@ -11,14 +11,14 @@ import "../../Utils/expect.dart";
 
 void check<T>(TypedDataList<T> list, [String separator = ""]) {
   var actual = list.join(separator);
-  var expected = "";
+  var expected = StringBuffer();
   bool comma = false;
   for (var v in list) {
     if (comma) {
-      expected += separator;
+      expected.write(separator);
     }
     comma = true;
-    expected += "$v";
+    expected.write("$v");
   }
-  Expect.equals(expected, actual);
+  Expect.equals(expected.toString(), actual);
 }
