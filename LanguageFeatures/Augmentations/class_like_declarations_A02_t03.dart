@@ -80,16 +80,9 @@ augment extension type ET1.someName(int _) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type ET2.someName(final int v) {}
+extension type ET2._(final int v) {}
 
-augment extension type ET2.someName(final int v) {}
-//                                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-extension type ET3._(final int v) {}
-
-augment extension type ET3._(final int v) {}
+augment extension type ET2._(final int v) {}
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -104,5 +97,4 @@ main() {
   print(E3);
   print(ET1);
   print(ET2);
-  print(ET3);
 }

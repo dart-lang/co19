@@ -90,23 +90,16 @@ augment enum E4(final int v) {
   ;
 }
 
-extension type ET1(int _) {}
+extension type ET1(int v) {}
 
-augment extension type ET1() {}
+augment extension type ET1(int v) {}
 //                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-extension type ET2(int v) {}
+extension type ET2(final int v) {}
 
-augment extension type ET2(int v) {}
-//                        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-extension type ET3(final int v) {}
-
-augment extension type ET3(final int v) {}
+augment extension type ET2(final int v) {}
 //                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -122,5 +115,4 @@ main() {
   print(E4);
   print(ET1);
   print(ET2);
-  print(ET3);
 }
