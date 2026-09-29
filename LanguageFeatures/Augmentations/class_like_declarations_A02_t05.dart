@@ -6,27 +6,83 @@
 /// primary constructor (`primaryConstructor`) or contains a primary constructor
 /// initializer block (`primaryConstructorBodySignature`).
 ///
-/// @description Check that it is a compile-time error if a mixin class marked
-/// `augment` has a primary constructor.
+/// @description Check that it is a compile-time error if a class, enum or
+/// extension type marked `augment` has a `const` primary constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-mixin class M1();
+class const C1();
 
-augment mixin class M1() {}
+augment class const C1() {}
 //                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-mixin class M2.someName();
+class const C2(final int v);
 
-augment mixin class M2.someName() {}
+augment class const C2(final int v) {}
 //                  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class const C3.someName(final int v);
+
+augment class const C3.someName(final int v) {}
+//                  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+enum const E1(final int v) {
+  e0(0);
+}
+
+augment enum const E1(final int v) {
+//                 ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ;
+}
+
+enum const E2.someName(final int v) {
+  e0.someName(0);
+}
+
+augment enum const E1.someName(final int v) {
+//                 ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ;
+}
+
+extension type const ET1(int _);
+
+augment extension type const ET1(int _) {}
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type const ET2(final int v);
+
+augment extension type const ET2(final int v) {}
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type const ET3.someName(final int v);
+
+augment extension type const ET3.someName(final int v) {}
+//                                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  print(M1);
-  print(M2);
+  print(C1);
+  print(C2);
+  print(C3);
+  print(E1);
+  print(E2);
+  print(ET1);
+  print(ET2);
+  print(ET3);
 }

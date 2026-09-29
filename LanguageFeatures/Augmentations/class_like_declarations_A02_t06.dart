@@ -6,59 +6,64 @@
 /// primary constructor (`primaryConstructor`) or contains a primary constructor
 /// initializer block (`primaryConstructorBodySignature`).
 ///
-/// @description Check that it is a compile-time error if a class or enum marked
-/// `augment` has a `const` primary constructor.
+/// @description Check that it is a compile-time error if a class, enum or mixin
+/// class marked `augment` has a primary constructor, even if the introductory
+/// declaration does not have one.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-class const C1();
+class C1 {}
 
-augment class const C1() {}
-//                  ^^
+augment class C1() {}
+//            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class const C2(final int v);
+class C2 {}
 
-augment class const C2(final int v) {}
-//                  ^^
+augment class C2(int v) {}
+//            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class const C3.someName(final int v);
+class C3 {}
 
-augment class const C3.someName(final int v) {}
-//                  ^^
+augment class C3(var int v) {}
+//            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-enum const E1(final int v) {
-  e0(0);
+class C4 {}
+
+augment class C4.someName(final int v) {}
+//            ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+enum E {
+  e0;
 }
 
-augment enum const E1(final int v) {
-//                 ^^
+augment enum E([final int v = 0]) {
+//           ^
 // [analyzer] unspecified
 // [cfe] unspecified
   ;
 }
 
-enum const E2.someName(final int v) {
-  e0.someName(0);
-}
+mixin class M {}
 
-augment enum const E1.someName(final int v) {
-//                 ^^
+augment mixin class M() {}
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    ;
-}
 
 main() {
   print(C1);
   print(C2);
   print(C3);
-  print(E1);
-  print(E2);
+  print(C4);
+  print(E);
+  print(M);
 }

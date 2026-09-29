@@ -6,8 +6,8 @@
 /// primary constructor (`primaryConstructor`) or contains a primary constructor
 /// initializer block (`primaryConstructorBodySignature`).
 ///
-/// @description Check that it is a compile-time error if a class marked
-/// `augment` has a named primary constructor.
+/// @description Check that it is a compile-time error if a class, enum or an
+/// extension type marked `augment` has a named primary constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
@@ -40,9 +40,69 @@ augment class C4._(final int v) {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+enum E1.someName() {
+  e0.someName();
+}
+
+augment enum E1.someName() {
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ;
+}
+
+enum E2.someName(int v) {
+  e0.someName(0);
+}
+
+augment enum E2.someName(int v) {
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ;
+}
+
+enum E3._(final int v) {
+  e0._(0);
+}
+
+augment enum E3._(final int v) {
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ;
+}
+
+extension type ET1.someName(int _) {}
+
+augment extension type ET1.someName(int _) {}
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type ET2.someName(final int v) {}
+
+augment extension type ET2.someName(final int v) {}
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension type ET3._(final int v) {}
+
+augment extension type ET3._(final int v) {}
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   print(C1);
   print(C2);
   print(C3);
   print(C4);
+  print(E1);
+  print(E2);
+  print(E3);
+  print(ET1);
+  print(ET2);
+  print(ET3);
 }
