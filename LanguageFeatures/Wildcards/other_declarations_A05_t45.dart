@@ -11,8 +11,6 @@
 /// value.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 void topLevelFunction([int _]) {}
 //                         ^
 // [analyzer] unspecified

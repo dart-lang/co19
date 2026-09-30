@@ -11,8 +11,6 @@
 /// members conflict.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class ContainsWildcardMethod {
   int _() => 0;
 }

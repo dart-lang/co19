@@ -10,8 +10,6 @@
 /// a constructor or a method.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import '../../Utils/expect.dart';
 
 class A {

@@ -10,8 +10,6 @@
 /// and its value can be used.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import '../../Utils/expect.dart';
 
 final _ = 42;

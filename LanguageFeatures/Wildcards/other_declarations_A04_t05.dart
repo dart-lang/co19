@@ -10,8 +10,6 @@
 /// compile-time error if there is an earlier declaration of a class named `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class _ {}
 
 int _ = 1;

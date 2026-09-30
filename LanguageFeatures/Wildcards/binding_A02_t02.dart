@@ -10,8 +10,6 @@
 /// declarations named `_`. Test parameters of constructors.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class C<T> {
   C.constructor1(_, int _, _) {}
   C.constructor2(_, int _, _, [_, int _ = 0, _ = ""]) {}

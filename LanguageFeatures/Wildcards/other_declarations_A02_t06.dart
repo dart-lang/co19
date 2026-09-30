@@ -10,8 +10,6 @@
 /// top-level setter named `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 void set _(int v) {}
 void set _(int v) {}
 //       ^

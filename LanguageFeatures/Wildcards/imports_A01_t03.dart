@@ -9,8 +9,6 @@
 /// prefix named `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import 'imports_lib1.dart' as _;
 
 main() {

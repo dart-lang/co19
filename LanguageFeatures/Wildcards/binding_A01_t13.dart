@@ -10,8 +10,6 @@
 /// is no such binding.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 main() {
   var _ = "Wildcard";
 

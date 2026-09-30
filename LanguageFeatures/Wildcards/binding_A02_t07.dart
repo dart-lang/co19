@@ -10,8 +10,6 @@
 /// declarations named `_`. Test type parameters of functions and methods.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import '../../Utils/expect.dart';
 
 String topLevelFunction<_, _, _ extends num>() => "topLevelFunction";

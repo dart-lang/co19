@@ -9,8 +9,6 @@
 /// scope by a wildcarded declaration. Test local variables.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 test1() {
   var _;
   print(_);

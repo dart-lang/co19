@@ -10,8 +10,6 @@
 /// used.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 enum _ {e1;}
 
 main() {

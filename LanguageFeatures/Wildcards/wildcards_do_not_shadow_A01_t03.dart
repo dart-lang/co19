@@ -20,8 +20,6 @@
 /// top-level function named `_` but a class field does.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import '../../Utils/expect.dart';
 
 String _() => "top-level";

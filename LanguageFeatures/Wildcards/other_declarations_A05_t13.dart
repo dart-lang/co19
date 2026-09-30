@@ -10,8 +10,6 @@
 /// member named `_`. Test an instance setter vs other class members conflict.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 mixin class ContainsWildcardVariable {
   int _ = 0;
 }

@@ -9,8 +9,6 @@
 /// name to start with `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 typedef R1 = (int _, {String _});
 //                           ^
 // [analyzer] unspecified

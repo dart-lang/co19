@@ -11,8 +11,6 @@
 /// scope by a wildcarded declaration. Test type parameters of type aliases.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class C<T> {}
 typedef CAlias<_> = C<_>;
 //                    ^
