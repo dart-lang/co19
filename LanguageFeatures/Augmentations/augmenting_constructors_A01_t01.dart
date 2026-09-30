@@ -2,88 +2,64 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We say that an augmenting function or constructor's signature
-/// matches an introductory signature if:
-/// - It has the same number of type parameters with the same type parameter
-///   names (same identifiers) and bounds (after type annotation inheritance),
-///   if any (same types, even if they may not be written exactly the same in
-///   case one of the declarations needs to refer to a type using an import
-///   prefix).
-/// - The return type (if not omitted) is the same as the introductory
-///   declaration's return type.
-/// - It has the same number of positional parameters as the introductory
-///   declaration, and the same number of those are optional.
-/// - It has the same set of named parameter names as the introductory
-///   declaration.
-/// - For each corresponding pair of parameters:
-///   - They have the same name. This is trivial for named parameters, but may
-///     fail to hold for positional parameters.
-///   - They have the same type (or the augmenting declaration omits the type).
-///   - They both have the modifier `covariant`, or none of them have it.
-///   - They both have the modifier `required`, or none of them have it.
-/// ...
-/// It is a compile-time error if:
-/// - The signature of the augmenting constructor does not match the signature
-///   of the corresponding introductory constructor.
+/// @assertion Augmenting a constructor works similarly to augmenting a function,
+/// with some extra rules to handle features unique to constructors, like
+/// redirections and initializer lists, and the primary constructor syntax.
 ///
-/// @description Checks that it is a compile-time error if the signature of the
-/// constructor augmentation does not match the original constructor. Test an
-/// incorrect number of positional parameters.
+/// @description Checks that augmenting constructor may add initializer list and
+/// the body.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
+import '../../Utils/expect.dart';
+
 class C {
-  C(int x);
+  String x = "Original", y;
+  C();
 }
 
 augment class C {
-  augment C();
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment C(int x, int y);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment C(): y = "Augmented" {
+    Expect.equals("Original", x);
+    Expect.equals("Augmented", y);
+    x = "x";
+    y = "y";
+  }
 }
 
 enum E {
-  e0(0);
-  const E(int x);
+  e0;
+  final String x = "Original", y;
+  const E();
 }
 
 augment enum E {
   ;
-  augment const E();
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment const E(int x, int y);
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment const E(): y = "Augmented";
 }
 
-extension type ET(int id) {
-  ET.foo(this.id);
+bool executed = false;
+
+extension type ET(int v) {
+  ET.foo();
 }
 
 augment extension type ET {
-  augment ET.foo();
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.foo(int id, int y);
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment ET.foo() : v = 0 {
+    Expect.equals(0, v);
+    executed = true;
+  }
 }
 
 main() {
-  print(C);
-  print(E);
-  print(ET);
+  C c = C();
+  Expect.equals("x", c.x);
+  Expect.equals("y", c.y);
+
+  Expect.equals("Original", E.e0.x);
+  Expect.equals("Augmented", E.e0.y);
+
+  Expect.equals(0, ET.foo().v);
+  Expect.isTrue(executed);
 }

@@ -28,108 +28,48 @@
 ///     doesn't have `_` as its name.
 /// ...
 /// It is a compile-time error if:
-/// - The signature of the augmenting function does not match the signature of
-///   the augmented function.
+/// - The signature of an augmenting constructor does not match the signature of
+///   the corresponding introductory declaration.
 ///
-/// @description Checks that it is not an error if a positional parameter whose
-/// name is not `_` is accessed in the body even if any of prior augmentations
-/// use `_` as its name.
+/// @description Checks that it is a compile-time error if the name of a
+/// positional parameter in an augmenting constructor is not `_` and not equal
+/// to the name of this parameter in the original constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-import '../../Utils/expect.dart';
-
-String log = "";
-
-class C {
-  C(int _);
-  C.foo([int? _]);
-}
+part of 'augmenting_constructors_A01_t16.dart';
 
 augment class C {
-  augment C(int x);
-  augment C.foo([int? _x]);
-}
-
-augment class C {
-  augment C(int _);
-  augment C.foo([int? _]);
-}
-
-augment class C {
-  augment C(int x) {
-    log = "$x";
-  }
-  augment C.foo([int? _x]) {
-    log = "$_x";
-  }
-}
-
-enum E {
-  e0(1), e1.foo(1);
-
-  const E(int? _);
-  const E.foo([int _]);
+  augment C(int? _y);
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C.foo([int? _y]);
+//                    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment enum E {
   ;
-  augment const E(int? x);
-  augment const E.foo([int x = 0]);
-}
-
-augment enum E {
-  ;
-  augment const E(int? _);
-  augment const E.foo([int _]);
-}
-
-augment enum E {
-  ;
-  augment const E(int? x) : assert(x != null);
-  augment const E.foo([int x]) : assert(x != null);
-}
-
-extension type ET(int? v) {
-  ET.foo(int _);
-  ET.bar([int _]);
+  augment const E(int _y);
+//                    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo([int _y]);
+//                         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment extension type ET {
-  augment ET.foo(int x);
-  augment ET.bar([int _x = 0]);
-}
-
-augment extension type ET {
-  augment ET.foo(int _);
-  augment ET.bar([int _]);
-}
-
-augment extension type ET {
-  augment ET.foo(int x) : v = 0 {
-    log = "$x";
-  }
-  augment ET.bar([int _x]) : v = 0 {
-    log = "$_x";
-  }
-}
-
-checkLog(String expected) {
-  Expect.equals(expected, log);
-  log = "";
-}
-
-main() {
-  C(1);
-  checkLog("1");
-  C.foo(2);
-  checkLog("2");
-
-  ET.foo(1);
-  checkLog("1");
-  ET.bar(2);
-  checkLog("2");
-
-  print(E);
+  augment ET.foo(int _y);
+//                   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.bar([int _y]);
+//                    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

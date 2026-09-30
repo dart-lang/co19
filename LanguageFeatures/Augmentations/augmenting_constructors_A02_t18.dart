@@ -21,59 +21,83 @@
 ///   - They have the same type (or the augmenting declaration omits the type).
 ///   - They both have the modifier `covariant`, or none of them have it.
 ///   - They both have the modifier `required`, or none of them have it.
+/// - For all positional parameters:
+///   - The augmenting function's parameter name is `_`, or
+///   - The augmenting function's parameter name is the same as the name of the
+///     corresponding positional parameter in every preceding declaration that
+///     doesn't have `_` as its name.
 /// ...
 /// It is a compile-time error if:
-/// - The signature of the augmenting constructor does not match the signature
-///   of the corresponding introductory constructor.
+/// - The signature of an augmenting constructor does not match the signature of
+///   the corresponding introductory declaration.
 ///
-/// @description Checks that it is not an error if an augmentation uses a
-/// parameter whose type annotation uses an import prefix.
+/// @description Checks that it is not an error if a positional parameter whose
+/// name is not `_` is accessed in the body even if there is an augmentation in
+/// the chain that use wildcard as its name.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts
+// SharedOptions=--enable-experiment=augmentations
 
-import 'augmentation_libraries_lib.dart';
+import '../../Utils/expect.dart';
 
-part 'augmenting_constructors_A01_t19_part.dart';
+String log = "";
 
 class C {
-  AL? a;
-  C(this.a);
-  C.foo([this.a]);
-  C.bar({this.a});
-  C.baz({required this.a});
+  C(int _x) {
+    log = "$_x";
+  }
+  C.foo([int? _x]) {
+    log = "$_x";
+  }
+}
+
+augment class C {
+  augment C(int _);
+  augment C.foo([int? _]);
 }
 
 enum E {
-  e0(const AL()),
-  e1.foo(const AL()),
-  e2.bar(a: const AL()),
-  e3.baz(a: const AL());
+  e0(1), e1.foo(1);
 
-  final AL? a;
-  const E(this.a);
-  const E.foo([this.a]);
-  const E.bar({this.a});
-  const E.baz({required this.a});
+  const E(int? _x) : assert(_x != null);
+  const E.foo([int? _x]) : assert(_x != null);
 }
 
-extension type ET._(AL? a) {
-  ET(this.a);
-  ET.foo([this.a]);
-  ET.bar({this.a});
-  ET.baz({required this.a});
+augment enum E {
+  ;
+  augment const E(int? _);
+  augment const E.foo([int? _]);
+}
+
+extension type ET(int? v) {
+  ET.foo(int? _x) : v = 0 {
+    log = "$_x";
+  }
+  ET.bar([int? _x]) : v = 0 {
+    log = "$_x";
+  }
+}
+
+augment extension type ET {
+  augment ET.foo(int? _);
+  augment ET.bar([int? _]);
+}
+
+checkLog(String expected) {
+  Expect.equals(expected, log);
+  log = "";
 }
 
 main() {
-  C(AL());
-  C.foo(AL());
-  C.bar(a: AL());
-  C.baz(a: AL());
+  C(1);
+  checkLog("1");
+  C.foo(2);
+  checkLog("2");
+
+  ET.foo(1);
+  checkLog("1");
+  ET.bar(2);
+  checkLog("2");
 
   print(E);
-
-  ET(AL());
-  ET.foo(AL());
-  ET.bar(a: AL());
-  ET.baz(a: AL());
 }

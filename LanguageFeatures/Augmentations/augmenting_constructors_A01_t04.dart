@@ -2,127 +2,83 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We say that an augmenting function or constructor's signature
-/// matches an introductory signature if:
-/// - It has the same number of type parameters with the same type parameter
-///   names (same identifiers) and bounds (after type annotation inheritance),
-///   if any (same types, even if they may not be written exactly the same in
-///   case one of the declarations needs to refer to a type using an import
-///   prefix).
-/// - The return type (if not omitted) is the same as the introductory
-///   declaration's return type.
-/// - It has the same number of positional parameters as the introductory
-///   declaration, and the same number of those are optional.
-/// - It has the same set of named parameter names as the introductory
-///   declaration.
-/// - For each corresponding pair of parameters:
-///   - They have the same name. This is trivial for named parameters, but may
-///     fail to hold for positional parameters.
-///   - They have the same type (or the augmenting declaration omits the type).
-///   - They both have the modifier `covariant`, or none of them have it.
-///   - They both have the modifier `required`, or none of them have it.
-/// ...
-/// It is a compile-time error if:
-/// - The signature of the augmenting constructor does not match the signature
-///   of the corresponding introductory constructor.
+/// @assertion Augmenting a constructor works similarly to augmenting a function,
+/// with some extra rules to handle features unique to constructors, like
+/// redirections and initializer lists, and the primary constructor syntax.
 ///
-/// @description Checks that it is a compile-time error if the signature of the
-/// constructor augmentation does not match the original constructor. Test an
-/// incorrect type of parameters in an augmenting declaration.
+/// @description Checks that an incomplete constructor can be completed by an
+/// augmenting constructor with initializing formals.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
+import '../../Utils/expect.dart';
+
 class C {
-  C(num x, [num y = 0]);
-  C.foo(num x, {required num y, num z = 0});
+  int x;
+  C(int x);
+  C.foo([int x]);
+  C.bar({int x});
+  C.baz({required int x});
 }
 
 augment class C {
-  augment C(int x, [num y]);
-//          ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C(num x, [int y]);
-//                  ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C.foo(Object x, {required num y, num z});
-//              ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C.foo(num x, {required Object y, num z});
-//                               ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C.foo(num x, {required num y, Object z});
-//                                      ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment C(this.x);
+  augment C.foo([this.x = 1]);
+  augment C.bar({this.x = 2});
+  augment C.baz({required this.x});
 }
 
 enum E {
-  e0(0), e1.foo(1, y: 2);
-
-  const E(num x, [num y = 0]);
-  const E.foo(num x, {required num y, num z = 0});
+  e0(0), e1.foo(), e2.foo(2), e3.bar(), e4.bar(x: 3), e5.baz(x: 4);
+  final int x;
+  const E(int x);
+  const E.foo([int x]);
+  const E.bar({int x});
+  const E.baz({required int x});
 }
 
 augment enum E {
   ;
-  augment const E(int x, [num y]);
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment const E(num x, [int y]);
-//                        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment const E.foo(Object x, {required num y, num z});
-//                    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment const E.foo(num x, {required Object y, num z});
-//                                     ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment const E.foo(num x, {required num y, Object z});
-//                                            ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment const E(this.x);
+  augment const E.foo([this.x = 1]);
+  augment const E.bar({this.x = 2});
+  augment const E.baz({required this.x});
 }
 
-
-extension type ET(int id) {
-  ET.foo(num x, [num y = 0]): this.id = 0;
-  ET.baz(num x, {required num y, num z = 0}): this.id = 0;
+extension type ET._(int x) {
+  ET(int x);
+  ET.foo([int x = 1]);
+  ET.bar({int x = 2});
+  ET.baz({required int x});
 }
 
 augment extension type ET {
-  augment ET.foo(int x, [num y = 0]);
-//               ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.foo(num x, [int y = 0]);
-//                       ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.baz(Object x, {required num y, num z = 0});
-//               ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.baz(num x, {required Object y, num z = 0});
-//                                ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.baz(num x, {required num y, Object z = 0});
-//                                       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment ET(this.x);
+  augment ET.foo([this.x]);
+  augment ET.bar({this.x});
+  augment ET.baz({required this.x});
 }
 
 main() {
-  print(C);
-  print(E);
-  print(ET);
+  Expect.equals(0, C(0).x);
+  Expect.equals(1, C.foo().x);
+  Expect.equals(2, C.foo(2).x);
+  Expect.equals(2, C.bar().x);
+  Expect.equals(3, C.bar(x: 3).x);
+  Expect.equals(4, C.baz(x: 4).x);
+
+  Expect.equals(0, E.e0.x);
+  Expect.equals(1, E.e1.x);
+  Expect.equals(2, E.e2.x);
+  Expect.equals(2, E.e3.x);
+  Expect.equals(3, E.e4.x);
+  Expect.equals(4, E.e5.x);
+
+  Expect.equals(0, ET(0).x);
+  Expect.equals(1, ET.foo().x);
+  Expect.equals(2, ET.foo(2).x);
+  Expect.equals(2, ET.bar().x);
+  Expect.equals(3, ET.bar(x: 3).x);
+  Expect.equals(4, ET.baz(x: 4).x);
 }

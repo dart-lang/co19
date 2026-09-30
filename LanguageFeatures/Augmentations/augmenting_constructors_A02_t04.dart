@@ -28,93 +28,95 @@
 ///
 /// @description Checks that it is a compile-time error if the signature of the
 /// constructor augmentation does not match the original constructor. Test an
-/// incorrect number of optional positional parameters.
+/// incorrect type of parameters in an augmenting declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 class C {
-  C([int x = 0]);
-  C.n({int x = 0});
+  C(num x, [num y = 0]);
+  C.foo(num x, {required num y, num z = 0});
 }
 
 augment class C {
-  augment C();
-//        ^
+  augment C(int x, [num y]);
+//          ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  augment C([int x, int y]);
-//        ^
+  augment C(num x, [int y]);
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-augment class C {
-  augment C.n();
-//        ^^^
+  augment C.foo(Object x, {required num y, num z});
+//              ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  augment C.n({int x, int y});
-//        ^^^
+  augment C.foo(num x, {required Object y, num z});
+//                               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C.foo(num x, {required num y, Object z});
+//                                      ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E {
-  e0(0);
-  const E([int x = 0]);
-  const E.n({int x = 0});
+  e0(0), e1.foo(1, y: 2);
+
+  const E(num x, [num y = 0]);
+  const E.foo(num x, {required num y, num z = 0});
 }
 
 augment enum E {
   ;
-  augment const E();
+  augment const E(int x, [num y]);
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  augment const E([int x, int y]);
-//              ^
+  augment const E(num x, [int y]);
+//                        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo(Object x, {required num y, num z});
+//                    ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo(num x, {required Object y, num z});
+//                                     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo(num x, {required num y, Object z});
+//                                            ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment enum E {
-  ;
-  augment const E.n();
-//              ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment const E.n({int x, int y});
-//              ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
 
 extension type ET(int id) {
-  ET.foo([int x = 0]): this.id = 0;
-  ET.baz({int x = 0}): this.id = 0;
+  ET.foo(num x, [num y = 0]): this.id = 0;
+  ET.baz(num x, {required num y, num z = 0}): this.id = 0;
 }
 
 augment extension type ET {
-  augment ET.foo();
-//        ^^^^^^
+  augment ET.foo(int x, [num y = 0]);
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment ET.foo([int x, int y = 0]);
-//        ^^^^^^
+  augment ET.foo(num x, [int y = 0]);
+//                       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  augment ET.baz();
-//        ^^^^^^
+  augment ET.baz(Object x, {required num y, num z = 0});
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  augment ET.baz({int x, int y = 0});
-//        ^^^^^^
+  augment ET.baz(num x, {required Object y, num z = 0});
+//                                ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.baz(num x, {required num y, Object z = 0});
+//                                       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

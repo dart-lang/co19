@@ -4,38 +4,33 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - The introductory constructor is marked `factory` and the augmenting
-/// constructor is not, or vice versa.
+/// - The augmenting declaration and augmented declaration do not have the same
+///   `const` and `factory` modifiers.
 ///
 /// @description Checks that it is a compile-time error if the augmenting
-/// constructor is marked `factory` and the introductory constructor is not.
+/// constructor is `const` and the introductory constructor is not.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 class C {
   C();
-  C.foo();
 }
 
 augment class C {
-  augment factory C.foo() = C;
-//        ^^^^^^^
+  augment const C();
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension type ET(int id) {
   ET.foo(this.id);
-  ET.bar(int id);
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 augment extension type ET {
-  augment factory ET.bar(int id) = ET.foo;
-//        ^^^^^^^
+  augment const ET.foo(this.id);
+//              ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

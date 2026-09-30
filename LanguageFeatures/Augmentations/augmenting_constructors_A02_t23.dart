@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -21,55 +21,53 @@
 ///   - They have the same type (or the augmenting declaration omits the type).
 ///   - They both have the modifier `covariant`, or none of them have it.
 ///   - They both have the modifier `required`, or none of them have it.
-/// - For all positional parameters:
-///   - The augmenting function's parameter name is `_`, or
-///   - The augmenting function's parameter name is the same as the name of the
-///     corresponding positional parameter in every preceding declaration that
-///     doesn't have `_` as its name.
 /// ...
 /// It is a compile-time error if:
-/// - The signature of the augmenting function does not match the signature of
-///   the augmented function.
+/// - The signature of an augmenting constructor does not match the signature of
+///   the corresponding introductory declaration.
 ///
-/// @description Checks that it is not an error if an augmentation with a
-/// wildcard introduces a default value for optional positional parameter.
+/// @description Checks that it is a compile-time error if the signature of the
+/// augmenting constructor does not match the signature of the corresponding
+/// introductory constructor. Test private named parameters of primary
+/// constructors.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../Utils/expect.dart';
+// TODO(sgrekhov): Update after https://github.com/dart-lang/language/issues/4710
 
-class C {
-  int x;
-  C([this.x]);
+class C1({var int _p = 0});
+
+augment class C1 {
+  augment C1({int p});
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-augment class C {
-  augment C([int _ = 1]);
+class C2({final int _p = 0});
+
+augment class C2 {
+  augment C2({int p});
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-enum E {
-  e0();
-
-  final int x;
-  const E([this.x]);
+enum E1({final int _p = 0}) {
+  e0;
 }
 
-augment enum E {
+augment enum E1 {
   ;
-  augment const E([int _ = 2]);
-}
-
-extension type ET(int x) {
-  ET.foo([this.x]);
-}
-
-augment extension type ET {
-  augment ET.foo([int _ = 3]);
+  augment const E1({int p});
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  Expect.equals(1, C().x);
-  Expect.equals(2, E.e0.x);
-  Expect.equals(3, ET.foo().x);
+  print(C1);
+  print(C2);
+  print(E1);
 }

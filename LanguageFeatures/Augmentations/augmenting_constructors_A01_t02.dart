@@ -2,125 +2,101 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We say that an augmenting function or constructor's signature
-/// matches an introductory signature if:
-/// - It has the same number of type parameters with the same type parameter
-///   names (same identifiers) and bounds (after type annotation inheritance),
-///   if any (same types, even if they may not be written exactly the same in
-///   case one of the declarations needs to refer to a type using an import
-///   prefix).
-/// - The return type (if not omitted) is the same as the introductory
-///   declaration's return type.
-/// - It has the same number of positional parameters as the introductory
-///   declaration, and the same number of those are optional.
-/// - It has the same set of named parameter names as the introductory
-///   declaration.
-/// - For each corresponding pair of parameters:
-///   - They have the same name. This is trivial for named parameters, but may
-///     fail to hold for positional parameters.
-///   - They have the same type (or the augmenting declaration omits the type).
-///   - They both have the modifier `covariant`, or none of them have it.
-///   - They both have the modifier `required`, or none of them have it.
-/// ...
-/// It is a compile-time error if:
-/// - The signature of the augmenting constructor does not match the signature
-///   of the corresponding introductory constructor.
+/// @assertion Augmenting a constructor works similarly to augmenting a function,
+/// with some extra rules to handle features unique to constructors, like
+/// redirections and initializer lists, and the primary constructor syntax.
 ///
-/// @description Checks that it is a compile-time error if the signature of the
-/// constructor augmentation does not match the original constructor. Test an
-/// incorrect number of optional positional parameters.
+/// @description Checks that the augmenting constructor may provide a body.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-class C {
-  C([int x = 0]);
-  C.n({int x = 0});
+import '../../Utils/expect.dart';
+
+String log = "";
+
+class C1 {
+  C1();
 }
 
-augment class C {
-  augment C();
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment C([int x, int y]);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+augment class C1 {
+  augment C1() {
+    log += "Augmented body";
+  }
 }
 
-augment class C {
-  augment C.n();
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment C.n({int x, int y});
-//        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C2 {
+  C2();
 }
 
-enum E {
-  e0(0);
-  const E([int x = 0]);
-  const E.n({int x = 0});
+augment class C2 {
+  augment C2.new() {
+    log += "Augmented body";
+  }
 }
 
-augment enum E {
-  ;
-  augment const E();
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment const E([int x, int y]);
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C3 {
+  C3.new();
 }
 
-augment enum E {
-  ;
-  augment const E.n();
-//              ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment const E.n({int x, int y});
-//              ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+augment class C3 {
+  augment C3() {
+    log += "Augmented body";
+  }
 }
 
-extension type ET(int id) {
-  ET.foo([int x = 0]): this.id = 0;
-  ET.baz({int x = 0}): this.id = 0;
+extension type ET1._(int id) {
+  ET1(int id);
+  ET1.foo(int id);
 }
 
-augment extension type ET {
-  augment ET.foo();
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.foo([int x, int y = 0]);
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+augment extension type ET1 {
+  augment ET1(int id) {
+    log += "Augmented body";
+  }
+  augment ET1.foo(int id) {
+    log += "Augmented body";
+  }
+}
 
-  augment ET.baz();
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.baz({int x, int y = 0});
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+extension type ET2._(int id) {
+  ET2(int id);
+}
+
+augment extension type ET2 {
+  augment ET2.new(int id) {
+    log += "Augmented body";
+  }
+}
+
+extension type ET3._(int id) {
+  ET3.new(int _);
+}
+
+augment extension type ET3 {
+  augment ET3(int id) {
+    log += "Augmented body";
+  }
+}
+
+void checkLog(String expected) {
+  Expect.equals(expected, log);
+  log = "";
 }
 
 main() {
-  print(C);
-  print(E);
-  print(ET);
+  C1();
+  checkLog("Augmented body");
+  C2();
+  checkLog("Augmented body");
+  C3();
+  checkLog("Augmented body");
+  ET1(0);
+  checkLog("Augmented body");
+  ET1.foo(0);
+  checkLog("Augmented body");
+  ET2(0);
+  checkLog("Augmented body");
+  ET3(0);
+  checkLog("Augmented body");
 }

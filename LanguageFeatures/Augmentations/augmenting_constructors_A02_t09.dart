@@ -1,4 +1,4 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -21,55 +21,51 @@
 ///   - They have the same type (or the augmenting declaration omits the type).
 ///   - They both have the modifier `covariant`, or none of them have it.
 ///   - They both have the modifier `required`, or none of them have it.
-/// - For all positional parameters:
-///   - The augmenting function's parameter name is `_`, or
-///   - The augmenting function's parameter name is the same as the name of the
-///     corresponding positional parameter in every preceding declaration that
-///     doesn't have `_` as its name.
 /// ...
 /// It is a compile-time error if:
-/// - The signature of the augmenting function does not match the signature of
-///   the augmented function.
+/// - The signature of an augmenting constructor does not match the signature of
+///   the corresponding introductory declaration.
 ///
-/// @description Checks that it is a compile-time error if the name of a
-/// positional parameter in an augmenting constructor is not `_` and not equal
-/// to the name of this parameter in the original constructor.
+/// @description Checks that it is not an error if a constructor augmentation
+/// reorders named parameters of the original constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations,enhanced-parts
+// SharedOptions=--enable-experiment=augmentations
 
-part of 'augmenting_constructors_A01_t16.dart';
+import '../../Utils/expect.dart';
+
+class C {
+  int x, y;
+  C({this.x = 0, this.y = 0});
+}
 
 augment class C {
-  augment C(int? _y);
-//               ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C.foo([int? _y]);
-//                    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment C({int y, int x});
+}
+
+enum E {
+  e0(x: 1, y: 2);
+  final int x, y;
+  const E({this.x = 0, this.y = 0});
 }
 
 augment enum E {
   ;
-  augment const E(int _y);
-//                    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment const E.foo([int _y]);
-//                         ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment const E({int y, int x});
+}
+
+extension type ET(int x) {
+  ET.foo({this.x = 0, int y = 0});
 }
 
 augment extension type ET {
-  augment ET.foo(int _y);
-//                   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.bar([int _y]);
-//                    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment ET.foo({int y, int x});
+}
+
+main() {
+  Expect.equals(1, C(x: 1, y: 2).x);
+  Expect.equals(2, C(y: 2).y);
+  Expect.equals(1, E.e0.x);
+  Expect.equals(2, E.e0.y);
+  Expect.equals(1, ET.foo(x: 1));
 }

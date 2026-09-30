@@ -1,53 +1,54 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - The augmentation chain has exactly one specification of a default value
-///   for an optional parameter, and the constructor is a redirecting factory.
+/// - A constructor declaration has a default value for a parameter, and there
+///   is a redirecting factory constructor declaration for the same constructor.
 ///
-/// @description Checks that it is a compile-time error if the augmentation
-/// chain has exactly one specification of a default value for an optional
-/// parameter, but the constructor is a redirecting factory.
+/// @description Checks that it is a compile-time error to declare an augmenting
+/// redirecting factory constructor if an introductory constructor has any
+/// default values.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 class C {
-  C([int x = 0]);
-  C._({int x = 0});
-  factory C.foo([int x]) = C;
-  factory C.bar({int x}) = C._;
+  int x;
+  C([this.x = 0]);
+  C.foo({this.x = 0});
+  factory C.bar([int x = 0]);
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory C.baz({int x = 0});
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment class C {
-  augment factory C.foo([int x = 0]);
-//                ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment factory C.bar({int x = 0});
-//                ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment factory C.bar([int x]) = C;
+  augment factory C.baz({int x}) = C.foo;
 }
 
 extension type ET(int x) {
-  ET.c1([this.x = 0]);
-  ET.c2({this.x = 0});
-  factory ET.foo([int x]) = ET.c1;
-  factory ET.bar({int x}) = ET.c2;
+  ET.foo([this.x = 0]);
+  ET.bar({this.x = 0});
+  factory ET.baz([int x = 0]);
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory ET.qux({int x = 0});
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 augment extension type ET {
-  augment ET.foo([int x = 0]);
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.bar({int x = 0});
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment factory ET.baz([int x]) = ET.foo;
+  augment factory ET.qux({int x}) = ET.bar;
 }
 
 main() {

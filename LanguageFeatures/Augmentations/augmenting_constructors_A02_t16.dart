@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -21,65 +21,58 @@
 ///   - They have the same type (or the augmenting declaration omits the type).
 ///   - They both have the modifier `covariant`, or none of them have it.
 ///   - They both have the modifier `required`, or none of them have it.
+/// - For all positional parameters:
+///   - The augmenting function's parameter name is `_`, or
+///   - The augmenting function's parameter name is the same as the name of the
+///     corresponding positional parameter in every preceding declaration that
+///     doesn't have `_` as its name.
 /// ...
 /// It is a compile-time error if:
 /// - The signature of an augmenting constructor does not match the signature of
 ///   the corresponding introductory declaration.
 ///
-/// @description Checks that it is a compile-time error if the signature of the
-/// constructor augmentation does not match the original constructor. Test an
-/// incorrect number of positional parameters.
+/// @description Checks that it is a compile-time error if the name of a
+/// positional parameter in an augmenting constructor is not `_` and not equal
+/// to the name of this parameter in the original constructor.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
+
+part 'augmenting_constructors_A01_t16_lib.dart';
 
 class C {
-  C(int x);
+  int? _x;
+  C(int? _x);
+  C.foo([this._x]);
 }
 
 augment class C {
-  augment C();
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment C(int x, int y);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment C(int? _);
+  augment C.foo([int? _]);
 }
 
 enum E {
-  e0(0);
-  const E(int x);
+  e0(1), e1.foo(1);
+
+  final int _x;
+  const E(this._x);
+  const E.foo([this._x = 0]);
 }
 
 augment enum E {
   ;
-  augment const E();
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  augment const E(int x, int y);
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment const E(int _);
+  augment const E.foo([int _]);
 }
 
-extension type ET(int id) {
-  ET.foo(this.id);
+extension type ET(int _x) {
+  ET.foo(this._x);
+  ET.bar([this._x = 0]);
 }
 
 augment extension type ET {
-  augment ET.foo();
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.foo(int id, int y);
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment ET.foo(int _);
+  augment ET.bar([int _]);
 }
 
 main() {

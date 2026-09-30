@@ -8,38 +8,30 @@
 ///   `const` and `factory` modifiers.
 ///
 /// @description Checks that it is a compile-time error if the introductory
-/// constructor is `const` and the augmenting constructor is not.
+/// constructor is marked `factory` and the augmenting constructor is not.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 class C {
-  const C();
+  C();
+  factory C.foo() = C;
 }
 
 augment class C {
-  augment C();
-//        ^
+  augment C.foo();
+//        ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E {
-  e0;
-  const E();
-}
-
-augment enum E {
-  ;
-  augment E(); // Ok. `const` can be inferred for generative enum constructors.
-}
-
 extension type ET(int id) {
-  const ET.foo(this.id);
+  ET.foo(this.id);
+  factory ET.bar(int id) = ET.foo;
 }
 
 augment extension type ET {
-  augment ET.foo(int id);
+  augment ET.bar(int id);
 //        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -47,6 +39,5 @@ augment extension type ET {
 
 main() {
   print(C);
-  print(E);
   print(ET);
 }

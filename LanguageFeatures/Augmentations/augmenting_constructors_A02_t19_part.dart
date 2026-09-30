@@ -21,83 +21,38 @@
 ///   - They have the same type (or the augmenting declaration omits the type).
 ///   - They both have the modifier `covariant`, or none of them have it.
 ///   - They both have the modifier `required`, or none of them have it.
-/// - For all positional parameters:
-///   - The augmenting function's parameter name is `_`, or
-///   - The augmenting function's parameter name is the same as the name of the
-///     corresponding positional parameter in every preceding declaration that
-///     doesn't have `_` as its name.
 /// ...
 /// It is a compile-time error if:
-/// - The signature of the augmenting function does not match the signature of
-///   the augmented function.
+/// - The signature of an augmenting constructor does not match the signature of
+///   the corresponding introductory declaration.
 ///
-/// @description Checks that it is not an error if a positional parameter whose
-/// name is not `_` is accessed in the body even if there is an augmentation in
-/// the chain that use wildcard as its name.
+/// @description Checks that it is not an error if an augmentation uses a
+/// parameter whose type annotation uses an import prefix.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-import '../../Utils/expect.dart';
-
-String log = "";
-
-class C {
-  C(int _x) {
-    log = "$_x";
-  }
-  C.foo([int? _x]) {
-    log = "$_x";
-  }
-}
+part of 'augmenting_constructors_A01_t19.dart';
+import 'augmentation_libraries_lib.dart' as l;
 
 augment class C {
-  augment C(int _);
-  augment C.foo([int? _]);
-}
-
-enum E {
-  e0(1), e1.foo(1);
-
-  const E(int? _x) : assert(_x != null);
-  const E.foo([int? _x]) : assert(_x != null);
+  augment C(l.AL? a);
+  augment C.foo([l.AL? a]);
+  augment C.bar({l.AL? a});
+  augment C.baz({required l.AL? a});
 }
 
 augment enum E {
   ;
-  augment const E(int? _);
-  augment const E.foo([int? _]);
-}
-
-extension type ET(int? v) {
-  ET.foo(int? _x) : v = 0 {
-    log = "$_x";
-  }
-  ET.bar([int? _x]) : v = 0 {
-    log = "$_x";
-  }
+  augment const E(l.AL? a);
+  augment const E.foo([l.AL? a]);
+  augment const E.bar({l.AL? a});
+  augment const E.baz({required l.AL? a});
 }
 
 augment extension type ET {
-  augment ET.foo(int? _);
-  augment ET.bar([int? _]);
-}
-
-checkLog(String expected) {
-  Expect.equals(expected, log);
-  log = "";
-}
-
-main() {
-  C(1);
-  checkLog("1");
-  C.foo(2);
-  checkLog("2");
-
-  ET.foo(1);
-  checkLog("1");
-  ET.bar(2);
-  checkLog("2");
-
-  print(E);
+  augment ET(l.AL? a);
+  augment ET.foo([l.AL? a]);
+  augment ET.bar({l.AL? a});
+  augment ET.baz({required l.AL? a});
 }

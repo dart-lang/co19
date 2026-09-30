@@ -1,84 +1,120 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We say that an augmenting function or constructor's signature
-/// matches an introductory signature if:
-/// - It has the same number of type parameters with the same type parameter
-///   names (same identifiers) and bounds (after type annotation inheritance),
-///   if any (same types, even if they may not be written exactly the same in
-///   case one of the declarations needs to refer to a type using an import
-///   prefix).
-/// - The return type (if not omitted) is the same as the introductory
-///   declaration's return type.
-/// - It has the same number of positional parameters as the introductory
-///   declaration, and the same number of those are optional.
-/// - It has the same set of named parameter names as the introductory
-///   declaration.
-/// - For each corresponding pair of parameters:
-///   - They have the same name. This is trivial for named parameters, but may
-///     fail to hold for positional parameters.
-///   - They have the same type (or the augmenting declaration omits the type).
-///   - They both have the modifier `covariant`, or none of them have it.
-///   - They both have the modifier `required`, or none of them have it.
-/// - For all positional parameters:
-///   - The augmenting function's parameter name is `_`, or
-///   - The augmenting function's parameter name is the same as the name of the
-///     corresponding positional parameter in every preceding declaration that
-///     doesn't have `_` as its name.
-/// ...
-/// It is a compile-time error if:
-/// - The signature of the augmenting function does not match the signature of
-///   the augmented function.
+/// @assertion Augmenting a constructor works similarly to augmenting a function,
+/// with some extra rules to handle features unique to constructors, like
+/// redirections and initializer lists, and the primary constructor syntax.
 ///
-/// @description Checks that it is not an error if the name of a positional
-/// parameter of an augmenting constructor is `_` and the name of this parameter
-/// in the original constructor is not `_`.
+/// @description Check that it is a compile-time error if a `new` keyword is
+/// used as a constructor name in the factory constructor redirection.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../Utils/expect.dart';
-
-class C {
-  int? x;
-  C(int? x);
-  C.foo([this.x]);
+class C1 {
+  C1();
+  factory C1.someName();
 }
 
-augment class C {
-  augment C(int? _);
-  augment C.foo([int? _]);
+augment class C1 {
+  augment factory C1.someName() = new;
+//                                ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-enum E {
-  e0(1), e1.foo();
-  final int x;
-  const E(this.x);
-  const E.foo([this.x = 0]);
+class C2 {
+  C2.someName();
+  factory C2();
 }
 
-augment enum E {
-  ;
-  augment const E(int _);
-  augment const E.foo([int _]);
+augment class C2 {
+  augment factory C2() = new.someName;
+//                       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-extension type ET(int x) {
-  ET.foo(this.x);
-  ET.bar([this.x = 0]);
+class C3 {
+  const C3();
+  const factory C3.someName();
 }
 
-augment extension type ET {
-  augment ET.foo(int _);
-  augment ET.bar([int _]);
+augment class C3 {
+  augment const factory C3.someName() = new;
+//                                      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C4 {
+  const C4.someName();
+  const factory C4();
+}
+
+augment class C4 {
+  augment const factory C4() = new.someName;
+//                             ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET1._(int v) {
+  ET1(this.v);
+  factory ET1.someName(int v);
+}
+
+augment extension type ET1 {
+  augment factory ET1.someName(int v) = new;
+//                                      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET2._(int v) {
+  ET2.someName(this.v);
+  factory ET2(int v);
+}
+
+augment extension type ET2 {
+  augment factory ET2(int v) = new.someName;
+//                             ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET3._(int v) {
+  const ET3(this.v);
+  const factory ET3.someName(int v);
+}
+
+augment extension type ET3 {
+  augment const factory ET3.someName(int v) = new;
+//                                            ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET4._(int v) {
+  const ET4.someName(this.v);
+  const factory ET4(int v);
+}
+
+augment extension type ET4 {
+  augment const factory ET4(int v) = new.someName;
+//                                   ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  Expect.equals(1, C(1).x);
-  Expect.isNull(C.foo().x);
-  Expect.equals(1, E.e0.x);
-  Expect.equals(0, E.e1.x);
-  Expect.equals(1, ET.foo(1).x);
-  Expect.equals(0, ET.bar().x);
+  print(C1);
+  print(C2);
+  print(C3);
+  print(C4);
+  print(ET1);
+  print(ET2);
+  print(ET3);
+  print(ET4);
 }

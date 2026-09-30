@@ -1,4 +1,4 @@
-// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -23,80 +23,57 @@
 ///   - They both have the modifier `required`, or none of them have it.
 /// ...
 /// It is a compile-time error if:
-/// - The signature of the augmenting constructor does not match the signature
-///   of the corresponding introductory constructor.
+/// - The signature of an augmenting constructor does not match the signature of
+///   the corresponding introductory declaration.
 ///
-/// @description Checks that a constructor with private named parameters can be
-/// augmented.
+/// @description Checks that it is not an error if an augmentation uses a
+/// parameter whose type annotation uses an import prefix.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-import '../../Utils/expect.dart';
+import 'augmentation_libraries_lib.dart';
 
-class C1 {
-  int _p;
-  C1({this._p});
+part 'augmenting_constructors_A01_t19_part.dart';
+
+class C {
+  AL? a;
+  C(this.a);
+  C.foo([this.a]);
+  C.bar({this.a});
+  C.baz({required this.a});
 }
 
-augment class C1 {
-  augment C1({int p = 0});
+enum E {
+  e0(const AL()),
+  e1.foo(const AL()),
+  e2.bar(a: const AL()),
+  e3.baz(a: const AL());
+
+  final AL? a;
+  const E(this.a);
+  const E.foo([this.a]);
+  const E.bar({this.a});
+  const E.baz({required this.a});
 }
 
-class C2 {
-  int _p;
-  C2({int p});
-}
-
-augment class C2 {
-  augment C2({this._p = 0});
-}
-
-enum E1 {
-  e0;
-
-  final int _p;
-  const E1({this._p});
-}
-
-augment enum E1 {
-  ;
-  augment const E1({int p = 0});
-}
-
-enum E2 {
-  e0;
-
-  final int _p;
-  const E2({int p});
-}
-
-augment enum E2 {
-  ;
-  augment const E2({this._p = 0});
-}
-
-extension type ET1(int _p) {
-  ET1.foo({this._p});
-}
-
-augment extension type ET1 {
-  augment ET1.foo({int p = 0});
-}
-
-extension type ET2(int _p) {
-  ET2.foo({int p});
-}
-
-augment extension type ET2 {
-  augment ET2.foo({this._p = 0});
+extension type ET._(AL? a) {
+  ET(this.a);
+  ET.foo([this.a]);
+  ET.bar({this.a});
+  ET.baz({required this.a});
 }
 
 main() {
-  Expect.equals(0, C1()._p);
-  Expect.equals(0, C2()._p);
-  Expect.equals(0, E1.e0._p);
-  Expect.equals(0, E2.e0._p);
-  Expect.equals(0, ET1.foo()._p);
-  Expect.equals(0, ET2.foo()._p);
+  C(AL());
+  C.foo(AL());
+  C.bar(a: AL());
+  C.baz(a: AL());
+
+  print(E);
+
+  ET(AL());
+  ET.foo(AL());
+  ET.bar(a: AL());
+  ET.baz(a: AL());
 }

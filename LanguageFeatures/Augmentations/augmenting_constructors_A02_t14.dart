@@ -28,77 +28,57 @@
 ///     doesn't have `_` as its name.
 /// ...
 /// It is a compile-time error if:
-/// - The signature of the augmenting function does not match the signature of
-///   the augmented function.
+/// - The signature of an augmenting constructor does not match the signature of
+///   the corresponding introductory declaration.
 ///
-/// @description Checks that if the name of a positional parameter was augmented
-/// to `_` then it is a compile-time error to use an old name in the augmenting
-/// body.
+/// @description Checks that it is not an error if the name of a positional
+/// parameter of an augmenting constructor is `_` and the name of this parameter
+/// in the original constructor is not `_`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
+import '../../Utils/expect.dart';
+
 class C {
+  int? x;
   C(int? x);
-  C.foo([int? x]);
+  C.foo([this.x]);
 }
 
 augment class C {
-  augment C(int? _) {
-    print(x);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  augment C.foo([int? _]) {
-    print(x);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  augment C(int? _);
+  augment C.foo([int? _]);
 }
 
 enum E {
-  e0(1), e1.foo(1);
-
-  const E(int x);
-  const E.foo([int x = 0]);
+  e0(1), e1.foo();
+  final int x;
+  const E(this.x);
+  const E.foo([this.x = 0]);
 }
 
 augment enum E {
   ;
-  augment const E(int _) : assert(x != null);
-//                                ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment const E.foo([int _]) : assert(x != null);
-//                                      ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment const E(int _);
+  augment const E.foo([int _]);
 }
 
-extension type ET(int v) {
-  ET.foo(int x);
-  ET.bar([int x = 0]);
+extension type ET(int x) {
+  ET.foo(this.x);
+  ET.bar([this.x = 0]);
 }
 
 augment extension type ET {
-  augment ET.foo(int _) : v = 0 {
-    print(x);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-  augment ET.bar([int _]) : v = 0 {
-    print(x);
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  augment ET.foo(int _);
+  augment ET.bar([int _]);
 }
 
 main() {
-  print(C);
-  print(E);
-  print(ET);
+  Expect.equals(1, C(1).x);
+  Expect.isNull(C.foo().x);
+  Expect.equals(1, E.e0.x);
+  Expect.equals(0, E.e1.x);
+  Expect.equals(1, ET.foo(1).x);
+  Expect.equals(0, ET.bar().x);
 }
