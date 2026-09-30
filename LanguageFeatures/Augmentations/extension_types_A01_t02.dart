@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion When augmenting an extension type declaration, the parenthesized
-/// clause where the representation type is specified is treated as a
-/// constructor that has a single positional parameter, a single initializer
-/// from the parameter to the representation field, and an empty body. This
-/// constructor is complete.
+/// @assertion An introductory extension type declaration must have a primary
+/// constructor clause, which must have precisely one parameter. Just like for a
+/// class or enum, that primary constructor clause is a constructor declaration
+/// which can't be augmented. For an extension type, it is an introductory and
+/// complete initializing constructor declaration.
 ///
 /// @description Checks that it is a compile-time error to specify a constructor
 /// name only in an augmenting declaration.
