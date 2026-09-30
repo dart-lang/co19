@@ -17,25 +17,15 @@
 
 import "dart:typed_data";
 
-import "../../../Utils/expect.dart";
+import "../typed_data_lib.dart";
 
 Float32x4 pack(v) => new Float32x4.splat(v);
 
-check(List<Float32x4> list, String expectedString) {
-  var l = new Float32x4List.fromList(list);
-  var s = l.join();
-  Expect.stringEquals(expectedString, s);
-}
-
 main() {
-  check([], "");
-  check(
-    [pack(.25), pack(1.625)],
-    "${Float32x4.splat(.25).toString()}"
-    "${Float32x4.splat(1.625).toString()}",
-  );
-  check(
-    [
+  check<Float32x4>(Float32x4List.fromList([]));
+  check<Float32x4>(Float32x4List.fromList([pack(.25), pack(1.625)]));
+  check<Float32x4>(
+    Float32x4List.fromList([
       pack(1.123456),
       pack(2.123456),
       pack(3.123456),
@@ -45,15 +35,6 @@ main() {
       pack(7.123456),
       pack(8.123456),
       pack(9.123456),
-    ],
-    "${Float32x4.splat(1.123456).toString()}"
-    "${Float32x4.splat(2.123456).toString()}"
-    "${Float32x4.splat(3.123456).toString()}"
-    "${Float32x4.splat(4.123456).toString()}"
-    "${Float32x4.splat(5.123456).toString()}"
-    "${Float32x4.splat(6.123456).toString()}"
-    "${Float32x4.splat(7.123456).toString()}"
-    "${Float32x4.splat(8.123456).toString()}"
-    "${Float32x4.splat(9.123456).toString()}",
+    ]),
   );
 }
