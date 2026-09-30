@@ -12,6 +12,8 @@
 /// @description Check that UP(`T1`, `T2`) = `T1` if `T1 != T2` and TOP(`T1`)
 /// and TOP(`T2`) and MORETOP(`T1`, `T2`). Test that `void` is more top type
 /// than others.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -20,7 +22,7 @@ void getVoid() {}
 
 void f1(dynamic y) {
   var v = (1 > 2) ? getVoid() : y; // MORETOP(void, dynamic) = true
-  print(v); // Type void cannot be used
+  print(v); // Type `void` cannot be used.
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -28,7 +30,7 @@ void f1(dynamic y) {
 
 void f2(Object? y) {
   var v = (1 > 2) ? getVoid() : y; // MORETOP(void, Object?) = true
-  print(v);
+  print(v); // Type `void` cannot be used.
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -36,7 +38,7 @@ void f2(Object? y) {
 
 void f3(FutureOr<dynamic> y) {
   var v = (1 > 2) ? getVoid() : y; // MORETOP(void, FutureOr<dynamic>) = true
-  print(v);
+  print(v); // Type `void` cannot be used.
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -44,7 +46,7 @@ void f3(FutureOr<dynamic> y) {
 
 void f4(FutureOr<Object?> y) {
   var v = (1 > 2) ? getVoid() : y; // MORETOP(void, FutureOr<Object?>) = true
-  print(v);
+  print(v); // Type `void` cannot be used.
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -52,7 +54,7 @@ void f4(FutureOr<Object?> y) {
 
 void f5(FutureOr<void> y) {
   var v = (1 > 2) ? getVoid() : y; // MORETOP(void, FutureOr<void>) = true
-  print(v);
+  print(v); // Type `void` cannot be used.
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -12,6 +12,8 @@
 /// @description Check that UP(`T1`, `T2`) = `T1` if `T1 != T2` and TOP(`T1`)
 /// and TOP(`T2`) and MORETOP(`T1`, `T2`) or `T2` otherwise. Test type
 /// `FutureOr<void>`.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -19,19 +21,13 @@ import '../../Utils/static_type_helper.dart';
 
 FutureOr<void> getFutureOrVoid() {}
 
-void f1(dynamic y) {
-  var v = (1 > 2) ? y : getFutureOrVoid(); // MORETOP(dynamic, FutureOr<void>) = true
-  if (1 > 2) {
-    v.checkDynamic;
-  }
-}
-
 void f2(Object? y) async {
   var v = (1 > 2) ? y : getFutureOrVoid(); // MORETOP(Object?, FutureOr<void>) = false
   v.expectStaticType<Exactly<FutureOr<void>>>();
   // v.expectStaticType<Exactly<Object?>>(); also succeeds.
   // Let's check that the type `void` cannot be used.
-  print(await v);
+  print(v); // Rejects `void`
+  print(await v); // Type `void` cannot be used.
 //      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -40,7 +36,8 @@ void f2(Object? y) async {
 void f3(FutureOr<dynamic> y) async {
   var v = (1 > 2) ? y : getFutureOrVoid(); // MORETOP(FutureOr<dynamic>, FutureOr<void>) = false
   v.expectStaticType<Exactly<FutureOr<void>>>();
-  print(await v);
+  print(v); // Rejects `void`
+  print(await v); // Type `void` cannot be used.
 //      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -49,7 +46,8 @@ void f3(FutureOr<dynamic> y) async {
 void f4(FutureOr<Object?> y) async {
   var v = (1 > 2) ? y : getFutureOrVoid(); // MORETOP(FutureOr<Object?>, FutureOr<void>) = false
   v.expectStaticType<Exactly<FutureOr<void>>>();
-  print(await v);
+  print(v); // Rejects `void`
+  print(await v); // Type `void` cannot be used.
 //      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
