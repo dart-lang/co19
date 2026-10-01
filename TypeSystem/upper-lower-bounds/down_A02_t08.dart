@@ -28,7 +28,7 @@ void f1a(void Function(FutureOr<void>) v1, void Function(dynamic) v2) {
   v = (o) async {
     print(o); // Rejects `void`
     print(await o); // Type `void` cannot be used.
-    //        ^^^^^^^
+    //    ^^^^^^^
     // [analyzer] unspecified
     // [cfe] unspecified
   };
@@ -42,7 +42,7 @@ void f1b(void Function(dynamic) v1, void Function(FutureOr<void>) v2) {
   v = (o) async {
     print(o); // Rejects `void`
     print(await o); // Type `void` cannot be used.
-    //        ^^^^^^^
+    //    ^^^^^^^
     // [analyzer] unspecified
     // [cfe] unspecified
   };
@@ -59,7 +59,7 @@ void f2a(
   v = (o) async {
     // See README.md for an explanation of each step in the checks below.
     o.checkNotDynamic; // Rejects `dynamic` and `Never`
-    //    ^^^^^^^^^^^^^^^
+    //^^^^^^^^^^^^^^^
     // [analyzer] unspecified
     // [cfe] unspecified
     (await o).checkDynamic;
@@ -78,7 +78,7 @@ void f2b(
   v = (o) async {
     // See README.md for an explanation of each step in the checks below.
     o.checkNotDynamic; // Rejects `dynamic` and `Never`
-    //    ^^^^^^^^^^^^^^^
+    //^^^^^^^^^^^^^^^
     // [analyzer] unspecified
     // [cfe] unspecified
     (await o).checkDynamic;
