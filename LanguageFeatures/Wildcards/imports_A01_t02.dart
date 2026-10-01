@@ -9,8 +9,6 @@
 /// with the prefix `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import 'imports_lib1.dart' as _;
 import 'imports_lib2.dart' as _;
 import '../../Utils/expect.dart';

@@ -9,8 +9,6 @@
 /// provides access to the imported library.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 library imports_lib1;
 
 int theAnswer = 42;

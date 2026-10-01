@@ -7,11 +7,13 @@
 /// - UP(`T`, `T`) = `T`
 ///
 /// @description Check that UP(`T`, `T`) = `T`. Test type `void`.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 void f1(void x, void y) {
   var v = (1 > 2) ? x : y;
-  print(v);
+  print(v); // Type `void` cannot be used.
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified

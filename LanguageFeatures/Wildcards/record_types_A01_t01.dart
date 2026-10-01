@@ -11,8 +11,6 @@
 /// underscore as an optional name of a positional field.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import '../../Utils/expect.dart';
 
 typedef R1 = (int _, {String s});

@@ -9,6 +9,8 @@
 ///
 /// @description Check that UP(`T1`, `T2`) = `T2` if TOP(`T2`) and TOP(`T1`)
 /// (which implies `T1 != T2`). Test `FutureOr<dynamic>`.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -19,128 +21,177 @@ import 'up_lib.dart';
 void f1(FutureOr<dynamic> d, num n) async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  // See README.md for an explanation of each step in the checks below.
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f2<X extends num>(FutureOr<dynamic> d, X n) async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f3(FutureOr<dynamic> d) async {
   var v = (1 > 2) ? null : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f4(FutureOr<dynamic> d, Never n) async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f5(FutureOr<dynamic> d, Function n) async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f6(FutureOr<dynamic> d, Record n) async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f7(FutureOr<dynamic> d, FutureOr<int> n) async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f8(FutureOr<dynamic> d, String? n) async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f9(FutureOr<dynamic> d, C n) async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f10(FutureOr<dynamic> d, D<int, String> n)  async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f11(FutureOr<dynamic> d, FPositional n) async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f12(FutureOr<dynamic> d, FNamed n) async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f13(FutureOr<dynamic> d, Rec n) async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f14(FutureOr<dynamic> d, E n) async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f15(FutureOr<dynamic> d, ET n) async {
   var v = (1 > 2) ? n : d;
   v.expectStaticType<Exactly<FutureOr<dynamic>>>();
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void f16(FutureOr<dynamic> d, Future<Object?> n) async {
   var v = (1 > 2) ? n : d;
-  if (1 > 2) {
-    (await v).checkDynamic;
-  }
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
 }
 
 void main() {

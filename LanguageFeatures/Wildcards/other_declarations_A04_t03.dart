@@ -11,8 +11,6 @@
 /// function named `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 void _() {}
 
 int _ = 1;

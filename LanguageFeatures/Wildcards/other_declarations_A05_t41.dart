@@ -10,8 +10,6 @@
 /// member named `_`. Test a static setter vs other extension members conflict.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class A {}
 
 extension E1 on A {

@@ -11,8 +11,6 @@
 /// named `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 extension type _(int id) {}
 
 int _ = 1;

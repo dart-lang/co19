@@ -10,8 +10,6 @@
 /// top-level variable named `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 var _, _;
 //     ^
 // [analyzer] unspecified

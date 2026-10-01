@@ -10,8 +10,6 @@
 /// used.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class A {}
 extension _ on A {
   static int s = 42;

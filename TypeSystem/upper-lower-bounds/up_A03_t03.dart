@@ -9,6 +9,8 @@
 ///
 /// @description Check that UP(`T1`, `T2`) = `T1` if TOP(`T1`) and not TOP(`T2`)
 /// (which implies `T1 != T2`).
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -19,6 +21,7 @@ void f1(dynamic d, num n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f2<X extends num>(dynamic d, X n) {
@@ -26,6 +29,7 @@ void f2<X extends num>(dynamic d, X n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f3(dynamic d) {
@@ -33,6 +37,7 @@ void f3(dynamic d) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f4(dynamic d, Never n) {
@@ -40,6 +45,7 @@ void f4(dynamic d, Never n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f5(dynamic d, Function n) {
@@ -47,6 +53,7 @@ void f5(dynamic d, Function n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f6(dynamic d, Record n) {
@@ -54,6 +61,7 @@ void f6(dynamic d, Record n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f7(dynamic d, FutureOr<int> n) {
@@ -61,6 +69,7 @@ void f7(dynamic d, FutureOr<int> n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f8(dynamic d, String? n) {
@@ -68,6 +77,7 @@ void f8(dynamic d, String? n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f9(dynamic d, C n) {
@@ -75,6 +85,7 @@ void f9(dynamic d, C n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f10(dynamic d, D<int, String> n) {
@@ -82,6 +93,7 @@ void f10(dynamic d, D<int, String> n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f11(dynamic d, FPositional n) {
@@ -89,6 +101,7 @@ void f11(dynamic d, FPositional n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f12(dynamic d, FNamed n) {
@@ -96,6 +109,7 @@ void f12(dynamic d, FNamed n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f13(dynamic d, Rec n) {
@@ -103,6 +117,7 @@ void f13(dynamic d, Rec n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f14(dynamic d, E n) {
@@ -110,6 +125,7 @@ void f14(dynamic d, E n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f15(dynamic d, ET n) {
@@ -117,6 +133,7 @@ void f15(dynamic d, ET n) {
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void main() {

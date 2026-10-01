@@ -11,8 +11,6 @@
 /// `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class B {}
 extension _ on B {}
 

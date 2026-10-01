@@ -10,8 +10,6 @@
 /// formal parameter named `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class C1 {
   void foo(covariant num _) {}
   void bar([covariant num _ = 0]) {}

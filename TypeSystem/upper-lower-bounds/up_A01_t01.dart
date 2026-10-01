@@ -7,6 +7,8 @@
 /// - UP(`T`, `T`) = `T`
 ///
 /// @description Check that UP(`T`, `T`) = `T`
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
@@ -27,9 +29,11 @@ void f2(Object x, Object y) {
 
 void f3(dynamic x, dynamic y) {
   var v = (1 > 2) ? x : y;
+  // See README.md for an explanation of each step in the checks below.
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f4(void x, void y) {
@@ -42,9 +46,11 @@ void f4(void x, void y) {
 void f5() {
   var v = (1 > 2) ? null : null;
   // For historical reasons type of `v` inferred as `dynamic`
+  // See README.md for an explanation of each step in the checks below.
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f6(Never x, Never y) {

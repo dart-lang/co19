@@ -2,8 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion The extension also introduces a complete getter for the
-/// representation variable.
+/// @assertion That primary constructor's parameter declaration is also an
+/// introductory and complete getter declaration for a getter with the same name
+/// and type as the parameter declaration.
 ///
 /// @description Checks that a getter for the representation variable can be
 /// augmented by an incomplete getter declaration.

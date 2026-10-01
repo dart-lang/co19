@@ -11,8 +11,6 @@
 /// constant named `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 const _ = 42;
 
 int _ = 1;

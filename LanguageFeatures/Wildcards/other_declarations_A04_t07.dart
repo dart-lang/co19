@@ -11,8 +11,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 59623
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 enum _ {e1;}
 
 int _ = 1;

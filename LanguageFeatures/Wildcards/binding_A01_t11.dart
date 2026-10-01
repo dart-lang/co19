@@ -9,8 +9,6 @@
 /// can be invoked
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class C {
   C(_);
   C.constructor([int _ = 1]);

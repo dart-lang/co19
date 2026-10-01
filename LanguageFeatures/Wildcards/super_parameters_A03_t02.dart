@@ -10,8 +10,6 @@
 /// the scope of the initializer list.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class A {
   final x;
   const A(this.x);

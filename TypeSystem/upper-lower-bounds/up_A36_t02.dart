@@ -14,14 +14,17 @@
 /// is TOP or OBJECT. Note that `FutureOr<...>` is never BOTTOM, NULL, an
 /// intersection type, a type of the form `U?`, a type variable, `Function`, a
 /// function type, `Record`, or a record type. Test `Future<void>`.
+/// @note README.md contains a detailed explanation of why and how we are
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
 
-void f1(FutureOr<int> t1, Future<void> t2) {
+void f1(FutureOr<int> t1, Future<void> t2) async {
   // UP(FutureOr<int>, Future<void>) = FutureOr<UP(int, void)> = FutureOr<void>
   var v = (1 > 2) ? t1 : t2;
-  print(await v); // Check that type `void` cannot be used.
+  print(v); // Rejects `void`
+  print(await v); // Type `void` cannot be used.
 //      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -11,8 +11,6 @@
 /// getter named `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 int get _ => 0;
 
 int _ = 1;

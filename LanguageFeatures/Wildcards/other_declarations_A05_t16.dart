@@ -10,8 +10,6 @@
 /// member named `_`. Test a static method vs other mixin members conflict.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class ContainsWildcardVariable {
   int _ = 0;
 }

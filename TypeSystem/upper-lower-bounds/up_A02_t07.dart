@@ -10,41 +10,26 @@
 ///   - `T2` otherwise
 ///
 /// @description Check that UP(`T1`, `T2`) = `T1` if `T1 != T2` and TOP(`T1`)
-/// and TOP(`T2`) and MORETOP(`T1`, `T2`) or `T2` otherwise. Test that `dynamic`
-/// is more top than `Object?`.
+/// and TOP(`T2`) and MORETOP(`T1`, `T2`) or `T2` otherwise. Test type
+/// `FutureOr<void>`.
 /// @note README.md contains a detailed explanation of why and how we are
 /// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
-import '../../Utils/static_type_helper.dart';
 
-void f1(dynamic x, Object? y) {
-  var v = (1 > 2) ? x : y; // MORETOP(dynamic, Object?) = true
+FutureOr<void> getFutureOrVoid() {}
+
+void f1(dynamic y) {
+  var v = (1 > 2) ? getFutureOrVoid() : y; // MORETOP(FutureOr<void>, dynamic) = false
   if (1 > 2) {
     v.checkDynamic;
   }
   v = 1; // Rejects `Never`
 }
 
-void f2(dynamic x, FutureOr<Object?> y) {
-  var v = (1 > 2) ? x : y; // MORETOP(dynamic, FutureOr<Object?>) = true
-  if (1 > 2) {
-    v.checkDynamic;
-  }
-  v = 1; // Rejects `Never`
-}
-
-void f3(Object? x, dynamic y) {
-  var v = (1 > 2) ? x : y; // MORETOP(Object?, dynamic) = false
-  if (1 > 2) {
-    v.checkDynamic;
-  }
-  v = 1; // Rejects `Never`
-}
-
-void f4(FutureOr<Object?> x, dynamic y) {
-  var v = (1 > 2) ? x : y; // MORETOP(FutureOr<Object?>, dynamic) = false
+void f2(dynamic y) {
+  var v = (1 > 2) ? y : getFutureOrVoid(); // MORETOP(dynamic, FutureOr<void>) = true
   if (1 > 2) {
     v.checkDynamic;
   }
@@ -52,8 +37,6 @@ void f4(FutureOr<Object?> x, dynamic y) {
 }
 
 void main() {
-  f1(1, 2);
-  f2(1, 2);
-  f3(1, 2);
-  f4(1, 2);
+  f1(1);
+  f2(2);
 }

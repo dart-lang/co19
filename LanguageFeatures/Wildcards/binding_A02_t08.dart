@@ -10,8 +10,6 @@
 /// declarations named `_`. Test parameters of generic types.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class C<_, _, _ extends num> {}
 
 mixin M<_, _, _ extends num> {}

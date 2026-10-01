@@ -10,8 +10,6 @@
 /// parameter with name `_` inside the initializer list.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 int _ = 0;
 
 class C1 {

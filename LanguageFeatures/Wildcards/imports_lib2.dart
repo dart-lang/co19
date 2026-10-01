@@ -9,8 +9,6 @@
 /// provides access to the imported library.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 extension ExtString on String {
   int get tripleLength => this.length * 3;
 }

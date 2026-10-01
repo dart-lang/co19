@@ -10,8 +10,6 @@
 /// top-level getter named `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 int get _ => 42;
 int get _ => 43;
 //      ^

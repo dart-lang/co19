@@ -20,8 +20,6 @@
 /// a local variable named `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import '../../Utils/expect.dart';
 
 int _ = 42;

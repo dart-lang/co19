@@ -9,8 +9,6 @@
 /// scope by a wildcarded declaration. Test type parameters of generic functions
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 void topLevelFunction<_>() {
   print(_);
 //      ^

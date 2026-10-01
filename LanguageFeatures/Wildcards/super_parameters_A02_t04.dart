@@ -10,8 +10,6 @@
 /// redirecting and factory constructors
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class A {
   int x;
   A(this.x);

@@ -13,7 +13,6 @@
 
 import 'dart:async';
 
-import '../../Utils/expect.dart' show Expect;
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
@@ -102,6 +101,40 @@ void f15<X extends num>(void Function(X x) v1, void Function(X y) v2) {
   v.expectStaticType<Exactly<void Function(X)>>();
 }
 
+void f16<X>(void Function(X x) v1, void Function(X y) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(X)>>();
+}
+
+void f17(
+  void Function(FutureOr<Object?> x) v1,
+  void Function(FutureOr<Object?> y) v2,
+) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(FutureOr<Object?>)>>();
+  v = (o) {
+    // See README.md for an explanation of each step in the checks below.
+    o.expectStaticType<Exactly<Object?>>();
+    o = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object?>>>();
+    o = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
+    o = probeFutureOr2()..expectStaticType<Exactly<Future<FutureOr<Object>>>>();
+  };
+}
+
+void f18(
+  void Function(FutureOr<Object> x) v1,
+  void Function(FutureOr<Object> y) v2,
+) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(FutureOr<Object>)>>();
+  v = (o) {
+    // See README.md for an explanation of each step in the checks below.
+    o.expectStaticType<Exactly<Object>>();
+    o = probeFuture()..expectStaticType<Exactly<Future<Object>>>();
+    o = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
+  };
+}
+
 void main() {
   f1((o) {}, (o) {});
   f2((Null o) {}, (Null o) {});
@@ -118,5 +151,7 @@ void main() {
   f13((E o) {}, (E o) {});
   f14((ET o) {}, (ET o) {});
   f15((num o) {}, (num o) {});
-  f15<int>((int o) {}, (int o) {});
+  f16<int>((int o) {}, (int o) {});
+  f17((FutureOr<Object?> o) {}, (FutureOr<Object?> o) {});
+  f18((FutureOr<Object> o) {}, (FutureOr<Object> o) {});
 }
