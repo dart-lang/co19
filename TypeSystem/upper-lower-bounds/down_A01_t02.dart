@@ -6,9 +6,10 @@
 /// DOWN(`T1`, `T2`) as follows.
 /// - DOWN(`T`, `T`) = `T`
 ///
-/// @description Check that DOWN(`T`, `T`) = `T`.
+/// @description Check that DOWN(`T`, `T`) = `T`. Test types `Object` and
+/// `void`.
 /// @note README.md contains a detailed explanation of why and how we are
-/// checking the type of TOP and OBJECT. Test types `Object` and `void`.
+/// checking the type of TOP and OBJECT.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
