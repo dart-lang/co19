@@ -4,8 +4,8 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - The introductory constructor is marked `factory` and the augmenting
-/// constructor is not, or vice versa.
+/// - The augmenting declaration and augmented declaration do not have the same
+///   `const` and `factory` modifiers.
 ///
 /// @description Checks that it is a compile-time error if the introductory
 /// constructor is marked `factory` and the augmenting constructor is not.

@@ -5,8 +5,9 @@
 /// @assertion It is a compile-time error if:
 /// ...
 /// - No declaration in the augmentation chain specifies a default value for an
-///   optional parameter whose declared type is potentially non-nullable, and
-///   the constructor is not a redirecting factory.
+///   optional parameter whose declared type is potentially non-nullable, unless
+///   the constructor (after augmentations are applied) is a redirecting factory
+///   constructor.
 ///
 /// @description Checks that it is a compile-time error if no declaration in the
 /// augmentation chain specifies a default value for an optional parameter whose

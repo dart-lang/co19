@@ -4,8 +4,8 @@
 
 /// @assertion It's a compile-time error if:
 /// ...
-/// The augmentation chain has exactly one specification of a default value for
-/// an optional parameter, and the constructor is a redirecting factory.
+/// - A constructor declaration has a default value for a parameter, and there
+///   is a redirecting factory constructor declaration for the same constructor.
 ///
 /// @description Checks that it is a compile-time error to declare an augmenting
 /// redirecting factory constructor if an introductory constructor has any

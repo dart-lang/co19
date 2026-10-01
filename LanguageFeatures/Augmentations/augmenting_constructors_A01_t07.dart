@@ -23,8 +23,8 @@
 ///   - They both have the modifier `required`, or none of them have it.
 /// ...
 /// It is a compile-time error if:
-/// - The signature of the augmenting constructor does not match the signature
-///   of the corresponding introductory constructor.
+/// - The signature of an augmenting constructor does not match the signature of
+///   the corresponding introductory declaration.
 ///
 /// @description Checks that it is a compile-time error if parameter names of
 /// the constructor augmentation does not match the original constructor.

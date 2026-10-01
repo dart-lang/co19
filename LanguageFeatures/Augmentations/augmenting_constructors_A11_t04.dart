@@ -2,8 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion An incomplete constructor can be completed by adding an
-/// initializer list and/or a body, or by adding a redirection.
+/// @assertion Augmenting a constructor works similarly to augmenting a function,
+/// with some extra rules to handle features unique to constructors, like
+/// redirections and initializer lists, and the primary constructor syntax.
 ///
 /// @description Check that an incomplete factory constructor can be completed.
 /// Test the case when the constructor is declared using the keyword `factory`.

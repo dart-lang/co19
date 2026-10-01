@@ -28,8 +28,8 @@
 ///     doesn't have `_` as its name.
 /// ...
 /// It is a compile-time error if:
-/// - The signature of the augmenting function does not match the signature of
-///   the augmented function.
+/// - The signature of an augmenting constructor does not match the signature of
+///   the corresponding introductory declaration.
 ///
 /// @description Checks that it is not an error if the name of a positional
 /// parameter in the original constructor is `_` and the name of this parameter
