@@ -4,7 +4,8 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - A factory constructor is incomplete after all augmentations are applied.
+/// - A constructor is not complete after all augmentations are applied, unless
+///   it's a generative constructor.
 ///
 /// @description Checks that it is a compile-time error if a factory constructor
 /// is incomplete after all augmentations are applied.
