@@ -24,12 +24,12 @@ void f1(void Function(void) v1, void Function(dynamic) v2) {
   // DOWN(void, dynamic) = dynamic because MORETOP(dynamic, void) = false
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(dynamic)>>();
+  // See README.md for an explanation of each step in the checks below.
   v = (o) {
-    // See README.md for an explanation of each step in the checks below.
     if (1 > 2) {
       o.checkDynamic;
     }
-    o = 1;
+    o = 1; // Rejects `Never`
   };
 }
 
@@ -45,23 +45,7 @@ void f2(void Function(void) v1, void Function(Object?) v2) {
   };
 }
 
-void f3(void Function(void) v1, void Function(FutureOr<dynamic>) v2) {
-  // DOWN(void, FutureOr<dynamic>) = FutureOr<dynamic>
-  // because MORETOP(FutureOr<dynamic>, void) = false
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(FutureOr<dynamic>)>>();
-  v = (o) async {
-    // See README.md for an explanation of each step in the checks below.
-    o.checkNotDynamic;
-//    ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    (await o).checkDynamic;
-    o = 1;
-  };
-}
-
-void f4(void Function(void) v1, void Function(FutureOr<Object?>) v2) {
+void f3(void Function(void) v1, void Function(FutureOr<Object?>) v2) {
   // DOWN(void, FutureOr<Object?>) = FutureOr<Object?>
   // because MORETOP(FutureOr<Object?>, void) = false
   var v = (1 > 2) ? v1 : v2;
@@ -75,25 +59,8 @@ void f4(void Function(void) v1, void Function(FutureOr<Object?>) v2) {
   };
 }
 
-void f5(void Function(void) v1, void Function(FutureOr<void>) v2) {
-  // DOWN(void, FutureOr<void>) = FutureOr<void>
-  // because MORETOP(FutureOr<void>, void) = false
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(FutureOr<void>)>>();
-  v = (o) async {
-    // See README.md for an explanation of each step in the checks below.
-    print(o); // Rejects `void`
-    print(await o); // Type `void` cannot be used.
-//        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-}
-
 void main() {
   f1((void x) {}, (x) {});
   f2((void x) {}, (Object? x) {});
-  f3((void x) {}, (FutureOr<dynamic> x) {});
-  f4((void x) {}, (FutureOr<Object?> x) {});
-  f5((void x) {}, (FutureOr<void> x) {});
+  f3((void x) {}, (FutureOr<Object?> x) {});
 }

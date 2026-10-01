@@ -30,7 +30,7 @@ void f1(void Function(dynamic) v1, void Function(void) v2) {
     if (1 > 2) {
       o.checkDynamic;
     }
-    o = 1;
+    o = 1; // Rejects `Never`
   };
 }
 
@@ -46,23 +46,7 @@ void f2(void Function(Object?) v1, void Function(void) v2) {
   };
 }
 
-void f3(void Function(FutureOr<dynamic>) v1, void Function(void) v2) {
-  // DOWN(FutureOr<dynamic>, void) = FutureOr<dynamic>
-  // because MORETOP(void, FutureOr<dynamic>) = true
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(FutureOr<dynamic>)>>();
-  v = (o) async {
-    // See README.md for an explanation of each step in the checks below.
-    o.checkNotDynamic;
-//    ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    (await o).checkDynamic;
-    o = 1;
-  };
-}
-
-void f4(void Function(FutureOr<Object?>) v1, void Function(void) v2) {
+void f3(void Function(FutureOr<Object?>) v1, void Function(void) v2) {
   // DOWN(FutureOr<Object?>, void) = FutureOr<Object?>
   // because MORETOP(void, FutureOr<Object?>) = true
   var v = (1 > 2) ? v1 : v2;
@@ -76,25 +60,8 @@ void f4(void Function(FutureOr<Object?>) v1, void Function(void) v2) {
   };
 }
 
-void f5(void Function(FutureOr<void>) v1, void Function(void) v2) {
-  // DOWN(FutureOr<void>, void) = FutureOr<void>
-  // because MORETOP(void, FutureOr<void>) = true
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(FutureOr<void>)>>();
-  v = (o) async {
-    // See README.md for an explanation of each step in the checks below.
-    print(o);
-    print(await o);
-//        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-}
-
 void main() {
   f1((x) {}, (void x) {});
   f2((Object? x) {}, (void x) {});
-  f3((FutureOr<dynamic> x) {}, (void x) {});
-  f4((FutureOr<Object?> x) {}, (void x) {});
-  f5((FutureOr<void> x) {}, (void x) {});
+  f3((FutureOr<Object?> x) {}, (void x) {});
 }

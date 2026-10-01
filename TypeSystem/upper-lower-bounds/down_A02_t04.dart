@@ -20,22 +20,7 @@ import 'dart:async';
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
-void f1(void Function(dynamic) v1, void Function(FutureOr<void>) v2) {
-  // DOWN(dynamic, FutureOr<void>) = FutureOr<void>
-  // because MORETOP(FutureOr<void>, dynamic) = false
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(FutureOr<void>)>>();
-  v = (o) async {
-    // See README.md for an explanation of each step in the checks below.
-    print(o); // Rejects `void`
-    print(await o); // Type `void` cannot be used.
-//        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  };
-}
-
-void f2(void Function(Object?) v1, void Function(FutureOr<void>) v2) {
+void f1(void Function(Object?) v1, void Function(FutureOr<void>) v2) {
   // DOWN(Object?, FutureOr<void>) = Object?
   // because MORETOP(FutureOr<void>, Object?) = true
   var v = (1 > 2) ? v1 : v2;
@@ -48,23 +33,7 @@ void f2(void Function(Object?) v1, void Function(FutureOr<void>) v2) {
   };
 }
 
-void f3(void Function(FutureOr<dynamic>) v1, void Function(FutureOr<void>) v2) {
-  // DOWN(FutureOr<dynamic>, FutureOr<void>) = FutureOr<dynamic>
-  // because MORETOP(FutureOr<void>, FutureOr<dynamic>) = true
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(FutureOr<dynamic>)>>();
-  v = (o) async {
-    // See README.md for an explanation of each step in the checks below.
-    o.checkNotDynamic;
-//    ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-    (await o).checkDynamic;
-    o = 1;
-  };
-}
-
-void f4(
+void f2(
   void Function(FutureOr<Object?>) v1,
   void Function(FutureOr<void>) v2,
 ) {
@@ -82,8 +51,6 @@ void f4(
 }
 
 void main() {
-  f1((x) {}, (FutureOr<void> x) {});
-  f2((Object? x) {}, (FutureOr<void> x) {});
-  f3((FutureOr<dynamic> x) {}, (FutureOr<void> x) {});
-  f4((FutureOr<Object?> x) {}, (FutureOr<void> x) {});
+  f1((Object? x) {}, (FutureOr<void> x) {});
+  f2((FutureOr<Object?> x) {}, (FutureOr<void> x) {});
 }

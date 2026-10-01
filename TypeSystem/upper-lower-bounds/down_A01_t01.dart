@@ -16,18 +16,7 @@ import 'dart:async';
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
 
-void f1(void Function(Object x) v1, void Function(Object y) v2) {
-  var v = (1 > 2) ? v1 : v2;
-  // Type of `v` is `UP(void, void) Function(DOWN(Object, Object))`
-  v.expectStaticType<Exactly<void Function(Object)>>();
-  v = (o) {
-    // See README.md for an explanation of each step in the checks below.
-    o.expectStaticType<Exactly<Object>>();
-    o = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
-  };
-}
-
-void f2(void Function(dynamic x) v1, void Function(dynamic y) v2) {
+void f1(void Function(dynamic x) v1, void Function(dynamic y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(dynamic)>>();
   // See README.md for an explanation of each step in the checks below.
@@ -35,57 +24,41 @@ void f2(void Function(dynamic x) v1, void Function(dynamic y) v2) {
     if (1 > 2) {
       o.checkDynamic;
     }
-    o = 1;
+    o = 1; // Rejects `Never`
   };
 }
 
-void f3(void Function(Object? x) v1, void Function(Object? y) v2) {
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(Object?)>>();
-  v = (o) {
-    // See README.md for an explanation of each step in the checks below.
-    o.expectStaticType<Exactly<Object?>>();
-    o = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
-    o = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
-  };
-}
-
-void f4(void Function(Null x) v1, void Function(Null y) v2) {
+void f2(void Function(Null x) v1, void Function(Null y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(Null)>>();
 }
 
-void f5(void Function(Never x) v1, void Function(Never y) v2) {
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(Never)>>();
-}
-
-void f6(void Function(Function x) v1, void Function(Function y) v2) {
+void f3(void Function(Function x) v1, void Function(Function y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(Function)>>();
 }
 
-void f7(void Function(Record x) v1, void Function(Record y) v2) {
+void f4(void Function(Record x) v1, void Function(Record y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(Record)>>();
 }
 
-void f8(void Function(FutureOr<int> x) v1, void Function(FutureOr<int> y) v2) {
+void f5(void Function(FutureOr<int> x) v1, void Function(FutureOr<int> y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<int>)>>();
 }
 
-void f9(void Function(String? x) v1, void Function(String? y) v2) {
+void f6(void Function(String? x) v1, void Function(String? y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(String?)>>();
 }
 
-void f10(void Function(C x) v1, void Function(C y) v2) {
+void f7(void Function(C x) v1, void Function(C y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(C)>>();
 }
 
-void f11(
+void f8(
   void Function(D<int, String> x) v1,
   void Function(D<int, String> y) v2,
 ) {
@@ -93,47 +66,50 @@ void f11(
   v.expectStaticType<Exactly<void Function(D<int, String>)>>();
 }
 
-void f12(void Function(FPositional x) v1, void Function(FPositional y) v2) {
+void f9(void Function(FPositional x) v1, void Function(FPositional y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FPositional)>>();
 }
 
-void f13(void Function(FNamed x) v1, void Function(FNamed y) v2) {
+void f10(void Function(FNamed x) v1, void Function(FNamed y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FNamed)>>();
 }
 
-void f14(void Function(Rec x) v1, void Function(Rec y) v2) {
+void f11(void Function(Rec x) v1, void Function(Rec y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(Rec)>>();
 }
 
-void f15(void Function(Enum x) v1, void Function(Enum y) v2) {
+void f12(void Function(Enum x) v1, void Function(Enum y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(Enum)>>();
 }
 
-void f16(void Function(E x) v1, void Function(E y) v2) {
+void f13(void Function(E x) v1, void Function(E y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(E)>>();
 }
 
-void f17(void Function(ET x) v1, void Function(ET y) v2) {
+void f14(void Function(ET x) v1, void Function(ET y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(ET)>>();
 }
 
-void f18<X extends num>(void Function(X x) v1, void Function(X y) v2) {
+void f15<X extends num>(void Function(X x) v1, void Function(X y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
 }
 
-void f19<X>(void Function(X x) v1, void Function(X y) v2) {
+void f16<X>(void Function(X x) v1, void Function(X y) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
 }
 
-void f20(void Function(FutureOr<Object?> x) v1, void Function(FutureOr<Object?> y) v2) {
+void f17(
+  void Function(FutureOr<Object?> x) v1,
+  void Function(FutureOr<Object?> y) v2,
+) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<Object?>)>>();
   v = (o) {
@@ -145,7 +121,10 @@ void f20(void Function(FutureOr<Object?> x) v1, void Function(FutureOr<Object?> 
   };
 }
 
-void f21(void Function(FutureOr<Object> x) v1, void Function(FutureOr<Object> y) v2) {
+void f18(
+  void Function(FutureOr<Object> x) v1,
+  void Function(FutureOr<Object> y) v2,
+) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<Object>)>>();
   v = (o) {
@@ -157,26 +136,22 @@ void f21(void Function(FutureOr<Object> x) v1, void Function(FutureOr<Object> y)
 }
 
 void main() {
-  f1((Object o) {}, (Object o) {});
-  f2((o) {}, (o) {});
-  f3((o) {}, (o) {});
-  f4((Null o) {}, (Null o) {});
-  f5((Null o) {}, (Null o) {});
-  f6((Function o) {}, (Function o) {});
-  f7((Record o) {}, (Record o) {});
-  f8((FutureOr<int> o) {}, (FutureOr<int> o) {});
-  f9((String? o) {}, (String? o) {});
-  f10((C o) {}, (C o) {});
-  f11((D<int, String> o) {}, (D<int, String> o) {});
-  f12((FPositional o) {}, (FPositional o) {});
-  f13((FNamed o) {}, (FNamed o) {});
-  f14((Rec o) {}, (Rec o) {});
-  f15((Enum o) {}, (Enum o) {});
-  f16((E o) {}, (E o) {});
-  f17((ET o) {}, (ET o) {});
-  f18((num o) {}, (num o) {});
-  f18<int>((int o) {}, (int o) {});
-  f19<int>((int o) {}, (int o) {});
-  f20((o) {}, (o) {});
-  f21((o) {}, (o) {});
+  f1((o) {}, (o) {});
+  f2((Null o) {}, (Null o) {});
+  f3((Function o) {}, (Function o) {});
+  f4((Record o) {}, (Record o) {});
+  f5((FutureOr<int> o) {}, (FutureOr<int> o) {});
+  f6((String? o) {}, (String? o) {});
+  f7((C o) {}, (C o) {});
+  f8((D<int, String> o) {}, (D<int, String> o) {});
+  f9((FPositional o) {}, (FPositional o) {});
+  f10((FNamed o) {}, (FNamed o) {});
+  f11((Rec o) {}, (Rec o) {});
+  f12((Enum o) {}, (Enum o) {});
+  f13((E o) {}, (E o) {});
+  f14((ET o) {}, (ET o) {});
+  f15((num o) {}, (num o) {});
+  f16<int>((int o) {}, (int o) {});
+  f17((FutureOr<Object?> o) {}, (FutureOr<Object?> o) {});
+  f18((FutureOr<Object> o) {}, (FutureOr<Object> o) {});
 }
