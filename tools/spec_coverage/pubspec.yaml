@@ -1,0 +1,9 @@
+name: spec_coverage
+description: "Dart specification coverage CLI tool"
+
+publish_to: 'none'
+
+version: 0.0.1
+
+environment:
+  sdk: '^3.7.0'
