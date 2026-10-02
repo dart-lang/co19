@@ -1,4 +1,4 @@
-// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -26,50 +26,54 @@
 /// - The signature of an augmenting constructor does not match the signature of
 ///   the corresponding introductory declaration.
 ///
-/// @description Checks that it is a compile-time error if the signature of the
-/// constructor augmentation does not match the original constructor. Test
-/// incorrect names of named parameters.
+/// @description Checks that it is not an error if an augmentation uses a
+/// parameter whose type annotation uses an import prefix.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=augmentations
+// SharedOptions=--enable-experiment=augmentations,enhanced-parts
+
+import 'augmentation_libraries_lib.dart';
+
+part 'augmenting_constructors_A02_t19_part.dart';
 
 class C {
-  C({int x = 0});
-}
-
-augment class C {
-  augment C({int y});
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  AL? a;
+  C(this.a);
+  C.foo([this.a]);
+  C.bar({this.a});
+  C.baz({required this.a});
 }
 
 enum E {
-  e0;
-  const E({int x = 0});
+  e0(const AL()),
+  e1.foo(const AL()),
+  e2.bar(a: const AL()),
+  e3.baz(a: const AL());
+
+  final AL? a;
+  const E(this.a);
+  const E.foo([this.a]);
+  const E.bar({this.a});
+  const E.baz({required this.a});
 }
 
-augment enum E {
-  ;
-  augment const E({int y});
-//              ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension type ET(int id) {
-  ET.baz({int x = 0}): this.id = 0;
-}
-
-augment extension type ET {
-  augment ET.baz({int y});
-//        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+extension type ET._(AL? a) {
+  ET(this.a);
+  ET.foo([this.a]);
+  ET.bar({this.a});
+  ET.baz({required this.a});
 }
 
 main() {
-  print(C);
+  C(AL());
+  C.foo(AL());
+  C.bar(a: AL());
+  C.baz(a: AL());
+
   print(E);
-  print(ET);
+
+  ET(AL());
+  ET.foo(AL());
+  ET.bar(a: AL());
+  ET.baz(a: AL());
 }
