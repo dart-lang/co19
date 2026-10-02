@@ -2,74 +2,119 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if:
+/// @assertion We say that an augmenting function or constructor's signature
+/// matches an introductory signature if:
+/// - It has the same number of type parameters with the same type parameter
+///   names (same identifiers) and bounds (after type annotation inheritance),
+///   if any (same types, even if they may not be written exactly the same in
+///   case one of the declarations needs to refer to a type using an import
+///   prefix).
+/// - The return type (if not omitted) is the same as the introductory
+///   declaration's return type.
+/// - It has the same number of positional parameters as the introductory
+///   declaration, and the same number of those are optional.
+/// - It has the same set of named parameter names as the introductory
+///   declaration.
+/// - For each corresponding pair of parameters:
+///   - They have the same name. This is trivial for named parameters, but may
+///     fail to hold for positional parameters.
+///   - They have the same type (or the augmenting declaration omits the type).
+///   - They both have the modifier `covariant`, or none of them have it.
+///   - They both have the modifier `required`, or none of them have it.
 /// ...
-/// - More than one declaration in the augmentation chain specifies a default
-///   value for the same optional parameter. This is an error even in the case
-///   where all of them are identical.
+/// It is a compile-time error if:
+/// - The signature of an augmenting constructor does not match the signature of
+///   the corresponding introductory declaration.
 ///
-/// @description Checks that it is not an error if an augmenting constructor
-/// specifies default values for optional parameters.
+/// @description Checks that it is a compile-time error if the signature of the
+/// constructor augmentation does not match the original constructor. Test
+/// incorrect optionality of parameters in an augmenting declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-import '../../Utils/expect.dart';
-
 class C {
-  int x;
-  C([int x]);
-  C.c1({int x});
+  C(int? x);
+  C.foo([int? y = 0]);
+  C.bar({int? z = 0});
+  C.baz({required int? v});
 }
 
 augment class C {
-  augment C([int x = 1]) : x = x;
-  augment C.c1({int x = 2}) : x = x;
+  augment C([int? x]);
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C.foo(int? y);
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C.bar({required int? z});
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C.baz({int? v});
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 enum E {
-  e0, e1.c1();
-
-  final int x;
-  const E([int x]);
-  const E.c1({int x});
+  e0(0);
+  const E(int? x);
+  const E.foo([int? y = 0]);
+  const E.bar({int? z = 0});
+  const E.baz({required int? v});
 }
 
 augment enum E {
   ;
-  augment const E([int x = 1]) : x = x;
-  augment const E.c1({int x = 2}) : x = x;
+  augment const E([int? x]);
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo(int? y);
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.bar({required int? z});
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.baz({int? v});
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-String log = "";
-
-extension type ET(int id) {
-  ET.c1(int id, [int x]);
-  ET.c2(int id, {int x});
+extension type ET(int? id) {
+  ET.foo(int? x): this.id = 0;
+  ET.bar([int? y = 0]): this.id = 0;
+  ET.baz({int? z = 0}): this.id = 0;
+  ET.qux({required int? v}): this.id = 0;
 }
 
 augment extension type ET {
-  augment ET.c1(this.id, [int x = 1]) : assert(() {
-    log = "$x";
-    return true;
-  }());
-  augment ET.c2(this.id, {int x = 2}) : assert(() {
-    log = "$x";
-    return true;
-  }());
+  augment ET.foo([int? x]);
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.bar(int? y);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.baz({required int? z});
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.qux({int? v});
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  Expect.equals(1, C().x);
-  Expect.equals(2, C.c1().x);
-  Expect.equals(1, E.e0.x);
-  Expect.equals(2, E.e1.x);
-  ET.c1(0);
-  if (assertStatementsEnabled) {
-    Expect.equals("1", log);
-  }
-  ET.c2(0);
-  if (assertStatementsEnabled) {
-    Expect.equals("2", log);
-  }
+  print(C);
+  print(E);
+  print(ET);
 }

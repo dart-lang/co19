@@ -21,55 +21,38 @@
 ///   - They have the same type (or the augmenting declaration omits the type).
 ///   - They both have the modifier `covariant`, or none of them have it.
 ///   - They both have the modifier `required`, or none of them have it.
-/// - For all positional parameters:
-///   - The augmenting function's parameter name is `_`, or
-///   - The augmenting function's parameter name is the same as the name of the
-///     corresponding positional parameter in every preceding declaration that
-///     doesn't have `_` as its name.
 /// ...
 /// It is a compile-time error if:
 /// - The signature of an augmenting constructor does not match the signature of
 ///   the corresponding introductory declaration.
 ///
-/// @description Checks that it is a compile-time error if the name of a
-/// positional parameter in an augmenting constructor is not `_` and not equal
-/// to the name of this parameter in the original constructor.
+/// @description Checks that it is not an error if an augmentation uses a
+/// parameter whose type annotation uses an import prefix.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-part of 'augmenting_constructors_A01_t16.dart';
+part of 'augmenting_constructors_A02_t19.dart';
+import 'augmentation_libraries_lib.dart' as l;
 
 augment class C {
-  augment C(int? _y);
-//               ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C.foo([int? _y]);
-//                    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment C(l.AL? a);
+  augment C.foo([l.AL? a]);
+  augment C.bar({l.AL? a});
+  augment C.baz({required l.AL? a});
 }
 
 augment enum E {
   ;
-  augment const E(int _y);
-//                    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment const E.foo([int _y]);
-//                         ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment const E(l.AL? a);
+  augment const E.foo([l.AL? a]);
+  augment const E.bar({l.AL? a});
+  augment const E.baz({required l.AL? a});
 }
 
 augment extension type ET {
-  augment ET.foo(int _y);
-//                   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment ET.bar([int _y]);
-//                    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  augment ET(l.AL? a);
+  augment ET.foo([l.AL? a]);
+  augment ET.bar({l.AL? a});
+  augment ET.baz({required l.AL? a});
 }

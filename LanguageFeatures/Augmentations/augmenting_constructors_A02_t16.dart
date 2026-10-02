@@ -21,59 +21,62 @@
 ///   - They have the same type (or the augmenting declaration omits the type).
 ///   - They both have the modifier `covariant`, or none of them have it.
 ///   - They both have the modifier `required`, or none of them have it.
+/// - For all positional parameters:
+///   - The augmenting function's parameter name is `_`, or
+///   - The augmenting function's parameter name is the same as the name of the
+///     corresponding positional parameter in every preceding declaration that
+///     doesn't have `_` as its name.
 /// ...
 /// It is a compile-time error if:
 /// - The signature of an augmenting constructor does not match the signature of
 ///   the corresponding introductory declaration.
 ///
-/// @description Checks that it is not an error if an augmentation uses a
-/// parameter whose type annotation uses an import prefix.
+/// @description Checks that it is a compile-time error if the name of a
+/// positional parameter in an augmenting constructor is not `_` and not equal
+/// to the name of this parameter in the original constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations,enhanced-parts
 
-import 'augmentation_libraries_lib.dart';
-
-part 'augmenting_constructors_A01_t19_part.dart';
+part 'augmenting_constructors_A02_t16_lib.dart';
 
 class C {
-  AL? a;
-  C(this.a);
-  C.foo([this.a]);
-  C.bar({this.a});
-  C.baz({required this.a});
+  int? _x;
+  C(int? _x);
+  C.foo([this._x]);
+}
+
+augment class C {
+  augment C(int? _);
+  augment C.foo([int? _]);
 }
 
 enum E {
-  e0(const AL()),
-  e1.foo(const AL()),
-  e2.bar(a: const AL()),
-  e3.baz(a: const AL());
+  e0(1), e1.foo(1);
 
-  final AL? a;
-  const E(this.a);
-  const E.foo([this.a]);
-  const E.bar({this.a});
-  const E.baz({required this.a});
+  final int _x;
+  const E(this._x);
+  const E.foo([this._x = 0]);
 }
 
-extension type ET._(AL? a) {
-  ET(this.a);
-  ET.foo([this.a]);
-  ET.bar({this.a});
-  ET.baz({required this.a});
+augment enum E {
+  ;
+  augment const E(int _);
+  augment const E.foo([int _]);
+}
+
+extension type ET(int _x) {
+  ET.foo(this._x);
+  ET.bar([this._x = 0]);
+}
+
+augment extension type ET {
+  augment ET.foo(int _);
+  augment ET.bar([int _]);
 }
 
 main() {
-  C(AL());
-  C.foo(AL());
-  C.bar(a: AL());
-  C.baz(a: AL());
-
+  print(C);
   print(E);
-
-  ET(AL());
-  ET.foo(AL());
-  ET.bar(a: AL());
-  ET.baz(a: AL());
+  print(ET);
 }
