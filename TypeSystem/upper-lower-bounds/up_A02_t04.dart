@@ -21,7 +21,7 @@ import '../../Utils/static_type_helper.dart';
 
 FutureOr<void> getFutureOrVoid() {}
 
-void f2(Object? y) async {
+void f1(Object? y) async {
   var v = (1 > 2) ? y : getFutureOrVoid(); // MORETOP(Object?, FutureOr<void>) = false
   v.expectStaticType<Exactly<FutureOr<void>>>();
   // v.expectStaticType<Exactly<Object?>>(); also succeeds.
@@ -33,7 +33,7 @@ void f2(Object? y) async {
 // [cfe] unspecified
 }
 
-void f3(FutureOr<dynamic> y) async {
+void f2(FutureOr<dynamic> y) async {
   var v = (1 > 2) ? y : getFutureOrVoid(); // MORETOP(FutureOr<dynamic>, FutureOr<void>) = false
   v.expectStaticType<Exactly<FutureOr<void>>>();
   print(v); // Rejects `void`
@@ -43,7 +43,7 @@ void f3(FutureOr<dynamic> y) async {
 // [cfe] unspecified
 }
 
-void f4(FutureOr<Object?> y) async {
+void f3(FutureOr<Object?> y) async {
   var v = (1 > 2) ? y : getFutureOrVoid(); // MORETOP(FutureOr<Object?>, FutureOr<void>) = false
   v.expectStaticType<Exactly<FutureOr<void>>>();
   print(v); // Rejects `void`
@@ -54,8 +54,7 @@ void f4(FutureOr<Object?> y) async {
 }
 
 void main() {
-  f1(1);
-  f2(2);
-  f3(3);
-  f4(4);
+  print(f1);
+  print(f2);
+  print(f3);
 }
