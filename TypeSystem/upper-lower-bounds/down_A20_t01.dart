@@ -16,17 +16,12 @@
 /// field types.
 /// Note that no earlier rule applies because record types are never TOP, OBJECT,
 /// NULL, BOTTOM, types of the form `T?`, type variables, function types, or
-/// `Function`.
+/// `Function`. Also, the record types used below are distinct types.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
 import '../../Utils/static_type_helper.dart';
 import 'up_lib.dart';
-
-void f1(void Function(()) v1, void Function(()) v2) {
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(())>>();
-}
 
 void f2(void Function((int,)) v1, void Function((num,)) v2) {
   // DOWN((int,), (num,)) = (DOWN(int, num),) = (int,)
@@ -122,7 +117,6 @@ void f15(void Function((E, {ET? x})) v1, void Function((E?, {ET x})) v2) {
 }
 
 void main() {
-  f1((x) {}, (x) {});
   f2((x) {}, (x) {});
   f3((x) {}, (x) {});
   f4((x) {}, (x) {});

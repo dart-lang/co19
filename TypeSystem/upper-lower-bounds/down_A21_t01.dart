@@ -12,7 +12,7 @@
 /// names of named fields, etc.).
 /// Note that no earlier rule applies because record types are never TOP, OBJECT,
 /// NULL, BOTTOM, types of the form `T?`, type variables, function types, or
-/// `Function`.
+/// `Function`. Also, the record types used below are distinct types.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
