@@ -78,7 +78,7 @@ main() {
   Expect.equals("set C", _log);
 
   Expect.equals("M", M.method());
-  Expect.equals("M", M.getter);
+  Expect.equals("get M", M.getter);
   M.setter = "set M";
   Expect.equals("set M", _log);
 
