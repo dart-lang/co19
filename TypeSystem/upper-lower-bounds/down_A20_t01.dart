@@ -15,8 +15,8 @@
 /// record type of that shape where each field type is DOWN of the corresponding
 /// field types.
 /// Note that no earlier rule applies because record types are never TOP, OBJECT,
-/// NULL, BOTTOM, types of the form `T?`, type variables, function types, or
-/// `Function`. Also, the record types used below are distinct types.
+/// NULL, BOTTOM, types of the form `T?`, type variables, or function types.
+/// Also, the record types used below are distinct types.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';

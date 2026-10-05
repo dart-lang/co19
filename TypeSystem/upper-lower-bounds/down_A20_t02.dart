@@ -14,8 +14,8 @@
 /// @description Check that if a corresponding field pair has DOWN equal to
 /// `Never`, that field of the resulting record type is `Never`.
 /// Note that no earlier rule applies because record types are never TOP, OBJECT,
-/// NULL, BOTTOM, types of the form `T?`, type variables, function types, or
-/// `Function`. Also, the record types used below are distinct types.
+/// NULL, BOTTOM, types of the form `T?`, type variables, or function types.
+/// Also, the record types used below are distinct types.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
