@@ -35,6 +35,30 @@ augment class C {
   augment factory C.f3({int x = 0});
 }
 
+enum E {
+  e0;
+  E();
+  factory E.f1();
+//        ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory E.f2([int x]);
+//        ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory E.f3({int x});
+//        ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+augment enum E {
+  ;
+  augment factory E.f1();
+  augment factory E.f2([int x = 0]);
+  augment factory E.f3({int x = 0});
+}
+
 extension type ET(int x) {
   factory ET.f1();
 //        ^^^^^
