@@ -165,13 +165,13 @@ main() {
   Expect.equals(-1, _);
 
   C? nullable = C();
-  Expect.equals(2, nullable?._ = 2);
+  Expect.equals(2, nullable?._ = 2);  // ignore: invalid_null_aware_operator
   Expect.equals(2, nullable._);
-  Expect.equals(5, nullable?._ += 3);
+  Expect.equals(5, nullable?._ += 3); // ignore: invalid_null_aware_operator
   Expect.equals(5, nullable._);
-  Expect.equals(null, nullable?._ = null);
-  Expect.equals(4, nullable?._ ??= 4);
-  Expect.equals(4, nullable?._ ??= 1);
+  Expect.equals(null, nullable?._ = null);  // ignore: invalid_null_aware_operator
+  Expect.equals(4, nullable?._ ??= 4); // ignore: invalid_null_aware_operator
+  Expect.equals(4, nullable?._ ??= 1); // ignore: invalid_null_aware_operator
   Expect.equals(4, nullable._);
 
   C? absent;
