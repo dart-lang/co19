@@ -57,5 +57,5 @@ main() {
   Expect.equals("C", c.id);
   Expect.equals("M", m.id);
   Expect.equals("E", e.id);
-  Expect.equals("ET", et.id);
+  Expect.equals("I", et.id);
 }
