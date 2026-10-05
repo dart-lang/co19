@@ -22,8 +22,8 @@
 /// DOWN(`T Function<X extends B>(P0, [P01])`,
 ///      `S Function<X extends B>(P1, [P11])`) =
 /// DOWN(`T`, `S`) Function<X extends B>(UP(`P0`, `P1`), [UP(`P01`, `P11`)]).
-/// Note that `Function` and a function type are not TOP, OBJECT, NULL, BOTTOM,
-/// or of the form `T?`.
+/// Note that the two function types are not the same, not TOP, OBJECT, NULL,
+/// BOTTOM, or of the form `T?`.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

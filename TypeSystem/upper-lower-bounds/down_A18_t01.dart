@@ -30,8 +30,8 @@
 /// types with the same named parameters: the return type is DOWN, positional
 /// and named parameter types are UP, and a named parameter is required only if
 /// it is required in both types.
-/// Note that `Function` and a function type are not TOP, OBJECT, NULL, BOTTOM,
-/// or of the form `T?`.
+/// Note that the two function types are not the same, not TOP, OBJECT, NULL,
+/// BOTTOM, or of the form `T?`.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

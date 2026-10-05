@@ -29,8 +29,8 @@
 /// @description Check that named parameters present in only one of the function
 /// types are kept in the result and are optional, including names that are
 /// required in the source type.
-/// Note that `Function` and a function type are not TOP, OBJECT, NULL, BOTTOM,
-/// or of the form `T?`.
+/// Note that the two function types are not the same, not TOP, OBJECT, NULL,
+/// BOTTOM, or of the form `T?`.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

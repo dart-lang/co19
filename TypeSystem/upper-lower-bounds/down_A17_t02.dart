@@ -21,8 +21,8 @@
 /// @description Check that if the function types have a different number of
 /// positional parameters then `q` is max(`k`, `l`), the extra parameters are
 /// taken from the longer type and are optional.
-/// Note that `Function` and a function type are not TOP, OBJECT, NULL, BOTTOM,
-/// or of the form `T?`.
+/// Note that the two function types are not the same, not TOP, OBJECT, NULL,
+/// BOTTOM, or of the form `T?`.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';
