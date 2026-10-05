@@ -164,15 +164,15 @@ main() {
   Expect.equals(7, c._);
   Expect.equals(-1, _);
 
-  C? nullable = C();
+  final C? nullable = C();
   Expect.equals(2, nullable?._ = 2);
-  Expect.equals(2, nullable._);
+  Expect.equals(2, nullable?._);
   Expect.equals(5, nullable?._ += 3);
-  Expect.equals(5, nullable._);
+  Expect.equals(5, nullable?._);
   Expect.equals(null, nullable?._ = null);
   Expect.equals(4, nullable?._ ??= 4);
   Expect.equals(4, nullable?._ ??= 1);
-  Expect.equals(4, nullable._);
+  Expect.equals(4, nullable?._);
 
   C? absent;
   Expect.isNull(absent?._ = 1);
