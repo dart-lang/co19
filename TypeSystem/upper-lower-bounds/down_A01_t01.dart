@@ -107,9 +107,9 @@ void f16<X>(void Function(X x) v1, void Function(X y) v2) {
 }
 
 void f17(
-    void Function(FutureOr<Object?> x) v1,
-    void Function(FutureOr<Object?> y) v2,
-    ) {
+  void Function(FutureOr<Object?> x) v1,
+  void Function(FutureOr<Object?> y) v2,
+) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<Object?>)>>();
   v = (o) {
@@ -122,9 +122,9 @@ void f17(
 }
 
 void f18(
-    void Function(FutureOr<Object> x) v1,
-    void Function(FutureOr<Object> y) v2,
-    ) {
+  void Function(FutureOr<Object> x) v1,
+  void Function(FutureOr<Object> y) v2,
+) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<Object>)>>();
   v = (o) {
