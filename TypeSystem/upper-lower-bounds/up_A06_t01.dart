@@ -37,16 +37,20 @@ void f4<X extends Never>(X n1, Object n2) {
 
 void f7(Never n1) {
   var v = (1 > 2) ? n1 : null;
+  // See README.md for an explanation of each step in the checks below.
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f8<X extends Never>(X n1) {
   var v = (1 > 2) ? n1 : null;
+  // See README.md for an explanation of each step in the checks below.
   if (1 > 2) {
     v.checkDynamic;
   }
+  v = 1; // Rejects `Never`
 }
 
 void f9(Never n1, Function n2) {

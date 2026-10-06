@@ -9,8 +9,6 @@
 /// scope by a wildcarded declaration. Test callable local variables.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class C {}
 
 test1() {

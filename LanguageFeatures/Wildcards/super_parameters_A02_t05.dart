@@ -10,8 +10,6 @@
 /// a named parameter
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class A {
   final int x;
   const A({this.x = 0});

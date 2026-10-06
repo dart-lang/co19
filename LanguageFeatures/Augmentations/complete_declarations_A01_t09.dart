@@ -56,14 +56,12 @@ extension type ET(int v) {
 }
 
 augment extension type ET {
-  augment ET(int v);
   augment ET.foo(int v);
 }
 
 main() {
   Expect.equals(0, C().v);
   Expect.equals(2, C.id(1).v);
-  Expect.equals(1, ET(1).v);
   Expect.equals(2, ET.foo(2).v);
   if (assertStatementsEnabled) {
     Expect.throws(() {

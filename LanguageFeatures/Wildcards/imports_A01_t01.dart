@@ -9,8 +9,6 @@
 /// provides access to extensions an imported library.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import 'imports_lib1.dart' as _;
 import '../../Utils/expect.dart';
 

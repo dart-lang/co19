@@ -10,8 +10,6 @@
 /// value can be used. Test extension type members
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import '../../Utils/expect.dart';
 
 extension type ET1(int id) {

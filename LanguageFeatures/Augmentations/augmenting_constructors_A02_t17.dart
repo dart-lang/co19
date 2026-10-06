@@ -1,0 +1,104 @@
+// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion We say that an augmenting function or constructor's signature
+/// matches an introductory signature if:
+/// - It has the same number of type parameters with the same type parameter
+///   names (same identifiers) and bounds (after type annotation inheritance),
+///   if any (same types, even if they may not be written exactly the same in
+///   case one of the declarations needs to refer to a type using an import
+///   prefix).
+/// - The return type (if not omitted) is the same as the introductory
+///   declaration's return type.
+/// - It has the same number of positional parameters as the introductory
+///   declaration, and the same number of those are optional.
+/// - It has the same set of named parameter names as the introductory
+///   declaration.
+/// - For each corresponding pair of parameters:
+///   - They have the same name. This is trivial for named parameters, but may
+///     fail to hold for positional parameters.
+///   - They have the same type (or the augmenting declaration omits the type).
+///   - They both have the modifier `covariant`, or none of them have it.
+///   - They both have the modifier `required`, or none of them have it.
+/// - For all positional parameters:
+///   - The augmenting function's parameter name is `_`, or
+///   - The augmenting function's parameter name is the same as the name of the
+///     corresponding positional parameter in every preceding declaration that
+///     doesn't have `_` as its name.
+/// ...
+/// It is a compile-time error if:
+/// - The signature of an augmenting constructor does not match the signature of
+///   the corresponding introductory declaration.
+///
+/// @description Checks that if the name of a positional parameter was augmented
+/// to `_` then it is a compile-time error to use an old name in the augmenting
+/// body.
+/// @author sgrekhov22@gmail.com
+
+// SharedOptions=--enable-experiment=augmentations
+
+class C {
+  C(int? x);
+  C.foo([int? x]);
+}
+
+augment class C {
+  augment C(int? _) {
+    print(x);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment C.foo([int? _]) {
+    print(x);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+enum E {
+  e0(1), e1.foo(1);
+
+  const E(int x);
+  const E.foo([int x = 0]);
+}
+
+augment enum E {
+  ;
+  augment const E(int _) : assert(x != null);
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo([int _]) : assert(x != null);
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET(int v) {
+  ET.foo(int x);
+  ET.bar([int x = 0]);
+}
+
+augment extension type ET {
+  augment ET.foo(int _) : v = 0 {
+    print(x);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  augment ET.bar([int _]) : v = 0 {
+    print(x);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
+main() {
+  print(C);
+  print(E);
+  print(ET);
+}

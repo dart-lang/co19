@@ -12,8 +12,6 @@
 /// initializer is not executed.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import '../../Utils/expect.dart';
 
 String _log = "";

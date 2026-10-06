@@ -1,83 +1,128 @@
-// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It is a compile-time error if:
+/// @assertion We say that an augmenting function or constructor's signature
+/// matches an introductory signature if:
+/// - It has the same number of type parameters with the same type parameter
+///   names (same identifiers) and bounds (after type annotation inheritance),
+///   if any (same types, even if they may not be written exactly the same in
+///   case one of the declarations needs to refer to a type using an import
+///   prefix).
+/// - The return type (if not omitted) is the same as the introductory
+///   declaration's return type.
+/// - It has the same number of positional parameters as the introductory
+///   declaration, and the same number of those are optional.
+/// - It has the same set of named parameter names as the introductory
+///   declaration.
+/// - For each corresponding pair of parameters:
+///   - They have the same name. This is trivial for named parameters, but may
+///     fail to hold for positional parameters.
+///   - They have the same type (or the augmenting declaration omits the type).
+///   - They both have the modifier `covariant`, or none of them have it.
+///   - They both have the modifier `required`, or none of them have it.
 /// ...
-/// - More than one declaration in the augmentation chain specifies a default
-///   value for the same optional parameter. This is an error even in the case
-///   where all of them are identical.
+/// It is a compile-time error if:
+/// - The signature of an augmenting constructor does not match the signature of
+///   the corresponding introductory declaration.
 ///
-/// @description Checks that it is a compile-time error when more than one
-/// augmenting constructor declaration specify default values. Test primary
-/// constructors.
+/// @description Checks that it is a compile-time error if the signature of the
+/// constructor augmentation does not match the original constructor. Test an
+/// incorrect type of parameters in an augmenting declaration.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-class C1([var int x]);
-
-augment class C1 {
-  augment C1([int x = 0]);
+class C {
+  C(num x, [num y = 0]);
+  C.foo(num x, {required num y, num z = 0});
 }
 
-augment class C1 {
-  augment C1([int x = 0]);
-//                 ^
+augment class C {
+  augment C(int x, [num y]);
+//          ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C(num x, [int y]);
+//                  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C.foo(Object x, {required num y, num z});
+//              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C.foo(num x, {required Object y, num z});
+//                               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment C.foo(num x, {required num y, Object z});
+//                                      ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C2({int x});
+enum E {
+  e0(0), e1.foo(1, y: 2);
 
-augment class C2 {
-  augment C2({int x = 0});
+  const E(num x, [num y = 0]);
+  const E.foo(num x, {required num y, num z = 0});
 }
 
-augment class C2 {
-  augment C2({int x = 0});
-//                  ^
+augment enum E {
+  ;
+  augment const E(int x, [num y]);
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E(num x, [int y]);
+//                        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo(Object x, {required num y, num z});
+//                    ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo(num x, {required Object y, num z});
+//                                     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment const E.foo(num x, {required num y, Object z});
+//                                            ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E1([int x]) {
-  e0;
+
+extension type ET(int id) {
+  ET.foo(num x, [num y = 0]): this.id = 0;
+  ET.baz(num x, {required num y, num z = 0}): this.id = 0;
 }
 
-augment enum E1 {
-  ;
-  augment const E1([int x = 0]);
-}
-
-augment enum E1 {
-  ;
-  augment const E1([int x = 0]);
-//                        ^
+augment extension type ET {
+  augment ET.foo(int x, [num y = 0]);
+//               ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-enum E2({final int x}) {
-  e0;
-}
-
-augment enum E2 {
-  ;
-  augment const E2({int x = 0});
-}
-
-augment enum E2 {
-  ;
-  augment const E2({int x = 0});
-//                        ^
+  augment ET.foo(num x, [int y = 0]);
+//                       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.baz(Object x, {required num y, num z = 0});
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.baz(num x, {required Object y, num z = 0});
+//                                ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  augment ET.baz(num x, {required num y, Object z = 0});
+//                                       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(C1);
-  print(C2);
-  print(E1);
-  print(E2);
+  print(C);
+  print(E);
+  print(ET);
 }

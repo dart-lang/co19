@@ -10,8 +10,6 @@
 /// declarations named `_`. Test type parameters of type aliases.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class C {}
 mixin M {}
 enum E {e1;}

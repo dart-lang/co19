@@ -1,0 +1,43 @@
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion It is a compile-time error if:
+/// ...
+/// - The augmenting declaration and augmented declaration do not have the same
+///   `const` and `factory` modifiers.
+///
+/// @description Checks that it is a compile-time error if the introductory
+/// constructor is marked `factory` and the augmenting constructor is not.
+/// @author sgrekhov22@gmail.com
+
+// SharedOptions=--enable-experiment=augmentations
+
+class C {
+  C();
+  factory C.foo() = C;
+}
+
+augment class C {
+  augment C.foo();
+//        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+extension type ET(int id) {
+  ET.foo(this.id);
+  factory ET.bar(int id) = ET.foo;
+}
+
+augment extension type ET {
+  augment ET.bar(int id);
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+main() {
+  print(C);
+  print(ET);
+}

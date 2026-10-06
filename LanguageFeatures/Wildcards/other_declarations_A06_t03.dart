@@ -11,8 +11,6 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 55848
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import '../../Utils/expect.dart';
 
 class C1 {

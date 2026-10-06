@@ -10,8 +10,6 @@
 /// super constructor invocation, not to the current class.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import '../../Utils/expect.dart';
 
 class A {

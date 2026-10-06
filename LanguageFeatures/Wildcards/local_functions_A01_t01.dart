@@ -9,8 +9,6 @@
 /// `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 test1() {
   _() {} // Analyzer reports DEAD_CODE here, but this warning is ignored by
          // the test runner. So, we only can check that the invocation of this

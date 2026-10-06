@@ -10,8 +10,6 @@
 /// declarations named `_`. Test local variables.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 test1() {
   var _ = 1;
   String _ = "2";

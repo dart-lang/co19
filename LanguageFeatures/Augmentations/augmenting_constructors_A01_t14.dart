@@ -1,84 +1,60 @@
-// Copyright (c) 2025, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We say that an augmenting function or constructor's signature
-/// matches an introductory signature if:
-/// - It has the same number of type parameters with the same type parameter
-///   names (same identifiers) and bounds (after type annotation inheritance),
-///   if any (same types, even if they may not be written exactly the same in
-///   case one of the declarations needs to refer to a type using an import
-///   prefix).
-/// - The return type (if not omitted) is the same as the introductory
-///   declaration's return type.
-/// - It has the same number of positional parameters as the introductory
-///   declaration, and the same number of those are optional.
-/// - It has the same set of named parameter names as the introductory
-///   declaration.
-/// - For each corresponding pair of parameters:
-///   - They have the same name. This is trivial for named parameters, but may
-///     fail to hold for positional parameters.
-///   - They have the same type (or the augmenting declaration omits the type).
-///   - They both have the modifier `covariant`, or none of them have it.
-///   - They both have the modifier `required`, or none of them have it.
-/// - For all positional parameters:
-///   - The augmenting function's parameter name is `_`, or
-///   - The augmenting function's parameter name is the same as the name of the
-///     corresponding positional parameter in every preceding declaration that
-///     doesn't have `_` as its name.
-/// ...
-/// It is a compile-time error if:
-/// - The signature of the augmenting function does not match the signature of
-///   the augmented function.
+/// @assertion Augmenting a constructor works similarly to augmenting a function,
+/// with some extra rules to handle features unique to constructors, like
+/// redirections and initializer lists, and the primary constructor syntax.
 ///
-/// @description Checks that it is not an error if the name of a positional
-/// parameter of an augmenting constructor is `_` and the name of this parameter
-/// in the original constructor is not `_`.
+/// @description Check that an incomplete factory constructor can be completed.
+/// Test the case when the constructor is declared using the keyword `factory`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 import '../../Utils/expect.dart';
 
-class C {
-  int? x;
-  C(int? x);
-  C.foo([this.x]);
+class C1 {
+  int v;
+  C1.create(this.v);
+
+  factory();
 }
 
-augment class C {
-  augment C(int? _);
-  augment C.foo([int? _]);
+augment class C1 {
+  augment factory() => C1.create(1);
 }
 
-enum E {
-  e0(1), e1.foo();
-  final int x;
-  const E(this.x);
-  const E.foo([this.x = 0]);
+class C2 {
+  final int v;
+  const C2.create(this.v);
+
+  const factory(int v);
 }
 
-augment enum E {
-  ;
-  augment const E(int _);
-  augment const E.foo([int _]);
+augment class C2 {
+  augment const factory(int v) = C2.create;
 }
 
-extension type ET(int x) {
-  ET.foo(this.x);
-  ET.bar([this.x = 0]);
+extension type ET1.create(int v) {
+  factory();
 }
 
-augment extension type ET {
-  augment ET.foo(int _);
-  augment ET.bar([int _]);
+augment extension type ET1 {
+  augment factory() => ET1.create(1);
+}
+
+extension type const ET2.create(int v) {
+  const factory ET2(int v);
+}
+
+augment extension type ET2 {
+  augment const factory ET2(int v) = ET2.create;
 }
 
 main() {
-  Expect.equals(1, C(1).x);
-  Expect.isNull(C.foo().x);
-  Expect.equals(1, E.e0.x);
-  Expect.equals(0, E.e1.x);
-  Expect.equals(1, ET.foo(1).x);
-  Expect.equals(0, ET.bar().x);
+  Expect.equals(1, C1().v);
+  Expect.equals(2, C2(2).v);
+  Expect.equals(1, ET1().v);
+  Expect.equals(2, ET2(2).v);
 }

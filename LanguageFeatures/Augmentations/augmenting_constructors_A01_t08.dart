@@ -2,77 +2,64 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion We say that an augmenting function or constructor's signature
-/// matches an introductory signature if:
-/// - It has the same number of type parameters with the same type parameter
-///   names (same identifiers) and bounds (after type annotation inheritance),
-///   if any (same types, even if they may not be written exactly the same in
-///   case one of the declarations needs to refer to a type using an import
-///   prefix).
-/// - The return type (if not omitted) is the same as the introductory
-///   declaration's return type.
-/// - It has the same number of positional parameters as the introductory
-///   declaration, and the same number of those are optional.
-/// - It has the same set of named parameter names as the introductory
-///   declaration.
-/// - For each corresponding pair of parameters:
-///   - They have the same name. This is trivial for named parameters, but may
-///     fail to hold for positional parameters.
-///   - They have the same type (or the augmenting declaration omits the type).
-///   - They both have the modifier `covariant`, or none of them have it.
-///   - They both have the modifier `required`, or none of them have it.
-/// ...
-/// It is a compile-time error if:
-/// - The signature of the augmenting constructor does not match the signature
-///   of the corresponding introductory constructor.
+/// @assertion Augmenting a constructor works similarly to augmenting a function,
+/// with some extra rules to handle features unique to constructors, like
+/// redirections and initializer lists, and the primary constructor syntax.
 ///
-/// @description Checks that it is a compile-time error if parameter names of
-/// the constructor augmentation does not match the original constructor.
+/// @description Checks that a redirecting factory constructor marked `augment`
+/// adds its factory redirection to the augmented constructor.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-class A1 {
-  A1(int x, int y);
+import '../../Utils/expect.dart';
+
+class C {
+  int x, y;
+  C(this.x, [this.y = 0]);
+  C.foo(this.x, {this.y = 0});
+  factory C.bar(int x, [int y]);
+  factory C.baz(int x, {int y});
+  factory C.qux(int x, [int y]);
 }
 
-class C1 extends A1 {
-  C1(super.x, super.y);
-  C1.foo([super.x = 1, super.y = 1]);
+class D extends C {
+  D(super.x, [super.y = 0]);
 }
 
-augment class C1 {
-  augment C1(int y, int x);
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C1.foo([int y, int x]);
-//                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+augment class C {
+  augment factory C.bar(int x, [int y]) = C;
+  augment factory C.baz(int x, {int y}) = C.foo;
+  augment factory C.qux(int x, [int y]) = D;
 }
 
-class A2 {
-  A2({int x = 0});
+extension type ET(int x) {
+  ET.foo(this.x);
+  factory ET.bar(int x);
+  factory ET.baz(int x);
 }
 
-class C2 extends A2 {
-  C2({super.x});
-  C2.foo({required super.x});
-}
-
-augment class C2 {
-  augment C2({int y});
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  augment C2.foo({required int y});
-//                             ^
-// [analyzer] unspecified
-// [cfe] unspecified
+augment extension type ET {
+  augment factory ET.bar(int x) = ET;
+  augment factory ET.baz(int x) = ET.foo;
 }
 
 main() {
-  print(C1);
-  print(C2);
+  Expect.equals(1, C.bar(1).x);
+  Expect.equals(0, C.bar(1).y);
+  Expect.equals(1, C.bar(1, 2).x);
+  Expect.equals(2, C.bar(1, 2).y);
+
+  Expect.equals(1, C.baz(1).x);
+  Expect.equals(0, C.baz(1).y);
+  Expect.equals(1, C.baz(1, y: 2).x);
+  Expect.equals(2, C.baz(1, y: 2).y);
+
+  Expect.equals(1, C.qux(1).x);
+  Expect.equals(0, C.qux(1).y);
+  Expect.equals(1, C.qux(1, 2).x);
+  Expect.equals(2, C.qux(1, 2).y);
+
+  Expect.equals(1, ET.bar(1).x);
+  Expect.equals(2, ET.baz(2).x);
 }

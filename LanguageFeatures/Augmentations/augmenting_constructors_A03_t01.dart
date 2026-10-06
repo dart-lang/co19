@@ -4,43 +4,66 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - The introductory constructor is `const` and the augmenting constructor is
-///   not or vice versa.
+/// - More than one declaration in the augmentation chain specifies a default
+///   value for the same optional parameter. This is an error even in the case
+///   where all of them are identical.
 ///
-/// @description Checks that it is a compile-time error if the introductory
-/// constructor is `const` and the augmenting constructor is not.
+/// @description Checks that it is a compile-time error when both the augmenting
+/// constructor parameters and the introductory declaration specify default
+/// values.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
 class C {
-  const C();
+  C([int x = 0]);
+  C.c1({int x = 0});
 }
 
 augment class C {
-  augment C();
-//        ^
+  augment C([int x = 0]);
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment C.c1({int x = 0});
+//                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 enum E {
-  e0;
-  const E();
+  e0, e1.c1();
+  const E([int x = 0]);
+  const E.c1({int x = 0});
 }
 
 augment enum E {
   ;
-  augment E(); // Ok. `const` can be inferred for generative enum constructors.
+  augment const E([int x = 0]);
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment const E.c1({int x = 0});
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension type ET(int id) {
-  const ET.foo(this.id);
+  ET.c1(this.id, [int x = 0]);
+  ET.c2(this.id, {int x = 0});
 }
 
 augment extension type ET {
-  augment ET.foo(int id);
-//        ^^^^^^
+  augment ET.c1(this.id, [int x = 0]);
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment ET.c2(this.id, {int x = 0});
+//                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

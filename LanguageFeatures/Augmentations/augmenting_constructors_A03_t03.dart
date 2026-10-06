@@ -1,68 +1,90 @@
-// Copyright (c) 2026, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2024, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - The introductory constructor is `const` and the augmenting constructor is
-///   not or vice versa.
+/// - More than one declaration in the augmentation chain specifies a default
+///   value for the same optional parameter. This is an error even in the case
+///   where all of them are identical.
 ///
-/// @description Checks that it is a compile-time error if the introductory
-/// constructor is `const` and the augmenting constructor is not. Test primary
-/// constructors.
+/// @description Checks that it is a compile-time error when more than one
+/// augmenting constructor declaration specify default values.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=augmentations
 
-class const C1();
+class C {
+  C([int x]);
+  C.c1({int x});
+}
 
-augment class C1 {
-  augment C1();
-//        ^^
+augment class C {
+  augment C([int x = 0]);
+  augment C.c1({int x = 0});
+}
+
+augment class C {
+  augment C([int x = 0]);
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment C.c1({int x = 0});
+//                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class const C2(final int x);
+enum E {
+  e0, e1.c1();
+  const E([int x]);
+  const E.c1({int x});
+}
 
-augment class C2 {
-  augment C2(int x);
-//        ^^
+augment enum E {
+  ;
+  augment const E([int x = 0]);
+  augment const E.c1({int x = 0});
+}
+
+augment enum E {
+  ;
+  augment const E([int x = 0]);
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment const E.c1({int x = 0});
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-enum E1() {
-  e0;
+extension type ET(int id) {
+  ET.c1(this.id, [int x]);
+  ET.c2(this.id, {int x});
 }
-
-augment enum E1 {
-  ;
-  augment E1(); // Ok. `const` can be inferred for generative enum constructors.
-}
-
-enum E2(final int x) {
-  e0(0);
-}
-
-augment enum E2 {
-  ;
-  augment E2(int x);
-}
-
-extension type const ET(int id);
 
 augment extension type ET {
-  augment ET(int id);
-//        ^^
+  augment ET.c1(int id, [int x = 0]);
+  augment ET.c2(int id, {int x = 0});
+}
+
+augment extension type ET {
+  augment ET.c1(int id, [int x = 0]);
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  augment ET.c2(int id, {int x = 0});
+//                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(C1);
-  print(C2);
-  print(E1);
-  print(E2);
+  print(C);
+  print(E);
   print(ET);
 }

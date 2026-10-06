@@ -9,8 +9,6 @@
 /// initializing formal `this._`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class C {
   int _;
   C(this._, this._);

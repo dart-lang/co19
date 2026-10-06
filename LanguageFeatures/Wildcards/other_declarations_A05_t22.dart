@@ -10,8 +10,6 @@
 /// member named `_`. Test a static variable vs other enum members conflict.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 mixin class ContainsWildcardMethod {
   int _() => 0;
 }

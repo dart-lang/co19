@@ -10,8 +10,6 @@
 /// and can be called.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 void set _(int v) {}
 
 main() {

@@ -11,8 +11,6 @@
 /// named `_`.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 typedef int _();
 
 int _ = 1;

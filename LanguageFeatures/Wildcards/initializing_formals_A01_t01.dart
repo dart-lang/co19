@@ -15,8 +15,6 @@
 /// still initialize a field named `_`
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 import '../../Utils/expect.dart';
 
 class C {

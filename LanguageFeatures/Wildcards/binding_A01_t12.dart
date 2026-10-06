@@ -9,8 +9,6 @@
 /// scope by a wildcarded declaration. Test covariant parameters.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class C {
   void foo(covariant num _) {
     print(_);

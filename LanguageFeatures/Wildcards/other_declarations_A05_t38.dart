@@ -10,8 +10,6 @@
 /// member named `_`. Test a static variable vs other extension members conflict
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class A {}
 
 extension EA1 on A {

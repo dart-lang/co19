@@ -10,8 +10,6 @@
 /// declarations named `_`. Test parameters of functions and methods.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 void topLevelFunction1(_, int _, _) {}
 void topLevelFunction2(_, int _, _, [_, int _ = 0, _ = ""]) {}
 void topLevelFunction3<T>(T _, T _, [T? _, T? _]) {}

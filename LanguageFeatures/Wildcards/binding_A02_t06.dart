@@ -10,8 +10,6 @@
 /// declarations named `_`. Test for-loop variables.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 main() {
   for (var _ = 1, _ = 2;;) {
     break;

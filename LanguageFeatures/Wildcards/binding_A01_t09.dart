@@ -9,8 +9,6 @@
 /// scope by a wildcarded declaration. Test type parameters of generic types.
 /// @author sgrekhov22@gmail.com
 
-// SharedOptions=--enable-experiment=wildcard-variables
-
 class C<_> {
   void instanceMethod() {
     print(_);
