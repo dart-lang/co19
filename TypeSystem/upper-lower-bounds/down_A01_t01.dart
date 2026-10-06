@@ -135,6 +135,11 @@ void f18(
   };
 }
 
+void f19(void Function(()) v1, void Function(()) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(())>>();
+}
+
 void main() {
   f1((o) {}, (o) {});
   f2((Null o) {}, (Null o) {});
@@ -154,4 +159,5 @@ void main() {
   f16<int>((int o) {}, (int o) {});
   f17((FutureOr<Object?> o) {}, (FutureOr<Object?> o) {});
   f18((FutureOr<Object> o) {}, (FutureOr<Object> o) {});
+  f19((() o) {}, (() o) {});
 }
