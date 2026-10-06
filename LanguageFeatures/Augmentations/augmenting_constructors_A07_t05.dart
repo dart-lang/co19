@@ -4,8 +4,7 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - The augmenting declaration and augmented declaration do not have the same
-///   `const` and `factory` modifiers.
+/// - A primary constructor is augmented.
 ///
 /// @description Checks that it is a compile-time error if a primary
 /// introductory constructor is augmented by a `factory` constructor.
@@ -25,7 +24,7 @@ augment class C1 {
 class C2(var int x);
 
 augment class C2 {
-  augment factory C2(int x);
+  augment factory (int x);
 //        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -49,7 +48,7 @@ enum E2(final int x) {
 
 augment enum E2 {
   ;
-  augment factory E2(int x);
+  augment factory (int x);
 //        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
