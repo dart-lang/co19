@@ -50,8 +50,8 @@ enum E {
 
 augment enum E {
   ;
-  augment factory E.f3([int x]) = E.g1;
-  augment factory E.f4({int x}) = E.g2;
+  augment factory E.f3([int x]) = E.f1;
+  augment factory E.f4({int x}) = E.f2;
 }
 
 extension type ET(int x) {

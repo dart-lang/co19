@@ -34,7 +34,7 @@ augment class C2 {
 class C3(var int x);
 
 augment class C3 {
-  augment C3(var int x);
+  augment C3(int x);
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -59,7 +59,7 @@ augment class C5 {
 }
 
 class C6.new(final int x) {
-  augment C6(final int x);
+  augment C6(int x);
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -95,7 +95,7 @@ enum E3._(final int x) {
 
 augment enum E3 {
   ;
-  augment E3._(final int x);
+  augment E3._(int x);
 //        ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

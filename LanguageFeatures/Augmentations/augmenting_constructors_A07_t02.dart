@@ -27,8 +27,8 @@ class C2.someName(int x) {
 // [cfe] unspecified
 }
 
-class C3(var int x) {
-  augment C3(var int x);
+class C3.new(var int x) {
+  augment C3(int x);
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -49,7 +49,7 @@ class C5(final int x) {
 }
 
 class C6.new(final int x) {
-  augment C6(final int x);
+  augment C6(int x);
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified

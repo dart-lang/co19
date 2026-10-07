@@ -32,7 +32,7 @@ class C2(int x) {
 class C3(var int x);
 
 augment class C3 {
-  augment new(var int x);
+  augment new(int x);
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -80,7 +80,7 @@ enum E3(final int x) {
 
 augment enum E3 {
   ;
-  augment new(final int x);
+  augment new(int x);
 //        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

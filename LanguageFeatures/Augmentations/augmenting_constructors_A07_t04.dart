@@ -31,7 +31,7 @@ class const C2.someName(int x) {
 class const C3._(var int x);
 
 augment class C3 {
-  augment const C3._(var int x);
+  augment const C3._(int x);
 //              ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -79,7 +79,7 @@ enum const E3(final int x) {
 
 augment enum E3 {
   ;
-  augment const new(final int x);
+  augment const new(int x);
 //              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -99,7 +99,7 @@ enum const E5.new(final int x) {
 
 augment enum E5 {
   ;
-  augment const E5(final int x);
+  augment const E5(int x);
 //              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
