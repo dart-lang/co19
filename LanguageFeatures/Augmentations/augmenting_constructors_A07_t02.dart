@@ -95,35 +95,35 @@ enum E5(final int x) {
 // [cfe] unspecified
 }
 
-augment extension type ET1(int id) {
+extension type ET1(int id) {
   augment ET1(int id);
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment extension type ET2.someName(int id) {
+extension type ET2.someName(int id) {
   augment ET2.someName(int id);
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment extension type ET3._(int id) {
+extension type ET3._(int id) {
   augment ET3._(int id);
 //        ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment extension type ET4(int id) {
+extension type ET4(int id) {
   augment ET4.new(int id);
 //        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-augment extension type ET5.new(int id) {
+extension type ET5.new(int id) {
   augment ET5(int id);
 //        ^^^
 // [analyzer] unspecified
