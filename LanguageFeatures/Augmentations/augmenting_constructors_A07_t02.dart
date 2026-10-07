@@ -73,7 +73,7 @@ enum E2(int x) {
 
 enum E3._(final int x) {
   e0._(0);
-  augment E3._(final int x);
+  augment E3._(int x);
 //        ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
