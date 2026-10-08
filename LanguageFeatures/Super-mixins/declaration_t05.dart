@@ -2,17 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion A mixin declaration defines an interface. The interface for this
-/// mixin declaration is equivalent to the interface of the class declared as:
-///  abstract class A<X extends S, Y extends T> extends A$super<X, Y>
-///    implements D, E { body' }
-/// where body' contains abstract declarations corresponding to the instance
-/// members of body of the mixin A.
-/// It is a compile time error for the mixin declaration if this class
-/// declarations would not be valid.
+/// @assertion Let `MS` be the interface declared by the class declaration
+/// ```
+/// abstract class Msuper<P1, ..., Pm> implements T1, ..., Tn {}
+/// ```
+/// where `Msuper` is a fresh name. It is a compile-time error for the mixin
+/// declaration if the `MS` class declaration would cause a compile-time error,
+/// that is, if any member is declared by more than one declared superinterface,
+/// and there is not a most specific signature for that member among the super
+/// interfaces.
 ///
-/// @description Checks that it is a compile-time error for the mixin declaration
-/// if classes from implements clause are not compatible.
+/// @description Check that it is a compile-time error for a mixin declaration
+/// if interfaces in its `implements` clause are incompatible.
 /// @author ngl@unipro.ru
 
 class T1 {}
