@@ -154,3 +154,17 @@ Future<Future<X>> probeFuture2<X>() =>
 ///   two contexts, however, produce mutual subtypes, so `checkDynamic` remains
 ///   the only check that separates `FutureOr<FutureOr<Object?>>` from `dynamic`.
 Future<FutureOr<X>> probeFutureOr2<X>() => Future<FutureOr<X>>.value(0 as dynamic);
+
+/// A helper function used to distinguish `void Function(Null)` from
+/// `void Function(Never?)` and `void Function(X?)` where `X extends Never`
+/// statically.
+///
+/// `List<Null>` and `List<Never>` are not mutual subtypes, so the difference
+/// can be seen statically:
+/// ```dart
+/// peelParam(v).expectStaticType<Exactly<List<Null>>>();  // `void Function(Null)`
+/// peelParam(v).expectStaticType<Exactly<List<Never>>>(); // `void Function(Never?)`
+/// ```
+/// `void Function(Null?)` produces `Y` = `Null` as well, so it cannot be
+/// distinguished from `void Function(Null)`.
+List<Y> peelParam<Y>(void Function(Y?) f) => <Y>[];
