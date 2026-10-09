@@ -43,6 +43,8 @@ extension type ET._(String _p) {
 }
 
 main() {
+  print(A);
+  print(B);
   print(C);
   print(ET);
 }
