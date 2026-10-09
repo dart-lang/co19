@@ -51,6 +51,6 @@ void f2b<X>(
 void main() {
   f1a((num x) {}, (Object x) {});
   f1b((num x) {}, (FutureOr<Object> x) {});
-  f2a((x) {}, (Object x) {});
-  f2b((x) {}, (FutureOr<Object> x) {});
+  f2a((num? x) {}, (Object x) {});
+  f2b((num? x) {}, (FutureOr<Object> x) {});
 }

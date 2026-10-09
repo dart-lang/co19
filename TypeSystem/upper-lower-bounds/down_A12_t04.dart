@@ -39,10 +39,7 @@ void f2a<X>(void Function(Object) v1, void Function(X?) v2) {
   v.expectStaticType<Exactly<void Function(Never)>>();
 }
 
-void f2b<X>(
-    void Function(FutureOr<Object>) v1,
-    void Function(X?) v2,
-    ) {
+void f2b<X>(void Function(FutureOr<Object>) v1, void Function(X?) v2) {
   // DOWN(FutureOr<Object>, X?) = Never because is neither X? is non-nullable nor NonNull(X?) is non-nullable
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(Never)>>();
@@ -51,6 +48,6 @@ void f2b<X>(
 void main() {
   f1a((Object x) {}, (num x) {});
   f1b((FutureOr<Object> x) {}, (num x) {});
-  f2a((Object x) {}, (x) {});
-  f2b((FutureOr<Object> x) {}, (x) {});
+  f2a((Object x) {}, (num? x) {});
+  f2b((FutureOr<Object> x) {}, (num? x) {});
 }

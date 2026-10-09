@@ -150,6 +150,16 @@ void f12b(void Function(FutureOr<Object>) v1, void Function(Never?) v2) {
   v.expectStaticType<Exactly<void Function(Never)>>();
 }
 
+void f13a(void Function(Object) v1, void Function(ET3) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(ET3)>>();
+}
+
+void f13b(void Function(FutureOr<Object>) v1, void Function(ET3) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(ET3)>>();
+}
+
 void main() {
   f1a((Object x) {}, (num? x) {});
   f1b((FutureOr<Object> x) {}, (num? x) {});
@@ -175,4 +185,6 @@ void main() {
   f11b((FutureOr<Object> x) {}, (E? x) {});
   f12a((Object x) {}, (Never? x) {});
   f12b((FutureOr<Object> x) {}, (Never? x) {});
+  f13a((Object x) {}, (ET3? x) {});
+  f13b((FutureOr<Object> x) {}, (ET3? x) {});
 }
