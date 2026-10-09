@@ -10,8 +10,8 @@
 /// - The instance variable initialized by the parameter (and declared by it, if
 ///   the parameter is a field parameter), has the private name `p`.
 ///
-/// @description Check that redirectee of a redirecting constructor uses a
-/// public name of a private named parameter.
+/// @description Check that a redirecting constructor declaration uses the
+/// corresponding public name of private named parameter of the redirectee.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/expect.dart';

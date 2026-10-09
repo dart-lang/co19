@@ -10,8 +10,8 @@
 /// - The instance variable initialized by the parameter (and declared by it, if
 ///   the parameter is a field parameter), has the private name `p`.
 ///
-/// @description Check that it is a compile-time error to use a private name of
-/// a private named parameter in a redirectee of a redirecting constructor.
+/// @description Check that it is a compile-time error to use the private name
+/// of a private named parameter in a redirecting constructor declaration.
 /// @author sgrekhov22@gmail.com
 
 class C {
