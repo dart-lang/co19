@@ -20,6 +20,7 @@ enum E2 { e0 }
 
 extension type ET(int _) {}
 extension type ET2(ET _) implements ET {}
+extension type ET3(Object _) implements Object {}
 
 typedef FPositional = num Function<X extends num>(X x, [int i]);
 typedef FPositional2 = int Function<X extends num>(X x, [num i]);
