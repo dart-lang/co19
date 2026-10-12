@@ -22,6 +22,10 @@ class C.someName() {
   }
 }
 
+mixin M {}
+
+class MO = Object with M;
+
 mixin class MC() {}
 
 extension type ET(int _) implements num {
@@ -32,6 +36,10 @@ extension type ET(int _) implements num {
 
 extension ExtC on C {
   factory() = C.someName;
+}
+
+extension ExtM on M {
+  factory someName() = MA.new;
 }
 
 extension ExtMC on MC {
@@ -45,6 +53,7 @@ extension ExtET on ET {
 main() {
   C();
   Expect.equals('C.someName', log);
+  Expect.isTrue(M.someName() is MO);
   MC.someName();
   ET.someName(0);
   Expect.equals('ET.new', log);

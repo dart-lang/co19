@@ -17,6 +17,10 @@ import '../../Utils/expect.dart';
 
 class C.someName(var int v) {}
 
+mixin M {}
+
+class MO = Object with M;
+
 mixin class MC() {}
 
 enum E {
@@ -29,6 +33,11 @@ extension ExtC on C {
   factory() => C.someName(1);
 }
 
+extension ExtM on M {
+  factory someName() => MO();
+}
+
+
 extension ExtMC on MC {
   factory someName() => MC();
 }
@@ -38,7 +47,7 @@ extension ExtE on E {
 }
 
 extension ExtET on ET {
-  factory() => ET(2);
+  factory() => ET.someName(2);
 }
 
 extension ExtR on Record {
@@ -53,9 +62,10 @@ void foo() {}
 
 main() {
   Expect.equals(1, C().v);
+  Expect.isTrue(M.someName() is MO);
   MC.someName();
   Expect.equals(E.e0, E.someName());
   Expect.equals(2, ET().v);
   Expect.equals((42,), Record());
-  Expect.equals(foo, Function());
+  Expect.equals(foo, Function.someName());
 }
