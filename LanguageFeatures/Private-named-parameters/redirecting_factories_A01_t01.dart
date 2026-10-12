@@ -10,7 +10,7 @@
 // a named parameter `p1` in the redirecting constructor whose name
 // is the corresponding public name of the name in `p`.
 ///
-/// @description  Check that it is not an error when a redirecting factory
+/// @description Check that it is not an error when a redirecting factory
 /// constructor `k` has a redirectee `k1`, where `k1` declares a private named
 /// parameter and `k` declares a named parameter with the corresponding public
 /// name.
