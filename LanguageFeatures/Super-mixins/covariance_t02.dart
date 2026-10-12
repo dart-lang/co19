@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion In a mixin declaration like
-/// mixin A<X extends S, Y extends T> on B, C implements D, E { body }
-/// the on clause declares the interfaces B and C as super-class constraints of
-/// the mixin. Having a super-class constaint allows the mixin declaration
-/// instance members to perform super-invocations (like super.foo()) if they are
-/// allowed by a class implementing both B and C. The mixin introduced by A can
-/// then only be applied to classes that implement both B and C.
+/// @assertion Let `S` be a class, `M` be a mixin with required superinterfaces
+/// `T1, ..., Tn`, combined superinterface `MS`, implemented interfaces
+/// `I1, ..., Ik` and members as member declarations, and let `N` be a name.
 ///
-/// @description Checks that it is no compile error if mixin is applied to the
-/// class which does implement required interface
+/// It is a compile-time error to apply `M` to `S` if `S` does not implement,
+/// directly or indirectly, all of `T1, ..., Tn`.
+///
+/// @description Checks that it is not an error if a mixin is applied to a
+/// class which does implement all required interfaces.
 /// @author sgrekhov@unipro.ru
 
 import "../../Utils/expect.dart";
