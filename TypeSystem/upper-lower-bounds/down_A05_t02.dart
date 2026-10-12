@@ -10,8 +10,8 @@
 ///   - `T2` otherwise
 ///
 /// @description Check that DOWN(`T1`, `T2`) = `T2` if BOTTOM(`T1`),
-/// BOTTOM(`T2`), `T1 != T2`, not TOP(`T1`) nor TOP(`T2`), and not
-/// MOREBOTTOM(`T1`, `T2`).
+/// BOTTOM(`T2`), `T1 != T2`, and bot MOREBOTTOM(`T1`, `T2`). We rely on the
+/// fact that a BOTTOM type is never TOP.
 /// @author sgrekhov22@gmail.com
 
 import '../../Utils/static_type_helper.dart';

@@ -8,7 +8,7 @@
 /// - DOWN(`T1`, `T2`) = `T1` if BOTTOM(`T1`)
 ///
 /// @description Check that DOWN(`T1`, `T2`) = `T1` if BOTTOM(`T1`), `T1 != T2`,
-/// and not TOP(`T1`) nor TOP(`T2`).
+/// and not TOP(`T2`). We rely on the fact that a BOTTOM type is never TOP.
 /// @author sgrekhov22@gmail.com
 
 import 'dart:async';
