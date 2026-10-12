@@ -10,9 +10,8 @@
 // a named parameter `p1` in the redirecting constructor whose name
 // is the corresponding public name of the name in `p`.
 ///
-/// @description Check that it is a compile-time error if a redirectee of a
-/// factory redirecting constructor uses a private name of a private named
-/// parameter.
+/// @description Check that it is a compile-time error if a redirecting
+/// factory constructor declares a private named parameter.
 /// @author sgrekhov22@gmail.com
 
 class A {
