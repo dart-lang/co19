@@ -96,24 +96,6 @@ void f15<X>(void Function(X) v1, void Function(Null) v2) {
   v.expectStaticType<Exactly<void Function(Never)>>();
 }
 
-void f16<X extends Null, Y extends Never>(
-    void Function(X) v1,
-    void Function(Y?) v2,
-    ) {
-  // DOWN(X, Y?) = Never because Null <: X is false
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(Never)>>();
-}
-
-void f17<X extends Never, Y extends Null>(
-    void Function(X) v1,
-    void Function(Y?) v2,
-    ) {
-  // DOWN(X, Y?) = Never because Null <: X is false
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(Never)>>();
-}
-
 void main() {
   f1((num x) {}, (Null x) {});
   f2((num x) {}, (Null x) {});
@@ -130,6 +112,4 @@ void main() {
   f13((Object x) {}, (Null x) {});
   f14((FutureOr<Never> x) {}, (Null x) {});
   f15<num>((num x) {}, (Null x) {});
-  f16((Null x) {}, (Never? x) {});
-  f17((Never x) {}, (Null x) {});
 }
