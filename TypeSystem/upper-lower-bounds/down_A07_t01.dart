@@ -26,6 +26,7 @@ void f1b<X extends Never, Y extends num>(
 ) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f2a(void Function(Never) v1, void Function(Object) v2) {
@@ -36,6 +37,7 @@ void f2a(void Function(Never) v1, void Function(Object) v2) {
 void f2b<X extends Never>(void Function(X) v1, void Function(Object) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f3a(void Function(Never) v1, void Function(Null) v2) {
@@ -46,6 +48,7 @@ void f3a(void Function(Never) v1, void Function(Null) v2) {
 void f3b<X extends Never>(void Function(X) v1, void Function(Null) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f4a(void Function(Never) v1, void Function(Function) v2) {
@@ -56,6 +59,7 @@ void f4a(void Function(Never) v1, void Function(Function) v2) {
 void f4b<X extends Never>(void Function(X) v1, void Function(Function) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f5a(void Function(Never) v1, void Function(Record) v2) {
@@ -66,6 +70,7 @@ void f5a(void Function(Never) v1, void Function(Record) v2) {
 void f5b<X extends Never>(void Function(X) v1, void Function(Record) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f6a(void Function(Never) v1, void Function(FutureOr<int>) v2) {
@@ -79,6 +84,7 @@ void f6b<X extends Never>(
 ) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f7a(void Function(Never) v1, void Function(String?) v2) {
@@ -89,6 +95,7 @@ void f7a(void Function(Never) v1, void Function(String?) v2) {
 void f7b<X extends Never>(void Function(X) v1, void Function(String?) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f8a(void Function(Never) v1, void Function(C) v2) {
@@ -99,6 +106,7 @@ void f8a(void Function(Never) v1, void Function(C) v2) {
 void f8b<X extends Never>(void Function(X) v1, void Function(C) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f9a(void Function(Never) v1, void Function(D<int, String>) v2) {
@@ -112,6 +120,7 @@ void f9b<X extends Never>(
 ) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f10a(void Function(Never) v1, void Function(FPositional) v2) {
@@ -122,6 +131,7 @@ void f10a(void Function(Never) v1, void Function(FPositional) v2) {
 void f10b<X extends Never>(void Function(X) v1, void Function(FPositional) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f11a(void Function(Never) v1, void Function(FNamed) v2) {
@@ -132,6 +142,7 @@ void f11a(void Function(Never) v1, void Function(FNamed) v2) {
 void f11b<X extends Never>(void Function(X) v1, void Function(FNamed) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f12a(void Function(Never) v1, void Function(Rec) v2) {
@@ -142,6 +153,7 @@ void f12a(void Function(Never) v1, void Function(Rec) v2) {
 void f12b<X extends Never>(void Function(X) v1, void Function(Rec) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f13a(void Function(Never) v1, void Function(E) v2) {
@@ -152,6 +164,7 @@ void f13a(void Function(Never) v1, void Function(E) v2) {
 void f13b<X extends Never>(void Function(X) v1, void Function(E) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f14a(void Function(Never) v1, void Function(ET) v2) {
@@ -162,6 +175,7 @@ void f14a(void Function(Never) v1, void Function(ET) v2) {
 void f14b<X extends Never>(void Function(X) v1, void Function(ET) v2) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f15a(void Function(Never) v1, void Function(FutureOr<Never>) v2) {
@@ -175,6 +189,7 @@ void f15b<X extends Never>(
 ) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void f16a<X>(void Function(Never) v1, void Function(X) v2) {
@@ -188,6 +203,17 @@ void f16b<X extends Never, Y>(
     ) {
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
+}
+
+void f17<X extends Never, Y extends Null>(
+    void Function(X) v1,
+    void Function(Y?) v2,
+    ) {
+  // DOWN(X, Y?) = X because X is a BOTTOM type
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(Never)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
 void main() {
@@ -223,4 +249,5 @@ void main() {
   f15b((Never x) {}, (FutureOr<Never> x) {});
   f16a((Never x) {}, (num x) {});
   f16b((Never x) {}, (num x) {});
+  f17((Never x) {}, (Null x) {});
 }

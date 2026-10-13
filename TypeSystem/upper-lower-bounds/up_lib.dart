@@ -8,6 +8,11 @@
 import 'dart:async';
 import '../../Utils/expect.dart';
 
+class _NotEqual {}
+class _EqualTo<T> extends _NotEqual {}
+class _Type1<T> extends _EqualTo<T> {}
+class _Type2<T> extends _EqualTo<T> {}
+
 void getVoid() {}
 FutureOr<void> getFutureOrVoid() {}
 
@@ -169,3 +174,78 @@ Future<FutureOr<X>> probeFutureOr2<X>() => Future<FutureOr<X>>.value(0 as dynami
 /// `void Function(Null?)` produces `Y` = `Null` as well, so it cannot be
 /// distinguished from `void Function(Null)`.
 List<Y> peelParam<Y>(void Function(Y?) f) => <Y>[];
+
+/// A helper function used to reify the parameter type of `void Function(Y)` as
+/// `List<Y>`.
+///
+/// Unlike [peelParam], the parameter type is not nullable, so `?` is not
+/// removed. The parameter is contravariant, so an argument `void Function(P)`
+/// is decomposed into `Y <: P`, and `Y` is inferred as `P`:
+/// - `void Function(Null)` gives `List<Null>`;
+/// - `void Function(Never)` gives `List<Never>`;
+/// - `void Function(X)`, where `X extends Never`, gives `List<X>`.
+/// `List<Null>` and `List<Never>` are not mutual subtypes, so they can be
+/// distinguished with `expectStaticType`. `List<Never>` and `List<X>` are
+/// mutual subtypes; use [probeList] to distinguish them:
+/// ```dart
+/// paramList(v).expectStaticType<Exactly<List<Never>>>(); // `void Function(Never)`
+/// probeList(paramList(v)).isNever(); // Compile-time error if `v` is `void Function(X)`
+/// ```
+List<Y> paramList<Y>(void Function(Y) f) => <Y>[];
+
+/// A helper function used to distinguish `List<Never>` from `List<X>`, where
+/// `X extends Never`, statically.
+///
+/// These types are mutual subtypes, so `expectStaticType` cannot tell them
+/// apart. `Y` is inferred as the element type of the argument. The result is a
+/// record whose field types are `_Type1<Never>` and `_Type2<Y>`. These types
+/// have the same superinterface `_EqualTo<Never>` only if `Y` is `Never`. See
+/// [IsNever]:
+/// ```dart
+/// probeList(v).isNever(); // Compile-time error if `v` is `List<X>`
+/// probeList(v).isBottomVar(); // Compile-time error if `v` is `List<Never>`
+/// ```
+(_Type1<Never>, _Type2<Y>) probeList<Y>(List<Y> l) =>
+    (_Type1<Never>(), _Type2<Y>());
+
+/// Declares `isNever()` for the results of [probeList] when `Y` is `Never`.
+///
+/// `Z` is inferred as the upper bound of the two field types of the record.
+/// For two different classes it is the least upper bound of their interfaces,
+/// which only contains a generic superinterface if its type arguments are the
+/// same in both types. Therefore:
+/// - for `(_Type1<Never>, _Type2<Never>)` `Z` is `_EqualTo<Never>`, which
+///   satisfies the bound, so `isNever()` can be invoked;
+/// - for `(_Type1<Never>, _Type2<X>)`, where `X extends Never`, `Z` is
+///   `_NotEqual`, because `_EqualTo<Never>` and `_EqualTo<X>` are different
+///   types, even though they are mutual subtypes. The bound is not satisfied,
+///   so `isNever()` is not defined.
+extension IsNever<Z extends _EqualTo<Object?>> on (Z, Z) {
+  void isNever() {}
+}
+
+/// Declares `isBottomVar()` for the results of [probeList] when `Y` is a type
+/// variable `X extends Never`.
+///
+/// This extension applies to both `(_Type1<Never>, _Type2<Never>)` and
+/// `(_Type1<Never>, _Type2<X>)`, because both field types are subtypes of
+/// `_NotEqual`. For `Y` = `Never`, [IsBottomVarFail] is also applicable and
+/// more specific, so it hides this method and the invocation is a compile-time
+/// error.
+extension IsBottomVar on (_NotEqual, _NotEqual) {
+  void isBottomVar() {}
+}
+
+/// Hides [IsBottomVar.isBottomVar] when [probeList] was applied to
+/// `List<Never>`.
+///
+/// `Z` is inferred as the upper bound of the two field types, the same way as
+/// for [IsNever]. For `(_Type1<Never>, _Type2<Never>)` `Z` is `_EqualTo<Never>`,
+/// which satisfies the bound, and `(_EqualTo<Never>, _EqualTo<Never>)` is more
+/// specific than `(_NotEqual, _NotEqual)`. `isBottomVar` is a setter here, so
+/// the invocation is a compile-time error. For `(_Type1<Never>, _Type2<X>)` `Z`
+/// is `_NotEqual`, so this extension is not applicable and [IsBottomVar]
+/// remains in effect.
+extension IsBottomVarFail<Z extends _EqualTo<Never>> on (Z, Z) {
+  set isBottomVar(Never _) {}
+}
