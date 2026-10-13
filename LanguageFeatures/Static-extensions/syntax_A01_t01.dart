@@ -39,7 +39,7 @@ extension ExtC on C {
 }
 
 extension ExtM on M {
-  factory someName() = MA.new;
+  factory someName() = MO.new;
 }
 
 extension ExtMC on MC {

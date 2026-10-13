@@ -28,10 +28,33 @@ extension ExtC on C {
 // [cfe] unspecified
 }
 
-mixin class MC {}
+mixin M {}
+
+class MO = Object with M;
+
+extension ExtM on M {
+  factory M() => MO();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  factory M.someName() => MO();
+//        ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+mixin class MC {
+  MC.someName();
+}
 
 extension ExtMC on MC {
-  factory MC.someName() => MC();
+  factory MC() => MC.someName();
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  factory MC.foo() => MC.someName();
 //        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -56,18 +79,19 @@ extension ExtE on E {
 extension type ET._(int _) implements num {}
 
 extension ExtET on ET {
-  factory E(int _) = ET._;
-//        ^
+  factory ET(int _) = ET._;
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  factory E.someName(int _) => ET._(0);
-//        ^
+  factory ET.someName(int _) => ET._(0);
+//        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
   print(C);
+  print(M);
   print(MC);
   print(E);
   print(ET);

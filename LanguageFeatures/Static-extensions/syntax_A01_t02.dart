@@ -52,8 +52,8 @@ extension on ET {
 
 main() {
   C();
-  Expect.isTrue(M() is MO);
   Expect.equals('C.someName', log);
+  Expect.isTrue(M() is MO);
   MC.someName();
   ET.someName(0);
   Expect.equals('ET.new', log);
