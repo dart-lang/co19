@@ -15,7 +15,9 @@
 // SharedOptions=--enable-experiment=static-extensions
 
 enum E<X extends num> {
-  e0;
+  e0.bar();
+
+  E.bar();
 }
 
 extension Ext1 on E<dynamic> {
