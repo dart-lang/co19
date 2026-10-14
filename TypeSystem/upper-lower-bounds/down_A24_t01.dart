@@ -63,15 +63,6 @@ void f5(
 }
 
 void f6(
-  void Function(FutureOr<D<int, String>>) v1,
-  void Function(FutureOr<D<num, Object>>) v2,
-) {
-  // DOWN(D<int, String>, D<num, Object>) = D<int, String>
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(FutureOr<D<int, String>>)>>();
-}
-
-void f7(
   void Function(FutureOr<int Function<X extends num>(X)>) v1,
   void Function(FutureOr<num Function<X extends num>(num)>) v2,
 ) {
@@ -83,7 +74,7 @@ void f7(
         Exactly<void Function(FutureOr<int Function<X extends num>(num)>)>>();
 }
 
-void f8<X>(void Function(FutureOr<X>) v1, void Function(FutureOr<num>) v2) {
+void f7<X>(void Function(FutureOr<X>) v1, void Function(FutureOr<num>) v2) {
   // DOWN(X, num) = Never
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(FutureOr<Never>)>>();
@@ -96,6 +87,5 @@ void main() {
   f4((x) {}, (x) {});
   f5((x) {}, (x) {});
   f6((x) {}, (x) {});
-  f7((x) {}, (x) {});
-  f8<num>((x) {}, (x) {});
+  f7<num>((x) {}, (x) {});
 }

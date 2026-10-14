@@ -120,6 +120,15 @@ void f12<X>(
   v.expectStaticType<Exactly<void Function(FutureOr<Never>)>>();
 }
 
+void f13(
+    void Function(FutureOr<D<int, Object>>) v1,
+    void Function(FutureOr<D<num, String>>) v2,
+    ) {
+  // DOWN(D<int, String>, D<num, Object>) = D<int, String>
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(FutureOr<Never>)>>();
+}
+
 void main() {
   f1((x) {}, (x) {});
   f2((x) {}, (x) {});
@@ -133,4 +142,5 @@ void main() {
   f10((x) {}, (x) {});
   f11((x) {}, (x) {});
   f12<num>((x) {}, (x) {});
+  f13((x) {}, (x) {});
 }
