@@ -172,6 +172,18 @@ void f12b(
   v.expectStaticType<Exactly<void Function(int Function(num)?)>>();
 }
 
+void f13a<X>(void Function(X?) v1, void Function(num?) v2) {
+  // DOWN(X?, num?) = DOWN(X, num)? = Never?
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(Never?)>>();
+}
+
+void f13b<X>(void Function(num?) v1, void Function(X?) v2) {
+  // DOWN(num?, X?) = DOWN(num, X)? = Never?
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(Never?)>>();
+}
+
 void main() {
   f1a((int? x) {}, (num? x) {});
   f1b((num? x) {}, (int? x) {});
@@ -197,4 +209,6 @@ void main() {
   f11b((List<num>? x) {}, (List<int>? x) {});
   f12a((int Function(num)? x) {}, (int Function(int)? x) {});
   f12b((int Function(int)? x) {}, (int Function(num)? x) {});
+  f13a<int>((int? x) {}, (num? x) {});
+  f13b<int>((num? x) {}, (int? x) {});
 }

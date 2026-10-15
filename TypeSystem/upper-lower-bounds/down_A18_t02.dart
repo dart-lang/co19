@@ -94,10 +94,21 @@ void f5(
   v.expectStaticType<Exactly<void Function(int Function({int a, String b}))>>();
 }
 
+void f6(
+    void Function(int Function<X>({X a})) v1,
+    void Function(num Function<X>({X b})) v2,
+    ) {
+  // Disjoint optional names are all kept and stay optional.
+  // DOWN(...) = int Function({X a, X b})
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(int Function<X>({X a, X b}))>>();
+}
+
 void main() {
   f1((x) {}, (x) {});
   f2((x) {}, (x) {});
   f3((x) {}, (x) {});
   f4((x) {}, (x) {});
   f5((x) {}, (x) {});
+  f6((x) {}, (x) {});
 }

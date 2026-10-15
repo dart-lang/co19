@@ -90,6 +90,11 @@ void f15(void Function(ET) v1, void Function(dynamic) v2) {
   v.expectStaticType<Exactly<void Function(ET)>>();
 }
 
+void f16<X>(void Function(X) v1, void Function(dynamic) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(X)>>();
+}
+
 void main() {
   f1((num x) {}, (x) {});
   f2((num x) {}, (x) {});
@@ -106,4 +111,5 @@ void main() {
   f13((Rec x) {}, (x) {});
   f14((E x) {}, (x) {});
   f15((ET x) {}, (x) {});
+  f16<int>((num x) {}, (x) {});
 }

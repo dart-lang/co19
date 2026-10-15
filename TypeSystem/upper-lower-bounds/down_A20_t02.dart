@@ -69,6 +69,12 @@ void f7(
   v.expectStaticType<Exactly<void Function((Never, {Never s}))>>();
 }
 
+void f8<X>(void Function((X,)) v1, void Function((num,)) v2) {
+  // DOWN(X, num) = Never
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function((Never,))>>();
+}
+
 void main() {
   f1((x) {}, (x) {});
   f2((x) {}, (x) {});
@@ -77,4 +83,5 @@ void main() {
   f5((x) {}, (x) {});
   f6((x) {}, (x) {});
   f7((x) {}, (x) {});
+  f8<int>((x) {}, (x) {});
 }

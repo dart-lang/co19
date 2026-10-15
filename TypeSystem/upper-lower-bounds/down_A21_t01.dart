@@ -146,6 +146,11 @@ void f21(
   v.expectStaticType<Exactly<void Function(Never)>>();
 }
 
+void f22<X>(void Function((X,)) v1, void Function((X, String)) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(Never)>>();
+}
+
 void main() {
   f1((x) {}, (x) {});
   f2((x) {}, (x) {});
@@ -168,4 +173,5 @@ void main() {
   f19((x) {}, (x) {});
   f20((x) {}, (x) {});
   f21((x) {}, (x) {});
+  f22<int>((x) {}, (x) {});
 }
