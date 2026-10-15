@@ -90,6 +90,15 @@ void f6(
   v.expectStaticType<Exactly<void Function(int Function(int, [String]))>>();
 }
 
+void f7(
+    void Function(int Function<X>(X)) v1,
+    void Function(num Function<X>(X, String)) v2,
+    ) {
+  // DOWN(int Function<X>(X), num Function<X>(<X>, String)) = int Function<X>(<X>, [String])
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(int Function<X>(X, [String]))>>();
+}
+
 void main() {
   f1((x) {}, (x) {});
   f2((x) {}, (x) {});
@@ -97,4 +106,5 @@ void main() {
   f4((x) {}, (x) {});
   f5((x) {}, (x) {});
   f6((x) {}, (x) {});
+  f7((x) {}, (x) {});
 }

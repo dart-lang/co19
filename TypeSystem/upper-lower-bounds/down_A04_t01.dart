@@ -167,6 +167,16 @@ void f15b(void Function(ET) v1, void Function(FutureOr<void>) v2) {
   v.expectStaticType<Exactly<void Function(ET)>>();
 }
 
+void f16a<X>(void Function(X) v1, void Function(void) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(X)>>();
+}
+
+void f16b<X>(void Function(X) v1, void Function(FutureOr<void>) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(X)>>();
+}
+
 void main() {
   f1a((num x) {}, (void x) {});
   f1b((num x) {}, (FutureOr<void> x) {});
@@ -198,4 +208,6 @@ void main() {
   f14b((E x) {}, (FutureOr<void> x) {});
   f15a((ET x) {}, (void x) {});
   f15b((ET x) {}, (FutureOr<void> x) {});
+  f16a<int>((num x) {}, (void x) {});
+  f16b<int>((num x) {}, (FutureOr<void> x) {});
 }

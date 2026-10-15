@@ -94,6 +94,14 @@ void f8(
   v.expectStaticType<Exactly<void Function(Never)>>();
 }
 
+void f9(
+    void Function(int Function<X extends num>(X, {int a})) v1,
+    void Function(num Function<X>(X, {int a})) v2,
+    ) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(Never)>>();
+}
+
 void main() {
   f1((x) {}, (x) {});
   f2((x) {}, (x) {});
@@ -103,4 +111,5 @@ void main() {
   f6((x) {}, (x) {});
   f7((x) {}, (x) {});
   f8((x) {}, (x) {});
+  f9((x) {}, (x) {});
 }

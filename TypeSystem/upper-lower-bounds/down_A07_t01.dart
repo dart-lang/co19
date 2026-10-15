@@ -216,6 +216,17 @@ void f17<X extends Never, Y extends Null>(
   probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
 }
 
+void f18a<X>(void Function(Never) v1, void Function(X) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(Never)>>();
+}
+
+void f18b<X extends Never, Y>(void Function(X) v1, void Function(Y) v2) {
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(X)>>();
+  probeList(paramList(v)).isBottomVar(); // Rejects `void Function(Never)`
+}
+
 void main() {
   f1a((Never x) {}, (num x) {});
   f1b((Never x) {}, (num x) {});
@@ -250,4 +261,6 @@ void main() {
   f16a((Never x) {}, (num x) {});
   f16b((Never x) {}, (num x) {});
   f17((Never x) {}, (Null x) {});
+  f18a<int>((Never x) {}, (num x) {});
+  f18b<Never, int>((Never x) {}, (num x) {});
 }
