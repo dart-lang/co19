@@ -194,6 +194,17 @@ void f16(FutureOr<dynamic> d, Future<Object?> n) async {
   v = 1; // Rejects `FutureOr<Never>`
 }
 
+void f17<X>(FutureOr<dynamic> d, X n) async {
+  var v = (1 > 2) ? n : d;
+  v.expectStaticType<Exactly<FutureOr<dynamic>>>();
+  v.checkNotDynamic; // Rejects `dynamic` and `Never`
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  (await v).checkDynamic;
+  v = 1; // Rejects `FutureOr<Never>`
+}
+
 void main() {
   f1('1', 2);
   f2('2', 2);
@@ -211,4 +222,5 @@ void main() {
   f14('14', E.e0);
   f15('15', ET(0));
   f16('16', Future.value(42));
+  f17<int>('17', 17);
 }

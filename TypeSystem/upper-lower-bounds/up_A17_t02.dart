@@ -167,6 +167,22 @@ void f22(num? t1, FutureOr<int> t2) {
   v.expectStaticType<Exactly<FutureOr<num>?>>();
 }
 
+void f23<X>(X? t1, num t2) {
+  var v = (1 > 2) ? t1 : t2; // UP(X?, num) = UP(X, num)? = Object?
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
+}
+
+void f24<X>(num? t1, X t2) {
+  var v = (1 > 2) ? t1 : t2; // UP(num?, X) = UP(num, X)? = Object?
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
+}
+
 void main() {
   f1(1, 's');
   f2('s', 1);
@@ -190,4 +206,6 @@ void main() {
   f20('s', 1);
   f21(1, 1);
   f22(1, 1);
+  f23<int>(1, 1);
+  f24<int>(1, 1);
 }

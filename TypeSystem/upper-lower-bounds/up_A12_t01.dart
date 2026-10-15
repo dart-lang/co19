@@ -160,6 +160,16 @@ void f14b(FutureOr<Never>? n, Never? t2) {
   v.expectStaticType<Exactly<FutureOr<Never>?>>();
 }
 
+void f15a<X>(X? n) {
+  var v = (1 > 2) ? n : null; // UP(X?, Null) = X?
+  v.expectStaticType<Exactly<X?>>();
+}
+
+void f15b<X>(X? n, Never? t2) {
+  var v = (1 > 2) ? n : t2; // UP(X?, Never?) = X?
+  v.expectStaticType<Exactly<X?>>();
+}
+
 void main() {
   f1a(1);
   f1b(1, null);
@@ -189,4 +199,6 @@ void main() {
   f13b(null, null);
   f14a(null);
   f14b(null, null);
+  f15a<int>(1);
+  f15b<int>(1, null);
 }
