@@ -113,6 +113,11 @@ void f17(ET x, ET y) {
   v.expectStaticType<Exactly<ET>>();
 }
 
+void f18<X>(X x1, X x2) {
+  var v = (1 > 2) ? x1 : x2;
+  v.expectStaticType<Exactly<X>>();
+}
+
 void main() {
   f1(1, 2);
   f1<int>(1, 2);
@@ -138,4 +143,6 @@ void main() {
   f15((1, 'two', b: true), (1, 'two', b: true));
   f16();
   f17(ET(1), ET(2));
+  f18(1, 2);
+  f18<int>(1, 2);
 }

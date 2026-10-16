@@ -269,6 +269,23 @@ void f30(ET n) async {
 // [cfe] unspecified
 }
 
+void f31<X>(X n) {
+  var v = (1 > 2) ? getVoid() : n;
+  print(v); // Type `void` cannot be used.
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void f32<X>(X n) async {
+  var v = (1 > 2) ? getFutureOrVoid() : n;
+  print(v); // Rejects `void`
+  print(await v); // Type `void` cannot be used.
+//      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 void main() {
   print(f1);
   print(f2);
@@ -300,4 +317,6 @@ void main() {
   print(f28);
   print(f29);
   print(f30);
+  print(f31);
+  print(f32);
 }

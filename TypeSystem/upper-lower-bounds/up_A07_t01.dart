@@ -163,6 +163,16 @@ void f30<X extends Never>(ET n1, X n2) {
   v.expectStaticType<Exactly<ET>>();
 }
 
+void f31<X>(X n1, Never n2) {
+  var v = (1 > 2) ? n1 : n2;
+  v.expectStaticType<Exactly<X>>();
+}
+
+void f32<X extends Never, Y>(Y n1, X n2) {
+  var v = (1 > 2) ? n1 : n2;
+  v.expectStaticType<Exactly<Y>>();
+}
+
 void main() {
   print(f1);
   print(f2);
@@ -192,4 +202,6 @@ void main() {
   print(f28);
   print(f29);
   print(f30);
+  print(f31);
+  print(f32);
 }

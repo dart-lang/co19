@@ -136,6 +136,14 @@ void f15(dynamic d, ET n) {
   v = 1; // Rejects `Never`
 }
 
+void f16<X>(dynamic d, X n) {
+  var v = (1 > 2) ? n : d;
+  if (1 > 2) {
+    v.checkDynamic;
+  }
+  v = 1; // Rejects `Never`
+}
+
 void main() {
   f1('1', 2);
   f2('2', 2);
@@ -152,4 +160,5 @@ void main() {
   f13('13', (1, 'two', b: true));
   f14('14', E.e0);
   f15('15', ET(0));
+  f16<int>('16', 16);
 }
