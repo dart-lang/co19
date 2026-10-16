@@ -6,7 +6,7 @@
 /// has static type `T?` promotes the type of `e` to `T` in the `true`
 /// continuation, and to `Null` in the `false` continuation.
 ///
-/// @description Check that `this` is promoted to `T` in the `true`
+/// @description Check that `this` is promoted to `NonNull(this)` in the `true`
 /// continuation of `this != null`.
 /// @author sgrekhov22@gmail.com
 
