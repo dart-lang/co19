@@ -25,14 +25,14 @@ import '../../../Utils/expect.dart';
 extension on int? {
   int? operator +(int? other) {
     if (this != null && other != null) {
-      return this! + other;
+      return this + other;
     }
     return null;
   }
 
   int? operator -(int? other) {
     if (this != null && other != null) {
-      return this! - other;
+      return this - other;
     }
     return null;
   }
