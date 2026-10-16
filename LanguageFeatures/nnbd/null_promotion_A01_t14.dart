@@ -34,14 +34,14 @@ extension type ET(int _) {
 
 extension ExtC on C? {
   test1() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
     } else {
       this.foo();
     }
   }
 
   test2() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
     } else {
       foo();
     }
@@ -50,14 +50,14 @@ extension ExtC on C? {
 
 extension ExtM on M? {
   test1() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
     } else {
       this.foo();
     }
   }
 
   test2() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
     } else {
       foo();
     }
@@ -66,14 +66,14 @@ extension ExtM on M? {
 
 extension ExtMC on MC? {
   test1() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
     } else {
       this.foo();
     }
   }
 
   test2() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
     } else {
       foo();
     }
@@ -82,14 +82,14 @@ extension ExtMC on MC? {
 
 extension ExtE on E? {
   test1() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
     } else {
       this.foo();
     }
   }
 
   test2() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
     } else {
       foo();
     }
@@ -98,14 +98,14 @@ extension ExtE on E? {
 
 extension ExtET on ET? {
   test1() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
     } else {
       this.foo();
     }
   }
 
   test2() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
     } else {
       foo();
     }

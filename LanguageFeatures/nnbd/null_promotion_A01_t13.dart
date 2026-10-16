@@ -35,7 +35,7 @@ extension type ET(int _) {
 
 extension ExtC on C? {
   test1() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
       this.foo();
 //         ^^^
 // [analyzer] unspecified
@@ -46,7 +46,7 @@ extension ExtC on C? {
   }
 
   test2() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
       foo();
 //    ^^^
 // [analyzer] unspecified
@@ -59,7 +59,7 @@ extension ExtC on C? {
 
 extension ExtM on M? {
   test1() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
       this.foo();
 //         ^^^
 // [analyzer] unspecified
@@ -70,7 +70,7 @@ extension ExtM on M? {
   }
 
   test2() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
       foo();
 //    ^^^
 // [analyzer] unspecified
@@ -83,7 +83,7 @@ extension ExtM on M? {
 
 extension ExtMC on MC? {
   test1() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
       this.foo();
 //         ^^^
 // [analyzer] unspecified
@@ -94,7 +94,7 @@ extension ExtMC on MC? {
   }
 
   test2() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
       foo();
 //    ^^^
 // [analyzer] unspecified
@@ -107,7 +107,7 @@ extension ExtMC on MC? {
 
 extension ExtE on E? {
   test1() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
       this.foo();
 //         ^^^
 // [analyzer] unspecified
@@ -118,7 +118,7 @@ extension ExtE on E? {
   }
 
   test2() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
       foo();
 //    ^^^
 // [analyzer] unspecified
@@ -131,7 +131,7 @@ extension ExtE on E? {
 
 extension ExtET on ET? {
   test1() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
       this.foo();
 //         ^^^
 // [analyzer] unspecified
@@ -142,7 +142,7 @@ extension ExtET on ET? {
   }
 
   test2() {
-    if (this is Null) {
+    if (this is Null) { // ignore: type_check_with_null
       foo();
 //    ^^^
 // [analyzer] unspecified
