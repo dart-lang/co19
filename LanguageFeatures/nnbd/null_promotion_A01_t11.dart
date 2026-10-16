@@ -6,8 +6,8 @@
 /// `e` has static type `T` promotes the type of `e` to `Null` in the `true`
 /// continuation, and to `NonNull(T)` in the `false` continuation.
 ///
-/// @description Check that `this` is promoted to `Null` in the `true` condition
-/// and to `NonNull(this)` in the `false` continuation.
+/// @description Check that `this` is promoted to `Null` in the `true`
+/// continuation and to `NonNull(this)` in the `false` continuation.
 /// @author sgrekhov22@gmail.com
 
 class C {
