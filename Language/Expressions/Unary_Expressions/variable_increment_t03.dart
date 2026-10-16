@@ -27,7 +27,7 @@ class A {
 extension on A? {
   A? operator +(int other) {
     if (this != null) {
-      return this! + other;
+      return this + other;
     }
     return null;
   }
@@ -36,7 +36,7 @@ extension on A? {
 extension on int? {
   int? operator +(int? other) {
     if (this != null && other != null) {
-      return this! + other;
+      return this + other;
     }
     return null;
   }

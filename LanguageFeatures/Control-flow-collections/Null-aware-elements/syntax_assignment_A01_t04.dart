@@ -26,7 +26,7 @@ import '../../../Utils/expect.dart';
 extension on double? {
   double? operator /(double? other) {
     if (this != null && other != null) {
-      return this! / other;
+      return this / other;
     }
     return null;
   }
