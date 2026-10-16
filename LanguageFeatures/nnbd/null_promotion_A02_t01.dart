@@ -7,7 +7,7 @@
 /// continuation, and to [Null] in the [false] continuation.
 ///
 /// @description Check that type of [e] is promoted to [Null] in the [false]
-/// condition. Test [e != null] expression
+/// continuation. Test [e != null] expression
 /// @author sgrekhov@unipro.ru
 
 class A {

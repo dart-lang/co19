@@ -7,7 +7,7 @@
 /// continuation, and to [Null] in the [false] continuation.
 ///
 /// @description Check that type of [e] is promoted to [T] in the [true]
-/// condition. Test [e is T] expression
+/// continuation. Test [e is T] expression
 /// @author iarkh@unipro.ru
 /// @author sgrekhov@unipro.ru
 
