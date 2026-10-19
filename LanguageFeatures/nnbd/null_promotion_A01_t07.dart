@@ -6,7 +6,7 @@
 /// `e` has static type `T` promotes the type of `e` to `Null` in the `true`
 /// continuation, and to `NonNull(T)` in the `false` continuation.
 ///
-/// @description Check that a check of the form `e is Null`[e] promotes `e` to
+/// @description Check that a check of the form `e is Null` promotes `e` to
 /// `NonNull(T)` in the `false` continuation.
 /// @author iarkh@unipro.ru
 
