@@ -46,7 +46,7 @@ main() {
   var b2 = new B<int>() as B<int>?;
   if (b2 != null) {
   } else {
-    b2.expectStaticType<Exactly<B?>>();
+    b2.expectStaticType<Exactly<B<int>?>>();
     b2.bar();
 //     ^^^
 // [analyzer] unspecified
