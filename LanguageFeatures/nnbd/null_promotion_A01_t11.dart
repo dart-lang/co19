@@ -6,9 +6,13 @@
 /// `e` has static type `T` promotes the type of `e` to `Null` in the `true`
 /// continuation, and to `NonNull(T)` in the `false` continuation.
 ///
-/// @description Check that `this` is promoted to `Null` in the `true`
-/// continuation and to `NonNull(this)` in the `false` continuation.
+/// @description Check that `this` is not promoted to `Null` in the `true`
+/// continuation and is promoted to `NonNull(this)` in the `false` continuation.
+/// @note This is contrary to the assertion, but it is how it currently works
+/// and is expected. See https://github.com/dart-lang/language/issues/4742.
 /// @author sgrekhov22@gmail.com
+
+import '../../Utils/static_type_helper.dart';
 
 class C {
   foo() {}
@@ -35,22 +39,26 @@ extension type ET(int _) {
 extension ExtC on C? {
   test1() {
     if (this == null) {
+      this.expectStaticType<Exactly<C?>>();
       this.foo();
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     } else {
+      this.expectStaticType<Exactly<C>>();
       this.foo();
     }
   }
 
   test2() {
     if (this == null) {
+      expectStaticType<Exactly<C?>>();
       foo();
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     } else {
+      expectStaticType<Exactly<C>>();
       foo();
     }
   }
@@ -59,22 +67,26 @@ extension ExtC on C? {
 extension ExtM on M? {
   test1() {
     if (this == null) {
+      this.expectStaticType<Exactly<M?>>();
       this.foo();
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     } else {
+      this.expectStaticType<Exactly<M>>();
       this.foo();
     }
   }
 
   test2() {
     if (this == null) {
+      expectStaticType<Exactly<M?>>();
       foo();
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     } else {
+      expectStaticType<Exactly<M>>();
       foo();
     }
   }
@@ -83,22 +95,26 @@ extension ExtM on M? {
 extension ExtMC on MC? {
   test1() {
     if (this == null) {
+      this.expectStaticType<Exactly<MC?>>();
       this.foo();
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     } else {
+      this.expectStaticType<Exactly<MC>>();
       this.foo();
     }
   }
 
   test2() {
     if (this == null) {
+      expectStaticType<Exactly<MC?>>();
       foo();
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     } else {
+      expectStaticType<Exactly<MC>>();
       foo();
     }
   }
@@ -107,22 +123,26 @@ extension ExtMC on MC? {
 extension ExtE on E? {
   test1() {
     if (this == null) {
+      this.expectStaticType<Exactly<E?>>();
       this.foo();
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     } else {
+      this.expectStaticType<Exactly<E>>();
       this.foo();
     }
   }
 
   test2() {
     if (this == null) {
+      expectStaticType<Exactly<E?>>();
       foo();
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     } else {
+      expectStaticType<Exactly<E>>();
       foo();
     }
   }
@@ -131,22 +151,26 @@ extension ExtE on E? {
 extension ExtET on ET? {
   test1() {
     if (this == null) {
+      this.expectStaticType<Exactly<ET?>>();
       this.foo();
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     } else {
+      this.expectStaticType<Exactly<ET>>();
       this.foo();
     }
   }
 
   test2() {
     if (this == null) {
+      expectStaticType<Exactly<ET?>>();
       foo();
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     } else {
+      expectStaticType<Exactly<ET>>();
       foo();
     }
   }

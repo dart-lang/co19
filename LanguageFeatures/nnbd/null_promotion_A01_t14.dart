@@ -10,6 +10,8 @@
 /// continuation of `this is Null`.
 /// @author sgrekhov22@gmail.com
 
+import '../../Utils/static_type_helper.dart';
+
 class C {
   foo() {}
 }
@@ -36,6 +38,7 @@ extension ExtC on C? {
   test1() {
     if (this is Null) { // ignore: type_check_with_null
     } else {
+      this.expectStaticType<Exactly<C>>();
       this.foo();
     }
   }
@@ -43,6 +46,7 @@ extension ExtC on C? {
   test2() {
     if (this is Null) { // ignore: type_check_with_null
     } else {
+      expectStaticType<Exactly<C>>();
       foo();
     }
   }
@@ -52,6 +56,7 @@ extension ExtM on M? {
   test1() {
     if (this is Null) { // ignore: type_check_with_null
     } else {
+      this.expectStaticType<Exactly<M>>();
       this.foo();
     }
   }
@@ -59,6 +64,7 @@ extension ExtM on M? {
   test2() {
     if (this is Null) { // ignore: type_check_with_null
     } else {
+      expectStaticType<Exactly<M>>();
       foo();
     }
   }
@@ -68,6 +74,7 @@ extension ExtMC on MC? {
   test1() {
     if (this is Null) { // ignore: type_check_with_null
     } else {
+      this.expectStaticType<Exactly<MC>>();
       this.foo();
     }
   }
@@ -75,6 +82,7 @@ extension ExtMC on MC? {
   test2() {
     if (this is Null) { // ignore: type_check_with_null
     } else {
+      expectStaticType<Exactly<MC>>();
       foo();
     }
   }
@@ -84,6 +92,7 @@ extension ExtE on E? {
   test1() {
     if (this is Null) { // ignore: type_check_with_null
     } else {
+      this.expectStaticType<Exactly<E>>();
       this.foo();
     }
   }
@@ -91,6 +100,7 @@ extension ExtE on E? {
   test2() {
     if (this is Null) { // ignore: type_check_with_null
     } else {
+      expectStaticType<Exactly<E>>();
       foo();
     }
   }
@@ -100,6 +110,7 @@ extension ExtET on ET? {
   test1() {
     if (this is Null) { // ignore: type_check_with_null
     } else {
+      this.expectStaticType<Exactly<ET>>();
       this.foo();
     }
   }
@@ -107,6 +118,7 @@ extension ExtET on ET? {
   test2() {
     if (this is Null) { // ignore: type_check_with_null
     } else {
+      expectStaticType<Exactly<ET>>();
       foo();
     }
   }

@@ -10,6 +10,8 @@
 /// continuation of `this is T`.
 /// @author sgrekhov22@gmail.com
 
+import '../../Utils/static_type_helper.dart';
+
 class C {
   foo() {}
 }
@@ -35,12 +37,14 @@ extension type ET(int _) {
 extension ExtC on C? {
   test1() {
     if (this is C) {
+      this.expectStaticType<Exactly<C>>();
       this.foo();
     }
   }
 
   test2() {
     if (this is C) {
+      expectStaticType<Exactly<C>>();
       foo();
     }
   }
@@ -49,12 +53,14 @@ extension ExtC on C? {
 extension ExtM on M? {
   test1() {
     if (this is M) {
+      this.expectStaticType<Exactly<M>>();
       this.foo();
     }
   }
 
   test2() {
     if (this is M) {
+      expectStaticType<Exactly<M>>();
       foo();
     }
   }
@@ -63,12 +69,14 @@ extension ExtM on M? {
 extension ExtMC on MC? {
   test1() {
     if (this is MC) {
+      this.expectStaticType<Exactly<MC>>();
       this.foo();
     }
   }
 
   test2() {
     if (this is MC) {
+      expectStaticType<Exactly<MC>>();
       foo();
     }
   }
@@ -77,12 +85,14 @@ extension ExtMC on MC? {
 extension ExtE on E? {
   test1() {
     if (this is E) {
+      this.expectStaticType<Exactly<E>>();
       this.foo();
     }
   }
 
   test2() {
     if (this is E) {
+      expectStaticType<Exactly<E>>();
       foo();
     }
   }
@@ -91,12 +101,14 @@ extension ExtE on E? {
 extension ExtET on ET? {
   test1() {
     if (this is ET) {
+      this.expectStaticType<Exactly<ET>>();
       this.foo();
     }
   }
 
   test2() {
     if (this is ET) {
+      expectStaticType<Exactly<ET>>();
       foo();
     }
   }
