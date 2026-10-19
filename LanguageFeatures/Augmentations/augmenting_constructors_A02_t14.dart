@@ -42,7 +42,7 @@ import '../../Utils/expect.dart';
 
 class C {
   int? x;
-  C(int? x);
+  C(int? x) : x = x;
   C.foo([this.x]);
 }
 
