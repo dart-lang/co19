@@ -157,6 +157,30 @@ void f25<T1 extends num, T2 extends T1>(({T1 t}) t1, ({T2 t}) t2) {
   }
 }
 
+void f26<X>((X,) t1, (num,) t2) {
+  var v = (1 > 2) ? t1 : t2;
+  v.expectStaticType<Exactly<(Object?,)>>();
+}
+
+void f27<X>((X, String) t1, (int, Object) t2) {
+  var v = (1 > 2) ? t1 : t2;
+  v.expectStaticType<Exactly<(Object?, Object)>>();
+}
+
+void f28<T1, T2 extends T1>((T1,) t1, (T2,) t2) {
+  if (t1 is (T2,)) {
+    var v = (1 > 2) ? t2 : t1;
+    v.expectStaticType<Exactly<(T2,)>>();
+  }
+}
+
+void f29<T1, T2 extends T1>(({T1 t}) t1, ({T2 t}) t2) {
+  if (t1 is ({T2 t})) {
+    var v = (1 > 2) ? t2 : t1;
+    v.expectStaticType<Exactly<({T2 t})>>();
+  }
+}
+
 void main() {
   f1((), ());
   f2((1,), (1.0,));
@@ -182,4 +206,8 @@ void main() {
   f23((ET(0), x: 1), (1, x: ET(0)));
   f24<num, int>((1,), (2,));
   f25<num, int>((t: 1), (t: 2));
+  f26<int>((1,), (1.0,));
+  f27<int>((1, 's'), (1, true));
+  f28<num, int>((1,), (2,));
+  f29<num, int>((t: 1), (t: 2));
 }

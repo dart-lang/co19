@@ -100,6 +100,32 @@ void f10(ET t1, void Function<X extends num>(X) t2) {
   v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
+void f11<X>(X t1, int Function(X) t2) {
+  var v = (1 > 2) ? t1 : t2; // UP(X, int Function(X)) = UP(X, Object) = Object?
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
+}
+
+void f12(E t1, void Function<X>(X) t2) {
+  var v = (1 > 2) ? t1 : t2;
+  // UP(E, void Function<X>(X)) = UP(E, Object) = Object
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+}
+
+void f13(ET t1, void Function<X>(X) t2) {
+  var v = (1 > 2) ? t1 : t2;
+  // UP(ET, void Function<X>(X)) = UP(ET, Object) = Object?
+  v.expectStaticType<Exactly<Object?>>();
+  // Check that `v` is neither `FutureOr<Object>?` nor `FutureOr<Object?>`.
+  // See README.md for an explanation of each step in the checks below.
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
+}
+
 void main() {
   f1(1, () => 1);
   f2('s', (int i) {});
@@ -111,4 +137,7 @@ void main() {
   f8(1, <X extends num>(X x, [int i = 0]) => 0);
   f9<int>(1, (int x) => x);
   f10(ET(0), <X extends num>(X x) {});
+  f11<int>(1, (int x) => x);
+  f12(E.e0, <X>(X x) {});
+  f13(ET(0), <X>(X x) {});
 }

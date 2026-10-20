@@ -136,6 +136,26 @@ void f11(int t1, FutureOr<Function> t2) {
   v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
 }
 
+void f12<X>(int t1, FutureOr<X> t2) {
+  // FutureOr<UP(int, X)> = FutureOr<Object?>
+  var v = (1 > 2) ? t1 : t2;
+  v.expectStaticType<Exactly<Object?>>();
+  // Check that `v` is `FutureOr<Object?>`, neither `Object?` nor
+  // `FutureOr<FutureOr<Object?>>`.
+  // See README.md for an explanation of each step in the checks below.
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object?>>>();
+  v = probeFuture2()..expectStaticType<Exactly<Future<Future<dynamic>>>>();
+  v = probeFutureOr2()..expectStaticType<Exactly<Future<FutureOr<Object>>>>();
+}
+
+void f13<T1, T2 extends T1>(T2 t1, FutureOr<T1> t2) {
+  if (t2 is FutureOr<T2>) {
+    // FutureOr<UP(T2, T1&T2)> = FutureOr<T2>
+    var v = (1 > 2) ? t1 : t2;
+    v.expectStaticType<Exactly<FutureOr<T2>>>();
+  }
+}
+
 void main() {
   f1a(1, 1.0);
   f1b(1, 1);
@@ -153,4 +173,6 @@ void main() {
   print(f9);
   f10(1, 1);
   f11(1, fPositional);
+  f12<int>(1, 1);
+  f13<num, int>(1, 1);
 }

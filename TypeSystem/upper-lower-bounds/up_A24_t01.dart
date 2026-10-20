@@ -62,7 +62,20 @@ void main() {
   var f4 = <X extends num>(X x, num y, {required int a}) => a;
   var f5 = <X extends num>(X x, int y, {num a = 1}) => a;
 
-  var v3 = (1 > 2) ? f2 : f3;
+  var v3 = (1 > 2) ? f4 : f5;
   v3.expectStaticType<
-      Exactly<num Function<X extends num>(X, int, {int a})>>();
+      Exactly<num Function<X extends num>(X, int, {required int a})>>();
+
+  // Type parameters with no bound
+  var f6 = <X>(X x, int y, {required int a}) => a;
+  var f7 = <X>(X x, num y, {required num a}) => a;
+
+  var v4 = (1 > 2) ? f6 : f7;
+  v4.expectStaticType<Exactly<num Function<X>(X, int, {required int a})>>();
+
+  var f8 = <X>(X x, num y, {int a = 0}) => a;
+  var f9 = <X>(X x, int y, {num a = 1}) => a;
+
+  var v5 = (1 > 2) ? f8 : f9;
+  v5.expectStaticType<Exactly<num Function<X>(X, int, {int a})>>();
 }

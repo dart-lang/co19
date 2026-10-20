@@ -124,6 +124,11 @@ void f21((dynamic, {ET x}) t1, (dynamic, {ET y}) t2) {
   v.expectStaticType<Exactly<Record>>();
 }
 
+void f22<X>((X,) t1, (X, String) t2) {
+  var v = (1 > 2) ? t1 : t2;
+  v.expectStaticType<Exactly<Record>>();
+}
+
 void main() {
   f1((), (1,));
   f2((1,), (1, 's'));
@@ -146,4 +151,5 @@ void main() {
   f19((1,), (1, 's'));
   f20((1, x: () {}), (1, y: E.e0));
   f21((1, x: ET(0)), (1, y: ET(0)));
+  f22<int>((1,), (1, 's'));
 }
