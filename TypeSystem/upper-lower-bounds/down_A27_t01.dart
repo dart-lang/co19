@@ -131,10 +131,33 @@ void f13(
   v.expectStaticType<Exactly<void Function(int Function<X extends num>(X))>>();
 }
 
-void f14<X>(void Function(FutureOr<X>) v1, void Function(num) v2) {
-  // DOWN(X, num) = Never
+void f14(
+    void Function(FutureOr<int Function<X extends num>(X)>) v1,
+    void Function(String Function<X extends num>(X)) v2,
+    ) {
+  // DOWN(int Function<X extends num>(X), String Function<X extends num>(X)) =
+  // Never Function<X extends num>(X)
   var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(Never)>>();
+  v.expectStaticType<Exactly<void Function(Never Function<X extends num>(X))>>();
+}
+
+void f15(
+    void Function(FutureOr<(int, String)>) v1,
+    void Function((String, int)) v2,
+    ) {
+  // Same shape, but neither record is a subtype of the other.
+  // DOWN((int, String), (String, int)) = (Never, Never)
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function((Never, Never))>>();
+}
+
+void f16(
+    void Function(FutureOr<int Function()>) v1,
+    void Function(String Function()) v2,
+    ) {
+  // DOWN(int Function(), String Function()) = Never Function()
+  var v = (1 > 2) ? v1 : v2;
+  v.expectStaticType<Exactly<void Function(Never Function())>>();
 }
 
 void main() {
@@ -151,5 +174,7 @@ void main() {
   f11((x) {}, (x) {});
   f12((x) {}, (x) {});
   f13((x) {}, (x) {});
-  f14<num>((x) {}, (x) {});
+  f14((x) {}, (x) {});
+  f15((x) {}, (x) {});
+  f16((x) {}, (x) {});
 }

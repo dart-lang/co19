@@ -56,32 +56,13 @@ void f6<X extends num>(void Function(int) v1, void Function(FutureOr<X>) v2) {
   v.expectStaticType<Exactly<void Function(Never)>>();
 }
 
-void f7(
-  void Function(String Function()) v1,
-  void Function(FutureOr<int Function()>) v2,
-) {
-  // DOWN(String Function(), int Function()) = Never Function()
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(Never Function())>>();
-}
-
-void f8(void Function(String) v1, void Function(FutureOr<C>) v2) {
+void f7(void Function(String) v1, void Function(FutureOr<C>) v2) {
   // DOWN(String, C) = Never
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(Never)>>();
 }
 
-void f9(
-  void Function((String, int)) v1,
-  void Function(FutureOr<(int, String)>) v2,
-) {
-  // Same shape, but neither record is a subtype of the other.
-  // DOWN((String, int), (int, String)) = (Never, Never)
-  var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function((Never, Never))>>();
-}
-
-void f10(void Function(List<num>) v1, void Function(FutureOr<List<int?>>) v2) {
+void f8(void Function(List<num>) v1, void Function(FutureOr<List<int?>>) v2) {
   // List<num> <: List<int?> is false, so `List<num>` is not a subtype of
   // `FutureOr<List<int?>>`.
   // DOWN(List<num>, List<int?>) = Never
@@ -89,18 +70,14 @@ void f10(void Function(List<num>) v1, void Function(FutureOr<List<int?>>) v2) {
   v.expectStaticType<Exactly<void Function(Never)>>();
 }
 
-void f11(
-  void Function(String Function<X extends num>(X)) v1,
-  void Function(FutureOr<int Function<X extends num>(X)>) v2,
-) {
-  // DOWN(String Function<X extends num>(X), int Function<X extends num>(X)) =
-  // Never Function<X extends num>(X)
+void f9<X>(void Function(int) v1, void Function(FutureOr<X>) v2) {
+  // DOWN(int, X) = Never.
   var v = (1 > 2) ? v1 : v2;
-  v.expectStaticType<Exactly<void Function(Never Function<X extends num>(X))>>();
+  v.expectStaticType<Exactly<void Function(Never)>>();
 }
 
-void f12<X>(void Function(int) v1, void Function(FutureOr<X>) v2) {
-  // DOWN(int, X) = Never.
+void f10<X>(void Function(num) v1, void Function(FutureOr<X>) v2) {
+  // DOWN(num, X) = Never
   var v = (1 > 2) ? v1 : v2;
   v.expectStaticType<Exactly<void Function(Never)>>();
 }
@@ -114,8 +91,6 @@ void main() {
   f6<num>((x) {}, (x) {});
   f7((x) {}, (x) {});
   f8((x) {}, (x) {});
-  f9((x) {}, (x) {});
-  f10((x) {}, (x) {});
-  f11((x) {}, (x) {});
-  f12<num>((x) {}, (x) {});
+  f9<num>((x) {}, (x) {});
+  f10<num>((x) {}, (x) {});
 }
