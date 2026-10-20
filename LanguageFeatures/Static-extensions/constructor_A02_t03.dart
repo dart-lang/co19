@@ -11,36 +11,35 @@
 
 // SharedOptions=--enable-experiment=static-extensions
 
-mixin M {}
+mixin M1 {}
 
-extension ExtM1 on M {
+extension ExtM1 on M1 {
   new();
 //^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension ExtM2 on M {
-  M();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
+mixin M2 {}
 
-extension ExtM3 on M {
-  M._() {}
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension ExtM4 on M {
+extension ExtM2 on M2 {
   const new();
 //      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
+mixin M3 {}
+
+extension ExtM3 on M3 {
+  new() {}
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
-  print(M);
+  print(M1);
+  print(M2);
+  print(M3);
 }

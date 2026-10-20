@@ -13,70 +13,36 @@
 
 class C1 {}
 
-extension Ext1C1 on C1 {
-  C1();
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension Ext2C1 on C1 {
-  C1.someName() {}
-//^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C2 {
-  C2.someName();
-}
-
-extension Ext1C2 on C2 {
-  new() {}
+extension ExtC1 on C1 {
+  new();
 //^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension Ext2C2 on C2 {
-  C2._();
-//^^
+class C2._();
+
+extension ExtC2 on C2 {
+  new() : this._();
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-class C3 {
-  C3.someName();
-}
+class C3 {}
 
-extension Ext1C3 on C3 {
-  const C3();
-//      ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension Ext2C3 on C3 {
-  const foo();
-//      ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class C4 {
-  C4.someName();
-}
-
-extension Ext1C4 on C4 {
+extension ExtC3 on C3 {
   const new();
 //      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension Ext2C4 on C4 {
-  const C4._();
-//      ^^^^
+class C4 {}
+
+extension ExtC4 on C4 {
+  new() {}
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

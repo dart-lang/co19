@@ -15,16 +15,9 @@ extension type ET1.foo(int id) {
   ET1.named(int id) : this.foo(id);
 }
 
-extension Ext1ET1 on ET1 {
-  new(int id) {}
+extension ExtET1 on ET1 {
+  new(this.id) {}
 //^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension Ext2ET1 on ET1 {
-  ET1._(int id) : this.foo(id);
-//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -34,7 +27,7 @@ extension type ET2._(int id) {
 }
 
 extension Ext1ET2 on ET2 {
-  ET2(int id) : this.named(id);
+  new(int id) : this.named(id);
 //^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -45,15 +38,8 @@ extension type const ET3._(int id) {
 }
 
 extension Ext1ET3 on ET3 {
-  const new(int id);
+  const new(this.id);
 //      ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension Ext2ET3 on ET3 {
-  const ET3.foo(int id) : this._(id);
-//      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

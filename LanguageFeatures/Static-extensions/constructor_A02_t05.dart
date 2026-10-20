@@ -11,47 +11,47 @@
 
 // SharedOptions=--enable-experiment=static-extensions
 
-enum E {
+enum E1 {
   e0.named();
 
-  E.named();
+  E1.named();
 }
 
-extension Ext1E on E {
+extension ExtE1 on E1 {
   new();
 //^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension Ext2E on E {
-  const foo();
+enum E2 {
+  e0.named();
+
+  E2.named();
+}
+
+extension ExtE2 on E2 {
+  const new();
 //      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension Ext3E on E {
-  const new() : this.named();
-//      ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+enum E3 {
+  e0.named();
+
+  E3.named();
 }
 
-extension Ext4E on E {
-  E() : this.named();
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension Ext5E on E {
-  E.bar();
-//^^^^^
+extension ExtE3 on E3 {
+  new() : this.named();
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  print(E);
+  print(E1);
+  print(E2);
+  print(E3);
 }

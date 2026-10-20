@@ -11,41 +11,16 @@
 
 // SharedOptions=--enable-experiment=static-extensions
 
-mixin class MC1 {
-  MC1.named();
-}
+mixin class MC1 {}
 
-extension Ext1MC1 on MC1 {
+extension ExtMC1 on MC1 {
   new();
 //^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-extension Ext2MC1 on MC1 {
-  MC1();
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension Ext3MC1 on MC1 {
-  MC1._() {}
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-extension Ext4MC1 on MC1 {
-  MC1.foo() : this.named();
-//^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-mixin class MC2 {
-  const MC2.named();
-}
+mixin class MC2 {}
 
 extension Ext1MC2 on MC2 {
   const new();
@@ -54,9 +29,22 @@ extension Ext1MC2 on MC2 {
 // [cfe] unspecified
 }
 
-extension Ext2MC2 on MC2 {
-  const MC2.foo() : this.named();
-//      ^^^^^^^
+mixin class MC3 {
+  MC3.named();
+}
+
+extension ExtMC3 on MC3 {
+  new() : this.named();
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+mixin class MC4 {}
+
+extension ExtMC4 on MC4 {
+  new() {}
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
@@ -64,4 +52,6 @@ extension Ext2MC2 on MC2 {
 main() {
   print(MC1);
   print(MC2);
+  print(MC3);
+  print(MC4);
 }
