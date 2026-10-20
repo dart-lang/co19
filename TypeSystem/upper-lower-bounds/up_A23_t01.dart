@@ -30,6 +30,8 @@ typedef Int = int;
 int f1<X extends num>(X x, num y, [int z = 0]) => x.toInt();
 num f2<X extends num>(X x, int y, [num z = 0]) => x;
 Num f3<X extends Num>(X x, Int y, [Num z = 0]) => x;
+int f4<X>(X x, num y, [int z = 0]) => z;
+num f5<X>(X x, int y, [num z = 0]) => y;
 
 void main() {
   // - R0 = UP(int, num) = num
@@ -41,4 +43,7 @@ void main() {
 
   var v2 = (1 > 2) ? f1 : f3;
   v2.expectStaticType<Exactly<num Function<X extends num>(X, int, [int])>>();
+
+  var v3 = (1 > 2) ? f4 : f5;
+  v3.expectStaticType<Exactly<num Function<X>(X, int, [int])>>();
 }

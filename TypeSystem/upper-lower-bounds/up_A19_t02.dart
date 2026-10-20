@@ -80,6 +80,11 @@ void f12<X1 extends FutureOr<num>, T2 extends X1>(X1 x1, T2 t2) {
   v.expectStaticType<Exactly<X1>>();
 }
 
+void f13<X1, T2 extends X1>(X1 x1, T2 t2) {
+  var v = (1 > 2) ? x1 : t2; // UP(X1, T2 extends X1) = X1
+  v.expectStaticType<Exactly<X1>>();
+}
+
 void main() {
   f1<num, int>(1, 1);
   f2<C, C>(C(), C());
@@ -93,4 +98,5 @@ void main() {
   f10<E, E>(E.e0, E.e0);
   f11<ET, ET2>(ET(0), ET2(ET(0)));
   f12<FutureOr<num>, FutureOr<int>>(1, 1);
+  f13<num, int>(1, 1);
 }

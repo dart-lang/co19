@@ -97,6 +97,11 @@ void f16(Record t1, (Null,) t2) {
   v.expectStaticType<Exactly<Record>>();
 }
 
+void f17<X>(Record t1, (X, String) t2) {
+  var v = (1 > 2) ? t1 : t2;
+  v.expectStaticType<Exactly<Record>>();
+}
+
 void main() {
   f1((1,), ());
   f2((1,), (1,));
@@ -114,4 +119,5 @@ void main() {
   print(f14);
   f15((1,), (() {},));
   f16((1,), (null,));
+  f17<int>((1,), (1, 's'));
 }

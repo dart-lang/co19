@@ -97,6 +97,33 @@ void f11<X extends num, Y extends num>(X x, Y y) {
   v.expectStaticType<Exactly<num>>();
 }
 
+void f12<X1>(X1 x1, String t2) {
+  // B1a = Object?; UP(Object?, String) = Object?.
+  var v = (1 > 2) ? x1 : t2;
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
+}
+
+void f13<X1>(X1 x1, num t2) {
+  // B1a = Object?; UP(Object?, num) = Object?.
+  var v = (1 > 2) ? x1 : t2;
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
+}
+
+void f14<X, Y>(X x, Y y) {
+  // B1a = Object?; UP(Object?, Y) = Object?.
+  var v = (1 > 2) ? x : y;
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
+}
+
 void main() {
   f1(1, 's');
   f2(C(), 's');
@@ -110,4 +137,7 @@ void main() {
   f10(1, 1);
   f11(1, 2);
   f11<num, int>(1, 2);
+  f12<int>(1, 's');
+  f13<int>(1, 1);
+  f14<int, int>(1, 2);
 }

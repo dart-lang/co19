@@ -67,6 +67,17 @@ void f10(void Function<X extends num>(X) t1, Function t2) {
   v.expectStaticType<Exactly<Function>>();
 }
 
+void f11<X>(X Function(X) t1, Function t2) {
+  var v = (1 > 2) ? t1 : t2; // UP(X Function(X), Function) = Function
+  v.expectStaticType<Exactly<Function>>();
+}
+
+void f12(void Function<X>(X) t1, Function t2) {
+  var v = (1 > 2) ? t1 : t2;
+  // UP(void Function<X>(X), Function) = Function
+  v.expectStaticType<Exactly<Function>>();
+}
+
 void main() {
   f1(() => 1, () {});
   f2((int i) {}, () {});
@@ -78,4 +89,6 @@ void main() {
   f8(fNamed, () {});
   f9<int>((int x) => x, () {});
   f10(<X extends num>(X x) {}, () {});
+  f11<int>((int x) => x, () {});
+  f12(<X>(X x) {}, () {});
 }

@@ -92,6 +92,24 @@ void f10<X2 extends FutureOr<int>>(num t1, X2 x2) {
   v.expectStaticType<Exactly<FutureOr<num>>>();
 }
 
+void f11<X2>(String t1, X2 x2) {
+  // B2a = Object?; UP(String, Object?) = Object?.
+  var v = (1 > 2) ? t1 : x2;
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
+}
+
+void f12<X2>(num t1, X2 x2) {
+  // B2a = Object?; UP(num, Object?) = Object?.
+  var v = (1 > 2) ? t1 : x2;
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object?>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+  v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
+}
+
 void main() {
   f1('s', 1);
   f2('s', C());
@@ -103,4 +121,6 @@ void main() {
   f8(() => 1, (int i) => i);
   f9('s', 1);
   f10(1, 1);
+  f11<int>('s', 1);
+  f12<int>(1, 1);
 }

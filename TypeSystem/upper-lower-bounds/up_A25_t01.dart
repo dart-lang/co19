@@ -65,6 +65,31 @@ void f6() {
   v.expectStaticType<Exactly<Function>>();
 }
 
+void f7() {
+  // Bounded and not bounded type parameters.
+  var t1 = <X extends num>(X x) => x;
+  var t2 = <X>(X x) => x;
+  var v = (1 > 2) ? t1 : t2;
+  v.expectStaticType<Exactly<Function>>();
+}
+
+void f8() {
+  // Different number of required positional parameters, type parameters with
+  // no bound.
+  var t1 = <X>(X x) => x;
+  var t2 = <X>(X x, num y) => x;
+  var v = (1 > 2) ? t1 : t2;
+  v.expectStaticType<Exactly<Function>>();
+}
+
+void f9() {
+  // Different number of type parameters with no bound.
+  var t1 = <X>(X x) => x;
+  var t2 = <X, Y>(X x) => x;
+  var v = (1 > 2) ? t1 : t2;
+  v.expectStaticType<Exactly<Function>>();
+}
+
 void main() {
   f1();
   f2();
@@ -72,4 +97,7 @@ void main() {
   f4();
   f5();
   f6();
+  f7();
+  f8();
+  f9();
 }
