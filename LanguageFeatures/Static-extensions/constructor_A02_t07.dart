@@ -107,7 +107,7 @@ extension Ext2ET on ET {
 }
 
 extension Ext3ET on ET {
-  Ext3ET.someName(int x) : this(x) {}
+  Ext3ET.someName(int x) : this(x);
 //^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
