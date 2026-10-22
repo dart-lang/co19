@@ -11,7 +11,9 @@
 
 // SharedOptions=--enable-experiment=static-extensions
 
-class C1 {}
+class C1 {
+  C1.named();
+}
 
 extension ExtC1 on C1 {
   new();
@@ -29,7 +31,7 @@ extension ExtC2 on C2 {
 // [cfe] unspecified
 }
 
-class C3 {}
+class C3.named() {}
 
 extension ExtC3 on C3 {
   const new();
@@ -38,7 +40,7 @@ extension ExtC3 on C3 {
 // [cfe] unspecified
 }
 
-class C4 {}
+class C4.named() {}
 
 extension ExtC4 on C4 {
   new() {}

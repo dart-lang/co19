@@ -11,7 +11,7 @@
 
 // SharedOptions=--enable-experiment=static-extensions
 
-mixin class MC1 {}
+mixin class MC1.named() {}
 
 extension ExtMC1 on MC1 {
   new();
@@ -20,7 +20,7 @@ extension ExtMC1 on MC1 {
 // [cfe] unspecified
 }
 
-mixin class MC2 {}
+mixin class MC2.named() {}
 
 extension Ext1MC2 on MC2 {
   const new();
@@ -40,7 +40,7 @@ extension ExtMC3 on MC3 {
 // [cfe] unspecified
 }
 
-mixin class MC4 {}
+mixin class MC4.named() {}
 
 extension ExtMC4 on MC4 {
   new() {}
