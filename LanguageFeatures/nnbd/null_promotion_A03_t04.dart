@@ -30,10 +30,10 @@ main() {
       int i = n!;
     }
     if (2 > 1) { // Check that `n!` is not `dynamic`
-      // ignore: null_check_always_fails                                                                              +24 -13
-      [n!].expectStaticType<Exactly<List<Never>>>();                                                                   +5 -1
+      // ignore: null_check_always_fails
+      [n!].expectStaticType<Exactly<List<Never>>>();
     }
-  // ignore: unused_local_variable, null_check_always_fails
+    // ignore: unused_local_variable, null_check_always_fails
     String s = n!;
   }
 }
