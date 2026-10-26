@@ -13,35 +13,46 @@
 import '../../Utils/static_type_helper.dart';
 
 void test1<X extends Object>(X? x) {
-  // NonNull(X?) = X
-  x!.expectStaticType<Exactly<X>>();
+  // NonNull(X?) == NonNull(X) == X & NonNull(Object) == X & Object
+  // `X & Object <: X` and `X <: X & Object`, Let's check that `x!` is `X` and
+  // `Object`
+  if (2 > 1) { // to avoid unnecessary promotion after the first `x!`
+    x!.expectStaticType<Exactly<X>>(); // Check that `x!` is `X`
+  }
+  Object o = x!; // Check that `x!` is `Object`
 }
 
 void test2<X extends num>(X? x) {
-  // NonNull(X?) = X
+  // NonNull(X?) == NonNull(X) == X & NonNull(num) == X & num
+  // `X & num <: X` and `X <: X & num`, Let's check that `x!` is `X` and `num`
+  if (2 > 1) { // to avoid unnecessary promotion after the first `x!`
+    x!.expectStaticType<Exactly<X>>(); // Check that `x!` is `X`
+  }
+  x!.isNegative; // Check that `x!` is `num`
+}
+
+void test3<X>(X x, X x2) {
+  // NonNull(X) = X & Object
   if (2 > 1) {
     x!.expectStaticType<Exactly<X>>();
   }
-  x!.isNegative;
+  if (2 > 1) {
+    Object o = x!; // x! is Object
+  }
+  var proofNotNever = x!;
+  proofNotNever = x2; // Error if `proofNotNever` is `Never`
 }
 
-void test3<X>(X x) {
-  // NonNull(X) = X & Object
+void test4<X>(X? x, X x2) {
+  // NonNull(X?) = NonNull(X) = X & Object
   if (2 > 1) {
-    X x1 = x!;
+    x!.expectStaticType<Exactly<X>>();
   }
   if (2 > 1) {
     Object o = x!;
   }
-  x!.hashCode;
-}
-
-void test4<X>(X? x) {
-  // NonNull(X?) = NonNull(X) = X & Object
-  if (2 > 1) {
-    X x1 = x!;
-  }
-  Object o = x!;
+  var proofNotNever = x!;
+  proofNotNever = x2; // Error if `proofNotNever` is `Never`
 }
 
 void test5<X extends num?>(X x) {

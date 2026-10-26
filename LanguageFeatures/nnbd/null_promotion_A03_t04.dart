@@ -10,20 +10,30 @@
 /// `e` is `Null`.
 /// @author sgrekhov22@gmail.com
 
+import '../../Utils/static_type_helper.dart';
+
 dynamic init(dynamic x) => x;
 
 main() {
   dynamic d = init(1);
   if (1 > 2) {
     d!.checkDynamic;
+    var proofNotNever = d!;
+    proofNotNever = 1; // Error if `proofNotNever` is `Never`
   }
 
   Null n = init(null);
   if (1 > 2) {
     // `n!` is `Never`, so it is assignable to any type.
-    if (2 > 1) {
+    if (2 > 1) { // to avoid promotion after the first `x!`
+      // ignore: unused_local_variable, null_check_always_fails
       int i = n!;
     }
+    if (2 > 1) { // Check that `n!` is not `dynamic`
+      // ignore: null_check_always_fails                                                                              +24 -13
+      [n!].expectStaticType<Exactly<List<Never>>>();                                                                   +5 -1
+    }
+  // ignore: unused_local_variable, null_check_always_fails
     String s = n!;
   }
 }

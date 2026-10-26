@@ -12,27 +12,27 @@
 import '../../Utils/static_type_helper.dart';
 
 class C {
-  foo() {}
+  void foo() {}
 }
 
 mixin M {
-  foo() {}
+  void foo() {}
 }
 
 class MO = Object with M;
 
 mixin class MC {
-  foo() {}
+  void foo() {}
 }
 
 enum E {
   e0;
 
-  foo() {}
+  void foo() {}
 }
 
 extension type ET(int _) {
-  foo() {}
+  void foo() {}
 }
 
 extension ExtC on C? {
