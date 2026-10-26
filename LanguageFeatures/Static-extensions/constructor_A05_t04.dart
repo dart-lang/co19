@@ -15,22 +15,22 @@
 // SharedOptions=--enable-experiment=static-extensions
 
 class C<T> {
-  C(T v);
+  C(Object? v);
 }
 
 mixin M<T> {}
 
 class MO<T> with M<T> {
-  MO(T v);
+  MO(Object? v);
 }
 
 mixin class MC<T> {
   MC();
-  factory MC.named(T v) => MC<T>();
+  factory MC.named(Object? v) => MC<T>();
 }
 
 extension type ET<T>(int _) {
-  ET.named(T v) : this(0);
+  ET.named(Object? v) : this(0);
 }
 
 extension ExtC<T> on C<T> {

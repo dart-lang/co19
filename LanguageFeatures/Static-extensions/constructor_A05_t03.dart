@@ -9,7 +9,8 @@
 /// @description Checks that the type parameters declared by an extension are in
 /// scope in a non-redirecting factory constructor declared in the extension.
 /// Test that it is a compile-time error to assign a value of a type which is
-/// not a subtype of the type parameter to a variable of that type.
+/// not a subtype of the type parameter to a variable of that type, and also
+/// that a returned expression has a subtype of the uninstantiated on-type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
