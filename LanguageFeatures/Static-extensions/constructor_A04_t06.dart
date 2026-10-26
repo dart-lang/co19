@@ -46,10 +46,6 @@ extension ExtMC on MC {
 // [cfe] unspecified
 }
 
-enum E {
-  e0;
-}
-
 extension type ET.someName(int _) {}
 
 extension ExtET on ET {
@@ -81,11 +77,13 @@ extension ExtCC on CC {
 // [cfe] unspecified
 }
 
+// No enum type here we because can't have a redirecting constructor whose
+// return type is an enumerated type
+
 main() {
   print(C);
   print(M);
   print(MC);
-  print(E);
   print(ET);
   print(G);
   print(CC);

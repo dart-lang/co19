@@ -52,10 +52,6 @@ extension ExtMC on MCAlias {
 // [cfe] unspecified
 }
 
-enum E {
-  e0;
-}
-
 extension type ET.someName(int _) {}
 
 typedef ETAlias = ET;
@@ -93,11 +89,13 @@ extension ExtCC on CCAlias {
 // [cfe] unspecified
 }
 
+// No enum type here we because can't have a redirecting constructor whose
+// return type is an enumerated type
+
 main() {
   print(C);
   print(M);
   print(MC);
-  print(E);
   print(ET);
   print(G);
   print(CC);
