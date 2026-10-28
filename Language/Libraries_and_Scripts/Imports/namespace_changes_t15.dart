@@ -59,6 +59,8 @@
 /// namespace.
 /// @author rodionov
 
+// @dart=3.14
+
 import "namespace_changes_lib.dart" show aFoo, aFunc hide aFunc;
 
 main() {

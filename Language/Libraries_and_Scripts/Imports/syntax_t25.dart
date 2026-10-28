@@ -22,6 +22,8 @@
 /// or hide combinator in an import directive.
 /// @author rodionov
 
+// @dart=3.14
+
 import "../../../Utils/expect.dart";
 
 import "syntax_lib.dart" as lib show foo show someVar, foo;

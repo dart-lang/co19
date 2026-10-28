@@ -13,6 +13,8 @@
 /// the export namespace is done correctly.
 /// @author rodionov
 
+// @dart=3.14
+
 import "syntax_t02_lib.dart";
 
 main() {

@@ -28,7 +28,8 @@
 /// conflict.
 /// @note Most of this is already covered by 1_Imports_A02* tests.
 /// @author rodionov
-/// @reviewer kaigorodov
+
+// @dart=3.14
 
 import "../../../Utils/expect.dart";
 

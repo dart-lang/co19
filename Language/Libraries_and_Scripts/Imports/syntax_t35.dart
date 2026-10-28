@@ -23,6 +23,8 @@
 /// being imported.
 /// @author rodionov
 
+// @dart=3.14
+
 import "../../../Utils/expect.dart";
 
 import "syntax_lib.dart" as lib hide foo1 show foo2, foo;
