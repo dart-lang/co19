@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion The mixinMember production allows the same instance or static
-/// members that a class would allow, but no constructors (for now).
+/// @assertion It is a compile-time error to declare a constructor in a
+/// mixin-declaration.
 ///
 /// @description Checks that mixin declaration doesn't allow constructors.
 /// @author ngl@unipro.ru
-
 
 class I {}
 class J {}
@@ -29,5 +28,6 @@ class MA extends A with M {}
 // [cfe] unspecified
 
 main() {
-  new MA();
+  print(M);
+  print(MA);
 }
