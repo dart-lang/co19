@@ -4,26 +4,22 @@
 
 /// @assertion void setAll(int index, Iterable<E> iterable)
 /// ...
-/// If iterable is based on this list, its values may change during the setAll
-/// operation.
+/// If `iterable` is based on this list, its values may change during the
+/// `setAll` operation.
 ///
-/// @description Checks that method overwrites elements correctly.
+/// @description Checks that if `iterable` is based on this list the operation
+/// does not fail.
 /// @author ngl@unipro.ru
 /// @issue 43227
+/// @issue 64734
 
 import "dart:typed_data";
-import "../../../Utils/expect.dart";
 
 main() {
   var l = new Float64List.fromList(
       [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0]);
-
+  // The values below are not checked; the result of this operation is unspecified.
   l.setAll(4, l.getRange(1, 3));
-  Expect.listEquals([0.0, 1.0, 2.0, 3.0, 1.0, 2.0, 6.0, 7.0, 8.0, 9.0], l);
-
   l.setAll(2, l.getRange(1, 4));
-  Expect.listEquals([0.0, 1.0, 1.0, 2.0, 3.0, 2.0, 6.0, 7.0, 8.0, 9.0], l);
-
   l.setAll(0, l.getRange(2, 7));
-  Expect.listEquals([1.0, 2.0, 3.0, 2.0, 6.0, 2.0, 6.0, 7.0, 8.0, 9.0], l);
 }
