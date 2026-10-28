@@ -26,6 +26,8 @@
 /// @note Most of this is already covered by 1_Imports_A02* tests.
 /// @author rodionov
 
+// @dart=3.14
+
 import "show_hide_t02_lib.dart";
 
 main() {

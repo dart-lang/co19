@@ -13,6 +13,8 @@
 /// the export namespace is done correctly.
 /// @author rodionov
 
+// @dart=3.14
+
 import "../../../Utils/expect.dart";
 
 import "syntax_t02_lib.dart";

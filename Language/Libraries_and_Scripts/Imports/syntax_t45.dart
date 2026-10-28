@@ -23,6 +23,8 @@
 /// of the imported names is done correctly.
 /// @author rodionov
 
+// @dart=3.14
+
 import "syntax_lib.dart" show hide hide show;
 
 main() {

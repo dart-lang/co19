@@ -59,6 +59,8 @@
 /// namespace.
 /// @author rodionov
 
+// @dart=3.14
+
 import "../../../Utils/expect.dart";
 
 import "namespace_changes_lib.dart" show aFoo hide aFunc show A, aFoo;
