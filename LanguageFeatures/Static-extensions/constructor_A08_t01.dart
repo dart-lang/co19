@@ -33,9 +33,10 @@ class MO<T> with M<T> {
 }
 
 mixin class MC<T> {
-  MC(int v);
-  MC.opt([int v = 0]);
-  MC.named({required int v});
+  MC._();
+  factory MC(int v) => MC<T>._();
+  factory MC.opt([int v = 0]) => MC<T>._();
+  factory MC.named({required int v}) => MC<T>._();
 }
 
 extension type ET<T>(int _) {
@@ -144,6 +145,11 @@ extension ExtMC<T> on MC<T> {
 
   factory foo6({required int x}) = MC<T>.named;
 //                                 ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  factory foo7(String v) = MO<T>._;
+//                         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

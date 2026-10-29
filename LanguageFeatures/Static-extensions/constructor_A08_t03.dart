@@ -30,8 +30,9 @@ class MO<T> with M<T> {
 }
 
 mixin class MC<T> {
-  MC([int v = 0]);
-  MC.named({int v = 0});
+  MC._();
+  factory MC([int v = 0]) => MC<T>._();
+  factory MC.named({int v = 0}) => MC<T>._();
 }
 
 extension type ET<T>(int _) {
