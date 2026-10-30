@@ -80,10 +80,10 @@ void test6<X extends num?>(X? x) {
 main() {
   test1<String>("");
   test2<int>(1);
-  test3<int>(1);
-  test3<int?>(1);
-  test4<int>(1);
-  test4<int?>(1);
+  test3<int>(1, 1);
+  test3<int?>(1, 1);
+  test4<int>(1, 1);
+  test4<int?>(1, 1);
   test5<int>(1);
   test5<int?>(1);
   test6<int>(1);
