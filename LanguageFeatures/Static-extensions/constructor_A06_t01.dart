@@ -10,7 +10,8 @@
 ///
 /// @description Checks that the un-instantiated on-type of the extension is
 /// used as the downwards context for the inference of the body of a
-/// non-redirecting factory constructor declared in the extension.
+/// non-redirecting factory constructor declared in the extension. Test both
+/// the type inferred for the body and the context type itself.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
@@ -24,11 +25,21 @@ class C<X> {
 
 extension ExtC<T> on C<T> {
   factory foo() => C();
+  factory ctx1() => contextType(C<T>())..expectStaticType<Exactly<C<T>>>();
+  factory ctx2() {
+    return contextType(C<T>())..expectStaticType<Exactly<C<T>>>();
+  }
 }
 
 extension ExtCList<T> on C<List<T>> {
   factory bar() {
     return C();
+  }
+  factory ctx1() =>
+      contextType(C<List<T>>())..expectStaticType<Exactly<C<List<T>>>>();
+  factory ctx2() {
+    return contextType(C<List<T>>())
+      ..expectStaticType<Exactly<C<List<T>>>>();
   }
 }
 
@@ -40,6 +51,10 @@ class MO<X> = Object with M<X>;
 
 extension ExtM<T> on M<T> {
   factory foo() => MO();
+  factory ctx1() => contextType(MO<T>())..expectStaticType<Exactly<M<T>>>();
+  factory ctx2() {
+    return contextType(MO<T>())..expectStaticType<Exactly<M<T>>>();
+  }
 }
 
 mixin class MC<X> {
@@ -50,6 +65,10 @@ extension ExtMC<T> on MC<T> {
   factory bar() {
     return MC();
   }
+  factory ctx1() => contextType(MC<T>())..expectStaticType<Exactly<MC<T>>>();
+  factory ctx2() {
+    return contextType(MC<T>())..expectStaticType<Exactly<MC<T>>>();
+  }
 }
 
 extension type ET<X>(int _) {
@@ -58,6 +77,10 @@ extension type ET<X>(int _) {
 
 extension ExtET<T> on ET<T> {
   factory foo() => ET(0);
+  factory ctx1() => contextType(ET<T>(0))..expectStaticType<Exactly<ET<T>>>();
+  factory ctx2() {
+    return contextType(ET<T>(0))..expectStaticType<Exactly<ET<T>>>();
+  }
 }
 
 main() {
@@ -80,6 +103,17 @@ main() {
   var et = ET<int>.foo();
   et.expectStaticType<Exactly<ET<int>>>();
   Expect.equals(int, et.t);
+
+  C<int>.ctx1();
+  C<int>.ctx2();
+  C<List<int>>.ctx1();
+  C<List<int>>.ctx2();
+  M<int>.ctx1();
+  M<int>.ctx2();
+  MC<int>.ctx1();
+  MC<int>.ctx2();
+  ET<int>.ctx1();
+  ET<int>.ctx2();
 
   // No type arguments and no context type. The type parameter of the extension
   // is not constrained, so it is `dynamic`.
