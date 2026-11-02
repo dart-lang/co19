@@ -24,7 +24,8 @@ class MO<X> with M<X> {}
 mixin class MC<X> {}
 
 enum E<X> {
-  e0<int>();
+  e0<int>._();
+  E._();
 }
 
 extension type ET<X>(int _) {}
@@ -45,6 +46,7 @@ extension ExtMC on MC<int> {
 }
 
 extension ExtE on E<int> {
+  factory() => E.e0;
   factory named() => E.e0;
 }
 
@@ -81,6 +83,11 @@ main() {
 
   ExtMC<int>.named();
 //^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  ExtE<int>.new();
+//^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

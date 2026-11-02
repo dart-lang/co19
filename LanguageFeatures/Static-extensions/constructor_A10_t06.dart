@@ -25,7 +25,8 @@ class MO<X> with M<X> {}
 mixin class MC<X> {}
 
 enum E<X> {
-  e0<Never>();
+  e0<Never>._();
+  E._();
 }
 
 extension type ET<X>(int _) {}
@@ -61,10 +62,12 @@ extension ExtMC2<T1, T2 extends T1> on MC<Map<T1, T2>> {
 }
 
 extension ExtE1<T extends num> on E<T> {
+  factory() => E.e0;
   factory named() => E.e0;
 }
 
 extension ExtE2<T1, T2 extends T1> on E<Map<T1, T2>> {
+  factory() => E.e0;
   factory named() => E.e0;
 }
 
@@ -139,8 +142,18 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  ExtE1<String>.new;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   ExtE1<String>.named;
 //      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  ExtE2<int, String>.new;
+//           ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
