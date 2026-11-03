@@ -13,8 +13,8 @@
 /// a compile-time error occurs.
 ///
 /// @description Checks that it is a compile-time error if `D` declares a static
-/// member whose basename is the basename of `m`, but `D` does not declare a
-/// member named `m`
+/// setter whose basename is the basename of `m`, `m` is a getter or a method
+/// and `D` does not declare a getter or a method named `m`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
