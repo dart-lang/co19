@@ -12,7 +12,7 @@
 /// The invocation is then treated as `E.m()`.
 ///
 /// @description Checks that invocation of `m` is then treated as `E.m()`. Test
-/// a static getter as `m`.
+/// a static method as `m`.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
