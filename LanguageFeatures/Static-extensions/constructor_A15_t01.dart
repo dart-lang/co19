@@ -12,7 +12,8 @@
 /// @description Checks that if `M` contains exactly one extension `E`, then
 /// `C.name`, `C<TypeArguments>.name`, `C.new` and `C<TypeArguments>.new` denote
 /// the same constructors as `E.name`, `E<TypeArguments>.name`, `E.new` and
-/// `E<TypeArguments>.new` respectively.
+/// `E<TypeArguments>.new` respectively. Test that the corresponding constant
+/// tearoffs are identical.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
@@ -68,28 +69,68 @@ extension ExtET<T> on ET<T> {
 }
 
 main() {
-  Expect.identical(ExtC.named, C.named);
-  Expect.identical(ExtC.new, C.new);
-  Expect.identical(ExtC<int>.named, C<int>.named);
-  Expect.identical(ExtC<int>.new, C<int>.new);
+  const c1 = C.named;
+  const extC1 = ExtC.named;
+  Expect.identical(extC1, c1);
+  const c2 = C.new;
+  const extC2 = ExtC.new;
+  Expect.identical(extC2, c2);
+  const c3 = C<int>.named;
+  const extC3 = ExtC<int>.named;
+  Expect.identical(extC3, c3);
+  const c4 = C<int>.new;
+  const extC4 = ExtC<int>.new;
+  Expect.identical(extC4, c4);
 
-  Expect.identical(ExtM.named, M.named);
-  Expect.identical(ExtM.new, M.new);
-  Expect.identical(ExtM<int>.named, M<int>.named);
-  Expect.identical(ExtM<int>.new, M<int>.new);
+  const m1 = M.named;
+  const extM1 = ExtM.named;
+  Expect.identical(extM1, m1);
+  const m2 = M.new;
+  const extM2 = ExtM.new;
+  Expect.identical(extM2, m2);
+  const m3 = M<int>.named;
+  const extM3 = ExtM<int>.named;
+  Expect.identical(extM3, m3);
+  const m4 = M<int>.new;
+  const extM4 = ExtM<int>.new;
+  Expect.identical(extM4, m4);
 
-  Expect.identical(ExtMC.named, MC.named);
-  Expect.identical(ExtMC.new, MC.new);
-  Expect.identical(ExtMC<int>.named, MC<int>.named);
-  Expect.identical(ExtMC<int>.new, MC<int>.new);
+  const mc1 = MC.named;
+  const extMC1 = ExtMC.named;
+  Expect.identical(extMC1, mc1);
+  const mc2 = MC.new;
+  const extMC2 = ExtMC.new;
+  Expect.identical(extMC2, mc2);
+  const mc3 = MC<int>.named;
+  const extMC3 = ExtMC<int>.named;
+  Expect.identical(extMC3, mc3);
+  const mc4 = MC<int>.new;
+  const extMC4 = ExtMC<int>.new;
+  Expect.identical(extMC4, mc4);
 
-  Expect.identical(ExtE.named, E.named);
-  Expect.identical(ExtE.new, E.new);
-  Expect.identical(ExtE<int>.named, E<int>.named);
-  Expect.identical(ExtE<int>.new, E<int>.new);
+  const e1 = E.named;
+  const extE1 = ExtE.named;
+  Expect.identical(extE1, e1);
+  const e2 = E.new;
+  const extE2 = ExtE.new;
+  Expect.identical(extE2, e2);
+  const e3 = E<int>.named;
+  const extE3 = ExtE<int>.named;
+  Expect.identical(extE3, e3);
+  const e4 = E<int>.new;
+  const extE4 = ExtE<int>.new;
+  Expect.identical(extE4, e4);
 
-  Expect.identical(ExtET.named, ET.named);
-  Expect.identical(ExtET.new, ET.new);
-  Expect.identical(ExtET<int>.named, ET<int>.named);
-  Expect.identical(ExtET<int>.new, ET<int>.new);
+  const et1 = ET.named;
+  const extET1 = ExtET.named;
+  Expect.identical(extET1, et1);
+  const et2 = ET.new;
+  const extET2 = ExtET.new;
+  Expect.identical(extET2, et2);
+  const et3 = ET<int>.named;
+  const extET3 = ExtET<int>.named;
+  Expect.identical(extET3, et3);
+  const et4 = ET<int>.new;
+  const extET4 = ExtET<int>.new;
+  Expect.identical(extET4, et4);
 }

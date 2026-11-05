@@ -25,10 +25,6 @@ class C<X> {
   C._();
 }
 
-class D<X> extends C<X> {
-  D._() : super._();
-}
-
 mixin M<X> {}
 
 class MO<X> with M<X> {
@@ -39,10 +35,6 @@ mixin class MC<X> {
   MC._();
 }
 
-class MCO<X> with MC<X> {
-  MCO._();
-}
-
 enum E<X> {
   e0<Never>._(),
   e1<Never>._();
@@ -50,15 +42,7 @@ enum E<X> {
   const E._();
 }
 
-enum E2<X> {
-  e0<Never>._();
-
-  const E2._();
-}
-
 extension type ET<X>._(String id) {}
-
-extension type ET2<X>._(String id) implements ET<X> {}
 
 extension ExtC1<T> on C<T> {
   factory named(String _) => C<T>._();
@@ -67,7 +51,7 @@ extension ExtC1<T> on C<T> {
 
 extension ExtC2 on C<int> {
   factory named(String _) => C<int>._();
-  factory(int _) => C<int>._();
+  factory(String _) => C<int>._();
 }
 
 extension ExtM1<T> on M<T> {

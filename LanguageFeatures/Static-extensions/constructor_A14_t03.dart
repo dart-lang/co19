@@ -16,9 +16,9 @@
 /// @description Checks that it is a compile-time error if `M` is empty. Test
 /// `C.name(arguments)`, `C<TypeArguments>.name(arguments)`, `C(arguments)`,
 /// `C<TypeArguments>(arguments)`, `C.new(arguments)` and
-/// `C<TypeArguments>.new(arguments)` when the constructors named `name` and
-/// `new` are declared only by extensions whose on-declaration is a subtype of
-/// `C` (or another declaration).
+/// `C<TypeArguments>.new(arguments)` when constructors whose uniform base
+/// constructor name is `name` or `new` are declared only by extensions whose
+/// on-declaration is a subtype or a supertype of `C` (or another declaration).
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
@@ -57,7 +57,7 @@ enum E2<X> {
   const E2._();
 }
 
-extension type ET<X>._(String id) {}
+extension type ET<X>._(String id) implements String {}
 
 extension type ET2<X>._(String id) implements ET<X> {}
 
@@ -84,6 +84,11 @@ extension ExtE2<T> on E2<T> {
 extension ExtET2<T> on ET2<T> {
   factory named(String id) => ET2<T>._("ExtET2.named($id)");
   factory(String id) => ET2<T>._("ExtET2($id)");
+}
+
+extension ExtObject on Object {
+  factory named(String _) => Object();
+  factory(String _) => Object();
 }
 
 main() {
