@@ -11,7 +11,9 @@
 ///
 /// @description Checks that an extension which declares a static member with
 /// the basename `name` is not included in `M` if it is not accessible. Test
-/// that in this case there is no compile-time error and `C.name(arguments)`,
+/// extensions that are declared in an imported library and are hidden by a
+/// `hide` combinator, have a private name, or have no name. Test that in this
+/// case there is no compile-time error and `C.name(arguments)`,
 /// `C<TypeArguments>.name(arguments)` and `C<TypeArguments>.name` refer to the
 /// constructor declared in an accessible extension.
 /// @author sgrekhov22@gmail.com

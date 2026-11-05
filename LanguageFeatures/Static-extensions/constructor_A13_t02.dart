@@ -122,6 +122,11 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  new M.foo();
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   MC<int>.foo();
 //        ^^^
 // [analyzer] unspecified
@@ -174,6 +179,11 @@ main() {
 
   E<int>.variable;
 //       ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  new E.foo();
+//      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
