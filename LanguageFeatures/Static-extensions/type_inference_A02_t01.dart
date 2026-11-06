@@ -83,22 +83,35 @@ extension ExtET2 on ET<int, String> {
 }
 
 main() {
+  // The context `C<num, int>` gives `T <: num` and `T <: int`, so `T` is `int`.
+  // The static type is `C<TypeArguments>` and not the instantiated on-type
+  // `C<int, int>`.
   var c1 = C<num, int>.fromList([1]);
   c1.expectStaticType<Exactly<C<num, int>>>();
   Expect.equals(int, c1.t);
+  // The same as above, but for the unnamed constructor.
   var c2 = C<num, int>([1]);
   c2.expectStaticType<Exactly<C<num, int>>>();
   Expect.equals(int, c2.t);
+  // The downwards context is `C<num, int>` and not the context type
+  // `C<num, num>` of the original expression, so `T` is `int` and not `num`.
   C<num, num> c3 = C<num, int>.fromList([1]);
   Expect.equals(int, c3.t);
+  // The same as above, but for the unnamed constructor.
   C<num, num> c4 = C<num, int>([1]);
   Expect.equals(int, c4.t);
-  var c5 = C<Object, num>.fromList([1]);
-  c5.expectStaticType<Exactly<C<Object, num>>>();
-  Expect.equals(num, c5.t);
+  // The context `C<int, num>` gives `T <: int` and `T <: num`, so `T` is `int`.
+  var c5 = C<int, num>.fromList([1]);
+  c5.expectStaticType<Exactly<C<int, num>>>();
+  Expect.equals(int, c5.t);
+  // The context `C<int, String>` gives `T <: int` and `T <: String`. These
+  // types are unrelated, so `T` is `Never` and the argument is `<Never>[]`.
   var c6 = C<int, String>([]);
   c6.expectStaticType<Exactly<C<int, String>>>();
   Expect.equals(Never, c6.t);
+  // `ExtC2` is not generic and its on-type `C<int, String>` is a subtype of
+  // `C<num, Object>`. The static type is `C<TypeArguments>` and not the
+  // on-type.
   var c7 = C<num, Object>.foo();
   c7.expectStaticType<Exactly<C<num, Object>>>();
   Expect.equals(int, c7.t);
@@ -113,9 +126,9 @@ main() {
   Expect.equals(int, m3.t);
   M<num, num> m4 = M<num, int>([1]);
   Expect.equals(int, m4.t);
-  var m5 = M<Object, num>.fromList([1]);
-  m5.expectStaticType<Exactly<M<Object, num>>>();
-  Expect.equals(num, m5.t);
+  var m5 = M<int, num>.fromList([1]);
+  m5.expectStaticType<Exactly<M<int, num>>>();
+  Expect.equals(int, m5.t);
   var m6 = M<int, String>([]);
   m6.expectStaticType<Exactly<M<int, String>>>();
   Expect.equals(Never, m6.t);
@@ -133,9 +146,9 @@ main() {
   Expect.equals(int, mc3.t);
   MC<num, num> mc4 = MC<num, int>([1]);
   Expect.equals(int, mc4.t);
-  var mc5 = MC<Object, num>.fromList([1]);
-  mc5.expectStaticType<Exactly<MC<Object, num>>>();
-  Expect.equals(num, mc5.t);
+  var mc5 = MC<int, num>.fromList([1]);
+  mc5.expectStaticType<Exactly<MC<int, num>>>();
+  Expect.equals(int, mc5.t);
   var mc6 = MC<int, String>([]);
   mc6.expectStaticType<Exactly<MC<int, String>>>();
   Expect.equals(Never, mc6.t);
@@ -153,9 +166,9 @@ main() {
   Expect.equals(int, et3.t);
   ET<num, num> et4 = ET<num, int>([1]);
   Expect.equals(int, et4.t);
-  var et5 = ET<Object, num>.fromList([1]);
-  et5.expectStaticType<Exactly<ET<Object, num>>>();
-  Expect.equals(num, et5.t);
+  var et5 = ET<int, num>.fromList([1]);
+  et5.expectStaticType<Exactly<ET<int, num>>>();
+  Expect.equals(int, et5.t);
   var et6 = ET<int, String>([]);
   et6.expectStaticType<Exactly<ET<int, String>>>();
   Expect.equals(Never, et6.t);

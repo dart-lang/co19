@@ -71,16 +71,20 @@ extension ExtET3<T> on ET<T, void Function(T)> {
 }
 
 main() {
+  // The on-type `C<int, String>` is not a subtype of `C<int, int>`.
   C<int, int>.foo();
 //            ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  // The on-type `C<int, String>` is not a subtype of `C<String, String>`.
   C<String, String>.foo();
 //                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  // `C<T, void Function(T)>` is a subtype of `C<int, void Function(num)>` only
+  // if `T <: int` and `num <: T`. There is no such `T`.
   C<int, void Function(num)>.bar();
 //                           ^^^
 // [analyzer] unspecified

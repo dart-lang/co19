@@ -83,16 +83,24 @@ extension ExtET2 on ET<int, String> {
 }
 
 main() {
+  // `T` is provided explicitly, so `[1]` is inferred as `<num>[1]`. The static
+  // type is the instantiated on-type `C<num, num>`.
   var c1 = ExtC<num>.fromList([1]);
   c1.expectStaticType<Exactly<C<num, num>>>();
   Expect.equals(num, c1.t);
+  // The same as above, but for the unnamed constructor.
   var c2 = ExtC<num>.new([1]);
   c2.expectStaticType<Exactly<C<num, num>>>();
   Expect.equals(num, c2.t);
+  // `T` is provided explicitly, so the context type `C<Object, Object>` has no
+  // effect on it.
   C<Object, Object> c3 = ExtC<int>.fromList([1]);
   Expect.equals(int, c3.t);
+  // The same as above, but for the unnamed constructor.
   C<Object, Object> c4 = ExtC<int>.new([1]);
   Expect.equals(int, c4.t);
+  // `ExtC2` is not generic, so nothing is inferred and the static type is its
+  // on-type.
   var c5 = ExtC2.foo();
   c5.expectStaticType<Exactly<C<int, String>>>();
   Expect.equals(int, c5.t);
