@@ -3,9 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion Consider a constructor tearoff of the form
-/// `C<TypeArguments>.name` or `C<TypeArguments>`, where `E.name` is the fully
-/// resolved target for the constructor. Let `M` be the un-instantiated on-type
-/// of `E` and let `Signature` be the parameter signature of `E.name`.
+/// `C<TypeArguments>.name` or `C<TypeArguments>.new`, where `E.name` is the
+/// fully resolved target for the constructor. Let `M` be the un-instantiated
+/// on-type of `E` and let `Signature` be the parameter signature of `E.name`.
 /// ...
 /// Otherwise, let `TypeParameters1` be the type parameters declared by `E`.
 /// Type inference for the tearoff is performed by subtyping matching
