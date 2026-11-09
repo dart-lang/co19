@@ -93,12 +93,13 @@ main() {
   var c2 = C([1]);
   c2.expectStaticType<Exactly<C<int, int>>>();
   Expect.equals(int, c2.t);
-  // The downwards context `C<num, num>` of the original expression is used, so
-  // `T` is `num` and not `int`, and `[1]` is inferred as `<num>[1]`.
-  C<num, num> c3 = C.fromList([1]);
+  // The downwards context `C<num?, Object>` of the original expression is used.
+  // `C<T, T> <: C<num?, Object>` gives `T <: num?` and `T <: Object`, so `T` is
+  // `num` and not `int`, and `[1]` is inferred as `<num>[1]`.
+  C<num?, Object> c3 = C.fromList([1]);
   Expect.equals(num, c3.t);
   // The same as above, but for the unnamed constructor.
-  C<num, num> c4 = C([1]);
+  C<num?, Object> c4 = C([1]);
   Expect.equals(num, c4.t);
   // There is no context type, `T` is inferred from the type of the argument.
   var c5 = C.fromList(<num>[]);
@@ -115,9 +116,9 @@ main() {
   var m2 = M([1]);
   m2.expectStaticType<Exactly<M<int, int>>>();
   Expect.equals(int, m2.t);
-  M<num, num> m3 = M.fromList([1]);
+  M<num?, Object> m3 = M.fromList([1]);
   Expect.equals(num, m3.t);
-  M<num, num> m4 = M([1]);
+  M<num?, Object> m4 = M([1]);
   Expect.equals(num, m4.t);
   var m5 = M.fromList(<num>[]);
   m5.expectStaticType<Exactly<M<num, num>>>();
@@ -132,9 +133,9 @@ main() {
   var mc2 = MC([1]);
   mc2.expectStaticType<Exactly<MC<int, int>>>();
   Expect.equals(int, mc2.t);
-  MC<num, num> mc3 = MC.fromList([1]);
+  MC<num?, Object> mc3 = MC.fromList([1]);
   Expect.equals(num, mc3.t);
-  MC<num, num> mc4 = MC([1]);
+  MC<num?, Object> mc4 = MC([1]);
   Expect.equals(num, mc4.t);
   var mc5 = MC.fromList(<num>[]);
   mc5.expectStaticType<Exactly<MC<num, num>>>();
@@ -149,9 +150,9 @@ main() {
   var et2 = ET([1]);
   et2.expectStaticType<Exactly<ET<int, int>>>();
   Expect.equals(int, et2.t);
-  ET<num, num> et3 = ET.fromList([1]);
+  ET<num?, Object> et3 = ET.fromList([1]);
   Expect.equals(num, et3.t);
-  ET<num, num> et4 = ET([1]);
+  ET<num?, Object> et4 = ET([1]);
   Expect.equals(num, et4.t);
   var et5 = ET.fromList(<num>[]);
   et5.expectStaticType<Exactly<ET<num, num>>>();
