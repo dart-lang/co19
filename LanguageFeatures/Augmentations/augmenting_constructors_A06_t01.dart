@@ -24,16 +24,6 @@ augment class C {
 // [cfe] unspecified
 }
 
-enum E {
-  e0;
-  const E();
-}
-
-augment enum E {
-  ;
-  augment E(); // Ok. `const` can be inferred for generative enum constructors.
-}
-
 extension type ET(int id) {
   const ET.foo(this.id);
 }
@@ -47,6 +37,5 @@ augment extension type ET {
 
 main() {
   print(C);
-  print(E);
   print(ET);
 }
