@@ -4,13 +4,8 @@
 
 /// @assertion We say that an augmenting function or constructor's signature
 /// matches an introductory signature if:
-/// - It has the same number of type parameters with the same type parameter
-///   names (same identifiers) and bounds (after type annotation inheritance),
-///   if any (same types, even if they may not be written exactly the same in
-///   case one of the declarations needs to refer to a type using an import
-///   prefix).
-/// - The return type (if not omitted) is the same as the introductory
-///   declaration's return type.
+/// - The two declarations have the same type parameters.
+/// - The return type is the same as the introductory declaration's return type.
 /// - It has the same number of positional parameters as the introductory
 ///   declaration, and the same number of those are optional.
 /// - It has the same set of named parameter names as the introductory
@@ -18,7 +13,7 @@
 /// - For each corresponding pair of parameters:
 ///   - They have the same name. This is trivial for named parameters, but may
 ///     fail to hold for positional parameters.
-///   - They have the same type (or the augmenting declaration omits the type).
+///   - They have the same type.
 ///   - They both have the modifier `covariant`, or none of them have it.
 ///   - They both have the modifier `required`, or none of them have it.
 /// ...
