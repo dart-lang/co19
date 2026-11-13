@@ -4,12 +4,18 @@
 
 /// @assertion It is a compile-time error if:
 /// ...
-/// - The type parameters of the augmenting declaration do not match the
-///   augmented declarations's type parameters. This means there must be the
-///   same number of type parameters with the exact same type parameter names
-///   (same identifiers) and bounds if any (same types, even if they may not be
-///   written exactly the same in case one of the declarations needs to refer to
-///   a type using an import prefix).
+/// - The introductory declaration and augmenting declaration don't have the
+///   same type parameters.
+/// ...
+/// When an augmentation must have the "same type parameters" as an
+/// introductory declaration, that means:
+/// - They must have the same number of type parameters (which may be zero).
+/// - For each corresponding pair of type parameters:
+///   - They must have the same name (same identifier).
+///   - Their bounds must be the same type. This is after any omitted bound in
+///     an introductory declaration has been given a default bound of `Object?`
+///     and where any omitted bound in an augmentation has been inherited from
+///     the introductory declaration.
 ///
 /// @description Checks that it is a compile-time error if an augmenting type
 /// declares type parameters with different bounds.

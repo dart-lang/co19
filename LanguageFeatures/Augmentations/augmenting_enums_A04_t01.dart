@@ -2,9 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion It's a compile-time error if:
-/// ...
-/// - An enum doesn't have any values after all augmentations are applied.
+/// @assertion It's a compile-time error if an enum doesn't have any values
+/// after all augmentations are applied.
 ///
 /// @description Checks that it is a compile-time error if introductory enum
 /// has no values and augmentation also adds no values.
