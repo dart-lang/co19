@@ -124,6 +124,20 @@ void f14<X, Y>(X x, Y y) {
   v = probeFutureOr()..expectStaticType<Exactly<FutureOr<Object>>>();
 }
 
+void f15<X extends num, Y extends int>(X x, Y y) {
+  // B1a = num; UP(num, Y extends int) = num, because Y <: num.
+  var v = (1 > 2) ? x : y;
+  v.expectStaticType<Exactly<num>>();
+}
+
+void f16<X extends num, Y extends String>(X x, Y y) {
+  // B1a = num; UP(num, Y extends String) = UP(num, String) = Object.
+  var v = (1 > 2) ? x : y;
+  // See README.md for an explanation of each step in the checks below.
+  v.expectStaticType<Exactly<Object>>();
+  v = probeFuture()..expectStaticType<Exactly<Future<dynamic>>>();
+}
+
 void main() {
   f1(1, 's');
   f2(C(), 's');
@@ -140,4 +154,8 @@ void main() {
   f12<int>(1, 's');
   f13<int>(1, 1);
   f14<int, int>(1, 2);
+  f15(1, 2);
+  f15<double, int>(3.14, 2);
+  f16(1, 's');
+  f16<int, String>(1, 's');
 }
