@@ -5,7 +5,7 @@
 /// @assertion All corresponding parameter names must be the same in the
 /// introductory declaration and all augmentations. When augmenting or being
 /// augmented by a declaration with a private named parameter, when we say
-/// "name", we mean the declared private name of the parameter, not it's
+/// "name", we mean the declared private name of the parameter, not its
 /// corresponding public name.
 ///
 /// @description Checks that it is a compile-time error if an introductory
@@ -30,11 +30,17 @@ augment class C {
 enum E {
   e0;
 
-  int? _p;
-//     ^^
+  // The introductory constructor doesn't initialize `_p`. If the analysis takes
+  // `this._p` in the augmenting constructor below into account, then there is
+  // no error here. If the augmenting constructor is rejected entirely because
+  // of the error in it, then there may be an error here as well. Currently
+  // (November 2026) the tools report an error on the introductory constructor
+  // (the final field `_p` is not initialized), so we expect it there.
+  final int? _p; // ignore: unused_field
+  E({int? p}); // ignore: unused_element_parameter
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
-  E({int? p}); // ignore: unused_element_parameter
 }
 
 augment enum E {

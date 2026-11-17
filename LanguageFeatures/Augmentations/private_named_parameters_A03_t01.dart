@@ -5,7 +5,7 @@
 /// @assertion All corresponding parameter names must be the same in the
 /// introductory declaration and all augmentations. When augmenting or being
 /// augmented by a declaration with a private named parameter, when we say
-/// "name", we mean the declared private name of the parameter, not it's
+/// "name", we mean the declared private name of the parameter, not its
 /// corresponding public name.
 /// ...
 /// The introductory declaration can't also use an initializing formal or
