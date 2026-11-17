@@ -71,16 +71,19 @@ augment enum E implements A {
 main() {
   C().x.expectStaticType<Exactly<double>>();
   C().foo.expectStaticType<Exactly<num Function(int)>>();
-  Expect.equals(12.0, C().x);
+  Expect.identical(12.0, C().x);
+  Expect.runtimeIsType<double>(C().x);
   Expect.equals(1, C().foo(1));
 
   MA().x.expectStaticType<Exactly<double>>();
   MA().foo.expectStaticType<Exactly<num Function(int)>>();
-  Expect.equals(12.0, MA().x);
+  Expect.identical(12.0, MA().x);
+  Expect.runtimeIsType<double>(MA().x);
   Expect.equals(1, MA().foo(1));
 
   E.e0.x.expectStaticType<Exactly<double>>();
   E.e0.foo.expectStaticType<Exactly<num Function(int)>>();
-  Expect.equals(12.0, E.e0.x);
+  Expect.identical(12.0, E.e0.x);
+  Expect.runtimeIsType<double>(E.e0.x);
   Expect.equals(1, E.e0.foo(1));
 }

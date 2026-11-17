@@ -75,24 +75,29 @@ augment enum E {
 main() {
   x1.expectStaticType<Exactly<double>>();
   x2.expectStaticType<Exactly<List<num>>>();
-  Expect.equals(1.0, x1);
+  Expect.identical(1.0, x1);
+  Expect.runtimeIsType<double>(x1);
   Expect.isFalse(x2 is List<int>);
 
   C.s1.expectStaticType<Exactly<double>>();
   C.s2.expectStaticType<Exactly<List<num>>>();
   C().i1.expectStaticType<Exactly<double>>();
   C().i2.expectStaticType<Exactly<List<num>>>();
-  Expect.equals(1.0, C.s1);
+  Expect.identical(1.0, C.s1);
+  Expect.runtimeIsType<double>(C.s1);
   Expect.isFalse(C.s2 is List<int>);
-  Expect.equals(1.0, C().i1);
+  Expect.identical(1.0, C().i1);
+  Expect.runtimeIsType<double>(C().i1);
   Expect.isFalse(C().i2 is List<int>);
 
   E.s1.expectStaticType<Exactly<double>>();
   E.s2.expectStaticType<Exactly<List<num>>>();
   E.e0.i1.expectStaticType<Exactly<double>>();
   E.e0.i2.expectStaticType<Exactly<List<num>>>();
-  Expect.equals(1.0, E.s1);
+  Expect.identical(1.0, E.s1);
+  Expect.runtimeIsType<double>(E.s1);
   Expect.isFalse(E.s2 is List<int>);
-  Expect.equals(1.0, E.e0.i1);
+  Expect.identical(1.0, E.e0.i1);
+  Expect.runtimeIsType<double>(E.e0.i1);
   Expect.isFalse(E.e0.i2 is List<int>);
 }
