@@ -13,7 +13,7 @@
 
 // SharedOptions=--enable-experiment=variance
 
-typedef AList1<in T> = List<T>;
+typedef AList1<in T> = List<void Function(T)>;
 //             ^^
 // [analyzer] unspecified
 // [cfe] unspecified

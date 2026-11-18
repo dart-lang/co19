@@ -33,12 +33,12 @@ typedef F4<in T> = void Function(T);
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef F5<out T> = void Function(T);
+typedef F5<out T> = T Function();
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef F6<inout T> = void Function(T);
+typedef F6<inout T> = T Function(T);
 //         ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
