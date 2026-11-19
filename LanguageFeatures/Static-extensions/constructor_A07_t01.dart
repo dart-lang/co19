@@ -35,6 +35,8 @@ class MO1<X> with M<int> {}
 
 class MO2<X> {}
 
+class MO3<X> with M<X> {}
+
 mixin class MC<X> {}
 
 class MC1<X> extends MC<int> {}
@@ -73,6 +75,11 @@ extension ExtC<T> on C<T> {
 //                 ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  factory foo7() = C<String>.new;
+//                 ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension ExtM<T> on M<T> {
@@ -85,18 +92,33 @@ extension ExtM<T> on M<T> {
 //                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  factory foo3() = MO3<String>.new;
+//                 ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 extension ExtMC<T> on MC<T> {
-  factory foo() = MC1.new;
-//                ^^^^^^^
+  factory foo1() = MC1.new;
+//                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  factory foo2() = MC<String>.new;
+//                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 extension ExtET<T> on ET<T> {
-  factory foo(int v) = ET1.new;
-//                     ^^^^^^^
+  factory foo1(int v) = ET1.new;
+//                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  factory foo2(int v) = ET<String>.new;
+//                      ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
