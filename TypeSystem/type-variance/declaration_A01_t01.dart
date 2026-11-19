@@ -3,11 +3,12 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if a variance modifier is specified
-/// for a type parameter declared by a static extension, a generic function
-/// type, a generic function or method, or a type alias.
+/// for a type parameter declared in the type parameter list of a declaration
+/// of an extension, a generic function or method, or a type alias; or in the
+/// type parameter list of a generic function type.
 ///
 /// @description Check that it is a compile-time error if a variance modifier is
-/// specified for a type parameter declared by a static extension
+/// specified for a type parameter declared by an extension.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=variance
@@ -27,6 +28,38 @@ extension ExtList3<inout T> on List<T> {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
+extension<in T> on Set<T> {}
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension<out T> on Set<T> {}
+//        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension<inout T> on Set<T> {}
+//        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension ExtMap1<K, in V> on Map<K, V> {}
+//                   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension ExtMap2<K, out V> on Map<K, V> {}
+//                   ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+extension ExtMap3<K, inout V> on Map<K, V> {}
+//                   ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 void main() {
   print(List);
+  print(Set);
+  print(Map);
 }

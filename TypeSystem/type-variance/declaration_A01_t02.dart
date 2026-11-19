@@ -3,11 +3,12 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion It is a compile-time error if a variance modifier is specified
-/// for a type parameter declared by a static extension, a generic function
-/// type, a generic function or method, or a type alias.
+/// for a type parameter declared in the type parameter list of a declaration
+/// of an extension, a generic function or method, or a type alias; or in the
+/// type parameter list of a generic function type.
 ///
 /// @description Check that it is a compile-time error if a variance modifier is
-/// specified for a type parameter declared by a generic function type
+/// specified for a type parameter declared by a type alias of a function type.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=variance
@@ -32,12 +33,12 @@ typedef F4<in T> = void Function(T);
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef F5<out T> = void Function(T);
+typedef F5<out T> = T Function();
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef F6<inout T> = void Function(T);
+typedef F6<inout T> = T Function(T);
 //         ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
