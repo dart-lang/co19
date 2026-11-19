@@ -148,7 +148,7 @@ extension ExtMC<T> on MC<T> {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  factory foo7(String v) = MO<T>._;
+  factory foo7(String v) = MC<T>._;
 //                         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
