@@ -35,7 +35,7 @@ test1(int? n) {
 test2(int? n) {
   if (n != null) {
     try {
-          () {(n,) = (42,);};
+      () {(n,) = (42,);};
     } finally {
       n.isEven;
 //      ^^^^^^
