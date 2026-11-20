@@ -16,10 +16,10 @@
 /// It is a compile-time error if an extension declaration `D` declares a
 /// constructor if `D` does not have an on-declaration as defined above.
 ///
-/// @description Checks that that it is a compile-time error to declare a
-/// factory constructor in an extension declaration whose on-type is a type
-/// variable, including a type variable with a bound and a type alias whose
-/// expansion is a type variable.
+/// @description Checks that it is a compile-time error to declare a factory
+/// constructor in an extension declaration whose on-type is a type variable,
+/// including a type variable with a bound and a type alias whose expansion is a
+/// type variable.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions

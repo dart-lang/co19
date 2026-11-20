@@ -23,10 +23,11 @@
 /// @description Checks that if `D` declares a constructor with uniform base
 /// constructor name `name`, then `C<TypeArguments>.name(arguments)`,
 /// `C<TypeArguments>(arguments)`, `C<TypeArguments>.new(arguments)` and the
-/// corresponding tearoffs refer to that constructor, even if one or more
-/// accessible extensions declare constructors with the same name. Test that the
-/// constructors declared in the extensions are still accessible via the
-/// extension name.
+/// corresponding tearoffs (where `<TypeArguments>` may be absent) refer to that
+/// constructor, even if one or more accessible extensions declare constructors
+/// with the same name. Test an implicitly induced default constructor as well.
+/// Test that the constructors declared in the extensions are still accessible
+/// via the extension name.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
@@ -41,6 +42,10 @@ class C<X> {
   C._(this.id);
 }
 
+class D<X> {
+  String id = "D";
+}
+
 mixin class MC<X> {
   String id = "";
   MC._();
@@ -50,6 +55,17 @@ mixin class MC<X> {
 
 extension type ET<X>(String id) {
   ET.named(String id) : this("ET.named($id)");
+}
+
+// Enums are tested in constructor_A16_t02.dart, because it is an error to
+// invoke or tear off generative constructors of an enum.
+
+extension ExtD1<T> on D<T> {
+  factory() => D<T>()..id = "ExtD1";
+}
+
+extension ExtD2<T> on D<T> {
+  factory() => D<T>()..id = "ExtD2";
 }
 
 extension ExtC1<T> on C<T> {
@@ -95,6 +111,16 @@ main() {
   var cf2 = C<int>.new;
   cf2.expectStaticType<Exactly<C<int> Function(String)>>();
   Expect.equals("8", cf2("8").id);
+  var cf3 = C.named;
+  cf3.expectStaticType<Exactly<C<Y> Function<Y>(String)>>();
+  Expect.equals("C.named(9)", cf3<int>("9").id);
+  var cf4 = C.new;
+  cf4.expectStaticType<Exactly<C<Y> Function<Y>(String)>>();
+  Expect.equals("10", cf4<int>("10").id);
+  C<int> Function(String) cf5 = C.named;
+  Expect.equals("C.named(11)", cf5("11").id);
+  C<int> Function(String) cf6 = C.new;
+  Expect.equals("12", cf6("12").id);
   Expect.equals("ExtC1.named(9)", ExtC1.named("9").id);
   Expect.equals("ExtC2(10)", ExtC2.new("10").id);
 
@@ -110,6 +136,16 @@ main() {
   var mcf2 = MC<int>.new;
   mcf2.expectStaticType<Exactly<MC<int> Function(String)>>();
   Expect.equals("MC(8)", mcf2("8").id);
+  var mcf3 = MC.named;
+  mcf3.expectStaticType<Exactly<MC<Y> Function<Y>(String)>>();
+  Expect.equals("MC.named(9)", mcf3<int>("9").id);
+  var mcf4 = MC.new;
+  mcf4.expectStaticType<Exactly<MC<Y> Function<Y>(String)>>();
+  Expect.equals("MC(10)", mcf4<int>("10").id);
+  MC<int> Function(String) mcf5 = MC.named;
+  Expect.equals("MC.named(11)", mcf5("11").id);
+  MC<int> Function(String) mcf6 = MC.new;
+  Expect.equals("MC(12)", mcf6("12").id);
   Expect.equals("ExtMC1.named(9)", ExtMC1.named("9").id);
   Expect.equals("ExtMC2(10)", ExtMC2.new("10").id);
 
@@ -125,6 +161,32 @@ main() {
   var etf2 = ET<int>.new;
   etf2.expectStaticType<Exactly<ET<int> Function(String)>>();
   Expect.equals("8", etf2("8").id);
+  var etf3 = ET.named;
+  etf3.expectStaticType<Exactly<ET<Y> Function<Y>(String)>>();
+  Expect.equals("ET.named(9)", etf3<int>("9").id);
+  var etf4 = ET.new;
+  etf4.expectStaticType<Exactly<ET<Y> Function<Y>(String)>>();
+  Expect.equals("10", etf4<int>("10").id);
+  ET<int> Function(String) etf5 = ET.named;
+  Expect.equals("ET.named(11)", etf5("11").id);
+  ET<int> Function(String) etf6 = ET.new;
+  Expect.equals("12", etf6("12").id);
   Expect.equals("ExtET1.named(9)", ExtET1.named("9").id);
   Expect.equals("ExtET2(10)", ExtET2.new("10").id);
+
+  // Even an implicitly induced constructor wins over an extension constructor.
+  Expect.equals("D", D().id);
+  Expect.equals("D", D<int>().id);
+  Expect.equals("D", D.new().id);
+  Expect.equals("D", D<int>.new().id);
+  var df1 = D.new;
+  df1.expectStaticType<Exactly<D<Y> Function<Y>()>>();
+  Expect.equals("D", df1<int>().id);
+  var df2 = D<int>.new;
+  df2.expectStaticType<Exactly<D<int> Function()>>();
+  Expect.equals("D", df2().id);
+  D<int> Function() df3 = D.new;
+  Expect.equals("D", df3().id);
+  Expect.equals("ExtD1", ExtD1.new().id);
+  Expect.equals("ExtD2", ExtD2<int>.new().id);
 }

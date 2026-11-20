@@ -29,12 +29,32 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  p.C<int>.missing("1");
+//         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.C.missing;
+//    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   p.C<int>.missing;
 //         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   p.C.amb();
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.C<int>.amb();
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.C.amb;
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -49,12 +69,32 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  p.C<int>.conflict();
+//         ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.C.conflict;
+//    ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   p.C<int>.conflict;
 //         ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   p.M.missing("1");
+//    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.M<int>.missing("1");
+//         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.M.missing;
 //    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -69,12 +109,32 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  p.M<int>.amb();
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.M.amb;
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   p.M<int>.amb;
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   p.M.conflict();
+//    ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.M<int>.conflict();
+//         ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.M.conflict;
 //    ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -89,12 +149,32 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  p.MC<int>.missing("1");
+//          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.MC.missing;
+//     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   p.MC<int>.missing;
 //          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   p.MC.amb();
+//     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.MC<int>.amb();
+//          ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.MC.amb;
 //     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -109,12 +189,32 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  p.MC<int>.conflict();
+//          ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.MC.conflict;
+//     ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   p.MC<int>.conflict;
 //          ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   p.E.missing();
+//    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.E<int>.missing();
+//         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.E.missing;
 //    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -129,12 +229,32 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  p.E<int>.amb();
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.E.amb;
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   p.E<int>.amb;
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   p.E.conflict();
+//    ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.E<int>.conflict();
+//         ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.E.conflict;
 //    ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -149,6 +269,16 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  p.ET<int>.missing("1");
+//          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.ET.missing;
+//     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   p.ET<int>.missing;
 //          ^^^^^^^
 // [analyzer] unspecified
@@ -159,12 +289,32 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  p.ET<int>.amb();
+//          ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.ET.amb;
+//     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   p.ET<int>.amb;
 //          ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   p.ET.conflict();
+//     ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.ET<int>.conflict();
+//          ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.ET.conflict;
 //     ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
