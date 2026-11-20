@@ -2,16 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Further, the interfaces B and C must be compatible. The on clause
-/// introduces a synthetic interface combining B and C, call it A$super, which is
-/// equivalent to the interface of a class declaration of the form:
-///   abstract class A$super<X extends S, Y extends T> implements B, C {}
-/// It is a compile-time error for the mixin declaration if the class declaration
-/// above would not be valid.
+/// @assertion Let `MS` be the interface declared by the class declaration
+/// ```
+/// abstract class Msuper<P1, ..., Pm> implements T1, ..., Tn {}
+/// ```
+/// where `Msuper` is a fresh name. It is a compile-time error for the mixin
+/// declaration if the `MS` class declaration would cause a compile-time error,
+/// that is, if any member is declared by more than one declared superinterface,
+/// and there is not a most specific signature for that member among the super
+/// interfaces.
 ///
-/// @description Checks that it is a compile-time error for the mixin declaration
-/// if the interfaces B and C are not compatible.
-/// @issue 34713
+/// @description Check that it is a compile-time error for a mixin declaration
+/// to implement incompatible interfaces.
 /// @author ngl@unipro.ru
 /// @author sgrekhov@unipro.ru
 
@@ -29,4 +31,5 @@ mixin M on B, C {
 }
 
 main() {
+  print(M);
 }
