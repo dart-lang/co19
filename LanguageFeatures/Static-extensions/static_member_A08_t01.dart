@@ -41,6 +41,15 @@ class MCO with MC {
   MCO._();
 }
 
+enum E {
+  e0("E.foo"), e1("E.bar");
+
+  final String id;
+  E(this.id);
+  factory E.foo() => E.e0;
+  factory E.bar() => E.e1;
+}
+
 extension type ET(String id) {
   ET.foo() : this("ET.foo");
   ET.bar() : this("ET.bar");
@@ -54,6 +63,11 @@ extension ExtC on C {
 extension ExtMC on MC {
   static String foo() => "ExtMC.foo()";
   static String get bar => "ExtMC.bar";
+}
+
+extension ExtE on E {
+  static String foo() => "ExtE.foo()";
+  static String get bar => "ExtE.bar";
 }
 
 extension ExtET on ET {
@@ -79,6 +93,15 @@ main() {
   Expect.equals("MC.bar", mcf().id);
   Expect.equals("ExtMC.foo()", ExtMC.foo());
   Expect.equals("ExtMC.bar", ExtMC.bar);
+
+  var e = E.foo();
+  e.expectStaticType<Exactly<E>>();
+  Expect.equals("E.foo", e.id);
+  var ef = E.bar;
+  ef.expectStaticType<Exactly<E Function()>>();
+  Expect.equals("E.bar", ef().id);
+  Expect.equals("ExtE.foo()", ExtE.foo());
+  Expect.equals("ExtE.bar", ExtE.bar);
 
   var et = ET.foo();
   et.expectStaticType<Exactly<ET>>();
