@@ -19,12 +19,61 @@
 ///
 /// @description Checks that it is a compile-time error if `M` is empty or
 /// contains more than one member and the on-declaration is denoted by an
-/// identifier with an import prefix.
+/// identifier with an import prefix. Test methods, getters, setters and
+/// variables, and conflicts between extensions imported from the same library,
+/// imported from different libraries, declared locally, and between an imported
+/// extension and a local one.
 /// @author sgrekhov22@gmail.com
 
 // SharedOptions=--enable-experiment=static-extensions
 
 import 'static_member_A06_lib.dart' as p;
+import 'static_member_A06_lib2.dart' as q;
+
+extension LocalC1 on p.C {
+  static String get ambGetter => "LocalC1.ambGetter";
+  static set ambSetter(String _) {}
+}
+
+extension LocalC2 on p.C {
+  static set ambSetter(String _) {}
+}
+
+extension LocalM1 on p.M {
+  static String get ambGetter => "LocalM1.ambGetter";
+  static set ambSetter(String _) {}
+}
+
+extension LocalM2 on p.M {
+  static set ambSetter(String _) {}
+}
+
+extension LocalMC1 on p.MC {
+  static String get ambGetter => "LocalMC1.ambGetter";
+  static set ambSetter(String _) {}
+}
+
+extension LocalMC2 on p.MC {
+  static set ambSetter(String _) {}
+}
+
+extension LocalE1 on p.E {
+  static String get ambGetter => "LocalE1.ambGetter";
+  static set ambSetter(String _) {}
+}
+
+extension LocalE2 on p.E {
+  static set ambSetter(String _) {}
+}
+
+extension LocalET1 on p.ET {
+  static String get ambGetter => "LocalET1.ambGetter";
+  static set ambSetter(String _) {}
+}
+
+extension LocalET2 on p.ET {
+  static set ambSetter(String _) {}
+}
 
 main() {
   p.C.missing();
@@ -42,8 +91,32 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  // Extensions imported from the same library
   p.C.amb();
 //    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // An imported extension and a local one
+  p.C.ambGetter;
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Local extensions
+  p.C.ambSetter = "";
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Extensions imported from different libraries
+  p.C.ambVar;
+//    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.C.ambVar = "";
+//    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -62,8 +135,32 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  // Extensions imported from the same library
   p.M.amb();
 //    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // An imported extension and a local one
+  p.M.ambGetter;
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Local extensions
+  p.M.ambSetter = "";
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Extensions imported from different libraries
+  p.M.ambVar;
+//    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.M.ambVar = "";
+//    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -82,8 +179,32 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  // Extensions imported from the same library
   p.MC.amb();
 //     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // An imported extension and a local one
+  p.MC.ambGetter;
+//     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Local extensions
+  p.MC.ambSetter = "";
+//     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Extensions imported from different libraries
+  p.MC.ambVar;
+//     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.MC.ambVar = "";
+//     ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -102,8 +223,32 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  // Extensions imported from the same library
   p.E.amb();
 //    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // An imported extension and a local one
+  p.E.ambGetter;
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Local extensions
+  p.E.ambSetter = "";
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Extensions imported from different libraries
+  p.E.ambVar;
+//    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.E.ambVar = "";
+//    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -122,8 +267,39 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  // Extensions imported from the same library
   p.ET.amb();
 //     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  // An imported extension and a local one
+  p.ET.ambGetter;
+//     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Local extensions
+  p.ET.ambSetter = "";
+//     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // Extensions imported from different libraries
+  p.ET.ambVar;
+//     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  p.ET.ambVar = "";
+//     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  // No conflict here
+  print(q.ExtC.ambVar);
+  print(q.ExtM.ambVar);
+  print(q.ExtMC.ambVar);
+  print(q.ExtE.ambVar);
+  print(q.ExtET.ambVar);
 }

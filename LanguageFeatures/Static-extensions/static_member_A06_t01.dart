@@ -53,7 +53,7 @@ main() {
   Expect.equals("ExtC.g", p.C.g);
   Expect.equals("ExtC.m()", p.C.m());
   Expect.equals("ExtC.m(3)", p.C.m("3"));
-  Expect.equals(p.ExtC.m, p.C.m);
+  Expect.identical(p.ExtC.m, p.C.m);
   Expect.equals("LocalC.local()", p.C.local());
   Expect.equals("ExtC1.amb()", p.ExtC1.amb());
 
@@ -65,7 +65,7 @@ main() {
   Expect.equals("ExtM.g", p.M.g);
   Expect.equals("ExtM.m()", p.M.m());
   Expect.equals("ExtM.m(3)", p.M.m("3"));
-  Expect.equals(p.ExtM.m, p.M.m);
+  Expect.identical(p.ExtM.m, p.M.m);
   Expect.equals("LocalM.local()", p.M.local());
   Expect.equals("ExtM1.amb()", p.ExtM1.amb());
 
@@ -77,7 +77,7 @@ main() {
   Expect.equals("ExtMC.g", p.MC.g);
   Expect.equals("ExtMC.m()", p.MC.m());
   Expect.equals("ExtMC.m(3)", p.MC.m("3"));
-  Expect.equals(p.ExtMC.m, p.MC.m);
+  Expect.identical(p.ExtMC.m, p.MC.m);
   Expect.equals("LocalMC.local()", p.MC.local());
   Expect.equals("ExtMC1.amb()", p.ExtMC1.amb());
 
@@ -89,7 +89,7 @@ main() {
   Expect.equals("ExtE.g", p.E.g);
   Expect.equals("ExtE.m()", p.E.m());
   Expect.equals("ExtE.m(3)", p.E.m("3"));
-  Expect.equals(p.ExtE.m, p.E.m);
+  Expect.identical(p.ExtE.m, p.E.m);
   Expect.equals("LocalE.local()", p.E.local());
   Expect.equals("ExtE1.amb()", p.ExtE1.amb());
 
@@ -101,7 +101,7 @@ main() {
   Expect.equals("ExtET.g", p.ET.g);
   Expect.equals("ExtET.m()", p.ET.m());
   Expect.equals("ExtET.m(3)", p.ET.m("3"));
-  Expect.equals(p.ExtET.m, p.ET.m);
+  Expect.identical(p.ExtET.m, p.ET.m);
   Expect.equals("LocalET.local()", p.ET.local());
   Expect.equals("ExtET1.amb()", p.ExtET1.amb());
 }

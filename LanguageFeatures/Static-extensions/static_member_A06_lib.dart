@@ -73,6 +73,8 @@ extension ExtET on ET {
 
 extension ExtC1 on C {
   static String amb() => "ExtC1.amb()";
+  static String get ambGetter => "ExtC1.ambGetter";
+  static String ambVar = "ExtC1.ambVar";
 }
 
 extension ExtC2 on C {
@@ -81,6 +83,8 @@ extension ExtC2 on C {
 
 extension ExtM1 on M {
   static String amb() => "ExtM1.amb()";
+  static String get ambGetter => "ExtM1.ambGetter";
+  static String ambVar = "ExtM1.ambVar";
 }
 
 extension ExtM2 on M {
@@ -89,6 +93,8 @@ extension ExtM2 on M {
 
 extension ExtMC1 on MC {
   static String amb() => "ExtMC1.amb()";
+  static String get ambGetter => "ExtMC1.ambGetter";
+  static String ambVar = "ExtMC1.ambVar";
 }
 
 extension ExtMC2 on MC {
@@ -97,6 +103,8 @@ extension ExtMC2 on MC {
 
 extension ExtE1 on E {
   static String amb() => "ExtE1.amb()";
+  static String get ambGetter => "ExtE1.ambGetter";
+  static String ambVar = "ExtE1.ambVar";
 }
 
 extension ExtE2 on E {
@@ -105,6 +113,8 @@ extension ExtE2 on E {
 
 extension ExtET1 on ET {
   static String amb() => "ExtET1.amb()";
+  static String get ambGetter => "ExtET1.ambGetter";
+  static String ambVar = "ExtET1.ambVar";
 }
 
 extension ExtET2 on ET {
