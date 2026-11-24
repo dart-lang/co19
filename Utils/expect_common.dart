@@ -197,7 +197,7 @@ class Expect {
   /// exception you could write this:
   ///
   ///    Expect.throws(myThrowingFunction, (e) => e is MyException);
-  static void throws(void func(),
+  static void throws(void Function() func,
       [_CheckExceptionFn? check, String reason = '']) {
     try {
       func();
@@ -218,7 +218,7 @@ class Expect {
   /// exception you could write this:
   ///
   ///    Expect.asyncThrows(myThrowingAsyncFunction, (e) => e is MyException);
-  static Future<void> asyncThrows(Future<void> func(),
+  static Future<void> asyncThrows(Future<void> Function() func,
       [_CheckExceptionFn? check, String reason = '']) async {
     try {
       await func();
@@ -414,7 +414,7 @@ class Expect {
 
 bool _identical(a, b) => identical(a, b);
 
-typedef bool _CheckExceptionFn(exception);
+typedef _CheckExceptionFn = bool Function(dynamic exception);
 
 class ExpectException implements Exception {
   String? message;

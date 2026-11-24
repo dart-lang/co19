@@ -3,19 +3,18 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion static void throws(
-/// void f(), [_CheckExceptionFn check = null, String reason = ''])
+///   void Function() func, [_CheckExceptionFn? check, String reason = ''])
 /// Descriptive error message is provided in case of failure.
 ///
 /// @description Checks that message of thrown [ExpectException] includes the
 /// specified reason argument if any, both when the tested method doesn't throw
 /// any exceptions and when the check function returns false.
-///
 /// @author varlax
 
 import "../../../Utils/expect.dart";
 
-typedef bool checkFn(exception);
-typedef void test();
+typedef checkFn = bool Function(dynamic exception);
+typedef test = void Function();
 
 main() {
   check(() { return; }, null, "sdsds sd dsf1");
@@ -31,7 +30,7 @@ void check(test tFun, [checkFn? checkFun = null, String reason = '']) {
     Expect.throws(tFun, checkFun, reason);
     Expect.fail("ExpectException expected");
   } on ExpectException catch(e) {
-    if (!(e.message as String).contains(reason as String, 0))
+    if (!(e.message as String).contains(reason, 0))
       throw "reason ($reason) not mentioned in ExpectException message "
           "(${e.message})";
   }

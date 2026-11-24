@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion static Future<void> asyncThrows(Future<void> func(),
+/// @assertion static Future<void> asyncThrows(Future<void> Function() func,
 ///       [_CheckExceptionFn? check, String reason = '']) async {
 /// Descriptive error message is provided in case of failure.
 ///
@@ -14,7 +14,9 @@ import "../../../Utils/expect.dart";
 
 class TestException implements Exception {}
 
-test(Future<void> func(), bool check(exception)) async {
+test(
+    Future<void> Function() func,
+    bool Function(dynamic exception) check) async {
   bool thrown = false;
   try {
     await Expect.asyncThrows(func, check);
