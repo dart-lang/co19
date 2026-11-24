@@ -15,7 +15,7 @@ Duration durationInMilliseconds(delay) {
   return delay == null ? Duration.zero : oneMillisecond * delay;
 }
 
-Future runLater(void action(), [int delay = 0]) {
+Future runLater(void Function() action, [int delay = 0]) {
   asyncStart();
   return Future.delayed(durationInMilliseconds(delay), () {
     action();
@@ -23,7 +23,7 @@ Future runLater(void action(), [int delay = 0]) {
   });
 }
 
-Future runAfter(Future f, void action()) {
+Future runAfter(Future f, void Function() action) {
   asyncStart();
   return f.whenComplete((){
     action();
@@ -117,8 +117,9 @@ class Sync2<T> {
 ///
 /// If [cleanup] is provided it will be executed after [Future] returned by
 /// [test] is completed. [cleanup] is always called, regardless of test status.
-void asyncTest<T>(Future test(T? value), {required Future<T> setup(),
-    required void cleanup(T? value)}) {
+void asyncTest<T>(Future Function(T? value) test,
+    {required Future<T> Function() setup,
+    required void Function(T? value) cleanup}) {
   asyncStart(2);
   Future<T?> setupFuture = setup();
   setupFuture.then((T? setupValue) {

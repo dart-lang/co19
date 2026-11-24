@@ -3,20 +3,19 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion static void throws(
-/// void f(), [_CheckExceptionFn check = null, String reason = ''])
-/// typedef bool _CheckExceptionFn(exception)
-/// Calls the function [f] and verifies that it throws an exception.
+///   void Function() func, [_CheckExceptionFn? check, String reason = ''])
+/// typedef _CheckExceptionFn = bool Function(dynamic exception)
+/// Calls the function [func] and verifies that it throws an exception.
 /// The optional [check] function can provide additional validation that the
 /// correct exception is being thrown.
 ///
 /// @description Checks that the optional check function is called with the
 /// thrown object.
-///
 /// @author varlax
 
 import "../../../Utils/expect.dart";
 
-typedef void test();
+typedef test = void Function();
 
 main() {
   var err1 = 0;

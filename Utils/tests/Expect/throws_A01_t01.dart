@@ -3,21 +3,20 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion static void throws(
-///   void f(), [_CheckExceptionFn check = null, String reason = ''])
-/// typedef bool _CheckExceptionFn(exception)
-/// Calls the function [f] and verifies that it throws an exception.
+///   void Function() func, [_CheckExceptionFn? check, String reason = ''])
+/// typedef _CheckExceptionFn = bool Function(dynamic exception)
+/// Calls the function [func] and verifies that it throws an exception.
 /// The optional [check] function can provide additional validation that the
 /// correct exception is being thrown.
 ///
 /// @description Checks that if the tested method doesn't throw an exception,
 /// this method fails regardless of whether the validating function is null,
 /// returns true or false and whether the reason is null.
-///
 /// @author rodionov
 
 import "../../../Utils/expect.dart";
 
-typedef bool checkFn(exception);
+typedef checkFn = bool Function(dynamic exception);
 
 void badboy() {
   return;
@@ -37,10 +36,10 @@ main() {
   check(badboy, (e) => false, "not empty");
 }
 
-void check(void f(), [checkFn? ch = null, String reason = '']) {
+void check(void Function() f, [checkFn? ch = null, String reason = '']) {
   try {
     Expect.throws(f, ch, reason);
     throw new Exception("ExpectException expected");
-  } on ExpectException catch(e) {
+  } on ExpectException catch(_) {
   }
 }
