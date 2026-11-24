@@ -12,7 +12,7 @@ library reversed_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
 
   void checkReversedIterator(List a) {
     List b = create();

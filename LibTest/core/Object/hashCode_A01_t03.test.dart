@@ -18,7 +18,7 @@
 library hashCode_A01_t03;
 import "../../../Utils/expect.dart";
 
-test(List<Object> createEqual(int number)) {
+test(List<Object> Function(int number) createEqual) {
   List<Object> objects = createEqual(2);
   Expect.isTrue(objects[0] == objects[1]);
   Expect.equals(objects[0].hashCode, objects[1].hashCode);

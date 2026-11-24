@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 /// [index] is the first position in the stream where [test()] returns `false`
-void check(List data, bool test(element), int index) {
+void check(List data, bool Function(dynamic element) test, int index) {
   Stream s = IsolateStream.fromIterable(data);
   Stream t = s.takeWhile(test);
   asyncStart();

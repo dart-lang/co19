@@ -18,7 +18,7 @@ library hashCode_A01_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-test(EventSink create()) {
+test(EventSink Function() create) {
   EventSink es1 = create();
   EventSink es2 = create();
   EventSink es3 = es1;

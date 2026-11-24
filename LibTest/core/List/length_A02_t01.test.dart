@@ -19,7 +19,7 @@ void assertIsNull(List a, int oldLength) {
   }
 }
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List a = create();
   a.length = 100;
   assertIsNull(a, 0);

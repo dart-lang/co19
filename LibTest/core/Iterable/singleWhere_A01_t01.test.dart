@@ -11,12 +11,12 @@
 library singleWhere_A01_t01;
 import "../../../Utils/expect.dart";
 
-check(Iterable a, bool f(value), int expected) {
+check(Iterable a, bool Function(dynamic value) f, int expected) {
   var actual = a.singleWhere(f);
   Expect.equals(expected, actual);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create([1, 2, -3, 0]), (value) => value > 1, 2);
   check(create(const[1, 2, -5, -6]), (value) => value == 1, 1);
 }

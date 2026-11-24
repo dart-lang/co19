@@ -22,9 +22,9 @@ import "operator_equality_A05_t02.test.dart" as operator_equality_A05_t02;
 import "toString_A02_t01.test.dart" as toString_A02_t01;
 import "runtimeType_A02_t01.test.dart" as runtimeType_A02_t01;
 
-test(Object create(),
-     List<Object> createEqual(int number),
-     List<Object> createNotEqual(int number)) {
+test(Object Function() create,
+     List<Object> Function(int number) createEqual,
+     List<Object> Function(int number) createNotEqual) {
   // hashCode
   hashCode_A01_t01.test(create);
   hashCode_A01_t02.test(create);

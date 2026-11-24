@@ -10,6 +10,6 @@
 
 library forEach_A01_t02;
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   create([]).forEach((v){});
 }

@@ -13,7 +13,7 @@ import "dart:isolate";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable<int?> data, bool test(dynamic element), bool expected) {
+check(Iterable<int?> data, bool Function(dynamic element) test, bool expected) {
   ReceivePort s = IsolateStream.fromIterable(data);
   asyncStart();
   s.any(test).then((bool actual) {

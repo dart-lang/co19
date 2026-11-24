@@ -12,7 +12,7 @@ library shuffle_A01_t03;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List lst = create();
   lst.shuffle();
   Expect.equals(0, lst.length);

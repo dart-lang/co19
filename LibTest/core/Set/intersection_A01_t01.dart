@@ -13,11 +13,12 @@ library intersection_A01_t01;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-void check(Set create([Iterable content]), List expected, List l1, List l2) {
+void check(
+    Set Function([Iterable content]) create, List expected, List l1, List l2) {
   Expect.setEquals(create(expected), create(l1).intersection(create(l2)));
 }
 
-test(Set create([Iterable content])) {
+test(Set Function([Iterable content]) create) {
   check(create, [2], [1, 2], [2, 3]);
   check(create, [1, 2], [1, 2, 3, 4, 5, 1, 1, 1, 2, 2, 2], [1, 1, 2, 2]);
 

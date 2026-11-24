@@ -10,6 +10,8 @@ library inheritedTests_A01_t01;
 
 import "../ArgumentError/allTests.lib.dart" as argumentError;
 
-test(ArgumentError create([value, String? name, message])) {
+test(
+    ArgumentError Function([dynamic value, String? name, dynamic message])
+        create) {
   argumentError.test(create);
 }

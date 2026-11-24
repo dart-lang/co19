@@ -29,7 +29,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable data, bool test(element)) {
+check(Iterable data, bool Function(dynamic element) test) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   s.lastWhere(test).then((data) {

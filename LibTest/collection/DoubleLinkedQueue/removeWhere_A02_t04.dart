@@ -14,7 +14,6 @@
 /// @author iarkh@unipro.ru
 /// @issue 27920
 
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
@@ -26,7 +25,7 @@ bool test(element) {
   return element == 3;
 }
 
-check(bool test(dynamic element), List list, List expected) {
+check(bool Function(dynamic element) test, List list, List expected) {
   queue = new DoubleLinkedQueue.from(list);
   queue?.removeWhere(test);
   Expect.equals(expected.length, queue?.length);

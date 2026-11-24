@@ -35,7 +35,7 @@ library firstWhere_A01_t02;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check(Stream<int?> s, bool test(int? element), Object? expected) {
+void check(Stream<int?> s, bool Function(int? element) test, Object? expected) {
   asyncStart();
   bool orElseUsed = false;
   Future f = s.firstWhere(test, orElse: () {

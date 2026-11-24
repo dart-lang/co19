@@ -14,7 +14,7 @@ library setAll_A04_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List l = create(5, 0);
   Expect.throws(() {l.setAll(0, [1, 2, 3, 4, 5, 6]);});
   Expect.throws(() {l.setAll(4, [1, 2]);});

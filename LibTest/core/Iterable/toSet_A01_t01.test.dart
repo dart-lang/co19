@@ -19,7 +19,7 @@ void checkEquals(Iterable expected, Set actual) {
   Expect.isTrue(actual.containsAll(set0));
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable l = create();
   Set a = l.toSet();
   Expect.equals(0, a.length);

@@ -31,7 +31,8 @@ library lastWhere_A03_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s, bool test(T element), Object expectedError) {
+void check<T>(
+    Stream<T> s, bool Function(T element) test, Object expectedError) {
   AsyncExpect.error(expectedError, s.lastWhere(test));
 }
 

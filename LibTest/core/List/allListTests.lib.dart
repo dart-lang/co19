@@ -100,7 +100,7 @@ import "sublist_A03_t01.test.dart" as sublist_A03_t01;
 
 import "../../core/Iterable/allTests.lib.dart" as iterableTests;
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   add_A01_t01.test(create);
   add_A01_t02.test(create);
   add_A02_t01.test(create);

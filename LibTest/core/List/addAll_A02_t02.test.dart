@@ -12,7 +12,7 @@ library addAll_A02_t02;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   Expect.throws(() {create<int?>(1, 0).add(null);}, (e) => e is UnsupportedError);
   Expect.throws(() {create<int?>(100, 0).add(null);}, (e) => e is UnsupportedError);
 }

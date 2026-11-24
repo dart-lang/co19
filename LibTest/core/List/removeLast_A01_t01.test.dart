@@ -41,6 +41,6 @@ check(a) {
   Expect.isTrue(a.length == 99 && o == b[99]);
 }
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   check(create());
 }

@@ -13,7 +13,7 @@ import "forEach_A01_t02.test.dart" as forEach_A01_t02;
 import "putIfAbsent_A01_t07.test.dart" as putIfAbsent_A01_t07;
 import "putIfAbsent_A01_t08.test.dart" as putIfAbsent_A01_t08;
 
-test(Map create([Map content])) {
+test(Map Function([Map content]) create) {
   forEach_A01_t02.test(create);
   putIfAbsent_A01_t07.test(create);
   putIfAbsent_A01_t08.test(create);

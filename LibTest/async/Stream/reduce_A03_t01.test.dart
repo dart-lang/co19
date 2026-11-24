@@ -13,7 +13,7 @@ library reduce_A03_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s, T combine(T p, T e), Object expected) {
+void check<T>(Stream<T> s, T Function(T p, T e) combine, Object expected) {
   AsyncExpect.error(expected, s.reduce(combine));
 }
 

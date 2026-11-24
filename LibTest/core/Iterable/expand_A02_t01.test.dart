@@ -22,7 +22,7 @@ void check(Iterable a) {
   });
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create());
   check(create([1]));
   check(create([1, 2]));

@@ -34,7 +34,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-void check1(Iterable data, bool test(element), expected) {
+void check1(Iterable data, bool Function(dynamic element) test, expected) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   Future f = s.firstWhere(test);
@@ -44,7 +44,7 @@ void check1(Iterable data, bool test(element), expected) {
   });
 }
 
-void check2(Iterable data, bool test(element), expected) {
+void check2(Iterable data, bool Function(dynamic element) test, expected) {
   Stream s = new Stream.fromIterable(data);
   asyncStart();
   Future f = s.firstWhere(test, orElse: () {
@@ -56,7 +56,7 @@ void check2(Iterable data, bool test(element), expected) {
   });
 }
 
-void check(Iterable data, bool test(element), expected) {
+void check(Iterable data, bool Function(dynamic element) test, expected) {
   check1(data, test, expected);
   check2(data, test, expected);
 }

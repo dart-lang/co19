@@ -7,7 +7,7 @@
 /// @author msyabro
 
  
-typedef void SomeFunction();
+typedef SomeFunction = void Function();
 
 class A { }
 

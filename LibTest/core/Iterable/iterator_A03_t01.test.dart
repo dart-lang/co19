@@ -31,7 +31,7 @@ library iterator_A03_t01;
 
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable i = create();
   if(!i.isEmpty) {// EmpltyIterator is a constant, skip it
     Expect.notEquals(i.iterator, i.iterator);

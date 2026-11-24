@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 
 class A{A(){}}
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   var a = new A();
   List dst = create(1, 0);
   dst.setRange(0, 1, [a], 0);

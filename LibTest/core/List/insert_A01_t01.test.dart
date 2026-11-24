@@ -15,7 +15,8 @@ library insert_A01_t01;
 import "../../../Utils/expect.dart";
 
 void check(
-    List<E> create<E>([int length, E fill]), List a0, int index, element) {
+    List<E> Function<E>([int length, E fill]) create, List a0, int index,
+    element) {
   List a = create();
   a.insertAll(0, a0);
   a.insert(index, element);
@@ -29,7 +30,7 @@ void check(
   }
 }
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List a0 = [1, 3, 3, 4, 5, 6];
   check(create, a0, 0, -1);
   check(create, a0, 3, -2);

@@ -14,7 +14,7 @@ library sort_A01_t03;
 
 import "../../../Utils/expect.dart";
 
-void check(Iterable<int> a, List<E> create<E>([int length, E fill])) {
+void check(Iterable<int> a, List<E> Function<E>([int length, E fill]) create) {
   int c(x, y) {
     return x < y ? -1 : (x == y ? 0 : 1);
   }
@@ -28,7 +28,7 @@ void check(Iterable<int> a, List<E> create<E>([int length, E fill])) {
   }
 }
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   int maxlen = 5;
   var a = new List.filled(maxlen, 0);
   int maxdigit = 3;

@@ -16,7 +16,7 @@ library sort_A01_t04;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
 
   void check(actual0, expected) {
     List actual = create();

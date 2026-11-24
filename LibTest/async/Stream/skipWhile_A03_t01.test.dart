@@ -13,7 +13,7 @@ library skipWhile_A03_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s, bool test(T element)) {
+void check<T>(Stream<T> s, bool Function(T element) test) {
   Expect.equals(s.isBroadcast, s.skipWhile(test).isBroadcast);
 }
 

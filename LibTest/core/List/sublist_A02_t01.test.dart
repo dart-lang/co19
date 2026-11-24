@@ -12,7 +12,7 @@ library sublist_A02_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List lst = create();
   lst.addAll([0, 1, 2, 3, 4]);
   List sub = lst.sublist(2);

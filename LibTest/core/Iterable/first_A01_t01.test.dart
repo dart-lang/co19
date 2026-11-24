@@ -13,11 +13,11 @@ library first_A01_t01;
  
 import "../../../Utils/expect.dart";
 
-check(Iterable create([Iterable content]), Iterable source) {
+check(Iterable Function([Iterable content]) create, Iterable source) {
   Expect.equals(source.first, create(source).first);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create, [0]);
   check(create, [1]);
   check(create, [1, 2, 3]);

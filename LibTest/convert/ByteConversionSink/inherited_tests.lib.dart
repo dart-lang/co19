@@ -13,6 +13,8 @@ import "dart:convert";
 import "../ChunkedConversionSink/allTests.lib.dart" as
   chunked_conversion_sink_tests;
 
-test(ChunkedConversionSink create(ChunkedConversionSink<List<int>> outSink)) {
+test(
+    ChunkedConversionSink Function(ChunkedConversionSink<List<int>> outSink)
+        create) {
   chunked_conversion_sink_tests.test(create);
 }

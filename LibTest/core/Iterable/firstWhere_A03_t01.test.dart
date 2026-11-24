@@ -22,7 +22,7 @@ check(Iterable list) {
   );
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create());
   check(create([]));
   check(create(const[]));

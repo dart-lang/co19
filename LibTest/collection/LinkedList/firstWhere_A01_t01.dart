@@ -13,7 +13,7 @@ import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
-check(List a0, test(value), int expected) {
+check(List a0, dynamic Function(dynamic value) test, int expected) {
   LinkedList<MyLinkedListEntry> a = toLinkedList(a0);
   int actual = a.firstWhere((entry) => test(entry.value)).value;
   Expect.equals(expected, actual);

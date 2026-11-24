@@ -20,7 +20,7 @@ library addSlice_A01_t01;
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-test(ChunkedConversionSink create(ByteConversionSink outSink)) {
+test(ChunkedConversionSink Function(ByteConversionSink outSink) create) {
   bool called = false;
   Utf8Codec codec = new Utf8Codec();
   var encoded = codec.encode("лц");

@@ -14,7 +14,7 @@ library difference_A01_t01;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-test(Set create([Iterable content])) {
+test(Set Function([Iterable content]) create) {
   Set set = create([-1, 0, 1, 2, 3, 4, 5, 6]);
   Set other = create([ 4, 5, 6, 7, 8, 9, 10]);
   Set diff = set.difference(other);

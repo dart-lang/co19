@@ -17,7 +17,7 @@ void check(List a, int index, Iterable elements) {
   Expect.throws(() {a.insertAll(index, elements);}, (e) => e is RangeError);
 }
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List a0 = [1, 3, 3, 4, 5, 6];
   List a = create();
   a.insertAll(0, a0);

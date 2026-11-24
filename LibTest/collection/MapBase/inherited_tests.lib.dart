@@ -13,7 +13,7 @@ import "../../core/Map/compKeysTests.lib.dart" as compKeysTests;
 import "../../core/Map/nonCompKeysTests.lib.dart" as nonCompKeysTests;
 import "../../core/Map/compKeysWarnTests.lib.dart" as compKeysWarnTests;
 
-test(Map create([Map content])) {
+test(Map Function([Map content]) create) {
   compKeysTests.test(create);
   nonCompKeysTests.test(create);
   compKeysWarnTests.test(create);

@@ -14,7 +14,7 @@ library single_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   void check(List content) {
     Iterable a = create(content);
     if (a.length == 1) {

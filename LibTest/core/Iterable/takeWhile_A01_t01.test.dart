@@ -12,7 +12,7 @@
 library takeWhile_A01_t01;
 import "../../../Utils/expect.dart"	;
 
-void check(Iterable a0, bool tst(element)) {
+void check(Iterable a0, bool Function(dynamic element) tst) {
   Iterator it0 = a0.iterator;
   Iterable a = a0.takeWhile(tst);
   Iterator it = a.iterator;
@@ -39,7 +39,7 @@ void check(Iterable a0, bool tst(element)) {
   Expect.equals(a0.length, len + skipCount);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable a0 = create([1, 3, 7, 4, 5, 6]);
   check(a0, (element) => element == 1);
   check(a0, (element) => true);

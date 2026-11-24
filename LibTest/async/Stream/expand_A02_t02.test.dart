@@ -13,7 +13,8 @@ library expand_A02_t02;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T, S>(Stream<T> s, Iterable<S> convert(T value), List<S> expected) {
+void check<T, S>(
+    Stream<T> s, Iterable<S> Function(T value) convert, List<S> expected) {
   asyncStart();
   Stream<S> stream = s.asBroadcastStream().expand(convert);
   Future.wait([stream.toList(), stream.toList(), stream.toList()])

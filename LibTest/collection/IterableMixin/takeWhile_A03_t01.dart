@@ -22,7 +22,7 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-void check(List list, bool test0(dynamic element)) {
+void check(List list, bool Function(dynamic element) test0) {
   IterableMixin iterable = new MyIterable(list);
   var el;
 

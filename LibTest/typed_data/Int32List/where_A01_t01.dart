@@ -11,11 +11,10 @@
 /// from [this] that satisfy [test], and all other elements are skipped.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(List<int> list, bool test (int element)) {
+void check(List<int> list, bool Function(int element) test) {
   var l = new Int32List.fromList(list);
   var res = l.where(test);
 

@@ -14,9 +14,9 @@ library removeWhere_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
 
-  void check(List a0, bool test(element)) {
+  void check(List a0, bool Function(dynamic element) test) {
     List a = create();
     a.addAll(a0);
     a.removeWhere(test);

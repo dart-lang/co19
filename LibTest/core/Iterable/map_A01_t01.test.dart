@@ -27,7 +27,7 @@ void checkResult(Iterable a) {
   Expect.equals(a.length, count);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable a = create();
   checkResult(a);
   a = create([22]);

@@ -13,7 +13,7 @@ library where_A01_t08;
  
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable l = create([1, -3, 10, 17]);
 
   List l1 = new List.empty(growable: true);

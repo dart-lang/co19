@@ -16,7 +16,7 @@ void check(List a) {
   Expect.throws(() {a.clear();}, (e) => e is UnsupportedError);
 }
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List<int?> a = create<int?>(0, 0);
   check(a);
 

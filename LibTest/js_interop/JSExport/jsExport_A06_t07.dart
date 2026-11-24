@@ -10,6 +10,8 @@
 /// @author sgrekhov22@gmail.com
 /// @issue 61093
 
+// @dart=3.15
+
 import 'dart:js_interop';
 
 @JSExport()

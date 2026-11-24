@@ -13,7 +13,7 @@ library addAll_A01_t02;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List a = create();
   Expect.isTrue(a.length == 0);
   List b = ["1", "2", "3"];

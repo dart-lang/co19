@@ -8,13 +8,12 @@
 /// is returned.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 Float64x2 f64x2(v) => new Float64x2.splat(v);
 
-check(List<Float64x2> list, bool test(Float64x2 e)) {
+check(List<Float64x2> list, bool Function(Float64x2 e) test) {
   var l = new Float64x2List.fromList(list);
   var res = l.takeWhile(test);
   var it = res.iterator;

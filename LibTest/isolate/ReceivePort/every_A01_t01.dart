@@ -13,7 +13,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable<int?> data, bool test(element), bool expected) {
+check(Iterable<int?> data, bool Function(dynamic element) test, bool expected) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   s.every(test).then((bool actual) {

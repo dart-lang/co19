@@ -28,7 +28,7 @@ check(Iterable a, num init, combine, num expected) {
   Expect.equals(expected, actual);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create([1, 2, -3]), 0, (num value, element) => value + element, 0);
   check(create([1, 2, -3]), 1, (num value, element) => value * element, -6);
   check(create([0, 2, -3]), 1, (num value, element) => value * element, 0);

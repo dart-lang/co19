@@ -21,7 +21,7 @@ f(element) {
   return element;
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable a = create();
   a.map(f);
   a = create([22]);

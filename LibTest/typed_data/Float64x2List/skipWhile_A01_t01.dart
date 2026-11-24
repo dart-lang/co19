@@ -7,13 +7,12 @@
 /// @description Checks that the returned Iterable is correct.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 Float64x2 f64x2(v) => new Float64x2.splat(v);
 
-check(List<Float64x2> list, bool test(Float64x2 e), int n) {
+check(List<Float64x2> list, bool Function(Float64x2 e) test, int n) {
   var l = new Float64x2List.fromList(list);
   var res = l.skipWhile(test);
   for (int i = 0; i < res.length; ++i) {

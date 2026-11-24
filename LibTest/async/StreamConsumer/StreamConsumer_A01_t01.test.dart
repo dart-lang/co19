@@ -12,7 +12,7 @@ library StreamConsumer_A01_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-test(StreamConsumer create()) {
+test(StreamConsumer Function() create) {
   var sc = create();
   Expect.isTrue(sc is StreamConsumer);
   Expect.runtimeIsType<StreamConsumer>(sc);

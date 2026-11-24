@@ -30,7 +30,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable data, bool test(element), int expected) {
+check(Iterable data, bool Function(dynamic element) test, int expected) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   Future f = s.lastWhere(test, orElse: () => expected);

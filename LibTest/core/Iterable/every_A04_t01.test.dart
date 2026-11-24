@@ -14,9 +14,9 @@ library every_A04_t01;
 
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
 
-  check(List a0, bool predicate(e), exc) {
+  check(List a0, bool Function(dynamic e) predicate, exc) {
     Iterable a = create(a0);
     int actualCount = 0;
     Expect.throws(

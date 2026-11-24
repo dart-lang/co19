@@ -16,7 +16,7 @@ library putIfAbsent_A01_t08;
 
 import "../../../Utils/expect.dart";
 
-test(Map create([Map content])) {
+test(Map Function([Map content]) create) {
   dynamic map = create();
 
   Expect.throws(() {map.putIfAbsent("1", 1);});

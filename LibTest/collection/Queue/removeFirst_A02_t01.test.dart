@@ -12,7 +12,7 @@ library removeFirst_A02_t01;
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-test(Queue create([Iterable content])) {
+test(Queue Function([Iterable content]) create) {
   Queue queue = create();
   
   Expect.throws(() { queue.removeFirst(); }, (e) => e is StateError);

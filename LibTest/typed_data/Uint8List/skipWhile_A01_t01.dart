@@ -12,7 +12,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(List<int> list, bool test(int element)) {
+void check(List<int> list, bool Function(int element) test) {
   var l = new Uint8List.fromList(list);
   var it0 = l.iterator;
   var res = l.skipWhile(test);

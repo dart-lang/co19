@@ -24,7 +24,7 @@ void checkEquals(Iterable expected, List actual) {
   }
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable l = create();
   List a = l.toList();
   Expect.equals(0, a.length);

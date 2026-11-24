@@ -18,7 +18,7 @@ class A {
   }
 }
 
-test(Map create([Map content])) {
+test(Map Function([Map content]) create) {
   Map map = create();
   map.putIfAbsent("1", A.f);
 }

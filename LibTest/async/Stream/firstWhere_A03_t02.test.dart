@@ -35,7 +35,7 @@ library firstWhere_A03_t02;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check(Stream<int?> s, bool test(int? element)) {
+void check(Stream<int?> s, bool Function(int? element) test) {
   AsyncExpect.error((e) => e is Error, s.firstWhere(test));
 }
 

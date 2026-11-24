@@ -16,7 +16,7 @@ import "operator_subscript_A01_t04.test.dart" as operator_subscript_A01_t04;
 import "operator_subscripted_assignment_A01_t02.test.dart" as operator_subscripted_assignment_A01_t02;
 import "remove_A01_t02.test.dart" as remove_A01_t02;
 
-test(Map create([Map content])) {
+test(Map Function([Map content]) create) {
   addAll_A02_t01.test(create);
   containsKey_A01_t02.test(create);
   operator_subscript_A01_t02.test(create);

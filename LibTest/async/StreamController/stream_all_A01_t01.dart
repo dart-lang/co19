@@ -11,7 +11,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "../Stream/allTests_A01.lib.dart";
 
-Stream<T> create<T>(Iterable<T> data, {bool isError(T element)?}) {
+Stream<T> create<T>(Iterable<T> data, {bool Function(T element)? isError}) {
   StreamController<T> sc = new StreamController<T>();
   for (T e in data) {
     if (isError != null && isError(e)) {

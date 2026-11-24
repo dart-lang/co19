@@ -14,7 +14,7 @@ library putIfAbsent_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(Map create([Map content])) {
+test(Map Function([Map content]) create) {
   Map map = create();
   int i = 1;
   

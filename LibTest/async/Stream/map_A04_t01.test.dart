@@ -14,7 +14,7 @@ library map_A04_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> stream, dynamic convert(T event)) {
+void check<T>(Stream<T> stream, dynamic Function(T event) convert) {
   Expect.equals(stream.isBroadcast, stream.map(convert).isBroadcast);
 }
 

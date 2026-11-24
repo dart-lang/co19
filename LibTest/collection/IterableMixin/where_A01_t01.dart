@@ -25,7 +25,7 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-void check(IterableMixin iterable, bool test(dynamic element)) {
+void check(IterableMixin iterable, bool Function(dynamic element) test) {
   Iterator it0 = iterable.iterator;
   Iterator it = iterable.where(test).iterator;
 

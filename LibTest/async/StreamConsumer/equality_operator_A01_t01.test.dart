@@ -14,7 +14,7 @@ library equality_operator_A01_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-test(StreamConsumer create()) {
+test(StreamConsumer Function() create) {
   StreamConsumer sc1 = create();
   StreamConsumer sc2 = create();
   StreamConsumer sc3 = sc1;

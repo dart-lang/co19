@@ -12,7 +12,7 @@ library retainAll_A01_t02;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-test(Set create([Set content])) {
+test(Set Function([Set content]) create) {
   Set set = create();
   set.retainAll([null].toSet());
   Expect.equals(0, set.length);

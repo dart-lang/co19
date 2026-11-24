@@ -12,7 +12,7 @@ library operator_subscripted_assignment_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   List from(List content) {
     List res = create(content.length, new Object());
     res.setRange(0, content.length, content);

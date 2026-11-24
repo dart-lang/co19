@@ -28,7 +28,7 @@ check(Iterable a, String separator) {
   Expect.equals(expected, a.join(separator));
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create([]), ",");
   check(create([null]), ",");
   check(create([1, 2, 3, null, 10, 5]), ":");

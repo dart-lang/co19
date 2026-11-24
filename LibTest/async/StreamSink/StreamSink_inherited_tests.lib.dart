@@ -14,7 +14,7 @@ import "dart:async";
 import "../EventSink/all_tests.lib.dart" as allTest_EventSink;
 import "../StreamConsumer/all_tests.lib.dart" as allTest_StreamConsumer;
 
-test(StreamSink create()) {
+test(StreamSink Function() create) {
   allTest_EventSink.test(create);
   allTest_StreamConsumer.test(create);
 }

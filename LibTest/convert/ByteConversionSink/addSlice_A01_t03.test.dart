@@ -16,7 +16,7 @@ library addSlice_A01_t03;
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-test(ChunkedConversionSink create(ByteConversionSink outSink)) {
+test(ChunkedConversionSink Function(ByteConversionSink outSink) create) {
   bool called = false;
   
   var outSink = new ByteConversionSink.withCallback((accumulated) {

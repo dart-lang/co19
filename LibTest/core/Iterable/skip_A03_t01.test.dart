@@ -14,7 +14,7 @@ check(Iterable a, int n) {
   Expect.throws(() {a.skip(n);}, (e) => e is RangeError);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create([1, 2, -3, 4]), -1);
   check(create(const[1, 2, -5, -6, 100]), -1);
   check(create(const[null, 2, -5, -6, 100]), -1000);

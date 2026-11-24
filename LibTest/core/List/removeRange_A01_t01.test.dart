@@ -31,6 +31,6 @@ check(a) {
   Expect.equals(-1, a[0]);
 }
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
   check(create());
 }

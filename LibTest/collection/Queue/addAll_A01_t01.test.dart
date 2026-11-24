@@ -23,7 +23,7 @@ check(List expected, Queue actual) {
   });
 }
  
-test(Queue create([Iterable content])) {
+test(Queue Function([Iterable content]) create) {
   Queue queue = create();
 
   List b = [1, 2, "1", "2", 1, 2, "1", "2"];

@@ -14,10 +14,10 @@ library removeWhere_A01_t01;
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-test(Queue create([Iterable content])) {
+test(Queue Function([Iterable content]) create) {
   List source = [1, 3, 3, 4, 5, 6];
 
-  void check(bool testFunc(element)) {
+  void check(bool Function(dynamic element) testFunc) {
     Queue a = create(source);
     a.removeWhere(testFunc);
     int k = 0;

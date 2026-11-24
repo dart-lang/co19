@@ -38,7 +38,7 @@ bool test3(value) {
   return value == 1254;
 }
 
-check(List list, bool test(dynamic value), List expected) {
+check(List list, bool Function(dynamic value) test, List expected) {
   iterated.clear();
   MyIterable iterable = new MyIterable(list);
   iterable.firstWhere(test);

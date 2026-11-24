@@ -13,7 +13,9 @@ import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
-void check(LinkedList<MyLinkedListEntry<int>> a0, bool test(dynamic element)) {
+void check(
+    LinkedList<MyLinkedListEntry<int>> a0,
+    bool Function(dynamic element) test) {
   bool test2(MyLinkedListEntry<int> entry) => test(entry.value);
   Iterable res = a0.skipWhile(test2);
   Expect.isTrue(res.isEmpty);

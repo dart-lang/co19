@@ -15,7 +15,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-void check(Iterable data, bool test(int element)) {
+void check(Iterable data, bool Function(int element) test) {
   Stream s = IsolateStream.fromIterable(data);
   List collected = [];
   bool _test(element) {

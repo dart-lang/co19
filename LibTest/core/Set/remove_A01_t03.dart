@@ -24,7 +24,7 @@ class A implements Comparable {
   int compareTo(dynamic other) => this.x - other.x as int;
 }
 
-test(Set create([Set content])) {
+test(Set Function([Set content]) create) {
   Set s = create();
   s.addAll([new A(-3), new A(0), new A(7)]);
 

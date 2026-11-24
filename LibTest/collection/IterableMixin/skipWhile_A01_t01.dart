@@ -20,7 +20,7 @@ class MyIterable<int> extends Object with IterableMixin {
   }
 }
 
-void check(List list, bool test(dynamic element)) {
+void check(List list, bool Function(dynamic element) test) {
   IterableMixin iterable = new MyIterable(list);
   Iterator it0 = iterable.iterator;
   Iterator it = iterable.skipWhile(test).iterator;

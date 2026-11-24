@@ -15,7 +15,9 @@ library add_A01_t02;
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-test(ChunkedConversionSink create(ChunkedConversionSink<List<int>> outSink)) {
+test(
+    ChunkedConversionSink Function(ChunkedConversionSink<List<int>> outSink)
+        create) {
   bool called = false;
   Utf8Codec codec = new Utf8Codec();
   var encoded1 = codec.encode("Кириллица");

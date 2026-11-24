@@ -31,7 +31,7 @@ main() {
   Expect.equals(1, callback(1));
 
   ZoneUnaryCallback<R, T> registerFunction<R, T>(
-      Zone self, ZoneDelegate parent, Zone zone, f(T arg)) {
+      Zone self, ZoneDelegate parent, Zone zone, dynamic Function(T arg) f) {
     return (_) => 42 as R;
   }
 

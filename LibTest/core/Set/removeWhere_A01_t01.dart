@@ -13,7 +13,7 @@ library removeWhere_A01_t01;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
-void check(Set source, bool test(element)) {
+void check(Set source, bool Function(dynamic element) test) {
   Set copy = create(source);
   copy.removeWhere(test);
   int j = 0;
@@ -26,7 +26,7 @@ void check(Set source, bool test(element)) {
   Expect.equals(j, copy.length);
 }
 
-test(Set create([Iterable content])) {
+test(Set Function([Iterable content]) create) {
   Set set = create([1, 3, 3, 4, 5, 6]);
   check(set, (element) => true);
   check(set, (element) => false);

@@ -13,7 +13,8 @@ import "dart:async";
 /**
  * Spawns an HttpServer instance
  */
-Future<HttpServer> spawnHttpServer(void requestHandler(HttpRequest request)) async {
+Future<HttpServer> spawnHttpServer(
+    void Function(HttpRequest request) requestHandler) async {
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen(requestHandler);
   return server;
@@ -22,7 +23,8 @@ Future<HttpServer> spawnHttpServer(void requestHandler(HttpRequest request)) asy
 /**
  * Spawns an HttpServer instance that is intended to handle web sockets.
  */
-Future<HttpServer> spawnWebSocketServer(void wsHandler(WebSocket webSocket)) {
+Future<HttpServer> spawnWebSocketServer(
+    void Function(WebSocket webSocket) wsHandler) {
   return spawnHttpServer((HttpRequest request) {
     WebSocketTransformer.upgrade(request).then(wsHandler);
   });

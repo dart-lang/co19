@@ -34,8 +34,8 @@ class MyStreamSubscription<T> implements StreamSubscription<T> {
 }
 
 class MyStream<T> extends Stream<T> {
-  StreamSubscription<T> listen(void onData(T event)?,
-      {Function? onError, void onDone()?, bool? cancelOnError}) {
+  StreamSubscription<T> listen(void Function(T event)? onData,
+      {Function? onError, void Function()? onDone, bool? cancelOnError}) {
     return new MyStreamSubscription();
   }
 }

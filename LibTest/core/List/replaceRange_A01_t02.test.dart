@@ -11,7 +11,7 @@ library replaceRange_A01_t02;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
 
   void check(List a0, int start, int end, Iterable iterable) {
     List a = create();

@@ -29,7 +29,7 @@ check(Iterable list) {
   }, (e) => e is TestException);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create());
   check(create([]));
   check(create(const []));

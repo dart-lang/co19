@@ -13,7 +13,7 @@
 library takeWhile_A04_t01;
 import "../../../Utils/expect.dart"	;
 
-void check(Iterable a, bool tst(element)) {
+void check(Iterable a, bool Function(dynamic element) tst) {
   int last = 0;
   for (var element in a.takeWhile(tst)) {
     Expect.equals(a.elementAt(last), element);
@@ -25,7 +25,7 @@ void check(Iterable a, bool tst(element)) {
   }
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable a0 = create([1, 3, 7, 4, 5, 6]);
   check(a0, (element) => element == 1);
   check(a0, (element) => true);

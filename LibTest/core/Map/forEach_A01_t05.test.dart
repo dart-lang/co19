@@ -10,7 +10,7 @@
 
 library forEach_A01_t05;
 
-test(Map create([Map content])) {
+test(Map Function([Map content]) create) {
   Map map = create();
   
   map["1"] = 3;

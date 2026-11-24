@@ -33,7 +33,7 @@ bool test2(value) {
   return false;
 }
 
-check(List list, bool test(dynamic value)) {
+check(List list, bool Function(dynamic value) test) {
   iterated.clear();
   MyIterable iterable = new MyIterable(list);
   try {

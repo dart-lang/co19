@@ -13,7 +13,7 @@ library where_A01_t06;
  
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   List list = new List.empty(growable: true);
   for(int i = 0; i < 100; i++) {
     list.add(i);

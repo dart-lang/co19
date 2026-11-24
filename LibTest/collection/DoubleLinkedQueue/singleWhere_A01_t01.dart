@@ -13,7 +13,7 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-check(List a, bool test(value), int expected) {
+check(List a, bool Function(dynamic value) test, int expected) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a);
   int actual = queue.singleWhere(test) as int;
   Expect.equals(expected, actual);

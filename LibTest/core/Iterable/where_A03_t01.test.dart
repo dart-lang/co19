@@ -21,7 +21,7 @@ bool f(value) {
   return false;
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   create([]).where(f);
   create([1]).where(f);
   create([1, 3, 7, 4, 5, 6]).where(f);

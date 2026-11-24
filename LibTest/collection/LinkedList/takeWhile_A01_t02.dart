@@ -12,7 +12,8 @@ import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
-void check(LinkedList<MyLinkedListEntry<int>> a, bool test(int element)) {
+void check(
+    LinkedList<MyLinkedListEntry<int>> a, bool Function(int element) test) {
   bool test2(MyLinkedListEntry<int> entry) => test(entry.value);
 
   int last = 0;

@@ -13,7 +13,7 @@ import "dart:async";
 import "allTests_A02.lib.dart" as all;
 
 Stream<T> create<T>(Iterable<T> data,
-    {bool isError(T x)?, required T defaultValue}) {
+    {bool Function(T x)? isError, required T defaultValue}) {
   int count = data.length;
   Iterator<T> iterator = data.iterator;
   return new Stream<T>.periodic(new Duration(milliseconds: 10), (_) {

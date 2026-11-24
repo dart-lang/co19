@@ -16,7 +16,7 @@ check(Iterable a, int n) {
   Expect.equals(0, it.length);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create([]), 1);
   check(create([1, 2, -3, 4]), 5);
   check(create([11, 2, -3, 4]), 200);

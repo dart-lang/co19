@@ -14,7 +14,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-void check(Iterable data, bool test(element), expected) {
+void check(Iterable data, bool Function(dynamic element) test, expected) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   Future f = s.singleWhere(test);

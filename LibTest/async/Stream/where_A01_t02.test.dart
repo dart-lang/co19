@@ -15,7 +15,7 @@ library where_A01_t02;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s, bool test(T event), List<T> expectedData,
+void check<T>(Stream<T> s, bool Function(T event) test, List<T> expectedData,
     List expectedErrors) {
   AsyncExpect.events(expectedData, expectedErrors, s.where(test));
 }

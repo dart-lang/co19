@@ -14,7 +14,7 @@ library every_A02_t02;
 
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable a = create();
   int actualCount = 0;
   a.every((e) {

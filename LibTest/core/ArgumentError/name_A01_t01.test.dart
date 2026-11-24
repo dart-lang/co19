@@ -9,10 +9,11 @@
 /// available
 /// @author sgrekhov@unipro.ru
 
-
 import "../../../Utils/expect.dart";
 
-test(ArgumentError create([value, String? name, message])) {
+test(
+    ArgumentError Function([dynamic value, String? name, dynamic message])
+        create) {
   var name = "some name";
   ArgumentError err = create(null, name);
   Expect.equals(name, err.name);

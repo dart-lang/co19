@@ -20,7 +20,7 @@
 library operator_equality_A02_t02;
 import "../../../Utils/expect.dart";
 
-test(Object create()) {
+test(Object Function() create) {
   Object o = create();
   Expect.isTrue(o == o);
 }

@@ -41,7 +41,7 @@ void checkResult(Iterable a, int expected) {
   }
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   List l = new List.empty(growable: true);
   for (int k = 0; k < 200; k++) {
     l.add(k);

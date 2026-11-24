@@ -16,7 +16,7 @@ library retainWhere_A02_t02;
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-test(Queue create([Iterable content])) {
+test(Queue Function([Iterable content]) create) {
   Queue queue = create([-3, -2, -1, 0, 1, 2, 3, -1]);
 
   bool throwFunction(element) {

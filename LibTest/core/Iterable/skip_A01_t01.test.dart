@@ -20,7 +20,7 @@ check(Iterable a, int n) {
   }      
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create([1, 2, -3, 4]), 4);
   check(create([1, 2, -3, 4]), 0);
   check(create([11, 2, -3, 4]), 2);

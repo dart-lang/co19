@@ -14,6 +14,6 @@ library every_A02_t01;
 
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Expect.isTrue(create().every((v) => false));
 }

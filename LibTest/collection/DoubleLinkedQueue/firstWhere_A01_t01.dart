@@ -10,7 +10,7 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-check(List list, bool test(value), int expected) {
+check(List list, bool Function(dynamic value) test, int expected) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
   int actual = queue.firstWhere(test);
   Expect.equals(expected, actual);

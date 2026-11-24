@@ -10,7 +10,7 @@
 import "dart:async";
 import "../Stream/allTests_A01.lib.dart";
 
-Stream<T> create<T>(Iterable<T> data, {bool isError(T element)?}) {
+Stream<T> create<T>(Iterable<T> data, {bool Function(T element)? isError}) {
   StreamController<T>? sc;
   sc = new StreamController<T>(
       sync: true,

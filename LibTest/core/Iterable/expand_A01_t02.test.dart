@@ -29,7 +29,7 @@ void check(Iterable a) {
   Expect.equals(count, expanded_length);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create());
   check(create([1]));
   check(create([1, 2]));

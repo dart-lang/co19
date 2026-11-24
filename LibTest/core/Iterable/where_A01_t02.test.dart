@@ -13,7 +13,7 @@ library where_A01_t02;
  
 import "../../../Utils/expect.dart";
 
-check(Iterable a, bool f(e)) {
+check(Iterable a, bool Function(dynamic e) f) {
   List copy = new List.empty(growable: true);
   bool tst(e) {
     copy.add(e);
@@ -30,7 +30,7 @@ check(Iterable a, bool f(e)) {
   }
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   check(create([1, 2, 3, 4, 5, 4, 3, 2, 1]), (e) => e > 1);
   check(create([1, 2, 3, 4, 5, 4, 3, 2, 1]), (e) => e > 2);
   check(create([1, 2, 3, 4, 5, 4, 3, 2, 1]), (e) => e < 0);

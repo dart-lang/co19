@@ -14,7 +14,7 @@ import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
-check(List a0, test(value), int expected) {
+check(List a0, dynamic Function(dynamic value) test, int expected) {
   LinkedList<MyLinkedListEntry<int>> a = toLinkedList(a0);
   bool test2(MyLinkedListEntry<int> value) =>
     test(value.value);

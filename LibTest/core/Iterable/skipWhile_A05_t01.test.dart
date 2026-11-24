@@ -12,12 +12,12 @@
 library skipWhile_A05_t01;
 import "../../../Utils/expect.dart"	;
 
-void check(Iterable a0, bool test0(element)) {
+void check(Iterable a0, bool Function(dynamic element) test0) {
   var a = a0.skipWhile(test0);
   Expect.isTrue(a.isEmpty);
 }
 
-test(Iterable create([Iterable content])) {
+test(Iterable Function([Iterable content]) create) {
   Iterable a0 = create([1, 3, 7, 4, 5, 6]);
   check(a0, (element) => true);
 }

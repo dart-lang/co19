@@ -12,7 +12,7 @@ library addAll_A02_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List<E> create<E>([int length, E fill])) {
+test(List<E> Function<E>([int length, E fill]) create) {
 
   void check(Iterable content, collection) {
     List list = create(collection.length, 0);

@@ -21,7 +21,9 @@ class MyIterable extends Object with IterableMixin {
   }
 }
 
-check(List list, num combine(value, element), num expected) {
+check(
+    List list, num Function(dynamic value, dynamic element) combine,
+    num expected) {
   IterableMixin iterable = new MyIterable(list);
   num actual = iterable.reduce(combine);
   Expect.equals(expected, actual);
