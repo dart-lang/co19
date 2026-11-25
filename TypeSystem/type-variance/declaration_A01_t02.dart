@@ -13,32 +13,17 @@
 
 // SharedOptions=--enable-experiment=variance
 
-typedef F1<in T>();
+typedef F1<in T> = void Function(T);
 //         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef F2<out T>();
+typedef F2<out T> = T Function();
 //         ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef F3<inout T>();
-//         ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-typedef F4<in T> = void Function(T);
-//         ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-typedef F5<out T> = T Function();
-//         ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-typedef F6<inout T> = T Function(T);
+typedef F3<inout T> = T Function(T);
 //         ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -47,7 +32,4 @@ main() {
   print(F1);
   print(F2);
   print(F3);
-  print(F4);
-  print(F5);
-  print(F6);
 }
